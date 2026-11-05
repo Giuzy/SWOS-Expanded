@@ -113,7 +113,7 @@ Per evitare sovrapposizioni: 0–39 rosso, 40–59 giallo, 60–100 verde. Stess
 
 - **TITLE:** logo originale + Expanded, menu compatto, Hall of Fame, sfondo pixel art approvato.
 - **NEW CAREER:** campi nome/cognome/nazionalità/età/fama/valuta, font SWOS, focus e input.
-- **CALENDAR / UNEMPLOYED:** data, righe partite/copp e casa/trasferta, frecce interne, calendario condiviso, FORWARD TIME e WAIT FOR A CLUB OFFER.
+- **CALENDAR / UNEMPLOYED:** data, righe partite/coppe e casa/trasferta, frecce interne, calendario condiviso, FORWARD TIME e WAIT FOR A CLUB OFFER.
 - **BUSINESS:** layout approvato con Board/Fans, stadio, strutture, FINANCES, WEEK/YEAR, popup STAFF, joypad; non ridisegnare.
 - **SQUAD:** layout approvato, paese in piccolo box leggibile, TEAM FORM/MORALE, popup statistiche e controlli.
 - **CLUB OFFER:** contratto sul tavolo, dati dinamici, stipendio annuo e anteprime.
@@ -203,7 +203,7 @@ L'ordine deve riflettere le richieste più recenti, non le priorità obsolete de
 
 Nazionali allenabili; giovani generati; evoluzione del blasone; mercato AI avanzato; contratti con clausole; storico mondiale; database espandibile; strumenti di editing e modding; salvataggi versionati; simulazione differita delle leghe lontane.
 
-Queste sono idee da valutare, non funzioni automaticamente approvate. La voce «Regole delle competizioni configurabili» è stata **rimossa dall'elenco delle idee su richiesta dell'utente**.
+Queste sono idee da valutare, non funzioni automaticamente approvate.
 
 ## 15. Questioni aperte
 

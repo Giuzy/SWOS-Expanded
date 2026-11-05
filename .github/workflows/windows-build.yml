@@ -1,11 +1,6 @@
 name: Windows portable build
 
 on:
-  push:
-    branches: [main, 'release/0.10.40']
-    paths-ignore:
-      - 'SWOS.exe'
-      - 'SDL2.dll'
   workflow_dispatch:
 
 permissions:

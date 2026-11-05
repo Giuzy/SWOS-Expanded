@@ -954,10 +954,12 @@ void InputSDL_HandleEvent(const SDL_Event *e)
     case SDL_CONTROLLERBUTTONDOWN: {
         if (Expanded_UI_IsSquadScreen() && e->cbutton.button==SDL_CONTROLLER_BUTTON_X) {
             Expanded_SquadPopupToggle();
+            DrawMenu();
             break;
         }
         if (Expanded_UI_IsSquadScreen() && e->cbutton.button==SDL_CONTROLLER_BUTTON_B && Expanded_SquadPopupOpen()) {
             Expanded_SquadPopupClose();
+            DrawMenu();
             break;
         }
         if (s_exit_confirm_open) {

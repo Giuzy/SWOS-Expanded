@@ -375,6 +375,14 @@ static const char *match_kv(const char *arg, const char *key)
 
 int main(int argc, char **argv)
 {
+#ifdef _WIN32
+    /* The known-working local launcher disables the runtime JSON menu override.
+     * Apply that setting inside the Windows executable so launching the EXE
+     * directly produces the same compiled-in menu layouts. In particular,
+     * the title and career creation screens must not be replaced by JSON.
+     * Keep other data loaders untouched. */
+    _putenv("SWOS_MENU_JSON=0");
+#endif
     /* Line-buffer stdout. Every self-test and harness in here reports progress
      * as it goes, and stdout to a FILE or a PIPE is block buffered -- so a run
      * that is killed, hangs, or is watched from another terminal shows nothing,

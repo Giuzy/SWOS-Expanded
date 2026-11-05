@@ -148,6 +148,8 @@ GitHub è l'archivio di riferimento per gli asset del progetto.
 - Non sostituire asset approvati senza richiesta.
 - Non integrare automaticamente nel gioco un asset appena archiviato.
 - Utilizzare nomi chiari e mantenere le varianti quando necessario.
+- Per ogni schermata con asset approvati, archiviare **due file distinti**: uno sfondo illustrato senza elementi interattivi e una UI approvata separata senza sfondo. Non fondere sfondo e UI, così gli elementi possono essere modificati indipendentemente.
+- Per TRANSFER 1 conservare i nomi esatti richiesti dall'utente: `transfter_bg_approvef.png` per lo sfondo e `ui_approved.png` per l'interfaccia. Non correggere automaticamente l'ortografia dei nomi esplicitamente approvati.
 - Verificare provenienza e licenze degli asset esterni.
 - Caricare nuovi asset quando l'utente lo richiede, tramite i metodi disponibili.
 
@@ -164,6 +166,8 @@ Mantenere separati:
 Non cancellare le vecchie idee dal registro: indicare quando sono state superate e da quale decisione.
 
 ## 12. Aggiornamento delle regole
+
+Quando l'utente scrive **(regola)**, interpretare il testo associato come una nuova regola permanente esplicita: aggiornare sempre `AGENTS.md` e creare un commit dedicato sul ramo di lavoro, segnalando con trasparenza eventuali problemi tecnici che impediscano il commit.
 
 Quando emerge una nuova regola permanente:
 

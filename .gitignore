@@ -1,5 +1,7 @@
-# File generati dalla compilazione / esecuzione
-SWOS.exe
+# Output locale della compilazione e dell'esecuzione
+/SWOS.exe
+/sorgenti/bin/SWOS.exe
+/sorgenti/build/
 *.o
 *.obj
 *.log
@@ -12,6 +14,6 @@ SWOS.exe
 .idea/
 .DS_Store
 Thumbs.db
-# Pacchetti di release, non vanno versionati
+# Pacchetti di release
 *.zip
 *.7z

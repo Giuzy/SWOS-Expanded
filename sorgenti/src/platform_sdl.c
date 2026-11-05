@@ -632,7 +632,7 @@ static void draw_approved_match_stats(void) {
     left[1]=sum?100u*(unsigned)t->ballPossession/sum:0;
     right[1]=sum?100-left[1]:0;
     for(int i=0;i<8;i++) {
-        int yy=y+56+i*10; /* adjacent 10px rows: no empty separator bands */
+        int yy=y+51+i*10; /* raise central statistics block by 5px */
         match_ui_text(x+120,yy,labels[i],1,19);
         match_ui_number(x+31,yy,left[i],1);
         match_ui_number(x+209,yy,right[i],1);
@@ -642,12 +642,12 @@ static void draw_approved_match_stats(void) {
         }
     }
     /* Persistent team values already used by VIEW SQUAD; never alter them in renderer. */
-    match_ui_text(x+120,y+141,"FORM",1,8);
-    match_ui_text(x+120,y+155,"MORALE",1,8);
-    match_ui_number(x+44,y+141,(int)_expandedCurrentForm,1);
-    match_ui_number(x+44,y+155,(int)_expandedTeamMorale,1);
-    match_mood_face(x+69,y+145,_expandedCurrentForm);
-    match_mood_face(x+69,y+159,_expandedTeamMorale);
+    match_ui_text(x+120,y+136,"FORM",1,8);
+    match_ui_text(x+120,y+150,"MORALE",1,8);
+    match_ui_number(x+44,y+136,(int)_expandedCurrentForm,1);
+    match_ui_number(x+44,y+150,(int)_expandedTeamMorale,1);
+    match_mood_face(x+69,y+140,_expandedCurrentForm);
+    match_mood_face(x+69,y+154,_expandedTeamMorale);
 }
 static void draw_exit_confirmation(void) {
     if(!InputSDL_ExitConfirmOpen()) return;

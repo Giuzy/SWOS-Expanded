@@ -3,6 +3,9 @@ name: Windows portable build
 on:
   push:
     branches: [main, 'release/0.10.40']
+    paths-ignore:
+      - 'SWOS.exe'
+      - 'SDL2.dll'
   workflow_dispatch:
 
 permissions:
@@ -50,6 +53,21 @@ jobs:
           name: SWOS-Expanded-Windows
           path: dist/SWOS-Expanded/
           if-no-files-found: error
+      - name: Commit executable to release branch for git pull
+        if: github.ref == 'refs/heads/release/0.10.40'
+        shell: pwsh
+        run: |
+          Copy-Item sorgenti/bin/SWOS.exe SWOS.exe -Force
+          Copy-Item C:/msys64/mingw64/bin/SDL2.dll SDL2.dll -Force
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f SWOS.exe SDL2.dll
+          if (git diff --cached --quiet) {
+            Write-Host "Executable unchanged"
+          } else {
+            git commit -m "Build SWOS.exe for git pull [skip ci]"
+            git push origin HEAD:release/0.10.40
+          }
       - name: Prepare release ZIPs
         shell: pwsh
         run: |
@@ -63,4 +81,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create v0.10.40 dist/SWOS-Expanded-0.10.40-FULL.zip dist/SWOS-Expanded-0.10.40-UPDATE.zip --target "${{ github.sha }}" --title "SWOS Expanded 0.10.40" --notes "Windows build from release/0.10.40. FULL contains the game and resources; UPDATE contains SWOS.exe only and requires an existing game folder." --prerelease
+          if (gh release view v0.10.40 2>$null) {
+            gh release upload v0.10.40 dist/SWOS-Expanded-0.10.40-FULL.zip dist/SWOS-Expanded-0.10.40-UPDATE.zip --clobber
+          } else {
+            gh release create v0.10.40 dist/SWOS-Expanded-0.10.40-FULL.zip dist/SWOS-Expanded-0.10.40-UPDATE.zip --target "${{ github.sha }}" --title "SWOS Expanded 0.10.40" --notes "FULL includes game resources; UPDATE contains SWOS.exe only." --prerelease
+          }

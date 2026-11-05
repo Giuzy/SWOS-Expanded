@@ -1,0 +1,239 @@
+# SWOS EXPANDED — IMPROVEMENTS
+
+**Development history, implemented changes and technical progress**
+
+**Project:** SWOS Expanded  
+**Original game:** Sensible World of Soccer (SWOS)  
+**Technical foundation:** OpenSWOS — C / SDL2  
+**Target platform:** Windows x64  
+**Document updated:** 6 November 2026  
+**Latest known development branch:** `release/0.10.40`
+
+---
+
+## 1. Purpose of this document
+
+This document records the development history of SWOS Expanded, from the first experiments to the latest documented builds. It explains what was added to original SWOS, which systems were changed, what changed in each build, which bugs were addressed and which experiments were replaced or removed.
+
+**This is a development history, not a list of future features.** Future ideas and incomplete systems belong in `PROJECT_STATE.md`; agent instructions belong in `AGENTS.md`.
+
+**Terminology:** **Documented** means described in a build package or historical record; **User-tested** means tested by the user on Windows; **Superseded** means replaced in a later build; **Unverified** means the current implementation or behavior has not been conclusively checked. Documented does not mean fully tested.
+
+## 2. Main improvements over original SWOS
+
+### 2.1 Career management
+
+Historical Expanded builds introduced or extended:
+- Managerial career beginning without a club.
+- Manager creation, age, nationality, fame and currency.
+- Annual salary offers and negotiations.
+- Job offers while unemployed, with squad and competition previews.
+- Separate Board and Fans satisfaction, dismissal and return to unemployment.
+- Management Record and Hall of Fame integration.
+- Removal of the fixed 20-season career limit in the Expanded design.
+
+These systems have appeared in historical builds. Long careers, dismissal thresholds and retirement still require verification against current code.
+
+### 2.2 Club management and finances
+
+- Dedicated Club Business screen and five stadium levels.
+- Seven upgradeable facility categories.
+- Sponsor and television revenue, upgrade costs, supporter counts.
+- WAGES, STAFF, TRAVEL and later ADMINISTRATION and contractual manager salary.
+- Weekly and seasonal financial views, monthly and annual expense projections.
+- Board/Fans indicators and facility hover panels accessible via mouse and joypad.
+
+The approved no-debt policy is a design decision; full current implementation is unverified.
+
+### 2.3 Squad and team performance
+
+- Player strength displayed as up to five stars.
+- Detailed statistics popup, mouse/controller hover, improved selection and swapping.
+- TEAM FORM and TEAM MORALE, dynamic expressions and status colors.
+- Temporary match-performance modifier based on Form/Morale.
+- Indicative bonus/malus values in player information.
+
+The experimental Expanded individual condition from 0.10.20 was superseded by team-based Form and Morale.
+
+### 2.4 Interface and controls
+
+- Pixel-art career and management screens, original SWOS font.
+- Joypad navigation, fullscreen widescreen Expanded menus.
+- Removal of original framebuffer borders and graphical residues.
+- Dynamic text separated from illustrated backgrounds.
+- Match-statistics and exit-confirmation overlays.
+- Dedicated loading screen with real bootstrap progress.
+
+Original SWOS match gameplay remains the project's foundation.
+
+## 3. Documented build history
+
+The table includes every version identifiable in recovered project sources. Missing information is marked rather than invented.
+
+| Version | Main documented changes |
+|---|---|
+| Initial experiments | Investigation of Amiga SWOS and modern PC adaptation; later OpenSWOS adopted as foundation. |
+| Early OpenSWOS builds | Windows/SDL2 integration, compilation, startup and runtime troubleshooting. |
+| 0.1–0.7 | Initial startup and integration experiments; insufficient reliable per-version detail. |
+| 0.8 | Early career/unemployment and Club Business features, according to recovered summaries. |
+| 0.9 | Manager creation, nationality, unemployment and offer-flow improvements, according to summaries. |
+| 0.10–0.10.1 | Career and offer stability work; detailed changelog incomplete. |
+| 0.10.2 | Menu/stability and nationality-selection corrections. |
+| **0.10.3** | Reused calendar for unemployed manager; Forward Time, Wait for a Club Offer, Back, date and Business fixes. |
+| **0.10.4** | Pixel-art Club Business, five stadium appearances and seven selectable facilities. |
+| **0.10.5** | Four-menu pixel-art redesign; details in historical package notes. |
+| **0.10.6** | Title, New Career and Calendar redesign retaining original callbacks. |
+| **0.10.7** | Compact menus, original SWOS font, alignment, career fields and partial redraw. |
+| **0.10.8** | Name/surname input fixes, conditional title buttons, calendar and unemployment UI. |
+| **0.10.9** | Dynamic Board/Fans percentages and faces, supporter count, week number, calendar clipping. |
+| **0.10.10** | Calendar row rendering without overlaps, abbreviated divisions and scroll arrows. |
+| **0.10.11** | Alignment refinements; Business heading COSTS, action still UPGRADE. |
+| **0.10.12** | Prevented Enter from reopening name/surname editor; dynamic calendar height and name truncation. |
+| **0.10.13** | Up to 14 calendar matches, improved scroll controls and panel sizing. |
+| **0.10.14** | Redesigned Club Offer, salary negotiation, View Squad and View Competitions. |
+| **0.10.15** | Approved offer illustration, annual salary presentation and button hitboxes. |
+| **0.10.16** | Welcome/Sacked, Board/Fans satisfaction, dismissal and persistence. |
+| **0.10.17** | Management Record, country/region/salary, temporary forced-dismissal test. |
+| **0.10.18** | View Squad redesign, player stars, statistics popup, controller hover, offer/sacked corrections. |
+| **0.10.19** | Squad swapping and goals navigation, facilities, sponsor/TV and management effects. |
+| **0.10.20** | Experimental individual Expanded condition and fitness/training recovery; later superseded. |
+| **0.10.21** | WAGES/STAFF/TRAVEL accounting, week numbering, projections and two-column squad stats. |
+| **0.10.22** | SEAS → YEAR, Business joypad navigation, STAFF hover and Squad access. |
+| **0.10.23** | Smaller WEEK/YEAR button, STAFF popup, TRAVEL label, calendar arrows and fullscreen stretch. |
+| **0.10.24** | Original SWOS font on WEEK/YEAR; removed map/shield residual borders using 320×256 menu viewport. |
+| **0.10.25** | Stadium loading screen and real progress phases; Team Form/Morale replacing individual condition; temporary performance modifiers. |
+| **0.10.26** | Business/Squad corrections incorporated into subsequent build; independent details incomplete. |
+| **0.10.27** | Match-stat label changes, joypad adjustments, ADMINISTRATION and manager salary, Squad layout and facial colors. |
+| **0.10.28** | STAFF popup columns, Board/Fans/Form/Morale faces, Squad alignment and stadium background. |
+| **0.10.29** | No reliable version-specific changelog recovered. |
+| **0.10.30** | Loading graphic, STAFF popup and Squad alignment; indicative Form/Morale bonus/malus. |
+| **0.10.31** | Separate approved Squad/Loading image and UI layers; experimental START pause dialog. |
+| **0.10.32** | Separate loading background/logo/caption; Business/Squad refinements; START unresolved. |
+| **0.10.32b** | START restored to original pause action; experimental dialog removed. |
+| **0.10.33** | START exit-confirmation popup, BACK/EXIT, STAFF and Squad tooltip refinements. |
+| **0.10.34** | START/ESC and joypad fixes, Form/Morale modifier consistency. |
+| **0.10.35** | Fixed off-screen exit-popup coordinates; SELECT match statistics. |
+| **0.10.36** | Approved MATCH STATS and EXIT MATCH pixel-art overlays, live values over frozen pitch. |
+| **0.10.37** | Duplicate-stat removal, border refinements, temporary exit selection arrow. |
+| **0.10.38** | MATCH STATS cleanup, yellow EXIT MATCH selection border instead of arrow. |
+| **0.10.39** | No independently verified version-specific changelog recovered. |
+| **0.10.40** | Known development branch; exact source changes from preceding builds not checked for this document. |
+| GitHub repository setup | Version-controlled source/asset archive and more durable project history. |
+| Windows build workflow | MSYS2 compilation and BAT launcher/packaging scripts. |
+| Later `main` commits | Local JSON menu settings, Windows menu layouts and executable packaging documented; do not assume branch parity. |
+
+## 4. Important technical milestones
+
+### Original SWOS integration
+
+Development moved from early experiments to changes integrated with OpenSWOS. The objective remains to extend career management while retaining the original match engine.
+
+### Management persistence
+
+Historical builds introduced JSON persistence for salary, Board/Fans, sponsorship and Team Form/Morale. Current save compatibility and restoration of every Expanded field remain unverified.
+
+### Financial accounting
+
+Versions 0.10.21–0.10.28 refined player wages, staff/facility expenses, actual away travel, administration, manager salary and WEEK/YEAR presentation. The key requirement was to avoid double charging and distinguish forecasts from realized costs.
+
+### Team Form and Morale
+
+The 0.10.25 system replaced Expanded individual condition with team values. The documented performance modifier uses average M=(Form+Morale)/2: neutral at 65, maximum −20% at low values and maximum +20% at 100. Later faces use five expressions and three color bands: **0–39 red, 40–59 yellow, 60–100 green**.
+
+### Widescreen/4K rendering
+
+Versions 0.10.23–0.10.24 rendered the 320×256 Expanded menu region across widescreen displays instead of exposing residual pixels from the original 336×272 framebuffer. Match rendering remains separate.
+
+### Pause, statistics and exit
+
+Versions 0.10.27–0.10.38 iterated START/SELECT/ESC and the MATCH STATS/EXIT MATCH overlays. These are successive experiments, not simultaneously active alternatives. Latest documented EXIT MATCH selection uses a yellow border.
+
+## 5. Approved visual implementations
+
+| Screen | Historical integration | Main change |
+|---|---|---|
+| Title | 0.10.5–0.10.9 | Original logo, Expanded identity, compact menu, Hall of Fame |
+| New Career | 0.10.6–0.10.12 | Pixel-art background, editable fields, SWOS font |
+| Calendar | 0.10.3–0.10.13 | Match list, scrolling, date and unemployed variant |
+| Club Business | 0.10.4 onward | Stadium, facilities, finances, satisfaction indicators |
+| Club Offer | 0.10.14–0.10.15 | Contract illustration, salary, squad/competition previews |
+| Welcome / Sacked | 0.10.16 | Dynamic management information and transitions |
+| Management Record | 0.10.17 | Career history and annual salary |
+| View Squad | 0.10.18 onward | Stars, statistics, Form/Morale and controller focus |
+| Loading Screen | 0.10.25 onward | Approved stadium artwork, separate overlays, real progress |
+| Match Stats | 0.10.36–0.10.38 | Pixel-art overlay with dynamic values |
+| Exit Match | 0.10.33–0.10.38 | Confirmation flow and graphical panel |
+
+**TRANSFER 1** has an approved visual reference; the available evidence does not establish a completed new worldwide transfer system.
+
+## 6. Superseded experiments
+
+| Earlier implementation | Replacement or later decision |
+|---|---|
+| Standalone desktop management UI experiments | Direct OpenSWOS integration |
+| Expanded individual player condition (0–100) | Team Form and Team Morale |
+| Forced dismissal test | Normal dismissal rules; final thresholds to verify |
+| SEAS label | YEAR |
+| AWAY financial label | TRAVEL |
+| BUS STAFF terminology | Revised travel/staff terminology |
+| OTHER general expenses | ADMINISTRATION |
+| START mapped directly to ESC | Dedicated exit confirmation |
+| Experimental START pause dialogs | Revised popup and controller handling |
+| EXIT MATCH selection arrow | Yellow selection border |
+| Loading holds of 5 or 20 seconds for screenshots | Temporary test behavior, not permanent requirement |
+
+Exact removal of temporary behavior must be checked in current code before being called complete.
+
+## 7. Known limitations and unverified features
+
+| Feature | Evidence |
+|---|---|
+| Persistent worldwide league simulation while unemployed | Historically documented as incomplete |
+| Joining a club in an already simulated season | Historically documented as incomplete |
+| Complete worldwide league database | Long-term objective |
+| Worldwide transfers | Design and partial interface work; full implementation unverified |
+| Scouting with hidden `???` statistics | Rules still undefined |
+| POTENTIAL-based player development | Design decision; implementation unverified |
+| Fully redesigned Training | Not yet defined in detail |
+| No-debt AI club finances | Approved rule; implementation unverified |
+| Final dismissal thresholds | Multiple historical revisions |
+| Retirement at 85 | Approved design; full flow unverified |
+| Full latest Windows/joypad regression test | Not established by historical checks |
+
+## 8. Testing and reliability history
+
+User feedback across the project confirms historical successful menu startup, entry into career and partial match gameplay. Reported issues addressed in subsequent development packages include missing SDL2 runtime dependencies, crash on accepting offers, Back lock in unemployment, nationality flicker, calendar clipping, Squad focus/Exit, fullscreen borders and an exit popup rendered outside the screen.
+
+Historical packages also describe GCC syntax checks, AddressSanitizer/UndefinedBehaviorSanitizer and asset/package checks. Such checks do not replace interactive Windows/joypad testing.
+
+Future release verification should cover startup, friendly match, career creation, unemployment, offers, club acceptance, calendar, Business, Squad, loading, match stats, match exit, save and load.
+
+## 9. Repository history and continuity
+
+GitHub is the source/asset archive for code, data, approved art, Windows build scripts, commits and project documentation. `main` and `release/0.10.40` have different histories; changes on one branch should not be automatically attributed to the other.
+
+- `AGENTS.md`: permanent working rules.
+- `PROJECT_STATE.md`: approved decisions, current status, plans and open questions.
+- `PROJECT_HISTORY.md`: historical build/package notes.
+- `IMPROVEMENTS.md`: development history and changes actually introduced.
+
+## 10. Updating this document
+
+For every new build, record:
+
+- **Version and date**
+- **Git commit**
+- **Features added**
+- **Existing behavior modified**
+- **Bugs fixed**
+- **Experimental behavior removed**
+- **Tests performed**
+- **Known limitations**
+
+Do not describe mockups as implemented or syntax checks as successful Windows gameplay tests. Preserve superseded decisions and identify their replacement versions.
+
+## 11. Sources and reconstruction notes
+
+Compiled from recoverable SWOS Expanded project conversations, historical package README and test reports in `PROJECT_HISTORY.md`, `PROJECT_STATE.md` and predecessor notes, available GitHub commit history, and user-reported tests.
+
+Early builds, some intermediate versions and branch-specific changes cannot be reconstructed conclusively. This is a detailed historical reconstruction, not a claim of complete line-by-line verification against every historical source archive.

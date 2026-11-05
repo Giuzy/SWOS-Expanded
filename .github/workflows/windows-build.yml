@@ -1,0 +1,49 @@
+name: Windows portable build
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          update: true
+          install: >-
+            mingw-w64-x86_64-gcc
+            mingw-w64-x86_64-SDL2
+            mingw-w64-x86_64-pkgconf
+            make
+      - name: Check source files
+        run: |
+          test -f sorgenti/Makefile
+          test -f sorgenti/src/menus.c
+          test -f SDL2.dll
+          test -d data
+      - name: Compile SWOS
+        run: |
+          cd sorgenti
+          make -j4 NETPLAY=0
+          test -s bin/SWOS.exe
+      - name: Assemble portable folder
+        run: |
+          mkdir -p dist/SWOS-Expanded
+          cp sorgenti/bin/SWOS.exe dist/SWOS-Expanded/SWOS-Expanded.exe
+          cp SDL2.dll dist/SWOS-Expanded/
+          cp -r data dist/SWOS-Expanded/
+          if test -d assets; then cp -r assets dist/SWOS-Expanded/; fi
+          if test -f ASSETS.ini; then cp ASSETS.ini dist/SWOS-Expanded/; fi
+          if test -f README.md; then cp README.md dist/SWOS-Expanded/; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SWOS-Expanded-Windows
+          path: dist/SWOS-Expanded/
+          if-no-files-found: error

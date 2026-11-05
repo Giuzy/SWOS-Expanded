@@ -663,10 +663,10 @@ static void draw_exit_confirmation(void) {
         SDL_Rect dest={x,y,w,h};SDL_RenderCopy(s_renderer,tex,NULL,&dest);
         /* A precise selection frame follows the actual button bounds.
            No floating arrow and no rectangle across the button artwork. */
-        int selectedX=InputSDL_ExitConfirmChoice()?x+159:x+19;
+        int selectedX=InputSDL_ExitConfirmChoice()?x+161:x+20;
         /* The unselected button has its normal blue frame in the artwork;
            draw exactly one yellow selection frame, matching EXIT style. */
-        SDL_Rect selection={selectedX,y+91,132,28};
+        SDL_Rect selection={selectedX,y+92,128,26};
         SDL_SetRenderDrawColor(s_renderer,255,232,28,255);
         SDL_RenderDrawRect(s_renderer,&selection);
     }

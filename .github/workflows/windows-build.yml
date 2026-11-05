@@ -58,7 +58,7 @@ jobs:
         shell: pwsh
         run: |
           Copy-Item sorgenti/bin/SWOS.exe SWOS.exe -Force
-          Copy-Item C:/msys64/mingw64/bin/SDL2.dll SDL2.dll -Force
+          Copy-Item dist/SWOS-Expanded/SDL2.dll SDL2.dll -Force
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f SWOS.exe SDL2.dll

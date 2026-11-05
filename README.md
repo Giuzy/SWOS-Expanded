@@ -1,22 +1,21 @@
 # SWOS Expanded
 
-Private development repository for SWOS Expanded.
+Progetto amatoriale in sviluppo, basato su OpenSWOS. Prima di redistribuire codice e risorse, verificare le rispettive licenze e i diritti.
 
-## Windows build
+## Sviluppo Windows — compilazione locale
 
-The workflow in `.github/workflows/windows-build.yml` builds with MSYS2/MinGW64 and SDL2 and uploads a portable Windows artifact.
+Il repository **non compila piu su GitHub Actions** e **non pubblica SWOS.exe nei commit**. Il compilatore MSYS2/MinGW64 e SDL2 sono richiesti sul PC di sviluppo.
 
-**Current state:** The repository does not yet contain the full 0.10.38 game sources and assets, so the workflow is not expected to succeed until they are imported. Do not interpret a failed initial workflow as a game regression.
+1. Apri il repository in GitKraken e seleziona `release/0.10.40`.
+2. Esegui **Pull** per ricevere le modifiche.
+3. Chiudi il gioco prima della compilazione.
+4. Fai doppio clic su **`AVVIA_SWOS.bat`**: esegue `PREPARA_SWOS.bat`, che usa `BUILD_SWOS.sh` per compilare localmente, quindi avvia il gioco.
+5. In alternativa, esegui **`COMPILA_SWOS.bat`** per compilare senza avviare il gioco; successivamente puoi eseguire `AVVIA_SWOS.bat`.
 
-Expected root structure:
-- `sorgenti/` (OpenSWOS-derived source and Makefile)
-- `data/`, `assets/` and other original runtime asset folders
-- `source_images/approved/` for approved transfer-menu artwork
+La compilazione usa `make -j4 NETPLAY=0` nella cartella `sorgenti` e produce `SWOS.exe` nella radice locale. `make` ricompila soltanto i file modificati. Il log e `COMPILAZIONE_0140.log`.
 
-The artifact is intended to contain `SWOS-Expanded.exe`, `SDL2.dll`, and the runtime data folders.
+Il file `SDL2.dll` e i dati di gioco devono essere presenti localmente. I binari generati (`SWOS.exe`, oggetti e log) sono esclusi da Git; `SDL2.dll` resta una dipendenza runtime e non viene eliminata.
 
-## Planned 0.10.39
+### Nota su Git
 
-Transfer 1 approved UI/background and navigation, preservation of existing transfer functionality, match statistics and squad popup fixes, plus later scouting and player development integration. These are **planned**, not yet implemented in this repository.
-
-The original 0.10.38 archive remains the stable baseline.
+`git pull` aggiorna i sorgenti; **non scarica l'eseguibile**. Compila con il BAT dopo ogni Pull. La cronologia precedente puo contenere eseguibili gia pubblicati: rimuoverli dal ramo corrente non li cancella dalla cronologia Git.

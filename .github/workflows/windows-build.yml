@@ -2,6 +2,10 @@ name: Windows portable build
 
 on:
   workflow_dispatch:
+  push:
+    branches: ['release/0.10.40']
+    paths:
+      - '.github/build-request.txt'
 
 permissions:
   contents: write

@@ -1,9 +1,0 @@
-SWOS EXPANDED 0.10.29 - Correzioni richieste
-
-- BUSINESS: popup STAFF piu stretto, 4 colonne compatte; su mouse leave del popup STAFF la selezione non rimane bloccata.
-- SQUAD: piccoli bordi residui dello sfondo blu corretti senza sostituire lo stadio.
-- INTRO: aggiunto carattere A al font SDL di LOADING e centratura esatta. Barra e percentuale sono UI indipendente, progresso per milestone reali. Attesa temporanea 20 secondi.
-- INTRO: cartello crediti destro ingrandito e stilizzato come gli altri due.
-- Conservate le altre correzioni della 0.10.28.
-
-ATTENZIONE: il BAT compila per Windows sul PC dell'utente. Qui si verifica la sintassi GCC, ma non e possibile garantire la resa Windows senza il test sul PC.

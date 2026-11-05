@@ -149,7 +149,7 @@ GitHub è l'archivio di riferimento per gli asset del progetto.
 - Non integrare automaticamente nel gioco un asset appena archiviato.
 - Utilizzare nomi chiari e mantenere le varianti quando necessario.
 - Per ogni schermata con asset approvati, archiviare **due file distinti**: uno sfondo illustrato senza elementi interattivi e una UI approvata separata senza sfondo. Non fondere sfondo e UI, così gli elementi possono essere modificati indipendentemente.
-- Per TRANSFER 1 conservare i nomi esatti richiesti dall'utente: `transfter_bg_approvef.png` per lo sfondo e `ui_approved.png` per l'interfaccia. Non correggere automaticamente l'ortografia dei nomi esplicitamente approvati.
+- Per TRANSFER 1 conservare i nomi esatti richiesti dall'utente: `transfer_bg_approved.png` per lo sfondo e `ui_approved.png` per l'interfaccia. Correggere sempre errori di ortografia e refusi, anche nei nomi dei file proposti, preservando i riferimenti funzionanti nel codice quando una rinomina richiede aggiornamenti coordinati.
 - Verificare provenienza e licenze degli asset esterni.
 - Caricare nuovi asset quando l'utente lo richiede, tramite i metodi disponibili.
 
@@ -178,7 +178,13 @@ Quando emerge una nuova regola permanente:
 
 Non modificare questo documento autonomamente soltanto perché una soluzione alternativa sembra migliore.
 
-## 13. Regola fondamentale
+## 13. Correzione ortografica
+
+- Correggere sempre gli errori di ortografia e i refusi nei testi, nella documentazione e nei nomi di nuovi asset/file.
+- Se un nome errato è già usato nel codice o nei dati, aggiornare coerentemente i riferimenti prima di rinominarlo, per evitare regressioni.
+- Quando una correzione cambia un nome già concordato, usare da quel momento la grafia corretta.
+
+## 14. Regola fondamentale
 
 **SWOS Expanded è un progetto condiviso: l'utente decide la direzione del gioco, l'assistente contribuisce alla progettazione e all'implementazione.**
 

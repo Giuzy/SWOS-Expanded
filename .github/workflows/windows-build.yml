@@ -2,8 +2,11 @@ name: Windows portable build
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'release/0.10.40']
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   windows:
@@ -34,7 +37,7 @@ jobs:
       - name: Assemble portable game
         run: |
           mkdir -p dist/SWOS-Expanded
-          cp sorgenti/bin/SWOS.exe dist/SWOS-Expanded/SWOS-Expanded.exe
+          cp sorgenti/bin/SWOS.exe dist/SWOS-Expanded/SWOS.exe
           cp /mingw64/bin/SDL2.dll dist/SWOS-Expanded/
           for dir in data assets data_json amiga sound_dos grafs_arcade sound grafs_aga grafs; do
             if test -d "$dir"; then cp -r "$dir" dist/SWOS-Expanded/; fi
@@ -47,3 +50,17 @@ jobs:
           name: SWOS-Expanded-Windows
           path: dist/SWOS-Expanded/
           if-no-files-found: error
+      - name: Prepare release ZIPs
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force dist/update | Out-Null
+          Copy-Item sorgenti/bin/SWOS.exe dist/update/SWOS.exe
+          Compress-Archive -Path dist/SWOS-Expanded/* -DestinationPath dist/SWOS-Expanded-0.10.40-FULL.zip -Force
+          Compress-Archive -Path dist/update/* -DestinationPath dist/SWOS-Expanded-0.10.40-UPDATE.zip -Force
+      - name: Publish 0.10.40 GitHub Release
+        if: github.ref == 'refs/heads/release/0.10.40'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v0.10.40 dist/SWOS-Expanded-0.10.40-FULL.zip dist/SWOS-Expanded-0.10.40-UPDATE.zip --target "${{ github.sha }}" --title "SWOS Expanded 0.10.40" --notes "Windows build from release/0.10.40. FULL contains the game and resources; UPDATE contains SWOS.exe only and requires an existing game folder." --prerelease

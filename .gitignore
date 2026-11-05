@@ -1,0 +1,17 @@
+# File generati dalla compilazione / esecuzione
+SWOS.exe
+*.o
+*.obj
+*.log
+*.tmp
+*.bak
+.SWOS_*_COMPILATO
+# Dati locali degli editor e del sistema
+.vs/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+# Pacchetti di release, non vanno versionati
+*.zip
+*.7z

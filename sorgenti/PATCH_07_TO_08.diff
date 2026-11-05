@@ -1,0 +1,583 @@
+--- a/src/SWOS.c
++++ b/src/SWOS.c
+@@ -279,8 +279,10 @@
+         extern int _gArcadeMode;
+         extern void InputSDL_SetIntroClaim(int on);
+         if (!_gArcadeMode) {
+-            if (getenv("SWOS_SKIP_INTRO")) {
+-                BOOT_DIAG("SWOS_SKIP_INTRO active: splash bypassed");
++            /* Expanded: no loader hand / benchmark splash on normal boot.
++             * Set SWOS_SHOW_INTRO=1 to restore the original intro. */
++            if (!getenv("SWOS_SHOW_INTRO") || getenv("SWOS_SKIP_INTRO")) {
++                BOOT_DIAG("Expanded quick boot: loader splash bypassed");
+             } else {
+                 InputSDL_SetIntroClaim(1);
+                 ShowLoaderIntroSequence();
+--- a/src/menu_data.c
++++ b/src/menu_data.c
+@@ -2953,9 +2953,9 @@
+     { MENU_CMD_INVISIBLE },
+     { MENU_CMD_TEXT_PTR, 0x0, _aSwosVersion152 },
+     MENU_CMD_END,
+-    { { 10, 164, -116, 11 }, { MENU_CMD_COLORS, 0x9 },
++    { { 10, 160, -116, 11 }, { MENU_CMD_COLORS, 0x9 },
+       { MENU_CMD_TEXT_PTR, 0, _expandedCurrencyLabel }, MENU_CMD_END },
+-    { { -102, 164, -116, 11 }, { MENU_CMD_NAV, -1, -1, 16, 19 },
++    { { -102, 160, -116, 11 }, { MENU_CMD_NAV, -1, -1, 16, 19 },
+       { MENU_CMD_COLORS, 0xD },
+       { MENU_CMD_TEXT_PTR, 0, _expandedCurrencyText },
+       { MENU_CMD_ONSELECT_FIRE, Expanded_CurrencyChange }, MENU_CMD_END },
+@@ -6964,10 +6964,10 @@
+     },
+     {
+         { 0, -122, -106, 16 },
+-        { MENU_CMD_NAV, -1, 10, 4, 16 },
++        { MENU_CMD_NAV, -1, 10, 4, 10 },
+         { MENU_CMD_COLORS, 0x3 },
+-        { MENU_CMD_TEXT_PTR, 0x10, _aSaveDiskFiling },
+-        { MENU_CMD_ONSELECT_FIRE, SaveDiskFilingMenu },
++        { MENU_CMD_TEXT_PTR, 0x10, _expandedHallCaption },
++        { MENU_CMD_ONSELECT_FIRE, Expanded_ShowHall },
+         MENU_CMD_END
+     },
+     {
+@@ -10485,15 +10485,22 @@
+     snprintf(s_natPageInfo,sizeof s_natPageInfo,"PAGE %u / %u",
+             (unsigned)_expandedNationalityPage+1,(unsigned)(count+9)/10);
+ }
++/* A packed menu's ordinal can include non-selectable title entries and
++ * change across layouts. Match the actual row's text buffer instead. */
++int Expanded_NationalityRowFromEntry(const MenuEntry *entry) {
++    if (!entry) return -1;
++    for (int i = 0; i < 10; ++i)
++        if (entry->fg == (uintptr_t)s_natRows[i]) return i;
++    return -1;
++}
+ extern void Expanded_NationalityMenuInit(void);
+ extern void Expanded_NationalitySelect(void *entry);
++extern void Expanded_NationalityChangePage(int delta);
+ static void Expanded_NationalityPrev(void) {
+-    _expandedNationalityAction = 1;
+-    SetExitMenuFlag();
++    Expanded_NationalityChangePage(-1);
+ }
+ static void Expanded_NationalityNext(void) {
+-    _expandedNationalityAction = 2;
+-    SetExitMenuFlag();
++    Expanded_NationalityChangePage(1);
+ }
+ static void Expanded_NationalityExit(void) {
+     _expandedNationalityAction = 0;
+@@ -10638,10 +10645,10 @@
+         { { 26, 129, -32, 17 }, { MENU_CMD_COLORS, 0x9 },
+           { MENU_CMD_TEXT_PTR, 0, _expandedFacilityDetailLines[3] }, MENU_CMD_END },
+     },
+-    { { 36, 181, 120, 16 }, { MENU_CMD_NAV, -1, 6, 6, 6 },
++    { { 34, 181, 105, 16 }, { MENU_CMD_NAV, -1, 6, 6, 6 },
+       { MENU_CMD_COLORS, 0xB }, { MENU_CMD_TEXT_PTR, 0, s_facUpgrade },
+       { MENU_CMD_ONSELECT_FIRE, Expanded_UpgradeFacility }, MENU_CMD_END },
+-    { { -116, 181, 100, 16 }, { MENU_CMD_NAV, 5, -1, 5, 5 },
++    { { -110, 181, 105, 16 }, { MENU_CMD_NAV, 5, -1, 5, 5 },
+       { MENU_CMD_COLORS, 0xC }, { MENU_CMD_TEXT_PTR, 0, s_infraBack },
+       { MENU_CMD_ONSELECT_FIRE, SetExitMenuFlag }, MENU_CMD_END },
+     MENU_MARK_END_MENU
+@@ -10693,3 +10700,97 @@
+     MENU_MARK_END_MENU
+ };
+ #pragma pack(pop)
++
++/* Expanded 0.8 club hub: the eight pictograms are real selectable SWOS
++ * menu entries. Their native pixel-art sprites are painted after entry boxes. */
++extern void Expanded_ClubOverviewDraw(void);
++extern void Expanded_ClubFacilitySelected(MenuEntry *entry);
++extern void Expanded_ShowInfrastructure(void);
++static char s_clubOverviewTitle[] = "CLUB OVERVIEW";
++static char s_clubOverviewUpgrade[] = "UPGRADE";
++static char s_clubOverviewBack[] = "BACK";
++static char s_emptyFacility[] = "";
++#pragma pack(push,1)
++struct {
++    MenuHeader hdr;
++    MenuMark byteCoords;
++    MenuEntry_Byte_Colors_TextPtr title;
++    MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect facilities[8];
++    MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect upgrade;
++    MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect back;
++    MenuMark end;
++} _expandedClubOverviewMenu = {
++    { 0, GlobalRetn, Expanded_ClubOverviewDraw, 1 }, MENU_MARK_BYTE_COORDS,
++    { { 72, 0, 128, 14 }, { MENU_CMD_COLORS, 0x17 },
++      { MENU_CMD_TEXT_PTR, 0, s_clubOverviewTitle }, MENU_CMD_END },
++    {
++        { { 37, 97, 44, 17 }, { MENU_CMD_NAV, -1, 2, 9, 5 },
++          { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility },
++          { MENU_CMD_ONSELECT_FIRE, Expanded_ClubFacilitySelected }, MENU_CMD_END },
++        { { 104, 97, 44, 17 }, { MENU_CMD_NAV, 1, 3, 9, 6 },
++          { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility },
++          { MENU_CMD_ONSELECT_FIRE, Expanded_ClubFacilitySelected }, MENU_CMD_END },
++        { { 171, 97, 44, 17 }, { MENU_CMD_NAV, 2, 4, 9, 7 },
++          { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility },
++          { MENU_CMD_ONSELECT_FIRE, Expanded_ClubFacilitySelected }, MENU_CMD_END },
++        { { 238, 97, 44, 17 }, { MENU_CMD_NAV, 3, -1, 9, 8 },
++          { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility },
++          { MENU_CMD_ONSELECT_FIRE, Expanded_ClubFacilitySelected }, MENU_CMD_END },
++        { { 37, 120, 44, 17 }, { MENU_CMD_NAV, -1, 6, 1, 9 },
++          { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility },
++          { MENU_CMD_ONSELECT_FIRE, Expanded_ClubFacilitySelected }, MENU_CMD_END },
++        { { 104, 120, 44, 17 }, { MENU_CMD_NAV, 5, 7, 2, 9 },
++          { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility },
++          { MENU_CMD_ONSELECT_FIRE, Expanded_ClubFacilitySelected }, MENU_CMD_END },
++        { { 171, 120, 44, 17 }, { MENU_CMD_NAV, 6, 8, 3, 9 },
++          { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility },
++          { MENU_CMD_ONSELECT_FIRE, Expanded_ClubFacilitySelected }, MENU_CMD_END },
++        { { 238, 120, 44, 17 }, { MENU_CMD_NAV, 7, -1, 4, 9 },
++          { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility },
++          { MENU_CMD_ONSELECT_FIRE, Expanded_ClubFacilitySelected }, MENU_CMD_END },
++    },
++    { { 34, 234, 105, 16 }, { MENU_CMD_NAV, -1, 10, 5, 5 },
++      { MENU_CMD_COLORS, 0xB }, { MENU_CMD_TEXT_PTR, 0, s_clubOverviewUpgrade },
++      { MENU_CMD_ONSELECT_FIRE, Expanded_ShowInfrastructure }, MENU_CMD_END },
++    { { -110, 234, 105, 16 }, { MENU_CMD_NAV, 9, -1, 8, 8 },
++      { MENU_CMD_COLORS, 0xC }, { MENU_CMD_TEXT_PTR, 0, s_clubOverviewBack },
++      { MENU_CMD_ONSELECT_FIRE, SetExitMenuFlag }, MENU_CMD_END },
++    MENU_MARK_END_MENU
++};
++#pragma pack(pop)
++
++/* Pre-career job search. UNKNOWN managers must wait for their first offer;
++ * existing career simulation only begins after they accept a small club. */
++extern void Expanded_UnemployedDraw(void);
++extern void Expanded_UnemployedInit(void);
++extern void Expanded_UnemployedWait(void);
++extern void Expanded_UnemployedAccept(void);
++static char s_jobTitle[] = "JOB SEARCH - UNEMPLOYED";
++static char s_jobWait[] = "ADVANCE ONE WEEK";
++static char s_jobAccept[] = "ACCEPT CLUB OFFER";
++static char s_jobBack[] = "CANCEL";
++#pragma pack(push,1)
++struct {
++    MenuHeader hdr;
++    MenuMark byteCoords;
++    MenuEntry_Byte_Colors_TextPtr title;
++    MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect wait;
++    MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect accept;
++    MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect back;
++    MenuMark end;
++} _expandedUnemployedMenu = {
++    { Expanded_UnemployedInit, GlobalRetn, Expanded_UnemployedDraw, 1 }, MENU_MARK_BYTE_COORDS,
++    { { 24, 0, 224, 15 }, { MENU_CMD_COLORS, 0x17 },
++      { MENU_CMD_TEXT_PTR, 0, s_jobTitle }, MENU_CMD_END },
++    { { 62, 171, 148, 16 }, { MENU_CMD_NAV, -1, -1, 3, 2 },
++      { MENU_CMD_COLORS, 0xB }, { MENU_CMD_TEXT_PTR, 0, s_jobWait },
++      { MENU_CMD_ONSELECT_FIRE, Expanded_UnemployedWait }, MENU_CMD_END },
++    { { 62, 191, 148, 16 }, { MENU_CMD_NAV, -1, -1, 1, 3 },
++      { MENU_CMD_COLORS, 0x3 }, { MENU_CMD_TEXT_PTR, 0, s_jobAccept },
++      { MENU_CMD_ONSELECT_FIRE, Expanded_UnemployedAccept }, MENU_CMD_END },
++    { { 86, 214, 100, 15 }, { MENU_CMD_NAV, -1, -1, 2, 1 },
++      { MENU_CMD_COLORS, 0xC }, { MENU_CMD_TEXT_PTR, 0, s_jobBack },
++      { MENU_CMD_ONSELECT_FIRE, SetExitMenuFlag }, MENU_CMD_END },
++    MENU_MARK_END_MENU
++};
++#pragma pack(pop)
+--- a/src/menus.c
++++ b/src/menus.c
+@@ -2600,6 +2600,10 @@
+ 
+     /* Back at the main menu: whatever was online is over (include/test_rules.h). */
+     TestRules_Online(0);
++    /* Hall of Fame now occupies the old Disk Filing slot (entry 5).
++     * Keep the former Expanded hall entry 16 in the packed layout for
++     * ordinal stability, but never draw or navigate to its duplicate. */
++    _menuEntries[16].isInvisible = 1;
+ 
+     /* Here, not in SWOSMainMenuInit: coming back from a sub-menu shows the main menu
+      * again without its onInit, and the two buttons came back with it (seen on the
+@@ -5144,11 +5148,31 @@
+     _menuEntries[12].isInvisible = ((int)(_expandedNationalityPage + 1) * 10 >= Expanded_NationalityTotal());
+ }
+ 
++extern uint8_t _currentMenu[];
++extern int Expanded_NationalityRowFromEntry(const MenuEntry *entry);
++extern int32_t Expanded_NationalityTotal(void);
++extern int _expandedNationalityRowCount;
++extern void Expanded_NationalityPickerPopulate(const uint8_t *nats, int count);
++extern void DrawMenu(void);
+ void Expanded_NationalitySelect(MenuEntry *entry) {
+-    if (entry->ordinal >= 1 && entry->ordinal <= 10) {
+-        _expandedNationalityAction = (uint8_t)(9 + entry->ordinal);
++    int row = Expanded_NationalityRowFromEntry(entry);
++    if (row >= 0 && row < _expandedNationalityRowCount) {
++        _expandedNationalityAction = (uint8_t)(10 + row);
+         SetExitMenuFlag();
+     }
++}
++/* Page changes happen INSIDE the active modal. No nested ShowMenu,
++ * no parent-menu flash, no click being replayed into the career screen. */
++void Expanded_NationalityChangePage(int delta) {
++    int next = (int)_expandedNationalityPage + delta;
++    if (next < 0 || next * 10 >= Expanded_NationalityTotal()) return;
++    int32_t count;
++    const uint8_t *table = career_nationalities(&count);
++    _expandedNationalityPage = (uint8_t)next;
++    Expanded_NationalityPickerPopulate(table, count);
++    Expanded_NationalityMenuInit();
++    ((Menu *)_currentMenu)->selectedEntry = &_menuEntries[1];
++    DrawMenu();
+ }
+ 
+ extern uint8_t _expandedFamePickerMenu[];
+--- a/src/menu_system.c
++++ b/src/menu_system.c
+@@ -1385,6 +1385,13 @@
+         DrawMenuItem(entry);
+         entry = (MenuEntry *)((uint8_t *)entry + MENUENTRY_STRIDE);
+     }
++    /* Expanded hub pictograms are overlaid on their clickable native entries. */
++    {
++        extern uint8_t _expandedClubOverviewMenu[];
++        extern void Expanded_ClubOverviewIcons(void);
++        if (_currentMenuPtr == (uintptr_t)_expandedClubOverviewMenu)
++            Expanded_ClubOverviewIcons();
++    }
+     /* DOS DrawMenu draws the selection frame before it flips; with the whole menu
+      * redrawn every frame, nothing else would. */
+     if (s_menuFlags & MENU_FLAG_DOS_REDRAW)
+@@ -1414,6 +1421,12 @@
+         DrawMenuTextCentered(176, 145, 2,
+             (uint8_t *)Expanded_CareerProfileCaption(), (uint8_t *)_charTables[0]);
+     {
++        extern void CareerMenuInit(void);
++        if (menu->onInit == (MenuVoidFn)CareerMenuInit)
++            DrawMenuTextCentered(160, 232, 2,
++                (uint8_t *)"UNKNOWN FAME: START UNEMPLOYED", (uint8_t *)_charTables[0]);
++    }
++    {
+         extern void ClubBusinessInit(void);
+         if (menu->onInit == (MenuVoidFn)ClubBusinessInit)
+             DrawMenuTextCentered(160, 212, 7,
+@@ -1724,11 +1737,15 @@
+         extern uint8_t _expandedInfrastructureMenu[];
+         extern uint8_t _expandedFamePickerMenu[];
+         extern uint8_t _expandedFacilityDetailMenu[];
++        extern uint8_t _expandedClubOverviewMenu[];
++        extern uint8_t _expandedUnemployedMenu[];
+         if ((_currentMenuPtr == (uintptr_t)_expandedNationalityPickerMenu ||
+              _currentMenuPtr == (uintptr_t)_expandedHallMenu ||
+              _currentMenuPtr == (uintptr_t)_expandedInfrastructureMenu ||
+              _currentMenuPtr == (uintptr_t)_expandedFamePickerMenu ||
+-             _currentMenuPtr == (uintptr_t)_expandedFacilityDetailMenu) &&
++             _currentMenuPtr == (uintptr_t)_expandedFacilityDetailMenu ||
++             _currentMenuPtr == (uintptr_t)_expandedClubOverviewMenu ||
++             _currentMenuPtr == (uintptr_t)_expandedUnemployedMenu) &&
+             (_currentKey == 27 || _currentKey == 127 || _currentKey == 8)) {
+             SetExitMenuFlag();
+             return;
+@@ -1736,9 +1753,8 @@
+     }
+ #endif
+ #ifdef SWOS_SDL_BUILD
+-    /* The stock BANK STATEMENT packed menu is deliberately unchanged.
+-     * Press I for facilities; editing its packed entry stream caused the
+-     * 0.5 crash on real Windows. */
++    /* Legacy I shortcut remains available, but the new club overview has
++     * a visible UPGRADE button and never touches the old bank stream. */
+     {
+         extern uint8_t _clubBusinessMenu[];
+         if (_currentMenuPtr == (uintptr_t)_clubBusinessMenu &&
+@@ -2041,12 +2057,16 @@
+         extern uint8_t _expandedInfrastructureMenu[];
+         extern uint8_t _expandedFamePickerMenu[];
+         extern uint8_t _expandedFacilityDetailMenu[];
++        extern uint8_t _expandedClubOverviewMenu[];
++        extern uint8_t _expandedUnemployedMenu[];
+         extern uint8_t _swosMainMenu[];
+         if (packedMenu == _expandedNationalityPickerMenu ||
+             packedMenu == _expandedHallMenu ||
+             packedMenu == _expandedInfrastructureMenu ||
+             packedMenu == _expandedFamePickerMenu ||
+-            packedMenu == _expandedFacilityDetailMenu) {
++            packedMenu == _expandedFacilityDetailMenu ||
++            packedMenu == _expandedClubOverviewMenu ||
++            packedMenu == _expandedUnemployedMenu) {
+             if (oldPackedMenu != 0) {
+                 if (oldPackedMenu == (uintptr_t)_swosMainMenu) {
+                     extern void CommonMenuExit(void);
+--- a/src/expanded_economy.c
++++ b/src/expanded_economy.c
+@@ -169,3 +169,147 @@
+         else if (injury==0x08) *ci &= 0xE3;
+     }
+ }
++
++/* Expanded 0.7 club overview: hand-painted rectangles at native 320x256
++ * coordinates, rendered with SWOS's own palette and bitmap font. This is
++ * genuine in-engine pixel art, not a high-resolution SDL overlay. */
++#include "blitter.h"
++#include "text_render.h"
++extern uint8_t *_charTables[];
++extern int32_t _playerWagesBill, _generalRunningCosts, _playerSales;
++extern int32_t _playerPurchases, _old_balance;
++extern uint8_t _expandedClubOverviewMenu[];
++static void rect(unsigned x,unsigned y,unsigned w,unsigned h,unsigned color) {
++    FillRectangle((uint16_t)x,(uint16_t)y,(uint16_t)w,(uint16_t)h,(uint16_t)color);
++}
++static void label(unsigned x,unsigned y,unsigned color,const char *str) {
++    DrawMenuTextCentered((uint16_t)x,(uint16_t)y,(uint16_t)color,
++                         (uint8_t *)str,(uint8_t *)_charTables[0]);
++}
++static void draw_stadium(unsigned level) {
++    /* Grandstand silhouette and pitch; larger tiers appear on higher levels. */
++    rect(75,21,170,48,0);
++    rect(79,25,162,42,6);
++    for(unsigned tier=0;tier<level;tier++) {
++        unsigned xx=83+tier*5, yy=28+tier*5;
++        unsigned ww=154-tier*10;
++        rect(xx,yy,ww,3,7);         /* concrete ledge */
++        rect(xx+3,yy+3,ww-6,3,(tier&1)?2:9); /* supporters */
++    }
++    rect(91,54,138,11,1);          /* outer green pitch */
++    rect(96,56,128,7,3);           /* inner pitch */
++    rect(158,56,2,7,7);            /* half-way line */
++    rect(98,58,13,3,7); rect(209,58,13,3,7);
++    rect(106,58,4,3,3); rect(210,58,4,3,3);
++    rect(75,20,170,3,7);          /* roof edge */
++    if(level>=2) { rect(72,17,176,3,9); rect(76,20,3,10,7); rect(242,20,3,10,7); }
++    if(level>=3) { rect(65,16,6,38,7); rect(249,16,6,38,7); rect(61,16,14,3,2); rect(245,16,14,3,2); }
++    if(level>=4) { rect(76,13,168,3,7); rect(87,10,146,3,9); }
++    if(level>=5) { rect(98,7,124,3,2); rect(109,5,102,2,7); }
++}
++static void draw_facility_icon(unsigned idx,unsigned level,unsigned x,unsigned y) {
++    /* Eight recognisable tiny sprites, each grows/brights with upgrades. */
++    unsigned accent=level>=4?2:level>=2?9:6;
++    rect(x,y,44,17,0); rect(x+1,y+1,42,15,8);
++    switch(idx) {
++    case 0: /* stands */
++        rect(x+7,y+4,30,3,7); rect(x+9,y+7,26,3,accent);
++        rect(x+13,y+10,18,3,3); break;
++    case 1: /* training field */
++        rect(x+7,y+4,30,10,3); rect(x+21,y+4,2,10,7);
++        rect(x+9,y+6,4,6,7); rect(x+31,y+6,4,6,7); break;
++    case 2: /* bus -> plane */
++        if(level>=4) {
++            rect(x+7,y+8,30,3,7);rect(x+18,y+4,8,11,accent);
++            rect(x+12,y+11,20,2,7);
++        } else {
++            rect(x+7,y+5,30,8,accent); rect(x+11,y+6,6,3,7);
++            rect(x+20,y+6,6,3,7);rect(x+10,y+12,5,3,0);
++            rect(x+29,y+12,5,3,0);
++        } break;
++    case 3: /* offices */
++        rect(x+11,y+4,22,10,accent);
++        for(unsigned i=0;i<3;i++) rect(x+14+i*6,y+6,3,3,7);
++        break;
++    case 4: /* fitness weights */
++        rect(x+8,y+8,28,2,7); rect(x+11,y+5,5,8,accent);
++        rect(x+28,y+5,5,8,accent); break;
++    case 5: /* scouting magnifier */
++        rect(x+12,y+4,12,2,7);rect(x+10,y+6,3,7,7);
++        rect(x+23,y+6,3,7,7);rect(x+13,y+12,11,2,7);
++        rect(x+26,y+12,10,2,accent);break;
++    case 6: /* medical cross */
++        rect(x+18,y+4,8,10,7);rect(x+12,y+7,20,4,7);
++        rect(x+20,y+5,4,8,accent);rect(x+14,y+8,16,2,accent);break;
++    default: /* youth academy */
++        rect(x+11,y+5,22,8,3);rect(x+16,y+4,12,3,accent);
++        rect(x+20,y+8,4,4,7);break;
++    }
++    if(level==5) rect(x+38,y+3,3,3,2);
++}
++static uint32_t nonneg(int32_t n) {return n>0?(uint32_t)n:0;}
++/* The native menu engine draws the clickable icon entries after onDraw.
++ * Repaint the pixel-art on top of the entry backgrounds, but BEFORE the
++ * selection outline, so mouse and keyboard focus remain visible. */
++void Expanded_ClubOverviewIcons(void) {
++    static const char *const names[8]={"STADIUM","TRAIN","TRAVEL","OFFICE",
++                                        "FITNESS","SCOUT","MEDICAL","YOUTH"};
++    for(unsigned i=0;i<8;i++) {
++        unsigned x=37+(i%4)*67, y=97+(i/4)*23;
++        unsigned f=_expandedFacilityLevels[i]; if(f<1 || f>5) f=1;
++        draw_facility_icon(i,f,x,y);
++        char t[32]; snprintf(t,sizeof t,"%s %u",names[i],f);
++        label(x+22,y+16,7,t);
++    }
++}
++void Expanded_ClubFacilitySelected(MenuEntry *entry) {
++    if (!entry || entry->ordinal < 1 || entry->ordinal > 8) return;
++    _expandedFacilitySelected=(uint8_t)(entry->ordinal-1);
++    ShowMenu(_expandedFacilityDetailMenu);
++}
++extern uint8_t _seasonPlaying;
++extern uint8_t _lastFinancialWeekIndex;
++extern uint16_t _boardConfidenceScore;
++extern uint16_t _numWins, _numLost;
++
++void Expanded_ClubOverviewDraw(void) {
++    ensure_club();
++    unsigned lv=_expandedFacilityLevels[0];
++    if(lv<1 || lv>5) lv=1;
++    unsigned char c=Expanded_CurrencyGlyph();
++    char t[100];
++    /* Board sentiment uses the engine's existing confidence score. Fans are
++     * a clearly marked ESTIMATE, based on stadium size and recent results. */
++    int16_t board=(int16_t)_boardConfidenceScore;
++    unsigned crowd=s_capacity[lv-1]*(50u + (unsigned)(_numWins>=_numLost?15:0))/100u;
++    if(crowd>s_capacity[lv-1]) crowd=s_capacity[lv-1];
++    rect(12,23,49,39,0); rect(14,25,45,35,8);
++    label(36,29,7,"BOARD");
++    label(36,43,board>=0?3:2,board>=0?":-)":":-(");
++    rect(259,23,51,39,0); rect(261,25,47,35,8);
++    label(284,29,7,"FANS ~");
++    snprintf(t,sizeof t,"%u",crowd);label(284,39,3,t);
++    label(284,49,_numWins>=_numLost?3:2,_numWins>=_numLost?":-)":":-(");
++    draw_stadium(lv);
++    snprintf(t,sizeof t,"%s / %lu SEATS",s_levelName[lv-1],(unsigned long)s_capacity[lv-1]);
++    label(160,72,7,t);
++    label(160,84,7,"SELECT A FACILITY TO UPGRADE");
++    uint32_t sponsors=_expandedShirtSponsor+_expandedStadiumSponsor;
++    uint32_t income=sponsors+_expandedTvRights+nonneg(_gateReceipts)+nonneg(_competitionBonuses);
++    uint32_t expense=nonneg(_playerWagesBill)+nonneg(_generalRunningCosts);
++    rect(20,142,280,2,7);
++    snprintf(t,sizeof t,"SEASON %u/%02u  FINANCE WEEK %u",(unsigned)(1900u+_seasonPlaying),
++             (unsigned)((_seasonPlaying+1)%100), (unsigned)_lastFinancialWeekIndex);
++    label(160,145,2,t);
++    label(82,156,7,"INCOME"); label(238,156,7,"EXPENSES");
++    snprintf(t,sizeof t,"SPONSOR %c%lu",c,(unsigned long)(sponsors/12)); label(84,167,7,t);
++    snprintf(t,sizeof t,"WAGES %c%lu",c,(unsigned long)(nonneg(_playerWagesBill)/12)); label(237,167,7,t);
++    snprintf(t,sizeof t,"TV %c%lu",c,(unsigned long)(_expandedTvRights/12)); label(84,178,7,t);
++    snprintf(t,sizeof t,"TRAVEL %c%lu",c,(unsigned long)(nonneg(_generalRunningCosts)/12)); label(237,178,7,t);
++    snprintf(t,sizeof t,"GATE/PRIZE %c%lu",c,(unsigned long)((nonneg(_gateReceipts)+nonneg(_competitionBonuses))/12));label(84,189,7,t);
++    snprintf(t,sizeof t,"MONTHLY: +%c%lu / -%c%lu",c,(unsigned long)(income/12),c,(unsigned long)(expense/12));
++    label(160,199,7,t);
++    snprintf(t,sizeof t,"ANNUAL: +%c%lu / -%c%lu",c,(unsigned long)income,c,(unsigned long)expense);
++    label(160,209,7,t);
++    snprintf(t,sizeof t,"BALANCE %c%ld",c,(long)_newBalance);label(160,221,2,t);
++}
+--- a/src/expanded_career.c
++++ b/src/expanded_career.c
+@@ -7,6 +7,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include "menu_system.h"
++#include "game_types.h"
+ #include "swos_io.h"
+ #include "career_params.h"
+ #include "string_utils.h"
+@@ -209,3 +210,83 @@
+ void Expanded_ShowHall(void) {
+     ShowMenu(_expandedHallMenu);
+ }
++
++/* Expanded 0.8: pre-hire calendar. No fixtures are simulated before the
++ * manager has a club, avoiding partially initialized career saves. */
++extern uint8_t _expandedUnemployedMenu[];
++extern uint8_t _teamFileBuffer[];
++extern uint16_t _teamsLoaded;
++extern int16_t LoadTeamFile(uint16_t extNumber);
++extern void DrawMenu(void);
++extern void SetExitMenuFlag(void);
++extern void FillRectangle(uint16_t,uint16_t,uint16_t,uint16_t,uint16_t);
++extern uint16_t DrawMenuTextCentered(uint16_t,uint16_t,uint16_t,uint8_t *,uint8_t *);
++extern void *_charTables[];
++static unsigned s_waitWeeks=0;
++static int s_waitAccepted=0;
++static uint16_t s_waitTeam=0;
++static char s_waitTeamName[40]="";
++void Expanded_UnemployedInit(void) {
++    extern MenuEntry _menuEntries[];
++    _menuEntries[2].isInvisible=(s_waitWeeks<4);
++    _menuEntries[1].isInvisible=(s_waitWeeks>=4);
++}
++void Expanded_UnemployedDraw(void) {
++    char line[90];
++    /* A deliberately empty 4x5 fixture calendar, in native 320x256. */
++    for(int col=0;col<4;col++) for(int row=0;row<5;row++) {
++        FillRectangle((uint16_t)(35+col*63),(uint16_t)(30+row*21),58,17,8);
++        FillRectangle((uint16_t)(36+col*63),(uint16_t)(31+row*21),56,15,0);
++    }
++    snprintf(line,sizeof line,"WEEK %u - NO CLUB / NO FIXTURES",s_waitWeeks+1);
++    DrawMenuTextCentered(160,143,7,(uint8_t*)line,(uint8_t*)_charTables[0]);
++    if(s_waitWeeks>=4) {
++        snprintf(line,sizeof line,"JOB OFFER: %.27s",s_waitTeamName);
++        DrawMenuTextCentered(160,155,2,(uint8_t*)line,(uint8_t*)_charTables[0]);
++    } else {
++        DrawMenuTextCentered(160,155,7,(uint8_t*)"WAITING FOR A SMALL CLUB OFFER",(uint8_t*)_charTables[0]);
++    }
++}
++void Expanded_UnemployedWait(void) {
++    if(s_waitWeeks<4) s_waitWeeks++;
++    Expanded_UnemployedInit();
++    DrawMenu();
++}
++void Expanded_UnemployedAccept(void) {
++    if(s_waitWeeks<4 || !s_waitTeam) return;
++    s_waitAccepted=1;
++    SetExitMenuFlag();
++}
++/* Choose the lowest-division English club from real team data, never a
++ * synthetic or out-of-range team number. The loader swaps file count to
++ * host endian on SDL; team IDs are two independent bytes. */
++static uint16_t find_small_club(void) {
++    _teamsLoaded=0;
++    if(LoadTeamFile(8)!=0) return 0;
++    uint16_t count=*(const uint16_t*)_teamFileBuffer;
++    if(!count || count>93) return 0;
++    const TeamFileEx *teams=(const TeamFileEx*)(_teamFileBuffer+2);
++    const TeamFileEx *best=0;
++    for(unsigned i=0;i<count;i++) {
++        const TeamFileEx *t=&teams[i];
++        if(t->team.countryNumber!=8 || t->team.league>=4) continue;
++        if(!best || t->team.league>best->team.league ||
++           (t->team.league==best->team.league && i>0)) best=t;
++    }
++    if(!best) return 0;
++    snprintf(s_waitTeamName,sizeof s_waitTeamName,"%.17s",(const char*)best->team.teamName);
++    return (uint16_t)((best->team.countryNumber<<8)|best->team.teamOrdinal);
++}
++int Expanded_WaitForFirstOffer(uint16_t *team) {
++    if(!team) return 0;
++    s_waitTeam=find_small_club();
++    if(!s_waitTeam) {
++        fprintf(stderr,"[expanded08] no valid weak club found in TEAM.008\n");
++        return 0;
++    }
++    s_waitWeeks=0; s_waitAccepted=0;
++    ShowMenu(_expandedUnemployedMenu);
++    if(!s_waitAccepted) return 0;
++    *team=s_waitTeam;
++    return 1;
++}
+--- a/src/career_init.c
++++ b/src/career_init.c
+@@ -275,12 +275,26 @@
+     Conti_Reset();
+     States_Reset();
+     _teamsLoaded = 0;
+-    SelectTeamToManage();
+-    if (_selectedTeamPtr == 0) {
+-        SetExitMenuFlag();
+-        return;
+-    }
+-    InitCareer(_selectedTeamCountryNumber);
++    /* Expanded 0.8: zero-fame managers start without a club. The waiting
++     * screen is outside the career engine; no uninitialised team state can
++     * leak into fixtures or transfer processing. */
++    extern uint8_t _expandedManagerFame;
++    if (_expandedManagerFame == 0) {
++        extern int Expanded_WaitForFirstOffer(uint16_t *team);
++        uint16_t offerTeam = 0;
++        if (!Expanded_WaitForFirstOffer(&offerTeam)) {
++            SetExitMenuFlag();
++            return;
++        }
++        InitCareer(offerTeam);
++    } else {
++        SelectTeamToManage();
++        if (_selectedTeamPtr == 0) {
++            SetExitMenuFlag();
++            return;
++        }
++        InitCareer(_selectedTeamCountryNumber);
++    }
+     ActivateMenu(_contestMenu);
+ }
+ 

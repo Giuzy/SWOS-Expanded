@@ -1,0 +1,44 @@
+@echo off
+setlocal EnableExtensions
+cd /d "%~dp0"
+title SWOS Expanded 0.10.37 - Avvio
+
+REM La prima volta compila i sorgenti corretti; dopo avvia direttamente il gioco.
+call "%~dp0PREPARA_SWOS.bat"
+if errorlevel 1 goto :errore
+
+if not exist "SWOS.exe" (
+  echo ERRORE: SWOS.exe non e stato generato.
+  goto :errore
+)
+if not exist "SDL2.dll" (
+  echo ERRORE: SDL2.dll mancante.
+  goto :errore
+)
+if not exist "data\TEAM.008" (
+  echo ERRORE: dati delle squadre mancanti.
+  goto :errore
+)
+
+if exist "CONFIGURA_4K.ps1" powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0CONFIGURA_4K.ps1"
+set "SWOS_SKIP_INTRO=1"
+set "SWOS_DATA_JSON=0"
+set "SWOS_MENU_JSON=0"
+set "SWOS_TACTICS_JSON=0"
+set "SWOS_MENU_NAV_LOG=1"
+echo.
+echo === SWOS Expanded 0.10.37 - avvio ===
+"%~dp0SWOS.exe"
+set "RC=%ERRORLEVEL%"
+echo.
+echo SWOS terminato. Codice uscita: %RC%
+if not "%RC%"=="0" echo In caso di crash invia SWOS.log dalla cartella Documenti\SWOS.
+pause
+exit /b %RC%
+
+:errore
+echo.
+echo Il gioco non e stato avviato.
+echo Se la compilazione e fallita, invia COMPILAZIONE_0133b.log.
+pause
+exit /b 1

@@ -1,0 +1,718 @@
+# AGA Rendering (8 bitplanes / 256 colours, mixed per-bank depth)
+
+Status (2026-07-11): **P1 + P2 done and SDL-verified. P3 (Amiga hardware-sprite
+speedup) pending** — see [AMIGA_SPRITES.md](AMIGA_SPRITES.md).
+
+> **Status (2026-09-30): AGA work is PARKED (since 2026-07-30) — SDL first.** Not abandoned, but do not
+> resume it without the owner's say-so. Since the note above, P3's decode half landed
+> (`DetectBankPlanes` is used by the Amiga branches of `image_cmd.c` too, and sprites are
+> stored at their real depth via `spriteNumPlanes`), the FMODE=1 scroll of §11 was solved,
+> and the plane23 band is disabled on AGA (§11c, [AGA_TEST.md](AGA_TEST.md) §5c). The
+> test-bed entry point for the Amiga side is [AGA_TEST.md](AGA_TEST.md).
+
+> **Status (2026-10-10): resumed, and a whole match plays on AGA** (FS-UAE, owner's play-test:
+> scroll, bobs, crowd, text, result bar, stats, replay). What changed that day, and which
+> sections below it overrides:
+>
+> - **The 4-byte verge margin is gone** (`SCROLL_LEFT_MARGIN_BYTES` 0, `PLANE_STRIDE` 48, a
+>   384px row). It existed because the FMODE=1 display stood 16px left of the camera, so at
+>   the left touchline 16px of off-pitch memory were on screen. In a match the display now
+>   starts AT the camera (`AGA_PITCH_DISPLAY_SHIFT_PX`, `display.c`); the long fetched to the
+>   left stays under the fine-scroll delay. With it went `ScrollYVergeRefresh`'s call, the
+>   per-row pull-back fill, the -32 left lead of ScrollX and the +16 of the hardware sprites.
+>   Menus keep their picture with a +4 on the plane pointer outside a match. §11's account of
+>   the margin is history.
+> - **The buffer is linear, not a ring:** pitch pixel X of a plane is at byte X/8 from the
+>   row's start, running on into the next plane's row (the last plane's into the next ROW).
+>   Anything that copies "a row" must start at the scroll's coarse byte (`MirrorFrontbuffer`
+>   did not: one row, one plane wrong from x 384 after a replay).
+> - **Everything in a match is drawn with no Y wrap** into rows `[cameraYMod320, +272)` of the
+>   2x-tall buffer: bobs already were; now also the ScrollX column, text and rectangle fills.
+>   A wrapped draw lands in rows that are not on screen and outside every undraw.
+> - **The mask buffer** (what bobs are undrawn from) gets a new column on the frame it is
+>   blitted, never later; the deferred copy only fills the off-screen half, and is never dropped.
+> - **The animated crowd tile** is an 8-plane pitch tile and is written as one
+>   (`drawPatternFromIndex`), not through the 4-plane sprite path.
+> - **FS-UAE launched through the gdb harness tears** (VSYNC light red, transparent rows in
+>   Alt-S screenshots). That is the emulator; launched from the desktop it does not. Test
+>   display work from the desktop.
+>
+> Not verified: real hardware, the OCS build after these changes, a replay that scrolls down.
+
+> **Status (2026-10-13): SWOS 2020's pitches play on AGA** (owner's FS-UAE test, from
+> Workbench), chosen on OPTIONS -> PITCHES (DOS / 2020; Amiga AGA only, for the session).
+> What made the room, all in chip RAM (1,877 KB -> 1,179 KB, then 1,641 KB with the bigger
+> pitch buffer):
+>
+> - **The title tune's samples and the sprite pool share one union**, `g_introChipRam`
+>   (`include/intro_chip_ram.h`) -- the original's own trick (`audioInstrumentBank` sat in front
+>   of `imageCmdWorkBuf` in SWOS2.s). The tune lives only inside `ShowLoaderIntroSequence`, whose
+>   every exit stops the sound; the sprites are unpacked after it returns. SDL keeps them apart
+>   (its arcade attract plays the tune over a replay). 288 KB: hero.ins unpacks IN PLACE to
+>   292,984 bytes and the RNC decoder may lift the packed data up to 255 bytes past the end.
+> - **The hardware sprite buffers** (`_bitPlaneNBase[Alt]` -- named bitplanes in SWOS2.s, but the
+>   copper's SPRITE pointers) are 2 KB each, not 12 KB; SWOS2.s gave them 900 bytes. Sprites 4-7
+>   are never drawn and all point at one empty sprite, `_emptySpriteDma`.
+> - **The pitch buffer is 544 KB** (`PITCHFILE_MAX_SIZE`): 2020 pitch 6 is 554,776 bytes.
+> - **The maps**: `scripts/make_pitch_aga.py` turns a PC pitch (`PITCHn.DAT` + `.BLK`) into an AGA
+>   map; `--check` proves it by reproducing the six shipped `SWCPICHn.MAP` byte for byte. The
+>   2020 ones are `grafs_aga/P2020_n.MAP`, UNPACKED: `LoadFileEx` stages a file in the 104,832-byte
+>   frontbuffer and three of them do not fit even packed, so `loadPitchMap2020` (`pitch.c`) reads
+>   them straight into the pitch buffer, and a missing file plays the DOS pitch. Colours need no
+>   conversion: 2020's art is drawn against the PC palette, which is the AGA palette.
+> - **Music on fast RAM above 16 MB** (an accelerator, Zorro III): `accessRelocate` (`audio.c`)
+>   masked each song track's ADDRESS to 24 bits, a WHDLoad patch of the original ("potential issue
+>   if A1 is in fast!!!"). It masks the table OFFSET now. Not yet tried on such a machine.
+
+> **Status (2026-10-14): a stock A1200 holds 42-50 fps in a match (was 25-30 in busy
+> moments).** Measured cycle-exact on the scroll-test rig (`-DPITCH_SCROLL_TEST`, a frozen scene
+> or a scripted scroll, `dma_profile.py` + `cpu_flamegraph.py`) and in matches with the raster
+> build (`make -f Makefile.amiga EXTRA_CFLAGS=-DRASTER_BARS`: each phase of the frame paints
+> COLOR00 -- red undraw, yellow scroll, green logic, magenta crowd, blue bobs, cyan HUD -- and
+> the match clock shows the frame rate, "50mins." = 50 fps; `include/raster_bars.h`). The
+> drawing was CPU-bound, not blitter-bound: the blitter was busy ~15-20% of the frame and the
+> CPU spent half of the bob time waiting out many SMALL blits one at a time. What changed:
+>
+> - **One blit per player** (`spriteIsPadded8`, `display.h`): the 276 in-match running frames
+>   are stored 8 planes deep with an 8-row mask, so a player is one A?B:C blit over the 8-plane
+>   interleave instead of 8 per-plane blits (planes 4-7: B is zero, so mask?0:background, as the
+>   clear blit). The original's own layout. Kit colours are converted on the 4 colour planes only;
+>   the HW-sprite band copy steps each sprite by its own depth. +~37 KB of sprite pool (now 304
+>   KB). CPU per bob 6,977 -> 4,214 cycles.
+> - **The stack is in fast RAM** (`s_swos_stack`, `platform_amiga_stubs.c`). It was chip RAM
+>   because the original's was; compiled C pushes on every call, each push waiting for a slot the
+>   display left. Every blitter/copper/audio pointer was checked: none points at the stack.
+>   +8% of the frame free.
+> - **Vertical scroll** (`ScrollYUpdateRowsAndBlit`): the row copy moves two tiles at a time as
+>   longs, with the tile pointers cached, and reads the tiles from a fast-RAM copy made at the
+>   end of `FixupAndColorPitchFile` (a tile's pixels never change after that; the crowd only moves
+>   pointer slots). 52k -> 24k cycles a call.
+> - **Horizontal scroll**: the 2176-line column copies are ONE blit (`BLTSIZV`/`BLTSIZH`, no CPU
+>   wait between parts), and the second crossing into the same 32px block in the same direction
+>   on the same buffer is skipped -- the first already wrote both halves, the mask and the mirror.
+> - **Undraw** (`ProcessSpriteBlitQueue`): blitter priority once per batch, no trailing wait,
+>   modulos written only when they change. Writing a bob's blit mode and modulos once instead of
+>   per plane.
+> - Tried and dropped, measured: an interrupt-driven blit queue (slower -- interrupt overhead per
+>   tiny blit exceeded the waiting), `-O2` instead of `-Ofast` (no difference). Ruled out: FMODE=3
+>   (64px coarse scroll, an extra 64px fetch, 4-column updates), which would also have been the
+>   only way to free sprite 3's DMA slot for a second hardware-sprite band.
+> - Also fixed: the sprite pool's overflow check compared against the address of whatever label
+>   followed the pool in the original's BSS, so it caught nothing; it checks the pool's end now.
+
+> **Status (2026-10-16): a match displays at FMODE=3 (64-bit fetch) by default** (`AGA_FMODE`,
+> `include/display.h`; `EXTRA_CFLAGS=-DAGA_FMODE=1` for the old display). The 8-plane fetch takes
+> 48 chip-bus slots a line instead of 96, which left ~10% more of the frame free on the rig.
+> BPLCON1 scrolls a whole 64px unit, so every position stays reachable with one pointer per frame
+> (pointer = the unit at or before the window's first pixel - 1, delay 0..63). The fetch must start
+> a unit early and not before DDFSTRT $18, so the window is 320px (hpos $81-$1C1), laid out like
+> the DOS screen: the 336px picture centred (8px off each side). Only
+> the display changed -- the FMODE=1 scroll code already keeps every pixel this window shows. The
+> frontbuffers are 8-byte aligned (a 64-bit fetch reads aligned quadwords). Sprites 1-7 are lost
+> to the early fetch, so every sprite is a bob. Menus stay FMODE=1 at 336px. The bobs are undrawn
+> from the 2x-tall buffer's twin rows -- no mask buffer in a match -- and a crossing's twin column
+> rides at the head of its buffer's undraw queue, which runs in the background (blitter interrupt)
+> while the CPU runs the frame's logic.
+
+AGA mode gives the game a 256-colour display (8 bitplanes) for backgrounds and
+the pitch, while keeping sprite/menu/charset banks at **4 bitplanes (16 colours)**.
+The depth is **mixed per bank** and auto-detected at load, so the same decode path
+handles both. The switch is `#define AGA` in `include/display.h` (now the default);
+comment it out for the legacy OCS build (4 planes / 16 colours, folder `grafs/`).
+
+This document covers the *asset + palette + decode* side. The in-match
+**hardware-sprite vs bob** rendering that the 4bpp sprites feed into is documented
+separately in [AMIGA_SPRITES.md](AMIGA_SPRITES.md).
+
+---
+
+## 1. Mixed-depth banks
+
+The AGA graphics are produced from the DOS artwork by **SwosGfx** (`!DOS2AGA.bat`,
+`-bitplanes=auto`), which picks the depth per file from the art's highest palette
+index. Two geometry classes, both full fixed-dimension planar images:
+
+| Class | Dimensions | 1-plane bytes | Banks | Depth |
+|---|---|---|---|---|
+| **Sprite sheet** | 320×256 (40 B/plane row) | 40×256 = **10240** | charset, menus, menus2, cjcgrafs, cjcteam1/2/3, cjcteamg, cjcbits, cjcbench, team kits | **4bpp** |
+| " | " | " | **soccer_s** (ball R/S rotation) | **8bpp** |
+| **Full-screen** | 352×272 (stride `PLANE_STRIDE`=44) | 44×272 = **11968** | menubg, menubg2, rainbow, disk22, olddisk1, loader* | **8bpp** (OCS: 4bpp) |
+
+RAW banks are **RNC-compressed on disk** and decompressed at load (`LoadFileEx`,
+`src/file_io.c`).
+
+## 2. Per-bank depth auto-detection — `DetectBankPlanes`
+
+No per-file header is needed: the RNC header already carries the decompressed size,
+and `LoadFileEx` returns it via `outFileSize` (uncompressed for RNC, raw byte count
+otherwise — `file_io.c:289,308`). Each decoder already fixes its per-plane row bytes
+and row count, so:
+
+```
+planes = decompressedSize / (planeRowBytes × rows)      // include/display.h: DetectBankPlanes()
+```
+
+- Sprite banks: `size / (BITPLANE_ROW_BYTES × SPRITE_SHEET_ROWS)` = `size/10240` → 4 or 8.
+- Full-screen: `size / (PLANE_STRIDE × SCREEN_HEIGHT)` = `size/11968` → 4 (OCS) or 8 (AGA).
+
+Exact-division checked; falls back to compile-time `NUM_PLANES` on an unexpected size.
+This mirrors SwosGfx's `-bitplanes=auto` — change the art depth and it self-adjusts.
+~~`DetectBankPlanes` is currently **`#ifdef SWOS_SDL_BUILD`**; P3 ungate it for Amiga.~~
+Done: it is ungated in `include/display.h` and the Amiga `0x7000`/`0x8000` branches of
+`image_cmd.c` call it too.
+
+## 3. Decode sites (P1)
+
+Three decoders were made per-bank-depth-aware (SDL branches; Amiga `#else` is the
+bitplane-direct path):
+
+| Decoder | File | Reads |
+|---|---|---|
+| Sprite/glyph (`blitDispatch`) | `src/image_cmd.c` | `s_bankSrcPlanes` (set per 0x7000/0x8000 load), source stride `40 × planes` |
+| Menu background (`LoadOverlayToFrontbuffer`) | `src/frontend.c` | `DetectBankPlanes(size, PLANE_STRIDE, SCREEN_HEIGHT)`, stride `44 × planes` |
+| Loader frames (`loaderIntroLoadFrameToFrontbufferAlt`) | `src/loader_intro.c` | same as overlay |
+
+`s_bankSrcPlanes` (file-static in `image_cmd.c`) tracks the current sprite bank's
+depth; it is reset to `NUM_PLANES` at each `ProcessImageCommandStream` entry and set
+from the load size on each `0x7000`/`0x8000` opcode. On the Amiga build it stays
+`NUM_PLANES` until P3 wires the detection in. (Since done — the Amiga branches set it
+from the load size as well.)
+
+## 4. Folder redirect + fallback (P2)
+
+`GRAFS` = `"grafs_aga/"` under AGA. But many bank filenames are hardcoded `"grafs/…"`
+string literals that bypass the macro. Rather than edit ~39 strings (one file is
+auto-generated), the redirect lives entirely in the **SDL loader**:
+
+`src/resload.c` `open_case_insensitive` (`#ifdef AGA`): any `grafs/…` **or**
+`grafs_aga/…` path tries **`grafs_aga/<base>` first, then `grafs/<base>`** by basename.
+
+Consequences of this design:
+- `grafs_aga/` holds **only AGA-specific assets**. Shared/unconverted assets live in
+  `grafs/` and are reached by fallback.
+- **The extended charset is NOT in `grafs_aga/`** — see §5.
+- `disk2/socpic/tactics/winscrn.raw` have no AGA version and don't exist as OCS
+  either (pre-existing) — harmless.
+- `grafs_arcade/…` does not match the `grafs/` prefix (next char is `_`).
+
+The Amiga asset backend is separate (`Resload.s`), so this redirect is SDL-only. On
+the Amiga the assets must already be in `grafs_aga/` (or the same fallback added to
+its backend). `bin/grafs_aga` was staged for the SDL build **without** CHARSET.RAW.
+
+> **Update (2026-09-30):** the Amiga path now lives in `src/resload.c` too (the
+> `#ifdef AGA` `grafs/` → `grafs_aga/` rewrite beside `grafs_aga_buf`) — a plain rewrite
+> with **no** fallback to `grafs/`, whose comment says `grafs_aga/` holds every asset
+> "charset included". And `bin/grafs_aga/CHARSET.RAW` now exists (it differs from
+> `bin/grafs/CHARSET.RAW`). Which of the two is the extended font was not re-checked;
+> confirm before relying on §5.
+
+## 5. Extended charset (SWOS_Font) — always `grafs/`
+
+`bin/grafs/CHARSET.RAW` is the **extended font** from `C:\Projects\Python\SWOS_Font`
+(`CHARSET_NEW.RAW`), not the stock charset — it packs extra accented/punctuation
+glyphs (À, Á, Ç, É… sprites `0xC4C4..0xC519`) into unused sheet regions. It is
+**ungated / always active**: `src/font_ext_script.inc` (glyph extracts, `#include`d
+in `swos_globals.c:187`) + `src/font_ext_conv.inc` (`FontExt_ApplyConv()` at
+`SWOS.c:325`). It is 4bpp so it works in both OCS and AGA.
+
+SwosGfx's `!DOS2AGA.bat` writes a **plain** `grafs_aga/CHARSET.RAW` — do **not** ship
+it. Keep `grafs_aga/` charset-free so the redirect falls back to the extended
+`grafs/CHARSET.RAW`. (Amiga side: same rule — the extended font must be the one the
+band/bob code loads.)
+
+## 6. 256-colour palettes (P2) — were lost, now restored
+
+AGA writes 256 copper colours via `WriteCopperPalette` (`display.c`, 8 banks × 32).
+The C globals `_menuPalette` / `_gamePalette` had been **overwritten with the OCS
+16-entry values** when the data was regenerated from `Data.c` (the AGA 256-entry
+variants were casualties; the blitter/copper survived).
+
+Restored as **AGA-conditional** `uint16_t [256]` (OCS 16-entry kept in `#else`):
+- `_menuPalette` — `src/swos_globals.c`
+- `_gamePalette` — `src/swos_amiga_data_imports.c` (WriteCopperPitchPalette overlays
+  9 pitch-condition entries via `_paletteIndices` before pushing to copper)
+
+Values baked from SwosGfx `DOS_Palettes/{Menu,Game}.txt` via `ToAmiga12` (upper
+nibble of each 8-bit channel: `((r>>4)<<8)|((g>>4)<<4)|(b>>4)`). **Regenerate** with:
+
+```
+SwosGfx -palettes -pal-color=amiga12 -pal-format=c -pal-count=256   (from DOS_Palettes)
+```
+
+## 7. SDL palette extraction (P2)
+
+On the Amiga the copper drives the display directly; on SDL the chunky→RGBA LUT is
+built by `refresh_palette_from_copper` (`src/platform_sdl.c`). Its AGA branch was a
+`TODO` stub → everything rendered black. Implemented: walk 8 banks × 32 at
+`COP_PAL_B{0..7}_C0_VAL_OFF` (stride 4, 12-bit `0x0RGB`, `*17` to 8-bit) → `s_palette`.
+
+## 8. Dormant-path bring-up (P2)
+
+`#define AGA` had **never been compiled on either tree**, so the AGA blocks were full
+of stale references fixed during bring-up:
+- Copper symbols: bare `copperListBuffer` / `copperZeroLong` / `loaderModeFlag` →
+  `_`-prefixed (`display.c`, `fade.c`, `display.h` `COPPER_W`).
+- Palette symbols: bare `menuPalette` / `gamePalette` / `paletteIndices` /
+  `pitchPalettePtrs` / `pitchNumberAndType` in AGA blocks → `_`-prefixed
+  (`SWOS.c`, `display.c` `WriteCopperPitchPalette`, `match_setup.c`, `highlight.c`).
+- (`bitPlane4-7Base[Ptr]` were already correctly un-prefixed.)
+
+## 9. Build & test
+
+**SDL** (decode-correctness harness — shares the decode logic with Amiga):
+```
+make X86_64=1
+cd bin && SDL_VIDEODRIVER=dummy SWOS_SCREENSHOT_INTERVAL=45 ./SWOS.x86_64   # → swos_shotNNN.png
+```
+Verified rendering: Sensible loader logo (8bpp), credits charset (4bpp), 256-colour
+palette all correct. Both AGA and OCS builds exit-0.
+
+**Amiga** (FS-UAE + gdb, Kickstart 3.1 A1200 = AGA; the toolchain must be the
+benbaker76 fork of vscode-amiga-debug — see `.claude/CLAUDE.md` "Building"):
+```
+scripts/amiga/amiga_gdb.sh up          # launch FS-UAE + attach gdb (DH1: = bin/)
+python3 scripts/amiga/amigascope/gdb_proxy.py cmd "info registers"
+python3 scripts/swos_harness.py where  # drive menus (works on SDL and Amiga)
+```
+See [GDB_HARNESS.md](GDB_HARNESS.md) for the FS-UAE write-support details.
+
+### 9a. ⚠️ GOTCHA — every `#ifdef AGA` file MUST include `display.h`
+
+`AGA` is `#define`d in exactly one place: **`include/display.h`** (the "single source of
+`#define AGA`"). It is NOT a compiler `-D` flag, so it is only defined in a translation
+unit that actually `#include`s `display.h` (directly or transitively, and *before* the
+`#ifdef AGA` block). **If a `.c` uses `#ifdef AGA` / `#if defined(AGA)` but doesn't pull
+in `display.h`, `AGA` is undefined there and the whole AGA block is silently compiled
+out — no error, no warning.** The OCS/`#else` path runs on the AGA build, so a feature
+"works everywhere except in that one file" for no obvious reason.
+
+Real bug found 2026-07-20: **`match_setup.c`** used `#ifdef AGA` (the 256-colour pitch-
+palette-to-copper block) but had no `#include "display.h"`, so on the AGA build it was
+running the OCS 16-colour path. This class of bug has bitten us more than once.
+
+**Audit command** — run after adding any `#ifdef AGA`, or when an AGA feature is
+mysteriously inert in one area:
+```sh
+for f in $(grep -rlE '#if.*defined\(AGA\)|#ifdef AGA' src/*.c); do
+  grep -q '#include "display.h"' "$f" || echo "MISSING display.h: $f"
+done
+```
+(Also verify the include ordering: `display.h` must precede any header that itself keys
+off `#ifdef AGA`.)
+
+## 10. Sync (historical)
+
+> **Superseded (2026-08-12).** The SDL and Amiga trees were merged into one
+> repo; there is no sync step and no "canonical edit site" any more — edit
+> the file once and both targets pick it up. The section below is kept for
+> the historical record of what was/wasn't propagated at the time.
+
+Shared C is authored in `SWOS_C_SDL` and synced to the Amiga tree
+(`C:\Projects\AI\SWOS\SWOS_C`, `sync_to_amiga_port.sh`). The P1/P2 changes are **not
+yet synced**. The `resload.c` redirect and `platform_sdl.c` extraction are SDL-only
+by nature (that backend isn't shared); the palettes, `DetectBankPlanes`, decode
+changes, and dormant-path fixes all sync.
+
+## 11. FMODE — 32-bit bitplane fetch for the 8-plane lores pitch (P4)
+
+Status (**2026-07-14 — SOLVED**): **The full pitch scrolls clean in BOTH axes, both
+directions, corner to corner, on FS-UAE** — as long as the camera stays at **camX ≥ 17**
+(the extreme-left 16px is an unavoidable FMODE edge, see "The camX ≥ 17 clamp" below).
+The complete, working solution is documented in **§11·SOLVED** immediately below; the
+older subsections (§11a "DMA contention TODO", the SNAP fine-scroll table, "no buffer
+widen needed", "empty column is off-screen headroom") describe **earlier, since-superseded
+theories** and are kept only as a debugging cautionary trail — read §11·SOLVED for the
+truth. Not committed at time of writing (owner commits) — since committed (`ac030f1`
+"AGA FMODE geometry"; `SCROLL_LEFT_MARGIN_BYTES` is in `include/display.h`).
+
+### 11·SOLVED — the complete FMODE=1 pitch scroll (2026-07-14)
+
+The end state after a ~2-day debugging saga. Six distinct problems, fixed in layers.
+Files: `include/display.h`, `src/display.c` (`UpdatePlanePtrsAndBlitParams`),
+`src/scroll_blit.c` (`ScrollXUpdateColumnsAndBlit`, `ScrollYUpdateRowsAndBlit`). All
+`#if defined(AGA) && !defined(SWOS_SDL_BUILD)`-gated; the SDL path early-returns and the
+OCS path is the faithful 16px original, both untouched.
+
+**The final buffer geometry — a per-plane VERGE MARGIN.**
+`PLANE_STRIDE = 52` on AGA (was 44): each plane row is `[4-byte verge margin][48-byte
+DATA]`. `SCROLL_LEFT_MARGIN_BYTES = 4`. `ROW_STRIDE = 8×52 = 416`; `SCROLL_X_WRAP =
+PLANE_STRIDE×8 = 416`. The pitch DATA lives at byte `SCROLL_LEFT_MARGIN_BYTES..` — the
+display coarse (`display.c`), and both fills (`ScrollX` dest, `ScrollY` `xByteOff`) all
+add `+SCROLL_LEFT_MARGIN_BYTES`, so DATA is at byte 4 and the FMODE `-4` pull-back reads
+the margin (byte 0) at the pitch's extreme-left edge. `d6`/`d7` in `ScrollY` track the
+**48-byte DATA width** (`FMODE_FETCH_BYTES/2−1` words, modulo `ROW_STRIDE−FMODE_FETCH_BYTES`),
+NOT the 52-byte row — the fill writes DATA and skips the margin.
+
+**Layer 1 — the "empty far-left column" (the owner's 2-day complaint).** A flat
+background-colour-0 column at the far left during scroll. Root cause: the display fetched
+only **11 longs = 352px** while the ScrollY fill writes 384px+; the H7 fine-scroll delay
+then showed pre-fetch pipeline pixels (colour 0). Fix: fetch **12 longs = 384px**
+(`FMODE_FETCH_BYTES = 48`), `DDFSTRT 0x30→0x20`, and pull the plane pointer back one long
+(`baseOffset -= 4`) so the extra LEFT long lands under the fine-scroll delay. (Cracked by
+`RandyAGA.txt` "LONG burst mode": a 32-bit fetch reads the first long early and you must
+fetch one EXTRA long to cover the scroll delay.)
+
+**Layer 2 — coarse-boundary smoothness (per-pixel, no snap).** The static fine scroll is
+`delay = 32 − (cameraXMod320 & 0x1F)` encoded into BPLCON1 H6/H7 (`lo|lo<<4|h6<<10|
+h6<<14|h7<<11|h7<<15`), paired with the `-4` pointer pull-back **only when `delay ≥ 16`**
+(frac 0..16). That `-4` is what cancels the coarse-pointer step at each 32px boundary,
+making frac 31→0, 0→1 and 16→17 all per-pixel smooth (verified: touchline moves a uniform
+−2 screen-px per camX-px straight through coarse boundaries). This REPLACES the old SNAP.
+
+**Layer 3 — the coarse-boundary JUMP during *incremental* scroll.** Static full-redraws
+were smooth but live incremental scroll snapped back a tile every 32px. Root cause: the
+FMODE display fetches on a **32px (4-byte) grid**, but `ScrollX` wrote incoming columns on
+a **16px (2-byte) grid** (`WORD_ALIGN_EVEN_MASK`), leaving the other half of each 32px
+block stale — the display read the unwritten half. `ScrollY` already fixed this (its
+`fmodeExtraTiles` snaps the fill to the 32px coarse and pulls in the left tile); `ScrollX`
+did not. Fix: on each tile-cross `ScrollX` now writes the **full 32px block — BOTH 16px
+tile columns** (the block's left tile + the leading one) at the 32px-aligned dest
+(`scrollXBlitColumn` helper called twice; deferred 2-word mirror/mask). This was the big
+one — it made rightward scroll perfect.
+
+**Layer 4 — the leftward white strip.** Rightward writes its incoming column at the RIGHT
+leading edge (`d5 = +SCROLL_RIGHT_EDGE_X = 335`); leftward wrote at the visible edge
+(`d5 = 0`) while the display reads 32px further left (the `-4` margin) → that band was
+never filled → a white strip during leftward scroll. Fix: leftward writes at the LEFT
+leading edge, `d5 = −32` (`coarse−4`), edge-guarded (`_cameraX.s.i >= 32`) so it never
+reads pitch-x < 0 — symmetric to the rightward +335 lead.
+
+**Layer 5 — the extreme-left "jump back to the start" (~1 tile in).** The first coarse
+block (camX 0..16) can't use the `-4` smoothing because `coarse−4` reads 32px LEFT of the
+pitch's left touchline, where there is no pitch. Measured: a +62px backward lurch exactly
+at frac 16→17. Fix: the **verge margin** (geometry above) fills those bytes with the
+repeated leftmost pitch column (tile column 0), so `-4` has valid data everywhere and the
+first block scrolls smoothly too. Filled per-row inside the `ScrollY` CPU copy loop
+(cheap, incremental, no blitter) with a parallel `a1_verge` tile-0 pointer; mirrored into
+the 2×-tall block-B half.
+
+**Layer 6 — the mid-pitch dark column during Y scroll (the last bug).** Filling the
+margin broke a DIFFERENT thing: the FMODE display's per-plane 48-byte fetch **OVER-READS
+into the *next* plane's first 4 bytes** — that overlap IS the rolling-ring mechanism (see
+"OCS rolling circular-buffer" below), and it must hold rolling over-write content, not
+tile-0. Stamping the margin there at coarse > 0 corrupted the over-read → a dark vertical
+column mid-pitch. Fix: **gate the margin write to `cameraXMod320 < 32` (coarse = 0)** —
+the ONLY place the margin is ever read, and (crucially) the one place the over-read stops
+exactly at the margin boundary without touching it. Everywhere else those bytes stay
+rolling content, untouched. This was the subtle one: the "margin" and the "over-read
+region" are the SAME physical bytes serving two roles, reconciled only by the coarse=0
+gate.
+
+**The camX ≥ 17 clamp.** The verge margin is a *repeated* leftmost column (grass), not
+scrolling pitch — there is genuinely no content left of pitch-x 0. It is the visible
+leftmost only when `coarse = 0` AND the fine delay is active, i.e. camX **0..16**. So
+clamp the camera to **camX ≥ 17** and the entire visible window is fully-smooth scrolling
+pitch; below that the far-left ~16px shows the static verge stand-in. In real play the
+camera almost never pins to the touchline, so this is a non-issue.
+
+**Debugging lessons paid for in blood.** (a) Static full-redraw (`shot.sh`) tests the
+display+geometry; only LIVE incremental scroll exercises `ScrollX`, and only the owner's
+real display (or the modified live-capture fs-uae) shows real-time transients — a frozen
+capture re-composites clean. (b) A per-feature x-position sweep across a boundary
+(`measure_touchline.py`, −2px/camX-px linear = smooth) beats eyeballing. (c) When a fix
+"works static but breaks live", suspect the fill (`ScrollX`/`ScrollY`), not the display.
+(d) The over-read overlap means any byte you add near a plane boundary is read twice, for
+two purposes — check both.
+
+### 11a. The scroll COLUMN: real-time blitter-vs-display DMA contention (2026-07-13)
+
+The moving column seen during active horizontal scroll is **not** in the frontbuffer
+and is **not** a display-config bug — the static fine-scroll path renders clean at every
+fractional offset. It is a **real-time DMA-timing artifact**: it only exists while the
+emulator runs and vanishes the instant the CPU halts (blitter stops), which is why every
+frozen / re-composited screenshot looked clean and it took days to even capture it.
+
+**How it was found** (full method + example output in `DEBUG_TOOLKIT.md` §"Case study"):
+`fb_capture.py` decoded the buffer *clean* and a frozen screenshot was *clean*, but the
+modified fs-uae binary's live `capture_now` caught the column → it's real-time, not buffer
+content. `dma_profile.py` then proved the DMA contention and `dma_profile.py blits`
+localised the exact overrunning blits. This is the signature to remember: **buffer/frozen
+clean + live-capture dirty = a real-time DMA/timing bug** — reach for the DMA profiler,
+not more screenshots.
+
+**Proven cycle-exact** with the new `scripts/amiga/amigascope/dma_profile.py` (drives the fs-uae
+`monitor profile` DMA recorder and parses the `dma_rec[227×313]` per-cycle grid):
+
+- 7 of every ~8 frames have **zero blitter DMA** → clean pure-hardware scroll (coarse
+  pointer + BPLCON1 only).
+- On a **tile-cross** frame the scroll blit fires. `dma_profile.py blits` lists each
+  blit with its raster span; the small `16×128` column-tile blits fit in vertical blank
+  (vpos 4..33), but the large **`16×1024` MIRROR-copy blits** (the 2x-tall block-B-
+  elimination maintenance, §12) run **L33→L94 — i.e. on display lines 36..94**,
+  concurrently with the 8-plane bitplane fetch. 2652 CPU/blitter-steal events that frame.
+- 8-plane lores fetch consumes almost all chip-RAM DMA bandwidth during the visible
+  display; only ~32–40 scanlines of blanking exist before the display starts, but the
+  per-cross blit work needs ~90 scanlines. So it **overruns blanking into the top ~59
+  display lines** → starves/steals the fetch there → the garbage column.
+
+**Not BLITPRI** — setting/clearing `DMACON` BLITPRI (`DMACON_BLT_ON` in `waitBlit`) just
+swaps failure modes (priority → starves the beam; no-priority → the slow blit isn't
+finished when the buffer is swapped in). Left at the faithful `0x8400`.
+
+**Fix direction (TODO):** the blitter must never run while the display fetches. Since
+most frames are blit-idle, build the upcoming column — and its mirror — incrementally
+across those idle frames' blanking periods (a few tiles/slices per frame), so the
+tile-cross frame does no large blit. The 2x-tall mirror maintenance is the biggest
+offender and is the first thing to make incremental (or reconsider block-B elimination
+vs. scroll cost). Verify with `dma_profile.py`: success = **no blitter cell at vpos ≥ 36**.
+
+### 11b. Headless AGA debugging toolkit (fs-uae gdb harness)
+
+> **Full reference: `DEBUG_TOOLKIT.md`** (tool-by-tool usage, example output, the
+> two-binaries table, and the scroll-column case study). Summary below.
+
+Reusable terminal tools that read live emulator state through the gdb proxy — no
+IDE, no GUI. (Screenshot/DMA tools need the **modified** fs-uae at
+`/mnt/c/Projects/Linux/fs-uae/fs-uae`, which has a synchronous live-frame
+`fsemu_screenshot_capture_now` and the cycle-exact DMA recorder; boot it with
+`FSUAE_BIN=/mnt/c/Projects/Linux/fs-uae/fs-uae ./amiga_gdb.sh up --fresh`. The stock
+vscode/bartman binary's `monitor screenshot` RE-COMPOSITES a clean settled frame and so
+cannot capture real-time artifacts. Since then `scripts/amiga/amigascope.env`, which the
+`scripts/amiga/amiga_gdb.sh` shim loads, sets `FSUAE_BIN` to that modified binary, so it
+is the default for this project.)
+
+- **`dma_profile.py [N]`** — capture N frames of cycle-exact DMA and report, per frame,
+  blitter-vs-bitplane contention (blitter cells landing on display lines), DMA conflicts,
+  and CPU/blitter-steal events. `dma_profile.py blits <file>` lists every blit with its
+  raster start→end line, size, channels, and dest — flagging any that overrun the display
+  window. Format + logic ported from `vscode-amiga-debug` (`profile.ts` `sizeofDmaRec=58`;
+  `dma.ts` `GetBlits`).
+- **`copper_disasm.py [addr [bytes]]`** — disassemble a copper list straight from memory
+  (`MOVE`/`WAIT`/`SKIP`) with custom-register labels and decoded values (BPLCON0 plane
+  count, FMODE, DDF/DIW positions, fine-scroll, colours). Ported from
+  `vscode-amiga-debug/src/client/copperDisassembler.ts`. Defaults to `_copperListBuffer`.
+- **`fb_capture.py [out.png]`** — decode the displayed frontbuffer straight from chip RAM
+  via the copper block-A plane-0 pointer (fast, halt-only; shows buffer content, not the
+  real-time beam).
+- **`shot.sh CAMX CAMY OUT`** — settle + composited screenshot at a camera position.
+
+### 11c. Hardware sprite DMA steal (DDFSTRT) — the FMODE=3 case (2026-07-19)
+
+**Symptom.** With hardware sprites on, the right-hand players/ball lose colour (col-5
+corruption) and jitter on rightward scroll. **Root cause, proven cycle-exact** with
+`dma_profile.py` (see DEBUG_TOOLKIT.md): the 8-plane pitch's early **DDFSTRT** makes the
+bitplane fetch begin inside the hardware **sprite DMA slots**, and AGA disables any sprite
+whose slot falls at/after the fetch start.
+
+Measured on the SWOS AGA pitch (bob-path profile — sprite slots are hpos-fixed, so the
+overlap is visible even without active sprites):
+
+```
+fetch_start(hpos) = DDFSTRT + 4          # first bitplane DMA cell on a display line
+sprite spr_n owns slots  0x19+4n  and  0x1b+4n
+  spr0=0x19/0x1b  spr1=0x1d/0x1f  spr2=0x21/0x23  spr3=0x25/0x27
+  spr4=0x29/0x2b  spr5=0x2d/0x2f  spr6=0x31/0x33  spr7=0x35/0x37
+```
+
+SWOS uses **spr0–3** (planes01=spr0/1, planes23=spr2/3 attached 16-colour pairs). So:
+
+| DDFSTRT | fetch start | sprites disabled | SWOS effect |
+|---|---|---|---|
+| **$20** (current AGA FMODE=1) | 0x24 | spr3,4,5,6,7 | **spr3 lost** → spr2/3 pair mis-colours = col-5 corruption |
+| **$30** | 0x34 | spr7 only | spr0–3 all safe |
+| **$28** (OCS unaligned) | 0x2c | spr4–7 | spr0–3 safe (OCS runs 4 planes, so $28 already clears them) |
+
+**Why we can't just move DDFSTRT later at FMODE=1.** The 8-plane FMODE=1 fetch is dense
+(~96 bitplane cells/line, spanning 0x24..0xdb). Starting it later than $20 pushes its right
+edge past `DDFSTOP=$D0` and **truncates the right columns** — you'd have to move DDFSTOP too,
+which shifts/narrows the display. And the per-pixel BPLCON1 fine-scroll (which OCS has —
+`display.c:598-614` — and we must not regress) needs the extra-left long that forces the
+early $20. So at FMODE=1 the sprite steal and per-pixel scroll are in direct conflict.
+
+**The fix is FMODE=3 (64-bit fetch).** It fetches the same 8 planes in ¼ the DMA cells, so
+the fetch window is ¼ as wide and can **start past the sprite slots** (like OCS's $28/$30)
+while still feeding 8 planes, keeping the per-pixel scroll, and keeping full width. i.e.
+"OCS scroll geometry, 8 planes." A1200 page-mode chip RAM supports FMODE=3 (the 4×-bandwidth
+double-CAS mode). After it's implemented, re-profile and confirm `fetch start > 0x27`.
+
+**Measure/verify:** `dma_profile.py parse <bob.prof>` prints the steal; `dma_profile.py
+compare <ddf20.prof> <ddf30.prof> out.png` renders the before/after (green fetch line vs
+yellow sprite slots). Force DDFSTRT in the test rig with `g_pstDsForce`.
+
+### The problem: 8 bitplanes in LORES cannot be fed at FMODE=0
+
+The pitch is **8 bitplanes, lores** (`BPLCON0=0x0210`, HIRES=0). The copper never
+writes `FMODE` (`$1FC`) — the template slot at `display.c:181` is a real NO-OP
+(`0x01FE,0x0000`), so **FMODE=0 → 16-bit (2-byte) bitplane fetch**.
+
+Per the AGA docs (`AGA Registers.pdf` FMODE table; `A1200FuncSpec.txt`), the AGA
+8-bitplane capability *comes from* the 32-bit-wide fetch doubling the chip-RAM
+bandwidth. At FMODE=0 the 16-bit fetch **cannot keep 8 bitplanes fed across a lores
+line** — some high-plane fetches intermittently drop.
+
+Symptom (diagnosed 2026-07-12, see `project_aga_pitch_render_fixes` memory): the
+white pitch lines (palette **index 59** = planes 0,1,3,4,5) intermittently lost
+planes **4/5**, becoming index **11**/**27** = `_gamePalette` `0x000f` = pure blue.
+Proven to be a *display/scan-out* bug (stored bitplanes + copper palette were clean
+on a confirmed blue frame; it survived every sprite-exclusion test → it's the pitch,
+not the sprites).
+
+### FMODE register (`$1FC`) — bitplane fetch modes
+
+| BPAGEM (b1) | BPL32 (b0) | fetch increment | bus width |
+|---|---|---|---|
+| 0 | 0 | 2 bytes | **16-bit** (current / FMODE=0) |
+| 0 | 1 | 4 bytes | **32-bit** (FMODE=1, BPL32) — doubles bandwidth |
+| 1 | 1 | 8 bytes | 64-bit (double-CAS, needs page-mode RAM) |
+
+Bits 2/3 (`SPR32`/`SPAGEM`) do the same for **sprites** independently.
+
+### The fix: FMODE=1 (BPL32) for the pitch
+
+Set `FMODE = 0x0001` and re-tune the display-data-fetch window/modulo for the wider
+fetch. Values confirmed on FS-UAE (blue → white lines):
+
+- **FMODE**: `display.c:181` template `0x01FE,0x0000` → `0x01FC,0x0001` (real write
+  instead of the NO-OP).
+- **DDFSTRT = 0x30**, **DDFSTOP = 0xD0** — at 32-bit fetch this gives 11 fetches × 32px
+  = 352px (vs FMODE=0's 21 × 16px). `DDFSTRT` must be 16-clock aligned for 32-bit
+  fetch (`0x30` ✓; the old sub-word-scroll `0x28` is **invalid** at FMODE=1).
+- **Bitplane modulo = 308** (`= 352 − 44`; the fetch grabs 44 B/plane = 11×4). Set in
+  `UpdatePlanePtrsAndBlitParams` (both scroll branches). NOTE: the modulo is
+  razor-sharp — ±4 off = full garble.
+
+### Scroll alignment for 32-bit fetch (implemented 2026-07-13)
+
+**32-bit fetch forces a 32px-aligned bitplane pointer.** Verified live on FS-UAE:
+nudging the pointer by a single 16px word (2 bytes) at FMODE=1 **scrambles the whole
+display** (broken lines, fragmented circles) — the hardware ignores the low address
+bit. So the coarse cameraX offset must be `& 0xFFFC` (4 bytes / 32px), and the
+residual 0–31px fine scroll must be done entirely in `BPLCON1`.
+
+**BPLCON1 fine scroll (AGA lores, per `RandyAGA.txt`).** The 8-bit scroll code
+`PF1H0..H7` (35 ns / ¼-lores-px units) maps to *non-contiguous* BPLCON1 bits:
+
+| scroll bit | lores value | PF1 bit | PF2 bit |
+|---|---|---|---|
+| H2 | 1 px  | 0  | 4  |
+| H3 | 2 px  | 1  | 5  |
+| H4 | 4 px  | 2  | 6  |
+| H5 | 8 px  | 3  | 7  |
+| **H6** | **16 px** | **10** | **14** |
+| **H7** | **32 px** | **11** | **15** |
+
+So a lores delay `D` (0–47) encodes as
+`lo=D&0xF; h6=(D>>4)&1; h7=(D>>5)&1;`
+`BPLCON1 = lo|(lo<<4)|(h6<<10)|(h6<<14)|(h7<<11)|(h7<<15)`. The doc explicitly
+warns: **smooth scrolling with 2×/4× fetch mode requires these extended bits** —
+you do NOT move `DDFSTRT` per fraction; the wide fetch already supplies a full 32px
+block, so the fine scroll is BPLCON1-only with a *constant* `DDFSTRT/DDFSTOP`.
+
+**The displayed pixel model** (calibrated on FS-UAE): with a 32px-aligned pointer at
+`coarse` and delay `D`, screen x=0 shows `pointer + (32 − D)` for `D∈[16,31]` (a clean
+**leftward** shift that reveals fetched right-edge pixels). We hold
+`DDFSTRT=0x30 / DDFSTOP=0xD0 / modulo=308` constant and **SNAP** the fine fraction to
+`min(frac,16)`, so only the clean H6 regime is ever used:
+
+| `frac = cameraXMod320 & 0x1F` | pointer | delay `D` | notes |
+|---|---|---|---|
+| 0 | `coarse` | 0 | 32px-aligned |
+| 1..16 | `coarse` | `32 − frac` (16..31) | H6 bit; smooth |
+| 17..31 | `coarse` | 16 (**snapped** to frac=16) | steppy-but-clean; no H7, no pointer nudge |
+
+`UpdatePlanePtrsAndBlitParams` computes `d1 = cameraXMod320 & 0x1F; if (d1>16) d1=16;`
+then `delay = 32−d1` → `BPLCON1 = lo|(lo<<4)|(h6<<10)|(h6<<14)` with `lo=delay&0xF,
+h6=(delay>>4)&1`. **This replaces the old "left strip" bug fix** (which used a
+`DDFSTRT=0x20` early fetch + positive BPLCON1 delay whose left-revealed pixels came
+from the FMODE pipeline-fill region → a full-height speckled strip). The snap trades
+away sub-16px smoothness in the upper half of each 32px block for a guaranteed-clean
+display; the "true smooth" alternative (H7 + a +32px pointer nudge) is documented above
+but is currently OFF — see the rolling-buffer note below for why it fought the blit.
+
+### The OCS rolling circular-buffer scroll model (the system AGA must copy)
+
+This is the crux the user asked us to nail down. **The frontbuffer line is a rolling
+circular buffer in X**, and every over-read/over-write "past the plane row" is
+*intentional* — reads and writes roll together and stay paired. Getting this wrong
+(clamping a dest into the 44-byte plane row) is what produced the "wrong column"
+corruption; getting it right is a *faithful* translation of `SWOS2.s`, no clamps.
+
+Geometry (`display.h`, OCS values in parens):
+- One frontbuffer line = `ROW_STRIDE_BYTES = NUM_PLANES × PLANE_STRIDE` = **352 B**
+  AGA (8×44) / **176 B** OCS (4×44). Interleaved: line `L`, plane `p`, byte `b` lives
+  at `L·ROW_STRIDE + p·PLANE_STRIDE + b`.
+- The X buffer is **circular at `SCROLL_X_WRAP = 352px = 44 B`** (one plane row wide).
+  `cameraXMod320 ∈ [0,352)` (see `SetCameraCoordinates` / `MoveView`: `+1..wrap 352`).
+- `coarse_byte = (cameraXMod320 >> 3) & align` (OCS `&0xFFFE`/2B; AGA FMODE `&0xFFFC`/4B).
+
+How a scroll frame works (`SWOS2.s` `ScrollXUpdateColumnsAndBlit`, ported 1:1):
+- On crossing a tile boundary, blit **one 16px tile column** of all `NUM_PLANES` planes.
+- **Dest byte is the ROLLING leading edge, NOT clamped:** move-right uses
+  `dest = (cameraXMod320 + SCROLL_RIGHT_EDGE_X(335)) >> 3 & align` → **byte 40..84**,
+  deliberately *past* the 44-byte plane row. The blit steps dest by `PLANE_STRIDE`
+  per word (`BLTDMOD = PLANE_STRIDE−2` → `+2+42 = +44`), writing plane `p` at
+  `dest + p·PLANE_STRIDE`.
+- The **display** (`UpdatePlanePtrsAndBlitParams`) reads plane `p` from
+  `base + coarse_byte + p·PLANE_STRIDE`, fetching 42–44 B/plane, which **over-reads
+  past the plane row** for any `coarse_byte > 2`.
+- **Why it's coherent:** blit-write and display-read use the *same* `PLANE_STRIDE`
+  stride, and `coarse_byte` (read) and the leading edge (write) advance in lock-step
+  (`335px` apart in a 352px circular buffer). So each over-read lands exactly on the
+  matching over-write. The physical "plane p+1 region" doesn't strictly hold plane
+  p+1 — it holds whatever the roll placed there, and both sides agree. **The whole
+  176/352-byte line is one rolling ring; "planes" are just `PLANE_STRIDE`-spaced taps
+  into it.**
+
+The AGA port replicates this **unchanged** (8 planes, `PLANE_STRIDE=44`,
+`ROW_STRIDE=352`, `SCROLL_X_WRAP=352`). AGA touches ONLY the display registers — the
+FMODE 4-byte coarse alignment + the extended BPLCON1 fine scroll (snap table above).
+The blit (`ScrollX`/`ScrollY`) is byte-for-byte the OCS algorithm; **it must not be
+"corrected" for the over-range — that range is the ring.**
+
+### The bug this session (fixed 2026-07-13): a dest clamp broke the ring
+
+Symptom: after a full redraw the pitch was clean, but any scroll position with
+`coarse_byte > 2` showed a large field of green/white speckle over the right ~⅔ of the
+screen. Root cause: `ScrollXUpdateColumnsAndBlit` had grown a
+`destXByteOff %= PLANE_STRIDE` clamp (added while chasing an earlier artifact). That
+forced the rolling leading edge back into `[0,44)`, so the blit wrote the incoming
+column to the *wrong* physical byte while the display kept over-reading the ring →
+plane-shifted garbage. **Fix: delete the clamp; restore the faithful
+`dest = ((cameraXMod320 + d5) >> 3) & WORD_ALIGN_EVEN_MASK` (un-clamped).** `ScrollY`'s
+row write was already un-clamped (faithful), so it was untouched. Verified on FS-UAE
+via `scripts/amiga/amigascope/fb_capture.py`: clean at coarse 24 (full redraw) and clean through
+a full incremental scroll sweep, both directions, both double-buffers.
+
+**The "empty/corrupt left column" is off-screen headroom, not a bug.** During
+incremental scroll a ~1–15px speckle column appears at the extreme left of the *raw
+352px fetch* — this is the ring **seam** (where the leading-edge write meets the
+trailing edge). But the real display is only 336px: the DIW crops the leftmost
+`snapped_frac` (≤16px) of the fetch as fine-scroll headroom, and the seam lives inside
+that crop. `fb_capture.py` renders the DIW-cropped **visible** window by default
+(`min(camXMod&0x1F,16)` px skipped) and it is clean; pass `full` to see the whole fetch
+incl. the off-screen seam. **So NO buffer widen is needed** — the earlier "widen
+352→384" plan (reverted) was treating the off-screen seam as if it were visible.
+
+### Why OCS "just works" and AGA needs the FMODE display tweaks only
+
+OCS runs **FMODE=0** (16-bit / 16px word fetch), which accepts **16px-aligned (2-byte)
+pointers**: a 16px coarse quantum + a 0–15px BPLCON1 delay + a one-word-early
+`DDFSTRT=0x28` prime. The *rolling ring above is identical* on OCS — nothing about the
+buffer changes. AGA only needs FMODE=1 for the 336px 8-bitplane DMA budget, which forces
+the 32px coarse quantum and the extended/snapped BPLCON1 fine scroll. **The scroll
+buffer, the ScrollX/ScrollY blit, and the circular over-read are shared verbatim
+between OCS and AGA; FMODE changes the display-register side only.**
+
+### When we use 32-bit vs 16-bit fetch
+
+| Display | Planes / res | FMODE |
+|---|---|---|
+| In-match **pitch** (AGA) | 8bpl lores | **1 (32-bit)** — required for the fetch budget |
+| Menus / intro / loaders (AGA) | 8bpp full-screen | evaluate — if 8bpl lores, same FMODE=1 need; else 0 |
+| **OCS** build | 4bpl lores | **0 (16-bit)** — 4 planes fit at 16-bit, no FMODE |
+| Hardware sprites (band players) | ≤16px, 4bpl attached | 16-bit (`SPR32=0`) unless sprite bandwidth needs it |
+
+FMODE is a **global** chip register, so if the menu display is also 8bpl lores it must
+be set/cleared in lock-step with the pitch (or left at FMODE=1 throughout the AGA run
+if all AGA displays are 8bpl lores).
+
+### Bonus: this fixes the pitch performance too
+
+32-bit fetch **halves the bitplane DMA cycles** the pitch consumes, freeing the chip
+bus for the blitter — so the 8-plane pitch scroll (currently the main AGA slowdown)
+gets faster. One change fixes both the corruption and the speed.
+
+### OCS
+
+FMODE is AGA-only. The OCS build (4 bitplanes) leaves FMODE=0 (16-bit) — 4 planes fit
+the lores fetch budget with headroom. Gate the FMODE write behind `#ifdef AGA`.

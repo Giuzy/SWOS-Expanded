@@ -1,0 +1,653 @@
+--- a/src/expanded_career.c
++++ b/src/expanded_career.c
+@@ -211,43 +211,62 @@
+     ShowMenu(_expandedHallMenu);
+ }
+ 
+-/* Expanded 0.9: job search uses the native contest/calendar geometry,
+- * but NEVER calls the original fixture generator before InitCareer(). */
++/* Expanded 0.10: the unemployed screen uses a cloned copy of the original
++ * packed contest menu. No fake custom buttons or alternate panel geometry. */
+ #include <time.h>
+-extern uint8_t _expandedUnemployedMenu[];
++extern uint8_t *Expanded_UnemployedCalendarMenu(void);
+ extern uint8_t _expandedClubOfferMenu[];
++extern uint8_t _expandedOfferPreviewMenu[];
+ extern uint8_t _teamFileBuffer[];
+ extern uint16_t _teamsLoaded;
+ extern int16_t LoadTeamFile(uint16_t extNumber);
+ extern void DrawMenu(void);
+ extern void SetExitMenuFlag(void);
+-extern void FillRectangle(uint16_t,uint16_t,uint16_t,uint16_t,uint16_t);
+ extern uint16_t DrawMenuTextCentered(uint16_t,uint16_t,uint16_t,uint8_t *,uint8_t *);
+ extern void *_charTables[];
+ extern void *_countriesTable[262];
+ extern MenuEntry _menuEntries[];
+ extern uint8_t _currentMenu[];
+ extern uint16_t _fireResetFlag;
++extern void Expanded_FormatDate(char *,size_t,unsigned,unsigned);
+ static unsigned s_waitWeeks=0;
+ static unsigned s_nextOfferWeek=0;
+-static unsigned s_offerCount=0;
+ static int s_waitAccepted=0;
+ static uint16_t s_waitTeam=0;
+ static uint8_t s_waitCountry=8;
++static uint8_t s_waitLeague=0;
+ static char s_waitTeamName[40]="";
+ static char s_waitCountryName[40]="";
++static char s_previewPlayers[16][28];
++static char s_previewTeams[16][24];
++static unsigned s_previewCount=0;
++static unsigned s_previewMode=0; /* 1=squad, 2=league */
+ static unsigned s_randomState=1;
+ static unsigned next_random(void) {
+-    /* Small local PRNG: does not consume SWOS match simulation RNG. */
+     s_randomState ^= s_randomState << 13;
+     s_randomState ^= s_randomState >> 17;
+     s_randomState ^= s_randomState << 5;
+     return s_randomState;
+ }
+-static unsigned next_delay(void) { return 1u + next_random()%5u; }
++static unsigned next_delay(void) {return 1u + next_random()%5u;}
++/* Recheck the actual team file every time, including before acceptance.
++ * The original GetTeamPointer has an unbounded search on an invalid ID. */
++static int find_offer_team(TeamFileEx *out) {
++    if(!s_waitTeam || LoadTeamFile(s_waitCountry)!=0) return 0;
++    unsigned count=*(const uint16_t*)_teamFileBuffer;
++    if(!count || count>256) return 0;
++    const TeamFileEx *teams=(const TeamFileEx*)(_teamFileBuffer+2);
++    for(unsigned i=0;i<count;i++) {
++        const TeamFile *t=&teams[i].team;
++        if(t->countryNumber==s_waitCountry &&
++           t->teamOrdinal==(uint8_t)s_waitTeam) {
++            if(out) memcpy(out,&teams[i],sizeof *out);
++            return 1;
++        }
++    }
++    return 0;
++}
+ static void choose_small_club(void) {
+-    /* Real teams from the shipped data. Select a random club from the
+-     * bottom league of a randomly chosen playable national file. */
+     static const uint8_t files[]={8,13,14,20,21};
+     unsigned start=next_random()%(sizeof files/sizeof files[0]);
+     s_waitTeam=0;
+@@ -256,15 +275,17 @@
+         _teamsLoaded=0;
+         if(LoadTeamFile(country)!=0) continue;
+         unsigned count=*(const uint16_t*)_teamFileBuffer;
+-        if(!count || count>93) continue;
++        if(!count || count>256) continue;
+         const TeamFileEx *teams=(const TeamFileEx*)(_teamFileBuffer+2);
+-        unsigned maxLeague=0, candidates=0;
++        unsigned maxLeague=0,candidates=0;
+         for(unsigned i=0;i<count;i++)
+             if(teams[i].team.countryNumber==country && teams[i].team.league<32 &&
+                teams[i].team.league>maxLeague) maxLeague=teams[i].team.league;
++        if(maxLeague<2) continue;
+         for(unsigned i=0;i<count;i++)
+-            if(teams[i].team.countryNumber==country && teams[i].team.league==maxLeague) candidates++;
+-        if(!candidates || maxLeague<2) continue;
++            if(teams[i].team.countryNumber==country && teams[i].team.league==maxLeague)
++                candidates++;
++        if(!candidates) continue;
+         unsigned selected=next_random()%candidates;
+         for(unsigned i=0;i<count;i++) {
+             const TeamFile *t=&teams[i].team;
+@@ -272,62 +293,63 @@
+             if(selected--==0) {
+                 s_waitTeam=(uint16_t)((country<<8)|t->teamOrdinal);
+                 s_waitCountry=country;
++                s_waitLeague=(uint8_t)maxLeague;
+                 snprintf(s_waitTeamName,sizeof s_waitTeamName,"%.17s",(const char*)t->teamName);
+                 if(_countriesTable[country])
+                     snprintf(s_waitCountryName,sizeof s_waitCountryName,"%.28s",
+                              (const char*)_countriesTable[country]+1);
+                 else snprintf(s_waitCountryName,sizeof s_waitCountryName,"COUNTRY %u",country);
++                if(!find_offer_team(NULL)) {s_waitTeam=0;continue;}
+                 return;
+             }
+         }
+     }
+ }
+ void Expanded_UnemployedInit(void) {
+-    /* No club-dependent commands have onSelect callbacks. The VIEW OFFER
+-     * action appears only when an offer is pending. */
+-    _menuEntries[5].isInvisible=(s_waitTeam==0 || s_waitWeeks<s_nextOfferWeek);
+-    _menuEntries[4].isInvisible=(s_waitTeam!=0 && s_waitWeeks>=s_nextOfferWeek);
+-    ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[
+-        (s_waitTeam!=0 && s_waitWeeks>=s_nextOfferWeek) ? 5 : 4];
++    /* These ordinals belong to the *original* contest menu layout.
++     * All club-specific entries are hidden, not merely grey and clickable. */
++    for(unsigned i=0;i<44;i++)
++        _menuEntries[i].isInvisible=!(i<=3 || i==7 || i==9 || i==10 || i==18);
++    int offerReady=s_waitTeam && s_waitWeeks>=s_nextOfferWeek;
++    _menuEntries[7].isInvisible=offerReady;
++    _menuEntries[10].isInvisible=!offerReady;
++    ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[offerReady?10:7];
+ }
+ static void contest_line(unsigned y,const char *line,unsigned color) {
+     DrawMenuTextCentered(160,(uint16_t)y,(uint16_t)color,(uint8_t*)line,(uint8_t*)_charTables[0]);
+ }
+ void Expanded_UnemployedDraw(void) {
+     char line[90];
+-    /* This is the original calendar panel geometry (304x116 at y=31),
+-     * not a second independently designed grid of buttons. */
+-    FillRectangle(8,31,304,116,8);
+-    FillRectangle(10,33,300,112,0);
+-    FillRectangle(12,35,296,13,9);
+-    contest_line(37,"FIXTURES / CALENDAR",7);
+-    snprintf(line,sizeof line,"WEEK %u  -  UNEMPLOYED",s_waitWeeks+1);
+-    contest_line(59,line,7);
++    char date[40];
++    Expanded_FormatDate(date,sizeof date,1996,s_waitWeeks);
++    contest_line(39,date,2);
++    contest_line(58,"NO MATCH - UNEMPLOYED",7);
+     if(s_waitTeam && s_waitWeeks>=s_nextOfferWeek) {
+-        contest_line(81,"CLUB OFFER RECEIVED",2);
+-        contest_line(103,"VIEW OFFER FOR CLUB AND COUNTRY",7);
++        contest_line(80,"CLUB OFFER RECEIVED",2);
++        contest_line(104,"VIEW OFFER TO CONTINUE",7);
+     } else {
+-        contest_line(81,"WAITING FOR AN OFFER FROM A CLUB",7);
+-        contest_line(103,"NO MATCH SCHEDULED",7);
+-    }
+-    contest_line(129,"CLUB COMMANDS UNAVAILABLE",6);
++        contest_line(80,"WAITING FOR A CLUB OFFER",7);
++        snprintf(line,sizeof line,"WEEK %u - FORWARD TIME",s_waitWeeks+1);
++        contest_line(104,line,7);
++    }
++    contest_line(128,"CLUB ACTIONS DISABLED",6);
+ }
+ void Expanded_UnemployedWait(void) {
+     if(s_waitTeam && s_waitWeeks>=s_nextOfferWeek) return;
+     if(s_waitWeeks<100) s_waitWeeks++;
+     if(s_waitWeeks>=s_nextOfferWeek && !s_waitTeam) choose_small_club();
+-    _fireResetFlag=1; /* one physical press = exactly one week */
++    if(!s_waitTeam && s_waitWeeks>=s_nextOfferWeek)
++        s_nextOfferWeek=s_waitWeeks+next_delay();
++    _fireResetFlag=1;
+     Expanded_UnemployedInit();
+     DrawMenu();
+ }
+ void Expanded_OfferDraw(void) {
+     char line[100];
+-    FillRectangle(22,39,276,119,8);
+-    FillRectangle(24,41,272,115,0);
+-    contest_line(52,"A CLUB WANTS TO HIRE YOU",7);
+-    snprintf(line,sizeof line,"CLUB: %.32s",s_waitTeamName); contest_line(77,line,2);
+-    snprintf(line,sizeof line,"COUNTRY: %.32s",s_waitCountryName);contest_line(98,line,7);
+-    contest_line(126,"ACCEPT OR DECLINE THE OFFER",7);
++    contest_line(48,"A CLUB WANTS TO HIRE YOU",7);
++    snprintf(line,sizeof line,"CLUB: %.25s",s_waitTeamName); contest_line(74,line,2);
++    snprintf(line,sizeof line,"COUNTRY: %.25s",s_waitCountryName);contest_line(93,line,7);
++    snprintf(line,sizeof line,"DIVISION: %u",(unsigned)s_waitLeague+1);contest_line(110,line,7);
+ }
+ void Expanded_UnemployedShowOffer(void) {
+     if(!s_waitTeam || s_waitWeeks<s_nextOfferWeek) return;
+@@ -336,27 +358,74 @@
+     else { Expanded_UnemployedInit(); DrawMenu(); }
+ }
+ void Expanded_UnemployedAccept(void) {
+-    if(!s_waitTeam || s_waitWeeks<s_nextOfferWeek) return;
++    if(!s_waitTeam || !find_offer_team(NULL)) {
++        fprintf(stderr,"[expanded10] rejected invalid team id %04x\n",s_waitTeam);
++        s_waitTeam=0;
++        SetExitMenuFlag();
++        return;
++    }
+     s_waitAccepted=1;
+     SetExitMenuFlag();
+ }
+ void Expanded_UnemployedReject(void) {
+     s_waitTeam=0;
+-    s_offerCount++;
+     s_nextOfferWeek=s_waitWeeks+next_delay();
+     SetExitMenuFlag();
++}
++void Expanded_OfferPreviewDraw(void) {
++    char line[90];
++    contest_line(31,s_previewMode==1?"CLUB SQUAD":"CLUB COMPETITION",2);
++    snprintf(line,sizeof line,"%.23s - %.18s",s_waitTeamName,s_waitCountryName);
++    contest_line(48,line,7);
++    if(s_previewMode==1) {
++        for(unsigned i=0;i<16;i++) {
++            snprintf(line,sizeof line,"%02u %.25s",i+1,s_previewPlayers[i]);
++            contest_line(61+i*10,line,7);
++        }
++    } else {
++        snprintf(line,sizeof line,"DOMESTIC DIVISION %u",(unsigned)s_waitLeague+1);
++        contest_line(69,line,7);
++        contest_line(83,"TEAMS IN THIS DIVISION",2);
++        for(unsigned i=0;i<s_previewCount && i<10;i++)
++            contest_line(96+i*11,s_previewTeams[i],7);
++        contest_line(214,"STANDINGS NOT YET SIMULATED",6);
++    }
++}
++void Expanded_OfferViewSquad(void) {
++    TeamFileEx team;
++    if(!find_offer_team(&team)) return;
++    for(unsigned i=0;i<16;i++)
++        snprintf(s_previewPlayers[i],sizeof s_previewPlayers[i],"%.22s",
++                 (const char*)team.players[i].playerName);
++    s_previewMode=1;
++    ShowMenu(_expandedOfferPreviewMenu);
++}
++void Expanded_OfferViewLeague(void) {
++    if(LoadTeamFile(s_waitCountry)!=0) return;
++    unsigned count=*(const uint16_t*)_teamFileBuffer;
++    if(count>256) return;
++    const TeamFileEx *teams=(const TeamFileEx*)(_teamFileBuffer+2);
++    s_previewCount=0;
++    for(unsigned i=0;i<count && s_previewCount<16;i++) {
++        if(teams[i].team.countryNumber!=s_waitCountry ||
++           teams[i].team.league!=s_waitLeague) continue;
++        snprintf(s_previewTeams[s_previewCount++],24,"%.17s",
++                 (const char*)teams[i].team.teamName);
++    }
++    s_previewMode=2;
++    ShowMenu(_expandedOfferPreviewMenu);
+ }
+ int Expanded_WaitForFirstOffer(uint16_t *team) {
+     if(!team) return 0;
+     s_randomState=(unsigned)time(NULL) ^ (unsigned)(uintptr_t)team ^
+                   ((unsigned)_expandedManagerStartAge<<16) ^ 0xA529B41Du;
+     if(!s_randomState) s_randomState=1;
+-    s_waitWeeks=0; s_offerCount=0; s_waitAccepted=0; s_waitTeam=0;
++    s_waitWeeks=0; s_waitAccepted=0; s_waitTeam=0;
+     s_nextOfferWeek=next_delay();
+-    ShowMenu(_expandedUnemployedMenu);
+-    if(!s_waitAccepted || !s_waitTeam) return 0;
++    ShowMenu(Expanded_UnemployedCalendarMenu());
++    if(!s_waitAccepted || !s_waitTeam || !find_offer_team(NULL)) return 0;
+     *team=s_waitTeam;
+-    fprintf(stderr,"[expanded09] accepted job: country=%u club=%s after %u weeks\n",
+-            (unsigned)s_waitCountry,s_waitTeamName,s_waitWeeks);
++    fprintf(stderr,"[expanded10] accepted club %s (%u) after %u weeks\n",
++            s_waitTeamName,(unsigned)s_waitCountry,s_waitWeeks);
+     return 1;
+ }
+--- a/src/expanded_economy.c
++++ b/src/expanded_economy.c
+@@ -34,6 +34,10 @@
+ uint8_t _expandedBoardMood = 50;
+ uint8_t _expandedFanMood = 50;
+ uint32_t _expandedSupporters = 0;
++uint8_t _expandedLowConfidenceMatches = 0;
++extern volatile uint16_t _youreSacked;
++/* Original SWOS remains in charge of displaying the sacking and job offers.
++ * Never invoke a modal menu from inside a match-result callback. */
+ extern uint8_t _expandedManagerFame;
+ static void ensure_club(void);
+ static uint8_t clamp_mood(int value) {
+@@ -46,6 +50,16 @@
+     int fans = result>0 ? 7 : result<0 ? -8 : 1;
+     _expandedBoardMood=clamp_mood((int)_expandedBoardMood+board+money);
+     _expandedFanMood=clamp_mood((int)_expandedFanMood+fans);
++    if ((_expandedBoardMood<=12 && _expandedFanMood<=20) ||
++        (_expandedBoardMood<=5 && _expandedFanMood<=35)) {
++        if (_expandedLowConfidenceMatches<255) _expandedLowConfidenceMatches++;
++        if (_expandedLowConfidenceMatches>=3) {
++            fprintf(stderr,"[expanded10] dismissal: board=%u fans=%u after %u bad reviews\n",
++                (unsigned)_expandedBoardMood,(unsigned)_expandedFanMood,
++                (unsigned)_expandedLowConfidenceMatches);
++            _youreSacked=1;
++        }
++    } else _expandedLowConfidenceMatches=0;
+     int delta = result>0 ? 125 : result<0 ? -90 : 15;
+     if(delta<0 && _expandedSupporters<(uint32_t)(-delta)) _expandedSupporters=0;
+     else _expandedSupporters=(uint32_t)((int32_t)_expandedSupporters+delta);
+@@ -98,6 +112,7 @@
+     _expandedShirtSponsor = _expandedStadiumSponsor = _expandedTvRights = 0;
+     _expandedBoardMood = clamp_mood(50+(int)_expandedManagerFame*5);
+     _expandedFanMood = clamp_mood(40+(int)_expandedManagerFame*9);
++    _expandedLowConfidenceMatches=0;
+     _expandedSupporters = s_capacity[_expandedFacilityLevels[0]-1] *
+                           (uint32_t)_expandedFanMood / 100u;
+ }
+@@ -108,6 +123,7 @@
+     _expandedEconomyLastSeason = 0xFFFFu;
+     _expandedShirtSponsor = _expandedStadiumSponsor = _expandedTvRights = 0;
+     _expandedBoardMood=50; _expandedFanMood=50; _expandedSupporters=0;
++    _expandedLowConfidenceMatches=0;
+ }
+ static int32_t add_saturating(int32_t value, uint32_t gain)
+ {
+@@ -287,6 +303,10 @@
+     /* The legacy generic upgrade row stays in the packed layout to keep
+      * ordinals stable, but is not visible or selectable. */
+     _menuEntries[9].isInvisible=1;
++    for (unsigned i=1; i<=8; ++i) {
++        _menuEntries[i].background=NO_BACKGROUND;
++        _menuEntries[i].content=NO_FOREGROUND;
++    }
+ }
+ void Expanded_ClubOverviewIcons(void) {
+     static const char *const names[8]={"STADIUM","TRAIN","TRAVEL","OFFICE",
+@@ -303,6 +323,33 @@
+     if (!entry || entry->ordinal < 1 || entry->ordinal > 8) return;
+     _expandedFacilitySelected=(uint8_t)(entry->ordinal-1);
+     ShowMenu(_expandedFacilityDetailMenu);
++}
++
++/* Calendar date, same formatter in the match calendar and the club ledger.
++ * Career finance week is the best available weekly clock; it is not a
++ * simulation of a full day-by-day football fixture schedule. */
++static const char *const s_months[]={"JAN","FEB","MAR","APR","MAY","JUN",
++                                     "JUL","AUG","SEP","OCT","NOV","DEC"};
++static const char *const s_days[]={"SUN","MON","TUE","WED","THU","FRI","SAT"};
++static int is_leap(unsigned y) {return (y%4==0 && (y%100!=0 || y%400==0));}
++void Expanded_FormatDate(char *out,size_t cap,unsigned season,unsigned week) {
++    unsigned year=season>=1900?season:(season>=90?1900+season:2000+season);
++    if(year<1990 || year>2200) year=1996;
++    unsigned month=7, day=1; /* 1 August, season opening */
++    unsigned dayIndex=week*7;
++    static const unsigned lengths[12]={31,28,31,30,31,30,31,31,30,31,30,31};
++    while(dayIndex) {
++        unsigned remaining=lengths[month]+(month==1&&is_leap(year))-day;
++        if(dayIndex<=remaining) {day+=dayIndex;break;}
++        dayIndex-=remaining+1;
++        day=1;
++        if(++month==12) {month=0;year++;}
++    }
++    /* Tomohiko Sakamoto's weekday algorithm; 0=Sunday. */
++    static const int offsets[]={0,3,2,5,0,3,5,1,4,6,2,4};
++    int y=(int)year-(month<2);
++    unsigned wd=(unsigned)((y+y/4-y/100+y/400+offsets[month]+(int)day)%7);
++    snprintf(out,cap,"%s %02u %s %u",s_days[wd],day,s_months[month],year);
+ }
+ extern uint8_t _seasonPlaying;
+ extern uint8_t _lastFinancialWeekIndex;
+@@ -332,18 +379,22 @@
+     uint32_t income=sponsors+_expandedTvRights+nonneg(_gateReceipts)+nonneg(_competitionBonuses);
+     uint32_t expense=nonneg(_playerWagesBill)+nonneg(_generalRunningCosts);
+     rect(20,142,280,2,7);
+-    snprintf(t,sizeof t,"SEASON %u/%02u  FINANCE WEEK %u",(unsigned)(1900u+_seasonPlaying),
+-             (unsigned)((_seasonPlaying+1)%100), (unsigned)_lastFinancialWeekIndex);
++    Expanded_FormatDate(t,sizeof t,1996u+(unsigned)_currentSeasonShowing,
++                        (unsigned)_lastFinancialWeekIndex);
++    /* Display the exact same date as the calendar; income remains estimates. */
+     label(160,145,2,t);
+-    label(82,156,7,"INCOME"); label(238,156,7,"EXPENSES");
+-    snprintf(t,sizeof t,"SPONSOR %c%lu",c,(unsigned long)(sponsors/12)); label(84,167,7,t);
+-    snprintf(t,sizeof t,"WAGES %c%lu",c,(unsigned long)(nonneg(_playerWagesBill)/12)); label(237,167,7,t);
+-    snprintf(t,sizeof t,"TV %c%lu",c,(unsigned long)(_expandedTvRights/12)); label(84,178,7,t);
+-    snprintf(t,sizeof t,"TRAVEL %c%lu",c,(unsigned long)(nonneg(_generalRunningCosts)/12)); label(237,178,7,t);
+-    snprintf(t,sizeof t,"GATE/PRIZE %c%lu",c,(unsigned long)((nonneg(_gateReceipts)+nonneg(_competitionBonuses))/12));label(84,189,7,t);
++    snprintf(t,sizeof t,"WEEKLY: +%c%lu / -%c%lu",c,(unsigned long)(income/52),
++             c,(unsigned long)(expense/52));
++    label(160,155,7,t);
++    label(82,165,7,"INCOME"); label(238,165,7,"EXPENSES");
++    snprintf(t,sizeof t,"SPONSOR %c%lu",c,(unsigned long)(sponsors/12)); label(84,175,7,t);
++    snprintf(t,sizeof t,"WAGES %c%lu",c,(unsigned long)(nonneg(_playerWagesBill)/12)); label(237,175,7,t);
++    snprintf(t,sizeof t,"TV %c%lu",c,(unsigned long)(_expandedTvRights/12)); label(84,185,7,t);
++    snprintf(t,sizeof t,"TRAVEL %c%lu",c,(unsigned long)(nonneg(_generalRunningCosts)/12)); label(237,185,7,t);
++    snprintf(t,sizeof t,"GATE/PRIZE %c%lu",c,(unsigned long)((nonneg(_gateReceipts)+nonneg(_competitionBonuses))/12));label(84,195,7,t);
+     snprintf(t,sizeof t,"MONTHLY: +%c%lu / -%c%lu",c,(unsigned long)(income/12),c,(unsigned long)(expense/12));
+-    label(160,199,7,t);
++    label(160,205,7,t);
+     snprintf(t,sizeof t,"ANNUAL: +%c%lu / -%c%lu",c,(unsigned long)income,c,(unsigned long)expense);
+-    label(160,209,7,t);
+-    snprintf(t,sizeof t,"BALANCE %c%ld",c,(long)_newBalance);label(160,221,2,t);
+-}
++    label(160,215,7,t);
++    snprintf(t,sizeof t,"BALANCE %c%ld",c,(long)_newBalance);label(160,225,2,t);
++}
+--- a/src/menu_data.c
++++ b/src/menu_data.c
+@@ -1,3 +1,4 @@
++#include <string.h>
+ /*
+  * Amiga SWOS RE Project
+  * SWOS Amiga C/68000 Reversed by Ben Baker (https://github.com/benbaker76)
+@@ -5253,9 +5254,9 @@
+     { MENU_CMD_TEXT_PTR, 0x0, _expandedAgeText },
+     { MENU_CMD_ONSELECT_FIRE, Expanded_EditManagerAge },
+     MENU_CMD_END,
+-    { { 46, 38, 228, 12 }, { MENU_CMD_COLORS, 0x9 },
++    { { 46, 39, 228, 11 }, { MENU_CMD_COLORS, 0x9 },
+       { MENU_CMD_TEXT_PTR, 0, _expandedUnknownHint }, MENU_CMD_END },
+-    { { 28, 51, 264, 11 }, { MENU_CMD_COLORS, 0x9 },
++    { { 28, 51, 100, 11 }, { MENU_CMD_COLORS, 0x9 },
+       { MENU_CMD_TEXT_PTR, 0, _expandedBoardFansHint }, MENU_CMD_END },
+     MENU_MARK_END_MENU
+ };
+@@ -10818,9 +10819,16 @@
+       { MENU_CMD_ONSELECT_FIRE, SetExitMenuFlag }, MENU_CMD_END },
+     MENU_MARK_END_MENU
+ };
++extern void Expanded_OfferViewSquad(void);
++extern void Expanded_OfferViewLeague(void);
++extern void Expanded_OfferPreviewDraw(void);
++static char s_offerSquad[]="VIEW SQUAD";
++static char s_offerLeague[]="VIEW LEAGUE";
+ struct {
+     MenuHeader hdr; MenuMark byteCoords;
+     MenuEntry_Byte_Colors_TextPtr title;
++    MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect squad;
++    MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect league;
+     MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect accept;
+     MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect reject;
+     MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect back;
+@@ -10828,15 +10836,61 @@
+ } _expandedClubOfferMenu = {
+     { 0, GlobalRetn, Expanded_OfferDraw, 1 }, MENU_MARK_BYTE_COORDS,
+     { { 65, 0, 190, 15 }, { MENU_CMD_COLORS, 0x17 }, { MENU_CMD_TEXT_PTR, 0, s_offerTitle }, MENU_CMD_END },
+-    { { 27, 181, 120, 16 }, { MENU_CMD_NAV, -1, 2, 3, 3 },
++    { { 30, 126, 120, 16 }, { MENU_CMD_NAV, -1, 2, 5, 3 },
++      { MENU_CMD_COLORS, 0xB }, { MENU_CMD_TEXT_PTR, 0, s_offerSquad },
++      { MENU_CMD_ONSELECT_FIRE, Expanded_OfferViewSquad }, MENU_CMD_END },
++    { { 170, 126, 120, 16 }, { MENU_CMD_NAV, 1, -1, 5, 4 },
++      { MENU_CMD_COLORS, 0xB }, { MENU_CMD_TEXT_PTR, 0, s_offerLeague },
++      { MENU_CMD_ONSELECT_FIRE, Expanded_OfferViewLeague }, MENU_CMD_END },
++    { { 30, 167, 120, 16 }, { MENU_CMD_NAV, -1, 4, 1, 5 },
+       { MENU_CMD_COLORS, 0xB }, { MENU_CMD_TEXT_PTR, 0, s_offerAccept },
+       { MENU_CMD_ONSELECT_FIRE, Expanded_UnemployedAccept }, MENU_CMD_END },
+-    { { -120, 181, 120, 16 }, { MENU_CMD_NAV, 1, -1, 3, 3 },
++    { { 170, 167, 120, 16 }, { MENU_CMD_NAV, 3, -1, 2, 5 },
+       { MENU_CMD_COLORS, 0xC }, { MENU_CMD_TEXT_PTR, 0, s_offerReject },
+       { MENU_CMD_ONSELECT_FIRE, Expanded_UnemployedReject }, MENU_CMD_END },
+-    { { 110, 210, 100, 15 }, { MENU_CMD_NAV, -1, -1, 1, 1 },
++    { { 110, 205, 100, 15 }, { MENU_CMD_NAV, -1, -1, 3, 1 },
+       { MENU_CMD_COLORS, 0x9 }, { MENU_CMD_TEXT_PTR, 0, s_offerReturn },
+       { MENU_CMD_ONSELECT_FIRE, SetExitMenuFlag }, MENU_CMD_END },
+     MENU_MARK_END_MENU
+ };
++struct {
++    MenuHeader hdr; MenuMark byteCoords;
++    MenuEntry_Byte_Colors_TextPtr title;
++    MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect back;
++    MenuMark end;
++} _expandedOfferPreviewMenu = {
++    { 0, GlobalRetn, Expanded_OfferPreviewDraw, 1 }, MENU_MARK_BYTE_COORDS,
++    { { 65, 0, 190, 15 }, { MENU_CMD_COLORS, 0x17 },
++      { MENU_CMD_TEXT_PTR, 0, s_offerTitle }, MENU_CMD_END },
++    { { 110, 231, 100, 16 }, { MENU_CMD_NAV, -1, -1, -1, -1 },
++      { MENU_CMD_COLORS, 0xC }, { MENU_CMD_TEXT_PTR, 0, s_offerReturn },
++      { MENU_CMD_ONSELECT_FIRE, SetExitMenuFlag }, MENU_CMD_END },
++    MENU_MARK_END_MENU
++};
+ #pragma pack(pop)
++
++/* Expanded 0.10: the unemployed calendar is a *clone of the exact original
++ * contest menu* (including its central 304x116 panel and button positions).
++ * Only callbacks/text differ. The original menu is never modified. */
++static Menu_Contest s_unemployedOriginalCalendar;
++extern void Expanded_UnemployedInit(void);
++extern void Expanded_UnemployedWait(void);
++extern void Expanded_UnemployedShowOffer(void);
++extern void Expanded_UnemployedDraw(void);
++uint8_t *Expanded_UnemployedCalendarPointer(void) {
++    return (uint8_t*)&s_unemployedOriginalCalendar;
++}
++uint8_t *Expanded_UnemployedCalendarMenu(void) {
++    memcpy(&s_unemployedOriginalCalendar,&_contestMenu,sizeof s_unemployedOriginalCalendar);
++    s_unemployedOriginalCalendar.hdr.onInitPtr=Expanded_UnemployedInit;
++    s_unemployedOriginalCalendar.hdr.onReturnPtr=GlobalRetn;
++    s_unemployedOriginalCalendar.hdr.onDrawPtr=0;
++    s_unemployedOriginalCalendar.hdr.defaultEntry=7;
++    s_unemployedOriginalCalendar.entry7_text.textPtr=s_jobWait;
++    s_unemployedOriginalCalendar.entry7_onSelect.funcPtr=Expanded_UnemployedWait;
++    s_unemployedOriginalCalendar.entry10_text.textPtr=s_jobView;
++    s_unemployedOriginalCalendar.entry10_onSelect.funcPtr=Expanded_UnemployedShowOffer;
++    s_unemployedOriginalCalendar.entry9.text.textPtr=s_jobBack;
++    s_unemployedOriginalCalendar.entry9.onSelect.funcPtr=SetExitMenuFlag;
++    return (uint8_t*)&s_unemployedOriginalCalendar;
++}
+--- a/src/menu_system.c
++++ b/src/menu_system.c
+@@ -1364,6 +1364,16 @@
+     BlitterCopyPanelToScreen2();
+     DrawMenuPanelBackground();
+ 
++    /* The packed menu is unpacked again after returning from each facility.
++     * Reapply transparent icon hitboxes on EVERY redraw, not only onInit:
++     * otherwise native blue entry backgrounds reappear over the artwork. */
++    {
++        extern uint8_t _expandedClubOverviewMenu[];
++        extern void Expanded_ClubOverviewInit(void);
++        if (_currentMenuPtr == (uintptr_t)_expandedClubOverviewMenu)
++            Expanded_ClubOverviewInit();
++    }
++
+     /* Clear all alreadyDrawn flags */
+     count = (int16_t)menu->numEntries;
+     entry = (MenuEntry *)_menuEntries;
+@@ -1384,6 +1394,28 @@
+     for (i = 0; i < count; i++) {
+         DrawMenuItem(entry);
+         entry = (MenuEntry *)((uint8_t *)entry + MENUENTRY_STRIDE);
++    }
++    /* Reuse the real contest panel while unemployed; only the fixture text
++     * is replaced. It must be drawn AFTER entry18's panel background. */
++    {
++        extern uint8_t *Expanded_UnemployedCalendarPointer(void);
++        extern void Expanded_UnemployedDraw(void);
++        if (_currentMenuPtr == (uintptr_t)Expanded_UnemployedCalendarPointer())
++            Expanded_UnemployedDraw();
++    }
++    /* Real date above the original contest calendar (week advances with the
++     * career's own financial-week clock). */
++    {
++        extern uint8_t _contestMenu[];
++        extern uint8_t _lastFinancialWeekIndex;
++        extern uint16_t _currentSeasonShowing;
++        extern void Expanded_FormatDate(char *,size_t,unsigned,unsigned);
++        if (_currentMenuPtr == (uintptr_t)_contestMenu) {
++            char date[48];
++            Expanded_FormatDate(date,sizeof date,1996u+(unsigned)_currentSeasonShowing,
++                                (unsigned)_lastFinancialWeekIndex);
++            DrawMenuTextCentered(160,18,2,(uint8_t*)date,(uint8_t*)_charTables[0]);
++        }
+     }
+     /* Expanded hub pictograms are overlaid on their clickable native entries. */
+     {
+@@ -1427,16 +1459,10 @@
+             (uint8_t *)Expanded_CareerProfileCaption(), (uint8_t *)_charTables[0]);
+     {
+         extern void CareerMenuInit(void);
+-        if (menu->onInit == (MenuVoidFn)CareerMenuInit)
+-            DrawMenuTextCentered(160, 232, 2,
+-                (uint8_t *)"UNKNOWN FAME: START UNEMPLOYED", (uint8_t *)_charTables[0]);
+-    }
+-    {
+-        extern void ClubBusinessInit(void);
+-        if (menu->onInit == (MenuVoidFn)ClubBusinessInit)
+-            DrawMenuTextCentered(160, 212, 7,
+-                (uint8_t *)"PRESS I - INFRASTRUCTURE", (uint8_t *)_charTables[0]);
+-    }
++        /* Career status is already in the packed career menu at y=38.
++         * The former duplicate at y=232 covered the EXIT button. */
++    }
++    /* Club Overview has direct facility buttons: no old I shortcut. */
+     if (menu->onInit == (MenuVoidFn)SWOSMainMenuInit) {
+         /* SWOS Expanded title: preserve the original colourful sprite
+          * and use the stock Amiga font for the new subtitle. */
+@@ -1744,7 +1770,9 @@
+         extern uint8_t _expandedFacilityDetailMenu[];
+         extern uint8_t _expandedClubOverviewMenu[];
+         extern uint8_t _expandedUnemployedMenu[];
++        extern uint8_t *Expanded_UnemployedCalendarPointer(void);
+         extern uint8_t _expandedClubOfferMenu[];
++        extern uint8_t _expandedOfferPreviewMenu[];
+         if ((_currentMenuPtr == (uintptr_t)_expandedNationalityPickerMenu ||
+              _currentMenuPtr == (uintptr_t)_expandedHallMenu ||
+              _currentMenuPtr == (uintptr_t)_expandedInfrastructureMenu ||
+@@ -1752,7 +1780,9 @@
+              _currentMenuPtr == (uintptr_t)_expandedFacilityDetailMenu ||
+              _currentMenuPtr == (uintptr_t)_expandedClubOverviewMenu ||
+              _currentMenuPtr == (uintptr_t)_expandedUnemployedMenu ||
+-             _currentMenuPtr == (uintptr_t)_expandedClubOfferMenu) &&
++             _currentMenuPtr == (uintptr_t)Expanded_UnemployedCalendarPointer() ||
++             _currentMenuPtr == (uintptr_t)_expandedClubOfferMenu ||
++             _currentMenuPtr == (uintptr_t)_expandedOfferPreviewMenu) &&
+             (_currentKey == 27 || _currentKey == 127 || _currentKey == 8)) {
+             SetExitMenuFlag();
+             return;
+@@ -2067,6 +2097,8 @@
+         extern uint8_t _expandedClubOverviewMenu[];
+         extern uint8_t _expandedUnemployedMenu[];
+         extern uint8_t _expandedClubOfferMenu[];
++        extern uint8_t _expandedOfferPreviewMenu[];
++        extern uint8_t *Expanded_UnemployedCalendarPointer(void);
+         extern uint8_t _swosMainMenu[];
+         if (packedMenu == _expandedNationalityPickerMenu ||
+             packedMenu == _expandedHallMenu ||
+@@ -2075,23 +2107,16 @@
+             packedMenu == _expandedFacilityDetailMenu ||
+             packedMenu == _expandedClubOverviewMenu ||
+             packedMenu == _expandedUnemployedMenu ||
+-            packedMenu == _expandedClubOfferMenu) {
++            packedMenu == Expanded_UnemployedCalendarPointer() ||
++            packedMenu == _expandedClubOfferMenu ||
++            packedMenu == _expandedOfferPreviewMenu) {
+             if (oldPackedMenu != 0) {
+                 if (oldPackedMenu == (uintptr_t)_swosMainMenu) {
+                     extern void CommonMenuExit(void);
+                     CommonMenuExit();
+-                    /* Do not resurrect the extra multiplayer/empty bars when
+-                     * returning from Hall of Fame. Preserve Continue/Save if
+-                     * a competition is already active. */
+-                    if (packedMenu == _expandedHallMenu) {
+-                        extern uint16_t _gameType;
+-                        _menuEntries[14].isInvisible = 1; /* MULTIPLAYER */
+-                        if (_gameType == 0) {
+-                            _menuEntries[11].isInvisible = 1;
+-                            _menuEntries[12].isInvisible = 1;
+-                            _menuEntries[13].isInvisible = 1;
+-                        }
+-                    }
++                    /* Restore exactly the main-menu state prepared by its
++                     * own initializer; hiding ordinal 11..14 here used to
++                     * erase LOAD OLD COMPETITION after Hall of Fame. */
+                 }
+                 DrawMenu();
+             }
+--- a/src/menus.c
++++ b/src/menus.c
+@@ -5075,6 +5075,7 @@
+     _menuEntries[10].fg = (uintptr_t)(_expandedManagerFame == 0 ?
+                                       _expandedCareerStartButton : _aChooseTeam);
+     _menuEntries[16].isInvisible = (_expandedManagerFame != 0);
++    _menuEntries[17].isInvisible = 1; /* obsolete FINANCES/FANS hint */
+ }
+ 
+ 
+--- a/src/save_format_json.c
++++ b/src/save_format_json.c
+@@ -1090,6 +1090,7 @@
+ extern uint32_t _expandedShirtSponsor, _expandedStadiumSponsor, _expandedTvRights;
+ extern uint8_t _expandedBoardMood, _expandedFanMood;
+ extern uint32_t _expandedSupporters;
++extern uint8_t _expandedLowConfidenceMatches;
+ static const FieldDesc s_career_scalars[] = {
+     FX("expanded_economy_club_id", _expandedEconomyClubId, FLD_U16),
+     FX("expanded_stadium_level", _expandedStadiumLevel, FLD_U8),
+@@ -1110,6 +1111,7 @@
+     FX("expanded_board_mood", _expandedBoardMood, FLD_U8),
+     FX("expanded_fan_mood", _expandedFanMood, FLD_U8),
+     FX("expanded_supporters", _expandedSupporters, FLD_U32),
++    FX("expanded_low_confidence_matches", _expandedLowConfidenceMatches, FLD_U8),
+     FX("expanded_manager_fame", _expandedManagerFame, FLD_U8),
+     FX("expanded_manager_start_age", _expandedManagerStartAge, FLD_U8),
+     FX("expanded_annual_salary", _expandedAnnualSalary, FLD_U32),

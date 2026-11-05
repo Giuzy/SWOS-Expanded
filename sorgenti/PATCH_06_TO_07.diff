@@ -1,0 +1,298 @@
+--- a/src/menu_data.c
++++ b/src/menu_data.c
+@@ -10485,15 +10485,22 @@
+     snprintf(s_natPageInfo,sizeof s_natPageInfo,"PAGE %u / %u",
+             (unsigned)_expandedNationalityPage+1,(unsigned)(count+9)/10);
+ }
++/* A packed menu's ordinal can include non-selectable title entries and
++ * change across layouts. Match the actual row's text buffer instead. */
++int Expanded_NationalityRowFromEntry(const MenuEntry *entry) {
++    if (!entry) return -1;
++    for (int i = 0; i < 10; ++i)
++        if (entry->fg == (uintptr_t)s_natRows[i]) return i;
++    return -1;
++}
+ extern void Expanded_NationalityMenuInit(void);
+ extern void Expanded_NationalitySelect(void *entry);
++extern void Expanded_NationalityChangePage(int delta);
+ static void Expanded_NationalityPrev(void) {
+-    _expandedNationalityAction = 1;
+-    SetExitMenuFlag();
++    Expanded_NationalityChangePage(-1);
+ }
+ static void Expanded_NationalityNext(void) {
+-    _expandedNationalityAction = 2;
+-    SetExitMenuFlag();
++    Expanded_NationalityChangePage(1);
+ }
+ static void Expanded_NationalityExit(void) {
+     _expandedNationalityAction = 0;
+@@ -10638,10 +10645,10 @@
+         { { 26, 129, -32, 17 }, { MENU_CMD_COLORS, 0x9 },
+           { MENU_CMD_TEXT_PTR, 0, _expandedFacilityDetailLines[3] }, MENU_CMD_END },
+     },
+-    { { 36, 181, 120, 16 }, { MENU_CMD_NAV, -1, 6, 6, 6 },
++    { { 34, 181, 105, 16 }, { MENU_CMD_NAV, -1, 6, 6, 6 },
+       { MENU_CMD_COLORS, 0xB }, { MENU_CMD_TEXT_PTR, 0, s_facUpgrade },
+       { MENU_CMD_ONSELECT_FIRE, Expanded_UpgradeFacility }, MENU_CMD_END },
+-    { { -116, 181, 100, 16 }, { MENU_CMD_NAV, 5, -1, 5, 5 },
++    { { -110, 181, 105, 16 }, { MENU_CMD_NAV, 5, -1, 5, 5 },
+       { MENU_CMD_COLORS, 0xC }, { MENU_CMD_TEXT_PTR, 0, s_infraBack },
+       { MENU_CMD_ONSELECT_FIRE, SetExitMenuFlag }, MENU_CMD_END },
+     MENU_MARK_END_MENU
+@@ -10693,3 +10700,32 @@
+     MENU_MARK_END_MENU
+ };
+ #pragma pack(pop)
++
++/* Expanded 0.7: replace the Bank Statement view with a SWOS-native club hub.
++ * Do NOT modify the original bank statement packed stream: it is referenced
++ * by legacy code and changing its entry layout crashed the 0.5 build. */
++extern void Expanded_ClubOverviewDraw(void);
++static char s_clubOverviewTitle[] = "CLUB OVERVIEW";
++static char s_clubOverviewUpgrade[] = "UPGRADE";
++static char s_clubOverviewBack[] = "BACK";
++#pragma pack(push,1)
++struct {
++    MenuHeader hdr;
++    MenuMark byteCoords;
++    MenuEntry_Byte_Colors_TextPtr title;
++    MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect upgrade;
++    MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect back;
++    MenuMark end;
++} _expandedClubOverviewMenu = {
++    { 0, GlobalRetn, Expanded_ClubOverviewDraw, 1 }, MENU_MARK_BYTE_COORDS,
++    { { 50, 0, 172, 14 }, { MENU_CMD_COLORS, 0x17 },
++      { MENU_CMD_TEXT_PTR, 0, s_clubOverviewTitle }, MENU_CMD_END },
++    { { 34, 212, 105, 16 }, { MENU_CMD_NAV, 3, 3, 3, 3 },
++      { MENU_CMD_COLORS, 0xB }, { MENU_CMD_TEXT_PTR, 0, s_clubOverviewUpgrade },
++      { MENU_CMD_ONSELECT_FIRE, Expanded_ShowInfrastructure }, MENU_CMD_END },
++    { { -110, 212, 105, 16 }, { MENU_CMD_NAV, 2, 2, 2, 2 },
++      { MENU_CMD_COLORS, 0xC }, { MENU_CMD_TEXT_PTR, 0, s_clubOverviewBack },
++      { MENU_CMD_ONSELECT_FIRE, SetExitMenuFlag }, MENU_CMD_END },
++    MENU_MARK_END_MENU
++};
++#pragma pack(pop)
+--- a/src/menus.c
++++ b/src/menus.c
+@@ -5144,11 +5144,31 @@
+     _menuEntries[12].isInvisible = ((int)(_expandedNationalityPage + 1) * 10 >= Expanded_NationalityTotal());
+ }
+ 
++extern uint8_t _currentMenu[];
++extern int Expanded_NationalityRowFromEntry(const MenuEntry *entry);
++extern int32_t Expanded_NationalityTotal(void);
++extern int _expandedNationalityRowCount;
++extern void Expanded_NationalityPickerPopulate(const uint8_t *nats, int count);
++extern void DrawMenu(void);
+ void Expanded_NationalitySelect(MenuEntry *entry) {
+-    if (entry->ordinal >= 1 && entry->ordinal <= 10) {
+-        _expandedNationalityAction = (uint8_t)(9 + entry->ordinal);
++    int row = Expanded_NationalityRowFromEntry(entry);
++    if (row >= 0 && row < _expandedNationalityRowCount) {
++        _expandedNationalityAction = (uint8_t)(10 + row);
+         SetExitMenuFlag();
+     }
++}
++/* Page changes happen INSIDE the active modal. No nested ShowMenu,
++ * no parent-menu flash, no click being replayed into the career screen. */
++void Expanded_NationalityChangePage(int delta) {
++    int next = (int)_expandedNationalityPage + delta;
++    if (next < 0 || next * 10 >= Expanded_NationalityTotal()) return;
++    int32_t count;
++    const uint8_t *table = career_nationalities(&count);
++    _expandedNationalityPage = (uint8_t)next;
++    Expanded_NationalityPickerPopulate(table, count);
++    Expanded_NationalityMenuInit();
++    ((Menu *)_currentMenu)->selectedEntry = &_menuEntries[1];
++    DrawMenu();
+ }
+ 
+ extern uint8_t _expandedFamePickerMenu[];
+--- a/src/menu_system.c
++++ b/src/menu_system.c
+@@ -1724,11 +1724,13 @@
+         extern uint8_t _expandedInfrastructureMenu[];
+         extern uint8_t _expandedFamePickerMenu[];
+         extern uint8_t _expandedFacilityDetailMenu[];
++        extern uint8_t _expandedClubOverviewMenu[];
+         if ((_currentMenuPtr == (uintptr_t)_expandedNationalityPickerMenu ||
+              _currentMenuPtr == (uintptr_t)_expandedHallMenu ||
+              _currentMenuPtr == (uintptr_t)_expandedInfrastructureMenu ||
+              _currentMenuPtr == (uintptr_t)_expandedFamePickerMenu ||
+-             _currentMenuPtr == (uintptr_t)_expandedFacilityDetailMenu) &&
++             _currentMenuPtr == (uintptr_t)_expandedFacilityDetailMenu ||
++             _currentMenuPtr == (uintptr_t)_expandedClubOverviewMenu) &&
+             (_currentKey == 27 || _currentKey == 127 || _currentKey == 8)) {
+             SetExitMenuFlag();
+             return;
+@@ -1736,9 +1738,8 @@
+     }
+ #endif
+ #ifdef SWOS_SDL_BUILD
+-    /* The stock BANK STATEMENT packed menu is deliberately unchanged.
+-     * Press I for facilities; editing its packed entry stream caused the
+-     * 0.5 crash on real Windows. */
++    /* Legacy I shortcut remains available, but the new club overview has
++     * a visible UPGRADE button and never touches the old bank stream. */
+     {
+         extern uint8_t _clubBusinessMenu[];
+         if (_currentMenuPtr == (uintptr_t)_clubBusinessMenu &&
+@@ -2041,12 +2042,14 @@
+         extern uint8_t _expandedInfrastructureMenu[];
+         extern uint8_t _expandedFamePickerMenu[];
+         extern uint8_t _expandedFacilityDetailMenu[];
++        extern uint8_t _expandedClubOverviewMenu[];
+         extern uint8_t _swosMainMenu[];
+         if (packedMenu == _expandedNationalityPickerMenu ||
+             packedMenu == _expandedHallMenu ||
+             packedMenu == _expandedInfrastructureMenu ||
+             packedMenu == _expandedFamePickerMenu ||
+-            packedMenu == _expandedFacilityDetailMenu) {
++            packedMenu == _expandedFacilityDetailMenu ||
++            packedMenu == _expandedClubOverviewMenu) {
+             if (oldPackedMenu != 0) {
+                 if (oldPackedMenu == (uintptr_t)_swosMainMenu) {
+                     extern void CommonMenuExit(void);
+--- a/src/expanded_economy.c
++++ b/src/expanded_economy.c
+@@ -169,3 +169,122 @@
+         else if (injury==0x08) *ci &= 0xE3;
+     }
+ }
++
++/* Expanded 0.7 club overview: hand-painted rectangles at native 320x256
++ * coordinates, rendered with SWOS's own palette and bitmap font. This is
++ * genuine in-engine pixel art, not a high-resolution SDL overlay. */
++#include "blitter.h"
++#include "text_render.h"
++extern uint8_t *_charTables[];
++extern int32_t _playerWagesBill, _generalRunningCosts, _playerSales;
++extern int32_t _playerPurchases, _old_balance;
++extern uint8_t _expandedClubOverviewMenu[];
++static void rect(unsigned x,unsigned y,unsigned w,unsigned h,unsigned color) {
++    FillRectangle((uint16_t)x,(uint16_t)y,(uint16_t)w,(uint16_t)h,(uint16_t)color);
++}
++static void label(unsigned x,unsigned y,unsigned color,const char *str) {
++    DrawMenuTextCentered((uint16_t)x,(uint16_t)y,(uint16_t)color,
++                         (uint8_t *)str,(uint8_t *)_charTables[0]);
++}
++static void draw_stadium(unsigned level) {
++    /* Grandstand silhouette and pitch; larger tiers appear on higher levels. */
++    rect(75,21,170,48,0);
++    rect(79,25,162,42,6);
++    for(unsigned tier=0;tier<level;tier++) {
++        unsigned xx=83+tier*5, yy=28+tier*5;
++        unsigned ww=154-tier*10;
++        rect(xx,yy,ww,3,7);         /* concrete ledge */
++        rect(xx+3,yy+3,ww-6,3,(tier&1)?2:9); /* supporters */
++    }
++    rect(91,54,138,11,1);          /* outer green pitch */
++    rect(96,56,128,7,3);           /* inner pitch */
++    rect(158,56,2,7,7);            /* half-way line */
++    rect(98,58,13,3,7); rect(209,58,13,3,7);
++    rect(106,58,4,3,3); rect(210,58,4,3,3);
++    rect(75,20,170,3,7);          /* roof edge */
++    if(level>=2) { rect(72,17,176,3,9); rect(76,20,3,10,7); rect(242,20,3,10,7); }
++    if(level>=3) { rect(65,16,6,38,7); rect(249,16,6,38,7); rect(61,16,14,3,2); rect(245,16,14,3,2); }
++    if(level>=4) { rect(76,13,168,3,7); rect(87,10,146,3,9); }
++    if(level>=5) { rect(98,7,124,3,2); rect(109,5,102,2,7); }
++}
++static void draw_facility_icon(unsigned idx,unsigned level,unsigned x,unsigned y) {
++    /* Eight recognisable tiny sprites, each grows/brights with upgrades. */
++    unsigned accent=level>=4?2:level>=2?9:6;
++    rect(x,y,44,17,0); rect(x+1,y+1,42,15,8);
++    switch(idx) {
++    case 0: /* stands */
++        rect(x+7,y+4,30,3,7); rect(x+9,y+7,26,3,accent);
++        rect(x+13,y+10,18,3,3); break;
++    case 1: /* training field */
++        rect(x+7,y+4,30,10,3); rect(x+21,y+4,2,10,7);
++        rect(x+9,y+6,4,6,7); rect(x+31,y+6,4,6,7); break;
++    case 2: /* bus -> plane */
++        if(level>=4) {
++            rect(x+7,y+8,30,3,7);rect(x+18,y+4,8,11,accent);
++            rect(x+12,y+11,20,2,7);
++        } else {
++            rect(x+7,y+5,30,8,accent); rect(x+11,y+6,6,3,7);
++            rect(x+20,y+6,6,3,7);rect(x+10,y+12,5,3,0);
++            rect(x+29,y+12,5,3,0);
++        } break;
++    case 3: /* offices */
++        rect(x+11,y+4,22,10,accent);
++        for(unsigned i=0;i<3;i++) rect(x+14+i*6,y+6,3,3,7);
++        break;
++    case 4: /* fitness weights */
++        rect(x+8,y+8,28,2,7); rect(x+11,y+5,5,8,accent);
++        rect(x+28,y+5,5,8,accent); break;
++    case 5: /* scouting magnifier */
++        rect(x+12,y+4,12,2,7);rect(x+10,y+6,3,7,7);
++        rect(x+23,y+6,3,7,7);rect(x+13,y+12,11,2,7);
++        rect(x+26,y+12,10,2,accent);break;
++    case 6: /* medical cross */
++        rect(x+18,y+4,8,10,7);rect(x+12,y+7,20,4,7);
++        rect(x+20,y+5,4,8,accent);rect(x+14,y+8,16,2,accent);break;
++    default: /* youth academy */
++        rect(x+11,y+5,22,8,3);rect(x+16,y+4,12,3,accent);
++        rect(x+20,y+8,4,4,7);break;
++    }
++    if(level==5) rect(x+38,y+3,3,3,2);
++}
++static uint32_t nonneg(int32_t n) {return n>0?(uint32_t)n:0;}
++void Expanded_ClubOverviewDraw(void) {
++    ensure_club();
++    unsigned lv=_expandedFacilityLevels[0];
++    if(lv<1 || lv>5) lv=1;
++    unsigned char c=Expanded_CurrencyGlyph();
++    char t[80];
++    draw_stadium(lv);
++    snprintf(t,sizeof t,"%s - %lu SEATS",s_levelName[lv-1],(unsigned long)s_capacity[lv-1]);
++    label(160,72,7,t);
++    label(160,83,7,"CLUB FACILITIES - LEVEL 1 TO 5");
++    static const char *const names[8]={"STADIUM","TRAIN","TRAVEL","OFFICE",
++                                        "FITNESS","SCOUT","MEDICAL","YOUTH"};
++    for(unsigned i=0;i<8;i++) {
++        unsigned x=27+(i%4)*67, y=97+(i/4)*23;
++        unsigned f=_expandedFacilityLevels[i]; if(f<1 || f>5) f=1;
++        draw_facility_icon(i,f,x,y);
++        snprintf(t,sizeof t,"%s %u",names[i],f);
++        label(x+22,y+16,7,t);
++    }
++    /* Existing engine receipts and prizes are reported, never re-credited.
++     * Monthly values are annualized averages, NOT live per-month cashflows. */
++    uint32_t sponsors=_expandedShirtSponsor+_expandedStadiumSponsor;
++    uint32_t income=sponsors+_expandedTvRights+nonneg(_gateReceipts)+nonneg(_competitionBonuses);
++    uint32_t expense=nonneg(_playerWagesBill)+nonneg(_generalRunningCosts);
++    rect(20,142,280,2,7);
++    label(84,146,2,"MONTHLY INCOME (AVG)");
++    label(235,146,2,"MONTHLY COSTS (AVG)");
++    snprintf(t,sizeof t,"SPONSORS %c%lu",c,(unsigned long)(sponsors/12)); label(83,158,7,t);
++    snprintf(t,sizeof t,"WAGES %c%lu",c,(unsigned long)(nonneg(_playerWagesBill)/12)); label(236,158,7,t);
++    snprintf(t,sizeof t,"TV RIGHTS %c%lu",c,(unsigned long)(_expandedTvRights/12)); label(83,169,7,t);
++    snprintf(t,sizeof t,"RUNNING/TRAVEL %c%lu",c,(unsigned long)(nonneg(_generalRunningCosts)/12)); label(236,169,7,t);
++    snprintf(t,sizeof t,"GATES %c%lu",c,(unsigned long)(nonneg(_gateReceipts)/12)); label(83,180,7,t);
++    snprintf(t,sizeof t,"TOTAL %c%lu",c,(unsigned long)(expense/12)); label(236,180,7,t);
++    snprintf(t,sizeof t,"PRIZES %c%lu",c,(unsigned long)(nonneg(_competitionBonuses)/12)); label(83,191,7,t);
++    snprintf(t,sizeof t,"IN %c%lu",c,(unsigned long)(income/12)); label(236,191,7,t);
++    snprintf(t,sizeof t,"CLUB BALANCE %c%ld",c,(long)_newBalance);label(160,202,2,t);
++    /* Pre-arrival historical trophy data is not available in the original
++     * club record. Do not invent league/cup wins. */
++    label(160,232,7,"HISTORIC CLUB TITLES: NOT AVAILABLE");
++}
+--- a/src/chairman_memo.c
++++ b/src/chairman_memo.c
+@@ -26,6 +26,7 @@
+ /* ---- ASM externs (data labels) ---- */
+ extern uint8_t _chairmanMemosMenu[];
+ extern uint8_t _clubBusinessMenu[];
++extern uint8_t _expandedClubOverviewMenu[];
+ extern uint8_t *_clubMessagesTable[];       /* array of string pointers, 2 per message */
+ extern uint8_t _managerSexBuffer[];
+ extern uint8_t _managerSurnameBuffer[];
+@@ -135,5 +136,5 @@
+ void ShowClubBussinesMenu(void)
+ {
+     _clubBusinessActive = 0;
+-    ShowMenu(_clubBusinessMenu);
++    ShowMenu(_expandedClubOverviewMenu);
+ }

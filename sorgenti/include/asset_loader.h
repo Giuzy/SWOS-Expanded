@@ -1,0 +1,41 @@
+/*
+ * Amiga SWOS RE Project
+ * SWOS Amiga C/68000 Reversed by Ben Baker (https://github.com/benbaker76)
+ * SWOS DOS Reversed by Zlatko Karakaš (https://github.com/zlatkok)
+ */
+#ifndef ASSET_LOADER_H
+#define ASSET_LOADER_H
+
+typedef unsigned char uint8_t;
+typedef unsigned short uint16_t;
+typedef unsigned int uint32_t;
+typedef short int16_t;
+typedef int int32_t;
+
+/* ---- Asset loader region management ---- */
+void AssetLoaderRegisterRegion(uint32_t _size, uint8_t *region);
+void AssetLoaderInitAltPathAndBanks(void);
+
+/* ---- Asset precaching ---- */
+void AssetPrecacheCore(void);
+void AssetPrecacheOneCore(const uint8_t *assetName);
+void AssetPrecacheMenuPack(void);
+void AssetPrecacheOneMenu(const uint8_t *assetName);
+
+/* ---- Asset service operations ---- */
+int16_t AssetSvcLoaderOp(void);
+int16_t AssetSvcLoaderOp2(void);
+int16_t AssetSvcLoaderOp3(void);
+
+/* ---- Asset cache operations ---- */
+int32_t AssetCacheFindByName(const uint8_t *name);
+int16_t AssetCacheCopyByName(uint8_t *name, uint8_t *dest, uint32_t *outFileSize);
+int16_t AssetCacheLoadFromAssetSys(const uint8_t *name);
+void AssetCacheStoreFromMemory(uint8_t *name, uint8_t *src, uint32_t size);
+
+/* ---- Asset file loading with retry ---- */
+int16_t PlaySong(uint8_t *name, uint8_t *dest);
+int16_t AssetEnsureReadyWithRetry(uint8_t *name, uint8_t *dest);
+int16_t LoadRNCToBufferNoBlit(uint8_t *name, uint8_t *dest);
+
+#endif

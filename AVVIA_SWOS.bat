@@ -3,9 +3,12 @@ setlocal EnableExtensions
 cd /d "%~dp0"
 title SWOS Expanded 0.10.40 - Avvio
 
-REM La prima volta compila i sorgenti corretti; dopo avvia direttamente il gioco.
-call "%~dp0PREPARA_SWOS.bat"
-if errorlevel 1 goto :errore
+REM Se GitHub Actions ha pubblicato SWOS.exe, avvia senza compilare.
+REM Solo se manca l'eseguibile usa la preparazione locale.
+if not exist "SWOS.exe" (
+  call "%~dp0PREPARA_SWOS.bat"
+  if errorlevel 1 goto :errore
+)
 
 if not exist "SWOS.exe" (
   echo ERRORE: SWOS.exe non e stato generato.

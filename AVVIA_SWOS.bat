@@ -1,14 +1,12 @@
 @echo off
 setlocal EnableExtensions
 cd /d "%~dp0"
-title SWOS Expanded 0.10.40 - Avvio
+title SWOS Expanded 0.10.40 - Compilazione locale e avvio
 
-REM Se GitHub Actions ha pubblicato SWOS.exe, avvia senza compilare.
-REM Solo se manca l'eseguibile usa la preparazione locale.
-if not exist "SWOS.exe" (
-  call "%~dp0PREPARA_SWOS.bat"
-  if errorlevel 1 goto :errore
-)
+REM Compila sempre i sorgenti locali prima di avviare il gioco.
+REM make ricompila solo i file modificati.
+call "%~dp0PREPARA_SWOS.bat"
+if errorlevel 1 goto :errore
 
 if not exist "SWOS.exe" (
   echo ERRORE: SWOS.exe non e stato generato.
@@ -30,7 +28,7 @@ set "SWOS_MENU_JSON=0"
 set "SWOS_TACTICS_JSON=0"
 set "SWOS_MENU_NAV_LOG=1"
 echo.
-echo === SWOS Expanded 0.10.40 - avvio ===
+echo === SWOS Expanded 0.10.40 - avvio locale ===
 "%~dp0SWOS.exe"
 set "RC=%ERRORLEVEL%"
 echo.

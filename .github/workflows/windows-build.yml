@@ -75,14 +75,3 @@ jobs:
           Copy-Item sorgenti/bin/SWOS.exe dist/update/SWOS.exe
           Compress-Archive -Path dist/SWOS-Expanded/* -DestinationPath dist/SWOS-Expanded-0.10.40-FULL.zip -Force
           Compress-Archive -Path dist/update/* -DestinationPath dist/SWOS-Expanded-0.10.40-UPDATE.zip -Force
-      - name: Publish 0.10.40 GitHub Release
-        if: github.ref == 'refs/heads/release/0.10.40'
-        shell: pwsh
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          if (gh release view v0.10.40 2>$null) {
-            gh release upload v0.10.40 dist/SWOS-Expanded-0.10.40-FULL.zip dist/SWOS-Expanded-0.10.40-UPDATE.zip --clobber
-          } else {
-            gh release create v0.10.40 dist/SWOS-Expanded-0.10.40-FULL.zip dist/SWOS-Expanded-0.10.40-UPDATE.zip --target "${{ github.sha }}" --title "SWOS Expanded 0.10.40" --notes "FULL includes game resources; UPDATE contains SWOS.exe only." --prerelease
-          }

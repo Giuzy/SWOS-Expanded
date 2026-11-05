@@ -54,6 +54,7 @@ extern int Expanded_UI_IsSquadScreen(void);
 extern int Expanded_SquadPopupOpen(void);
 extern void Expanded_SquadPopupToggle(void);
 extern void Expanded_SquadPopupClose(void);
+extern void DrawMenu(void); /* force immediate redraw when squad popup changes */
 static int s_exit_confirm_open=0, s_exit_confirm_choice=0; /* 0=BACK, 1=EXIT */
 int InputSDL_ExitConfirmOpen(void) { return s_exit_confirm_open; }
 int InputSDL_ExitConfirmChoice(void) { return s_exit_confirm_choice; }
@@ -740,12 +741,14 @@ void InputSDL_HandleEvent(const SDL_Event *e)
     case SDL_MOUSEBUTTONDOWN:
         if (e->button.button==SDL_BUTTON_RIGHT && Expanded_UI_IsSquadScreen()) {
             Expanded_SquadPopupToggle();
+            DrawMenu();
             break;
         }
         break;
     case SDL_KEYDOWN: {
         if (e->key.keysym.sym==SDLK_ESCAPE && Expanded_UI_IsSquadScreen() && Expanded_SquadPopupOpen()) {
             Expanded_SquadPopupClose();
+            DrawMenu();
             break;
         }
         if (s_exit_confirm_open) {

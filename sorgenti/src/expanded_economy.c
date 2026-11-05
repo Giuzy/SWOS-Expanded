@@ -155,7 +155,7 @@ void Expanded_BusinessWeeklyStep(void) {
     unsigned recover=Expanded_FitnessRecovery(_expandedFacilityLevels[4]);
     _expandedTravelFatigue=_expandedTravelFatigue>recover?
          (uint8_t)(_expandedTravelFatigue-recover):0;
-    _expandedCurrentForm=(uint8_t)Expanded_TeamRecentForm();
+    _expandedCurrentForm=(uint8_t)clamp100((int)_expandedCurrentForm+1);
     /* Morale drifts gently toward 65 between matches. */
     if(_expandedTeamMorale<65u) _expandedTeamMorale++;
     else if(_expandedTeamMorale>65u) _expandedTeamMorale--;
@@ -165,8 +165,8 @@ void Expanded_TrainingComplete(void) {
     unsigned gain=Expanded_TrainingGain(_expandedFacilityLevels[1],_expandedFacilityLevels[4]);
     _expandedTravelFatigue=_expandedTravelFatigue>gain?
          (uint8_t)(_expandedTravelFatigue-gain):0;
-    _expandedCurrentForm=(uint8_t)Expanded_TeamRecentForm();
-    _expandedTeamMorale=(uint8_t)clamp100((int)_expandedTeamMorale+2);
+    _expandedCurrentForm=(uint8_t)clamp100((int)_expandedCurrentForm+(int)(gain/3u+1u));
+    _expandedTeamMorale=(uint8_t)clamp100((int)_expandedTeamMorale+1);
     /* Training retains SWOS's existing built-in player form mechanics;
      * it does not create a new player-specific condition stat. */
     /* Preserve SWOS's existing form and trialist handling. */
@@ -303,7 +303,7 @@ void Expanded_SentimentMatchResult(int result,int away) {
     _expandedResultHead=(uint8_t)((_expandedResultHead+1u)%5u);
     if(_expandedResultCount<5) _expandedResultCount++;
     _expandedTeamMorale=(uint8_t)clamp100((int)_expandedTeamMorale+
-        (result>0?6:result<0?-7:1));
+        (result>0?3:result<0?-4:1));
     /* Travel is charged per AWAY match, not every week.  Home = zero.
      * Original weeklyRunningCosts is club overhead, never mislabeled as travel.
      * All charges enter the same SWOS finance ledger and are saved. */
@@ -322,7 +322,7 @@ void Expanded_SentimentMatchResult(int result,int away) {
         unsigned fatigue=_expandedTravelFatigue+Expanded_AwayFatigue(_expandedFacilityLevels[2]);
         _expandedTravelFatigue=(uint8_t)(fatigue>60?60:fatigue);
     }
-    _expandedCurrentForm=(uint8_t)Expanded_TeamRecentForm();
+    _expandedCurrentForm=(uint8_t)clamp100((int)_expandedCurrentForm+(result>0?3:result<0?-3:0)-(away?1:0));
     /* Dismissal is requested only here. The actual modal is opened from
      * PlayMatchMenu / NextMatch, never during the result callback. */
     if((unsigned)_expandedBoardMood+(unsigned)_expandedFanMood<40u)
@@ -1829,6 +1829,10 @@ static void ui_star(int x,int y,uint8_t color) {
     for(int dy=0;dy<7;dy++) for(int dx=0;dx<5;dx++)
         if(pixels[dy]&(1u<<(4-dx))) cb_plot(x+dx,y+dy,color);
 }
+static int s_squadStatsPopupOpen=0;
+int Expanded_SquadPopupOpen(void) { return s_squadStatsPopupOpen; }
+void Expanded_SquadPopupToggle(void) { s_squadStatsPopupOpen=!s_squadStatsPopupOpen; }
+void Expanded_SquadPopupClose(void) { s_squadStatsPopupOpen=0; }
 static void ui_squad_tooltip(unsigned row,const PlayerFile *p) {
     if(!p) return;
     ExpandedSquadSkills s=ui_player_skills(p);
@@ -1904,12 +1908,12 @@ static void ui_squad_render(void) {
     ui_native_text(273,8,79,15,line,0);
     /* Header: star column replaces the old top-skills string. */
     ui_native_text(11,81,15,15,"#",-1);
-    ui_native_text(31,81,100,15,"NAME",-1);
-    ui_native_text(130,81,22,15,"POS",-1);
-    ui_native_text(158,81,33,15,_isSquadViewMode?"GOALS":"SKILL",-1);
-    ui_native_text(190,81,30,15,"NAT",-1);
-    ui_native_text(226,81,28,15,"G",-1);
-    ui_native_text(258,81,53,15,"VALUE",-1);
+    ui_native_text(31,81,108,15,"NAME",-1);
+    ui_native_text(141,81,22,15,"POS",-1);
+    ui_native_text(166,81,33,15,_isSquadViewMode?"GOALS":"SKILL",-1);
+    ui_native_text(200,81,30,15,"NAT",-1);
+    ui_native_text(237,81,20,15,"G",-1);
+    ui_native_text(265,81,45,15,"VALUE",-1);
     Menu *m=(Menu *)_currentMenu;
     unsigned selected=99;
     if(m && m->selectedEntry && m->selectedEntry->ordinal>=28 &&
@@ -1940,32 +1944,32 @@ static void ui_squad_render(void) {
         if(selected==i) selectedPlayer=p;
         snprintf(line,sizeof line,"%u",(unsigned)(uint8_t)p->shirtNumber);
         ui_native_text(24,y,17,2,line,1);
-        ui_native_ellipsis(31,y,97,2,(const char*)p->playerName,-1);
+        ui_native_ellipsis(31,y,108,2,(const char*)p->playerName,-1);
         unsigned pos=((unsigned)p->positionAndFace & PF_POSITION_MASK)>>PF_POSITION_SHIFT;
-        ui_native_text(135,y,20,2,posNames[pos<8?pos:0],-1);
+        ui_native_text(145,y,20,2,posNames[pos<8?pos:0],-1);
         ExpandedSquadSkills skills=ui_player_skills(p);
         unsigned stars=ExpandedSquad_Stars(skills,pos,(uint8_t)p->price);
         if(_isSquadViewMode) {
             unsigned sum=0;
             for(unsigned j=0;j<4;j++) sum+=(unsigned)p->goalStats[j];
             snprintf(line,sizeof line,"%u",sum);
-            ui_native_text(172,y,31,15,line,0);
-        } else for(unsigned j=0;j<5;j++) ui_star(155+(int)j*6,y,j<stars?15:0);
+            ui_native_text(179,y,31,15,line,0);
+        } else for(unsigned j=0;j<5;j++) ui_star(164+(int)j*6,y,j<stars?15:0);
         unsigned nat=(uint8_t)p->nationality;
         if(nat<96) {
             char shortNat[8];
             snprintf(shortNat,sizeof shortNat,"%.3s",(char*)_shortCountryNames+nat*3u);
-            ui_native_text(190,y,30,2,shortNat,-1);
+            ui_native_text(201,y,30,2,shortNat,-1);
         }
         unsigned goals=(unsigned)p->goalStats[0]+p->goalStats[1]+
                        p->goalStats[2]+p->goalStats[3];
         snprintf(line,sizeof line,"%u",goals);
-        ui_native_text(235,y,22,2,line,0);
+        ui_native_text(244,y,22,2,line,0);
         /* The original formatter applies loans, reserves, trialists and
          * market prices; no hand-written replacement money calculations. */
         uint8_t value[80]={0};
         FormatPlayerValueOrStatusText((uint8_t*)p-sizeof(TeamFile),value);
-        ui_native_text(311,y,55,2,(const char*)value,1);
+        ui_native_text(311,y,48,2,(const char*)value,1);
     }
     /* Team-wide form and morale, both percentage + shared five-face scale. */
     rect(5,49,84,19,40);cb_box_outline(5,49,84,19,204);
@@ -1985,11 +1989,12 @@ static void ui_squad_render(void) {
     if(!_menuEntries[6].isInvisible) ui_button(6,"TRAINING");
     if(!_menuEntries[9].isInvisible) ui_button(9,"EXIT");
     if(!_menuEntries[10].isInvisible) ui_button(10,"EXIT");
-    if(selectedPlayer && !_isSquadViewMode) ui_squad_tooltip(selected,selectedPlayer);
+    if(selectedPlayer && !_isSquadViewMode && s_squadStatsPopupOpen) ui_squad_tooltip(selected,selectedPlayer);
 }
 void Expanded_UI_After(void) {
     if(!ui_load()) return;
     int kind=ui_kind();
+    if(kind!=8) s_squadStatsPopupOpen=0;
     if(kind==8) {
         ui_squad_render();
     } else if(kind==7) {
@@ -2106,7 +2111,7 @@ void Expanded_UI_After(void) {
                 name=(const char *)(uintptr_t)e->fg;
             ui_button(i,name);
         }
-        ui_native_text(43,246,70,15,"V0.10.25",0);
+        ui_native_text(43,246,70,15,"V0.10.40",0);
     } else if(kind==2) {
         Menu *m=(Menu *)_currentMenu;
         if(!m) return;
@@ -2208,3 +2213,6 @@ void Expanded_UI_Before(void) {}
 void Expanded_UI_After(void) {}
 void Expanded_UI_Partial(MenuEntry *entry) {(void)entry;}
 #endif
+
+/* Squad popup input: only active while the Expanded squad screen is open. */
+int Expanded_UI_IsSquadScreen(void) { return ui_kind()==8; }

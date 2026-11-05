@@ -27,9 +27,9 @@ if [[ ! -s "$game/data/expanded/expanded_loading_bg.bmp" ]]; then
   echo "ERRORE: manca data/expanded/expanded_loading_bg.bmp"
   exit 1
 fi
-exec > >(tee "$game/COMPILAZIONE_0134.log") 2>&1
+exec > >(tee "$game/COMPILAZIONE_0140.log") 2>&1
 
-echo '==== SWOS Expanded 0.10.37 - compilazione Windows x64 ===='
+echo '==== SWOS Expanded 0.10.40 - compilazione Windows x64 ===='
 echo "Sorgenti: $src"
 echo "Gioco:    $game"
 echo 'Verifica delle dipendenze MSYS2...'
@@ -45,12 +45,12 @@ gcc -std=gnu11 -fsyntax-only -DSWOS_SDL_BUILD=1 -D_FILE_OFFSET_BITS=64 -include 
   -Isrc -Iinclude $(pkg-config --cflags sdl2) \
   src/menu_data.c src/menu_system.c src/menus.c src/expanded_career.c \
   src/expanded_economy.c src/platform_sdl.c src/game_loop.c src/career_init.c src/career_status.c src/career_teams.c src/transfer_market.c src/chairman_memo.c src/save_format_json.c src/input_text.c src/blitter.c src/build_info.c
-echo 'Compilo il gioco 0.10.37...'
+echo 'Compilo il gioco 0.10.40...'
 make -j4 NETPLAY=0
 if [[ ! -s bin/SWOS.exe ]]; then
   echo 'ERRORE: il compilatore non ha prodotto bin/SWOS.exe.'
   exit 1
 fi
-cp -f bin/SWOS.exe "$game/SWOS_0134_new.exe"
-mv -f "$game/SWOS_0134_new.exe" "$game/SWOS.exe"
+cp -f bin/SWOS.exe "$game/SWOS_0140_new.exe"
+mv -f "$game/SWOS_0140_new.exe" "$game/SWOS.exe"
 echo 'Compilazione completata: SWOS.exe aggiornato.'

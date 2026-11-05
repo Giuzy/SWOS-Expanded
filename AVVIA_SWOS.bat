@@ -1,7 +1,7 @@
 @echo off
 setlocal EnableExtensions
 cd /d "%~dp0"
-title SWOS Expanded 0.10.37 - Avvio
+title SWOS Expanded 0.10.40 - Avvio
 
 REM La prima volta compila i sorgenti corretti; dopo avvia direttamente il gioco.
 call "%~dp0PREPARA_SWOS.bat"
@@ -27,7 +27,7 @@ set "SWOS_MENU_JSON=0"
 set "SWOS_TACTICS_JSON=0"
 set "SWOS_MENU_NAV_LOG=1"
 echo.
-echo === SWOS Expanded 0.10.37 - avvio ===
+echo === SWOS Expanded 0.10.40 - avvio ===
 "%~dp0SWOS.exe"
 set "RC=%ERRORLEVEL%"
 echo.
@@ -39,6 +39,6 @@ exit /b %RC%
 :errore
 echo.
 echo Il gioco non e stato avviato.
-echo Se la compilazione e fallita, invia COMPILAZIONE_0133b.log.
+echo Se la compilazione e fallita, invia COMPILAZIONE_0140.log.
 pause
 exit /b 1

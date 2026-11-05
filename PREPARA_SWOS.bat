@@ -1,13 +1,11 @@
 @echo off
 setlocal EnableExtensions
 cd /d "%~dp0"
-title SWOS Expanded 0.10.37 - Preparazione
+title SWOS Expanded 0.10.40 - Preparazione
 
 REM Un eseguibile 0.10 precedente non e considerato valido.
-if exist ".SWOS_0133_COMPILATO" if exist "SWOS.exe" (
-  echo SWOS 0.10.37 pronto.
-  exit /b 0
-)
+REM Forza sempre la compilazione dei sorgenti aggiornati.
+REM Non fidarti dei marker delle versioni precedenti.
 
 set "MSYS_ROOT="
 call :cerca_msys
@@ -48,14 +46,14 @@ set "SWOS_GAME_WIN=%~dp0"
 "%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash -s" < "%~dp0BUILD_SWOS.sh"
 if errorlevel 1 (
   echo.
-  echo COMPILAZIONE FALLITA: invia COMPILAZIONE_0133.log.
+  echo COMPILAZIONE FALLITA: invia COMPILAZIONE_0140.log.
   exit /b 1
 )
 if not exist "SWOS.exe" (
   echo ERRORE: compilazione terminata senza SWOS.exe.
   exit /b 1
 )
-> ".SWOS_0133_COMPILATO" echo SWOS Expanded 0.10.37 - compilazione completata
+> ".SWOS_0140_COMPILATO" echo SWOS Expanded 0.10.40 - compilazione completata
 exit /b 0
 
 :cerca_msys

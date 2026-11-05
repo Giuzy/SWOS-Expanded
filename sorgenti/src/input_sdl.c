@@ -50,6 +50,10 @@ extern uint16_t _gameState;
 extern volatile uint16_t _playGame, _paused;
 static void push_amiga_key(uint8_t akey);
 /* START exit confirmation: separate from original P/SELECT behavior. */
+extern int Expanded_UI_IsSquadScreen(void);
+extern int Expanded_SquadPopupOpen(void);
+extern void Expanded_SquadPopupToggle(void);
+extern void Expanded_SquadPopupClose(void);
 static int s_exit_confirm_open=0, s_exit_confirm_choice=0; /* 0=BACK, 1=EXIT */
 int InputSDL_ExitConfirmOpen(void) { return s_exit_confirm_open; }
 int InputSDL_ExitConfirmChoice(void) { return s_exit_confirm_choice; }
@@ -733,7 +737,17 @@ void InputSDL_HandleEvent(const SDL_Event *e)
                 raw_push((uint8_t)*t);
         }
         break;
+    case SDL_MOUSEBUTTONDOWN:
+        if (e->button.button==SDL_BUTTON_RIGHT && Expanded_UI_IsSquadScreen()) {
+            Expanded_SquadPopupToggle();
+            break;
+        }
+        break;
     case SDL_KEYDOWN: {
+        if (e->key.keysym.sym==SDLK_ESCAPE && Expanded_UI_IsSquadScreen() && Expanded_SquadPopupOpen()) {
+            Expanded_SquadPopupClose();
+            break;
+        }
         if (s_exit_confirm_open) {
             if (!e->key.repeat) switch(e->key.keysym.sym) {
             case SDLK_LEFT: case SDLK_RIGHT: case SDLK_TAB: s_exit_confirm_choice^=1; break;
@@ -935,6 +949,14 @@ void InputSDL_HandleEvent(const SDL_Event *e)
         break;
     }
     case SDL_CONTROLLERBUTTONDOWN: {
+        if (Expanded_UI_IsSquadScreen() && e->cbutton.button==SDL_CONTROLLER_BUTTON_X) {
+            Expanded_SquadPopupToggle();
+            break;
+        }
+        if (Expanded_UI_IsSquadScreen() && e->cbutton.button==SDL_CONTROLLER_BUTTON_B && Expanded_SquadPopupOpen()) {
+            Expanded_SquadPopupClose();
+            break;
+        }
         if (s_exit_confirm_open) {
             switch(e->cbutton.button) {
             case SDL_CONTROLLER_BUTTON_DPAD_LEFT:

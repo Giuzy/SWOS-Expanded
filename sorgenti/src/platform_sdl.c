@@ -595,22 +595,33 @@ extern uint16_t _showingUserStats;
 extern uint16_t _statsTeam1Goals,_statsTeam2Goals;
 extern TeamGeneralInfo _topTeamData,_bottomTeamData;
 extern TeamGame _topTeamInGame,_bottomTeamInGame;
+extern uint8_t _expandedCurrentForm,_expandedTeamMorale;
+static void match_mood_face(int cx,int cy,int value) {
+    SDL_Rect r={cx-4,cy-4,9,9};
+    SDL_SetRenderDrawColor(s_renderer,value>=60?241:255,value>=40?210:110,44,255);
+    SDL_RenderFillRect(s_renderer,&r);
+    SDL_SetRenderDrawColor(s_renderer,14,28,64,255);
+    SDL_Rect eye1={cx-2,cy-1,1,1},eye2={cx+2,cy-1,1,1};
+    SDL_RenderFillRect(s_renderer,&eye1);SDL_RenderFillRect(s_renderer,&eye2);
+    SDL_Rect mouth={cx-2,cy+2,5,1};
+    SDL_RenderFillRect(s_renderer,&mouth);
+    if(value<40){SDL_Rect frown={cx,cy+1,1,1};SDL_RenderFillRect(s_renderer,&frown);}
+}
 static void draw_approved_match_stats(void) {
     if(!_showingUserStats || InputSDL_ExitConfirmOpen()) return;
     SDL_Texture *tex=match_ui_texture(&s_match_stats_art,"data/expanded/match_stats_ui.bmp");
     if(!tex)return;
-    const int w=320,h=161,x=(_screen_width-w)/2,y=(_screen_height-h)/2;
+    const int w=240,h=174,x=(_screen_width-w)/2,y=(_screen_height-h)/2;
     SDL_Rect dest={x,y,w,h};SDL_RenderCopy(s_renderer,tex,NULL,&dest);
     TeamGeneralInfo *a=&_topTeamData,*b=&_bottomTeamData;
     if(a->inGameTeamPtr!=&_topTeamInGame){TeamGeneralInfo *tmp=a;a=b;b=tmp;}
     TeamStatisticsData *t=a->teamStatsPtr,*u=b->teamStatsPtr;
     if(!t||!u)return;
-    /* All dynamic labels and values are rendered ONCE over a text-free asset. */
-    match_ui_text(x+69,y+36,(const char*)_topTeamInGame.teamName,1,19);
-    match_ui_text(x+251,y+36,(const char*)_bottomTeamInGame.teamName,1,19);
-    match_ui_number(x+151,y+36,(int)_statsTeam1Goals,1);
-    match_ui_text(x+160,y+36,"-",1,1);
-    match_ui_number(x+169,y+36,(int)_statsTeam2Goals,1);
+    match_ui_text(x+52,y+36,(const char*)_topTeamInGame.teamName,1,14);
+    match_ui_text(x+188,y+36,(const char*)_bottomTeamInGame.teamName,1,14);
+    match_ui_number(x+111,y+36,(int)_statsTeam1Goals,1);
+    match_ui_text(x+120,y+36,"-",1,1);
+    match_ui_number(x+129,y+36,(int)_statsTeam2Goals,1);
     static const char *labels[8]={
         "GOALS","POSSESSION","SHOTS","ON TARGET",
         "CORNERS","FOULS CONCEDED","YELLOW CARDS","RED CARDS"
@@ -621,21 +632,22 @@ static void draw_approved_match_stats(void) {
     left[1]=sum?100u*(unsigned)t->ballPossession/sum:0;
     right[1]=sum?100-left[1]:0;
     for(int i=0;i<8;i++) {
-        int yy=y+60+i*12;
-        match_ui_text(x+160,yy,labels[i],1,21);
-        match_ui_number(x+61,yy,left[i],1);
-        match_ui_number(x+259,yy,right[i],1);
+        int yy=y+56+i*10; /* adjacent 10px rows: no empty separator bands */
+        match_ui_text(x+120,yy,labels[i],1,19);
+        match_ui_number(x+31,yy,left[i],1);
+        match_ui_number(x+209,yy,right[i],1);
         if(i==1) {
-            match_ui_text(x+74,yy,"%",1,1);
-            match_ui_text(x+272,yy,"%",1,1);
-            SDL_Rect barA={x+81,yy+2,left[i]*19/100,3};
-            SDL_Rect barB={x+239-right[i]*19/100,yy+2,right[i]*19/100,3};
-            SDL_SetRenderDrawColor(s_renderer,96,164,245,255);
-            SDL_RenderFillRect(s_renderer,&barA);
-            SDL_SetRenderDrawColor(s_renderer,255,91,75,255);
-            SDL_RenderFillRect(s_renderer,&barB);
+            match_ui_text(x+45,yy,"%",1,1);
+            match_ui_text(x+223,yy,"%",1,1);
         }
     }
+    /* Persistent team values already used by VIEW SQUAD; never alter them in renderer. */
+    match_ui_text(x+120,y+141,"FORM",1,8);
+    match_ui_text(x+120,y+155,"MORALE",1,8);
+    match_ui_number(x+44,y+141,(int)_expandedCurrentForm,1);
+    match_ui_number(x+44,y+155,(int)_expandedTeamMorale,1);
+    match_mood_face(x+69,y+145,_expandedCurrentForm);
+    match_mood_face(x+69,y+159,_expandedTeamMorale);
 }
 static void draw_exit_confirmation(void) {
     if(!InputSDL_ExitConfirmOpen()) return;
@@ -652,6 +664,8 @@ static void draw_exit_confirmation(void) {
         /* A precise selection frame follows the actual button bounds.
            No floating arrow and no rectangle across the button artwork. */
         int selectedX=InputSDL_ExitConfirmChoice()?x+159:x+19;
+        /* The unselected button has its normal blue frame in the artwork;
+           draw exactly one yellow selection frame, matching EXIT style. */
         SDL_Rect selection={selectedX,y+91,132,28};
         SDL_SetRenderDrawColor(s_renderer,255,232,28,255);
         SDL_RenderDrawRect(s_renderer,&selection);

@@ -87,7 +87,7 @@ const char *Build_Platform(void)
 
 const char *Build_Version(void)
 {
-    return "SWOS Expanded 0.10.25 - " PROJECT_NAME " " SWOS_BUILD_ID
+    return "SWOS Expanded 0.10.39 - " PROJECT_NAME " " SWOS_BUILD_ID
            " (" SWOS_BUILD_DATE ", " SWOS_PLATFORM SWOS_BUILD_RULES ")";
 }
 

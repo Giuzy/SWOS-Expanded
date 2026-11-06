@@ -1524,15 +1524,8 @@ void DrawMenu(void)
         /* Career status is already in the packed career menu at y=38.
          * The former duplicate at y=232 covered the EXIT button. */
     }
-    /* Club Overview has direct facility buttons: no old I shortcut. */
-    if (menu->onInit == (MenuVoidFn)SWOSMainMenuInit) {
-        /* SWOS Expanded title: preserve the original colourful sprite
-         * and use the stock Amiga font for the new subtitle. */
-        /* EXPANDED is now part of the original indexed sprite 224,
-         * in pixel art above the first menu row (no overlay text). */
-        DrawMenuText(4, 256, 7, (uint8_t *)Build_ScreenText(),
-                     (uint8_t *)_charTables[0]);
-    }   /* [0] = the small font */
+    /* Main title: do not draw an additional text overlay.
+     * Keep the original title sprite and background unchanged. */
 
     WaitForVSync();
     BlitterCopyOverlayToScreen();

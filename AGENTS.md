@@ -40,8 +40,9 @@ Principi fondamentali:
 
 ### Stile
 
-- Utilizzare uno stile pixel art coerente con SWOS e con le schermate già approvate.
-- Preferire il font originale SWOS.
+- **Nuovi asset grafici: seguire la pixel art illustrata degli sfondi di SWOS Expanded**, con ricchezza di dettagli, palette, ombreggiature e finiture coerenti con questi sfondi. I menu originali OG di SWOS **non sono un modello estetico da seguire** per progettare nuovi asset o schermate. Conservare le schermate già approvate salvo richiesta di modificarle.
+- **Motivo:** vogliamo un’identità visiva Expanded uniforme e più curata; copiare i menu OG produrrebbe stili disomogenei e limiterebbe il nuovo design.
+- Preferire il font originale SWOS per testi renderizzati dal gioco quando compatibile con la nuova UI.
 - Non riprogettare schermate approvate senza richiesta.
 - Evitare pannelli, cornici, ombre e decorazioni superflue.
 - Mantenere testi, numeri e pulsanti leggibili e correttamente allineati.

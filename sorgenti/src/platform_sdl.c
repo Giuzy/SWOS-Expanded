@@ -738,7 +738,7 @@ static void draw_exit_confirmation(void) {
      * yellow highlight around the selected button; leave the other alone.
      * The short corner diagonals follow the rounded button silhouette. */
     int selected=InputSDL_ExitConfirmChoice();
-    int bx=x+(selected==0?7:82),by=y+49,bw=72,bh=13;
+    int bx=x+(selected==0?7:82),by=y+50,bw=72,bh=13;
     SDL_SetRenderDrawColor(s_renderer,255,230,0,255);
     SDL_RenderDrawLine(s_renderer,bx+2,by,bx+bw-3,by);
     SDL_RenderDrawLine(s_renderer,bx+2,by+bh-1,bx+bw-3,by+bh-1);

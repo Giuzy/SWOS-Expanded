@@ -8,8 +8,8 @@ REM make ricompila solo i file modificati.
 call "%~dp0PREPARA_SWOS.bat"
 if errorlevel 1 goto :errore
 
-if not exist "SWOS.exe" (
-  echo ERRORE: SWOS.exe non e stato generato.
+if not exist "SWOS_Expanded.exe" (
+  echo ERRORE: SWOS_Expanded.exe non e stato generato.
   goto :errore
 )
 if not exist "SDL2.dll" (
@@ -29,7 +29,7 @@ set "SWOS_TACTICS_JSON=0"
 set "SWOS_MENU_NAV_LOG=1"
 echo.
 echo === SWOS Expanded 0.10.40 - avvio locale ===
-"%~dp0SWOS.exe"
+"%~dp0SWOS_Expanded.exe"
 set "RC=%ERRORLEVEL%"
 echo.
 echo SWOS terminato. Codice uscita: %RC%

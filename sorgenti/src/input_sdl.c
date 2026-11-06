@@ -60,6 +60,7 @@ extern void DrawMenu(void); /* force immediate redraw when squad popup changes *
 static int s_exit_confirm_open=0, s_exit_confirm_choice=0; /* 0=BACK, 1=EXIT */
 int InputSDL_ExitConfirmOpen(void) { return s_exit_confirm_open; }
 int InputSDL_ExitConfirmChoice(void) { return s_exit_confirm_choice; }
+extern int Platform_ExitConfirmHitTest(int mouseX,int mouseY);
 static void exit_confirm_close(int quit) {
     s_exit_confirm_open=0;
     /* Unpause first: the original dispatcher ignores ESC while paused. */
@@ -741,6 +742,16 @@ void InputSDL_HandleEvent(const SDL_Event *e)
         }
         break;
     case SDL_MOUSEBUTTONDOWN:
+        if(s_exit_confirm_open) {
+            if(e->button.button==SDL_BUTTON_LEFT) {
+                int hit=Platform_ExitConfirmHitTest(e->button.x,e->button.y);
+                if(hit>=0) {
+                    s_exit_confirm_choice=hit;
+                    exit_confirm_close(hit==1);
+                }
+            }
+            break;
+        }
         if (e->button.button==SDL_BUTTON_RIGHT && Expanded_UI_IsSquadScreen()) {
             Expanded_SquadPopupToggle();
             DrawMenu();

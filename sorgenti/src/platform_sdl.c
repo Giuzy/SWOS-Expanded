@@ -660,8 +660,11 @@ static void draw_approved_match_stats(void) {
     /* Team box interior is y+30..44. The 7px native overlay font starts
      * at y+34 so names and scores share its exact vertical centre. */
     const int teamY=y+34;
-    match_ui_text(x+52,teamY,(const char*)_topTeamInGame.teamName,1,14);
-    match_ui_text(x+188,teamY,(const char*)_bottomTeamInGame.teamName,1,14);
+    /* Shift both team-name anchors 4 native pixels left for better
+     * horizontal centering, particularly with long away-team names.
+     * Scores, text baseline and all other overlay elements stay put. */
+    match_ui_text(x+48,teamY,(const char*)_topTeamInGame.teamName,1,14);
+    match_ui_text(x+184,teamY,(const char*)_bottomTeamInGame.teamName,1,14);
     match_ui_number(x+111,teamY,(int)_statsTeam1Goals,1);
     match_ui_text(x+120,teamY,"-",1,1);
     match_ui_number(x+129,teamY,(int)_statsTeam2Goals,1);

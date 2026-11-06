@@ -660,11 +660,10 @@ static void draw_approved_match_stats(void) {
     /* Team box interior is y+30..44. The 7px native overlay font starts
      * at y+34 so names and scores share its exact vertical centre. */
     const int teamY=y+34;
-    /* Shift both team-name anchors 4 native pixels left for better
-     * horizontal centering, particularly with long away-team names.
+    /* Name anchors are 2px left of their original x+52/x+188 positions.
      * Scores, text baseline and all other overlay elements stay put. */
-    match_ui_text(x+48,teamY,(const char*)_topTeamInGame.teamName,1,14);
-    match_ui_text(x+184,teamY,(const char*)_bottomTeamInGame.teamName,1,14);
+    match_ui_text(x+50,teamY,(const char*)_topTeamInGame.teamName,1,14);
+    match_ui_text(x+186,teamY,(const char*)_bottomTeamInGame.teamName,1,14);
     match_ui_number(x+111,teamY,(int)_statsTeam1Goals,1);
     match_ui_text(x+120,teamY,"-",1,1);
     match_ui_number(x+129,teamY,(int)_statsTeam2Goals,1);
@@ -685,8 +684,8 @@ static void draw_approved_match_stats(void) {
         match_ui_number(x+31,yy,left[i],1);
         match_ui_number(x+209,yy,right[i],1);
         if(i==1) {
-            match_ui_text(x+45,yy,"%",1,1);
-            match_ui_text(x+223,yy,"%",1,1);
+            match_ui_text(x+45,yy+1,"%",1,1);
+            match_ui_text(x+223,yy+1,"%",1,1);
         }
     }
     /* Align FORM/MORALE numbers with the statistic columns above.

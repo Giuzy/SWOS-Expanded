@@ -1404,14 +1404,14 @@ void DrawMenu(void)
     BlitterCopyPanelToScreen2();
     DrawMenuPanelBackground();
 
-    /* The packed menu is unpacked again after returning from each facility.
-     * Reapply transparent icon hitboxes on EVERY redraw, not only onInit:
-     * otherwise native blue entry backgrounds reappear over the artwork. */
+    /* Reapply transparent Business hitboxes after menu unpacking, but do
+     * not rerun onInit: it resets the STAFF popup on each X-triggered redraw.
+     * The modal/expense-popup state must survive DrawMenu(). */
     {
         extern uint8_t _expandedClubOverviewMenu[];
-        extern void Expanded_ClubOverviewInit(void);
+        extern void Expanded_ClubOverviewReapplyLayout(void);
         if (_currentMenuPtr == (uintptr_t)_expandedClubOverviewMenu)
-            Expanded_ClubOverviewInit();
+            Expanded_ClubOverviewReapplyLayout();
     }
 
     { extern void Expanded_UI_Prepare(void);

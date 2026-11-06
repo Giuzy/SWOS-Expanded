@@ -2238,5 +2238,9 @@ void Expanded_BusinessPopupToggle(void) {
         (_expandedBusinessStaffPopupMode==0 &&
          (_expandedBusinessStaffHover || focused));
     _expandedBusinessStaffPopupMode=open?2:1;
+    /* X is an edge-triggered controller action: repaint on this very press,
+     * rather than waiting for a later navigation/hover redraw. */
+    extern void DrawMenu(void);
+    DrawMenu();
 }
 

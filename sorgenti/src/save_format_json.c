@@ -1094,6 +1094,8 @@ extern uint32_t _expandedSupporters;
 extern uint8_t _expandedLowConfidenceMatches;
 extern uint8_t _expandedSponsorState,_expandedTvState,_expandedFinanceSeasonView;
 extern uint32_t _expandedStaffSeason,_expandedSponsorPaidSeason,_expandedTvPaidSeason;
+extern uint32_t _expandedStadiumMaintSeason,_expandedManagerPaidSeason,
+                _expandedAdminPaidSeason;
 extern uint32_t _expandedStaffLastWeek,_expandedSponsorLastWeek,_expandedTvLastWeek;
 extern uint32_t _expandedTravelLastWeek,_expandedTravelSeason;
 extern uint8_t _expandedResults[5],_expandedResultCount,_expandedResultHead;
@@ -1125,6 +1127,10 @@ static const FieldDesc s_career_scalars[] = {
     FX("expanded_tv_state", _expandedTvState, FLD_U8),
     FX("expanded_finance_season_view", _expandedFinanceSeasonView, FLD_U8),
     FX("expanded_staff_season", _expandedStaffSeason, FLD_U32),
+    /* Extra cumulative categories for accurate season totals after upgrades. */
+    FX("expanded_stadium_maint_season", _expandedStadiumMaintSeason, FLD_U32),
+    FX("expanded_manager_paid_season", _expandedManagerPaidSeason, FLD_U32),
+    FX("expanded_admin_paid_season", _expandedAdminPaidSeason, FLD_U32),
     FX("expanded_sponsor_paid_season", _expandedSponsorPaidSeason, FLD_U32),
     FX("expanded_tv_paid_season", _expandedTvPaidSeason, FLD_U32),
     FX("expanded_staff_last_week", _expandedStaffLastWeek, FLD_U32),

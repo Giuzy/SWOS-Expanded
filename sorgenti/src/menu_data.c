@@ -10682,7 +10682,8 @@ struct {
     MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect back;
     MenuMark end;
 } _expandedFacilityDetailMenu = {
-    { Expanded_FacilityDetailInit, GlobalRetn, 0, 5 }, MENU_MARK_BYTE_COORDS,
+    /* All eight facility detail/upgrade views start with BACK selected. */
+    { Expanded_FacilityDetailInit, GlobalRetn, 0, 6 }, MENU_MARK_BYTE_COORDS,
     { { 36, 0, 200, 15 }, { MENU_CMD_COLORS, 0x17 },
       { MENU_CMD_TEXT_PTR, 0, s_facTitle }, MENU_CMD_END },
     {

@@ -54,6 +54,9 @@ uint8_t _expandedSuccessfulRaises = 0;
 uint8_t _expandedSponsorState=0, _expandedTvState=0; /* 0=not offered,1=signed */
 uint8_t _expandedFinanceSeasonView=0;
 uint32_t _expandedStaffSeason=0, _expandedSponsorPaidSeason=0, _expandedTvPaidSeason=0;
+/* Category bookkeeping (not extra charges); saved for accurate YEAR history. */
+uint32_t _expandedStadiumMaintSeason=0,_expandedManagerPaidSeason=0,
+         _expandedAdminPaidSeason=0;
 uint32_t _expandedStaffLastWeek=0, _expandedSponsorLastWeek=0, _expandedTvLastWeek=0;
 uint32_t _expandedTravelLastWeek=0, _expandedTravelSeason=0;
 uint8_t _expandedBusinessStaffHover=0;
@@ -113,6 +116,18 @@ unsigned Expanded_FacilityWeeklyTotal(void) {
     for(unsigned i=0;i<8;i++) sum+=Expanded_StaffWeekly(i,_expandedFacilityLevels[i]);
     return sum;
 }
+/* Staff salaries include manager, fitness, training, doctors, scouts,
+ * youth, offices and transport employees. Stadium upkeep is NOT staff
+ * wages; away-trip ticket/fuel costs belong only to the TRAVEL row. */
+static uint64_t employee_wages_weekly(void) {
+    uint64_t facility=Expanded_FacilityWeeklyTotal();
+    uint64_t stadium=Expanded_StaffWeekly(0,_expandedFacilityLevels[0]);
+    return (facility>=stadium?facility-stadium:0u)+Expanded_ManagerWeeklyCost();
+}
+static uint64_t maintenance_weekly(void) {
+    return (uint64_t)Expanded_AdministrationWeeklyCost()+
+           Expanded_StaffWeekly(0,_expandedFacilityLevels[0]);
+}
 unsigned Expanded_ScoutCountryVisible(unsigned country) {
     unsigned home=_selTeamNumber>>8;
     unsigned lv=_expandedFacilityLevels[5];
@@ -136,9 +151,16 @@ void Expanded_BusinessWeeklyStep(void) {
     if(_youreSacked || _expandedEconomyClubId!=_selTeamNumber || _selTeamNumber==0xFFFFu) return;
     /* Recalculate native running costs from the live accepted contract. */
     extern int32_t _weeklyRunningCosts;
-    _weeklyRunningCosts=(int32_t)(Expanded_AdministrationWeeklyCost()+
-                                   Expanded_ManagerWeeklyCost());
+    unsigned admin=Expanded_AdministrationWeeklyCost();
+    unsigned manager=Expanded_ManagerWeeklyCost();
+    _weeklyRunningCosts=(int32_t)(admin+manager);
     unsigned staff=Expanded_FacilityWeeklyTotal();
+    /* These fields classify charges that the existing engine already pays;
+     * they do NOT deduct money or add to the original ledger again. */
+    _expandedAdminPaidSeason=sat_add(_expandedAdminPaidSeason,admin);
+    _expandedManagerPaidSeason=sat_add(_expandedManagerPaidSeason,manager);
+    _expandedStadiumMaintSeason=sat_add(_expandedStadiumMaintSeason,
+                                       Expanded_StaffWeekly(0,_expandedFacilityLevels[0]));
     uint32_t sponsor=_expandedSponsorState?_expandedShirtSponsor/52u:0;
     uint32_t tv=_expandedTvState?_expandedTvRights/52u:0;
     _expandedStaffLastWeek=staff;
@@ -386,6 +408,7 @@ static void ensure_club(void)
     _expandedShirtSponsor = _expandedStadiumSponsor = _expandedTvRights = 0;
     _expandedSponsorState=_expandedTvState=0;
     _expandedStaffSeason=_expandedSponsorPaidSeason=_expandedTvPaidSeason=0;
+    _expandedStadiumMaintSeason=_expandedManagerPaidSeason=_expandedAdminPaidSeason=0;
     _expandedStaffLastWeek=_expandedSponsorLastWeek=_expandedTvLastWeek=0;
     _expandedTravelLastWeek=_expandedTravelSeason=0;
     _expandedBusinessStaffHover=0;
@@ -412,6 +435,7 @@ void Expanded_EconomyReset(void)
     _expandedBoardMood=50; _expandedFanMood=50; _expandedSupporters=0;
     _expandedSponsorState=_expandedTvState=_expandedFinanceSeasonView=0;
     _expandedStaffSeason=_expandedSponsorPaidSeason=_expandedTvPaidSeason=0;
+    _expandedStadiumMaintSeason=_expandedManagerPaidSeason=_expandedAdminPaidSeason=0;
     _expandedStaffLastWeek=_expandedSponsorLastWeek=_expandedTvLastWeek=0;
     _expandedTravelLastWeek=_expandedTravelSeason=0;
     _expandedBusinessStaffHover=0;
@@ -440,6 +464,7 @@ void Expanded_EconomyNewSeason(void)
     _expandedShirtSponsor=_expandedStadiumSponsor=_expandedTvRights=0;
     _expandedSponsorState=_expandedTvState=0;
     _expandedStaffSeason=_expandedSponsorPaidSeason=_expandedTvPaidSeason=0;
+    _expandedStadiumMaintSeason=_expandedManagerPaidSeason=_expandedAdminPaidSeason=0;
     _expandedStaffLastWeek=_expandedSponsorLastWeek=_expandedTvLastWeek=0;
     _expandedTravelLastWeek=_expandedTravelSeason=0;
     _expandedBusinessStaffHover=0;
@@ -482,7 +507,7 @@ void Expanded_FacilityDetailInit(void) {
     else if (idx==7) snprintf(_expandedFacilityDetailLines[1],72,"YOUTH QUALITY +%u",Expanded_YouthPriceBonus(lv));
     else snprintf(_expandedFacilityDetailLines[1],72,"UPGRADE FOR BETTER CLUB SERVICES");
     snprintf(_expandedFacilityDetailLines[2],72,"%s: %c%u / WEEK",
-             "STAFF",c,
+             idx==0?"MAINT.":"STAFF",c,
              Expanded_StaffWeekly(idx,lv));
     if(lv==5) snprintf(_expandedFacilityDetailLines[3],72,"MAXIMUM LEVEL REACHED");
     else snprintf(_expandedFacilityDetailLines[3],72,"UPGRADE COST: %c%lu",c,(unsigned long)facility_cost(idx));
@@ -997,53 +1022,106 @@ static int cb_travel_hover_active(void) {
 static uint64_t cb_travel_display_cost(void) {
     return _expandedFinanceSeasonView?_expandedTravelSeason:_expandedTravelLastWeek;
 }
+/* One authoritative amount per expense row, shared by the finance tile and
+ * the matching popup TOTAL. This prevents discrepancies in WEEK/YEAR modes. */
+static uint64_t cb_wages_display_cost(void) {
+    extern int32_t _weeklyPlayerWages;
+    if (!_expandedFinanceSeasonView)
+        return (uint64_t)nonneg(_weeklyPlayerWages)+employee_wages_weekly();
+    uint64_t paidEmployees =
+        _expandedStaffSeason>=_expandedStadiumMaintSeason?
+        _expandedStaffSeason-_expandedStadiumMaintSeason:0u;
+    return (uint64_t)nonneg(_playerWagesBill)+paidEmployees+
+           _expandedManagerPaidSeason;
+}
+static uint64_t cb_maintenance_display_cost(void) {
+    return _expandedFinanceSeasonView?
+        (uint64_t)_expandedAdminPaidSeason+_expandedStadiumMaintSeason:
+        maintenance_weekly();
+}
 static void cb_staff_popup(void) {
     if(!cb_staff_hover_active()) return;
     const uint8_t white=2,gold=15;
-    char money[48];
-    unsigned admin=Expanded_AdministrationWeeklyCost();
-    unsigned manager=Expanded_ManagerWeeklyCost();
-    /* Popup totals are the sum of displayed wage items ONLY: stadium and
-     * administration belong to MAINTENANCE, transport costs to TRAVEL.
-     * The underlying general-ledger accounting is not modified here. */
-    /* Display-only order; accounting remains unchanged. Keep the original
-     * two-column grid and omit TRAVEL from this popup. The right column has
-     * three cost rows; the vacant grid cells are left between YOUTH and
-     * TOTAL at the original bottom-right position. */
-    static const char *const sn[8]={"FITNESS","MANAGER","MEDICAL","OFFICE",
-        "TRAINING","SCOUTS","YOUTH","TOTAL"};
-    uint64_t amounts[8]={
-        Expanded_StaffWeekly(4,_expandedFacilityLevels[4]),
-        manager,
-        Expanded_StaffWeekly(6,_expandedFacilityLevels[6]),
-        Expanded_StaffWeekly(3,_expandedFacilityLevels[3]),
-        Expanded_StaffWeekly(1,_expandedFacilityLevels[1]),
-        Expanded_StaffWeekly(5,_expandedFacilityLevels[5]),
-        Expanded_StaffWeekly(7,_expandedFacilityLevels[7]),
-        0 /* computed from the seven visible items below */
-    };
-    for(unsigned i=0;i<7;i++)
-        amounts[7]+=amounts[i];
-    /* Four fixed columns: label / right-aligned amount / label / amount.
-     * Both value columns stay vertically aligned regardless of label length. */
     const int px=82,py=104,pw=151,ph=62;
-    /* Compact paired columns, following the player-skills tooltip spacing. */
     const int leftName=86,leftAmount=149,rightName=158,rightAmount=228;
+    char money[48];
     rect(px,py,pw,ph,40);cb_box_outline(px,py,pw,ph,204);
     rect(px+1,py+1,pw-2,11,46);
-    cb_native(px+pw/2,py+4,15,"STAFF / WEEK",0,pw-8);
-    for(unsigned i=0;i<8;i++) {
-        int right=i>=4u;
-        /* The first 4 labels start in the left column; the next 3 in the
-         * right. TOTAL stays at the previous y=py+54, leaving unused rows
-         * as breathing room rather than moving or shrinking the panel. */
-        int yy=i==7u?py+54:py+14+(int)(right?i-4u:i)*8;
-        int nameX=right?rightName:leftName;
-        int amountX=right?rightAmount:leftAmount;
-        cb_native(nameX,yy,i==7?15:white,sn[i],-1,amountX-nameX-3);
-        cb_compact(money,sizeof money,amounts[i],0);
-        cb_native(amountX,yy,i==7?15:gold,money,1,24);
+    cb_native(px+pw/2,py+4,gold,
+              _expandedFinanceSeasonView?"WAGES / YEAR":"WAGES / WEEK",0,pw-8);
+    if (_expandedFinanceSeasonView) {
+        /* No historic per-facility weekly ledger exists: report only paid
+         * categories that ARE saved, instead of fabricating a breakdown at
+         * today's facility levels. YEAR total matches the outside WAGES row. */
+        uint64_t players=nonneg(_playerWagesBill);
+        uint64_t employees=
+            (_expandedStaffSeason>=_expandedStadiumMaintSeason?
+             _expandedStaffSeason-_expandedStadiumMaintSeason:0u)+
+            _expandedManagerPaidSeason;
+        cb_native(leftName,py+14,white,"PLAYERS",-1,leftAmount-leftName-3);
+        cb_compact(money,sizeof money,players,0);
+        cb_native(leftAmount,py+14,gold,money,1,24);
+        cb_native(rightName,py+14,white,"STAFF",-1,rightAmount-rightName-3);
+        cb_compact(money,sizeof money,employees,0);
+        cb_native(rightAmount,py+14,gold,money,1,24);
+    } else {
+        /* The detailed weekly breakdown includes all employee groups,
+         * bus/transport staff, manager AND players. Sum of every visible
+         * amount is exactly the external WAGES figure. */
+        static const char *const sn[9]={
+            "FITNESS","MANAGER","MEDICAL","OFFICE",
+            "TRAINING","SCOUTS","YOUTH","TRAVEL","PLAYERS"};
+        uint64_t amounts[9]={
+            Expanded_StaffWeekly(4,_expandedFacilityLevels[4]),
+            Expanded_ManagerWeeklyCost(),
+            Expanded_StaffWeekly(6,_expandedFacilityLevels[6]),
+            Expanded_StaffWeekly(3,_expandedFacilityLevels[3]),
+            Expanded_StaffWeekly(1,_expandedFacilityLevels[1]),
+            Expanded_StaffWeekly(5,_expandedFacilityLevels[5]),
+            Expanded_StaffWeekly(7,_expandedFacilityLevels[7]),
+            Expanded_StaffWeekly(2,_expandedFacilityLevels[2]),
+            (uint64_t)nonneg(_weeklyPlayerWages)
+        };
+        for(unsigned i=0;i<9;i++) {
+            int right=i>=4u && i<8u;
+            /* The former blank row on the left now shows PLAYERS.
+             * TOTAL remains in its old bottom-right position. */
+            int yy=py+14+(int)(right?i-4u:i>=8u?4u:i)*8;
+            int nameX=right?rightName:leftName;
+            int amountX=right?rightAmount:leftAmount;
+            cb_native(nameX,yy,white,sn[i],-1,amountX-nameX-3);
+            cb_compact(money,sizeof money,amounts[i],0);
+            cb_native(amountX,yy,gold,money,1,24);
+        }
     }
+    cb_native(rightName,py+54,gold,"TOTAL",-1,rightAmount-rightName-3);
+    cb_compact(money,sizeof money,cb_wages_display_cost(),0);
+    cb_native(rightAmount,py+54,gold,money,1,24);
+}
+static void cb_maintenance_popup(void) {
+    if(!cb_maintenance_hover_active()) return;
+    const uint8_t white=2,gold=15;
+    const int px=82,py=104,pw=151,ph=38;
+    const int leftName=86,leftAmount=149,rightName=158,rightAmount=228;
+    const uint64_t admin=_expandedFinanceSeasonView?
+                         _expandedAdminPaidSeason:Expanded_AdministrationWeeklyCost();
+    const uint64_t stadium=_expandedFinanceSeasonView?
+            _expandedStadiumMaintSeason:Expanded_StaffWeekly(0,_expandedFacilityLevels[0]);
+    char money[48];
+    rect(px,py,pw,ph,40);cb_box_outline(px,py,pw,ph,204);
+    rect(px+1,py+1,pw-2,11,46);
+    cb_native(px+pw/2,py+4,gold,
+              _expandedFinanceSeasonView?"MAINTENANCE / YEAR":"MAINTENANCE / WEEK",
+              0,pw-8);
+    cb_native(leftName,py+14,white,"ADMIN",-1,leftAmount-leftName-3);
+    cb_compact(money,sizeof money,admin,0);
+    cb_native(leftAmount,py+14,gold,money,1,24);
+    cb_native(rightName,py+14,white,"STADIUM",-1,rightAmount-rightName-3);
+    cb_compact(money,sizeof money,stadium,0);
+    cb_native(rightAmount,py+14,gold,money,1,24);
+    cb_native(rightName,py+22,gold,"TOTAL",-1,rightAmount-rightName-3);
+    cb_compact(money,sizeof money,cb_maintenance_display_cost(),0);
+    cb_native(rightAmount,py+22,gold,money,1,24);
 }
 /* Same two-column pixel-art popup geometry, font and colors as STAFF/WEEK.
  * ADMIN and STADIUM occupy the first row of the left and right columns.
@@ -1167,22 +1245,24 @@ static int cb_draw_full(void) {
      * only for the most recently played AWAY match. Season: booked totals.
      * The native weekly running cost is overhead, NOT travel. */
     uint64_t gate=nonneg(_gateReceipts)+nonneg(_competitionBonuses);
-    extern int32_t _weeklyPlayerWages,_weeklyRunningCosts;
-    uint64_t weeklyWages=nonneg(_weeklyPlayerWages);
-    uint64_t weeklyStaff=Expanded_FacilityWeeklyTotal()+nonneg(_weeklyRunningCosts);
+    extern int32_t _weeklyPlayerWages;
+    uint64_t weeklyPlayerWages=nonneg(_weeklyPlayerWages);
+    uint64_t weeklyEmployeeWages=employee_wages_weekly();
+    uint64_t weeklyMaintenance=maintenance_weekly();
     uint64_t weeklyTravel=_expandedTravelLastWeek;
     uint64_t sponsor=_expandedFinanceSeasonView?_expandedSponsorPaidSeason:
                      (_expandedSponsorState?_expandedShirtSponsor/52u:0u);
     uint64_t tv=_expandedFinanceSeasonView?_expandedTvPaidSeason:
                 (_expandedTvState?_expandedTvRights/52u:0u);
-    uint64_t wages=_expandedFinanceSeasonView?nonneg(_playerWagesBill):weeklyWages;
+    /* Share the EXACT row totals with their respective popup totals.
+     * WAGES includes players + employees; MAINTENANCE is admin + stadium.
+     * TRAVEL is only away-match costs, not bus staff salaries. */
+    uint64_t wages=cb_wages_display_cost();
     uint64_t travel=cb_travel_display_cost();
-    uint64_t staff=_expandedFinanceSeasonView?
-                   (nonneg(_generalRunningCosts)>_expandedTravelSeason?
-                    nonneg(_generalRunningCosts)-_expandedTravelSeason:0u):weeklyStaff;
+    uint64_t maintenance=cb_maintenance_display_cost();
     uint64_t gateDisplay=_expandedFinanceSeasonView?gate:
                          gate/(_seasonWeeksDeducted?_seasonWeeksDeducted:1u);
-    uint64_t income=sponsor+tv+gateDisplay,expense=wages+travel+staff;
+    uint64_t income=sponsor+tv+gateDisplay,expense=wages+travel+maintenance;
     unsigned week=Expanded_FinanceWeek(_lastFinancialWeekIndex,_careerJobOfferPhaseBias);
     snprintf(t,sizeof t,"FINANCES / %s %02u",_expandedFinanceSeasonView?"YEAR":"WEEK",week);
     cb_text(9,189,white,t);
@@ -1194,7 +1274,7 @@ static int cb_draw_full(void) {
     static const char *const leftLabel[4]={"SPONSOR","TV","GATE","INCOME"};
     static const char *const rightLabel[4]={"WAGES","TRAVEL","MAINTENANCE","TOTAL"};
     uint64_t lv[4]={sponsor,tv,gateDisplay,income};
-    uint64_t rv[4]={wages,travel,staff,expense};
+    uint64_t rv[4]={wages,travel,maintenance,expense};
     /* Identical cyan-bordered, blue-filled finance focus rows. Paint
      * before the white text so the figures remain fully legible. */
     rect(113,200,90,8,42);  /* WAGES */
@@ -1220,7 +1300,8 @@ static int cb_draw_full(void) {
     /* Forecast, NOT an extrapolation of an already accumulated season.
      * Each displayed figure is the current weekly expense multiplied by
      * 4 or 52.  A home match contributes zero to weekly travel. */
-    uint64_t projected=weeklyWages+weeklyStaff+weeklyTravel;
+    uint64_t projected=weeklyPlayerWages+weeklyEmployeeWages+
+                       weeklyMaintenance+weeklyTravel;
     cb_compact(money,sizeof money,projected*4u,-1);
     snprintf(t,sizeof t,"MONTH %s",money); cb_center_narrow(263,225,white,t);
     cb_compact(money,sizeof money,Expanded_AnnualExpenses(projected),-1);

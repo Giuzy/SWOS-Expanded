@@ -642,20 +642,21 @@ static void draw_approved_match_stats(void) {
             match_ui_text(x+223,yy,"%",1,1);
         }
     }
-    /* Center labels and values in the two bottom 13px rows. FORM and
-     * MORALE read the exact persistent managed-club variables displayed
-     * by VIEW SQUAD (not a second, independently calculated value).
-     * Opponent metrics are not tracked yet: use a dash instead of inventing
-     * a form/morale score, and keep the inner face position reserved. */
+    /* Align FORM/MORALE numbers with the statistic columns above.
+     * Managed team values are shared with VIEW SQUAD. The opponent values
+     * are temporary display placeholders until opponent mood is simulated. */
     const int formY=y+141, moraleY=y+154;
+    const unsigned opponentForm=58, opponentMorale=72;
     match_ui_text(x+120,formY,"FORM",1,8);
     match_ui_text(x+120,moraleY,"MORALE",1,8);
-    match_ui_number(x+44,formY,(int)_expandedCurrentForm,1);
-    match_ui_number(x+44,moraleY,(int)_expandedTeamMorale,1);
+    match_ui_number(x+31,formY,(int)_expandedCurrentForm,1);
+    match_ui_number(x+31,moraleY,(int)_expandedTeamMorale,1);
     match_mood_face(x+69,formY+3,_expandedCurrentForm);
     match_mood_face(x+69,moraleY+3,_expandedTeamMorale);
-    match_ui_text(x+196,formY,"-",1,1);
-    match_ui_text(x+196,moraleY,"-",1,1);
+    match_ui_number(x+209,formY,(int)opponentForm,1);
+    match_ui_number(x+209,moraleY,(int)opponentMorale,1);
+    match_mood_face(x+171,formY+3,opponentForm);
+    match_mood_face(x+171,moraleY+3,opponentMorale);
 }
 static void draw_exit_confirmation(void) {
     if(!InputSDL_ExitConfirmOpen()) return;

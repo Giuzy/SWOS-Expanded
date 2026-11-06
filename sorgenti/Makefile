@@ -250,7 +250,7 @@ regen-data:
 
 # ---- Windows resource (icon) ----
 # On MinGW and Cygwin we compile SWOS.rc → SWOS.res.o via windres and
-# link it in, which gives the .exe the SWOS.ico for both the file icon
+# link it in, which gives the .exe the approved SWOS-EX icon for both the file icon
 # (Explorer) and the SDL window/taskbar icon (SDL2 picks up resource ID
 # 1 when no SDL_SetWindowIcon is called).
 #
@@ -823,7 +823,7 @@ endif
 
 # Compile the Windows resource file (icon) on MinGW/Cygwin builds. The output
 # is COFF-format and gets linked into the final exe.
-$(OBJDIR)/SWOS.res.o: SWOS.rc SWOS.ico
+$(OBJDIR)/SWOS.res.o: SWOS.rc ../development_assets/branding/windows/SWOS_EX.ico
 	@mkdir -p $(dir $@)
 	$(WINDRES) -O coff $< $@
 

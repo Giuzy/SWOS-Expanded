@@ -205,3 +205,9 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - Quando vengono creati, approvati o modificati asset per SWOS Expanded, l'assistente deve caricarli personalmente nel repository GitHub, nella cartella coerente con la schermata o funzione, e committarli. Non delegare all'utente il caricamento manuale.
 - Per i file binari usare gli strumenti GitHub per blob Base64, tree e commit quando disponibili; verificare che i file risultino effettivamente presenti sul ramo prima di dichiarare il caricamento completato.
 - Se un impedimento tecnico concreto blocca il trasferimento, comunicarlo esplicitamente senza dichiarare il lavoro completato.
+
+## Numerazione build e release (regola utente, 2026-11-06)
+- Distinguere piccoli interventi e aggiunte dalle release: ogni piccolo intervento incrementa la numerazione progressiva della build di una unità; esempio esplicito dell'utente: `0.40` -> `0.41`.
+- Le release maggiori avanzano il numero della release: esempio esplicito dell'utente: `0.40` -> `0.50`.
+- Non limitare a nove incrementi: la sequenza può continuare con suffissi di più cifre; esempi testuali forniti dall'utente: `0.410`, `0.411`, `0.1010`, `0.1110`. La rappresentazione precisa dei segmenti oltre nove incrementi è da confermare prima di rinominare versioni esistenti, perché la convenzione proposta è ambigua.
+- Il numero della build deve comparire nella schermata del titolo al posto della scritta gialla attuale, senza alterare lo sfondo. Identificare prima la fonte della scritta: la rimozione di `DrawMenuText` in `menu_system.c` non l'ha eliminata.

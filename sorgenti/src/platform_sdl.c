@@ -571,7 +571,7 @@ static SDL_Texture *s_match_exit_art=NULL,*s_match_stats_art=NULL;
 /* Source-only crop: exclude grass/brown margins around the approved EXIT panel.
  * The BMP itself remains unchanged. Cached once when that texture is loaded. */
 static SDL_Rect s_match_exit_crop={0,0,0,0};
-static void match_exit_find_panel(const SDL_Surface *source) {
+static void match_exit_find_panel(SDL_Surface *source) {
     SDL_Surface *rgba=SDL_ConvertSurfaceFormat(source,SDL_PIXELFORMAT_ARGB8888,0);
     s_match_exit_crop=(SDL_Rect){0,0,0,0};
     if(!rgba) return;
@@ -735,7 +735,7 @@ static void draw_exit_confirmation(void) {
      * yellow highlight around the selected button; leave the other alone.
      * The short corner diagonals follow the rounded button silhouette. */
     int selected=InputSDL_ExitConfirmChoice();
-    int bx=x+(selected==0?7:82),by=y+50,bw=72,bh=13;
+    int bx=x+(selected==0?7:82),by=y+49,bw=72,bh=13;
     SDL_SetRenderDrawColor(s_renderer,255,230,0,255);
     SDL_RenderDrawLine(s_renderer,bx+2,by,bx+bw-3,by);
     SDL_RenderDrawLine(s_renderer,bx+2,by+bh-1,bx+bw-3,by+bh-1);

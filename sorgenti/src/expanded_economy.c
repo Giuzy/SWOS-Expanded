@@ -2121,7 +2121,7 @@ void Expanded_UI_After(void) {
                 name=(const char *)(uintptr_t)e->fg;
             ui_button(i,name);
         }
-        ui_native_text(43,246,70,15,Build_DisplayVersion(),0);
+        ui_native_text(43,246,110,15,Build_DisplayVersion(),0);
     } else if(kind==2) {
         Menu *m=(Menu *)_currentMenu;
         if(!m) return;

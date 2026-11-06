@@ -947,11 +947,12 @@ static void cb_staff_popup(void) {
     unsigned admin=Expanded_AdministrationWeeklyCost();
     unsigned manager=Expanded_ManagerWeeklyCost();
     uint64_t weeklyStaff=Expanded_FacilityWeeklyTotal()+admin+manager;
-    static const char *const sn[11]={"ADMIN","MANAGER","STADIUM",
-        "TRAINING","TRAVEL","OFFICES","FITNESS","SCOUTING","MEDICAL",
-        "YOUTH","TOTAL"};
-    uint64_t amounts[11]={admin,manager,
-        Expanded_StaffWeekly(0,_expandedFacilityLevels[0]),
+    /* Display only: omit ADMIN and STADIUM without changing the actual
+     * weekly cost calculation. MANAGER takes ADMIN's top-left position;
+     * OFFICES remains first in the right column. */
+    static const char *const sn[9]={"MANAGER","TRAINING","TRAVEL",
+        "OFFICES","FITNESS","SCOUTING","MEDICAL","YOUTH","TOTAL"};
+    uint64_t amounts[9]={manager,
         Expanded_StaffWeekly(1,_expandedFacilityLevels[1]),
         Expanded_StaffWeekly(2,_expandedFacilityLevels[2]),
         Expanded_StaffWeekly(3,_expandedFacilityLevels[3]),
@@ -967,14 +968,14 @@ static void cb_staff_popup(void) {
     rect(px,py,pw,ph,40);cb_box_outline(px,py,pw,ph,204);
     rect(px+1,py+1,pw-2,11,46);
     cb_native(px+pw/2,py+4,15,"STAFF / WEEK",0,pw-8);
-    for(unsigned i=0;i<11;i++) {
-        int right=i>=5u;
-        int yy=py+14+(int)(right?i-5u:i)*8;
+    for(unsigned i=0;i<9;i++) {
+        int right=i>=3u;
+        int yy=py+14+(int)(right?i-3u:i)*8;
         int nameX=right?rightName:leftName;
         int amountX=right?rightAmount:leftAmount;
-        cb_native(nameX,yy,i==10?15:white,sn[i],-1,amountX-nameX-3);
+        cb_native(nameX,yy,i==8?15:white,sn[i],-1,amountX-nameX-3);
         cb_compact(money,sizeof money,amounts[i],0);
-        cb_native(amountX,yy,i==10?15:gold,money,1,24);
+        cb_native(amountX,yy,i==8?15:gold,money,1,24);
     }
 }
 static int cb_draw_selection(void) {

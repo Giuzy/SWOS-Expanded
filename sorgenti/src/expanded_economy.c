@@ -2221,3 +2221,17 @@ void Expanded_UI_Partial(MenuEntry *entry) {(void)entry;}
 
 /* Squad popup input: only active while the Expanded squad screen is open. */
 int Expanded_UI_IsSquadScreen(void) { return ui_kind()==8; }
+/* Business STAFF details: same event-driven X toggle as VIEW SQUAD. */
+int Expanded_UI_IsBusinessScreen(void) {
+    return _currentMenuPtr==(uintptr_t)_expandedClubOverviewMenu;
+}
+void Expanded_BusinessPopupToggle(void) {
+    if(!Expanded_UI_IsBusinessScreen()) return;
+    Menu *menu=(Menu *)_currentMenu;
+    int focused=menu && menu->selectedEntry && menu->selectedEntry->ordinal==11;
+    int open=_expandedBusinessStaffPopupMode==1 ||
+        (_expandedBusinessStaffPopupMode==0 &&
+         (_expandedBusinessStaffHover || focused));
+    _expandedBusinessStaffPopupMode=open?2:1;
+}
+

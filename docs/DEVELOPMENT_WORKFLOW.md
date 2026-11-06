@@ -1,0 +1,45 @@
+# SWOS Expanded — development procedures and rationale
+
+Status: approved working rules. Primary integration branch: `dev/0.10`.
+
+## 1. Local working copy, GitHub for synchronization
+
+**Procedure:** At the start of a development session, obtain the latest complete project snapshot from the integration branch and prepare a local workspace containing source code, assets, build configuration and relevant documentation. Inspect the actual repository structure instead of assuming paths. Work on the local snapshot when possible; use GitHub to synchronize, review and commit approved changes. Before editing, confirm that the needed sources and assets are present. Do not describe a workspace as complete until verified.
+
+**Why:** Reading related files locally is faster, supports project-wide searches and coordinated changes, and reduces repeated remote API calls and mistakes caused by missing context. GitHub remains the durable, shared source of truth rather than the editor for every file.
+
+**Between chats:** A chat runtime's local files are not guaranteed to survive. A new session must restore or recreate the workspace from the latest committed state. Never assume uncommitted local work persists. Record important design decisions and outstanding work in versioned documentation. At the end of a session, commit approved work where feasible and report any uncommitted changes.
+
+## 2. Approved image assets: automatic upload
+
+**Procedure:** Once the user explicitly approves a newly created graphical asset, transfer it to the repository without requesting another upload or confirmation. Preserve the approved visual result and use the appropriate asset directory. For binary transfers, use the documented chunk/manifest/reassembly workflow in `asset-transfer/README.md`; verify the final file and its SHA-256 before reporting success.
+
+**Why:** This removes manual downloading and re-uploading by the user, avoids losing the exact approved version, and works around the observed single-transfer size ceiling.
+
+**Observed limit:** 3,145,472 bytes per upload in our tests (not a universal GitHub limit). Use chunks of at most 1,048,576 bytes.
+
+## 3. Asset approval versus implementation
+
+**Procedure:** Approval of artwork authorizes storing that asset. Modify code or replace an existing in-game asset only when the user requests implementation or replacement. Keep previously approved UI elements unchanged unless specifically requested.
+
+**Why:** Approval of an image is not automatically approval of unrelated code or layout changes; separating the steps prevents regressions and preserves agreed visual designs.
+
+## 4. Fixes, verification and commits
+
+**Procedure:** For a requested bug fix, identify the actual active source files and input mappings, make a targeted change, inspect the diff, run available syntax/build checks and relevant tests, then commit on the agreed branch. Report precisely what was tested, what could not be tested, and the commit identifier. Do not claim a fix or successful build merely because a commit exists.
+
+**Why:** A repository edit does not prove runtime behavior; focused changes and explicit checks reduce regressions and make troubleshooting reproducible.
+
+**Current pending issue:** In the Business screen, selecting an expense item with the joypad and pressing X should open its details popup immediately, without requiring cursor movement or an additional keypress. Preserve the approved popup artwork. This remains unverified and must not be reported as fixed until the code and behavior have been checked.
+
+## 5. Temporary transfer tests and cleanup
+
+**Procedure:** After validating a transfer, remove test BMPs and their test manifests, while retaining the reusable workflow and documentation. Do not remove production assets or files needed for recovery.
+
+**Why:** Keeps the repository clean without losing the automated transfer capability.
+
+## 6. Versioning and handoff
+
+**Procedure:** Work on `dev/0.10` unless instructed otherwise. Preserve the project's established version and interim-commit conventions. Keep project notes and procedures current, including the rationale for significant workflow decisions. When changing chats, restore the committed baseline and consult these notes before continuing.
+
+**Why:** The next session can reconstruct both the technical state and the reasons behind decisions, without relying on temporary chat storage or recollection.

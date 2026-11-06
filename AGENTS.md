@@ -86,6 +86,9 @@ Piattaforma principale: Windows 10/11 x64.
 
 - Mantenere SDL2 e la base OpenSWOS.
 - Supportare 3840×2160 a schermo intero.
+- **Durante lo sviluppo**, il launcher Windows `AVVIA_SWOS.bat` deve aprire il gioco in una **vera finestra massimizzata**, grande quanto l'area di lavoro del monitor, mantenendo barra del titolo, barra delle applicazioni e normale Alt+Tab. Non usare il fullscreen senza bordi al posto della finestra.
+- **Nelle build release**, il gioco deve partire **sempre a schermo intero** (`fullscreen=desktop`, senza finestra di sviluppo massimizzata). Non trasferire le opzioni di avvio usate per il debug nel pacchetto release.
+- **Motivo:** nello sviluppo è più comodo passare a editor, GitKraken e strumenti di test senza cambiare risoluzione; per i giocatori la release mantiene l'esperienza fullscreen 4K prevista.
 - Evitare bande nere e residui grafici dei menu originali.
 - Conservare la nitidezza della pixel art.
 - Non alterare inutilmente il rendering delle partite.

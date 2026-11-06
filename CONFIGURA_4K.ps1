@@ -1,3 +1,4 @@
+param([switch]$Release)
 $ErrorActionPreference = 'Stop'
 $dir = Join-Path ([Environment]::GetFolderPath('MyDocuments')) 'SWOS'
 New-Item -ItemType Directory -Force -Path $dir | Out-Null
@@ -15,7 +16,10 @@ for ($i=0; $i -lt $lines.Count; $i++) {
  if ($videoStart -ge 0 -and $lines[$i] -match '^\s*\[') { $videoEnd = $i; break }
 }
 if ($videoStart -lt 0) { $lines.Add('[video]'); $videoStart=$lines.Count-1; $videoEnd=$lines.Count }
-$settings = [ordered]@{ fullscreen='desktop'; widescreen='stretch'; resolution='auto'; scaling='sharp'; crt_mask='off'; subpixel_scroll='false' }
+# Development uses a maximized decorated window (SDL handles maximization).
+# Public releases always start in desktop fullscreen, never inherit this mode.
+$fullscreenMode = if ($Release) { 'desktop' } else { 'off' }
+$settings = [ordered]@{ fullscreen=$fullscreenMode; widescreen='stretch'; resolution='auto'; scaling='sharp'; crt_mask='off'; subpixel_scroll='false' }
 foreach ($key in $settings.Keys) {
  $found=$false
  for ($i=$videoStart+1; $i -lt $videoEnd; $i++) {
@@ -24,4 +28,4 @@ foreach ($key in $settings.Keys) {
  if (-not $found) { $lines.Insert($videoEnd,"$key=$($settings[$key])"); $videoEnd++ }
 }
 [IO.File]::WriteAllText($path,($lines -join "`r`n"),[Text.UTF8Encoding]::new($false))
-Write-Host "Configurazione video nitida salvata in $path"
+Write-Host "Configurazione video ($fullscreenMode) salvata in $path"

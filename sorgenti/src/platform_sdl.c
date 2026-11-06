@@ -631,6 +631,23 @@ static void match_ui_text(int cx,int y,const char *str,int scale,int maxChars) {
     SDL_Color white={250,250,250,255};
     confirm_text(cx-(int)i*3*scale,y,scale,buf,white);
 }
+/* Match stats names attach to the real SCORE glyph edges, never to a
+ * fixed centre. Every letter advances 6 native pixels and paints 5.
+ * edge = last painted name pixel (left team), or first (right team). */
+static void match_ui_team_at_edge(int edge,int y,const char *str,
+                                  int rightAligned,int maxChars) {
+    char buf[16];int n=0;
+    if(!str || maxChars<=0) return;
+    while(n<maxChars && n<14 && str[n]) {
+        char c=str[n];
+        buf[n]=(c>='a'&&c<='z')?(char)(c-32):c;
+        ++n;
+    }
+    if(!n) return;
+    buf[n]=0;
+    SDL_Color white={250,250,250,255};
+    confirm_text(rightAligned?edge-(n*6-2):edge,y,1,buf,white);
+}
 extern uint16_t _showingUserStats;
 extern uint16_t _statsTeam1Goals,_statsTeam2Goals;
 extern TeamGeneralInfo _topTeamData,_bottomTeamData;
@@ -660,10 +677,23 @@ static void draw_approved_match_stats(void) {
     /* Team box interior is y+30..44. The 7px native overlay font starts
      * at y+34 so names and scores share its exact vertical centre. */
     const int teamY=y+34;
-    /* Name anchors are 2px left of their original x+52/x+188 positions.
-     * Scores, text baseline and all other overlay elements stay put. */
-    match_ui_text(x+50,teamY,(const char*)_topTeamInGame.teamName,1,14);
-    match_ui_text(x+186,teamY,(const char*)_bottomTeamInGame.teamName,1,14);
+    /* The centre scoreboard is authoritative: use its actual glyph
+     * edges and leave exactly 10 native pixels to the name on each side.
+     * Names align by their LAST/first painted pixels, not their centres.
+     * The 12px panel margins are kept clear for unusually long names. */
+    char leftScore[20],rightScore[20];
+    snprintf(leftScore,sizeof leftScore,"%u",(unsigned)_statsTeam1Goals);
+    snprintf(rightScore,sizeof rightScore,"%u",(unsigned)_statsTeam2Goals);
+    const int scoreLeftEdge=x+111-(int)strlen(leftScore)*3;
+    const int scoreRightEdge=x+129+(int)strlen(rightScore)*3-2;
+    const int leftNameEnd=scoreLeftEdge-10;
+    const int rightNameStart=scoreRightEdge+10;
+    int leftMax=(leftNameEnd-(x+12)+2)/6;
+    int rightMax=((x+228)-rightNameStart+2)/6;
+    if(leftMax>14)leftMax=14;
+    if(rightMax>14)rightMax=14;
+    match_ui_team_at_edge(leftNameEnd,teamY,(const char*)_topTeamInGame.teamName,1,leftMax);
+    match_ui_team_at_edge(rightNameStart,teamY,(const char*)_bottomTeamInGame.teamName,0,rightMax);
     match_ui_number(x+111,teamY,(int)_statsTeam1Goals,1);
     match_ui_text(x+120,teamY,"-",1,1);
     match_ui_number(x+129,teamY,(int)_statsTeam2Goals,1);
@@ -1174,6 +1204,19 @@ int Platform_Init(const PlatformInitOptions *opts)
             fprintf(stderr,
                     "[video] window %dx%d @%d,%d scale=%d display=%d usable=%dx%d\n",
                     ww, wh, wx, wy, s_win_scale_current, disp, ub2.w, ub2.h);
+        }
+    }
+#endif
+
+#ifndef SWOS_WASM_BUILD
+    /* SWOS Expanded development launcher: use a real maximized desktop
+     * window (title bar + taskbar remain available), NOT desktop fullscreen.
+     * This opt-in is deliberately absent from release builds/launchers. */
+    if (fs_mode == PLATFORM_FULLSCREEN_NONE) {
+        const char *dev_maximized = getenv("SWOS_EXPANDED_DEV_MAXIMIZED");
+        if (dev_maximized && strcmp(dev_maximized, "1") == 0) {
+            SDL_MaximizeWindow(s_window);
+            fprintf(stderr, "[video] development window: maximized, not fullscreen\n");
         }
     }
 #endif

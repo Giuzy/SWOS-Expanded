@@ -27,9 +27,12 @@ set "SWOS_DATA_JSON=0"
 set "SWOS_MENU_JSON=0"
 set "SWOS_TACTICS_JSON=0"
 set "SWOS_MENU_NAV_LOG=1"
+REM In sviluppo usa una vera finestra massimizzata, con barra titolo e taskbar.
+REM In release NON impostare SWOS_EXPANDED_DEV_MAXIMIZED e avvia fullscreen.
+set "SWOS_EXPANDED_DEV_MAXIMIZED=1"
 echo.
 echo === SWOS Expanded 0.10.40 - avvio locale ===
-"%~dp0SWOS_Expanded.exe"
+"%~dp0SWOS_Expanded.exe" --fullscreen=off
 set "RC=%ERRORLEVEL%"
 echo.
 echo SWOS terminato. Codice uscita: %RC%

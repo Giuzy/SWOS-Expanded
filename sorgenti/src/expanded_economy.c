@@ -624,9 +624,8 @@ void Expanded_ClubOverviewReapplyLayout(void) {
     _menuEntries[9].rightEntry=8;
     _menuEntries[9].upEntry=3;
     _menuEntries[9].downEntry=11;
-    /* STAFF is a FOCUS-ONLY menu entry: no onSelect, no cost changes, no
-     * FIRE required.  Moving the D-pad onto it opens the same tooltip as
-     * mouse hover; moving away closes it. */
+    /* STAFF is a focus-only menu entry: X opens its details ONLY while
+     * selected; moving to another entry closes the popup. FIRE does nothing. */
     _menuEntries[11].isInvisible=0;
     _menuEntries[11].isDisabled=0;
     _menuEntries[11].x=111;_menuEntries[11].y=222;
@@ -904,13 +903,18 @@ static void cb_box_outline(int x,int y,int w,int h,uint8_t color) {
     rect(x,y,1,h,color);rect(x+w-1,y,1,h,color);
 }
 static int cb_staff_hover_active(void) {
-    /* Mouse and controller share the tooltip; the pointer is NOT allowed to
-     * steal controller focus just because it was left over the STAFF row. */
+    /* Visibility is controlled by X and by the actual menu focus, NEVER
+     * by mouse position alone. Leaving STAFF also clears the open state so
+     * returning to STAFF cannot silently reopen the old popup. */
     Menu *menu=(Menu *)_currentMenu;
-    if (_expandedBusinessStaffPopupMode == 1) return 1;
-    if (_expandedBusinessStaffPopupMode == 2) return 0;
-    return _expandedBusinessStaffHover ||
-           (menu && menu->selectedEntry && menu->selectedEntry->ordinal==11);
+    int focused=menu && menu->selectedEntry &&
+                menu->selectedEntry->ordinal==11;
+    if (!focused) {
+        if (_expandedBusinessStaffPopupMode==1)
+            _expandedBusinessStaffPopupMode=2;
+        return 0;
+    }
+    return _expandedBusinessStaffPopupMode==1;
 }
 static void cb_staff_popup(void) {
     if(!cb_staff_hover_active()) return;
@@ -1057,6 +1061,10 @@ static int cb_draw_full(void) {
         cb_compact(money,sizeof money,rv[i],0);
         cb_text_step(201-cb_text_width(money,5),yy,i==3?10:white,money,5);
     }
+    /* STAFF is selectable even when not focused. A restrained cyan outline,
+     * exactly INSIDE the native 94x12 selected frame (111,222), marks it as
+     * interactive. The selected frame still paints over it when focused. */
+    cb_box_outline(112,223,92,10,204);
     int64_t balance=_newBalance;
     cb_amount(money,sizeof money,(uint64_t)(balance<0?-balance:balance),balance<0?-1:0);
     cb_center_narrow(263,206,gold,money);
@@ -2238,13 +2246,13 @@ int Expanded_UI_IsBusinessScreen(void) {
 void Expanded_BusinessPopupToggle(void) {
     if(!Expanded_UI_IsBusinessScreen()) return;
     Menu *menu=(Menu *)_currentMenu;
-    int focused=menu && menu->selectedEntry && menu->selectedEntry->ordinal==11;
-    int open=_expandedBusinessStaffPopupMode==1 ||
-        (_expandedBusinessStaffPopupMode==0 &&
-         (_expandedBusinessStaffHover || focused));
-    _expandedBusinessStaffPopupMode=open?2:1;
-    /* X is an edge-triggered controller action: repaint on this very press,
-     * rather than waiting for a later navigation/hover redraw. */
+    int focused=menu && menu->selectedEntry &&
+                menu->selectedEntry->ordinal==11;
+    /* X anywhere else must not open STAFF details or change their state. */
+    if (!focused) return;
+    _expandedBusinessStaffPopupMode=
+        _expandedBusinessStaffPopupMode==1?2:1;
+    /* Event-driven redraw: open or close on the SAME controller X press. */
     extern void DrawMenu(void);
     DrawMenu();
 }

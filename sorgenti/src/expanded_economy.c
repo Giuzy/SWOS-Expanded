@@ -1041,6 +1041,7 @@ static uint64_t cb_maintenance_display_cost(void) {
 }
 static void cb_staff_popup(void) {
     if(!cb_staff_hover_active()) return;
+    extern int32_t _weeklyPlayerWages;
     const uint8_t white=2,gold=15;
     const int px=82,py=104,pw=151,ph=62;
     const int leftName=86,leftAmount=149,rightName=158,rightAmount=228;
@@ -1121,34 +1122,6 @@ static void cb_maintenance_popup(void) {
     cb_native(rightAmount,py+14,gold,money,1,24);
     cb_native(rightName,py+22,gold,"TOTAL",-1,rightAmount-rightName-3);
     cb_compact(money,sizeof money,cb_maintenance_display_cost(),0);
-    cb_native(rightAmount,py+22,gold,money,1,24);
-}
-/* Same two-column pixel-art popup geometry, font and colors as STAFF/WEEK.
- * ADMIN and STADIUM occupy the first row of the left and right columns.
- * TOTAL stays in the right column with the same 8px row spacing used by
- * the final YOUTH -> TOTAL lines of the original popup. */
-static void cb_maintenance_popup(void) {
-    if(!cb_maintenance_hover_active()) return;
-    const uint8_t white=2,gold=15;
-    const int px=82,py=104,pw=151,ph=38;
-    const int leftName=86,leftAmount=149,rightName=158,rightAmount=228;
-    const uint64_t admin=Expanded_AdministrationWeeklyCost();
-    const uint64_t stadium=Expanded_StaffWeekly(0,_expandedFacilityLevels[0]);
-    char money[48];
-    rect(px,py,pw,ph,40);cb_box_outline(px,py,pw,ph,204);
-    rect(px+1,py+1,pw-2,11,46);
-    cb_native(px+pw/2,py+4,gold,"MAINTENANCE / WEEK",0,pw-8);
-
-    cb_native(leftName,py+14,white,"ADMIN",-1,leftAmount-leftName-3);
-    cb_compact(money,sizeof money,admin,0);
-    cb_native(leftAmount,py+14,gold,money,1,24);
-
-    cb_native(rightName,py+14,white,"STADIUM",-1,rightAmount-rightName-3);
-    cb_compact(money,sizeof money,stadium,0);
-    cb_native(rightAmount,py+14,gold,money,1,24);
-
-    cb_native(rightName,py+22,gold,"TOTAL",-1,rightAmount-rightName-3);
-    cb_compact(money,sizeof money,admin+stadium,0);
     cb_native(rightAmount,py+22,gold,money,1,24);
 }
 /* Matching blue/cyan popup and font, with the same first-column text

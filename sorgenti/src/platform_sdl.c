@@ -677,9 +677,7 @@ static void draw_exit_confirmation(void) {
     SDL_Rect shade={0,0,ow,oh};SDL_RenderFillRect(s_renderer,&shade);
     SDL_SetRenderDrawBlendMode(s_renderer,SDL_BLENDMODE_NONE);
 
-    /* Compact version of the approved 300x125 panel: about half its width
-     * and height. Keep its title artwork but redraw BOTH buttons at native
-     * pixel resolution: the old EXIT artwork had damaged/overlapping edges. */
+    /* Compact the entire approved panel, including its built-in buttons. */
     const int w=160,h=68,x=(ow-w)/2,y=(oh-h)/2;
     SDL_Texture *tex=match_ui_texture(&s_match_exit_art,"data/expanded/match_exit_ui.bmp");
     if(tex) {
@@ -694,26 +692,8 @@ static void draw_exit_confirmation(void) {
         confirm_text(x+46,y+7,1,"EXIT MATCH",yellow);
     }
 
-    const int chosen=InputSDL_ExitConfirmChoice();
-    const SDL_Color white={250,250,250,255};
-    const SDL_Color yellow={255,232,28,255};
-    const int bw=70,bh=20,by=y+44;
-    for(int i=0;i<2;i++) {
-        int bx=x+6+i*78;
-        SDL_Rect button={bx,by,bw,bh};
-        /* Opaque repaint removes the damaged baked-in EXIT button and any
-         * previous selection outline, independently of the chosen option. */
-        SDL_SetRenderDrawColor(s_renderer,i==chosen?77:10,
-                              i==chosen?25:65,i==chosen?30:150,255);
-        SDL_RenderFillRect(s_renderer,&button);
-        SDL_SetRenderDrawColor(s_renderer,i==chosen?255:80,
-                              i==chosen?232:169,i==chosen?28:233,255);
-        SDL_RenderDrawRect(s_renderer,&button);
-        const char *label=i==0?"BACK":"EXIT";
-        int chars=i==0?4:4;
-        confirm_text(bx+(bw-chars*6+1)/2,by+7,1,label,
-                     i==chosen?white:yellow);
-    }
+    /* BACK and EXIT are already painted in match_exit_ui.bmp.
+     * Do not draw a second pair over the scaled original buttons. */
 }
 
 static void render_frame_impl(int pump_full);   /* below; pump_full=0 on the SDL timer thread */

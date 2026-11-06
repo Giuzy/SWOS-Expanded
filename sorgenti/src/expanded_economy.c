@@ -607,6 +607,11 @@ static uint32_t nonneg(int32_t n) {return n>0?(uint32_t)n:0;}
 extern MenuEntry _menuEntries[];
 void Expanded_ClubOverviewInit(void) {
     ensure_club();
+    /* Start each Business visit with STAFF details hidden, even when the
+     * pointer rests on STAFF or the controller focus was previously there.
+     * X still toggles immediately via the same SDL event as View Squad. */
+    _expandedBusinessStaffHover=0;
+    _expandedBusinessStaffPopupMode=2;
     /* The legacy generic upgrade row stays in the packed layout to keep
      * ordinals stable, but is not visible or selectable. */
     _menuEntries[0].isInvisible=1; /* artwork replaces stock title */

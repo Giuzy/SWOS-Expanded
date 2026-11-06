@@ -643,8 +643,8 @@ static void draw_approved_match_stats(void) {
     left[1]=sum?100u*(unsigned)t->ballPossession/sum:0;
     right[1]=sum?100-left[1]:0;
     for(int i=0;i<8;i++) {
-        /* Center every 7px glyph vertically inside its 10px statistics row. */
-        int yy=y+56+i*10;
+        /* Align labels, values and percent signs with the blue row centers. */
+        int yy=y+54+i*10;
         match_ui_text(x+120,yy,labels[i],1,19);
         match_ui_number(x+31,yy,left[i],1);
         match_ui_number(x+209,yy,right[i],1);
@@ -653,11 +653,12 @@ static void draw_approved_match_stats(void) {
             match_ui_text(x+223,yy,"%",1,1);
         }
     }
-    /* Center labels and values in the two bottom 13px rows. The left-hand
-     * values are the persistent managed-club metrics already used in VIEW SQUAD.
+    /* Center labels and values in the two bottom 13px rows. FORM and
+     * MORALE read the exact persistent managed-club variables displayed
+     * by VIEW SQUAD (not a second, independently calculated value).
      * Opponent metrics are not tracked yet: use a dash instead of inventing
      * a form/morale score, and keep the inner face position reserved. */
-    const int formY=y+137, moraleY=y+150;
+    const int formY=y+141, moraleY=y+154;
     match_ui_text(x+120,formY,"FORM",1,8);
     match_ui_text(x+120,moraleY,"MORALE",1,8);
     match_ui_number(x+44,formY,(int)_expandedCurrentForm,1);

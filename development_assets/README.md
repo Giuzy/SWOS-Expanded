@@ -12,6 +12,7 @@ Organize approved artwork by the screen or function that owns it. This directory
 | `squad/` | Squad screens and player UI. |
 | `training/` | Training UI. |
 | `transfer/` | Transfer Market UI; keep approved UI and background as separate files. |
+| `match_stats/` | Approved Match Stats menu artwork and UI references. |
 
 Do not move existing runtime assets without updating and testing every code reference. Existing asset locations are left unchanged pending a separate inventory and migration. Keep approved assets in their own category and use descriptive, correctly spelled filenames.
 

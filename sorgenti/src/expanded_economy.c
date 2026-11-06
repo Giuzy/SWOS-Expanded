@@ -1052,6 +1052,10 @@ static int cb_draw_full(void) {
     static const char *const rightLabel[4]={"WAGES","TRAVEL","STAFF","TOTAL"};
     uint64_t lv[4]={sponsor,tv,gateDisplay,income};
     uint64_t rv[4]={wages,travel,staff,expense};
+    /* Subtle blue fill inside the permanent STAFF outline. Paint BEFORE
+     * the finance labels and figures to keep both white text and values
+     * fully legible; the outer selection frame remains unchanged. */
+    rect(113,224,90,8,42);
     for(unsigned i=0;i<4;i++) {
         int yy=201+(int)i*12;
         cb_text_step(10,yy,i==3?gold:white,leftLabel[i],5);

@@ -10796,6 +10796,7 @@ struct {
     CB_MenuAction back;
     CB_MenuFocusOnly staffHover;
     CB_MenuFocusOnly wagesHover;
+    CB_MenuFocusOnly travelHover;
     MenuMark end;
 } _expandedClubOverviewMenu = {
     /* Real SWOS menu hitboxes; all pixel artwork is painted AFTER the
@@ -10847,10 +10848,13 @@ struct {
       { MENU_CMD_COLORS, 0xC }, { MENU_CMD_TEXT_PTR, 0, s_clubOverviewBack },
       { MENU_CMD_ONSELECT_FIRE, SetExitMenuFlag }, MENU_CMD_END },
     /* 11: MAINTENANCE popup focus-only entry, opened with controller X. */
-    { { 87, 186, 94, 12 }, { MENU_CMD_NAV, 12, 12, 12, 10 },
+    { { 87, 186, 94, 12 }, { MENU_CMD_NAV, 13, 13, 13, 10 },
       { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility }, MENU_CMD_END },
     /* 12: WAGES popup focus-only entry. Same navigation and X action. */
-    { { 87, 162, 94, 12 }, { MENU_CMD_NAV, 9, 9, 9, 11 },
+    { { 87, 162, 94, 12 }, { MENU_CMD_NAV, 9, 9, 9, 13 },
+      { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility }, MENU_CMD_END },
+    /* 13: TRAVEL popup focus-only entry, between WAGES and MAINTENANCE. */
+    { { 87, 174, 94, 12 }, { MENU_CMD_NAV, 12, 12, 12, 11 },
       { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility }, MENU_CMD_END },
     MENU_MARK_END_MENU
 };

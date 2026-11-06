@@ -60,6 +60,7 @@ uint8_t _expandedBusinessStaffHover=0;
 /* 1=open after X, 2=closed. These popup states never auto-open on focus. */
 uint8_t _expandedBusinessStaffPopupMode=2;  /* WAGES: existing STAFF / WEEK */
 uint8_t _expandedBusinessMaintenancePopupMode=2; /* MAINTENANCE */
+uint8_t _expandedBusinessTravelPopupMode=2; /* TRAVEL */
 uint8_t _expandedResults[5]={0},_expandedResultCount=0,_expandedResultHead=0;
 uint8_t _expandedTravelFatigue=0;
 uint8_t _expandedCurrentForm=65;
@@ -634,9 +635,9 @@ void Expanded_ClubOverviewReapplyLayout(void) {
     _menuEntries[11].background=NO_BACKGROUND;
     _menuEntries[11].content=NO_FOREGROUND;
     _menuEntries[11].onSelect=0;
-    _menuEntries[11].leftEntry=12;
-    _menuEntries[11].rightEntry=12;
-    _menuEntries[11].upEntry=12;
+    _menuEntries[11].leftEntry=13;
+    _menuEntries[11].rightEntry=13;
+    _menuEntries[11].upEntry=13;
     _menuEntries[11].downEntry=10;
     /* New focus-only WAGES entry is appended as ordinal 12 to avoid
      * renumbering existing facilities, BACK, and MAINTENANCE. */
@@ -650,8 +651,21 @@ void Expanded_ClubOverviewReapplyLayout(void) {
     _menuEntries[12].leftEntry=9;
     _menuEntries[12].rightEntry=9;
     _menuEntries[12].upEntry=9;
-    _menuEntries[12].downEntry=11;
-    /* Facility cards continue via the finance toggle to both expense rows. */
+    _menuEntries[12].downEntry=13;
+    /* New focus-only TRAVEL row, native 94x12 at y=210 (label y=213).
+     * Appended to preserve all earlier ordinals and action callbacks. */
+    _menuEntries[13].isInvisible=0;
+    _menuEntries[13].isDisabled=0;
+    _menuEntries[13].x=111;_menuEntries[13].y=210;
+    _menuEntries[13].dwWidth=94;_menuEntries[13].dwHeight=12;
+    _menuEntries[13].background=NO_BACKGROUND;
+    _menuEntries[13].content=NO_FOREGROUND;
+    _menuEntries[13].onSelect=0;
+    _menuEntries[13].leftEntry=12;
+    _menuEntries[13].rightEntry=12;
+    _menuEntries[13].upEntry=12;
+    _menuEntries[13].downEntry=11;
+    /* Facility cards continue via the finance toggle to all three rows. */
     for (unsigned i=1; i<=8; ++i) {
         _menuEntries[i].background=NO_BACKGROUND;
         _menuEntries[i].content=NO_FOREGROUND;
@@ -671,6 +685,7 @@ void Expanded_ClubOverviewInit(void) {
     _expandedBusinessStaffHover=0;
     _expandedBusinessStaffPopupMode=2;
     _expandedBusinessMaintenancePopupMode=2;
+    _expandedBusinessTravelPopupMode=2;
     Expanded_ClubOverviewReapplyLayout();
 }
 static int cb_draw_selection(void); /* SDL pixel-art overlay, defined below */
@@ -965,6 +980,23 @@ static int cb_maintenance_hover_active(void) {
     }
     return _expandedBusinessMaintenancePopupMode==1;
 }
+static int cb_travel_hover_active(void) {
+    Menu *menu=(Menu *)_currentMenu;
+    int focused=menu && menu->selectedEntry &&
+                menu->selectedEntry->ordinal==13;
+    if(!focused) {
+        if(_expandedBusinessTravelPopupMode==1)
+            _expandedBusinessTravelPopupMode=2;
+        return 0;
+    }
+    return _expandedBusinessTravelPopupMode==1;
+}
+/* Same source for the finance TRAVEL row and its detail popup.
+ * The weekly figure is zero after a home match, from the existing
+ * Expanded_Economy travel charge logic. YEAR shows the season total. */
+static uint64_t cb_travel_display_cost(void) {
+    return _expandedFinanceSeasonView?_expandedTravelSeason:_expandedTravelLastWeek;
+}
 static void cb_staff_popup(void) {
     if(!cb_staff_hover_active()) return;
     const uint8_t white=2,gold=15;
@@ -1037,9 +1069,26 @@ static void cb_maintenance_popup(void) {
     cb_compact(money,sizeof money,admin+stadium,0);
     cb_native(rightAmount,py+22,gold,money,1,24);
 }
+/* Matching blue/cyan popup and font, with the same first-column text
+ * baseline and gold value color as STAFF and MAINTENANCE. */
+static void cb_travel_popup(void) {
+    if(!cb_travel_hover_active()) return;
+    const int px=82,py=104,pw=151,ph=38;
+    const int leftName=86,leftAmount=149;
+    const uint8_t white=2,gold=15;
+    char money[48];
+    rect(px,py,pw,ph,40);cb_box_outline(px,py,pw,ph,204);
+    rect(px+1,py+1,pw-2,11,46);
+    cb_native(px+pw/2,py+4,gold,
+              _expandedFinanceSeasonView?"TRAVEL / YEAR":"TRAVEL / WEEK",0,pw-8);
+    cb_native(leftName,py+14,white,"COSTS",-1,leftAmount-leftName-3);
+    cb_compact(money,sizeof money,cb_travel_display_cost(),0);
+    cb_native(leftAmount,py+14,gold,money,1,24);
+}
 static void cb_business_popups(void) {
     cb_staff_popup();
     cb_maintenance_popup();
+    cb_travel_popup();
 }
 static int cb_draw_selection(void) {
     if (!cb_load_assets()) return 0;
@@ -1050,6 +1099,7 @@ static int cb_draw_selection(void) {
     if(ordinal==9) {x=168;y=187;w=33;h=12;}
     else if(ordinal==11) {x=111;y=222;w=94;h=12;}
     else if(ordinal==12) {x=111;y=198;w=94;h=12;}
+    else if(ordinal==13) {x=111;y=210;w=94;h=12;}
     else if(ordinal==1) {x=243;y=108;w=70;h=18;}
     else if(ordinal==10) {x=5;y=3;w=47;h=17;}
     else if(ordinal>=2 && ordinal<=8) {
@@ -1122,7 +1172,7 @@ static int cb_draw_full(void) {
     uint64_t tv=_expandedFinanceSeasonView?_expandedTvPaidSeason:
                 (_expandedTvState?_expandedTvRights/52u:0u);
     uint64_t wages=_expandedFinanceSeasonView?nonneg(_playerWagesBill):weeklyWages;
-    uint64_t travel=_expandedFinanceSeasonView?_expandedTravelSeason:weeklyTravel;
+    uint64_t travel=cb_travel_display_cost();
     uint64_t staff=_expandedFinanceSeasonView?
                    (nonneg(_generalRunningCosts)>_expandedTravelSeason?
                     nonneg(_generalRunningCosts)-_expandedTravelSeason:0u):weeklyStaff;
@@ -1141,10 +1191,10 @@ static int cb_draw_full(void) {
     static const char *const rightLabel[4]={"WAGES","TRAVEL","MAINTENANCE","TOTAL"};
     uint64_t lv[4]={sponsor,tv,gateDisplay,income};
     uint64_t rv[4]={wages,travel,staff,expense};
-    /* Matching outlined finance rows: WAGES and MAINTENANCE. Paint the
-     * slightly lighter blue fills behind the labels and values; STAFF's
-     * original focus-only hitbox and popup behavior remain unchanged. */
+    /* Identical cyan-bordered, blue-filled finance focus rows. Paint
+     * before the white text so the figures remain fully legible. */
     rect(113,200,90,8,42);  /* WAGES */
+    rect(113,212,90,8,42);  /* TRAVEL */
     rect(113,224,90,8,42);  /* MAINTENANCE */
     for(unsigned i=0;i<4;i++) {
         int yy=201+(int)i*12;
@@ -1156,10 +1206,10 @@ static int cb_draw_full(void) {
         cb_compact(money,sizeof money,rv[i],0);
         cb_text_step(201-cb_text_width(money,5),yy,i==3?10:white,money,5);
     }
-    /* Both expense rows have permanent cyan outlines and focus-only
-     * hitboxes: WAGES (12) and MAINTENANCE (11). */
-    cb_box_outline(112,199,92,10,204);
-    cb_box_outline(112,223,92,10,204);
+    /* Permanent outlines sit 1px inside the selected 94x12 frames. */
+    cb_box_outline(112,199,92,10,204);  /* WAGES */
+    cb_box_outline(112,211,92,10,204);  /* TRAVEL */
+    cb_box_outline(112,223,92,10,204);  /* MAINTENANCE */
     int64_t balance=_newBalance;
     cb_amount(money,sizeof money,(uint64_t)(balance<0?-balance:balance),balance<0?-1:0);
     cb_center_narrow(263,206,gold,money);
@@ -2343,14 +2393,21 @@ void Expanded_BusinessPopupToggle(void) {
     Menu *menu=(Menu *)_currentMenu;
     unsigned focused=menu && menu->selectedEntry ?
                      menu->selectedEntry->ordinal : 0u;
-    /* Only an explicitly selected finance row responds to X. The other
-     * popup closes as focus changes, and neither opens just by moving. */
+    /* X only opens the selected finance detail, immediately; all other
+     * popups close. Moving focus away also clears the former open state. */
     if(focused==12) {
         _expandedBusinessMaintenancePopupMode=2;
+        _expandedBusinessTravelPopupMode=2;
         _expandedBusinessStaffPopupMode=
             _expandedBusinessStaffPopupMode==1?2:1;
+    } else if(focused==13) {
+        _expandedBusinessStaffPopupMode=2;
+        _expandedBusinessMaintenancePopupMode=2;
+        _expandedBusinessTravelPopupMode=
+            _expandedBusinessTravelPopupMode==1?2:1;
     } else if(focused==11) {
         _expandedBusinessStaffPopupMode=2;
+        _expandedBusinessTravelPopupMode=2;
         _expandedBusinessMaintenancePopupMode=
             _expandedBusinessMaintenancePopupMode==1?2:1;
     } else return;

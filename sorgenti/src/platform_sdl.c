@@ -643,7 +643,8 @@ static void draw_approved_match_stats(void) {
     left[1]=sum?100u*(unsigned)t->ballPossession/sum:0;
     right[1]=sum?100-left[1]:0;
     for(int i=0;i<8;i++) {
-        int yy=y+51+i*10; /* raise central statistics block by 5px */
+        /* Center every 7px glyph vertically inside its 10px statistics row. */
+        int yy=y+56+i*10;
         match_ui_text(x+120,yy,labels[i],1,19);
         match_ui_number(x+31,yy,left[i],1);
         match_ui_number(x+209,yy,right[i],1);
@@ -652,13 +653,19 @@ static void draw_approved_match_stats(void) {
             match_ui_text(x+223,yy,"%",1,1);
         }
     }
-    /* Persistent team values already used by VIEW SQUAD; never alter them in renderer. */
-    match_ui_text(x+120,y+136,"FORM",1,8);
-    match_ui_text(x+120,y+150,"MORALE",1,8);
-    match_ui_number(x+44,y+136,(int)_expandedCurrentForm,1);
-    match_ui_number(x+44,y+150,(int)_expandedTeamMorale,1);
-    match_mood_face(x+69,y+140,_expandedCurrentForm);
-    match_mood_face(x+69,y+154,_expandedTeamMorale);
+    /* Center labels and values in the two bottom 13px rows. The left-hand
+     * values are the persistent managed-club metrics already used in VIEW SQUAD.
+     * Opponent metrics are not tracked yet: use a dash instead of inventing
+     * a form/morale score, and keep the inner face position reserved. */
+    const int formY=y+137, moraleY=y+150;
+    match_ui_text(x+120,formY,"FORM",1,8);
+    match_ui_text(x+120,moraleY,"MORALE",1,8);
+    match_ui_number(x+44,formY,(int)_expandedCurrentForm,1);
+    match_ui_number(x+44,moraleY,(int)_expandedTeamMorale,1);
+    match_mood_face(x+69,formY+3,_expandedCurrentForm);
+    match_mood_face(x+69,moraleY+3,_expandedTeamMorale);
+    match_ui_text(x+196,formY,"-",1,1);
+    match_ui_text(x+196,moraleY,"-",1,1);
 }
 static void draw_exit_confirmation(void) {
     if(!InputSDL_ExitConfirmOpen()) return;

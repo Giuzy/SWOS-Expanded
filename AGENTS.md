@@ -212,3 +212,9 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - Una nuova release importante incrementa la parte centrale e azzera l'ultima: la prossima release importante dopo la serie `0.10.xx` sarà `0.20.00`; le modifiche successive `0.20.01`, `0.20.02`, ecc.
 - Conservare gli identificativi come stringhe; non interpretarli come numeri decimali. Oltre `09`, il contatore continua normalmente `10`, `11` e così via.
 - Il numero della build deve comparire nella schermata del titolo al posto della scritta gialla attuale, senza alterare lo sfondo. La rimozione di `DrawMenuText` in `menu_system.c` non ha eliminato quella scritta: identificare prima la fonte reale.
+
+## Aggiornamento obbligatorio della versione a ogni commit (regola utente, 2026-11-06)
+- Per ogni commit che modifica il gioco, incrementare la versione di build secondo la convenzione `MAJOR.RELEASE.BUILD` approvata, salvo quando si prepara esplicitamente una nuova release (che aggiorna il segmento RELEASE e azzera BUILD).
+- Aggiornare `SWOS_EXPANDED_VERSION` in `sorgenti/include/build_info.h` **nello stesso commit** delle modifiche: la scritta di debug nel titolo deve mostrare automaticamente il valore tramite `Build_DisplayVersion()`, e `Build_Version()` deve usare lo stesso valore.
+- Non creare un secondo commit soltanto per aggiornare il numero, perché questo genererebbe una sequenza senza fine. Verificare la coerenza prima del commit.
+- I commit esclusivamente documentali o di regole (`AGENTS.md`) non rappresentano una nuova build del gioco e non richiedono incremento della versione.

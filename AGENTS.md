@@ -228,3 +228,13 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - Il numero esatto della build resta in `sorgenti/include/build_info.h` e compare automaticamente nel titolo.
 - Per una release importante si prepara un branch `release/0.20` e la versione `0.20.00`; la stessa convenzione si applica alle serie successive.
 - Il vecchio branch `release/0.10.40` resta temporaneamente disponibile come riferimento per permettere la sincronizzazione sicura di GitKraken; non cancellarlo prima della verifica locale.
+
+## Cartella unica di ingresso asset — ASSETS_INBOX (regola utente, 2026-11-06)
+
+- La cartella permanente `ASSETS_INBOX/`, alla radice del repository, è l'unico punto di deposito manuale per nuovi asset (PNG, sprite, animazioni e altri file).
+- L'utente copia i nuovi file in `ASSETS_INBOX/` nel repository locale e li pubblica sul ramo di lavoro verificato tramite Commit e Push (attualmente `dev/0.10`).
+- Quando l'utente chiede di organizzare gli asset dopo il push, l'assistente controlla i file presenti su GitHub, individua le cartelle definitive appropriate e li sposta con un commit separato, esplicitamente autorizzato. Non assumere che ogni push venga rilevato automaticamente.
+- Durante lo spostamento preservare esattamente il contenuto binario e il nome degli asset approvati, salvo diversa istruzione; non sovrascrivere asset esistenti senza verifica e consenso.
+- Non integrare automaticamente gli asset nel gioco soltanto perché sono stati archiviati.
+- Mantenere `ASSETS_INBOX/.gitkeep` nel repository affinché la cartella rimanga tracciata anche quando non contiene altri file.
+- Questa procedura è un'alternativa pratica al caricamento diretto tramite strumenti GitHub quando il trasferimento binario non è possibile; preferire il caricamento diretto quando effettivamente disponibile.

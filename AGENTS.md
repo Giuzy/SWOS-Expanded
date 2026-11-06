@@ -64,6 +64,8 @@ Quando viene richiesto uno sfondo illustrato:
 - Utilizzare il riferimento grafico approvato denominato **TRANSFER 1** per il menu principale del mercato.
 - Non introdurre cornici esterne nel layout TRANSFER 1.
 - Non modificare gratuitamente posizioni, dimensioni e gerarchia degli elementi.
+- Le faccine di FORM e MORALE devono usare lo stesso set grafico canonico in tutte le schermate (BUSINESS, SQUAD, MATCH STATS e ogni altra UI), con espressioni, soglie, colori e dimensioni coerenti; non disegnarne varianti indipendenti. Eventuali modifiche devono essere condivise e verificate su tutte le schermate.
+- MATCH STATS: mantenere l'asset grafico approvato in `development_assets/match_stats/` come riferimento visivo; separare l'illustrazione statica dai nomi, punteggi e valori dinamici, senza testi duplicati e senza modificare altri menu.
 
 ## 5. Joypad, mouse e tastiera
 
@@ -233,7 +235,7 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 
 - La cartella permanente `ASSETS_INBOX/`, alla radice del repository, è l'unico punto di deposito manuale per nuovi asset (PNG, sprite, animazioni e altri file).
 - L'utente copia i nuovi file in `ASSETS_INBOX/` nel repository locale e li pubblica sul ramo di lavoro verificato tramite Commit e Push (attualmente `dev/0.10`).
-- Quando l'utente chiede di organizzare gli asset dopo il push, l'assistente controlla i file presenti su GitHub, individua le cartelle definitive appropriate e li sposta con un commit separato, esplicitamente autorizzato. Non assumere che ogni push venga rilevato automaticamente.
+- L'utente autorizza permanentemente l'assistente a organizzare e committare, senza ulteriore conferma, i nuovi file trovati in `ASSETS_INBOX/` dopo un push segnalato dall'utente o durante una successiva sessione di lavoro sul repository. L'assistente verifica i file su GitHub, individua le cartelle definitive appropriate e li sposta con un commit separato. Non assumere che ogni push venga rilevato automaticamente fuori dalla conversazione.
 - Durante lo spostamento preservare esattamente il contenuto binario e il nome degli asset approvati, salvo diversa istruzione; non sovrascrivere asset esistenti senza verifica e consenso.
 - Non integrare automaticamente gli asset nel gioco soltanto perché sono stati archiviati.
 - Mantenere `ASSETS_INBOX/.gitkeep` nel repository affinché la cartella rimanga tracciata anche quando non contiene altri file.

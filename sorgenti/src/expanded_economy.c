@@ -57,8 +57,9 @@ uint32_t _expandedStaffSeason=0, _expandedSponsorPaidSeason=0, _expandedTvPaidSe
 uint32_t _expandedStaffLastWeek=0, _expandedSponsorLastWeek=0, _expandedTvLastWeek=0;
 uint32_t _expandedTravelLastWeek=0, _expandedTravelSeason=0;
 uint8_t _expandedBusinessStaffHover=0;
-/* 0=follow hover/focus, 1=opened with X, 2=closed with X. */
-uint8_t _expandedBusinessStaffPopupMode=0;
+/* 1=open after X, 2=closed. These popup states never auto-open on focus. */
+uint8_t _expandedBusinessStaffPopupMode=2;  /* WAGES: existing STAFF / WEEK */
+uint8_t _expandedBusinessMaintenancePopupMode=2; /* MAINTENANCE */
 uint8_t _expandedResults[5]={0},_expandedResultCount=0,_expandedResultHead=0;
 uint8_t _expandedTravelFatigue=0;
 uint8_t _expandedCurrentForm=65;
@@ -623,9 +624,9 @@ void Expanded_ClubOverviewReapplyLayout(void) {
     _menuEntries[9].leftEntry=5;
     _menuEntries[9].rightEntry=8;
     _menuEntries[9].upEntry=3;
-    _menuEntries[9].downEntry=11;
-    /* STAFF is a focus-only menu entry: X opens its details ONLY while
-     * selected; moving to another entry closes the popup. FIRE does nothing. */
+    _menuEntries[9].downEntry=12; /* Finance -> WAGES -> MAINTENANCE */
+    /* Existing popup focus target is now the MAINTENANCE row (ordinal 11).
+     * X opens its own popup; FIRE still has no effect. */
     _menuEntries[11].isInvisible=0;
     _menuEntries[11].isDisabled=0;
     _menuEntries[11].x=111;_menuEntries[11].y=222;
@@ -633,18 +634,30 @@ void Expanded_ClubOverviewReapplyLayout(void) {
     _menuEntries[11].background=NO_BACKGROUND;
     _menuEntries[11].content=NO_FOREGROUND;
     _menuEntries[11].onSelect=0;
-    _menuEntries[11].leftEntry=9;
-    _menuEntries[11].rightEntry=9;
-    _menuEntries[11].upEntry=9;
+    _menuEntries[11].leftEntry=12;
+    _menuEntries[11].rightEntry=12;
+    _menuEntries[11].upEntry=12;
     _menuEntries[11].downEntry=10;
-    /* All central facility cards go DOWN to the finance toggle, then DOWN
-     * again to the STAFF tooltip.  No invisible dead-end in this path. */
+    /* New focus-only WAGES entry is appended as ordinal 12 to avoid
+     * renumbering existing facilities, BACK, and MAINTENANCE. */
+    _menuEntries[12].isInvisible=0;
+    _menuEntries[12].isDisabled=0;
+    _menuEntries[12].x=111;_menuEntries[12].y=198;
+    _menuEntries[12].dwWidth=94;_menuEntries[12].dwHeight=12;
+    _menuEntries[12].background=NO_BACKGROUND;
+    _menuEntries[12].content=NO_FOREGROUND;
+    _menuEntries[12].onSelect=0;
+    _menuEntries[12].leftEntry=9;
+    _menuEntries[12].rightEntry=9;
+    _menuEntries[12].upEntry=9;
+    _menuEntries[12].downEntry=11;
+    /* Facility cards continue via the finance toggle to both expense rows. */
     for (unsigned i=1; i<=8; ++i) {
         _menuEntries[i].background=NO_BACKGROUND;
         _menuEntries[i].content=NO_FOREGROUND;
         _menuEntries[i].downEntry=9;
     }
-    /* BACK stays available by LEFT from the first card, and after STAFF. */
+    /* BACK stays available by LEFT from the first card and after MAINTENANCE. */
     _menuEntries[10].upEntry=11;
     _menuEntries[10].downEntry=5;
     _menuEntries[10].rightEntry=5;
@@ -653,10 +666,11 @@ void Expanded_ClubOverviewReapplyLayout(void) {
 }
 void Expanded_ClubOverviewInit(void) {
     ensure_club();
-    /* Once per Business entry, hide the STAFF details until explicitly
-     * requested. Repaints must never reset this user interaction state. */
+    /* On each visit, both popups begin closed. Redrawing does not clear
+     * either state, so X toggles immediately and reliably. */
     _expandedBusinessStaffHover=0;
     _expandedBusinessStaffPopupMode=2;
+    _expandedBusinessMaintenancePopupMode=2;
     Expanded_ClubOverviewReapplyLayout();
 }
 static int cb_draw_selection(void); /* SDL pixel-art overlay, defined below */
@@ -927,18 +941,29 @@ static void cb_maintenance_label(int x,int y,uint8_t color) {
                     cb_plot(x+i*5+col,y+row+1,color);
 }
 static int cb_staff_hover_active(void) {
-    /* Visibility is controlled by X and by the actual menu focus, NEVER
-     * by mouse position alone. Leaving STAFF also clears the open state so
-     * returning to STAFF cannot silently reopen the old popup. */
+    /* The original STAFF / WEEK breakdown now belongs to WAGES (12).
+     * Leaving WAGES closes it; returning never auto-opens the popup. */
     Menu *menu=(Menu *)_currentMenu;
     int focused=menu && menu->selectedEntry &&
-                menu->selectedEntry->ordinal==11;
+                menu->selectedEntry->ordinal==12;
     if (!focused) {
         if (_expandedBusinessStaffPopupMode==1)
             _expandedBusinessStaffPopupMode=2;
         return 0;
     }
     return _expandedBusinessStaffPopupMode==1;
+}
+static int cb_maintenance_hover_active(void) {
+    /* MAINTENANCE (11) has a separate, X-only popup with the same rules. */
+    Menu *menu=(Menu *)_currentMenu;
+    int focused=menu && menu->selectedEntry &&
+                menu->selectedEntry->ordinal==11;
+    if (!focused) {
+        if (_expandedBusinessMaintenancePopupMode==1)
+            _expandedBusinessMaintenancePopupMode=2;
+        return 0;
+    }
+    return _expandedBusinessMaintenancePopupMode==1;
 }
 static void cb_staff_popup(void) {
     if(!cb_staff_hover_active()) return;
@@ -978,23 +1003,56 @@ static void cb_staff_popup(void) {
         cb_native(amountX,yy,i==8?15:gold,money,1,24);
     }
 }
+/* Same two-column pixel-art popup geometry, font and colors as STAFF/WEEK.
+ * ADMIN and STADIUM occupy the first row of the left and right columns.
+ * TOTAL stays in the right column with the same 8px row spacing used by
+ * the final YOUTH -> TOTAL lines of the original popup. */
+static void cb_maintenance_popup(void) {
+    if(!cb_maintenance_hover_active()) return;
+    const uint8_t white=2,gold=15;
+    const int px=82,py=104,pw=151,ph=38;
+    const int leftName=86,leftAmount=149,rightName=158,rightAmount=228;
+    const uint64_t admin=Expanded_AdministrationWeeklyCost();
+    const uint64_t stadium=Expanded_StaffWeekly(0,_expandedFacilityLevels[0]);
+    char money[48];
+    rect(px,py,pw,ph,40);cb_box_outline(px,py,pw,ph,204);
+    rect(px+1,py+1,pw-2,11,46);
+    cb_native(px+pw/2,py+4,gold,"MAINTENANCE / WEEK",0,pw-8);
+
+    cb_native(leftName,py+14,white,"ADMIN",-1,leftAmount-leftName-3);
+    cb_compact(money,sizeof money,admin,0);
+    cb_native(leftAmount,py+14,gold,money,1,24);
+
+    cb_native(rightName,py+14,white,"STADIUM",-1,rightAmount-rightName-3);
+    cb_compact(money,sizeof money,stadium,0);
+    cb_native(rightAmount,py+14,gold,money,1,24);
+
+    cb_native(rightName,py+22,gold,"TOTAL",-1,rightAmount-rightName-3);
+    cb_compact(money,sizeof money,admin+stadium,0);
+    cb_native(rightAmount,py+22,gold,money,1,24);
+}
+static void cb_business_popups(void) {
+    cb_staff_popup();
+    cb_maintenance_popup();
+}
 static int cb_draw_selection(void) {
     if (!cb_load_assets()) return 0;
     Menu *menu=(Menu *)_currentMenu;
-    if (!menu || !menu->selectedEntry) {cb_staff_popup();return 1;}
+    if (!menu || !menu->selectedEntry) {cb_business_popups();return 1;}
     unsigned ordinal=menu->selectedEntry->ordinal;
     int x,y,w,h;
     if(ordinal==9) {x=168;y=187;w=33;h=12;}
     else if(ordinal==11) {x=111;y=222;w=94;h=12;}
+    else if(ordinal==12) {x=111;y=198;w=94;h=12;}
     else if(ordinal==1) {x=243;y=108;w=70;h=18;}
     else if(ordinal==10) {x=5;y=3;w=47;h=17;}
     else if(ordinal>=2 && ordinal<=8) {
         static const uint8_t cardByOrdinal[9]={0,0,1,3,5,0,2,4,6};
         x=5+44*cardByOrdinal[ordinal];y=133;w=43;h=48;
-    } else {cb_staff_popup();return 1;}
+    } else {cb_business_popups();return 1;}
     cb_box_outline(x,y,w,h,15);
     cb_box_outline(x+1,y+1,w-2,h-2,6);
-    cb_staff_popup(); /* keep the hover above the selected facility outline */
+    cb_business_popups(); /* active popup stays above the focus outline */
     return 1;
 }
 static int cb_draw_full(void) {
@@ -1092,8 +1150,8 @@ static int cb_draw_full(void) {
         cb_compact(money,sizeof money,rv[i],0);
         cb_text_step(201-cb_text_width(money,5),yy,i==3?10:white,money,5);
     }
-    /* Both expense rows have permanent cyan outlines. The lower one is
-     * still the native STAFF-focus hitbox; the WAGES frame is visual only. */
+    /* Both expense rows have permanent cyan outlines and focus-only
+     * hitboxes: WAGES (12) and MAINTENANCE (11). */
     cb_box_outline(112,199,92,10,204);
     cb_box_outline(112,223,92,10,204);
     int64_t balance=_newBalance;
@@ -1107,7 +1165,7 @@ static int cb_draw_full(void) {
     snprintf(t,sizeof t,"MONTH %s",money); cb_center_narrow(263,225,white,t);
     cb_compact(money,sizeof money,Expanded_AnnualExpenses(projected),-1);
     snprintf(t,sizeof t,"YEAR %s",money); cb_center_narrow(263,237,white,t);
-    cb_staff_popup();
+    cb_business_popups();
     return 1;
 }
 #else
@@ -2270,20 +2328,27 @@ void Expanded_UI_Partial(MenuEntry *entry) {(void)entry;}
 
 /* Squad popup input: only active while the Expanded squad screen is open. */
 int Expanded_UI_IsSquadScreen(void) { return ui_kind()==8; }
-/* Business STAFF details: same event-driven X toggle as VIEW SQUAD. */
+/* Business WAGES and MAINTENANCE details: immediate X toggle, like SQUAD. */
 int Expanded_UI_IsBusinessScreen(void) {
     return _currentMenuPtr==(uintptr_t)_expandedClubOverviewMenu;
 }
 void Expanded_BusinessPopupToggle(void) {
     if(!Expanded_UI_IsBusinessScreen()) return;
     Menu *menu=(Menu *)_currentMenu;
-    int focused=menu && menu->selectedEntry &&
-                menu->selectedEntry->ordinal==11;
-    /* X anywhere else must not open STAFF details or change their state. */
-    if (!focused) return;
-    _expandedBusinessStaffPopupMode=
-        _expandedBusinessStaffPopupMode==1?2:1;
-    /* Event-driven redraw: open or close on the SAME controller X press. */
+    unsigned focused=menu && menu->selectedEntry ?
+                     menu->selectedEntry->ordinal : 0u;
+    /* Only an explicitly selected finance row responds to X. The other
+     * popup closes as focus changes, and neither opens just by moving. */
+    if(focused==12) {
+        _expandedBusinessMaintenancePopupMode=2;
+        _expandedBusinessStaffPopupMode=
+            _expandedBusinessStaffPopupMode==1?2:1;
+    } else if(focused==11) {
+        _expandedBusinessStaffPopupMode=2;
+        _expandedBusinessMaintenancePopupMode=
+            _expandedBusinessMaintenancePopupMode==1?2:1;
+    } else return;
+    /* Repaint on this controller or keyboard X event, not a later tick. */
     extern void DrawMenu(void);
     DrawMenu();
 }

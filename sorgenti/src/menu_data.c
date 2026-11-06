@@ -10795,6 +10795,7 @@ struct {
     CB_MenuAction upgrade;
     CB_MenuAction back;
     CB_MenuFocusOnly staffHover;
+    CB_MenuFocusOnly wagesHover;
     MenuMark end;
 } _expandedClubOverviewMenu = {
     /* Real SWOS menu hitboxes; all pixel artwork is painted AFTER the
@@ -10845,9 +10846,11 @@ struct {
     { { -19, -33, 47, 17 }, { MENU_CMD_NAV, -1, 5, 11, 5 },
       { MENU_CMD_COLORS, 0xC }, { MENU_CMD_TEXT_PTR, 0, s_clubOverviewBack },
       { MENU_CMD_ONSELECT_FIRE, SetExitMenuFlag }, MENU_CMD_END },
-    /* 11: STAFF tooltip focus target. No ONSELECT command on purpose:
-     * moving focus here reveals the breakdown; FIRE changes nothing. */
-    { { 87, 186, 94, 12 }, { MENU_CMD_NAV, 9, 9, 9, 10 },
+    /* 11: MAINTENANCE popup focus-only entry, opened with controller X. */
+    { { 87, 186, 94, 12 }, { MENU_CMD_NAV, 12, 12, 12, 10 },
+      { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility }, MENU_CMD_END },
+    /* 12: WAGES popup focus-only entry. Same navigation and X action. */
+    { { 87, 162, 94, 12 }, { MENU_CMD_NAV, 9, 9, 9, 11 },
       { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility }, MENU_CMD_END },
     MENU_MARK_END_MENU
 };

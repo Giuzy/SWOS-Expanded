@@ -12,7 +12,7 @@ call :cerca_msys
 if defined MSYS_ROOT goto :compila
 
 echo.
-echo Serve MSYS2 per creare SWOS.exe dai sorgenti aggiornati.
+echo Serve MSYS2 per creare SWOS_Expanded.exe dai sorgenti aggiornati.
 echo MSYS2 va installato UNA SOLA VOLTA sul computer.
 echo.
 where.exe winget >nul 2>nul
@@ -49,8 +49,8 @@ if errorlevel 1 (
   echo COMPILAZIONE FALLITA: invia COMPILAZIONE_0140.log.
   exit /b 1
 )
-if not exist "SWOS.exe" (
-  echo ERRORE: compilazione terminata senza SWOS.exe.
+if not exist "SWOS_Expanded.exe" (
+  echo ERRORE: compilazione terminata senza SWOS_Expanded.exe.
   exit /b 1
 )
 > ".SWOS_0140_COMPILATO" echo SWOS Expanded 0.10.40 - compilazione completata

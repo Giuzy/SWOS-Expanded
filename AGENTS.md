@@ -218,3 +218,9 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - Aggiornare `SWOS_EXPANDED_VERSION` in `sorgenti/include/build_info.h` **nello stesso commit** delle modifiche: la scritta di debug nel titolo deve mostrare automaticamente il valore tramite `Build_DisplayVersion()`, e `Build_Version()` deve usare lo stesso valore.
 - Non creare un secondo commit soltanto per aggiornare il numero, perché questo genererebbe una sequenza senza fine. Verificare la coerenza prima del commit.
 - I commit esclusivamente documentali o di regole (`AGENTS.md`) non rappresentano una nuova build del gioco e non richiedono incremento della versione.
+
+## Convenzione dei branch (decisione utente, 2026-11-06)
+- Il lavoro ordinario della serie `0.10.xx` prosegue sul branch `dev/0.10`, senza rinominarlo a ogni piccola build.
+- Il numero esatto della build resta in `sorgenti/include/build_info.h` e compare automaticamente nel titolo.
+- Per una release importante si prepara un branch `release/0.20` e la versione `0.20.00`; la stessa convenzione si applica alle serie successive.
+- Il vecchio branch `release/0.10.40` resta temporaneamente disponibile come riferimento per permettere la sincronizzazione sicura di GitKraken; non cancellarlo prima della verifica locale.

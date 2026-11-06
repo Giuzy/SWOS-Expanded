@@ -617,11 +617,14 @@ static void draw_approved_match_stats(void) {
     if(a->inGameTeamPtr!=&_topTeamInGame){TeamGeneralInfo *tmp=a;a=b;b=tmp;}
     TeamStatisticsData *t=a->teamStatsPtr,*u=b->teamStatsPtr;
     if(!t||!u)return;
-    match_ui_text(x+52,y+36,(const char*)_topTeamInGame.teamName,1,14);
-    match_ui_text(x+188,y+36,(const char*)_bottomTeamInGame.teamName,1,14);
-    match_ui_number(x+111,y+36,(int)_statsTeam1Goals,1);
-    match_ui_text(x+120,y+36,"-",1,1);
-    match_ui_number(x+129,y+36,(int)_statsTeam2Goals,1);
+    /* Team box interior is y+30..44. The 7px native overlay font starts
+     * at y+34 so names and scores share its exact vertical centre. */
+    const int teamY=y+34;
+    match_ui_text(x+52,teamY,(const char*)_topTeamInGame.teamName,1,14);
+    match_ui_text(x+188,teamY,(const char*)_bottomTeamInGame.teamName,1,14);
+    match_ui_number(x+111,teamY,(int)_statsTeam1Goals,1);
+    match_ui_text(x+120,teamY,"-",1,1);
+    match_ui_number(x+129,teamY,(int)_statsTeam2Goals,1);
     static const char *labels[8]={
         "GOALS","POSSESSION","SHOTS","ON TARGET",
         "CORNERS","FOULS CONCEDED","YELLOW CARDS","RED CARDS"
@@ -632,8 +635,9 @@ static void draw_approved_match_stats(void) {
     left[1]=sum?100u*(unsigned)t->ballPossession/sum:0;
     right[1]=sum?100-left[1]:0;
     for(int i=0;i<8;i++) {
-        /* Align labels, values and percent signs with the blue row centers. */
-        int yy=y+54+i*10;
+        /* Approved BMP dividers at y+51,61,...,131: centre the 7px
+         * labels and values between lines without changing columns. */
+        int yy=y+53+i*10;
         match_ui_text(x+120,yy,labels[i],1,19);
         match_ui_number(x+31,yy,left[i],1);
         match_ui_number(x+209,yy,right[i],1);
@@ -645,7 +649,9 @@ static void draw_approved_match_stats(void) {
     /* Align FORM/MORALE numbers with the statistic columns above.
      * Managed team values are shared with VIEW SQUAD. The opponent values
      * are temporary display placeholders until opponent mood is simulated. */
-    const int formY=y+141, moraleY=y+154;
+    /* FORM interior y+138..150 and MORALE y+152..164: vertical centres
+     * are y+144 and y+158, shared by labels, figures and 9px faces. */
+    const int formY=y+141, moraleY=y+155;
     const unsigned opponentForm=58, opponentMorale=72;
     match_ui_text(x+120,formY,"FORM",1,8);
     match_ui_text(x+120,moraleY,"MORALE",1,8);

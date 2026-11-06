@@ -210,7 +210,7 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - Conservare il formato originale a tre parti `MAJOR.RELEASE.BUILD`, ad esempio `0.10.40`; non abbreviare in `0.40`.
 - Ogni piccola modifica incrementa soltanto l'ultima parte: `0.10.40` -> `0.10.41` -> `0.10.42`.
 - Una nuova release importante incrementa la parte centrale e azzera l'ultima: la prossima release importante dopo la serie `0.10.xx` sarà `0.20.00`; le modifiche successive `0.20.01`, `0.20.02`, ecc.
-- Conservare gli identificativi come stringhe; non interpretarli come numeri decimali. Oltre `09`, il contatore continua normalmente `10`, `11` e così via.
+- Mantenere l'ultima parte della versione come contatore ordinario a due cifre: dopo `0.10.49` viene `0.10.50`, poi `0.10.51` (non `0.10.410` o `0.10.411`). Non concatenare il numero del gruppo con quello dell'incremento.
 - Il numero della build deve comparire nella schermata del titolo al posto della scritta gialla attuale, senza alterare lo sfondo. La rimozione di `DrawMenuText` in `menu_system.c` non ha eliminato quella scritta: identificare prima la fonte reale.
 
 ## Aggiornamento obbligatorio della versione a ogni commit (regola utente, 2026-11-06)

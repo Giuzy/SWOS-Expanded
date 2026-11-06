@@ -13,6 +13,9 @@
 #ifndef BUILD_INFO_H
 #define BUILD_INFO_H
 
+/* Single source of truth for the user-facing release/build number. */
+#define SWOS_EXPANDED_VERSION "0.10.42"
+
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */
 const char *Build_Id(void);
@@ -28,6 +31,9 @@ const char *Build_Platform(void);
 /* One line for a human: "OpenSWOS 401ff14 (2026-09-15, linux x86-64)".
  * Window title, SWOS.log and --version. */
 const char *Build_Version(void);
+
+/* Compact version label drawn on the title screen, e.g. "V0.10.42". */
+const char *Build_DisplayVersion(void);
 
 /* The same facts for drawing with the in-game font, which has no lowercase
  * glyphs: "BUILD DD74714  2026-09-15  LINUX X86-64". */

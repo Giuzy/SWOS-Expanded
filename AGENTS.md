@@ -207,8 +207,8 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - Se un impedimento tecnico concreto blocca il trasferimento, comunicarlo esplicitamente senza dichiarare il lavoro completato.
 
 ## Numerazione build e release (regola utente, 2026-11-06)
-- Distinguere piccoli interventi e aggiunte dalle release: ogni piccolo intervento incrementa la numerazione progressiva della build di una unità; esempio esplicito dell'utente: `0.40` -> `0.41`.
-- Le release maggiori avanzano il numero della release: esempio esplicito dell'utente: `0.40` -> `0.50`.
-- Trattare gli identificativi di versione come stringhe, non come numeri decimali: `0.410` è diverso da `0.41`. Esempio di sequenza: `0.40`, `0.41`, ... `0.49`, `0.410`, `0.411`.
-- Non limitare a nove incrementi: la sequenza può continuare con suffissi di più cifre; esempi testuali forniti dall'utente: `0.410`, `0.411`, `0.1010`, `0.1110`. La rappresentazione precisa dei segmenti oltre nove incrementi è da confermare prima di rinominare versioni esistenti, perché la convenzione proposta è ambigua.
-- Il numero della build deve comparire nella schermata del titolo al posto della scritta gialla attuale, senza alterare lo sfondo. Identificare prima la fonte della scritta: la rimozione di `DrawMenuText` in `menu_system.c` non l'ha eliminata.
+- Conservare il formato originale a tre parti `MAJOR.RELEASE.BUILD`, ad esempio `0.10.40`; non abbreviare in `0.40`.
+- Ogni piccola modifica incrementa soltanto l'ultima parte: `0.10.40` -> `0.10.41` -> `0.10.42`.
+- Una nuova release importante incrementa la parte centrale e azzera l'ultima: la prossima release importante dopo la serie `0.10.xx` sarà `0.20.00`; le modifiche successive `0.20.01`, `0.20.02`, ecc.
+- Conservare gli identificativi come stringhe; non interpretarli come numeri decimali. Oltre `09`, il contatore continua normalmente `10`, `11` e così via.
+- Il numero della build deve comparire nella schermata del titolo al posto della scritta gialla attuale, senza alterare lo sfondo. La rimozione di `DrawMenuText` in `menu_system.c` non ha eliminato quella scritta: identificare prima la fonte reale.

@@ -51,6 +51,6 @@ if [[ ! -s bin/SWOS.exe ]]; then
   echo 'ERRORE: il compilatore non ha prodotto bin/SWOS.exe.'
   exit 1
 fi
-cp -f bin/SWOS.exe "$game/SWOS_0140_new.exe"
-mv -f "$game/SWOS_0140_new.exe" "$game/SWOS.exe"
-echo 'Compilazione completata: SWOS.exe aggiornato.'
+cp -f bin/SWOS.exe "$game/SWOS_Expanded_new.exe"
+mv -f "$game/SWOS_Expanded_new.exe" "$game/SWOS_Expanded.exe"
+echo 'Compilazione completata: SWOS_Expanded.exe aggiornato.'

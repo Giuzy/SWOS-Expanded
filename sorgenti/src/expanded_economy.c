@@ -9,6 +9,7 @@
 #include <string.h>
 #include <limits.h>
 #include "menu_system.h"
+#include "build_info.h"
 #include "game_types.h"
 #include "expanded_squad_rating.h"
 #include "teams.h"
@@ -2111,7 +2112,7 @@ void Expanded_UI_After(void) {
                 name=(const char *)(uintptr_t)e->fg;
             ui_button(i,name);
         }
-        ui_native_text(43,246,70,15,"V0.10.41",0);
+        ui_native_text(43,246,70,15,Build_DisplayVersion(),0);
     } else if(kind==2) {
         Menu *m=(Menu *)_currentMenu;
         if(!m) return;

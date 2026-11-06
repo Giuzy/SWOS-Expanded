@@ -51,6 +51,8 @@ extern volatile uint16_t _playGame, _paused;
 static void push_amiga_key(uint8_t akey);
 /* START exit confirmation: separate from original P/SELECT behavior. */
 extern int Expanded_UI_IsSquadScreen(void);
+extern int Expanded_UI_IsBusinessScreen(void);
+extern void Expanded_BusinessPopupToggle(void);
 extern int Expanded_SquadPopupOpen(void);
 extern void Expanded_SquadPopupToggle(void);
 extern void Expanded_SquadPopupClose(void);
@@ -746,6 +748,12 @@ void InputSDL_HandleEvent(const SDL_Event *e)
         }
         break;
     case SDL_KEYDOWN: {
+        if (!e->key.repeat && e->key.keysym.sym==SDLK_x &&
+            Expanded_UI_IsBusinessScreen()) {
+            Expanded_BusinessPopupToggle();
+            DrawMenu();
+            break;
+        }
         if (e->key.keysym.sym==SDLK_ESCAPE && Expanded_UI_IsSquadScreen() && Expanded_SquadPopupOpen()) {
             Expanded_SquadPopupClose();
             DrawMenu();
@@ -952,6 +960,14 @@ void InputSDL_HandleEvent(const SDL_Event *e)
         break;
     }
     case SDL_CONTROLLERBUTTONDOWN: {
+        /* Match VIEW SQUAD: controller X acts on the button-down event,
+         * without requiring mouse motion or a menu-navigation tick. */
+        if (Expanded_UI_IsBusinessScreen() &&
+            e->cbutton.button==SDL_CONTROLLER_BUTTON_X) {
+            Expanded_BusinessPopupToggle();
+            DrawMenu();
+            break;
+        }
         if (Expanded_UI_IsSquadScreen() && e->cbutton.button==SDL_CONTROLLER_BUTTON_X) {
             Expanded_SquadPopupToggle();
             DrawMenu();

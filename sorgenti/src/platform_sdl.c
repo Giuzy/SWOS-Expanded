@@ -682,8 +682,20 @@ static void draw_exit_confirmation(void) {
         confirm_text(x+46,y+7,1,"EXIT MATCH",yellow);
     }
 
-    /* BACK and EXIT are already painted in match_exit_ui.bmp.
-     * Do not draw a second pair over the scaled original buttons. */
+    /* The artwork owns button fills and labels. Draw only tight borders on
+     * their actual edges (no opaque overlay and no gaps to the frame). */
+    int selected=InputSDL_ExitConfirmChoice();
+    for(int i=0;i<2;i++) {
+        SDL_Rect edge={x+11+i*77,y+46,69,14};
+        SDL_SetRenderDrawColor(s_renderer,i==selected?255:75,
+                              i==selected?232:169,i==selected?20:230,255);
+        SDL_RenderDrawRect(s_renderer,&edge);
+        SDL_Rect inner={edge.x+1,edge.y+1,edge.w-2,edge.h-2};
+        SDL_RenderDrawRect(s_renderer,&inner);
+    }
+    /* Restore the missing right-hand vertical edge of the lower textbox. */
+    SDL_SetRenderDrawColor(s_renderer,115,195,247,255);
+    SDL_RenderDrawLine(s_renderer,x+w-5,y+26,x+w-5,y+h-4);
 }
 
 static void render_frame_impl(int pump_full);   /* below; pump_full=0 on the SDL timer thread */
@@ -2845,4 +2857,17 @@ int Platform_Present(void)
 Uint64 Platform_NowMs(void)
 {
     return SDL_GetTicks64();
+}
+
+/* Mouse coordinates are window pixels; SDL converts them to the logical
+ * 320/336-wide game canvas before the button hit test. */
+int Platform_ExitConfirmHitTest(int mouseX,int mouseY) {
+    float lx=0,ly=0;
+    if(!s_renderer || !InputSDL_ExitConfirmOpen()) return -1;
+    SDL_RenderWindowToLogical(s_renderer,mouseX,mouseY,&lx,&ly);
+    int x=(_screen_width-160)/2,y=(_screen_height-68)/2;
+    if(ly<y+44 || ly>=y+64) return -1;
+    if(lx>=x+10 && lx<x+81) return 0;
+    if(lx>=x+87 && lx<x+158) return 1;
+    return -1;
 }

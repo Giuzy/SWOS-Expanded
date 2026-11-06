@@ -1877,8 +1877,10 @@ void MenuProc(void)
         extern uint8_t _squadMenu[],_expandedClubOverviewMenu[];
         extern int Platform_SquadPointerMovedRow(void);
         extern int Platform_BusinessPointerOverStaff(void);
+        extern int Platform_BusinessPopupTogglePressed(void);
         extern void Platform_SquadMouseTracking(int);
         extern uint8_t _expandedBusinessStaffHover;
+        extern uint8_t _expandedBusinessStaffPopupMode;
         static int mouseTracking=-1;
         int inSquad=_currentMenuPtr==(uintptr_t)_squadMenu;
         int inBusiness=_currentMenuPtr==(uintptr_t)_expandedClubOverviewMenu;
@@ -1889,6 +1891,18 @@ void MenuProc(void)
         /* Hover is cosmetic: never changes selectedEntry, callbacks or
          * controller focus. A redraw occurs only on enter/leave. */
         if(inBusiness) {
+            /* Toggle immediately on X, even if neither the pointer nor focus
+             * moved. Preserve the explicit choice until another X press. */
+            if (Platform_BusinessPopupTogglePressed()) {
+                Menu *business=(Menu *)_currentMenu;
+                int focusStaff=business && business->selectedEntry &&
+                               business->selectedEntry->ordinal==11;
+                int currentlyOpen=_expandedBusinessStaffPopupMode==1 ||
+                    (_expandedBusinessStaffPopupMode==0 &&
+                     (_expandedBusinessStaffHover || focusStaff));
+                _expandedBusinessStaffPopupMode=currentlyOpen?2:1;
+                DrawMenu();
+            }
             int hover=Platform_BusinessPointerOverStaff();
             if(hover!=_expandedBusinessStaffHover) {
                 int leavingStaff = _expandedBusinessStaffHover && !hover;
@@ -1901,7 +1915,12 @@ void MenuProc(void)
                 }
                 DrawMenu();
             }
-        } else _expandedBusinessStaffHover=0;
+        } else {
+            _expandedBusinessStaffHover=0;
+            _expandedBusinessStaffPopupMode=0;
+            /* Consume a held X outside Business to avoid a false edge. */
+            Platform_BusinessPopupTogglePressed();
+        }
         if(inSquad && !_fire && !_shortFire) {
             int row=Platform_SquadPointerMovedRow();
             if(row>=0 && row<17) {

@@ -42,11 +42,11 @@ fi
 # Approved SWOS-EX Windows icon: keep the icon source outside the compiler tree
 # in the game directory, then copy it into the Win32 resource before make.
 # This does not alter icons on non-Windows platforms.
-if [[ -s "$game/SWOS_EX.ico" ]]; then
-  cp -f "$game/SWOS_EX.ico" "$src/SWOS.ico"
+if [[ -s "$src/../development_assets/branding/windows/SWOS_EX.ico" ]]; then
+  cp -f "$src/../development_assets/branding/windows/SWOS_EX.ico" "$src/SWOS.ico"
   echo 'Icona SWOS-EX installata nella risorsa Windows.'
 else
-  echo 'NOTA: SWOS_EX.ico non trovato nella cartella del gioco; resta l icona precedente.'
+  echo 'NOTA: SWOS_EX.ico non trovato in development_assets/branding/windows/; resta l icona precedente.'
 fi
 cd "$src"
 echo 'Controllo sintattico delle schermate e dei menu modificati...'

@@ -2,7 +2,7 @@
 
 **Aggiornato:** 6 novembre 2026  
 **Repository:** `Giuzy/SWOS-Expanded`  
-**Ramo di riferimento al momento della stesura:** `release/0.10.40` (verificare sempre il ramo corrente)  
+**Ramo di riferimento al momento della stesura:** `dev/0.10` (il vecchio `release/0.10.40` resta temporaneamente come backup)  
 **Base:** Sensible World of Soccer / OpenSWOS · C / SDL2 · Windows x64  
 **Stato:** sviluppo attivo; la presenza nel repository non equivale a collaudo Windows.
 
@@ -217,6 +217,14 @@ Queste sono idee da valutare, non funzioni automaticamente approvate.
 ## 15. Questioni aperte
 
 Algoritmo POTENTIAL; invecchiamento; frequenza e impatto del TRAINING; scouting (giocatori visibili e campi `???`); bilanciamento FORM/MORALE; mercato AI; calendari sfalsati; soglie esonero; ritiro a 85 anni; copertura iniziale del database; compatibilità save e differenze reali tra rami.
+
+## Workflow Git e numerazione correnti (6 novembre 2026)
+
+- Branch attivo: `dev/0.10`; conservare il vecchio branch finché GitKraken e la compilazione locale non sono verificati.
+- Commit soltanto su richiesta esplicita dell'utente; diversi commit intermedi possono precedere una nuova build.
+- Build base attuale: `0.10.51`; commit intermedi di codice: `0.10.51_01`, `0.10.51_02` ecc.; nuova build su richiesta: `0.10.52`.
+- Il titolo mostra `Build <versione>` con il suffisso intermedio quando presente.
+- Codex locale è un'ipotesi di evoluzione del workflow, non ancora installata né collaudata.
 
 ## 16. Aggiornamento e continuità
 

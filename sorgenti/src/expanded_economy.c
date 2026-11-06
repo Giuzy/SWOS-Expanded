@@ -605,13 +605,10 @@ static uint32_t nonneg(int32_t n) {return n>0?(uint32_t)n:0;}
  * Repaint the pixel-art on top of the entry backgrounds, but BEFORE the
  * selection outline, so mouse and keyboard focus remain visible. */
 extern MenuEntry _menuEntries[];
-void Expanded_ClubOverviewInit(void) {
-    ensure_club();
-    /* Start each Business visit with STAFF details hidden, even when the
-     * pointer rests on STAFF or the controller focus was previously there.
-     * X still toggles immediately via the same SDL event as View Squad. */
-    _expandedBusinessStaffHover=0;
-    _expandedBusinessStaffPopupMode=2;
+/* Reapply transient menu-entry geometry for each full DrawMenu.
+ * Do NOT reset the popup here: a controller X press triggers DrawMenu,
+ * and clearing popup mode during that redraw immediately hid it again. */
+void Expanded_ClubOverviewReapplyLayout(void) {
     /* The legacy generic upgrade row stays in the packed layout to keep
      * ordinals stable, but is not visible or selectable. */
     _menuEntries[0].isInvisible=1; /* artwork replaces stock title */
@@ -654,6 +651,14 @@ void Expanded_ClubOverviewInit(void) {
     _menuEntries[10].rightEntry=5;
     _menuEntries[10].background=NO_BACKGROUND;
     _menuEntries[10].content=NO_FOREGROUND;
+}
+void Expanded_ClubOverviewInit(void) {
+    ensure_club();
+    /* Once per Business entry, hide the STAFF details until explicitly
+     * requested. Repaints must never reset this user interaction state. */
+    _expandedBusinessStaffHover=0;
+    _expandedBusinessStaffPopupMode=2;
+    Expanded_ClubOverviewReapplyLayout();
 }
 static int cb_draw_selection(void); /* SDL pixel-art overlay, defined below */
 void Expanded_ClubOverviewIcons(void) {

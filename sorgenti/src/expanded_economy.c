@@ -902,6 +902,30 @@ static void cb_box_outline(int x,int y,int w,int h,uint8_t color) {
     rect(x,y,w,1,color);rect(x,y+h-1,w,1,color);
     rect(x,y,1,h,color);rect(x+w-1,y,1,h,color);
 }
+/* The MAINTENANCE caption is 11 characters and would overlap its amount
+ * when drawn with the full-size SWOS font in the existing 94px finance box.
+ * Draw it in a legible 4x5 pixel font, without moving values or changing
+ * the box, so all eleven characters fit within the same panel. */
+static void cb_maintenance_label(int x,int y,uint8_t color) {
+    static const uint8_t glyph[11][5]={
+        {9,15,15,9,9},  /* M */
+        {6,9,15,9,9},   /* A */
+        {15,6,6,6,15},  /* I */
+        {9,13,11,9,9},  /* N */
+        {15,6,6,6,6},  /* T */
+        {15,8,14,8,15},/* E */
+        {9,13,11,9,9}, /* N */
+        {6,9,15,9,9},  /* A */
+        {9,13,11,9,9}, /* N */
+        {7,8,8,8,7},   /* C */
+        {15,8,14,8,15}/* E */
+    };
+    for(int i=0;i<11;i++)
+        for(int row=0;row<5;row++)
+            for(int col=0;col<4;col++)
+                if(glyph[i][row] & (8u>>col))
+                    cb_plot(x+i*5+col,y+row+1,color);
+}
 static int cb_staff_hover_active(void) {
     /* Visibility is controlled by X and by the actual menu focus, NEVER
      * by mouse position alone. Leaving STAFF also clears the open state so
@@ -1049,25 +1073,27 @@ static int cb_draw_full(void) {
     cb_finance_toggle_label(184,189,gold,_expandedFinanceSeasonView?"WEEK":"YEAR");
     cb_center(264,189,white,"BALANCE");
     static const char *const leftLabel[4]={"SPONSOR","TV","GATE","INCOME"};
-    static const char *const rightLabel[4]={"WAGES","TRAVEL","STAFF","TOTAL"};
+    static const char *const rightLabel[4]={"WAGES","TRAVEL","MAINTENANCE","TOTAL"};
     uint64_t lv[4]={sponsor,tv,gateDisplay,income};
     uint64_t rv[4]={wages,travel,staff,expense};
-    /* Subtle blue fill inside the permanent STAFF outline. Paint BEFORE
-     * the finance labels and figures to keep both white text and values
-     * fully legible; the outer selection frame remains unchanged. */
-    rect(113,224,90,8,42);
+    /* Matching outlined finance rows: WAGES and MAINTENANCE. Paint the
+     * slightly lighter blue fills behind the labels and values; STAFF's
+     * original focus-only hitbox and popup behavior remain unchanged. */
+    rect(113,200,90,8,42);  /* WAGES */
+    rect(113,224,90,8,42);  /* MAINTENANCE */
     for(unsigned i=0;i<4;i++) {
         int yy=201+(int)i*12;
         cb_text_step(10,yy,i==3?gold:white,leftLabel[i],5);
         cb_compact(money,sizeof money,lv[i],0);
         cb_text_step(101-cb_text_width(money,5),yy,i==3?gold:white,money,5);
-        cb_text_step(115,yy,i==3?10:white,rightLabel[i],5);
+        if(i==2) cb_maintenance_label(115,yy,white);
+        else cb_text_step(115,yy,i==3?10:white,rightLabel[i],5);
         cb_compact(money,sizeof money,rv[i],0);
         cb_text_step(201-cb_text_width(money,5),yy,i==3?10:white,money,5);
     }
-    /* STAFF is selectable even when not focused. A restrained cyan outline,
-     * exactly INSIDE the native 94x12 selected frame (111,222), marks it as
-     * interactive. The selected frame still paints over it when focused. */
+    /* Both expense rows have permanent cyan outlines. The lower one is
+     * still the native STAFF-focus hitbox; the WAGES frame is visual only. */
+    cb_box_outline(112,199,92,10,204);
     cb_box_outline(112,223,92,10,204);
     int64_t balance=_newBalance;
     cb_amount(money,sizeof money,(uint64_t)(balance<0?-balance:balance),balance<0?-1:0);

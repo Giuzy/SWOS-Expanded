@@ -93,7 +93,7 @@ const char *Build_Version(void)
 
 const char *Build_DisplayVersion(void)
 {
-    return "V" SWOS_EXPANDED_VERSION;
+    return "Build " SWOS_EXPANDED_VERSION;
 }
 
 /* ---- the on-screen form ---------------------------------------------------

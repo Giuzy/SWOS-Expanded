@@ -167,14 +167,14 @@ Non cancellare le vecchie idee dal registro: indicare quando sono state superate
 
 ## 12. Aggiornamento delle regole
 
-Quando l'utente scrive **(regola)**, interpretare il testo associato come una nuova regola permanente esplicita: aggiornare sempre `AGENTS.md` e creare un commit dedicato sul ramo di lavoro, segnalando con trasparenza eventuali problemi tecnici che impediscano il commit.
+Quando l'utente scrive **(regola)**, registrare la decisione e aggiornare `AGENTS.md` al successivo commit esplicitamente autorizzato; non creare commit automaticamente.
 
 Quando emerge una nuova regola permanente:
 
 1. Verificare che sia una decisione effettivamente confermata.
 2. Controllare eventuali contraddizioni con le regole precedenti.
 3. Aggiornare `AGENTS.md` con il consenso dell'utente.
-4. Creare un commit dedicato e descrittivo.
+4. Attendere la richiesta esplicita di commit dell'utente.
 
 Non modificare questo documento autonomamente soltanto perché una soluzione alternativa sembra migliore.
 
@@ -202,22 +202,26 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 
 ## Gestione autonoma degli asset GitHub
 
-- Quando vengono creati, approvati o modificati asset per SWOS Expanded, l'assistente deve caricarli personalmente nel repository GitHub, nella cartella coerente con la schermata o funzione, e committarli. Non delegare all'utente il caricamento manuale.
+- Quando vengono creati, approvati o modificati asset per SWOS Expanded, l'assistente deve caricarli personalmente nel repository GitHub, nella cartella coerente con la schermata o funzione, e committarli solo su richiesta esplicita. Non delegare all'utente il caricamento manuale.
 - Per i file binari usare gli strumenti GitHub per blob Base64, tree e commit quando disponibili; verificare che i file risultino effettivamente presenti sul ramo prima di dichiarare il caricamento completato.
 - Se un impedimento tecnico concreto blocca il trasferimento, comunicarlo esplicitamente senza dichiarare il lavoro completato.
 
 ## Numerazione build e release (regola utente, 2026-11-06)
 - Conservare il formato originale a tre parti `MAJOR.RELEASE.BUILD`, ad esempio `0.10.40`; non abbreviare in `0.40`.
-- Ogni piccola modifica incrementa soltanto l'ultima parte: `0.10.40` -> `0.10.41` -> `0.10.42`.
+- Ogni nuova build esplicitamente richiesta incrementa soltanto l'ultima parte: `0.10.51` -> `0.10.52`.
 - Una nuova release importante incrementa la parte centrale e azzera l'ultima: la prossima release importante dopo la serie `0.10.xx` sarà `0.20.00`; le modifiche successive `0.20.01`, `0.20.02`, ecc.
 - Usare normalmente **due cifre** per entrambi i contatori RELEASE e BUILD. Aggiungere una terza cifra **solo dopo 99**: piccole modifiche `0.10.98` → `0.10.99` → `0.10.100` → `0.10.101`; release importanti `0.98.00` → `0.99.00` → `0.100.00` → `0.101.00`. Non concatenare le cifre di incrementi diversi (quindi niente `0.10.410` o `0.10.411` dopo `0.10.49`).
 - Il numero della build deve comparire nella schermata del titolo al posto della scritta gialla attuale, senza alterare lo sfondo. La rimozione di `DrawMenuText` in `menu_system.c` non ha eliminato quella scritta: identificare prima la fonte reale.
 
-## Aggiornamento obbligatorio della versione a ogni commit (regola utente, 2026-11-06)
-- Per ogni commit che modifica il gioco, incrementare la versione di build secondo la convenzione `MAJOR.RELEASE.BUILD` approvata, salvo quando si prepara esplicitamente una nuova release (che aggiorna il segmento RELEASE e azzera BUILD).
-- Aggiornare `SWOS_EXPANDED_VERSION` in `sorgenti/include/build_info.h` **nello stesso commit** delle modifiche: la scritta di debug nel titolo deve mostrare automaticamente il valore tramite `Build_DisplayVersion()`, e `Build_Version()` deve usare lo stesso valore.
-- Non creare un secondo commit soltanto per aggiornare il numero, perché questo genererebbe una sequenza senza fine. Verificare la coerenza prima del commit.
-- I commit esclusivamente documentali o di regole (`AGENTS.md`) non rappresentano una nuova build del gioco e non richiedono incremento della versione.
+## Commit intermedi e build su richiesta (regola utente, 2026-11-06)
+- Non effettuare mai commit o push senza richiesta esplicita dell'utente. Le richieste di modifica da sole non autorizzano commit.
+- Ogni commit intermedio autorizzato che modifica il gioco conserva la build base e incrementa il suffisso progressivo: `0.10.51_01`, `0.10.51_02`, ..., `0.10.51_99`, `0.10.51_100`.
+- Il suffisso conta i commit intermedi di codice della serie, non tutti i commit del repository; commit solo documentali non devono necessariamente avanzarlo.
+- Quando l'utente chiede esplicitamente una nuova build, eliminare il suffisso e incrementare BUILD una sola volta: `0.10.51_03` -> `0.10.52`. Registrare la nuova build con commit autorizzato.
+- Il titolo deve mostrare `Build ` seguito dalla versione completa (incluso il suffisso), tramite `Build_DisplayVersion()`.
+- Aggiornare `SWOS_EXPANDED_VERSION` in `sorgenti/include/build_info.h` nello stesso commit di codice che avanza il suffisso o pubblica la build; l'hash Git identifica il commit esatto.
+- GitHub richiede un commit per salvare cambi persistenti sul branch; si possono preparare modifiche localmente senza commit.
+- Poiché la build corrente è `0.10.51`, il primo commit intermedio di codice è `0.10.51_01`. `0.10.50_01` è valido solo se la base è `0.10.50`.
 
 ## Convenzione dei branch (decisione utente, 2026-11-06)
 - Il lavoro ordinario della serie `0.10.xx` prosegue sul branch `dev/0.10`, senza rinominarlo a ogni piccola build.

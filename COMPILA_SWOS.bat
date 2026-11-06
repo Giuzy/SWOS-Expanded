@@ -10,6 +10,6 @@ if errorlevel 1 (
   exit /b 1
 )
 echo.
-echo Compilazione completata: SWOS.exe pronto.
+echo Compilazione completata: SWOS_Expanded.exe pronto.
 pause
 exit /b 0

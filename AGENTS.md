@@ -189,3 +189,8 @@ Non modificare questo documento autonomamente soltanto perché una soluzione alt
 **SWOS Expanded è un progetto condiviso: l'utente decide la direzione del gioco, l'assistente contribuisce alla progettazione e all'implementazione.**
 
 L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipotesi e chiedere chiarimenti prima di prendere decisioni importanti.
+## 15. Nome dell'eseguibile Windows
+
+- Il file eseguibile del gioco deve chiamarsi esattamente `SWOS_Expanded.exe` in tutte le build Windows future.
+- Mantenere coerenti il nome prodotto dalla compilazione, i percorsi e i riferimenti negli script di avvio e build (inclusi BAT e shell script), senza rinominare il repository o altri file non necessari.
+- Verificare la compilazione e l'avvio su Windows prima di dichiarare applicata la rinomina al gioco.

@@ -145,12 +145,12 @@ Prima di ogni intervento, verificare il ramo di sviluppo corrente nel repository
 
 GitHub è l'archivio di riferimento per gli asset del progetto.
 
-### Formato finale obbligatorio: BMP
+### Formato obbligatorio fin dall'inizio: BMP
 
-- **Tutti i nuovi asset grafici approvati per il gioco devono essere preparati e archiviati in formato BMP**, già pronti per il caricamento da SDL2. Non salvare prima un PNG come asset approvato per poi convertirlo soltanto quando viene chiesta l'implementazione.
-- Se uno strumento di creazione immagini produce provvisoriamente PNG, convertire **subito e una sola volta** la versione finale in BMP, prima del trasferimento su GitHub. Il formato generato internamente dallo strumento non cambia il formato finale richiesto.
+- **Tutti i nuovi asset grafici di SWOS Expanded devono essere creati in BMP fin dall'inizio del nostro flusso di lavoro e non devono essere convertiti in BMP alla fine.**
+- Il BMP è il file di produzione da creare, verificare, approvare e caricare su GitHub. Non trattare PNG o altri formati come asset finali approvati da convertire solo al momento dell'implementazione.
 - Prima dell'archiviazione verificare risoluzione, profondità colore, compatibilità con il loader del gioco e conservazione dei dettagli pixel art; seguire le dimensioni native e non cambiare le coordinate dei testi/valori dinamici senza richiesta.
-- **Perché:** evitare conversioni ripetute, caricamenti duplicati, confusione tra versioni grafiche e interventi inutili quando si integra un asset già approvato.
+- **Perché:** evitare conversioni tardive, caricamenti duplicati, disallineamenti, confusione tra versioni e lavoro ripetuto durante l'integrazione.
 - I vecchi file PNG già presenti o i nomi storici esplicitamente richiesti restano invariati finché non venga approvata una migrazione; non rompere riferimenti esistenti soltanto per normalizzare le estensioni.
 
 

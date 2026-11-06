@@ -372,7 +372,7 @@ static const char *const s_levelName[5] = {
     "SMALL GROUND", "LOCAL STADIUM", "CITY STADIUM",
     "NATIONAL ARENA", "MARACANA CLASS"
 };
-static const uint32_t s_capacity[5] = {5000, 15000, 35000, 65000, 90000};
+static const uint32_t s_capacity[5] = {2000, 15000, 35000, 65000, 90000};
 /* Cost to upgrade from level N to N+1. */
 static const uint32_t s_upgradeCost[5] = {250000, 1000000, 5000000, 25000000, 0};
 
@@ -1003,7 +1003,9 @@ static void cb_staff_popup(void) {
     char money[48];
     unsigned admin=Expanded_AdministrationWeeklyCost();
     unsigned manager=Expanded_ManagerWeeklyCost();
-    uint64_t weeklyStaff=Expanded_FacilityWeeklyTotal()+admin+manager;
+    /* Popup totals are the sum of displayed wage items ONLY: stadium and
+     * administration belong to MAINTENANCE, transport costs to TRAVEL.
+     * The underlying general-ledger accounting is not modified here. */
     /* Display-only order; accounting remains unchanged. Keep the original
      * two-column grid and omit TRAVEL from this popup. The right column has
      * three cost rows; the vacant grid cells are left between YOUTH and
@@ -1018,8 +1020,10 @@ static void cb_staff_popup(void) {
         Expanded_StaffWeekly(1,_expandedFacilityLevels[1]),
         Expanded_StaffWeekly(5,_expandedFacilityLevels[5]),
         Expanded_StaffWeekly(7,_expandedFacilityLevels[7]),
-        weeklyStaff
+        0 /* computed from the seven visible items below */
     };
+    for(unsigned i=0;i<7;i++)
+        amounts[7]+=amounts[i];
     /* Four fixed columns: label / right-aligned amount / label / amount.
      * Both value columns stay vertically aligned regardless of label length. */
     const int px=82,py=104,pw=151,ph=62;

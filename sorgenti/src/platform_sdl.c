@@ -181,6 +181,17 @@ int Platform_SquadPointerMovedRow(void) {
 /* Club Business STAFF row: map the real mouse position through the same
  * SDL logical-size letterboxing as squad hover. No fake menu entry is added;
  * the existing finance toggle and facility callbacks remain unchanged. */
+/* X toggles the Club Business STAFF details on the key-down edge, without
+ * requiring mouse movement or D-pad navigation. */
+int Platform_BusinessPopupTogglePressed(void) {
+    static int wasDown = 0;
+    const Uint8 *keys = SDL_GetKeyboardState(NULL);
+    int down = keys && keys[SDL_SCANCODE_X];
+    int pressed = down && !wasDown;
+    wasDown = down;
+    return pressed;
+}
+
 int Platform_BusinessPointerOverStaff(void) {
     if(!s_window || !s_renderer) return 0;
     int mx,my,ww=0,wh=0,lw=0,lh=0;

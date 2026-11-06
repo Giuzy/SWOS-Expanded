@@ -761,8 +761,8 @@ void InputSDL_HandleEvent(const SDL_Event *e)
     case SDL_KEYDOWN: {
         if (!e->key.repeat && e->key.keysym.sym==SDLK_x &&
             Expanded_UI_IsBusinessScreen()) {
+            /* Toggle repaints immediately; do not redraw a second time. */
             Expanded_BusinessPopupToggle();
-            DrawMenu();
             break;
         }
         if (e->key.keysym.sym==SDLK_ESCAPE && Expanded_UI_IsSquadScreen() && Expanded_SquadPopupOpen()) {
@@ -975,8 +975,8 @@ void InputSDL_HandleEvent(const SDL_Event *e)
          * without requiring mouse motion or a menu-navigation tick. */
         if (Expanded_UI_IsBusinessScreen() &&
             e->cbutton.button==SDL_CONTROLLER_BUTTON_X) {
+            /* Edge-triggered X opens/closes STAFF details on this event. */
             Expanded_BusinessPopupToggle();
-            DrawMenu();
             break;
         }
         if (Expanded_UI_IsSquadScreen() && e->cbutton.button==SDL_CONTROLLER_BUTTON_X) {

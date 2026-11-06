@@ -199,3 +199,9 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - Il file eseguibile del gioco deve chiamarsi esattamente `SWOS_Expanded.exe` in tutte le build Windows future.
 - Mantenere coerenti il nome prodotto dalla compilazione, i percorsi e i riferimenti negli script di avvio e build (inclusi BAT e shell script), senza rinominare il repository o altri file non necessari.
 - Verificare la compilazione e l'avvio su Windows prima di dichiarare applicata la rinomina al gioco.
+
+## Gestione autonoma degli asset GitHub
+
+- Quando vengono creati, approvati o modificati asset per SWOS Expanded, l'assistente deve caricarli personalmente nel repository GitHub, nella cartella coerente con la schermata o funzione, e committarli. Non delegare all'utente il caricamento manuale.
+- Per i file binari usare gli strumenti GitHub per blob Base64, tree e commit quando disponibili; verificare che i file risultino effettivamente presenti sul ramo prima di dichiarare il caricamento completato.
+- Se un impedimento tecnico concreto blocca il trasferimento, comunicarlo esplicitamente senza dichiarare il lavoro completato.

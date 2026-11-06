@@ -64,6 +64,8 @@ Quando viene richiesto uno sfondo illustrato:
 - Utilizzare il riferimento grafico approvato denominato **TRANSFER 1** per il menu principale del mercato.
 - Non introdurre cornici esterne nel layout TRANSFER 1.
 - Non modificare gratuitamente posizioni, dimensioni e gerarchia degli elementi.
+- Le faccine di FORM e MORALE devono usare lo stesso set grafico canonico in tutte le schermate (BUSINESS, SQUAD, MATCH STATS e ogni altra UI), con espressioni, soglie, colori e dimensioni coerenti; non disegnarne varianti indipendenti. Eventuali modifiche devono essere condivise e verificate su tutte le schermate.
+- MATCH STATS: mantenere l'asset grafico approvato in `development_assets/match_stats/` come riferimento visivo; separare l'illustrazione statica dai nomi, punteggi e valori dinamici, senza testi duplicati e senza modificare altri menu.
 
 ## 5. Joypad, mouse e tastiera
 

@@ -57,6 +57,8 @@ uint32_t _expandedStaffSeason=0, _expandedSponsorPaidSeason=0, _expandedTvPaidSe
 uint32_t _expandedStaffLastWeek=0, _expandedSponsorLastWeek=0, _expandedTvLastWeek=0;
 uint32_t _expandedTravelLastWeek=0, _expandedTravelSeason=0;
 uint8_t _expandedBusinessStaffHover=0;
+/* 0=follow hover/focus, 1=opened with X, 2=closed with X. */
+uint8_t _expandedBusinessStaffPopupMode=0;
 uint8_t _expandedResults[5]={0},_expandedResultCount=0,_expandedResultHead=0;
 uint8_t _expandedTravelFatigue=0;
 uint8_t _expandedCurrentForm=65;
@@ -895,6 +897,8 @@ static int cb_staff_hover_active(void) {
     /* Mouse and controller share the tooltip; the pointer is NOT allowed to
      * steal controller focus just because it was left over the STAFF row. */
     Menu *menu=(Menu *)_currentMenu;
+    if (_expandedBusinessStaffPopupMode == 1) return 1;
+    if (_expandedBusinessStaffPopupMode == 2) return 0;
     return _expandedBusinessStaffHover ||
            (menu && menu->selectedEntry && menu->selectedEntry->ordinal==11);
 }

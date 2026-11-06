@@ -51,3 +51,15 @@ Status: approved working rules. Primary integration branch: `dev/0.10`.
 **Procedura release (obbligatoria):** preparare il profilo release con `CONFIGURA_4K.ps1 -Release`, non impostare `SWOS_EXPANDED_DEV_MAXIMIZED` e avviare il gioco con `--fullscreen=desktop` (o impostazione equivalente nel pacchetto release). Verificare che ogni launcher/release distribuita parta effettivamente a schermo intero, anche se una precedente sessione development aveva impostato `fullscreen=off`. Conservare il rendering 4K e Alt+Invio.
 
 **Perché:** la finestra massimizzata rende più rapido passare dal gioco agli strumenti di sviluppo senza nascondere l'interfaccia Windows. La release deve invece conservare l'esperienza fullscreen approvata; separare le configurazioni evita che il debug cambi accidentalmente il comportamento finale.
+
+## 8. Progettazione e approvazione delle nuove UI (obbligatoria)
+
+**Prima di disegnare un nuovo menu:** leggere la versione del codice realmente utilizzata e misurare font/glyph, altezza, avanzamento, scale e funzioni di rendering, allineamenti e coordinate; calcolare gli spazi per le etichette più lunghe e gli importi più grandi. Il layout grafico deve essere dimensionato su questi valori, non su font inventati. Se il design cambia le coordinate, prevedere espressamente le modifiche al renderer prima di approvarlo.
+
+**Ordine di consegna:** (1) creare **direttamente un BMP sorgente con testi e numeri dimostrativi**, posizionati e dimensionati come nel gioco; (2) presentarlo per verifica/approvazione visiva; (3) soltanto dopo l'approvazione creare un **secondo BMP pulito**, identico per pannelli ma senza testi/valori dinamici, che saranno resi dal codice. Le eventuali illustrazioni di sfondo restano asset separati.
+
+**Stile:** nuova pixel art coerente con gli sfondi illustrati di SWOS Expanded; i menu OG non sono il riferimento estetico. Non convertire PNG in BMP come fase finale.
+
+**Perché:** evitare mockup impossibili da implementare fedelmente, ritagli di testi e numeri, disallineamenti, correzioni ripetute e doppia visualizzazione dei dati. Il mockup BMP con dati reali-simulati permette di approvare gli ingombri prima del BMP finale senza scritte.
+
+Fonte permanente: `AGENTS.md` §4 e §10. Non modificare o sostituire asset esistenti senza richiesta.

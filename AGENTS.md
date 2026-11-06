@@ -47,6 +47,17 @@ Principi fondamentali:
 - Evitare pannelli, cornici, ombre e decorazioni superflue.
 - Mantenere testi, numeri e pulsanti leggibili e correttamente allineati.
 
+### Procedura obbligatoria per progettare nuove UI grafiche (prima del BMP senza testi)
+
+1. **Analizzare il codice del menu realmente in uso**, recuperando funzioni di rendering dei caratteri, font effettivamente disponibili nel gioco, dimensioni native, scale, spaziature, allineamenti e coordinate di testi e valori. Non usare font o misure soltanto indicative senza dichiararlo.
+2. **Calcolare gli ingombri reali** di tutte le etichette, dei nomi lunghi e degli importi con il numero massimo ragionevole di cifre (incluse unità, segni e separatori). Predisporre i pannelli in modo che testo e numeri renderizzati dal gioco siano leggibili, allineati e non si sovrappongano; se si cambia il layout rispetto al codice attuale, pianificare espressamente anche le nuove coordinate del renderer.
+3. **Disegnare i pannelli in base a questi ingombri**, conservando lo stile illustrato pixel art degli sfondi di SWOS Expanded, NON quello dei menu OG. Separare l'eventuale illustrazione di sfondo e gli elementi dinamici dai pannelli.
+4. **Primo asset grafico da creare: un BMP nativo con etichette, numeri e altri dati dimostrativi**, collocati nelle posizioni e con le dimensioni/font effettivamente riproducibili dal codice del gioco. Questo BMP serve come proposta da verificare e approvare PRIMA della versione pulita; non partire direttamente dalla UI senza testo.
+5. **Soltanto dopo l'approvazione della proposta con dati**, creare una seconda versione BMP priva dei testi e valori che verranno disegnati dinamicamente dal programma, mantenendo identici posizione e dimensioni dei pannelli. Il file finale non deve duplicare le scritte del renderer; non rimuovere automaticamente le etichette che l'utente desidera statiche.
+6. Verificare la versione pulita e le coordinate di rendering insieme, senza alterare asset già approvati o integrarli senza la relativa richiesta.
+
+**Motivo della procedura:** evitare anteprime belle ma irrealizzabili nel gioco, font non disponibili, importi tagliati e continue correzioni di allineamento. Approvare prima il BMP con dati dimostrativi consente di valutare l'intero layout; creare poi il BMP pulito permette al gioco di inserire dati reali senza duplicazioni. Entrambi i BMP devono essere creati direttamente come BMP, non tramite conversione finale da PNG.
+
 ### Sfondi
 
 **Non aggiungere immagini di sfondo alle nuove interfacce, ai menu o alle anteprime se l'utente non le richiede esplicitamente.**
@@ -55,7 +66,7 @@ Le schermate storiche con sfondi già approvati mantengono il proprio design.
 
 Quando viene richiesto uno sfondo illustrato:
 - Crearlo come asset separato dagli elementi interattivi.
-- Non incorporare pulsanti, valori dinamici o barre di caricamento nell'immagine.
+- Non incorporare pulsanti, valori dinamici o barre di caricamento **nell'asset definitivo destinato al gioco**; la **prima versione BMP di approvazione** deve invece mostrarli come dati dimostrativi nelle posizioni previste dal renderer, secondo la procedura obbligatoria sopra.
 - Creare la UI separatamente senza sfondo per consentire il riposizionamento indipendente degli elementi UI.
 
 ### Schermate approvate
@@ -155,6 +166,7 @@ GitHub è l'archivio di riferimento per gli asset del progetto.
 - Il BMP è il file di produzione da creare, verificare, approvare e caricare su GitHub. Non trattare PNG o altri formati come asset finali approvati da convertire solo al momento dell'implementazione.
 - Prima dell'archiviazione verificare risoluzione, profondità colore, compatibilità con il loader del gioco e conservazione dei dettagli pixel art; seguire le dimensioni native e non cambiare le coordinate dei testi/valori dinamici senza richiesta.
 - **Perché:** evitare conversioni tardive, caricamenti duplicati, disallineamenti, confusione tra versioni e lavoro ripetuto durante l'integrazione.
+- Applicare sempre la procedura in §4: **prima il BMP con font, testi e numeri dimostrativi correttamente misurati nel codice**, poi, soltanto a layout approvato, **il BMP senza gli elementi dinamici**. Conservare distinti i file di anteprima e quelli di produzione.
 - I vecchi file PNG già presenti o i nomi storici esplicitamente richiesti restano invariati finché non venga approvata una migrazione; non rompere riferimenti esistenti soltanto per normalizzare le estensioni.
 
 

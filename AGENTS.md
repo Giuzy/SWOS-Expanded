@@ -145,6 +145,15 @@ Prima di ogni intervento, verificare il ramo di sviluppo corrente nel repository
 
 GitHub è l'archivio di riferimento per gli asset del progetto.
 
+### Formato finale obbligatorio: BMP
+
+- **Tutti i nuovi asset grafici approvati per il gioco devono essere preparati e archiviati in formato BMP**, già pronti per il caricamento da SDL2. Non salvare prima un PNG come asset approvato per poi convertirlo soltanto quando viene chiesta l'implementazione.
+- Se uno strumento di creazione immagini produce provvisoriamente PNG, convertire **subito e una sola volta** la versione finale in BMP, prima del trasferimento su GitHub. Il formato generato internamente dallo strumento non cambia il formato finale richiesto.
+- Prima dell'archiviazione verificare risoluzione, profondità colore, compatibilità con il loader del gioco e conservazione dei dettagli pixel art; seguire le dimensioni native e non cambiare le coordinate dei testi/valori dinamici senza richiesta.
+- **Perché:** evitare conversioni ripetute, caricamenti duplicati, confusione tra versioni grafiche e interventi inutili quando si integra un asset già approvato.
+- I vecchi file PNG già presenti o i nomi storici esplicitamente richiesti restano invariati finché non venga approvata una migrazione; non rompere riferimenti esistenti soltanto per normalizzare le estensioni.
+
+
 - Conservare gli asset approvati.
 - Distinguere asset utilizzati nel gioco, sorgenti grafiche e bozze.
 - Non sostituire asset approvati senza richiesta.

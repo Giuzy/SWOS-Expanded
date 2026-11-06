@@ -568,11 +568,51 @@ static void confirm_text(int x,int y,int scale,const char *str,SDL_Color ink) {
 /* Approved image panels are drawn in logical pixels over the live pitch.
  * Only the image panel is shipped, not the grass from the concept previews. */
 static SDL_Texture *s_match_exit_art=NULL,*s_match_stats_art=NULL;
+/* Source-only crop: exclude grass/brown margins around the approved EXIT panel.
+ * The BMP itself remains unchanged. Cached once when that texture is loaded. */
+static SDL_Rect s_match_exit_crop={0,0,0,0};
+static void match_exit_find_panel(const SDL_Surface *source) {
+    SDL_Surface *rgba=SDL_ConvertSurfaceFormat(source,SDL_PIXELFORMAT_ARGB8888,0);
+    s_match_exit_crop=(SDL_Rect){0,0,0,0};
+    if(!rgba) return;
+    int left=rgba->w,top=rgba->h,right=-1,bottom=-1;
+    if(SDL_LockSurface(rgba)==0) {
+        for(int y=0;y<rgba->h;y++) {
+            const Uint32 *row=(const Uint32 *)((const Uint8 *)rgba->pixels+y*rgba->pitch);
+            for(int x=0;x<rgba->w;x++) {
+                Uint8 r,g,b;
+                SDL_GetRGB(row[x],rgba->format,&r,&g,&b);
+                /* Cyan/ice-blue outline of the panel, not its brown/green
+                 * exterior. Find its actual bounds instead of hardcoding
+                 * a percentage that depends on the source illustration. */
+                if(r>=70 && g>=155 && b>=205 && b>=g && g>r+20) {
+                    if(x<left)left=x;
+                    if(x>right)right=x;
+                    if(y<top)top=y;
+                    if(y>bottom)bottom=y;
+                }
+            }
+        }
+        SDL_UnlockSurface(rgba);
+    }
+    if(right-left>rgba->w/3 && bottom-top>rgba->h/5) {
+        /* Preserve a thin dark outer edge of the approved frame. */
+        left=left>2?left-2:0;
+        top=top>2?top-2:0;
+        right=right+2<rgba->w?right+2:rgba->w-1;
+        bottom=bottom+2<rgba->h?bottom+2:rgba->h-1;
+        s_match_exit_crop=(SDL_Rect){left,top,right-left+1,bottom-top+1};
+    }
+    SDL_FreeSurface(rgba);
+}
 static SDL_Texture *match_ui_texture(SDL_Texture **slot,const char *path) {
     if(!*slot) {
         SDL_Surface *surface=SDL_LoadBMP(path);
-        if(surface) { *slot=SDL_CreateTextureFromSurface(s_renderer,surface);SDL_FreeSurface(surface); }
-        else fprintf(stderr,"[match-ui] missing %s: %s\n",path,SDL_GetError());
+        if(surface) {
+            if(slot==&s_match_exit_art) match_exit_find_panel(surface);
+            *slot=SDL_CreateTextureFromSurface(s_renderer,surface);
+            SDL_FreeSurface(surface);
+        } else fprintf(stderr,"[match-ui] missing %s: %s\n",path,SDL_GetError());
     }
     return *slot;
 }
@@ -678,7 +718,10 @@ static void draw_exit_confirmation(void) {
     SDL_Texture *tex=match_ui_texture(&s_match_exit_art,"data/expanded/match_exit_ui.bmp");
     if(tex) {
         SDL_Rect dest={x,y,w,h};
-        SDL_RenderCopy(s_renderer,tex,NULL,&dest);
+        /* Render only the cyan-framed panel; do not stretch the brown
+         * source margins over the underlying pitch. */
+        const SDL_Rect *crop=s_match_exit_crop.w>0?&s_match_exit_crop:NULL;
+        SDL_RenderCopy(s_renderer,tex,crop,&dest);
     } else {
         SDL_SetRenderDrawColor(s_renderer,7,28,93,255);
         SDL_Rect panel={x,y,w,h};SDL_RenderFillRect(s_renderer,&panel);
@@ -688,20 +731,20 @@ static void draw_exit_confirmation(void) {
         confirm_text(x+46,y+7,1,"EXIT MATCH",yellow);
     }
 
-    /* The artwork owns button fills and labels. Draw only tight borders on
-     * their actual edges (no opaque overlay and no gaps to the frame). */
+    /* The BMP already paints both button outlines. Add exactly ONE thin
+     * yellow highlight around the selected button; leave the other alone.
+     * The short corner diagonals follow the rounded button silhouette. */
     int selected=InputSDL_ExitConfirmChoice();
-    for(int i=0;i<2;i++) {
-        SDL_Rect edge={x+11+i*77,y+46,69,14};
-        SDL_SetRenderDrawColor(s_renderer,i==selected?255:75,
-                              i==selected?232:169,i==selected?20:230,255);
-        SDL_RenderDrawRect(s_renderer,&edge);
-        SDL_Rect inner={edge.x+1,edge.y+1,edge.w-2,edge.h-2};
-        SDL_RenderDrawRect(s_renderer,&inner);
-    }
-    /* Restore the missing right-hand vertical edge of the lower textbox. */
-    SDL_SetRenderDrawColor(s_renderer,115,195,247,255);
-    SDL_RenderDrawLine(s_renderer,x+w-5,y+26,x+w-5,y+h-4);
+    int bx=x+(selected==0?7:82),by=y+50,bw=72,bh=13;
+    SDL_SetRenderDrawColor(s_renderer,255,230,0,255);
+    SDL_RenderDrawLine(s_renderer,bx+2,by,bx+bw-3,by);
+    SDL_RenderDrawLine(s_renderer,bx+2,by+bh-1,bx+bw-3,by+bh-1);
+    SDL_RenderDrawLine(s_renderer,bx,by+2,bx,by+bh-3);
+    SDL_RenderDrawLine(s_renderer,bx+bw-1,by+2,bx+bw-1,by+bh-3);
+    SDL_RenderDrawPoint(s_renderer,bx+1,by+1);
+    SDL_RenderDrawPoint(s_renderer,bx+bw-2,by+1);
+    SDL_RenderDrawPoint(s_renderer,bx+1,by+bh-2);
+    SDL_RenderDrawPoint(s_renderer,bx+bw-2,by+bh-2);
 }
 
 static void render_frame_impl(int pump_full);   /* below; pump_full=0 on the SDL timer thread */
@@ -2872,8 +2915,9 @@ int Platform_ExitConfirmHitTest(int mouseX,int mouseY) {
     if(!s_renderer || !InputSDL_ExitConfirmOpen()) return -1;
     SDL_RenderWindowToLogical(s_renderer,mouseX,mouseY,&lx,&ly);
     int x=(_screen_width-160)/2,y=(_screen_height-68)/2;
-    if(ly<y+44 || ly>=y+64) return -1;
-    if(lx>=x+10 && lx<x+81) return 0;
-    if(lx>=x+87 && lx<x+158) return 1;
+    /* Mouse hitboxes follow the visible buttons after cropping the art. */
+    if(ly<y+49 || ly>=y+64) return -1;
+    if(lx>=x+7 && lx<x+79) return 0;
+    if(lx>=x+82 && lx<x+154) return 1;
     return -1;
 }

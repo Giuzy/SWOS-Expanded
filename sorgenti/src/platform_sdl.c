@@ -675,18 +675,43 @@ static void draw_exit_confirmation(void) {
     SDL_SetRenderDrawColor(s_renderer,0,0,0,110);
     SDL_Rect shade={0,0,ow,oh};SDL_RenderFillRect(s_renderer,&shade);
     SDL_SetRenderDrawBlendMode(s_renderer,SDL_BLENDMODE_NONE);
+
+    /* Compact version of the approved 300x125 panel: about half its width
+     * and height. Keep its title artwork but redraw BOTH buttons at native
+     * pixel resolution: the old EXIT artwork had damaged/overlapping edges. */
+    const int w=160,h=68,x=(ow-w)/2,y=(oh-h)/2;
     SDL_Texture *tex=match_ui_texture(&s_match_exit_art,"data/expanded/match_exit_ui.bmp");
-    if(tex){
-        int w=300,h=125,x=(ow-w)/2,y=(oh-h)/2;
-        SDL_Rect dest={x,y,w,h};SDL_RenderCopy(s_renderer,tex,NULL,&dest);
-        /* A precise selection frame follows the actual button bounds.
-           No floating arrow and no rectangle across the button artwork. */
-        int selectedX=InputSDL_ExitConfirmChoice()?x+161:x+20;
-        /* The unselected button has its normal blue frame in the artwork;
-           draw exactly one yellow selection frame, matching EXIT style. */
-        SDL_Rect selection={selectedX,y+92,128,26};
-        SDL_SetRenderDrawColor(s_renderer,255,232,28,255);
-        SDL_RenderDrawRect(s_renderer,&selection);
+    if(tex) {
+        SDL_Rect dest={x,y,w,h};
+        SDL_RenderCopy(s_renderer,tex,NULL,&dest);
+    } else {
+        SDL_SetRenderDrawColor(s_renderer,7,28,93,255);
+        SDL_Rect panel={x,y,w,h};SDL_RenderFillRect(s_renderer,&panel);
+        SDL_SetRenderDrawColor(s_renderer,125,199,251,255);
+        SDL_RenderDrawRect(s_renderer,&panel);
+        SDL_Color yellow={255,232,28,255};
+        confirm_text(x+46,y+7,1,"EXIT MATCH",yellow);
+    }
+
+    const int chosen=InputSDL_ExitConfirmChoice();
+    const SDL_Color white={250,250,250,255};
+    const SDL_Color yellow={255,232,28,255};
+    const int bw=70,bh=20,by=y+44;
+    for(int i=0;i<2;i++) {
+        int bx=x+6+i*78;
+        SDL_Rect button={bx,by,bw,bh};
+        /* Opaque repaint removes the damaged baked-in EXIT button and any
+         * previous selection outline, independently of the chosen option. */
+        SDL_SetRenderDrawColor(s_renderer,i==chosen?77:10,
+                              i==chosen?25:65,i==chosen?30:150,255);
+        SDL_RenderFillRect(s_renderer,&button);
+        SDL_SetRenderDrawColor(s_renderer,i==chosen?255:80,
+                              i==chosen?232:169,i==chosen?28:233,255);
+        SDL_RenderDrawRect(s_renderer,&button);
+        const char *label=i==0?"BACK":"EXIT";
+        int chars=i==0?4:4;
+        confirm_text(bx+(bw-chars*6+1)/2,by+7,1,label,
+                     i==chosen?white:yellow);
     }
 }
 

@@ -1,5 +1,7 @@
 # Output locale della compilazione e dell'esecuzione
 /SWOS.exe
+/SWOS_Expanded.exe
+/sorgenti/bin/SWOS_Expanded.exe
 /sorgenti/bin/SWOS.exe
 /sorgenti/build/
 *.o

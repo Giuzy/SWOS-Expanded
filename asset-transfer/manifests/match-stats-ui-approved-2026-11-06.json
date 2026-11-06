@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "asset_path": "assets/match_stats/match_stats_ui_approved_2026-11-06.png",
+  "size": 1213764,
+  "sha256": "d5e0161b7df0136c420c587b1b44285ba076fa381a2d6a2ee021678274523390",
+  "parts": [
+    {
+      "sha": "c98ba49bb39c4f27684479658ef6203a80f84ead",
+      "size": 524286
+    },
+    {
+      "sha": "fbe2094ef4b90caeda8d2e30c5e2df3e04595561",
+      "size": 524286
+    },
+    {
+      "sha": "78cf9411e2235ce611a988097a9beb8f312553a3",
+      "size": 165192
+    }
+  ]
+}

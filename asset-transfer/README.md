@@ -13,3 +13,9 @@ For each approved asset:
 6. Avoid touching unrelated gameplay code, screens or assets.
 
 This transfer process is automatic after approval, not a request to modify game code or to replace an existing approved asset unless that was explicitly approved.
+
+## Why this workflow exists
+
+The user should not have to download an approved asset from the chat and manually upload it again. Chunking accommodates the observed per-transfer ceiling; ordered manifests plus SHA-256 checks protect against incomplete or corrupted reconstruction. GitHub keeps the approved result available across chats, even when temporary local workspaces disappear. The upload rule is distinct from permission to modify gameplay code or other approved graphics.
+
+For the full local-workspace, session handoff, verification and commit procedures **and the reason behind each**, see [`docs/DEVELOPMENT_WORKFLOW.md`](../docs/DEVELOPMENT_WORKFLOW.md).

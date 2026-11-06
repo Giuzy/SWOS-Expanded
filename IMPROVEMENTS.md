@@ -7,7 +7,7 @@
 **Technical foundation:** OpenSWOS — C / SDL2  
 **Target platform:** Windows x64  
 **Document updated:** 6 November 2026  
-**Latest known development branch:** `release/0.10.40`
+**Latest known development branch:** `dev/0.10` (previous branch retained temporarily)
 
 ---
 
@@ -216,6 +216,10 @@ GitHub is the source/asset archive for code, data, approved art, Windows build s
 - `PROJECT_STATE.md`: approved decisions, current status, plans and open questions.
 - `PROJECT_HISTORY.md`: historical build/package notes.
 - `IMPROVEMENTS.md`: development history and changes actually introduced.
+
+## Current workflow (6 November 2026)
+
+Commits and builds are separate. Only explicit user requests authorize commits. Intermediate code revisions use `0.10.51_01`, `0.10.51_02` etc.; the next explicitly requested build is `0.10.52`. The title label displays `Build <version>`. This is a workflow and source change, not a verified Windows test.
 
 ## 10. Updating this document
 

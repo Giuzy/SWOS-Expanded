@@ -66,6 +66,10 @@ The experimental Expanded individual condition from 0.10.20 was superseded by te
 
 Original SWOS match gameplay remains the project's foundation.
 
+### 0.10.51_06 — fix Windows compilation of Business integration (7 November 2026)
+
+[USER-REPORTED BUILD FAILURE IN 0.10.51_05] GCC 16.2.0 MinGW64 rejected the new `Expanded_ClubOverviewReapplyLayout` because `_currentMenu` was referenced before its extern declaration. The 0.10.51_06 change moves the extern declaration before the first SDL use and removes the extraneous `_currentMenu` access in the non-SDL legacy fallback. No asset, navigation, gameplay, or save-format changes. Not yet retested on Windows; warnings about packed members are unrelated.
+
 ### 0.10.51_05 — Business Screen BMP integration (7 November 2026)
 
 **Code updated, not yet Windows-tested.** The approved native BMP Business Screen and approved A/B/X legend are loaded directly without converting source art. Runtime redraw preserves actual stadium level, financial figures, date, supporters and Board/Fans faces. The facility menu keeps its established upgrade callbacks and cost logic while matching the new alphabetical two-column art layout. WEEK/YEAR use separate focusable controls; X opens WAGES/TRAVEL/MAINTENANCE popups immediately, and B closes open details before leaving Business. Mouse geometry and controller focus follow the new coordinates; the legacy art remains a fallback. Build-time preflight checks presence of both approved BMP files. Build ID increments to `0.10.51_05`.

@@ -654,6 +654,8 @@ extern MenuEntry _menuEntries[];
  * Do NOT reset the popup here: a controller X press triggers DrawMenu,
  * and clearing popup mode during that redraw immediately hid it again. */
 #ifdef SWOS_SDL_BUILD
+/* Needed by the layout function below (the original declaration is later). */
+extern uint8_t _currentMenu[];
 static int cb_load_assets(void);
 static int cb_use_approved=0;
 #endif
@@ -710,9 +712,9 @@ void Expanded_ClubOverviewReapplyLayout(void) {
     /* The legacy generic upgrade row stays in the packed layout to keep
      * ordinals stable, but is not visible or selectable. */
     _menuEntries[0].isInvisible=1; /* artwork replaces stock title */
-    /* Additional YEAR tab exists only in the approved dual-tab artwork. */
-    if(((Menu *)_currentMenu)->numEntries>=15)
-        _menuEntries[14].isInvisible=1;
+    /* The appended YEAR entry is hidden in the legacy-art fallback.
+     * The compiled packed Business menu always has ordinal 14. */
+    _menuEntries[14].isInvisible=1;
     /* 0.10.23: compact toggle INSIDE the finance title strip, clear of
      * its top border (y=185) and bottom divider (y=199). The joypad
      * hitbox exactly covers the visible button. */

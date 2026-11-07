@@ -10759,6 +10759,8 @@ extern void Expanded_ClubOverviewInit(void);
 extern void Expanded_ClubFacilitySelected(MenuEntry *entry);
 extern void Expanded_ShowInfrastructure(void);
 extern void Expanded_ToggleFinanceView(void);
+extern void Expanded_SelectFinanceWeek(void);
+extern void Expanded_SelectFinanceYear(void);
 static char s_clubOverviewTitle[] = "CLUB OVERVIEW";
 static char s_clubOverviewUpgrade[] = "UPGRADE";
 static char s_clubOverviewBack[] = "BACK";
@@ -10798,6 +10800,7 @@ struct {
     CB_MenuFocusOnly staffHover;
     CB_MenuFocusOnly wagesHover;
     CB_MenuFocusOnly travelHover;
+    CB_MenuAction financeYear;
     MenuMark end;
 } _expandedClubOverviewMenu = {
     /* Real SWOS menu hitboxes; all pixel artwork is painted AFTER the
@@ -10843,7 +10846,7 @@ struct {
     /* Legacy row retained for packed-menu ordinal stability, hidden. */
     { { 10, 148, 105, 16 }, { MENU_CMD_NAV, -1, 10, 5, 5 },
       { MENU_CMD_COLORS, 0xB }, { MENU_CMD_TEXT_PTR, 0, s_clubOverviewUpgrade },
-      { MENU_CMD_ONSELECT_FIRE, Expanded_ToggleFinanceView }, MENU_CMD_END },
+      { MENU_CMD_ONSELECT_FIRE, Expanded_SelectFinanceWeek }, MENU_CMD_END },
     /* BACK at top left, never covered by any other drawing. */
     { { -19, -33, 47, 17 }, { MENU_CMD_NAV, -1, 5, 11, 5 },
       { MENU_CMD_COLORS, 0xC }, { MENU_CMD_TEXT_PTR, 0, s_clubOverviewBack },
@@ -10857,6 +10860,10 @@ struct {
     /* 13: TRAVEL popup focus-only entry, between WAGES and MAINTENANCE. */
     { { 87, 174, 94, 12 }, { MENU_CMD_NAV, 12, 12, 12, 11 },
       { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility }, MENU_CMD_END },
+    /* 14: YEAR is selectable separately from WEEK, with its own callback. */
+    { { 244, 134, 42, 15 }, { MENU_CMD_NAV, 9, 1, 1, 12 },
+      { MENU_CMD_COLORS, 0x8 }, { MENU_CMD_TEXT_PTR, 0, s_emptyFacility },
+      { MENU_CMD_ONSELECT_FIRE, Expanded_SelectFinanceYear }, MENU_CMD_END },
     MENU_MARK_END_MENU
 };
 #pragma pack(pop)

@@ -210,6 +210,24 @@ void Expanded_ToggleFinanceView(void) {
     extern void DrawMenu(void);
     DrawMenu();
 }
+/* Approved Business layout has two individually selectable tabs. */
+void Expanded_SelectFinanceWeek(void) {
+    extern int Expanded_BusinessUsesApprovedUI(void);
+    if(!Expanded_BusinessUsesApprovedUI()) {
+        Expanded_ToggleFinanceView(); /* legacy single toggle */
+        return;
+    }
+    _expandedFinanceSeasonView=0;
+    extern void DrawMenu(void);
+    DrawMenu();
+}
+void Expanded_SelectFinanceYear(void) {
+    extern int Expanded_BusinessUsesApprovedUI(void);
+    if(!Expanded_BusinessUsesApprovedUI()) return;
+    _expandedFinanceSeasonView=1;
+    extern void DrawMenu(void);
+    DrawMenu();
+}
 void Expanded_SponsorSelect(MenuEntry *e) {
     unsigned option=e&&e->ordinal>=2&&e->ordinal<=4?e->ordinal-2:1;
     if(!_expandedSponsorState) {
@@ -635,10 +653,66 @@ extern MenuEntry _menuEntries[];
 /* Reapply transient menu-entry geometry for each full DrawMenu.
  * Do NOT reset the popup here: a controller X press triggers DrawMenu,
  * and clearing popup mode during that redraw immediately hid it again. */
+#ifdef SWOS_SDL_BUILD
+static int cb_load_assets(void);
+static int cb_use_approved=0;
+#endif
 void Expanded_ClubOverviewReapplyLayout(void) {
+#ifdef SWOS_SDL_BUILD
+    /* Keep original ordinals and callbacks; move only graphical hitboxes.
+     * Old assets/packed layout remain a fallback if the BMPs are unavailable. */
+    if(cb_load_assets() && cb_use_approved) {
+        static const struct {
+            uint8_t ord; int16_t x,y,w,h,left,right,up,down;
+        } cells[] = {
+            {5,  5, 63,90,22,10, 2,10, 7}, /* FITNESS */
+            {7,  5, 87,90,22, 5, 3, 5, 4}, /* MEDICAL */
+            {4,  5,111,90,22, 7, 8, 7, 6}, /* OFFICES */
+            {6,  5,135,90,22, 4, 1, 4, 9}, /* SCOUTS */
+            {2,226, 63,90,22, 5, 3,10, 3}, /* TRAINING */
+            {3,226, 87,90,22, 7, 8, 2, 8}, /* TRAVEL */
+            {8,226,111,90,22, 4, 1, 3, 1}, /* YOUTH */
+            {1,226,135,90,28, 6,14, 8,14}, /* STADIUM UPGRADE */
+            {9,226,170,40,15, 6,14, 6,12}, /* WEEK */
+            {14,268,170,42,15, 9, 1, 1,12}, /* YEAR */
+            {12,164,198,148,11, 9,14, 9,13}, /* WAGES popup */
+            {13,164,209,148,11, 9,14,12,11}, /* TRAVEL popup */
+            {11,164,220,148,11, 9,14,13,10}, /* MAINTENANCE popup */
+            {10, 32,  6, 20,14,10, 5,11, 5} /* BACK hint */
+        };
+        Menu *m=(Menu *)_currentMenu;
+        if(m && m->numEntries>=15) {
+            _menuEntries[0].isInvisible=1;
+            for(unsigned i=0;i<sizeof(cells)/sizeof(cells[0]);i++) {
+                const unsigned n=cells[i].ord;
+                MenuEntry *e=&_menuEntries[n];
+                e->isInvisible=0;e->isDisabled=0;
+                e->x=cells[i].x;e->y=cells[i].y;
+                e->dwWidth=cells[i].w;e->dwHeight=cells[i].h;
+                e->leftEntry=(int8_t)cells[i].left;
+                e->rightEntry=(int8_t)cells[i].right;
+                e->upEntry=(int8_t)cells[i].up;
+                e->downEntry=(int8_t)cells[i].down;
+                e->skipLeftEntry=e->skipRightEntry=-1;
+                e->skipUpEntry=e->skipDownEntry=-1;
+                e->directionLeft=e->directionRight=0;
+                e->directionUp=e->directionDown=0;
+                e->background=NO_BACKGROUND;e->content=NO_FOREGROUND;
+            }
+            /* X remains the only popup trigger, not FIRE. */
+            _menuEntries[11].onSelect=0;
+            _menuEntries[12].onSelect=0;
+            _menuEntries[13].onSelect=0;
+            return;
+        }
+    }
+#endif
     /* The legacy generic upgrade row stays in the packed layout to keep
      * ordinals stable, but is not visible or selectable. */
     _menuEntries[0].isInvisible=1; /* artwork replaces stock title */
+    /* Additional YEAR tab exists only in the approved dual-tab artwork. */
+    if(((Menu *)_currentMenu)->numEntries>=15)
+        _menuEntries[14].isInvisible=1;
     /* 0.10.23: compact toggle INSIDE the finance title strip, clear of
      * its top border (y=185) and bottom divider (y=199). The joypad
      * hitbox exactly covers the visible button. */
@@ -773,6 +847,7 @@ extern uint16_t _numWins, _numLost;
 #ifdef SWOS_SDL_BUILD
 #include "display.h"
 #include "expanded_club_font.h"
+#include "expanded_business_bmp.h"
 extern volatile uintptr_t _frontbufferBasePtr;
 extern int _menu_draw_x_offset;
 extern int _screen_width;
@@ -784,6 +859,36 @@ extern uint8_t _currentMenu[];
 static uint8_t cb_bg[CB_W*CB_H];
 static uint8_t cb_stadium[5][CB_SW*CB_SH];
 static int cb_assets_state = 0; /* 0 untried, 1 loaded, -1 missing */
+/* Native approved BMPs are read-only and alpha-composited in SWOS palette.
+ * Do not convert or replace these archived source assets. */
+extern uint16_t _menuPalette[256];
+static uint8_t cb_rgba_business[CB_W*CB_H*4], cb_rgba_hint[70*14*4];
+static uint8_t cb_pixels_business[CB_W*CB_H],cb_alpha_business[CB_W*CB_H];
+static uint8_t cb_pixels_hint[70*14],cb_alpha_hint[70*14];
+static uint8_t cb_nearest(unsigned r,unsigned g,unsigned b) {
+    uint8_t best=0;
+    unsigned diffBest=UINT_MAX;
+    for(unsigned i=0;i<256;i++) {
+        unsigned v=_menuPalette[i];
+        int dr=(int)r-(int)(((v>>8)&15u)*17u);
+        int dg=(int)g-(int)(((v>>4)&15u)*17u);
+        int db=(int)b-(int)((v&15u)*17u);
+        unsigned diff=(unsigned)(2*dr*dr+3*dg*dg+2*db*db);
+        if(diff<diffBest) {best=(uint8_t)i;diffBest=diff;}
+    }
+    return best;
+}
+static void cb_index_bmp(const uint8_t *rgba,size_t n,uint8_t *indices,uint8_t *alpha) {
+    for(size_t i=0;i<n;i++) {
+        const uint8_t *px=&rgba[i*4u];
+        alpha[i]=px[3];
+        indices[i]=px[3]?cb_nearest(px[0],px[1],px[2]):0;
+    }
+}
+static void cb_palette_components(uint8_t index,unsigned *r,unsigned *g,unsigned *b) {
+    unsigned v=_menuPalette[index];
+    *r=((v>>8)&15u)*17u;*g=((v>>4)&15u)*17u;*b=(v&15u)*17u;
+}
 static int cb_read_file(const char *path, uint8_t *dst, size_t len) {
     FILE *f=fopen(path,"rb");
     if (!f) return 0;
@@ -794,8 +899,20 @@ static int cb_read_file(const char *path, uint8_t *dst, size_t len) {
 }
 static int cb_load_assets(void) {
     if (cb_assets_state) return cb_assets_state>0;
-    if (!cb_read_file("data/expanded/club_business_bg.raw",cb_bg,sizeof cb_bg))
-        goto fail;
+    cb_use_approved=exbmp_load(
+        "assets/business/business_ui_approved_2026-11-07.bmp",
+        CB_W,CB_H,cb_rgba_business) &&
+        exbmp_load("assets/ui/controller_abc_approved_2026-11-07.bmp",
+                    70,14,cb_rgba_hint);
+    if(cb_use_approved) {
+        cb_index_bmp(cb_rgba_business,CB_W*CB_H,cb_pixels_business,cb_alpha_business);
+        cb_index_bmp(cb_rgba_hint,70u*14u,cb_pixels_hint,cb_alpha_hint);
+    } else {
+        /* When missing, use exactly the old rendering and hitboxes. */
+        fprintf(stderr,"[club-business] approved BMP unavailable: legacy business renderer\n");
+        if (!cb_read_file("data/expanded/club_business_bg.raw",cb_bg,sizeof cb_bg))
+            goto fail;
+    }
     for (unsigned i=0;i<5;i++) {
         char name[80];
         snprintf(name,sizeof name,"data/expanded/club_stadium_%u.raw",i+1);
@@ -822,6 +939,34 @@ static void cb_blit(int x,int y,int w,int h,const uint8_t *src) {
 static void cb_plot(int x,int y,uint8_t color) {
     if ((unsigned)x>=CB_W || (unsigned)y>=CB_H || !_frontbufferBasePtr) return;
     cb_buffer()[(size_t)y*FRONTBUFFER_ROW_STRIDE_BYTES+x]=color;
+}
+static void cb_alpha_bmp(int dstX,int dstY,int w,int h,
+                         const uint8_t *indices,const uint8_t *alpha) {
+    if(!_frontbufferBasePtr || _screen_width<CB_W) return;
+    for(int y=0;y<h;y++) for(int x=0;x<w;x++) {
+        int xx=dstX+x,yy=dstY+y;
+        if(xx<0||yy<0||xx>=CB_W||yy>=CB_H) continue;
+        size_t src=(size_t)y*w+x;
+        unsigned a=alpha[src];
+        if(!a) continue;
+        uint8_t *target=&cb_buffer()[(size_t)yy*FRONTBUFFER_ROW_STRIDE_BYTES+xx];
+        if(a==255) *target=indices[src];
+        else {
+            unsigned br,bg,bb,fr,fg,fb;
+            cb_palette_components(*target,&br,&bg,&bb);
+            cb_palette_components(indices[src],&fr,&fg,&fb);
+            unsigned rr=(a*fr+(255u-a)*br+127u)/255u;
+            unsigned gg=(a*fg+(255u-a)*bg+127u)/255u;
+            unsigned bbout=(a*fb+(255u-a)*bb+127u)/255u;
+            *target=cb_nearest(rr,gg,bbout);
+        }
+    }
+}
+static void cb_stadium_resize(int dx,int dy,int dw,int dh,const uint8_t *src) {
+    if(!_frontbufferBasePtr || !src) return;
+    for(int y=0;y<dh;y++) for(int x=0;x<dw;x++) {
+        cb_plot(dx+x,dy+y,src[(size_t)(y*CB_SH/dh)*CB_SW+x*CB_SW/dw]);
+    }
 }
 /* Compact 13x13 pixel-art faces. Five expressions are computed from the
  * real 0..100 board/fan sentiment, not from static labels. */
@@ -1145,10 +1290,132 @@ static void cb_business_popups(void) {
     cb_maintenance_popup();
     cb_travel_popup();
 }
+/* Paint the approved static BMP, then draw every changing value in SWOS's
+ * real font. The five stadium sprites, finance bookkeeping, popups and mood
+ * expressions are the existing game-owned systems. */
+static int cb_draw_approved(void) {
+    if(!cb_use_approved) return 0;
+    rect(0,0,CB_W,CB_H,0);  /* alpha outside panels = screen background */
+    cb_alpha_bmp(0,0,CB_W,CB_H,cb_pixels_business,cb_alpha_business);
+    cb_alpha_bmp(9,6,70,14,cb_pixels_hint,cb_alpha_hint);
+    unsigned stadium=_expandedFacilityLevels[0];
+    if(stadium<1 || stadium>5) stadium=1;
+    cb_stadium_resize(116,66,88,50,cb_stadium[stadium-1]);
+    const uint8_t white=2,gold=15;
+    char t[100],money[48];
+    cb_native(160,8,gold,"BUSINESS",0,110);
+    Expanded_FormatDate(t,sizeof t,1996u+(unsigned)_currentSeasonShowing,
+                        (unsigned)_lastFinancialWeekIndex);
+    cb_native(277,9,white,strlen(t)>4?t+4:t,0,74);
+    cb_mood_face(18,43,_expandedBoardMood);
+    cb_native(58,34,white,"BOARD",0,51);
+    snprintf(t,sizeof t,"%u%%",(unsigned)_expandedBoardMood);
+    cb_native(58,45,gold,t,0,51);
+    cb_native(174,34,white,"SUPPORTERS",0,76);
+    cb_amount(t,sizeof t,_expandedSupporters,0);
+    cb_native(174,45,gold,t,0,76);
+    cb_mood_face(233,43,_expandedFanMood);
+    cb_native(273,34,white,"FANS",0,51);
+    snprintf(t,sizeof t,"%u%%",(unsigned)_expandedFanMood);
+    cb_native(273,45,gold,t,0,51);
+    /* Ordinals remain tied to the same facilities after rearrangement. */
+    static const struct {uint8_t facility;const char *text;int x,y;} facilities[]={
+        {4,"FITNESS",37,67},{6,"MEDICAL",37,91},
+        {3,"OFFICES",37,115},{5,"SCOUTS",37,139},
+        {1,"TRAINING",257,67},{2,"TRAVEL",257,91},{7,"YOUTH",257,115}
+    };
+    for(unsigned i=0;i<sizeof(facilities)/sizeof(facilities[0]);i++) {
+        unsigned level=_expandedFacilityLevels[facilities[i].facility];
+        if(level<1 || level>5) level=1;
+        cb_native(facilities[i].x,facilities[i].y,white,facilities[i].text,-1,54);
+        snprintf(t,sizeof t,"LV %u",level);
+        cb_native(facilities[i].x,facilities[i].y+9,gold,t,-1,52);
+    }
+    cb_native(283,142,white,"UPGRADE",0,59);
+    cb_native(283,153,gold,"STADIUM",0,59);
+    static const char *const stadiumNames[]={
+        "SMALL GROUND","LOCAL STADIUM","CITY STADIUM",
+        "NATIONAL ARENA","WORLD ARENA"};
+    cb_native(161,124,white,stadiumNames[stadium-1],0,109);
+    cb_amount(money,sizeof money,s_capacity[stadium-1],0);
+    snprintf(t,sizeof t,"%s SEATS",money);
+    cb_native(161,134,gold,t,0,109);
+    snprintf(t,sizeof t,"LEVEL %u / 5",stadium);
+    cb_native(161,144,white,t,0,109);
+    if(stadium==5) cb_native(161,154,gold,"MAXIMUM LEVEL",0,109);
+    else {
+        cb_amount(money,sizeof money,facility_cost(0),0);
+        snprintf(t,sizeof t,"COST %s",money);
+        cb_native(161,154,gold,t,0,109);
+    }
+    unsigned week=Expanded_FinanceWeek(_lastFinancialWeekIndex,_careerJobOfferPhaseBias);
+    snprintf(t,sizeof t,"FINANCES / %s %02u",
+             _expandedFinanceSeasonView?"YEAR":"WEEK",week);
+    cb_native(13,173,white,t,-1,206);
+    cb_native(246,174,_expandedFinanceSeasonView?white:gold,"WEEK",0,34);
+    cb_native(289,174,_expandedFinanceSeasonView?gold:white,"YEAR",0,34);
+    /* Active view and focus have distinct highlights, both runtime. */
+    rect(_expandedFinanceSeasonView?271:229,183,35,1,15);
+    cb_native(80,190,white,"INCOME",0,143);
+    cb_native(236,190,white,"EXPENSES",0,142);
+    uint64_t gate=nonneg(_gateReceipts)+nonneg(_competitionBonuses);
+    uint64_t sponsor=_expandedFinanceSeasonView?_expandedSponsorPaidSeason:
+        (_expandedSponsorState?_expandedShirtSponsor/52u:0u);
+    uint64_t tv=_expandedFinanceSeasonView?_expandedTvPaidSeason:
+        (_expandedTvState?_expandedTvRights/52u:0u);
+    uint64_t wages=cb_wages_display_cost();
+    uint64_t travel=cb_travel_display_cost();
+    uint64_t maint=cb_maintenance_display_cost();
+    uint64_t gateShown=_expandedFinanceSeasonView?gate:
+        gate/(_seasonWeeksDeducted?_seasonWeeksDeducted:1u);
+    const uint64_t income=sponsor+tv+gateShown;
+    const uint64_t expense=wages+travel+maint;
+    const uint64_t amountsLeft[]={sponsor,tv,gateShown,income};
+    const uint64_t amountsRight[]={wages,travel,maint,expense};
+    static const char *const labelsLeft[]={"SPONSOR","TV","GATE","INCOME"};
+    static const char *const labelsRight[]={"WAGES","TRAVEL","MAINTENANCE","TOTAL"};
+    for(unsigned i=0;i<4;i++) {
+        int y=201+(int)i*11;
+        uint8_t color=i==3?gold:white;
+        cb_native(12,y,color,labelsLeft[i],-1,62);
+        cb_compact(money,sizeof money,amountsLeft[i],0);
+        cb_native(154,y,gold,money,1,60);
+        if(i==2) cb_maintenance_label(166,y,color);
+        else cb_native(166,y,color,labelsRight[i],-1,73);
+        cb_compact(money,sizeof money,amountsRight[i],0);
+        cb_native(308,y,gold,money,1,61);
+    }
+    int64_t balance=_newBalance;
+    cb_native(14,245,white,"BUDGET",-1,45);
+    cb_compact(money,sizeof money,(uint64_t)(balance<0?-balance:balance),
+               balance<0?-1:0);
+    cb_native(109,245,gold,money,1,53);
+    extern int32_t _weeklyPlayerWages;
+    uint64_t forecast=(uint64_t)nonneg(_weeklyPlayerWages)+employee_wages_weekly()+
+        maintenance_weekly()+_expandedTravelLastWeek;
+    cb_native(116,245,white,"WEEK",-1,26);
+    cb_compact(money,sizeof money,forecast,-1);
+    cb_native(210,245,gold,money,1,57);
+    cb_native(220,245,white,"YEAR",-1,28);
+    cb_compact(money,sizeof money,Expanded_AnnualExpenses(forecast),-1);
+    cb_native(308,245,gold,money,1,57);
+    cb_business_popups();
+    return 1;
+}
 static int cb_draw_selection(void) {
     if (!cb_load_assets()) return 0;
     Menu *menu=(Menu *)_currentMenu;
     if (!menu || !menu->selectedEntry) {cb_business_popups();return 1;}
+    if(cb_use_approved) {
+        MenuEntry *entry=menu->selectedEntry;
+        int x=entry->x,y=entry->y,w=entry->dwWidth,h=entry->dwHeight;
+        if(w>3 && h>3 && x>=0 && y>=0 && x+w<=CB_W && y+h<=CB_H) {
+            cb_box_outline(x,y,w,h,15);
+            cb_box_outline(x+1,y+1,w-2,h-2,6);
+        }
+        cb_business_popups();
+        return 1;
+    }
     unsigned ordinal=menu->selectedEntry->ordinal;
     int x,y,w,h;
     if(ordinal==9) {x=168;y=187;w=33;h=12;}
@@ -1168,6 +1435,7 @@ static int cb_draw_selection(void) {
 }
 static int cb_draw_full(void) {
     if (!cb_load_assets()) return 0;
+    if(cb_use_approved) return cb_draw_approved();
     cb_blit(0,0,CB_W,CB_H,cb_bg);
     unsigned level=_expandedFacilityLevels[0];
     if(level<1 || level>5) level=1;
@@ -2474,3 +2742,25 @@ void Expanded_BusinessPopupToggle(void) {
     DrawMenu();
 }
 
+
+/* This API keeps pointer hit tests and rendering in agreement. */
+int Expanded_BusinessUsesApprovedUI(void) {
+#ifdef SWOS_SDL_BUILD
+    return cb_load_assets() && cb_use_approved;
+#else
+    return 0;
+#endif
+}
+/* B closes the visible X popup first; the next B returns to the calendar. */
+void Expanded_BusinessBack(void) {
+    if(!Expanded_UI_IsBusinessScreen()) return;
+    if(_expandedBusinessStaffPopupMode==1 ||
+       _expandedBusinessMaintenancePopupMode==1 ||
+       _expandedBusinessTravelPopupMode==1) {
+        _expandedBusinessStaffPopupMode=2;
+        _expandedBusinessMaintenancePopupMode=2;
+        _expandedBusinessTravelPopupMode=2;
+        extern void DrawMenu(void);
+        DrawMenu();
+    } else SetExitMenuFlag();
+}

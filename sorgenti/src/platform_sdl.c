@@ -197,6 +197,10 @@ int Platform_BusinessPointerOverStaff(void) {
     int y=hasLogical?(int)((my-(wh-lh*scale)*0.5)/scale):(int)(my/sy);
     menu_art_mouse_coords(&x, &y);
     x-=_menu_draw_x_offset;
+    { extern int Expanded_BusinessUsesApprovedUI(void);
+      if(Expanded_BusinessUsesApprovedUI())
+          return x>=164 && x<=311 && y>=220 && y<=231;
+    }
     return x>=111 && x<=211 && y>=222 && y<=235;
 }
 

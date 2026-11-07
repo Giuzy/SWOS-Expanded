@@ -1004,6 +1004,14 @@ void InputSDL_HandleEvent(const SDL_Event *e)
         if (e->cbutton.button==SDL_CONTROLLER_BUTTON_START) {
             exit_confirm_start(); break;
         }
+        /* B in Business is BACK, never an additional A/FIRE event.
+         * Its event is edge-triggered: it closes X details immediately. */
+        if(Expanded_UI_IsBusinessScreen() &&
+           e->cbutton.button==SDL_CONTROLLER_BUTTON_B) {
+            extern void Expanded_BusinessBack(void);
+            Expanded_BusinessBack();
+            break;
+        }
         /* A fire button of player 1's pad went down (the latch and the recording's
          * evidence, above). A plain joystick has no such event and is read as before. */
         if ((e->cbutton.button == SDL_CONTROLLER_BUTTON_A || e->cbutton.button == SDL_CONTROLLER_BUTTON_B) &&
@@ -1136,7 +1144,8 @@ static void read_device_state(int d,
         if (SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_DPAD_LEFT))  *left  = 1;
         if (SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_DPAD_RIGHT)) *right = 1;
         if (SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_A) ||
-            SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))
+            (!Expanded_UI_IsBusinessScreen() &&
+             SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B)))
             *_fire = 1;
         if (skip && SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))
             *skip = 1;

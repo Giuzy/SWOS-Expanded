@@ -23,6 +23,13 @@ for art in expanded_title_bg.raw expanded_career_bg.raw expanded_calendar_bg.raw
     exit 1
   fi
 done
+# Approved native BMP layers are read by the game at runtime, not converted.
+for art in assets/business/business_ui_approved_2026-11-07.bmp assets/ui/controller_abc_approved_2026-11-07.bmp; do
+  if [[ ! -s "$game/$art" ]]; then
+    echo "ERRORE: asset BMP approvato mancante: $art"
+    exit 1
+  fi
+done
 if [[ ! -s "$game/data/expanded/expanded_loading_bg.bmp" ]]; then
   echo "ERRORE: manca data/expanded/expanded_loading_bg.bmp"
   exit 1

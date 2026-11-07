@@ -66,6 +66,12 @@ The experimental Expanded individual condition from 0.10.20 was superseded by te
 
 Original SWOS match gameplay remains the project's foundation.
 
+### 0.10.51_05 — Business Screen BMP integration (7 November 2026)
+
+**Code updated, not yet Windows-tested.** The approved native BMP Business Screen and approved A/B/X legend are loaded directly without converting source art. Runtime redraw preserves actual stadium level, financial figures, date, supporters and Board/Fans faces. The facility menu keeps its established upgrade callbacks and cost logic while matching the new alphabetical two-column art layout. WEEK/YEAR use separate focusable controls; X opens WAGES/TRAVEL/MAINTENANCE popups immediately, and B closes open details before leaving Business. Mouse geometry and controller focus follow the new coordinates; the legacy art remains a fallback. Build-time preflight checks presence of both approved BMP files. Build ID increments to `0.10.51_05`.
+
+**Verification:** source correspondence reviewed and native BMP loader tested locally against both approved files; Windows build, SDL2 frame presentation, gamepad/mouse interaction and save/load not tested in this session.
+
 ## 3. Documented build history
 
 The table includes every version identifiable in recovered project sources. Missing information is marked rather than invented.

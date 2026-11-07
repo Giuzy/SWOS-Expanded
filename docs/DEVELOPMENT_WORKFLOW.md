@@ -48,6 +48,8 @@ Status: approved working rules. Primary integration branch: `dev/0.10`.
 
 **Procedura development:** il launcher `AVVIA_SWOS.bat` imposta `SWOS_EXPANDED_DEV_MAXIMIZED=1`, usa `--fullscreen=off` e applica `CONFIGURA_4K.ps1` senza `-Release`. SDL2 massimizza una finestra Windows **con bordi e barra del titolo**, mantenendo taskbar/Alt+Tab. Non impostare una finestra borderless fullscreen: non è la stessa cosa.
 
+**Persistenza della massimizzazione durante le partite:** il cambio di vista DOS/menu tramite `MatchViewEnter`/`MatchViewLeave` chiama `Platform_ViewChanged`, che aggiorna la scala logica ma non deve chiamare `SDL_SetWindowSize` se `SDL_WINDOW_MAXIMIZED` è attivo. Le finestre normali continuano a ridimensionarsi come prima; le release fullscreen non sono interessate. Test Windows: avviare via BAT, entrare e uscire da una partita, verificare dimensioni/bordi/taskbar e Alt+Tab sia all'ingresso che all'uscita.
+
 **Procedura release (obbligatoria):** preparare il profilo release con `CONFIGURA_4K.ps1 -Release`, non impostare `SWOS_EXPANDED_DEV_MAXIMIZED` e avviare il gioco con `--fullscreen=desktop` (o impostazione equivalente nel pacchetto release). Verificare che ogni launcher/release distribuita parta effettivamente a schermo intero, anche se una precedente sessione development aveva impostato `fullscreen=off`. Conservare il rendering 4K e Alt+Invio.
 
 **Perché:** la finestra massimizzata rende più rapido passare dal gioco agli strumenti di sviluppo senza nascondere l'interfaccia Windows. La release deve invece conservare l'esperienza fullscreen approvata; separare le configurazioni evita che il debug cambi accidentalmente il comportamento finale.

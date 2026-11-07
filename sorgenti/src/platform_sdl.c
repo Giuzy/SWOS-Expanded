@@ -1556,19 +1556,20 @@ void Platform_ViewChanged(void)
     if (!s_renderer) return;
     apply_picture_scaling();
 
-    /* And the WINDOW follows the view, so the picture keeps its whole-pixel
-     * scale instead of being letterboxed inside a window sized for the other
-     * one: 336x272 x3 in the menus, 320x200 x3 in a DOS-view match. The window
-     * used to stay put, which left bars in the match -- and then a trip through
-     * fullscreen "fixed" it, because the restore recomputes from the CURRENT
-     * view. Two sizes for the same state is worse than a window that resizes.
+    /* Follow DOS/menu view changes only in ordinary, non-maximized windows.
+     * In development the window is a REAL maximized, decorated Windows
+     * window: SDL_SetWindowSize on this path can unmaximize it at kick-off
+     * (or when returning to menus), shrinking it back to the SWOS pixel
+     * scale. Keep its desktop work-area size; the renderer's logical size
+     * was already updated by apply_picture_scaling() above.
      *
-     * Not when fullscreen (SDL letterboxes, which is right), and not when
-     * [video] resolution pinned a client area -- that was asked for by name. */
+     * Preserve the existing rescale behaviour for normal windowed users.
+     * Also preserve fullscreen and explicitly pinned client resolutions. */
     if (!s_window || s_pinned_w > 0) return;
     {
         Uint32 flags = SDL_GetWindowFlags(s_window);
-        if (flags & (SDL_WINDOW_FULLSCREEN | SDL_WINDOW_FULLSCREEN_DESKTOP)) return;
+        if (flags & (SDL_WINDOW_FULLSCREEN | SDL_WINDOW_FULLSCREEN_DESKTOP |
+                     SDL_WINDOW_MAXIMIZED)) return;
         SDL_SetWindowSize(s_window,
                           _screen_width  * s_win_scale_current,
                           _screen_height * s_win_scale_current);

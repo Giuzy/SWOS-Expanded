@@ -95,6 +95,8 @@ Ogni schermata deve essere utilizzabile con joypad.
 - Evitare blocchi, cicli di navigazione errati e perdita del focus.
 - Mantenere il supporto per mouse e tastiera.
 
+**Legenda controller universale approvata:** usare, quando la schermata richiede queste azioni, il BMP nativo `assets/ui/controller_abc_approved_2026-11-07.bmp` (70×14, sfondo trasparente): **A SELECT**, **B BACK**, **X +INFO**. È una UI comune riutilizzabile, non esclusiva della Business Screen. La posizione **X=9, Y=6** è approvata per BUSINESS; nelle altre schermate le coordinate devono essere controllate sul layout e concordate, senza coprire testi o pannelli approvati. Non aggiungere la legenda nelle schermate dove un'azione non è disponibile e non far presumere che la stessa mappatura sia già implementata ovunque: collegare e testare le callback reali per tastiera, joypad e mouse prima di mostrarla come attiva. Non alterare il BMP approvato.
+
 Ogni nuova schermata deve essere verificata anche dal punto di vista della navigazione.
 
 ## 6. Rendering e compatibilità
@@ -104,6 +106,7 @@ Piattaforma principale: Windows 10/11 x64.
 - Mantenere SDL2 e la base OpenSWOS.
 - Supportare 3840×2160 a schermo intero.
 - **Durante lo sviluppo**, il launcher Windows `AVVIA_SWOS.bat` deve aprire il gioco in una **vera finestra massimizzata**, grande quanto l'area di lavoro del monitor, mantenendo barra del titolo, barra delle applicazioni e normale Alt+Tab. Non usare il fullscreen senza bordi al posto della finestra.
+- La finestra development **deve restare massimizzata anche attraversando menu → partita → menu**: il cambio di vista/logical size SDL non deve reimpostare la dimensione della finestra massimizzata alla risoluzione originale. Preservare il normale ridimensionamento per le finestre non massimizzate e il fullscreen desktop delle release.
 - **Nelle build release**, il gioco deve partire **sempre a schermo intero** (`fullscreen=desktop`, senza finestra di sviluppo massimizzata). Non trasferire le opzioni di avvio usate per il debug nel pacchetto release.
 - **Motivo:** nello sviluppo è più comodo passare a editor, GitKraken e strumenti di test senza cambiare risoluzione; per i giocatori la release mantiene l'esperienza fullscreen 4K prevista.
 - Evitare bande nere e residui grafici dei menu originali.

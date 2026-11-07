@@ -66,6 +66,10 @@ The experimental Expanded individual condition from 0.10.20 was superseded by te
 
 Original SWOS match gameplay remains the project's foundation.
 
+### 0.10.51_07 — keep development window maximized across matches (7 November 2026)
+
+**User-reported:** a maximized decorated Windows development window shrank to SWOS's original scaled size on entering/leaving a match. `Platform_ViewChanged` was explicitly calling `SDL_SetWindowSize` on every DOS/menu logical-view change, without excluding maximized windows. The SDL path now skips physical resizing when `SDL_WINDOW_MAXIMIZED` is set, while preserving logical scaling, normal window resizing and release fullscreen. Also formalized the already-approved reusable A/B/X controller legend rule in `AGENTS.md`. **Verification:** static source review; Windows compilation and actual match transitions still require user testing.
+
 ### 0.10.51_06 — fix Windows compilation of Business integration (7 November 2026)
 
 [USER-REPORTED BUILD FAILURE IN 0.10.51_05] GCC 16.2.0 MinGW64 rejected the new `Expanded_ClubOverviewReapplyLayout` because `_currentMenu` was referenced before its extern declaration. The 0.10.51_06 change moves the extern declaration before the first SDL use and removes the extraneous `_currentMenu` access in the non-SDL legacy fallback. No asset, navigation, gameplay, or save-format changes. Not yet retested on Windows; warnings about packed members are unrelated.

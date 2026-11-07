@@ -43,6 +43,11 @@ Principi fondamentali:
 - **Nuovi asset grafici: seguire la pixel art illustrata degli sfondi di SWOS Expanded**, con ricchezza di dettagli, palette, ombreggiature e finiture coerenti con questi sfondi. I menu originali OG di SWOS **non sono un modello estetico da seguire** per progettare nuovi asset o schermate. Conservare le schermate già approvate salvo richiesta di modificarle.
 - **Motivo:** vogliamo un’identità visiva Expanded uniforme e più curata; copiare i menu OG produrrebbe stili disomogenei e limiterebbe il nuovo design.
 - Preferire il font originale SWOS per testi renderizzati dal gioco quando compatibile con la nuova UI.
+- **Ogni NUOVO artwork va disegnato da zero su una nuova superficie BMP**; non partire modificando un asset esistente, salvo richiesta esplicita. Gli asset precedenti possono servire come riferimento visivo, ma vanno conservati intatti.
+- **Ogni asset UI deve nascere senza sfondo incorporato**: l'esterno ai pannelli e ai disegni deve rimanere trasparente; uno sfondo illustrato, se richiesto, è un file separato. Non imporre una barra o una cornice generale se non richiesta.
+- Nel BMP pulito gli elementi **dinamici** restano al renderer: testi e cifre, stadio variabile, faccine di BOARD/FANS e FORM/MORALE, focus, hover e selezione. Le icone di strutture statiche possono restare nel BMP se approvate.
+- Nelle tabelle UI, con font alto **6 px**, rispettare almeno **1 px libero identico sopra e sotto** fra testo e bordi orizzontali (minimo 10 px inclusi due bordi da 1 px). Con font 8 px il minimo equivalente è 12 px.
+
 - Non riprogettare schermate approvate senza richiesta.
 - Evitare pannelli, cornici, ombre e decorazioni superflue.
 - Mantenere testi, numeri e pulsanti leggibili e correttamente allineati.

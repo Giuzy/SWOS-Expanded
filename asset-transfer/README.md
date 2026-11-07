@@ -4,6 +4,8 @@ When the user approves an image asset generated for SWOS Expanded, upload it to 
 
 Known tested single-upload ceiling: **3,145,472 bytes** (observed limit, not a universal GitHub platform limit). For safety split binary assets into chunks of at most **1,048,576 bytes** each, including when uploading BMPs larger than the ceiling.
 
+**Opzione per trasferimenti tramite payload compresso (solo trasporto):** quando il collegamento non permette il passaggio diretto dei byte BMP, è consentito archiviare un blob Git `xz` e dichiarare `"compression": "xz"` nel manifest, con `encoded_size` e `size` originale. L'azione ricostruisce il BMP byte per byte, con verifica obbligatoria dello SHA-256 dell'originale. Non è una conversione dell'asset e il file finale resta il BMP nativo approvato. I manifest senza `compression` continuano a usare chunk grezzi senza modifiche.
+
 For each approved asset:
 1. Generate the exact final binary file and calculate its total byte count and SHA-256.
 2. Split it into sequential binary chunks; upload each chunk using the GitHub Git Blobs API with base64 encoding.

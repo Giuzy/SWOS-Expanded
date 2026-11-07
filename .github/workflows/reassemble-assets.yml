@@ -20,7 +20,7 @@ jobs:
           GH_REPOSITORY: ${{ github.repository }}
         run: |
           python3 - <<'PY'
-          import base64, hashlib, json, os, pathlib, urllib.request
+          import base64, hashlib, json, lzma, os, pathlib, urllib.request
           root = pathlib.Path('.').resolve()
           for manifest_file in sorted(pathlib.Path('asset-transfer/manifests').glob('*.json')):
               m = json.loads(manifest_file.read_text())
@@ -40,7 +40,16 @@ jobs:
                       })
                       with urllib.request.urlopen(req) as response:
                           obj = json.load(response)
-                      data = base64.b64decode(obj['content'])
+                      encoded = base64.b64decode(obj['content'])
+                      compression = m.get('compression')
+                      if compression == 'xz':
+                          if len(encoded) != part['encoded_size']:
+                              raise ValueError('Encoded chunk size mismatch: ' + part['sha'])
+                          data = lzma.decompress(encoded, format=lzma.FORMAT_XZ)
+                      elif compression is None:
+                          data = encoded
+                      else:
+                          raise ValueError('Unsupported transfer compression: ' + str(compression))
                       if len(data) != part['size']:
                           raise ValueError('Chunk length mismatch: ' + part['sha'])
                       out.write(data)

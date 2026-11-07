@@ -124,3 +124,16 @@ not a single symbol.
 - Game: `src/intro_menu_image_script_cmds.inc` (image-script), `src/swos_globals.c`
   (conversionTable), `src/swos_amiga_data_stubs.c` (sprite-table size), `src/translations.c`
   (`tr_dup` for > 0xFF), `src/string_utils.c` (`Currency_Set`)
+
+---
+
+## Expanded UI — inventario renderer e regole di ingombro (2026-11-07)
+
+Verificato nel ramo `dev/0.10`:
+
+- Font SWOS originale: **small 6 px**, **big 8 px**, charset sprite-sheet `CHARSET.RAW` e `conversionTable` (dettagli sopra). Le **larghezze non sono tutte fisse**: `GetTextWidth` somma `sprHeader->pixWidth + charSpacing` e usa `spaceWidth` per gli spazi.
+- Font grafico Expanded aggiuntivo: `sorgenti/src/expanded_club_font.h`, matrici ASCII 32–126 **5×8 px**. Il generatore `sorgenti/tools/generate_club_business_art.py` usa avanzamento **6 px** nel proprio `ptext`. Questo è verificato per quel generatore, non prova che ogni schermata runtime usi quel font.
+- Funzioni del renderer `sorgenti/src/text_render.c`: `GetTextWidth(text, charsTable)` misura; `DrawMenuText(x,y,color,text,charsTable)` disegna; `DrawMenuTextCentered` centra mediante larghezza misurata; `DrawMenuTextRightAligned` allinea a destra. Il disegno di ciascun glifo passa per `blitStringToFrontBuffer`/per il percorso SDL `blitGlyphBitplanes`.
+- Prima di progettare un menu, determinare dal **codice della schermata attiva** la `charsTable` usata, i valori `spriteIndexOffset`, `charSpacing`, `spaceWidth`, le coordinate effettive e l'eventuale scala. Per una stringa di esempio o con importi lunghi, misurare con la stessa tabella o equivalente esatto; non usare larghezze approssimative.
+- **Regola per asset UI con righe e due bordi orizzontali da 1 px**: `1 bordo + m margine + h glifo + m margine + 1 bordo`, con `m >= 1 px` e uguale sopra e sotto. Font alto 6 px: minimo **10 px** (`1+1+6+1+1`). Font alto 8 px: minimo **12 px** (`1+1+8+1+1`). Se la riga è più alta, ripartire simmetricamente il margine; non estendere questa regola all'intero motore.
+- Per Business Screen pulita: testi, cifre, stadio, faccine e focus/selezione sono elementi dinamici; le icone delle facilities sono statiche. L'asset con testi di prova precede la versione pulita e deve usare coordinate riproducibili, non font inventati.

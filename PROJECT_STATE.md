@@ -114,7 +114,7 @@ Per evitare sovrapposizioni: 0–39 rosso, 40–59 giallo, 60–100 verde. Stess
 - **TITLE:** logo originale + Expanded, menu compatto, Hall of Fame, sfondo pixel art approvato.
 - **NEW CAREER:** campi nome/cognome/nazionalità/età/fama/valuta, font SWOS, focus e input.
 - **CALENDAR / UNEMPLOYED:** data, righe partite/coppe e casa/trasferta, frecce interne, calendario condiviso, FORWARD TIME e WAIT FOR A CLUB OFFER.
-- **BUSINESS:** layout approvato con Board/Fans, stadio, strutture, FINANCES, WEEK/YEAR, popup STAFF, joypad; non ridisegnare.
+- **BUSINESS:** layout di gioco approvato con Board/Fans, stadio, strutture, FINANCES, WEEK/YEAR, popup STAFF, joypad. **2026-11-07: approvato soltanto come asset grafico** il BMP pulito `assets/business/business_ui_approved_2026-11-07.bmp` (320×256, 32 bit); non è ancora integrato. Facilities in ordine alfabetico: sinistra FITNESS, MEDICAL, OFFICES, SCOUTS; destra TRAINING, TRAVEL, YOUTH, con UPGRADE distinto e icona stadio. Nessun testo/valore/stadio/faccina/hover/selezione statico. L'implementazione richiederà riassociazione delle hitbox e controllo del loader BMP alpha; preservare tutti gli altri menu.
 - **SQUAD:** layout approvato, paese in piccolo box leggibile, TEAM FORM/MORALE, popup statistiche e controlli.
 - **CLUB OFFER:** contratto sul tavolo, dati dinamici, stipendio annuo e anteprime.
 - **WELCOME / SACKED:** scene pixel art dedicate.

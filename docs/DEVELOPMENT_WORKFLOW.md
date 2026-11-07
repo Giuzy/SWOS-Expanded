@@ -62,4 +62,6 @@ Status: approved working rules. Primary integration branch: `dev/0.10`.
 
 **Perché:** evitare mockup impossibili da implementare fedelmente, ritagli di testi e numeri, disallineamenti, correzioni ripetute e doppia visualizzazione dei dati. Il mockup BMP con dati reali-simulati permette di approvare gli ingombri prima del BMP finale senza scritte.
 
+**Vincoli confermati per gli artwork:** costruire ogni nuovo asset UI **da zero** su BMP nativo; usare le versioni precedenti come riferimento visivo, non come base da correggere, salvo richiesta esplicita. UI **senza sfondo incorporato**; sfondo illustrato separato soltanto se richiesto. Le righe UI con font alto 6 px e due linee da 1 px richiedono almeno 10 px totali con margini uguali sopra/sotto. Nella versione pulita mantenere dinamici testi/valori, faccine, stadio, hover e selezione. Conservare i BMP approvati e verificare loader/palette.
+
 Fonte permanente: `AGENTS.md` §4 e §10. Non modificare o sostituire asset esistenti senza richiesta.

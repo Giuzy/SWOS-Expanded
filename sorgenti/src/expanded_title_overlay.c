@@ -1,151 +1,227 @@
-/* SWOS Expanded — HD title background, independent of the Amiga match engine.
- * The current menu's 8-bit artwork is redrawn on every menu update. Here we
- * remove ONLY pixels identical to that artwork, leaving current button text,
- * focus borders, entry labels and build number in the original renderer. */
+/* SWOS Expanded — modern SDL2 Title Menu (0.10.53_01).
+ * No conversion to the 320x256 SWOS pixel framebuffer and no baked-in
+ * old menu art. All five user-selected buttons are independent RGBA sprites.
+ * The original SWOS callbacks are preserved in menus.c, but their old
+ * buttons and background are never presented in this menu. */
 #include "expanded_title_overlay.h"
+#include "expanded_title_layout.h"
 #include "expanded_png.h"
+#include "expanded_club_font.h"
+#include "build_info.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-enum { TITLE_W=320, TITLE_H=256, HD_W=1664, HD_H=936 };
-static const char *const k_png = "assets/title/title_background_approved_2026-11-08.png";
-static const char *const k_old = "data/expanded/expanded_title_bg.raw";
-/* Single canonical logo sprite. Approved position C at native backdrop 1664x936:
- * x=920 y=17, displayed 620x227, safely above stadium stands. */
-static const char *const k_logo = "assets/title/swos_expanded_logo_approved_2026-11-08.png";
-enum { LOGO_NATIVE_W=1200, LOGO_NATIVE_H=440,
-       LOGO_X=920, LOGO_Y=17, LOGO_W=620, LOGO_H=227 };
-static SDL_Texture *s_background;
-static SDL_Texture *s_logo;
-static uint8_t s_original[TITLE_W * TITLE_H];
-static int s_original_ok;
-static int s_show_new = 1;
+static const char *const s_background_path =
+    "assets/title/title_background_approved_2026-11-08.png";
+static const char *const s_logo_path =
+    "assets/title/swos_expanded_logo_approved_2026-11-08.png";
+static const char *const s_button_paths[EXP_TITLE_MAIN_COUNT] = {
+    "assets/title/buttons/career.png",
+    "assets/title/buttons/hall_of_fame.png",
+    "assets/title/buttons/classic_modes.png",
+    "assets/title/buttons/options.png",
+    "assets/title/buttons/exit_game.png"
+};
+static const char *const s_main_labels[EXP_TITLE_MAIN_COUNT] = {
+    "CAREER","HALL OF FAME","CLASSIC MODES","OPTIONS","EXIT GAME"
+};
+static SDL_Texture *s_background,*s_logo,*s_buttons[EXP_TITLE_MAIN_COUNT];
+static unsigned s_button_widths[EXP_TITLE_MAIN_COUNT],s_button_heights[EXP_TITLE_MAIN_COUNT];
+enum { LOGO_W=1200, LOGO_H=440, LOGO_X=920, LOGO_Y=17, LOGO_DST_W=620, LOGO_DST_H=227 };
 
-int Expanded_TitleOverlay_Initialize(SDL_Renderer *renderer)
+static SDL_Texture *texture_from_png(SDL_Renderer *r,const char *path,
+                                     unsigned *w,unsigned *h)
 {
-    if (!renderer) return 0;
-    FILE *f=fopen(k_old,"rb");
-    if (!f) {
-        fprintf(stderr,"[title-hd] legacy RAW missing: %s (using old renderer)\n",k_old);
-        return 0;
+    unsigned width=0,height=0;
+    unsigned char *rgba=Expanded_PNG_LoadRGBA(path,&width,&height);
+    if(!rgba) {
+        fprintf(stderr,"[title-ui] absent or unsupported PNG: %s\n",path);
+        return NULL;
     }
-    s_original_ok = fread(s_original,1,sizeof s_original,f)==sizeof s_original;
-    fclose(f);
-    if (!s_original_ok) {
-        fprintf(stderr,"[title-hd] legacy RAW incomplete: %s\n",k_old);
-        return 0;
-    }
-    unsigned w=0,h=0;
-    unsigned char *rgba=Expanded_PNG_LoadRGBA(k_png,&w,&h);
-    if (!rgba) {
-        fprintf(stderr,"[title-hd] PNG missing/invalid: %s; original title retained\n",k_png);
-        return 0;
-    }
-    if (w!=HD_W || h!=HD_H) {
-        fprintf(stderr,"[title-hd] wrong PNG dimensions: %ux%u, expected %dx%d\n",
-                w,h,HD_W,HD_H);
-        free(rgba);
-        return 0;
-    }
-    /* Decoder RGBA byte order is ABGR8888 on little-endian Windows x64. */
     SDL_Surface *surface=SDL_CreateRGBSurfaceWithFormatFrom(
-        rgba,(int)w,(int)h,32,(int)w*4,SDL_PIXELFORMAT_ABGR8888);
-    if (surface) {
-        s_background=SDL_CreateTextureFromSurface(renderer,surface);
+        rgba,(int)width,(int)height,32,(int)width*4,SDL_PIXELFORMAT_ABGR8888);
+    SDL_Texture *texture=NULL;
+    if(surface) {
+        texture=SDL_CreateTextureFromSurface(r,surface);
         SDL_FreeSurface(surface);
     }
     free(rgba);
-    if (!s_background) {
-        fprintf(stderr,"[title-hd] SDL texture unavailable: %s; original retained\n",SDL_GetError());
-        return 0;
+    if(!texture) {
+        fprintf(stderr,"[title-ui] unable to create %s: %s\n",path,SDL_GetError());
+        return NULL;
     }
-    SDL_SetTextureBlendMode(s_background,SDL_BLENDMODE_NONE);
-    SDL_SetTextureScaleMode(s_background,SDL_ScaleModeLinear);
-
-    /* Optional independent PNG sprite; never block the approved background
-     * if the logo file is absent. Shared asset, no logo baked into the art. */
-    rgba=Expanded_PNG_LoadRGBA(k_logo,&w,&h);
-    if (rgba) {
-        if (w==LOGO_NATIVE_W && h==LOGO_NATIVE_H) {
-            surface=SDL_CreateRGBSurfaceWithFormatFrom(
-                rgba,(int)w,(int)h,32,(int)w*4,SDL_PIXELFORMAT_ABGR8888);
-            if (surface) {
-                s_logo=SDL_CreateTextureFromSurface(renderer,surface);
-                SDL_FreeSurface(surface);
-            }
-        } else fprintf(stderr,"[title-hd] logo size %ux%u; expected %dx%d, skipping\n",
-                       w,h,LOGO_NATIVE_W,LOGO_NATIVE_H);
-        free(rgba);
-    } else fprintf(stderr,"[title-hd] logo missing/invalid: %s\n",k_logo);
-    if (s_logo) {
-        SDL_SetTextureBlendMode(s_logo,SDL_BLENDMODE_BLEND);
-        SDL_SetTextureScaleMode(s_logo,SDL_ScaleModeLinear);
-        fprintf(stderr,"[title-hd] logo ready %dx%d at x%d y%d %dx%d\n",
-                LOGO_NATIVE_W,LOGO_NATIVE_H,LOGO_X,LOGO_Y,LOGO_W,LOGO_H);
+    SDL_SetTextureBlendMode(texture,SDL_BLENDMODE_BLEND);
+    SDL_SetTextureScaleMode(texture,SDL_ScaleModeNearest);
+    if(w) *w=width;
+    if(h) *h=height;
+    return texture;
+}
+int Expanded_TitleOverlay_Initialize(SDL_Renderer *renderer)
+{
+    if(!renderer) return 0;
+    unsigned w=0,h=0;
+    SDL_Texture *image=texture_from_png(renderer,s_background_path,&w,&h);
+    if(image && w==EXP_TITLE_W && h==EXP_TITLE_H) s_background=image;
+    else {
+        if(image) SDL_DestroyTexture(image);
+        fprintf(stderr,"[title-ui] approved background not available (%ux%u): black fallback\n",w,h);
     }
-    s_show_new=1;
-    fprintf(stderr,"[title-hd] loaded %s (%dx%d, PNG RGB); F8: new/original\n",
-            k_png,HD_W,HD_H);
+    w=h=0;
+    image=texture_from_png(renderer,s_logo_path,&w,&h);
+    if(image && w==LOGO_W && h==LOGO_H) s_logo=image;
+    else {
+        if(image) SDL_DestroyTexture(image);
+        fprintf(stderr,"[title-ui] logo not available (%ux%u), keeping title usable\n",w,h);
+    }
+    for(int i=0;i<EXP_TITLE_MAIN_COUNT;i++)
+        s_buttons[i]=texture_from_png(renderer,s_button_paths[i],
+                           &s_button_widths[i],&s_button_heights[i]);
+    fprintf(stderr,"[title-ui] RGB/RGBA title initialized; legacy title background/buttons and F8 disabled\n");
     return 1;
 }
 void Expanded_TitleOverlay_Destroy(void)
 {
-    if (s_background) SDL_DestroyTexture(s_background);
-    if (s_logo) SDL_DestroyTexture(s_logo);
-    s_background=NULL;
-    s_logo=NULL;
-    s_original_ok=0;
-}
-int Expanded_TitleOverlay_Ready(void) {return s_background!=NULL && s_original_ok;}
-int Expanded_TitleOverlay_Enabled(void) {return Expanded_TitleOverlay_Ready() && s_show_new;}
-void Expanded_TitleOverlay_Toggle(void)
-{
-    if (!Expanded_TitleOverlay_Ready()) return;
-    s_show_new=!s_show_new;
-    fprintf(stderr,"[title-hd] F8: %s background\n",s_show_new?"PNG":"original");
-}
-void Expanded_TitleOverlay_Mask(uint32_t *argb,int dst_pitch,
-                                const uint8_t *indexed,int src_pitch,
-                                int frame_w,int frame_h)
-{
-    if (!Expanded_TitleOverlay_Enabled() || !argb || !indexed ||
-        dst_pitch<TITLE_W || src_pitch<TITLE_W) return;
-    int w=frame_w<TITLE_W?frame_w:TITLE_W;
-    int h=frame_h<TITLE_H?frame_h:TITLE_H;
-    for (int y=0;y<h;y++) {
-        const uint8_t *src=indexed+(size_t)y*src_pitch;
-        const uint8_t *ref=s_original+(size_t)y*TITLE_W;
-        uint32_t *dst=argb+(size_t)y*dst_pitch;
-        for (int x=0;x<w;x++)
-            if (src[x]==ref[x]) dst[x]&=0x00FFFFFFu;
+    if(s_background) SDL_DestroyTexture(s_background);
+    if(s_logo) SDL_DestroyTexture(s_logo);
+    s_background=s_logo=NULL;
+    for(int i=0;i<EXP_TITLE_MAIN_COUNT;i++) {
+        if(s_buttons[i]) SDL_DestroyTexture(s_buttons[i]);
+        s_buttons[i]=NULL;
+        s_button_widths[i]=s_button_heights[i]=0;
     }
 }
-void Expanded_TitleOverlay_Draw(SDL_Renderer *renderer,SDL_Texture *frame,
-                                const SDL_Rect *src,int whole_scale,
+/* All on-screen coordinates use the same 1664x936 canvas as the approved
+ * artwork. The host scales the canvas to its target, never a GIF/spritesheet.
+ * Nearest-neighbour for button textures retains the source pixel edges. */
+static SDL_FRect scale_rect(ExpandedTitleRect r,float sx,float sy)
+{
+    SDL_FRect out={(float)r.x*sx,(float)r.y*sy,(float)r.w*sx,(float)r.h*sy};
+    return out;
+}
+static void pixel_text(SDL_Renderer *r,const char *msg,int cx,int y,int size,
+                       SDL_Color color,float sx,float sy)
+{
+    const int w=(int)strlen(msg)*size*6;
+    int x=cx-w/2;
+    SDL_SetRenderDrawBlendMode(r,SDL_BLENDMODE_BLEND);
+    SDL_SetRenderDrawColor(r,color.r,color.g,color.b,color.a);
+    for(const unsigned char *p=(const unsigned char*)msg;*p;p++,x+=6*size) {
+        unsigned ch=*p;
+        if(ch<32 || ch>126) ch='?';
+        const unsigned char *glyph=cb_glyphs[ch-32];
+        for(int row=0;row<8;row++) {
+            for(int col=0;col<5;col++) {
+                if(glyph[row]&(1u<<(4-col))) {
+                    SDL_FRect dot={(float)(x+col*size)*sx,
+                                   (float)(y+row*size)*sy,
+                                   (float)size*sx,(float)size*sy};
+                    SDL_RenderFillRectF(r,&dot);
+                }
+            }
+        }
+    }
+}
+static void focus_frame(SDL_Renderer *r,ExpandedTitleRect box,
+                        float sx,float sy)
+{
+    const SDL_Color focus={255,226,74,255};
+    SDL_SetRenderDrawColor(r,focus.r,focus.g,focus.b,255);
+    SDL_FRect d=scale_rect(box,sx,sy);
+    SDL_RenderDrawRectF(r,&d);
+}
+static const char *classic_label(int i)
+{
+    static const char *const labels[10] = {
+        "CREDITS", "LOAD OLD COMPETITION", "EDIT TACTICS",
+        "EDIT CUSTOM TEAM", "HIGHLIGHTS", "FRIENDLY",
+        "DIY COMPETITION", "PRESET COMPETITION", "SEASON", "BACK"
+    };
+    if(Expanded_TitleMenu_Level()==1 && i>=9 && i<=11) {
+        extern int Expanded_TitleMenu_ClassicHasContest(void);
+        extern int Expanded_TitleMenu_ClassicReplay(void);
+        if(Expanded_TitleMenu_ClassicHasContest()) {
+            if(i==9) return Expanded_TitleMenu_ClassicReplay() ?
+                "REPLAY COMPETITION" : "CONTINUE COMPETITION";
+            if(i==10) return "SAVE COMPETITION";
+            return "BACK";
+        }
+    }
+    return i>=0 && i<10?labels[i]:"";
+}
+void Expanded_TitleOverlay_Draw(SDL_Renderer *renderer,
                                 float target_w,float target_h)
 {
-    if (!Expanded_TitleOverlay_Enabled()) return;
-    SDL_SetTextureBlendMode(frame,SDL_BLENDMODE_BLEND);
-    if (whole_scale==1) {
-        SDL_RenderCopy(renderer,s_background,NULL,NULL);
-        SDL_RenderCopy(renderer,frame,src,NULL);
+    if(!renderer || target_w<=0 || target_h<=0) return;
+    const float sx=target_w/(float)EXP_TITLE_W,sy=target_h/(float)EXP_TITLE_H;
+    const int level=Expanded_TitleMenu_Level();
+    const int sel=Expanded_TitleMenu_Selected();
+    const int press=Expanded_TitleMenu_Pressing();
+    SDL_SetRenderDrawColor(renderer,0,0,0,255);
+    SDL_RenderClear(renderer);
+    if(level==0) {
+        if(s_background) {
+            SDL_FRect bg={0,0,target_w,target_h};
+            SDL_RenderCopyF(renderer,s_background,NULL,&bg);
+        }
+        if(s_logo) {
+            ExpandedTitleRect logo={LOGO_X,LOGO_Y,LOGO_DST_W,LOGO_DST_H};
+            SDL_FRect d=scale_rect(logo,sx,sy);
+            SDL_RenderCopyF(renderer,s_logo,NULL,&d);
+        }
+        for(int i=0;i<EXP_TITLE_MAIN_COUNT;i++) {
+            ExpandedTitleRect box=expanded_title_main_rects[i];
+            const int moving=(sel==i && press>0);
+            /* Six game ticks: travel down to the dark lower/right extrusion
+             * and come back. Each frame uses the ORIGINAL full-res PNG. */
+            int sink=moving?(press>=5?3:press>=3?7:press>=2?10:6):0;
+            SDL_FRect dest=scale_rect(box,sx,sy);
+            dest.y+=(float)sink*sy;
+            dest.h-=(float)sink*sy;
+            if(s_buttons[i]) {
+                SDL_RenderCopyF(renderer,s_buttons[i],NULL,&dest);
+            } else {
+                SDL_SetRenderDrawColor(renderer,13,63,145,255);
+                SDL_RenderFillRectF(renderer,&dest);
+                pixel_text(renderer,s_main_labels[i],box.x+box.w/2,
+                           box.y+box.h/2-16,4,(SDL_Color){250,250,255,255},sx,sy);
+            }
+            if(sel==i && !moving) focus_frame(renderer,box,sx,sy);
+        }
+        if(Expanded_TitleMenu_CareerActive()) {
+            /* CAREER remains the approved unmodified PNG. State-dependent
+             * CONTINUE appears as independent dynamic text above its label. */
+            ExpandedTitleRect box=expanded_title_main_rects[0];
+            pixel_text(renderer,"CONTINUE",box.x+box.w/2,box.y+18,3,
+                       (SDL_Color){252,250,207,255},sx,sy);
+        }
     } else {
-        SDL_FRect dest={0.0f,0.0f,target_w,target_h};
-        SDL_RenderCopyF(renderer,s_background,NULL,&dest);
-        SDL_RenderCopyF(renderer,frame,src,&dest);
+        /* Provisional classic submenu has no illustrated background.
+         * No native SWOS blue panels, logos, map or buttons are composited. */
+        extern int Expanded_TitleMenu_ClassicHasContest(void);
+        int n=Expanded_TitleMenu_ClassicHasContest()?12:10;
+        pixel_text(renderer,"CLASSIC MODES",EXP_TITLE_W/2,88,5,
+                   (SDL_Color){133,228,255,255},sx,sy);
+        for(int i=0;i<n;i++) {
+            ExpandedTitleRect box=Expanded_TitleClassicRect(i);
+            int sink=(i==sel && press>0)?6:0;
+            if(i==sel) {
+                SDL_SetRenderDrawColor(renderer,44,101,189,130);
+                SDL_FRect d=scale_rect(box,sx,sy);
+                d.y+=(float)sink*sy;
+                SDL_RenderFillRectF(renderer,&d);
+                if(!sink) focus_frame(renderer,box,sx,sy);
+            }
+            pixel_text(renderer,classic_label(i),box.x+box.w/2,
+                       box.y+7+sink,4,
+                       i==sel?(SDL_Color){255,242,174,255}:
+                               (SDL_Color){238,247,255,255},sx,sy);
+        }
     }
-    SDL_SetTextureBlendMode(frame,SDL_BLENDMODE_NONE);
-    if (s_logo) {
-        /* Texture coordinates use the original full-frame 1664x936 layout,
-         * regardless of SDL logical scaling, desktop output or future video
-         * resolution choice. Do NOT shift the real SWOS menu hitboxes. */
-        const SDL_FRect logo_dest={
-            target_w * (float)LOGO_X/(float)HD_W,
-            target_h * (float)LOGO_Y/(float)HD_H,
-            target_w * (float)LOGO_W/(float)HD_W,
-            target_h * (float)LOGO_H/(float)HD_H
-        };
-        SDL_RenderCopyF(renderer,s_logo,NULL,&logo_dest);
+    {
+        char label[80];
+        snprintf(label,sizeof(label),"BUILD %s",Build_DisplayVersion());
+        pixel_text(renderer,label,EXP_TITLE_W/2,902,2,
+                   (SDL_Color){240,95,81,255},sx,sy);
     }
 }

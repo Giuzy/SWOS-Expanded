@@ -281,3 +281,10 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - Non integrare automaticamente gli asset nel gioco soltanto perché sono stati archiviati.
 - Mantenere `ASSETS_INBOX/.gitkeep` nel repository affinché la cartella rimanga tracciata anche quando non contiene altri file.
 - Questa procedura è un'alternativa pratica al caricamento diretto tramite strumenti GitHub quando il trasferimento binario non è possibile; preferire il caricamento diretto quando effettivamente disponibile.
+
+
+## Title Menu moderno e workflow aggiornato (8 novembre 2026)
+- La scelta più recente per i **nuovi asset frontend è PNG lossless RGB/RGBA**, non BMP nativo obbligatorio. Il vecchio formato resta per asset storici, non per la nuova UI.
+- I nuovi asset vengono preferibilmente consegnati in **ZIP strutturato con i percorsi finali**, da estrarre nella cartella con `AVVIA_SWOS.bat`. Il push GitHub dell'utente è separato. `ASSETS_INBOX/` resta procedura alternativa con autorizzazione specifica già concessa per il riordino e commit.
+- Il Title Menu richiesto dopo la 0.10.53 ha cinque voci di primo livello, con CAREER prominente; il secondo livello CLASSIC MODES conserva le funzioni SWOS originali, incluse CONTINUE/REPLAY/SAVE. Grafica user-selected e animazione di pressione SDL2 senza GIF. Il vecchio sfondo/pulsanti Title e F8 non devono essere più visibili una volta attivato il nuovo menu. Lo sfondo PNG e il logo canonico approvati rimangono invariati.
+- Il nuovo codice non va presentato come compilato/testato Windows senza test. Non dichiarare che i binari PNG sono su GitHub quando sono stati consegnati solo nello ZIP.

@@ -267,3 +267,11 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [VERIFICATO ASSET LOCALE] PNG 1200×440 RGBA, SHA-256 `a194160cdbc9a4d3315b926b8dbee75df2dea9b7aac1d92433929279639f6b96`; PNG originale generato 2071×759 e ridotto a 1200×440. Non dichiarare risoluzione 1200×440 nativa.
 - [IMPLEMENTATO NEL CODICE — WINDOWS DA PROVARE] `expanded_title_overlay.c` carica il logo una sola volta, lo disegna con alpha in posizione C dopo i vecchi pulsanti e testi, mantiene F8 PNG+logo/originale, lo sfondo PNG e i menu del motore invariati; nessun cambiamento al match engine. Manca l'asset remoto finché il PNG non viene trasferito byte per byte via blob/manifest o ASSETS_INBOX.
 - [TEST LOCALE] Decoder RGBA pixel-perfect, test C isolato con SDL stub per allocazione texture, ordine di disegno, posizione relativa, mask del RAW e F8. **Non equivale a compilazione Windows reale.**
+
+
+## [2026-11-08] Title Menu a due livelli — codice 0.10.53_01, test Windows pendente
+- [RICHIESTA UTENTE — IMPLEMENTAZIONE PREPARATA] Sostituzione visiva del Title Menu con cinque pulsanti PNG dalla **ultima immagine statica blu** scelta dall'utente, spessore scuro sui bordi destro/inferiore, senza asset GIF. CAREER è più grande; seguono HALL OF FAME, CLASSIC MODES, OPTIONS ed EXIT GAME.
+- [CODICE — DA TESTARE WINDOWS] Rendering SDL2 a texture native e pressione di 6 tick; background RGB e logo RGBA restano gli asset approvati in posizione C. Niente vecchi pulsanti o RAW del Title in output SDL, niente F8. Nessuna modifica al motore partita o ai dati di salvataggio.
+- [CODICE — DA TESTARE] Sottomenu provvisorio CLASSIC MODES senza illustrazione, con callback originali e righe CONTINUE/REPLAY/SAVE quando una competizione classica è attiva; CAREER attiva espone CONTINUE senza modificare il PNG canonico.
+- [CONSEGNA ASSET] ZIP `SWOS_Expanded_TitleMenu_0.10.53_01_ASSETS.zip` con cinque PNG nei rispettivi percorsi `assets/title/buttons/` da estrarre accanto a `AVVIA_SWOS.bat`. Le immagini restano separate e si considerano su GitHub solo dopo push verificato.
+- [DA PROVARE] Compilazione Windows MinGW64, selezione mouse/tastiera/joypad, uscita con B/ESC, allineamento e qualità 4K, ritorno da opzioni/carreer e persistenza CONTINUE/REPLAY/SAVE; release fullscreen e finestra development massimizzata.

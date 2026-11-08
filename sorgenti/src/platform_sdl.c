@@ -20,7 +20,8 @@
 #include "dos_gameplay.h"    /* DosGameplay_TargetFps — 70 (DOS) vs 50 (Amiga) */
 #include "dos_graphics.h"    /* DosGfx_BuildPalette */
 #include "build_info.h"      /* the commit, in the window title */
-#include "expanded_title_overlay.h" /* PNG title below original buttons */
+#include "expanded_title_overlay.h" /* independent PNG title and button sprites */
+#include "expanded_title_layout.h"
 
 #include <SDL.h>
 #include <stdio.h>
@@ -132,15 +133,32 @@ static Uint32 s_expandedSplashStartMs; /* temporary 5-second screenshot hold */
  * menu hitboxes, framebuffer, save data and match camera are untouched. */
 static volatile int s_menu_art_fullscreen;
 static int s_stretch;
-/* The HD background is only composited on the actual expanded Title Menu.
- * Never touch other menus or the original match renderer. */
+/* Always use the modern title when the original packed main menu is
+ * active; the packed menu remains a callback store, not visible artwork. */
+static volatile int s_title_mouse_click;
 static int expanded_title_main_active(void)
 {
     extern volatile uintptr_t _currentMenuPtr;
     extern uint8_t _swosMainMenu[];
-    return s_stretch && s_menu_art_fullscreen &&
-           _screen_width==336 && _screen_height==272 &&
+    return _screen_width==336 && _screen_height==272 &&
            _currentMenuPtr==(uintptr_t)_swosMainMenu;
+}
+int Platform_TitleMouseState(int *x,int *y,int *moved,int *click)
+{
+    static int prev_x=-1,prev_y=-1;
+    int mx=0,my=0,ww=0,wh=0;
+    if(!s_window || !x || !y || !moved || !click) return 0;
+    SDL_GetMouseState(&mx,&my);
+    SDL_GetWindowSize(s_window,&ww,&wh);
+    if(ww<=0 || wh<=0) return 0;
+    *x=mx*EXP_TITLE_W/ww;
+    *y=my*EXP_TITLE_H/wh;
+    *moved=(*x!=prev_x || *y!=prev_y);
+    prev_x=*x;
+    prev_y=*y;
+    *click=s_title_mouse_click;
+    s_title_mouse_click=0;
+    return 1;
 }
 void Platform_SetMenuArtFullscreen(int enabled)
 {
@@ -1387,7 +1405,8 @@ int Platform_Init(const PlatformInitOptions *opts)
     s_stretch = opts && opts->widescreen == 2;
     apply_picture_scaling();
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
-    /* Optional HD Title image. On missing/invalid PNG the original remains. */
+    /* Title assets load once; absent optional sprites do not restore
+     * outdated SWOS backgrounds or legacy buttons. */
     (void)Expanded_TitleOverlay_Initialize(s_renderer);
     SDL_EventState(SDL_MOUSEMOTION, SDL_DISABLE);
 
@@ -1793,12 +1812,8 @@ static void chunky_to_rgba(uint32_t *dst, int dst_pitch_pixels)
                      ((uint32_t)c.b  <<  0);
         }
     }
-    /* Strip only the baked-in 320x256 old title pixels. Modern PNG sits
-     * underneath; native SWOS buttons, live text, and focus remain on top. */
-    if (expanded_title_main_active() && Expanded_TitleOverlay_Enabled())
-        Expanded_TitleOverlay_Mask(dst,dst_pitch_pixels,fb,
-                                   FRONTBUFFER_ROW_STRIDE_BYTES,
-                                   _screen_width,_screen_height);
+    /* The 8-bit title buffer is never presented by the modern Title UI.
+     * Other OpenSWOS menus and the match renderer remain unchanged. */
 }
 
 /* Optional debug dump: every N frames write the converted chunky
@@ -1974,24 +1989,14 @@ static void pump_events_any_thread(void)
             }
             break;
         case SDL_KEYDOWN:
-            /* Visual A/B comparison on Title Menu only; never forwards F8
-             * into the game, and keeps all original menu hitboxes/callbacks. */
-            if (ev.key.repeat==0 && ev.key.keysym.sym==SDLK_F8 &&
-                expanded_title_main_active() && Expanded_TitleOverlay_Ready()) {
-                Expanded_TitleOverlay_Toggle();
-                continue;
-            }
             /* ESC at the top-level main menu quits the game; everywhere
              * else it stays passed through to the menu/game-loop layer
              * (in-game pause/end-match menu, sub-menus' EXIT, etc.). */
             if (ev.key.repeat == 0 && ev.key.keysym.sym == SDLK_ESCAPE) {
-                extern volatile uintptr_t _currentMenuPtr;
-                extern uint8_t _swosMainMenu[];
-                if (_currentMenuPtr == (uintptr_t)_swosMainMenu) {
-                    Platform_RequestQuit();
-                    if (s_window) SDL_HideWindow(s_window);
-                    AudioSDL_PauseAndClear();
-                    continue;   /* swallow — don't also reach the menu */
+                if (expanded_title_main_active()) {
+                    /* BACK in CLASSIC MODES; EXIT in the first level. */
+                    Expanded_TitleMenu_QueueBack();
+                    continue;
                 }
             }
             if (ev.key.repeat == 0 &&
@@ -2049,6 +2054,13 @@ static void pump_events_any_thread(void)
         case SDL_KEYUP:
         case SDL_TEXTINPUT:             /* (a password's characters: InputSDL_RawText) */
         case SDL_CONTROLLERBUTTONDOWN:
+            if (ev.type==SDL_CONTROLLERBUTTONDOWN &&
+                expanded_title_main_active() &&
+                ev.cbutton.button==SDL_CONTROLLER_BUTTON_B) {
+                Expanded_TitleMenu_QueueBack();
+                continue;
+            }
+            /* fallthrough */
         case SDL_CONTROLLERBUTTONUP:
         case SDL_CONTROLLERAXISMOTION:
         case SDL_CONTROLLERDEVICEADDED:
@@ -2056,6 +2068,13 @@ static void pump_events_any_thread(void)
         case SDL_JOYDEVICEADDED:
         case SDL_JOYDEVICEREMOVED:
             InputSDL_HandleEvent(&ev);
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            if(expanded_title_main_active()) {
+                if(ev.button.button==SDL_BUTTON_LEFT) s_title_mouse_click=1;
+                else if(ev.button.button==SDL_BUTTON_RIGHT)
+                    Expanded_TitleMenu_QueueBack();
+            }
             break;
         default:
             break;
@@ -2188,6 +2207,14 @@ static void draw_world_and_hud(SDL_Texture *tex, int n, float qx, float qy)
      * region explicitly. A NULL src would stretch the strip into the picture. */
     const SDL_Rect worldSrc = { 0, 0, _screen_width, _screen_height };
 
+    /* The new Title is RGB/RGBA directly on SDL2 and NEVER composites the
+     * old menu or backdrop. This branch precedes native menu presentation
+     * and applies even when widescreen stretch was not selected. */
+    if (expanded_title_main_active()) {
+        Expanded_TitleOverlay_Draw(s_renderer,w,h);
+        return;
+    }
+
     /* 0.10.24: fill the entire 4K/16:9 screen with the APPROVED 320x256
      * Expanded artwork, not the unrelated 336x272 SWOS map/crest underneath.
      * Do it at presentation time, so all native drawing, selection outlines,
@@ -2196,10 +2223,6 @@ static void draw_world_and_hud(SDL_Texture *tex, int n, float qx, float qy)
     if (s_stretch && s_menu_art_fullscreen && _screen_width == 336 &&
         _screen_height == 272) {
         const SDL_Rect menuSrc = { 0, 0, 320, 256 };
-        if (expanded_title_main_active() && Expanded_TitleOverlay_Enabled()) {
-            Expanded_TitleOverlay_Draw(s_renderer,tex,&menuSrc,n,w,h);
-            return;
-        }
         if (n == 1)
             SDL_RenderCopy(s_renderer, tex, &menuSrc, NULL);
         else {

@@ -54,22 +54,18 @@ Status: approved working rules. Primary integration branch: `dev/0.10`.
 
 **Perché:** la finestra massimizzata rende più rapido passare dal gioco agli strumenti di sviluppo senza nascondere l'interfaccia Windows. La release deve invece conservare l'esperienza fullscreen approvata; separare le configurazioni evita che il debug cambi accidentalmente il comportamento finale.
 
-## 8. Progettazione e approvazione delle nuove UI (obbligatoria)
+## 8. Progettazione e approvazione delle nuove UI PNG
 
-**Prima di disegnare un nuovo menu:** leggere la versione del codice realmente utilizzata e misurare font/glyph, altezza, avanzamento, scale e funzioni di rendering, allineamenti e coordinate; calcolare gli spazi per le etichette più lunghe e gli importi più grandi. Il layout grafico deve essere dimensionato su questi valori, non su font inventati. Se il design cambia le coordinate, prevedere espressamente le modifiche al renderer prima di approvarlo.
+La regola del BMP nativo obbligatorio per i nuovi asset frontend è **annullata** dal commit 0.10.52. Conservare intatti i BMP, RAW e PNG storici già approvati.
 
-**Ordine di consegna:** (1) creare **direttamente un BMP sorgente con testi e numeri dimostrativi**, posizionati e dimensionati come nel gioco; (2) presentarlo per verifica/approvazione visiva; (3) soltanto dopo l'approvazione creare un **secondo BMP pulito**, identico per pannelli ma senza testi/valori dinamici, che saranno resi dal codice. Le eventuali illustrazioni di sfondo restano asset separati.
+1. Leggere il menu attivo, `sorgenti/docs/FONTS.md`, i font e le funzioni effettivi, incluse spaziature, coordinate, dimensioni e hitbox; misurare le stringhe tramite `GetTextWidth` / varianti e dati massimi.
+2. Prima creare il mockup **PNG lossless** con dati dimostrativi riproducibili nel motore per approvazione; poi creare il PNG UI pulito RGBA trasparente, con gli elementi dinamici gestiti dal renderer.
+3. Conservare ogni artwork illustrato separato da logo, UI e dati. Per gli sfondi 1672×941 generazione e crop 1664×936 senza resize salvo richiesta.
+4. Il nuovo renderer SDL2 carica 8-bit PNG RGB/RGBA non interlacciati con miniz; il titolo è modernizzato prima degli altri menu, senza modificare partite e salvataggi.
 
-**Stile:** nuova pixel art coerente con gli sfondi illustrati di SWOS Expanded; i menu OG non sono il riferimento estetico. Non convertire PNG in BMP come fase finale.
+**Workflow preferito asset (8 novembre):** l'assistente consegna un **ZIP con i nuovi file già nei loro percorsi definitivi**, da estrarre nella cartella con `AVVIA_SWOS.bat`. L'utente pubblica periodicamente con GitKraken; il ZIP non è un commit GitHub. `ASSETS_INBOX/` resta alternativa autorizzata con archivio e commit separati dopo push segnalato. Gli eventuali vecchi blocchi/manifest descrivono un metodo storico, non imposto come procedura predefinita.
 
-**Perché:** evitare mockup impossibili da implementare fedelmente, ritagli di testi e numeri, disallineamenti, correzioni ripetute e doppia visualizzazione dei dati. Il mockup BMP con dati reali-simulati permette di approvare gli ingombri prima del BMP finale senza scritte.
-
-**Vincoli confermati per gli artwork:** costruire ogni nuovo asset UI **da zero** su BMP nativo; usare le versioni precedenti come riferimento visivo, non come base da correggere, salvo richiesta esplicita. UI **senza sfondo incorporato**; sfondo illustrato separato soltanto se richiesto. Le righe UI con font alto 6 px e due linee da 1 px richiedono almeno 10 px totali con margini uguali sopra/sotto. Nella versione pulita mantenere dinamici testi/valori, faccine, stadio, hover e selezione. Conservare i BMP approvati e verificare loader/palette.
-
-Fonte permanente: `AGENTS.md` §4 e §10. Non modificare o sostituire asset esistenti senza richiesta.
-
-
-## 8. Frontend moderno PNG e prova Title Menu (build 0.10.52)
+## 9. Frontend moderno PNG e prova Title Menu (build 0.10.52)
 
 I nuovi sfondi sono PNG lossless nativi; per gli sfondi a schermo intero riferimento 1672×941 di generazione e 1664×936 dopo il solo crop 16:9. Se una delle due dimensioni differisce occorre avvertire l'utente prima dell'integrazione. Le componenti UI PNG sono separate dallo sfondo; il logo canonico sarà un asset condiviso, i testi dinamici restano del renderer.
 
@@ -78,7 +74,13 @@ Il Title Menu in 0.10.52 carica `assets/title/title_background_approved_2026-11-
 Dopo sincronizzazione GitKraken, eseguire `AVVIA_SWOS.bat` per compilare/avviare come già previsto. Verificare con joypad, tastiera e mouse i pulsanti, il ciclo TITLE→sottomenu→TITLE, F8, build number, windowed maximized e fullscreen desktop, ed eventuali residui del vecchio sfondo. La compilazione/test Windows può essere confermata solo dall'utente. Per il PNG usare il trasferimento a blocchi documentato in `asset-transfer/README.md` con verifica SHA-256 del file ricostruito; non dichiarare asset su GitHub finché l'Action non ha scritto e verificato il binario.
 
 
-## 9. Logo Title Menu condiviso — build 0.10.53
+## 10. Logo Title Menu condiviso — build 0.10.53
 Il file `assets/title/swos_expanded_logo_approved_2026-11-08.png` è il logo canonico, non deve essere incorporato negli sfondi. Dim. originale 1200×440 RGBA trasparente; in Title Menu la posizione approvata C corrisponde a (920,17) con dimensioni 620×227 sullo sfondo di coordinate 1664×936. Lo scaling segue le dimensioni del renderer senza toccare gli hitbox; i dati dinamici e i controlli rimangono originali. F8 passa dall'insieme PNG+logo alla schermata storica, e viceversa.
 
 Per test Windows: sincronizzare `dev/0.10`, copiare i due PNG esatti sotto `assets/title/` (non sostituire il RAW), avviare `AVVIA_SWOS.bat`, verificare logo, F8 e ogni pulsante con tastiera/joypad/mouse. Non considerare i nuovi PNG su GitHub finché il relativo trasferimento binario, a blocchi di massimo 1 MiB e SHA-256, non risulti verificato. Conservare asset storici e salvataggi invariati.
+
+
+## 11. Title Menu 0.10.53_01: due livelli e pressione SDL2
+Il Title non disegna più grafica dei pulsanti SWOS 8-bit e non offre più F8. Mantiene background e logo approvati e carica cinque PNG RGBA indipendenti sotto `assets/title/buttons/`. Il primo livello presenta CAREER, HALL OF FAME, CLASSIC MODES, OPTIONS, EXIT GAME. Il secondo livello temporaneo, senza immagine di sfondo, presenta le modalità originali e CONTINUE/REPLAY/SAVE condizionali. La pressione è un movimento di circa sei tick via renderer SDL2, senza GIF.
+
+Asset in ZIP da estrarre accanto a `AVVIA_SWOS.bat`; compilazione e test Windows ancora necessari. Non affermare che gli asset sono su GitHub prima di un push verificato.

@@ -14,6 +14,7 @@
  * because this header reaches platform_sdl.h and therefore SDL.h, which the
  * m68k build has no idea about — and there is no SWOS.ini on the Amiga. */
 #include "swos_settings.h"
+#include "expanded_title_layout.h"
 #endif
 #include "translations.h"
 #include "comp_identity.h"
@@ -2458,11 +2459,17 @@ extern void Career_FillCurrentSeasonInfo(void);
 extern uint8_t _managementRecordMenu[];
 extern uint8_t _viewCompetitionsMenu[];
 
-/* SWOSMainMenuInit — calls CommonMenuExit on main menu init (SWOS2.s line 68835) */
+#ifdef SWOS_SDL_BUILD
+void Expanded_TitleMenu_Reset(void);
+#endif
+/* SWOSMainMenuInit — preserves original competition state on initialization. */
 __attribute__((used, externally_visible))
 void SWOSMainMenuInit(void)
 {
     CommonMenuExit();
+#ifdef SWOS_SDL_BUILD
+    Expanded_TitleMenu_Reset();
+#endif
 }
 
 /* MultiplayerMenuSelected — OpenSWOS's MULTIPLAYER button: SWOS 2020's online flow,
@@ -2696,6 +2703,162 @@ void CommonMenuExit(void)
     _menuEntries[12].isInvisible = 0;
     _menuEntries[11].isInvisible = 0;
 }
+
+
+#ifdef SWOS_SDL_BUILD
+/* Expanded Title logic: keeps every old handler in the game rather than
+ * deleting the packed SWOS buttons. Only the new SDL renderer receives
+ * the title's pixels. Do not route these choices through the old entry
+ * graph, which was designed for the 320x256 dual-column menu. */
+extern volatile uint16_t _currentKey, _fire, _shortFire;
+extern int16_t _menuControlsDirection;
+extern void Expanded_ShowHall(void);
+extern void Platform_RequestQuit(void);
+extern int Platform_TitleMouseState(int *x,int *y,int *moved,int *click);
+
+static volatile int s_title_level;     /* 0 modern main; 1 classic submenu */
+static volatile int s_title_selected;
+static volatile int s_title_press;
+static int s_title_action;
+static int s_title_previous_fire;
+static volatile int s_title_back_requested;
+static int s_title_mouse_seen;
+
+int Expanded_TitleMenu_Level(void) { return s_title_level; }
+int Expanded_TitleMenu_Selected(void) { return s_title_selected; }
+int Expanded_TitleMenu_Pressing(void) { return s_title_press; }
+int Expanded_TitleMenu_CareerActive(void) { return _gameType==GAME_TYPE_CAREER; }
+int Expanded_TitleMenu_ClassicHasContest(void) {
+    return _gameType==GAME_TYPE_DIY_COMPETITION ||
+           _gameType==GAME_TYPE_PRESET_COMPETITION ||
+           _gameType==GAME_TYPE_SEASON;
+}
+int Expanded_TitleMenu_ClassicReplay(void) {
+    return (_gameType==GAME_TYPE_DIY_COMPETITION ||
+            _gameType==GAME_TYPE_PRESET_COMPETITION) &&
+           _primaryCompetitionBuf.tourn.header.competitionOver!=1;
+}
+void Expanded_TitleMenu_QueueBack(void) { s_title_back_requested=1; }
+void Expanded_TitleMenu_Reset(void)
+{
+    s_title_level=0;
+    s_title_selected=0;
+    s_title_press=0;
+    s_title_action=-1;
+    s_title_previous_fire=0;
+    s_title_back_requested=0;
+    s_title_mouse_seen=0;
+}
+static int Expanded_TitleMenu_Count(void)
+{
+    return s_title_level ? (Expanded_TitleMenu_ClassicHasContest()?12:10) :
+                           EXP_TITLE_MAIN_COUNT;
+}
+static void Expanded_TitleMenu_Dispatch(int level,int index)
+{
+    if(level==0) {
+        switch(index) {
+        case 0:
+            if(_gameType==GAME_TYPE_CAREER) StartContest();
+            else CareerMenu();
+            break;
+        case 1: Expanded_ShowHall(); break;
+        case 2: s_title_level=1; s_title_selected=0; break;
+        case 3: OptionsMenuSelected(); break;
+        case 4: Platform_RequestQuit(); break;
+        }
+        return;
+    }
+    switch(index) {
+    case 0: CreditsMenuSelected(); break;
+    case 1: LoadOldCompetitionMenu(); break;
+    case 2: EditTacticsMenu(); break;
+    case 3: EditCustomTeamMenu(); break;
+    case 4: HighlightsMenu(); break;
+    case 5: FriendlyMenu(); break;
+    case 6: DIYCompetitionMenu(); break;
+    case 7: PresetCompetitionMenu(); break;
+    case 8: SeasonMenu(); break;
+    case 9:
+        if(Expanded_TitleMenu_ClassicHasContest()) StartContest();
+        else { s_title_level=0; s_title_selected=2; }
+        break;
+    case 10:
+        if(Expanded_TitleMenu_ClassicHasContest()) SaveContest();
+        break;
+    case 11:
+        s_title_level=0; s_title_selected=2; break;
+    }
+}
+void Expanded_TitleMenu_Proc(void)
+{
+    /* Runs on the menu thread after MenuCheckControls, at the same 50 Hz
+     * cadence as the original menu. A click and a gamepad fire both take
+     * exactly one path; real callbacks only run after six visual ticks. */
+    int x=0,y=0,moved=0,click=0;
+    Platform_TitleMouseState(&x,&y,&moved,&click);
+    int count=Expanded_TitleMenu_Count();
+    if(s_title_selected<0 || s_title_selected>=count) s_title_selected=0;
+
+    int fire=(_shortFire || _fire)!=0;
+    int fire_edge=fire && !s_title_previous_fire;
+    s_title_previous_fire=fire;
+
+    if(s_title_press>0) {
+        if(--s_title_press==0) {
+            int level=s_title_level,index=s_title_action;
+            s_title_action=-1;
+            Expanded_TitleMenu_Dispatch(level,index);
+        }
+        return;
+    }
+
+    if(s_title_back_requested ||
+       (_currentKey==27 || _currentKey==8 || _currentKey==127)) {
+        s_title_back_requested=0;
+        if(s_title_level) {
+            s_title_level=0;
+            s_title_selected=2;
+        } else Platform_RequestQuit();
+        return;
+    }
+
+    /* Don't let the parked mouse steal a joypad focus. The pointer moves
+     * selection only when its position changes; mouse-down always selects. */
+    if(moved || click) {
+        for(int i=0;i<count;i++) {
+            ExpandedTitleRect box=s_title_level ?
+                Expanded_TitleClassicRect(i) : expanded_title_main_rects[i];
+            if(Expanded_TitleHit(box,x,y)) {
+                if(moved || click) s_title_selected=i;
+                if(click) {
+                    s_title_action=i;
+                    s_title_press=6;
+                }
+                s_title_mouse_seen=1;
+                break;
+            }
+        }
+    }
+    if(s_title_press) return;
+
+    if(_menuControlsDirection>=0) {
+        /* Native directional values: 0 left, 2 right, 4 up, 6 down. */
+        switch(_menuControlsDirection&6) {
+        case 4: case 0:
+            s_title_selected=(s_title_selected+count-1)%count;
+            break;
+        case 6: case 2:
+            s_title_selected=(s_title_selected+1)%count;
+            break;
+        }
+    }
+    if(fire_edge) {
+        s_title_action=s_title_selected;
+        s_title_press=6;
+    }
+}
+#endif /* SWOS_SDL_BUILD */
 
 /* ================================================================
  * Chunk 119: Menu callbacks + ShowFriendlyMenu + ShowSelectRepresentationMenu

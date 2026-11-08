@@ -271,3 +271,9 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - Fallback: il nuovo background rimane utilizzabile senza il logo; F8 mostra il titolo legacy originale per confronto.
 - Incrementata `SWOS_EXPANDED_VERSION` a `0.10.53`.
 - [TEST LOCALE] Decoder PNG RGBA con confronto pixel-per-pixel contro Pillow e harness C/SDL stub per ordine di rendering e coordinate, F8/mask; [DA TESTARE] compilazione Windows e interazione reale. Disponibilità dei binari PNG su GitHub da verificare separatamente.
+
+
+## 0.10.53_01 — Title Menu moderno a due livelli (2026-11-08)
+- [CODICE, WINDOWS NON TESTATO] Overlay titolo SDL2 non usa più lo sfondo RAW né i pulsanti SWOS nella presentazione. Rimossi toggle F8 e mascheratura storica. Sfondo RGB e logo trasparente approvati rimangono separati.
+- [CODICE, WINDOWS NON TESTATO] Menu di primo livello a cinque pulsanti, sprite PNG RGBA derivati dalla grafica blu scelta dall'utente, pressione animata via SDL2; sottomenu classico provvisorio senza sfondo illustrato e callback originali mantenute.
+- [CONSEGNA ESTERNA] I cinque PNG sono forniti in uno ZIP da estrarre nella cartella del gioco. Non considerarli committati in GitHub finché non sono realmente pubblicati dall'utente.

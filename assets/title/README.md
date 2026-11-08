@@ -15,3 +15,13 @@ Asset richiesto dal renderer: `assets/title/title_background_approved_2026-11-08
 - L'opzione video in-game resta futura e non implementata. Se manca il PNG del logo, il nuovo sfondo continua a caricarsi senza crash; F8 permette il confronto con il vecchio sfondo e disattiva anche il logo nuovo.
 
 **Trasferimento binario in sospeso:** non considerare l'asset archiviato finché il binario non compare su questo ramo e lo SHA-256 non è verificato. La build di codice 0.10.52 può essere sincronizzata indipendentemente.
+
+
+## Pulsanti HD del Title Menu — sviluppo 0.10.53_01 (2026-11-08)
+- [CODICE, DA COMPILARE/TESTARE SU WINDOWS] Cinque sprite PNG RGBA indipendenti in `assets/title/buttons/`: `career.png`, `hall_of_fame.png`, `classic_modes.png`, `options.png`, `exit_game.png`.
+- Origine: immagine statica blu con spessore scuro a destra e sotto, scelta dall'utente; ritaglio dei singoli pulsanti senza resize e trasparenza solo all'esterno. **Non utilizzare la GIF ridotta.**
+- La prima schermata disegna direttamente questi PNG e il logo e sfondo già approvati; la pressione di un pulsante è animata via SDL2 a ~6 tick, senza spritesheet e con texture in scala nearest. Nessun vecchio pulsante/fondo RAW è visualizzato, F8 non è più usato.
+- Ordine: CAREER (mostra CONTINUE separato quando la carriera è attiva), HALL OF FAME, CLASSIC MODES, OPTIONS, EXIT GAME. L'icona fullscreen/windowed è rimandata; Alt+Invio rimane.
+- CLASSIC MODES: sottomenu temporaneo senza background illustrato. Preservate CREDITS, LOAD OLD COMPETITION, EDIT TACTICS, EDIT CUSTOM TEAM, HIGHLIGHTS, FRIENDLY, DIY COMPETITION, PRESET COMPETITION, SEASON, BACK; CONTINUE/REPLAY/SAVE per una competizione classica attiva.
+- I nuovi PNG vengono consegnati tramite ZIP da estrarre dove si trova `AVVIA_SWOS.bat`; **la presenza del codice nel repository non prova che i binari PNG siano già su GitHub**.
+- Verificare input joypad/mouse/tastiera, geometria hitbox, animazione e ritorno dai sottomenù, funzionalità carriera e file di gara, rendering PNG e comportamento development/release su Windows.

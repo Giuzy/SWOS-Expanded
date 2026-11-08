@@ -1343,6 +1343,10 @@ void DrawSelectedMenuItemFrame(void)
     if (sel == (MenuEntry *)0)
         return;
 #ifdef SWOS_SDL_BUILD
+    {
+        extern uint8_t _swosMainMenu[];
+        if (_currentMenuPtr==(uintptr_t)_swosMainMenu) return;
+    }
     if (_currentMenuPtr==(uintptr_t)_squadMenu) {
         extern int Expanded_UI_Active(void);
         if (Expanded_UI_Active()) return;
@@ -1395,9 +1399,10 @@ void DrawMenu(void)
     {
         extern void Platform_SetMenuArtFullscreen(int);
         extern int Expanded_UI_Active(void);
-        extern uint8_t _expandedClubOverviewMenu[];
+        extern uint8_t _expandedClubOverviewMenu[], _swosMainMenu[];
         Platform_SetMenuArtFullscreen(Expanded_UI_Active() ||
-            _currentMenuPtr == (uintptr_t)_expandedClubOverviewMenu);
+            _currentMenuPtr == (uintptr_t)_expandedClubOverviewMenu ||
+            _currentMenuPtr == (uintptr_t)_swosMainMenu);
     }
 #endif
 
@@ -1883,9 +1888,11 @@ void MenuProc(void)
         static int mouseTracking=-1;
         int inSquad=_currentMenuPtr==(uintptr_t)_squadMenu;
         int inBusiness=_currentMenuPtr==(uintptr_t)_expandedClubOverviewMenu;
-        if((inSquad||inBusiness)!=mouseTracking) {
-            Platform_SquadMouseTracking(inSquad||inBusiness);
-            mouseTracking=inSquad||inBusiness;
+        extern uint8_t _swosMainMenu[];
+        int inTitle=_currentMenuPtr==(uintptr_t)_swosMainMenu;
+        if((inSquad||inBusiness||inTitle)!=mouseTracking) {
+            Platform_SquadMouseTracking(inSquad||inBusiness||inTitle);
+            mouseTracking=inSquad||inBusiness||inTitle;
         }
         /* Hover is cosmetic: never changes selectedEntry, callbacks or
          * controller focus. A redraw occurs only on enter/leave. */
@@ -1916,6 +1923,18 @@ void MenuProc(void)
                     DrawMenu();
                 }
             }
+        }
+    }
+#endif
+#ifdef SWOS_SDL_BUILD
+    /* The new two-level Title controls the same SWOS callback functions,
+     * but is not part of the old packed-menu navigation/painting graph. */
+    {
+        extern uint8_t _swosMainMenu[];
+        extern void Expanded_TitleMenu_Proc(void);
+        if (_currentMenuPtr==(uintptr_t)_swosMainMenu) {
+            Expanded_TitleMenu_Proc();
+            return;
         }
     }
 #endif

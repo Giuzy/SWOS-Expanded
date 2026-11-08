@@ -355,3 +355,10 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [CODICE] `platform_sdl.c`: la finestra rimane nascosta durante i frame neri iniziali, ma `SDL_ShowWindow` si esegue **prima** di `SDL_RenderPresent` del primo frame già composto con lo splash Expanded. Questo evita di rendere visibile la finestra dopo una presentazione effettuata da nascosta, che può causare un breve nero sul backend Windows.
 - [FALLBACK PRESERVATO] Se lo splash non è disponibile o viene saltato direttamente verso il Title, la finestra diventa comunque visibile; la modifica non cambia asset, progressi, gameplay, salvataggi, né `release/0.20`.
 - [TEST WINDOWS DA ESEGUIRE] Avvio da BAT, durata del passaggio nero, rendering dello splash e avanzamento percentuale, fullscreen/Alt+Invio e ritorno finestra massimizzata. Nessun test Windows rivendicato.
+
+
+## [2026-11-08] 0.10.54_06 — splash anticipato e CONTINUE CAREER luminoso
+- [CODICE / WINDOWS DA TESTARE] In `Platform_Init`, lo splash Expanded al progresso reale 0% viene caricato e presentato **appena renderer, frame textures, mutex, input/audio e timer sono pronti**, prima della decodifica dei grandi PNG Title e dei contorni alpha. `mainC` conserva tutte le fasi e le percentuali di caricamento; se manca lo splash rimane il percorso fallback. Misura nel log il tempo di preparazione Title dopo lo splash.
+- [CODICE / WINDOWS DA TESTARE] `CONTINUE CAREER` quando esiste una carriera usa una texture aggiuntiva cyan RGBA generata una volta dall'alpha approvato (raggio sorgente 42, alpha 135), più un passaggio di illuminazione additiva delicata, ripristinando subito blend/color/alpha della texture. Focus giallo e bounce rimangono separati. Nessun PNG modificato.
+- [LIMITAZIONE] Il tempo per la creazione nativa della finestra/renderer SDL resta prima dello splash. Il nero residuo può dipendere anche da Windows/D3D; serve il test reale, senza promettere eliminazione totale.
+- [INVARIATI] Gameplay 50Hz, salvataggi, asset, altri pulsanti, layout, release/0.20. Test richiesti: avvio nero/splash, progressi, continuità menu↔partita, illum. CAREER vs CONTINUE, focus e fullscreen.

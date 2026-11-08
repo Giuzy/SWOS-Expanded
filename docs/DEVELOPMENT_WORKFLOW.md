@@ -129,3 +129,7 @@ La prima chiamata a `SDL_RenderPresent` può precedere `Platform_ExpandedSplashS
 
 ## 19. Primo present dello splash (0.10.54_05)
 Per il frontend desktop, `SDL_ShowWindow` viene chiamato subito **prima** del primo `SDL_RenderPresent` contenente lo splash Expanded: i frame di bootstrap privi di splash restano nascosti. Si preservano i percorsi fallback, la versione WASM e la finestra massimizzata development. Il risultato contro il breve flash nero resta da verificare su Windows.
+
+
+## 20. Title glow e splash anticipato — 0.10.54_06
+Il caricamento dei PNG Title ad alta risoluzione, incluso il calcolo degli outline alpha, è spostato dopo la prima presentazione dello splash Expanded 0%, ora eseguita sul renderer SDL già inizializzato in `Platform_Init`. `mainC` mantiene la progressione del caricamento reale. La luminosità di `CONTINUE CAREER` è una sovrapposizione cyan SDL2 separata e permanente soltanto con carriera attiva, senza modificare asset, contorno giallo o bounce. Verificare il nero prima dello splash, il messaggio di tempo `[boot] Title PNG preparation after splash`, e qualità del focus su Windows.

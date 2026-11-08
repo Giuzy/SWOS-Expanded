@@ -114,6 +114,10 @@ extern uint8_t _copperListBuffer[];
 /* _quitToDos lives in platform_amiga_stubs.c */
 extern uint16_t _quitToDos;
 
+/* The first approved loading frame is presented during Platform_Init.
+ * Its implementation follows later in this source file. */
+int Platform_ExpandedSplashSet(int percent);
+
 /* ---- SDL state ----------------------------------------------------- */
 static SDL_Window   *s_window;
 static SDL_Renderer *s_renderer;
@@ -1426,9 +1430,9 @@ int Platform_Init(const PlatformInitOptions *opts)
     s_stretch = opts && opts->widescreen == 2;
     apply_picture_scaling();
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
-    /* Title assets load once; absent optional sprites do not restore
-     * outdated SWOS backgrounds or legacy buttons. */
-    (void)Expanded_TitleOverlay_Initialize(s_renderer);
+    /* Defer expensive Title PNG decoding and alpha-focus generation until
+     * AFTER the first loading image is visible. This prevents a multi-second
+     * black start on Windows while preparing high-resolution UI sprites. */
     SDL_EventState(SDL_MOUSEMOTION, SDL_DISABLE);
 
     s_tex_idx = 0;
@@ -1523,6 +1527,17 @@ int Platform_Init(const PlatformInitOptions *opts)
     SDL_InitSubSystem(SDL_INIT_TIMER);
     s_tick_timer = SDL_AddTimer((Uint32)(1000 / Platform_ActivePacingFps()), tick_timer_cb, NULL);
 #endif
+
+    /* Renderer, frame textures and locks are now valid. Present the approved
+     * loading image at 0% before any costly modern Title sprite preparation.
+     * mainC will still own the subsequent real loading milestones. */
+    (void)Platform_ExpandedSplashSet(0);
+    {
+        Uint32 title_start_ms = SDL_GetTicks();
+        (void)Expanded_TitleOverlay_Initialize(s_renderer);
+        fprintf(stderr, "[boot] Title PNG preparation after splash: %u ms\n",
+                (unsigned)(SDL_GetTicks() - title_start_ms));
+    }
 
     return 0;
 }

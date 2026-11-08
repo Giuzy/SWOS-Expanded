@@ -172,7 +172,10 @@ int Expanded_TitleOverlay_Initialize(SDL_Renderer *renderer)
     }
     w=h=0;
     image=texture_from_png(renderer,s_logo_path,&w,&h,NULL,0);
-    if(image && w==LOGO_W && h==LOGO_H) s_logo=image;
+    /* Accept the original approved 1200x440 logo and the corrected
+     * 2048x750 source PNG. Both render in the approved 620x227 box. */
+    if(image && ((w==LOGO_W && h==LOGO_H) ||
+                 (w==2048 && h==750))) s_logo=image;
     else {
         if(image) SDL_DestroyTexture(image);
         fprintf(stderr,"[title-ui] logo not available (%ux%u), keeping title usable\n",w,h);

@@ -137,3 +137,7 @@ Il caricamento dei PNG Title ad alta risoluzione, incluso il calcolo degli outli
 
 ## 21. Colore CONTINUE CAREER — 0.10.54_07
 Tolto il precedente glow azzurro esterno e la sovrapposizione additiva. Si usa una semplice modulazione SDL2 `RGB(255,120,215)` sul PNG canonico mentre `CONTINUE CAREER` è presente; immediato ripristino dello stato colore dopo il disegno. Il focus giallo continua indipendente e lo sprite PNG non è stato editato.
+
+
+## 22. CONTINUE CAREER rosso — 0.10.54_08
+Per colori di pulsanti con iscrizioni bianche, NON applicare SDL_TextureColorMod all'intera texture: altera anche le lettere. La tinta rossa del solo `CONTINUE CAREER` è ottenuta a runtime tramite conversione selettiva dei pixel blu nel buffer RGBA decodificato, lasciando invariati bianchi, nero, alpha e profondità. Nessuna modifica al PNG canonico su disco. Verificare l'effetto sul rendering Windows; il focus dinamico resta separato.

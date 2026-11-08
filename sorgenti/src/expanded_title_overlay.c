@@ -130,6 +130,32 @@ static SDL_Texture *focus_from_rgba(SDL_Renderer *r,
     }
     return focus;
 }
+/* Runtime colourway for CONTINUE CAREER. Recolour BLUE pixels into RED,
+ * preserving each pixel's original shading and alpha. Neutral whites and
+ * near-black letter outlines are not touched; in particular the inscription
+ * stays WHITE, unlike a whole-texture SDL_SetTextureColorMod tint.
+ * Operates only on a temporary decoded buffer, never the approved PNG. */
+static void continue_career_red_colourway(unsigned char *rgba,
+                                          unsigned width,unsigned height)
+{
+    const size_t n=(size_t)width*(size_t)height;
+    for(size_t p=0;p<n;p++) {
+        unsigned char *c=rgba+4*p;
+        const unsigned r=c[0],g=c[1],b=c[2];
+        if(c[3]==0) continue;
+        /* Detect the blue/indigo button surfaces, edges and their shading.
+         * White text, neutral shadows and black outlines are preserved. */
+        if(b>r+24 && b>g+12 && b>45) {
+            const unsigned bright=b>g?b:g;
+            unsigned nr=(bright*230u)/255u+18u;
+            unsigned ng=(bright*43u)/255u;
+            unsigned nb=(bright*45u)/255u;
+            c[0]=(unsigned char)(nr>255?255:nr);
+            c[1]=(unsigned char)ng;
+            c[2]=(unsigned char)nb;
+        }
+    }
+}
 static SDL_Texture *texture_from_png(SDL_Renderer *r,const char *path,
                                      unsigned *w,unsigned *h,
                                      SDL_Texture **focus,int focus_radius)
@@ -141,6 +167,8 @@ static SDL_Texture *texture_from_png(SDL_Renderer *r,const char *path,
         fprintf(stderr,"[title-ui] absent or unsupported PNG: %s\n",path);
         return NULL;
     }
+    if(strcmp(path,s_continue_career_path)==0)
+        continue_career_red_colourway(rgba,width,height);
     SDL_Surface *surface=SDL_CreateRGBSurfaceWithFormatFrom(
         rgba,(int)width,(int)height,32,(int)width*4,SDL_PIXELFORMAT_ABGR8888);
     SDL_Texture *texture=NULL;
@@ -343,17 +371,11 @@ void Expanded_TitleOverlay_Draw(SDL_Renderer *renderer,
             }
             dest.y+=(float)sink*sy;
             if(sprite) {
-                /* Change the active-career button's BLUE ART to a distinct
-                 * violet tone using SDL color modulation of the ORIGINAL PNG.
-                 * No cyan glow, extra silhouettes, additive passes or resizes.
-                 * The existing yellow selection outline is kept separate. */
-                if(continue_active && s_continue_career)
-                    SDL_SetTextureColorMod(sprite,255,120,215);
+                /* The CONTINUE asset was recoloured red at load time, with
+                 * the original WHITE lettering and alpha geometry intact. */
                 if(sel==i && focus)
                     SDL_RenderCopyF(renderer,focus,NULL,&dest);
                 SDL_RenderCopyF(renderer,sprite,NULL,&dest);
-                if(continue_active && s_continue_career)
-                    SDL_SetTextureColorMod(sprite,255,255,255);
             } else {
                 SDL_SetRenderDrawColor(renderer,13,63,145,255);
                 SDL_RenderFillRectF(renderer,&dest);

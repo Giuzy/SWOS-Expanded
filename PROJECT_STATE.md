@@ -367,3 +367,8 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 ## [2026-11-08] 0.10.54_07 — CONTINUE CAREER senza glow, tonalità viola
 - [CODICE / WINDOWS DA TESTARE] Rimosso completamente il contorno cyan generato dall'alpha e il passaggio additivo di illuminazione. Il PNG approvato `continue_career.png` rimane immutato: quando la carriera è attiva, il renderer SDL2 applica una modulazione colore `RGB(255,120,215)` al solo pulsante, ottenendo una tonalità viola più riconoscibile rispetto agli altri bottoni blu.
 - [INVARIATI] Geometria, scala, focus giallo, bounce, altri pulsanti, gameplay, splash anticipato della build precedente. Effetto visivo da verificare sul PC Windows; colore ulteriormente regolabile su richiesta.
+
+
+## [2026-11-08] 0.10.54_08 — CONTINUE CAREER rosso, testo bianco
+- [CODICE / TEST WINDOWS PENDENTE] La tonalità viola precedente applicata a tutto il PNG è stata rimossa. All'atto del caricamento SDL2 del solo `continue_career.png`, una copia temporanea dei pixel RGB blu/indaco viene convertita in rossi con gradazioni coerenti, preservando alpha, ombre e profondità. I pixel neutri, la scritta bianca e il bordo nero restano invariati. Il PNG su disco NON viene sovrascritto.
+- [INVARIATI] Layout, focus giallo da alpha, bouncing e altri pulsanti. Avvio/loading e partita immutati. Verificare su Windows che tutte le parti blu del pulsante siano rosse e il testo rimanga bianco; valori di colore ritoccabili.

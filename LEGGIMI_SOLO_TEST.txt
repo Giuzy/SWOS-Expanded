@@ -1,0 +1,16 @@
+SWOS Expanded 0.10.52 — SOLO INSTALLAZIONE TEST
+
+1) In GitKraken assicurati che dev/0.10 contenga il commit 6d8d1f9 (build 0.10.52) e che i conflitti siano risolti.
+2) Estrai QUESTO zip nella radice del gioco (la cartella con AVVIA_SWOS.bat, sorgenti/, data/). Conserva la struttura delle cartelle.
+3) Avvia AVVIA_E_TESTA_0.10.52.bat: compila dai sorgenti sincronizzati e avvia il gioco.
+4) Sul Title Menu premi F8 per alternare PNG nuovo / RAW vecchio. Verifica pulsanti, joypad, mouse, ritorno dai sottomenu.
+
+Questo pacchetto non contiene codice sorgente e NON sovrascrive la patch
+aggiornata da GitHub. Non tocca alcuno sfondo RAW approvato.
+
+Se il nuovo PNG non compare, verifica che esista:
+assets\title\title_background_approved_2026-11-08.png
+
+Se la compilazione fallisce, condividi COMPILAZIONE_0140.log,
+se il gioco si apre ma il titolo non funziona, condividi uno screenshot
+e SWOS.log.

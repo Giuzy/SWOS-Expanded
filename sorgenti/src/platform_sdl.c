@@ -1004,6 +1004,11 @@ int Platform_Init(const PlatformInitOptions *opts)
     int win_scale = opts ? opts->win_scale : 1;
     PlatformFullscreenMode fs_mode =
         opts ? opts->fullscreen : PLATFORM_FULLSCREEN_NONE;
+    /* The development launcher requests a DECORATED maximized window even
+     * when SWOS.ini remembers desktop fullscreen from a release run. */
+    const char *dev_maximized = getenv("SWOS_EXPANDED_DEV_MAXIMIZED");
+    const int dev_window = dev_maximized && strcmp(dev_maximized, "1") == 0;
+    if (dev_window) fs_mode = PLATFORM_FULLSCREEN_NONE;
     PlatformRendererMode renderer_mode =
         opts ? opts->renderer : PLATFORM_RENDERER_ACCEL;
     int vsync = opts ? opts->vsync : 0;
@@ -1055,6 +1060,11 @@ int Platform_Init(const PlatformInitOptions *opts)
         arcade_resolve_key(&s_arcade_key_service,   opts->arcade_key_service);
     }
     s_fullscreen_mode   = fs_mode;
+    /* A session launched fullscreen has no prior SDL_WINDOW_MAXIMIZED flag.
+     * On the first window toggle, restore a full work-area window instead
+     * of the tiny internal SWOS pixel-scale client rectangle. */
+    s_window_was_maximized_before_fullscreen =
+        (fs_mode != PLATFORM_FULLSCREEN_NONE);
     /* Repoint `custom` at our stub storage *before* the tick timer
      * starts -- the first VBlank ISR firing reads custom->intreqr. */
     Platform_RewireCustom();
@@ -1249,8 +1259,7 @@ int Platform_Init(const PlatformInitOptions *opts)
      * window (title bar + taskbar remain available), NOT desktop fullscreen.
      * This opt-in is deliberately absent from release builds/launchers. */
     if (fs_mode == PLATFORM_FULLSCREEN_NONE) {
-        const char *dev_maximized = getenv("SWOS_EXPANDED_DEV_MAXIMIZED");
-        if (dev_maximized && strcmp(dev_maximized, "1") == 0) {
+        if (dev_window) {
             SDL_MaximizeWindow(s_window);
             fprintf(stderr, "[video] development window: maximized, not fullscreen\n");
         }
@@ -1548,7 +1557,12 @@ void Platform_ToggleFullscreen(void)
         /* Restore a genuine decorated, maximized window in development;
          * a regular user window retains the existing pinned/scale rules.
          * This applies to BOTH Alt+Enter and the new Title icon. */
-        if (s_window_was_maximized_before_fullscreen) {
+        if (s_window_was_maximized_before_fullscreen ||
+            (getenv("SWOS_EXPANDED_DEV_MAXIMIZED") &&
+             strcmp(getenv("SWOS_EXPANDED_DEV_MAXIMIZED"),"1")==0)) {
+            /* SDL can restore the old client size when leaving fullscreen.
+             * Always reapply the decorated, maximized work-area geometry. */
+            SDL_SetWindowBordered(s_window,SDL_TRUE);
             SDL_MaximizeWindow(s_window);
         } else if (s_pinned_w>0 && s_pinned_h>0) {
             SDL_SetWindowSize(s_window,s_pinned_w,s_pinned_h);
@@ -1564,7 +1578,9 @@ void Platform_ToggleFullscreen(void)
         const Uint32 fs_flag=(s_fullscreen_mode==PLATFORM_FULLSCREEN_EXCLUSIVE) ?
             SDL_WINDOW_FULLSCREEN : SDL_WINDOW_FULLSCREEN_DESKTOP;
         s_window_was_maximized_before_fullscreen =
-            (flags & SDL_WINDOW_MAXIMIZED) != 0;
+            (flags & SDL_WINDOW_MAXIMIZED) != 0 ||
+            (getenv("SWOS_EXPANDED_DEV_MAXIMIZED") &&
+             strcmp(getenv("SWOS_EXPANDED_DEV_MAXIMIZED"),"1")==0);
         if (SDL_SetWindowFullscreen(s_window,fs_flag) != 0) {
             fprintf(stderr,"[video] fullscreen entry failed: %s\n",SDL_GetError());
             return;

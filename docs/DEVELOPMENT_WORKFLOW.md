@@ -112,3 +112,8 @@ Il nuovo codice si trova nel branch `dev/0.10`; due PNG dell'icona e CONTINUE CA
 Quando si **genera** un nuovo pulsante PNG del frontend Expanded, rispettare lo stile della serie Title approvata: pixel art blu/ciano vista frontalmente, con profondità scura a destra e sotto, alpha trasparente attorno alla sagoma e nessun bordo giallo di focus/hover nel PNG base. Il renderer produce la selezione separatamente dalla silhouette e anima la pressione mediante traslazione (breve bounce sul rilascio) senza riprocessare i pixel artistici. Non applicare modifiche automatiche agli asset storici approvati.
 
 Per il Title 0.10.54_01: icona video (34,34,92×88); CAREER (1048,426,365×151), HALL (1055,585,350×67), CLASSIC (1055,658,350×67), OPTIONS (1055,731,350×67), EXIT (1055,804,350×67) nel canvas 1664×936. La grafica originale non è stata rigenerata. Testare su Windows focus, bounce, giù/su da EXIT/CAREER e transizione fullscreen↔finestra massimizzata.
+
+
+## 16. Ripristino finestra dalla modalità fullscreen — 0.10.54_02
+Nel ramo development `AVVIA_SWOS.bat` imposta `SWOS_EXPANDED_DEV_MAXIMIZED=1`: `Platform_Init` forza l'avvio in finestra SDL2 decorata anche se un profilo precedente ha memorizzato fullscreen in `SWOS.ini`. Il flag non va impostato nei launcher release.
+All'uscita dal fullscreen, una sessione inizialmente fullscreen usa per impostazione di ritorno la finestra decorata massimizzata, invece della vecchia geometria piccola `_screen_width × s_win_scale_current`. Se la sessione proveniva da una finestra normale non massimizzata, conserva le regole di ripristino della dimensione utente. Verificare su Windows icona Title, Alt+Invio, taskbar/titolo e menu→partita→menu.

@@ -328,3 +328,10 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [POSIZIONE INVARIATA] `expanded_title_overlay.c` continua a caricare lo **stesso nome** e a disegnare il logo x=920 y=17, 620×227 sul canvas 1664×936. Sfondo e pulsanti non modificati, build visualizzata non incrementata perché commit solo asset/documentazione.
 - [CONSEGNA PC] Il PNG preciso approvato in chat è disponibile anche nello ZIP `SWOS_Expanded_Logo_WORLD_corretto_0.10.54_01.zip`, col percorso identico per sovrascrittura. Per eliminare la vecchia copia dal PC usare GitKraken pull o sostituire con ZIP; l'assistente non accede direttamente al disco Windows dell'utente. Non mantenere duplicati/backup dell'asset precedente.
 - [TEST] Formato e geometria verificati; render/test Windows tramite `AVVIA_SWOS.bat` ancora a carico dell'utente.
+
+
+## [2026-11-08] 0.10.54_02 — finestra development e ritorno da fullscreen
+- [CORREZIONE CODICE / WINDOWS DA TESTARE] In `Platform_Init`, la presenza di `SWOS_EXPANDED_DEV_MAXIMIZED=1` forza la modalità iniziale windowed anche se `SWOS.ini` contiene `fullscreen=desktop`, senza usare borderless e senza alterare l'opzione release.
+- [CORREZIONE CODICE / WINDOWS DA TESTARE] Una sessione avviata direttamente fullscreen ora ricorda un ritorno alla finestra decorata massimizzata; prima non aveva uno stato finestra precedente e riduceva la finestra al fattore di scala SWOS. I passaggi fullscreen↔finestra con icona Title e Alt+Invio mantengono la massimizzazione in sviluppo.
+- [NON MODIFICATI] Immagini/asset, coordinate UI, motore partita 50Hz, gameplay e salvataggi. Il ramo `release/0.20` non riceve questa modifica di sviluppo automaticamente.
+- [TEST WINDOWS RICHIESTI] `AVVIA_SWOS.bat` da `dev/0.10` deve avviare finestra massimizzata con titolo/taskbar; icona Title e Alt+Invio devono alternare fullscreen desktop e finestra massimizzata senza finestre minuscole; test menu→partita→menu. Avvio EXE isolato senza variabile resta governato da impostazioni video.

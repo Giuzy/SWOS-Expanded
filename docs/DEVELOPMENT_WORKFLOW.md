@@ -121,3 +121,7 @@ All'uscita dal fullscreen, una sessione inizialmente fullscreen usa per impostaz
 
 ## 17. Primo frame SDL desktop — 0.10.54_03
 Il renderer desktop crea la finestra con `SDL_WINDOW_HIDDEN` e chiama `SDL_ShowWindow` una volta dopo il primo `SDL_RenderPresent` completo; nessun cambiamento al canvas WASM. Scopo: non mostrare il client bianco non inizializzato prima dello splash. Testare su Windows la visibilità dello splash, la massimizzazione vera e le transizioni menu/partita e fullscreen; l'esito non è garantito finché non è verificato su Windows.
+
+
+## 18. Visibilità iniziale dello splash — 0.10.54_04
+La prima chiamata a `SDL_RenderPresent` può precedere `Platform_ExpandedSplashSet(0)`, creando un fotogramma nero anche con la finestra inizialmente nascosta. Mostrare la finestra solo dopo aver composto e presentato il primo frame dello splash Expanded; se l'asset è indisponibile mostrare un fallback, e consentire l'apertura diretta del Title. Non modificare i layer approvati né inventare percentuali di caricamento. Controllare realmente su Windows il percorso normale e il percorso senza splash.

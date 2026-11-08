@@ -120,6 +120,8 @@ static SDL_Renderer *s_renderer;
 #ifndef SWOS_WASM_BUILD
 /* Keep the native window hidden until its first complete frame is submitted. */
 static int s_startup_window_shown;
+/* A missing loading asset must not leave the hidden startup window stuck. */
+static int s_startup_splash_unavailable;
 #endif
 /* Expanded startup: complete stadium background + independent progress UI.
  * The background remains intact if the bar coordinates change. */
@@ -2569,12 +2571,20 @@ int Platform_ExpandedSplashSet(int percent)
         SDL_Surface *surface=SDL_LoadBMP("data/expanded/expanded_loading_bg.bmp");
         if(!surface) {
             fprintf(stderr,"[expanded-splash] BMP missing: %s\n",SDL_GetError());
+#ifndef SWOS_WASM_BUILD
+            s_startup_splash_unavailable = 1;
+#endif
+            Platform_RenderFrame(); /* visible legacy fallback, not a hidden window */
             return 0;
         }
         s_expandedSplashBg=SDL_CreateTextureFromSurface(s_renderer,surface);
         SDL_FreeSurface(surface);
         if(!s_expandedSplashBg) {
             fprintf(stderr,"[expanded-splash] texture error: %s\n",SDL_GetError());
+#ifndef SWOS_WASM_BUILD
+            s_startup_splash_unavailable = 1;
+#endif
+            Platform_RenderFrame(); /* visible fallback if texture creation fails */
             return 0;
         }
         SDL_SetTextureScaleMode(s_expandedSplashBg,SDL_ScaleModeNearest);
@@ -2750,10 +2760,13 @@ shots_done:
     capture_presented_frame();     /* after every draw, before the swap */
     SDL_RenderPresent(s_renderer);
 #ifndef SWOS_WASM_BUILD
-    /* Prevent an unpainted white Windows client area during renderer and
-     * asset initialization. Show the decorated window only after the first
-     * completed render. The flag keeps this entirely out of later frames. */
-    if (!s_startup_window_shown && s_window) {
+    /* The first valid SDL frame can still be a black SWOS bootstrap frame.
+     * Keep the window hidden until the approved Expanded loading image has
+     * actually been composed. A missing splash or direct arrival at the Title
+     * remains visible instead of trapping the user behind a hidden window. */
+    if (!s_startup_window_shown && s_window &&
+        ((s_expandedSplashActive && s_expandedSplashBg) ||
+         s_startup_splash_unavailable || expanded_title_main_active())) {
         SDL_ShowWindow(s_window);
         s_startup_window_shown = 1;
     }

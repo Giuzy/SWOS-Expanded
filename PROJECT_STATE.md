@@ -342,3 +342,10 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [MOTIVO] Evitare che il sistema operativo esponga la superficie SDL non ancora disegnata tra creazione finestra, massimizzazione e caricamento grafico.
 - [NON MODIFICATI] Splash e progressi di caricamento, asset, Title, posizione finestra, gameplay, controlli e salvataggi; release/0.20 non modificata.
 - [TEST DA FARE SU WINDOWS] Avvio senza frame bianco, finestra decorata già massimizzata e ciclo fullscreen tramite icona/Alt+Invio, menu→partita→menu, splash visibile e aggiornato. Nessun test Windows eseguito qui.
+
+
+## [2026-11-08] 0.10.54_04 — primo frame visibile: schermata di caricamento Expanded
+- [MODIFICA CODICE / WINDOWS DA TESTARE] La finestra SDL2 rimane nascosta durante eventuali frame neri del bootstrap. Il primo `SDL_ShowWindow` avviene solo dopo `SDL_RenderPresent` di un frame con `s_expandedSplashActive` e sfondo caricamento disponibile. La percentuale continua a rappresentare le fasi reali, partendo da 0%; nessun tempo artificiale aggiunto.
+- [FALLBACK] Se il BMP dello splash manca o la texture non può essere creata, `Platform_ExpandedSplashSet` mostra il primo frame legacy anziché lasciare la finestra invisibile. È ammessa anche la comparsa diretta al Title nelle modalità che saltano lo splash.
+- [NON MODIFICATI] Asset e layout del loading, Title PNG, renderer partita/50 Hz, input e salvataggi. `release/0.20` non modificata.
+- [TEST WINDOWS] Avvio con splash visibile subito, niente flash nero/bianco, avanzamento progressivo, finestra development massimizzata e icona fullscreen/Alt+Invio. Verificare anche il fallback con asset caricamento mancante in un ambiente di test, senza cancellare l'asset approvato.

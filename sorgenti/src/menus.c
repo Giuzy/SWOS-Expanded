@@ -2794,7 +2794,7 @@ void Expanded_TitleMenu_Proc(void)
 {
     /* Runs on the menu thread after MenuCheckControls, at the same 50 Hz
      * cadence as the original menu. A click and a gamepad fire both take
-     * exactly one path; real callbacks only run after six visual ticks. */
+     * exactly one path; callbacks run after five visual ticks (100 ms). */
     int x=0,y=0,moved=0,click=0;
     Platform_TitleMouseState(&x,&y,&moved,&click);
     int count=Expanded_TitleMenu_Count();
@@ -2833,7 +2833,7 @@ void Expanded_TitleMenu_Proc(void)
                 if(moved || click) s_title_selected=i;
                 if(click) {
                     s_title_action=i;
-                    s_title_press=6;
+                    s_title_press=5;
                 }
                 s_title_mouse_seen=1;
                 break;
@@ -2843,19 +2843,24 @@ void Expanded_TitleMenu_Proc(void)
     if(s_title_press) return;
 
     if(_menuControlsDirection>=0) {
-        /* Native directional values: 0 left, 2 right, 4 up, 6 down. */
-        switch(_menuControlsDirection&6) {
-        case 4: case 0:
+        /* Ground truth: swos_globals.c _nextEntryDirectionOffsets =
+         * {2,1,3,0}. The SWOS compass is 0=UP,2=RIGHT,4=DOWN,6=LEFT.
+         * Both Title levels are single-column: only vertical navigation
+         * moves the selection. Diagonals inherit their vertical component. */
+        switch(_menuControlsDirection & 6) {
+        case 0: /* Up / up-right */
             s_title_selected=(s_title_selected+count-1)%count;
             break;
-        case 6: case 2:
+        case 4: /* Down / down-left */
             s_title_selected=(s_title_selected+1)%count;
+            break;
+        default: /* Left / right: no accidental vertical movement */
             break;
         }
     }
     if(fire_edge) {
         s_title_action=s_title_selected;
-        s_title_press=6;
+        s_title_press=5;
     }
 }
 #endif /* SWOS_SDL_BUILD */

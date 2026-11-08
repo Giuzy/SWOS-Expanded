@@ -25,3 +25,12 @@ Asset richiesto dal renderer: `assets/title/title_background_approved_2026-11-08
 - CLASSIC MODES: sottomenu temporaneo senza background illustrato. Preservate CREDITS, LOAD OLD COMPETITION, EDIT TACTICS, EDIT CUSTOM TEAM, HIGHLIGHTS, FRIENDLY, DIY COMPETITION, PRESET COMPETITION, SEASON, BACK; CONTINUE/REPLAY/SAVE per una competizione classica attiva.
 - I nuovi PNG vengono consegnati tramite ZIP da estrarre dove si trova `AVVIA_SWOS.bat`; **la presenza del codice nel repository non prova che i binari PNG siano già su GitHub**.
 - Verificare input joypad/mouse/tastiera, geometria hitbox, animazione e ritorno dai sottomenù, funzionalità carriera e file di gara, rendering PNG e comportamento development/release su Windows.
+
+
+## 0.10.53_02 — posizione sul lato destro e profilo del focus
+- [MODIFICA CODICE / DA RITESTARE WINDOWS] La colonna di pulsanti viene centrata sotto il logo già approvato, su asse x=1230 nel canvas 1664×936. Coordinate: CAREER x982 y261 496×206; HALL OF FAME x990 y479 480×91; CLASSIC MODES x990 y581 480×91; OPTIONS x990 y683 480×91; EXIT GAME x990 y785 480×91. Queste posizioni sono **provvisorie e spostabili** su richiesta.
+- Per il focus giallo, il renderer crea una maschera RGBA separata dalla sagoma alpha di ciascun pulsante (include il bordo tridimensionale, anche destro e inferiore), non un rettangolo sull'hitbox. Disegna l'alone dietro al PNG e nella stessa posizione anche durante la pressione.
+- Navigazione UP/DOWN corretta secondo il compass SWOS; 5 tick a 50Hz con movimento verticale breve senza scaling dei singoli PNG. Il sottomenu classico resta provvisorio e privo di sfondo illustrato.
+- **Nessuna variazione ai binari degli asset:** rimane valido il ZIP già consegnato per la 0.10.53_01. Test Windows dell'aggiornamento ancora pendente.
+
+- [ARCHIVIO GITHUB VERIFICATO] Un nuovo commit asset `2c39dd3` pubblicato dall'utente su `dev/0.10` contiene già i cinque PNG nei loro percorsi definitivi, con blob hash identici allo ZIP originale. Non serve estrarre di nuovo lo ZIP se la cartella locale è già aggiornata tramite GitKraken.

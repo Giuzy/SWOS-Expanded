@@ -288,3 +288,9 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - I nuovi asset vengono preferibilmente consegnati in **ZIP strutturato con i percorsi finali**, da estrarre nella cartella con `AVVIA_SWOS.bat`. Il push GitHub dell'utente è separato. `ASSETS_INBOX/` resta procedura alternativa con autorizzazione specifica già concessa per il riordino e commit.
 - Il Title Menu richiesto dopo la 0.10.53 ha cinque voci di primo livello, con CAREER prominente; il secondo livello CLASSIC MODES conserva le funzioni SWOS originali, incluse CONTINUE/REPLAY/SAVE. Grafica user-selected e animazione di pressione SDL2 senza GIF. Il vecchio sfondo/pulsanti Title e F8 non devono essere più visibili una volta attivato il nuovo menu. Lo sfondo PNG e il logo canonico approvati rimangono invariati.
 - Il nuovo codice non va presentato come compilato/testato Windows senza test. Non dichiarare che i binari PNG sono su GitHub quando sono stati consegnati solo nello ZIP.
+
+
+## Focus e pressione dei pulsanti UI (regola utente, 2026-11-08)
+- Il **frame giallo di selezione segue il contorno esterno effettivo dell'asset del pulsante**, comprese smussature e profondità 3D a destra/in basso. **Non usare un rettangolo sull'hitbox** quando il pulsante ha una silhouette diversa. Mantieni separati hitbox rettangolare (input), sprite PNG RGB/RGBA e contorno di focus generato/renderizzato.
+- I pulsanti restano frontali, non inclinati; l'animazione di pressione SDL2 non deve ridimensionare o ricampionare il singolo sprite durante la pressione. Preferire una breve traslazione sobria senza rimbalzo. Il focus segue il pulsante anche durante la pressione.
+- Navigazione menu Title e sottomenu: compass SWOS verificato `0=su, 2=destra, 4=giù, 6=sinistra`; in elenchi verticali SU va alla voce precedente, GIÙ alla successiva, destra/sinistra non devono invertirne il verso.

@@ -275,3 +275,13 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [CODICE — DA TESTARE] Sottomenu provvisorio CLASSIC MODES senza illustrazione, con callback originali e righe CONTINUE/REPLAY/SAVE quando una competizione classica è attiva; CAREER attiva espone CONTINUE senza modificare il PNG canonico.
 - [CONSEGNA ASSET] ZIP `SWOS_Expanded_TitleMenu_0.10.53_01_ASSETS.zip` con cinque PNG nei rispettivi percorsi `assets/title/buttons/` da estrarre accanto a `AVVIA_SWOS.bat`. Le immagini restano separate e si considerano su GitHub solo dopo push verificato.
 - [DA PROVARE] Compilazione Windows MinGW64, selezione mouse/tastiera/joypad, uscita con B/ESC, allineamento e qualità 4K, ritorno da opzioni/carreer e persistenza CONTINUE/REPLAY/SAVE; release fullscreen e finestra development massimizzata.
+
+
+## [2026-11-08] Title Menu — correzioni basate sul test Windows (0.10.53_02)
+- [EVIDENZA UTENTE] Screenshot Windows della build 0.10.53_01: sfondo/logo/pulsanti PNG caricati; menu troppo a sinistra sopra l'allenatore, rettangolo giallo di selezione non segue lo spessore e movimento GIÙ invertito anche nel sottomenu.
+- [MODIFICHE CODICE, WINDOWS DA RITESTARE] Spostata la colonna a destra, **centrata sull'asse x=1230 del logo** approvato: CAREER (982,261,496,206), HALL OF FAME (990,479,480,91), CLASSIC MODES (990,581,480,91), OPTIONS (990,683,480,91), EXIT GAME (990,785,480,91), coordinate tela 1664×936. Logo, sfondo e PNG originali invariati; ingombro fino a y=876, build separata a y=902.
+- [REGOLA — DA RITESTARE WINDOWS] Il focus giallo è una texture di alone calcolata sull'**alpha effettivo del singolo PNG**, incluso lo spessore scuro a destra e sotto. Non usare rettangolo di selezione per i pulsanti sagomati. Il sottomenu provvisorio resta senza sprite artistici e con evidenziazione rettangolare temporanea.
+- [MODIFICHE CODICE, WINDOWS DA RITESTARE] Compass del motore verificato in `swos_globals.c`: 0=su,2=destra,4=giù,6=sinistra. Corretto in entrambe le schermate. Pressione ridotta da 6 a 5 tick a 50 Hz (circa 100 ms), spostamento solo verticale 2–4 px, nessuna deformazione/overshoot.
+- [ANCORA DA VERIFICARE] Test su Windows 10/11 con mouse, pad e tastiera, vista in HD/4K, focus su tutti e cinque i pulsanti e nel sottomenu, transizioni ed eventuali regressioni. Nessun nuovo asset: restano validi i PNG già consegnati via ZIP.
+
+- [BINARI GITHUB VERIFICATI DOPO NUOVO PUSH UTENTE] Commit asset `2c39dd3` sul ramo `dev/0.10`: tutti e cinque i PNG in `assets/title/buttons/` sono presenti, con Git blob SHA-1 identici a quelli dello ZIP originali. Sfondo e logo risultano anch'essi presenti nei loro percorsi GitHub. Non sovrascrivere gli asset.

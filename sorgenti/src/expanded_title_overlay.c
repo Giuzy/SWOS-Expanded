@@ -45,7 +45,7 @@ static const char *const s_main_labels[EXP_TITLE_MAIN_COUNT] = {
  * Hitboxes remain rectangular only for input handling. */
 static SDL_Texture *s_background,*s_logo,*s_buttons[EXP_TITLE_MAIN_COUNT];
 static SDL_Texture *s_button_focus[EXP_TITLE_MAIN_COUNT];
-static SDL_Texture *s_continue_career,*s_continue_focus,*s_continue_glow;
+static SDL_Texture *s_continue_career,*s_continue_focus;
 static SDL_Texture *s_video[2],*s_video_focus[2];
 static unsigned s_continue_width,s_continue_height;
 static unsigned s_video_width[2],s_video_height[2];
@@ -151,12 +151,6 @@ static SDL_Texture *texture_from_png(SDL_Renderer *r,const char *path,
     if(texture && focus)
         *focus=focus_from_rgba(r,rgba,width,height,focus_radius,
                               (SDL_Color){255,220,52,255});
-    /* Permanently illuminate CONTINUE CAREER only, while preserving the
-     * approved PNG pixels. A separate soft cyan alpha-contour is cached
-     * once; the yellow selected focus remains a distinct layer. */
-    if(texture && strcmp(path,s_continue_career_path)==0)
-        s_continue_glow=focus_from_rgba(r,rgba,width,height,42,
-                                      (SDL_Color){72,191,255,135});
     free(rgba);
     if(!texture) {
         fprintf(stderr,"[title-ui] unable to create %s: %s\n",path,SDL_GetError());
@@ -210,8 +204,7 @@ void Expanded_TitleOverlay_Destroy(void)
     if(s_logo) SDL_DestroyTexture(s_logo);
     if(s_continue_career) SDL_DestroyTexture(s_continue_career);
     if(s_continue_focus) SDL_DestroyTexture(s_continue_focus);
-    if(s_continue_glow) SDL_DestroyTexture(s_continue_glow);
-    s_background=s_logo=s_continue_career=s_continue_focus=s_continue_glow=NULL;
+    s_background=s_logo=s_continue_career=s_continue_focus=NULL;
     s_continue_width=s_continue_height=0;
     for(int i=0;i<2;i++) {
         if(s_video[i]) SDL_DestroyTexture(s_video[i]);
@@ -350,25 +343,17 @@ void Expanded_TitleOverlay_Draw(SDL_Renderer *renderer,
             }
             dest.y+=(float)sink*sy;
             if(sprite) {
-                if(continue_active && s_continue_career && s_continue_glow)
-                    SDL_RenderCopyF(renderer,s_continue_glow,NULL,&dest);
-                /* The selected yellow contour remains visible on top of
-                 * the cyan glow, including during the existing bounce. */
+                /* Change the active-career button's BLUE ART to a distinct
+                 * violet tone using SDL color modulation of the ORIGINAL PNG.
+                 * No cyan glow, extra silhouettes, additive passes or resizes.
+                 * The existing yellow selection outline is kept separate. */
+                if(continue_active && s_continue_career)
+                    SDL_SetTextureColorMod(sprite,255,120,215);
                 if(sel==i && focus)
                     SDL_RenderCopyF(renderer,focus,NULL,&dest);
                 SDL_RenderCopyF(renderer,sprite,NULL,&dest);
-                if(continue_active && s_continue_career) {
-                    /* Gentle steady cyan illumination over the ORIGINAL
-                     * image: additive color-modulated copy, then restore all
-                     * texture state for the regular blend on future frames. */
-                    SDL_SetTextureBlendMode(sprite,SDL_BLENDMODE_ADD);
-                    SDL_SetTextureColorMod(sprite,70,155,255);
-                    SDL_SetTextureAlphaMod(sprite,35);
-                    SDL_RenderCopyF(renderer,sprite,NULL,&dest);
-                    SDL_SetTextureAlphaMod(sprite,255);
+                if(continue_active && s_continue_career)
                     SDL_SetTextureColorMod(sprite,255,255,255);
-                    SDL_SetTextureBlendMode(sprite,SDL_BLENDMODE_BLEND);
-                }
             } else {
                 SDL_SetRenderDrawColor(renderer,13,63,145,255);
                 SDL_RenderFillRectF(renderer,&dest);

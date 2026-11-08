@@ -133,3 +133,7 @@ Per il frontend desktop, `SDL_ShowWindow` viene chiamato subito **prima** del pr
 
 ## 20. Title glow e splash anticipato — 0.10.54_06
 Il caricamento dei PNG Title ad alta risoluzione, incluso il calcolo degli outline alpha, è spostato dopo la prima presentazione dello splash Expanded 0%, ora eseguita sul renderer SDL già inizializzato in `Platform_Init`. `mainC` mantiene la progressione del caricamento reale. La luminosità di `CONTINUE CAREER` è una sovrapposizione cyan SDL2 separata e permanente soltanto con carriera attiva, senza modificare asset, contorno giallo o bounce. Verificare il nero prima dello splash, il messaggio di tempo `[boot] Title PNG preparation after splash`, e qualità del focus su Windows.
+
+
+## 21. Colore CONTINUE CAREER — 0.10.54_07
+Tolto il precedente glow azzurro esterno e la sovrapposizione additiva. Si usa una semplice modulazione SDL2 `RGB(255,120,215)` sul PNG canonico mentre `CONTINUE CAREER` è presente; immediato ripristino dello stato colore dopo il disegno. Il focus giallo continua indipendente e lo sprite PNG non è stato editato.

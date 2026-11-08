@@ -362,3 +362,8 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [CODICE / WINDOWS DA TESTARE] `CONTINUE CAREER` quando esiste una carriera usa una texture aggiuntiva cyan RGBA generata una volta dall'alpha approvato (raggio sorgente 42, alpha 135), più un passaggio di illuminazione additiva delicata, ripristinando subito blend/color/alpha della texture. Focus giallo e bounce rimangono separati. Nessun PNG modificato.
 - [LIMITAZIONE] Il tempo per la creazione nativa della finestra/renderer SDL resta prima dello splash. Il nero residuo può dipendere anche da Windows/D3D; serve il test reale, senza promettere eliminazione totale.
 - [INVARIATI] Gameplay 50Hz, salvataggi, asset, altri pulsanti, layout, release/0.20. Test richiesti: avvio nero/splash, progressi, continuità menu↔partita, illum. CAREER vs CONTINUE, focus e fullscreen.
+
+
+## [2026-11-08] 0.10.54_07 — CONTINUE CAREER senza glow, tonalità viola
+- [CODICE / WINDOWS DA TESTARE] Rimosso completamente il contorno cyan generato dall'alpha e il passaggio additivo di illuminazione. Il PNG approvato `continue_career.png` rimane immutato: quando la carriera è attiva, il renderer SDL2 applica una modulazione colore `RGB(255,120,215)` al solo pulsante, ottenendo una tonalità viola più riconoscibile rispetto agli altri bottoni blu.
+- [INVARIATI] Geometria, scala, focus giallo, bounce, altri pulsanti, gameplay, splash anticipato della build precedente. Effetto visivo da verificare sul PC Windows; colore ulteriormente regolabile su richiesta.

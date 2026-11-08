@@ -130,12 +130,12 @@ static SDL_Texture *focus_from_rgba(SDL_Renderer *r,
     }
     return focus;
 }
-/* Runtime colourway for CONTINUE CAREER. Recolour BLUE pixels into RED,
+/* Runtime colourway for CONTINUE CAREER. Recolour BLUE pixels into GREEN,
  * preserving each pixel's original shading and alpha. Neutral whites and
  * near-black letter outlines are not touched; in particular the inscription
  * stays WHITE, unlike a whole-texture SDL_SetTextureColorMod tint.
  * Operates only on a temporary decoded buffer, never the approved PNG. */
-static void continue_career_red_colourway(unsigned char *rgba,
+static void continue_career_green_colourway(unsigned char *rgba,
                                           unsigned width,unsigned height)
 {
     const size_t n=(size_t)width*(size_t)height;
@@ -147,9 +147,9 @@ static void continue_career_red_colourway(unsigned char *rgba,
          * White text, neutral shadows and black outlines are preserved. */
         if(b>r+24 && b>g+12 && b>45) {
             const unsigned bright=b>g?b:g;
-            unsigned nr=(bright*230u)/255u+18u;
-            unsigned ng=(bright*43u)/255u;
-            unsigned nb=(bright*45u)/255u;
+            unsigned nr=(bright*29u)/255u;
+            unsigned ng=(bright*214u)/255u+22u;
+            unsigned nb=(bright*70u)/255u;
             c[0]=(unsigned char)(nr>255?255:nr);
             c[1]=(unsigned char)ng;
             c[2]=(unsigned char)nb;
@@ -168,7 +168,7 @@ static SDL_Texture *texture_from_png(SDL_Renderer *r,const char *path,
         return NULL;
     }
     if(strcmp(path,s_continue_career_path)==0)
-        continue_career_red_colourway(rgba,width,height);
+        continue_career_green_colourway(rgba,width,height);
     SDL_Surface *surface=SDL_CreateRGBSurfaceWithFormatFrom(
         rgba,(int)width,(int)height,32,(int)width*4,SDL_PIXELFORMAT_ABGR8888);
     SDL_Texture *texture=NULL;
@@ -371,7 +371,7 @@ void Expanded_TitleOverlay_Draw(SDL_Renderer *renderer,
             }
             dest.y+=(float)sink*sy;
             if(sprite) {
-                /* The CONTINUE asset was recoloured red at load time, with
+                /* The CONTINUE asset was recoloured green at load time, with
                  * the original WHITE lettering and alpha geometry intact. */
                 if(sel==i && focus)
                     SDL_RenderCopyF(renderer,focus,NULL,&dest);

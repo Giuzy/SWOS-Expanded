@@ -141,3 +141,7 @@ Tolto il precedente glow azzurro esterno e la sovrapposizione additiva. Si usa u
 
 ## 22. CONTINUE CAREER rosso — 0.10.54_08
 Per colori di pulsanti con iscrizioni bianche, NON applicare SDL_TextureColorMod all'intera texture: altera anche le lettere. La tinta rossa del solo `CONTINUE CAREER` è ottenuta a runtime tramite conversione selettiva dei pixel blu nel buffer RGBA decodificato, lasciando invariati bianchi, nero, alpha e profondità. Nessuna modifica al PNG canonico su disco. Verificare l'effetto sul rendering Windows; il focus dinamico resta separato.
+
+
+## 23. CONTINUE CAREER verde — 0.10.54_09
+Il colore rosso della build precedente è sostituito dal verde mediante riconversione selettiva degli stessi pixel blu/indaco del PNG canonico già decodificato. Non applicare tint globale: il testo resta bianco. Non cambiare asset né geometria; mantenere focus e animazione precedenti.

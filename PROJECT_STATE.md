@@ -372,3 +372,8 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 ## [2026-11-08] 0.10.54_08 — CONTINUE CAREER rosso, testo bianco
 - [CODICE / TEST WINDOWS PENDENTE] La tonalità viola precedente applicata a tutto il PNG è stata rimossa. All'atto del caricamento SDL2 del solo `continue_career.png`, una copia temporanea dei pixel RGB blu/indaco viene convertita in rossi con gradazioni coerenti, preservando alpha, ombre e profondità. I pixel neutri, la scritta bianca e il bordo nero restano invariati. Il PNG su disco NON viene sovrascritto.
 - [INVARIATI] Layout, focus giallo da alpha, bouncing e altri pulsanti. Avvio/loading e partita immutati. Verificare su Windows che tutte le parti blu del pulsante siano rosse e il testo rimanga bianco; valori di colore ritoccabili.
+
+
+## [2026-11-08] 0.10.54_09 — CONTINUE CAREER verde
+- [CODICE / TEST WINDOWS PENDENTE] Sostituita la conversione selettiva rosso con verde nel renderer SDL2, sul solo `continue_career.png`. Cambiano esclusivamente i pixel delle superfici blu/indaco in una copia decodificata in RAM; la scritta bianca, contorni neri, ombre, alpha e geometria sono conservati. PNG canonico intatto. Focus giallo e bouncing invariati.
+- [TEST] Verificare tonalità verde e scritta bianca sul PC Windows dopo Pull; nessuna compilazione o verifica grafica Windows eseguita qui.

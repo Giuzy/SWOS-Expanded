@@ -1,7 +1,7 @@
 @echo off
 setlocal EnableExtensions
 cd /d "%~dp0"
-title SWOS Expanded 0.10.40 - Compilazione locale e avvio
+title SWOS Expanded - Compilazione locale e avvio
 
 REM Compila sempre i sorgenti locali prima di avviare il gioco.
 REM make ricompila solo i file modificati.
@@ -31,14 +31,19 @@ REM In sviluppo usa una vera finestra massimizzata, con barra titolo e taskbar.
 REM In release NON impostare SWOS_EXPANDED_DEV_MAXIMIZED e avvia fullscreen.
 set "SWOS_EXPANDED_DEV_MAXIMIZED=1"
 echo.
-echo === SWOS Expanded 0.10.40 - avvio locale ===
-"%~dp0SWOS_Expanded.exe" --fullscreen=off
-set "RC=%ERRORLEVEL%"
+echo === SWOS Expanded - avvio locale ===
+REM Avvio indipendente: il gioco continua mentre questa finestra CMD si chiude.
+REM Non usare /B: terrebbe il processo collegato alla console di compilazione.
+start "" /D "%~dp0" "%~dp0SWOS_Expanded.exe" --fullscreen=off
+if errorlevel 1 goto :errore_avvio
+exit /b 0
+
+:errore_avvio
 echo.
-echo SWOS terminato. Codice uscita: %RC%
-if not "%RC%"=="0" echo In caso di crash invia SWOS.log dalla cartella Documenti\SWOS.
+echo ERRORE: impossibile avviare SWOS_Expanded.exe.
+echo Controlla SWOS.log nella cartella Documenti\SWOS.
 pause
-exit /b %RC%
+exit /b 1
 
 :errore
 echo.

@@ -301,3 +301,10 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - Prima di eliminare un asset apparentemente obsoleto controllare tutti i riferimenti del codice e degli script di build: **non cancellare RAW/BMP storici ancora caricati**, asset approvati, riferimenti di altre schermate, sorgenti, dati o salvataggi.
 - `AVVIA_SWOS.bat`, `COMPILA_SWOS.bat`, `PREPARA_SWOS.bat`, `BUILD_SWOS.sh` rimangono i launcher/script ufficiali; le versioni temporanee `AVVIA_E_TESTA_0.10.52.bat` e `AVVIA_E_TESTA_0.10.53.bat` sono state ritirate.
 - Una cancellazione dal repository non garantisce la rimozione di copie non tracciate sul PC Windows: sincronizzare GitKraken e, se serve, rimuovere manualmente le copie locali dei soli percorsi archiviati come obsoleti; non usare pulizie generiche su tutto il repository.
+
+ 
+## Asset base dei pulsanti UI — niente outline baked-in (regola utente, 2026-11-08)
+- I **PNG base dei pulsanti** devono nascere e restare senza contorno giallo di selezione, senza hover/focus incorporato e con alpha trasparente attorno alla sagoma. Il bordo azzurro/decorativo proprio del pulsante è parte della grafica, non è il focus.
+- Il renderer SDL2 produce il **contorno di selezione giallo dinamicamente**, seguendo tutta la silhouette alpha, compreso lo spessore in basso e a destra. Non alterare i PNG approvati per aggiungere il focus; i testi statici approvati fanno parte del PNG.
+- Poiché l'asset CONTINUE CAREER ha più pixel sorgenti del pulsante CAREER, dimensionare il focus separato per ottenere un contorno ugualmente spesso a schermo, senza ritoccare lo sprite.
+- Il pulsante approvato **CONTINUE CAREER** è un PNG indipendente da CAREER; quando una carriera è attiva, renderizzare lo sprite `assets/title/buttons/continue_career.png` invece di `career.png`, senza ulteriori scritte sovrapposte dal motore. Se manca l'asset, lasciare il menu funzionante e segnalare l'errore, senza inventare un nuovo pulsante.

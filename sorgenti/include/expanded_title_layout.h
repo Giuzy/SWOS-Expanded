@@ -4,18 +4,15 @@
 #define EXPANDED_TITLE_LAYOUT_H
 enum { EXP_TITLE_W=1664, EXP_TITLE_H=936, EXP_TITLE_MAIN_COUNT=5 };
 typedef struct ExpandedTitleRect {int x,y,w,h;} ExpandedTitleRect;
-/* Center the five-button column on the approved logo center x=1230,
- * underneath its bottom y=244. Keep the source PNG aspect ratios and
- * reserve space for the non-destructive build stamp along the bottom. */
-/* Smaller, better-spaced column: logo y=17..244, first button y=308.
- * All five boxes have center x=1230. Keep dynamic hitboxes coupled
- * to the renderer and do not resize/change any approved source PNG. */
+/* 0.10.53_04: ~10% smaller again, with 106 px between logo bottom
+ * (y=244) and CAREER top (y=350). All centers at x=1230.5.
+ * Hitboxes and renderer share these values; title artwork unchanged. */
 static const ExpandedTitleRect expanded_title_main_rects[EXP_TITLE_MAIN_COUNT] = {
-    {1005,308,450,187}, /* CAREER, 64 px below logo */
-    {1014,507,432, 82}, /* HALL OF FAME */
-    {1014,601,432, 82}, /* CLASSIC MODES */
-    {1014,695,432, 82}, /* OPTIONS */
-    {1014,789,432, 82}  /* EXIT GAME */
+    {1028,350,405,168}, /* CAREER / CONTINUE CAREER */
+    {1036,529,389, 74}, /* HALL OF FAME */
+    {1036,611,389, 74}, /* CLASSIC MODES */
+    {1036,693,389, 74}, /* OPTIONS */
+    {1036,775,389, 74}  /* EXIT GAME */
 };
 static inline ExpandedTitleRect Expanded_TitleClassicRect(int index) {
     ExpandedTitleRect r = { 422, 172 + index*55, 820, 46 };

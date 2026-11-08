@@ -92,3 +92,11 @@ Per il gioco corrente il launcher unico è `AVVIA_SWOS.bat`; `COMPILA_SWOS.bat`,
 I file temporanei di quei test e il PNG di anteprima del Title RAW sono stati rimossi dal repository. Sono stati eliminati anche tre manifest di asset già ricomposti e verificati, senza rimuovere gli asset definitivi. Il vecchio sistema Action/manifest è disponibile soltanto come metodo secondario quando lo ZIP o il deposito `ASSETS_INBOX/` non bastano.
 
 **Windows:** dopo pull con GitKraken, i file tracciati cancellati vengono normalmente rimossi dal working tree; i file personali o altre copie non tracciate possono restare. `.gitignore` previene l'aggiunta accidentale degli specifici file di test superati. Se occorre cancellare copie residue, farlo solo per i percorsi specifici presenti nel registro `PROJECT_STATE.md`, mai con una cancellazione generica di cartelle di gioco. Conservare tutte le risorse RAW/BMP approvate ancora richieste dal codice e i salvataggi locali.
+
+
+## 13. Pulsanti base PNG vs stato selezionato — Title 0.10.53_04
+Per i pulsanti UI del nuovo frontend conservare file PNG RGBA **privi di outline gialla**. Il bordo illustrato proprio del bottone (azzurro/3D) rimane. Il layer SDL2 del focus giallo deriva dinamicamente dall'alpha completo dello sprite e non deve essere disegnato nel PNG di partenza. Se due PNG di uno stesso pulsante hanno risoluzioni sorgenti differenti, compensare il raggio del focus per mantenere lo stesso spessore visivo (CAREER raggio 6 px, CONTINUE CAREER raggio 12 px).
+
+Per la carriera attiva il Title usa uno sprite separato `assets/title/buttons/continue_career.png` con testo già presente nel file, non una scritta sovrapposta via renderer. Lo stato seleziona lo sprite; usare contenimento proporzionale in presenza di rapporti geometrici differenti e condividere le hitbox con CAREER.
+
+Consegna approvata in ZIP con percorso finale, estrazione accanto ad `AVVIA_SWOS.bat`, successivo push GitKraken e verifica GitHub. Non indicare l'asset come remoto finché non è verificato.

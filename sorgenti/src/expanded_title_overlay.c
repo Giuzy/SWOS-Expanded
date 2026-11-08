@@ -1,4 +1,4 @@
-/* SWOS Expanded — modern SDL2 Title Menu (0.10.53_02).
+/* SWOS Expanded — modern SDL2 Title Menu (0.10.53_04).
  * No conversion to the 320x256 SWOS pixel framebuffer and no baked-in
  * old menu art. All five user-selected buttons are independent RGBA sprites.
  * The original SWOS callbacks are preserved in menus.c, but their old
@@ -24,6 +24,11 @@ static const char *const s_button_paths[EXP_TITLE_MAIN_COUNT] = {
     "assets/title/buttons/options.png",
     "assets/title/buttons/exit_game.png"
 };
+/* Approved base sprite for an existing career. There must be NO runtime
+ * CONTINUE inscription overlay: the entire caption is baked into a clean
+ * RGBA PNG, and the yellow focus is still generated dynamically. */
+static const char *const s_continue_career_path =
+    "assets/title/buttons/continue_career.png";
 static const char *const s_main_labels[EXP_TITLE_MAIN_COUNT] = {
     "CAREER","HALL OF FAME","CLASSIC MODES","OPTIONS","EXIT GAME"
 };
@@ -32,6 +37,8 @@ static const char *const s_main_labels[EXP_TITLE_MAIN_COUNT] = {
  * Hitboxes remain rectangular only for input handling. */
 static SDL_Texture *s_background,*s_logo,*s_buttons[EXP_TITLE_MAIN_COUNT];
 static SDL_Texture *s_button_focus[EXP_TITLE_MAIN_COUNT];
+static SDL_Texture *s_continue_career,*s_continue_focus;
+static unsigned s_continue_width,s_continue_height;
 static unsigned s_button_widths[EXP_TITLE_MAIN_COUNT],s_button_heights[EXP_TITLE_MAIN_COUNT];
 enum { LOGO_W=1200, LOGO_H=440, LOGO_X=920, LOGO_Y=17, LOGO_DST_W=620, LOGO_DST_H=227 };
 
@@ -42,9 +49,11 @@ enum { LOGO_W=1200, LOGO_H=440, LOGO_X=920, LOGO_Y=17, LOGO_DST_W=620, LOGO_DST_
  * right, so the ring follows that too. */
 static SDL_Texture *focus_from_rgba(SDL_Renderer *r,
                                     const unsigned char *rgba,
-                                    unsigned w,unsigned h)
+                                    unsigned w,unsigned h,int radius)
 {
-    const int radius=5; /* +1 source px: thicker outline follows full alpha silhouette */
+    /* This is a runtime focus texture, not part of the approved artwork.
+     * The extra-resolution CONTINUE sprite needs a proportionally larger
+     * source-pixel radius so the final yellow edge matches CAREER on screen. */
     const size_t n=(size_t)w*(size_t)h;
     if(!n || n>SIZE_MAX/4) return NULL;
     unsigned char *ring=(unsigned char*)calloc(n,4);
@@ -88,7 +97,7 @@ static SDL_Texture *focus_from_rgba(SDL_Renderer *r,
 }
 static SDL_Texture *texture_from_png(SDL_Renderer *r,const char *path,
                                      unsigned *w,unsigned *h,
-                                     SDL_Texture **focus)
+                                     SDL_Texture **focus,int focus_radius)
 {
     if(focus) *focus=NULL;
     unsigned width=0,height=0;
@@ -105,7 +114,7 @@ static SDL_Texture *texture_from_png(SDL_Renderer *r,const char *path,
         SDL_FreeSurface(surface);
     }
     if(texture && focus)
-        *focus=focus_from_rgba(r,rgba,width,height);
+        *focus=focus_from_rgba(r,rgba,width,height,focus_radius);
     free(rgba);
     if(!texture) {
         fprintf(stderr,"[title-ui] unable to create %s: %s\n",path,SDL_GetError());
@@ -121,14 +130,14 @@ int Expanded_TitleOverlay_Initialize(SDL_Renderer *renderer)
 {
     if(!renderer) return 0;
     unsigned w=0,h=0;
-    SDL_Texture *image=texture_from_png(renderer,s_background_path,&w,&h,NULL);
+    SDL_Texture *image=texture_from_png(renderer,s_background_path,&w,&h,NULL,0);
     if(image && w==EXP_TITLE_W && h==EXP_TITLE_H) s_background=image;
     else {
         if(image) SDL_DestroyTexture(image);
         fprintf(stderr,"[title-ui] approved background not available (%ux%u): black fallback\n",w,h);
     }
     w=h=0;
-    image=texture_from_png(renderer,s_logo_path,&w,&h,NULL);
+    image=texture_from_png(renderer,s_logo_path,&w,&h,NULL,0);
     if(image && w==LOGO_W && h==LOGO_H) s_logo=image;
     else {
         if(image) SDL_DestroyTexture(image);
@@ -137,7 +146,12 @@ int Expanded_TitleOverlay_Initialize(SDL_Renderer *renderer)
     for(int i=0;i<EXP_TITLE_MAIN_COUNT;i++)
         s_buttons[i]=texture_from_png(renderer,s_button_paths[i],
                            &s_button_widths[i],&s_button_heights[i],
-                           &s_button_focus[i]);
+                           &s_button_focus[i],6);
+    s_continue_career=texture_from_png(renderer,s_continue_career_path,
+                                      &s_continue_width,&s_continue_height,
+                                      &s_continue_focus,12);
+    if(!s_continue_career)
+        fprintf(stderr,"[title-ui] CONTINUE CAREER PNG missing; please extract the approved assets ZIP\n");
     fprintf(stderr,"[title-ui] RGB/RGBA title initialized; legacy title background/buttons and F8 disabled\n");
     return 1;
 }
@@ -145,7 +159,10 @@ void Expanded_TitleOverlay_Destroy(void)
 {
     if(s_background) SDL_DestroyTexture(s_background);
     if(s_logo) SDL_DestroyTexture(s_logo);
-    s_background=s_logo=NULL;
+    if(s_continue_career) SDL_DestroyTexture(s_continue_career);
+    if(s_continue_focus) SDL_DestroyTexture(s_continue_focus);
+    s_background=s_logo=s_continue_career=s_continue_focus=NULL;
+    s_continue_width=s_continue_height=0;
     for(int i=0;i<EXP_TITLE_MAIN_COUNT;i++) {
         if(s_buttons[i]) SDL_DestroyTexture(s_buttons[i]);
         if(s_button_focus[i]) SDL_DestroyTexture(s_button_focus[i]);
@@ -248,13 +265,35 @@ void Expanded_TitleOverlay_Draw(SDL_Renderer *renderer,
              * downward press, no vertical resizing, zoom or bounce. */
             int sink=moving?title_press_offset(press):0;
             SDL_FRect dest=scale_rect(box,sx,sy);
+            const int continue_active=(i==0 && Expanded_TitleMenu_CareerActive());
+            SDL_Texture *sprite=continue_active && s_continue_career ?
+                                s_continue_career:s_buttons[i];
+            SDL_Texture *focus=continue_active && s_continue_career ?
+                               s_continue_focus:s_button_focus[i];
+            if(continue_active && s_continue_career &&
+               s_continue_width>0 && s_continue_height>0) {
+                /* The new approved CONTINUE CAREER sprite is a different
+                 * aspect ratio from CAREER. Fit INSIDE the same logical
+                 * hitbox without stretching or resampling its proportions. */
+                const float srcRatio=(float)s_continue_width/(float)s_continue_height;
+                const float boxRatio=(float)box.w/(float)box.h;
+                if(srcRatio>boxRatio) {
+                    const float fitH=(float)box.w/srcRatio;
+                    dest.y+=((float)box.h-fitH)*0.5f*sy;
+                    dest.h=fitH*sy;
+                } else {
+                    const float fitW=(float)box.h*srcRatio;
+                    dest.x+=((float)box.w-fitW)*0.5f*sx;
+                    dest.w=fitW*sx;
+                }
+            }
             dest.y+=(float)sink*sy;
-            if(s_buttons[i]) {
-                /* Draw focus even while pressing, aligned with the moving
-                 * silhouette including its dark bottom/right edge. */
-                if(sel==i && s_button_focus[i])
-                    SDL_RenderCopyF(renderer,s_button_focus[i],NULL,&dest);
-                SDL_RenderCopyF(renderer,s_buttons[i],NULL,&dest);
+            if(sprite) {
+                /* The yellow focus tracks the complete alpha silhouette
+                 * including the dark bottom-right depth, while pressed. */
+                if(sel==i && focus)
+                    SDL_RenderCopyF(renderer,focus,NULL,&dest);
+                SDL_RenderCopyF(renderer,sprite,NULL,&dest);
             } else {
                 SDL_SetRenderDrawColor(renderer,13,63,145,255);
                 SDL_RenderFillRectF(renderer,&dest);
@@ -263,13 +302,6 @@ void Expanded_TitleOverlay_Draw(SDL_Renderer *renderer,
                            (SDL_Color){250,250,255,255},sx,sy);
                 if(sel==i) focus_frame(renderer,box,sx,sy);
             }
-        }
-        if(Expanded_TitleMenu_CareerActive()) {
-            /* CAREER remains the approved unmodified PNG. State-dependent
-             * CONTINUE appears as independent dynamic text above its label. */
-            ExpandedTitleRect box=expanded_title_main_rects[0];
-            pixel_text(renderer,"CONTINUE",box.x+box.w/2,box.y+18,3,
-                       (SDL_Color){252,250,207,255},sx,sy);
         }
     } else {
         /* Provisional classic submenu has no illustrated background.

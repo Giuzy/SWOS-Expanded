@@ -289,3 +289,10 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [CODICE — TEST WINDOWS PENDENTE] Dimensioni dei cinque pulsanti ridotte circa del 10%, con centro orizzontale invariato (x=1230) e 64 px di spazio sotto il logo approvato; spostate le hitbox in accordo con le texture SDL2, senza toccare le PNG.
 - [CODICE — TEST WINDOWS PENDENTE] Maschera esterna del focus giallo generata a raggio 5 px anziché 4 nei pixel sorgenti, continuando a seguire la sagoma alpha completa e la pressione.
 - [PULIZIA REPOSITORY] Eliminati solo 11 file temporanei documentati/test/anteprima e vecchi manifest già consumati; il RAW del Title storico non è stato rimosso perché ancora richiesto da `expanded_economy.c` e `BUILD_SWOS.sh`. Conservati gli asset approvati e la procedura di trasferimento alternativa. `.gitignore` tutela contro il reinserimento di copie residue. Nessun test Windows effettuato dall'assistente.
+
+
+## 0.10.53_04 — CONTINUE CAREER indipendente e menu ulteriormente compatto (2026-11-08)
+- [ASSET APPROVATO / ZIP] Nuovo PNG RGBA `assets/title/buttons/continue_career.png` senza contorno giallo, consegnato via ZIP; deve essere pubblicato successivamente su GitHub dall'utente.
+- [CODICE, WINDOWS DA TESTARE] CAREER diventa CONTINUE CAREER quando è attiva una carriera, con sprite specifico e senza sovrascritta runtime. Mantiene selezione, animazione e callback; rispetta le proporzioni dell'asset (contain).
+- [CODICE, WINDOWS DA TESTARE] Altra riduzione ~10% di tutti e cinque i pulsanti, maggior respiro fra logo e pulsanti (106px) e spazi inferiori più compatti. Focus dinamico giallo da 5 a 6 pixel sorgente nei cinque sprite precedenti (12 pixel nel CONTINUE ad alta risoluzione per uno spessore a schermo uniforme), mai baked-in.
+- [REGOLA] Un asset base UI non comprende la selezione: la sagoma del focus è un layer del renderer. Nessuna alterazione delle immagini statiche dei pulsanti precedentemente approvati.

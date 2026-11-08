@@ -2714,6 +2714,7 @@ extern volatile uint16_t _currentKey, _fire, _shortFire;
 extern int16_t _menuControlsDirection;
 extern void Expanded_ShowHall(void);
 extern void Platform_RequestQuit(void);
+extern void Platform_ToggleFullscreen(void);
 extern int Platform_TitleMouseState(int *x,int *y,int *moved,int *click);
 
 static volatile int s_title_level;     /* 0 modern main; 1 classic submenu */
@@ -2752,7 +2753,7 @@ void Expanded_TitleMenu_Reset(void)
 static int Expanded_TitleMenu_Count(void)
 {
     return s_title_level ? (Expanded_TitleMenu_ClassicHasContest()?12:10) :
-                           EXP_TITLE_MAIN_COUNT;
+                           EXP_TITLE_SELECTABLE_COUNT;
 }
 static void Expanded_TitleMenu_Dispatch(int level,int index)
 {
@@ -2766,6 +2767,7 @@ static void Expanded_TitleMenu_Dispatch(int level,int index)
         case 2: s_title_level=1; s_title_selected=0; break;
         case 3: OptionsMenuSelected(); break;
         case 4: Platform_RequestQuit(); break;
+        case EXP_TITLE_VIDEO_INDEX: Platform_ToggleFullscreen(); break;
         }
         return;
     }
@@ -2828,7 +2830,7 @@ void Expanded_TitleMenu_Proc(void)
     if(moved || click) {
         for(int i=0;i<count;i++) {
             ExpandedTitleRect box=s_title_level ?
-                Expanded_TitleClassicRect(i) : expanded_title_main_rects[i];
+                Expanded_TitleClassicRect(i) : Expanded_TitleMainRect(i);
             if(Expanded_TitleHit(box,x,y)) {
                 if(moved || click) s_title_selected=i;
                 if(click) {
@@ -2846,7 +2848,9 @@ void Expanded_TitleMenu_Proc(void)
         /* Ground truth: swos_globals.c _nextEntryDirectionOffsets =
          * {2,1,3,0}. The SWOS compass is 0=UP,2=RIGHT,4=DOWN,6=LEFT.
          * Both Title levels are single-column: only vertical navigation
-         * moves the selection. Diagonals inherit their vertical component. */
+         * moves the selection. Diagonals inherit their vertical component.
+         * First level: UP from CAREER -> video icon, DOWN from EXIT ->
+         * video icon; FROM icon, UP -> EXIT and DOWN -> CAREER. */
         switch(_menuControlsDirection & 6) {
         case 0: /* Up / up-right */
             s_title_selected=(s_title_selected+count-1)%count;

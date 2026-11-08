@@ -972,6 +972,9 @@ static int                    s_win_scale_current = 1;   /* clamp 1..4 */
 static int s_pinned_w, s_pinned_h;
 
 static PlatformFullscreenMode s_fullscreen_mode   = PLATFORM_FULLSCREEN_NONE;
+/* Keep the real decorated, maximized development window when returning
+ * from desktop fullscreen through the title icon or Alt+Enter. */
+static int s_window_was_maximized_before_fullscreen;
 
 /* [video] widescreen = stretch: the original picture -- 336 wide the Amiga way, 320 the
  * DOS way -- pulled out to fill the display, instead of letterboxed (false) or widened to
@@ -1533,29 +1536,39 @@ void Platform_Shutdown(void)
 void Platform_ToggleFullscreen(void)
 {
     if (!s_window) return;
-    Uint32 flags = SDL_GetWindowFlags(s_window);
-    int currently_fullscreen =
-        (flags & (SDL_WINDOW_FULLSCREEN | SDL_WINDOW_FULLSCREEN_DESKTOP)) != 0;
+    Uint32 flags=SDL_GetWindowFlags(s_window);
+    int currently_fullscreen=(flags &
+        (SDL_WINDOW_FULLSCREEN | SDL_WINDOW_FULLSCREEN_DESKTOP)) != 0;
 
     if (currently_fullscreen) {
-        SDL_SetWindowFullscreen(s_window, 0);
-        /* Back to the size the window actually had: the one [video] resolution
-         * named, or the scale when it said 'auto'. */
-        if (s_pinned_w > 0 && s_pinned_h > 0)
-            SDL_SetWindowSize(s_window, s_pinned_w, s_pinned_h);
-        else
+        if (SDL_SetWindowFullscreen(s_window,0) != 0) {
+            fprintf(stderr,"[video] fullscreen exit failed: %s\n",SDL_GetError());
+            return;
+        }
+        /* Restore a genuine decorated, maximized window in development;
+         * a regular user window retains the existing pinned/scale rules.
+         * This applies to BOTH Alt+Enter and the new Title icon. */
+        if (s_window_was_maximized_before_fullscreen) {
+            SDL_MaximizeWindow(s_window);
+        } else if (s_pinned_w>0 && s_pinned_h>0) {
+            SDL_SetWindowSize(s_window,s_pinned_w,s_pinned_h);
+        } else {
             SDL_SetWindowSize(s_window,
                 _screen_width * s_win_scale_current,
                 _screen_height * s_win_scale_current);
+        }
         SDL_ShowCursor(SDL_ENABLE);
     } else {
-        /* Toggle into the flavour the user launched with. If they
-         * launched windowed, default to DESKTOP-style fullscreen since
-         * that's the friendlier of the two. */
-        Uint32 fs_flag = (s_fullscreen_mode == PLATFORM_FULLSCREEN_EXCLUSIVE)
-                         ? SDL_WINDOW_FULLSCREEN
-                         : SDL_WINDOW_FULLSCREEN_DESKTOP;
-        SDL_SetWindowFullscreen(s_window, fs_flag);
+        /* Fullscreen desktop on windowed launch; release keeps its
+         * selected desktop/exclusive flavour. */
+        const Uint32 fs_flag=(s_fullscreen_mode==PLATFORM_FULLSCREEN_EXCLUSIVE) ?
+            SDL_WINDOW_FULLSCREEN : SDL_WINDOW_FULLSCREEN_DESKTOP;
+        s_window_was_maximized_before_fullscreen =
+            (flags & SDL_WINDOW_MAXIMIZED) != 0;
+        if (SDL_SetWindowFullscreen(s_window,fs_flag) != 0) {
+            fprintf(stderr,"[video] fullscreen entry failed: %s\n",SDL_GetError());
+            return;
+        }
         SDL_ShowCursor(SDL_DISABLE);
     }
 }

@@ -1,4 +1,4 @@
-/* SWOS Expanded — modern SDL2 Title Menu (0.10.53_04).
+/* SWOS Expanded — modern SDL2 Title Menu (0.10.54).
  * No conversion to the 320x256 SWOS pixel framebuffer and no baked-in
  * old menu art. All five user-selected buttons are independent RGBA sprites.
  * The original SWOS callbacks are preserved in menus.c, but their old
@@ -8,6 +8,7 @@
 #include "expanded_png.h"
 #include "expanded_club_font.h"
 #include "build_info.h"
+#include "platform_sdl.h" /* live fullscreen state, shared with Alt+Enter */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h> /* SIZE_MAX for safe sprite-outline allocation */
@@ -29,6 +30,13 @@ static const char *const s_button_paths[EXP_TITLE_MAIN_COUNT] = {
  * RGBA PNG, and the yellow focus is still generated dynamically. */
 static const char *const s_continue_career_path =
     "assets/title/buttons/continue_career.png";
+/* Two separately approved, clean RGBA sprites. Show only one at a time:
+ * while WINDOWED display outward arrows (enter fullscreen); while
+ * FULLSCREEN display inward arrows (restore windowed). */
+static const char *const s_video_paths[2] = {
+    "assets/title/buttons/fullscreen_expand.png",
+    "assets/title/buttons/windowed_collapse.png"
+};
 static const char *const s_main_labels[EXP_TITLE_MAIN_COUNT] = {
     "CAREER","HALL OF FAME","CLASSIC MODES","OPTIONS","EXIT GAME"
 };
@@ -38,7 +46,9 @@ static const char *const s_main_labels[EXP_TITLE_MAIN_COUNT] = {
 static SDL_Texture *s_background,*s_logo,*s_buttons[EXP_TITLE_MAIN_COUNT];
 static SDL_Texture *s_button_focus[EXP_TITLE_MAIN_COUNT];
 static SDL_Texture *s_continue_career,*s_continue_focus;
+static SDL_Texture *s_video[2],*s_video_focus[2];
 static unsigned s_continue_width,s_continue_height;
+static unsigned s_video_width[2],s_video_height[2];
 static unsigned s_button_widths[EXP_TITLE_MAIN_COUNT],s_button_heights[EXP_TITLE_MAIN_COUNT];
 enum { LOGO_W=1200, LOGO_H=440, LOGO_X=920, LOGO_Y=17, LOGO_DST_W=620, LOGO_DST_H=227 };
 
@@ -47,40 +57,64 @@ enum { LOGO_W=1200, LOGO_H=440, LOGO_X=920, LOGO_Y=17, LOGO_DST_W=620, LOGO_DST_
  * RGBA art is untouched; the selection is an independent texture cached
  * once on loading. The alpha includes the dark extrusion on the bottom and
  * right, so the ring follows that too. */
+/* Square alpha dilation using separable sliding windows O(width*height).
+ * The old per-pixel radius² scan became expensive for high-resolution
+ * corner icons. The outline remains a separate pixel-perfect texture;
+ * no approved PNG is edited and no 50 Hz render tick performs dilation. */
 static SDL_Texture *focus_from_rgba(SDL_Renderer *r,
                                     const unsigned char *rgba,
                                     unsigned w,unsigned h,int radius)
 {
-    /* This is a runtime focus texture, not part of the approved artwork.
-     * The extra-resolution CONTINUE sprite needs a proportionally larger
-     * source-pixel radius so the final yellow edge matches CAREER on screen. */
+    if(!r || !rgba || !w || !h || radius<=0) return NULL;
     const size_t n=(size_t)w*(size_t)h;
-    if(!n || n>SIZE_MAX/4) return NULL;
+    if(n>SIZE_MAX/4) return NULL;
     unsigned char *ring=(unsigned char*)calloc(n,4);
-    if(!ring) return NULL;
+    unsigned char *horizontal=(unsigned char*)malloc(n);
+    if(!ring || !horizontal) {
+        free(ring);
+        free(horizontal);
+        return NULL;
+    }
+    /* Pass one: any opaque alpha in a horizontal radius around the pixel. */
     for(unsigned y=0;y<h;y++) {
+        unsigned count=0;
+        unsigned end=(unsigned)radius<w?(unsigned)radius:w-1;
+        for(unsigned x=0;x<=end;x++)
+            if(rgba[((size_t)y*w+x)*4+3]>127) count++;
         for(unsigned x=0;x<w;x++) {
-            size_t pixel=(size_t)y*w+x;
-            if(rgba[pixel*4+3]>127) continue;
-            int touches=0;
-            int y0=(int)y-radius; if(y0<0) y0=0;
-            int y1=(int)y+radius; if(y1>=(int)h) y1=(int)h-1;
-            int x0=(int)x-radius; if(x0<0) x0=0;
-            int x1=(int)x+radius; if(x1>=(int)w) x1=(int)w-1;
-            for(int yy=y0;yy<=y1 && !touches;yy++)
-                for(int xx=x0;xx<=x1;xx++)
-                    if(rgba[((size_t)yy*w+(unsigned)xx)*4+3]>127) {
-                        touches=1;
-                        break;
-                    }
-            if(touches) {
-                ring[pixel*4+0]=255;
-                ring[pixel*4+1]=220;
-                ring[pixel*4+2]=52;
-                ring[pixel*4+3]=255;
-            }
+            horizontal[(size_t)y*w+x]=(unsigned char)(count!=0);
+            int remove=(int)x-radius;
+            int add=(int)x+radius+1;
+            if(remove>=0 && remove<(int)w &&
+               rgba[((size_t)y*w+(unsigned)remove)*4+3]>127) count--;
+            if(add>=0 && add<(int)w &&
+               rgba[((size_t)y*w+(unsigned)add)*4+3]>127) count++;
         }
     }
+    /* Pass two: vertical radius over the horizontal result. Pixels
+     * inside the original silhouette stay fully transparent in the ring. */
+    for(unsigned x=0;x<w;x++) {
+        unsigned count=0;
+        unsigned end=(unsigned)radius<h?(unsigned)radius:h-1;
+        for(unsigned y=0;y<=end;y++)
+            count+=horizontal[(size_t)y*w+x];
+        for(unsigned y=0;y<h;y++) {
+            size_t p=(size_t)y*w+x;
+            if(rgba[p*4+3]<=127 && count) {
+                ring[p*4+0]=255;
+                ring[p*4+1]=220;
+                ring[p*4+2]=52;
+                ring[p*4+3]=255;
+            }
+            int remove=(int)y-radius;
+            int add=(int)y+radius+1;
+            if(remove>=0 && remove<(int)h)
+                count-=horizontal[(size_t)(unsigned)remove*w+x];
+            if(add>=0 && add<(int)h)
+                count+=horizontal[(size_t)(unsigned)add*w+x];
+        }
+    }
+    free(horizontal);
     SDL_Surface *surface=SDL_CreateRGBSurfaceWithFormatFrom(
         ring,(int)w,(int)h,32,(int)w*4,SDL_PIXELFORMAT_ABGR8888);
     SDL_Texture *focus=NULL;
@@ -150,6 +184,10 @@ int Expanded_TitleOverlay_Initialize(SDL_Renderer *renderer)
     s_continue_career=texture_from_png(renderer,s_continue_career_path,
                                       &s_continue_width,&s_continue_height,
                                       &s_continue_focus,12);
+    for(int i=0;i<2;i++)
+        s_video[i]=texture_from_png(renderer,s_video_paths[i],
+                                   &s_video_width[i],&s_video_height[i],
+                                   &s_video_focus[i],i==0?22:18);
     if(!s_continue_career)
         fprintf(stderr,"[title-ui] CONTINUE CAREER PNG missing; please extract the approved assets ZIP\n");
     fprintf(stderr,"[title-ui] RGB/RGBA title initialized; legacy title background/buttons and F8 disabled\n");
@@ -163,6 +201,12 @@ void Expanded_TitleOverlay_Destroy(void)
     if(s_continue_focus) SDL_DestroyTexture(s_continue_focus);
     s_background=s_logo=s_continue_career=s_continue_focus=NULL;
     s_continue_width=s_continue_height=0;
+    for(int i=0;i<2;i++) {
+        if(s_video[i]) SDL_DestroyTexture(s_video[i]);
+        if(s_video_focus[i]) SDL_DestroyTexture(s_video_focus[i]);
+        s_video[i]=s_video_focus[i]=NULL;
+        s_video_width[i]=s_video_height[i]=0;
+    }
     for(int i=0;i<EXP_TITLE_MAIN_COUNT;i++) {
         if(s_buttons[i]) SDL_DestroyTexture(s_buttons[i]);
         if(s_button_focus[i]) SDL_DestroyTexture(s_button_focus[i]);
@@ -301,6 +345,56 @@ void Expanded_TitleOverlay_Draw(SDL_Renderer *renderer,
                            box.y+box.h/2-16+sink,4,
                            (SDL_Color){250,250,255,255},sx,sy);
                 if(sel==i) focus_frame(renderer,box,sx,sy);
+            }
+        }
+        /* Sixth selectable item, visually separate in the upper-left.
+         * The icon shows the ACTION available, not a stale mode hint.
+         * Query SDL's actual flags each frame: mouse, gamepad and Alt+Enter
+         * all update the symbol without a duplicate state variable. */
+        {
+            const int videoMode=Platform_GetFullscreenMode()!=PLATFORM_FULLSCREEN_NONE;
+            SDL_Texture *icon=s_video[videoMode];
+            SDL_Texture *focus=s_video_focus[videoMode];
+            ExpandedTitleRect box=expanded_title_video_rect;
+            SDL_FRect dest=scale_rect(box,sx,sy);
+            int push=sel==EXP_TITLE_VIDEO_INDEX?title_press_offset(press):0;
+            if(icon && s_video_width[videoMode] && s_video_height[videoMode]) {
+                float sourceRatio=(float)s_video_width[videoMode]/(float)s_video_height[videoMode];
+                float targetRatio=(float)box.w/(float)box.h;
+                if(sourceRatio>targetRatio) {
+                    float fitted=(float)box.w/sourceRatio;
+                    dest.y+=((float)box.h-fitted)*0.5f*sy;
+                    dest.h=fitted*sy;
+                } else {
+                    float fitted=(float)box.h*sourceRatio;
+                    dest.x+=((float)box.w-fitted)*0.5f*sx;
+                    dest.w=fitted*sx;
+                }
+                dest.y+=push*sy;
+                if(sel==EXP_TITLE_VIDEO_INDEX && focus)
+                    SDL_RenderCopyF(renderer,focus,NULL,&dest);
+                SDL_RenderCopyF(renderer,icon,NULL,&dest);
+            } else {
+                /* Still visibly operable if optional sprites were not
+                 * extracted yet; do not fall back to old SWOS title art. */
+                dest.y+=push*sy;
+                SDL_SetRenderDrawColor(renderer,16,61,143,255);
+                SDL_RenderFillRectF(renderer,&dest);
+                if(sel==EXP_TITLE_VIDEO_INDEX) focus_frame(renderer,box,sx,sy);
+                /* Placeholder only when an approved PNG is missing:
+                 * four simple arrows, never an unapproved text label. */
+                SDL_SetRenderDrawColor(renderer,242,250,255,255);
+                for(int yi=-1;yi<=1;yi+=2)
+                    for(int xi=-1;xi<=1;xi+=2) {
+                        float cx=(box.x+box.w/2)*sx;
+                        float cy=(box.y+box.h/2+push)*sy;
+                        int dir=videoMode?-1:1;
+                        float ex=cx+(float)(xi*dir*27)*sx;
+                        float ey=cy+(float)(yi*dir*25)*sy;
+                        SDL_RenderDrawLineF(renderer,cx,cy,ex,ey);
+                        SDL_RenderDrawLineF(renderer,ex,ey,ex-(float)(xi*dir*8)*sx,ey);
+                        SDL_RenderDrawLineF(renderer,ex,ey,ex,ey-(float)(yi*dir*8)*sy);
+                    }
             }
         }
     } else {

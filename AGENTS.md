@@ -303,8 +303,15 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - Una cancellazione dal repository non garantisce la rimozione di copie non tracciate sul PC Windows: sincronizzare GitKraken e, se serve, rimuovere manualmente le copie locali dei soli percorsi archiviati come obsoleti; non usare pulizie generiche su tutto il repository.
 
  
-## Asset base dei pulsanti UI — niente outline baked-in (regola utente, 2026-11-08)
-- I **PNG base dei pulsanti** devono nascere e restare senza contorno giallo di selezione, senza hover/focus incorporato e con alpha trasparente attorno alla sagoma. Il bordo azzurro/decorativo proprio del pulsante è parte della grafica, non è il focus.
-- Il renderer SDL2 produce il **contorno di selezione giallo dinamicamente**, seguendo tutta la silhouette alpha, compreso lo spessore in basso e a destra. Non alterare i PNG approvati per aggiungere il focus; i testi statici approvati fanno parte del PNG.
+## Asset base UI — regola di GENERAZIONE, senza selezione incorporata (2026-11-08)
+- **Quando si genera un nuovo PNG base della UI**, NON includere mai il contorno giallo di selezione, focus o hover nel file grafico: essi sono effetti dinamici del renderer. La regola concerne la **generazione** dei nuovi PNG e non richiede di ridisegnare asset storici approvati.
+- Mantieni alpha trasparente attorno alla sagoma, bordi decorativi blu/azzurri e spessore tridimensionale secondo l'asset approvato. Testi statici sono consentiti; valori, selezione e focus restano separati.
+- Il renderer SDL2 produce il **contorno giallo dinamicamente** dall'alpha della sagoma completa, inclusi smussi e spessore. Non alterare l'arte approvata per generare o animare il focus.
 - Poiché l'asset CONTINUE CAREER ha più pixel sorgenti del pulsante CAREER, dimensionare il focus separato per ottenere un contorno ugualmente spesso a schermo, senza ritoccare lo sprite.
 - Il pulsante approvato **CONTINUE CAREER** è un PNG indipendente da CAREER; quando una carriera è attiva, renderizzare lo sprite `assets/title/buttons/continue_career.png` invece di `career.png`, senza ulteriori scritte sovrapposte dal motore. Se manca l'asset, lasciare il menu funzionante e segnalare l'errore, senza inventare un nuovo pulsante.
+
+## Title 0.10.54 — icona modalità video e nuova build (2026-11-08)
+- Icone approvate **senza testo e senza giallo**: espansione a quattro frecce verso l'esterno, riduzione a quattro frecce verso l'interno. Sono due PNG RGBA indipendenti da generare/ritagliare senza resize, posizionati in alto a sinistra del Title Menu, senza toccare lo sfondo o il logo.
+- **Un solo simbolo alla volta**: in modalità finestra il tasto mostra le frecce esterne (azione fullscreen); in modalità fullscreen mostra frecce interne (azione finestra). La sorgente dello stato è la finestra SDL2 attuale; cambiare l'icona anche dopo Alt+Invio.
+- Selezione con mouse/joypad/tastiera. Nel primo livello: SU da CAREER → icona; GIÙ da EXIT GAME → icona; GIÙ dall'icona → CAREER; SU dall'icona → EXIT GAME. Pressione e focus dinamici identici ai pulsanti, senza ridimensionare sprite durante l'animazione.
+- **Development**: tornando dal fullscreen ripristinare una finestra vera, decorata e massimizzata se era massimizzata prima; **release**: fullscreen desktop reale. Conservare Alt+Invio e gameplay 50 Hz.

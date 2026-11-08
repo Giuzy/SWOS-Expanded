@@ -296,3 +296,8 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [CODICE, WINDOWS DA TESTARE] CAREER diventa CONTINUE CAREER quando è attiva una carriera, con sprite specifico e senza sovrascritta runtime. Mantiene selezione, animazione e callback; rispetta le proporzioni dell'asset (contain).
 - [CODICE, WINDOWS DA TESTARE] Altra riduzione ~10% di tutti e cinque i pulsanti, maggior respiro fra logo e pulsanti (106px) e spazi inferiori più compatti. Focus dinamico giallo da 5 a 6 pixel sorgente nei cinque sprite precedenti (12 pixel nel CONTINUE ad alta risoluzione per uno spessore a schermo uniforme), mai baked-in.
 - [REGOLA] Un asset base UI non comprende la selezione: la sagoma del focus è un layer del renderer. Nessuna alterazione delle immagini statiche dei pulsanti precedentemente approvati.
+
+## 0.10.54 — Title fullscreen/windowed con icone dinamiche (8 novembre 2026)
+- [CODICE, DA TESTARE WINDOWS] Nuovo controllo video in alto a sinistra, due sprite PNG approvati senza testo (mostra solo l'azione possibile), controllo tastiera/joypad/mouse e ritorno dal fullscreen massimizzato nel profilo development.
+- [CODICE, DA TESTARE WINDOWS] I cinque pulsanti principali sono ridotti di circa 10% rispetto a 0.10.53_04 e spostati verso il basso; background/logo/caption approvati invariati. Contorno di focus dinamico separato e generato in modo lineare rispetto ai pixel.
+- [ASSET APPROVATO, ZIP] Entrambe le icone e CONTINUE CAREER in un unico ZIP strutturato da estrarre accanto a `AVVIA_SWOS.bat`; verifica del push GitHub separata.

@@ -100,3 +100,10 @@ Per i pulsanti UI del nuovo frontend conservare file PNG RGBA **privi di outline
 Per la carriera attiva il Title usa uno sprite separato `assets/title/buttons/continue_career.png` con testo già presente nel file, non una scritta sovrapposta via renderer. Lo stato seleziona lo sprite; usare contenimento proporzionale in presenza di rapporti geometrici differenti e condividere le hitbox con CAREER.
 
 Consegna approvata in ZIP con percorso finale, estrazione accanto ad `AVVIA_SWOS.bat`, successivo push GitKraken e verifica GitHub. Non indicare l'asset come remoto finché non è verificato.
+
+## 14. Icona video Title e build 0.10.54
+La regola di assenza di contorno giallo si applica **al momento della generazione di ogni nuovo PNG base della UI**: nessun focus baked-in; non ritoccare retroattivamente gli asset approvati. Il focus dinamico SDL2 è un effetto separato che segue la silhouette alpha.
+
+Il Title usa un sesto punto selezionabile in alto a sinistra, con immagini fullscreen_expand/windowed_collapse a stati mutuamente esclusivi e navigazione ciclica: SU da CAREER o GIÙ da EXIT seleziona il controllo. Premendo il tasto si richiama lo stesso Platform_ToggleFullscreen() usato da Alt+Invio. La finestra development massimizzata resta una finestra decorata anche dopo il ritorno da fullscreen.
+
+Il nuovo codice si trova nel branch `dev/0.10`; due PNG dell'icona e CONTINUE CAREER sono consegnati nel ZIP versione 0.10.54. Verificare questi file dopo il push GitKraken, poi testare su Windows tastiera/joypad/mouse, stato icona in entrambi i versi, Alt+Invio, finestra massimizzata durante menu→partita→menu, release fullscreen desktop e scaling del Title.

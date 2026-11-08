@@ -263,3 +263,11 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - F8 sul Title Menu: confronto immediato PNG/originale; fallback se PNG mancante, malformato o di dimensioni diverse.
 - Build number `SWOS_EXPANDED_VERSION` a `0.10.52`; aggiornate regole PNG/risoluzione e relativa documentazione nel commit di sviluppo.
 - Test: decoder RGB 1664×936 lossless rispetto a Pillow e mock SDL per alpha-mask/F8; **test su Windows/joypad e disponibilità dell'asset nel repository da verificare**, non dichiarati superati.
+
+
+## 0.10.53 — Logo canonico del Title Menu (2026-11-08)
+- Aggiunto il caricamento del logo PNG RGBA separato `assets/title/swos_expanded_logo_approved_2026-11-08.png` (1200×440, senza ®), condivisibile in futuro con altre schermate senza duplicare l'asset.
+- Disegno in posizione C approvata dello sfondo 1664×936: x920 y17 620×227, scala relativa all'output e indipendente dai pulsanti; sfondo precedente e modalità F8 intatti.
+- Fallback: il nuovo background rimane utilizzabile senza il logo; F8 mostra il titolo legacy originale per confronto.
+- Incrementata `SWOS_EXPANDED_VERSION` a `0.10.53`.
+- [TEST LOCALE] Decoder PNG RGBA con confronto pixel-per-pixel contro Pillow e harness C/SDL stub per ordine di rendering e coordinate, F8/mask; [DA TESTARE] compilazione Windows e interazione reale. Disponibilità dei binari PNG su GitHub da verificare separatamente.

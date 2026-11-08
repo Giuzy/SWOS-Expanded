@@ -259,3 +259,11 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [CODICE PREPARATO / TEST WINDOWS DA FARE] `expanded_png.c` (RGB/RGBA 8-bit non interlacciato, miniz già incluso) e `expanded_title_overlay.c`: title PNG 1664×936 con menu legacy ancora sovrapposto, F8 attiva/disattiva il PNG per confrontarlo con l'originale, fallback automatico se asset assente. Non tocca la partita.
 - [TEST LOCALE] Decoder PNG: pixel RGBA identici al file di riferimento; test isolato alpha-mask/f8 riuscito con SDL stub. Non è una compilazione né un test del gioco su Windows.
 - [PENDENTE] Verificare trasferimento binario PNG tramite `asset-transfer/README.md` (blob a blocchi massimo 1 MiB, manifest SHA-256, ricomposizione Action) e test Windows di scaling, pulsanti e uscita. Il logo legacy è incorporato nel RAW e non è ancora un asset HD separato.
+
+
+## [2026-11-08] Title Menu — logo canonico posizione C, build 0.10.53
+- [APPROVATO — SCELTA UTENTE] Logo ispirato al vecchio titolo SWOS, scritte Sensible / WORLD OF / SOCCER / EXPANDED, senza ®. Un unico sprite riutilizzabile, **PNG RGBA trasparente 1200×440**.
+- [APPROVATO] Posizione **C, alto a destra** nell'anteprima realizzata sullo sfondo realmente approvato 1664×936: **x=920, y=17, w=620, h=227**; piccolo abbastanza da non toccare gli spalti. Lo sfondo rimane invariato.
+- [VERIFICATO ASSET LOCALE] PNG 1200×440 RGBA, SHA-256 `a194160cdbc9a4d3315b926b8dbee75df2dea9b7aac1d92433929279639f6b96`; PNG originale generato 2071×759 e ridotto a 1200×440. Non dichiarare risoluzione 1200×440 nativa.
+- [IMPLEMENTATO NEL CODICE — WINDOWS DA PROVARE] `expanded_title_overlay.c` carica il logo una sola volta, lo disegna con alpha in posizione C dopo i vecchi pulsanti e testi, mantiene F8 PNG+logo/originale, lo sfondo PNG e i menu del motore invariati; nessun cambiamento al match engine. Manca l'asset remoto finché il PNG non viene trasferito byte per byte via blob/manifest o ASSETS_INBOX.
+- [TEST LOCALE] Decoder RGBA pixel-perfect, test C isolato con SDL stub per allocazione texture, ordine di disegno, posizione relativa, mask del RAW e F8. **Non equivale a compilazione Windows reale.**

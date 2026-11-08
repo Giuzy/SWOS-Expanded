@@ -255,3 +255,11 @@ Do not describe mockups as implemented or syntax checks as successful Windows ga
 Compiled from recoverable SWOS Expanded project conversations, historical package README and test reports in `PROJECT_HISTORY.md`, `PROJECT_STATE.md` and predecessor notes, available GitHub commit history, and user-reported tests.
 
 Early builds, some intermediate versions and branch-specific changes cannot be reconstructed conclusively. This is a detailed historical reconstruction, not a claim of complete line-by-line verification against every historical source archive.
+
+
+## 0.10.52 — Title Menu PNG 16:9 (2026-11-08)
+- Aggiunto decoder frontend per PNG RGB/RGBA 8 bit lossless con miniz esistente, senza SDL2_image o nuove DLL; BMP/RAW approvati intatti.
+- Aggiunto renderer sfondo Title Menu RGB 1664×936 separato dal vecchio framebuffer, con mascheratura dell'immagine RAW e sovrapposizione dei pulsanti, testo dinamico e focus originali.
+- F8 sul Title Menu: confronto immediato PNG/originale; fallback se PNG mancante, malformato o di dimensioni diverse.
+- Build number `SWOS_EXPANDED_VERSION` a `0.10.52`; aggiornate regole PNG/risoluzione e relativa documentazione nel commit di sviluppo.
+- Test: decoder RGB 1664×936 lossless rispetto a Pillow e mock SDL per alpha-mask/F8; **test su Windows/joypad e disponibilità dell'asset nel repository da verificare**, non dichiarati superati.

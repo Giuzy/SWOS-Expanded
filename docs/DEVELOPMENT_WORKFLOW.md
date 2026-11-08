@@ -67,3 +67,12 @@ Status: approved working rules. Primary integration branch: `dev/0.10`.
 **Vincoli confermati per gli artwork:** costruire ogni nuovo asset UI **da zero** su BMP nativo; usare le versioni precedenti come riferimento visivo, non come base da correggere, salvo richiesta esplicita. UI **senza sfondo incorporato**; sfondo illustrato separato soltanto se richiesto. Le righe UI con font alto 6 px e due linee da 1 px richiedono almeno 10 px totali con margini uguali sopra/sotto. Nella versione pulita mantenere dinamici testi/valori, faccine, stadio, hover e selezione. Conservare i BMP approvati e verificare loader/palette.
 
 Fonte permanente: `AGENTS.md` §4 e §10. Non modificare o sostituire asset esistenti senza richiesta.
+
+
+## 8. Frontend moderno PNG e prova Title Menu (build 0.10.52)
+
+I nuovi sfondi sono PNG lossless nativi; per gli sfondi a schermo intero riferimento 1672×941 di generazione e 1664×936 dopo il solo crop 16:9. Se una delle due dimensioni differisce occorre avvertire l'utente prima dell'integrazione. Le componenti UI PNG sono separate dallo sfondo; il logo canonico sarà un asset condiviso, i testi dinamici restano del renderer.
+
+Il Title Menu in 0.10.52 carica `assets/title/title_background_approved_2026-11-08.png` tramite il decoder PNG in `sorgenti/src/expanded_png.c` (miniz esistente, nessuna nuova DLL), estrae i soli pixel non identici allo sfondo RAW legacy e lascia le reali callback/tasti/focus nello stesso menu 8-bit. **F8** alterna PNG/originale esclusivamente sul Title Menu. In assenza dell'asset, o con PNG non conforme a 1664×936, usa senza crash il vecchio sfondo. Non modificare la partita.
+
+Dopo sincronizzazione GitKraken, eseguire `AVVIA_SWOS.bat` per compilare/avviare come già previsto. Verificare con joypad, tastiera e mouse i pulsanti, il ciclo TITLE→sottomenu→TITLE, F8, build number, windowed maximized e fullscreen desktop, ed eventuali residui del vecchio sfondo. La compilazione/test Windows può essere confermata solo dall'utente. Per il PNG usare il trasferimento a blocchi documentato in `asset-transfer/README.md` con verifica SHA-256 del file ricostruito; non dichiarare asset su GitHub finché l'Action non ha scritto e verificato il binario.

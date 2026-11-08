@@ -20,6 +20,7 @@
 #include "dos_gameplay.h"    /* DosGameplay_TargetFps — 70 (DOS) vs 50 (Amiga) */
 #include "dos_graphics.h"    /* DosGfx_BuildPalette */
 #include "build_info.h"      /* the commit, in the window title */
+#include "expanded_title_overlay.h" /* PNG title below original buttons */
 
 #include <SDL.h>
 #include <stdio.h>
@@ -131,6 +132,16 @@ static Uint32 s_expandedSplashStartMs; /* temporary 5-second screenshot hold */
  * menu hitboxes, framebuffer, save data and match camera are untouched. */
 static volatile int s_menu_art_fullscreen;
 static int s_stretch;
+/* The HD background is only composited on the actual expanded Title Menu.
+ * Never touch other menus or the original match renderer. */
+static int expanded_title_main_active(void)
+{
+    extern volatile uintptr_t _currentMenuPtr;
+    extern uint8_t _swosMainMenu[];
+    return s_stretch && s_menu_art_fullscreen &&
+           _screen_width==336 && _screen_height==272 &&
+           _currentMenuPtr==(uintptr_t)_swosMainMenu;
+}
 void Platform_SetMenuArtFullscreen(int enabled)
 {
     s_menu_art_fullscreen = enabled != 0;
@@ -1376,6 +1387,8 @@ int Platform_Init(const PlatformInitOptions *opts)
     s_stretch = opts && opts->widescreen == 2;
     apply_picture_scaling();
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
+    /* Optional HD Title image. On missing/invalid PNG the original remains. */
+    (void)Expanded_TitleOverlay_Initialize(s_renderer);
     SDL_EventState(SDL_MOUSEMOTION, SDL_DISABLE);
 
     s_tex_idx = 0;
@@ -1481,6 +1494,7 @@ void Platform_Shutdown(void)
     if (s_isr_mtx)    { SDL_DestroyMutex(s_isr_mtx);    s_isr_mtx    = NULL; }
     InputSDL_Shutdown();
     AudioSDL_Shutdown();
+    Expanded_TitleOverlay_Destroy();
 
     for (int ti = 0; ti < PLATFORM_TEX_RING; ti++)
         if (s_textures[ti]) { SDL_DestroyTexture(s_textures[ti]); s_textures[ti] = NULL; }
@@ -1779,6 +1793,12 @@ static void chunky_to_rgba(uint32_t *dst, int dst_pitch_pixels)
                      ((uint32_t)c.b  <<  0);
         }
     }
+    /* Strip only the baked-in 320x256 old title pixels. Modern PNG sits
+     * underneath; native SWOS buttons, live text, and focus remain on top. */
+    if (expanded_title_main_active() && Expanded_TitleOverlay_Enabled())
+        Expanded_TitleOverlay_Mask(dst,dst_pitch_pixels,fb,
+                                   FRONTBUFFER_ROW_STRIDE_BYTES,
+                                   _screen_width,_screen_height);
 }
 
 /* Optional debug dump: every N frames write the converted chunky
@@ -1954,6 +1974,13 @@ static void pump_events_any_thread(void)
             }
             break;
         case SDL_KEYDOWN:
+            /* Visual A/B comparison on Title Menu only; never forwards F8
+             * into the game, and keeps all original menu hitboxes/callbacks. */
+            if (ev.key.repeat==0 && ev.key.keysym.sym==SDLK_F8 &&
+                expanded_title_main_active() && Expanded_TitleOverlay_Ready()) {
+                Expanded_TitleOverlay_Toggle();
+                continue;
+            }
             /* ESC at the top-level main menu quits the game; everywhere
              * else it stays passed through to the menu/game-loop layer
              * (in-game pause/end-match menu, sub-menus' EXIT, etc.). */
@@ -2169,6 +2196,10 @@ static void draw_world_and_hud(SDL_Texture *tex, int n, float qx, float qy)
     if (s_stretch && s_menu_art_fullscreen && _screen_width == 336 &&
         _screen_height == 272) {
         const SDL_Rect menuSrc = { 0, 0, 320, 256 };
+        if (expanded_title_main_active() && Expanded_TitleOverlay_Enabled()) {
+            Expanded_TitleOverlay_Draw(s_renderer,tex,&menuSrc,n,w,h);
+            return;
+        }
         if (n == 1)
             SDL_RenderCopy(s_renderer, tex, &menuSrc, NULL);
         else {

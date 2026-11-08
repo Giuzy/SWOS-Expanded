@@ -250,3 +250,12 @@ Algoritmo POTENTIAL; invecchiamento; frequenza e impatto del TRAINING; scouting 
 ## 16. Aggiornamento e continuità
 
 Aggiornare il documento quando una decisione è confermata, implementata, verificata o superata. Non cancellare la storia: distinguere decisioni attuali, ipotesi e soluzioni storiche. Per ogni feature implementata, registrare **versione, modulo, test e commit** quando disponibili. `AGENTS.md` rimane la fonte delle regole operative, `IMPROVEMENTS.md` il registro delle modifiche realizzate.
+
+
+## [2026-11-08] Frontend Title HD — build 0.10.52
+- [APPROVATO] Soluzione B: SDL2 RGB/RGBA frontend moderno separato dal motore partita, che resta invariato. Sfondi PNG senza UI/logo, logo canonico separato; sprite e pannelli UI PNG distinti, testi e valori dinamici del motore.
+- [APPROVATO] Standard generazione sfondi: 1672×941 nativi; crop senza resize a 1664×936 (16:9). Avvisare esplicitamente se una o entrambe le risoluzioni differiscono. Frontend logico 1920×1080, uscita di riferimento 3840×2160, futura opzione risoluzione non implementata.
+- [ASSET APPROVATO] Prima immagine senza tabellone (allenatore con giocatori blu, bandiere tra il pubblico, uccelli e porta). Originale 1670×941, crop 1664×936 PNG lossless, SHA-256 locale 34ab54c7548f546ee2cc531be54a5ad366ec4bf35dba4fab2e2010c1e6c4d9b5; non confondere con ulteriori varianti.
+- [CODICE PREPARATO / TEST WINDOWS DA FARE] `expanded_png.c` (RGB/RGBA 8-bit non interlacciato, miniz già incluso) e `expanded_title_overlay.c`: title PNG 1664×936 con menu legacy ancora sovrapposto, F8 attiva/disattiva il PNG per confrontarlo con l'originale, fallback automatico se asset assente. Non tocca la partita.
+- [TEST LOCALE] Decoder PNG: pixel RGBA identici al file di riferimento; test isolato alpha-mask/f8 riuscito con SDL stub. Non è una compilazione né un test del gioco su Windows.
+- [PENDENTE] Verificare trasferimento binario PNG tramite `asset-transfer/README.md` (blob a blocchi massimo 1 MiB, manifest SHA-256, ricomposizione Action) e test Windows di scaling, pulsanti e uscita. Il logo legacy è incorporato nel RAW e non è ancora un asset HD separato.

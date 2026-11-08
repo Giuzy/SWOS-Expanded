@@ -43,25 +43,33 @@ Principi fondamentali:
 - **Nuovi asset grafici: seguire la pixel art illustrata degli sfondi di SWOS Expanded**, con ricchezza di dettagli, palette, ombreggiature e finiture coerenti con questi sfondi. I menu originali OG di SWOS **non sono un modello estetico da seguire** per progettare nuovi asset o schermate. Conservare le schermate già approvate salvo richiesta di modificarle.
 - **Motivo:** vogliamo un’identità visiva Expanded uniforme e più curata; copiare i menu OG produrrebbe stili disomogenei e limiterebbe il nuovo design.
 - Preferire il font originale SWOS per testi renderizzati dal gioco quando compatibile con la nuova UI.
-- **Ogni NUOVO artwork va disegnato da zero su una nuova superficie BMP**; non partire modificando un asset esistente, salvo richiesta esplicita. Gli asset precedenti possono servire come riferimento visivo, ma vanno conservati intatti.
+- **Ogni nuovo artwork del frontend moderno va creato come PNG lossless nativo**, su una nuova superficie, non come BMP obbligatorio; gli asset storici BMP/RAW approvati non vanno convertiti o sostituiti senza richiesta. Gli asset precedenti restano riferimenti e si conservano intatti.
 - **Ogni asset UI deve nascere senza sfondo incorporato**: l'esterno ai pannelli e ai disegni deve rimanere trasparente; uno sfondo illustrato, se richiesto, è un file separato. Non imporre una barra o una cornice generale se non richiesta.
-- Nel BMP pulito gli elementi **dinamici** restano al renderer: testi e cifre, stadio variabile, faccine di BOARD/FANS e FORM/MORALE, focus, hover e selezione. Le icone di strutture statiche possono restare nel BMP se approvate.
+- Nel PNG UI pulito gli elementi **dinamici** restano al renderer: testi e cifre, stadio variabile, faccine di BOARD/FANS e FORM/MORALE, focus, hover e selezione. Le icone di strutture statiche possono restare nell'asset solo se approvate.
 - Nelle tabelle UI, con font alto **6 px**, rispettare almeno **1 px libero identico sopra e sotto** fra testo e bordi orizzontali (minimo 10 px inclusi due bordi da 1 px). Con font 8 px il minimo equivalente è 12 px.
 
 - Non riprogettare schermate approvate senza richiesta.
 - Evitare pannelli, cornici, ombre e decorazioni superflue.
 - Mantenere testi, numeri e pulsanti leggibili e correttamente allineati.
 
-### Procedura obbligatoria per progettare nuove UI grafiche (prima del BMP senza testi)
+### Procedura obbligatoria per progettare nuove UI grafiche (prima dell'asset PNG pulito)
 
 1. **Analizzare il codice del menu realmente in uso**, recuperando funzioni di rendering dei caratteri, font effettivamente disponibili nel gioco, dimensioni native, scale, spaziature, allineamenti e coordinate di testi e valori. Non usare font o misure soltanto indicative senza dichiararlo.
 2. **Calcolare gli ingombri reali** di tutte le etichette, dei nomi lunghi e degli importi con il numero massimo ragionevole di cifre (incluse unità, segni e separatori). Predisporre i pannelli in modo che testo e numeri renderizzati dal gioco siano leggibili, allineati e non si sovrappongano; se si cambia il layout rispetto al codice attuale, pianificare espressamente anche le nuove coordinate del renderer.
 3. **Disegnare i pannelli in base a questi ingombri**, conservando lo stile illustrato pixel art degli sfondi di SWOS Expanded, NON quello dei menu OG. Separare l'eventuale illustrazione di sfondo e gli elementi dinamici dai pannelli.
-4. **Primo asset grafico da creare: un BMP nativo con etichette, numeri e altri dati dimostrativi**, collocati nelle posizioni e con le dimensioni/font effettivamente riproducibili dal codice del gioco. Questo BMP serve come proposta da verificare e approvare PRIMA della versione pulita; non partire direttamente dalla UI senza testo.
-5. **Soltanto dopo l'approvazione della proposta con dati**, creare una seconda versione BMP priva dei testi e valori che verranno disegnati dinamicamente dal programma, mantenendo identici posizione e dimensioni dei pannelli. Il file finale non deve duplicare le scritte del renderer; non rimuovere automaticamente le etichette che l'utente desidera statiche.
+4. **Prima proposta: PNG lossless dimostrativo**, con testi, numeri e valori nelle posizioni e con i font effettivamente riproducibili dal gioco; mostrarlo per approvazione prima della versione pulita.
+5. **Dopo l'approvazione della proposta con dati**, creare il PNG UI pulito privo di testi e valori dinamici e con trasparenza reale, conservando layout e scritte statiche approvate. Gli sprite UI restano indipendenti dallo sfondo e il motore disegna dati e testi dinamici.
 6. Verificare la versione pulita e le coordinate di rendering insieme, senza alterare asset già approvati o integrarli senza la relativa richiesta.
 
-**Motivo della procedura:** evitare anteprime belle ma irrealizzabili nel gioco, font non disponibili, importi tagliati e continue correzioni di allineamento. Approvare prima il BMP con dati dimostrativi consente di valutare l'intero layout; creare poi il BMP pulito permette al gioco di inserire dati reali senza duplicazioni. Entrambi i BMP devono essere creati direttamente come BMP, non tramite conversione finale da PNG.
+**Motivo della procedura:** evitare anteprime grafiche non riproducibili nel gioco, font inesistenti o importi troncati. Una proposta con dati reali permette di validare coordinate e ingombri prima dell'asset UI pulito. Il nuovo frontend usa PNG lossless; i BMP/RAW storici approvati restano invariati.
+
+### Standard di generazione e risoluzione del frontend moderno (2026-11-08)
+- **Risoluzione nativa di generazione di riferimento per sfondi full-screen: 1672×941 px.** Fare soltanto un ritaglio per ottenere **1664×936 px, 16:9 esatto**, senza ridimensionamento salvo richiesta esplicita. Salvare PNG lossless, conservando l'originale di generazione distinto dal file del gioco.
+- **Avviso obbligatorio:** se la risoluzione effettiva prima del crop non è 1672×941, oppure dopo il crop non è 1664×936, comunicare entrambe le dimensioni e la differenza **prima** dell'approvazione o integrazione. Non chiamare "nativa 1920×1080" un'immagine ingrandita.
+- **Frontend logico: 1920×1080; output video di riferimento: 3840×2160.** L'opzione video per scegliere 1080p, 1440p, 4K o desktop è programmata, non implementata. Sprite UI, pulsanti e logo PNG hanno dimensioni indipendenti ma scala coerente.
+- Ogni schermata usa **sfondo PNG separato**, **logo SWOS Expanded PNG trasparente canonico condiviso** e **sprite PNG UI separati**. Testi, importi e valori dinamici rimangono nel renderer; input e callback SWOS rimangono funzionanti. I vecchi menu approvati non si modificano senza richiesta.
+- **Soluzione B:** modernizzare progressivamente il frontend SDL2 in RGB/RGBA; preservare logica della partita OpenSWOS, controlli e salvataggi. Solo dopo test il nuovo asset può sostituire l'attuale sfondo di gioco.
+- I **nuovi BMP non sono più obbligatori**. Resta obbligatorio preservare ogni BMP/RAW o PNG storico approvato finché non ne venga richiesta la sostituzione.
 
 ### Sfondi
 
@@ -71,7 +79,7 @@ Le schermate storiche con sfondi già approvati mantengono il proprio design.
 
 Quando viene richiesto uno sfondo illustrato:
 - Crearlo come asset separato dagli elementi interattivi.
-- Non incorporare pulsanti, valori dinamici o barre di caricamento **nell'asset definitivo destinato al gioco**; la **prima versione BMP di approvazione** deve invece mostrarli come dati dimostrativi nelle posizioni previste dal renderer, secondo la procedura obbligatoria sopra.
+- Non incorporare pulsanti, valori dinamici o barre di caricamento negli sfondi PNG definitivi; se richiesti, i dimostrativi della UI sono PNG separati. Il renderer gestisce gli elementi dinamici.
 - Creare la UI separatamente senza sfondo per consentire il riposizionamento indipendente degli elementi UI.
 
 ### Schermate approvate
@@ -168,13 +176,13 @@ Prima di ogni intervento, verificare il ramo di sviluppo corrente nel repository
 
 GitHub è l'archivio di riferimento per gli asset del progetto.
 
-### Formato obbligatorio fin dall'inizio: BMP
+### Formato dei nuovi asset di frontend: PNG lossless
 
-- **Tutti i nuovi asset grafici di SWOS Expanded devono essere creati in BMP fin dall'inizio del nostro flusso di lavoro e non devono essere convertiti in BMP alla fine.**
-- Il BMP è il file di produzione da creare, verificare, approvare e caricare su GitHub. Non trattare PNG o altri formati come asset finali approvati da convertire solo al momento dell'implementazione.
+- **La regola BMP nativo obbligatorio è annullata per i nuovi asset grafici.** Il nuovo frontend usa PNG lossless RGB per sfondi e PNG RGBA con trasparenza per loghi, pulsanti, pannelli e sprite. I BMP/RAW storici e approvati non vengono convertiti automaticamente.
+- Il PNG è il nuovo asset di produzione per il frontend moderno; verificare formato, risoluzione reale, crop, alpha e supporto del loader prima dell'approvazione/inserimento in gioco.
 - Prima dell'archiviazione verificare risoluzione, profondità colore, compatibilità con il loader del gioco e conservazione dei dettagli pixel art; seguire le dimensioni native e non cambiare le coordinate dei testi/valori dinamici senza richiesta.
 - **Perché:** evitare conversioni tardive, caricamenti duplicati, disallineamenti, confusione tra versioni e lavoro ripetuto durante l'integrazione.
-- Applicare sempre la procedura in §4: **prima il BMP con font, testi e numeri dimostrativi correttamente misurati nel codice**, poi, soltanto a layout approvato, **il BMP senza gli elementi dinamici**. Conservare distinti i file di anteprima e quelli di produzione.
+- Applicare la procedura §4 per nuovi asset UI: proposta PNG con dati reali, approvazione, poi PNG pulito con i soli elementi statici. Conservare separati bozze, sfondi, sprite UI e file di produzione.
 - I vecchi file PNG già presenti o i nomi storici esplicitamente richiesti restano invariati finché non venga approvata una migrazione; non rompere riferimenti esistenti soltanto per normalizzare le estensioni.
 
 

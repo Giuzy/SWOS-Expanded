@@ -2758,12 +2758,11 @@ shots_done:
     draw_approved_match_stats();
     draw_exit_confirmation();
     capture_presented_frame();     /* after every draw, before the swap */
-    SDL_RenderPresent(s_renderer);
 #ifndef SWOS_WASM_BUILD
-    /* The first valid SDL frame can still be a black SWOS bootstrap frame.
-     * Keep the window hidden until the approved Expanded loading image has
-     * actually been composed. A missing splash or direct arrival at the Title
-     * remains visible instead of trapping the user behind a hidden window. */
+    /* SDL_ShowWindow on Windows may invalidate the backbuffer last presented
+     * while the window was hidden. Compose the approved splash first, then
+     * reveal the window IMMEDIATELY BEFORE presenting that same frame.
+     * Black bootstrap frames remain hidden. Keep the original fallbacks. */
     if (!s_startup_window_shown && s_window &&
         ((s_expandedSplashActive && s_expandedSplashBg) ||
          s_startup_splash_unavailable || expanded_title_main_active())) {
@@ -2771,6 +2770,7 @@ shots_done:
         s_startup_window_shown = 1;
     }
 #endif
+    SDL_RenderPresent(s_renderer);
 
     SDL_UnlockMutex(s_render_mtx);
 }

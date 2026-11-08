@@ -349,3 +349,9 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [FALLBACK] Se il BMP dello splash manca o la texture non può essere creata, `Platform_ExpandedSplashSet` mostra il primo frame legacy anziché lasciare la finestra invisibile. È ammessa anche la comparsa diretta al Title nelle modalità che saltano lo splash.
 - [NON MODIFICATI] Asset e layout del loading, Title PNG, renderer partita/50 Hz, input e salvataggi. `release/0.20` non modificata.
 - [TEST WINDOWS] Avvio con splash visibile subito, niente flash nero/bianco, avanzamento progressivo, finestra development massimizzata e icona fullscreen/Alt+Invio. Verificare anche il fallback con asset caricamento mancante in un ambiente di test, senza cancellare l'asset approvato.
+
+
+## [2026-11-08] 0.10.54_05 — presentazione del primo frame di caricamento
+- [CODICE] `platform_sdl.c`: la finestra rimane nascosta durante i frame neri iniziali, ma `SDL_ShowWindow` si esegue **prima** di `SDL_RenderPresent` del primo frame già composto con lo splash Expanded. Questo evita di rendere visibile la finestra dopo una presentazione effettuata da nascosta, che può causare un breve nero sul backend Windows.
+- [FALLBACK PRESERVATO] Se lo splash non è disponibile o viene saltato direttamente verso il Title, la finestra diventa comunque visibile; la modifica non cambia asset, progressi, gameplay, salvataggi, né `release/0.20`.
+- [TEST WINDOWS DA ESEGUIRE] Avvio da BAT, durata del passaggio nero, rendering dello splash e avanzamento percentuale, fullscreen/Alt+Invio e ritorno finestra massimizzata. Nessun test Windows rivendicato.

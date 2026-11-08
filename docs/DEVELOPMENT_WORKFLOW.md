@@ -125,3 +125,7 @@ Il renderer desktop crea la finestra con `SDL_WINDOW_HIDDEN` e chiama `SDL_ShowW
 
 ## 18. Visibilità iniziale dello splash — 0.10.54_04
 La prima chiamata a `SDL_RenderPresent` può precedere `Platform_ExpandedSplashSet(0)`, creando un fotogramma nero anche con la finestra inizialmente nascosta. Mostrare la finestra solo dopo aver composto e presentato il primo frame dello splash Expanded; se l'asset è indisponibile mostrare un fallback, e consentire l'apertura diretta del Title. Non modificare i layer approvati né inventare percentuali di caricamento. Controllare realmente su Windows il percorso normale e il percorso senza splash.
+
+
+## 19. Primo present dello splash (0.10.54_05)
+Per il frontend desktop, `SDL_ShowWindow` viene chiamato subito **prima** del primo `SDL_RenderPresent` contenente lo splash Expanded: i frame di bootstrap privi di splash restano nascosti. Si preservano i percorsi fallback, la versione WASM e la finestra massimizzata development. Il risultato contro il breve flash nero resta da verificare su Windows.

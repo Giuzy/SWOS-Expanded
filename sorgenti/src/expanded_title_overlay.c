@@ -1,4 +1,4 @@
-/* SWOS Expanded — modern SDL2 Title Menu (0.10.54_01).
+/* SWOS Expanded — modern SDL2 Title Menu (release 0.20.00).
  * No conversion to the 320x256 SWOS pixel framebuffer and no baked-in
  * old menu art. All five user-selected buttons are independent RGBA sprites.
  * The original SWOS callbacks are preserved in menus.c, but their old
@@ -50,7 +50,7 @@ static SDL_Texture *s_video[2],*s_video_focus[2];
 static unsigned s_continue_width,s_continue_height;
 static unsigned s_video_width[2],s_video_height[2];
 static unsigned s_button_widths[EXP_TITLE_MAIN_COUNT],s_button_heights[EXP_TITLE_MAIN_COUNT];
-enum { LOGO_W=1200, LOGO_H=440, LOGO_X=920, LOGO_Y=17, LOGO_DST_W=620, LOGO_DST_H=227 };
+enum { LOGO_W=2048, LOGO_H=750, LOGO_X=920, LOGO_Y=17, LOGO_DST_W=620, LOGO_DST_H=227 };
 
 /* Generate a crisp focus ring around the actual alpha contour of the source
  * PNG, rather than SDL_RenderDrawRectF around its rectangular hitbox. The
@@ -172,10 +172,9 @@ int Expanded_TitleOverlay_Initialize(SDL_Renderer *renderer)
     }
     w=h=0;
     image=texture_from_png(renderer,s_logo_path,&w,&h,NULL,0);
-    /* Accept the original approved 1200x440 logo and the corrected
-     * 2048x750 source PNG. Both render in the approved 620x227 box. */
-    if(image && ((w==LOGO_W && h==LOGO_H) ||
-                 (w==2048 && h==750))) s_logo=image;
+    /* Only the user-approved 2048x750 logo is valid in release.
+     * Never silently restore the superseded 1200x440 letter-D variant. */
+    if(image && w==LOGO_W && h==LOGO_H) s_logo=image;
     else {
         if(image) SDL_DestroyTexture(image);
         fprintf(stderr,"[title-ui] logo not available (%ux%u), keeping title usable\n",w,h);

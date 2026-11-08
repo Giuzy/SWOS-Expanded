@@ -1,7 +1,7 @@
 @echo off
 setlocal EnableExtensions
 cd /d "%~dp0"
-title SWOS Expanded 0.10.40 - Preparazione
+title SWOS Expanded 0.20.00 - Preparazione
 
 REM Un eseguibile 0.10 precedente non e considerato valido.
 REM Forza sempre la compilazione dei sorgenti aggiornati.
@@ -46,14 +46,14 @@ set "SWOS_GAME_WIN=%~dp0"
 "%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash -s" < "%~dp0BUILD_SWOS.sh"
 if errorlevel 1 (
   echo.
-  echo COMPILAZIONE FALLITA: invia COMPILAZIONE_0140.log.
+  echo COMPILAZIONE FALLITA: invia COMPILAZIONE_0200.log.
   exit /b 1
 )
 if not exist "SWOS_Expanded.exe" (
   echo ERRORE: compilazione terminata senza SWOS_Expanded.exe.
   exit /b 1
 )
-> ".SWOS_0140_COMPILATO" echo SWOS Expanded 0.10.40 - compilazione completata
+> ".SWOS_0200_COMPILATO" echo SWOS Expanded 0.20.00 - compilazione completata
 exit /b 0
 
 :cerca_msys

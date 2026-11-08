@@ -21,20 +21,19 @@ if not exist "data\TEAM.008" (
   goto :errore
 )
 
-if exist "CONFIGURA_4K.ps1" powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0CONFIGURA_4K.ps1"
+if exist "CONFIGURA_4K.ps1" powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0CONFIGURA_4K.ps1" -Release
 set "SWOS_SKIP_INTRO=1"
 set "SWOS_DATA_JSON=0"
 set "SWOS_MENU_JSON=0"
 set "SWOS_TACTICS_JSON=0"
-set "SWOS_MENU_NAV_LOG=1"
-REM In sviluppo usa una vera finestra massimizzata, con barra titolo e taskbar.
-REM In release NON impostare SWOS_EXPANDED_DEV_MAXIMIZED e avvia fullscreen.
-set "SWOS_EXPANDED_DEV_MAXIMIZED=1"
+set "SWOS_MENU_NAV_LOG=0"
+REM Release: fullscreen desktop reale. Nessuna finestra development massimizzata.
+set "SWOS_EXPANDED_DEV_MAXIMIZED="
 echo.
 echo === SWOS Expanded - avvio locale ===
 REM Avvio indipendente: il gioco continua mentre questa finestra CMD si chiude.
 REM Non usare /B: terrebbe il processo collegato alla console di compilazione.
-start "" /D "%~dp0" "%~dp0SWOS_Expanded.exe" --fullscreen=off
+start "" /D "%~dp0" "%~dp0SWOS_Expanded.exe" --fullscreen=desktop
 if errorlevel 1 goto :errore_avvio
 exit /b 0
 

@@ -328,3 +328,16 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [POSIZIONE INVARIATA] `expanded_title_overlay.c` continua a caricare lo **stesso nome** e a disegnare il logo x=920 y=17, 620×227 sul canvas 1664×936. Sfondo e pulsanti non modificati, build visualizzata non incrementata perché commit solo asset/documentazione.
 - [CONSEGNA PC] Il PNG preciso approvato in chat è disponibile anche nello ZIP `SWOS_Expanded_Logo_WORLD_corretto_0.10.54_01.zip`, col percorso identico per sovrascrittura. Per eliminare la vecchia copia dal PC usare GitKraken pull o sostituire con ZIP; l'assistente non accede direttamente al disco Windows dell'utente. Non mantenere duplicati/backup dell'asset precedente.
 - [TEST] Formato e geometria verificati; render/test Windows tramite `AVVIA_SWOS.bat` ancora a carico dell'utente.
+
+
+## Release 0.20.00 — Title Menu quasi finale (8 novembre 2026)
+
+[ASSET APPROVATO E PUSH VERIFICATO] Il file canonico del logo è `assets/title/swos_expanded_logo_approved_2026-11-08.png` PNG RGBA **2048×750**, SHA-256 `8fd34795962704cee3e3242a264d82eeffa4221ab31b1c583bd6df174a9352c6` (Git blob `1326eb21f87e760ef8eac747515b238ffff4b105`). È la versione **caricata dall'utente e testata funzionante**. Il precedente PNG 1200×440 è superato e non è ammesso dal loader di questa release. Posizione x=920, y=17, dimensione visiva 620×227 nel canvas 1664×936; sfondo e altri PNG invariati.
+
+[ASSET SU GITHUB VERIFICATI] Con il push `dev/0.10` `3e18786`, gli sprite necessari `continue_career.png`, `fullscreen_expand.png`, `windowed_collapse.png` sono stati pubblicati nei rispettivi percorsi. Il ramo `release/0.20` è stato aggiornato a partire da quel commit. Tutti e cinque gli altri bottoni e lo sfondo restano invariati.
+
+[CODICE RELEASE] `SWOS_EXPANDED_VERSION=0.20.00`; profilo launcher `CONFIGURA_4K.ps1 -Release`, fullscreen desktop vero (`--fullscreen=desktop`), variabile `SWOS_EXPANDED_DEV_MAXIMIZED` disattivata, navigazione debug disattivata. `COMPILA_SWOS.bat`, `PREPARA_SWOS.bat`, `BUILD_SWOS.sh` aggiornati. Prima della compilazione `BUILD_SWOS.sh` verifica la presenza di tutti i 10 PNG Title e SHA-256 esatto del logo; così eventuali vecchie copie locali vengono rifiutate. `dev/0.10` mantiene le impostazioni development. Non modificare gameplay, controlli, salvataggi e UI preesistenti.
+
+[PULIZIA CONTROLLATA] La directory `assets/title/` contiene una sola copia canonica del logo; il vecchio contenuto è stato sostituito dal push e rimane soltanto nella cronologia Git, non nell'albero corrente. Non rimuovere `data/expanded/expanded_title_bg.raw`, perché ancora caricato da `expanded_economy.c` e richiesto da `BUILD_SWOS.sh`. Non eliminare anteprime e risorse storiche senza prova che non siano utilizzate da codice, script o documentazione.
+
+[DA TESTARE SU WINDOWS] Compilazione MinGW64, eseguibile `SWOS_Expanded.exe`, avvio fullscreen desktop, Alt+Invio, Title PNG/logo, CONTINUE, CLASSIC MODES e competizioni, navigazione completa e ritorno alla partita e ai menu. La presenza di codice e asset su GitHub non equivale a una release Windows collaudata.

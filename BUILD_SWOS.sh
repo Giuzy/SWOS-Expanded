@@ -30,13 +30,37 @@ for art in assets/business/business_ui_approved_2026-11-07.bmp assets/ui/control
     exit 1
   fi
 done
+# Full release Title must have all approved PNGs; do not silently use
+# missing-sprite placeholders or the previously incorrect letter-D logo.
+for art in \
+  assets/title/title_background_approved_2026-11-08.png \
+  assets/title/swos_expanded_logo_approved_2026-11-08.png \
+  assets/title/buttons/career.png \
+  assets/title/buttons/hall_of_fame.png \
+  assets/title/buttons/classic_modes.png \
+  assets/title/buttons/options.png \
+  assets/title/buttons/exit_game.png \
+  assets/title/buttons/continue_career.png \
+  assets/title/buttons/fullscreen_expand.png \
+  assets/title/buttons/windowed_collapse.png; do
+  if [[ ! -s "$game/$art" ]]; then
+    echo "ERRORE RELEASE: asset Title mancante: $art"
+    exit 1
+  fi
+done
+logo_hash="$(sha256sum "$game/assets/title/swos_expanded_logo_approved_2026-11-08.png" | cut -d' ' -f1)"
+if [[ "$logo_hash" != "8fd34795962704cee3e3242a264d82eeffa4221ab31b1c583bd6df174a9352c6" ]]; then
+  echo 'ERRORE RELEASE: il logo non e il PNG corretto approvato.'
+  echo 'Sincronizza assets/title/ via GitKraken prima di compilare.'
+  exit 1
+fi
 if [[ ! -s "$game/data/expanded/expanded_loading_bg.bmp" ]]; then
   echo "ERRORE: manca data/expanded/expanded_loading_bg.bmp"
   exit 1
 fi
-exec > >(tee "$game/COMPILAZIONE_0140.log") 2>&1
+exec > >(tee "$game/COMPILAZIONE_0200.log") 2>&1
 
-echo '==== SWOS Expanded 0.10.40 - compilazione Windows x64 ===='
+echo '==== SWOS Expanded 0.20.00 - compilazione Windows x64 ===='
 echo "Sorgenti: $src"
 echo "Gioco:    $game"
 echo 'Verifica delle dipendenze MSYS2...'
@@ -57,7 +81,7 @@ gcc -std=gnu11 -fsyntax-only -DSWOS_SDL_BUILD=1 -D_FILE_OFFSET_BITS=64 -include 
   -Isrc -Iinclude $(pkg-config --cflags sdl2) \
   src/menu_data.c src/menu_system.c src/menus.c src/expanded_career.c \
   src/expanded_economy.c src/platform_sdl.c src/game_loop.c src/career_init.c src/career_status.c src/career_teams.c src/transfer_market.c src/chairman_memo.c src/save_format_json.c src/input_text.c src/blitter.c src/build_info.c
-echo 'Compilo il gioco 0.10.40...'
+echo 'Compilo il gioco 0.20.00...'
 make -j4 NETPLAY=0
 if [[ ! -s bin/SWOS.exe ]]; then
   echo 'ERRORE: il compilatore non ha prodotto bin/SWOS.exe.'

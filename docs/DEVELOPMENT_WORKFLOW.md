@@ -117,3 +117,7 @@ Per il Title 0.10.54_01: icona video (34,34,92×88); CAREER (1048,426,365×151),
 ## 16. Ripristino finestra dalla modalità fullscreen — 0.10.54_02
 Nel ramo development `AVVIA_SWOS.bat` imposta `SWOS_EXPANDED_DEV_MAXIMIZED=1`: `Platform_Init` forza l'avvio in finestra SDL2 decorata anche se un profilo precedente ha memorizzato fullscreen in `SWOS.ini`. Il flag non va impostato nei launcher release.
 All'uscita dal fullscreen, una sessione inizialmente fullscreen usa per impostazione di ritorno la finestra decorata massimizzata, invece della vecchia geometria piccola `_screen_width × s_win_scale_current`. Se la sessione proveniva da una finestra normale non massimizzata, conserva le regole di ripristino della dimensione utente. Verificare su Windows icona Title, Alt+Invio, taskbar/titolo e menu→partita→menu.
+
+
+## 17. Primo frame SDL desktop — 0.10.54_03
+Il renderer desktop crea la finestra con `SDL_WINDOW_HIDDEN` e chiama `SDL_ShowWindow` una volta dopo il primo `SDL_RenderPresent` completo; nessun cambiamento al canvas WASM. Scopo: non mostrare il client bianco non inizializzato prima dello splash. Testare su Windows la visibilità dello splash, la massimizzazione vera e le transizioni menu/partita e fullscreen; l'esito non è garantito finché non è verificato su Windows.

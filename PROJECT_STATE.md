@@ -335,3 +335,10 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [CORREZIONE CODICE / WINDOWS DA TESTARE] Una sessione avviata direttamente fullscreen ora ricorda un ritorno alla finestra decorata massimizzata; prima non aveva uno stato finestra precedente e riduceva la finestra al fattore di scala SWOS. I passaggi fullscreen↔finestra con icona Title e Alt+Invio mantengono la massimizzazione in sviluppo.
 - [NON MODIFICATI] Immagini/asset, coordinate UI, motore partita 50Hz, gameplay e salvataggi. Il ramo `release/0.20` non riceve questa modifica di sviluppo automaticamente.
 - [TEST WINDOWS RICHIESTI] `AVVIA_SWOS.bat` da `dev/0.10` deve avviare finestra massimizzata con titolo/taskbar; icona Title e Alt+Invio devono alternare fullscreen desktop e finestra massimizzata senza finestre minuscole; test menu→partita→menu. Avvio EXE isolato senza variabile resta governato da impostazioni video.
+
+
+## [2026-11-08] 0.10.54_03 — elimina flash bianco prima del loading (Windows da verificare)
+- [MODIFICA CODICE] In `platform_sdl.c` SDL crea la finestra desktop nascosta; dopo il primo `SDL_RenderPresent` completo viene mostrata una sola volta. Per WASM resta il comportamento precedente, con canvas visibile.
+- [MOTIVO] Evitare che il sistema operativo esponga la superficie SDL non ancora disegnata tra creazione finestra, massimizzazione e caricamento grafico.
+- [NON MODIFICATI] Splash e progressi di caricamento, asset, Title, posizione finestra, gameplay, controlli e salvataggi; release/0.20 non modificata.
+- [TEST DA FARE SU WINDOWS] Avvio senza frame bianco, finestra decorata già massimizzata e ciclo fullscreen tramite icona/Alt+Invio, menu→partita→menu, splash visibile e aggiornato. Nessun test Windows eseguito qui.

@@ -117,6 +117,10 @@ extern uint16_t _quitToDos;
 /* ---- SDL state ----------------------------------------------------- */
 static SDL_Window   *s_window;
 static SDL_Renderer *s_renderer;
+#ifndef SWOS_WASM_BUILD
+/* Keep the native window hidden until its first complete frame is submitted. */
+static int s_startup_window_shown;
+#endif
 /* Expanded startup: complete stadium background + independent progress UI.
  * The background remains intact if the bar coordinates change. */
 static SDL_Texture *s_expandedSplashBg;
@@ -1077,9 +1081,12 @@ int Platform_Init(const PlatformInitOptions *opts)
      * it's resizable, which overrides the shell.html responsive CSS (height:100vh /
      * object-fit:contain) and pins the canvas to a small fixed size letterboxed in the
      * page. On the web the page CSS owns the canvas display size, so leave it off. */
-    Uint32 wflags = SDL_WINDOW_SHOWN;
+    Uint32 wflags = SDL_WINDOW_HIDDEN;
 #ifndef SWOS_WASM_BUILD
     wflags |= SDL_WINDOW_RESIZABLE;
+#else
+    /* Browser canvas must remain visible; ShowWindow is desktop-only. */
+    wflags = SDL_WINDOW_SHOWN;
 #endif
     if (fs_mode == PLATFORM_FULLSCREEN_DESKTOP) {
         /* Borderless window sized to the desktop, no display-mode
@@ -2742,6 +2749,15 @@ shots_done:
     draw_exit_confirmation();
     capture_presented_frame();     /* after every draw, before the swap */
     SDL_RenderPresent(s_renderer);
+#ifndef SWOS_WASM_BUILD
+    /* Prevent an unpainted white Windows client area during renderer and
+     * asset initialization. Show the decorated window only after the first
+     * completed render. The flag keeps this entirely out of later frames. */
+    if (!s_startup_window_shown && s_window) {
+        SDL_ShowWindow(s_window);
+        s_startup_window_shown = 1;
+    }
+#endif
 
     SDL_UnlockMutex(s_render_mtx);
 }

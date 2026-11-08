@@ -301,3 +301,8 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [CODICE, DA TESTARE WINDOWS] Nuovo controllo video in alto a sinistra, due sprite PNG approvati senza testo (mostra solo l'azione possibile), controllo tastiera/joypad/mouse e ritorno dal fullscreen massimizzato nel profilo development.
 - [CODICE, DA TESTARE WINDOWS] I cinque pulsanti principali sono ridotti di circa 10% rispetto a 0.10.53_04 e spostati verso il basso; background/logo/caption approvati invariati. Contorno di focus dinamico separato e generato in modo lineare rispetto ai pixel.
 - [ASSET APPROVATO, ZIP] Entrambe le icone e CONTINUE CAREER in un unico ZIP strutturato da estrarre accanto a `AVVIA_SWOS.bat`; verifica del push GitHub separata.
+
+## 0.10.54_01 — Stile canonico pulsanti e spaziatura Title (2026-11-08)
+- [REGOLA UTENTE, DOCUMENTATA] Nuovi pulsanti pixel art blu frontali, con spessore scuro a destra/sotto e lieve bouncing sulla pressione. PNG base senza selezione gialla incorporata; focus dinamico dalla silhouette completa.
+- [CODICE — TEST WINDOWS PENDENTE] Icona fullscreen/windowed trasferita da (58,56) a (34,34), mantenendo 92×88 logici. Hitbox e posizione della texture restano accoppiate.
+- [CODICE — TEST WINDOWS PENDENTE] Spazi verticali dei cinque pulsanti principali ridotti, tenendo fisso il fondo di EXIT GAME (y871). Focus del Title ispessito (+2px nei PNG principali, aumento proporzionale per asset più densi). Bounce leggero di 1px sul rilascio, senza scaling del PNG.

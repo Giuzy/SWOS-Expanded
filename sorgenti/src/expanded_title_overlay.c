@@ -1,4 +1,4 @@
-/* SWOS Expanded — modern SDL2 Title Menu (0.10.54).
+/* SWOS Expanded — modern SDL2 Title Menu (0.10.54_01).
  * No conversion to the 320x256 SWOS pixel framebuffer and no baked-in
  * old menu art. All five user-selected buttons are independent RGBA sprites.
  * The original SWOS callbacks are preserved in menus.c, but their old
@@ -180,14 +180,14 @@ int Expanded_TitleOverlay_Initialize(SDL_Renderer *renderer)
     for(int i=0;i<EXP_TITLE_MAIN_COUNT;i++)
         s_buttons[i]=texture_from_png(renderer,s_button_paths[i],
                            &s_button_widths[i],&s_button_heights[i],
-                           &s_button_focus[i],6);
+                           &s_button_focus[i],8);
     s_continue_career=texture_from_png(renderer,s_continue_career_path,
                                       &s_continue_width,&s_continue_height,
-                                      &s_continue_focus,12);
+                                      &s_continue_focus,16);
     for(int i=0;i<2;i++)
         s_video[i]=texture_from_png(renderer,s_video_paths[i],
                                    &s_video_width[i],&s_video_height[i],
-                                   &s_video_focus[i],i==0?22:18);
+                                   &s_video_focus[i],i==0?30:24);
     if(!s_continue_career)
         fprintf(stderr,"[title-ui] CONTINUE CAREER PNG missing; please extract the approved assets ZIP\n");
     fprintf(stderr,"[title-ui] RGB/RGBA title initialized; legacy title background/buttons and F8 disabled\n");
@@ -258,10 +258,15 @@ static void focus_frame(SDL_Renderer *r,ExpandedTitleRect box,
 }
 static int title_press_offset(int frames)
 {
-    /* A short, non-elastic push: 2 -> 4 -> 4 -> 2 -> rest.
-     * Translation only, never squash/recompress the approved PNG. */
+    /* Canonical button feel: gentle five-tick press and small 1-px bounce
+     * on release, shared by all Title buttons and the fullscreen icon.
+     * Source PNGs are NEVER rescaled or altered during the animation. */
     if(frames<=0) return 0;
-    return frames>=4?2:frames>=2?4:2;
+    if(frames>=5) return 1;
+    if(frames==4) return 3;
+    if(frames==3) return 4;
+    if(frames==2) return 2;
+    return -1; /* a restrained upward rebound before resting at y=0 */
 }
 static const char *classic_label(int i)
 {
@@ -305,8 +310,8 @@ void Expanded_TitleOverlay_Draw(SDL_Renderer *renderer,
         for(int i=0;i<EXP_TITLE_MAIN_COUNT;i++) {
             ExpandedTitleRect box=expanded_title_main_rects[i];
             const int moving=(sel==i && press>0);
-            /* Original full-resolution PNG rendered unchanged: a gentle
-             * downward press, no vertical resizing, zoom or bounce. */
+            /* Full-resolution PNG unchanged: downstroke plus a slight
+             * rebound, with NO stretch or sprite-sheet resampling. */
             int sink=moving?title_press_offset(press):0;
             SDL_FRect dest=scale_rect(box,sx,sy);
             const int continue_active=(i==0 && Expanded_TitleMenu_CareerActive());

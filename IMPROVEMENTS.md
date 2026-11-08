@@ -306,3 +306,8 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [REGOLA UTENTE, DOCUMENTATA] Nuovi pulsanti pixel art blu frontali, con spessore scuro a destra/sotto e lieve bouncing sulla pressione. PNG base senza selezione gialla incorporata; focus dinamico dalla silhouette completa.
 - [CODICE — TEST WINDOWS PENDENTE] Icona fullscreen/windowed trasferita da (58,56) a (34,34), mantenendo 92×88 logici. Hitbox e posizione della texture restano accoppiate.
 - [CODICE — TEST WINDOWS PENDENTE] Spazi verticali dei cinque pulsanti principali ridotti, tenendo fisso il fondo di EXIT GAME (y871). Focus del Title ispessito (+2px nei PNG principali, aumento proporzionale per asset più densi). Bounce leggero di 1px sul rilascio, senza scaling del PNG.
+
+## Correzione della scritta WORLD OF nel logo Title (2026-11-08)
+- [ASSET APPROVATO] Corretto WORLO OF → WORLD OF, con intervento limitato alla forma dell'ultima lettera. Lo sprite approvato resta 1200×440 RGBA, logo e sfondo separati.
+- [GITHUB] Sostituito il blob del PNG sotto il nome canonico esistente, conservando gli altri pixel del repository invariati; nessun ridisegno, cambio di posizione o revisione di gameplay, menu, callback, script o build.
+- [WINDOWS DA VERIFICARE] GitKraken pull/sovrascrittura del vecchio PNG locale, render corretto del titolo in gioco.

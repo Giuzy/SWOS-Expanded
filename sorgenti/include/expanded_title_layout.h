@@ -7,12 +7,15 @@ typedef struct ExpandedTitleRect {int x,y,w,h;} ExpandedTitleRect;
 /* Center the five-button column on the approved logo center x=1230,
  * underneath its bottom y=244. Keep the source PNG aspect ratios and
  * reserve space for the non-destructive build stamp along the bottom. */
+/* Smaller, better-spaced column: logo y=17..244, first button y=308.
+ * All five boxes have center x=1230. Keep dynamic hitboxes coupled
+ * to the renderer and do not resize/change any approved source PNG. */
 static const ExpandedTitleRect expanded_title_main_rects[EXP_TITLE_MAIN_COUNT] = {
-    {982,261,496,206}, /* CAREER: 1066x442 source aspect 2.412 */
-    {990,479,480, 91}, /* HALL OF FAME: 981x186 */
-    {990,581,480, 91}, /* CLASSIC MODES: 981x185 */
-    {990,683,480, 91}, /* OPTIONS: 981x185 */
-    {990,785,480, 91}  /* EXIT GAME: 981x187 */
+    {1005,308,450,187}, /* CAREER, 64 px below logo */
+    {1014,507,432, 82}, /* HALL OF FAME */
+    {1014,601,432, 82}, /* CLASSIC MODES */
+    {1014,695,432, 82}, /* OPTIONS */
+    {1014,789,432, 82}  /* EXIT GAME */
 };
 static inline ExpandedTitleRect Expanded_TitleClassicRect(int index) {
     ExpandedTitleRect r = { 422, 172 + index*55, 820, 46 };

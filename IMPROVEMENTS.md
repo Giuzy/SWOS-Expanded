@@ -283,3 +283,9 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [UTENTE — TEST WINDOWS] Segnalati Title Menu troppo a sinistra, focus giallo rettangolare e direzione GIÙ invertita anche nel sottomenu.
 - [CODICE, DA RITESTARE SU WINDOWS] Pulsanti traslati sul lato destro e centrati sotto il logo approvato; maschera di focus giallo generata su tutti i pixel alpha della silhouette PNG completa, inclusi bordi smussati e spessore, senza toccare i file dei pulsanti.
 - [CODICE, DA RITESTARE SU WINDOWS] Mappatura joystick/tastiera corretta (0 su, 4 giù), valida in entrambi i livelli; pressione più sobria di 5 tick senza deformare il PNG. Nessuna variazione di gameplay, salvataggi, sfondo o logo.
+
+
+## 0.10.53_03 — Title più compatto e pulizia asset obsoleti (2026-11-08)
+- [CODICE — TEST WINDOWS PENDENTE] Dimensioni dei cinque pulsanti ridotte circa del 10%, con centro orizzontale invariato (x=1230) e 64 px di spazio sotto il logo approvato; spostate le hitbox in accordo con le texture SDL2, senza toccare le PNG.
+- [CODICE — TEST WINDOWS PENDENTE] Maschera esterna del focus giallo generata a raggio 5 px anziché 4 nei pixel sorgenti, continuando a seguire la sagoma alpha completa e la pressione.
+- [PULIZIA REPOSITORY] Eliminati solo 11 file temporanei documentati/test/anteprima e vecchi manifest già consumati; il RAW del Title storico non è stato rimosso perché ancora richiesto da `expanded_economy.c` e `BUILD_SWOS.sh`. Conservati gli asset approvati e la procedura di trasferimento alternativa. `.gitignore` tutela contro il reinserimento di copie residue. Nessun test Windows effettuato dall'assistente.

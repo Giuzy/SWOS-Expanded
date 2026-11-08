@@ -34,3 +34,10 @@ Asset richiesto dal renderer: `assets/title/title_background_approved_2026-11-08
 - **Nessuna variazione ai binari degli asset:** rimane valido il ZIP già consegnato per la 0.10.53_01. Test Windows dell'aggiornamento ancora pendente.
 
 - [ARCHIVIO GITHUB VERIFICATO] Un nuovo commit asset `2c39dd3` pubblicato dall'utente su `dev/0.10` contiene già i cinque PNG nei loro percorsi definitivi, con blob hash identici allo ZIP originale. Non serve estrarre di nuovo lo ZIP se la cartella locale è già aggiornata tramite GitKraken.
+
+
+## 0.10.53_03 — layout ridotto e nuovo spessore focus (attuale)
+- [CODICE, WINDOWS DA RITESTARE] L'ordine e gli sprite PNG sono invariati. Nuova colonna tutta centrata sotto il logo (asse x=1230): CAREER x1005 y308 450×187, HALL OF FAME x1014 y507 432×82, CLASSIC MODES x1014 y601 432×82, OPTIONS x1014 y695 432×82, EXIT GAME x1014 y789 432×82. Il logo finisce a y=244; 64 px liberi sopra CAREER. Le posizioni restano perfezionabili.
+- Il focus giallo contorna l'alpha completo degli sprite con raggio **5 px** nell'immagine originale (prima 4); nessuna cornice rettangolare per i pulsanti sagomati. Non cambiare o ricreare i PNG già approvati.
+- [PULIZIA] Le istruzioni F8/RAW sopra descrivono soltanto le build 0.10.52–0.10.53 storiche, **non sono più valide per il Title moderno**. I due BAT `AVVIA_E_TESTA_*` sono stati rimossi: usare esclusivamente `AVVIA_SWOS.bat` per avviare e testare il gioco.
+- `data/expanded/expanded_title_bg.raw` resta temporaneamente una dipendenza tecnica del caricamento interno e del build script; la sua vecchia anteprima PNG è stata rimossa perché superata. Nessun altro asset approvato è stato cancellato. I cinque bottoni canonici, lo sfondo e il logo continuano ad essere su GitHub.

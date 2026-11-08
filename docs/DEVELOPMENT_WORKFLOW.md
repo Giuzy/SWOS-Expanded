@@ -84,3 +84,11 @@ Per test Windows: sincronizzare `dev/0.10`, copiare i due PNG esatti sotto `asse
 Il Title non disegna più grafica dei pulsanti SWOS 8-bit e non offre più F8. Mantiene background e logo approvati e carica cinque PNG RGBA indipendenti sotto `assets/title/buttons/`. Il primo livello presenta CAREER, HALL OF FAME, CLASSIC MODES, OPTIONS, EXIT GAME. Il secondo livello temporaneo, senza immagine di sfondo, presenta le modalità originali e CONTINUE/REPLAY/SAVE condizionali. La pressione è un movimento di circa sei tick via renderer SDL2, senza GIF.
 
 Asset in ZIP da estrarre accanto a `AVVIA_SWOS.bat`; compilazione e test Windows ancora necessari. Non affermare che gli asset sono su GitHub prima di un push verificato.
+
+
+## 12. Pulizia launcher/anteprime superati (0.10.53_03)
+Per il gioco corrente il launcher unico è `AVVIA_SWOS.bat`; `COMPILA_SWOS.bat`, `PREPARA_SWOS.bat` e `BUILD_SWOS.sh` restano script attivi. Le note più sopra su **F8** e sui vecchi BAT di test riguardano esclusivamente le build storiche 0.10.52 e 0.10.53; NON applicarle al Title moderno.
+
+I file temporanei di quei test e il PNG di anteprima del Title RAW sono stati rimossi dal repository. Sono stati eliminati anche tre manifest di asset già ricomposti e verificati, senza rimuovere gli asset definitivi. Il vecchio sistema Action/manifest è disponibile soltanto come metodo secondario quando lo ZIP o il deposito `ASSETS_INBOX/` non bastano.
+
+**Windows:** dopo pull con GitKraken, i file tracciati cancellati vengono normalmente rimossi dal working tree; i file personali o altre copie non tracciate possono restare. `.gitignore` previene l'aggiunta accidentale degli specifici file di test superati. Se occorre cancellare copie residue, farlo solo per i percorsi specifici presenti nel registro `PROJECT_STATE.md`, mai con una cancellazione generica di cartelle di gioco. Conservare tutte le risorse RAW/BMP approvate ancora richieste dal codice e i salvataggi locali.

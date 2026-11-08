@@ -44,7 +44,7 @@ static SDL_Texture *focus_from_rgba(SDL_Renderer *r,
                                     const unsigned char *rgba,
                                     unsigned w,unsigned h)
 {
-    const int radius=4; /* source-image pixels; edges stay crisp at 4K */
+    const int radius=5; /* +1 source px: thicker outline follows full alpha silhouette */
     const size_t n=(size_t)w*(size_t)h;
     if(!n || n>SIZE_MAX/4) return NULL;
     unsigned char *ring=(unsigned char*)calloc(n,4);

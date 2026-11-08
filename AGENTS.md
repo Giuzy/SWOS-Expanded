@@ -294,3 +294,10 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - Il **frame giallo di selezione segue il contorno esterno effettivo dell'asset del pulsante**, comprese smussature e profondità 3D a destra/in basso. **Non usare un rettangolo sull'hitbox** quando il pulsante ha una silhouette diversa. Mantieni separati hitbox rettangolare (input), sprite PNG RGB/RGBA e contorno di focus generato/renderizzato.
 - I pulsanti restano frontali, non inclinati; l'animazione di pressione SDL2 non deve ridimensionare o ricampionare il singolo sprite durante la pressione. Preferire una breve traslazione sobria senza rimbalzo. Il focus segue il pulsante anche durante la pressione.
 - Navigazione menu Title e sottomenu: compass SWOS verificato `0=su, 2=destra, 4=giù, 6=sinistra`; in elenchi verticali SU va alla voce precedente, GIÙ alla successiva, destra/sinistra non devono invertirne il verso.
+
+
+## Pulizia file superati (decisione utente 2026-11-08)
+- Quando si sostituiscono launcher/test/anteprime obsolete, rimuovere soltanto file **verificati non più necessari** e proteggere i nomi cancellati con `.gitignore` affinché copie locali rimaste sul PC non vengano reintrodotte per errore.
+- Prima di eliminare un asset apparentemente obsoleto controllare tutti i riferimenti del codice e degli script di build: **non cancellare RAW/BMP storici ancora caricati**, asset approvati, riferimenti di altre schermate, sorgenti, dati o salvataggi.
+- `AVVIA_SWOS.bat`, `COMPILA_SWOS.bat`, `PREPARA_SWOS.bat`, `BUILD_SWOS.sh` rimangono i launcher/script ufficiali; le versioni temporanee `AVVIA_E_TESTA_0.10.52.bat` e `AVVIA_E_TESTA_0.10.53.bat` sono state ritirate.
+- Una cancellazione dal repository non garantisce la rimozione di copie non tracciate sul PC Windows: sincronizzare GitKraken e, se serve, rimuovere manualmente le copie locali dei soli percorsi archiviati come obsoleti; non usare pulizie generiche su tutto il repository.

@@ -19,3 +19,18 @@ Thumbs.db
 # Pacchetti di release
 *.zip
 *.7z
+
+# File di prova e copie superate (pulizia Title Menu 0.10.53_03)
+# Le esclusioni impediscono che copie locali residue tornino su GitHub.
+# I sorgenti/asset approvati e i quattro script ufficiali restano tracciabili.
+/AVVIA_E_TESTA_0.10.52.bat
+/AVVIA_E_TESTA_0.10.53.bat
+/LEGGIMI_SOLO_TEST.txt
+/LEGGIMI_TEST_0.10.53.txt
+/README_ASSETS.txt
+/swos_shot*.png
+/data/expanded/expanded_title_bg_preview.png
+/development_assets/transfer_test/binary_roundtrip_2x2.bmp
+/asset-transfer/manifests/business-ui-approved-2026-11-07.json
+/asset-transfer/manifests/controller-abc-approved-2026-11-07.json
+/asset-transfer/manifests/match-stats-ui-approved-2026-11-06.json

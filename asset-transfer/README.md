@@ -1,6 +1,8 @@
-# SWOS Expanded — approved asset transfer rule
+# SWOS Expanded — metodo storico di trasferimento via blob/manifest (opzionale)
 
-When the user approves an image asset generated for SWOS Expanded, upload it to GitHub without requesting separate approval. Preserve the approved pixels and format. Use branch `dev/0.10` unless the user specifies another branch.
+**Stato 2026-11-08:** la procedura normale per i nuovi asset frontend è **ZIP con percorsi definitivi**, da estrarre nella cartella con `AVVIA_SWOS.bat`, seguito dal push GitKraken dell'utente. `ASSETS_INBOX/` resta l'alternativa autorizzata. La vecchia ricomposizione GitHub Action descritta qui è disponibile come **ripiego tecnico**, non è più obbligatoria né parte di ogni approvazione. Non sovrascrivere asset approvati tramite manifest storici. I nuovi asset frontend sono PNG lossless; i BMP storici restano invariati.
+
+Per usarla come ripiego, verificare prima il ramo attuale (normalmente `dev/0.10`), i formati, la necessità concreta e i binari già archiviati. I tre manifest di trasferimenti conclusi nel novembre 2026 sono stati rimossi durante la pulizia 0.10.53_03; gli asset definitivi restano su GitHub. Nessun push di asset viene presunto senza verifica.
 
 Known tested single-upload ceiling: **3,145,472 bytes** (observed limit, not a universal GitHub platform limit). For safety split binary assets into chunks of at most **1,048,576 bytes** each, including when uploading BMPs larger than the ceiling.
 
@@ -14,7 +16,7 @@ For each approved asset:
 5. Verify the workflow result and final file before claiming completion. If it fails, report the failure, do not claim an asset was saved.
 6. Avoid touching unrelated gameplay code, screens or assets.
 
-This transfer process is automatic after approval, not a request to modify game code or to replace an existing approved asset unless that was explicitly approved.
+This is a documented fallback, not the default transfer process. It must never overwrite an existing approved asset without an explicit replacement request.
 
 ## Why this workflow exists
 

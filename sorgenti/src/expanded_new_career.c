@@ -2,12 +2,11 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_new_career.h"
 #include "expanded_png.h"
+#include "expanded_club_font.h" /* upright in-engine bitmap font */
 #include "menu_system.h"
-#include "mjson.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 extern uintptr_t _currentMenuPtr;
 extern uint8_t _currentMenu[],_careerMenu[],_expandedNationalityPickerMenu[],_expandedFamePickerMenu[];
 extern MenuEntry _menuEntries[];
@@ -26,10 +25,6 @@ extern int Platform_NewCareerMouseState(int*,int*,int*,int*);
 static SDL_atomic_t s_back;
 static int s_selected,s_unemployed=1,s_previous_fire=1,s_press,s_action=-1,s_action_dir;
 static const int ord[]={3,4,5,7,9,15,13,10,11};
-static const int heights[]={28,32,40,48};
-typedef struct {SDL_Rect rect; int advance; } Glyph;
-typedef struct {SDL_Texture *texture; Glyph glyph[128];} Font;
-static Font s_fonts[4];
 static SDL_Texture *s_bg,*s_panel,*s_toggle[2],*s_start[2],*s_check[2];
 static int s_loaded;
 int Expanded_NewCareer_Active(void){return _currentMenuPtr==(uintptr_t)_careerMenu;}
@@ -59,10 +54,6 @@ static SDL_Texture *texture(SDL_Renderer*r,const char*path,int colour){
  if(t){SDL_SetTextureBlendMode(t,SDL_BLENDMODE_BLEND);SDL_SetTextureScaleMode(t,SDL_ScaleModeNearest);}
  return t;
 }
-static int number(const char*json,int len,int code,const char*field){
- char key[80];double n=0;snprintf(key,sizeof key,"$.glyphs.%d.%s",code,field);
- return mjson_get_number(json,len,key,&n)?(int)n:0;
-}
 static void load(SDL_Renderer*r){
  if(s_loaded)return;s_loaded=1;
  const char *base="assets/career/new_career/";
@@ -74,34 +65,42 @@ static void load(SDL_Renderer*r){
  TEX(s_start[0],"start_runtime.png",0);TEX(s_start[1],"start_runtime.png",2);
  TEX(s_check[0],"checkbox_off_approved_rgba.png",0);TEX(s_check[1],"checkbox_on_approved_rgba.png",0);
  #undef TEX
- for(int i=0;i<4;i++){
-  snprintf(path,sizeof path,"assets/fonts/new_career/career_%d.png",heights[i]);s_fonts[i].texture=texture(r,path,0);
-  snprintf(path,sizeof path,"assets/fonts/new_career/career_%d.json",heights[i]);FILE*f=fopen(path,"rb");if(!f)continue;
-  fseek(f,0,SEEK_END);long len=ftell(f);rewind(f);if(len<=0||len>1000000){fclose(f);continue;}
-  char*json=calloc(1,len+1);if(!json){fclose(f);continue;}size_t got=fread(json,1,len,f);fclose(f);
-  for(int c=32;c<128;c++){Glyph*g=&s_fonts[i].glyph[c];g->rect=(SDL_Rect){number(json,got,c,"x"),number(json,got,c,"y"),number(json,got,c,"w"),number(json,got,c,"h")};g->advance=number(json,got,c,"advance");}
-  free(json);
- }
- fprintf(stderr,"[new-career] HD layers/font loaded; canvas 1664x936, UI scale .885 origin 93,50\n");
+ fprintf(stderr,"[new-career] HD layers ready; UI scale .885; text at native pixel grid\n");
 }
 void Expanded_NewCareer_Destroy(void){
  SDL_DestroyTexture(s_bg);SDL_DestroyTexture(s_panel);s_bg=s_panel=NULL;
  for(int i=0;i<2;i++){SDL_DestroyTexture(s_toggle[i]);SDL_DestroyTexture(s_start[i]);SDL_DestroyTexture(s_check[i]);s_toggle[i]=s_start[i]=s_check[i]=NULL;}
- for(int i=0;i<4;i++){SDL_DestroyTexture(s_fonts[i].texture);memset(&s_fonts[i],0,sizeof s_fonts[i]);}s_loaded=0;
+ s_loaded=0;
 }
-static int code(unsigned char c){if(c==255)return '|';if(c>='a'&&c<='z')return c-'a'+'A';return c<128?c:'?';}
-static Glyph *glyph(Font*f,unsigned char c){int v=code(c);return f->glyph[v].advance?&f->glyph[v]:&f->glyph['?'];}
-static int width(const char*s,int font){int w=0;if(s)while(*s)w+=glyph(&s_fonts[font],(unsigned char)*s++)->advance;return w;}
-/* All hitboxes and artwork share this transform, including the approved 3px crop. */
+/* Keep approved UI at 88.5 percent while drawing type at integer screen pixels.
+ * This avoids the resampling artifacts in the draft atlas. */
 static SDL_FRect rect(float x,float y,float w,float h,float sx,float sy){
  return (SDL_FRect){(93+x*.885f)*sx,(50+y*.885f)*sy,w*.885f*sx,h*.885f*sy};
 }
 static void copy(SDL_Renderer*r,SDL_Texture*t,float x,float y,float w,float h,float sx,float sy){
  if(t){SDL_FRect d=rect(x,y,w,h,sx,sy);SDL_RenderCopyF(r,t,NULL,&d);}
 }
-static void text(SDL_Renderer*r,const char*s,int font,float x,float y,int centered,float sx,float sy){
- Font*f=&s_fonts[font];if(!s||!f->texture)return;if(centered)x-=width(s,font)/2.0f;
- while(*s){Glyph*g=glyph(f,(unsigned char)*s++);SDL_FRect d=rect(x-4,y-4,g->rect.w,g->rect.h,sx,sy);SDL_RenderCopyF(r,f->texture,&g->rect,&d);x+=g->advance;}
+static void pixel_text(SDL_Renderer*r,const char*s,int type,float x,float y,int centered,float sx,float sy){
+ if(!s)return;
+ int unit=(int)((type==3?5:type==2?4:3)*(sx+sy)*.5f+.5f);
+ if(unit<1)unit=1;
+ int advance=6*unit;size_t len=strlen(s);
+ int left=(int)((93+x*.885f)*sx+.5f);
+ int top=(int)((50+y*.885f)*sy+.5f);
+ if(centered)left-=(int)(len*advance/2);
+ for(size_t i=0;i<len;i++){
+  unsigned char ch=(unsigned char)s[i];
+  if(ch>='a'&&ch<='z')ch=(unsigned char)(ch-'a'+'A');
+  if(ch<32||ch>126)ch='?';
+  const unsigned char *rows=cb_glyphs[ch-32];
+  for(int py=0;py<8;py++)for(int px=0;px<5;px++)
+   if(rows[py]&(1u<<(4-px))){
+    SDL_FRect sh={(float)(left+(int)i*advance+px*unit+1),(float)(top+py*unit+1),(float)unit,(float)unit};
+    SDL_SetRenderDrawColor(r,1,5,22,255);SDL_RenderFillRectF(r,&sh);
+    SDL_FRect dot={(float)(left+(int)i*advance+px*unit),(float)(top+py*unit),(float)unit,(float)unit};
+    SDL_SetRenderDrawColor(r,255,255,249,255);SDL_RenderFillRectF(r,&dot);
+   }
+ }
 }
 static void focus(SDL_Renderer*r,float x,float y,float w,float h,float sx,float sy){
  SDL_SetRenderDrawColor(r,255,220,52,255);
@@ -124,16 +123,16 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
  int sink=s_press>0?3:0;
  copy(r,s_toggle[s_unemployed],390+(s_action==7?sink:0),682+(s_action==7?sink:0),895,107,sx,sy);
  copy(r,s_start[ready()],532+(s_action==8?sink:0),788+(s_action==8?sink:0),606,89,sx,sy);
- copy(r,s_check[s_unemployed],1294,707,62,58,sx,sy);
- text(r,"NEW CAREER",3,835,66,1,sx,sy);
+ /* Checkbox stays INSIDE the unemployment toggle and follows button bounce. */
+ copy(r,s_check[s_unemployed],1179+(s_action==7?sink:0),706+(s_action==7?sink:0),62,58,sx,sy);
+ pixel_text(r,"NEW CAREER",3,835,63,1,sx,sy);
  const char*labels[]={"TITLE","NAME","SURNAME","NATION","ROLE","AGE (18-70)","FAME"};
  for(int i=0;i<7;i++){
-  text(r,labels[i],1,337,214+66*i,0,sx,sy);
-  int font=(i==1||i==2)?0:1;
-  text(r,value(i),font,1070,214+66*i,1,sx,sy);
+  pixel_text(r,labels[i],1,337,211+66*i,0,sx,sy);
+  pixel_text(r,value(i),1,1070,211+66*i,1,sx,sy);
  }
- text(r,"START UNEMPLOYED",2,835+(s_action==7?sink:0),710+(s_action==7?sink:0),1,sx,sy);
- text(r,"START",2,835+(s_action==8?sink:0),810+(s_action==8?sink:0),1,sx,sy);
+ pixel_text(r,"START UNEMPLOYED",2,806+(s_action==7?sink:0),704+(s_action==7?sink:0),1,sx,sy);
+ pixel_text(r,"START",2,835+(s_action==8?sink:0),802+(s_action==8?sink:0),1,sx,sy);
  if(s_selected<7)focus(r,780,200+66*s_selected,582,59,sx,sy);
  else if(s_selected==7)focus(r,398,690,875,86,sx,sy);
  else focus(r,542,797,583,69,sx,sy);
@@ -152,7 +151,7 @@ static void action(int row,int direction){
   if(direction){int age=_expandedManagerStartAge+direction;if(age>=18&&age<=70)_expandedManagerStartAge=age;Expanded_SetAgeText();}
   else Expanded_EditManagerAge(e);
   break;
- case 6:Expanded_ChangeManagerFame(e);break;
+ case 6:\n  /* Direct FAME cycle: do not open the nested selector. */\n  if(!direction)direction=1;\n  _controlMask=direction<0?0x40:0x80;\n  Expanded_ChangeManagerFame(e);break;
  case 7:s_unemployed=!s_unemployed;break;
  case 8:if(!direction&&ready())ChooseTeamAndStartCareer();break;
  }
@@ -175,20 +174,29 @@ int Expanded_NewCareer_Proc(void){
  if(s_press){if(--s_press==0){int a=s_action,d=s_action_dir;s_action=-1;action(a,d);}return 1;}
  float px=(x-93)/.885f,py=(y-50)/.885f;
  if(moved||click){
-  int hit=-1,d=0;
-  if(px>=312&&px<1363&&py>=200&&py<662){int row=(int)(py-200)/66;if(row<7 && py<200+66*row+60){hit=row;
-   if(row!=1&&row!=2){if(px>=813&&px<867)d=-1;else if(px>=1276&&px<1330)d=1;}
-  }}
+  int hit=-1;
+  if(px>=312&&px<1363&&py>=200&&py<662){
+   int row=(int)(py-200)/66;
+   if(row<7 && py<200+66*row+60)hit=row;
+  }
   if(px>=397&&px<1360&&py>=687&&py<785)hit=7;
   if(px>=539&&px<1132&&py>=791&&py<876)hit=8;
-  if(hit>=0){s_selected=hit;if(click){s_action=hit;s_action_dir=d;s_press=4;}}
+  if(hit>=0){
+   s_selected=hit;
+   if(click){
+    /* Painted arrows are decorative; only the center of each row is clickable. */
+    int arrow=hit<7&&hit!=1&&hit!=2&&
+              ((px>=805&&px<872)||(px>=1260&&px<1337));
+    if(!arrow){s_action=hit;s_action_dir=0;s_press=4;}
+   }
+  }
  }
  if(s_press)return 1;
  if(_menuControlsDirection>=0){
   int d=_menuControlsDirection&6;
   if(d==0)s_selected=(s_selected+8)%9;
   else if(d==4)s_selected=(s_selected+1)%9;
-  else if(s_selected!=1&&s_selected!=2&&s_selected!=8){s_action=s_selected;s_action_dir=d==6?-1:1;s_press=2;}
+  else if(s_selected!=1&&s_selected!=2&&s_selected!=7&&s_selected!=8){s_action=s_selected;s_action_dir=d==6?-1:1;s_press=2;}
  }
  ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[ord[s_selected]];
  if(edge){s_action=s_selected;s_action_dir=0;s_press=4;}

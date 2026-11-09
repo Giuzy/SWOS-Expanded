@@ -203,7 +203,7 @@ Prima di ogni intervento, verificare il ramo di sviluppo corrente nel repository
 
 ## 10. Gestione degli asset
 
-Il repository locale è la copia di lavoro per gli asset; GitHub conserva quanto sincronizzato con commit e push esplicitamente autorizzati.
+GitHub e` la copia condivisa di lavoro per gli interventi da ChatGPT normale; GitKraken sincronizza la copia locale. Commit solo su autorizzazione esplicita.
 
 ### Formato dei nuovi asset di frontend: PNG lossless
 
@@ -343,3 +343,10 @@ Le procedure del 6–8 novembre tramite ZIP, `ASSETS_INBOX/` e trasferimenti Git
 - **Durante la generazione del PNG base** non includere MAI il contorno giallo di selezione. Focus/hover derivano dinamicamente dall'alpha e seguono tutto il profilo del pulsante compreso lo spessore. Non modificare asset storici già approvati per applicare la regola.
 - Il pulsante selezionato ha una **pressione breve con bouncing discreto al rilascio**, gestita dal codice SDL2 tramite traslazione dei PNG originali, senza resize/riduzione di risoluzione. Questo comportamento è lo standard dei nuovi pulsanti Expanded salvo indicazione contraria dell'utente.
 - I raggi del focus sono misurati **nei pixel del PNG sorgente**; per asset con differenti risoluzioni sorgenti adeguare il raggio affinché il bordo risultante abbia lo spessore visivo desiderato. Non confondere i pixel del PNG con quelli logici o dello schermo 4K.
+
+## Workflow ChatGPT + GitHub + ZIP (decisione corrente 2026-11-09)
+- Codex/Work **non** sono strumenti richiesti per SWOS Expanded. Il loro workflow locale e' storico; lavorare dalla chat normale tramite GitHub, con GitKraken per sincronizzare.
+- Commit sul ramo verificato soltanto su richiesta esplicita. Nessun merge, force push, cancellazione o operazione sugli altri rami senza autorizzazione.
+- Consegnare ZIP piccoli con eventuali asset/file nei percorsi definitivi; istruzioni per l'utente **direttamente nella chat e separatamente dagli ZIP**.
+- Compilazione e test Windows devono essere dichiarati come effettuati soltanto dopo verifica reale dell'utente.
+- NEW CAREER: scala UI 88,5% approvata per vedere tavolo/penna, sfondo senza resize; font bitmap diritto a pixel interi; frecce grafiche decorative non cliccabili; FAME cambia direttamente, niente submenu; checkbox dinamica dentro START UNEMPLOYED.

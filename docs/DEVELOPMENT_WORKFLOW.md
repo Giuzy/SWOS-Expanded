@@ -2,9 +2,9 @@
 
 Status: approved working rules. Primary integration branch: `dev/0.10`.
 
-## 1. Workflow locale obbligatorio (2026-11-09)
+## 1. Workflow ChatGPT/GitHub/GitKraken (ripristinato 2026-11-09)
 
-Codex lavora direttamente in `C:\Users\xgiuz\Downloads\Repo SWOS expanded\SWOS-Expanded`, su `dev/0.10` salvo istruzioni diverse. Prima di modificare verificare ramo, HEAD, stato locale, documentazione e dipendenze. Preservare modifiche non committate anche tra sessioni; non ricreare automaticamente la copia di lavoro dal remoto.
+Il metodo attivo usa la chat normale e il repository GitHub, sincronizzato dall’utente con GitKraken. Il precedente metodo Codex locale e` storico. Prima di modificare verificare ramo, HEAD, stato locale, documentazione e dipendenze. Preservare modifiche non committate anche tra sessioni; non ricreare automaticamente la copia di lavoro dal remoto.
 
 Si possono ripetere modifiche, compilazioni e test locali senza commit intermedi. Commit e push richiedono ciascuno autorizzazione esplicita dell'utente. Registrare risultati reali e lavoro non committato nel passaggio di sessione. Rispettare i limiti della richiesta corrente: installazioni/aggiornamenti e avvio del gioco richiedono autorizzazione.
 
@@ -154,3 +154,6 @@ Per colori di pulsanti con iscrizioni bianche, NON applicare SDL_TextureColorMod
 
 ## 23. CONTINUE CAREER verde — 0.10.54_09
 Il colore rosso della build precedente è sostituito dal verde mediante riconversione selettiva degli stessi pixel blu/indaco del PNG canonico già decodificato. Non applicare tint globale: il testo resta bianco. Non cambiare asset né geometria; mantenere focus e animazione precedenti.
+
+### Consegna attuale
+La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo verificato. GitKraken sincronizza e l'utente compila/testa su Windows. Gli ZIP con asset/file e le istruzioni in chat sono **separati**. Le istruzioni precedenti sul workflow locale Codex non sono piu' prescrittive.

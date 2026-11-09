@@ -398,3 +398,6 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [STATO LOCALE] Ramo `dev/0.10`, HEAD `4290e8c7cb2cc3864a26cbbf9cf7b6c98604a662`; modifiche locali delle sessioni precedenti conservate, inclusa la data generata in `sorgenti/include/swos_build.h`. Versione invariata `0.10.54_09`. Questo intervento aggiorna soltanto i tre documenti.
 - [VERIFICHE PRECEDENTI, NON RIPETUTE IN QUESTO INTERVENTO] Prima compilazione Windows incrementale riuscita in 7,64 s con 20 warning `-Waddress-of-packed-member`; eseguibile verificato. Primo avvio raggiunto, log development massimizzato e controller riconosciuto; chiusura volontaria confermata dall'utente.
 - [TEST PENDENTI] Conferma visiva del CONTINUE CAREER verde e delle transizioni fullscreen/windowed, collaudo completo della navigazione e dei flussi. L'analisi statica del Career Menu non equivale a un test runtime né autorizza automaticamente la proposta di renderer HD.
+
+### 0.10.56 — NEW CAREER (2026-11-09)
+[CODICE MODIFICATO, TEST WINDOWS PENDENTE] UI 88,5% autorizzata per lasciare visibili tavolo e penna, sfondo senza resize. Testi bitmap diritti a pixel interi; checkbox nel pulsante START UNEMPLOYED; FAME cicla senza popup; frecce decorative. Logica carriera e formato salvataggi invariati. Workflow ChatGPT/GitHub/GitKraken attivo, Codex storico.

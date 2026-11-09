@@ -311,3 +311,6 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [ASSET APPROVATO] Corretto WORLO OF → WORLD OF, con intervento limitato alla forma dell'ultima lettera. Lo sprite approvato resta 1200×440 RGBA, logo e sfondo separati.
 - [GITHUB] Sostituito il blob del PNG sotto il nome canonico esistente, conservando gli altri pixel del repository invariati; nessun ridisegno, cambio di posizione o revisione di gameplay, menu, callback, script o build.
 - [WINDOWS DA VERIFICARE] GitKraken pull/sovrascrittura del vecchio PNG locale, render corretto del titolo in gioco.
+
+### 0.10.56 — NEW CAREER corrections (2026-11-09)
+[Code edited; Windows test pending] Upright integer-pixel bitmap text instead of fractionally scaled traced font atlas; checkbox inside unemployment toggle; direct FAME cycling without picker; arrow artwork not independently clickable. UI retains approved 88.5% scale and original background. No career or save-format changes. GitHub/GitKraken workflow restored.

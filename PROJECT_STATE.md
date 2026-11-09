@@ -1,6 +1,6 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
-**Aggiornato:** 6 novembre 2026  
+**Aggiornato:** 9 novembre 2026
 **Repository:** `Giuzy/SWOS-Expanded`  
 **Ramo di riferimento al momento della stesura:** `dev/0.10` (il vecchio `release/0.10.40` resta temporaneamente come backup)  
 **Base:** Sensible World of Soccer / OpenSWOS · C / SDL2 · Windows x64  
@@ -27,7 +27,7 @@ La base è OpenSWOS, derivata dal reverse engineering del gioco originale. Il pr
 - [TEST UTENTE, 2026-11-07] La Business Screen integrata nella serie 0.10.51 funziona, da rifinire graficamente in una sessione successiva; conservare il layout approvato e gli asset BMP.
 - [SEGNALATO DALL'UTENTE] Entrando o uscendo dalla partita, la finestra development massimizzata si rimpiccioliva alla scala nativa. [CORREZIONE CODICE 0.10.51_07 — DA TESTARE WINDOWS] In `Platform_ViewChanged` si salta il ridimensionamento della finestra quando SDL segnala `SDL_WINDOW_MAXIMIZED`; cambiano soltanto dimensione logica/scala del renderer. Finestra ordinaria, fullscreen release, gioco e salvataggi invariati. Necessario test reale entrando e uscendo dalla partita.
 - [APPROVATO] Joypad, mouse e tastiera; tutti i pulsanti devono essere raggiungibili. Le regole operative correnti del joypad e degli hover sono in `AGENTS.md`.
-- [APPROVATO] GitHub come archivio centrale, GitKraken per aggiornare la copia locale, compilazione/test Windows sul PC dell'utente. Conservare BAT e asset necessari; evitare di scambiare controlli GCC/ASan per un test reale con joypad.
+- [APPROVATO, 2026-11-09] Codex lavora sui sorgenti e asset locali; modifiche, compilazioni e test ripetibili senza commit intermedi. PNG approvati nei percorsi definitivi. Commit e push soltanto su esplicita autorizzazione. Conservare BAT e asset necessari; evitare di scambiare controlli GCC/ASan per un test reale con joypad.
 - [DA VERIFICARE] Contenuti e funzionamento complessivi del ramo `release/0.10.40`, differenze da `main`, compatibilità salvataggi, stato dei launcher e degli script.
 
 ## 3. Mondo calcistico e competizioni
@@ -48,10 +48,10 @@ La base è OpenSWOS, derivata dal reverse engineering del gioco originale. Il pr
 
 ### Business Screen — codice 0.10.51_05; correzione compilazione 0.10.51_06 (7 novembre 2026)
 
-[TEST UTENTE — COMPILAZIONE FALLITA 0.10.51_05] Il compilatore MinGW64 GCC 16.2.0 ha segnalato `_currentMenu` non dichiarato in `Expanded_ClubOverviewReapplyLayout` (`expanded_economy.c`, riga 683); i warning `-Waddress-of-packed-member` non sono l'errore bloccante. [CORREZIONE CODICE 0.10.51_06 — NON ANCORA RITESTATA] Spostata la dichiarazione di `_currentMenu` prima dell'uso (percorso SDL), e il fallback YEAR usa direttamente l'entry 14 senza riferimenti a `_currentMenu` su altri target. Da verificare una nuova compilazione Windows e il test reale in gioco.
+[TEST UTENTE — COMPILAZIONE FALLITA 0.10.51_05] Il compilatore MinGW64 GCC 16.2.0 ha segnalato `_currentMenu` non dichiarato in `Expanded_ClubOverviewReapplyLayout` (`expanded_economy.c`, riga 683); i warning `-Waddress-of-packed-member` non sono l'errore bloccante. [STORICO: CORREZIONE CODICE 0.10.51_06, allora non ancora ritestata] Spostata la dichiarazione di `_currentMenu` prima dell'uso (percorso SDL), e il fallback YEAR usa direttamente l'entry 14 senza riferimenti a `_currentMenu` su altri target. Il successivo test utente generale della Business Screen è riportato in sezione 2; non equivale a un collaudo completo della build corrente.
 
 
-[IMPLEMENTATO NEL CODICE — NON ANCORA TESTATO SU WINDOWS] L'integrazione della schermata Business carica direttamente i BMP approvati in `assets/business/business_ui_approved_2026-11-07.bmp` (320×256) e `assets/ui/controller_abc_approved_2026-11-07.bmp` (70×14, posizione 9,6), senza convertirli. Renderer SWOS su framebuffer indicizzato con composizione alpha e vecchio sfondo come fallback se manca un asset. Testo, importi, data, stadio (5 livelli), Board/Fans e faccine rimangono dinamici e vengono ridisegnati ad ogni refresh. Facilities ordinate per colonne, prima sinistra FITNESS–MEDICAL–OFFICES–SCOUTS, poi destra TRAINING–TRAVEL–YOUTH; UPGRADE apre il sottomenu esistente dello STADIUM. Navigazione joypad/mouse/tastiera riallineata e selezione/hover dinamici. WEEK e YEAR sono ora tasti indipendenti con valori finanziari correnti/stagionali; confermati popup con X per WAGES, TRAVEL, MAINTENANCE; B chiude prima il popup e poi torna indietro. Salvataggi ed economia non vengono modificati nel loro formato o nelle formule. `SWOS_EXPANDED_VERSION` incrementata a `0.10.51_05`.
+[IMPLEMENTATO — TEST UTENTE GENERALE 2026-11-07; dettagli da riverificare sulla build corrente] L'integrazione della schermata Business carica direttamente i BMP approvati in `assets/business/business_ui_approved_2026-11-07.bmp` (320×256) e `assets/ui/controller_abc_approved_2026-11-07.bmp` (70×14, posizione 9,6), senza convertirli. Renderer SWOS su framebuffer indicizzato con composizione alpha e vecchio sfondo come fallback se manca un asset. Testo, importi, data, stadio (5 livelli), Board/Fans e faccine rimangono dinamici e vengono ridisegnati ad ogni refresh. Facilities ordinate per colonne, prima sinistra FITNESS–MEDICAL–OFFICES–SCOUTS, poi destra TRAINING–TRAVEL–YOUTH; UPGRADE apre il sottomenu esistente dello STADIUM. Navigazione joypad/mouse/tastiera riallineata e selezione/hover dinamici. WEEK e YEAR sono ora tasti indipendenti con valori finanziari correnti/stagionali; confermati popup con X per WAGES, TRAVEL, MAINTENANCE; B chiude prima il popup e poi torna indietro. Salvataggi ed economia non vengono modificati nel loro formato o nelle formule. `SWOS_EXPANDED_VERSION` incrementata a `0.10.51_05`.
 
 [DA TESTARE] Sintassi/build Windows MinGW64 SDL2, resa grafica in 3840×2160, corrispondenza coordinate e mouse, focus di tutti i pulsanti da joypad, popup X immediati, selezione WEEK/YEAR e prezzi con valori lunghi, corretto fallback, apertura dei sottomenu di tutte le facilities e navigazione di ritorno. I due BMP approvati non sono stati alterati.
 
@@ -135,7 +135,7 @@ Per evitare sovrapposizioni: 0–39 rosso, 40–59 giallo, 60–100 verde. Stess
 - **TITLE:** logo originale + Expanded, menu compatto, Hall of Fame, sfondo pixel art approvato.
 - **NEW CAREER:** campi nome/cognome/nazionalità/età/fama/valuta, font SWOS, focus e input.
 - **CALENDAR / UNEMPLOYED:** data, righe partite/coppe e casa/trasferta, frecce interne, calendario condiviso, FORWARD TIME e WAIT FOR A CLUB OFFER.
-- **BUSINESS:** layout di gioco approvato con Board/Fans, stadio, strutture, FINANCES, WEEK/YEAR, popup STAFF, joypad. **2026-11-07: approvato soltanto come asset grafico** il BMP pulito `assets/business/business_ui_approved_2026-11-07.bmp` (320×256, 32 bit); non è ancora integrato. Facilities in ordine alfabetico: sinistra FITNESS, MEDICAL, OFFICES, SCOUTS; destra TRAINING, TRAVEL, YOUTH, con UPGRADE distinto e icona stadio. Nessun testo/valore/stadio/faccina/hover/selezione statico. L'implementazione richiederà riassociazione delle hitbox e controllo del loader BMP alpha; preservare tutti gli altri menu.
+- **BUSINESS:** schermata esistente e integrata con Board/Fans, stadio, strutture, FINANCES, WEEK/YEAR e popup. La grafica attuale è da riprogettare in una futura sessione. Conservare asset e layout precedentemente approvati come riferimenti storici fino a nuova approvazione, compreso `assets/business/business_ui_approved_2026-11-07.bmp` e la legenda controller. Nessuna modifica ora a grafica, coordinate, codice, gameplay o asset.
 - **SQUAD:** layout approvato, paese in piccolo box leggibile, TEAM FORM/MORALE, popup statistiche e controlli.
 - **CLUB OFFER:** contratto sul tavolo, dati dinamici, stipendio annuo e anteprime.
 - **WELCOME / SACKED:** scene pixel art dedicate.
@@ -239,7 +239,9 @@ Queste sono idee da valutare, non funzioni automaticamente approvate.
 
 Algoritmo POTENTIAL; invecchiamento; frequenza e impatto del TRAINING; scouting (giocatori visibili e campi `???`); bilanciamento FORM/MORALE; mercato AI; calendari sfalsati; soglie esonero; ritiro a 85 anni; copertura iniziale del database; compatibilità save e differenze reali tra rami.
 
-## Workflow Git e numerazione correnti (6 novembre 2026)
+## Workflow Git e numerazione storici (6 novembre 2026)
+
+[SUPERATO COME WORKFLOW OPERATIVO dal 9 novembre 2026; esempi di versione conservati per cronologia.]
 
 - Branch attivo: `dev/0.10`; conservare il vecchio branch finché GitKraken e la compilazione locale non sono verificati.
 - Commit soltanto su richiesta esplicita dell'utente; diversi commit intermedi possono precedere una nuova build.
@@ -251,6 +253,8 @@ Algoritmo POTENTIAL; invecchiamento; frequenza e impatto del TRAINING; scouting 
 
 Aggiornare il documento quando una decisione è confermata, implementata, verificata o superata. Non cancellare la storia: distinguere decisioni attuali, ipotesi e soluzioni storiche. Per ogni feature implementata, registrare **versione, modulo, test e commit** quando disponibili. `AGENTS.md` rimane la fonte delle regole operative, `IMPROVEMENTS.md` il registro delle modifiche realizzate.
 
+
+> **Note storiche delle build:** consegne ZIP, ASSETS_INBOX, trasferimenti GitHub e assenza di accesso al PC descritti sotto riguardano le sessioni precedenti. Dal 9 novembre Codex accede alla copia Windows locale; queste note non autorizzano trasferimenti o commit automatici.
 
 ## [2026-11-08] Frontend Title HD — build 0.10.52
 - [APPROVATO] Soluzione B: SDL2 RGB/RGBA frontend moderno separato dal motore partita, che resta invariato. Sfondi PNG senza UI/logo, logo canonico separato; sprite e pannelli UI PNG distinti, testi e valori dinamici del motore.
@@ -377,3 +381,20 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 ## [2026-11-08] 0.10.54_09 — CONTINUE CAREER verde
 - [CODICE / TEST WINDOWS PENDENTE] Sostituita la conversione selettiva rosso con verde nel renderer SDL2, sul solo `continue_career.png`. Cambiano esclusivamente i pixel delle superfici blu/indaco in una copia decodificata in RAM; la scritta bianca, contorni neri, ombre, alpha e geometria sono conservati. PNG canonico intatto. Focus giallo e bouncing invariati.
 - [TEST] Verificare tonalità verde e scritta bianca sul PC Windows dopo Pull; nessuna compilazione o verifica grafica Windows eseguita qui.
+
+## [2026-11-09] Workflow locale e manutenzione, senza nuova build
+
+- Base verificata: `dev/0.10`, HEAD `4290e8c7cb2cc3864a26cbbf9cf7b6c98604a662`, versione `0.10.54_09`.
+- Codex modifica sorgenti e asset direttamente nel repository Windows. PNG approvati nei percorsi definitivi; iterazioni, compilazioni e test locali senza commit intermedi. Commit e push solo su esplicita autorizzazione.
+- Abolito il workflow ordinario ZIP/ASSETS_INBOX/trasferimenti GitHub e revocate le autorizzazioni automatiche ai commit asset. Rimossa soltanto ASSETS_INBOX/.gitkeep e la cartella vuota; documentazione storica conservata, job di ricomposizione disabilitato.
+- BUSINESS esiste ed è integrata; grafica da riprogettare in una futura sessione. Asset e layout precedenti restano riferimenti storici protetti fino a nuova approvazione. Nessun codice o asset BUSINESS modificato.
+- Messaggi operativi degli script resi neutri; nomi legacy del log e marker conservati per compatibilità. Nessun incremento di versione.
+- BUILD_SWOS.sh verifica GCC MinGW64, SDL2, pkg-config e Make senza installazioni o aggiornamenti automatici. Nessuna compilazione o esecuzione del gioco svolta durante questa manutenzione.
+
+## [2026-11-09] Configurazione definitiva del workflow Codex
+
+- [APPROVATO] Regole fondamentali e sequenza di lavoro consolidate all'inizio di `AGENTS.md`; modalità di applicazione in `docs/DEVELOPMENT_WORKFLOW.md`. Le alternative tecniche sono da ricercare e proporre spontaneamente, ma nessuna proposta autonoma è autorizzata all'implementazione senza approvazione esplicita.
+- [DECISIONE DEFINITIVA] CLASSIC MODES rimane una voce principale del Title Menu; non è una questione aperta.
+- [STATO LOCALE] Ramo `dev/0.10`, HEAD `4290e8c7cb2cc3864a26cbbf9cf7b6c98604a662`; modifiche locali delle sessioni precedenti conservate, inclusa la data generata in `sorgenti/include/swos_build.h`. Versione invariata `0.10.54_09`. Questo intervento aggiorna soltanto i tre documenti.
+- [VERIFICHE PRECEDENTI, NON RIPETUTE IN QUESTO INTERVENTO] Prima compilazione Windows incrementale riuscita in 7,64 s con 20 warning `-Waddress-of-packed-member`; eseguibile verificato. Primo avvio raggiunto, log development massimizzato e controller riconosciuto; chiusura volontaria confermata dall'utente.
+- [TEST PENDENTI] Conferma visiva del CONTINUE CAREER verde e delle transizioni fullscreen/windowed, collaudo completo della navigazione e dei flussi. L'analisi statica del Career Menu non equivale a un test runtime né autorizza automaticamente la proposta di renderer HD.

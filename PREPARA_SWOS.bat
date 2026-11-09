@@ -1,7 +1,7 @@
 @echo off
 setlocal EnableExtensions
 cd /d "%~dp0"
-title SWOS Expanded 0.10.40 - Preparazione
+title SWOS Expanded - Preparazione
 
 REM Un eseguibile 0.10 precedente non e considerato valido.
 REM Forza sempre la compilazione dei sorgenti aggiornati.
@@ -53,7 +53,7 @@ if not exist "SWOS_Expanded.exe" (
   echo ERRORE: compilazione terminata senza SWOS_Expanded.exe.
   exit /b 1
 )
-> ".SWOS_0140_COMPILATO" echo SWOS Expanded 0.10.40 - compilazione completata
+> ".SWOS_0140_COMPILATO" echo SWOS Expanded - compilazione completata
 exit /b 0
 
 :cerca_msys

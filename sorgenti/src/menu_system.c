@@ -7,6 +7,7 @@
 #include <stdio.h>   /* SWOS_MENU_NAV_LOG */
 #include <stdlib.h>
 #endif
+#include "expanded_new_career.h"
 #include "menu_system.h"
 #include "display.h"
 #include "game_utils.h"
@@ -1889,7 +1890,7 @@ void MenuProc(void)
         int inSquad=_currentMenuPtr==(uintptr_t)_squadMenu;
         int inBusiness=_currentMenuPtr==(uintptr_t)_expandedClubOverviewMenu;
         extern uint8_t _swosMainMenu[];
-        int inTitle=_currentMenuPtr==(uintptr_t)_swosMainMenu;
+        int inTitle=_currentMenuPtr==(uintptr_t)_swosMainMenu || Expanded_NewCareer_InputActive();
         if((inSquad||inBusiness||inTitle)!=mouseTracking) {
             Platform_SquadMouseTracking(inSquad||inBusiness||inTitle);
             mouseTracking=inSquad||inBusiness||inTitle;
@@ -1927,6 +1928,7 @@ void MenuProc(void)
     }
 #endif
 #ifdef SWOS_SDL_BUILD
+    if(Expanded_NewCareer_Proc())return;
     /* The new two-level Title controls the same SWOS callback functions,
      * but is not part of the old packed-menu navigation/painting graph. */
     {

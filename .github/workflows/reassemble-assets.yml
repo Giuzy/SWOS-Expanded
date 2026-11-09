@@ -9,6 +9,8 @@ permissions:
   contents: write
 jobs:
   reassemble:
+    # Historical transfer retired on 2026-11-09; no automatic asset commits.
+    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

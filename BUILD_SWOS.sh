@@ -36,16 +36,44 @@ if [[ ! -s "$game/data/expanded/expanded_loading_bg.bmp" ]]; then
 fi
 exec > >(tee "$game/COMPILAZIONE_0140.log") 2>&1
 
-echo '==== SWOS Expanded 0.10.40 - compilazione Windows x64 ===='
+echo '==== SWOS Expanded - compilazione Windows x64 ===='
 echo "Sorgenti: $src"
 echo "Gioco:    $game"
-echo 'Verifica delle dipendenze MSYS2...'
-pacman -S --needed --noconfirm mingw-w64-x86_64-gcc mingw-w64-x86_64-SDL2 mingw-w64-x86_64-pkgconf make
-
-if ! command -v gcc >/dev/null 2>&1 || [[ "$(gcc -dumpmachine)" != *mingw* ]]; then
-  echo 'ERRORE: compilatore MinGW64 non disponibile. Avvia MSYS2 MINGW64 e aggiorna con pacman -Syu.'
+echo 'Verifica delle dipendenze MSYS2 gia installate...'
+# Read-only checks: never install or update packages from this build script.
+check_dependency() {
+  local tool="$1" package="$2"
+  if ! command -v "$tool" >/dev/null 2>&1; then
+    echo "ERRORE: manca $tool nel PATH MINGW64. Pacchetto necessario: $package." >&2
+    return 1
+  fi
+  if ! pacman -Q "$package" >/dev/null 2>&1; then
+    echo "ERRORE: pacchetto necessario non installato: $package (per $tool)." >&2
+    return 1
+  fi
+  if ! "$tool" --version >/dev/null 2>&1; then
+    echo "ERRORE: $tool non funziona. Verificare il pacchetto $package e le sue dipendenze." >&2
+    return 1
+  fi
+}
+if ! command -v pacman >/dev/null 2>&1; then
+  echo 'ERRORE: pacman non disponibile per interrogare i pacchetti. Usare la shell MSYS2 MINGW64.' >&2
   exit 1
 fi
+check_dependency gcc mingw-w64-x86_64-gcc
+check_dependency pkg-config mingw-w64-x86_64-pkgconf
+check_dependency make make
+if [[ "$(gcc -dumpmachine)" != x86_64-w64-mingw32 ]]; then
+  echo 'ERRORE: GCC non e MinGW64 x64. Usare MSYS2 MINGW64 e il pacchetto mingw-w64-x86_64-gcc.' >&2
+  exit 1
+fi
+if ! pacman -Q mingw-w64-x86_64-SDL2 >/dev/null 2>&1 ||
+   ! pkg-config --exists sdl2 ||
+   ! pkg-config --cflags --libs sdl2 >/dev/null 2>&1; then
+  echo 'ERRORE: SDL2 di sviluppo non disponibile. Pacchetto necessario: mingw-w64-x86_64-SDL2; verificare il percorso pkg-config MINGW64.' >&2
+  exit 1
+fi
+
 # The approved Windows icon is a required repository asset, embedded by SWOS.rc.
 if [[ ! -s "$src/../development_assets/branding/windows/SWOS_EX.ico" ]]; then
   echo 'ERRORE: manca development_assets/branding/windows/SWOS_EX.ico.'
@@ -57,7 +85,7 @@ gcc -std=gnu11 -fsyntax-only -DSWOS_SDL_BUILD=1 -D_FILE_OFFSET_BITS=64 -include 
   -Isrc -Iinclude $(pkg-config --cflags sdl2) \
   src/menu_data.c src/menu_system.c src/menus.c src/expanded_career.c \
   src/expanded_economy.c src/platform_sdl.c src/game_loop.c src/career_init.c src/career_status.c src/career_teams.c src/transfer_market.c src/chairman_memo.c src/save_format_json.c src/input_text.c src/blitter.c src/build_info.c
-echo 'Compilo il gioco 0.10.40...'
+echo 'Compilo il gioco...'
 make -j4 NETPLAY=0
 if [[ ! -s bin/SWOS.exe ]]; then
   echo 'ERRORE: il compilatore non ha prodotto bin/SWOS.exe.'

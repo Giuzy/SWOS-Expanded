@@ -2,21 +2,30 @@
 
 Status: approved working rules. Primary integration branch: `dev/0.10`.
 
-## 1. Local working copy, GitHub for synchronization
+## 1. Workflow locale obbligatorio (2026-11-09)
 
-**Procedure:** At the start of a development session, obtain the latest complete project snapshot from the integration branch and prepare a local workspace containing source code, assets, build configuration and relevant documentation. Inspect the actual repository structure instead of assuming paths. Work on the local snapshot when possible; use GitHub to synchronize, review and commit approved changes. Before editing, confirm that the needed sources and assets are present. Do not describe a workspace as complete until verified.
+Codex lavora direttamente in `C:\Users\xgiuz\Downloads\Repo SWOS expanded\SWOS-Expanded`, su `dev/0.10` salvo istruzioni diverse. Prima di modificare verificare ramo, HEAD, stato locale, documentazione e dipendenze. Preservare modifiche non committate anche tra sessioni; non ricreare automaticamente la copia di lavoro dal remoto.
 
-**Why:** Reading related files locally is faster, supports project-wide searches and coordinated changes, and reduces repeated remote API calls and mistakes caused by missing context. GitHub remains the durable, shared source of truth rather than the editor for every file.
+Si possono ripetere modifiche, compilazioni e test locali senza commit intermedi. Commit e push richiedono ciascuno autorizzazione esplicita dell'utente. Registrare risultati reali e lavoro non committato nel passaggio di sessione. Rispettare i limiti della richiesta corrente: installazioni/aggiornamenti e avvio del gioco richiedono autorizzazione.
 
-**Between chats:** A chat runtime's local files are not guaranteed to survive. A new session must restore or recreate the workspace from the latest committed state. Never assume uncommitted local work persists. Record important design decisions and outstanding work in versioned documentation. At the end of a session, commit approved work where feasible and report any uncommitted changes.
+### Applicazione della procedura permanente
 
-## 2. Approved image assets: automatic upload
+La sequenza obbligatoria e le autorizzazioni sono definite in [AGENTS.md](../AGENTS.md), sezione 0; non duplicare qui l'elenco delle regole.
 
-**Procedure:** Once the user explicitly approves a newly created graphical asset, transfer it to the repository without requesting another upload or confirmation. Preserve the approved visual result and use the appropriate asset directory. For binary transfers, use the documented chunk/manifest/reassembly workflow in `asset-transfer/README.md`; verify the final file and its SHA-256 before reporting success.
+- **Preparazione:** leggere il diff esistente e identificare i file necessari. Usare controlli Git in sola lettura; non sincronizzare, ripristinare o cambiare ramo automaticamente. GitKraken resta lo strumento di sincronizzazione scelto dall'utente.
+- **Contraddizioni:** riportare le fonti e le opzioni concrete, attendere la decisione sulla parte controversa e proseguire soltanto sulle parti indipendenti già autorizzate.
+- **Alternative:** presentare un confronto proporzionato alla richiesta, distinguendo fatti verificati e ipotesi. Indicare benefici, impatto, compatibilità Windows, costi, tempi e rischi della soluzione raccomandata; attenderne l'approvazione esplicita prima di adottarla.
+- **UI:** raccogliere misure e mappatura input/callback dal codice reale secondo la sezione 8; mostrare il PNG con dati riproducibili prima dell'asset pulito. Distinguere approvazione visiva, autorizzazione all'integrazione e approvazione di eventuali cambi tecnici.
+- **Sviluppo e verifica:** eseguire le iterazioni locali autorizzate senza commit intermedi; scegliere controlli pertinenti e verificare che la toolchain sia già disponibile. Nessuna installazione o aggiornamento automatico. Un limite specifico della richiesta, come sola lettura o divieto di avvio, prevale sulle verifiche normalmente previste.
+- **Consegna:** elencare file modificati/rimossi, verifiche svolte e relativo esito, prove ancora necessarie e problemi aperti. Non dichiarare collaudi non eseguiti; lasciare le modifiche locali in attesa di eventuali richieste esplicite di commit e push.
 
-**Why:** This removes manual downloading and re-uploading by the user, avoids losing the exact approved version, and works around the observed single-transfer size ceiling.
+## 2. Asset approvati nei percorsi definitivi
 
-**Observed limit:** 3,145,472 bytes per upload in our tests (not a universal GitHub limit). Use chunks of at most 1,048,576 bytes.
+Salvare direttamente i nuovi PNG approvati nelle cartelle definitive locali e verificarne formato, dimensioni, trasparenza e contenuto. Conservare gli asset approvati esistenti fino a richiesta di sostituzione.
+
+ZIP, ASSETS_INBOX e trasferimenti GitHub non sono più il workflow ordinario. Sono revocate le autorizzazioni automatiche a committare gli asset. ASSETS_INBOX, verificata contenente soltanto `.gitkeep`, viene rimossa. La documentazione di trasferimento resta solo per memoria storica; il relativo job GitHub è disabilitato.
+
+**Motivo:** lavorare sulla copia Windows reale consente iterazioni e verifiche locali senza trasferimenti né commit intermedi obbligatori.
 
 ## 3. Asset approval versus implementation
 
@@ -26,23 +35,21 @@ Status: approved working rules. Primary integration branch: `dev/0.10`.
 
 ## 4. Fixes, verification and commits
 
-**Procedure:** For a requested bug fix, identify the actual active source files and input mappings, make a targeted change, inspect the diff, run available syntax/build checks and relevant tests, then commit on the agreed branch. Report precisely what was tested, what could not be tested, and the commit identifier. Do not claim a fix or successful build merely because a commit exists.
+**Procedure:** For a requested bug fix, identify the actual active source files and input mappings, make a targeted change, inspect the diff, run available syntax/build checks and relevant tests, leave the changes local until the user explicitly authorizes a commit; push requires explicit authorization too. Report precisely what was tested, what could not be tested, and any uncommitted changes; report a commit identifier only if a commit was explicitly authorized and created. Do not claim a fix or successful build merely because a commit exists.
 
 **Why:** A repository edit does not prove runtime behavior; focused changes and explicit checks reduce regressions and make troubleshooting reproducible.
 
 **Current pending issue:** In the Business screen, selecting an expense item with the joypad and pressing X should open its details popup immediately, without requiring cursor movement or an additional keypress. Preserve the approved popup artwork. This remains unverified and must not be reported as fixed until the code and behavior have been checked.
 
-## 5. Temporary transfer tests and cleanup
+## 5. Conservazione e pulizia
 
-**Procedure:** After validating a transfer, remove test BMPs and their test manifests, while retaining the reusable workflow and documentation. Do not remove production assets or files needed for recovery.
+Conservare asset approvati e file necessari al progetto. Le vecchie procedure di trasferimento sono documentazione storica, non istruzioni per caricare, committare o cancellare automaticamente file.
 
-**Why:** Keeps the repository clean without losing the automated transfer capability.
+## 6. Versioni e continuità
 
-## 6. Versioning and handoff
+Verificare la versione in `sorgenti/include/build_info.h`. Modifiche locali e test ripetuti non richiedono commit intermedi né incrementi automatici della versione. Applicare le convenzioni di numerazione di AGENTS.md quando viene autorizzato un commit di codice o richiesta una nuova build. Questa manutenzione documentale e degli script conserva `0.10.54_09`.
 
-**Procedure:** Work on `dev/0.10` unless instructed otherwise. Preserve the project's established version and interim-commit conventions. Keep project notes and procedures current, including the rationale for significant workflow decisions. When changing chats, restore the committed baseline and consult these notes before continuing.
-
-**Why:** The next session can reconstruct both the technical state and the reasons behind decisions, without relying on temporary chat storage or recollection.
+I nomi `COMPILAZIONE_0140.log` e `.SWOS_0140_COMPILATO` sono mantenuti per compatibilità; non indicano la versione corrente. BUILD_SWOS.sh verifica la toolchain già installata senza installare o aggiornare pacchetti. PREPARA_SWOS.bat conserva il percorso di installazione iniziale MSYS2 con conferma esplicita: non autorizzarlo se la richiesta vieta installazioni.
 
 ## 7. Modalità video development e release
 
@@ -63,7 +70,9 @@ La regola del BMP nativo obbligatorio per i nuovi asset frontend è **annullata*
 3. Conservare ogni artwork illustrato separato da logo, UI e dati. Per gli sfondi 1672×941 generazione e crop 1664×936 senza resize salvo richiesta.
 4. Il nuovo renderer SDL2 carica 8-bit PNG RGB/RGBA non interlacciati con miniz; il titolo è modernizzato prima degli altri menu, senza modificare partite e salvataggi.
 
-**Workflow preferito asset (8 novembre):** l'assistente consegna un **ZIP con i nuovi file già nei loro percorsi definitivi**, da estrarre nella cartella con `AVVIA_SWOS.bat`. L'utente pubblica periodicamente con GitKraken; il ZIP non è un commit GitHub. `ASSETS_INBOX/` resta alternativa autorizzata con archivio e commit separati dopo push segnalato. Gli eventuali vecchi blocchi/manifest descrivono un metodo storico, non imposto come procedura predefinita.
+**Workflow corrente (9 novembre):** salvare i PNG approvati direttamente nei percorsi definitivi locali; commit e push solo su esplicita autorizzazione.
+
+> **Cronologia tecnica delle build (sezioni 9–23):** consegne ZIP, trasferimenti, push e limitazioni di accesso locale descritti sotto sono storici, superati dal workflow del 9 novembre. Non costituiscono autorizzazioni operative; conservare i dettagli tecnici pertinenti e distinguere test storici e correnti.
 
 ## 9. Frontend moderno PNG e prova Title Menu (build 0.10.52)
 

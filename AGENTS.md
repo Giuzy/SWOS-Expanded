@@ -1,5 +1,32 @@
 # SWOS Expanded — AGENTS.md
 
+## 0. Regole fondamentali ad alta priorità — workflow Codex (2026-11-09)
+
+Queste regole governano ogni futura richiesta di sviluppo. Le istruzioni esplicite dell'utente e i limiti della richiesta corrente restano vincolanti: l'autonomia riguarda le procedure autorizzate, non nuove decisioni progettuali. Preservare integralmente il lavoro locale non committato.
+
+### Procedura obbligatoria
+
+1. Consultare le regole applicabili, questo file, `PROJECT_STATE.md` e `docs/DEVELOPMENT_WORKFLOW.md`; verificare lo stato reale del progetto.
+2. Controllare ramo, HEAD, file modificati/non tracciati, codice attivo e dipendenze interessate prima di intervenire.
+3. Per contraddizioni autentiche, indicare le decisioni in conflitto, presentare le alternative e chiedere all'utente quale prevale prima di modificare la parte controversa. Non trattare note esplicitamente storiche o superate come nuove decisioni da riaprire.
+4. Ricercare e proporre spontaneamente metodi tecnici migliori secondo la regola sulle alternative qui sotto.
+5. Per nuove UI esaminare codice attivo, `sorgenti/docs/FONTS.md`, font e funzioni di rendering, misure dei testi e valori massimi, coordinate, dimensioni, hitbox, callback e navigazione con mouse, tastiera e joypad.
+6. Preparare prima un PNG dimostrativo con testi e dati riproducibili dal motore; ottenere l'approvazione prima di generare l'asset pulito e implementarlo. Applicare i dettagli della procedura UI in sezione 4.
+7. Dopo le approvazioni pertinenti, modificare i file locali, compilare e verificare quanto possibile nel perimetro autorizzato. L'approvazione grafica non estende da sola l'autorizzazione a implementazione, sostituzioni o alternative tecniche non richieste. Rispettare ogni divieto corrente di build, avvio o installazione.
+8. Preservare gameplay, fisica, salvataggi, controlli, layout e asset approvati salvo richiesta esplicita.
+9. Non effettuare automaticamente commit, push, pull, merge, checkout o cambi di ramo. Ogni operazione richiede autorizzazione esplicita; GitKraken rimane lo strumento di sincronizzazione Git scelto dall'utente.
+10. Riassumere sempre modifiche, test effettivamente eseguiti, test pendenti, limitazioni ed eventuali problemi.
+
+### Alternative tecniche: proposta obbligatoria, adozione autorizzata
+
+Ricercare e proporre spontaneamente alternative tecnicamente migliori, anche se l'utente non le conosce o non le richiede espressamente. Valutare, quando pertinenti: motori grafici e renderer; SDL2, SDL3 e altre librerie; shader, effetti e animazioni; generazione di immagini, sprite e pixel art; modelli e strumenti AI specializzati; automazione dello sviluppo e degli asset; metodi più semplici per ottenere qualità grafica superiore.
+
+Confrontare le alternative rilevanti per qualità, prestazioni, compatibilità Windows, manutenzione, tempi, costi e rischi. Raccomandare chiaramente la soluzione migliore, motivandola rispetto al progetto reale.
+
+**REGOLA VINCOLANTE: non implementare mai un'alternativa tecnica proposta autonomamente senza averla prima presentata all'utente e ottenuto la sua approvazione esplicita.** Una richiesta generica di implementazione non autorizza cambi di motore, renderer, architettura, strumenti, gameplay o asset approvati. La ricerca di alternative non autorizza installazioni, aggiornamenti o migrazioni; mantenere la soluzione approvata finché l'utente non decide diversamente.
+
+**Decisione definitiva:** CLASSIC MODES rimane una voce principale del Title Menu e apre il relativo sottomenu. Non trattarla come una contraddizione da riaprire.
+
 ## 1. Scopo del documento
 
 Questo documento contiene le regole permanenti che ogni assistente AI deve rispettare durante lo sviluppo di SWOS Expanded.
@@ -84,7 +111,7 @@ Quando viene richiesto uno sfondo illustrato:
 
 ### Schermate approvate
 
-- Preservare il layout BUSINESS approvato.
+- BUSINESS: conservare asset e layout precedentemente approvati come riferimenti storici e mantenere la schermata esistente fino alla futura riprogettazione e nuova approvazione.
 - Preservare il layout SQUAD approvato.
 - Utilizzare il riferimento grafico approvato denominato **TRANSFER 1** per il menu principale del mercato.
 - Non introdurre cornici esterne nel layout TRANSFER 1.
@@ -140,13 +167,15 @@ Se una modifica richiede un intervento più ampio del previsto, spiegare il moti
 
 ## 8. Compilazione e test
 
-Workflow Windows approvato:
+Workflow locale approvato il 9 novembre 2026:
 
-- GitHub contiene il codice sorgente.
-- L'assistente prepara e registra le modifiche.
-- L'utente aggiorna il repository locale tramite GitKraken.
-- L'utente compila ed esegue il gioco sul proprio PC.
-- L'utente comunica i risultati dei test.
+- Codex lavora direttamente sui sorgenti e sugli asset in `C:\Users\xgiuz\Downloads\Repo SWOS expanded\SWOS-Expanded`.
+- Salvare i nuovi PNG approvati direttamente nei percorsi definitivi del progetto.
+- Modifiche, compilazioni e test locali possono essere ripetuti senza commit intermedi, rispettando i limiti della richiesta corrente.
+- Commit e push richiedono ciascuno autorizzazione esplicita dell'utente; approvare un asset non autorizza nessuno dei due.
+- Non installare o aggiornare pacchetti e non avviare il gioco senza la relativa autorizzazione.
+- A inizio sessione verificare ramo, HEAD e modifiche locali; preservare il lavoro non committato, anche tra sessioni.
+- Riportare separatamente controlli statici, compilazioni e test reali eseguiti.
 
 Preservare gli script necessari, inclusi:
 
@@ -174,7 +203,7 @@ Prima di ogni intervento, verificare il ramo di sviluppo corrente nel repository
 
 ## 10. Gestione degli asset
 
-GitHub è l'archivio di riferimento per gli asset del progetto.
+Il repository locale è la copia di lavoro per gli asset; GitHub conserva quanto sincronizzato con commit e push esplicitamente autorizzati.
 
 ### Formato dei nuovi asset di frontend: PNG lossless
 
@@ -210,7 +239,7 @@ Non cancellare le vecchie idee dal registro: indicare quando sono state superate
 
 ## 12. Aggiornamento delle regole
 
-Quando l'utente scrive **(regola)**, registrare la decisione e aggiornare `AGENTS.md` al successivo commit esplicitamente autorizzato; non creare commit automaticamente.
+Quando l'utente scrive **(regola)**, registrare la decisione e aggiornare `AGENTS.md` localmente quando la modifica è autorizzata, senza attendere un commit; commit e push richiedono autorizzazione esplicita.
 
 Quando emerge una nuova regola permanente:
 
@@ -243,11 +272,11 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - Mantenere coerenti il nome prodotto dalla compilazione, i percorsi e i riferimenti negli script di avvio e build (inclusi BAT e shell script), senza rinominare il repository o altri file non necessari.
 - Verificare la compilazione e l'avvio su Windows prima di dichiarare applicata la rinomina al gioco.
 
-## Gestione autonoma degli asset GitHub
+## Gestione locale degli asset (2026-11-09)
 
-- Quando vengono creati, approvati o modificati asset per SWOS Expanded, l'assistente deve caricarli personalmente nel repository GitHub, nella cartella coerente con la schermata o funzione, e committarli solo su richiesta esplicita. Non delegare all'utente il caricamento manuale.
-- Per i file binari usare gli strumenti GitHub per blob Base64, tree e commit quando disponibili; verificare che i file risultino effettivamente presenti sul ramo prima di dichiarare il caricamento completato.
-- Se un impedimento tecnico concreto blocca il trasferimento, comunicarlo esplicitamente senza dichiarare il lavoro completato.
+Salvare i PNG approvati nei percorsi definitivi locali, verificandone formato e contenuto. L'approvazione autorizza il salvataggio, non la sostituzione di asset approvati o l'integrazione nel codice se non richieste. Nessun caricamento GitHub o commit automatico.
+
+Il precedente trasferimento tramite blob/manifest è storico e abolito come workflow ordinario; vedere `asset-transfer/README.md`.
 
 ## Numerazione build e release (regola utente, 2026-11-06)
 - Conservare il formato originale a tre parti `MAJOR.RELEASE.BUILD`, ad esempio `0.10.40`; non abbreviare in `0.40`.
@@ -264,7 +293,7 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - Il titolo deve mostrare `Build ` seguito dalla versione completa (incluso il suffisso), tramite `Build_DisplayVersion()`.
 - Aggiornare `SWOS_EXPANDED_VERSION` in `sorgenti/include/build_info.h` nello stesso commit di codice che avanza il suffisso o pubblica la build; l'hash Git identifica il commit esatto.
 - GitHub richiede un commit per salvare cambi persistenti sul branch; si possono preparare modifiche localmente senza commit.
-- Poiché la build corrente è `0.10.51`, il primo commit intermedio di codice è `0.10.51_01`. `0.10.50_01` è valido solo se la base è `0.10.50`.
+- Esempio storico della serie 0.10.51: il primo commit intermedio di codice è `0.10.51_01`. `0.10.50_01` è valido solo se la base è `0.10.50`.
 
 ## Convenzione dei branch (decisione utente, 2026-11-06)
 - Il lavoro ordinario della serie `0.10.xx` prosegue sul branch `dev/0.10`, senza rinominarlo a ogni piccola build.
@@ -272,22 +301,15 @@ L'assistente deve preservare il lavoro approvato, distinguere i fatti dalle ipot
 - Per una release importante si prepara un branch `release/0.20` e la versione `0.20.00`; la stessa convenzione si applica alle serie successive.
 - Il vecchio branch `release/0.10.40` resta temporaneamente disponibile come riferimento per permettere la sincronizzazione sicura di GitKraken; non cancellarlo prima della verifica locale.
 
-## Cartella unica di ingresso asset — ASSETS_INBOX (regola utente, 2026-11-06)
+## Workflow asset precedente — superato il 2026-11-09
 
-- La cartella permanente `ASSETS_INBOX/`, alla radice del repository, è l'unico punto di deposito manuale per nuovi asset (PNG, sprite, animazioni e altri file).
-- L'utente copia i nuovi file in `ASSETS_INBOX/` nel repository locale e li pubblica sul ramo di lavoro verificato tramite Commit e Push (attualmente `dev/0.10`).
-- L'utente autorizza permanentemente l'assistente a organizzare e committare, senza ulteriore conferma, i nuovi file trovati in `ASSETS_INBOX/` dopo un push segnalato dall'utente o durante una successiva sessione di lavoro sul repository. L'assistente verifica i file su GitHub, individua le cartelle definitive appropriate e li sposta con un commit separato. Non assumere che ogni push venga rilevato automaticamente fuori dalla conversazione.
-- Durante lo spostamento preservare esattamente il contenuto binario e il nome degli asset approvati, salvo diversa istruzione; non sovrascrivere asset esistenti senza verifica e consenso.
-- Non integrare automaticamente gli asset nel gioco soltanto perché sono stati archiviati.
-- Mantenere `ASSETS_INBOX/.gitkeep` nel repository affinché la cartella rimanga tracciata anche quando non contiene altri file.
-- Questa procedura è un'alternativa pratica al caricamento diretto tramite strumenti GitHub quando il trasferimento binario non è possibile; preferire il caricamento diretto quando effettivamente disponibile.
-
+Le procedure del 6–8 novembre tramite ZIP, `ASSETS_INBOX/` e trasferimenti GitHub sono abolite come workflow ordinario. È revocata ogni autorizzazione permanente a organizzare e committare automaticamente gli asset. La cartella inbox, verificata contenente soltanto `.gitkeep`, viene rimossa; non ricrearla. La cronologia delle consegne resta in `PROJECT_STATE.md`.
 
 ## Title Menu moderno e workflow aggiornato (8 novembre 2026)
 - La scelta più recente per i **nuovi asset frontend è PNG lossless RGB/RGBA**, non BMP nativo obbligatorio. Il vecchio formato resta per asset storici, non per la nuova UI.
-- I nuovi asset vengono preferibilmente consegnati in **ZIP strutturato con i percorsi finali**, da estrarre nella cartella con `AVVIA_SWOS.bat`. Il push GitHub dell'utente è separato. `ASSETS_INBOX/` resta procedura alternativa con autorizzazione specifica già concessa per il riordino e commit.
+- I nuovi PNG approvati sono salvati direttamente nei percorsi definitivi locali (workflow del 9 novembre 2026).
 - Il Title Menu richiesto dopo la 0.10.53 ha cinque voci di primo livello, con CAREER prominente; il secondo livello CLASSIC MODES conserva le funzioni SWOS originali, incluse CONTINUE/REPLAY/SAVE. Grafica user-selected e animazione di pressione SDL2 senza GIF. Il vecchio sfondo/pulsanti Title e F8 non devono essere più visibili una volta attivato il nuovo menu. Lo sfondo PNG e il logo canonico approvati rimangono invariati.
-- Il nuovo codice non va presentato come compilato/testato Windows senza test. Non dichiarare che i binari PNG sono su GitHub quando sono stati consegnati solo nello ZIP.
+- Il nuovo codice non va presentato come compilato/testato Windows senza test. Non dichiarare che i binari PNG sono su GitHub quando sono presenti soltanto in locale.
 
 
 ## Focus e pressione dei pulsanti UI (regola utente, 2026-11-08)

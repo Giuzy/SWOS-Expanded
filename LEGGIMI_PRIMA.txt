@@ -1,0 +1,18 @@
+SWOS EXPANDED — NEW CAREER — PACCHETTO CODEX V3 — 09/11/2026
+
+Questo e' uno ZIP di ASSET e ISTRUZIONI. Non e' una build, non e' un commit.
+
+UTILIZZO
+1. Estrai tutto nella CARTELLA RADICE del repository locale SWOS-Expanded
+   (quella contenente AVVIA_SWOS.bat), mantenendo le sottocartelle.
+2. Apri CODEX_COPIA_IN_CHAT.txt e invialo a Codex.
+3. Codex lavora sulla copia LOCALE, preserva eventuali cambi non committati,
+   mostra prima un'anteprima del font che riproduca il Title approvato,
+   poi prepara la build e i test Windows previo chiarimento dei conflitti.
+4. Codex NON deve committare/pushare senza tua autorizzazione.
+
+APPROVATI: sfondo, UI azzurra senza focus/testi, checkbox OFF e ON verde.
+FONT: e' approvato il RIFERIMENTO VISIVO del Title, non un file di font:
+non aggiungere automaticamente DejaVu o il lettering dell'ultimo mockup bocciato.
+
+LEGGERE: docs/CODEX_NEW_CAREER_2026-11-09_V3.md

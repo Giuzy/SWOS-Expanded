@@ -1,3 +1,4 @@
+#include "expanded_new_career.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -470,6 +471,9 @@ void InitMainMenuStuff(void)
     SetDefaultNameAndSurname();
     _expandedManagerFame = 0;
     _expandedManagerStartAge = 35;
+#ifdef SWOS_SDL_BUILD
+    Expanded_NewCareer_Reset();
+#endif
     Expanded_SetAgeText();
     Expanded_UpdateFameText();
 
@@ -5339,6 +5343,9 @@ void CareerMenuInit(void)
     SetDefaultNameAndSurname();
     _expandedManagerFame = 0; /* new career starts unknown; not loaded career */
     _expandedManagerStartAge = 35;
+#ifdef SWOS_SDL_BUILD
+    Expanded_NewCareer_Reset();
+#endif
     Expanded_SetAgeText();
     Expanded_UpdateFameText();
     CareerMenuFinish();

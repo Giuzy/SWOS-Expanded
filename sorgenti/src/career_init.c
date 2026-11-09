@@ -1,3 +1,4 @@
+#include "expanded_new_career.h"
 /*
  * Amiga SWOS RE Project
  * SWOS Amiga C/68000 Reversed by Ben Baker (https://github.com/benbaker76)
@@ -283,7 +284,12 @@ void ChooseTeamAndStartCareer(void)
      * screen is outside the career engine; no uninitialised team state can
      * leak into fixtures or transfer processing. */
     extern uint8_t _expandedManagerFame;
+#ifdef SWOS_SDL_BUILD
+    /* Setup choice is independent from fame; never overwrite the manager scalar. */
+    if (Expanded_NewCareer_Unemployed()) {
+#else
     if (_expandedManagerFame == 0) {
+#endif
         extern int Expanded_WaitForFirstOffer(uint16_t *team);
         uint16_t offerTeam = 0;
         if (!Expanded_WaitForFirstOffer(&offerTeam)) {
@@ -304,7 +310,12 @@ void ChooseTeamAndStartCareer(void)
     } else {
         SelectTeamToManage();
         if (_selectedTeamPtr == 0) {
+#ifdef SWOS_SDL_BUILD
+            extern uint16_t _fireResetFlag;
+            _fireResetFlag=1; /* Cancel team selection returns to setup. */
+#else
             SetExitMenuFlag();
+#endif
             return;
         }
         InitCareer(_selectedTeamCountryNumber);

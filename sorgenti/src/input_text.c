@@ -8,6 +8,7 @@
  * Ported from SWOS2.s (Chunk 36)
  */
 
+#include "expanded_new_career.h"
 #include "input_text.h"
 #include "menu_system.h"
 #include "string_utils.h"
@@ -316,6 +317,9 @@ static uint16_t inputTextBody(uint16_t maxLenPlus1, uint8_t *entryRaw)
 
     for (;;) {
         MenuCheckControls();
+#ifdef SWOS_SDL_BUILD
+        if(Expanded_NewCareer_Active() && Expanded_NewCareer_TakeBack())_currentKey=27;
+#endif
 
         /* For the Expanded age editor, the click that OPENED the field
          * must not immediately commit it. Two typed digits auto-commit,

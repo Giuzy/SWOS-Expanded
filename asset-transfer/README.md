@@ -1,6 +1,6 @@
-# SWOS Expanded — metodo storico di trasferimento via blob/manifest (opzionale)
+# SWOS Expanded — metodo storico di trasferimento via blob/manifest (archiviato)
 
-**Stato 2026-11-08:** la procedura normale per i nuovi asset frontend è **ZIP con percorsi definitivi**, da estrarre nella cartella con `AVVIA_SWOS.bat`, seguito dal push GitKraken dell'utente. `ASSETS_INBOX/` resta l'alternativa autorizzata. La vecchia ricomposizione GitHub Action descritta qui è disponibile come **ripiego tecnico**, non è più obbligatoria né parte di ogni approvazione. Non sovrascrivere asset approvati tramite manifest storici. I nuovi asset frontend sono PNG lossless; i BMP storici restano invariati.
+**Stato 2026-11-09: procedura storica, abolita dal workflow ordinario.** Codex salva i PNG approvati direttamente nei percorsi definitivi locali. ZIP e ASSETS_INBOX non sono più richiesti; ogni autorizzazione automatica a committare asset è revocata. Il job di ricomposizione è disabilitato. Le istruzioni seguenti documentano il metodo precedente e non autorizzano esecuzione o riattivazione.
 
 Per usarla come ripiego, verificare prima il ramo attuale (normalmente `dev/0.10`), i formati, la necessità concreta e i binari già archiviati. I tre manifest di trasferimenti conclusi nel novembre 2026 sono stati rimossi durante la pulizia 0.10.53_03; gli asset definitivi restano su GitHub. Nessun push di asset viene presunto senza verifica.
 

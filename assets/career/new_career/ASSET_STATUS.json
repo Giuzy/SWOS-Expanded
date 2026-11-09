@@ -1,0 +1,27 @@
+{
+  "package_status": "For Codex integration; not a Windows build, not committed",
+  "background": {
+    "source": "user-approved original separate background",
+    "dimensions": [
+      1670,
+      942
+    ],
+    "format": "RGB8"
+  },
+  "ui": {
+    "source": "last user-approved textless UI no focus",
+    "dimensions": [
+      1670,
+      942
+    ],
+    "format": "RGBA8 derived by external black removal",
+    "original_preserved": true
+  },
+  "checkbox": {
+    "off": "approved empty checkbox original",
+    "on": "approved dark-navy checkbox with green tick original",
+    "format": "RGBA8 cropped without resampling"
+  },
+  "fonts": "APPROVED DIRECTION: match text style from original Title button PNGs. No font source/atlas approved yet; compare and await approval.",
+  "note": "Approved graphics only; no code/build/commit in this package. Crop/scale mismatch requires approval. Original UI alpha conversion needs visual verification."
+}

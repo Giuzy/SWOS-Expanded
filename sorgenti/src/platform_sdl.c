@@ -20,6 +20,7 @@
 #include "dos_gameplay.h"    /* DosGameplay_TargetFps — 70 (DOS) vs 50 (Amiga) */
 #include "dos_graphics.h"    /* DosGfx_BuildPalette */
 #include "build_info.h"      /* the commit, in the window title */
+#include "expanded_new_career.h"
 #include "expanded_title_overlay.h" /* independent PNG title and button sprites */
 #include "expanded_title_layout.h"
 
@@ -169,6 +170,24 @@ int Platform_TitleMouseState(int *x,int *y,int *moved,int *click)
     *click=s_title_mouse_click;
     s_title_mouse_click=0;
     return 1;
+}
+static volatile int s_career_mouse_click;
+int Platform_NewCareerMouseState(int*x,int*y,int*moved,int*click)
+{
+    static int prev_x=-1,prev_y=-1;
+    int mx,my,ww,wh;
+    if(!s_window || !s_renderer)return 0;
+    SDL_GetMouseState(&mx,&my);SDL_GetWindowSize(s_window,&ww,&wh);
+    if(ww<=0||wh<=0)return 0;
+    if(Expanded_NewCareer_Active()){*x=mx*1664/ww;*y=my*936/wh;}
+    else {
+        float lx,ly;SDL_RenderWindowToLogical(s_renderer,mx,my,&lx,&ly);
+        *x=(int)lx;*y=(int)ly;
+        if(s_stretch){*x=mx*336/ww;*y=my*272/wh;}
+        if(s_stretch&&s_menu_art_fullscreen){*x=*x*320/336;*y=*y*256/272;}
+    }
+    *moved=*x!=prev_x||*y!=prev_y;prev_x=*x;prev_y=*y;
+    *click=s_career_mouse_click;s_career_mouse_click=0;return 1;
 }
 void Platform_SetMenuArtFullscreen(int enabled)
 {
@@ -1549,6 +1568,7 @@ void Platform_Shutdown(void)
     if (s_isr_mtx)    { SDL_DestroyMutex(s_isr_mtx);    s_isr_mtx    = NULL; }
     InputSDL_Shutdown();
     AudioSDL_Shutdown();
+    Expanded_NewCareer_Destroy();
     Expanded_TitleOverlay_Destroy();
 
     for (int ti = 0; ti < PLATFORM_TEX_RING; ti++)
@@ -2107,6 +2127,9 @@ static void pump_events_any_thread(void)
         case SDL_KEYUP:
         case SDL_TEXTINPUT:             /* (a password's characters: InputSDL_RawText) */
         case SDL_CONTROLLERBUTTONDOWN:
+            if(ev.type==SDL_CONTROLLERBUTTONDOWN && Expanded_NewCareer_InputActive() && ev.cbutton.button==SDL_CONTROLLER_BUTTON_B) {
+                Expanded_NewCareer_Back();continue;
+            }
             if (ev.type==SDL_CONTROLLERBUTTONDOWN &&
                 expanded_title_main_active() &&
                 ev.cbutton.button==SDL_CONTROLLER_BUTTON_B) {
@@ -2123,6 +2146,11 @@ static void pump_events_any_thread(void)
             InputSDL_HandleEvent(&ev);
             break;
         case SDL_MOUSEBUTTONDOWN:
+            if(Expanded_NewCareer_InputActive()) {
+                if(ev.button.button==SDL_BUTTON_LEFT)s_career_mouse_click=1;
+                else if(ev.button.button==SDL_BUTTON_RIGHT)Expanded_NewCareer_Back();
+                break;
+            }
             if(expanded_title_main_active()) {
                 if(ev.button.button==SDL_BUTTON_LEFT) s_title_mouse_click=1;
                 else if(ev.button.button==SDL_BUTTON_RIGHT)
@@ -2263,6 +2291,9 @@ static void draw_world_and_hud(SDL_Texture *tex, int n, float qx, float qy)
     /* The new Title is RGB/RGBA directly on SDL2 and NEVER composites the
      * old menu or backdrop. This branch precedes native menu presentation
      * and applies even when widescreen stretch was not selected. */
+    if (Expanded_NewCareer_Active()) {
+        Expanded_NewCareer_Draw(s_renderer,w,h);return;
+    }
     if (expanded_title_main_active()) {
         Expanded_TitleOverlay_Draw(s_renderer,w,h);
         return;

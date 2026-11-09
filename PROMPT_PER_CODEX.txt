@@ -1,0 +1,15 @@
+Voglio integrare NEW CAREER in SWOS Expanded con il nuovo renderer SDL2 HD.
+Ho estratto nella radice del repository locale il pacchetto con:
+- assets/career/new_career/background_approved_reference.png
+- assets/career/new_career/ui_approved_reference.png
+- assets/fonts/expanded/expanded_ui_{24,32,42}.png + .json
+- tools/fonts/generate_atlas.py
+- docs/CODEX_NEW_CAREER_TASK.md
+
+Leggi PRIMA docs/CODEX_NEW_CAREER_TASK.md e le regole in AGENTS.md, PROJECT_STATE.md, docs/DEVELOPMENT_WORKFLOW.md, sorgenti/docs/FONTS.md. Verifica HEAD, diff e dipendenze senza sovrascrivere modifiche locali precedenti.
+
+Implementazione richiesta: sfondo separato, UI/sprite separati, nuovo font TTF→atlanti PNG offline, tutte le etichette e valori da renderer, mouse/tastiera/joypad, callback carriera originali, layout HD. FAME non deve imporre l'avvio disoccupato: l'utente può scegliere di essere disoccupato con qualsiasi fama.
+
+ATTENZIONE: prima di cambiare i file di produzione chiedimi una decisione sui QUATTRO punti già segnalati nel documento (dimensioni/crop PNG; giallo baked-in sul focus; font definitivo; come offrire i due percorsi di avvio con il layout approvato). Non scegliere da solo, e intanto svolgi l'analisi indipendente. La famiglia font acclusa è un CANDIDATO, non approvata.
+
+Non cambiare il Title, il gameplay, il calendario/disoccupato, i salvataggi o l'architettura senza autorizzazione. Non installare pacchetti né fare commit/push/pull/checkout/merge. Riporta stato, domande essenziali, differenze reali e test.

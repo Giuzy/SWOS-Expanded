@@ -151,7 +151,11 @@ static void action(int row,int direction){
   if(direction){int age=_expandedManagerStartAge+direction;if(age>=18&&age<=70)_expandedManagerStartAge=age;Expanded_SetAgeText();}
   else Expanded_EditManagerAge(e);
   break;
- case 6:\n  /* Direct FAME cycle: do not open the nested selector. */\n  if(!direction)direction=1;\n  _controlMask=direction<0?0x40:0x80;\n  Expanded_ChangeManagerFame(e);break;
+ case 6:
+  /* Direct FAME cycle: do not open the nested selector. */
+  if(!direction)direction=1;
+  _controlMask=direction<0?0x40:0x80;
+  Expanded_ChangeManagerFame(e);break;
  case 7:s_unemployed=!s_unemployed;break;
  case 8:if(!direction&&ready())ChooseTeamAndStartCareer();break;
  }

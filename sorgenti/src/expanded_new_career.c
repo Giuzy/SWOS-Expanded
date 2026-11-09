@@ -1,5 +1,5 @@
 /* NEW CAREER HD. Presentation/setup state only; career/save engine unchanged.
- * 0.10.60: slower bounded navigation, fitted captions, exact alpha focus and silent debug build. */
+ * 0.10.61: refined vertical alignment, compact button focus and nationality highlighting; silent debug stays active. */
 #ifdef SWOS_SDL_BUILD
 #include "expanded_new_career.h"
 #include "expanded_png.h"
@@ -176,7 +176,7 @@ static void load(SDL_Renderer*r){
  TEX(s_flags,"nationality_flags.png",0);
  #undef TEX
  load_font(r,0,"form");load_font(r,1,"button");load_font(r,2,"title");
- fprintf(stderr,"[new-career] 0.10.60: limited nav, fitted text, silent debug build\n");
+ fprintf(stderr,"[new-career] 0.10.61: refined spacing, PLAYER/COACH, blue nationality field, audio remains disabled\n");
 }
 void Expanded_NewCareer_Destroy(void){
  SDL_DestroyTexture(s_bg);SDL_DestroyTexture(s_panel);s_bg=s_panel=NULL;
@@ -312,7 +312,7 @@ static void focus(SDL_Renderer*r,float x,float y,float w,float h,float sx,float 
 static const char* value(int row){
  static const char *fallback[]={"MR","","","---","COACH","",""};
  if(row==3 && _plNationality==255)return "OTH";
- if(row==4)return _coachOrPlayer?"COACH":"PL/COACH";
+ if(row==4)return _coachOrPlayer?"COACH":"PLAYER/COACH";
  if(row==6)return _expandedManagerFameText;
  uintptr_t p=_menuEntries[ord[row]].fg;
  return p>4096 && p!=(uintptr_t)0xffffffffu?(const char*)p:fallback[row];
@@ -328,24 +328,36 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
   SDL_FRect seam=rect(776,213+66*row,2,36,sx,sy);
   SDL_SetRenderDrawColor(r,3,23,53,255);SDL_RenderFillRectF(r,&seam);
  }
+ /* NATION is an interactive right-hand field. A translucent blue wash
+  * lifts its value panel, while the approved panel PNG stays unchanged.
+  * Reapply the previous blend state to avoid changing subsequent UI. */
+ {
+  SDL_BlendMode prev_blend=SDL_BLENDMODE_NONE;
+  SDL_GetRenderDrawBlendMode(r,&prev_blend);
+  SDL_SetRenderDrawBlendMode(r,SDL_BLENDMODE_BLEND);
+  SDL_SetRenderDrawColor(r,67,165,255,66);
+  SDL_FRect nation_bg=rect(790.f,408.f,548.f,40.f,sx,sy);
+  SDL_RenderFillRectF(r,&nation_bg);
+  SDL_SetRenderDrawBlendMode(r,prev_blend);
+ }
  int sink=s_press>0?3:0;
  /* Bring both lower controls slightly upwards, and center their captions. */
  copy(r,s_toggle[s_unemployed],390+(s_action==7?sink:0),676+(s_action==7?sink:0),895,107,sx,sy);
  copy(r,s_start[ready()],532+(s_action==8?sink:0),785+(s_action==8?sink:0),606,89,sx,sy);
  copy(r,s_check[s_unemployed],1179+(s_action==7?sink:0),700+(s_action==7?sink:0),62,58,sx,sy);
- pixel_text(r,"NEW CAREER",2,835,64,1,sx,sy);
+ pixel_text(r,"NEW CAREER",2,835,68.5f,1,sx,sy);
  const char*labels[]={"TITLE","NAME","SURNAME","NATION","ROLE","AGE (18-70)","FAME"};
  for(int i=0;i<7;i++){
-  pixel_text(r,labels[i],0,337,214+66*i,0,sx,sy);
+  pixel_text(r,labels[i],0,337,218.5f+66*i,0,sx,sy);
   /* Nation icon and three-letter code are centered as ONE visual group. */
   if(i==3){
    draw_flag(r,992,214+66*i,sx,sy);
-   pixel_text_tint_fit(r,value(i),0,1112,214+66*i,1,sx,sy,i==s_selected?1:-1,280.f);
-  }else pixel_text_tint_fit(r,value(i),0,1070,214+66*i,1,sx,sy,
-    i==s_selected?1:-1,i==6?265.f:0.f);
+   pixel_text_tint_fit(r,value(i),0,1112,218.5f+66*i,1,sx,sy,i==s_selected?1:-1,280.f);
+  }else pixel_text_tint_fit(r,value(i),0,1070,218.5f+66*i,1,sx,sy,
+    i==s_selected?1:-1,i==4?235.f:(i==6?265.f:0.f));
  }
  pixel_text_tint_fit(r,"START UNEMPLOYED",1,802+(s_action==7?sink:0),707+(s_action==7?sink:0),1,sx,sy,-1,455.f);
- pixel_text(r,"START",1,835+(s_action==8?sink:0),815+(s_action==8?sink:0),1,sx,sy);
+ pixel_text(r,"START",1,835+(s_action==8?sink:0),813.87f+(s_action==8?sink:0),1,sx,sy);
  if(s_selected<7){
   const float target=202.f+66.f*(float)s_selected;
   if(s_focus_field_y<target){s_focus_field_y+=12.f;if(s_focus_field_y>target)s_focus_field_y=target;}
@@ -353,11 +365,11 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
   focus(r,782,s_focus_field_y,571,55,sx,sy);
  }else if(s_selected==7){
   s_focus_field_y=202.f+66.f*6.f;
-  if(s_focus_toggle)copy(r,s_focus_toggle,389+(s_action==7?sink:0),675+(s_action==7?sink:0),897,109,sx,sy);
+  if(s_focus_toggle)copy(r,s_focus_toggle,391+(s_action==7?sink:0),676+(s_action==7?sink:0),893,107,sx,sy);
   else focus(r,405,687,864,79,sx,sy);
  }else{
   s_focus_field_y=202.f+66.f*6.f;
-  if(s_focus_start)copy(r,s_focus_start,531+(s_action==8?sink:0),784+(s_action==8?sink:0),608,91,sx,sy);
+  if(s_focus_start)copy(r,s_focus_start,533+(s_action==8?sink:0),785+(s_action==8?sink:0),604,89,sx,sy);
   else focus(r,550,794,571,69,sx,sy);
  }
 }

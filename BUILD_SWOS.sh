@@ -90,6 +90,13 @@ echo 'Compilo il gioco... DEBUG 0.10.60: AUDIO DISABILITATO TEMPORANEAMENTE'
 # Makefile's swos_platform.h. The header overrides its audio=0 default.
 # The Makefile build-flags stamp sees CC change and rebuilds all modules.
 # For the next audio-enabled build, restore: make -j4 NETPLAY=0.
+# Gli ZIP preservano i timestamp: dopo l'estrazione i sorgenti possono
+# risultare piu' vecchi degli .o, per cui make potrebbe saltare le modifiche.
+# Ricompiliamo sempre soltanto numero build e renderer NEW CAREER.
+echo 'Versione letta dai sorgenti:'
+grep '^#define SWOS_EXPANDED_VERSION ' include/build_info.h || true
+printf '%s\n' 'Aggiorno data dei sorgenti build_info.c e expanded_new_career.c per ricompilarli.'
+touch src/build_info.c src/expanded_new_career.c
 make -j4 NETPLAY=0 CC='gcc -include include/debug_no_audio_01060.h'
 if [[ ! -s bin/SWOS.exe ]]; then
   echo 'ERRORE: il compilatore non ha prodotto bin/SWOS.exe.'

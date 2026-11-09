@@ -81,12 +81,16 @@ if [[ ! -s "$src/../development_assets/branding/windows/SWOS_EX.ico" ]]; then
 fi
 cd "$src"
 echo 'Controllo sintattico delle schermate e dei menu modificati...'
-gcc -std=gnu11 -fsyntax-only -DSWOS_SDL_BUILD=1 -D_FILE_OFFSET_BITS=64 -include include/swos_platform.h \
+gcc -std=gnu11 -fsyntax-only -DSWOS_SDL_BUILD=1 -D_FILE_OFFSET_BITS=64 -include include/debug_no_audio_01060.h -include include/swos_platform.h \
   -Isrc -Iinclude $(pkg-config --cflags sdl2) \
   src/menu_data.c src/menu_system.c src/menus.c src/expanded_career.c \
-  src/expanded_economy.c src/platform_sdl.c src/game_loop.c src/career_init.c src/career_status.c src/career_teams.c src/transfer_market.c src/chairman_memo.c src/save_format_json.c src/input_text.c src/blitter.c src/build_info.c
-echo 'Compilo il gioco...'
-make -j4 NETPLAY=0
+  src/expanded_economy.c src/platform_sdl.c src/game_loop.c src/career_init.c src/career_status.c src/career_teams.c src/transfer_market.c src/chairman_memo.c src/save_format_json.c src/input_text.c src/blitter.c src/build_info.c src/expanded_new_career.c
+echo 'Compilo il gioco... DEBUG 0.10.60: AUDIO DISABILITATO TEMPORANEAMENTE'
+# Silent debugging: force-include debug_no_audio_01060.h before the
+# Makefile's swos_platform.h. The header overrides its audio=0 default.
+# The Makefile build-flags stamp sees CC change and rebuilds all modules.
+# For the next audio-enabled build, restore: make -j4 NETPLAY=0.
+make -j4 NETPLAY=0 CC='gcc -include include/debug_no_audio_01060.h'
 if [[ ! -s bin/SWOS.exe ]]; then
   echo 'ERRORE: il compilatore non ha prodotto bin/SWOS.exe.'
   exit 1

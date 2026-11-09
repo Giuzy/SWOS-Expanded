@@ -401,3 +401,6 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 
 ### 0.10.56 — NEW CAREER (2026-11-09)
 [CODICE MODIFICATO, TEST WINDOWS PENDENTE] UI 88,5% autorizzata per lasciare visibili tavolo e penna, sfondo senza resize. Testi bitmap diritti a pixel interi; checkbox nel pulsante START UNEMPLOYED; FAME cicla senza popup; frecce decorative. Logica carriera e formato salvataggi invariati. Workflow ChatGPT/GitHub/GitKraken attivo, Codex storico.
+
+### NEW CAREER 0.10.57 (2026-11-09)
+[IMPLEMENTAZIONE CODICE, TEST WINDOWS PENDENTE] Font in atlas PNG lossless formato/form/button/title, coerente in forma con il mockup di riferimento e non soggetto a shrink 0,885; focus sottile dei pulsanti basato sulla sagoma, focus singolo dei campi; AGE 18-70 non apre InputText; cursore '|' per NAME/SURNAME; separazione visiva di 4px tra colonne. Asset nuovi consegnati via ZIP nei percorsi runtime. Non modificati sfondo e UI sorgenti approvati, gameplay o salvataggi.

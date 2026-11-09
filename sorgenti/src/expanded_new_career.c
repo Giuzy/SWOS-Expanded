@@ -2,7 +2,8 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_new_career.h"
 #include "expanded_png.h"
-#include "expanded_club_font.h" /* upright in-engine bitmap font */
+#include "expanded_club_font.h" /* fallback only: runtime uses approved-style PNG atlas */
+#include "mjson.h"
 #include "menu_system.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -25,6 +26,10 @@ extern int Platform_NewCareerMouseState(int*,int*,int*,int*);
 static SDL_atomic_t s_back;
 static int s_selected,s_unemployed=1,s_previous_fire=1,s_press,s_action=-1,s_action_dir;
 static const int ord[]={3,4,5,7,9,15,13,10,11};
+typedef struct {SDL_Rect rect; int advance,bearingX,bearingY;} CareerGlyph;
+typedef struct {SDL_Texture *texture;CareerGlyph glyph[128];} CareerFont;
+static CareerFont s_fonts[3]; /* form, button, title */
+static SDL_Texture *s_focus_toggle,*s_focus_start;
 static SDL_Texture *s_bg,*s_panel,*s_toggle[2],*s_start[2],*s_check[2];
 static int s_loaded;
 int Expanded_NewCareer_Active(void){return _currentMenuPtr==(uintptr_t)_careerMenu;}
@@ -54,6 +59,37 @@ static SDL_Texture *texture(SDL_Renderer*r,const char*path,int colour){
  if(t){SDL_SetTextureBlendMode(t,SDL_BLENDMODE_BLEND);SDL_SetTextureScaleMode(t,SDL_ScaleModeNearest);}
  return t;
 }
+static int glyph_metric(const char *json,int len,int code,const char *field){
+ char path[96];double n=0.0;
+ snprintf(path,sizeof path,"$.glyphs.%d.%s",code,field);
+ return mjson_get_number(json,len,path,&n)?(int)n:0;
+}
+static void load_font(SDL_Renderer*r,int index,const char*name){
+ char path[256];
+ snprintf(path,sizeof path,"assets/fonts/new_career/ui_%s.png",name);
+ s_fonts[index].texture=texture(r,path,0);
+ if(s_fonts[index].texture)SDL_SetTextureScaleMode(s_fonts[index].texture,SDL_ScaleModeLinear);
+ snprintf(path,sizeof path,"assets/fonts/new_career/ui_%s.json",name);
+ FILE*f=fopen(path,"rb");
+ if(!f){fprintf(stderr,"[new-career] missing atlas metrics %s\\n",path);return;}
+ if(fseek(f,0,SEEK_END)!=0){fclose(f);return;}
+ long len=ftell(f);rewind(f);
+ if(len<=0||len>1000000){fclose(f);return;}
+ char*json=(char*)calloc((size_t)len+1,1);
+ if(!json){fclose(f);return;}
+ size_t got=fread(json,1,(size_t)len,f);fclose(f);
+ for(int ch=32;ch<127;ch++){
+  CareerGlyph*g=&s_fonts[index].glyph[ch];
+  g->rect=(SDL_Rect){glyph_metric(json,(int)got,ch,"x"),
+     glyph_metric(json,(int)got,ch,"y"),
+     glyph_metric(json,(int)got,ch,"w"),
+     glyph_metric(json,(int)got,ch,"h")};
+  g->advance=glyph_metric(json,(int)got,ch,"advance");
+  g->bearingX=glyph_metric(json,(int)got,ch,"bearingX");
+  g->bearingY=glyph_metric(json,(int)got,ch,"bearingY");
+ }
+ free(json);
+}
 static void load(SDL_Renderer*r){
  if(s_loaded)return;s_loaded=1;
  const char *base="assets/career/new_career/";
@@ -64,12 +100,21 @@ static void load(SDL_Renderer*r){
  TEX(s_toggle[0],"toggle_runtime.png",0);TEX(s_toggle[1],"toggle_runtime.png",1);
  TEX(s_start[0],"start_runtime.png",0);TEX(s_start[1],"start_runtime.png",2);
  TEX(s_check[0],"checkbox_off_approved_rgba.png",0);TEX(s_check[1],"checkbox_on_approved_rgba.png",0);
+ TEX(s_focus_toggle,"focus_toggle.png",0);
+ TEX(s_focus_start,"focus_start.png",0);
  #undef TEX
- fprintf(stderr,"[new-career] HD layers ready; UI scale .885; text at native pixel grid\n");
+ load_font(r,0,"form");load_font(r,1,"button");load_font(r,2,"title");
+ fprintf(stderr,"[new-career] 0.10.57 UI .885, upright bitmap atlases and alpha focus\\n");
 }
 void Expanded_NewCareer_Destroy(void){
  SDL_DestroyTexture(s_bg);SDL_DestroyTexture(s_panel);s_bg=s_panel=NULL;
  for(int i=0;i<2;i++){SDL_DestroyTexture(s_toggle[i]);SDL_DestroyTexture(s_start[i]);SDL_DestroyTexture(s_check[i]);s_toggle[i]=s_start[i]=s_check[i]=NULL;}
+ SDL_DestroyTexture(s_focus_toggle);SDL_DestroyTexture(s_focus_start);
+ s_focus_toggle=s_focus_start=NULL;
+ for(int i=0;i<3;i++){
+  SDL_DestroyTexture(s_fonts[i].texture);
+  memset(&s_fonts[i],0,sizeof s_fonts[i]);
+ }
  s_loaded=0;
 }
 /* Keep approved UI at 88.5 percent while drawing type at integer screen pixels.
@@ -80,33 +125,78 @@ static SDL_FRect rect(float x,float y,float w,float h,float sx,float sy){
 static void copy(SDL_Renderer*r,SDL_Texture*t,float x,float y,float w,float h,float sx,float sy){
  if(t){SDL_FRect d=rect(x,y,w,h,sx,sy);SDL_RenderCopyF(r,t,NULL,&d);}
 }
-static void pixel_text(SDL_Renderer*r,const char*s,int type,float x,float y,int centered,float sx,float sy){
- if(!s)return;
- int unit=(int)((type==3?5:type==2?4:3)*(sx+sy)*.5f+.5f);
+/* Draw at the final screen coordinates. Text does NOT inherit the UI's 88.5% shrink.
+ * The atlas is a runtime PNG, not a TTF dependency or the coarse 5x8 fallback. */
+static void fallback_text(SDL_Renderer*r,const char*s,int type,float x,float y,int centered,float sx,float sy){
+ int unit=(int)((type==2?5:type==1?4:3)*(sx+sy)*.5f+.5f);
  if(unit<1)unit=1;
- int advance=6*unit;size_t len=strlen(s);
- int left=(int)((93+x*.885f)*sx+.5f);
+ int adv=6*unit;int left=(int)((93+x*.885f)*sx+.5f);
  int top=(int)((50+y*.885f)*sy+.5f);
- if(centered)left-=(int)(len*advance/2);
- for(size_t i=0;i<len;i++){
+ if(centered)left-=(int)strlen(s)*adv/2;
+ for(size_t i=0;s[i];i++){
   unsigned char ch=(unsigned char)s[i];
+  if(ch==255){
+   SDL_FRect line={(float)(left+(int)i*adv+2), (float)top,2.f,(float)(8*unit)};
+   SDL_SetRenderDrawColor(r,255,255,255,255);SDL_RenderFillRectF(r,&line);
+   continue;
+  }
   if(ch>='a'&&ch<='z')ch=(unsigned char)(ch-'a'+'A');
   if(ch<32||ch>126)ch='?';
-  const unsigned char *rows=cb_glyphs[ch-32];
-  for(int py=0;py<8;py++)for(int px=0;px<5;px++)
-   if(rows[py]&(1u<<(4-px))){
-    SDL_FRect sh={(float)(left+(int)i*advance+px*unit+1),(float)(top+py*unit+1),(float)unit,(float)unit};
-    SDL_SetRenderDrawColor(r,1,5,22,255);SDL_RenderFillRectF(r,&sh);
-    SDL_FRect dot={(float)(left+(int)i*advance+px*unit),(float)(top+py*unit),(float)unit,(float)unit};
-    SDL_SetRenderDrawColor(r,255,255,249,255);SDL_RenderFillRectF(r,&dot);
-   }
+  const unsigned char *bits=cb_glyphs[ch-32];
+  for(int py=0;py<8;py++)for(int px=0;px<5;px++)if(bits[py]&(1u<<(4-px))){
+   SDL_FRect dot={(float)(left+(int)i*adv+px*unit),(float)(top+py*unit),(float)unit,(float)unit};
+   SDL_SetRenderDrawColor(r,255,255,255,255);SDL_RenderFillRectF(r,&dot);
+  }
  }
 }
+static void pixel_text(SDL_Renderer*r,const char*s,int type,float x,float y,int centered,float sx,float sy){
+ if(!s)return;
+ CareerFont*f=&s_fonts[type];
+ if(!f->texture||!f->glyph['A'].advance){
+  fallback_text(r,s,type,x,y,centered,sx,sy);return;
+ }
+ float screenScale=(sx+sy)*.5f;
+ int total=0;
+ for(const unsigned char*p=(const unsigned char*)s;*p;p++){
+  unsigned ch=*p;
+  if(ch>='a'&&ch<='z')ch=ch-'a'+'A';
+  if(ch==255){total+=8;continue;}
+  if(ch<32||ch>126)ch='?';
+  total+=f->glyph[ch].advance;
+ }
+ float atX=(93+x*.885f)*sx-(centered?total*screenScale*.5f:0.f);
+ const float atY=(50+y*.885f)*sy;
+ for(const unsigned char*p=(const unsigned char*)s;*p;p++){
+  unsigned ch=*p;
+  if(ch==255){
+   /* The legacy text editor emits 0xff as its cursor. Draw a normal caret,
+    * never the '?' that the old sprite font displayed for unknown glyphs. */
+   SDL_FRect caret={atX+1.f,atY,2.f*screenScale,29.f*screenScale};
+   SDL_SetRenderDrawColor(r,255,255,255,255);SDL_RenderFillRectF(r,&caret);
+   atX+=8.f*screenScale;continue;
+  }
+  if(ch>='a'&&ch<='z')ch=ch-'a'+'A';
+  if(ch<32||ch>126)ch='?';
+  CareerGlyph*g=&f->glyph[ch];
+  if(g->rect.w>0&&g->rect.h>0){
+   SDL_FRect dst={atX+g->bearingX*screenScale,atY+g->bearingY*screenScale,
+                   g->rect.w*screenScale,g->rect.h*screenScale};
+   dst.x=(float)((int)(dst.x+.5f));dst.y=(float)((int)(dst.y+.5f));
+   SDL_RenderCopyF(r,f->texture,&g->rect,&dst);
+  }
+  atX+=g->advance*screenScale;
+ }
+}
+/* One-pixel chamfer for form fields; button focus uses alpha-contour sprite. */
 static void focus(SDL_Renderer*r,float x,float y,float w,float h,float sx,float sy){
  SDL_SetRenderDrawColor(r,255,220,52,255);
- /* Chamfered outline follows the rounded rectangular field/button perimeter. */
- for(int k=0;k<3;k++){SDL_FRect d=rect(x-k,y-k,w+2*k,h+2*k,sx,sy);float c=9*.885f*sx,cy=9*.885f*sy;
- SDL_FPoint p[9]={{d.x+c,d.y},{d.x+d.w-c,d.y},{d.x+d.w,d.y+cy},{d.x+d.w,d.y+d.h-cy},{d.x+d.w-c,d.y+d.h},{d.x+c,d.y+d.h},{d.x,d.y+d.h-cy},{d.x,d.y+cy},{d.x+c,d.y}};SDL_RenderDrawLinesF(r,p,9);}
+ SDL_FRect d=rect(x,y,w,h,sx,sy);
+ float corner=11*.885f*sx,cy=11*.885f*sy;
+ SDL_FPoint p[9]={{d.x+corner,d.y},{d.x+d.w-corner,d.y},
+  {d.x+d.w,d.y+cy},{d.x+d.w,d.y+d.h-cy},
+  {d.x+d.w-corner,d.y+d.h},{d.x+corner,d.y+d.h},
+  {d.x,d.y+d.h-cy},{d.x,d.y+cy},{d.x+corner,d.y}};
+ SDL_RenderDrawLinesF(r,p,9);
 }
 static const char* value(int row){
  static const char *fallback[]={"MR","","","---","COACH","",""};
@@ -120,22 +210,34 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
  SDL_SetRenderDrawColor(r,0,0,0,255);SDL_RenderClear(r);
  if(s_bg){SDL_FRect d={0,0,w,h};SDL_RenderCopyF(r,s_bg,NULL,&d);}
  copy(r,s_panel,0,0,1670,942,sx,sy);
+ /* Separate touching halves of each pair. Cover only the narrow 3px seam;
+  * background, approved artwork and hitboxes otherwise stay unchanged. */
+ SDL_SetRenderDrawColor(r,3,28,70,255);
+ for(int row=0;row<7;row++){
+  SDL_FRect seam=rect(775,207+66*row,4,47,sx,sy);
+  SDL_RenderFillRectF(r,&seam);
+ }
  int sink=s_press>0?3:0;
  copy(r,s_toggle[s_unemployed],390+(s_action==7?sink:0),682+(s_action==7?sink:0),895,107,sx,sy);
  copy(r,s_start[ready()],532+(s_action==8?sink:0),788+(s_action==8?sink:0),606,89,sx,sy);
  /* Checkbox stays INSIDE the unemployment toggle and follows button bounce. */
  copy(r,s_check[s_unemployed],1179+(s_action==7?sink:0),706+(s_action==7?sink:0),62,58,sx,sy);
- pixel_text(r,"NEW CAREER",3,835,63,1,sx,sy);
+ pixel_text(r,"NEW CAREER",2,835,59,1,sx,sy);
  const char*labels[]={"TITLE","NAME","SURNAME","NATION","ROLE","AGE (18-70)","FAME"};
  for(int i=0;i<7;i++){
-  pixel_text(r,labels[i],1,337,211+66*i,0,sx,sy);
-  pixel_text(r,value(i),1,1070,211+66*i,1,sx,sy);
+  pixel_text(r,labels[i],0,337,210+66*i,0,sx,sy);
+  pixel_text(r,value(i),0,1070,210+66*i,1,sx,sy);
  }
- pixel_text(r,"START UNEMPLOYED",2,806+(s_action==7?sink:0),704+(s_action==7?sink:0),1,sx,sy);
- pixel_text(r,"START",2,835+(s_action==8?sink:0),802+(s_action==8?sink:0),1,sx,sy);
- if(s_selected<7)focus(r,780,200+66*s_selected,582,59,sx,sy);
- else if(s_selected==7)focus(r,398,690,875,86,sx,sy);
- else focus(r,542,797,583,69,sx,sy);
+ pixel_text(r,"START UNEMPLOYED",1,802+(s_action==7?sink:0),701+(s_action==7?sink:0),1,sx,sy);
+ pixel_text(r,"START",1,835+(s_action==8?sink:0),801+(s_action==8?sink:0),1,sx,sy);
+ if(s_selected<7)focus(r,782,202+66*s_selected,571,55,sx,sy);
+ else if(s_selected==7){
+  if(s_focus_toggle)copy(r,s_focus_toggle,385+(s_action==7?sink:0),675+(s_action==7?sink:0),910,119,sx,sy);
+  else focus(r,405,693,864,79,sx,sy);
+ }else{
+  if(s_focus_start)copy(r,s_focus_start,526+(s_action==8?sink:0),779+(s_action==8?sink:0),619,103,sx,sy);
+  else focus(r,550,797,571,69,sx,sy);
+ }
 }
 static void action(int row,int direction){
  MenuEntry*e=&_menuEntries[ord[row]];((Menu*)_currentMenu)->selectedEntry=e;
@@ -148,8 +250,14 @@ static void action(int row,int direction){
  case 3:ChangeNationality(e);break;
  case 4:CoachOrPlayerCoach(e);break;
  case 5:
-  if(direction){int age=_expandedManagerStartAge+direction;if(age>=18&&age<=70)_expandedManagerStartAge=age;Expanded_SetAgeText();}
-  else Expanded_EditManagerAge(e);
+  /* AGE is an inline left/right bounded selector, not an editable input. */
+  if(direction){
+   int age=(int)_expandedManagerStartAge+direction;
+   if(age<18)age=18;
+   if(age>70)age=70;
+   _expandedManagerStartAge=(uint8_t)age;
+   Expanded_SetAgeText();
+  }
   break;
  case 6:
   /* Direct FAME cycle: do not open the nested selector. */

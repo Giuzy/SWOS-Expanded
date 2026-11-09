@@ -314,3 +314,6 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 
 ### 0.10.56 — NEW CAREER corrections (2026-11-09)
 [Code edited; Windows test pending] Upright integer-pixel bitmap text instead of fractionally scaled traced font atlas; checkbox inside unemployment toggle; direct FAME cycling without picker; arrow artwork not independently clickable. UI retains approved 88.5% scale and original background. No career or save-format changes. GitHub/GitKraken workflow restored.
+
+### 0.10.57 — NEW CAREER visual fidelity fix (2026-11-09)
+[CODE COMMITTED; WINDOWS TEST PENDING] Replaced stretched 5x8 font with offline-generated bold upright PNG atlases loaded at runtime with JSON glyph metrics; disabled age text popup on confirm and clamped age to 18-70; rendered legacy editing cursor 0xff as vertical caret rather than '?'; used narrow yellow alpha-derived toggle/start focus and a single thin form-field outline; separated touching input columns visually. Background and approved base graphics retained without resize; bitmap assets supplied separately for extraction.

@@ -350,3 +350,8 @@ Le procedure del 6–8 novembre tramite ZIP, `ASSETS_INBOX/` e trasferimenti Git
 - Consegnare ZIP piccoli con eventuali asset/file nei percorsi definitivi; istruzioni per l'utente **direttamente nella chat e separatamente dagli ZIP**.
 - Compilazione e test Windows devono essere dichiarati come effettuati soltanto dopo verifica reale dell'utente.
 - NEW CAREER: scala UI 88,5% approvata per vedere tavolo/penna, sfondo senza resize; font bitmap diritto a pixel interi; frecce grafiche decorative non cliccabili; FAME cambia direttamente, niente submenu; checkbox dinamica dentro START UNEMPLOYED.
+
+## NEW CAREER — revisione visuale 0.10.57 (2026-11-09)
+- Font sui menu moderni: atlas bitmap PNG generati offline alla dimensione effettiva, bianchi e diritti come il mockup approvato; niente font 5x8 ingranditi come testo principale o ridimensionamento frazionario legato alla UI. Non modificare il Title gia' approvato.
+- NEW CAREER AGE usa soltanto SINISTRA/DESTRA, limiti inclusivi 18-70; A non apre editor. NAME/SURNAME mostrano un cursore verticale al posto di '?' senza cambiare la logica InputText storica.
+- Il focus dei pulsanti segue la silhouette alpha ed e' sottile (circa 2px sorgente); per i campi una sola traccia arrotondata, non un triplo bordo. Conservare l'UI al 88,5% e lo sfondo senza resize.

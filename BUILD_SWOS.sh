@@ -80,16 +80,19 @@ if [[ ! -s "$src/../development_assets/branding/windows/SWOS_EX.ico" ]]; then
   exit 1
 fi
 cd "$src"
+# Silent debug remains active. Apply only the Title-B correction to local SDL sources.
+# This script is idempotent; no commit/push, and no gameplay edits.
+bash "$src/tools/patch_title_b_01063.sh" "$src"
 echo 'Controllo sintattico delle schermate e dei menu modificati...'
 gcc -std=gnu11 -fsyntax-only -DSWOS_SDL_BUILD=1 -D_FILE_OFFSET_BITS=64 -include include/debug_no_audio_01060.h -include include/swos_platform.h \
   -Isrc -Iinclude $(pkg-config --cflags sdl2) \
-  src/menu_data.c src/menu_system.c src/menus.c src/expanded_career.c \
+  src/menu_data.c src/menu_system.c src/menus.c src/input_sdl.c src/expanded_career.c \
   src/expanded_economy.c src/platform_sdl.c src/game_loop.c src/career_init.c src/career_status.c src/career_teams.c src/transfer_market.c src/chairman_memo.c src/save_format_json.c src/input_text.c src/blitter.c src/build_info.c src/expanded_new_career.c
-echo 'Compilo il gioco... DEBUG 0.10.60: AUDIO DISABILITATO TEMPORANEAMENTE'
+echo 'Compilo il gioco... AUDIO DISABILITATO PER DEBUG (fino a nuovo ordine)'
 # Silent debugging: force-include debug_no_audio_01060.h before the
 # Makefile's swos_platform.h. The header overrides its audio=0 default.
 # The Makefile build-flags stamp sees CC change and rebuilds all modules.
-# For the next audio-enabled build, restore: make -j4 NETPLAY=0.
+# Audio stays disabled until the user explicitly authorizes re-enabling it.
 # Gli ZIP preservano i timestamp: dopo l'estrazione i sorgenti possono
 # risultare piu' vecchi degli .o, per cui make potrebbe saltare le modifiche.
 # Ricompiliamo sempre soltanto numero build e renderer NEW CAREER.

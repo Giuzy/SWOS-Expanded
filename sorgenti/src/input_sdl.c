@@ -28,6 +28,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+/* NEW CAREER 0.10.63: B does not act as fire at the first Title level. */
+extern uintptr_t _currentMenuPtr;
+extern uint8_t _swosMainMenu[];
+extern int Expanded_TitleMenu_Level(void);
+static int input_on_title_first_level(void) {
+    return _currentMenuPtr == (uintptr_t)_swosMainMenu && Expanded_TitleMenu_Level() == 0;
+}
 #include "match_step.h"   /* MatchStep_LocalBenchButton: the DOS second button */
 #include "dos_mode.h"     /* _gDosGameplay */
 #ifdef SWOS_WASM_BUILD
@@ -1144,10 +1151,10 @@ static void read_device_state(int d,
         if (SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_DPAD_LEFT))  *left  = 1;
         if (SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_DPAD_RIGHT)) *right = 1;
         if (SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_A) ||
-            (!Expanded_UI_IsBusinessScreen() &&
+            (!Expanded_UI_IsBusinessScreen() && !input_on_title_first_level() &&
              SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B)))
             *_fire = 1;
-        if (skip && SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))
+        if (skip && !input_on_title_first_level() && SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))
             *skip = 1;
         return;
     }
@@ -1176,6 +1183,7 @@ static void read_device_state(int d,
             if (h & SDL_HAT_RIGHT) *right = 1;
         }
         for (int b = 0; b < nbtns; ++b) {
+            if (b == 1 && input_on_title_first_level()) continue;
             if (SDL_JoystickGetButton(raw, b)) {
                 *_fire = 1;
                 break;
@@ -1183,7 +1191,7 @@ static void read_device_state(int d,
         }
         /* Button index 1 (the "second" button on classic gameport-shaped
          * pads) also raises skip. Button 0 alone never triggers skip. */
-        if (skip && nbtns >= 2 && SDL_JoystickGetButton(raw, 1))
+        if (skip && !input_on_title_first_level() && nbtns >= 2 && SDL_JoystickGetButton(raw, 1))
             *skip = 1;
     }
 }

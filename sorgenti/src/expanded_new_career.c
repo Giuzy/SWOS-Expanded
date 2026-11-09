@@ -1,5 +1,5 @@
 /* NEW CAREER HD. Presentation/setup state only; career/save engine unchanged.
- * 0.10.61: refined vertical alignment, compact button focus and nationality highlighting; silent debug stays active. */
+ * 0.10.64: field text raised, PLAYER - COACH fitted, title C corrected; alpha side curves refined; silent debug stays active. */
 #ifdef SWOS_SDL_BUILD
 #include "expanded_new_career.h"
 #include "expanded_png.h"
@@ -77,7 +77,11 @@ static SDL_Texture *texture(SDL_Renderer*r,const char*path,int colour){
 /* Contour pixels are derived at runtime from the APPROVED button alpha.
  * The old oversized focus PNGs included detached yellow strokes beneath START.
  * Here only the primary opaque connected silhouette can receive a 2px rim. */
-static SDL_Texture *alpha_focus(SDL_Renderer*r,const char*path){
+/* Draw a 2-pixel yellow contour INSIDE the original opaque button shape.
+ * Erode along an ellipse (independent horizontal/vertical insets), not by
+ * shrinking the finished rectangular focus texture: this preserves both
+ * curved ends and the approved 3D depth without resizing the button art. */
+static SDL_Texture *alpha_focus(SDL_Renderer*r,const char*path,int inset_x,int inset_y){
  unsigned w=0,h=0;
  unsigned char *pixels=Expanded_PNG_LoadRGBA(path,&w,&h);
  if(!pixels||w<12||h<12||w>2048||h>1024){free(pixels);return NULL;}
@@ -85,9 +89,13 @@ static SDL_Texture *alpha_focus(SDL_Renderer*r,const char*path){
  unsigned char *mask=(unsigned char*)calloc(count,1);
  unsigned char *seen=(unsigned char*)calloc(count,1);
  unsigned char *best=(unsigned char*)calloc(count,1);
+ unsigned char *inner=(unsigned char*)calloc(count,1);
  int *queue=(int*)malloc(count*sizeof(int));
- if(!mask||!seen||!best||!queue){free(mask);free(seen);free(best);free(queue);free(pixels);return NULL;}
+ if(!mask||!seen||!best||!inner||!queue){
+  free(mask);free(seen);free(best);free(inner);free(queue);free(pixels);return NULL;
+ }
  for(size_t i=0;i<count;i++)mask[i]=pixels[i*4+3]>=128;
+ /* Select only the dominant solid component; detached strokes are ignored. */
  size_t largest=0;
  for(size_t i=0;i<count;i++)if(mask[i]&&!seen[i]){
   size_t head=0,tail=1;queue[0]=(int)i;seen[i]=1;
@@ -102,31 +110,54 @@ static SDL_Texture *alpha_focus(SDL_Renderer*r,const char*path){
   }
   if(tail>largest){memset(best,0,count);for(size_t k=0;k<tail;k++)best[queue[k]]=1;largest=tail;}
  }
- /* One pixel outside and one inside the original opaque button outline.
-  * This is 2 px tighter on EACH side than the oversized 0.10.59 focus,
-  * and cannot outline disconnected decorations or exceed the silhouette. */
- const int pad=1;
- const unsigned fw=w+2*pad,fh=h+2*pad;
- unsigned char *rgba=(unsigned char*)calloc((size_t)fw*fh,4);
- if(!rgba){free(mask);free(seen);free(best);free(queue);free(pixels);return NULL;}
- for(int y=0;y<(int)fh;y++)for(int x=0;x<(int)fw;x++){
-  int ox=x-pad,oy=y-pad;
-  int inside=(ox>=0&&oy>=0&&ox<(int)w&&oy<(int)h&&best[(size_t)oy*w+ox]);
-  int edge=0;
-  for(int dy=-1;dy<=1&&!edge;dy++)for(int dx=-1;dx<=1;dx++){
-   int nx=ox+dx,ny=oy+dy;
-   int neighbor=(nx>=0&&ny>=0&&nx<(int)w&&ny<(int)h&&best[(size_t)ny*w+nx]);
-   if(neighbor!=inside){edge=1;break;}
+ if(inset_x<1)inset_x=1;if(inset_y<1)inset_y=1;
+ const int xx=inset_x*inset_x,yy=inset_y*inset_y;
+ const int limit=xx*yy;
+ /* Elliptical inward offset: its edges follow the alpha's curved outline,
+  * even near the right-hand extrusion.  Done once, never at 50 Hz. */
+ for(int y=0;y<(int)h;y++)for(int x=0;x<(int)w;x++){
+  size_t pos=(size_t)y*w+(unsigned)x;
+  if(!best[pos])continue;
+  int ok=1;
+  for(int dy=-inset_y;dy<=inset_y&&ok;dy++){
+   for(int dx=-inset_x;dx<=inset_x;dx++){
+    if(dx*dx*yy+dy*dy*xx>limit)continue;
+    int nx=x+dx,ny=y+dy;
+    if(nx<0||ny<0||nx>=(int)w||ny>=(int)h || !best[(size_t)ny*w+(unsigned)nx]){
+     ok=0;break;
+    }
+   }
   }
-  if(edge){size_t j=((size_t)y*fw+(unsigned)x)*4;
+  if(ok)inner[pos]=1;
+ }
+ unsigned char *rgba=(unsigned char*)calloc(count,4);
+ if(!rgba){free(mask);free(seen);free(best);free(inner);free(queue);free(pixels);return NULL;}
+ /* Slightly reinforce the upper/lower corner arcs near both endcaps.
+  * The central straight contour remains 2px: no global thickening and
+  * no rectangular rescale that would flatten the approved rounded shape. */
+ for(int y=0;y<(int)h;y++)for(int x=0;x<(int)w;x++){
+  size_t pos=(size_t)y*w+(unsigned)x;
+  if(!inner[pos])continue;
+  int edge=0;
+  const int at_end=(x<(int)h || x>=(int)w-(int)h);
+  const int edge_radius=at_end?3:2,edge_limit=at_end?9:4;
+  for(int dy=-edge_radius;dy<=edge_radius&&!edge;dy++)
+   for(int dx=-edge_radius;dx<=edge_radius;dx++){
+    if(dx*dx+dy*dy>edge_limit)continue;
+    int nx=x+dx,ny=y+dy;
+    if(nx<0||ny<0||nx>=(int)w||ny>=(int)h || !inner[(size_t)ny*w+(unsigned)nx]){
+     edge=1;break;
+    }
+   }
+  if(edge){size_t j=pos*4;
    rgba[j]=255;rgba[j+1]=215;rgba[j+2]=39;rgba[j+3]=255;
   }
  }
- SDL_Surface *surf=SDL_CreateRGBSurfaceWithFormatFrom(rgba,fw,fh,32,fw*4,SDL_PIXELFORMAT_ABGR8888);
+ SDL_Surface *surf=SDL_CreateRGBSurfaceWithFormatFrom(rgba,w,h,32,w*4,SDL_PIXELFORMAT_ABGR8888);
  SDL_Texture *tex=surf?SDL_CreateTextureFromSurface(r,surf):NULL;
  if(surf)SDL_FreeSurface(surf);
  if(tex){SDL_SetTextureBlendMode(tex,SDL_BLENDMODE_BLEND);SDL_SetTextureScaleMode(tex,SDL_ScaleModeNearest);}
- free(rgba);free(mask);free(seen);free(best);free(queue);free(pixels);
+ free(rgba);free(mask);free(seen);free(best);free(inner);free(queue);free(pixels);
  return tex;
 }
 static int glyph_metric(const char *json,int len,int code,const char *field){
@@ -171,12 +202,12 @@ static void load(SDL_Renderer*r){
  TEX(s_start[0],"start_runtime.png",0);TEX(s_start[1],"start_runtime.png",2);
  TEX(s_check[0],"checkbox_off_approved_rgba.png",0);TEX(s_check[1],"checkbox_on_approved_rgba.png",0);
  /* No separate focus PNG: follows each button's own original alpha. */
- snprintf(path,sizeof path,"%stoggle_runtime.png",base);s_focus_toggle=alpha_focus(r,path);
- snprintf(path,sizeof path,"%sstart_runtime.png",base);s_focus_start=alpha_focus(r,path);
+ snprintf(path,sizeof path,"%stoggle_runtime.png",base);s_focus_toggle=alpha_focus(r,path,8,5);
+ snprintf(path,sizeof path,"%sstart_runtime.png",base);s_focus_start=alpha_focus(r,path,7,3);
  TEX(s_flags,"nationality_flags.png",0);
  #undef TEX
  load_font(r,0,"form");load_font(r,1,"button");load_font(r,2,"title");
- fprintf(stderr,"[new-career] 0.10.61: refined spacing, PLAYER/COACH, blue nationality field, audio remains disabled\n");
+ fprintf(stderr,"[new-career] 0.10.64: field text raised, PLAYER - COACH centered, title C lowered, endcap focus retouched, audio disabled\n");
 }
 void Expanded_NewCareer_Destroy(void){
  SDL_DestroyTexture(s_bg);SDL_DestroyTexture(s_panel);s_bg=s_panel=NULL;
@@ -285,6 +316,15 @@ static void pixel_text_tint_fit(SDL_Renderer*r,const char*s,int type,float x,flo
   if(g->rect.w>0&&g->rect.h>0){
    SDL_FRect dst={atX+g->bearingX*fontScale,atY+g->bearingY*fontScale,
                   g->rect.w*fontScale,g->rect.h*fontScale};
+   /* AGE (18-70) is ONE line again. Move ONLY its two parentheses,
+    * not the digits or AGE, by 2 output-reference pixels up/left. */
+   if(type==0 && strcmp(s,"AGE (18-70)")==0 && (ch=='(' || ch==')')){
+    dst.x-=2.f*sx;dst.y-=2.f*sy;
+   }
+   /* The approved NEW CAREER title uses the same atlas. Adjust only its
+    * C by 3 display-reference pixels; leave all other glyphs untouched. */
+   if(type==2 && ch=='C' && strcmp(s,"NEW CAREER")==0)
+    dst.y+=3.f*sy;
    dst.x=(float)((int)(dst.x+.5f));dst.y=(float)((int)(dst.y+.5f));
    SDL_RenderCopyF(r,f->texture,&g->rect,&dst);
   }
@@ -312,7 +352,7 @@ static void focus(SDL_Renderer*r,float x,float y,float w,float h,float sx,float 
 static const char* value(int row){
  static const char *fallback[]={"MR","","","---","COACH","",""};
  if(row==3 && _plNationality==255)return "OTH";
- if(row==4)return _coachOrPlayer?"COACH":"PLAYER/COACH";
+ if(row==4)return _coachOrPlayer?"COACH":"PLAYER - COACH";
  if(row==6)return _expandedManagerFameText;
  uintptr_t p=_menuEntries[ord[row]].fg;
  return p>4096 && p!=(uintptr_t)0xffffffffu?(const char*)p:fallback[row];
@@ -348,16 +388,16 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
  pixel_text(r,"NEW CAREER",2,835,68.5f,1,sx,sy);
  const char*labels[]={"TITLE","NAME","SURNAME","NATION","ROLE","AGE (18-70)","FAME"};
  for(int i=0;i<7;i++){
-  pixel_text(r,labels[i],0,337,218.5f+66*i,0,sx,sy);
+  pixel_text(r,labels[i],0,337,219.5f+66*i,0,sx,sy);
   /* Nation icon and three-letter code are centered as ONE visual group. */
   if(i==3){
    draw_flag(r,992,214+66*i,sx,sy);
-   pixel_text_tint_fit(r,value(i),0,1112,218.5f+66*i,1,sx,sy,i==s_selected?1:-1,280.f);
-  }else pixel_text_tint_fit(r,value(i),0,1070,218.5f+66*i,1,sx,sy,
-    i==s_selected?1:-1,i==4?235.f:(i==6?265.f:0.f));
+   pixel_text_tint_fit(r,value(i),0,1112,219.5f+66*i,1,sx,sy,i==s_selected?1:-1,280.f);
+  }else pixel_text_tint_fit(r,value(i),0,i==4?1066.f:1070.f,219.5f+66*i,1,sx,sy,
+    i==s_selected?1:-1,i==4?248.f:(i==6?265.f:0.f));
  }
  pixel_text_tint_fit(r,"START UNEMPLOYED",1,802+(s_action==7?sink:0),707+(s_action==7?sink:0),1,sx,sy,-1,455.f);
- pixel_text(r,"START",1,835+(s_action==8?sink:0),813.87f+(s_action==8?sink:0),1,sx,sy);
+ pixel_text(r,"START",1,835+(s_action==8?sink:0),812.87f+(s_action==8?sink:0),1,sx,sy);
  if(s_selected<7){
   const float target=202.f+66.f*(float)s_selected;
   if(s_focus_field_y<target){s_focus_field_y+=12.f;if(s_focus_field_y>target)s_focus_field_y=target;}
@@ -365,12 +405,12 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
   focus(r,782,s_focus_field_y,571,55,sx,sy);
  }else if(s_selected==7){
   s_focus_field_y=202.f+66.f*6.f;
-  if(s_focus_toggle)copy(r,s_focus_toggle,391+(s_action==7?sink:0),676+(s_action==7?sink:0),893,107,sx,sy);
-  else focus(r,405,687,864,79,sx,sy);
+  if(s_focus_toggle)copy(r,s_focus_toggle,390+(s_action==7?sink:0),676+(s_action==7?sink:0),895,107,sx,sy);
+  else focus(r,405,690,862,73,sx,sy);
  }else{
   s_focus_field_y=202.f+66.f*6.f;
-  if(s_focus_start)copy(r,s_focus_start,533+(s_action==8?sink:0),785+(s_action==8?sink:0),604,89,sx,sy);
-  else focus(r,550,794,571,69,sx,sy);
+  if(s_focus_start)copy(r,s_focus_start,532+(s_action==8?sink:0),785+(s_action==8?sink:0),606,89,sx,sy);
+  else focus(r,556,797,558,63,sx,sy);
  }
 }
 static void action(int row,int direction){

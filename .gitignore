@@ -34,3 +34,9 @@ Thumbs.db
 /asset-transfer/manifests/business-ui-approved-2026-11-07.json
 /asset-transfer/manifests/controller-abc-approved-2026-11-07.json
 /asset-transfer/manifests/match-stats-ui-approved-2026-11-06.json
+
+*.bat
+
+PULIZIA_SWOS.ps1
+
+RAPPORTO_PULIZIA_SWOS.txt

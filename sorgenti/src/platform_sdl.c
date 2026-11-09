@@ -2133,7 +2133,7 @@ static void pump_events_any_thread(void)
             if (ev.type==SDL_CONTROLLERBUTTONDOWN &&
                 expanded_title_main_active() &&
                 ev.cbutton.button==SDL_CONTROLLER_BUTTON_B) {
-                Expanded_TitleMenu_QueueBack();
+                if (Expanded_TitleMenu_Level() == 1) Expanded_TitleMenu_QueueBack();
                 continue;
             }
             /* fallthrough */

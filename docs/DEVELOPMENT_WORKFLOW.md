@@ -175,3 +175,14 @@ La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo ver
 - **ZIP soltanto per nuovi asset grafici** da estrarre con i percorsi definitivi. Non predisporre pacchetti ZIP per semplici modifiche di codice/documentazione.
 - **Versionamento:** primo commit serie nuova `0.13.01`; ogni commit successivo di codice incrementa .01 senza suffissi, nuovo milestone +0.1 soltanto su richiesta. Se il formato esatto della successiva milestone non è chiaro, confrontarsi con l'utente prima di cambiarlo.
 - **Fase 1:** testare `bash sorgenti/tests/run_test_expanded_world_time.sh` (o aprire la shell nella directory `sorgenti` e chiamare `bash tests/run_test_expanded_world_time.sh`). La compilazione completa e il test gameplay su Windows rimangono distinti dai test isolati.
+
+## Test manuali 0.13.02 — debug F12, F9 e comandi
+
+1. Sincronizzare `dev/0.10` con GitKraken, lanciare `AVVIA_SWOS.bat` e verificare **Build 0.13.02**.
+2. Premere **F12** in UNEMPLOYED e controllare le settimane di attesa reali, il WORLD 9697/2627, la data **DATE EST**, e i tre stati **NOT ACTIVE**. Non interpretare i risultati del ledger isolato come partite già simulate nel gioco.
+3. Premere **F9**: nel percorso di avvio del gioco deve apparire `swos_debugNNN.png`, con testo leggibile. Premere ancora F12 per chiudere il testo.
+4. Entrare in un club, aprire F12, premere **1** (WIN ALWAYS ON), giocare la successiva partita con **VIEW RESULT**, verificare vittoria ufficiale, classifica e statistiche; premere **2** e verificare la sconfitta nella partita seguente. Le forzature sono esclusive. **Non usare PLAY MATCH per controllare la corrispondenza tra gol in campo e risultati ufficiali**, perché questo debug modifica solo la fase dei risultati.
+5. Con F12 visibile premere **3** (SACK NEXT ARMED), poi aprire la prossima azione PLAY MATCH / NEXT MATCH; controllare la procedura di esonero e di nuovo impiego. Se si sta provando un salvataggio importante, usare una copia: i risultati di prova, a differenza dei toggle, possono essere salvati.
+6. Da shell MSYS2, se necessario: `bash sorgenti/tests/run_test_expanded_phase12.sh`. Nessuna nuova dipendenza.
+
+**Stato della consegna:** solo GCC su moduli isolati provato; build completa/test Windows ancora dell'utente. Nessuna asserzione di eventi realmente simulati durante disoccupazione.

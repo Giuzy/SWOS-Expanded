@@ -9,6 +9,7 @@
  */
 
 #include "world.h"
+#include "expanded_debug.h"
 #include "diy_competition.h"
 #include "comp_identity.h"
 #include "translations.h"
@@ -10394,10 +10395,16 @@ static void getCachedOrCalcViewResult(TeamFileEx *team1, TeamFileEx *team2,
         *outGoals1 = (uint16_t)_cachedViewResultTeam1Goals;
         *outGoals2 = (uint16_t)_cachedViewResultTeam2Goals;
         _cachedViewResultTeam1Goals = -1;
-        return;
+    } else {
+        CalculateViewResult((DIYCompetition *)comp, modeFlag, goalsIn1, goalsIn2, statCol,
+                             team1, team2, outGoals1, outGoals2);
     }
-    CalculateViewResult((DIYCompetition *)comp, modeFlag, goalsIn1, goalsIn2, statCol,
-                         team1, team2, outGoals1, outGoals2);
+    /* Debug-only result override. It acts BEFORE regular league/cup flags,
+     * standings, career stats and record caches. No change to match physics,
+     * input, or result generation for other teams. Disabled by default. */
+    if (_gameType == 4 && !_careerAutoAdvanceInProgress &&
+        (team1 == &_careerTeam || team2 == &_careerTeam))
+        ExpandedDebug_ForceScore(team1 == &_careerTeam, outGoals1, outGoals2);
 }
 
 static void getCachedOrCalcExtraTimeResult(uint16_t *outD3, uint16_t *outD4)

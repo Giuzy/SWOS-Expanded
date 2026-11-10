@@ -20,6 +20,8 @@
 #include "dos_gameplay.h"    /* DosGameplay_TargetFps — 70 (DOS) vs 50 (Amiga) */
 #include "dos_graphics.h"    /* DosGfx_BuildPalette */
 #include "build_info.h"      /* the commit, in the window title */
+#include "world.h"
+#include "expanded_debug.h"
 #include "expanded_new_career.h"
 #include "expanded_title_overlay.h" /* independent PNG title and button sprites */
 #include "expanded_title_layout.h"
@@ -440,10 +442,9 @@ static double        k_frame_secs = 1.0 / 50.0;  /* refreshed per frame from the
 static volatile Uint32 s_last_main_render_ms;
 
 /* Screenshot triggers:
- *   - Hotkeys F9 / F11 / F12 / PrintScreen — set s_screenshot_request from
- *     pump_events_any_thread on KEYDOWN. F12 is the historical default but
- *     gets intercepted by some window managers (WSL, GNOME); F9/F11/PrtSc
- *     are alternates that survive most setups.
+ *   - F11 / PrintScreen — set s_screenshot_request from
+ *     pump_events_any_thread on KEYDOWN. F12 now toggles the temporary world
+ *     debug text, and F9 captures final presented output including that text.
  *   - Env var SWOS_SCREENSHOT_INTERVAL=N — write every Nth rendered frame
  *     to swos_shotNNN.png, capped at 200 files. Useful when no hotkey
  *     reaches the app (in-match focus, screen recorder grabbing all
@@ -451,8 +452,11 @@ static volatile Uint32 s_last_main_render_ms;
  * In all cases the request is processed inside Platform_RenderFrame while
  * the render mutex is held, so the captured ARGB buffer is consistent. */
 static volatile int s_screenshot_request;
+/* F12 text diagnostic + F9 capture of final presented pixels. */
+static volatile int s_world_debug_visible;
+static volatile int s_debug_capture_request;
 
-/* A screenshot at the next full render, as F12 takes one (the career autopilot's test
+/* A screenshot at the next full render (the career autopilot's test
  * switch SWOS_GOLDEN_SHOT_COMP, career_autopilot.c). */
 void Platform_RequestScreenshot(void)
 {
@@ -1535,7 +1539,8 @@ int Platform_Init(const PlatformInitOptions *opts)
         }
     }
     fprintf(stderr,
-        "[screenshot] hotkeys: F9 / F11 / F12 / PrintScreen "
+        "[screenshot] F9 = final PNG incl. F12 world debug; F12 = toggle debug; "
+        "F11/PrintScreen = legacy screenshot. "
         "(env SWOS_SCREENSHOT_INTERVAL=N for auto-capture every N frames, "
         "SWOS_PRESENT_CAPTURE=N for the presented output)\n");
 
@@ -1901,7 +1906,8 @@ static int bytes_nonzero(const uint8_t *p, int n)
     return k;
 }
 
-/* F12 screenshot writer. Called from Platform_RenderFrame while the
+/* Legacy framebuffer screenshot writer (F11 / PrintScreen). Called from
+ * Platform_RenderFrame while the
  * render mutex is held, so the ARGB buffer is guaranteed consistent.
  * Writes to `swos_shotNNN.png` in the current working directory.
  * PNG (via stb_image_write) is used rather than BMP so review tools
@@ -1978,6 +1984,31 @@ static void capture_presented_frame(void)
         s_present_capture = 0;
     }
     free(px);
+}
+
+/* F9 screenshots are taken from the final SDL render target after drawing
+ * all menu and diagnostic overlays. The legacy swos_shot path remains for
+ * PrintScreen/F11, so existing automation is unaffected. */
+static void capture_debug_presented_png(void)
+{
+    int w=0,h=0;
+    if (SDL_GetRendererOutputSize(s_renderer,&w,&h)!=0 || w<=0 || h<=0)
+        return;
+    if ((size_t)w > SIZE_MAX / (size_t)h / 4u) return;
+    uint8_t *pixels=(uint8_t*)malloc((size_t)w*(size_t)h*4u);
+    if (!pixels) return;
+    if (SDL_RenderReadPixels(s_renderer,NULL,SDL_PIXELFORMAT_ABGR8888,
+                             pixels,w*4)==0) {
+        char filename[64];
+        snprintf(filename,sizeof filename,"swos_debug%03d.png",s_screenshot_index++);
+        if (stbi_write_png(filename,w,h,4,pixels,w*4))
+            fprintf(stderr,"[world-debug] PNG %s (%dx%d)\n",filename,w,h);
+        else
+            fprintf(stderr,"[world-debug] PNG write failed: %s\n",filename);
+    } else {
+        fprintf(stderr,"[world-debug] SDL_RenderReadPixels failed: %s\n",SDL_GetError());
+    }
+    free(pixels);
 }
 
 static void maybe_dump_frame(const uint32_t *argb)
@@ -2074,10 +2105,33 @@ static void pump_events_any_thread(void)
                     continue;
                 }
             }
+            if (ev.key.repeat == 0 && ev.key.keysym.sym == SDLK_F12) {
+                s_world_debug_visible = !s_world_debug_visible;
+                continue;
+            }
+            if (ev.key.repeat == 0 && ev.key.keysym.sym == SDLK_F9) {
+                /* Capture final renderer output, including the diagnostic.
+                 * Old framebuffer shots cannot capture SDL overlay layers. */
+                s_debug_capture_request = 1;
+                continue;
+            }
+            if (ev.key.repeat == 0 && s_world_debug_visible) {
+                SDL_Keycode code = ev.key.keysym.sym;
+                if (code == SDLK_1 || code == SDLK_KP_1) {
+                    ExpandedDebug_ToggleWin();
+                    continue;
+                }
+                if (code == SDLK_2 || code == SDLK_KP_2) {
+                    ExpandedDebug_ToggleLose();
+                    continue;
+                }
+                if (code == SDLK_3 || code == SDLK_KP_3) {
+                    ExpandedDebug_ToggleSack();
+                    continue;
+                }
+            }
             if (ev.key.repeat == 0 &&
-                (ev.key.keysym.sym == SDLK_F9 ||
-                 ev.key.keysym.sym == SDLK_F11 ||
-                 ev.key.keysym.sym == SDLK_F12 ||
+                (ev.key.keysym.sym == SDLK_F11 ||
                  ev.key.keysym.sym == SDLK_PRINTSCREEN)) {
                 s_screenshot_request = 1;
             }
@@ -2554,6 +2608,11 @@ static const uint8_t splash_glyphs[][7]={
     {0x1E,0x11,0x11,0x1E,0x11,0x11,0x1E}, /* B */
     {0x11,0x1B,0x15,0x15,0x11,0x11,0x11}, /* M */
     {0x11,0x11,0x0A,0x04,0x0A,0x11,0x11}, /* X */
+    {0x1F,0x10,0x10,0x1E,0x10,0x10,0x10}, /* F */
+    {0x11,0x12,0x14,0x18,0x14,0x12,0x11}, /* K */
+    {0x11,0x11,0x11,0x11,0x11,0x0A,0x04}, /* V */
+    {0x11,0x11,0x11,0x15,0x15,0x15,0x0A}, /* W */
+    {0x11,0x11,0x0A,0x04,0x04,0x04,0x04}, /* Y */
 };
 static int splash_glyph_index(char c)
 {
@@ -2564,6 +2623,8 @@ static int splash_glyph_index(char c)
       case 'S':return 21;case 'E':return 22;case 'T':return 23;case 'C':return 24;
       case 'R':return 25;case 'H':return 26;case ':':return 27;case '/':return 28;
       case ' ':return 29;case 'B':return 30;case 'M':return 31;case 'X':return 32;
+      case 'F':return 33;case 'K':return 34;case 'V':return 35;
+      case 'W':return 36;case 'Y':return 37;
       default:return -1;}
 }
 static void splash_text(int x,int y,const char *txt)
@@ -2578,6 +2639,88 @@ static void splash_text(int x,int y,const char *txt)
             }
     }
 }
+/* This is intentionally not a new menu: just transient snapshot-friendly
+ * text over the current frame. No new PNGs, fonts, panels or navigation.
+ * Every NOT ACTIVE label describes the actual unfinished engine. */
+static void draw_world_debug_overlay(void)
+{
+    if (!s_world_debug_visible || !s_renderer) return;
+    int oldw=0,oldh=0;
+    float oldsx=1.0f,oldsy=1.0f;
+    SDL_Rect oldvp;
+    SDL_BlendMode oldblend;
+    SDL_RenderGetLogicalSize(s_renderer,&oldw,&oldh);
+    SDL_RenderGetScale(s_renderer,&oldsx,&oldsy);
+    SDL_RenderGetViewport(s_renderer,&oldvp);
+    SDL_GetRenderDrawBlendMode(s_renderer,&oldblend);
+    /* Stable, legible text scale at either 1080p or 4K output. */
+    SDL_RenderSetLogicalSize(s_renderer,960,540);
+    SDL_SetRenderDrawBlendMode(s_renderer,SDL_BLENDMODE_BLEND);
+    SDL_SetRenderDrawColor(s_renderer,8,18,28,222);
+    SDL_Rect panel={12,12,410,218};
+    SDL_RenderFillRect(s_renderer,&panel);
+    SDL_SetRenderDrawColor(s_renderer,120,205,235,255);
+    SDL_RenderDrawRect(s_renderer,&panel);
+
+    extern volatile uintptr_t _currentMenuPtr;
+    extern uint8_t *Expanded_UnemployedCalendarPointer(void);
+    extern void Expanded_UnemployedDate(char *,size_t);
+    extern unsigned Expanded_DebugUnemployedWeeks(void);
+    extern void Expanded_FormatDate(char *,size_t,unsigned,unsigned);
+    extern uint16_t _gameType,_currentSeasonShowing,_numWins,_numLost,_gamesPlayed;
+    extern uint8_t _lastFinancialWeekIndex;
+    int unemployed=_currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarPointer();
+    char line[96],date[48];
+    int y=21;
+#define DEBUG_LINE(msg) do { splash_text(22,y,(msg)); y+=14; } while(0)
+    DEBUG_LINE("SWOS EXPANDED DEBUG");
+    snprintf(line,sizeof line,"BUILD %s",SWOS_EXPANDED_VERSION);
+    DEBUG_LINE(line);
+    snprintf(line,sizeof line,"WORLD %s",World_Tag());
+    DEBUG_LINE(line);
+    if (unemployed)
+        Expanded_UnemployedDate(date,sizeof date);
+    else
+        Expanded_FormatDate(date,sizeof date,World_FirstYear()+
+                            (unsigned)_currentSeasonShowing,
+                            (unsigned)_lastFinancialWeekIndex);
+    snprintf(line,sizeof line,"DATE EST %s",date);
+    DEBUG_LINE(line);
+    if (unemployed) {
+        snprintf(line,sizeof line,"UNEMPLOYED WAIT %u WEEKS",
+                 Expanded_DebugUnemployedWeeks());
+    } else if (_gameType==4) {
+        snprintf(line,sizeof line,"CAREER SEASON %u MATCHES %u",
+                 (unsigned)_currentSeasonShowing+1u,(unsigned)_gamesPlayed);
+    } else {
+        snprintf(line,sizeof line,"GAME TYPE %u",(unsigned)_gameType);
+    }
+    DEBUG_LINE(line);
+    if (!unemployed && _gameType==4) {
+        snprintf(line,sizeof line,"WINS %u LOSSES %u",
+                 (unsigned)_numWins,(unsigned)_numLost);
+        DEBUG_LINE(line);
+    }
+    DEBUG_LINE("WORLD SIM NOT ACTIVE");
+    DEBUG_LINE("MIDSEASON JOIN NOT ACTIVE");
+    DEBUG_LINE("WORLD SAVE NOT ACTIVE");
+    snprintf(line,sizeof line,"1 WIN ALWAYS %s",
+             ExpandedDebug_ResultMode()==1 ? "ON":"OFF");
+    DEBUG_LINE(line);
+    snprintf(line,sizeof line,"2 LOSE ALWAYS %s",
+             ExpandedDebug_ResultMode()==2 ? "ON":"OFF");
+    DEBUG_LINE(line);
+    snprintf(line,sizeof line,"3 SACK NEXT %s",
+             ExpandedDebug_SackArmed()?"ARMED":"OFF");
+    DEBUG_LINE(line);
+    DEBUG_LINE("F9 PNG F12 HIDE");
+#undef DEBUG_LINE
+    SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);
+    if (!oldw || !oldh) SDL_RenderSetScale(s_renderer,oldsx,oldsy);
+    SDL_RenderSetViewport(s_renderer,&oldvp);
+    SDL_SetRenderDrawBlendMode(s_renderer,oldblend);
+}
+
 static void expanded_splash_draw(void)
 {
     ExpandedLoading71_Draw(s_renderer,s_expandedSplashBg,s_expandedSplashPct);
@@ -2688,8 +2831,8 @@ static void render_frame_impl(int pump_full)
               Arcade_CompositeOverlay(fb, fbpx, _screen_width, _screen_height); }
     }
 
-    /* Screenshots read the packed RAM buffer directly (always the right stride now,
-     * so the old pitch-mismatch skip is gone). Only write the F12 shot from the
+    /* Legacy screenshots read the packed RAM buffer directly (always the right stride now,
+     * so the old pitch-mismatch skip is gone). Only write that shot from the
      * main-thread render (pump_full); the timer-thread fallback would race the draw. */
     if (s_dump_frames) {
         uint32_t *shot = screenshot_frame_with_hud(fb);
@@ -2771,6 +2914,11 @@ shots_done:
         CrtEffects_Apply(s_renderer);
     draw_approved_match_stats();
     draw_exit_confirmation();
+    draw_world_debug_overlay();
+    if (pump_full && s_debug_capture_request) {
+        capture_debug_presented_png();
+        s_debug_capture_request=0;
+    }
     capture_presented_frame();     /* after every draw, before the swap */
 #ifndef SWOS_WASM_BUILD
     /* SDL_ShowWindow on Windows may invalidate the backbuffer last presented

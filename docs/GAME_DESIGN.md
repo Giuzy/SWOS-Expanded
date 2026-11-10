@@ -215,3 +215,13 @@ L'ordine è una **roadmap proposta** coerente con l'ultima priorità; ogni cambi
 - [CODICE, DA TESTARE WINDOWS] La data visualizzata negli attuali menu manageriali usa `World_FirstYear()` per rispettare il pacchetto di squadre scelto, senza alterare le chiavi settimanali delle partite o il conto economico. Nell'attuale UNEMPLOYED la settimana visualizzata riparte dalla stagione di riferimento; questo **non** significa che le partite del mondo progrediscano durante la disoccupazione.
 - [NON ANCORA IMPLEMENTATO] Lo scheduler degli eventi, il tempo globale persistito, l'ingresso a stagione iniziata e ADVANCE TO NEXT EVENT restano per i passi seguenti.
 - [TEST ISOLATO] Roundtrip di 109.938 date, casi 1996/2026/2034, bisestili, settimane e avanzamenti negativi vietati, eseguiti con GCC locale; **nessun test Windows completo**.
+
+## 17. Progresso 0.13.02 e metodo di diagnosi
+
+**[APPROVATO]** Per la vera simulazione, **NON creare una squadra fittizia del manager** al principio della carriera. Il mondo vive indipendentemente dall'allenatore: competizioni/fixture devono avanzare anche in stato UNEMPLOYED, e le loro classifiche devono essere visibili in anteprima prima della firma.
+
+**[CODICE DI SUPPORTO, NON ANCORA MOTORE MONDIALE]** Il registro `ExpandedWorldLedger` conserva incontri datati, ID, risultato, controllo anti-duplicazione, classifiche con punti/vittoria configurabili e percorso comune per risultati automatici e umani. Nei test la callback produce gol *artificiali*: la vera risoluzione deve chiamare le funzioni SWOS originali e sincronizzare lo stato delle competizioni.
+
+**[IMPLEMENTATO NEL CODICE / WINDOWS DA VERIFICARE]** F12: testo fotografabile contenente world tag, build, data **indicativa**, stato carriera/disoccupato e gli espliciti indicatori **WORLD SIM NOT ACTIVE**, **MIDSEASON JOIN NOT ACTIVE**, **WORLD SAVE NOT ACTIVE**. F9: PNG finale con overlay. Tasti 1/2/3: debug WIN/LOSE/SACK, disabilitati al riavvio e non persistiti. Non introdurre nuovi asset o layout UI per la diagnostica. Modalità win/lose modificano il risultato *registrato* dalla logica SWOS, non la fisica della partita.
+
+**[DA IMPLEMENTARE]** Generazione degli eventi dalle competizioni vere (date specifiche per paese), simulazione durante UNEMPLOYED, serializzazione del mondo, anteprima classifica delle offerte e riassunzione a stagione in corso senza `InitCareer` che resetta tutto. Sono criteri di accettazione della Fase 1–2, non risultati ottenuti nel commit.

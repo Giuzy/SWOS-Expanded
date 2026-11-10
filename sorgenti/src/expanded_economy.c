@@ -327,6 +327,11 @@ void Expanded_SetContractPremium(unsigned premium) {
     if(premium && _expandedSuccessfulRaises<255)
         _expandedSuccessfulRaises++;
 }
+void Expanded_DebugForceDismissalPending(void) {
+    /* Diagnostic only: reuse the normal sacking flow on the next match
+     * action rather than opening modal windows from an SDL key callback. */
+    s_expandedDismissalPending=1;
+}
 int Expanded_DismissalPending(void) {return s_expandedDismissalPending!=0;}
 void Expanded_DismissalAcknowledged(void) {
     s_expandedDismissalPending=0;

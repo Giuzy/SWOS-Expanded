@@ -10,6 +10,7 @@
 #include "game_types.h"
 #include "world.h"
 #include "expanded_world_time.h"
+#include "expanded_debug.h"
 #include "swos_io.h"
 #include "career_params.h"
 #include "string_utils.h"
@@ -519,6 +520,9 @@ static unsigned unemployed_week_of_season(unsigned weeks) {
 void Expanded_UnemployedDate(char *out,size_t cap) {
     Expanded_FormatDate(out,cap,World_FirstYear(),s_waitWeeks);
 }
+unsigned Expanded_DebugUnemployedWeeks(void) {
+    return s_waitWeeks;
+}
 void Expanded_UnemployedDraw(void) {
     char line[90],date[40],first[32],last[32];
     unsigned season=unemployed_season_year(s_waitWeeks);
@@ -748,6 +752,10 @@ void Expanded_SackedReturn(void) { SetExitMenuFlag(); }
 int Expanded_HandleSackingAfterMatch(void) {
     extern int Expanded_DismissalPending(void);
     extern void Expanded_DismissalAcknowledged(void);
+    extern void Expanded_DebugForceDismissalPending(void);
+    extern uint16_t _gameType;
+    if (_gameType == 4 && ExpandedDebug_ConsumeSack())
+        Expanded_DebugForceDismissalPending();
     if(!Expanded_DismissalPending()) return 0;
     Expanded_DismissalAcknowledged();
     ShowMenu(_expandedSackedMenu);

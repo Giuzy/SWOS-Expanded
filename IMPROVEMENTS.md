@@ -333,3 +333,11 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [CODICE] `Expanded_FormatDate` non implementa più un calendario separato; passa tramite l'API comune. I menu occupato/disoccupato usano `World_FirstYear()` per il mondo attivo; settimana visualizzata nel disoccupato ricalcolata dal reale inizio stagione (1 agosto nell'interfaccia provvisoria).
 - [TEST GCC LOCALE] Test isolato di date 1996/2026/2034, bisestili, validazione e avanzamento; scansione completa dei 109.938 giorni 1900-2200. Nessun test Windows/joypad eseguito.
 - [LIMITI] Nessun nuovo scheduler, risultati simulati, gestione eventi, salvataggio del clock o modifiche a fisica/finanze. La versione `0.13.01` applica la nuova numerazione richiesta dall'utente; la convenzione precedente con _01 è storica.
+
+## 0.13.02 — Debug osservabile e ledger cronologico (10/11/2026)
+
+- [CODICE] F12 mostra/nasconde debug testuale in sovraimpressione; F9 salva un PNG della **schermata realmente presentata**, debug incluso; F11/PrintScreen restano disponibili per screenshot legacy. Nessun nuovo asset.
+- [CODICE] Tasti 1/2/3 mentre F12 è aperto: forza WIN o LOSS alternativamente per i risultati ufficiali della squadra gestita, oppure arma l'esonero al successivo ingresso nel percorso partita. Il motore fisico non cambia; i toggle non sono persistiti nel JSON e sono OFF al boot. I risultati forzati possono essere differenti dai gol effettivamente giocati: funzionalità solo per test.
+- [CODICE] `expanded_world_ledger.h/.c`: registro cronologico indipendente con risultati immutabili, classifiche riproducibili, ID di incontri, doppia modalità 2/3 punti per vittoria e callback di simulazione. **Ancora scollegato da OpenSWOS** e dal salvataggio reale.
+- [CODICE] La data secondaria del calendario nativo usa `World_FirstYear()` per il mondo scelto, al posto dell'anno fisso 1996.
+- [TEST GCC ISOLATI] `tests/run_test_expanded_phase12.sh` verifica controlli e registro; simulazione artificiale di 35 settimane/140 risultati e classifiche. Nessuna compilazione completa e nessun test Windows in questa consegna.

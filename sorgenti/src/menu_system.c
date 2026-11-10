@@ -14,6 +14,7 @@
 #include "fade.h"
 #include "text_render.h"
 #include "build_info.h"  /* the build stamp drawn on the main menu */
+#include "world.h"
 #include "menus.h"       /* SWOSMainMenuInit -- identifies the main menu, see below */
 #include "sprites.h"
 #include "blitter.h"
@@ -1478,7 +1479,7 @@ void DrawMenu(void)
         extern int Expanded_UI_Active(void);
         if (!Expanded_UI_Active() && _currentMenuPtr == (uintptr_t)_contestMenu) {
             char date[48];
-            Expanded_FormatDate(date,sizeof date,1996u+(unsigned)_currentSeasonShowing,
+            Expanded_FormatDate(date,sizeof date,World_FirstYear()+(unsigned)_currentSeasonShowing,
                                 (unsigned)_lastFinancialWeekIndex);
             DrawMenuTextCentered(160,171,2,(uint8_t*)date,(uint8_t*)_charTables[0]);
         }

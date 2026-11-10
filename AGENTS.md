@@ -375,3 +375,11 @@ richiamato dal runtime senza aggiornare tutti i relativi riferimenti.
 - La prima versione del calendario civile deve accettare **giorno, mese e anno iniziali configurabili**: 1996/97 e 2026/27 sono esempi di pacchetti, non un vincolo 1996 hardcoded.
 - Il numero WEEK concordato identifica la **settimana della stagione calcistica**, non la settimana ISO dell'anno civile. Per il futuro scheduler la stagione di riferimento dipenderà dal calendario del torneo/paese; per ora la nuova API conta settimane intere a partire dalla data iniziale fornita.
 - Il primo commit del modulo può aggiornare solo le **date visualizzate** e i test; non equivale al Living World Engine, non autorizza modifiche alle chiavi delle fixture, al save e alle finanze.
+
+## Fase 1–2: debug sviluppo e continuità mondiale (0.13.02, 10/11/2026)
+
+- [REGOLA CONFERMATA] GitHub rimane il canale per codice, test, script e documentazione; ZIP **solo per asset grafici** nuovi. **Commit e push esclusivamente con «committa» esplicito**. In assenza di autorizzazione non pubblicare modifiche.
+- [APPROVATO] Diagnostica veloce, senza nuovi asset: **F12** mostra/nasconde testo tecnico sopra il rendering esistente, **F9** salva un PNG dell'immagine finale *inclusa la diagnostica*. Il vecchio F12 per screenshot cede il posto al toggle; F11/PrintScreen rimangono disponibili per acquisizioni legacy.
+- [APPROVATO] Quando il debug F12 è visibile, **1** alterna risultato sempre vincente, **2** sempre perdente (mutuamente esclusivi), **3** arma/disarma l'**esonero alla prossima azione di partita**. All'avvio tutti OFF; non salvarli nella carriera. Forzature risultati esclusivamente nella gestione dell'esito, **mai nei tick/fisica/controlli della partita**. Rimuovere/disabilitare i controlli di debug nella release.
+- [APPROVATO] Non usare una squadra «fittizia» per simulare il mondo durante la disoccupazione. Le competizioni devono esistere e avanzare indipendentemente dal club dell'utente; consultarle già prima di accettare un'offerta, senza reset successivi.
+- [STATO TECNICO] Il primo ledger datato è **un modulo autonomo testato, non ancora collegato al calendario delle competizioni live né al save**. Distinguere sullo schermo **NOT ACTIVE** dalle funzioni implementate e da quelle simulate in test. Non presentare il ledger come Living World Engine completo.

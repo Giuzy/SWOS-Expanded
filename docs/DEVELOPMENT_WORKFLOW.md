@@ -157,3 +157,13 @@ Il colore rosso della build precedente è sostituito dal verde mediante riconver
 
 ### Consegna attuale
 La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo verificato. GitKraken sincronizza e l'utente compila/testa su Windows. Gli ZIP con asset/file e le istruzioni in chat sono **separati**. Le istruzioni precedenti sul workflow locale Codex non sono piu' prescrittive.
+
+---
+
+## SWOS_DOC_SYNC_2026_11_10 — Documentazione e pulizia grafica (10/11/2026)
+
+- Prima di una modifica leggere `AGENTS.md`, `PROJECT_STATE.md`, `docs/GAME_DESIGN.md` e i documenti tecnici pertinenti. `GAME_DESIGN` specifica funzionalità approvate e idee; `PROJECT_STATE` descrive cosa è nel gioco; `IMPROVEMENTS` registra modifiche effettivamente introdotte. Quando cambia una decisione progettuale, allineare le guide nel **prossimo commit pertinente autorizzato**, non in commit documentali autonomi.
+- **Grafica finale:** TITLE, NEW CAREER e LOADING. Gli altri menu e asset pre-switch sono **visivamente obsoleti**, ma rimangono funzionanti e presenti finché non saranno riprogettati; il nome storico `approved` non autorizza a riusarli come layout definitivo.
+- **Prossimo BAT di pulizia:** prima creare un inventario dei caricamenti e riferimenti in C, JSON, script, menu e fallback, classificandoli `IN_USE`, `REPLACED`, `ORPHAN_CANDIDATE`. Produrre un elenco esatto dei file per revisione; solo gli orfani verificati possono essere cancellati dal BAT. Nessuna pulizia per pattern generale `*.raw`, `*_approved*`, directory intere o per confronto di data. Preservare `.gitkeep` e asset/shared runtime. Controllare la compilazione e il ciclo completo di menu; ricordare l'utente al prossimo BAT di pulizia programmato. Distinguere gli asset obsoleti nel **design** dagli asset inutilizzati nel **runtime**.
+- **Tempo:** uno scheduler di date/eventi, con risultati e salvataggi coerenti. Test d'integrazione con i club attuali, prima di allargare il database. WEEK visibile nella maggioranza dei menu e NEXT EVENT in CALENDAR/UNEMPLOYED; posizione grafica ancora da concordare; nessuna modifica all'orologio partita a 50 Hz.
+- **Consegna ZIP:** contenere esclusivamente file nuovi o realmente modificati nei relativi percorsi. L'utente estrae nella cartella contenente `AVVIA_SWOS.bat`, sincronizza su GitHub via GitKraken quando decide. Uno ZIP non equivale a commit o push; verificare HEAD/branch alla sessione seguente. Script di aggiornamento documentale e BAT di rimozione asset sono **operazioni diverse**.

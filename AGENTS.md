@@ -355,3 +355,13 @@ Le procedure del 6–8 novembre tramite ZIP, `ASSETS_INBOX/` e trasferimenti Git
 - Font sui menu moderni: atlas bitmap PNG generati offline alla dimensione effettiva, bianchi e diritti come il mockup approvato; niente font 5x8 ingranditi come testo principale o ridimensionamento frazionario legato alla UI. Non modificare il Title gia' approvato.
 - NEW CAREER AGE usa soltanto SINISTRA/DESTRA, limiti inclusivi 18-70; A non apre editor. NAME/SURNAME mostrano un cursore verticale al posto di '?' senza cambiare la logica InputText storica.
 - Il focus dei pulsanti segue la silhouette alpha ed e' sottile (circa 2px sorgente); per i campi una sola traccia arrotondata, non un triplo bordo. Conservare l'UI al 88,5% e lo sfondo senza resize.
+
+### OBSOLETO — marcatura degli asset sostituiti (2026-11-10)
+Quando un asset approvato o storico viene sostituito da un nuovo asset runtime,
+marcare il vecchio con suffisso `_OBSOLETO` prima dell'estensione, senza
+sovrascriverlo e **solo dopo** avere verificato che nessun sorgente attivo lo
+richiami. Lo stesso controllo si applica agli asset sostituiti in precedenza.
+L'etichetta non autorizza una cancellazione immediata: il BAT periodico di
+pulizia dovra' ricontrollare riferimenti, eventuali backup e file effettivamente
+necessari prima di proporre la rimozione. Non rinominare mai un file ancora
+richiamato dal runtime senza aggiornare tutti i relativi riferimenti.

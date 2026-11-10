@@ -30,10 +30,15 @@ for art in assets/business/business_ui_approved_2026-11-07.bmp assets/ui/control
     exit 1
   fi
 done
-if [[ ! -s "$game/data/expanded/expanded_loading_bg.bmp" ]]; then
-  echo "ERRORE: manca data/expanded/expanded_loading_bg.bmp"
-  exit 1
-fi
+# Approved 0.10.71 loading layers; historical BMP no longer required.
+for art in data/expanded/expanded_loading_bg_approved_2026-11-10.png \
+  assets/loading/loading_panel.png assets/loading/loading_fill.png \
+  assets/title/swos_expanded_logo_approved_2026-11-08.png; do
+  if [[ ! -s "$game/$art" ]]; then
+    echo "ERRORE: manca asset loading approvato: $art" >&2
+    exit 1
+  fi
+done
 # Gli asset approvati sono PNG e atlanti separati dai testi dinamici.
 for art in assets/title/buttons/title_primary_blank.png assets/title/buttons/title_secondary_blank.png \
   assets/ui/legends/a_select.png assets/ui/legends/a_select_b_back.png \
@@ -100,7 +105,12 @@ cd "$src"
 bash "$src/tools/patch_title_b_01063.sh" "$src"
 # Approved blank Title buttons + runtime career font + A command legend.
 bash "$src/tools/patch_title_ui_01065.sh" "$src"
-echo 'Controllo sintattico delle schermate e dei menu modificati...'
+# Approved 0.10.71 loading PNG, panel/green fill, and real dynamic atlas text.
+bash "$src/tools/patch_loading_01071.sh" "$src"
+# The newly approved background uses its own path. Mark old replaced assets
+# with _OBSOLETO only if unused by the active C sources (never delete).
+bash "$src/tools/mark_obsolete_assets_01071.sh" "$src" "$game"
+echo 'Controllo sintattico delle schermate e dei menu modificati...'  
 gcc -std=gnu11 -fsyntax-only -DSWOS_SDL_BUILD=1 -D_FILE_OFFSET_BITS=64 -include include/debug_no_audio_01060.h -include include/swos_platform.h \
   -Isrc -Iinclude $(pkg-config --cflags sdl2) \
   src/menu_data.c src/menu_system.c src/menus.c src/input_sdl.c src/expanded_career.c \
@@ -116,7 +126,7 @@ echo 'Compilo il gioco... AUDIO DISABILITATO PER DEBUG (fino a nuovo ordine)'
 echo 'Versione letta dai sorgenti:'
 grep '^#define SWOS_EXPANDED_VERSION ' include/build_info.h || true
 printf '%s\n' 'Ricompilo versione, NEW CAREER e Title per evitare oggetti obsoleti.'
-touch src/build_info.c src/expanded_new_career.c src/expanded_title_overlay.c
+touch src/build_info.c src/expanded_new_career.c src/expanded_title_overlay.c src/platform_sdl.c
 make -j4 NETPLAY=0 CC='gcc -include include/debug_no_audio_01060.h'
 if [[ ! -s bin/SWOS.exe ]]; then
   echo 'ERRORE: il compilatore non ha prodotto bin/SWOS.exe.'

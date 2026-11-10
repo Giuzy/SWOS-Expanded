@@ -1,4 +1,4 @@
-/* SWOS Expanded 0.10.70: Title labels use the APPROVED NEW CAREER bitmap atlas.
+/* SWOS Expanded 0.10.71: Title labels use the APPROVED NEW CAREER bitmap atlas.
  * Included only by expanded_title_overlay.c. No separate build objects and no
  * modifications to the historical approved Title source PNGs. */
 #ifndef EXPANDED_TITLE_UI_01065_H
@@ -175,7 +175,26 @@ static int Expanded_TitleUI65_DrawLine(SDL_Renderer *r,const char *text,
         if(g->src.w>0 && g->src.h>0){
             SDL_FRect dst={atX+g->bx*scaleX,originY+g->by*scale,
                            g->src.w*scaleX,g->src.h*scale};
-            dst.x=(float)((int)(dst.x+0.5f));
+            /* 0.10.71: optical adjustments on ONLY the requested glyphs.
+             * Offsets are in the approved Title 1664px logical coordinate
+             * space (scale with the window). The rest of the label, atlas,
+             * button hitboxes and auto-fit remain unchanged. */
+            int letter_index=(int)(p-(const unsigned char*)text);
+            float dx=0.f;
+            if(strcmp(text,"CAREER")==0){
+                /* Requested final 0.10.74 micro-adjustments, relative to 0.10.73.
+                 * The first glyph differs by context: blue Title vs green
+                 * CONTINUE CAREER; do not shift the rest of the word. */
+                if(letter_index==0)dx=opticalGap==5 ? 3.f : 5.f;
+                if(opticalGap!=5 && letter_index==1)dx=1.f; /* blue CAREER A */
+                if(opticalGap!=5 && letter_index==2)dx=-1.f; /* first R unchanged */
+            } else if(strcmp(text,"CONTINUE")==0){
+                if(letter_index==0)dx=-2.f; /* -1px vs 0.10.72 */
+            } else if(strcmp(text,"CLASSIC MODES")==0){
+                if(letter_index==0 || letter_index==1)dx=5.f; /* CL +2px vs 0.10.73 */
+                if(letter_index>=10 && letter_index<=12)dx=-2.f; /* DES unchanged */
+            }
+            dst.x=(float)((int)(dst.x+0.5f))+dx*sx;
             dst.y=(float)((int)(dst.y+0.5f));
             SDL_RenderCopyF(r,f->texture,&g->src,&dst);
         }

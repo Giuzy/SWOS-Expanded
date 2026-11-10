@@ -428,8 +428,9 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
  /* Stable right/bottom margin, with one fixed legend sprite. */
  if(s_legend_ab){
   /* 10% larger than 0.10.65, same 12px right margin.
-   * Legend bottom aligns to the lower edge of the main Career frame. */
-  SDL_FRect d={1476.f*sx,775.f*sy,176.f*sx,96.f*sy};
+   * Match the bottom cyan horizontal rim of the main Career panel (y=851);
+   * previous 775+96=871 left the legend visibly below the panel. */
+  SDL_FRect d={1476.f*sx,755.f*sy,176.f*sx,96.f*sy};
   SDL_RenderCopyF(r,s_legend_ab,NULL,&d);
  }
 }

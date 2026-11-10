@@ -34,6 +34,7 @@
 #endif
 #include <stdlib.h>
 #include <string.h>
+#include "expanded_loading_01071.h"
 
 #ifdef SWOS_WASM_BUILD
 /* SDL_GetTicks has to be monotonic in the browser too. SDL asks clock_gettime for
@@ -1578,6 +1579,7 @@ void Platform_Shutdown(void)
     if (s_frame_rgba) { SDL_free(s_frame_rgba); s_frame_rgba = NULL; }
     if (s_hud_layer)  { SDL_free(s_hud_layer);  s_hud_layer  = NULL; }
     if (s_expandedSplashBg) {SDL_DestroyTexture(s_expandedSplashBg);s_expandedSplashBg=NULL;}
+    ExpandedLoading71_Destroy();
     if (s_expandedSplashTitle) {SDL_DestroyTexture(s_expandedSplashTitle);s_expandedSplashTitle=NULL;}
     if (s_expandedSplashCaption) {SDL_DestroyTexture(s_expandedSplashCaption);s_expandedSplashCaption=NULL;}
     if (s_match_exit_art) { SDL_DestroyTexture(s_match_exit_art); s_match_exit_art=NULL; }
@@ -2578,26 +2580,7 @@ static void splash_text(int x,int y,const char *txt)
 }
 static void expanded_splash_draw(void)
 {
-    /* Three independent layers. Only the live progress fill and text are generated. */
-    SDL_RenderCopy(s_renderer,s_expandedSplashBg,NULL,NULL);
-    if(s_expandedSplashTitle) {
-        SDL_Rect logo={9,8,101,51};
-        SDL_RenderCopy(s_renderer,s_expandedSplashTitle,NULL,&logo);
-    }
-    if(s_expandedSplashCaption) {
-        SDL_Rect label={124,218,88,14};
-        SDL_RenderCopy(s_renderer,s_expandedSplashCaption,NULL,&label);
-    }
-    SDL_Rect outer={69,238,198,17}, inside={72,241,192,11};
-    SDL_SetRenderDrawColor(s_renderer,248,248,255,255);
-    SDL_RenderFillRect(s_renderer,&outer);
-    SDL_SetRenderDrawColor(s_renderer,8,12,58,255);
-    SDL_RenderFillRect(s_renderer,&inside);
-    SDL_Rect fill={inside.x,inside.y,(inside.w*(int)s_expandedSplashPct)/100,inside.h};
-    SDL_SetRenderDrawColor(s_renderer,20,117,246,255);
-    SDL_RenderFillRect(s_renderer,&fill);
-    char pct[12]; SDL_snprintf(pct,sizeof pct,"%u%%",(unsigned)s_expandedSplashPct);
-    splash_text(168-((int)SDL_strlen(pct)*7)/2,243,pct);
+    ExpandedLoading71_Draw(s_renderer,s_expandedSplashBg,s_expandedSplashPct);
 }
 static SDL_Texture *expanded_splash_layer(const char *path)
 {
@@ -2613,37 +2596,22 @@ static SDL_Texture *expanded_splash_layer(const char *path)
 int Platform_ExpandedSplashSet(int percent)
 {
     if(!s_renderer)return 0;
-    if(!s_expandedSplashBg) {
-        SDL_Surface *surface=SDL_LoadBMP("data/expanded/expanded_loading_bg.bmp");
-        if(!surface) {
-            fprintf(stderr,"[expanded-splash] BMP missing: %s\n",SDL_GetError());
+    if(!s_expandedSplashBg){
+        s_expandedSplashBg=ExpandedLoading71_Init(s_renderer);
+        if(!s_expandedSplashBg){
+            fprintf(stderr,"[loading71] approved PNG background not available\n");
 #ifndef SWOS_WASM_BUILD
-            s_startup_splash_unavailable = 1;
+            s_startup_splash_unavailable=1;
 #endif
-            Platform_RenderFrame(); /* visible legacy fallback, not a hidden window */
+            Platform_RenderFrame();
             return 0;
         }
-        s_expandedSplashBg=SDL_CreateTextureFromSurface(s_renderer,surface);
-        SDL_FreeSurface(surface);
-        if(!s_expandedSplashBg) {
-            fprintf(stderr,"[expanded-splash] texture error: %s\n",SDL_GetError());
-#ifndef SWOS_WASM_BUILD
-            s_startup_splash_unavailable = 1;
-#endif
-            Platform_RenderFrame(); /* visible fallback if texture creation fails */
-            return 0;
-        }
-        SDL_SetTextureScaleMode(s_expandedSplashBg,SDL_ScaleModeNearest);
-        s_expandedSplashTitle=expanded_splash_layer("data/expanded/expanded_loading_title.bmp");
-        s_expandedSplashCaption=expanded_splash_layer("data/expanded/expanded_loading_caption.bmp");
     }
-    if(percent<0) percent=0;
-    if(percent>100) percent=100;
-    if (percent == 0) s_expandedSplashStartMs = SDL_GetTicks();
+    if(percent<0)percent=0;
+    if(percent>100)percent=100;
+    if(percent==0)s_expandedSplashStartMs=SDL_GetTicks();
     s_expandedSplashPct=percent;
     s_expandedSplashActive=1;
-    /* A real phase completed: show the milestone now rather than relying on
-     * the next 50Hz game tick. This is called only on the SDL main thread. */
     Platform_RenderFrame();
     return 1;
 }

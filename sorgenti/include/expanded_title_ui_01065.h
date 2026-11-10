@@ -1,4 +1,4 @@
-/* SWOS Expanded 0.10.65: Title labels use the APPROVED NEW CAREER bitmap atlas.
+/* SWOS Expanded 0.10.66: Title labels use the APPROVED NEW CAREER bitmap atlas.
  * Included only by expanded_title_overlay.c. No separate build objects and no
  * modifications to the historical approved Title source PNGs. */
 #ifndef EXPANDED_TITLE_UI_01065_H
@@ -77,61 +77,101 @@ static void Expanded_TitleUI65_Destroy(void)
     if(s_exp_title_legend)SDL_DestroyTexture(s_exp_title_legend);
     s_exp_title_legend=NULL;
 }
-static int Expanded_TitleUI65_DrawButtonText(SDL_Renderer *r,const char *text,
-                                               SDL_FRect button,int primary,
-                                               int continue_active,int selected,float sx,float sy)
+/* Allow real pixel-art glyph outlines to breathe. Raw atlas advances can be
+ * smaller than the visible dark-outline width: this was causing overlapping
+ * text, especially CLASSIC MODES. Shared in measurement AND placement. */
+static unsigned Expanded_TitleUI65_Code(unsigned code)
 {
-    ExpandedTitleUIFont *f=&s_exp_title_fonts[primary && !continue_active?1:0];
+    if(code>='a' && code<='z')code=code-'a'+'A';
+    return code>=32 && code<=126 ? code : '?';
+}
+static float Expanded_TitleUI65_Step(const ExpandedTitleUIFont *f,
+                                     unsigned a,unsigned b)
+{
+    const ExpandedTitleUIGlyph *g=&f->glyph[a];
+    const ExpandedTitleUIGlyph *h=&f->glyph[b];
+    float step=(float)g->advance;
+    if(g->src.w>0 && h->src.w>0) {
+        /* +2 atlas pixels between neighboring opaque glyph rectangles. */
+        float noTouch=(float)(g->bx+g->src.w-h->bx+2);
+        if(step<noTouch)step=noTouch;
+    }
+    return step;
+}
+static int Expanded_TitleUI65_DrawLine(SDL_Renderer *r,const char *text,
+                                        ExpandedTitleUIFont *f,SDL_FRect box,
+                                        float baseScale,int selected,
+                                        float sx,float sy,int classic)
+{
     if(!text || !f->texture || !f->glyph['A'].advance)return 0;
     float pen=0.f;
     int minY=INT_MAX,maxY=INT_MIN;
     for(const unsigned char *p=(const unsigned char *)text;*p;p++){
-        unsigned ch=*p;
-        if(ch>='a'&&ch<='z')ch=ch-'a'+'A';
-        if(ch<32||ch>126)ch='?';
+        unsigned ch=Expanded_TitleUI65_Code(*p);
         ExpandedTitleUIGlyph *g=&f->glyph[ch];
         if(g->src.w>0 && g->src.h>0){
             if(g->by<minY)minY=g->by;
             if(g->by+g->src.h>maxY)maxY=g->by+g->src.h;
         }
-        pen+=(float)g->advance;
+        pen+=p[1]?Expanded_TitleUI65_Step(f,ch,Expanded_TitleUI65_Code(p[1])):
+                  (float)g->advance;
     }
-    if(minY==INT_MAX || pen<=0.f)return 0;
-    /* The focused Title label turns YELLOW, exactly as on the Career form.
-     * Keep this a runtime tint of the approved pixel atlas: no baked label
-     * or highlight in the PNG button. Reset modulation after every draw. */
-    const float screen=(sx<sy?sx:sy);
-    float scale=(primary && !continue_active?1.0f:continue_active?0.96f:0.86f)*screen;
-    float maxWidth=button.w-(primary?36.f:24.f)*sx;
-    float maxHeight=button.h*(primary?0.52f:0.61f);
-    if(maxWidth<=0 || maxHeight<=0)return 0;
-    SDL_SetTextureColorMod(f->texture,255,selected?226:255,selected?72:255);
+    if(minY==INT_MAX || pen<=0.f || maxY<=minY)return 0;
+    float scale=baseScale*(sx<sy?sx:sy);
+    float maxWidth=box.w-24.f*sx;
+    if(classic)maxWidth*=0.955f; /* requested slightly narrower CLASSIC MODES */
+    const float maxHeight=box.h*0.90f;
+    if(maxWidth<=0.f || maxHeight<=0.f)return 0;
     if(pen*scale>maxWidth)scale=maxWidth/pen;
     if((maxY-minY)*scale>maxHeight)scale=maxHeight/(float)(maxY-minY);
-    float atX=button.x+(button.w-pen*scale)*0.5f;
-    const float originY=button.y+(button.h-(maxY-minY)*scale)*0.5f-minY*scale;
+    const float beginX=box.x+(box.w-pen*scale)*0.5f;
+    const float originY=box.y+(box.h-(maxY-minY)*scale)*0.5f-minY*scale;
+    float atX=beginX;
+    SDL_SetTextureColorMod(f->texture,255,selected?226:255,selected?72:255);
     for(const unsigned char *p=(const unsigned char *)text;*p;p++){
-        unsigned ch=*p;
-        if(ch>='a'&&ch<='z')ch=ch-'a'+'A';
-        if(ch<32||ch>126)ch='?';
+        unsigned ch=Expanded_TitleUI65_Code(*p);
         ExpandedTitleUIGlyph *g=&f->glyph[ch];
-        if(g->src.w>0&&g->src.h>0){
+        if(g->src.w>0 && g->src.h>0){
             SDL_FRect dst={atX+g->bx*scale,originY+g->by*scale,
                            g->src.w*scale,g->src.h*scale};
             dst.x=(float)((int)(dst.x+0.5f));
             dst.y=(float)((int)(dst.y+0.5f));
             SDL_RenderCopyF(r,f->texture,&g->src,&dst);
         }
-        atX+=g->advance*scale;
+        atX+=(p[1]?Expanded_TitleUI65_Step(f,ch,Expanded_TitleUI65_Code(p[1])):
+                    (float)g->advance)*scale;
     }
     SDL_SetTextureColorMod(f->texture,255,255,255);
     return 1;
 }
+static int Expanded_TitleUI65_DrawButtonText(SDL_Renderer *r,const char *text,
+                                               SDL_FRect button,int primary,
+                                               int continue_active,int selected,
+                                               float sx,float sy)
+{
+    /* CONTINUE CAREER uses two independently measured and centered lines.
+     * This preserves the approved Title button art and green recolouring. */
+    if(continue_active){
+        ExpandedTitleUIFont *f=&s_exp_title_fonts[0];
+        SDL_FRect top={button.x,button.y+button.h*0.195f,
+                       button.w,button.h*0.35f};
+        SDL_FRect bottom={button.x,button.y+button.h*0.455f,
+                          button.w,button.h*0.35f};
+        if(!Expanded_TitleUI65_DrawLine(r,"CONTINUE",f,top,1.0f,
+                                          selected,sx,sy,0))return 0;
+        return Expanded_TitleUI65_DrawLine(r,"CAREER",f,bottom,1.0f,
+                                            selected,sx,sy,0);
+    }
+    ExpandedTitleUIFont *f=&s_exp_title_fonts[primary?1:0];
+    return Expanded_TitleUI65_DrawLine(r,text,f,button,primary?1.0f:0.86f,
+                    selected,sx,sy,strcmp(text,"CLASSIC MODES")==0);
+}
 static void Expanded_TitleUI65_DrawLegend(SDL_Renderer *r,float sx,float sy)
 {
     if(!s_exp_title_legend)return;
-    /* Same bottom-right margin and height as NEW CAREER's A/B legend. */
-    const SDL_FRect dest={1530.f*sx,837.f*sy,122.f*sx,87.f*sy};
+    /* 10% larger, keep the 12px right margin. The bottom is exactly at
+     * y=871, the lower edge of the Title's EXIT GAME button hitbox. */
+    const SDL_FRect dest={1518.f*sx,775.f*sy,134.f*sx,96.f*sy};
     SDL_RenderCopyF(r,s_exp_title_legend,NULL,&dest);
 }
 #endif

@@ -1,5 +1,5 @@
 /* NEW CAREER HD. Presentation/setup state only; career/save engine unchanged.
- * 0.10.65: columns aligned -2px, NEW CAREER glyph baseline unified, COACH spacing, A/B legend; audio off. */
+ * 0.10.66: only C of NEW CAREER +1px; rounded approved A/B legend 10% larger aligned with panel bottom; audio off. */
 #ifdef SWOS_SDL_BUILD
 #include "expanded_new_career.h"
 #include "expanded_png.h"
@@ -208,7 +208,7 @@ static void load(SDL_Renderer*r){
  s_legend_ab=texture(r,"assets/ui/legends/a_select_b_back.png",0);
  #undef TEX
  load_font(r,0,"form");load_font(r,1,"button");load_font(r,2,"title");
- fprintf(stderr,"[new-career] 0.10.65: aligned field texts, NEW CAREER baseline, COACH spacing, bottom-right A/B legend; audio disabled\n");
+ fprintf(stderr,"[new-career] 0.10.66: C optical baseline +1px, approved rounded legend 110pct aligned to frame; audio disabled\n");
 }
 void Expanded_NewCareer_Destroy(void){
  SDL_DestroyTexture(s_bg);SDL_DestroyTexture(s_panel);s_bg=s_panel=NULL;
@@ -332,7 +332,10 @@ static void pixel_text_tint_fit(SDL_Renderer*r,const char*s,int type,float x,flo
    if(type==0 && strcmp(s,"AGE (18-70)")==0 && (ch=='(' || ch==')')){
     dst.x-=2.f*sx;dst.y-=2.f*sy;
    }
-   /* All NEW CAREER letters now share exactly the same glyph baseline. */
+   /* Optical correction requested after the baseline was unified: only the
+    * C in NEW CAREER moves down one logical canvas pixel. */
+   if(type==2 && ch=='C' && strcmp(s,"NEW CAREER")==0)
+    dst.y+=1.f*sy;
    dst.x=(float)((int)(dst.x+.5f));dst.y=(float)((int)(dst.y+.5f));
    SDL_RenderCopyF(r,f->texture,&g->rect,&dst);
   }
@@ -422,7 +425,9 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
  }
  /* Stable right/bottom margin, with one fixed legend sprite. */
  if(s_legend_ab){
-  SDL_FRect d={1492.f*sx,837.f*sy,160.f*sx,87.f*sy};
+  /* 10% larger than 0.10.65, same 12px right margin.
+   * Legend bottom aligns to the lower edge of the main Career frame. */
+  SDL_FRect d={1476.f*sx,775.f*sy,176.f*sx,96.f*sy};
   SDL_RenderCopyF(r,s_legend_ab,NULL,&d);
  }
 }

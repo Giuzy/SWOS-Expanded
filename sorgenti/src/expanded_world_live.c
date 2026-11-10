@@ -1,0 +1,253 @@
+#include "expanded_world_live.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_world_time.h"
+#include "expanded_world_ledger.h"
+#include <stdlib.h>
+#include <string.h>
+
+#define LIVE_MAX_CLUBS 1500u
+#define LIVE_MAX_LEAGUES 128u
+#define LIVE_MAX_FIXTURES 40000u
+#define LIVE_MAX_LEAGUE_CLUBS 26u
+#define LIVE_SEASONS 2u
+
+typedef struct LiveClub {
+    uint16_t id, rating;
+    uint8_t country, division;
+    char name[18];
+} LiveClub;
+typedef struct LiveLeague {
+    uint8_t country, division, count, points, overflow;
+    uint16_t clubs[LIVE_MAX_LEAGUE_CLUBS];
+} LiveLeague;
+static LiveClub s_clubs[LIVE_MAX_CLUBS];
+static LiveLeague s_leagues[LIVE_MAX_LEAGUES];
+static uint32_t s_club_count, s_league_count, s_weeks;
+static uint16_t s_first_year;
+static ExpandedWorldFixture *s_fixtures;
+static ExpandedWorldLedger s_ledger;
+static int s_live;
+static int32_t s_initial_day;
+
+static uint16_t competition_id(uint8_t country, uint8_t division, unsigned season) {
+    return (uint16_t)(season * 8192u + ((uint16_t)country << 5) + division);
+}
+static const LiveClub *club_by_id(uint16_t id) {
+    for (uint32_t i=0; i<s_club_count; ++i)
+        if (s_clubs[i].id == id) return &s_clubs[i];
+    return NULL;
+}
+static LiveLeague *league_by_id(uint8_t country, uint8_t division) {
+    for (uint32_t i=0; i<s_league_count; ++i)
+        if (s_leagues[i].country==country && s_leagues[i].division==division)
+            return &s_leagues[i];
+    return NULL;
+}
+void ExpandedWorldLive_End(void) {
+    if (s_fixtures) free(s_fixtures);
+    s_fixtures=NULL; s_live=0; s_club_count=0; s_league_count=0;
+    s_weeks=0; s_first_year=0; s_initial_day=0;
+    memset(&s_ledger,0,sizeof s_ledger);
+}
+int ExpandedWorldLive_Begin(uint16_t start_year) {
+    ExpandedWorldDate start={start_year,8,1};
+    ExpandedWorldLive_End();
+    if (!ExpandedWorld_DateToIndex(start,&s_initial_day)) return 0;
+    s_first_year=start_year;
+    s_fixtures=(ExpandedWorldFixture *)malloc(sizeof(*s_fixtures)*LIVE_MAX_FIXTURES);
+    if (!s_fixtures) { ExpandedWorldLive_End(); return 0; }
+    if (!ExpandedWorldLedger_Init(&s_ledger,s_fixtures,LIVE_MAX_FIXTURES,s_initial_day)) {
+        ExpandedWorldLive_End(); return 0;
+    }
+    return 1;
+}
+int ExpandedWorldLive_AddClub(uint8_t country, uint8_t division,
+                              uint16_t club, uint16_t rating,
+                              const char *name, uint8_t points_per_win) {
+    LiveLeague *league;
+    LiveClub *dest;
+    if (!s_fixtures || !name || !*name || points_per_win < 2 || points_per_win > 3 ||
+        division >= 16 || club==0xffffu || s_club_count==LIVE_MAX_CLUBS ||
+        club_by_id(club)) return 0;
+    league=league_by_id(country,division);
+    if (!league) {
+        if (s_league_count==LIVE_MAX_LEAGUES) return 0;
+        league=&s_leagues[s_league_count++];
+        memset(league,0,sizeof *league);
+        league->country=country;
+        league->division=division;
+        league->points=points_per_win;
+    }
+    if (league->count == LIVE_MAX_LEAGUE_CLUBS) {
+        league->overflow=1;
+        return 0;
+    }
+    if (league->points != points_per_win) return 0;
+    dest=&s_clubs[s_club_count++];
+    memset(dest,0,sizeof *dest);
+    dest->id=club; dest->rating=rating;
+    dest->country=country; dest->division=division;
+    strncpy(dest->name,name,sizeof dest->name-1);
+    league->clubs[league->count++]=club;
+    return 1;
+}
+static int fixture_compare(const void *aa, const void *bb) {
+    const ExpandedWorldFixture *a=(const ExpandedWorldFixture *)aa;
+    const ExpandedWorldFixture *b=(const ExpandedWorldFixture *)bb;
+    if (a->day != b->day) return a->day < b->day ? -1 : 1;
+    if (a->competition != b->competition) return a->competition < b->competition ? -1 : 1;
+    if (a->id != b->id) return a->id < b->id ? -1 : 1;
+    return 0;
+}
+static int make_fixtures(LiveLeague *league, unsigned season, int32_t season_start) {
+    uint16_t slots[LIVE_MAX_LEAGUE_CLUBS];
+    unsigned teams=league->count;
+    unsigned n=teams+(teams&1u); /* odd-sized leagues require a BYE */
+    unsigned rounds=n-1;
+    unsigned pairs=n/2;
+    uint16_t cid=competition_id(league->country,league->division,season);
+    if (league->overflow || teams<2 || teams>LIVE_MAX_LEAGUE_CLUBS ||
+        2u*rounds>52u) return 0;
+    if (s_ledger.count+2u*rounds*pairs > s_ledger.capacity) return 0;
+    memcpy(slots,league->clubs,teams*sizeof slots[0]);
+    if (teams&1u) slots[n-1]=0xffffu;
+    for(unsigned r=0;r<rounds;++r) {
+        for(unsigned p=0;p<pairs;++p) {
+            uint16_t a=slots[p], b=slots[n-1-p];
+            unsigned h=((r+p)&1u)!=0u;
+            if (a==0xffffu || b==0xffffu) continue;
+            for(unsigned leg=0;leg<2;++leg) {
+                ExpandedWorldFixture *f=&s_fixtures[s_ledger.count++];
+                memset(f,0,sizeof *f);
+                f->day=season_start+(int32_t)(1u+r+leg*rounds)*7;
+                f->id=(uint32_t)(leg*rounds+r)*pairs+p;
+                f->competition=cid;
+                f->home=((h ^ leg)!=0u) ? b : a;
+                f->away=((h ^ leg)!=0u) ? a : b;
+            }
+        }
+        uint16_t last=slots[n-1];
+        for(unsigned k=n-1;k>1;--k) slots[k]=slots[k-1];
+        slots[1]=last;
+    }
+    return 1;
+}
+int ExpandedWorldLive_Seal(void) {
+    if (!s_fixtures || s_live) return 0;
+    s_ledger.count=0;
+    for (unsigned season=0;season<LIVE_SEASONS;++season) {
+        ExpandedWorldDate start={(uint16_t)(s_first_year+season),8,1};
+        int32_t day;
+        if (!ExpandedWorld_DateToIndex(start,&day)) break;
+        for(uint32_t i=0;i<s_league_count;++i)
+            (void)make_fixtures(&s_leagues[i],season,day);
+    }
+    if (!s_ledger.count) return 0;
+    qsort(s_fixtures,s_ledger.count,sizeof s_fixtures[0],fixture_compare);
+    s_live=1;
+    return 1;
+}
+static uint32_t hash32(uint32_t x) {
+    x ^= x >> 16; x *= 0x7feb352du;
+    x ^= x >> 15; x *= 0x846ca68bu;
+    x ^= x >> 16;
+    return x;
+}
+static int resolve_game(const ExpandedWorldFixture *f,uint8_t *home,uint8_t *away,void *ctx) {
+    (void)ctx;
+    const LiveClub *h=club_by_id(f->home),*a=club_by_id(f->away);
+    if (!h || !a) return 0;
+    uint32_t seed=hash32(((uint32_t)f->competition<<16) ^ f->id ^
+                         ((uint32_t)f->home<<8) ^ f->away ^ (uint32_t)s_first_year);
+    int diff=(int)h->rating-(int)a->rating;
+    int hgoals=(int)(seed%4u)+((diff>20)?1:0)+((diff>70)?1:0);
+    int agoals=(int)((seed>>5)%4u)+((diff< -20)?1:0)+((diff< -70)?1:0);
+    if ((seed>>11)%4u==0u && agoals>0) agoals--;
+    *home=(uint8_t)(hgoals>7?7:hgoals);
+    *away=(uint8_t)(agoals>7?7:agoals);
+    return 1;
+}
+int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks) {
+    uint64_t d=(uint64_t)(uint32_t)s_initial_day+(uint64_t)weeks*7u;
+    if (!s_live || d>INT32_MAX || weeks<s_weeks) return 0;
+    if (!ExpandedWorldLedger_Advance(&s_ledger,(int32_t)d,resolve_game,NULL)) return 0;
+    s_weeks=weeks;
+    return 1;
+}
+uint32_t ExpandedWorldLive_Results(void) { return s_ledger.played; }
+uint32_t ExpandedWorldLive_Clubs(void) { return s_club_count; }
+uint32_t ExpandedWorldLive_Leagues(void) { return s_league_count; }
+uint32_t ExpandedWorldLive_Weeks(void) { return s_weeks; }
+uint16_t ExpandedWorldLive_SeasonYear(void) {
+    ExpandedWorldDate d;
+    if (!s_live || !ExpandedWorld_IndexToDate(s_ledger.now,&d)) return s_first_year;
+    return (uint16_t)(d.year-(d.month<8 ? 1 : 0));
+}
+static int row_before(const ExpandedLiveRow *a,const ExpandedLiveRow *b) {
+    if (a->points != b->points) return a->points>b->points;
+    int agd=(int)a->scored-(int)a->conceded;
+    int bgd=(int)b->scored-(int)b->conceded;
+    if (agd!=bgd) return agd>bgd;
+    if (a->scored!=b->scored) return a->scored>b->scored;
+    return a->club < b->club;
+}
+int ExpandedWorldLive_Table(uint8_t country, uint8_t division,
+                            ExpandedLiveRow *rows, uint32_t capacity,
+                            uint32_t *total) {
+    LiveLeague *league=league_by_id(country,division);
+    ExpandedWorldStanding table[LIVE_MAX_LEAGUE_CLUBS];
+    int32_t season_delta;
+    if (total) *total=0;
+    if (!s_live || !rows || !total || !league || league->overflow ||
+        league->count<2 || capacity<league->count) return 0;
+    season_delta=(int32_t)ExpandedWorldLive_SeasonYear()-(int32_t)s_first_year;
+    if (season_delta<0 || season_delta>=(int32_t)LIVE_SEASONS) return 0;
+    for(unsigned i=0;i<league->count;++i) table[i].club=league->clubs[i];
+    if (!ExpandedWorldLedger_Standings(&s_ledger,
+            competition_id(country,division,(unsigned)season_delta),
+            table,league->count,league->points)) return 0;
+    for(unsigned i=0;i<league->count;++i) {
+        const LiveClub *c=club_by_id(table[i].club);
+        if (!c) return 0;
+        ExpandedLiveRow *row=&rows[i];
+        row->club=c->id;
+        memcpy(row->name,c->name,sizeof row->name);
+        row->played=table[i].played;
+        row->wins=table[i].wins;
+        row->drawn=table[i].drawn;
+        row->lost=table[i].lost;
+        row->scored=table[i].scored;
+        row->conceded=table[i].conceded;
+        row->points=table[i].points;
+    }
+    for(unsigned i=1;i<league->count;++i) {
+        ExpandedLiveRow t=rows[i];
+        unsigned j=i;
+        while (j && row_before(&t,&rows[j-1])) { rows[j]=rows[j-1];--j; }
+        rows[j]=t;
+    }
+    *total=league->count;
+    return 1;
+}
+
+#else
+/* The living-world pilot is Windows/SDL only; the legacy Amiga build
+ * keeps its existing career mode and does not require hosted stdlib. */
+int ExpandedWorldLive_Begin(uint16_t y) { (void)y; return 0; }
+int ExpandedWorldLive_AddClub(uint8_t c,uint8_t d,uint16_t id,uint16_t rating,
+                              const char *name,uint8_t ppw) {
+    (void)c;(void)d;(void)id;(void)rating;(void)name;(void)ppw;return 0;
+}
+int ExpandedWorldLive_Seal(void) {return 0;}
+int ExpandedWorldLive_AdvanceWeeks(uint32_t w) {(void)w;return 0;}
+int ExpandedWorldLive_Table(uint8_t c,uint8_t d,ExpandedLiveRow *r,
+                            uint32_t cap,uint32_t *total) {
+    (void)c;(void)d;(void)r;(void)cap;if(total)*total=0;return 0;
+}
+uint32_t ExpandedWorldLive_Results(void) {return 0;}
+uint32_t ExpandedWorldLive_Clubs(void) {return 0;}
+uint32_t ExpandedWorldLive_Leagues(void) {return 0;}
+uint16_t ExpandedWorldLive_SeasonYear(void) {return 0;}
+uint32_t ExpandedWorldLive_Weeks(void) {return 0;}
+void ExpandedWorldLive_End(void) {}
+#endif

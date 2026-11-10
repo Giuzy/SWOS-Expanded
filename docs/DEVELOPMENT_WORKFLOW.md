@@ -186,3 +186,12 @@ La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo ver
 6. Da shell MSYS2, se necessario: `bash sorgenti/tests/run_test_expanded_phase12.sh`. Nessuna nuova dipendenza.
 
 **Stato della consegna:** solo GCC su moduli isolati provato; build completa/test Windows ancora dell'utente. Nessuna asserzione di eventi realmente simulati durante disoccupazione.
+
+
+## Test della 0.13.03 — mondo pilota, prima dell'integrazione della carriera
+
+- Sincronizzare `dev/0.10` con GitKraken e compilare normalmente via `AVVIA_SWOS.bat`, osservando **Build 0.13.03**.
+- Avviare **UNEMPLOYED**, far trascorrere almeno 5–10 settimane, aprire l'offerta e scegliere **VIEW LEAGUE**: la classifica pilota dovrà mostrare partite `PL > 0`; se ci sono 35 settimane di attesa, dovrà riflettere le giornate maturate. La posizione del club offerto deve essere identificabile.
+- Se la simulazione non parte, consultare `SWOS.log` (righe `[living-world]`) e condividere screenshot/errori; non presupporre che un'assenza di partite in una divisione non supportata sia un successo.
+- Accettare una squadra e verificare che la partita reale e il calendario classico restino funzionanti. **Il calendario nativo può ancora partire da settimana 1**: l'innesto senza reset è dichiaratamente NON ancora implementato, non va considerato un errore nuovo introdotto dalla patch.
+- Test isolato `bash sorgenti/tests/run_test_expanded_world_live.sh`. Questi controlli non sostituiscono compilazione/test Windows su dati reali. F12/F9 continuano come in 0.13.02; nessuna nuova grafica o ZIP.

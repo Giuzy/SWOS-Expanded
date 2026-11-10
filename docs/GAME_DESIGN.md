@@ -225,3 +225,12 @@ L'ordine è una **roadmap proposta** coerente con l'ultima priorità; ogni cambi
 **[IMPLEMENTATO NEL CODICE / WINDOWS DA VERIFICARE]** F12: testo fotografabile contenente world tag, build, data **indicativa**, stato carriera/disoccupato e gli espliciti indicatori **WORLD SIM NOT ACTIVE**, **MIDSEASON JOIN NOT ACTIVE**, **WORLD SAVE NOT ACTIVE**. F9: PNG finale con overlay. Tasti 1/2/3: debug WIN/LOSE/SACK, disabilitati al riavvio e non persistiti. Non introdurre nuovi asset o layout UI per la diagnostica. Modalità win/lose modificano il risultato *registrato* dalla logica SWOS, non la fisica della partita.
 
 **[DA IMPLEMENTARE]** Generazione degli eventi dalle competizioni vere (date specifiche per paese), simulazione durante UNEMPLOYED, serializzazione del mondo, anteprima classifica delle offerte e riassunzione a stagione in corso senza `InitCareer` che resetta tutto. Sono criteri di accettazione della Fase 1–2, non risultati ottenuti nel commit.
+
+
+## 18. Prova del mondo attivo 0.13.03
+
+**[CODICE PILOTA, NON FASE 1–2 COMPLETA]** Il mondo non dipende più concettualmente dal club dell'allenatore: una prima coda di risultati offscreen con ID reali delle squadre e un modello di forza della rosa fa avanzare campionati mentre si è disoccupati. Ambito temporaneo di test: i cinque paesi già caricabili con sicurezza dalle offerte di lavoro, massimo 26 squadre per divisione, due stagioni, fixture round-robin provvisorie. In `VIEW LEAGUE` prima della firma è visibile la classifica del campionato-pilota.
+
+**[DA INTEGRARE]** La classifica pilota non ha ancora aggiornato gli slot nativi `Career_*Competition*` e la chiamata `InitCareer()` al momento della firma ricomincia tuttora il calendario OpenSWOS. Non utilizzare l'esito della prova per dichiarare pronta l'assunzione durante la stagione. La sincronizzazione degli incontri, il calcolo coerente delle coppe e la persistenza nei save sono il prossimo lavoro con test di regressione.
+
+**[CONFERMATO]** Nessun cambiamento a UI di debug F12, titolo, New Career, Loading, grafica e fisica partita. Lo scheduling provvisorio non è l'approvazione dei calendari reali.

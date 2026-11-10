@@ -341,3 +341,12 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [CODICE] `expanded_world_ledger.h/.c`: registro cronologico indipendente con risultati immutabili, classifiche riproducibili, ID di incontri, doppia modalità 2/3 punti per vittoria e callback di simulazione. **Ancora scollegato da OpenSWOS** e dal salvataggio reale.
 - [CODICE] La data secondaria del calendario nativo usa `World_FirstYear()` per il mondo scelto, al posto dell'anno fisso 1996.
 - [TEST GCC ISOLATI] `tests/run_test_expanded_phase12.sh` verifica controlli e registro; simulazione artificiale di 35 settimane/140 risultati e classifiche. Nessuna compilazione completa e nessun test Windows in questa consegna.
+
+
+## 0.13.03 — Pilot risultati mondiali durante UNEMPLOYED
+
+- [CODICE] Simulazione offscreen indipendente dal manager, basata sulle squadre realmente lette da cinque paesi già sicuri del database e dalle relative divisioni supportate; ID squadra effettivi, rating aggregato dalla rosa, calendario round-robin **provvisorio** e risultati deterministici. Usa il registro cronologico introdotto in 0.13.02, avanzato a ogni settimana della disoccupazione.
+- [CODICE] La schermata VIEW LEAGUE dell'offerta mostra ora classifica provvisoria e posizione del club con partite giocate e punti, anche prima della firma. I dati non sono risultati del motore carriera nativo.
+- [CODICE] Gestione turni di riposo per divisioni con club dispari; rifiuto di costruire gironi parziali oltre 26 club; supporto a due stagioni-pilota. Nessun nuovo asset e nessun intervento al pannello debug F12.
+- [TEST ISOLATI] GCC -Wall -Wextra -Werror + ASan/UBSan: 20 club/350 gare dopo 35 settimane; girone dispari 5 club e settimana 10; turni e classifiche validi. Non è ancora un test completo Windows.
+- [ANCORA DA FARE] Calendario regolamentare, mondo completo, coppe, record nel salvataggio, classifica sincronizzata con motore SWOS e assunzione a metà stagione senza reset. Il vecchio InitCareer conserva il proprio comportamento.

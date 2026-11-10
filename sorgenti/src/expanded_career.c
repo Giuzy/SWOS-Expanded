@@ -11,6 +11,7 @@
 #include "world.h"
 #include "expanded_world_time.h"
 #include "expanded_debug.h"
+#include "expanded_world_live.h"
 #include "swos_io.h"
 #include "career_params.h"
 #include "string_utils.h"
@@ -563,6 +564,15 @@ void Expanded_UnemployedDraw(void) {
 void Expanded_UnemployedWait(void) {
     if(s_waitTeam && s_waitWeeks>=s_nextOfferWeek) return;
     if(s_waitWeeks<4000) s_waitWeeks++;
+    /* The pilot world operates on snapshots of actual club IDs, with no
+     * live team-file reload while a modal is open. No game-clock mutation. */
+    if (ExpandedWorldLive_Clubs()) {
+        if (!ExpandedWorldLive_AdvanceWeeks((uint32_t)s_waitWeeks))
+            fprintf(stderr,"[living-world] advance rejected at week %u\n",s_waitWeeks);
+        if (s_waitWeeks%4u==0u)
+            fprintf(stderr,"[living-world] wait=%u pilot results=%lu\n",
+                    s_waitWeeks,(unsigned long)ExpandedWorldLive_Results());
+    }
     if(s_waitWeeks>=s_nextOfferWeek && !s_waitTeam) choose_small_club();
     if(!s_waitTeam && s_waitWeeks>=s_nextOfferWeek)
         s_nextOfferWeek=s_waitWeeks+next_delay();
@@ -668,13 +678,41 @@ void Expanded_OfferPreviewDraw(void) {
             contest_line(81+i*8,line,7);
         }
     } else {
-        snprintf(line,sizeof line,"DOMESTIC DIVISION %u",(unsigned)s_waitLeague+1);
-        contest_line(90,line,2);
-        contest_line(108,"DOMESTIC CUP",7);
-        if(s_waitCountry==8) contest_line(126,"LEAGUE CUP",7);
-        contest_line(156,"COMPETITIONS FOR THIS CLUB",2);
-        contest_line(177,"SEASON NOT YET STARTED",7);
-        contest_line(209,"RESULTS AVAILABLE AFTER HIRING",6);
+        ExpandedLiveRow rows[26];
+        uint32_t count=0;
+        if (ExpandedWorldLive_Table(s_waitCountry,s_waitLeague,rows,26,&count)) {
+            snprintf(line,sizeof line,"DIVISION %u - %u/%02u",
+                     (unsigned)s_waitLeague+1,
+                     (unsigned)ExpandedWorldLive_SeasonYear(),
+                     ((unsigned)ExpandedWorldLive_SeasonYear()+1u)%100u);
+            contest_line(82,line,2);
+            contest_line(93,"RANK CLUB                 PL GD PTS",7);
+            unsigned offeredRank=count;
+            for(unsigned i=0;i<count;i++)
+                if(rows[i].club==s_waitTeam) offeredRank=i;
+            for(unsigned i=0;i<count && i<10;i++) {
+                int gd=(int)rows[i].scored-(int)rows[i].conceded;
+                snprintf(line,sizeof line,"%2u %.15s %2u %+3d %3ld",
+                         i+1,rows[i].name,(unsigned)rows[i].played,
+                         gd,(long)rows[i].points);
+                contest_line(105u+i*10u,line,
+                             rows[i].club==s_waitTeam ? 2 : 7);
+            }
+            if(offeredRank>=10 && offeredRank<count) {
+                const ExpandedLiveRow *r=&rows[offeredRank];
+                int gd=(int)r->scored-(int)r->conceded;
+                snprintf(line,sizeof line,"%2u %.15s %2u %+3d %3ld",
+                         offeredRank+1,r->name,(unsigned)r->played,gd,
+                         (long)r->points);
+                contest_line(205,line,2);
+            }
+            contest_line(219,"PILOT TABLE - NOT YET NATIVE CAREER",6);
+        } else {
+            snprintf(line,sizeof line,"DIVISION %u - PILOT UNAVAILABLE",
+                     (unsigned)s_waitLeague+1);
+            contest_line(100,line,2);
+            contest_line(150,"RESULTS NOT IN SWOS CAREER YET",7);
+        }
     }
 }
 void Expanded_OfferViewSquad(void) {
@@ -714,6 +752,9 @@ int Expanded_WaitForFirstOffer(uint16_t *team) {
     s_waitWeeks=0; s_waitAccepted=0; s_waitTeam=0;
     s_offerSnapshotValid=0; s_offerAgreedWeekly=0;
     s_nextOfferWeek=next_delay();
+    /* All reads of installed team files happen before opening the modal:
+     * offer preview and each weekly event operate on isolated snapshots. */
+    ExpandedWorldLive_LoadOfferCountries();
     ShowMenu(Expanded_UnemployedCalendarMenu());
     if(!s_waitAccepted || !offer_is_valid()) return 0;
     if(!verify_offer_in_file()) {
@@ -736,6 +777,8 @@ int Expanded_WaitForRehire(uint16_t *team) {
     extern uint8_t _lastFinancialWeekIndex;
     s_unemployedHadClub=1;
     s_waitWeeks=(unsigned)_currentSeasonShowing*52u+(unsigned)_lastFinancialWeekIndex;
+    if (ExpandedWorldLive_Clubs())
+        (void)ExpandedWorldLive_AdvanceWeeks((uint32_t)s_waitWeeks);
     s_waitAccepted=0;s_waitTeam=0;s_offerSnapshotValid=0;s_offerAgreedWeekly=0;
     s_nextOfferWeek=s_waitWeeks+next_delay();
     ShowMenu(Expanded_UnemployedCalendarMenu());

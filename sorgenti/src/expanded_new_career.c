@@ -1,5 +1,5 @@
 /* NEW CAREER HD. Presentation/setup state only; career/save engine unchanged.
- * 0.10.68: +0.5 logical px for NEW CAREER C only; audio stays disabled. */
+ * 0.10.70: +1.5 logical px for NEW CAREER C only; audio stays disabled. */
 #ifdef SWOS_SDL_BUILD
 #include "expanded_new_career.h"
 #include "expanded_png.h"
@@ -332,13 +332,13 @@ static void pixel_text_tint_fit(SDL_Renderer*r,const char*s,int type,float x,flo
    if(type==0 && strcmp(s,"AGE (18-70)")==0 && (ch=='(' || ch==')')){
     dst.x-=2.f*sx;dst.y-=2.f*sy;
    }
-   /* Keep all glyphs pixel-snapped. Apply the requested tiny 0.5
-    * logical-pixel optical correction ONLY to the C in NEW CAREER.
-    * SDL_RenderCopyF accepts fractional positions, and Nearest mode stays
-    * crisp. On low-resolution displays this shift can quantize to 0 px. */
+   /* Snap the approved atlas normally. The round C has one source pixel
+    * of optical overshoot above the straight cap height. A 1.5-logical-pixel correction follows the already-snapped baseline.
+    * Nearest filtering keeps the approved font atlas sharp; exact physical
+    * shift may quantize with window scaling. */
    dst.x=(float)((int)(dst.x+.5f));dst.y=(float)((int)(dst.y+.5f));
    if(type==2 && ch=='C' && strcmp(s,"NEW CAREER")==0)
-    dst.y+=0.5f*sy;
+    dst.y+=1.5f*sy;
    SDL_RenderCopyF(r,f->texture,&g->rect,&dst);
   }
   atX+=g->advance*fontScale;prev=ch;

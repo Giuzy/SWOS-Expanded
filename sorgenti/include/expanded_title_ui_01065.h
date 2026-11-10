@@ -1,4 +1,4 @@
-/* SWOS Expanded 0.10.68: Title labels use the APPROVED NEW CAREER bitmap atlas.
+/* SWOS Expanded 0.10.70: Title labels use the APPROVED NEW CAREER bitmap atlas.
  * Included only by expanded_title_overlay.c. No separate build objects and no
  * modifications to the historical approved Title source PNGs. */
 #ifndef EXPANDED_TITLE_UI_01065_H
@@ -106,8 +106,14 @@ static float Expanded_TitleUI65_Step(const ExpandedTitleUIFont *f,
 static float Expanded_TitleUI65_OpticalStep(const ExpandedTitleUIFont *f,
                                             unsigned a,unsigned b,int opticalGap)
 {
-    if(opticalGap==5 && a=='C' && (b=='O' || b=='A'))
-        opticalGap=2;
+    if(opticalGap==5) {
+        /* Keep CONTINUE untouched. Tighten only the CAREER line:
+         * CA | REER, after the A and before the R. */
+        if(a=='C' && (b=='O' || b=='A'))opticalGap=2;
+        else if(a=='A' && b=='R')opticalGap=1;
+    }
+    /* No custom negative/small kerning on CLASSIC MODES: the preceding
+     * patch made the 3D glyph outlines collide after output scaling. */
     return Expanded_TitleUI65_Step(f,a,b,opticalGap);
 }
 static int Expanded_TitleUI65_DrawLine(SDL_Renderer *r,const char *text,
@@ -140,7 +146,26 @@ static int Expanded_TitleUI65_DrawLine(SDL_Renderer *r,const char *text,
     /* A very slight HORIZONTAL squeeze only for the two requested
      * secondary labels. Height and glyph atlas are unchanged. */
     const float scaleX=scale*(classic || strcmp(text,"HALL OF FAME")==0 ? 0.965f : 1.f);
-    const float beginX=box.x+(box.w-pen*scaleX)*0.5f;
+    float beginX=box.x+(box.w-pen*scaleX)*0.5f;
+    if(classic){
+        /* Center the visible pixels, not the sum of advances. This also
+         * keeps the text properly centered when per-glyph spacing grows. */
+        float track=0.f,visibleLeft=1e9f,visibleRight=-1e9f;
+        for(const unsigned char *p=(const unsigned char *)text;*p;p++){
+            unsigned ch=Expanded_TitleUI65_Code(*p);
+            const ExpandedTitleUIGlyph *g=&f->glyph[ch];
+            if(g->src.w>0 && g->src.h>0){
+                float left=track+(float)g->bx;
+                float right=left+(float)g->src.w;
+                if(left<visibleLeft)visibleLeft=left;
+                if(right>visibleRight)visibleRight=right;
+            }
+            track+=p[1]?Expanded_TitleUI65_OpticalStep(f,ch,Expanded_TitleUI65_Code(p[1]),opticalGap):
+                         (float)g->advance;
+        }
+        if(visibleRight>visibleLeft)
+            beginX=box.x+box.w*0.5f-(visibleLeft+visibleRight)*0.5f*scaleX;
+    }
     const float originY=box.y+(box.h-(maxY-minY)*scale)*0.5f-minY*scale;
     float atX=beginX;
     SDL_SetTextureColorMod(f->texture,255,selected?226:255,selected?72:255);
@@ -181,8 +206,11 @@ static int Expanded_TitleUI65_DrawButtonText(SDL_Renderer *r,const char *text,
                                             selected,sx,sy,0,5);
     }
     ExpandedTitleUIFont *f=&s_exp_title_fonts[primary?1:0];
+    const int classic=strcmp(text,"CLASSIC MODES")==0;
+    /* 7 atlas pixels between full CLASSIC MODES glyph rectangles,
+     * measured and drawn identically. No letter overlaps at 4K or windowed. */
     return Expanded_TitleUI65_DrawLine(r,text,f,button,primary?1.0f:0.86f,
-                    selected,sx,sy,strcmp(text,"CLASSIC MODES")==0,3);
+                    selected,sx,sy,classic,classic?7:3);
 }
 static void Expanded_TitleUI65_DrawLegend(SDL_Renderer *r,float sx,float sy)
 {

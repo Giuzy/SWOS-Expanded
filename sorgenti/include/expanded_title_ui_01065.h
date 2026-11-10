@@ -1,4 +1,4 @@
-/* SWOS Expanded 0.10.66: Title labels use the APPROVED NEW CAREER bitmap atlas.
+/* SWOS Expanded 0.10.68: Title labels use the APPROVED NEW CAREER bitmap atlas.
  * Included only by expanded_title_overlay.c. No separate build objects and no
  * modifications to the historical approved Title source PNGs. */
 #ifndef EXPANDED_TITLE_UI_01065_H
@@ -86,22 +86,35 @@ static unsigned Expanded_TitleUI65_Code(unsigned code)
     return code>=32 && code<=126 ? code : '?';
 }
 static float Expanded_TitleUI65_Step(const ExpandedTitleUIFont *f,
-                                     unsigned a,unsigned b)
+                                     unsigned a,unsigned b,int opticalGap)
 {
     const ExpandedTitleUIGlyph *g=&f->glyph[a];
     const ExpandedTitleUIGlyph *h=&f->glyph[b];
     float step=(float)g->advance;
     if(g->src.w>0 && h->src.w>0) {
-        /* +2 atlas pixels between neighboring opaque glyph rectangles. */
-        float noTouch=(float)(g->bx+g->src.w-h->bx+2);
+        /* Guaranteed separation of FULL atlas rectangles (including dark
+         * outlines), not just character advances. CONTINUE CAREER uses
+         * slightly more air than other Title labels. */
+        float noTouch=(float)(g->bx+g->src.w-h->bx+opticalGap);
         if(step<noTouch)step=noTouch;
     }
     return step;
 }
+/* Bring the oversized opening C closer to O/A on the two green-button
+ * rows, without reducing spacing elsewhere or allowing glyph overlap.
+ * Shared by measuring and drawing, so both words stay centered. */
+static float Expanded_TitleUI65_OpticalStep(const ExpandedTitleUIFont *f,
+                                            unsigned a,unsigned b,int opticalGap)
+{
+    if(opticalGap==5 && a=='C' && (b=='O' || b=='A'))
+        opticalGap=2;
+    return Expanded_TitleUI65_Step(f,a,b,opticalGap);
+}
 static int Expanded_TitleUI65_DrawLine(SDL_Renderer *r,const char *text,
                                         ExpandedTitleUIFont *f,SDL_FRect box,
                                         float baseScale,int selected,
-                                        float sx,float sy,int classic)
+                                        float sx,float sy,int classic,
+                                        int opticalGap)
 {
     if(!text || !f->texture || !f->glyph['A'].advance)return 0;
     float pen=0.f;
@@ -113,7 +126,7 @@ static int Expanded_TitleUI65_DrawLine(SDL_Renderer *r,const char *text,
             if(g->by<minY)minY=g->by;
             if(g->by+g->src.h>maxY)maxY=g->by+g->src.h;
         }
-        pen+=p[1]?Expanded_TitleUI65_Step(f,ch,Expanded_TitleUI65_Code(p[1])):
+        pen+=p[1]?Expanded_TitleUI65_OpticalStep(f,ch,Expanded_TitleUI65_Code(p[1]),opticalGap):
                   (float)g->advance;
     }
     if(minY==INT_MAX || pen<=0.f || maxY<=minY)return 0;
@@ -124,7 +137,10 @@ static int Expanded_TitleUI65_DrawLine(SDL_Renderer *r,const char *text,
     if(maxWidth<=0.f || maxHeight<=0.f)return 0;
     if(pen*scale>maxWidth)scale=maxWidth/pen;
     if((maxY-minY)*scale>maxHeight)scale=maxHeight/(float)(maxY-minY);
-    const float beginX=box.x+(box.w-pen*scale)*0.5f;
+    /* A very slight HORIZONTAL squeeze only for the two requested
+     * secondary labels. Height and glyph atlas are unchanged. */
+    const float scaleX=scale*(classic || strcmp(text,"HALL OF FAME")==0 ? 0.965f : 1.f);
+    const float beginX=box.x+(box.w-pen*scaleX)*0.5f;
     const float originY=box.y+(box.h-(maxY-minY)*scale)*0.5f-minY*scale;
     float atX=beginX;
     SDL_SetTextureColorMod(f->texture,255,selected?226:255,selected?72:255);
@@ -132,14 +148,14 @@ static int Expanded_TitleUI65_DrawLine(SDL_Renderer *r,const char *text,
         unsigned ch=Expanded_TitleUI65_Code(*p);
         ExpandedTitleUIGlyph *g=&f->glyph[ch];
         if(g->src.w>0 && g->src.h>0){
-            SDL_FRect dst={atX+g->bx*scale,originY+g->by*scale,
-                           g->src.w*scale,g->src.h*scale};
+            SDL_FRect dst={atX+g->bx*scaleX,originY+g->by*scale,
+                           g->src.w*scaleX,g->src.h*scale};
             dst.x=(float)((int)(dst.x+0.5f));
             dst.y=(float)((int)(dst.y+0.5f));
             SDL_RenderCopyF(r,f->texture,&g->src,&dst);
         }
-        atX+=(p[1]?Expanded_TitleUI65_Step(f,ch,Expanded_TitleUI65_Code(p[1])):
-                    (float)g->advance)*scale;
+        atX+=(p[1]?Expanded_TitleUI65_OpticalStep(f,ch,Expanded_TitleUI65_Code(p[1]),opticalGap):
+                    (float)g->advance)*scaleX;
     }
     SDL_SetTextureColorMod(f->texture,255,255,255);
     return 1;
@@ -157,14 +173,16 @@ static int Expanded_TitleUI65_DrawButtonText(SDL_Renderer *r,const char *text,
                        button.w,button.h*0.35f};
         SDL_FRect bottom={button.x,button.y+button.h*0.455f,
                           button.w,button.h*0.35f};
+        /* Measured and placed using exactly the same kerning, with five
+         * atlas pixels between outlines before screen scaling. */
         if(!Expanded_TitleUI65_DrawLine(r,"CONTINUE",f,top,1.0f,
-                                          selected,sx,sy,0))return 0;
+                                          selected,sx,sy,0,5))return 0;
         return Expanded_TitleUI65_DrawLine(r,"CAREER",f,bottom,1.0f,
-                                            selected,sx,sy,0);
+                                            selected,sx,sy,0,5);
     }
     ExpandedTitleUIFont *f=&s_exp_title_fonts[primary?1:0];
     return Expanded_TitleUI65_DrawLine(r,text,f,button,primary?1.0f:0.86f,
-                    selected,sx,sy,strcmp(text,"CLASSIC MODES")==0);
+                    selected,sx,sy,strcmp(text,"CLASSIC MODES")==0,3);
 }
 static void Expanded_TitleUI65_DrawLegend(SDL_Renderer *r,float sx,float sy)
 {

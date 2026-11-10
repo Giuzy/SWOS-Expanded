@@ -278,28 +278,15 @@ Salvare i PNG approvati nei percorsi definitivi locali, verificandone formato e 
 
 Il precedente trasferimento tramite blob/manifest è storico e abolito come workflow ordinario; vedere `asset-transfer/README.md`.
 
-## Numerazione build e release (regola utente, 2026-11-06)
-- Conservare il formato originale a tre parti `MAJOR.RELEASE.BUILD`, ad esempio `0.10.40`; non abbreviare in `0.40`.
-- Ogni nuova build esplicitamente richiesta incrementa soltanto l'ultima parte: `0.10.51` -> `0.10.52`.
-- Una nuova release importante incrementa la parte centrale e azzera l'ultima: la prossima release importante dopo la serie `0.10.xx` sarà `0.20.00`; le modifiche successive `0.20.01`, `0.20.02`, ecc.
-- Usare normalmente **due cifre** per entrambi i contatori RELEASE e BUILD. Aggiungere una terza cifra **solo dopo 99**: piccole modifiche `0.10.98` → `0.10.99` → `0.10.100` → `0.10.101`; release importanti `0.98.00` → `0.99.00` → `0.100.00` → `0.101.00`. Non concatenare le cifre di incrementi diversi (quindi niente `0.10.410` o `0.10.411` dopo `0.10.49`).
-- Il numero della build deve comparire nella schermata del titolo al posto della scritta gialla attuale, senza alterare lo sfondo. La rimozione di `DrawMenuText` in `menu_system.c` non ha eliminato quella scritta: identificare prima la fonte reale.
+## Versionamento vigente — decisione 10 novembre 2026 (sostituisce regole precedenti)
 
-## Commit intermedi e build su richiesta (regola utente, 2026-11-06)
-- Non effettuare mai commit o push senza richiesta esplicita dell'utente. Le richieste di modifica da sole non autorizzano commit.
-- Ogni commit intermedio autorizzato che modifica il gioco conserva la build base e incrementa il suffisso progressivo: `0.10.51_01`, `0.10.51_02`, ..., `0.10.51_99`, `0.10.51_100`.
-- Il suffisso conta i commit intermedi di codice della serie, non tutti i commit del repository; commit solo documentali non devono necessariamente avanzarlo.
-- Quando l'utente chiede esplicitamente una nuova build, eliminare il suffisso e incrementare BUILD una sola volta: `0.10.51_03` -> `0.10.52`. Registrare la nuova build con commit autorizzato.
-- Il titolo deve mostrare `Build ` seguito dalla versione completa (incluso il suffisso), tramite `Build_DisplayVersion()`.
-- Aggiornare `SWOS_EXPANDED_VERSION` in `sorgenti/include/build_info.h` nello stesso commit di codice che avanza il suffisso o pubblica la build; l'hash Git identifica il commit esatto.
-- GitHub richiede un commit per salvare cambi persistenti sul branch; si possono preparare modifiche localmente senza commit.
-- Esempio storico della serie 0.10.51: il primo commit intermedio di codice è `0.10.51_01`. `0.10.50_01` è valido solo se la base è `0.10.50`.
-
-## Convenzione dei branch (decisione utente, 2026-11-06)
-- Il lavoro ordinario della serie `0.10.xx` prosegue sul branch `dev/0.10`, senza rinominarlo a ogni piccola build.
-- Il numero esatto della build resta in `sorgenti/include/build_info.h` e compare automaticamente nel titolo.
-- Per una release importante si prepara un branch `release/0.20` e la versione `0.20.00`; la stessa convenzione si applica alle serie successive.
-- Il vecchio branch `release/0.10.40` resta temporaneamente disponibile come riferimento per permettere la sincronizzazione sicura di GitKraken; non cancellarlo prima della verifica locale.
+- Formato ufficiale a tre numeri: **MAJOR.MILESTONE.COMMIT**. Primo commit del nuovo ciclo: **0.13.01**; poi **0.13.02**, **0.13.03**, ecc., con incremento **0.01 per commit di codice autorizzato**, senza più suffissi _01/_02.
+- Un **nuovo milestone** cambia la parte centrale secondo l'incremento **0.1** indicato dall'utente. Nessun salto di milestone è automatico: per il prossimo salto concordare il valore completo prima di applicarlo. Le vecchie regole di avanzamento BUILD e delle release 0.20.00 sono **superate**, ma restano nello storico delle versioni.
+- I commit esclusivamente documentali non forzano incremento della versione del gioco; aggiornare il GDD e gli altri registri nel prossimo commit pertinente autorizzato.
+- Ogni commit è **sempre e soltanto esplicito**: nessun commit, push, pull, merge, checkout o cambio di ramo in assenza di richiesta chiara. Con «committa», verificare di nuovo HEAD, integrare modifiche concordate e versionare il sorgente.
+- Aggiornare `SWOS_EXPANDED_VERSION` in `sorgenti/include/build_info.h` nello stesso commit di codice. La schermata TITLE mostra `Build ` + `Build_DisplayVersion()` senza modificare lo sfondo.
+- Il ramo operativo resta **dev/0.10** fino a ordine diverso; non rinominare il ramo sulla base del solo numero versione, né toccare automaticamente `main` o `release/0.20`.
+- **Nuovo workflow consegne:** codice, script e documenti direttamente su GitHub, mediante commit espressamente autorizzato. **ZIP solo quando occorre aggiungere nuovi asset grafici**, con i file nei percorsi corretti. GitKraken rimane lo strumento scelto per sincronizzare il PC.
 
 ## Workflow asset precedente — superato il 2026-11-09
 
@@ -378,6 +365,13 @@ richiamato dal runtime senza aggiornare tutti i relativi riferimenti.
 4. **Motore del mondo:** priorità assoluta al **database delle squadre esistente**; l'espansione dei paesi/divisioni/database è l'ultima fase. Simulare eventi cronologici con **date globali** (anche incontri infrasettimanali) e mantenere risultati, classifiche, trasferimenti, ritiri e stagioni persistenti sia da occupato sia da disoccupato. Non simulare ogni dettaglio dei club non gestiti: simulare conseguenze coerenti. Nuova architettura da presentare e approvare prima della modifica al codice.
 5. **Data e WEEK:** mostrare il numero della **settimana quasi ovunque** nei menu manageriali, con una sola fonte temporale, tenendo le coordinate e la convenzione esatta da definire nel design della schermata; non alterare il cronometro partita. Inserire l'azione **ADVANCE TO NEXT EVENT** sia in CALENDAR sia in UNEMPLOYED, senza saltare gli eventi intermedi né prendere decisioni per l'utente.
 6. **Chairman e giovani:** nome + età del chairman in CLUB OFFER e WELCOME, età incrementale e sostituzione automatica al ritiro; YOUTH → RES (riserve) → TITOLARE come status dinamico, potenziale vero conosciuto per i giovani cresciuti nel club gestito e occultato per gli esterni senza scouting. Non assegnare prestiti TRIAL automatici; verificare prima il codice e preservare soltanto i fallback tecnici indispensabili alle rose insufficienti.
-7. **Priorità di verifica:** leggere stato reale di ramo/HEAD, codice, save e dipendenze prima delle modifiche. Non chiamare «implementato» ciò che è soltanto in `GAME_DESIGN.md`. Non fare commit/push/checkout senza autorizzazione; consegnare ZIP con file nuovi/modificati nei percorsi corretti. Ogni prossimo commit autorizzato che modifica il gioco deve mantenere coerenti documenti, versione e test effettivi.
+7. **Priorità di verifica:** leggere stato reale di ramo/HEAD, codice, save e dipendenze prima delle modifiche. Non chiamare «implementato» ciò che è soltanto in `GAME_DESIGN.md`. Non fare commit/push/checkout senza autorizzazione; consegnare ZIP soltanto per i nuovi asset grafici; codice/script/documenti tramite GitHub dopo «committa». Ogni prossimo commit autorizzato che modifica il gioco deve mantenere coerenti documenti, versione e test effettivi.
 
 **Versione rilevata durante questa raccolta:** `dev/0.10`, HEAD `f33041df7204936da22e6a066977b0dc382093b4`, `SWOS_EXPANDED_VERSION` `0.10.75` (10/11/2026). Questo riferimento è storico e va riverificato all'avvio del prossimo intervento.
+
+
+## Fase 1 — Data del mondo (10 novembre 2026)
+
+- La prima versione del calendario civile deve accettare **giorno, mese e anno iniziali configurabili**: 1996/97 e 2026/27 sono esempi di pacchetti, non un vincolo 1996 hardcoded.
+- Il numero WEEK concordato identifica la **settimana della stagione calcistica**, non la settimana ISO dell'anno civile. Per il futuro scheduler la stagione di riferimento dipenderà dal calendario del torneo/paese; per ora la nuova API conta settimane intere a partire dalla data iniziale fornita.
+- Il primo commit del modulo può aggiornare solo le **date visualizzate** e i test; non equivale al Living World Engine, non autorizza modifiche alle chiavi delle fixture, al save e alle finanze.

@@ -9,6 +9,7 @@
 #include "menu_system.h"
 #include "game_types.h"
 #include "world.h"
+#include "expanded_world_time.h"
 #include "swos_io.h"
 #include "career_params.h"
 #include "string_utils.h"
@@ -499,12 +500,28 @@ static void contest_line(unsigned y,const char *line,unsigned color) {
 }
 /* The unemployed calendar uses the SAME top-right date box as the
  * employed calendar; its independent week clock must be used there. */
+static ExpandedWorldDate unemployed_date_at(unsigned weeks) {
+    ExpandedWorldDate date={(uint16_t)World_FirstYear(),8u,1u};
+    (void)ExpandedWorld_DateAfterWeeks(date,(uint32_t)weeks,&date);
+    return date;
+}
+static unsigned unemployed_season_year(unsigned weeks) {
+    ExpandedWorldDate date=unemployed_date_at(weeks);
+    return (unsigned)date.year-(date.month<8u ? 1u : 0u);
+}
+static unsigned unemployed_week_of_season(unsigned weeks) {
+    ExpandedWorldDate date=unemployed_date_at(weeks);
+    ExpandedWorldDate start={(uint16_t)unemployed_season_year(weeks),8u,1u};
+    uint32_t week=1;
+    (void)ExpandedWorld_SeasonWeek(start,date,&week);
+    return (unsigned)week;
+}
 void Expanded_UnemployedDate(char *out,size_t cap) {
-    Expanded_FormatDate(out,cap,1996,s_waitWeeks);
+    Expanded_FormatDate(out,cap,World_FirstYear(),s_waitWeeks);
 }
 void Expanded_UnemployedDraw(void) {
     char line[90],date[40],first[32],last[32];
-    unsigned season=1996u+s_waitWeeks/52u;
+    unsigned season=unemployed_season_year(s_waitWeeks);
     sanitize(first,sizeof first,_managerNameBuffer);
     sanitize(last,sizeof last,_managerSurnameBuffer);
     /* The left header is only 90px wide; abbreviate long manager names
@@ -521,7 +538,8 @@ void Expanded_UnemployedDraw(void) {
     contest_at(compact?270:282,compact?7:40,line,7);
     contest_line(70,"NO FIXTURES - NO CLUB",6);
     if (s_waitTeam && s_waitWeeks>=s_nextOfferWeek) {
-        snprintf(line,sizeof line,"WEEK %02u - CLUB OFFER RECEIVED",s_waitWeeks+1u);
+        snprintf(line,sizeof line,"WEEK %02u - CLUB OFFER RECEIVED",
+                 unemployed_week_of_season(s_waitWeeks));
         contest_line(101,line,2);
         contest_line(127,"SELECT VIEW CLUB OFFER",7);
     } else {
@@ -530,11 +548,12 @@ void Expanded_UnemployedDraw(void) {
         /* Five well-spaced weeks instead of seven dense rows; the wait
          * counter and offer scheduling still advance normally. */
         for(unsigned i=0;i<5;i++) {
-            snprintf(line,sizeof line,"WEEK %02u - WAIT FOR A CLUB OFFER",s_waitWeeks+i+1u);
+            snprintf(line,sizeof line,"WEEK %02u - WAIT FOR A CLUB OFFER",
+                     unemployed_week_of_season(s_waitWeeks+i));
             contest_line(88u+i*17u,line,i==0?7:6);
         }
     }
-    Expanded_FormatDate(date,sizeof date,1996,s_waitWeeks);
+    Expanded_FormatDate(date,sizeof date,World_FirstYear(),s_waitWeeks);
     if(!compact) contest_line(171,date,2);
 }
 void Expanded_UnemployedWait(void) {

@@ -47,7 +47,7 @@
 
 **[APPROVATO — 10/11/2026]** Mostrare il **numero della settimana quasi dappertutto** nelle schermate della carriera, insieme alla data quando utile: calendario, disoccupazione, BUSINESS, mercato, allenamento, rosa, offerte e altri menu manageriali. Non sovrapporlo allo sfondo o al layout: posizione grafica da stabilire nelle singole riprogettazioni.
 
-**[DA DEFINIRE]** Numero di settimana coerente tra tutti i menu: settimana della stagione vs settimana ISO dell'anno (e comportamento negli anni con 53 settimane). La fonte del numero deve essere **unica** e derivata dall'orologio mondiale; nessun contatore indipendente per schermata. Il tempo della **partita in corso** non va modificato da questa scelta.
+**[APPROVATO — 10/11/2026]** Il numero WEEK è quello della **stagione calcistica**, non la settimana ISO dell'anno; l'API di calendario conta settimane da una data iniziale configurabile. Anni e stagioni con 53 settimane non devono provocare un reset arbitrario. La fonte del numero deve essere **unica** e derivata dall'orologio mondiale; nessun contatore indipendente per schermata. Il tempo della **partita in corso** non va modificato da questa scelta.
 
 ### 2.4 ADVANCE TO NEXT EVENT
 
@@ -186,7 +186,7 @@ L'ordine è una **roadmap proposta** coerente con l'ultima priorità; ogni cambi
 
 ## 14. Questioni aperte, da non risolvere da soli
 
-- Convenzione ufficiale del numero WEEK (anno civile ISO vs stagione), inizio/chiusura stagioni e gestione settimane extra.
+- Convenzione WEEK **risolta: settimana della stagione**. Rimangono da definire le date di inizio/chiusura delle competizioni nei vari paesi e gli eventuali campionati a cavallo di anni differenti.
 - Identità persistente dei presidenti; età iniziali, età massima, frequenza/criteri di successione; impatti di un nuovo chairman.
 - Specifiche esatte di TRAINING, aumento permanentemente delle abilità e modello di infortuni.
 - Equilibrio e durata di contratti/prestiti; parametri AI e scouting che mascherano valori.
@@ -207,3 +207,11 @@ L'ordine è una **roadmap proposta** coerente con l'ultima priorità; ogni cambi
 - Storico conversazioni di progetto e documento Library `SWOS_EXPANDED_PROJECT_STATE.md`: fonti di decisioni precedenti. Se emerge un conflitto con un'altra fonte attiva, discuterlo con l'utente prima di cambiare la parte controversa; registrare la scelta nel commit successivo autorizzato.
 
 **Stato di questa consegna:** documentazione; nessuna modifica a codice, asset, build o repository. Nessun test Windows eseguito. I riferimenti di commit/versione fotografano lo stato consultato, non una build prodotta in questa consegna.
+
+
+## 16. Prima realizzazione tecnica del tempo — 0.13.01
+
+- [CODICE, DA TESTARE WINDOWS] Nuova API `expanded_world_time` per date gregoriane 1900–2200, indice del giorno, avanzamento monotono e settimane a partire da una **data completa fornita dal chiamante**. Non fissa l'anno 1996: funziona anche con 2026/27 e futuri aggiornamenti.
+- [CODICE, DA TESTARE WINDOWS] La data visualizzata negli attuali menu manageriali usa `World_FirstYear()` per rispettare il pacchetto di squadre scelto, senza alterare le chiavi settimanali delle partite o il conto economico. Nell'attuale UNEMPLOYED la settimana visualizzata riparte dalla stagione di riferimento; questo **non** significa che le partite del mondo progrediscano durante la disoccupazione.
+- [NON ANCORA IMPLEMENTATO] Lo scheduler degli eventi, il tempo globale persistito, l'ingresso a stagione iniziata e ADVANCE TO NEXT EVENT restano per i passi seguenti.
+- [TEST ISOLATO] Roundtrip di 109.938 date, casi 1996/2026/2034, bisestili, settimane e avanzamenti negativi vietati, eseguiti con GCC locale; **nessun test Windows completo**.

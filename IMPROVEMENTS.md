@@ -325,3 +325,11 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 **Tipo:** registrazione della manutenzione della documentazione progettuale, non implementazione. Preparati `docs/GAME_DESIGN.md` e aggiornamenti coerenti a `AGENTS.md`, `PROJECT_STATE.md`, `docs/DEVELOPMENT_WORKFLOW.md` per le decisioni del 10 novembre 2026: tre schermate graficamente finali, grafica obsoleta degli altri menu, calendario ad eventi, WEEK quasi ovunque, NEXT EVENT, chairman, YOUTH/RES/TITOLARE, completamento prioritario con database attuale e futuro BAT di pulizia asset verificati orfani.
 
 **Codice/assets/build:** nessuna modifica e nessun file rimosso in questa operazione. **Test Windows:** non eseguiti. **GitHub:** nessun commit né push effettuato da questo pacchetto. Gli interventi funzionali descritti nel GDD sono futuri finché non confermati dal codice e dai test.
+
+
+## 0.13.01 — Prima API calendario mondiale (10 novembre 2026)
+
+- [CODICE] Aggiunto modulo C autonomo `expanded_world_time.c/.h`: date gregoriane 1900–2200, inizializzazione con anno/mese/giorno arbitrari, conversioni, day index, settimana relativa alla stagione, avanzamento solo in avanti.
+- [CODICE] `Expanded_FormatDate` non implementa più un calendario separato; passa tramite l'API comune. I menu occupato/disoccupato usano `World_FirstYear()` per il mondo attivo; settimana visualizzata nel disoccupato ricalcolata dal reale inizio stagione (1 agosto nell'interfaccia provvisoria).
+- [TEST GCC LOCALE] Test isolato di date 1996/2026/2034, bisestili, validazione e avanzamento; scansione completa dei 109.938 giorni 1900-2200. Nessun test Windows/joypad eseguito.
+- [LIMITI] Nessun nuovo scheduler, risultati simulati, gestione eventi, salvataggio del clock o modifiche a fisica/finanze. La versione `0.13.01` applica la nuova numerazione richiesta dall'utente; la convenzione precedente con _01 è storica.

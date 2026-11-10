@@ -440,3 +440,14 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 ### Test e consegne
 
 **Solo documentazione predisposta.** Nessuna compilazione, nessun test Windows, nessuna modifica al codice di gioco, nessun commit e nessun push eseguiti per questa raccolta. Aggiornare questo stato dopo i test reali; dettagli e stati [APPROVATO]/[PROPOSTA]/[DA DEFINIRE] sono in `docs/GAME_DESIGN.md`.
+
+
+## 0.13.01 — Fase 1: calendario civile configurabile (10/11/2026)
+
+**Nuova regola versionamento:** serie `0.13.01`, `0.13.02`... un incremento 0.01 per commit autorizzato di codice, niente suffisso; il milestone avanza di 0.1 soltanto su decisione esplicita. **Nuovo workflow:** ZIP solo per asset; codice e documenti su GitHub con commit esplicito, nessun push automatico in assenza di permesso.
+
+- [CODICE PREPARATO / DA TESTARE WINDOWS] Nuovi `sorgenti/include/expanded_world_time.h` e `sorgenti/src/expanded_world_time.c`. Data iniziale configurabile per giorno/mese/anno (non bloccata al 1996), calendario gregoriano, settimana di stagione, avanzamento monotono.
+- [CODICE PREPARATO / DA TESTARE WINDOWS] `Expanded_FormatDate` passa alle nuove API; le schermate con calendario usano `World_FirstYear()` per 1996/97 oppure 2026/27. Il contatore visuale di settimana del disoccupato è quello della stagione (NON ISO); il vecchio contatore interno resta tale e quale.
+- [TEST LOCALE] Due test C isolati: conversioni, bisestili, settimane, 109.938 giorni consecutivi; non una prova di avvio Windows.
+- [DA FARE] Gli eventi datati reali, la simulazione del mondo durante la disoccupazione, le offerte a metà stagione, NEXT EVENT, il salvataggio del nuovo orologio, le date specifiche dei pacchetti dati oltre al loro anno e la presentazione WEEK in tutti i menu **non sono ancora implementati**.
+- [NESSUNA VARIAZIONE] Fisica partita, game tick 50Hz, attuali partite, rose, grafica finale TITLE/NEW CAREER/LOADING, dimensioni database e formato save.

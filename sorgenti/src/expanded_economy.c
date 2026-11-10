@@ -10,6 +10,8 @@
 #include <limits.h>
 #include "menu_system.h"
 #include "build_info.h"
+#include "world.h"
+#include "expanded_world_time.h"
 #include "game_types.h"
 #include "expanded_squad_rating.h"
 #include "teams.h"
@@ -808,31 +810,34 @@ void Expanded_ClubFacilitySelected(MenuEntry *entry) {
     ShowMenu(_expandedFacilityDetailMenu);
 }
 
-/* Calendar date, same formatter in the match calendar and the club ledger.
- * Career finance week is the best available weekly clock; it is not a
- * simulation of a full day-by-day football fixture schedule. */
+/* Civil date for legacy weekly fixture keys.  The first year comes from the
+ * selected world (1996 or 2026) instead of being hardcoded in each menu.
+ * A later phase will supply an exact date from persistent match events; this
+ * formatter does NOT change financial keys, match progression or save files. */
 static const char *const s_months[]={"JAN","FEB","MAR","APR","MAY","JUN",
                                      "JUL","AUG","SEP","OCT","NOV","DEC"};
-static const char *const s_days[]={"SUN","MON","TUE","WED","THU","FRI","SAT"};
-static int is_leap(unsigned y) {return (y%4==0 && (y%100!=0 || y%400==0));}
+static const char *const s_days[]={"MON","TUE","WED","THU","FRI","SAT","SUN"};
 void Expanded_FormatDate(char *out,size_t cap,unsigned season,unsigned week) {
-    unsigned year=season>=1900?season:(season>=90?1900+season:2000+season);
-    if(year<1990 || year>2200) year=1996;
-    unsigned month=7, day=1; /* 1 August, season opening */
-    unsigned dayIndex=week*7;
-    static const unsigned lengths[12]={31,28,31,30,31,30,31,31,30,31,30,31};
-    while(dayIndex) {
-        unsigned remaining=lengths[month]+(month==1&&is_leap(year))-day;
-        if(dayIndex<=remaining) {day+=dayIndex;break;}
-        dayIndex-=remaining+1;
-        day=1;
-        if(++month==12) {month=0;year++;}
+    unsigned year=season>=1900u?season:(season>=90u?1900u+season:2000u+season);
+    ExpandedWorldDate begin,date;
+    int32_t index;
+    if (!out || !cap) return;
+    out[0]=0;
+    if (year<1900u || year>2200u) {
+        snprintf(out,cap,"DATE OUT OF RANGE"); return;
     }
-    /* Tomohiko Sakamoto's weekday algorithm; 0=Sunday. */
-    static const int offsets[]={0,3,2,5,0,3,5,1,4,6,2,4};
-    int y=(int)year-(month<2);
-    unsigned wd=(unsigned)((y+y/4-y/100+y/400+offsets[month]+(int)day)%7);
-    snprintf(out,cap,"%s %02u %s %u",s_days[wd],day,s_months[month],year);
+    begin.year=(uint16_t)year;
+    begin.month=8;
+    begin.day=1;
+    if (!ExpandedWorld_DateAfterWeeks(begin,(uint32_t)week,&date) ||
+        !ExpandedWorld_DateToIndex(date,&index)) {
+        snprintf(out,cap,"DATE OUT OF RANGE"); return;
+    }
+    int wd=ExpandedWorld_Weekday(index);
+    if (wd<0) { snprintf(out,cap,"DATE OUT OF RANGE"); return; }
+    snprintf(out,cap,"%s %02u %s %u",
+             s_days[wd],(unsigned)date.day,s_months[date.month-1u],
+             (unsigned)date.year);
 }
 extern uint8_t _seasonPlaying;
 extern uint8_t _lastFinancialWeekIndex;
@@ -1306,7 +1311,7 @@ static int cb_draw_approved(void) {
     const uint8_t white=2,gold=15;
     char t[100],money[48];
     cb_native(160,8,gold,"BUSINESS",0,110);
-    Expanded_FormatDate(t,sizeof t,1996u+(unsigned)_currentSeasonShowing,
+    Expanded_FormatDate(t,sizeof t,World_FirstYear()+(unsigned)_currentSeasonShowing,
                         (unsigned)_lastFinancialWeekIndex);
     cb_native(277,9,white,strlen(t)>4?t+4:t,0,74);
     cb_mood_face(18,43,_expandedBoardMood);
@@ -1447,7 +1452,7 @@ static int cb_draw_full(void) {
     const uint8_t gold=15,white=2;
     cb_center_narrow(160,8,white,"CLUB BUSINESS");
     cb_center_narrow(29,8,white,"< BACK");
-    Expanded_FormatDate(t,sizeof t,1996u+(unsigned)_currentSeasonShowing,
+    Expanded_FormatDate(t,sizeof t,World_FirstYear()+(unsigned)_currentSeasonShowing,
                         (unsigned)_lastFinancialWeekIndex);
     /* Short date fits the top-right plaque. */
     cb_center_narrow(278,8,gold,strlen(t)>4?t+4:t);
@@ -1583,7 +1588,7 @@ void Expanded_ClubOverviewDraw(void) {
     /* Facility captions end near y=146. BACK is now beside the date,
      * and the horizontal separator stops before the clickable button. */
     rect(20,151,220,1,7);
-    Expanded_FormatDate(t,sizeof t,1996u+(unsigned)_currentSeasonShowing,
+    Expanded_FormatDate(t,sizeof t,World_FirstYear()+(unsigned)_currentSeasonShowing,
                         (unsigned)_lastFinancialWeekIndex);
     label(160,154,2,t);
     snprintf(t,sizeof t,"WEEKLY: +%c%lu / -%c%lu",c,(unsigned long)(income/52),
@@ -2675,7 +2680,7 @@ void Expanded_UI_After(void) {
             extern void Expanded_UnemployedDate(char *,size_t);
             Expanded_UnemployedDate(date,sizeof date);
         } else
-            Expanded_FormatDate(date,sizeof date,1996u+(unsigned)_currentSeasonShowing,
+            Expanded_FormatDate(date,sizeof date,World_FirstYear()+(unsigned)_currentSeasonShowing,
                                 (unsigned)_lastFinancialWeekIndex);
         /* Native font, inside the top-right 126px date textbox, away from
          * all fixture rows (which begin below y=39). */

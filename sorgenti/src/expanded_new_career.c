@@ -1,5 +1,5 @@
 /* NEW CAREER HD. Presentation/setup state only; career/save engine unchanged.
- * 0.10.64: field text raised, PLAYER - COACH fitted, title C corrected; alpha side curves refined; silent debug stays active. */
+ * 0.10.65: columns aligned -2px, NEW CAREER glyph baseline unified, COACH spacing, A/B legend; audio off. */
 #ifdef SWOS_SDL_BUILD
 #include "expanded_new_career.h"
 #include "expanded_png.h"
@@ -34,7 +34,7 @@ static const int ord[]={3,4,5,7,9,15,13,10,11};
 typedef struct {SDL_Rect rect; int advance,bearingX,bearingY;} CareerGlyph;
 typedef struct {SDL_Texture *texture;CareerGlyph glyph[128];} CareerFont;
 static CareerFont s_fonts[3]; /* form, button, title */
-static SDL_Texture *s_focus_toggle,*s_focus_start,*s_flags;
+static SDL_Texture *s_focus_toggle,*s_focus_start,*s_flags,*s_legend_ab;
 static SDL_Texture *s_bg,*s_panel,*s_toggle[2],*s_start[2],*s_check[2];
 static int s_loaded;
 /* Exact nationality code order from the active s_natNames in menu_data.c.
@@ -140,7 +140,7 @@ static SDL_Texture *alpha_focus(SDL_Renderer*r,const char*path,int inset_x,int i
   if(!inner[pos])continue;
   int edge=0;
   const int at_end=(x<(int)h || x>=(int)w-(int)h);
-  const int edge_radius=at_end?3:2,edge_limit=at_end?9:4;
+  const int edge_radius=at_end?3:2,edge_limit=at_end?10:4;
   for(int dy=-edge_radius;dy<=edge_radius&&!edge;dy++)
    for(int dx=-edge_radius;dx<=edge_radius;dx++){
     if(dx*dx+dy*dy>edge_limit)continue;
@@ -202,12 +202,13 @@ static void load(SDL_Renderer*r){
  TEX(s_start[0],"start_runtime.png",0);TEX(s_start[1],"start_runtime.png",2);
  TEX(s_check[0],"checkbox_off_approved_rgba.png",0);TEX(s_check[1],"checkbox_on_approved_rgba.png",0);
  /* No separate focus PNG: follows each button's own original alpha. */
- snprintf(path,sizeof path,"%stoggle_runtime.png",base);s_focus_toggle=alpha_focus(r,path,8,5);
- snprintf(path,sizeof path,"%sstart_runtime.png",base);s_focus_start=alpha_focus(r,path,7,3);
+ snprintf(path,sizeof path,"%stoggle_runtime.png",base);s_focus_toggle=alpha_focus(r,path,7,5);
+ snprintf(path,sizeof path,"%sstart_runtime.png",base);s_focus_start=alpha_focus(r,path,6,3);
  TEX(s_flags,"nationality_flags.png",0);
+ s_legend_ab=texture(r,"assets/ui/legends/a_select_b_back.png",0);
  #undef TEX
  load_font(r,0,"form");load_font(r,1,"button");load_font(r,2,"title");
- fprintf(stderr,"[new-career] 0.10.64: field text raised, PLAYER - COACH centered, title C lowered, endcap focus retouched, audio disabled\n");
+ fprintf(stderr,"[new-career] 0.10.65: aligned field texts, NEW CAREER baseline, COACH spacing, bottom-right A/B legend; audio disabled\n");
 }
 void Expanded_NewCareer_Destroy(void){
  SDL_DestroyTexture(s_bg);SDL_DestroyTexture(s_panel);s_bg=s_panel=NULL;
@@ -216,7 +217,8 @@ void Expanded_NewCareer_Destroy(void){
   s_toggle[i]=s_start[i]=s_check[i]=NULL;
  }
  SDL_DestroyTexture(s_focus_toggle);SDL_DestroyTexture(s_focus_start);SDL_DestroyTexture(s_flags);
- s_focus_toggle=s_focus_start=s_flags=NULL;
+ SDL_DestroyTexture(s_legend_ab);
+ s_focus_toggle=s_focus_start=s_flags=s_legend_ab=NULL;
  for(int i=0;i<3;i++){
   SDL_DestroyTexture(s_fonts[i].texture);
   memset(&s_fonts[i],0,sizeof s_fonts[i]);
@@ -250,6 +252,15 @@ static int pair_kern(unsigned a,unsigned b){
  if((a=='P'&&b=='A')||(a=='F'&&b=='A')||(a=='R'&&b=='T')||
     (a=='C'&&b=='O')||(a=='O'&&b=='C'))return -1;
  return 0;
+}
+/* The C/O pair in the solitary role COACH has optical contact in this atlas.
+ * Apply a small gap in BOTH metrics and rendering; do not change other labels. */
+static int pair_kern_for_text(const char *s,unsigned a,unsigned b){
+ if(strcmp(s,"COACH")==0){
+  if(a=='C' && b=='O')return 2;
+  if(a=='O' && b=='A')return 1;
+ }
+ return pair_kern(a,b);
 }
 static void fallback_text(SDL_Renderer*r,const char*s,int type,float x,float y,int centered,float sx,float sy,int selected){
  int unit=(int)((type==2?5:type==1?4:3)*(sx+sy)*.5f+.5f);
@@ -290,7 +301,7 @@ static void pixel_text_tint_fit(SDL_Renderer*r,const char*s,int type,float x,flo
   if(ch>='a'&&ch<='z')ch=ch-'a'+'A';
   if(ch==255){total+=8;prev=0;continue;}
   if(ch<32||ch>126)ch='?';
-  if(prev)total+=pair_kern(prev,ch);
+  if(prev)total+=pair_kern_for_text(s,prev,ch);
   total+=f->glyph[ch].advance;prev=ch;
  }
  /* At centered positions fit the full advance width, never clip glyphs
@@ -311,7 +322,7 @@ static void pixel_text_tint_fit(SDL_Renderer*r,const char*s,int type,float x,flo
   }
   if(ch>='a'&&ch<='z')ch=ch-'a'+'A';
   if(ch<32||ch>126)ch='?';
-  if(prev)atX+=pair_kern(prev,ch)*fontScale;
+  if(prev)atX+=pair_kern_for_text(s,prev,ch)*fontScale;
   CareerGlyph*g=&f->glyph[ch];
   if(g->rect.w>0&&g->rect.h>0){
    SDL_FRect dst={atX+g->bearingX*fontScale,atY+g->bearingY*fontScale,
@@ -321,10 +332,7 @@ static void pixel_text_tint_fit(SDL_Renderer*r,const char*s,int type,float x,flo
    if(type==0 && strcmp(s,"AGE (18-70)")==0 && (ch=='(' || ch==')')){
     dst.x-=2.f*sx;dst.y-=2.f*sy;
    }
-   /* The approved NEW CAREER title uses the same atlas. Adjust only its
-    * C by 3 display-reference pixels; leave all other glyphs untouched. */
-   if(type==2 && ch=='C' && strcmp(s,"NEW CAREER")==0)
-    dst.y+=3.f*sy;
+   /* All NEW CAREER letters now share exactly the same glyph baseline. */
    dst.x=(float)((int)(dst.x+.5f));dst.y=(float)((int)(dst.y+.5f));
    SDL_RenderCopyF(r,f->texture,&g->rect,&dst);
   }
@@ -388,12 +396,12 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
  pixel_text(r,"NEW CAREER",2,835,68.5f,1,sx,sy);
  const char*labels[]={"TITLE","NAME","SURNAME","NATION","ROLE","AGE (18-70)","FAME"};
  for(int i=0;i<7;i++){
-  pixel_text(r,labels[i],0,337,219.5f+66*i,0,sx,sy);
+  pixel_text(r,labels[i],0,337,217.5f+66*i,0,sx,sy);
   /* Nation icon and three-letter code are centered as ONE visual group. */
   if(i==3){
    draw_flag(r,992,214+66*i,sx,sy);
-   pixel_text_tint_fit(r,value(i),0,1112,219.5f+66*i,1,sx,sy,i==s_selected?1:-1,280.f);
-  }else pixel_text_tint_fit(r,value(i),0,i==4?1066.f:1070.f,219.5f+66*i,1,sx,sy,
+   pixel_text_tint_fit(r,value(i),0,1112,217.5f+66*i,1,sx,sy,i==s_selected?1:-1,280.f);
+  }else pixel_text_tint_fit(r,value(i),0,i==4?1066.f:1070.f,217.5f+66*i,1,sx,sy,
     i==s_selected?1:-1,i==4?248.f:(i==6?265.f:0.f));
  }
  pixel_text_tint_fit(r,"START UNEMPLOYED",1,802+(s_action==7?sink:0),707+(s_action==7?sink:0),1,sx,sy,-1,455.f);
@@ -411,6 +419,11 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
   s_focus_field_y=202.f+66.f*6.f;
   if(s_focus_start)copy(r,s_focus_start,532+(s_action==8?sink:0),785+(s_action==8?sink:0),606,89,sx,sy);
   else focus(r,556,797,558,63,sx,sy);
+ }
+ /* Stable right/bottom margin, with one fixed legend sprite. */
+ if(s_legend_ab){
+  SDL_FRect d={1492.f*sx,837.f*sy,160.f*sx,87.f*sy};
+  SDL_RenderCopyF(r,s_legend_ab,NULL,&d);
  }
 }
 static void action(int row,int direction){

@@ -34,6 +34,21 @@ if [[ ! -s "$game/data/expanded/expanded_loading_bg.bmp" ]]; then
   echo "ERRORE: manca data/expanded/expanded_loading_bg.bmp"
   exit 1
 fi
+# Gli asset approvati sono PNG e atlanti separati dai testi dinamici.
+for art in assets/title/buttons/title_primary_blank.png assets/title/buttons/title_secondary_blank.png \
+  assets/ui/legends/a_select.png assets/ui/legends/a_select_b_back.png \
+  assets/ui/legends/a_select_b_back_x_info.png \
+  assets/fonts/new_career/ui_form.png assets/fonts/new_career/ui_form.json \
+  assets/fonts/new_career/ui_title.png assets/fonts/new_career/ui_title.json; do
+  if [[ ! -s "$game/$art" ]]; then
+    echo "ERRORE: manca l'asset approvato: $art" >&2
+    exit 1
+  fi
+done
+[[ -s "$src/tools/patch_title_ui_01065.sh" && -s "$src/include/expanded_title_ui_01065.h" ]] || {
+  echo 'ERRORE: manca la patch di integrazione Title 0.10.65.' >&2
+  exit 1
+}
 exec > >(tee "$game/COMPILAZIONE_0140.log") 2>&1
 
 echo '==== SWOS Expanded - compilazione Windows x64 ===='
@@ -83,11 +98,13 @@ cd "$src"
 # Silent debug remains active. Apply only the Title-B correction to local SDL sources.
 # This script is idempotent; no commit/push, and no gameplay edits.
 bash "$src/tools/patch_title_b_01063.sh" "$src"
+# Approved blank Title buttons + runtime career font + A command legend.
+bash "$src/tools/patch_title_ui_01065.sh" "$src"
 echo 'Controllo sintattico delle schermate e dei menu modificati...'
 gcc -std=gnu11 -fsyntax-only -DSWOS_SDL_BUILD=1 -D_FILE_OFFSET_BITS=64 -include include/debug_no_audio_01060.h -include include/swos_platform.h \
   -Isrc -Iinclude $(pkg-config --cflags sdl2) \
   src/menu_data.c src/menu_system.c src/menus.c src/input_sdl.c src/expanded_career.c \
-  src/expanded_economy.c src/platform_sdl.c src/game_loop.c src/career_init.c src/career_status.c src/career_teams.c src/transfer_market.c src/chairman_memo.c src/save_format_json.c src/input_text.c src/blitter.c src/build_info.c src/expanded_new_career.c
+  src/expanded_economy.c src/platform_sdl.c src/game_loop.c src/career_init.c src/career_status.c src/career_teams.c src/transfer_market.c src/chairman_memo.c src/save_format_json.c src/input_text.c src/blitter.c src/build_info.c src/expanded_new_career.c src/expanded_title_overlay.c
 echo 'Compilo il gioco... AUDIO DISABILITATO PER DEBUG (fino a nuovo ordine)'
 # Silent debugging: force-include debug_no_audio_01060.h before the
 # Makefile's swos_platform.h. The header overrides its audio=0 default.
@@ -95,11 +112,11 @@ echo 'Compilo il gioco... AUDIO DISABILITATO PER DEBUG (fino a nuovo ordine)'
 # Audio stays disabled until the user explicitly authorizes re-enabling it.
 # Gli ZIP preservano i timestamp: dopo l'estrazione i sorgenti possono
 # risultare piu' vecchi degli .o, per cui make potrebbe saltare le modifiche.
-# Ricompiliamo sempre soltanto numero build e renderer NEW CAREER.
+# Ricompiliamo sempre il numero build e i due renderer HD interessati.
 echo 'Versione letta dai sorgenti:'
 grep '^#define SWOS_EXPANDED_VERSION ' include/build_info.h || true
-printf '%s\n' 'Aggiorno data dei sorgenti build_info.c e expanded_new_career.c per ricompilarli.'
-touch src/build_info.c src/expanded_new_career.c
+printf '%s\n' 'Ricompilo versione, NEW CAREER e Title per evitare oggetti obsoleti.'
+touch src/build_info.c src/expanded_new_career.c src/expanded_title_overlay.c
 make -j4 NETPLAY=0 CC='gcc -include include/debug_no_audio_01060.h'
 if [[ ! -s bin/SWOS.exe ]]; then
   echo 'ERRORE: il compilatore non ha prodotto bin/SWOS.exe.'

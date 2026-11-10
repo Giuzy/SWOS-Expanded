@@ -13,23 +13,24 @@
 #include <stdlib.h>
 #include <stdint.h> /* SIZE_MAX for safe sprite-outline allocation */
 #include <string.h>
+#include "expanded_title_ui_01065.h"
 
 static const char *const s_background_path =
     "assets/title/title_background_approved_2026-11-08.png";
 static const char *const s_logo_path =
     "assets/title/swos_expanded_logo_approved_2026-11-08.png";
 static const char *const s_button_paths[EXP_TITLE_MAIN_COUNT] = {
-    "assets/title/buttons/career.png",
-    "assets/title/buttons/hall_of_fame.png",
-    "assets/title/buttons/classic_modes.png",
-    "assets/title/buttons/options.png",
-    "assets/title/buttons/exit_game.png"
+    "assets/title/buttons/title_primary_blank.png",
+    "assets/title/buttons/title_secondary_blank.png",
+    "assets/title/buttons/title_secondary_blank.png",
+    "assets/title/buttons/title_secondary_blank.png",
+    "assets/title/buttons/title_secondary_blank.png"
 };
 /* Approved base sprite for an existing career. There must be NO runtime
  * CONTINUE inscription overlay: the entire caption is baked into a clean
  * RGBA PNG, and the yellow focus is still generated dynamically. */
 static const char *const s_continue_career_path =
-    "assets/title/buttons/continue_career.png";
+    "assets/title/buttons/title_primary_blank.png";
 /* Two separately approved, clean RGBA sprites. Show only one at a time:
  * while WINDOWED display outward arrows (enter fullscreen); while
  * FULLSCREEN display inward arrows (restore windowed). */
@@ -167,7 +168,8 @@ static SDL_Texture *texture_from_png(SDL_Renderer *r,const char *path,
         fprintf(stderr,"[title-ui] absent or unsupported PNG: %s\n",path);
         return NULL;
     }
-    if(strcmp(path,s_continue_career_path)==0)
+    /* Same blank source as CAREER; recolour only the separate continuation copy. */
+    if(strcmp(path,s_continue_career_path)==0 && focus_radius==5)
         continue_career_green_colourway(rgba,width,height);
     SDL_Surface *surface=SDL_CreateRGBSurfaceWithFormatFrom(
         rgba,(int)width,(int)height,32,(int)width*4,SDL_PIXELFORMAT_ABGR8888);
@@ -193,6 +195,7 @@ static SDL_Texture *texture_from_png(SDL_Renderer *r,const char *path,
 int Expanded_TitleOverlay_Initialize(SDL_Renderer *renderer)
 {
     if(!renderer) return 0;
+    Expanded_TitleUI65_Init(renderer);
     unsigned w=0,h=0;
     SDL_Texture *image=texture_from_png(renderer,s_background_path,&w,&h,NULL,0);
     if(image && w==EXP_TITLE_W && h==EXP_TITLE_H) s_background=image;
@@ -213,10 +216,10 @@ int Expanded_TitleOverlay_Initialize(SDL_Renderer *renderer)
     for(int i=0;i<EXP_TITLE_MAIN_COUNT;i++)
         s_buttons[i]=texture_from_png(renderer,s_button_paths[i],
                            &s_button_widths[i],&s_button_heights[i],
-                           &s_button_focus[i],8);
+                           &s_button_focus[i],4);
     s_continue_career=texture_from_png(renderer,s_continue_career_path,
                                       &s_continue_width,&s_continue_height,
-                                      &s_continue_focus,16);
+                                      &s_continue_focus,5);
     for(int i=0;i<2;i++)
         s_video[i]=texture_from_png(renderer,s_video_paths[i],
                                    &s_video_width[i],&s_video_height[i],
@@ -233,6 +236,7 @@ void Expanded_TitleOverlay_Destroy(void)
     if(s_continue_career) SDL_DestroyTexture(s_continue_career);
     if(s_continue_focus) SDL_DestroyTexture(s_continue_focus);
     s_background=s_logo=s_continue_career=s_continue_focus=NULL;
+    Expanded_TitleUI65_Destroy();
     s_continue_width=s_continue_height=0;
     for(int i=0;i<2;i++) {
         if(s_video[i]) SDL_DestroyTexture(s_video[i]);
@@ -376,6 +380,12 @@ void Expanded_TitleOverlay_Draw(SDL_Renderer *renderer,
                 if(sel==i && focus)
                     SDL_RenderCopyF(renderer,focus,NULL,&dest);
                 SDL_RenderCopyF(renderer,sprite,NULL,&dest);
+                if(!Expanded_TitleUI65_DrawButtonText(renderer,
+                    continue_active ? "CONTINUE CAREER" : s_main_labels[i],
+                    dest,i==0,continue_active,i==sel,sx,sy))
+                    pixel_text(renderer,continue_active ? "CONTINUE CAREER" : s_main_labels[i],
+                        box.x+box.w/2,box.y+box.h/2-16+sink,4,
+                        i==sel?(SDL_Color){255,226,72,255}:(SDL_Color){250,250,255,255},sx,sy);
             } else {
                 SDL_SetRenderDrawColor(renderer,13,63,145,255);
                 SDL_RenderFillRectF(renderer,&dest);
@@ -460,6 +470,7 @@ void Expanded_TitleOverlay_Draw(SDL_Renderer *renderer,
     }
     {
         char label[80];
+        if(level==0)Expanded_TitleUI65_DrawLegend(renderer,sx,sy);
         snprintf(label,sizeof(label),"%s",Build_DisplayVersion());
         pixel_text(renderer,label,EXP_TITLE_W/2,902,2,
                    (SDL_Color){240,95,81,255},sx,sy);

@@ -472,3 +472,11 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 **NON IMPLEMENTATO e DA NON CONFONDERE CON QUESTA PROVA:** caricamento/simulazione di tutte le nazioni, coppe nazionali/internazionali, date specifiche per paese, salvataggio della simulazione mondiale, prosecuzione della simulazione coerente con tutte le partite giocate dell'utente e soprattutto trasferimento della classifica del pilot nello stato di `InitCareer`. Dopo l'assunzione, le competizioni native di OpenSWOS possono ancora ripartire dall'inizio: questo è il prossimo punto strutturale, non un test superato.
 
 **Test:** unit test isolati GCC/ASan+UBSan sulla schedulazione di 20 club (23/35 settimane, 230/350 risultati), avanzamento stagionale e girone dispari con riposo (5 club/20 incontri) superati su piattaforma locale; integrazione Windows, installazione dati 96/97 e 2026/27, prova dopo 35 settimane, preview e save **pendenti**. Debug F12 immutato. Nessun asset nuovo.
+
+
+## 0.13.04 — Correzione compilazione Windows (10 novembre 2026)
+
+- [CORRETTO NEL CODICE] `sorgenti/src/expanded_world_live_adapter.c` conteneva un carattere di escape letterale `\\n` nel test di puntatore della tabella delle competizioni alla riga 55; la sintassi C non era valida. Sostituito con un vero a capo, senza cambiare la condizione o il comportamento.
+- [VERSIONE] `SWOS_EXPANDED_VERSION` avanzata da `0.13.03` a `0.13.04` secondo la regola un commit = +0.01.
+- [EVIDENZA] Il log di compilazione Windows della 0.13.03 termina con `stray '\\' in program` in `expanded_world_live_adapter.c:55`, prima dell'avvio del gioco. Altri avvisi presenti nel log non sono la causa del blocco.
+- [DA VERIFICARE] Nuova compilazione e avvio su Windows, prova UNEMPLOYED/VIEW LEAGUE; nessun test Windows di questa revisione dichiarato. Tutte le limitazioni funzionali della 0.13.03 rimangono: non è ancora disponibile l'ingresso nativo a stagione iniziata e il pilota non viene salvato nel .CAR. F12 invariato.

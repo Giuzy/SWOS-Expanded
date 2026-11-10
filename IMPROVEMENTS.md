@@ -350,3 +350,9 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [CODICE] Gestione turni di riposo per divisioni con club dispari; rifiuto di costruire gironi parziali oltre 26 club; supporto a due stagioni-pilota. Nessun nuovo asset e nessun intervento al pannello debug F12.
 - [TEST ISOLATI] GCC -Wall -Wextra -Werror + ASan/UBSan: 20 club/350 gare dopo 35 settimane; girone dispari 5 club e settimana 10; turni e classifiche validi. Non è ancora un test completo Windows.
 - [ANCORA DA FARE] Calendario regolamentare, mondo completo, coppe, record nel salvataggio, classifica sincronizzata con motore SWOS e assunzione a metà stagione senza reset. Il vecchio InitCareer conserva il proprio comportamento.
+
+
+## 0.13.04 — Fix sintattico bloccante nell'adapter (10 novembre 2026)
+
+- [CODICE] Corretto `\\n` letterale introdotto accidentalmente in `expanded_world_live_adapter.c:55`, diventato un vero a capo nella condizione di validità del puntatore alla competizione. Nessuna modifica alla logica.
+- [VERSIONE] Build aggiornato a `0.13.04`. Compilazione completa Windows e prove runtime da ripetere a cura dell'utente.

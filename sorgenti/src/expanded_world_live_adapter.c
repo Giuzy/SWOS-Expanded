@@ -52,7 +52,8 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
     for(unsigned k=0;k<sizeof countries/sizeof countries[0];++k) {
         uint8_t country=countries[k];
         const void *const *table=(const void *const *)_competitionsTable[country];
-        if (!table || !table[0] || (uintptr_t)table[0]==(uintptr_t)-1 ||\n            (uintptr_t)table[0]==(uintptr_t)-2) continue;
+        if (!table || !table[0] || (uintptr_t)table[0]==(uintptr_t)-1 ||
+            (uintptr_t)table[0]==(uintptr_t)-2) continue;
         const Competition *base=(const Competition *)table[0];
         if (base->type!=0 || comp_is_type0_cup(base->compId)) continue;
         const CompetitionLeague *league=(const CompetitionLeague *)base;

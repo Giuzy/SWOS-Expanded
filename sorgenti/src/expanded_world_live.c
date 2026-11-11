@@ -2,7 +2,9 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_time.h"
 #include "expanded_world_ledger.h"
+#include "mjson.h"      /* typed, portable .CAR world snapshot */
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 #define LIVE_MAX_CLUBS 1500u
@@ -548,6 +550,360 @@ int ExpandedWorldLive_Table(uint8_t country, uint8_t division,
     }
     *total=league->count;
     return 1;
+}
+
+
+/* --------------------------------------------------------------------------
+ * Living World .CAR persistence (schema 4).
+ *
+ * The world has ONE authoritative fixture/result ledger, shared with native
+ * match updates. Serializing it IN the career save avoids a second sidecar
+ * database (which could diverge on rename/restore), an accidental re-sim,
+ * and loading country TEAM files after the active career has been restored.
+ * Arrays are typed numeric JSON, never raw pointer/struct dumps.
+ *
+ * Parsing is transactional: malformed/truncated arrays cannot half-replace
+ * a working world. Every bounded count and referenced club is checked before
+ * the new snapshot replaces the live state.
+ * -------------------------------------------------------------------------- */
+typedef struct LiveSaveImage {
+    LiveClub clubs[LIVE_MAX_CLUBS];
+    LiveLeague leagues[LIVE_MAX_LEAGUES];
+    ExpandedWorldFixture fixtures[LIVE_MAX_FIXTURES];
+    uint8_t consumed[LIVE_MAX_FIXTURES];
+    uint32_t clubs_count,leagues_count,fixture_count,played;
+    uint32_t weeks,preseason_games,native_matches,native_misses;
+    uint32_t native_orders,native_schedules;
+    uint16_t year;
+    int32_t now,initial;
+} LiveSaveImage;
+
+/* mjson_next walks one array level. Require the exact row length and type:
+ * accidental strings, fractions and oversized rows are not accepted. */
+static int live_parse_int_row(const char *src,int len,long *out,
+                              unsigned max,unsigned *num) {
+    int off=0,ko,kl,vo,vl,type;
+    unsigned n=0;
+    if (!src || len<=0 || !out || !num) return 0;
+    for (;;) {
+        int next=mjson_next(src,len,off,&ko,&kl,&vo,&vl,&type);
+        if (next==0) break;
+        if (next<0 || next<=off || n>=max || type!=MJSON_TOK_NUMBER ||
+            mjson_get_long(src+vo,vl,"$",&out[n])<=0) return 0;
+        ++n;
+        off=next;
+    }
+    *num=n;
+    return 1;
+}
+static int live_parse_club_row(const char *src,int len,LiveClub *c) {
+    long v[11]={0};
+    unsigned n=0;
+    int off=0,ko,kl,vo,vl,type;
+    char name[18]={0};
+    for (;;) {
+        int next=mjson_next(src,len,off,&ko,&kl,&vo,&vl,&type);
+        if (next==0) break;
+        if (next<0 || next<=off || n>=12u) return 0;
+        if (n==4u) {
+            if (type!=MJSON_TOK_STRING ||
+                mjson_get_string(src+vo,vl,"$",name,sizeof name)<=0)
+                return 0;
+        } else {
+            unsigned idx=n<4u?n:n-1u;
+            if (type!=MJSON_TOK_NUMBER ||
+                mjson_get_long(src+vo,vl,"$",&v[idx])<=0) return 0;
+        }
+        ++n;
+        off=next;
+    }
+    if (n!=12u || !name[0] || v[0]<0 || v[0]>=65535 ||
+        v[1]<0 || v[1]>65535 || v[2]<0 || v[2]>255 ||
+        v[3]<0 || v[3]>=16 || v[4]<0 || v[4]>65535 ||
+        v[5]<0 || v[5]>65535 || v[6]<0 || v[6]>65535 ||
+        v[7]<0 || v[7]>100 || v[8]<0 || v[8]>100 ||
+        v[9]<0 || v[9]>255) return 0;
+    memset(c,0,sizeof *c);
+    c->id=(uint16_t)v[0]; c->rating=(uint16_t)v[1];
+    c->country=(uint8_t)v[2]; c->division=(uint8_t)v[3];
+    memcpy(c->name,name,sizeof name);
+    c->preseason.friendlies=(uint16_t)v[4];
+    c->preseason.goals_for=(uint16_t)v[5];
+    c->preseason.goals_against=(uint16_t)v[6];
+    c->preseason.morale=(uint8_t)v[7];
+    c->preseason.fatigue=(uint8_t)v[8];
+    c->preseason.injury_events=(uint8_t)v[9];
+    c->preseason.net_income=(int32_t)v[10];
+    return 1;
+}
+static int live_parse_league_row(const char *src,int len,LiveLeague *l) {
+    long v[9+LIVE_MAX_LEAGUE_CLUBS]={0};
+    unsigned n=0;
+    if (!live_parse_int_row(src,len,v,9+LIVE_MAX_LEAGUE_CLUBS,&n) ||
+        n<9 || v[0]<0 || v[0]>255 || v[1]<0 || v[1]>=16 ||
+        v[2]<2 || v[2]>LIVE_MAX_LEAGUE_CLUBS ||
+        v[3]<2 || v[3]>3 || v[4]<0 || v[4]>1 ||
+        v[5]<0 || v[5]>255 || v[6]<0 || v[6]>255 ||
+        v[7]<0 || v[7]>1 || v[8]<1 || v[8]>4 ||
+        n!=(unsigned)(9+v[2])) return 0;
+    memset(l,0,sizeof *l);
+    l->country=(uint8_t)v[0]; l->division=(uint8_t)v[1];
+    l->count=(uint8_t)v[2]; l->points=(uint8_t)v[3];
+    l->overflow=(uint8_t)v[4]; l->begin_phase=(uint8_t)v[5];
+    l->end_phase=(uint8_t)v[6]; l->native_schedule=(uint8_t)v[7];
+    l->legs=(uint8_t)v[8];
+    for (unsigned i=0;i<l->count;++i) {
+        if (v[9+i]<0 || v[9+i]>=65535) return 0;
+        l->clubs[i]=(uint16_t)v[9+i];
+    }
+    return 1;
+}
+static int live_parse_fixture_row(const char *src,int len,
+                                  ExpandedWorldFixture *f,uint8_t *consumed) {
+    long v[9]={0};
+    unsigned n=0;
+    if (!live_parse_int_row(src,len,v,9,&n) || n!=9 ||
+        v[0]<0 || v[1]<0 || v[2]<0 || v[2]>65535 ||
+        v[3]<0 || v[3]>=65535 || v[4]<0 || v[4]>=65535 ||
+        v[3]==v[4] || v[5]<0 || v[5]>1 ||
+        v[6]<0 || v[6]>31 || v[7]<0 || v[7]>31 ||
+        v[8]<0 || v[8]>1 || (v[8] && !v[5]))
+        return 0;
+    f->day=(int32_t)v[0]; f->id=(uint32_t)v[1];
+    f->competition=(uint16_t)v[2];
+    f->home=(uint16_t)v[3]; f->away=(uint16_t)v[4];
+    f->played=(uint8_t)v[5];
+    f->goals_home=(uint8_t)v[6]; f->goals_away=(uint8_t)v[7];
+    *consumed=(uint8_t)v[8];
+    return 1;
+}
+void ExpandedWorldLive_WriteJson(int (*emit)(const char*,int,void*),void *ctx) {
+    if (!emit) return;
+    if (!s_live || !s_fixtures) {
+        mjson_printf(emit,ctx,"%s","null");
+        return;
+    }
+    mjson_printf(emit,ctx,
+      "{%Q:1,%Q:%u,%Q:%lu,%Q:%d,%Q:%lu,%Q:[%lu,%lu,%lu,%lu],",
+      "version","first_year",(unsigned)s_first_year,
+      "weeks",(unsigned long)s_weeks,"now",(int)s_ledger.now,
+      "preseason_games",(unsigned long)s_preseason_games_total,
+      "native",(unsigned long)s_native_matches,(unsigned long)s_native_misses,
+      (unsigned long)s_native_order_applied,(unsigned long)s_native_schedule_leagues);
+    mjson_printf(emit,ctx,"%Q:[","clubs");
+    for (uint32_t i=0;i<s_club_count;++i) {
+        const LiveClub *c=&s_clubs[i];
+        const ExpandedLivePreseason *p=&c->preseason;
+        if (i) mjson_printf(emit,ctx,"%s",",");
+        mjson_printf(emit,ctx,
+          "[%u,%u,%u,%u,%Q,%u,%u,%u,%u,%u,%u,%d]",
+          (unsigned)c->id,(unsigned)c->rating,(unsigned)c->country,
+          (unsigned)c->division,c->name,(unsigned)p->friendlies,
+          (unsigned)p->goals_for,(unsigned)p->goals_against,
+          (unsigned)p->morale,(unsigned)p->fatigue,
+          (unsigned)p->injury_events,(int)p->net_income);
+    }
+    mjson_printf(emit,ctx,"],%Q:[","leagues");
+    for (uint32_t i=0;i<s_league_count;++i) {
+        const LiveLeague *l=&s_leagues[i];
+        if (i) mjson_printf(emit,ctx,"%s",",");
+        mjson_printf(emit,ctx,"[%u,%u,%u,%u,%u,%u,%u,%u,%u",
+          (unsigned)l->country,(unsigned)l->division,
+          (unsigned)l->count,(unsigned)l->points,
+          (unsigned)l->overflow,(unsigned)l->begin_phase,
+          (unsigned)l->end_phase,(unsigned)l->native_schedule,
+          (unsigned)l->legs);
+        for (unsigned j=0;j<l->count;++j)
+            mjson_printf(emit,ctx,",%u",(unsigned)l->clubs[j]);
+        mjson_printf(emit,ctx,"%s","]");
+    }
+    mjson_printf(emit,ctx,"],%Q:[","fixtures");
+    for (uint32_t i=0;i<s_ledger.count;++i) {
+        const ExpandedWorldFixture *f=&s_fixtures[i];
+        if (i) mjson_printf(emit,ctx,"%s",",");
+        mjson_printf(emit,ctx,"[%d,%lu,%u,%u,%u,%u,%u,%u,%u]",
+          (int)f->day,(unsigned long)f->id,(unsigned)f->competition,
+          (unsigned)f->home,(unsigned)f->away,(unsigned)f->played,
+          (unsigned)f->goals_home,(unsigned)f->goals_away,
+          (unsigned)s_native_result_consumed[i]);
+    }
+    mjson_printf(emit,ctx,"%s","]}");
+}
+int ExpandedWorldLive_ReadJson(const char *json,int len) {
+    const char *obj=NULL,*arr=NULL;
+    int olen=0,alen=0;
+    int kind;
+    long v=0,raw[4]={0};
+    LiveSaveImage *tmp=NULL;
+    ExpandedWorldFixture *store=NULL;
+    uint8_t *present=NULL;
+    int off,ko,kl,vo,vl,type;
+    unsigned n=0;
+    if (!json || len<=0) return 0;
+    kind=mjson_find(json,len,"$.living_world",&obj,&olen);
+    if (kind==MJSON_TOK_NULL || kind==MJSON_TOK_INVALID) {
+        /* Old schema-3 careers predate the living world snapshot. */
+        ExpandedWorldLive_End();
+        return 1;
+    }
+    if (kind!=MJSON_TOK_OBJECT || olen<=0) return 0;
+    tmp=(LiveSaveImage *)calloc(1,sizeof *tmp);
+    present=(uint8_t *)calloc(65536u,1u);
+    if (!tmp || !present) goto invalid;
+    if (mjson_get_long(obj,olen,"$.version",&v)<=0 || v!=1 ||
+        mjson_get_long(obj,olen,"$.first_year",&v)<=0 ||
+        v<1900 || v>2198) goto invalid;
+    tmp->year=(uint16_t)v;
+    {
+        ExpandedWorldDate start={tmp->year,7u,1u};
+        if (!ExpandedWorld_DateToIndex(start,&tmp->initial)) goto invalid;
+    }
+    if (mjson_get_long(obj,olen,"$.weeks",&v)<=0 || v<0 ||
+        v>LIVE_SEASONS*54u) goto invalid;
+    tmp->weeks=(uint32_t)v;
+    if (mjson_get_long(obj,olen,"$.now",&v)<=0 ||
+        v<tmp->initial || v>tmp->initial+LIVE_SEASONS*366) goto invalid;
+    tmp->now=(int32_t)v;
+    if ((uint32_t)(tmp->now-tmp->initial)<tmp->weeks*7u) goto invalid;
+    if (mjson_get_long(obj,olen,"$.preseason_games",&v)<=0 || v<0)
+        goto invalid;
+    tmp->preseason_games=(uint32_t)v;
+    if (mjson_find(obj,olen,"$.native",&arr,&alen)!=MJSON_TOK_ARRAY ||
+        !live_parse_int_row(arr,alen,raw,4,&n) || n!=4)
+        goto invalid;
+    for (unsigned i=0;i<4;++i) if (raw[i]<0) goto invalid;
+    tmp->native_matches=(uint32_t)raw[0];
+    tmp->native_misses=(uint32_t)raw[1];
+    tmp->native_orders=(uint32_t)raw[2];
+    tmp->native_schedules=(uint32_t)raw[3];
+
+    if (mjson_find(obj,olen,"$.clubs",&arr,&alen)!=MJSON_TOK_ARRAY)
+        goto invalid;
+    off=0;
+    for (;;) {
+        int next=mjson_next(arr,alen,off,&ko,&kl,&vo,&vl,&type);
+        if (next==0) break;
+        if (next<0 || next<=off || type!=MJSON_TOK_ARRAY ||
+            tmp->clubs_count>=LIVE_MAX_CLUBS ||
+            !live_parse_club_row(arr+vo,vl,&tmp->clubs[tmp->clubs_count]))
+            goto invalid;
+        const LiveClub *c=&tmp->clubs[tmp->clubs_count++];
+        if (present[c->id]) goto invalid;
+        present[c->id]=1u;
+        off=next;
+    }
+    if (!tmp->clubs_count) goto invalid;
+
+    if (mjson_find(obj,olen,"$.leagues",&arr,&alen)!=MJSON_TOK_ARRAY)
+        goto invalid;
+    off=0;
+    for (;;) {
+        int next=mjson_next(arr,alen,off,&ko,&kl,&vo,&vl,&type);
+        if (next==0) break;
+        if (next<0 || next<=off || type!=MJSON_TOK_ARRAY ||
+            tmp->leagues_count>=LIVE_MAX_LEAGUES ||
+            !live_parse_league_row(arr+vo,vl,&tmp->leagues[tmp->leagues_count]))
+            goto invalid;
+        const LiveLeague *l=&tmp->leagues[tmp->leagues_count++];
+        for (unsigned i=0;i<l->count;++i) {
+            const uint16_t id=l->clubs[i];
+            /* A club belongs to exactly one division: never import
+             * overlapping or incomplete league rosters from a save. */
+            if (present[id]!=1u) goto invalid;
+            present[id]=3u;
+            int belongs=0;
+            for (uint32_t k=0;k<tmp->clubs_count;++k)
+                if (tmp->clubs[k].id==id &&
+                    tmp->clubs[k].country==l->country &&
+                    tmp->clubs[k].division==l->division) {
+                    belongs=1; break;
+                }
+            if (!belongs) goto invalid;
+        }
+        off=next;
+    }
+    if (!tmp->leagues_count) goto invalid;
+    for (uint32_t i=0;i<tmp->clubs_count;++i)
+        if (present[tmp->clubs[i].id]!=3u) goto invalid;
+    if (mjson_find(obj,olen,"$.fixtures",&arr,&alen)!=MJSON_TOK_ARRAY ||
+        alen<2 || arr[0]!='[' || arr[alen-1]!=']')
+        goto invalid;
+    /* mjson_next re-lexes from the beginning on every call. That is fine
+     * for <=216 clubs but quadratic for 8,000-40,000 fixture rows.
+     * Find each short numeric row in ONE linear pass; the typed parser
+     * still validates every number, row length and score. */
+    {
+        const char *p=arr+1,*end=arr+alen-1;
+        int first=1;
+        while (p<end) {
+            while (p<end && (*p==' ' || *p=='\n' || *p=='\r' || *p=='\t')) ++p;
+            if (p==end) break;
+            if (!first) {
+                if (*p++!=',') goto invalid;
+                while (p<end && (*p==' ' || *p=='\n' || *p=='\r' || *p=='\t')) ++p;
+            }
+            if (p>=end || *p!='[' || tmp->fixture_count>=LIVE_MAX_FIXTURES)
+                goto invalid;
+            const char *row=p++;
+            while (p<end && *p!=']') {
+                if (*p=='[' || *p=='{' || *p=='"') goto invalid;
+                ++p;
+            }
+            if (p==end) goto invalid;
+            ++p; /* closing row bracket */
+            const uint32_t i=tmp->fixture_count++;
+            if (!live_parse_fixture_row(row,(int)(p-row),&tmp->fixtures[i],
+                                        &tmp->consumed[i]) ||
+                tmp->fixtures[i].day<tmp->initial ||
+                !present[tmp->fixtures[i].home] ||
+                !present[tmp->fixtures[i].away] ||
+                (i && fixture_compare(&tmp->fixtures[i-1],&tmp->fixtures[i])>=0))
+                goto invalid;
+            if (tmp->fixtures[i].played) ++tmp->played;
+            first=0;
+        }
+    }
+    if (!tmp->fixture_count || tmp->native_schedules>tmp->leagues_count ||
+        tmp->native_matches>tmp->fixture_count) goto invalid;
+    /* Allocate the replacement BEFORE destroying the live world. */
+    store=(ExpandedWorldFixture *)malloc(sizeof *store*LIVE_MAX_FIXTURES);
+    if (!store) goto invalid;
+    memcpy(store,tmp->fixtures,sizeof(*store)*tmp->fixture_count);
+    ExpandedWorldLive_End();
+    memcpy(s_clubs,tmp->clubs,sizeof(LiveClub)*tmp->clubs_count);
+    memcpy(s_leagues,tmp->leagues,sizeof(LiveLeague)*tmp->leagues_count);
+    memcpy(s_native_result_consumed,tmp->consumed,tmp->fixture_count);
+    s_club_count=tmp->clubs_count;
+    s_league_count=tmp->leagues_count;
+    s_weeks=tmp->weeks;
+    s_first_year=tmp->year;
+    s_initial_day=tmp->initial;
+    s_preseason_games_total=tmp->preseason_games;
+    s_native_matches=tmp->native_matches;
+    s_native_misses=tmp->native_misses;
+    s_native_order_applied=tmp->native_orders;
+    s_native_schedule_leagues=tmp->native_schedules;
+    s_fixtures=store;
+    s_ledger.fixtures=store;
+    s_ledger.capacity=LIVE_MAX_FIXTURES;
+    s_ledger.count=tmp->fixture_count;
+    s_ledger.played=tmp->played;
+    s_ledger.now=tmp->now;
+    s_live=1;
+    fprintf(stderr,"[living-world] restored .CAR snapshot: %lu clubs, "
+      "%lu leagues, %lu/%lu results, week %lu\n",
+      (unsigned long)s_club_count,(unsigned long)s_league_count,
+      (unsigned long)s_ledger.played,(unsigned long)s_ledger.count,
+      (unsigned long)s_weeks);
+    free(present);
+    free(tmp);
+    return 1;
+invalid:
+    free(store);
+    free(present);
+    free(tmp);
+    fprintf(stderr,"[living-world] invalid or incomplete .CAR world snapshot\n");
+    return 0;
 }
 
 #else

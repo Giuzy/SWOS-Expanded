@@ -114,7 +114,7 @@ echo 'Controllo sintattico delle schermate e dei menu modificati...'
 gcc -std=gnu11 -fsyntax-only -DSWOS_SDL_BUILD=1 -D_FILE_OFFSET_BITS=64 -include include/debug_no_audio_01060.h -include include/swos_platform.h \
   -Isrc -Iinclude $(pkg-config --cflags sdl2) \
   src/menu_data.c src/menu_system.c src/menus.c src/input_sdl.c src/expanded_career.c \
-  src/expanded_economy.c src/platform_sdl.c src/game_loop.c src/career_init.c src/career_status.c src/career_teams.c src/transfer_market.c src/chairman_memo.c src/save_format_json.c src/input_text.c src/blitter.c src/build_info.c src/expanded_new_career.c src/expanded_title_overlay.c
+  src/expanded_economy.c src/platform_sdl.c src/game_loop.c src/career_init.c src/career_status.c src/career_teams.c src/transfer_market.c src/chairman_memo.c src/save_format_json.c src/expanded_world_live.c src/input_text.c src/blitter.c src/build_info.c src/expanded_new_career.c src/expanded_title_overlay.c
 echo 'Compilo il gioco... AUDIO DISABILITATO PER DEBUG (fino a nuovo ordine)'
 # Silent debugging: force-include debug_no_audio_01060.h before the
 # Makefile's swos_platform.h. The header overrides its audio=0 default.

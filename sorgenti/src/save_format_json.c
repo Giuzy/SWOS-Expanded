@@ -22,6 +22,9 @@
 #include "game_types.h"
 #include "endian_helpers.h"
 #include "world.h"             /* "world" in career and competition saves */
+#ifdef SWOS_SDL_BUILD
+#include "expanded_world_live.h" /* same .CAR, one ledger */
+#endif
 #include "team_pool.h"         /* "team_pool" in career saves */
 #include "world_playoff.h"     /* "world_playoff" in career saves */
 #include "world_winners.h"     /* "season_winners" */
@@ -305,6 +308,9 @@ static void load_str_pool_field(const char *buf, int buflen,
  *       board_confidence_*, removed_player_stat_accum, comp header runs),
  *       comp_copy template reconstruction, cup team_offset_table symbolic
  *       encoding, context-slot overlay pads. Saves from v1 are rejected.
+ *   4 — embeds the optional Living World snapshot in .CAR. Older v3
+ *       careers remain readable without a world; other save types can
+ *       also read v3, because their payloads did not change.
  *   3 — cup fixes: teamSelectionKeyCache stride re-lay (cache_strides) +
  *       game-record score fields packedGoals/aggregate/penaltyScore
  *       endian-neutral (cache_scores, fixes the swapped VFL BOCHUM 1-0/0-1
@@ -318,7 +324,8 @@ static void load_str_pool_field(const char *buf, int buflen,
  *       teamEntryOffsets, round info; cup_score_* layers endian-neutral
  *       scores on top). Saves from v2 are rejected.
  */
-#define SAVE_JSON_SCHEMA_VERSION 3
+#define SAVE_JSON_SCHEMA_VERSION 4
+#define SAVE_JSON_COMPAT_SCHEMA_VERSION 3
 
 /* The football world a save was made in (include/world.h): written by the career and
  * competition saves as "world"; a save without it is 96/97, the world before worlds. A
@@ -6561,6 +6568,13 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
         }
     }
 
+    /* Living World lives in the SAME career file, not a separate sidecar. */
+    mjson_printf(json_out_emit, &out, ",\n  %Q:", "living_world");
+#ifdef SWOS_SDL_BUILD
+    ExpandedWorldLive_WriteJson(json_out_emit, &out);
+#else
+    mjson_printf(json_out_emit, &out, "%s", "null");
+#endif
     mjson_printf(json_out_emit, &out, "%s", "\n}\n");
 
     if (out.oom || !out.ptr) {
@@ -7447,7 +7461,7 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
         swos_io_free(src);
         return 1;
     }
-    if ((int)version != SAVE_JSON_SCHEMA_VERSION) {
+    if (((int)version != SAVE_JSON_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_SCHEMA_VERSION)) {
         swos_io_free(src);
         return 1;
     }
@@ -7467,6 +7481,25 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
         swos_io_free(src);
         return 1;
     }
+
+    /* Validate/restore world BEFORE touching the native career state.
+     * Legacy schema-3 .CAR files had no world field and safely clear it. */
+#ifdef SWOS_SDL_BUILD
+    if (version == SAVE_JSON_SCHEMA_VERSION) {
+        const char *world_obj=NULL;
+        int world_len=0;
+        int world_type=mjson_find((const char *)src,(int)src_size,
+                                  "$.living_world",&world_obj,&world_len);
+        if (world_type!=MJSON_TOK_OBJECT && world_type!=MJSON_TOK_NULL) {
+            swos_io_free(src);
+            return 1;
+        }
+    }
+    if (!ExpandedWorldLive_ReadJson((const char *)src,(int)src_size)) {
+        swos_io_free(src);
+        return 1;
+    }
+#endif
 
     /* Clear the two surviving careerFileBuffer scalars before the typed load
      * repopulates them. The 256 KB careerFileBufferBuf overlay (which the
@@ -8104,7 +8137,7 @@ static int16_t load_competition_buf(uint8_t *filename, const char *kind)
     long version = 0;
     if (mjson_get_long((const char *)src, (int)src_size,
                          "$.schema_version", &version) <= 0 ||
-        (int)version != SAVE_JSON_SCHEMA_VERSION) {
+        ((int)version != SAVE_JSON_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_SCHEMA_VERSION)) {
         swos_io_free(src);
         return 1;
     }
@@ -8946,7 +8979,7 @@ int16_t SaveJson_LoadHighlights(uint8_t *filename, const uint8_t *src_unused,
     long version = 0;
     if (mjson_get_long((const char *)src, (int)src_size,
                          "$.schema_version", &version) <= 0 ||
-        (int)version != SAVE_JSON_SCHEMA_VERSION) {
+        ((int)version != SAVE_JSON_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_SCHEMA_VERSION)) {
         swos_io_free(src); return 1;
     }
     char kind[16] = {0};
@@ -9163,7 +9196,7 @@ static int16_t load_tactics_buf(const char *src, int src_size, uint8_t *dst)
 {
     long version = 0;
     if (mjson_get_long(src, src_size, "$.schema_version", &version) <= 0 ||
-        (int)version != SAVE_JSON_SCHEMA_VERSION)
+        ((int)version != SAVE_JSON_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_SCHEMA_VERSION))
         return 1;
 
     char kind[16] = {0};

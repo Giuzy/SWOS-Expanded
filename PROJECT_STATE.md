@@ -567,3 +567,16 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [AUDIT] Ultima partita OG nel F12: punteggio letto e applicato, differenza punti dei due club, punteggio raw finale per partite manuali e \`SCORE MISMATCH\` quando diverge. La routine OG assegna +1/+1 ai pareggi: l'impressione dell'utente su un +3 va verificata con questo audit.
 - [NON COMPLETO] World save, coppe persistenti, riassunzioni, special leagues ancora da unificare. Non eliminare il vecchio recupero fino ai test Windows integrati.
 - [TEST] Aggiunte asserzioni read-only ledger a test C; NON eseguite né compilata build Windows. Rollback \`600141d\` (0.13.15_01).
+
+
+### 0.13.17 — snapshot persistente del Living World nel salvataggio .CAR (11 novembre 2026)
+
+**Priorità decisa:** completare la versione principale del Living World Engine prima di tornare ai menu. Gli strumenti di bilanciamento statistico e i test di scenario estesi saranno sviluppati alla fine del ciclo del motore. Segnalazione chat: "Error in message stream", causa sconosciuta, non imputata al gioco.
+
+**Codice:** l'unico ledger mondiale ora può essere serializzato e ricaricato nel normale save .CAR JSON. La chiave living_world contiene club e loro rating/identità, leghe e associazioni, fixture, risultati, calendario, settimane, preseason e contatori dell'integrazione nativa. Il parser costruisce uno snapshot temporaneo e verifica tipi, limiti e coerenza delle relazioni club/leghe prima di sostituire lo stato attivo. I fixture sono letti in una scansione lineare, evitando iterazioni quadratiche sull'array esteso.
+
+**Compatibilità:** nuovo schema JSON 4, lettura dei salvataggi schema 3 mantenuta. I vecchi .CAR non contengono il ledger mondiale e quindi vengono caricati con il pilot vuoto: risultati storici globali non possono essere ricostruiti dal vecchio file. Gli altri formati JSON rimangono compatibili con schema 3. La build Amiga archivia living_world come null, poiché il pilot è SDL-only. Nessun sidecar, DLL o nuovo database parallelo.
+
+**Limitazioni:** la persistenza del pilot non completa ancora l'engine. Rimangono il limite delle due stagioni pre-generate, calendario ciclico multistagionale, coppe in ledger, manager/chairman persistenti, simulazione del mercato/ritiri/nuovi giovani, calendario globale anche dopo ingaggio e riassunzioni, e connessione dei dati finanziari e calcistici canonici. Il rating club non equivale a un database persistente di calciatori.
+
+**Verifica:** esaminati sorgenti e dipendenze su GitHub; non eseguiti compilazione MSYS2/Windows o test runtime in questa sessione. Dopo il pull, verificare che AVVIA_SWOS.bat compili; salvare e caricare una carriera schema 4, comparare F12 prima/dopo (club/leghe/fixtures/playback), poi verificare classifica e partita manuale. Provare anche a caricare un vecchio .CAR schema 3. Non dichiarare build Windows testata finché l'utente non riporta esito.

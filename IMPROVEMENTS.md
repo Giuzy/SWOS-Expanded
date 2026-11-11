@@ -447,3 +447,12 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [COPPE] Le coppe non hanno ancora un ledger mondiale; vengono mantenute nel percorso OG. Per storia senza coppe precedenti e import valido si elimina il recupero dopo firma (JOIN DIRECT). Con coppe precedenti il driver lavora solo sui turni OG residui e salta la lega già importata.
 - [DEBUG] F12 mostra \`DIRECT OG IMPORT\`, \`LAST OG\` con goal e punti, \`RAW FINAL\` con score match/mismatch per gli incontri manuali. Nessuna modifica ai punti assegnati dagli handler originali.
 - [TEST] Test read-only \`PeekNativeLeagueResult\` aggiunti; build e test Windows PENDENTI. Fallback/rollback alla \`0.13.15_01\` confermata dall'utente.
+
+
+### 0.13.17 — persistenza JSON del world ledger
+- [CODICE] Snapshot Living World dentro il normale .CAR: calendari originali, club, leghe, risultati e stato della simulazione, con unica fonte di verità nel ledger.
+- [ROBUSTEZZA] Lettura transazionale con controlli di range e appartenenza esclusiva dei club alle leghe; fixture elaborate in tempo lineare.
+- [SAVE] Schema 4 per i nuovi file, schema 3 ancora leggibile. Un vecchio save non conserva la precedente simulazione mondiale. Nella versione Amiga il campo mondiale è null.
+- [DEBUG] F12 indica world snapshot pronto oppure assente.
+- [LIMITI] Nessun motore completo: coppe mondiali, cicli multistagionali, allenatori/presidenti, mercato AI, generazioni e salvataggio nativo integrale sono ancora da sviluppare.
+- [TEST] Nessuna compilazione MinGW64 o esecuzione Windows svolta dall'assistente; test interattivi rinviati con il resto della convalida.

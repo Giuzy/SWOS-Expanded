@@ -2842,7 +2842,8 @@ static void draw_world_debug_overlay(void)
         }
     }
     DEBUG_LINE("PILOT/NATIVE REPLAY PARTIAL");
-    DEBUG_LINE("WORLD SAVE NOT ACTIVE");
+    DEBUG_LINE(ExpandedWorldLive_Clubs() ? "WORLD SNAPSHOT JSON V4 READY" :
+               "WORLD SNAPSHOT EMPTY");
     snprintf(line,sizeof line,"1 WIN ALWAYS %s",
              ExpandedDebug_ResultMode()==1 ? "ON":"OFF");
     DEBUG_LINE(line);

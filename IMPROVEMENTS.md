@@ -461,3 +461,12 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 ### 0.13.18 — validazione salvataggi pluriennali
 - Corretto un vincolo troppo stretto nel parser .CAR schema 4: settimane/date successive al secondo anno rimangono caricabili entro il range del calendario mondiale. La produzione di nuove stagioni resta un intervento separato.
 - Windows compile e test save/load ancora pendenti.
+
+
+### 0.13.19 — riduzione dello spazio del world snapshot
+- [CODICE] Compressi solo i fixture del ledger condiviso nel .CAR JSON tramite miniz (zlib + Base64); nessuna DLL, file secondario o simulatore duplicato.
+- [SAVE] Nuova chiave fixtures_zlib e lunghezza decompressa verificata; snapshot v2 in scrittura, lettura v1/v2; .CAR schema 5 in scrittura, schemi 3/4 ancora leggibili.
+- [SICUREZZA] La decompressione ha un limite noto, conserva il parser esistente e non importa snapshot invalidi. Se la compressione fallisce, il salvataggio viene annullato anziché perdere il mondo senza avviso.
+- [DIMENSIONI] Su dati sintetici, 8.384 fixture 276 KB -> 96 KB; 40.000 fixture 1,32 MB -> 0,46 MB. Non sono misure della build Windows e non includono gli altri dati della carriera.
+- [PIANO] Per il motore globale finale serviranno archivi/delta ed eventualmente pack dati statici, ma non è stato cambiato l'assetto architetturale in questa build.
+- [TEST] Nessuna compilazione MinGW64 o esecuzione Windows completata dall'assistente, richiede pull/compilazione in GitKraken/MSYS2; strumenti statistici rinviati alla fine dell'engine.

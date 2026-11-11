@@ -3,6 +3,7 @@
 #include "expanded_world_time.h"
 #include "expanded_world_ledger.h"
 #include "mjson.h"      /* typed, portable .CAR world snapshot */
+#include "miniz_swos.h" /* existing bundled zlib for compact fixture snapshots */
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -677,14 +678,124 @@ static int live_parse_fixture_row(const char *src,int len,
     *consumed=(uint8_t)v[8];
     return 1;
 }
-void ExpandedWorldLive_WriteJson(int (*emit)(const char*,int,void*),void *ctx) {
-    if (!emit) return;
+
+/* Binary-safe zlib+Base64 payload for the immutable fixture schedule and
+ * mutable scores. The one .CAR JSON file remains self-contained. Both
+ * the previous uncompressed v1 snapshot and the compressed v2 are readable.
+ * Save errors abort the entire .CAR write: never silently save a null world. */
+#define LIVE_FIXTURE_JSON_LIMIT (LIVE_MAX_FIXTURES * 96u + 2u)
+typedef struct LiveJsonOut {
+    char *ptr;
+    size_t len,cap;
+    int oom;
+} LiveJsonOut;
+static int live_json_emit(const char *s,int len,void *user) {
+    LiveJsonOut *o=(LiveJsonOut *)user;
+    if (!o || o->oom || len<0) return 0;
+    const size_t n=(size_t)len;
+    if (n>LIVE_FIXTURE_JSON_LIMIT || o->len>LIVE_FIXTURE_JSON_LIMIT-n) {
+        o->oom=1;
+        return 0;
+    }
+    if (o->len+n+1u>o->cap) {
+        size_t cap=o->cap?o->cap:4096u;
+        while (cap<o->len+n+1u) cap*=2u;
+        char *p=(char *)realloc(o->ptr,cap);
+        if (!p) { o->oom=1;return 0; }
+        o->ptr=p;o->cap=cap;
+    }
+    memcpy(o->ptr+o->len,s,n);
+    o->len+=n;
+    o->ptr[o->len]=0;
+    return len;
+}
+static char *live_base64_encode(const unsigned char *src,size_t n) {
+    static const char abc[]=
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    if (!src || n>LIVE_FIXTURE_JSON_LIMIT) return NULL;
+    const size_t size=4u*((n+2u)/3u);
+    char *dst=(char *)malloc(size+1u);
+    if (!dst) return NULL;
+    size_t d=0;
+    for (size_t i=0;i<n;i+=3u) {
+        unsigned v=(unsigned)src[i]<<16;
+        if (i+1u<n) v|=(unsigned)src[i+1u]<<8;
+        if (i+2u<n) v|=src[i+2u];
+        dst[d++]=abc[(v>>18)&63u];dst[d++]=abc[(v>>12)&63u];
+        dst[d++]=(i+1u<n)?abc[(v>>6)&63u]:'=';
+        dst[d++]=(i+2u<n)?abc[v&63u]:'=';
+    }
+    dst[d]=0;
+    return dst;
+}
+static int live_b64_value(unsigned char c) {
+    if (c>='A' && c<='Z') return (int)c-'A';
+    if (c>='a' && c<='z') return (int)c-'a'+26;
+    if (c>='0' && c<='9') return (int)c-'0'+52;
+    if (c=='+') return 62;
+    if (c=='/') return 63;
+    return -1;
+}
+static int live_base64_decode(const char *src,size_t n,
+                              unsigned char *dst,size_t cap,size_t *out) {
+    size_t d=0;
+    if (!src || !dst || !out || (n&3u)) return 0;
+    for (size_t i=0;i<n;i+=4u) {
+        int a=live_b64_value((unsigned char)src[i]);
+        int b=live_b64_value((unsigned char)src[i+1u]);
+        int c=(src[i+2u]=='=')?0:live_b64_value((unsigned char)src[i+2u]);
+        int e=(src[i+3u]=='=')?0:live_b64_value((unsigned char)src[i+3u]);
+        const int pad2=src[i+2u]=='=';
+        const int pad3=src[i+3u]=='=';
+        if (a<0 || b<0 || c<0 || e<0 || (pad2 && !pad3) ||
+            ((pad2 || pad3) && i+4u!=n) ||
+            (pad2 && (b&15)) || (!pad2 && pad3 && (c&3)))
+            return 0;
+        unsigned bits=((unsigned)a<<18)|((unsigned)b<<12)|
+                      ((unsigned)c<<6)|(unsigned)e;
+        unsigned count=pad2?1u:pad3?2u:3u;
+        if (d+count>cap) return 0;
+        dst[d++]=(unsigned char)(bits>>16);
+        if (count>1u) dst[d++]=(unsigned char)(bits>>8);
+        if (count>2u) dst[d++]=(unsigned char)bits;
+    }
+    *out=d;
+    return 1;
+}
+static char *live_inflate_fixture_json(const char *src,int len,
+                                       uint32_t raw_size) {
+    unsigned char *packed=NULL;
+    char *plain=NULL;
+    size_t packed_len=0;
+    if (!src || len<2 || src[0]!='"' || src[len-1]!='"' ||
+        ((unsigned)(len-2)&3u) || (uint32_t)len>LIVE_FIXTURE_JSON_LIMIT*2u ||
+        raw_size<2u || raw_size>LIVE_FIXTURE_JSON_LIMIT) return NULL;
+    packed=(unsigned char *)malloc((size_t)(len-2)/4u*3u+1u);
+    plain=(char *)malloc((size_t)raw_size+1u);
+    if (!packed || !plain ||
+        !live_base64_decode(src+1,(size_t)(len-2),packed,
+                             (size_t)(len-2)/4u*3u+1u,&packed_len))
+        goto fail;
+    mz_ulong dstlen=(mz_ulong)raw_size;
+    if (mz_uncompress((unsigned char *)plain,&dstlen,packed,
+                      (mz_ulong)packed_len)!=MZ_OK ||
+        dstlen!=(mz_ulong)raw_size) goto fail;
+    plain[raw_size]=0;
+    free(packed);
+    return plain;
+fail:
+    free(packed);free(plain);
+    return NULL;
+}
+
+int ExpandedWorldLive_WriteJson(int (*emit)(const char*,int,void*),void *ctx) {
+    if (!emit) return 0;
     if (!s_live || !s_fixtures) {
         mjson_printf(emit,ctx,"%s","null");
-        return;
+        return 1;
     }
     mjson_printf(emit,ctx,
-      "{%Q:1,%Q:%u,%Q:%lu,%Q:%d,%Q:%lu,%Q:[%lu,%lu,%lu,%lu],",
+      "{%Q:2,%Q:%u,%Q:%lu,%Q:%d,%Q:%lu,%Q:[%lu,%lu,%lu,%lu],",
       "version","first_year",(unsigned)s_first_year,
       "weeks",(unsigned long)s_weeks,"now",(int)s_ledger.now,
       "preseason_games",(unsigned long)s_preseason_games_total,
@@ -717,17 +828,39 @@ void ExpandedWorldLive_WriteJson(int (*emit)(const char*,int,void*),void *ctx) {
             mjson_printf(emit,ctx,",%u",(unsigned)l->clubs[j]);
         mjson_printf(emit,ctx,"%s","]");
     }
-    mjson_printf(emit,ctx,"],%Q:[","fixtures");
-    for (uint32_t i=0;i<s_ledger.count;++i) {
+    /* Only the fixture ledger is compressed; club/league identities remain
+     * readable typed JSON. Using the existing miniz avoids an extra DLL. */
+    LiveJsonOut raw={0};
+    unsigned char *compressed=NULL;
+    char *encoded=NULL;
+    int ok=0;
+    mjson_printf(live_json_emit,&raw,"%s","[");
+    for (uint32_t i=0;i<s_ledger.count && !raw.oom;++i) {
         const ExpandedWorldFixture *f=&s_fixtures[i];
-        if (i) mjson_printf(emit,ctx,"%s",",");
-        mjson_printf(emit,ctx,"[%d,%lu,%u,%u,%u,%u,%u,%u,%u]",
+        if (i) mjson_printf(live_json_emit,&raw,"%s",",");
+        mjson_printf(live_json_emit,&raw,"[%d,%lu,%u,%u,%u,%u,%u,%u,%u]",
           (int)f->day,(unsigned long)f->id,(unsigned)f->competition,
           (unsigned)f->home,(unsigned)f->away,(unsigned)f->played,
           (unsigned)f->goals_home,(unsigned)f->goals_away,
           (unsigned)s_native_result_consumed[i]);
     }
-    mjson_printf(emit,ctx,"%s","]}");
+    mjson_printf(live_json_emit,&raw,"%s","]");
+    if (raw.oom || !raw.ptr || raw.len>LIVE_FIXTURE_JSON_LIMIT) goto finish;
+    mz_ulong dest_len=mz_compressBound((mz_ulong)raw.len);
+    if (!dest_len || dest_len>LIVE_FIXTURE_JSON_LIMIT) goto finish;
+    compressed=(unsigned char *)malloc((size_t)dest_len);
+    if (!compressed ||
+        mz_compress2(compressed,&dest_len,(const unsigned char *)raw.ptr,
+                     (mz_ulong)raw.len,6)!=MZ_OK) goto finish;
+    encoded=live_base64_encode(compressed,(size_t)dest_len);
+    if (!encoded) goto finish;
+    mjson_printf(emit,ctx,"],%Q:%lu,%Q:%Q}",
+                 "fixture_json_bytes",(unsigned long)raw.len,
+                 "fixtures_zlib",encoded);
+    ok=1;
+finish:
+    free(encoded);free(compressed);free(raw.ptr);
+    return ok;
 }
 int ExpandedWorldLive_ReadJson(const char *json,int len) {
     const char *obj=NULL,*arr=NULL;
@@ -736,6 +869,8 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
     long v=0,raw[4]={0};
     LiveSaveImage *tmp=NULL;
     ExpandedWorldFixture *store=NULL;
+    char *owned_fixture_json=NULL;
+    long snapshot_version=0;
     uint8_t *present=NULL;
     int off,ko,kl,vo,vl,type;
     unsigned n=0;
@@ -750,7 +885,8 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
     tmp=(LiveSaveImage *)calloc(1,sizeof *tmp);
     present=(uint8_t *)calloc(65536u,1u);
     if (!tmp || !present) goto invalid;
-    if (mjson_get_long(obj,olen,"$.version",&v)<=0 || v!=1 ||
+    if (mjson_get_long(obj,olen,"$.version",&snapshot_version)<=0 ||
+        (snapshot_version!=1 && snapshot_version!=2) ||
         mjson_get_long(obj,olen,"$.first_year",&v)<=0 ||
         v<1900 || v>2198) goto invalid;
     tmp->year=(uint16_t)v;
@@ -833,8 +969,22 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
     if (!tmp->leagues_count) goto invalid;
     for (uint32_t i=0;i<tmp->clubs_count;++i)
         if (present[tmp->clubs[i].id]!=3u) goto invalid;
-    if (mjson_find(obj,olen,"$.fixtures",&arr,&alen)!=MJSON_TOK_ARRAY ||
-        alen<2 || arr[0]!='[' || arr[alen-1]!=']')
+    if (snapshot_version==2) {
+        long raw_len=0;
+        const char *blob=NULL;
+        int blob_len=0;
+        if (mjson_get_long(obj,olen,"$.fixture_json_bytes",&raw_len)<=0 ||
+            raw_len<2 || raw_len>LIVE_FIXTURE_JSON_LIMIT ||
+            mjson_find(obj,olen,"$.fixtures_zlib",&blob,&blob_len)!=MJSON_TOK_STRING)
+            goto invalid;
+        owned_fixture_json=live_inflate_fixture_json(blob,blob_len,
+                                                     (uint32_t)raw_len);
+        if (!owned_fixture_json) goto invalid;
+        arr=owned_fixture_json;
+        alen=(int)raw_len;
+    } else if (mjson_find(obj,olen,"$.fixtures",&arr,&alen)!=MJSON_TOK_ARRAY)
+        goto invalid;
+    if (alen<2 || arr[0]!='[' || arr[alen-1]!=']')
         goto invalid;
     /* mjson_next re-lexes from the beginning on every call. That is fine
      * for <=216 clubs but quadratic for 8,000-40,000 fixture rows.
@@ -903,11 +1053,13 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
       (unsigned long)s_club_count,(unsigned long)s_league_count,
       (unsigned long)s_ledger.played,(unsigned long)s_ledger.count,
       (unsigned long)s_weeks);
+    free(owned_fixture_json);
     free(present);
     free(tmp);
     return 1;
 invalid:
     free(store);
+    free(owned_fixture_json);
     free(present);
     free(tmp);
     fprintf(stderr,"[living-world] invalid or incomplete .CAR world snapshot\n");

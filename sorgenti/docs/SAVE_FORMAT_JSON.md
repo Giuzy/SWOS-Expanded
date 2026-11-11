@@ -262,3 +262,13 @@ CompetitionCup/Cup2/League encoder using offsetof()) and
 tmdFileBuffer (transfer-market schema design). Then begin
 the post-migration cleanup checklist (default the build flag
 on, delete legacy writers, drop save_pointer_lut.c).
+
+
+## SWOS Expanded — Living World snapshot compression (0.13.19)
+
+- .CAR saves now write JSON schema **5**, with the same `living_world` top-level key. The nested snapshot is version **2**: club and league records remain typed JSON; `fixture_json_bytes` and `fixtures_zlib` replace the huge uncompressed fixture array.
+- The fixture data is the **same compact JSON array** used by world snapshot v1, but first zlib-compressed with the project's existing miniz, then Base64 encoded. There are no pointer dumps, extra file formats, sidecar databases or DLL dependencies.
+- v5 loads continue to read JSON schema **3/4**. Nested `living_world` snapshot v1 arrays are accepted and validated exactly as before. v3 careers had no snapshot and cannot recover historical global results retroactively.
+- On write, a failed compression/allocation **fails the .CAR save** instead of silently emitting `null` or a partial world. On load, the declared decompressed size is capped to the current fixture limit and every decoded record is validated before the active world is replaced.
+- This is an **interim space optimization**, not the final worldwide save architecture. Adding decades and all countries will require bounded active-season fixtures, compact historical events and static world packs. Those require separate design and user approval.
+- The actual Windows save/load round trip and MSYS2 build have **not** been tested in this chat. Use a disposable save for validation; preserve known-good .CAR backups.

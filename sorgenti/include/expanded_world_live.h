@@ -78,7 +78,7 @@ void ExpandedWorldLive_End(void);
 void ExpandedWorldLive_LoadOfferCountries(void);
 #ifdef SWOS_SDL_BUILD
 /* Structured, versioned .CAR snapshot on SDL hosts only. */
-void ExpandedWorldLive_WriteJson(int (*emit)(const char *,int,void *),void *ctx);
+int ExpandedWorldLive_WriteJson(int (*emit)(const char *,int,void *),void *ctx);
 int ExpandedWorldLive_ReadJson(const char *json,int len);
 #endif
 #endif

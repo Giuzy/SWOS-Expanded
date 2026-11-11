@@ -82,3 +82,27 @@ int ExpandedWorld_DateAfterWeeks(ExpandedWorldDate start, uint32_t elapsed_weeks
     if (target > INT32_MAX) return 0;
     return ExpandedWorld_IndexToDate((int32_t)target, out_date);
 }
+
+/* OpenSWOS native competition keys count 1/8 of a calendar month,
+ * NOT weeks since August. A byte key advances by +0x60 every January:
+ * 56=1 Aug in the season's first year, 96=1 Jan next year.
+ * The original formatter treated a key of 56 as 56 elapsed weeks and
+ * displayed AUG of the FOLLOWING year (user report 11 Nov 2026). */
+int ExpandedWorld_NativePhaseToDate(uint16_t season_year, uint8_t native_key,
+                                    ExpandedWorldDate *out_date) {
+    uint32_t year=(uint32_t)season_year+(uint32_t)native_key/96u;
+    unsigned month=((unsigned)native_key%96u)/8u+1u;
+    unsigned eighth=(unsigned)native_key%8u;
+    ExpandedWorldDate start,next;
+    int32_t start_day=0,next_day=0;
+    if(!out_date || year>2200u) return 0;
+    start=(ExpandedWorldDate){(uint16_t)year,(uint8_t)month,1};
+    next=(ExpandedWorldDate){(uint16_t)(year+(month==12u)),
+             (uint8_t)(month==12u?1u:month+1u),1};
+    if(!ExpandedWorld_DateToIndex(start,&start_day) ||
+       !ExpandedWorld_DateToIndex(next,&next_day) ||
+       next_day<=start_day) return 0;
+    start.day=(uint8_t)(1u+eighth*(unsigned)(next_day-start_day)/8u);
+    *out_date=start;
+    return 1;
+}

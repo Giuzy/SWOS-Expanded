@@ -401,3 +401,11 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [DEBUG] Contatori F12 per azioni catch-up e simulazioni forzate; logging di menu non riconosciuti e riepilogo dei motivi di arresto.
 - [VERIFICA PENDENTE] Compilazione Windows, ingressi con coppe e confronti delle classifiche. Non è stata dimostrata l'identità tra le due classifiche pilota e nativa: il calendario doppio rimane in attesa dell'unificazione.
 - [ROLLBACK] Precedente commit `fab201b98ae60ab37f105ee48589c66b234a809c` (0.13.09), da ripristinare manualmente con GitKraken soltanto su decisione dell'utente.
+
+
+### 0.13.11 — data/carriera sincronizzata e recupero invisibile (11 novembre 2026)
+- [CODICE] Corretto `Expanded_FormatDate`: i valori di sortKey sono ottavi di mese nativi, non settimane da agosto. Il caso mostrato (28 AUG 1997 nella stagione 1996/97) nasceva da questa conversione errata.
+- [CODICE] UI carriera/business usa la fase della prossima fixture (keycache) per mostrare una data aggiornata, lasciando il contatore finanziario separato. Date d'ingaggio arrotondate alla successiva fase utile per comprendere tutte le partite anteriori.
+- [CODICE] Driver: NEXT MATCH prioritario su VIEW RESULT; blocco input dell'utente durante recupero; overlay temporaneo che copre le classifiche mentre vengono simulate. F12 mostra esito dell'ultima esecuzione.
+- [TEST] Controllati indipendentemente 94 casi nel calcolo delle fasi 1996/2026; test unitari C aggiornati ma non compilati, build/test Windows ancora da effettuare.
+- [PENDENTE] Resta la divergenza fra risultati preview/pilota e risultati nativi; nessuna fusione di calendari o serializzazione mondo implementata.

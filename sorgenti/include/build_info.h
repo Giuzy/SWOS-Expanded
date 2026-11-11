@@ -14,7 +14,7 @@
 #define BUILD_INFO_H
 
 /* Single source of truth for the user-facing release/build number. */
-#define SWOS_EXPANDED_VERSION "0.13.10"
+#define SWOS_EXPANDED_VERSION "0.13.11"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

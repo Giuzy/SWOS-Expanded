@@ -12,6 +12,7 @@
 #include "build_info.h"
 #include "world.h"
 #include "expanded_world_time.h"
+#include "expanded_midseason_join.h"
 #include "game_types.h"
 #include "expanded_squad_rating.h"
 #include "teams.h"
@@ -815,16 +816,13 @@ void Expanded_ClubFacilitySelected(MenuEntry *entry) {
     ShowMenu(_expandedFacilityDetailMenu);
 }
 
-/* Civil date for legacy weekly fixture keys.  The first year comes from the
- * selected world (1996 or 2026) instead of being hardcoded in each menu.
- * A later phase will supply an exact date from persistent match events; this
- * formatter does NOT change financial keys, match progression or save files. */
+/* Civil date for native phase keys. The first year comes from the selected
+ * world (1996 or 2026). These keys represent eighths of months, NOT weeks.
+ * This is a formatter only: finance, native match state and saves stay intact. */
 static const char *const s_months[]={"JAN","FEB","MAR","APR","MAY","JUN",
                                      "JUL","AUG","SEP","OCT","NOV","DEC"};
 static const char *const s_days[]={"MON","TUE","WED","THU","FRI","SAT","SUN"};
-/* General civil-date formatter. Unemployed starts July 1; the existing
- * native fixture-week formatter below intentionally still starts August 1
- * until its own competition calendar is migrated. */
+/* General civil-date formatter; unemployed uses the July 1 world clock. */
 void Expanded_FormatCivilDate(char *out,size_t cap,ExpandedWorldDate date) {
     int32_t index;
     if (!out || !cap) return;
@@ -837,18 +835,13 @@ void Expanded_FormatCivilDate(char *out,size_t cap,ExpandedWorldDate date) {
              s_days[wd],(unsigned)date.day,s_months[date.month-1u],
              (unsigned)date.year);
 }
-void Expanded_FormatDate(char *out,size_t cap,unsigned season,unsigned week) {
+void Expanded_FormatDate(char *out,size_t cap,unsigned season,unsigned phase) {
     unsigned year=season>=1900u?season:(season>=90u?1900u+season:2000u+season);
-    ExpandedWorldDate begin,date;
+    ExpandedWorldDate date;
     if (!out || !cap) return;
     out[0]=0;
-    if (year<1900u || year>2200u) {
-        snprintf(out,cap,"DATE OUT OF RANGE"); return;
-    }
-    begin.year=(uint16_t)year;
-    begin.month=8;
-    begin.day=1;
-    if (!ExpandedWorld_DateAfterWeeks(begin,(uint32_t)week,&date)) {
+    if (year<1900u || year>2200u || phase>255u ||
+        !ExpandedWorld_NativePhaseToDate((uint16_t)year,(uint8_t)phase,&date)) {
         snprintf(out,cap,"DATE OUT OF RANGE"); return;
     }
     Expanded_FormatCivilDate(out,cap,date);
@@ -1326,7 +1319,7 @@ static int cb_draw_approved(void) {
     char t[100],money[48];
     cb_native(160,8,gold,"BUSINESS",0,110);
     Expanded_FormatDate(t,sizeof t,World_FirstYear()+(unsigned)_currentSeasonShowing,
-                        (unsigned)_lastFinancialWeekIndex);
+                        (unsigned)Expanded_Career_NativeCalendarKey());
     cb_native(277,9,white,strlen(t)>4?t+4:t,0,74);
     cb_mood_face(18,43,_expandedBoardMood);
     cb_native(58,34,white,"BOARD",0,51);
@@ -1467,7 +1460,7 @@ static int cb_draw_full(void) {
     cb_center_narrow(160,8,white,"CLUB BUSINESS");
     cb_center_narrow(29,8,white,"< BACK");
     Expanded_FormatDate(t,sizeof t,World_FirstYear()+(unsigned)_currentSeasonShowing,
-                        (unsigned)_lastFinancialWeekIndex);
+                        (unsigned)Expanded_Career_NativeCalendarKey());
     /* Short date fits the top-right plaque. */
     cb_center_narrow(278,8,gold,strlen(t)>4?t+4:t);
     /* BOARD: only the actual approval percentage and changing face. */
@@ -1603,7 +1596,7 @@ void Expanded_ClubOverviewDraw(void) {
      * and the horizontal separator stops before the clickable button. */
     rect(20,151,220,1,7);
     Expanded_FormatDate(t,sizeof t,World_FirstYear()+(unsigned)_currentSeasonShowing,
-                        (unsigned)_lastFinancialWeekIndex);
+                        (unsigned)Expanded_Career_NativeCalendarKey());
     label(160,154,2,t);
     snprintf(t,sizeof t,"WEEKLY: +%c%lu / -%c%lu",c,(unsigned long)(income/52),
              c,(unsigned long)(expense/52));
@@ -2695,7 +2688,7 @@ void Expanded_UI_After(void) {
             Expanded_UnemployedDate(date,sizeof date);
         } else
             Expanded_FormatDate(date,sizeof date,World_FirstYear()+(unsigned)_currentSeasonShowing,
-                                (unsigned)_lastFinancialWeekIndex);
+                                (unsigned)Expanded_Career_NativeCalendarKey());
         /* Native font, inside the top-right 126px date textbox, away from
          * all fixture rows (which begin below y=39). */
         ui_native_text(252,24,118,15,date,0);

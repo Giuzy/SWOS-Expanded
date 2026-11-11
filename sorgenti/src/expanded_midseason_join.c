@@ -1,5 +1,5 @@
 /*
- * 0.13.10 — drive native pre-hire league AND cup fixtures without player input.
+ * 0.13.11 — advance native fixture phases through hire date and mask live tables.
  *
  * The prehire pilot is an independent round-robin, so its fixture index is
  * NOT interchangeable with the original SWOS league/cup calendar. We do not
@@ -31,8 +31,14 @@ int Expanded_MidseasonJoin_Cutoff(uint16_t year,uint32_t weeks,uint8_t *out) {
     if (!ExpandedWorld_DateToIndex(month_start,&month_day) ||
         !ExpandedWorld_DateToIndex(next_month,&next_day) ||
         next_day<=month_day) return 0;
+    /* Ceil to the first phase NOT preceding the signed offer:
+     * flooring to the phase containing the hiring day skips fixtures
+     * from earlier days in that same phase. If the date is exactly at
+     * a phase boundary, this keeps that phase available to the player. */
+    const uint32_t days=(uint32_t)(next_day-month_day);
+    uint32_t eighth=(uint32_t)(now.day-1u)*8u;
     uint32_t phase=(uint32_t)(now.month-1u)*8u +
-                   ((uint32_t)(now.day-1u)*8u)/(uint32_t)(next_day-month_day);
+                   (eighth+days-1u)/days;
     if (now.year>year) phase+=0x60u;
     if (phase>255u) return 0;
     *out=(uint8_t)phase;
@@ -52,6 +58,9 @@ extern uint16_t _teamSelectionKeyCacheOffset;
 extern volatile uint16_t _shortFire;
 extern volatile uint16_t _fire;
 extern uint8_t _pl1Fire;
+extern uint8_t _left,_right,_up,_down;
+extern int16_t _menuControlsDirection,_menuControlsDirection2;
+extern uint8_t _lastFinancialWeekIndex;
 
 extern void ContestMenuInit(void);
 extern void CareerOverInit(void);
@@ -74,6 +83,7 @@ extern MenuEntry *CalcMenuEntryAddress(uint16_t ordinal);
 
 static uint8_t s_active,s_old_controls,s_target_key;
 static uint32_t s_passes,s_elapsed_weeks,s_actions,s_forced_simulations;
+static int s_last_result,s_last_key;
 
 uint32_t Expanded_MidseasonJoin_Actions(void) { return s_actions; }
 uint32_t Expanded_MidseasonJoin_ForcedSimulations(void) { return s_forced_simulations; }
@@ -82,6 +92,27 @@ void Expanded_MidseasonJoin_RecordForcedSimulation(void) {
 }
 
 int Expanded_MidseasonJoin_Active(void) { return s_active!=0; }
+int Expanded_MidseasonJoin_LastResult(void) { return s_last_result; }
+int Expanded_MidseasonJoin_LastKey(void) { return s_last_key; }
+uint8_t Expanded_MidseasonJoin_TargetPhase(void) { return s_target_key; }
+
+/* The fixture cursor advances BEFORE the financial-week accumulator.
+ * The in-game date must follow the NEXT unplayed fixture, while finance
+ * continues to use lastFinancialWeekIndex for deductions. */
+uint8_t Expanded_Career_NativeCalendarKey(void) {
+    if (_gameType==4 && _teamSelectionKeyCacheCount &&
+        _teamSelectionKeyCacheIndex<_teamSelectionKeyCacheCount &&
+        _teamSelectionKeyCacheOffset<=8192u-sizeof(TeamSelectionKeyCacheEntry)) {
+        const TeamSelectionKeyCacheEntry *entry=
+            (const TeamSelectionKeyCacheEntry *)
+            (_teamSelectionKeyCache+_teamSelectionKeyCacheOffset);
+        if (entry->entryStride>=sizeof(*entry) &&
+            entry->entryStride<=256u &&
+            entry->entryStride<=8192u-_teamSelectionKeyCacheOffset)
+            return entry->sortKey;
+    }
+    return _lastFinancialWeekIndex;
+}
 
 static int choose_action(MenuEntryFn fn) {
     const Menu *menu=(const Menu *)_currentMenu;
@@ -99,6 +130,8 @@ static int choose_action(MenuEntryFn fn) {
 
 static void finish(int reached,int key) {
     s_active=0;
+    s_last_result=reached?1:2;
+    s_last_key=key;
     _careerTeam.team.teamControls=s_old_controls;
     _shortFire=0;
     _fire=0;
@@ -115,6 +148,8 @@ static void finish(int reached,int key) {
 void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     uint8_t cutoff=0;
     if (s_active) finish(0,-1);
+    s_last_result=0;
+    s_last_key=-1;
     /* End-of-year / multiple-season unemployment is not yet supported:
      * never auto-start from the wrong historical season. */
     if (_gameType!=4 ||
@@ -192,6 +227,12 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
 void Expanded_MidseasonJoin_Tick(void) {
     if (!s_active) return;
     if (++s_passes>6000u) { finish(0,-2); return; }
+    /* This is not a user-driven menu chain. Ignore mouse/controller input
+     * until history reaches the date of the signed contract. F12 remains
+     * available through the SDL event pump for diagnostics. */
+    _fire=0; _shortFire=0; _pl1Fire=0;
+    _left=_right=_up=_down=0;
+    _menuControlsDirection=_menuControlsDirection2=-1;
     MenuSystem_LatchSeasonSkip();
     const Menu *m=(const Menu *)_currentMenu;
     if (!m) { finish(0,-3); return; }
@@ -211,6 +252,19 @@ void Expanded_MidseasonJoin_Tick(void) {
             entry->entryStride>8192u-_teamSelectionKeyCacheOffset) {
             finish(0,-5); return;
         }
+        if (s_passes<=4u || (s_passes%30u)==0u ||
+            (unsigned)entry->sortKey!= (unsigned)s_last_key) {
+            fprintf(stderr,"[midseason] native cursor: index=%u/%u phase=%u "
+                           "target=%u finance_phase=%u actions=%lu\n",
+                    (unsigned)_teamSelectionKeyCacheIndex,
+                    (unsigned)_teamSelectionKeyCacheCount,
+                    (unsigned)entry->sortKey,(unsigned)s_target_key,
+                    (unsigned)_lastFinancialWeekIndex,
+                    (unsigned long)s_actions);
+            s_last_key=(int)entry->sortKey;
+        }
+        /* Stop at the FIRST native fixture on or after contract time;
+         * a phase key is an eighth of a month, not an elapsed week. */
         if (entry->sortKey>=s_target_key) {
             finish(1,entry->sortKey);
             return;
@@ -227,12 +281,13 @@ void Expanded_MidseasonJoin_Tick(void) {
         finish(0,-7); return;
     }
     if(m->onInit==DIYLeagueTournamentInit) {
+        /* Follow the battle-tested golden career harness ordering:
+         * NEXT MATCH must win over viewing a result that has already
+         * been played; otherwise the same result screen can loop. */
         static const MenuEntryFn play[]={
+            (MenuEntryFn)DIYLeagueTournamentNextMatch,
             DIYLeagueTournamentViewResult,
             DIYLeagueTournamentResult,
-            (MenuEntryFn)DIYLeagueTournamentNextMatch,
-            /* Before hiring, PLAY MATCH is never interactive: the fixture
-             * entry point redirects selector 2 to native simulation 0. */
             DIYLeagueTournamentMatch
         };
         for(unsigned i=0;i<sizeof play/sizeof play[0];++i)
@@ -248,8 +303,8 @@ void Expanded_MidseasonJoin_Tick(void) {
          * leagues. The native cup handler redirects every historical
          * match action to the CPU simulation path (mode 0). */
         static const MenuEntryFn cup[]={
-            DIYCupOnSelect5, DIYCupOnSelect8, DIYCupOnSelect3,
             (MenuEntryFn)DIYCupOnSelect1,
+            DIYCupOnSelect5, DIYCupOnSelect8, DIYCupOnSelect3,
             (MenuEntryFn)DIYCupOnSelect10
         };
         for (unsigned i=0;i<sizeof cup/sizeof cup[0];++i)
@@ -279,6 +334,11 @@ void Expanded_MidseasonJoin_Tick(void) {
 
 #else
 int Expanded_MidseasonJoin_Active(void) {return 0;}
+int Expanded_MidseasonJoin_LastResult(void) {return 0;}
+int Expanded_MidseasonJoin_LastKey(void) {return -1;}
+uint8_t Expanded_MidseasonJoin_TargetPhase(void) {return 0;}
+extern uint8_t _lastFinancialWeekIndex;
+uint8_t Expanded_Career_NativeCalendarKey(void) {return _lastFinancialWeekIndex;}
 uint32_t Expanded_MidseasonJoin_Actions(void) {return 0;}
 uint32_t Expanded_MidseasonJoin_ForcedSimulations(void) {return 0;}
 void Expanded_MidseasonJoin_RecordForcedSimulation(void) {}

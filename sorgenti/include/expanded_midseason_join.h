@@ -10,6 +10,13 @@
  */
 void Expanded_MidseasonJoin_Begin(uint32_t unemployed_weeks);
 int Expanded_MidseasonJoin_Active(void);
+/* Fixture phase (month eighths) of the next unplayed native contest.
+ * Separate from the finance accumulator, which tracks last charged phase. */
+uint8_t Expanded_Career_NativeCalendarKey(void);
+uint8_t Expanded_MidseasonJoin_TargetPhase(void);
+/* 0 = no attempt; 1 = reached hire date; 2 = abort (see log). */
+int Expanded_MidseasonJoin_LastResult(void);
+int Expanded_MidseasonJoin_LastKey(void);
 void Expanded_MidseasonJoin_Tick(void);
 /* Per-join diagnostics: actions fired and historical PLAY actions
  * redirected to genuine native CPU match simulation. */

@@ -396,3 +396,37 @@ dei test Windows.
 non è stata eseguita una build completa Windows né è stato fatto un
 test manuale di carriera in questo ambiente. Versione precedente
 per rollback: `fab201b98ae60ab37f105ee48589c66b234a809c` (0.13.09).
+
+
+## 27. 0.13.11 — Date native e avanzamento non visibile durante l'ingaggio
+
+**[OSSERVAZIONE UTENTE, 11 novembre 2026]** La prima versione del catch-up
+mostrava i risultati della classifica cambiare riga per riga, a fronte di
+una sola gara visibile giocata e una data che rimaneva ferma: schermata
+`THU 28 AUG 1997` nella stagione 1996/97.
+
+**[ERRORE VERIFICATO NEL CODICE]** `Expanded_FormatDate` usava
+`ExpandedWorld_DateAfterWeeks(august_1, native_key)`: `native_key=56`
+era interpretato come **56 settimane**, anziché `56/8=7` mesi dopo
+gennaio 1996, quindi **1 agosto 1996**. Introduzione di
+`ExpandedWorld_NativePhaseToDate` e lettura del `sortKey` della prossima
+fixture dal calendario nativo, mantenendo distinta l'ultima fase
+contabilizzata (`_lastFinancialWeekIndex`).
+
+**[CODICE]** La fase di arresto ora e' la prima fase **non precedente**
+alla data della firma, arrotondata in alto, per non escludere incontri
+anteriori appartenenti alla stessa frazione di mese. L'ordine di priorita'
+del driver usa NEXT MATCH prima delle voci di visualizzazione risultato,
+come nel golden career harness. L'input umano viene scartato soltanto
+durante il catch-up, e il renderer nasconde temporaneamente le tabelle
+native che cambiano dietro una semplice schermata di avanzamento, con
+F12 diagnostico sopra di essa.
+
+**[VERIFICA E LIMITI]** Eseguiti 94 controlli indipendenti di aritmetica
+civile/fase nel runner JavaScript (47 settimane per ciascun mondo 1996 e
+2026), **non** la compilazione/test C o il runtime Windows.
+I test C dei due moduli contengono nuove asserzioni da eseguire.
+La preview pilota e la carriera nativa **non** sono ancora un unico
+registro risultati persistente; verifica Windows obbligatoria prima di
+considerare l'ingaggio funzionante. Versione per rollback:
+`f58818c29e607017e62e390c1804548d5c299ce6` (0.13.10).

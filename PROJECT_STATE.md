@@ -515,3 +515,11 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [DEBUG] F12: conteggio azioni automatiche e callback di partita reindirizzati alla simulazione, visibile durante il recupero; stderr: diagnostica menu non riconosciuti, abort e fase raggiunta.
 - [DA TESTARE WINDOWS] Recupero con club di alta e bassa classifica, campionati e coppe, integrità delle classifiche prima e dopo l'ingaggio, nessuna apertura partita durante recupero. Build Windows non eseguita in questo ambiente.
 - [LIMITAZIONE] Il pilota pre-assunzione usa ancora un calendario differente da quello nativo; la completa unificazione del Living World Engine, inclusi save/reload, non è raggiunta da questa build.
+
+
+### 0.13.11 — Recupero della data nativa, UI congelata durante catch-up (11 novembre 2026)
+- [CODICE] L'orologio **visualizzato** legge la fase del prossimo incontro nativo (keycache) e non il contatore dell'ultima fase finanziaria. La conversione della fase e' mese ×8 + ottavi del mese, con rollover +0x60: sortKey 56 = 1 agosto 1996 per il mondo 1996/97, non 28 agosto 1997.
+- [CODICE] Il recupero seleziona la prima fase NON precedente alla data della firma (arrotondamento verso l'alto), in modo da simulare anche le partite gia' trascorse nella stessa frazione di mese. L'ordine dei callback per le leghe e' allineato al golden harness: NEXT MATCH prima di VIEW RESULT, per non rileggere all'infinito il risultato precedente; per le coppe avanzamento della fase prima dei risultati.
+- [CODICE UI] Durante il recupero, presentazione oscurata da testo di avanzamento temporaneo, senza nuovi PNG; input utente mascherato nel driver per impedire che la classifica venga aperta mentre cambia. F12 rimane operativo e ora espone anche stato REACHED/ABORTED e ultima chiave per diagnosticare un arresto precoce.
+- [VERIFICA] 94 casi di controllo indipendente della corrispondenza tra data di ingaggio e fase di arresto per mondi 1996/2026; aggiunte asserzioni pure-C sulle conversioni. Compilazione dei test C e test Windows dell'intera carriera **non eseguiti qui**.
+- [LIMITAZIONE] Il calendario di preview `ExpandedWorldLive` e quello nativo rimangono due sorgenti diverse; questo commit corregge il recupero nativo e la data mostrata, ma non certifica un Living World Engine persistente unificato.

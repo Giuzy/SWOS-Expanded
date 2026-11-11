@@ -2641,9 +2641,45 @@ static void splash_text(int x,int y,const char *txt)
             }
     }
 }
-/* This is intentionally not a new menu: just transient snapshot-friendly
- * text over the current frame. No new PNGs, fonts, panels or navigation.
- * Every NOT ACTIVE label describes the actual unfinished engine. */
+/* During the historical catch-up, hide native standings as they are
+ * recalculated. We are still running the original competition handlers
+ * underneath; render a stable, opaque progress view at PRESENT time only.
+ * F12 diagnostics remain drawn above this mask. No new frontend assets. */
+static void draw_midseason_catchup_overlay(void)
+{
+    if (!Expanded_MidseasonJoin_Active() || !s_renderer) return;
+    int oldw=0,oldh=0;
+    float oldsx=1.0f,oldsy=1.0f;
+    SDL_Rect oldvp;
+    SDL_BlendMode oldblend;
+    SDL_RenderGetLogicalSize(s_renderer,&oldw,&oldh);
+    SDL_RenderGetScale(s_renderer,&oldsx,&oldsy);
+    SDL_RenderGetViewport(s_renderer,&oldvp);
+    SDL_GetRenderDrawBlendMode(s_renderer,&oldblend);
+
+    SDL_RenderSetLogicalSize(s_renderer,960,540);
+    SDL_SetRenderDrawBlendMode(s_renderer,SDL_BLENDMODE_NONE);
+    SDL_SetRenderDrawColor(s_renderer,8,18,28,255);
+    SDL_Rect full={0,0,960,540};
+    SDL_RenderFillRect(s_renderer,&full);
+    splash_text(360,221,"SIMULATING SEASON");
+    splash_text(337,242,"BEFORE YOUR CONTRACT");
+    char line[100];
+    snprintf(line,sizeof line,"NEXT PHASE %u  CONTRACT PHASE %u",
+             (unsigned)Expanded_Career_NativeCalendarKey(),
+             (unsigned)Expanded_MidseasonJoin_TargetPhase());
+    splash_text(330,269,line);
+    snprintf(line,sizeof line,"AUTO ACTIONS %lu  CPU %lu",
+             (unsigned long)Expanded_MidseasonJoin_Actions(),
+             (unsigned long)Expanded_MidseasonJoin_ForcedSimulations());
+    splash_text(355,289,line);
+
+    SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);
+    if (!oldw || !oldh) SDL_RenderSetScale(s_renderer,oldsx,oldsy);
+    SDL_RenderSetViewport(s_renderer,&oldvp);
+    SDL_SetRenderDrawBlendMode(s_renderer,oldblend);
+}
+/* Snapshot-friendly diagnostic text over the current frame. */
 static void draw_world_debug_overlay(void)
 {
     if (!s_world_debug_visible || !s_renderer) return;
@@ -2659,7 +2695,7 @@ static void draw_world_debug_overlay(void)
     SDL_RenderSetLogicalSize(s_renderer,960,540);
     SDL_SetRenderDrawBlendMode(s_renderer,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(s_renderer,8,18,28,222);
-    SDL_Rect panel={12,12,475,350};
+    SDL_Rect panel={12,12,475,430};
     SDL_RenderFillRect(s_renderer,&panel);
     SDL_SetRenderDrawColor(s_renderer,120,205,235,255);
     SDL_RenderDrawRect(s_renderer,&panel);
@@ -2685,7 +2721,7 @@ static void draw_world_debug_overlay(void)
     else
         Expanded_FormatDate(date,sizeof date,World_FirstYear()+
                             (unsigned)_currentSeasonShowing,
-                            (unsigned)_lastFinancialWeekIndex);
+                            (unsigned)Expanded_Career_NativeCalendarKey());
     snprintf(line,sizeof line,"DATE EST %s",date);
     DEBUG_LINE(line);
     if (unemployed) {
@@ -2746,6 +2782,13 @@ static void draw_world_debug_overlay(void)
                  (unsigned long)Expanded_MidseasonJoin_ForcedSimulations());
         DEBUG_LINE(line);
     }
+    snprintf(line,sizeof line,"JOIN STATUS %s FINAL %d TARGET %u",
+             Expanded_MidseasonJoin_Active()?"RUNNING":
+             Expanded_MidseasonJoin_LastResult()==1?"REACHED":
+             Expanded_MidseasonJoin_LastResult()==2?"ABORTED":"NOT STARTED",
+             Expanded_MidseasonJoin_LastKey(),
+             (unsigned)Expanded_MidseasonJoin_TargetPhase());
+    DEBUG_LINE(line);
     DEBUG_LINE("PILOT/NATIVE RESULTS NOT UNIFIED");
     DEBUG_LINE("WORLD SAVE NOT ACTIVE");
     snprintf(line,sizeof line,"1 WIN ALWAYS %s",
@@ -2958,6 +3001,7 @@ shots_done:
         CrtEffects_Apply(s_renderer);
     draw_approved_match_stats();
     draw_exit_confirmation();
+    draw_midseason_catchup_overlay();
     draw_world_debug_overlay();
     if (pump_full && s_debug_capture_request) {
         capture_debug_presented_png();

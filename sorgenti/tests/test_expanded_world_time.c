@@ -47,6 +47,23 @@ int main(void) {
     assert(!ExpandedWorld_AddDays(&c, -1));
     assert(!ExpandedWorld_AdvanceTo(&c, c.day_index - 1));
     assert(!ExpandedWorld_AddDays(&c, INT32_MAX));
+    /* Regression: UI showed THU 28 AUG 1997 for a 1996/97
+     * season with native sortKey 56 (mistakenly adding 56 weeks). */
+    assert(ExpandedWorld_NativePhaseToDate(1996,56,&back));
+    assert(back.year==1996 && back.month==8 && back.day==1);
+    assert(ExpandedWorld_NativePhaseToDate(1996,63,&back));
+    assert(back.year==1996 && back.month==8 && back.day==28);
+    assert(ExpandedWorld_NativePhaseToDate(1996,64,&back));
+    assert(back.year==1996 && back.month==9 && back.day==1);
+    assert(ExpandedWorld_NativePhaseToDate(1996,88,&back));
+    assert(back.year==1996 && back.month==12 && back.day==1);
+    assert(ExpandedWorld_NativePhaseToDate(1996,96,&back));
+    assert(back.year==1997 && back.month==1 && back.day==1);
+    assert(ExpandedWorld_NativePhaseToDate(1996,112,&back));
+    assert(back.year==1997 && back.month==3 && back.day==1);
+    assert(ExpandedWorld_NativePhaseToDate(2026,56,&back));
+    assert(back.year==2026 && back.month==8 && back.day==1);
+    assert(!ExpandedWorld_NativePhaseToDate(1996,56,NULL));
     puts("OK: calendar dates, season weeks, leap years, monotonic advances");
     return 0;
 }

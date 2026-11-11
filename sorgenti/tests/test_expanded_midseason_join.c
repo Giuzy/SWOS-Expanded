@@ -6,13 +6,15 @@ int main(void) {
     uint8_t week=99;
     assert(Expanded_MidseasonJoin_Cutoff(1996,0,&week) && week==0);
     assert(Expanded_MidseasonJoin_Cutoff(1996,4,&week) && week==0);
-    /* Native sortKey: January=0, March=16, August=56; yearly wrap +0x60. */
-    assert(Expanded_MidseasonJoin_Cutoff(1996,5,&week) && week==57);
-    assert(Expanded_MidseasonJoin_Cutoff(1996,10,&week) && week==66);
-    assert(Expanded_MidseasonJoin_Cutoff(1996,35,&week) && week==112);
-    assert(Expanded_MidseasonJoin_Cutoff(2026,35,&week) && week==112);
-    assert(Expanded_MidseasonJoin_Cutoff(1996,45,&week) && week==130);
-    assert(Expanded_MidseasonJoin_Cutoff(1996,51,&week) && week==141);
+    /* Stop at the first phase on/after signing; ceil fractional
+     * months to include all earlier fixtures, not just full past phases.
+     * Native sortKey: January=0, March=16, August=56; yearly +0x60. */
+    assert(Expanded_MidseasonJoin_Cutoff(1996,5,&week) && week==58);
+    assert(Expanded_MidseasonJoin_Cutoff(1996,10,&week) && week==67);
+    assert(Expanded_MidseasonJoin_Cutoff(1996,35,&week) && week==113);
+    assert(Expanded_MidseasonJoin_Cutoff(2026,35,&week) && week==113);
+    assert(Expanded_MidseasonJoin_Cutoff(1996,45,&week) && week==131);
+    assert(Expanded_MidseasonJoin_Cutoff(1996,51,&week) && week==142);
     assert(!Expanded_MidseasonJoin_Cutoff(1996,52,&week));
     assert(!Expanded_MidseasonJoin_Cutoff(1996,4000,&week));
     assert(!Expanded_MidseasonJoin_Cutoff(1996,10,NULL));

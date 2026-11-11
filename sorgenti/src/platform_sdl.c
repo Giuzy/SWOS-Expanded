@@ -2789,6 +2789,9 @@ static void draw_world_debug_overlay(void)
              Expanded_MidseasonJoin_LastKey(),
              (unsigned)Expanded_MidseasonJoin_TargetPhase());
     DEBUG_LINE(line);
+    snprintf(line,sizeof line,"LEAGUE MENUS COMPLETED %lu",
+             (unsigned long)Expanded_MidseasonJoin_LeagueExits());
+    DEBUG_LINE(line);
     DEBUG_LINE("PILOT/NATIVE RESULTS NOT UNIFIED");
     DEBUG_LINE("WORLD SAVE NOT ACTIVE");
     snprintf(line,sizeof line,"1 WIN ALWAYS %s",

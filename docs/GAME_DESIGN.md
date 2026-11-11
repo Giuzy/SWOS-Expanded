@@ -430,3 +430,32 @@ La preview pilota e la carriera nativa **non** sono ancora un unico
 registro risultati persistente; verifica Windows obbligatoria prima di
 considerare l'ingaggio funzionante. Versione per rollback:
 `f58818c29e607017e62e390c1804548d5c299ce6` (0.13.10).
+
+
+## 28. 0.13.12 — Risolto il blocco da menu lega chiuso (proposta di verifica Windows)
+
+**[BUG OSSERVATO, 11/11/2026]** Il recupero del calendario nativo nella 0.13.11
+si arrestava dopo una sola giornata simulata; F12 indicava `ABORTED FINAL -8`
+con target 87. La data e' ora coerente e non necessita altre modifiche.
+
+**[CAUSA INDIVIDUATA NEL CODICE]** Quando una giornata del campionato e'
+completata, `DIYLeagueTournament_UpdateMenuEntryVisibilityAndFocus`
+rende invisibili `NEXT MATCH`, `MATCH`, `RESULT`, `VIEW RESULT`,
+selezionando `EXIT` (callback `DIYLeagueTournamentExit`). Il recupero
+storico non tentava `EXIT` e chiamava immediatamente `finish(0,-8)`.
+Il golden career harness, invece, esegue l'uscita standard e ritorna al
+calendario, dove puo' raggiungere la giornata successiva.
+
+**[MODIFICA]** Dopo aver privilegiato le azioni native di partita/risultato,
+il catch-up sceglie il callback originale `DIYLeagueTournamentExit`
+quando non trova una partita ancora eseguibile. Il callback originale
+ripristina il flusso verso `Career_NextMatch`, senza patch manuali dei
+cursori, dei punti o delle classifiche. `-8` resta un arresto diagnostico
+solo se non e' disponibile nemmeno EXIT. F12 include il numero di
+`LEAGUE MENUS COMPLETED`; log stderr con indice, fase e target.
+
+**[STATO]** Cambio funzionale implementato nel codice, non collaudato Windows.
+Da verificare: la simulazione progressiva fino alla prima partita non
+precedente alla firma, coerenza classifica e input normale una volta
+terminato il catch-up. Pilot e competizioni native sono ancora due
+fonti indipendenti e non sono state unificate.

@@ -1,5 +1,5 @@
 /*
- * 0.13.11 — advance native fixture phases through hire date and mask live tables.
+ * 0.13.12 — exit finished native fixture screens and resume chronological catch-up.
  *
  * The prehire pilot is an independent round-robin, so its fixture index is
  * NOT interchangeable with the original SWOS league/cup calendar. We do not
@@ -69,6 +69,7 @@ extern void DIYCupInit(void);
 extern void PlayMatchMenuInit(void);
 extern void NextMatch(MenuEntry *);
 extern void DIYLeagueTournamentNextMatch(void);
+extern void DIYLeagueTournamentExit(void);
 extern void DIYLeagueTournamentMatch(MenuEntry *);
 extern void DIYCupOnSelect1(void);
 extern void DIYCupOnSelect3(MenuEntry *);
@@ -83,9 +84,11 @@ extern MenuEntry *CalcMenuEntryAddress(uint16_t ordinal);
 
 static uint8_t s_active,s_old_controls,s_target_key;
 static uint32_t s_passes,s_elapsed_weeks,s_actions,s_forced_simulations;
+static uint32_t s_league_exits;
 static int s_last_result,s_last_key;
 
 uint32_t Expanded_MidseasonJoin_Actions(void) { return s_actions; }
+uint32_t Expanded_MidseasonJoin_LeagueExits(void) { return s_league_exits; }
 uint32_t Expanded_MidseasonJoin_ForcedSimulations(void) { return s_forced_simulations; }
 void Expanded_MidseasonJoin_RecordForcedSimulation(void) {
     if (s_active) ++s_forced_simulations;
@@ -137,11 +140,12 @@ static void finish(int reached,int key) {
     _fire=0;
     _pl1Fire=0;
     fprintf(stderr,"[midseason] %s: target_key=%u final_key=%d "
-                   "elapsed_july_weeks=%lu menu_passes=%lu actions=%lu forced_sims=%lu\n",
+                   "elapsed_july_weeks=%lu menu_passes=%lu actions=%lu forced_sims=%lu league_exits=%lu\n",
             reached?"native next-fixture calendar reached":"catch-up aborted",
             (unsigned)s_target_key,key,
             (unsigned long)s_elapsed_weeks,(unsigned long)s_passes,
-            (unsigned long)s_actions,(unsigned long)s_forced_simulations);
+            (unsigned long)s_actions,(unsigned long)s_forced_simulations,
+            (unsigned long)s_league_exits);
     fflush(stderr);
 }
 
@@ -212,7 +216,7 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     s_elapsed_weeks=elapsed;
     s_target_key=cutoff;
     s_old_controls=_careerTeam.team.teamControls;
-    s_passes=s_actions=s_forced_simulations=0;
+    s_passes=s_actions=s_forced_simulations=s_league_exits=0;
     s_active=1;
     /* Keep the offered club HUMAN for fixture selection: making every team
      * AI here can cause the native "until human fixture" loops to consume
@@ -296,7 +300,31 @@ void Expanded_MidseasonJoin_Tick(void) {
                 ++s_actions;
                 return;
             }
-        finish(0,-8);return;
+        /* Once the native league round is fully simulated, the engine
+         * hides NEXT MATCH, MATCH and RESULT and leaves only EXIT.
+         * This is normal: the golden career harness exits this menu
+         * before Career_NextMatch advances the key-cache cursor.
+         * The old driver aborted (-8) at precisely this transition.
+         * Use the real callback, never modify the result/fixture cursor
+         * directly or press EXIT before attempting playable actions. */
+        if (choose_action((MenuEntryFn)DIYLeagueTournamentExit)) {
+            fprintf(stderr,
+                    "[midseason] league round complete: EXIT -> native career calendar "
+                    "index=%u/%u phase=%u target=%u\n",
+                    (unsigned)_teamSelectionKeyCacheIndex,
+                    (unsigned)_teamSelectionKeyCacheCount,
+                    (unsigned)Expanded_Career_NativeCalendarKey(),
+                    (unsigned)s_target_key);
+            _shortFire=1;
+            ++s_actions;
+            ++s_league_exits;
+            return;
+        }
+        fprintf(stderr,
+                "[midseason] no league action (including EXIT): phase=%u target=%u\n",
+                (unsigned)Expanded_Career_NativeCalendarKey(),
+                (unsigned)s_target_key);
+        finish(0,-8); return;
     }
     if(m->onInit==DIYCupInit) {
         /* Cup menus distinguish PLAY MATCH and VIEW RESULT just like
@@ -340,6 +368,7 @@ uint8_t Expanded_MidseasonJoin_TargetPhase(void) {return 0;}
 extern uint8_t _lastFinancialWeekIndex;
 uint8_t Expanded_Career_NativeCalendarKey(void) {return _lastFinancialWeekIndex;}
 uint32_t Expanded_MidseasonJoin_Actions(void) {return 0;}
+uint32_t Expanded_MidseasonJoin_LeagueExits(void) {return 0;}
 uint32_t Expanded_MidseasonJoin_ForcedSimulations(void) {return 0;}
 void Expanded_MidseasonJoin_RecordForcedSimulation(void) {}
 void Expanded_MidseasonJoin_Begin(uint32_t weeks) {(void)weeks;}

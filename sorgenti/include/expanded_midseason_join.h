@@ -21,6 +21,8 @@ void Expanded_MidseasonJoin_Tick(void);
 /* Per-join diagnostics: actions fired and historical PLAY actions
  * redirected to genuine native CPU match simulation. */
 uint32_t Expanded_MidseasonJoin_Actions(void);
+/* Number of completed native league screens exited during historical catch-up. */
+uint32_t Expanded_MidseasonJoin_LeagueExits(void);
 uint32_t Expanded_MidseasonJoin_ForcedSimulations(void);
 void Expanded_MidseasonJoin_RecordForcedSimulation(void);
 

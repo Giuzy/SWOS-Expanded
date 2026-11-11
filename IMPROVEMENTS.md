@@ -409,3 +409,9 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [CODICE] Driver: NEXT MATCH prioritario su VIEW RESULT; blocco input dell'utente durante recupero; overlay temporaneo che copre le classifiche mentre vengono simulate. F12 mostra esito dell'ultima esecuzione.
 - [TEST] Controllati indipendentemente 94 casi nel calcolo delle fasi 1996/2026; test unitari C aggiornati ma non compilati, build/test Windows ancora da effettuare.
 - [PENDENTE] Resta la divergenza fra risultati preview/pilota e risultati nativi; nessuna fusione di calendari o serializzazione mondo implementata.
+
+
+### 0.13.12 — avanzamento nativo dopo menu lega completato (11/11/2026)
+- [CODICE] Aggiunta la transizione automatica `DIYLeagueTournamentExit` quando nella schermata lega non sono disponibili NEXT MATCH/MATCH/RESULT/VIEW RESULT. Il driver precedente abortiva -8 dopo la giornata per assenza di callback, lasciando data e stagione incomplete.
+- [DEBUG] Contatore F12 `LEAGUE MENUS COMPLETED` e log del ritorno al calendario per distinguere progressi reali da cicli nel menu. Interrotto ancora con -8 se non e' visibile neppure EXIT.
+- [LIMITI] Solo controllo statico degli handler attivi, nessuna build Windows/test runtime; la preview del Living World Engine rimane separata dalla competizione nativa. Data, formule e renderer della 0.13.11 non modificati.

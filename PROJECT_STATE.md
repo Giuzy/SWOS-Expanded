@@ -601,3 +601,25 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 **[ARCHITETTURA FUTURA — PROPOSTA, NON APPROVATA/IMPLEMENTATA]** Per 8 leghe per paese, coppe e decine di anni, i risultati di ogni singola gara storica e i calciatori di tutto il pianeta non possono crescere senza controllo. Conservare dati statici in un world-pack versionato, con identità stabili; memorizzare nei salvataggi solo delta persistenti/eventi essenziali, archivi stagionali compatti e stato completo delle aree rilevanti. Generazione deterministica per il mondo distante quando non cambia fatti già registrati. Rotazione dei calendari delle stagioni passate e limiti di memoria espliciti, senza perdere titoli, risultati aggregati, storico manager e transazioni. Ogni migrazione/archivio va progettato e approvato separatamente: non introdotto in questa build.
 
 **[BUILD E TEST]** GitHub aggiornabile con commit autorizzato, ma non è stato possibile eseguire la toolchain MSYS2/MinGW64, né compilare SWOS_Expanded.exe su questo ambiente: il repository non è montato localmente e la rete della shell non raggiunge GitHub. Verifiche statiche sui nomi dei simboli/collegamenti e simulazione della compressione con dati sintetici eseguite; test effettivi di serializzazione C, compilatione e caricamento su Windows ancora pendenti. Test statistici estesi rimandati alla fine del ciclo dell'engine su richiesta dell'utente.
+
+
+### 0.13.20 — autosave e struttura portabile Windows
+**CODICE:** `save/AUTOSAVE.CAR` diventa unico checkpoint di carriera
+nella cartella dell'EXE, tramite writer .CAR/schema 5 e file temporaneo
+sostituito atomicamente dopo flush riuscito. Il Title verifica il file
+su disco e CONTINUE CAREER lo carica dopo un vero riavvio. Checkpoint
+alla prima firma, dopo incontri/simulazioni e uscite sicure da menu,
+a fine catch-up e al cambio stagione; finale carriera rimuove lo slot.
+`SWOS.ini`/`SWOS.log` su Windows nella cartella del gioco; nessun
+nuovo file in Documents. Pulizia legacy come script manuale solo dopo
+test di lettura; EXE non cancella file condivisi con OpenSWOS originale.
+
+**LIMITI:** niente save in partita 50 Hz, ripresa esatta da crash/
+anti-save-scum di match NON implementata. Comando dedicato ABANDON
+CAREER con conferma non ancora presente, EXIT GAME conserva save.
+Lo schema mondiale delta-only rimane progettazione futura: la 0.13.20
+usa ancora ledger pilot compresso, senza duplicare database nuovi.
+
+**TEST:** controlli statici codice e riferimenti di GitHub. Compilazione
+MSYS2/MinGW64, test EXE Windows e round-trip save/load su PC utente
+non eseguiti dall'assistente. Non dichiarare build Windows collaudata.

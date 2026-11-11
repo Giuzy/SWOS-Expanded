@@ -41,7 +41,7 @@ exit /b 0
 :errore_avvio
 echo.
 echo ERRORE: impossibile avviare SWOS_Expanded.exe.
-echo Controlla SWOS.log nella cartella Documenti\SWOS.
+echo Controlla SWOS.log nella stessa cartella di AVVIA_SWOS.bat.
 pause
 exit /b 1
 

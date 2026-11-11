@@ -148,6 +148,10 @@ static void finish(int reached,int key) {
             (unsigned long)s_actions,(unsigned long)s_forced_simulations,
             (unsigned long)s_league_exits);
     fflush(stderr);
+    if (reached && _gameType==4) {
+        extern void Expanded_AutoCareer_Save(const char *);
+        Expanded_AutoCareer_Save("native-join-complete");
+    }
 }
 
 void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {

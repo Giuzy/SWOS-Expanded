@@ -16,6 +16,8 @@
  * m68k build has no idea about — and there is no SWOS.ini on the Amiga. */
 #include "swos_settings.h"
 #include "expanded_title_layout.h"
+#include "swos_io.h"
+#include "save_format_json.h"
 #endif
 #include "translations.h"
 #include "comp_identity.h"
@@ -56,6 +58,12 @@ extern void Expanded_SetAgeText(void);
 #define MENU_CTRL_DOWN 0x200
 static void Expanded_UpdateFameText(void);
 void CareerMenuFinish(void);
+#ifdef SWOS_SDL_BUILD
+int Expanded_AutoCareer_HasSave(void);
+void Expanded_AutoCareer_Save(const char *reason);
+int Expanded_AutoCareer_Load(void);
+void Expanded_AutoCareer_Delete(void);
+#endif
 
 /* ---- Constants ---- */
 #define GAME_TYPE_NO_GAME 0
@@ -2648,6 +2656,11 @@ void CommonMenuExit(void)
 
     /* Back at the main menu: whatever was online is over (include/test_rules.h). */
     TestRules_Online(0);
+#ifdef SWOS_SDL_BUILD
+    /* Common return path also covers the first career entered with
+     * ActivateMenu(), not just a later StartContest() from the Title. */
+    Expanded_AutoCareer_Save("menu-exit");
+#endif
     /* Hall of Fame now occupies the old Disk Filing slot (entry 5).
      * Keep the former Expanded hall entry 16 in the packed layout for
      * ordinal stability, but never draw or navigate to its duplicate. */
@@ -2732,7 +2745,7 @@ static int s_title_mouse_seen;
 int Expanded_TitleMenu_Level(void) { return s_title_level; }
 int Expanded_TitleMenu_Selected(void) { return s_title_selected; }
 int Expanded_TitleMenu_Pressing(void) { return s_title_press; }
-int Expanded_TitleMenu_CareerActive(void) { return _gameType==GAME_TYPE_CAREER; }
+int Expanded_TitleMenu_CareerActive(void) { return _gameType==GAME_TYPE_CAREER || Expanded_AutoCareer_HasSave(); }
 int Expanded_TitleMenu_ClassicHasContest(void) {
     return _gameType==GAME_TYPE_DIY_COMPETITION ||
            _gameType==GAME_TYPE_PRESET_COMPETITION ||
@@ -2764,8 +2777,12 @@ static void Expanded_TitleMenu_Dispatch(int level,int index)
     if(level==0) {
         switch(index) {
         case 0:
-            if(_gameType==GAME_TYPE_CAREER) StartContest();
-            else CareerMenu();
+            if (_gameType==GAME_TYPE_CAREER) StartContest();
+            else if (Expanded_AutoCareer_HasSave()) {
+                if (Expanded_AutoCareer_Load()) StartContest();
+                /* A corrupt/incompatible file stays on disk for recovery.
+                 * The next click can start a new career, not retry forever. */
+            } else CareerMenu();
             break;
         case 1: Expanded_ShowHall(); break;
         case 2: s_title_level=1; s_title_selected=0; break;
@@ -3826,6 +3843,11 @@ void PlayMatchMenu(MenuEntry *callerEntry)
             if(_gameType==GAME_TYPE_CAREER) Expanded_BusinessMaybeOffer(); }
       }
     }
+    /* Once the OG points, wages, cards and transfers have settled the
+     * checkpoint is consistent. Never save in the 50 Hz match loop. */
+#ifdef SWOS_SDL_BUILD
+    Expanded_AutoCareer_Save("post-match");
+#endif
     /* ContestMenuOnReturn_NoOp() — no-op, skip */
 
     if (_careerFinished != 0 || _seasonFinished != 0) {
@@ -3870,6 +3892,11 @@ void NextMatch(MenuEntry *callerEntry)
             if(_gameType==GAME_TYPE_CAREER) Expanded_BusinessMaybeOffer(); }
       }
     }
+    /* Once the OG points, wages, cards and transfers have settled the
+     * checkpoint is consistent. Never save in the 50 Hz match loop. */
+#ifdef SWOS_SDL_BUILD
+    Expanded_AutoCareer_Save("post-match");
+#endif
     /* ContestMenuOnReturn_NoOp() — no-op, skip */
 
     if (_careerFinished != 0 || _seasonFinished != 0) {
@@ -4007,6 +4034,66 @@ extern void ShowInsertDisk2Dialog(uint8_t *header);
 extern int16_t SaveDIYFile(uint8_t *filename);
 extern int16_t SavePresetCompetitionFile(uint8_t *filename);
 extern int16_t SaveCareerFile(uint8_t *filename);
+extern int16_t LoadCareerFile(uint8_t *filename);
+#ifdef SWOS_SDL_BUILD
+/* A SINGLE portable autosave slot. File existence is cached so the 50 Hz
+ * Title renderer never probes the disk every frame. The save itself uses
+ * swos_io_save_atomic in the JSON writer, retaining the previous checkpoint
+ * on power loss or write failure. */
+static uint8_t s_auto_career_name[]="AUTOSAVE.CAR";
+static int s_auto_career_available=-1;
+int Expanded_AutoCareer_HasSave(void) {
+    if (s_auto_career_available<0)
+        s_auto_career_available =
+            (SaveJson_FileIsJson(s_auto_career_name)==1) ? 1 : 0;
+    return s_auto_career_available;
+}
+void Expanded_AutoCareer_Save(const char *reason) {
+    /* Never record a half-updated native match, a headless catch-up
+     * step, or a fresh game with no completed InitCareer. */
+    extern int Expanded_MidseasonJoin_Active(void);
+    if (_gameType!=GAME_TYPE_CAREER || _careerAutoAdvanceInProgress ||
+        _seasonUpdateInProgress || Expanded_MidseasonJoin_Active())
+        return;
+    if (SaveCareerFile(s_auto_career_name)!=0) {
+        fprintf(stderr,"[autosave] FAILED at %s; earlier checkpoint retained\n",
+                reason?reason:"unknown");
+        return;
+    }
+    s_auto_career_available=1;
+    fprintf(stderr,"[autosave] saved %s/AUTOSAVE.CAR at %s\n",
+            swos_save_dir(),reason?reason:"checkpoint");
+}
+int Expanded_AutoCareer_Load(void) {
+    if (!Expanded_AutoCareer_HasSave()) return 0;
+    if (LoadCareerFile(s_auto_career_name)!=0) {
+        /* Keep the file for recovery; stop presenting a broken CONTINUE. */
+        s_auto_career_available=0;
+        fprintf(stderr,"[autosave] load failed; file left untouched\n");
+        return 0;
+    }
+    if (_gameType!=GAME_TYPE_CAREER) {
+        s_auto_career_available=0;
+        fprintf(stderr,"[autosave] loaded save is not a career\n");
+        return 0;
+    }
+    /* Native load handler rebuilt all pointer/competition state. */
+    snprintf((char *)_competitionFilename,14,"%s",s_auto_career_name);
+    fprintf(stderr,"[autosave] restored career from %s/AUTOSAVE.CAR\n",
+            swos_save_dir());
+    return 1;
+}
+void Expanded_AutoCareer_Delete(void) {
+    /* Only at an explicit irrevocable end, NEVER EXIT GAME or back to Title. */
+    char path[1200];
+    snprintf(path,sizeof path,"%s/AUTOSAVE.CAR",swos_save_dir());
+    if (remove(path)==0 || !Expanded_AutoCareer_HasSave()) {
+        s_auto_career_available=0;
+        fprintf(stderr,"[autosave] completed career slot removed\n");
+    } else
+        fprintf(stderr,"[autosave] cannot remove retired slot %s\n",path);
+}
+#endif
 extern int16_t LoadDIYFile(uint8_t *filename);
 extern int16_t LoadPresetFile(uint8_t *filename);
 extern int16_t LoadCareerFile(uint8_t *filename);

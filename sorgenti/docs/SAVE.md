@@ -1,34 +1,71 @@
+# Save Data — SWOS Expanded
+
+## Windows portable mode — build 0.13.20
+
+Windows SWOS Expanded stores everything beside `SWOS_Expanded.exe`:
+`save/AUTOSAVE.CAR`, other `save/*.CAR`, `save/*.SRP`, tactics/edits/highlights,
+`SWOS.ini` and `SWOS.log`. The EXE has already anchored cwd to its directory
+before I/O starts. Use a **writable** folder (not Program Files).
+If `save/` cannot be created/written, the game reports an error; it never
+silently changes to Documents or AppData.
+
+The native OpenSWOS legacy location (`%USERPROFILE%\Documents\SWOS\save`)
+may also be used by another installation. The game does not automatically
+remove any data there. After a successful portable save/load test, the user
+may explicitly run `PULISCI_VECCHI_SAVE_DOCUMENTI.bat`, read the warning,
+and type ELIMINA to delete only supported legacy save extensions there.
+GitHub commits cannot remove files from the user's computer.
+
+## Automatic career slot
+
+`save/AUTOSAVE.CAR` uses the existing JSON .CAR schema 5 and Living World
+snapshot. A normal save writes a temporary file in the same folder, flushes
+it, and atomically replaces the old slot. The Title checks for the slot and
+loads it when CONTINUE CAREER is chosen, including after a new process starts.
+Checkpoints occur after first job, completed career matches/simulations,
+safe career-menu exits, native midseason catch-up, and new season.
+**EXIT GAME preserves the slot.** Final retirement deletes it. Explicit
+"ABANDON CAREER" with confirmation needs a future UI implementation.
+An unfinished live OG match is NOT saved mid-tick: if the program quits or
+crashes during a manual match, the last stable checkpoint can be reloaded,
+and that fixture can be retried. True anti-save-scum/in-match resume is
+pending a compatible original-engine match-state serializer.
+
+No new DLL or compiler, and no changes to match physics. Static database
+files remain installed in data/ rather than copied into each career save.
+Minimum delta-only world saves are an approved final target, NOT done in this
+build. Windows compiler/runtime validation is pending.
+
+---
+
 # Save Data
 
 Where SWOS stores your saves, what it stores, and how the path is chosen.
 
 ## Where saves live
 
-Saves go to the platform's **per-user data location** — never inside the app
-bundle or install directory. Those install locations are often read-only
-(macOS Gatekeeper "App Translocation" for a downloaded `.app`, `/Applications`,
-`C:\Program Files`, a mounted `.dmg`), and even when writable, writing there is
-wrong: saves would be lost on reinstall and can break a signed bundle.
+Windows Expanded intentionally uses a **portable game directory**.
+For other native platforms, SWOS still uses **per-user data locations** to
+avoid writing inside read-only signed app bundles. A Windows portable install
+must not be placed inside `C:\Program Files` or another protected folder.
 
 | Platform | Save directory |
 |----------|----------------|
-| **Windows** | `%USERPROFILE%\Documents\SWOS\save` (e.g. `C:\Users\Alice\Documents\SWOS\save`) |
+| **Windows Expanded** | `<directory containing SWOS_Expanded.exe>/save` |
 | **macOS** | `~/Library/Application Support/SWOS/save` |
 | **Linux** | `~/.swos/save` |
 | **Web (WASM)** | Browser IndexedDB, mounted at `/save` (see `wasm/pre.js`) |
 
-`SWOS.ini` sits in the parent of that folder (e.g. `Documents\SWOS\SWOS.ini`,
-`swos_ini_path()`); the Switch uses the flat `save:/` mount for both.
+`SWOS.ini` sits in the parent of the save folder (`./SWOS.ini` on portable Windows; `swos_ini_path()`); the Switch uses the flat `save:/` mount for both.
 
-The directory is created automatically on first launch (including any missing
-parent folders). If the per-user location can't be determined or created, SWOS
-falls back to a relative `save/` folder next to the binary — this keeps a
-developer/CLI run working from the game directory, but a normally-installed
-build always uses the per-user path above.
+The directory is created automatically on first launch. On portable Windows
+the directory is always `./save/` next to the executable; write errors
+are reported rather than moving data elsewhere. Other native platforms
+can fall back to a relative directory if their user folder is unavailable.
 
 ### Finding your saves
 
-- **Windows** — open `Documents\SWOS\save`.
+- **Windows Expanded** — open the `save` folder next to `SWOS_Expanded.exe`.
 - **macOS** — Finder → **Go → Go to Folder…** → paste
   `~/Library/Application Support/SWOS/save`.
 - **Linux** — `~/.swos/save` (a dotfolder; `ls -a ~` or show hidden files).
@@ -55,10 +92,10 @@ save directory:
 - **Career saves (`.CAR`/`.SEA`/`.PRE`/`.DIY`) are JSON** (`src/save_format_json.c`),
   carrying a `schema_version`. This decouples the on-disk format from the runtime
   memory layout, so a save survives rebuilds and 32↔64-bit / LE↔BE.
-- The loader **verifies `schema_version` and hard-rejects a mismatch** — the UI
-  shows *"FILE SAVED BY DIFFERENT S.W.O.S. VERSION"*. During bring-up there is
-  **no cross-version migration**: bumping the schema makes older saves
-  unloadable by design. Start a fresh career after a schema change.
+- The loader verifies `schema_version`: build 0.13.20 writes schema 5
+  and can read previous schemas 3/4. Unsupported schemas are rejected
+  with the normal incompatible-save error. Older schema 3 careers
+  cannot reconstruct a world ledger that was never stored.
 - The small fixed-layout records keep their binary form: `.EDT` is binary;
   `.TAC` and `.HIL` are *written* as JSON by default (binary with
   `make SWOS_SAVE_FORMAT_JSON=0`) and *read* in either form, auto-detected — see
@@ -66,9 +103,9 @@ save directory:
 
 ## No bundled default saves
 
-A fresh install ships with an **empty save directory** — no default career or
-tactics files. Start a new career (or create tactics in the editor) and it's
-saved to the per-user location above.
+A fresh install ships with an **empty save directory** — no default career
+or tactics files. On Windows Expanded, the first accepted contract creates
+a portable `save/AUTOSAVE.CAR` checkpoint.
 
 ## Implementation
 

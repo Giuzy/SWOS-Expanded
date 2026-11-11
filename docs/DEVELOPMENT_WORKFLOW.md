@@ -216,3 +216,16 @@ La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo ver
 5. **Dopo la firma, gioca una partita reale**; verifica menu → match → menu, F12/F9 come 0.13.05, joypad e mouse. Salva una **carriera di prova**, ricaricala e verifica stato nativo della lega e prossima partita. Prova una coppa soltanto dopo che il caso campionato funziona.
 6. **Limiti:** oltre 52 settimane dall'inizio del primo anno il catch-up non parte; world pilot non è persistito e il confronto pre-/post-firma è ancora solo diagnostico. Se il log non mostra lo stop, fermati e segnala l'ultima schermata.
 7. Test isolato per cutoff: `bash sorgenti/tests/run_test_expanded_midseason_join.sh`; non sostituisce test dell'engine nativo. Nessuna modifica ad asset finali o debug F12.
+
+
+### Smoke test 0.13.20 — non sostituisce test Windows
+1. Pull e compila dev/0.10. Controlla Build 0.13.20.
+2. Firma un contratto, cerca `save/AUTOSAVE.CAR` accanto all'EXE.
+3. Simula/gioca una gara, chiudi e riavvia DIRETTAMENTE l'EXE.
+   CONTINUE CAREER deve comparire e caricare settimana, club,
+   risultati e classifica esatti. Salva nuovamente dopo altro match.
+4. Controlla `SWOS.ini` e `SWOS.log` accanto all'EXE.
+   Non aspettarti di riprendere un match interrotto a metà.
+5. Solo dopo test positivo, esegui volontariamente
+   `PULISCI_VECCHI_SAVE_DOCUMENTI.bat` per i vecchi file; non
+   cancellarli prima di aver verificato il caricamento del nuovo slot.

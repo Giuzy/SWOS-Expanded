@@ -310,6 +310,11 @@ void ChooseTeamAndStartCareer(void)
         extern void Expanded_MidseasonJoin_Begin(uint32_t weeks);
         extern unsigned Expanded_DebugUnemployedWeeks(void);
         Expanded_MidseasonJoin_Begin(Expanded_DebugUnemployedWeeks());
+#ifdef SWOS_SDL_BUILD
+        /* Historical catch-up saves only after it finishes. */
+        { extern void Expanded_AutoCareer_Save(const char *);
+          Expanded_AutoCareer_Save("first-contract"); }
+#endif
         fprintf(stderr,"[expanded11] InitCareer: completed team=%04x\n",(unsigned)offerTeam);
         fflush(stderr);
     } else {
@@ -324,6 +329,10 @@ void ChooseTeamAndStartCareer(void)
             return;
         }
         InitCareer(_selectedTeamCountryNumber);
+#ifdef SWOS_SDL_BUILD
+        { extern void Expanded_AutoCareer_Save(const char *);
+          Expanded_AutoCareer_Save("first-contract"); }
+#endif
     }
     ActivateMenu(_contestMenu);
 }
@@ -335,6 +344,10 @@ void LoadLiverpool(void)
 {
     _coachOrPlayer = 1;
     InitCareer(0x811);
+#ifdef SWOS_SDL_BUILD
+    { extern void Expanded_AutoCareer_Save(const char *);
+      Expanded_AutoCareer_Save("debug-new-career"); }
+#endif
     ActivateMenu(_contestMenu);
 }
 
@@ -359,6 +372,10 @@ void ContinueCareer(void)
         Expanded_RecordRetirement();
         ShowRetirementMessage();
         InitCareerVariables(0);
+#ifdef SWOS_SDL_BUILD
+        { extern void Expanded_AutoCareer_Delete(void);
+          Expanded_AutoCareer_Delete(); }
+#endif
         SetExitMenuFlag();
         return;
     }
@@ -366,9 +383,17 @@ void ContinueCareer(void)
         Expanded_RecordRetirement();
         ShowRetirementMessage();
         InitCareerVariables(0);
+#ifdef SWOS_SDL_BUILD
+        { extern void Expanded_AutoCareer_Delete(void);
+          Expanded_AutoCareer_Delete(); }
+#endif
         SetExitMenuFlag();
     } else {
         ContinueCareerNextSeason();
+#ifdef SWOS_SDL_BUILD
+        { extern void Expanded_AutoCareer_Save(const char *);
+          Expanded_AutoCareer_Save("new-season"); }
+#endif
         ActivateMenu(_contestMenu);
     }
 }

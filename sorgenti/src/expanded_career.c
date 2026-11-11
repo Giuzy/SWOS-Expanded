@@ -864,6 +864,10 @@ int Expanded_HandleSackingAfterMatch(void) {
         Expanded_CommitNegotiatedSalary();
         extern void Expanded_MidseasonJoin_Begin(uint32_t weeks);
         Expanded_MidseasonJoin_Begin(s_waitWeeks);
+#ifdef SWOS_SDL_BUILD
+        { extern void Expanded_AutoCareer_Save(const char *);
+          Expanded_AutoCareer_Save("new-contract"); }
+#endif
         ActivateMenu(_contestMenu);
     } else {
         /* The user backed out of the unemployed screen: do not reopen the

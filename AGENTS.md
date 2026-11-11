@@ -434,3 +434,29 @@ arbitrarie in presenza di contraddizioni: l'utente continua a decidere.
 Per il Living World Engine, mantenere il sistema di competizioni e le
 tabelle calendario originali OpenSWOS come base, ampliandoli con un
 registro mondiale condiviso, non sostituendoli con un motore parallelo.
+
+
+## Regola — SWOS Expanded portable e salvataggi minimi (11 novembre 2026)
+- Solo su Windows: **tutti** i dati scritti dal gioco nella cartella
+  di SWOS_Expanded.exe: `save/` per .CAR, replay, tattiche e simili;
+  `SWOS.ini` e `SWOS.log` accanto all'EXE. Non usare né ripiegare su
+  Documenti/AppData. Installare in cartella scrivibile, errore visibile se
+  impossibile scrivere. Non cambiare i target non-Windows.
+- Savefile finale **il più piccolo possibile**: conservare soltanto delta,
+  identificativi stabili, versioni dei data pack, semi deterministici
+  e fatti persistenti irripetibili. Non duplicare database installati
+  (`data/`, JSON/pack). Un download iniziale da 1,5 GB è accettabile.
+  Questa è architettura APPROVATA, non interamente implementata.
+- Un solo `save/AUTOSAVE.CAR` duraturo, sostituzione atomica a checkpoint
+  sicuri e ripristino dopo chiusura/restart. EXIT GAME e ritorno al Title
+  non cancellano. Ritiro definitivo elimina lo slot; abbandono volontario
+  andrà offerto come azione DISTINTA e confermata.
+- Per impedire di rigiocare un match serve il ripristino esatto dello
+  stato live del motore OpenSWOS 50 Hz. Non salvare un mezzo stato né
+  assegnare sconfitte arbitrarie per crash. Segnalare anti-save-scum
+  durante il match come ANCORA DA IMPLEMENTARE.
+- I vecchi save `Documents\SWOS\save` sono in cartella condivisa con
+  OpenSWOS: l'utente ha autorizzato la cancellazione, ma MAI farla
+  automaticamente dentro EXE/BAT avvio. Consentire una pulizia manuale
+  delimitata a quelle estensioni, dopo conferma esplicita e test del
+  nuovo autosave.

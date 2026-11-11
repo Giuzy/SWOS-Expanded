@@ -1,7 +1,11 @@
 param([switch]$Release)
 $ErrorActionPreference = 'Stop'
-$dir = Join-Path ([Environment]::GetFolderPath('MyDocuments')) 'SWOS'
-New-Item -ItemType Directory -Force -Path $dir | Out-Null
+# Portable Expanded: keep the edited INI beside this script and EXE.
+# No writes to Documents, AppData, or unrelated OpenSWOS installations.
+$dir = $PSScriptRoot
+if ([string]::IsNullOrWhiteSpace($dir)) {
+  throw 'Impossibile identificare la cartella del gioco'
+}
 $path = Join-Path $dir 'SWOS.ini'
 if (Test-Path $path) {
   $backup = Join-Path $dir 'SWOS.ini.prima_di_Expanded_4K.bak'

@@ -408,7 +408,7 @@ int main(int argc, char **argv)
     /* Anchor CWD to the binary's directory FIRST so the data/ grafs/ sound/
      * trees resolve relative to the exe regardless of where the user launched
      * from. (SWOS.ini and SWOS.log no longer live here — they go to the per-user
-     * game folder; see swos_save_dir_init() + the freopen below.)
+     * game folder; on Windows Expanded, ./SWOS.ini and ./save are HERE.)
      * WASM: there is no binary dir — the data is --preload-file'd into MEMFS at
      * /data, /grafs, … and cwd is already "/", so skip the chdir.
      * Switch: the content is a read-only mount at rom:/ and there is no chdir
@@ -417,7 +417,8 @@ int main(int argc, char **argv)
     chdir_to_binary(argv ? argv[0] : NULL);
 #endif
 
-    /* Resolve the per-user game folder + save dir NOW, before Settings_Load, so
+    /* Resolve the portable Windows game folder + save dir (else per-user)
+     * NOW, before Settings_Load, so
      * SWOS.ini reads/writes from the same per-user location as the save/ folder
      * (~/.swos, Documents/SWOS, ~/Library/Application Support/SWOS). Creates the
      * folder if missing; if it can't be resolved, falls back to the exe dir.
@@ -1175,10 +1176,11 @@ int main(int argc, char **argv)
         }
     }
 
-    /* Redirect stderr to SWOS.log in the per-user game folder (beside SWOS.ini
+    /* Redirect stderr to SWOS.log in the chosen game folder (beside SWOS.ini
      * and save/ — swos_user_dir(), resolved above). Saves the tester from having
      * to remember `2> SWOS.log`, and keeps the log out of a possibly read-only
-     * install dir. Works the same from gdb, Explorer, or a terminal. Disable by
+     * install dir (on Windows Expanded, install in a writable portable folder).
+     * Works the same from gdb, Explorer, or a terminal. Disable by
      * setting SWOS_NO_LOG=1 to send stderr back to the console. Unbuffered so
      * lines flush immediately and we don't lose context on a crash. */
 #ifdef SWOS_SWITCH_BUILD

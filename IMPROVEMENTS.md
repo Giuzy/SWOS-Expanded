@@ -470,3 +470,15 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [DIMENSIONI] Su dati sintetici, 8.384 fixture 276 KB -> 96 KB; 40.000 fixture 1,32 MB -> 0,46 MB. Non sono misure della build Windows e non includono gli altri dati della carriera.
 - [PIANO] Per il motore globale finale serviranno archivi/delta ed eventualmente pack dati statici, ma non è stato cambiato l'assetto architetturale in questa build.
 - [TEST] Nessuna compilazione MinGW64 o esecuzione Windows completata dall'assistente, richiede pull/compilazione in GitKraken/MSYS2; strumenti statistici rinviati alla fine dell'engine.
+
+
+### 0.13.20 — portable autosave
+- [CODE] Slot `save/AUTOSAVE.CAR` automatico: firma, fine incontro,
+  ritorno sicuro ai menu, catch-up e stagione; CONTINUE dopo riavvio.
+- [IO] Salvataggio .CAR tramite .tmp + sostituzione atomica; vecchio
+  checkpoint valido preservato se una scrittura fallisce.
+- [WINDOWS] save, config e log nella cartella dell'EXE; script separato
+  confermato per ripulire i vecchi save condivisi in Documents.
+- [LIMITI] Match live 50 Hz non salvato/ripristinato: anti-save-scum
+  intrapartita ancora incompleto; niente forza-esito a crash.
+- [TEST] Source review; build MinGW64 e Windows runtime pendenti.

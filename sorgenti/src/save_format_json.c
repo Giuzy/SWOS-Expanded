@@ -6588,7 +6588,16 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
         return 1;
     }
 
-    int16_t result = WriteFile(filename, (uint8_t *)out.ptr, (uint32_t)out.len);
+    /* The one automatic career slot must be replaced atomically.
+     * Keep standard OpenSWOS behaviour for user-selected .CAR filenames. */
+    int16_t result;
+#ifdef SWOS_SDL_BUILD
+    if (strcmp((const char *)filename, "AUTOSAVE.CAR") == 0)
+        result = (int16_t)swos_io_save_atomic(filename,
+                          (const uint8_t *)out.ptr, (uint32_t)out.len);
+    else
+#endif
+        result = WriteFile(filename, (uint8_t *)out.ptr, (uint32_t)out.len);
     swos_io_free(out.ptr);
     if (result != 0) {
         ShowFsErrorByCode((uint16_t)result);

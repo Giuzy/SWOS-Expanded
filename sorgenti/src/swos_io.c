@@ -82,6 +82,10 @@ int atoi(const char *s) {
 #ifdef SWOS_SDL_BUILD
 #include <stdio.h>
 #include <stdlib.h>
+#if defined(_WIN32) && !defined(__CYGWIN__)
+#include <windows.h>
+#include <io.h>
+#endif
 
 void *swos_io_alloc(uint32_t sz)
 {
@@ -161,10 +165,10 @@ void swos_io_free(void *p)
  * reader (resolve_save_path here) and the writer (resolve_path in resload.c)
  * consult it, so load and save always agree.
  *
- * Saves go to the platform's per-user data location — never inside the app
- * bundle / install dir (read-only under Gatekeeper, /Applications, Program
- * Files, etc.). See docs/SAVE.md.
- *   Windows: %USERPROFILE%\Documents\SWOS\save
+ * SWOS Expanded on Windows is PORTABLE: game-folder/save beside the exe.
+ * Other OpenSWOS targets keep their platform-specific save locations.
+ * A writable, user-managed install dir is required (not Program Files).
+ * See docs/SAVE.md.
  *   macOS:   ~/Library/Application Support/SWOS/save
  *   Linux:   ~/.swos/save
  *   WASM:    "save" (→ the IndexedDB-backed /save mount from wasm/pre.js)
@@ -314,14 +318,10 @@ void swos_save_dir_init(void)
     char user[512];
 
 # if defined(_WIN32) || defined(__CYGWIN__)
-    /* Windows: %USERPROFILE%\Documents\SWOS. Forward slashes are accepted by
-     * both the native CRT and Cygwin's path layer. */
-    const char *profile = getenv("USERPROFILE");
-    if (!profile || !*profile)
-        return;                                  /* fall back to "save" / "." */
-    snprintf(user, sizeof user, "%s/Documents/" PROJECT_USER_DIR, profile);
-    for (char *p = user; *p; p++)
-        if (*p == '\\') *p = '/';
+    /* Expanded portable Windows: main() already chdir()s to the exe.
+     * Keep SWOS.ini/SWOS.log at its root, and every save under ./save.
+     * Never silently redirect failed writes to Documents/AppData. */
+    snprintf(user, sizeof user, ".");
 # elif defined(__APPLE__)
     /* ~/Library/Application Support/SWOS, but NOT via $HOME alone.
      *
@@ -465,6 +465,51 @@ int swos_io_save(const uint8_t *name, const uint8_t *buf, uint32_t size)
     /* Closed before committing — the commit requires it. */
     swos_save_commit();
     return (put == size) ? 0 : 1;
+}
+
+/* Crash-safe single-file replacement for the automatic career slot.
+ * An interrupted write must NEVER destroy the previous usable .CAR.
+ * All paths use the same swos_save_dir() as native save dialogs. */
+int swos_io_save_atomic(const uint8_t *name,const uint8_t *buf,uint32_t size)
+{
+    char path[1280],temp[1290];
+    if (!name || !buf || !size) return 1;
+    resolve_save_path(name,path,sizeof path);
+    if (snprintf(temp,sizeof temp,"%s.tmp",path)<0 ||
+        strlen(path)+4u>=sizeof temp) return 1;
+    FILE *f=fopen(temp,"wb");
+    if (!f) {
+        fprintf(stderr,"[autosave] cannot create %s\n",temp);
+        return 1;
+    }
+    int ok=fwrite(buf,1,size,f)==size && fflush(f)==0;
+#if defined(_WIN32) && !defined(__CYGWIN__)
+    if (ok && _commit(_fileno(f))!=0) ok=0;
+#endif
+    if (fclose(f)!=0) ok=0;
+    if (!ok) {
+        remove(temp);
+        fprintf(stderr,"[autosave] write/flush failed, previous file retained\n");
+        return 1;
+    }
+#if defined(_WIN32) && !defined(__CYGWIN__)
+    /* Win32 rename() cannot replace an existing destination. */
+    if (!MoveFileExA(temp,path,MOVEFILE_REPLACE_EXISTING |
+                              MOVEFILE_WRITE_THROUGH)) {
+        fprintf(stderr,"[autosave] atomic replace failed (Win32 %lu)\n",
+                (unsigned long)GetLastError());
+        remove(temp);
+        return 1;
+    }
+#else
+    if (rename(temp,path)!=0) {
+        remove(temp);
+        fprintf(stderr,"[autosave] atomic rename failed\n");
+        return 1;
+    }
+#endif
+    swos_save_commit();
+    return 0;
 }
 
 /* ---- Data root + save durability (see swos_io.h) -------------------- */

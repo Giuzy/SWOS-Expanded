@@ -320,3 +320,10 @@ Questo registro documenta incidenti **segnalati dall'utente** durante lo svilupp
 **0.13.07 — correzione limitata (codice, non collaudato Windows):** in presenza di una classifica pilota valida con almeno tre giornate disputate, le offerte casuali della divisione più bassa selezionata sono limitate alla metà inferiore della classifica. Prima di tre partite o in assenza di dati validi resta la selezione precedente. Questa modifica **non** unifica risultati/campionato pilota e calendario nativo né rende già affidabile l'assunzione a metà stagione.
 
 **Ancora da implementare e verificare:** unico Living World Engine persistente, eliminazione dei calendari duplicati solo dopo unificazione reale, offerte collegate agli esoneri registrati degli allenatori AI, conteggi effettivi del database (players/managers/chairmen/entries e MB) in F12, regressioni Windows e salvataggi. Le note 0.13.06 restano valide per i limiti del prototipo.
+
+
+### 0.13.08 — verifica integrità del calendario nativo prima dell'ingresso
+
+**[CODICE DI SICUREZZA, DA TESTARE WINDOWS]** Il recupero delle partite precedenti alla firma verifica l'intero keycache nativo (lunghezza entro 8192 byte, stride valido, ordine dei sortKey e presenza di fixture sia antecedenti sia successive al cutover). Prima era sufficiente trovare una fixture futura per attivare il recupero: una memoria incoerente poteva essere letta oltre il buffer o simulata in modo errato. Le condizioni di arresto riportano diagnostica esplicita a stderr.
+
+**[ATTENZIONE — OBIETTIVO PRIMARIO ANCORA APERTO]** Questa è una protezione per la prototipazione, non una soluzione del bug segnalato: la classifica pilota pre-firma e la competizione nativa post-firma restano due origini diverse. Non è stato verificato l'ingresso riuscito su Windows con calendario, risultati, coppe, finanze e salvataggi invariati. Il requisito definitivo è costruire una sola simulazione persistente e riutilizzare i suoi stati nelle schermate prima/dopo il contratto, senza ri-simulare o ricopiare punti.

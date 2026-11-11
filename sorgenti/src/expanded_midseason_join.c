@@ -103,18 +103,44 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
         fprintf(stderr,"[midseason] no valid native keycache; leaving career unchanged\n");
         return;
     }
-    const uint8_t *p=_teamSelectionKeyCache;
+    /* The cache is a dedicated 8192-byte allocation (career_key_cache.c).
+     * A valid stride by itself does NOT make 256 entries safe: their sum
+     * can leave that allocation. Never inspect an out-of-bounds fixture. */
+    size_t offset=0;
     int has_future=0;
+    int has_past=0;
+    uint8_t previous_key=0;
     for (uint16_t i=0;i<_teamSelectionKeyCacheCount;++i) {
-        const TeamSelectionKeyCacheEntry *entry=(const TeamSelectionKeyCacheEntry *)p;
-        if (entry->entryStride<10u || entry->entryStride>256u) {
-            fprintf(stderr,"[midseason] bad native cache stride; not arming\n");
+        if (offset>8192u-sizeof(TeamSelectionKeyCacheEntry)) {
+            fprintf(stderr,"[midseason] native cache truncated at entry %u; not arming\n",
+                    (unsigned)i);
             return;
         }
-        if (entry->sortKey>=cutoff && entry->phaseFlag==0) {
-            has_future=1;break;
+        const TeamSelectionKeyCacheEntry *entry=
+            (const TeamSelectionKeyCacheEntry *)(_teamSelectionKeyCache+offset);
+        size_t stride=entry->entryStride;
+        if (stride<sizeof(TeamSelectionKeyCacheEntry) || stride>256u ||
+            stride>8192u-offset) {
+            fprintf(stderr,"[midseason] bad native cache stride at entry %u; not arming\n",
+                    (unsigned)i);
+            return;
         }
-        p+=entry->entryStride;
+        if (i && entry->sortKey<previous_key) {
+            fprintf(stderr,"[midseason] unordered native calendar at entry %u; not arming\n",
+                    (unsigned)i);
+            return;
+        }
+        previous_key=entry->sortKey;
+        if (entry->phaseFlag==0) {
+            if (entry->sortKey>=cutoff) has_future=1;
+            else has_past=1;
+        }
+        offset+=stride;
+    }
+    if (!has_past) {
+        fprintf(stderr,"[midseason] no native fixtures before cutover %u; "
+                       "nothing to catch up\n",(unsigned)cutoff);
+        return;
     }
     if (!has_future) {
         fprintf(stderr,"[midseason] no future competition fixture at native key %u; "
@@ -152,7 +178,10 @@ void Expanded_MidseasonJoin_Tick(void) {
         const TeamSelectionKeyCacheEntry *entry=
             (const TeamSelectionKeyCacheEntry *)
               (_teamSelectionKeyCache+_teamSelectionKeyCacheOffset);
-        if (entry->entryStride<10 || entry->entryStride>256) {
+        if (_teamSelectionKeyCacheOffset>8192u-sizeof(*entry) ||
+            entry->entryStride<sizeof(*entry) ||
+            entry->entryStride>256u ||
+            entry->entryStride>8192u-_teamSelectionKeyCacheOffset) {
             finish(0,-5); return;
         }
         if (entry->sortKey>=s_target_key) {

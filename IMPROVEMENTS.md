@@ -381,3 +381,9 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [DOCUMENTAZIONE] Registrati nel Game Design i due incidenti ChatGPT riportati dall'utente (Connection interrupted, Unknown error), con stato e limiti del recupero.
 - [NON COMPLETATO] Unificazione reale pilot/native, sistema di vacancy persistenti di allenatori, nuove metriche database F12. Non attribuire a questa revisione una soluzione al reset del calendario dopo ingaggio.
 - [TEST] Revisione statica della modifica e riscontro file GitHub; non compilato, non eseguito in Windows/joypad.
+
+
+### 0.13.08 — controlli integrità native midseason catch-up (11 novembre 2026)
+- [CODICE] Rafforzato l'accesso al keycache 8192 byte durante la scansione di pre-ingaggio: ogni stride è validato contro limiti e ordine delle fasi, e si richiedono incontri sia prima sia dopo il momento dell'assunzione. Controllo di bounds anche sul record corrente in ogni tick.
+- [NON RISOLTO] Il calendario pilota differisce ancora dal calendario OpenSWOS inizializzato alla firma; non dichiarare completa la continuità dei risultati/classifiche o il salvataggio del mondo.
+- [TEST] Revisione statica; compilazione e test reali Windows non eseguiti in questo ambiente.

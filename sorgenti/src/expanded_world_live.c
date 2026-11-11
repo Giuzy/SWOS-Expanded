@@ -59,6 +59,10 @@ static int32_t s_initial_day;
 static uint8_t s_native_result_consumed[LIVE_MAX_FIXTURES];
 static uint32_t s_native_matches,s_native_misses;
 static uint32_t s_native_order_applied,s_native_schedule_leagues;
+/* Recover native May/June fixtures that precede the July 1 start of the
+ * manager's FIRST year. They must be scored before the oldest season can
+ * be archived, without moving the global clock backwards. */
+static int live_complete_prestart(void);
 
 static uint16_t competition_id(uint8_t country, uint8_t division, unsigned season) {
     return (uint16_t)(season * 8192u + ((uint16_t)country << 5) + division);
@@ -266,6 +270,10 @@ int ExpandedWorldLive_Seal(void) {
     if (!s_ledger.count) return 0;
     qsort(s_fixtures,s_ledger.count,sizeof s_fixtures[0],fixture_compare);
     s_live=1;
+    if (!live_complete_prestart()) {
+        ExpandedWorldLive_End();
+        return 0;
+    }
     return 1;
 }
 
@@ -514,6 +522,32 @@ static int resolve_game(const ExpandedWorldFixture *f,uint8_t *home,uint8_t *awa
 }
 /* The newest year's early-season games may begin in May, so create
  * that season on January 1, after the oldest season ends on Dec 31. */
+
+/* The manager's first day is July 1, but the real OpenSWOS calendar
+ * includes competitions already underway in May and June. Those past
+ * fixtures are real historical results, not unplayed future matches.
+ * This backfill is deterministic and runs only for fixtures before the
+ * initial manager date; it never rewinds the 50 Hz match or world clock.
+ * It also repairs legacy v2 snapshots written before this check existed. */
+static int live_complete_prestart(void) {
+    uint32_t completed=0;
+    if (!s_live || !s_fixtures) return 0;
+    for (uint32_t i=0;i<s_ledger.count;++i) {
+        ExpandedWorldFixture *f=&s_fixtures[i];
+        if (f->played || f->day>=s_initial_day) continue;
+        uint8_t home=0,away=0;
+        if (!resolve_game(f,&home,&away,NULL) ||
+            home>31u || away>31u) return 0;
+        f->goals_home=home;f->goals_away=away;f->played=1;
+        ++s_ledger.played;
+        ++completed;
+    }
+    if(completed)
+        fprintf(stderr,"[living-world] recovered %lu pre-career May/June "
+                       "fixtures before 1 July %u\n",
+                (unsigned long)completed,(unsigned)s_first_year);
+    return 1;
+}
 int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks) {
     uint64_t d=(uint64_t)(uint32_t)s_initial_day+(uint64_t)weeks*7u;
     if (!s_live || d>INT32_MAX || weeks<s_weeks) return 0;
@@ -1364,6 +1398,13 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
     s_ledger.played=tmp->played;
     s_ledger.now=tmp->now;
     s_live=1;
+    if (!live_complete_prestart()) {
+        /* The replacement became active only after complete validation.
+         * Fail closed on an impossible missing club/invalid score. */
+        ExpandedWorldLive_End();
+        store=NULL;
+        goto invalid;
+    }
     fprintf(stderr,"[living-world] restored .CAR snapshot: %lu clubs, "
       "%lu leagues, %lu/%lu results, week %lu\n",
       (unsigned long)s_club_count,(unsigned long)s_league_count,

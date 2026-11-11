@@ -244,3 +244,10 @@ La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo ver
 - Gli script `run_test_living_world_70.sh` e `run_test_expanded_world_live.sh` ora compilano mjson e miniz in due oggetti separati con flag di compatibilità mirati; tutto il codice nostro resta `-Werror`.
 - Procedura: pull `dev/0.10`, doppio click `TEST_LIVING_WORLD.bat`; sul log verificare `[run]` e `STRESS_RESULT=PASS`. Se fallisce, inviare il file completo. Il BAT non cancella né sovrascrive `save/AUTOSAVE.CAR`.
 - Poi avviare il gioco con `AVVIA_SWOS.bat`, controllare Build 0.13.23 e il precedente `CONTINUE CAREER`. Compilazione Windows e verifiche effettive rimangono esterne.
+
+
+### 0.13.24 — passo successivo dopo l'errore di linker `swos_io_realloc`
+1. Esegui pull `dev/0.10`, poi avvia `TEST_LIVING_WORLD.bat`. Il runner ora risolve `MJSON_REALLOC` con `realloc` **solo** dentro mjson.o del test standalone, evitando collegamenti al sottosistema I/O del gioco. Non installare librerie né modificare configurazioni del PC.
+2. Verifica la presenza di `[run]` dopo `[build]`; `STRESS_RESULT=PASS` significa successo effettivo delle 70 stagioni, non soltanto del linker. In caso di fail invia il log locale `LIVING_WORLD_70_TEST.log`.
+3. Il codice world e i test integrano un controllo per le gare di maggio/giugno 1996, precedenti al 1° luglio del manager. Nessuna azione manuale necessaria e nessun file save toccato dal BAT.
+4. Se il test passa, prova `AVVIA_SWOS.bat` e CONTINUE CAREER dal .CAR esistente: F12/partita manuale/simulazione e save/restart. Test Windows live non ancora effettuati dall'assistente.

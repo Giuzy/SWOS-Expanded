@@ -504,3 +504,10 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [TEST RUNNER] Compilazione separata di mjson/miniz con esclusioni mirate dei warning legacy solo in quelle unità; mantenuti `-Wall -Wextra -Werror` in tutto il codice nostro. Aggiornati entrambi gli script C di test Living World.
 - [CODE] Cast `long` dei limiti dei parser; validazione numero risultati native OG rispetto a tutti i risultati residenti e archiviati in carriera, non soltanto la finestra di due stagioni.
 - [LIMITI] Test compilato e benchmark 70 stagioni ancora non verificati in questa sessione; atteso risultato Windows/MSYS2 dopo pull.
+
+
+### 0.13.24 — ripara il collegamento dell'harness e i primi match storici
+- [REPRO] Log reale del test 70 anni 0.13.23: GCC compila gli oggetti ma il linker non trova `swos_io_realloc` da mjson.o. Nessuna stagione simulata.
+- [FIX TEST] Con solo `mjson.o` nei due harness isolati, `MJSON_REALLOC` punta alla `realloc` standard tramite macro + include forzato del relativo header. Il gioco usa ancora l'allocatore SWOS. Miniz e gli altri sorgenti non alterati.
+- [FIX ENGINE] Al primo avvio `ExpandedWorldLive_Seal` e in lettura snapshot preesistenti, risultati deterministicamente completati per fixture con data anteriore al 1° luglio d'inizio carriera, necessario per archivio prima stagione dei campionati maggio-settembre. Il tempo non avanza all'indietro.
+- [REGRESSION] Test C base e test 70 stagioni verificano la presenza di risultati maggio/giugno prima di procedere. Test di compilazione e run su Windows ancora da verificare.

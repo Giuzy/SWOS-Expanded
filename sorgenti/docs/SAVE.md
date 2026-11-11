@@ -161,3 +161,15 @@ The dedicated `TEST_LIVING_WORLD.bat` is an isolated 70-season stress
 harness; it does not touch player `save/` and does not test native
 Windows career state reconstruction, which remains a separate manual
 smoke test. Athletic probability tuning is deferred for user approval.
+
+
+## 0.13.24 — historical matches before first July
+The original OpenSWOS May–September league schedules include matches
+before a new manager begins on July 1. Previously those pre-career
+fixtures were present but unplayed, so rolling out the first resident
+season could fail when it attempted to archive an incomplete league.
+The live engine now deterministically completes those **pre-initial**
+fixtures on initial seal and when loading older snapshots, preserving
+the global clock, native match engine and all future fixtures unchanged.
+The test runner's mjson allocation override is isolated to test builds;
+the real `AUTOSAVE.CAR` allocator/writer is unchanged.

@@ -89,6 +89,12 @@ int main(void) {
     assert(ExpandedWorldLive_Leagues()==leagues);
     assert(ExpandedWorldLive_Seal());
     assert(ExpandedWorldLive_Fixtures()==8080u);
+    /* Four of the source OG leagues start in May. Their completed
+     * May/June games MUST already be present on the manager's first
+     * July 1 day: otherwise archiving the first season will stall. */
+    assert(ExpandedWorldLive_Results()>0u);
+    printf("INIT pre-career fixtures played=%lu\n",
+           (unsigned long)ExpandedWorldLive_Results());
     uint32_t last_results=ExpandedWorldLive_Results();
     for(unsigned week=1u;week<=weeks;++week) {
         assert(ExpandedWorldLive_AdvanceWeeks(week));

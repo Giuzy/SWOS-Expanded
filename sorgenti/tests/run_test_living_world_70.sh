@@ -12,7 +12,10 @@ echo "[build] isolated Living World Engine 70-season stress binary"
 # those TWO vendor units separately with only their warning categories
 # disabled. Never disable diagnostics for expanded_world_live.c.
 COMMON=(-std=c11 -O2 -Wall -Wextra -Werror -DSWOS_SDL_BUILD -Iinclude -DFIXTURE_DATA_C=1)
-"$CC" "${COMMON[@]}" -Wno-unused-but-set-variable -c src/mjson.c -o "$DIR/mjson.o"
+# In this isolated harness mjson uses the C runtime realloc() instead of
+# the game's swos_io_realloc() allocation shim, which is intentionally NOT
+# linked into the standalone world test. This is restricted to mjson.o only.
+"$CC" "${COMMON[@]}" -Wno-unused-but-set-variable -DMJSON_REALLOC=realloc -include stdlib.h -c src/mjson.c -o "$DIR/mjson.o"
 "$CC" "${COMMON[@]}" -Wno-type-limits -c src/miniz_impl.c -o "$DIR/miniz.o"
 "$CC" "${COMMON[@]}" \
   src/expanded_world_time.c src/expanded_world_ledger.c \

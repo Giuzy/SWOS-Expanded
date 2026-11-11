@@ -9,7 +9,10 @@ trap 'rm -rf "$DIR"' EXIT
 # Keep strict warnings for our code, but not vendor-only warnings introduced
 # by newer GCC versions in the bundled mjson and miniz translation units.
 COMMON=(-std=c11 -O1 -Wall -Wextra -Werror -DSWOS_SDL_BUILD -Iinclude -DFIXTURE_DATA_C=1)
-"$CC" "${COMMON[@]}" -Wno-unused-but-set-variable -c src/mjson.c -o "$DIR/mjson.o"
+# In this isolated harness mjson uses the C runtime realloc() instead of
+# the game's swos_io_realloc() allocation shim, which is intentionally NOT
+# linked into the standalone world test. This is restricted to mjson.o only.
+"$CC" "${COMMON[@]}" -Wno-unused-but-set-variable -DMJSON_REALLOC=realloc -include stdlib.h -c src/mjson.c -o "$DIR/mjson.o"
 "$CC" "${COMMON[@]}" -Wno-type-limits -c src/miniz_impl.c -o "$DIR/miniz.o"
 "$CC" "${COMMON[@]}" \
   src/expanded_world_time.c src/expanded_world_ledger.c \

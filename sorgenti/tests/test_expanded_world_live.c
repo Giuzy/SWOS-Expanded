@@ -179,6 +179,8 @@ int main(void) {
     }
     assert(ExpandedWorldLive_SetLeagueSchedule(21,0,32,64,2));
     assert(ExpandedWorldLive_Seal());
+    /* The first OG calendar starts before the July manager clock. */
+    assert(ExpandedWorldLive_Results()>0u);
     assert(ExpandedWorldLive_AdvanceWeeks(19));
     {
         const uint32_t saved_results=ExpandedWorldLive_Results();

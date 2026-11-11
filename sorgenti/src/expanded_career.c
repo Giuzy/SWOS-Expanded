@@ -365,6 +365,20 @@ static void cache_offer_league(const TeamFileEx *teams,unsigned count) {
                  "%.17s",(const char*)t->teamName);
     }
 }
+/* After matches have been played, a mid-season vacancy is plausible
+ * chiefly at a struggling club. The pilot standings are provisional:
+ * this is an offer-selection guard, NOT a second competition engine.
+ * Before league play, or without a valid pilot table, preserve the
+ * existing small-club fallback rather than inventing standings. */
+static int offer_candidate_struggling(uint16_t club,
+                                     const ExpandedLiveRow *rows,
+                                     uint32_t count,int ranked) {
+    if (!ranked) return 1;
+    for (uint32_t i=0;i<count;i++)
+        if (rows[i].club==club)
+            return i>=count/2u;
+    return 0; /* never offer a missing club on ranked data */
+}
 static void choose_small_club(void) {
     static const uint8_t files[]={8,13,14,20,21};
     unsigned start=next_random()%(sizeof files/sizeof files[0]);
@@ -383,16 +397,27 @@ static void choose_small_club(void) {
                !Team_IsOutsideLeague(&teams[i].team) &&
                teams[i].team.league>maxLeague) maxLeague=teams[i].team.league;
         if(maxLeague<2) continue;
+        ExpandedLiveRow standings[26];
+        uint32_t rankedCount=0;
+        int ranked=ExpandedWorldLive_Table(country,(uint8_t)maxLeague,
+                     standings,26u,&rankedCount) &&
+                   rankedCount>=2u && standings[0].played>=3u;
         for(unsigned i=0;i<count;i++)
             if(teams[i].team.countryNumber==country && teams[i].team.league==maxLeague &&
-               !Team_IsOutsideLeague(&teams[i].team))
+               !Team_IsOutsideLeague(&teams[i].team) &&
+               offer_candidate_struggling(
+                    (uint16_t)((country<<8)|teams[i].team.teamOrdinal),
+                    standings,rankedCount,ranked))
                 candidates++;
         if(!candidates) continue;
         unsigned selected=next_random()%candidates;
         for(unsigned i=0;i<count;i++) {
             const TeamFile *t=&teams[i].team;
             if(t->countryNumber!=country || t->league!=maxLeague ||
-               Team_IsOutsideLeague(t)) continue;
+               Team_IsOutsideLeague(t) ||
+               !offer_candidate_struggling(
+                    (uint16_t)((country<<8)|t->teamOrdinal),
+                    standings,rankedCount,ranked)) continue;
             if(selected--==0) {
                 s_waitTeam=(uint16_t)((country<<8)|t->teamOrdinal);
                 s_waitCountry=country;

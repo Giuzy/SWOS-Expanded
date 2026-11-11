@@ -302,3 +302,21 @@ L'ordine è una **roadmap proposta** coerente con l'ultima priorità; ogni cambi
 - **[VINCOLO ESPLICITO]** Il mondo pilota mostra ancora un calendario **round-robin provvisorio**, diverso da quello nativo per date, ordine e possibili risultati: **la classifica pre-firma può differire da quella all'ingresso**. La piena unificazione della fonte dati (classifiche, rosa, fixture, coppe e salvataggi) NON è implementata in questa prova. Non nascondere la discrepanza né considerarla approvata.
 - **[TUTELA]** Le partite antecedenti alla firma non accreditano risultati, statistiche allenatore o esoneri al manager appena assunto; gli effetti societari nativi seguono la loro logica. L'avanzamento ha guardie di sicurezza e non procede implicitamente oltre la fine stagione. F12 e fisica partita invariati.
 - **[LIMITI]** Solo per una data di firma entro le **52 settimane** dall'avvio del primo anno; ritiri/riassunzioni dopo più anni e stati globali delle coppe di paesi lontani non sono ancora unificati. Il salvataggio mondiale del pilota non è disponibile. Debug e stato del prototipo vanno verificati prima di dichiararlo funzionante.
+
+
+## 24. Registro affidabilità strumenti ChatGPT (11/11/2026)
+
+Questo registro documenta incidenti **segnalati dall'utente** durante lo sviluppo, separandoli dai bug di SWOS Expanded. Non attribuisce cause tecniche senza evidenza.
+
+| Data (locale) | Errore riportato | Conseguenza | Recupero/verifica |
+|---|---|---|---|
+| 11/11/2026 (ora esatta non verificata) | `Connection interrupted` | Conversazione tecnica interrotta mentre si lavorava al Living World Engine | Recuperati requisiti e stato del codice dal repository; eventuali modifiche non committate nella sessione precedente non verificabili da GitHub |
+| 11/11/2026 (ora esatta non verificata) | `Unknown error` | Nuova interruzione della stessa sessione, con rischio di lavoro non trasferito | Ripresa da HEAD GitHub dopo il push dell'utente; nessuna diagnosi della piattaforma confermata |
+
+**Metodo per le prossime segnalazioni:** registrare data/ora se note, messaggio esatto, attività in corso, commit/branch, modifiche potenzialmente perse, recupero e tempo perso solo se misurabile. Nessuna frequenza o durata inventata.
+
+### Avanzamento successivo al push del 11/11/2026
+
+**0.13.07 — correzione limitata (codice, non collaudato Windows):** in presenza di una classifica pilota valida con almeno tre giornate disputate, le offerte casuali della divisione più bassa selezionata sono limitate alla metà inferiore della classifica. Prima di tre partite o in assenza di dati validi resta la selezione precedente. Questa modifica **non** unifica risultati/campionato pilota e calendario nativo né rende già affidabile l'assunzione a metà stagione.
+
+**Ancora da implementare e verificare:** unico Living World Engine persistente, eliminazione dei calendari duplicati solo dopo unificazione reale, offerte collegate agli esoneri registrati degli allenatori AI, conteggi effettivi del database (players/managers/chairmen/entries e MB) in F12, regressioni Windows e salvataggi. Le note 0.13.06 restano valide per i limiti del prototipo.

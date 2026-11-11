@@ -374,3 +374,10 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [CODICE] Callback da `MenuProc` e dai due percorsi di nuova assunzione; regole di abort con log in `SWOS.log`. La classifica nel menu CARRIERA resta quella nativa, con progresso dalle partite del suo calendario.
 - [TEST] Runner isolato per calcolo cutoff incluso, ma compilazione Windows e test in-game ancora da eseguire. Non garantito confronto esatto tra classifica VIEW LEAGUE pilota e quella nativa.
 - [DESIGN] Documentati: mondo selezionabile da OPTIONS (non ancora implementato), sponsor preesistenti/scadenza/rinnovo (approvato ma non implementato), forma individuale+training collettivo (solo discussione futura). Nessun nuovo asset, F12 invariato.
+
+
+### 0.13.07 — filtro offerte da risultati disponibili (11 novembre 2026)
+- [CODICE, NON TESTATO WINDOWS] Quando la classifica pilota di una divisione è disponibile e sono state disputate almeno 3 partite, la selezione di club per offerte di lavoro pesca solo nella metà inferiore, evitando offerte casuali da capolista. Se i dati non sono sufficienti conserva il comportamento precedente, senza simulare risultati inesistenti.
+- [DOCUMENTAZIONE] Registrati nel Game Design i due incidenti ChatGPT riportati dall'utente (Connection interrupted, Unknown error), con stato e limiti del recupero.
+- [NON COMPLETATO] Unificazione reale pilot/native, sistema di vacancy persistenti di allenatori, nuove metriche database F12. Non attribuire a questa revisione una soluzione al reset del calendario dopo ingaggio.
+- [TEST] Revisione statica della modifica e riscontro file GitHub; non compilato, non eseguito in Windows/joypad.

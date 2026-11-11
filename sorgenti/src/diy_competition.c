@@ -10,6 +10,7 @@
 
 #include "world.h"
 #include "expanded_debug.h"
+#include "expanded_midseason_join.h"
 #include "diy_competition.h"
 #include "comp_identity.h"
 #include "translations.h"
@@ -10403,6 +10404,7 @@ static void getCachedOrCalcViewResult(TeamFileEx *team1, TeamFileEx *team2,
      * standings, career stats and record caches. No change to match physics,
      * input, or result generation for other teams. Disabled by default. */
     if (_gameType == 4 && !_careerAutoAdvanceInProgress &&
+        !Expanded_MidseasonJoin_Active() &&
         (team1 == &_careerTeam || team2 == &_careerTeam))
         ExpandedDebug_ForceScore(team1 == &_careerTeam, outGoals1, outGoals2);
 }

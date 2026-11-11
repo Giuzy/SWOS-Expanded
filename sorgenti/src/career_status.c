@@ -1607,7 +1607,10 @@ __attribute__((used, externally_visible))
 void UpdateCareerAfterMatch(void) {
     ClampNewBalanceAndUpdateClubStatus();
     ClearOverdraftStateIfRecovered();
-    UpdateCareerChairmanWarningsAfterMatch();
+    /* Do not sack a manager for results incurred before their arrival. */
+    extern int Expanded_MidseasonJoin_Active(void);
+    if (!Expanded_MidseasonJoin_Active())
+        UpdateCareerChairmanWarningsAfterMatch();
     if (_removedOfferPlayersFromSelectedTeamCount != 0) {
         _removedOfferPlayersFromSelectedTeamCount--;
         AddCareerTeamPlayer();
@@ -3851,7 +3854,10 @@ void Career_UpdateStatsAfterMatch(TeamFileEx *team1, TeamFileEx *team2, uint16_t
 {
     _teamSelectionKeyCacheEnd = 1;
 
-    if (_youreSacked)
+    /* Pre-hire matches belong to the CLUB, not to the new manager.
+     * Still run the native competition score/cache bookkeeping below. */
+    extern int Expanded_MidseasonJoin_Active(void);
+    if (_youreSacked || Expanded_MidseasonJoin_Active())
         goto skipStats;
 
     /* Determine which team is the career team and assign goals accordingly */
@@ -3980,7 +3986,8 @@ skipStats: ;
      * KeyCacheFixtureIsPlayerControlled. */
     uint16_t t1num = PACK_BE_U16(team1->team.countryNumber, team1->team.teamOrdinal);
     uint16_t t2num = PACK_BE_U16(team2->team.countryNumber, team2->team.teamOrdinal);
-    if ((team1->team.teamControls != 1 || team2->team.teamControls != 1) &&
+    if ((team1->team.teamControls != 1 || team2->team.teamControls != 1 ||
+         Expanded_MidseasonJoin_Active()) &&
         KeyCacheFixtureIsPlayerControlled(t1num, t2num)) {
         /* Asm calls GetCurrentSelectedElementPtr FIRST, THEN decrements
          * remainingElements. Order matters: the slot pointer depends on

@@ -400,3 +400,10 @@ richiamato dal runtime senza aggiornare tutti i relativi riferimenti.
 - **[APPROVATO]** Prezzi biglietti impostabili dal manager in **CLUB**, con affluenza inversamente sensibile al prezzo e modificata da FANS LIKING, capienza, avversario e competizione. Predizione visibile e incassi contabilizzati **una sola volta**; nessuna grafica di CLUB approvata ancora.
 - **[APPROVATO]** Una sola fonte dati e, dopo il redesign, un solo componente per **classifica** e **rosa** prima/dopo l'assunzione, con modalità sola lettura prima della firma.
 - **[STATO, non promessa di completamento]** 0.13.05 implementa nel PILOTA l'orologio dal 1° luglio e amichevoli AI con aggregati solo RAM per i cinque paesi della prova. Non implementa ancora prezzo biglietti nel gioco, precampionato giocabile, coppe e passaggio dello stato pilota ai calendari nativi. F12, fisica partita e grafica finale restano invariati.
+
+
+## Decisioni 11 novembre 2026 — sponsor e recupero calendario
+
+- **[APPROVATO]** Ogni club mantiene sponsor che possono precedere il manager; numero e qualità dipendono dalla situazione (anche zero sponsor in crisi grave). Contratti con scadenza e opzioni di rinnovo; non annullarli quando cambia allenatore. **Non espandere oltre** il sistema per ora. Riferimento `docs/GAME_DESIGN.md` §21.
+- **[PROPOSTA NON APPROVATA]** Forma individuale per giocatore, allenamento ordinario **collettivo** ed eventuali eccezioni individuali opzionali: da discutere senza modificare ora le statistiche o il database originale. Vedere §22.
+- **[STATO TECNICO 0.13.06]** Esperimento di simulazione in carriera **attraverso i menu nativi**, non un import delle classifiche pilota. Le due fonti restano diverse fino alla progettazione della vera simulazione globale persistente. Non dichiarare uniformità dei punti senza il confronto e i test Windows.

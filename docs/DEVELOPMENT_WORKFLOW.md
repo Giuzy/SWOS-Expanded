@@ -205,3 +205,14 @@ La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo ver
 4. Dopo 20–35 settimane verificare classifiche e offerte senza duplicazioni. F12/F9 restano come prima e indicano ancora i limiti del mondo nativo.
 5. Test isolati disponibili: `bash sorgenti/tests/run_test_expanded_world_live.sh`; campionati dispari con BYE, continuità luglio/agosto e passaggio alla stagione successiva. Prova in-game con screenshot preferita.
 6. **ATTENZIONE**: CLUB prezzo biglietti, amichevoli del manager, persistenza delle conseguenze e ingresso nativo a stagione iniziata sono ancora da implementare. **Non usare una carriera importante per prove di questa fase pilota**.
+
+
+## Test obbligatori 0.13.06 — assunzione a stagione inoltrata
+
+1. **Compila 0.13.06** da `dev/0.10` con `AVVIA_SWOS.bat`. Non eseguire prove su salvataggi importanti. Se il compilatore si ferma, condividi il log; nessuna compilazione Windows è stata eseguita nella chat.
+2. **NEW CAREER → UNEMPLOYED → 8–12 settimane:** apri VIEW LEAGUE e prendi uno screenshot **prima** di firmare. Accetta e osserva il recupero automatico di NEXT MATCH/VIEW RESULT. In `SWOS.log` cerca `[midseason] begin` e `[midseason] native next-fixture calendar reached`; un messaggio `catch-up aborted` è un errore/limitazione da comunicare.
+3. **CARRIERA → classifica nativa:** controlla che non sia a 0 gare e che `NEXT MATCH` sia una partita successiva alla data di firma. Confronta partite giocate e punti con il preview: **le due classifiche possono differire perché i calendari non sono ancora unificati**. Non dichiarare il test di corrispondenza superato senza riscontro.
+4. **Ripeti con 20 e 35 settimane** se il primo caso è stabile; controlla ingresso al club, match simulato, partite non rigiocate, tavola nativa, numero di vittorie/sconfitte personali inizialmente 0 e nessun esonero immediato per partite precedenti.
+5. **Dopo la firma, gioca una partita reale**; verifica menu → match → menu, F12/F9 come 0.13.05, joypad e mouse. Salva una **carriera di prova**, ricaricala e verifica stato nativo della lega e prossima partita. Prova una coppa soltanto dopo che il caso campionato funziona.
+6. **Limiti:** oltre 52 settimane dall'inizio del primo anno il catch-up non parte; world pilot non è persistito e il confronto pre-/post-firma è ancora solo diagnostico. Se il log non mostra lo stop, fermati e segnala l'ultima schermata.
+7. Test isolato per cutoff: `bash sorgenti/tests/run_test_expanded_midseason_join.sh`; non sostituisce test dell'engine nativo. Nessuna modifica ad asset finali o debug F12.

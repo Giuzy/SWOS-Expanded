@@ -268,3 +268,37 @@ L'ordine è una **roadmap proposta** coerente con l'ultima priorità; ogni cambi
 
 - **[CODICE PILOTA, da testare Windows]** L'orologio del disoccupato e del pilota mondiale parte dal **1° luglio**; quattro date di amichevoli AI in luglio (7/14/21/28), eventi aggregati e risultati di campionato provvisori da agosto. I risultati e gli effetti del precampionato AI **non sono ancora trasferiti** a rose, infortuni e finanze delle partite native: non scambiare i loro contatori per veri stipendi, salvataggi o indisponibilità.
 - **[NON ANCORA IMPLEMENTATO]** L'ingresso nativo effettivo a metà campionato, il salvataggio del mondo, gli incontri amichevoli giocabili per il manager, il prezzo biglietti regolabile in CLUB e la fusione di CLASSIFICA/SQUAD in una sola UI: **restano punti di lavoro**, non funzioni consegnate da questa build.
+
+
+## 20. Selettore del mondo calcistico in OPTIONS (APPROVATO — 11/11/2026)
+
+- **[APPROVATO — UI DA IMPLEMENTARE]** Aggiungere in **OPTIONS** la voce **FOOTBALL WORLD**, con scelta fra **1996/97** (`9697`) e **2026/27** (`2627`). La scelta deve essere disponibile **prima di iniziare una nuova carriera**, senza richiedere la modifica manuale di `SWOS.ini`.
+- **[REQUISITO]** Utilizzare `World_Set` / `World_Current` e le fonti di dati già previste dal codice; non inventare un mondo 2026/27 limitandosi a cambiare le date. Verificare che il pacchetto necessario sia installato e compatibile: in caso contrario disabilitare la scelta o mostrare chiaramente perché non è disponibile. Rispettare le limitazioni di licenza e distribuzione dei dati.
+- **[REQUISITO]** Una carriera salvata mantiene il mondo e la versione dei dati con cui è stata creata. Non cambiare al volo il mondo di un salvataggio già avviato; evitare la perdita di stato, le incompatibilità tra squadre e i reset silenziosi. Se il cambio necessita riavvio o ricaricamento dati, comunicarlo nella UI prima di applicarlo.
+- **[REQUISITO UI]** Navigazione completa mouse, tastiera e joypad, focus dinamico coerente con la nuova UI Expanded. Solo TITLE, NEW CAREER e LOADING sono graficamente finali: il layout definitivo di OPTIONS richiede una proposta e approvazione prima di creare nuovi asset.
+- **[STATO]** Non ancora implementato in OPTIONS. Attualmente il motore legge `--world`, `SWOS_WORLD` oppure `[general] world` in `Documenti/SWOS/SWOS.ini` (default `9697`).
+
+### Evidenza dalla prova 0.13.05
+
+- **[TEST WINDOWS DELL'UTENTE — screenshots 11/11/2026]** Prima delle giornate ufficiali, VIEW LEAGUE mostra **4 FRIENDLIES (PILOT)** e `PL = 0` per Barnet. Dopo l'avanzamento, mostra una classifica con `PL = 3` per Hartlepool United. Il calendario pilota e l'anteprima delle offerte sono quindi osservabili in gioco; non dimostra ancora l'integrazione con `InitCareer()`, la persistenza in `.CAR` o gli effetti delle amichevoli sul club nativo.
+
+
+## 21. Sponsor preesistenti e continuità dei contratti (APPROVATO — 11/11/2026)
+
+- **[APPROVATO]** La squadra esiste economicamente **prima dell'ingresso dell'allenatore**. Una squadra normalmente ha già uno o più sponsor attivi, con compenso e **scadenza contrattuale preesistenti**. Un club in gravissima difficoltà può averne zero. Non inventare automaticamente un nuovo contratto soltanto perché il manager viene assunto.
+- **[APPROVATO]** Ogni contratto deve continuare nel tempo anche mentre il manager è disoccupato, e restare valido dopo un licenziamento o cambio allenatore. Alla scadenza il manager può **rinnovare** o cercare un accordo sostitutivo. Gli introiti devono essere contabilizzati una sola volta nella stessa contabilità CLUB/BUSINESS.
+- **[APPROVATO]** Non estendere ulteriormente per ora il modello di sponsorizzazioni (no sotto-categorie, pubblicità dinamiche, trattative multiple obbligatorie o altri sistemi non richiesti).
+- **[NON IMPLEMENTATO]** Il pilota mondiale attuale non conserva ancora sponsor e contratti propri di ogni club, né le scadenze in un salvataggio mondiale condiviso.
+
+## 22. Forma individuale e allenamento collettivo (PROPOSTA DA DISCUTERE, non approvata)
+
+- **[IDEA APERTA DELL'UTENTE]** Valutare la **forma per ogni giocatore** senza obbligare il manager a impostare manualmente una routine settimanale individuale per tutta la rosa.
+- **[PROPOSTA]** Separare **forma individuale** (stato atletico e prestazionale di ciascun calciatore, un piccolo valore per giocatore) dalla **forma collettiva** (andamento recente della squadra), mantenendo **allenamenti di gruppo** come interfaccia normale. Eventuale lavoro individuale sarà opzionale e limitato alle eccezioni.
+- **[VINCOLO]** Prima di decidere controllare la semantica del campo `PlayerFile.form` già usato dalle competizioni originali; evitare duplicazione e salvataggi incompatibili. Nessuna implementazione finché la proposta non viene approfondita e approvata.
+
+## 23. Esperimento 0.13.06 — ingresso in corsa nel calendario nativo (CODICE PROTOTIPO)
+
+- **[PROTOTIPO IMPLEMENTATO, TEST WINDOWS PENDENTE]** Dopo l'accettazione di un'offerta nel **primo anno**, il calendario della carriera viene inizializzato normalmente, poi l'automazione usa le azioni native `NEXT MATCH`/`VIEW RESULT` per far disputare le settimane precedenti all'assunzione, fino al primo `sortKey` futuro rispetto alla data di firma. I risultati e la classifica dentro CARRIERA dipendono **dallo stesso motore OpenSWOS** che gestisce gli incontri giocati dopo l'assunzione: non sono punti copincollati da una schermata.
+- **[VINCOLO ESPLICITO]** Il mondo pilota mostra ancora un calendario **round-robin provvisorio**, diverso da quello nativo per date, ordine e possibili risultati: **la classifica pre-firma può differire da quella all'ingresso**. La piena unificazione della fonte dati (classifiche, rosa, fixture, coppe e salvataggi) NON è implementata in questa prova. Non nascondere la discrepanza né considerarla approvata.
+- **[TUTELA]** Le partite antecedenti alla firma non accreditano risultati, statistiche allenatore o esoneri al manager appena assunto; gli effetti societari nativi seguono la loro logica. L'avanzamento ha guardie di sicurezza e non procede implicitamente oltre la fine stagione. F12 e fisica partita invariati.
+- **[LIMITI]** Solo per una data di firma entro le **52 settimane** dall'avvio del primo anno; ritiri/riassunzioni dopo più anni e stati globali delle coppe di paesi lontani non sono ancora unificati. Il salvataggio mondiale del pilota non è disponibile. Debug e stato del prototipo vanno verificati prima di dichiararlo funzionante.

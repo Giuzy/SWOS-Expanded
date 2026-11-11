@@ -365,3 +365,12 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [CODICE] Prima delle partite ufficiali, VIEW LEAGUE mostra quante amichevoli pilota ha giocato la squadra offerta. Conversione più coerente alla data civile luglio quando il manager torna disoccupato dopo un esonero.
 - [DESIGN DOCUMENTATO] Aggiornato `GAME_DESIGN`: precampionato globale, amichevoli organizzabili, prezzi biglietti in CLUB con elasticità domanda/FANS LIKING, unificazione CLASSIFICA/SQUAD e carriera europea dal 1° luglio. Funzionalità di prezzo biglietti e assunzione nativa a stagione iniziata non ancora implementate.
 - [TEST] Test di regressione C estesi e disponibili nel repository; compilazione ed esecuzione Windows da verificare sull'utente. F12, salvataggi e fisica partita invariati.
+
+
+## 0.13.06 — Recupero nativo del calendario alla prima assunzione (11 novembre 2026)
+
+- [CODICE SPERIMENTALE] `expanded_midseason_join.c/.h`: automatizza le azioni native NEXT MATCH / VIEW RESULT durante l'ingresso in carriera dopo settimane di disoccupazione; conversione luglio → agosto e stop alla prima giornata futura. Non modifica la fisica delle partite.
+- [CODICE] Guardia per non attribuire al nuovo allenatore statistiche, morale relativo a risultati e esoneri di partite antecedenti; registrazione delle gare lasciata alla normale logica OpenSWOS. Durante l'avanzamento automatico non aprire offerte economiche o trasferimenti di BUSINESS.
+- [CODICE] Callback da `MenuProc` e dai due percorsi di nuova assunzione; regole di abort con log in `SWOS.log`. La classifica nel menu CARRIERA resta quella nativa, con progresso dalle partite del suo calendario.
+- [TEST] Runner isolato per calcolo cutoff incluso, ma compilazione Windows e test in-game ancora da eseguire. Non garantito confronto esatto tra classifica VIEW LEAGUE pilota e quella nativa.
+- [DESIGN] Documentati: mondo selezionabile da OPTIONS (non ancora implementato), sponsor preesistenti/scadenza/rinnovo (approvato ma non implementato), forma individuale+training collettivo (solo discussione futura). Nessun nuovo asset, F12 invariato.

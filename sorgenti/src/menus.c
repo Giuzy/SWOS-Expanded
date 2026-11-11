@@ -3809,7 +3809,8 @@ void PlayMatchMenu(MenuEntry *callerEntry)
             ActivateMenu(_contestMenu);
             return;
         }
-        CheckClubBusiness();
+        { extern int Expanded_MidseasonJoin_Active(void);
+          if (!Expanded_MidseasonJoin_Active()) CheckClubBusiness(); }
     }
 
     /* loc_13BB64 */
@@ -3818,9 +3819,13 @@ void PlayMatchMenu(MenuEntry *callerEntry)
     ContestMenuOnReturn_SetButtonsAndDefaultSelection(callerEntry);
     RestoreContestScrollPosition();
     BuildGameListArrayFromTeamSelectionKeyCache();
-    CheckTransfers();
-    { extern void Expanded_BusinessMaybeOffer(void);
-      if(_gameType==GAME_TYPE_CAREER) Expanded_BusinessMaybeOffer(); }
+    { extern int Expanded_MidseasonJoin_Active(void);
+      if (!Expanded_MidseasonJoin_Active()) {
+          CheckTransfers();
+          { extern void Expanded_BusinessMaybeOffer(void);
+            if(_gameType==GAME_TYPE_CAREER) Expanded_BusinessMaybeOffer(); }
+      }
+    }
     /* ContestMenuOnReturn_NoOp() — no-op, skip */
 
     if (_careerFinished != 0 || _seasonFinished != 0) {
@@ -3848,7 +3853,8 @@ void NextMatch(MenuEntry *callerEntry)
             ActivateMenu(_contestMenu);
             return;
         }
-        CheckClubBusiness();
+        { extern int Expanded_MidseasonJoin_Active(void);
+          if (!Expanded_MidseasonJoin_Active()) CheckClubBusiness(); }
     }
 
     /* loc_13BBE6 */
@@ -3857,9 +3863,13 @@ void NextMatch(MenuEntry *callerEntry)
     SelectActiveContestAndRound();
     RestoreContestScrollPosition();
     BuildGameListArrayFromTeamSelectionKeyCache();
-    CheckTransfers();
-    { extern void Expanded_BusinessMaybeOffer(void);
-      if(_gameType==GAME_TYPE_CAREER) Expanded_BusinessMaybeOffer(); }
+    { extern int Expanded_MidseasonJoin_Active(void);
+      if (!Expanded_MidseasonJoin_Active()) {
+          CheckTransfers();
+          { extern void Expanded_BusinessMaybeOffer(void);
+            if(_gameType==GAME_TYPE_CAREER) Expanded_BusinessMaybeOffer(); }
+      }
+    }
     /* ContestMenuOnReturn_NoOp() — no-op, skip */
 
     if (_careerFinished != 0 || _seasonFinished != 0) {

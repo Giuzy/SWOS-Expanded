@@ -821,6 +821,10 @@ int Expanded_HandleSackingAfterMatch(void) {
     extern void Expanded_DismissalAcknowledged(void);
     extern void Expanded_DebugForceDismissalPending(void);
     extern uint16_t _gameType;
+    /* Pre-hire native results must not trigger a post-hire dismissal.
+     * The user's F12 test overlay and controls are otherwise unchanged. */
+    extern int Expanded_MidseasonJoin_Active(void);
+    if (Expanded_MidseasonJoin_Active()) return 0;
     if (_gameType == 4 && ExpandedDebug_ConsumeSack())
         Expanded_DebugForceDismissalPending();
     if(!Expanded_DismissalPending()) return 0;
@@ -833,6 +837,8 @@ int Expanded_HandleSackingAfterMatch(void) {
         extern void ActivateMenu(uint8_t *);
         InitCareer(newTeam);
         Expanded_CommitNegotiatedSalary();
+        extern void Expanded_MidseasonJoin_Begin(uint32_t weeks);
+        Expanded_MidseasonJoin_Begin(s_waitWeeks);
         ActivateMenu(_contestMenu);
     } else {
         /* The user backed out of the unemployed screen: do not reopen the

@@ -1875,6 +1875,10 @@ void MenuProc(void)
     MenuInputInjectPoint();   /* stable harness input-injection anchor — break here by SYMBOL */
 #ifdef SWOS_SDL_BUILD
     { extern void CareerAutopilot_Tick(void); CareerAutopilot_Tick(); }  /* --career-golden */
+    /* Native catch-up after the first job offer follows the SAME regular
+     * NEXT MATCH / VIEW RESULT menu handlers as the golden career harness.
+     * When it completes, all controls return to the player immediately. */
+    { extern void Expanded_MidseasonJoin_Tick(void); Expanded_MidseasonJoin_Tick(); }
 #endif
 
 #ifdef SWOS_SDL_BUILD

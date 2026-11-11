@@ -305,6 +305,11 @@ void ChooseTeamAndStartCareer(void)
         InitCareer(offerTeam);
         extern void Expanded_CommitNegotiatedSalary(void);
         Expanded_CommitNegotiatedSalary();
+        /* The actual midseason hire is NOT a fresh first-week contest:
+         * fast-forward the native competition states before human input. */
+        extern void Expanded_MidseasonJoin_Begin(uint32_t weeks);
+        extern unsigned Expanded_DebugUnemployedWeeks(void);
+        Expanded_MidseasonJoin_Begin(Expanded_DebugUnemployedWeeks());
         fprintf(stderr,"[expanded11] InitCareer: completed team=%04x\n",(unsigned)offerTeam);
         fflush(stderr);
     } else {

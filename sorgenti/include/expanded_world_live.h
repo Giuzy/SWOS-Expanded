@@ -36,6 +36,9 @@ uint32_t ExpandedWorldLive_NativeOrderApplied(void);
 uint32_t ExpandedWorldLive_NativeScheduleLeagues(void);
 int ExpandedWorldLive_Seal(void);
 int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks);
+/* Anchor a stable native OpenSWOS career season to the same world clock.
+ * Called at OG season transition, not during a live 50 Hz match. */
+int ExpandedWorldLive_AdvanceToSeason(uint16_t season_year);
 int ExpandedWorldLive_Table(uint8_t country, uint8_t division,
                             ExpandedLiveRow *rows, uint32_t capacity,
                             uint32_t *total);
@@ -63,6 +66,15 @@ int ExpandedWorldLive_RecordNativeLeagueResult(uint16_t home,uint16_t away,
 uint32_t ExpandedWorldLive_NativeMatches(void);
 uint32_t ExpandedWorldLive_NativeMisses(void);
 uint32_t ExpandedWorldLive_Results(void);
+/* Resident window remains bounded to two seasons. Completed native league
+ * titles and their match-count/digest are stored as compact, immutable
+ * summaries in the SAME career save (world snapshot v3). */
+uint32_t ExpandedWorldLive_ArchivedResults(void);
+uint32_t ExpandedWorldLive_ResidentResults(void);
+uint32_t ExpandedWorldLive_ArchivedLeagues(void);
+uint16_t ExpandedWorldLive_WindowFirstYear(void);
+int ExpandedWorldLive_HistoryChampion(uint16_t year,uint8_t country,
+                                      uint8_t division,uint16_t *champion);
 /* Diagnostic totals: player slots refer to 16 records per imported club;
  * MemoryBytes reports pilot RAM, not installed database file size. */
 uint32_t ExpandedWorldLive_Fixtures(void);

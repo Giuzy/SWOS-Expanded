@@ -488,3 +488,12 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [CAUSE] Il campionato reale paese 21 (maggio-settembre) crea 45 gare antecedenti al 1° luglio, che il parser della 0.13.20 considerava impropriamente invalide al load.
 - [CODE] Leggere fixture mondiali dal 1° gennaio dell'anno iniziale, preservando calendario OG multi-paese, risultati e controlli anti-corruzione.
 - [TEST] Test C di round-trip snapshot compresso aggiunto. Verifica Python sul .CAR utente: 8.384 fixture, compressione integra; build Windows e test C compilati non ancora eseguiti.
+
+
+### 0.13.22 — mondo 70 stagioni, senza nuove formule sportive
+- [CODE] Finestra cronologica di due stagioni, roll automatico al 1 gennaio, riuso senza collisioni degli ID a 16 bit solo dopo archiviazione, nuova generazione dal calendario OG anche per leghe maggio-settembre; controllo della continuità dei risultati residenti.
+- [HISTORY] Archivio compresso per stagione/lega: campione, punti, incontri, digest; mantiene riepiloghi permanenti senza fixture storiche complete. I risultati vecchi di dettaglio NON sono più accessibili, non nasconderlo.
+- [SAVE] Snapshot living_world v3, campo window_first_year, history. Lettore ancora compatibile con v1/v2, schema carriera 5 invariato e autosave in save/AUTOSAVE.CAR.
+- [INTEGRATION] Sincronizzazione del clock mondiale a nuovo anno carriera in ContinueCareerNextSeason, lasciando intatti comandi/fisica OG. F12 mostra finestre, archivio e residenti.
+- [TEST] Nuovo TEST_LIVING_WORLD.bat e harness C da 70 stagioni, log LIVING_WORLD_70_TEST.log. Validazione ambiente Windows, 70 stagioni e caricamento .CAR reale PENDENTI.
+- [DISCUSSIONE FUTURA] Tuning dei valori simulativi dopo struttura engine; nessuna nuova formula sportiva impostata in questa revisione.

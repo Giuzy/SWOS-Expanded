@@ -460,3 +460,9 @@ registro mondiale condiviso, non sostituendoli con un motore parallelo.
   automaticamente dentro EXE/BAT avvio. Consentire una pulizia manuale
   delimitata a quelle estensioni, dopo conferma esplicita e test del
   nuovo autosave.
+
+
+## Regole confermate 11/11/2026 — test pluridecennali e bilanciamento
+- Il test principale del Living World deve coprire **almeno 70 stagioni complete**, senza click nei menu o partite da giocare manualmente: test isolato rapido e ripetibile via `TEST_LIVING_WORLD.bat`, con log nel gioco, controlli stagionali e save/reload. Non confondere questo harness con una prova end-to-end del manager OpenSWOS su Windows: entrambi i livelli serviranno.
+- **PRIORITÀ ATTUALE:** terminare il Living World Engine prima del redesign TITLE, salvo fix che impediscono di giocare o salvare. Le azioni LOAD CAREER e NEW CAREER nel Title restano proposte differite, con conferma prima di sovrascrivere.
+- **Parametri di simulazione:** dopo il completamento strutturale del motore discutere esplicitamente con l'utente probabilità, goal, forma, morale, infortuni, trasferimenti, economia, esoneri e distribuzioni. Non considerare approvati i placeholder e non introdurre nuove formule sportive senza discussione e autorizzazione. Questa fase interviene su calendario, persistenza e test, **non** calibra i valori.

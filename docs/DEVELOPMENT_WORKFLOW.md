@@ -229,3 +229,11 @@ La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo ver
 5. Solo dopo test positivo, esegui volontariamente
    `PULISCI_VECCHI_SAVE_DOCUMENTI.bat` per i vecchi file; non
    cancellarli prima di aver verificato il caricamento del nuovo slot.
+
+
+### 0.13.22 — test automatico 70 stagioni
+1. Dopo pull di `dev/0.10`, avvia `TEST_LIVING_WORLD.bat` dalla cartella `SWOS_Expanded.exe`. Richiede solo MSYS2/GCC già impiegati dal normale `PREPARA_SWOS.bat`. Non avvia il gioco e **NON** modifica `save/AUTOSAVE.CAR`.
+2. Il BAT scrive nel gioco `LIVING_WORLD_70_TEST.log`; cercare `STRESS_RESULT=PASS` alla fine. Su FAIL incollare/inviare il log **completo**, anche se il BAT si chiude dopo un tasto. Non affermare un successo se non verificato.
+3. Il test usa 216 club/11 leghe sintetici e la stessa sorgente `expanded_world_live.c`, calendari OG e serializer v3. Completa 70 anni archiviati, controlla campioni, assenza di fixtures duplicate, risultati cumulativi, memoria e 15 salvataggi/caricamenti esatti. Non sostituisce le prove UI/manager.
+4. Per integrazione reale Windows, eseguire `AVVIA_SWOS.bat` e poi l'EXE; verificare `Build 0.13.22`, CONTINUE CAREER dal vecchio `AUTOSAVE.CAR` v2 e almeno una simulazione e una partita manuale con F12. Aspettarsi `WORLD WINDOW`, `ARCHIVED LEAGUE-YEARS`, `ARCHIVED RESULTS`.
+5. Se una build/test fallisce, non cancellare il save esistente. `SWOS.log` e `LIVING_WORLD_70_TEST.log` sono i due file diagnostici richiesti.

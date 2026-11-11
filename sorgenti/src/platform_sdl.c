@@ -2760,9 +2760,18 @@ static void draw_world_debug_overlay(void)
     DEBUG_LINE(line);
     DEBUG_LINE("MANAGER ENTITIES NOT MODELED");
     DEBUG_LINE("CHAIRMAN ENTITIES NOT MODELED");
-    snprintf(line,sizeof line,"FIXTURES %lu PLAYED %lu",
+    snprintf(line,sizeof line,"FIXTURES RESIDENT %lu ALL RESULTS %lu",
              (unsigned long)ExpandedWorldLive_Fixtures(),
              (unsigned long)ExpandedWorldLive_Results());
+    DEBUG_LINE(line);
+    snprintf(line,sizeof line,"WORLD WINDOW %u-%u ARCHIVED LEAGUE-YEARS %lu",
+             (unsigned)ExpandedWorldLive_WindowFirstYear(),
+             (unsigned)(ExpandedWorldLive_WindowFirstYear()+1u),
+             (unsigned long)ExpandedWorldLive_ArchivedLeagues());
+    DEBUG_LINE(line);
+    snprintf(line,sizeof line,"ARCHIVED RESULTS %lu RESIDENT RESULTS %lu",
+             (unsigned long)ExpandedWorldLive_ArchivedResults(),
+             (unsigned long)ExpandedWorldLive_ResidentResults());
     DEBUG_LINE(line);
     snprintf(line,sizeof line,"PILOT RAM %.2f MB (NOT DISK DB)",
              (double)ExpandedWorldLive_MemoryBytes()/1048576.0);
@@ -2842,7 +2851,7 @@ static void draw_world_debug_overlay(void)
         }
     }
     DEBUG_LINE("PILOT/NATIVE REPLAY PARTIAL");
-    DEBUG_LINE(ExpandedWorldLive_Clubs() ? "WORLD SNAPSHOT JSON V4 READY" :
+    DEBUG_LINE(ExpandedWorldLive_Clubs() ? "WORLD SNAPSHOT V3 ROLLING READY" :
                "WORLD SNAPSHOT EMPTY");
     snprintf(line,sizeof line,"1 WIN ALWAYS %s",
              ExpandedDebug_ResultMode()==1 ? "ON":"OFF");

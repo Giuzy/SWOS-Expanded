@@ -20,6 +20,11 @@
 #include "menu_system.h"
 #include "input_text.h"
 #include "save_format_json.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_world_live.h"
+#include "world.h"
+#include <stdio.h>
+#endif
 #include "random.h"
 #include "string_utils.h"
 #include "panic.h"
@@ -871,6 +876,25 @@ void ContinueCareerNextSeason(void)
         InitializeNewSeason();
         SWOS_AUTOSKIP_LOG("[bug1] back from InitializeNewSeason: youreSacked=%u", (unsigned)_youreSacked);
     }
+#ifdef SWOS_SDL_BUILD
+    /* Keep the ONE living-world clock at the new season's July boundary.
+     * This is after OG InitializeNewSeason, never inside a manual match.
+     * The world now rolls old competitions before the next season starts. */
+    if (_gameType==4 && _currentSeasonShowing!=0xffffu &&
+        ExpandedWorldLive_Clubs()) {
+        uint32_t year=(uint32_t)World_FirstYear()+_currentSeasonShowing;
+        if (year<=2199u) {
+            if (!ExpandedWorldLive_AdvanceToSeason((uint16_t)year))
+                fprintf(stderr,"[living-world] WARN: unable to sync OG career "
+                               "season %lu; native game left intact\n",
+                        (unsigned long)year);
+            else
+                fprintf(stderr,"[living-world] OG career season %lu synced "
+                               "window=%u\n",(unsigned long)year,
+                        (unsigned)ExpandedWorldLive_WindowFirstYear());
+        }
+    }
+#endif
     SWOS_AUTOSKIP_LOG("[bug1] ContinueCareerNextSeason EXIT");
 }
 

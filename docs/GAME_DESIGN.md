@@ -689,3 +689,9 @@ con l'audit in F12.
 **[ROLLBACK]** Commit funzionante verificato sul PC dall'utente:
 \`600141da7d82ae88f753f36dffebd917d9fbf382\` (0.13.15_01).
 Nessun rollback o force-push automatico.
+
+
+### Living World — milestone di persistenza 70 stagioni (11/11/2026)
+**[CODICE PREPARATO 0.13.22; TEST WIN PENDENTE]** Due stagioni residenti; archivio leggero per campionato/anno con campione, punti, match e digest, in `living_world` version 3 dentro lo stesso `.CAR`. Generazione delle stagioni con tabelle OG e slot 16-bit riutilizzati soltanto dopo archiviazione. Il riavvio della carriera (snapshot v1/v2 legacy compatibili) resta necessario per verificare l'integrazione. Le coppe, i singoli risultati di match storici, la progressione delle rose, i manager/chairman, il mercato e gli eventi giornalieri non sono coperti dal nuovo archivio: il loro design deve restare coerente con la futura persistenza minima dei fatti irripetibili.
+**[CRITERIO DI TEST]** Il test C da 70 stagioni, con almeno 14 checkpoint save/reload, è integrato nel repository; PASS sul PC utente è da verificare, non presunto. È distinto dal test end-to-end della carriera OG.
+**[DECISIONE FUTURA]** Discutere e approvare insieme **tutti i valori della simulazione e il bilanciamento** (probabilità reti, dispersioni, infortuni, crescita, trasferimenti, forma/morale, economia, esoneri) dopo aver concluso la struttura dell'engine. Gli attuali coefficienti del pilot sono placeholder, non valori finali approvati.

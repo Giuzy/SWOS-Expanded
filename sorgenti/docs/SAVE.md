@@ -142,3 +142,22 @@ The 0.13.21 loader accepts fixtures from January 1 of the
 initial calendar year and still validates club identities, all dates,
 ordering, compressed payload size and results. No schema migration is
 required; previously saved `AUTOSAVE.CAR` is not overwritten by the fix.
+
+
+## Living World v3 (0.13.22)
+The single `AUTOSAVE.CAR` retains **external schema_version=5**, with
+`living_world.version=3`, `window_first_year`, and compact `history`
+rows: [season year, country, division, winner club ID, winner points,
+matches played, deterministic 31-bit digest]. Results and unplayed
+fixtures for the **current and next** season retain their original
+compressed fixture data; old seasons are summarized before their
+reusable 16-bit OG slot is used for another year. This avoids a
+70-season resident fixture allocation and makes cumulative result
+counts stay monotonic across archives. Older world v1/v2 data stays
+readable. Exact individual scores from archived past seasons are NOT
+retained in the summary; a richer per-match delta/event archive is
+a future milestone.
+The dedicated `TEST_LIVING_WORLD.bat` is an isolated 70-season stress
+harness; it does not touch player `save/` and does not test native
+Windows career state reconstruction, which remains a separate manual
+smoke test. Athletic probability tuning is deferred for user approval.

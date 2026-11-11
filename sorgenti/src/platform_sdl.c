@@ -2703,7 +2703,7 @@ static void draw_world_debug_overlay(void)
     SDL_RenderSetLogicalSize(s_renderer,960,540);
     SDL_SetRenderDrawBlendMode(s_renderer,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(s_renderer,8,18,28,222);
-    SDL_Rect panel={12,12,475,430};
+    SDL_Rect panel={12,12,475,450};
     SDL_RenderFillRect(s_renderer,&panel);
     SDL_SetRenderDrawColor(s_renderer,120,205,235,255);
     SDL_RenderDrawRect(s_renderer,&panel);
@@ -2799,6 +2799,11 @@ static void draw_world_debug_overlay(void)
     DEBUG_LINE(line);
     snprintf(line,sizeof line,"LEAGUE MENUS COMPLETED %lu",
              (unsigned long)Expanded_MidseasonJoin_LeagueExits());
+    DEBUG_LINE(line);
+    snprintf(line,sizeof line,"OG LEAGUE CALENDARS %lu / %lu ORDERS %lu",
+             (unsigned long)ExpandedWorldLive_NativeScheduleLeagues(),
+             (unsigned long)ExpandedWorldLive_Leagues(),
+             (unsigned long)ExpandedWorldLive_NativeOrderApplied());
     DEBUG_LINE(line);
     snprintf(line,sizeof line,"NATIVE REUSED %lu FALLBACK %lu",
              (unsigned long)ExpandedWorldLive_NativeMatches(),

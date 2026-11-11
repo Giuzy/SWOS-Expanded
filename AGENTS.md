@@ -418,3 +418,19 @@ presente attività l'utente ha autorizzato i commit dei cambi significativi.
 Verificare a ogni build il debug F12 e aggiungere, quando utile,
 diagnostiche fondate su dati effettivamente misurabili. Non inventare
 conteggi di manager/chairman o dimensioni dei database su disco.
+
+
+### Sviluppo incisivo e rollback — decisione 11 novembre 2026
+**[REGOLA UTENTE: «da ora in avanti spavalderia»]** Per interventi tecnici
+espressamente autorizzati, preferire cambiamenti sostanziali e coerenti,
+anche introducendo nuove funzioni o strutture dati quando migliorano
+davvero l'architettura, invece di moltiplicare build con micro-fix
+difensivi. Una build di sviluppo può essere sperimentale: mantenere
+sempre identificato il commit stabile precedente per il rollback tramite
+GitKraken e rendere espliciti rischi e test Windows ancora pendenti.
+La regola NON autorizza commit/push non richiesti, modifiche a gameplay
+o asset approvati non richieste, cancellazioni distruttive o scelte
+arbitrarie in presenza di contraddizioni: l'utente continua a decidere.
+Per il Living World Engine, mantenere il sistema di competizioni e le
+tabelle calendario originali OpenSWOS come base, ampliandoli con un
+registro mondiale condiviso, non sostituendoli con un motore parallelo.

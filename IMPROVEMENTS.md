@@ -431,3 +431,12 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [DEBUG] HEADLESS frames/time nel F12 per confrontare l'attesa reale; NATIVE REUSED/FALLBACK mantengono il conteggio degli abbinamenti. 
 - [TEST] Aggiornate asserzioni pure-C per stagione corrente, non riutilizzo, invertire casa/trasferta e divieto di attraversare stagioni. Test C compilazione Windows **non eseguiti nell'ambiente attuale**.
 - [NON RISOLTO] Le tabelle non possono essere garantite uguali finché `ExpandedWorldLive` e OpenSWOS non utilizzano un unico calendario/ledger. Non cancellare la preview né correggere artificialmente i punti per ottenere l'identità visiva.
+
+
+### 0.13.15 — OG fixture schedule / shared results in both directions (11/11/2026)
+- [CODICE] Il generatore mondiale ricicla le tabelle originali `_fixtureSchedulePtrTable`, anziché creare nuovi incontri con l'algoritmo circle separato. `ExpandedWorldLive_SetLeagueSchedule` importa da ogni Competition i mesi di inizio/fine e produce le date per fasi native (otto per mese).
+- [CODICE] `DIY_ShuffleLeagueTeamOrder` non effettua un secondo sorteggio solo quando trova i club esattamente presenti nel ledger della stessa lega; riproduce la medesima numerazione per il calendario OG. Altrimenti il comportamento SWOS originale è invariato.
+- [CODICE] `ExpandedWorldLive_RecordNativeLeagueResult`: dopo la firma, risultati originali del manager scritti nel ledger mondiale, in caso di match preciso nella fase nativa. Gli altri incontri CPU avanzano nello stesso ledger; nessun cambiamento alla fisica partita.
+- [DEBUG] `OG LEAGUE CALENDARS / ORDERS` controlla in quali divisioni il collegamento è realmente attivo. Rimangono conteggi F12 dei fallback e del recupero.
+- [TEST] Tabella originale per 4,20,24 squadre controllata staticamente; harness C ora linka fixture_data originale e modulo dei round dispari. Test C e Windows non eseguiti in questa sessione.
+- [LIMITI] Non ancora rimossi stato delle competizioni nativo distinto, catch-up dopo assunzione e world-save. Leghe speciali, coppe e riassunzione da testare. Versione per rollback: 0.13.14 `e2cee6d`.

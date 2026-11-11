@@ -67,6 +67,24 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
         if (second && second!=country)
             (void)import_file(second,country,(unsigned)divisions,(unsigned)points);
 #endif
+        /* Import the official competition dates into each world division.
+         * This is the same header native InitializeNewSeason reads; no
+         * second independent Aug-to-May calendar is invented. */
+        /* OpenSWOS's playEachTeam/rounds field decides whether the
+         * source league has one, two or more meeting cycles. Do not
+         * unconditionally assume every nation plays home and away. */
+        int original_legs=(int)league->rounds;
+        if (original_legs<0) original_legs=1;
+        if (original_legs>=1 && original_legs<=4) {
+            for (unsigned d=0;d<(unsigned)divisions;++d)
+                (void)ExpandedWorldLive_SetLeagueSchedule(
+                    country,(uint8_t)d,
+                    (uint8_t)base->beginMonth,(uint8_t)base->endMonth,
+                    (uint8_t)original_legs);
+        } else {
+            fprintf(stderr,"[living-world] unsupported native rounds=%d "
+                           "for country %u\n",original_legs,(unsigned)country);
+        }
     }
     _skipLeagueNumbers=old_skip;
     _teamsLoaded=0;
@@ -76,9 +94,10 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
     } else {
         fprintf(stderr,
             "[living-world] pilot ready: %u clubs, %u groups; start=%u, "
-            "round-robin schedule provisional\n",
+            "native SWOS league schedule groups=%lu\n",
             (unsigned)ExpandedWorldLive_Clubs(),
-            (unsigned)ExpandedWorldLive_Leagues(),(unsigned)World_FirstYear());
+            (unsigned)ExpandedWorldLive_Leagues(),(unsigned)World_FirstYear(),
+            (unsigned long)ExpandedWorldLive_NativeScheduleLeagues());
     }
 }
 #else

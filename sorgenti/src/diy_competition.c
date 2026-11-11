@@ -362,6 +362,28 @@ void DIY_ShuffleLeagueTeamOrder(void)
     uint16_t *teamOffsets = comp->matchData.league.teamEntryOffsets;
     uint16_t count = (uint16_t)comp->base.numTeams;
 
+#ifdef SWOS_SDL_BUILD
+    /* During unemployment, the world ledger already has this league's
+     * native SWOS fixture schedule. Assign the club positions to its
+     * exact canonical order, instead of rolling a second random shuffle
+     * when InitCareer creates a competition AFTER the offer.
+     * The normal OG shuffle remains untouched for non-world leagues. */
+    if (count>=2u && count<=24u) {
+        uint16_t ids[24];
+        for (uint16_t i=0;i<count;++i)
+            ids[i]=BE_READ_U16(&comp->matchData.league.leagueTeamIds[i]);
+        if (ExpandedWorldLive_NativeOrder(ids,count,shuffleIdx)) {
+            for (uint16_t i=0;i<count;++i)
+                teamOffsets[i]=(uint16_t)(18u*shuffleIdx[i]);
+            fprintf(stderr,"[living-world] OG league order aligned: clubs=%u "
+                           "total=%lu\n",
+                    (unsigned)count,
+                    (unsigned long)ExpandedWorldLive_NativeOrderApplied());
+            return;
+        }
+    }
+#endif
+
     for (int16_t i = (int16_t)count - 1; i >= 0; i--) {
         uint16_t r = Rand2();
         uint16_t j = (uint16_t)(((uint32_t)r * count) >> 8);
@@ -10521,6 +10543,22 @@ void ProcessDIYLeagueMatchResultAndCareerUpdates(TeamFileEx *team1, TeamFileEx *
     if (!replayed)
         getCachedOrCalcViewResult(team1, team2, comp, modeFlag,
                                   goalsIn1, goalsIn2, statCol, &d1, &d2);
+
+    /* After signing, native SWOS physics and scoring are authoritative.
+     * Publish their actual result into the SAME persistent in-memory
+     * competition ledger; do not let the world independently simulate
+     * this completed fixture a second time. The world ledger verifies
+     * both club identities and the native calendar phase before writing. */
+    if (_gameType==4 && !Expanded_MidseasonJoin_Active() &&
+        d1<=31u && d2<=31u) {
+        const uint16_t home=((uint16_t)team1->team.countryNumber<<8) |
+                            (uint8_t)team1->team.teamOrdinal;
+        const uint16_t away=((uint16_t)team2->team.countryNumber<<8) |
+                            (uint8_t)team2->team.teamOrdinal;
+        (void)ExpandedWorldLive_RecordNativeLeagueResult(
+            home,away,Expanded_Career_NativeCalendarKey(),
+            (uint8_t)d1,(uint8_t)d2);
+    }
 
     /* Build flags byte d7 */
     uint16_t d7 = 0;

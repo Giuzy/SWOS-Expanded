@@ -9,6 +9,10 @@
 #define LIVE_MAX_LEAGUES 128u
 #define LIVE_MAX_FIXTURES 40000u
 #define LIVE_MAX_LEAGUE_CLUBS 26u
+#define NATIVE_FIXTURE_MAX_CLUBS 24u
+/* Canonical OpenSWOS pairing tables: also used by DIY league fixtures.
+ * The odd-sized tables are installed by FixtureRounds_Install at startup. */
+extern const uint8_t *_fixtureSchedulePtrTable[];
 #define LIVE_SEASONS 2u
 
 typedef struct LiveClub {
@@ -21,6 +25,7 @@ typedef struct LiveClub {
 } LiveClub;
 typedef struct LiveLeague {
     uint8_t country, division, count, points, overflow;
+    uint8_t begin_phase, end_phase, native_schedule, legs;
     uint16_t clubs[LIVE_MAX_LEAGUE_CLUBS];
 } LiveLeague;
 static LiveClub s_clubs[LIVE_MAX_CLUBS];
@@ -36,6 +41,7 @@ static int32_t s_initial_day;
  * fixture result only when home/away IDs and the calendar phase agree. */
 static uint8_t s_native_result_consumed[LIVE_MAX_FIXTURES];
 static uint32_t s_native_matches,s_native_misses;
+static uint32_t s_native_order_applied,s_native_schedule_leagues;
 
 static uint16_t competition_id(uint8_t country, uint8_t division, unsigned season) {
     return (uint16_t)(season * 8192u + ((uint16_t)country << 5) + division);
@@ -57,6 +63,7 @@ void ExpandedWorldLive_End(void) {
     s_weeks=0; s_first_year=0; s_initial_day=0;
     s_preseason_games_total=0;
     s_native_matches=s_native_misses=0;
+    s_native_order_applied=s_native_schedule_leagues=0;
     memset(s_native_result_consumed,0,sizeof s_native_result_consumed);
     memset(&s_ledger,0,sizeof s_ledger);
 }
@@ -90,6 +97,11 @@ int ExpandedWorldLive_AddClub(uint8_t country, uint8_t division,
         league->country=country;
         league->division=division;
         league->points=points_per_win;
+        /* Original SWOS league defaults: Aug (56) to May (32),
+         * with the end month in the following calendar year. */
+        league->begin_phase=0x38u;
+        league->end_phase=0x20u;
+        league->legs=2u;
     }
     if (league->count == LIVE_MAX_LEAGUE_CLUBS) {
         league->overflow=1;
@@ -105,6 +117,56 @@ int ExpandedWorldLive_AddClub(uint8_t country, uint8_t division,
     league->clubs[league->count++]=club;
     return 1;
 }
+/* Read actual national competition begin/end months from the OpenSWOS
+ * league record, not from an independent world calendar. The original
+ * DIY competition uses these exact values to interpolate match phases. */
+int ExpandedWorldLive_SetLeagueSchedule(uint8_t country,uint8_t division,
+                                        uint8_t begin,uint8_t end,uint8_t legs) {
+    LiveLeague *league=league_by_id(country,division);
+    if (!league || !s_fixtures || s_live || begin>=96u || end>=96u ||
+        legs<1u || legs>4u)
+        return 0;
+    league->begin_phase=begin;
+    league->end_phase=end;
+    league->legs=legs;
+    return 1;
+}
+
+/* Career DIY leagues normally shuffle their grid indices. For leagues
+ * covered by the world ledger, remap those indices to the SAME canonical
+ * club order used by the original SWOS fixture table in the world.
+ * Only apply when every native club exactly belongs to one imported league.
+ * All unrelated competitions retain the original SWOS shuffle. */
+int ExpandedWorldLive_NativeOrder(const uint16_t *ids,uint32_t count,
+                                  uint8_t *order) {
+    if (!s_live || !ids || !order || count<2u ||
+        count>LIVE_MAX_LEAGUE_CLUBS) return 0;
+    for (uint32_t l=0;l<s_league_count;++l) {
+        const LiveLeague *league=&s_leagues[l];
+        uint8_t indices[LIVE_MAX_LEAGUE_CLUBS];
+        if (!league->native_schedule || league->count!=count) continue;
+        for (uint32_t i=0;i<count;++i) {
+            uint32_t k=0;
+            while (k<count && ids[k]!=league->clubs[i]) ++k;
+            if (k==count) break;
+            indices[i]=(uint8_t)k;
+            if (i+1u==count) {
+                memcpy(order,indices,count);
+                ++s_native_order_applied;
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
+uint32_t ExpandedWorldLive_NativeOrderApplied(void) {
+    return s_native_order_applied;
+}
+uint32_t ExpandedWorldLive_NativeScheduleLeagues(void) {
+    return s_native_schedule_leagues;
+}
+
 static int fixture_compare(const void *aa, const void *bb) {
     const ExpandedWorldFixture *a=(const ExpandedWorldFixture *)aa;
     const ExpandedWorldFixture *b=(const ExpandedWorldFixture *)bb;
@@ -113,42 +175,65 @@ static int fixture_compare(const void *aa, const void *bb) {
     if (a->id != b->id) return a->id < b->id ? -1 : 1;
     return 0;
 }
-static int make_fixtures(LiveLeague *league, unsigned season, int32_t season_start) {
-    uint16_t slots[LIVE_MAX_LEAGUE_CLUBS];
+/* Exactly the SWOS native pairing order for a regular domestic league:
+ * same _fixtureSchedulePtrTable[n-2] as DIY_GetCurrentFixtureTeamPtrs.
+ * The first cycle follows each stored (home,away) entry; the second
+ * cycle reverses it. All records share the native month-eighth clock,
+ * interpolated like DIY_RecomputeCompetitionDerivedProgressionTable.
+ * Odd-sized divisions use the odd-table installed by FixtureRounds.
+ *
+ * This is NOT a separate round-robin scheduler: the OG table is the
+ * single source of pairing order for both unmanaged and managed clubs. */
+static int make_fixtures(LiveLeague *league,unsigned season,int32_t unused_start) {
+    (void)unused_start;
     unsigned teams=league->count;
-    unsigned n=teams+(teams&1u); /* odd-sized leagues require a BYE */
-    unsigned rounds=n-1;
-    unsigned pairs=n/2;
-    uint16_t cid=competition_id(league->country,league->division,season);
-    if (league->overflow || teams<2 || teams>LIVE_MAX_LEAGUE_CLUBS ||
-        2u*rounds>52u) return 0;
-    if (s_ledger.count+2u*rounds*pairs > s_ledger.capacity) return 0;
-    memcpy(slots,league->clubs,teams*sizeof slots[0]);
-    if (teams&1u) slots[n-1]=0xffffu;
-    for(unsigned r=0;r<rounds;++r) {
-        for(unsigned p=0;p<pairs;++p) {
-            uint16_t a=slots[p], b=slots[n-1-p];
-            unsigned h=((r+p)&1u)!=0u;
-            if (a==0xffffu || b==0xffffu) continue;
-            for(unsigned leg=0;leg<2;++leg) {
-                ExpandedWorldFixture *f=&s_fixtures[s_ledger.count++];
-                memset(f,0,sizeof *f);
-                f->day=season_start+(int32_t)(1u+r+leg*rounds)*7;
-                f->id=(uint32_t)(leg*rounds+r)*pairs+p;
-                f->competition=cid;
-                f->home=((h ^ leg)!=0u) ? b : a;
-                f->away=((h ^ leg)!=0u) ? a : b;
-            }
+    if (league->overflow || teams<2u || teams>NATIVE_FIXTURE_MAX_CLUBS)
+        return 0;
+    const uint8_t *pairs=_fixtureSchedulePtrTable[teams-2u];
+    if (!pairs) return 0;
+    const unsigned per_round=teams/2u;
+    const unsigned one_leg=teams*(teams-1u)/2u;
+    const unsigned rounds_per_leg=(teams&1u)?teams:teams-1u;
+    const unsigned rounds_total=rounds_per_leg*league->legs;
+    unsigned begin=league->begin_phase,end=league->end_phase;
+    if (end<begin) end+=0x60u;
+    if (end<=begin || rounds_total==0u || end>255u ||
+        s_ledger.count+one_leg*league->legs>s_ledger.capacity) return 0;
+    const uint16_t cid=competition_id(league->country,league->division,season);
+    const uint16_t year=(uint16_t)(s_first_year+season);
+    for (unsigned leg=0;leg<league->legs;++leg) {
+        for (unsigned i=0;i<one_leg;++i) {
+            unsigned posA=pairs[2u*i], posB=pairs[2u*i+1u];
+            if (posA>=teams || posB>=teams || posA==posB) return 0;
+            unsigned round=leg*rounds_per_leg+i/per_round;
+            unsigned phase=rounds_total>1u ?
+                begin+(round*(end-begin))/(rounds_total-1u) : begin;
+            ExpandedWorldDate date;
+            int32_t day=0;
+            if (phase>255u ||
+                !ExpandedWorld_NativePhaseToDate(year,(uint8_t)phase,&date) ||
+                !ExpandedWorld_DateToIndex(date,&day)) return 0;
+            ExpandedWorldFixture *f=&s_fixtures[s_ledger.count++];
+            memset(f,0,sizeof *f);
+            f->day=day;
+            f->id=(uint32_t)(leg*one_leg+i);
+            f->competition=cid;
+            /* OG uses the low bit of its remaining-section counter:
+             * odd-numbered sections reverse the same fixture table. */
+            unsigned swap=(league->legs-leg)&1u;
+            f->home=league->clubs[swap?posB:posA];
+            f->away=league->clubs[swap?posA:posB];
         }
-        uint16_t last=slots[n-1];
-        for(unsigned k=n-1;k>1;--k) slots[k]=slots[k-1];
-        slots[1]=last;
     }
+    league->native_schedule=1;
+    if (season==0u) ++s_native_schedule_leagues;
     return 1;
 }
 int ExpandedWorldLive_Seal(void) {
     if (!s_fixtures || s_live) return 0;
     s_ledger.count=0;
+    for (uint32_t i=0;i<s_league_count;++i) s_leagues[i].native_schedule=0;
+    s_native_schedule_leagues=0;
     for (unsigned season=0;season<LIVE_SEASONS;++season) {
         ExpandedWorldDate start={(uint16_t)(s_first_year+season),8,1};
         int32_t day;
@@ -277,7 +362,7 @@ int ExpandedWorldLive_TakeNativeLeagueResult(uint16_t home,uint16_t away,
     int32_t start_day=0,end_day=0;
     if (!s_live || !s_ledger.fixtures || !goals_home || !goals_away ||
         home==away || !club_by_id(home) || !club_by_id(away) ||
-        !ExpandedWorld_NativePhaseToDate(s_first_year,native_phase,
+        !ExpandedWorld_NativePhaseToDate(ExpandedWorldLive_SeasonYear(),native_phase,
                                           &native_date)) {
         ++s_native_misses;
         return 0;
@@ -314,6 +399,55 @@ int ExpandedWorldLive_TakeNativeLeagueResult(uint16_t home,uint16_t away,
     ++s_native_misses;
     return 0;
 }
+/* Once the human manager has joined, the native match result is written
+ * into the SAME global world ledger, not into a new parallel simulation.
+ * Scores played during catch-up were already precomputed by that ledger.
+ *
+ * Require exact home/away identity AND the same original native match
+ * phase to avoid accidentally jumping months ahead if a competition
+ * uses a different schedule or a special league phase/split. */
+int ExpandedWorldLive_RecordNativeLeagueResult(uint16_t home,uint16_t away,
+                                               uint8_t phase,
+                                               uint8_t goals_home,
+                                               uint8_t goals_away) {
+    ExpandedWorldDate date,next;
+    int32_t phase_day=0,next_day=0;
+    if (!s_live || !s_ledger.fixtures || home==away ||
+        goals_home>31u || goals_away>31u ||
+        !ExpandedWorld_NativePhaseToDate(ExpandedWorldLive_SeasonYear(),phase,&date) ||
+        phase==255u ||
+        !ExpandedWorld_NativePhaseToDate(ExpandedWorldLive_SeasonYear(),(uint8_t)(phase+1u),&next) ||
+        !ExpandedWorld_DateToIndex(date,&phase_day) ||
+        !ExpandedWorld_DateToIndex(next,&next_day)) return 0;
+    for (uint32_t i=0;i<s_ledger.count;++i) {
+        ExpandedWorldFixture *f=&s_fixtures[i];
+        if (f->home!=home || f->away!=away ||
+            f->day<phase_day || f->day>=next_day) continue;
+        if (f->played) {
+            /* A real played match is authoritative over a tentative
+             * world score. All tables are recalculated from this ledger. */
+            if (f->goals_home!=goals_home || f->goals_away!=goals_away) {
+                f->goals_home=goals_home;
+                f->goals_away=goals_away;
+            }
+            return 1;
+        }
+        f->goals_home=goals_home;
+        f->goals_away=goals_away;
+        f->played=1;
+        ++s_ledger.played;
+        if (f->day>s_ledger.now) {
+            int32_t old=s_ledger.now;
+            if (!ExpandedWorldLedger_Advance(&s_ledger,f->day,
+                                              resolve_game,NULL)) return 0;
+            preseason_advance(old,s_ledger.now);
+            s_weeks=(uint32_t)(s_ledger.now-s_initial_day)/7u;
+        }
+        return 1;
+    }
+    return 0;
+}
+
 uint32_t ExpandedWorldLive_NativeMatches(void) { return s_native_matches; }
 uint32_t ExpandedWorldLive_NativeMisses(void) { return s_native_misses; }
 uint32_t ExpandedWorldLive_Results(void) { return s_ledger.played; }
@@ -397,6 +531,15 @@ int ExpandedWorldLive_AddClub(uint8_t c,uint8_t d,uint16_t id,uint16_t rating,
     (void)c;(void)d;(void)id;(void)rating;(void)name;(void)ppw;return 0;
 }
 int ExpandedWorldLive_Seal(void) {return 0;}
+int ExpandedWorldLive_SetLeagueSchedule(uint8_t c,uint8_t d,uint8_t s,uint8_t e,
+                                        uint8_t legs) {
+    (void)c;(void)d;(void)s;(void)e;(void)legs;return 0;
+}
+int ExpandedWorldLive_NativeOrder(const uint16_t *ids,uint32_t n,uint8_t *order) {
+    (void)ids;(void)n;(void)order;return 0;
+}
+uint32_t ExpandedWorldLive_NativeOrderApplied(void) {return 0;}
+uint32_t ExpandedWorldLive_NativeScheduleLeagues(void) {return 0;}
 int ExpandedWorldLive_AdvanceWeeks(uint32_t w) {(void)w;return 0;}
 int ExpandedWorldLive_Table(uint8_t c,uint8_t d,ExpandedLiveRow *r,
                             uint32_t cap,uint32_t *total) {
@@ -404,6 +547,10 @@ int ExpandedWorldLive_Table(uint8_t c,uint8_t d,ExpandedLiveRow *r,
 }
 int ExpandedWorldLive_TakeNativeLeagueResult(uint16_t h,uint16_t a,uint8_t phase,
                                              uint8_t *gh,uint8_t *ga) {
+    (void)h;(void)a;(void)phase;(void)gh;(void)ga;return 0;
+}
+int ExpandedWorldLive_RecordNativeLeagueResult(uint16_t h,uint16_t a,uint8_t phase,
+                                               uint8_t gh,uint8_t ga) {
     (void)h;(void)a;(void)phase;(void)gh;(void)ga;return 0;
 }
 uint32_t ExpandedWorldLive_NativeMatches(void) {return 0;}

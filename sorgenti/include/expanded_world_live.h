@@ -1,8 +1,10 @@
 #ifndef EXPANDED_WORLD_LIVE_H
 #define EXPANDED_WORLD_LIVE_H
 #include "swos_types.h"
-/* Standalone competition preview: actual club IDs and squads, provisional
- * round-robin dates. No changes to native match physics or save schema. */
+/* World competition ledger: real club IDs and original native SWOS
+ * league fixture tables/month phases. Native career replays the same
+ * results into the original standings/bookkeeping routines.
+ * Full world saves and post-hire manager switches remain work in progress. */
 typedef struct ExpandedLivePreseason {
     uint16_t friendlies,goals_for,goals_against;
     uint8_t morale,fatigue,injury_events;
@@ -20,6 +22,18 @@ int ExpandedWorldLive_Begin(uint16_t start_year);
 int ExpandedWorldLive_AddClub(uint8_t country, uint8_t division,
                               uint16_t club, uint16_t rating,
                               const char *name, uint8_t points_per_win);
+/* The world uses original OpenSWOS league fixture tables and phase
+ * calendar. Called before Seal(), from each country's competition record. */
+int ExpandedWorldLive_SetLeagueSchedule(uint8_t country,uint8_t division,
+                                        uint8_t begin_phase,uint8_t end_phase,
+                                        uint8_t legs);
+/* During native league creation, use the same club-to-fixture-index order
+ * as the canonical world ledger, but only for an exactly matching roster.
+ * Other competitions use the original OpenSWOS shuffle unchanged. */
+int ExpandedWorldLive_NativeOrder(const uint16_t *native_ids,uint32_t count,
+                                  uint8_t *out_order);
+uint32_t ExpandedWorldLive_NativeOrderApplied(void);
+uint32_t ExpandedWorldLive_NativeScheduleLeagues(void);
 int ExpandedWorldLive_Seal(void);
 int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks);
 int ExpandedWorldLive_Table(uint8_t country, uint8_t division,
@@ -34,6 +48,13 @@ int ExpandedWorldLive_TakeNativeLeagueResult(uint16_t home,uint16_t away,
                                              uint8_t native_phase,
                                              uint8_t *goals_home,
                                              uint8_t *goals_away);
+/* After the manager joins, publish an actual native league score into
+ * the same world result ledger, preserving OpenSWOS match physics. Only
+ * an identical fixture in the original month phase can be updated. */
+int ExpandedWorldLive_RecordNativeLeagueResult(uint16_t home,uint16_t away,
+                                               uint8_t phase,
+                                               uint8_t goals_home,
+                                               uint8_t goals_away);
 uint32_t ExpandedWorldLive_NativeMatches(void);
 uint32_t ExpandedWorldLive_NativeMisses(void);
 uint32_t ExpandedWorldLive_Results(void);

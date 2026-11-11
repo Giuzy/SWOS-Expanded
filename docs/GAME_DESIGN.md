@@ -313,6 +313,7 @@ Questo registro documenta incidenti **segnalati dall'utente** durante lo svilupp
 | 11/11/2026 (ora esatta non verificata) | `Connection interrupted` | Conversazione tecnica interrotta mentre si lavorava al Living World Engine | Recuperati requisiti e stato del codice dal repository; eventuali modifiche non committate nella sessione precedente non verificabili da GitHub |
 | 11/11/2026 (ora esatta non verificata) | `Unknown error` | Nuova interruzione della stessa sessione, con rischio di lavoro non trasferito | Ripresa da HEAD GitHub dopo il push dell'utente; nessuna diagnosi della piattaforma confermata |
 | 11/11/2026 (ora esatta non verificata) | `Connection interrupted` (nuova segnalazione dell'utente) | Interruzione mentre si preparava il collegamento dei risultati pilota alle partite native e i relativi test | Ripresa tramite commit HEAD `a0e01ee` su `dev/0.10`, controllo delle fonti e continuazione delle modifiche; causa tecnica e durata non note |
+| 11/11/2026 (ora esatta non verificata) | `error in message stream` (ulteriore segnalazione dell'utente) | Messaggio interrotto durante la pianificazione dell'unificazione Living World Engine | Recuperata la conversazione e ripreso il lavoro da `0.13.14`; causa, durata e dati persi non verificabili |
 
 **Metodo per le prossime segnalazioni:** registrare data/ora se note, messaggio esatto, attività in corso, commit/branch, modifiche potenzialmente perse, recupero e tempo perso solo se misurabile. Nessuna frequenza o durata inventata.
 
@@ -554,3 +555,59 @@ flicker, (c) stato `REACHED`, (d) F12 `NATIVE REUSED`/`FALLBACK`,
 Il requisito finale rimane il **Living World Engine unico**: avviare e
 far progredire le competizioni native una sola volta durante la
 disoccupazione, eliminando il catch-up quando esiste uno stato condiviso.
+
+
+## 31. 0.13.15 — calendario OpenSWOS condiviso dal mondo e dalla carriera
+
+**[DECISIONE UTENTE]** Non sostituire le competizioni originali SWOS con
+un nuovo scheduler parallelo. Mantenere le tabelle native
+`_fixtureSchedulePtrTable` (inclusi i calendari Berger con BYE per
+campionati dispari) e i campi `beginMonth`/`endMonth` ufficiali,
+estendendoli con un unico registro mondiale dei risultati.
+
+**[CODICE, BUILD WINDOWS DA TESTARE]** Il Living World Engine genera
+le gare del campionato usando le coppie della tabella originale SWOS
+anziché il proprio algoritmo a rotazione. Per ogni lega importata
+legge le fasi dei mesi dal record `Competition` usato anche dalla
+carriera; distribuisce le giornate nelle stesse fasi originali tramite
+l'interpolazione `phaseStartMonths`. Le gare di ritorno invertono
+casa/trasferta. Per le leghe del mondo importate e completamente
+riconoscibili, `DIY_ShuffleLeagueTeamOrder` usa l'ordine dei club già
+contenuto nel mondo anziché un nuovo sorteggio: la coppia OG
+casa/trasferta rimane uguale prima e dopo la firma.
+Le leghe non riconosciute usano ancora la routine originale di
+shuffle senza alcun override.
+
+**[CODICE, POST FIRMA]** `ProcessDIYLeagueMatchResultAndCareerUpdates`,
+dopo aver elaborato un vero risultato nativo post-ingaggio, registra
+lo stesso punteggio nel ledger mondiale soltanto se trova la coppia
+esatta nella fase temporale nativa corretta. Quindi avanza il mondo
+fino alla giornata, simulando le gare CPU rimanenti, senza
+ricalcolare la gara giocata. Il gioco non altera la fisica SWOS.
+
+**[DEBUG F12]** `OG LEAGUE CALENDARS X / Y ORDERS Z`:
+X=leghe del mondo per cui è stata costruita una tabella nativa OG,
+Y=leghe importate, Z=numero di inizializzazioni di leghe native con
+ordine allineato al mondo. Rimangono `NATIVE REUSED`/`FALLBACK`
+per valutare i casi di mismatch dopo la firma.
+
+**[LIMITI DA NON NASCONDERE]** La carriera originale conserva il proprio
+stato delle classifiche/cursor e all'ingaggio ha ancora bisogno
+di applicare lo storico del ledger attraverso il recupero headless;
+questo commit **non elimina** il doppio contenitore di stato, il
+recupero dopo firma, i casi particolari di campionati a fasi/split,
+le competizioni a coppa, i trasferimenti e il salvataggio del mondo.
+Il primo obiettivo operativo è che, per le normali leghe coperte,
+i risultati vengano calcolati una sola volta e le classifiche
+prima/dopo coincidano. Non proclamare unificazione globale completa
+senza un test integrato che includa esonero, riassunzione e salvataggio.
+
+**[VERIFICA]** Test C aggiornati per: tabella originale 20 squadre,
+giornate dispari a 5 squadre con BYE, fasi originali, mappatura
+deterministica squadre native, risultato pilota riusato una sola volta,
+e scrittura dei risultati reali nativi nel mondo. I test C e la
+compilazione Windows non sono stati eseguiti qui; test manuale e
+compilazione sul PC dell'utente obbligatori.
+
+Rollback: `0.13.14`, commit
+`e2cee6d2d965b965034b15246b0d178143ea5d61`.

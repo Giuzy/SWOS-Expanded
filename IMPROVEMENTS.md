@@ -387,3 +387,10 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [CODICE] Rafforzato l'accesso al keycache 8192 byte durante la scansione di pre-ingaggio: ogni stride è validato contro limiti e ordine delle fasi, e si richiedono incontri sia prima sia dopo il momento dell'assunzione. Controllo di bounds anche sul record corrente in ogni tick.
 - [NON RISOLTO] Il calendario pilota differisce ancora dal calendario OpenSWOS inizializzato alla firma; non dichiarare completa la continuità dei risultati/classifiche o il salvataggio del mondo.
 - [TEST] Revisione statica; compilazione e test reali Windows non eseguiti in questo ambiente.
+
+
+### 0.13.09 — cutoff di fase nativo e diagnostica mondo F12 (11/11/2026)
+- [CODICE] Corretto il confronto tra settimana civile e fase nativa OpenSWOS: codifica mesi ×8 e rollover +0x60; test unitari aggiornati.
+- [CODICE] F12 esteso con dati del pilota (club, leghe, slot giocatori, fixture, risultati, RAM) e situazione native cache/fase e catch-up; dati mancanti (manager/chairman globali, dimensione su disco) dichiarati non disponibili.
+- [REGOLA] Commit solo per cambiamenti significativi autorizzati; controllo diagnostiche F12 in ogni build.
+- [PENDENTE] Compilazione Windows e test reale dell'assunzione. Pilot/world e carriera nativa restano non unificati; non dichiarare risolto il bug principale.

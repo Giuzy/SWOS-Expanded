@@ -1,5 +1,5 @@
 /*
- * 0.13.06 — cautious first-job native calendar catch-up.
+ * 0.13.09 — native month-phase cutoff for first-job catch-up.
  *
  * The prehire pilot is an independent round-robin, so its fixture index is
  * NOT interchangeable with the original SWOS league/cup calendar. We do not
@@ -14,14 +14,28 @@
 
 int Expanded_MidseasonJoin_Cutoff(uint16_t year,uint32_t weeks,uint8_t *out) {
     ExpandedWorldDate july={year,7,1}, august={year,8,1}, now;
-    int32_t today=0,first=0;
+    ExpandedWorldDate month_start, next_month;
+    int32_t today=0,first=0,month_day=0,next_day=0;
     if (!out || weeks>=52 || !ExpandedWorld_DateAfterWeeks(july,weeks,&now) ||
         !ExpandedWorld_DateToIndex(now,&today) ||
         !ExpandedWorld_DateToIndex(august,&first)) return 0;
-    if(today<=first) { *out=0; return 1; }
-    uint32_t weeks_after_august=(uint32_t)(today-first+6)/7u;
-    if (weeks_after_august>255u) return 0;
-    *out=(uint8_t)weeks_after_august;
+    if (today<=first) { *out=0; return 1; }
+
+    /* Native OpenSWOS sortKey is NOT a week count. Competition beginMonth,
+     * endMonth and league phaseStartMonths use month index * 8 (March=16),
+     * with +0x60 for dates after the calendar-year rollover. */
+    month_start=(ExpandedWorldDate){now.year,now.month,1};
+    next_month=(ExpandedWorldDate){now.month==12 ?
+                                    (uint16_t)(now.year+1) : now.year,
+                                    now.month==12 ? 1 : (uint8_t)(now.month+1),1};
+    if (!ExpandedWorld_DateToIndex(month_start,&month_day) ||
+        !ExpandedWorld_DateToIndex(next_month,&next_day) ||
+        next_day<=month_day) return 0;
+    uint32_t phase=(uint32_t)(now.month-1u)*8u +
+                   ((uint32_t)(now.day-1u)*8u)/(uint32_t)(next_day-month_day);
+    if (now.year>year) phase+=0x60u;
+    if (phase>255u) return 0;
+    *out=(uint8_t)phase;
     return 1;
 }
 

@@ -327,3 +327,34 @@ Questo registro documenta incidenti **segnalati dall'utente** durante lo svilupp
 **[CODICE DI SICUREZZA, DA TESTARE WINDOWS]** Il recupero delle partite precedenti alla firma verifica l'intero keycache nativo (lunghezza entro 8192 byte, stride valido, ordine dei sortKey e presenza di fixture sia antecedenti sia successive al cutover). Prima era sufficiente trovare una fixture futura per attivare il recupero: una memoria incoerente poteva essere letta oltre il buffer o simulata in modo errato. Le condizioni di arresto riportano diagnostica esplicita a stderr.
 
 **[ATTENZIONE — OBIETTIVO PRIMARIO ANCORA APERTO]** Questa è una protezione per la prototipazione, non una soluzione del bug segnalato: la classifica pilota pre-firma e la competizione nativa post-firma restano due origini diverse. Non è stato verificato l'ingresso riuscito su Windows con calendario, risultati, coppe, finanze e salvataggi invariati. Il requisito definitivo è costruire una sola simulazione persistente e riutilizzare i suoi stati nelle schermate prima/dopo il contratto, senza ri-simulare o ricopiare punti.
+
+
+## 25. Midseason native month-phase correction (0.13.09 — 11/11/2026)
+
+**[CODICE, TEST WINDOWS PENDENTE]** Il vecchio `Expanded_MidseasonJoin_Cutoff`
+confrontava settimane trascorse da agosto (valori 0–51) con `sortKey`
+dei calendari OpenSWOS, che rappresentano **ottavi di mese**
+(`beginMonth`/ `endMonth`, gennaio=0, marzo=16, agosto=56,
++0x60 dopo il nuovo anno). Non erano unità compatibili.
+Ora la data civile calcola la fase nativa, con casi di
+regressione per settembre, marzo, maggio e giugno. Non è
+una riscrittura delle fixture; il raggiungimento esatto dei
+round richiede ancora un test reale sulla timeline.
+
+**[F12 ESTESO]** La schermata diagnostica espone database world tag,
+club, divisioni, 16 slot giocatori per club importato dal pilota,
+fixture totali e disputate, memoria RAM del pilota, cache e fase
+native e stato dell'autocatchup. I giocatori indicati sono record
+importati, **non necessariamente tutti i giocatori nel mondo
+installato**. Allenatori e chairman non hanno ancora un modello
+mondiale persistente: non esistono conteggi validi di quelle entità.
+La dimensione su disco dei database non è indicizzata, e non deve
+essere confusa con quella RAM.
+
+**[PRIORITÀ MASSIMA ANCORA APERTA]** La preview pilota genera
+fixture e risultati separatamente dalla carriera OpenSWOS.
+Sebbene il join ora impieghi la codifica di fase giusta,
+questo non unifica le competizioni e non garantisce risultati
+o classifiche identici prima e dopo la firma. Va costruita
+una sola sorgente di risultati persistenti con integrazione
+nativa, coppe e salvataggi: nessuna doppia simulazione.

@@ -255,6 +255,14 @@ int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks) {
     return 1;
 }
 uint32_t ExpandedWorldLive_Results(void) { return s_ledger.played; }
+uint32_t ExpandedWorldLive_Fixtures(void) { return s_live?s_ledger.count:0; }
+uint32_t ExpandedWorldLive_PlayerSlots(void) { return s_live?s_club_count*16u:0; }
+uint32_t ExpandedWorldLive_MemoryBytes(void) {
+    if (!s_live) return 0;
+    /* Allocated pilot RAM, not the disk size of the actual world pack. */
+    return (uint32_t)(sizeof s_clubs+sizeof s_leagues+sizeof s_ledger+
+                      sizeof(*s_fixtures)*LIVE_MAX_FIXTURES);
+}
 uint32_t ExpandedWorldLive_Clubs(void) { return s_club_count; }
 uint32_t ExpandedWorldLive_Leagues(void) { return s_league_count; }
 uint32_t ExpandedWorldLive_Weeks(void) { return s_weeks; }
@@ -332,6 +340,9 @@ int ExpandedWorldLive_Table(uint8_t c,uint8_t d,ExpandedLiveRow *r,
     (void)c;(void)d;(void)r;(void)cap;if(total)*total=0;return 0;
 }
 uint32_t ExpandedWorldLive_Results(void) {return 0;}
+uint32_t ExpandedWorldLive_Fixtures(void) {return 0;}
+uint32_t ExpandedWorldLive_PlayerSlots(void) {return 0;}
+uint32_t ExpandedWorldLive_MemoryBytes(void) {return 0;}
 uint32_t ExpandedWorldLive_Clubs(void) {return 0;}
 uint32_t ExpandedWorldLive_Leagues(void) {return 0;}
 uint16_t ExpandedWorldLive_SeasonYear(void) {return 0;}

@@ -22,6 +22,8 @@
 #include "build_info.h"      /* the commit, in the window title */
 #include "world.h"
 #include "expanded_debug.h"
+#include "expanded_world_live.h"
+#include "expanded_midseason_join.h"
 #include "expanded_new_career.h"
 #include "expanded_title_overlay.h" /* independent PNG title and button sprites */
 #include "expanded_title_layout.h"
@@ -2657,7 +2659,7 @@ static void draw_world_debug_overlay(void)
     SDL_RenderSetLogicalSize(s_renderer,960,540);
     SDL_SetRenderDrawBlendMode(s_renderer,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(s_renderer,8,18,28,222);
-    SDL_Rect panel={12,12,410,218};
+    SDL_Rect panel={12,12,475,350};
     SDL_RenderFillRect(s_renderer,&panel);
     SDL_SetRenderDrawColor(s_renderer,120,205,235,255);
     SDL_RenderDrawRect(s_renderer,&panel);
@@ -2701,8 +2703,44 @@ static void draw_world_debug_overlay(void)
                  (unsigned)_numWins,(unsigned)_numLost);
         DEBUG_LINE(line);
     }
-    DEBUG_LINE("WORLD SIM NOT ACTIVE");
-    DEBUG_LINE("MIDSEASON JOIN NOT ACTIVE");
+    snprintf(line,sizeof line,"PREVIEW %s CAREER %s",
+             ExpandedWorldLive_Clubs()?"PILOT":"NONE",
+             _gameType==4?"NATIVE":"NONE");
+    DEBUG_LINE(line);
+    snprintf(line,sizeof line,"CLUBS %lu LEAGUES %lu",
+             (unsigned long)ExpandedWorldLive_Clubs(),
+             (unsigned long)ExpandedWorldLive_Leagues());
+    DEBUG_LINE(line);
+    snprintf(line,sizeof line,"PLAYER SLOTS %lu (16 PER CLUB)",
+             (unsigned long)ExpandedWorldLive_PlayerSlots());
+    DEBUG_LINE(line);
+    DEBUG_LINE("MANAGER ENTITIES NOT MODELED");
+    DEBUG_LINE("CHAIRMAN ENTITIES NOT MODELED");
+    snprintf(line,sizeof line,"FIXTURES %lu PLAYED %lu",
+             (unsigned long)ExpandedWorldLive_Fixtures(),
+             (unsigned long)ExpandedWorldLive_Results());
+    DEBUG_LINE(line);
+    snprintf(line,sizeof line,"PILOT RAM %.2f MB (NOT DISK DB)",
+             (double)ExpandedWorldLive_MemoryBytes()/1048576.0);
+    DEBUG_LINE(line);
+    DEBUG_LINE("DATABASE DISK MB NOT INDEXED");
+    {
+        extern uint16_t _teamSelectionKeyCacheCount;
+        extern uint16_t _teamSelectionKeyCacheIndex;
+        uint8_t cutoff=0;
+        int valid=Expanded_MidseasonJoin_Cutoff(World_FirstYear(),
+                        Expanded_DebugUnemployedWeeks(),&cutoff);
+        snprintf(line,sizeof line,"NATIVE CACHE %u INDEX %u PHASE %u",
+                 (unsigned)_teamSelectionKeyCacheCount,
+                 (unsigned)_teamSelectionKeyCacheIndex,
+                 (unsigned)_lastFinancialWeekIndex);
+        DEBUG_LINE(line);
+        snprintf(line,sizeof line,"JOIN %s TARGET PHASE %u%s",
+                 Expanded_MidseasonJoin_Active()?"ACTIVE":"INACTIVE",
+                 (unsigned)(valid?cutoff:0),valid?"":" INVALID");
+        DEBUG_LINE(line);
+    }
+    DEBUG_LINE("PILOT/NATIVE RESULTS NOT UNIFIED");
     DEBUG_LINE("WORLD SAVE NOT ACTIVE");
     snprintf(line,sizeof line,"1 WIN ALWAYS %s",
              ExpandedDebug_ResultMode()==1 ? "ON":"OFF");

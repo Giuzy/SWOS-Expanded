@@ -26,6 +26,11 @@ int ExpandedWorldLive_Table(uint8_t country, uint8_t division,
                             ExpandedLiveRow *rows, uint32_t capacity,
                             uint32_t *total);
 uint32_t ExpandedWorldLive_Results(void);
+/* Diagnostic totals: player slots refer to 16 records per imported club;
+ * MemoryBytes reports pilot RAM, not installed database file size. */
+uint32_t ExpandedWorldLive_Fixtures(void);
+uint32_t ExpandedWorldLive_PlayerSlots(void);
+uint32_t ExpandedWorldLive_MemoryBytes(void);
 uint32_t ExpandedWorldLive_Clubs(void);
 uint32_t ExpandedWorldLive_Leagues(void);
 uint16_t ExpandedWorldLive_SeasonYear(void);

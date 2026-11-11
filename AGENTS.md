@@ -407,3 +407,14 @@ richiamato dal runtime senza aggiornare tutti i relativi riferimenti.
 - **[APPROVATO]** Ogni club mantiene sponsor che possono precedere il manager; numero e qualità dipendono dalla situazione (anche zero sponsor in crisi grave). Contratti con scadenza e opzioni di rinnovo; non annullarli quando cambia allenatore. **Non espandere oltre** il sistema per ora. Riferimento `docs/GAME_DESIGN.md` §21.
 - **[PROPOSTA NON APPROVATA]** Forma individuale per giocatore, allenamento ordinario **collettivo** ed eventuali eccezioni individuali opzionali: da discutere senza modificare ora le statistiche o il database originale. Vedere §22.
 - **[STATO TECNICO 0.13.06]** Esperimento di simulazione in carriera **attraverso i menu nativi**, non un import delle classifiche pilota. Le due fonti restano diverse fino alla progettazione della vera simulazione globale persistente. Non dichiarare uniformità dei punti senza il confronto e i test Windows.
+
+
+### Commit per modifiche significative (11 novembre 2026)
+**[REGOLA]** Nelle richieste di sviluppo, creare commit soltanto dopo
+modifiche significative al gioco, agli asset o agli strumenti tecnici,
+non dopo semplici analisi, controlli o micro-correzioni preparatorie.
+Rimane richiesta autorizzazione esplicita per commit e push; nella
+presente attività l'utente ha autorizzato i commit dei cambi significativi.
+Verificare a ogni build il debug F12 e aggiungere, quando utile,
+diagnostiche fondate su dati effettivamente misurabili. Non inventare
+conteggi di manager/chairman o dimensioni dei database su disco.

@@ -611,3 +611,12 @@ compilazione sul PC dell'utente obbligatori.
 
 Rollback: `0.13.14`, commit
 `e2cee6d2d965b965034b15246b0d178143ea5d61`.
+
+
+## 32. 0.13.15_01 — hotfix dopo il primo pull (11/11/2026)
+
+**[INCIDENTE UTENTE]** Segnalato il messaggio esatto `Connection interrupted. Waiting for the complete answer` al termine dell'unificazione sperimentale 0.13.15. L'utente conferma di aver **gia' effettuato il Pull** da `dev/0.10`. Non riscrivere il commit pubblicato: fornire il fix come commit successivo, mantenendo la cronologia GitKraken.
+
+**[ERRORE CODICE CONFERMATO]** `ExpandedWorldLive_LoadOfferCountries` leggeva `league->rounds`, ma il record consolidato `CompetitionLeague` contiene il numero di gironi in `league->header.rounds` (`sorgenti/include/game_types.h`, `CompLeagueHeader`). Corretto l'accesso per evitare errore di compilazione della 0.13.15. Simulazione e gameplay invariati.
+
+**[BUILD]** Suffisso di commit intermedio `0.13.15_01`, senza nuova BUILD di release. Compilazione e collaudo Windows non eseguiti in chat. Basta un ulteriore Pull: nessun reset, force-push o rollback automatico.

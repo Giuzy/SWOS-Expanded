@@ -73,7 +73,7 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
         /* OpenSWOS's playEachTeam/rounds field decides whether the
          * source league has one, two or more meeting cycles. Do not
          * unconditionally assume every nation plays home and away. */
-        int original_legs=(int)league->rounds;
+        int original_legs=(int)league->header.rounds;
         if (original_legs<0) original_legs=1;
         if (original_legs>=1 && original_legs<=4) {
             for (unsigned d=0;d<(unsigned)divisions;++d)

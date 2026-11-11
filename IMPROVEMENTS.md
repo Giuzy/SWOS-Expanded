@@ -456,3 +456,8 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [DEBUG] F12 indica world snapshot pronto oppure assente.
 - [LIMITI] Nessun motore completo: coppe mondiali, cicli multistagionali, allenatori/presidenti, mercato AI, generazioni e salvataggio nativo integrale sono ancora da sviluppare.
 - [TEST] Nessuna compilazione MinGW64 o esecuzione Windows svolta dall'assistente; test interattivi rinviati con il resto della convalida.
+
+
+### 0.13.18 — validazione salvataggi pluriennali
+- Corretto un vincolo troppo stretto nel parser .CAR schema 4: settimane/date successive al secondo anno rimangono caricabili entro il range del calendario mondiale. La produzione di nuove stagioni resta un intervento separato.
+- Windows compile e test save/load ancora pendenti.

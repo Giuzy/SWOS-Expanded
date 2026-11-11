@@ -580,3 +580,9 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 **Limitazioni:** la persistenza del pilot non completa ancora l'engine. Rimangono il limite delle due stagioni pre-generate, calendario ciclico multistagionale, coppe in ledger, manager/chairman persistenti, simulazione del mercato/ritiri/nuovi giovani, calendario globale anche dopo ingaggio e riassunzioni, e connessione dei dati finanziari e calcistici canonici. Il rating club non equivale a un database persistente di calciatori.
 
 **Verifica:** esaminati sorgenti e dipendenze su GitHub; non eseguiti compilazione MSYS2/Windows o test runtime in questa sessione. Dopo il pull, verificare che AVVIA_SWOS.bat compili; salvare e caricare una carriera schema 4, comparare F12 prima/dopo (club/leghe/fixtures/playback), poi verificare classifica e partita manuale. Provare anche a caricare un vecchio .CAR schema 3. Non dichiarare build Windows testata finché l'utente non riporta esito.
+
+
+### 0.13.18 — correzione durata carriera nel world snapshot
+- Corretto il controllo di caricamento delle settimane: il pilot genera fixture solo per due stagioni ma l'orologio della carriera puo' avanzare oltre. Un .CAR valido non viene piu' respinto soltanto perche' la data e' successiva al secondo campionato generato.
+- Il limite del mondo resta l'intervallo di date supportato dal motore (fino al 2200). Questo intervento NON genera stagioni nuove dopo il secondo anno: la progressione perpetua e' ancora da implementare.
+- Non eseguita compilazione Windows; test completi rinviati al ciclo conclusivo.

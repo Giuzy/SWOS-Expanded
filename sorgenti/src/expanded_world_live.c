@@ -758,11 +758,19 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
         ExpandedWorldDate start={tmp->year,7u,1u};
         if (!ExpandedWorld_DateToIndex(start,&tmp->initial)) goto invalid;
     }
+    /* The current fixture generator knows two seasons, but the live
+     * clock can keep advancing after that horizon. Never refuse a valid
+     * later-career save merely because no further fixtures were generated. */
     if (mjson_get_long(obj,olen,"$.weeks",&v)<=0 || v<0 ||
-        v>LIVE_SEASONS*54u) goto invalid;
+        v>16000L) goto invalid;
     tmp->weeks=(uint32_t)v;
-    if (mjson_get_long(obj,olen,"$.now",&v)<=0 ||
-        v<tmp->initial || v>tmp->initial+LIVE_SEASONS*366) goto invalid;
+    {
+        ExpandedWorldDate end_date={2200u,12u,31u};
+        int32_t final_day=0;
+        if (!ExpandedWorld_DateToIndex(end_date,&final_day) ||
+            mjson_get_long(obj,olen,"$.now",&v)<=0 ||
+            v<tmp->initial || v>final_day) goto invalid;
+    }
     tmp->now=(int32_t)v;
     if ((uint32_t)(tmp->now-tmp->initial)<tmp->weeks*7u) goto invalid;
     if (mjson_get_long(obj,olen,"$.preseason_games",&v)<=0 || v<0)

@@ -243,6 +243,7 @@ extern uint8_t _currentMenu[];
 extern uint16_t _fireResetFlag;
 extern int32_t Team_IsOutsideLeague(const TeamFile *team);
 extern void Expanded_FormatDate(char *,size_t,unsigned,unsigned);
+extern void Expanded_FormatCivilDate(char *,size_t,ExpandedWorldDate);
 static unsigned s_waitWeeks=0;
 static unsigned s_nextOfferWeek=0;
 
@@ -503,23 +504,23 @@ static void contest_line(unsigned y,const char *line,unsigned color) {
 /* The unemployed calendar uses the SAME top-right date box as the
  * employed calendar; its independent week clock must be used there. */
 static ExpandedWorldDate unemployed_date_at(unsigned weeks) {
-    ExpandedWorldDate date={(uint16_t)World_FirstYear(),8u,1u};
+    ExpandedWorldDate date={(uint16_t)World_FirstYear(),7u,1u};
     (void)ExpandedWorld_DateAfterWeeks(date,(uint32_t)weeks,&date);
     return date;
 }
 static unsigned unemployed_season_year(unsigned weeks) {
     ExpandedWorldDate date=unemployed_date_at(weeks);
-    return (unsigned)date.year-(date.month<8u ? 1u : 0u);
+    return (unsigned)date.year-(date.month<7u ? 1u : 0u);
 }
 static unsigned unemployed_week_of_season(unsigned weeks) {
     ExpandedWorldDate date=unemployed_date_at(weeks);
-    ExpandedWorldDate start={(uint16_t)unemployed_season_year(weeks),8u,1u};
+    ExpandedWorldDate start={(uint16_t)unemployed_season_year(weeks),7u,1u};
     uint32_t week=1;
     (void)ExpandedWorld_SeasonWeek(start,date,&week);
     return (unsigned)week;
 }
 void Expanded_UnemployedDate(char *out,size_t cap) {
-    Expanded_FormatDate(out,cap,World_FirstYear(),s_waitWeeks);
+    Expanded_FormatCivilDate(out,cap,unemployed_date_at(s_waitWeeks));
 }
 unsigned Expanded_DebugUnemployedWeeks(void) {
     return s_waitWeeks;
@@ -558,7 +559,7 @@ void Expanded_UnemployedDraw(void) {
             contest_line(88u+i*17u,line,i==0?7:6);
         }
     }
-    Expanded_FormatDate(date,sizeof date,World_FirstYear(),s_waitWeeks);
+    Expanded_UnemployedDate(date,sizeof date);
     if(!compact) contest_line(171,date,2);
 }
 void Expanded_UnemployedWait(void) {
@@ -706,7 +707,15 @@ void Expanded_OfferPreviewDraw(void) {
                          (long)r->points);
                 contest_line(205,line,2);
             }
-            contest_line(219,"PILOT TABLE - NOT YET NATIVE CAREER",6);
+            ExpandedLivePreseason ps;
+            if (ExpandedWorldLive_Preseason(s_waitTeam,&ps) &&
+                ExpandedWorldLive_Results()==0u) {
+                snprintf(line,sizeof line,"PRESEASON: %u FRIENDLIES (PILOT)",
+                         (unsigned)ps.friendlies);
+                contest_line(219,line,6);
+            } else {
+                contest_line(219,"PILOT TABLE - NOT YET NATIVE CAREER",6);
+            }
         } else {
             snprintf(line,sizeof line,"DIVISION %u - PILOT UNAVAILABLE",
                      (unsigned)s_waitLeague+1);
@@ -776,7 +785,22 @@ int Expanded_WaitForRehire(uint16_t *team) {
     if(!team) return 0;
     extern uint8_t _lastFinancialWeekIndex;
     s_unemployedHadClub=1;
-    s_waitWeeks=(unsigned)_currentSeasonShowing*52u+(unsigned)_lastFinancialWeekIndex;
+    /* Native financial weeks count from August; the unemployed clock now
+     * counts from July 1. Convert through civil dates and round forward to
+     * the next weekly boundary, avoiding an apparent time reversal. */
+    ExpandedWorldDate native={(uint16_t)(World_FirstYear()+
+                        (unsigned)_currentSeasonShowing),8u,1u};
+    ExpandedWorldDate civil;
+    ExpandedWorldDate july={(uint16_t)World_FirstYear(),7u,1u};
+    int32_t native_day=0,july_day=0;
+    if (ExpandedWorld_DateAfterWeeks(native,
+            (uint32_t)_lastFinancialWeekIndex,&civil) &&
+        ExpandedWorld_DateToIndex(civil,&native_day) &&
+        ExpandedWorld_DateToIndex(july,&july_day) && native_day>=july_day)
+        s_waitWeeks=(unsigned)((native_day-july_day+6)/7);
+    else
+        s_waitWeeks=(unsigned)_currentSeasonShowing*52u+
+                    (unsigned)_lastFinancialWeekIndex+5u;
     if (ExpandedWorldLive_Clubs())
         (void)ExpandedWorldLive_AdvanceWeeks((uint32_t)s_waitWeeks);
     s_waitAccepted=0;s_waitTeam=0;s_offerSnapshotValid=0;s_offerAgreedWeekly=0;

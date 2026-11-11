@@ -356,3 +356,12 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 
 - [CODICE] Corretto `\\n` letterale introdotto accidentalmente in `expanded_world_live_adapter.c:55`, diventato un vero a capo nella condizione di validità del puntatore alla competizione. Nessuna modifica alla logica.
 - [VERSIONE] Build aggiornato a `0.13.04`. Compilazione completa Windows e prove runtime da ripetere a cura dell'utente.
+
+
+## 0.13.05 — Inizio luglio e precampionato pilota (11 novembre 2026)
+
+- [CODICE] Il calendario UNEMPLOYED e l'orologio del mondo pilota iniziano il **1° luglio**. Le date delle partite native continuano per ora con il riferimento agosto: questo commit non cambia le chiavi del calendario SWOS.
+- [CODICE] Quattro date estive nel mondo pilota per ogni divisione simulata, con abbinamenti amichevoli fra squadre, turni di riposo nei gironi dispari e aggregati autonomi di risultato, morale, fatica, infortuni potenziali e saldo stimato. Valori in RAM **non persistiti, né trasferiti nel gioco originale**.
+- [CODICE] Prima delle partite ufficiali, VIEW LEAGUE mostra quante amichevoli pilota ha giocato la squadra offerta. Conversione più coerente alla data civile luglio quando il manager torna disoccupato dopo un esonero.
+- [DESIGN DOCUMENTATO] Aggiornato `GAME_DESIGN`: precampionato globale, amichevoli organizzabili, prezzi biglietti in CLUB con elasticità domanda/FANS LIKING, unificazione CLASSIFICA/SQUAD e carriera europea dal 1° luglio. Funzionalità di prezzo biglietti e assunzione nativa a stagione iniziata non ancora implementate.
+- [TEST] Test di regressione C estesi e disponibili nel repository; compilazione ed esecuzione Windows da verificare sull'utente. F12, salvataggi e fisica partita invariati.

@@ -21,6 +21,11 @@ int main(void) {
     assert(!ExpandedWorld_DateToIndex((ExpandedWorldDate){1900,2,29}, &a));
     assert(!ExpandedWorld_DateToIndex((ExpandedWorldDate){2100,2,29}, &a));
     assert(!ExpandedWorld_DateToIndex((ExpandedWorldDate){2026,13,1}, &a));
+    /* Approved European manager start date: July 1. */
+    assert(ExpandedWorld_DateToIndex((ExpandedWorldDate){1996,7,1}, &a));
+    assert(ExpandedWorld_Weekday(a)==0); /* Monday */
+    assert(ExpandedWorld_DateAfterWeeks((ExpandedWorldDate){1996,7,1},23,&back));
+    assert(back.year==1996 && back.month==12 && back.day==9);
     roundtrip(1900,1,1); roundtrip(1996,8,1); roundtrip(1999,12,31);
     roundtrip(2000,2,29); roundtrip(2000,3,1); roundtrip(2099,12,31);
     roundtrip(2100,3,1); roundtrip(2200,12,31);

@@ -15,6 +15,9 @@ typedef struct LiveClub {
     uint16_t id, rating;
     uint8_t country, division;
     char name[18];
+    /* Pre-season is an independent simulation ONLY, not player injuries or
+     * the native club bank account. These figures are reset every July. */
+    ExpandedLivePreseason preseason;
 } LiveClub;
 typedef struct LiveLeague {
     uint8_t country, division, count, points, overflow;
@@ -23,6 +26,7 @@ typedef struct LiveLeague {
 static LiveClub s_clubs[LIVE_MAX_CLUBS];
 static LiveLeague s_leagues[LIVE_MAX_LEAGUES];
 static uint32_t s_club_count, s_league_count, s_weeks;
+static uint32_t s_preseason_games_total;
 static uint16_t s_first_year;
 static ExpandedWorldFixture *s_fixtures;
 static ExpandedWorldLedger s_ledger;
@@ -47,10 +51,13 @@ void ExpandedWorldLive_End(void) {
     if (s_fixtures) free(s_fixtures);
     s_fixtures=NULL; s_live=0; s_club_count=0; s_league_count=0;
     s_weeks=0; s_first_year=0; s_initial_day=0;
+    s_preseason_games_total=0;
     memset(&s_ledger,0,sizeof s_ledger);
 }
 int ExpandedWorldLive_Begin(uint16_t start_year) {
-    ExpandedWorldDate start={start_year,8,1};
+    /* July 1 is the start of the manager's European season; August
+     * remains the start of competitive matches in this pilot. */
+    ExpandedWorldDate start={start_year,7,1};
     ExpandedWorldLive_End();
     if (!ExpandedWorld_DateToIndex(start,&s_initial_day)) return 0;
     s_first_year=start_year;
@@ -88,6 +95,7 @@ int ExpandedWorldLive_AddClub(uint8_t country, uint8_t division,
     dest->id=club; dest->rating=rating;
     dest->country=country; dest->division=division;
     strncpy(dest->name,name,sizeof dest->name-1);
+    dest->preseason.morale=50;
     league->clubs[league->count++]=club;
     return 1;
 }
@@ -153,6 +161,76 @@ static uint32_t hash32(uint32_t x) {
     x ^= x >> 16;
     return x;
 }
+/* Independent low-cost preseason events. Every simulated club gets the
+ * same opportunity: four July friendly dates, with a BYE in odd leagues.
+ * Results and economic/morale/injury-risk aggregates are deterministic and
+ * remain in the pilot. Native club injuries, budgets and match results are
+ * deliberately untouched until the world-save migration is implemented. */
+static void preseason_reset(void) {
+    for (uint32_t i=0;i<s_club_count;++i) {
+        memset(&s_clubs[i].preseason,0,sizeof s_clubs[i].preseason);
+        s_clubs[i].preseason.morale=50;
+    }
+}
+static void preseason_match(LiveClub *home,LiveClub *away,
+                            unsigned season,unsigned round,unsigned index) {
+    uint32_t seed=hash32(((uint32_t)season<<24) ^
+                         ((uint32_t)home->id<<8) ^ (uint32_t)away->id ^
+                         (round*0x9e3779b9u) ^ index);
+    int strength=(int)home->rating-(int)away->rating;
+    unsigned hg=(seed&3u)+(strength>40 ? 1u : 0u);
+    unsigned ag=((seed>>4)&3u)+(strength< -40 ? 1u : 0u);
+    ExpandedLivePreseason *h=&home->preseason,*a=&away->preseason;
+    ++h->friendlies; ++a->friendlies;
+    h->goals_for+=(uint16_t)hg; h->goals_against+=(uint16_t)ag;
+    a->goals_for+=(uint16_t)ag; a->goals_against+=(uint16_t)hg;
+    /* Budget units and attendance will be replaced by the ticket-price
+     * engine when CLUB and native finances share one saved world. */
+    h->net_income += (int32_t)(350u+(unsigned)home->rating*2u);
+    a->net_income -= 180;
+    int hm=(int)h->morale+(hg>ag ? 3 : hg<ag ? -3 : 1);
+    int am=(int)a->morale+(ag>hg ? 3 : ag<hg ? -3 : 1);
+    h->morale=(uint8_t)(hm<0?0:hm>100?100:hm);
+    a->morale=(uint8_t)(am<0?0:am>100?100:am);
+    if (h->fatigue<95) h->fatigue+=5;
+    if (a->fatigue<95) a->fatigue+=5;
+    if ((seed>>12)%100u<3u) ++h->injury_events;
+    if ((seed>>19)%100u<3u) ++a->injury_events;
+    ++s_preseason_games_total;
+}
+static void preseason_round(unsigned season,unsigned round) {
+    for (uint32_t l=0;l<s_league_count;++l) {
+        LiveLeague *league=&s_leagues[l];
+        unsigned n=league->count;
+        if (n<2 || league->overflow) continue;
+        for (unsigned pair=0;pair<n/2u;++pair) {
+            unsigned first=(round+pair*2u)%n;
+            unsigned second=(first+1u)%n;
+            uint16_t home_id=league->clubs[first];
+            uint16_t away_id=league->clubs[second];
+            LiveClub *home=NULL,*away=NULL;
+            for (uint32_t c=0;c<s_club_count;++c) {
+                if(s_clubs[c].id==home_id) home=&s_clubs[c];
+                if(s_clubs[c].id==away_id) away=&s_clubs[c];
+            }
+            if (home && away) preseason_match(home,away,season,round,pair);
+        }
+    }
+}
+static void preseason_advance(int32_t old_day,int32_t new_day) {
+    for (unsigned season=0;season<LIVE_SEASONS;++season) {
+        ExpandedWorldDate start={(uint16_t)(s_first_year+season),7,1};
+        int32_t july;
+        if (!ExpandedWorld_DateToIndex(start,&july)) continue;
+        if (old_day < july && new_day>=july) preseason_reset();
+        for (unsigned round=0;round<4u;++round) {
+            /* July 7, 14, 21, 28: weekly AI friendlies. */
+            int32_t event_day=july+6+(int32_t)round*7;
+            if (event_day>old_day && event_day<=new_day)
+                preseason_round(season,round);
+        }
+    }
+}
 static int resolve_game(const ExpandedWorldFixture *f,uint8_t *home,uint8_t *away,void *ctx) {
     (void)ctx;
     const LiveClub *h=club_by_id(f->home),*a=club_by_id(f->away);
@@ -170,7 +248,9 @@ static int resolve_game(const ExpandedWorldFixture *f,uint8_t *home,uint8_t *awa
 int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks) {
     uint64_t d=(uint64_t)(uint32_t)s_initial_day+(uint64_t)weeks*7u;
     if (!s_live || d>INT32_MAX || weeks<s_weeks) return 0;
+    int32_t old_day=s_ledger.now;
     if (!ExpandedWorldLedger_Advance(&s_ledger,(int32_t)d,resolve_game,NULL)) return 0;
+    preseason_advance(old_day,(int32_t)d);
     s_weeks=weeks;
     return 1;
 }
@@ -178,10 +258,17 @@ uint32_t ExpandedWorldLive_Results(void) { return s_ledger.played; }
 uint32_t ExpandedWorldLive_Clubs(void) { return s_club_count; }
 uint32_t ExpandedWorldLive_Leagues(void) { return s_league_count; }
 uint32_t ExpandedWorldLive_Weeks(void) { return s_weeks; }
+uint32_t ExpandedWorldLive_PreseasonGamesTotal(void) { return s_preseason_games_total; }
+int ExpandedWorldLive_Preseason(uint16_t club,ExpandedLivePreseason *out) {
+    const LiveClub *c=club_by_id(club);
+    if (!out || !s_live || !c) return 0;
+    *out=c->preseason;
+    return 1;
+}
 uint16_t ExpandedWorldLive_SeasonYear(void) {
     ExpandedWorldDate d;
     if (!s_live || !ExpandedWorld_IndexToDate(s_ledger.now,&d)) return s_first_year;
-    return (uint16_t)(d.year-(d.month<8 ? 1 : 0));
+    return (uint16_t)(d.year-(d.month<7 ? 1 : 0));
 }
 static int row_before(const ExpandedLiveRow *a,const ExpandedLiveRow *b) {
     if (a->points != b->points) return a->points>b->points;
@@ -249,5 +336,9 @@ uint32_t ExpandedWorldLive_Clubs(void) {return 0;}
 uint32_t ExpandedWorldLive_Leagues(void) {return 0;}
 uint16_t ExpandedWorldLive_SeasonYear(void) {return 0;}
 uint32_t ExpandedWorldLive_Weeks(void) {return 0;}
+uint32_t ExpandedWorldLive_PreseasonGamesTotal(void) {return 0;}
+int ExpandedWorldLive_Preseason(uint16_t club,ExpandedLivePreseason *out) {
+    (void)club;(void)out;return 0;
+}
 void ExpandedWorldLive_End(void) {}
 #endif

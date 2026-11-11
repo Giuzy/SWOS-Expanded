@@ -391,3 +391,12 @@ richiamato dal runtime senza aggiornare tutti i relativi riferimenti.
 - [AMBITO TEMPORANEO, NON FASE 1–2 COMPLETA] La prima prova carica i cinque paesi già verificati dal generatore offerte (codici 8, 13, 14, 20, 21), le loro divisioni supportate e — dove disponibile — il secondo file di squadre. Calendario round-robin provvisorio, per due stagioni, massimo 26 club per girone, con BYE nelle leghe dispari; eventuali divisioni troppo grandi non devono essere simulate parzialmente. Nessuna coppa ancora collegata.
 - [REGOLA DI TRASPARENZA] Non chiamare «mondo persistente» una simulazione che vive solo nella RAM e non è salvata nel formato .CAR; non chiamare «ingresso a metà stagione implementato» se la chiamata corrente a `InitCareer()` resetta ancora le competizioni. Nel preview non confondere classifica pilota con classifica del motore carriera OpenSWOS.
 - [APPROVATO] Il pannello F12 della 0.13.02 rimane **invariato** in questa revisione. Solo i dati del mondo pilota nella schermata VIEW LEAGUE sono nuovi; TITLE/NEW CAREER/LOADING e partita originale invariati.
+
+
+## Decisioni di design 11 novembre 2026 (0.13.05)
+
+- **[APPROVATO]** Data iniziale predefinita per la carriera europea: **1° luglio**, non più 1° giugno. Giugno resta parte del mondo simulato e del cambio di stagione; le competizioni di altri paesi devono avere calendari propri. Riferimento normativo dettagliato: `docs/GAME_DESIGN.md` §19.
+- **[APPROVATO]** Precampionato di tutte le squadre: la squadra del manager organizza/gioca/simula amichevoli, le altre usano eventi economici/medici/morale/forma leggeri ma persistenti. La partita SWOS non cambia; nessuna amichevole occupa slot nativi di campionato.
+- **[APPROVATO]** Prezzi biglietti impostabili dal manager in **CLUB**, con affluenza inversamente sensibile al prezzo e modificata da FANS LIKING, capienza, avversario e competizione. Predizione visibile e incassi contabilizzati **una sola volta**; nessuna grafica di CLUB approvata ancora.
+- **[APPROVATO]** Una sola fonte dati e, dopo il redesign, un solo componente per **classifica** e **rosa** prima/dopo l'assunzione, con modalità sola lettura prima della firma.
+- **[STATO, non promessa di completamento]** 0.13.05 implementa nel PILOTA l'orologio dal 1° luglio e amichevoli AI con aggregati solo RAM per i cinque paesi della prova. Non implementa ancora prezzo biglietti nel gioco, precampionato giocabile, coppe e passaggio dello stato pilota ai calendari nativi. F12, fisica partita e grafica finale restano invariati.

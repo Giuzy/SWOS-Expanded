@@ -234,3 +234,37 @@ L'ordine è una **roadmap proposta** coerente con l'ultima priorità; ogni cambi
 **[DA INTEGRARE]** La classifica pilota non ha ancora aggiornato gli slot nativi `Career_*Competition*` e la chiamata `InitCareer()` al momento della firma ricomincia tuttora il calendario OpenSWOS. Non utilizzare l'esito della prova per dichiarare pronta l'assunzione durante la stagione. La sincronizzazione degli incontri, il calcolo coerente delle coppe e la persistenza nei save sono il prossimo lavoro con test di regressione.
 
 **[CONFERMATO]** Nessun cambiamento a UI di debug F12, titolo, New Career, Loading, grafica e fisica partita. Lo scheduling provvisorio non è l'approvazione dei calendari reali.
+
+
+## 19. Avvio 1° luglio, precampionato mondiale e prezzo dei biglietti (APPROVATO, 11/11/2026)
+
+### 19.1 Anno calcistico e inizio carriera
+
+- **[APPROVATO, sostituisce la proposta «1° giugno»]** Per le carriere europee, **1° luglio** è la data iniziale predefinita della stagione manageriale, inclusa la disoccupazione. Il mese di **giugno continua a esistere nel calendario del mondo**: finali, contratti in scadenza, licenziamenti, preparazione del mercato e attività societarie possono cadervi senza richiedere l'avvio del giocatore.
+- **[APPROVATO]** Campionati con stagioni a cavallo di date diverse (es. calendari annuali) usano **inizio stagione e prima giornata configurabili per competizione/paese**, non una data mondiale fissa per tutte le leghe. Distinguiamo **inizio carriera/contratti**, **inizio precampionato** e **prima giornata di competizione**; la data 1° agosto del pilot attuale è **provvisoria** per il calcio europeo, non una regola universale.
+- **[APPROVATO]** Le settimane mostrate in UI sono settimane **della stagione** e partono dalla data di avvio del calendario pertinente. Il tempo deve rimanere monotono, anche nei passaggi UNEMPLOYED → CLUB e CLUB → UNEMPLOYED, senza resettare risultati e campionati.
+
+### 19.2 Precampionato per TUTTE le squadre
+
+- **[APPROVATO]** Il precampionato esiste per **tutte le squadre**, non solo per quella allenata dal giocatore. Le squadre controllate dall'AI ricevono preparazione e partite amichevoli gestite a livello di eventi leggeri, con conseguenze su forma, fatica, infortuni, morale, finanze e disponibilità dei giocatori. **Non simulare frame per frame** le amichevoli AI; risolverle per data, avversario e condizioni usando risultati deterministici/riproducibili.
+- **[APPROVATO]** Il giocatore può **organizzare le amichevoli**: proporre data e squadra avversaria, casa/trasferta, costo o compenso, calendario e disponibilità dell'altra squadra. Potrà disputarle o simularle. L'importanza, la forza avversaria, la distanza, il prezzo dei biglietti e la reputazione influiscono su richiesta, spese, pubblico e incassi.
+- **[APPROVATO]** Amichevoli e allenamento comportano **benefici e rischi**: preparazione fisica, forma, morale e intesa migliorano secondo intensità e risultati; eccessivo carico causa fatica e probabilità di infortunio. Infortuni e costi non devono essere falsi o applicati due volte; il modello AI e quello della squadra umana devono condividere lo stesso saldo mondiale persistente.
+- **[REGOLA DI INTEGRAZIONE]** Nessuna amichevole deve occupare indebitamente uno slot di campionato o alterare la fisica SWOS; il calendario degli eventi tiene separati amichevoli, campionati e coppe. Quando il mondo passa a campionato in corso, ritroviamo lo stesso storico.
+
+### 19.3 Prezzo biglietti in CLUB
+
+- **[APPROVATO]** Nella futura schermata **CLUB** il manager può impostare il prezzo dei biglietti delle partite casalinghe (conferma esplicita, joypad/tastiera/mouse). Il prezzo è un dato **persistente del club** e può essere differenziato per categorie di evento quando avremo il relativo modello.
+- **[APPROVATO]** Domanda decrescente al crescere del prezzo: un biglietto più caro aumenta il ricavo per spettatore ma **riduce l'affluenza potenziale**, soprattutto se il morale dei tifosi è basso. Supporters/FANS LIKING, reputazione del club, importanza e qualità dell'avversario, risultati recenti, competizione e capacità dello stadio modificano la curva di domanda. I tifosi entusiasti sono più disposti a pagare; prezzi palesemente eccessivi possono anche penalizzare la soddisfazione dei tifosi.
+- **[PROPOSTA DI BILANCIAMENTO, non definitiva]** Prezzo consigliato iniziale `P0`, modificabile entro una fascia proporzionale, e fattore d'affluenza del tipo `max(minimo, 1 - sensibilita_tifosi * (prezzo/P0 - 1))`, con sensibilità più alta a FANS LIKING basso. `spettatori = min(capienza, tifosi_disponibili * domanda)`; `incasso_lordo = spettatori * prezzo`; `incasso_netto = incasso_lordo - spese_organizzazione` (salvo diversa ripartizione accordata nelle amichevoli). Soglie, valuta e intervallo devono essere misurati e approvati durante il bilanciamento.
+- **[REQUISITO]** CLUB mostra prezzo attuale, prezzo di riferimento, **stima spettatori e incasso** per la prossima partita casalinga; l'incasso effettivo deriva **da un unico conteggio** e confluisce in BUSINESS/finanze, senza duplicare `_gateReceipts` originali. Per le partite fuori casa, nessun incasso biglietti a favore del club salvo accordo separato. Definire quando il prezzo viene fissato per ogni evento, evitando variazioni dell'ultimo istante che sfruttano una previsione già calcolata.
+- **[APPROVATO]** Anche i club AI applicano una politica prezzi coerente nel mondo persistente; il comportamento non richiede un menu per l'AI.
+
+### 19.4 Unificazione CLUB / SQUAD e classifiche
+
+- **[APPROVATO]** Un solo modello dati mondiale per **classifica, calendario e rosa**: l'offerta di lavoro e la carriera impiegata devono leggere la stessa fonte, con **lo stesso componente UI** (solo la visibilità delle azioni cambia). La consultazione della rosa prima della firma resta *read-only*.
+- **[VINCOLO]** Non fare una copia soltanto visiva della classifica pilota nelle competizioni native; la stessa partita deve essere consumata **una sola volta** dal calendario nativo e da quello del mondo, con salvataggio coerente. Il motore OpenSWOS deve conservare ogni fixture, coppa, risultato e stato squadra.
+
+### 19.5 Stato della realizzazione 0.13.05
+
+- **[CODICE PILOTA, da testare Windows]** L'orologio del disoccupato e del pilota mondiale parte dal **1° luglio**; quattro date di amichevoli AI in luglio (7/14/21/28), eventi aggregati e risultati di campionato provvisori da agosto. I risultati e gli effetti del precampionato AI **non sono ancora trasferiti** a rose, infortuni e finanze delle partite native: non scambiare i loro contatori per veri stipendi, salvataggi o indisponibilità.
+- **[NON ANCORA IMPLEMENTATO]** L'ingresso nativo effettivo a metà campionato, il salvataggio del mondo, gli incontri amichevoli giocabili per il manager, il prezzo biglietti regolabile in CLUB e la fusione di CLASSIFICA/SQUAD in una sola UI: **restano punti di lavoro**, non funzioni consegnate da questa build.

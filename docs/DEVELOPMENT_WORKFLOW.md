@@ -195,3 +195,13 @@ La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo ver
 - Se la simulazione non parte, consultare `SWOS.log` (righe `[living-world]`) e condividere screenshot/errori; non presupporre che un'assenza di partite in una divisione non supportata sia un successo.
 - Accettare una squadra e verificare che la partita reale e il calendario classico restino funzionanti. **Il calendario nativo può ancora partire da settimana 1**: l'innesto senza reset è dichiaratamente NON ancora implementato, non va considerato un errore nuovo introdotto dalla patch.
 - Test isolato `bash sorgenti/tests/run_test_expanded_world_live.sh`. Questi controlli non sostituiscono compilazione/test Windows su dati reali. F12/F9 continuano come in 0.13.02; nessuna nuova grafica o ZIP.
+
+
+## Verifica build 0.13.05 — inizio luglio e amichevoli pilota
+
+1. Sincronizzare `dev/0.10` su Windows e ricompilare con `AVVIA_SWOS.bat`: versione **0.13.05**. Accertare che non vi siano errori GCC prima di testare.
+2. NEW CAREER → UNEMPLOYED: la prima schermata deve mostrare il **1° luglio** (1996 o 2026, secondo database) e **WEEK 01**. Dopo quattro avanzamenti: luglio concluso, nessuna giornata di campionato simulata, ma i contatori del precampionato delle squadre AI già aggiornati.
+3. Quando arriva un'offerta prima della prima partita ufficiale, VIEW LEAGUE deve mostrare **PRESEASON: N FRIENDLIES (PILOT)**, con `PL=0`; dalla prima giornata di agosto la classifica comincia a riportare PL e punti.
+4. Dopo 20–35 settimane verificare classifiche e offerte senza duplicazioni. F12/F9 restano come prima e indicano ancora i limiti del mondo nativo.
+5. Test isolati disponibili: `bash sorgenti/tests/run_test_expanded_world_live.sh`; campionati dispari con BYE, continuità luglio/agosto e passaggio alla stagione successiva. Prova in-game con screenshot preferita.
+6. **ATTENZIONE**: CLUB prezzo biglietti, amichevoli del manager, persistenza delle conseguenze e ingresso nativo a stagione iniziata sono ancora da implementare. **Non usare una carriera importante per prove di questa fase pilota**.

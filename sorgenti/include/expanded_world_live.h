@@ -3,6 +3,13 @@
 #include "swos_types.h"
 /* Standalone competition preview: actual club IDs and squads, provisional
  * round-robin dates. No changes to native match physics or save schema. */
+typedef struct ExpandedLivePreseason {
+    uint16_t friendlies,goals_for,goals_against;
+    uint8_t morale,fatigue,injury_events;
+    /* Provisional balance units in the pilot, NOT native finances. */
+    int32_t net_income;
+} ExpandedLivePreseason;
+
 typedef struct ExpandedLiveRow {
     uint16_t club;
     char name[18];
@@ -23,6 +30,8 @@ uint32_t ExpandedWorldLive_Clubs(void);
 uint32_t ExpandedWorldLive_Leagues(void);
 uint16_t ExpandedWorldLive_SeasonYear(void);
 uint32_t ExpandedWorldLive_Weeks(void);
+uint32_t ExpandedWorldLive_PreseasonGamesTotal(void);
+int ExpandedWorldLive_Preseason(uint16_t club,ExpandedLivePreseason *out);
 void ExpandedWorldLive_End(void);
 void ExpandedWorldLive_LoadOfferCountries(void);
 #endif

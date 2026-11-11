@@ -822,10 +822,24 @@ void Expanded_ClubFacilitySelected(MenuEntry *entry) {
 static const char *const s_months[]={"JAN","FEB","MAR","APR","MAY","JUN",
                                      "JUL","AUG","SEP","OCT","NOV","DEC"};
 static const char *const s_days[]={"MON","TUE","WED","THU","FRI","SAT","SUN"};
+/* General civil-date formatter. Unemployed starts July 1; the existing
+ * native fixture-week formatter below intentionally still starts August 1
+ * until its own competition calendar is migrated. */
+void Expanded_FormatCivilDate(char *out,size_t cap,ExpandedWorldDate date) {
+    int32_t index;
+    if (!out || !cap) return;
+    if (!ExpandedWorld_DateToIndex(date,&index)) {
+        snprintf(out,cap,"DATE OUT OF RANGE"); return;
+    }
+    int wd=ExpandedWorld_Weekday(index);
+    if (wd<0) { snprintf(out,cap,"DATE OUT OF RANGE"); return; }
+    snprintf(out,cap,"%s %02u %s %u",
+             s_days[wd],(unsigned)date.day,s_months[date.month-1u],
+             (unsigned)date.year);
+}
 void Expanded_FormatDate(char *out,size_t cap,unsigned season,unsigned week) {
     unsigned year=season>=1900u?season:(season>=90u?1900u+season:2000u+season);
     ExpandedWorldDate begin,date;
-    int32_t index;
     if (!out || !cap) return;
     out[0]=0;
     if (year<1900u || year>2200u) {
@@ -834,15 +848,10 @@ void Expanded_FormatDate(char *out,size_t cap,unsigned season,unsigned week) {
     begin.year=(uint16_t)year;
     begin.month=8;
     begin.day=1;
-    if (!ExpandedWorld_DateAfterWeeks(begin,(uint32_t)week,&date) ||
-        !ExpandedWorld_DateToIndex(date,&index)) {
+    if (!ExpandedWorld_DateAfterWeeks(begin,(uint32_t)week,&date)) {
         snprintf(out,cap,"DATE OUT OF RANGE"); return;
     }
-    int wd=ExpandedWorld_Weekday(index);
-    if (wd<0) { snprintf(out,cap,"DATE OUT OF RANGE"); return; }
-    snprintf(out,cap,"%s %02u %s %u",
-             s_days[wd],(unsigned)date.day,s_months[date.month-1u],
-             (unsigned)date.year);
+    Expanded_FormatCivilDate(out,cap,date);
 }
 extern uint8_t _seasonPlaying;
 extern uint8_t _lastFinancialWeekIndex;

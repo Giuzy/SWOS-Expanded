@@ -507,3 +507,11 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [SICUREZZA] Limite 6000 passaggi menu, controlli su indice, stride e fine stagione, abilitazione soltanto con data luglio entro le prime 52 settimane. Funzioni di catch-up OFF per default e salvataggi originali non alterati nella struttura. Non testare con una carriera importante.
 - [TEST] Test C unitari per la conversione della data disponibili in `tests/test_expanded_midseason_join.c` e runner; **compilazione completa Windows e test runtime ancora pendenti**, così come 1996/97 e 2026/27, coppe, firma dopo 20–35 settimane e salvataggio/ricarica.
 - [DESIGN REGISTRATO] Inclusi §20 (selettore mondo in OPTIONS) e §21 (sponsor preesistenti con scadenze e rinnovo, anche zero per club in crisi) e §22 (forma individuale/allenamento collettivo **solo proposta**). Il selettore mondo e gli sponsor non sono stati implementati in codice in questo commit.
+
+
+### 0.13.10 — Recupero storico senza input (11 novembre 2026)
+- [CODICE] La sequenza di recupero dopo l'ingaggio pilota anche le schermate delle coppe native (DIYCupInit), selezionando callback di risultato/avanzamento disponibili.
+- [CODICE] Se il menu mostra soltanto PLAY MATCH per una partita che precede l'ingaggio, i callback originali di lega/coppa usano la modalità simulazione CPU; SetupPlayers non viene aperto durante il recupero. Dopo il recupero il gameplay normale è invariato.
+- [DEBUG] F12: conteggio azioni automatiche e callback di partita reindirizzati alla simulazione, visibile durante il recupero; stderr: diagnostica menu non riconosciuti, abort e fase raggiunta.
+- [DA TESTARE WINDOWS] Recupero con club di alta e bassa classifica, campionati e coppe, integrità delle classifiche prima e dopo l'ingaggio, nessuna apertura partita durante recupero. Build Windows non eseguita in questo ambiente.
+- [LIMITAZIONE] Il pilota pre-assunzione usa ancora un calendario differente da quello nativo; la completa unificazione del Living World Engine, inclusi save/reload, non è raggiunta da questa build.

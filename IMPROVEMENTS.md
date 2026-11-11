@@ -394,3 +394,10 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [CODICE] F12 esteso con dati del pilota (club, leghe, slot giocatori, fixture, risultati, RAM) e situazione native cache/fase e catch-up; dati mancanti (manager/chairman globali, dimensione su disco) dichiarati non disponibili.
 - [REGOLA] Commit solo per cambiamenti significativi autorizzati; controllo diagnostiche F12 in ogni build.
 - [PENDENTE] Compilazione Windows e test reale dell'assunzione. Pilot/world e carriera nativa restano non unificati; non dichiarare risolto il bug principale.
+
+
+### 0.13.10 — simulazione CPU delle gare pregresse e coppe (11/11/2026)
+- [CODICE] Il recupero di un ingaggio durante una stagione dirige le partite del club già trascorse verso la simulazione nativa anche se il menu presenta PLAY MATCH. SetupPlayers disabilitato soltanto in catch-up e percorso coppe native gestito nel driver automatico.
+- [DEBUG] Contatori F12 per azioni catch-up e simulazioni forzate; logging di menu non riconosciuti e riepilogo dei motivi di arresto.
+- [VERIFICA PENDENTE] Compilazione Windows, ingressi con coppe e confronti delle classifiche. Non è stata dimostrata l'identità tra le due classifiche pilota e nativa: il calendario doppio rimane in attesa dell'unificazione.
+- [ROLLBACK] Precedente commit `fab201b98ae60ab37f105ee48589c66b234a809c` (0.13.09), da ripristinare manualmente con GitKraken soltanto su decisione dell'utente.

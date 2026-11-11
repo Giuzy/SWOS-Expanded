@@ -8297,6 +8297,11 @@ static void DIYCupOnSelectCommonC(uint16_t mode)
      * DIY_PlayCupMatchAndAdvance overrides mode 2 to a forced 1 internally,
      * mirroring the league MATCH path's `move.w #1,d6`. See the mode==2 branch
      * there for the full rationale (preset World Cup KO "VIEW RESULT" bug). */
+    /* A pre-hire cup fixture must never enter match physics. */
+    if (Expanded_MidseasonJoin_Active() && mode != 0) {
+        mode=0;
+        Expanded_MidseasonJoin_RecordForcedSimulation();
+    }
     uint16_t result = DIY_PlayCupMatchAndAdvance(_diyTournamentType, mode);
     if (result != 0)
         return;
@@ -9750,6 +9755,12 @@ void DIYLeagueTournamentMatchCommon(uint16_t action)
     /* ASM passes d6 (allowSquadChanges) implicitly via register preservation
      * from the outer caller. diyTournamentType==1 for career (squad changes allowed),
      * 0 for standalone DIY (no squad changes). */
+    /* PLAY MATCH may be the only visible button for a human club.
+     * Before the hiring date use the regular result simulator instead. */
+    if (Expanded_MidseasonJoin_Active() && action != 0) {
+        action=0;
+        Expanded_MidseasonJoin_RecordForcedSimulation();
+    }
     uint16_t result = DIY_PlayOrSimulateLeagueFixture(_diyTournamentType, action);
     if (result != 0)
         return;
@@ -11204,6 +11215,10 @@ extern uint16_t _diyCupLastMatchScoreTeam2;
  */
 __attribute__((used, externally_visible))
 uint16_t DIY_PlayCupMatchAndAdvance(int16_t allowSquadChanges, int16_t mode) {
+    if (Expanded_MidseasonJoin_Active() && mode != 0) {
+        mode=0;
+        Expanded_MidseasonJoin_RecordForcedSimulation();
+    }
     uint8_t *base = (uint8_t *)&_diyCompetitionStart;
     DIYCompetition *baseS = (DIYCompetition *)base;
 
@@ -11261,7 +11276,8 @@ uint16_t DIY_PlayCupMatchAndAdvance(int16_t allowSquadChanges, int16_t mode) {
         uint8_t ctrl2 = *((uint8_t *)team2 + 4);
         if ((ctrl1 == 2 || ctrl2 == 2 || ctrl1 == 3 || ctrl2 == 3) &&
             _seasonUpdateInProgress == 0 &&
-            _careerAutoAdvanceInProgress == 0) {
+            _careerAutoAdvanceInProgress == 0 &&
+            !Expanded_MidseasonJoin_Active()) {
             /* At least one human/coach team — show SetupPlayers with no squad changes.
              * careerAutoAdvanceInProgress guard added for the same reason as the
              * matching deviation in DIY_PlayOrSimulateLeagueFixture: a stale ctrl=2
@@ -11527,6 +11543,10 @@ final_or_groups:
  */
 __attribute__((used, externally_visible))
 uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t selector) {
+    if (Expanded_MidseasonJoin_Active() && selector != 0) {
+        selector=0;
+        Expanded_MidseasonJoin_RecordForcedSimulation();
+    }
     DIYCompetitionEx *baseEx = &_diyCompetitionStart;
     uint8_t *base = (uint8_t *)baseEx;
     DIYCompetition *baseS = &baseEx->base;
@@ -11665,7 +11685,8 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
         uint8_t ctrl2 = *((uint8_t *)team2 + 4);
         if ((ctrl1 == 2 || ctrl2 == 2 || ctrl1 == 3 || ctrl2 == 3) &&
             _seasonUpdateInProgress == 0 &&
-            _careerAutoAdvanceInProgress == 0) {
+            _careerAutoAdvanceInProgress == 0 &&
+            !Expanded_MidseasonJoin_Active()) {
             /* At least one human/coach team — show SetupPlayers */
             SetupPlayers(team1, team2, (int16_t)_diyCompetitionStart.matchData.league.leagueMaxSubstitutes,
                           baseS->substitutesCount, 0, 0);  /* 0x3C */

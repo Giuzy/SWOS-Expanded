@@ -1,5 +1,5 @@
 /*
- * 0.13.09 — native month-phase cutoff for first-job catch-up.
+ * 0.13.10 — drive native pre-hire league AND cup fixtures without player input.
  *
  * The prehire pilot is an independent round-robin, so its fixture index is
  * NOT interchangeable with the original SWOS league/cup calendar. We do not
@@ -56,9 +56,16 @@ extern uint8_t _pl1Fire;
 extern void ContestMenuInit(void);
 extern void CareerOverInit(void);
 extern void DIYLeagueTournamentInit(void);
+extern void DIYCupInit(void);
 extern void PlayMatchMenuInit(void);
 extern void NextMatch(MenuEntry *);
 extern void DIYLeagueTournamentNextMatch(void);
+extern void DIYLeagueTournamentMatch(MenuEntry *);
+extern void DIYCupOnSelect1(void);
+extern void DIYCupOnSelect3(MenuEntry *);
+extern void DIYCupOnSelect5(MenuEntry *);
+extern void DIYCupOnSelect8(MenuEntry *);
+extern void DIYCupOnSelect10(void);
 extern void DIYLeagueTournamentViewResult(MenuEntry *);
 extern void DIYLeagueTournamentResult(MenuEntry *);
 extern void MenuSystem_LatchSeasonSkip(void);
@@ -66,7 +73,13 @@ extern void SetCurrentEntry(uint16_t ordinal);
 extern MenuEntry *CalcMenuEntryAddress(uint16_t ordinal);
 
 static uint8_t s_active,s_old_controls,s_target_key;
-static uint32_t s_passes,s_elapsed_weeks,s_actions;
+static uint32_t s_passes,s_elapsed_weeks,s_actions,s_forced_simulations;
+
+uint32_t Expanded_MidseasonJoin_Actions(void) { return s_actions; }
+uint32_t Expanded_MidseasonJoin_ForcedSimulations(void) { return s_forced_simulations; }
+void Expanded_MidseasonJoin_RecordForcedSimulation(void) {
+    if (s_active) ++s_forced_simulations;
+}
 
 int Expanded_MidseasonJoin_Active(void) { return s_active!=0; }
 
@@ -91,11 +104,11 @@ static void finish(int reached,int key) {
     _fire=0;
     _pl1Fire=0;
     fprintf(stderr,"[midseason] %s: target_key=%u final_key=%d "
-                   "elapsed_july_weeks=%lu menu_passes=%lu actions=%lu\n",
+                   "elapsed_july_weeks=%lu menu_passes=%lu actions=%lu forced_sims=%lu\n",
             reached?"native next-fixture calendar reached":"catch-up aborted",
             (unsigned)s_target_key,key,
             (unsigned long)s_elapsed_weeks,(unsigned long)s_passes,
-            (unsigned long)s_actions);
+            (unsigned long)s_actions,(unsigned long)s_forced_simulations);
     fflush(stderr);
 }
 
@@ -164,7 +177,7 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     s_elapsed_weeks=elapsed;
     s_target_key=cutoff;
     s_old_controls=_careerTeam.team.teamControls;
-    s_passes=s_actions=0;
+    s_passes=s_actions=s_forced_simulations=0;
     s_active=1;
     /* Keep the offered club HUMAN for fixture selection: making every team
      * AI here can cause the native "until human fixture" loops to consume
@@ -217,7 +230,10 @@ void Expanded_MidseasonJoin_Tick(void) {
         static const MenuEntryFn play[]={
             DIYLeagueTournamentViewResult,
             DIYLeagueTournamentResult,
-            (MenuEntryFn)DIYLeagueTournamentNextMatch
+            (MenuEntryFn)DIYLeagueTournamentNextMatch,
+            /* Before hiring, PLAY MATCH is never interactive: the fixture
+             * entry point redirects selector 2 to native simulation 0. */
+            DIYLeagueTournamentMatch
         };
         for(unsigned i=0;i<sizeof play/sizeof play[0];++i)
             if(choose_action(play[i])) {
@@ -225,9 +241,25 @@ void Expanded_MidseasonJoin_Tick(void) {
                 ++s_actions;
                 return;
             }
-        /* Never fall back to PLAY MATCH in a historical catch-up.
-         * Only simulated results are permitted. */
         finish(0,-8);return;
+    }
+    if(m->onInit==DIYCupInit) {
+        /* Cup menus distinguish PLAY MATCH and VIEW RESULT just like
+         * leagues. The native cup handler redirects every historical
+         * match action to the CPU simulation path (mode 0). */
+        static const MenuEntryFn cup[]={
+            DIYCupOnSelect5, DIYCupOnSelect8, DIYCupOnSelect3,
+            (MenuEntryFn)DIYCupOnSelect1,
+            (MenuEntryFn)DIYCupOnSelect10
+        };
+        for (unsigned i=0;i<sizeof cup/sizeof cup[0];++i)
+            if (choose_action(cup[i])) {
+                _shortFire=1;
+                ++s_actions;
+                return;
+            }
+        finish(0,-10);
+        return;
     }
     if(m->onInit==PlayMatchMenuInit) {
         /* A historical simulation may never launch a live match. */
@@ -235,13 +267,21 @@ void Expanded_MidseasonJoin_Tick(void) {
         return;
     }
     /* Follow the original golden-career harness for secondary/cup
-     * result dialogs. These use only normal onSelect callbacks. */
+     * result dialogs. These use only normal onSelect callbacks.
+     * Instrument unknown menus rather than silently asking for input. */
+    if ((s_passes<=8u || (s_passes%100u)==0u))
+        fprintf(stderr,"[midseason] fallback menu=%p onInit=%p pass=%lu\n",
+                (void *)m,(void *)(uintptr_t)m->onInit,
+                (unsigned long)s_passes);
     _shortFire=1;
     ++s_actions;
 }
 
 #else
 int Expanded_MidseasonJoin_Active(void) {return 0;}
+uint32_t Expanded_MidseasonJoin_Actions(void) {return 0;}
+uint32_t Expanded_MidseasonJoin_ForcedSimulations(void) {return 0;}
+void Expanded_MidseasonJoin_RecordForcedSimulation(void) {}
 void Expanded_MidseasonJoin_Begin(uint32_t weeks) {(void)weeks;}
 void Expanded_MidseasonJoin_Tick(void) {}
 #endif

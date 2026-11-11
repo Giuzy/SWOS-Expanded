@@ -358,3 +358,41 @@ questo non unifica le competizioni e non garantisce risultati
 o classifiche identici prima e dopo la firma. Va costruita
 una sola sorgente di risultati persistenti con integrazione
 nativa, coppe e salvataggi: nessuna doppia simulazione.
+
+
+## 26. 0.13.10 — Continuazione automatica degli incontri storici (11/11/2026)
+
+**[CODICE / WINDOWS DA TESTARE]** L'utente ha osservato che, nel recupero delle
+partite prima della firma, il simulatore nativo progrediva attraverso le
+squadre CPU, poi restava in attesa di input quando arrivava a una partita
+del club gestito. La causa plausibile è la distinzione nativa fra
+`teamControls` umano e CPU, che apre `SetupPlayers` quando usa la
+modalità `VIEW RESULT` oppure offre soltanto `PLAY MATCH`.
+
+La nuova build reindirizza **solo mentre `Expanded_MidseasonJoin_Active()`**
+le azioni PLAY MATCH di lega e coppa al loro percorso CPU nativo
+(selector/mode 0), bypassa `SetupPlayers` soltanto in quel periodo,
+e fa percorrere esplicitamente le schermate coppa `DIYCupInit`.
+Sono inclusi i callback alternativi in `DIYLeagueTournamentInit` quando
+il bottone VIEW RESULT non è visibile. Tutte le operazioni usano ancora
+le funzioni originali che aggiornano risultati/classifiche/bracket;
+al termine del recupero l'interfaccia umana resta normale. Un guard
+continua a interrompere il recupero se compare `PlayMatchMenuInit`:
+la protezione contro l'avvio di fisica storica non viene rimossa.
+
+In F12, durante il recupero, vengono mostrati numero di azioni e
+numero di simulazioni reindirizzate. Nei log si identificano abort,
+menu fallback e chiave nativa finale.
+
+**[LIMITI / PRIORITÀ SUCCESSIVA]** Questo è un avanzamento funzionale
+del recupero *nativo*, non è ancora una unificazione completa:
+`ExpandedWorldLive` calcola prima dell'assunzione risultati pilota
+indipendenti. Servono ancora il mondo canonico, le fixture mondiali
+condivise prima/dopo la firma e la serializzazione. Non proclamare
+coerenza delle classifiche prima/dopo né salvataggio mondiale prima
+dei test Windows.
+
+**[VERIFICA]** Revisione del codice e controllo degli instradamenti;
+non è stata eseguita una build completa Windows né è stato fatto un
+test manuale di carriera in questo ambiente. Versione precedente
+per rollback: `fab201b98ae60ab37f105ee48589c66b234a809c` (0.13.09).

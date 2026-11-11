@@ -11,6 +11,11 @@
 void Expanded_MidseasonJoin_Begin(uint32_t unemployed_weeks);
 int Expanded_MidseasonJoin_Active(void);
 void Expanded_MidseasonJoin_Tick(void);
+/* Per-join diagnostics: actions fired and historical PLAY actions
+ * redirected to genuine native CPU match simulation. */
+uint32_t Expanded_MidseasonJoin_Actions(void);
+uint32_t Expanded_MidseasonJoin_ForcedSimulations(void);
+void Expanded_MidseasonJoin_RecordForcedSimulation(void);
 
 /* Pure calendar helper for unit testing, July 1 -> native August key.
  * 0 = unsupported elapsed period (>=52 weeks or invalid date).

@@ -2740,6 +2740,12 @@ static void draw_world_debug_overlay(void)
                  (unsigned)(valid?cutoff:0),valid?"":" INVALID");
         DEBUG_LINE(line);
     }
+    if (Expanded_MidseasonJoin_Active()) {
+        snprintf(line,sizeof line,"CATCH-UP ACTIONS %lu FORCED CPU %lu",
+                 (unsigned long)Expanded_MidseasonJoin_Actions(),
+                 (unsigned long)Expanded_MidseasonJoin_ForcedSimulations());
+        DEBUG_LINE(line);
+    }
     DEBUG_LINE("PILOT/NATIVE RESULTS NOT UNIFIED");
     DEBUG_LINE("WORLD SAVE NOT ACTIVE");
     snprintf(line,sizeof line,"1 WIN ALWAYS %s",

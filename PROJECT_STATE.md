@@ -623,3 +623,11 @@ usa ancora ledger pilot compresso, senza duplicare database nuovi.
 **TEST:** controlli statici codice e riferimenti di GitHub. Compilazione
 MSYS2/MinGW64, test EXE Windows e round-trip save/load su PC utente
 non eseguiti dall'assistente. Non dichiarare build Windows collaudata.
+
+
+### 0.13.21 — fix caricamento autosave: calendario mondiale precedente a luglio
+- [BUG REALE] Test Windows 0.13.20: `AUTOSAVE.CAR` esiste, schema 5 e Base64/zlib validi, ma `CONTINUE CAREER` mostra il messaggio generico "FILE SAVED BY DIFFERENT S.W.O.S. VERSION".
+- [DIAGNOSI CON SAVE REALE] Il salvataggio fornito contiene world version 2, 216 club, 11 leghe, 8.384 fixture e 1.520 risultati. Un campionato con paese 21, divisione 0, calendario OG maggio-settembre, ha 45 fixture datate maggio/giugno 1996, precedenti al 1° luglio 1996 del manager. In `ExpandedWorldLive_ReadJson` la verifica `fixture.day < initial` le respingeva senza ragione, malgrado fossero già generate dall'engine stesso.
+- [FIX] Il validatore ora accetta date dal **1° gennaio del primo anno della carriera**; mantiene tutti gli altri controlli di club/competizioni, fixture, ordine, zlib, fase e compatibilità schema 3/4/5. Nessuna modifica al formato del .CAR; il file di prova non richiede conversione o cancellazione.
+- [REGRESSION] Aggiunto test C per campionato OG maggio-settembre, con serializzazione compressa e lettura dello snapshot, aggiornando lo script di compilazione isolato a collegare i moduli mjson/miniz. Controllo esterno Python del .CAR reale: 45 righe respinte dalla vecchia verifica, zero violazioni riscontrate degli altri vincoli numerici/relazionali.
+- [TEST] Verifica del contenuto del file reale effettuata, test C e build Windows/MSYS2 ancora DA ESEGUIRE. Con nuovo EXE, provare direttamente CONTINUE CAREER sul medesimo `AUTOSAVE.CAR` senza eliminarlo. Se ancora fallisce consultare `SWOS.log`; non dichiarare funzionamento in-game prima della verifica Windows.

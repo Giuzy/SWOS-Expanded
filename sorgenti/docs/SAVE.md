@@ -129,3 +129,16 @@ The Amiga target (same source tree, `make -f Makefile.amiga`) does not use
 `bin/save` when FS-UAE mounts `bin/` as `DH1:`. The binary will not create that
 folder, so it must already exist (the Amiga drop ships an empty one). This
 document otherwise covers the portable SDL/WASM builds.
+
+
+## Fix 0.13.21 — older fixtures from non-European calendars
+
+The world's initial career clock is July 1, but the already-installed
+OpenSWOS schedule for country 21 begins in **May** (native phase 32,
+end phase 64). The v0.13.20 reader incorrectly rejected those
+pre-July fixture rows. This was a loader-validation bug, not
+corrupted autosave data or an incompatible `schema_version`.
+The 0.13.21 loader accepts fixtures from January 1 of the
+initial calendar year and still validates club identities, all dates,
+ordering, compressed payload size and results. No schema migration is
+required; previously saved `AUTOSAVE.CAR` is not overwritten by the fix.

@@ -1,6 +1,30 @@
 #include <assert.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "expanded_world_live.h"
+
+/* A real serialized world round-trip, not only schedule generation.
+ * The old July-1 bound rejected valid May fixtures after autosave. */
+typedef struct WorldTestJson {
+    char *text;
+    size_t len, cap;
+} WorldTestJson;
+static int test_emit(const char *data,int n,void *ctx) {
+    WorldTestJson *s=(WorldTestJson *)ctx;
+    if (!s || !data || n<0) return 0;
+    if (s->len+(size_t)n+1u > s->cap) {
+        size_t cap=s->cap?s->cap:1024u;
+        while (cap < s->len+(size_t)n+1u) cap*=2u;
+        char *grown=(char *)realloc(s->text,cap);
+        if (!grown) return 0;
+        s->text=grown;s->cap=cap;
+    }
+    memcpy(s->text+s->len,data,(size_t)n);
+    s->len+=(size_t)n;
+    s->text[s->len]=0;
+    return n;
+}
 #include "fixture_rounds.h"
 
 int main(void) {
@@ -140,6 +164,38 @@ int main(void) {
     assert(ExpandedWorldLive_Table(7,0,rows,26,&count) && count==4);
     for(unsigned i=0;i<count;i++) assert(rows[i].played==3);
     puts("OK: original native single-leg championship");
+    ExpandedWorldLive_End();
+
+    /* Real 1996/97 data: country 21 league 0 has native begin=32 (May),
+     * end=64 (September), unlike the European July 1 manager clock.
+     * A serializer must preserve all its May/June matches across a .CAR
+     * save/reload; these are NOT corrupt or from another career. */
+    assert(ExpandedWorldLive_Begin(1996));
+    for (unsigned i=0;i<10u;++i) {
+        char name[18];
+        snprintf(name,sizeof name,"MAY CLUB %u",i);
+        assert(ExpandedWorldLive_AddClub(21,0,(uint16_t)(0x1500u+i),
+                                        (uint16_t)(200+i),name,3));
+    }
+    assert(ExpandedWorldLive_SetLeagueSchedule(21,0,32,64,2));
+    assert(ExpandedWorldLive_Seal());
+    assert(ExpandedWorldLive_AdvanceWeeks(19));
+    {
+        const uint32_t saved_results=ExpandedWorldLive_Results();
+        const uint32_t saved_fixtures=ExpandedWorldLive_Fixtures();
+        WorldTestJson doc={0};
+        assert(saved_results>0 && saved_fixtures>0);
+        assert(test_emit("{\"living_world\":",16,&doc)==16);
+        assert(ExpandedWorldLive_WriteJson(test_emit,&doc));
+        assert(test_emit("}",1,&doc)==1);
+        ExpandedWorldLive_End();
+        assert(ExpandedWorldLive_ReadJson(doc.text,(int)doc.len));
+        assert(ExpandedWorldLive_Fixtures()==saved_fixtures);
+        assert(ExpandedWorldLive_Results()==saved_results);
+        assert(ExpandedWorldLive_Clubs()==10);
+        free(doc.text);
+    }
+    puts("OK: May-before-July native season survives compressed world .CAR round-trip");
     ExpandedWorldLive_End();
     return 0;
 }

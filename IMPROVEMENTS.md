@@ -482,3 +482,9 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [LIMITI] Match live 50 Hz non salvato/ripristinato: anti-save-scum
   intrapartita ancora incompleto; niente forza-esito a crash.
 - [TEST] Source review; build MinGW64 e Windows runtime pendenti.
+
+
+### 0.13.21 — corretto controllo date caricamento world
+- [CAUSE] Il campionato reale paese 21 (maggio-settembre) crea 45 gare antecedenti al 1° luglio, che il parser della 0.13.20 considerava impropriamente invalide al load.
+- [CODE] Leggere fixture mondiali dal 1° gennaio dell'anno iniziale, preservando calendario OG multi-paese, risultati e controlli anti-corruzione.
+- [TEST] Test C di round-trip snapshot compresso aggiunto. Verifica Python sul .CAR utente: 8.384 fixture, compressione integra; build Windows e test C compilati non ancora eseguiti.

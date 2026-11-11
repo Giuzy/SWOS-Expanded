@@ -890,9 +890,17 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
         mjson_get_long(obj,olen,"$.first_year",&v)<=0 ||
         v<1900 || v>2198) goto invalid;
     tmp->year=(uint16_t)v;
+    /* A country's native season may begin before the European July 1
+     * career clock. In the real 1996/97 world, a May-to-September league
+     * has 45 valid May/June fixtures. Check against January 1 of the
+     * FIRST calendar year, not the manager's July entry date. */
+    int32_t earliest_fixture_day=0;
     {
         ExpandedWorldDate start={tmp->year,7u,1u};
-        if (!ExpandedWorld_DateToIndex(start,&tmp->initial)) goto invalid;
+        ExpandedWorldDate calendar_start={tmp->year,1u,1u};
+        if (!ExpandedWorld_DateToIndex(start,&tmp->initial) ||
+            !ExpandedWorld_DateToIndex(calendar_start,&earliest_fixture_day))
+            goto invalid;
     }
     /* The current fixture generator knows two seasons, but the live
      * clock can keep advancing after that horizon. Never refuse a valid
@@ -1012,7 +1020,7 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
             const uint32_t i=tmp->fixture_count++;
             if (!live_parse_fixture_row(row,(int)(p-row),&tmp->fixtures[i],
                                         &tmp->consumed[i]) ||
-                tmp->fixtures[i].day<tmp->initial ||
+                tmp->fixtures[i].day<earliest_fixture_day ||
                 !present[tmp->fixtures[i].home] ||
                 !present[tmp->fixtures[i].away] ||
                 (i && fixture_compare(&tmp->fixtures[i-1],&tmp->fixtures[i])>=0))

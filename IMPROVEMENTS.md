@@ -497,3 +497,10 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [INTEGRATION] Sincronizzazione del clock mondiale a nuovo anno carriera in ContinueCareerNextSeason, lasciando intatti comandi/fisica OG. F12 mostra finestre, archivio e residenti.
 - [TEST] Nuovo TEST_LIVING_WORLD.bat e harness C da 70 stagioni, log LIVING_WORLD_70_TEST.log. Validazione ambiente Windows, 70 stagioni e caricamento .CAR reale PENDENTI.
 - [DISCUSSIONE FUTURA] Tuning dei valori simulativi dopo struttura engine; nessuna nuova formula sportiva impostata in questa revisione.
+
+
+### 0.13.23 — correzione test GCC 16.2
+- [REPRO] Log reale del test da 70 stagioni: stop al compilatore per 6 warning elevati a errori (2 mjson, 2 miniz, 2 expanded_world_live), non errore della simulazione.
+- [TEST RUNNER] Compilazione separata di mjson/miniz con esclusioni mirate dei warning legacy solo in quelle unità; mantenuti `-Wall -Wextra -Werror` in tutto il codice nostro. Aggiornati entrambi gli script C di test Living World.
+- [CODE] Cast `long` dei limiti dei parser; validazione numero risultati native OG rispetto a tutti i risultati residenti e archiviati in carriera, non soltanto la finestra di due stagioni.
+- [LIMITI] Test compilato e benchmark 70 stagioni ancora non verificati in questa sessione; atteso risultato Windows/MSYS2 dopo pull.

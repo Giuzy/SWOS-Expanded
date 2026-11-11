@@ -7,12 +7,18 @@ CC="${CC:-gcc}"
 DIR="$(mktemp -d)"
 trap 'rm -rf "$DIR"' EXIT
 echo "[build] isolated Living World Engine 70-season stress binary"
-"$CC" -std=c11 -O2 -Wall -Wextra -Werror -DSWOS_SDL_BUILD -Iinclude \
-  -DFIXTURE_DATA_C=1 \
+# Keep strict warnings-as-errors for our engine and tests. The bundled
+# upstream mjson/miniz have known legacy warnings under GCC 16.2; compile
+# those TWO vendor units separately with only their warning categories
+# disabled. Never disable diagnostics for expanded_world_live.c.
+COMMON=(-std=c11 -O2 -Wall -Wextra -Werror -DSWOS_SDL_BUILD -Iinclude -DFIXTURE_DATA_C=1)
+"$CC" "${COMMON[@]}" -Wno-unused-but-set-variable -c src/mjson.c -o "$DIR/mjson.o"
+"$CC" "${COMMON[@]}" -Wno-type-limits -c src/miniz_impl.c -o "$DIR/miniz.o"
+"$CC" "${COMMON[@]}" \
   src/expanded_world_time.c src/expanded_world_ledger.c \
   src/fixture_data.c src/fixture_rounds.c \
-  src/mjson.c src/miniz_impl.c \
   src/expanded_world_live.c tests/native_fixture_table_ref.c \
-  tests/test_living_world_70.c -o "$DIR/living_world_70"
+  tests/test_living_world_70.c \
+  "$DIR/mjson.o" "$DIR/miniz.o" -o "$DIR/living_world_70"
 echo "[run] simulate 70 completed native-league seasons without rendering"
 "$DIR/living_world_70"

@@ -237,3 +237,10 @@ La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo ver
 3. Il test usa 216 club/11 leghe sintetici e la stessa sorgente `expanded_world_live.c`, calendari OG e serializer v3. Completa 70 anni archiviati, controlla campioni, assenza di fixtures duplicate, risultati cumulativi, memoria e 15 salvataggi/caricamenti esatti. Non sostituisce le prove UI/manager.
 4. Per integrazione reale Windows, eseguire `AVVIA_SWOS.bat` e poi l'EXE; verificare `Build 0.13.22`, CONTINUE CAREER dal vecchio `AUTOSAVE.CAR` v2 e almeno una simulazione e una partita manuale con F12. Aspettarsi `WORLD WINDOW`, `ARCHIVED LEAGUE-YEARS`, `ARCHIVED RESULTS`.
 5. Se una build/test fallisce, non cancellare il save esistente. `SWOS.log` e `LIVING_WORLD_70_TEST.log` sono i due file diagnostici richiesti.
+
+
+### 0.13.23 — GCC 16.2 / test runner Windows
+- Il `LIVING_WORLD_70_TEST.log` precedente si fermava in compilazione per warning `-Werror` di mjson/miniz (librerie vendorizzate) e `sign-compare` in Expanded. Il log NON misura ancora la simulazione.
+- Gli script `run_test_living_world_70.sh` e `run_test_expanded_world_live.sh` ora compilano mjson e miniz in due oggetti separati con flag di compatibilità mirati; tutto il codice nostro resta `-Werror`.
+- Procedura: pull `dev/0.10`, doppio click `TEST_LIVING_WORLD.bat`; sul log verificare `[run]` e `STRESS_RESULT=PASS`. Se fallisce, inviare il file completo. Il BAT non cancella né sovrascrive `save/AUTOSAVE.CAR`.
+- Poi avviare il gioco con `AVVIA_SWOS.bat`, controllare Build 0.13.23 e il precedente `CONTINUE CAREER`. Compilazione Windows e verifiche effettive rimangono esterne.

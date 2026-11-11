@@ -864,7 +864,7 @@ static int live_parse_league_row(const char *src,int len,LiveLeague *l) {
     unsigned n=0;
     if (!live_parse_int_row(src,len,v,9+LIVE_MAX_LEAGUE_CLUBS,&n) ||
         n<9 || v[0]<0 || v[0]>255 || v[1]<0 || v[1]>=16 ||
-        v[2]<2 || v[2]>LIVE_MAX_LEAGUE_CLUBS ||
+        v[2]<2 || v[2]>(long)LIVE_MAX_LEAGUE_CLUBS ||
         v[3]<2 || v[3]>3 || v[4]<0 || v[4]>1 ||
         v[5]<0 || v[5]>255 || v[6]<0 || v[6]>255 ||
         v[7]<0 || v[7]>1 || v[8]<1 || v[8]>4 ||
@@ -1284,7 +1284,7 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
         const char *blob=NULL;
         int blob_len=0;
         if (mjson_get_long(obj,olen,"$.fixture_json_bytes",&raw_len)<=0 ||
-            raw_len<2 || raw_len>LIVE_FIXTURE_JSON_LIMIT ||
+            raw_len<2 || raw_len>(long)LIVE_FIXTURE_JSON_LIMIT ||
             mjson_find(obj,olen,"$.fixtures_zlib",&blob,&blob_len)!=MJSON_TOK_STRING)
             goto invalid;
         owned_fixture_json=live_inflate_fixture_json(blob,blob_len,
@@ -1332,7 +1332,7 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
         }
     }
     if (!tmp->fixture_count || tmp->native_schedules>tmp->leagues_count ||
-        tmp->native_matches>tmp->fixture_count) goto invalid;
+        tmp->native_matches>tmp->fixture_count+tmp->archived_matches) goto invalid;
     /* Allocate the replacement BEFORE destroying the live world. */
     store=(ExpandedWorldFixture *)malloc(sizeof *store*LIVE_MAX_FIXTURES);
     if (!store) goto invalid;

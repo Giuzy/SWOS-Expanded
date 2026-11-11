@@ -312,6 +312,7 @@ Questo registro documenta incidenti **segnalati dall'utente** durante lo svilupp
 |---|---|---|---|
 | 11/11/2026 (ora esatta non verificata) | `Connection interrupted` | Conversazione tecnica interrotta mentre si lavorava al Living World Engine | Recuperati requisiti e stato del codice dal repository; eventuali modifiche non committate nella sessione precedente non verificabili da GitHub |
 | 11/11/2026 (ora esatta non verificata) | `Unknown error` | Nuova interruzione della stessa sessione, con rischio di lavoro non trasferito | Ripresa da HEAD GitHub dopo il push dell'utente; nessuna diagnosi della piattaforma confermata |
+| 11/11/2026 (ora esatta non verificata) | `Connection interrupted` (nuova segnalazione dell'utente) | Interruzione mentre si preparava il collegamento dei risultati pilota alle partite native e i relativi test | Ripresa tramite commit HEAD `a0e01ee` su `dev/0.10`, controllo delle fonti e continuazione delle modifiche; causa tecnica e durata non note |
 
 **Metodo per le prossime segnalazioni:** registrare data/ora se note, messaggio esatto, attività in corso, commit/branch, modifiche potenzialmente perse, recupero e tempo perso solo se misurabile. Nessuna frequenza o durata inventata.
 
@@ -459,3 +460,54 @@ Da verificare: la simulazione progressiva fino alla prima partita non
 precedente alla firma, coerenza classifica e input normale una volta
 terminato il catch-up. Pilot e competizioni native sono ancora due
 fonti indipendenti e non sono state unificate.
+
+
+## 29. 0.13.13 — primo collegamento dei risultati tra pilota e campionato nativo (11/11/2026)
+
+**[CODICE / PRIMA INTEGRAZIONE, NON UNIFICAZIONE COMPLETA]** Nella 0.13.12
+il recupero storico arriva effettivamente alla data dell'ingaggio:
+screenshot utente `JOIN STATUS REACHED, FINAL 91, TARGET 91`,
+`LEAGUE MENUS COMPLETED 22`, circa un minuto per recuperare
+le partite, con rendering delle schermate originali ancora visibile
+ai lati dell'overlay temporaneo. Il fatto che il recupero funzioni
+non significa che i risultati pilota e nativi siano identici.
+
+Nella 0.13.13, `ProcessDIYLeagueMatchResultAndCareerUpdates` interroga il
+registro `ExpandedWorldLive` prima di chiamare il generatore di un
+nuovo risultato durante il solo recupero storico. Il risultato pilota
+puo' essere riutilizzato una sola volta se la gara e' gia' disputata
+nel registro, i **club di casa e trasferta coincidono esattamente** e
+la data della gara cade nella finestra della fase nativa (fino a sette giorni prima, e non oltre l'inizio della fase successiva). Non
+si copiano classifiche; la partita aggiorna normalmente punteggi,
+statistiche e calendario nelle routine OpenSWOS. Se la gara nativa
+non ha un risultato compatibile disponibile (calendari differenti,
+altra nazione, altro ordine, coppe), resta attivo il resolver OpenSWOS.
+Le coppe e tutte le partite dopo la firma sono invariate.
+
+F12 espone `NATIVE REUSED` (risultati comuni realmente riutilizzati)
+e `FALLBACK` (incontri per cui si e' usato il resolver nativo).
+La dicitura `PILOT/NATIVE REPLAY PARTIAL` segnala esplicitamente
+che **non esiste ancora una sola fonte globale di competizioni**.
+
+**[NON ANCORA IMPLEMENTATO]** Sostituire il calendario pilota con
+il calendario nativo condiviso per tutte le nazioni, effettuare la
+simulazione nativa mentre si e' disoccupati senza ricostruire
+`InitCareer()` alla firma, garantire persistenza di tutte le
+competizioni e salvataggi mondiali; poi eliminare il recupero
+storico e la seconda simulazione. Questa build non promette
+di eliminare l'attesa o il flicker, soltanto di iniziare a condividere
+risultati dove la partita corrisponde realmente.
+
+**[PERSONE DEL MONDO]** Nel database OpenSWOS `TeamFile.coachName[23]`
+contiene il nome dell'allenatore associato alla squadra; manca
+una tabella di entita' globali allenatore con età, contratti e
+carriera. I messaggi del presidente non dimostrano l'esistenza di
+identita' chairman persistenti; non e' stata trovata un'anagrafica
+globale di presidenti. Non inventare tali conteggi nel F12.
+
+**[VERIFICHE]** Aggiunto test della corrispondenza home/away e della
+fase cronologica, incluso controllo di riuso singolo e di assenza
+di mutazioni dei risultati pilota; build Windows e test end-to-end
+obbligatori prima di dichiarare affidabile la continuita'.
+
+**[SCELTA UX]** Su richiesta esplicita, il recupero non e' stato spostato dal passaggio tra contratto e benvenuto: la sequenza ATTUALE resta invariata. Il miglioramento dell'avvio e dell'attesa non e' parte di questo commit.

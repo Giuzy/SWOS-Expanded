@@ -531,3 +531,12 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [DEBUG F12] Aggiunto `LEAGUE MENUS COMPLETED` per contare le uscite automatiche dalle giornate concluse, incluso dopo il recupero; log stderr include indice e fase al momento dell'uscita. Codice abort -8 resta per menu senza azioni neppure EXIT (possibile corruzione/altro stato).
 - [TEST] Verificato staticamente che il menu originale `_diyLeagueTournamentMenu` espone EXIT con callback `DIYLeagueTournamentExit`, e che `career_autopilot.c` ricorre all'uscita dal menu quando non ci sono piu' azioni. Compilazione Windows/test carriera da effettuare, nessun risultato simulato inventato.
 - [ROLLBACK] `0523315224f38e4f26fc6653eebee3c11493b59a` = 0.13.11. La duplicazione dei calendari pilota/native resta una questione aperta.
+
+
+### 0.13.13 — riuso parziale dei risultati pilota nel recupero OpenSWOS (11 novembre 2026)
+- [CODICE] Il registro risultati pilot `ExpandedWorldLive` espone una ricerca non distruttiva delle gare gia' giocate; ogni record puo' essere riusato una sola volta nell'avanzamento nativo, soltanto se coincidono i due club nell'ordine casa/trasferta e la finestra temporale (massimo una settimana di scostamento dalla fase nativa, non oltre la fine della stessa fase).
+- [CODICE] Durante il recupero precedente alla firma il normale handler dei risultati di campionato `ProcessDIYLeagueMatchResultAndCareerUpdates` tenta prima di usare il punteggio pilota compatibile; se manca usa `CalculateViewResult` originale. Restano invariati il calcolo dei punti, i dati dei giocatori, le gare normali dopo la firma, il motore fisico, le coppe e le tabelle dei campionati; NON e' stato costruito un singolo calendario.
+- [F12] Aggiunti `NATIVE REUSED` e `FALLBACK` e la dicitura `PILOT/NATIVE REPLAY PARTIAL`. Entrambi i sistemi restano distinguibili; il debug NON rappresenta una completa unificazione.
+- [TEST] Aggiunte asserzioni su due partite pilota: phase window, inversione casa/trasferta, divieto di riusare il risultato, risultati pilota invariati. I file dei test C non sono stati compilati/eseguiti in questa sessione; test Windows necessari.
+- [UX] Su richiesta, nessun cambiamento al flusso ACCEPT / WELCOME; il recupero rimane al punto attuale e puo' richiedere tempo/flicker finche' non esiste un solo stato mondiale.
+- [REGOLE] Commit autorizzato solo per cambi significativi; rollback alla 0.13.12 `a0e01ee5f40cbffb1676c2b57dfb86a0a1d5d766` mediante GitKraken, su scelta dell'utente.

@@ -25,6 +25,16 @@ int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks);
 int ExpandedWorldLive_Table(uint8_t country, uint8_t division,
                             ExpandedLiveRow *rows, uint32_t capacity,
                             uint32_t *total);
+/* A played PREHIRE pilot league result can be replayed into an exact
+ * native league home/away fixture once, never into cups. Returns 1
+ * only for a recorded match before the native month-eighth phase end.
+ * Does not advance, modify or overwrite either fixture schedule. */
+int ExpandedWorldLive_TakeNativeLeagueResult(uint16_t home,uint16_t away,
+                                             uint8_t native_phase,
+                                             uint8_t *goals_home,
+                                             uint8_t *goals_away);
+uint32_t ExpandedWorldLive_NativeMatches(void);
+uint32_t ExpandedWorldLive_NativeMisses(void);
 uint32_t ExpandedWorldLive_Results(void);
 /* Diagnostic totals: player slots refer to 16 records per imported club;
  * MemoryBytes reports pilot RAM, not installed database file size. */

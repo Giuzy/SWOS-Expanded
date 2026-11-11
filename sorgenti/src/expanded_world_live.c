@@ -32,6 +32,10 @@ static ExpandedWorldFixture *s_fixtures;
 static ExpandedWorldLedger s_ledger;
 static int s_live;
 static int32_t s_initial_day;
+/* Pilot results are immutable. A recorded match may supply a single native
+ * fixture result only when home/away IDs and the calendar phase agree. */
+static uint8_t s_native_result_consumed[LIVE_MAX_FIXTURES];
+static uint32_t s_native_matches,s_native_misses;
 
 static uint16_t competition_id(uint8_t country, uint8_t division, unsigned season) {
     return (uint16_t)(season * 8192u + ((uint16_t)country << 5) + division);
@@ -52,6 +56,8 @@ void ExpandedWorldLive_End(void) {
     s_fixtures=NULL; s_live=0; s_club_count=0; s_league_count=0;
     s_weeks=0; s_first_year=0; s_initial_day=0;
     s_preseason_games_total=0;
+    s_native_matches=s_native_misses=0;
+    memset(s_native_result_consumed,0,sizeof s_native_result_consumed);
     memset(&s_ledger,0,sizeof s_ledger);
 }
 int ExpandedWorldLive_Begin(uint16_t start_year) {
@@ -254,6 +260,50 @@ int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks) {
     s_weeks=weeks;
     return 1;
 }
+/* Temporary bridge from the pilot result ledger into the ORIGINAL native
+ * league result handler. It matches exact home and away club identities,
+ * a result already played before signing, and a native phase not earlier
+ * than that fixture. The next native month-eighth is an exclusive bound.
+ * Unlike the old approach, never recalculate a matched score. Cup fixtures
+ * and unmatched native games continue to use their original resolver. */
+int ExpandedWorldLive_TakeNativeLeagueResult(uint16_t home,uint16_t away,
+                                             uint8_t native_phase,
+                                             uint8_t *goals_home,
+                                             uint8_t *goals_away) {
+    ExpandedWorldDate phase_date,next_phase_date;
+    int32_t first_day=0,next_day=0;
+    if (!s_live || !s_ledger.fixtures || !goals_home || !goals_away ||
+        home==away || !club_by_id(home) || !club_by_id(away) ||
+        native_phase>=255u ||
+        !ExpandedWorld_NativePhaseToDate(s_first_year,native_phase,&phase_date) ||
+        !ExpandedWorld_DateToIndex(phase_date,&first_day) ||
+        !ExpandedWorld_NativePhaseToDate(s_first_year,
+                                          (uint8_t)(native_phase+1u),
+                                          &next_phase_date) ||
+        !ExpandedWorld_DateToIndex(next_phase_date,&next_day)) {
+        ++s_native_misses;
+        return 0;
+    }
+    for (uint32_t i=0;i<s_ledger.count;i++) {
+        const ExpandedWorldFixture *f=&s_fixtures[i];
+        if (!f->played || s_native_result_consumed[i] ||
+            f->home!=home || f->away!=away ||
+            /* A pair from months earlier is NOT the same fixture. Allow
+             * up to one week of scheduling drift between calendars. */
+            f->day<first_day-7 || f->day>=next_day ||
+            f->day>s_ledger.now) continue;
+        if (f->goals_home>31u || f->goals_away>31u) continue;
+        *goals_home=f->goals_home;
+        *goals_away=f->goals_away;
+        s_native_result_consumed[i]=1;
+        ++s_native_matches;
+        return 1;
+    }
+    ++s_native_misses;
+    return 0;
+}
+uint32_t ExpandedWorldLive_NativeMatches(void) { return s_native_matches; }
+uint32_t ExpandedWorldLive_NativeMisses(void) { return s_native_misses; }
 uint32_t ExpandedWorldLive_Results(void) { return s_ledger.played; }
 uint32_t ExpandedWorldLive_Fixtures(void) { return s_live?s_ledger.count:0; }
 uint32_t ExpandedWorldLive_PlayerSlots(void) { return s_live?s_club_count*16u:0; }
@@ -261,7 +311,8 @@ uint32_t ExpandedWorldLive_MemoryBytes(void) {
     if (!s_live) return 0;
     /* Allocated pilot RAM, not the disk size of the actual world pack. */
     return (uint32_t)(sizeof s_clubs+sizeof s_leagues+sizeof s_ledger+
-                      sizeof(*s_fixtures)*LIVE_MAX_FIXTURES);
+                      sizeof(*s_fixtures)*LIVE_MAX_FIXTURES+
+                      sizeof s_native_result_consumed);
 }
 uint32_t ExpandedWorldLive_Clubs(void) { return s_club_count; }
 uint32_t ExpandedWorldLive_Leagues(void) { return s_league_count; }
@@ -339,6 +390,12 @@ int ExpandedWorldLive_Table(uint8_t c,uint8_t d,ExpandedLiveRow *r,
                             uint32_t cap,uint32_t *total) {
     (void)c;(void)d;(void)r;(void)cap;if(total)*total=0;return 0;
 }
+int ExpandedWorldLive_TakeNativeLeagueResult(uint16_t h,uint16_t a,uint8_t phase,
+                                             uint8_t *gh,uint8_t *ga) {
+    (void)h;(void)a;(void)phase;(void)gh;(void)ga;return 0;
+}
+uint32_t ExpandedWorldLive_NativeMatches(void) {return 0;}
+uint32_t ExpandedWorldLive_NativeMisses(void) {return 0;}
 uint32_t ExpandedWorldLive_Results(void) {return 0;}
 uint32_t ExpandedWorldLive_Fixtures(void) {return 0;}
 uint32_t ExpandedWorldLive_PlayerSlots(void) {return 0;}

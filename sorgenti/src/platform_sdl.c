@@ -2792,7 +2792,11 @@ static void draw_world_debug_overlay(void)
     snprintf(line,sizeof line,"LEAGUE MENUS COMPLETED %lu",
              (unsigned long)Expanded_MidseasonJoin_LeagueExits());
     DEBUG_LINE(line);
-    DEBUG_LINE("PILOT/NATIVE RESULTS NOT UNIFIED");
+    snprintf(line,sizeof line,"NATIVE REUSED %lu FALLBACK %lu",
+             (unsigned long)ExpandedWorldLive_NativeMatches(),
+             (unsigned long)ExpandedWorldLive_NativeMisses());
+    DEBUG_LINE(line);
+    DEBUG_LINE("PILOT/NATIVE REPLAY PARTIAL");
     DEBUG_LINE("WORLD SAVE NOT ACTIVE");
     snprintf(line,sizeof line,"1 WIN ALWAYS %s",
              ExpandedDebug_ResultMode()==1 ? "ON":"OFF");

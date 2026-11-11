@@ -11,6 +11,7 @@
 #include "world.h"
 #include "expanded_debug.h"
 #include "expanded_midseason_join.h"
+#include "expanded_world_live.h"
 #include "diy_competition.h"
 #include "comp_identity.h"
 #include "translations.h"
@@ -10494,8 +10495,32 @@ void ProcessDIYLeagueMatchResultAndCareerUpdates(TeamFileEx *team1, TeamFileEx *
     uint16_t goalsIn2 = compEx->matchData.league.leagueMaxSubstitutes;
     uint16_t statCol  = *(uint16_t *)&diy->compSlot;  /* word read of compId+slotId at 0x2C */
 
-    uint16_t d1, d2;
-    getCachedOrCalcViewResult(team1, team2, comp, modeFlag, goalsIn1, goalsIn2, statCol, &d1, &d2);
+    uint16_t d1=0, d2=0;
+    int replayed=0;
+    /* [0.13.13] Use the pre-hire ledger score rather than rolling a second
+     * result IF this very same league home/away pairing was actually played
+     * in the pilot before this native phase. A match must never be matched
+     * by rank, team-name or league position: calendars differ.
+     *
+     * Cached scores from an actual match (or another caller) still win.
+     * Cups and post-hire interactive fixtures never call this bridge. */
+    if (Expanded_MidseasonJoin_Active() && _cachedViewResultTeam1Goals<0) {
+        uint8_t gh=0, ga=0;
+        const uint16_t home=((uint16_t)team1->team.countryNumber<<8) |
+                            (uint8_t)team1->team.teamOrdinal;
+        const uint16_t away=((uint16_t)team2->team.countryNumber<<8) |
+                            (uint8_t)team2->team.teamOrdinal;
+        if (ExpandedWorldLive_TakeNativeLeagueResult(
+                home,away,Expanded_Career_NativeCalendarKey(),&gh,&ga)) {
+            d1=gh; d2=ga;
+            team1->team.andWith0xFE &= (uint8_t)~1u;
+            team2->team.andWith0xFE &= (uint8_t)~1u;
+            replayed=1;
+        }
+    }
+    if (!replayed)
+        getCachedOrCalcViewResult(team1, team2, comp, modeFlag,
+                                  goalsIn1, goalsIn2, statCol, &d1, &d2);
 
     /* Build flags byte d7 */
     uint16_t d7 = 0;

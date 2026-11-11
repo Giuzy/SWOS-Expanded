@@ -415,3 +415,11 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [CODICE] Aggiunta la transizione automatica `DIYLeagueTournamentExit` quando nella schermata lega non sono disponibili NEXT MATCH/MATCH/RESULT/VIEW RESULT. Il driver precedente abortiva -8 dopo la giornata per assenza di callback, lasciando data e stagione incomplete.
 - [DEBUG] Contatore F12 `LEAGUE MENUS COMPLETED` e log del ritorno al calendario per distinguere progressi reali da cicli nel menu. Interrotto ancora con -8 se non e' visibile neppure EXIT.
 - [LIMITI] Solo controllo statico degli handler attivi, nessuna build Windows/test runtime; la preview del Living World Engine rimane separata dalla competizione nativa. Data, formule e renderer della 0.13.11 non modificati.
+
+
+### 0.13.13 — ponte controllato tra risultati pilota e handler nativo (11/11/2026)
+- [CODICE] Le gare di campionato del recupero nativo provano a riutilizzare un punteggio registrato nel pilota per la stessa coppia casa/trasferta, entro un intervallo temporale verificato di circa una settimana, una sola volta; se non c'e' corrispondenza, motore OpenSWOS invariato.
+- [DEBUG] F12 `NATIVE REUSED` e `FALLBACK`; la dicitura `PILOT/NATIVE REPLAY PARTIAL` conferma che esistono ancora due calendari distinti.
+- [TEST] Aggiunti casi di test C per abbinamento, errore temporale, mancato riuso e identita' invertite. Esecuzione completa e build Windows non verificate nell'ambiente corrente.
+- [DOCUMENTAZIONE] Registrata nuova segnalazione `Connection interrupted` dell'11 novembre in `docs/GAME_DESIGN.md`.
+- [SCELTA UTENTE] Lasciata invariata la posizione del benvenuto e il momento di avvio del recupero; l'accelerazione e l'unificazione globale saranno affrontate nella fase successiva, senza nuovi reset.

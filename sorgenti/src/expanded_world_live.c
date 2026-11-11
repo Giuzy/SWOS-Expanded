@@ -260,27 +260,41 @@ int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks) {
     s_weeks=weeks;
     return 1;
 }
-/* Temporary bridge from the pilot result ledger into the ORIGINAL native
- * league result handler. It matches exact home and away club identities,
- * a result already played before signing, and a native phase not earlier
- * than that fixture. The next native month-eighth is an exclusive bound.
- * Unlike the old approach, never recalculate a matched score. Cup fixtures
- * and unmatched native games continue to use their original resolver. */
+/* Historical bridge: the pilot and native calendars currently put the
+ * SAME home/away pairing on different days. Match on club identity,
+ * home/away and season, not on exact match date. A result is eligible only
+ * after the pilot has played it (never predict a future result), and can
+ * be consumed once. Native competition handlers still apply all results
+ * through their normal bookkeeping.
+ *
+ * The preview table will not be guaranteed identical until the two
+ * fixture schedules are replaced by one canonical world calendar. */
 int ExpandedWorldLive_TakeNativeLeagueResult(uint16_t home,uint16_t away,
                                              uint8_t native_phase,
                                              uint8_t *goals_home,
                                              uint8_t *goals_away) {
-    ExpandedWorldDate phase_date,next_phase_date;
-    int32_t first_day=0,next_day=0;
+    ExpandedWorldDate native_date,start_date,end_date;
+    int32_t start_day=0,end_day=0;
     if (!s_live || !s_ledger.fixtures || !goals_home || !goals_away ||
         home==away || !club_by_id(home) || !club_by_id(away) ||
-        native_phase>=255u ||
-        !ExpandedWorld_NativePhaseToDate(s_first_year,native_phase,&phase_date) ||
-        !ExpandedWorld_DateToIndex(phase_date,&first_day) ||
-        !ExpandedWorld_NativePhaseToDate(s_first_year,
-                                          (uint8_t)(native_phase+1u),
-                                          &next_phase_date) ||
-        !ExpandedWorld_DateToIndex(next_phase_date,&next_day)) {
+        !ExpandedWorld_NativePhaseToDate(s_first_year,native_phase,
+                                          &native_date)) {
+        ++s_native_misses;
+        return 0;
+    }
+    /* An OpenSWOS season begins in August. Before Aug 1 the native
+     * key belongs to the previous season, not a new competition. */
+    uint16_t season_year=(uint16_t)(native_date.year-
+                                    (native_date.month<8u ? 1u : 0u));
+    if (season_year<s_first_year ||
+        (uint32_t)(season_year-s_first_year)>=LIVE_SEASONS) {
+        ++s_native_misses;
+        return 0;
+    }
+    start_date=(ExpandedWorldDate){season_year,8,1};
+    end_date=(ExpandedWorldDate){(uint16_t)(season_year+1u),8,1};
+    if (!ExpandedWorld_DateToIndex(start_date,&start_day) ||
+        !ExpandedWorld_DateToIndex(end_date,&end_day)) {
         ++s_native_misses;
         return 0;
     }
@@ -288,9 +302,7 @@ int ExpandedWorldLive_TakeNativeLeagueResult(uint16_t home,uint16_t away,
         const ExpandedWorldFixture *f=&s_fixtures[i];
         if (!f->played || s_native_result_consumed[i] ||
             f->home!=home || f->away!=away ||
-            /* A pair from months earlier is NOT the same fixture. Allow
-             * up to one week of scheduling drift between calendars. */
-            f->day<first_day-7 || f->day>=next_day ||
+            f->day<start_day || f->day>=end_day ||
             f->day>s_ledger.now) continue;
         if (f->goals_home>31u || f->goals_away>31u) continue;
         *goals_home=f->goals_home;

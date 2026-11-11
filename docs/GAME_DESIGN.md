@@ -511,3 +511,46 @@ di mutazioni dei risultati pilota; build Windows e test end-to-end
 obbligatori prima di dichiarare affidabile la continuita'.
 
 **[SCELTA UX]** Su richiesta esplicita, il recupero non e' stato spostato dal passaggio tra contratto e benvenuto: la sequenza ATTUALE resta invariata. Il miglioramento dell'avvio e dell'attesa non e' parte di questo commit.
+
+
+## 30. 0.13.14 — decoupling renderer e riuso stagionale dei punteggi
+
+**[TEST UTENTE]** Nella 0.13.13 il calendario della carriera mostrava la data giusta
+e il recupero terminava (`REACHED`), ma la classifica vista durante la
+disoccupazione era diversa da quella nativa. F12 ha certificato soltanto
+12 incontri riutilizzati e 360 fallback nativi. Le classifiche NON sono
+ancora unificate.
+
+**[MODIFICA CODICE]** Il percorso provvisorio di recupero delle partite non
+necessita un render SDL per ciascuna partita: `render_frame_impl` mostra
+**una sola volta** una schermata statica di simulazione e continua a
+pompare eventi e audio, ma sopprime gli upload delle texture, il
+`SDL_RenderPresent` e gli effetti CRT durante il recupero. Il renderer
+di backup eseguito dal timer rispetta lo stesso controllo. `Platform_Present`
+non applica il pacing a 50 Hz durante l'automazione storica **su Windows/
+native**; WASM conserva il yield. Terminato l'ingaggio, rendering e pacing
+originali riprendono. Nessun cambiamento alla fisica partita, ai callback
+di competizione o al layout del menu calendario. F12 mostra numero di
+frame soppressi e durata del recupero in millisecondi.
+
+**[MODIFICA CODICE, COLLEGAMENTO ANCORA PARZIALE]** Due calendari differenti
+possono collocare la stessa gara in settimane diverse. Il nuovo
+`ExpandedWorldLive_TakeNativeLeagueResult` cerca il risultato gia'
+registrato nello stesso **anno sportivo** per la stessa coppia ordinata
+(home/away), senza imporre la stessa data di incontro. Il risultato
+puo' essere usato soltanto una volta e soltanto se il ledger pilota lo
+ha effettivamente gia' disputato prima della firma. L'esito attraversa
+comunque i callback di classifica originali OpenSWOS. Se non c'e'
+corrispondenza, rimane la simulazione nativa. Questa scelta privilegia
+l'identita' della partita alla coincidenza artificiale delle date,
+**ma l'ordine delle fixture resta diverso** e le tabelle possono ancora
+divergere. Non si copiano punti né si riscrivono risultati gia' registrati.
+
+**[COLLAUDO PENDENTE]** Test C delle finestre stagionali e dell'unicita'
+aggiornati; non e' stata compilata la build completa Windows in chat.
+Confrontare a test Windows (a) tempo reale del recupero, (b) assenza di
+flicker, (c) stato `REACHED`, (d) F12 `NATIVE REUSED`/`FALLBACK`,
+(e) integrita' di calendario/classifica dopo la firma e input normale.
+Il requisito finale rimane il **Living World Engine unico**: avviare e
+far progredire le competizioni native una sola volta durante la
+disoccupazione, eliminando il catch-up quando esiste uno stato condiviso.

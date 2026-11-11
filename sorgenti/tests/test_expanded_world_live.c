@@ -25,20 +25,18 @@ int main(void) {
     assert(ExpandedWorldLive_Results()==0);
     assert(ExpandedWorldLive_AdvanceWeeks(6));
     assert(ExpandedWorldLive_Results()==10);
-    /* Pilot game 1 (20 teams): home club 1, away club 20, 8 Aug 2026.
-     * Native month-eighth 56 is Aug 1: cannot copy a future pilot result.
-     * Key 58 is Aug 8: the recorded exact home/away result is eligible. */
+    /* The same home/away encounter may be on a DIFFERENT match day in
+     * the pilot and native schedules. Reuse its already-played score
+     * anywhere in the SAME SEASON; never across season boundaries. */
     {
         uint8_t gh=99,ga=99;
-        assert(!ExpandedWorldLive_TakeNativeLeagueResult(0x0801,0x0814,56,&gh,&ga));
+        assert(!ExpandedWorldLive_TakeNativeLeagueResult(0x0801,0x0814,0,&gh,&ga));
+        assert(!ExpandedWorldLive_TakeNativeLeagueResult(0x0801,0x0814,152,&gh,&ga));
         assert(gh==99 && ga==99);
-        /* An August fixture cannot be used for a later calendar phase
-         * even if the same home/away pair occurs again. */
-        assert(!ExpandedWorldLive_TakeNativeLeagueResult(0x0813,0x0802,70,&gh,&ga));
-        assert(ExpandedWorldLive_TakeNativeLeagueResult(0x0801,0x0814,58,&gh,&ga));
+        assert(ExpandedWorldLive_TakeNativeLeagueResult(0x0801,0x0814,70,&gh,&ga));
         assert(gh<=7 && ga<=7);
         assert(!ExpandedWorldLive_TakeNativeLeagueResult(0x0801,0x0814,58,&gh,&ga));
-        assert(!ExpandedWorldLive_TakeNativeLeagueResult(0x0814,0x0801,58,&gh,&ga));
+        assert(!ExpandedWorldLive_TakeNativeLeagueResult(0x0814,0x0801,70,&gh,&ga));
         assert(ExpandedWorldLive_TakeNativeLeagueResult(0x0813,0x0802,58,&gh,&ga));
         assert(ExpandedWorldLive_NativeMatches()==2);
         assert(ExpandedWorldLive_NativeMisses()==4);

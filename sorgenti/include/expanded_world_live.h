@@ -25,10 +25,11 @@ int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks);
 int ExpandedWorldLive_Table(uint8_t country, uint8_t division,
                             ExpandedLiveRow *rows, uint32_t capacity,
                             uint32_t *total);
-/* A played PREHIRE pilot league result can be replayed into an exact
- * native league home/away fixture once, never into cups. Returns 1
- * only for a recorded match before the native month-eighth phase end.
- * Does not advance, modify or overwrite either fixture schedule. */
+/* A PREHIRE pilot league result can be replayed once for the exact
+ * same home/away clubs within the same season, even though the two
+ * schedules assign that pairing to different calendar dates.
+ * Only results already played before signing are eligible. Cups excluded.
+ * Does not alter either fixture calendar or guarantee matching tables. */
 int ExpandedWorldLive_TakeNativeLeagueResult(uint16_t home,uint16_t away,
                                              uint8_t native_phase,
                                              uint8_t *goals_home,

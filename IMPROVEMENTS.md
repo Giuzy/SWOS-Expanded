@@ -423,3 +423,11 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [TEST] Aggiunti casi di test C per abbinamento, errore temporale, mancato riuso e identita' invertite. Esecuzione completa e build Windows non verificate nell'ambiente corrente.
 - [DOCUMENTAZIONE] Registrata nuova segnalazione `Connection interrupted` dell'11 novembre in `docs/GAME_DESIGN.md`.
 - [SCELTA UTENTE] Lasciata invariata la posizione del benvenuto e il momento di avvio del recupero; l'accelerazione e l'unificazione globale saranno affrontate nella fase successiva, senza nuovi reset.
+
+
+### 0.13.14 — rendering disaccoppiato dal recupero, ledger matching esteso (11/11/2026)
+- [CODICE] In `Platform_RenderFrame` il recupero precedente alla firma disegna uno status statico alla prima iterazione; tutte le successive iterazioni processano eventi ma non SDL upload/render/present. In `Platform_Present` bypass esclusivo del pacing normale a 50Hz durante il catch-up. Timer-render fallback escluso durante l'operazione. Nessuna modifica al pacing della partita.
+- [CODICE] La ricerca pilota→nativo non richiede più che le date degli stessi club siano entro una settimana; usa un unico risultato gia' simulato per ciascuna coppia esatta casa/trasferta nella stessa stagione. Il vecchio vincolo temporale aveva dato 12 match riutilizzati su 372 nella prova utente 0.13.13.
+- [DEBUG] HEADLESS frames/time nel F12 per confrontare l'attesa reale; NATIVE REUSED/FALLBACK mantengono il conteggio degli abbinamenti. 
+- [TEST] Aggiornate asserzioni pure-C per stagione corrente, non riutilizzo, invertire casa/trasferta e divieto di attraversare stagioni. Test C compilazione Windows **non eseguiti nell'ambiente attuale**.
+- [NON RISOLTO] Le tabelle non possono essere garantite uguali finché `ExpandedWorldLive` e OpenSWOS non utilizzano un unico calendario/ledger. Non cancellare la preview né correggere artificialmente i punti per ottenere l'identità visiva.

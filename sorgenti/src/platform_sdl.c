@@ -2645,6 +2645,14 @@ static void splash_text(int x,int y,const char *txt)
  * recalculated. We are still running the original competition handlers
  * underneath; render a stable, opaque progress view at PRESENT time only.
  * F12 diagnostics remain drawn above this mask. No new frontend assets. */
+/* Only one static status frame is presented for the entire catch-up.
+ * The original menu callbacks still update the software state, but SDL
+ * does not upload or present every intermediate league table. */
+static int s_catchup_static_presented;
+static Uint32 s_catchup_started_ms;
+static uint32_t s_catchup_hidden_frames,s_catchup_duration_ms;
+uint32_t Platform_CatchupHiddenFrames(void) {return s_catchup_hidden_frames;}
+uint32_t Platform_CatchupDurationMs(void) {return s_catchup_duration_ms;}
 static void draw_midseason_catchup_overlay(void)
 {
     if (!Expanded_MidseasonJoin_Active() || !s_renderer) return;
@@ -2796,6 +2804,10 @@ static void draw_world_debug_overlay(void)
              (unsigned long)ExpandedWorldLive_NativeMatches(),
              (unsigned long)ExpandedWorldLive_NativeMisses());
     DEBUG_LINE(line);
+    snprintf(line,sizeof line,"CATCHUP HEADLESS %lu FRAMES %lu MS",
+             (unsigned long)Platform_CatchupHiddenFrames(),
+             (unsigned long)Platform_CatchupDurationMs());
+    DEBUG_LINE(line);
     DEBUG_LINE("PILOT/NATIVE REPLAY PARTIAL");
     DEBUG_LINE("WORLD SAVE NOT ACTIVE");
     snprintf(line,sizeof line,"1 WIN ALWAYS %s",
@@ -2868,6 +2880,31 @@ void Platform_ExpandedSplashClear(void)
     s_expandedSplashActive=0;
 }
 
+/* Draw this once. Explicitly clear the FULL output in device coordinates:
+ * the normal menu viewport may cover less than the desktop output. */
+static void render_catchup_static_once(void)
+{
+    if (!s_renderer || !s_render_mtx) return;
+    SDL_LockMutex(s_render_mtx);
+    int oldw=0,oldh=0;
+    float oldsx=1.0f,oldsy=1.0f;
+    SDL_Rect oldvp;
+    SDL_RenderGetLogicalSize(s_renderer,&oldw,&oldh);
+    SDL_RenderGetScale(s_renderer,&oldsx,&oldsy);
+    SDL_RenderGetViewport(s_renderer,&oldvp);
+    SDL_RenderSetLogicalSize(s_renderer,0,0);
+    SDL_RenderSetViewport(s_renderer,NULL);
+    SDL_SetRenderDrawColor(s_renderer,8,18,28,255);
+    SDL_RenderClear(s_renderer);
+    SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);
+    if (!oldw || !oldh) SDL_RenderSetScale(s_renderer,oldsx,oldsy);
+    SDL_RenderSetViewport(s_renderer,NULL);
+    draw_midseason_catchup_overlay();
+    SDL_RenderSetViewport(s_renderer,&oldvp);
+    SDL_RenderPresent(s_renderer);
+    SDL_UnlockMutex(s_render_mtx);
+}
+
 static void render_frame_impl(int pump_full)
 {
     /* SDL_PollEvent -> SDL_PumpEvents pulls from the OS window message queue, which on
@@ -2892,6 +2929,32 @@ static void render_frame_impl(int pump_full)
     AudioSDL_Tick();
 #endif
 
+    /* The historical competition callbacks are still synchronous, but
+     * they do not require OpenGL/D3D present, texture upload, CRT effects,
+     * or a fresh painted league table for every simulated match.
+     * Keep pumping SDL window/quit events (done above). Draw one stable
+     * progress card, then leave the GPU alone until the native fixture
+     * cursor reaches the hiring date. SDL timer-thread fallback must also
+     * honor this guard, otherwise it would reintroduce the flicker. */
+    if (Expanded_MidseasonJoin_Active()) {
+        if (pump_full) {
+            if (!s_catchup_static_presented) {
+                s_catchup_static_presented=1;
+                s_catchup_started_ms=SDL_GetTicks();
+                s_catchup_hidden_frames=0;
+                render_catchup_static_once();
+            }
+            ++s_catchup_hidden_frames;
+        }
+        return;
+    }
+    if (s_catchup_static_presented) {
+        s_catchup_duration_ms=SDL_GetTicks()-s_catchup_started_ms;
+        s_catchup_static_presented=0;
+        fprintf(stderr,"[midseason] SDL headless: skipped %lu presents in %lu ms\n",
+                (unsigned long)s_catchup_hidden_frames,
+                (unsigned long)s_catchup_duration_ms);
+    }
     if (!s_renderer || !s_textures[0]) return;
 
     SDL_LockMutex(s_render_mtx);
@@ -3190,6 +3253,17 @@ int Platform_Present(void)
     if (s_present_stats)
         present_interval_stats();
     Platform_RenderFrame();
+
+#ifndef SWOS_WASM_BUILD
+    /* No 50-Hz VSYNC/D3D pacing during historical fast-forward.
+     * Match physics outside midseason recovery retains the exact timing.
+     * WASM must still yield to the browser event loop below. */
+    if (Expanded_MidseasonJoin_Active()) {
+        s_next_frame_perf=SDL_GetPerformanceCounter();
+        if ((s_catchup_hidden_frames & 31u)==0u) SDL_Delay(0);
+        return _quitToDos ? 1 : 0;
+    }
+#endif
 
 #ifdef SWOS_WASM_BUILD
     /* The browser owns the event loop, so a C program must hand control back

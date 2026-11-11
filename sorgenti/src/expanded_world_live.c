@@ -345,6 +345,34 @@ int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks) {
     s_weeks=weeks;
     return 1;
 }
+/* Read a played score from the canonical world ledger without modifying
+ * it or consuming a native replay token. Called by the native league state
+ * importer, which applies the result to the original SWOS fixture progress
+ * and standings rather than opening 200+ historical league menus.
+ *
+ * Exact oriented pair, current season, played before the world clock. */
+int ExpandedWorldLive_PeekNativeLeagueResult(uint16_t home,uint16_t away,
+                                            uint8_t *gh,uint8_t *ga) {
+    ExpandedWorldDate first,last;
+    int32_t begin=0,end=0;
+    if (!s_live || !s_ledger.fixtures || !gh || !ga || home==away ||
+        !club_by_id(home) || !club_by_id(away)) return 0;
+    const uint16_t season=ExpandedWorldLive_SeasonYear();
+    first=(ExpandedWorldDate){season,8,1};
+    last=(ExpandedWorldDate){(uint16_t)(season+1u),8,1};
+    if (!ExpandedWorld_DateToIndex(first,&begin) ||
+        !ExpandedWorld_DateToIndex(last,&end)) return 0;
+    for (uint32_t i=0;i<s_ledger.count;++i) {
+        const ExpandedWorldFixture *f=&s_fixtures[i];
+        if (!f->played || f->home!=home || f->away!=away ||
+            f->day<begin || f->day>=end || f->day>s_ledger.now ||
+            f->goals_home>31u || f->goals_away>31u) continue;
+        *gh=f->goals_home;
+        *ga=f->goals_away;
+        return 1;
+    }
+    return 0;
+}
 /* Historical bridge: the pilot and native calendars currently put the
  * SAME home/away pairing on different days. Match on club identity,
  * home/away and season, not on exact match date. A result is eligible only
@@ -544,6 +572,10 @@ int ExpandedWorldLive_AdvanceWeeks(uint32_t w) {(void)w;return 0;}
 int ExpandedWorldLive_Table(uint8_t c,uint8_t d,ExpandedLiveRow *r,
                             uint32_t cap,uint32_t *total) {
     (void)c;(void)d;(void)r;(void)cap;if(total)*total=0;return 0;
+}
+int ExpandedWorldLive_PeekNativeLeagueResult(uint16_t h,uint16_t a,
+                                            uint8_t *gh,uint8_t *ga) {
+    (void)h;(void)a;(void)gh;(void)ga;return 0;
 }
 int ExpandedWorldLive_TakeNativeLeagueResult(uint16_t h,uint16_t a,uint8_t phase,
                                              uint8_t *gh,uint8_t *ga) {

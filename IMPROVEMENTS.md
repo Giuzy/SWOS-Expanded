@@ -440,3 +440,10 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [DEBUG] `OG LEAGUE CALENDARS / ORDERS` controlla in quali divisioni il collegamento è realmente attivo. Rimangono conteggi F12 dei fallback e del recupero.
 - [TEST] Tabella originale per 4,20,24 squadre controllata staticamente; harness C ora linka fixture_data originale e modulo dei round dispari. Test C e Windows non eseguiti in questa sessione.
 - [LIMITI] Non ancora rimossi stato delle competizioni nativo distinto, catch-up dopo assunzione e world-save. Leghe speciali, coppe e riassunzione da testare. Versione per rollback: 0.13.14 `e2cee6d`.
+
+
+### 0.13.16 — importazione diretta di campionato e provenance manual result
+- [CODICE] \`DIY_WorldDirectImportLeague\` ricostruisce lo stato originale del campionato a due gironi da risultati mondiali già registrati, con progressione fixture SWOS originale e KeyCache player match marcata solo se completa e consistente. Salvataggio del buffer nativo solo dopo controllo totale; fallback al vecchio driver quando incompatibile.
+- [COPPE] Le coppe non hanno ancora un ledger mondiale; vengono mantenute nel percorso OG. Per storia senza coppe precedenti e import valido si elimina il recupero dopo firma (JOIN DIRECT). Con coppe precedenti il driver lavora solo sui turni OG residui e salta la lega già importata.
+- [DEBUG] F12 mostra \`DIRECT OG IMPORT\`, \`LAST OG\` con goal e punti, \`RAW FINAL\` con score match/mismatch per gli incontri manuali. Nessuna modifica ai punti assegnati dagli handler originali.
+- [TEST] Test read-only \`PeekNativeLeagueResult\` aggiunti; build e test Windows PENDENTI. Fallback/rollback alla \`0.13.15_01\` confermata dall'utente.

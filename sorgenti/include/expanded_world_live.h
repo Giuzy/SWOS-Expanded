@@ -44,6 +44,11 @@ int ExpandedWorldLive_Table(uint8_t country, uint8_t division,
  * schedules assign that pairing to different calendar dates.
  * Only results already played before signing are eligible. Cups excluded.
  * Does not alter either fixture calendar or guarantee matching tables. */
+/* Read the same world result without replay side effects. Used by the
+ * direct OG league-state import at manager hire. */
+int ExpandedWorldLive_PeekNativeLeagueResult(uint16_t home,uint16_t away,
+                                            uint8_t *goals_home,
+                                            uint8_t *goals_away);
 int ExpandedWorldLive_TakeNativeLeagueResult(uint16_t home,uint16_t away,
                                              uint8_t native_phase,
                                              uint8_t *goals_home,

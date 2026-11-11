@@ -85,6 +85,7 @@ extern MenuEntry *CalcMenuEntryAddress(uint16_t ordinal);
 static uint8_t s_active,s_old_controls,s_target_key;
 static uint32_t s_passes,s_elapsed_weeks,s_actions,s_forced_simulations;
 static uint32_t s_league_exits;
+static int s_direct_league_import;
 static int s_last_result,s_last_key;
 
 uint32_t Expanded_MidseasonJoin_Actions(void) { return s_actions; }
@@ -154,6 +155,7 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     if (s_active) finish(0,-1);
     s_last_result=0;
     s_last_key=-1;
+    s_direct_league_import=0;
     /* End-of-year / multiple-season unemployment is not yet supported:
      * never auto-start from the wrong historical season. */
     if (_gameType!=4 ||
@@ -213,6 +215,59 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
                        "leaving career unchanged\n",(unsigned)cutoff);
         return;
     }
+    /* 0.13.16: When the OG keycache has NO historical cup/other
+     * competition events, we can import the WHOLE native league prefix
+     * from the existing world score ledger and jump straight to the
+     * first future original fixture. No competition simulation or
+     * rendering after signing. If any old cup event exists, keep the
+     * proven original catch-up: its brackets are not in the world
+     * ledger yet and must NEVER be silently skipped. */
+    unsigned oldNonLeague=0;
+    size_t scan=0;
+    for (uint16_t i=0;i<_teamSelectionKeyCacheCount;++i) {
+        const TeamSelectionKeyCacheEntry *e=
+            (const TeamSelectionKeyCacheEntry *)(_teamSelectionKeyCache+scan);
+        if (e->phaseFlag==0 && e->sortKey<cutoff && e->compSlot!=0u)
+            ++oldNonLeague;
+        scan+=e->entryStride;
+    }
+    {
+        extern int DIY_WorldDirectImportLeague(uint8_t cutoff);
+        if (DIY_WorldDirectImportLeague(cutoff)) {
+            s_direct_league_import=1;
+            /* Cup competitions are still OG and must continue chronologically.
+             * Only a league-only history can bypass all replay callbacks. */
+            if (!oldNonLeague) {
+            size_t startOffset=0;
+            for (uint16_t i=0;i<_teamSelectionKeyCacheCount;++i) {
+                const TeamSelectionKeyCacheEntry *e=
+                    (const TeamSelectionKeyCacheEntry *)
+                    (_teamSelectionKeyCache+startOffset);
+                if (e->phaseFlag==0 && e->sortKey>=cutoff) {
+                    _teamSelectionKeyCacheIndex=i;
+                    _teamSelectionKeyCacheOffset=(uint16_t)startOffset;
+                    _lastFinancialWeekIndex=e->sortKey;
+                    s_elapsed_weeks=elapsed;
+                    s_target_key=cutoff;
+                    s_last_key=e->sortKey;
+                    s_last_result=3; /* Direct import, no catch-up started */
+                    fprintf(stderr,"[midseason] direct world->OG league state "
+                                   "import: future phase %u, old cup events 0\n",
+                            (unsigned)e->sortKey);
+                    return;
+                }
+                startOffset+=e->entryStride;
+            }
+            /* Cannot normally happen: validated future native fixture. */
+            }
+        }
+    }
+    if (oldNonLeague)
+        fprintf(stderr,"[midseason] %u historical cup/other events need "
+                       "OG replay: %s\n",oldNonLeague,
+                s_direct_league_import?
+                  "league imported, replay cups only":
+                  "league/cup legacy fallback");
     s_elapsed_weeks=elapsed;
     s_target_key=cutoff;
     s_old_controls=_careerTeam.team.teamControls;
@@ -267,9 +322,24 @@ void Expanded_MidseasonJoin_Tick(void) {
                     (unsigned long)s_actions);
             s_last_key=(int)entry->sortKey;
         }
+        /* OG league state has already been imported from the canonical
+         * world. Advance the ORIGINAL chronological keycache without
+         * simulating its score a second time. Crucially, use the native
+         * cursor function: it still applies its financial/CupD/day hooks
+         * for every skipped league calendar event. Cups themselves are
+         * processed by the unchanged menu callbacks below. */
+        if (s_direct_league_import &&
+            entry->compSlot==0u && entry->phaseFlag==1 &&
+            entry->sortKey<s_target_key) {
+            extern void Career_AdvanceToNextTeamSelectionKeyCacheEntry(void);
+            Career_AdvanceToNextTeamSelectionKeyCacheEntry();
+            ++s_actions;
+            return;
+        }
         /* Stop at the FIRST native fixture on or after contract time;
          * a phase key is an eighth of a month, not an elapsed week. */
         if (entry->sortKey>=s_target_key) {
+            if (s_direct_league_import) ContestMenuInit();
             finish(1,entry->sortKey);
             return;
         }

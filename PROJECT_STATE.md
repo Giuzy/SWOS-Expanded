@@ -558,3 +558,12 @@ Aggiornare il documento quando una decisione è confermata, implementata, verifi
 - [F12] `OG LEAGUE CALENDARS X/Y ORDERS Z` misura leghe con tabella OG e inizializzazioni native allineate. I contatori `NATIVE REUSED/FALLBACK` restano per mismatch.
 - [ATTENZIONE] Il motore nativo conserva ancora il suo stato delle classifiche e necessita di applicare i risultati nel recupero headless dopo l'ingaggio: non è eliminato ogni doppio stato. Coppe, leghe speciali e save globale non ancora unificati; usare F12 e test prima di dichiarare COMPLETO.
 - [TEST] Controllo statico delle tabelle originali 4/20/24 club: tutte le coppie uniche, nessun indice invalido. Test C puri aggiornati ma NON eseguiti; build/test Windows della 0.13.15 da effettuare. Rollback manuale tramite GitKraken: `e2cee6d2d965b965034b15246b0d178143ea5d61` (0.13.14).
+
+
+### 0.13.16 — OG direct-league import e debug manual match
+- [CODICE] Importazione del campionato standard già giocato nel ledger mondiale direttamente nel buffer OG OpenSWOS, con cursor di fixture nativo, punteggi e KeyCache verificata prima del commit in memoria. Nessuna risimulazione delle gare importate.
+- [FALLBACK] Se leghe speciali o calendari non corrispondono: riprende recupero headless 0.13.15_01, senza mutare la lega. Se ci sono vecchie coppe, solo i turni di coppa restano elaborati col driver OG; le vecchie giornate di lega importate vengono avanzate tramite cursore OG.
+- [JOIN] Nessuna vecchia coppa + import OK: la carriera salta direttamente al primo incontro futuro, senza driver di catch-up e senza rendering. F12 \`JOIN STATUS DIRECT\`, \`DIRECT OG IMPORT\`.
+- [AUDIT] Ultima partita OG nel F12: punteggio letto e applicato, differenza punti dei due club, punteggio raw finale per partite manuali e \`SCORE MISMATCH\` quando diverge. La routine OG assegna +1/+1 ai pareggi: l'impressione dell'utente su un +3 va verificata con questo audit.
+- [NON COMPLETO] World save, coppe persistenti, riassunzioni, special leagues ancora da unificare. Non eliminare il vecchio recupero fino ai test Windows integrati.
+- [TEST] Aggiunte asserzioni read-only ledger a test C; NON eseguite né compilata build Windows. Rollback \`600141d\` (0.13.15_01).

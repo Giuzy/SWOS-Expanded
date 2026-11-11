@@ -2703,7 +2703,7 @@ static void draw_world_debug_overlay(void)
     SDL_RenderSetLogicalSize(s_renderer,960,540);
     SDL_SetRenderDrawBlendMode(s_renderer,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(s_renderer,8,18,28,222);
-    SDL_Rect panel={12,12,475,450};
+    SDL_Rect panel={12,12,475,482};
     SDL_RenderFillRect(s_renderer,&panel);
     SDL_SetRenderDrawColor(s_renderer,120,205,235,255);
     SDL_RenderDrawRect(s_renderer,&panel);
@@ -2793,7 +2793,8 @@ static void draw_world_debug_overlay(void)
     snprintf(line,sizeof line,"JOIN STATUS %s FINAL %d TARGET %u",
              Expanded_MidseasonJoin_Active()?"RUNNING":
              Expanded_MidseasonJoin_LastResult()==1?"REACHED":
-             Expanded_MidseasonJoin_LastResult()==2?"ABORTED":"NOT STARTED",
+             Expanded_MidseasonJoin_LastResult()==2?"ABORTED":
+             Expanded_MidseasonJoin_LastResult()==3?"DIRECT":"NOT STARTED",
              Expanded_MidseasonJoin_LastKey(),
              (unsigned)Expanded_MidseasonJoin_TargetPhase());
     DEBUG_LINE(line);
@@ -2813,6 +2814,33 @@ static void draw_world_debug_overlay(void)
              (unsigned long)Platform_CatchupHiddenFrames(),
              (unsigned long)Platform_CatchupDurationMs());
     DEBUG_LINE(line);
+    {
+        extern uint32_t DIY_WorldDirectImportedMatches(void);
+        extern uint32_t DIY_WorldDirectImportedRounds(void);
+        snprintf(line,sizeof line,"DIRECT OG IMPORT %lu MATCHES %lu ROUNDS",
+                 (unsigned long)DIY_WorldDirectImportedMatches(),
+                 (unsigned long)DIY_WorldDirectImportedRounds());
+        DEBUG_LINE(line);
+    }
+    {
+        extern int DIY_WorldLastLeagueAudit(uint16_t*,uint16_t*,
+                                            uint16_t*,uint16_t*,
+                                            uint16_t*,uint16_t*,uint8_t*);
+        uint16_t a=0,b=0,rawa=0,rawb=0,pa=0,pb=0;
+        uint8_t manual=0;
+        if (DIY_WorldLastLeagueAudit(&a,&b,&rawa,&rawb,&pa,&pb,&manual)) {
+            snprintf(line,sizeof line,"LAST OG %u-%u PTS +%u/+%u %s",
+                     (unsigned)a,(unsigned)b,(unsigned)pa,
+                     (unsigned)pb,manual?"MANUAL":"AUTO");
+            DEBUG_LINE(line);
+            if (manual) {
+                snprintf(line,sizeof line,"RAW FINAL %u-%u %s",
+                         (unsigned)rawa,(unsigned)rawb,
+                         a==rawa&&b==rawb?"MATCH":"SCORE MISMATCH");
+                DEBUG_LINE(line);
+            }
+        }
+    }
     DEBUG_LINE("PILOT/NATIVE REPLAY PARTIAL");
     DEBUG_LINE("WORLD SAVE NOT ACTIVE");
     snprintf(line,sizeof line,"1 WIN ALWAYS %s",

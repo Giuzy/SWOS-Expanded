@@ -620,3 +620,72 @@ Rollback: `0.13.14`, commit
 **[ERRORE CODICE CONFERMATO]** `ExpandedWorldLive_LoadOfferCountries` leggeva `league->rounds`, ma il record consolidato `CompetitionLeague` contiene il numero di gironi in `league->header.rounds` (`sorgenti/include/game_types.h`, `CompLeagueHeader`). Corretto l'accesso per evitare errore di compilazione della 0.13.15. Simulazione e gameplay invariati.
 
 **[BUILD]** Suffisso di commit intermedio `0.13.15_01`, senza nuova BUILD di release. Compilazione e collaudo Windows non eseguiti in chat. Basta un ulteriore Pull: nessun reset, force-push o rollback automatico.
+
+
+### 0.13.16 — importazione diretta dei campionati OG / audit punteggio manuale (11/11/2026)
+
+**[CODICE, SVILUPPO SPERIMENTALE]** Nuova funzione
+\`DIY_WorldDirectImportLeague(cutoff)\`: il mondo è già stato simulato
+durante la disoccupazione. Dopo \`InitCareer()\` la lega nativa OG
+importa il prefisso di incontri già conclusi dal **medesimo ledger**
+mondiale, senza risimulare risultati e senza aprire i menu.
+Per aggiornare lo stato OG usa \`DIY_GetCurrentFixtureTeamPtrs\` e
+\`DIY_AdvanceLeagueProgressAfterMatch\`, che gestiscono partita,
+mezza giornata, fase e girone; aggiorna anche statistiche, classifica,
+gol e punti. Per ogni partita storica del club, aggiorna e marca
+il relativo elemento della keycache originale soltanto dopo aver
+verificato la completa corrispondenza delle fasi e degli incontri.
+Se manca un risultato, se il calendario non coincide o se è una lega
+non standard, l'importazione NON viene salvata e torna automaticamente
+al recupero nativo già collaudato della 0.13.15_01.
+
+**[COPPE]** Il ledger mondiale non possiede ancora i tabelloni delle
+coppe. Per non creare automaticamente risultati falsi, se esistono
+turni di coppa precedenti all'assunzione, questi continuano
+nell'originale driver OpenSWOS. Le giornate del campionato già
+importate sono saltate attraverso il cursore originale
+\`Career_AdvanceToNextTeamSelectionKeyCacheEntry\`, conservando
+i suoi aggiornamenti finanziari e gli hook delle competizioni.
+Quando non esistono coppe/eventi precedenti all'assunzione e
+l'importazione riesce, si raggiunge **direttamente** il primo
+incontro futuro e si evita tutto il recupero e il rendering headless.
+Il risultato F12 è \`JOIN STATUS DIRECT\` in quel caso.
+
+**[DEBUG F12]** \`DIRECT OG IMPORT N MATCHES M ROUNDS\` misura
+gli incontri OG importati senza ricalcolare risultati. Le nuove righe
+\`LAST OG [gol] PTS +[...]\` e \`RAW FINAL ... MATCH/SCORE MISMATCH\`
+confrontano risultato dell'ultimo incontro manuale, risultato
+effettivamente applicato dalla cache e incremento di punti della
+classifica OG. Nel codice della lega originale il pareggio aggiunge
+1 punto a ciascuna squadra, la vittoria \`pointsForAWin\`; un pareggio
+che apparentemente aggiunge 3 punti richiede un test manuale con F12,
+non modificare le regole OG sulla base di un'impressione.
+
+**[TEST E RISCHI]** Nuove asserzioni nel test puro C per lettura
+non consumante dal ledger mondiale e riutilizzo originale. Test statici
+sulle sorgenti; nessuna compilazione eseguibile Windows o esecuzione
+completa di partite manuali in questo ambiente. Questo percorso
+importa solo leghe nazionali standard a due gironi, numero pari di
+club; NON significa che coppe, campionati speciali, carriera dopo
+esonero, salvataggi mondiali, fixture in tutte le nazioni siano
+unificati. Il vecchio recupero, già verificato su Windows dall'utente,
+rimane fallback. Confrontare data, F12, classifica e primo incontro
+giocabile e verificare che le coppe non siano state saltate.
+
+**[NOTA STORICA]** Lo screenshot \`MEMO FROM THE CLUB CHAIRMAN\`
+mostrato dall'utente è il promemoria originale OpenSWOS del presidente,
+non il menu calendario (una risposta precedente lo aveva interpretato
+erroneamente). Il campo \`coachName\` OG è un nome, non ancora
+un'entità manager persistente; chairman non ha ancora un'anagrafica
+globale.
+
+**[INTERRUZIONE]** 11/11/2026: segnalato testualmente
+\`Message delivery timed out. Please try again.\` durante le analisi
+per la 0.13.16; ripresa senza perdere le decisioni del progetto.
+Causa/durata non note. La successiva osservazione dell'utente sul
+possibile risultato manuale riletto dalla cache viene trattata
+con l'audit in F12.
+
+**[ROLLBACK]** Commit funzionante verificato sul PC dall'utente:
+\`600141da7d82ae88f753f36dffebd917d9fbf382\` (0.13.15_01).
+Nessun rollback o force-push automatico.

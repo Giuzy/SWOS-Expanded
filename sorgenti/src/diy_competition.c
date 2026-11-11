@@ -40,6 +40,24 @@
 #include "states.h"
 #include <string.h>   /* memcpy — used by the tournament field-map copies */
 
+/* Last ORIGINAL OpenSWOS league result, for verifying manual match
+ * -> score cache -> native standings. This does not change game logic. */
+static uint16_t s_auditGoals1,s_auditGoals2,s_auditRaw1,s_auditRaw2;
+static uint16_t s_auditDelta1,s_auditDelta2;
+static uint8_t s_auditValid,s_auditManual;
+int DIY_WorldLastLeagueAudit(uint16_t *g1,uint16_t *g2,
+                             uint16_t *raw1,uint16_t *raw2,
+                             uint16_t *delta1,uint16_t *delta2,
+                             uint8_t *manual) {
+    if (!s_auditValid || !g1 || !g2 || !raw1 || !raw2 ||
+        !delta1 || !delta2 || !manual) return 0;
+    *g1=s_auditGoals1; *g2=s_auditGoals2;
+    *raw1=s_auditRaw1; *raw2=s_auditRaw2;
+    *delta1=s_auditDelta1; *delta2=s_auditDelta2;
+    *manual=s_auditManual;
+    return 1;
+}
+
 /* ---- Constants ---- */
 #define DIY_CUP                         1
 
@@ -11800,6 +11818,7 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
     /* League table updates */
     DIYTeamStats *r1 = (DIYTeamStats *)(compPtr1 + DIY_STANDINGS_OFFSET);
     DIYTeamStats *r2 = (DIYTeamStats *)(compPtr2 + DIY_STANDINGS_OFFSET);
+    const uint16_t oldPts1=r1->points, oldPts2=r2->points;
     uint16_t d1 = goals1, d2 = goals2;
     if (d1 != d2) {
         if (d1 > d2) {
@@ -11819,6 +11838,28 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
         r2->draws  += 1;
         r1->points += 1;
         r2->points += 1;
+    }
+
+    /* Compare the actual final-score snapshot against the result that
+     * the OG points table is applying. A draw must always add +1/+1;
+     * forcing a result in F12 is also visible as a cache mismatch. */
+    if (_gameType==4 && !Expanded_MidseasonJoin_Active() &&
+        (team1==&_careerTeam || team2==&_careerTeam)) {
+        s_auditValid=1;
+        s_auditManual=(selector!=0);
+        s_auditGoals1=d1; s_auditGoals2=d2;
+        s_auditRaw1=s_auditManual?(uint16_t)_statsTeam1GoalsCopy:d1;
+        s_auditRaw2=s_auditManual?(uint16_t)_statsTeam2GoalsCopy:d2;
+        s_auditDelta1=(uint16_t)(r1->points-oldPts1);
+        s_auditDelta2=(uint16_t)(r2->points-oldPts2);
+        fprintf(stderr,"[living-world] OG league result: %u-%u "
+                       "points +%u/+%u raw %u-%u source=%s%s\n",
+                (unsigned)d1,(unsigned)d2,
+                (unsigned)s_auditDelta1,(unsigned)s_auditDelta2,
+                (unsigned)s_auditRaw1,(unsigned)s_auditRaw2,
+                s_auditManual?"manual cache":"simulation",
+                (s_auditManual && (s_auditRaw1!=d1 || s_auditRaw2!=d2))
+                    ?" SCORE DIFF":"");
     }
 
     /* Goals always update */
@@ -11915,3 +11956,175 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
 
     return 0;
 }
+
+
+#ifdef SWOS_SDL_BUILD
+/* 0.13.16: import a completed prefix of an OG domestic league directly
+ * from the canonical world results, without calling any menu callback.
+ * All original SWOS fixture index/section/half/phase fields progress
+ * via DIY_GetCurrentFixtureTeamPtrs + DIY_AdvanceLeagueProgressAfterMatch.
+ * This deliberately DOES NOT invent cup progress or model cups as leagues.
+ *
+ * On any mismatch (including a missing result), the entire active league
+ * image is restored and the old, already-proven native catch-up is used.
+ * The slot and original key cache are modified ONLY after validation. */
+static uint32_t s_direct_imported_matches,s_direct_imported_rounds;
+uint32_t DIY_WorldDirectImportedMatches(void) {return s_direct_imported_matches;}
+uint32_t DIY_WorldDirectImportedRounds(void) {return s_direct_imported_rounds;}
+
+int DIY_WorldDirectImportLeague(uint8_t cutoff) {
+    extern uint8_t *_careerCompetitionSlotPtrTable[];
+    extern uint8_t _teamSelectionKeyCache[];
+    extern uint16_t _teamSelectionKeyCacheCount;
+    extern void Career_LoadCompetitionSlotStateFromBuffer(uint8_t *);
+    extern void Career_StoreCompetitionSlotStateToBuffer(uint8_t *);
+
+    typedef struct History {
+        uint16_t home,away;
+        uint8_t phase,gh,ga;
+    } History;
+    History history[96];
+    unsigned history_count=0,found=0;
+    uint8_t matched[96]={0};
+    size_t cacheOffset=0;
+    uint8_t *slot=_careerCompetitionSlotPtrTable[0];
+    if (!cutoff || !slot || *(uint16_t *)slot!=0u ||
+        !ExpandedWorldLive_Leagues()) return 0;
+
+    DIYCompetitionEx saved;
+    memcpy(&saved,&_diyCompetitionStart,sizeof(saved));
+    const uint8_t oldPhase=_viewRandomPhase;
+    Career_LoadCompetitionSlotStateFromBuffer(slot);
+    DIYCompetitionEx *comp=&_diyCompetitionStart;
+    const unsigned teams=(unsigned)comp->base.numTeams;
+    const uint16_t managed=PACK_BE_U16(_careerTeam.team.countryNumber,
+                                       _careerTeam.team.teamOrdinal);
+    /* The special split, group and one-leg paths must remain OG. */
+    if (comp->base.hasGroups || comp->base.playEachTeam!=2 ||
+        teams<4u || teams>24u || (teams&1u) ||
+        comp->base.matchPairsPerRound!=1 ||
+        comp->matchesPlayedCount!=0 || comp->leagueTotalMatches==0 ||
+        comp->minSubstitutes!=2 || comp->base.subRoundCounter!=0)
+        goto fail;
+
+    const unsigned maxGames=teams*(teams-1u);
+    unsigned completed=0;
+    while (comp->minSubstitutes && completed<maxGames &&
+           comp->base.viewRandomPhase<cutoff) {
+        const uint8_t phase=comp->base.viewRandomPhase;
+        DIY_GetCurrentFixtureTeamPtrs();
+        uint8_t *first=_fixtureTeam1CompPtr,*second=_fixtureTeam2CompPtr;
+        if (!first || !second || first==second) goto fail;
+        DIYTeamStats *r1=(DIYTeamStats *)(first+DIY_STANDINGS_OFFSET);
+        DIYTeamStats *r2=(DIYTeamStats *)(second+DIY_STANDINGS_OFFSET);
+        TeamFileEx *t1=(TeamFileEx *)diy_resolve_team(r1->teamSelOffset);
+        TeamFileEx *t2=(TeamFileEx *)diy_resolve_team(r2->teamSelOffset);
+        if (!t1 || !t2 || t1==t2) goto fail;
+        const uint16_t home=PACK_BE_U16(t1->team.countryNumber,
+                                         t1->team.teamOrdinal);
+        const uint16_t away=PACK_BE_U16(t2->team.countryNumber,
+                                         t2->team.teamOrdinal);
+        uint8_t gh=0,ga=0;
+        if (!ExpandedWorldLive_PeekNativeLeagueResult(home,away,&gh,&ga))
+            goto fail;
+        if (home==managed || away==managed) {
+            if (history_count>=sizeof(history)/sizeof(history[0]))
+                goto fail;
+            history[history_count++]=(History){home,away,phase,gh,ga};
+        }
+        /* Same OG state transitions as the original result handler.
+         * Use the world's EXISTING score, never CalculateViewResult. */
+        DIY_AdvanceLeagueProgressAfterMatch(first,second);
+        ++comp->matchesPlayedCount;
+        if (gh>ga) {++r1->wins; ++r2->losses;
+                    r1->points+=comp->pointsForAWin;}
+        else if (gh<ga) {++r1->losses; ++r2->wins;
+                         r2->points+=comp->pointsForAWin;}
+        else {++r1->draws; ++r2->draws;
+              ++r1->points; ++r2->points;}
+        r1->goalsFor+=gh; r1->goalsAgainst+=ga;
+        r2->goalsFor+=ga; r2->goalsAgainst+=gh;
+        ++completed;
+    }
+    /* If all games are finished yet hire date is still after the last
+     * phase, let the old season-end path run: promotions/transition
+     * must not be synthesized from a partial state image. */
+    if (!completed ||
+        (comp->minSubstitutes==0 && comp->base.viewRandomPhase<cutoff) ||
+        (completed==maxGames && comp->base.viewRandomPhase<cutoff))
+        goto fail;
+
+    /* A native career key cache has one 22-byte player-match slot per
+     * ordinary league round. Pre-validate the ENTIRE prefix before writing
+     * even a byte: a bad schedule must fall back to the old recovery. */
+    for (uint16_t i=0;i<_teamSelectionKeyCacheCount;++i) {
+        if (cacheOffset>8192u-sizeof(TeamSelectionKeyCacheEntry))
+            goto fail;
+        const TeamSelectionKeyCacheEntry *e=
+            (const TeamSelectionKeyCacheEntry *)
+                (_teamSelectionKeyCache+cacheOffset);
+        if (e->entryStride<sizeof(*e) ||
+            e->entryStride>256u || e->entryStride>8192u-cacheOffset)
+            goto fail;
+        if (e->compSlot==0u && e->phaseFlag==0 &&
+            e->sortKey<cutoff) {
+            if (e->entryStride<sizeof(*e)+sizeof(TeamSelectionKeyCacheMatchSlot))
+                goto fail;
+            unsigned j=0;
+            for (;j<history_count;++j)
+                if (history[j].phase==e->sortKey) break;
+            if (j==history_count || matched[j]) goto fail;
+            matched[j]=1;
+            ++found;
+        }
+        cacheOffset+=e->entryStride;
+    }
+    if (found!=history_count) goto fail;
+
+    DIY_SortLeagueTableByStandings();
+    Career_StoreCompetitionSlotStateToBuffer(slot);
+    cacheOffset=0;
+    for (uint16_t i=0;i<_teamSelectionKeyCacheCount;++i) {
+        TeamSelectionKeyCacheEntry *e=
+            (TeamSelectionKeyCacheEntry *)
+                (_teamSelectionKeyCache+cacheOffset);
+        if (e->compSlot==0u && e->phaseFlag==0 &&
+            e->sortKey<cutoff) {
+            unsigned j=0;
+            for (;j<history_count;++j)
+                if (history[j].phase==e->sortKey) break;
+            History *h=&history[j];
+            TeamSelectionKeyCacheMatchSlot *m=
+                (TeamSelectionKeyCacheMatchSlot *)((uint8_t *)e+sizeof(*e));
+            memset(m,0,sizeof *m);
+            m->pairType=(h->home==managed)?2u:1u;
+            m->matchFlags=(h->gh==h->ga)?0x80u:
+                          (uint8_t)(0x82u | (h->ga>h->gh?1u:0u));
+            BE_WRITE_U16(&m->teamId1,h->home);
+            BE_WRITE_U16(&m->teamId2,h->away);
+            m->packedGoals=(uint16_t)(((uint16_t)h->gh<<8)|h->ga);
+            e->totalElements=1;
+            e->remainingElements=0;
+            e->phaseFlag=1;
+        }
+        cacheOffset+=e->entryStride;
+    }
+    s_direct_imported_matches+=completed;
+    s_direct_imported_rounds+=history_count;
+    fprintf(stderr,"[living-world] direct OG league import: matches=%u "
+                   "managed=%u cutoff=%u, cup events kept native\n",
+            completed,history_count,(unsigned)cutoff);
+    memcpy(&_diyCompetitionStart,&saved,sizeof saved);
+    _viewRandomPhase=oldPhase;
+    return 1;
+
+fail:
+    memcpy(&_diyCompetitionStart,&saved,sizeof saved);
+    _viewRandomPhase=oldPhase;
+    return 0;
+}
+#else
+uint32_t DIY_WorldDirectImportedMatches(void) {return 0;}
+uint32_t DIY_WorldDirectImportedRounds(void) {return 0;}
+int DIY_WorldDirectImportLeague(uint8_t cutoff) {(void)cutoff;return 0;}
+#endif

@@ -16,16 +16,26 @@ if not defined MSYS_ROOT (
 set "MSYSTEM=MINGW64"
 set "CHERE_INVOKING=1"
 echo Test isolato: il tuo save/AUTOSAVE.CAR non viene toccato.
-echo 70 stagioni, 11 leghe, 216 squadre. Log: LIVING_WORLD_70_TEST.log
+echo Test 70 stagioni + registro eventi coppe OG sintetici + save/load.
+echo Log: LIVING_WORLD_70_TEST.log
 "%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash sorgenti/tests/run_test_living_world_70.sh" > "LIVING_WORLD_70_TEST.log" 2>&1
 set "RESULT=%ERRORLEVEL%"
 type "LIVING_WORLD_70_TEST.log"
-if not "%RESULT%"=="0" (
- echo.
- echo TEST FALLITO. Invia LIVING_WORLD_70_TEST.log.
-) else (
- echo.
- echo Test terminato. Cerca STRESS_RESULT=PASS nel log.
+if not "%RESULT%"=="0" goto test_failed
+for %%M in (MIDWEEK_EVENT_SAVE_RELOAD WORLD_EVENT_CURSOR GLOBAL_OFFERS_DISCOVERY CUP_NATIVE_JOURNAL CUP_ARCHIVE_70 STRESS_RESULT) do (
+ findstr /X /C:"%%M=PASS" "LIVING_WORLD_70_TEST.log" >nul
+ if errorlevel 1 (
+  echo [FAIL] Manca %%M=PASS
+  set "RESULT=1"
+ )
 )
+if not "%RESULT%"=="0" goto test_failed
+echo.
+echo [PASS] 70 stagioni, eventi, scoperta paesi, registro coppe e save/load.
+goto test_done
+:test_failed
+echo.
+echo [FAIL] Test NON superato. Invia LIVING_WORLD_70_TEST.log.
+:test_done
 pause
 exit /b %RESULT%

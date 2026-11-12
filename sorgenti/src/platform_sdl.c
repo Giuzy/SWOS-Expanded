@@ -2788,8 +2788,13 @@ static void draw_world_debug_overlay(void)
             DEBUG_LINE(line);
         } else DEBUG_LINE("WORLD EVENT CLOCK INACTIVE/INVALID");
     }
-    DEBUG_LINE("MANAGER ENTITIES NOT MODELED");
-    DEBUG_LINE("CHAIRMAN ENTITIES NOT MODELED");
+    DEBUG_LINE("MANAGER/CHAIRMAN ENTITIES NOT MODELED");
+    snprintf(line,sizeof line,"OG CUPS MATCHES %lu+%lu TITLES %lu+%lu",
+             (unsigned long)ExpandedWorldLive_CupArchivedMatches(),
+             (unsigned long)ExpandedWorldLive_CupResidentMatches(),
+             (unsigned long)ExpandedWorldLive_CupArchivedTitles(),
+             (unsigned long)ExpandedWorldLive_CupResidentTitles());
+    DEBUG_LINE(line);
     if (expanded_title_main_active()) {
         DEBUG_LINE("F12 OPEN + N: NEW CAREER (DEBUG ONLY)");
         DEBUG_LINE("OLD AUTOSAVE REPLACED AFTER FIRST NEW SAVE");

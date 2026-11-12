@@ -43,15 +43,22 @@ static unsigned import_file(uint8_t file, uint8_t country,
     }
     return imported;
 }
+/* The world owns all installed domestic leagues, not the five countries
+ * from the original prototype. Both OG and 26/27 use their existing
+ * career-country list; only valid native league records are imported.
+ * The manager's nationality is NOT an input to this function. */
+extern uint8_t _careerCompetitionIdRemapTable[];
 void ExpandedWorldLive_LoadOfferCountries(void) {
-    static const uint8_t countries[]={8,13,14,20,21};
+    const uint8_t *countries=World_SeasonCountries();
+    if (!countries) countries=_careerCompetitionIdRemapTable;
     if (!ExpandedWorldLive_Begin(World_FirstYear())) {
         fprintf(stderr,"[living-world] failed to reserve memory for pilot\n");
         return;
     }
     uint16_t old_skip=_skipLeagueNumbers;
     _skipLeagueNumbers=1; /* raw divisions, not prior-season promotion offsets */
-    for(unsigned k=0;k<sizeof countries/sizeof countries[0];++k) {
+    unsigned imported_countries=0;
+    for(unsigned k=0;k<256u && countries[k]!=0xFFu;++k) {
         uint8_t country=countries[k];
         const void *const *table=(const void *const *)_competitionsTable[country];
         if (!table || !table[0] || (uintptr_t)table[0]==(uintptr_t)-1 ||
@@ -63,7 +70,8 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
         if (divisions<1 || divisions>16) continue;
         int points=league->header.pointsForWin;
         if (points!=2 && points!=3) points=3;
-        (void)import_file(country,country,(unsigned)divisions,(unsigned)points);
+        if (import_file(country,country,(unsigned)divisions,(unsigned)points))
+            ++imported_countries;
 #if SWOS_WORLDS
         uint8_t second=World_SecondFile(country);
         if (second && second!=country)
@@ -96,10 +104,11 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
     } else {
         fprintf(stderr,
             "[living-world] pilot ready: %u clubs, %u groups; start=%u, "
-            "native SWOS league schedule groups=%lu\n",
+            "native SWOS league schedule groups=%lu; imported countries=%u\n",
             (unsigned)ExpandedWorldLive_Clubs(),
             (unsigned)ExpandedWorldLive_Leagues(),(unsigned)World_FirstYear(),
-            (unsigned long)ExpandedWorldLive_NativeScheduleLeagues());
+            (unsigned long)ExpandedWorldLive_NativeScheduleLeagues(),
+            imported_countries);
     }
 }
 #else

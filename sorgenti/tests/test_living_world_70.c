@@ -44,6 +44,10 @@ static void round_trip(unsigned week,unsigned *count,size_t *max_bytes) {
     uint32_t archived=ExpandedWorldLive_ArchivedResults();
     uint32_t league_years=ExpandedWorldLive_ArchivedLeagues();
     uint16_t start=ExpandedWorldLive_WindowFirstYear();
+    const uint32_t cup_matches=ExpandedWorldLive_CupResidentMatches();
+    const uint32_t cup_titles=ExpandedWorldLive_CupResidentTitles();
+    const uint32_t cup_old_matches=ExpandedWorldLive_CupArchivedMatches();
+    const uint32_t cup_old_titles=ExpandedWorldLive_CupArchivedTitles();
     TestBuffer old=snapshot();
     assert(old.ptr && old.len>100u && old.len<2u*1024u*1024u);
     if(old.len>*max_bytes) *max_bytes=old.len;
@@ -54,6 +58,10 @@ static void round_trip(unsigned week,unsigned *count,size_t *max_bytes) {
     assert(ExpandedWorldLive_ArchivedResults()==archived);
     assert(ExpandedWorldLive_ArchivedLeagues()==league_years);
     assert(ExpandedWorldLive_WindowFirstYear()==start);
+    assert(ExpandedWorldLive_CupResidentMatches()==cup_matches);
+    assert(ExpandedWorldLive_CupResidentTitles()==cup_titles);
+    assert(ExpandedWorldLive_CupArchivedMatches()==cup_old_matches);
+    assert(ExpandedWorldLive_CupArchivedTitles()==cup_old_titles);
     assert(ExpandedWorldLive_Clubs()==216u);
     assert(ExpandedWorldLive_Leagues()==11u);
     assert(ExpandedWorldLive_Weeks()==week);
@@ -104,6 +112,13 @@ int main(void) {
     assert(ExpandedWorldLive_Clubs()==clubs);
     assert(ExpandedWorldLive_Leagues()==leagues);
     assert(ExpandedWorldLive_Seal());
+    /* Eligibility comes from EVERY scheduled country, not the player's
+     * nationality or the previous five-country testing shortlist. */
+    {
+        uint8_t files[256]={0};
+        assert(ExpandedWorldLive_OfferFiles(files,256u)==leagues);
+        for(unsigned i=0;i<leagues;++i) assert(files[i]==(uint8_t)(8u+i));
+    }
     assert(ExpandedWorldLive_Fixtures()==8080u);
     check_calendar();
     /* Four of the source OG leagues start in May. Their completed
@@ -113,6 +128,7 @@ int main(void) {
     printf("INIT pre-career fixtures played=%lu\n",
            (unsigned long)ExpandedWorldLive_Results());
     uint32_t last_results=ExpandedWorldLive_Results();
+    uint16_t last_cup_year=0;
     for(unsigned week=1u;week<=weeks;++week) {
         assert(ExpandedWorldLive_AdvanceWeeks(week));
         assert(ExpandedWorldLive_Weeks()==week);
@@ -126,6 +142,35 @@ int main(void) {
         assert(ExpandedWorldLive_ArchivedResults()==
                (unsigned)(ExpandedWorldLive_WindowFirstYear()-1996u)*4040u);
         last_results=ExpandedWorldLive_Results();
+        /* Exercise 70 OG-style knockout outcomes in the SAME long-lived
+         * world snapshot, with a stable champion and no duplicate entries.
+         * This is a journal/serialization test, NOT a replacement for OG
+         * cup draws, extra time, penalties or Windows match callbacks. */
+        {
+            ExpandedLiveCalendarState cs;
+            assert(ExpandedWorldLive_CalendarState(&cs));
+            if(cs.today.month==9u && cs.today.day<=7u &&
+               cs.today.year<2066u && cs.today.year!=last_cup_year) {
+                const uint16_t y=cs.today.year;
+                const uint16_t c1=0x0801u,c2=0x0802u,c3=0x0803u,c4=0x0804u;
+                const uint32_t was=ExpandedWorldLive_CupResidentMatches();
+                const uint32_t titles=ExpandedWorldLive_CupResidentTitles();
+                assert(ExpandedWorldLive_RecordNativeCupMatch(y,
+                         "NATIONAL CUP",1u,56u,0u,0u,0u,c1,c2,2u,1u,0u));
+                /* Re-reporting a game is idempotent: no duplicate. */
+                assert(ExpandedWorldLive_RecordNativeCupMatch(y,
+                         "NATIONAL CUP",1u,56u,0u,0u,0u,c1,c2,2u,1u,0u));
+                assert(ExpandedWorldLive_RecordNativeCupMatch(y,
+                         "NATIONAL CUP",1u,56u,0u,1u,0u,c3,c4,1u,0u,0u));
+                assert(ExpandedWorldLive_RecordNativeCupMatch(y,
+                         "NATIONAL CUP",1u,57u,1u,0u,0u,c1,c3,3u,2u,0u));
+                assert(ExpandedWorldLive_RecordNativeCupChampion(y,
+                         "NATIONAL CUP",1u,57u,c1));
+                assert(ExpandedWorldLive_CupResidentMatches()==was+3u);
+                assert(ExpandedWorldLive_CupResidentTitles()==titles+1u);
+                last_cup_year=y;
+            }
+        }
         /* Sept 1996: mid-week advance + snapshot without losing date,
          * followed by the next ordinary weekly tick. */
         if (week==11u) {
@@ -163,6 +208,11 @@ int main(void) {
                    (unsigned long)max_snapshot);
         }
     }
+    assert(last_cup_year==2065u);
+    assert(ExpandedWorldLive_CupArchivedMatches()==years*3u);
+    assert(ExpandedWorldLive_CupArchivedTitles()==years);
+    assert(ExpandedWorldLive_CupResidentMatches()==0u);
+    assert(ExpandedWorldLive_CupResidentTitles()==0u);
     assert(ExpandedWorldLive_WindowFirstYear()==1996u+years);
     assert(ExpandedWorldLive_ArchivedLeagues()==years*leagues);
     assert(ExpandedWorldLive_ArchivedResults()==years*4040u);
@@ -190,6 +240,12 @@ int main(void) {
            checkpoints,(unsigned long)max_snapshot);
     printf("WORLD_RAM_MB=%.2f CPU_SECONDS=%.2f\n",
            (double)ExpandedWorldLive_MemoryBytes()/1048576.0,elapsed);
+    printf("OG_CUP_MATCHES_ARCHIVED=%lu OG_CUP_TITLES_ARCHIVED=%lu\n",
+           (unsigned long)ExpandedWorldLive_CupArchivedMatches(),
+           (unsigned long)ExpandedWorldLive_CupArchivedTitles());
+    puts("GLOBAL_OFFERS_DISCOVERY=PASS");
+    puts("CUP_NATIVE_JOURNAL=PASS");
+    puts("CUP_ARCHIVE_70=PASS");
     puts("WORLD_EVENT_CURSOR=PASS");
     puts("STRESS_RESULT=PASS");
     ExpandedWorldLive_End();

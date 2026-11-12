@@ -33,6 +33,22 @@ typedef struct ExpandedLiveCalendarState {
 int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate date);
 /* Read-only audit/status. A non-zero overdue count indicates missing processing. */
 int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *out);
+/* Return source-file IDs from leagues actually scheduled by this world.
+ * Offer discovery is global and independent of the human's nationality. */
+uint32_t ExpandedWorldLive_OfferFiles(uint8_t *files,uint32_t capacity);
+/* OG knockout engine reports completed real cup matches and champions.
+ * The Living World records, archives and persists them chronologically;
+ * it does not simulate a second bracket or replace the native callbacks. */
+int ExpandedWorldLive_RecordNativeCupMatch(uint16_t season,const char *name,
+             uint8_t slot,uint8_t phase,uint8_t round,uint8_t match,
+             uint8_t leg,uint16_t home,uint16_t away,
+             uint8_t goals_home,uint8_t goals_away,uint8_t flags);
+int ExpandedWorldLive_RecordNativeCupChampion(uint16_t season,const char *name,
+             uint8_t slot,uint8_t phase,uint16_t winner);
+uint32_t ExpandedWorldLive_CupResidentMatches(void);
+uint32_t ExpandedWorldLive_CupResidentTitles(void);
+uint32_t ExpandedWorldLive_CupArchivedMatches(void);
+uint32_t ExpandedWorldLive_CupArchivedTitles(void);
 int ExpandedWorldLive_Begin(uint16_t start_year);
 int ExpandedWorldLive_AddClub(uint8_t country, uint8_t division,
                               uint16_t club, uint16_t rating,

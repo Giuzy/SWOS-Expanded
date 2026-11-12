@@ -525,3 +525,9 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - F12 shows WORLD CLOCK, NEXT LEAGUE EVENT and pending/overdue fixture counters. A real-time status query checks result counts without altering state.
 - 70-season stress harness adds a midweek advance, save/load round-trip, backwards-time rejection and calendar audit checkpoints. Windows/MSYS2 compilation and gameplay verification pending.
 - The original OG cup/knockout events and native career fixture callbacks remain active. Full calendar/event unification is still open and must be proven, not assumed.
+
+### 0.13.27 — global club-offer coverage and native knockout outcome bridge (12 November 2026)
+- The unemployed manager may advance time with a pending job offer; the offer expires and a fresh one may arrive later. New offer candidates come from actual country team files represented by the imported world leagues, without any manager-nationality filter or artificial >=3-division gate.
+- Expand live league capacity and import all supported world/career-country lists using the existing official OG fixture tables. Capacity is raised, while unsupported/missing native formats remain excluded and must be reported rather than fabricated.
+- Hook original `DIY_PlayCupMatchAndAdvance` after a completed score and after a real champion is declared. Preserve every OG bracket callback and score; store native knockout match/replay/leg results and trophies in the canonical world save, with a chronological two-season resident window and archived totals. World snapshot internal format v4 remains backward-readable for v1-v3 careers.
+- The 70-year C runner now exercises a synthetic knockout outcome journal through season rollover and roundtrip, as well as source-country discovery; `TEST_LIVING_WORLD.bat` fails if any required PASS marker is absent. These static source changes are NOT yet a tested Windows build, nor a full offscreen global cup simulator.

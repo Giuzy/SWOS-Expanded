@@ -380,12 +380,19 @@ static int offer_candidate_struggling(uint16_t club,
     return 0; /* never offer a missing club on ranked data */
 }
 static void choose_small_club(void) {
-    static const uint8_t files[]={8,13,14,20,21};
-    unsigned start=next_random()%(sizeof files/sizeof files[0]);
+    uint8_t files[256];
+    const uint32_t numFiles=ExpandedWorldLive_OfferFiles(files,256u);
+    if (!numFiles) {
+        fprintf(stderr,"[offers] no scheduled country file in Living World\n");
+        s_waitTeam=0;s_offerSnapshotValid=0;
+        return;
+    }
+    unsigned start=next_random()%numFiles;
     s_waitTeam=0;
     s_offerSnapshotValid=0;
-    for(unsigned attempt=0;attempt<sizeof files/sizeof files[0];attempt++) {
-        uint8_t country=files[(start+attempt)%(sizeof files/sizeof files[0])];
+    for(uint32_t attempt=0;attempt<numFiles;attempt++) {
+        uint8_t country=files[(start+attempt)%numFiles];
+        const uint8_t worldCountry=World_FileCountry(country);
         _teamsLoaded=0;
         if(LoadTeamFile(country)!=0) continue;
         unsigned count=*(const uint16_t*)_teamFileBuffer;
@@ -396,10 +403,11 @@ static void choose_small_club(void) {
             if(teams[i].team.countryNumber==country && teams[i].team.league<32 &&
                !Team_IsOutsideLeague(&teams[i].team) &&
                teams[i].team.league>maxLeague) maxLeague=teams[i].team.league;
-        if(maxLeague<2) continue;
+        /* Top flights and smaller nations can also recruit a manager.
+         * The previous maxLeague<2 check excluded almost the entire world. */
         ExpandedLiveRow standings[26];
         uint32_t rankedCount=0;
-        int ranked=ExpandedWorldLive_Table(country,(uint8_t)maxLeague,
+        int ranked=ExpandedWorldLive_Table(worldCountry,(uint8_t)maxLeague,
                      standings,26u,&rankedCount) &&
                    rankedCount>=2u && standings[0].played>=3u;
         for(unsigned i=0;i<count;i++)
@@ -431,7 +439,7 @@ static void choose_small_club(void) {
                 s_offerSnapshotValid=1;
                 cache_offer_roster();
                 cache_offer_league(teams,count);
-                snprintf(s_waitRegionName,sizeof s_waitRegionName,"%s",Expanded_RegionForCountry(country));
+                snprintf(s_waitRegionName,sizeof s_waitRegionName,"%s",Expanded_RegionForCountry(worldCountry));
                 offer_reset_terms();
                 fprintf(stderr,"[expanded11] eligible offer team=%04x division=%u country=%u\n",
                         (unsigned)s_waitTeam,(unsigned)s_waitLeague,(unsigned)s_waitCountry);
@@ -588,7 +596,18 @@ void Expanded_UnemployedDraw(void) {
     if(!compact) contest_line(171,date,2);
 }
 void Expanded_UnemployedWait(void) {
-    if(s_waitTeam && s_waitWeeks>=s_nextOfferWeek) return;
+    /* FORWARD TIME deliberately expires an unanswered offer. Leaving an
+     * offer pending must not freeze the world's seasons or competitions.
+     * A new offer can arrive later; VIEW CLUB OFFER still accepts normally. */
+    if (s_waitTeam && s_waitWeeks>=s_nextOfferWeek) {
+        fprintf(stderr,"[offers] week %u: pending offer from %.17s expired "
+                       "because manager advanced time\n",
+                s_waitWeeks,s_waitTeamName);
+        s_waitTeam=0;
+        s_offerSnapshotValid=0;
+        s_offerAgreedWeekly=0;
+        s_nextOfferWeek=s_waitWeeks+next_delay();
+    }
     if(s_waitWeeks<4000) s_waitWeeks++;
     /* The pilot world operates on snapshots of actual club IDs, with no
      * live team-file reload while a modal is open. No game-clock mutation. */

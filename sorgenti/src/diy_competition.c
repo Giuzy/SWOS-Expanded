@@ -11455,6 +11455,30 @@ uint16_t DIY_PlayCupMatchAndAdvance(int16_t allowSquadChanges, int16_t mode) {
      * buffer (this region is repurposed depending on competition mode). */
     *(uint16_t *)&a3Ex->leagueSectionState.phaseStartMonths[mIdx2] = packedPenalty;
 
+#ifdef SWOS_SDL_BUILD
+    /* Cup bracket remains OG-authored. Persist the REAL completed result
+     * into the same world clock/save, before the round changes its phase. */
+    if (_gameType == 4 && ExpandedWorldLive_Clubs()) {
+        extern uint16_t _currentSeasonShowing;
+        const uint16_t home=(uint16_t)(
+            ((uint16_t)team1->team.countryNumber<<8)|team1->team.teamOrdinal);
+        const uint16_t away=(uint16_t)(
+            ((uint16_t)team2->team.countryNumber<<8)|team2->team.teamOrdinal);
+        if(!ExpandedWorldLive_RecordNativeCupMatch(
+                 (uint16_t)(World_FirstYear()+_currentSeasonShowing),
+                 (const char *)baseS->competitionName,
+                 baseS->compSlot,baseS->viewRandomPhase,
+                 (uint8_t)baseS->currentRoundIndex,(uint8_t)matchIdx,
+                 (uint8_t)(
+                     ((unsigned)a3Ex->matchData.cup.competitionFormat&3u) |
+                     (((unsigned)a3Ex->bracketScratch.groupSectionFlag&7u)<<2)),
+                 home,away,
+                 (uint8_t)(packedGoals>>8),(uint8_t)packedGoals,
+                 (uint8_t)resultFlags))
+            fprintf(stderr,"[living-world] OG cup result not recorded\n");
+    }
+#endif
+
     /* Increment match counter */
     a3Ex->bracketScratch.matchCount += 1;
 
@@ -11607,6 +11631,15 @@ final_or_groups:
          * with BE_READ_U16 so resultCode holds the packed value
          * downstream comparisons expect. */
         baseS->resultCode = (int16_t)BE_READ_U16(&a3Ex->cupTeamIds[slotWord]);
+#ifdef SWOS_SDL_BUILD
+        if (_gameType==4 && ExpandedWorldLive_Clubs()) {
+            extern uint16_t _currentSeasonShowing;
+            (void)ExpandedWorldLive_RecordNativeCupChampion(
+                   (uint16_t)(World_FirstYear()+_currentSeasonShowing),
+                   (const char *)baseS->competitionName,baseS->compSlot,
+                   baseS->viewRandomPhase,(uint16_t)baseS->resultCode);
+        }
+#endif
     }
 
     return 0;

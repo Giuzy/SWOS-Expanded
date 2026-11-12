@@ -8,9 +8,9 @@
 #include <stdio.h>
 #include <string.h>
 
-#define LIVE_MAX_CLUBS 1500u
-#define LIVE_MAX_LEAGUES 128u
-#define LIVE_MAX_FIXTURES 40000u
+#define LIVE_MAX_CLUBS 4096u
+#define LIVE_MAX_LEAGUES 512u
+#define LIVE_MAX_FIXTURES 250000u
 #define LIVE_MAX_LEAGUE_CLUBS 26u
 #define NATIVE_FIXTURE_MAX_CLUBS 24u
 /* Canonical OpenSWOS pairing tables: also used by DIY league fixtures.
@@ -18,6 +18,8 @@
 extern const uint8_t *_fixtureSchedulePtrTable[];
 /* Two seasons resident, compact completed seasons stored separately. */
 #define LIVE_SEASONS 2u
+/* Original SWOS resolves cup brackets; one world only archives their outcomes. */
+#define LIVE_MAX_CUP_EVENTS 32768u
 #define LIVE_HISTORY_LIMIT (LIVE_MAX_LEAGUES * 300u)
 typedef struct LiveArchivedLeague {
     uint16_t year,champion,champion_points,matches;
@@ -31,6 +33,15 @@ typedef struct LivePackedFixture {
 static LiveArchivedLeague *s_history;
 static uint32_t s_history_count,s_history_capacity,s_archived_matches;
 static uint16_t s_window_first_year;
+typedef struct LiveCupEvent {
+    int32_t day;
+    uint32_t competition_hash;
+    uint16_t home,away;
+    uint8_t kind,slot,round,match,leg,goals_home,goals_away,flags;
+} LiveCupEvent;
+static LiveCupEvent *s_cup_events;
+static uint32_t s_cup_count,s_cup_capacity;
+static uint32_t s_cup_archived_matches,s_cup_archived_titles;
 
 typedef struct LiveClub {
     uint16_t id, rating;
@@ -83,6 +94,9 @@ void ExpandedWorldLive_End(void) {
     s_fixtures=NULL; s_live=0; s_club_count=0; s_league_count=0;
     s_weeks=0; s_first_year=0; s_window_first_year=0; s_initial_day=0;
     s_preseason_games_total=0;
+    free(s_cup_events);s_cup_events=NULL;
+    s_cup_count=s_cup_capacity=0;
+    s_cup_archived_matches=s_cup_archived_titles=0;
     free(s_history);s_history=NULL;s_history_count=0;
     s_history_capacity=0;s_archived_matches=0;
     s_native_matches=s_native_misses=0;
@@ -415,6 +429,22 @@ static int live_roll_window(void) {
            LIVE_MAX_FIXTURES-s_ledger.count);
     memcpy(s_history+s_history_count,arch,arch_count*sizeof(*arch));
     s_history_count+=arch_count;s_archived_matches+=removed;
+    /* Archive OG cup outcomes ONLY after the league window commits. */
+    {
+        ExpandedWorldDate boundary={(uint16_t)(retiring+2u),1u,1u};
+        int32_t limit=0;
+        if(ExpandedWorld_DateToIndex(boundary,&limit)) {
+            uint32_t kept_cups=0;
+            for(uint32_t i=0;i<s_cup_count;++i) {
+                const LiveCupEvent *e=&s_cup_events[i];
+                if(e->day<limit) {
+                    if(e->kind==1u) ++s_cup_archived_matches;
+                    else ++s_cup_archived_titles;
+                } else s_cup_events[kept_cups++]=*e;
+            }
+            s_cup_count=kept_cups;
+        }
+    }
     ++s_window_first_year;
     free(old_fixtures);free(consumed);free(packed);
     fprintf(stderr,"[living-world] archived season %u: %lu matches, "
@@ -773,6 +803,110 @@ int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *out) {
         !ExpandedWorld_IndexToDate(next_day,&out->next_date)) return 0;
     return 1;
 }
+/* Offer source files come only from validated, scheduled native leagues.
+ * A country's second TEAM file remains selectable by its original ID. */
+uint32_t ExpandedWorldLive_OfferFiles(uint8_t *files,uint32_t capacity) {
+    uint8_t eligible[256]={0};
+    uint32_t n=0;
+    if(!s_live || !files || !capacity) return 0;
+    for(uint32_t l=0;l<s_league_count;++l) {
+        const LiveLeague *league=&s_leagues[l];
+        if(!league->native_schedule || league->overflow || league->count<2u)
+            continue;
+        for(uint32_t i=0;i<league->count;++i)
+            eligible[league->clubs[i]>>8]=1u;
+    }
+    for(uint32_t i=0;i<256u && n<capacity;++i)
+        if(eligible[i]) files[n++]=(uint8_t)i;
+    return n;
+}
+/* A compact event journal derived from the ORIGINAL cup engine, not a
+ * duplicate simulator. Date is the native month-eighth used by OG. */
+static uint32_t cup_name_hash(const char *name,uint8_t slot) {
+    uint32_t h=2166136261u;
+    if(!name) return 0;
+    for(unsigned i=0;i<36u && name[i];++i)
+        h=(h^(uint8_t)name[i])*16777619u;
+    return ((h^(uint32_t)slot)*16777619u)&0x7fffffffu;
+}
+static int cup_append(const LiveCupEvent *e) {
+    if(!s_live || !e) return 0;
+    for(uint32_t i=0;i<s_cup_count;++i) {
+        LiveCupEvent *prior=&s_cup_events[i];
+        if(prior->day==e->day && prior->competition_hash==e->competition_hash &&
+           prior->kind==e->kind && prior->slot==e->slot &&
+           prior->round==e->round && prior->match==e->match &&
+           prior->leg==e->leg && prior->home==e->home &&
+           prior->away==e->away) {
+            prior->goals_home=e->goals_home;
+            prior->goals_away=e->goals_away;
+            prior->flags=e->flags;
+            return 1;
+        }
+    }
+    if(s_cup_count==LIVE_MAX_CUP_EVENTS) {
+        fprintf(stderr,"[living-world] OG cup event capacity reached\n");
+        return 0;
+    }
+    if(s_cup_count==s_cup_capacity) {
+        uint32_t cap=s_cup_capacity?s_cup_capacity*2u:128u;
+        if(cap>LIVE_MAX_CUP_EVENTS) cap=LIVE_MAX_CUP_EVENTS;
+        LiveCupEvent *grown=(LiveCupEvent *)realloc(s_cup_events,
+                                                   cap*sizeof(*grown));
+        if(!grown) return 0;
+        s_cup_events=grown;s_cup_capacity=cap;
+    }
+    uint32_t at=s_cup_count++;
+    while(at && s_cup_events[at-1u].day>e->day) {
+        s_cup_events[at]=s_cup_events[at-1u];--at;
+    }
+    s_cup_events[at]=*e;
+    return 1;
+}
+static int cup_record(uint16_t season,const char *name,uint8_t slot,
+                      uint8_t phase,uint8_t kind,uint8_t round,uint8_t match,
+                      uint8_t leg,uint16_t home,uint16_t away,
+                      uint8_t gh,uint8_t ga,uint8_t flags) {
+    ExpandedWorldDate date;
+    int32_t day=0;
+    if(!s_live || !name || !name[0] ||
+       season<s_first_year || season>2199u || phase==255u ||
+       kind<1u || kind>2u || home==65535u ||
+       (kind==1u && (away==65535u || home==away)) ||
+       (kind==2u && away!=65535u) || gh>31u || ga>31u ||
+       !ExpandedWorld_NativePhaseToDate(season,phase,&date) ||
+       !ExpandedWorld_DateToIndex(date,&day)) return 0;
+    LiveCupEvent e={0};
+    e.day=day;e.competition_hash=cup_name_hash(name,slot);
+    e.home=home;e.away=away;e.kind=kind;e.slot=slot;
+    e.round=round;e.match=match;e.leg=leg;
+    e.goals_home=gh;e.goals_away=ga;e.flags=flags;
+    return cup_append(&e);
+}
+int ExpandedWorldLive_RecordNativeCupMatch(uint16_t season,const char *name,
+                          uint8_t slot,uint8_t phase,uint8_t round,
+                          uint8_t match,uint8_t leg,uint16_t home,
+                          uint16_t away,uint8_t gh,uint8_t ga,uint8_t flags) {
+    return cup_record(season,name,slot,phase,1u,round,match,leg,
+                      home,away,gh,ga,flags);
+}
+int ExpandedWorldLive_RecordNativeCupChampion(uint16_t season,const char *name,
+                          uint8_t slot,uint8_t phase,uint16_t winner) {
+    return cup_record(season,name,slot,phase,2u,0u,0u,0u,
+                      winner,65535u,0u,0u,0u);
+}
+uint32_t ExpandedWorldLive_CupResidentMatches(void) {
+    uint32_t n=0;
+    for(uint32_t i=0;i<s_cup_count;++i) n+=s_cup_events[i].kind==1u;
+    return n;
+}
+uint32_t ExpandedWorldLive_CupResidentTitles(void) {
+    uint32_t n=0;
+    for(uint32_t i=0;i<s_cup_count;++i) n+=s_cup_events[i].kind==2u;
+    return n;
+}
+uint32_t ExpandedWorldLive_CupArchivedMatches(void) {return s_cup_archived_matches;}
+uint32_t ExpandedWorldLive_CupArchivedTitles(void) {return s_cup_archived_titles;}
 uint32_t ExpandedWorldLive_Fixtures(void) { return s_live?s_ledger.count:0; }
 uint32_t ExpandedWorldLive_PlayerSlots(void) { return s_live?s_club_count*16u:0; }
 uint32_t ExpandedWorldLive_MemoryBytes(void) {
@@ -781,7 +915,8 @@ uint32_t ExpandedWorldLive_MemoryBytes(void) {
     return (uint32_t)(sizeof s_clubs+sizeof s_leagues+sizeof s_ledger+
                       sizeof(*s_fixtures)*LIVE_MAX_FIXTURES+
                       sizeof s_native_result_consumed+
-                      s_history_capacity*sizeof(*s_history));
+                      s_history_capacity*sizeof(*s_history)+
+                      s_cup_capacity*sizeof(*s_cup_events));
 }
 uint32_t ExpandedWorldLive_Clubs(void) { return s_club_count; }
 uint32_t ExpandedWorldLive_Leagues(void) { return s_league_count; }
@@ -872,6 +1007,8 @@ typedef struct LiveSaveImage {
     int32_t now,initial;
     LiveArchivedLeague *history;
     uint32_t history_count,history_capacity,archived_matches;
+    LiveCupEvent *cups;
+    uint32_t cup_count,cup_capacity,cup_archived_matches,cup_archived_titles;
 } LiveSaveImage;
 
 /* mjson_next walks one array level. Require the exact row length and type:
@@ -974,6 +1111,26 @@ static int live_parse_fixture_row(const char *src,int len,
     return 1;
 }
 
+static int live_parse_cup_row(const char *src,int len,LiveCupEvent *e) {
+    long v[12]={0};
+    unsigned n=0;
+    if(!live_parse_int_row(src,len,v,12u,&n) || n!=12u ||
+       v[0]<0 || v[1]<0 || v[1]>2147483647L ||
+       v[2]<0 || v[2]>=65535 || v[3]<0 || v[3]>65535 ||
+       v[4]<1 || v[4]>2 || v[5]<0 || v[5]>255 ||
+       v[6]<0 || v[6]>255 || v[7]<0 || v[7]>255 ||
+       v[8]<0 || v[8]>255 || v[9]<0 || v[9]>31 ||
+       v[10]<0 || v[10]>31 || v[11]<0 || v[11]>255 ||
+       (v[4]==1 && (v[3]>=65535 || v[2]==v[3])) ||
+       (v[4]==2 && v[3]!=65535)) return 0;
+    e->day=(int32_t)v[0];e->competition_hash=(uint32_t)v[1];
+    e->home=(uint16_t)v[2];e->away=(uint16_t)v[3];
+    e->kind=(uint8_t)v[4];e->slot=(uint8_t)v[5];
+    e->round=(uint8_t)v[6];e->match=(uint8_t)v[7];
+    e->leg=(uint8_t)v[8];e->goals_home=(uint8_t)v[9];
+    e->goals_away=(uint8_t)v[10];e->flags=(uint8_t)v[11];
+    return 1;
+}
 /* Binary-safe zlib+Base64 payload for the immutable fixture schedule and
  * mutable scores. The one .CAR JSON file remains self-contained. Both
  * the previous uncompressed v1 snapshot and the compressed v2 are readable.
@@ -1090,7 +1247,7 @@ int ExpandedWorldLive_WriteJson(int (*emit)(const char*,int,void*),void *ctx) {
         return 1;
     }
     mjson_printf(emit,ctx,
-      "{%Q:3,%Q:%u,%Q:%lu,%Q:%d,%Q:%lu,%Q:[%lu,%lu,%lu,%lu],%Q:%u,%Q:[",
+      "{%Q:4,%Q:%u,%Q:%lu,%Q:%d,%Q:%lu,%Q:[%lu,%lu,%lu,%lu],%Q:%u,%Q:[",
       "version","first_year",(unsigned)s_first_year,
       "weeks",(unsigned long)s_weeks,"now",(int)s_ledger.now,
       "preseason_games",(unsigned long)s_preseason_games_total,
@@ -1160,9 +1317,23 @@ int ExpandedWorldLive_WriteJson(int (*emit)(const char*,int,void*),void *ctx) {
                      (mz_ulong)raw.len,6)!=MZ_OK) goto finish;
     encoded=live_base64_encode(compressed,(size_t)dest_len);
     if (!encoded) goto finish;
-    mjson_printf(emit,ctx,"],%Q:%lu,%Q:%Q}",
-                 "fixture_json_bytes",(unsigned long)raw.len,
-                 "fixtures_zlib",encoded);
+    mjson_printf(emit,ctx,"],%Q:%lu,%Q:%Q,%Q:[%lu,%lu],%Q:[",
+                  "fixture_json_bytes",(unsigned long)raw.len,
+                  "fixtures_zlib",encoded,
+                  "cup_archive",(unsigned long)s_cup_archived_matches,
+                  (unsigned long)s_cup_archived_titles,"cups");
+    for(uint32_t i=0;i<s_cup_count;++i) {
+        const LiveCupEvent *e=&s_cup_events[i];
+        if(i) mjson_printf(emit,ctx,"%s",",");
+        mjson_printf(emit,ctx,
+             "[%d,%lu,%u,%u,%u,%u,%u,%u,%u,%u,%u,%u]",
+             (int)e->day,(unsigned long)e->competition_hash,
+             (unsigned)e->home,(unsigned)e->away,(unsigned)e->kind,
+             (unsigned)e->slot,(unsigned)e->round,(unsigned)e->match,
+             (unsigned)e->leg,(unsigned)e->goals_home,
+             (unsigned)e->goals_away,(unsigned)e->flags);
+    }
+    mjson_printf(emit,ctx,"%s","]}");
     ok=1;
 finish:
     free(encoded);free(compressed);free(raw.ptr);
@@ -1192,12 +1363,13 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
     present=(uint8_t *)calloc(65536u,1u);
     if (!tmp || !present) goto invalid;
     if (mjson_get_long(obj,olen,"$.version",&snapshot_version)<=0 ||
-        (snapshot_version!=1 && snapshot_version!=2 && snapshot_version!=3) ||
+        (snapshot_version!=1 && snapshot_version!=2 &&
+          snapshot_version!=3 && snapshot_version!=4) ||
         mjson_get_long(obj,olen,"$.first_year",&v)<=0 ||
         v<1900 || v>2198) goto invalid;
     tmp->year=(uint16_t)v;
     tmp->window_year=tmp->year;
-    if (snapshot_version==3) {
+    if (snapshot_version>=3) {
         if (mjson_get_long(obj,olen,"$.window_first_year",&v)<=0 ||
             v<tmp->year || v>2199L) goto invalid;
         tmp->window_year=(uint16_t)v;
@@ -1406,6 +1578,55 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
     }
     if (!tmp->fixture_count || tmp->native_schedules>tmp->leagues_count ||
         tmp->native_matches>tmp->fixture_count+tmp->archived_matches) goto invalid;
+    /* World v4 records original SWOS cup matches and champions. */
+    if(snapshot_version>=4) {
+        long archived[2]={0};
+        unsigned count=0;
+        if(mjson_find(obj,olen,"$.cup_archive",&arr,&alen)!=MJSON_TOK_ARRAY ||
+           !live_parse_int_row(arr,alen,archived,2u,&count) ||
+           count!=2u || archived[0]<0 || archived[1]<0 ||
+           mjson_find(obj,olen,"$.cups",&arr,&alen)!=MJSON_TOK_ARRAY ||
+           alen<2 || arr[0]!='[' || arr[alen-1]!=']') goto invalid;
+        tmp->cup_archived_matches=(uint32_t)archived[0];
+        tmp->cup_archived_titles=(uint32_t)archived[1];
+        const char *p=arr+1,*end=arr+alen-1;
+        int first=1;
+        while(p<end) {
+            while(p<end && (*p==' ' || *p=='\n' ||
+                             *p=='\r' || *p=='\t')) ++p;
+            if(p==end) break;
+            if(!first) {
+                if(*p++!=',') goto invalid;
+                while(p<end && (*p==' ' || *p=='\n' ||
+                                 *p=='\r' || *p=='\t')) ++p;
+            }
+            if(p>=end || *p!='[' || tmp->cup_count>=LIVE_MAX_CUP_EVENTS)
+                goto invalid;
+            const char *row=p++;
+            while(p<end && *p!=']') {
+                if(*p=='[' || *p=='{' || *p=='"') goto invalid;
+                ++p;
+            }
+            if(p>=end) goto invalid;
+            ++p;
+            if(tmp->cup_count==tmp->cup_capacity) {
+                uint32_t cap=tmp->cup_capacity?tmp->cup_capacity*2u:128u;
+                if(cap>LIVE_MAX_CUP_EVENTS) cap=LIVE_MAX_CUP_EVENTS;
+                LiveCupEvent *grown=(LiveCupEvent *)realloc(tmp->cups,
+                                                     cap*sizeof(*grown));
+                if(!grown) goto invalid;
+                tmp->cups=grown;tmp->cup_capacity=cap;
+            }
+            LiveCupEvent *e=&tmp->cups[tmp->cup_count];
+            if(!live_parse_cup_row(row,(int)(p-row),e) ||
+               e->day<earliest_fixture_day ||
+               (tmp->cup_count && e->day<tmp->cups[tmp->cup_count-1u].day))
+                goto invalid;
+            ++tmp->cup_count;
+            first=0;
+        }
+    }
+
     /* Allocate the replacement BEFORE destroying the live world. */
     store=(ExpandedWorldFixture *)malloc(sizeof *store*LIVE_MAX_FIXTURES);
     if (!store) goto invalid;
@@ -1424,6 +1645,11 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
     s_history_capacity=tmp->history_capacity;
     s_archived_matches=tmp->archived_matches;
     tmp->history=NULL;
+    s_cup_events=tmp->cups;s_cup_count=tmp->cup_count;
+    s_cup_capacity=tmp->cup_capacity;
+    s_cup_archived_matches=tmp->cup_archived_matches;
+    s_cup_archived_titles=tmp->cup_archived_titles;
+    tmp->cups=NULL;
     s_initial_day=tmp->initial;
     s_preseason_games_total=tmp->preseason_games;
     s_native_matches=tmp->native_matches;
@@ -1457,7 +1683,7 @@ invalid:
     free(store);
     free(owned_fixture_json);
     free(present);
-    if(tmp) free(tmp->history);
+    if(tmp) {free(tmp->history);free(tmp->cups);}
     free(tmp);
     fprintf(stderr,"[living-world] invalid or incomplete .CAR world snapshot\n");
     return 0;
@@ -1511,6 +1737,25 @@ uint16_t ExpandedWorldLive_WindowFirstYear(void) {return 0;}
 int ExpandedWorldLive_HistoryChampion(uint16_t y,uint8_t c,uint8_t d,uint16_t *o) {
     (void)y;(void)c;(void)d;(void)o;return 0;
 }
+uint32_t ExpandedWorldLive_OfferFiles(uint8_t *files,uint32_t n) {
+    (void)files;(void)n;return 0;
+}
+int ExpandedWorldLive_RecordNativeCupMatch(uint16_t y,const char *name,
+                 uint8_t slot,uint8_t phase,uint8_t round,uint8_t match,
+                 uint8_t leg,uint16_t home,uint16_t away,uint8_t gh,
+                 uint8_t ga,uint8_t flags) {
+    (void)y;(void)name;(void)slot;(void)phase;(void)round;
+    (void)match;(void)leg;(void)home;(void)away;(void)gh;
+    (void)ga;(void)flags;return 0;
+}
+int ExpandedWorldLive_RecordNativeCupChampion(uint16_t y,const char *name,
+                 uint8_t slot,uint8_t phase,uint16_t winner) {
+    (void)y;(void)name;(void)slot;(void)phase;(void)winner;return 0;
+}
+uint32_t ExpandedWorldLive_CupResidentMatches(void) {return 0;}
+uint32_t ExpandedWorldLive_CupResidentTitles(void) {return 0;}
+uint32_t ExpandedWorldLive_CupArchivedMatches(void) {return 0;}
+uint32_t ExpandedWorldLive_CupArchivedTitles(void) {return 0;}
 uint32_t ExpandedWorldLive_Fixtures(void) {return 0;}
 uint32_t ExpandedWorldLive_PlayerSlots(void) {return 0;}
 uint32_t ExpandedWorldLive_MemoryBytes(void) {return 0;}

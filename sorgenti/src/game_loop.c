@@ -687,6 +687,16 @@ GameFrameResult GameLoop_Frame(void)
         BlitQueueDrain();
 #endif
     MainKeysCheck(_currentKey);
+#ifdef SWOS_SDL_BUILD
+    /* Debug F12+6: run native match exit/competition finalization on the
+     * gameplay thread. The debug 1/2/4 score override is applied through
+     * the existing OpenSWOS cached-result callback, never a second ledger. */
+    {
+        extern int Platform_DebugTakeQuickMatchEnd(void);
+        if(Platform_DebugTakeQuickMatchEnd() && _gameTime>0u && _playGame)
+            MainKeysCheck(0x1Bu);
+    }
+#endif
     /* nullsub_10, nullsub_9 — no-ops */
 
 #if MATCH_BACKGROUND_UNDRAW

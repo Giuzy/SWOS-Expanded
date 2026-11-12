@@ -99,7 +99,7 @@ int main(void) {
  assert(ExpandedWorldLive_ArchivedLeagues()==4u*70u);
  unsigned full=0;
  for(unsigned i=0;i<32u;++i)
-  if(max_div[i]-min_div[i]>=3u)++full;
+  if((unsigned)max_div[i]-(unsigned)min_div[i]>=3u)++full;
  /* The 1996/97 native fixture pairings and deterministic score resolver
   * must permit the deliberately weakest top-flight club to reach the
   * lowest division and the strongest bottom-flight club to reach the top. */

@@ -10562,20 +10562,22 @@ void ProcessDIYLeagueMatchResultAndCareerUpdates(TeamFileEx *team1, TeamFileEx *
         getCachedOrCalcViewResult(team1, team2, comp, modeFlag,
                                   goalsIn1, goalsIn2, statCol, &d1, &d2);
 
-    /* After signing, native SWOS physics and scoring are authoritative.
-     * Publish their actual result into the SAME persistent in-memory
-     * competition ledger; do not let the world independently simulate
-     * this completed fixture a second time. The world ledger verifies
-     * both club identities and the native calendar phase before writing. */
-    if (_gameType==4 && !Expanded_MidseasonJoin_Active() &&
-        d1<=31u && d2<=31u) {
+    /* One result ledger also for a historical OG fallback: if a special
+     * native league could not map the fixture to the world on replay, its
+     * actual score MUST be reconciled instead of silently creating a
+     * second points table. Normal manual games remain authoritative. */
+    if (_gameType==4 && d1<=31u && d2<=31u &&
+        (!Expanded_MidseasonJoin_Active() || !replayed)) {
         const uint16_t home=((uint16_t)team1->team.countryNumber<<8) |
                             (uint8_t)team1->team.teamOrdinal;
         const uint16_t away=((uint16_t)team2->team.countryNumber<<8) |
                             (uint8_t)team2->team.teamOrdinal;
-        (void)ExpandedWorldLive_RecordNativeLeagueResult(
-            home,away,Expanded_Career_NativeCalendarKey(),
-            (uint8_t)d1,(uint8_t)d2);
+        if(!ExpandedWorldLive_RecordNativeLeagueResult(
+             home,away,Expanded_Career_NativeCalendarKey(),
+             (uint8_t)d1,(uint8_t)d2))
+            fprintf(stderr,"[living-world] UNMATCHED OG LEAGUE SCORE "
+                    "%04x-%04x %u:%u, native/world tables may differ\\n",
+                    (unsigned)home,(unsigned)away,(unsigned)d1,(unsigned)d2);
     }
 
     /* Build flags byte d7 */

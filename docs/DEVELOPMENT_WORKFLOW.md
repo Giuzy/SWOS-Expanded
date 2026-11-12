@@ -287,3 +287,11 @@ La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo ver
 4. Avvia una vera partita manuale di carriera, F12 poi 5 per attivare FAST X4, richiudi F12. Confronta tempi, input, fisica e risultati dopo partita. FAST deve spegnersi al ritorno al calendario. WIN/LOSE/DRAW debug non sono un test del gameplay manuale.
 5. Salva/ricarica dopo cambio stagione: nessun club deve sparire o comparire in due divisioni. Spareggi, coppe e paesi non testati = NON PROVATO.
 6. Consegna con checklist SÌ / NO / NON PROVATO e pulsante INVIA RAPPORTO, e log se qualcosa fallisce. Non eliminare salvataggi preesistenti.
+
+### Test Windows 0.13.30 — BAT unico
+1. Pull dev/0.10 in GitKraken, verificare build 0.13.30 e compilare con COMPILA_SWOS.bat. Proteggere il save .CAR esistente.
+2. TEST_LIVING_WORLD.bat: cercare STRESS_RESULT=PASS, CUP_HISTORY_70=PASS, CUP_RESULT_IDEMPOTENCE=PASS, PYRAMID_STRESS_RESULT=PASS, ENGINE_SUITE=PASS. In caso di FAIL inviare il log completo LIVING_WORLD_70_TEST.log. Le coppe dello stress sono sintetiche: testano il journal, non OG end-to-end.
+3. Carriera da disoccupato: confronto classifiche mondo/OG squadra per squadra, stesso numero di partite, vittorie, pareggi, sconfitte e punti. Qualsiasi discrepanza = NO. F12 mostra eventuali errori di calendario o risultati OG non riconciliati.
+4. Debug manuale in partita reale: F12+1 vittoria, F12+2 sconfitta o F12+4 pareggio, quindi F12+6 per fine immediata attraverso ESC originale. Controllare risultato finale e classifica. F12+5 x4 e un test separato.
+5. Coppa OG vera: simulare e se possibile giocare; verificare risultati, turno successivo, unico incremento del journal, campione, autosave/ripresa. Se due infortunati bloccano la partita senza sostituti, annotare NO con screenshot e non aggirare la regola originale.
+6. Report checklist SI/NO/NON PROVATO; inviare log e screenshot dei NO. Non promuovere a PASS una funzione non testata.

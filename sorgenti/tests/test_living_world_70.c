@@ -48,6 +48,7 @@ static void round_trip(unsigned week,unsigned *count,size_t *max_bytes) {
     const uint32_t cup_titles=ExpandedWorldLive_CupResidentTitles();
     const uint32_t cup_old_matches=ExpandedWorldLive_CupArchivedMatches();
     const uint32_t cup_old_titles=ExpandedWorldLive_CupArchivedTitles();
+    const uint32_t historical_titles=ExpandedWorldLive_CupHistoricalTitles();
     TestBuffer old=snapshot();
     assert(old.ptr && old.len>100u && old.len<2u*1024u*1024u);
     if(old.len>*max_bytes) *max_bytes=old.len;
@@ -62,6 +63,13 @@ static void round_trip(unsigned week,unsigned *count,size_t *max_bytes) {
     assert(ExpandedWorldLive_CupResidentTitles()==cup_titles);
     assert(ExpandedWorldLive_CupArchivedMatches()==cup_old_matches);
     assert(ExpandedWorldLive_CupArchivedTitles()==cup_old_titles);
+    assert(ExpandedWorldLive_CupHistoricalTitles()==historical_titles);
+    if(historical_titles) {
+        uint16_t first_winner=0;
+        assert(ExpandedWorldLive_CupHistoryChampion(1996u,
+                 "NATIONAL CUP",1u,&first_winner));
+        assert(first_winner==0x0801u);
+    }
     assert(ExpandedWorldLive_Clubs()==216u);
     assert(ExpandedWorldLive_Leagues()==11u);
     assert(ExpandedWorldLive_Weeks()==week);
@@ -168,6 +176,19 @@ int main(void) {
                          "NATIONAL CUP",1u,57u,c1));
                 assert(ExpandedWorldLive_CupResidentMatches()==was+3u);
                 assert(ExpandedWorldLive_CupResidentTitles()==titles+1u);
+                /* OG replay/save/load must not change a recorded winner. */
+                assert(ExpandedWorldLive_RecordNativeCupChampion(y,
+                         "NATIONAL CUP",1u,57u,c1));
+                assert(!ExpandedWorldLive_RecordNativeCupChampion(y,
+                         "NATIONAL CUP",1u,57u,c2));
+                assert(!ExpandedWorldLive_RecordNativeCupMatch(y,
+                         "NATIONAL CUP",1u,56u,0u,0u,0u,
+                         c1,c2,0u,3u,0u));
+                uint16_t stored=0;
+                assert(ExpandedWorldLive_CupHistoryChampion(y,
+                         "NATIONAL CUP",1u,&stored) && stored==c1);
+                assert(ExpandedWorldLive_CupHistoricalTitles()==
+                        (uint32_t)(y-1996u+1u));
                 last_cup_year=y;
             }
         }
@@ -209,6 +230,13 @@ int main(void) {
         }
     }
     assert(last_cup_year==2065u);
+    assert(ExpandedWorldLive_CupHistoricalTitles()==70u);
+    for(uint16_t year=1996u;year<=2065u;++year) {
+        uint16_t champion=0;
+        assert(ExpandedWorldLive_CupHistoryChampion(year,
+                "NATIONAL CUP",1u,&champion));
+        assert(champion==0x0801u);
+    }
     assert(ExpandedWorldLive_CupArchivedMatches()==years*3u);
     assert(ExpandedWorldLive_CupArchivedTitles()==years);
     assert(ExpandedWorldLive_CupResidentMatches()==0u);
@@ -246,6 +274,8 @@ int main(void) {
     puts("GLOBAL_OFFERS_DISCOVERY=PASS");
     puts("CUP_NATIVE_JOURNAL=PASS");
     puts("CUP_ARCHIVE_70=PASS");
+    puts("CUP_HISTORY_70=PASS");
+    puts("CUP_RESULT_IDEMPOTENCE=PASS");
     puts("WORLD_EVENT_CURSOR=PASS");
     puts("STRESS_RESULT=PASS");
     ExpandedWorldLive_End();

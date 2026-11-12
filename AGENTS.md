@@ -490,3 +490,8 @@ registro mondiale condiviso, non sostituendoli con un motore parallelo.
 ## Regola 12/11/2026 — checklist inviabile
 - Ogni build include checklist di prova Windows SÌ / NO / NON PROVATO con pulsante **Invia rapporto**, collegato a una vera azione di chat, ed eventualmente Copia.
 - Patch esterne di altri autori con nuovi campionati, regole o rose: analizzare dopo il commit pertinente come proposta, senza importarle automaticamente prima di confronto con game design, codice e approvazione.
+
+## Decisione 12/11/2026 — OpenSWOS gestisce le competizioni una volta sola
+- Tutto ciò che l'engine originale gestisce (sorteggi, coppe, campionati, spareggi, rigori, replay e progressione) rimane di sua competenza. Il Living World coordina cronologia, identità e conseguenze persistenti. Ogni partita, risultato, classifica e trofeo ha una sola fonte autorevole; non creare simulatori o callback duplicati.
+- Le coppe offscreen ancora non riusabili durante la disoccupazione vanno dichiarate PENDENTI fino a integrazione verificata. Non eliminare il recupero OG finché i suoi eventi storici non sono riproducibili senza perdite.
+- Scorciatoie di risultato immediato sono solo debug: devono completare il percorso della partita originale e non toccare fisica/controlli normali.

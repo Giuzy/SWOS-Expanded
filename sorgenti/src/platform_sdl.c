@@ -460,6 +460,14 @@ static volatile int s_world_debug_visible;
  * four times the wall-clock rate. No result teleport or changed physics. */
 static volatile int s_debug_match_fast;
 static int s_debug_fast_frame;
+static volatile int s_debug_quick_end_requested;
+/* Events are read in SDL's pump; the actual OG ESC exit must run on the
+ * game-loop thread, never from the event/timer callback. */
+int Platform_DebugTakeQuickMatchEnd(void) {
+    if(!s_debug_quick_end_requested) return 0;
+    s_debug_quick_end_requested=0;
+    return 1;
+}
 static int debug_match_factor(void) {
     extern volatile uint16_t _playGame, _playHighlightFlag;
     extern uint16_t _gameType;
@@ -2152,6 +2160,21 @@ static void pump_events_any_thread(void)
                     ExpandedDebug_ToggleDraw();
                     continue;
                 }
+                if (code == SDLK_6 || code == SDLK_KP_6) {
+                    extern volatile uint16_t _playGame;
+                    extern uint16_t _gameType;
+                    const int mode=ExpandedDebug_ResultMode();
+                    if(_playGame && _gameType==4 &&
+                       (mode==1 || mode==2 || mode==4)) {
+                        s_debug_quick_end_requested=1;
+                        s_debug_match_fast=0;
+                        fprintf(stderr,"[match-debug] quick finish requested "
+                          "via native ESC; selected result mode=%d\n",mode);
+                    } else
+                        fprintf(stderr,"[match-debug] quick finish requires "
+                          "a career match plus F12+1 WIN / 2 LOSE / 4 DRAW\n");
+                    continue;
+                }
                 if (code == SDLK_5 || code == SDLK_KP_5) {
                     extern volatile uint16_t _playGame;
                     extern uint16_t _gameType;
@@ -2880,6 +2903,12 @@ static void draw_world_debug_overlay(void)
              (unsigned long)ExpandedWorldLive_CupArchivedTitles(),
              (unsigned long)ExpandedWorldLive_CupResidentTitles());
     DEBUG_LINE(line);
+    snprintf(line,sizeof line,"OG CUP CHAMPIONS INDEXED %lu",
+             (unsigned long)ExpandedWorldLive_CupHistoricalTitles());
+    DEBUG_LINE(line);
+    if(ExpandedWorldLive_CupArchivedTitles()>
+       ExpandedWorldLive_CupHistoricalTitles())
+        DEBUG_WARN("LEGACY SAVE: SOME OLD CUP WINNERS NOT INDEXED");
     if (expanded_title_main_active()) {
         DEBUG_LINE("F12 OPEN + N: NEW CAREER (DEBUG ONLY)");
         DEBUG_LINE("OLD AUTOSAVE REPLACED AFTER FIRST NEW SAVE");
@@ -3019,6 +3048,7 @@ static void draw_world_debug_overlay(void)
     snprintf(line,sizeof line,"5 MATCH FAST X4 %s",
               debug_match_factor()==4?"ON":"OFF");
     DEBUG_LINE(line);
+    DEBUG_LINE("1 WIN 2 LOSE 4 DRAW / 6 END LIVE MATCH");
     DEBUG_LINE("F9 PNG F12 HIDE");
 #undef DEBUG_LINE
 #undef DEBUG_SECTION

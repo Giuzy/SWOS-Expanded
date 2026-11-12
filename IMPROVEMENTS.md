@@ -546,3 +546,10 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - Real manual career match: F12+5 toggles fourfold pacing, running the original game-frame logic rather than forcing or substituting final scores. Turn off after match ends.
 - F12 reports OG/world date discrepancies and automatic movement. One BAT runs 70-season stress, separate four-level mobility stress, all earlier C regressions, and installed DB inventory.
 - Validation: source inspection and static checks only. Windows/MSYS2 compile and in-game tests pending. No approved sprite/menu art or manual match game physics replaced.
+
+### 0.13.30 — league result reconciliation and native cup history (12 Nov 2026)
+- Original OpenSWOS score remains authoritative; reconcile oriented club ID pair and season instead of relying on the two differing calendar dates. Reject ambiguous pairings and log unmatched OG outcomes rather than silently accepting divergent table totals. No point formula changes.
+- OpenSWOS retains its bracket/knockout engine. The world cup journal protects completed score and champion identities against conflicting repeats and persists cup-title IDs after two-year fixture rollover. New world JSON v6 reads v1-v5 saves, including incomplete historical trophy identities.
+- Correct standalone 70y mobility harness sign comparison. New stress assertions cover all 70 indexed cup champions, save/load, duplicate result rejection and conflicting trophy rejection.
+- F12 debug accepts chosen WIN / LOSE / DRAW and F12+6 to complete a played match through original ESC callback; ordinary match physics unchanged.
+- Static source inspection only; native world C runner and Windows runtime tests pending. Real offscreen OG cup progression and removing old catch-up remain unfinished.

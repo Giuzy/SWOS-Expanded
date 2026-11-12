@@ -49,6 +49,11 @@ uint32_t ExpandedWorldLive_CupResidentMatches(void);
 uint32_t ExpandedWorldLive_CupResidentTitles(void);
 uint32_t ExpandedWorldLive_CupArchivedMatches(void);
 uint32_t ExpandedWorldLive_CupArchivedTitles(void);
+/* Permanent original OG cup champions, across two-year fixture rollovers.
+ * Return false for years absent from old snapshots; never invent winners. */
+uint32_t ExpandedWorldLive_CupHistoricalTitles(void);
+int ExpandedWorldLive_CupHistoryChampion(uint16_t season,const char *name,
+                                          uint8_t slot,uint16_t *winner);
 int ExpandedWorldLive_Begin(uint16_t start_year);
 int ExpandedWorldLive_AddClub(uint8_t country, uint8_t division,
                               uint16_t club, uint16_t rating,

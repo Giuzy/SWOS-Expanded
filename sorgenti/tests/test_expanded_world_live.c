@@ -77,7 +77,12 @@ int main(void) {
         assert(gh<=7 && ga<=7);
         assert(!ExpandedWorldLive_PeekNativeLeagueResult(0x0802,0x0801,&gh,&ga));
         assert(ExpandedWorldLive_NativeMatches()==0);
-        assert(ExpandedWorldLive_TakeNativeLeagueResult(0x0801,0x0802,70,&gh,&ga));
+        /* Phase 70 is September: the world is still in August at week 15.
+         * A future result MUST NOT be imported. This assertion verifies
+         * the safety rule instead of bypassing it. Phase 58 is in the past
+         * and is allowed to consume the one already-played fixture. */
+        assert(!ExpandedWorldLive_TakeNativeLeagueResult(0x0801,0x0802,70,&gh,&ga));
+        assert(ExpandedWorldLive_TakeNativeLeagueResult(0x0801,0x0802,58,&gh,&ga));
         assert(gh<=7 && ga<=7);
         assert(!ExpandedWorldLive_TakeNativeLeagueResult(0x0801,0x0802,58,&gh,&ga));
         /* Reading world state again is allowed even after a legacy
@@ -86,7 +91,7 @@ int main(void) {
         assert(!ExpandedWorldLive_TakeNativeLeagueResult(0x0802,0x0801,70,&gh,&ga));
         assert(ExpandedWorldLive_TakeNativeLeagueResult(0x0803,0x0804,58,&gh,&ga));
         assert(ExpandedWorldLive_NativeMatches()==2);
-        assert(ExpandedWorldLive_NativeMisses()==4);
+        assert(ExpandedWorldLive_NativeMisses()==5);
         assert(ExpandedWorldLive_Results()==30);
     }
 

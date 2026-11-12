@@ -117,12 +117,24 @@ static void ExpandedLoading71_Destroy(void)
 static void ExpandedLoading71_Draw(SDL_Renderer *r,SDL_Texture *bg,int percent)
 {
     if(!r || !bg)return;
-    int oldW=0,oldH=0;
+    int oldW=0,oldH=0,outW=0,outH=0;
+    float oldScaleX=1.0f,oldScaleY=1.0f;
+    SDL_Rect oldViewport;
     SDL_RenderGetLogicalSize(r,&oldW,&oldH);
-    /* Render the approved 1664x936 art at native pixels, restore menu
-     * logical coordinates BEFORE returning to Platform_RenderFrame. */
-    SDL_RenderSetLogicalSize(r,1664,936);
-    SDL_RenderCopy(r,bg,NULL,NULL);
+    SDL_RenderGetScale(r,&oldScaleX,&oldScaleY);
+    SDL_RenderGetViewport(r,&oldViewport);
+    if(SDL_GetRendererOutputSize(r,&outW,&outH)!=0 || outW<1 || outH<1)
+        return;
+    /* The maximized Windows client is not necessarily 16:9 (taskbar and
+     * decorated window remove vertical pixels). SetLogicalSize(1664,936)
+     * letterboxes and leaves visible SIDE bars in that case. Draw the
+     * approved 1664x936 art edge-to-edge in the actual output, without
+     * changing the PNG file or scaling its component coordinates. */
+    SDL_RenderSetLogicalSize(r,0,0);
+    SDL_RenderSetViewport(r,NULL);
+    SDL_RenderSetScale(r,(float)outW/1664.0f,(float)outH/936.0f);
+    const SDL_Rect background={0,0,1664,936};
+    SDL_RenderCopy(r,bg,NULL,&background);
     if(s_el71_logo){
         /* Half the approved Title's displayed 620x227 logo. */
         SDL_Rect logo={24,18,310,114};
@@ -150,5 +162,7 @@ static void ExpandedLoading71_Draw(SDL_Renderer *r,SDL_Texture *bg,int percent)
         ExpandedLoading71_Text(r,number,832,851,0.52f);
     }
     SDL_RenderSetLogicalSize(r,oldW,oldH);
+    if(!oldW || !oldH)SDL_RenderSetScale(r,oldScaleX,oldScaleY);
+    SDL_RenderSetViewport(r,&oldViewport);
 }
 #endif

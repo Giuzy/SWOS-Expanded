@@ -694,18 +694,24 @@ GameFrameResult GameLoop_Frame(void)
     {
         extern int Platform_DebugTakeQuickMatchEnd(void);
         if(Platform_DebugTakeQuickMatchEnd() && _gameTime>0u && _playGame) {
-            /* The native ESC path is the safe gameplay-thread exit, but it
-             * marks a player-controlled game CANCELED when leaving early.
-             * F12+6 is explicitly a debug COMPLETE request: preserve the
-             * normal SWOS career result callback (and its selected score),
-             * rather than discarding the game as an abandoned friendly.
-             * This override exists only on the F12+6 test path. */
-            MainKeysCheck(0x1Bu);
-            if(!_playGame && _gameCanceled) {
-                _gameCanceled=0;
-                fprintf(stderr,"[match-debug] native early exit retained "
-                        "as completed career result for finalization\n");
-            }
+            /* F12+6 is a DEBUG completion, not an ESC abandonment.
+             * MainKeysCheck(ESC) also calls AssignFakeGoalsToScorers and
+             * adds artificial FORFEIT goals; resetting _gameCanceled after
+             * that would leave phantom scorers and inconsistent stats.
+             * Exit at the same native game-loop boundary, but do not run
+             * the native forfeit handler. The normal SWOS career callback
+             * remains the sole writer of the resulting match/standings;
+             * ExpandedDebug_ForceScore chooses WIN/LOSE/DRAW there. */
+            _playGame=0;
+            _overlayActiveFlag=0;
+            _writeOnly01=1;
+            _gameCanceled=0;
+            _extraTimeState=0;
+            _penaltiesState=0;
+            _statsTeam1GoalsCopy=_statsTeam1Goals;
+            _statsTeam2GoalsCopy=_statsTeam2Goals;
+            fprintf(stderr,"[match-debug] F12+6 completed match without "
+                    "native ESC forfeiture; OG result callback follows\n");
         }
     }
 #endif

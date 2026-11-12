@@ -285,6 +285,30 @@ void ChooseTeamAndStartCareer(void)
     Conti_Reset();
     States_Reset();
     _teamsLoaded = 0;
+#ifdef SWOS_SDL_BUILD
+    /* START on NEW CAREER is the birth of the world, independently of
+     * whether the manager starts employed or unemployed. Never recreate
+     * the ledger when an offer is accepted: contracts/club changes only
+     * change the manager's place in the existing world.
+     * Import is done here, before any modal menu or team selection, because
+     * the adapter must briefly load TEAM files into the shared buffer. */
+    {
+        extern void ExpandedWorldLive_LoadOfferCountries(void);
+        ExpandedWorldLive_LoadOfferCountries();
+        if (!ExpandedWorldLive_Clubs()) {
+            extern uint16_t _fireResetFlag;
+            fprintf(stderr,"[living-world] FAILED to start new career world "
+                           "at START; no league snapshot available\n");
+            _fireResetFlag=1;
+            return;
+        }
+        fprintf(stderr,"[living-world] START initialized %lu clubs, "
+                       "%lu leagues, %lu fixtures\n",
+                (unsigned long)ExpandedWorldLive_Clubs(),
+                (unsigned long)ExpandedWorldLive_Leagues(),
+                (unsigned long)ExpandedWorldLive_Fixtures());
+    }
+#endif
     /* Expanded 0.8: zero-fame managers start without a club. The waiting
      * screen is outside the career engine; no uninitialised team state can
      * leak into fixtures or transfer processing. */
@@ -298,6 +322,11 @@ void ChooseTeamAndStartCareer(void)
         extern int Expanded_WaitForFirstOffer(uint16_t *team);
         uint16_t offerTeam = 0;
         if (!Expanded_WaitForFirstOffer(&offerTeam)) {
+#ifdef SWOS_SDL_BUILD
+            /* Setup cancelled: discard unsaved pilot from RAM only.
+             * Never touch an existing AUTOSAVE.CAR on disk. */
+            ExpandedWorldLive_End();
+#endif
             /* BACK cancels only the unemployed calendar. It must return
              * to the previous career setup screen, not unwind the whole
              * menu stack to the main menu. ShowMenu already restored it. */
@@ -326,6 +355,7 @@ void ChooseTeamAndStartCareer(void)
         SelectTeamToManage();
         if (_selectedTeamPtr == 0) {
 #ifdef SWOS_SDL_BUILD
+            ExpandedWorldLive_End(); /* No signed contract yet. */
             extern uint16_t _fireResetFlag;
             _fireResetFlag=1; /* Cancel team selection returns to setup. */
 #else

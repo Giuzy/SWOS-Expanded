@@ -2740,6 +2740,7 @@ static volatile int s_title_press;
 static int s_title_action;
 static int s_title_previous_fire;
 static volatile int s_title_back_requested;
+static volatile int s_title_debug_new_requested;
 static int s_title_mouse_seen;
 
 int Expanded_TitleMenu_Level(void) { return s_title_level; }
@@ -2757,6 +2758,12 @@ int Expanded_TitleMenu_ClassicReplay(void) {
            _primaryCompetitionBuf.tourn.header.competitionOver!=1;
 }
 void Expanded_TitleMenu_QueueBack(void) { s_title_back_requested=1; }
+/* F12+N debug-only: never delete a .CAR from here. The first successful
+ * autosave of the NEW career atomically replaces the older career;
+ * cancelling setup leaves the old save intact. */
+void Expanded_TitleMenu_QueueNewCareerDebug(void) {
+    s_title_debug_new_requested=1;
+}
 void Expanded_TitleMenu_Reset(void)
 {
     s_title_level=0;
@@ -2765,6 +2772,7 @@ void Expanded_TitleMenu_Reset(void)
     s_title_action=-1;
     s_title_previous_fire=0;
     s_title_back_requested=0;
+    s_title_debug_new_requested=0;
     s_title_mouse_seen=0;
 }
 static int Expanded_TitleMenu_Count(void)
@@ -2815,6 +2823,27 @@ static void Expanded_TitleMenu_Dispatch(int level,int index)
 }
 void Expanded_TitleMenu_Proc(void)
 {
+    /* Execute only on the original menu thread, never from SDL's KEYDOWN
+     * event pump (which can run inside renderer locks). This deliberately
+     * bypasses the CONTINUE selection WITHOUT modifying approved Title UI. */
+    if(s_title_debug_new_requested) {
+        s_title_debug_new_requested=0;
+        s_title_level=0;
+        s_title_selected=0;
+        s_title_press=0;
+        s_title_action=-1;
+        s_title_back_requested=0;
+        /* Discard the current career IN RAM so the original abort prompt
+         * cannot overwrite its slot on return from setup. The previous
+         * AUTOSAVE.CAR stays untouched on disk until the first new save.
+         * Cancelling setup simply leaves the old CONTINUE available. */
+        InitCareerVariables(GAME_TYPE_NO_GAME);
+        fprintf(stderr,"[debug-career] F12+N: open NEW CAREER setup; "
+                       "previous .CAR is retained until a successful "
+                       "new career autosave\n");
+        CareerMenu();
+        return;
+    }
     /* Runs on the menu thread after MenuCheckControls, at the same 50 Hz
      * cadence as the original menu. A click and a gamepad fire both take
      * exactly one path; callbacks run after five visual ticks (100 ms). */

@@ -251,3 +251,11 @@ La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo ver
 2. Verifica la presenza di `[run]` dopo `[build]`; `STRESS_RESULT=PASS` significa successo effettivo delle 70 stagioni, non soltanto del linker. In caso di fail invia il log locale `LIVING_WORLD_70_TEST.log`.
 3. Il codice world e i test integrano un controllo per le gare di maggio/giugno 1996, precedenti al 1° luglio del manager. Nessuna azione manuale necessaria e nessun file save toccato dal BAT.
 4. Se il test passa, prova `AVVIA_SWOS.bat` e CONTINUE CAREER dal .CAR esistente: F12/partita manuale/simulazione e save/restart. Test Windows live non ancora effettuati dall'assistente.
+
+
+### 0.13.25 — regressione career world / Title debug
+1. Pull e compila la nuova versione. Avvia NEW CAREER senza save, premi START e scegli subito il club: F12 WORLD deve già riportare club/leghe/incontri. Il mondo NON deve rinizializzarsi con un'accettazione di offerta.
+2. Inizia NEW CAREER come disoccupato: F12 deve mostrare lo stesso mondo dal primo giorno; avanza settimane, osserva la stessa classifica prima e dopo l'accettazione del contratto. Riavvio/CONTINUE deve riprendere.
+3. Da Title con autosave già presente, apri F12, premi N: appare il form NEW CAREER. Premi BACK prima di START e assicurati che CONTINUE ricarichi la vecchia carriera. Ripeti creando una nuova carriera: il nuovo AUTOSAVE.CAR deve sostituire il precedente soltanto dopo un primo salvataggio riuscito.
+4. F12+N non deve avere effetto durante una partita o un menu diverso dal Title. I pulsanti Title, controller e scelta CLASSIC MODES restano invariati.
+5. Controllo prestazioni manuali: confrontare F12 disattivo, stessa risoluzione, stesso VSync e medesima squadra, osservando se il rallentamento è in campo o soltanto subito dopo la fine. Invio SWOS.log in caso di problema. Nessun test Windows eseguito qui.

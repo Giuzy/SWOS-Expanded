@@ -786,9 +786,14 @@ int Expanded_WaitForFirstOffer(uint16_t *team) {
     s_waitWeeks=0; s_waitAccepted=0; s_waitTeam=0;
     s_offerSnapshotValid=0; s_offerAgreedWeekly=0;
     s_nextOfferWeek=next_delay();
-    /* All reads of installed team files happen before opening the modal:
-     * offer preview and each weekly event operate on isolated snapshots. */
-    ExpandedWorldLive_LoadOfferCountries();
+    /* NEW CAREER START initialized the one shared Living World before
+     * opening any modal. Never reset/re-import it at the first contract,
+     * otherwise the unemployed calendar and employed league diverge. */
+    if (!ExpandedWorldLive_Clubs()) {
+        fprintf(stderr,"[living-world] first offer refused: world not "
+                       "initialized at NEW CAREER START\n");
+        return 0;
+    }
     ShowMenu(Expanded_UnemployedCalendarMenu());
     if(!s_waitAccepted || !offer_is_valid()) return 0;
     if(!verify_offer_in_file()) {

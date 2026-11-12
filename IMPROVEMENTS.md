@@ -511,3 +511,11 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [FIX TEST] Con solo `mjson.o` nei due harness isolati, `MJSON_REALLOC` punta alla `realloc` standard tramite macro + include forzato del relativo header. Il gioco usa ancora l'allocatore SWOS. Miniz e gli altri sorgenti non alterati.
 - [FIX ENGINE] Al primo avvio `ExpandedWorldLive_Seal` e in lettura snapshot preesistenti, risultati deterministicamente completati per fixture con data anteriore al 1° luglio d'inizio carriera, necessario per archivio prima stagione dei campionati maggio-settembre. Il tempo non avanza all'indietro.
 - [REGRESSION] Test C base e test 70 stagioni verificano la presenza di risultati maggio/giugno prima di procedere. Test di compilazione e run su Windows ancora da verificare.
+
+
+### 0.13.25 — un solo avvio mondo a START; debug NEW CAREER
+- [CODE] Il mondo dei club/competizioni parte al pulsante START di NEW CAREER indipendentemente dal contratto. Eliminata la re-inizializzazione durante la prima ricerca di offerte. Cancel selezione o ricerca cancella soltanto il mondo provvisorio in RAM.
+- [DEBUG] F12+N al Title apre il form NEW CAREER, anche con autosave presente; vecchio .CAR conservato fino al primo successivo writer atomico. Nessuna nuova voce grafica Title, nessun gameplay/valore sportivo cambiato.
+- [DA COMPLETARE] Differenti cronologie OG/Expanded e bridge calendario nativo, eventi infrasettimanali, coppe persistenti e carriera mondo ancora da unificare e validare. Non chiamare la singola inizializzazione un motore unificato completato.
+- [PARAMETRI] Forma individuale, chairman e coach AI e tutti i valori iniziali rinviati alla penultima fase progettuale approvata.
+- [TEST] Verifiche statiche; build Windows e test manager reali pendenti.

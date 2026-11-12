@@ -1,6 +1,8 @@
-/* Import only at new-career start, before the unemployed modal.
+/* Initialize the ONE world on NEW CAREER -> START for both employed and
+ * unemployed starts, BEFORE either team picker or unemployment modal.
  * Loading team files inside a modal callback would overwrite menu/team state.
  * Same five validated data files already used by club offer generation.
+ * Never call this again on an accepted contract or team change.
  */
 #include "expanded_world_live.h"
 #include "world.h"

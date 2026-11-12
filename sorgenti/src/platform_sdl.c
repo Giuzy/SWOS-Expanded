@@ -2119,6 +2119,11 @@ static void pump_events_any_thread(void)
             }
             if (ev.key.repeat == 0 && s_world_debug_visible) {
                 SDL_Keycode code = ev.key.keysym.sym;
+                if (code == SDLK_n && expanded_title_main_active()) {
+                    extern void Expanded_TitleMenu_QueueNewCareerDebug(void);
+                    Expanded_TitleMenu_QueueNewCareerDebug();
+                    continue;
+                }
                 if (code == SDLK_1 || code == SDLK_KP_1) {
                     ExpandedDebug_ToggleWin();
                     continue;
@@ -2760,6 +2765,10 @@ static void draw_world_debug_overlay(void)
     DEBUG_LINE(line);
     DEBUG_LINE("MANAGER ENTITIES NOT MODELED");
     DEBUG_LINE("CHAIRMAN ENTITIES NOT MODELED");
+    if (expanded_title_main_active()) {
+        DEBUG_LINE("F12 OPEN + N: NEW CAREER (DEBUG ONLY)");
+        DEBUG_LINE("OLD AUTOSAVE REPLACED AFTER FIRST NEW SAVE");
+    }
     snprintf(line,sizeof line,"FIXTURES RESIDENT %lu ALL RESULTS %lu",
              (unsigned long)ExpandedWorldLive_Fixtures(),
              (unsigned long)ExpandedWorldLive_Results());

@@ -23,7 +23,7 @@ run_stage "MIDSEASON JOIN CALENDAR REGRESSIONS" "sorgenti/tests/run_test_expande
 run_stage "LIVING WORLD UNIT REGRESSIONS" "sorgenti/tests/run_test_expanded_world_live.sh"
 run_stage "DEBUG RESULTS / WORLD LEDGER REGRESSIONS" "sorgenti/tests/run_test_expanded_phase12.sh"
 run_stage "REAL INSTALLED DATABASE INVENTORY" "sorgenti/tests/run_test_database_inventory.sh"
-run_stage "REAL JSON TEAM CATALOGUE / 70 YEARS" "sorgenti/tests/run_test_real_json_world_70.sh"
+run_stage "REAL DOMESTIC JSON LEAGUES / 70 YEARS" "sorgenti/tests/run_test_real_json_world_70.sh"
 echo
 if (( failed_stages )); then
   printf 'ENGINE_SUITE=FAIL STAGES=%u\n' "$failed_stages"
@@ -31,10 +31,10 @@ if (( failed_stages )); then
 fi
 echo "ENGINE_UNIT_REGRESSIONS=PASS"
 echo "ENGINE_SUITE=PASS"
-echo "COVERAGE_WARNING=REAL_JSON_CLUBS_SIMULATED_NOT_FULL_NATIVE_COMPETITIONS"
+echo "COVERAGE_WARNING=REAL_JSON_DOMESTIC_ONLY_CUPS_NATIONAL_TEAMS_UNTESTED"
 echo "MOBILITY_TEST_STATUS=NATIVE_AUTOMATIC_PLACES_TESTED"
 echo "MOBILITY_PLAYOFF_STATUS=PENDING_NATIVE_RESOLUTION"
-echo "OFFSCREEN_CUP_TEST_STATUS=NOT_IMPLEMENTED"
+echo "OFFSCREEN_CUP_TEST_STATUS=NOT_PROVEN_FOR_ALL_COUNTRIES"
 echo "[NOTE] Only automatic native promotion/relegation places are tested."
-echo "       Playoff outcomes, nationwide real DB multi-season coverage, and"
-echo "       offscreen worldwide cups are NOT claimed as complete."
+echo "       OG playoff and complete worldwide offscreen cups are NOT proven."
+echo "       Non-domestic JSON pools are inventoried, NOT fake leagues."

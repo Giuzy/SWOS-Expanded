@@ -1,7 +1,7 @@
 /* SWOS Expanded: 70 years using the real installed JSON club catalogue.
  *
  * Unlike the 216-club synthetic stress test, club IDs, league membership,
- * division IDs and names are parsed from data_json/teams/*.json. We require
+ * division IDs and names are parsed from the installed data_json catalogues. We require
  * every eligible record to be accepted by the real Living World scheduler.
  *
  * Coverage limitation: this standalone test does not load the native
@@ -44,6 +44,22 @@ static int team_name(const char *json,int length,unsigned index,
     char path[120];
     snprintf(path,sizeof path,"$.teams[%u].team.team_name",index);
     return mjson_get_string(json,length,path,name,cap)>0;
+}
+/* Catalogues used as tournament entrants or custom pools, not regular
+ * national leagues. Their original OG cup/qualifier logic is preserved:
+ * treating them as a league would invent a 34-team African division. */
+static int non_domestic_catalog(const char *path) {
+    static const char *const names[]={
+        "AFRICA.json","ASIA.json","EUROPE.json","NORTH_AMERICA.json",
+        "OCEANIA.json","SOUTH_AMERICA.json",
+        "EUROCUP.json","EUROCWC.json","UEFACUP.json",
+        "CUSTOM.json","POOLPLYR.json"
+    };
+    const char *base=strrchr(path,'/');
+    base=base?base+1:path;
+    for(unsigned i=0;i<sizeof(names)/sizeof(names[0]);++i)
+        if(strcmp(base,names[i])==0) return 1;
+    return 0;
 }
 static int test_country_file(const char *path,
                              unsigned *clubs,unsigned *leagues,
@@ -123,13 +139,31 @@ static int test_country_file(const char *path,
 }
 int main(int argc,char **argv) {
     unsigned files=0,clubs=0,leagues=0,excluded=0,failures=0;
+    unsigned other_catalogs=0,other_records=0;
     unsigned long long club_seasons=0;
     if(argc<2) {
-        puts("REAL_JSON_70_SEASONS=FAIL");
+        puts("REAL_JSON_DOMESTIC_70_SEASONS=FAIL");
         return 1;
     }
     FixtureRounds_Install();
     for(int i=1;i<argc;++i) {
+        if(non_domestic_catalog(argv[i])) {
+            long len=0,count=0;
+            char *js=read_catalog(argv[i],&len);
+            if(!js || !mjson_get_long(js,(int)len,"$.count",&count) ||
+               count<0 || count>100000L) {
+                fprintf(stderr,"[real-json] invalid OG cup/national pool: %s\n",
+                        argv[i]);
+                ++failures;
+            } else {
+                ++other_catalogs;
+                other_records+=(unsigned)count;
+                printf("[real-json] OG non-league catalogue: %s records=%ld "
+                       "league simulation=NOT_APPLICABLE\n",argv[i],count);
+            }
+            free(js);
+            continue;
+        }
         if(test_country_file(argv[i],&clubs,&leagues,&excluded,&club_seasons))
             ++files;
         else
@@ -139,10 +173,13 @@ int main(int argc,char **argv) {
            "LEAGUES_SIMULATED=%u OUTSIDE_NATIVE_LEAGUE=%u "
            "CLUB_SEASONS=%llu FAILED_FILES=%u\n",
            files,clubs,leagues,excluded,club_seasons,failures);
+    printf("REAL_JSON_NONDOMESTIC_CATALOGS=%u RECORDS=%u\n",
+           other_catalogs,other_records);
     puts("REAL_JSON_NATIVE_COMPETITION_RULES=NOT_TESTED");
     puts("REAL_JSON_OG_CUPS=NOT_TESTED");
+    puts("REAL_JSON_ALL_COMPETITIONS=NOT_IMPLEMENTED");
     if(failures || !files || !clubs || !leagues) {
-        puts("REAL_JSON_70_SEASONS=FAIL");return 1;
+        puts("REAL_JSON_DOMESTIC_70_SEASONS=FAIL");return 1;
     }
-    puts("REAL_JSON_70_SEASONS=PASS");return 0;
+    puts("REAL_JSON_DOMESTIC_70_SEASONS=PASS");return 0;
 }

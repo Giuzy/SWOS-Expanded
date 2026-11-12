@@ -952,6 +952,21 @@ static int native_fixture_index(uint16_t home,uint16_t away,
     }
     return matches==1u;
 }
+/* A native phase belongs to the original competition's month window,
+ * not to an arbitrary 0..255 range. Phase zero cannot consume an AUG-MAY
+ * league event as an already-played January result. The bound is taken
+ * from the actual imported OG competition header, including MAY-SEP
+ * leagues and schedules crossing into the following calendar year. */
+static int native_phase_in_fixture(uint32_t index,uint8_t phase) {
+    if(index>=s_ledger.count) return 0;
+    const unsigned comp=s_fixtures[index].competition & 8191u;
+    const LiveLeague *league=league_by_id((uint8_t)(comp>>5u),
+                                          (uint8_t)(comp&31u));
+    if(!league || !league->native_schedule) return 0;
+    unsigned from=league->begin_phase,to=league->end_phase;
+    if(to<from) to+=96u;
+    return (unsigned)phase>=from && (unsigned)phase<=to;
+}
 static int native_current_season(uint8_t phase,uint16_t *year,int32_t *day) {
     ExpandedWorldDate date;
     const uint16_t base=ExpandedWorldLive_SeasonYear();
@@ -1015,7 +1030,8 @@ int ExpandedWorldLive_TakeNativeLeagueResult(uint16_t home,uint16_t away,
     if(!gh || !ga || home==away ||
        !native_current_season(native_phase,&season,&native_day) ||
        native_day>s_ledger.now ||
-       !native_fixture_index(home,away,season,&index)) {
+       !native_fixture_index(home,away,season,&index) ||
+       !native_phase_in_fixture(index,native_phase)) {
         ++s_native_misses;
         return 0;
     }
@@ -1059,7 +1075,8 @@ int ExpandedWorldLive_RecordNativeLeagueResult(uint16_t home,uint16_t away,
     uint32_t index=0;
     if(home==away || gh>31u || ga>31u ||
        !native_current_season(phase,&season,&native_day) ||
-       !native_fixture_index(home,away,season,&index)) {
+       !native_fixture_index(home,away,season,&index) ||
+       !native_phase_in_fixture(index,phase)) {
         ++s_native_misses;
         fprintf(stderr,"[living-world] cannot reconcile OG score "
                 "%04x-%04x phase=%u\n",home,away,(unsigned)phase);

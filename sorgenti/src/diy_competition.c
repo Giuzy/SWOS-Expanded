@@ -11460,7 +11460,11 @@ uint16_t DIY_PlayCupMatchAndAdvance(int16_t allowSquadChanges, int16_t mode) {
 #ifdef SWOS_SDL_BUILD
     /* Cup bracket remains OG-authored. Persist the REAL completed result
      * into the same world clock/save, before the round changes its phase. */
-    if (_gameType == 4 && ExpandedWorldLive_Clubs()) {
+    /* Register only completed original native cup results. The original
+     * career mode and native offscreen international auto-advance share
+     * the SAME DIY finalization, never a second Expanded bracket. */
+    if (ExpandedWorldLive_Clubs() &&
+        (_gameType == 4 || _internationalAutoAdvanceFlag != 0)) {
         extern uint16_t _currentSeasonShowing;
         const uint16_t home=(uint16_t)(
             ((uint16_t)team1->team.countryNumber<<8)|team1->team.teamOrdinal);
@@ -11634,12 +11638,17 @@ final_or_groups:
          * downstream comparisons expect. */
         baseS->resultCode = (int16_t)BE_READ_U16(&a3Ex->cupTeamIds[slotWord]);
 #ifdef SWOS_SDL_BUILD
-        if (_gameType==4 && ExpandedWorldLive_Clubs()) {
+        if (ExpandedWorldLive_Clubs() &&
+            (_gameType==4 || _internationalAutoAdvanceFlag != 0)) {
             extern uint16_t _currentSeasonShowing;
-            (void)ExpandedWorldLive_RecordNativeCupChampion(
+            if(!ExpandedWorldLive_RecordNativeCupChampion(
                    (uint16_t)(World_FirstYear()+_currentSeasonShowing),
                    (const char *)baseS->competitionName,baseS->compSlot,
-                   baseS->viewRandomPhase,(uint16_t)baseS->resultCode);
+                   baseS->viewRandomPhase,(uint16_t)baseS->resultCode))
+                fprintf(stderr,"[living-world] native OG cup winner not journaled "
+                       "slot=%u season=%u\n",
+                       (unsigned)baseS->compSlot,
+                       (unsigned)(World_FirstYear()+_currentSeasonShowing));
         }
 #endif
     }

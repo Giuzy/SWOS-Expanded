@@ -495,3 +495,8 @@ registro mondiale condiviso, non sostituendoli con un motore parallelo.
 - Tutto ciò che l'engine originale gestisce (sorteggi, coppe, campionati, spareggi, rigori, replay e progressione) rimane di sua competenza. Il Living World coordina cronologia, identità e conseguenze persistenti. Ogni partita, risultato, classifica e trofeo ha una sola fonte autorevole; non creare simulatori o callback duplicati.
 - Le coppe offscreen ancora non riusabili durante la disoccupazione vanno dichiarate PENDENTI fino a integrazione verificata. Non eliminare il recupero OG finché i suoi eventi storici non sono riproducibili senza perdite.
 - Scorciatoie di risultato immediato sono solo debug: devono completare il percorso della partita originale e non toccare fisica/controlli normali.
+
+
+### 12/11/2026 — prima offerta e copertura del test reale (decisioni)
+- Prima offerta da disoccupato: un paese deve avere almeno 4 divisioni popolate nel mondo realmente schedulato, anche distribuite tra due file TEAM, e il club proviene dalla divisione piu' bassa disponibile (quando ci sono 8 divisioni si usa l'ottava). Il filtro sulle squadre in difficolta' si applica dopo aver verificato la classifica.
+- Il BAT principale deve includere la prova 70 stagioni con i club domestici dei cataloghi reali e deve dichiarare separatamente nazionali, pool giocatori, squadre coppa ed eventuali funzionalita' non coperte. Nessun test diventa PASS se manca o fallisce una asserzione.

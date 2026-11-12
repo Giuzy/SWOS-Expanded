@@ -64,6 +64,22 @@ static void round_trip(unsigned week,unsigned *count,size_t *max_bytes) {
     free(old.ptr);free(newer.ptr);
     ++*count;
 }
+/* One chronological fixture list: no overdue games and no duplicate
+ * result accounting even after a .CAR round-trip or 70 season rollovers. */
+static void check_calendar(void) {
+    ExpandedLiveCalendarState state;
+    assert(ExpandedWorldLive_CalendarState(&state));
+    assert(state.overdue==0u);
+    assert(state.pending+ExpandedWorldLive_ResidentResults()==
+           ExpandedWorldLive_Fixtures());
+    if (state.has_next) {
+        int32_t today=0,next=0;
+        assert(ExpandedWorld_DateToIndex(state.today,&today));
+        assert(ExpandedWorld_DateToIndex(state.next_date,&next));
+        assert(next>=today);
+        assert(state.next_matches>0u);
+    } else assert(state.pending==0u);
+}
 int main(void) {
     const clock_t begin=clock();
     const unsigned leagues=11u,clubs=216u,years=70u,weeks=3679u;
@@ -89,6 +105,7 @@ int main(void) {
     assert(ExpandedWorldLive_Leagues()==leagues);
     assert(ExpandedWorldLive_Seal());
     assert(ExpandedWorldLive_Fixtures()==8080u);
+    check_calendar();
     /* Four of the source OG leagues start in May. Their completed
      * May/June games MUST already be present on the manager's first
      * July 1 day: otherwise archiving the first season will stall. */
@@ -109,7 +126,32 @@ int main(void) {
         assert(ExpandedWorldLive_ArchivedResults()==
                (unsigned)(ExpandedWorldLive_WindowFirstYear()-1996u)*4040u);
         last_results=ExpandedWorldLive_Results();
+        /* Sept 1996: mid-week advance + snapshot without losing date,
+         * followed by the next ordinary weekly tick. */
+        if (week==11u) {
+            ExpandedWorldDate start={1996u,7u,1u},midweek,back;
+            int32_t day=0;
+            assert(ExpandedWorld_DateAfterWeeks(start,week,&midweek));
+            assert(ExpandedWorld_DateToIndex(midweek,&day));
+            assert(ExpandedWorld_IndexToDate(day+3,&midweek));
+            assert(ExpandedWorldLive_AdvanceToDate(midweek));
+            assert(ExpandedWorldLive_Weeks()==week);
+            check_calendar();
+            TestBuffer before=snapshot();
+            assert(before.ptr);
+            ExpandedWorldLive_End();
+            assert(ExpandedWorldLive_ReadJson(before.ptr,(int)before.len));
+            TestBuffer after=snapshot();
+            assert(after.ptr && before.len==after.len &&
+                   memcmp(before.ptr,after.ptr,before.len)==0);
+            free(before.ptr);free(after.ptr);
+            check_calendar();
+            assert(ExpandedWorld_DateAfterWeeks(start,week-1u,&back));
+            assert(!ExpandedWorldLive_AdvanceToDate(back));
+            puts("MIDWEEK_EVENT_SAVE_RELOAD=PASS");
+        }
         if(week%260u==0u || week==weeks) {
+            check_calendar();
             round_trip(week,&checkpoints,&max_snapshot);
             printf("CHECK week=%u window=%u resident=%lu archived_leagues=%lu "
                    "archived_games=%lu total_results=%lu max_save=%lu bytes\n",
@@ -148,6 +190,7 @@ int main(void) {
            checkpoints,(unsigned long)max_snapshot);
     printf("WORLD_RAM_MB=%.2f CPU_SECONDS=%.2f\n",
            (double)ExpandedWorldLive_MemoryBytes()/1048576.0,elapsed);
+    puts("WORLD_EVENT_CURSOR=PASS");
     puts("STRESS_RESULT=PASS");
     ExpandedWorldLive_End();
     return 0;

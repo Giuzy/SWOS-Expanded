@@ -519,3 +519,9 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - [DA COMPLETARE] Differenti cronologie OG/Expanded e bridge calendario nativo, eventi infrasettimanali, coppe persistenti e carriera mondo ancora da unificare e validare. Non chiamare la singola inizializzazione un motore unificato completato.
 - [PARAMETRI] Forma individuale, chairman e coach AI e tutti i valori iniziali rinviati alla penultima fase progettuale approvata.
 - [TEST] Verifiche statiche; build Windows e test manager reali pendenti.
+
+### 0.13.26 — single civil-day advancement and world league event diagnostics (12 November 2026)
+- One `ExpandedWorldLive_AdvanceToDate` advances league fixtures and preseason through the existing world ledger; weekly and OG season-boundary callers share it. July 1 does not round into a future week. No new calendar generator, .CAR fields, competition handlers, or 50 Hz match changes.
+- F12 shows WORLD CLOCK, NEXT LEAGUE EVENT and pending/overdue fixture counters. A real-time status query checks result counts without altering state.
+- 70-season stress harness adds a midweek advance, save/load round-trip, backwards-time rejection and calendar audit checkpoints. Windows/MSYS2 compilation and gameplay verification pending.
+- The original OG cup/knockout events and native career fixture callbacks remain active. Full calendar/event unification is still open and must be proven, not assumed.

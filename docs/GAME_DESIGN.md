@@ -71,7 +71,7 @@
 
 ### 4.1 Presidenti
 
-**[APPROVATO IN DISCUSSIONE 09/11/2026]** Ogni club ha un **chairman/presidente con nome ed età**. L'età cambia con le stagioni e consente il pensionamento/ritiro. Quando un chairman si ritira, il motore genera o assegna **automaticamente un sostituto nello stesso club**. Età limite e distribuzione delle età restano da scegliere; non introdurre altri campi anagrafici non richiesti come prerequisito.
+**[APPROVATO 09/11/2026; RICONFERMATO 12/11/2026]** Ogni club ha un **chairman/presidente con nome ed età**. L'età cambia con le stagioni e consente il pensionamento/ritiro. Quando un chairman si ritira, il motore genera o assegna **automaticamente un sostituto nello stesso club**. Età limite e distribuzione delle età restano da scegliere; non introdurre altri campi anagrafici non richiesti come prerequisito.
 
 **[APPROVATO]** Il nome e l'età del chairman devono apparire nella schermata di **trattativa/CLUB OFFER** e in **WELCOME**: l'utente tratta con lui e viene accolto da lui. Il cambio presidente può avere effetti su aspettative/giudizio del Board, ma le formule non sono ancora approvate.
 

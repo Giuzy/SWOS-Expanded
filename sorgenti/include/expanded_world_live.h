@@ -1,6 +1,7 @@
 #ifndef EXPANDED_WORLD_LIVE_H
 #define EXPANDED_WORLD_LIVE_H
 #include "swos_types.h"
+#include "expanded_world_time.h"
 /* World competition ledger: real club IDs and original native SWOS
  * league fixture tables/month phases. Native career replays the same
  * results into the original standings/bookkeeping routines.
@@ -18,6 +19,20 @@ typedef struct ExpandedLiveRow {
     uint16_t played, wins, drawn, lost, scored, conceded;
     int32_t points;
 } ExpandedLiveRow;
+/* One chronological world clock and one source of league events.
+ * No new saved fields: the snapshot already persists s_ledger.now.
+ * next_* is the first unplayed native-table fixture, not an OG cup event. */
+typedef struct ExpandedLiveCalendarState {
+    ExpandedWorldDate today, next_date;
+    uint16_t next_home, next_away;
+    uint32_t pending, overdue, next_matches;
+    uint8_t has_next;
+} ExpandedLiveCalendarState;
+/* Daily API also handles mid-week dates; the weekly entry point is a wrapper.
+ * Neither entry point changes original 50 Hz match ticks or OG cup handlers. */
+int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate date);
+/* Read-only audit/status. A non-zero overdue count indicates missing processing. */
+int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *out);
 int ExpandedWorldLive_Begin(uint16_t start_year);
 int ExpandedWorldLive_AddClub(uint8_t country, uint8_t division,
                               uint16_t club, uint16_t rating,

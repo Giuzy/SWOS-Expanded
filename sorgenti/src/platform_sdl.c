@@ -2763,6 +2763,31 @@ static void draw_world_debug_overlay(void)
     snprintf(line,sizeof line,"PLAYER SLOTS %lu (16 PER CLUB)",
              (unsigned long)ExpandedWorldLive_PlayerSlots());
     DEBUG_LINE(line);
+    /* Live view of the one league-event ledger. No title/menu art changes.
+     * Compare date and pending count before/after FORWARD TIME; OVERDUE
+     * must remain 0 even across a native career hire or a reload. */
+    {
+        ExpandedLiveCalendarState cal;
+        if (ExpandedWorldLive_CalendarState(&cal)) {
+            snprintf(line,sizeof line,"WORLD CLOCK %04u-%02u-%02u WEEK %lu",
+                     (unsigned)cal.today.year,(unsigned)cal.today.month,
+                     (unsigned)cal.today.day,
+                     (unsigned long)ExpandedWorldLive_Weeks());
+            DEBUG_LINE(line);
+            if (cal.has_next) {
+                snprintf(line,sizeof line,
+                         "NEXT LEAGUE EVENT %04u-%02u-%02u GAMES %lu",
+                         (unsigned)cal.next_date.year,
+                         (unsigned)cal.next_date.month,
+                         (unsigned)cal.next_date.day,
+                         (unsigned long)cal.next_matches);
+                DEBUG_LINE(line);
+            } else DEBUG_LINE("NEXT LEAGUE EVENT NONE");
+            snprintf(line,sizeof line,"PENDING %lu OVERDUE %lu",
+                     (unsigned long)cal.pending,(unsigned long)cal.overdue);
+            DEBUG_LINE(line);
+        } else DEBUG_LINE("WORLD EVENT CLOCK INACTIVE/INVALID");
+    }
     DEBUG_LINE("MANAGER ENTITIES NOT MODELED");
     DEBUG_LINE("CHAIRMAN ENTITIES NOT MODELED");
     if (expanded_title_main_active()) {

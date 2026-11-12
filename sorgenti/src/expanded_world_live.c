@@ -548,10 +548,14 @@ static int live_complete_prestart(void) {
                 (unsigned long)completed,(unsigned)s_first_year);
     return 1;
 }
-int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks) {
-    uint64_t d=(uint64_t)(uint32_t)s_initial_day+(uint64_t)weeks*7u;
-    if (!s_live || d>INT32_MAX || weeks<s_weeks) return 0;
-    const int32_t target=(int32_t)d;
+/* All world advances now pass through ONE exact civil-day cursor.
+ * OpenSWOS weekly menus call AdvanceWeeks; native season transitions call
+ * AdvanceToSeason; future in-week events can use AdvanceToDate directly.
+ * The stored .CAR schema is unchanged (day-index + elapsed full weeks). */
+int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate date) {
+    int32_t target=0;
+    if (!s_live || !ExpandedWorld_DateToIndex(date,&target) ||
+        target<s_initial_day || target<s_ledger.now) return 0;
     while ((unsigned)s_window_first_year+2u<=2199u) {
         const uint16_t newest=(uint16_t)(s_window_first_year+2u);
         ExpandedWorldDate boundary={newest,1u,1u};
@@ -569,21 +573,29 @@ int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks) {
     int32_t old=s_ledger.now;
     if (!ExpandedWorldLedger_Advance(&s_ledger,target,resolve_game,NULL)) return 0;
     preseason_advance(old,target);
-    s_weeks=weeks;
+    /* Full weeks elapsed, never a rounded-up fictional event date. */
+    s_weeks=(uint32_t)(target-s_initial_day)/7u;
     return 1;
 }
-/* Synchronize the live world at an original OpenSWOS season boundary.
- * Do not rewrite the OG competition clock; the published annual calendar
- * remains the same source that produced the original match table. */
+int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks) {
+    uint64_t d=(uint64_t)(uint32_t)s_initial_day+(uint64_t)weeks*7u;
+    ExpandedWorldDate date;
+    if (!s_live || d>INT32_MAX || weeks<s_weeks) return 0;
+    /* A mid-week event may have advanced the clock past this week's
+     * weekly boundary. Repeating that same week must not rewind time. */
+    if ((int32_t)d<s_ledger.now) return weeks==s_weeks;
+    return ExpandedWorld_IndexToDate((int32_t)d,&date) &&
+           ExpandedWorldLive_AdvanceToDate(date);
+}
+/* Native season boundary must be July 1, not rounded forward to an
+ * arbitrary weekly tick (up to six days of premature results). */
 int ExpandedWorldLive_AdvanceToSeason(uint16_t season_year) {
     if (!s_live || season_year<s_first_year || season_year>2199u) return 0;
-    ExpandedWorldDate target_date={season_year,7u,1u};
-    int32_t date=0;
-    if (!ExpandedWorld_DateToIndex(target_date,&date) ||
-        date<s_initial_day) return 0;
-    uint32_t week=(uint32_t)(date-s_initial_day+6)/7u;
-    if (week<s_weeks) return 1;
-    return ExpandedWorldLive_AdvanceWeeks(week);
+    ExpandedWorldDate date={season_year,7u,1u};
+    int32_t target=0;
+    if (!ExpandedWorld_DateToIndex(date,&target) || target<s_initial_day) return 0;
+    if (target<s_ledger.now) return 1; /* already at or past OG boundary */
+    return ExpandedWorldLive_AdvanceToDate(date);
 }
 /* Read a played score from the canonical world ledger without modifying
  * it or consuming a native replay token. Called by the native league state
@@ -733,6 +745,33 @@ int ExpandedWorldLive_HistoryChampion(uint16_t year,uint8_t country,
         }
     }
     return 0;
+}
+/* Read the SAME sorted resident event ledger used by the match resolver.
+ * This does not schedule a second set of games or mutate a competition. */
+int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *out) {
+    uint32_t played=0;
+    int32_t next_day=0;
+    if (!out || !s_live || !s_fixtures) return 0;
+    memset(out,0,sizeof *out);
+    if (!ExpandedWorld_IndexToDate(s_ledger.now,&out->today)) return 0;
+    for (uint32_t i=0;i<s_ledger.count;++i) {
+        const ExpandedWorldFixture *f=&s_fixtures[i];
+        if (f->played) { ++played; continue; }
+        ++out->pending;
+        if (f->day<s_ledger.now) ++out->overdue;
+        if (!out->has_next) {
+            next_day=f->day;
+            out->next_home=f->home;
+            out->next_away=f->away;
+            out->has_next=1u;
+        }
+        if (f->day==next_day) ++out->next_matches;
+    }
+    if (played!=s_ledger.played ||
+        played+out->pending!=s_ledger.count) return 0;
+    if (out->has_next &&
+        !ExpandedWorld_IndexToDate(next_day,&out->next_date)) return 0;
+    return 1;
 }
 uint32_t ExpandedWorldLive_Fixtures(void) { return s_live?s_ledger.count:0; }
 uint32_t ExpandedWorldLive_PlayerSlots(void) { return s_live?s_club_count*16u:0; }
@@ -1442,6 +1481,8 @@ int ExpandedWorldLive_NativeOrder(const uint16_t *ids,uint32_t n,uint8_t *order)
 }
 uint32_t ExpandedWorldLive_NativeOrderApplied(void) {return 0;}
 uint32_t ExpandedWorldLive_NativeScheduleLeagues(void) {return 0;}
+int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate d) {(void)d;return 0;}
+int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *s) {(void)s;return 0;}
 int ExpandedWorldLive_AdvanceWeeks(uint32_t w) {(void)w;return 0;}
 int ExpandedWorldLive_AdvanceToSeason(uint16_t y) {(void)y;return 0;}
 int ExpandedWorldLive_Table(uint8_t c,uint8_t d,ExpandedLiveRow *r,

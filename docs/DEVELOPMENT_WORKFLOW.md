@@ -259,3 +259,9 @@ La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo ver
 3. Da Title con autosave già presente, apri F12, premi N: appare il form NEW CAREER. Premi BACK prima di START e assicurati che CONTINUE ricarichi la vecchia carriera. Ripeti creando una nuova carriera: il nuovo AUTOSAVE.CAR deve sostituire il precedente soltanto dopo un primo salvataggio riuscito.
 4. F12+N non deve avere effetto durante una partita o un menu diverso dal Title. I pulsanti Title, controller e scelta CLASSIC MODES restano invariati.
 5. Controllo prestazioni manuali: confrontare F12 disattivo, stessa risoluzione, stesso VSync e medesima squadra, osservando se il rallentamento è in campo o soltanto subito dopo la fine. Invio SWOS.log in caso di problema. Nessun test Windows eseguito qui.
+
+## 0.13.26 — verifica cronologia eventi (Windows)
+1. Dopo pull e compilazione eseguire `TEST_LIVING_WORLD.bat`: nel `LIVING_WORLD_70_TEST.log` cercare `MIDWEEK_EVENT_SAVE_RELOAD=PASS`, `WORLD_EVENT_CURSOR=PASS` e `STRESS_RESULT=PASS`. In assenza di uno dei tre, riportare il log e non considerare il test superato.
+2. In NEW CAREER -> UNEMPLOYED attivare F12: leggere WORLD CLOCK (data), NEXT LEAGUE EVENT (data/numero partite) e PENDING/OVERDUE. FORWARD TIME deve avanzare la data senza tornare indietro; OVERDUE deve restare 0.
+3. Firmare un'offerta, salvare, tornare al Title, ricaricare. Con F12 verificare che la data mondiale e PENDING/OVERDUE persistano. Controllare la classifica prima/dopo e giocare un incontro manuale; la fisica a 50 Hz e il calendario OG delle coppe devono restare invariati.
+4. Il debug controlla *solo gli eventi di lega del ledger*: non equivale a certificare cronologia condivisa per coppe e competizioni. Non dichiarare completa l'unificazione globale finche' non c'e' un test end-to-end specifico.

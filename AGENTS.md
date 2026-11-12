@@ -500,3 +500,6 @@ registro mondiale condiviso, non sostituendoli con un motore parallelo.
 ### 12/11/2026 — prima offerta e copertura del test reale (decisioni)
 - Prima offerta da disoccupato: un paese deve avere almeno 4 divisioni popolate nel mondo realmente schedulato, anche distribuite tra due file TEAM, e il club proviene dalla divisione piu' bassa disponibile (quando ci sono 8 divisioni si usa l'ottava). Il filtro sulle squadre in difficolta' si applica dopo aver verificato la classifica.
 - Il BAT principale deve includere la prova 70 stagioni con i club domestici dei cataloghi reali e deve dichiarare separatamente nazionali, pool giocatori, squadre coppa ed eventuali funzionalita' non coperte. Nessun test diventa PASS se manca o fallisce una asserzione.
+
+### 12/11/2026 — non modificare competizioni DIY standalone
+- Le funzioni originali DIY (competizioni impostate liberamente), PRESET e CLASSIC MODES restano autonome e non devono scrivere nei registri/salvataggi Living World della carriera. Le funzioni C condivise possono rimanere comuni, ma gli hook Expanded devono operare solo con _gameType == GAME_TYPE_CAREER (4). Il flag _internationalAutoAdvanceFlag da solo non prova che si tratti di carriera.

@@ -11460,11 +11460,11 @@ uint16_t DIY_PlayCupMatchAndAdvance(int16_t allowSquadChanges, int16_t mode) {
 #ifdef SWOS_SDL_BUILD
     /* Cup bracket remains OG-authored. Persist the REAL completed result
      * into the same world clock/save, before the round changes its phase. */
-    /* Register only completed original native cup results. The original
-     * career mode and native offscreen international auto-advance share
-     * the SAME DIY finalization, never a second Expanded bracket. */
-    if (ExpandedWorldLive_Clubs() &&
-        (_gameType == 4 || _internationalAutoAdvanceFlag != 0)) {
+    /* This DIY finalization is shared with the standalone/preset modes.
+     * Its SWOS bracket, replay and match logic must remain unchanged.
+     * Only CAREER (gameType=4) may publish outcomes into the Living World
+     * career journal: the auto-advance flag alone is NOT a mode guard. */
+    if (_gameType == 4 && ExpandedWorldLive_Clubs()) {
         extern uint16_t _currentSeasonShowing;
         const uint16_t home=(uint16_t)(
             ((uint16_t)team1->team.countryNumber<<8)|team1->team.teamOrdinal);
@@ -11638,8 +11638,9 @@ final_or_groups:
          * downstream comparisons expect. */
         baseS->resultCode = (int16_t)BE_READ_U16(&a3Ex->cupTeamIds[slotWord]);
 #ifdef SWOS_SDL_BUILD
-        if (ExpandedWorldLive_Clubs() &&
-            (_gameType==4 || _internationalAutoAdvanceFlag != 0)) {
+        /* Same career-only guard for the champion. Standalone DIY cups
+         * continue through their original SWOS code, without journal I/O. */
+        if (_gameType==4 && ExpandedWorldLive_Clubs()) {
             extern uint16_t _currentSeasonShowing;
             if(!ExpandedWorldLive_RecordNativeCupChampion(
                    (uint16_t)(World_FirstYear()+_currentSeasonShowing),

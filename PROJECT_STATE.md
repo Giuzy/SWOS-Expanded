@@ -724,3 +724,8 @@ non eseguiti dall'assistente. Non dichiarare build Windows collaudata.
 - [DATI REALI] TEST_LIVING_WORLD.bat usa il medesimo runner per cataloghi JSON reali dei campionati per 70 stagioni; nazionali, pool giocatori e cataloghi di iscritti alle coppe vengono inventariati separatamente come NON applicabili a un campionato. Totali effettivamente processati visibili. Marcatori distinti da coppe OG ancora non collaudate in-game.
 - [BAT] Riepilogo confronta le righe intere lette da FOR/F e non fa piu' apparire un DB_INVENTORY=PASS come FAIL per il problema findstr /X in Windows. Rimane FAIL autentico se mancano marker o gli assert non passano.
 - [VERIFICHE] Lettura codice, test di coerenza statici e ricognizione dati JSON su GitHub. Non eseguiti MSYS2/GCC e build Windows dall'assistente; collaudo Windows richiesto all'utente.
+
+### 12/11/2026 — isolamento competizioni DIY / carriera
+- [REGOLA] Le funzioni DIY OpenSWOS sono condivise fra competizioni liberamente create e carriera: preservare le prime integre e fuori da ledger, salvataggi e simulazione Living World. Non separare riscrivendo il motore OG: isolare solamente gli hook Expanded con il tipo partita GAME_TYPE_CAREER (4).
+- [FIX 0.13.33_01] I due hook di registrazione risultati/vincitori in DIY_PlayCupMatchAndAdvance sono guardati da _gameType==4 e dalla presenza di club Living World; il solo _internationalAutoAdvanceFlag non puo' attivarli fuori carriera.
+- [LIMITI] Verifica statica della separazione; test Windows di coppa carriera e DIY autonomo ancora pendenti.

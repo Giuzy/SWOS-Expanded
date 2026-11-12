@@ -12048,12 +12048,27 @@ int DIY_WorldDirectImportLeague(uint8_t cutoff) {
     const uint16_t managed=PACK_BE_U16(_careerTeam.team.countryNumber,
                                        _careerTeam.team.teamOrdinal);
     /* The special split, group and one-leg paths must remain OG. */
-    if (comp->base.hasGroups || comp->base.playEachTeam!=2 ||
-        teams<4u || teams>24u || (teams&1u) ||
-        comp->base.matchPairsPerRound!=1 ||
-        comp->matchesPlayedCount!=0 || comp->leagueTotalMatches==0 ||
-        comp->minSubstitutes!=2 || comp->base.subRoundCounter!=0)
-        goto fail;
+    /* Exact diagnosis for every unsupported native import format.
+     * A rejected OG state must not be silently turned into an empty table
+     * or a fabricated world result. */
+    if(comp->base.hasGroups) {
+        s_direct_import_status="OG GROUPS/SPLIT UNSUPPORTED";goto fail;
+    }
+    if(comp->base.playEachTeam!=2) {
+        s_direct_import_status="OG NON-DOUBLE ROUND";goto fail;
+    }
+    if(teams<4u || teams>24u || (teams&1u)) {
+        s_direct_import_status="OG TEAM COUNT UNSUPPORTED";goto fail;
+    }
+    if(comp->base.matchPairsPerRound!=1) {
+        s_direct_import_status="OG MATCH PAIRS DIFFER";goto fail;
+    }
+    if(comp->matchesPlayedCount!=0 || comp->leagueTotalMatches==0) {
+        s_direct_import_status="OG LEAGUE STATE NOT FRESH";goto fail;
+    }
+    if(comp->minSubstitutes!=2 || comp->base.subRoundCounter!=0) {
+        s_direct_import_status="OG LEAGUE ROUND STATE";goto fail;
+    }
 
     const unsigned maxGames=teams*(teams-1u);
     unsigned completed=0;

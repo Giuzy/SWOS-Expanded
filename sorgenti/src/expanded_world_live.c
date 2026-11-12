@@ -278,6 +278,16 @@ uint32_t ExpandedWorldLive_NativeOrderApplied(void) {
 uint32_t ExpandedWorldLive_NativeScheduleLeagues(void) {
     return s_native_schedule_leagues;
 }
+int ExpandedWorldLive_DivisionStatus(uint32_t index,
+                    uint8_t *country,uint8_t *division,
+                    uint8_t *clubs,uint8_t *scheduled) {
+    if(index>=s_league_count || !country || !division ||
+       !clubs || !scheduled) return 0;
+    const LiveLeague *league=&s_leagues[index];
+    *country=league->country;*division=league->division;
+    *clubs=league->count;*scheduled=league->native_schedule;
+    return 1;
+}
 
 static int fixture_compare(const void *aa, const void *bb) {
     const ExpandedWorldFixture *a=(const ExpandedWorldFixture *)aa;
@@ -1296,6 +1306,24 @@ int ExpandedWorldLive_RecordNativeCupChampion(uint16_t season,const char *name,
     ++s_cup_titles_count;
     return 1;
 }
+uint32_t ExpandedWorldLive_CupRecentEvents(ExpandedLiveCupDebugEvent *out,
+                                           uint32_t capacity) {
+    if (!out || !capacity || !s_live) return 0;
+    uint32_t n=s_cup_count<capacity?s_cup_count:capacity;
+    for(uint32_t i=0;i<n;++i) {
+        const LiveCupEvent *e=&s_cup_events[s_cup_count-1u-i];
+        ExpandedLiveCupDebugEvent *d=&out[i];
+        memset(d,0,sizeof(*d));
+        if(!ExpandedWorld_IndexToDate(e->day,&d->date)) return i;
+        d->competition_hash=e->competition_hash;
+        d->home=e->home;d->away=e->away;
+        d->kind=e->kind;d->slot=e->slot;
+        d->round=e->round;d->match=e->match;d->leg=e->leg;
+        d->goals_home=e->goals_home;d->goals_away=e->goals_away;
+        d->flags=e->flags;
+    }
+    return n;
+}
 uint32_t ExpandedWorldLive_CupHistoricalTitles(void) {
     return s_cup_titles_count;
 }
@@ -2279,6 +2307,12 @@ int ExpandedWorldLive_NativeOrder(const uint16_t *ids,uint32_t n,uint8_t *order)
 }
 uint32_t ExpandedWorldLive_NativeOrderApplied(void) {return 0;}
 uint32_t ExpandedWorldLive_NativeScheduleLeagues(void) {return 0;}
+int ExpandedWorldLive_DivisionStatus(uint32_t index,
+                    uint8_t *country,uint8_t *division,
+                    uint8_t *clubs,uint8_t *scheduled) {
+    (void)index;(void)country;(void)division;(void)clubs;(void)scheduled;
+    return 0;
+}
 int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate d) {(void)d;return 0;}
 int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *s) {(void)s;return 0;}
 int ExpandedWorldLive_AdvanceWeeks(uint32_t w) {(void)w;return 0;}
@@ -2328,6 +2362,10 @@ uint32_t ExpandedWorldLive_CupResidentMatches(void) {return 0;}
 uint32_t ExpandedWorldLive_CupResidentTitles(void) {return 0;}
 uint32_t ExpandedWorldLive_CupArchivedMatches(void) {return 0;}
 uint32_t ExpandedWorldLive_CupArchivedTitles(void) {return 0;}
+uint32_t ExpandedWorldLive_CupRecentEvents(ExpandedLiveCupDebugEvent *out,
+                                           uint32_t capacity) {
+    (void)out;(void)capacity;return 0;
+}
 uint32_t ExpandedWorldLive_CupHistoricalTitles(void) {return 0;}
 int ExpandedWorldLive_CupHistoryChampion(uint16_t season,const char *name,
                                           uint8_t slot,uint16_t *winner) {

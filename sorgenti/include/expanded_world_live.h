@@ -51,6 +51,17 @@ uint32_t ExpandedWorldLive_CupArchivedMatches(void);
 uint32_t ExpandedWorldLive_CupArchivedTitles(void);
 /* Permanent original OG cup champions, across two-year fixture rollovers.
  * Return false for years absent from old snapshots; never invent winners. */
+/* Read-only evidence for F12: OG-observed results, NOT evidence that
+ * unattended world cups have been simulated. Archived old matches keep
+ * totals only; neither competition names nor scores are invented. */
+typedef struct ExpandedLiveCupDebugEvent {
+    ExpandedWorldDate date;
+    uint32_t competition_hash;
+    uint16_t home,away;
+    uint8_t kind,slot,round,match,leg,goals_home,goals_away,flags;
+} ExpandedLiveCupDebugEvent;
+uint32_t ExpandedWorldLive_CupRecentEvents(ExpandedLiveCupDebugEvent *out,
+                                           uint32_t capacity);
 uint32_t ExpandedWorldLive_CupHistoricalTitles(void);
 int ExpandedWorldLive_CupHistoryChampion(uint16_t season,const char *name,
                                           uint8_t slot,uint16_t *winner);
@@ -81,6 +92,10 @@ int ExpandedWorldLive_NativeOrder(const uint16_t *native_ids,uint32_t count,
                                   uint8_t *out_order);
 uint32_t ExpandedWorldLive_NativeOrderApplied(void);
 uint32_t ExpandedWorldLive_NativeScheduleLeagues(void);
+/* Auditable status of every JSON/native imported league group. */
+int ExpandedWorldLive_DivisionStatus(uint32_t index,
+                    uint8_t *country,uint8_t *division,
+                    uint8_t *clubs,uint8_t *scheduled);
 int ExpandedWorldLive_Seal(void);
 int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks);
 /* Anchor a stable native OpenSWOS career season to the same world clock.

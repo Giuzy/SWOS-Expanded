@@ -81,7 +81,7 @@ static int test_country_file(const char *path,
         fprintf(stderr,"[real-json] cannot initialize world for %s\n",path);
         free(json);return 0;
     }
-    unsigned accepted=0,not_league=0;
+    unsigned accepted=0,not_league=0,singletons=0;
     int ok=1;
     for(unsigned i=0;i<(unsigned)count;++i) {
         long country=0,ordinal=0,division=0;
@@ -114,17 +114,42 @@ static int test_country_file(const char *path,
     free(json);
     if(ok && accepted) {
         unsigned n=(unsigned)ExpandedWorldLive_Leagues();
-        if(!ExpandedWorldLive_Seal() ||
+        unsigned scheduled=0;
+        if(!ExpandedWorldLive_Seal()) {
+            fprintf(stderr,"[real-json] unable to seal %s\n",path);
+            ok=0;
+        }
+        /* Count native SCHEDULED divisions, not every league tag.
+         * Singleton groups are real source data but have no fixtures:
+         * print each one, don't fabricate a 70-year league.
+         * Any unscheduled group with >=2 teams remains a hard failure. */
+        for(unsigned d=0;ok && d<n;++d) {
+            uint8_t country=0,division=0,clubsIn=0,active=0;
+            if(!ExpandedWorldLive_DivisionStatus(d,&country,&division,
+                                                  &clubsIn,&active)) {
+                ok=0;break;
+            }
+            if(active) {++scheduled;continue;}
+            fprintf(stderr,"[real-json] UNSCHEDULED division file=%s "
+                           "country=%u div=%u clubs=%u reason=%s\n",
+                    path,(unsigned)country,(unsigned)division,
+                    (unsigned)clubsIn,
+                    clubsIn==1u?"SINGLETON_NO_FIXTURE":"UNSUPPORTED_NATIVE");
+            if(clubsIn!=1u) ok=0;
+            else {++not_league;++singletons;}
+        }
+        if(ok && (!scheduled ||
            !ExpandedWorldLive_AdvanceWeeks(3679u) ||
-           ExpandedWorldLive_ArchivedLeagues()!=(uint32_t)(n*70u)) {
+           ExpandedWorldLive_ArchivedLeagues()!=(uint32_t)(scheduled*70u))) {
             fprintf(stderr,"[real-json] incomplete 70 seasons: %s "
-                    "leagues=%u archived=%lu\n",path,n,
+                    "scheduled=%u total_groups=%u archived=%lu\n",
+                    path,scheduled,n,
                     (unsigned long)ExpandedWorldLive_ArchivedLeagues());
             ok=0;
         } else {
-            *clubs+=accepted;
-            *leagues+=n;
-            *club_seasons+=(unsigned long long)accepted*70u;
+            *clubs+=accepted-singletons;
+            *leagues+=scheduled;
+            *club_seasons+=(unsigned long long)(accepted-singletons)*70u;
         }
     }
     if(ok) {
@@ -132,7 +157,8 @@ static int test_country_file(const char *path,
         printf("[real-json] %s imported=%u nonleague=%u "
                "scheduled_leagues=%lu seasons=%u\n",
                path,accepted,not_league,
-               (unsigned long)ExpandedWorldLive_Leagues(),accepted?70u:0u);
+               (unsigned long)ExpandedWorldLive_NativeScheduleLeagues(),
+               accepted?70u:0u);
     }
     ExpandedWorldLive_End();
     return ok;
@@ -175,6 +201,7 @@ int main(int argc,char **argv) {
            files,clubs,leagues,excluded,club_seasons,failures);
     printf("REAL_JSON_NONDOMESTIC_CATALOGS=%u RECORDS=%u\n",
            other_catalogs,other_records);
+    puts("REAL_JSON_SINGLETON_DIVISIONS=REPORTED_NOT_SIMULATED");
     puts("REAL_JSON_NATIVE_COMPETITION_RULES=NOT_TESTED");
     puts("REAL_JSON_OG_CUPS=NOT_TESTED");
     puts("REAL_JSON_ALL_COMPETITIONS=NOT_IMPLEMENTED");

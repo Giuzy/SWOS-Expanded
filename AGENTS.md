@@ -503,3 +503,8 @@ registro mondiale condiviso, non sostituendoli con un motore parallelo.
 
 ### 12/11/2026 — non modificare competizioni DIY standalone
 - Le funzioni originali DIY (competizioni impostate liberamente), PRESET e CLASSIC MODES restano autonome e non devono scrivere nei registri/salvataggi Living World della carriera. Le funzioni C condivise possono rimanere comuni, ma gli hook Expanded devono operare solo con _gameType == GAME_TYPE_CAREER (4). Il flag _internationalAutoAdvanceFlag da solo non prova che si tratti di carriera.
+
+
+### 13/11/2026 — carriera nazionale e idee segrete
+- [DECISIONE CONFERMATA] Un allenatore può avere un SOLO contratto alla volta: CLUB oppure NAZIONALE. Escludere la contemporaneita'. Le offerte delle nazionali crescono con Fame, reputazione e trofei, da paesi piccoli fino a Brasile e altre grandi per allenatori Legend; rendimento della selezione, contratto, rinnovo, trattativa ed esonero seguono la struttura carriera, ma l'approvazione e' della FEDERAZIONE (non del board del club). Soglie numeriche Fame da decidere nella fase dati; non implementare valori arbitrari.
+- [IDEA NON APPROVATA COME GAMEPLAY] Livelli segreti: allenatore oltre Legend al raggiungimento di un numero/tipo di trofei da definire, possibile livello stadio 6 "Maracana" da 120.000 posti con condizioni da definire, ed Easter egg. Non modificare rating, stadi, texture, capienze o effetti prima della scelta utente su nomi/soglie/condizioni.

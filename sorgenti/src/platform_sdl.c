@@ -456,6 +456,8 @@ static volatile Uint32 s_last_main_render_ms;
 static volatile int s_screenshot_request;
 /* F12 text diagnostic + F9 capture of final presented pixels. */
 static volatile int s_world_debug_visible;
+/* F12+C switches to read-only OG cup evidence. Never alters DIY/OG state. */
+static volatile int s_world_debug_cup_page;
 /* Debug-only fast real match: every original game frame runs normally at
  * four times the wall-clock rate. No result teleport or changed physics. */
 static volatile int s_debug_match_fast;
@@ -2139,6 +2141,10 @@ static void pump_events_any_thread(void)
             }
             if (ev.key.repeat == 0 && s_world_debug_visible) {
                 SDL_Keycode code = ev.key.keysym.sym;
+                if (code == SDLK_c) {
+                    s_world_debug_cup_page=!s_world_debug_cup_page;
+                    continue;
+                }
                 if (code == SDLK_n && expanded_title_main_active()) {
                     extern void Expanded_TitleMenu_QueueNewCareerDebug(void);
                     Expanded_TitleMenu_QueueNewCareerDebug();
@@ -2786,6 +2792,59 @@ static void draw_world_debug_overlay(void)
     SDL_RenderDrawRect(s_renderer,&left);
     SDL_RenderDrawRect(s_renderer,&right);
 
+    if(s_world_debug_cup_page) {
+        ExpandedLiveCupDebugEvent events[24];
+        const uint32_t n=ExpandedWorldLive_CupRecentEvents(events,24u);
+        char cupLine[104];
+        splash_text_tinted(22,22,"WORLD COMPETITIONS INSPECTOR / OG JOURNAL",
+                           88,207,255);
+        splash_text_tinted(22,39,"F12+C LEAGUES  F9 PNG  F12 HIDE",
+                           226,236,245);
+        splash_text_tinted(22,55,"READ ONLY: OBSERVED OG RESULTS, NOT SIMULATED CUPS",
+                           255,196,90);
+        snprintf(cupLine,sizeof cupLine,
+                 "RESIDENT %lu MATCHES  %lu TITLES  ARCHIVED %lu/%lu",
+                 (unsigned long)ExpandedWorldLive_CupResidentMatches(),
+                 (unsigned long)ExpandedWorldLive_CupResidentTitles(),
+                 (unsigned long)ExpandedWorldLive_CupArchivedMatches(),
+                 (unsigned long)ExpandedWorldLive_CupArchivedTitles());
+        splash_text_tinted(22,72,cupLine,226,236,245);
+        if(!n)
+            splash_text_tinted(22,102,"NO OG CUP EVENTS RECORDED IN RESIDENT WORLD",
+                               255,196,90);
+        for(uint32_t i=0;i<n;++i) {
+            const ExpandedLiveCupDebugEvent *e=&events[i];
+            int dx=i<12u?22:493,dy=104+(int)(i%12u)*32;
+            snprintf(cupLine,sizeof cupLine,
+                     "%04u-%02u-%02u SLOT %u CUP-ID %08lX %s",
+                     (unsigned)e->date.year,(unsigned)e->date.month,
+                     (unsigned)e->date.day,(unsigned)e->slot,
+                     (unsigned long)e->competition_hash,
+                     e->kind==2u?"WINNER":"MATCH");
+            splash_text_tinted(dx,dy,cupLine,88,207,255);
+            if(e->kind==2u)
+                snprintf(cupLine,sizeof cupLine,
+                         "CHAMPION CLUB %04X (OG REPORTED)",
+                         (unsigned)e->home);
+            else
+                snprintf(cupLine,sizeof cupLine,
+                         "R%u GAME%u LEG%u %04X %u:%u %04X",
+                         (unsigned)e->round,(unsigned)e->match,
+                         (unsigned)e->leg,(unsigned)e->home,
+                         (unsigned)e->goals_home,(unsigned)e->goals_away,
+                         (unsigned)e->away);
+            splash_text_tinted(dx,dy+14,cupLine,226,236,245);
+        }
+        splash_text_tinted(22,497,
+             "NOT VERIFIED: OFFSCREEN WORLD CUP ADVANCEMENT / OG CALLBACKS",
+             255,196,90);
+        SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);
+        if (!oldw || !oldh) SDL_RenderSetScale(s_renderer,oldsx,oldsy);
+        SDL_RenderSetViewport(s_renderer,&oldvp);
+        SDL_SetRenderDrawBlendMode(s_renderer,oldblend);
+        return;
+    }
+
     extern volatile uintptr_t _currentMenuPtr;
     extern uint8_t *Expanded_UnemployedCalendarPointer(void);
     extern void Expanded_UnemployedDate(char *,size_t);
@@ -3049,7 +3108,7 @@ static void draw_world_debug_overlay(void)
               debug_match_factor()==4?"ON":"OFF");
     DEBUG_LINE(line);
     DEBUG_LINE("1 WIN 2 LOSE 4 DRAW / 6 END LIVE MATCH");
-    DEBUG_LINE("F9 PNG F12 HIDE");
+    DEBUG_LINE("F12+C CUPS  F9 PNG  F12 HIDE");
 #undef DEBUG_LINE
 #undef DEBUG_SECTION
 #undef DEBUG_GOOD

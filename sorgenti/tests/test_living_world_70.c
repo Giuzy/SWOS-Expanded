@@ -189,6 +189,15 @@ int main(void) {
                          "REGIONAL CUP",2u,58u,c1));
                 assert(ExpandedWorldLive_CupResidentMatches()==was+6u);
                 assert(ExpandedWorldLive_CupResidentTitles()==titles+2u);
+                /* The F12 inspector must expose REAL resident journal events.
+                 * Neither archived scores nor absent OG cups are fabricated. */
+                {
+                    ExpandedLiveCupDebugEvent seen[4];
+                    assert(ExpandedWorldLive_CupRecentEvents(seen,4u)==4u);
+                    assert(seen[0].kind==2u && seen[0].home==c1);
+                    assert(seen[0].date.year==y);
+                    assert(seen[1].kind==1u && seen[1].leg==2u);
+                }
                 /* OG replay/save/load must not change a recorded winner. */
                 assert(ExpandedWorldLive_RecordNativeCupChampion(y,
                          "NATIONAL CUP",1u,57u,c1));

@@ -99,9 +99,18 @@ int main(void) {
      * The world ledger stores that authoritative result and simulates the
      * remaining CPU fixtures through the same native calendar phase.
      * Recording a score again must never count another played fixture. */
-    assert(!ExpandedWorldLive_RecordNativeLeagueResult(0x0801,0x0805,60,2,1));
-    assert(ExpandedWorldLive_Results()==30);
+    /* Fasi OG 60/61: 16 e 20 agosto, NON settimane. La registrazione
+     * autorevole fa avanzare l'unico orologio e non duplica la gara. */
+    assert(ExpandedWorldLive_RecordNativeLeagueResult(0x0801,0x0805,60,2,1));
+    ExpandedLiveCalendarState native_date;
+    assert(ExpandedWorldLive_CalendarState(&native_date));
+    assert(native_date.today.year==2026 && native_date.today.month==8 &&
+           native_date.today.day==16);
+    const uint32_t result_count=ExpandedWorldLive_Results();
+    assert(result_count>=31u && result_count<=40u);
     assert(ExpandedWorldLive_RecordNativeLeagueResult(0x0801,0x0805,61,2,1));
+    assert(ExpandedWorldLive_CalendarState(&native_date));
+    assert(native_date.today.month==8 && native_date.today.day==20);
     assert(ExpandedWorldLive_Results()==40);
     assert(ExpandedWorldLive_RecordNativeLeagueResult(0x0801,0x0805,61,3,0));
     assert(ExpandedWorldLive_Results()==40);
@@ -184,8 +193,23 @@ int main(void) {
     }
     assert(ExpandedWorldLive_SetLeagueSchedule(21,0,32,64,2));
     assert(ExpandedWorldLive_Seal());
-    /* The first OG calendar starts before the July manager clock. */
+    /* The first OG calendar starts before the July manager clock.
+     * Its already-played May/June scores MUST be visible through the
+     * exact same native league lookup, not excluded by August dates. */
     assert(ExpandedWorldLive_Results()>0u);
+    unsigned may_fixtures_seen=0;
+    for(unsigned home=0;home<10u;++home)
+        for(unsigned away=0;away<10u;++away) {
+            uint8_t gh=0,ga=0;
+            if(home!=away &&
+               ExpandedWorldLive_PeekNativeLeagueResult(
+                   (uint16_t)(0x1500u+home),(uint16_t)(0x1500u+away),
+                   &gh,&ga)) {
+                assert(gh<=31u && ga<=31u);
+                ++may_fixtures_seen;
+            }
+        }
+    assert(may_fixtures_seen>0u);
     assert(ExpandedWorldLive_AdvanceWeeks(19));
     {
         const uint32_t saved_results=ExpandedWorldLive_Results();

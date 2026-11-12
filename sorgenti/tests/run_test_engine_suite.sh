@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # One entry point for the existing C stress, calendar and debug regressions
 # plus native disk-data inventory. No Python, no new compiler, no game save edits.
-set -euo pipefail
+set -uo pipefail
 cd "$(dirname "$0")/../.."
+failed_stages=0
 run_stage() {
   local label="$1" script="$2"
   printf '\n=======================================================\n'
@@ -12,7 +13,8 @@ run_stage() {
     printf '[PASS] %s\n' "$label"
   else
     printf '[FAIL] %s\n' "$label"
-    return 1
+    failed_stages=$((failed_stages+1))
+    return 0
   fi
 }
 run_stage "70 SEASONS / NATIVE FIXTURES / CUP JOURNAL" "sorgenti/tests/run_test_living_world_70.sh"
@@ -21,10 +23,15 @@ run_stage "MIDSEASON JOIN CALENDAR REGRESSIONS" "sorgenti/tests/run_test_expande
 run_stage "LIVING WORLD UNIT REGRESSIONS" "sorgenti/tests/run_test_expanded_world_live.sh"
 run_stage "DEBUG RESULTS / WORLD LEDGER REGRESSIONS" "sorgenti/tests/run_test_expanded_phase12.sh"
 run_stage "REAL INSTALLED DATABASE INVENTORY" "sorgenti/tests/run_test_database_inventory.sh"
+run_stage "REAL JSON TEAM CATALOGUE / 70 YEARS" "sorgenti/tests/run_test_real_json_world_70.sh"
 echo
+if (( failed_stages )); then
+  printf 'ENGINE_SUITE=FAIL STAGES=%u\n' "$failed_stages"
+  exit 1
+fi
 echo "ENGINE_UNIT_REGRESSIONS=PASS"
 echo "ENGINE_SUITE=PASS"
-echo "COVERAGE_WARNING=REAL_DB_NOT_70_SEASON_SIMULATED"
+echo "COVERAGE_WARNING=REAL_JSON_CLUBS_SIMULATED_NOT_FULL_NATIVE_COMPETITIONS"
 echo "MOBILITY_TEST_STATUS=NATIVE_AUTOMATIC_PLACES_TESTED"
 echo "MOBILITY_PLAYOFF_STATUS=PENDING_NATIVE_RESOLUTION"
 echo "OFFSCREEN_CUP_TEST_STATUS=NOT_IMPLEMENTED"

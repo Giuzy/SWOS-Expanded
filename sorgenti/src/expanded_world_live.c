@@ -933,15 +933,19 @@ int ExpandedWorldLive_AdvanceToSeason(uint16_t season_year) {
  * with several identical oriented ties are deliberately rejected. */
 static int native_fixture_index(uint16_t home,uint16_t away,
                                 uint16_t season,uint32_t *index) {
-    ExpandedWorldDate a={season,8u,1u},b={(uint16_t)(season+1u),8u,1u};
-    int32_t start=0,end=0;
     unsigned matches=0;
-    if(!index || !s_live || !s_fixtures ||
-       !ExpandedWorld_DateToIndex(a,&start) ||
-       !ExpandedWorld_DateToIndex(b,&end)) return 0;
+    if(!index || !s_live || !s_fixtures || season<s_window_first_year ||
+       (uint32_t)(season-s_window_first_year)>=LIVE_SEASONS ||
+       season<s_first_year) return 0;
+    /* OG competition seasons can begin in May BEFORE July, not always
+     * August. The fixture's original competition season slot is the
+     * authoritative identity, independent from a synthetic date window.
+     * Ambiguous oriented pairs still fail closed. */
+    const uint16_t slot=(uint16_t)(((unsigned)(season-s_first_year)&1u)*8192u);
     for(uint32_t i=0;i<s_ledger.count;++i) {
         const ExpandedWorldFixture *f=&s_fixtures[i];
-        if(f->home!=home || f->away!=away || f->day<start || f->day>=end)
+        if(f->home!=home || f->away!=away ||
+           f->competition<slot || f->competition>=(uint16_t)(slot+8192u))
             continue;
         *index=i;
         ++matches;
@@ -954,7 +958,9 @@ static int native_current_season(uint8_t phase,uint16_t *year,int32_t *day) {
     if(!year || !day || phase==255u ||
        !ExpandedWorld_NativePhaseToDate(base,phase,&date) ||
        !ExpandedWorld_DateToIndex(date,day)) return 0;
-    *year=(uint16_t)(date.year-(date.month<8u?1u:0u));
+    /* A phase is relative to its native competition season. May phases
+     * belong to the same starting year, not automatically the previous. */
+    *year=base;
     return *year>=s_window_first_year &&
            (uint32_t)(*year-s_window_first_year)<LIVE_SEASONS;
 }
@@ -1058,6 +1064,22 @@ int ExpandedWorldLive_RecordNativeLeagueResult(uint16_t home,uint16_t away,
         fprintf(stderr,"[living-world] cannot reconcile OG score "
                 "%04x-%04x phase=%u\n",home,away,(unsigned)phase);
         return 0;
+    }
+    /* Advance the ONE chronological ledger to the native civil day
+     * before recording the OG authoritative score. Never manufacture
+     * an extra match and never rewind after a newer event. */
+    if(native_day>s_ledger.now) {
+        ExpandedWorldDate target_date;
+        if(!ExpandedWorld_IndexToDate(native_day,&target_date) ||
+           !ExpandedWorldLive_AdvanceToDate(target_date)) {
+            ++s_native_misses;
+            fprintf(stderr,"[living-world] could not advance native phase %u\n",
+                    (unsigned)phase);
+            return 0;
+        }
+        if(!native_fixture_index(home,away,season,&index)) {
+            ++s_native_misses;return 0;
+        }
     }
     ExpandedWorldFixture *f=&s_fixtures[index];
     if(f->day!=native_day) {

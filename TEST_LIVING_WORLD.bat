@@ -27,7 +27,6 @@ echo Un unico log: LIVING_WORLD_70_TEST.log
 "%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash sorgenti/tests/run_test_engine_suite.sh" > "LIVING_WORLD_70_TEST.log" 2>&1
 set "RESULT=%ERRORLEVEL%"
 type "LIVING_WORLD_70_TEST.log"
-if not "%RESULT%"=="0" goto test_failed
 echo.
 echo RISULTATI - un controllo per ogni funzione:
 call :check_marker MIDWEEK_EVENT_SAVE_RELOAD "Salvataggio durante una giornata"
@@ -44,6 +43,7 @@ call :check_marker PYRAMID_IDENTITY_SAVE_LOAD "Squadre conservate nei salvataggi
 call :check_marker PYRAMID_BOUNDARIES "Limiti delle divisioni rispettati"
 call :check_marker PYRAMID_STRESS_RESULT "Movimenti tra divisioni su 70 stagioni"
 call :check_marker DB_INVENTORY "Inventario del database"
+call :check_marker REAL_JSON_70_SEASONS "70 stagioni con squadre JSON reali"
 call :check_marker ENGINE_UNIT_REGRESSIONS "Regressioni del motore"
 call :check_marker ENGINE_SUITE "Suite completa del motore"
 if not "%RESULT%"=="0" goto test_failed

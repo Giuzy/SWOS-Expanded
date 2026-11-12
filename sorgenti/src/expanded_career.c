@@ -398,18 +398,26 @@ static void choose_small_club(void) {
         unsigned count=*(const uint16_t*)_teamFileBuffer;
         if(!count || count>256) continue;
         const TeamFileEx *teams=(const TeamFileEx*)(_teamFileBuffer+2);
-        unsigned maxLeague=0,candidates=0;
-        for(unsigned i=0;i<count;i++)
-            if(teams[i].team.countryNumber==country && teams[i].team.league<32 &&
-               !Team_IsOutsideLeague(&teams[i].team) &&
-               teams[i].team.league>maxLeague) maxLeague=teams[i].team.league;
-        /* Top flights and smaller nations can also recruit a manager.
-         * The previous maxLeague<2 check excluded almost the entire world. */
+        unsigned maxLeague=0,candidates=0,divisionCount=0;
         ExpandedLiveRow standings[26];
         uint32_t rankedCount=0;
+        /* Count actual scheduled divisions in the canonical WORLD, not
+         * just entries in this TEAM file: a country can span TWO files.
+         * The highest populated league index is its lowest tier, e.g.
+         * division 8 after the database grows to eight divisions. */
+        for(unsigned d=0;d<16u;++d) {
+            uint32_t n=0;
+            if(ExpandedWorldLive_Table(worldCountry,(uint8_t)d,
+                                       standings,26u,&n) && n>=2u) {
+                ++divisionCount;
+                maxLeague=d;
+            }
+        }
+        if(divisionCount<4u) continue;
         int ranked=ExpandedWorldLive_Table(worldCountry,(uint8_t)maxLeague,
                      standings,26u,&rankedCount) &&
                    rankedCount>=2u && standings[0].played>=3u;
+        if(!ranked) continue; /* no offer from an unverified table */
         for(unsigned i=0;i<count;i++)
             if(teams[i].team.countryNumber==country && teams[i].team.league==maxLeague &&
                !Team_IsOutsideLeague(&teams[i].team) &&

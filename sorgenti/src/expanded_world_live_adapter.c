@@ -15,6 +15,12 @@
 extern uint16_t _teamsLoaded, _skipLeagueNumbers;
 extern uint8_t _teamFileBuffer[];
 extern void *_competitionsTable[];
+static ExpandedLiveImportAudit s_import_audit;
+int ExpandedWorldLive_ImportAudit(ExpandedLiveImportAudit *out) {
+    if (!out) return 0;
+    *out=s_import_audit;
+    return 1;
+}
 
 static unsigned import_file(uint8_t file, uint8_t country,
                             unsigned divisions, unsigned points) {
@@ -49,6 +55,7 @@ static unsigned import_file(uint8_t file, uint8_t country,
  * The manager's nationality is NOT an input to this function. */
 extern uint8_t _careerCompetitionIdRemapTable[];
 void ExpandedWorldLive_LoadOfferCountries(void) {
+    memset(&s_import_audit,0,sizeof s_import_audit);
     const uint8_t *countries=World_SeasonCountries();
     if (!countries) countries=_careerCompetitionIdRemapTable;
     if (!ExpandedWorldLive_Begin(World_FirstYear())) {
@@ -60,22 +67,44 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
     unsigned imported_countries=0;
     for(unsigned k=0;k<256u && countries[k]!=0xFFu;++k) {
         uint8_t country=countries[k];
+        ++s_import_audit.candidate_countries;
         const void *const *table=(const void *const *)_competitionsTable[country];
         if (!table || !table[0] || (uintptr_t)table[0]==(uintptr_t)-1 ||
-            (uintptr_t)table[0]==(uintptr_t)-2) continue;
+            (uintptr_t)table[0]==(uintptr_t)-2) {
+            ++s_import_audit.skipped_country_records;
+            continue;
+        }
         const Competition *base=(const Competition *)table[0];
-        if (base->type!=0 || comp_is_type0_cup(base->compId)) continue;
+        if (base->type!=0 || comp_is_type0_cup(base->compId)) {
+            ++s_import_audit.skipped_country_records;
+            continue;
+        }
         const CompetitionLeague *league=(const CompetitionLeague *)base;
         int divisions=league->header.divisionsCount;
-        if (divisions<1 || divisions>16) continue;
+        if (divisions<1 || divisions>16) {
+            ++s_import_audit.skipped_country_records;
+            continue;
+        }
+        ++s_import_audit.supported_countries;
         int points=league->header.pointsForWin;
         if (points!=2 && points!=3) points=3;
-        if (import_file(country,country,(unsigned)divisions,(unsigned)points))
+        ++s_import_audit.team_files_attempted;
+        unsigned clubs=import_file(country,country,(unsigned)divisions,(unsigned)points);
+        if (clubs) {
             ++imported_countries;
+            ++s_import_audit.team_files_with_clubs;
+            s_import_audit.imported_clubs+=clubs;
+        } else ++s_import_audit.team_files_without_clubs;
 #if SWOS_WORLDS
         uint8_t second=World_SecondFile(country);
-        if (second && second!=country)
-            (void)import_file(second,country,(unsigned)divisions,(unsigned)points);
+        if (second && second!=country) {
+            ++s_import_audit.team_files_attempted;
+            unsigned extra=import_file(second,country,(unsigned)divisions,(unsigned)points);
+            if (extra) {
+                ++s_import_audit.team_files_with_clubs;
+                s_import_audit.imported_clubs+=extra;
+            } else ++s_import_audit.team_files_without_clubs;
+        }
 #endif
         /* Import the official competition dates into each world division.
          * This is the same header native InitializeNewSeason reads; no
@@ -92,6 +121,7 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
                     (uint8_t)base->beginMonth,(uint8_t)base->endMonth,
                     (uint8_t)original_legs);
         } else {
+            ++s_import_audit.unsupported_rounds;
             fprintf(stderr,"[living-world] unsupported native rounds=%d "
                            "for country %u\n",original_legs,(unsigned)country);
         }
@@ -102,6 +132,18 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
         fprintf(stderr,"[living-world] no schedulable league, pilot disabled\n");
         ExpandedWorldLive_End();
     } else {
+        s_import_audit.scheduled_leagues=ExpandedWorldLive_NativeScheduleLeagues();
+        fprintf(stderr,"[living-world] REAL TEAM-file coverage: countries=%lu/%lu "
+            "skipped=%lu rounds-unsupported=%lu files-with-clubs=%lu/%lu "
+            "imported-clubs=%lu scheduled-leagues=%lu\n",
+            (unsigned long)s_import_audit.supported_countries,
+            (unsigned long)s_import_audit.candidate_countries,
+            (unsigned long)s_import_audit.skipped_country_records,
+            (unsigned long)s_import_audit.unsupported_rounds,
+            (unsigned long)s_import_audit.team_files_with_clubs,
+            (unsigned long)s_import_audit.team_files_attempted,
+            (unsigned long)s_import_audit.imported_clubs,
+            (unsigned long)s_import_audit.scheduled_leagues);
         fprintf(stderr,
             "[living-world] pilot ready: %u clubs, %u groups; start=%u, "
             "native SWOS league schedule groups=%lu; imported countries=%u\n",
@@ -112,5 +154,10 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
     }
 }
 #else
+int ExpandedWorldLive_ImportAudit(ExpandedLiveImportAudit *out) {
+    if (!out) return 0;
+    *out=(ExpandedLiveImportAudit){0};
+    return 1;
+}
 void ExpandedWorldLive_LoadOfferCountries(void) {}
 #endif

@@ -12002,10 +12002,13 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
  * image is restored and the old, already-proven native catch-up is used.
  * The slot and original key cache are modified ONLY after validation. */
 static uint32_t s_direct_imported_matches,s_direct_imported_rounds;
+static const char *s_direct_import_status="NOT ATTEMPTED";
+const char *DIY_WorldDirectImportStatus(void) {return s_direct_import_status;}
 uint32_t DIY_WorldDirectImportedMatches(void) {return s_direct_imported_matches;}
 uint32_t DIY_WorldDirectImportedRounds(void) {return s_direct_imported_rounds;}
 
 int DIY_WorldDirectImportLeague(uint8_t cutoff) {
+    s_direct_import_status="UNSUPPORTED NATIVE LEAGUE";
     extern uint8_t *_careerCompetitionSlotPtrTable[];
     extern uint8_t _teamSelectionKeyCache[];
     extern uint16_t _teamSelectionKeyCacheCount;
@@ -12058,8 +12061,10 @@ int DIY_WorldDirectImportLeague(uint8_t cutoff) {
         const uint16_t away=PACK_BE_U16(t2->team.countryNumber,
                                          t2->team.teamOrdinal);
         uint8_t gh=0,ga=0;
-        if (!ExpandedWorldLive_PeekNativeLeagueResult(home,away,&gh,&ga))
+        if (!ExpandedWorldLive_PeekNativeLeagueResult(home,away,&gh,&ga)) {
+            s_direct_import_status="WORLD FIXTURE NOT AVAILABLE";
             goto fail;
+        }
         if (home==managed || away==managed) {
             if (history_count>=sizeof(history)/sizeof(history[0]))
                 goto fail;
@@ -12112,7 +12117,10 @@ int DIY_WorldDirectImportLeague(uint8_t cutoff) {
         }
         cacheOffset+=e->entryStride;
     }
-    if (found!=history_count) goto fail;
+    if (found!=history_count) {
+        s_direct_import_status="NATIVE KEYCACHE MISMATCH";
+        goto fail;
+    }
 
     DIY_SortLeagueTableByStandings();
     Career_StoreCompetitionSlotStateToBuffer(slot);
@@ -12142,6 +12150,7 @@ int DIY_WorldDirectImportLeague(uint8_t cutoff) {
         }
         cacheOffset+=e->entryStride;
     }
+    s_direct_import_status="DIRECT IMPORT OK";
     s_direct_imported_matches+=completed;
     s_direct_imported_rounds+=history_count;
     fprintf(stderr,"[living-world] direct OG league import: matches=%u "
@@ -12159,5 +12168,6 @@ fail:
 #else
 uint32_t DIY_WorldDirectImportedMatches(void) {return 0;}
 uint32_t DIY_WorldDirectImportedRounds(void) {return 0;}
+const char *DIY_WorldDirectImportStatus(void) {return "NOT SUPPORTED";}
 int DIY_WorldDirectImportLeague(uint8_t cutoff) {(void)cutoff;return 0;}
 #endif

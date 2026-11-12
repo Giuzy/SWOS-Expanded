@@ -2136,6 +2136,10 @@ static void pump_events_any_thread(void)
                     ExpandedDebug_ToggleSack();
                     continue;
                 }
+                if (code == SDLK_4 || code == SDLK_KP_4) {
+                    ExpandedDebug_ToggleDraw();
+                    continue;
+                }
             }
             if (ev.key.repeat == 0 &&
                 (ev.key.keysym.sym == SDLK_F11 ||
@@ -2646,6 +2650,27 @@ static void splash_text(int x,int y,const char *txt)
             }
     }
 }
+/* RGB-tinted pixel diagnostic; keep the approved loading text unchanged. */
+static void splash_text_tinted(int x,int y,const char *txt,
+                               Uint8 red,Uint8 green,Uint8 blue)
+{
+    SDL_SetRenderDrawColor(s_renderer,red,green,blue,255);
+    for(const char *p=txt;*p;p++,x+=7) {
+        int g=splash_glyph_index(*p);
+        if (g<0) {
+            if (*p=='-') {
+                SDL_Rect dash={x+1,y+3,4,1};
+                SDL_RenderFillRect(s_renderer,&dash);
+            }
+            continue;
+        }
+        for(int row=0;row<7;row++)for(int col=0;col<5;col++)
+            if(splash_glyphs[g][row]&(1u<<(4-col))) {
+                SDL_Rect dot={x+col,y+row,1,1};
+                SDL_RenderFillRect(s_renderer,&dot);
+            }
+    }
+}
 /* During the historical catch-up, hide native standings as they are
  * recalculated. We are still running the original competition handlers
  * underneath; render a stable, opaque progress view at PRESENT time only.
@@ -2708,10 +2733,12 @@ static void draw_world_debug_overlay(void)
     SDL_RenderSetLogicalSize(s_renderer,960,540);
     SDL_SetRenderDrawBlendMode(s_renderer,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(s_renderer,8,18,28,222);
-    SDL_Rect panel={12,12,475,482};
-    SDL_RenderFillRect(s_renderer,&panel);
-    SDL_SetRenderDrawColor(s_renderer,120,205,235,255);
-    SDL_RenderDrawRect(s_renderer,&panel);
+    SDL_Rect left={12,12,465,516},right={483,12,465,516};
+    SDL_RenderFillRect(s_renderer,&left);
+    SDL_RenderFillRect(s_renderer,&right);
+    SDL_SetRenderDrawColor(s_renderer,70,149,181,255);
+    SDL_RenderDrawRect(s_renderer,&left);
+    SDL_RenderDrawRect(s_renderer,&right);
 
     extern volatile uintptr_t _currentMenuPtr;
     extern uint8_t *Expanded_UnemployedCalendarPointer(void);
@@ -2722,9 +2749,12 @@ static void draw_world_debug_overlay(void)
     extern uint8_t _lastFinancialWeekIndex;
     int unemployed=_currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarPointer();
     char line[96],date[48];
-    int y=21;
-#define DEBUG_LINE(msg) do { splash_text(22,y,(msg)); y+=14; } while(0)
-    DEBUG_LINE("SWOS EXPANDED DEBUG");
+    int x=22,y=21;
+#define DEBUG_LINE(msg) do { splash_text_tinted(x,y,(msg),226,236,245); y+=12; } while(0)
+#define DEBUG_SECTION(msg) do { if(y>21) y+=8; splash_text_tinted(x,y,(msg),88,207,255); y+=16; } while(0)
+#define DEBUG_GOOD(msg) do { splash_text_tinted(x,y,(msg),100,232,145); y+=12; } while(0)
+#define DEBUG_WARN(msg) do { splash_text_tinted(x,y,(msg),255,196,90); y+=12; } while(0)
+    DEBUG_SECTION("BUILD / CAREER");
     snprintf(line,sizeof line,"BUILD %s",SWOS_EXPANDED_VERSION);
     DEBUG_LINE(line);
     snprintf(line,sizeof line,"WORLD %s",World_Tag());
@@ -2752,6 +2782,7 @@ static void draw_world_debug_overlay(void)
                  (unsigned)_numWins,(unsigned)_numLost);
         DEBUG_LINE(line);
     }
+    DEBUG_SECTION("LIVE WORLD / LEAGUES");
     snprintf(line,sizeof line,"PREVIEW %s CAREER %s",
              ExpandedWorldLive_Clubs()?"PILOT":"NONE",
              _gameType==4?"NATIVE":"NONE");
@@ -2785,10 +2816,11 @@ static void draw_world_debug_overlay(void)
             } else DEBUG_LINE("NEXT LEAGUE EVENT NONE");
             snprintf(line,sizeof line,"PENDING %lu OVERDUE %lu",
                      (unsigned long)cal.pending,(unsigned long)cal.overdue);
-            DEBUG_LINE(line);
-        } else DEBUG_LINE("WORLD EVENT CLOCK INACTIVE/INVALID");
+            if (cal.overdue) DEBUG_WARN(line); else DEBUG_GOOD(line);
+        } else DEBUG_WARN("WORLD EVENT CLOCK INACTIVE/INVALID");
     }
-    DEBUG_LINE("MANAGER/CHAIRMAN ENTITIES NOT MODELED");
+    DEBUG_SECTION("CUPS / WORLD ENTITIES");
+    DEBUG_WARN("MANAGER/CHAIRMAN ENTITIES NOT MODELED");
     snprintf(line,sizeof line,"OG CUPS MATCHES %lu+%lu TITLES %lu+%lu",
              (unsigned long)ExpandedWorldLive_CupArchivedMatches(),
              (unsigned long)ExpandedWorldLive_CupResidentMatches(),
@@ -2799,6 +2831,7 @@ static void draw_world_debug_overlay(void)
         DEBUG_LINE("F12 OPEN + N: NEW CAREER (DEBUG ONLY)");
         DEBUG_LINE("OLD AUTOSAVE REPLACED AFTER FIRST NEW SAVE");
     }
+    DEBUG_SECTION("PERSISTENCE / MEMORY");
     snprintf(line,sizeof line,"FIXTURES RESIDENT %lu ALL RESULTS %lu",
              (unsigned long)ExpandedWorldLive_Fixtures(),
              (unsigned long)ExpandedWorldLive_Results());
@@ -2815,7 +2848,24 @@ static void draw_world_debug_overlay(void)
     snprintf(line,sizeof line,"PILOT RAM %.2f MB (NOT DISK DB)",
              (double)ExpandedWorldLive_MemoryBytes()/1048576.0);
     DEBUG_LINE(line);
-    DEBUG_LINE("DATABASE DISK MB NOT INDEXED");
+    DEBUG_WARN("DATABASE DISK MB NOT INDEXED");
+    {
+        ExpandedLiveImportAudit a;
+        if (ExpandedWorldLive_ImportAudit(&a)) {
+            snprintf(line,sizeof line,"REAL COUNTRIES %lu/%lu OMITTED %lu",
+                (unsigned long)a.supported_countries,
+                (unsigned long)a.candidate_countries,
+                (unsigned long)a.skipped_country_records);
+            DEBUG_LINE(line);
+            snprintf(line,sizeof line,"REAL TEAM FILES %lu/%lu CLUBS %lu",
+                (unsigned long)a.team_files_with_clubs,
+                (unsigned long)a.team_files_attempted,
+                (unsigned long)a.imported_clubs);
+            DEBUG_LINE(line);
+        }
+    }
+    x=493; y=21;
+    DEBUG_SECTION("OG NATIVE JOIN / FALLBACK");
     {
         extern uint16_t _teamSelectionKeyCacheCount;
         extern uint16_t _teamSelectionKeyCacheIndex;
@@ -2871,6 +2921,14 @@ static void draw_world_debug_overlay(void)
         DEBUG_LINE(line);
     }
     {
+        extern const char *DIY_WorldDirectImportStatus(void);
+        snprintf(line,sizeof line,"DIRECT IMPORT %s",DIY_WorldDirectImportStatus());
+        DEBUG_WARN(line);
+        snprintf(line,sizeof line,"PAST OG CUP EVENTS %lu",
+                 (unsigned long)Expanded_MidseasonJoin_HistoricalCupEvents());
+        DEBUG_LINE(line);
+    }
+    {
         extern int DIY_WorldLastLeagueAudit(uint16_t*,uint16_t*,
                                             uint16_t*,uint16_t*,
                                             uint16_t*,uint16_t*,uint8_t*);
@@ -2889,9 +2947,10 @@ static void draw_world_debug_overlay(void)
             }
         }
     }
-    DEBUG_LINE("PILOT/NATIVE REPLAY PARTIAL");
-    DEBUG_LINE(ExpandedWorldLive_Clubs() ? "WORLD SNAPSHOT V3 ROLLING READY" :
-               "WORLD SNAPSHOT EMPTY");
+    DEBUG_SECTION("JOIN STATUS / TEST MODES");
+    DEBUG_WARN("PILOT/NATIVE REPLAY PARTIAL");
+    if (ExpandedWorldLive_Clubs()) DEBUG_GOOD("WORLD SNAPSHOT V4 ROLLING READY");
+    else DEBUG_WARN("WORLD SNAPSHOT EMPTY");
     snprintf(line,sizeof line,"1 WIN ALWAYS %s",
              ExpandedDebug_ResultMode()==1 ? "ON":"OFF");
     DEBUG_LINE(line);
@@ -2901,8 +2960,14 @@ static void draw_world_debug_overlay(void)
     snprintf(line,sizeof line,"3 SACK NEXT %s",
              ExpandedDebug_SackArmed()?"ARMED":"OFF");
     DEBUG_LINE(line);
+    snprintf(line,sizeof line,"4 DRAW ALWAYS %s",
+              ExpandedDebug_ResultMode()==4?"ON":"OFF");
+    DEBUG_LINE(line);
     DEBUG_LINE("F9 PNG F12 HIDE");
 #undef DEBUG_LINE
+#undef DEBUG_SECTION
+#undef DEBUG_GOOD
+#undef DEBUG_WARN
     SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);
     if (!oldw || !oldh) SDL_RenderSetScale(s_renderer,oldsx,oldsy);
     SDL_RenderSetViewport(s_renderer,&oldvp);
@@ -2964,27 +3029,14 @@ void Platform_ExpandedSplashClear(void)
 
 /* Draw this once. Explicitly clear the FULL output in device coordinates:
  * the normal menu viewport may cover less than the desktop output. */
+/* Historical OG cup callbacks may still require a brief internal replay.
+ * Do not flash the old full-screen loading/progress panel when the manager
+ * takes a job: keep the previously presented menu frame stable, do the
+ * original CPU bookkeeping headlessly, then present the new career state.
+ * This is only a UI fix; removing replay requires real shared cup state. */
 static void render_catchup_static_once(void)
 {
-    if (!s_renderer || !s_render_mtx) return;
-    SDL_LockMutex(s_render_mtx);
-    int oldw=0,oldh=0;
-    float oldsx=1.0f,oldsy=1.0f;
-    SDL_Rect oldvp;
-    SDL_RenderGetLogicalSize(s_renderer,&oldw,&oldh);
-    SDL_RenderGetScale(s_renderer,&oldsx,&oldsy);
-    SDL_RenderGetViewport(s_renderer,&oldvp);
-    SDL_RenderSetLogicalSize(s_renderer,0,0);
-    SDL_RenderSetViewport(s_renderer,NULL);
-    SDL_SetRenderDrawColor(s_renderer,8,18,28,255);
-    SDL_RenderClear(s_renderer);
-    SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);
-    if (!oldw || !oldh) SDL_RenderSetScale(s_renderer,oldsx,oldsy);
-    SDL_RenderSetViewport(s_renderer,NULL);
-    draw_midseason_catchup_overlay();
-    SDL_RenderSetViewport(s_renderer,&oldvp);
-    SDL_RenderPresent(s_renderer);
-    SDL_UnlockMutex(s_render_mtx);
+    /* Intentionally no SDL_RenderPresent here. */
 }
 
 static void render_frame_impl(int pump_full)

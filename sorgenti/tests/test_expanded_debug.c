@@ -14,6 +14,10 @@ int main(void) {
     ExpandedDebug_ForceScore(1,&h,&a); assert(h==0 && a==2);
     ExpandedDebug_ForceScore(0,&h,&a); assert(h==2 && a==0);
     ExpandedDebug_ToggleLose(); assert(ExpandedDebug_ResultMode()==0);
+    ExpandedDebug_ToggleDraw(); assert(ExpandedDebug_ResultMode()==4);
+    ExpandedDebug_ForceScore(1,&h,&a); assert(h==1 && a==1);
+    ExpandedDebug_ForceScore(0,&h,&a); assert(h==1 && a==1);
+    ExpandedDebug_ToggleDraw(); assert(ExpandedDebug_ResultMode()==0);
     ExpandedDebug_ToggleSack(); assert(ExpandedDebug_SackArmed());
     ExpandedDebug_ToggleSack(); assert(!ExpandedDebug_SackArmed());
     ExpandedDebug_ToggleSack(); assert(ExpandedDebug_ConsumeSack());

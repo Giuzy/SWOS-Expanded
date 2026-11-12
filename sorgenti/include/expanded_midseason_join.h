@@ -17,6 +17,8 @@ uint8_t Expanded_MidseasonJoin_TargetPhase(void);
 /* 0 = no attempt; 1 = reached hire date; 2 = abort (see log). */
 int Expanded_MidseasonJoin_LastResult(void);
 int Expanded_MidseasonJoin_LastKey(void);
+/* OG cup/other events before contract: why legacy catch-up is still required. */
+uint32_t Expanded_MidseasonJoin_HistoricalCupEvents(void);
 void Expanded_MidseasonJoin_Tick(void);
 /* Per-join diagnostics: actions fired and historical PLAY actions
  * redirected to genuine native CPU match simulation. */

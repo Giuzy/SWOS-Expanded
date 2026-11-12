@@ -525,7 +525,9 @@ void Expanded_UnemployedInit(void) {
     _menuEntries[10].rightEntry=9;
     _menuEntries[10].upEntry=7;
     _menuEntries[10].downEntry=12;
-    ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[offerReady?10:7];
+    /* Pending offers must not steal the keyboard/controller focus from
+     * FORWARD TIME. VIEW CLUB OFFER remains reachable to the right. */
+    ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[7];
 }
 static void contest_at(unsigned x,unsigned y,const char *line,unsigned color) {
     DrawMenuTextCentered((uint16_t)x,(uint16_t)y,(uint16_t)color,

@@ -118,6 +118,21 @@ uint32_t ExpandedWorldLive_Weeks(void);
 uint32_t ExpandedWorldLive_PreseasonGamesTotal(void);
 int ExpandedWorldLive_Preseason(uint16_t club,ExpandedLivePreseason *out);
 void ExpandedWorldLive_End(void);
+/* Actual source-data coverage from the Windows career-country loader.
+ * These counts describe the real binary TEAM.* files; standalone C
+ * stress tests deliberately use synthetic teams and cannot fill them. */
+typedef struct ExpandedLiveImportAudit {
+    uint32_t candidate_countries;
+    uint32_t supported_countries;
+    uint32_t skipped_country_records;
+    uint32_t unsupported_rounds;
+    uint32_t team_files_attempted;
+    uint32_t team_files_with_clubs;
+    uint32_t team_files_without_clubs;
+    uint32_t imported_clubs;
+    uint32_t scheduled_leagues;
+} ExpandedLiveImportAudit;
+int ExpandedWorldLive_ImportAudit(ExpandedLiveImportAudit *out);
 void ExpandedWorldLive_LoadOfferCountries(void);
 #ifdef SWOS_SDL_BUILD
 /* Structured, versioned .CAR snapshot on SDL hosts only. */

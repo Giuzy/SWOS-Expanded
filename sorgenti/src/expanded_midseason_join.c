@@ -86,6 +86,7 @@ static uint8_t s_active,s_old_controls,s_target_key;
 static uint32_t s_passes,s_elapsed_weeks,s_actions,s_forced_simulations;
 static uint32_t s_league_exits;
 static int s_direct_league_import;
+static uint32_t s_historical_nonleague_events;
 static int s_last_result,s_last_key;
 
 uint32_t Expanded_MidseasonJoin_Actions(void) { return s_actions; }
@@ -98,6 +99,9 @@ void Expanded_MidseasonJoin_RecordForcedSimulation(void) {
 int Expanded_MidseasonJoin_Active(void) { return s_active!=0; }
 int Expanded_MidseasonJoin_LastResult(void) { return s_last_result; }
 int Expanded_MidseasonJoin_LastKey(void) { return s_last_key; }
+uint32_t Expanded_MidseasonJoin_HistoricalCupEvents(void) {
+    return s_historical_nonleague_events;
+}
 uint8_t Expanded_MidseasonJoin_TargetPhase(void) { return s_target_key; }
 
 /* The fixture cursor advances BEFORE the financial-week accumulator.
@@ -160,6 +164,7 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     s_last_result=0;
     s_last_key=-1;
     s_direct_league_import=0;
+    s_historical_nonleague_events=0;
     /* End-of-year / multiple-season unemployment is not yet supported:
      * never auto-start from the wrong historical season. */
     if (_gameType!=4 ||
@@ -235,6 +240,7 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
             ++oldNonLeague;
         scan+=e->entryStride;
     }
+    s_historical_nonleague_events=oldNonLeague;
     {
         extern int DIY_WorldDirectImportLeague(uint8_t cutoff);
         if (DIY_WorldDirectImportLeague(cutoff)) {
@@ -438,6 +444,7 @@ void Expanded_MidseasonJoin_Tick(void) {
 int Expanded_MidseasonJoin_Active(void) {return 0;}
 int Expanded_MidseasonJoin_LastResult(void) {return 0;}
 int Expanded_MidseasonJoin_LastKey(void) {return -1;}
+uint32_t Expanded_MidseasonJoin_HistoricalCupEvents(void) {return 0;}
 uint8_t Expanded_MidseasonJoin_TargetPhase(void) {return 0;}
 extern uint8_t _lastFinancialWeekIndex;
 uint8_t Expanded_Career_NativeCalendarKey(void) {return _lastFinancialWeekIndex;}

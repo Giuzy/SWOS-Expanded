@@ -15,27 +15,34 @@ if not defined MSYS_ROOT (
 )
 set "MSYSTEM=MINGW64"
 set "CHERE_INVOKING=1"
-echo Test isolato: il tuo save/AUTOSAVE.CAR non viene toccato.
-echo Test 70 stagioni + registro eventi coppe OG sintetici + save/load.
-echo Log: LIVING_WORLD_70_TEST.log
-"%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash sorgenti/tests/run_test_living_world_70.sh" > "LIVING_WORLD_70_TEST.log" 2>&1
+for /f "delims=" %%E in ('echo prompt $E^| cmd') do set "ESC=%%E"
+echo.
+echo %ESC%[96m========================================================%ESC%[0m
+echo %ESC%[96m   SWOS EXPANDED - ENGINE TEST SUITE%ESC%[0m
+echo %ESC%[96m========================================================%ESC%[0m
+echo Test non distruttivo: save/AUTOSAVE.CAR rimane intatto.
+echo Campionati sintetici 70 anni, coppe OG sintetiche, save/load,
+echo test regressione C e inventario dei dati reali installati.
+echo Un unico log: LIVING_WORLD_70_TEST.log
+"%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash sorgenti/tests/run_test_engine_suite.sh" > "LIVING_WORLD_70_TEST.log" 2>&1
 set "RESULT=%ERRORLEVEL%"
 type "LIVING_WORLD_70_TEST.log"
 if not "%RESULT%"=="0" goto test_failed
-for %%M in (MIDWEEK_EVENT_SAVE_RELOAD WORLD_EVENT_CURSOR GLOBAL_OFFERS_DISCOVERY CUP_NATIVE_JOURNAL CUP_ARCHIVE_70 STRESS_RESULT) do (
+for %%M in (MIDWEEK_EVENT_SAVE_RELOAD WORLD_EVENT_CURSOR GLOBAL_OFFERS_DISCOVERY CUP_NATIVE_JOURNAL CUP_ARCHIVE_70 STRESS_RESULT DB_INVENTORY ENGINE_UNIT_REGRESSIONS ENGINE_SUITE) do (
  findstr /X /C:"%%M=PASS" "LIVING_WORLD_70_TEST.log" >nul
  if errorlevel 1 (
-  echo [FAIL] Manca %%M=PASS
+  echo %ESC%[91m[FAIL] Manca %%M=PASS%ESC%[0m
   set "RESULT=1"
  )
 )
 if not "%RESULT%"=="0" goto test_failed
 echo.
-echo [PASS] 70 stagioni, eventi, scoperta paesi, registro coppe e save/load.
+echo %ESC%[92m[PASS] Test automatici campionati, coppe, save/load e inventario DB.%ESC%[0m
+echo %ESC%[93m[PENDING] Mobilita fra divisioni e coppe mondiali offscreen NON ancora testabili.%ESC%[0m
 goto test_done
 :test_failed
 echo.
-echo [FAIL] Test NON superato. Invia LIVING_WORLD_70_TEST.log.
+echo %ESC%[91m[FAIL] Test NON superato. Invia LIVING_WORLD_70_TEST.log.%ESC%[0m
 :test_done
 pause
 exit /b %RESULT%

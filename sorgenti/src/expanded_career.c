@@ -727,7 +727,11 @@ void Expanded_OfferPreviewDraw(void) {
     } else {
         ExpandedLiveRow rows[26];
         uint32_t count=0;
-        if (ExpandedWorldLive_Table(s_waitCountry,s_waitLeague,rows,26,&count)) {
+        /* s_waitCountry is the native TEAM-file index, whereas Living World
+         * standings are indexed by the mapped country code. Offer selection
+         * already uses World_FileCountry(): the preview must use the same key. */
+        const uint8_t worldCountry=World_FileCountry(s_waitCountry);
+        if (ExpandedWorldLive_Table(worldCountry,s_waitLeague,rows,26,&count)) {
             snprintf(line,sizeof line,"DIVISION %u - %u/%02u",
                      (unsigned)s_waitLeague+1,
                      (unsigned)ExpandedWorldLive_SeasonYear(),
@@ -760,7 +764,7 @@ void Expanded_OfferPreviewDraw(void) {
                          (unsigned)ps.friendlies);
                 contest_line(219,line,6);
             } else {
-                contest_line(219,"PILOT TABLE - NOT YET NATIVE CAREER",6);
+                contest_line(219,"LIVING WORLD - OFFER TABLE",6);
             }
         } else {
             snprintf(line,sizeof line,"DIVISION %u - PILOT UNAVAILABLE",

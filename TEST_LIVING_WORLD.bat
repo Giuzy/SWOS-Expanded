@@ -44,7 +44,7 @@ call :check_marker PYRAMID_IDENTITY_SAVE_LOAD "Squadre conservate nei salvataggi
 call :check_marker PYRAMID_BOUNDARIES "Limiti delle divisioni rispettati"
 call :check_marker PYRAMID_STRESS_RESULT "Movimenti tra divisioni su 70 stagioni"
 call :check_marker DB_INVENTORY "Inventario del database"
-call :check_marker REAL_JSON_DOMESTIC_70_SEASONS "Campionati JSON reali: 70 stagioni (escluse coppe/nazionali)"
+call :check_marker REAL_JSON_DOMESTIC_70_SEASONS "Campionati JSON reali: 70 stagioni - escluse coppe e nazionali"
 call :check_marker ENGINE_UNIT_REGRESSIONS "Regressioni del motore"
 call :check_marker ENGINE_SUITE "Suite completa del motore"
 if not "%RESULT%"=="0" goto test_failed

@@ -250,7 +250,7 @@ static unsigned s_nextOfferWeek=0;
  * Never run DrawMenu or native OG callbacks from SDL's event pump. */
 static unsigned s_debug_wait_jump_weeks=0;
 void Expanded_DebugArmFiveYearUnemployment(void) {
-    extern volatile uintptr_t _currentMenuPtr;
+    extern uintptr_t _currentMenuPtr;
     if(_currentMenuPtr!=(uintptr_t)Expanded_UnemployedCalendarMenu()) {
         fprintf(stderr,"[debug-unemployed] F12+7 requires UNEMPLOYED CALENDAR\n");
         return;

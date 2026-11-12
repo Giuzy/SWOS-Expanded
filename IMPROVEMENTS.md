@@ -538,3 +538,11 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - Two-column, color-coded F12 with legible section spacing and real TEAM-file import coverage; correct living-world snapshot display v4. Windows games and legacy renderer are otherwise untouched.
 - One BAT runs previous 70-year synthetic stress plus independent midseason, world-live, debug/ledger tests and an installed-data inventory, writing one report. Synthetic results are labelled; no false PASS for worldwide promotion/relegation or offscreen cups.
 - Validation: static edits only; Windows compile and runtime tests pending.
+
+### 0.13.29 — native automatic mobility, match-speed debug, suite fix (12 November 2026)
+- Fixed isolated midseason test link with its own native OG financial-week global; game global untouched.
+- World snapshot v5: stores original automatic promotion and relegation counts, playoff flags and counters, maintains read compatibility with v1-v4. Membership for older seasons recovered in true fixture-pair order, avoiding use of new rosters for old standings.
+- New seasons for mobile countries are generated only after previous completed fixture results; automatic places exchanged between adjacent real divisions, while unresolved native playoffs remain visible as pending.
+- Real manual career match: F12+5 toggles fourfold pacing, running the original game-frame logic rather than forcing or substituting final scores. Turn off after match ends.
+- F12 reports OG/world date discrepancies and automatic movement. One BAT runs 70-season stress, separate four-level mobility stress, all earlier C regressions, and installed DB inventory.
+- Validation: source inspection and static checks only. Windows/MSYS2 compile and in-game tests pending. No approved sprite/menu art or manual match game physics replaced.

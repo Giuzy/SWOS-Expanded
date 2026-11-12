@@ -279,3 +279,11 @@ La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo ver
 4. Dopo accettazione offerta osservare in F12 DIRECT IMPORT / PAST OG CUP EVENTS, CATCHUP HEADLESS e NATIVE REUSED/FALLBACK. Il vecchio pannello SIMULATING SEASON non deve apparire; se invece il gioco effettua ancora un replay di CPU callback, questo deve restare registrato nei contatori/log. Inviare screenshot e SWOS.log se il passaggio e' lento o il risultato/classe cambia.
 5. Per una partita manuale vera, usare PLAY MATCH normalmente. Non confondere WIN/DRAW/LOSE DEBUG con un collaudo dei 50 Hz o input partita. Coppe OG: se il club partecipa, giocare/simulare e confrontare il counter prima/dopo il reload; se non partecipa segnare NO / non verificabile, non PASS.
 6. Il test "promotion/relegation full pyramid" e la simulazione coppe mondiali offscreen sono in programma: il BAT li dichiara NOT_IMPLEMENTED. Nessun falso allarme rosso se questi moduli non esistono ancora, ma non dichiarare engine completo.
+
+## 0.13.29 — Verifica Windows in un BAT
+1. Pull dev/0.10, compila con COMPILA_SWOS.bat, verifica build 0.13.29.
+2. Avvia TEST_LIVING_WORLD.bat: il nuovo runner deve mostrare PYRAMID_MOVEMENT_NATIVE_RULES=PASS, PYRAMID_FULL_UP_DOWN=PASS, PYRAMID_IDENTITY_SAVE_LOAD=PASS, PYRAMID_BOUNDARIES=PASS, PYRAMID_STRESS_RESULT=PASS. Il test real DB è inventario, non ancora 70 stagioni di tutte le squadre.
+3. NEW CAREER START UNEMPLOYED: avanza e accetta una proposta; F12 deve confrontare WORLD DATE / OG DATE. Registra CLOCK MISMATCH e FALLBACK; ingresso NO se date/classifica/calendario sono incoerenti.
+4. Avvia una vera partita manuale di carriera, F12 poi 5 per attivare FAST X4, richiudi F12. Confronta tempi, input, fisica e risultati dopo partita. FAST deve spegnersi al ritorno al calendario. WIN/LOSE/DRAW debug non sono un test del gameplay manuale.
+5. Salva/ricarica dopo cambio stagione: nessun club deve sparire o comparire in due divisioni. Spareggi, coppe e paesi non testati = NON PROVATO.
+6. Consegna con checklist SÌ / NO / NON PROVATO e pulsante INVIA RAPPORTO, e log se qualcosa fallisce. Non eliminare salvataggi preesistenti.

@@ -54,11 +54,16 @@ typedef struct LiveClub {
 typedef struct LiveLeague {
     uint8_t country, division, count, points, overflow;
     uint8_t begin_phase, end_phase, native_schedule, legs;
+    uint8_t auto_up,auto_down,playoff_up,playoff_down;
     uint16_t clubs[LIVE_MAX_LEAGUE_CLUBS];
 } LiveLeague;
 static LiveClub s_clubs[LIVE_MAX_CLUBS];
 static LiveLeague s_leagues[LIVE_MAX_LEAGUES];
 static uint32_t s_club_count, s_league_count, s_weeks;
+/* The two-year window may hold the CURRENT season while the next
+ * season waits for its real promotion/relegation results. */
+static uint8_t s_generated_fresh[LIVE_MAX_LEAGUES];
+static uint32_t s_promotions,s_relegations,s_mobility_unsupported;
 static uint32_t s_preseason_games_total;
 static uint16_t s_first_year;
 static ExpandedWorldFixture *s_fixtures;
@@ -101,6 +106,8 @@ void ExpandedWorldLive_End(void) {
     s_history_capacity=0;s_archived_matches=0;
     s_native_matches=s_native_misses=0;
     s_native_order_applied=s_native_schedule_leagues=0;
+    s_promotions=s_relegations=s_mobility_unsupported=0;
+    memset(s_generated_fresh,0,sizeof s_generated_fresh);
     memset(s_native_result_consumed,0,sizeof s_native_result_consumed);
     memset(&s_ledger,0,sizeof s_ledger);
 }
@@ -158,6 +165,23 @@ int ExpandedWorldLive_AddClub(uint8_t country, uint8_t division,
 /* Read actual national competition begin/end months from the OpenSWOS
  * league record, not from an independent world calendar. The original
  * DIY competition uses these exact values to interpolate match phases. */
+int ExpandedWorldLive_SetLeagueMovement(uint8_t country,uint8_t division,
+                                        uint8_t up,uint8_t down,
+                                        uint8_t playoff_up,uint8_t playoff_down) {
+    LiveLeague *l=league_by_id(country,division);
+    if (!l || s_live || up>l->count || down>l->count ||
+        playoff_up>l->count || playoff_down>l->count) return 0;
+    l->auto_up=up;l->auto_down=down;
+    l->playoff_up=playoff_up;l->playoff_down=playoff_down;
+    return 1;
+}
+uint32_t ExpandedWorldLive_Promotions(void) {return s_promotions;}
+uint32_t ExpandedWorldLive_Relegations(void) {return s_relegations;}
+uint32_t ExpandedWorldLive_MobilityUnsupported(void) {return s_mobility_unsupported;}
+uint8_t ExpandedWorldLive_ClubDivision(uint16_t id) {
+    const LiveClub *c=club_by_id(id);
+    return c?c->division:255u;
+}
 int ExpandedWorldLive_SetLeagueSchedule(uint8_t country,uint8_t division,
                                         uint8_t begin,uint8_t end,uint8_t legs) {
     LiveLeague *league=league_by_id(country,division);
@@ -170,6 +194,44 @@ int ExpandedWorldLive_SetLeagueSchedule(uint8_t country,uint8_t division,
     return 1;
 }
 
+/* A future season's clubs can differ from the old native table after
+ * promotion/relegation. Read each season's membership from its own fixture
+ * ledger, not from the mutable most-recent league roster. */
+static int live_fixture_roster(const LiveLeague *league,unsigned year,
+                               uint16_t out[LIVE_MAX_LEAGUE_CLUBS]) {
+    if (!league || !s_live || !s_fixtures || year<s_first_year)
+        return 0;
+    const unsigned n=league->count;
+    if(n<2u || n>NATIVE_FIXTURE_MAX_CLUBS) return 0;
+    const uint8_t *pairs=_fixtureSchedulePtrTable[n-2u];
+    if(!pairs) return 0;
+    const uint16_t cid=competition_id(league->country,league->division,
+                                     (year-s_first_year)&1u);
+    const unsigned one_leg=n*(n-1u)/2u;
+    uint8_t seen[LIVE_MAX_LEAGUE_CLUBS]={0};
+    unsigned found=0;
+    /* Recover ORIGINAL pairing-table order from fixture ids rather than
+     * chronological first appearance. This is needed by NativeOrder after
+     * promoted clubs change a division's participants. */
+    for(uint32_t i=0;i<s_ledger.count;++i) {
+        const ExpandedWorldFixture *f=&s_fixtures[i];
+        if(f->competition!=cid) continue;
+        const unsigned leg=(unsigned)f->id/one_leg;
+        const unsigned fixture_index=(unsigned)f->id%one_leg;
+        if(leg>=league->legs) return 0;
+        const unsigned a=pairs[2u*fixture_index];
+        const unsigned b=pairs[2u*fixture_index+1u];
+        if(a>=n || b>=n || a==b) return 0;
+        const int swap=(league->legs-leg)&1u;
+        const uint16_t ida=swap?f->away:f->home;
+        const uint16_t idb=swap?f->home:f->away;
+        if(seen[a] && out[a]!=ida) return 0;
+        if(seen[b] && out[b]!=idb) return 0;
+        if(!seen[a]) {out[a]=ida;seen[a]=1;found++;}
+        if(!seen[b]) {out[b]=idb;seen[b]=1;found++;}
+    }
+    return found==n;
+}
 /* Career DIY leagues normally shuffle their grid indices. For leagues
  * covered by the world ledger, remap those indices to the SAME canonical
  * club order used by the original SWOS fixture table in the world.
@@ -182,10 +244,13 @@ int ExpandedWorldLive_NativeOrder(const uint16_t *ids,uint32_t count,
     for (uint32_t l=0;l<s_league_count;++l) {
         const LiveLeague *league=&s_leagues[l];
         uint8_t indices[LIVE_MAX_LEAGUE_CLUBS];
-        if (!league->native_schedule || league->count!=count) continue;
+        uint16_t season_clubs[LIVE_MAX_LEAGUE_CLUBS];
+        if (!league->native_schedule || league->count!=count ||
+            !live_fixture_roster(league,ExpandedWorldLive_SeasonYear(),
+                                 season_clubs)) continue;
         for (uint32_t i=0;i<count;++i) {
             uint32_t k=0;
-            while (k<count && ids[k]!=league->clubs[i]) ++k;
+            while (k<count && ids[k]!=season_clubs[i]) ++k;
             if (k==count) break;
             indices[i]=(uint8_t)k;
             if (i+1u==count) {
@@ -278,8 +343,19 @@ int ExpandedWorldLive_Seal(void) {
         ExpandedWorldDate start={(uint16_t)(s_first_year+season),8,1};
         int32_t day;
         if (!ExpandedWorld_DateToIndex(start,&day)) break;
-        for(uint32_t i=0;i<s_league_count;++i)
-            (void)make_fixtures(&s_leagues[i],season,day);
+        for(uint32_t i=0;i<s_league_count;++i) {
+            int mobile=0;
+            if (season==1u)
+                for(uint32_t j=0;j<s_league_count;++j)
+                    if(s_leagues[j].country==s_leagues[i].country &&
+                       (s_leagues[j].auto_up || s_leagues[j].auto_down ||
+                        s_leagues[j].playoff_up || s_leagues[j].playoff_down)) {
+                        mobile=1;break;
+                    }
+            if (!mobile)
+                (void)make_fixtures(&s_leagues[i],season,day);
+            if(season==1u) s_generated_fresh[i]=(uint8_t)!mobile;
+        }
     }
     if (!s_ledger.count) return 0;
     qsort(s_fixtures,s_ledger.count,sizeof s_fixtures[0],fixture_compare);
@@ -313,8 +389,10 @@ static int live_roll_window(void) {
         const LiveLeague *league=&s_leagues[l];
         if (!league->native_schedule) continue;
         ExpandedWorldStanding table[LIVE_MAX_LEAGUE_CLUBS];
+        uint16_t season_roster[LIVE_MAX_LEAGUE_CLUBS]={0};
+        if(!live_fixture_roster(league,retiring,season_roster)) return 0;
         for(unsigned i=0;i<league->count;++i)
-            table[i].club=league->clubs[i];
+            table[i].club=season_roster[i];
         const uint16_t cid=competition_id(league->country,league->division,
                                            retiring_slot);
         if (!ExpandedWorldLedger_Standings(&s_ledger,cid,table,
@@ -392,11 +470,27 @@ static int live_roll_window(void) {
     s_ledger.count=kept;s_ledger.played=kept_played;
     const unsigned fresh_season=(unsigned)(retiring+2u-s_first_year);
     int generated=1;
-    for(uint32_t l=0;l<s_league_count;++l)
-        if (s_leagues[l].native_schedule &&
-            !make_fixtures(&s_leagues[l],fresh_season,0)) {
-            generated=0;break;
+    /* Only static single-division/no-mobility leagues may be regenerated
+     * immediately at January's archive boundary. Countries with native
+     * promotion rules wait for the previous season's FINAL fixture: an
+     * August-May competition is still playing when January arrives. */
+    for(uint32_t l=0;l<s_league_count;++l) {
+        s_generated_fresh[l]=0;
+        if (!s_leagues[l].native_schedule) continue;
+        int mobile=0;
+        for(uint32_t k=0;k<s_league_count;++k)
+            if(s_leagues[k].country==s_leagues[l].country &&
+               (s_leagues[k].auto_up || s_leagues[k].auto_down ||
+                s_leagues[k].playoff_up || s_leagues[k].playoff_down)) {
+                mobile=1;break;
+            }
+        if (!mobile) {
+            if (!make_fixtures(&s_leagues[l],fresh_season,0)) {
+                generated=0;break;
+            }
+            s_generated_fresh[l]=1;
         }
+    }
     if (!generated) {
         s_fixtures=old_fixtures;s_ledger=old_ledger;
         free(next);free(consumed);free(packed);
@@ -550,8 +644,205 @@ static int resolve_game(const ExpandedWorldFixture *f,uint8_t *home,uint8_t *awa
     *away=(uint8_t)(agoals>7?7:agoals);
     return 1;
 }
-/* The newest year's early-season games may begin in May, so create
- * that season on January 1, after the oldest season ends on Dec 31. */
+/* League mobility uses the EXACT automatic places configured by the
+ * installed OpenSWOS CompetitionLeague descriptors. Knockout promotion/
+ * relegation playoff winners are NOT derived from the league table. Those
+ * pairings remain with the OG knockout engine until it can share state here. */
+typedef struct LiveMobilityRank {
+    uint32_t index;
+    uint8_t count;
+    uint16_t ordered[LIVE_MAX_LEAGUE_CLUBS];
+} LiveMobilityRank;
+static int live_standing_better(const ExpandedWorldStanding *a,
+                                const ExpandedWorldStanding *b) {
+    int agd=(int)a->scored-(int)a->conceded;
+    int bgd=(int)b->scored-(int)b->conceded;
+    if(a->points!=b->points) return a->points>b->points;
+    if(agd!=bgd) return agd>bgd;
+    if(a->scored!=b->scored) return a->scored>b->scored;
+    return a->club<b->club;
+}
+static int live_replace_member(LiveLeague *l,uint16_t from,uint16_t to) {
+    for(unsigned i=0;i<l->count;++i)
+        if(l->clubs[i]==from) { l->clubs[i]=to;return 1; }
+    return 0;
+}
+static int live_country_ready_day(uint8_t country,int32_t *out) {
+    int32_t last=INT32_MIN;
+    int found=0;
+    uint16_t previous=s_window_first_year;
+    for(uint32_t l=0;l<s_league_count;++l) {
+        const LiveLeague *league=&s_leagues[l];
+        if(league->country!=country || !league->native_schedule ||
+           s_generated_fresh[l]) continue;
+        const uint16_t cid=competition_id(country,league->division,
+                                          (previous-s_first_year)&1u);
+        int has_fixture=0;
+        for(uint32_t f=0;f<s_ledger.count;++f)
+            if(s_fixtures[f].competition==cid) {
+                has_fixture=1;
+                if(s_fixtures[f].day>last) last=s_fixtures[f].day;
+            }
+        if(!has_fixture) return 0;
+        found=1;
+    }
+    if(!found || last==INT32_MAX) return 0;
+    *out=last+1;
+    return 1;
+}
+static int live_generate_country(uint8_t country) {
+    const uint16_t previous=s_window_first_year;
+    const unsigned fresh=(unsigned)(previous+1u-s_first_year);
+    LiveMobilityRank ranks[16]={0};
+    LiveLeague backup[16];
+    unsigned n=0;
+    uint32_t before=s_ledger.count;
+    uint32_t old_up=s_promotions,old_down=s_relegations;
+    uint32_t old_skipped=s_mobility_unsupported;
+    /* Native countries with >16 distinct divisions are not modeled. */
+    for(uint32_t l=0;l<s_league_count;++l) {
+        LiveLeague *league=&s_leagues[l];
+        if(league->country!=country || !league->native_schedule) continue;
+        if(n==16u || s_generated_fresh[l]) return 0;
+        ranks[n].index=l;
+        ranks[n].count=league->count;
+        backup[n]=*league;
+        uint16_t roster[LIVE_MAX_LEAGUE_CLUBS]={0};
+        ExpandedWorldStanding table[LIVE_MAX_LEAGUE_CLUBS];
+        if(!live_fixture_roster(league,previous,roster)) return 0;
+        for(unsigned i=0;i<league->count;++i) table[i].club=roster[i];
+        if(!ExpandedWorldLedger_Standings(&s_ledger,
+             competition_id(country,league->division,
+                            (previous-s_first_year)&1u),
+             table,league->count,league->points)) return 0;
+        for(unsigned i=1;i<league->count;++i) {
+            ExpandedWorldStanding temp=table[i];unsigned j=i;
+            while(j && live_standing_better(&temp,&table[j-1u])) {
+                table[j]=table[j-1u];--j;
+            }
+            table[j]=temp;
+        }
+        for(unsigned i=0;i<league->count;++i)
+            ranks[n].ordered[i]=table[i].club;
+        ++n;
+    }
+    if(!n) return 0;
+    /* Work from the standings of the PREVIOUS season: ranking arrays are
+     * immutable even when an adjacent division has already swapped clubs. */
+    for(unsigned i=0;i<n;++i) {
+        LiveLeague *upper=&s_leagues[ranks[i].index];
+        for(unsigned j=0;j<n;++j) {
+            LiveLeague *lower=&s_leagues[ranks[j].index];
+            if(lower->division!=(unsigned)upper->division+1u) continue;
+            unsigned moves=upper->auto_down;
+            if(!moves && !lower->auto_up) continue;
+            if(moves!=lower->auto_up ||
+               moves>ranks[i].count || moves>ranks[j].count) {
+                ++s_mobility_unsupported;
+                fprintf(stderr,"[living-world] unequal automatic mobility "
+                  "requires native resolution country=%u divisions=%u/%u\n",
+                  (unsigned)country,(unsigned)upper->division,
+                  (unsigned)lower->division);
+                continue;
+            }
+            /* Automatic league places remain valid even when a *separate*
+             * OG promotion playoff also exists. The latter is not invented
+             * here; F12 distinguishes automatic switches from pending cups. */
+            if(upper->playoff_down || lower->playoff_up)
+                ++s_mobility_unsupported;
+            for(unsigned k=0;k<moves;++k) {
+                uint16_t down=ranks[i].ordered[ranks[i].count-1u-k];
+                uint16_t up=ranks[j].ordered[k];
+                if(!live_replace_member(upper,down,up) ||
+                   !live_replace_member(lower,up,down)) goto rollback;
+                ++s_promotions;++s_relegations;
+            }
+        }
+    }
+    for(unsigned i=0;i<n;++i) {
+        LiveLeague *league=&s_leagues[ranks[i].index];
+        if(!make_fixtures(league,fresh,0)) goto rollback;
+    }
+    /* Attach native replay-consumption flags to their individual fixtures
+     * while merging the delayed season into the single sorted event cursor. */
+    {
+        LivePackedFixture *packed=(LivePackedFixture *)malloc(
+                                          s_ledger.count*sizeof *packed);
+        if(!packed) goto rollback;
+        for(uint32_t i=0;i<s_ledger.count;++i) {
+            packed[i].fixture=s_fixtures[i];
+            packed[i].consumed=i<before?s_native_result_consumed[i]:0u;
+        }
+        qsort(packed,s_ledger.count,sizeof *packed,live_packed_compare);
+        for(uint32_t i=1;i<s_ledger.count;++i)
+            if(fixture_compare(&packed[i-1].fixture,&packed[i].fixture)>=0) {
+                free(packed);
+                goto rollback;
+            }
+        for(uint32_t i=0;i<s_ledger.count;++i) {
+            s_fixtures[i]=packed[i].fixture;
+            s_native_result_consumed[i]=packed[i].consumed;
+        }
+        free(packed);
+    }
+    for(unsigned i=0;i<n;++i) {
+        const LiveLeague *league=&s_leagues[ranks[i].index];
+        s_generated_fresh[ranks[i].index]=1;
+        for(unsigned j=0;j<league->count;++j)
+            for(uint32_t c=0;c<s_club_count;++c)
+                if(s_clubs[c].id==league->clubs[j])
+                    s_clubs[c].division=league->division;
+    }
+    fprintf(stderr,"[living-world] season %u country %u: mobility "
+                   "up=%lu down=%lu unresolved-native=%lu\n",
+            (unsigned)(previous+1u),(unsigned)country,
+            (unsigned long)(s_promotions-old_up),
+            (unsigned long)(s_relegations-old_down),
+            (unsigned long)(s_mobility_unsupported-old_skipped));
+    return 1;
+rollback:
+    for(unsigned i=0;i<n;++i) s_leagues[ranks[i].index]=backup[i];
+    s_ledger.count=before;
+    s_promotions=old_up;s_relegations=old_down;
+    s_mobility_unsupported=old_skipped;
+    fprintf(stderr,"[living-world] mobility generation rolled back country %u\n",
+            (unsigned)country);
+    return 0;
+}
+static int live_advance_with_mobility(int32_t target) {
+    while (1) {
+        int found=0;
+        int32_t earliest=INT32_MAX;
+        uint8_t chosen=0;
+        uint8_t seen[256]={0};
+        for(uint32_t l=0;l<s_league_count;++l) {
+            const LiveLeague *league=&s_leagues[l];
+            if(!league->native_schedule || s_generated_fresh[l] ||
+               seen[league->country]) continue;
+            seen[league->country]=1;
+            int32_t ready=0;
+            if(!live_country_ready_day(league->country,&ready)) return 0;
+            if(ready<=target && ready<earliest) {
+                chosen=league->country;earliest=ready;found=1;
+            }
+        }
+        if(!found) break;
+        if(s_ledger.now<earliest) {
+            int32_t old=s_ledger.now;
+            if(!ExpandedWorldLedger_Advance(&s_ledger,earliest,
+                                             resolve_game,NULL)) return 0;
+            preseason_advance(old,earliest);
+        }
+        if(!live_generate_country(chosen)) return 0;
+    }
+    int32_t old=s_ledger.now;
+    if(!ExpandedWorldLedger_Advance(&s_ledger,target,resolve_game,NULL))
+        return 0;
+    preseason_advance(old,target);
+    return 1;
+}
+/* Original SWOS fixture tables remain the only league pairing generator.
+ * League movement completes before creating the next season's entrants. */
 
 /* The manager's first day is July 1, but the real OpenSWOS calendar
  * includes competitions already underway in May and June. Those past
@@ -592,17 +883,11 @@ int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate date) {
         int32_t boundary_day=0;
         if (!ExpandedWorld_DateToIndex(boundary,&boundary_day)) return 0;
         if (target<boundary_day) break;
-        if (s_ledger.now<boundary_day) {
-            int32_t old=s_ledger.now;
-            if (!ExpandedWorldLedger_Advance(&s_ledger,boundary_day-1,
-                                              resolve_game,NULL)) return 0;
-            preseason_advance(old,boundary_day-1);
-        }
+        if (s_ledger.now<boundary_day &&
+            !live_advance_with_mobility(boundary_day-1)) return 0;
         if (!live_roll_window()) return 0;
     }
-    int32_t old=s_ledger.now;
-    if (!ExpandedWorldLedger_Advance(&s_ledger,target,resolve_game,NULL)) return 0;
-    preseason_advance(old,target);
+    if (!live_advance_with_mobility(target)) return 0;
     /* Full weeks elapsed, never a rounded-up fictional event date. */
     s_weeks=(uint32_t)(target-s_initial_day)/7u;
     return 1;
@@ -952,7 +1237,10 @@ int ExpandedWorldLive_Table(uint8_t country, uint8_t division,
         league->count<2 || capacity<league->count) return 0;
     season_delta=(int32_t)ExpandedWorldLive_SeasonYear()-(int32_t)s_window_first_year;
     if (season_delta<0 || season_delta>=(int32_t)LIVE_SEASONS) return 0;
-    for(unsigned i=0;i<league->count;++i) table[i].club=league->clubs[i];
+    uint16_t season_roster[LIVE_MAX_LEAGUE_CLUBS]={0};
+    if (!live_fixture_roster(league,ExpandedWorldLive_SeasonYear(),
+                              season_roster)) return 0;
+    for(unsigned i=0;i<league->count;++i) table[i].club=season_roster[i];
     if (!ExpandedWorldLedger_Standings(&s_ledger,
             competition_id(country,division,
                  (unsigned)(ExpandedWorldLive_SeasonYear()-s_first_year)&1u),
@@ -1002,6 +1290,7 @@ typedef struct LiveSaveImage {
     uint8_t consumed[LIVE_MAX_FIXTURES];
     uint32_t clubs_count,leagues_count,fixture_count,played;
     uint32_t weeks,preseason_games,native_matches,native_misses;
+    uint32_t promotions,relegations,mobility_unsupported;
     uint32_t native_orders,native_schedules;
     uint16_t year,window_year;
     int32_t now,initial;
@@ -1069,25 +1358,34 @@ static int live_parse_club_row(const char *src,int len,LiveClub *c) {
     c->preseason.net_income=(int32_t)v[10];
     return 1;
 }
-static int live_parse_league_row(const char *src,int len,LiveLeague *l) {
-    long v[9+LIVE_MAX_LEAGUE_CLUBS]={0};
+static int live_parse_league_row(const char *src,int len,LiveLeague *l,
+                                 int version) {
+    long v[13+LIVE_MAX_LEAGUE_CLUBS]={0};
+    const unsigned base=version>=5?13u:9u;
     unsigned n=0;
-    if (!live_parse_int_row(src,len,v,9+LIVE_MAX_LEAGUE_CLUBS,&n) ||
-        n<9 || v[0]<0 || v[0]>255 || v[1]<0 || v[1]>=16 ||
+    if (!live_parse_int_row(src,len,v,13+LIVE_MAX_LEAGUE_CLUBS,&n) ||
+        n<base || v[0]<0 || v[0]>255 || v[1]<0 || v[1]>=16 ||
         v[2]<2 || v[2]>(long)LIVE_MAX_LEAGUE_CLUBS ||
         v[3]<2 || v[3]>3 || v[4]<0 || v[4]>1 ||
         v[5]<0 || v[5]>255 || v[6]<0 || v[6]>255 ||
         v[7]<0 || v[7]>1 || v[8]<1 || v[8]>4 ||
-        n!=(unsigned)(9+v[2])) return 0;
+        n!=base+(unsigned)v[2]) return 0;
+    if(version>=5)
+        for(unsigned i=9;i<13u;++i)
+            if(v[i]<0 || v[i]>v[2]) return 0;
     memset(l,0,sizeof *l);
     l->country=(uint8_t)v[0]; l->division=(uint8_t)v[1];
     l->count=(uint8_t)v[2]; l->points=(uint8_t)v[3];
     l->overflow=(uint8_t)v[4]; l->begin_phase=(uint8_t)v[5];
     l->end_phase=(uint8_t)v[6]; l->native_schedule=(uint8_t)v[7];
     l->legs=(uint8_t)v[8];
+    if(version>=5) {
+        l->auto_up=(uint8_t)v[9];l->auto_down=(uint8_t)v[10];
+        l->playoff_up=(uint8_t)v[11];l->playoff_down=(uint8_t)v[12];
+    }
     for (unsigned i=0;i<l->count;++i) {
-        if (v[9+i]<0 || v[9+i]>=65535) return 0;
-        l->clubs[i]=(uint16_t)v[9+i];
+        if (v[base+i]<0 || v[base+i]>=65535) return 0;
+        l->clubs[i]=(uint16_t)v[base+i];
     }
     return 1;
 }
@@ -1247,12 +1545,14 @@ int ExpandedWorldLive_WriteJson(int (*emit)(const char*,int,void*),void *ctx) {
         return 1;
     }
     mjson_printf(emit,ctx,
-      "{%Q:4,%Q:%u,%Q:%lu,%Q:%d,%Q:%lu,%Q:[%lu,%lu,%lu,%lu],%Q:%u,%Q:[",
+      "{%Q:5,%Q:%u,%Q:%lu,%Q:%d,%Q:%lu,%Q:[%lu,%lu,%lu,%lu],%Q:[%lu,%lu,%lu],%Q:%u,%Q:[",
       "version","first_year",(unsigned)s_first_year,
       "weeks",(unsigned long)s_weeks,"now",(int)s_ledger.now,
       "preseason_games",(unsigned long)s_preseason_games_total,
       "native",(unsigned long)s_native_matches,(unsigned long)s_native_misses,
       (unsigned long)s_native_order_applied,(unsigned long)s_native_schedule_leagues,
+      "movement",(unsigned long)s_promotions,(unsigned long)s_relegations,
+      (unsigned long)s_mobility_unsupported,
       "window_first_year",(unsigned)s_window_first_year,
       "history");
     for(uint32_t i=0;i<s_history_count;++i) {
@@ -1281,12 +1581,13 @@ int ExpandedWorldLive_WriteJson(int (*emit)(const char*,int,void*),void *ctx) {
     for (uint32_t i=0;i<s_league_count;++i) {
         const LiveLeague *l=&s_leagues[i];
         if (i) mjson_printf(emit,ctx,"%s",",");
-        mjson_printf(emit,ctx,"[%u,%u,%u,%u,%u,%u,%u,%u,%u",
+        mjson_printf(emit,ctx,"[%u,%u,%u,%u,%u,%u,%u,%u,%u,%u,%u,%u,%u",
           (unsigned)l->country,(unsigned)l->division,
           (unsigned)l->count,(unsigned)l->points,
           (unsigned)l->overflow,(unsigned)l->begin_phase,
           (unsigned)l->end_phase,(unsigned)l->native_schedule,
-          (unsigned)l->legs);
+          (unsigned)l->legs,(unsigned)l->auto_up,(unsigned)l->auto_down,
+          (unsigned)l->playoff_up,(unsigned)l->playoff_down);
         for (unsigned j=0;j<l->count;++j)
             mjson_printf(emit,ctx,",%u",(unsigned)l->clubs[j]);
         mjson_printf(emit,ctx,"%s","]");
@@ -1364,7 +1665,8 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
     if (!tmp || !present) goto invalid;
     if (mjson_get_long(obj,olen,"$.version",&snapshot_version)<=0 ||
         (snapshot_version!=1 && snapshot_version!=2 &&
-          snapshot_version!=3 && snapshot_version!=4) ||
+          snapshot_version!=3 && snapshot_version!=4 &&
+          snapshot_version!=5) ||
         mjson_get_long(obj,olen,"$.first_year",&v)<=0 ||
         v<1900 || v>2198) goto invalid;
     tmp->year=(uint16_t)v;
@@ -1475,6 +1777,18 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
     tmp->native_misses=(uint32_t)raw[1];
     tmp->native_orders=(uint32_t)raw[2];
     tmp->native_schedules=(uint32_t)raw[3];
+    if(snapshot_version>=5) {
+        long counts[3]={0};
+        unsigned count=0;
+        if(mjson_find(obj,olen,"$.movement",&arr,&alen)!=MJSON_TOK_ARRAY ||
+           !live_parse_int_row(arr,alen,counts,3u,&count) || count!=3u)
+            goto invalid;
+        for(unsigned i=0;i<3u;++i)
+            if(counts[i]<0 || (uint64_t)counts[i]>UINT32_MAX) goto invalid;
+        tmp->promotions=(uint32_t)counts[0];
+        tmp->relegations=(uint32_t)counts[1];
+        tmp->mobility_unsupported=(uint32_t)counts[2];
+    }
 
     if (mjson_find(obj,olen,"$.clubs",&arr,&alen)!=MJSON_TOK_ARRAY)
         goto invalid;
@@ -1501,7 +1815,8 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
         if (next==0) break;
         if (next<0 || next<=off || type!=MJSON_TOK_ARRAY ||
             tmp->leagues_count>=LIVE_MAX_LEAGUES ||
-            !live_parse_league_row(arr+vo,vl,&tmp->leagues[tmp->leagues_count]))
+            !live_parse_league_row(arr+vo,vl,&tmp->leagues[tmp->leagues_count],
+                                   (int)snapshot_version))
             goto invalid;
         const LiveLeague *l=&tmp->leagues[tmp->leagues_count++];
         for (unsigned i=0;i<l->count;++i) {
@@ -1656,6 +1971,9 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
     s_native_misses=tmp->native_misses;
     s_native_order_applied=tmp->native_orders;
     s_native_schedule_leagues=tmp->native_schedules;
+    s_promotions=tmp->promotions;
+    s_relegations=tmp->relegations;
+    s_mobility_unsupported=tmp->mobility_unsupported;
     s_fixtures=store;
     s_ledger.fixtures=store;
     s_ledger.capacity=LIVE_MAX_FIXTURES;
@@ -1663,6 +1981,14 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
     s_ledger.played=tmp->played;
     s_ledger.now=tmp->now;
     s_live=1;
+    /* Reconstruct generated season flags from the persisted resident
+     * fixture rosters: one transition only, even after save/load. */
+    for(uint32_t l=0;l<s_league_count;++l) {
+        uint16_t roster[LIVE_MAX_LEAGUE_CLUBS]={0};
+        s_generated_fresh[l]=(uint8_t)(
+            live_fixture_roster(&s_leagues[l],s_window_first_year+1u,
+                               roster)?1u:0u);
+    }
     if (!live_complete_prestart()) {
         /* The replacement became active only after complete validation.
          * Fail closed on an impossible missing club/invalid score. */
@@ -1698,6 +2024,14 @@ int ExpandedWorldLive_AddClub(uint8_t c,uint8_t d,uint16_t id,uint16_t rating,
     (void)c;(void)d;(void)id;(void)rating;(void)name;(void)ppw;return 0;
 }
 int ExpandedWorldLive_Seal(void) {return 0;}
+int ExpandedWorldLive_SetLeagueMovement(uint8_t c,uint8_t d,uint8_t u,
+                                        uint8_t dn,uint8_t pu,uint8_t pd) {
+    (void)c;(void)d;(void)u;(void)dn;(void)pu;(void)pd;return 0;
+}
+uint32_t ExpandedWorldLive_Promotions(void) {return 0;}
+uint32_t ExpandedWorldLive_Relegations(void) {return 0;}
+uint32_t ExpandedWorldLive_MobilityUnsupported(void) {return 0;}
+uint8_t ExpandedWorldLive_ClubDivision(uint16_t id) {(void)id;return 255u;}
 int ExpandedWorldLive_SetLeagueSchedule(uint8_t c,uint8_t d,uint8_t s,uint8_t e,
                                         uint8_t legs) {
     (void)c;(void)d;(void)s;(void)e;(void)legs;return 0;

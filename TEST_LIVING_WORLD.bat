@@ -28,7 +28,7 @@ echo Un unico log: LIVING_WORLD_70_TEST.log
 set "RESULT=%ERRORLEVEL%"
 type "LIVING_WORLD_70_TEST.log"
 if not "%RESULT%"=="0" goto test_failed
-for %%M in (MIDWEEK_EVENT_SAVE_RELOAD WORLD_EVENT_CURSOR GLOBAL_OFFERS_DISCOVERY CUP_NATIVE_JOURNAL CUP_ARCHIVE_70 STRESS_RESULT DB_INVENTORY ENGINE_UNIT_REGRESSIONS ENGINE_SUITE) do (
+for %%M in (MIDWEEK_EVENT_SAVE_RELOAD WORLD_EVENT_CURSOR GLOBAL_OFFERS_DISCOVERY CUP_NATIVE_JOURNAL CUP_ARCHIVE_70 STRESS_RESULT PYRAMID_MOVEMENT_NATIVE_RULES PYRAMID_FULL_UP_DOWN PYRAMID_IDENTITY_SAVE_LOAD PYRAMID_BOUNDARIES PYRAMID_STRESS_RESULT DB_INVENTORY ENGINE_UNIT_REGRESSIONS ENGINE_SUITE) do (
  findstr /X /C:"%%M=PASS" "LIVING_WORLD_70_TEST.log" >nul
  if errorlevel 1 (
   echo %ESC%[91m[FAIL] Manca %%M=PASS%ESC%[0m
@@ -38,7 +38,7 @@ for %%M in (MIDWEEK_EVENT_SAVE_RELOAD WORLD_EVENT_CURSOR GLOBAL_OFFERS_DISCOVERY
 if not "%RESULT%"=="0" goto test_failed
 echo.
 echo %ESC%[92m[PASS] Test automatici campionati, coppe, save/load e inventario DB.%ESC%[0m
-echo %ESC%[93m[PENDING] Mobilita fra divisioni e coppe mondiali offscreen NON ancora testabili.%ESC%[0m
+echo %ESC%[93m[PENDING] Spareggi OG e coppe mondiali offscreen: NON ancora completati.%ESC%[0m
 goto test_done
 :test_failed
 echo.

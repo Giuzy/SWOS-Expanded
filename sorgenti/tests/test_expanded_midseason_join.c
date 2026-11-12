@@ -2,6 +2,9 @@
 #include <stdint.h>
 #include <stdio.h>
 #include "expanded_midseason_join.h"
+/* The no-SDL fallback reads this native career global. The stand-alone
+ * calendar unit test intentionally does not link the full game. */
+uint8_t _lastFinancialWeekIndex=0;
 int main(void) {
     uint8_t week=99;
     assert(Expanded_MidseasonJoin_Cutoff(1996,0,&week) && week==0);

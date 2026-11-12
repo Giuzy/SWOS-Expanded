@@ -456,6 +456,16 @@ static volatile Uint32 s_last_main_render_ms;
 static volatile int s_screenshot_request;
 /* F12 text diagnostic + F9 capture of final presented pixels. */
 static volatile int s_world_debug_visible;
+/* Debug-only fast real match: every original game frame runs normally at
+ * four times the wall-clock rate. No result teleport or changed physics. */
+static volatile int s_debug_match_fast;
+static int s_debug_fast_frame;
+static int debug_match_factor(void) {
+    extern volatile uint16_t _playGame, _playHighlightFlag;
+    extern uint16_t _gameType;
+    return (s_debug_match_fast && _playGame && !_playHighlightFlag &&
+            _gameType==4) ? 4 : 1;
+}
 static volatile int s_debug_capture_request;
 
 /* A screenshot at the next full render (the career autopilot's test
@@ -869,7 +879,7 @@ static int Platform_ActivePacingFps(void)
     extern int _replayPlaybackFps;
     if (_playHighlightFlag != 0 && _replayPlaybackFps > 0)
         return _replayPlaybackFps;
-    return DosGameplay_TargetFps();
+    return DosGameplay_TargetFps()*debug_match_factor();
 }
 
 /* Run the Amiga Level-3 VBlank ISR body, throttled to ~50 Hz max and
@@ -892,7 +902,9 @@ void RunInt3HandlerThrottled(void)
      * it runs once or twice, not unbounded. */
     /* Throttle just under one frame interval: 18 ms @ 50 Hz, ~12 ms @ 70 Hz (DOS
      * or a 70 Hz replay). */
-    const Uint32 thr = s_harness_turbo ? 0u : (Uint32)(1000 / Platform_ActivePacingFps() - 2);
+    const int hz=Platform_ActivePacingFps();
+    const Uint32 thr = s_harness_turbo ? 0u :
+        (Uint32)((1000 / hz)>2 ? (1000 / hz)-2 : 0);
     Uint32 now = SDL_GetTicks();
     /* Cheap pre-check before the lock — most calls will be too soon. */
     if (now - s_last_isr_ms < thr) return;
@@ -2140,6 +2152,17 @@ static void pump_events_any_thread(void)
                     ExpandedDebug_ToggleDraw();
                     continue;
                 }
+                if (code == SDLK_5 || code == SDLK_KP_5) {
+                    extern volatile uint16_t _playGame;
+                    extern uint16_t _gameType;
+                    if (_playGame && _gameType==4) {
+                        s_debug_match_fast=!s_debug_match_fast;
+                        s_debug_fast_frame=0;
+                        fprintf(stderr,"[match-debug] real frame pacing x%d\n",
+                                s_debug_match_fast?4:1);
+                    }
+                    continue;
+                }
             }
             if (ev.key.repeat == 0 &&
                 (ev.key.keysym.sym == SDLK_F11 ||
@@ -2765,8 +2788,33 @@ static void draw_world_debug_overlay(void)
         Expanded_FormatDate(date,sizeof date,World_FirstYear()+
                             (unsigned)_currentSeasonShowing,
                             (unsigned)Expanded_Career_NativeCalendarKey());
-    snprintf(line,sizeof line,"DATE EST %s",date);
+    snprintf(line,sizeof line,"OG DATE EST %s",date);
     DEBUG_LINE(line);
+    {
+        ExpandedLiveCalendarState calendar;
+        if(ExpandedWorldLive_CalendarState(&calendar)) {
+            snprintf(line,sizeof line,"WORLD DATE %04u-%02u-%02u",
+                (unsigned)calendar.today.year,(unsigned)calendar.today.month,
+                (unsigned)calendar.today.day);
+            DEBUG_LINE(line);
+            if(!unemployed && _gameType==4) {
+                ExpandedWorldDate og;
+                int32_t og_day=0,world_day=0;
+                if(ExpandedWorld_NativePhaseToDate(
+                       (uint16_t)(World_FirstYear()+_currentSeasonShowing),
+                       Expanded_Career_NativeCalendarKey(),&og) &&
+                   ExpandedWorld_DateToIndex(og,&og_day) &&
+                   ExpandedWorld_DateToIndex(calendar.today,&world_day)) {
+                    int32_t days=og_day-world_day;
+                    if(days< -31 || days>31) {
+                        snprintf(line,sizeof line,"CLOCK MISMATCH %ld DAYS",
+                                  (long)days);
+                        DEBUG_WARN(line);
+                    } else DEBUG_GOOD("OG/WORLD CLOCKS NEAR");
+                }
+            }
+        }
+    }
     if (unemployed) {
         snprintf(line,sizeof line,"UNEMPLOYED WAIT %u WEEKS",
                  Expanded_DebugUnemployedWeeks());
@@ -2790,6 +2838,11 @@ static void draw_world_debug_overlay(void)
     snprintf(line,sizeof line,"CLUBS %lu LEAGUES %lu",
              (unsigned long)ExpandedWorldLive_Clubs(),
              (unsigned long)ExpandedWorldLive_Leagues());
+    DEBUG_LINE(line);
+    snprintf(line,sizeof line,"MOBILITY UP %lu DOWN %lu UNRESOLVED %lu",
+        (unsigned long)ExpandedWorldLive_Promotions(),
+        (unsigned long)ExpandedWorldLive_Relegations(),
+        (unsigned long)ExpandedWorldLive_MobilityUnsupported());
     DEBUG_LINE(line);
     snprintf(line,sizeof line,"PLAYER SLOTS %lu (16 PER CLUB)",
              (unsigned long)ExpandedWorldLive_PlayerSlots());
@@ -2962,6 +3015,9 @@ static void draw_world_debug_overlay(void)
     DEBUG_LINE(line);
     snprintf(line,sizeof line,"4 DRAW ALWAYS %s",
               ExpandedDebug_ResultMode()==4?"ON":"OFF");
+    DEBUG_LINE(line);
+    snprintf(line,sizeof line,"5 MATCH FAST X4 %s",
+              debug_match_factor()==4?"ON":"OFF");
     DEBUG_LINE(line);
     DEBUG_LINE("F9 PNG F12 HIDE");
 #undef DEBUG_LINE
@@ -3376,6 +3432,14 @@ static void present_interval_stats(void)
 
 int Platform_Present(void)
 {
+    if (s_debug_match_fast) {
+        extern volatile uint16_t _playGame;
+        if (!_playGame) {
+            s_debug_match_fast=0;
+            s_debug_fast_frame=0;
+            fprintf(stderr,"[match-debug] restored normal match pacing\n");
+        }
+    }
     /* Stamp first so the async timer callback sees a recent main-thread
      * render as soon as we enter RenderFrame — prevents the timer from
      * firing a concurrent render while we're holding the mutex. */
@@ -3386,6 +3450,25 @@ int Platform_Present(void)
     key_script_tick();
     if (s_present_stats)
         present_interval_stats();
+    /* Four full original gameplay iterations per rendered frame when the
+     * tester enables F12+5 inside a career match. Sprite/gameplay update
+     * is still run by GameLoop_Frame on every iteration. Skip only the
+     * expensive GPU upload/present and pump input on intermediate frames. */
+#ifndef SWOS_WASM_BUILD
+    if (debug_match_factor()==4 && (++s_debug_fast_frame&3)!=0) {
+        pump_events_any_thread();
+        s_next_frame_perf += (Uint64)((double)s_perf_freq /
+                                         (double)Platform_ActivePacingFps());
+        Uint64 now_fast=SDL_GetPerformanceCounter();
+        if (s_next_frame_perf>now_fast) {
+            Uint32 wait=(Uint32)((s_next_frame_perf-now_fast)*1000u/s_perf_freq);
+            if (wait>0) SDL_Delay(wait);
+        } else if (now_fast-s_next_frame_perf>s_perf_freq/10u) {
+            s_next_frame_perf=now_fast;
+        }
+        return _quitToDos?1:0;
+    }
+#endif
     Platform_RenderFrame();
 
 #ifndef SWOS_WASM_BUILD

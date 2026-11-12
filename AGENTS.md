@@ -486,3 +486,7 @@ registro mondiale condiviso, non sostituendoli con un motore parallelo.
 ## Regola confermata 12/11/2026 — consegna test selezionabili
 - Alla consegna di ogni nuova build di SWOS Expanded, fornire una checklist concreta di test Windows con risposta **SI / NO** per ogni voce. Il NO e' un risultato da riportare, non una bocciatura da occultare; aggiungere la possibilita' di annotare un difetto/log. Includere sempre versione, ramo, commit, cosa e' stato verificato automaticamente, cosa e' ancora da provare in Windows. Non confondere test sintetici con l'intero database reale.
 - Il debug F12 puo' usare due colonne, colori e spaziatura per separare mondi, carriera, coppe, join e test senza alterare grafica e fisica dei menu. Finche' la carriera OG ha callback di coppa non presenti nel mondo, non eliminare l'eventuale catch-up: rendere esplicita la dipendenza e non spacciare un caricamento nascosto per unificazione completa.
+
+## Regola 12/11/2026 — checklist inviabile
+- Ogni build include checklist di prova Windows SÌ / NO / NON PROVATO con pulsante **Invia rapporto**, collegato a una vera azione di chat, ed eventualmente Copia.
+- Patch esterne di altri autori con nuovi campionati, regole o rose: analizzare dopo il commit pertinente come proposta, senza importarle automaticamente prima di confronto con game design, codice e approvazione.

@@ -115,11 +115,25 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
         int original_legs=(int)league->header.rounds;
         if (original_legs<0) original_legs=1;
         if (original_legs>=1 && original_legs<=4) {
-            for (unsigned d=0;d<(unsigned)divisions;++d)
+            for (unsigned d=0;d<(unsigned)divisions;++d) {
                 (void)ExpandedWorldLive_SetLeagueSchedule(
                     country,(uint8_t)d,
                     (uint8_t)base->beginMonth,(uint8_t)base->endMonth,
                     (uint8_t)original_legs);
+                /* Read the ORIGINAL division's automatic promotions, relegations
+                 * and playoff flags. Unsupported or grouped systems are logged;
+                 * they are never replaced with fabricated rank cutoffs. */
+                const Division *rule=&league->divisions[d];
+                if(rule->promoted>=0 && rule->relegated>=0 &&
+                   rule->promotedPo>=0 && rule->relegatedPo>=0) {
+                    (void)ExpandedWorldLive_SetLeagueMovement(
+                        country,(uint8_t)d,(uint8_t)rule->promoted,
+                        (uint8_t)rule->relegated,(uint8_t)rule->promotedPo,
+                        (uint8_t)rule->relegatedPo);
+                } else fprintf(stderr,"[living-world] unsupported signed "
+                       "promotion rules country=%u division=%u\n",
+                       (unsigned)country,d);
+            }
         } else {
             ++s_import_audit.unsupported_rounds;
             fprintf(stderr,"[living-world] unsupported native rounds=%d "

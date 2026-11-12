@@ -55,6 +55,17 @@ int ExpandedWorldLive_AddClub(uint8_t country, uint8_t division,
                               const char *name, uint8_t points_per_win);
 /* The world uses original OpenSWOS league fixture tables and phase
  * calendar. Called before Seal(), from each country's competition record. */
+/* Automatic native league places only; playoff places remain resolved by OG.
+ * Counts come directly from CompetitionLeague.divisions. The world never
+ * invents promotion-playoff winners or a separate competition bracket. */
+int ExpandedWorldLive_SetLeagueMovement(uint8_t country,uint8_t division,
+                                        uint8_t auto_up,uint8_t auto_down,
+                                        uint8_t playoff_up,uint8_t playoff_down);
+/* Count actual club division changes between generated world seasons. */
+uint32_t ExpandedWorldLive_Promotions(void);
+uint32_t ExpandedWorldLive_Relegations(void);
+uint32_t ExpandedWorldLive_MobilityUnsupported(void);
+uint8_t ExpandedWorldLive_ClubDivision(uint16_t club);
 int ExpandedWorldLive_SetLeagueSchedule(uint8_t country,uint8_t division,
                                         uint8_t begin_phase,uint8_t end_phase,
                                         uint8_t legs);

@@ -345,9 +345,20 @@ void ChooseTeamAndStartCareer(void)
         extern unsigned Expanded_DebugUnemployedWeeks(void);
         Expanded_MidseasonJoin_Begin(Expanded_DebugUnemployedWeeks());
 #ifdef SWOS_SDL_BUILD
-        /* Historical catch-up saves only after it finishes. */
-        { extern void Expanded_AutoCareer_Save(const char *);
-          Expanded_AutoCareer_Save("first-contract"); }
+        /* DO NOT save/reload while the OG cup/league catch-up cursor is
+         * active. VERIFY builds reload the just-saved .CAR and reconstruct
+         * competition slot pointers; that invalidates the running native
+         * callback chain. The successful catch-up finish() already saves
+         * "native-join-complete". Without catch-up, save immediately. */
+        { extern int Expanded_MidseasonJoin_Active(void);
+          if (!Expanded_MidseasonJoin_Active()) {
+              extern void Expanded_AutoCareer_Save(const char *);
+              Expanded_AutoCareer_Save("first-contract");
+          } else {
+              fprintf(stderr,"[autosave] deferred first-contract until "
+                             "native-join-complete (OG catch-up active)\n");
+          }
+        }
 #endif
         fprintf(stderr,"[expanded11] InitCareer: completed team=%04x\n",(unsigned)offerTeam);
         fflush(stderr);

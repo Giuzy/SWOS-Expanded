@@ -246,6 +246,19 @@ extern void Expanded_FormatDate(char *,size_t,unsigned,unsigned);
 extern void Expanded_FormatCivilDate(char *,size_t,ExpandedWorldDate);
 static unsigned s_waitWeeks=0;
 static unsigned s_nextOfferWeek=0;
+/* Test-only F12+7: consumed on the NEXT genuine FORWARD TIME menu action.
+ * Never run DrawMenu or native OG callbacks from SDL's event pump. */
+static unsigned s_debug_wait_jump_weeks=0;
+void Expanded_DebugArmFiveYearUnemployment(void) {
+    extern volatile uintptr_t _currentMenuPtr;
+    if(_currentMenuPtr!=(uintptr_t)Expanded_UnemployedCalendarMenu()) {
+        fprintf(stderr,"[debug-unemployed] F12+7 requires UNEMPLOYED CALENDAR\n");
+        return;
+    }
+    s_debug_wait_jump_weeks=260u;
+    fprintf(stderr,"[debug-unemployed] armed +260 weeks: press FORWARD TIME "
+                   "once; OG competitions are NOT yet verified offscreen\n");
+}
 
 static uint16_t s_waitTeam=0;
 static uint8_t s_waitCountry=8;
@@ -606,6 +619,8 @@ void Expanded_UnemployedDraw(void) {
     if(!compact) contest_line(171,date,2);
 }
 void Expanded_UnemployedWait(void) {
+    const unsigned jump=s_debug_wait_jump_weeks?s_debug_wait_jump_weeks:1u;
+    s_debug_wait_jump_weeks=0u;
     /* FORWARD TIME deliberately expires an unanswered offer. Leaving an
      * offer pending must not freeze the world's seasons or competitions.
      * A new offer can arrive later; VIEW CLUB OFFER still accepts normally. */
@@ -618,7 +633,13 @@ void Expanded_UnemployedWait(void) {
         s_offerAgreedWeekly=0;
         s_nextOfferWeek=s_waitWeeks+next_delay();
     }
-    if(s_waitWeeks<4000) s_waitWeeks++;
+    if(s_waitWeeks<4000u) {
+        unsigned remaining=4000u-s_waitWeeks;
+        s_waitWeeks+=jump<remaining?jump:remaining;
+    }
+    if(jump!=1u)
+        fprintf(stderr,"[debug-unemployed] +%u weeks to absolute week %u "
+                       "(club cups still OG-unverified)\n",jump,s_waitWeeks);
     /* The pilot world operates on snapshots of actual club IDs, with no
      * live team-file reload while a modal is open. No game-clock mutation. */
     if (ExpandedWorldLive_Clubs()) {
@@ -817,6 +838,7 @@ int Expanded_WaitForFirstOffer(uint16_t *team) {
     if(!s_randomState) s_randomState=1;
     s_unemployedHadClub=0;
     s_waitWeeks=0; s_waitAccepted=0; s_waitTeam=0;
+    s_debug_wait_jump_weeks=0;
     s_offerSnapshotValid=0; s_offerAgreedWeekly=0;
     s_nextOfferWeek=next_delay();
     /* NEW CAREER START initialized the one shared Living World before
@@ -867,6 +889,7 @@ int Expanded_WaitForRehire(uint16_t *team) {
     if (ExpandedWorldLive_Clubs())
         (void)ExpandedWorldLive_AdvanceWeeks((uint32_t)s_waitWeeks);
     s_waitAccepted=0;s_waitTeam=0;s_offerSnapshotValid=0;s_offerAgreedWeekly=0;
+    s_debug_wait_jump_weeks=0;
     s_nextOfferWeek=s_waitWeeks+next_delay();
     ShowMenu(Expanded_UnemployedCalendarMenu());
     if(!s_waitAccepted || !offer_is_valid() || !verify_offer_in_file()) return 0;
@@ -903,8 +926,18 @@ int Expanded_HandleSackingAfterMatch(void) {
         extern void Expanded_MidseasonJoin_Begin(uint32_t weeks);
         Expanded_MidseasonJoin_Begin(s_waitWeeks);
 #ifdef SWOS_SDL_BUILD
-        { extern void Expanded_AutoCareer_Save(const char *);
-          Expanded_AutoCareer_Save("new-contract"); }
+        /* A tester save roundtrip reloads OG competition contexts.
+         * Never do it in the middle of the native cup catch-up loop:
+         * finish() performs native-join-complete after success. */
+        { extern int Expanded_MidseasonJoin_Active(void);
+          if (!Expanded_MidseasonJoin_Active()) {
+              extern void Expanded_AutoCareer_Save(const char *);
+              Expanded_AutoCareer_Save("new-contract");
+          } else {
+              fprintf(stderr,"[autosave] deferred new-contract until "
+                             "native-join-complete (OG catch-up active)\n");
+          }
+        }
 #endif
         ActivateMenu(_contestMenu);
     } else {

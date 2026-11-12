@@ -2145,6 +2145,13 @@ static void pump_events_any_thread(void)
                     s_world_debug_cup_page=!s_world_debug_cup_page;
                     continue;
                 }
+                if (code == SDLK_7 || code == SDLK_KP_7) {
+                    /* Arm, don't mutate modal menus inside SDL_PollEvent.
+                     * Next UNEMPLOYED/FORWARD TIME uses the same world tick. */
+                    extern void Expanded_DebugArmFiveYearUnemployment(void);
+                    Expanded_DebugArmFiveYearUnemployment();
+                    continue;
+                }
                 if (code == SDLK_n && expanded_title_main_active()) {
                     extern void Expanded_TitleMenu_QueueNewCareerDebug(void);
                     Expanded_TitleMenu_QueueNewCareerDebug();

@@ -693,8 +693,20 @@ GameFrameResult GameLoop_Frame(void)
      * the existing OpenSWOS cached-result callback, never a second ledger. */
     {
         extern int Platform_DebugTakeQuickMatchEnd(void);
-        if(Platform_DebugTakeQuickMatchEnd() && _gameTime>0u && _playGame)
+        if(Platform_DebugTakeQuickMatchEnd() && _gameTime>0u && _playGame) {
+            /* The native ESC path is the safe gameplay-thread exit, but it
+             * marks a player-controlled game CANCELED when leaving early.
+             * F12+6 is explicitly a debug COMPLETE request: preserve the
+             * normal SWOS career result callback (and its selected score),
+             * rather than discarding the game as an abandoned friendly.
+             * This override exists only on the F12+6 test path. */
             MainKeysCheck(0x1Bu);
+            if(!_playGame && _gameCanceled) {
+                _gameCanceled=0;
+                fprintf(stderr,"[match-debug] native early exit retained "
+                        "as completed career result for finalization\n");
+            }
+        }
     }
 #endif
     /* nullsub_10, nullsub_9 — no-ops */

@@ -3021,7 +3021,7 @@ static void draw_world_debug_overlay(void)
                         snprintf(line,sizeof line,"CLOCK MISMATCH %ld DAYS",
                                   (long)days);
                         DEBUG_WARN(line);
-                    } else DEBUG_GOOD("OG/WORLD CLOCKS NEAR");
+                    } else DEBUG_LINE("CLOCK SAMPLE NEAR (NOT JOIN PROOF)");
                 }
             }
         }
@@ -3260,6 +3260,29 @@ static void draw_world_debug_overlay(void)
                 DEBUG_LINE(line);
             }
         }
+    }
+    DEBUG_SECTION("OG/LWE RUNTIME VERDICTS");
+    {
+        extern uint32_t DIY_WorldStandingsAuditChecks(void);
+        extern uint32_t DIY_WorldStandingsAuditFailures(void);
+        const uint32_t checked=DIY_WorldStandingsAuditChecks();
+        const uint32_t failed=DIY_WorldStandingsAuditFailures();
+        snprintf(line,sizeof line,"OG/LWE STANDINGS %s (%lu CHECKS, %lu FAILURES)",
+                 checked?(failed?"FAIL":"PASS"):"NOT_TESTED",
+                 (unsigned long)checked,(unsigned long)failed);
+        if(failed)DEBUG_WARN(line);else if(checked)DEBUG_GOOD(line);
+        else DEBUG_LINE(line);
+    }
+    {
+        const uint32_t archived=ExpandedWorldLive_CupArchivedTitles();
+        const uint32_t indexed=ExpandedWorldLive_CupHistoricalTitles();
+        snprintf(line,sizeof line,"OG CUP TITLE INDEX %s (ARCHIVED %lu INDEXED %lu)",
+                 !archived?"NOT_TESTED":indexed>=archived?"PASS":"FAIL",
+                 (unsigned long)archived,(unsigned long)indexed);
+        if(archived && indexed<archived)DEBUG_WARN(line);
+        else if(archived)DEBUG_GOOD(line);
+        else DEBUG_LINE(line);
+        DEBUG_LINE("CUP OFFSCREEN OG BRACKETS NOT_TESTED");
     }
     DEBUG_SECTION("JOIN STATUS / TEST MODES");
     DEBUG_WARN("PILOT/NATIVE REPLAY PARTIAL");

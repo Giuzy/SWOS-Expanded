@@ -802,3 +802,11 @@ non eseguiti dall'assistente. Non dichiarare build Windows collaudata.
 - Audit cronologico: F12 riporta cambi dello scarto OG/LWE e input della conversione; il percorso midseason traccia ALIGN_PRE, ALIGN_APPLIED, JOIN_BEGIN e JOIN_FINISH con stagione, fase e cursore. Sono osservazioni runtime, non auto-correzioni del calendario.
 - Rimosse dalla suite del motore le due prove statiche, che restano fuori dalla certificazione funzionale. PASS dei test C isolati non dimostra l'integrazione runtime Windows né le coppe offscreen.
 - Test Windows, compilazione e verifica del flusso OG/LWE ancora da eseguire dall'utente. Non sono stati modificati risultati, simulazione, salvataggi o rendering del gameplay.
+
+### 13 novembre 2026 — 0.13.38_01: verdetti runtime e protocollo screenshot
+- F12: OG/LWE STANDINGS PASS solo dopo un confronto OG effettivo, tramite ID, senza differenze; FAIL dopo una o piu' differenze; NOT_TESTED prima di eseguirlo. Mostra numero di confronti ed errori. PASS si riferisce SOLO ai campionati confrontati.
+- F12: OG CUP TITLE INDEX PASS solo se esistono titoli archiviati tutti indicizzati, FAIL se titoli archiviatI superano gli indici, NOT_TESTED senza titoli archiviati. NON verifica simulazione offscreen o coppe internazionali.
+- Il messaggio F12 sugli orologi vicini e' stato rinominato CLOCK SAMPLE NEAR (NOT JOIN PROOF): non deve essere interpretato come test di corretto handoff.
+- TEST_LIVING_WORLD.bat elenca esplicitamente il controllo runtime CUP_NEGATIVE_REJECTIONS_70, mantenendo le relative asserzioni negative.
+- Dopo ogni build, chiedere screenshot mirati in base alle parti modificate e dichiarare cosa dimostrano, distinguendo schermate normali e debug. Protocollo consigliato per il prossimo test Windows: (1) dopo 5 anni disoccupato F12; (2) F10 import/coppe; (3) F12+C registro coppe; (4) subito dopo l'offerta F12; (5) classifica OG e riepilogo della stessa divisione senza avanzare; (6) dopo un solo FORWARD TIME F12. Non rifare i cinque anni se il salvataggio di test esiste. Richiedere SWOS.log per identificare il primo evento [clock-audit], [join-standings], [og-cups-audit] pertinente.
+- Compilazione e verifiche Windows rimangono responsabilita' dell'utente: mai descriverle come eseguite da remoto.

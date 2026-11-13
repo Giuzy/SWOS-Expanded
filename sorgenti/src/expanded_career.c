@@ -249,16 +249,17 @@ static unsigned s_waitWeeks=0;
 static unsigned s_nextOfferWeek=0;
 /* Test-only F12+7: consumed on the NEXT genuine FORWARD TIME menu action.
  * Never run DrawMenu or native OG callbacks from SDL's event pump. */
-static unsigned s_debug_wait_jump_weeks=0;
+static unsigned s_debug_wait_jump_years=0;
 void Expanded_DebugArmFiveYearUnemployment(void) {
     extern uintptr_t _currentMenuPtr;
     if(_currentMenuPtr!=(uintptr_t)Expanded_UnemployedCalendarMenu()) {
         fprintf(stderr,"[debug-unemployed] F12+7 requires UNEMPLOYED CALENDAR\n");
         return;
     }
-    s_debug_wait_jump_weeks=260u;
-    fprintf(stderr,"[debug-unemployed] armed +260 weeks: press FORWARD TIME "
-                   "once; OG competitions are NOT yet verified offscreen\n");
+    s_debug_wait_jump_years=5u;
+    fprintf(stderr,"[debug-unemployed] armed +5 CALENDAR YEARS: "
+                   "press FORWARD TIME once; not +260 approximate weeks; "
+                   "OG cups still unverified\n");
 }
 
 static uint16_t s_waitTeam=0;
@@ -562,6 +563,19 @@ static void contest_line(unsigned y,const char *line,unsigned color) {
  * employed calendar; its independent week clock must be used there. */
 static ExpandedWorldDate unemployed_date_at(unsigned weeks) {
     ExpandedWorldDate date={(uint16_t)World_FirstYear(),7u,1u};
+    ExpandedLiveCalendarState live;
+    /* Keep the exact LWE civil day after calendar-anniversary jumps.
+     * s_waitWeeks is a coarse elapsed-week cursor, NOT a second clock. */
+    if(ExpandedWorldLive_Clubs() && ExpandedWorldLive_CalendarState(&live) &&
+       weeks>=s_waitWeeks) {
+        int32_t index=0;
+        const uint64_t offset=(uint64_t)(weeks-s_waitWeeks)*7u;
+        if(offset<=INT32_MAX &&
+           ExpandedWorld_DateToIndex(live.today,&index) &&
+           (uint64_t)(uint32_t)index+offset<=INT32_MAX &&
+           ExpandedWorld_IndexToDate(index+(int32_t)offset,&date))
+            return date;
+    }
     (void)ExpandedWorld_DateAfterWeeks(date,(uint32_t)weeks,&date);
     return date;
 }
@@ -620,11 +634,47 @@ void Expanded_UnemployedDraw(void) {
     if(!compact) contest_line(171,date,2);
 }
 void Expanded_UnemployedWait(void) {
-    const unsigned jump=s_debug_wait_jump_weeks?s_debug_wait_jump_weeks:1u;
-    s_debug_wait_jump_weeks=0u;
-    /* FORWARD TIME deliberately expires an unanswered offer. Leaving an
-     * offer pending must not freeze the world's seasons or competitions.
-     * A new offer can arrive later; VIEW CLUB OFFER still accepts normally. */
+    const unsigned jump_years=s_debug_wait_jump_years;
+    ExpandedLiveCalendarState live;
+    ExpandedWorldDate target;
+    int32_t first_index=0,now_index=0,target_index=0;
+    const ExpandedWorldDate first={(uint16_t)World_FirstYear(),7u,1u};
+    if(!ExpandedWorldLive_Clubs() ||
+       !ExpandedWorldLive_CalendarState(&live) ||
+       !ExpandedWorld_DateToIndex(first,&first_index) ||
+       !ExpandedWorld_DateToIndex(live.today,&now_index)) {
+        fprintf(stderr,"[calendar] FAIL UNEMPLOYED_LIVE_CLOCK_UNAVAILABLE\n");
+        return; /* Never invent an alternative date source. */
+    }
+    if(jump_years) {
+        if(!ExpandedWorld_AddCalendarYears(live.today,
+                                          (uint16_t)jump_years,&target)) {
+            fprintf(stderr,"[calendar] FAIL FIVE_YEAR_DATE_OUT_OF_RANGE\n");
+            return;
+        }
+    } else if(now_index<=INT32_MAX-7 &&
+              ExpandedWorld_IndexToDate(now_index+7,&target)) {
+        /* A regular FORWARD TIME always means precisely seven civil days. */
+    } else {
+        fprintf(stderr,"[calendar] FAIL WEEK_DATE_OUT_OF_RANGE\n");
+        return;
+    }
+    if(!ExpandedWorld_DateToIndex(target,&target_index) ||
+       target_index<first_index ||
+       (uint32_t)(target_index-first_index)/7u>4000u) {
+        fprintf(stderr,"[calendar] FAIL WAIT_LIMIT before=%ld target=%ld\n",
+                (long)now_index,(long)target_index);
+        return;
+    }
+    const unsigned target_weeks=(unsigned)(target_index-first_index)/7u;
+    if(!ExpandedWorldLive_AdvanceToDate(target)) {
+        fprintf(stderr,"[calendar] FAIL LWE_ADVANCE target=%04u-%02u-%02u\n",
+                (unsigned)target.year,(unsigned)target.month,
+                (unsigned)target.day);
+        return;
+    }
+    s_debug_wait_jump_years=0u;
+    /* FORWARD TIME deliberately expires an unanswered offer. */
     if (s_waitTeam && s_waitWeeks>=s_nextOfferWeek) {
         fprintf(stderr,"[offers] week %u: pending offer from %.17s expired "
                        "because manager advanced time\n",
@@ -634,18 +684,36 @@ void Expanded_UnemployedWait(void) {
         s_offerAgreedWeekly=0;
         s_nextOfferWeek=s_waitWeeks+next_delay();
     }
-    if(s_waitWeeks<4000u) {
-        unsigned remaining=4000u-s_waitWeeks;
-        s_waitWeeks+=jump<remaining?jump:remaining;
+    const unsigned previous_week=s_waitWeeks;
+    s_waitWeeks=target_weeks;
+    if(jump_years) {
+        ExpandedWorldDate check;
+        ExpandedLiveCalendarState after;
+        const int ok=ExpandedWorldLive_CalendarState(&after) &&
+                     after.today.year==target.year &&
+                     after.today.month==target.month &&
+                     after.today.day==target.day &&
+                     ExpandedWorld_AddCalendarYears(live.today,
+                                                   (uint16_t)jump_years,&check) &&
+                     check.year==target.year &&
+                     check.month==target.month &&
+                     check.day==target.day;
+        fprintf(stderr,"[calendar-five-year] %s initial=%04u-%02u-%02u "
+                       "target=%04u-%02u-%02u absolute-week=%u "
+                       "week-delta=%u civil-day-delta=%ld\n",
+                ok?"PASS_EXACT_DATE_ONLY":"FAIL",
+                (unsigned)live.today.year,(unsigned)live.today.month,
+                (unsigned)live.today.day,(unsigned)target.year,
+                (unsigned)target.month,(unsigned)target.day,
+                s_waitWeeks,s_waitWeeks-previous_week,
+                (long)(target_index-now_index));
     }
-    if(jump!=1u)
-        fprintf(stderr,"[debug-unemployed] +%u weeks to absolute week %u "
-                       "(club cups still OG-unverified)\n",jump,s_waitWeeks);
     /* The pilot world operates on snapshots of actual club IDs, with no
      * live team-file reload while a modal is open. No game-clock mutation. */
     if (ExpandedWorldLive_Clubs()) {
-        if (!ExpandedWorldLive_AdvanceWeeks((uint32_t)s_waitWeeks))
-            fprintf(stderr,"[living-world] advance rejected at week %u\n",s_waitWeeks);
+        /* AdvanceToDate above has already moved the authoritative clock.
+         * Do NOT call AdvanceWeeks again: it snaps to the July-1 weekly
+         * grid and can move the date or cause a false rejection. */
         if (s_waitWeeks%4u==0u)
             fprintf(stderr,"[living-world] wait=%u pilot results=%lu\n",
                     s_waitWeeks,(unsigned long)ExpandedWorldLive_Results());
@@ -841,7 +909,7 @@ int Expanded_WaitForFirstOffer(uint16_t *team) {
     if(!s_randomState) s_randomState=1;
     s_unemployedHadClub=0;
     s_waitWeeks=0; s_waitAccepted=0; s_waitTeam=0;
-    s_debug_wait_jump_weeks=0;
+    s_debug_wait_jump_years=0;
     s_offerSnapshotValid=0; s_offerAgreedWeekly=0;
     s_nextOfferWeek=next_delay();
     /* NEW CAREER START initialized the one shared Living World before
@@ -873,26 +941,26 @@ int Expanded_WaitForRehire(uint16_t *team) {
     if(!team) return 0;
     extern uint8_t _lastFinancialWeekIndex;
     s_unemployedHadClub=1;
-    /* Native financial weeks count from August; the unemployed clock now
-     * counts from July 1. Convert through civil dates and round forward to
-     * the next weekly boundary, avoiding an apparent time reversal. */
-    ExpandedWorldDate native={(uint16_t)(World_FirstYear()+
-                        (unsigned)_currentSeasonShowing),8u,1u};
-    ExpandedWorldDate civil;
-    ExpandedWorldDate july={(uint16_t)World_FirstYear(),7u,1u};
-    int32_t native_day=0,july_day=0;
-    if (ExpandedWorld_DateAfterWeeks(native,
-            (uint32_t)_lastFinancialWeekIndex,&civil) &&
-        ExpandedWorld_DateToIndex(civil,&native_day) &&
-        ExpandedWorld_DateToIndex(july,&july_day) && native_day>=july_day)
-        s_waitWeeks=(unsigned)((native_day-july_day+6)/7);
-    else
-        s_waitWeeks=(unsigned)_currentSeasonShowing*52u+
-                    (unsigned)_lastFinancialWeekIndex+5u;
-    if (ExpandedWorldLive_Clubs())
-        (void)ExpandedWorldLive_AdvanceWeeks((uint32_t)s_waitWeeks);
+    /* Rehire MUST resume at the exact resident LWE date. An OG finance
+     * counter is not a civil clock, and rounding forward to weekly anchors
+     * can create phantom days. */
+    ExpandedLiveCalendarState live;
+    const ExpandedWorldDate first={(uint16_t)World_FirstYear(),7u,1u};
+    int32_t first_day=0,current_day=0;
+    if(!ExpandedWorldLive_CalendarState(&live) ||
+       !ExpandedWorld_DateToIndex(first,&first_day) ||
+       !ExpandedWorld_DateToIndex(live.today,&current_day) ||
+       current_day<first_day) {
+        fprintf(stderr,"[calendar] FAIL REHIRE_WORLD_DATE_UNAVAILABLE\n");
+        return 0;
+    }
+    s_waitWeeks=(unsigned)(current_day-first_day)/7u;
+    fprintf(stderr,"[calendar] REHIRE_RESUME exact=%04u-%02u-%02u "
+                   "elapsed-full-weeks=%u (NO WEEKLY ROUNDING)\n",
+            (unsigned)live.today.year,(unsigned)live.today.month,
+            (unsigned)live.today.day,s_waitWeeks);
     s_waitAccepted=0;s_waitTeam=0;s_offerSnapshotValid=0;s_offerAgreedWeekly=0;
-    s_debug_wait_jump_weeks=0;
+    s_debug_wait_jump_years=0;
     s_nextOfferWeek=s_waitWeeks+next_delay();
     ShowMenu(Expanded_UnemployedCalendarMenu());
     if(!s_waitAccepted || !offer_is_valid() || !verify_offer_in_file()) return 0;

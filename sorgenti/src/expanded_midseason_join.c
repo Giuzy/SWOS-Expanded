@@ -17,28 +17,17 @@
 
 /* One date-to-OG-phase mapping for first-season and later hires. */
 static int native_cutoff_at(uint16_t season,ExpandedWorldDate now,uint8_t *out) {
-    ExpandedWorldDate august={season,8u,1u},month_start,next_month;
-    int32_t today=0,first=0,month_day=0,next_day=0;
-    if (!out || now.year<season || now.year>season+1u ||
-        !ExpandedWorld_DateToIndex(now,&today) ||
-        !ExpandedWorld_DateToIndex(august,&first)) return 0;
-    if (today<=first) { *out=0; return 1; }
-    /* Original OG keycache is month eighths; next-year phases add 0x60. */
-    month_start=(ExpandedWorldDate){now.year,now.month,1u};
-    next_month=(ExpandedWorldDate){now.month==12u ?
-                      (uint16_t)(now.year+1u):now.year,
-                      now.month==12u?1u:(uint8_t)(now.month+1u),1u};
-    if (!ExpandedWorld_DateToIndex(month_start,&month_day) ||
-        !ExpandedWorld_DateToIndex(next_month,&next_day) ||
-        next_day<=month_day) return 0;
-    const uint32_t days=(uint32_t)(next_day-month_day);
-    const uint32_t eighth=(uint32_t)(now.day-1u)*8u;
-    uint32_t phase=(uint32_t)(now.month-1u)*8u+
-                   (eighth+days-1u)/days;
-    if (now.year>season) phase+=0x60u;
-    if (phase>255u) return 0;
-    *out=(uint8_t)phase;
-    return 1;
+    ExpandedWorldDate august={season,8u,1u};
+    int32_t today=0,first=0;
+    if(!out || now.year<season || now.year>season+1u ||
+       !ExpandedWorld_DateToIndex(now,&today) ||
+       !ExpandedWorld_DateToIndex(august,&first)) return 0;
+    /* No northern league games before season start; southern fixtures
+     * are detected separately from their native keycache. */
+    if(today<=first){*out=0;return 1;}
+    /* ONE canonical date -> NEXT phase mapping, shared with all tests.
+     * Never duplicate the eighth-of-month rounding formula here. */
+    return ExpandedWorld_DateToNativePhaseNext(season,now,out);
 }
 
 int Expanded_MidseasonJoin_Cutoff(uint16_t year,uint32_t weeks,uint8_t *out) {
@@ -67,30 +56,26 @@ int Expanded_MidseasonJoin_AbsoluteCutoff(uint16_t first_year,uint32_t weeks,
  * played native January-July rounds. Preserve the old northern-season
  * cutoff unless the real OG league cache starts before August.
  * This helper is pure and does not claim that world scores match OG. */
+static int southern_cutoff_at_date(uint16_t first_year,ExpandedWorldDate now,
+                                  uint8_t earliest_league_key,
+                                  uint16_t *season,uint8_t *cutoff) {
+    uint8_t previous=0,phase=0;
+    const uint16_t current=(uint16_t)(now.year-(now.month<7u?1u:0u));
+    if(!season || !cutoff || earliest_league_key>=56u ||
+       now.year<first_year || now.month!=7u ||
+       !native_cutoff_at(current,now,&previous) || previous!=0u ||
+       !ExpandedWorld_DateToNativePhaseNext(current,now,&phase) ||
+       phase<=earliest_league_key) return 0;
+    *season=current;*cutoff=phase;
+    return 1;
+}
 int Expanded_MidseasonJoin_SouthernCutoff(uint16_t first_year,uint32_t weeks,
                                          uint8_t earliest_league_key,
                                          uint16_t *season,uint8_t *cutoff) {
-    ExpandedWorldDate july={first_year,7u,1u},now,month_start,next_month;
-    int32_t first=0,next=0;
-    uint16_t original=0;
-    uint8_t previous=0;
-    if(!season || !cutoff || earliest_league_key>=56u ||
-       !Expanded_MidseasonJoin_AbsoluteCutoff(first_year,weeks,
-                                              &original,&previous) ||
-       previous!=0u ||
-       !ExpandedWorld_DateAfterWeeks(july,weeks,&now) ||
-       now.year!=original || now.month!=7u) return 0;
-    month_start=(ExpandedWorldDate){now.year,7u,1u};
-    next_month=(ExpandedWorldDate){now.year,8u,1u};
-    if(!ExpandedWorld_DateToIndex(month_start,&first) ||
-       !ExpandedWorld_DateToIndex(next_month,&next) || next<=first) return 0;
-    const unsigned days=(unsigned)(next-first);
-    const unsigned eighth=((unsigned)(now.day-1u)*8u+days-1u)/days;
-    const unsigned phase=48u+eighth;
-    if(phase<=earliest_league_key || phase>255u) return 0;
-    *season=original;
-    *cutoff=(uint8_t)phase;
-    return 1;
+    ExpandedWorldDate july={first_year,7u,1u},now;
+    return ExpandedWorld_DateAfterWeeks(july,weeks,&now) &&
+           southern_cutoff_at_date(first_year,now,earliest_league_key,
+                                  season,cutoff);
 }
 
 /* A handoff cannot succeed before the requested original native phase.
@@ -103,6 +88,25 @@ int Expanded_MidseasonJoin_HandoffReached(uint8_t target,uint8_t actual) {
 #ifdef SWOS_SDL_BUILD
 #include "game_types.h"
 #include "menu_system.h"
+/* The resident LWE civil day is authoritative. In particular, the
+ * exact 5-year debug jump can land BETWEEN weekly tick boundaries. */
+static int world_native_cutoff(uint32_t elapsed,uint16_t *season,
+                               uint8_t *cutoff) {
+    ExpandedLiveCalendarState cal;
+    if(ExpandedWorldLive_CalendarState(&cal)) {
+        const uint16_t year=(uint16_t)(cal.today.year-
+                                         (cal.today.month<7u?1u:0u));
+        if(!season || !cutoff || year<World_FirstYear() ||
+           !native_cutoff_at(year,cal.today,cutoff))return 0;
+        *season=year;return 1;
+    }
+    if(ExpandedWorldLive_Clubs()) {
+        fprintf(stderr,"[calendar] FAIL LIVE_CLOCK_SNAPSHOT_UNAVAILABLE\n");
+        return 0; /* Never guess a date from the rounded week counter. */
+    }
+    return Expanded_MidseasonJoin_AbsoluteCutoff(World_FirstYear(),elapsed,
+                                                 season,cutoff);
+}
 
 extern uint8_t _currentMenu[];
 extern uint8_t _teamSelectionKeyCache[];
@@ -169,76 +173,107 @@ void Expanded_ClockTrace_Reset(void) {
 extern uint16_t _currentSeasonShowing;
 void Expanded_ClockTrace_Sample(const char *event) {
     ExpandedLiveCalendarState cal;
-    ExpandedWorldDate og={0};
-    int32_t world_day=0,og_day=0;
+    ExpandedWorldDate next={0};
+    int32_t world_day=0,next_day=0;
     uint16_t season;
-    uint8_t phase=0;
-    int32_t previous_og=s_clock_last_og;
-    int32_t previous_world=s_clock_last_world;
-    int was_valid=s_clock_previous_valid;
-    if (!event)event="UNSPECIFIED";
+    uint8_t phase=0,roundtrip=255u;
+    const int32_t previous_next=s_clock_last_og;
+    const int32_t previous_world=s_clock_last_world;
+    const int was_valid=s_clock_previous_valid;
+    if(!event)event="UNSPECIFIED";
     snprintf(s_clock_last_event,sizeof s_clock_last_event,"%s",event);
-    if (!ExpandedWorldLive_CalendarState(&cal) ||
-        !ExpandedWorld_DateToIndex(cal.today,&world_day)) return;
+    if(!ExpandedWorldLive_CalendarState(&cal) ||
+       !ExpandedWorld_DateToIndex(cal.today,&world_day))return;
     ++s_clock_samples;
-    if (_gameType!=4 || _currentSeasonShowing>=100u) {
+    if(_gameType!=4 || _currentSeasonShowing>=100u) {
         if(!was_valid || world_day!=previous_world) {
             ++s_clock_changes;
-            fprintf(stderr,"[clock-trace] event=%s mode=WORLD_ONLY world=%04u-%02u-%02u "
-                           "world-index=%ld previous-world=%ld armed=%d\n",
+            fprintf(stderr,"[clock-trace] event=%s mode=CIVIL_ONLY "
+                           "civil=%04u-%02u-%02u civil-day=%ld\n",
                     event,(unsigned)cal.today.year,(unsigned)cal.today.month,
-                    (unsigned)cal.today.day,(long)world_day,
-                    (long)(was_valid?previous_world:world_day),s_clock_armed);
+                    (unsigned)cal.today.day,(long)world_day);
         }
         s_clock_last_world=world_day;
-        s_clock_previous_valid=0; /* OG clock unavailable during unemployment */
+        s_clock_previous_valid=0;
         return;
     }
     season=(uint16_t)(World_FirstYear()+_currentSeasonShowing);
     phase=Expanded_Career_NativeCalendarKey();
-    if (!ExpandedWorld_NativePhaseToDate(season,phase,&og) ||
-        !ExpandedWorld_DateToIndex(og,&og_day)) return;
-    s_clock_delta=og_day-world_day;
-    if (!was_valid || og_day!=previous_og || world_day!=previous_world) {
+    if(phase==0u && cal.today.year==season && cal.today.month>=7u) {
+        /* An uninitialized native key is NOT January's calendar date. */
+        if(!was_valid || world_day!=previous_world) {
+            ++s_clock_changes;
+            fprintf(stderr,"[clock-trace] event=%s mode=NATIVE_PHASE_UNSET "
+                           "civil=%04u-%02u-%02u next=UNKNOWN\n",
+                    event,(unsigned)cal.today.year,(unsigned)cal.today.month,
+                    (unsigned)cal.today.day);
+        }
+        s_clock_last_world=world_day;
+        s_clock_previous_valid=0;
+        return;
+    }
+    if(!ExpandedWorld_NativePhaseToDate(season,phase,&next) ||
+       !ExpandedWorld_DateToIndex(next,&next_day) ||
+       !ExpandedWorld_DateToNativePhaseFloor(season,next,&roundtrip)) {
+        if(s_clock_armed && s_clock_status!=2) {
+            s_clock_status=2;
+            if(s_clock_first_problem[0]=='N') {
+                snprintf(s_clock_first_problem,sizeof s_clock_first_problem,
+                         "NATIVE_PHASE_INVALID at %s season=%u key=%u",
+                         event,(unsigned)season,(unsigned)phase);
+                fprintf(stderr,"[clock-trace-first-fail] %s\n",
+                        s_clock_first_problem);
+            }
+        }
+        return;
+    }
+    /* This delta means days UNTIL NEXT OG EVENT, not a civil-clock
+     * mismatch: the native format represents eighths of months. */
+    s_clock_delta=next_day-world_day;
+    if(!was_valid || next_day!=previous_next || world_day!=previous_world) {
         ++s_clock_changes;
-        fprintf(stderr,"[clock-trace] event=%s state=%s season=%u phase=%u "
-                       "OG=%04u-%02u-%02u world=%04u-%02u-%02u "
-                       "delta-days=%ld prior-og=%ld prior-world=%ld "
-                       "og-step=%ld world-step=%ld sample=%lu change=%lu\n",
+        fprintf(stderr,"[clock-trace] event=%s state=%s "
+                       "civil=%04u-%02u-%02u next-og=%04u-%02u-%02u "
+                       "season=%u native-phase=%u phase-back=%u "
+                       "days-until-event=%ld civil-step=%ld next-step=%ld "
+                       "sample=%lu change=%lu\n",
                 event,s_clock_armed?"POST_HANDOFF":"RECOVERING",
-                (unsigned)season,(unsigned)phase,
-                (unsigned)og.year,(unsigned)og.month,(unsigned)og.day,
                 (unsigned)cal.today.year,(unsigned)cal.today.month,
-                (unsigned)cal.today.day,(long)s_clock_delta,
-                (long)(was_valid?previous_og:og_day),
-                (long)(was_valid?previous_world:world_day),
-                (long)(was_valid?og_day-previous_og:0),
+                (unsigned)cal.today.day,
+                (unsigned)next.year,(unsigned)next.month,(unsigned)next.day,
+                (unsigned)season,(unsigned)phase,(unsigned)roundtrip,
+                (long)s_clock_delta,
                 (long)(was_valid?world_day-previous_world:0),
+                (long)(was_valid?next_day-previous_next:0),
                 (unsigned long)s_clock_samples,
                 (unsigned long)s_clock_changes);
     }
-    if (s_clock_armed) {
+    if(s_clock_armed) {
         const char *problem=NULL;
-        if (was_valid && world_day<previous_world)
-            problem="WORLD_CLOCK_REWIND";
-        else if (was_valid && og_day<previous_og)
-            problem="OG_PHASE_REWIND";
-        else if(s_clock_delta< -31 || s_clock_delta>31)
-            problem="POST_HANDOFF_DELTA_GT_31";
+        if(roundtrip!=phase) problem="OG_PHASE_ROUNDTRIP";
+        else if(was_valid && world_day<previous_world)
+            problem="WORLD_DATE_REWIND";
+        else if(was_valid && next_day<previous_next)
+            problem="OG_NEXT_EVENT_REWIND";
+        else if(next_day<world_day)
+            problem="OG_NEXT_EVENT_OVERDUE";
         if(problem) {
             s_clock_status=2;
             if(s_clock_first_problem[0]=='N') {
                 snprintf(s_clock_first_problem,sizeof s_clock_first_problem,
-                         "%s at %s season=%u phase=%u delta=%ld OG-step=%ld WORLD-step=%ld",
+                         "%s at %s season=%u phase=%u "
+                         "days-until-event=%ld civil-step=%ld og-step=%ld",
                          problem,event,(unsigned)season,(unsigned)phase,
                          (long)s_clock_delta,
-                         (long)(was_valid?og_day-previous_og:0),
-                         (long)(was_valid?world_day-previous_world:0));
-                fprintf(stderr,"[clock-trace-first-fail] %s\n",s_clock_first_problem);
+                         (long)(was_valid?world_day-previous_world:0),
+                         (long)(was_valid?next_day-previous_next:0));
+                fprintf(stderr,"[clock-trace-first-fail] %s\n",
+                        s_clock_first_problem);
             }
-        } else if(!s_clock_status) s_clock_status=1;
+        } else if(!s_clock_status)s_clock_status=1; /* observed, not proven */
     }
-    s_clock_last_og=og_day;s_clock_last_world=world_day;
+    s_clock_last_og=next_day;
+    s_clock_last_world=world_day;
     s_clock_previous_valid=1;
 }
 int Expanded_ClockTrace_Status(void){return s_clock_status;}
@@ -259,8 +294,7 @@ int Expanded_MidseasonJoin_AlignSeason(uint32_t elapsed) {
     uint8_t cutoff=0;
     extern uint16_t _currentSeasonShowing;
     extern uint8_t _seasonPlaying;
-    if (!Expanded_MidseasonJoin_AbsoluteCutoff(World_FirstYear(),elapsed,
-                                               &season,&cutoff)) {
+    if (!world_native_cutoff(elapsed,&season,&cutoff)) {
         fprintf(stderr,"[clock-audit] event=ALIGN_FAILED first-year=%u elapsed-weeks=%lu\n",
                 (unsigned)World_FirstYear(),(unsigned long)elapsed);
         return 0;
@@ -269,8 +303,11 @@ int Expanded_MidseasonJoin_AlignSeason(uint32_t elapsed) {
         ExpandedWorldDate nativeDate,worldDate;
         ExpandedWorldDate july={World_FirstYear(),7u,1u};
         int32_t nativeIndex=0,worldIndex=0;
+        ExpandedLiveCalendarState live_now;
+        const int from_world=ExpandedWorldLive_CalendarState(&live_now);
         if(ExpandedWorld_NativePhaseToDate(season,cutoff,&nativeDate) &&
-           ExpandedWorld_DateAfterWeeks(july,elapsed,&worldDate) &&
+           (from_world?(worldDate=live_now.today,1):
+            ExpandedWorld_DateAfterWeeks(july,elapsed,&worldDate)) &&
            ExpandedWorld_DateToIndex(nativeDate,&nativeIndex) &&
            ExpandedWorld_DateToIndex(worldDate,&worldIndex))
             fprintf(stderr,"[clock-audit] event=ALIGN_PRE season=%u phase=%u "
@@ -415,8 +452,7 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     /* Archived seasons are final: only the current Living World season
      * may be imported/replayed into the live OG career. */
     if (_gameType!=4 ||
-        !Expanded_MidseasonJoin_AbsoluteCutoff(World_FirstYear(),elapsed,
-                                               &season,&cutoff)) {
+        !world_native_cutoff(elapsed,&season,&cutoff)) {
         fprintf(stderr,"[midseason] no native catch-up for %lu July weeks "
                        "(current season preseason or unsupported date)\n",
                 (unsigned long)elapsed);
@@ -461,9 +497,12 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
             uint16_t actual_year=0;
             uint8_t actual_cutoff=0;
             southern_attempt=1;
-            if(!Expanded_MidseasonJoin_SouthernCutoff(
-                    World_FirstYear(),elapsed,first_native,
-                    &actual_year,&actual_cutoff) ||
+            ExpandedLiveCalendarState live_now;
+            ExpandedWorldDate actual_date={World_FirstYear(),7u,1u};
+            if(!ExpandedWorldLive_CalendarState(&live_now) ||
+               !southern_cutoff_at_date(World_FirstYear(),live_now.today,
+                                        first_native,&actual_year,
+                                        &actual_cutoff) ||
                actual_year!=season) {
                 s_southern_handoff_status=2;
                 s_last_key=-12;

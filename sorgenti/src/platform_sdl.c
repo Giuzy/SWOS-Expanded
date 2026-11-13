@@ -3025,60 +3025,77 @@ static void draw_world_debug_overlay(void)
     DEBUG_LINE(line);
     snprintf(line,sizeof line,"WORLD %s",World_Tag());
     DEBUG_LINE(line);
-    if (unemployed)
+    if(unemployed) {
         Expanded_UnemployedDate(date,sizeof date);
-    else
-        Expanded_FormatDate(date,sizeof date,World_FirstYear()+
-                            (unsigned)_currentSeasonShowing,
-                            (unsigned)Expanded_Career_NativeCalendarKey());
-    snprintf(line,sizeof line,"OG DATE EST %s",date);
-    DEBUG_LINE(line);
+        snprintf(line,sizeof line,"UNEMPLOYED CIVIL DATE %s",date);
+        DEBUG_LINE(line);
+    } else {
+        const uint8_t phase=Expanded_Career_NativeCalendarKey();
+        const unsigned season=World_FirstYear()+
+                              (unsigned)_currentSeasonShowing;
+        if(phase==0u) {
+            DEBUG_LINE("OG NATIVE PHASE 0 (EVENT MAY BE UNSET)");
+        } else {
+            Expanded_FormatDate(date,sizeof date,season,(unsigned)phase);
+            snprintf(line,sizeof line,"OG NEXT EVENT DATE %s",date);
+            DEBUG_LINE(line);
+        }
+    }
     {
         ExpandedLiveCalendarState calendar;
         if(ExpandedWorldLive_CalendarState(&calendar)) {
-            snprintf(line,sizeof line,"WORLD DATE %04u-%02u-%02u",
+            snprintf(line,sizeof line,"CAREER CIVIL DATE %04u-%02u-%02u",
                 (unsigned)calendar.today.year,(unsigned)calendar.today.month,
                 (unsigned)calendar.today.day);
             DEBUG_LINE(line);
             if(!unemployed && _gameType==4) {
-                ExpandedWorldDate og;
-                int32_t og_day=0,world_day=0;
-                if(ExpandedWorld_NativePhaseToDate(
-                       (uint16_t)(World_FirstYear()+_currentSeasonShowing),
-                       Expanded_Career_NativeCalendarKey(),&og) &&
-                   ExpandedWorld_DateToIndex(og,&og_day) &&
-                   ExpandedWorld_DateToIndex(calendar.today,&world_day)) {
-                    int32_t days=og_day-world_day;
-                    static int32_t lastClockDelta=0;
-                    static int lastClockKnown=0;
-                    static uint32_t clockSamples=0,clockChanges=0;
-                    ++clockSamples;
-                    if(!lastClockKnown || days!=lastClockDelta) {
-                        ++clockChanges;
-                        fprintf(stderr,"[clock-audit] change=%lu sample=%lu native-season=%u native-phase=%u "
-                                "OG=%04u-%02u-%02u LWE=%04u-%02u-%02u days-delta=%ld previous=%ld "
-                                "source=F12_CALENDAR_SAMPLE\n",
-                                (unsigned long)clockChanges,(unsigned long)clockSamples,
-                                (unsigned)(World_FirstYear()+_currentSeasonShowing),
-                                (unsigned)Expanded_Career_NativeCalendarKey(),
-                                (unsigned)og.year,(unsigned)og.month,(unsigned)og.day,
-                                (unsigned)calendar.today.year,(unsigned)calendar.today.month,
-                                (unsigned)calendar.today.day,(long)days,
-                                (long)(lastClockKnown?lastClockDelta:0));
-                        lastClockDelta=days;
-                        lastClockKnown=1;
-                    }
-                    snprintf(line,sizeof line,"CLOCK SAMPLES %lu CHANGES %lu PHASE %u",
-                             (unsigned long)clockSamples,(unsigned long)clockChanges,
-                             (unsigned)Expanded_Career_NativeCalendarKey());
-                    DEBUG_LINE(line);
-                    if(days< -31 || days>31) {
-                        snprintf(line,sizeof line,"CLOCK MISMATCH %ld DAYS",
-                                  (long)days);
+                const uint16_t season=(uint16_t)(World_FirstYear()+
+                                           _currentSeasonShowing);
+                const uint8_t phase=Expanded_Career_NativeCalendarKey();
+                ExpandedWorldDate event_date;
+                uint8_t inverse=255u;
+                int32_t event_day=0,civil_day=0;
+                if(phase!=255u &&
+                   ExpandedWorld_NativePhaseToDate(season,phase,&event_date) &&
+                   ExpandedWorld_DateToNativePhaseFloor(
+                       season,event_date,&inverse) &&
+                   ExpandedWorld_DateToIndex(event_date,&event_day) &&
+                   ExpandedWorld_DateToIndex(calendar.today,&civil_day)) {
+                    if(phase!=inverse) {
+                        snprintf(line,sizeof line,
+                            "PHASE CONVERSION FAIL %u -> %u",
+                            (unsigned)phase,(unsigned)inverse);
                         DEBUG_WARN(line);
-                    } else DEBUG_LINE("CLOCK SAMPLE NEAR (NOT JOIN PROOF)");
+                        fprintf(stderr,"[clock-date-audit] FAIL phase=%u "
+                            "roundtrip=%u season=%u\n",
+                            (unsigned)phase,(unsigned)inverse,
+                            (unsigned)season);
+                    } else {
+                        snprintf(line,sizeof line,
+                            "OG PHASE ROUNDTRIP %u -> %u (MATH ONLY)",
+                            (unsigned)phase,(unsigned)inverse);
+                        DEBUG_LINE(line);
+                    }
+                    if(phase==0u && calendar.today.year==season &&
+                       calendar.today.month>=7u) {
+                        DEBUG_LINE("OG PRESEASON KEY: NOT A CIVIL CLOCK");
+                    } else if(event_day<civil_day) {
+                        snprintf(line,sizeof line,
+                            "NEXT OG EVENT OVERDUE %ld DAYS",
+                            (long)(civil_day-event_day));
+                        DEBUG_WARN(line);
+                    } else {
+                        snprintf(line,sizeof line,
+                            "NEXT OG EVENT IN %ld DAYS (NOT CLOCK DELTA)",
+                            (long)(event_day-civil_day));
+                        DEBUG_LINE(line);
+                    }
+                } else {
+                    DEBUG_LINE("OG EVENT DATE UNAVAILABLE");
                 }
             }
+        } else {
+            DEBUG_WARN("CAREER CIVIL CLOCK UNAVAILABLE");
         }
     }
     if (unemployed) {
@@ -3325,11 +3342,11 @@ static void draw_world_debug_overlay(void)
     {
         const int trace=Expanded_ClockTrace_Status();
         snprintf(line,sizeof line,"CLOCK TRACE %s SAMPLES %lu CHANGES %lu",
-                 trace==2?"FAIL":trace==1?"NEAR (NOT PROOF)":"NOT_TESTED",
+                 trace==2?"FAIL":trace==1?"OBSERVED (NOT PROOF)":"NOT_TESTED",
                  (unsigned long)Expanded_ClockTrace_Samples(),
                  (unsigned long)Expanded_ClockTrace_Changes());
         if(trace==2)DEBUG_WARN(line);else DEBUG_LINE(line);
-        snprintf(line,sizeof line,"CLOCK LAST %s DELTA %ld DAYS",
+        snprintf(line,sizeof line,"CLOCK LAST %s DAYS TO EVENT %ld",
                  Expanded_ClockTrace_LastEvent(),
                  (long)Expanded_ClockTrace_DeltaDays());
         DEBUG_LINE(line);

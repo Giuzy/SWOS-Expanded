@@ -295,3 +295,17 @@ La chat normale puo' creare commit GitHub su richiesta dell'utente, sul ramo ver
 4. Debug manuale in partita reale: F12+1 vittoria, F12+2 sconfitta o F12+4 pareggio, quindi F12+6 per fine immediata attraverso ESC originale. Controllare risultato finale e classifica. F12+5 x4 e un test separato.
 5. Coppa OG vera: simulare e se possibile giocare; verificare risultati, turno successivo, unico incremento del journal, campione, autosave/ripresa. Se due infortunati bloccano la partita senza sostituti, annotare NO con screenshot e non aggirare la regola originale.
 6. Report checklist SI/NO/NON PROVATO; inviare log e screenshot dei NO. Non promuovere a PASS una funzione non testata.
+
+### Flusso vincolante dalle analisi 11–13 novembre 2026
+
+Prima di aprire i sorgenti, leggere `docs/ENGINE_CODE_DISCOVERIES.md`:
+il registro contiene le invarianti gia' scoperte e i bug riprodotti.
+Aggiornarlo ad ogni commit tecnico pertinente. Ordine operativo:
+CALENDARIO -> CAMPIONATI -> COPPE -> stress Windows integrato.
+Ogni gate richiede test C con codice reale e conferma Windows dove
+sono coinvolti menu/OG/save; uno stato NOT_TESTED non e' PASS.
+F12+7 da calendario disoccupato deve arrivare all'anniversario di
+5 anni esatto: 1 luglio 1996 -> 1 luglio 2001, non +260 settimane.
+Il giorno corrente e' il civile LWE; un sortKey OG e' il primo
+giorno canonico di una fascia o la prossima fixture, non un orologio
+indipendente. Non inventare date/risultati per pareggiare i contatori.

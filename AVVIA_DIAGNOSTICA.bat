@@ -23,7 +23,7 @@ if errorlevel 1 (
 )
 (
  echo SWOS EXPANDED - DIAGNOSTICA WINDOWS
- echo Build attesa: 0.13.38_05
+ echo Build attesa: 0.13.39
  echo Avvio: %DATE% %TIME%
  echo Raccolta: F12, F10, F12+C nel log quando aperti, eventi OG/LWE,
  echo coppe, caricamento e prima divergenza.

@@ -95,7 +95,7 @@ int ExpandedWorld_NativePhaseToDate(uint16_t season_year, uint8_t native_key,
     unsigned eighth=(unsigned)native_key%8u;
     ExpandedWorldDate start,next;
     int32_t start_day=0,next_day=0;
-    if(!out_date || year>2200u) return 0;
+    if(!out_date || native_key==255u || year>2200u) return 0;
     start=(ExpandedWorldDate){(uint16_t)year,(uint8_t)month,1};
     next=(ExpandedWorldDate){(uint16_t)(year+(month==12u)),
              (uint8_t)(month==12u?1u:month+1u),1};
@@ -104,5 +104,62 @@ int ExpandedWorld_NativePhaseToDate(uint16_t season_year, uint8_t native_key,
        next_day<=start_day) return 0;
     start.day=(uint8_t)(1u+eighth*(unsigned)(next_day-start_day)/8u);
     *out_date=start;
+    return 1;
+}
+
+/* Inverse of the canonical first-day mapping, without changing OG's
+ * eight-phase month or rounding the authoritative civil date. */
+static int native_phase_from_day(uint16_t season_year, ExpandedWorldDate day,
+                                 uint8_t *out_phase, int next) {
+    int32_t month_start=0,following=0;
+    ExpandedWorldDate first,next_month,canonical;
+    if (!out_phase || day.year<season_year ||
+        day.year>season_year+2u ||
+        !ExpandedWorld_DateToIndex(day,&month_start)) return 0;
+    first=(ExpandedWorldDate){day.year,day.month,1u};
+    next_month=(ExpandedWorldDate){
+        (uint16_t)(day.year+(day.month==12u)),
+        (uint8_t)(day.month==12u?1u:day.month+1u),1u};
+    if (!ExpandedWorld_DateToIndex(first,&month_start) ||
+        !ExpandedWorld_DateToIndex(next_month,&following) ||
+        following<=month_start) return 0;
+    const unsigned length=(unsigned)(following-month_start);
+    const unsigned segment=((unsigned)day.day*8u-1u)/length;
+    unsigned key=(unsigned)(day.year-season_year)*96u+
+                 ((unsigned)day.month-1u)*8u+segment;
+    if (key>=255u) return 0; /* OG 0xff marks no valid event. */
+    if (next) {
+        if (!ExpandedWorld_NativePhaseToDate(season_year,(uint8_t)key,
+                                              &canonical)) return 0;
+        if (canonical.day<day.day) ++key;
+        if (key>=255u) return 0;
+    }
+    *out_phase=(uint8_t)key;
+    return 1;
+}
+int ExpandedWorld_DateToNativePhaseFloor(uint16_t season_year,
+                                         ExpandedWorldDate date,
+                                         uint8_t *out_phase) {
+    return native_phase_from_day(season_year,date,out_phase,0);
+}
+int ExpandedWorld_DateToNativePhaseNext(uint16_t season_year,
+                                        ExpandedWorldDate date,
+                                        uint8_t *out_phase) {
+    return native_phase_from_day(season_year,date,out_phase,1);
+}
+/* Calendar-anniversary jump, never a guessed 52 weeks/year.
+ * Feb 29 in a non-leap destination clamps to Feb 28 by definition. */
+int ExpandedWorld_AddCalendarYears(ExpandedWorldDate date,uint16_t years,
+                                    ExpandedWorldDate *out_date) {
+    int32_t source_index=0;
+    if (!out_date || !ExpandedWorld_DateToIndex(date,&source_index) ||
+        (uint32_t)date.year+(uint32_t)years>2200u) return 0;
+    ExpandedWorldDate result=date;
+    result.year=(uint16_t)(date.year+years);
+    if (result.month==2u && result.day==29u &&
+        month_days(result.year,2u)==28u) result.day=28u;
+    int32_t index=0;
+    if (!ExpandedWorld_DateToIndex(result,&index)) return 0;
+    *out_date=result;
     return 1;
 }

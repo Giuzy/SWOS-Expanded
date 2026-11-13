@@ -574,3 +574,25 @@ The July-contract regression revealed an unhandled OG calendar with native leagu
 
 ### 0.13.38_05 (13 novembre 2026): Diagnostica formato competizioni e handoff
 Implementato un controllo effettivo della fase finale del recupero OG (nessun REACHED anticipato), l'importazione dei risultati per occorrenza nelle leghe a 3/4 cicli con verifica classifica esatta, il reset del CLOCK TRACE su nuova carriera e i campionamenti dei soli cambi di evento. Aggiunta diagnostica permanente dei formati installati per leghe/coppe/tornei/qualificazioni e collegamenti, con CSV e distinzioni esplicite tra dati validi e gameplay non verificato. Aggiunto AVVIA_DIAGNOSTICA.bat che utilizza AVVIA_SWOS.bat, compila normalmente, registra automaticamente il testo aperto in F12/F10/F12+C ed esporta i log della sessione. I BAT non segnalano piu' PASS complessivo con runtime Windows ancora NOT_TESTED. Implementazione pubblicata in sorgenti; compilazione e prova Windows pendenti.
+
+### 0.13.39 — Conversione canonica calendario / salto debug anniversario
+
+- Fonte giorno civile: una sola data LWE, senza ricostruzioni da
+  `settimane * 7` dopo salti interannuali.
+- Le fasi OG rappresentano 8 fasce per mese: primo giorno canonico;
+  nuove conversioni FLOOR (giorno nella fascia) e NEXT (inizio della prima
+  fascia non precedente il giorno), con test di andata/ritorno a 30 anni.
+- F12+7 ora richiede +5 anni civili, non +260 settimane (non equivalenti).
+  La data attuale viene esposta separatamente dalla prossima partita OG.
+- Registro delle scoperte: `docs/ENGINE_CODE_DISCOVERIES.md`.
+- Corretto l'audit per le sentinelle native `teams=-1`; nuovo audit
+  runtime C senza awk. I PASS Windows completi non sono ancora disponibili.
+
+- Data del normale menu calendario in carriera: corretta la vecchia
+  visualizzazione da `_lastFinancialWeekIndex` in `menu_system.c`;
+  ora mostra il giorno civile LWE, mentre Classic Modes resta OG.
+- Test C canonico effettivamente eseguito con GCC: 109.938 giorni e
+  7.905 fasi, 11.323 giorni nel periodo 1996-2026; PASS matematico;
+  compilazione/test Windows ancora necessari.
+- Audit C runtime compilato e verificato su log 0.13.38_05: separa
+  classifiche PASS da handoff FAIL e coppe FAIL. Nessun falso PASS.

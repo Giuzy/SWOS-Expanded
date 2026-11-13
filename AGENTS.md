@@ -2,6 +2,28 @@
 
 ## 0. Regole fondamentali ad alta priorità — workflow Codex (2026-11-09)
 
+### Diario tecnico obbligatorio — decisione 13 novembre 2026
+
+**Prima di analizzare codice, leggere tutte le scoperte documentate** in
+`docs/ENGINE_CODE_DISCOVERIES.md`, oltre ad `AGENTS.md`,
+`PROJECT_STATE.md` e alle guide pertinenti. Non ripetere analisi gia'
+verificate ignorandone le conclusioni. Ogni nuova scoperta su codice,
+asset o comportamento runtime va aggiunta al registro, con file/funzione,
+riproduzione, prove, limiti e stato (ipotesi, codice, test C, Windows)
+**nel prossimo commit autorizzato pertinente**. Le prove Windows mancanti
+non diventano mai PASS, neppure quando il test C e' verde.
+
+**Una feature alla volta, completata e verificata prima della successiva.**
+Priorita' vincolante: CALENDARIO (incluso salto 5 anni e 30 anni senza
+deriva), poi CAMPIONATI OG/LWE, poi COPPE nazionali/internazionali e
+nazionali, poi stress integrato Windows. Non aggiungere funzionalita'
+nelle fasi successive durante il lavoro di correzione della prima,
+salvo strumentazione necessaria a verificarla. L'utente decide quando
+la prova e' sufficiente. Nessun test statico/sintetico attesta da solo
+il funzionamento integrato.
+
+
+
 ### Test runtime vincolanti (decisione del 13 novembre 2026)
 MAI pilotare, falsificare, attenuare o aggirare un test per ottenere PASS. Nessun controllo statico (grep, presenza di stringhe/simboli o sola ispezione del codice) nella suite del motore: ammessi solo come revisione esterna alla suite. I test devono eseguire il codice reale e verificare risultati/invarianti concreti. Ogni FAIL deve mostrare fase, data, ID, atteso ed effettivo dove disponibili. Le prove negative intenzionali vanno marcate EXPECTED_REJECTION e devono fallire se l'input errato viene accettato. Controlli non eseguiti = NOT_TESTED, mai PASS. Un PASS della suite isolata non dimostra il funzionamento integrato Windows/OG.
 

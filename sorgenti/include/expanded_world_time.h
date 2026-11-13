@@ -27,4 +27,18 @@ int ExpandedWorld_DateAfterWeeks(ExpandedWorldDate start, uint32_t elapsed_weeks
  * Example: 56 -> 1 Aug 1996, 63 -> 28 Aug 1996, 96 -> 1 Jan 1997. */
 int ExpandedWorld_NativePhaseToDate(uint16_t season_year, uint8_t native_key,
                                     ExpandedWorldDate *out_date);
+/* Canonical eight OG phase starts per month. Inverse on canonical starts
+ * is exact: phase->date->phase, including leap years. On an arbitrary
+ * civil date FLOOR returns the containing phase and NEXT the first phase
+ * starting no earlier than that date; LWE retains the exact civil day.
+ * 0xff is the native invalid-event sentinel. */
+int ExpandedWorld_DateToNativePhaseFloor(uint16_t season_year,
+                                        ExpandedWorldDate day,
+                                        uint8_t *out_phase);
+int ExpandedWorld_DateToNativePhaseNext(uint16_t season_year,
+                                       ExpandedWorldDate day,
+                                       uint8_t *out_phase);
+/* Exact Gregorian anniversaries (Feb 29 -> Feb 28 in a non-leap year). */
+int ExpandedWorld_AddCalendarYears(ExpandedWorldDate day,uint16_t years,
+                                   ExpandedWorldDate *out_date);
 #endif

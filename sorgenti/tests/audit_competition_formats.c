@@ -127,9 +127,17 @@ static void audit_competitions(const char *dir,unsigned cat) {
             unsigned rules=0,twoLeg=0,groupCount=0;
             if(cat==1) {
                 snprintf(path,sizeof path,"%s.teams",prefix);
-                if(!number(s,size,path,&teams) || teams<0 || teams>128) {
+                if(!number(s,size,path,&teams) ||
+                   teams>128 || teams< -1 ||
+                   (teams== -1 && type!=0)) {
+                    fprintf(stderr,"[comp-formats] FAIL invalid cup team count "
+                                   "id=%s teams=%ld native-type=%ld\n",
+                            id,teams,type);
                     ++errors;continue;
                 }
+                if(teams== -1)
+                    fprintf(stderr,"[comp-formats] NATIVE_UNSIZED "
+                                   "id=%s teams=-1 type=0 (not a league)\n",id);
             }
             for(unsigned r=0;r<16u;++r) {
                 long legs=0;
@@ -156,7 +164,9 @@ static void audit_competitions(const char *dir,unsigned cat) {
             if(cat==2) {++tournaments;if(groupCount)++group_tournaments;}
             if(cat==3)++playoffs;
             snprintf(signature,sizeof signature,"%s_%uRULES_%uTWOLEGS_%uGROUPSTAGES",
-                     cat==1?"KNOCKOUT_OR_QUALIFIER":cat==2?"TOURNAMENT":"PLAYOFF",
+                     cat==1?(teams== -1?"OG_UNSIZED_FRIENDLY_OR_TOUR":
+                              "KNOCKOUT_OR_QUALIFIER"):
+                              cat==2?"TOURNAMENT":"PLAYOFF",
                      rules,twoLeg,groupCount);
             fprintf(csv,"%s,%s,%s,%ld,%ld,%ld,%ld,%ld,VALIDATED_DATA,NOT_TESTED_IN_WINDOWS\n",
                     categories[cat],id,signature,teams,cycles,begin,end,compid);

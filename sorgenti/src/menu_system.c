@@ -7,6 +7,10 @@
 #include <stdio.h>   /* SWOS_MENU_NAV_LOG */
 #include <stdlib.h>
 #endif
+#ifdef SWOS_SDL_BUILD
+#include "expanded_world_live.h"
+#include "expanded_world_time.h"
+#endif
 #include "expanded_new_career.h"
 #include "menu_system.h"
 #include "display.h"
@@ -1479,8 +1483,23 @@ void DrawMenu(void)
         extern int Expanded_UI_Active(void);
         if (!Expanded_UI_Active() && _currentMenuPtr == (uintptr_t)_contestMenu) {
             char date[48];
-            Expanded_FormatDate(date,sizeof date,World_FirstYear()+(unsigned)_currentSeasonShowing,
-                                (unsigned)_lastFinancialWeekIndex);
+#ifdef SWOS_SDL_BUILD
+            extern uint16_t _gameType;
+            extern void Expanded_FormatCivilDate(char *,size_t,ExpandedWorldDate);
+            if (_gameType==4) {
+                /* Career calendar displays ONE exact civil day from LWE.
+                 * The native key remains the NEXT competition event, never
+                 * another approximation of the day shown to the manager. */
+                ExpandedLiveCalendarState cal;
+                if (ExpandedWorldLive_CalendarState(&cal))
+                    Expanded_FormatCivilDate(date,sizeof date,cal.today);
+                else
+                    snprintf(date,sizeof date,"DATE NOT AVAILABLE");
+            } else
+#endif
+                Expanded_FormatDate(date,sizeof date,
+                    World_FirstYear()+(unsigned)_currentSeasonShowing,
+                    (unsigned)_lastFinancialWeekIndex);
             DrawMenuTextCentered(160,171,2,(uint8_t*)date,(uint8_t*)_charTables[0]);
         }
     }

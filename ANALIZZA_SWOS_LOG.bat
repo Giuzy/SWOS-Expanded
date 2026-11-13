@@ -15,10 +15,26 @@ if not defined MSYS_ROOT (
 )
 echo Verifica diagnostica gameplay Windows in SWOS.log.
 echo Non avvia il gioco, non modifica save, non usa dati sintetici.
-REM Bash riceve un percorso RELATIVO alla cartella corrente del BAT.
-REM NON usare -lc: una login shell MSYS2 puo' cambiare cwd in HOME.
-"%MSYS_ROOT%\usr\bin\bash.exe" "sorgenti/tests/audit_windows_runtime_log.sh" "SWOS.log" "0.13.38_05" > "SWOS_RUNTIME_AUDIT.log" 2>&1
+REM Parser C portatile: non richiede awk, Python, PowerShell o nuovi tool.
+REM Compila con lo STESSO compilatore MinGW del gioco, in %%TEMP%%.
+set "AUDIT_CC=%MSYS_ROOT%\mingw64\bin\gcc.exe"
+if not exist "%AUDIT_CC%" set "AUDIT_CC=%MSYS_ROOT%\ucrt64\bin\gcc.exe"
+if not exist "%AUDIT_CC%" (
+ echo [INCOMPLETE] Compiler MinGW non trovato, audit non eseguito.
+ if not "%SWOS_DIAGNOSTIC_SESSION%"=="1" pause
+ exit /b 2
+)
+set "AUDIT_EXE=%TEMP%\SWOS_runtime_audit_%RANDOM%_%RANDOM%.exe"
+"%AUDIT_CC%" -std=c11 -O2 -Wall -Wextra -Werror "sorgenti/tests/audit_windows_runtime_log.c" -o "%AUDIT_EXE%"
+if errorlevel 1 (
+ echo [INCOMPLETE] Errore compilazione audit C, nessuna prova Windows.
+ if exist "%AUDIT_EXE%" del /q "%AUDIT_EXE%" >nul 2>&1
+ if not "%SWOS_DIAGNOSTIC_SESSION%"=="1" pause
+ exit /b 2
+)
+"%AUDIT_EXE%" "SWOS.log" "0.13.39" > "SWOS_RUNTIME_AUDIT.log" 2>&1
 set "RESULT=%ERRORLEVEL%"
+if exist "%AUDIT_EXE%" del /q "%AUDIT_EXE%" >nul 2>&1
 type "SWOS_RUNTIME_AUDIT.log"
 echo.
 echo Resoconto salvato in SWOS_RUNTIME_AUDIT.log

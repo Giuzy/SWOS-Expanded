@@ -19,6 +19,7 @@ run_stage() {
 }
 run_stage "70 SEASONS / NATIVE FIXTURES / CUP JOURNAL" "sorgenti/tests/run_test_living_world_70.sh"
 run_stage "FOUR-DIVISION 70-SEASON MOVEMENT / SAVE-LOAD" "sorgenti/tests/run_test_living_world_mobility.sh"
+run_stage "30-YEAR CIVIL CALENDAR / OG CANONICAL PHASES / ANNIVERSARIES" "sorgenti/tests/run_test_expanded_world_time.sh"
 run_stage "MIDSEASON JOIN CALENDAR REGRESSIONS" "sorgenti/tests/run_test_expanded_midseason_join.sh"
 run_stage "LIVING WORLD UNIT REGRESSIONS" "sorgenti/tests/run_test_expanded_world_live.sh"
 run_stage "DEBUG RESULTS / WORLD LEDGER REGRESSIONS" "sorgenti/tests/run_test_expanded_phase12.sh"

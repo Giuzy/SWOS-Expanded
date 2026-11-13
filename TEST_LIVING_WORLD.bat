@@ -49,6 +49,9 @@ call :check_marker DATABASE_ALL_RECORDS_AUDIT "Tutti i record: squadre, giocator
 call :check_marker REAL_JSON_DOMESTIC_70_SEASONS "Campionati JSON reali: 70 stagioni - escluse coppe e nazionali"
 call :check_marker GLOBAL_DOMESTIC_CLUB_COVERAGE "Copertura di tutti i club domestici (singleton segnalati)"
 call :check_marker REAL_JSON_GLOBAL_70_SEASONS "Tutti i campionati domestici nello stesso mondo, 70 stagioni"
+call :check_marker OG_CANONICAL_PHASE_ROUNDTRIP_30_YEARS "Fasi OG bidirezionali senza scarti, 1996-2026"
+call :check_marker OG_MONTH_EIGHT_BUCKETS_NO_OVERLAP "8 fasce per mese senza sovrapposizioni"
+call :check_marker FIVE_YEAR_ANNIVERSARY_EXACT "5 anni civili esatti e 30 anni senza deriva"
 call :check_marker SOUTHERN_JULY_NATIVE_PHASE_RUNTIME "Calcolo luglio per campionati con partite da gennaio (solo test C)"
 call :check_marker OG_CATCHUP_EARLY_FINISH_REJECTION_RUNTIME "Rifiuto recupero OG prematuro (test C)"
 call :check_marker NATIVE_3_4_CYCLE_OCCURRENCES_RUNTIME "Leghe a 3 e 4 gironi: fixture OG distinti (test C)"
@@ -61,10 +64,13 @@ echo   AUDIT WINDOWS REALE - SWOS.log (se disponibile)
 echo =========================================================
 echo Verifica prima divergenza OG/LWE, coppe e assunzione.
 echo Log indipendente: SWOS_RUNTIME_AUDIT.log
-REM Diretto da cwd del BAT. Login shell -lc potrebbe cambiare directory.
-"%MSYS_ROOT%\usr\bin\bash.exe" "sorgenti/tests/audit_windows_runtime_log.sh" "SWOS.log" "0.13.38_05" > "SWOS_RUNTIME_AUDIT.log" 2>&1
+REM Richiama il parser C condiviso, senza dipendenza MSYS2 awk.
+REM Non mostrare il pause interno durante l'esecuzione della suite.
+set "SWOS_DIAGNOSTIC_SESSION=1"
+call "%~dp0ANALIZZA_SWOS_LOG.bat" > "SWOS_RUNTIME_AUDIT_DRIVER.log" 2>&1
 set "RUNTIME_RESULT=%ERRORLEVEL%"
-type "SWOS_RUNTIME_AUDIT.log"
+type "SWOS_RUNTIME_AUDIT_DRIVER.log"
+if exist "SWOS_RUNTIME_AUDIT.log" type "SWOS_RUNTIME_AUDIT.log"
 if not "%RESULT%"=="0" goto test_failed
 if "%RUNTIME_RESULT%"=="1" goto runtime_failed
 if not "%RUNTIME_RESULT%"=="0" goto test_incomplete

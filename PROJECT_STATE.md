@@ -840,3 +840,41 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
 - `AVVIA_DIAGNOSTICA.bat` chiama il normale `AVVIA_SWOS.bat` (compila con `PREPARA_SWOS.bat`) e attende la chiusura tramite una modalita' SOLO diagnostica del BAT originale. Alla chiusura crea `DIAGNOSTICA_SESSIONE_N/` con log compilazione/gioco/audit, e ZIP se `tar.exe` di Windows e' disponibile. Nessuna modifica a save e nessuna seconda esecuzione dell'eseguibile.
 - `ANALIZZA_SWOS_LOG.bat` ora invoca la shell MSYS2 dalla cwd del progetto senza login `-lc`: elimina il precedente errore `No such file or directory`. `TEST_LIVING_WORLD.bat` distingue la suite C dai FAIL/INCOMPLETE di Windows: exit 2/OVERALL=INCOMPLETE quando la prova end-to-end manca, non un PASS totale.
 - I test C e l'audit sul nuovo catalogo sono da compilare e provare localmente. La vera build Windows e i test menu/partite/coppe restano da fare dall'utente. Nessun risultato Windows dato per PASS.
+
+### 13 novembre 2026 — nuova priorita' calendario / registro tecnico
+
+- Creato `docs/ENGINE_CODE_DISCOVERIES.md` con analisi del codice e
+  dei test reali delle chat 11–13 novembre (date OG, ottavi mese, LWE,
+  salto F12+7, Hartlepool/Australia/Scozia, coppe offscreen, audit BAT).
+  Consultarlo prima di nuove analisi; aggiornarlo con ogni scoperta.
+- **Decisione**: non iniziare la fase CAMPIONATI finche' CALENDARIO non e'
+  completamente verificato con test su codice attivo + Windows;
+  successivamente COPPE. Non si considera risolta una funzione per
+  un PASS isolato.
+- 0.13.39: convertitore canonico OG bidirezionale (floor/next distinti),
+  stessa fase in roundtrip dai primi giorni canonici, LWE unico giorno
+  civile esatto; salto 5 anni mediante anniversari gregoriani anziche'
+  260 settimane; uso LWE anche durante disoccupazione/rehire; F12
+  distingue oggi dalla prossima fixture OG. Test C su fasi e giorni
+  1996-2026 e invarianti a 30 anni: da eseguire e poi verificare Windows.
+- Stato dei problemi non risolti: recovery anticipato OG `91->50`;
+  avanzamento coppe offscreen non dimostrato; merge squadre/competizioni
+  non completo; Windows test e save/reload dopo cambi stagione pendenti.
+- Correzioni diagnostiche aggiunte solo per rendere testabile la fase:
+  audit `teams=-1` dei due formati nativi speciali
+  `_tour`/`_friendly`; analizzatore Windows C al posto di `awk`.
+  Queste correzioni non costituiscono implementazioni di coppe.
+
+#### Test C effettivi e calibrazione diagnostica della fase calendario
+
+- Test su convertitore C compilato localmente con GCC -Wall -Wextra -Werror:
+  109.938 giorni 1900-2200; OG 7.905 fasi canoniche e 11.323 giorni
+  1996-2026; +5 anni = 1 luglio 2001; +30 = 1 luglio 2026: PASS.
+  Non e' l'exe Windows e non prova l'integrazione OG/LWE.
+- `menu_system.c`: l'overlay data del calendario carriera e' passato
+  dalla fase finanziaria OG alla data civile reale LWE; Classic/Amiga
+  invariati. Windows da verificare.
+- Parser Windows C compilato localmente ed eseguito sul precedente
+  SWOS.log: separa `STANDINGS PASS`, `HANDOFF FAIL` (91->50) e
+  `OG CUPS FAIL` offscreen. Nessuna attestazione di correzione
+  del recupero o delle coppe.

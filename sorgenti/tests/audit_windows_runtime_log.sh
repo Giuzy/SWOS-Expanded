@@ -2,7 +2,7 @@
 # Audit actual Windows gameplay, NOT the isolated C simulation.
 set -euo pipefail
 log="${1:-SWOS.log}"
-expected="${2:-0.13.38_02}"
+expected="${2:-0.13.38_03}"
 if [[ ! -f "$log" ]]; then
     printf 'RUNTIME_LOG=NOT_TESTED reason=SWOS.log_missing\n'
     printf 'RUNTIME_OG_LWE_STANDINGS=NOT_TESTED\nRUNTIME_OG_LWE_CLOCK=NOT_TESTED\n'
@@ -51,7 +51,7 @@ BEGIN { import="NOT_TESTED"; standings="NOT_TESTED"; southern="NOT_TESTED";
         if(southern!="FAIL")southern="PASS";
         handoffs++;
     }
-    if(index($0,"[clock-audit]")>0) {
+    if(index($0,"[clock-audit]")>0 && index($0,"source=F12_CALENDAR_SAMPLE")>0) {
         if(index($0,"days-delta=")>0) {
             delta=field($0,"days-delta")+0;
             date=field($0,"OG");

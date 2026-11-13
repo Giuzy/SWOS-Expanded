@@ -820,3 +820,6 @@ non eseguiti dall'assistente. Non dichiarare build Windows collaudata.
 - Una regressione C specifica riproduce week=265, anno 2001, mese di luglio, prima fase OG anteriore ad agosto; non certifica il handoff completo del gioco.
 - Codice e logica della SWOS 96/97 Mod verificati: i port `fixture_rounds.c`, `league_groups.c` usano gia' dati/tabelle del Mod; non si aggiungono calendario, motore o dati duplicati.
 - Compilazione Windows e controllo del comportamento del caso reale PENDENTI all'utente. Nessun PASS Windows dichiarato in assenza di log runtime.
+
+### 13 novembre 2026 — 0.13.38_03: ambito corretto dell'audit orologi
+L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 sullo stato effettivo contiene uno scarto anomalo (`source=F12_CALENDAR_SAMPLE`). La differenza iniziale `ALIGN_PRE`, diagnostica del recupero ancora da eseguire, non e' un FAIL del calendario recuperato. Verifica dell'analizzatore sul log reale SWOS(3).log: 3 confronti classifica FAIL, scarti F12 -151/-128 giorni FAIL, coppe non registrate dopo 264 settimane FAIL, caricamento TEAM PASS. Questa e' una verifica del parser sul log precedente, non una build/test Windows 0.13.38_03.

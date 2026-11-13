@@ -40,6 +40,15 @@ int main(void) {
     assert(ExpandedWorldLive_Seal());
     assert(ExpandedWorldLive_NativeScheduleLeagues()==1);
     assert(ExpandedWorldLive_SeasonYear()==2026);
+    /* Club source-file inventory must cover every imported club without
+     * treating league mobility or offers as a reason to lose its source. */
+    {
+        uint8_t files[256]={0};
+        assert(ExpandedWorldLive_ClubFiles(files,256)==1u);
+        assert(files[0]==8u);
+        assert(ExpandedWorldLive_ClubFiles(NULL,256)==0u);
+        assert(ExpandedWorldLive_ClubFiles(files,0)==0u);
+    }
     {
         uint16_t ids[20];
         uint8_t order[20];

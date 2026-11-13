@@ -12114,10 +12114,21 @@ int DIY_WorldDirectImportLeague(uint8_t cutoff) {
     /* If all games are finished yet hire date is still after the last
      * phase, let the old season-end path run: promotions/transition
      * must not be synthesized from a partial state image. */
-    if (!completed ||
-        (comp->minSubstitutes==0 && comp->base.viewRandomPhase<cutoff) ||
-        (completed==maxGames && comp->base.viewRandomPhase<cutoff))
+    if (!completed) {
+        s_direct_import_status="NO PLAYED WORLD LEAGUE FIXTURES";
         goto fail;
+    }
+    /* A contract may be accepted AFTER the last native league fixture.
+     * The former guard rejected a complete, correctly imported final
+     * standings table merely because OG has no future league fixture.
+     * Accept only an actually COMPLETE table (all n*(n-1) original
+     * home/away fixtures), never a partial ended state. The original
+     * season-end and cup callbacks still run through the native cursor. */
+    if (comp->base.viewRandomPhase<cutoff &&
+        completed!=maxGames) {
+        s_direct_import_status="PARTIAL LEAGUE AFTER NATIVE END";
+        goto fail;
+    }
 
     /* A native career key cache has one 22-byte player-match slot per
      * ordinary league round. Pre-validate the ENTIRE prefix before writing
@@ -12150,6 +12161,47 @@ int DIY_WorldDirectImportLeague(uint8_t cutoff) {
     }
 
     DIY_SortLeagueTableByStandings();
+    /* For end-of-season hires, the entire world division MUST match OG
+     * club-by-club before the result is published. A 70-season aggregate
+     * PASS cannot certify this contract handoff. During an incomplete
+     * season the two native calendar phase grids may differ, so only
+     * compare when every original league fixture is already complete. */
+    if (completed==maxGames) {
+        ExpandedLiveRow world_rows[32];
+        uint32_t n=0;
+        const uint8_t country=World_FileCountry(_careerTeam.team.countryNumber);
+        if (!ExpandedWorldLive_Table(country,(uint8_t)_currentDivisionIndex,
+                                     world_rows,32u,&n) || n!=teams) {
+            s_direct_import_status="FINAL WORLD DIVISION NOT RECONCILED";
+            goto fail;
+        }
+        for(unsigned i=0;i<teams;++i) {
+            const DIYTeamStats *native=diy_standings_row(comp,(int)i);
+            TeamFileEx *team=(TeamFileEx *)diy_resolve_team(native->teamSelOffset);
+            if(!team) {s_direct_import_status="NULL NATIVE TEAM";goto fail;}
+            const uint16_t id=PACK_BE_U16(team->team.countryNumber,
+                                          team->team.teamOrdinal);
+            unsigned j=0;
+            while(j<n && world_rows[j].club!=id) ++j;
+            if(j==n || native->wins!=world_rows[j].wins ||
+               native->draws!=world_rows[j].drawn ||
+               native->losses!=world_rows[j].lost ||
+               native->goalsFor!=world_rows[j].scored ||
+               native->goalsAgainst!=world_rows[j].conceded ||
+               (int32_t)native->points!=world_rows[j].points) {
+                s_direct_import_status="FINAL TABLE WORLD/OG MISMATCH";
+                fprintf(stderr,"[world-native-league] final audit failed "
+                               "club=%04x world_row=%u native=%u-%u-%u pts=%d\n",
+                        (unsigned)id,j,
+                        (unsigned)native->wins,(unsigned)native->draws,
+                        (unsigned)native->losses,(int)native->points);
+                goto fail;
+            }
+        }
+        fprintf(stderr,"[world-native-league] final standings audited: "
+                       "%u clubs, exact W/D/L GF/GA PTS from current world\n",
+                teams);
+    }
     Career_StoreCompetitionSlotStateToBuffer(slot);
     cacheOffset=0;
     for (uint16_t i=0;i<_teamSelectionKeyCacheCount;++i) {

@@ -16,6 +16,10 @@ extern uint16_t _teamsLoaded, _skipLeagueNumbers;
 extern uint8_t _teamFileBuffer[];
 extern void *_competitionsTable[];
 static ExpandedLiveImportAudit s_import_audit;
+static int s_native_mobility_prepared=0;
+int ExpandedWorldLive_NativeMobilityPrepared(void) {
+    return s_native_mobility_prepared;
+}
 int ExpandedWorldLive_ImportAudit(ExpandedLiveImportAudit *out) {
     if (!out) return 0;
     *out=s_import_audit;
@@ -167,6 +171,108 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
             imported_countries);
     }
 }
+
+/* Recover the CURRENT world league roster into the original OG career
+ * division-offset tables BEFORE InitializeNewSeason builds the brackets.
+ * Every member keeps its original immutable TEAM id/globalTeamNumber.
+ * Two-pass validation prevents half-applied promotion state. Native OG
+ * competition creation then resolves members with its existing loader,
+ * including domestic cup entries and unmodified match callbacks.
+ *
+ * Scope: ordinary already-imported domestic clubs. National-only pools,
+ * country-specific special playoffs and cup brackets outside the user's
+ * country are not manufactured here. */
+extern uint8_t _diyLeagueSeasonStateTable[];
+extern uint8_t _diyLeagueScratchBuffer[];
+int ExpandedWorldLive_StageNativeMobility(void) {
+    s_native_mobility_prepared=0;
+    if (!ExpandedWorldLive_Clubs()) return 0;
+    uint8_t source_files[256]={0}, seen[GLOBAL_TEAM_NUMBERS]={0};
+    int8_t delta[GLOBAL_TEAM_NUMBERS]={0};
+    uint8_t season_division[65536];
+    memset(season_division,255,sizeof season_division);
+    const uint32_t world_leagues=ExpandedWorldLive_Leagues();
+    for(uint32_t l=0;l<world_leagues;++l) {
+        uint8_t country=0,division=0,clubs=0,scheduled=0;
+        ExpandedLiveRow rows[32];
+        uint32_t found=0;
+        if(!ExpandedWorldLive_DivisionStatus(l,&country,&division,
+                                              &clubs,&scheduled)) return 0;
+        if(!scheduled) continue;
+        if(!ExpandedWorldLive_Table(country,division,rows,32u,&found) ||
+           found!=clubs) {
+            fprintf(stderr,"[world-native-roster] no complete season roster "
+                           "country=%u div=%u year=%u\n",
+                    (unsigned)country,(unsigned)division,
+                    (unsigned)ExpandedWorldLive_SeasonYear());
+            return 0;
+        }
+        for(uint32_t j=0;j<found;++j) {
+            if(season_division[rows[j].club]!=255u) return 0;
+            season_division[rows[j].club]=division;
+        }
+    }
+    uint32_t files=ExpandedWorldLive_ClubFiles(source_files,256u);
+    if (!files) return 0;
+    const uint16_t prev_skip=_skipLeagueNumbers;
+    const uint16_t prev_loaded=_teamsLoaded;
+    uint32_t mapped=0,changed=0;
+    int valid=1;
+    for(uint32_t i=0;i<files && valid;++i) {
+        const uint8_t file=source_files[i];
+        _skipLeagueNumbers=1;
+        _teamsLoaded=0;
+        if(LoadTeamFile(file)!=0) {valid=0;break;}
+        uint16_t count=*(const uint16_t *)_teamFileBuffer;
+        if(count>TEAM_FILE_MAX_TEAMS) {valid=0;break;}
+        const TeamFileEx *teams=(const TeamFileEx *)(_teamFileBuffer+2);
+        for(uint16_t j=0;j<count;++j) {
+            const TeamFileEx *t=&teams[j];
+            const uint16_t id=(uint16_t)(((uint16_t)t->team.countryNumber<<8)|
+                                          t->team.teamOrdinal);
+            const uint8_t division=season_division[id];
+            if(division==255u) continue; /* Not a scheduled domestic club. */
+            const unsigned global=(unsigned)t->team.globalTeamNumber;
+            const int diff=(int)division-(int)(int8_t)t->team.league;
+            if(global>=GLOBAL_TEAM_NUMBERS || division>=16u ||
+               diff < -127 || diff > 127 ||
+               (seen[global] && delta[global]!=diff)) {
+                fprintf(stderr,"[world-native-roster] invalid mapping "
+                               "team=%04x global=%u initial=%d current=%u\n",
+                        (unsigned)id,global,(int)(int8_t)t->team.league,
+                        (unsigned)division);
+                valid=0;break;
+            }
+            seen[global]=1u;
+            delta[global]=(int8_t)diff;
+            ++mapped;
+            if(diff) ++changed;
+        }
+    }
+    _skipLeagueNumbers=prev_skip;
+    /* LoadTeamFile replaced the shared team buffer; always force the next
+     * native consumer to reload its own file (like the world importer). */
+    _teamsLoaded=0;
+    (void)prev_loaded;
+    if(!valid) {
+        fprintf(stderr,"[world-native-roster] rejected; original OG state "
+                       "preserved, NOT a successful multi-year join\n");
+        return 0;
+    }
+    for(unsigned g=0;g<GLOBAL_TEAM_NUMBERS;++g) {
+        if(!seen[g]) continue;
+        _diyLeagueSeasonStateTable[g]=(uint8_t)delta[g];
+        _diyLeagueScratchBuffer[g]=(uint8_t)delta[g];
+    }
+    fprintf(stderr,"[world-native-roster] world year=%u native mapped=%lu "
+                   "changed division=%lu source files=%lu\n",
+            (unsigned)ExpandedWorldLive_SeasonYear(),
+            (unsigned long)mapped,(unsigned long)changed,
+            (unsigned long)files);
+    s_native_mobility_prepared=mapped!=0u;
+    return s_native_mobility_prepared;
+}
+
 #else
 int ExpandedWorldLive_ImportAudit(ExpandedLiveImportAudit *out) {
     if (!out) return 0;
@@ -174,4 +280,6 @@ int ExpandedWorldLive_ImportAudit(ExpandedLiveImportAudit *out) {
     return 1;
 }
 void ExpandedWorldLive_LoadOfferCountries(void) {}
+int ExpandedWorldLive_StageNativeMobility(void) {return 0;}
+int ExpandedWorldLive_NativeMobilityPrepared(void) {return 0;}
 #endif

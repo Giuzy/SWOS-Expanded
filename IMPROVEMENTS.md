@@ -561,3 +561,10 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - Prevent career calendar rendering from dereferencing null/low-address competition pointers after save VERIFY reload; preserve existing score records.
 - Debug overlay documents F12+7, 260 weeks in next FORWARD TIME.
 - Does NOT certify global OG offscreen cup advancement or replace the independently simplified Living World score resolver. Those remain open implementation items, along with test Windows and late-career mobility alignment.
+
+
+### 0.13.37 — current-season world membership into OG and end-of-season importer
+- [CODE] Validated two-pass translation of current-season Living World domestic club rosters into original OG global-team-number division offset table, before OG initializes league/cup brackets.
+- [CODE] Native final-standings import can succeed after the last league game only when the full table's club IDs, W/D/L, GF/GA and points exactly match world. Original OG cup/season-end callbacks remain the owner, no fake bracket.
+- [CODE] Incomplete native roster/handoff never writes first-contract or rehire autosave as if the join succeeded; added source TEAM file inventory test.
+- [PENDING] Complete worldwide OG offscreen cup brackets, original OG score resolver for all world fixtures, structural player transfer state, post-hire progression and Windows test; not included in this build.

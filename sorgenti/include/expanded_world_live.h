@@ -35,6 +35,14 @@ int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate date);
 int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *out);
 /* Return source-file IDs from leagues actually scheduled by this world.
  * Offer discovery is global and independent of the human's nationality. */
+/* Source TEAM filenames for every imported domestic club; no false
+ * omission of clubs moved into other divisions across world seasons. */
+uint32_t ExpandedWorldLive_ClubFiles(uint8_t *files,uint32_t capacity);
+/* Rebuild original OG division-offset tables from Living World's current
+ * club membership before initializing the native career season. Only the
+ * native table is patched; OG fixtures/knockouts/score routines are kept. */
+int ExpandedWorldLive_StageNativeMobility(void);
+int ExpandedWorldLive_NativeMobilityPrepared(void);
 uint32_t ExpandedWorldLive_OfferFiles(uint8_t *files,uint32_t capacity);
 /* OG knockout engine reports completed real cup matches and champions.
  * The Living World records, archives and persists them chronologically;

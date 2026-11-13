@@ -1175,6 +1175,18 @@ int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *out) {
 }
 /* Offer source files come only from validated, scheduled native leagues.
  * A country's second TEAM file remains selectable by its original ID. */
+/* Source TEAM files for ALL imported domestic clubs, including those that
+ * moved out of a given offer league. Identity is stable across seasons. */
+uint32_t ExpandedWorldLive_ClubFiles(uint8_t *files,uint32_t capacity) {
+    uint8_t present[256]={0};
+    uint32_t count=0;
+    if(!s_live || !files || capacity==0u) return 0;
+    for(uint32_t i=0;i<s_club_count;++i)
+        present[(uint8_t)(s_clubs[i].id>>8)]=1u;
+    for(uint32_t f=0;f<256u && count<capacity;++f)
+        if(present[f]) files[count++]=(uint8_t)f;
+    return count;
+}
 uint32_t ExpandedWorldLive_OfferFiles(uint8_t *files,uint32_t capacity) {
     uint8_t eligible[256]={0};
     uint32_t n=0;
@@ -2342,6 +2354,9 @@ uint32_t ExpandedWorldLive_ArchivedLeagues(void) {return 0;}
 uint16_t ExpandedWorldLive_WindowFirstYear(void) {return 0;}
 int ExpandedWorldLive_HistoryChampion(uint16_t y,uint8_t c,uint8_t d,uint16_t *o) {
     (void)y;(void)c;(void)d;(void)o;return 0;
+}
+uint32_t ExpandedWorldLive_ClubFiles(uint8_t *files,uint32_t n) {
+    (void)files;(void)n;return 0;
 }
 uint32_t ExpandedWorldLive_OfferFiles(uint8_t *files,uint32_t n) {
     (void)files;(void)n;return 0;

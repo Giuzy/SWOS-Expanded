@@ -935,6 +935,15 @@ int Expanded_HandleSackingAfterMatch(void) {
         extern void Expanded_MidseasonJoin_Begin(uint32_t weeks);
         Expanded_MidseasonJoin_Begin(s_waitWeeks);
 #ifdef SWOS_SDL_BUILD
+        { extern int Expanded_MidseasonJoin_LastResult(void);
+          if(Expanded_MidseasonJoin_LastResult()==2) {
+              extern uint8_t _swosMainMenu[];
+              fprintf(stderr,"[midseason] REHIRE FAILED: no synced OG table; "
+                             "preserving previous autosave\n");
+              ActivateMenu(_swosMainMenu);
+              return 1;
+          }
+        }
         /* A tester save roundtrip reloads OG competition contexts.
          * Never do it in the middle of the native cup catch-up loop:
          * finish() performs native-join-complete after success. */

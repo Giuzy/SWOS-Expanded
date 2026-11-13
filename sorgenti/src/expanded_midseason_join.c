@@ -9,6 +9,9 @@
 #include "expanded_midseason_join.h"
 #include "expanded_world_time.h"
 #include "world.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_world_live.h"
+#endif
 
 #include <stdio.h>
 
@@ -101,6 +104,7 @@ static uint8_t s_active,s_old_controls,s_target_key;
 static uint32_t s_passes,s_elapsed_weeks,s_actions,s_forced_simulations;
 static uint32_t s_league_exits;
 static int s_direct_league_import;
+static int s_complete_season_handoff;
 static uint32_t s_historical_nonleague_events;
 static int s_last_result,s_last_key;
 
@@ -114,6 +118,11 @@ int Expanded_MidseasonJoin_AlignSeason(uint32_t elapsed) {
     extern uint8_t _seasonPlaying;
     if (!Expanded_MidseasonJoin_AbsoluteCutoff(World_FirstYear(),elapsed,
                                                &season,&cutoff)) return 0;
+    if (!ExpandedWorldLive_NativeMobilityPrepared()) {
+        fprintf(stderr,"[midseason] native season members not synced to "
+                       "world. Rejecting a fake multi-year join\n");
+        return 0;
+    }
     const uint32_t offset=(uint32_t)season-(uint32_t)World_FirstYear();
     if (offset>=100u) {
         fprintf(stderr,"[midseason] unsupported OG season index %lu\n",
@@ -201,20 +210,24 @@ static void finish(int reached,int key) {
 void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     uint8_t cutoff=0;
     if (s_active) finish(0,-1);
-    s_last_result=0;
+    s_last_result=2; /* fail closed until a valid native handoff starts */
     s_last_key=-1;
     s_direct_league_import=0;
+    s_complete_season_handoff=0;
     s_historical_nonleague_events=0;
     uint16_t season=0;
     /* Archived seasons are final: only the current Living World season
      * may be imported/replayed into the live OG career. */
     if (_gameType!=4 ||
         !Expanded_MidseasonJoin_AbsoluteCutoff(World_FirstYear(),elapsed,
-                                               &season,&cutoff) ||
-        cutoff==0) {
+                                               &season,&cutoff)) {
         fprintf(stderr,"[midseason] no native catch-up for %lu July weeks "
                        "(current season preseason or unsupported date)\n",
                 (unsigned long)elapsed);
+        return;
+    }
+    if(cutoff==0u) {
+        s_last_result=3; /* No past OG league/cup events yet. */
         return;
     }
     extern uint16_t _currentSeasonShowing;
@@ -272,12 +285,16 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     if (!has_past) {
         fprintf(stderr,"[midseason] no native fixtures before cutover %u; "
                        "nothing to catch up\n",(unsigned)cutoff);
+        s_last_result=3;
         return;
     }
     if (!has_future) {
-        fprintf(stderr,"[midseason] no future competition fixture at native key %u; "
-                       "leaving career unchanged\n",(unsigned)cutoff);
-        return;
+        /* An end-of-season job is legal, but never enter a freshly reset
+         * zero-point league. Require a complete canonical world->OG table
+         * import before advancing the genuine remaining cup callbacks. */
+        fprintf(stderr,"[midseason] no future native fixture after phase %u; "
+                       "testing completed-season world league import\n",
+                (unsigned)cutoff);
     }
     /* 0.13.16: When the OG keycache has NO historical cup/other
      * competition events, we can import the WHOLE native league prefix
@@ -327,6 +344,15 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
             }
         }
     }
+    if (!has_future && !s_direct_league_import) {
+        fprintf(stderr,"[midseason] cannot enter completed season: "
+                       "world/native league standings unavailable. "
+                       "Refusing to label empty OG table as synced\n");
+        s_last_result=2;
+        s_last_key=-11;
+        return;
+    }
+    s_complete_season_handoff=!has_future;
     if (oldNonLeague)
         fprintf(stderr,"[midseason] %u historical cup/other events need "
                        "OG replay: %s\n",oldNonLeague,
@@ -338,6 +364,7 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     s_old_controls=_careerTeam.team.teamControls;
     s_passes=s_actions=s_forced_simulations=s_league_exits=0;
     s_active=1;
+    s_last_result=0; /* Catch-up now owned by the original OG callbacks. */
     /* Keep the offered club HUMAN for fixture selection: making every team
      * AI here can cause the native "until human fixture" loops to consume
      * an entire competition in a single step. VIEW RESULT below simulates
@@ -361,6 +388,11 @@ void Expanded_MidseasonJoin_Tick(void) {
     const Menu *m=(const Menu *)_currentMenu;
     if (!m) { finish(0,-3); return; }
     if (m->onInit==ContestMenuInit) {
+        if ((_careerFinished || _seasonFinished) &&
+            s_complete_season_handoff && s_direct_league_import) {
+            finish(1,(int)_lastFinancialWeekIndex);
+            return;
+        }
         if (_careerFinished || _seasonFinished ||
             !_teamSelectionKeyCacheCount ||
             _teamSelectionKeyCacheIndex>=_teamSelectionKeyCacheCount) {
@@ -416,8 +448,13 @@ void Expanded_MidseasonJoin_Tick(void) {
         return;
     }
     if(m->onInit==CareerOverInit) {
-        /* No implicit promotion/relegation rollover in catch-up mode. */
-        finish(0,-7); return;
+        /* The last original fixture has genuinely completed. Returning to
+         * native season-end UI is correct for an offseason hire, provided
+         * that its entire league table came from the canonical world. */
+        if (s_complete_season_handoff && s_direct_league_import)
+            finish(1,(int)_lastFinancialWeekIndex);
+        else finish(0,-7);
+        return;
     }
     if(m->onInit==DIYLeagueTournamentInit) {
         /* Follow the battle-tested golden career harness ordering:

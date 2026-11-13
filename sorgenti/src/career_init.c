@@ -359,6 +359,18 @@ void ChooseTeamAndStartCareer(void)
         extern unsigned Expanded_DebugUnemployedWeeks(void);
         Expanded_MidseasonJoin_Begin(Expanded_DebugUnemployedWeeks());
 #ifdef SWOS_SDL_BUILD
+        /* A failed OG handoff is not an employed career. In particular,
+         * don't overwrite the one autosave with a freshly zeroed table.
+         * A new attempt can be made from setup; the old save is intact. */
+        { extern int Expanded_MidseasonJoin_LastResult(void);
+          if (Expanded_MidseasonJoin_LastResult()==2) {
+              fprintf(stderr,"[midseason] JOIN FAILED: original standings "
+                             "not reconciled; autosave NOT overwritten\n");
+              extern uint16_t _fireResetFlag;
+              _fireResetFlag=1;
+              return;
+          }
+        }
         /* DO NOT save/reload while the OG cup/league catch-up cursor is
          * active. VERIFY builds reload the just-saved .CAR and reconstruct
          * competition slot pointers; that invalidates the running native
@@ -807,6 +819,17 @@ void InitCareer(uint16_t teamNo)
     States_Reset();
 
     DIY_LoadLeagueScratchFromTable();
+#ifdef SWOS_SDL_BUILD
+    /* InitCareer resets OG offsets to the 1996 source-table divisions.
+     * Rebuild them from the CURRENT season's world fixtures before OG
+     * InitializeNewSeason chooses members for leagues AND cups. The native
+     * callbacks, match rules and competition descriptors remain original.
+     * This is a season-roster sync, not an alternate standings renderer. */
+    if (ExpandedWorldLive_Clubs() &&
+        !ExpandedWorldLive_StageNativeMobility())
+        fprintf(stderr,"[world-native-roster] ERROR: OG membership NOT "
+                       "synchronized; midseason join must not be accepted\n");
+#endif
 
     _sameNationalCallFlag = 0;
     _careerSeasonsCompleted = 0;

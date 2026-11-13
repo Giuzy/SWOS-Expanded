@@ -23,7 +23,8 @@ run_stage "MIDSEASON JOIN CALENDAR REGRESSIONS" "sorgenti/tests/run_test_expande
 run_stage "LIVING WORLD UNIT REGRESSIONS" "sorgenti/tests/run_test_expanded_world_live.sh"
 run_stage "DEBUG RESULTS / WORLD LEDGER REGRESSIONS" "sorgenti/tests/run_test_expanded_phase12.sh"
 run_stage "REAL INSTALLED DATABASE INVENTORY" "sorgenti/tests/run_test_database_inventory.sh"
-run_stage "REAL DOMESTIC JSON LEAGUES / 70 YEARS" "sorgenti/tests/run_test_real_json_world_70.sh"
+run_stage "CAREER INIT / F12 STATIC REGRESSIONS" "sorgenti/tests/run_test_career_init_lifecycle.sh"
+run_stage "FULL DATABASE AUDIT / DOMESTIC 70 YEARS" "sorgenti/tests/run_test_real_json_world_70.sh"
 echo
 if (( failed_stages )); then
   printf 'ENGINE_SUITE=FAIL STAGES=%u\n' "$failed_stages"
@@ -41,3 +42,6 @@ echo "NONDOMESTIC_COMPETITIONS_STATUS=NOT_SIMULATED_BY_JSON_LEAGUE_TEST"
 echo "[NOTE] Only automatic native promotion/relegation places are tested."
 echo "       OG playoff and complete worldwide offscreen cups are NOT proven."
 echo "       Non-domestic JSON pools are inventoried, NOT fake leagues."
+
+echo "DATABASE_96_97_EXPECTED_TEAMS=1620 PLAYER_SLOTS=26820"
+echo "OG_CUP_UNEMPLOYED_RUNTIME=NOT_TESTED"

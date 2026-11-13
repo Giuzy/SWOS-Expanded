@@ -2921,6 +2921,24 @@ static void draw_world_debug_overlay(void)
                  (unsigned)_numWins,(unsigned)_numLost);
         DEBUG_LINE(line);
     }
+    DEBUG_SECTION("DATABASE / OG VS LWE");
+    {
+        extern uint32_t OG_DatabaseLoadedTeams(void);
+        extern uint32_t OG_DatabaseLoadedPlayerSlots(void);
+        extern uint32_t OG_DatabaseLoadedFiles(void);
+        snprintf(line,sizeof line,"OG LOADED FILES %lu",
+                 (unsigned long)OG_DatabaseLoadedFiles());
+        DEBUG_LINE(line);
+        snprintf(line,sizeof line,"OG LOADED TEAMS %lu PLAYERS %lu",
+                 (unsigned long)OG_DatabaseLoadedTeams(),
+                 (unsigned long)OG_DatabaseLoadedPlayerSlots());
+        DEBUG_LINE(line);
+        snprintf(line,sizeof line,"LWE CLUBS %lu PLAYER SLOTS %lu",
+                 (unsigned long)ExpandedWorldLive_Clubs(),
+                 (unsigned long)ExpandedWorldLive_PlayerSlots());
+        DEBUG_LINE(line);
+        DEBUG_LINE("OG: FILES SEEN SINCE START / LWE: 16 SLOTS/CLUB");
+    }
     DEBUG_SECTION("LIVE WORLD / LEAGUES");
     snprintf(line,sizeof line,"PREVIEW %s CAREER %s",
              ExpandedWorldLive_Clubs()?"PILOT":"NONE",

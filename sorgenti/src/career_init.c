@@ -259,6 +259,11 @@ extern void SetExitMenuFlag(void);
 
 /* Forward declarations for Chunk 197 functions (defined later in this file) */
 void InitCareer(uint16_t teamNo);
+void Career_BeginNewCareer(void);
+void InitCareerWorld(void);
+void InitCareerManager(void);
+void InitCareerClub(uint16_t teamNo);
+void Career_AttachManagerToClub(uint16_t teamNo);
 void ContinueCareerNextSeason(void);
 void InitializeNewSeason(void);
 void DIY_SelectCompetitionSlot4FromCurrentDivision(void);
@@ -273,8 +278,7 @@ void SelectTeamToManage(void);
 __attribute__((used, externally_visible))
 void ChooseTeamAndStartCareer(void)
 {
-    InitCareerWorld();
-    InitCareerManager();
+    Career_BeginNewCareer();
     /* OG world templates and resets are now initialized once above. */
     _teamsLoaded = 0;
 #ifdef SWOS_SDL_BUILD
@@ -407,6 +411,7 @@ __attribute__((used, externally_visible))
 void LoadLiverpool(void)
 {
     _coachOrPlayer = 1;
+    Career_BeginNewCareer();
     InitCareer(0x811);
 #ifdef SWOS_SDL_BUILD
     { extern void Expanded_AutoCareer_Save(const char *);
@@ -795,14 +800,14 @@ __attribute__((used, externally_visible))
  * templates or erase the career's historical counters. */
 static int s_careerWorldInitialized = 0;
 static int s_careerManagerInitialized = 0;
+static uint32_t s_unemployedOgCupSeasons = 0;
 
 __attribute__((used, externally_visible))
 void InitCareerWorld(void)
 {
     /* An explicit new-career entry creates a new world, once. It is never
      * invoked by a later job offer, a dismissal or a save reload. */
-    s_careerWorldInitialized = 0;
-    s_careerManagerInitialized = 0;
+    if(s_careerWorldInitialized) return;
     _worldCupHostTeam = 20994;
 
     /* Clear 2000 bytes of diyLeagueSeasonStateTable (volatile to prevent memset optimization) */
@@ -846,6 +851,70 @@ void InitCareerWorld(void)
 
     s_careerWorldInitialized = 1;
 }
+
+/* Explicit NEW career. Do not reset the manager or world on a job offer. */
+__attribute__((used, externally_visible))
+void Career_BeginNewCareer(void)
+{
+    s_careerWorldInitialized = 0;
+    s_careerManagerInitialized = 0;
+    s_unemployedOgCupSeasons = 0;
+    InitCareerManager(); /* original game type and RNG before native setup */
+    InitCareerWorld();
+}
+#ifdef SWOS_SDL_BUILD
+/* Native OG domestic cups during unemployed completed seasons: use OG
+ * match callbacks instead of inventing another scoring engine.
+ * Not a replacement for dated knockout rounds, UEFA/national competitions
+ * or native promotion/cup qualification handoffs. */
+extern void Career_AutoAdvanceCupCompetitionFromRecord(uint8_t *record);
+extern void SaveSelectedTeams(void);
+extern void RestoreSelectedTeams(void);
+extern uint16_t _internationalAutoAdvanceFlag;
+extern uint8_t _seasonPlaying;
+void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
+{
+    const uint32_t finished=elapsedWeeks/52u;
+    if(!s_careerWorldInitialized || finished<=s_unemployedOgCupSeasons)
+        return;
+    if(finished>90u) {
+        fprintf(stderr,"[og-cups] unsupported season=%lu\n",
+                (unsigned long)finished);
+        return;
+    }
+    const uint8_t *countries=World_SeasonCountries();
+    if(!countries)return;
+    const uint16_t oldFlag=_internationalAutoAdvanceFlag;
+    const uint8_t oldSeason=_seasonPlaying;
+    SaveSelectedTeams();
+    _internationalAutoAdvanceFlag=1;
+    for(;s_unemployedOgCupSeasons<finished;++s_unemployedOgCupSeasons) {
+        unsigned cupRuns=0;
+        _seasonPlaying=(uint8_t)(96u+s_unemployedOgCupSeasons);
+        for(unsigned i=0;i<256u && countries[i]!=0xFFu;++i) {
+            const void *const *table=(const void *const *)
+                _competitionsTable[countries[i]];
+            if(!table)continue;
+            for(unsigned j=2;j<=3;++j) {
+                const uintptr_t raw=(uintptr_t)table[j];
+                if(!raw || raw==(uintptr_t)-1 || raw==(uintptr_t)-2)
+                    continue;
+                const Competition *cup=(const Competition *)table[j];
+                if(cup->type!=1)continue;
+                Career_AutoAdvanceCupCompetitionFromRecord((uint8_t *)cup);
+                ++cupRuns;
+            }
+        }
+        WorldCups_SeasonEnded();
+        fprintf(stderr,"[og-cups] finished year=%lu native cup calls=%u "
+                "(dated and international rounds NOT TESTED)\n",
+                (unsigned long)(s_unemployedOgCupSeasons+1u),cupRuns);
+    }
+    _seasonPlaying=oldSeason;
+    _internationalAutoAdvanceFlag=oldFlag;
+    RestoreSelectedTeams();
+}
+#endif
 
 __attribute__((used, externally_visible))
 void InitCareerManager(void)
@@ -952,8 +1021,8 @@ void Career_AttachManagerToClub(uint16_t teamNo)
 __attribute__((used, externally_visible))
 void InitCareer(uint16_t teamNo)
 {
-    if (!s_careerWorldInitialized) InitCareerWorld();
-    InitCareerManager();
+    if(!s_careerManagerInitialized) InitCareerManager();
+    if(!s_careerWorldInitialized) InitCareerWorld();
     _currentSeasonShowing = 0xFFFFu;
     _seasonPlaying--;
     InitCareerClub(teamNo);

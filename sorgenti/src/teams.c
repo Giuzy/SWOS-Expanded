@@ -27,6 +27,25 @@
 #include <stdlib.h>            /* getenv — SWOS_DATA_JSON team-load wire-in */
 #endif
 
+#ifdef SWOS_SDL_BUILD
+/* Observed successful OG TEAM file loads, grouped by native file ID.
+ * A file may be evicted/reloaded; these are unique files seen since boot,
+ * NOT all file buffers resident in memory simultaneously. */
+static uint16_t s_ogLoadedTeamCounts[256];
+uint32_t OG_DatabaseLoadedTeams(void) {
+    uint32_t count=0;
+    for(unsigned i=0;i<256u;++i)count+=s_ogLoadedTeamCounts[i];
+    return count;
+}
+uint32_t OG_DatabaseLoadedPlayerSlots(void) {
+    return OG_DatabaseLoadedTeams()*16u;
+}
+uint32_t OG_DatabaseLoadedFiles(void) {
+    uint32_t n=0;
+    for(unsigned i=0;i<256u;++i)if(s_ogLoadedTeamCounts[i])++n;
+    return n;
+}
+#endif
 /* ---- Constants ---- */
 #define GAME_TYPE_CAREER            4
 #define ORIGINAL_CUSTOM_TEAMS   2
@@ -435,6 +454,9 @@ int16_t LoadTeamFile(uint16_t extNumber)
     {
         uint16_t count = *((uint16_t *)_teamFileBuffer);
         _teamFileTeamCount = count;
+#ifdef SWOS_SDL_BUILD
+        s_ogLoadedTeamCounts[ext8] = count;
+#endif
         _teamFileDataSize = (uint32_t)count * sizeof(TeamFileEx) + 2;
     }
 

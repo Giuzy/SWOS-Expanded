@@ -778,3 +778,12 @@ non eseguiti dall'assistente. Non dichiarare build Windows collaudata.
 - Il percorso di riassunzione chiama `Career_AttachManagerToClub()` senza ripetere i reset mondiali o `Expanded_StartCareer()`. Rimangono da validare sul gioco le ricostruzioni degli slot OG e i salvataggi.
 - Il test JSON aggiunge un inventario di **ogni record** in tutte le categorie (club, pool, coppe, nazionali), distinguendolo dalla simulazione di 70 stagioni dei soli campionati. Non esiste ancora un test end-to-end delle coppe OG per tutte le nazioni e delle nazionali: status NOT_TESTED, non PASS.
 - Codice modificato e commit remoto: verifiche di compilazione e test Windows ancora pendenti.
+
+
+### 13/11/2026 — 0.13.37_03: inizializzazione carriera / F12 / database
+
+- Prototipi dichiarati per `InitCareerWorld`, `InitCareerManager`, `InitCareerClub`, `Career_AttachManagerToClub`; `Career_BeginNewCareer` separa il reset esplicito del mondo dai contratti successivi. Il percorso di riassunzione non richiama più `InitCareer(newTeam)`.
+- Hook `Career_AdvanceUnemployedOGCups`: chiama le callback OG delle coppe domestiche dopo ogni anno completo di disoccupazione. **Parziale**, non sostituisce un calendario OG completo; coppe UEFA, nazionali, risoluzione tabelloni in tempo reale, save/load e riassunzione devono essere testati/implementati ulteriormente. Non dichiarare completamento.
+- F12: distingue i file e le squadre effettivamente caricati dal loader OG almeno una volta dai club e slot giocatore importati in LWE; attenzione: i file OG visti non sono contemporaneamente residenti.
+- Test JSON: aggiunta convalida dell'intero catalogo 1996/97 prima dello stress domestico 70 anni; test statico regressione lifecycle. Build e test Windows **non eseguiti** in questa sessione.
+- Conteggio repository **76 cataloghi JSON, 1.620 record squadra, 25.920 slot rosa + 900 POOLPLYR = 26.820 slot giocatore, 80 partecipanti TMD copiati (non nuove squadre)**. Dettagli e metodologia in `docs/DATABASE_1996_97_COVERAGE.md`.

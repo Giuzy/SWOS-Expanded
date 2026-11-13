@@ -277,56 +277,95 @@ static int test_all_domestic_files(int argc,char **argv) {
     return ok;
 }
 
-/* Complete installed JSON inventory: every record in every domestic, pool,
- * cup and national catalogue is parsed and validated. This does NOT assert
- * that OG knockout matches have been advanced by the league-only simulator. */
+/* Full real 1996/97 data audit. A team-file squad has sixteen roster
+ * records. EU* TMD entries are duplicated cup entrants, while POOLPLYR
+ * stores distinct available player entries, not clubs. This does NOT
+ * simulate OG national or continental match calendars. */
+static unsigned player_names_in_catalog(const char *js) {
+    unsigned n=0;
+    const char *p=js;
+    while((p=strstr(p,"\"player_name\""))!=NULL) {
+        ++n;
+        p+=13;
+    }
+    return n;
+}
 static int test_entire_catalogue(int argc,char **argv) {
-    unsigned files=0, domestic=0, non_domestic=0, non_league=0, malformed=0;
-    unsigned long long records=0;
+    unsigned files=0,teams=0,cupDuplicates=0,pool=0;
+    unsigned roster=0,cupRoster=0,errors=0,unique=0,seenAgain=0;
     unsigned char seen[65536]={0};
-    unsigned unique=0, cross_file_references=0;
     for(int a=1;a<argc;++a) {
         long length=0,count=0;
-        char *json=read_catalog(argv[a],&length);
-        if(!json || !mjson_get_long(json,(int)length,"$.count",&count) ||
+        char type[16];
+        char *js=read_catalog(argv[a],&length);
+        if(!js || !mjson_get_long(js,(int)length,"$.count",&count) ||
+           mjson_get_string(js,(int)length,"$.type",type,sizeof type)<=0 ||
            count<0 || count>100000) {
-            fprintf(stderr,"[db-all] failed catalogue %s\n",argv[a]);
-            free(json);++malformed;continue;
+            fprintf(stderr,"[db-audit] invalid catalogue %s\n",argv[a]);
+            ++errors;free(js);continue;
         }
         ++files;
-        const int pool=non_domestic_catalog(argv[a]);
-        for(unsigned i=0;i<(unsigned)count;++i) {
-            long country=0,ordinal=0,division=0;
-            char name[96];
-            if(!team_number(json,(int)length,i,"country_number",&country) ||
-               !team_number(json,(int)length,i,"team_ordinal",&ordinal) ||
-               !team_number(json,(int)length,i,"league",&division) ||
-               !team_name(json,(int)length,i,name,sizeof name) ||
-               country<0 || country>255 || ordinal<0 || ordinal>255 ||
-               division<0 || division>255) {
-                fprintf(stderr,"[db-all] invalid record file=%s index=%u\n",
-                        argv[a],i);++malformed;continue;
-            }
-            ++records;
-            if(pool) ++non_domestic; else ++domestic;
-            if(pool || division>=16) ++non_league;
-            unsigned id=((unsigned)country<<8)|(unsigned)ordinal;
-            if(seen[id]) ++cross_file_references;
-            else {seen[id]=1;++unique;}
+        int isPool=strcmp(type,"pool")==0, isTmd=strcmp(type,"tmd")==0;
+        if(!isPool && !isTmd && strcmp(type,"team")!=0) {
+            fprintf(stderr,"[db-audit] unexpected catalogue %s (%s)\n",
+                    argv[a],type);
+            ++errors;free(js);continue;
         }
-        free(json);
+        unsigned players=player_names_in_catalog(js);
+        unsigned expected=(unsigned)count*(isPool?1u:16u);
+        if(players!=expected) {
+            fprintf(stderr,"[db-audit] players mismatch %s actual=%u expected=%u\n",
+                    argv[a],players,expected);
+            ++errors;
+        }
+        if(isPool) {
+            pool+=(unsigned)count;
+            for(unsigned i=0;i<(unsigned)count;++i) {
+                char path[92],name[96];
+                long id=0;
+                snprintf(path,sizeof path,"$.players[%u].team_id",i);
+                int okId=mjson_get_long(js,(int)length,path,&id);
+                snprintf(path,sizeof path,"$.players[%u].player.player_name",i);
+                int okName=mjson_get_string(js,(int)length,path,name,sizeof name)>0;
+                if(!okId || !okName || id<0 || id>65535)
+                    ++errors;
+            }
+        } else {
+            if(isTmd) {cupDuplicates+=(unsigned)count;cupRoster+=players;}
+            else {teams+=(unsigned)count;roster+=players;}
+            for(unsigned i=0;i<(unsigned)count;++i) {
+                long country=0,ordinal=0,division=0;
+                char name[96];
+                if(!team_number(js,(int)length,i,"country_number",&country) ||
+                   !team_number(js,(int)length,i,"team_ordinal",&ordinal) ||
+                   !team_number(js,(int)length,i,"league",&division) ||
+                   !team_name(js,(int)length,i,name,sizeof name) ||
+                   country<0 || country>255 || ordinal<0 || ordinal>255 ||
+                   division<0 || division>255) {
+                    fprintf(stderr,"[db-audit] invalid team %s[%u]\n",argv[a],i);
+                    ++errors;continue;
+                }
+                unsigned id=((unsigned)country<<8)|(unsigned)ordinal;
+                if(seen[id])++seenAgain;
+                else {seen[id]=1;++unique;}
+            }
+        }
+        free(js);
     }
-    printf("DATABASE_ALL_JSON_FILES=%u DATABASE_ALL_RECORDS=%llu "
-           "DATABASE_DOMESTIC_RECORDS=%u DATABASE_POOL_CUP_NATIONAL_RECORDS=%u "
-           "DATABASE_NONLEAGUE_RECORDS=%u DATABASE_UNIQUE_IDS=%u "
-           "DATABASE_REUSED_IDS=%u DATABASE_MALFORMED_RECORDS=%u\n",
-           files,records,domestic,non_domestic,non_league,unique,
-           cross_file_references,malformed);
-    printf("DATABASE_ALL_RECORDS_AUDIT=%s\n",
-           !malformed && files==(unsigned)(argc-1) && records>0?"PASS":"FAIL");
-    puts("DATABASE_ALL_OG_CUP_MATCHES=NOT_TESTED");
-    puts("DATABASE_ALL_NATIONAL_MATCHES=NOT_TESTED");
-    return !malformed && files==(unsigned)(argc-1) && records>0;
+    int pass=files==76u && teams==1620u && cupDuplicates==80u &&
+             pool==900u && roster==25920u && cupRoster==1280u &&
+             errors==0;
+    printf("DATABASE_ALL_FILES=%u DATABASE_TEAMS=%u "
+           "DATABASE_ROSTER_SLOTS=%u DATABASE_POOL_PLAYERS=%u "
+           "DATABASE_TOTAL_PLAYER_SLOTS=%u DATABASE_TMD_DUPLICATES=%u "
+           "DATABASE_UNIQUE_TEAM_IDS=%u DATABASE_REUSED_IDS=%u "
+           "DATABASE_INVALID=%u\n",
+           files,teams,roster,pool,roster+pool,cupDuplicates,unique,
+           seenAgain,errors);
+    printf("DATABASE_ALL_RECORDS_AUDIT=%s\n",pass?"PASS":"FAIL");
+    puts("OG_NATIONAL_FIXTURES=NOT_TESTED");
+    puts("OG_CONTINENTAL_CUP_FIXTURES=NOT_TESTED");
+    return pass;
 }
 
 int main(int argc,char **argv) {

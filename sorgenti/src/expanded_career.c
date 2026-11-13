@@ -649,6 +649,8 @@ void Expanded_UnemployedWait(void) {
             fprintf(stderr,"[living-world] wait=%u pilot results=%lu\n",
                     s_waitWeeks,(unsigned long)ExpandedWorldLive_Results());
     }
+    { extern void Career_AdvanceUnemployedOGCups(uint32_t);
+      Career_AdvanceUnemployedOGCups((uint32_t)s_waitWeeks); }
     if(s_waitWeeks>=s_nextOfferWeek && !s_waitTeam) choose_small_club();
     if(!s_waitTeam && s_waitWeeks>=s_nextOfferWeek)
         s_nextOfferWeek=s_waitWeeks+next_delay();

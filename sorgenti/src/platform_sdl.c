@@ -21,6 +21,7 @@
 #include "dos_graphics.h"    /* DosGfx_BuildPalette */
 #include "build_info.h"      /* the commit, in the window title */
 #include "world.h"
+#include "world_cups.h"
 #include "expanded_debug.h"
 #include "expanded_world_live.h"
 #include "expanded_midseason_join.h"
@@ -458,6 +459,7 @@ static volatile int s_screenshot_request;
 static volatile int s_world_debug_visible;
 /* F12+C switches to read-only OG cup evidence. Never alters DIY/OG state. */
 static volatile int s_world_debug_cup_page;
+static volatile int s_world_debug_import_page;
 /* Debug-only fast real match: every original game frame runs normally at
  * four times the wall-clock rate. No result teleport or changed physics. */
 static volatile int s_debug_match_fast;
@@ -2131,7 +2133,21 @@ static void pump_events_any_thread(void)
             }
             if (ev.key.repeat == 0 && ev.key.keysym.sym == SDLK_F12) {
                 s_world_debug_visible = !s_world_debug_visible;
+                if(!s_world_debug_visible)s_world_debug_import_page=0;
                 continue;
+            }
+            if(ev.key.repeat==0 && ev.key.keysym.sym==SDLK_F10) {
+                extern uint16_t _gameType;
+                extern volatile uint16_t _playGame;
+                extern volatile uintptr_t _currentMenuPtr;
+                extern uint8_t *Expanded_UnemployedCalendarPointer(void);
+                /* Preserve the original Arcade F10 during gameplay/attract. */
+                if(!_playGame && (_gameType==4 ||
+                   _currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarPointer())) {
+                    s_world_debug_import_page=!s_world_debug_import_page;
+                    s_world_debug_visible=s_world_debug_import_page?1:0;
+                    continue;
+                }
             }
             if (ev.key.repeat == 0 && ev.key.keysym.sym == SDLK_F9) {
                 /* Capture final renderer output, including the diagnostic.
@@ -2798,6 +2814,89 @@ static void draw_world_debug_overlay(void)
     SDL_SetRenderDrawColor(s_renderer,70,149,181,255);
     SDL_RenderDrawRect(s_renderer,&left);
     SDL_RenderDrawRect(s_renderer,&right);
+
+    if(s_world_debug_import_page) {
+        char txt[128];
+        ExpandedLiveImportAudit audit;
+        uint32_t reason[4]={0},cupSlots[4]={0};
+        ExpandedLiveImportExclusion sample[20];
+        uint8_t skipped[12];
+        uint32_t samples=ExpandedWorldLive_ImportSamples(sample,20u);
+        uint32_t skippedCount=ExpandedWorldLive_ImportSkippedCountries(skipped,12u);
+        (void)ExpandedWorldLive_ImportReasons(reason);
+        (void)ExpandedWorldLive_ImportCupRecords(cupSlots);
+        memset(&audit,0,sizeof audit);
+        (void)ExpandedWorldLive_ImportAudit(&audit);
+        int32_t worldCups=0,continentCups=0;
+        (void)World_Cups(&worldCups);
+        (void)World_ContiCups(&continentCups);
+        splash_text_tinted(22,22,"F10: SWOS ORIGINAL / LWE IMPORT DIAGNOSTICS",88,207,255);
+        splash_text_tinted(22,39,"F10 CLOSE  F9 PNG  F12 MAIN DEBUG",226,236,245);
+        splash_text_tinted(22,58,"1. DOMESTIC LEAGUES / ACTUAL TEAM FILES",88,207,255);
+        snprintf(txt,sizeof txt,"COUNTRIES %lu/%lu SKIPPED %lu FILES LOADED %lu/%lu",
+                 (unsigned long)audit.supported_countries,
+                 (unsigned long)audit.candidate_countries,
+                 (unsigned long)audit.skipped_country_records,
+                 (unsigned long)ExpandedWorldLive_ImportFilesLoaded(),
+                 (unsigned long)audit.team_files_attempted);
+        splash_text_tinted(22,75,txt,226,236,245);
+        snprintf(txt,sizeof txt,"ROWS SCANNED %lu CLUBS IMPORTED %lu SCHEDULED LEAGUES %lu",
+                 (unsigned long)ExpandedWorldLive_ImportRowsSeen(),
+                 (unsigned long)audit.imported_clubs,
+                 (unsigned long)audit.scheduled_leagues);
+        splash_text_tinted(22,92,txt,226,236,245);
+        snprintf(txt,sizeof txt,"EXCLUDED: OUTSIDE LEAGUE %lu  OTHER FILE %lu",
+                 (unsigned long)reason[0],(unsigned long)reason[1]);
+        splash_text_tinted(22,109,txt,255,196,90);
+        snprintf(txt,sizeof txt,"UNSUPPORTED DIVISION %lu  LWE REJECTED %lu",
+                 (unsigned long)reason[2],(unsigned long)reason[3]);
+        splash_text_tinted(22,126,txt,255,196,90);
+        snprintf(txt,sizeof txt,"SKIPPED COUNTRY IDS (FIRST %lu): ",
+                 (unsigned long)skippedCount);
+        size_t used=strlen(txt);
+        for(uint32_t i=0;i<skippedCount && used+5<sizeof txt;++i) {
+            int n=snprintf(txt+used,sizeof txt-used,"%u ",(unsigned)skipped[i]);
+            if(n<0)break;
+            used+=(size_t)n;
+        }
+        splash_text_tinted(22,143,txt,255,196,90);
+        splash_text_tinted(22,170,"2. OG CUPS FOUND / NOT PROOF OF PLAYED MATCHES",88,207,255);
+        snprintf(txt,sizeof txt,"DOMESTIC CUP SLOT 2=%lu  SLOT 3=%lu  EMPTY=%lu  OTHER=%lu",
+                 (unsigned long)cupSlots[0],(unsigned long)cupSlots[1],
+                 (unsigned long)cupSlots[2],(unsigned long)cupSlots[3]);
+        splash_text_tinted(22,187,txt,226,236,245);
+        snprintf(txt,sizeof txt,"WORLD CUP RECORDS %ld CONTINENTAL CUP SPECS %ld",
+                 (long)worldCups,(long)continentCups);
+        splash_text_tinted(22,204,txt,226,236,245);
+        snprintf(txt,sizeof txt,"OG CUP LEDGER: MATCHES %lu TITLES %lu (RESIDENT)",
+                 (unsigned long)ExpandedWorldLive_CupResidentMatches(),
+                 (unsigned long)ExpandedWorldLive_CupResidentTitles());
+        splash_text_tinted(22,221,txt,226,236,245);
+        splash_text_tinted(22,238,"NATIONAL TEAMS / QUALIFIERS: NOT SCHEDULED AS LWE LEAGUES",
+                           255,196,90);
+        splash_text_tinted(22,255,"OG CUP REGISTERED != OG CUP SIMULATED",255,196,90);
+        splash_text_tinted(22,278,"3. EXCLUDED CLUB SAMPLES: ID FILE DIV REASON",88,207,255);
+        for(uint32_t i=0;i<samples;++i) {
+            const ExpandedLiveImportExclusion *e=&sample[i];
+            int x=i<10u?22:491;
+            int y=295+(int)(i%10u)*18;
+            const char *why=e->reason==LIVE_IMPORT_OUTSIDE?"OUTSIDE":
+                e->reason==LIVE_IMPORT_WRONG_FILE?"FILE":
+                e->reason==LIVE_IMPORT_UNSUPPORTED_DIVISION?"DIV":
+                e->reason==LIVE_IMPORT_LWE_REJECTED?"REJECT":"?";
+            snprintf(txt,sizeof txt,"%04X %03u %02u %-7s %.17s",
+                     (unsigned)e->club,(unsigned)e->file,
+                     (unsigned)e->division,why,e->name);
+            splash_text_tinted(x,y,txt,226,236,245);
+        }
+        splash_text_tinted(22,496,"SAMPLES ONLY / 1620 DB TEAMS INCLUDE NATIONALS AND COPIES",
+                           255,196,90);
+        SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);
+        if(!oldw||!oldh)SDL_RenderSetScale(s_renderer,oldsx,oldsy);
+        SDL_RenderSetViewport(s_renderer,&oldvp);
+        SDL_SetRenderDrawBlendMode(s_renderer,oldblend);
+        return;
+    }
 
     if(s_world_debug_cup_page) {
         ExpandedLiveCupDebugEvent events[24];

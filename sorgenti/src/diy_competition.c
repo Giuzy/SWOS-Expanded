@@ -9101,6 +9101,98 @@ void DIYLeagueTournamentNextMatch(void)
     CallDrawMultipleItems(8, &_menuEntries[1]);  /* 0x38/56=1, draw 8 entries */
 }
 
+/* Read-only comparison of the actual OG menu standings with the one
+ * canonical world ledger. Pair rows by immutable team ID, not ranking. */
+#ifdef SWOS_SDL_BUILD
+static uint32_t s_worldTableAuditChecks,s_worldTableAuditFailures;
+uint32_t DIY_WorldStandingsAuditChecks(void){return s_worldTableAuditChecks;}
+uint32_t DIY_WorldStandingsAuditFailures(void){return s_worldTableAuditFailures;}
+void DIY_WorldAuditStandingsAtMenu(void)
+{
+    if (_gameType!=4 || !ExpandedWorldLive_Clubs())return;
+    const DIYCompetitionEx *c=&_diyCompetitionStart;
+    unsigned n=(unsigned)c->base.numTeams;
+    if(n<2u || n>32u || c->base.hasGroups ||
+       c->base.matchPairsPerRound!=1u) {
+        fprintf(stderr,"[join-standings] SKIP unsupported OG table n=%u groups=%u phases=%u\n",
+                n,(unsigned)c->base.hasGroups,
+                (unsigned)c->base.matchPairsPerRound);
+        return;
+    }
+    const DIYTeamStats *first=diy_standings_row(
+        (DIYCompetitionEx *)&_diyCompetitionStart,0);
+    if(first->teamSelOffset < -1 ||
+       (first->teamSelOffset>=0 &&
+        (uint32_t)first->teamSelOffset >=(uint32_t)_numSelectedTeams))
+        return;
+    const TeamFileEx *seed=(const TeamFileEx *)
+        diy_resolve_team(first->teamSelOffset);
+    const uint16_t seedId=PACK_BE_U16(seed->team.countryNumber,
+                                      seed->team.teamOrdinal);
+    const uint8_t country=World_FileCountry(seed->team.countryNumber);
+    const uint8_t division=ExpandedWorldLive_ClubDivision(seedId);
+    ExpandedLiveRow world[32];
+    uint32_t found=0;
+    if(division==255u ||
+       !ExpandedWorldLive_Table(country,division,world,32u,&found)) {
+        fprintf(stderr,"[join-standings] SKIP world table missing country=%u div=%u club=%04x\n",
+                (unsigned)country,(unsigned)division,(unsigned)seedId);
+        return;
+    }
+    unsigned missing=0,different=0,duplicates=0;
+    uint8_t matched[32]={0};
+    if(found!=n)++different;
+    for(unsigned i=0;i<n;++i) {
+        const DIYTeamStats *og=diy_standings_row(
+            (DIYCompetitionEx *)&_diyCompetitionStart,(int)i);
+        if(og->teamSelOffset < -1 ||
+           (og->teamSelOffset>=0 &&
+            (uint32_t)og->teamSelOffset >=(uint32_t)_numSelectedTeams)) {
+            ++different;
+            fprintf(stderr,"[join-standings] BAD IDENTITY row=%u id=%ld\n",
+                    i,(long)og->teamSelOffset);
+            continue;
+        }
+        const TeamFileEx *team=(const TeamFileEx *)
+            diy_resolve_team(og->teamSelOffset);
+        const uint16_t id=PACK_BE_U16(team->team.countryNumber,
+                                      team->team.teamOrdinal);
+        unsigned j=0;
+        for(;j<found;++j)if(world[j].club==id)break;
+        if(j==found){++missing;fprintf(stderr,
+            "[join-standings] MISSING LWE CLUB=%04x OG PL=%u PTS=%u\n",
+            id,(unsigned)og->gamesPlayed,(unsigned)og->points);continue;}
+        if(matched[j]){++duplicates;continue;}
+        matched[j]=1;
+        const ExpandedLiveRow *lw=&world[j];
+        if(og->gamesPlayed!=lw->played ||
+           og->wins!=lw->wins || og->draws!=lw->drawn ||
+           og->losses!=lw->lost || og->goalsFor!=lw->scored ||
+           og->goalsAgainst!=lw->conceded ||
+           (int32_t)og->points!=lw->points) {
+            ++different;
+            fprintf(stderr,"[join-standings] DIFF club=%04x OG PL=%u W=%u D=%u L=%u GF=%u GA=%u PTS=%u LWE PL=%u W=%u D=%u L=%u GF=%u GA=%u PTS=%ld\n",
+                id,(unsigned)og->gamesPlayed,(unsigned)og->wins,
+                (unsigned)og->draws,(unsigned)og->losses,
+                (unsigned)og->goalsFor,(unsigned)og->goalsAgainst,
+                (unsigned)og->points,(unsigned)lw->played,
+                (unsigned)lw->wins,(unsigned)lw->drawn,(unsigned)lw->lost,
+                (unsigned)lw->scored,(unsigned)lw->conceded,(long)lw->points);
+        }
+    }
+    for(unsigned j=0;j<found;++j)if(!matched[j])++missing;
+    ++s_worldTableAuditChecks;
+    if(missing||different||duplicates)++s_worldTableAuditFailures;
+    fprintf(stderr,"[join-standings] %s country=%u division=%u OG=%u LWE=%lu differences=%u missing=%u duplicated=%u season=%u checks=%lu failures=%lu\n",
+        missing||different||duplicates?"FAIL":"PASS",
+        (unsigned)country,(unsigned)division,n,(unsigned long)found,
+        different,missing,duplicates,
+        (unsigned)ExpandedWorldLive_SeasonYear(),
+        (unsigned long)s_worldTableAuditChecks,
+        (unsigned long)s_worldTableAuditFailures);
+}
+#endif
+
 /* ================================================================
  * DIYLeagueTournamentInit  (SWOS2.s line 42219)
  *
@@ -9156,6 +9248,9 @@ void DIYLeagueTournamentInit(void)
 
     /* bra.w *+4 falls through to DIYLeagueTournamentOnRestore */
     DIYLeagueTournamentOnRestore();
+#ifdef SWOS_SDL_BUILD
+    DIY_WorldAuditStandingsAtMenu();
+#endif
 
     {
         Menu *m = (Menu *)_currentMenu;

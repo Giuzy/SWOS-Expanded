@@ -51,6 +51,9 @@ call :check_marker OG_UNEMPLOYED_CUP_HOOK_STATIC "Hook coppe OG disoccupazione (
 call :check_marker REAL_JSON_DOMESTIC_70_SEASONS "Campionati JSON reali: 70 stagioni - escluse coppe e nazionali"
 call :check_marker GLOBAL_DOMESTIC_CLUB_COVERAGE "Copertura di tutti i club domestici (singleton segnalati)"
 call :check_marker REAL_JSON_GLOBAL_70_SEASONS "Tutti i campionati domestici nello stesso mondo, 70 stagioni"
+call :check_marker JOIN_STANDINGS_AUDIT_STATIC "Confronto classifica OG/LWE per ID (statico)"
+call :check_marker F10_IMPORT_DIAGNOSTICS_STATIC "F10: import club/coppe/nazionali (statico)"
+call :check_marker OG_CUP_AUDIT_STATIC "Coppe OG: controllo risultati registrati (statico)"
 call :check_marker ENGINE_UNIT_REGRESSIONS "Regressioni del motore"
 call :check_marker ENGINE_SUITE "Suite completa del motore"
 if not "%RESULT%"=="0" goto test_failed
@@ -66,19 +69,16 @@ pause
 exit /b %RESULT%
 
 :check_marker
-rem Keep the strict machine-readable log unchanged; only make its summary
-rem human-friendly and color each individual result, not the whole line.
-rem Read one full line at a time: MSYS output can contain CR endings
-rem which made FINDSTR /X reject the otherwise valid DB_INVENTORY marker.
-rem Compare exactly, never accept a partial/suffixed PASS.
+rem Exact marker recognition; supports CRLF and LF from the MSYS log.
+rem Avoid IF parentheses around an ECHO label that contains "(...)".
 set "MARKER_FOUND=0"
 for /f "usebackq delims=" %%L in ("LIVING_WORLD_70_TEST.log") do (
  if "%%L"=="%~1=PASS" set "MARKER_FOUND=1"
 )
-if "%MARKER_FOUND%"=="1" (
- echo %ESC%[92mPASS%ESC%[0m - %~2
-) else (
- echo %ESC%[91mFAIL%ESC%[0m - %~2
- set "RESULT=1"
-)
+if "%MARKER_FOUND%"=="1" goto marker_ok
+echo %ESC%[91mFAIL%ESC%[0m - %~2
+set "RESULT=1"
+exit /b 0
+:marker_ok
+echo %ESC%[92mPASS%ESC%[0m - %~2
 exit /b 0

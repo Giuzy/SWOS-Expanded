@@ -415,5 +415,6 @@ int main(int argc,char **argv) {
         puts("REAL_JSON_DOMESTIC_70_SEASONS=FAIL");return 1;
     }
     puts("REAL_JSON_DOMESTIC_70_SEASONS=PASS");
+    fflush(stdout); /* ensure stdout markers are not interleaved with stderr */
     return test_all_domestic_files(argc,argv)?0:1;
 }

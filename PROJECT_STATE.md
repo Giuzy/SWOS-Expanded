@@ -787,3 +787,10 @@ non eseguiti dall'assistente. Non dichiarare build Windows collaudata.
 - F12: distingue i file e le squadre effettivamente caricati dal loader OG almeno una volta dai club e slot giocatore importati in LWE; attenzione: i file OG visti non sono contemporaneamente residenti.
 - Test JSON: aggiunta convalida dell'intero catalogo 1996/97 prima dello stress domestico 70 anni; test statico regressione lifecycle. Build e test Windows **non eseguiti** in questa sessione.
 - Conteggio repository **76 cataloghi JSON, 1.620 record squadra, 25.920 slot rosa + 900 POOLPLYR = 26.820 slot giocatore, 80 partecipanti TMD copiati (non nuove squadre)**. Dettagli e metodologia in `docs/DATABASE_1996_97_COVERAGE.md`.
+
+
+### 13/11/2026 — 0.13.37_04: confronto automatico classifiche / F10 import / coppe
+- `DIY_WorldAuditStandingsAtMenu` confronta in lettura classifica OG e LWE per ID, W/D/L, gol e punti quando si apre il menu OG; log `[join-standings] PASS/FAIL/SKIP`. Non modifica casualità né stato della competizione.
+- Nuovo ispettore **F10 nei menu Career**, preservando F10 Arcade durante le partite: file TEAM realmente aperti, club importati, record scartati per motivo con esempi di nome/ID/file/divisione, paesi senza record validi, coppe OG registrate separate dalle competizioni realmente giocate. Dettagli in `docs/DATABASE_1996_97_COVERAGE.md`.
+- Durante la disoccupazione l'hook OG coppe considera `g_worldCups.seasons` per evitare riavanzamenti evidenti al ripristino e traccia le differenze del registro OG di risultati e vincitori. Non è ancora la simulazione integrale dei tabelloni, né prova le qualificazioni e le nazionali.
+- Suite: controllo statico del wiring e migliorata stampa marcatori BAT; build e test runtime Windows ancora pendenti. I pass statici NON certificano le classifiche o le coppe nel gioco.

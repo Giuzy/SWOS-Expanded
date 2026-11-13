@@ -24,6 +24,7 @@ run_stage "LIVING WORLD UNIT REGRESSIONS" "sorgenti/tests/run_test_expanded_worl
 run_stage "DEBUG RESULTS / WORLD LEDGER REGRESSIONS" "sorgenti/tests/run_test_expanded_phase12.sh"
 run_stage "REAL INSTALLED DATABASE INVENTORY" "sorgenti/tests/run_test_database_inventory.sh"
 run_stage "CAREER INIT / F12 STATIC REGRESSIONS" "sorgenti/tests/run_test_career_init_lifecycle.sh"
+run_stage "OG/LWE STANDINGS / F10 IMPORT / OG CUP AUDIT (STATIC)" "sorgenti/tests/run_test_join_import_instrumentation.sh"
 run_stage "FULL DATABASE AUDIT / DOMESTIC 70 YEARS" "sorgenti/tests/run_test_real_json_world_70.sh"
 echo
 if (( failed_stages )); then
@@ -45,3 +46,4 @@ echo "       Non-domestic JSON pools are inventoried, NOT fake leagues."
 
 echo "DATABASE_96_97_EXPECTED_TEAMS=1620 PLAYER_SLOTS=26820"
 echo "OG_CUP_UNEMPLOYED_RUNTIME=NOT_TESTED"
+echo "F10_RUNTIME_COVERAGE=NOT_VERIFIED"

@@ -171,6 +171,27 @@ typedef struct ExpandedLiveImportAudit {
     uint32_t imported_clubs;
     uint32_t scheduled_leagues;
 } ExpandedLiveImportAudit;
+/* Import diagnostics for F10. Reasons count only TEAM-file rows actually
+ * opened by the career league importer, not national/POOLPLYR records. */
+typedef struct ExpandedLiveImportExclusion {
+    uint16_t club;
+    uint8_t file,division,reason;
+    char name[18];
+} ExpandedLiveImportExclusion;
+enum {
+    LIVE_IMPORT_OUTSIDE=1,
+    LIVE_IMPORT_WRONG_FILE=2,
+    LIVE_IMPORT_UNSUPPORTED_DIVISION=3,
+    LIVE_IMPORT_LWE_REJECTED=4
+};
+uint32_t ExpandedWorldLive_ImportReasons(uint32_t out[4]);
+uint32_t ExpandedWorldLive_ImportSamples(ExpandedLiveImportExclusion *out,
+                                        uint32_t capacity);
+uint32_t ExpandedWorldLive_ImportFilesLoaded(void);
+uint32_t ExpandedWorldLive_ImportRowsSeen(void);
+uint32_t ExpandedWorldLive_ImportCupRecords(uint32_t out[4]);
+uint32_t ExpandedWorldLive_ImportSkippedCountries(uint8_t *out,
+                                                  uint32_t capacity);
 int ExpandedWorldLive_ImportAudit(ExpandedLiveImportAudit *out);
 void ExpandedWorldLive_LoadOfferCountries(void);
 #ifdef SWOS_SDL_BUILD

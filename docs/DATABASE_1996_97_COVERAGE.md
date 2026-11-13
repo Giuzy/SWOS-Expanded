@@ -28,3 +28,19 @@ La pagina F12 deve distinguere:
 
 I numeri in questa guida sono conteggi di record nelle sorgenti disponibili, non misure delle entità attive contemporaneamente in memoria. Per la versione DB 2026/27 occorrerà un audit separato.
 
+
+## F10 — Diagnostica import OG/LWE (0.13.37_04)
+
+Premere **F10 nei menu della carriera**, anche durante la disoccupazione, per aprire la pagina di sola lettura; F10 la richiude. F9 salva lo screenshot. F10 **durante le partite Arcade** conserva l'azione debug preesistente, non apre questa pagina.
+
+La pagina separa:
+- **Campionati:** paesi candidati e supportati, paesi senza record nativo adatto, TEAM file effettivamente caricati, righe analizzate, club LWE importati e divisioni schedulate.
+- **Club esclusi:** quattro cause misurate per ciascun record realmente letto: fuori campionato, TEAM file diverso da quello atteso, divisione oltre il numero di divisioni OG, rifiuto dell'importatore LWE. Visualizza fino a 20 esempi con ID in esadecimale, file, divisione, motivo e nome. I dettagli di ogni coppa OG riconosciuta (paese, slot, ID) vengono scritti anche nel log.
+- **Coppe:** conteggio record nelle posizioni OG secondaria/terziaria, record World_Cups, specifiche continentali e numero di match/titoli effettivamente testimoniati dal registro OG. **Un record esistente non prova che la coppa sia stata simulata**.
+- **Nazionali:** non vengono impropriamente contate come squadre del calendario dei campionati LWE. Qualificazioni e tornei devono essere verificati separatamente.
+
+I conteggi F10 sono relativi **ai TEAM file effettivamente aperti dall'importatore domestico** e non ai 76 cataloghi complessivi. Non sottrarre semplicemente 1.303 da 1.620 per stimare errori: nazionali, squadre fuori campionato, copie TMD, file non letti e rifiuti sono categorie diverse.
+
+La classifica OG ora genera nel log `[join-standings] PASS/FAIL` quando si apre il relativo menu: confronto per ID di squadra con la tabella LWE, comprendente partite, W/D/L, gol fatti/subiti e punti. Il controllo è diagnostico e non corregge i dati. Per campionati OG in formato non gestito mostra SKIP, non PASS.
+
+L'hook delle coppe OG durante la disoccupazione registra ora il numero di chiamate e le variazioni del registro di partite e vincitori e cerca di non ripetere stagioni già finalizzate. **Non dimostra ancora i tabelloni OG turno per turno, né le coppe continentali/nazionali durante l'assenza del manager.** I controlli aggiunti alla suite sono statici; il collaudo runtime Windows resta pendente.

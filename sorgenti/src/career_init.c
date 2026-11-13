@@ -875,6 +875,10 @@ extern uint8_t _seasonPlaying;
 void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
 {
     const uint32_t finished=elapsedWeeks/52u;
+    /* The saved native world-cup season counter is authoritative after
+     * save/reload. Never replay a cup season already finalized by OG. */
+    if(s_unemployedOgCupSeasons<(uint32_t)g_worldCups.seasons)
+        s_unemployedOgCupSeasons=g_worldCups.seasons;
     if(!s_careerWorldInitialized || finished<=s_unemployedOgCupSeasons)
         return;
     if(finished>90u) {
@@ -889,6 +893,8 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
     SaveSelectedTeams();
     _internationalAutoAdvanceFlag=1;
     for(;s_unemployedOgCupSeasons<finished;++s_unemployedOgCupSeasons) {
+        const uint32_t beforeMatches=ExpandedWorldLive_CupResidentMatches();
+        const uint32_t beforeTitles=ExpandedWorldLive_CupResidentTitles();
         unsigned cupRuns=0;
         _seasonPlaying=(uint8_t)(96u+s_unemployedOgCupSeasons);
         for(unsigned i=0;i<256u && countries[i]!=0xFFu;++i) {
@@ -905,10 +911,20 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
                 ++cupRuns;
             }
         }
-        WorldCups_SeasonEnded();
-        fprintf(stderr,"[og-cups] finished year=%lu native cup calls=%u "
-                "(dated and international rounds NOT TESTED)\n",
-                (unsigned long)(s_unemployedOgCupSeasons+1u),cupRuns);
+        if(cupRuns)WorldCups_SeasonEnded();
+        const uint32_t afterMatches=ExpandedWorldLive_CupResidentMatches();
+        const uint32_t afterTitles=ExpandedWorldLive_CupResidentTitles();
+        fprintf(stderr,"[og-cups] season=%lu native callbacks=%u "
+                "new witnessed OG matches=%lu titles=%lu "
+                "(international and national tournaments NOT PROVEN)\n",
+                (unsigned long)(s_unemployedOgCupSeasons+1u),cupRuns,
+                (unsigned long)(afterMatches>=beforeMatches?
+                    afterMatches-beforeMatches:0u),
+                (unsigned long)(afterTitles>=beforeTitles?
+                    afterTitles-beforeTitles:0u));
+        if(!cupRuns || (afterMatches==beforeMatches && afterTitles==beforeTitles))
+            fprintf(stderr,"[og-cups] WARNING: cup callbacks produced no new "
+                           "recorded OG results; season not verified\n");
     }
     _seasonPlaying=oldSeason;
     _internationalAutoAdvanceFlag=oldFlag;

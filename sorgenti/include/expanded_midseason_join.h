@@ -58,6 +58,8 @@ int Expanded_MidseasonJoin_SouthernStatus(void);
 /* Instrument actual clock transitions in Windows career; no game-state writes.
  * 0=NOT_TESTED/RECOVERING, 1=OBSERVED_NEAR, 2=FAIL.
  * A near reading is never proof of complete handoff correctness. */
+void Expanded_ClockTrace_Reset(void); /* explicit NEW career only */
+int Expanded_MidseasonJoin_HandoffReached(uint8_t target,uint8_t actual);
 void Expanded_ClockTrace_Sample(const char *event);
 int Expanded_ClockTrace_Status(void);
 uint32_t Expanded_ClockTrace_Samples(void);

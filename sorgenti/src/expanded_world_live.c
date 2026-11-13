@@ -1001,6 +1001,44 @@ int ExpandedWorldLive_PeekNativeLeagueResult(uint16_t home,uint16_t away,
     *gh=f->goals_home;*ga=f->goals_away;
     return 1;
 }
+/* The same oriented pair can occur MORE THAN ONCE in 3/4-cycle
+ * leagues. Identity includes occurrence in native fixture-round order.
+ * Read-only and fail-closed: never reuse one played result twice. */
+int ExpandedWorldLive_PeekNativeLeagueResultOccurrence(
+        uint16_t home,uint16_t away,uint8_t occurrence,
+        uint8_t *gh,uint8_t *ga) {
+    if(!gh || !ga || home==away || !s_live || !s_fixtures ||
+       occurrence>=4u) return 0;
+    const uint16_t season=ExpandedWorldLive_SeasonYear();
+    if(season<s_first_year || season<s_window_first_year ||
+       (uint32_t)(season-s_window_first_year)>=LIVE_SEASONS) return 0;
+    const uint16_t slot=(uint16_t)(((unsigned)(season-s_first_year)&1u)*8192u);
+    uint32_t prior_id=0;
+    uint32_t picked=0;
+    int previous=0;
+    for(unsigned order=0;order<=(unsigned)occurrence;++order) {
+        uint32_t best_id=UINT32_MAX;
+        int found=0;
+        for(uint32_t i=0;i<s_ledger.count;++i) {
+            const ExpandedWorldFixture *f=&s_fixtures[i];
+            if(f->home!=home || f->away!=away ||
+               f->competition<slot || f->competition>=(uint16_t)(slot+8192u) ||
+               (previous && f->id<=prior_id) ||
+               f->id>=best_id) continue;
+            best_id=f->id;
+            picked=i;
+            found=1;
+        }
+        if(!found)return 0;
+        prior_id=best_id;
+        previous=1;
+    }
+    const ExpandedWorldFixture *f=&s_fixtures[picked];
+    if(!f->played || f->day>s_ledger.now || f->goals_home>31u ||
+       f->goals_away>31u) return 0;
+    *gh=f->goals_home;*ga=f->goals_away;
+    return 1;
+}
 /* Pre-hire native replay MUST NOT roll a second result. A fixture missing
  * only because its OG calendar date precedes our computed fixture date
  * is scored once by the world resolver, then adopted into the OG state.

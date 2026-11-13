@@ -50,6 +50,9 @@ call :check_marker REAL_JSON_DOMESTIC_70_SEASONS "Campionati JSON reali: 70 stag
 call :check_marker GLOBAL_DOMESTIC_CLUB_COVERAGE "Copertura di tutti i club domestici (singleton segnalati)"
 call :check_marker REAL_JSON_GLOBAL_70_SEASONS "Tutti i campionati domestici nello stesso mondo, 70 stagioni"
 call :check_marker SOUTHERN_JULY_NATIVE_PHASE_RUNTIME "Calcolo luglio per campionati con partite da gennaio (solo test C)"
+call :check_marker OG_CATCHUP_EARLY_FINISH_REJECTION_RUNTIME "Rifiuto recupero OG prematuro (test C)"
+call :check_marker NATIVE_3_4_CYCLE_OCCURRENCES_RUNTIME "Leghe a 3 e 4 gironi: fixture OG distinti (test C)"
+call :check_marker COMP_FORMAT_DATA_VALIDATION "Definizioni e riferimenti di tutte le competizioni (SOLO DATI)"
 call :check_marker ENGINE_UNIT_REGRESSIONS "Regressioni del motore"
 call :check_marker ENGINE_SUITE "Suite runtime isolata (non Windows OG)"
 echo.
@@ -58,18 +61,28 @@ echo   AUDIT WINDOWS REALE - SWOS.log (se disponibile)
 echo =========================================================
 echo Verifica prima divergenza OG/LWE, coppe e assunzione.
 echo Log indipendente: SWOS_RUNTIME_AUDIT.log
-"%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash sorgenti/tests/audit_windows_runtime_log.sh SWOS.log 0.13.38_04" > "SWOS_RUNTIME_AUDIT.log" 2>&1
-if errorlevel 1 set "RESULT=1"
+REM Diretto da cwd del BAT. Login shell -lc potrebbe cambiare directory.
+"%MSYS_ROOT%\usr\bin\bash.exe" "sorgenti/tests/audit_windows_runtime_log.sh" "SWOS.log" "0.13.38_05" > "SWOS_RUNTIME_AUDIT.log" 2>&1
+set "RUNTIME_RESULT=%ERRORLEVEL%"
 type "SWOS_RUNTIME_AUDIT.log"
 if not "%RESULT%"=="0" goto test_failed
+if "%RUNTIME_RESULT%"=="1" goto runtime_failed
+if not "%RUNTIME_RESULT%"=="0" goto test_incomplete
 echo.
-echo %ESC%[92m[PASS] Suite isolata e analisi del log Windows, se presente, senza FAIL.%ESC%[0m
-echo %ESC%[93m[ATTENZIONE] Senza SWOS.log completo, integrazione Windows ancora NOT_TESTED.%ESC%[0m
-echo %ESC%[93m[NOT_TESTED] Coppe OG Windows, F10 Windows, join OG/LWE Windows e spareggi.%ESC%[0m
+echo %ESC%[92m[PASS] Copertura Windows completa verificata (vedi dettagli).%ESC%[0m
+goto test_done
+:runtime_failed
+set "RESULT=1"
+goto test_failed
+:test_incomplete
+echo.
+echo %ESC%[93m[INCOMPLETE] Suite C isolata PASS; integrazione Windows NON provata.%ESC%[0m
+echo %ESC%[93m[NOT_TESTED] Non dichiarare completate coppe, classifiche e orologi.%ESC%[0m
+set "RESULT=2"
 goto test_done
 :test_failed
 echo.
-echo %ESC%[91m[FAIL] Test NON superato. Invia LIVING_WORLD_70_TEST.log.%ESC%[0m
+echo %ESC%[91m[FAIL] Almeno un controllo runtime fallito. Invia i log.%ESC%[0m
 :test_done
 pause
 exit /b %RESULT%

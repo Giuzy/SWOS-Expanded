@@ -2,12 +2,13 @@
 # Audit actual Windows gameplay, NOT the isolated C simulation.
 set -euo pipefail
 log="${1:-SWOS.log}"
-expected="${2:-0.13.38_04}"
+expected="${2:-0.13.38_05}"
 if [[ ! -f "$log" ]]; then
     printf 'RUNTIME_LOG=NOT_TESTED reason=SWOS.log_missing\n'
     printf 'RUNTIME_OG_LWE_STANDINGS=NOT_TESTED\nRUNTIME_OG_LWE_CLOCK=NOT_TESTED\n'
     printf 'RUNTIME_SOUTHERN_HANDOFF=NOT_TESTED\nRUNTIME_OG_CUPS=NOT_TESTED\nRUNTIME_CLOCK_TRACE=NOT_TESTED\n'
-    exit 0
+    printf 'WINDOWS_INTEGRATION=INCOMPLETE reason=NO_LOG\nOVERALL=INCOMPLETE\n'
+    exit 2
 fi
 awk -v expected="$expected" '
 function field(line,name,  a,n,i,prefix) {
@@ -50,6 +51,22 @@ BEGIN { import="NOT_TESTED"; standings="NOT_TESTED"; southern="NOT_TESTED";
     } else if(index($0,"[midseason-southern] PASS")==1) {
         if(southern!="FAIL")southern="PASS";
         handoffs++;
+    }
+    if(index($0,"[f12-snapshot]")==1) {
+        page=field($0,"page");
+        snapshots++;
+        if(page=="F12_MAIN")f12_main++;
+        if(page=="F12_CUPS")f12_cups++;
+        if(page=="F10_IMPORT")f10++;
+    }
+    if(index($0,"[competition-format-runtime]")==1) {
+        format_events++;
+        cycles=field($0,"cycles");
+        format_types[cycles]++;
+    }
+    if(index($0,"[midseason] FAIL EARLY_HANDOFF")==1) {
+        standings="FAIL";
+        first_problem("JOIN_EARLY_FINISH",$0);
     }
     if(index($0,"[clock-trace-first-fail]")==1) {
         clock_trace="FAIL";first_problem("CLOCK_TRACE",$0);
@@ -98,12 +115,27 @@ END {
     printf "RUNTIME_SOUTHERN_HANDOFF=%s verified=%d\n",southern,handoffs;
     printf "RUNTIME_OG_CUPS=%s registered=%d callbacks=%d skipped_seasons=%d max-world-week=%d\n",cups,cup_registered,cup_callbacks,listed_weeks,max_world_week;
     printf "RUNTIME_NATIVE_RESULTS=%d WORLD_SCORE_REPLACEMENTS=%d\n",native_game_updates,world_score_replacements;
+    printf "RUNTIME_FORMATS_OBSERVED=%d cycles2=%d cycles3=%d cycles4=%d (NOT PROOF OF HANDOFF)\n",
+           format_events,format_types["2"],format_types["3"],format_types["4"];
+    printf "F12_LOG_SNAPSHOTS=%d main=%d cups=%d f10=%d\n",
+           snapshots,f12_main,f12_cups,f10;
     printf "RUNTIME_CUP_CONFLICTS=%d (intentional test rejections are separate)\n",native_cup_conflicts;
     if(first!="") printf "FIRST_RUNTIME_FAILURE: %s\n",first;
     if(!matched_version) {
-        print "RUNTIME_VERDICT=NOT_TESTED_FOR_CURRENT_BUILD (log from another version)";
-        exit 0;
+        print "WINDOWS_INTEGRATION=INCOMPLETE reason=WRONG_BUILD";
+        print "OVERALL=INCOMPLETE";
+        exit 2;
     }
-    if(import=="FAIL" || standings=="FAIL" || southern=="FAIL" || clock=="FAIL" || clock_trace=="FAIL" || cups=="FAIL")exit 1;
+    if(import=="FAIL" || standings=="FAIL" || southern=="FAIL" ||
+       clock=="FAIL" || clock_trace=="FAIL" || cups=="FAIL") {
+        print "WINDOWS_INTEGRATION=FAIL";
+        print "OVERALL=FAIL";
+        exit 1;
+    }
+    /* A near clock sample and observed callbacks are NOT success proofs.
+     * No real OG cup completion + complete handoff audit yet exists. */
+    print "WINDOWS_INTEGRATION=INCOMPLETE reason=OG_CLOCK_CUPS_NOT_FULLY_PROVEN";
+    print "OVERALL=INCOMPLETE";
+    exit 2;
 }
 ' "$log"

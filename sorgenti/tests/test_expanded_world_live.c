@@ -189,6 +189,43 @@ int main(void) {
     puts("OK: original native single-leg championship");
     ExpandedWorldLive_End();
 
+    /* The REAL native fixture round generator supports 3/4 meeting cycles.
+     * Check distinct oriented occurrences, never a reused result from the
+     * first encounter. This is a C world-ledger test, NOT a Windows join. */
+    for(unsigned cycles=3u;cycles<=4u;++cycles) {
+        assert(ExpandedWorldLive_Begin(2026));
+        for(unsigned i=1u;i<=4u;++i) {
+            char name[18];
+            snprintf(name,sizeof name,"CYCLE%u CLUB%u",cycles,i);
+            assert(ExpandedWorldLive_AddClub(6,0,(uint16_t)(0x0600u+i),
+                                             200,name,3));
+        }
+        assert(ExpandedWorldLive_SetLeagueSchedule(6,0,56,32,(uint8_t)cycles));
+        assert(ExpandedWorldLive_Seal());
+        assert(ExpandedWorldLive_AdvanceWeeks(52));
+        assert(ExpandedWorldLive_Results()==6u*cycles);
+        assert(ExpandedWorldLive_Table(6,0,rows,26,&count) && count==4u);
+        for(unsigned i=0;i<count;++i)
+            assert(rows[i].played==3u*cycles);
+        if(cycles==4u) {
+            uint8_t gh=255u,ga=255u;
+            /* The legacy by-pair lookup correctly rejects duplicate
+             * identities; the new zero-based occurrence disambiguates. */
+            assert(!ExpandedWorldLive_PeekNativeLeagueResult(
+                        0x0601u,0x0602u,&gh,&ga));
+            assert(ExpandedWorldLive_PeekNativeLeagueResultOccurrence(
+                        0x0601u,0x0602u,0u,&gh,&ga));
+            assert(ExpandedWorldLive_PeekNativeLeagueResultOccurrence(
+                        0x0601u,0x0602u,1u,&gh,&ga));
+            assert(!ExpandedWorldLive_PeekNativeLeagueResultOccurrence(
+                        0x0601u,0x0602u,2u,&gh,&ga));
+            assert(!ExpandedWorldLive_PeekNativeLeagueResultOccurrence(
+                        0x0601u,0x0601u,0u,&gh,&ga));
+        }
+        ExpandedWorldLive_End();
+    }
+    puts("NATIVE_3_4_CYCLE_OCCURRENCES_RUNTIME=PASS");
+
     /* Real 1996/97 data: country 21 league 0 has native begin=32 (May),
      * end=64 (September), unlike the European July 1 manager clock.
      * A serializer must preserve all its May/June matches across a .CAR

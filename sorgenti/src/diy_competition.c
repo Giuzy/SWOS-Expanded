@@ -12111,7 +12111,10 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
  * The slot and original key cache are modified ONLY after validation. */
 static uint32_t s_direct_imported_matches,s_direct_imported_rounds;
 static const char *s_direct_import_status="NOT ATTEMPTED";
+static uint8_t s_last_native_cycles,s_last_native_grouped;
 const char *DIY_WorldDirectImportStatus(void) {return s_direct_import_status;}
+unsigned DIY_WorldDirectImportCycles(void){return s_last_native_cycles;}
+unsigned DIY_WorldDirectImportGrouped(void){return s_last_native_grouped;}
 uint32_t DIY_WorldDirectImportedMatches(void) {return s_direct_imported_matches;}
 uint32_t DIY_WorldDirectImportedRounds(void) {return s_direct_imported_rounds;}
 
@@ -12128,6 +12131,13 @@ int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int require_exact_table) {
         uint8_t phase,gh,ga;
     } History;
     History history[96];
+    /* Pair occurrence is essential when the league plays 3/4 cycles:
+     * the same HOME/AWAY orientation can recur in a later round. */
+    struct PairOccurrence {
+        uint16_t home,away;
+        uint8_t count;
+    } pair_occurrences[24u*24u];
+    unsigned pair_types=0;
     unsigned history_count=0,found=0;
     uint8_t matched[96]={0};
     size_t cacheOffset=0;
@@ -12141,17 +12151,28 @@ int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int require_exact_table) {
     Career_LoadCompetitionSlotStateFromBuffer(slot);
     DIYCompetitionEx *comp=&_diyCompetitionStart;
     const unsigned teams=(unsigned)comp->base.numTeams;
+    s_last_native_cycles=(uint8_t)comp->base.playEachTeam;
+    s_last_native_grouped=(uint8_t)comp->base.hasGroups;
     const uint16_t managed=PACK_BE_U16(_careerTeam.team.countryNumber,
                                        _careerTeam.team.teamOrdinal);
-    /* The special split, group and one-leg paths must remain OG. */
+    fprintf(stderr,"[competition-format-runtime] category=LEAGUE "
+                   "country=%u division=%u teams=%u cycles=%u groups=%u "
+                   "pairs-per-round=%u points-per-win=%u cutoff=%u\n",
+            (unsigned)World_FileCountry(_careerTeam.team.countryNumber),
+            (unsigned)_currentDivisionIndex,teams,
+            (unsigned)comp->base.playEachTeam,
+            (unsigned)comp->base.hasGroups,
+            (unsigned)comp->base.matchPairsPerRound,
+            (unsigned)comp->pointsForAWin,(unsigned)cutoff);
+    /* Split/group paths must remain OG until they have a tested bridge. */
     /* Exact diagnosis for every unsupported native import format.
      * A rejected OG state must not be silently turned into an empty table
      * or a fabricated world result. */
     if(comp->base.hasGroups) {
         s_direct_import_status="OG GROUPS/SPLIT UNSUPPORTED";goto fail;
     }
-    if(comp->base.playEachTeam!=2) {
-        s_direct_import_status="OG NON-DOUBLE ROUND";goto fail;
+    if(comp->base.playEachTeam<2 || comp->base.playEachTeam>4) {
+        s_direct_import_status="OG LEAGUE CYCLES NOT 2-4";goto fail;
     }
     if(teams<4u || teams>24u || (teams&1u)) {
         s_direct_import_status="OG TEAM COUNT UNSUPPORTED";goto fail;
@@ -12162,11 +12183,21 @@ int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int require_exact_table) {
     if(comp->matchesPlayedCount!=0 || comp->leagueTotalMatches==0) {
         s_direct_import_status="OG LEAGUE STATE NOT FRESH";goto fail;
     }
-    if(comp->minSubstitutes!=2 || comp->base.subRoundCounter!=0) {
-        s_direct_import_status="OG LEAGUE ROUND STATE";goto fail;
+    /* Initial native number of meeting sections must agree with the
+     * source competition, rather than always assuming two sections. */
+    if(comp->minSubstitutes!=comp->base.playEachTeam ||
+       comp->base.subRoundCounter!=0) {
+        s_direct_import_status="OG LEAGUE ROUND STATE";
+        fprintf(stderr,"[world-native-league] initial-rounds mismatch "
+                       "remaining=%u expected-cycles=%u sub-round=%u\n",
+                (unsigned)comp->minSubstitutes,
+                (unsigned)comp->base.playEachTeam,
+                (unsigned)comp->base.subRoundCounter);
+        goto fail;
     }
 
-    const unsigned maxGames=teams*(teams-1u);
+    const unsigned maxGames=(teams*(teams-1u)/2u)*
+                            (unsigned)comp->base.playEachTeam;
     unsigned completed=0;
     while (comp->minSubstitutes && completed<maxGames &&
            comp->base.viewRandomPhase<cutoff) {
@@ -12184,8 +12215,29 @@ int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int require_exact_table) {
         const uint16_t away=PACK_BE_U16(t2->team.countryNumber,
                                          t2->team.teamOrdinal);
         uint8_t gh=0,ga=0;
-        if (!ExpandedWorldLive_PeekNativeLeagueResult(home,away,&gh,&ga)) {
-            s_direct_import_status="WORLD FIXTURE NOT AVAILABLE";
+        unsigned k=0;
+        for(;k<pair_types;++k)
+            if(pair_occurrences[k].home==home &&
+               pair_occurrences[k].away==away)break;
+        if(k==pair_types) {
+            if(pair_types>=sizeof(pair_occurrences)/sizeof(pair_occurrences[0])) {
+                s_direct_import_status="TOO MANY PAIR IDENTITIES";
+                goto fail;
+            }
+            pair_occurrences[k].home=home;
+            pair_occurrences[k].away=away;
+            pair_occurrences[k].count=0u;
+            ++pair_types;
+        }
+        const uint8_t occurrence=pair_occurrences[k].count++;
+        if(!ExpandedWorldLive_PeekNativeLeagueResultOccurrence(
+                    home,away,occurrence,&gh,&ga)) {
+            s_direct_import_status="WORLD FIXTURE/OCCURRENCE NOT AVAILABLE";
+            fprintf(stderr,"[world-native-league] missing fixture "
+                           "home=%04X away=%04X occurrence=%u phase=%u "
+                           "cycles=%u match-index=%u\n",
+                    (unsigned)home,(unsigned)away,(unsigned)occurrence,
+                    (unsigned)phase,(unsigned)comp->base.playEachTeam,completed);
             goto fail;
         }
         if (home==managed || away==managed) {
@@ -12262,7 +12314,11 @@ int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int require_exact_table) {
      * PASS cannot certify this contract handoff. During an incomplete
      * season the two native calendar phase grids may differ, so only
      * compare when every original league fixture is already complete. */
-    if (completed==maxGames || require_exact_table) {
+    /* Multi-cycle formats cannot be treated as implicitly compatible.
+     * Demand a full club-by-club comparison even for a partial season;
+     * a mismatch is an explicit FAIL, never a synthetic replay. */
+    if (completed==maxGames || require_exact_table ||
+        comp->base.playEachTeam>2) {
         ExpandedLiveRow world_rows[32];
         uint32_t n=0;
         const uint8_t country=World_FileCountry(_careerTeam.team.countryNumber);
@@ -12287,10 +12343,19 @@ int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int require_exact_table) {
                (int32_t)native->points!=world_rows[j].points) {
                 s_direct_import_status="WORLD/OG TABLE MISMATCH";
                 fprintf(stderr,"[world-native-league] exact audit failed "
-                               "club=%04x world_row=%u native=%u-%u-%u pts=%d\n",
-                        (unsigned)id,j,
+                               "club=%04x world_row=%u cycles=%u "
+                               "OG=w%u d%u l%u gf%u ga%u pts%d "
+                               "LWE=w%u d%u l%u gf%u ga%u pts%d\n",
+                        (unsigned)id,j,(unsigned)comp->base.playEachTeam,
                         (unsigned)native->wins,(unsigned)native->draws,
-                        (unsigned)native->losses,(int)native->points);
+                        (unsigned)native->losses,(unsigned)native->goalsFor,
+                        (unsigned)native->goalsAgainst,(int)native->points,
+                        j<n?(unsigned)world_rows[j].wins:0,
+                        j<n?(unsigned)world_rows[j].drawn:0,
+                        j<n?(unsigned)world_rows[j].lost:0,
+                        j<n?(unsigned)world_rows[j].scored:0,
+                        j<n?(unsigned)world_rows[j].conceded:0,
+                        j<n?(int)world_rows[j].points:0);
                 goto fail;
             }
         }
@@ -12329,8 +12394,12 @@ int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int require_exact_table) {
     s_direct_imported_matches+=completed;
     s_direct_imported_rounds+=history_count;
     fprintf(stderr,"[living-world] direct OG league import: matches=%u "
-                   "managed=%u cutoff=%u, cup events kept native\n",
-            completed,history_count,(unsigned)cutoff);
+                   "managed=%u cutoff=%u cycles=%u exact-audit=%s "
+                   "cup-events=kept-native\n",
+            completed,history_count,(unsigned)cutoff,
+            (unsigned)comp->base.playEachTeam,
+            completed==maxGames || require_exact_table ||
+            comp->base.playEachTeam>2?"CONFIRMED":"PARTIAL_NOT_TESTED");
     memcpy(&_diyCompetitionStart,&saved,sizeof saved);
     _viewRandomPhase=oldPhase;
     return 1;
@@ -12350,6 +12419,8 @@ int DIY_WorldDirectImportLeague(uint8_t cutoff) {
 uint32_t DIY_WorldDirectImportedMatches(void) {return 0;}
 uint32_t DIY_WorldDirectImportedRounds(void) {return 0;}
 const char *DIY_WorldDirectImportStatus(void) {return "NOT SUPPORTED";}
+unsigned DIY_WorldDirectImportCycles(void){return 0;}
+unsigned DIY_WorldDirectImportGrouped(void){return 0;}
 int DIY_WorldDirectImportLeague(uint8_t cutoff) {(void)cutoff;return 0;}
 int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int strict)
 {(void)cutoff;(void)strict;return 0;}

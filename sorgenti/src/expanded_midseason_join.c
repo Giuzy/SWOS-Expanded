@@ -93,6 +93,13 @@ int Expanded_MidseasonJoin_SouthernCutoff(uint16_t first_year,uint32_t weeks,
     return 1;
 }
 
+/* A handoff cannot succeed before the requested original native phase.
+ * Even if OG unexpectedly reaches a season-end menu, that is a FAILED
+ * synchronization, not permission to report REACHED. Pure for C testing. */
+int Expanded_MidseasonJoin_HandoffReached(uint8_t target,uint8_t actual) {
+    return actual>=target;
+}
+
 #ifdef SWOS_SDL_BUILD
 #include "game_types.h"
 #include "menu_system.h"
@@ -142,6 +149,23 @@ static int s_clock_armed,s_clock_status,s_clock_previous_valid;
 static int32_t s_clock_last_og,s_clock_last_world,s_clock_delta;
 static char s_clock_last_event[48]="NOT_STARTED";
 static char s_clock_first_problem[192]="NONE";
+static uint16_t s_clock_sample_cursor=0xffffu;
+static uint8_t s_clock_sample_phase=0xffu;
+void Expanded_ClockTrace_Reset(void) {
+    s_clock_samples=0;
+    s_clock_changes=0;
+    s_clock_armed=0;
+    s_clock_status=0;
+    s_clock_previous_valid=0;
+    s_clock_last_og=0;
+    s_clock_last_world=0;
+    s_clock_delta=0;
+    s_clock_sample_cursor=0xffffu;
+    s_clock_sample_phase=0xffu;
+    snprintf(s_clock_last_event,sizeof s_clock_last_event,"NOT_STARTED");
+    snprintf(s_clock_first_problem,sizeof s_clock_first_problem,"NONE");
+    fprintf(stderr,"[clock-trace] RESET new-career\n");
+}
 extern uint16_t _currentSeasonShowing;
 void Expanded_ClockTrace_Sample(const char *event) {
     ExpandedLiveCalendarState cal;
@@ -332,6 +356,17 @@ static int choose_action(MenuEntryFn fn) {
 }
 
 static void finish(int reached,int key) {
+    const uint8_t actual=Expanded_Career_NativeCalendarKey();
+    if(reached && !Expanded_MidseasonJoin_HandoffReached(s_target_key,actual)) {
+        fprintf(stderr,"[midseason] FAIL EARLY_HANDOFF target=%u actual=%u "
+                       "reported-key=%d financial=%u actions=%lu "
+                       "season-ended=%u career-ended=%u\n",
+                (unsigned)s_target_key,(unsigned)actual,key,
+                (unsigned)_lastFinancialWeekIndex,(unsigned long)s_actions,
+                (unsigned)_seasonFinished,(unsigned)_careerFinished);
+        reached=0;
+        key=-15;
+    }
     s_active=0;
     s_last_result=reached?1:2;
     s_last_key=key;
@@ -369,10 +404,12 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     s_complete_season_handoff=0;
     s_historical_nonleague_events=0;
     s_southern_handoff_status=0;
+    /* Preserve this career's first clock failure until an explicit NEW
+     * career; a second offer must not erase the evidence. */
     s_clock_armed=0;
-    s_clock_status=0;
     s_clock_previous_valid=0;
-    snprintf(s_clock_first_problem,sizeof s_clock_first_problem,"NONE");
+    s_clock_sample_cursor=0xffffu;
+    s_clock_sample_phase=0xffu;
     uint16_t season=0;
     int southern_attempt=0;
     /* Archived seasons are final: only the current Living World season
@@ -628,7 +665,15 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
 
 void Expanded_MidseasonJoin_Tick(void) {
     if (!s_active) return;
-    Expanded_ClockTrace_Sample("OG_CATCHUP_TICK");
+    /* Sample only on actual cursor/phase changes, not every SDL frame.
+     * The OG catch-up loop can execute hundreds of frames per second. */
+    const uint16_t cursor=_teamSelectionKeyCacheIndex;
+    const uint8_t phase=Expanded_Career_NativeCalendarKey();
+    if(cursor!=s_clock_sample_cursor || phase!=s_clock_sample_phase) {
+        Expanded_ClockTrace_Sample("OG_CATCHUP_EVENT");
+        s_clock_sample_cursor=cursor;
+        s_clock_sample_phase=phase;
+    }
     if (++s_passes>6000u) { finish(0,-2); return; }
     /* This is not a user-driven menu chain. Ignore mouse/controller input
      * until history reaches the date of the signed contract. F12 remains

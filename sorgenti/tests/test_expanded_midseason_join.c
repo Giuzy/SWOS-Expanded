@@ -49,6 +49,14 @@ int main(void) {
                                                   &season,&key));
     assert(!Expanded_MidseasonJoin_SouthernCutoff(1996,265,16u,
                                                   NULL,&key));
+    /* The former early-success bug: target 143 but actual 96 on the
+     * user's Hartlepool run MUST be rejected, even on season-end menus. */
+    assert(!Expanded_MidseasonJoin_HandoffReached(143u,96u));
+    assert(!Expanded_MidseasonJoin_HandoffReached(143u,97u));
+    assert(Expanded_MidseasonJoin_HandoffReached(143u,143u));
+    assert(Expanded_MidseasonJoin_HandoffReached(92u,93u));
+    assert(Expanded_MidseasonJoin_HandoffReached(0u,0u));
+    puts("OG_CATCHUP_EARLY_FINISH_REJECTION_RUNTIME=PASS");
     puts("SOUTHERN_JULY_NATIVE_PHASE_RUNTIME=PASS");
     puts("OK: native month-phase cutover, including hires after 5 years");
     return 0;

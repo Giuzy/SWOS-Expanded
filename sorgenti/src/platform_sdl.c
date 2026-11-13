@@ -2792,10 +2792,63 @@ static void draw_midseason_catchup_overlay(void)
     SDL_RenderSetViewport(s_renderer,&oldvp);
     SDL_SetRenderDrawBlendMode(s_renderer,oldblend);
 }
+/* Optional F12/F10/F12+C text snapshots into the ordinary SWOS.log.
+ * When started through AVVIA_DIAGNOSTICA.bat the player only needs to
+ * open each debug page; no PNG or screenshot transcriptions are needed.
+ * Throttle to at most one snapshot per 5 seconds/page, and log only
+ * changed content. Rendering and gameplay inputs are unchanged. */
+static int s_diag_f12_enabled=-1;
+static char s_diag_f12_buffer[16384];
+static size_t s_diag_f12_length;
+static unsigned s_diag_f12_sequence;
+static Uint32 s_diag_f12_last_ms;
+static uint32_t s_diag_f12_last_hash;
+static char s_diag_f12_last_page[16]="";
+static void diag_f12_begin(void) {
+    if(s_diag_f12_enabled<0) {
+        const char *flag=getenv("SWOS_DIAGNOSTIC_CAPTURE");
+        s_diag_f12_enabled=(flag && flag[0]=='1');
+    }
+    s_diag_f12_length=0;
+    s_diag_f12_buffer[0]=0;
+}
+static void diag_f12_line(int x,int y,const char *msg,Uint8 r,Uint8 g,Uint8 b) {
+    splash_text_tinted(x,y,msg,r,g,b);
+    if(!s_diag_f12_enabled || !msg) return;
+    const size_t n=strlen(msg);
+    if(n>1024u || s_diag_f12_length+n+32u>=sizeof(s_diag_f12_buffer))
+        return;
+    const int wrote=snprintf(s_diag_f12_buffer+s_diag_f12_length,
+            sizeof(s_diag_f12_buffer)-s_diag_f12_length,
+            "xy=%d,%d %s\n",x,y,msg);
+    if(wrote>0 && (size_t)wrote<
+                 sizeof(s_diag_f12_buffer)-s_diag_f12_length)
+        s_diag_f12_length+=(size_t)wrote;
+}
+static void diag_f12_end(const char *page) {
+    if(!s_diag_f12_enabled || !page || !s_diag_f12_length) return;
+    uint32_t digest=2166136261u;
+    for(size_t i=0;i<s_diag_f12_length;++i)
+        digest=(digest^(unsigned char)s_diag_f12_buffer[i])*16777619u;
+    const Uint32 now=SDL_GetTicks();
+    const int switched=strcmp(page,s_diag_f12_last_page)!=0;
+    if(!switched && ((Uint32)(now-s_diag_f12_last_ms)<5000u ||
+                     digest==s_diag_f12_last_hash)) return;
+    s_diag_f12_last_ms=now;
+    s_diag_f12_last_hash=digest;
+    snprintf(s_diag_f12_last_page,sizeof(s_diag_f12_last_page),"%s",page);
+    fprintf(stderr,"[f12-snapshot] page=%s sequence=%u bytes=%lu\n%s"
+                   "[f12-snapshot-end] page=%s\n",
+            page,++s_diag_f12_sequence,
+            (unsigned long)s_diag_f12_length,s_diag_f12_buffer,page);
+    fflush(stderr);
+}
 /* Snapshot-friendly diagnostic text over the current frame. */
 static void draw_world_debug_overlay(void)
 {
     if (!s_world_debug_visible || !s_renderer) return;
+    diag_f12_begin();
+#define splash_text_tinted(x,y,msg,r,g,b) diag_f12_line(x,y,msg,r,g,b)
     int oldw=0,oldh=0;
     float oldsx=1.0f,oldsy=1.0f;
     SDL_Rect oldvp;
@@ -2894,6 +2947,7 @@ static void draw_world_debug_overlay(void)
         SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);
         if(!oldw||!oldh)SDL_RenderSetScale(s_renderer,oldsx,oldsy);
         SDL_RenderSetViewport(s_renderer,&oldvp);
+        diag_f12_end("F10_IMPORT");
         SDL_SetRenderDrawBlendMode(s_renderer,oldblend);
         return;
     }
@@ -2947,6 +3001,7 @@ static void draw_world_debug_overlay(void)
         SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);
         if (!oldw || !oldh) SDL_RenderSetScale(s_renderer,oldsx,oldsy);
         SDL_RenderSetViewport(s_renderer,&oldvp);
+        diag_f12_end("F12_CUPS");
         SDL_SetRenderDrawBlendMode(s_renderer,oldblend);
         return;
     }
@@ -3238,6 +3293,11 @@ static void draw_world_debug_overlay(void)
         extern const char *DIY_WorldDirectImportStatus(void);
         snprintf(line,sizeof line,"DIRECT IMPORT %s",DIY_WorldDirectImportStatus());
         DEBUG_WARN(line);
+        extern unsigned DIY_WorldDirectImportCycles(void);
+        extern unsigned DIY_WorldDirectImportGrouped(void);
+        snprintf(line,sizeof line,"OG LEAGUE FORMAT %u CYCLES GROUPS %u",
+                 DIY_WorldDirectImportCycles(),DIY_WorldDirectImportGrouped());
+        DEBUG_LINE(line);
         snprintf(line,sizeof line,"PAST OG CUP EVENTS %lu",
                  (unsigned long)Expanded_MidseasonJoin_HistoricalCupEvents());
         DEBUG_LINE(line);
@@ -3344,10 +3404,12 @@ static void draw_world_debug_overlay(void)
 #undef DEBUG_SECTION
 #undef DEBUG_GOOD
 #undef DEBUG_WARN
+    diag_f12_end("F12_MAIN");
     SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);
     if (!oldw || !oldh) SDL_RenderSetScale(s_renderer,oldsx,oldsy);
     SDL_RenderSetViewport(s_renderer,&oldvp);
     SDL_SetRenderDrawBlendMode(s_renderer,oldblend);
+#undef splash_text_tinted
 }
 
 static void expanded_splash_draw(void)

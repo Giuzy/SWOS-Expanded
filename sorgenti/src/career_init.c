@@ -856,6 +856,10 @@ void InitCareerWorld(void)
 __attribute__((used, externally_visible))
 void Career_BeginNewCareer(void)
 {
+#ifdef SWOS_SDL_BUILD
+    extern void Expanded_ClockTrace_Reset(void);
+    Expanded_ClockTrace_Reset();
+#endif
     s_careerWorldInitialized = 0;
     s_careerManagerInitialized = 0;
     s_unemployedOgCupSeasons = 0;

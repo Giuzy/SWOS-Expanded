@@ -23,6 +23,7 @@ run_stage "MIDSEASON JOIN CALENDAR REGRESSIONS" "sorgenti/tests/run_test_expande
 run_stage "LIVING WORLD UNIT REGRESSIONS" "sorgenti/tests/run_test_expanded_world_live.sh"
 run_stage "DEBUG RESULTS / WORLD LEDGER REGRESSIONS" "sorgenti/tests/run_test_expanded_phase12.sh"
 run_stage "REAL INSTALLED DATABASE INVENTORY" "sorgenti/tests/run_test_database_inventory.sh"
+run_stage "ALL OG COMPETITION DATA FORMATS / REFERENCE AUDIT (NOT GAMEPLAY)" "sorgenti/tests/run_audit_competition_formats.sh"
 run_stage "FULL DATABASE AUDIT / DOMESTIC 70 YEARS" "sorgenti/tests/run_test_real_json_world_70.sh"
 echo
 if (( failed_stages )); then
@@ -34,6 +35,7 @@ echo "ENGINE_SUITE=PASS"
 echo "ENGINE_SUITE_SCOPE=HEADLESS_RUNTIME_ONLY"
 echo "OG_LWE_WINDOWS_JOIN=NOT_TESTED"
 echo "OG_CUP_WINDOWS_OFFSCREEN=NOT_TESTED"
+echo "COMPETITION_FORMATS_OG_RUNTIME=NOT_TESTED"
 echo "F10_WINDOWS_IMPORT=NOT_TESTED"
 echo "DOMESTIC_GLOBAL_STRESS=ALL_FILES_ONE_WORLD_70_SEASONS"
 echo "COVERAGE_WARNING=REAL_JSON_DOMESTIC_ONLY_CUPS_NATIONAL_TEAMS_UNTESTED"

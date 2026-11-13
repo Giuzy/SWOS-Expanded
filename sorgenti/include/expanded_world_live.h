@@ -122,6 +122,12 @@ int ExpandedWorldLive_Table(uint8_t country, uint8_t division,
 int ExpandedWorldLive_PeekNativeLeagueResult(uint16_t home,uint16_t away,
                                             uint8_t *goals_home,
                                             uint8_t *goals_away);
+/* Repeated oriented fixtures in OG 3/4-cycle leagues. The occurrence is
+ * zero-based in native fixture-round order; never returns a substitute
+ * score from another match. Requires the specific fixture to be played. */
+int ExpandedWorldLive_PeekNativeLeagueResultOccurrence(
+    uint16_t home,uint16_t away,uint8_t occurrence,
+    uint8_t *goals_home,uint8_t *goals_away);
 int ExpandedWorldLive_TakeNativeLeagueResult(uint16_t home,uint16_t away,
                                              uint8_t native_phase,
                                              uint8_t *goals_home,

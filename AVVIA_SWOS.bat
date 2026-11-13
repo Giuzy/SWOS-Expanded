@@ -32,6 +32,14 @@ REM In release NON impostare SWOS_EXPANDED_DEV_MAXIMIZED e avvia fullscreen.
 set "SWOS_EXPANDED_DEV_MAXIMIZED=1"
 echo.
 echo === SWOS Expanded - avvio locale ===
+REM Solo il BAT diagnostico puo richiedere l'attesa del processo.
+REM Il percorso normale resta identico: compilazione e avvio scollegato.
+if "%SWOS_DIAGNOSTIC_SESSION%"=="1" (
+  echo [DIAGNOSTICA] Avvio dopo compilazione, attesa chiusura per raccogliere i log.
+  start "" /WAIT /D "%~dp0" "%~dp0SWOS_Expanded.exe" --fullscreen=off
+  if errorlevel 1 goto :errore_avvio
+  exit /b 0
+)
 REM Avvio indipendente: il gioco continua mentre questa finestra CMD si chiude.
 REM Non usare /B: terrebbe il processo collegato alla console di compilazione.
 start "" /D "%~dp0" "%~dp0SWOS_Expanded.exe" --fullscreen=off

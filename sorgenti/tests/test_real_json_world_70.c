@@ -163,6 +163,120 @@ static int test_country_file(const char *path,
     ExpandedWorldLive_End();
     return ok;
 }
+
+/* Unlike the per-file checks above, this stage loads EVERY domestic file
+ * into ONE persistent Living World. That catches collisions, global limits,
+ * omitted divisions and rollover bugs hidden by restarting for each file.
+ * OG knockout cups/national pools remain out of scope: never fake them. */
+static int test_all_domestic_files(int argc,char **argv) {
+    unsigned accepted=0,excluded=0,files=0,scheduled=0,singletons=0;
+    unsigned scheduled_clubs=0;
+    unsigned long long expected_club_seasons=0;
+    int ok=ExpandedWorldLive_Begin(1996);
+    if (!ok) {
+        puts("REAL_JSON_GLOBAL_70_SEASONS=FAIL");
+        return 0;
+    }
+    for (int a=1;a<argc;++a) {
+        if (non_domestic_catalog(argv[a])) continue;
+        long length=0,count=0;
+        char *json=read_catalog(argv[a],&length);
+        if (!json || !mjson_get_long(json,(int)length,"$.count",&count) ||
+            count<0 || count>100000L) {
+            fprintf(stderr,"[global-json] invalid catalogue: %s\n",argv[a]);
+            free(json);ok=0;break;
+        }
+        ++files;
+        for (unsigned i=0;i<(unsigned)count;++i) {
+            long country=0,ordinal=0,division=0;
+            char name[96];
+            if (!team_number(json,(int)length,i,"country_number",&country) ||
+                !team_number(json,(int)length,i,"team_ordinal",&ordinal) ||
+                !team_number(json,(int)length,i,"league",&division) ||
+                !team_name(json,(int)length,i,name,sizeof name)) {
+                fprintf(stderr,"[global-json] malformed %s record=%u\n",argv[a],i);
+                ok=0;break;
+            }
+            if (division<0 || division>=16) { ++excluded;continue; }
+            if (country<0 || country>255 || ordinal<0 || ordinal>255) {
+                fprintf(stderr,"[global-json] invalid club ID: %s record=%u\n",argv[a],i);
+                ok=0;break;
+            }
+            uint16_t id=(uint16_t)(((uint16_t)country<<8)|(uint8_t)ordinal);
+            if (!ExpandedWorldLive_AddClub((uint8_t)country,(uint8_t)division,
+                                            id,200,name,3)) {
+                fprintf(stderr,"[global-json] duplicate/overflow/unsupported "
+                               "club=%04x division=%ld file=%s\n",
+                        (unsigned)id,division,argv[a]);
+                ok=0;break;
+            }
+            ++accepted;
+        }
+        free(json);
+        if(!ok)break;
+    }
+    if (ok && (accepted==0 || files==0 ||
+               ExpandedWorldLive_Clubs()!=accepted ||
+               !ExpandedWorldLive_Seal())) {
+        fprintf(stderr,"[global-json] failed world seal or club inventory\n");
+        ok=0;
+    }
+    if (ok) {
+        const uint32_t groups=ExpandedWorldLive_Leagues();
+        for(uint32_t i=0;i<groups;++i) {
+            uint8_t country=0,division=0,count=0,active=0;
+            if(!ExpandedWorldLive_DivisionStatus(i,&country,&division,
+                                                 &count,&active)) {
+                ok=0;break;
+            }
+            if(active) {
+                ++scheduled;
+                scheduled_clubs+=(unsigned)count;
+            } else if(count==1u) {
+                ++singletons;
+                fprintf(stderr,"[global-json] UNSCHEDULED SINGLETON "
+                               "country=%u div=%u\n",
+                        (unsigned)country,(unsigned)division);
+            } else {
+                fprintf(stderr,"[global-json] UNSCHEDULED MULTICLUB "
+                               "country=%u div=%u clubs=%u\n",
+                        (unsigned)country,(unsigned)division,(unsigned)count);
+                ok=0;
+            }
+        }
+        if(scheduled_clubs+singletons!=accepted || !scheduled) {
+            fprintf(stderr,"[global-json] coverage mismatch: imported=%u "
+                           "scheduled=%u singletons=%u\n",
+                    accepted,scheduled_clubs,singletons);
+            ok=0;
+        }
+    }
+    if(ok) {
+        expected_club_seasons=(unsigned long long)scheduled_clubs*70u;
+        if(!ExpandedWorldLive_AdvanceWeeks(3679u) ||
+           ExpandedWorldLive_ArchivedLeagues()!=(uint32_t)(scheduled*70u) ||
+           !ExpandedWorldLive_ArchivedResults()) {
+            fprintf(stderr,"[global-json] 70-year advance incomplete: "
+                           "archived=%lu expected=%u\n",
+                    (unsigned long)ExpandedWorldLive_ArchivedLeagues(),
+                    scheduled*70u);
+            ok=0;
+        }
+    }
+    printf("GLOBAL_JSON_FILES=%u DOMESTIC_CLUBS_IMPORTED=%u "
+           "DOMESTIC_CLUBS_SIMULATED=%u "
+           "UNSCHEDULED_SINGLETON_CLUBS=%u OUTSIDE_LEAGUE_RECORDS=%u "
+           "GLOBAL_LEAGUES=%u GLOBAL_CLUB_SEASONS=%llu\n",
+           files,accepted,scheduled_clubs,singletons,excluded,
+           scheduled,expected_club_seasons);
+    printf("GLOBAL_DOMESTIC_CLUB_COVERAGE=%s\n",
+           ok && accepted==scheduled_clubs+singletons?"PASS":"FAIL");
+    printf("REAL_JSON_GLOBAL_70_SEASONS=%s\n",ok?"PASS":"FAIL");
+    puts("GLOBAL_CUPS_OG_OFFSCREEN=NOT_TESTED");
+    ExpandedWorldLive_End();
+    return ok;
+}
+
 int main(int argc,char **argv) {
     unsigned files=0,clubs=0,leagues=0,excluded=0,failures=0;
     unsigned other_catalogs=0,other_records=0;
@@ -208,5 +322,6 @@ int main(int argc,char **argv) {
     if(failures || !files || !clubs || !leagues) {
         puts("REAL_JSON_DOMESTIC_70_SEASONS=FAIL");return 1;
     }
-    puts("REAL_JSON_DOMESTIC_70_SEASONS=PASS");return 0;
+    puts("REAL_JSON_DOMESTIC_70_SEASONS=PASS");
+    return test_all_domestic_files(argc,argv)?0:1;
 }

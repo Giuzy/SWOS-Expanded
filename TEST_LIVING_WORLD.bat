@@ -22,7 +22,7 @@ echo %ESC%[96m   SWOS EXPANDED - ENGINE TEST SUITE%ESC%[0m
 echo %ESC%[96m========================================================%ESC%[0m
 echo Test non distruttivo: save/AUTOSAVE.CAR rimane intatto.
 echo Campionati sintetici 70 anni, registro coppe OG, save/load,
-echo test regressione C, campionati JSON e inventario dei dati reali.
+echo test regressione C, tutti i cataloghi JSON in un mondo e inventario DB.
 echo Un unico log: LIVING_WORLD_70_TEST.log
 "%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash sorgenti/tests/run_test_engine_suite.sh" > "LIVING_WORLD_70_TEST.log" 2>&1
 set "RESULT=%ERRORLEVEL%"
@@ -45,12 +45,14 @@ call :check_marker PYRAMID_BOUNDARIES "Limiti delle divisioni rispettati"
 call :check_marker PYRAMID_STRESS_RESULT "Movimenti tra divisioni su 70 stagioni"
 call :check_marker DB_INVENTORY "Inventario del database"
 call :check_marker REAL_JSON_DOMESTIC_70_SEASONS "Campionati JSON reali: 70 stagioni - escluse coppe e nazionali"
+call :check_marker GLOBAL_DOMESTIC_CLUB_COVERAGE "Copertura di tutti i club domestici (singleton segnalati)"
+call :check_marker REAL_JSON_GLOBAL_70_SEASONS "Tutti i campionati domestici nello stesso mondo, 70 stagioni"
 call :check_marker ENGINE_UNIT_REGRESSIONS "Regressioni del motore"
 call :check_marker ENGINE_SUITE "Suite completa del motore"
 if not "%RESULT%"=="0" goto test_failed
 echo.
-echo %ESC%[92m[PASS] Test automatici campionati, coppe, save/load e inventario DB.%ESC%[0m
-echo %ESC%[93m[PENDING] Spareggi OG e coppe mondiali offscreen: NON ancora completati.%ESC%[0m
+echo %ESC%[92m[PASS] Test campionati, registro coppe OG, save/load e inventario DB.%ESC%[0m
+echo %ESC%[93m[PENDING] Coppe mondiali offscreen OG e spareggi: NON testati/completati.%ESC%[0m
 goto test_done
 :test_failed
 echo.

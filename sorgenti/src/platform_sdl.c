@@ -2994,6 +2994,29 @@ static void draw_world_debug_overlay(void)
                    ExpandedWorld_DateToIndex(og,&og_day) &&
                    ExpandedWorld_DateToIndex(calendar.today,&world_day)) {
                     int32_t days=og_day-world_day;
+                    static int32_t lastClockDelta=0;
+                    static int lastClockKnown=0;
+                    static uint32_t clockSamples=0,clockChanges=0;
+                    ++clockSamples;
+                    if(!lastClockKnown || days!=lastClockDelta) {
+                        ++clockChanges;
+                        fprintf(stderr,"[clock-audit] change=%lu sample=%lu native-season=%u native-phase=%u "
+                                "OG=%04u-%02u-%02u LWE=%04u-%02u-%02u days-delta=%ld previous=%ld "
+                                "source=F12_CALENDAR_SAMPLE\n",
+                                (unsigned long)clockChanges,(unsigned long)clockSamples,
+                                (unsigned)(World_FirstYear()+_currentSeasonShowing),
+                                (unsigned)Expanded_Career_NativeCalendarKey(),
+                                (unsigned)og.year,(unsigned)og.month,(unsigned)og.day,
+                                (unsigned)calendar.today.year,(unsigned)calendar.today.month,
+                                (unsigned)calendar.today.day,(long)days,
+                                (long)(lastClockKnown?lastClockDelta:0));
+                        lastClockDelta=days;
+                        lastClockKnown=1;
+                    }
+                    snprintf(line,sizeof line,"CLOCK SAMPLES %lu CHANGES %lu PHASE %u",
+                             (unsigned long)clockSamples,(unsigned long)clockChanges,
+                             (unsigned)Expanded_Career_NativeCalendarKey());
+                    DEBUG_LINE(line);
                     if(days< -31 || days>31) {
                         snprintf(line,sizeof line,"CLOCK MISMATCH %ld DAYS",
                                   (long)days);
@@ -3022,6 +3045,30 @@ static void draw_world_debug_overlay(void)
     }
     DEBUG_SECTION("DATABASE / OG VS LWE");
     {
+        ExpandedLiveImportRuntime ir={0};
+        if(ExpandedWorldLive_ImportRuntime(&ir)) {
+            snprintf(line,sizeof line,"IMPORT #%lu %s ACCOUNTING %s",
+                (unsigned long)ir.attempts,
+                ir.status==2?"DONE":ir.status==3?"ERROR":
+                ir.status==1?"LOADING":"NOT STARTED",
+                ir.status==0?"NOT TESTED":ir.rows_accounted?"OK":"MISMATCH");
+            if(ir.status==3)DEBUG_WARN(line);else DEBUG_LINE(line);
+            snprintf(line,sizeof line,"ROWS %lu ACCEPTED %lu EXCLUDED %lu",
+                (unsigned long)ir.rows,(unsigned long)ir.accepted,
+                (unsigned long)ir.excluded);
+            DEBUG_LINE(line);
+            snprintf(line,sizeof line,"FILE ERRORS %lu LAST FILE %lu COUNTRY %lu",
+                (unsigned long)ir.failed_files,(unsigned long)ir.last_file,
+                (unsigned long)ir.last_country);
+            if(ir.failed_files)DEBUG_WARN(line);else DEBUG_LINE(line);
+            snprintf(line,sizeof line,"CUPS FOUND %lu MATCH %lu TO %lu TITLE %lu TO %lu",
+                (unsigned long)ir.cups_registered,
+                (unsigned long)ir.cups_matches_before,
+                (unsigned long)ir.cups_matches_after,
+                (unsigned long)ir.cups_titles_before,
+                (unsigned long)ir.cups_titles_after);
+            DEBUG_LINE(line);
+        }
         extern uint32_t OG_DatabaseLoadedTeams(void);
         extern uint32_t OG_DatabaseLoadedPlayerSlots(void);
         extern uint32_t OG_DatabaseLoadedFiles(void);

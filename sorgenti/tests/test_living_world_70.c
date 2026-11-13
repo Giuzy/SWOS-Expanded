@@ -201,8 +201,12 @@ int main(void) {
                 /* OG replay/save/load must not change a recorded winner. */
                 assert(ExpandedWorldLive_RecordNativeCupChampion(y,
                          "NATIONAL CUP",1u,57u,c1));
+                fprintf(stderr,"[test-negative] EXPECTED_REJECTION cup-winner season=%u\n",
+                        (unsigned)y);
                 assert(!ExpandedWorldLive_RecordNativeCupChampion(y,
                          "NATIONAL CUP",1u,57u,c2));
+                fprintf(stderr,"[test-negative] EXPECTED_REJECTION cup-result season=%u\n",
+                        (unsigned)y);
                 assert(!ExpandedWorldLive_RecordNativeCupMatch(y,
                          "NATIONAL CUP",1u,56u,0u,0u,0u,
                          c1,c2,0u,3u,0u));
@@ -304,6 +308,7 @@ int main(void) {
     puts("CUP_HISTORY_70=PASS");
     puts("CUP_RESULT_IDEMPOTENCE=PASS");
     puts("CUP_MULTICOMPETITION_LEGS_REPLAY_70=PASS");
+    puts("CUP_NEGATIVE_REJECTIONS_70=PASS");
     puts("WORLD_EVENT_CURSOR=PASS");
     puts("STRESS_RESULT=PASS");
     ExpandedWorldLive_End();

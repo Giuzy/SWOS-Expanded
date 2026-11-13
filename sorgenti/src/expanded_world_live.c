@@ -1223,10 +1223,15 @@ static int cup_append(const LiveCupEvent *e) {
             if(prior->goals_home!=e->goals_home ||
                prior->goals_away!=e->goals_away ||
                prior->flags!=e->flags) {
-                fprintf(stderr,"[living-world] CONFLICTING OG CUP RESULT "
-                               "hash=%lu round=%u match=%u\n",
-                        (unsigned long)e->competition_hash,
-                        (unsigned)e->round,(unsigned)e->match);
+                fprintf(stderr,"[cup-conflict] RESULT day=%ld hash=%lu slot=%u round=%u match=%u leg=%u "
+                               "home=%04X away=%04X stored=%u:%u flags=%u incoming=%u:%u flags=%u "
+                               "action=REJECT_KEEP_STORED\n",
+                        (long)e->day,(unsigned long)e->competition_hash,
+                        (unsigned)e->slot,(unsigned)e->round,(unsigned)e->match,
+                        (unsigned)e->leg,(unsigned)e->home,(unsigned)e->away,
+                        (unsigned)prior->goals_home,(unsigned)prior->goals_away,
+                        (unsigned)prior->flags,(unsigned)e->goals_home,
+                        (unsigned)e->goals_away,(unsigned)e->flags);
                 return 0;
             }
             return 1;
@@ -1290,9 +1295,10 @@ int ExpandedWorldLive_RecordNativeCupChampion(uint16_t season,const char *name,
     if(pos<s_cup_titles_count && s_cup_titles[pos].season==season &&
        s_cup_titles[pos].competition_hash==hash) {
         if(s_cup_titles[pos].winner!=winner) {
-            fprintf(stderr,"[living-world] CONFLICTING OG CUP WINNER "
-                           "year=%u hash=%lu\n",
-                    (unsigned)season,(unsigned long)hash);
+            fprintf(stderr,"[cup-conflict] WINNER season=%u hash=%lu slot=%u "
+                           "stored=%04X incoming=%04X action=REJECT_KEEP_STORED\n",
+                    (unsigned)season,(unsigned long)hash,(unsigned)slot,
+                    (unsigned)s_cup_titles[pos].winner,(unsigned)winner);
             return 0;
         }
         /* Once a season is archived, do not recreate a resident event. */

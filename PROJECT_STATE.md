@@ -794,3 +794,11 @@ non eseguiti dall'assistente. Non dichiarare build Windows collaudata.
 - Nuovo ispettore **F10 nei menu Career**, preservando F10 Arcade durante le partite: file TEAM realmente aperti, club importati, record scartati per motivo con esempi di nome/ID/file/divisione, paesi senza record validi, coppe OG registrate separate dalle competizioni realmente giocate. Dettagli in `docs/DATABASE_1996_97_COVERAGE.md`.
 - Durante la disoccupazione l'hook OG coppe considera `g_worldCups.seasons` per evitare riavanzamenti evidenti al ripristino e traccia le differenze del registro OG di risultati e vincitori. Non è ancora la simulazione integrale dei tabelloni, né prova le qualificazioni e le nazionali.
 - Suite: controllo statico del wiring e migliorata stampa marcatori BAT; build e test runtime Windows ancora pendenti. I pass statici NON certificano le classifiche o le coppe nel gioco.
+
+### 13 novembre 2026 — Build 0.13.38: diagnostica runtime (test Windows pendenti)
+- Aggiunto in F12 un audit del caricamento TEAM: tentativi, stato, righe contabilizzate, accettate/escluse, file falliti e ultimo paese/file. Le righe devono essere contabilizzate integralmente o l'importazione viene segnalata ERROR.
+- Aggiunti conteggi coppe OG al momento dell'importazione: record di coppa registrati distinti dai risultati e dai titoli prima/dopo; storico e residente rimangono separati. Nessun record registrato è spacciato per coppa simulata.
+- I conflitti OG delle coppe stampano ora data/slot/identità e risultati o vincitori precedenti e nuovi. I conflitti volutamente provocati dallo stress test sono identificati come EXPECTED_REJECTION senza eliminare le asserzioni di rifiuto.
+- Audit cronologico: F12 riporta cambi dello scarto OG/LWE e input della conversione; il percorso midseason traccia ALIGN_PRE, ALIGN_APPLIED, JOIN_BEGIN e JOIN_FINISH con stagione, fase e cursore. Sono osservazioni runtime, non auto-correzioni del calendario.
+- Rimosse dalla suite del motore le due prove statiche, che restano fuori dalla certificazione funzionale. PASS dei test C isolati non dimostra l'integrazione runtime Windows né le coppe offscreen.
+- Test Windows, compilazione e verifica del flusso OG/LWE ancora da eseguire dall'utente. Non sono stati modificati risultati, simulazione, salvataggi o rendering del gameplay.

@@ -16,6 +16,12 @@ extern uint16_t _teamsLoaded, _skipLeagueNumbers;
 extern uint8_t _teamFileBuffer[];
 extern void *_competitionsTable[];
 static ExpandedLiveImportAudit s_import_audit;
+static ExpandedLiveImportRuntime s_import_runtime;
+int ExpandedWorldLive_ImportRuntime(ExpandedLiveImportRuntime *out) {
+    if(!out)return 0;
+    *out=s_import_runtime;
+    return 1;
+}
 static uint32_t s_import_reasons[4],s_import_rows_seen,s_import_files_loaded;
 static uint32_t s_import_cup_records[4],s_import_country_samples_count;
 static uint8_t s_import_country_samples[16];
@@ -86,13 +92,23 @@ static unsigned import_file(uint8_t file, uint8_t country,
                             unsigned divisions, unsigned points) {
     unsigned imported=0;
     _teamsLoaded=0;
+    s_import_runtime.last_file=file;
+    s_import_runtime.last_country=country;
     if (LoadTeamFile(file)!=0) {
-        fprintf(stderr,"[world-import] TEAM FILE LOAD FAIL id=%u\n",(unsigned)file);
+        ++s_import_runtime.failed_files;
+        fprintf(stderr,"[world-import-error] stage=TEAM_FILE file=%u country=%u result=FAIL\n",
+                (unsigned)file,(unsigned)country);
         return 0;
     }
     ++s_import_files_loaded;
     unsigned count=*(const uint16_t*)_teamFileBuffer;
-    if (count>TEAM_FILE_MAX_TEAMS) return 0;
+    if (count>TEAM_FILE_MAX_TEAMS) {
+        ++s_import_runtime.failed_files;
+        fprintf(stderr,"[world-import-error] stage=ROW_COUNT file=%u country=%u count=%u max=%u result=FAIL\n",
+                (unsigned)file,(unsigned)country,(unsigned)count,
+                (unsigned)TEAM_FILE_MAX_TEAMS);
+        return 0;
+    }
     const TeamFileEx *teams=(const TeamFileEx*)(_teamFileBuffer+2);
     for(unsigned i=0;i<count;++i) {
         const TeamFileEx *t=&teams[i];
@@ -131,6 +147,19 @@ static unsigned import_file(uint8_t file, uint8_t country,
  * The manager's nationality is NOT an input to this function. */
 extern uint8_t _careerCompetitionIdRemapTable[];
 void ExpandedWorldLive_LoadOfferCountries(void) {
+    const uint32_t attempt=s_import_runtime.attempts+1u;
+    const uint32_t oldClubs=ExpandedWorldLive_Clubs();
+    const uint32_t oldMatches=ExpandedWorldLive_CupArchivedMatches()+
+        ExpandedWorldLive_CupResidentMatches();
+    const uint32_t oldTitles=ExpandedWorldLive_CupHistoricalTitles();
+    memset(&s_import_runtime,0,sizeof s_import_runtime);
+    s_import_runtime.attempts=attempt;
+    s_import_runtime.status=1;
+    s_import_runtime.cups_matches_before=oldMatches;
+    s_import_runtime.cups_titles_before=oldTitles;
+    fprintf(stderr,"[world-import-start] attempt=%lu first-year=%u old-clubs=%lu cup-matches=%lu historical-titles=%lu\n",
+            (unsigned long)attempt,(unsigned)World_FirstYear(),
+            (unsigned long)oldClubs,(unsigned long)oldMatches,(unsigned long)oldTitles);
     memset(&s_import_audit,0,sizeof s_import_audit);
     memset(s_import_reasons,0,sizeof s_import_reasons);
     memset(s_import_cup_records,0,sizeof s_import_cup_records);
@@ -140,7 +169,9 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
     const uint8_t *countries=World_SeasonCountries();
     if (!countries) countries=_careerCompetitionIdRemapTable;
     if (!ExpandedWorldLive_Begin(World_FirstYear())) {
-        fprintf(stderr,"[living-world] failed to reserve memory for pilot\n");
+        s_import_runtime.status=3;
+        fprintf(stderr,"[world-import-error] stage=WORLD_BEGIN attempt=%lu result=FAIL\n",
+                (unsigned long)attempt);
         return;
     }
     uint16_t old_skip=_skipLeagueNumbers;
@@ -243,11 +274,36 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
     }
     _skipLeagueNumbers=old_skip;
     _teamsLoaded=0;
+    s_import_runtime.rows=s_import_rows_seen;
+    s_import_runtime.accepted=s_import_audit.imported_clubs;
+    for(unsigned r=0;r<4u;++r)
+        s_import_runtime.excluded+=s_import_reasons[r];
+    s_import_runtime.cups_registered=s_import_cup_records[0]+s_import_cup_records[1];
+    s_import_runtime.rows_accounted=
+        (s_import_runtime.rows==s_import_runtime.accepted+s_import_runtime.excluded);
     if (!ExpandedWorldLive_Seal()) {
-        fprintf(stderr,"[living-world] no schedulable league, pilot disabled\n");
+        s_import_runtime.status=3;
+        fprintf(stderr,"[world-import-error] stage=SEAL attempt=%lu result=FAIL\n",
+                (unsigned long)attempt);
         ExpandedWorldLive_End();
     } else {
         s_import_audit.scheduled_leagues=ExpandedWorldLive_NativeScheduleLeagues();
+        s_import_runtime.status=(s_import_runtime.rows_accounted &&
+                                 s_import_runtime.failed_files==0u)?2u:3u;
+        s_import_runtime.cups_matches_after=
+            ExpandedWorldLive_CupArchivedMatches()+ExpandedWorldLive_CupResidentMatches();
+        s_import_runtime.cups_titles_after=ExpandedWorldLive_CupHistoricalTitles();
+        fprintf(stderr,"[world-import-end] attempt=%lu status=%s rows=%lu accepted=%lu excluded=%lu failures=%lu last-file=%lu country=%lu\n",
+                (unsigned long)attempt,s_import_runtime.status==2u?"COMPLETE":"ERROR",
+                (unsigned long)s_import_runtime.rows,(unsigned long)s_import_runtime.accepted,
+                (unsigned long)s_import_runtime.excluded,(unsigned long)s_import_runtime.failed_files,
+                (unsigned long)s_import_runtime.last_file,(unsigned long)s_import_runtime.last_country);
+        fprintf(stderr,"[world-cup-load-audit] attempt=%lu registered=%lu matches-before=%lu after=%lu titles-before=%lu after=%lu note=registered-not-simulated\n",
+                (unsigned long)attempt,(unsigned long)s_import_runtime.cups_registered,
+                (unsigned long)s_import_runtime.cups_matches_before,
+                (unsigned long)s_import_runtime.cups_matches_after,
+                (unsigned long)s_import_runtime.cups_titles_before,
+                (unsigned long)s_import_runtime.cups_titles_after);
         fprintf(stderr,"[living-world] REAL TEAM-file coverage: countries=%lu/%lu "
             "skipped=%lu rounds-unsupported=%lu files-with-clubs=%lu/%lu "
             "imported-clubs=%lu scheduled-leagues=%lu\n",

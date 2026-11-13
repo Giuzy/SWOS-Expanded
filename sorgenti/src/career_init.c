@@ -895,6 +895,9 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
     for(;s_unemployedOgCupSeasons<finished;++s_unemployedOgCupSeasons) {
         const uint32_t beforeMatches=ExpandedWorldLive_CupResidentMatches();
         const uint32_t beforeTitles=ExpandedWorldLive_CupResidentTitles();
+        const uint32_t beforeArchiveMatches=ExpandedWorldLive_CupArchivedMatches();
+        const uint32_t beforeArchiveTitles=ExpandedWorldLive_CupArchivedTitles();
+        const uint32_t beforeHistoryTitles=ExpandedWorldLive_CupHistoricalTitles();
         unsigned cupRuns=0;
         _seasonPlaying=(uint8_t)(96u+s_unemployedOgCupSeasons);
         for(unsigned i=0;i<256u && countries[i]!=0xFFu;++i) {
@@ -922,9 +925,25 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
                     afterMatches-beforeMatches:0u),
                 (unsigned long)(afterTitles>=beforeTitles?
                     afterTitles-beforeTitles:0u));
-        if(!cupRuns || (afterMatches==beforeMatches && afterTitles==beforeTitles))
-            fprintf(stderr,"[og-cups] WARNING: cup callbacks produced no new "
-                           "recorded OG results; season not verified\n");
+        fprintf(stderr,"[og-cups-audit] season=%lu weeks=%lu callbacks=%u "
+                       "resident-before=%lu/%lu after=%lu/%lu "
+                       "archived-before=%lu/%lu after=%lu/%lu history-before=%lu after=%lu\n",
+                (unsigned long)(s_unemployedOgCupSeasons+1u),
+                (unsigned long)elapsedWeeks,cupRuns,
+                (unsigned long)beforeMatches,(unsigned long)beforeTitles,
+                (unsigned long)afterMatches,(unsigned long)afterTitles,
+                (unsigned long)beforeArchiveMatches,(unsigned long)beforeArchiveTitles,
+                (unsigned long)ExpandedWorldLive_CupArchivedMatches(),
+                (unsigned long)ExpandedWorldLive_CupArchivedTitles(),
+                (unsigned long)beforeHistoryTitles,
+                (unsigned long)ExpandedWorldLive_CupHistoricalTitles());
+        if(!cupRuns || (afterMatches==beforeMatches && afterTitles==beforeTitles &&
+           beforeArchiveMatches==ExpandedWorldLive_CupArchivedMatches() &&
+           beforeArchiveTitles==ExpandedWorldLive_CupArchivedTitles() &&
+           beforeHistoryTitles==ExpandedWorldLive_CupHistoricalTitles()))
+            fprintf(stderr,"[og-cups] UNVERIFIED season=%lu callbacks produced no "
+                           "new recorded results across resident/archive/history\n",
+                    (unsigned long)(s_unemployedOgCupSeasons+1u));
     }
     _seasonPlaying=oldSeason;
     _internationalAutoAdvanceFlag=oldFlag;

@@ -192,6 +192,15 @@ uint32_t ExpandedWorldLive_ImportRowsSeen(void);
 uint32_t ExpandedWorldLive_ImportCupRecords(uint32_t out[4]);
 uint32_t ExpandedWorldLive_ImportSkippedCountries(uint8_t *out,
                                                   uint32_t capacity);
+typedef struct ExpandedLiveImportRuntime {
+    uint32_t attempts,failed_files,last_file,last_country;
+    uint32_t rows,accepted,excluded,cups_registered;
+    uint32_t cups_matches_before,cups_matches_after;
+    uint32_t cups_titles_before,cups_titles_after;
+    uint8_t status,rows_accounted;
+} ExpandedLiveImportRuntime;
+/* Runtime status: 0=never 1=loading 2=completed 3=error. */
+int ExpandedWorldLive_ImportRuntime(ExpandedLiveImportRuntime *out);
 int ExpandedWorldLive_ImportAudit(ExpandedLiveImportAudit *out);
 void ExpandedWorldLive_LoadOfferCountries(void);
 #ifdef SWOS_SDL_BUILD

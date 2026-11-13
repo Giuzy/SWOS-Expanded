@@ -2,6 +2,10 @@
 
 ## 0. Regole fondamentali ad alta priorità — workflow Codex (2026-11-09)
 
+### Test runtime vincolanti (decisione del 13 novembre 2026)
+MAI pilotare, falsificare, attenuare o aggirare un test per ottenere PASS. Nessun controllo statico (grep, presenza di stringhe/simboli o sola ispezione del codice) nella suite del motore: ammessi solo come revisione esterna alla suite. I test devono eseguire il codice reale e verificare risultati/invarianti concreti. Ogni FAIL deve mostrare fase, data, ID, atteso ed effettivo dove disponibili. Le prove negative intenzionali vanno marcate EXPECTED_REJECTION e devono fallire se l'input errato viene accettato. Controlli non eseguiti = NOT_TESTED, mai PASS. Un PASS della suite isolata non dimostra il funzionamento integrato Windows/OG.
+
+
 Queste regole governano ogni futura richiesta di sviluppo. Le istruzioni esplicite dell'utente e i limiti della richiesta corrente restano vincolanti: l'autonomia riguarda le procedure autorizzate, non nuove decisioni progettuali. Preservare integralmente il lavoro locale non committato.
 
 ### Procedura obbligatoria

@@ -117,7 +117,30 @@ int Expanded_MidseasonJoin_AlignSeason(uint32_t elapsed) {
     extern uint16_t _currentSeasonShowing;
     extern uint8_t _seasonPlaying;
     if (!Expanded_MidseasonJoin_AbsoluteCutoff(World_FirstYear(),elapsed,
-                                               &season,&cutoff)) return 0;
+                                               &season,&cutoff)) {
+        fprintf(stderr,"[clock-audit] event=ALIGN_FAILED first-year=%u elapsed-weeks=%lu\n",
+                (unsigned)World_FirstYear(),(unsigned long)elapsed);
+        return 0;
+    }
+    {
+        ExpandedWorldDate nativeDate,worldDate;
+        ExpandedWorldDate july={World_FirstYear(),7u,1u};
+        int32_t nativeIndex=0,worldIndex=0;
+        if(ExpandedWorld_NativePhaseToDate(season,cutoff,&nativeDate) &&
+           ExpandedWorld_DateAfterWeeks(july,elapsed,&worldDate) &&
+           ExpandedWorld_DateToIndex(nativeDate,&nativeIndex) &&
+           ExpandedWorld_DateToIndex(worldDate,&worldIndex))
+            fprintf(stderr,"[clock-audit] event=ALIGN_PRE season=%u phase=%u "
+                           "OG=%04u-%02u-%02u WORLD=%04u-%02u-%02u delta-days=%ld "
+                           "old-season-index=%u old-native-key=%u\n",
+                    (unsigned)season,(unsigned)cutoff,
+                    (unsigned)nativeDate.year,(unsigned)nativeDate.month,
+                    (unsigned)nativeDate.day,
+                    (unsigned)worldDate.year,(unsigned)worldDate.month,
+                    (unsigned)worldDate.day,(long)(nativeIndex-worldIndex),
+                    (unsigned)_currentSeasonShowing,
+                    (unsigned)Expanded_Career_NativeCalendarKey());
+    }
     if (!ExpandedWorldLive_NativeMobilityPrepared()) {
         fprintf(stderr,"[midseason] native season members not synced to "
                        "world. Rejecting a fake multi-year join\n");
@@ -131,6 +154,9 @@ int Expanded_MidseasonJoin_AlignSeason(uint32_t elapsed) {
     }
     _currentSeasonShowing=(uint16_t)offset;
     _seasonPlaying=(uint8_t)offset;
+    fprintf(stderr,"[clock-audit] event=ALIGN_APPLIED season-index=%u native-playing=%u target-phase=%u\n",
+            (unsigned)_currentSeasonShowing,(unsigned)_seasonPlaying,
+            (unsigned)cutoff);
     fprintf(stderr,"[midseason] aligned OG season counters: %u/%02u "
                    "offset=%lu current_phase=%u (world authoritative)\n",
             (unsigned)season,((unsigned)season+1u)%100u,
@@ -193,6 +219,11 @@ static void finish(int reached,int key) {
     _shortFire=0;
     _fire=0;
     _pl1Fire=0;
+    fprintf(stderr,"[clock-audit] event=JOIN_FINISH result=%s target-phase=%u "
+                   "actual-phase=%d native-phase=%u financial-phase=%u actions=%lu\n",
+            reached?"REACHED":"ABORTED",(unsigned)s_target_key,key,
+            (unsigned)Expanded_Career_NativeCalendarKey(),
+            (unsigned)_lastFinancialWeekIndex,(unsigned long)s_actions);
     fprintf(stderr,"[midseason] %s: target_key=%u final_key=%d "
                    "elapsed_july_weeks=%lu menu_passes=%lu actions=%lu forced_sims=%lu league_exits=%lu\n",
             reached?"native next-fixture calendar reached":"catch-up aborted",
@@ -238,6 +269,14 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
                 (unsigned)_currentSeasonShowing,expected);
         return;
     }
+    fprintf(stderr,"[clock-audit] event=JOIN_BEGIN season=%u phase=%u key=%u "
+                   "financial-phase=%u cache-index=%u cache-count=%u elapsed-weeks=%lu\n",
+            (unsigned)season,(unsigned)cutoff,
+            (unsigned)Expanded_Career_NativeCalendarKey(),
+            (unsigned)_lastFinancialWeekIndex,
+            (unsigned)_teamSelectionKeyCacheIndex,
+            (unsigned)_teamSelectionKeyCacheCount,
+            (unsigned long)elapsed);
     fprintf(stderr,"[midseason] world season %u/%02u, absolute weeks %lu "
                    "current-season native phase=%u\n",
             (unsigned)season,((unsigned)season+1u)%100u,

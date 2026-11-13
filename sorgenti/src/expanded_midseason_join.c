@@ -63,6 +63,36 @@ int Expanded_MidseasonJoin_AbsoluteCutoff(uint16_t first_year,uint32_t weeks,
     return 1;
 }
 
+/* July is not universally preseason. Southern leagues may already have
+ * played native January-July rounds. Preserve the old northern-season
+ * cutoff unless the real OG league cache starts before August.
+ * This helper is pure and does not claim that world scores match OG. */
+int Expanded_MidseasonJoin_SouthernCutoff(uint16_t first_year,uint32_t weeks,
+                                         uint8_t earliest_league_key,
+                                         uint16_t *season,uint8_t *cutoff) {
+    ExpandedWorldDate july={first_year,7u,1u},now,month_start,next_month;
+    int32_t first=0,next=0;
+    uint16_t original=0;
+    uint8_t previous=0;
+    if(!season || !cutoff || earliest_league_key>=56u ||
+       !Expanded_MidseasonJoin_AbsoluteCutoff(first_year,weeks,
+                                              &original,&previous) ||
+       previous!=0u ||
+       !ExpandedWorld_DateAfterWeeks(july,weeks,&now) ||
+       now.year!=original || now.month!=7u) return 0;
+    month_start=(ExpandedWorldDate){now.year,7u,1u};
+    next_month=(ExpandedWorldDate){now.year,8u,1u};
+    if(!ExpandedWorld_DateToIndex(month_start,&first) ||
+       !ExpandedWorld_DateToIndex(next_month,&next) || next<=first) return 0;
+    const unsigned days=(unsigned)(next-first);
+    const unsigned eighth=((unsigned)(now.day-1u)*8u+days-1u)/days;
+    const unsigned phase=48u+eighth;
+    if(phase<=earliest_league_key || phase>255u) return 0;
+    *season=original;
+    *cutoff=(uint8_t)phase;
+    return 1;
+}
+
 #ifdef SWOS_SDL_BUILD
 #include "game_types.h"
 #include "menu_system.h"
@@ -107,6 +137,8 @@ static int s_direct_league_import;
 static int s_complete_season_handoff;
 static uint32_t s_historical_nonleague_events;
 static int s_last_result,s_last_key;
+static int s_southern_handoff_status; /* 0 NOT_TESTED, 1 PASS, 2 FAIL */
+int Expanded_MidseasonJoin_SouthernStatus(void) {return s_southern_handoff_status;}
 
 /* InitCareer constructs one fresh OG season. Put its season counters in
  * the same WORLD season before importing any scores or replaying cups.
@@ -246,7 +278,9 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     s_direct_league_import=0;
     s_complete_season_handoff=0;
     s_historical_nonleague_events=0;
+    s_southern_handoff_status=0;
     uint16_t season=0;
+    int southern_attempt=0;
     /* Archived seasons are final: only the current Living World season
      * may be imported/replayed into the live OG career. */
     if (_gameType!=4 ||
@@ -258,8 +292,72 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
         return;
     }
     if(cutoff==0u) {
-        s_last_result=3; /* No past OG league/cup events yet. */
-        return;
+        /* An early native schedule can have already played matches in July.
+         * Never treat a zero northern-season cutoff as proof that the OG
+         * table is in sync. Inspect the REAL selected OG league keycache. */
+        uint8_t first_native=255u;
+        size_t cursor=0;
+        if(_teamSelectionKeyCacheCount>0u &&
+           _teamSelectionKeyCacheCount<=256u) {
+            for(uint16_t i=0;i<_teamSelectionKeyCacheCount;++i) {
+                if(cursor>8192u-sizeof(TeamSelectionKeyCacheEntry)) break;
+                const TeamSelectionKeyCacheEntry *e=
+                    (const TeamSelectionKeyCacheEntry *)
+                    (_teamSelectionKeyCache+cursor);
+                if(e->entryStride<sizeof(*e) || e->entryStride>256u ||
+                   e->entryStride>8192u-cursor) break;
+                if(e->compSlot==0u && e->phaseFlag==0u &&
+                   e->sortKey<first_native) first_native=e->sortKey;
+                cursor+=e->entryStride;
+            }
+        }
+        extern uint16_t _currentDivisionIndex;
+        const uint8_t country=World_FileCountry(_careerTeam.team.countryNumber);
+        ExpandedLiveRow rows[32];
+        uint32_t count=0, played=0;
+        const int available=ExpandedWorldLive_Table(
+            country,(uint8_t)_currentDivisionIndex,rows,32u,&count);
+        if(available)
+            for(uint32_t i=0;i<count;++i) played+=rows[i].played;
+        fprintf(stderr,"[midseason-southern] INSPECT week=%lu year=%u "
+                       "country=%u division=%u native-first=%u "
+                       "world-rows=%lu world-played-sum=%lu valid=%d\n",
+                (unsigned long)elapsed,(unsigned)season,
+                (unsigned)country,(unsigned)_currentDivisionIndex,
+                (unsigned)first_native,(unsigned long)count,
+                (unsigned long)played,available);
+        if(first_native<56u && available && played>0u) {
+            uint16_t actual_year=0;
+            uint8_t actual_cutoff=0;
+            southern_attempt=1;
+            if(!Expanded_MidseasonJoin_SouthernCutoff(
+                    World_FirstYear(),elapsed,first_native,
+                    &actual_year,&actual_cutoff) ||
+               actual_year!=season) {
+                s_southern_handoff_status=2;
+                s_last_key=-12;
+                fprintf(stderr,"[midseason-southern] FAIL reason=CUTOFF "
+                               "week=%lu first=%u world-played=%lu\n",
+                    (unsigned long)elapsed,(unsigned)first_native,
+                    (unsigned long)played);
+                return;
+            }
+            cutoff=actual_cutoff;
+            fprintf(stderr,"[midseason-southern] RECOVERY cutoff=%u "
+                           "world-played=%lu native-first=%u\n",
+                    (unsigned)cutoff,(unsigned long)played,
+                    (unsigned)first_native);
+        } else if(first_native<56u && !available) {
+            s_southern_handoff_status=2;
+            s_last_key=-13;
+            fprintf(stderr,"[midseason-southern] FAIL reason=WORLD_TABLE_MISSING "
+                           "country=%u division=%u\n",
+                    (unsigned)country,(unsigned)_currentDivisionIndex);
+            return;
+        } else {
+            s_last_result=3; /* No earlier recorded world fixtures. */
+            return;
+        }
     }
     extern uint16_t _currentSeasonShowing;
     const unsigned expected=(unsigned)season-(unsigned)World_FirstYear();
@@ -353,8 +451,14 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     }
     s_historical_nonleague_events=oldNonLeague;
     {
-        extern int DIY_WorldDirectImportLeague(uint8_t cutoff);
-        if (DIY_WorldDirectImportLeague(cutoff)) {
+        extern int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int strict);
+        if (DIY_WorldDirectImportLeagueChecked(cutoff,southern_attempt)) {
+            if(southern_attempt) {
+                s_southern_handoff_status=1;
+                fprintf(stderr,"[midseason-southern] PASS strict-world-table "
+                               "season=%u cutoff=%u\n",
+                        (unsigned)season,(unsigned)cutoff);
+            }
             s_direct_league_import=1;
             /* Cup competitions are still OG and must continue chronologically.
              * Only a league-only history can bypass all replay callbacks. */
@@ -382,6 +486,18 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
             /* Cannot normally happen: validated future native fixture. */
             }
         }
+    }
+    if(southern_attempt && !s_direct_league_import) {
+        extern const char *DIY_WorldDirectImportStatus(void);
+        s_southern_handoff_status=2;
+        s_last_result=2;
+        s_last_key=-14;
+        fprintf(stderr,"[midseason-southern] FAIL reason=STRICT_NATIVE_IMPORT "
+                       "country=%u cutoff=%u detail=%s; "
+                       "not replaying incompatible scores\n",
+                (unsigned)World_FileCountry(_careerTeam.team.countryNumber),
+                (unsigned)cutoff,DIY_WorldDirectImportStatus());
+        return;
     }
     if (!has_future && !s_direct_league_import) {
         fprintf(stderr,"[midseason] cannot enter completed season: "

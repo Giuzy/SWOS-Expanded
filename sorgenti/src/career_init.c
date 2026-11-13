@@ -872,15 +872,33 @@ extern void SaveSelectedTeams(void);
 extern void RestoreSelectedTeams(void);
 extern uint16_t _internationalAutoAdvanceFlag;
 extern uint8_t _seasonPlaying;
+void Career_UnemployedCupAudit(uint32_t *advanced,uint32_t *native,
+                                int *initialized) {
+    if(advanced)*advanced=s_unemployedOgCupSeasons;
+    if(native)*native=(uint32_t)g_worldCups.seasons;
+    if(initialized)*initialized=s_careerWorldInitialized;
+}
 void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
 {
     const uint32_t finished=elapsedWeeks/52u;
+    static uint32_t lastSkipReported=0;
     /* The saved native world-cup season counter is authoritative after
      * save/reload. Never replay a cup season already finalized by OG. */
     if(s_unemployedOgCupSeasons<(uint32_t)g_worldCups.seasons)
         s_unemployedOgCupSeasons=g_worldCups.seasons;
-    if(!s_careerWorldInitialized || finished<=s_unemployedOgCupSeasons)
+    if(!s_careerWorldInitialized || finished<=s_unemployedOgCupSeasons) {
+        if(finished && finished!=lastSkipReported) {
+            fprintf(stderr,"[og-cups-skip] week=%lu finished=%lu advanced=%lu "
+                           "native=%u career-world-init=%d reason=%s\n",
+                    (unsigned long)elapsedWeeks,(unsigned long)finished,
+                    (unsigned long)s_unemployedOgCupSeasons,
+                    (unsigned)g_worldCups.seasons,s_careerWorldInitialized,
+                    !s_careerWorldInitialized?"WORLD_NOT_INITIALIZED":
+                    "NATIVE_SEASON_ALREADY_ADVANCED");
+            lastSkipReported=finished;
+        }
         return;
+    }
     if(finished>90u) {
         fprintf(stderr,"[og-cups] unsupported season=%lu\n",
                 (unsigned long)finished);

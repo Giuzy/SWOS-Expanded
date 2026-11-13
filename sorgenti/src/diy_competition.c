@@ -12114,7 +12114,7 @@ const char *DIY_WorldDirectImportStatus(void) {return s_direct_import_status;}
 uint32_t DIY_WorldDirectImportedMatches(void) {return s_direct_imported_matches;}
 uint32_t DIY_WorldDirectImportedRounds(void) {return s_direct_imported_rounds;}
 
-int DIY_WorldDirectImportLeague(uint8_t cutoff) {
+int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int require_exact_table) {
     s_direct_import_status="UNSUPPORTED NATIVE LEAGUE";
     extern uint8_t *_careerCompetitionSlotPtrTable[];
     extern uint8_t _teamSelectionKeyCache[];
@@ -12261,13 +12261,13 @@ int DIY_WorldDirectImportLeague(uint8_t cutoff) {
      * PASS cannot certify this contract handoff. During an incomplete
      * season the two native calendar phase grids may differ, so only
      * compare when every original league fixture is already complete. */
-    if (completed==maxGames) {
+    if (completed==maxGames || require_exact_table) {
         ExpandedLiveRow world_rows[32];
         uint32_t n=0;
         const uint8_t country=World_FileCountry(_careerTeam.team.countryNumber);
         if (!ExpandedWorldLive_Table(country,(uint8_t)_currentDivisionIndex,
                                      world_rows,32u,&n) || n!=teams) {
-            s_direct_import_status="FINAL WORLD DIVISION NOT RECONCILED";
+            s_direct_import_status="WORLD DIVISION NOT RECONCILED";
             goto fail;
         }
         for(unsigned i=0;i<teams;++i) {
@@ -12284,8 +12284,8 @@ int DIY_WorldDirectImportLeague(uint8_t cutoff) {
                native->goalsFor!=world_rows[j].scored ||
                native->goalsAgainst!=world_rows[j].conceded ||
                (int32_t)native->points!=world_rows[j].points) {
-                s_direct_import_status="FINAL TABLE WORLD/OG MISMATCH";
-                fprintf(stderr,"[world-native-league] final audit failed "
+                s_direct_import_status="WORLD/OG TABLE MISMATCH";
+                fprintf(stderr,"[world-native-league] exact audit failed "
                                "club=%04x world_row=%u native=%u-%u-%u pts=%d\n",
                         (unsigned)id,j,
                         (unsigned)native->wins,(unsigned)native->draws,
@@ -12293,9 +12293,9 @@ int DIY_WorldDirectImportLeague(uint8_t cutoff) {
                 goto fail;
             }
         }
-        fprintf(stderr,"[world-native-league] final standings audited: "
+        fprintf(stderr,"[world-native-league] %s standings audited: "
                        "%u clubs, exact W/D/L GF/GA PTS from current world\n",
-                teams);
+                completed==maxGames?"final":"strict partial",teams);
     }
     Career_StoreCompetitionSlotStateToBuffer(slot);
     cacheOffset=0;
@@ -12335,13 +12335,21 @@ int DIY_WorldDirectImportLeague(uint8_t cutoff) {
     return 1;
 
 fail:
+    fprintf(stderr,"[world-native-league] IMPORT_REJECTED cutoff=%u "
+                   "strict=%d reason=%s\n",
+            (unsigned)cutoff,require_exact_table,s_direct_import_status);
     memcpy(&_diyCompetitionStart,&saved,sizeof saved);
     _viewRandomPhase=oldPhase;
     return 0;
+}
+int DIY_WorldDirectImportLeague(uint8_t cutoff) {
+    return DIY_WorldDirectImportLeagueChecked(cutoff,0);
 }
 #else
 uint32_t DIY_WorldDirectImportedMatches(void) {return 0;}
 uint32_t DIY_WorldDirectImportedRounds(void) {return 0;}
 const char *DIY_WorldDirectImportStatus(void) {return "NOT SUPPORTED";}
 int DIY_WorldDirectImportLeague(uint8_t cutoff) {(void)cutoff;return 0;}
+int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int strict)
+{(void)cutoff;(void)strict;return 0;}
 #endif

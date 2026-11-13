@@ -49,11 +49,22 @@ call :check_marker DATABASE_ALL_RECORDS_AUDIT "Tutti i record: squadre, giocator
 call :check_marker REAL_JSON_DOMESTIC_70_SEASONS "Campionati JSON reali: 70 stagioni - escluse coppe e nazionali"
 call :check_marker GLOBAL_DOMESTIC_CLUB_COVERAGE "Copertura di tutti i club domestici (singleton segnalati)"
 call :check_marker REAL_JSON_GLOBAL_70_SEASONS "Tutti i campionati domestici nello stesso mondo, 70 stagioni"
+call :check_marker SOUTHERN_JULY_NATIVE_PHASE_RUNTIME "Calcolo luglio per campionati con partite da gennaio (solo test C)"
 call :check_marker ENGINE_UNIT_REGRESSIONS "Regressioni del motore"
 call :check_marker ENGINE_SUITE "Suite runtime isolata (non Windows OG)"
+echo.
+echo =========================================================
+echo   AUDIT WINDOWS REALE - SWOS.log (se disponibile)
+echo =========================================================
+echo Verifica prima divergenza OG/LWE, coppe e assunzione.
+echo Log indipendente: SWOS_RUNTIME_AUDIT.log
+"%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash sorgenti/tests/audit_windows_runtime_log.sh SWOS.log 0.13.38_02" > "SWOS_RUNTIME_AUDIT.log" 2>&1
+if errorlevel 1 set "RESULT=1"
+type "SWOS_RUNTIME_AUDIT.log"
 if not "%RESULT%"=="0" goto test_failed
 echo.
-echo %ESC%[92m[PASS] Test campionati, registro coppe OG, save/load e inventario DB.%ESC%[0m
+echo %ESC%[92m[PASS] Suite isolata e analisi del log Windows, se presente, senza FAIL.%ESC%[0m
+echo %ESC%[93m[ATTENZIONE] Senza SWOS.log completo, integrazione Windows ancora NOT_TESTED.%ESC%[0m
 echo %ESC%[93m[NOT_TESTED] Coppe OG Windows, F10 Windows, join OG/LWE Windows e spareggi.%ESC%[0m
 goto test_done
 :test_failed

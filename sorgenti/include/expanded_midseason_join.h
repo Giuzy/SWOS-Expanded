@@ -44,4 +44,15 @@ int Expanded_MidseasonJoin_AbsoluteCutoff(uint16_t first_year,
                                           uint32_t elapsed_weeks,
                                           uint16_t *out_season,
                                           uint8_t *out_key);
+/* A native league whose first fixture is before August can already
+ * have results during July. Pure helper: returns 1 only if correction
+ * is applicable; it never certifies an OG/LWE handoff. */
+int Expanded_MidseasonJoin_SouthernCutoff(uint16_t first_year,
+                                         uint32_t elapsed_weeks,
+                                         uint8_t earliest_league_key,
+                                         uint16_t *out_season,
+                                         uint8_t *out_key);
+/* Runtime verdict: 0=NOT_TESTED, 1=strict world/OG table imported,
+ * 2=unsupported or failed (do not enter a fabricated empty table). */
+int Expanded_MidseasonJoin_SouthernStatus(void);
 #endif

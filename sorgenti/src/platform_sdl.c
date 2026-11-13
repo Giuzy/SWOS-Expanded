@@ -3263,6 +3263,24 @@ static void draw_world_debug_overlay(void)
     }
     DEBUG_SECTION("OG/LWE RUNTIME VERDICTS");
     {
+        extern int Expanded_MidseasonJoin_SouthernStatus(void);
+        const int st=Expanded_MidseasonJoin_SouthernStatus();
+        snprintf(line,sizeof line,"SOUTHERN HANDOFF %s (EXACT OG/LWE TABLE)",
+                 st==1?"PASS":st==2?"FAIL":"NOT_TESTED");
+        if(st==2)DEBUG_WARN(line);
+        else if(st==1)DEBUG_GOOD(line);
+        else DEBUG_LINE(line);
+    }
+    {
+        extern void Career_UnemployedCupAudit(uint32_t*,uint32_t*,int*);
+        uint32_t advanced=0,native=0;
+        int initialized=0;
+        Career_UnemployedCupAudit(&advanced,&native,&initialized);
+        snprintf(line,sizeof line,"OG CUP ADVANCE YEARS %lu NATIVE %lu INIT %d",
+                 (unsigned long)advanced,(unsigned long)native,initialized);
+        DEBUG_LINE(line);
+    }
+    {
         extern uint32_t DIY_WorldStandingsAuditChecks(void);
         extern uint32_t DIY_WorldStandingsAuditFailures(void);
         const uint32_t checked=DIY_WorldStandingsAuditChecks();

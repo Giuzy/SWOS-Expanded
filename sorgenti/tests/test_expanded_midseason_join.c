@@ -35,6 +35,21 @@ int main(void) {
     assert(season==2001 && key>56);
     assert(!Expanded_MidseasonJoin_AbsoluteCutoff(1996,273,NULL,&key));
     assert(!Expanded_MidseasonJoin_AbsoluteCutoff(1996,273,&season,NULL));
+    /* Reproduce the actual July 2001 Australian contract. A northern
+     * calendar remains at 0; a league whose OG native rounds begin in
+     * January must use the actual July 30 phase, not artificial preseason. */
+    assert(Expanded_MidseasonJoin_AbsoluteCutoff(1996,265,&season,&key));
+    assert(season==2001 && key==0u);
+    assert(Expanded_MidseasonJoin_SouthernCutoff(1996,265,16u,
+                                                 &season,&key));
+    assert(season==2001 && key==56u);
+    assert(!Expanded_MidseasonJoin_SouthernCutoff(1996,265,56u,
+                                                  &season,&key));
+    assert(!Expanded_MidseasonJoin_SouthernCutoff(1996,273,16u,
+                                                  &season,&key));
+    assert(!Expanded_MidseasonJoin_SouthernCutoff(1996,265,16u,
+                                                  NULL,&key));
+    puts("SOUTHERN_JULY_NATIVE_PHASE_RUNTIME=PASS");
     puts("OK: native month-phase cutover, including hires after 5 years");
     return 0;
 }

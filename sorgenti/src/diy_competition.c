@@ -12000,6 +12000,7 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
                 s_auditManual?"manual cache":"simulation",
                 (s_auditManual && (s_auditRaw1!=d1 || s_auditRaw2!=d2))
                     ?" SCORE DIFF":"");
+        Expanded_ClockTrace_Sample("OG_LEAGUE_RESULT");
     }
 
     /* Goals always update */

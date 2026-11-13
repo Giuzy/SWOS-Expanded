@@ -14,7 +14,7 @@ if not defined MSYS_ROOT (
 )
 echo Verifica diagnostica gameplay Windows in SWOS.log.
 echo Non avvia il gioco, non modifica save, non usa dati sintetici.
-"%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash sorgenti/tests/audit_windows_runtime_log.sh SWOS.log 0.13.38_03" > "SWOS_RUNTIME_AUDIT.log" 2>&1
+"%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash sorgenti/tests/audit_windows_runtime_log.sh SWOS.log 0.13.38_04" > "SWOS_RUNTIME_AUDIT.log" 2>&1
 set "RESULT=%ERRORLEVEL%"
 type "SWOS_RUNTIME_AUDIT.log"
 echo.

@@ -823,3 +823,9 @@ non eseguiti dall'assistente. Non dichiarare build Windows collaudata.
 
 ### 13 novembre 2026 — 0.13.38_03: ambito corretto dell'audit orologi
 L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 sullo stato effettivo contiene uno scarto anomalo (`source=F12_CALENDAR_SAMPLE`). La differenza iniziale `ALIGN_PRE`, diagnostica del recupero ancora da eseguire, non e' un FAIL del calendario recuperato. Verifica dell'analizzatore sul log reale SWOS(3).log: 3 confronti classifica FAIL, scarti F12 -151/-128 giorni FAIL, coppe non registrate dopo 264 settimane FAIL, caricamento TEAM PASS. Questa e' una verifica del parser sul log precedente, non una build/test Windows 0.13.38_03.
+
+### 13 novembre 2026 — 0.13.38_04 CLOCK TRACE runtime
+- Nuovo tracciamento read-only degli orologi con eventi UNEMPLOYED_BEFORE_ADVANCE / AFTER_ADVANCE, ALIGN_APPLIED, OG_CATCHUP_TICK, DIRECT_IMPORT_HANDOFF, JOIN_FINISH e OG_LEAGUE_RESULT.
+- Per cambi effettivi di stato registra i giorni OG/LWE, indici temporali, delta, avanzamenti per evento, stagione e fase; conserva il primo errore dal momento in cui l'handoff e' applicato. Nessun giudizio di successo in disoccupazione/recupero OG; NEAR indica soltanto osservazione, non PASS funzionale.
+- F12 espone lo stato CLOCK TRACE, numero di campioni/cambi, ultimo evento e primo errore. Il BAT di analisi runtime distingue il primo clock-trace FAIL dalle osservazioni pre-handoff.
+- Tracciamento non modifica gioco, calendario, scoreboard, salvataggi o 50 Hz. Compilation/test Windows ancora da svolgere dall'utente.

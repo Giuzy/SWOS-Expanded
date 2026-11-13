@@ -137,6 +137,93 @@ static int s_direct_league_import;
 static int s_complete_season_handoff;
 static uint32_t s_historical_nonleague_events;
 static int s_last_result,s_last_key;
+static uint32_t s_clock_samples,s_clock_changes;
+static int s_clock_armed,s_clock_status,s_clock_previous_valid;
+static int32_t s_clock_last_og,s_clock_last_world,s_clock_delta;
+static char s_clock_last_event[48]="NOT_STARTED";
+static char s_clock_first_problem[192]="NONE";
+extern uint16_t _currentSeasonShowing;
+void Expanded_ClockTrace_Sample(const char *event) {
+    ExpandedLiveCalendarState cal;
+    ExpandedWorldDate og={0};
+    int32_t world_day=0,og_day=0;
+    uint16_t season;
+    uint8_t phase=0;
+    int32_t previous_og=s_clock_last_og;
+    int32_t previous_world=s_clock_last_world;
+    int was_valid=s_clock_previous_valid;
+    if (!event)event="UNSPECIFIED";
+    snprintf(s_clock_last_event,sizeof s_clock_last_event,"%s",event);
+    if (!ExpandedWorldLive_CalendarState(&cal) ||
+        !ExpandedWorld_DateToIndex(cal.today,&world_day)) return;
+    ++s_clock_samples;
+    if (_gameType!=4 || _currentSeasonShowing>=100u) {
+        if(!was_valid || world_day!=previous_world) {
+            ++s_clock_changes;
+            fprintf(stderr,"[clock-trace] event=%s mode=WORLD_ONLY world=%04u-%02u-%02u "
+                           "world-index=%ld previous-world=%ld armed=%d\n",
+                    event,(unsigned)cal.today.year,(unsigned)cal.today.month,
+                    (unsigned)cal.today.day,(long)world_day,
+                    (long)(was_valid?previous_world:world_day),s_clock_armed);
+        }
+        s_clock_last_world=world_day;
+        s_clock_previous_valid=0; /* OG clock unavailable during unemployment */
+        return;
+    }
+    season=(uint16_t)(World_FirstYear()+_currentSeasonShowing);
+    phase=Expanded_Career_NativeCalendarKey();
+    if (!ExpandedWorld_NativePhaseToDate(season,phase,&og) ||
+        !ExpandedWorld_DateToIndex(og,&og_day)) return;
+    s_clock_delta=og_day-world_day;
+    if (!was_valid || og_day!=previous_og || world_day!=previous_world) {
+        ++s_clock_changes;
+        fprintf(stderr,"[clock-trace] event=%s state=%s season=%u phase=%u "
+                       "OG=%04u-%02u-%02u world=%04u-%02u-%02u "
+                       "delta-days=%ld prior-og=%ld prior-world=%ld "
+                       "og-step=%ld world-step=%ld sample=%lu change=%lu\n",
+                event,s_clock_armed?"POST_HANDOFF":"RECOVERING",
+                (unsigned)season,(unsigned)phase,
+                (unsigned)og.year,(unsigned)og.month,(unsigned)og.day,
+                (unsigned)cal.today.year,(unsigned)cal.today.month,
+                (unsigned)cal.today.day,(long)s_clock_delta,
+                (long)(was_valid?previous_og:og_day),
+                (long)(was_valid?previous_world:world_day),
+                (long)(was_valid?og_day-previous_og:0),
+                (long)(was_valid?world_day-previous_world:0),
+                (unsigned long)s_clock_samples,
+                (unsigned long)s_clock_changes);
+    }
+    if (s_clock_armed) {
+        const char *problem=NULL;
+        if (was_valid && world_day<previous_world)
+            problem="WORLD_CLOCK_REWIND";
+        else if (was_valid && og_day<previous_og)
+            problem="OG_PHASE_REWIND";
+        else if(s_clock_delta< -31 || s_clock_delta>31)
+            problem="POST_HANDOFF_DELTA_GT_31";
+        if(problem) {
+            s_clock_status=2;
+            if(s_clock_first_problem[0]=='N') {
+                snprintf(s_clock_first_problem,sizeof s_clock_first_problem,
+                         "%s at %s season=%u phase=%u delta=%ld OG-step=%ld WORLD-step=%ld",
+                         problem,event,(unsigned)season,(unsigned)phase,
+                         (long)s_clock_delta,
+                         (long)(was_valid?og_day-previous_og:0),
+                         (long)(was_valid?world_day-previous_world:0));
+                fprintf(stderr,"[clock-trace-first-fail] %s\n",s_clock_first_problem);
+            }
+        } else if(!s_clock_status) s_clock_status=1;
+    }
+    s_clock_last_og=og_day;s_clock_last_world=world_day;
+    s_clock_previous_valid=1;
+}
+int Expanded_ClockTrace_Status(void){return s_clock_status;}
+uint32_t Expanded_ClockTrace_Samples(void){return s_clock_samples;}
+uint32_t Expanded_ClockTrace_Changes(void){return s_clock_changes;}
+int32_t Expanded_ClockTrace_DeltaDays(void){return s_clock_delta;}
+const char *Expanded_ClockTrace_FirstProblem(void){return s_clock_first_problem;}
+const char *Expanded_ClockTrace_LastEvent(void){return s_clock_last_event;}
+
 static int s_southern_handoff_status; /* 0 NOT_TESTED, 1 PASS, 2 FAIL */
 int Expanded_MidseasonJoin_SouthernStatus(void) {return s_southern_handoff_status;}
 
@@ -186,6 +273,7 @@ int Expanded_MidseasonJoin_AlignSeason(uint32_t elapsed) {
     }
     _currentSeasonShowing=(uint16_t)offset;
     _seasonPlaying=(uint8_t)offset;
+    Expanded_ClockTrace_Sample("ALIGN_APPLIED");
     fprintf(stderr,"[clock-audit] event=ALIGN_APPLIED season-index=%u native-playing=%u target-phase=%u\n",
             (unsigned)_currentSeasonShowing,(unsigned)_seasonPlaying,
             (unsigned)cutoff);
@@ -251,6 +339,8 @@ static void finish(int reached,int key) {
     _shortFire=0;
     _fire=0;
     _pl1Fire=0;
+    s_clock_armed=reached;
+    Expanded_ClockTrace_Sample(reached?"JOIN_FINISH_OK":"JOIN_FINISH_FAIL");
     fprintf(stderr,"[clock-audit] event=JOIN_FINISH result=%s target-phase=%u "
                    "actual-phase=%d native-phase=%u financial-phase=%u actions=%lu\n",
             reached?"REACHED":"ABORTED",(unsigned)s_target_key,key,
@@ -279,6 +369,10 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     s_complete_season_handoff=0;
     s_historical_nonleague_events=0;
     s_southern_handoff_status=0;
+    s_clock_armed=0;
+    s_clock_status=0;
+    s_clock_previous_valid=0;
+    snprintf(s_clock_first_problem,sizeof s_clock_first_problem,"NONE");
     uint16_t season=0;
     int southern_attempt=0;
     /* Archived seasons are final: only the current Living World season
@@ -476,6 +570,8 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
                     s_target_key=cutoff;
                     s_last_key=e->sortKey;
                     s_last_result=3; /* Direct import, no catch-up started */
+                    s_clock_armed=1;
+                    Expanded_ClockTrace_Sample("DIRECT_IMPORT_HANDOFF");
                     fprintf(stderr,"[midseason] direct world->OG league state "
                                    "import: future phase %u, old cup events 0\n",
                             (unsigned)e->sortKey);
@@ -532,6 +628,7 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
 
 void Expanded_MidseasonJoin_Tick(void) {
     if (!s_active) return;
+    Expanded_ClockTrace_Sample("OG_CATCHUP_TICK");
     if (++s_passes>6000u) { finish(0,-2); return; }
     /* This is not a user-driven menu chain. Ignore mouse/controller input
      * until history reaches the date of the signed contract. F12 remains

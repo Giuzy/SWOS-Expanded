@@ -3263,6 +3263,23 @@ static void draw_world_debug_overlay(void)
     }
     DEBUG_SECTION("OG/LWE RUNTIME VERDICTS");
     {
+        const int trace=Expanded_ClockTrace_Status();
+        snprintf(line,sizeof line,"CLOCK TRACE %s SAMPLES %lu CHANGES %lu",
+                 trace==2?"FAIL":trace==1?"NEAR (NOT PROOF)":"NOT_TESTED",
+                 (unsigned long)Expanded_ClockTrace_Samples(),
+                 (unsigned long)Expanded_ClockTrace_Changes());
+        if(trace==2)DEBUG_WARN(line);else DEBUG_LINE(line);
+        snprintf(line,sizeof line,"CLOCK LAST %s DELTA %ld DAYS",
+                 Expanded_ClockTrace_LastEvent(),
+                 (long)Expanded_ClockTrace_DeltaDays());
+        DEBUG_LINE(line);
+        if(trace==2) {
+            snprintf(line,sizeof line,"CLOCK FIRST: %.70s",
+                     Expanded_ClockTrace_FirstProblem());
+            DEBUG_WARN(line);
+        }
+    }
+    {
         extern int Expanded_MidseasonJoin_SouthernStatus(void);
         const int st=Expanded_MidseasonJoin_SouthernStatus();
         snprintf(line,sizeof line,"SOUTHERN HANDOFF %s (EXACT OG/LWE TABLE)",

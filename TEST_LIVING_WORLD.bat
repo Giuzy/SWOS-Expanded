@@ -58,7 +58,7 @@ echo   AUDIT WINDOWS REALE - SWOS.log (se disponibile)
 echo =========================================================
 echo Verifica prima divergenza OG/LWE, coppe e assunzione.
 echo Log indipendente: SWOS_RUNTIME_AUDIT.log
-"%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash sorgenti/tests/audit_windows_runtime_log.sh SWOS.log 0.13.38_03" > "SWOS_RUNTIME_AUDIT.log" 2>&1
+"%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash sorgenti/tests/audit_windows_runtime_log.sh SWOS.log 0.13.38_04" > "SWOS_RUNTIME_AUDIT.log" 2>&1
 if errorlevel 1 set "RESULT=1"
 type "SWOS_RUNTIME_AUDIT.log"
 if not "%RESULT%"=="0" goto test_failed

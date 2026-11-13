@@ -2,11 +2,11 @@
 # Audit actual Windows gameplay, NOT the isolated C simulation.
 set -euo pipefail
 log="${1:-SWOS.log}"
-expected="${2:-0.13.38_03}"
+expected="${2:-0.13.38_04}"
 if [[ ! -f "$log" ]]; then
     printf 'RUNTIME_LOG=NOT_TESTED reason=SWOS.log_missing\n'
     printf 'RUNTIME_OG_LWE_STANDINGS=NOT_TESTED\nRUNTIME_OG_LWE_CLOCK=NOT_TESTED\n'
-    printf 'RUNTIME_SOUTHERN_HANDOFF=NOT_TESTED\nRUNTIME_OG_CUPS=NOT_TESTED\n'
+    printf 'RUNTIME_SOUTHERN_HANDOFF=NOT_TESTED\nRUNTIME_OG_CUPS=NOT_TESTED\nRUNTIME_CLOCK_TRACE=NOT_TESTED\n'
     exit 0
 fi
 awk -v expected="$expected" '
@@ -19,7 +19,7 @@ function first_problem(kind,line) {
     if(first=="")first=kind " line=" NR " " line;
 }
 BEGIN { import="NOT_TESTED"; standings="NOT_TESTED"; southern="NOT_TESTED";
-        clock="NOT_TESTED"; cups="NOT_TESTED"; stage="";
+        clock="NOT_TESTED"; clock_trace="NOT_TESTED"; cups="NOT_TESTED"; stage="";
         cup_callbacks=0; cup_registered=0;
         handoffs=0; failures=0; comparisons=0; matched_version=0;
         win_build="unknown"; first=""; delta=""; date="";
@@ -50,6 +50,14 @@ BEGIN { import="NOT_TESTED"; standings="NOT_TESTED"; southern="NOT_TESTED";
     } else if(index($0,"[midseason-southern] PASS")==1) {
         if(southern!="FAIL")southern="PASS";
         handoffs++;
+    }
+    if(index($0,"[clock-trace-first-fail]")==1) {
+        clock_trace="FAIL";first_problem("CLOCK_TRACE",$0);
+        clock_trace_first=$0;
+    } else if(index($0,"[clock-trace]")==1) {
+        clock_events++;
+        if(index($0,"state=POST_HANDOFF")>0 &&
+           clock_trace!="FAIL")clock_trace="OBSERVED_NEAR_NOT_PROOF";
     }
     if(index($0,"[clock-audit]")>0 && index($0,"source=F12_CALENDAR_SAMPLE")>0) {
         if(index($0,"days-delta=")>0) {
@@ -85,6 +93,8 @@ END {
     printf "RUNTIME_WORLD_IMPORT=%s\n",import;
     printf "RUNTIME_OG_LWE_STANDINGS=%s comparisons=%d failures=%d\n",standings,comparisons,failures;
     printf "RUNTIME_OG_LWE_CLOCK=%s last-delta-days=%s last-og-date=%s\n",clock,delta,date;
+    printf "RUNTIME_CLOCK_TRACE=%s events=%d\n",clock_trace,clock_events;
+    if(clock_trace_first!="")printf "FIRST_CLOCK_TRACE_FAILURE: %s\n",clock_trace_first;
     printf "RUNTIME_SOUTHERN_HANDOFF=%s verified=%d\n",southern,handoffs;
     printf "RUNTIME_OG_CUPS=%s registered=%d callbacks=%d skipped_seasons=%d max-world-week=%d\n",cups,cup_registered,cup_callbacks,listed_weeks,max_world_week;
     printf "RUNTIME_NATIVE_RESULTS=%d WORLD_SCORE_REPLACEMENTS=%d\n",native_game_updates,world_score_replacements;
@@ -94,6 +104,6 @@ END {
         print "RUNTIME_VERDICT=NOT_TESTED_FOR_CURRENT_BUILD (log from another version)";
         exit 0;
     }
-    if(import=="FAIL" || standings=="FAIL" || southern=="FAIL" || clock=="FAIL" || cups=="FAIL")exit 1;
+    if(import=="FAIL" || standings=="FAIL" || southern=="FAIL" || clock=="FAIL" || clock_trace=="FAIL" || cups=="FAIL")exit 1;
 }
 ' "$log"

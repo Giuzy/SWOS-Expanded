@@ -55,4 +55,14 @@ int Expanded_MidseasonJoin_SouthernCutoff(uint16_t first_year,
 /* Runtime verdict: 0=NOT_TESTED, 1=strict world/OG table imported,
  * 2=unsupported or failed (do not enter a fabricated empty table). */
 int Expanded_MidseasonJoin_SouthernStatus(void);
+/* Instrument actual clock transitions in Windows career; no game-state writes.
+ * 0=NOT_TESTED/RECOVERING, 1=OBSERVED_NEAR, 2=FAIL.
+ * A near reading is never proof of complete handoff correctness. */
+void Expanded_ClockTrace_Sample(const char *event);
+int Expanded_ClockTrace_Status(void);
+uint32_t Expanded_ClockTrace_Samples(void);
+uint32_t Expanded_ClockTrace_Changes(void);
+int32_t Expanded_ClockTrace_DeltaDays(void);
+const char *Expanded_ClockTrace_FirstProblem(void);
+const char *Expanded_ClockTrace_LastEvent(void);
 #endif

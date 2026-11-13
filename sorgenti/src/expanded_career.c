@@ -12,6 +12,7 @@
 #include "expanded_world_time.h"
 #include "expanded_debug.h"
 #include "expanded_world_live.h"
+#include "expanded_midseason_join.h"
 #include "swos_io.h"
 #include "career_params.h"
 #include "string_utils.h"

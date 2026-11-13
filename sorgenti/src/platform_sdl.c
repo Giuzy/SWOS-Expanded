@@ -2914,6 +2914,8 @@ static void draw_world_debug_overlay(void)
         snprintf(line,sizeof line,"GAME TYPE %u",(unsigned)_gameType);
     }
     DEBUG_LINE(line);
+    if (unemployed)
+        DEBUG_LINE("F12+7 +5Y+12W: THEN PRESS FORWARD TIME");
     if (!unemployed && _gameType==4) {
         snprintf(line,sizeof line,"WINS %u LOSSES %u",
                  (unsigned)_numWins,(unsigned)_numLost);

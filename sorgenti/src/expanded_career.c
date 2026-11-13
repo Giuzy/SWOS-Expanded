@@ -922,6 +922,15 @@ int Expanded_HandleSackingAfterMatch(void) {
         extern uint8_t _contestMenu[];
         extern void ActivateMenu(uint8_t *);
         InitCareer(newTeam);
+        { extern int Expanded_MidseasonJoin_AlignSeason(uint32_t);
+          if (!Expanded_MidseasonJoin_AlignSeason(s_waitWeeks)) {
+              extern uint8_t _swosMainMenu[];
+              fprintf(stderr,"[midseason] rehire cannot align world season; "
+                             "returning to title without publishing wrong standings\n");
+              ActivateMenu(_swosMainMenu);
+              return 1;
+          }
+        }
         Expanded_CommitNegotiatedSalary();
         extern void Expanded_MidseasonJoin_Begin(uint32_t weeks);
         Expanded_MidseasonJoin_Begin(s_waitWeeks);

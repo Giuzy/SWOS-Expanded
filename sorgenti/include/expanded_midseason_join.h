@@ -3,11 +3,14 @@
 
 #include "swos_types.h"
 
-/* The official OpenSWOS career is initialized normally, then historical
- * fixtures are simulated through its OWN NEXT MATCH / VIEW RESULT callbacks.
- * This prototype is limited to an initial single-season employment. It does
- * not transplant the separately-generated pilot world schedule.
+/* The native career is initialized normally; only the CURRENT world's
+ * season is aligned and the OG league/cup fixtures before the offer are
+ * imported or replayed through authentic callbacks. Archived years are
+ * never replayed. World-wide offscreen OG cup state remains pending.
  */
+/* Align fresh OG season counters to the live world's real season before
+ * native fixture import. Does not replay archived previous years. */
+int Expanded_MidseasonJoin_AlignSeason(uint32_t unemployed_weeks);
 void Expanded_MidseasonJoin_Begin(uint32_t unemployed_weeks);
 int Expanded_MidseasonJoin_Active(void);
 /* Fixture phase (month eighths) of the next unplayed native contest.
@@ -35,4 +38,10 @@ void Expanded_MidseasonJoin_RecordForcedSimulation(void);
 int Expanded_MidseasonJoin_Cutoff(uint16_t season_year,
                                  uint32_t weeks_since_july,
                                  uint8_t *out_key);
+/* All elapsed weeks since the FIRST July, returning the current season year
+ * and the OG native phase of the hiring day. No archived-season replay. */
+int Expanded_MidseasonJoin_AbsoluteCutoff(uint16_t first_year,
+                                          uint32_t elapsed_weeks,
+                                          uint16_t *out_season,
+                                          uint8_t *out_key);
 #endif

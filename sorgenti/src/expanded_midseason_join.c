@@ -12,36 +12,51 @@
 
 #include <stdio.h>
 
-int Expanded_MidseasonJoin_Cutoff(uint16_t year,uint32_t weeks,uint8_t *out) {
-    ExpandedWorldDate july={year,7,1}, august={year,8,1}, now;
-    ExpandedWorldDate month_start, next_month;
+/* One date-to-OG-phase mapping for first-season and later hires. */
+static int native_cutoff_at(uint16_t season,ExpandedWorldDate now,uint8_t *out) {
+    ExpandedWorldDate august={season,8u,1u},month_start,next_month;
     int32_t today=0,first=0,month_day=0,next_day=0;
-    if (!out || weeks>=52 || !ExpandedWorld_DateAfterWeeks(july,weeks,&now) ||
+    if (!out || now.year<season || now.year>season+1u ||
         !ExpandedWorld_DateToIndex(now,&today) ||
         !ExpandedWorld_DateToIndex(august,&first)) return 0;
     if (today<=first) { *out=0; return 1; }
-
-    /* Native OpenSWOS sortKey is NOT a week count. Competition beginMonth,
-     * endMonth and league phaseStartMonths use month index * 8 (March=16),
-     * with +0x60 for dates after the calendar-year rollover. */
-    month_start=(ExpandedWorldDate){now.year,now.month,1};
-    next_month=(ExpandedWorldDate){now.month==12 ?
-                                    (uint16_t)(now.year+1) : now.year,
-                                    now.month==12 ? 1 : (uint8_t)(now.month+1),1};
+    /* Original OG keycache is month eighths; next-year phases add 0x60. */
+    month_start=(ExpandedWorldDate){now.year,now.month,1u};
+    next_month=(ExpandedWorldDate){now.month==12u ?
+                      (uint16_t)(now.year+1u):now.year,
+                      now.month==12u?1u:(uint8_t)(now.month+1u),1u};
     if (!ExpandedWorld_DateToIndex(month_start,&month_day) ||
         !ExpandedWorld_DateToIndex(next_month,&next_day) ||
         next_day<=month_day) return 0;
-    /* Ceil to the first phase NOT preceding the signed offer:
-     * flooring to the phase containing the hiring day skips fixtures
-     * from earlier days in that same phase. If the date is exactly at
-     * a phase boundary, this keeps that phase available to the player. */
     const uint32_t days=(uint32_t)(next_day-month_day);
-    uint32_t eighth=(uint32_t)(now.day-1u)*8u;
-    uint32_t phase=(uint32_t)(now.month-1u)*8u +
+    const uint32_t eighth=(uint32_t)(now.day-1u)*8u;
+    uint32_t phase=(uint32_t)(now.month-1u)*8u+
                    (eighth+days-1u)/days;
-    if (now.year>year) phase+=0x60u;
+    if (now.year>season) phase+=0x60u;
     if (phase>255u) return 0;
     *out=(uint8_t)phase;
+    return 1;
+}
+
+int Expanded_MidseasonJoin_Cutoff(uint16_t year,uint32_t weeks,uint8_t *out) {
+    ExpandedWorldDate july={year,7u,1u},now;
+    return weeks<52u &&
+           ExpandedWorld_DateAfterWeeks(july,weeks,&now) &&
+           native_cutoff_at(year,now,out);
+}
+
+/* Unlike the legacy single-year helper, this uses the CURRENT world's
+ * season, not the career start year. No replay of archived prior seasons. */
+int Expanded_MidseasonJoin_AbsoluteCutoff(uint16_t first_year,uint32_t weeks,
+                                          uint16_t *season,uint8_t *out) {
+    ExpandedWorldDate july={first_year,7u,1u},now;
+    if (!season || !out ||
+        !ExpandedWorld_DateAfterWeeks(july,weeks,&now) ||
+        now.year<first_year || now.year>2199u) return 0;
+    const uint16_t current=(uint16_t)(now.year-(now.month<7u?1u:0u));
+    if (current<first_year || current>2198u ||
+        !native_cutoff_at(current,now,out)) return 0;
+    *season=current;
     return 1;
 }
 
@@ -88,6 +103,31 @@ static uint32_t s_league_exits;
 static int s_direct_league_import;
 static uint32_t s_historical_nonleague_events;
 static int s_last_result,s_last_key;
+
+/* InitCareer constructs one fresh OG season. Put its season counters in
+ * the same WORLD season before importing any scores or replaying cups.
+ * This does NOT synthesize mobility or archived cup brackets. */
+int Expanded_MidseasonJoin_AlignSeason(uint32_t elapsed) {
+    uint16_t season=0;
+    uint8_t cutoff=0;
+    extern uint16_t _currentSeasonShowing;
+    extern uint8_t _seasonPlaying;
+    if (!Expanded_MidseasonJoin_AbsoluteCutoff(World_FirstYear(),elapsed,
+                                               &season,&cutoff)) return 0;
+    const uint32_t offset=(uint32_t)season-(uint32_t)World_FirstYear();
+    if (offset>=100u) {
+        fprintf(stderr,"[midseason] unsupported OG season index %lu\n",
+                (unsigned long)offset);
+        return 0;
+    }
+    _currentSeasonShowing=(uint16_t)offset;
+    _seasonPlaying=(uint8_t)offset;
+    fprintf(stderr,"[midseason] aligned OG season counters: %u/%02u "
+                   "offset=%lu current_phase=%u (world authoritative)\n",
+            (unsigned)season,((unsigned)season+1u)%100u,
+            (unsigned long)offset,(unsigned)cutoff);
+    return 1;
+}
 
 uint32_t Expanded_MidseasonJoin_Actions(void) { return s_actions; }
 uint32_t Expanded_MidseasonJoin_LeagueExits(void) { return s_league_exits; }
@@ -165,15 +205,30 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     s_last_key=-1;
     s_direct_league_import=0;
     s_historical_nonleague_events=0;
-    /* End-of-year / multiple-season unemployment is not yet supported:
-     * never auto-start from the wrong historical season. */
+    uint16_t season=0;
+    /* Archived seasons are final: only the current Living World season
+     * may be imported/replayed into the live OG career. */
     if (_gameType!=4 ||
-        !Expanded_MidseasonJoin_Cutoff(World_FirstYear(),elapsed,&cutoff) ||
+        !Expanded_MidseasonJoin_AbsoluteCutoff(World_FirstYear(),elapsed,
+                                               &season,&cutoff) ||
         cutoff==0) {
         fprintf(stderr,"[midseason] no native catch-up for %lu July weeks "
-                       "(preseason or unsupported year)\n",(unsigned long)elapsed);
+                       "(current season preseason or unsupported date)\n",
+                (unsigned long)elapsed);
         return;
     }
+    extern uint16_t _currentSeasonShowing;
+    const unsigned expected=(unsigned)season-(unsigned)World_FirstYear();
+    if ((unsigned)_currentSeasonShowing!=expected) {
+        fprintf(stderr,"[midseason] OG season mismatch: native=%u world=%u; "
+                       "refusing historical cup replay on wrong year\n",
+                (unsigned)_currentSeasonShowing,expected);
+        return;
+    }
+    fprintf(stderr,"[midseason] world season %u/%02u, absolute weeks %lu "
+                   "current-season native phase=%u\n",
+            (unsigned)season,((unsigned)season+1u)%100u,
+            (unsigned long)elapsed,(unsigned)cutoff);
     /* Require an authentic future native fixture BEFORE arming. Without
      * one, the old fixture calendar could be consumed to season end. */
     if (!_teamSelectionKeyCacheCount || _teamSelectionKeyCacheCount>256u) {
@@ -441,6 +496,7 @@ void Expanded_MidseasonJoin_Tick(void) {
 }
 
 #else
+int Expanded_MidseasonJoin_AlignSeason(uint32_t weeks) {(void)weeks;return 0;}
 int Expanded_MidseasonJoin_Active(void) {return 0;}
 int Expanded_MidseasonJoin_LastResult(void) {return 0;}
 int Expanded_MidseasonJoin_LastKey(void) {return -1;}

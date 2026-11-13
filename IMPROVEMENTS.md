@@ -553,3 +553,11 @@ Early builds, some intermediate versions and branch-specific changes cannot be r
 - Correct standalone 70y mobility harness sign comparison. New stress assertions cover all 70 indexed cup champions, save/load, duplicate result rejection and conflicting trophy rejection.
 - F12 debug accepts chosen WIN / LOSE / DRAW and F12+6 to complete a played match through original ESC callback; ordinary match physics unchanged.
 - Static source inspection only; native world C runner and Windows runtime tests pending. Real offscreen OG cup progression and removing old catch-up remain unfinished.
+
+
+### 0.13.36 — current world season native career join and pointer safety (pending Windows verification)
+- Added pure absolute-unemployment-weeks to current-OG-season/phase conversion with regression for 43 weeks and 5+ years; archived prior seasons are not replayed.
+- Align native season counters when accepting first or subsequent employment; require expected native season before catch-up.
+- Prevent career calendar rendering from dereferencing null/low-address competition pointers after save VERIFY reload; preserve existing score records.
+- Debug overlay documents F12+7, 260 weeks in next FORWARD TIME.
+- Does NOT certify global OG offscreen cup advancement or replace the independently simplified Living World score resolver. Those remain open implementation items, along with test Windows and late-career mobility alignment.

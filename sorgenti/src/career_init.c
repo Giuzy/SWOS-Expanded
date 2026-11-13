@@ -337,6 +337,20 @@ void ChooseTeamAndStartCareer(void)
         fprintf(stderr,"[expanded11] InitCareer: starting team=%04x\n",(unsigned)offerTeam);
         fflush(stderr);
         InitCareer(offerTeam);
+        /* InitCareer creates a fresh native 1996/97 season. An offer after
+         * years of unemployment must use the CURRENT Living World season;
+         * archived seasons stay archived. This occurs before OG cup replay. */
+        { extern int Expanded_MidseasonJoin_AlignSeason(uint32_t);
+          extern unsigned Expanded_DebugUnemployedWeeks(void);
+          if (!Expanded_MidseasonJoin_AlignSeason(
+                  Expanded_DebugUnemployedWeeks())) {
+              fprintf(stderr,"[midseason] cannot align OG to living-world year; "
+                             "not starting a career in the wrong season\n");
+              extern uint16_t _fireResetFlag;
+              _fireResetFlag=1;
+              return;
+          }
+        }
         extern void Expanded_CommitNegotiatedSalary(void);
         Expanded_CommitNegotiatedSalary();
         /* The actual midseason hire is NOT a fresh first-week contest:

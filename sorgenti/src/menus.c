@@ -7705,6 +7705,18 @@ pastTeamLoad:
         case 4: compInfo = _diyCompetitionPtr;         break;
         default: compInfo = (uint8_t *)0;             break;
     }
+    /* After save VERIFY reload the native keycache may still contain an
+     * authentic OG cup result while its top-level competition pointer is
+     * absent. Do not dereference compInfo+1; show the stored slot name and
+     * retain the genuine score in the row. */
+    if ((uintptr_t)compInfo<4096u) {
+        static unsigned warned=0;
+        if (warned++<16u)
+            SWOS_DBG("[career-row] missing OG competition pointer: slot=%u "
+                     "value=%p; keeping native fixture/result\n",
+                     (unsigned)slotType,(void *)compInfo);
+        compInfo=0;
+    }
     uint16_t d5; /* color/stringFlags value */
     uint8_t *namePtr; /* competition name pointer */
 
@@ -7745,6 +7757,14 @@ pastTeamLoad:
         /* Get competition slot ptr table entry
          * careerCompetitionSlotPtrTable is really an array of 5 pointers (20 bytes) */
         uint8_t *a3slot = _careerCompetitionSlotPtrTable[slotType];
+        if (!a3slot) {
+            SWOS_DBG("[career-row] missing OG slot context: slot=%u\n",
+                     (unsigned)slotType);
+            goto hideAll;
+        }
+        if (!compInfo &&
+            ((DIYCompetition *)a3slot)->competitionName[0])
+            namePtr=(uint8_t *)((DIYCompetition *)a3slot)->competitionName;
         uint16_t slotVal = *(uint16_t *)a3slot;
 
         if (slotVal == 0) {
@@ -7766,7 +7786,8 @@ pastTeamLoad:
              * divisions[] grew to LEAGUE_MAX_DIVISIONS, and the byte's offset
              * then lands inside divisions[] -- garbage once a world's league
              * fills them (World 2026-27's Italy, 14 divisions). */
-            char **nameTbl = comp_name_table((Competition *)compInfo);
+            char **nameTbl = compInfo ?
+                comp_name_table((Competition *)compInfo) : NULL;
             if (!nameTbl) {
                 namePtr = (uint8_t *)_divStringTable[_currentDivisionIndex];
             } else {
@@ -7784,7 +7805,8 @@ pastTeamLoad:
         } else if (slotVal == 1) {
             /* --- Cup-style header (single line comp name + round info) --- */
             /* Slot 1 is the abbreviation (full name + abbreviation pair). */
-            char **nameTbl = comp_name_table((Competition *)compInfo);
+            char **nameTbl = compInfo ?
+                comp_name_table((Competition *)compInfo) : NULL;
             if (nameTbl)
                 namePtr = (uint8_t *)nameTbl[1];
 
@@ -7858,7 +7880,8 @@ pastTeamLoad:
         } else {
             /* --- Default (slotVal >= 2) header: same as cup but different path --- */
             /* Slot 1 is the abbreviation (full name + abbreviation pair). */
-            char **nameTbl = comp_name_table((Competition *)compInfo);
+            char **nameTbl = compInfo ?
+                comp_name_table((Competition *)compInfo) : NULL;
             if (nameTbl)
                 namePtr = (uint8_t *)nameTbl[1];
 

@@ -21,6 +21,20 @@ int main(void) {
     assert(!Expanded_MidseasonJoin_Cutoff(1996,52,&week));
     assert(!Expanded_MidseasonJoin_Cutoff(1996,4000,&week));
     assert(!Expanded_MidseasonJoin_Cutoff(1996,10,NULL));
-    puts("OK: native month-phase cutover July/August/January, leap-year bounds");
+    /* Multi-year hire dates must use the current world season, not 1996.
+     * 260 weeks is still JUNE 2001 (2000/01 season); 273 is SEP 2001. */
+    uint16_t season=0;
+    uint8_t key=0;
+    assert(Expanded_MidseasonJoin_AbsoluteCutoff(1996,43,&season,&key));
+    assert(season==1996 && key==128);
+    assert(Expanded_MidseasonJoin_AbsoluteCutoff(1996,260,&season,&key));
+    assert(season==2000 && key>0);
+    assert(Expanded_MidseasonJoin_AbsoluteCutoff(1996,261,&season,&key));
+    assert(season==2001 && key==0);
+    assert(Expanded_MidseasonJoin_AbsoluteCutoff(1996,273,&season,&key));
+    assert(season==2001 && key>56);
+    assert(!Expanded_MidseasonJoin_AbsoluteCutoff(1996,273,NULL,&key));
+    assert(!Expanded_MidseasonJoin_AbsoluteCutoff(1996,273,&season,NULL));
+    puts("OK: native month-phase cutover, including hires after 5 years");
     return 0;
 }

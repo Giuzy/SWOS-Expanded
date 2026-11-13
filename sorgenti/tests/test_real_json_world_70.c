@@ -277,6 +277,58 @@ static int test_all_domestic_files(int argc,char **argv) {
     return ok;
 }
 
+/* Complete installed JSON inventory: every record in every domestic, pool,
+ * cup and national catalogue is parsed and validated. This does NOT assert
+ * that OG knockout matches have been advanced by the league-only simulator. */
+static int test_entire_catalogue(int argc,char **argv) {
+    unsigned files=0, domestic=0, non_domestic=0, non_league=0, malformed=0;
+    unsigned long long records=0;
+    unsigned char seen[65536]={0};
+    unsigned unique=0, cross_file_references=0;
+    for(int a=1;a<argc;++a) {
+        long length=0,count=0;
+        char *json=read_catalog(argv[a],&length);
+        if(!json || !mjson_get_long(json,(int)length,"$.count",&count) ||
+           count<0 || count>100000) {
+            fprintf(stderr,"[db-all] failed catalogue %s\n",argv[a]);
+            free(json);++malformed;continue;
+        }
+        ++files;
+        const int pool=non_domestic_catalog(argv[a]);
+        for(unsigned i=0;i<(unsigned)count;++i) {
+            long country=0,ordinal=0,division=0;
+            char name[96];
+            if(!team_number(json,(int)length,i,"country_number",&country) ||
+               !team_number(json,(int)length,i,"team_ordinal",&ordinal) ||
+               !team_number(json,(int)length,i,"league",&division) ||
+               !team_name(json,(int)length,i,name,sizeof name) ||
+               country<0 || country>255 || ordinal<0 || ordinal>255 ||
+               division<0 || division>255) {
+                fprintf(stderr,"[db-all] invalid record file=%s index=%u\n",
+                        argv[a],i);++malformed;continue;
+            }
+            ++records;
+            if(pool) ++non_domestic; else ++domestic;
+            if(pool || division>=16) ++non_league;
+            unsigned id=((unsigned)country<<8)|(unsigned)ordinal;
+            if(seen[id]) ++cross_file_references;
+            else {seen[id]=1;++unique;}
+        }
+        free(json);
+    }
+    printf("DATABASE_ALL_JSON_FILES=%u DATABASE_ALL_RECORDS=%llu "
+           "DATABASE_DOMESTIC_RECORDS=%u DATABASE_POOL_CUP_NATIONAL_RECORDS=%u "
+           "DATABASE_NONLEAGUE_RECORDS=%u DATABASE_UNIQUE_IDS=%u "
+           "DATABASE_REUSED_IDS=%u DATABASE_MALFORMED_RECORDS=%u\n",
+           files,records,domestic,non_domestic,non_league,unique,
+           cross_file_references,malformed);
+    printf("DATABASE_ALL_RECORDS_AUDIT=%s\n",
+           !malformed && files==(unsigned)(argc-1) && records>0?"PASS":"FAIL");
+    puts("DATABASE_ALL_OG_CUP_MATCHES=NOT_TESTED");
+    puts("DATABASE_ALL_NATIONAL_MATCHES=NOT_TESTED");
+    return !malformed && files==(unsigned)(argc-1) && records>0;
+}
+
 int main(int argc,char **argv) {
     unsigned files=0,clubs=0,leagues=0,excluded=0,failures=0;
     unsigned other_catalogs=0,other_records=0;
@@ -285,6 +337,7 @@ int main(int argc,char **argv) {
         puts("REAL_JSON_DOMESTIC_70_SEASONS=FAIL");
         return 1;
     }
+    if(!test_entire_catalogue(argc,argv)) return 1;
     FixtureRounds_Install();
     for(int i=1;i<argc;++i) {
         if(non_domestic_catalog(argv[i])) {

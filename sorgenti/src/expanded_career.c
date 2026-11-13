@@ -918,10 +918,10 @@ int Expanded_HandleSackingAfterMatch(void) {
     ShowMenu(_expandedSackedMenu);
     uint16_t newTeam=0;
     if(Expanded_WaitForRehire(&newTeam)) {
-        extern void InitCareer(uint16_t);
+        extern void Career_AttachManagerToClub(uint16_t);
         extern uint8_t _contestMenu[];
         extern void ActivateMenu(uint8_t *);
-        InitCareer(newTeam);
+        Career_AttachManagerToClub(newTeam);
         { extern int Expanded_MidseasonJoin_AlignSeason(uint32_t);
           if (!Expanded_MidseasonJoin_AlignSeason(s_waitWeeks)) {
               extern uint8_t _swosMainMenu[];

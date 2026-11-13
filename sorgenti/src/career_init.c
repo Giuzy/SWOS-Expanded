@@ -273,17 +273,9 @@ void SelectTeamToManage(void);
 __attribute__((used, externally_visible))
 void ChooseTeamAndStartCareer(void)
 {
-    /* A new career: a world's pooled files as shipped (team_pool.c), also in the picker;
-     * its cups' first season (world_cups.c). */
-    TeamPool_Reset();
-    WorldCups_Reset();
-    CupD_Reset();
-    UefaCoef_Reset();
-    LeaguePlayoffs_ResetStages();
-    WorldPlayoff_ResetStageTitles();
-    WorldWinners_Reset();
-    Conti_Reset();
-    States_Reset();
+    InitCareerWorld();
+    InitCareerManager();
+    /* OG world templates and resets are now initialized once above. */
     _teamsLoaded = 0;
 #ifdef SWOS_SDL_BUILD
     /* START on NEW CAREER is the birth of the world, independently of
@@ -798,8 +790,19 @@ extern uint32_t GetNationalityAndTeamFile(uint16_t teamNo);
  * slot states, then calls InitializeNewSeason.
  * ================================================================ */
 __attribute__((used, externally_visible))
-void InitCareer(uint16_t teamNo)
+/* World, manager and club are different lifetimes. In particular, an
+ * unemployment-to-employment handoff must NEVER re-copy the OG competition
+ * templates or erase the career's historical counters. */
+static int s_careerWorldInitialized = 0;
+static int s_careerManagerInitialized = 0;
+
+__attribute__((used, externally_visible))
+void InitCareerWorld(void)
 {
+    /* An explicit new-career entry creates a new world, once. It is never
+     * invoked by a later job offer, a dismissal or a save reload. */
+    s_careerWorldInitialized = 0;
+    s_careerManagerInitialized = 0;
     _worldCupHostTeam = 20994;
 
     /* Clear 2000 bytes of diyLeagueSeasonStateTable (volatile to prevent memset optimization) */
@@ -819,18 +822,35 @@ void InitCareer(uint16_t teamNo)
     States_Reset();
 
     DIY_LoadLeagueScratchFromTable();
-#ifdef SWOS_SDL_BUILD
-    /* InitCareer resets OG offsets to the 1996 source-table divisions.
-     * Rebuild them from the CURRENT season's world fixtures before OG
-     * InitializeNewSeason chooses members for leagues AND cups. The native
-     * callbacks, match rules and competition descriptors remain original.
-     * This is a season-roster sync, not an alternate standings renderer. */
-    if (ExpandedWorldLive_Clubs() &&
-        !ExpandedWorldLive_StageNativeMobility())
-        fprintf(stderr,"[world-native-roster] ERROR: OG membership NOT "
-                       "synchronized; midseason join must not be accepted\n");
-#endif
 
+    LoadSomeEuroCup(_euroCup);
+    LoadSomeEuroCup(_cupWinnersCup);
+    LoadSomeEuroCup(_uefaCup);
+
+    /* Copy careerContests table entries: {src, dest, count} until
+     * src == 0xFFFFFFFF. Iterate as the typed CompetitionCareer[]
+     * — on 64-bit each entry is 18 bytes (two 8-byte pointers + uint16);
+     * the old byte-stride walk assumed 10-byte entries and would slip
+     * 8 bytes between each iteration. Volatile cursors prevent LTO
+     * from eliminating the ROM→BSS copies (same pattern as the tactic
+     * copy bug). */
+    extern CompetitionCareer _careerContests[];
+    for (CompetitionCareer *e = _careerContests;
+         (uintptr_t)e->competition != 0xFFFFFFFFu; e++) {
+        volatile uint8_t *src = (volatile uint8_t *)e->competition;
+        volatile uint8_t *dst = (volatile uint8_t *)e->competitionCopy;
+        uint16_t count = e->templateSize;
+        for (int16_t i = count - 1; i >= 0; i--)
+            *dst++ = *src++;
+    }
+
+    s_careerWorldInitialized = 1;
+}
+
+__attribute__((used, externally_visible))
+void InitCareerManager(void)
+{
+    if (s_careerManagerInitialized) return;
     _sameNationalCallFlag = 0;
     _careerSeasonsCompleted = 0;
     for (int i = 0; i < 4; i++)
@@ -868,33 +888,27 @@ void InitCareer(uint16_t teamNo)
 
     Career_InitTransferMarketState();
     InitCareerVariables(4);
+    /* Expanded lifetime economy must not be reset on an employment change. */
+    { extern void Expanded_StartCareer(void); Expanded_StartCareer(); }
 
+    s_careerManagerInitialized = 1;
+}
+
+/* OG club-local season setup. Competition slots and financial counters are
+ * still native and club-scoped; this MUST NOT reset worldwide cup records.
+ * The existing midseason handoff replays the selected team's OG fixtures. */
+__attribute__((used, externally_visible))
+void InitCareerClub(uint16_t teamNo)
+{
     uint32_t balance = CalculateStartingBalance(teamNo);
     Career_InitializeSelectedTeamAndStartingBalance(teamNo, (int32_t)balance);
-
     _careerFileBuffer = 0;
-
-    LoadSomeEuroCup(_euroCup);
-    LoadSomeEuroCup(_cupWinnersCup);
-    LoadSomeEuroCup(_uefaCup);
-
-    /* Copy careerContests table entries: {src, dest, count} until
-     * src == 0xFFFFFFFF. Iterate as the typed CompetitionCareer[]
-     * — on 64-bit each entry is 18 bytes (two 8-byte pointers + uint16);
-     * the old byte-stride walk assumed 10-byte entries and would slip
-     * 8 bytes between each iteration. Volatile cursors prevent LTO
-     * from eliminating the ROM→BSS copies (same pattern as the tactic
-     * copy bug). */
-    extern CompetitionCareer _careerContests[];
-    for (CompetitionCareer *e = _careerContests;
-         (uintptr_t)e->competition != 0xFFFFFFFFu; e++) {
-        volatile uint8_t *src = (volatile uint8_t *)e->competition;
-        volatile uint8_t *dst = (volatile uint8_t *)e->competitionCopy;
-        uint16_t count = e->templateSize;
-        for (int16_t i = count - 1; i >= 0; i--)
-            *dst++ = *src++;
-    }
-
+#ifdef SWOS_SDL_BUILD
+    if (ExpandedWorldLive_Clubs() &&
+        !ExpandedWorldLive_StageNativeMobility())
+        fprintf(stderr,"[world-native-roster] ERROR: OG membership NOT "
+                       "synchronized; midseason join must not be accepted\n");
+#endif
     _teamsLoaded = 0;
     _primaryCompetitionBuf.tourn.header.slotStateA = 3;
     _primaryCompetitionBuf.tourn.header.slotStateB = 2;
@@ -908,14 +922,41 @@ void InitCareer(uint16_t teamNo)
     _euroCupsCompetitionContextBuf.tourn.header.slotStateA = 3;
     _euroCupsCompetitionContextBuf.tourn.header.slotStateB = 2;
     _euroCupsCompetitionContextBuf.tourn.header.slotStateC = 8;
-    _currentSeasonShowing = 0xFFFF;
-    _seasonPlaying--;
-    /* Reset Expanded economy BEFORE first-season finance initialization,
-     * otherwise the new sponsorship figures disappear from the UI. */
-    extern void Expanded_StartCareer(void);
-    Expanded_StartCareer();
     InitializeNewSeason();
     _careerLoadedFlag = 0;
+}
+
+/* Rehire can take place years after the last contract. Preserve the
+ * manager's lifetime history and WORLD competition copies. Native season
+ * counters are positioned so InitializeNewSeason's increment does not
+ * accidentally advance a year merely because a club was attached. */
+__attribute__((used, externally_visible))
+void Career_AttachManagerToClub(uint16_t teamNo)
+{
+    const uint16_t season = _currentSeasonShowing;
+    if (season != 0xFFFFu)
+        _currentSeasonShowing = (uint16_t)(season - 1u);
+    else
+        _currentSeasonShowing = 0xFFFFu;
+    _seasonPlaying--;
+    Career_InitTransferMarketState();
+    InitCareerClub(teamNo);
+    fprintf(stderr,"[career-attach] attached team=%04x season=%u "
+                   "without resetting manager/world\n",
+            (unsigned)teamNo,(unsigned)_currentSeasonShowing);
+}
+
+/* Compatibility entry: a NEW career with an immediately selected club, or
+ * a first contract after unemployment. START initializes world/manager
+ * before waiting; the fallback also supports OG debug entry points. */
+__attribute__((used, externally_visible))
+void InitCareer(uint16_t teamNo)
+{
+    if (!s_careerWorldInitialized) InitCareerWorld();
+    InitCareerManager();
+    _currentSeasonShowing = 0xFFFFu;
+    _seasonPlaying--;
+    InitCareerClub(teamNo);
 }
 
 /* ================================================================

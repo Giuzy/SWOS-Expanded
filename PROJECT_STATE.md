@@ -770,3 +770,11 @@ non eseguiti dall'assistente. Non dichiarare build Windows collaudata.
 - [TEST PENDING] Compilazione MSYS2 e \`TEST_LIVING_WORLD.bat\` sul PC dell'utente; test di assunzione dopo 5 anni, coppe durante disoccupazione, salvataggio/caricamento e allineamento OG. Nessun PASS globale dichiarato in assenza di log.
 
 - [AUDIT OG 13/11] `Career_ViewOrEditCompetitionSlot` in `sorgenti/src/career_init.c` usa `Career_AutoAdvanceCupCompetitionFromRecord`, `Career_AutoAdvanceLeagueCompetitionFromRecord` o `Career_AutoAdvanceInternationalCompetitionFixtures` per le competizioni NON presenti negli slot della carriera selezionata. È un percorso di VIEW/consultazione, NON prova dell'esecuzione automatica durante `Expanded_UnemployedWait`. `InitializeNewSeason` inizializza i 5 slot a partire dalla squadra scelta; mancano per ora uno stato OG offscreen indipendente e un test OG prima dell'assunzione. Non chiamare le routine di VIEW su stato OG non inizializzato.
+
+
+### 2026-11-13 — Separazione inizializzazione carriera (0.13.37_02)
+
+- `InitCareerWorld()` inizializza template e strutture OG a START CAREER; `InitCareerManager()` inizializza lo storico personale una sola volta; `InitCareerClub()` prepara gli slot della squadra; `InitCareer()` resta il punto di ingresso compatibile.
+- Il percorso di riassunzione chiama `Career_AttachManagerToClub()` senza ripetere i reset mondiali o `Expanded_StartCareer()`. Rimangono da validare sul gioco le ricostruzioni degli slot OG e i salvataggi.
+- Il test JSON aggiunge un inventario di **ogni record** in tutte le categorie (club, pool, coppe, nazionali), distinguendolo dalla simulazione di 70 stagioni dei soli campionati. Non esiste ancora un test end-to-end delle coppe OG per tutte le nazioni e delle nazionali: status NOT_TESTED, non PASS.
+- Codice modificato e commit remoto: verifiche di compilazione e test Windows ancora pendenti.

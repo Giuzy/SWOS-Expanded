@@ -307,3 +307,8 @@ test di regressione e stato.
 
 - [CODICE] Il lettore `ExpandedWorldLive_ReadJson` prima rifiutava sempre `fixture_count==0`; ora accetta solo un ledger LWE vuoto e coerente (nessuna partita giocata, nativa o archiviata), preservando il controllo sulle partite storiche. Necessario per permettere a una nuova carriera OG-only di salvare e ricaricare la propria anagrafica senza creare fixture finte.
 - [LIMITI] Non equivale a una migrazione automatica degli storici LWE già presenti nei save vecchi: restano leggibili ma senza ulteriori risultati sintetici. Non collaudato in Windows; le routine OG offscreen e il subentro sono ancora da verificare.
+
+## 14 novembre 2026 — 0.13.44_06: native result does not require LWE mirror
+
+- [CODICE] `diy_competition.c` non tenta `ExpandedWorldLive_RecordNativeLeagueResult` quando il mondo OG-only non ha fixture LWE; la partita resta regolata e salvata nelle strutture native OG. Evita il falso messaggio UNMATCHED per ogni risultato OG valido. Le sessioni con fixture LWE di vecchi save mantengono il controllo di coerenza diagnostico.
+- [PENDENTE] Recupero dei risultati OG durante il subentro (il vecchio replay LWE non può più valere come dato autorevole); offerte dalla classifica OG e test Windows non completati.

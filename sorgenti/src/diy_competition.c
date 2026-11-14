@@ -10662,7 +10662,10 @@ void ProcessDIYLeagueMatchResultAndCareerUpdates(TeamFileEx *team1, TeamFileEx *
      * native league could not map the fixture to the world on replay, its
      * actual score MUST be reconciled instead of silently creating a
      * second points table. Normal manual games remain authoritative. */
-    if (_gameType==4 && d1<=31u && d2<=31u &&
+    /* OG-only: no parallel LWE ledger exists to mirror the score.
+     * Native match calculation above is already authoritative. */
+    if (_gameType==4 && ExpandedWorldLive_Fixtures()>0u &&
+        d1<=31u && d2<=31u &&
         (!Expanded_MidseasonJoin_Active() || !replayed)) {
         const uint16_t home=((uint16_t)team1->team.countryNumber<<8) |
                             (uint8_t)team1->team.teamOrdinal;

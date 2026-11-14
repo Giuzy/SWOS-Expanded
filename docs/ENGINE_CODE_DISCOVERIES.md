@@ -250,3 +250,10 @@ test di regressione e stato.
 - **Test C isolato eseguito localmente** per l'helper condiviso (GCC `-Werror`): fasi ripetute PASS; mismatch respinti PASS; 92 incontri a quattro cicli PASS. Il test è aggiunto a `run_test_engine_suite.sh` e `TEST_LIVING_WORLD.bat`. **Non è** test OG Windows di tutte le leghe.
 - **Calendario 30 anni**: `test_calendar_integrity_30.c` e i marker `CALENDAR_30Y_*` restano gate obbligatorio della suite esistente; in questa sessione NON è stata eseguita una compilazione completa Windows o il runtime OG. Mantenerli `NOT_TESTED` finché arrivano log della build aggiornata.
 - **Stato**: bug di riconciliazione per stessa fase = PATCH DI CODICE + TEST C ISOLATO; copertura completa 2/3/4 cicli = WINDOWS PENDENTE; identità canoniche delle 80 TMD nel gioco = AUDIT PARZIALE, RIMAPPATURA NON IMPLEMENTATA; 127 esclusi = AUDIT PENDENTE; coppe offscreen = NON TESTATE. Nessuna dichiarazione di integrazione totale o PASS Windows.
+
+
+## 14 novembre 2026 — World 2026/27, compatibilita' dei dati e debug NEW CAREER
+
+- [VERIFICATO NEL CODICE] `data_json/worlds/2627/WORLD.ini` sul ramo `dev/0.10` usa `efe1464b6d1d62b8`; la precedente `world_data.c` integrava ancora `bf50ef15a18f05ae`. I dati e le tabelle native delle competizioni sono legati alla stessa generazione: **non basta cambiare la stringa fingerprint**.
+- [CODICE 0.13.41 — WINDOWS NON TESTATO] Primo allineamento di `sorgenti/src/world_data.c` ai record generati da OpenSWOS ufficiale; mantenuti i fallback del ramo Expanded quando API mod-only upstream non esistono. Aggiunto debug switch con riavvio processo anziche' `World_Set` a runtime; JSON 2627 abilitato al boot. Valutare compilazione e test Windows prima di considerare utilizzabile il mondo.
+- [PENDENTE] `InitCareerClub` continua a richiamare `InitializeNewSeason`; il LWE non e' ancora pienamente sostituito dal coordinatore unico approvato. Non attribuire un eventuale avvio riuscito alla piena integrazione del motore.

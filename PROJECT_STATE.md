@@ -891,3 +891,12 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
 - Test C e Windows su questo commit: PENDENTI. 
   `RUNTIME_30_YEAR_CALENDAR_SAVE_LOAD` non e' certificato Windows.
   Nessuna modifica al motore partita, calendari OG o coppe.
+
+
+## Decisioni del 14 novembre 2026 — World moderni, campi, audio e migrazione
+
+- [APPROVATO] Nuova base futura: OpenSWOS ufficiale recente; conservare `dev/0.10` e asset/menu Expanded come riferimento, migrazione controllata su ramo dedicato (non ancora eseguita).
+- [APPROVATO] Un solo motore gestionale per 1996/97 e 2026/27 con regole dati distinte; niente duplicazione OG/LWE nella versione finale.
+- [CODICE DI PROVA 0.13.41, NON COLLAUDATO WINDOWS] Selettore DEBUG WORLD temporaneo in NEW CAREER con riavvio per non cambiare a caldo le tabelle native; cataloghi squadre 2026/27 presenti nel repository, compatibilita' applicativa da verificare.
+- [ARCHIVIATO LOCAMENTE, NON INTEGRATO NEL RENDERER] Raccolta dei DLC SWOS 2020 conservata intera, inclusi file accessori. In futuro classificare per condizioni invernali, stadi piccoli, tornei internazionali ecc. e scegliere dinamicamente secondo la competizione, con criteri da approvare.
+- [PIANIFICATO, NON ORA] Telecronaca durante le partite; selezione risorse, compatibilita', licenze e interfaccia rinviate a una fase successiva.

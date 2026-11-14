@@ -870,8 +870,22 @@ void Expanded_OfferPreviewDraw(void) {
             snprintf(line,sizeof line,"DIVISION %u - %u/%02u",
                      (unsigned)s_waitLeague+1,(unsigned)currentYear,
                      ((unsigned)currentYear+1u)%100u);
-            contest_line(100,line,2);
-            contest_line(150,"OG TABLE NOT YET PROCESSED",7);
+            contest_line(82,line,2);
+            /* The offer selector already cached real OG TEAM-file names.
+             * Display that safe read-only roster before the first OG
+             * standings callback; never infer PL/PTS or play fixtures. */
+            if(s_previewCount) {
+                contest_line(95,"CLUBS (OG TABLE NOT YET CACHED)",7);
+                const unsigned shown=s_previewCount<10u?s_previewCount:10u;
+                for(unsigned i=0;i<shown;++i) {
+                    snprintf(line,sizeof line,"%2u %.23s",
+                             i+1u,s_previewTeams[i]);
+                    contest_line(107u+i*10u,line,7);
+                }
+                contest_line(215,"TEAM FILE LIST - NO SIMULATED POINTS",6);
+            } else {
+                contest_line(150,"OG TABLE NOT YET PROCESSED",7);
+            }
         }
     }
 }

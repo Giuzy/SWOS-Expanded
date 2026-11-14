@@ -765,8 +765,12 @@ static void capture_native_og_league_table(void)
 {
     const DIYCompetitionEx *comp=&_diyCompetitionStart;
     const unsigned n=(unsigned)comp->base.numTeams;
+    /* hasGroups=1/2 can also mark the native slot's progression
+     * phase (Career_AutoAdvanceCompetitionSlots), not an invalid
+     * league. Verify the ACTUAL table shape instead of rejecting it. */
     if(_gameType!=4 || s_ogOfferYear==0xffffu ||
-       n<2u || n>OG_OFFER_ROWS || comp->base.hasGroups ||
+       comp->base.competitionType!=0 ||
+       n<2u || n>OG_OFFER_ROWS ||
        comp->base.matchPairsPerRound!=1u || _numSelectedTeams==0u)
         return;
     ExpandedLiveRow sample[OG_OFFER_ROWS];
@@ -801,7 +805,9 @@ static void capture_native_og_league_table(void)
         if(r->wins+r->drawn+r->lost!=r->played)return;
         for(unsigned j=0;j<i;++j)if(sample[j].club==r->club)return;
     }
-    if(!played)return; /* no inferred league ranks in preseason */
+    /* An OG table with zero matches is still a legitimate preseason
+     * snapshot, not evidence that the competition failed to initialize.
+     * Never synthesize points or simulate matches to fill this cache. */
     OGOfferTable *slot=NULL;
     for(uint32_t i=0;i<OG_OFFER_TABLES;++i)
         if(s_ogOfferTables[i].used &&
@@ -818,6 +824,10 @@ static void capture_native_og_league_table(void)
     slot->used=1;slot->country=country;
     slot->division=division;slot->count=(uint8_t)n;
     memcpy(slot->row,sample,(size_t)n*sizeof(*sample));
+    fprintf(stderr,"[og-offer-table] CAPTURE country=%u division=%u year=%u "
+                   "teams=%u played-sum=%u native-slot-phase=%d\n",
+            (unsigned)country,(unsigned)division,(unsigned)s_ogOfferYear,
+            n,played,(int)comp->base.hasGroups);
 }
 #endif
 

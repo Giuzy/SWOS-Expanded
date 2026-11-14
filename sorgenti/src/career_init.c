@@ -2577,19 +2577,15 @@ void Career_ViewOrEditCompetitionSlot(uint8_t *comp, uint16_t sel)
     if (comp == (uint8_t *)_quaternaryCompetitionPtr)
         goto found_slot;
 
-    /* Not in any active slot — auto-advance this external competition */
-    SaveSelectedTeams();
+    /* Expanded VIEW WORLD is a pure observation path: it must NEVER run
+     * the OG auto-advance callbacks when selecting an external competition.
+     * Resident OG results are simulated by START/FORWARD TIME, not menus. */
+#ifdef SWOS_SDL_BUILD
     {
-        int8_t compType = ((Competition *)comp)->type;
-        if (compType == 1) {
-            Career_AutoAdvanceCupCompetitionFromRecord(comp);
-        } else if (compType == 2) {
-            Career_AutoAdvanceLeagueCompetitionFromRecord(comp);
-        } else {
-            Career_AutoAdvanceInternationalCompetitionFixtures(comp, sel);
-        }
+        extern int Expanded_OGWorld_ViewLeague(const uint8_t *,uint16_t);
+        (void)Expanded_OGWorld_ViewLeague(comp,sel);
     }
-    RestoreSelectedTeams();
+#endif
     return;
 
 found_slot:

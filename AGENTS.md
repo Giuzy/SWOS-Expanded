@@ -567,3 +567,8 @@ Se una funzione OG originale mescola inizializzazione del manager, club, stagion
 
 ### 14/11/2026 — lifecycle OG e binding manager
 Le competizioni OG non si ricreano alla firma; la routine Expanded di binding deve acquisire uno stato già esistente, validare i riferimenti delle squadre e NON simulare le partite storiche una seconda volta. Non modificare le routine OG originarie utilizzate in CLASSIC MODES salvo necessità comprovata. Per state non verificati (coppe, storici, serializzazione) NON dichiarare completata l'unificazione.
+
+### 14/11/2026 — Finestre di mercato (decisione gameplay, NON ancora implementata)
+- Acquisti e accordi possono essere conclusi anche fuori finestra: il trasferimento **effettivo della registrazione e della rosa** avviene all'apertura della prossima finestra applicabile, mai retroattivamente. Fino a quel momento il giocatore resta nel club d'origine. Gli **svincolati** sono ingaggiabili e utilizzabili tutto l'anno.
+- La regola vale per manager e IA. Date per paese/lega, scadenze, salari/pagamenti e annullamenti restano da approvare. Non applicare date europee a tutti i mondi senza decisione.
+- **PRIORITÀ OPERATIVA:** prima completare le competizioni OG mondiali a START, FORWARD TIME, VIEW WORLD read-only e salvataggio; mercato rinviato. La compilazione e il test Windows sono effettuati dall'utente dopo sincronizzazione GitKraken; non presentarli come eseguiti dall'assistente.

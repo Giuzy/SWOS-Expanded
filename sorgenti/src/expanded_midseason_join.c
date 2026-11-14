@@ -324,7 +324,7 @@ int Expanded_MidseasonJoin_AlignSeason(uint32_t elapsed) {
     /* For OG-only careers the native OG competition state is canonical.
      * The old LWE roster staging was only required when transplanting a
      * separately simulated world. No LWE fixtures means no transplant. */
-    if (ExpandedWorldLive_Fixtures()>0u &&
+    if (!EXPANDED_WORLD_OG_ONLY && ExpandedWorldLive_Fixtures()>0u &&
         !ExpandedWorldLive_NativeMobilityPrepared()) {
         fprintf(stderr,"[midseason] native season members not synced to "
                        "world. Rejecting a fake multi-year join\n");
@@ -630,7 +630,7 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
         /* OG-only mode has no scored LWE fixtures. Never import a fake
          * table or replay a second score. The unchanged native callback
          * path below will advance every earlier OG match chronologically. */
-        if (ExpandedWorldLive_Fixtures()>0u &&
+        if (!EXPANDED_WORLD_OG_ONLY && ExpandedWorldLive_Fixtures()>0u &&
             DIY_WorldDirectImportLeagueChecked(cutoff,southern_attempt)) {
             if(southern_attempt) {
                 s_southern_handoff_status=1;

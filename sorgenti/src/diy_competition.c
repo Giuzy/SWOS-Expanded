@@ -10640,7 +10640,8 @@ void ProcessDIYLeagueMatchResultAndCareerUpdates(TeamFileEx *team1, TeamFileEx *
      *
      * Cached scores from an actual match (or another caller) still win.
      * Cups and post-hire interactive fixtures never call this bridge. */
-    if (Expanded_MidseasonJoin_Active() && _cachedViewResultTeam1Goals<0) {
+    if (!EXPANDED_WORLD_OG_ONLY &&
+        Expanded_MidseasonJoin_Active() && _cachedViewResultTeam1Goals<0) {
         uint8_t gh=0, ga=0;
         const uint16_t home=((uint16_t)team1->team.countryNumber<<8) |
                             (uint8_t)team1->team.teamOrdinal;
@@ -10664,8 +10665,8 @@ void ProcessDIYLeagueMatchResultAndCareerUpdates(TeamFileEx *team1, TeamFileEx *
      * second points table. Normal manual games remain authoritative. */
     /* OG-only: no parallel LWE ledger exists to mirror the score.
      * Native match calculation above is already authoritative. */
-    if (_gameType==4 && ExpandedWorldLive_Fixtures()>0u &&
-        d1<=31u && d2<=31u &&
+    if (!EXPANDED_WORLD_OG_ONLY && _gameType==4 &&
+        ExpandedWorldLive_Fixtures()>0u && d1<=31u && d2<=31u &&
         (!Expanded_MidseasonJoin_Active() || !replayed)) {
         const uint16_t home=((uint16_t)team1->team.countryNumber<<8) |
                             (uint8_t)team1->team.teamOrdinal;

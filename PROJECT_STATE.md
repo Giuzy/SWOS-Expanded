@@ -944,3 +944,7 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
 
 ## 0.13.44_08 — subentro attraverso callback OG
 - [CODICE] Con LWE simulator spento, il subentro non richiede più LWE mobile roster né direct table import; usa il fallback nativo OG già esistente per completare gli incontri precedenti. Le competizioni speciali e il handoff stagione finita richiedono prova reale. Test Windows NON ESEGUITI.
+
+
+## 0.13.44_09 — OG authority non riattiva LWE da save legacy
+- [CODICE] Gate centrale OG-only applicato a replay risultati, shuffle, standings e stage mobilità anche quando la carriera precedente conteneva fixture LWE. File di salvataggio invariati, compatibilità runtime Windows non provata. Ripristino OG gestione di tutte le competizioni ancora da testare e completare nei casi speciali.

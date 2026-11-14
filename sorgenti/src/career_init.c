@@ -1087,7 +1087,7 @@ void InitCareerClub(uint16_t teamNo)
      * OpenSWOS already owns division memberships and tournament setup.
      * Use the old LWE mobility stage ONLY for historical snapshots with
      * fixture records; a new OG-only career never needs this bridge. */
-    if (ExpandedWorldLive_Fixtures()>0u &&
+    if (!EXPANDED_WORLD_OG_ONLY && ExpandedWorldLive_Fixtures()>0u &&
         !ExpandedWorldLive_StageNativeMobility())
         fprintf(stderr,"[world-native-roster] ERROR: OG membership NOT "
                        "synchronized; midseason join must not be accepted\n");

@@ -1,5 +1,9 @@
 #ifndef EXPANDED_WORLD_LIVE_H
 #define EXPANDED_WORLD_LIVE_H
+/* Original OpenSWOS alone owns schedules, match scores, standings and
+ * promotions. Keep historical LWE snapshots readable, never authoritative.
+ * The switch is central so OLD saves cannot revive pilot scoring paths. */
+#define EXPANDED_WORLD_OG_ONLY 1
 #include "swos_types.h"
 #include "expanded_world_time.h"
 /* World competition ledger: real club IDs and original native SWOS

@@ -654,3 +654,7 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 ## [2026-11-14] 0.13.44_08 — OG native catch-up without LWE fixture transplant
 - [CODICE, NOT_TESTED] Salto del vecchio import LWE se il mondo non contiene fixture; subentro rimane gestito dalle azioni e callback native OG, senza punteggi sintetici esterni. Calendari meridionali e test Windows ancora aperti.
+
+
+## [2026-11-14] 0.13.44_09 — original OpenSWOS competition authority gate
+- [CODICE] Il gate OG-only blocca l'utilizzo di classifiche, sorteggi, replay e mobilità calcolati nel LWE anche nei vecchi salvataggi. I dati legacy vengono conservati ma non possono più sostituire punteggi, partite o ordinamenti nativi. Test Windows NOT_TESTED.

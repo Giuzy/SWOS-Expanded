@@ -248,6 +248,10 @@ static int live_fixture_roster(const LiveLeague *league,unsigned year,
  * All unrelated competitions retain the original SWOS shuffle. */
 int ExpandedWorldLive_NativeOrder(const uint16_t *ids,uint32_t count,
                                   uint8_t *order) {
+#if EXPANDED_WORLD_OG_ONLY
+    (void)ids;(void)count;(void)order;
+    return 0; /* always use the original OG fixture order */
+#endif
     if (!s_live || !ids || !order || count<2u ||
         count>LIVE_MAX_LEAGUE_CLUBS) return 0;
     for (uint32_t l=0;l<s_league_count;++l) {
@@ -1485,6 +1489,11 @@ static int row_before(const ExpandedLiveRow *a,const ExpandedLiveRow *b) {
 int ExpandedWorldLive_Table(uint8_t country, uint8_t division,
                             ExpandedLiveRow *rows, uint32_t capacity,
                             uint32_t *total) {
+#if EXPANDED_WORLD_OG_ONLY
+    (void)country;(void)division;(void)rows;(void)capacity;
+    if(total) *total=0;
+    return 0; /* no native OG standings bridge yet: never show LWE data */
+#endif
     LiveLeague *league=league_by_id(country,division);
     ExpandedWorldStanding table[LIVE_MAX_LEAGUE_CLUBS];
     int32_t season_delta;

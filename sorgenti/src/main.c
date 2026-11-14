@@ -1220,10 +1220,17 @@ int main(int argc, char **argv)
         extern void Expanded_CurrencyLoad(void);
         Expanded_CurrencyLoad();        /* user-selected EXPANDED currency */
     }
-    /* The football world (include/world.h): --world, else SWOS_WORLD, else SWOS.ini's, else
-     * 96/97 -- World 2026-27's data is the player's to add (OpenSWOS Setup imports it). */
+    /* The football world: explicit --world / SWOS_WORLD / SWOS.ini selection,
+     * otherwise 2026/27 (Expanded default); unavailable/incompatible data
+     * falls back to OG 1996/97 before installing the competition tables. */
     if (!opts.world[0] && getenv("SWOS_WORLD") && getenv("SWOS_WORLD")[0])
         snprintf(opts.world, sizeof opts.world, "%s", getenv("SWOS_WORLD"));
+    /* Expanded's default NEW CAREER world is the contemporary data set.
+     * Explicit --world / SWOS_WORLD / SWOS.ini selections remain authoritative.
+     * Validate the installed package below, before FrontEndPreLoopSetup
+     * installs the corresponding native competition tables. */
+    if (!opts.world[0])
+        snprintf(opts.world, sizeof opts.world, "%s", "2627");
     if (opts.world[0] && World_Set(opts.world) != 0)
         fprintf(stderr, "[world] unknown world '%s' in SWOS.ini: playing %s\n", opts.world, World_Tag());
     if (World_Current() != WORLD_9697) {
@@ -1246,6 +1253,10 @@ int main(int argc, char **argv)
                 fprintf(stderr, "[world] %s: its installed data is %s, this build's is %s -- install the package "
                         "made for this version\n", World_Tag(), fp[0] ? fp : "unknown", World_DataFingerprint());
                 AssetsCheck_SetWorld(2, World_Tag(), fp, World_DataFingerprint());
+                /* Never run native tables against another generation's JSON.
+                 * Keep the diagnostic mismatch recorded before falling back. */
+                fprintf(stderr, "[world] incompatible 2627 database: falling back to 9697 (no 2627 career started)\n");
+                World_Set("9697");
             }
         }
     }

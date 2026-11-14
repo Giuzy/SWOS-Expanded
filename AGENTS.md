@@ -473,10 +473,15 @@ registro mondiale condiviso, non sostituendoli con un motore parallelo.
   e fatti persistenti irripetibili. Non duplicare database installati
   (`data/`, JSON/pack). Un download iniziale da 1,5 GB è accettabile.
   Questa è architettura APPROVATA, non interamente implementata.
-- Un solo `save/AUTOSAVE.CAR` duraturo, sostituzione atomica a checkpoint
-  sicuri e ripristino dopo chiusura/restart. EXIT GAME e ritorno al Title
-  non cancellano. Ritiro definitivo elimina lo slot; abbandono volontario
-  andrà offerto come azione DISTINTA e confermata.
+- Decisione aggiornata 14 novembre 2026: **due slot autosave**, uno per
+  mondo: `save/AUTO9697.CAR` e `save/AUTO2627.CAR`, ognuno sostituito
+  atomicamente ai checkpoint sicuri. Il precedente `save/AUTOSAVE.CAR` è
+  fonte di recupero compatibile in sola lettura, finché un nuovo checkpoint
+  del mondo corrispondente riesce. Non convertirlo o cancellarlo da soli.
+  CONTINUE considera il solo mondo attivo e verifica schema, kind e world.
+  EXIT GAME e Title non cancellano; ritiro definitivo elimina soltanto
+  il salvataggio attivo del proprio mondo; abbandono volontario andrà
+  offerto come azione distinta e confermata.
 - Per impedire di rigiocare un match serve il ripristino esatto dello
   stato live del motore OpenSWOS 50 Hz. Non salvare un mezzo stato né
   assegnare sconfitte arbitrarie per crash. Segnalare anti-save-scum
@@ -537,3 +542,13 @@ registro mondiale condiviso, non sostituendoli con un motore parallelo.
 
 ### Diagnostica permanente (decisione del 13 novembre 2026)
 Per ogni nuova funzione del motore o nuovo formato di competizione mantenere un audit dei DATI reali distinto dai test C isolati e dagli eventi della carriera Windows. I nuovi formati introdotti nel database partono NOT_TESTED fino a test funzionali significativi; non ereditano PASS da altri campionati. Per bug di campionato/coppie temporali/coppe, registrare ID, fase, data, risultato atteso/effettivo, primo errore, e preparare un BAT che raccolga i log della sessione quando possibile. Gli screenshot restano per anomalie visive o dettagli non disponibili nel log. Non pilotare mai i risultati.
+
+
+## Decisione confermata 14 novembre 2026 — OG unico proprietario
+- Per **entrambi** i mondi 1996/97 e 2026/27, il motore originale OpenSWOS è autorità di carriera, data, calendari, partite, risultati, competizioni e storico originale. Il LWE può **solo estendere** OG con finanze, trasferimenti, allenatori AI ed eventi aggiuntivi; non deve generare una seconda fonte autorevole di giornate, risultati o archivi. Questa decisione sostituisce le precedenti proposte di un secondo orologio civile LWE e di un calendario mondiale proprio.
+- Non introdurre ora conversioni di date né ampliamenti archivi: verificare prima cosa conserva OG. Spostare il caricamento mondo al comando START solo dopo aver predisposto ripristino completo delle tabelle native/JSON in memoria senza riavvio, con scelta corretta del save per mondo e test Windows. Non considerare il refactoring delle inizializzazioni prova di integrazione completa.
+
+
+## Regola confermata 14 novembre 2026 — commit unico e OG a START
+- Per ogni intervento autorizzato preparare prima tutte le modifiche, controlli e documentazione; creare **uno e un solo commit finale**, mai una serie di commit correttivi salvo nuova autorizzazione.
+- Dopo NEW CAREER -> START l'intero mondo OG e tutte le competizioni nazionali/internazionali devono essere inizializzati e avanzare indipendentemente dal club umano. START UNEMPLOYED non deve attivare un secondo simulatore; l'ingresso in club non deve creare calendari nuovi. Le classifiche dell'offerta devono provenire dai risultati originali OG per paese, divisione e stagione. Il codice attuale non certifica ancora l'intera fase START né il progresso OG per giornata: non dichiarare raggiunto l'obiettivo finché non verificato su Windows.

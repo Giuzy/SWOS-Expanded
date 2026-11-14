@@ -652,6 +652,9 @@ void DIY_CacheSelectedTeamPointers(void)
  * Sort by: points > goal diff > goals scored > alphabetical name
  * ================================================================ */
 __attribute__((used, externally_visible))
+#ifdef SWOS_SDL_BUILD
+static void capture_native_og_league_table(void);
+#endif
 void DIY_SortLeagueTableByStandings(void)
 {
     if (LeaguePhase_Sort())     /* (a world's league phase: one table of 36, include/league_phase.h) */
@@ -717,7 +720,106 @@ void DIY_SortLeagueTableByStandings(void)
         entryBase += teamsPerGroup;
     }
     LeagueSplit_Sort();         /* (a world league's split: its groups, include/league_split.h) */
+#ifdef SWOS_SDL_BUILD
+    capture_native_og_league_table();
+#endif
 }
+
+/* A READ-ONLY offer snapshot, copied only when native OG has actual league
+ * statistics. It is NOT a league simulation or an additional table writer.
+ * When a season changes every row is invalidated; no previous-season result
+ * may masquerade as the current standings. */
+#ifdef SWOS_SDL_BUILD
+#define OG_OFFER_TABLES 512u
+#define OG_OFFER_ROWS 26u
+typedef struct {
+    uint8_t used,country,division,count;
+    ExpandedLiveRow row[OG_OFFER_ROWS];
+} OGOfferTable;
+static OGOfferTable s_ogOfferTables[OG_OFFER_TABLES];
+static uint16_t s_ogOfferYear=0xffffu;
+void DIY_OGStandings_SetSeason(uint16_t year)
+{
+    if(s_ogOfferYear==year)return;
+    memset(s_ogOfferTables,0,sizeof s_ogOfferTables);
+    s_ogOfferYear=year;
+    fprintf(stderr,"[og-offer-table] reset season=%u (no LWE scoring)\n",
+            (unsigned)year);
+}
+int DIY_OGStandings_Read(uint8_t country,uint8_t division,uint16_t year,
+                         ExpandedLiveRow *rows,uint32_t cap,uint32_t *total)
+{
+    if(total)*total=0;
+    if(!rows || !total || year!=s_ogOfferYear)return 0;
+    for(uint32_t i=0;i<OG_OFFER_TABLES;++i) {
+        const OGOfferTable *t=&s_ogOfferTables[i];
+        if(!t->used||t->country!=country||t->division!=division ||
+           t->count>cap)continue;
+        memcpy(rows,t->row,(size_t)t->count*sizeof(*rows));
+        *total=t->count;
+        return 1;
+    }
+    return 0;
+}
+static void capture_native_og_league_table(void)
+{
+    const DIYCompetitionEx *comp=&_diyCompetitionStart;
+    const unsigned n=(unsigned)comp->base.numTeams;
+    if(_gameType!=4 || s_ogOfferYear==0xffffu ||
+       n<2u || n>OG_OFFER_ROWS || comp->base.hasGroups ||
+       comp->base.matchPairsPerRound!=1u || _numSelectedTeams==0u)
+        return;
+    ExpandedLiveRow sample[OG_OFFER_ROWS];
+    uint8_t country=0,division=0;
+    unsigned played=0;
+    for(unsigned i=0;i<n;++i) {
+        const uint16_t off=comp->matchData.league.teamEntryOffsets[i];
+        if(off%18u!=0u || off/18u>=n)return;
+        const DIYTeamStats *stat=&comp->leagueStandings[off/18u];
+        const int32_t sel=stat->teamSelOffset;
+        if(sel< -1 || (sel>=0 && (uint32_t)sel>=_numSelectedTeams))
+            return;
+        const TeamFileEx *team=(const TeamFileEx *)diy_resolve_team(sel);
+        if(!team)return;
+        const uint8_t currentCountry=World_FileCountry(team->team.countryNumber);
+        const uint8_t currentDivision=team->team.league;
+        if(!i){country=currentCountry;division=currentDivision;}
+        else if(country!=currentCountry || division!=currentDivision)return;
+        ExpandedLiveRow *r=&sample[i];
+        memset(r,0,sizeof(*r));
+        r->club=PACK_BE_U16(team->team.countryNumber,team->team.teamOrdinal);
+        memcpy(r->name,team->team.teamName,17u);
+        r->name[17]=0;
+        r->played=stat->gamesPlayed;
+        r->wins=stat->wins;
+        r->drawn=stat->draws;
+        r->lost=stat->losses;
+        r->scored=stat->goalsFor;
+        r->conceded=stat->goalsAgainst;
+        r->points=stat->points;
+        played+=r->played;
+        if(r->wins+r->drawn+r->lost!=r->played)return;
+        for(unsigned j=0;j<i;++j)if(sample[j].club==r->club)return;
+    }
+    if(!played)return; /* no inferred league ranks in preseason */
+    OGOfferTable *slot=NULL;
+    for(uint32_t i=0;i<OG_OFFER_TABLES;++i)
+        if(s_ogOfferTables[i].used &&
+           s_ogOfferTables[i].country==country &&
+           s_ogOfferTables[i].division==division) {
+            slot=&s_ogOfferTables[i];break;
+        }
+    if(!slot)
+        for(uint32_t i=0;i<OG_OFFER_TABLES;++i)
+            if(!s_ogOfferTables[i].used) {
+                slot=&s_ogOfferTables[i];break;
+            }
+    if(!slot)return;
+    slot->used=1;slot->country=country;
+    slot->division=division;slot->count=(uint8_t)n;
+    memcpy(slot->row,sample,(size_t)n*sizeof(*sample));
+}
+#endif
 
 /* ================================================================
  * DIY_ComputeAverageTeamStrengthTier
@@ -10640,7 +10742,8 @@ void ProcessDIYLeagueMatchResultAndCareerUpdates(TeamFileEx *team1, TeamFileEx *
      *
      * Cached scores from an actual match (or another caller) still win.
      * Cups and post-hire interactive fixtures never call this bridge. */
-    if (Expanded_MidseasonJoin_Active() && _cachedViewResultTeam1Goals<0) {
+    if (!EXPANDED_WORLD_OG_ONLY &&
+        Expanded_MidseasonJoin_Active() && _cachedViewResultTeam1Goals<0) {
         uint8_t gh=0, ga=0;
         const uint16_t home=((uint16_t)team1->team.countryNumber<<8) |
                             (uint8_t)team1->team.teamOrdinal;
@@ -10662,7 +10765,10 @@ void ProcessDIYLeagueMatchResultAndCareerUpdates(TeamFileEx *team1, TeamFileEx *
      * native league could not map the fixture to the world on replay, its
      * actual score MUST be reconciled instead of silently creating a
      * second points table. Normal manual games remain authoritative. */
-    if (_gameType==4 && d1<=31u && d2<=31u &&
+    /* OG-only: no parallel LWE ledger exists to mirror the score.
+     * Native match calculation above is already authoritative. */
+    if (!EXPANDED_WORLD_OG_ONLY && _gameType==4 &&
+        ExpandedWorldLive_Fixtures()>0u && d1<=31u && d2<=31u &&
         (!Expanded_MidseasonJoin_Active() || !replayed)) {
         const uint16_t home=((uint16_t)team1->team.countryNumber<<8) |
                             (uint8_t)team1->team.teamOrdinal;

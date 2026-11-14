@@ -615,3 +615,50 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 - [CODICE, TEST PENDENTI] Portati da OpenSWOS `main` i record generati `world_data.c` compatibili con il pacchetto `data_json/worlds/2627/WORLD.ini` (`efe1464b6d1d62b8`). Restano fuori le API mod aggiunte nell'upstream e non presenti in Expanded: la logica 96/97 mantiene il default nativo.
 - [CODICE, TEST PENDENTI] Il World 2026/27 abilita `SWOS_DATA_JSON=1` anche se il launcher sviluppo forza 0; 96/97 mantiene la sua impostazione originale.
 - **Compilazione locale, test integrato Windows e carriera 2026/27: NOT_TESTED.** Questa integrazione NON sostituisce ancora tutto il motore gestionale con OpenSWOS recente e NON certifica il funzionamento di START, coppe o classifiche. I campi SWOS 2020 rimangono archiviati, non attivati.
+
+
+## [2026-11-14] 0.13.42 — sicurezza fingerprint World 2026/27
+
+- [CODICE / WINDOWS NON TESTATO] Il controllo fingerprint dei dati 2627 ora impedisce di proseguire nel mondo moderno quando il WORLD.ini non corrisponde alle tabelle native: registra il mismatch e ripristina il mondo 9697 prima dell'inizializzazione. Il caso WORLD.ini assente mantiene il fallback gia' presente.
+- [LIMITI] Il selettore DEBUG WORLD continua a richiedere il riavvio (come in 0.13.41); motore OG unico per carriera/calendario/coppe NON completato. Nessun compilatore Windows eseguito tramite collegamento GitHub. Segnata l'interruzione "Connection interrupted" e mantenuto lo stato delle verifiche pendenti.
+
+
+## [2026-11-14] 0.13.43 — default World al bootstrap
+- [CODICE] `main.c` seleziona 2026/27 se il mondo non è stato indicato; rimangono prioritari i valori espliciti e la validazione preventiva del pacchetto 2627. La selezione avviene prima che `frontend.c` installi le tabelle OG. Test Windows NON ESEGUITI, nessuna migrazione a caldo o unificazione LWE dichiarata.
+
+
+## [2026-11-14] 0.13.43_01 — log completo identificatori club esclusi
+- [CODICE] L'importatore registra su SWOS.log ogni riga TEAM esclusa con chiavi sorgente e motivo, al posto di perdere i dettagli dopo il campione F10. Non cambia fixture, classifiche, salvataggi o rosa. Test runtime Windows NON ESEGUITO.
+
+
+## [2026-11-14] 0.13.44_02 — autosave indipendenti per i due mondi
+- [CODICE] Scrittura checkpoint per mondo in `AUTO9697.CAR` o `AUTO2627.CAR`, senza sovrascrivere `AUTOSAVE.CAR` storico. Lettura legacy compatibile in fallback; CONTINUE mantiene controllo schema/kind/world. La rimozione a fine carriera riguarda solo il mondo attivo. Build e test Windows: PENDENTI.
+
+
+## [2026-11-14] 0.13.44_03 — OG world / competitions / manager separati
+
+- [CODICE, WINDOWS NOT_TESTED] Divisa inizializzazione competizioni OG da world e manager in `career_init.c`, preservando le originali routine/reset, senza cambiare fisica o salvataggi. Corretto il percorso OG cups del 1996/97 che saltava la lista dei paesi; indice stagione in codifica OG 96-based con wrap 99->0. Non tutte le coppe né il calendario mondiale OG sono ancora integrati end-to-end.
+
+
+## [2026-11-14] 0.13.44_04 — OG native league callbacks; no autonomous LWE scores
+- [CODICE, NON TESTATO] Nella carriera non si inizializzano più fixture sintetiche LWE e il suo avanzamento non risolve partite, amichevoli o promozioni. Il percorso disoccupato chiama anche le routine OpenSWOS native per divisione a fine stagione. Restano aperti avanzamento durante l'anno, subentro e offerte. Windows e suite integrata: NOT_TESTED.
+
+
+## [2026-11-14] 0.13.44_05 — OG-only save reader
+- [CODICE] Snapshot nuovo senza fixture LWE accettato dal reader se contatori risultati coerentemente nulli. Log escape corretto. Prova save/load Windows PENDENTE.
+
+
+## [2026-11-14] 0.13.44_07 — offerte senza standings LWE
+- [CODICE, NOT_TESTED] Disponibilità di club nelle ultime divisioni originali con almeno quattro livelli importati senza simulare LWE. Non inventa ranking; collegamento alle classifiche OG per realismo offerte ancora da fare.
+
+
+## [2026-11-14] 0.13.44_08 — OG native catch-up without LWE fixture transplant
+- [CODICE, NOT_TESTED] Salto del vecchio import LWE se il mondo non contiene fixture; subentro rimane gestito dalle azioni e callback native OG, senza punteggi sintetici esterni. Calendari meridionali e test Windows ancora aperti.
+
+
+## [2026-11-14] 0.13.44_09 — original OpenSWOS competition authority gate
+- [CODICE] Il gate OG-only blocca l'utilizzo di classifiche, sorteggi, replay e mobilità calcolati nel LWE anche nei vecchi salvataggi. I dati legacy vengono conservati ma non possono più sostituire punteggi, partite o ordinamenti nativi. Test Windows NOT_TESTED.
+
+
+## [2026-11-14] 0.13.45 — read-only standings bridge for unemployed offers
+- [CODICE] Copia temporanea delle classifiche OG quando effettivamente sortite dal motore originale (club IDs e W/D/L/GF/GA/PTS); chiavi per paese, divisione e stagione, invalidazione tra stagioni. Anteprima e selezione offerte usano solo tali valori se disponibili, senza riaccendere score LWE. Nessuna partita ulteriore viene simulata dal ponte. Windows NOT_TESTED.

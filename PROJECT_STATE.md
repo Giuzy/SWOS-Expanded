@@ -900,3 +900,56 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
 - [CODICE DI PROVA 0.13.41, NON COLLAUDATO WINDOWS] Selettore DEBUG WORLD temporaneo in NEW CAREER con riavvio per non cambiare a caldo le tabelle native; cataloghi squadre 2026/27 presenti nel repository, compatibilita' applicativa da verificare.
 - [ARCHIVIATO LOCAMENTE, NON INTEGRATO NEL RENDERER] Raccolta dei DLC SWOS 2020 conservata intera, inclusi file accessori. In futuro classificare per condizioni invernali, stadi piccoli, tornei internazionali ecc. e scegliere dinamicamente secondo la competizione, con criteri da approvare.
 - [PIANIFICATO, NON ORA] Telecronaca durante le partite; selezione risorse, compatibilita', licenze e interfaccia rinviate a una fase successiva.
+
+
+## 0.13.42 — checkpoint GitHub del 14 novembre 2026
+
+- [CODICE] Protezione fingerprint 2627: ritorno a 9697 se i dati installati appartengono a generazione incompatibile; non cambia il salvataggio e non installa file nuovi.
+- [DA FARE] Migrazione approvata all'unica autorita' OG per competizioni, calendario, cronologia e carriera: NON COMPLETATA; verificare il piano per il ramo dedicato prima di interventi strutturali. Il selettore DEBUG WORLD 0.13.41 riavvia ancora il processo, contrario all'obiettivo finale di selezione senza riavvio.
+- [TEST] Build Windows / menu / 2026/27 / fallback fingerprint: NOT_TESTED; eseguibile Windows non generato dall'assistente. Chat "Connection interrupted" segnalata il 14/11/2026.
+
+
+## 0.13.43 — World 2026/27 predefinito all'avvio (14/11/2026)
+
+- [CODICE] Se non viene indicato il mondo con impostazione/configurazione/CLI, SWOS Expanded tenta 2627 al bootstrap e verifica WORLD.ini prima di installare le tabelle native. Una scelta esplicita 9697 è rispettata. Avvio Windows NOT_TESTED.
+- [NON COMPLETATO] Cambio in NEW CAREER senza riavvio, una sola autorità OG per simulazione completa, migrazione delle competizioni e dismissione LWE, audit 80/127 e stress runtime. Non confondere 0.13.43 con la build finale della richiesta.
+
+
+## 0.13.44_02 — due autosave separati (decisione 14/11/2026)
+
+- [CODICE] `save/AUTO9697.CAR` e `save/AUTO2627.CAR`; vecchio `AUTOSAVE.CAR` disponibile solo come fonte read-only con world/schema compatibili. Nessuna conversione/cancellazione automatica; il checkpoint del mondo attivo non può sovrascrivere quello dell'altro mondo. CONTINUE verde solo per lo slot compatibile del mondo attivo.
+- [PENDENTE] Verificare primo caricamento del legacy, save successivo, switch dei mondi, avvio disoccupato e pensione su Windows. Migrazione world bootstrap a START e separazione init ancora NON IMPLEMENTATE.
+
+
+## 0.13.44_03 — checkpoint codice native OG (14/11/2026)
+
+- [APPROVATO] OpenSWOS è proprietario della progressione di carriera, data, calendari, partite, risultati e archivi storici OG tanto in 1996/97 quanto in 2026/27. LWE aggiunge sistemi nuovi, non una seconda simulazione autorevole. Niente formule di date, archivi o calendari nuovi in questa fase.
+- [CODICE] Lifecycle a START separato fra reset del world OG, reset competizioni OG, manager OG; club all'accettazione. Ripristinato l'elenco nazionale storico per callback OG delle coppe durante disoccupazione. Questo NON significa che tutta la disoccupazione sia gia' simulata da OG: il percorso LWE per i match lontani resta attivo ed è ancora da sostituire.
+- [TEST] Windows/MSYS2/suite complete non eseguiti da qui. Conservare entrambi AUTO9697.CAR e AUTO2627.CAR e legacy AUTOSAVE.CAR.
+
+
+## 0.13.44_04 — LWE simulator disattivato (14/11/2026)
+
+- [CODICE] Dismessa in carriera la generazione LWE di fixture, risultati, amichevoli, mobilità e backfill retroattivo. Richiamate routine OG delle divisioni a fine anno durante disoccupazione. LWE conserva dati dei club e lettura vecchie snapshot senza generare risultati. Data LWE residua è un cursore UI/compatibilità, NON la nuova autorità sportiva.
+- [NON RISOLTO] OG offscreen fase per fase, classifiche/offer AI collegate a OG, subentro a stagione in corso, verifica 1996/97 e 2026/27, compatibilità vecchi salvataggi LWE. Test Windows pendenti. Non dichiarare “disoccupazione funziona” da sola esistenza del callback.
+
+
+## 0.13.44_05 — compatibilità save OG-only
+- [CODICE] Snapshot di sola anagrafica LWE senza partite ora deserializzabile (zero fixture e zero risultati dichiarati). Mantiene due autosave distinti e file legacy. Test Windows NOT_TESTED.
+
+
+## 0.13.44_07 — offerte OG-only basate su divisioni reali
+- [CODICE] Il primo incarico da disoccupato può trovare squadre nelle divisioni inferiori usando il catalogo dei campionati OG senza LWE scored matches. Risultati/posizione in classifica OG non sono ancora importati: filtro performance team disattivo, dichiarato nel log. Test Windows pendente.
+
+
+## 0.13.44_08 — subentro attraverso callback OG
+- [CODICE] Con LWE simulator spento, il subentro non richiede più LWE mobile roster né direct table import; usa il fallback nativo OG già esistente per completare gli incontri precedenti. Le competizioni speciali e il handoff stagione finita richiedono prova reale. Test Windows NON ESEGUITI.
+
+
+## 0.13.44_09 — OG authority non riattiva LWE da save legacy
+- [CODICE] Gate centrale OG-only applicato a replay risultati, shuffle, standings e stage mobilità anche quando la carriera precedente conteneva fixture LWE. File di salvataggio invariati, compatibilità runtime Windows non provata. Ripristino OG gestione di tutte le competizioni ancora da testare e completare nei casi speciali.
+
+
+## 0.13.45 — ponte read-only classifiche OG nelle offerte (14/11/2026)
+- [CODICE] `DIY_SortLeagueTableByStandings` acquisisce le righe reali OpenSWOS dopo sort, con validazione identità/partite, senza simulazione LWE; la vista offerte legge per paese/divisione/stagione dalla cache OG, altrimenti mostra indisponibilità. La selezione delle offerte restringe ai club in seconda metà soltanto quando una classifica OG corrente è disponibile; prima usa il fallback delle ultime divisioni e non inventa risultati.
+- [LIMITE FONDAMENTALE] A START `InitCareerCompetitions` prepara ancora i template; `InitializeNewSeason` necessita club e viene chiamata in `InitCareerClub`. Mancano scheduler OG universale per turni durante disoccupazione e attivazione completa di tutte le competizioni a START: requisito utente NON COMPLETATO. Cache OG in RAM non sostituisce salvataggio nativo di classifiche. Windows/compile NOT_TESTED.

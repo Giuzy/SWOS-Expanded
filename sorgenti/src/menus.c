@@ -4065,60 +4065,102 @@ extern int16_t SavePresetCompetitionFile(uint8_t *filename);
 extern int16_t SaveCareerFile(uint8_t *filename);
 extern int16_t LoadCareerFile(uint8_t *filename);
 #ifdef SWOS_SDL_BUILD
-/* A SINGLE portable autosave slot. File existence is cached so the 50 Hz
- * Title renderer never probes the disk every frame. The save itself uses
- * swos_io_save_atomic in the JSON writer, retaining the previous checkpoint
- * on power loss or write failure. */
-static uint8_t s_auto_career_name[]="AUTOSAVE.CAR";
+/* One atomic career checkpoint PER WORLD. The legacy AUTOSAVE.CAR is
+ * read-only fallback, never overwritten by either world. The world tag
+ * remains in JSON and SaveJson_CareerCompatible checks it before CONTINUE.
+ * Cache the selected source, not merely the existence of some JSON. */
+static uint8_t s_auto_9697[]="AUTO9697.CAR";
+static uint8_t s_auto_2627[]="AUTO2627.CAR";
+static uint8_t s_auto_legacy[]="AUTOSAVE.CAR";
 static int s_auto_career_available=-1;
+static int s_auto_career_cached_world=-1;
+static uint8_t *s_auto_career_source;
+static uint8_t *auto_career_slot(void) {
+    return World_Current()==WORLD_2627 ? s_auto_2627 : s_auto_9697;
+}
+static void auto_career_cache_world(void) {
+    const int current=(int)World_Current();
+    if(s_auto_career_cached_world!=current) {
+        s_auto_career_cached_world=current;
+        s_auto_career_available=-1;
+        s_auto_career_source=NULL;
+    }
+}
 int Expanded_AutoCareer_HasSave(void) {
-    if (s_auto_career_available<0)
-        s_auto_career_available =
-            (SaveJson_FileIsJson(s_auto_career_name)==1) ? 1 : 0;
+    auto_career_cache_world();
+    if(s_auto_career_available<0) {
+        uint8_t *native=auto_career_slot();
+        s_auto_career_source=NULL;
+        if(SaveJson_CareerCompatible(native)) {
+            s_auto_career_source=native;
+        } else if(SaveJson_CareerCompatible(s_auto_legacy)) {
+            /* One-time compatibility with old installations; do not move,
+             * delete or rename a save until a successful new checkpoint. */
+            s_auto_career_source=s_auto_legacy;
+        }
+        s_auto_career_available=s_auto_career_source!=NULL;
+        fprintf(stderr,"[autosave] world=%s available=%d source=%s\n",
+                World_Tag(),s_auto_career_available,
+                s_auto_career_source?(const char *)s_auto_career_source:"none");
+    }
     return s_auto_career_available;
 }
 void Expanded_AutoCareer_Save(const char *reason) {
-    /* Never record a half-updated native match, a headless catch-up
-     * step, or a fresh game with no completed InitCareer. */
     extern int Expanded_MidseasonJoin_Active(void);
-    if (_gameType!=GAME_TYPE_CAREER || _careerAutoAdvanceInProgress ||
-        _seasonUpdateInProgress || Expanded_MidseasonJoin_Active())
+    if(_gameType!=GAME_TYPE_CAREER || _careerAutoAdvanceInProgress ||
+       _seasonUpdateInProgress || Expanded_MidseasonJoin_Active())
         return;
-    if (SaveCareerFile(s_auto_career_name)!=0) {
-        fprintf(stderr,"[autosave] FAILED at %s; earlier checkpoint retained\n",
-                reason?reason:"unknown");
+    uint8_t *native=auto_career_slot();
+    if(SaveCareerFile(native)!=0) {
+        fprintf(stderr,"[autosave] FAILED world=%s at %s; previous file retained\n",
+                World_Tag(),reason?reason:"unknown");
         return;
     }
+    auto_career_cache_world();
+    s_auto_career_source=native;
     s_auto_career_available=1;
-    fprintf(stderr,"[autosave] saved %s/AUTOSAVE.CAR at %s\n",
-            swos_save_dir(),reason?reason:"checkpoint");
+    fprintf(stderr,"[autosave] saved %s/%s world=%s at %s\n",
+            swos_save_dir(),(const char *)native,World_Tag(),
+            reason?reason:"checkpoint");
 }
 int Expanded_AutoCareer_Load(void) {
-    if (!Expanded_AutoCareer_HasSave()) return 0;
-    if (LoadCareerFile(s_auto_career_name)!=0) {
-        /* Keep the file for recovery; stop presenting a broken CONTINUE. */
+    if(!Expanded_AutoCareer_HasSave()) return 0;
+    uint8_t *source=s_auto_career_source;
+    if(!source || LoadCareerFile(source)!=0) {
         s_auto_career_available=0;
-        fprintf(stderr,"[autosave] load failed; file left untouched\n");
+        s_auto_career_source=NULL;
+        fprintf(stderr,"[autosave] load failed world=%s; file preserved\n",World_Tag());
         return 0;
     }
-    if (_gameType!=GAME_TYPE_CAREER) {
+    if(_gameType!=GAME_TYPE_CAREER) {
         s_auto_career_available=0;
+        s_auto_career_source=NULL;
         fprintf(stderr,"[autosave] loaded save is not a career\n");
         return 0;
     }
-    /* Native load handler rebuilt all pointer/competition state. */
-    snprintf((char *)_competitionFilename,14,"%s",s_auto_career_name);
-    fprintf(stderr,"[autosave] restored career from %s/AUTOSAVE.CAR\n",
-            swos_save_dir());
+    snprintf((char *)_competitionFilename,14,"%s",(const char *)source);
+    fprintf(stderr,"[autosave] restored career from %s/%s world=%s\n",
+            swos_save_dir(),(const char *)source,World_Tag());
     return 1;
 }
 void Expanded_AutoCareer_Delete(void) {
-    /* Only at an explicit irrevocable end, NEVER EXIT GAME or back to Title. */
+    /* Retirement removes only the ACTIVE world's career checkpoint.
+     * Never touch the other world. If a legacy save supplied this career,
+     * remove only that source, not an unrelated modern slot. */
     char path[1200];
-    snprintf(path,sizeof path,"%s/AUTOSAVE.CAR",swos_save_dir());
-    if (remove(path)==0 || !Expanded_AutoCareer_HasSave()) {
-        s_auto_career_available=0;
-        fprintf(stderr,"[autosave] completed career slot removed\n");
+    auto_career_cache_world();
+    uint8_t *source=s_auto_career_source;
+    if(!source) {
+        (void)Expanded_AutoCareer_HasSave();
+        source=s_auto_career_source;
+    }
+    if(!source) return;
+    snprintf(path,sizeof path,"%s/%s",swos_save_dir(),(const char *)source);
+    if(remove(path)==0) {
+        s_auto_career_available=-1;
+        s_auto_career_source=NULL;
+        fprintf(stderr,"[autosave] retired career slot removed world=%s filename=%s\n",
+                World_Tag(),(const char *)source);
     } else
         fprintf(stderr,"[autosave] cannot remove retired slot %s\n",path);
 }

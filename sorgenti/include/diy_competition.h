@@ -6,6 +6,9 @@
 /* diy_competition.h — DIY competition/tournament management, player pricing */
 #pragma once
 #include "game_types.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_world_live.h"
+#endif
 
 /* --- Helpers that replace the historical `comp + 0xN` byte arithmetic.
  *
@@ -67,6 +70,13 @@ uint16_t DIY_CountUnselectedTeams(void);
 
 /* --- DIY League Table --- */
 void DIY_SortLeagueTableByStandings(void);
+#ifdef SWOS_SDL_BUILD
+/* Read-only snapshot of native OpenSWOS standings; never generates scores.
+ * A missing table is NOT a zero-points table. */
+void DIY_OGStandings_SetSeason(uint16_t year);
+int DIY_OGStandings_Read(uint8_t country,uint8_t division,uint16_t year,
+                         ExpandedLiveRow *rows,uint32_t capacity,uint32_t *total);
+#endif
 
 /* --- DIY Strength/Bracket --- */
 uint32_t DIY_ComputeAverageTeamStrengthTier(uint16_t count, uint8_t *table);

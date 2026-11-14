@@ -248,6 +248,10 @@ static int live_fixture_roster(const LiveLeague *league,unsigned year,
  * All unrelated competitions retain the original SWOS shuffle. */
 int ExpandedWorldLive_NativeOrder(const uint16_t *ids,uint32_t count,
                                   uint8_t *order) {
+#if EXPANDED_WORLD_OG_ONLY
+    (void)ids;(void)count;(void)order;
+    return 0; /* always use the original OG fixture order */
+#endif
     if (!s_live || !ids || !order || count<2u ||
         count>LIVE_MAX_LEAGUE_CLUBS) return 0;
     for (uint32_t l=0;l<s_league_count;++l) {
@@ -355,7 +359,25 @@ static int make_fixtures(LiveLeague *league,unsigned season,int32_t unused_start
 }
 int ExpandedWorldLive_Seal(void) {
     if (!s_fixtures || s_live) return 0;
+    /* OG authority restored: a club registry is useful for Expanded AI,
+     * but OG owns ALL competition schedules and results. In particular,
+     * do not call make_fixtures(), live_complete_prestart() or the
+     * autonomous LWE promotion/relegation generator in a real career. */
     s_ledger.count=0;
+    s_ledger.played=0;
+    s_native_schedule_leagues=0;
+    for(uint32_t i=0;i<s_league_count;++i) {
+        LiveLeague *l=&s_leagues[i];
+        l->native_schedule=(uint8_t)(l->count>=2u && !l->overflow);
+        if(l->native_schedule) ++s_native_schedule_leagues;
+    }
+    s_live=1;
+    fprintf(stderr,"[living-world] OG ONLY: %lu club entries, %lu divisions; "
+                   "NO LWE fixtures, scores, friendlies, tables or mobility\\n",
+            (unsigned long)s_club_count,(unsigned long)s_league_count);
+    return 1;
+#if 0 /* retired autonomous simulator: retained for historical comparison only */
+
     for (uint32_t i=0;i<s_league_count;++i) s_leagues[i].native_schedule=0;
     s_native_schedule_leagues=0;
     for (unsigned season=0;season<LIVE_SEASONS;++season) {
@@ -384,6 +406,7 @@ int ExpandedWorldLive_Seal(void) {
         return 0;
     }
     return 1;
+#endif
 }
 
 /* One chronological boundary: the oldest of two resident league seasons is
@@ -870,6 +893,10 @@ static int live_advance_with_mobility(int32_t target) {
  * initial manager date; it never rewinds the 50 Hz match or world clock.
  * It also repairs legacy v2 snapshots written before this check existed. */
 static int live_complete_prestart(void) {
+    /* A pre-career score is never manufactured by Expanded.
+     * Existing legacy snapshots are read, not backfilled with LWE scores. */
+    return s_live && s_fixtures!=NULL;
+#if 0 /* old autonomous backfill disabled */
     uint32_t completed=0;
     if (!s_live || !s_fixtures) return 0;
     for (uint32_t i=0;i<s_ledger.count;++i) {
@@ -887,6 +914,7 @@ static int live_complete_prestart(void) {
                        "fixtures before 1 July %u\n",
                 (unsigned long)completed,(unsigned)s_first_year);
     return 1;
+#endif
 }
 /* All world advances now pass through ONE exact civil-day cursor.
  * OpenSWOS weekly menus call AdvanceWeeks; native season transitions call
@@ -896,6 +924,21 @@ int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate date) {
     int32_t target=0;
     if (!s_live || !ExpandedWorld_DateToIndex(date,&target) ||
         target<s_initial_day || target<s_ledger.now) return 0;
+    /* Compatibility cursor ONLY for unemployed menu/legacy save.  Do not
+     * process a single LWE fixture. Native OG season phases and its
+     * competition callbacks must supply all actual results. */
+    if(s_ledger.count==0u) {
+        s_ledger.now=target;
+        s_weeks=(uint32_t)(target-s_initial_day)/7u;
+        return 1;
+    }
+    /* Old saves may still contain historical LWE fixtures. Never extend
+     * their results: advance the compatibility cursor without resolving. */
+    s_ledger.now=target;
+    s_weeks=(uint32_t)(target-s_initial_day)/7u;
+    return 1;
+#if 0 /* duplicate autonomous results/mobility retired */
+
     while ((unsigned)s_window_first_year+2u<=2199u) {
         const uint16_t newest=(uint16_t)(s_window_first_year+2u);
         ExpandedWorldDate boundary={newest,1u,1u};
@@ -910,6 +953,7 @@ int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate date) {
     /* Full weeks elapsed, never a rounded-up fictional event date. */
     s_weeks=(uint32_t)(target-s_initial_day)/7u;
     return 1;
+#endif
 }
 int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks) {
     uint64_t d=(uint64_t)(uint32_t)s_initial_day+(uint64_t)weeks*7u;
@@ -1445,10 +1489,18 @@ static int row_before(const ExpandedLiveRow *a,const ExpandedLiveRow *b) {
 int ExpandedWorldLive_Table(uint8_t country, uint8_t division,
                             ExpandedLiveRow *rows, uint32_t capacity,
                             uint32_t *total) {
+#if EXPANDED_WORLD_OG_ONLY
+    (void)country;(void)division;(void)rows;(void)capacity;
+    if(total) *total=0;
+    return 0; /* no native OG standings bridge yet: never show LWE data */
+#endif
     LiveLeague *league=league_by_id(country,division);
     ExpandedWorldStanding table[LIVE_MAX_LEAGUE_CLUBS];
     int32_t season_delta;
     if (total) *total=0;
+    /* Never manufacture an OG standings table out of the LWE pilot.
+     * Native standings must be read from the OG competition state. */
+    if(s_ledger.count==0u) return 0;
     if (!s_live || !rows || !total || !league || league->overflow ||
         league->count<2 || capacity<league->count) return 0;
     season_delta=(int32_t)ExpandedWorldLive_SeasonYear()-(int32_t)s_window_first_year;
@@ -2117,7 +2169,13 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
             first=0;
         }
     }
-    if (!tmp->fixture_count || tmp->native_schedules>tmp->leagues_count ||
+    /* A genuine OG-only career has zero LWE fixture records by design.
+     * Older LWE snapshots still require fixtures unless explicitly empty
+     * (an empty old ledger with claimed results would be inconsistent). */
+    if ((tmp->fixture_count==0u &&
+         (tmp->played!=0u || tmp->native_matches!=0u ||
+          tmp->archived_matches!=0u)) ||
+        tmp->native_schedules>tmp->leagues_count ||
         tmp->native_matches>tmp->fixture_count+tmp->archived_matches) goto invalid;
     /* World v4 records original SWOS cup matches and champions. */
     if(snapshot_version>=4) {

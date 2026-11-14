@@ -257,3 +257,82 @@ test di regressione e stato.
 - [VERIFICATO NEL CODICE] `data_json/worlds/2627/WORLD.ini` sul ramo `dev/0.10` usa `efe1464b6d1d62b8`; la precedente `world_data.c` integrava ancora `bf50ef15a18f05ae`. I dati e le tabelle native delle competizioni sono legati alla stessa generazione: **non basta cambiare la stringa fingerprint**.
 - [CODICE 0.13.41 — WINDOWS NON TESTATO] Primo allineamento di `sorgenti/src/world_data.c` ai record generati da OpenSWOS ufficiale; mantenuti i fallback del ramo Expanded quando API mod-only upstream non esistono. Aggiunto debug switch con riavvio processo anziche' `World_Set` a runtime; JSON 2627 abilitato al boot. Valutare compilazione e test Windows prima di considerare utilizzabile il mondo.
 - [PENDENTE] `InitCareerClub` continua a richiamare `InitializeNewSeason`; il LWE non e' ancora pienamente sostituito dal coordinatore unico approvato. Non attribuire un eventuale avvio riuscito alla piena integrazione del motore.
+
+## 14 novembre 2026 — 0.13.42: fail-closed world fingerprint (Windows NOT_TESTED)
+
+- [CODICE] `sorgenti/src/main.c::main`: dopo confronto del fingerprint in `data_json/worlds/2627/WORLD.ini`, una discrepanza prima veniva solo registrata; il processo continuava con le tabelle native 2627 e file JSON non corrispondenti. Ora conserva il diagnostic `AssetsCheck_SetWorld(2,...)` e torna al World 9697 prima del caricamento delle tabelle e del selettore JSON.
+- [LIMITI] Non e' la migrazione completa OG, non cambia in hot swap il mondo selezionato, non corregge le coppe o il recupero OG; manca prova con database errato/assente su Windows, e tutti i gate del registro rimangono aperti. Compilazione Windows, test 96/97 e 2627: NOT_TESTED.
+- [CONTINUITA'] Segnalata interruzione chat "Connection interrupted" del 14/11/2026; richiesta esplicita di riprendere da GitHub, preparare sorgenti e commit. Nessun test precedente trasformato in PASS.
+
+## 14 novembre 2026 — 0.13.43: default World al bootstrap
+
+- [CODICE] `main.c::main` sceglie `2627` quando argomenti, variabile SWOS_WORLD e configurazione non specificano un mondo. `World_InstallBaked` rimane in `frontend.c::FrontEndPreLoopSetup` e riceve la selezione validata; `WORLD.ini` assente o fingerprint incompatibile conserva il fallback a 9697. Il 1996/97 selezionato esplicitamente resta disponibile.
+- [LIMITI / WINDOWS NOT_TESTED] La selezione non è ancora senza riavvio; `World_InstallBaked` sovrascrive i dati OG e manca una procedura verificata per ripristinare integralmente le tabelle e cache storiche a caldo. Non dichiarare OG/LWE unificati, 127 club risolti o 80 TMD rimappate. Richiesta di migrazione totale ancora aperta.
+
+## 14 novembre 2026 — 0.13.43_01: inventario esclusioni per ID, Windows NON TESTATO
+
+- [CODICE] `expanded_world_live_adapter.c::track_rejection` scrive una riga di log per OGNI squadra esclusa, con mondo, file TEAM, countryNumber, teamOrdinal, packed raw-team-id, divisione, motivo e nome. Le precedenti 12 voci campione per categoria restano per F10, ma non costituiscono il censimento completo.
+- [LIMITI] I 127 esclusi storici vanno confrontati col nuovo log Windows reale; non sono stati cancellati, inseriti artificialmente in divisioni non supportate o contabilizzati come club che partecipano al campionato. Questa è diagnostica runtime, NON correzione di tutte le identità/80 TMD né certificazione del motore OG.
+
+## 14 novembre 2026 — 0.13.44, fix nat stagione e preflight save (Windows NOT_TESTED)
+
+- [CODICE] `expanded_midseason_join.c::Expanded_MidseasonJoin_AlignSeason`: `_seasonPlaying` ora usa `(96+offset)%100` anziche' offset puro. L'anno 2026/27 iniziale non deve risultare 2030/31 per questa conversione.
+- [CODICE] `SaveJson_CareerCompatible`: lettura non distruttiva di schema (3/4/5), kind=career e world corrispondente prima di attivare CONTINUE verde. Il controllo non certifica integrita' dei dati successivi; il loader mantiene i propri gate. Salvataggi incompatibili non vengono cancellati.
+- [CODICE/UI] DEBUG WORLD: etichetta corrente/obiettivo e avviso che lo switch riavvia il gioco, area focus e mouse allineate. Asset PNG invariati.
+- [CONFLITTO] AGENTS.md dice slot unico AUTOSAVE.CAR, ultimo piano chat suggerisce salvataggi per mondo: non modificati percorsi/formato; decisione da rendere coerente nel prossimo intervento autorizzato.
+- [PENDENTE] Selezione del mondo a START senza restart, ripristino completo delle tabelle OG e separazione lifecycle world/competitions/manager/club; Windows build e test NOT_TESTED.
+
+## 14 novembre 2026 — due slot per mondo (decisione utente e codice 0.13.44_02)
+
+- [DECISIONE] Sostituita la precedente regola del singolo AUTOSAVE.CAR: due salvataggi nativi indipendenti `AUTO9697.CAR` e `AUTO2627.CAR` sotto `save/`. `AUTOSAVE.CAR` preesistente è solo fallback in lettura se schema/kind/world compatibili, non sovrascritto o cancellato dal nuovo sistema.
+- [CODICE] `menus.c` seleziona il nome dal `World_Current()`, salva esclusivamente nello slot di quel mondo, rilegge automaticamente dopo cambio mondo, non considera verde CONTINUE quando lo slot (o il legacy) non supera `SaveJson_CareerCompatible`. Alla pensione cancella soltanto il checkpoint da cui è stata caricata/salvata quella carriera, mai quello dell'altro mondo.
+- [LIMITI] Il vecchio `AUTOSAVE.CAR` rimane anche dopo il primo nuovo checkpoint; se il nuovo slot viene cancellato, il fallback legacy può ricomparire se compatibile. La pulizia legacy richiede azione esplicita distinta. Il selettore mondo con riavvio resta provvisorio; test Windows e compile NOT_TESTED.
+
+## 14 novembre 2026 — 0.13.44_03: init OG distinti e coppe disoccupato 96/97
+
+- [VERIFICATO NEL CODICE] `World_SeasonCountries()` restituisce NULL nel mondo 9697 (in `world_data.c`); prima `Career_AdvanceUnemployedOGCups` faceva `if(!countries)return`. Risultato: nessuna callback OG delle coppe domestiche del 1996/97 veniva eseguita dal percorso di disoccupazione.
+- [PATCH] `career_init.c`: fallback alla tabella originale `_careerCompetitionIdRemapTable` già utilizzata dall'importatore, senza introdurre squadre/paesi inventati; `_seasonPlaying=(96+season)%100` come numerazione originale OG. Il loop resta limitato alle posizioni cup 2/3 e NON certifica tutte le coppe.
+- [PATCH] `InitCareerWorld` imposta lo stato world e team pool una volta; nuova `InitCareerCompetitions` contiene gli stessi reset native OG cup, qualificazioni, playoff e copie dei template; `Career_BeginNewCareer` chiama world -> competitions -> manager, `InitCareer` ripara l'ordine per i percorsi legacy. Club/contratto successivo non deve resettare OG world o cups. Non modifica l'installazione globale baked/JSON nel frontend.
+- [PENDENTE] La data e lo storico OG devono tornare autoritativi, mentre il LWE corrente mantiene ancora il proprio avanzamento e risultati offscreen. Sostituzione completa non implementata: NON confondere questa separazione con unificazione. Prove Windows e compilazione: NOT_TESTED.
+- [CONTINUITA] Richiesta utente ripresa dopo "Connection interrupted": OpenSWOS OG è autorità per data, calendario, carriera, competizioni, risultati e archivio storico originale nei due mondi; il LWE deve essere estensione, non alternativa. Nessun cambio a data o archivio in questa patch.
+
+## 14 novembre 2026 — 0.13.44_04: disattivazione simulatore autonomo LWE
+
+- [CODICE] `ExpandedWorldLive_Seal` importa l'anagrafica club/leghe ma non chiama più `make_fixtures`; `AdvanceToDate` non invoca più `ExpandedWorldLedger_Advance(resolve_game)`, mobilità LWE o amichevoli pilot. `live_complete_prestart` non produce più risultati retroattivi. Codice simulatore precedente racchiuso in rami inattivi `#if 0` per revisione; NON usato in produzione.
+- [CODICE] `Career_AdvanceUnemployedOGCups` ora invoca anche `Career_AutoAdvanceInternationalCompetitionFixtures` per le divisioni dei campionati OG nazionali a fine stagione, oltre ai callback OG di coppe già presenti; file TEAM, calciatori, manager, fisica e due autosave invariati.
+- [LIMITI CRITICI] `InitCareerCompetitions` a START copia template originali ma non dimostra che tutti gli slot OG siano inizializzati per un'offscreen completo. Non c'è ancora avanzamento OG giornaliero/fase di tutte le leghe; il catch-up dei campionati ora è solo alla fine della stagione. Le offerte basate sulle classifiche LWE non hanno risultati reali e possono NON comparire; il midseason rehire basato su replay LWE è non verificato. I test stress LWE storici non attestano più il percorso corrente.
+- [TEST] NESSUNA COMPILAZIONE Windows/MSYS2 o esecuzione del gioco. Lo stato globale OG=autorità è direzione approvata, NON conclusione testata dell'intero engine. Registrata continuità dopo "Connection interrupted".
+
+## 14 novembre 2026 — 0.13.44_05: serializzazione snapshot OG-only vuoto
+
+- [CODICE] Il lettore `ExpandedWorldLive_ReadJson` prima rifiutava sempre `fixture_count==0`; ora accetta solo un ledger LWE vuoto e coerente (nessuna partita giocata, nativa o archiviata), preservando il controllo sulle partite storiche. Necessario per permettere a una nuova carriera OG-only di salvare e ricaricare la propria anagrafica senza creare fixture finte.
+- [LIMITI] Non equivale a una migrazione automatica degli storici LWE già presenti nei save vecchi: restano leggibili ma senza ulteriori risultati sintetici. Non collaudato in Windows; le routine OG offscreen e il subentro sono ancora da verificare.
+
+## 14 novembre 2026 — 0.13.44_06: native result does not require LWE mirror
+
+- [CODICE] `diy_competition.c` non tenta `ExpandedWorldLive_RecordNativeLeagueResult` quando il mondo OG-only non ha fixture LWE; la partita resta regolata e salvata nelle strutture native OG. Evita il falso messaggio UNMATCHED per ogni risultato OG valido. Le sessioni con fixture LWE di vecchi save mantengono il controllo di coerenza diagnostico.
+- [PENDENTE] Recupero dei risultati OG durante il subentro (il vecchio replay LWE non può più valere come dato autorevole); offerte dalla classifica OG e test Windows non completati.
+
+## 14 novembre 2026 — 0.13.44_07: prima offerta indipendente dalle classifiche LWE
+
+- [CODICE] `choose_small_club` conta le divisioni popolate importate dagli originali CompetitionLeague OG (`ExpandedWorldLive_DivisionStatus` è ora usata solo per metadati paese/divisione/club), scegliendo soltanto l'ultima divisione di paesi con almeno quattro livelli; non usa punteggi o risultati simulati LWE. Nessun risultato o classifica inventato.
+- [LIMITE] La classifica nativa OG non è ancora collegata all'algoritmo di offerte: questo fallback seleziona club di categoria inferiore, **non certifica che stiano perdendo**. Il subentro a metà stagione, le coppe internazionali offscreen e il calendario OG completo non sono collaudati.
+- [CODICE] I mondi OG-only senza match LWE non presentano una classifica pilota a punti zero come classifica reale; anteprima segnala OG risultati non ancora disponibili. Test Windows NOT_TESTED.
+
+## 14 novembre 2026 — 0.13.44_08: subentro originale OG senza importazione LWE
+
+- [VERIFICATO IN CODICE] `Expanded_MidseasonJoin_Begin` dopo l'import diretto fallito possiede già un ramo di recupero con callback OG (`ContestMenuInit`, `NextMatch`, `DIYLeagueTournamentNextMatch`, `DIYLeagueTournamentViewResult`, `DIYLeagueTournamentResult`, callback OG delle coppe). `diy_competition.c` se non trova un risultato LWE usa già `getCachedOrCalcViewResult` nativo.
+- [CODICE] Con `ExpandedWorldLive_Fixtures()==0` (OG-only), `InitCareerClub` non importa più mobilità fittizia LWE; `Expanded_MidseasonJoin_AlignSeason` non richiede più quel prerequisito; `Expanded_MidseasonJoin_Begin` salta l'importazione da classifica LWE e lascia lavorare le callback OG, una volta sola, fino alla prima partita del contratto.
+- [LIMITI] Il recupero non è stato eseguito su Windows: i tornei del calendario meridionale hanno ancora controlli legacy che usano tabelle LWE per stabilire la data di luglio. Stagione conclusa, più anni di disoccupazione e premi/offerte basate sulle classifiche OG ancora da verificare. Il cursore giorno LWE per il menu disoccupato è ancora codice di compatibilità, non la data nativa OG definitiva.
+- [TEST] Solo lettura/patch GitHub; nessun eseguibile Windows compilato qui. `RUNTIME_30_YEAR_CALENDAR_SAVE_LOAD` e suite OG end-to-end restano NOT_TESTED.
+
+## 14 novembre 2026 — 0.13.44_09: hard gate OG-only anche per vecchi save
+
+- [CODICE] Nuova costante `EXPANDED_WORLD_OG_ONLY=1` in `expanded_world_live.h`: `ExpandedWorldLive_Table` non produce piu' classifiche da snapshot LWE, `ExpandedWorldLive_NativeOrder` non forza shuffle da roster LWE, `diy_competition.c` non consuma risultati LWE nei replay o duplica il risultato OG nel ledger di partite. `career_init.c` e `expanded_midseason_join.c` saltano staging/import LWE anche se un vecchio save contiene ancora fixture. Le callback OG precedenti rimangono attive.
+- [LIMITI] L'archivio LWE storico nei vecchi .CAR rimane leggibile ma NON autorevole. Il catch-up OG è predisposto, ancora senza test Windows; alcuni calendari di gennaio e i contratti a stagione conclusa erano dipendenti da tabelle LWE e richiedono un adeguamento. Le offerte in base al RANK OG non sono ancora collegate; non inventare punti o posizioni.
+
+## 14 novembre 2026 — 0.13.45: OG standings read bridge (non un secondo motore)
+
+- [CODICE] Hook read-only dopo `DIY_SortLeagueTableByStandings`: valida n (2..26), campionato senza gruppi, identità dei team, stessa nazione/divisione, partite reali e W+D+L=PL; salva solo W/D/L/GF/GA/PTS prodotti da OG. Cache RAM massima 512 divisioni, invalidata a nuova stagione. `DIY_OGStandings_Read` controlla mondo corrente indirettamente via reset a START, paese, divisione e anno; se manca la tabella la preview non inventa una classifica a zero. L'offerta usa i posti bassi solo con una classifica valida attuale.
+- [LIMITE] Il punto di callback dopo il sort OG non prova che tutte le competizioni siano inizializzate/avanzate a START. `InitCareerCompetitions` copia solo template; `InitializeNewSeason` impone team e club. Per una simulazione OG mondiale effettiva occorre isolare l'init nativa delle competizioni dagli slot del manager, preservare gli stati/callback per tutte le nazioni e avanzare per evento durante disoccupazione. Il ponte non completa questa migrazione. Non certificare disponibilità 100% classifiche: solo quelle veramente prodotte.
+- [TEST] Codice remoto, compilazione e test Windows NON ESEGUITI. Un unico commit per la richiesta; annotata regola in AGENTS.md.

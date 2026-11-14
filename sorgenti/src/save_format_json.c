@@ -6638,6 +6638,31 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
  * whole file just to peek at the head, but save files are small and
  * the resulting buffer is then dropped. Keeps the I/O path uniform
  * across SDL and Amiga. */
+/* Read-only preflight. Do not turn CONTINUE green simply because a file
+ * begins with '{': the career loader will reject foreign world/schema saves.
+ * No native state is touched, and failures never delete the save. */
+int SaveJson_CareerCompatible(const uint8_t *filename)
+{
+    uint8_t *buf=NULL;
+    uint32_t size=0;
+    long version=0;
+    char kind[32]={0};
+    int ok=0;
+    if(swos_io_load_alloc(filename,&buf,&size)!=0) return 0;
+    if(size>0 && size<=0x7fffffffu &&
+       mjson_get_long((const char*)buf,(int)size,"$.schema_version",&version)>0 &&
+       ((int)version==SAVE_JSON_SCHEMA_VERSION ||
+        (int)version==SAVE_JSON_COMPAT_PREVIOUS_VERSION ||
+        (int)version==SAVE_JSON_COMPAT_SCHEMA_VERSION) &&
+       mjson_get_string((const char*)buf,(int)size,
+                        "$.file_kind",kind,sizeof kind)>0 &&
+       strcmp(kind,KIND_CAREER)==0 && save_world_ok(buf,size))
+        ok=1;
+    swos_io_free(buf);
+    if(!ok) SWOS_DBG("[autosave] CONTINUE hidden: incompatible schema/kind/world; save preserved\n");
+    return ok;
+}
+
 int SaveJson_FileIsJson(const uint8_t *filename)
 {
     uint8_t *buf = (uint8_t *)0;

@@ -60,6 +60,24 @@ uint32_t ExpandedWorldLive_ImportSkippedCountries(uint8_t *out,uint32_t capacity
 static void track_rejection(const TeamFileEx *team,uint8_t file,
                             uint8_t reason) {
     if(reason<1u||reason>4u)return;
+    /* The compact F10 page shows examples only. The complete Windows log
+     * must preserve EACH rejected TEAM row (including the 127 historically
+     * excluded clubs), with both the file/ordinal identifier and the
+     * record's actual country number. These are not interchangeable for
+     * second-file countries or the historical cup TMD entries. */
+    {
+        static const char *const why[]={
+            "OUTSIDE_LEAGUE","WRONG_FILE","UNSUPPORTED_DIVISION","LEDGER_REJECTED"
+        };
+        const uint16_t raw_id=(uint16_t)(((uint16_t)team->team.countryNumber<<8) |
+                                         team->team.teamOrdinal);
+        fprintf(stderr,
+                "[world-import-exclusion] world=%s file=%u country=%u ordinal=%u "
+                "raw-team-id=%04x division=%u reason=%s name=%.17s\n",
+                World_Tag(),(unsigned)file,(unsigned)team->team.countryNumber,
+                (unsigned)team->team.teamOrdinal,(unsigned)raw_id,
+                (unsigned)team->team.league,why[reason-1u],team->team.teamName);
+    }
     ++s_import_reasons[reason-1u];
     uint32_t group=(uint32_t)reason-1u;
     if(s_import_example_count[group]<12u) {

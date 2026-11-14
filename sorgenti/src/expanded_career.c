@@ -8,6 +8,7 @@
 #include <string.h>
 #include "menu_system.h"
 #include "game_types.h"
+#include "diy_competition.h"
 #include "world.h"
 #include "expanded_world_time.h"
 #include "expanded_debug.h"
@@ -394,6 +395,7 @@ static int offer_candidate_struggling(uint16_t club,
             return i>=count/2u;
     return 0; /* never offer a missing club on ranked data */
 }
+static unsigned unemployed_season_year(unsigned weeks);
 static void choose_small_club(void) {
     uint8_t files[256];
     const uint32_t numFiles=ExpandedWorldLive_OfferFiles(files,256u);
@@ -416,23 +418,28 @@ static void choose_small_club(void) {
         unsigned maxLeague=0,candidates=0,divisionCount=0;
         ExpandedLiveRow standings[26];
         uint32_t rankedCount=0;
-        /* Count actual scheduled divisions in the canonical WORLD, not
-         * just entries in this TEAM file: a country can span TWO files.
-         * The highest populated league index is its lowest tier, e.g.
-         * division 8 after the database grows to eight divisions. */
-        for(unsigned d=0;d<16u;++d) {
-            uint32_t n=0;
-            if(ExpandedWorldLive_Table(worldCountry,(uint8_t)d,
-                                       standings,26u,&n) && n>=2u) {
+        /* OG-only: inspect the imported NATIVE league descriptors,
+         * not a second LWE points table. Countries may use two TEAM files;
+         * World_FileCountry above resolves the original country key.
+         * The first entry job remains in the lowest populated division.
+         * A results-based vacancy must wait for an OG standings reader. */
+        for(uint32_t l=0;l<ExpandedWorldLive_Leagues();++l) {
+            uint8_t c=0,d=0,n=0,registered=0;
+            if(ExpandedWorldLive_DivisionStatus(l,&c,&d,&n,&registered) &&
+               c==worldCountry && registered && n>=2u) {
                 ++divisionCount;
-                maxLeague=d;
+                if(d>maxLeague) maxLeague=d;
             }
         }
         if(divisionCount<4u) continue;
-        int ranked=ExpandedWorldLive_Table(worldCountry,(uint8_t)maxLeague,
-                     standings,26u,&rankedCount) &&
-                   rankedCount>=2u && standings[0].played>=3u;
-        if(!ranked) continue; /* no offer from an unverified table */
+        uint32_t rankedCount=0;
+        const uint16_t year=(uint16_t)unemployed_season_year(s_waitWeeks);
+        const int ranked=DIY_OGStandings_Read(worldCountry,(uint8_t)maxLeague,
+                     year,standings,26u,&rankedCount) &&
+                     rankedCount>=2u && standings[0].played>=3u;
+        fprintf(stderr,"[offers] OG world=%s country=%u division=%u season=%u native-ranked=%d\n",
+                World_Tag(),(unsigned)worldCountry,(unsigned)maxLeague,
+                (unsigned)year,ranked);
         for(unsigned i=0;i<count;i++)
             if(teams[i].team.countryNumber==country && teams[i].team.league==maxLeague &&
                !Team_IsOutsideLeague(&teams[i].team) &&
@@ -831,11 +838,13 @@ void Expanded_OfferPreviewDraw(void) {
          * standings are indexed by the mapped country code. Offer selection
          * already uses World_FileCountry(): the preview must use the same key. */
         const uint8_t worldCountry=World_FileCountry(s_waitCountry);
-        if (ExpandedWorldLive_Table(worldCountry,s_waitLeague,rows,26,&count)) {
+        const uint16_t currentYear=(uint16_t)unemployed_season_year(s_waitWeeks);
+        if (DIY_OGStandings_Read(worldCountry,s_waitLeague,currentYear,
+                                 rows,26,&count)) {
             snprintf(line,sizeof line,"DIVISION %u - %u/%02u",
                      (unsigned)s_waitLeague+1,
-                     (unsigned)ExpandedWorldLive_SeasonYear(),
-                     ((unsigned)ExpandedWorldLive_SeasonYear()+1u)%100u);
+                     (unsigned)currentYear,
+                     ((unsigned)currentYear+1u)%100u);
             contest_line(82,line,2);
             contest_line(93,"RANK CLUB                 PL GD PTS",7);
             unsigned offeredRank=count;
@@ -857,20 +866,13 @@ void Expanded_OfferPreviewDraw(void) {
                          (long)r->points);
                 contest_line(205,line,2);
             }
-            ExpandedLivePreseason ps;
-            if (ExpandedWorldLive_Preseason(s_waitTeam,&ps) &&
-                ExpandedWorldLive_Results()==0u) {
-                snprintf(line,sizeof line,"PRESEASON: %u FRIENDLIES (PILOT)",
-                         (unsigned)ps.friendlies);
-                contest_line(219,line,6);
-            } else {
-                contest_line(219,"LIVING WORLD - OFFER TABLE",6);
-            }
+            contest_line(219,"OPEN SWOS - NATIVE RESULTS",6);
         } else {
-            snprintf(line,sizeof line,"DIVISION %u - PILOT UNAVAILABLE",
-                     (unsigned)s_waitLeague+1);
+            snprintf(line,sizeof line,"DIVISION %u - %u/%02u",
+                     (unsigned)s_waitLeague+1,(unsigned)currentYear,
+                     ((unsigned)currentYear+1u)%100u);
             contest_line(100,line,2);
-            contest_line(150,"RESULTS NOT IN SWOS CAREER YET",7);
+            contest_line(150,"OG TABLE NOT YET PROCESSED",7);
         }
     }
 }

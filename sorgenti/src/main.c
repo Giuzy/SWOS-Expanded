@@ -1249,6 +1249,18 @@ int main(int argc, char **argv)
             }
         }
     }
+    /* Test build: launcher forces SWOS_DATA_JSON=0 for 96/97. World 2026/27
+     * must instead read the installed JSON players and competitions. */
+    if (World_Current() == WORLD_2627) {
+#ifdef _WIN32
+        if (_putenv("SWOS_DATA_JSON=1") != 0)
+#else
+        if (setenv("SWOS_DATA_JSON", "1", 1) != 0)
+#endif
+            fprintf(stderr, "[world] WARNING: could not enable 2627 JSON data\n");
+        else
+            fprintf(stderr, "[world] 2627: team and competition JSON enabled\n");
+    }
     fprintf(stderr, "[world] %s\n", World_Tag());
 
     if (_gDosGraphics)

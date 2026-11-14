@@ -6,6 +6,11 @@
 #include "expanded_club_font.h" /* fallback only: runtime uses existing bitmap atlas */
 #include "mjson.h"
 #include "menu_system.h"
+#include "world.h"
+#ifdef _WIN32
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -399,6 +404,11 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
  copy(r,s_start[ready()],532+(s_action==8?sink:0),785+(s_action==8?sink:0),606,89,sx,sy);
  copy(r,s_check[s_unemployed],1179+(s_action==7?sink:0),700+(s_action==7?sink:0),62,58,sx,sy);
  pixel_text(r,"NEW CAREER",2,835,68.5f,1,sx,sy);
+ /* Temporary diagnostic selector, not part of the approved panel artwork. */
+ pixel_text_tint_fit(r,World_Current()==WORLD_2627?
+   "DEBUG WORLD: 2026/27  [A: 1996/97]":
+   "DEBUG WORLD: 1996/97  [A: 2026/27]",
+   0,835,137,1,sx,sy,s_selected==9?1:-1,780.f);
  const char*labels[]={"TITLE","NAME","SURNAME","NATION","ROLE","AGE (18-70)","FAME"};
  for(int i=0;i<7;i++){
   pixel_text(r,labels[i],0,337,217.5f+66*i,0,sx,sy);
@@ -420,10 +430,13 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
   s_focus_field_y=202.f+66.f*6.f;
   if(s_focus_toggle)copy(r,s_focus_toggle,390+(s_action==7?sink:0),676+(s_action==7?sink:0),895,107,sx,sy);
   else focus(r,405,690,862,73,sx,sy);
- }else{
+ }else if(s_selected==8){
   s_focus_field_y=202.f+66.f*6.f;
   if(s_focus_start)copy(r,s_focus_start,532+(s_action==8?sink:0),785+(s_action==8?sink:0),606,89,sx,sy);
   else focus(r,556,797,558,63,sx,sy);
+ }else{
+  s_focus_field_y=202.f;
+  focus(r,535,125,600,51,sx,sy);
  }
  /* Stable right/bottom margin, with one fixed legend sprite. */
  if(s_legend_ab){
@@ -434,8 +447,40 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
   SDL_RenderCopyF(r,s_legend_ab,NULL,&d);
  }
 }
+/* Debug-only world switch. The baked OG tables are installed before the title,
+ * so changing World_Set() while NEW CAREER is open would corrupt the game.
+ * Launch the same executable with the other world and close the old process. */
+static void debug_switch_world(void){
+ const char *target=World_Current()==WORLD_2627?"9697":"2627";
+#ifdef _WIN32
+ char path[MAX_PATH],cmd[MAX_PATH+128];
+ DWORD n=GetModuleFileNameA(NULL,path,(DWORD)sizeof path);
+ STARTUPINFOA si;
+ PROCESS_INFORMATION pi;
+ if(!n||n>=(DWORD)sizeof path){
+  fprintf(stderr,"[world-debug] FAIL: executable path unavailable\n");return;
+ }
+ snprintf(cmd,sizeof cmd,"\"%s\" --world=%s --fullscreen=off",path,target);
+ memset(&si,0,sizeof si);memset(&pi,0,sizeof pi);si.cb=sizeof si;
+ /* 96/97 retains its original binary TEAM loader; 2026/27 needs JSON.
+  * The new process inherits these environment variables. */
+ SetEnvironmentVariableA("SWOS_DATA_JSON",strcmp(target,"2627")==0?"1":"0");
+ if(!CreateProcessA(path,cmd,NULL,NULL,FALSE,0,NULL,NULL,&si,&pi)){
+  fprintf(stderr,"[world-debug] FAIL: CreateProcessA world=%s error=%lu\n",
+          target,(unsigned long)GetLastError());
+  return;
+ }
+ CloseHandle(pi.hThread);CloseHandle(pi.hProcess);
+ fprintf(stderr,"[world-debug] RESTART requested world=%s; old process exiting\n",target);
+ fflush(stderr);
+ SDL_Quit();
+ exit(0);
+#else
+ fprintf(stderr,"[world-debug] switching requires a Windows test build (requested %s)\n",target);
+#endif
+}
 static void action(int row,int direction){
- MenuEntry*e=&_menuEntries[ord[row]];((Menu*)_currentMenu)->selectedEntry=e;
+ MenuEntry*e=&_menuEntries[ord[row==9?0:row]];((Menu*)_currentMenu)->selectedEntry=e;
  _controlMask=direction<0?0x40:direction>0?0x80:0x21;
  fprintf(stderr,"[new-career] action=%d direction=%d fame=%u unemployed=%d\n",row,direction,(unsigned)_expandedManagerFame,s_unemployed);
  switch(row){
@@ -458,6 +503,7 @@ static void action(int row,int direction){
   break;
  case 7:if(!direction)s_unemployed=!s_unemployed;break;
  case 8:if(!direction&&ready())ChooseTeamAndStartCareer();break;
+ case 9:if(!direction)debug_switch_world();break;
  }
  _fireResetFlag=1;s_previous_fire=1;
 }
@@ -488,6 +534,7 @@ int Expanded_NewCareer_Proc(void){
    int row=(int)(py-200)/66;
    if(row<7 && py<200+66*row+60)hit=row;
   }
+  if(px>=535&&px<1135&&py>=125&&py<176)hit=9;
   if(px>=397&&px<1360&&py>=681&&py<779)hit=7;
   if(px>=539&&px<1132&&py>=788&&py<873)hit=8;
   if(hit>=0){
@@ -502,7 +549,7 @@ int Expanded_NewCareer_Proc(void){
     }
     /* Only NATION has its legacy confirmation popup. TITLE/ROLE/AGE/FAME
      * are direction-only; NAME/SURNAME have the original text editor. */
-    if(direction || hit==1 || hit==2 || hit==3 || hit==7 || hit==8){
+    if(direction || hit==1 || hit==2 || hit==3 || hit==7 || hit==8 || hit==9){
      s_action=hit;s_action_dir=direction;s_press=(hit==5?2:5);
     }
    }
@@ -511,14 +558,16 @@ int Expanded_NewCareer_Proc(void){
  if(s_press)return 1;
  if(_menuControlsDirection>=0){
   int d=_menuControlsDirection&6;
-  /* Clamp 0..8: never wrap from TITLE to START or vice versa. */
+  /* DEBUG WORLD is reachable by UP from TITLE; regular rows remain clamped. */
   if(d==0 || d==4){
    if(s_nav_cooldown==0){
-    if(d==0 && s_selected>0)--s_selected;
+    if(d==0 && s_selected==0)s_selected=9;
+    else if(d==4 && s_selected==9)s_selected=0;
+    else if(d==0 && s_selected>0 && s_selected<9)--s_selected;
     else if(d==4 && s_selected<8)++s_selected;
     s_nav_cooldown=6;  /* 120ms minimum between focus selections */
    }
-  }else if(s_selected!=1&&s_selected!=2&&s_selected!=7&&s_selected!=8){
+  }else if(s_selected!=1&&s_selected!=2&&s_selected!=7&&s_selected!=8&&s_selected!=9){
    /* AGE uses the original rapid left/right stepping (2 ticks).
     * Other left/right selectors take 5 ticks and are rate-limited. */
    if(s_selected==5||s_arrow_cooldown==0){
@@ -528,8 +577,8 @@ int Expanded_NewCareer_Proc(void){
    }
   }
  }
- ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[ord[s_selected]];
- if(edge && (s_selected==1||s_selected==2||s_selected==3||s_selected==7||s_selected==8)){
+ ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[ord[s_selected==9?0:s_selected]];
+ if(edge && (s_selected==1||s_selected==2||s_selected==3||s_selected==7||s_selected==8||s_selected==9)){
   s_action=s_selected;s_action_dir=0;s_press=5;
  }
  return 1;

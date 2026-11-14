@@ -607,3 +607,11 @@ Audit Windows aggiunge monitor cronologico sul log: non certifica
 automaticamente 30 anni. Corretto il lettore array dell'audit formati per
 evitare falsi riferimenti e il PATH DLL per il compilatore diagnostico
 nel BAT. Build e test Windows da eseguire dall'utente.
+
+
+## [2026-11-14] 0.13.41 — debug WORLD e primo allineamento 2026/27
+
+- [CODICE, DA COMPILARE/TESTARE SU WINDOWS] NEW CAREER include una voce temporanea "DEBUG WORLD" attivabile con mouse oppure con UP dalla prima riga e A/INVIO. Cambiare mondo crea un nuovo processo con `--world=9697` o `--world=2627`, chiudendo quello precedente **solo** se il nuovo processo parte. Non si cambiano tabelle OG a runtime; nessun salvataggio viene cancellato.
+- [CODICE, TEST PENDENTI] Portati da OpenSWOS `main` i record generati `world_data.c` compatibili con il pacchetto `data_json/worlds/2627/WORLD.ini` (`efe1464b6d1d62b8`). Restano fuori le API mod aggiunte nell'upstream e non presenti in Expanded: la logica 96/97 mantiene il default nativo.
+- [CODICE, TEST PENDENTI] Il World 2026/27 abilita `SWOS_DATA_JSON=1` anche se il launcher sviluppo forza 0; 96/97 mantiene la sua impostazione originale.
+- **Compilazione locale, test integrato Windows e carriera 2026/27: NOT_TESTED.** Questa integrazione NON sostituisce ancora tutto il motore gestionale con OpenSWOS recente e NON certifica il funzionamento di START, coppe o classifiche. I campi SWOS 2020 rimangono archiviati, non attivati.

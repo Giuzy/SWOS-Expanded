@@ -948,3 +948,8 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
 
 ## 0.13.44_09 — OG authority non riattiva LWE da save legacy
 - [CODICE] Gate centrale OG-only applicato a replay risultati, shuffle, standings e stage mobilità anche quando la carriera precedente conteneva fixture LWE. File di salvataggio invariati, compatibilità runtime Windows non provata. Ripristino OG gestione di tutte le competizioni ancora da testare e completare nei casi speciali.
+
+
+## 0.13.45 — ponte read-only classifiche OG nelle offerte (14/11/2026)
+- [CODICE] `DIY_SortLeagueTableByStandings` acquisisce le righe reali OpenSWOS dopo sort, con validazione identità/partite, senza simulazione LWE; la vista offerte legge per paese/divisione/stagione dalla cache OG, altrimenti mostra indisponibilità. La selezione delle offerte restringe ai club in seconda metà soltanto quando una classifica OG corrente è disponibile; prima usa il fallback delle ultime divisioni e non inventa risultati.
+- [LIMITE FONDAMENTALE] A START `InitCareerCompetitions` prepara ancora i template; `InitializeNewSeason` necessita club e viene chiamata in `InitCareerClub`. Mancano scheduler OG universale per turni durante disoccupazione e attivazione completa di tutte le competizioni a START: requisito utente NON COMPLETATO. Cache OG in RAM non sostituisce salvataggio nativo di classifiche. Windows/compile NOT_TESTED.

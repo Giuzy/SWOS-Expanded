@@ -658,3 +658,7 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 ## [2026-11-14] 0.13.44_09 — original OpenSWOS competition authority gate
 - [CODICE] Il gate OG-only blocca l'utilizzo di classifiche, sorteggi, replay e mobilità calcolati nel LWE anche nei vecchi salvataggi. I dati legacy vengono conservati ma non possono più sostituire punteggi, partite o ordinamenti nativi. Test Windows NOT_TESTED.
+
+
+## [2026-11-14] 0.13.45 — read-only standings bridge for unemployed offers
+- [CODICE] Copia temporanea delle classifiche OG quando effettivamente sortite dal motore originale (club IDs e W/D/L/GF/GA/PTS); chiavi per paese, divisione e stagione, invalidazione tra stagioni. Anteprima e selezione offerte usano solo tali valori se disponibili, senza riaccendere score LWE. Nessuna partita ulteriore viene simulata dal ponte. Windows NOT_TESTED.

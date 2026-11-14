@@ -876,6 +876,9 @@ void Career_BeginNewCareer(void)
     s_careerCompetitionsInitialized = 0;
     s_careerManagerInitialized = 0;
     s_unemployedOgCupSeasons = 0;
+#ifdef SWOS_SDL_BUILD
+    DIY_OGStandings_SetSeason(World_FirstYear());
+#endif
     InitCareerWorld();
     InitCareerCompetitions();
     InitCareerManager(); /* native manager setup; never on a later offer */
@@ -948,6 +951,7 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
         const uint32_t beforeArchiveTitles=ExpandedWorldLive_CupArchivedTitles();
         const uint32_t beforeHistoryTitles=ExpandedWorldLive_CupHistoricalTitles();
         unsigned cupRuns=0, leagueRuns=0;
+        DIY_OGStandings_SetSeason((uint16_t)(World_FirstYear()+s_unemployedOgCupSeasons));
         _seasonPlaying=(uint8_t)((96u+s_unemployedOgCupSeasons)%100u);
         for(unsigned i=0;i<256u && countries[i]!=0xFFu;++i) {
             const void *const *table=(const void *const *)
@@ -1479,6 +1483,10 @@ void InitializeNewSeason(void)
     _currentSeasonShowing++;
     if (_currentSeasonShowing == _careerParams.num_seasons)
         _currentSeasonShowing = 0;
+#ifdef SWOS_SDL_BUILD
+    /* A club attachment must not import last year's OG table as current. */
+    DIY_OGStandings_SetSeason((uint16_t)(World_FirstYear()+_currentSeasonShowing));
+#endif
 
     _selTeamSelectedPlayerPosition = 0xFFFF;
 

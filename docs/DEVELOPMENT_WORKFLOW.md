@@ -333,3 +333,11 @@ indipendente. Non inventare date/risultati per pareggiare i contatori.
 - Caso B: FORWARD TIME fino a quando VIEW WORLD mostra una lega con PL>0; aprire un'offerta dello stesso paese/divisione e la preview. Cercare `[og-offer-table] CAPTURE country=... division=... year=...` nel log. Se resta la lista squadre senza statistiche, confrontare l'ID del paese, la divisione e l'anno: la cache non è stata popolata dalla callback OG oppure la chiave non coincide. NON segnare PASS in base a una lega diversa.
 - Caso C: salvare/ricaricare e verificare che l'offerta non mostri dati di una stagione diversa. La cache è solo RAM e non è la fonte di verità del save OG.
 - Evidenza del 14/11/2026: El Salvador Tercera Division Orient PL=0 nello screenshot iniziale, PL=6 nello screenshot successivo. Prova di quel campionato, non copertura globale OG.
+
+### Prossimo test Windows — 0.13.45_06 (DEBUG WORLD OG)
+1. L'utente sincronizza `dev/0.10` con GitKraken e **compila personalmente** `SWOS_Expanded.exe` con i BAT ufficiali. La chat non deve dichiarare compilazione Windows riuscita senza il log dell'utente.
+2. NEW CAREER -> START UNEMPLOYED: senza attendere offerte, selezionare DEBUG WORLD (mouse e controller). Scegliere una lega OG presente: controllare la classifica; uscire e riaprire la medesima lega **senza FORWARD TIME**. Stessi risultati, punti, partite e data; nessun evento nel log di avanzamento causato da VIEW WORLD.
+3. Premere FORWARD TIME: data +7 giorni e solo gli incontri realmente previsti OG; riaprire WORLD e verificare continuità. Provare anche mondo 1996/97 e 2026/27, leghe con ID condivisi/multipli; un menu privo di snapshot non deve produrre risultati.
+4. Accettare offerta dopo diverse settimane: la classifica della stessa divisione rimane identica e nel calendario club le partite anteriori devono mantenere il loro risultato (questa seconda capacità è ancora PENDENTE). Testare partita manuale e simulata senza cambi ai 50 Hz.
+5. Verificare coppe: se manca un contesto residente, messaggio «OG WORLD: COMPETITION NOT RESIDENT» è corretto, ma **NON** un PASS di integrazione coppe. Save/reload, stagioni future e storico risultati sono PENDENTI.
+6. Inviare `SWOS.log`, screenshot e lista SI/NO/NON PROVATO. Distinguere compile, test isolati e test Windows; evitare di cancellare i salvataggi.

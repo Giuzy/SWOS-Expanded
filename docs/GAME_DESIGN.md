@@ -117,6 +117,9 @@
 
 ## 8. Trasferimenti e contratti dei giocatori
 
+**[APPROVATO 14/11/2026 — DA IMPLEMENTARE]** Anche a finestra chiusa si possono negoziare, acquistare e firmare accordi per giocatori sotto contratto, ma l'arrivo effettivo e l'iscrizione nella nuova rosa avvengono **solo all'inizio della prossima finestra applicabile**. Prima di tale data il calciatore resta nel club d'origine e può giocare per esso. Gli svincolati possono essere ingaggiati e schierati durante tutto l'anno. Identico principio per club IA e giocatore. Finestre paese/competizione, pagamenti, salari e annullamenti sono **DA DEFINIRE**, senza date arbitrarie. **PRIORITÀ:** finire il mondo OG e VIEW WORLD in sola lettura; nessun nuovo sistema di trasferimenti implementato da questa decisione.
+
+
 **[APPROVATO]** Conservare le funzioni trasferimenti SWOS esistenti, comprese lista trasferimenti, offerte, mercato, vendite e scambi utili, ma espandere la carriera in modo coerente. Un giocatore in lista è più facile da acquistare, fuori lista più difficile; il manager può mettere/togliere dalla lista i propri calciatori. I trasferimenti cambiano realmente le rose delle squadre AI, non solo la squadra gestita. Gli svincolati entrano in un bacino comune.
 
 **[DIREZIONE CONFERMATA]** Una conferma di trasferimento deve rendere leggibili **BANK BEFORE/AFTER**, stipendio annuale e impatto previsto sul Board; valore di mercato distinto dal prezzo effettivamente richiesto/pagato. Budget e scelte dei club AI devono essere coerenti, senza simulazione finanziaria completa per tutti i club.

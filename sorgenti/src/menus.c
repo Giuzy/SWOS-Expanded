@@ -4031,6 +4031,24 @@ void ViewWorldMenu(void)
     ContestMenuOnReturn();
 }
 
+#ifdef SWOS_SDL_BUILD
+/* The unemployed debug button reuses the native competition picker but
+ * deliberately skips ContestMenuOnReturn (there is no active club). */
+void Expanded_UnemployedDebugWorld(MenuEntry *unused)
+{
+    extern void ChooseCompetitionMenu(void);
+    extern uint8_t *Expanded_UnemployedCalendarMenu(void);
+    extern int Expanded_OGWorld_ViewLeague(const uint8_t *,uint16_t);
+    (void)unused;
+    ChooseCompetitionMenu();
+    if(_chooseTeamsResult!=0)
+        (void)Expanded_OGWorld_ViewLeague((const uint8_t *)_selectedContest,
+                                          _contestLeagueNumber);
+    if(_currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarMenu())
+        DrawMenu();
+}
+#endif
+
 
 /* ==========================================================================
  * Chunk 124 — Competition Menu Functions

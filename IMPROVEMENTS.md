@@ -682,3 +682,8 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 ## [2026-11-14] 0.13.45_05 — primo contesto OG indipendente dal manager
 - [CODICE] Resident OG league image + original team list/RNG/phase per divisione in RAM, avvio a START, avanzamento con FORWARD TIME e binder club che valida gli ID reali. Ridotto replay OG alla firma quando l'immagine esiste. Nessun risultato LWE. Si tratta di implementazione sperimentale e NON di completa migrazione worldwide (coppe, save, keycache storica ancora da integrare). Test Windows NON eseguiti.
+
+### 0.13.45_06 — DEBUG WORLD consultivo (14/11/2026; test Windows pendente)
+- `CAREER / VIEW WORLD` non esegue più le callback OG di auto-simulazione selezionando competizioni esterne; le leghe con contesto OG residente sono visualizzate tramite copia temporanea in sola consultazione.
+- La schermata disoccupazione dispone del nuovo pulsante `DEBUG WORLD`; record, offerte, FORWARD TIME e navigazione restano disponibili. Le competizioni senza stato residente sono indicate come non disponibili.
+- Consegna del sorgente per compilazione e test Windows da parte dell'utente; non certificato in runtime.

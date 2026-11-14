@@ -494,6 +494,9 @@ void Expanded_UnemployedRecord(MenuEntry *unused) {
     /* The previous unemployment menu's native entries are restored by
      * ShowMenu, and its live date/offer buttons are repainted as usual. */
 }
+#ifdef SWOS_SDL_BUILD
+extern void Expanded_UnemployedDebugWorld(MenuEntry *unused);
+#endif
 void Expanded_UnemployedInit(void) {
     /* The unemployed menu is a clone of the ORIGINAL contest screen.
      * Keep its header, fixture-panel background, all nine action buttons
@@ -510,7 +513,7 @@ void Expanded_UnemployedInit(void) {
     for (unsigned i=0;i<4;i++) _menuEntries[i].content=NO_FOREGROUND;
     /* Only real actions are shown: no grey dead buttons in unemployed
      * mode. The underlying contest menu and callbacks stay unchanged. */
-    static const unsigned disabled[]={4,5,6,8,11,16,17};
+    static const unsigned disabled[]={4,5,6,8,16,17};
     for (unsigned i=0;i<sizeof(disabled)/sizeof(disabled[0]);i++) {
         MenuEntry *e=&_menuEntries[disabled[i]];
         e->isDisabled=1;
@@ -520,6 +523,16 @@ void Expanded_UnemployedInit(void) {
             e->stringFlags=(e->stringFlags & ~0x0fu) | 6u;
         }
     }
+    /* The dormant VIEW COMPETITIONS slot becomes a real debug WORLD
+     * action in the unemployed clone; the original career menu is intact. */
+#ifdef SWOS_SDL_BUILD
+    _menuEntries[11].isInvisible=0;
+    _menuEntries[11].isDisabled=0;
+    _menuEntries[11].onSelect=Expanded_UnemployedDebugWorld;
+    _menuEntries[11].fg=(uintptr_t)"DEBUG WORLD";
+    _menuEntries[11].bgColor=0x8;
+    _menuEntries[11].stringFlags=(_menuEntries[11].stringFlags & ~0x0fu)|2u;
+#endif
     /* Entry 12 is a REAL, compact RECORD button; it borrows the dormant
      * VIEW WORLD slot only in the unemployed clone, never in career mode. */
     _menuEntries[12].isInvisible=0;
@@ -538,12 +551,16 @@ void Expanded_UnemployedInit(void) {
     /* Explicit links between the ONLY enabled actions. The stock
      * navigation routes through disabled fixture/club buttons, so a
      * controller could get trapped on FORWARD TIME. */
-    _menuEntries[12].leftEntry=9;
-    _menuEntries[12].rightEntry=offerReady?10:7;
-    _menuEntries[12].upEntry=offerReady?10:7;
+    _menuEntries[12].leftEntry=11;
+    _menuEntries[12].rightEntry=9;
+    _menuEntries[12].upEntry=11;
     _menuEntries[12].downEntry=9;
+    _menuEntries[11].leftEntry=7;
+    _menuEntries[11].rightEntry=12;
+    _menuEntries[11].upEntry=offerReady?10:7;
+    _menuEntries[11].downEntry=12;
     _menuEntries[7].leftEntry=9;
-    _menuEntries[7].rightEntry=offerReady?10:9;
+    _menuEntries[7].rightEntry=offerReady?10:11;
     _menuEntries[7].upEntry=9;
     _menuEntries[7].downEntry=9;
     _menuEntries[9].leftEntry=7;
@@ -551,9 +568,9 @@ void Expanded_UnemployedInit(void) {
     _menuEntries[9].upEntry=7;
     _menuEntries[9].downEntry=7;
     _menuEntries[10].leftEntry=7;
-    _menuEntries[10].rightEntry=9;
+    _menuEntries[10].rightEntry=11;
     _menuEntries[10].upEntry=7;
-    _menuEntries[10].downEntry=12;
+    _menuEntries[10].downEntry=11;
     /* Pending offers must not steal the keyboard/controller focus from
      * FORWARD TIME. VIEW CLUB OFFER remains reachable to the right. */
     ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[7];

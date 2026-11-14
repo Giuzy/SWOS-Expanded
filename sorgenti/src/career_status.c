@@ -3612,6 +3612,70 @@ int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
     memcpy(&_diyFileBufferCopy,&oldTournament,sizeof oldTournament);
     return ctx->used!=0;
 }
+/* DEBUG WORLD / career VIEW WORLD: read the resident OG league instead of
+ * initializing or auto-simulating an external competition on menu entry.
+ * The native OG viewer receives a disposable copy, never s_expOG itself.
+ * Unavailable cups/leagues are reported, not invented or fast-forwarded. */
+extern void *_competitionsTable[];
+extern void ShowErrorMenu(uint8_t *text);
+extern void ShowDiyLeaguesTournamentMenu(uint16_t type,uint16_t viewOnly,uint16_t focusOverride);
+int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
+{
+    static uint8_t unavailable[]="OG WORLD: COMPETITION NOT RESIDENT";
+    if(!record || _gameType!=4)return 0;
+    const Competition *wanted=(const Competition *)record;
+    ExpandedOGLeague *exact=NULL,*byId=NULL;
+    unsigned idMatches=0;
+    for(uint32_t i=0;i<s_expOGCount;++i) {
+        ExpandedOGLeague *ctx=&s_expOG[i];
+        if(!ctx->used || !ctx->teamCount || ctx->division!=division)continue;
+        const void *const *table=(const void *const *)_competitionsTable[ctx->country];
+        if(!table || !table[0])continue;
+        const Competition *native=(const Competition *)table[0];
+        if(native==wanted){exact=ctx;break;}
+        /* Career competition copies sometimes have a different address.
+         * Resolve by OG competition ID ONLY when unambiguous. */
+        if(native->compId==wanted->compId){byId=ctx;++idMatches;}
+    }
+    ExpandedOGLeague *ctx=exact ? exact : (idMatches==1u ? byId : NULL);
+    if(!ctx || wanted->type!=0 || ctx->teamCount>EXP_OG_MAX_TEAMS) {
+        fprintf(stderr,"[og-world-view] NOT RESIDENT id=%u division=%u matches=%u\n",
+                (unsigned)wanted->compId,(unsigned)division,idMatches);
+        ShowErrorMenu(unavailable);
+        return 0;
+    }
+    DIYCompetitionEx oldComp;
+    DIYTournamentState oldTournament;
+    const uint8_t oldPhase=_viewRandomPhase;
+    const uint8_t oldSeason=_seasonPlaying;
+    const uint8_t compId=(uint8_t)ctx->comp.base.field_2E;
+    const uint8_t oldLast=_careerLastMatchIndexByCompetitionSlot[compId];
+    memcpy(&oldComp,&_diyCompetitionStart,sizeof oldComp);
+    memcpy(&oldTournament,&_diyFileBufferCopy,sizeof oldTournament);
+    SaveSelectedTeams();
+    SaveRand2State();
+    memcpy(&_diyCompetitionStart,&ctx->comp,sizeof ctx->comp);
+    memcpy(&_diyFileBufferCopy,&ctx->tournament,sizeof ctx->tournament);
+    _numSelectedTeams=ctx->teamCount;
+    memcpy(_selectedTeams,ctx->teams,(size_t)ctx->teamCount*sizeof(TeamFileEx));
+    /* This pointer must belong to the LIVE scratch copy, not the
+     * original scratch buffer used while the world was initialized. */
+    _diyCompetitionStart.base.namePtr=
+        (uint8_t *)_diyCompetitionStart.base.competitionName;
+    fprintf(stderr,"[og-world-view] READ ONLY country=%u division=%u "
+                   "year=%u native-matches=%u\n",
+            (unsigned)ctx->country,(unsigned)ctx->division,(unsigned)ctx->year,
+            (unsigned)ctx->comp.matchesPlayedCount);
+    ShowDiyLeaguesTournamentMenu(1,1,0);
+    RestoreRand2State();
+    RestoreSelectedTeams();
+    memcpy(&_diyCompetitionStart,&oldComp,sizeof oldComp);
+    memcpy(&_diyFileBufferCopy,&oldTournament,sizeof oldTournament);
+    _careerLastMatchIndexByCompetitionSlot[compId]=oldLast;
+    _viewRandomPhase=oldPhase;
+    _seasonPlaying=oldSeason;
+    return 1;
+}
 /* NEW: bind existing world league, not a second scorer or a fresh OG
  * league. Translate world team identities into this club's native list.
  * Requires the club-local menu/keycache to have been allocated first. */

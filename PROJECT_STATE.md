@@ -900,3 +900,10 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
 - [CODICE DI PROVA 0.13.41, NON COLLAUDATO WINDOWS] Selettore DEBUG WORLD temporaneo in NEW CAREER con riavvio per non cambiare a caldo le tabelle native; cataloghi squadre 2026/27 presenti nel repository, compatibilita' applicativa da verificare.
 - [ARCHIVIATO LOCAMENTE, NON INTEGRATO NEL RENDERER] Raccolta dei DLC SWOS 2020 conservata intera, inclusi file accessori. In futuro classificare per condizioni invernali, stadi piccoli, tornei internazionali ecc. e scegliere dinamicamente secondo la competizione, con criteri da approvare.
 - [PIANIFICATO, NON ORA] Telecronaca durante le partite; selezione risorse, compatibilita', licenze e interfaccia rinviate a una fase successiva.
+
+
+## 0.13.42 — checkpoint GitHub del 14 novembre 2026
+
+- [CODICE] Protezione fingerprint 2627: ritorno a 9697 se i dati installati appartengono a generazione incompatibile; non cambia il salvataggio e non installa file nuovi.
+- [DA FARE] Migrazione approvata all'unica autorita' OG per competizioni, calendario, cronologia e carriera: NON COMPLETATA; verificare il piano per il ramo dedicato prima di interventi strutturali. Il selettore DEBUG WORLD 0.13.41 riavvia ancora il processo, contrario all'obiettivo finale di selezione senza riavvio.
+- [TEST] Build Windows / menu / 2026/27 / fallback fingerprint: NOT_TESTED; eseguibile Windows non generato dall'assistente. Chat "Connection interrupted" segnalata il 14/11/2026.

@@ -257,3 +257,9 @@ test di regressione e stato.
 - [VERIFICATO NEL CODICE] `data_json/worlds/2627/WORLD.ini` sul ramo `dev/0.10` usa `efe1464b6d1d62b8`; la precedente `world_data.c` integrava ancora `bf50ef15a18f05ae`. I dati e le tabelle native delle competizioni sono legati alla stessa generazione: **non basta cambiare la stringa fingerprint**.
 - [CODICE 0.13.41 — WINDOWS NON TESTATO] Primo allineamento di `sorgenti/src/world_data.c` ai record generati da OpenSWOS ufficiale; mantenuti i fallback del ramo Expanded quando API mod-only upstream non esistono. Aggiunto debug switch con riavvio processo anziche' `World_Set` a runtime; JSON 2627 abilitato al boot. Valutare compilazione e test Windows prima di considerare utilizzabile il mondo.
 - [PENDENTE] `InitCareerClub` continua a richiamare `InitializeNewSeason`; il LWE non e' ancora pienamente sostituito dal coordinatore unico approvato. Non attribuire un eventuale avvio riuscito alla piena integrazione del motore.
+
+## 14 novembre 2026 — 0.13.42: fail-closed world fingerprint (Windows NOT_TESTED)
+
+- [CODICE] `sorgenti/src/main.c::main`: dopo confronto del fingerprint in `data_json/worlds/2627/WORLD.ini`, una discrepanza prima veniva solo registrata; il processo continuava con le tabelle native 2627 e file JSON non corrispondenti. Ora conserva il diagnostic `AssetsCheck_SetWorld(2,...)` e torna al World 9697 prima del caricamento delle tabelle e del selettore JSON.
+- [LIMITI] Non e' la migrazione completa OG, non cambia in hot swap il mondo selezionato, non corregge le coppe o il recupero OG; manca prova con database errato/assente su Windows, e tutti i gate del registro rimangono aperti. Compilazione Windows, test 96/97 e 2627: NOT_TESTED.
+- [CONTINUITA'] Segnalata interruzione chat "Connection interrupted" del 14/11/2026; richiesta esplicita di riprendere da GitHub, preparare sorgenti e commit. Nessun test precedente trasformato in PASS.

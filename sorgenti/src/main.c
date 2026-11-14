@@ -1246,6 +1246,10 @@ int main(int argc, char **argv)
                 fprintf(stderr, "[world] %s: its installed data is %s, this build's is %s -- install the package "
                         "made for this version\n", World_Tag(), fp[0] ? fp : "unknown", World_DataFingerprint());
                 AssetsCheck_SetWorld(2, World_Tag(), fp, World_DataFingerprint());
+                /* Never run native tables against another generation's JSON.
+                 * Keep the diagnostic mismatch recorded before falling back. */
+                fprintf(stderr, "[world] incompatible 2627 database: falling back to 9697 (no 2627 career started)\n");
+                World_Set("9697");
             }
         }
     }

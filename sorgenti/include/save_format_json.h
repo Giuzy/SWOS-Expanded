@@ -32,6 +32,8 @@ int  SaveJson_BufferIsJson(const uint8_t *buf, uint32_t _size);
  * several hundred KB). Returns 1 if JSON, 0 if not, -1 on open
  * error so the caller can fall back to the legacy load path. */
 int  SaveJson_FileIsJson(const uint8_t *filename);
+/* Read-only schema/kind/world compatibility probe for Title CONTINUE. */
+int  SaveJson_CareerCompatible(const uint8_t *filename);
 
 /* Per-file-type save/load. Each returns 0 on success, non-zero on
  * error (caller shows the appropriate error menu). */

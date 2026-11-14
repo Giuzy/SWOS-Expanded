@@ -4074,7 +4074,7 @@ static int s_auto_career_available=-1;
 int Expanded_AutoCareer_HasSave(void) {
     if (s_auto_career_available<0)
         s_auto_career_available =
-            (SaveJson_FileIsJson(s_auto_career_name)==1) ? 1 : 0;
+            SaveJson_CareerCompatible(s_auto_career_name) ? 1 : 0;
     return s_auto_career_available;
 }
 void Expanded_AutoCareer_Save(const char *reason) {

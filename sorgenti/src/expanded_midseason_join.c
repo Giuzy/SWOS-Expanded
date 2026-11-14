@@ -333,7 +333,8 @@ int Expanded_MidseasonJoin_AlignSeason(uint32_t elapsed) {
         return 0;
     }
     _currentSeasonShowing=(uint16_t)offset;
-    _seasonPlaying=(uint8_t)offset;
+    /* Native OG seasons begin at 96; offset 0 is not 1996. */
+    _seasonPlaying=(uint8_t)((96u+offset)%100u);
     Expanded_ClockTrace_Sample("ALIGN_APPLIED");
     fprintf(stderr,"[clock-audit] event=ALIGN_APPLIED season-index=%u native-playing=%u target-phase=%u\n",
             (unsigned)_currentSeasonShowing,(unsigned)_seasonPlaying,

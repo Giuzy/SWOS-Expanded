@@ -273,3 +273,11 @@ test di regressione e stato.
 
 - [CODICE] `expanded_world_live_adapter.c::track_rejection` scrive una riga di log per OGNI squadra esclusa, con mondo, file TEAM, countryNumber, teamOrdinal, packed raw-team-id, divisione, motivo e nome. Le precedenti 12 voci campione per categoria restano per F10, ma non costituiscono il censimento completo.
 - [LIMITI] I 127 esclusi storici vanno confrontati col nuovo log Windows reale; non sono stati cancellati, inseriti artificialmente in divisioni non supportate o contabilizzati come club che partecipano al campionato. Questa è diagnostica runtime, NON correzione di tutte le identità/80 TMD né certificazione del motore OG.
+
+## 14 novembre 2026 — 0.13.44, fix nat stagione e preflight save (Windows NOT_TESTED)
+
+- [CODICE] `expanded_midseason_join.c::Expanded_MidseasonJoin_AlignSeason`: `_seasonPlaying` ora usa `(96+offset)%100` anziche' offset puro. L'anno 2026/27 iniziale non deve risultare 2030/31 per questa conversione.
+- [CODICE] `SaveJson_CareerCompatible`: lettura non distruttiva di schema (3/4/5), kind=career e world corrispondente prima di attivare CONTINUE verde. Il controllo non certifica integrita' dei dati successivi; il loader mantiene i propri gate. Salvataggi incompatibili non vengono cancellati.
+- [CODICE/UI] DEBUG WORLD: etichetta corrente/obiettivo e avviso che lo switch riavvia il gioco, area focus e mouse allineate. Asset PNG invariati.
+- [CONFLITTO] AGENTS.md dice slot unico AUTOSAVE.CAR, ultimo piano chat suggerisce salvataggi per mondo: non modificati percorsi/formato; decisione da rendere coerente nel prossimo intervento autorizzato.
+- [PENDENTE] Selezione del mondo a START senza restart, ripristino completo delle tabelle OG e separazione lifecycle world/competitions/manager/club; Windows build e test NOT_TESTED.

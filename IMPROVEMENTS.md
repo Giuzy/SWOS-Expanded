@@ -615,3 +615,17 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 - [CODICE, TEST PENDENTI] Portati da OpenSWOS `main` i record generati `world_data.c` compatibili con il pacchetto `data_json/worlds/2627/WORLD.ini` (`efe1464b6d1d62b8`). Restano fuori le API mod aggiunte nell'upstream e non presenti in Expanded: la logica 96/97 mantiene il default nativo.
 - [CODICE, TEST PENDENTI] Il World 2026/27 abilita `SWOS_DATA_JSON=1` anche se il launcher sviluppo forza 0; 96/97 mantiene la sua impostazione originale.
 - **Compilazione locale, test integrato Windows e carriera 2026/27: NOT_TESTED.** Questa integrazione NON sostituisce ancora tutto il motore gestionale con OpenSWOS recente e NON certifica il funzionamento di START, coppe o classifiche. I campi SWOS 2020 rimangono archiviati, non attivati.
+
+
+## [2026-11-14] 0.13.42 — sicurezza fingerprint World 2026/27
+
+- [CODICE / WINDOWS NON TESTATO] Il controllo fingerprint dei dati 2627 ora impedisce di proseguire nel mondo moderno quando il WORLD.ini non corrisponde alle tabelle native: registra il mismatch e ripristina il mondo 9697 prima dell'inizializzazione. Il caso WORLD.ini assente mantiene il fallback gia' presente.
+- [LIMITI] Il selettore DEBUG WORLD continua a richiedere il riavvio (come in 0.13.41); motore OG unico per carriera/calendario/coppe NON completato. Nessun compilatore Windows eseguito tramite collegamento GitHub. Segnata l'interruzione "Connection interrupted" e mantenuto lo stato delle verifiche pendenti.
+
+
+## [2026-11-14] 0.13.43 — default World al bootstrap
+- [CODICE] `main.c` seleziona 2026/27 se il mondo non è stato indicato; rimangono prioritari i valori espliciti e la validazione preventiva del pacchetto 2627. La selezione avviene prima che `frontend.c` installi le tabelle OG. Test Windows NON ESEGUITI, nessuna migrazione a caldo o unificazione LWE dichiarata.
+
+
+## [2026-11-14] 0.13.43_01 — log completo identificatori club esclusi
+- [CODICE] L'importatore registra su SWOS.log ogni riga TEAM esclusa con chiavi sorgente e motivo, al posto di perdere i dettagli dopo il campione F10. Non cambia fixture, classifiche, salvataggi o rosa. Test runtime Windows NON ESEGUITO.

@@ -670,3 +670,7 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 ## [2026-11-14] 0.13.45_02 — audit init OG e tracciamento del reingaggio
 - [CODICE] Log diagnostici nei percorsi native `InitCareerClub` / `Career_AttachManagerToClub`, per osservare se la firma ricostruisce ancora le competizioni. Corretto attributo `externally_visible` su variabile `static` (warning MSYS2). Nessun reset/simulatore/calendario aggiuntivo; non dichiarare unificazione del motore raggiunta. Compilazione e test Windows PENDENTI.
+
+
+## [2026-11-14] 0.13.45_03 — native season vs club lifecycle split
+- [CODICE] Introdotta `Expanded_InitializeClubSeasonState` come variante specializzata per il club, chiamata all'assunzione senza incrementare/ridurre i contatori globali della stagione o reset mondo playoff. `InitializeNewSeason` mantiene l'avanzamento anno/gruppi/playoff ai soli normali cambi di stagione OG. L'attach OG completo richiede ancora contesti di competizione mondiali persistenti: non risolto dalla sola variante. Windows compile/game NOT_TESTED.

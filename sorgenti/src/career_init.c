@@ -267,6 +267,7 @@ void InitCareerClub(uint16_t teamNo);
 void Career_AttachManagerToClub(uint16_t teamNo);
 void ContinueCareerNextSeason(void);
 void InitializeNewSeason(void);
+void Expanded_InitializeClubSeasonState(void);
 void DIY_SelectCompetitionSlot4FromCurrentDivision(void);
 uint16_t Career_SelectEuroCupSlotIfTeamParticipates(uint8_t *cupCopy, uint16_t euroCupIndex);
 
@@ -834,6 +835,7 @@ void InitCareerCompetitions(void)
     UefaCoef_Reset();
     LeaguePlayoffs_ResetStages();
     WorldPlayoff_ResetStageTitles();
+    WorldPlayoff_Reset();
     WorldWinners_Reset();
     Conti_Reset();
     States_Reset();
@@ -1110,11 +1112,11 @@ void InitCareerClub(uint16_t teamNo)
     _euroCupsCompetitionContextBuf.tourn.header.slotStateB = 2;
     _euroCupsCompetitionContextBuf.tourn.header.slotStateC = 8;
 #ifdef SWOS_SDL_BUILD
-    fprintf(stderr,"[career-init-audit] CLUB_INIT_CALLS_INITIALIZE_NEW_SEASON "
-                   "team=%04x world=%s (REBUILDS OG SLOTS; MIGRATION PENDING)\n",
+    fprintf(stderr,"[career-init-audit] CLUB_BIND_LOCAL_SETUP "
+                   "team=%04x world=%s (NO SEASON INCREMENT; OG SLOT BIND STILL NEEDS PERSISTENT STATE)\n",
             (unsigned)teamNo,World_Tag());
 #endif
-    InitializeNewSeason();
+    Expanded_InitializeClubSeasonState();
     _careerLoadedFlag = 0;
 }
 
@@ -1126,11 +1128,9 @@ __attribute__((used, externally_visible))
 void Career_AttachManagerToClub(uint16_t teamNo)
 {
     const uint16_t season = _currentSeasonShowing;
-    if (season != 0xFFFFu)
-        _currentSeasonShowing = (uint16_t)(season - 1u);
-    else
-        _currentSeasonShowing = 0xFFFFu;
-    _seasonPlaying--;
+    /* The original compatibility path decremented the year just so
+     * InitializeNewSeason() could increment it again. A contract is NOT a
+     * new-world-season event: retain both counters unchanged. */
     Career_InitTransferMarketState();
     /* Diagnostic guard: season and native competition ownership must not
      * silently change on an ordinary contract. The legacy club initializer
@@ -1164,8 +1164,8 @@ void InitCareer(uint16_t teamNo)
     if(!s_careerWorldInitialized) InitCareerWorld();
     if(!s_careerCompetitionsInitialized) InitCareerCompetitions();
     if(!s_careerManagerInitialized) InitCareerManager();
-    _currentSeasonShowing = 0xFFFFu;
-    _seasonPlaying--;
+    /* START set the initial world year in InitCareerVariables(4). The
+     * first job attaches to that year without incrementing or rewinding. */
     InitCareerClub(teamNo);
 }
 
@@ -1501,15 +1501,36 @@ void InitializeNewSeason(void)
                       (unsigned)_youreSacked,
                       (unsigned)_teamNoOfferAccepted,
                       (unsigned)_selTeamNumber);
+    /* This function is called only when the native career actually moves
+     * to a NEW season. NEVER call it from a contract/rehire. */
     _teamsLoaded = 0;
     _currentSeasonShowing++;
     if (_currentSeasonShowing == _careerParams.num_seasons)
         _currentSeasonShowing = 0;
+    _seasonPlaying++;
+    if (_seasonPlaying == 100)
+        _seasonPlaying = 0;
 #ifdef SWOS_SDL_BUILD
-    /* A club attachment must not import last year's OG table as current. */
     DIY_OGStandings_SetSeason((uint16_t)(World_FirstYear()+_currentSeasonShowing));
+    fprintf(stderr,"[og-season] ADVANCE world=%s index=%u native=%u (season transition, not hire)\n",
+            World_Tag(),(unsigned)_currentSeasonShowing,(unsigned)_seasonPlaying);
 #endif
+    /* Native world mobility/playoffs change only on a real season event. */
+    LeagueGroups_Apply((const int8_t *)_diyLeagueSeasonStateTable,
+                       (int8_t *)_diyLeagueScratchBuffer);
+    DIY_SaveLeagueScratchToTable();
+    WorldPlayoff_Reset();
+    Expanded_InitializeClubSeasonState();
+}
 
+/* Only the club-facing setup: consumes the existing world season. Until
+ * the OG competition contexts are persistent per division, the native
+ * club competition slot setup below is still a compatibility bridge.
+ * Crucially it cannot advance _seasonPlaying or _currentSeasonShowing. */
+__attribute__((used, externally_visible))
+void Expanded_InitializeClubSeasonState(void)
+{
+    _teamsLoaded = 0;
     _selTeamSelectedPlayerPosition = 0xFFFF;
 
     /* Clear 4 entries of careerUnavailablePlayerList */
@@ -1528,15 +1549,6 @@ void InitializeNewSeason(void)
     _youreSacked = 0;
     _competitionSlotUpdatedFlag = 0;
     _stayingInOldClub++;
-    _seasonPlaying++;
-    if (_seasonPlaying == 100)
-        _seasonPlaying = 0;
-
-    /* A league with groups side by side: the season's one-division moves
-     * become one-level moves (src/league_groups.c). None in 96/97. */
-    LeagueGroups_Apply((const int8_t *)_diyLeagueSeasonStateTable,
-                       (int8_t *)_diyLeagueScratchBuffer);
-    DIY_SaveLeagueScratchToTable();
 
     _boardConfidenceMod0 = 0;
     _boardConfidenceMod1 = 0;
@@ -1608,7 +1620,7 @@ void InitializeNewSeason(void)
     _tertiaryCompetitionPtr = 0;
     _quaternaryCompetitionPtr = 0;
     _diyCompetitionPtr = 0;
-    WorldPlayoff_Reset();       /* (last season's play-off: decided, gone) */
+    /* WorldPlayoff_Reset belongs to the new-season boundary, NOT a job. */
 
     _numSelectedTeams = 1;
     _teamSelectionKeyCacheCount = 0;

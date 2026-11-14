@@ -907,3 +907,9 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
 - [CODICE] Protezione fingerprint 2627: ritorno a 9697 se i dati installati appartengono a generazione incompatibile; non cambia il salvataggio e non installa file nuovi.
 - [DA FARE] Migrazione approvata all'unica autorita' OG per competizioni, calendario, cronologia e carriera: NON COMPLETATA; verificare il piano per il ramo dedicato prima di interventi strutturali. Il selettore DEBUG WORLD 0.13.41 riavvia ancora il processo, contrario all'obiettivo finale di selezione senza riavvio.
 - [TEST] Build Windows / menu / 2026/27 / fallback fingerprint: NOT_TESTED; eseguibile Windows non generato dall'assistente. Chat "Connection interrupted" segnalata il 14/11/2026.
+
+
+## 0.13.43 — World 2026/27 predefinito all'avvio (14/11/2026)
+
+- [CODICE] Se non viene indicato il mondo con impostazione/configurazione/CLI, SWOS Expanded tenta 2627 al bootstrap e verifica WORLD.ini prima di installare le tabelle native. Una scelta esplicita 9697 è rispettata. Avvio Windows NOT_TESTED.
+- [NON COMPLETATO] Cambio in NEW CAREER senza riavvio, una sola autorità OG per simulazione completa, migrazione delle competizioni e dismissione LWE, audit 80/127 e stress runtime. Non confondere 0.13.43 con la build finale della richiesta.

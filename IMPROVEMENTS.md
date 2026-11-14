@@ -621,3 +621,7 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 - [CODICE / WINDOWS NON TESTATO] Il controllo fingerprint dei dati 2627 ora impedisce di proseguire nel mondo moderno quando il WORLD.ini non corrisponde alle tabelle native: registra il mismatch e ripristina il mondo 9697 prima dell'inizializzazione. Il caso WORLD.ini assente mantiene il fallback gia' presente.
 - [LIMITI] Il selettore DEBUG WORLD continua a richiedere il riavvio (come in 0.13.41); motore OG unico per carriera/calendario/coppe NON completato. Nessun compilatore Windows eseguito tramite collegamento GitHub. Segnata l'interruzione "Connection interrupted" e mantenuto lo stato delle verifiche pendenti.
+
+
+## [2026-11-14] 0.13.43 — default World al bootstrap
+- [CODICE] `main.c` seleziona 2026/27 se il mondo non è stato indicato; rimangono prioritari i valori espliciti e la validazione preventiva del pacchetto 2627. La selezione avviene prima che `frontend.c` installi le tabelle OG. Test Windows NON ESEGUITI, nessuna migrazione a caldo o unificazione LWE dichiarata.

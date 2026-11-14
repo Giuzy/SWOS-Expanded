@@ -263,3 +263,8 @@ test di regressione e stato.
 - [CODICE] `sorgenti/src/main.c::main`: dopo confronto del fingerprint in `data_json/worlds/2627/WORLD.ini`, una discrepanza prima veniva solo registrata; il processo continuava con le tabelle native 2627 e file JSON non corrispondenti. Ora conserva il diagnostic `AssetsCheck_SetWorld(2,...)` e torna al World 9697 prima del caricamento delle tabelle e del selettore JSON.
 - [LIMITI] Non e' la migrazione completa OG, non cambia in hot swap il mondo selezionato, non corregge le coppe o il recupero OG; manca prova con database errato/assente su Windows, e tutti i gate del registro rimangono aperti. Compilazione Windows, test 96/97 e 2627: NOT_TESTED.
 - [CONTINUITA'] Segnalata interruzione chat "Connection interrupted" del 14/11/2026; richiesta esplicita di riprendere da GitHub, preparare sorgenti e commit. Nessun test precedente trasformato in PASS.
+
+## 14 novembre 2026 — 0.13.43: default World al bootstrap
+
+- [CODICE] `main.c::main` sceglie `2627` quando argomenti, variabile SWOS_WORLD e configurazione non specificano un mondo. `World_InstallBaked` rimane in `frontend.c::FrontEndPreLoopSetup` e riceve la selezione validata; `WORLD.ini` assente o fingerprint incompatibile conserva il fallback a 9697. Il 1996/97 selezionato esplicitamente resta disponibile.
+- [LIMITI / WINDOWS NOT_TESTED] La selezione non è ancora senza riavvio; `World_InstallBaked` sovrascrive i dati OG e manca una procedura verificata per ripristinare integralmente le tabelle e cache storiche a caldo. Non dichiarare OG/LWE unificati, 127 club risolti o 80 TMD rimappate. Richiesta di migrazione totale ancora aperta.

@@ -3558,7 +3558,8 @@ typedef struct {
 static ExpandedOGLeague s_expOG[EXP_OG_MAX_LEAGUES];
 static uint32_t s_expOGCount;
 static ExpandedOGLeague *s_expOGCurrent;
-static int s_expOGPhase=-1,s_expOGBound;
+static int s_expOGPhase=-1,s_expOGBound,s_expOGViewing;
+int Expanded_OGWorld_ViewActive(void) { return s_expOGViewing; }
 extern uint8_t _seed2,_randXorIndex2,_randXorKey2;
 extern uint8_t _careerLastMatchIndexByCompetitionSlot[];
 extern void Career_AutoAdvanceInternationalCompetitionFixtures(uint8_t *,uint16_t);
@@ -3567,7 +3568,7 @@ extern void SaveSelectedTeams(void);
 extern void RestoreSelectedTeams(void);
 void Expanded_OGWorld_Reset(void) {
     memset(s_expOG,0,sizeof s_expOG);s_expOGCount=0;
-    s_expOGCurrent=NULL;s_expOGPhase=-1;s_expOGBound=0;
+    s_expOGCurrent=NULL;s_expOGPhase=-1;s_expOGBound=0;s_expOGViewing=0;
 }
 uint32_t Expanded_OGWorld_LeagueCount(void){return s_expOGCount;}
 int Expanded_OGWorld_ClubBound(void){return s_expOGBound;}
@@ -3638,9 +3639,25 @@ int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
         if(native->compId==wanted->compId){byId=ctx;++idMatches;}
     }
     ExpandedOGLeague *ctx=exact ? exact : (idMatches==1u ? byId : NULL);
-    if(!ctx || wanted->type!=0 || ctx->teamCount>EXP_OG_MAX_TEAMS) {
-        fprintf(stderr,"[og-world-view] NOT RESIDENT id=%u division=%u matches=%u\n",
-                (unsigned)wanted->compId,(unsigned)division,idMatches);
+    /* The OG viewer resolves every standings team through _selectedTeams.
+     * Reject malformed/incomplete scratch images BEFORE entering the OG
+     * view menu, so a corrupt context cannot dereference a bad team ID. */
+    int valid=(ctx!=NULL && wanted->type==0);
+    unsigned n=valid?(unsigned)ctx->comp.base.numTeams:0u;
+    if(valid && (ctx->teamCount<2u || ctx->teamCount>EXP_OG_MAX_TEAMS ||
+                 n<2u || n>EXP_OG_MAX_TEAMS || n>ctx->teamCount))
+        valid=0;
+    if(valid) for(unsigned i=0;i<n;i++) {
+        const unsigned off=(unsigned)ctx->comp.matchData.league.teamEntryOffsets[i];
+        if(off%18u!=0u || off/18u>=n) { valid=0;break; }
+        const int32_t team=(int32_t)ctx->comp.leagueStandings[i].teamSelOffset;
+        if(team<0 || (uint32_t)team>=ctx->teamCount) {valid=0;break;}
+    }
+    if(!valid) {
+        fprintf(stderr,"[og-world-view] MISSING/INVALID id=%u div=%u "
+                       "matches=%u teams=%u n=%u\n",
+                (unsigned)wanted->compId,(unsigned)division,idMatches,
+                ctx?(unsigned)ctx->teamCount:0u,n);
         ShowErrorMenu(unavailable);
         return 0;
     }
@@ -3663,10 +3680,12 @@ int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
     _diyCompetitionStart.base.namePtr=
         (uint8_t *)_diyCompetitionStart.base.competitionName;
     fprintf(stderr,"[og-world-view] READ ONLY country=%u division=%u "
-                   "year=%u native-matches=%u\n",
+                   "year=%u phase=%u native-matches=%u\n",
             (unsigned)ctx->country,(unsigned)ctx->division,(unsigned)ctx->year,
-            (unsigned)ctx->comp.matchesPlayedCount);
+            (unsigned)ctx->lastPhase,(unsigned)ctx->comp.matchesPlayedCount);
+    s_expOGViewing=1;
     ShowDiyLeaguesTournamentMenu(1,1,0);
+    s_expOGViewing=0;
     RestoreRand2State();
     RestoreSelectedTeams();
     memcpy(&_diyCompetitionStart,&oldComp,sizeof oldComp);

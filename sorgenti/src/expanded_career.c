@@ -497,57 +497,78 @@ void Expanded_UnemployedRecord(MenuEntry *unused) {
 #ifdef SWOS_SDL_BUILD
 extern void Expanded_UnemployedDebugWorld(MenuEntry *unused);
 #endif
+/* Only the menu descriptor declared these callbacks previously. The
+ * explicit unemployment allowlist now also references them from this TU. */
+void Expanded_UnemployedWait(void);
+void Expanded_UnemployedShowOffer(void);
 void Expanded_UnemployedInit(void) {
-    /* The unemployed menu is a clone of the ORIGINAL contest screen.
-     * Keep its header, fixture-panel background, all nine action buttons
-     * and the two scroll arrows in their original positions. The real
-     * fixtures/templates (19..43) are hidden because no club is managed. */
+    /* This is a clone of the club's packed contest menu, but no club is
+     * assigned. Hidden does not imply non-interactive on every SDL/mouse
+     * path. Revoke EVERY inherited callback and beforeDraw first, then
+     * whitelist the actual unemployment actions. RestorePreviousMenu()
+     * will invoke this initializer again via the clone's onReturn. */
     const int offerReady=s_waitTeam && s_waitWeeks>=s_nextOfferWeek;
     for (unsigned i=0;i<44;i++) {
-        _menuEntries[i].isInvisible=(i>=19 && i<=43) || (i>=13 && i<=15);
-        _menuEntries[i].isDisabled=0;
-    }
-    _menuEntries[3].isInvisible=1; /* stock career also hides wide header */
-    /* The original header is repainted with unemployed text after the
-     * entry backgrounds; otherwise it retains the last managed club. */
-    for (unsigned i=0;i<4;i++) _menuEntries[i].content=NO_FOREGROUND;
-    /* Only real actions are shown: no grey dead buttons in unemployed
-     * mode. The underlying contest menu and callbacks stay unchanged. */
-    static const unsigned disabled[]={4,5,6,8,16,17};
-    for (unsigned i=0;i<sizeof(disabled)/sizeof(disabled[0]);i++) {
-        MenuEntry *e=&_menuEntries[disabled[i]];
-        e->isDisabled=1;
+        MenuEntry *e=&_menuEntries[i];
         e->isInvisible=1;
-        if (disabled[i]<=12) {
-            e->bgColor=0x9;
-            e->stringFlags=(e->stringFlags & ~0x0fu) | 6u;
-        }
+        e->isDisabled=1;
+        e->onSelect=NULL;
+        e->beforeDraw=NULL;
+        e->afterDrawCb=NULL;
     }
-    /* The dormant VIEW COMPETITIONS slot becomes a real debug WORLD
-     * action in the unemployed clone; the original career menu is intact. */
+    for(unsigned i=0;i<3;i++) {
+        _menuEntries[i].isInvisible=0; /* name/status/season header bands */
+        _menuEntries[i].content=NO_FOREGROUND;
+    }
+    _menuEntries[3].content=NO_FOREGROUND;
+    _menuEntries[18].isInvisible=0; /* native 304x116 center panel */
+
+    /* Legitimate actions only: FORWARD TIME, BACK, conditional OFFER,
+     * DEBUG WORLD and RECORD. Every fixture, SQUAD, TRANSFERS, CLUB
+     * BUSINESS, hidden season button and scroll-arrow callback is NULL. */
+    _menuEntries[7].isInvisible=0;
+    _menuEntries[7].isDisabled=0;
+    _menuEntries[7].onSelect=(MenuEntryFn)Expanded_UnemployedWait;
+    _menuEntries[9].isInvisible=0;
+    _menuEntries[9].isDisabled=0;
+    _menuEntries[9].onSelect=(MenuEntryFn)SetExitMenuFlag;
+    _menuEntries[10].isInvisible=!offerReady;
+    _menuEntries[10].isDisabled=!offerReady;
+    _menuEntries[10].onSelect=offerReady?
+        (MenuEntryFn)Expanded_UnemployedShowOffer:NULL;
+    _menuEntries[10].fg=(uintptr_t)(offerReady?"VIEW CLUB OFFER":"NO JOB OFFERS");
+    if(!offerReady) {
+        _menuEntries[10].bgColor=0x9;
+        _menuEntries[10].stringFlags=
+            (_menuEntries[10].stringFlags & ~0x0fu)|6u;
+    }
+
+    /* In the actual right-hand column, directly above RECORD. Define
+     * real geometry and renderer types instead of relying on the
+     * inherited VIEW COMPETITIONS packed entry's stale state. */
 #ifdef SWOS_SDL_BUILD
     _menuEntries[11].isInvisible=0;
     _menuEntries[11].isDisabled=0;
     _menuEntries[11].onSelect=Expanded_UnemployedDebugWorld;
-    _menuEntries[11].fg=(uintptr_t)"DEBUG WORLD";
+    _menuEntries[11].x=_menuEntries[12].x;
+    _menuEntries[11].y=(uint16_t)(_menuEntries[12].y-
+                                   _menuEntries[12].dwHeight-1u);
+    _menuEntries[11].dwWidth=_menuEntries[12].dwWidth;
+    _menuEntries[11].dwHeight=_menuEntries[12].dwHeight;
+    _menuEntries[11].background=ENTRY_FRAME_AND_BACK_COLOR;
+    _menuEntries[11].content=ENTRY_STRING;
     _menuEntries[11].bgColor=0x8;
-    _menuEntries[11].stringFlags=(_menuEntries[11].stringFlags & ~0x0fu)|2u;
+    _menuEntries[11].fg=(uintptr_t)"DEBUG WORLD";
+    _menuEntries[11].stringFlags=
+        (_menuEntries[12].stringFlags & ~0x0fu)|2u;
 #endif
-    /* Entry 12 is a REAL, compact RECORD button; it borrows the dormant
-     * VIEW WORLD slot only in the unemployed clone, never in career mode. */
     _menuEntries[12].isInvisible=0;
     _menuEntries[12].isDisabled=0;
     _menuEntries[12].onSelect=Expanded_UnemployedRecord;
-    _menuEntries[12].fg=(uintptr_t)"RECORD";
     _menuEntries[12].bgColor=0x8;
-    _menuEntries[12].stringFlags=(_menuEntries[12].stringFlags & ~0x0fu)|2u;
-    _menuEntries[10].isDisabled=!offerReady;
-    _menuEntries[10].isInvisible=!offerReady;
-    _menuEntries[10].fg=(uintptr_t)(offerReady?"VIEW CLUB OFFER":"NO JOB OFFERS");
-    if (!offerReady) {
-        _menuEntries[10].bgColor=0x9;
-        _menuEntries[10].stringFlags=(_menuEntries[10].stringFlags & ~0x0fu) | 6u;
-    }
+    _menuEntries[12].fg=(uintptr_t)"RECORD";
+    _menuEntries[12].stringFlags=
+        (_menuEntries[12].stringFlags & ~0x0fu)|2u;
     /* Explicit links between the ONLY enabled actions. The stock
      * navigation routes through disabled fixture/club buttons, so a
      * controller could get trapped on FORWARD TIME. */
@@ -571,8 +592,7 @@ void Expanded_UnemployedInit(void) {
     _menuEntries[10].rightEntry=11;
     _menuEntries[10].upEntry=7;
     _menuEntries[10].downEntry=11;
-    /* Pending offers must not steal the keyboard/controller focus from
-     * FORWARD TIME. VIEW CLUB OFFER remains reachable to the right. */
+    /* A modal return must not leave the focus on a hidden club action. */
     ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[7];
 }
 static void contest_at(unsigned x,unsigned y,const char *line,unsigned color) {

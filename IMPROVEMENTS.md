@@ -629,3 +629,7 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 ## [2026-11-14] 0.13.43_01 — log completo identificatori club esclusi
 - [CODICE] L'importatore registra su SWOS.log ogni riga TEAM esclusa con chiavi sorgente e motivo, al posto di perdere i dettagli dopo il campione F10. Non cambia fixture, classifiche, salvataggi o rosa. Test runtime Windows NON ESEGUITO.
+
+
+## [2026-11-14] 0.13.44_02 — autosave indipendenti per i due mondi
+- [CODICE] Scrittura checkpoint per mondo in `AUTO9697.CAR` o `AUTO2627.CAR`, senza sovrascrivere `AUTOSAVE.CAR` storico. Lettura legacy compatibile in fallback; CONTINUE mantiene controllo schema/kind/world. La rimozione a fine carriera riguarda solo il mondo attivo. Build e test Windows: PENDENTI.

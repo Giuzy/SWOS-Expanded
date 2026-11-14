@@ -473,10 +473,15 @@ registro mondiale condiviso, non sostituendoli con un motore parallelo.
   e fatti persistenti irripetibili. Non duplicare database installati
   (`data/`, JSON/pack). Un download iniziale da 1,5 GB è accettabile.
   Questa è architettura APPROVATA, non interamente implementata.
-- Un solo `save/AUTOSAVE.CAR` duraturo, sostituzione atomica a checkpoint
-  sicuri e ripristino dopo chiusura/restart. EXIT GAME e ritorno al Title
-  non cancellano. Ritiro definitivo elimina lo slot; abbandono volontario
-  andrà offerto come azione DISTINTA e confermata.
+- Decisione aggiornata 14 novembre 2026: **due slot autosave**, uno per
+  mondo: `save/AUTO9697.CAR` e `save/AUTO2627.CAR`, ognuno sostituito
+  atomicamente ai checkpoint sicuri. Il precedente `save/AUTOSAVE.CAR` è
+  fonte di recupero compatibile in sola lettura, finché un nuovo checkpoint
+  del mondo corrispondente riesce. Non convertirlo o cancellarlo da soli.
+  CONTINUE considera il solo mondo attivo e verifica schema, kind e world.
+  EXIT GAME e Title non cancellano; ritiro definitivo elimina soltanto
+  il salvataggio attivo del proprio mondo; abbandono volontario andrà
+  offerto come azione distinta e confermata.
 - Per impedire di rigiocare un match serve il ripristino esatto dello
   stato live del motore OpenSWOS 50 Hz. Non salvare un mezzo stato né
   assegnare sconfitte arbitrarie per crash. Segnalare anti-save-scum

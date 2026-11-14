@@ -913,3 +913,9 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
 
 - [CODICE] Se non viene indicato il mondo con impostazione/configurazione/CLI, SWOS Expanded tenta 2627 al bootstrap e verifica WORLD.ini prima di installare le tabelle native. Una scelta esplicita 9697 è rispettata. Avvio Windows NOT_TESTED.
 - [NON COMPLETATO] Cambio in NEW CAREER senza riavvio, una sola autorità OG per simulazione completa, migrazione delle competizioni e dismissione LWE, audit 80/127 e stress runtime. Non confondere 0.13.43 con la build finale della richiesta.
+
+
+## 0.13.44_02 — due autosave separati (decisione 14/11/2026)
+
+- [CODICE] `save/AUTO9697.CAR` e `save/AUTO2627.CAR`; vecchio `AUTOSAVE.CAR` disponibile solo come fonte read-only con world/schema compatibili. Nessuna conversione/cancellazione automatica; il checkpoint del mondo attivo non può sovrascrivere quello dell'altro mondo. CONTINUE verde solo per lo slot compatibile del mondo attivo.
+- [PENDENTE] Verificare primo caricamento del legacy, save successivo, switch dei mondi, avvio disoccupato e pensione su Windows. Migrazione world bootstrap a START e separazione init ancora NON IMPLEMENTATE.

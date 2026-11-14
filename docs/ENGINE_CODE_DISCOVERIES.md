@@ -281,3 +281,9 @@ test di regressione e stato.
 - [CODICE/UI] DEBUG WORLD: etichetta corrente/obiettivo e avviso che lo switch riavvia il gioco, area focus e mouse allineate. Asset PNG invariati.
 - [CONFLITTO] AGENTS.md dice slot unico AUTOSAVE.CAR, ultimo piano chat suggerisce salvataggi per mondo: non modificati percorsi/formato; decisione da rendere coerente nel prossimo intervento autorizzato.
 - [PENDENTE] Selezione del mondo a START senza restart, ripristino completo delle tabelle OG e separazione lifecycle world/competitions/manager/club; Windows build e test NOT_TESTED.
+
+## 14 novembre 2026 — due slot per mondo (decisione utente e codice 0.13.44_02)
+
+- [DECISIONE] Sostituita la precedente regola del singolo AUTOSAVE.CAR: due salvataggi nativi indipendenti `AUTO9697.CAR` e `AUTO2627.CAR` sotto `save/`. `AUTOSAVE.CAR` preesistente è solo fallback in lettura se schema/kind/world compatibili, non sovrascritto o cancellato dal nuovo sistema.
+- [CODICE] `menus.c` seleziona il nome dal `World_Current()`, salva esclusivamente nello slot di quel mondo, rilegge automaticamente dopo cambio mondo, non considera verde CONTINUE quando lo slot (o il legacy) non supera `SaveJson_CareerCompatible`. Alla pensione cancella soltanto il checkpoint da cui è stata caricata/salvata quella carriera, mai quello dell'altro mondo.
+- [LIMITI] Il vecchio `AUTOSAVE.CAR` rimane anche dopo il primo nuovo checkpoint; se il nuovo slot viene cancellato, il fallback legacy può ricomparire se compatibile. La pulizia legacy richiede azione esplicita distinta. Il selettore mondo con riavvio resta provvisorio; test Windows e compile NOT_TESTED.

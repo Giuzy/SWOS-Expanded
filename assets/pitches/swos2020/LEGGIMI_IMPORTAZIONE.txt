@@ -1,0 +1,39 @@
+SWOS EXPANDED - ARCHIVIO COMPLETO CAMPI SWOS 2020
+
+ISTRUZIONI
+1. Chiudi il gioco e fai una copia di sicurezza della cartella del repository.
+2. Estrai QUESTO ZIP nella cartella che contiene AVVIA_SWOS.bat:
+   C:\Users\xgiuz\Downloads\Repo SWOS expanded\SWOS-Expanded\
+3. I file appariranno in:
+   assets\pitches\swos2020\
+4. Non eseguire assets\pitches\swos2020\init.bat.
+
+CONTENUTO
+Tutti i membri originali di pitch.zip sono stati copiati senza esclusioni:
+le cartelle dei 112 set di campi, Graphics Composer, i pacchetti .7z,
+le preview, le risorse extra (compresi sprite/score/bench) e gli altri file.
+Ogni nome/cartella originale e' conservato al di sotto della cartella
+assets/pitches/swos2020/. E' un ARCHIVIO, non una sostituzione dei
+campi OG in grafs/, ne' un loader attivo.
+
+I dati del World 2026/27 (squadre, giocatori, regole) sono gia' nel
+repository in data_json/worlds/2627/ e NON vengono duplicati qui.
+Questo ZIP NON modifica SWOS.ini, codice, file eseguibili o salvataggi.
+
+GIT E LICENZE
+La copia locale e la pubblicazione GitHub non sono la stessa operazione.
+Gli asset dei DLC e i dati calcistici possono avere proprietari diversi
+rispetto al codice open-source: verifica i rispettivi diritti prima
+ di redistribuirli pubblicamente.
+Il .gitignore attuale del progetto esclude globalmente *.7z e *.bat:
+un normale commit potrebbe NON includere tutti i file dopo l'estrazione.
+Questo ZIP li contiene comunque tutti.
+
+CATALOGO
+CATALOGO_CAMPI_SWOS2020.txt fornisce classificazioni provvisorie;
+non equivale a una verifica visiva o a regole di selezione automatiche.
+
+TEST
+Zip sorgente: 3291 elementi inclusi le directory.
+Zip di destinazione: 3291 elementi originari + 2 file di documentazione.
+I file del sorgente conservano dimensione e CRC32 a ogni percorso relativo.

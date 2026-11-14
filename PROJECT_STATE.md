@@ -957,3 +957,10 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
 
 ## 0.13.45_01 — errori di compilazione segnalati dall'utente
 - [RISCONTRATO DA LOG WINDOWS] `expanded_career.c:435` duplicava `rankedCount` e `career_init.c:880` invocava `DIY_OGStandings_SetSeason` senza dichiarazione visibile. Entrambi corretti nel codice. Compilazione Windows e prove delle offerte da ripetere; nessun PASS attribuito senza nuovo log.
+
+
+## 0.13.45_02 — audit obbligatorio Init/START/club, struttura futura OG
+- [CODICE] Inseriti log `[career-init-audit]` in `InitCareerClub` e `Career_AttachManagerToClub`, e rimosso attributo GCC `externally_visible` applicato erroneamente a una variabile statica. Questi cambi SONO DIAGNOSTICA, non la migrazione mondiale richiesta.
+- [SCOPERTA VERIFICATA] Il loading installa già SOLO il mondo scelto via `World_InstallBaked`/JSON e muta `_competitionsTable`; selezionare il secondo senza ricostruzione sicura è rischioso. Allo START `InitCareerCompetitions` copia template, non avvia giornate. `InitCareerManager` invoca `InitCareerVariables(4)`; `InitCareerClub` richiama `InitializeNewSeason`, che incrementa anno, azzera competition slot pointer table, key cache, e copia i template del club. `InitNewSeason` resetta ulteriori slot. `Career_AutoAdvanceInternationalCompetitionFixtures` carica uno stato temporaneo e non mantiene ogni campionato persistente.
+- [OBIETTIVO CONFERMATO, NON IMPLEMENTATO] Preparare 9697/2627 al loading senza installarli contemporaneamente; START seleziona il mondo e avvia tutte le competizioni OG; FORWARD TIME le fa avanzare giornata dopo giornata indipendentemente dal manager; assume = attach club senza reset; licenziamento = detach; salvataggio conserva stagione, competizioni e classifiche OG. Necessaria rifattorizzazione delle routine native di competizione + serializzazione.
+- [TEST] Windows compile/test interamente a carico utente. Non segnare build eseguita né engine completo.

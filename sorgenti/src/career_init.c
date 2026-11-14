@@ -795,7 +795,6 @@ extern uint32_t GetNationalityAndTeamFile(uint16_t teamNo);
  * init, calculates starting balance, copies competition data, sets
  * slot states, then calls InitializeNewSeason.
  * ================================================================ */
-__attribute__((used, externally_visible))
 /* World, manager and club are different lifetimes. In particular, an
  * unemployment-to-employment handoff must NEVER re-copy the OG competition
  * templates or erase the career's historical counters. */
@@ -1110,6 +1109,11 @@ void InitCareerClub(uint16_t teamNo)
     _euroCupsCompetitionContextBuf.tourn.header.slotStateA = 3;
     _euroCupsCompetitionContextBuf.tourn.header.slotStateB = 2;
     _euroCupsCompetitionContextBuf.tourn.header.slotStateC = 8;
+#ifdef SWOS_SDL_BUILD
+    fprintf(stderr,"[career-init-audit] CLUB_INIT_CALLS_INITIALIZE_NEW_SEASON "
+                   "team=%04x world=%s (REBUILDS OG SLOTS; MIGRATION PENDING)\n",
+            (unsigned)teamNo,World_Tag());
+#endif
     InitializeNewSeason();
     _careerLoadedFlag = 0;
 }
@@ -1128,7 +1132,24 @@ void Career_AttachManagerToClub(uint16_t teamNo)
         _currentSeasonShowing = 0xFFFFu;
     _seasonPlaying--;
     Career_InitTransferMarketState();
+    /* Diagnostic guard: season and native competition ownership must not
+     * silently change on an ordinary contract. The legacy club initializer
+     * STILL rebuilds competition slots, so do not claim full state handoff. */
+#ifdef SWOS_SDL_BUILD
+    const uint16_t observedWorldSeason=season;
+    fprintf(stderr,"[career-init-audit] ATTACH_BEGIN team=%04x world=%s "
+                   "season=%u competition-init=%d world-init=%d manager-init=%d\n",
+            (unsigned)teamNo,World_Tag(),(unsigned)observedWorldSeason,
+            s_careerCompetitionsInitialized,s_careerWorldInitialized,
+            s_careerManagerInitialized);
+#endif
     InitCareerClub(teamNo);
+#ifdef SWOS_SDL_BUILD
+    fprintf(stderr,"[career-init-audit] ATTACH_END team=%04x world=%s "
+                   "season=%u prior-season=%u (club competition slots rebuilt: YES)\n",
+            (unsigned)teamNo,World_Tag(),(unsigned)_currentSeasonShowing,
+            (unsigned)observedWorldSeason);
+#endif
     fprintf(stderr,"[career-attach] attached team=%04x season=%u "
                    "without resetting manager/world\n",
             (unsigned)teamNo,(unsigned)_currentSeasonShowing);

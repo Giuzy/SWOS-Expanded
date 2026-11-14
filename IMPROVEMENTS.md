@@ -666,3 +666,7 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 ## [2026-11-14] 0.13.45_01 — fix compilazione due errori OG offer
 - [CODICE] Rimosso `rankedCount` duplicato in `choose_small_club`. Aggiunta include `diy_competition.h` (solo SDL) in `career_init.c` per dichiarare `DIY_OGStandings_SetSeason`. Correzione basata su `COMPILAZIONE_0140.log` fornito dall'utente; avvisi preesistenti su packed member non bloccanti. Windows build dopo fix PENDENTE.
+
+
+## [2026-11-14] 0.13.45_02 — audit init OG e tracciamento del reingaggio
+- [CODICE] Log diagnostici nei percorsi native `InitCareerClub` / `Career_AttachManagerToClub`, per osservare se la firma ricostruisce ancora le competizioni. Corretto attributo `externally_visible` su variabile `static` (warning MSYS2). Nessun reset/simulatore/calendario aggiuntivo; non dichiarare unificazione del motore raggiunta. Compilazione e test Windows PENDENTI.

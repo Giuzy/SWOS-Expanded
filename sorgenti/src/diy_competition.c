@@ -11,6 +11,7 @@
 #include "world.h"
 #include "expanded_debug.h"
 #include "expanded_midseason_join.h"
+#include "expanded_native_history.h"
 #include "expanded_world_live.h"
 #include "diy_competition.h"
 #include "comp_identity.h"
@@ -12139,10 +12140,12 @@ int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int require_exact_table) {
     } pair_occurrences[24u*24u];
     unsigned pair_types=0;
     unsigned history_count=0,found=0;
-    uint8_t matched[96]={0};
+    uint8_t historyPhases[96]={0};
+    uint8_t cacheHistory[256]={0};
     size_t cacheOffset=0;
     uint8_t *slot=_careerCompetitionSlotPtrTable[0];
     if (!cutoff || !slot || *(uint16_t *)slot!=0u ||
+        _teamSelectionKeyCacheCount>256u ||
         !ExpandedWorldLive_Leagues()) return 0;
 
     DIYCompetitionEx saved;
@@ -12243,7 +12246,9 @@ int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int require_exact_table) {
         if (home==managed || away==managed) {
             if (history_count>=sizeof(history)/sizeof(history[0]))
                 goto fail;
-            history[history_count++]=(History){home,away,phase,gh,ga};
+            history[history_count]=(History){home,away,phase,gh,ga};
+            historyPhases[history_count]=phase;
+            ++history_count;
         }
         /* Same OG state transitions as the original result handler.
          * Use the world's EXISTING score, never CalculateViewResult. */
@@ -12294,12 +12299,20 @@ int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int require_exact_table) {
             e->sortKey<cutoff) {
             if (e->entryStride<sizeof(*e)+sizeof(TeamSelectionKeyCacheMatchSlot))
                 goto fail;
-            unsigned j=0;
-            for (;j<history_count;++j)
-                if (history[j].phase==e->sortKey) break;
-            if (j==history_count || matched[j]) goto fail;
-            matched[j]=1;
-            ++found;
+            /* Match by ORIGINAL fixture occurrence, not phase alone:
+             * 3/4-cycle leagues can have multiple matches in one phase. */
+            uint8_t j=0;
+            if(!ExpandedNativeHistory_ClaimNext(
+                   historyPhases,history_count,&found,e->sortKey,&j)) {
+                s_direct_import_status="NATIVE KEYCACHE PHASE/OCCURRENCE MISMATCH";
+                fprintf(stderr,"[world-native-league] keycache mismatch "
+                       "entry=%u phase=%u expected-phase=%u next=%u/%u\n",
+                       (unsigned)i,(unsigned)e->sortKey,
+                       found<history_count?(unsigned)historyPhases[found]:255u,
+                       found,history_count);
+                goto fail;
+            }
+            cacheHistory[i]=j;
         }
         cacheOffset+=e->entryStride;
     }
@@ -12371,10 +12384,8 @@ int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int require_exact_table) {
                 (_teamSelectionKeyCache+cacheOffset);
         if (e->compSlot==0u && e->phaseFlag==0 &&
             e->sortKey<cutoff) {
-            unsigned j=0;
-            for (;j<history_count;++j)
-                if (history[j].phase==e->sortKey) break;
-            History *h=&history[j];
+            /* This unique index was prevalidated BEFORE modifying OG state. */
+            History *h=&history[cacheHistory[i]];
             TeamSelectionKeyCacheMatchSlot *m=
                 (TeamSelectionKeyCacheMatchSlot *)((uint8_t *)e+sizeof(*e));
             memset(m,0,sizeof *m);

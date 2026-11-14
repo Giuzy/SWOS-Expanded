@@ -383,6 +383,48 @@ uint8_t Expanded_Career_NativeCalendarKey(void) {
     return _lastFinancialWeekIndex;
 }
 
+/* A signed contract must not replay historical OG results. The original
+ * key-cache remains the calendar source for match menus; start at the first
+ * event on or after the actual world date. Validate all strides BEFORE
+ * changing the cursor, so a corrupt cache is never partially consumed. */
+int Expanded_OGWorld_PositionClubCalendar(uint16_t year,ExpandedWorldDate now) {
+    uint8_t phase=0;
+    if(!ExpandedWorld_DateToNativePhaseNext(year,now,&phase) ||
+       !_teamSelectionKeyCacheCount || _teamSelectionKeyCacheCount>256u)
+        return 0;
+    size_t offset=0,chosenOffset=0;
+    uint16_t chosenIndex=_teamSelectionKeyCacheCount;
+    for(uint16_t i=0;i<_teamSelectionKeyCacheCount;++i) {
+        if(offset>8192u-sizeof(TeamSelectionKeyCacheEntry))return 0;
+        const TeamSelectionKeyCacheEntry *e=
+            (const TeamSelectionKeyCacheEntry *)(_teamSelectionKeyCache+offset);
+        if(e->entryStride<sizeof(*e) || e->entryStride>256u ||
+           e->entryStride>8192u-offset)return 0;
+        if(chosenIndex==_teamSelectionKeyCacheCount && e->sortKey>=phase) {
+            chosenIndex=i;
+            chosenOffset=offset;
+        }
+        offset+=e->entryStride;
+    }
+    if(chosenIndex==_teamSelectionKeyCacheCount) {
+        fprintf(stderr,"[og-calendar] no future event year=%u phase=%u "
+                       "(season complete; do not restart)\n",
+                (unsigned)year,(unsigned)phase);
+        return 0;
+    }
+    _teamSelectionKeyCacheIndex=chosenIndex;
+    _teamSelectionKeyCacheOffset=(uint16_t)chosenOffset;
+    _lastFinancialWeekIndex=phase;
+    fprintf(stderr,"[og-calendar] BOUND year=%u cutoff=%u "
+                   "next-index=%u/%u next-phase=%u "
+                   "HISTORICAL_REPLAY=NO\n",
+            (unsigned)year,(unsigned)phase,(unsigned)chosenIndex,
+            (unsigned)_teamSelectionKeyCacheCount,
+            (unsigned)((TeamSelectionKeyCacheEntry *)
+                (_teamSelectionKeyCache+chosenOffset))->sortKey);
+    return 1;
+}
+
 static int choose_action(MenuEntryFn fn) {
     const Menu *menu=(const Menu *)_currentMenu;
     if (!menu) return 0;

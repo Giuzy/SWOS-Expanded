@@ -1,0 +1,50 @@
+SWOS EXPANDED - PACCHETTO DI PROVA DATI WORLD 2026-27
+Data: 14 novembre 2026. Ramo sorgenti consultato: dev/0.10, HEAD fbb26ce.
+
+ATTENZIONE: QUESTO E' UN KIT DI PREPARAZIONE E AVVIO, NON UNA NUOVA BUILD GIA'
+COMPILATA. Non cambia sorgenti, versioni, layout, GUI, salvataggi o gameplay.
+
+ESTRAI I 3 FILE nella cartella che contiene AVVIA_SWOS.bat e PREPARA_SWOS.bat.
+
+1) Esegui COPIA_DATI_2627_E_CAMPI_2020.bat.
+   Sorgente: C:\Users\<utente>\Documents\SWOS\assets\
+   Destinazione: la cartella di SWOS Expanded (repository locale).
+
+   Copia solo:
+   - data_json\worlds\2627\ (WORLD.ini + JSON moderni)
+   - grafs_2020\ (se contiene pitch1.dat; copia solo grafica opzionale)
+
+   I dati preesistenti 1996-97 in data\, data_json\teams\,
+   data_json\competitions\, grafs\ non sono modificati.
+
+2) Esegui AVVIA_TEST_MONDO_2026.bat.
+   Il launcher compila con PREPARA_SWOS.bat e avvia il mondo 2627
+   con SWOS_DATA_JSON=1, senza modificare AVVIA_SWOS.bat originale.
+
+3) In SWOS.log controlla "[world] 2627" e l'assenza di avvisi
+   "data is not installed" o "fingerprint ... made for this version".
+   Questi indicatori sono necessari ma NON dimostrano il funzionamento
+   delle classifiche, dei calendari o delle coppe moderne.
+
+CAMPI SWOS 2020:
+   I campi vengono copiati nel repository, ma NON attivati dal kit:
+   l'opzione [graphics] style=2020 usa l'intera pipeline grafica DOS,
+   che puo' sostituire anche sprite del gameplay. E' necessaria una
+   integrazione separata "solo campi" prima di abilitarla automaticamente.
+   Gli sprite che vuoi conservare rimangono quelli correnti.
+
+SELETTORE DEBUG NEW CAREER:
+   Ancora da implementare. Il mondo e' scelto all'avvio, perche' i
+   dati delle competizioni vengono inizializzati prima del menu Career.
+   Il selettore richiede un riavvio sicuro o un reset totale verificato.
+
+STATO:
+   Nessun commit/push GitHub; nessun eseguibile Windows compilato qui.
+   La 0.13.40 conserva attualmente parte della logica OG/LWE parallela;
+   il singolo motore autonomo non e' ancora completato. Il kit serve
+   soltanto a verificare preliminarmente il pacchetto moderno.
+
+DIRITTI:
+   Dati, loghi, rose e campi sono contenuti di terzi. Copiali nella
+   tua cartella locale. Non pubblicare o condividere quei file nel repo
+   o nel ZIP di una release senza verificare le relative autorizzazioni.

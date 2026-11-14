@@ -181,6 +181,40 @@ static void audit_competitions(const char *dir,unsigned cat) {
             categories[cat],count,entered,errors);
     free(s);
 }
+/* Look up an array as its OWN JSON value, then index only within it.
+ * On sparse country records the old full-document $.countries[i].cups[n]
+ * lookup could walk past [] and return an adjacent leagues[] string:
+ * sixteen valid league references were wrongly called cup references.
+ * Never silence a category error; ensure array bounds are real. */
+static void audit_ref_array(const char *s,int size,const char *array_path,
+                            int category,const char *source) {
+    const char *value=NULL,*item=NULL;
+    int size_array=0,size_item=0;
+    int kind=mjson_find(s,size,array_path,&value,&size_array);
+    if(kind==MJSON_TOK_INVALID) return; /* optional absent arrays */
+    if(kind!=MJSON_TOK_ARRAY || !value || size_array<2 ||
+       value[0]!='[' || value[size_array-1]!=']') {
+        fprintf(stderr,"[comp-formats] FAIL invalid reference array %s\n",
+                array_path);
+        ++errors;return;
+    }
+    for(unsigned n=0;n<128u;++n) {
+        char item_path[32],id[112];
+        snprintf(item_path,sizeof item_path,"$[%u]",n);
+        kind=mjson_find(value,size_array,item_path,&item,&size_item);
+        if(kind==MJSON_TOK_INVALID)return; /* REAL end of this array */
+        if(kind!=MJSON_TOK_STRING ||
+           !string(value,size_array,item_path,id,sizeof id)) {
+            fprintf(stderr,"[comp-formats] FAIL non-string reference %s[%u]\n",
+                    array_path,n);
+            ++errors;return;
+        }
+        reference(id,category,source);
+    }
+    fprintf(stderr,"[comp-formats] FAIL excessive reference array %s\n",
+            array_path);
+    ++errors;
+}
 static void audit_links(const char *dir,const char *file,const char *array,
                         const char *fieldA,int catA,const char *fieldB,int catB) {
     char *s=NULL;int size=0;
@@ -190,17 +224,14 @@ static void audit_links(const char *dir,const char *file,const char *array,
         ++errors;free(s);return;
     }
     for(unsigned i=0;i<(unsigned)count;++i) {
-        char prefix[112],path[220],id[112];
-        snprintf(prefix,sizeof prefix,"$.%s[%u]",array,i);
-        if(fieldA)for(unsigned n=0;n<128u;++n) {
-            snprintf(path,sizeof path,"%s.%s[%u]",prefix,fieldA,n);
-            if(!string(s,size,path,id,sizeof id))break;
-            reference(id,catA,file);
+        char path[220];
+        if(fieldA) {
+            snprintf(path,sizeof path,"$.%s[%u].%s",array,i,fieldA);
+            audit_ref_array(s,size,path,catA,file);
         }
-        if(fieldB)for(unsigned n=0;n<128u;++n) {
-            snprintf(path,sizeof path,"%s.%s[%u]",prefix,fieldB,n);
-            if(!string(s,size,path,id,sizeof id))break;
-            reference(id,catB,file);
+        if(fieldB) {
+            snprintf(path,sizeof path,"$.%s[%u].%s",array,i,fieldB);
+            audit_ref_array(s,size,path,catB,file);
         }
     }
     free(s);

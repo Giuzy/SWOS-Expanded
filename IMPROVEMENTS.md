@@ -596,3 +596,14 @@ Implementato un controllo effettivo della fase finale del recupero OG (nessun RE
   compilazione/test Windows ancora necessari.
 - Audit C runtime compilato e verificato su log 0.13.38_05: separa
   classifiche PASS da handoff FAIL e coppe FAIL. Nessun falso PASS.
+
+### 0.13.39_01 — diagnostica calendario 30 anni (14 novembre 2026)
+
+Aggiunto test C `test_calendar_integrity_30.c` con fixture native OG
+e codice world live attivo: 30 anni civili esatti, confini gennaio/luglio,
+bisestili, serializzazione .CAR con confronto byte-per-byte, nessun
+duplicato su avanzamento allo stesso giorno. PASS subordinato ai test reali.
+Audit Windows aggiunge monitor cronologico sul log: non certifica
+automaticamente 30 anni. Corretto il lettore array dell'audit formati per
+evitare falsi riferimenti e il PATH DLL per il compilatore diagnostico
+nel BAT. Build e test Windows da eseguire dall'utente.

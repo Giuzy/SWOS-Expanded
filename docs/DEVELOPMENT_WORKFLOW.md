@@ -309,3 +309,20 @@ F12+7 da calendario disoccupato deve arrivare all'anniversario di
 Il giorno corrente e' il civile LWE; un sortKey OG e' il primo
 giorno canonico di una fascia o la prossima fixture, non un orologio
 indipendente. Non inventare date/risultati per pareggiare i contatori.
+
+### Verifica calendario 30 anni — procedura 0.13.39_01 (14 novembre 2026)
+
+- `TEST_LIVING_WORLD.bat` esegue il nuovo stage
+  `run_test_calendar_integrity_30.sh` con sorgenti del motore LWE reale:
+  01/07/1996 -> 01/07/2026, Jan/Jul di ogni anno, bisestili,
+  stagioni nord/sud con fixture OG, snapshot .CAR ogni confine e confronto
+  identico prima/dopo ReadJson. Quattro marcatori
+  `CALENDAR_30Y_*` obbligatori: assenza/mismatch = FAIL.
+- Passare anche per `AVVIA_DIAGNOSTICA.bat` nell'uso reale Windows;
+  F12 registra le date viste e l'analizzatore segnala un ritorno
+  all'indietro con `FIRST_CLOCK_FAILURE`. 
+  `RUNTIME_30_YEAR_CALENDAR_SAVE_LOAD=NOT_TESTED_IN_WINDOWS` e'
+  intenzionale finche' mancano 30 anni di carriera integrata.
+- Non confondere `CALENDAR_30Y_E2E=PASS` dello stage isolato C con
+  successo OG/SDL Windows. Ogni FAIL va esaminato prima di procedere ai
+  campionati e coppe. Non eliminare i file di salvataggio dell'utente.

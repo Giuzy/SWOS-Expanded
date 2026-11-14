@@ -191,3 +191,44 @@ test di regressione e stato.
   261 settimane. Lo stesso FAIL non va chiamato PASS perche' il database
   si carica. Questo e' il log della vecchia 0.13.38_05, NON una
   verifica della nuova build Windows.
+
+## 14 novembre 2026 — calendario: nuovi gate a 30 anni (0.13.39_01)
+
+- **Nuovo test, NON un risultato PASS dichiarato:** 
+  `sorgenti/tests/test_calendar_integrity_30.c` usa 
+  `ExpandedWorldLive_Begin/SetLeagueSchedule/Seal/AdvanceToDate`, i tavoli
+  OG di `FixtureRounds_Install` e il serializzatore `.CAR` esistenti.
+  Simula dal 01/07/1996 al 01/07/2026 con due leghe da 20 e 12 club
+  (stagioni agosto-maggio e marzo-ottobre); controlla l'anno civile e il
+  cursore native in gennaio/luglio, febbraio bisestile, incontri scaduti,
+  confronto archivi/fixture/resident, doppio avanzamento allo stesso giorno.
+  Ogni gennaio e luglio, e negli anni bisestili, effettua vera serializzazione,
+  End + ReadJson e confronto byte-per-byte dello snapshot; primo problema
+  `FIRST_CALENDAR_FAILURE`. I marcatori `CALENDAR_30Y_*` sono richiesti
+  nel BAT e restano FAIL se non compaiono. Il test C non valida i menu OG
+  Windows, ma copre un buco diverso dai 70 anni a settimane.
+- Il nuovo audit runtime in `audit_windows_runtime_log.c` verifica l'ordine
+  cronologico delle date civili registrate da CLOCK TRACE, resettando il
+  confronto alle nuove carriere e alle ricariche `.CAR`. Stato
+  `OBSERVED_MONOTONIC_NOT_PROOF` se avanza senza arretramenti;
+  `RUNTIME_30_YEAR_CALENDAR_SAVE_LOAD=NOT_TESTED_IN_WINDOWS` fino a
+  una prova integrata. Non confondere la prossima fixture OG con il giorno
+  della carriera.
+- **BUG test competizioni, non database:** l'audit iterava
+  `$.countries[i].cups[n]` oltre la fine degli array, e in alcuni casi il
+  parser mjson ritornava stringhe dalle `leagues[]` adiacenti. I 16 
+  `wrong category` erano riferimenti a leghe esistenti in `leagues.json`.
+  `audit_competition_formats.c` ora cerca il token array concreto e legge
+  soltanto al suo interno, senza disattivare verifiche categoria o riferimenti.
+  Nuova verifica da eseguire: NESSUN falso FAIL, ma veri riferimenti errati
+  devono ancora fallire.
+- **BUG BAT audit Windows del 14/11:** il GCC assoluto per l'audit 
+  caricava `cc1.exe` senza trovare `libgmp-10.dll`; la compilazione
+  del gioco con l'ambiente MSYS2 era invece completa. 
+  `ANALIZZA_SWOS_LOG.bat` ora antepone `%MSYS_ROOT%\\mingw64\\bin`
+  (oppure ucrt64) e `%MSYS_ROOT%\\usr\\bin` a PATH per risolvere le
+  DLL, senza installer o compilatore nuovo. Verifica Windows pendente.
+- **Stato calendario**: la formula e il salto F12+7 hanno passato i test
+  gia' documentati; gli eventi OG da recuperare e i 30 anni di carriera
+  reale Windows restano NON PROVATI. Per decisione dell'utente si resta
+  su CALENDARIO finche' la nuova suite + prova Windows non bastano.

@@ -37,7 +37,9 @@ int main(int argc,char **argv) {
     long julian_jumps=0,julian_jump_errors=0;
     int import_status=0,stand_status=0,handoff_status=0,south_status=0,clock_status=0;
     int has_legacy_clock=0,clock_overdue=0,cup_status=0,build_matched=0;
-    const char *expected=argc>2?argv[2]:"0.13.39";
+    unsigned civil_prev=0u;
+    unsigned civil_events=0u,civil_advances=0u,civil_rewinds=0u;
+    const char *expected=argc>2?argv[2]:"0.13.39_01";
     const char *filename=argc>1?argv[1]:"SWOS.log";
     in=fopen(filename,"rb");
     if(!in) {
@@ -81,6 +83,31 @@ int main(int argc,char **argv) {
             first_error(first,sizeof first,"SOUTHERN_HANDOFF",log_count,line);
         } else if(strstr(line,"[midseason-southern] PASS")==line) {
             ++southern_checks;if(south_status==0)south_status=1;
+        }
+        /* Career civil clock monotonicity; native "next OG event" is
+         * intentionally NOT a second civil date. Reset at career creation
+         * and when a different .CAR snapshot is loaded. */
+        if(strstr(line,"[clock-trace] RESET new-career")==line ||
+           strstr(line,"[living-world] restored .CAR snapshot")==line)
+            civil_prev=0u;
+        if(strstr(line,"[clock-trace]")==line) {
+            const char *clock=strstr(line,"civil=");
+            unsigned cy=0u,cm=0u,cd=0u;
+            if(clock && sscanf(clock,"civil=%4u-%2u-%2u",&cy,&cm,&cd)==3 &&
+               cy>=1900u && cy<=2200u && cm>=1u && cm<=12u &&
+               cd>=1u && cd<=31u) {
+                const unsigned key=cy*10000u+cm*100u+cd;
+                ++civil_events;
+                if(civil_prev && key<civil_prev) {
+                    ++civil_rewinds;
+                    first_error(first_clock,sizeof first_clock,
+                                "CIVIL_DATE_REWIND",log_count,line);
+                    first_error(first,sizeof first,
+                                "CIVIL_DATE_REWIND",log_count,line);
+                }
+                if(civil_prev && key>civil_prev) ++civil_advances;
+                civil_prev=key;
+            }
         }
         if(strstr(line,"[clock-trace-first-fail]")==line ||
            strstr(line,"[clock-date-audit] FAIL")==line) {
@@ -157,6 +184,10 @@ int main(int argc,char **argv) {
     printf("RUNTIME_FIVE_YEAR_ANNIVERSARY=%s checks=%ld failures=%ld\n",
            julian_jump_errors?"FAIL":julian_jumps?"DATE_ONLY_NOT_INTEGRATION":"NOT_TESTED",
            julian_jumps,julian_jump_errors);
+    printf("RUNTIME_CIVIL_SEQUENCE=%s observations=%u advances=%u rewinds=%u\n",
+           civil_rewinds?"FAIL":civil_advances?"OBSERVED_MONOTONIC_NOT_PROOF":
+           "NOT_TESTED",civil_events,civil_advances,civil_rewinds);
+    puts("RUNTIME_30_YEAR_CALENDAR_SAVE_LOAD=NOT_TESTED_IN_WINDOWS");
     printf("RUNTIME_OG_CUPS=%s registered=%ld callbacks=%ld\n",
            cup_status==1?"OBSERVED_CALLBACKS_NOT_ALL_CUPS_PROVEN":
            status(cup_status),cup_registered,cup_callbacks);
@@ -174,7 +205,8 @@ int main(int argc,char **argv) {
         return 2;
     }
     if(import_status==2 || stand_status==2 || handoff_status==2 || south_status==2 ||
-       clock_status==2 || cup_status==2 || julian_jump_errors) {
+       clock_status==2 || cup_status==2 || julian_jump_errors ||
+       civil_rewinds) {
         puts("WINDOWS_INTEGRATION=FAIL");
         puts("OVERALL=FAIL");
         return 1;

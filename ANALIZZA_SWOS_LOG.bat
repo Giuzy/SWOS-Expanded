@@ -17,8 +17,12 @@ echo Verifica diagnostica gameplay Windows in SWOS.log.
 echo Non avvia il gioco, non modifica save, non usa dati sintetici.
 REM Parser C portatile: non richiede awk, Python, PowerShell o nuovi tool.
 REM Compila con lo STESSO compilatore MinGW del gioco, in %%TEMP%%.
-set "AUDIT_CC=%MSYS_ROOT%\mingw64\bin\gcc.exe"
-if not exist "%AUDIT_CC%" set "AUDIT_CC=%MSYS_ROOT%\ucrt64\bin\gcc.exe"
+set "AUDIT_BIN=%MSYS_ROOT%\mingw64\bin"
+if not exist "%AUDIT_BIN%\gcc.exe" set "AUDIT_BIN=%MSYS_ROOT%\ucrt64\bin"
+set "AUDIT_CC=%AUDIT_BIN%\gcc.exe"
+REM cc1.exe needs MinGW runtime DLLs (including libgmp-10.dll) in PATH.
+REM Invoking gcc.exe by absolute path alone does not resolve its DLLs.
+set "PATH=%AUDIT_BIN%;%MSYS_ROOT%\usr\bin;%PATH%"
 if not exist "%AUDIT_CC%" (
  echo [INCOMPLETE] Compiler MinGW non trovato, audit non eseguito.
  if not "%SWOS_DIAGNOSTIC_SESSION%"=="1" pause
@@ -32,7 +36,7 @@ if errorlevel 1 (
  if not "%SWOS_DIAGNOSTIC_SESSION%"=="1" pause
  exit /b 2
 )
-"%AUDIT_EXE%" "SWOS.log" "0.13.39" > "SWOS_RUNTIME_AUDIT.log" 2>&1
+"%AUDIT_EXE%" "SWOS.log" "0.13.39_01" > "SWOS_RUNTIME_AUDIT.log" 2>&1
 set "RESULT=%ERRORLEVEL%"
 if exist "%AUDIT_EXE%" del /q "%AUDIT_EXE%" >nul 2>&1
 type "SWOS_RUNTIME_AUDIT.log"

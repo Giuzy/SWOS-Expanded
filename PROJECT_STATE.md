@@ -878,3 +878,16 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
   SWOS.log: separa `STANDINGS PASS`, `HANDOFF FAIL` (91->50) e
   `OG CUPS FAIL` offscreen. Nessuna attestazione di correzione
   del recupero o delle coppe.
+
+### 14 novembre 2026 — calendario: gate trentennale aggiunto, NON ancora certificato
+
+- Intervento 0.13.39_01 **limitato a test e diagnostica**: nuovo test C di
+  30 anni su motore LWE effettivo, con date civili gennaio/luglio,
+  stagioni nord/sud, .CAR save/reload esatto e rilevamento di eventuali
+  doppie fixture. Integrato nel BAT principale, marcatori richiesti.
+- Corretto l'audit formati: 16 riferimenti validi a leghe di paesi con
+  array diversi venivano letti come voci coppa per uscita dal range JSON.
+- Corretto PATH GCC nel BAT analizzatore: `cc1.exe` non trovava libgmp-10.dll.
+- Test C e Windows su questo commit: PENDENTI. 
+  `RUNTIME_30_YEAR_CALENDAR_SAVE_LOAD` non e' certificato Windows.
+  Nessuna modifica al motore partita, calendari OG o coppe.

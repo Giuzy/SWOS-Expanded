@@ -799,6 +799,7 @@ __attribute__((used, externally_visible))
  * unemployment-to-employment handoff must NEVER re-copy the OG competition
  * templates or erase the career's historical counters. */
 static int s_careerWorldInitialized = 0;
+static int s_careerCompetitionsInitialized = 0;
 static int s_careerManagerInitialized = 0;
 static uint32_t s_unemployedOgCupSeasons = 0;
 
@@ -817,6 +818,17 @@ void InitCareerWorld(void)
             *p++ = 0;
     }
     TeamPool_Reset();
+    s_careerWorldInitialized = 1;
+}
+
+/* Original SWOS's competition tables/counters are a separate lifetime
+ * from the world data and the manager.  Rehiring must NOT reset them.
+ * This does not install another fixture calendar or run a second engine. */
+__attribute__((used, externally_visible))
+void InitCareerCompetitions(void)
+{
+    if (s_careerCompetitionsInitialized) return;
+    if (!s_careerWorldInitialized) InitCareerWorld();
     WorldCups_Reset();
     CupD_Reset();
     UefaCoef_Reset();
@@ -849,7 +861,7 @@ void InitCareerWorld(void)
             *dst++ = *src++;
     }
 
-    s_careerWorldInitialized = 1;
+    s_careerCompetitionsInitialized = 1;
 }
 
 /* Explicit NEW career. Do not reset the manager or world on a job offer. */
@@ -861,10 +873,12 @@ void Career_BeginNewCareer(void)
     Expanded_ClockTrace_Reset();
 #endif
     s_careerWorldInitialized = 0;
+    s_careerCompetitionsInitialized = 0;
     s_careerManagerInitialized = 0;
     s_unemployedOgCupSeasons = 0;
-    InitCareerManager(); /* original game type and RNG before native setup */
     InitCareerWorld();
+    InitCareerCompetitions();
+    InitCareerManager(); /* native manager setup; never on a later offer */
 }
 #ifdef SWOS_SDL_BUILD
 /* Native OG domestic cups during unemployed completed seasons: use OG
@@ -890,7 +904,8 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
      * save/reload. Never replay a cup season already finalized by OG. */
     if(s_unemployedOgCupSeasons<(uint32_t)g_worldCups.seasons)
         s_unemployedOgCupSeasons=g_worldCups.seasons;
-    if(!s_careerWorldInitialized || finished<=s_unemployedOgCupSeasons) {
+    if(!s_careerWorldInitialized || !s_careerCompetitionsInitialized ||
+       finished<=s_unemployedOgCupSeasons) {
         if(finished && finished!=lastSkipReported) {
             fprintf(stderr,"[og-cups-skip] week=%lu finished=%lu advanced=%lu "
                            "native=%u career-world-init=%d reason=%s\n",
@@ -898,6 +913,7 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
                     (unsigned long)s_unemployedOgCupSeasons,
                     (unsigned)g_worldCups.seasons,s_careerWorldInitialized,
                     !s_careerWorldInitialized?"WORLD_NOT_INITIALIZED":
+                    !s_careerCompetitionsInitialized?"OG_COMPETITIONS_NOT_INITIALIZED":
                     "NATIVE_SEASON_ALREADY_ADVANCED");
             lastSkipReported=finished;
         }
@@ -908,8 +924,18 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
                 (unsigned long)finished);
         return;
     }
+    /* In OG 1996/97 the native country list is the original career
+     * table. World_SeasonCountries() is NULL there by design; do not
+     * silently skip all OG cups for the historical database. */
     const uint8_t *countries=World_SeasonCountries();
-    if(!countries)return;
+    if(!countries) {
+        extern uint8_t _careerCompetitionIdRemapTable[];
+        countries=_careerCompetitionIdRemapTable;
+    }
+    if(!countries) {
+        fprintf(stderr,"[og-cups] FAIL: no native career countries for world=%s\n",World_Tag());
+        return;
+    }
     const uint16_t oldFlag=_internationalAutoAdvanceFlag;
     const uint8_t oldSeason=_seasonPlaying;
     SaveSelectedTeams();
@@ -921,7 +947,7 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
         const uint32_t beforeArchiveTitles=ExpandedWorldLive_CupArchivedTitles();
         const uint32_t beforeHistoryTitles=ExpandedWorldLive_CupHistoricalTitles();
         unsigned cupRuns=0;
-        _seasonPlaying=(uint8_t)(96u+s_unemployedOgCupSeasons);
+        _seasonPlaying=(uint8_t)((96u+s_unemployedOgCupSeasons)%100u);
         for(unsigned i=0;i<256u && countries[i]!=0xFFu;++i) {
             const void *const *table=(const void *const *)
                 _competitionsTable[countries[i]];
@@ -1078,8 +1104,9 @@ void Career_AttachManagerToClub(uint16_t teamNo)
 __attribute__((used, externally_visible))
 void InitCareer(uint16_t teamNo)
 {
-    if(!s_careerManagerInitialized) InitCareerManager();
     if(!s_careerWorldInitialized) InitCareerWorld();
+    if(!s_careerCompetitionsInitialized) InitCareerCompetitions();
+    if(!s_careerManagerInitialized) InitCareerManager();
     _currentSeasonShowing = 0xFFFFu;
     _seasonPlaying--;
     InitCareerClub(teamNo);

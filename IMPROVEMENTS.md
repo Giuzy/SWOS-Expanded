@@ -633,3 +633,8 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 ## [2026-11-14] 0.13.44_02 — autosave indipendenti per i due mondi
 - [CODICE] Scrittura checkpoint per mondo in `AUTO9697.CAR` o `AUTO2627.CAR`, senza sovrascrivere `AUTOSAVE.CAR` storico. Lettura legacy compatibile in fallback; CONTINUE mantiene controllo schema/kind/world. La rimozione a fine carriera riguarda solo il mondo attivo. Build e test Windows: PENDENTI.
+
+
+## [2026-11-14] 0.13.44_03 — OG world / competitions / manager separati
+
+- [CODICE, WINDOWS NOT_TESTED] Divisa inizializzazione competizioni OG da world e manager in `career_init.c`, preservando le originali routine/reset, senza cambiare fisica o salvataggi. Corretto il percorso OG cups del 1996/97 che saltava la lista dei paesi; indice stagione in codifica OG 96-based con wrap 99->0. Non tutte le coppe né il calendario mondiale OG sono ancora integrati end-to-end.

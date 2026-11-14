@@ -542,3 +542,8 @@ registro mondiale condiviso, non sostituendoli con un motore parallelo.
 
 ### Diagnostica permanente (decisione del 13 novembre 2026)
 Per ogni nuova funzione del motore o nuovo formato di competizione mantenere un audit dei DATI reali distinto dai test C isolati e dagli eventi della carriera Windows. I nuovi formati introdotti nel database partono NOT_TESTED fino a test funzionali significativi; non ereditano PASS da altri campionati. Per bug di campionato/coppie temporali/coppe, registrare ID, fase, data, risultato atteso/effettivo, primo errore, e preparare un BAT che raccolga i log della sessione quando possibile. Gli screenshot restano per anomalie visive o dettagli non disponibili nel log. Non pilotare mai i risultati.
+
+
+## Decisione confermata 14 novembre 2026 — OG unico proprietario
+- Per **entrambi** i mondi 1996/97 e 2026/27, il motore originale OpenSWOS è autorità di carriera, data, calendari, partite, risultati, competizioni e storico originale. Il LWE può **solo estendere** OG con finanze, trasferimenti, allenatori AI ed eventi aggiuntivi; non deve generare una seconda fonte autorevole di giornate, risultati o archivi. Questa decisione sostituisce le precedenti proposte di un secondo orologio civile LWE e di un calendario mondiale proprio.
+- Non introdurre ora conversioni di date né ampliamenti archivi: verificare prima cosa conserva OG. Spostare il caricamento mondo al comando START solo dopo aver predisposto ripristino completo delle tabelle native/JSON in memoria senza riavvio, con scelta corretta del save per mondo e test Windows. Non considerare il refactoring delle inizializzazioni prova di integrazione completa.

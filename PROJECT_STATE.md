@@ -919,3 +919,10 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
 
 - [CODICE] `save/AUTO9697.CAR` e `save/AUTO2627.CAR`; vecchio `AUTOSAVE.CAR` disponibile solo come fonte read-only con world/schema compatibili. Nessuna conversione/cancellazione automatica; il checkpoint del mondo attivo non può sovrascrivere quello dell'altro mondo. CONTINUE verde solo per lo slot compatibile del mondo attivo.
 - [PENDENTE] Verificare primo caricamento del legacy, save successivo, switch dei mondi, avvio disoccupato e pensione su Windows. Migrazione world bootstrap a START e separazione init ancora NON IMPLEMENTATE.
+
+
+## 0.13.44_03 — checkpoint codice native OG (14/11/2026)
+
+- [APPROVATO] OpenSWOS è proprietario della progressione di carriera, data, calendari, partite, risultati e archivi storici OG tanto in 1996/97 quanto in 2026/27. LWE aggiunge sistemi nuovi, non una seconda simulazione autorevole. Niente formule di date, archivi o calendari nuovi in questa fase.
+- [CODICE] Lifecycle a START separato fra reset del world OG, reset competizioni OG, manager OG; club all'accettazione. Ripristinato l'elenco nazionale storico per callback OG delle coppe durante disoccupazione. Questo NON significa che tutta la disoccupazione sia gia' simulata da OG: il percorso LWE per i match lontani resta attivo ed è ancora da sostituire.
+- [TEST] Windows/MSYS2/suite complete non eseguiti da qui. Conservare entrambi AUTO9697.CAR e AUTO2627.CAR e legacy AUTOSAVE.CAR.

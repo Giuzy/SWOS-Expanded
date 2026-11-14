@@ -1489,6 +1489,9 @@ int ExpandedWorldLive_Table(uint8_t country, uint8_t division,
     ExpandedWorldStanding table[LIVE_MAX_LEAGUE_CLUBS];
     int32_t season_delta;
     if (total) *total=0;
+    /* Never manufacture an OG standings table out of the LWE pilot.
+     * Native standings must be read from the OG competition state. */
+    if(s_ledger.count==0u) return 0;
     if (!s_live || !rows || !total || !league || league->overflow ||
         league->count<2 || capacity<league->count) return 0;
     season_delta=(int32_t)ExpandedWorldLive_SeasonYear()-(int32_t)s_window_first_year;

@@ -416,23 +416,24 @@ static void choose_small_club(void) {
         unsigned maxLeague=0,candidates=0,divisionCount=0;
         ExpandedLiveRow standings[26];
         uint32_t rankedCount=0;
-        /* Count actual scheduled divisions in the canonical WORLD, not
-         * just entries in this TEAM file: a country can span TWO files.
-         * The highest populated league index is its lowest tier, e.g.
-         * division 8 after the database grows to eight divisions. */
-        for(unsigned d=0;d<16u;++d) {
-            uint32_t n=0;
-            if(ExpandedWorldLive_Table(worldCountry,(uint8_t)d,
-                                       standings,26u,&n) && n>=2u) {
+        /* OG-only: inspect the imported NATIVE league descriptors,
+         * not a second LWE points table. Countries may use two TEAM files;
+         * World_FileCountry above resolves the original country key.
+         * The first entry job remains in the lowest populated division.
+         * A results-based vacancy must wait for an OG standings reader. */
+        for(uint32_t l=0;l<ExpandedWorldLive_Leagues();++l) {
+            uint8_t c=0,d=0,n=0,registered=0;
+            if(ExpandedWorldLive_DivisionStatus(l,&c,&d,&n,&registered) &&
+               c==worldCountry && registered && n>=2u) {
                 ++divisionCount;
-                maxLeague=d;
+                if(d>maxLeague) maxLeague=d;
             }
         }
         if(divisionCount<4u) continue;
-        int ranked=ExpandedWorldLive_Table(worldCountry,(uint8_t)maxLeague,
-                     standings,26u,&rankedCount) &&
-                   rankedCount>=2u && standings[0].played>=3u;
-        if(!ranked) continue; /* no offer from an unverified table */
+        const int ranked=0; /* no parallel scores: do not rank by LWE */
+        fprintf(stderr,"[offers] world=%s OG division metadata country=%u "
+                       "lowest-division=%u (native standings NOT YET WIRED)\\n",
+                World_Tag(),(unsigned)worldCountry,(unsigned)maxLeague);
         for(unsigned i=0;i<count;i++)
             if(teams[i].team.countryNumber==country && teams[i].team.league==maxLeague &&
                !Team_IsOutsideLeague(&teams[i].team) &&
@@ -870,7 +871,7 @@ void Expanded_OfferPreviewDraw(void) {
             snprintf(line,sizeof line,"DIVISION %u - PILOT UNAVAILABLE",
                      (unsigned)s_waitLeague+1);
             contest_line(100,line,2);
-            contest_line(150,"RESULTS NOT IN SWOS CAREER YET",7);
+            contest_line(150,"OG RESULTS NOT YET AVAILABLE HERE",7);
         }
     }
 }

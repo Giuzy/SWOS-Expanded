@@ -936,3 +936,7 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
 
 ## 0.13.44_05 — compatibilità save OG-only
 - [CODICE] Snapshot di sola anagrafica LWE senza partite ora deserializzabile (zero fixture e zero risultati dichiarati). Mantiene due autosave distinti e file legacy. Test Windows NOT_TESTED.
+
+
+## 0.13.44_07 — offerte OG-only basate su divisioni reali
+- [CODICE] Il primo incarico da disoccupato può trovare squadre nelle divisioni inferiori usando il catalogo dei campionati OG senza LWE scored matches. Risultati/posizione in classifica OG non sono ancora importati: filtro performance team disattivo, dichiarato nel log. Test Windows pendente.

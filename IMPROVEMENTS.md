@@ -646,3 +646,7 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 ## [2026-11-14] 0.13.44_05 — OG-only save reader
 - [CODICE] Snapshot nuovo senza fixture LWE accettato dal reader se contatori risultati coerentemente nulli. Log escape corretto. Prova save/load Windows PENDENTE.
+
+
+## [2026-11-14] 0.13.44_07 — offerte senza standings LWE
+- [CODICE, NOT_TESTED] Disponibilità di club nelle ultime divisioni originali con almeno quattro livelli importati senza simulare LWE. Non inventa ranking; collegamento alle classifiche OG per realismo offerte ancora da fare.

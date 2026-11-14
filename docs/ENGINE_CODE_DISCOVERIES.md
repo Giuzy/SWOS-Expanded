@@ -312,3 +312,9 @@ test di regressione e stato.
 
 - [CODICE] `diy_competition.c` non tenta `ExpandedWorldLive_RecordNativeLeagueResult` quando il mondo OG-only non ha fixture LWE; la partita resta regolata e salvata nelle strutture native OG. Evita il falso messaggio UNMATCHED per ogni risultato OG valido. Le sessioni con fixture LWE di vecchi save mantengono il controllo di coerenza diagnostico.
 - [PENDENTE] Recupero dei risultati OG durante il subentro (il vecchio replay LWE non può più valere come dato autorevole); offerte dalla classifica OG e test Windows non completati.
+
+## 14 novembre 2026 — 0.13.44_07: prima offerta indipendente dalle classifiche LWE
+
+- [CODICE] `choose_small_club` conta le divisioni popolate importate dagli originali CompetitionLeague OG (`ExpandedWorldLive_DivisionStatus` è ora usata solo per metadati paese/divisione/club), scegliendo soltanto l'ultima divisione di paesi con almeno quattro livelli; non usa punteggi o risultati simulati LWE. Nessun risultato o classifica inventato.
+- [LIMITE] La classifica nativa OG non è ancora collegata all'algoritmo di offerte: questo fallback seleziona club di categoria inferiore, **non certifica che stiano perdendo**. Il subentro a metà stagione, le coppe internazionali offscreen e il calendario OG completo non sono collaudati.
+- [CODICE] I mondi OG-only senza match LWE non presentano una classifica pilota a punti zero come classifica reale; anteprima segnala OG risultati non ancora disponibili. Test Windows NOT_TESTED.

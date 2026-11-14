@@ -302,3 +302,8 @@ test di regressione e stato.
 - [CODICE] `Career_AdvanceUnemployedOGCups` ora invoca anche `Career_AutoAdvanceInternationalCompetitionFixtures` per le divisioni dei campionati OG nazionali a fine stagione, oltre ai callback OG di coppe già presenti; file TEAM, calciatori, manager, fisica e due autosave invariati.
 - [LIMITI CRITICI] `InitCareerCompetitions` a START copia template originali ma non dimostra che tutti gli slot OG siano inizializzati per un'offscreen completo. Non c'è ancora avanzamento OG giornaliero/fase di tutte le leghe; il catch-up dei campionati ora è solo alla fine della stagione. Le offerte basate sulle classifiche LWE non hanno risultati reali e possono NON comparire; il midseason rehire basato su replay LWE è non verificato. I test stress LWE storici non attestano più il percorso corrente.
 - [TEST] NESSUNA COMPILAZIONE Windows/MSYS2 o esecuzione del gioco. Lo stato globale OG=autorità è direzione approvata, NON conclusione testata dell'intero engine. Registrata continuità dopo "Connection interrupted".
+
+## 14 novembre 2026 — 0.13.44_05: serializzazione snapshot OG-only vuoto
+
+- [CODICE] Il lettore `ExpandedWorldLive_ReadJson` prima rifiutava sempre `fixture_count==0`; ora accetta solo un ledger LWE vuoto e coerente (nessuna partita giocata, nativa o archiviata), preservando il controllo sulle partite storiche. Necessario per permettere a una nuova carriera OG-only di salvare e ricaricare la propria anagrafica senza creare fixture finte.
+- [LIMITI] Non equivale a una migrazione automatica degli storici LWE già presenti nei save vecchi: restano leggibili ma senza ulteriori risultati sintetici. Non collaudato in Windows; le routine OG offscreen e il subentro sono ancora da verificare.

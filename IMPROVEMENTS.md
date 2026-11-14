@@ -642,3 +642,7 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 ## [2026-11-14] 0.13.44_04 — OG native league callbacks; no autonomous LWE scores
 - [CODICE, NON TESTATO] Nella carriera non si inizializzano più fixture sintetiche LWE e il suo avanzamento non risolve partite, amichevoli o promozioni. Il percorso disoccupato chiama anche le routine OpenSWOS native per divisione a fine stagione. Restano aperti avanzamento durante l'anno, subentro e offerte. Windows e suite integrata: NOT_TESTED.
+
+
+## [2026-11-14] 0.13.44_05 — OG-only save reader
+- [CODICE] Snapshot nuovo senza fixture LWE accettato dal reader se contatori risultati coerentemente nulli. Log escape corretto. Prova save/load Windows PENDENTE.

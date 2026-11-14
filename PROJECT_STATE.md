@@ -932,3 +932,7 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
 
 - [CODICE] Dismessa in carriera la generazione LWE di fixture, risultati, amichevoli, mobilità e backfill retroattivo. Richiamate routine OG delle divisioni a fine anno durante disoccupazione. LWE conserva dati dei club e lettura vecchie snapshot senza generare risultati. Data LWE residua è un cursore UI/compatibilità, NON la nuova autorità sportiva.
 - [NON RISOLTO] OG offscreen fase per fase, classifiche/offer AI collegate a OG, subentro a stagione in corso, verifica 1996/97 e 2026/27, compatibilità vecchi salvataggi LWE. Test Windows pendenti. Non dichiarare “disoccupazione funziona” da sola esistenza del callback.
+
+
+## 0.13.44_05 — compatibilità save OG-only
+- [CODICE] Snapshot di sola anagrafica LWE senza partite ora deserializzabile (zero fixture e zero risultati dichiarati). Mantiene due autosave distinti e file legacy. Test Windows NOT_TESTED.

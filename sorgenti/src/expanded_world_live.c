@@ -2157,7 +2157,13 @@ int ExpandedWorldLive_ReadJson(const char *json,int len) {
             first=0;
         }
     }
-    if (!tmp->fixture_count || tmp->native_schedules>tmp->leagues_count ||
+    /* A genuine OG-only career has zero LWE fixture records by design.
+     * Older LWE snapshots still require fixtures unless explicitly empty
+     * (an empty old ledger with claimed results would be inconsistent). */
+    if ((tmp->fixture_count==0u &&
+         (tmp->played!=0u || tmp->native_matches!=0u ||
+          tmp->archived_matches!=0u)) ||
+        tmp->native_schedules>tmp->leagues_count ||
         tmp->native_matches>tmp->fixture_count+tmp->archived_matches) goto invalid;
     /* World v4 records original SWOS cup matches and champions. */
     if(snapshot_version>=4) {

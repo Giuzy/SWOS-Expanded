@@ -674,3 +674,7 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 ## [2026-11-14] 0.13.45_03 — native season vs club lifecycle split
 - [CODICE] Introdotta `Expanded_InitializeClubSeasonState` come variante specializzata per il club, chiamata all'assunzione senza incrementare/ridurre i contatori globali della stagione o reset mondo playoff. `InitializeNewSeason` mantiene l'avanzamento anno/gruppi/playoff ai soli normali cambi di stagione OG. L'attach OG completo richiede ancora contesti di competizione mondiali persistenti: non risolto dalla sola variante. Windows compile/game NOT_TESTED.
+
+
+## [2026-11-14] 0.13.45_04 — og standings offer preview/zero-match season
+- [CODICE] Rimossa la falsa esclusione `hasGroups` dalle acquisizioni single-group native OG, mantenute convalide identità e W+D+L=PL, ammessi snapshot PL=0 pre-campionato. In mancanza di classifica catturata, l'offerta mostra nomi dei club dal TEAM-file snapshot, esplicitamente senza inventare punti. Log delle catture reali `[og-offer-table] CAPTURE`. Nessun nuovo simulatore, nessun reset delle competizioni. Windows compile e test gioco DA FARE.

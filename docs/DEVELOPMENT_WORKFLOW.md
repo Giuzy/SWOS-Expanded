@@ -326,3 +326,10 @@ indipendente. Non inventare date/risultati per pareggiare i contatori.
 - Non confondere `CALENDAR_30Y_E2E=PASS` dello stage isolato C con
   successo OG/SDL Windows. Ogni FAIL va esaminato prima di procedere ai
   campionati e coppe. Non eliminare i file di salvataggio dell'utente.
+
+
+### Test mirato 0.13.45_04 — prima giornata vs classifica dell'offerta
+- Caso A: NEW CAREER/START UNEMPLOYED prima dell'inizio del campionato, VIEW CLUB OFFER -> VIEW COMPETITIONS. Deve mostrare un'eventuale classifica OG PL=0 quando già catturata; altrimenti nomi TEAM realmente importati e avviso `OG TABLE NOT YET CACHED`, senza punti inventati.
+- Caso B: FORWARD TIME fino a quando VIEW WORLD mostra una lega con PL>0; aprire un'offerta dello stesso paese/divisione e la preview. Cercare `[og-offer-table] CAPTURE country=... division=... year=...` nel log. Se resta la lista squadre senza statistiche, confrontare l'ID del paese, la divisione e l'anno: la cache non è stata popolata dalla callback OG oppure la chiave non coincide. NON segnare PASS in base a una lega diversa.
+- Caso C: salvare/ricaricare e verificare che l'offerta non mostri dati di una stagione diversa. La cache è solo RAM e non è la fonte di verità del save OG.
+- Evidenza del 14/11/2026: El Salvador Tercera Division Orient PL=0 nello screenshot iniziale, PL=6 nello screenshot successivo. Prova di quel campionato, non copertura globale OG.

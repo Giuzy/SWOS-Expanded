@@ -940,3 +940,7 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
 
 ## 0.13.44_07 — offerte OG-only basate su divisioni reali
 - [CODICE] Il primo incarico da disoccupato può trovare squadre nelle divisioni inferiori usando il catalogo dei campionati OG senza LWE scored matches. Risultati/posizione in classifica OG non sono ancora importati: filtro performance team disattivo, dichiarato nel log. Test Windows pendente.
+
+
+## 0.13.44_08 — subentro attraverso callback OG
+- [CODICE] Con LWE simulator spento, il subentro non richiede più LWE mobile roster né direct table import; usa il fallback nativo OG già esistente per completare gli incontri precedenti. Le competizioni speciali e il handoff stagione finita richiedono prova reale. Test Windows NON ESEGUITI.

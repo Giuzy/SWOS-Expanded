@@ -321,7 +321,11 @@ int Expanded_MidseasonJoin_AlignSeason(uint32_t elapsed) {
                     (unsigned)_currentSeasonShowing,
                     (unsigned)Expanded_Career_NativeCalendarKey());
     }
-    if (!ExpandedWorldLive_NativeMobilityPrepared()) {
+    /* For OG-only careers the native OG competition state is canonical.
+     * The old LWE roster staging was only required when transplanting a
+     * separately simulated world. No LWE fixtures means no transplant. */
+    if (ExpandedWorldLive_Fixtures()>0u &&
+        !ExpandedWorldLive_NativeMobilityPrepared()) {
         fprintf(stderr,"[midseason] native season members not synced to "
                        "world. Rejecting a fake multi-year join\n");
         return 0;
@@ -623,7 +627,11 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     s_historical_nonleague_events=oldNonLeague;
     {
         extern int DIY_WorldDirectImportLeagueChecked(uint8_t cutoff,int strict);
-        if (DIY_WorldDirectImportLeagueChecked(cutoff,southern_attempt)) {
+        /* OG-only mode has no scored LWE fixtures. Never import a fake
+         * table or replay a second score. The unchanged native callback
+         * path below will advance every earlier OG match chronologically. */
+        if (ExpandedWorldLive_Fixtures()>0u &&
+            DIY_WorldDirectImportLeagueChecked(cutoff,southern_attempt)) {
             if(southern_attempt) {
                 s_southern_handoff_status=1;
                 fprintf(stderr,"[midseason-southern] PASS strict-world-table "

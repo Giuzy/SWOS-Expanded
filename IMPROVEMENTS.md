@@ -650,3 +650,7 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 ## [2026-11-14] 0.13.44_07 — offerte senza standings LWE
 - [CODICE, NOT_TESTED] Disponibilità di club nelle ultime divisioni originali con almeno quattro livelli importati senza simulare LWE. Non inventa ranking; collegamento alle classifiche OG per realismo offerte ancora da fare.
+
+
+## [2026-11-14] 0.13.44_08 — OG native catch-up without LWE fixture transplant
+- [CODICE, NOT_TESTED] Salto del vecchio import LWE se il mondo non contiene fixture; subentro rimane gestito dalle azioni e callback native OG, senza punteggi sintetici esterni. Calendari meridionali e test Windows ancora aperti.

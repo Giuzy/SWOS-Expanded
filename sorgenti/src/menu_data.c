@@ -11059,7 +11059,10 @@ uint8_t *Expanded_UnemployedCalendarPointer(void) {
 uint8_t *Expanded_UnemployedCalendarMenu(void) {
     memcpy(&s_unemployedOriginalCalendar,&_contestMenu,sizeof s_unemployedOriginalCalendar);
     s_unemployedOriginalCalendar.hdr.onInitPtr=Expanded_UnemployedInit;
-    s_unemployedOriginalCalendar.hdr.onReturnPtr=GlobalRetn;
+    /* RestorePreviousMenu unpacks the original contest template after a
+     * nested picker or league viewer. Reapply the no-club allowlist before
+     * any redraw or input; otherwise hidden club callbacks reappear. */
+    s_unemployedOriginalCalendar.hdr.onReturnPtr=Expanded_UnemployedInit;
     s_unemployedOriginalCalendar.hdr.onDrawPtr=0;
     s_unemployedOriginalCalendar.hdr.defaultEntry=7;
     s_unemployedOriginalCalendar.entry7_text.textPtr=s_jobWait;

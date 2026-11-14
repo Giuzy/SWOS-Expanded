@@ -341,3 +341,12 @@ indipendente. Non inventare date/risultati per pareggiare i contatori.
 4. Accettare offerta dopo diverse settimane: la classifica della stessa divisione rimane identica e nel calendario club le partite anteriori devono mantenere il loro risultato (questa seconda capacità è ancora PENDENTE). Testare partita manuale e simulata senza cambi ai 50 Hz.
 5. Verificare coppe: se manca un contesto residente, messaggio «OG WORLD: COMPETITION NOT RESIDENT» è corretto, ma **NON** un PASS di integrazione coppe. Save/reload, stagioni future e storico risultati sono PENDENTI.
 6. Inviare `SWOS.log`, screenshot e lista SI/NO/NON PROVATO. Distinguere compile, test isolati e test Windows; evitare di cancellare i salvataggi.
+
+### Test mirato 0.13.45_07 — menu disoccupato senza hotspot fantasma
+1. Fai pull del ramo `dev/0.10` e compila tu con i BAT esistenti; al TITLE verifica BUILD 0.13.45_07, conserva salvataggi.
+2. NEW CAREER -> START UNEMPLOYED: deve esserci un riquadro DEBUG WORLD nella colonna destra subito SOPRA RECORD. Azioni presenti: FORWARD TIME, BACK, RECORD, DEBUG WORLD; VIEW CLUB OFFER solo con proposta reale.
+3. Prima di premere WORLD, fai click su tutte le zone che nella carriera OG corrispondono a TRANSFERS, CLUB BUSINESS, SQUAD, NEXT MATCH, VIEW COMPETITIONS e frecce. NON devono aprirsi menu né provocare crash. Ripeti con joypad e tastiera.
+4. Apri DEBUG WORLD: scegli una lega residente e torna indietro. Ripeti 3 volte, alternando BACK, RECORD, WORLD. Ripeti test delle zone fantasma: deve restare impossibile aprire la SQUAD senza club.
+5. Il 01 luglio PUO' mostrare P=0: premi FORWARD TIME parecchie settimane e osserva `[og-world-view] year= phase= native-matches=`, confronta partite e classifica. Apri la stessa competizione due volte SENZA avanzare: PTS, PL, date, numero di partite, RNG e risultati NON devono cambiare.
+6. Prova un'offerta, rifiuta e torna al calendario; i controlli devono restare bloccati. Coppe senza contesto residente: messaggio di indisponibilita', non auto-simulazione.
+7. Per ogni voce rispondi SI / NO / NON PROVATO e invia SWOS.log e screenshot del primo NO. Crash o disallineamenti sono FAIL, non dichiarare test Windows PASS perche' il codice e' stato committato.

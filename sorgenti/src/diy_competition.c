@@ -721,7 +721,11 @@ void DIY_SortLeagueTableByStandings(void)
     }
     LeagueSplit_Sort();         /* (a world league's split: its groups, include/league_split.h) */
 #ifdef SWOS_SDL_BUILD
-    capture_native_og_league_table();
+    /* Merely inspecting the resident OG world must not rewrite the offer
+     * standings cache or make a second source of world state. */
+    extern int Expanded_OGWorld_ViewActive(void);
+    if(!Expanded_OGWorld_ViewActive())
+        capture_native_og_league_table();
 #endif
 }
 

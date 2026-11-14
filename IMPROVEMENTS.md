@@ -687,3 +687,8 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 - `CAREER / VIEW WORLD` non esegue più le callback OG di auto-simulazione selezionando competizioni esterne; le leghe con contesto OG residente sono visualizzate tramite copia temporanea in sola consultazione.
 - La schermata disoccupazione dispone del nuovo pulsante `DEBUG WORLD`; record, offerte, FORWARD TIME e navigazione restano disponibili. Le competizioni senza stato residente sono indicate come non disponibili.
 - Consegna del sorgente per compilazione e test Windows da parte dell'utente; non certificato in runtime.
+
+### 0.13.45_07 — allowlist menu disoccupato e viewer OG (Windows da testare)
+- Ripristino sicuro del menu disoccupato dopo modal: onReturn=Expanded_UnemployedInit, callback SQUAD e altre azioni del club rimosse oltre a essere invisibili; filtro MenuProc rifiuta anche tentativi via input vecchi. DEBUG WORLD ha coordinate e tipo di disegno espliciti sopra RECORD.
+- Vista OG valida i riferimenti delle classifiche prima di aprire il menu nativo e non ri-cattura la classifica di mercato/offer mentre consulta lo snapshot. Non introduce nuovi simulatori o risultati.
+- Correzione motivata dai crash e dai tasti invisibili segnalati dall'utente nella 0.13.45_06; compilazione/test Windows spettano all'utente, nessun PASS runtime asserito.

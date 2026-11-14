@@ -1967,7 +1967,29 @@ void MenuProc(void)
     menu = (Menu *)_currentMenu;
     selectedEntry = menu->selectedEntry;
     _controlMask = 0;
-
+#ifdef SWOS_SDL_BUILD
+    /* Defense in depth: stale mouse hitboxes or a controller cursor must
+     * never dispatch a club action while UNEMPLOYED, even after a modal
+     * changed/re-unpacked the underlying menu entries. */
+    {
+        extern uint8_t *Expanded_UnemployedCalendarPointer(void);
+        if(_currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarPointer()) {
+            unsigned ord=selectedEntry?selectedEntry->ordinal:0xffffu;
+            int allowed=(ord==7u || ord==9u || ord==11u || ord==12u ||
+                         (ord==10u && !_menuEntries[10].isDisabled));
+            if(!allowed || !selectedEntry || selectedEntry->isInvisible ||
+               selectedEntry->isDisabled || !selectedEntry->onSelect) {
+                fprintf(stderr,"[unemployed-menu] BLOCK hidden/club action #%u\n",ord);
+                menu->selectedEntry=&_menuEntries[7];
+                /* Also swallow the held click: never turn a blocked
+                 * invisible SQUAD click into FORWARD TIME next frame. */
+                _fireResetFlag=1;
+                _fire=0;_shortFire=0;_pl1Fire=0;
+                return;
+            }
+        }
+    }
+#endif
     onSelectPtr = selectedEntry->onSelect;
     if (onSelectPtr == 0)
         goto no_event_or_done;

@@ -926,3 +926,9 @@ L'analizzatore Windows classifica FAIL l'orologio soltanto se una lettura F12 su
 - [APPROVATO] OpenSWOS è proprietario della progressione di carriera, data, calendari, partite, risultati e archivi storici OG tanto in 1996/97 quanto in 2026/27. LWE aggiunge sistemi nuovi, non una seconda simulazione autorevole. Niente formule di date, archivi o calendari nuovi in questa fase.
 - [CODICE] Lifecycle a START separato fra reset del world OG, reset competizioni OG, manager OG; club all'accettazione. Ripristinato l'elenco nazionale storico per callback OG delle coppe durante disoccupazione. Questo NON significa che tutta la disoccupazione sia gia' simulata da OG: il percorso LWE per i match lontani resta attivo ed è ancora da sostituire.
 - [TEST] Windows/MSYS2/suite complete non eseguiti da qui. Conservare entrambi AUTO9697.CAR e AUTO2627.CAR e legacy AUTOSAVE.CAR.
+
+
+## 0.13.44_04 — LWE simulator disattivato (14/11/2026)
+
+- [CODICE] Dismessa in carriera la generazione LWE di fixture, risultati, amichevoli, mobilità e backfill retroattivo. Richiamate routine OG delle divisioni a fine anno durante disoccupazione. LWE conserva dati dei club e lettura vecchie snapshot senza generare risultati. Data LWE residua è un cursore UI/compatibilità, NON la nuova autorità sportiva.
+- [NON RISOLTO] OG offscreen fase per fase, classifiche/offer AI collegate a OG, subentro a stagione in corso, verifica 1996/97 e 2026/27, compatibilità vecchi salvataggi LWE. Test Windows pendenti. Non dichiarare “disoccupazione funziona” da sola esistenza del callback.

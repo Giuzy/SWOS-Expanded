@@ -886,6 +886,7 @@ void Career_BeginNewCareer(void)
  * Not a replacement for dated knockout rounds, UEFA/national competitions
  * or native promotion/cup qualification handoffs. */
 extern void Career_AutoAdvanceCupCompetitionFromRecord(uint8_t *record);
+extern void Career_AutoAdvanceInternationalCompetitionFixtures(uint8_t *record,uint16_t division);
 extern void SaveSelectedTeams(void);
 extern void RestoreSelectedTeams(void);
 extern uint16_t _internationalAutoAdvanceFlag;
@@ -946,12 +947,35 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
         const uint32_t beforeArchiveMatches=ExpandedWorldLive_CupArchivedMatches();
         const uint32_t beforeArchiveTitles=ExpandedWorldLive_CupArchivedTitles();
         const uint32_t beforeHistoryTitles=ExpandedWorldLive_CupHistoricalTitles();
-        unsigned cupRuns=0;
+        unsigned cupRuns=0, leagueRuns=0;
         _seasonPlaying=(uint8_t)((96u+s_unemployedOgCupSeasons)%100u);
         for(unsigned i=0;i<256u && countries[i]!=0xFFu;++i) {
             const void *const *table=(const void *const *)
                 _competitionsTable[countries[i]];
             if(!table)continue;
+            /* Process each finished OFFSCREEN league with the original
+             * native SWOS competition procedure. The LWE never supplies
+             * results or standings for these clubs. */
+            {
+                const uintptr_t raw=(uintptr_t)table[0];
+                if(raw && raw!=(uintptr_t)-1 && raw!=(uintptr_t)-2) {
+                    const Competition *comp=(const Competition *)raw;
+                    if(comp->type==0 && !comp_is_type0_cup(comp->compId)) {
+                        const CompetitionLeague *league=(const CompetitionLeague *)comp;
+                        const unsigned divisions=(unsigned)league->header.divisionsCount;
+                        if(divisions>=1u && divisions<=16u) {
+                            for(unsigned d=0;d<divisions;++d) {
+                                Career_AutoAdvanceInternationalCompetitionFixtures(
+                                    (uint8_t *)comp,(uint16_t)d);
+                                ++leagueRuns;
+                            }
+                        } else {
+                            fprintf(stderr,"[og-unemployed] unsupported divisions country=%u count=%u\\n",
+                                    (unsigned)countries[i],divisions);
+                        }
+                    }
+                }
+            }
             for(unsigned j=2;j<=3;++j) {
                 const uintptr_t raw=(uintptr_t)table[j];
                 if(!raw || raw==(uintptr_t)-1 || raw==(uintptr_t)-2)
@@ -963,6 +987,9 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
             }
         }
         if(cupRuns)WorldCups_SeasonEnded();
+        fprintf(stderr,"[og-unemployed] season=%lu native-league-divisions=%u native-cups=%u; "
+                       "LWE result generator DISABLED\\n",
+                (unsigned long)(s_unemployedOgCupSeasons+1u),leagueRuns,cupRuns);
         const uint32_t afterMatches=ExpandedWorldLive_CupResidentMatches();
         const uint32_t afterTitles=ExpandedWorldLive_CupResidentTitles();
         fprintf(stderr,"[og-cups] season=%lu native callbacks=%u "

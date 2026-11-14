@@ -268,3 +268,8 @@ test di regressione e stato.
 
 - [CODICE] `main.c::main` sceglie `2627` quando argomenti, variabile SWOS_WORLD e configurazione non specificano un mondo. `World_InstallBaked` rimane in `frontend.c::FrontEndPreLoopSetup` e riceve la selezione validata; `WORLD.ini` assente o fingerprint incompatibile conserva il fallback a 9697. Il 1996/97 selezionato esplicitamente resta disponibile.
 - [LIMITI / WINDOWS NOT_TESTED] La selezione non è ancora senza riavvio; `World_InstallBaked` sovrascrive i dati OG e manca una procedura verificata per ripristinare integralmente le tabelle e cache storiche a caldo. Non dichiarare OG/LWE unificati, 127 club risolti o 80 TMD rimappate. Richiesta di migrazione totale ancora aperta.
+
+## 14 novembre 2026 — 0.13.43_01: inventario esclusioni per ID, Windows NON TESTATO
+
+- [CODICE] `expanded_world_live_adapter.c::track_rejection` scrive una riga di log per OGNI squadra esclusa, con mondo, file TEAM, countryNumber, teamOrdinal, packed raw-team-id, divisione, motivo e nome. Le precedenti 12 voci campione per categoria restano per F10, ma non costituiscono il censimento completo.
+- [LIMITI] I 127 esclusi storici vanno confrontati col nuovo log Windows reale; non sono stati cancellati, inseriti artificialmente in divisioni non supportate o contabilizzati come club che partecipano al campionato. Questa è diagnostica runtime, NON correzione di tutte le identità/80 TMD né certificazione del motore OG.

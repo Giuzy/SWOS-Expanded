@@ -625,3 +625,7 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 ## [2026-11-14] 0.13.43 — default World al bootstrap
 - [CODICE] `main.c` seleziona 2026/27 se il mondo non è stato indicato; rimangono prioritari i valori espliciti e la validazione preventiva del pacchetto 2627. La selezione avviene prima che `frontend.c` installi le tabelle OG. Test Windows NON ESEGUITI, nessuna migrazione a caldo o unificazione LWE dichiarata.
+
+
+## [2026-11-14] 0.13.43_01 — log completo identificatori club esclusi
+- [CODICE] L'importatore registra su SWOS.log ogni riga TEAM esclusa con chiavi sorgente e motivo, al posto di perdere i dettagli dopo il campione F10. Non cambia fixture, classifiche, salvataggi o rosa. Test runtime Windows NON ESEGUITO.

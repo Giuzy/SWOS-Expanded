@@ -417,7 +417,6 @@ static void choose_small_club(void) {
         const TeamFileEx *teams=(const TeamFileEx*)(_teamFileBuffer+2);
         unsigned maxLeague=0,candidates=0,divisionCount=0;
         ExpandedLiveRow standings[26];
-        uint32_t rankedCount=0;
         /* OG-only: inspect the imported NATIVE league descriptors,
          * not a second LWE points table. Countries may use two TEAM files;
          * World_FileCountry above resolves the original country key.

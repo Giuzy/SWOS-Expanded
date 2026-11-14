@@ -662,3 +662,7 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 ## [2026-11-14] 0.13.45 — read-only standings bridge for unemployed offers
 - [CODICE] Copia temporanea delle classifiche OG quando effettivamente sortite dal motore originale (club IDs e W/D/L/GF/GA/PTS); chiavi per paese, divisione e stagione, invalidazione tra stagioni. Anteprima e selezione offerte usano solo tali valori se disponibili, senza riaccendere score LWE. Nessuna partita ulteriore viene simulata dal ponte. Windows NOT_TESTED.
+
+
+## [2026-11-14] 0.13.45_01 — fix compilazione due errori OG offer
+- [CODICE] Rimosso `rankedCount` duplicato in `choose_small_club`. Aggiunta include `diy_competition.h` (solo SDL) in `career_init.c` per dichiarare `DIY_OGStandings_SetSeason`. Correzione basata su `COMPILAZIONE_0140.log` fornito dall'utente; avvisi preesistenti su packed member non bloccanti. Windows build dopo fix PENDENTE.

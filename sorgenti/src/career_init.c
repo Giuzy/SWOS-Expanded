@@ -21,6 +21,7 @@
 #include "input_text.h"
 #include "save_format_json.h"
 #ifdef SWOS_SDL_BUILD
+#include "diy_competition.h" /* DIY_OGStandings_SetSeason prototype */
 #include "expanded_world_live.h"
 #include "world.h"
 #include <stdio.h>

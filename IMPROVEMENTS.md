@@ -678,3 +678,7 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 
 ## [2026-11-14] 0.13.45_04 — og standings offer preview/zero-match season
 - [CODICE] Rimossa la falsa esclusione `hasGroups` dalle acquisizioni single-group native OG, mantenute convalide identità e W+D+L=PL, ammessi snapshot PL=0 pre-campionato. In mancanza di classifica catturata, l'offerta mostra nomi dei club dal TEAM-file snapshot, esplicitamente senza inventare punti. Log delle catture reali `[og-offer-table] CAPTURE`. Nessun nuovo simulatore, nessun reset delle competizioni. Windows compile e test gioco DA FARE.
+
+
+## [2026-11-14] 0.13.45_05 — primo contesto OG indipendente dal manager
+- [CODICE] Resident OG league image + original team list/RNG/phase per divisione in RAM, avvio a START, avanzamento con FORWARD TIME e binder club che valida gli ID reali. Ridotto replay OG alla firma quando l'immagine esiste. Nessun risultato LWE. Si tratta di implementazione sperimentale e NON di completa migrazione worldwide (coppe, save, keycache storica ancora da integrare). Test Windows NON eseguiti.

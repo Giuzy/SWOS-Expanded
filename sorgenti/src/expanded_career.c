@@ -673,8 +673,19 @@ void Expanded_UnemployedWait(void) {
         return;
     }
     const unsigned target_weeks=(unsigned)(target_index-first_index)/7u;
+    /* Advance OG competitions BEFORE committing the unemployment date.
+     * No duplicate LWE scoring, and a failed OG tick must not move time. */
+    {
+        extern int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate);
+        if(!Expanded_OGWorld_AdvanceToDate(target)) {
+            fprintf(stderr,"[og-world] FORWARD TIME FAILED at %04u-%02u-%02u\n",
+                    (unsigned)target.year,(unsigned)target.month,
+                    (unsigned)target.day);
+            return;
+        }
+    }
     if(!ExpandedWorldLive_AdvanceToDate(target)) {
-        fprintf(stderr,"[calendar] FAIL LWE_ADVANCE target=%04u-%02u-%02u\n",
+        fprintf(stderr,"[calendar] FAIL DATE_ADVANCE target=%04u-%02u-%02u\n",
                 (unsigned)target.year,(unsigned)target.month,
                 (unsigned)target.day);
         return;
@@ -1019,7 +1030,17 @@ int Expanded_HandleSackingAfterMatch(void) {
         }
         Expanded_CommitNegotiatedSalary();
         extern void Expanded_MidseasonJoin_Begin(uint32_t weeks);
-        Expanded_MidseasonJoin_Begin(s_waitWeeks);
+#ifdef SWOS_SDL_BUILD
+        { extern int Expanded_OGWorld_ClubBound(void);
+          if(Expanded_OGWorld_ClubBound())
+              fprintf(stderr,"[og-world] REHIRE uses resident OG division "
+                             "without historic replay\n");
+          else
+#endif
+              Expanded_MidseasonJoin_Begin(s_waitWeeks);
+#ifdef SWOS_SDL_BUILD
+        } 
+#endif
 #ifdef SWOS_SDL_BUILD
         { extern int Expanded_MidseasonJoin_LastResult(void);
           if(Expanded_MidseasonJoin_LastResult()==2) {

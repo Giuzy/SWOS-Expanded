@@ -22,6 +22,8 @@
 #include "save_format_json.h"
 #ifdef SWOS_SDL_BUILD
 #include "diy_competition.h" /* DIY_OGStandings_SetSeason prototype */
+#include "expanded_world_time.h"
+#include "fixture_rounds.h"
 #include "expanded_world_live.h"
 #include "world.h"
 #include <stdio.h>
@@ -261,6 +263,11 @@ extern void SetExitMenuFlag(void);
 /* Forward declarations for Chunk 197 functions (defined later in this file) */
 void InitCareer(uint16_t teamNo);
 void Career_BeginNewCareer(void);
+#ifdef SWOS_SDL_BUILD
+int Expanded_OGWorld_Start(void);
+int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today);
+int Expanded_OGWorld_ClubBound(void);
+#endif
 void InitCareerWorld(void);
 void InitCareerManager(void);
 void InitCareerClub(uint16_t teamNo);
@@ -300,11 +307,19 @@ void ChooseTeamAndStartCareer(void)
             _fireResetFlag=1;
             return;
         }
-        fprintf(stderr,"[living-world] START initialized %lu clubs, "
-                       "%lu leagues, %lu fixtures\n",
+        fprintf(stderr,"[living-world] START imported %lu clubs, "
+                       "%lu league records, %lu LWE fixtures\n",
                 (unsigned long)ExpandedWorldLive_Clubs(),
                 (unsigned long)ExpandedWorldLive_Leagues(),
                 (unsigned long)ExpandedWorldLive_Fixtures());
+        /* THE new career's OG world is initialized HERE, before any
+         * manager has chosen or accepted a team. */
+        if(!Expanded_OGWorld_Start()) {
+            extern uint16_t _fireResetFlag;
+            fprintf(stderr,"[og-world] START FAILED: no native league "
+                           "contexts available; refusing empty career\n");
+            _fireResetFlag=1;return;
+        }
     }
 #endif
     /* Expanded 0.8: zero-fame managers start without a club. The waiting
@@ -355,7 +370,13 @@ void ChooseTeamAndStartCareer(void)
          * fast-forward the native competition states before human input. */
         extern void Expanded_MidseasonJoin_Begin(uint32_t weeks);
         extern unsigned Expanded_DebugUnemployedWeeks(void);
-        Expanded_MidseasonJoin_Begin(Expanded_DebugUnemployedWeeks());
+#ifdef SWOS_SDL_BUILD
+        if(Expanded_OGWorld_ClubBound())
+            fprintf(stderr,"[og-world] accepted club uses existing OG table; "
+                           "legacy midseason replay SKIPPED\n");
+        else
+#endif
+            Expanded_MidseasonJoin_Begin(Expanded_DebugUnemployedWeeks());
 #ifdef SWOS_SDL_BUILD
         /* A failed OG handoff is not an employed career. In particular,
          * don't overwrite the one autosave with a freshly zeroed table.
@@ -866,6 +887,78 @@ void InitCareerCompetitions(void)
     s_careerCompetitionsInitialized = 1;
 }
 
+
+#ifdef SWOS_SDL_BUILD
+/* Coordinator of native OG LEAGUES: separate from the human manager.
+ * League contexts are built at START, and Advanced to the real date.
+ * This is not the old LWE scheduler and does not synthesize scores. */
+extern void Expanded_OGWorld_Reset(void);
+extern uint32_t Expanded_OGWorld_LeagueCount(void);
+extern int Expanded_OGWorld_AdvanceLeague(uint8_t *,uint8_t,uint8_t,uint16_t,uint8_t);
+extern int Expanded_OGWorld_BindClub(uint16_t,uint8_t,uint16_t);
+extern int Expanded_OGWorld_ClubBound(void);
+static int s_expOGWorldStarted;
+static uint16_t s_expOGWorldYear;
+static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
+    const uint8_t *countries=World_SeasonCountries();
+    if(!countries) {
+        extern uint8_t _careerCompetitionIdRemapTable[];
+        countries=_careerCompetitionIdRemapTable;
+    }
+    if(!countries)return 0;
+    unsigned ok=0,skipped=0;
+    for(unsigned i=0;i<256u && countries[i]!=0xffu;++i) {
+        const uint8_t country=countries[i];
+        const void *const *tab=(const void *const *)_competitionsTable[country];
+        if(!tab)continue;
+        uintptr_t raw=(uintptr_t)tab[0];
+        if(!raw || raw==(uintptr_t)-1 || raw==(uintptr_t)-2)continue;
+        const Competition *rec=(const Competition *)raw;
+        if(rec->type!=0 || comp_is_type0_cup(rec->compId))continue;
+        const CompetitionLeague *league=(const CompetitionLeague *)rec;
+        unsigned divisions=(unsigned)league->header.divisionsCount;
+        if(divisions==0u || divisions>16u)continue;
+        for(unsigned d=0;d<divisions;++d) {
+            if(!FixtureRounds_Real(league->divisions[d].teams)) {
+                ++skipped;continue;
+            }
+            if(Expanded_OGWorld_AdvanceLeague((uint8_t *)rec,
+                                              country,(uint8_t)d,year,phase))
+                ++ok;
+            else ++skipped;
+        }
+    }
+    fprintf(stderr,"[og-world] year=%u phase=%u native-leagues=%u "
+                   "skipped=%u persistent=%lu (manager independent)\n",
+            (unsigned)year,(unsigned)phase,ok,skipped,
+            (unsigned long)Expanded_OGWorld_LeagueCount());
+    return ok!=0;
+}
+int Expanded_OGWorld_Start(void) {
+    Expanded_OGWorld_Reset();
+    s_expOGWorldStarted=0;
+    s_expOGWorldYear=World_FirstYear();
+    DIY_OGStandings_SetSeason(s_expOGWorldYear);
+    s_expOGWorldStarted=expanded_og_world_run_year(s_expOGWorldYear,0);
+    return s_expOGWorldStarted;
+}
+int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
+    if(!s_expOGWorldStarted)return 0;
+    const uint16_t year=(uint16_t)(today.year-(today.month<7u?1u:0u));
+    if(year<s_expOGWorldYear || year>2198u)return 0;
+    while(s_expOGWorldYear<year) {
+        if(!expanded_og_world_run_year(s_expOGWorldYear,56u))return 0;
+        ++s_expOGWorldYear;
+        Expanded_OGWorld_Reset(); /* prior season is no longer live */
+        DIY_OGStandings_SetSeason(s_expOGWorldYear);
+        if(!expanded_og_world_run_year(s_expOGWorldYear,0))return 0;
+    }
+    uint8_t cutoff=0;
+    if(!ExpandedWorld_DateToNativePhaseNext(year,today,&cutoff))return 0;
+    return expanded_og_world_run_year(year,cutoff);
+}
+#endif
+
 /* Explicit NEW career. Do not reset the manager or world on a job offer. */
 __attribute__((used, externally_visible))
 void Career_BeginNewCareer(void)
@@ -879,6 +972,8 @@ void Career_BeginNewCareer(void)
     s_careerManagerInitialized = 0;
     s_unemployedOgCupSeasons = 0;
 #ifdef SWOS_SDL_BUILD
+    s_expOGWorldStarted=0;
+    Expanded_OGWorld_Reset();
     DIY_OGStandings_SetSeason(World_FirstYear());
 #endif
     InitCareerWorld();
@@ -966,7 +1061,11 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
                 const uintptr_t raw=(uintptr_t)table[0];
                 if(raw && raw!=(uintptr_t)-1 && raw!=(uintptr_t)-2) {
                     const Competition *comp=(const Competition *)raw;
-                    if(comp->type==0 && !comp_is_type0_cup(comp->compId)) {
+                    /* Resident OG leagues have already been advanced per date.
+                     * Do not execute the OLD completed-year offscreen callback
+                     * on top of them a second time. Cup callback below remains. */
+                    if(!s_expOGWorldStarted && comp->type==0 &&
+                       !comp_is_type0_cup(comp->compId)) {
                         const CompetitionLeague *league=(const CompetitionLeague *)comp;
                         const unsigned divisions=(unsigned)league->header.divisionsCount;
                         if(divisions>=1u && divisions<=16u) {
@@ -1117,6 +1216,28 @@ void InitCareerClub(uint16_t teamNo)
             (unsigned)teamNo,World_Tag());
 #endif
     Expanded_InitializeClubSeasonState();
+#ifdef SWOS_SDL_BUILD
+    /* The legacy helper still allocates club-local menu/keycache metadata.
+     * Replace its NEW league state with the already-running world league. */
+    {
+        ExpandedLiveCalendarState state;
+        if(ExpandedWorldLive_CalendarState(&state)) {
+            const uint16_t actual=(uint16_t)(state.today.year-
+                                                  (state.today.month<7u?1u:0u));
+            if(Expanded_OGWorld_BindClub(teamNo,(uint8_t)_currentDivisionIndex,
+                                          actual)) {
+                extern int Expanded_OGWorld_PositionClubCalendar(uint16_t,ExpandedWorldDate);
+                if(!Expanded_OGWorld_PositionClubCalendar(actual,state.today))
+                    fprintf(stderr,"[og-calendar] WARNING bound table but no "
+                                   "valid future native career calendar event\n");
+            } else
+                fprintf(stderr,"[og-world-bind] NO EXISTING CONTEXT team=%04x "
+                               "division=%u year=%u; legacy handoff required\n",
+                        (unsigned)teamNo,(unsigned)_currentDivisionIndex,
+                        (unsigned)actual);
+        }
+    }
+#endif
     _careerLoadedFlag = 0;
 }
 

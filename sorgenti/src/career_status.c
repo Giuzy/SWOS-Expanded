@@ -43,6 +43,10 @@
 #include "auto_skip_debug.h"
 #include "string_utils.h"
 #include "job_offers.h"
+#include <string.h>
+#ifdef SWOS_SDL_BUILD
+#include "world.h"
+#endif
 
 /* ---- Assembly externs (functions still in asm) ---- */
 extern uint16_t Rand(void);
@@ -3538,6 +3542,121 @@ void Career_AutoAdvanceLeagueCompetitionFromRecord(uint8_t *record)
     _careerLoadedFlag = 0;
 }
 
+
+/* Expanded world: resident ORIGINAL OG league contexts. Never bind an
+ * unemployed world to the human manager's selection-key cache. */
+#ifdef SWOS_SDL_BUILD
+#define EXP_OG_MAX_LEAGUES 512u
+#define EXP_OG_MAX_TEAMS 32u
+typedef struct {
+    uint8_t used,country,division,lastPhase,lastMatch,seed,randIndex,randKey;
+    uint16_t year,teamCount;
+    DIYCompetitionEx comp;
+    DIYTournamentState tournament;
+    TeamFileEx teams[EXP_OG_MAX_TEAMS];
+} ExpandedOGLeague;
+static ExpandedOGLeague s_expOG[EXP_OG_MAX_LEAGUES];
+static uint32_t s_expOGCount;
+static ExpandedOGLeague *s_expOGCurrent;
+static int s_expOGPhase=-1,s_expOGBound;
+extern uint8_t _seed2,_randXorIndex2,_randXorKey2;
+extern uint8_t _careerLastMatchIndexByCompetitionSlot[];
+extern void Career_AutoAdvanceInternationalCompetitionFixtures(uint8_t *,uint16_t);
+extern void Career_AutoAdvanceLeagueFixtures(void);
+extern void SaveSelectedTeams(void);
+extern void RestoreSelectedTeams(void);
+void Expanded_OGWorld_Reset(void) {
+    memset(s_expOG,0,sizeof s_expOG);s_expOGCount=0;
+    s_expOGCurrent=NULL;s_expOGPhase=-1;s_expOGBound=0;
+}
+uint32_t Expanded_OGWorld_LeagueCount(void){return s_expOGCount;}
+int Expanded_OGWorld_ClubBound(void){return s_expOGBound;}
+static ExpandedOGLeague *exp_find(uint8_t country,uint8_t division,uint16_t year) {
+    for(uint32_t i=0;i<s_expOGCount;++i)
+        if(s_expOG[i].used && s_expOG[i].country==country &&
+           s_expOG[i].division==division && s_expOG[i].year==year)return &s_expOG[i];
+    return NULL;
+}
+int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
+                                   uint8_t division,uint16_t year,
+                                   uint8_t phase) {
+    if(!record||_gameType!=4 || s_expOGCurrent)return 0;
+    const uint8_t compId=(uint8_t)((Competition *)record)->compId;
+    ExpandedOGLeague *ctx=exp_find(country,division,year);
+    if(ctx && phase<=ctx->lastPhase)return 1;
+    if(!ctx) {
+        if(s_expOGCount==EXP_OG_MAX_LEAGUES)return 0;
+        ctx=&s_expOG[s_expOGCount++];
+        memset(ctx,0,sizeof(*ctx));
+        ctx->country=country;ctx->division=division;ctx->year=year;
+        ctx->lastMatch=0xffu;
+    }
+    DIYCompetitionEx oldComp;
+    DIYTournamentState oldTournament;
+    const uint8_t last=_careerLastMatchIndexByCompetitionSlot[compId];
+    const uint8_t oldSeason=_seasonPlaying,oldView=_viewRandomPhase;
+    const uint16_t oldFlag=_internationalAutoAdvanceFlag;
+    memcpy(&oldComp,&_diyCompetitionStart,sizeof oldComp);
+    memcpy(&oldTournament,&_diyFileBufferCopy,sizeof oldTournament);
+    SaveSelectedTeams();
+    _internationalAutoAdvanceFlag=1;
+    _seasonPlaying=(uint8_t)((96u+(uint32_t)year-World_FirstYear())%100u);
+    s_expOGCurrent=ctx;s_expOGPhase=phase;
+    Career_AutoAdvanceInternationalCompetitionFixtures(record,division);
+    s_expOGCurrent=NULL;s_expOGPhase=-1;
+    _careerLastMatchIndexByCompetitionSlot[compId]=last;
+    _seasonPlaying=oldSeason;_viewRandomPhase=oldView;
+    _internationalAutoAdvanceFlag=oldFlag;
+    RestoreSelectedTeams();
+    memcpy(&_diyCompetitionStart,&oldComp,sizeof oldComp);
+    memcpy(&_diyFileBufferCopy,&oldTournament,sizeof oldTournament);
+    return ctx->used!=0;
+}
+/* NEW: bind existing world league, not a second scorer or a fresh OG
+ * league. Translate world team identities into this club's native list.
+ * Requires the club-local menu/keycache to have been allocated first. */
+int Expanded_OGWorld_BindClub(uint16_t club,uint8_t division,uint16_t year) {
+    s_expOGBound=0;
+    ExpandedOGLeague *ctx=exp_find(World_FileCountry((uint8_t)(club>>8)),
+                                   division,year);
+    if(!ctx || !ctx->teamCount ||
+       _primaryCompetitionBuf.tourn.header.competitionType!=0)return 0;
+    DIYCompetitionEx image;
+    memcpy(&image,&ctx->comp,sizeof image);
+    const unsigned n=(unsigned)image.base.numTeams;
+    if(n<2u||n>EXP_OG_MAX_TEAMS)return 0;
+    for(unsigned i=0;i<n;++i) {
+        const int32_t id=image.leagueStandings[i].teamSelOffset;
+        if(id<0 || (uint32_t)id>=ctx->teamCount)return 0;
+        const TeamFile *original=&ctx->teams[id].team;
+        const uint16_t word=PACK_BE_U16(original->countryNumber,
+                                        original->teamOrdinal);
+        int32_t mapped=-2;
+        if(word==club)mapped=-1;
+        else for(uint16_t j=0;j<_numSelectedTeams;++j) {
+            const TeamFile *local=&_selectedTeams[j].team;
+            if(local->countryNumber==original->countryNumber &&
+               local->teamOrdinal==original->teamOrdinal) {
+                mapped=(int32_t)j;break;
+            }
+        }
+        if(mapped==-2)return 0;
+        image.leagueStandings[i].teamSelOffset=mapped;
+    }
+    image.base.namePtr=
+        (uint8_t *)_primaryCompetitionBuf.tourn.header.competitionName;
+    memcpy(&_diyCompetitionStart,&image,sizeof image);
+    Career_StoreCompetitionSlotStateToBuffer((uint8_t *)&_primaryCompetitionBuf);
+    _careerLastMatchIndexByCompetitionSlot[image.base.field_2E]=ctx->lastMatch;
+    s_expOGBound=1;
+    fprintf(stderr,"[og-bind] club=%04x division=%u year=%u matches=%u "
+                   "NO HISTORICAL SIMULATION\n",
+            (unsigned)club,(unsigned)division,(unsigned)year,
+            (unsigned)ctx->comp.matchesPlayedCount);
+    return 1;
+}
+#endif
+
 /* Career_AutoAdvanceInternationalCompetitionFixtures (SWOS2.s line 35208)
  * Auto-advances an international competition: initializes team selection from
  * table entry spec, loads competition from table entry, runs league fixture
@@ -3561,6 +3680,34 @@ void Career_AutoAdvanceInternationalCompetitionFixtures(uint8_t *record, uint16_
     Career_ApplyPendingForeignMarketPlayersToSelectedTeams();
     InitDIYCompetitionFromTableEntry(index, record);
     InitTeams();
+#ifdef SWOS_SDL_BUILD
+    if(s_expOGCurrent) {
+        ExpandedOGLeague *ctx=s_expOGCurrent;
+        const uint8_t compId=(uint8_t)((Competition *)record)->compId;
+        if(ctx->used) {
+            memcpy(&_diyCompetitionStart,&ctx->comp,sizeof ctx->comp);
+            memcpy(&_diyFileBufferCopy,&ctx->tournament,sizeof ctx->tournament);
+            _numSelectedTeams=ctx->teamCount;
+            memcpy(_selectedTeams,ctx->teams,
+                   (size_t)ctx->teamCount*sizeof(TeamFileEx));
+            _seed2=ctx->seed;_randXorIndex2=ctx->randIndex;
+            _randXorKey2=ctx->randKey;
+        }
+        _careerLastMatchIndexByCompetitionSlot[compId]=ctx->lastMatch;
+        if(s_expOGPhase>0)Career_AutoAdvanceLeagueFixtures();
+        ctx->lastMatch=_careerLastMatchIndexByCompetitionSlot[compId];
+        memcpy(&ctx->comp,&_diyCompetitionStart,sizeof ctx->comp);
+        memcpy(&ctx->tournament,&_diyFileBufferCopy,sizeof ctx->tournament);
+        ctx->teamCount=_numSelectedTeams;
+        if(ctx->teamCount>EXP_OG_MAX_TEAMS)ctx->teamCount=0;
+        if(ctx->teamCount)
+            memcpy(ctx->teams,_selectedTeams,
+                   (size_t)ctx->teamCount*sizeof(TeamFileEx));
+        ctx->seed=_seed2;ctx->randIndex=_randXorIndex2;ctx->randKey=_randXorKey2;
+        ctx->lastPhase=(uint8_t)s_expOGPhase;
+        ctx->used=ctx->teamCount!=0;
+    } else
+#endif
     Career_AutoAdvanceLeagueFixtures();
 
     _viewRandomPhase = savedViewRandom;
@@ -4043,7 +4190,13 @@ void Career_AutoAdvanceLeagueFixtures(void)
 {
     uint8_t currentPhase, nextPhase;
 
-    /* Guard checks — if any is active, skip with phases = 0xFF */
+    /* World OG updates have their own phase, not a manager's keycache. */
+#ifdef SWOS_SDL_BUILD
+    if(s_expOGCurrent && s_expOGPhase>=0) {
+        currentPhase=(uint8_t)s_expOGPhase;
+        nextPhase=currentPhase;
+    } else
+#endif
     if (_careerAutoAdvanceInProgress != 0 || _seasonUpdateInProgress != 0 ||
         _internationalAutoAdvanceFlag != 0 || _seasonFinished != 0) {
         currentPhase = 0xFF;

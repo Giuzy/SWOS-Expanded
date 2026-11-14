@@ -563,3 +563,7 @@ Per ogni nuova funzione del motore o nuovo formato di competizione mantenere un 
 ### Regola 14/11/2026 — varianti Expanded delle routine OG
 Se una funzione OG originale mescola inizializzazione del manager, club, stagione o simulazione e non e' adatta all'architettura approvata, sviluppare una variante Expanded **separando le responsabilita'**. Riutilizzare algoritmi OG per esito partita, fixture, coppe, spareggi e classifiche; niente secondo simulatore/autonomia LWE. Le varianti devono essere nominate chiaramente, documentate e sottoposte a test; non sostituire indiscriminatamente callback originali usate da CLASSIC/SEASON/DIY.
 - A START devono nascere OG world e TUTTE le competizioni del mondo scelto, senza allenatore assegnato; FORWARD TIME avanza eventi per tutte e conserva contesti OG per competizione, salvabili; assunzione/esonero si limitano a collegare/scollegare il manager. Un refactor dei contatori e/o un log di inizializzazione NON dimostra che i campionati offscreen avanzino.
+
+
+### 14/11/2026 — lifecycle OG e binding manager
+Le competizioni OG non si ricreano alla firma; la routine Expanded di binding deve acquisire uno stato già esistente, validare i riferimenti delle squadre e NON simulare le partite storiche una seconda volta. Non modificare le routine OG originarie utilizzate in CLASSIC MODES salvo necessità comprovata. Per state non verificati (coppe, storici, serializzazione) NON dichiarare completata l'unificazione.

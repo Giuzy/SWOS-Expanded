@@ -202,7 +202,7 @@ void Expanded_HallInit(void) {
         return;
     }
     while(fgets(line,sizeof line,f)) {
-        HallRecord cur={{0}};
+        HallRecord cur={0};
         unsigned fame=255;
         unsigned long earnings=0;
         if(sscanf(line,"%47[^\t]\t%u\t%u\t%lu\t%u",

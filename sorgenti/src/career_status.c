@@ -3569,6 +3569,7 @@ typedef struct {
     uint8_t used,country,slot,compId,lastPhase,lastMatch,managed_excluded,unsupported_setup;
     uint8_t seed,randIndex,randKey;
     uint16_t year,teamCount,observedSelected;
+    uint16_t observedBracketTeams,observedRoundTies,observedRoundPairs;
     uint32_t matchesPlayed;
     DIYCompetitionEx comp;
     DIYTournamentState tournament;
@@ -3623,6 +3624,22 @@ int Expanded_OGWorld_CupContainsTeam(uint8_t country,uint8_t slot,
 
 /* Only native, actually selected cup entrants are reported. Never synthesize
  * a missing participant to make the count match the definition. */
+void Expanded_OGWorld_CupSetupAudit(uint8_t country,uint8_t slot,
+                                    uint16_t year,unsigned *bracket,
+                                    unsigned *ties,unsigned *pairs)
+{
+    if(bracket)*bracket=0u;
+    if(ties)*ties=0u;
+    if(pairs)*pairs=0u;
+    for(uint32_t i=0;i<s_expOGCupCount;++i) {
+        const ExpandedOGCup *c=&s_expOGCups[i];
+        if(c->country!=country || c->slot!=slot || c->year!=year)continue;
+        if(bracket)*bracket=c->observedBracketTeams;
+        if(ties)*ties=c->observedRoundTies;
+        if(pairs)*pairs=c->observedRoundPairs;
+        break;
+    }
+}
 unsigned Expanded_OGWorld_CupSelectedTeams(uint8_t country,uint8_t slot,
                                            uint16_t year)
 {
@@ -3921,6 +3938,11 @@ int Expanded_OGWorld_AdvanceCup(uint8_t *record,uint8_t country,
     int failed=0;
     const unsigned selected=(unsigned)_numSelectedTeams;
     ctx->observedSelected=(uint16_t)selected;
+    /* Capture what the OG bracket builder ACTUALLY produced, even when
+     * resident verification must reject the resulting scratch. */
+    ctx->observedBracketTeams=(uint16_t)_diyCompetitionStart.base.numTeams;
+    ctx->observedRoundTies=(uint16_t)_diyCompetitionStart.base.totalMatchesInRound;
+    ctx->observedRoundPairs=(uint16_t)_diyCompetitionStart.base.matchPairsPerRound;
     const uint32_t oldPlayed=ctx->matchesPlayed;
     if(!valid)ctx->unsupported_setup=1u;
     int managed=0;

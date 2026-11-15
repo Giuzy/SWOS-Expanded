@@ -75,7 +75,8 @@ static SDL_Texture *texture(SDL_Renderer*r,const char*path,int colour){
  }
  SDL_Surface*s=SDL_CreateRGBSurfaceWithFormatFrom(p,w,h,32,w*4,SDL_PIXELFORMAT_ABGR8888);
  SDL_Texture*t=s?SDL_CreateTextureFromSurface(r,s):NULL;
- if(s)SDL_FreeSurface(s);free(p);
+ if(s)SDL_FreeSurface(s);
+ free(p);
  if(t){SDL_SetTextureBlendMode(t,SDL_BLENDMODE_BLEND);SDL_SetTextureScaleMode(t,SDL_ScaleModeNearest);}
  return t;
 }
@@ -115,7 +116,8 @@ static SDL_Texture *alpha_focus(SDL_Renderer*r,const char*path,int inset_x,int i
   }
   if(tail>largest){memset(best,0,count);for(size_t k=0;k<tail;k++)best[queue[k]]=1;largest=tail;}
  }
- if(inset_x<1)inset_x=1;if(inset_y<1)inset_y=1;
+ if(inset_x<1)inset_x=1;
+ if(inset_y<1)inset_y=1;
  const int xx=inset_x*inset_x,yy=inset_y*inset_y;
  const int limit=xx*yy;
  /* Elliptical inward offset: its edges follow the alpha's curved outline,
@@ -197,7 +199,8 @@ static void load_font(SDL_Renderer*r,int index,const char*name){
  free(json);
 }
 static void load(SDL_Renderer*r){
- if(s_loaded)return;s_loaded=1;
+ if(s_loaded)return;
+ s_loaded=1;
  const char *base="assets/career/new_career/";
  char path[256];
  #define TEX(dst,file,col) snprintf(path,sizeof path,"%s%s",base,file);dst=texture(r,path,col)

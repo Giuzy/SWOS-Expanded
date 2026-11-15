@@ -46,7 +46,11 @@ for /f "delims=" %%H in ('git rev-parse --verify HEAD 2^>nul') do set "REVISION=
  echo Il test reale F12+8 / 70 stagioni richiede sempre gameplay Windows.
  echo PASS dei test legacy non equivale al PASS del gameplay OG.
  echo No reset, modifica o cancellazione dei file save da parte del BAT.
- echo Coppe internazionali e serializzazione OG completa non ancora provate.
+ echo Coppe internazionali, nazionali e save OG: audit read-only, NON PASS automatico.
+ echo [TEST MANUALI] Verifica entrambi i mondi in sessioni distinte senza sovrascrivere save.
+ echo [TEST MANUALI] Prima/dopo contratto: classifica, marcatori, coppe del club, BACK.
+ echo [TEST MANUALI] SAVE: annota data, squadre, risultati, marcatori e coppe; chiudi e riapri con una nuova diagnostica.
+ echo [TEST MANUALI] 70 stagioni F12+8 soltanto in carriera sacrificabile.
 ) > "%SESSION%\LEGGIMI_RISULTATI.txt"
 
 REM A previous SWOS.log must NEVER be mistaken for gameplay of this build.
@@ -124,6 +128,10 @@ if exist "COMPETITION_FORMAT_AUDIT.csv" (
  echo CUPS_SCORERS_EXIT=!CUPS_EXIT!
  echo AUDIT_FILE=SWOS_RUNTIME_AUDIT.log
  echo CURRENT_SOURCE_TESTS=TEST_ESEGUITI\RIEPILOGO_TEST.txt
+ echo COMPILER_WARNING_AUDIT=COMPILER_WARNING_AUDIT.log
+ echo SAVE_CONTINUITY_AUDIT=OG_SAVE_CONTINUITY_AUDIT.log
+ echo NATIVE_CUP_FORMAT=OG_CUP_FORMAT_RULES in SWOS_RUNTIME_AUDIT.log
+ echo INTERNATIONAL_NATIONAL=OG_INTERNATIONAL_NATIONAL in SWOS_RUNTIME_AUDIT.log
  echo 0=SUCCESS_SPECIFIC_TEST 1=FAIL 2=INCOMPLETE_OR_NOT_TESTED
 ) >> "%SESSION%\LEGGIMI_RISULTATI.txt"
 set "RESULT=0"

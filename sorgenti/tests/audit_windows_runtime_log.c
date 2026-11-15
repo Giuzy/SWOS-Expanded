@@ -19,7 +19,8 @@ typedef struct {
 } FeatureSnapshot;
 typedef struct {
     long country,slot,compid,year,expected,selected;
-    char state[24],reason[64];
+    long real,ties,byes,padded,native_bracket,native_ties,native_pairs;
+    char state[24],reason[64],rule[48],round_structure[40];
 } CupCoverageRecord;
 static void feature_read(FeatureSnapshot *out,const char *line)
 {
@@ -80,6 +81,11 @@ int main(int argc,char **argv)
     int pending_native_step=0;
     FeatureSnapshot feature_before={0},feature_after={0},feature_start={0};
     FeatureSnapshot offer_before={0},offer_after={0};
+    FeatureSnapshot save_after={0},restore_after={0};
+    long save_checkpoint_count=0,restore_checkpoint_count=0;
+    long external_starts=0,external_restores=0,external_national=0;
+    long external_qualifiers=0,external_finalists=0,external_uefa_clubs=0;
+    long external_conti_season=0,external_worldcup_seasons=0;
     long offer_native_views=0,offer_view_failures=0;
     long scorer_resident_views=0,scorer_local_views=0,scorer_resident_players=0;
     long viewer_back=0,picker_back_events=0;
@@ -121,6 +127,11 @@ int main(int argc,char **argv)
             have_audit=after_start=0;
             feature_before.seen=feature_after.seen=feature_start.seen=0;
             offer_before.seen=offer_after.seen=0;
+            save_after.seen=restore_after.seen=0;
+            save_checkpoint_count=restore_checkpoint_count=0;
+            external_starts=external_restores=external_national=0;
+            external_qualifiers=external_finalists=external_uefa_clubs=0;
+            external_conti_season=external_worldcup_seasons=0;
             offer_native_views=offer_view_failures=0;
             scorer_resident_views=scorer_local_views=scorer_resident_players=0;
             viewer_back=picker_back_events=0;
@@ -245,11 +256,45 @@ int main(int argc,char **argv)
                 c->year=year;
                 c->expected=field(line,"expected",-1);
                 c->selected=field(line,"selected",-1);
+                c->real=c->ties=c->byes=c->padded=-1;
+                c->native_bracket=c->native_ties=c->native_pairs=-1;
                 const char *p=strstr(line,"state=");
                 if(p)sscanf(p+6,"%23s",c->state);
                 p=strstr(line,"reason=");
                 if(p)sscanf(p+7,"%63s",c->reason);
             }
+        }
+        if(tag(line,"[og-cup-rule] ")) {
+            const long year=field(line,"year",-1);
+            const long country=field(line,"country",-1);
+            const long slot=field(line,"slot",-1);
+            for(unsigned i=0;i<cup_coverage_count;++i) {
+                CupCoverageRecord *c=&cup_coverage[i];
+                if(c->year!=year || c->country!=country || c->slot!=slot)
+                    continue;
+                c->real=field(line,"real-entrants",-1);
+                c->ties=field(line,"first-round-ties",-1);
+                c->byes=field(line,"byes",-1);
+                c->padded=field(line,"padded-slots",-1);
+                c->native_bracket=field(line,"native-bracket",-1);
+                c->native_ties=field(line,"native-round1-ties",-1);
+                c->native_pairs=field(line,"native-round1-pairs",-1);
+                const char *p=strstr(line,"round-structure=");
+                if(p)sscanf(p+16,"%39s",c->round_structure);
+                p=strstr(line,"classification=");
+                if(p)sscanf(p+15,"%47s",c->rule);
+                break;
+            }
+        }
+        if(tag(line,"[og-external-audit] ")) {
+            if(strstr(line,"stage=START "))++external_starts;
+            if(strstr(line,"stage=RESTORE_AFTER "))++external_restores;
+            external_national=field(line,"national-unique",-1);
+            external_qualifiers=field(line,"qualifier-definitions",-1);
+            external_finalists=field(line,"final-definitions",-1);
+            external_uefa_clubs=field(line,"uefa-clubs",-1);
+            external_conti_season=field(line,"conti-season",-1);
+            external_worldcup_seasons=field(line,"world-cup-season-counter",-1);
         }
         if(tag(line,"[og-scorers-view] ")) {
             if(strstr(line,"source=RESIDENT_OG")) {
@@ -266,6 +311,14 @@ int main(int argc,char **argv)
             if(strstr(line,"stage=STRESS_AFTER "))feature_read(&feature_after,line);
             if(strstr(line,"stage=OFFER_BEFORE "))feature_read(&offer_before,line);
             if(strstr(line,"stage=OFFER_AFTER "))feature_read(&offer_after,line);
+            if(strstr(line,"stage=SAVE_AFTER ")) {
+                feature_read(&save_after,line);
+                ++save_checkpoint_count;
+            }
+            if(strstr(line,"stage=RESTORE_AFTER ")) {
+                feature_read(&restore_after,line);
+                ++restore_checkpoint_count;
+            }
         }
         if(tag(line,"[og-world-step] BEGIN")) {
             pending_native_step=1;
@@ -441,7 +494,35 @@ int main(int argc,char **argv)
            scorer_local_views?"LOCAL_SOURCE_UNVERIFIED":"NOT_TESTED",
            scorer_resident_views,scorer_local_views,scorer_resident_players);
     puts("OG_RETIREMENTS=NOT_TESTED (manager/player lifecycle separate)");
-    puts("OG_70_SAVE_RELOAD=NOT_TESTED");
+    printf("OG_RESIDENT_SAVE_CHECKPOINTS=OBSERVED_IN_RAM saved=%ld "
+           "restored=%ld player-records-before=%ld player-records-after=%ld "
+           "cup-contexts-before=%ld cup-contexts-after=%ld "
+           "scorer-goals-before=%ld scorer-goals-after=%ld\n",
+           save_checkpoint_count,restore_checkpoint_count,
+           save_after.seen?save_after.scorer_players:-1L,
+           restore_after.seen?restore_after.scorer_players:-1L,
+           save_after.seen?save_after.cup_resident:-1L,
+           restore_after.seen?restore_after.cup_resident:-1L,
+           save_after.seen?save_after.scorer_goals:-1L,
+           restore_after.seen?restore_after.scorer_goals:-1L);
+    printf("OG_RESIDENT_SAVE_RELOAD=%s "
+           "year-restored-user-observation=SEPARATE\n",
+           !restore_checkpoint_count?"NOT_TESTED":
+           restore_after.scorer_players==0 && restore_after.cup_resident==0?
+               "NATIVE_CONTEXTS_ABSENT_AFTER_LOAD":
+           "COUNTERS_SEEN_BUT_FULL_ID_FIXTURES_RNG_NOT_PROVED");
+    puts("OG_70_SAVE_RELOAD=NOT_PROVED_BY_70_YEAR_TRANSITIONS");
+    printf("OG_INTERNATIONAL_NATIONAL=%s national-definitions=%ld "
+           "qualifier-definitions=%ld final-definitions=%ld "
+           "uefa-clubs=%ld conti-season=%ld worldcup-season-counter=%ld "
+           "start-checkpoints=%ld restore-checkpoints=%ld "
+           "fixture-continuity=NOT_TESTED\n",
+           external_starts||external_restores?
+           "OG_DEFINITIONS_AND_SUBSYSTEMS_OBSERVED_NOT_RESIDENT":
+           "NOT_TESTED",
+           external_national,external_qualifiers,external_finalists,
+           external_uefa_clubs,external_conti_season,
+           external_worldcup_seasons,external_starts,external_restores);
     printf("OG_OFFER_NATIVE_VIEW=%s calls=%ld failures=%ld\n",
            offer_view_failures?"FAIL":offer_native_views?"READ_ONLY_OBSERVED":"NOT_TESTED",
            offer_native_views,offer_view_failures);
@@ -469,12 +550,18 @@ int main(int argc,char **argv)
     printf("OG_CUP_DEFINITIONS=%ld countries=%ld\n",cup_defs,cup_countries);
     {
         unsigned resident=0,unresident=0,selector_mismatch=0;
+        unsigned knownByeRule=0,otherRule=0,matchedRound=0;
         for(unsigned i=0;i<cup_coverage_count;++i) {
             const CupCoverageRecord *c=&cup_coverage[i];
             const int ok=!strcmp(c->state,"RESIDENT") &&
                          !strcmp(c->reason,"OK");
             if(ok)++resident;
             else {
+                if(!strcmp(c->rule,"OG_BYE_FORMAT_CANDIDATE")) {
+                    ++knownByeRule;
+                    if(!strcmp(c->round_structure,"OG_ROUND1_MATCHES_RULE"))
+                        ++matchedRound;
+                } else ++otherRule;
                 ++unresident;
                 if(c->selected!=c->expected)++selector_mismatch;
             }
@@ -490,15 +577,26 @@ int main(int argc,char **argv)
                "NOT_TESTED",
                cup_coverage_year,cup_defs,cup_coverage_count,resident,
                unresident,selector_mismatch);
+        printf("OG_CUP_FORMAT_RULES=%s native-bye-candidates=%u "
+               "native-round-matched=%u other-divergences=%u "
+               "first-round-results=NOT_PROVEN_BY_FORMAT\n",
+               cup_coverage_count?"RULES_OBSERVED_NOT_ALL_VERIFIED":
+               "NOT_TESTED",knownByeRule,matchedRound,otherRule);
         for(unsigned i=0;i<cup_coverage_count;++i) {
             const CupCoverageRecord *c=&cup_coverage[i];
             if(!strcmp(c->state,"RESIDENT") &&
                !strcmp(c->reason,"OK"))continue;
             printf("OG_CUP_DIVERGENCE year=%ld country=%ld slot=%ld "
                    "compId=%ld expected=%ld selected=%ld "
-                   "state=%s reason=%s\n",
+                   "state=%s reason=%s real-entrants=%ld "
+                   "first-round-ties=%ld byes=%ld padded=%ld "
+                   "native-bracket=%ld native-ties=%ld native-pairs=%ld "
+                   "rule=%s round=%s\n",
                    c->year,c->country,c->slot,c->compid,c->expected,
-                   c->selected,c->state,c->reason);
+                   c->selected,c->state,c->reason,c->real,c->ties,
+                   c->byes,c->padded,c->native_bracket,c->native_ties,
+                   c->native_pairs,c->rule[0]?c->rule:"UNINSTRUMENTED",
+                   c->round_structure[0]?c->round_structure:"UNINSTRUMENTED");
         }
     }
     printf("OG_CUP_RESIDENT=%s contexts=%ld yearend-callbacks=%ld\n",

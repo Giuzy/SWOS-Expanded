@@ -3215,9 +3215,9 @@ loc_E086:
         goto loc_E086;
     }
 #ifdef SWOS_SDL_BUILD
-    /* The offer already identifies its country, division and actual
-     * native club. Reuse this SAME DEBUG WORLD selector, but show only
-     * relevant OG competitions, without creating any club slot. */
+    /* The offer already identifies the country, division and club.
+     * Reuse DEBUG WORLD's resident country cups even when this club is
+     * not an entrant. The read-only viewer creates no team/fixture. */
     if (Expanded_OfferPickerActive()) {
         if ((uintptr_t)compEntry<256u)goto loc_E086;
         const Competition *offerComp=(const Competition *)compEntry;

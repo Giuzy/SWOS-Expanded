@@ -51,6 +51,8 @@ for /f "delims=" %%H in ('git rev-parse --verify HEAD 2^>nul') do set "REVISION=
  echo [TEST MANUALI] Prima/dopo contratto: classifica, marcatori, coppe del club, BACK.
  echo [TEST MANUALI] SAVE: annota data, squadre, risultati, marcatori e coppe; chiudi e riapri con una nuova diagnostica.
  echo [TEST MANUALI] 70 stagioni F12+8 soltanto in carriera sacrificabile.
+ echo [TEST MANUALI] Dopo autosave: torna al TITLE; il parser verifica la compatibilita' CAR sul disco.
+ echo [TEST MANUALI] Champions/Europa/Conference, UEFA storica, Libertadores e tornei nazionali NON sono provati dal solo inventario.
 ) > "%SESSION%\LEGGIMI_RISULTATI.txt"
 
 REM A previous SWOS.log must NEVER be mistaken for gameplay of this build.
@@ -95,6 +97,38 @@ if exist "SWOS.log" (
 if not exist "%SESSION%\COMPILAZIONE_0140.log" (
  > "%SESSION%\COMPILAZIONE_NON_COMPLETATA.txt" echo Build log mancante: leggere AVVIO_COMPILAZIONE.log.
 )
+REM Capture only known career slots AFTER game exit. These are COPIES, never
+REM moves/loads/rewrites. No save is read before the game closes.
+mkdir "%SESSION%\SAVE_COPIE" >nul 2>&1
+> "%SESSION%\SAVE_COPIE\MANIFEST.txt" echo SWOS EXPANDED SAVE SNAPSHOT AT SESSION END (READ-ONLY SOURCE)
+>> "%SESSION%\SAVE_COPIE\MANIFEST.txt" echo SAVE_SOURCE=save\ next to EXE
+>> "%SESSION%\SAVE_COPIE\MANIFEST.txt" echo CAPTURE_TIME=%DATE% %TIME%
+>> "%SESSION%\SAVE_COPIE\MANIFEST.txt" echo WARNING=CAR_MAY_INCLUDE_MANAGER_PERSONAL_DATA
+set "SAVE_SNAPSHOT_COUNT=0"
+set "SAVE_SNAPSHOT_ERRORS=0"
+for %%S in (AUTO9697.CAR AUTO2627.CAR AUTOSAVE.CAR) do (
+ if exist "save\%%S" (
+  copy /B /Y "save\%%S" "%SESSION%\SAVE_COPIE\%%S" >nul
+  if errorlevel 1 (
+   >> "%SESSION%\SAVE_COPIE\MANIFEST.txt" echo FILE=%%S result=COPY_FAILED
+   set /a SAVE_SNAPSHOT_ERRORS+=1 >nul
+  ) else (
+   fc /B "save\%%S" "%SESSION%\SAVE_COPIE\%%S" >nul
+   if errorlevel 1 (
+    >> "%SESSION%\SAVE_COPIE\MANIFEST.txt" echo FILE=%%S result=BYTE_COMPARE_FAILED
+    set /a SAVE_SNAPSHOT_ERRORS+=1 >nul
+   ) else (
+    >> "%SESSION%\SAVE_COPIE\MANIFEST.txt" echo FILE=%%S result=BYTE_IDENTICAL_COPY
+    set /a SAVE_SNAPSHOT_COUNT+=1 >nul
+    if exist "%SystemRoot%\System32\certutil.exe" (
+     "%SystemRoot%\System32\certutil.exe" -hashfile "%SESSION%\SAVE_COPIE\%%S" SHA256 > "%SESSION%\SAVE_COPIE\%%S.SHA256.txt" 2>&1
+    )
+   )
+  )
+ )
+)
+>> "%SESSION%\LEGGIMI_RISULTATI.txt" echo SAVE_SNAPSHOT_COUNT=!SAVE_SNAPSHOT_COUNT! errors=!SAVE_SNAPSHOT_ERRORS!
+echo [SAVE] Copie archiviate: !SAVE_SNAPSHOT_COUNT!, errori: !SAVE_SNAPSHOT_ERRORS! (nessun save sorgente modificato).
 echo.
 echo 2/5 Audit del SOLO log Windows di questa sessione...
 call "%~dp0ANALIZZA_SWOS_LOG.bat" > "%SESSION%\ANALISI_RUNTIME_DRIVER.log" 2>&1
@@ -130,6 +164,9 @@ if exist "COMPETITION_FORMAT_AUDIT.csv" (
  echo CURRENT_SOURCE_TESTS=TEST_ESEGUITI\RIEPILOGO_TEST.txt
  echo COMPILER_WARNING_AUDIT=COMPILER_WARNING_AUDIT.log
  echo SAVE_CONTINUITY_AUDIT=OG_SAVE_CONTINUITY_AUDIT.log
+ echo TITLE_AUTOSAVE=OG_TITLE_AUTOSAVE in SWOS_RUNTIME_AUDIT.log
+ echo SAVE_COPIES=SAVE_COPIE\ (read-only, separate CAR per world)
+ echo EXTERNAL_CUPS=OG_EXTERNAL_COMPETITION per named international/national cup in SWOS_RUNTIME_AUDIT.log
  echo NATIVE_CUP_FORMAT=OG_CUP_FORMAT_RULES in SWOS_RUNTIME_AUDIT.log
  echo INTERNATIONAL_NATIONAL=OG_INTERNATIONAL_NATIONAL in SWOS_RUNTIME_AUDIT.log
  echo 0=SUCCESS_SPECIFIC_TEST 1=FAIL 2=INCOMPLETE_OR_NOT_TESTED
@@ -140,6 +177,7 @@ if "!AUDIT_EXIT!"=="1" set "RESULT=1"
 if "!STATIC_EXIT!"=="1" set "RESULT=1"
 if "!STRESS_EXIT!"=="1" set "RESULT=1"
 if "!CUPS_EXIT!"=="1" set "RESULT=1"
+if not "!SAVE_SNAPSHOT_ERRORS!"=="0" set "RESULT=1"
 if "!RESULT!"=="0" (
  if not "!AUDIT_EXIT!"=="0" set "RESULT=2"
  if not "!STATIC_EXIT!"=="0" set "RESULT=2"

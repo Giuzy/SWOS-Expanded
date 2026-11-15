@@ -68,6 +68,7 @@ int main(int argc,char **argv)
     long leagues=0,played=0,completed=0,matches=0,countries=0,invalid=0;
     long cup_defs=0,cup_countries=0,cup_resident=0,yearend=0;
     long views=0,view_missing=0,binds=0,career_saves=0,career_loads=0;
+    long title_save_ok=0,title_save_fail=0;
     long f12_main=0,f12_cups=0,f10_data=0;
     long picker_backs=0,picker_pops=0,picker_unmatched=0;
     long native_faults=0,regressions=0,log_year=-1,log_phase=-1;
@@ -86,6 +87,17 @@ int main(int argc,char **argv)
     long external_starts=0,external_restores=0,external_national=0;
     long external_qualifiers=0,external_finalists=0,external_uefa_clubs=0;
     long external_conti_season=0,external_worldcup_seasons=0;
+    static const char *const external_names[]={
+        "CHAMPIONS_LEAGUE","EUROPA_LEAGUE","CONFERENCE_LEAGUE",
+        "EUROPEAN_CHAMPIONS_CUP","CUP_WINNERS_CUP","UEFA_CUP",
+        "COPA_LIBERTADORES","OTHER_CONTINENTAL_CLUB_CUPS",
+        "WORLD_CUP","EUROPEAN_CHAMPIONSHIPS","COPA_AMERICA",
+        "AFRICAN_NATIONS_CUP","NORTH_AMERICAN_CUP","ASIAN_CUP",
+        "OCEANIA_CUP","WORLD_CUP_QUALIFIERS","EURO_QUALIFIERS"
+    };
+    long external_seen[sizeof(external_names)/sizeof(external_names[0])]={0};
+    long external_defined[sizeof(external_names)/sizeof(external_names[0])]={0};
+    long external_activity[sizeof(external_names)/sizeof(external_names[0])]={0};
     long offer_native_views=0,offer_view_failures=0;
     long scorer_resident_views=0,scorer_local_views=0,scorer_resident_players=0;
     long viewer_back=0,picker_back_events=0;
@@ -116,6 +128,7 @@ int main(int argc,char **argv)
             leagues=played=completed=matches=countries=invalid=0;
             cup_defs=cup_countries=cup_resident=yearend=0;
             views=view_missing=binds=career_saves=career_loads=0;
+            title_save_ok=title_save_fail=0;
             f12_main=f12_cups=f10_data=0;
             picker_backs=picker_pops=picker_unmatched=0;
             native_faults=regressions=0;log_year=log_phase=-1;
@@ -133,6 +146,8 @@ int main(int argc,char **argv)
             external_starts=external_restores=external_national=0;
             external_qualifiers=external_finalists=external_uefa_clubs=0;
             external_conti_season=external_worldcup_seasons=0;
+            for(size_t k=0;k<sizeof(external_names)/sizeof(external_names[0]);++k)
+                external_seen[k]=external_defined[k]=external_activity[k]=0;
             offer_native_views=offer_view_failures=0;
             scorer_resident_views=scorer_local_views=scorer_resident_players=0;
             viewer_back=picker_back_events=0;
@@ -300,6 +315,18 @@ int main(int argc,char **argv)
             external_conti_season=field(line,"conti-season",-1);
             external_worldcup_seasons=field(line,"world-cup-season-counter",-1);
         }
+        if(tag(line,"[og-external-competition] ") &&
+           strstr(line,"stage=START ")) {
+            for(size_t k=0;k<sizeof(external_names)/sizeof(external_names[0]);++k) {
+                char key[96];
+                snprintf(key,sizeof key," name=%s ",external_names[k]);
+                if(!strstr(line,key))continue;
+                ++external_seen[k];
+                external_defined[k]=field(line,"defined",-1);
+                external_activity[k]=field(line,"activity",-1);
+                break;
+            }
+        }
         if(tag(line,"[og-scorers-view] ")) {
             if(strstr(line,"source=RESIDENT_OG")) {
                 ++scorer_resident_views;
@@ -363,6 +390,11 @@ int main(int argc,char **argv)
         if(tag(line,"[og-bind] "))++binds;
         if(tag(line,"[autosave] saved "))++career_saves;
         if(tag(line,"[autosave] restored "))++career_loads;
+        if(tag(line,"[autosave-title] ")) {
+            if(strstr(line,"status=COMPATIBLE_ON_DISK"))++title_save_ok;
+            else if(strstr(line,"status=WRITE_FAILED") ||
+                    strstr(line,"status=CHECK_FAILED"))++title_save_fail;
+        }
         if(tag(line,"[f12-snapshot] ")) {
             if(strstr(line,"page=F12_OG_MAIN"))++f12_main;
             if(strstr(line,"page=F12_OG_CUPS"))++f12_cups;
@@ -515,6 +547,10 @@ int main(int argc,char **argv)
            restore_after.scorer_players==0 && restore_after.cup_resident==0?
                "NATIVE_CONTEXTS_ABSENT_AFTER_LOAD":
            "COUNTERS_SEEN_BUT_FULL_ID_FIXTURES_RNG_NOT_PROVED");
+    printf("OG_TITLE_AUTOSAVE=%s verified=%ld failures=%ld "
+           "scope=SCHEMA_KIND_WORLD_ONLY cross-process-load=SEPARATE\n",
+           title_save_fail?"FAIL":title_save_ok?"ON_DISK_PREFLIGHT_OBSERVED":
+           "NOT_TESTED",title_save_ok,title_save_fail);
     puts("OG_70_SAVE_RELOAD=NOT_PROVED_BY_70_YEAR_TRANSITIONS");
     printf("OG_INTERNATIONAL_NATIONAL=%s national-definitions=%ld "
            "qualifier-definitions=%ld final-definitions=%ld "
@@ -527,6 +563,19 @@ int main(int argc,char **argv)
            external_national,external_qualifiers,external_finalists,
            external_uefa_clubs,external_conti_season,
            external_worldcup_seasons,external_starts,external_restores);
+    for(size_t k=0;k<sizeof(external_names)/sizeof(external_names[0]);++k) {
+        printf("OG_EXTERNAL_COMPETITION name=%s result=%s "
+               "defined=%ld native-activity=%ld "
+               "fixture-proven=NO save-reload-proven=NO\n",
+               external_names[k],
+               !external_seen[k]?"NOT_TESTED":
+               !external_defined[k]?"NOT_DEFINED_IN_WORLD":
+               external_activity[k]>0?
+                 "COUNTER_ACTIVITY_ONLY_DATED_FIXTURES_NOT_VERIFIED":
+                 "DEFINITION_ONLY_NO_RESIDENT_FIXTURE_EVIDENCE",
+               external_seen[k]?external_defined[k]:-1,
+               external_seen[k]?external_activity[k]:-1);
+    }
     printf("OG_OFFER_NATIVE_VIEW=%s calls=%ld failures=%ld\n",
            offer_view_failures?"FAIL":offer_native_views?"READ_ONLY_OBSERVED":"NOT_TESTED",
            offer_native_views,offer_view_failures);
@@ -673,7 +722,8 @@ int main(int argc,char **argv)
         puts("OVERALL=INCOMPLETE");
         return 2;
     }
-    if(native_faults||regressions||season_failures||offer_view_failures) {
+    if(native_faults||regressions||season_failures||offer_view_failures||
+       title_save_fail) {
         puts("WINDOWS_OG_INTEGRATION=FAIL");
         puts("OVERALL=FAIL");
         return 1;

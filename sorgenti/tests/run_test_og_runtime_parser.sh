@@ -21,6 +21,11 @@ version="$(sed -n 's/^#define SWOS_EXPANDED_VERSION "\([^"]*\)".*/\1/p' sorgenti
     echo "[og-world] START READY: date=2026-07-01 native-phase=48 resident-leagues=134"
     echo "[og-world-audit] stage=START year=2026 phase=48 resident-leagues=134 played-leagues=39 completed-leagues=4 native-matches=5001 invalid=0 countries=91 club-bound=0 cup-definitions=101 cup-countries=87 cup-resident=0 yearend-callbacks=0"
     echo "[og-feature-audit] stage=STRESS_BEFORE year=2026 resident-leagues=134 native-matches=5001 cup-definitions=101 cup-resident=0 scorer-players=2144 scorer-positive=420 scorer-league-goals=910 standings-goals=940 scorer-leagues-with-goals=130"
+    echo "[og-external-competition] stage=START category=UEFA_CLUB name=CHAMPIONS_LEAGUE compId=0 defined=1 activity=0 fixture-proof=NOT_VERIFIED"
+    echo "[og-external-competition] stage=START category=UEFA_CLUB name=EUROPA_LEAGUE compId=1 defined=1 activity=0 fixture-proof=NOT_VERIFIED"
+    echo "[og-external-competition] stage=START category=UEFA_CLUB name=CONFERENCE_LEAGUE compId=2 defined=1 activity=0 fixture-proof=NOT_VERIFIED"
+    echo "[og-external-competition] stage=START category=NATIONAL name=WORLD_CUP compId=4 defined=1 activity=0 fixture-proof=NOT_VERIFIED"
+    echo "[autosave-title] status=COMPATIBLE_ON_DISK world=2627 file=AUTO2627.CAR scope=SCHEMA_KIND_WORLD_ONLY"
     echo "[og-stress] ARMED years=70 press FORWARD TIME once"
     echo "[og-stress] START years=70 from=2026-07-01 to=2096-07-01 mode=ANNUAL_COMMIT"
     for n in $(seq 1 70); do
@@ -50,6 +55,10 @@ rc=$?
 set -e
 [[ "$rc" -eq 2 ]] || { cat "$work/positive.out"; echo "Expected incomplete full world (2), got $rc"; exit 1; }
 grep -q '^OG_70_NATIVE_SEASONS=PASS_TRANSITIONS_ONLY ' "$work/positive.out"
+grep -q '^OG_TITLE_AUTOSAVE=ON_DISK_PREFLIGHT_OBSERVED verified=1 failures=0 ' "$work/positive.out"
+grep -q '^OG_EXTERNAL_COMPETITION name=CHAMPIONS_LEAGUE result=DEFINITION_ONLY_NO_RESIDENT_FIXTURE_EVIDENCE defined=1 native-activity=0 ' "$work/positive.out"
+grep -q '^OG_EXTERNAL_COMPETITION name=WORLD_CUP result=DEFINITION_ONLY_NO_RESIDENT_FIXTURE_EVIDENCE defined=1 native-activity=0 ' "$work/positive.out"
+grep -q '^OG_EXTERNAL_COMPETITION name=COPA_LIBERTADORES result=NOT_TESTED ' "$work/positive.out"
 grep -q '^OG_CUPS_BEFORE_AFTER=NOT_IMPLEMENTED ' "$work/positive.out"
 grep -q '^OG_SCORERS_BEFORE_AFTER=NATIVE_COUNTERS_OBSERVED ' "$work/positive.out"
 grep -q '^OG_CUP_COVERAGE=PARTIAL_WITH_EXPLICIT_REASONS .*native-byes-verified=1 divergent=1' "$work/positive.out"

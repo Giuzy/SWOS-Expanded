@@ -350,3 +350,23 @@ indipendente. Non inventare date/risultati per pareggiare i contatori.
 5. Il 01 luglio PUO' mostrare P=0: premi FORWARD TIME parecchie settimane e osserva `[og-world-view] year= phase= native-matches=`, confronta partite e classifica. Apri la stessa competizione due volte SENZA avanzare: PTS, PL, date, numero di partite, RNG e risultati NON devono cambiare.
 6. Prova un'offerta, rifiuta e torna al calendario; i controlli devono restare bloccati. Coppe senza contesto residente: messaggio di indisponibilita', non auto-simulazione.
 7. Per ogni voce rispondi SI / NO / NON PROVATO e invia SWOS.log e screenshot del primo NO. Crash o disallineamenti sono FAIL, non dichiarare test Windows PASS perche' il codice e' stato committato.
+
+### Prossima verifica Windows — offer OG world 0.13.45_08
+1. Pull e compilazione Windows a cura dell'utente, controllando Build 0.13.45_08.
+2. START UNEMPLOYED; FORWARD TIME fino a una proposta con campionato avviato. CLUB OFFER -> VIEW COMPETITIONS deve mostrare la classifica OG residente dello STESSO paese, divisione e anno (non "OG TABLE NOT YET CACHED").
+3. Aprire la stessa divisione da DEBUG WORLD: PL/PTS/GF/GA e ordine devono coincidere club per club con la preview dell'offerta e con quello dopo l'assunzione; re-opening senza FORWARD TIME non può cambiare nulla.
+4. All'inizio campionato una classifica corretta può avere PL=0; se non esiste snapshot la preview deve dire OG WORLD TABLE UNAVAILABLE, mai generare risultati o usare statistiche di altre divisioni.
+5. Bug indipendenti ancora DA INDAGARE: crash FORWARD TIME dopo 04/11/2026, pulsante DEBUG WORLD non visibile e TOP GOAL SCORERS vuoto post-assunzione. Inviare SWOS.log/screenshot per questi.
+
+### Windows checklist 0.13.45_08 — WORLD, season end, offers
+1. GitKraken pull on `dev/0.10`; compile `SWOS_Expanded.exe` personally using the existing BAT. Check TITLE build 0.13.45_08; do not delete or overwrite old saves automatically.
+2. NEW CAREER -> START UNEMPLOYED: DEBUG WORLD button visible above RECORD and functional by mouse/controller; invisible SQUAD, TRANSFERS, CLUB BUSINESS, NEXT MATCH must remain inaccessible after modal returns.
+3. FORWARD TIME repeatedly beyond 04 Nov 2026; report first failure. Watch `[og-world-fixture] FINISHED` for Brazil country 46 and Sweden country 36, and absence of `INVALID`/`LOOP LIMIT`. A stopped date with `WORLD TICK FAILED` is a safe failure, **not** a functional PASS.
+4. For the selected offer's country/division, compare CLUB OFFER -> VIEW COMPETITIONS against DEBUG WORLD / native OG standings: same played/points/goals by actual team ID, same season, no extra simulated matches on opening.
+5. Confirm two consecutive VIEW WORLD opens and a career hire do not change the date, standings, RNG or fixtures. TOP GOAL SCORERS under the employed Career still open bug.
+6. Copy `SWOS.log` lines for `[og-world-fixture]`, `[og-world]` and screenshot of the first mismatch; send SI/NO/NON PROVATO for visible button, no self-match, no crash, correct date, correct offer standings.
+
+### Prova aggiuntiva a START — 0.13.45_08
+- NEW CAREER -> START UNEMPLOYED, prima di premere FORWARD TIME: controllare il log `[og-world] START READY: date=YYYY-07-01 native-phase=... resident-leagues=...` e aprire DEBUG WORLD per Brasile/Svezia o altre leghe gennaio-giugno. Confrontare le gare OG già disputate con il calendario originale del paese, e confermare le leghe agosto-maggio ancora a zero.
+- Aprire due volte la stessa lega senza FORWARD TIME: punti/gol/partite identici. Poi FORWARD TIME una settimana: nessuna seconda simulazione delle gare precedenti (e nessuna `[og-world-fixture] INVALID`).
+- Se START scrive `[og-world] START FAILED`, non chiamare riuscita la creazione del mondo: inoltrare il log. Le coppe non residenti restano correttamente «non disponibili» ma da implementare.

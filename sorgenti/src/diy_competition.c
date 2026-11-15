@@ -11909,6 +11909,23 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
      * (careerTeam lives below selTeamsPtr in memory). */
     int32_t teamSelOff1 = (int32_t)((DIYTeamStats *)(compPtr1 + DIY_STANDINGS_OFFSET))->teamSelOffset;
     int32_t teamSelOff2 = (int32_t)((DIYTeamStats *)(compPtr2 + DIY_STANDINGS_OFFSET))->teamSelOffset;
+#ifdef SWOS_SDL_BUILD
+    /* The field is a team INDEX, not a 684-byte offset (see the
+     * implemented CAREERTEAM_STEP4_REWORK). No human club exists while
+     * advancing the resident world: valid IDs are 0..count-1 only. */
+    extern int Expanded_OGWorld_IsSimulating(void);
+    extern void Expanded_OGWorld_InvalidFixture(int32_t,int32_t,uint16_t);
+    extern uint16_t _numSelectedTeams;
+    if(Expanded_OGWorld_IsSimulating() &&
+       (teamSelOff1<0 || teamSelOff2<0 ||
+        (uint32_t)teamSelOff1>=_numSelectedTeams ||
+        (uint32_t)teamSelOff2>=_numSelectedTeams ||
+        teamSelOff1==teamSelOff2)) {
+        Expanded_OGWorld_InvalidFixture(teamSelOff1,teamSelOff2,
+                                         _numSelectedTeams);
+        return 1;
+    }
+#endif
     TeamFileEx *team1 = (TeamFileEx *)diy_resolve_team(teamSelOff1);
     TeamFileEx *team2 = (TeamFileEx *)diy_resolve_team(teamSelOff2);
 

@@ -7,6 +7,13 @@
  * chairman warnings, board confidence, reputation bonuses. */
 #pragma once
 #include "game_types.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_world_live.h"
+/* Non-mutating read of the OG league resident in the career world. */
+int Expanded_OGWorld_ReadLeagueStandings(uint8_t country,uint8_t division,
+                                         uint16_t year,ExpandedLiveRow *rows,
+                                         uint32_t capacity,uint32_t *total);
+#endif
 
 /* --- Team initialization for match (decay status + cycle flags) --- */
 void InitInGameTeams_PlayerControlled(TeamFileEx *team1, TeamFileEx *team2, uint16_t mode);

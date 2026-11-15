@@ -692,3 +692,18 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 - Ripristino sicuro del menu disoccupato dopo modal: onReturn=Expanded_UnemployedInit, callback SQUAD e altre azioni del club rimosse oltre a essere invisibili; filtro MenuProc rifiuta anche tentativi via input vecchi. DEBUG WORLD ha coordinate e tipo di disegno espliciti sopra RECORD.
 - Vista OG valida i riferimenti delle classifiche prima di aprire il menu nativo e non ri-cattura la classifica di mercato/offer mentre consulta lo snapshot. Non introduce nuovi simulatori o risultati.
 - Correzione motivata dai crash e dai tasti invisibili segnalati dall'utente nella 0.13.45_06; compilazione/test Windows spettano all'utente, nessun PASS runtime asserito.
+
+### 0.13.45_08 — proposta codice: offerte collegate alle leghe OG residenti
+- I valori nel pannello VIEW COMPETITIONS della proposta non dipendono più da una cache costruita aprendo i menu OG; la classifica del paese/divisione/anno viene letta dal contesto OG già avanzato in s_expOG. Stessa fonte per individuare club in difficoltà, senza un secondo simulatore.
+- Compilazione/test Windows dell'utente pendenti; gli altri bug della 0.13.45_07 (crash a novembre, UI DEBUG WORLD, TOP GOAL SCORERS) ancora da indagare.
+
+### 0.13.45_08 — status before Windows build (15/11/2026)
+- CLUB OFFER and AI first offer candidates read identical resident OG league snapshots by country, division, year, not stale view-callback cache. Missing snapshot is reported rather than simulated.
+- Unemployed menu custom SDL renderer finally includes `DEBUG WORLD` (ordinal 11) and paints its label; previous whitelist still excluded it after MenuEntry setup.
+- Prevent OG WORLD from simulating a completed league a second time; validate identity indices before scoring, fail and emit diagnostics for invalid/self fixtures and offscreen infinite-loop conditions. OG algorithms remain authoritative and CLASSIC/DIY paths unchanged. Windows crash fix NOT VERIFIED.
+- The user compiles/tests on Windows after GitKraken; no full-world date rollback or 2026/27 competition-date correction in this patch. Log and diagnostics remain outside the save.
+
+### 0.13.45_08 — WORLD visible at START (15/11/2026, Windows NOT TESTED)
+- START crea gli stati OG delle leghe e le porta immediatamente al 1 luglio dell'anno scelto, invece di aspettare il primo FORWARD TIME. Le leghe iniziate prima della data mostrano le gare reali già disputate quando l'utente apre DEBUG WORLD.
+- Calendario iniziale letto dalla data civile esistente, nessun secondo clock; riuso dello stesso `Expanded_OGWorld_AdvanceToDate`, perciò nessun doppio risultato al primo FORWARD TIME. Se catch-up iniziale fallisce, si interrompe la nuova carriera.
+- Nessuna coppa mondiale residente nuova, nessun trasferimento/finestre implementati, nessuna modifica gameplay CLASSIC.

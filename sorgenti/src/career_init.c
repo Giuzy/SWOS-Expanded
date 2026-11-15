@@ -915,13 +915,18 @@ void Expanded_OGWorld_CupAudit(ExpandedOGCupAudit *out)
         countries=_careerCompetitionIdRemapTable;
     }
     if(!countries)return;
+    extern uint32_t Expanded_OGWorld_CupCount(void);
+    out->resident_cups=Expanded_OGWorld_CupCount();
     for(unsigned i=0;i<256u && countries[i]!=0xffu;++i) {
         const void *const *tab=(const void *const *)_competitionsTable[countries[i]];
         unsigned found=0;
         if(!tab)continue;
         for(unsigned j=2u;j<=3u;++j) {
             const uintptr_t raw=(uintptr_t)tab[j];
-            if(!raw || raw==(uintptr_t)-1 || raw==(uintptr_t)-2)continue;
+            /* -1 terminates a country table; some countries have only
+             * three pointer slots. Do not read tab[3] past that array. */
+            if(!raw || raw==(uintptr_t)-1)break;
+            if(raw==(uintptr_t)-2)continue;
             if(((const Competition *)raw)->type!=1)continue;
             ++out->domestic_definitions;
             ++found;
@@ -968,6 +973,7 @@ void Expanded_OGWorld_LogCheckpoint(const char *stage)
     fprintf(stderr,"[og-feature-audit] stage=%s year=%u "
                    "resident-leagues=%lu native-matches=%lu "
                    "cup-definitions=%lu cup-resident=%lu "
+                   "cup-matches=%lu cup-unsupported=%lu cup-faults=%lu "
                    "scorer-players=%lu scorer-positive=%lu "
                    "scorer-league-goals=%lu standings-goals=%lu "
                    "scorer-leagues-with-goals=%lu\n",
@@ -976,12 +982,20 @@ void Expanded_OGWorld_LogCheckpoint(const char *stage)
             (unsigned long)leagues.native_matches,
             (unsigned long)cups.domestic_definitions,
             (unsigned long)cups.resident_cups,
+            (unsigned long)Expanded_OGWorld_CupMatches(),
+            (unsigned long)Expanded_OGWorld_CupUnsupported(),
+            (unsigned long)Expanded_OGWorld_CupFaults(),
             (unsigned long)scorers.players,
             (unsigned long)scorers.players_with_league_goals,
             (unsigned long)scorers.player_league_goals,
             (unsigned long)scorers.standings_goals,
             (unsigned long)scorers.leagues_with_goals);
 }
+extern int Expanded_OGWorld_AdvanceCup(uint8_t *,uint8_t,uint8_t,uint16_t,uint8_t);
+extern uint32_t Expanded_OGWorld_CupCount(void);
+extern uint32_t Expanded_OGWorld_CupMatches(void);
+extern uint32_t Expanded_OGWorld_CupUnsupported(void);
+extern uint32_t Expanded_OGWorld_CupFaults(void);
 static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
     const uint8_t *countries=World_SeasonCountries();
     if(!countries) {
@@ -990,17 +1004,18 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
     }
     if(!countries)return 0;
     unsigned ok=0,skipped=0,failed=0;
+    unsigned cups=0,cupsSkipped=0,cupsFailed=0;
     for(unsigned i=0;i<256u && countries[i]!=0xffu;++i) {
         const uint8_t country=countries[i];
         const void *const *tab=(const void *const *)_competitionsTable[country];
         if(!tab)continue;
         uintptr_t raw=(uintptr_t)tab[0];
-        if(!raw || raw==(uintptr_t)-1 || raw==(uintptr_t)-2)continue;
+        if(raw && raw!=(uintptr_t)-1 && raw!=(uintptr_t)-2) {
         const Competition *rec=(const Competition *)raw;
-        if(rec->type!=0 || comp_is_type0_cup(rec->compId))continue;
+        if(rec->type==0 && !comp_is_type0_cup(rec->compId)) {
         const CompetitionLeague *league=(const CompetitionLeague *)rec;
         unsigned divisions=(unsigned)league->header.divisionsCount;
-        if(divisions==0u || divisions>16u)continue;
+        if(divisions>0u && divisions<=16u) {
         for(unsigned d=0;d<divisions;++d) {
             if(!FixtureRounds_Real(league->divisions[d].teams)) {
                 ++skipped;continue;
@@ -1026,15 +1041,48 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                         (unsigned)country,d,(unsigned)year,(unsigned)phase);
             }
         }
+        } /* supported division count */
+        } /* genuine league record */
+        } /* valid country table first entry */
+        /* Domestic cup slots used by the employed OG career; no complete
+         * season callback, no retroactive results, no LWE fixture engine. */
+        for(unsigned j=2u;j<=3u;++j) {
+            const uintptr_t rawCup=(uintptr_t)tab[j];
+            if(!rawCup || rawCup==(uintptr_t)-1)break;
+            if(rawCup==(uintptr_t)-2)continue;
+            const Competition *cup=(const Competition *)rawCup;
+            if(cup->type!=1)continue;
+            const int status=Expanded_OGWorld_AdvanceCup(
+                (uint8_t *)cup,country,(uint8_t)j,year,phase);
+            if(status>0)++cups;
+            else if(status<0)++cupsSkipped;
+            else {
+                ++cupsFailed;
+                fprintf(stderr,"[og-cup-resident] ERROR country=%u "
+                               "slot=%u compId=%u year=%u phase=%u\n",
+                        (unsigned)country,j,(unsigned)cup->compId,
+                        (unsigned)year,(unsigned)phase);
+            }
+        }
     }
+    /* Same native season/phase as every league, once for each country's
+     * OG type-1 cup record. Cup IDs are NOT unique worldwide, so the
+     * resident native states are indexed by country + table slot + year. */
+    fprintf(stderr,"[og-cup-resident] YEAR year=%u phase=%u "
+                   "advanced=%u unsupported=%u failed=%u resident=%lu "
+                   "played=%lu faults=%lu\n",
+            (unsigned)year,(unsigned)phase,cups,cupsSkipped,cupsFailed,
+            (unsigned long)Expanded_OGWorld_CupCount(),
+            (unsigned long)Expanded_OGWorld_CupMatches(),
+            (unsigned long)Expanded_OGWorld_CupFaults());
     fprintf(stderr,"[og-world] year=%u phase=%u native-leagues=%u "
                    "skipped=%u persistent=%lu (manager independent)\n",
             (unsigned)year,(unsigned)phase,ok,skipped,
             (unsigned long)Expanded_OGWorld_LeagueCount());
-    if(failed)
-        fprintf(stderr,"[og-world] WORLD TICK FAILED: %u leagues; "
-                       "clock must not advance\n",failed);
-    return ok!=0 && failed==0;
+    if(failed||cupsFailed)
+        fprintf(stderr,"[og-world] WORLD TICK FAILED: %u leagues, "
+                       "%u cups; clock must not advance\n",failed,cupsFailed);
+    return ok!=0 && failed==0 && cupsFailed==0;
 }
 int Expanded_OGWorld_Start(void) {
     /* This explicit boundary prevents consecutive careers in one SWOS.log
@@ -1179,6 +1227,22 @@ void Career_UnemployedCupAudit(uint32_t *advanced,uint32_t *native,
 void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
 {
     const uint32_t finished=elapsedWeeks/52u;
+    /* Native cups have already been initialized and dated by the SAME OG
+     * world as the leagues at START and FORWARD TIME. The legacy backup
+     * replays complete seasons and is NEVER valid on top of resident OG,
+     * particularly after F12+8 (2096 would replay from 2026). */
+    if(s_expOGWorldStarted) {
+        static uint32_t reported=~(uint32_t)0;
+        if(finished!=reported) {
+            reported=finished;
+            fprintf(stderr,"[og-cups-skip] reason=RESIDENT_OG_WORLD "
+                           "weeks=%lu seasons=%lu resident-cups=%lu "
+                           "(no legacy replay)\n",
+                    (unsigned long)elapsedWeeks,(unsigned long)finished,
+                    (unsigned long)Expanded_OGWorld_CupCount());
+        }
+        return;
+    }
     static uint32_t lastSkipReported=0;
     /* The saved native world-cup season counter is authoritative after
      * save/reload. Never replay a cup season already finalized by OG. */
@@ -1262,8 +1326,8 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
             }
             for(unsigned j=2;j<=3;++j) {
                 const uintptr_t raw=(uintptr_t)table[j];
-                if(!raw || raw==(uintptr_t)-1 || raw==(uintptr_t)-2)
-                    continue;
+                if(!raw || raw==(uintptr_t)-1)break;
+                if(raw==(uintptr_t)-2)continue;
                 const Competition *cup=(const Competition *)table[j];
                 if(cup->type!=1)continue;
                 Career_AutoAdvanceCupCompetitionFromRecord((uint8_t *)cup);

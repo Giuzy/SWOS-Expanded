@@ -3549,6 +3549,11 @@ void Career_AutoAdvanceLeagueCompetitionFromRecord(uint8_t *record)
 #ifdef SWOS_SDL_BUILD
 #define EXP_OG_MAX_LEAGUES 512u
 #define EXP_OG_MAX_TEAMS 32u
+/* Native cup bracketScratch.teamOffsetTable has exactly 64 identities.
+ * Even though the selectedTeams scratch can hold 100, larger cups would
+ * overrun the original OG bracket; report unsupported instead. */
+#define EXP_OG_MAX_CUPS 256u
+#define EXP_OG_MAX_CUP_TEAMS 64u
 typedef struct {
     uint8_t used,country,division,lastPhase,lastMatch,seed,randIndex,randKey;
     uint16_t year,teamCount;
@@ -3560,7 +3565,42 @@ static ExpandedOGLeague s_expOG[EXP_OG_MAX_LEAGUES];
 static uint32_t s_expOGCount;
 static ExpandedOGLeague *s_expOGCurrent;
 static int s_expOGPhase=-1,s_expOGBound,s_expOGViewing,s_expOGFault;
-int Expanded_OGWorld_IsSimulating(void) {return s_expOGCurrent!=NULL;}
+typedef struct {
+    uint8_t used,country,slot,compId,lastPhase,lastMatch,managed_excluded,unsupported_setup;
+    uint8_t seed,randIndex,randKey;
+    uint16_t year,teamCount;
+    uint32_t matchesPlayed;
+    DIYCompetitionEx comp;
+    DIYTournamentState tournament;
+    TeamFileEx teams[EXP_OG_MAX_CUP_TEAMS];
+} ExpandedOGCup;
+static ExpandedOGCup s_expOGCups[EXP_OG_MAX_CUPS];
+static uint32_t s_expOGCupCount,s_expOGCupUnsupported,s_expOGCupFaults;
+static ExpandedOGCup *s_expOGCupCurrent;
+static int s_expOGCupPhase=-1,s_expOGCupTickFault;
+int Expanded_OGWorld_IsSimulating(void) {
+    return s_expOGCurrent!=NULL || s_expOGCupCurrent!=NULL;
+}
+uint16_t Expanded_OGWorld_CurrentCupYear(void) {
+    return s_expOGCupCurrent?s_expOGCupCurrent->year:0u;
+}
+void Expanded_OGWorld_CupMarkPlayed(void) {
+    if(s_expOGCupCurrent)++s_expOGCupCurrent->matchesPlayed;
+}
+uint32_t Expanded_OGWorld_CupCount(void) {
+    uint32_t count=0u;
+    for(uint32_t k=0;k<s_expOGCupCount;++k)
+        if(s_expOGCups[k].used)++count;
+    return count;
+}
+uint32_t Expanded_OGWorld_CupMatches(void) {
+    uint32_t count=0u;
+    for(uint32_t k=0;k<s_expOGCupCount;++k)
+        if(s_expOGCups[k].used)count+=s_expOGCups[k].matchesPlayed;
+    return count;
+}
+uint32_t Expanded_OGWorld_CupUnsupported(void){return s_expOGCupUnsupported;}
+uint32_t Expanded_OGWorld_CupFaults(void){return s_expOGCupFaults;}
 void Expanded_OGWorld_InvalidFixture(int32_t a,int32_t b,uint16_t teamCount)
 {
     if(!s_expOGCurrent)return;
@@ -3586,6 +3626,9 @@ extern void RestoreSelectedTeams(void);
 void Expanded_OGWorld_Reset(void) {
     memset(s_expOG,0,sizeof s_expOG);s_expOGCount=0;
     s_expOGCurrent=NULL;s_expOGPhase=-1;s_expOGBound=0;s_expOGViewing=0;s_expOGFault=0;
+    memset(s_expOGCups,0,sizeof s_expOGCups);
+    s_expOGCupCount=0;s_expOGCupUnsupported=0;s_expOGCupFaults=0;
+    s_expOGCupCurrent=NULL;s_expOGCupPhase=-1;s_expOGCupTickFault=0;
 }
 uint32_t Expanded_OGWorld_LeagueCount(void){return s_expOGCount;}
 int Expanded_OGWorld_ClubBound(void){return s_expOGBound;}
@@ -3692,6 +3735,183 @@ int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
     return !failed && ctx->used!=0;
 }
 
+/* Resident OG national cup state, owned by the same START / FORWARD TIME
+ * world as OG leagues. Country + table slot + year, NEVER compId alone:
+ * compIds can be repeated in country/league/cup contexts. */
+static ExpandedOGCup *exp_cup_find(uint8_t country,uint8_t slot,uint16_t year)
+{
+    for(uint32_t i=0;i<s_expOGCupCount;++i)
+        if(s_expOGCups[i].country==country &&
+           s_expOGCups[i].slot==slot &&
+           s_expOGCups[i].year==year)
+            return &s_expOGCups[i];
+    return NULL;
+}
+extern void Career_AutoAdvanceCupMatches(void);
+int Expanded_OGWorld_AdvanceCup(uint8_t *record,uint8_t country,
+                                uint8_t slot,uint16_t year,uint8_t phase)
+{
+    if(!record||_gameType!=4||s_expOGCupCurrent||s_expOGCurrent||
+       ((Competition *)record)->type!=1) return 0;
+    const CompCupHeader *cup=(const CompCupHeader *)record;
+    const unsigned entrants=(unsigned)cup->teams;
+    if(entrants<2u || entrants>EXP_OG_MAX_CUP_TEAMS ||
+       (entrants&1u)) {
+        if(phase==0u) {
+            ++s_expOGCupUnsupported;
+            fprintf(stderr,"[og-cup-resident] UNSUPPORTED country=%u "
+                           "slot=%u year=%u teams=%u\n",
+                    (unsigned)country,(unsigned)slot,(unsigned)year,entrants);
+        }
+        return -1;
+    }
+    ExpandedOGCup *ctx=exp_cup_find(country,slot,year);
+    if(ctx && (ctx->managed_excluded || ctx->unsupported_setup))return -1;
+    if(ctx && ctx->used &&
+       (ctx->teamCount<2u || ctx->teamCount>EXP_OG_MAX_CUP_TEAMS))
+        return 0;
+    if(ctx && ctx->used && phase<=ctx->lastPhase)return 1;
+    if(!ctx) {
+        if(s_expOGCupCount==EXP_OG_MAX_CUPS) {
+            ++s_expOGCupUnsupported;
+            fprintf(stderr,"[og-cup-resident] CAPACITY year=%u\n",
+                    (unsigned)year);
+            return -1;
+        }
+        ctx=&s_expOGCups[s_expOGCupCount++];
+        memset(ctx,0,sizeof(*ctx));
+        ctx->country=country;ctx->slot=slot;ctx->year=year;
+        ctx->compId=(uint8_t)((Competition *)record)->compId;
+        ctx->lastMatch=0xffu;
+    }
+    DIYCompetitionEx oldComp;
+    DIYTournamentState oldTournament;
+    const uint8_t oldSeason=_seasonPlaying,oldView=_viewRandomPhase;
+    const uint16_t oldFlag=_internationalAutoAdvanceFlag;
+    const uint16_t oldCareerLoaded=_careerLoadedFlag;
+    const uint16_t oldTeamsLoaded=_teamsLoaded;
+    const uint8_t globalLast=_careerLastMatchIndexByCompetitionSlot[ctx->compId];
+    memcpy(&oldComp,&_diyCompetitionStart,sizeof oldComp);
+    memcpy(&oldTournament,&_diyFileBufferCopy,sizeof oldTournament);
+    SaveSelectedTeams();
+    SaveRand2State();
+    _internationalAutoAdvanceFlag=1;
+    _careerLoadedFlag=1;
+    _teamsLoaded=0;
+    _seasonPlaying=(uint8_t)((96u+(uint32_t)year-World_FirstYear())%100u);
+    /* The OG tournament is initialized ONLY ONCE per country/slot/year.
+     * Later dated ticks restore the SAME bracket, club rosters and RNG.
+     * Recalling InitDIYCupFromRecord every phase would re-run draw hooks.
+     * Never call the complete-year legacy auto-advance callback here. */
+    if(ctx->used) {
+        memcpy(&_diyCompetitionStart,&ctx->comp,sizeof ctx->comp);
+        memcpy(&_diyFileBufferCopy,&ctx->tournament,sizeof ctx->tournament);
+        _numSelectedTeams=ctx->teamCount;
+        memcpy(_selectedTeams,ctx->teams,
+               (size_t)ctx->teamCount*sizeof(TeamFileEx));
+        _seed2=ctx->seed;
+        _randXorIndex2=ctx->randIndex;
+        _randXorKey2=ctx->randKey;
+    } else {
+        Randomize2((uint16_t)(((uint16_t)record[0]<<8)|_seasonPlaying));
+        _numSelectedTeams=0;
+        Career_InitCompetitionTeamSelectionFromTableHeaderSpec(record);
+        InitDIYCupFromRecord(record);
+        InitTeams();
+    }
+    const int valid=(unsigned)_numSelectedTeams<=EXP_OG_MAX_CUP_TEAMS &&
+        _numSelectedTeams>=2u &&
+        _diyCompetitionStart.base.numTeams>=2 &&
+        (unsigned)_diyCompetitionStart.base.numTeams<=EXP_OG_MAX_CUP_TEAMS &&
+        (unsigned)_diyCompetitionStart.base.numTeams<=_numSelectedTeams;
+    int failed=0;
+    const unsigned selected=(unsigned)_numSelectedTeams;
+    const uint32_t oldPlayed=ctx->matchesPlayed;
+    if(!valid)ctx->unsupported_setup=1u;
+    int managed=0;
+    /* Existing employed OG career slots are still authoritative for their
+     * own cup: without a proven identity-remapping bind, NEVER play those
+     * same fixtures in the resident cup too. Mark this cup unsupported for
+     * the remainder of its season rather than replay manager results when
+     * fired. This is an explicit temporary integration limit, NOT a pass. */
+    if(valid && _selTeamNumber!=0xffffu) {
+        for(unsigned i=0;i<(unsigned)_numSelectedTeams;++i) {
+            const TeamFile *t=&_selectedTeams[i].team;
+            const uint16_t id=PACK_BE_U16(t->countryNumber,t->teamOrdinal);
+            if(id==_selTeamNumber) {managed=1;break;}
+        }
+        if(managed) {
+            ctx->managed_excluded=1u;
+            ctx->used=0u;
+        }
+    }
+    if(valid && !managed) {
+        _careerLastMatchIndexByCompetitionSlot[ctx->compId]=ctx->lastMatch;
+        s_expOGCupTickFault=0;
+        s_expOGCupCurrent=ctx;s_expOGCupPhase=(int)phase;
+        if(phase>0u)Career_AutoAdvanceCupMatches();
+        failed=s_expOGCupTickFault;
+        s_expOGCupCurrent=NULL;s_expOGCupPhase=-1;
+        /* No discarded/partial result can enter the resident context. */
+        if(!failed) {
+            ctx->lastMatch=_careerLastMatchIndexByCompetitionSlot[ctx->compId];
+            memcpy(&ctx->comp,&_diyCompetitionStart,sizeof ctx->comp);
+            memcpy(&ctx->tournament,&_diyFileBufferCopy,sizeof ctx->tournament);
+            ctx->teamCount=_numSelectedTeams;
+            if(ctx->teamCount>EXP_OG_MAX_CUP_TEAMS)failed=1;
+            if(!failed) {
+                memcpy(ctx->teams,_selectedTeams,
+                       (size_t)ctx->teamCount*sizeof(TeamFileEx));
+                ctx->seed=_seed2;
+                ctx->randIndex=_randXorIndex2;
+                ctx->randKey=_randXorKey2;
+                ctx->lastPhase=phase;
+                ctx->used=1;
+            }
+        }
+    }
+    _careerLastMatchIndexByCompetitionSlot[ctx->compId]=globalLast;
+    _seasonPlaying=oldSeason;_viewRandomPhase=oldView;
+    _internationalAutoAdvanceFlag=oldFlag;
+    _careerLoadedFlag=oldCareerLoaded;
+    _teamsLoaded=oldTeamsLoaded;
+    RestoreRand2State();
+    RestoreSelectedTeams();
+    memcpy(&_diyCompetitionStart,&oldComp,sizeof oldComp);
+    memcpy(&_diyFileBufferCopy,&oldTournament,sizeof oldTournament);
+    if(!valid) {
+        ++s_expOGCupUnsupported;
+        fprintf(stderr,"[og-cup-resident] UNSUPPORTED SETUP "
+                       "country=%u slot=%u year=%u teams=%u selected=%u\n",
+                (unsigned)country,(unsigned)slot,(unsigned)year,entrants,
+                selected);
+        return -1;
+    }
+    if(managed) {
+        fprintf(stderr,"[og-cup-resident] MANAGER_SLOT_UNBOUND "
+                       "country=%u slot=%u year=%u (NO DOUBLE MATCHES)\n",
+                (unsigned)country,(unsigned)slot,(unsigned)year);
+        ++s_expOGCupUnsupported;
+        return -1;
+    }
+    if(failed) {
+        ctx->matchesPlayed=oldPlayed;
+        ++s_expOGCupFaults;
+        fprintf(stderr,"[og-cup-resident] FAILED country=%u slot=%u "
+                       "year=%u phase=%u selected=%u\n",
+                (unsigned)country,(unsigned)slot,(unsigned)year,
+                (unsigned)phase,(unsigned)_numSelectedTeams);
+        return 0;
+    }
+    if(phase==0u || ctx->matchesPlayed!=oldPlayed || phase==56u)
+        fprintf(stderr,"[og-cup-resident] TICK country=%u slot=%u "
+                       "year=%u phase=%u matches=%lu finished=%u\n",
+                (unsigned)country,(unsigned)slot,(unsigned)year,
+                (unsigned)phase,(unsigned long)ctx->matchesPlayed,
+                (unsigned)ctx->comp.base.competitionFinished);
+    return 1;
+}
+
 /* Unemployed CLUB OFFER must read the SAME resident OpenSWOS league
  * advanced at START/FORWARD TIME. The old DIY_OGStandings_Read cache
  * is populated by OG menu callbacks and can be absent even when the
@@ -3772,11 +3992,75 @@ int Expanded_OGWorld_ReadLeagueStandings(uint8_t country,uint8_t division,
 extern void *_competitionsTable[];
 extern void ShowErrorMenu(uint8_t *text);
 extern void ShowDiyLeaguesTournamentMenu(uint16_t type,uint16_t viewOnly,uint16_t focusOverride);
+extern void ShowDIYCupMenuWithParams(uint16_t,uint16_t,uint16_t);
+static int exp_og_view_cup(const uint8_t *record)
+{
+    static uint8_t missing[]="OG WORLD: CUP NOT RESIDENT";
+    const Competition *wanted=(const Competition *)record;
+    ExpandedOGCup *exact=NULL,*fallback=NULL;
+    unsigned matches=0u;
+    for(uint32_t i=0;i<s_expOGCupCount;++i) {
+        ExpandedOGCup *ctx=&s_expOGCups[i];
+        if(!ctx->used || ctx->year==0u)continue;
+        const void *const *tab=(const void *const *)_competitionsTable[ctx->country];
+        if(!tab)continue;
+        const Competition *native=(const Competition *)tab[ctx->slot];
+        if(native==wanted) {exact=ctx;break;}
+        if(native && native->compId==wanted->compId) {
+            ++matches;fallback=ctx;
+        }
+    }
+    ExpandedOGCup *ctx=exact?exact:(matches==1u?fallback:NULL);
+    if(!ctx || ctx->teamCount<2u ||
+       ctx->teamCount>EXP_OG_MAX_CUP_TEAMS ||
+       ctx->comp.base.competitionType!=1 ||
+       ctx->comp.base.numTeams<2 ||
+       ctx->comp.base.numTeams>EXP_OG_MAX_CUP_TEAMS) {
+        fprintf(stderr,"[og-cup-view] NOT RESIDENT compId=%u matches=%u\n",
+                (unsigned)wanted->compId,matches);
+        ShowErrorMenu(missing);
+        return 0;
+    }
+    DIYCompetitionEx oldComp;
+    DIYTournamentState oldTournament;
+    const uint8_t oldPhase=_viewRandomPhase,oldSeason=_seasonPlaying;
+    const uint8_t oldLast=_careerLastMatchIndexByCompetitionSlot[ctx->compId];
+    memcpy(&oldComp,&_diyCompetitionStart,sizeof oldComp);
+    memcpy(&oldTournament,&_diyFileBufferCopy,sizeof oldTournament);
+    SaveSelectedTeams();
+    SaveRand2State();
+    memcpy(&_diyCompetitionStart,&ctx->comp,sizeof ctx->comp);
+    memcpy(&_diyFileBufferCopy,&ctx->tournament,sizeof ctx->tournament);
+    _numSelectedTeams=ctx->teamCount;
+    memcpy(_selectedTeams,ctx->teams,
+           (size_t)ctx->teamCount*sizeof(TeamFileEx));
+    _diyCompetitionStart.base.namePtr=
+        (uint8_t *)_diyCompetitionStart.base.competitionName;
+    s_expOGViewing=1;
+    const uint32_t before=ctx->matchesPlayed;
+    fprintf(stderr,"[og-cup-view] READ ONLY country=%u slot=%u year=%u "
+                   "phase=%u matches=%lu\n",
+            (unsigned)ctx->country,(unsigned)ctx->slot,
+            (unsigned)ctx->year,(unsigned)ctx->lastPhase,
+            (unsigned long)before);
+    ShowDIYCupMenuWithParams(1,1,0);
+    s_expOGViewing=0;
+    RestoreRand2State();
+    RestoreSelectedTeams();
+    memcpy(&_diyCompetitionStart,&oldComp,sizeof oldComp);
+    memcpy(&_diyFileBufferCopy,&oldTournament,sizeof oldTournament);
+    _careerLastMatchIndexByCompetitionSlot[ctx->compId]=oldLast;
+    _viewRandomPhase=oldPhase;_seasonPlaying=oldSeason;
+    fprintf(stderr,"[og-cup-view] BACK unchanged=%u\n",
+            (unsigned)(before==ctx->matchesPlayed));
+    return before==ctx->matchesPlayed;
+}
 int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
 {
     static uint8_t unavailable[]="OG WORLD: COMPETITION NOT RESIDENT";
     if(!record || _gameType!=4)return 0;
     const Competition *wanted=(const Competition *)record;
+    if(wanted->type==1)return exp_og_view_cup(record);
     ExpandedOGLeague *exact=NULL,*byId=NULL;
     unsigned idMatches=0;
     for(uint32_t i=0;i<s_expOGCount;++i) {
@@ -4660,6 +4944,17 @@ void Career_AutoAdvanceCupMatches(void)
 {
     uint8_t currentPhase, nextPhase;
 
+    /* For a world-resident OG cup, the phase is the ONE authoritative
+     * world phase, never the manager's (unrelated) key-cache cursor.
+     * The other branch is unchanged for CLASSIC and employed CAREER. */
+#ifdef SWOS_SDL_BUILD
+    if(s_expOGCupCurrent) {
+        currentPhase=(uint8_t)s_expOGCupPhase;
+        nextPhase=0u; /* no fictitious "next" manager fixture */
+        if(_diyCompetitionStart.base.competitionFinished)return;
+        if(currentPhase<=_diyCompetitionStart.base.viewRandomPhase)return;
+    } else
+#endif
     /* Guard checks */
     if (_careerAutoAdvanceInProgress != 0 || _seasonUpdateInProgress != 0 ||
         _internationalAutoAdvanceFlag != 0 || _seasonFinished != 0) {
@@ -4710,8 +5005,23 @@ void Career_AutoAdvanceCupMatches(void)
     if (currentPhase <= base->viewRandomPhase)
         goto check_next_phase_cup;
 
-    /* Main cup sim loop */
+    /* Main cup sim loop. A resident cup must never spin forever when
+     * advancing a malformed OG bracket; normal OG callback is unchanged. */
+#ifdef SWOS_SDL_BUILD
+    unsigned residentCupIterations=0u;
+#endif
 cup_main_loop:
+#ifdef SWOS_SDL_BUILD
+    if(s_expOGCupCurrent && ++residentCupIterations>2048u) {
+        s_expOGCupTickFault=1;
+        fprintf(stderr,"[og-cup-resident] LOOP LIMIT country=%u "
+                       "slot=%u year=%u phase=%u\n",
+                (unsigned)s_expOGCupCurrent->country,
+                (unsigned)s_expOGCupCurrent->slot,
+                (unsigned)s_expOGCupCurrent->year,(unsigned)currentPhase);
+        return;
+    }
+#endif
 #ifdef SWOS_DEBUG_AUTOSKIP
     if (++debug_cup_iters > 500) {
         SWOS_AUTOSKIP_LOG("[bug4-cup] AutoAdvanceCupMatches EMERGENCY BAIL "
@@ -4725,7 +5035,15 @@ cup_main_loop:
         return;
     }
 #endif
-    DIY_PlayCupMatchAndAdvance(0, 0); /* allowSquadChanges=0, mode=0 (sim) */
+    if(DIY_PlayCupMatchAndAdvance(0, 0)!=0) {
+#ifdef SWOS_SDL_BUILD
+        if(s_expOGCupCurrent) {s_expOGCupTickFault=1;return;}
+#endif
+    } else {
+#ifdef SWOS_SDL_BUILD
+        if(s_expOGCupCurrent)Expanded_OGWorld_CupMarkPlayed();
+#endif
+    }
 
     if (base->roundComplete == 0)
         goto cup_main_loop; /* roundComplete == 0, keep going */

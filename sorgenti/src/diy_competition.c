@@ -11514,6 +11514,15 @@ extern uint16_t _diyCupLastMatchScoreTeam2;
  */
 __attribute__((used, externally_visible))
 uint16_t DIY_PlayCupMatchAndAdvance(int16_t allowSquadChanges, int16_t mode) {
+#ifdef SWOS_SDL_BUILD
+    extern int Expanded_OGWorld_ViewActive(void);
+    if(Expanded_OGWorld_ViewActive()) {
+        /* DEBUG WORLD is read-only; even a menu callback cannot simulate
+         * on the disposable OG cup viewer scratch image. */
+        fprintf(stderr,"[og-cup-view] BLOCK PLAY/RESULT IN READ ONLY MENU\n");
+        return 1;
+    }
+#endif
     if (Expanded_MidseasonJoin_Active() && mode != 0) {
         mode=0;
         Expanded_MidseasonJoin_RecordForcedSimulation();
@@ -11576,7 +11585,11 @@ uint16_t DIY_PlayCupMatchAndAdvance(int16_t allowSquadChanges, int16_t mode) {
         if ((ctrl1 == 2 || ctrl2 == 2 || ctrl1 == 3 || ctrl2 == 3) &&
             _seasonUpdateInProgress == 0 &&
             _careerAutoAdvanceInProgress == 0 &&
-            !Expanded_MidseasonJoin_Active()) {
+            !Expanded_MidseasonJoin_Active()
+#ifdef SWOS_SDL_BUILD
+            && !Expanded_OGWorld_IsSimulating()
+#endif
+            ) {
             /* At least one human/coach team — show SetupPlayers with no squad changes.
              * careerAutoAdvanceInProgress guard added for the same reason as the
              * matching deviation in DIY_PlayOrSimulateLeagueFixture: a stale ctrl=2
@@ -11680,7 +11693,13 @@ uint16_t DIY_PlayCupMatchAndAdvance(int16_t allowSquadChanges, int16_t mode) {
      * Its SWOS bracket, replay and match logic must remain unchanged.
      * Only CAREER (gameType=4) may publish outcomes into the Living World
      * career journal: the auto-advance flag alone is NOT a mode guard. */
-    if (_gameType == 4 && ExpandedWorldLive_Clubs()) {
+    /* The resident native OG cup already owns this result. The old
+     * capacity-limited legacy cup journal is not a valid second authority,
+     * especially across 70 career years or repeated competition IDs.
+     * Complete save/history of resident states remains a separate task. */
+    extern uint16_t Expanded_OGWorld_CurrentCupYear(void);
+    if (_gameType == 4 && !Expanded_OGWorld_CurrentCupYear() &&
+        ExpandedWorldLive_Clubs()) {
         extern uint16_t _currentSeasonShowing;
         const uint16_t home=(uint16_t)(
             ((uint16_t)team1->team.countryNumber<<8)|team1->team.teamOrdinal);

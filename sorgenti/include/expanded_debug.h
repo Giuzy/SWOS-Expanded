@@ -33,5 +33,15 @@ typedef struct {
 } ExpandedOGScorerAudit;
 void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out);
 void Expanded_OGWorld_LogCheckpoint(const char *stage);
+/* Native world-resident OG national cups: never a second results engine. */
+int Expanded_OGWorld_IsSimulating(void);
+uint16_t Expanded_OGWorld_CurrentCupYear(void);
+void Expanded_OGWorld_CupMarkPlayed(void);
+uint32_t Expanded_OGWorld_CupCount(void);
+uint32_t Expanded_OGWorld_CupMatches(void);
+uint32_t Expanded_OGWorld_CupUnsupported(void);
+uint32_t Expanded_OGWorld_CupFaults(void);
+int Expanded_OGWorld_AdvanceCup(uint8_t *record,uint8_t country,
+                                uint8_t slot,uint16_t year,uint8_t phase);
 #endif
 #endif

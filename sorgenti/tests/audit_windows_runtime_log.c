@@ -13,7 +13,7 @@
 static long field(const char *,const char *,long);
 typedef struct {
     int seen;
-    long cup_definitions,cup_resident;
+    long cup_definitions,cup_resident,cup_matches,cup_unsupported,cup_faults;
     long scorer_players,scorer_positive,scorer_goals,standings_goals;
 } FeatureSnapshot;
 static void feature_read(FeatureSnapshot *out,const char *line)
@@ -21,6 +21,9 @@ static void feature_read(FeatureSnapshot *out,const char *line)
     out->seen=1;
     out->cup_definitions=field(line,"cup-definitions",-1);
     out->cup_resident=field(line,"cup-resident",-1);
+    out->cup_matches=field(line,"cup-matches",-1);
+    out->cup_unsupported=field(line,"cup-unsupported",-1);
+    out->cup_faults=field(line,"cup-faults",-1);
     out->scorer_players=field(line,"scorer-players",-1);
     out->scorer_positive=field(line,"scorer-positive",-1);
     out->scorer_goals=field(line,"scorer-league-goals",-1);
@@ -277,7 +280,10 @@ int main(int argc,char **argv)
             }
         }
         /* A legitimate [og-world-fixture] FINISHED is NOT a failure. */
-        if(tag(line,"[og-world-fixture] INVALID") ||
+        if(tag(line,"[og-cup-resident] FAILED") ||
+           tag(line,"[og-cup-resident] ERROR") ||
+           tag(line,"[og-cup-resident] LOOP LIMIT") ||
+           tag(line,"[og-world-fixture] INVALID") ||
            tag(line,"[og-world-fixture] LOOP LIMIT") ||
            tag(line,"[og-world-fixture] CATCHUP LOOP LIMIT") ||
            tag(line,"[og-world] WORLD TICK FAILED") ||
@@ -358,6 +364,20 @@ int main(int argc,char **argv)
            feature_before.seen?feature_before.cup_resident:-1,
            feature_after.seen?feature_after.cup_resident:-1,
            feature_start.seen?feature_start.cup_definitions:-1);
+    printf("OG_CUP_NATIVE_MATCHES=%s resident-before=%ld matches-before=%ld "
+           "resident-after=%ld matches-after=%ld unsupported-after=%ld "
+           "faults-after=%ld\n",
+           feature_before.seen && feature_after.seen ?
+             (feature_after.cup_resident>0 &&
+              feature_after.cup_matches>0 && feature_after.cup_faults==0?
+               "OBSERVED_NATIVE_RESULTS":"INCOMPLETE_OR_NO_RESULTS") :
+           feature_after.seen?"NO_BEFORE":"NOT_TESTED",
+           feature_before.seen?feature_before.cup_resident:-1,
+           feature_before.seen?feature_before.cup_matches:-1,
+           feature_after.seen?feature_after.cup_resident:-1,
+           feature_after.seen?feature_after.cup_matches:-1,
+           feature_after.seen?feature_after.cup_unsupported:-1,
+           feature_after.seen?feature_after.cup_faults:-1);
     printf("OG_SCORERS_BEFORE_AFTER=%s players-before=%ld "
            "goals-before=%ld standings-before=%ld "
            "players-after=%ld goals-after=%ld standings-after=%ld\n",

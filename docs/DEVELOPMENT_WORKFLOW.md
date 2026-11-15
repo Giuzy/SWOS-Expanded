@@ -410,3 +410,11 @@ indipendente. Non inventare date/risultati per pareggiare i contatori.
 - Sincronizzare `dev/0.10` con GitKraken e avviare il consueto `AVVIA_DIAGNOSTICA.bat`; questo richiede che `patch_title_b_01063.sh` riconosca sia il guard legacy sia il B/SKIP moderno con `!Expanded_UnemployedWorldPickerActive()`. Non sostituire `input_sdl.c` con la condizione vecchia per far passare il test: ripristinerebbe il bug del BACK in DEBUG WORLD.
 - Se la compilazione non parte, allegare `DIAGNOSTICA_SESSIONE_N/AVVIO_COMPILAZIONE.log` e `COMPILAZIONE_0140.log`. Il log precedente fermava la procedura prima di GCC/Make: non equivale a crash eseguibile.
 - Solo dopo che l'EXE 0.13.49 si avvia, verificare B un livello alla volta in DEBUG WORLD, viewer OG dall'offerta, F12+8 con 70 STEP e `TEST_OG_70.bat`/`TEST_OG_CUPS_SCORERS.bat`. I risultati del precedente 0.13.47 (crash al 2050) restano da riverificare; non dichiarare il test superato prima delle prove Windows.
+
+### Windows verification 0.13.50 — native resident cups
+1. Sync dev/0.10 in GitKraken and compile with standard scripts. Expected build 0.13.50; do not overwrite important saves.
+2. NEW CAREER START unemployed; inspect F12+C and DEBUG WORLD national cups. Require cup-resident > 0 and read-only cup viewer. A definition alone is NOT a playable cup.
+3. Advance into January; OG cup matches/rounds should progress with dates; opening the cup viewer must not create new matches. If the log shows og-cup-resident UNSUPPORTED SETUP, report country/slot/teams/selected.
+4. On a NEW disposable test career use F12+8 once and inspect 70 annual transitions using TEST_OG_70.bat and TEST_OG_CUPS_SCORERS.bat. The latter now prints OG_CUP_NATIVE_MATCHES with before/after played counts, unsupported and fault counts. Do not consider a 70-league PASS to certify cups or entire save.
+5. On accepting an offer, expect OG manager cup slots to remain authoritative; a managed cup may be logged MANAGER_SLOT_UNBOUND and absent from the resident viewer this season. This safeguards against double results but does NOT prove join/sack continuity.
+6. Send DIAGNOSTICA_SESSIONE ZIP and SWOS_RUNTIME_AUDIT.log for any crash, missing cup, log mismatch, failing callback or viewer error. International cups, full cup history/trophies, save/reload and pensionments remain separate pending features.

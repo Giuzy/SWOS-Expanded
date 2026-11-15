@@ -19,8 +19,18 @@ if defined SWOS_DIAGNOSTIC_DIR (
  set "AUDIT_LOG=%SWOS_DIAGNOSTIC_DIR%\SWOS_RUNTIME_AUDIT.log"
  set "DRIVER_LOG=%SWOS_DIAGNOSTIC_DIR%\OG_CUPS_SCORERS_DRIVER.log"
 )
+REM Main AVVIA_DIAGNOSTICA already ran the C parser exactly once.
+REM Standalone BAT still creates its own audit when necessary.
+if defined SWOS_DIAGNOSTIC_DIR if exist "%AUDIT_LOG%" goto audit_already_done
 call "%~dp0ANALIZZA_SWOS_LOG.bat" > "%DRIVER_LOG%" 2>&1
 set "ANALYSIS=%ERRORLEVEL%"
+goto audit_available
+:audit_already_done
+set "ANALYSIS=2"
+findstr /B /C:"FIRST_RUNTIME_FAILURE:" "%AUDIT_LOG%" >nul
+if not errorlevel 1 set "ANALYSIS=1"
+> "%DRIVER_LOG%" echo [REUSE] SWOS_RUNTIME_AUDIT.log generated once by AVVIA_DIAGNOSTICA.bat.
+:audit_available
 type "%DRIVER_LOG%"
 if not exist "%AUDIT_LOG%" goto incomplete
 echo.

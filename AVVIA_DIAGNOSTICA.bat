@@ -1,11 +1,10 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
 cd /d "%~dp0"
-title SWOS Expanded - Diagnostica unificata OG
+title SWOS Expanded - Tutti i test + ZIP automatico
 
-REM Un unico punto d'avvio per TUTTI i test correnti. La compilazione,
-REM il gameplay reale e le verifiche post-partita rimangono distinti.
-REM Non sovrascrive, sposta o cancella alcun salvataggio.
+REM ONE CLICK, all historical and current tests, no save manipulation.
+REM No test executable is allowed to act as a second gameplay engine.
 set "SWOS_DIAGNOSTIC_SESSION=1"
 set "SWOS_DIAGNOSTIC_CAPTURE=1"
 set "RESULTS_ROOT=%~dp0RISULTATI_DIAGNOSTICI"
@@ -18,7 +17,7 @@ if not exist "%RESULTS_ROOT%" (
 set "SESSION_NAME="
 for /L %%N in (1,1,999) do if not defined SESSION_NAME if not exist "%RESULTS_ROOT%\DIAGNOSTICA_SESSIONE_%%N" set "SESSION_NAME=DIAGNOSTICA_SESSIONE_%%N"
 if not defined SESSION_NAME (
- echo ERRORE: nessuno slot libero per la diagnostica.
+ echo ERRORE: nessuno slot libero per le sessioni diagnostiche.
  pause
  exit /b 2
 )
@@ -29,82 +28,103 @@ if errorlevel 1 (
  pause
  exit /b 2
 )
+mkdir "%SESSION%\LOG_PRECEDENTI" >nul 2>&1
 set "SWOS_DIAGNOSTIC_DIR=%SESSION%"
 set "EXPECTED=UNKNOWN"
 for /f "tokens=3" %%V in ('findstr /B /C:"#define SWOS_EXPANDED_VERSION" "sorgenti\include\build_info.h"') do set "EXPECTED=%%~V"
+set "REVISION=NON_DISPONIBILE"
+for /f "delims=" %%H in ('git rev-parse --verify HEAD 2^>nul') do set "REVISION=%%H"
 (
- echo SWOS EXPANDED - RISULTATI DIAGNOSTICI
+ echo SWOS EXPANDED - TUTTI I TEST - RISULTATI DIAGNOSTICI
  echo BUILD_ATTESA=!EXPECTED!
+ echo HEAD_GIT_LOCALE=!REVISION!
  echo SESSIONE=%SESSION_NAME%
  echo DATA_INIZIO=%DATE% %TIME%
- echo SORGENTI=dev/0.10; il commit esatto deve essere verificato con GitKraken.
- echo TEST_AUTOMATICI=compilazione, runtime Windows, parser, calendario/date, suite OG, 70 anni, coppe, marcatori.
- echo Test 70 anni: solo un trigger F12+8 e FORWARD TIME nel gioco su carriera sacrificabile.
- echo TUTTI I PASS SONO LIMITATI AL CONTROLLO EFFETTIVAMENTE ESEGUITO.
- echo SAVE: nessun salvataggio viene cancellato o sovrascritto dal raccoglitore.
- echo Le coppe non residenti e il salvataggio completo OG non possono essere dichiarati PASS.
+ echo MOTORE_CARRIERA=OG_UNICO
+ echo Un avvio: build, gioco, OG current, vecchi test inclusi, audit, ZIP.
+ echo Tutti i test isolated hanno log separato nella cartella TEST_ESEGUITI.
+ echo Il test reale F12+8 / 70 stagioni richiede sempre gameplay Windows.
+ echo PASS dei test legacy non equivale al PASS del gameplay OG.
+ echo No reset, modifica o cancellazione dei file save da parte del BAT.
+ echo Coppe internazionali e serializzazione OG completa non ancora provate.
 ) > "%SESSION%\LEGGIMI_RISULTATI.txt"
 
-echo ==========================================================
-echo SWOS EXPANDED - DIAGNOSTICA UNICA
-echo Tutti i risultati: %SESSION%
-echo ==========================================================
-echo Il gioco sara compilato e avviato come da AVVIA_SWOS.bat.
-echo Per stress reale: NUOVA carriera senza club, F12+8, FORWARD TIME.
-echo Per la continuita: guarda marcatori e coppe PRIMA e DOPO il contratto.
-echo I controlli automatizzati partono dopo la chiusura del gioco.
-echo ==========================================================
-echo.
-call "%~dp0AVVIA_SWOS.bat" > "%SESSION%\AVVIO_COMPILAZIONE.log" 2>&1
-set "GAME_EXIT=!ERRORLEVEL!"
-echo [DIAGNOSTICA] AVVIO/COMPILAZIONE exit=!GAME_EXIT!
-
-if exist "SWOS.log" (
- copy /Y "SWOS.log" "%SESSION%\SWOS.log" >nul
-) else (
- > "%SESSION%\SWOS_LOG_MANCANTE.txt" echo SWOS.log non trovato. Gameplay NON PROVATO.
-)
-
-REM Compilazione: BUILD_SWOS.sh usa SWOS_DIAGNOSTIC_DIR per generare
-REM COMPILAZIONE_0140.log direttamente qui. Compatibilita coi vecchi log:
-REM non eliminarli ne considerarli prove di QUESTA sessione.
-if not exist "%SESSION%\COMPILAZIONE_0140.log" (
- > "%SESSION%\COMPILAZIONE_NON_COMPLETATA.txt" echo Nessun log di build di questa sessione. Vedere AVVIO_COMPILAZIONE.log.
-)
-
-REM Test statici e audit reali sono separati: il parser legge SOLO SWOS.log.
-call "%~dp0ANALIZZA_SWOS_LOG.bat" > "%SESSION%\ANALISI_RUNTIME_DRIVER.log" 2>&1
-set "AUDIT_EXIT=!ERRORLEVEL!"
-call "%~dp0TEST_OG_WORLD.bat" > "%SESSION%\TEST_OG_WORLD_DRIVER.log" 2>&1
-set "STATIC_EXIT=!ERRORLEVEL!"
-call "%~dp0TEST_OG_70.bat" > "%SESSION%\TEST_OG_70_DRIVER.log" 2>&1
-set "STRESS_EXIT=!ERRORLEVEL!"
-call "%~dp0TEST_OG_CUPS_SCORERS.bat" > "%SESSION%\TEST_OG_CUPS_SCORERS_DRIVER.log" 2>&1
-set "CUPS_EXIT=!ERRORLEVEL!"
-
-REM TEST_LIVING_WORLD.bat e' un alias storico di TEST_OG_WORLD.bat:
-REM non rilanciare la stessa suite una seconda volta.
-> "%SESSION%\TEST_LIVING_WORLD_LEGACY_ALIAS.txt" echo Alias di TEST_OG_WORLD: eseguito UNA volta, nessun secondo simulatore.
-REM Copia i log storici che gia esistevano prima della sessione senza
-REM confonderli con i risultati nuovi ne cancellare originali.
-mkdir "%SESSION%\LOG_PRECEDENTI" >nul 2>&1
+REM A previous SWOS.log must NEVER be mistaken for gameplay of this build.
+REM Move historical LOG ONLY into this session; no saves are touched.
 for %%L in (*.log) do (
  if /I not "%%~nxL"=="SWOS.log" (
   copy /Y "%%~fL" "%SESSION%\LOG_PRECEDENTI\%%~nxL" >nul
  )
 )
+if exist "SWOS.log" (
+ move /Y "SWOS.log" "%SESSION%\LOG_PRECEDENTI\SWOS_PRE_SESSIONE.log" >nul
+ if exist "SWOS.log" (
+  echo [ERRORE] SWOS.log precedente non archiviabile. Prove runtime non sicure.
+  >> "%SESSION%\LEGGIMI_RISULTATI.txt" echo ERRORE_LOG_PRECEDENTE_NON_ARCHIVIATO=1
+  pause
+  exit /b 2
+ )
+)
+echo ===============================================================
+echo SWOS EXPANDED - DIAGNOSTICA UNICA !EXPECTED!
+echo Tutti i risultati: %SESSION%
+echo Nessun save viene toccato dal raccoglitore diagnostico.
+echo ===============================================================
+echo 1/5 Compilazione e tentativo di avvio gioco...
+echo In caso di errore, eseguo comunque tutti i test indipendenti.
+call "%~dp0AVVIA_SWOS.bat" > "%SESSION%\AVVIO_COMPILAZIONE.log" 2>&1
+set "GAME_EXIT=!ERRORLEVEL!"
+echo AVVIO_COMPILAZIONE_EXIT=!GAME_EXIT!
+if not "!GAME_EXIT!"=="0" (
+ echo [FAIL] La compilazione o l'avvio non sono riusciti.
+ echo [DETTAGLI] Errori dal log attuale:
+ findstr /I /C:"error:" /C:"errore:" /C:"compilazione fallita" /C:"il gioco non e stato avviato" "%SESSION%\AVVIO_COMPILAZIONE.log"
+ echo Vedi %SESSION%\AVVIO_COMPILAZIONE.log
+)
+if exist "SWOS.log" (
+ copy /Y "SWOS.log" "%SESSION%\SWOS.log" >nul
+ echo [GAMEPLAY] Log corrente acquisito.
+) else (
+ > "%SESSION%\SWOS_LOG_MANCANTE.txt" echo SWOS.log di questa sessione non prodotto. GAMEPLAY=NOT_TESTED.
+ echo [GAMEPLAY] Nessun SWOS.log nuovo: NON PROVATO.
+)
+if not exist "%SESSION%\COMPILAZIONE_0140.log" (
+ > "%SESSION%\COMPILAZIONE_NON_COMPLETATA.txt" echo Build log mancante: leggere AVVIO_COMPILAZIONE.log.
+)
+echo.
+echo 2/5 Audit del SOLO log Windows di questa sessione...
+call "%~dp0ANALIZZA_SWOS_LOG.bat" > "%SESSION%\ANALISI_RUNTIME_DRIVER.log" 2>&1
+set "AUDIT_EXIT=!ERRORLEVEL!"
+echo AUDIT_EXIT=!AUDIT_EXIT!
+echo.
+echo 3/5 Tutti i test OG attuali e storici, anche quando la build fallisce...
+call "%~dp0TEST_OG_WORLD.bat" > "%SESSION%\TEST_OG_WORLD_DRIVER.log" 2>&1
+set "STATIC_EXIT=!ERRORLEVEL!"
+echo TEST_SUITE_EXIT=!STATIC_EXIT!
+if exist "%SESSION%\TEST_ESEGUITI\RIEPILOGO_TEST.txt" (
+ type "%SESSION%\TEST_ESEGUITI\RIEPILOGO_TEST.txt"
+)
+echo.
+echo 4/5 Controlli 70 stagioni, coppe e marcatori sullo STESSO audit...
+call "%~dp0TEST_OG_70.bat" > "%SESSION%\TEST_OG_70_DRIVER.log" 2>&1
+set "STRESS_EXIT=!ERRORLEVEL!"
+call "%~dp0TEST_OG_CUPS_SCORERS.bat" > "%SESSION%\TEST_OG_CUPS_SCORERS_DRIVER.log" 2>&1
+set "CUPS_EXIT=!ERRORLEVEL!"
+REM Compatibility alias, never run the same OG tests a second time.
+> "%SESSION%\TEST_LIVING_WORLD_ALIAS.txt" echo TEST_LIVING_WORLD.bat = TEST_OG_WORLD.bat: already executed once.
+if exist "COMPETITION_FORMAT_AUDIT.csv" (
+ copy /Y "COMPETITION_FORMAT_AUDIT.csv" "%SESSION%\TEST_ESEGUITI\COMPETITION_FORMAT_AUDIT.csv" >nul
+)
 (
- echo.
  echo DATA_FINE=%DATE% %TIME%
  echo AVVIO_COMPILAZIONE_EXIT=!GAME_EXIT!
  echo RUNTIME_AUDIT_EXIT=!AUDIT_EXIT!
- echo SUITE_OG_EXIT=!STATIC_EXIT!
- echo TEST_70_STAGIONI_EXIT=!STRESS_EXIT!
- echo COPPE_E_MARCATORI_EXIT=!CUPS_EXIT!
- echo 0=PASS DEL SINGOLO TEST; 1=FAIL; 2=INCOMPLETE/NOT_TESTED.
- echo COMPILAZIONE_WINDOWS: verificare COMPILAZIONE_0140.log e AVVIO_COMPILAZIONE.log.
- echo GAMEPLAY_WINDOWS: verificare SWOS.log e SWOS_RUNTIME_AUDIT.log.
- echo ATTENZIONE: test statici da soli non provano il mondo OG.
+ echo TEST_OG_SOURCE_AND_LEGACY_EXIT=!STATIC_EXIT!
+ echo NATIVE_70_SEASONS_EXIT=!STRESS_EXIT!
+ echo CUPS_SCORERS_EXIT=!CUPS_EXIT!
+ echo AUDIT_FILE=SWOS_RUNTIME_AUDIT.log
+ echo CURRENT_SOURCE_TESTS=TEST_ESEGUITI\RIEPILOGO_TEST.txt
+ echo 0=SUCCESS_SPECIFIC_TEST 1=FAIL 2=INCOMPLETE_OR_NOT_TESTED
 ) >> "%SESSION%\LEGGIMI_RISULTATI.txt"
 set "RESULT=0"
 if not "!GAME_EXIT!"=="0" set "RESULT=1"
@@ -118,15 +138,51 @@ if "!RESULT!"=="0" (
  if not "!STRESS_EXIT!"=="0" set "RESULT=2"
  if not "!CUPS_EXIT!"=="0" set "RESULT=2"
 )
-REM Windows 10/11 tar: ZIP compatto di TUTTI i risultati.
+echo RISULTATO_SESIONE=!RESULT!>> "%SESSION%\LEGGIMI_RISULTATI.txt"
+
+echo.
+echo 5/5 ZIP automatico e verifica archivio...
+set "ZIP_FILE=%RESULTS_ROOT%\%SESSION_NAME%.zip"
+set "ZIP_OK=0"
+> "%SESSION%\ZIP_STATUS.txt" echo ZIP=CREAZIONE_IN_CORSO
 if exist "%SystemRoot%\System32\tar.exe" (
- "%SystemRoot%\System32\tar.exe" -a -cf "%RESULTS_ROOT%\%SESSION_NAME%.zip" -C "%RESULTS_ROOT%" "%SESSION_NAME%" >nul 2>&1
+ "%SystemRoot%\System32\tar.exe" -a -cf "%ZIP_FILE%" -C "%RESULTS_ROOT%" "%SESSION_NAME%" > "%SESSION%\ZIP_CREAZIONE.log" 2>&1
+ if not errorlevel 1 (
+  "%SystemRoot%\System32\tar.exe" -tf "%ZIP_FILE%" > "%SESSION%\ZIP_VERIFICA.log" 2>&1
+  if not errorlevel 1 (
+   findstr /C:"LEGGIMI_RISULTATI.txt" "%SESSION%\ZIP_VERIFICA.log" >nul
+   if not errorlevel 1 set "ZIP_OK=1"
+  )
+ )
+ if "!ZIP_OK!"=="1" (
+  > "%SESSION%\ZIP_STATUS.txt" echo ZIP=REPORT_INCLUSI_IN_ARCHIVIO
+  REM Repack to INCLUDE the verification report and ZIP_STATUS itself.
+  "%SystemRoot%\System32\tar.exe" -a -cf "%ZIP_FILE%" -C "%RESULTS_ROOT%" "%SESSION_NAME%" >nul 2>&1
+  if errorlevel 1 set "ZIP_OK=0"
+  if "!ZIP_OK!"=="1" (
+   "%SystemRoot%\System32\tar.exe" -tf "%ZIP_FILE%" >nul 2>&1
+   if errorlevel 1 set "ZIP_OK=0"
+  )
+  REM A listing alone does not prove that archived bytes can be extracted.
+  if "!ZIP_OK!"=="1" (
+   "%SystemRoot%\System32\tar.exe" -xOf "%ZIP_FILE%" "%SESSION_NAME%/LEGGIMI_RISULTATI.txt" >nul 2>&1
+   if errorlevel 1 set "ZIP_OK=0"
+  )
+ )
+) else (
+ > "%SESSION%\ZIP_CREAZIONE.log" echo tar.exe Windows mancante, ZIP non creato.
+)
+if "!ZIP_OK!"=="1" (
+ echo [ZIP OK] %ZIP_FILE%
+) else (
+ echo [ZIP FAIL] Archivio non verificato. Tutti i log restano nella cartella.
+ > "%SESSION%\ZIP_STATUS.txt" echo ZIP=NON_VERIFICATO
+ if "!RESULT!"=="0" set "RESULT=2"
 )
 echo.
 echo DIAGNOSTICA_CONCLUSA risultato=!RESULT!
 echo Cartella: %SESSION%
-if exist "%RESULTS_ROOT%\%SESSION_NAME%.zip" echo ZIP: %RESULTS_ROOT%\%SESSION_NAME%.zip
-echo Nessun save e' stato modificato dal raccoglitore diagnostico.
-echo.
+echo ZIP: %ZIP_FILE%
+echo Se il gioco non e partito, invia lo ZIP e leggi AVVIO_COMPILAZIONE.log.
 pause
 exit /b !RESULT!

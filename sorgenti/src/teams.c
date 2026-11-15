@@ -3076,6 +3076,10 @@ static uint16_t groupedLeagueRows(const LeagueGroups *lg, uint8_t *compEntry,
 }
 
 #ifdef SWOS_SDL_BUILD
+/* Called at two distinct paths in SelectTeamsFinalMenu. It must be
+ * file-scope, not scoped inside the nested menu block at loc_E3*.
+ * Missing this prototype stopped the Windows 0.13.51 syntax-only build. */
+extern int Expanded_UnemployedWorldPickerActive(void);
 extern int Expanded_OfferPickerActive(void);
 extern uint8_t Expanded_OfferPickerDivision(void);
 extern int Expanded_OfferPickerCupEligible(uint8_t,uint8_t);

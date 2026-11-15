@@ -1085,15 +1085,22 @@ void Expanded_OfferViewSquad(void) {
 }
 #ifdef SWOS_SDL_BUILD
 uint8_t Expanded_OfferPickerDivision(void) { return s_waitLeague; }
-/* A cup appears on this club's offer list ONLY if the actual native OG
- * resident bracket contains its team ID. No inferred entrants or fixtures. */
+/* Viewing a resident OG cup is independent of the offered club's
+ * actual membership. The return value still distinguishes 1=member,
+ * 0=not participating and -1=missing/invalid native context. */
 int Expanded_OfferPickerCupEligible(uint8_t country,uint8_t slot)
 {
     extern int Expanded_OGWorld_CupContainsTeam(uint8_t,uint8_t,uint16_t,uint16_t);
     if(!offer_is_valid() ||
        country!=World_FileCountry(s_waitCountry))return 0;
     const uint16_t year=(uint16_t)unemployed_season_year(s_waitWeeks);
-    return Expanded_OGWorld_CupContainsTeam(country,slot,year,s_waitTeam)==1;
+    const int membership=Expanded_OGWorld_CupContainsTeam(
+        country,slot,year,s_waitTeam);
+    fprintf(stderr,"[og-offer-cup] country=%u slot=%u year=%u "
+                   "club=%04x membership=%d visible=%u\n",
+            (unsigned)country,(unsigned)slot,(unsigned)year,
+            (unsigned)s_waitTeam,membership,(unsigned)(membership>=0));
+    return membership>=0; /* resident cup, not a claim of club eligibility */
 }
 #endif
 void Expanded_OfferViewLeague(void) {

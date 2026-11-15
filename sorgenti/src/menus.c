@@ -4176,6 +4176,10 @@ void Expanded_AutoCareer_Save(const char *reason) {
     if(SaveCareerFile(native)!=0) {
         fprintf(stderr,"[autosave] FAILED world=%s at %s; previous file retained\n",
                 World_Tag(),reason?reason:"unknown");
+        if(reason && strcmp(reason,"menu-exit")==0 &&
+           getenv("SWOS_DIAGNOSTIC_CAPTURE"))
+            fprintf(stderr,"[autosave-title] status=WRITE_FAILED world=%s file=%s\n",
+                    World_Tag(),(const char *)native);
         return;
     }
     auto_career_cache_world();
@@ -4188,6 +4192,17 @@ void Expanded_AutoCareer_Save(const char *reason) {
      * evidence of CURRENT RAM state, not proof it was serialized. */
     extern void Expanded_OGWorld_LogCheckpoint(const char *);
     Expanded_OGWorld_LogCheckpoint("SAVE_AFTER");
+    /* At TITLE, prove that the named .CAR can be read from disk and that
+     * schema, kind and WORLD match. Do not perform a LOAD on live OG state;
+     * cross-process resume and fixtures require a separate test. */
+    if(reason && strcmp(reason,"menu-exit")==0 &&
+       getenv("SWOS_DIAGNOSTIC_CAPTURE")) {
+        const int compatible=SaveJson_CareerCompatible(native);
+        fprintf(stderr,"[autosave-title] status=%s world=%s file=%s "
+                       "scope=SCHEMA_KIND_WORLD_ONLY\n",
+                compatible?"COMPATIBLE_ON_DISK":"CHECK_FAILED",
+                World_Tag(),(const char *)native);
+    }
 }
 int Expanded_AutoCareer_Load(void) {
     if(!Expanded_AutoCareer_HasSave()) return 0;

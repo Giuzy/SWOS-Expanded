@@ -1007,6 +1007,65 @@ static void expanded_og_external_inventory(const char *stage)
             (unsigned)g_uefaCoef.nClubs,
             (unsigned)CT_ST.mark,(unsigned)CT_ST.season,
             (unsigned)g_worldCups.seasons);
+
+    /* Named inventory of every OG external-cup family, kept separate from
+     * domestic resident type-1 cups. A definition or a nonzero native
+     * subsystem counter is NOT evidence of dated fixtures/qualification.
+     * Never initialize/simulate a tournament from an audit. */
+    {
+        const int modern=World_Current()==WORLD_2627;
+        const char *const europe[3]={
+            modern?"CHAMPIONS_LEAGUE":"EUROPEAN_CHAMPIONS_CUP",
+            modern?"EUROPA_LEAGUE":"CUP_WINNERS_CUP",
+            modern?"CONFERENCE_LEAGUE":"UEFA_CUP"
+        };
+        const uint8_t *const records[3]={_euroCup,_cupWinnersCup,_uefaCup};
+        for(unsigned k=0;k<3u;++k)
+            fprintf(stderr,"[og-external-competition] stage=%s "
+                           "category=UEFA_CLUB name=%s compId=%u defined=%u "
+                           "activity=%u fixture-proof=NOT_VERIFIED\n",
+                    stage?stage:"UNNAMED",europe[k],k,
+                    (unsigned)(comp_id(records[k])==(uint8_t)k),
+                    (unsigned)g_uefaCoef.phaseEnded[k]);
+        {
+            extern Competition *Comp_ById(uint8_t);
+            const int copa=Comp_ById(COMPID_copaLibertadores)!=NULL;
+            fprintf(stderr,"[og-external-competition] stage=%s "
+                           "category=CONMEBOL_CLUB name=COPA_LIBERTADORES "
+                           "compId=%u defined=%u activity=%u "
+                           "fixture-proof=NOT_VERIFIED\n",
+                    stage?stage:"UNNAMED",COMPID_copaLibertadores,
+                    (unsigned)copa,(unsigned)CT_ST.season);
+        }
+        fprintf(stderr,"[og-external-competition] stage=%s "
+                       "category=CONTINENTAL_CLUB name=OTHER_CONTINENTAL_CLUB_CUPS "
+                       "compId=243 defined=%u activity=%u fixture-proof=NOT_VERIFIED\n",
+                stage?stage:"UNNAMED",CT_SPEC!=NULL,
+                (unsigned)CT_ST.season);
+        static const struct { const char *name; uint8_t id; } national[]={
+            {"WORLD_CUP",COMPID_worldCup},
+            {"EUROPEAN_CHAMPIONSHIPS",COMPID_europeanChampionships},
+            {"COPA_AMERICA",COMPID_copaAmerica},
+            {"AFRICAN_NATIONS_CUP",COMPID_africanNationsCup},
+            {"NORTH_AMERICAN_CUP",COMPID_northAmericanCup},
+            {"ASIAN_CUP",COMPID_asianCup},
+            {"OCEANIA_CUP",COMPID_oceaniaCup}
+        };
+        for(unsigned k=0;k<sizeof(national)/sizeof(national[0]);++k)
+            fprintf(stderr,"[og-external-competition] stage=%s "
+                           "category=NATIONAL name=%s compId=%u defined=%u "
+                           "activity=0 fixture-proof=NOT_VERIFIED\n",
+                    stage?stage:"UNNAMED",national[k].name,
+                    (unsigned)national[k].id,(unsigned)seen[national[k].id]);
+        fprintf(stderr,"[og-external-competition] stage=%s "
+                       "category=NATIONAL name=WORLD_CUP_QUALIFIERS compId=5 "
+                       "defined=%u activity=0 fixture-proof=NOT_VERIFIED\n",
+                stage?stage:"UNNAMED",(unsigned)(qualifiers>0));
+        fprintf(stderr,"[og-external-competition] stage=%s "
+                       "category=NATIONAL name=EURO_QUALIFIERS compId=23 "
+                       "defined=%u activity=0 fixture-proof=NOT_VERIFIED\n",
+                stage?stage:"UNNAMED",(unsigned)(seen[COMPID_ecQualifyingGroup1]!=0));
+    }
 }
 void Expanded_OGWorld_LogCheckpoint(const char *stage)
 {

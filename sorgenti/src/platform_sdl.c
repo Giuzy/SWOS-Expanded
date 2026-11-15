@@ -2168,6 +2168,13 @@ static void pump_events_any_thread(void)
                     Expanded_DebugArmFiveYearUnemployment();
                     continue;
                 }
+                if (code == SDLK_8 || code == SDLK_KP_8) {
+                    /* 70 genuine OG season transitions on the next
+                     * UNEMPLOYED/FORWARD TIME, never in the event pump. */
+                    extern void Expanded_DebugArmSeventyYearOG(void);
+                    Expanded_DebugArmSeventyYearOG();
+                    continue;
+                }
                 if (code == SDLK_n && expanded_title_main_active()) {
                     extern void Expanded_TitleMenu_QueueNewCareerDebug(void);
                     Expanded_TitleMenu_QueueNewCareerDebug();
@@ -2843,7 +2850,9 @@ static void diag_f12_end(const char *page) {
             (unsigned long)s_diag_f12_length,s_diag_f12_buffer,page);
     fflush(stderr);
 }
-/* Snapshot-friendly diagnostic text over the current frame. */
+/* Read-only F12 diagnostics for the ONE native OpenSWOS world.
+ * Do not use the old LWE fixture/standings counters as gameplay evidence.
+ * F10 displays data definitions; F12+C explains missing resident OG cups. */
 static void draw_world_debug_overlay(void)
 {
     if (!s_world_debug_visible || !s_renderer) return;
@@ -2857,7 +2866,6 @@ static void draw_world_debug_overlay(void)
     SDL_RenderGetScale(s_renderer,&oldsx,&oldsy);
     SDL_RenderGetViewport(s_renderer,&oldvp);
     SDL_GetRenderDrawBlendMode(s_renderer,&oldblend);
-    /* Stable, legible text scale at either 1080p or 4K output. */
     SDL_RenderSetLogicalSize(s_renderer,960,540);
     SDL_SetRenderDrawBlendMode(s_renderer,SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(s_renderer,8,18,28,222);
@@ -2868,562 +2876,148 @@ static void draw_world_debug_overlay(void)
     SDL_RenderDrawRect(s_renderer,&left);
     SDL_RenderDrawRect(s_renderer,&right);
 
-    if(s_world_debug_import_page) {
-        char txt[128];
-        ExpandedLiveImportAudit audit;
-        uint32_t reason[4]={0},cupSlots[4]={0};
-        ExpandedLiveImportExclusion sample[20];
-        uint8_t skipped[12];
-        uint32_t samples=ExpandedWorldLive_ImportSamples(sample,20u);
-        uint32_t skippedCount=ExpandedWorldLive_ImportSkippedCountries(skipped,12u);
-        (void)ExpandedWorldLive_ImportReasons(reason);
-        (void)ExpandedWorldLive_ImportCupRecords(cupSlots);
-        memset(&audit,0,sizeof audit);
-        (void)ExpandedWorldLive_ImportAudit(&audit);
-        int32_t worldCups=0,continentCups=0;
-        (void)World_Cups(&worldCups);
-        (void)World_ContiCups(&continentCups);
-        splash_text_tinted(22,22,"F10: SWOS ORIGINAL / LWE IMPORT DIAGNOSTICS",88,207,255);
-        splash_text_tinted(22,39,"F10 CLOSE  F9 PNG  F12 MAIN DEBUG",226,236,245);
-        splash_text_tinted(22,58,"1. DOMESTIC LEAGUES / ACTUAL TEAM FILES",88,207,255);
-        snprintf(txt,sizeof txt,"COUNTRIES %lu/%lu SKIPPED %lu FILES LOADED %lu/%lu",
-                 (unsigned long)audit.supported_countries,
-                 (unsigned long)audit.candidate_countries,
-                 (unsigned long)audit.skipped_country_records,
-                 (unsigned long)ExpandedWorldLive_ImportFilesLoaded(),
-                 (unsigned long)audit.team_files_attempted);
-        splash_text_tinted(22,75,txt,226,236,245);
-        snprintf(txt,sizeof txt,"ROWS SCANNED %lu CLUBS IMPORTED %lu SCHEDULED LEAGUES %lu",
-                 (unsigned long)ExpandedWorldLive_ImportRowsSeen(),
-                 (unsigned long)audit.imported_clubs,
-                 (unsigned long)audit.scheduled_leagues);
-        splash_text_tinted(22,92,txt,226,236,245);
-        snprintf(txt,sizeof txt,"EXCLUDED: OUTSIDE LEAGUE %lu  OTHER FILE %lu",
-                 (unsigned long)reason[0],(unsigned long)reason[1]);
-        splash_text_tinted(22,109,txt,255,196,90);
-        snprintf(txt,sizeof txt,"UNSUPPORTED DIVISION %lu  LWE REJECTED %lu",
-                 (unsigned long)reason[2],(unsigned long)reason[3]);
-        splash_text_tinted(22,126,txt,255,196,90);
-        snprintf(txt,sizeof txt,"SKIPPED COUNTRY IDS (FIRST %lu): ",
-                 (unsigned long)skippedCount);
-        size_t used=strlen(txt);
-        for(uint32_t i=0;i<skippedCount && used+5<sizeof txt;++i) {
-            int n=snprintf(txt+used,sizeof txt-used,"%u ",(unsigned)skipped[i]);
-            if(n<0)break;
-            used+=(size_t)n;
-        }
-        splash_text_tinted(22,143,txt,255,196,90);
-        splash_text_tinted(22,170,"2. OG CUPS FOUND / NOT PROOF OF PLAYED MATCHES",88,207,255);
-        snprintf(txt,sizeof txt,"DOMESTIC CUP SLOT 2=%lu  SLOT 3=%lu  EMPTY=%lu  OTHER=%lu",
-                 (unsigned long)cupSlots[0],(unsigned long)cupSlots[1],
-                 (unsigned long)cupSlots[2],(unsigned long)cupSlots[3]);
-        splash_text_tinted(22,187,txt,226,236,245);
-        snprintf(txt,sizeof txt,"WORLD CUP RECORDS %ld CONTINENTAL CUP SPECS %ld",
-                 (long)worldCups,(long)continentCups);
-        splash_text_tinted(22,204,txt,226,236,245);
-        snprintf(txt,sizeof txt,"OG CUP LEDGER: MATCHES %lu TITLES %lu (RESIDENT)",
-                 (unsigned long)ExpandedWorldLive_CupResidentMatches(),
-                 (unsigned long)ExpandedWorldLive_CupResidentTitles());
-        splash_text_tinted(22,221,txt,226,236,245);
-        splash_text_tinted(22,238,"NATIONAL TEAMS / QUALIFIERS: NOT SCHEDULED AS LWE LEAGUES",
-                           255,196,90);
-        splash_text_tinted(22,255,"OG CUP REGISTERED != OG CUP SIMULATED",255,196,90);
-        splash_text_tinted(22,278,"3. EXCLUDED CLUB SAMPLES: ID FILE DIV REASON",88,207,255);
-        for(uint32_t i=0;i<samples;++i) {
-            const ExpandedLiveImportExclusion *e=&sample[i];
-            int x=i<10u?22:491;
-            int y=295+(int)(i%10u)*18;
-            const char *why=e->reason==LIVE_IMPORT_OUTSIDE?"OUTSIDE":
-                e->reason==LIVE_IMPORT_WRONG_FILE?"FILE":
-                e->reason==LIVE_IMPORT_UNSUPPORTED_DIVISION?"DIV":
-                e->reason==LIVE_IMPORT_LWE_REJECTED?"REJECT":"?";
-            snprintf(txt,sizeof txt,"%04X %03u %02u %-7s %.17s",
-                     (unsigned)e->club,(unsigned)e->file,
-                     (unsigned)e->division,why,e->name);
-            splash_text_tinted(x,y,txt,226,236,245);
-        }
-        splash_text_tinted(22,496,"SAMPLES ONLY / 1620 DB TEAMS INCLUDE NATIONALS AND COPIES",
-                           255,196,90);
-        SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);
-        if(!oldw||!oldh)SDL_RenderSetScale(s_renderer,oldsx,oldsy);
-        SDL_RenderSetViewport(s_renderer,&oldvp);
-        diag_f12_end("F10_IMPORT");
-        SDL_SetRenderDrawBlendMode(s_renderer,oldblend);
-        return;
-    }
-
-    if(s_world_debug_cup_page) {
-        ExpandedLiveCupDebugEvent events[24];
-        const uint32_t n=ExpandedWorldLive_CupRecentEvents(events,24u);
-        char cupLine[104];
-        splash_text_tinted(22,22,"WORLD COMPETITIONS INSPECTOR / OG JOURNAL",
-                           88,207,255);
-        splash_text_tinted(22,39,"F12+C LEAGUES  F9 PNG  F12 HIDE",
-                           226,236,245);
-        splash_text_tinted(22,55,"READ ONLY: OBSERVED OG RESULTS, NOT SIMULATED CUPS",
-                           255,196,90);
-        snprintf(cupLine,sizeof cupLine,
-                 "RESIDENT %lu MATCHES  %lu TITLES  ARCHIVED %lu/%lu",
-                 (unsigned long)ExpandedWorldLive_CupResidentMatches(),
-                 (unsigned long)ExpandedWorldLive_CupResidentTitles(),
-                 (unsigned long)ExpandedWorldLive_CupArchivedMatches(),
-                 (unsigned long)ExpandedWorldLive_CupArchivedTitles());
-        splash_text_tinted(22,72,cupLine,226,236,245);
-        if(!n)
-            splash_text_tinted(22,102,"NO OG CUP EVENTS RECORDED IN RESIDENT WORLD",
-                               255,196,90);
-        for(uint32_t i=0;i<n;++i) {
-            const ExpandedLiveCupDebugEvent *e=&events[i];
-            int dx=i<12u?22:493,dy=104+(int)(i%12u)*32;
-            snprintf(cupLine,sizeof cupLine,
-                     "%04u-%02u-%02u SLOT %u CUP-ID %08lX %s",
-                     (unsigned)e->date.year,(unsigned)e->date.month,
-                     (unsigned)e->date.day,(unsigned)e->slot,
-                     (unsigned long)e->competition_hash,
-                     e->kind==2u?"WINNER":"MATCH");
-            splash_text_tinted(dx,dy,cupLine,88,207,255);
-            if(e->kind==2u)
-                snprintf(cupLine,sizeof cupLine,
-                         "CHAMPION CLUB %04X (OG REPORTED)",
-                         (unsigned)e->home);
-            else
-                snprintf(cupLine,sizeof cupLine,
-                         "R%u GAME%u LEG%u %04X %u:%u %04X",
-                         (unsigned)e->round,(unsigned)e->match,
-                         (unsigned)e->leg,(unsigned)e->home,
-                         (unsigned)e->goals_home,(unsigned)e->goals_away,
-                         (unsigned)e->away);
-            splash_text_tinted(dx,dy+14,cupLine,226,236,245);
-        }
-        splash_text_tinted(22,497,
-             "NOT VERIFIED: OFFSCREEN WORLD CUP ADVANCEMENT / OG CALLBACKS",
-             255,196,90);
-        SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);
-        if (!oldw || !oldh) SDL_RenderSetScale(s_renderer,oldsx,oldsy);
-        SDL_RenderSetViewport(s_renderer,&oldvp);
-        diag_f12_end("F12_CUPS");
-        SDL_SetRenderDrawBlendMode(s_renderer,oldblend);
-        return;
-    }
-
-    extern volatile uintptr_t _currentMenuPtr;
-    extern uint8_t *Expanded_UnemployedCalendarPointer(void);
-    extern void Expanded_UnemployedDate(char *,size_t);
-    extern unsigned Expanded_DebugUnemployedWeeks(void);
-    extern void Expanded_FormatDate(char *,size_t,unsigned,unsigned);
-    extern uint16_t _gameType,_currentSeasonShowing,_numWins,_numLost,_gamesPlayed;
-    extern uint8_t _lastFinancialWeekIndex;
-    int unemployed=_currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarPointer();
-    char line[96],date[48];
-    int x=22,y=21;
-#define DEBUG_LINE(msg) do { splash_text_tinted(x,y,(msg),226,236,245); y+=12; } while(0)
-#define DEBUG_SECTION(msg) do { if(y>21) y+=8; splash_text_tinted(x,y,(msg),88,207,255); y+=16; } while(0)
-#define DEBUG_GOOD(msg) do { splash_text_tinted(x,y,(msg),100,232,145); y+=12; } while(0)
-#define DEBUG_WARN(msg) do { splash_text_tinted(x,y,(msg),255,196,90); y+=12; } while(0)
-    DEBUG_SECTION("BUILD / CAREER");
-    snprintf(line,sizeof line,"BUILD %s",SWOS_EXPANDED_VERSION);
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"WORLD %s",World_Tag());
-    DEBUG_LINE(line);
-    if(unemployed) {
-        Expanded_UnemployedDate(date,sizeof date);
-        snprintf(line,sizeof line,"UNEMPLOYED CIVIL DATE %s",date);
-        DEBUG_LINE(line);
+    ExpandedOGWorldAudit leagues;
+    ExpandedOGCupAudit cups;
+    Expanded_OGWorld_Audit(&leagues);
+    Expanded_OGWorld_CupAudit(&cups);
+    char line[160];
+    int x=22,y=22;
+#define OGLINE(msg) do { splash_text_tinted(x,y,(msg),226,236,245); y+=18; } while(0)
+#define OGHEAD(msg) do { y+=5; splash_text_tinted(x,y,(msg),88,207,255); y+=22; } while(0)
+#define OGWARN(msg) do { splash_text_tinted(x,y,(msg),255,196,90); y+=18; } while(0)
+#define OGGOOD(msg) do { splash_text_tinted(x,y,(msg),100,232,145); y+=18; } while(0)
+    if (s_world_debug_import_page) {
+        OGHEAD("F10 / OG DATABASE INSPECTOR - READ ONLY");
+        OGLINE("F10 CLOSE  F12 MAIN  F9 PNG");
+        snprintf(line,sizeof line,"WORLD %s  BUILD %s",
+                 World_Tag(),SWOS_EXPANDED_VERSION);
+        OGLINE(line);
+        OGHEAD("NATIVE COMPETITION DEFINITIONS");
+        snprintf(line,sizeof line,"DOMESTIC CUP RECORDS %lu  COUNTRIES %lu",
+                 (unsigned long)cups.domestic_definitions,
+                 (unsigned long)cups.domestic_countries);
+        OGLINE(line);
+        int32_t wc=0,continental=0;
+        (void)World_Cups(&wc);
+        (void)World_ContiCups(&continental);
+        snprintf(line,sizeof line,"WORLD CUP RECORDS %ld  CONTI RECORDS %ld",
+                 (long)wc,(long)continental);
+        OGLINE(line);
+        snprintf(line,sizeof line,"RESIDENT OG LEAGUES %lu / %lu COUNTRIES",
+                 (unsigned long)leagues.resident_leagues,
+                 (unsigned long)leagues.countries);
+        OGLINE(line);
+        OGWARN("DATABASE RECORDS ARE NOT RUNNING COMPETITIONS");
+        OGWARN("CUPS RESIDENT: NOT IMPLEMENTED / NOT SIMULATED");
+        OGHEAD("SOURCE");
+        OGLINE("OG NATIVE TABLES ONLY, NO SECOND SCORE ENGINE");
+        OGLINE("CHECK F12+C FOR RESIDENT CUP DIAGNOSIS");
+        diag_f12_end("F10_OG_DATA");
+    } else if (s_world_debug_cup_page) {
+        OGHEAD("F12+C / NATIVE OG CUPS - READ ONLY");
+        OGLINE("F12+C BACK  F9 PNG  F12 HIDE");
+        snprintf(line,sizeof line,"WORLD %s  BUILD %s",
+                 World_Tag(),SWOS_EXPANDED_VERSION);
+        OGLINE(line);
+        OGHEAD("DEFINITIONS FROM ACTUAL OG COUNTRY TABLES");
+        snprintf(line,sizeof line,"DOMESTIC CUP DEFS %lu IN %lu COUNTRIES",
+                 (unsigned long)cups.domestic_definitions,
+                 (unsigned long)cups.domestic_countries);
+        OGLINE(line);
+        int32_t wc=0,continental=0;
+        (void)World_Cups(&wc);
+        (void)World_ContiCups(&continental);
+        snprintf(line,sizeof line,"WORLD CUP SPECS %ld  CONTINENTAL SPECS %ld",
+                 (long)wc,(long)continental);
+        OGLINE(line);
+        OGHEAD("PERSISTENT ORIGINAL OG CUP STATES");
+        snprintf(line,sizeof line,"RESIDENT CUP CONTEXTS %lu",
+                 (unsigned long)cups.resident_cups);
+        OGWARN(line);
+        snprintf(line,sizeof line,"OLD YEAR-END CALLBACK SEASONS %lu",
+                 (unsigned long)cups.completed_year_callbacks);
+        OGLINE(line);
+        OGWARN("CALLBACKS DO NOT PROVE DATED CUP ROUNDS");
+        OGWARN("COMPETITION NOT RESIDENT = EXPECTED LIMITATION");
+        OGWARN("CUP FIXTURES / RESULTS / WINNERS: NOT TESTED");
+        OGHEAD("NEXT ENGINE TASK");
+        OGLINE("BUILD DATED PER-CUP OG STATES AT START");
+        OGLINE("ADVANCE OG ROUNDS ONCE VIA FORWARD TIME");
+        diag_f12_end("F12_OG_CUPS");
     } else {
-        const uint8_t phase=Expanded_Career_NativeCalendarKey();
-        const unsigned season=World_FirstYear()+
-                              (unsigned)_currentSeasonShowing;
-        if(phase==0u) {
-            DEBUG_LINE("OG NATIVE PHASE 0 (EVENT MAY BE UNSET)");
-        } else {
-            Expanded_FormatDate(date,sizeof date,season,(unsigned)phase);
-            snprintf(line,sizeof line,"OG NEXT EVENT DATE %s",date);
-            DEBUG_LINE(line);
-        }
-    }
-    {
-        ExpandedLiveCalendarState calendar;
-        if(ExpandedWorldLive_CalendarState(&calendar)) {
+        OGHEAD("F12 / ORIGINAL OG RESIDENT WORLD");
+        OGLINE("F12+C CUPS  F10 DATA  F9 PNG  F12 HIDE");
+        snprintf(line,sizeof line,"BUILD %s  WORLD %s",
+                 SWOS_EXPANDED_VERSION,World_Tag());
+        OGLINE(line);
+        ExpandedLiveCalendarState date;
+        if(ExpandedWorldLive_CalendarState(&date)) {
             snprintf(line,sizeof line,"CAREER CIVIL DATE %04u-%02u-%02u",
-                (unsigned)calendar.today.year,(unsigned)calendar.today.month,
-                (unsigned)calendar.today.day);
-            DEBUG_LINE(line);
-            if(!unemployed && _gameType==4) {
-                const uint16_t season=(uint16_t)(World_FirstYear()+
-                                           _currentSeasonShowing);
-                const uint8_t phase=Expanded_Career_NativeCalendarKey();
-                ExpandedWorldDate event_date;
-                uint8_t inverse=255u;
-                int32_t event_day=0,civil_day=0;
-                if(phase!=255u &&
-                   ExpandedWorld_NativePhaseToDate(season,phase,&event_date) &&
-                   ExpandedWorld_DateToNativePhaseFloor(
-                       season,event_date,&inverse) &&
-                   ExpandedWorld_DateToIndex(event_date,&event_day) &&
-                   ExpandedWorld_DateToIndex(calendar.today,&civil_day)) {
-                    if(phase!=inverse) {
-                        snprintf(line,sizeof line,
-                            "PHASE CONVERSION FAIL %u -> %u",
-                            (unsigned)phase,(unsigned)inverse);
-                        DEBUG_WARN(line);
-                        fprintf(stderr,"[clock-date-audit] FAIL phase=%u "
-                            "roundtrip=%u season=%u\n",
-                            (unsigned)phase,(unsigned)inverse,
-                            (unsigned)season);
-                    } else {
-                        snprintf(line,sizeof line,
-                            "OG PHASE ROUNDTRIP %u -> %u (MATH ONLY)",
-                            (unsigned)phase,(unsigned)inverse);
-                        DEBUG_LINE(line);
-                    }
-                    if(phase==0u && calendar.today.year==season &&
-                       calendar.today.month>=7u) {
-                        DEBUG_LINE("OG PRESEASON KEY: NOT A CIVIL CLOCK");
-                    } else if(event_day<civil_day) {
-                        snprintf(line,sizeof line,
-                            "NEXT OG EVENT OVERDUE %ld DAYS",
-                            (long)(civil_day-event_day));
-                        DEBUG_WARN(line);
-                    } else {
-                        snprintf(line,sizeof line,
-                            "NEXT OG EVENT IN %ld DAYS (NOT CLOCK DELTA)",
-                            (long)(event_day-civil_day));
-                        DEBUG_LINE(line);
-                    }
-                } else {
-                    DEBUG_LINE("OG EVENT DATE UNAVAILABLE");
-                }
-            }
-        } else {
-            DEBUG_WARN("CAREER CIVIL CLOCK UNAVAILABLE");
-        }
+                     (unsigned)date.today.year,
+                     (unsigned)date.today.month,
+                     (unsigned)date.today.day);
+            OGLINE(line);
+        } else OGWARN("CAREER DATE UNAVAILABLE");
+        OGHEAD("NATIVE RESIDENT LEAGUES - ACTUAL OG STATE");
+        snprintf(line,sizeof line,"LEAGUES %lu  COUNTRIES %lu  PLAYED %lu",
+                 (unsigned long)leagues.resident_leagues,
+                 (unsigned long)leagues.countries,
+                 (unsigned long)leagues.leagues_with_matches);
+        OGLINE(line);
+        snprintf(line,sizeof line,"NATIVE OG RESULTS %lu  FINISHED %lu",
+                 (unsigned long)leagues.native_matches,
+                 (unsigned long)leagues.completed_leagues);
+        OGLINE(line);
+        snprintf(line,sizeof line,"SEASON YEARS %u..%u",
+                 (unsigned)leagues.min_year,(unsigned)leagues.max_year);
+        OGLINE(line);
+        snprintf(line,sizeof line,"CLUB BOUND %lu  INVALID CONTEXTS %lu",
+                 (unsigned long)leagues.club_bound,
+                 (unsigned long)leagues.invalid_contexts);
+        if(leagues.invalid_contexts)OGWARN(line);else OGLINE(line);
+        OGHEAD("OG CUPS / LIMITATIONS");
+        snprintf(line,sizeof line,"DEFS %lu  RESIDENT %lu",
+                 (unsigned long)cups.domestic_definitions,
+                 (unsigned long)cups.resident_cups);
+        OGWARN(line);
+        OGWARN("NO WORLDWIDE OG CUP STATES YET");
+        if(!leagues.resident_leagues)
+            OGWARN("START/LOAD: NO OG LEAGUE CONTEXTS");
+        else OGGOOD("OG LEAGUES READ-ONLY SNAPSHOT AVAILABLE");
+        x=493; y=22;
+        OGHEAD("TEST CONTROLS - GAMEPLAY UNCHANGED");
+        OGLINE("7 +5 YEARS: THEN FORWARD TIME (UNEMPLOYED)");
+        OGLINE("8 +70 OG YEARS: THEN FORWARD TIME");
+        OGWARN("70-YEAR TEST ADVANCES LIVE CAREER / USE NEW SAVE");
+        OGLINE("N: NEW CAREER (TITLE ONLY)");
+        snprintf(line,sizeof line,"1 FORCE WIN %s",
+                 ExpandedDebug_ResultMode()==1?"ON":"OFF");
+        OGLINE(line);
+        snprintf(line,sizeof line,"2 FORCE LOSE %s",
+                 ExpandedDebug_ResultMode()==2?"ON":"OFF");
+        OGLINE(line);
+        snprintf(line,sizeof line,"4 FORCE DRAW %s",
+                 ExpandedDebug_ResultMode()==4?"ON":"OFF");
+        OGLINE(line);
+        snprintf(line,sizeof line,"3 SACK NEXT %s",
+                 ExpandedDebug_SackArmed()?"ARMED":"OFF");
+        OGLINE(line);
+        OGLINE("5 FAST X4 / 6 END MATCH (IF ARMED)");
+        OGHEAD("VERIFICATION GATES");
+        OGLINE("START DATE / LEAGUES: SEE SWOS.LOG");
+        OGLINE("AFTER HIRE: COMPARE OG TABLES");
+        OGWARN("CUP STATE: NOT RESIDENT");
+        OGWARN("70-YEAR OG: NATIVE STAGES ONLY, NOT RETIREMENTS");
+        OGWARN("MULTI-YEAR SAVE/LOAD: NOT TESTED");
+        OGLINE("ONLY OG PROVIDES SPORTING RESULTS");
+        diag_f12_end("F12_OG_MAIN");
     }
-    if (unemployed) {
-        snprintf(line,sizeof line,"UNEMPLOYED WAIT %u WEEKS",
-                 Expanded_DebugUnemployedWeeks());
-    } else if (_gameType==4) {
-        snprintf(line,sizeof line,"CAREER SEASON %u MATCHES %u",
-                 (unsigned)_currentSeasonShowing+1u,(unsigned)_gamesPlayed);
-    } else {
-        snprintf(line,sizeof line,"GAME TYPE %u",(unsigned)_gameType);
-    }
-    DEBUG_LINE(line);
-    if (unemployed)
-        DEBUG_LINE("F12+7 +5 YEARS: THEN PRESS FORWARD TIME");
-    if (!unemployed && _gameType==4) {
-        snprintf(line,sizeof line,"WINS %u LOSSES %u",
-                 (unsigned)_numWins,(unsigned)_numLost);
-        DEBUG_LINE(line);
-    }
-    DEBUG_SECTION("DATABASE / OG VS LWE");
-    {
-        ExpandedLiveImportRuntime ir={0};
-        if(ExpandedWorldLive_ImportRuntime(&ir)) {
-            snprintf(line,sizeof line,"IMPORT #%lu %s ACCOUNTING %s",
-                (unsigned long)ir.attempts,
-                ir.status==2?"DONE":ir.status==3?"ERROR":
-                ir.status==1?"LOADING":"NOT STARTED",
-                ir.status==0?"NOT TESTED":ir.rows_accounted?"OK":"MISMATCH");
-            if(ir.status==3)DEBUG_WARN(line);else DEBUG_LINE(line);
-            snprintf(line,sizeof line,"ROWS %lu ACCEPTED %lu EXCLUDED %lu",
-                (unsigned long)ir.rows,(unsigned long)ir.accepted,
-                (unsigned long)ir.excluded);
-            DEBUG_LINE(line);
-            snprintf(line,sizeof line,"FILE ERRORS %lu LAST FILE %lu COUNTRY %lu",
-                (unsigned long)ir.failed_files,(unsigned long)ir.last_file,
-                (unsigned long)ir.last_country);
-            if(ir.failed_files)DEBUG_WARN(line);else DEBUG_LINE(line);
-            snprintf(line,sizeof line,"CUPS FOUND %lu MATCH %lu TO %lu TITLE %lu TO %lu",
-                (unsigned long)ir.cups_registered,
-                (unsigned long)ir.cups_matches_before,
-                (unsigned long)ir.cups_matches_after,
-                (unsigned long)ir.cups_titles_before,
-                (unsigned long)ir.cups_titles_after);
-            DEBUG_LINE(line);
-        }
-        extern uint32_t OG_DatabaseLoadedTeams(void);
-        extern uint32_t OG_DatabaseLoadedPlayerSlots(void);
-        extern uint32_t OG_DatabaseLoadedFiles(void);
-        snprintf(line,sizeof line,"OG LOADED FILES %lu",
-                 (unsigned long)OG_DatabaseLoadedFiles());
-        DEBUG_LINE(line);
-        snprintf(line,sizeof line,"OG LOADED TEAMS %lu PLAYERS %lu",
-                 (unsigned long)OG_DatabaseLoadedTeams(),
-                 (unsigned long)OG_DatabaseLoadedPlayerSlots());
-        DEBUG_LINE(line);
-        snprintf(line,sizeof line,"LWE CLUBS %lu PLAYER SLOTS %lu",
-                 (unsigned long)ExpandedWorldLive_Clubs(),
-                 (unsigned long)ExpandedWorldLive_PlayerSlots());
-        DEBUG_LINE(line);
-        DEBUG_LINE("OG: FILES SEEN SINCE START / LWE: 16 SLOTS/CLUB");
-    }
-    DEBUG_SECTION("LIVE WORLD / LEAGUES");
-    snprintf(line,sizeof line,"PREVIEW %s CAREER %s",
-             ExpandedWorldLive_Clubs()?"PILOT":"NONE",
-             _gameType==4?"NATIVE":"NONE");
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"CLUBS %lu LEAGUES %lu",
-             (unsigned long)ExpandedWorldLive_Clubs(),
-             (unsigned long)ExpandedWorldLive_Leagues());
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"MOBILITY UP %lu DOWN %lu UNRESOLVED %lu",
-        (unsigned long)ExpandedWorldLive_Promotions(),
-        (unsigned long)ExpandedWorldLive_Relegations(),
-        (unsigned long)ExpandedWorldLive_MobilityUnsupported());
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"PLAYER SLOTS %lu (16 PER CLUB)",
-             (unsigned long)ExpandedWorldLive_PlayerSlots());
-    DEBUG_LINE(line);
-    /* Live view of the one league-event ledger. No title/menu art changes.
-     * Compare date and pending count before/after FORWARD TIME; OVERDUE
-     * must remain 0 even across a native career hire or a reload. */
-    {
-        ExpandedLiveCalendarState cal;
-        if (ExpandedWorldLive_CalendarState(&cal)) {
-            snprintf(line,sizeof line,"WORLD CLOCK %04u-%02u-%02u WEEK %lu",
-                     (unsigned)cal.today.year,(unsigned)cal.today.month,
-                     (unsigned)cal.today.day,
-                     (unsigned long)ExpandedWorldLive_Weeks());
-            DEBUG_LINE(line);
-            if (cal.has_next) {
-                snprintf(line,sizeof line,
-                         "NEXT LEAGUE EVENT %04u-%02u-%02u GAMES %lu",
-                         (unsigned)cal.next_date.year,
-                         (unsigned)cal.next_date.month,
-                         (unsigned)cal.next_date.day,
-                         (unsigned long)cal.next_matches);
-                DEBUG_LINE(line);
-            } else DEBUG_LINE("NEXT LEAGUE EVENT NONE");
-            snprintf(line,sizeof line,"PENDING %lu OVERDUE %lu",
-                     (unsigned long)cal.pending,(unsigned long)cal.overdue);
-            if (cal.overdue) DEBUG_WARN(line); else DEBUG_GOOD(line);
-        } else DEBUG_WARN("WORLD EVENT CLOCK INACTIVE/INVALID");
-    }
-    DEBUG_SECTION("CUPS / WORLD ENTITIES");
-    DEBUG_WARN("MANAGER/CHAIRMAN ENTITIES NOT MODELED");
-    snprintf(line,sizeof line,"OG CUPS MATCHES %lu+%lu TITLES %lu+%lu",
-             (unsigned long)ExpandedWorldLive_CupArchivedMatches(),
-             (unsigned long)ExpandedWorldLive_CupResidentMatches(),
-             (unsigned long)ExpandedWorldLive_CupArchivedTitles(),
-             (unsigned long)ExpandedWorldLive_CupResidentTitles());
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"OG CUP CHAMPIONS INDEXED %lu",
-             (unsigned long)ExpandedWorldLive_CupHistoricalTitles());
-    DEBUG_LINE(line);
-    if(ExpandedWorldLive_CupArchivedTitles()>
-       ExpandedWorldLive_CupHistoricalTitles())
-        DEBUG_WARN("LEGACY SAVE: SOME OLD CUP WINNERS NOT INDEXED");
-    if (expanded_title_main_active()) {
-        DEBUG_LINE("F12 OPEN + N: NEW CAREER (DEBUG ONLY)");
-        DEBUG_LINE("OLD AUTOSAVE REPLACED AFTER FIRST NEW SAVE");
-    }
-    DEBUG_SECTION("PERSISTENCE / MEMORY");
-    snprintf(line,sizeof line,"FIXTURES RESIDENT %lu ALL RESULTS %lu",
-             (unsigned long)ExpandedWorldLive_Fixtures(),
-             (unsigned long)ExpandedWorldLive_Results());
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"WORLD WINDOW %u-%u ARCHIVED LEAGUE-YEARS %lu",
-             (unsigned)ExpandedWorldLive_WindowFirstYear(),
-             (unsigned)(ExpandedWorldLive_WindowFirstYear()+1u),
-             (unsigned long)ExpandedWorldLive_ArchivedLeagues());
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"ARCHIVED RESULTS %lu RESIDENT RESULTS %lu",
-             (unsigned long)ExpandedWorldLive_ArchivedResults(),
-             (unsigned long)ExpandedWorldLive_ResidentResults());
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"PILOT RAM %.2f MB (NOT DISK DB)",
-             (double)ExpandedWorldLive_MemoryBytes()/1048576.0);
-    DEBUG_LINE(line);
-    DEBUG_WARN("DATABASE DISK MB NOT INDEXED");
-    {
-        ExpandedLiveImportAudit a;
-        if (ExpandedWorldLive_ImportAudit(&a)) {
-            snprintf(line,sizeof line,"REAL COUNTRIES %lu/%lu OMITTED %lu",
-                (unsigned long)a.supported_countries,
-                (unsigned long)a.candidate_countries,
-                (unsigned long)a.skipped_country_records);
-            DEBUG_LINE(line);
-            snprintf(line,sizeof line,"REAL TEAM FILES %lu/%lu CLUBS %lu",
-                (unsigned long)a.team_files_with_clubs,
-                (unsigned long)a.team_files_attempted,
-                (unsigned long)a.imported_clubs);
-            DEBUG_LINE(line);
-        }
-    }
-    x=493; y=21;
-    DEBUG_SECTION("OG NATIVE JOIN / FALLBACK");
-    {
-        extern uint16_t _teamSelectionKeyCacheCount;
-        extern uint16_t _teamSelectionKeyCacheIndex;
-        uint8_t cutoff=0;
-        int valid=Expanded_MidseasonJoin_Cutoff(World_FirstYear(),
-                        Expanded_DebugUnemployedWeeks(),&cutoff);
-        snprintf(line,sizeof line,"NATIVE CACHE %u INDEX %u PHASE %u",
-                 (unsigned)_teamSelectionKeyCacheCount,
-                 (unsigned)_teamSelectionKeyCacheIndex,
-                 (unsigned)_lastFinancialWeekIndex);
-        DEBUG_LINE(line);
-        snprintf(line,sizeof line,"JOIN %s TARGET PHASE %u%s",
-                 Expanded_MidseasonJoin_Active()?"ACTIVE":"INACTIVE",
-                 (unsigned)(valid?cutoff:0),valid?"":" INVALID");
-        DEBUG_LINE(line);
-    }
-    if (Expanded_MidseasonJoin_Active()) {
-        snprintf(line,sizeof line,"CATCH-UP ACTIONS %lu FORCED CPU %lu",
-                 (unsigned long)Expanded_MidseasonJoin_Actions(),
-                 (unsigned long)Expanded_MidseasonJoin_ForcedSimulations());
-        DEBUG_LINE(line);
-    }
-    snprintf(line,sizeof line,"JOIN STATUS %s FINAL %d TARGET %u",
-             Expanded_MidseasonJoin_Active()?"RUNNING":
-             Expanded_MidseasonJoin_LastResult()==1?"REACHED":
-             Expanded_MidseasonJoin_LastResult()==2?"ABORTED":
-             Expanded_MidseasonJoin_LastResult()==3?"DIRECT":"NOT STARTED",
-             Expanded_MidseasonJoin_LastKey(),
-             (unsigned)Expanded_MidseasonJoin_TargetPhase());
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"LEAGUE MENUS COMPLETED %lu",
-             (unsigned long)Expanded_MidseasonJoin_LeagueExits());
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"OG LEAGUE CALENDARS %lu / %lu ORDERS %lu",
-             (unsigned long)ExpandedWorldLive_NativeScheduleLeagues(),
-             (unsigned long)ExpandedWorldLive_Leagues(),
-             (unsigned long)ExpandedWorldLive_NativeOrderApplied());
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"NATIVE REUSED %lu FALLBACK %lu",
-             (unsigned long)ExpandedWorldLive_NativeMatches(),
-             (unsigned long)ExpandedWorldLive_NativeMisses());
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"CATCHUP HEADLESS %lu FRAMES %lu MS",
-             (unsigned long)Platform_CatchupHiddenFrames(),
-             (unsigned long)Platform_CatchupDurationMs());
-    DEBUG_LINE(line);
-    {
-        extern uint32_t DIY_WorldDirectImportedMatches(void);
-        extern uint32_t DIY_WorldDirectImportedRounds(void);
-        snprintf(line,sizeof line,"DIRECT OG IMPORT %lu MATCHES %lu ROUNDS",
-                 (unsigned long)DIY_WorldDirectImportedMatches(),
-                 (unsigned long)DIY_WorldDirectImportedRounds());
-        DEBUG_LINE(line);
-    }
-    {
-        extern const char *DIY_WorldDirectImportStatus(void);
-        snprintf(line,sizeof line,"DIRECT IMPORT %s",DIY_WorldDirectImportStatus());
-        DEBUG_WARN(line);
-        extern unsigned DIY_WorldDirectImportCycles(void);
-        extern unsigned DIY_WorldDirectImportGrouped(void);
-        snprintf(line,sizeof line,"OG LEAGUE FORMAT %u CYCLES GROUPS %u",
-                 DIY_WorldDirectImportCycles(),DIY_WorldDirectImportGrouped());
-        DEBUG_LINE(line);
-        snprintf(line,sizeof line,"PAST OG CUP EVENTS %lu",
-                 (unsigned long)Expanded_MidseasonJoin_HistoricalCupEvents());
-        DEBUG_LINE(line);
-    }
-    {
-        extern int DIY_WorldLastLeagueAudit(uint16_t*,uint16_t*,
-                                            uint16_t*,uint16_t*,
-                                            uint16_t*,uint16_t*,uint8_t*);
-        uint16_t a=0,b=0,rawa=0,rawb=0,pa=0,pb=0;
-        uint8_t manual=0;
-        if (DIY_WorldLastLeagueAudit(&a,&b,&rawa,&rawb,&pa,&pb,&manual)) {
-            snprintf(line,sizeof line,"LAST OG %u-%u PTS +%u/+%u %s",
-                     (unsigned)a,(unsigned)b,(unsigned)pa,
-                     (unsigned)pb,manual?"MANUAL":"AUTO");
-            DEBUG_LINE(line);
-            if (manual) {
-                snprintf(line,sizeof line,"RAW FINAL %u-%u %s",
-                         (unsigned)rawa,(unsigned)rawb,
-                         a==rawa&&b==rawb?"MATCH":"SCORE MISMATCH");
-                DEBUG_LINE(line);
-            }
-        }
-    }
-    DEBUG_SECTION("OG/LWE RUNTIME VERDICTS");
-    {
-        const int trace=Expanded_ClockTrace_Status();
-        snprintf(line,sizeof line,"CLOCK TRACE %s SAMPLES %lu CHANGES %lu",
-                 trace==2?"FAIL":trace==1?"OBSERVED (NOT PROOF)":"NOT_TESTED",
-                 (unsigned long)Expanded_ClockTrace_Samples(),
-                 (unsigned long)Expanded_ClockTrace_Changes());
-        if(trace==2)DEBUG_WARN(line);else DEBUG_LINE(line);
-        snprintf(line,sizeof line,"CLOCK LAST %s DAYS TO EVENT %ld",
-                 Expanded_ClockTrace_LastEvent(),
-                 (long)Expanded_ClockTrace_DeltaDays());
-        DEBUG_LINE(line);
-        if(trace==2) {
-            snprintf(line,sizeof line,"CLOCK FIRST: %.70s",
-                     Expanded_ClockTrace_FirstProblem());
-            DEBUG_WARN(line);
-        }
-    }
-    {
-        extern int Expanded_MidseasonJoin_SouthernStatus(void);
-        const int st=Expanded_MidseasonJoin_SouthernStatus();
-        snprintf(line,sizeof line,"SOUTHERN HANDOFF %s (EXACT OG/LWE TABLE)",
-                 st==1?"PASS":st==2?"FAIL":"NOT_TESTED");
-        if(st==2)DEBUG_WARN(line);
-        else if(st==1)DEBUG_GOOD(line);
-        else DEBUG_LINE(line);
-    }
-    {
-        extern void Career_UnemployedCupAudit(uint32_t*,uint32_t*,int*);
-        uint32_t advanced=0,native=0;
-        int initialized=0;
-        Career_UnemployedCupAudit(&advanced,&native,&initialized);
-        snprintf(line,sizeof line,"OG CUP ADVANCE YEARS %lu NATIVE %lu INIT %d",
-                 (unsigned long)advanced,(unsigned long)native,initialized);
-        DEBUG_LINE(line);
-    }
-    {
-        extern uint32_t DIY_WorldStandingsAuditChecks(void);
-        extern uint32_t DIY_WorldStandingsAuditFailures(void);
-        const uint32_t checked=DIY_WorldStandingsAuditChecks();
-        const uint32_t failed=DIY_WorldStandingsAuditFailures();
-        snprintf(line,sizeof line,"OG/LWE STANDINGS %s (%lu CHECKS, %lu FAILURES)",
-                 checked?(failed?"FAIL":"PASS"):"NOT_TESTED",
-                 (unsigned long)checked,(unsigned long)failed);
-        if(failed)DEBUG_WARN(line);else if(checked)DEBUG_GOOD(line);
-        else DEBUG_LINE(line);
-    }
-    {
-        const uint32_t archived=ExpandedWorldLive_CupArchivedTitles();
-        const uint32_t indexed=ExpandedWorldLive_CupHistoricalTitles();
-        snprintf(line,sizeof line,"OG CUP TITLE INDEX %s (ARCHIVED %lu INDEXED %lu)",
-                 !archived?"NOT_TESTED":indexed>=archived?"PASS":"FAIL",
-                 (unsigned long)archived,(unsigned long)indexed);
-        if(archived && indexed<archived)DEBUG_WARN(line);
-        else if(archived)DEBUG_GOOD(line);
-        else DEBUG_LINE(line);
-        DEBUG_LINE("CUP OFFSCREEN OG BRACKETS NOT_TESTED");
-    }
-    DEBUG_SECTION("JOIN STATUS / TEST MODES");
-    DEBUG_WARN("PILOT/NATIVE REPLAY PARTIAL");
-    if (ExpandedWorldLive_Clubs()) DEBUG_GOOD("WORLD SNAPSHOT V4 ROLLING READY");
-    else DEBUG_WARN("WORLD SNAPSHOT EMPTY");
-    snprintf(line,sizeof line,"1 WIN ALWAYS %s",
-             ExpandedDebug_ResultMode()==1 ? "ON":"OFF");
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"2 LOSE ALWAYS %s",
-             ExpandedDebug_ResultMode()==2 ? "ON":"OFF");
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"3 SACK NEXT %s",
-             ExpandedDebug_SackArmed()?"ARMED":"OFF");
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"4 DRAW ALWAYS %s",
-              ExpandedDebug_ResultMode()==4?"ON":"OFF");
-    DEBUG_LINE(line);
-    snprintf(line,sizeof line,"5 MATCH FAST X4 %s",
-              debug_match_factor()==4?"ON":"OFF");
-    DEBUG_LINE(line);
-    DEBUG_LINE("1 WIN 2 LOSE 4 DRAW / 6 END LIVE MATCH");
-    DEBUG_LINE("F12+C CUPS  F9 PNG  F12 HIDE");
-#undef DEBUG_LINE
-#undef DEBUG_SECTION
-#undef DEBUG_GOOD
-#undef DEBUG_WARN
-    diag_f12_end("F12_MAIN");
+#undef OGLINE
+#undef OGHEAD
+#undef OGWARN
+#undef OGGOOD
     SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);
-    if (!oldw || !oldh) SDL_RenderSetScale(s_renderer,oldsx,oldsy);
+    if(!oldw || !oldh)SDL_RenderSetScale(s_renderer,oldsx,oldsy);
     SDL_RenderSetViewport(s_renderer,&oldvp);
     SDL_SetRenderDrawBlendMode(s_renderer,oldblend);
 #undef splash_text_tinted

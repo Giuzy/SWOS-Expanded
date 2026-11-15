@@ -1,56 +1,37 @@
 #!/usr/bin/env bash
-# One entry point for the existing C stress, calendar and debug regressions
-# plus native disk-data inventory. No Python, no new compiler, no game save edits.
+# Actual OG-related unit/data checks, not a synthetic second game world.
+# Runtime gameplay is assessed separately by ANALIZZA_SWOS_LOG.bat.
 set -uo pipefail
 cd "$(dirname "$0")/../.."
-failed_stages=0
+failed=0
 run_stage() {
   local label="$1" script="$2"
-  printf '\n=======================================================\n'
-  printf '  %s\n' "$label"
-  printf '=======================================================\n'
+  printf '\n=====================================================\n%s\n=====================================================\n' "$label"
   if bash "$script"; then
-    printf '[PASS] %s\n' "$label"
+    printf '[PASS] %s (headless source/data ONLY)\n' "$label"
   else
     printf '[FAIL] %s\n' "$label"
-    failed_stages=$((failed_stages+1))
-    return 0
+    failed=$((failed+1))
   fi
 }
-run_stage "70 SEASONS / NATIVE FIXTURES / CUP JOURNAL" "sorgenti/tests/run_test_living_world_70.sh"
-run_stage "FOUR-DIVISION 70-SEASON MOVEMENT / SAVE-LOAD" "sorgenti/tests/run_test_living_world_mobility.sh"
-run_stage "30-YEAR CIVIL CALENDAR / OG CANONICAL PHASES / ANNIVERSARIES" "sorgenti/tests/run_test_expanded_world_time.sh"
-run_stage "30-YEAR LIVE CALENDAR / JAN-JUL SEASONS / CAR SAVE-RELOAD" "sorgenti/tests/run_test_calendar_integrity_30.sh"
-run_stage "NATIVE 3/4-CYCLE SAME-PHASE OCCURRENCES" "sorgenti/tests/run_test_native_history_occurrence.sh"
-run_stage "MIDSEASON JOIN CALENDAR REGRESSIONS" "sorgenti/tests/run_test_expanded_midseason_join.sh"
-run_stage "LIVING WORLD UNIT REGRESSIONS" "sorgenti/tests/run_test_expanded_world_live.sh"
-run_stage "DEBUG RESULTS / WORLD LEDGER REGRESSIONS" "sorgenti/tests/run_test_expanded_phase12.sh"
-run_stage "REAL INSTALLED DATABASE INVENTORY" "sorgenti/tests/run_test_database_inventory.sh"
-run_stage "ALL OG COMPETITION DATA FORMATS / REFERENCE AUDIT (NOT GAMEPLAY)" "sorgenti/tests/run_audit_competition_formats.sh"
-run_stage "FULL DATABASE AUDIT / DOMESTIC 70 YEARS" "sorgenti/tests/run_test_real_json_world_70.sh"
+run_stage "DEBUG INPUT RESULT CONTROL UNITS (NO WORLD)" "sorgenti/tests/run_test_expanded_debug_only.sh"
+run_stage "OG CIVIL DATE AND NATIVE PHASE MATHEMATICS" "sorgenti/tests/run_test_expanded_world_time.sh"
+run_stage "OG MATCH OCCURRENCE AND 3/4 CYCLES" "sorgenti/tests/run_test_native_history_occurrence.sh"
+run_stage "MIDSEASON NATIVE PHASE DATE MATH" "sorgenti/tests/run_test_expanded_midseason_join.sh"
+run_stage "INSTALLED OG COMPETITION DATA FORMATS" "sorgenti/tests/run_audit_competition_formats.sh"
+run_stage "INSTALLED NATIVE TEAM DATA INVENTORY" "sorgenti/tests/run_test_database_inventory.sh"
 echo
-if (( failed_stages )); then
-  printf 'ENGINE_SUITE=FAIL STAGES=%u\n' "$failed_stages"
+if ((failed)); then
+  printf 'OG_WORLD_STATIC=FAIL failed-stages=%u\n' "$failed"
   exit 1
 fi
-echo "ENGINE_UNIT_REGRESSIONS=PASS"
-echo "ENGINE_SUITE=PASS"
-echo "ENGINE_SUITE_SCOPE=HEADLESS_RUNTIME_ONLY"
-echo "OG_LWE_WINDOWS_JOIN=NOT_TESTED"
-echo "OG_CUP_WINDOWS_OFFSCREEN=NOT_TESTED"
-echo "COMPETITION_FORMATS_OG_RUNTIME=NOT_TESTED"
-echo "F10_WINDOWS_IMPORT=NOT_TESTED"
-echo "DOMESTIC_GLOBAL_STRESS=ALL_FILES_ONE_WORLD_70_SEASONS"
-echo "COVERAGE_WARNING=REAL_JSON_DOMESTIC_ONLY_CUPS_NATIONAL_TEAMS_UNTESTED"
-echo "MOBILITY_TEST_STATUS=NATIVE_AUTOMATIC_PLACES_TESTED"
-echo "MOBILITY_PLAYOFF_STATUS=PENDING_NATIVE_RESOLUTION"
-echo "OFFSCREEN_CUP_TEST_STATUS=NOT_PROVEN_FOR_ALL_COUNTRIES"
-echo "F12_CUP_INSPECTOR_STATUS=OG_OBSERVED_EVENTS_ONLY"
-echo "NONDOMESTIC_COMPETITIONS_STATUS=NOT_SIMULATED_BY_JSON_LEAGUE_TEST"
-echo "[NOTE] Only automatic native promotion/relegation places are tested."
-echo "       OG playoff and complete worldwide offscreen cups are NOT proven."
-echo "       Non-domestic JSON pools are inventoried, NOT fake leagues."
-
-echo "DATABASE_96_97_EXPECTED_TEAMS=1620 PLAYER_SLOTS=26820"
-echo "OG_CUP_UNEMPLOYED_RUNTIME=NOT_TESTED"
-echo "F10_RUNTIME_COVERAGE=NOT_VERIFIED"
+echo "OG_WORLD_STATIC=PASS"
+echo "OG_REAL_GAMEPLAY=NOT_TESTED_BY_HEADLESS_TESTS"
+echo "OG_CUP_RESIDENT_WORLD=NOT_TESTED"
+echo "OG_CUP_DATED_FIXTURES=NOT_TESTED"
+echo "OG_WORLD_SAVE_LOAD=NOT_TESTED"
+echo "OG_70_NATIVE_SEASONS=NOT_TESTED_BY_HEADLESS_CHECKS"
+echo "OG_RETIREMENTS=NOT_TESTED"
+echo "OG_LEAGUE_STANDINGS_AFTER_HIRE=NOT_TESTED"
+echo "WINDOWS_NEXT_STEP=AVVIA_DIAGNOSTICA.bat_AND_SWOS_RUNTIME_AUDIT.log"
+echo "[NOTE] No autonomous world score generator is run here."

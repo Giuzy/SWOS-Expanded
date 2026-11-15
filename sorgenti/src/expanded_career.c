@@ -263,6 +263,20 @@ void Expanded_DebugArmFiveYearUnemployment(void) {
                    "press FORWARD TIME once; not +260 approximate weeks; "
                    "OG cups still unverified\n");
 }
+/* F12+8: actual 70-season OG progression (not the retired LWE stress).
+ * Explicit user action, on a disposable unemployed career; the next
+ * genuine FORWARD TIME runs the same OG world code as normal gameplay.
+ * Not a headless simulation and not proof of manager/player retirements. */
+void Expanded_DebugArmSeventyYearOG(void) {
+    extern uintptr_t _currentMenuPtr;
+    if(_currentMenuPtr!=(uintptr_t)Expanded_UnemployedCalendarMenu()) {
+        fprintf(stderr,"[og-stress] ARM REFUSED: UNEMPLOYED ONLY\n");
+        return;
+    }
+    s_debug_wait_jump_years=70u;
+    fprintf(stderr,"[og-stress] ARMED years=70 press FORWARD TIME once "
+                   "(LIVE CAREER TIME WILL ADVANCE; use a NEW test career)\n");
+}
 
 static uint16_t s_waitTeam=0;
 static uint8_t s_waitCountry=8;
@@ -713,6 +727,13 @@ void Expanded_UnemployedWait(void) {
         return;
     }
     const unsigned target_weeks=(unsigned)(target_index-first_index)/7u;
+    if(jump_years==70u)
+        fprintf(stderr,"[og-stress] START years=70 "
+                       "from=%04u-%02u-%02u to=%04u-%02u-%02u "
+                       "cursor-before=%ld\n",
+                (unsigned)live.today.year,(unsigned)live.today.month,
+                (unsigned)live.today.day,(unsigned)target.year,
+                (unsigned)target.month,(unsigned)target.day,(long)now_index);
     /* Advance OG competitions BEFORE committing the unemployment date.
      * No duplicate LWE scoring, and a failed OG tick must not move time. */
     {
@@ -721,6 +742,11 @@ void Expanded_UnemployedWait(void) {
             fprintf(stderr,"[og-world] FORWARD TIME FAILED at %04u-%02u-%02u\n",
                     (unsigned)target.year,(unsigned)target.month,
                     (unsigned)target.day);
+            if(jump_years==70u) {
+                s_debug_wait_jump_years=0u; /* do not rerun partial stress */
+                fprintf(stderr,"[og-stress] FAILED: STOP AND DISCARD "
+                               "TEST CAREER; DO NOT RETRY PARTIAL WORLD\n");
+            }
             return;
         }
     }
@@ -728,9 +754,29 @@ void Expanded_UnemployedWait(void) {
         fprintf(stderr,"[calendar] FAIL DATE_ADVANCE target=%04u-%02u-%02u\n",
                 (unsigned)target.year,(unsigned)target.month,
                 (unsigned)target.day);
+        if(jump_years==70u) {
+            s_debug_wait_jump_years=0u;
+            fprintf(stderr,"[og-stress] FAILED: CURSOR NOT COMMITTED; "
+                           "DISCARD TEST CAREER\n");
+        }
         return;
     }
     s_debug_wait_jump_years=0u;
+    if(jump_years==70u) {
+        ExpandedLiveCalendarState auditDate;
+        const int dateMatches=ExpandedWorldLive_CalendarState(&auditDate) &&
+            auditDate.today.year==target.year &&
+            auditDate.today.month==target.month &&
+            auditDate.today.day==target.day;
+        fprintf(stderr,"[og-stress] FINISHED years=70 "
+                       "date=%04u-%02u-%02u actual-date=%04u-%02u-%02u "
+                       "exact=%u\n",
+                (unsigned)target.year,(unsigned)target.month,(unsigned)target.day,
+                dateMatches?(unsigned)auditDate.today.year:0u,
+                dateMatches?(unsigned)auditDate.today.month:0u,
+                dateMatches?(unsigned)auditDate.today.day:0u,
+                (unsigned)dateMatches);
+    }
     /* FORWARD TIME deliberately expires an unanswered offer. */
     if (s_waitTeam && s_waitWeeks>=s_nextOfferWeek) {
         fprintf(stderr,"[offers] week %u: pending offer from %.17s expired "
@@ -765,18 +811,18 @@ void Expanded_UnemployedWait(void) {
                 s_waitWeeks,s_waitWeeks-previous_week,
                 (long)(target_index-now_index));
     }
-    /* The pilot world operates on snapshots of actual club IDs, with no
-     * live team-file reload while a modal is open. No game-clock mutation. */
-    if (ExpandedWorldLive_Clubs()) {
-        /* AdvanceToDate above has already moved the authoritative clock.
-         * Do NOT call AdvanceWeeks again: it snaps to the July-1 weekly
-         * grid and can move the date or cause a false rejection. */
-        if (s_waitWeeks%4u==0u)
-            fprintf(stderr,"[living-world] wait=%u pilot results=%lu\n",
-                    s_waitWeeks,(unsigned long)ExpandedWorldLive_Results());
+    /* No legacy LWE-results counter here: only the resident OG engine
+     * actually scored fixtures, and its audit already logged the tick. */
+    /* Diagnostic F12+8 exercises dated resident OG LEAGUES only. Do
+     * not retroactively invoke 70 years of legacy cup callbacks here:
+     * those have no resident dated contexts, and are not a cup test. */
+    if(jump_years==70u) {
+        fprintf(stderr,"[og-stress] OG_CUPS_NOT_TESTED "
+                       "legacy-yearend-callbacks-skipped=1\n");
+    } else {
+        extern void Career_AdvanceUnemployedOGCups(uint32_t);
+        Career_AdvanceUnemployedOGCups((uint32_t)s_waitWeeks);
     }
-    { extern void Career_AdvanceUnemployedOGCups(uint32_t);
-      Career_AdvanceUnemployedOGCups((uint32_t)s_waitWeeks); }
     if(s_waitWeeks>=s_nextOfferWeek && !s_waitTeam) choose_small_club();
     if(!s_waitTeam && s_waitWeeks>=s_nextOfferWeek)
         s_nextOfferWeek=s_waitWeeks+next_delay();

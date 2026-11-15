@@ -715,3 +715,15 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 - `career_status.c`: i due controlli OG contro incontri oltre la fine del campionato leggono il membro esistente di `DIYCompetitionEx`, `_diyCompetitionStart.minSubstitutes`, invece dell'inesistente `DIYCompetition.minSubstitutes`. Algoritmo risultati OG, scope del guard e CLASSIC/DIY invariati.
 - Aggiornate le guide di progetto e i riferimenti dei documenti upstream ai due salvataggi portatili e alla sola autorita' OG.
 - Windows 0.13.45_08: compilazione FALLITA nel log utente. 0.13.46: compilazione, gameplay, FORWARD TIME, fine campionato e save/load OG NON PROVATI.
+
+### 0.13.47 — OG-only diagnostics / BAT / DEBUG WORLD BACK (15/11/2026)
+- F12 usa esclusivamente letture dei contesti OpenSWOS residenti per conteggio leghe, paesi, partite, completamenti e stato del collegamento manager; F12+C rende esplicita la distinzione fra record di coppa OG nel database e `cup-resident=0`. F10 elenca definizioni native; rimossi dalla nuova schermata F12 indicatori LWE fuorvianti.
+- `career_init.c` registra `[og-world-audit]` a START e TICK. `audit_windows_runtime_log.c` riconosce build corrente, progressione OG, errori fixture, bind, viewer, BACK multilivello, assenza cup resident. Il rapporto resta INCOMPLETE finché coppe OG datate e salvataggi non sono realmente provati.
+- `AVVIA_DIAGNOSTICA.bat`, `ANALIZZA_SWOS_LOG.bat`, `TEST_OG_WORLD.bat` e wrapper `TEST_LIVING_WORLD.bat` adottano i nuovi marker. Il runner `run_test_engine_suite.sh` esegue SOLO test statici su dati OG/algoritmi fase e non usa più la simulazione sintetica LWE come test finale.
+- `Expanded_UnemployedDebugWorld` usa un flag temporaneo di selettore per garantire BACK di un livello sui paesi; nessuna variazione a CLASSIC o ai menu del manager assunto.
+- **VERIFICHE:** ispezione sorgenti, dipendenze e separazione fra prove: SI; compilazione Windows 0.13.47 e gameplay dopo modifica: NON PROVATO. Coppe residenti e TOP GOAL SCORERS: ancora aperti.
+
+#### Estensione test nativo 70 anni (richiesta del 15/11/2026)
+- `F12+8` / `Expanded_DebugArmSeventyYearOG` arma 70 anni reali in UNEMPLOYED; FORWARD TIME usa i contesti OG, mai l'antico simulatore di risultati LWE. Ogni stagione chiusa e riaperta emette controlli nativi nel log.
+- `TEST_OG_70.bat` restituisce PASS limitato ai 70 passaggi OG e alle date esatte quando il parser li osserva realmente; il rapporto mondiale complessivo resta INCOMPLETE per coppe, cronologia completa e save/load. Non testati pensionamenti del manager e dei calciatori: predisposti come separata fase futura.
+- F12+8 modifica la carriera in memoria: usare soltanto una nuova carriera di test. I callback storici di coppa a fine anno sono saltati nel salto diagnostico per non creare 70 anni di esiti retroattivi; F12+7 e il tempo normale restano invariati.

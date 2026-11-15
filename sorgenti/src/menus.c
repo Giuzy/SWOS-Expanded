@@ -4032,6 +4032,13 @@ void ViewWorldMenu(void)
 }
 
 #ifdef SWOS_SDL_BUILD
+/* The native picker is also used by CLASSIC and employed CAREER.
+ * This flag scopes the debug-only BACK behavior to unemployed DEBUG WORLD. */
+static int s_unemployedWorldPickerActive;
+int Expanded_UnemployedWorldPickerActive(void)
+{
+    return s_unemployedWorldPickerActive;
+}
 /* The unemployed debug button reuses the native competition picker but
  * deliberately skips ContestMenuOnReturn (there is no active club). */
 void Expanded_UnemployedDebugWorld(MenuEntry *unused)
@@ -4040,7 +4047,11 @@ void Expanded_UnemployedDebugWorld(MenuEntry *unused)
     extern uint8_t *Expanded_UnemployedCalendarMenu(void);
     extern int Expanded_OGWorld_ViewLeague(const uint8_t *,uint16_t);
     (void)unused;
+    /* Only BACK at the root selector may return to UNEMPLOYED; BACK from
+     * any country/competition subpage navigates one picker level back. */
+    s_unemployedWorldPickerActive=1;
     ChooseCompetitionMenu();
+    s_unemployedWorldPickerActive=0;
     if(_chooseTeamsResult!=0)
         (void)Expanded_OGWorld_ViewLeague((const uint8_t *)_selectedContest,
                                           _contestLeagueNumber);
@@ -5131,6 +5142,18 @@ void ExitSelectTeams(void)
 
     {
         uint16_t depth = _teamDepthLevel;
+#ifdef SWOS_SDL_BUILD
+        /* The 2026 DEBUG WORLD country picker must pop exactly one level.
+         * _topOfStackMark can refer to an OG list boundary, not the
+         * actual root of this modal picker. Preserve the stock branch
+         * for CLASSIC, job offers and every other OG selection menu. */
+        if(Expanded_UnemployedWorldPickerActive()) {
+            _abortSelectTeams=(uint16_t)(depth==0u);
+            _exitSelectTeams=(uint16_t)(depth!=0u);
+            fprintf(stderr,"[og-world-picker] BACK depth=%u root=%d\n",
+                    (unsigned)depth,(int)(depth==0u));
+        } else
+#endif
         if (depth == 0 || depth == _topOfStackMark)
         {
             _abortSelectTeams = 1;

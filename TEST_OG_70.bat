@@ -44,6 +44,8 @@ findstr /B /C:"OG_CUP_RESIDENT=" "%AUDIT_LOG%"
 findstr /B /C:"OG_CUPS_BEFORE_AFTER=" "%AUDIT_LOG%"
 findstr /B /C:"OG_CUP_NATIVE_MATCHES=" "%AUDIT_LOG%"
 findstr /B /C:"OG_SCORERS_BEFORE_AFTER=" "%AUDIT_LOG%"
+findstr /B /C:"OG_RESIDENT_SAVE_RELOAD=" "%AUDIT_LOG%"
+findstr /B /C:"OG_INTERNATIONAL_NATIONAL=" "%AUDIT_LOG%"
 findstr /B /C:"OG_LAST_WORLD_STEP=" "%AUDIT_LOG%"
 findstr /B /C:"OG_OFFER_NATIVE_VIEW=" "%AUDIT_LOG%"
 if "%AUDIT_EXIT%"=="1" goto failure

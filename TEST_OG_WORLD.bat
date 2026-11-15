@@ -18,9 +18,13 @@ set "MSYSTEM=MINGW64"
 set "CHERE_INVOKING=1"
 set "PATH=%MSYS_ROOT%\usr\bin;%MSYS_ROOT%\mingw64\bin;%PATH%"
 set "TEST_LOG=OG_WORLD_TEST.log"
+set "WARN_LOG=COMPILER_WARNING_AUDIT.log"
+set "SAVE_AUDIT_LOG=OG_SAVE_CONTINUITY_AUDIT.log"
 set "AUDIT_LOG=SWOS_RUNTIME_AUDIT.log"
 if defined SWOS_DIAGNOSTIC_DIR (
  set "TEST_LOG=%SWOS_DIAGNOSTIC_DIR%\OG_WORLD_TEST.log"
+ set "WARN_LOG=%SWOS_DIAGNOSTIC_DIR%\COMPILER_WARNING_AUDIT.log"
+ set "SAVE_AUDIT_LOG=%SWOS_DIAGNOSTIC_DIR%\OG_SAVE_CONTINUITY_AUDIT.log"
  set "AUDIT_LOG=%SWOS_DIAGNOSTIC_DIR%\SWOS_RUNTIME_AUDIT.log"
 )
 echo ==========================================================
@@ -28,6 +32,11 @@ echo SWOS EXPANDED - TUTTI I TEST: OG ATTUALI + LEGACY
 echo Ogni test avviato una sola volta; log individuali.
 echo Unico motore calcistico di gameplay OG.
 echo ==========================================================
+REM Keep compiler warnings as observations, not a fake PASS/fatal FAIL.
+"%MSYS_ROOT%\usr\bin\bash.exe" "sorgenti/tests/run_compiler_warning_audit.sh" > "%WARN_LOG%" 2>&1
+findstr /B /C:"COMPILER_WARNINGS=" /C:"COMPILER_WARNING_AUDIT=" /C:"WARNING_REVIEW=" "%WARN_LOG%"
+"%MSYS_ROOT%\usr\bin\bash.exe" "sorgenti/tests/run_save_continuity_audit.sh" > "%SAVE_AUDIT_LOG%" 2>&1
+findstr /B /C:"OG_CROSS_SESSION_SAVE=" /C:"SAVE_LOAD_RESULT=" "%SAVE_AUDIT_LOG%"
 "%MSYS_ROOT%\usr\bin\bash.exe" "sorgenti/tests/run_all_diagnostic_tests.sh" > "%TEST_LOG%" 2>&1
 set "STATIC_RESULT=%ERRORLEVEL%"
 type "%TEST_LOG%"

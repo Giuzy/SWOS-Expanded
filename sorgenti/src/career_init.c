@@ -962,6 +962,52 @@ static void expanded_og_world_log_audit(const char *stage,uint16_t year,
 /* Checkpoint at START, before/after stress, and across every original
  * OG season transition. A cup record is NOT a resident cup fixture; its
  * absence remains explicit. Player counters are read from OG team files. */
+/* Read-only inventory of OG's EXISTING international/national definitions
+ * and subsystem state. This intentionally does NOT instantiate tournaments,
+ * advance rounds or equate static definitions with resident competition
+ * contexts. It establishes which pieces exist before we test full fixtures. */
+static void expanded_og_external_inventory(const char *stage)
+{
+    extern Competition *_nationalTeamCompetitionsAndQualifications[39];
+    unsigned references=0,unique=0,qualifiers=0,finals=0;
+    uint8_t seen[256]={0};
+    for(unsigned i=0;i<39u;++i) {
+        const uintptr_t p=(uintptr_t)_nationalTeamCompetitionsAndQualifications[i];
+        if(!p || p==(uintptr_t)-1)break;
+        const Competition *c=(const Competition *)p;
+        const uint8_t id=(uint8_t)c->compId;
+        ++references;
+        if(!seen[id]) {
+            ++unique;
+            seen[id]=1u;
+            if(comp_is_wc_qualifier(id)||comp_is_ec_qualifier(id))++qualifiers;
+            if(id==COMPID_worldCup || id==COMPID_worldCup2 ||
+               id==COMPID_europeanChampionships ||
+               comp_is_continental_cup(id))++finals;
+        }
+        if(stage && !strcmp(stage,"START"))
+            fprintf(stderr,"[og-external-definition] kind=NATIONAL "
+                           "index=%u compId=%u type=%d "
+                           "state=DEFINITION_ONLY\n",i,(unsigned)id,(int)c->type);
+    }
+    int32_t worldCupDefinitions=0;
+    (void)World_Cups(&worldCupDefinitions);
+    fprintf(stderr,"[og-external-audit] stage=%s world=%s year=%u "
+                   "national-references=%u national-unique=%u "
+                   "qualifier-definitions=%u final-definitions=%u "
+                   "club-continental-templates=3 world-cup-definitions=%ld "
+                   "uefa-init=%u uefa-done=%u uefa-clubs=%u "
+                   "conti-mark=%u conti-season=%u "
+                   "world-cup-season-counter=%u "
+                   "national-resident=NOT_PROVEN "
+                   "international-resident=NOT_PROVEN\n",
+            stage?stage:"UNNAMED",World_Tag(),(unsigned)s_expOGWorldYear,
+            references,unique,qualifiers,finals,(long)worldCupDefinitions,
+            (unsigned)g_uefaCoef.init,(unsigned)g_uefaCoef.done,
+            (unsigned)g_uefaCoef.nClubs,
+            (unsigned)CT_ST.mark,(unsigned)CT_ST.season,
+            (unsigned)g_worldCups.seasons);
+}
 void Expanded_OGWorld_LogCheckpoint(const char *stage)
 {
     ExpandedOGWorldAudit leagues;
@@ -990,6 +1036,7 @@ void Expanded_OGWorld_LogCheckpoint(const char *stage)
             (unsigned long)scorers.player_league_goals,
             (unsigned long)scorers.standings_goals,
             (unsigned long)scorers.leagues_with_goals);
+    expanded_og_external_inventory(stage);
 }
 extern int Expanded_OGWorld_AdvanceCup(uint8_t *,uint8_t,uint8_t,uint16_t,uint8_t);
 extern uint32_t Expanded_OGWorld_CupCount(void);
@@ -1084,6 +1131,55 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                         (unsigned)year,expected,selected,
                         status>0?"RESIDENT":status<0?"UNSUPPORTED":"FAILED",
                         reason);
+                /* Important: a real-world cup's entrant list can contain
+                 * fewer teams than the OG bracket because byes and padded
+                 * grid slots are native SWOS mechanics. Read metadata only;
+                 * WorldCups_Entrants() mutates the seed list, so NEVER call
+                 * it from an audit. A valid bye format is NOT a fixture PASS.
+                 * Other underfilled selectors remain unexplained. */
+                int32_t num=0;
+                const WorldCup *rules=World_Cups(&num);
+                const WorldCup *matched=NULL;
+                for(int32_t k=0;rules && k<num;++k) {
+                    if(rules[k].country==country && rules[k].record==(const void *)cup) {
+                        matched=&rules[k];
+                        break;
+                    }
+                }
+                const unsigned real=matched?(unsigned)matched->n:0u;
+                const unsigned ties=matched?(unsigned)matched->ties:0u;
+                extern void Expanded_OGWorld_CupSetupAudit(
+                    uint8_t,uint8_t,uint16_t,unsigned *,unsigned *,unsigned *);
+                unsigned nativeBracket=0,nativeTies=0,nativePairs=0;
+                Expanded_OGWorld_CupSetupAudit(country,(uint8_t)j,year,
+                    &nativeBracket,&nativeTies,&nativePairs);
+                const int byeCandidate=matched && real==selected &&
+                    real>=2u && real<=expected && ties*2u<=real &&
+                    expected>real;
+                const int roundMatchesRule=byeCandidate &&
+                    nativeBracket==expected && nativeTies==ties &&
+                    nativePairs>=nativeTies;
+                fprintf(stderr,"[og-cup-rule] country=%u slot=%u "
+                               "compId=%u year=%u bracket=%u selected=%u "
+                               "real-entrants=%u first-round-ties=%u "
+                               "byes=%u padded-slots=%u "
+                               "native-bracket=%u native-round1-ties=%u "
+                               "native-round1-pairs=%u "
+                               "classification=%s "
+                               "round-structure=%s "
+                               "fixtures=NOT_VERIFIED_BY_RULE\n",
+                        (unsigned)country,j,(unsigned)cup->compId,
+                        (unsigned)year,expected,selected,real,ties,
+                        matched && ties*2u<=real?real-ties*2u:0u,
+                        matched && real<=expected?expected-real:0u,
+                        nativeBracket,nativeTies,nativePairs,
+                        byeCandidate?"OG_BYE_FORMAT_CANDIDATE":
+                        matched?"OG_WORLD_CUP_FORMAT_UNCONFIRMED":
+                        selected<expected?"UNEXPLAINED_UNDERFILL":
+                        selected>expected?"UNEXPLAINED_OVERFILL":
+                        "NO_SPECIAL_RULE",
+                        roundMatchesRule?"OG_ROUND1_MATCHES_RULE":
+                        "NOT_MATCHED");
             }
         }
     }

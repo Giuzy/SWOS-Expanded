@@ -4184,6 +4184,10 @@ void Expanded_AutoCareer_Save(const char *reason) {
     fprintf(stderr,"[autosave] saved %s/%s world=%s at %s\n",
             swos_save_dir(),(const char *)native,World_Tag(),
             reason?reason:"checkpoint");
+    /* Read-only native OG snapshot AFTER successful disk write. This is
+     * evidence of CURRENT RAM state, not proof it was serialized. */
+    extern void Expanded_OGWorld_LogCheckpoint(const char *);
+    Expanded_OGWorld_LogCheckpoint("SAVE_AFTER");
 }
 int Expanded_AutoCareer_Load(void) {
     if(!Expanded_AutoCareer_HasSave()) return 0;
@@ -4203,6 +4207,10 @@ int Expanded_AutoCareer_Load(void) {
     snprintf((char *)_competitionFilename,14,"%s",(const char *)source);
     fprintf(stderr,"[autosave] restored career from %s/%s world=%s\n",
             swos_save_dir(),(const char *)source,World_Tag());
+    /* The loaded calendar year can be correct even while native world
+     * contexts are absent. Report both rather than asserting save PASS. */
+    extern void Expanded_OGWorld_LogCheckpoint(const char *);
+    Expanded_OGWorld_LogCheckpoint("RESTORE_AFTER");
     return 1;
 }
 void Expanded_AutoCareer_Delete(void) {

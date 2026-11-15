@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Run every standalone source test, including old LWE regression experiments.
-# One OG runtime engine remains authoritative. This is NOT gameplay.
+# Current OG contracts only. Obsolete isolated LWE/world replay tests remain
+# in Git for provenance but are deliberately NOT EXECUTED by this runner.
+# Not an engine, not a replacement for real Windows gameplay.
 set -uo pipefail
 cd "$(dirname "$0")/../.."
 if [[ -n "${SWOS_DIAGNOSTIC_DIR:-}" ]]; then
@@ -11,61 +12,63 @@ fi
 mkdir -p "$out"
 : > "$out/ELENCO_TEST.txt"
 : > "$out/RIEPILOGO_TEST.txt"
-current_total=0; current_failed=0
-legacy_total=0; legacy_failed=0
+current_total=0; current_failed=0; excluded=0; unknown=0
 run_one() {
-    local script="$1" scope="$2" name rc logfile
-    name="${script##*/}"
-    name="${name%.sh}"
+    local script="$1" name rc logfile
+    name="${script##*/}"; name="${name%.sh}"
     logfile="$out/${name}.log"
-    printf 'TEST=%s scope=%s result=PENDING\n' "$name" "$scope" >> "$out/ELENCO_TEST.txt"
-    printf '\n[diagnostic-tests] START %s [%s]\n' "$name" "$scope"
+    printf 'TEST=%s scope=OG_CURRENT action=RUN log=%s\n' "$name" "$logfile" >> "$out/ELENCO_TEST.txt"
     if /usr/bin/bash "$script" > "$logfile" 2>&1; then
         rc=0
-        printf 'TEST=%s scope=%s status=PASS_ISOLATED_ONLY exit=%d log=%s\n' \
-            "$name" "$scope" "$rc" "$logfile" >> "$out/RIEPILOGO_TEST.txt"
-        printf '[diagnostic-tests] PASS %s\n' "$name"
+        printf 'TEST=%s scope=OG_CURRENT status=PASS_ISOLATED_ONLY log=%s\n' "$name" "$logfile" >> "$out/RIEPILOGO_TEST.txt"
+        printf '[tests-og] PASS %s\n' "$name"
     else
         rc=$?
-        printf 'TEST=%s scope=%s status=FAIL_OR_OBSOLETE exit=%d log=%s\n' \
-            "$name" "$scope" "$rc" "$logfile" >> "$out/RIEPILOGO_TEST.txt"
-        printf '[diagnostic-tests] FAIL %s exit=%d\n' "$name" "$rc"
+        printf 'TEST=%s scope=OG_CURRENT status=FAIL exit=%d log=%s\n' "$name" "$rc" "$logfile" >> "$out/RIEPILOGO_TEST.txt"
+        printf '[tests-og] FAIL %s exit=%d\n' "$name" "$rc"
+        current_failed=$((current_failed+1))
     fi
-    if [[ "$scope" == "OG_SOURCE_CHECK" ]]; then
-        current_total=$((current_total+1))
-        if ((rc)); then current_failed=$((current_failed+1)); fi
-    else
-        legacy_total=$((legacy_total+1))
-        if ((rc)); then legacy_failed=$((legacy_failed+1)); fi
-    fi
+    current_total=$((current_total+1))
 }
-# Dynamically find new/old tests without running aggregate wrappers twice.
+exclude_one() {
+    local name="${1##*/}" reason="$2"
+    excluded=$((excluded+1))
+    printf 'TEST=%s scope=HISTORICAL action=EXCLUDED reason=%s\n' "$name" "$reason" >> "$out/ELENCO_TEST.txt"
+    printf 'TEST=%s scope=HISTORICAL status=NOT_RUN_OBSOLETE reason=%s\n' "$name" "$reason" >> "$out/RIEPILOGO_TEST.txt"
+}
+# Review a newly added runner explicitly before it becomes an authority:
+# unclassified scripts do not silently run or silently pass.
 shopt -s nullglob
 for script in sorgenti/tests/run_test*.sh sorgenti/tests/run_audit_competition_formats.sh; do
     case "${script##*/}" in
-       run_test_engine_suite.sh|run_test_legacy_suite.sh) continue ;;
-       run_test_expanded_debug_only.sh|run_test_og_runtime_parser.sh|\
-       run_test_expanded_world_time.sh|run_test_native_history_occurrence.sh|\
-       run_test_expanded_midseason_join.sh|run_test_database_inventory.sh|\
-       run_audit_competition_formats.sh)
-           run_one "$script" "OG_SOURCE_CHECK" ;;
-       *)
-           run_one "$script" "LEGACY_ISOLATED" ;;
+        run_test_database_inventory.sh|run_test_expanded_debug_only.sh|\
+        run_test_expanded_midseason_join.sh|run_test_expanded_world_time.sh|\
+        run_test_native_history_occurrence.sh|run_test_og_runtime_parser.sh|\
+        run_test_expanded_phase12.sh|run_audit_competition_formats.sh|\
+        run_test_final_og_contract.sh)
+            run_one "$script" ;;
+        run_test_engine_suite.sh|run_test_legacy_suite.sh)
+            exclude_one "$script" "DUPLICATE_AGGREGATE" ;;
+        run_test_expanded_world_live.sh|run_test_living_world_70.sh|\
+        run_test_living_world_mobility.sh|run_test_real_json_world_70.sh|\
+        run_test_calendar_integrity_30.sh)
+            exclude_one "$script" "OBSOLETE_LWE_SIMULATION" ;;
+        run_test_career_init_lifecycle.sh|run_test_join_import_instrumentation.sh)
+            exclude_one "$script" "OBSOLETE_OG_LWE_WIRING_ASSUMPTION" ;;
+        run_test11_offer.sh)
+            exclude_one "$script" "OLD_ISOLATED_OFFER_HARNESS_NOT_NATIVE_RESIDENT" ;;
+        *)
+            unknown=$((unknown+1))
+            printf 'TEST=%s status=NOT_RUN_UNCLASSIFIED reason=REVIEW_REQUIRED\n' "$script" >> "$out/RIEPILOGO_TEST.txt"
+            printf 'TEST=%s scope=UNKNOWN action=NOT_RUN\n' "$script" >> "$out/ELENCO_TEST.txt" ;;
     esac
 done
-# Compatibility wrappers for the SAME audit/tests, not duplicate runs.
-printf 'TEST=audit_windows_runtime_log.sh status=ALIAS_ANALIZZA_SWOS_LOG.bat\n' >> "$out/RIEPILOGO_TEST.txt"
 printf 'TEST=TEST_LIVING_WORLD.bat status=ALIAS_TEST_OG_WORLD.bat\n' >> "$out/RIEPILOGO_TEST.txt"
-printf 'TEST=run_test_engine_suite.sh status=WRAPPER_SCRIPTS_ENUMERATED\n' >> "$out/RIEPILOGO_TEST.txt"
-printf 'TEST=run_test_legacy_suite.sh status=WRAPPER_SCRIPTS_ENUMERATED\n' >> "$out/RIEPILOGO_TEST.txt"
-printf 'TEST=F12+8_70_NATIVE_SEASONS status=REQUIRES_REAL_WINDOWS_GAMEPLAY\n' >> "$out/RIEPILOGO_TEST.txt"
-printf 'OG_SOURCE_CHECKS=%s tested=%d failed=%d\n' \
-    "$([[ $current_failed -eq 0 ]] && echo PASS || echo FAIL)" \
+printf 'TEST=audit_windows_runtime_log.sh status=ALIAS_ANALIZZA_SWOS_LOG.bat\n' >> "$out/RIEPILOGO_TEST.txt"
+printf 'OG_CURRENT_TESTS=%s tested=%d failed=%d\n' \
+    "$([[ $current_failed -eq 0 && $current_total -gt 0 ]] && echo PASS || echo FAIL)" \
     "$current_total" "$current_failed" | tee -a "$out/RIEPILOGO_TEST.txt"
-printf 'HISTORICAL_ISOLATED_TESTS=%s tested=%d failed=%d\n' \
-    "$([[ $legacy_failed -eq 0 ]] && echo PASS_ISOLATED_ONLY || echo FAIL_OR_OBSOLETE)" \
-    "$legacy_total" "$legacy_failed" | tee -a "$out/RIEPILOGO_TEST.txt"
-echo "OG_GAMEPLAY=NOT_TESTED_BY_ISOLATED_TESTS" | tee -a "$out/RIEPILOGO_TEST.txt"
-if ((current_failed)); then exit 1; fi
-# Historical failures remain visible without claiming OG gameplay failure.
+printf 'OBSOLETE_EXCLUDED=%d new-unclassified=%d\n' "$excluded" "$unknown" | tee -a "$out/RIEPILOGO_TEST.txt"
+echo 'OG_GAMEPLAY=NOT_TESTED_BY_ISOLATED_TESTS' | tee -a "$out/RIEPILOGO_TEST.txt"
+if ((current_failed || unknown || current_total==0)); then exit 1; fi
 exit 0

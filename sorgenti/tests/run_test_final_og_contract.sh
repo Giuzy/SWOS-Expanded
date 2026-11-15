@@ -11,6 +11,12 @@ grep -q 'Expanded_OGWorld_LogCheckpoint("RESTORE_AFTER")' sorgenti/src/menus.c
 grep -q 'AUTO9697.CAR' sorgenti/src/menus.c
 grep -q 'AUTO2627.CAR' sorgenti/src/menus.c
 grep -q 'WorldCups_CupMade' sorgenti/src/world_cups.c
+grep -q 'ExpandedOGCup_NativeByeLayout' sorgenti/src/career_status.c
+grep -q 'NATIVE_BYES_VERIFIED' sorgenti/src/career_status.c
+grep -q 'NATIVE DRAW VERIFIED' sorgenti/src/career_status.c
+grep -q '\[og-cup-country\]' sorgenti/src/career_init.c
+grep -q 'OG_CUP_COUNTRIES=' sorgenti/tests/audit_windows_runtime_log.c
+grep -q 'OG_CUP_START_COVERAGE=' sorgenti/tests/audit_windows_runtime_log.c
 grep -q 'WorldCups_Padded' sorgenti/src/world_cups.c
 grep -q 'OG_RESIDENT_SAVE_RELOAD=' sorgenti/tests/audit_windows_runtime_log.c
 grep -q 'OG_CUP_FORMAT_RULES=' sorgenti/tests/audit_windows_runtime_log.c

@@ -49,13 +49,18 @@ exit /b 0
 :errore_avvio
 echo.
 echo ERRORE: impossibile avviare SWOS_Expanded.exe.
-echo Controlla SWOS.log nella stessa cartella di AVVIA_SWOS.bat.
+echo Controlla SWOS.log nella cartella della sessione diagnostica.
 if not "%SWOS_DIAGNOSTIC_SESSION%"=="1" pause
 exit /b 1
 
 :errore
 echo.
 echo Il gioco non e stato avviato.
-echo Se la compilazione e fallita, invia COMPILAZIONE_0140.log.
+if defined SWOS_DIAGNOSTIC_DIR (
+ echo Log reale: %SWOS_DIAGNOSTIC_DIR%\AVVIO_COMPILAZIONE.log
+ echo Log GCC: %SWOS_DIAGNOSTIC_DIR%\COMPILAZIONE_0140.log
+) else (
+ echo Se la compilazione e fallita, invia COMPILAZIONE_0140.log.
+)
 if not "%SWOS_DIAGNOSTIC_SESSION%"=="1" pause
 exit /b 1

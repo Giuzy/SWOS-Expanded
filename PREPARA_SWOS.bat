@@ -46,7 +46,11 @@ set "SWOS_GAME_WIN=%~dp0"
 "%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash -s" < "%~dp0BUILD_SWOS.sh"
 if errorlevel 1 (
   echo.
-  echo COMPILAZIONE FALLITA: invia COMPILAZIONE_0140.log.
+  if defined SWOS_DIAGNOSTIC_DIR (
+    echo COMPILAZIONE FALLITA: %SWOS_DIAGNOSTIC_DIR%\COMPILAZIONE_0140.log
+  ) else (
+    echo COMPILAZIONE FALLITA: invia COMPILAZIONE_0140.log.
+  )
   exit /b 1
 )
 if not exist "SWOS_Expanded.exe" (

@@ -21,8 +21,22 @@ if not defined EXPECTED (
  if not "%SWOS_DIAGNOSTIC_SESSION%"=="1" pause
  exit /b 2
 )
-echo Verifica gameplay OG Windows in SWOS.log. Build attesa: %EXPECTED%.
+set "INPUT_LOG=SWOS.log"
+set "AUDIT_REPORT=SWOS_RUNTIME_AUDIT.log"
+if defined SWOS_DIAGNOSTIC_DIR (
+ set "INPUT_LOG=%SWOS_DIAGNOSTIC_DIR%\SWOS.log"
+ set "AUDIT_REPORT=%SWOS_DIAGNOSTIC_DIR%\SWOS_RUNTIME_AUDIT.log"
+)
+echo Verifica gameplay OG Windows in %INPUT_LOG%. Build attesa: %EXPECTED%.
 echo Non avvia il gioco, non modifica save, non usa dati sintetici.
+REM Mai leggere uno SWOS.log rimasto dalla build precedente dopo un errore
+REM di compilazione. Lo starter preserva i log storici in LOG_PRECEDENTI.
+if not exist "%INPUT_LOG%" (
+ > "%AUDIT_REPORT%" echo RUNTIME_LOG=NOT_TESTED current-session-SWOS.log-missing
+ >> "%AUDIT_REPORT%" echo OVERALL=INCOMPLETE
+ type "%AUDIT_REPORT%"
+ exit /b 2
+)
 REM Parser C portatile: non richiede awk, Python, PowerShell o nuovi tool.
 REM Compila con lo STESSO compilatore MinGW del gioco, in %%TEMP%%.
 set "AUDIT_BIN=%MSYS_ROOT%\mingw64\bin"
@@ -44,9 +58,7 @@ if errorlevel 1 (
  if not "%SWOS_DIAGNOSTIC_SESSION%"=="1" pause
  exit /b 2
 )
-set "AUDIT_REPORT=SWOS_RUNTIME_AUDIT.log"
-if defined SWOS_DIAGNOSTIC_DIR set "AUDIT_REPORT=%SWOS_DIAGNOSTIC_DIR%\SWOS_RUNTIME_AUDIT.log"
-"%AUDIT_EXE%" "SWOS.log" "%EXPECTED%" > "%AUDIT_REPORT%" 2>&1
+"%AUDIT_EXE%" "%INPUT_LOG%" "%EXPECTED%" > "%AUDIT_REPORT%" 2>&1
 set "RESULT=%ERRORLEVEL%"
 if exist "%AUDIT_EXE%" del /q "%AUDIT_EXE%" >nul 2>&1
 type "%AUDIT_REPORT%"

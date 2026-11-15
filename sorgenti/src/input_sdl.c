@@ -144,6 +144,20 @@ extern volatile uint16_t _keyCount;
  *
  * Deliberately NOT mapped: A and B (play), the D-pad and sticks (direction), the
  * shoulder buttons (below), and GUIDE — which is HOME on a Switch and belongs to the system. */
+/* Only the unemployed DEBUG WORLD picker consumes B as genuine BACK.
+ * Do not alter the A/B behavior of the original match or other OG menus. */
+static int s_debugWorldPickerBackPending;
+extern int Expanded_UnemployedWorldPickerActive(void);
+int InputSDL_ConsumeDebugWorldPickerBack(void)
+{
+    const int v=s_debugWorldPickerBackPending;
+    s_debugWorldPickerBackPending=0;
+    return v;
+}
+void InputSDL_ClearDebugWorldPickerBack(void)
+{
+    s_debugWorldPickerBackPending=0;
+}
 static const struct { int button; uint8_t akey; const char *what; } k_padKeys[] = {
     { SDL_CONTROLLER_BUTTON_BACK,          0x21, "S   statistics"               },
     { SDL_CONTROLLER_BUTTON_Y,             0x13, "R   instant replay"           },
@@ -1019,6 +1033,13 @@ void InputSDL_HandleEvent(const SDL_Event *e)
             Expanded_BusinessBack();
             break;
         }
+        /* Queue a BACK for the menu engine, not a FIRE on the selected
+         * country/competition. Never call an OG menu callback in SDL poll. */
+        if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B &&
+           Expanded_UnemployedWorldPickerActive()) {
+            s_debugWorldPickerBackPending=1;
+            break;
+        }
         /* A fire button of player 1's pad went down (the latch and the recording's
          * evidence, above). A plain joystick has no such event and is read as before. */
         if ((e->cbutton.button == SDL_CONTROLLER_BUTTON_A || e->cbutton.button == SDL_CONTROLLER_BUTTON_B) &&
@@ -1152,9 +1173,12 @@ static void read_device_state(int d,
         if (SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_DPAD_RIGHT)) *right = 1;
         if (SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_A) ||
             (!Expanded_UI_IsBusinessScreen() && !input_on_title_first_level() &&
+             !Expanded_UnemployedWorldPickerActive() &&
              SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B)))
             *_fire = 1;
-        if (skip && !input_on_title_first_level() && SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))
+        if (skip && !input_on_title_first_level() &&
+            !Expanded_UnemployedWorldPickerActive() &&
+            SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))
             *skip = 1;
         return;
     }

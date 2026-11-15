@@ -10,6 +10,22 @@
 #include <stdint.h>
 
 #define LINE_CAP 8192
+static long field(const char *,const char *,long);
+typedef struct {
+    int seen;
+    long cup_definitions,cup_resident;
+    long scorer_players,scorer_positive,scorer_goals,standings_goals;
+} FeatureSnapshot;
+static void feature_read(FeatureSnapshot *out,const char *line)
+{
+    out->seen=1;
+    out->cup_definitions=field(line,"cup-definitions",-1);
+    out->cup_resident=field(line,"cup-resident",-1);
+    out->scorer_players=field(line,"scorer-players",-1);
+    out->scorer_positive=field(line,"scorer-positive",-1);
+    out->scorer_goals=field(line,"scorer-league-goals",-1);
+    out->standings_goals=field(line,"standings-goals",-1);
+}
 static long field(const char *s,const char *key,long fallback)
 {
     char needle[80];
@@ -49,8 +65,14 @@ int main(int argc,char **argv)
     long prev_year=-1,prev_phase=-1;
     long season_closes=0,season_opens=0,season_failures=0;
     long og_stress_started=0,og_stress_finished=0,og_stress_date_exact=0;
-    long og_stress_armed=0;
+    long og_stress_armed=0,stress_steps=0,stress_closes=0,stress_opens=0;
+    long last_step_number=0,og_career_sessions=0;
     unsigned start_year=0,start_month=0,start_day=0;
+    long last_op_year=-1,last_op_phase=-1,last_op_country=-1,last_op_division=-1;
+    int pending_native_step=0;
+    FeatureSnapshot feature_before={0},feature_after={0},feature_start={0};
+    FeatureSnapshot offer_before={0},offer_after={0};
+    long offer_native_views=0,offer_view_failures=0;
     int have_audit=0,after_start=0;
     if(!in) {
         puts("RUNTIME_LOG=NOT_TESTED reason=SWOS.log_missing");
@@ -64,6 +86,32 @@ int main(int argc,char **argv)
             char value[80];
             if(sscanf(line,"[build] SWOS Expanded %79s",value)==1)
                 snprintf(build,sizeof build,"%s",value);
+        }
+        /* A new career resets the resident OG world before any START TICK.
+         * The old parser reset only on START READY (too late), creating the
+         * observed false OG_DATE_REWIND across two NEW CAREER operations. */
+        if(tag(line,"[og-career] RESET")) {
+            ++og_career_sessions;
+            start_ready=start_audit=ticks=0;
+            leagues=played=completed=matches=countries=invalid=0;
+            cup_defs=cup_countries=cup_resident=yearend=0;
+            views=view_missing=binds=career_saves=career_loads=0;
+            f12_main=f12_cups=f10_data=0;
+            picker_backs=picker_pops=picker_unmatched=0;
+            native_faults=regressions=0;log_year=log_phase=-1;
+            prev_year=prev_phase=-1;
+            season_closes=season_opens=season_failures=0;
+            og_stress_started=og_stress_finished=og_stress_date_exact=0;
+            og_stress_armed=stress_steps=stress_closes=stress_opens=0;
+            last_step_number=0;
+            start_year=start_month=start_day=0;
+            have_audit=after_start=0;
+            feature_before.seen=feature_after.seen=feature_start.seen=0;
+            offer_before.seen=offer_after.seen=0;
+            offer_native_views=offer_view_failures=0;
+            last_op_year=last_op_phase=last_op_country=last_op_division=-1;
+            pending_native_step=0;
+            first[0]=0;
         }
         if(tag(line,"[og-world] START READY:")) {
             unsigned cy=0,cm=0,cd=0;
@@ -122,6 +170,7 @@ int main(int argc,char **argv)
          * Expanded_OGWorld_AdvanceToDate. Do NOT count old LWE suites. */
         if(tag(line,"[og-season-transition] CLOSE")) {
             ++season_closes;
+            if(og_stress_started && !og_stress_finished)++stress_closes;
             if(field(line,"native-matches",0)<=0 ||
                field(line,"resident-leagues",0)<=0 ||
                field(line,"played-leagues",0)<=0 ||
@@ -132,6 +181,7 @@ int main(int argc,char **argv)
         }
         if(tag(line,"[og-season-transition] OPEN")) {
             ++season_opens;
+            if(og_stress_started && !og_stress_finished)++stress_opens;
             if(field(line,"resident-leagues",0)<=0 ||
                field(line,"invalid",1)!=0) {
                 ++season_failures;
@@ -143,13 +193,66 @@ int main(int argc,char **argv)
             remember(first,sizeof first,"OG_SEASON_TRANSITION_FAILED",rows,line);
         }
         if(tag(line,"[og-stress] ARMED years=70"))++og_stress_armed;
-        if(tag(line,"[og-stress] START years=70"))++og_stress_started;
+        if(tag(line,"[og-stress] START years=70")) {
+            ++og_stress_started;
+            stress_steps=stress_closes=stress_opens=0;
+            last_step_number=0;
+            feature_after.seen=0; /* BEFORE checkpoint is logged before START */
+        }
+        if(tag(line,"[og-stress] STEP")) {
+            const long num=field(line,"number",-1);
+            ++stress_steps;
+            if(num!=stress_steps || num>70) {
+                ++season_failures;
+                remember(first,sizeof first,"OG_STRESS_STEP_ORDER",rows,line);
+            }
+            last_step_number=num;
+        }
+        if(tag(line,"[og-stress] FAILED") ||
+           tag(line,"[og-stress] ARM FAILED")) {
+            ++season_failures;
+            remember(first,sizeof first,"OG_STRESS_FAILED",rows,line);
+        }
+        if(tag(line,"[og-feature-audit] ")) {
+            if(strstr(line,"stage=START "))feature_read(&feature_start,line);
+            if(strstr(line,"stage=STRESS_BEFORE "))feature_read(&feature_before,line);
+            if(strstr(line,"stage=STRESS_AFTER "))feature_read(&feature_after,line);
+            if(strstr(line,"stage=OFFER_BEFORE "))feature_read(&offer_before,line);
+            if(strstr(line,"stage=OFFER_AFTER "))feature_read(&offer_after,line);
+        }
+        if(tag(line,"[og-world-step] BEGIN")) {
+            pending_native_step=1;
+            last_op_year=field(line,"year",-1);
+            last_op_phase=field(line,"phase",-1);
+            last_op_country=field(line,"country",-1);
+            last_op_division=field(line,"division",-1);
+        }
+        if(tag(line,"[og-world-step] END")) {
+            if(pending_native_step &&
+               last_op_year==field(line,"year",-2) &&
+               last_op_phase==field(line,"phase",-2) &&
+               last_op_country==field(line,"country",-2) &&
+               last_op_division==field(line,"division",-2))
+                pending_native_step=0;
+            else {
+                ++season_failures;
+                remember(first,sizeof first,"OG_WORLD_STEP_MISMATCH",rows,line);
+            }
+        }
         if(tag(line,"[og-stress] FINISHED years=70")) {
             ++og_stress_finished;
             if(field(line,"exact",0)==1)++og_stress_date_exact;
             else {
                 ++season_failures;
                 remember(first,sizeof first,"OG_70_YEAR_DATE_MISMATCH",rows,line);
+            }
+        }
+        if(tag(line,"[og-offer-view] RESIDENT")) {
+            ++offer_native_views;
+            if(field(line,"unchanged",0)!=1 ||
+               field(line,"ok",0)!=1) {
+                ++offer_view_failures;
+                remember(first,sizeof first,"OG_OFFER_VIEW_MUTATION",rows,line);
             }
         }
         if(tag(line,"[og-world-view] READ ONLY"))++views;
@@ -189,11 +292,20 @@ int main(int argc,char **argv)
     fclose(in);
     if(og_stress_started &&
        (og_stress_started!=og_stress_finished ||
-        season_closes<og_stress_finished*70 ||
-        season_opens<og_stress_finished*70)) {
+        stress_closes<og_stress_finished*70 ||
+        stress_opens<og_stress_finished*70 ||
+        stress_steps<og_stress_finished*70)) {
         ++season_failures;
         remember(first,sizeof first,"OG_70_YEAR_TEST_INCOMPLETE",
                  rows,"70 OG year transition closes/opens absent or unfinished");
+    }
+    if(offer_before.seen && offer_after.seen &&
+       (offer_before.cup_resident!=offer_after.cup_resident ||
+        offer_before.scorer_goals!=offer_after.scorer_goals ||
+        offer_before.standings_goals!=offer_after.standings_goals)) {
+        ++offer_view_failures;
+        remember(first,sizeof first,"OG_OFFER_FEATURES_MUTATED",
+                 rows,"Offer viewer changed resident OG cups/scorer totals");
     }
     if(picker_unmatched) {
         ++regressions;
@@ -222,19 +334,60 @@ int main(int argc,char **argv)
            !season_failures?"OBSERVED":season_failures?"FAIL":"NOT_TESTED",
            season_closes,season_opens,season_failures);
     printf("OG_70_NATIVE_SEASONS=%s armed=%ld started=%ld finished=%ld "
-           "closed=%ld opened=%ld exact-dates=%ld\n",
+           "closed=%ld opened=%ld steps=%ld exact-dates=%ld\n",
            og_stress_finished>0 && og_stress_finished==og_stress_started &&
            og_stress_date_exact==og_stress_finished &&
-           season_closes>=og_stress_finished*70 &&
-           season_opens>=og_stress_finished*70 &&
-           !season_failures && !native_faults ?
+           stress_closes==og_stress_finished*70 &&
+           stress_opens==og_stress_finished*70 &&
+           stress_steps==og_stress_finished*70 &&
+           last_step_number==70 &&
+           !season_failures && !native_faults && !regressions ?
              "PASS_TRANSITIONS_ONLY" :
            og_stress_started && season_failures?"FAIL":
            "NOT_TESTED",
            og_stress_armed,og_stress_started,og_stress_finished,
-           season_closes,season_opens,og_stress_date_exact);
+           stress_closes,stress_opens,stress_steps,og_stress_date_exact);
+    printf("OG_LAST_WORLD_STEP=%s year=%ld phase=%ld country=%ld division=%ld\n",
+           pending_native_step?"NO_END_RECORDED":"NONE_PENDING",
+           last_op_year,last_op_phase,last_op_country,last_op_division);
+    printf("OG_CUPS_BEFORE_AFTER=%s before=%ld after=%ld definitions=%ld\n",
+           feature_before.seen && feature_after.seen ?
+             (feature_before.cup_resident==0 && feature_after.cup_resident==0?
+             "NOT_IMPLEMENTED":"RESIDENT_CONTEXTS_PRESENT") :
+           feature_before.seen?"AFTER_MISSING":"NOT_TESTED",
+           feature_before.seen?feature_before.cup_resident:-1,
+           feature_after.seen?feature_after.cup_resident:-1,
+           feature_start.seen?feature_start.cup_definitions:-1);
+    printf("OG_SCORERS_BEFORE_AFTER=%s players-before=%ld "
+           "goals-before=%ld standings-before=%ld "
+           "players-after=%ld goals-after=%ld standings-after=%ld\n",
+           feature_before.seen && feature_after.seen?
+              (feature_after.standings_goals>0 && feature_after.scorer_goals==0?
+               "PLAYER_COUNTERS_EMPTY":"NATIVE_COUNTERS_OBSERVED") :
+           feature_before.seen?"AFTER_MISSING":"NOT_TESTED",
+           feature_before.seen?feature_before.scorer_players:-1,
+           feature_before.seen?feature_before.scorer_goals:-1,
+           feature_before.seen?feature_before.standings_goals:-1,
+           feature_after.seen?feature_after.scorer_players:-1,
+           feature_after.seen?feature_after.scorer_goals:-1,
+           feature_after.seen?feature_after.standings_goals:-1);
+    puts("OG_TOP_GOAL_SCORERS_VIEWER=NOT_PROVED_BY_NATIVE_COUNTERS");
     puts("OG_RETIREMENTS=NOT_TESTED (manager/player lifecycle separate)");
     puts("OG_70_SAVE_RELOAD=NOT_TESTED");
+    printf("OG_OFFER_NATIVE_VIEW=%s calls=%ld failures=%ld\n",
+           offer_view_failures?"FAIL":offer_native_views?"READ_ONLY_OBSERVED":"NOT_TESTED",
+           offer_native_views,offer_view_failures);
+    printf("OG_OFFER_CUPS_SCORERS_BEFORE_AFTER=%s "
+           "cup-before=%ld cup-after=%ld goals-before=%ld goals-after=%ld\n",
+           offer_before.seen&&offer_after.seen?
+             (offer_before.cup_resident==offer_after.cup_resident &&
+              offer_before.scorer_goals==offer_after.scorer_goals &&
+              offer_before.standings_goals==offer_after.standings_goals?
+               "UNCHANGED":"CHANGED"):"NOT_TESTED",
+           offer_before.seen?offer_before.cup_resident:-1,
+           offer_after.seen?offer_after.cup_resident:-1,
+           offer_before.seen?offer_before.scorer_goals:-1,
+           offer_after.seen?offer_after.scorer_goals:-1);
     printf("OG_VIEW=OBSERVED_READ_ONLY views=%ld missing=%ld\n",
            views,view_missing);
     printf("OG_MANAGER_BIND=%s events=%ld\n",binds?"OBSERVED":"NOT_TESTED",binds);
@@ -253,14 +406,14 @@ int main(int argc,char **argv)
     puts("OG_FULL_RESIDENT_SAVE=NOT_TESTED");
     printf("F12_OG_CAPTURE=main:%ld cups:%ld data:%ld\n",
            f12_main,f12_cups,f10_data);
-    printf("OG_NATIVE_FAULTS=%ld CHECK_FAILURES=%ld\n",native_faults,regressions);
+    printf("OG_NATIVE_FAULTS=%ld CHECK_FAILURES=%ld SESSIONS=%ld\n",native_faults,regressions,og_career_sessions);
     if(first[0])printf("FIRST_RUNTIME_FAILURE: %s\n",first);
     if(!correct_build) {
         puts("WINDOWS_OG_INTEGRATION=INCOMPLETE reason=BUILD_MISMATCH");
         puts("OVERALL=INCOMPLETE");
         return 2;
     }
-    if(native_faults||regressions||season_failures) {
+    if(native_faults||regressions||season_failures||offer_view_failures) {
         puts("WINDOWS_OG_INTEGRATION=FAIL");
         puts("OVERALL=FAIL");
         return 1;

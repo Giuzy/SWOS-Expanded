@@ -1848,6 +1848,24 @@ void MenuProc(void)
             s_expandedModalReturnLatch = 0;
         }
     }
+    /* DEBUG WORLD country selector: B/ESC/BACKSPACE is a single-level
+     * BACK event. The next SelectTeamsFinalMenu iteration pops its native
+     * country stack; only its root abort goes back to UNEMPLOYED. */
+    {
+        extern int Expanded_UnemployedWorldPickerActive(void);
+        extern int InputSDL_ConsumeDebugWorldPickerBack(void);
+        extern uint8_t _selectTeamsMenu[];
+        if(Expanded_UnemployedWorldPickerActive() &&
+           _currentMenuPtr==(uintptr_t)_selectTeamsMenu) {
+            const int back=InputSDL_ConsumeDebugWorldPickerBack();
+            if(back || _currentKey==27 || _currentKey==127 || _currentKey==8) {
+                extern void ExitSelectTeams(void);
+                ExitSelectTeams();
+                _fire=_shortFire=_pl1Fire=0;
+                return;
+            }
+        }
+    }
     /* Expanded modal dialogs: ESC or Backspace must ALWAYS return to the
      * caller, regardless of the selected row or joystick state.  The stock
      * menu engine does not assign a global ESC action to custom menus. */
@@ -1893,6 +1911,10 @@ void MenuProc(void)
 #endif
     MenuInputInjectPoint();   /* stable harness input-injection anchor — break here by SYMBOL */
 #ifdef SWOS_SDL_BUILD
+    /* One native 70-year stress step per menu frame. Deliberately do not
+     * keep processing player controls when an OG year was advanced. */
+    { extern int Expanded_OGStress_Tick(void);
+      if(Expanded_OGStress_Tick())return; }
     { extern void CareerAutopilot_Tick(void); CareerAutopilot_Tick(); }  /* --career-golden */
     /* Native catch-up after the first job offer follows the SAME regular
      * NEXT MATCH / VIEW RESULT menu handlers as the golden career harness.

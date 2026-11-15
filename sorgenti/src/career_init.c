@@ -954,6 +954,34 @@ static void expanded_og_world_log_audit(const char *stage,uint16_t year,
             (unsigned long)cups.resident_cups,
             (unsigned long)cups.completed_year_callbacks);
 }
+/* Checkpoint at START, before/after stress, and across every original
+ * OG season transition. A cup record is NOT a resident cup fixture; its
+ * absence remains explicit. Player counters are read from OG team files. */
+void Expanded_OGWorld_LogCheckpoint(const char *stage)
+{
+    ExpandedOGWorldAudit leagues;
+    ExpandedOGCupAudit cups;
+    ExpandedOGScorerAudit scorers;
+    Expanded_OGWorld_Audit(&leagues);
+    Expanded_OGWorld_CupAudit(&cups);
+    Expanded_OGWorld_ScorerAudit(&scorers);
+    fprintf(stderr,"[og-feature-audit] stage=%s year=%u "
+                   "resident-leagues=%lu native-matches=%lu "
+                   "cup-definitions=%lu cup-resident=%lu "
+                   "scorer-players=%lu scorer-positive=%lu "
+                   "scorer-league-goals=%lu standings-goals=%lu "
+                   "scorer-leagues-with-goals=%lu\n",
+            stage?stage:"UNNAMED",(unsigned)s_expOGWorldYear,
+            (unsigned long)leagues.resident_leagues,
+            (unsigned long)leagues.native_matches,
+            (unsigned long)cups.domestic_definitions,
+            (unsigned long)cups.resident_cups,
+            (unsigned long)scorers.players,
+            (unsigned long)scorers.players_with_league_goals,
+            (unsigned long)scorers.player_league_goals,
+            (unsigned long)scorers.standings_goals,
+            (unsigned long)scorers.leagues_with_goals);
+}
 static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
     const uint8_t *countries=World_SeasonCountries();
     if(!countries) {
@@ -977,10 +1005,21 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
             if(!FixtureRounds_Real(league->divisions[d].teams)) {
                 ++skipped;continue;
             }
+            extern unsigned Expanded_OGStress_Remaining(void);
+            if(Expanded_OGStress_Remaining())
+                fprintf(stderr,"[og-world-step] BEGIN year=%u phase=%u "
+                               "country=%u division=%u\n",
+                        (unsigned)year,(unsigned)phase,
+                        (unsigned)country,d);
             if(Expanded_OGWorld_AdvanceLeague((uint8_t *)rec,
-                                              country,(uint8_t)d,year,phase))
+                                              country,(uint8_t)d,year,phase)) {
                 ++ok;
-            else {
+                if(Expanded_OGStress_Remaining())
+                    fprintf(stderr,"[og-world-step] END year=%u phase=%u "
+                                   "country=%u division=%u\n",
+                            (unsigned)year,(unsigned)phase,
+                            (unsigned)country,d);
+            } else {
                 ++failed;
                 fprintf(stderr,"[og-world] LEAGUE ERROR country=%u "
                                "division=%u year=%u phase=%u\n",
@@ -998,6 +1037,9 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
     return ok!=0 && failed==0;
 }
 int Expanded_OGWorld_Start(void) {
+    /* This explicit boundary prevents consecutive careers in one SWOS.log
+     * from being misclassified as a native calendar rewind. */
+    fprintf(stderr,"[og-career] RESET new-career-start\n");
     Expanded_OGWorld_Reset();
     s_expOGWorldStarted=0;
     s_expOGWorldYear=World_FirstYear();
@@ -1040,6 +1082,7 @@ int Expanded_OGWorld_Start(void) {
             (unsigned)initial.today.day,(unsigned)phase,
             (unsigned long)Expanded_OGWorld_LeagueCount());
     expanded_og_world_log_audit("START",s_expOGWorldYear,phase);
+    Expanded_OGWorld_LogCheckpoint("START");
     return 1;
 }
 int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
@@ -1061,6 +1104,7 @@ int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
                 (unsigned long)closing.leagues_with_matches,
                 (unsigned long)closing.native_matches,
                 (unsigned long)closing.invalid_contexts);
+        Expanded_OGWorld_LogCheckpoint("SEASON_CLOSE");
         if(!closing.resident_leagues || !closing.leagues_with_matches ||
            !closing.native_matches || closing.invalid_contexts) {
             fprintf(stderr,"[og-season-transition] FAIL CLOSE year=%u "
@@ -1078,6 +1122,7 @@ int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
                 (unsigned)s_expOGWorldYear,
                 (unsigned long)opening.resident_leagues,
                 (unsigned long)opening.invalid_contexts);
+        Expanded_OGWorld_LogCheckpoint("SEASON_OPEN");
         if(!opening.resident_leagues || opening.invalid_contexts) {
             fprintf(stderr,"[og-season-transition] FAIL OPEN year=%u "
                            "missing/invalid OG league states\n",

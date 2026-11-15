@@ -594,3 +594,9 @@ Le competizioni OG non si ricreano alla firma; la routine Expanded di binding de
 - Test diagnostico F12+8 disponibile SOLO durante UNEMPLOYED: arma una progressione di 70 anni civili, eseguita dal successivo FORWARD TIME attraverso lo stesso `Expanded_OGWorld_AdvanceToDate` delle normali partite. Non usa il simulatore LWE, non fabbrica risultati. Per evitare risultati fittizi retrodatati, SOLTANTO nel test F12+8 si saltano i vecchi callback di coppa a fine anno (coppe OG residenti non ancora implementate).
 - Il test cambia realmente lo stato e la data del mondo: si usa SOLO su nuova carriera di prova senza salvataggi importanti; non e' un test read-only, non autorizza cancellazioni automatiche.
 - Ad ogni chiusura ed apertura annuale si registrano `[og-season-transition] CLOSE/OPEN` con veri contesti OG e match reali; il BAT `TEST_OG_70.bat` valuta 70 passaggi e data esatta tramite `SWOS.log`. Le pensioni dei giocatori e l'eta' manager (85) sono FUTURI controlli autonomi: un salto disoccupato non li dimostra. Le coppe residenti e il save globale restano NON PROVATO.
+
+### 15/11/2026 — diagnostica 0.13.48
+- F12+8 sul mondo OG: per evitare una singola chiamata di 70 anni, usare un anno nativo per iterazione del menu con data civile committata dopo ciascun anno. Non inventare incontri; non dichiarare risolto il crash finché il test Windows non arriva a FINISHED.
+- Nei controlli cup, distinguere DEFINIZIONI OG da COPPE RESIDENTI. I contatori di goalStats[0] dei calciatori OG non certificano la UI TOP GOAL SCORERS. Le fixture sintetiche del solo parser non sono test del gioco.
+- BACK del selettore DEBUG WORLD disoccupato via B o ESC/BACKSPACE: un livello per pressione. Il pad B non equivale a FIRE mentre quel selettore è attivo; CLASSIC e partita rimangono OG.
+- VIEW COMPETITIONS da una offerta usa direttamente paese/divisione/anno dello stesso OG residente; nessuna seconda simulazione; controlli read-only prima/dopo.

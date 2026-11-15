@@ -24,7 +24,8 @@ echo Gameplay: si legge il SWOS.log creato dal gioco Windows reale.
 echo Per produrre il log usa AVVIA_DIAGNOSTICA.bat.
 echo Test 70 stagioni OG: F12+8 poi FORWARD TIME in UNEMPLOYED.
 echo E' un salto REALE della carriera: usare un nuovo test, non il save abituale.
-echo Leggere OG_70_NATIVE_SEASONS nel rapporto runtime.
+echo Leggere OG_70_NATIVE_SEASONS e i confronti OG_CUPS / OG_SCORERS.
+echo Il test dedicato e' TEST_OG_CUPS_SCORERS.bat.
 echo ===========================================================
 "%MSYS_ROOT%\usr\bin\bash.exe" -c "bash sorgenti/tests/run_test_engine_suite.sh" > "OG_WORLD_TEST.log" 2>&1
 set "STATIC_RESULT=%ERRORLEVEL%"

@@ -8,7 +8,8 @@ echo ===========================================================
 echo Questo BAT non inventa partite e non simula il mondo LWE.
 echo Per generare dati: AVVIA_DIAGNOSTICA.bat - nuova carriera
 echo UNEMPLOYED - F12+8 - chiudi F12 - FORWARD TIME una volta.
-echo Il salto AVANZA LA CARRIERA REALE. Non usare save importanti.
+echo Il salto AVANZA LA CARRIERA REALE, un anno OG per fotogramma.
+echo Non usare save importanti.
 echo Il gioco deve completare il test e uscire normalmente.
 echo Ora analizzo solo SWOS.log presente: non avvio un'altra carriera.
 echo ===========================================================
@@ -23,6 +24,10 @@ findstr /B /C:"OG_SEASON_TRANSITIONS=" "SWOS_RUNTIME_AUDIT.log"
 findstr /B /C:"OG_70_NATIVE_SEASONS=" "SWOS_RUNTIME_AUDIT.log"
 findstr /B /C:"OG_RETIREMENTS=" "SWOS_RUNTIME_AUDIT.log"
 findstr /B /C:"OG_CUP_RESIDENT=" "SWOS_RUNTIME_AUDIT.log"
+findstr /B /C:"OG_CUPS_BEFORE_AFTER=" "SWOS_RUNTIME_AUDIT.log"
+findstr /B /C:"OG_SCORERS_BEFORE_AFTER=" "SWOS_RUNTIME_AUDIT.log"
+findstr /B /C:"OG_LAST_WORLD_STEP=" "SWOS_RUNTIME_AUDIT.log"
+findstr /B /C:"OG_OFFER_NATIVE_VIEW=" "SWOS_RUNTIME_AUDIT.log"
 if "%AUDIT_EXIT%"=="1" goto failure
 findstr /B /C:"RUNTIME_LOG=READ" "SWOS_RUNTIME_AUDIT.log" | findstr /C:"scope=CURRENT_BUILD" >nul
 if errorlevel 1 goto incomplete

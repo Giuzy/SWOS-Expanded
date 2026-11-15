@@ -1063,6 +1063,28 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                         (unsigned)country,j,(unsigned)cup->compId,
                         (unsigned)year,(unsigned)phase);
             }
+            /* Audit each ORIGINAL domestic cup definition by country/slot,
+             * not by non-unique compId. This only reads existing OG setup:
+             * an undersized native team selection is NOT filled by a
+             * separate simulator or silently counted as supported. */
+            if(phase==0u) {
+                extern unsigned Expanded_OGWorld_CupSelectedTeams(
+                    uint8_t,uint8_t,uint16_t);
+                extern const char *Expanded_OGWorld_CupCoverageReason(
+                    uint8_t,uint8_t,uint16_t,unsigned);
+                const unsigned expected=(unsigned)((const CompCupHeader *)cup)->teams;
+                const unsigned selected=Expanded_OGWorld_CupSelectedTeams(
+                    country,(uint8_t)j,year);
+                const char *reason=Expanded_OGWorld_CupCoverageReason(
+                    country,(uint8_t)j,year,expected);
+                fprintf(stderr,"[og-cup-coverage] country=%u slot=%u "
+                               "compId=%u year=%u expected=%u selected=%u "
+                               "state=%s reason=%s\n",
+                        (unsigned)country,j,(unsigned)cup->compId,
+                        (unsigned)year,expected,selected,
+                        status>0?"RESIDENT":status<0?"UNSUPPORTED":"FAILED",
+                        reason);
+            }
         }
     }
     /* Same native season/phase as every league, once for each country's

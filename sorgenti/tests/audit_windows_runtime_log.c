@@ -10,12 +10,17 @@
 #include <stdint.h>
 
 #define LINE_CAP 8192
+#define MAX_CUP_COVERAGE 256u
 static long field(const char *,const char *,long);
 typedef struct {
     int seen;
     long cup_definitions,cup_resident,cup_matches,cup_unsupported,cup_faults;
     long scorer_players,scorer_positive,scorer_goals,standings_goals;
 } FeatureSnapshot;
+typedef struct {
+    long country,slot,compid,year,expected,selected;
+    char state[24],reason[64];
+} CupCoverageRecord;
 static void feature_read(FeatureSnapshot *out,const char *line)
 {
     out->seen=1;
@@ -76,6 +81,11 @@ int main(int argc,char **argv)
     FeatureSnapshot feature_before={0},feature_after={0},feature_start={0};
     FeatureSnapshot offer_before={0},offer_after={0};
     long offer_native_views=0,offer_view_failures=0;
+    long scorer_resident_views=0,scorer_local_views=0,scorer_resident_players=0;
+    long viewer_back=0,picker_back_events=0;
+    CupCoverageRecord cup_coverage[MAX_CUP_COVERAGE];
+    unsigned cup_coverage_count=0;
+    long cup_coverage_year=-1;
     int have_audit=0,after_start=0;
     if(!in) {
         puts("RUNTIME_LOG=NOT_TESTED reason=SWOS.log_missing");
@@ -112,6 +122,9 @@ int main(int argc,char **argv)
             feature_before.seen=feature_after.seen=feature_start.seen=0;
             offer_before.seen=offer_after.seen=0;
             offer_native_views=offer_view_failures=0;
+            scorer_resident_views=scorer_local_views=scorer_resident_players=0;
+            viewer_back=picker_back_events=0;
+            cup_coverage_count=0;cup_coverage_year=-1;
             last_op_year=last_op_phase=last_op_country=last_op_division=-1;
             pending_native_step=0;
             first[0]=0;
@@ -216,6 +229,37 @@ int main(int argc,char **argv)
             ++season_failures;
             remember(first,sizeof first,"OG_STRESS_FAILED",rows,line);
         }
+        if(tag(line,"[og-cup-coverage] ")) {
+            const long year=field(line,"year",-1);
+            if(year>cup_coverage_year) {
+                cup_coverage_year=year;
+                cup_coverage_count=0;
+            }
+            if(year==cup_coverage_year &&
+               cup_coverage_count<MAX_CUP_COVERAGE) {
+                CupCoverageRecord *c=&cup_coverage[cup_coverage_count++];
+                memset(c,0,sizeof(*c));
+                c->country=field(line,"country",-1);
+                c->slot=field(line,"slot",-1);
+                c->compid=field(line,"compId",-1);
+                c->year=year;
+                c->expected=field(line,"expected",-1);
+                c->selected=field(line,"selected",-1);
+                const char *p=strstr(line,"state=");
+                if(p)sscanf(p+6,"%23s",c->state);
+                p=strstr(line,"reason=");
+                if(p)sscanf(p+7,"%63s",c->reason);
+            }
+        }
+        if(tag(line,"[og-scorers-view] ")) {
+            if(strstr(line,"source=RESIDENT_OG")) {
+                ++scorer_resident_views;
+                scorer_resident_players=field(line,"players-with-league-goals",-1);
+            } else if(strstr(line,"source=LOCAL_UNVERIFIED"))
+                ++scorer_local_views;
+        }
+        if(tag(line,"[og-world-back] VIEWER EXIT"))++viewer_back;
+        if(tag(line,"[og-world-back] PAD B queued"))++picker_back_events;
         if(tag(line,"[og-feature-audit] ")) {
             if(strstr(line,"stage=START "))feature_read(&feature_start,line);
             if(strstr(line,"stage=STRESS_BEFORE "))feature_read(&feature_before,line);
@@ -250,10 +294,9 @@ int main(int argc,char **argv)
                 remember(first,sizeof first,"OG_70_YEAR_DATE_MISMATCH",rows,line);
             }
         }
-        if(tag(line,"[og-offer-view] RESIDENT")) {
+        if(tag(line,"[og-offer-view] SELECT")) {
             ++offer_native_views;
-            if(field(line,"unchanged",0)!=1 ||
-               field(line,"ok",0)!=1) {
+            if(field(line,"ok",0)!=1) {
                 ++offer_view_failures;
                 remember(first,sizeof first,"OG_OFFER_VIEW_MUTATION",rows,line);
             }
@@ -391,7 +434,12 @@ int main(int argc,char **argv)
            feature_after.seen?feature_after.scorer_players:-1,
            feature_after.seen?feature_after.scorer_goals:-1,
            feature_after.seen?feature_after.standings_goals:-1);
-    puts("OG_TOP_GOAL_SCORERS_VIEWER=NOT_PROVED_BY_NATIVE_COUNTERS");
+    printf("OG_TOP_GOAL_SCORERS_VIEWER=%s resident-views=%ld "
+           "unverified-local-views=%ld players-with-goals-last=%ld "
+           "visual-contents=NOT_TESTED\n",
+           scorer_resident_views?"RESIDENT_DATA_READ_OBSERVED":
+           scorer_local_views?"LOCAL_SOURCE_UNVERIFIED":"NOT_TESTED",
+           scorer_resident_views,scorer_local_views,scorer_resident_players);
     puts("OG_RETIREMENTS=NOT_TESTED (manager/player lifecycle separate)");
     puts("OG_70_SAVE_RELOAD=NOT_TESTED");
     printf("OG_OFFER_NATIVE_VIEW=%s calls=%ld failures=%ld\n",
@@ -411,11 +459,48 @@ int main(int argc,char **argv)
     printf("OG_VIEW=OBSERVED_READ_ONLY views=%ld missing=%ld\n",
            views,view_missing);
     printf("OG_MANAGER_BIND=%s events=%ld\n",binds?"OBSERVED":"NOT_TESTED",binds);
+    printf("OG_VIEWER_BACK=%s viewer-level-exits=%ld pad-queue-events=%ld\n",
+           viewer_back?"LOGGED_NOT_VISUALLY_PROVED":"NOT_TESTED",
+           viewer_back,picker_back_events);
     printf("OG_PICKER_BACK=%s nested=%ld popped=%ld\n",
            regressions?"CHECK_LOG":picker_backs?
            picker_backs==picker_pops?"PASS":"FAIL":"NOT_TESTED",
            picker_backs,picker_pops);
     printf("OG_CUP_DEFINITIONS=%ld countries=%ld\n",cup_defs,cup_countries);
+    {
+        unsigned resident=0,unresident=0,selector_mismatch=0;
+        for(unsigned i=0;i<cup_coverage_count;++i) {
+            const CupCoverageRecord *c=&cup_coverage[i];
+            const int ok=!strcmp(c->state,"RESIDENT") &&
+                         !strcmp(c->reason,"OK");
+            if(ok)++resident;
+            else {
+                ++unresident;
+                if(c->selected!=c->expected)++selector_mismatch;
+            }
+        }
+        const int coverage_complete=cup_coverage_count>0 &&
+            (long)cup_coverage_count==cup_defs && !unresident;
+        printf("OG_CUP_COVERAGE=%s scope=DOMESTIC_TYPE1_SLOTS_2_3 " 
+               "international-cups=NOT_AUDITED "
+               "year=%ld definitions=%ld audited=%u "
+               "resident=%u divergent=%u selector-count-mismatch=%u\n",
+               coverage_complete?"ALL_SCOPED_DOMESTIC_TYPE1_RESIDENT":
+               cup_coverage_count?"PARTIAL_WITH_EXPLICIT_REASONS":
+               "NOT_TESTED",
+               cup_coverage_year,cup_defs,cup_coverage_count,resident,
+               unresident,selector_mismatch);
+        for(unsigned i=0;i<cup_coverage_count;++i) {
+            const CupCoverageRecord *c=&cup_coverage[i];
+            if(!strcmp(c->state,"RESIDENT") &&
+               !strcmp(c->reason,"OK"))continue;
+            printf("OG_CUP_DIVERGENCE year=%ld country=%ld slot=%ld "
+                   "compId=%ld expected=%ld selected=%ld "
+                   "state=%s reason=%s\n",
+                   c->year,c->country,c->slot,c->compid,c->expected,
+                   c->selected,c->state,c->reason);
+        }
+    }
     printf("OG_CUP_RESIDENT=%s contexts=%ld yearend-callbacks=%ld\n",
            have_audit&&cup_defs>0&&cup_resident==0?
            "MISSING_IMPLEMENTATION":cup_resident>0?

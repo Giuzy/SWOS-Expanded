@@ -3568,7 +3568,7 @@ static int s_expOGPhase=-1,s_expOGBound,s_expOGViewing,s_expOGFault;
 typedef struct {
     uint8_t used,country,slot,compId,lastPhase,lastMatch,managed_excluded,unsupported_setup;
     uint8_t seed,randIndex,randKey;
-    uint16_t year,teamCount;
+    uint16_t year,teamCount,observedSelected;
     uint32_t matchesPlayed;
     DIYCompetitionEx comp;
     DIYTournamentState tournament;
@@ -3601,6 +3601,58 @@ uint32_t Expanded_OGWorld_CupMatches(void) {
 }
 uint32_t Expanded_OGWorld_CupUnsupported(void){return s_expOGCupUnsupported;}
 uint32_t Expanded_OGWorld_CupFaults(void){return s_expOGCupFaults;}
+/* -1: absent/unavailable, 0: not among this year's native entrants,
+ *  1: club found in the *existing* resident OG cup draw. */
+int Expanded_OGWorld_CupContainsTeam(uint8_t country,uint8_t slot,
+                                     uint16_t year,uint16_t team)
+{
+    for(uint32_t i=0;i<s_expOGCupCount;++i) {
+        const ExpandedOGCup *c=&s_expOGCups[i];
+        if(c->country!=country || c->slot!=slot || c->year!=year)continue;
+        if(!c->used || c->managed_excluded || c->unsupported_setup ||
+           c->teamCount<2u || c->teamCount>EXP_OG_MAX_CUP_TEAMS)return -1;
+        for(uint16_t j=0;j<c->teamCount;++j) {
+            const TeamFile *t=&c->teams[j].team;
+            if(PACK_BE_U16(t->countryNumber,t->teamOrdinal)==team)
+                return 1;
+        }
+        return 0;
+    }
+    return -1;
+}
+
+/* Only native, actually selected cup entrants are reported. Never synthesize
+ * a missing participant to make the count match the definition. */
+unsigned Expanded_OGWorld_CupSelectedTeams(uint8_t country,uint8_t slot,
+                                           uint16_t year)
+{
+    for(uint32_t i=0;i<s_expOGCupCount;++i) {
+        const ExpandedOGCup *c=&s_expOGCups[i];
+        if(c->country==country && c->slot==slot && c->year==year)
+            return (unsigned)c->observedSelected;
+    }
+    return 0u;
+}
+const char *Expanded_OGWorld_CupCoverageReason(uint8_t country,uint8_t slot,
+                                               uint16_t year,unsigned expected)
+{
+    if(expected<2u || expected>EXP_OG_MAX_CUP_TEAMS || (expected&1u))
+        return "INVALID_NATIVE_BRACKET_SIZE";
+    for(uint32_t i=0;i<s_expOGCupCount;++i) {
+        const ExpandedOGCup *c=&s_expOGCups[i];
+        if(c->country!=country || c->slot!=slot || c->year!=year)continue;
+        if(c->managed_excluded)return "MANAGER_SLOT_NOT_BOUND";
+        if(c->unsupported_setup) {
+            if(c->observedSelected<expected)return "SELECTOR_UNDERFILLED";
+            if(c->observedSelected>expected)return "SELECTOR_OVERFILLED";
+            return "NATIVE_BRACKET_SETUP_INVALID";
+        }
+        if(!c->used)return "NATIVE_CONTEXT_UNAVAILABLE";
+        if(c->observedSelected!=expected)return "ENTRY_COUNT_MISMATCH";
+        return "OK";
+    }
+    return "NATIVE_CONTEXT_NOT_CREATED";
+}
 void Expanded_OGWorld_InvalidFixture(int32_t a,int32_t b,uint16_t teamCount)
 {
     if(!s_expOGCurrent)return;
@@ -3632,6 +3684,48 @@ void Expanded_OGWorld_Reset(void) {
 }
 uint32_t Expanded_OGWorld_LeagueCount(void){return s_expOGCount;}
 int Expanded_OGWorld_ClubBound(void){return s_expOGBound;}
+
+/* After hire, club-local _selectedTeams is merely scratch for native menus.
+ * GoalStats continue to belong to the existing resident OG league.
+ * The viewer already installs a read-only image of the correct league. */
+const TeamFileEx *Expanded_OGWorld_ScorerTeams(uint16_t *count)
+{
+    if(count)*count=0u;
+    if(_gameType!=4)return NULL;
+    if(s_expOGViewing && _numSelectedTeams>0u &&
+       _numSelectedTeams<=EXP_OG_MAX_TEAMS) {
+        if(count)*count=_numSelectedTeams;
+        return _selectedTeams;
+    }
+    if(!s_expOGBound || _selTeamNumber==0xffffu)return NULL;
+    const ExpandedOGLeague *best=NULL;
+    for(uint32_t i=0;i<s_expOGCount;++i) {
+        const ExpandedOGLeague *c=&s_expOG[i];
+        if(!c->used || c->division!=(uint8_t)_currentDivisionIndex ||
+           c->teamCount<2u || c->teamCount>EXP_OG_MAX_TEAMS)continue;
+        for(uint16_t j=0;j<c->teamCount;++j) {
+            const TeamFile *t=&c->teams[j].team;
+            if(PACK_BE_U16(t->countryNumber,t->teamOrdinal)==_selTeamNumber) {
+                if(!best || c->year>best->year)best=c;
+                break;
+            }
+        }
+    }
+    if(!best)return NULL;
+    if(count)*count=best->teamCount;
+    return best->teams;
+}
+const TeamFileEx *Expanded_OGWorld_ScorerTeam(uint16_t teamId)
+{
+    uint16_t n=0u;
+    const TeamFileEx *teams=Expanded_OGWorld_ScorerTeams(&n);
+    for(uint16_t i=0;teams && i<n;++i) {
+        const TeamFile *t=&teams[i].team;
+        if(PACK_BE_U16(t->countryNumber,t->teamOrdinal)==teamId)
+            return &teams[i];
+    }
+    return NULL;
+}
 
 /* Inspect only the real resident original-OG league contexts. Never
  * call simulation, consume an RNG value, or mutate the selected teams. */
@@ -3826,6 +3920,7 @@ int Expanded_OGWorld_AdvanceCup(uint8_t *record,uint8_t country,
         (unsigned)_diyCompetitionStart.base.numTeams<=_numSelectedTeams;
     int failed=0;
     const unsigned selected=(unsigned)_numSelectedTeams;
+    ctx->observedSelected=(uint16_t)selected;
     const uint32_t oldPlayed=ctx->matchesPlayed;
     if(!valid)ctx->unsupported_setup=1u;
     int managed=0;

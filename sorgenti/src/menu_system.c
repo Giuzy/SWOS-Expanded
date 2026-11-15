@@ -1853,10 +1853,11 @@ void MenuProc(void)
      * country stack; only its root abort goes back to UNEMPLOYED. */
     {
         extern int Expanded_UnemployedWorldPickerActive(void);
+        extern int Expanded_OfferPickerActive(void);
         extern int InputSDL_ConsumeDebugWorldPickerBack(void);
-        extern uint8_t _selectTeamsMenu[];
-        if(Expanded_UnemployedWorldPickerActive() &&
-           _currentMenuPtr==(uintptr_t)_selectTeamsMenu) {
+        if(Expanded_UnemployedWorldPickerActive() || Expanded_OfferPickerActive()) {
+            /* All native picker depths belong to this modal. Checking
+             * only _selectTeamsMenu loses BACK during nested navigation. */
             const int back=InputSDL_ConsumeDebugWorldPickerBack();
             if(back || _currentKey==27 || _currentKey==127 || _currentKey==8) {
                 extern void ExitSelectTeams(void);
@@ -1864,6 +1865,21 @@ void MenuProc(void)
                 _fire=_shortFire=_pl1Fire=0;
                 return;
             }
+        }
+    }
+    /* OG viewer: B/ESC/BACKSPACE closes only this nested menu level.
+     * No callbacks or match simulation run on the SDL event thread. */
+    {
+        extern int Expanded_OGWorld_ViewActive(void);
+        extern int InputSDL_ConsumeWorldViewBack(void);
+        const int back=InputSDL_ConsumeWorldViewBack();
+        if(Expanded_OGWorld_ViewActive() &&
+           (back || _currentKey==27 || _currentKey==127 || _currentKey==8)) {
+            fprintf(stderr,"[og-world-back] VIEWER EXIT key=%u pad=%d menu=%p\n",
+                    (unsigned)_currentKey,back,(void *)_currentMenuPtr);
+            SetExitMenuFlag();
+            _fire=_shortFire=_pl1Fire=0;
+            return;
         }
     }
     /* Expanded modal dialogs: ESC or Backspace must ALWAYS return to the

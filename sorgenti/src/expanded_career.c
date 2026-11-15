@@ -1083,21 +1083,54 @@ void Expanded_OfferViewSquad(void) {
     ShowMenu(_expandedOfferPreviewMenu);
 #endif
 }
+#ifdef SWOS_SDL_BUILD
+uint8_t Expanded_OfferPickerDivision(void) { return s_waitLeague; }
+/* A cup appears on this club's offer list ONLY if the actual native OG
+ * resident bracket contains its team ID. No inferred entrants or fixtures. */
+int Expanded_OfferPickerCupEligible(uint8_t country,uint8_t slot)
+{
+    extern int Expanded_OGWorld_CupContainsTeam(uint8_t,uint8_t,uint16_t,uint16_t);
+    if(!offer_is_valid() ||
+       country!=World_FileCountry(s_waitCountry))return 0;
+    const uint16_t year=(uint16_t)unemployed_season_year(s_waitWeeks);
+    return Expanded_OGWorld_CupContainsTeam(country,slot,year,s_waitTeam)==1;
+}
+#endif
 void Expanded_OfferViewLeague(void) {
     if(!offer_is_valid()) return;
 #ifdef SWOS_SDL_BUILD
-    /* Direct native read-only viewer of offered country/division: the same
-     * resident OpenSWOS world used in the standalone DEBUG WORLD menu. */
-    extern int Expanded_OGWorld_ViewLeagueForCountry(uint8_t,uint8_t,uint16_t);
+    /* The offer already KNOWS its country and division. Open DEBUG WORLD's
+     * SAME native competition selector at country level, restrict its rows
+     * to the club's confirmed OG competitions and preserve the offer.
+     * BACK: native viewer -> list -> offer, one level per press. */
+    extern void Expanded_OfferChooseCompetitionMenu(uint8_t);
+    extern int Expanded_OGWorld_ViewLeague(const uint8_t *,uint16_t);
+    extern void Expanded_OGWorld_LogCheckpoint(const char *);
+    extern uint16_t _chooseTeamsResult,_contestLeagueNumber;
+    extern uintptr_t _selectedContest;
     const uint8_t country=World_FileCountry(s_waitCountry);
     const uint16_t year=(uint16_t)unemployed_season_year(s_waitWeeks);
-    extern void Expanded_OGWorld_LogCheckpoint(const char *);
     Expanded_OGWorld_LogCheckpoint("OFFER_BEFORE");
-    fprintf(stderr,"[og-offer-view] OPEN country=%u division=%u year=%u\n",
-            (unsigned)country,(unsigned)s_waitLeague,(unsigned)year);
-    const int ok=Expanded_OGWorld_ViewLeagueForCountry(country,s_waitLeague,year);
-    fprintf(stderr,"[og-offer-view] CLOSE country=%u division=%u year=%u ok=%d\n",
-            (unsigned)country,(unsigned)s_waitLeague,(unsigned)year,ok);
+    fprintf(stderr,"[og-offer-view] OPEN COUNTRY LIST country=%u "
+                   "division=%u year=%u club=%04x\n",
+            (unsigned)country,(unsigned)s_waitLeague,
+            (unsigned)year,(unsigned)s_waitTeam);
+    for(;;) {
+        Expanded_OfferChooseCompetitionMenu(country);
+        if(!_chooseTeamsResult)break; /* BACK from country's list -> OFFER */
+        const uint8_t *selection=(const uint8_t *)_selectedContest;
+        const uint16_t division=_contestLeagueNumber;
+        const int ok=Expanded_OGWorld_ViewLeague(selection,division);
+        fprintf(stderr,"[og-offer-view] SELECT country=%u "
+                       "compId=%u div=%u ok=%d (READ ONLY)\n",
+                (unsigned)country,selection?(unsigned)selection[0]:255u,
+                (unsigned)division,ok);
+        /* The picker is re-opened at the SAME country after the native
+         * viewer returns, never at the world/continent level. */
+    }
+    fprintf(stderr,"[og-offer-view] CLOSE COUNTRY LIST country=%u "
+                   "year=%u (OFFER STILL PENDING)\n",
+            (unsigned)country,(unsigned)year);
     Expanded_OGWorld_LogCheckpoint("OFFER_AFTER");
     DrawMenu();
 #else

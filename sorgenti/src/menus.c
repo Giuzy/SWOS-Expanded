@@ -4019,6 +4019,7 @@ void TransfersMenu(void)
     ShowMenu(_transferMarketMenu);
 }
 
+static void ChooseCompetitionMenuForCountry(uint16_t country);
 /* ViewWorldMenu — view world competitions (SWOS2.s line 59996) */
 __attribute__((used, externally_visible))
 void ViewWorldMenu(void)
@@ -4035,6 +4036,19 @@ void ViewWorldMenu(void)
 /* The native picker is also used by CLASSIC and employed CAREER.
  * This flag scopes the debug-only BACK behavior to unemployed DEBUG WORLD. */
 static int s_unemployedWorldPickerActive;
+static int s_offerWorldPickerActive;
+int Expanded_OfferPickerActive(void) { return s_offerWorldPickerActive; }
+/* Direct country, native OG picker. The caller supplies its country only.
+ * Closing this modal does not mutate the league/cup resident contexts. */
+void Expanded_OfferChooseCompetitionMenu(uint8_t country)
+{
+    extern void InputSDL_ClearDebugWorldPickerBack(void);
+    InputSDL_ClearDebugWorldPickerBack();
+    s_offerWorldPickerActive=1;
+    ChooseCompetitionMenuForCountry(country);
+    s_offerWorldPickerActive=0;
+    InputSDL_ClearDebugWorldPickerBack();
+}
 int Expanded_UnemployedWorldPickerActive(void)
 {
     return s_unemployedWorldPickerActive;
@@ -4051,13 +4065,29 @@ void Expanded_UnemployedDebugWorld(MenuEntry *unused)
      * any country/competition subpage navigates one picker level back. */
     extern void InputSDL_ClearDebugWorldPickerBack(void);
     InputSDL_ClearDebugWorldPickerBack();
-    s_unemployedWorldPickerActive=1;
-    ChooseCompetitionMenu();
-    s_unemployedWorldPickerActive=0;
-    InputSDL_ClearDebugWorldPickerBack();
-    if(_chooseTeamsResult!=0)
+    /* BACK hierarchy: viewer -> selected country's list -> global country
+     * selector -> unemployed calendar. Picker itself pops one native level. */
+    uint8_t returnCountry=255u;
+    for(;;) {
+        s_unemployedWorldPickerActive=1;
+        if(returnCountry!=255u)
+            ChooseCompetitionMenuForCountry(returnCountry);
+        else
+            ChooseCompetitionMenu();
+        s_unemployedWorldPickerActive=0;
+        InputSDL_ClearDebugWorldPickerBack();
+        if(_chooseTeamsResult==0) {
+            if(returnCountry!=255u) {
+                returnCountry=255u;
+                continue;
+            }
+            break;
+        }
+        extern uint8_t Expanded_OGPicker_LastCountry(void);
+        returnCountry=Expanded_OGPicker_LastCountry();
         (void)Expanded_OGWorld_ViewLeague((const uint8_t *)_selectedContest,
                                           _contestLeagueNumber);
+    }
     if(_currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarMenu())
         DrawMenu();
 }
@@ -4735,6 +4765,23 @@ void ChooseCompetitionMenu(void)
     SelectTeamsFinalMenu(255);
 }
 
+/* One existing OG selector, with optional starting country. 255 retains
+ * the original world/continent navigation. Both paths only select a row. */
+static void ChooseCompetitionMenuForCountry(uint16_t country)
+{
+    _gameTypeStr=0;
+    _chooseTeamsHeader1stPart=(uintptr_t)_aChooseCompetit;
+    _chooseTeamsFunc=0;
+    _careerSquadScreenDidSelectPlayerFlag=0;
+    _selectTeamsNoLimit=1;
+    _teamsType=0xffffu;
+    _loadTeam=0;
+    _showCupsAndOther=1;
+    _playSeason=0;
+    _chooseCompetitionOnly=1;
+    SelectTeamsFinalMenu(country);
+}
+
 /* SelectTeamsForPresetCompetition — choose preset competition (SWOS2.s line 63782) */
 __attribute__((used, externally_visible))
 void SelectTeamsForPresetCompetition(void)
@@ -4823,7 +4870,7 @@ extern uint16_t _numTeamsColumn1;
 extern uint16_t _numTeamsColumn2;
 extern uint16_t _numTeamsColumn3;
 extern uint16_t _teamDepthLevel;
-extern uint16_t _topOfStackMark;
+extern int16_t _topOfStackMark;
 extern uint16_t _diyCompetitionType;
 
 extern void ShowLeagueInfo(void);
@@ -5146,15 +5193,16 @@ void ExitSelectTeams(void)
     {
         uint16_t depth = _teamDepthLevel;
 #ifdef SWOS_SDL_BUILD
-        /* The 2026 DEBUG WORLD country picker must pop exactly one level.
-         * _topOfStackMark can refer to an OG list boundary, not the
-         * actual root of this modal picker. Preserve the stock branch
-         * for CLASSIC, job offers and every other OG selection menu. */
-        if(Expanded_UnemployedWorldPickerActive()) {
-            _abortSelectTeams=(uint16_t)(depth==0u);
-            _exitSelectTeams=(uint16_t)(depth!=0u);
+        extern int Expanded_OfferPickerActive(void);
+        /* DEBUG WORLD and CLUB OFFER use identical OG picker semantics.
+         * A directly selected country has a native root at depth 2. */
+        if(Expanded_UnemployedWorldPickerActive() || Expanded_OfferPickerActive()) {
+            const int root=depth==0u ||
+                (_topOfStackMark>=0 && depth==(uint16_t)_topOfStackMark);
+            _abortSelectTeams=(uint16_t)root;
+            _exitSelectTeams=(uint16_t)!root;
             fprintf(stderr,"[og-world-picker] BACK depth=%u root=%d\n",
-                    (unsigned)depth,(int)(depth==0u));
+                    (unsigned)depth,root);
         } else
 #endif
         if (depth == 0 || depth == _topOfStackMark)

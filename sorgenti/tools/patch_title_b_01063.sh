@@ -36,6 +36,25 @@ if ! grep -Fq 'if (Expanded_TitleMenu_Level() == 1) Expanded_TitleMenu_QueueBack
   echo 'ERRORE: impossibile aggiornare platform_sdl.c' >&2; exit 1
 fi
 
+# The legacy one-line Title B guard and the new three-line DEBUG WORLD
+# guard are both valid. The latter suppresses B-as-SKIP *inside* the OG
+# picker; rejecting it would block every Windows build of 0.13.48.
+# Check contiguous lines, not three unrelated grep hits.
+skip_b_guard_present() {
+  if grep -Fq 'if (skip && !input_on_title_first_level() && SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))' "$i"; then
+    return 0
+  fi
+  awk '
+    index($0,"if (skip && !input_on_title_first_level() &&") {
+      if ((getline) <= 0) next
+      if (!index($0,"!Expanded_UnemployedWorldPickerActive() &&")) next
+      if ((getline) <= 0) next
+      if (index($0,"SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))")) found=1
+    }
+    END { exit !found }
+  ' "$i"
+}
+
 # The SDL controller poll ALSO treats B as FIRE. Suppress that mapping only
 # at first-level Title, otherwise B could select EXIT GAME instead of quitting.
 # Generic unmapped gamepads' button 1 is treated the same way.
@@ -55,8 +74,13 @@ fi
 if ! grep -Fq 'if (b == 1 && input_on_title_first_level()) continue;' "$i"; then
   sed -i '/for (int b = 0; b < nbtns; ++b) {/a\            if (b == 1 \&\& input_on_title_first_level()) continue;' "$i"
 fi
-if ! grep -Fq 'if (skip && !input_on_title_first_level() && SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))' "$i"; then
-  sed -i 's/if (skip \&\& SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))/if (skip \&\& !input_on_title_first_level() \&\& SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))/' "$i"
+if ! skip_b_guard_present; then
+  if grep -Fq 'if (skip && SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))' "$i"; then
+    sed -i 's/if (skip \&\& SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))/if (skip \&\& !input_on_title_first_level() \&\& SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))/' "$i"
+  else
+    echo 'ERRORE: guard B/SKIP sconosciuto (input_sdl.c): controllare il codice, nessuna sostituzione automatica.' >&2
+    exit 1
+  fi
 fi
 if ! grep -Fq 'if (skip && !input_on_title_first_level() && nbtns >= 2 && SDL_JoystickGetButton(raw, 1))' "$i"; then
   sed -i 's/if (skip \&\& nbtns >= 2 \&\& SDL_JoystickGetButton(raw, 1))/if (skip \&\& !input_on_title_first_level() \&\& nbtns >= 2 \&\& SDL_JoystickGetButton(raw, 1))/' "$i"
@@ -66,12 +90,15 @@ for required in \
  'input_on_title_first_level(void)' \
  '(!Expanded_UI_IsBusinessScreen() && !input_on_title_first_level() &&' \
  'if (b == 1 && input_on_title_first_level()) continue;' \
- 'if (skip && !input_on_title_first_level() && SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))' \
  'if (skip && !input_on_title_first_level() && nbtns >= 2 && SDL_JoystickGetButton(raw, 1))'; do
   if ! grep -Fq "$required" "$i"; then
     echo "ERRORE: patch controller incompleta, manca $required" >&2; exit 1
   fi
 done
+if ! skip_b_guard_present; then
+  echo 'ERRORE: guard B/SKIP non valido: richiesto Title level 0 escluso e DEBUG WORLD preservato.' >&2
+  exit 1
+fi
 # sed -i updates the two source mtimes only when the patch is applied.
 # Repeated launches do not recompile the giant SDL modules unnecessarily.
 echo '[title-ui] B spento SOLO al primo livello; CLASSIC MODES B=BACK; A invariato.'

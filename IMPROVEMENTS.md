@@ -735,3 +735,7 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 - Pad Switch B viene gestito come BACK, non FIRE/SKIP, solo nel selettore DEBUG WORLD del disoccupato; a ogni pressione una sola pagina, CLASSIC invariato.
 - VIEW COMPETITIONS da un'offerta apre direttamente la divisione OG residente del club e torna all'offerta; invarianti dei risultati controllati. Nessuna seconda simulazione.
 - Test del parser con casi positivi/negativi isolati, senza simulare il mondo. Test Windows 0.13.48, coppe residenti, TOP GOAL SCORERS, save/load globale e pensionamenti ancora NON PROVATI o mancanti.
+
+### 0.13.49 — avvio Windows: guard B/SKIP compatibile con DEBUG WORLD (15/11/2026)
+- Fix del controllo *precompilazione* in `sorgenti/tools/patch_title_b_01063.sh`: la versione 0.13.48 protegge la selezione DEBUG WORLD con un terzo predicato `!Expanded_UnemployedWorldPickerActive()`, ma la patch Title-B cercava una vecchia riga monolitica e fermava `BUILD_SWOS.sh` con `patch controller incompleta`. Il controllo riconosce le due forme supportate (legacy e nuova forma contigua) ed evita di sostituire un guard già corretto.
+- Esito test isolato delle condizioni: due guard validi accettati, uno errato rifiutato. Nessuna modifica al codice C del motore OG, al controller runtime, ai menu o agli asset. Build Windows 0.13.49 **non provata**; il precedente log dimostrava soltanto lo stop del tool di preparazione.

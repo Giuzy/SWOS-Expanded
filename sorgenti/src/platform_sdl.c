@@ -2878,8 +2878,10 @@ static void draw_world_debug_overlay(void)
 
     ExpandedOGWorldAudit leagues;
     ExpandedOGCupAudit cups;
+    ExpandedOGScorerAudit scorers;
     Expanded_OGWorld_Audit(&leagues);
     Expanded_OGWorld_CupAudit(&cups);
+    Expanded_OGWorld_ScorerAudit(&scorers);
     char line[160];
     int x=22,y=22;
 #define OGLINE(msg) do { splash_text_tinted(x,y,(msg),226,236,245); y+=18; } while(0)
@@ -2940,6 +2942,12 @@ static void draw_world_debug_overlay(void)
         OGWARN("CALLBACKS DO NOT PROVE DATED CUP ROUNDS");
         OGWARN("COMPETITION NOT RESIDENT = EXPECTED LIMITATION");
         OGWARN("CUP FIXTURES / RESULTS / WINNERS: NOT TESTED");
+        OGHEAD("SCORERS / NATIVE GOAL COUNTERS");
+        snprintf(line,sizeof line,"PLAYERS WITH GOALS %lu / TOTAL GOALS %lu",
+                 (unsigned long)scorers.players_with_league_goals,
+                 (unsigned long)scorers.player_league_goals);
+        OGLINE(line);
+        OGWARN("TOP GOAL SCORERS VIEW STILL NEEDS UI TEST");
         OGHEAD("NEXT ENGINE TASK");
         OGLINE("BUILD DATED PER-CUP OG STATES AT START");
         OGLINE("ADVANCE OG ROUNDS ONCE VIA FORWARD TIME");
@@ -2968,6 +2976,13 @@ static void draw_world_debug_overlay(void)
                  (unsigned long)leagues.native_matches,
                  (unsigned long)leagues.completed_leagues);
         OGLINE(line);
+        snprintf(line,sizeof line,"OG SCORER PLAYERS %lu  PLAYER GOALS %lu",
+                 (unsigned long)scorers.players_with_league_goals,
+                 (unsigned long)scorers.player_league_goals);
+        OGLINE(line);
+        snprintf(line,sizeof line,"OG TABLE GOALS %lu (NOT UI PROOF)",
+                 (unsigned long)scorers.standings_goals);
+        OGLINE(line);
         snprintf(line,sizeof line,"SEASON YEARS %u..%u",
                  (unsigned)leagues.min_year,(unsigned)leagues.max_year);
         OGLINE(line);
@@ -2987,7 +3002,7 @@ static void draw_world_debug_overlay(void)
         x=493; y=22;
         OGHEAD("TEST CONTROLS - GAMEPLAY UNCHANGED");
         OGLINE("7 +5 YEARS: THEN FORWARD TIME (UNEMPLOYED)");
-        OGLINE("8 +70 OG YEARS: THEN FORWARD TIME");
+        OGLINE("8 +70 OG YEARS: 1 YEAR PER FRAME");
         OGWARN("70-YEAR TEST ADVANCES LIVE CAREER / USE NEW SAVE");
         OGLINE("N: NEW CAREER (TITLE ONLY)");
         snprintf(line,sizeof line,"1 FORCE WIN %s",

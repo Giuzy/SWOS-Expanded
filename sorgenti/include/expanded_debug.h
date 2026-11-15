@@ -25,5 +25,13 @@ typedef struct {
 } ExpandedOGCupAudit;
 void Expanded_OGWorld_Audit(ExpandedOGWorldAudit *out);
 void Expanded_OGWorld_CupAudit(ExpandedOGCupAudit *out);
+/* Per-player goal counters in original resident OG league team files.
+ * Not a second top scorers table: READ-ONLY inspector. */
+typedef struct {
+    uint32_t resident_leagues, players, players_with_league_goals;
+    uint32_t player_league_goals, standings_goals, leagues_with_goals;
+} ExpandedOGScorerAudit;
+void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out);
+void Expanded_OGWorld_LogCheckpoint(const char *stage);
 #endif
 #endif

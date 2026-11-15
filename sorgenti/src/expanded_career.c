@@ -252,6 +252,17 @@ static unsigned s_nextOfferWeek=0;
 /* Test-only F12+7: consumed on the NEXT genuine FORWARD TIME menu action.
  * Never run DrawMenu or native OG callbacks from SDL's event pump. */
 static unsigned s_debug_wait_jump_years=0;
+/* F12+8: 70 native OG years in independent menu frames (one civil clock). */
+static unsigned s_ogStressRemaining,s_ogStressDone;
+static ExpandedWorldDate s_ogStressTarget;
+void Expanded_OGStress_Reset(void)
+{
+    s_debug_wait_jump_years=0;
+    s_ogStressRemaining=0;s_ogStressDone=0;
+    memset(&s_ogStressTarget,0,sizeof s_ogStressTarget);
+}
+unsigned Expanded_OGStress_Done(void){return s_ogStressDone;}
+unsigned Expanded_OGStress_Remaining(void){return s_ogStressRemaining;}
 void Expanded_DebugArmFiveYearUnemployment(void) {
     extern uintptr_t _currentMenuPtr;
     if(_currentMenuPtr!=(uintptr_t)Expanded_UnemployedCalendarMenu()) {
@@ -693,6 +704,62 @@ void Expanded_UnemployedDraw(void) {
     Expanded_UnemployedDate(date,sizeof date);
     if(!compact) contest_line(171,date,2);
 }
+void Expanded_UnemployedWait(void);
+/* Not called from the SDL event loop; one complete native year per menu
+ * frame. The real civil date is committed after each successful OG year.
+ * No new scorer, fixture generator, or independent calendar is introduced. */
+int Expanded_OGStress_Tick(void)
+{
+    if(!s_ogStressRemaining)return 0;
+    extern uintptr_t _currentMenuPtr;
+    if(_currentMenuPtr!=(uintptr_t)Expanded_UnemployedCalendarMenu())
+        return 0;
+    ExpandedLiveCalendarState before,after;
+    ExpandedWorldDate expected;
+    const unsigned step=s_ogStressDone+1u;
+    if(!ExpandedWorldLive_CalendarState(&before) ||
+       !ExpandedWorld_AddCalendarYears(before.today,1u,&expected)) {
+        fprintf(stderr,"[og-stress] FAILED step=%u reason=INVALID_CLOCK\n",step);
+        s_ogStressRemaining=0;s_debug_wait_jump_years=0;
+        return 1;
+    }
+    s_debug_wait_jump_years=1u;
+    Expanded_UnemployedWait();
+    s_debug_wait_jump_years=0u;
+    if(!ExpandedWorldLive_CalendarState(&after) ||
+       after.today.year!=expected.year ||
+       after.today.month!=expected.month ||
+       after.today.day!=expected.day) {
+        fprintf(stderr,"[og-stress] FAILED step=%u year=%u "
+                       "reason=DATE_NOT_COMMITTED; DISCARD TEST CAREER\n",
+                step,(unsigned)expected.year);
+        s_ogStressRemaining=0u;
+        return 1;
+    }
+    --s_ogStressRemaining;
+    ++s_ogStressDone;
+    fprintf(stderr,"[og-stress] STEP number=%u of=70 "
+                   "date=%04u-%02u-%02u remaining=%u\n",
+            s_ogStressDone,(unsigned)after.today.year,
+            (unsigned)after.today.month,(unsigned)after.today.day,
+            s_ogStressRemaining);
+    if(!s_ogStressRemaining) {
+        const int exact=after.today.year==s_ogStressTarget.year &&
+            after.today.month==s_ogStressTarget.month &&
+            after.today.day==s_ogStressTarget.day;
+        extern void Expanded_OGWorld_LogCheckpoint(const char *);
+        Expanded_OGWorld_LogCheckpoint("STRESS_AFTER");
+        fprintf(stderr,"[og-stress] FINISHED years=70 "
+                       "date=%04u-%02u-%02u actual-date=%04u-%02u-%02u "
+                       "exact=%u\n",
+                (unsigned)s_ogStressTarget.year,
+                (unsigned)s_ogStressTarget.month,
+                (unsigned)s_ogStressTarget.day,
+                (unsigned)after.today.year,(unsigned)after.today.month,
+                (unsigned)after.today.day,(unsigned)exact);
+    }
+    return 1;
+}
 void Expanded_UnemployedWait(void) {
     const unsigned jump_years=s_debug_wait_jump_years;
     ExpandedLiveCalendarState live;
@@ -705,6 +772,32 @@ void Expanded_UnemployedWait(void) {
        !ExpandedWorld_DateToIndex(live.today,&now_index)) {
         fprintf(stderr,"[calendar] FAIL UNEMPLOYED_LIVE_CLOCK_UNAVAILABLE\n");
         return; /* Never invent an alternative date source. */
+    }
+    if(jump_years==70u) {
+        ExpandedWorldDate end;
+        int32_t endIndex=0;
+        if(!ExpandedWorld_AddCalendarYears(live.today,70u,&end) ||
+           !ExpandedWorld_DateToIndex(end,&endIndex) ||
+           endIndex<first_index ||
+           (uint32_t)(endIndex-first_index)/7u>4000u) {
+            fprintf(stderr,"[og-stress] ARM FAILED reason=DATE_OUT_OF_RANGE\n");
+            s_debug_wait_jump_years=0u;
+            return;
+        }
+        s_ogStressTarget=end;
+        s_ogStressDone=0u;
+        s_ogStressRemaining=70u;
+        s_debug_wait_jump_years=0u;
+        extern void Expanded_OGWorld_LogCheckpoint(const char *);
+        Expanded_OGWorld_LogCheckpoint("STRESS_BEFORE");
+        fprintf(stderr,"[og-stress] START years=70 "
+                       "from=%04u-%02u-%02u to=%04u-%02u-%02u "
+                       "cursor-before=%ld mode=ANNUAL_COMMIT\n",
+                (unsigned)live.today.year,(unsigned)live.today.month,
+                (unsigned)live.today.day,(unsigned)end.year,
+                (unsigned)end.month,(unsigned)end.day,(long)now_index);
+        _fireResetFlag=1; /* arming click must not advance one extra week */
+        return;
     }
     if(jump_years) {
         if(!ExpandedWorld_AddCalendarYears(live.today,
@@ -727,13 +820,6 @@ void Expanded_UnemployedWait(void) {
         return;
     }
     const unsigned target_weeks=(unsigned)(target_index-first_index)/7u;
-    if(jump_years==70u)
-        fprintf(stderr,"[og-stress] START years=70 "
-                       "from=%04u-%02u-%02u to=%04u-%02u-%02u "
-                       "cursor-before=%ld\n",
-                (unsigned)live.today.year,(unsigned)live.today.month,
-                (unsigned)live.today.day,(unsigned)target.year,
-                (unsigned)target.month,(unsigned)target.day,(long)now_index);
     /* Advance OG competitions BEFORE committing the unemployment date.
      * No duplicate LWE scoring, and a failed OG tick must not move time. */
     {
@@ -762,21 +848,6 @@ void Expanded_UnemployedWait(void) {
         return;
     }
     s_debug_wait_jump_years=0u;
-    if(jump_years==70u) {
-        ExpandedLiveCalendarState auditDate;
-        const int dateMatches=ExpandedWorldLive_CalendarState(&auditDate) &&
-            auditDate.today.year==target.year &&
-            auditDate.today.month==target.month &&
-            auditDate.today.day==target.day;
-        fprintf(stderr,"[og-stress] FINISHED years=70 "
-                       "date=%04u-%02u-%02u actual-date=%04u-%02u-%02u "
-                       "exact=%u\n",
-                (unsigned)target.year,(unsigned)target.month,(unsigned)target.day,
-                dateMatches?(unsigned)auditDate.today.year:0u,
-                dateMatches?(unsigned)auditDate.today.month:0u,
-                dateMatches?(unsigned)auditDate.today.day:0u,
-                (unsigned)dateMatches);
-    }
     /* FORWARD TIME deliberately expires an unanswered offer. */
     if (s_waitTeam && s_waitWeeks>=s_nextOfferWeek) {
         fprintf(stderr,"[offers] week %u: pending offer from %.17s expired "
@@ -789,7 +860,7 @@ void Expanded_UnemployedWait(void) {
     }
     const unsigned previous_week=s_waitWeeks;
     s_waitWeeks=target_weeks;
-    if(jump_years) {
+    if(jump_years==5u) {
         ExpandedWorldDate check;
         ExpandedLiveCalendarState after;
         const int ok=ExpandedWorldLive_CalendarState(&after) &&
@@ -816,15 +887,17 @@ void Expanded_UnemployedWait(void) {
     /* Diagnostic F12+8 exercises dated resident OG LEAGUES only. Do
      * not retroactively invoke 70 years of legacy cup callbacks here:
      * those have no resident dated contexts, and are not a cup test. */
-    if(jump_years==70u) {
+    if(s_ogStressRemaining) {
         fprintf(stderr,"[og-stress] OG_CUPS_NOT_TESTED "
                        "legacy-yearend-callbacks-skipped=1\n");
     } else {
         extern void Career_AdvanceUnemployedOGCups(uint32_t);
         Career_AdvanceUnemployedOGCups((uint32_t)s_waitWeeks);
     }
-    if(s_waitWeeks>=s_nextOfferWeek && !s_waitTeam) choose_small_club();
-    if(!s_waitTeam && s_waitWeeks>=s_nextOfferWeek)
+    if(!s_ogStressRemaining && s_waitWeeks>=s_nextOfferWeek &&
+       !s_waitTeam) choose_small_club();
+    if(!s_ogStressRemaining && !s_waitTeam &&
+       s_waitWeeks>=s_nextOfferWeek)
         s_nextOfferWeek=s_waitWeeks+next_delay();
     _fireResetFlag=1;
     Expanded_UnemployedInit();
@@ -1012,8 +1085,25 @@ void Expanded_OfferViewSquad(void) {
 }
 void Expanded_OfferViewLeague(void) {
     if(!offer_is_valid()) return;
+#ifdef SWOS_SDL_BUILD
+    /* Direct native read-only viewer of offered country/division: the same
+     * resident OpenSWOS world used in the standalone DEBUG WORLD menu. */
+    extern int Expanded_OGWorld_ViewLeagueForCountry(uint8_t,uint8_t,uint16_t);
+    const uint8_t country=World_FileCountry(s_waitCountry);
+    const uint16_t year=(uint16_t)unemployed_season_year(s_waitWeeks);
+    extern void Expanded_OGWorld_LogCheckpoint(const char *);
+    Expanded_OGWorld_LogCheckpoint("OFFER_BEFORE");
+    fprintf(stderr,"[og-offer-view] OPEN country=%u division=%u year=%u\n",
+            (unsigned)country,(unsigned)s_waitLeague,(unsigned)year);
+    const int ok=Expanded_OGWorld_ViewLeagueForCountry(country,s_waitLeague,year);
+    fprintf(stderr,"[og-offer-view] CLOSE country=%u division=%u year=%u ok=%d\n",
+            (unsigned)country,(unsigned)s_waitLeague,(unsigned)year,ok);
+    Expanded_OGWorld_LogCheckpoint("OFFER_AFTER");
+    DrawMenu();
+#else
     s_previewMode=2;
     ShowMenu(_expandedOfferPreviewMenu);
+#endif
 }
 int Expanded_WaitForFirstOffer(uint16_t *team) {
     if(!team) return 0;
@@ -1022,7 +1112,7 @@ int Expanded_WaitForFirstOffer(uint16_t *team) {
     if(!s_randomState) s_randomState=1;
     s_unemployedHadClub=0;
     s_waitWeeks=0; s_waitAccepted=0; s_waitTeam=0;
-    s_debug_wait_jump_years=0;
+    Expanded_OGStress_Reset();
     s_offerSnapshotValid=0; s_offerAgreedWeekly=0;
     s_nextOfferWeek=next_delay();
     /* NEW CAREER START initialized the one shared Living World before

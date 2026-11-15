@@ -42,7 +42,8 @@ echo  Cartella di uscita: %SESSION%
 echo  AVVIA_SWOS.bat compilera e avviera il gioco.
 echo  Durante il test apri F12, F12+C e F10 per acquisire dati OG.
 echo  Da DEBUG WORLD usa BACK nei paesi: un livello per volta.
-echo  F12+8 e poi FORWARD TIME: 70 stagioni OG su NUOVA carriera di test.
+echo  F12+8 e poi FORWARD TIME: 70 anni OG, uno per frame menu.
+echo  TEST_OG_70 e TEST_OG_CUPS_SCORERS leggono questo SWOS.log.
 echo  ATTENZIONE: questo comando cambia realmente la data della carriera.
 echo  Dopo la chiusura verra analizzato SWOS.log automaticamente.
 echo ==========================================================

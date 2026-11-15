@@ -4049,9 +4049,12 @@ void Expanded_UnemployedDebugWorld(MenuEntry *unused)
     (void)unused;
     /* Only BACK at the root selector may return to UNEMPLOYED; BACK from
      * any country/competition subpage navigates one picker level back. */
+    extern void InputSDL_ClearDebugWorldPickerBack(void);
+    InputSDL_ClearDebugWorldPickerBack();
     s_unemployedWorldPickerActive=1;
     ChooseCompetitionMenu();
     s_unemployedWorldPickerActive=0;
+    InputSDL_ClearDebugWorldPickerBack();
     if(_chooseTeamsResult!=0)
         (void)Expanded_OGWorld_ViewLeague((const uint8_t *)_selectedContest,
                                           _contestLeagueNumber);

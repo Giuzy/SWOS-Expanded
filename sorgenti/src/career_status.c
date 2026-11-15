@@ -3616,6 +3616,37 @@ void Expanded_OGWorld_Audit(ExpandedOGWorldAudit *out)
         if(c->year>out->max_year)out->max_year=c->year;
     }
 }
+/* Read the OG player counters which the native simulated-match code fills
+ * (PlayerFile.goalStats[0]); no standings, result or RNG mutation. */
+void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out)
+{
+    if(!out)return;
+    memset(out,0,sizeof(*out));
+    for(uint32_t k=0;k<s_expOGCount;++k) {
+        const ExpandedOGLeague *c=&s_expOG[k];
+        if(!c->used || c->teamCount<2u ||
+           c->teamCount>EXP_OG_MAX_TEAMS ||
+           c->comp.base.competitionType!=0 ||
+           c->comp.base.numTeams<2 ||
+           c->comp.base.numTeams>EXP_OG_MAX_TEAMS)continue;
+        ++out->resident_leagues;
+        const unsigned teams=(unsigned)c->teamCount;
+        for(unsigned j=0;j<teams;++j) {
+            for(unsigned i=0;i<16u;++i) {
+                const unsigned goals=(unsigned)c->teams[j].players[i].goalStats[0];
+                ++out->players;
+                out->player_league_goals+=goals;
+                if(goals)++out->players_with_league_goals;
+            }
+        }
+        unsigned sum=0u;
+        const unsigned n=(unsigned)c->comp.base.numTeams;
+        for(unsigned j=0;j<n;++j)
+            sum+=(unsigned)c->comp.leagueStandings[j].goalsFor;
+        if(sum)++out->leagues_with_goals;
+        out->standings_goals+=sum;
+    }
+}
 static ExpandedOGLeague *exp_find(uint8_t country,uint8_t division,uint16_t year) {
     for(uint32_t i=0;i<s_expOGCount;++i)
         if(s_expOG[i].used && s_expOG[i].country==country &&
@@ -3815,6 +3846,35 @@ int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
     _viewRandomPhase=oldPhase;
     _seasonPlaying=oldSeason;
     return 1;
+}
+/* Offer -> native OG viewer, directly resolved by the authoritative resident
+ * country / division / year (the offer modal already knows all three). */
+int Expanded_OGWorld_ViewLeagueForCountry(uint8_t country,uint8_t division,
+                                          uint16_t year)
+{
+    const ExpandedOGLeague *ctx=exp_find(country,division,year);
+    if(!ctx||!ctx->used) {
+        static uint8_t unavailable[]="OG WORLD: COMPETITION NOT RESIDENT";
+        fprintf(stderr,"[og-offer-view] MISSING country=%u division=%u year=%u\n",
+                (unsigned)country,(unsigned)division,(unsigned)year);
+        ShowErrorMenu(unavailable);
+        return 0;
+    }
+    const void *const *table=(const void *const *)_competitionsTable[country];
+    if(!table || !table[0] || (uintptr_t)table[0]==(uintptr_t)-1) {
+        static uint8_t unavailable[]="OG WORLD: COMPETITION NOT AVAILABLE";
+        ShowErrorMenu(unavailable);
+        return 0;
+    }
+    const uint16_t before=ctx->comp.matchesPlayedCount;
+    const int ok=Expanded_OGWorld_ViewLeague((const uint8_t *)table[0],division);
+    const uint16_t after=ctx->comp.matchesPlayedCount;
+    fprintf(stderr,"[og-offer-view] RESIDENT country=%u division=%u year=%u "
+                   "before=%u after=%u unchanged=%u ok=%d\n",
+            (unsigned)country,(unsigned)division,(unsigned)year,
+            (unsigned)before,(unsigned)after,
+            (unsigned)(before==after),ok);
+    return ok && before==after;
 }
 /* NEW: bind existing world league, not a second scorer or a fresh OG
  * league. Translate world team identities into this club's native list.

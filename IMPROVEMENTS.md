@@ -727,3 +727,11 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 - `F12+8` / `Expanded_DebugArmSeventyYearOG` arma 70 anni reali in UNEMPLOYED; FORWARD TIME usa i contesti OG, mai l'antico simulatore di risultati LWE. Ogni stagione chiusa e riaperta emette controlli nativi nel log.
 - `TEST_OG_70.bat` restituisce PASS limitato ai 70 passaggi OG e alle date esatte quando il parser li osserva realmente; il rapporto mondiale complessivo resta INCOMPLETE per coppe, cronologia completa e save/load. Non testati pensionamenti del manager e dei calciatori: predisposti come separata fase futura.
 - F12+8 modifica la carriera in memoria: usare soltanto una nuova carriera di test. I callback storici di coppa a fine anno sono saltati nel salto diagnostico per non creare 70 anni di esiti retroattivi; F12+7 e il tempo normale restano invariati.
+
+### 0.13.48 — F12+8 annuale, test OG before/after, BACK e offerta diretta (15/11/2026)
+- 0.13.47 crash/interruzione su 70 anni: 24 stagioni OG attraversate e ultima OPEN 2050; causa non identificata. Il salto ora usa annual steps da MenuProc per evitare una singola operazione di 70 anni; 70 CLOSE/OPEN/STEP e data esatta necessari per PASS_TRANSITIONS_ONLY. Si interrompe se un anno fallisce.
+- Ogni step registra anno/phase/country/division prima e dopo la chiamata OG. Aggiunto marker RESET per non confondere nuove carriere in un unico SWOS.log con un rewind.
+- Checkpoint OG per coppe (definitions != resident) e marcatori (PlayerFile.goalStats[0] + standings GF), prima/dopo 70 anni e vista offerta. F12 mostra contatori dei marcatori; TEST_OG_CUPS_SCORERS.bat separa evidenza dati e UI.
+- Pad Switch B viene gestito come BACK, non FIRE/SKIP, solo nel selettore DEBUG WORLD del disoccupato; a ogni pressione una sola pagina, CLASSIC invariato.
+- VIEW COMPETITIONS da un'offerta apre direttamente la divisione OG residente del club e torna all'offerta; invarianti dei risultati controllati. Nessuna seconda simulazione.
+- Test del parser con casi positivi/negativi isolati, senza simulare il mondo. Test Windows 0.13.48, coppe residenti, TOP GOAL SCORERS, save/load globale e pensionamenti ancora NON PROVATI o mancanti.

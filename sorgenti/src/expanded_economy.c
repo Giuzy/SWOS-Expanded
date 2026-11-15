@@ -2668,10 +2668,12 @@ void Expanded_UI_After(void) {
             "NEXT MATCH","COMPETITIONS","EXIT"};
         for(unsigned i=4;i<=15;i++) {
             MenuEntry *e=&_menuEntries[i];
-            if(e->isInvisible || (unemployed && i!=7 && i!=9 && i!=10 && i!=12)) continue;
+            if(e->isInvisible || (unemployed && i!=7 && i!=9 && i!=10 && i!=11 && i!=12)) continue;
             const char *name=defaultLabels[i-4];
             if(unemployed && i==7)
                 name="FORWARD TIME";
+            else if(unemployed && i==11)
+                name="DEBUG WORLD";
             else if(unemployed && i==12)
                 name="RECORD";
             /* The live game can change captions without altering the callback. */

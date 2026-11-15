@@ -3558,7 +3558,23 @@ typedef struct {
 static ExpandedOGLeague s_expOG[EXP_OG_MAX_LEAGUES];
 static uint32_t s_expOGCount;
 static ExpandedOGLeague *s_expOGCurrent;
-static int s_expOGPhase=-1,s_expOGBound,s_expOGViewing;
+static int s_expOGPhase=-1,s_expOGBound,s_expOGViewing,s_expOGFault;
+int Expanded_OGWorld_IsSimulating(void) {return s_expOGCurrent!=NULL;}
+void Expanded_OGWorld_InvalidFixture(int32_t a,int32_t b,uint16_t teamCount)
+{
+    if(!s_expOGCurrent)return;
+    s_expOGFault=1;
+    fprintf(stderr,"[og-world-fixture] INVALID country=%u division=%u "
+                   "year=%u phase=%d teamA=%ld teamB=%ld loaded=%u "
+                   "played=%u round=%u slot=%u\n",
+            (unsigned)s_expOGCurrent->country,
+            (unsigned)s_expOGCurrent->division,
+            (unsigned)s_expOGCurrent->year,s_expOGPhase,
+            (long)a,(long)b,(unsigned)teamCount,
+            (unsigned)_diyCompetitionStart.matchesPlayedCount,
+            (unsigned)_diyCompetitionStart.base.currentRoundIndex,
+            (unsigned)_diyCompetitionStart.leagueCurrentSlot);
+}
 int Expanded_OGWorld_ViewActive(void) { return s_expOGViewing; }
 extern uint8_t _seed2,_randXorIndex2,_randXorKey2;
 extern uint8_t _careerLastMatchIndexByCompetitionSlot[];
@@ -3568,7 +3584,7 @@ extern void SaveSelectedTeams(void);
 extern void RestoreSelectedTeams(void);
 void Expanded_OGWorld_Reset(void) {
     memset(s_expOG,0,sizeof s_expOG);s_expOGCount=0;
-    s_expOGCurrent=NULL;s_expOGPhase=-1;s_expOGBound=0;s_expOGViewing=0;
+    s_expOGCurrent=NULL;s_expOGPhase=-1;s_expOGBound=0;s_expOGViewing=0;s_expOGFault=0;
 }
 uint32_t Expanded_OGWorld_LeagueCount(void){return s_expOGCount;}
 int Expanded_OGWorld_ClubBound(void){return s_expOGBound;}
@@ -3592,6 +3608,7 @@ int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
         ctx->country=country;ctx->division=division;ctx->year=year;
         ctx->lastMatch=0xffu;
     }
+    if(ctx->used && phase<=ctx->lastPhase)return 1; /* phase already applied */
     DIYCompetitionEx oldComp;
     DIYTournamentState oldTournament;
     const uint8_t last=_careerLastMatchIndexByCompetitionSlot[compId];
@@ -3602,8 +3619,10 @@ int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
     SaveSelectedTeams();
     _internationalAutoAdvanceFlag=1;
     _seasonPlaying=(uint8_t)((96u+(uint32_t)year-World_FirstYear())%100u);
+    s_expOGFault=0;
     s_expOGCurrent=ctx;s_expOGPhase=phase;
     Career_AutoAdvanceInternationalCompetitionFixtures(record,division);
+    const int failed=s_expOGFault;
     s_expOGCurrent=NULL;s_expOGPhase=-1;
     _careerLastMatchIndexByCompetitionSlot[compId]=last;
     _seasonPlaying=oldSeason;_viewRandomPhase=oldView;
@@ -3611,7 +3630,81 @@ int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
     RestoreSelectedTeams();
     memcpy(&_diyCompetitionStart,&oldComp,sizeof oldComp);
     memcpy(&_diyFileBufferCopy,&oldTournament,sizeof oldTournament);
-    return ctx->used!=0;
+    return !failed && ctx->used!=0;
+}
+
+/* Unemployed CLUB OFFER must read the SAME resident OpenSWOS league
+ * advanced at START/FORWARD TIME. The old DIY_OGStandings_Read cache
+ * is populated by OG menu callbacks and can be absent even when the
+ * authoritative s_expOG league has already completed many fixtures.
+ * This function neither initializes a competition nor advances its
+ * schedule, alters an RNG, or opens an OG menu. */
+static int exp_og_offer_row_compare(const ExpandedLiveRow *a,
+                                    const ExpandedLiveRow *b)
+{
+    if(a->points!=b->points)return a->points>b->points?-1:1;
+    const int gdA=(int)a->scored-(int)a->conceded;
+    const int gdB=(int)b->scored-(int)b->conceded;
+    if(gdA!=gdB)return gdA>gdB?-1:1;
+    if(a->scored!=b->scored)return a->scored>b->scored?-1:1;
+    const int names=strcmp(a->name,b->name);
+    if(names)return names<0?-1:1;
+    return a->club<b->club?-1:(a->club>b->club?1:0);
+}
+int Expanded_OGWorld_ReadLeagueStandings(uint8_t country,uint8_t division,
+                                         uint16_t year,ExpandedLiveRow *rows,
+                                         uint32_t capacity,uint32_t *total)
+{
+    if(total)*total=0;
+    if(!rows||!total||_gameType!=4)return 0;
+    const ExpandedOGLeague *ctx=exp_find(country,division,year);
+    if(!ctx || !ctx->used)return 0;
+    const DIYCompetitionEx *comp=&ctx->comp;
+    const unsigned n=(unsigned)comp->base.numTeams;
+    if(comp->base.competitionType!=0 || n<2u ||
+       n>EXP_OG_MAX_TEAMS || n>ctx->teamCount || n>capacity)return 0;
+    for(unsigned i=0;i<n;i++) {
+        const unsigned off=comp->matchData.league.teamEntryOffsets[i];
+        if(off%sizeof(DIYTeamStats)!=0u ||
+           off/sizeof(DIYTeamStats)>=n)return 0;
+        const DIYTeamStats *stat=&comp->leagueStandings[off/sizeof(DIYTeamStats)];
+        const int32_t id=stat->teamSelOffset;
+        if(id<0 || (uint32_t)id>=ctx->teamCount)return 0;
+        const TeamFile *team=&ctx->teams[id].team;
+        if(World_FileCountry(team->countryNumber)!=country ||
+           team->league!=division)return 0;
+        ExpandedLiveRow *row=&rows[i];
+        memset(row,0,sizeof *row);
+        row->club=PACK_BE_U16(team->countryNumber,team->teamOrdinal);
+        memcpy(row->name,team->teamName,17u);
+        row->name[17]=0;
+        row->played=stat->gamesPlayed;
+        row->wins=stat->wins;
+        row->drawn=stat->draws;
+        row->lost=stat->losses;
+        row->scored=stat->goalsFor;
+        row->conceded=stat->goalsAgainst;
+        row->points=(int32_t)stat->points;
+        if((uint32_t)row->wins+row->drawn+row->lost!=row->played)return 0;
+        for(unsigned j=0;j<i;j++)
+            if(rows[j].club==row->club)return 0; /* duplicate ID */
+    }
+    /* Presentation-only ordering: match OG standings tie-break order
+     * (PTS, GD, GF, name). Sort local rows, NEVER modify resident OG. */
+    for(unsigned i=1;i<n;i++) {
+        ExpandedLiveRow key=rows[i];
+        unsigned j=i;
+        while(j && exp_og_offer_row_compare(&key,&rows[j-1])<0) {
+            rows[j]=rows[j-1];--j;
+        }
+        rows[j]=key;
+    }
+    *total=n;
+    fprintf(stderr,"[og-offer-resident] READ country=%u div=%u year=%u "
+                   "teams=%u phase=%u played-matches=%u (NO SIMULATION)\n",
+            (unsigned)country,(unsigned)division,(unsigned)year,n,
+            (unsigned)ctx->lastPhase,(unsigned)comp->matchesPlayedCount);
+    return 1;
 }
 /* DEBUG WORLD / career VIEW WORLD: read the resident OG league instead of
  * initializing or auto-simulating an external competition on menu entry.
@@ -3778,6 +3871,7 @@ void Career_AutoAdvanceInternationalCompetitionFixtures(uint8_t *record, uint16_
         }
         _careerLastMatchIndexByCompetitionSlot[compId]=ctx->lastMatch;
         if(s_expOGPhase>0)Career_AutoAdvanceLeagueFixtures();
+        if(!s_expOGFault) { /* do not persist an invalid OG fixture */
         ctx->lastMatch=_careerLastMatchIndexByCompetitionSlot[compId];
         memcpy(&ctx->comp,&_diyCompetitionStart,sizeof ctx->comp);
         memcpy(&ctx->tournament,&_diyFileBufferCopy,sizeof ctx->tournament);
@@ -3789,6 +3883,7 @@ void Career_AutoAdvanceInternationalCompetitionFixtures(uint8_t *record, uint16_
         ctx->seed=_seed2;ctx->randIndex=_randXorIndex2;ctx->randKey=_randXorKey2;
         ctx->lastPhase=(uint8_t)s_expOGPhase;
         ctx->used=ctx->teamCount!=0;
+        }
     } else
 #endif
     Career_AutoAdvanceLeagueFixtures();
@@ -4327,6 +4422,21 @@ void Career_AutoAdvanceLeagueFixtures(void)
     }
 #endif
 
+#ifdef SWOS_SDL_BUILD
+    /* This OG competition is finished. A later civil-time tick must not
+     * enter the native fixture loop again and produce self-matches. */
+    if(s_expOGCurrent && base->minSubstitutes==0 &&
+       _diyCompetitionStart.matchesPlayedCount>0u) {
+        fprintf(stderr,"[og-world-fixture] FINISHED country=%u division=%u "
+                       "year=%u phase=%u played=%u (NO EXTRA MATCH)\n",
+                (unsigned)s_expOGCurrent->country,
+                (unsigned)s_expOGCurrent->division,
+                (unsigned)s_expOGCurrent->year,(unsigned)currentPhase,
+                (unsigned)_diyCompetitionStart.matchesPlayedCount);
+        return;
+    }
+    uint32_t ogWorldIterations=0;
+#endif
     /* Inline DIY_AdvanceLeagueFixtureIndex: advance fixture and set d6 */
     uint8_t viewRP = base->viewRandomPhase;
     DIY_AdvanceFixtureIndex(0, (uint16_t)viewRP);
@@ -4334,12 +4444,29 @@ void Career_AutoAdvanceLeagueFixtures(void)
 
     /* Main simulation loop */
 main_loop:
+#ifdef SWOS_SDL_BUILD
+    if(s_expOGCurrent && ++ogWorldIterations>8192u) {
+        s_expOGFault=1;
+        fprintf(stderr,"[og-world-fixture] LOOP LIMIT phase=%u played=%u\n",
+                (unsigned)currentPhase,
+                (unsigned)_diyCompetitionStart.matchesPlayedCount);
+        return;
+    }
+    if(s_expOGCurrent && base->minSubstitutes==0 &&
+       _diyCompetitionStart.matchesPlayedCount>0u)return;
+#endif
     if (currentPhase <= base->viewRandomPhase)
         goto check_next_phase;
 
     /* Sim league fixtures until phase catches up */
-    DIY_PlayOrSimulateLeagueFixture(0, 0); /* allowSquadChanges=0, selector=0 (sim) */
-
+    if(DIY_PlayOrSimulateLeagueFixture(0, 0)!=0) {
+#ifdef SWOS_SDL_BUILD
+        if(s_expOGCurrent){s_expOGFault=1;return;}
+#endif
+    }
+#ifdef SWOS_SDL_BUILD
+    if(s_expOGCurrent && s_expOGFault)return;
+#endif
     if (((DIYCompetitionEx *)base)->leagueCurrentSlot == 0)
         goto main_loop; /* more matches pending in current fixture set */
 
@@ -4405,7 +4532,22 @@ catch_up_phase:
     if (lastMatch == base->viewRandomPhase) {
         /* Catch-up loop: sim until leagueCurrentSlot != 0 */
         do {
-            DIY_PlayOrSimulateLeagueFixture(0, 0);
+#ifdef SWOS_SDL_BUILD
+            if(s_expOGCurrent && ++ogWorldIterations>8192u) {
+                s_expOGFault=1;
+                fprintf(stderr,"[og-world-fixture] CATCHUP LOOP LIMIT phase=%u\n",
+                        (unsigned)currentPhase);
+                return;
+            }
+#endif
+            if(DIY_PlayOrSimulateLeagueFixture(0, 0)!=0) {
+#ifdef SWOS_SDL_BUILD
+                if(s_expOGCurrent){s_expOGFault=1;return;}
+#endif
+            }
+#ifdef SWOS_SDL_BUILD
+            if(s_expOGCurrent && s_expOGFault)return;
+#endif
         } while (((DIYCompetitionEx *)base)->leagueCurrentSlot == 0);
         goto show_menu_check;
     }

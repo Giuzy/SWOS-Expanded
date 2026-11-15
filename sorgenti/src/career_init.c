@@ -906,7 +906,7 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
         countries=_careerCompetitionIdRemapTable;
     }
     if(!countries)return 0;
-    unsigned ok=0,skipped=0;
+    unsigned ok=0,skipped=0,failed=0;
     for(unsigned i=0;i<256u && countries[i]!=0xffu;++i) {
         const uint8_t country=countries[i];
         const void *const *tab=(const void *const *)_competitionsTable[country];
@@ -925,22 +925,66 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
             if(Expanded_OGWorld_AdvanceLeague((uint8_t *)rec,
                                               country,(uint8_t)d,year,phase))
                 ++ok;
-            else ++skipped;
+            else {
+                ++failed;
+                fprintf(stderr,"[og-world] LEAGUE ERROR country=%u "
+                               "division=%u year=%u phase=%u\n",
+                        (unsigned)country,d,(unsigned)year,(unsigned)phase);
+            }
         }
     }
     fprintf(stderr,"[og-world] year=%u phase=%u native-leagues=%u "
                    "skipped=%u persistent=%lu (manager independent)\n",
             (unsigned)year,(unsigned)phase,ok,skipped,
             (unsigned long)Expanded_OGWorld_LeagueCount());
-    return ok!=0;
+    if(failed)
+        fprintf(stderr,"[og-world] WORLD TICK FAILED: %u leagues; "
+                       "clock must not advance\n",failed);
+    return ok!=0 && failed==0;
 }
 int Expanded_OGWorld_Start(void) {
     Expanded_OGWorld_Reset();
     s_expOGWorldStarted=0;
     s_expOGWorldYear=World_FirstYear();
     DIY_OGStandings_SetSeason(s_expOGWorldYear);
+    /* START establishes the resident OG world before the manager can be
+     * employed or unemployed. Phase zero only initializes the native
+     * contexts; it is NOT the real 1 July career start. Use the already
+     * established civil world date, without creating a second clock.
+     * The same dated OG routine will skip completed native phases on
+     * the first FORWARD TIME (via each context's lastPhase). */
     s_expOGWorldStarted=expanded_og_world_run_year(s_expOGWorldYear,0);
-    return s_expOGWorldStarted;
+    if(!s_expOGWorldStarted)return 0;
+    ExpandedLiveCalendarState initial;
+    if(!ExpandedWorldLive_CalendarState(&initial) ||
+       initial.today.year!=s_expOGWorldYear ||
+       initial.today.month!=7u || initial.today.day!=1u) {
+        fprintf(stderr,"[og-world] START FAILED: missing/non-July-1 "
+                       "calendar for world year=%u; no fallback date\n",
+                (unsigned)s_expOGWorldYear);
+        s_expOGWorldStarted=0;
+        Expanded_OGWorld_Reset();
+        return 0;
+    }
+    if(!Expanded_OGWorld_AdvanceToDate(initial.today)) {
+        fprintf(stderr,"[og-world] START FAILED: native competitions could "
+                       "not catch up to %04u-%02u-%02u\n",
+                (unsigned)initial.today.year,(unsigned)initial.today.month,
+                (unsigned)initial.today.day);
+        s_expOGWorldStarted=0;
+        Expanded_OGWorld_Reset();
+        return 0;
+    }
+    uint8_t phase=0;
+    (void)ExpandedWorld_DateToNativePhaseNext(s_expOGWorldYear,
+                                              initial.today,&phase);
+    fprintf(stderr,"[og-world] START READY: date=%04u-%02u-%02u "
+                   "native-phase=%u resident-leagues=%lu "
+                   "(all native league results through START date)\n",
+            (unsigned)initial.today.year,(unsigned)initial.today.month,
+            (unsigned)initial.today.day,(unsigned)phase,
+            (unsigned long)Expanded_OGWorld_LeagueCount());
+    return 1;
 }
 int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
     if(!s_expOGWorldStarted)return 0;

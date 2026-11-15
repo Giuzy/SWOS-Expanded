@@ -4425,7 +4425,7 @@ void Career_AutoAdvanceLeagueFixtures(void)
 #ifdef SWOS_SDL_BUILD
     /* This OG competition is finished. A later civil-time tick must not
      * enter the native fixture loop again and produce self-matches. */
-    if(s_expOGCurrent && base->minSubstitutes==0 &&
+    if(s_expOGCurrent && _diyCompetitionStart.minSubstitutes==0 &&
        _diyCompetitionStart.matchesPlayedCount>0u) {
         fprintf(stderr,"[og-world-fixture] FINISHED country=%u division=%u "
                        "year=%u phase=%u played=%u (NO EXTRA MATCH)\n",
@@ -4452,7 +4452,7 @@ main_loop:
                 (unsigned)_diyCompetitionStart.matchesPlayedCount);
         return;
     }
-    if(s_expOGCurrent && base->minSubstitutes==0 &&
+    if(s_expOGCurrent && _diyCompetitionStart.minSubstitutes==0 &&
        _diyCompetitionStart.matchesPlayedCount>0u)return;
 #endif
     if (currentPhase <= base->viewRandomPhase)

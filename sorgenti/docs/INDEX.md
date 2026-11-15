@@ -1,5 +1,7 @@
 # docs/INDEX.md — a map of the docs, and of every path the project uses
 
+> **Nota SWOS Expanded (15/11/2026):** il riferimento sottostante a `.claude/CLAUDE.md` e' storico dell'upstream. Nel fork leggere prima `AGENTS.md`, `PROJECT_STATE.md`, `docs/ENGINE_CODE_DISCOVERIES.md`, `docs/GAME_DESIGN.md`, `IMPROVEMENTS.md`, `docs/DEVELOPMENT_WORKFLOW.md`. OG e' l'unica autorita' sportiva, LWE non simula risultati propri. Salvataggi Windows Expanded portatili: `AUTO9697.CAR` e `AUTO2627.CAR` in `save/` accanto all'EXE.
+
 For a fresh session: read `.claude/CLAUDE.md` first (the project's rules and the current state
 of every subsystem), then this page to find the doc for the task in front of you. Each row
 says what a doc is, whether it is still live, and when to open it.

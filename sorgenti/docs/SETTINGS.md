@@ -1,5 +1,8 @@
 # Settings, command line and display
 
+## Eccezione di SWOS Expanded su Windows (15/11/2026)
+Le successive istruzioni di OpenSWOS upstream su `%USERPROFILE%\\Documents\\SWOS` **non si applicano al porting Expanded Windows**. Il fork salva `SWOS.ini` e `SWOS.log` accanto a `SWOS_Expanded.exe` e i checkpoint in `save/AUTO9697.CAR` e `save/AUTO2627.CAR`; `save/AUTOSAVE.CAR` e' soltanto legacy read-only. Non cancellare o sovrascrivere i salvataggi preesistenti. Nessun cambiamento per le piattaforme non Windows.
+
 Everything you can change: the settings file `SWOS.ini`, the command-line options, and the
 display options (render modes, scaling, CRT effects). The keys and buttons are in
 [PLAYING.md](PLAYING.md).

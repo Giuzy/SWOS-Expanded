@@ -1,5 +1,8 @@
 # SWOS Expanded — development procedures and rationale
 
+## Regole prevalenti — 15 novembre 2026
+Il vecchio simulatore autonomo LWE, i risultati/calendari LWE e il singolo `AUTOSAVE.CAR` sono descrizioni storiche. Per i due mondi la sola autorita' e' OG OpenSWOS; LWE non genera fixture o risultati paralleli. Su Windows `save/AUTO9697.CAR` e `save/AUTO2627.CAR` sono gli slot scrivibili accanto a `SWOS_Expanded.exe`, mentre `AUTOSAVE.CAR` e' solo fallback legacy in lettura. L'utente esegue la compilazione e i test Windows dopo GitKraken usando MSYS2 gia' installato (`C:\\msys64`). Un commit o la revisione statica non provano una build funzionante.
+
 Status: approved working rules. Primary integration branch: `dev/0.10`.
 
 ## 1. Workflow ChatGPT/GitHub/GitKraken (ripristinato 2026-11-09)
@@ -370,3 +373,11 @@ indipendente. Non inventare date/risultati per pareggiare i contatori.
 - NEW CAREER -> START UNEMPLOYED, prima di premere FORWARD TIME: controllare il log `[og-world] START READY: date=YYYY-07-01 native-phase=... resident-leagues=...` e aprire DEBUG WORLD per Brasile/Svezia o altre leghe gennaio-giugno. Confrontare le gare OG già disputate con il calendario originale del paese, e confermare le leghe agosto-maggio ancora a zero.
 - Aprire due volte la stessa lega senza FORWARD TIME: punti/gol/partite identici. Poi FORWARD TIME una settimana: nessuna seconda simulazione delle gare precedenti (e nessuna `[og-world-fixture] INVALID`).
 - Se START scrive `[og-world] START FAILED`, non chiamare riuscita la creazione del mondo: inoltrare il log. Le coppe non residenti restano correttamente «non disponibili» ma da implementare.
+
+### Checklist Windows 0.13.46 (dopo fallimento compilazione 0.13.45_08)
+1. Pull `dev/0.10` con GitKraken, compilazione con BAT/MSYS2 esistenti; verificare `Build 0.13.46`. In caso di errore inviare `COMPILAZIONE_0140.log`, senza dichiarare testata la carriera.
+2. NEW CAREER -> START UNEMPLOYED: log `[og-world] START READY`, inizializzazione alla data 1 luglio. In DEBUG WORLD le leghe gia' iniziate devono avere partite precedenti; quelle che iniziano dopo possono essere a zero. Re-opening senza FORWARD TIME non deve modificare dati.
+3. FORWARD TIME oltre il 4 novembre: nessuna fixture duplicata/self-match dopo la fine OG, nessun `INVALID`, `LOOP LIMIT`, `WORLD TICK FAILED`; in caso contrario segnare NO e inviare log con paese/divisione/data.
+4. CLUB OFFER -> VIEW COMPETITIONS: confrontare i medesimi paese/divisione/anno con DEBUG WORLD prima e dopo accettazione; controllare PL/PTS/GF/GA, storico calendario e TOP GOAL SCORERS.
+5. Eseguire prove distinte 1996/97 e 2026/27, salvataggi `AUTO9697.CAR`/`AUTO2627.CAR`, senza alterare `AUTOSAVE.CAR`. Coppe residenti e persistenza completa OG ancora NON PROVATO.
+6. Per ogni punto annotare SI / NO / NON PROVATO e fornire `SWOS.log` sui NO; screenshot per problemi visivi. Le prove statiche o di simulatore isolato NON equivalgono a test del gameplay Windows.

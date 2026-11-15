@@ -1,10 +1,15 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
-**Aggiornato:** 9 novembre 2026
+**Edizione originaria:** 9 novembre 2026 · **Sintesi aggiornata:** 15 novembre 2026
 **Repository:** `Giuzy/SWOS-Expanded`  
 **Ramo di riferimento al momento della stesura:** `dev/0.10` (il vecchio `release/0.10.40` resta temporaneamente come backup)  
 **Base:** Sensible World of Soccer / OpenSWOS · C / SDL2 · Windows x64  
 **Stato:** sviluppo attivo; la presenza nel repository non equivale a collaudo Windows.
+
+## Stato vigente — 15 novembre 2026
+**OG e' l'unica autorita' sportiva** di 1996/97 e 2026/27. Il simulatore di risultati autonomo LWE e' disattivato; tutte le relative procedure precedenti sono storia, non piu' architettura da usare. La 0.13.45_08 contiene leghe OG residenti con allineamento al 1 luglio a START, viewer DEBUG WORLD read-only e offerte che consultano gli stati OG. Il log Windows 0.13.45_08 ha pero' evidenziato due errori in `career_status.c` e il gioco NON si e' avviato. Nella 0.13.46 i due accessi sono stati corretti senza cambiare la condizione originale di fine campionato; compilazione e runtime Windows della nuova versione **NON PROVATI**.
+
+Su Windows gli slot attivi sono `save/AUTO9697.CAR` e `save/AUTO2627.CAR` accanto all'EXE. `AUTOSAVE.CAR` e' legacy in sola lettura, `Documents\\SWOS` e' percorso storico upstream e non destinazione Expanded. Restano da completare coppe OG residenti, cronologia partite nel calendario post-ingaggio, save/reload degli stati OG, test piu' stagioni e ID multipli; crash FORWARD TIME e TOP GOAL SCORERS sono ancora da verificare. Test LWE isolati di 70 stagioni non provano la nuova integrazione.
 
 ## 0. Scopo, fonti e legenda
 

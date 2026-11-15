@@ -1,5 +1,8 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## Stato attuale — 15/11/2026
+Le prove storiche che assegnano al LWE risultati/calendari autonomi o un unico `AUTOSAVE.CAR` non sono piu' il comportamento previsto. OG e' l'unica autorita' sportiva per entrambi i mondi; i salvataggi Windows Expanded sono `save/AUTO9697.CAR` e `save/AUTO2627.CAR` (legacy `AUTOSAVE.CAR` in sola lettura). La 0.13.45_08 ha FALLITO la compilazione Windows per due campi `minSubstitutes` errati; la 0.13.46 contiene la correzione codice ma richiede nuova prova Windows.
+
 **Development history, implemented changes and technical progress**
 
 **Project:** SWOS Expanded  
@@ -707,3 +710,8 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 - START crea gli stati OG delle leghe e le porta immediatamente al 1 luglio dell'anno scelto, invece di aspettare il primo FORWARD TIME. Le leghe iniziate prima della data mostrano le gare reali già disputate quando l'utente apre DEBUG WORLD.
 - Calendario iniziale letto dalla data civile esistente, nessun secondo clock; riuso dello stesso `Expanded_OGWorld_AdvanceToDate`, perciò nessun doppio risultato al primo FORWARD TIME. Se catch-up iniziale fallisce, si interrompe la nuova carriera.
 - Nessuna coppa mondiale residente nuova, nessun trasferimento/finestre implementati, nessuna modifica gameplay CLASSIC.
+
+### 0.13.46 — fix compilazione e adeguamento documentazione (15/11/2026)
+- `career_status.c`: i due controlli OG contro incontri oltre la fine del campionato leggono il membro esistente di `DIYCompetitionEx`, `_diyCompetitionStart.minSubstitutes`, invece dell'inesistente `DIYCompetition.minSubstitutes`. Algoritmo risultati OG, scope del guard e CLASSIC/DIY invariati.
+- Aggiornate le guide di progetto e i riferimenti dei documenti upstream ai due salvataggi portatili e alla sola autorita' OG.
+- Windows 0.13.45_08: compilazione FALLITA nel log utente. 0.13.46: compilazione, gameplay, FORWARD TIME, fine campionato e save/load OG NON PROVATI.

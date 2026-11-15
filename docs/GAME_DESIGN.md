@@ -1,6 +1,11 @@
 # SWOS Expanded — Game Design Document
 
-**Edizione consolidata:** 10 novembre 2026  
+## Decisione vigente del 14-15 novembre 2026
+Per i mondi 1996/97 e 2026/27 **OpenSWOS OG e' l'unica autorita'** per stagione/data, carriera, calendari, partite, risultati, classifiche, coppe, replay, qualificazioni, spareggi e trofei. Le precedenti proposte di un calendario, un simulatore di risultati e un ledger autorevole autonomi LWE sono [STORICO/SUPERATO], mantenute solo per tracciabilita'. LWE puo' aggiungere soltanto dati ed eventi che OG non gestisce gia'; nuovi valori e formule da approvare con l'utente. Le leghe residenti alla 0.13.45_08 non completano ancora le coppe, il save OG globale, lo storico delle fixture e i test pluriennali.
+
+Salvataggi Expanded Windows: `save/AUTO9697.CAR` e `save/AUTO2627.CAR` accanto all'EXE; `AUTOSAVE.CAR` precedente e' solo fallback in lettura, da non cancellare/sovrascrivere. Compilazione e prove Windows restano compito dell'utente.
+
+**Edizione originaria:** 10 novembre 2026 · **Regole aggiornate:** 15 novembre 2026  
 **Progetto:** SWOS Expanded, basato su OpenSWOS — Windows 10/11 x64, C/SDL2  
 **Ramo consultato:** `dev/0.10` · **HEAD consultato:** `f33041df7204936da22e6a066977b0dc382093b4` · **Versione nel codice:** `0.10.75`  
 **Natura:** specifiche di gioco, decisioni, proposte, questioni aperte. **Non è un rapporto di implementazione.**

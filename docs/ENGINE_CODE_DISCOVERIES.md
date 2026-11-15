@@ -1,6 +1,6 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
-Ultima analisi: 13 novembre 2026. Fonti: codice attivo del ramo dev/0.10,
+Registro aggiornato al 15 novembre 2026 (analisi iniziali del 13 novembre). Fonti: codice attivo del ramo dev/0.10,
 AGENTS.md, PROJECT_STATE.md, IMPROVEMENTS.md, test e log Windows dell'11-13
 novembre, incluse le chat del progetto. Questo documento registra **fatti,
 cause confermate e ipotesi da verificare**. Non e' un registro dei PASS.
@@ -20,8 +20,7 @@ decisioni vecchie non equivalgono a comportamento attivo.
 1. CALENDARIO: data esatta della carriera e conversione delle fasi OG,
    avanzamento settimanale, anniversario di 5 anni, cambi stagione,
    rehire, persist/restore, regressioni fino a 30 anni.
-2. CAMPIONATI: un solo risultato per incontro, formati OG 2/3/4 cicli,
-   classifiche OG/LWE identiche club per club, promozioni, assunzione.
+2. CAMPIONATI: OG unico produttore di incontri e risultati, formati 2/3/4 cicli, confronto delle classifiche OG residenti prima e dopo la firma, promozioni, assunzione.
 3. COPPE: OG nazionali, internazionali per club e nazionali, qualificazioni,
    turni e campioni, eventi offscreen, autosave e journal.
 4. STRESS INTEGRATO Windows: piu' stagioni con cambio squadra/save/rehire.
@@ -406,3 +405,11 @@ test di regressione e stato.
 - [FAIL-CLOSED] Mancata data iniziale 1 luglio o fallimento dell'avanzamento OG a START interrompono l'ingresso in carriera con log `[og-world] START FAILED`; non proseguire con un mondo parzialmente inizializzato. In caso positivo: `[og-world] START READY: date=... native-phase=... resident-leagues=...`.
 - [SOSTITUISCE NOTA PRECEDENTE] L'osservazione che le competizioni iniziavano a fase 0 per poi aggiornarsi soltanto al primo FORWARD TIME descrive la 0.13.45_07 e non il comportamento richiesto per la 0.13.45_08.
 - [LIMITI INVARIATI] Le coppe non hanno ancora un contesto residente inizializzato per ogni tabellone, né è completo il salvataggio mondiale OG. Allineare le **leghe** a luglio non certifica tutte le coppe e non risolve automaticamente ogni problema di date delle stagioni meridionali.
+
+## 15/11/2026 — 0.13.46: fix compilazione di `minSubstitutes`
+- **Evidenza Windows reale:** nel log `COMPILAZIONE_0140(5).log`, la compilazione della 0.13.45_08 si ferma prima dell'avvio con due errori in `sorgenti/src/career_status.c:4428` e `:4455`: `'DIYCompetition' has no member named 'minSubstitutes'`.
+- **Causa verificata:** `base` e' un puntatore a `DIYCompetition` (solo header). Il campo `minSubstitutes` e' dichiarato nella struttura estesa `DIYCompetitionEx` in `sorgenti/include/game_types.h` ed e' gia' usato da altre parti della stessa funzione.
+- **Correzione:** i due guard protetti da `s_expOGCurrent` leggono `_diyCompetitionStart.minSubstitutes==0`. Le altre condizioni, le chiamate OG, il blocco di partite dopo la conclusione e i percorsi CLASSIC/DIY rimangono invariati.
+- **Distinzione:** i warning `-Waddress-of-packed-member` sono separati dagli errori bloccanti e non vengono eliminati senza audit dedicato.
+- **Verifiche:** tipo/field e sostituzione nel sorgente SI; vecchia compilazione 0.13.45_08 NO; compilazione Windows 0.13.46, runtime, crash novembre, START al luglio, coppe e save mondiale NON PROVATO.
+- **Precedenza documentale:** sezioni precedenti a 14/11 che assegnano al LWE fixture/risultati e un unico `AUTOSAVE.CAR` sono [STORICO/SUPERATO]. OG unico motore e due autosave Windows per mondo restano la regola corrente.

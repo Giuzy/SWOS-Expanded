@@ -8,6 +8,9 @@ REM PREPARA_SWOS.bat; attende poi la chiusura del gioco e raccoglie i log.
 REM Il salvataggio save\ non viene mai modificato dal raccoglitore.
 set "SWOS_DIAGNOSTIC_SESSION=1"
 set "SWOS_DIAGNOSTIC_CAPTURE=1"
+set "EXPECTED="
+for /f "tokens=3" %%V in ('findstr /B /C:"#define SWOS_EXPANDED_VERSION" "sorgenti\include\build_info.h"') do set "EXPECTED=%%~V"
+if not defined EXPECTED set "EXPECTED=UNKNOWN"
 set "SESSION="
 for /L %%N in (1,1,999) do if not defined SESSION if not exist "DIAGNOSTICA_SESSIONE_%%N" set "SESSION=DIAGNOSTICA_SESSIONE_%%N"
 if not defined SESSION (
@@ -23,10 +26,10 @@ if errorlevel 1 (
 )
 (
  echo SWOS EXPANDED - DIAGNOSTICA WINDOWS
- echo Build attesa: 0.13.39_01
+ echo Build attesa: %EXPECTED%
  echo Avvio: %DATE% %TIME%
- echo Raccolta: F12, F10, F12+C nel log quando aperti, eventi OG/LWE,
- echo coppe, caricamento e prima divergenza.
+ echo Raccolta: F12 OG resident leagues, F12+C OG cups, F10 OG data.
+ echo Eventi del mondo OG: START, TICK, view, bind, cup definitions.
  echo Il BAT avvia AVVIA_SWOS.bat, che esegue PREPARA_SWOS.bat.
  echo NESSUN TEST NON ESEGUITO PUO ESSERE DICHIARATO PASS.
  echo Il gioco non viene modificato dal raccoglitore.
@@ -37,7 +40,10 @@ echo  SWOS EXPANDED - SESSIONE DIAGNOSTICA
 echo ==========================================================
 echo  Cartella di uscita: %SESSION%
 echo  AVVIA_SWOS.bat compilera e avviera il gioco.
-echo  Durante il test puoi aprire F12, F10 e F12+C.
+echo  Durante il test apri F12, F12+C e F10 per acquisire dati OG.
+echo  Da DEBUG WORLD usa BACK nei paesi: un livello per volta.
+echo  F12+8 e poi FORWARD TIME: 70 stagioni OG su NUOVA carriera di test.
+echo  ATTENZIONE: questo comando cambia realmente la data della carriera.
 echo  Dopo la chiusura verra analizzato SWOS.log automaticamente.
 echo ==========================================================
 echo.
@@ -57,8 +63,9 @@ if exist "SWOS_RUNTIME_AUDIT.log" copy /Y "SWOS_RUNTIME_AUDIT.log" "%SESSION%\SW
 (
  echo Avvio/gioco exit: %GAME_EXIT%
  echo Analizzatore exit: %AUDIT_EXIT%
- echo Un codice zero di avvio non significa che OG/LWE siano sincronizzati.
- echo I PASS dei test C isolati non certificano le coppe Windows.
+ echo Il codice di avvio non certifica il mondo OG.
+ echo Coppe residenti e save globale OG restano incompleti.
+ echo Un test statico non certifica la simulazione Windows.
  echo Consiglio: invia SOLO il file ZIP della sessione, se creato.
 ) >> "%SESSION%\README_DIAGNOSTICA.txt"
 

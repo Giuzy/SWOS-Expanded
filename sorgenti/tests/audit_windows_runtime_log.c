@@ -1,217 +1,278 @@
-/* Portable Windows runtime log inspector, no awk/Python dependency.
- * Build with the SAME MinGW C compiler that builds SWOS Expanded.
- * A headless PASS or an F12 display is not proof of complete OG integration.
+/* SWOS Expanded: inspect a REAL Windows gameplay SWOS.log.
+ * Read-only. An isolated C stress suite or a database inventory cannot
+ * certify an OG career: this parser uses native resident-world markers.
+ * Exit 0 only for a complete integration (cups and persistence included);
+ * exit 1 for observed regressions; exit 2 for partial/missing evidence.
  */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
+
 #define LINE_CAP 8192
-static long field(const char *line,const char *name,long fallback) {
-    char pattern[80];
+static long field(const char *s,const char *key,long fallback)
+{
+    char needle[80];
     const char *p;
-    snprintf(pattern,sizeof pattern,"%s=",name);
-    p=strstr(line,pattern);
+    if(snprintf(needle,sizeof needle,"%s=",key)<0)return fallback;
+    p=strstr(s,needle);
     if(!p)return fallback;
-    p+=strlen(pattern);
-    return strtol(p,NULL,10);
+    p+=strlen(needle);
+    if(*p=='-' || (*p>='0'&&*p<='9'))return strtol(p,NULL,10);
+    return fallback;
 }
-static void first_error(char *buffer,size_t cap,const char *kind,
-                        long row,const char *line) {
-    if(buffer[0])return;
-    snprintf(buffer,cap,"%s line=%ld %.450s",kind,row,line);
-    size_t n=strlen(buffer);
-    while(n && (buffer[n-1]=='\n'||buffer[n-1]=='\r'))buffer[--n]=0;
+static int tag(const char *s,const char *prefix)
+{
+    return strncmp(s,prefix,strlen(prefix))==0;
 }
-static const char *status(int state) {
-    return state==2?"FAIL":state==1?"PASS":"NOT_TESTED";
+static void remember(char *out,size_t size,const char *what,
+                     long row,const char *line)
+{
+    if(*out)return;
+    snprintf(out,size,"%s line=%ld %.350s",what,row,line);
+    size_t n=strlen(out);
+    while(n&&(out[n-1]=='\r'||out[n-1]=='\n'))out[--n]=0;
 }
-int main(int argc,char **argv) {
-    FILE *in;
-    char line[LINE_CAP],first[600]="",first_clock[600]="";
-    long log_count=0,compares=0,failures=0;
-    long imports=0,world_total=0,southern_checks=0,cup_registered=0;
-    long native_results=0,replacements=0,snapshots=0,clock_events=0;
-    long snapshots_main=0,snapshots_cups=0,snapshots_f10=0;
-    long cup_callbacks=0,max_world_week=0,format_events=0;
-    long julian_jumps=0,julian_jump_errors=0;
-    int import_status=0,stand_status=0,handoff_status=0,south_status=0,clock_status=0;
-    int has_legacy_clock=0,clock_overdue=0,cup_status=0,build_matched=0;
-    unsigned civil_prev=0u;
-    unsigned civil_events=0u,civil_advances=0u,civil_rewinds=0u;
-    const char *expected=argc>2?argv[2]:"0.13.39_01";
+int main(int argc,char **argv)
+{
     const char *filename=argc>1?argv[1]:"SWOS.log";
-    in=fopen(filename,"rb");
+    const char *expected=argc>2?argv[2]:"";
+    FILE *in=fopen(filename,"rb");
+    char line[LINE_CAP],first[500]="",build[80]="";
+    long rows=0,start_ready=0,start_audit=0,ticks=0;
+    long leagues=0,played=0,completed=0,matches=0,countries=0,invalid=0;
+    long cup_defs=0,cup_countries=0,cup_resident=0,yearend=0;
+    long views=0,view_missing=0,binds=0,career_saves=0,career_loads=0;
+    long f12_main=0,f12_cups=0,f10_data=0;
+    long picker_backs=0,picker_pops=0,picker_unmatched=0;
+    long native_faults=0,regressions=0,log_year=-1,log_phase=-1;
+    long prev_year=-1,prev_phase=-1;
+    long season_closes=0,season_opens=0,season_failures=0;
+    long og_stress_started=0,og_stress_finished=0,og_stress_date_exact=0;
+    long og_stress_armed=0;
+    unsigned start_year=0,start_month=0,start_day=0;
+    int have_audit=0,after_start=0;
     if(!in) {
         puts("RUNTIME_LOG=NOT_TESTED reason=SWOS.log_missing");
-        puts("WINDOWS_INTEGRATION=INCOMPLETE reason=NO_LOG");
+        puts("WINDOWS_OG_INTEGRATION=INCOMPLETE reason=NO_LOG");
         puts("OVERALL=INCOMPLETE");
         return 2;
     }
     while(fgets(line,sizeof line,in)) {
-        ++log_count;
-        if(strstr(line,"[build] SWOS Expanded ")==line &&
-           strstr(line,expected))build_matched=1;
-        if(strstr(line,"[world-import-end]")==line) {
-            ++imports;
-            long total=field(line,"rows",-1);
-            long accepted=field(line,"accepted",-1);
-            long excluded=field(line,"excluded",-1);
-            long errors=field(line,"failures",-1);
-            world_total=total;
-            if(total<0||accepted<0||excluded<0||
-               total!=accepted+excluded||errors!=0||
-               !strstr(line,"status=COMPLETE")) {
-                import_status=2;
-                first_error(first,sizeof first,"WORLD_IMPORT",log_count,line);
-            } else if(import_status==0)import_status=1;
+        ++rows;
+        if(tag(line,"[build] SWOS Expanded ")) {
+            char value[80];
+            if(sscanf(line,"[build] SWOS Expanded %79s",value)==1)
+                snprintf(build,sizeof build,"%s",value);
         }
-        if(strstr(line,"[join-standings] FAIL")==line) {
-            ++compares;++failures;stand_status=2;
-            first_error(first,sizeof first,"OG_LWE_STANDINGS",log_count,line);
-        } else if(strstr(line,"[join-standings] PASS")==line) {
-            ++compares;if(!stand_status)stand_status=1;
+        if(tag(line,"[og-world] START READY:")) {
+            unsigned cy=0,cm=0,cd=0;
+            if(sscanf(line,"[og-world] START READY: date=%4u-%2u-%2u",
+                      &cy,&cm,&cd)!=3 || cm!=7u || cd!=1u) {
+                ++regressions;
+                remember(first,sizeof first,"START_DATE_NOT_JULY_1",rows,line);
+            } else {
+                start_year=cy; start_month=cm; start_day=cd;
+            }
+            ++start_ready;
+            after_start=1;
+            prev_year=-1;
+            prev_phase=-1;
+            picker_unmatched=0;
         }
-        if(strstr(line,"[midseason] FAIL EARLY_HANDOFF")==line) {
-            handoff_status=2;
-            first_error(first,sizeof first,"EARLY_HANDOFF",log_count,line);
-        }
-        if(strstr(line,"[clock-audit] event=JOIN_FINISH result=REACHED")==line &&
-           handoff_status==0)handoff_status=1;
-        if(strstr(line,"[midseason-southern] FAIL")==line) {
-            south_status=2;
-            first_error(first,sizeof first,"SOUTHERN_HANDOFF",log_count,line);
-        } else if(strstr(line,"[midseason-southern] PASS")==line) {
-            ++southern_checks;if(south_status==0)south_status=1;
-        }
-        /* Career civil clock monotonicity; native "next OG event" is
-         * intentionally NOT a second civil date. Reset at career creation
-         * and when a different .CAR snapshot is loaded. */
-        if(strstr(line,"[clock-trace] RESET new-career")==line ||
-           strstr(line,"[living-world] restored .CAR snapshot")==line)
-            civil_prev=0u;
-        if(strstr(line,"[clock-trace]")==line) {
-            const char *clock=strstr(line,"civil=");
-            unsigned cy=0u,cm=0u,cd=0u;
-            if(clock && sscanf(clock,"civil=%4u-%2u-%2u",&cy,&cm,&cd)==3 &&
-               cy>=1900u && cy<=2200u && cm>=1u && cm<=12u &&
-               cd>=1u && cd<=31u) {
-                const unsigned key=cy*10000u+cm*100u+cd;
-                ++civil_events;
-                if(civil_prev && key<civil_prev) {
-                    ++civil_rewinds;
-                    first_error(first_clock,sizeof first_clock,
-                                "CIVIL_DATE_REWIND",log_count,line);
-                    first_error(first,sizeof first,
-                                "CIVIL_DATE_REWIND",log_count,line);
+        if(tag(line,"[og-world-audit] ")) {
+            const int is_start=strstr(line,"stage=START")!=NULL;
+            const int is_tick=strstr(line,"stage=TICK")!=NULL;
+            const long new_year=field(line,"year",-1);
+            const long new_phase=field(line,"phase",-1);
+            const long new_leagues=field(line,"resident-leagues",-1);
+            const long new_invalid=field(line,"invalid",-1);
+            have_audit=1;
+            if(is_start)++start_audit;
+            if(is_tick && after_start) {
+                ++ticks;
+                if(prev_year>=0 &&
+                   (new_year<prev_year ||
+                    (new_year==prev_year&&new_phase<prev_phase))) {
+                    ++regressions;
+                    remember(first,sizeof first,"OG_DATE_REWIND",rows,line);
                 }
-                if(civil_prev && key>civil_prev) ++civil_advances;
-                civil_prev=key;
+                prev_year=new_year;
+                prev_phase=new_phase;
+            }
+            if(new_leagues<=0 || new_invalid<0 || new_invalid>0 ||
+               new_year<0 || new_phase<0) {
+                ++regressions;
+                remember(first,sizeof first,"OG_INVALID_RESIDENT_STATE",rows,line);
+            }
+            log_year=new_year;
+            log_phase=new_phase;
+            leagues=new_leagues;
+            played=field(line,"played-leagues",0);
+            completed=field(line,"completed-leagues",0);
+            matches=field(line,"native-matches",0);
+            invalid=new_invalid;
+            countries=field(line,"countries",0);
+            cup_defs=field(line,"cup-definitions",0);
+            cup_countries=field(line,"cup-countries",0);
+            cup_resident=field(line,"cup-resident",0);
+            yearend=field(line,"yearend-callbacks",0);
+        }
+        /* Genuine OG completion and restart, emitted for each year by
+         * Expanded_OGWorld_AdvanceToDate. Do NOT count old LWE suites. */
+        if(tag(line,"[og-season-transition] CLOSE")) {
+            ++season_closes;
+            if(field(line,"native-matches",0)<=0 ||
+               field(line,"resident-leagues",0)<=0 ||
+               field(line,"played-leagues",0)<=0 ||
+               field(line,"invalid",1)!=0) {
+                ++season_failures;
+                remember(first,sizeof first,"OG_SEASON_CLOSE_EMPTY",rows,line);
             }
         }
-        if(strstr(line,"[clock-trace-first-fail]")==line ||
-           strstr(line,"[clock-date-audit] FAIL")==line) {
-            clock_status=2;
-            first_error(first_clock,sizeof first_clock,"CLOCK",log_count,line);
-            first_error(first,sizeof first,"CLOCK",log_count,line);
-        } else if(strstr(line,"[clock-trace]")==line) {
-            ++clock_events;
-            if(strstr(line,"state=POST_HANDOFF")&&clock_status==0)
-                clock_status=1;
-        }
-        if(strstr(line,"[calendar-five-year]")==line) {
-            long week=field(line,"absolute-week",0);
-            if(week>max_world_week)max_world_week=week;
-            ++julian_jumps;
-            if(strstr(line,"FAIL")) {
-                ++julian_jump_errors;
-                first_error(first,sizeof first,"FIVE_YEAR_DATE",log_count,line);
+        if(tag(line,"[og-season-transition] OPEN")) {
+            ++season_opens;
+            if(field(line,"resident-leagues",0)<=0 ||
+               field(line,"invalid",1)!=0) {
+                ++season_failures;
+                remember(first,sizeof first,"OG_SEASON_OPEN_INVALID",rows,line);
             }
         }
-        if(strstr(line,"[f12-snapshot]")==line) {
-            ++snapshots;
-            if(strstr(line,"page=F12_MAIN"))++snapshots_main;
-            if(strstr(line,"page=F12_CUPS"))++snapshots_cups;
-            if(strstr(line,"page=F10_IMPORT"))++snapshots_f10;
+        if(tag(line,"[og-season-transition] FAIL")) {
+            ++season_failures;
+            remember(first,sizeof first,"OG_SEASON_TRANSITION_FAILED",rows,line);
         }
-        if(strstr(line,"[competition-format-runtime]")==line)++format_events;
-        if(strstr(line,"[midseason-southern] INSPECT")==line) {
-            long week=field(line,"week",0);
-            if(week>max_world_week)max_world_week=week;
+        if(tag(line,"[og-stress] ARMED years=70"))++og_stress_armed;
+        if(tag(line,"[og-stress] START years=70"))++og_stress_started;
+        if(tag(line,"[og-stress] FINISHED years=70")) {
+            ++og_stress_finished;
+            if(field(line,"exact",0)==1)++og_stress_date_exact;
+            else {
+                ++season_failures;
+                remember(first,sizeof first,"OG_70_YEAR_DATE_MISMATCH",rows,line);
+            }
         }
-        if(strstr(line,"[living-world] OG league result:")==line)++native_results;
-        if(strstr(line,"[living-world] OG final replaced world score")==line)
-            ++replacements;
-        if(strstr(line,"[world-cup-load-audit]")==line) {
-            long registered=field(line,"registered",0);
-            if(registered>cup_registered)cup_registered=registered;
+        if(tag(line,"[og-world-view] READ ONLY"))++views;
+        if(tag(line,"[og-world-view] MISSING/INVALID"))++view_missing;
+        if(tag(line,"[og-bind] "))++binds;
+        if(tag(line,"[autosave] saved "))++career_saves;
+        if(tag(line,"[autosave] restored "))++career_loads;
+        if(tag(line,"[f12-snapshot] ")) {
+            if(strstr(line,"page=F12_OG_MAIN"))++f12_main;
+            if(strstr(line,"page=F12_OG_CUPS"))++f12_cups;
+            if(strstr(line,"page=F10_OG_DATA"))++f10_data;
         }
-        if(strstr(line,"[og-cups-audit]")==line)
-            cup_callbacks+=field(line,"callbacks",0);
-        if(strstr(line,"[living-world] wait=")==line) {
-            long week=field(line,"wait",0);
-            if(week>max_world_week)max_world_week=week;
+        if(tag(line,"[og-world-picker] BACK")) {
+            if(strstr(line,"root=0")){++picker_backs;++picker_unmatched;}
         }
-        if(strstr(line,"source=F12_CALENDAR_SAMPLE"))has_legacy_clock=1;
-        if(strstr(line,"OG_NEXT_EVENT_OVERDUE"))clock_overdue=1;
-        if(strstr(line,"[og-cups-skip]")==line) {
-            long y=field(line,"finished",0);
-            if(y*52>max_world_week)max_world_week=y*52;
+        if(tag(line,"[og-world-picker] POP")) {
+            ++picker_pops;
+            if(picker_unmatched>0)--picker_unmatched;
+            else {
+                ++regressions;
+                remember(first,sizeof first,"UNEXPECTED_PICKER_POP",rows,line);
+            }
+        }
+        /* A legitimate [og-world-fixture] FINISHED is NOT a failure. */
+        if(tag(line,"[og-world-fixture] INVALID") ||
+           tag(line,"[og-world-fixture] LOOP LIMIT") ||
+           tag(line,"[og-world-fixture] CATCHUP LOOP LIMIT") ||
+           tag(line,"[og-world] WORLD TICK FAILED") ||
+           tag(line,"[og-world] LEAGUE ERROR") ||
+           tag(line,"[og-world] FORWARD TIME FAILED") ||
+           tag(line,"[og-world] START FAILED") ||
+           tag(line,"[calendar] FAIL ")) {
+            ++native_faults;
+            remember(first,sizeof first,"NATIVE_OG_RUNTIME",rows,line);
         }
     }
     fclose(in);
-    if(clock_overdue && clock_status!=2)clock_status=2;
-    if(cup_registered>0 && cup_callbacks==0 && max_world_week>=52) {
-        cup_status=2;
-        first_error(first,sizeof first,"OG_CUPS_NOT_ADVANCED",
-                    log_count,"registered cup definitions but no observed OG callbacks");
-    } else if(cup_callbacks>0)cup_status=1; /* callbacks only, not all cup formats */
-    printf("RUNTIME_LOG=READ lines=%ld expected=%s scope=%s\n",
-           log_count,expected,build_matched?"CURRENT_BUILD":"OTHER_BUILD");
-    printf("RUNTIME_WORLD_IMPORT=%s attempts=%ld rows=%ld\n",
-           status(import_status),imports,world_total);
-    printf("RUNTIME_OG_LWE_STANDINGS=%s comparisons=%ld failures=%ld\n",
-           status(stand_status),compares,failures);
-    printf("RUNTIME_OG_HANDOFF=%s (separate from table comparison)\n",
-           status(handoff_status));
-    printf("RUNTIME_OG_LWE_CLOCK=%s (upcoming fixture is NOT the civil date)\n",
-           status(clock_status));
-    printf("RUNTIME_CLOCK_TRACE=%s events=%ld legacy-sample=%d\n",
-           clock_status==2?"FAIL":clock_status==1?"OBSERVED_NOT_PROOF":"NOT_TESTED",
-           clock_events,has_legacy_clock);
-    printf("RUNTIME_SOUTHERN_HANDOFF=%s strict-verified=%ld\n",
-           status(south_status),southern_checks);
-    printf("RUNTIME_FIVE_YEAR_ANNIVERSARY=%s checks=%ld failures=%ld\n",
-           julian_jump_errors?"FAIL":julian_jumps?"DATE_ONLY_NOT_INTEGRATION":"NOT_TESTED",
-           julian_jumps,julian_jump_errors);
-    printf("RUNTIME_CIVIL_SEQUENCE=%s observations=%u advances=%u rewinds=%u\n",
-           civil_rewinds?"FAIL":civil_advances?"OBSERVED_MONOTONIC_NOT_PROOF":
-           "NOT_TESTED",civil_events,civil_advances,civil_rewinds);
-    puts("RUNTIME_30_YEAR_CALENDAR_SAVE_LOAD=NOT_TESTED_IN_WINDOWS");
-    printf("RUNTIME_OG_CUPS=%s registered=%ld callbacks=%ld\n",
-           cup_status==1?"OBSERVED_CALLBACKS_NOT_ALL_CUPS_PROVEN":
-           status(cup_status),cup_registered,cup_callbacks);
-    printf("F12_LOG_SNAPSHOTS=%ld main=%ld cups=%ld f10=%ld\n",
-           snapshots,snapshots_main,snapshots_cups,snapshots_f10);
-    printf("RUNTIME_NATIVE_RESULTS=%ld WORLD_SCORE_REPLACEMENTS=%ld\n",
-           native_results,replacements);
-    printf("RUNTIME_FORMATS_OBSERVED=%ld (not a functionality test)\n",
-           format_events);
-    if(first_clock[0])printf("FIRST_CLOCK_FAILURE: %s\n",first_clock);
+    if(og_stress_started &&
+       (og_stress_started!=og_stress_finished ||
+        season_closes<og_stress_finished*70 ||
+        season_opens<og_stress_finished*70)) {
+        ++season_failures;
+        remember(first,sizeof first,"OG_70_YEAR_TEST_INCOMPLETE",
+                 rows,"70 OG year transition closes/opens absent or unfinished");
+    }
+    if(picker_unmatched) {
+        ++regressions;
+        remember(first,sizeof first,"PICKER_BACK_NOT_POPPED",
+                 rows,"Nested BACK did not return exactly one selector level");
+    }
+    const int correct_build=build[0] && expected[0] &&
+                            strcmp(build,expected)==0;
+    printf("RUNTIME_LOG=READ lines=%ld build=%s expected=%s scope=%s\n",
+           rows,build[0]?build:"UNKNOWN",expected[0]?expected:"UNSPECIFIED",
+           correct_build?"CURRENT_BUILD":"OTHER_BUILD");
+    printf("OG_START=%s ready=%ld audits=%ld date=%04u-%02u-%02u\n",
+           start_ready&&start_audit&&have_audit&&start_month==7u&&start_day==1u?
+           "PASS":"NOT_TESTED",start_ready,start_audit,
+           start_year,start_month,start_day);
+    printf("OG_RESIDENT_LEAGUES=%s contexts=%ld countries=%ld played=%ld "
+           "completed=%ld native-matches=%ld invalid=%ld year=%ld phase=%ld\n",
+           have_audit&&leagues>0&&invalid==0?"PASS":
+           have_audit?"FAIL":"NOT_TESTED",
+           leagues,countries,played,completed,matches,invalid,log_year,log_phase);
+    printf("OG_FORWARD_TIME=%s post-start-ticks=%ld\n",
+           ticks>0&&!native_faults&&!regressions&&!season_failures?
+           "OBSERVED_NO_CRASH":ticks?"FAIL":"NOT_TESTED",ticks);
+    printf("OG_SEASON_TRANSITIONS=%s closed=%ld opened=%ld failed=%ld\n",
+           season_closes && season_closes==season_opens &&
+           !season_failures?"OBSERVED":season_failures?"FAIL":"NOT_TESTED",
+           season_closes,season_opens,season_failures);
+    printf("OG_70_NATIVE_SEASONS=%s armed=%ld started=%ld finished=%ld "
+           "closed=%ld opened=%ld exact-dates=%ld\n",
+           og_stress_finished>0 && og_stress_finished==og_stress_started &&
+           og_stress_date_exact==og_stress_finished &&
+           season_closes>=og_stress_finished*70 &&
+           season_opens>=og_stress_finished*70 &&
+           !season_failures && !native_faults ?
+             "PASS_TRANSITIONS_ONLY" :
+           og_stress_started && season_failures?"FAIL":
+           "NOT_TESTED",
+           og_stress_armed,og_stress_started,og_stress_finished,
+           season_closes,season_opens,og_stress_date_exact);
+    puts("OG_RETIREMENTS=NOT_TESTED (manager/player lifecycle separate)");
+    puts("OG_70_SAVE_RELOAD=NOT_TESTED");
+    printf("OG_VIEW=OBSERVED_READ_ONLY views=%ld missing=%ld\n",
+           views,view_missing);
+    printf("OG_MANAGER_BIND=%s events=%ld\n",binds?"OBSERVED":"NOT_TESTED",binds);
+    printf("OG_PICKER_BACK=%s nested=%ld popped=%ld\n",
+           regressions?"CHECK_LOG":picker_backs?
+           picker_backs==picker_pops?"PASS":"FAIL":"NOT_TESTED",
+           picker_backs,picker_pops);
+    printf("OG_CUP_DEFINITIONS=%ld countries=%ld\n",cup_defs,cup_countries);
+    printf("OG_CUP_RESIDENT=%s contexts=%ld yearend-callbacks=%ld\n",
+           have_audit&&cup_defs>0&&cup_resident==0?
+           "MISSING_IMPLEMENTATION":cup_resident>0?
+           "OBSERVED_NOT_FULL_PROOF":"NOT_TESTED",cup_resident,yearend);
+    printf("OG_SAVE_RELOAD=%s saved=%ld restored=%ld\n",
+           career_saves||career_loads?"PARTIAL_ONLY":"NOT_TESTED",
+           career_saves,career_loads);
+    puts("OG_FULL_RESIDENT_SAVE=NOT_TESTED");
+    printf("F12_OG_CAPTURE=main:%ld cups:%ld data:%ld\n",
+           f12_main,f12_cups,f10_data);
+    printf("OG_NATIVE_FAULTS=%ld CHECK_FAILURES=%ld\n",native_faults,regressions);
     if(first[0])printf("FIRST_RUNTIME_FAILURE: %s\n",first);
-    if(!build_matched) {
-        puts("WINDOWS_INTEGRATION=INCOMPLETE reason=WRONG_BUILD");
+    if(!correct_build) {
+        puts("WINDOWS_OG_INTEGRATION=INCOMPLETE reason=BUILD_MISMATCH");
         puts("OVERALL=INCOMPLETE");
         return 2;
     }
-    if(import_status==2 || stand_status==2 || handoff_status==2 || south_status==2 ||
-       clock_status==2 || cup_status==2 || julian_jump_errors ||
-       civil_rewinds) {
-        puts("WINDOWS_INTEGRATION=FAIL");
+    if(native_faults||regressions||season_failures) {
+        puts("WINDOWS_OG_INTEGRATION=FAIL");
         puts("OVERALL=FAIL");
         return 1;
     }
-    puts("WINDOWS_INTEGRATION=INCOMPLETE reason=CALENDAR_LEAGUES_CUPS_NOT_ALL_VERIFIED");
+    if(!start_ready||!start_audit||!have_audit||leagues<=0) {
+        puts("WINDOWS_OG_INTEGRATION=INCOMPLETE reason=NO_OG_START_EVIDENCE");
+        puts("OVERALL=INCOMPLETE");
+        return 2;
+    }
+    /* Deliberately no green light for the full world until dated, real OG
+     * cups and save/reload of their complete states have been proved. */
+    puts("WINDOWS_OG_INTEGRATION=INCOMPLETE reason=CUPS_AND_SAVE_PENDING");
     puts("OVERALL=INCOMPLETE");
     return 2;
 }

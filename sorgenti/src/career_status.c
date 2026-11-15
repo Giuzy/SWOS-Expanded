@@ -46,6 +46,7 @@
 #include <string.h>
 #ifdef SWOS_SDL_BUILD
 #include "world.h"
+#include "expanded_debug.h"
 #endif
 
 /* ---- Assembly externs (functions still in asm) ---- */
@@ -3588,6 +3589,33 @@ void Expanded_OGWorld_Reset(void) {
 }
 uint32_t Expanded_OGWorld_LeagueCount(void){return s_expOGCount;}
 int Expanded_OGWorld_ClubBound(void){return s_expOGBound;}
+
+/* Inspect only the real resident original-OG league contexts. Never
+ * call simulation, consume an RNG value, or mutate the selected teams. */
+void Expanded_OGWorld_Audit(ExpandedOGWorldAudit *out)
+{
+    if(!out)return;
+    memset(out,0,sizeof(*out));
+    out->club_bound=(uint32_t)(s_expOGBound!=0);
+    uint8_t seen[256]={0};
+    for(uint32_t i=0;i<s_expOGCount;++i) {
+        const ExpandedOGLeague *c=&s_expOG[i];
+        if(!c->used || c->teamCount<2u || c->teamCount>EXP_OG_MAX_TEAMS ||
+           c->comp.base.numTeams<2 || c->comp.base.numTeams>EXP_OG_MAX_TEAMS ||
+           c->comp.base.competitionType!=0) {
+            ++out->invalid_contexts;
+            continue;
+        }
+        ++out->resident_leagues;
+        out->native_matches+=(uint32_t)c->comp.matchesPlayedCount;
+        if(c->comp.matchesPlayedCount)++out->leagues_with_matches;
+        if(c->comp.minSubstitutes==0 && c->comp.matchesPlayedCount)
+            ++out->completed_leagues;
+        if(!seen[c->country]) { seen[c->country]=1u; ++out->countries; }
+        if(!out->min_year || c->year<out->min_year)out->min_year=c->year;
+        if(c->year>out->max_year)out->max_year=c->year;
+    }
+}
 static ExpandedOGLeague *exp_find(uint8_t country,uint8_t division,uint16_t year) {
     for(uint32_t i=0;i<s_expOGCount;++i)
         if(s_expOG[i].used && s_expOG[i].country==country &&

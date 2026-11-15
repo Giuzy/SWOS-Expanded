@@ -13,7 +13,15 @@ if not defined MSYS_ROOT (
  if not "%SWOS_DIAGNOSTIC_SESSION%"=="1" pause
  exit /b 2
 )
-echo Verifica diagnostica gameplay Windows in SWOS.log.
+REM La versione attesa e' letta dal sorgente corrente, mai hardcoded.
+set "EXPECTED="
+for /f "tokens=3" %%V in ('findstr /B /C:"#define SWOS_EXPANDED_VERSION" "sorgenti\include\build_info.h"') do set "EXPECTED=%%~V"
+if not defined EXPECTED (
+ echo [INCOMPLETE] Impossibile leggere la versione da build_info.h.
+ if not "%SWOS_DIAGNOSTIC_SESSION%"=="1" pause
+ exit /b 2
+)
+echo Verifica gameplay OG Windows in SWOS.log. Build attesa: %EXPECTED%.
 echo Non avvia il gioco, non modifica save, non usa dati sintetici.
 REM Parser C portatile: non richiede awk, Python, PowerShell o nuovi tool.
 REM Compila con lo STESSO compilatore MinGW del gioco, in %%TEMP%%.
@@ -36,7 +44,7 @@ if errorlevel 1 (
  if not "%SWOS_DIAGNOSTIC_SESSION%"=="1" pause
  exit /b 2
 )
-"%AUDIT_EXE%" "SWOS.log" "0.13.39_01" > "SWOS_RUNTIME_AUDIT.log" 2>&1
+"%AUDIT_EXE%" "SWOS.log" "%EXPECTED%" > "SWOS_RUNTIME_AUDIT.log" 2>&1
 set "RESULT=%ERRORLEVEL%"
 if exist "%AUDIT_EXE%" del /q "%AUDIT_EXE%" >nul 2>&1
 type "SWOS_RUNTIME_AUDIT.log"
@@ -44,6 +52,6 @@ echo.
 echo Resoconto salvato in SWOS_RUNTIME_AUDIT.log
 if "%RESULT%"=="2" echo [INCOMPLETE] Non tutti i controlli Windows sono stati eseguiti.
 if "%RESULT%"=="1" echo [FAIL] Errore reale rilevato: leggere FIRST_RUNTIME_FAILURE.
-echo PASS solo se il comportamento specifico e' stato dimostrato; il resto NOT_TESTED.
+echo Il mondo OG resta INCOMPLETE se le coppe residenti/save completi non sono provati.
 if not "%SWOS_DIAGNOSTIC_SESSION%"=="1" pause
 exit /b %RESULT%

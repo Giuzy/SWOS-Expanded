@@ -25,6 +25,7 @@
 #include "swos_io.h"
 #ifdef SWOS_SDL_BUILD
 #include <stdlib.h>            /* getenv — SWOS_DATA_JSON team-load wire-in */
+#include <stdio.h>             /* OG DEBUG WORLD back-navigation trace */
 #endif
 
 #ifdef SWOS_SDL_BUILD
@@ -3439,6 +3440,26 @@ loc_E2D0:
     if (_abortSelectTeams != 0)
         goto exit_return;
 
+#ifdef SWOS_SDL_BUILD
+    /* On the unemployed DEBUG WORLD picker, BACK is a single-level pop.
+     * Ignore stale selected-row indices and the OG top-of-stack mark;
+     * at the root, the regular abort leaves the picker normally. */
+    {
+        extern int Expanded_UnemployedWorldPickerActive(void);
+        if(Expanded_UnemployedWorldPickerActive() && _exitSelectTeams) {
+            if(_teamDepthLevel==0u)
+                goto exit_return;
+            const uint16_t before=_teamDepthLevel;
+            _isCountryNumber=0;
+            s_groupLevel=-1;
+            d7=PopContinent();
+            _exitSelectTeams=0;
+            fprintf(stderr,"[og-world-picker] POP depth=%u -> %u country=%u\n",
+                    (unsigned)before,(unsigned)_teamDepthLevel,(unsigned)d7);
+            goto loc_E012;
+        }
+    }
+#endif
     d6 = d7;
 
     if (_viewSelectedTeams != 0)

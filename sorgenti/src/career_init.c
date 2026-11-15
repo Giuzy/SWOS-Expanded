@@ -1054,6 +1054,8 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
     unsigned cups=0,cupsSkipped=0,cupsFailed=0;
     for(unsigned i=0;i<256u && countries[i]!=0xffu;++i) {
         const uint8_t country=countries[i];
+        unsigned countryCupDefs=0u,countryCupResidents=0u;
+        unsigned countryCupUnsupported=0u,countryCupFailed=0u;
         const void *const *tab=(const void *const *)_competitionsTable[country];
         if(!tab)continue;
         uintptr_t raw=(uintptr_t)tab[0];
@@ -1099,11 +1101,13 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
             if(rawCup==(uintptr_t)-2)continue;
             const Competition *cup=(const Competition *)rawCup;
             if(cup->type!=1)continue;
+            ++countryCupDefs;
             const int status=Expanded_OGWorld_AdvanceCup(
                 (uint8_t *)cup,country,(uint8_t)j,year,phase);
-            if(status>0)++cups;
-            else if(status<0)++cupsSkipped;
+            if(status>0){++cups;++countryCupResidents;}
+            else if(status<0){++cupsSkipped;++countryCupUnsupported;}
             else {
+                ++countryCupFailed;
                 ++cupsFailed;
                 fprintf(stderr,"[og-cup-resident] ERROR country=%u "
                                "slot=%u compId=%u year=%u phase=%u\n",
@@ -1167,6 +1171,7 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                                "native-round1-pairs=%u "
                                "classification=%s "
                                "round-structure=%s "
+                               "native-validation=%s "
                                "fixtures=NOT_VERIFIED_BY_RULE\n",
                         (unsigned)country,j,(unsigned)cup->compId,
                         (unsigned)year,expected,selected,real,ties,
@@ -1179,10 +1184,31 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                         selected>expected?"UNEXPLAINED_OVERFILL":
                         "NO_SPECIAL_RULE",
                         roundMatchesRule?"OG_ROUND1_MATCHES_RULE":
-                        "NOT_MATCHED");
+                        "NOT_MATCHED",
+                        status>0 && !strcmp(reason,"NATIVE_BYES_VERIFIED")?
+                            "NATIVE_DRAW_IDENTITIES_VERIFIED":
+                        status>0?"STANDARD_NATIVE_BRACKET":
+                        "UNVERIFIED");
             }
         }
+        /* Full per-country coverage at native setup: countries with a
+         * single cup and countries with a second league cup both count.
+         * A missing context is visible rather than guessed from metadata. */
+        if(phase==0u && countryCupDefs)
+            fprintf(stderr,"[og-cup-country] year=%u country=%u "
+                           "definitions=%u resident=%u unsupported=%u "
+                           "failed=%u initial=1\n",
+                    (unsigned)year,(unsigned)country,
+                    countryCupDefs,countryCupResidents,
+                    countryCupUnsupported,countryCupFailed);
     }
+    if(phase==0u)
+        fprintf(stderr,"[og-cup-start] year=%u definitions=%u "
+                       "resident=%u unsupported=%u failed=%u "
+                       "visibility=%s scope=DOMESTIC_OG_TYPE1\n",
+                (unsigned)year,cups+cupsSkipped+cupsFailed,
+                cups,cupsSkipped,cupsFailed,
+                cupsSkipped||cupsFailed?"PARTIAL":"ALL_RESIDENT");
     /* Same native season/phase as every league, once for each country's
      * OG type-1 cup record. Cup IDs are NOT unique worldwide, so the
      * resident native states are indexed by country + table slot + year. */

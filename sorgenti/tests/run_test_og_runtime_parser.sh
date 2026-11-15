@@ -34,6 +34,16 @@ version="$(sed -n 's/^#define SWOS_EXPANDED_VERSION "\([^"]*\)".*/\1/p' sorgenti
     echo "[og-feature-audit] stage=STRESS_AFTER year=2096 resident-leagues=134 native-matches=5001 cup-definitions=101 cup-resident=0 scorer-players=2144 scorer-positive=430 scorer-league-goals=940 standings-goals=960 scorer-leagues-with-goals=130"
     echo "[og-stress] FINISHED years=70 date=2096-07-01 actual-date=2096-07-01 exact=1"
 } > "$work/positive.log"
+# Synthetic parser-only regression: a verified OG bye must count as
+# RESIDENT, not as an invented extra team. Missing countries remain
+# INCOMPLETE because the official world definition count is 101/87.
+cat >> "$work/positive.log" <<'EOF'
+[og-cup-bye] NATIVE DRAW VERIFIED country=0 compId=109 real=10 bracket=16 round1-ties=2 byes=6 (OG ONLY)
+[og-cup-coverage] country=0 slot=2 compId=109 year=2096 expected=16 selected=10 state=RESIDENT reason=NATIVE_BYES_VERIFIED
+[og-cup-rule] country=0 slot=2 compId=109 year=2096 bracket=16 selected=10 real-entrants=10 first-round-ties=2 byes=6 padded-slots=6 native-bracket=16 native-round1-ties=2 native-round1-pairs=8 classification=OG_BYE_FORMAT_CANDIDATE round-structure=OG_ROUND1_MATCHES_RULE native-validation=NATIVE_DRAW_IDENTITIES_VERIFIED fixtures=NOT_VERIFIED_BY_RULE
+[og-cup-coverage] country=1 slot=2 compId=110 year=2096 expected=16 selected=12 state=UNSUPPORTED reason=SELECTOR_UNDERFILLED
+[og-cup-rule] country=1 slot=2 compId=110 year=2096 bracket=16 selected=12 real-entrants=12 first-round-ties=4 byes=4 padded-slots=4 native-bracket=16 native-round1-ties=4 native-round1-pairs=8 classification=OG_BYE_FORMAT_CANDIDATE round-structure=OG_ROUND1_MATCHES_RULE native-validation=UNVERIFIED fixtures=NOT_VERIFIED_BY_RULE
+EOF
 set +e
 "$work/audit" "$work/positive.log" "$version" > "$work/positive.out"
 rc=$?
@@ -42,6 +52,11 @@ set -e
 grep -q '^OG_70_NATIVE_SEASONS=PASS_TRANSITIONS_ONLY ' "$work/positive.out"
 grep -q '^OG_CUPS_BEFORE_AFTER=NOT_IMPLEMENTED ' "$work/positive.out"
 grep -q '^OG_SCORERS_BEFORE_AFTER=NATIVE_COUNTERS_OBSERVED ' "$work/positive.out"
+grep -q '^OG_CUP_COVERAGE=PARTIAL_WITH_EXPLICIT_REASONS .*native-byes-verified=1 divergent=1' "$work/positive.out"
+grep -q '^OG_CUP_COUNTRY year=2096 country=0 definitions=1 resident=1 native-byes=1 unavailable=0 state=ALL_RESIDENT' "$work/positive.out"
+grep -q '^OG_CUP_COUNTRY year=2096 country=1 definitions=1 resident=0 native-byes=0 unavailable=1 state=INCOMPLETE' "$work/positive.out"
+grep -q '^OG_CUP_COUNTRIES=PARTIAL expected=87 audited=2 incomplete=1' "$work/positive.out"
+grep -q '^OG_CUP_NATIVE_BYE_EVENTS=OBSERVED verified=1 rejected=0' "$work/positive.out"
 ! grep -q '^FIRST_RUNTIME_FAILURE:' "$work/positive.out"
 # A complete 70-year log without a FINISHED marker must never pass.
 sed '/^\[og-stress\] FINISHED years=70/d' "$work/positive.log" > "$work/negative.log"

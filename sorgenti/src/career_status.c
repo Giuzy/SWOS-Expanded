@@ -46,6 +46,8 @@
 #include <string.h>
 #ifdef SWOS_SDL_BUILD
 #include "world.h"
+#include "world_cups.h"
+#include "expanded_og_cup_validation.h"
 #include "expanded_debug.h"
 #endif
 
@@ -3567,7 +3569,7 @@ static ExpandedOGLeague *s_expOGCurrent;
 static int s_expOGPhase=-1,s_expOGBound,s_expOGViewing,s_expOGFault;
 typedef struct {
     uint8_t used,country,slot,compId,lastPhase,lastMatch,managed_excluded,unsupported_setup;
-    uint8_t seed,randIndex,randKey;
+    uint8_t seed,randIndex,randKey,nativeByeVerified;
     uint16_t year,teamCount,observedSelected;
     uint16_t observedBracketTeams,observedRoundTies,observedRoundPairs;
     uint32_t matchesPlayed;
@@ -3665,6 +3667,12 @@ const char *Expanded_OGWorld_CupCoverageReason(uint8_t country,uint8_t slot,
             return "NATIVE_BRACKET_SETUP_INVALID";
         }
         if(!c->used)return "NATIVE_CONTEXT_UNAVAILABLE";
+        /* OG intentionally pads bracket places when some clubs get a bye.
+         * The real team selection remains smaller than base.numTeams.
+         * This state was validated against the original draw and team IDs,
+         * not accepted merely because its numbers look plausible. */
+        if(c->nativeByeVerified && c->observedSelected<expected)
+            return "NATIVE_BYES_VERIFIED";
         if(c->observedSelected!=expected)return "ENTRY_COUNT_MISMATCH";
         return "OK";
     }
@@ -3859,6 +3867,55 @@ static ExpandedOGCup *exp_cup_find(uint8_t country,uint8_t slot,uint16_t year)
     return NULL;
 }
 extern void Career_AutoAdvanceCupMatches(void);
+/* Native bye detection for a real country cup, NOT a general exemption
+ * from bracket validation. WorldCups_Entrants/Padded/CupMade have already
+ * built the draw. Inspect only their output and original metadata.
+ * The team cache contains selected-team INDICES (not raw pointers).
+ * Dummy padded places must never be simulated as 0-v-0 fixtures. */
+static int exp_og_cup_valid_native_byes(const uint8_t *record,
+                                       uint8_t country,
+                                       unsigned selected,unsigned bracket)
+{
+    int32_t count=0;
+    const WorldCup *rules=World_Cups(&count);
+    if(!rules)return 0;
+    for(int32_t k=0;k<count;++k) {
+        const WorldCup *w=&rules[k];
+        if(w->country!=country || w->record!=(const void *)record)
+            continue;
+        const unsigned pairs=(unsigned)_diyCompetitionStart.base.matchPairsPerRound;
+        const unsigned ties=(unsigned)_diyCompetitionStart.base.totalMatchesInRound;
+        if(!ExpandedOGCup_NativeByeLayout(bracket,selected,(unsigned)w->n,
+                                            (unsigned)w->ties,bracket,
+                                            ties,pairs))return 0;
+        const uint8_t *grid=_diyCompetitionStart.teamGridPairings;
+        for(unsigned i=0;i<pairs;++i) {
+            const unsigned a=(unsigned)grid[2u*i];
+            const unsigned b=(unsigned)grid[2u*i+1u];
+            if(a>=selected || b>=selected || a>=64u || b>=64u)
+                return 0;
+            /* Access the packed fields DIRECTLY: no potentially
+             * unaligned int32_t* escapes the OG structure. */
+            const int32_t idA=_diyCompetitionStart.bracketScratch.teamOffsetTable[a];
+            const int32_t idB=_diyCompetitionStart.bracketScratch.teamOffsetTable[b];
+            if(idA<0 || idB<0 ||
+               (unsigned)idA>=selected || (unsigned)idB>=selected)
+                return 0;
+            if(i<(unsigned)w->ties) {
+                if(a==b || idA==idB)return 0;
+            } else {
+                if(a!=b || idA!=idB)return 0;
+            }
+        }
+        fprintf(stderr,"[og-cup-bye] NATIVE DRAW VERIFIED "
+                       "country=%u compId=%u real=%u bracket=%u "
+                       "round1-ties=%u byes=%u (OG ONLY)\n",
+                (unsigned)country,(unsigned)((const Competition *)record)->compId,
+                selected,bracket,(unsigned)w->ties,selected-2u*(unsigned)w->ties);
+        return 1;
+    }
+    return 0;
+}
 int Expanded_OGWorld_AdvanceCup(uint8_t *record,uint8_t country,
                                 uint8_t slot,uint16_t year,uint8_t phase)
 {
@@ -3930,13 +3987,20 @@ int Expanded_OGWorld_AdvanceCup(uint8_t *record,uint8_t country,
         InitDIYCupFromRecord(record);
         InitTeams();
     }
-    const int valid=(unsigned)_numSelectedTeams<=EXP_OG_MAX_CUP_TEAMS &&
-        _numSelectedTeams>=2u &&
-        _diyCompetitionStart.base.numTeams>=2 &&
-        (unsigned)_diyCompetitionStart.base.numTeams<=EXP_OG_MAX_CUP_TEAMS &&
-        (unsigned)_diyCompetitionStart.base.numTeams<=_numSelectedTeams;
-    int failed=0;
     const unsigned selected=(unsigned)_numSelectedTeams;
+    const unsigned bracket=(unsigned)_diyCompetitionStart.base.numTeams;
+    /* Standard cups: all selected teams occupy actual bracket places.
+     * OG world cups: fewer selected clubs is CORRECT only when the
+     * ORIGINAL WorldCups rule, padded draw, and all real/bye pairing
+     * identities match exactly. Recheck only at initial setup because
+     * later rounds necessarily have different fixture counts. */
+    const int nativeBye=ctx->used ? (ctx->nativeByeVerified!=0) :
+        (selected<bracket && selected>=2u &&
+         exp_og_cup_valid_native_byes(record,country,selected,bracket));
+    const int valid=selected>=2u && selected<=EXP_OG_MAX_CUP_TEAMS &&
+        bracket>=2u && bracket<=EXP_OG_MAX_CUP_TEAMS &&
+        (bracket==selected || nativeBye);
+    int failed=0;
     ctx->observedSelected=(uint16_t)selected;
     /* Capture what the OG bracket builder ACTUALLY produced, even when
      * resident verification must reject the resulting scratch. */
@@ -3945,6 +4009,13 @@ int Expanded_OGWorld_AdvanceCup(uint8_t *record,uint8_t country,
     ctx->observedRoundPairs=(uint16_t)_diyCompetitionStart.base.matchPairsPerRound;
     const uint32_t oldPlayed=ctx->matchesPlayed;
     if(!valid)ctx->unsupported_setup=1u;
+    if(nativeBye)ctx->nativeByeVerified=1u;
+    if(!valid && selected<bracket)
+        fprintf(stderr,"[og-cup-bye] REJECT country=%u slot=%u "
+                       "year=%u real=%u bracket=%u "
+                       "(no OG rule or invalid native pairing)\n",
+                (unsigned)country,(unsigned)slot,
+                (unsigned)year,selected,bracket);
     int managed=0;
     /* Existing employed OG career slots are still authoritative for their
      * own cup: without a proven identity-remapping bind, NEVER play those

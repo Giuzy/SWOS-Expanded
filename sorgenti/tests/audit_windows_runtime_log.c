@@ -89,6 +89,7 @@ int main(int argc,char **argv)
     long offer_native_views=0,offer_view_failures=0;
     long scorer_resident_views=0,scorer_local_views=0,scorer_resident_players=0;
     long viewer_back=0,picker_back_events=0;
+    long cup_native_bye_verified=0,cup_native_bye_rejected=0;
     CupCoverageRecord cup_coverage[MAX_CUP_COVERAGE];
     unsigned cup_coverage_count=0;
     long cup_coverage_year=-1;
@@ -135,6 +136,7 @@ int main(int argc,char **argv)
             offer_native_views=offer_view_failures=0;
             scorer_resident_views=scorer_local_views=scorer_resident_players=0;
             viewer_back=picker_back_events=0;
+            cup_native_bye_verified=cup_native_bye_rejected=0;
             cup_coverage_count=0;cup_coverage_year=-1;
             last_op_year=last_op_phase=last_op_country=last_op_division=-1;
             pending_native_step=0;
@@ -240,6 +242,8 @@ int main(int argc,char **argv)
             ++season_failures;
             remember(first,sizeof first,"OG_STRESS_FAILED",rows,line);
         }
+        if(tag(line,"[og-cup-bye] NATIVE DRAW VERIFIED"))++cup_native_bye_verified;
+        if(tag(line,"[og-cup-bye] REJECT"))++cup_native_bye_rejected;
         if(tag(line,"[og-cup-coverage] ")) {
             const long year=field(line,"year",-1);
             if(year>cup_coverage_year) {
@@ -548,15 +552,35 @@ int main(int argc,char **argv)
            picker_backs==picker_pops?"PASS":"FAIL":"NOT_TESTED",
            picker_backs,picker_pops);
     printf("OG_CUP_DEFINITIONS=%ld countries=%ld\n",cup_defs,cup_countries);
+    printf("OG_CUP_START_COVERAGE=%s definitions=%ld resident=%ld "
+           "unsupported=%ld faults=%ld scope=DOMESTIC_TYPE1_ONLY\n",
+           !feature_start.seen?"NOT_TESTED":
+           feature_start.cup_definitions>0 &&
+           feature_start.cup_definitions==feature_start.cup_resident &&
+           feature_start.cup_unsupported==0 &&
+           feature_start.cup_faults==0?
+           "ALL_SCOPED_CUPS_RESIDENT_AT_START":
+           "PARTIAL_OR_INVALID",
+           feature_start.seen?feature_start.cup_definitions:-1,
+           feature_start.seen?feature_start.cup_resident:-1,
+           feature_start.seen?feature_start.cup_unsupported:-1,
+           feature_start.seen?feature_start.cup_faults:-1);
+    printf("OG_CUP_NATIVE_BYE_EVENTS=OBSERVED verified=%ld rejected=%ld\n",
+           cup_native_bye_verified,cup_native_bye_rejected);
     {
         unsigned resident=0,unresident=0,selector_mismatch=0;
+        unsigned validatedNativeByes=0u;
         unsigned knownByeRule=0,otherRule=0,matchedRound=0;
         for(unsigned i=0;i<cup_coverage_count;++i) {
             const CupCoverageRecord *c=&cup_coverage[i];
+            const int nativeByeOk=!strcmp(c->state,"RESIDENT") &&
+                    !strcmp(c->reason,"NATIVE_BYES_VERIFIED");
             const int ok=!strcmp(c->state,"RESIDENT") &&
-                         !strcmp(c->reason,"OK");
-            if(ok)++resident;
-            else {
+                         (!strcmp(c->reason,"OK") || nativeByeOk);
+            if(ok) {
+                ++resident;
+                if(nativeByeOk)++validatedNativeByes;
+            } else {
                 if(!strcmp(c->rule,"OG_BYE_FORMAT_CANDIDATE")) {
                     ++knownByeRule;
                     if(!strcmp(c->round_structure,"OG_ROUND1_MATCHES_RULE"))
@@ -568,24 +592,57 @@ int main(int argc,char **argv)
         }
         const int coverage_complete=cup_coverage_count>0 &&
             (long)cup_coverage_count==cup_defs && !unresident;
-        printf("OG_CUP_COVERAGE=%s scope=DOMESTIC_TYPE1_SLOTS_2_3 " 
+        printf("OG_CUP_COVERAGE=%s scope=DOMESTIC_TYPE1_SLOTS_2_3 "
                "international-cups=NOT_AUDITED "
                "year=%ld definitions=%ld audited=%u "
-               "resident=%u divergent=%u selector-count-mismatch=%u\n",
+               "resident=%u native-byes-verified=%u divergent=%u "
+               "unverified-selector-mismatches=%u\n",
                coverage_complete?"ALL_SCOPED_DOMESTIC_TYPE1_RESIDENT":
                cup_coverage_count?"PARTIAL_WITH_EXPLICIT_REASONS":
                "NOT_TESTED",
                cup_coverage_year,cup_defs,cup_coverage_count,resident,
-               unresident,selector_mismatch);
+               validatedNativeByes,unresident,selector_mismatch);
         printf("OG_CUP_FORMAT_RULES=%s native-bye-candidates=%u "
                "native-round-matched=%u other-divergences=%u "
                "first-round-results=NOT_PROVEN_BY_FORMAT\n",
                cup_coverage_count?"RULES_OBSERVED_NOT_ALL_VERIFIED":
                "NOT_TESTED",knownByeRule,matchedRound,otherRule);
+        unsigned incompleteCountries=0u,reportedCountries=0u;
+        for(unsigned country=0u;country<256u;++country) {
+            unsigned defined=0u,available=0u,verifiedByes=0u;
+            for(unsigned i=0;i<cup_coverage_count;++i) {
+                const CupCoverageRecord *c=&cup_coverage[i];
+                if(c->country!=(long)country)continue;
+                ++defined;
+                if(!strcmp(c->state,"RESIDENT") &&
+                   (!strcmp(c->reason,"OK") ||
+                    !strcmp(c->reason,"NATIVE_BYES_VERIFIED"))) {
+                    ++available;
+                    if(!strcmp(c->reason,"NATIVE_BYES_VERIFIED"))
+                        ++verifiedByes;
+                }
+            }
+            if(!defined)continue;
+            ++reportedCountries;
+            if(defined!=available)++incompleteCountries;
+            printf("OG_CUP_COUNTRY year=%ld country=%u definitions=%u "
+                   "resident=%u native-byes=%u unavailable=%u state=%s\n",
+                   cup_coverage_year,country,defined,available,
+                   verifiedByes,defined-available,
+                   defined==available?"ALL_RESIDENT":"INCOMPLETE");
+        }
+        printf("OG_CUP_COUNTRIES=%s expected=%ld audited=%u "
+               "incomplete=%u scope=DOMESTIC_TYPE1_ONLY\n",
+               !reportedCountries?"NOT_TESTED":
+               incompleteCountries || (long)reportedCountries!=cup_countries ||
+               (long)cup_coverage_count!=cup_defs ?
+               "PARTIAL":"ALL_SCOPED_COUNTRIES_RESIDENT",
+               cup_countries,reportedCountries,incompleteCountries);
         for(unsigned i=0;i<cup_coverage_count;++i) {
             const CupCoverageRecord *c=&cup_coverage[i];
             if(!strcmp(c->state,"RESIDENT") &&
-               !strcmp(c->reason,"OK"))continue;
+               (!strcmp(c->reason,"OK") ||
+                !strcmp(c->reason,"NATIVE_BYES_VERIFIED")))continue;
             printf("OG_CUP_DIVERGENCE year=%ld country=%ld slot=%ld "
                    "compId=%ld expected=%ld selected=%ld "
                    "state=%s reason=%s real-entrants=%ld "

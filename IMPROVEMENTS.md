@@ -739,3 +739,10 @@ nel BAT. Build e test Windows da eseguire dall'utente.
 ### 0.13.49 — avvio Windows: guard B/SKIP compatibile con DEBUG WORLD (15/11/2026)
 - Fix del controllo *precompilazione* in `sorgenti/tools/patch_title_b_01063.sh`: la versione 0.13.48 protegge la selezione DEBUG WORLD con un terzo predicato `!Expanded_UnemployedWorldPickerActive()`, ma la patch Title-B cercava una vecchia riga monolitica e fermava `BUILD_SWOS.sh` con `patch controller incompleta`. Il controllo riconosce le due forme supportate (legacy e nuova forma contigua) ed evita di sostituire un guard già corretto.
 - Esito test isolato delle condizioni: due guard validi accettati, uno errato rifiutato. Nessuna modifica al codice C del motore OG, al controller runtime, ai menu o agli asset. Build Windows 0.13.49 **non provata**; il precedente log dimostrava soltanto lo stop del tool di preparazione.
+
+### 0.13.50 — resident OG domestic cups at START and FORWARD TIME (15/11/2026)
+- Introduced per-country, per-table-slot, per-year native OG cup state, using OG selection, bracket initialization, phase-limited round advancement and match simulation (no second result engine).
+- Stops the former end-year cup backfill when the resident OG world is running, preventing the repeated 2026 cup results that followed the successful league stress to 2096.
+- DEBUG WORLD for cups reads a scratch resident context; native cup match callbacks are blocked while the viewer is active. Added audit for resident matches and unsupported states.
+- Safety: country table sentinel bounds, original 64-team bracket bound, no match result invention. Employed club cups remain on their existing OG slot, explicitly excluded from independent resident simulation (MANAGER_SLOT_UNBOUND) until a full identity mapping is proven.
+- Not yet complete: manager cup bind/unbind, international cups, cup final archival, persistent save states, and Windows tests. Static C checks do NOT certify no crash.

@@ -600,3 +600,9 @@ Le competizioni OG non si ricreano alla firma; la routine Expanded di binding de
 - Nei controlli cup, distinguere DEFINIZIONI OG da COPPE RESIDENTI. I contatori di goalStats[0] dei calciatori OG non certificano la UI TOP GOAL SCORERS. Le fixture sintetiche del solo parser non sono test del gioco.
 - BACK del selettore DEBUG WORLD disoccupato via B o ESC/BACKSPACE: un livello per pressione. Il pad B non equivale a FIRE mentre quel selettore è attivo; CLASSIC e partita rimangono OG.
 - VIEW COMPETITIONS da una offerta usa direttamente paese/divisione/anno dello stesso OG residente; nessuna seconda simulazione; controlli read-only prima/dopo.
+
+### 15/11/2026 — resident OG national cups (0.13.50)
+- National type-1 cup table slots 2 and 3 are initialized at START and advanced through the SAME dated OG phase loop as leagues, using InitDIYCupFromRecord plus Career_AutoAdvanceCupMatches and the native match function. Each context is keyed by country/slot/year, not a potentially shared compId.
+- Never invoke Career_AutoAdvanceCupCompetitionFromRecord as a retrospective completed-year callback while resident OG is active; it creates an entire cup and can duplicate 70 years of results.
+- Employed club cup slots are OG but not yet proven to bind to the resident world: exclude a cup containing the employed manager club from additional resident simulation and log MANAGER_SLOT_UNBOUND. This is NOT a complete join/sack sync and the world viewer is incomplete for that cup season.
+- International/type-0 cups, permanent match histories, trophies, serializing all resident cup state and manager attachment still PENDING. No Windows gameplay claims before user tests.

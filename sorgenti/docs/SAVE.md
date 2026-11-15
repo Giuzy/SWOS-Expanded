@@ -1,6 +1,9 @@
 # Save Data — SWOS Expanded
 
-## Windows portable mode — build 0.13.20
+## SWOS Expanded Windows — regola vigente dal 14/11/2026
+Le sezioni storiche sottostanti su un solo `save/AUTOSAVE.CAR` descrivono le build precedenti. Attualmente ci sono due slot indipendenti accanto a `SWOS_Expanded.exe`: `save/AUTO9697.CAR` e `save/AUTO2627.CAR`. Il vecchio `save/AUTOSAVE.CAR` resta **solo leggibile come recupero compatibile**, mai sovrascritto o cancellato automaticamente. `SWOS.ini` e `SWOS.log` sono accanto all'EXE. Il percorso `Documents\\SWOS` vale per la base OpenSWOS upstream, non per Extended Windows. Ancora da completare e collaudare: salvataggio di tutti gli stati OG residenti, coppe, singoli risultati storici e ripresa pluristagionale.
+
+## Windows portable mode — STORICO build 0.13.20
 
 Windows SWOS Expanded stores everything beside `SWOS_Expanded.exe`:
 `save/AUTOSAVE.CAR`, other `save/*.CAR`, `save/*.SRP`, tactics/edits/highlights,
@@ -16,7 +19,7 @@ may explicitly run `PULISCI_VECCHI_SAVE_DOCUMENTI.bat`, read the warning,
 and type ELIMINA to delete only supported legacy save extensions there.
 GitHub commits cannot remove files from the user's computer.
 
-## Automatic career slot
+## Automatic career slot — STORICO precedente ai due mondi
 
 `save/AUTOSAVE.CAR` uses the existing JSON .CAR schema 5 and Living World
 snapshot. A normal save writes a temporary file in the same folder, flushes

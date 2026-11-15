@@ -11,34 +11,43 @@ echo Questo BAT legge SOLO SWOS.log, non crea partite né punteggi.
 echo Coppe senza contesti OG: NON IMPLEMENTATO, non PASS.
 echo Contatori OG dei gol: non certificano la schermata marcatori.
 echo ==============================================================
+set "ORIGINAL_DIAG=%SWOS_DIAGNOSTIC_SESSION%"
 set "SWOS_DIAGNOSTIC_SESSION=1"
-call "%~dp0ANALIZZA_SWOS_LOG.bat" > "OG_CUPS_SCORERS_DRIVER.log" 2>&1
+set "AUDIT_LOG=SWOS_RUNTIME_AUDIT.log"
+set "DRIVER_LOG=OG_CUPS_SCORERS_DRIVER.log"
+if defined SWOS_DIAGNOSTIC_DIR (
+ set "AUDIT_LOG=%SWOS_DIAGNOSTIC_DIR%\SWOS_RUNTIME_AUDIT.log"
+ set "DRIVER_LOG=%SWOS_DIAGNOSTIC_DIR%\OG_CUPS_SCORERS_DRIVER.log"
+)
+call "%~dp0ANALIZZA_SWOS_LOG.bat" > "%DRIVER_LOG%" 2>&1
 set "ANALYSIS=%ERRORLEVEL%"
-type "OG_CUPS_SCORERS_DRIVER.log"
-if not exist "SWOS_RUNTIME_AUDIT.log" goto incomplete
+type "%DRIVER_LOG%"
+if not exist "%AUDIT_LOG%" goto incomplete
 echo.
-findstr /B /C:"OG_CUP_DEFINITIONS=" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_CUP_RESIDENT=" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_CUPS_BEFORE_AFTER=" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_CUP_NATIVE_MATCHES=" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_SCORERS_BEFORE_AFTER=" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_TOP_GOAL_SCORERS_VIEWER=" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_OFFER_CUPS_SCORERS_BEFORE_AFTER=" "SWOS_RUNTIME_AUDIT.log"
+findstr /B /C:"OG_CUP_DEFINITIONS=" "%AUDIT_LOG%"
+findstr /B /C:"OG_CUP_RESIDENT=" "%AUDIT_LOG%"
+findstr /B /C:"OG_CUP_COVERAGE=" "%AUDIT_LOG%"
+findstr /B /C:"OG_CUP_DIVERGENCE " "%AUDIT_LOG%"
+findstr /B /C:"OG_CUPS_BEFORE_AFTER=" "%AUDIT_LOG%"
+findstr /B /C:"OG_CUP_NATIVE_MATCHES=" "%AUDIT_LOG%"
+findstr /B /C:"OG_SCORERS_BEFORE_AFTER=" "%AUDIT_LOG%"
+findstr /B /C:"OG_TOP_GOAL_SCORERS_VIEWER=" "%AUDIT_LOG%"
+findstr /B /C:"OG_OFFER_CUPS_SCORERS_BEFORE_AFTER=" "%AUDIT_LOG%"
 if "%ANALYSIS%"=="1" goto failure
-findstr /B /C:"RUNTIME_LOG=READ" "SWOS_RUNTIME_AUDIT.log" | findstr /C:"scope=CURRENT_BUILD" >nul
+findstr /B /C:"RUNTIME_LOG=READ" "%AUDIT_LOG%" | findstr /C:"scope=CURRENT_BUILD" >nul
 if errorlevel 1 goto incomplete
-findstr /B /C:"OG_CUPS_BEFORE_AFTER=" "SWOS_RUNTIME_AUDIT.log" | findstr /C:"NOT_IMPLEMENTED" >nul
+findstr /B /C:"OG_CUPS_BEFORE_AFTER=" "%AUDIT_LOG%" | findstr /C:"NOT_IMPLEMENTED" >nul
 if not errorlevel 1 (
  echo [INCOMPLETE] La coppa esiste nei dati ma non e' residente.
 )
-findstr /B /C:"OG_SCORERS_BEFORE_AFTER=" "SWOS_RUNTIME_AUDIT.log" | findstr /C:"PLAYER_COUNTERS_EMPTY" >nul
+findstr /B /C:"OG_SCORERS_BEFORE_AFTER=" "%AUDIT_LOG%" | findstr /C:"PLAYER_COUNTERS_EMPTY" >nul
 if not errorlevel 1 (
  echo [FAIL] Il campionato OG ha gol ma i contatori giocatori sono vuoti.
  goto failure
 )
-findstr /B /C:"OG_CUPS_BEFORE_AFTER=" "SWOS_RUNTIME_AUDIT.log" | findstr /C:"AFTER_MISSING" >nul
+findstr /B /C:"OG_CUPS_BEFORE_AFTER=" "%AUDIT_LOG%" | findstr /C:"AFTER_MISSING" >nul
 if not errorlevel 1 goto incomplete
-findstr /B /C:"OG_SCORERS_BEFORE_AFTER=" "SWOS_RUNTIME_AUDIT.log" | findstr /C:"AFTER_MISSING" >nul
+findstr /B /C:"OG_SCORERS_BEFORE_AFTER=" "%AUDIT_LOG%" | findstr /C:"AFTER_MISSING" >nul
 if not errorlevel 1 goto incomplete
 echo [INCOMPLETE] I test dei dati sono separati dalla prova dei menu.
 echo [INCOMPLETE] Le coppe OG residenti e TOP GOAL SCORERS restano aperti.
@@ -53,5 +62,5 @@ echo [INCOMPLETE] Dati prima/dopo insufficienti. Necessario nuovo log.
 set "RESULT=2"
 :done
 echo Invia SWOS_RUNTIME_AUDIT.log e OG_CUPS_SCORERS_DRIVER.log.
-pause
+if not "%ORIGINAL_DIAG%"=="1" pause
 exit /b %RESULT%

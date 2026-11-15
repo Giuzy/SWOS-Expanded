@@ -3075,6 +3075,13 @@ static uint16_t groupedLeagueRows(const LeagueGroups *lg, uint8_t *compEntry,
     return rows;
 }
 
+#ifdef SWOS_SDL_BUILD
+extern int Expanded_OfferPickerActive(void);
+extern uint8_t Expanded_OfferPickerDivision(void);
+extern int Expanded_OfferPickerCupEligible(uint8_t,uint8_t);
+static uint8_t s_expOGPickerLastCountry=255u;
+uint8_t Expanded_OGPicker_LastCountry(void) { return s_expOGPickerLastCountry; }
+#endif
 __attribute__((used, externally_visible))
 void SelectTeamsFinalMenu(uint16_t mode)
 {
@@ -3203,6 +3210,23 @@ loc_E086:
             goto loc_E2D0;
         goto loc_E086;
     }
+#ifdef SWOS_SDL_BUILD
+    /* The offer already identifies its country, division and actual
+     * native club. Reuse this SAME DEBUG WORLD selector, but show only
+     * relevant OG competitions, without creating any club slot. */
+    if (Expanded_OfferPickerActive()) {
+        if ((uintptr_t)compEntry<256u)goto loc_E086;
+        const Competition *offerComp=(const Competition *)compEntry;
+        if(offerComp->type==0 && !comp_is_type0_cup(offerComp->compId)) {
+            if((void *)compEntry!=compList[0])goto loc_E086;
+        } else if(offerComp->type==1 && !offerComp->isPlayoff) {
+            const unsigned slot=(unsigned)((a5-1)-compList);
+            if(slot>255u ||
+               Expanded_OfferPickerCupEligible((uint8_t)d7,(uint8_t)slot)==0)
+                goto loc_E086;
+        } else goto loc_E086;
+    }
+#endif
 
     /* Career mode continental cup filtering (loc_13E0A6) */
     if (_gameType == GAME_TYPE_CAREER) {
@@ -3329,7 +3353,11 @@ skip_continental_check:
         {
             const LeagueGroups *lg = (void *)compEntry == compList[0]
                                    ? LeagueGroups_ForCountry(d7) : 0;
-            if (lg) {
+            if (lg
+#ifdef SWOS_SDL_BUILD
+                && !Expanded_OfferPickerActive()
+#endif
+               ) {
                 d1 += groupedLeagueRows(lg, compEntry, &teamNamesPtr, &leaguesPtrOut,
                                         &leagueNumsOut);
                 _numberOfLeagues = (int8_t)league->divisionsCount;
@@ -3340,16 +3368,20 @@ skip_continental_check:
         }
         divIdx = 0;
 loc_E246:
+#ifdef SWOS_SDL_BUILD
+        if(!Expanded_OfferPickerActive() ||
+           divIdx==Expanded_OfferPickerDivision())
+#endif
         {
             /* leagues: 2 char* per division (full name + abbreviation) */
             char **nameTbl = comp_name_table(compHdr);
             namePtr = nameTbl ? (uint8_t *)nameTbl[divIdx * 2]
                               : (uint8_t *)_divisionStringTable[divIdx];
+            *teamNamesPtr++ = (void *)namePtr;
+            *leaguesPtrOut++ = compEntry;
+            *leagueNumsOut++ = divIdx;
+            d1++;
         }
-        *teamNamesPtr++ = (void *)namePtr;
-        *leaguesPtrOut++ = compEntry;
-        *leagueNumsOut++ = divIdx;
-        d1++;
         divIdx++;
         HLOG("    div %u/%u (comp=%p)\n", (unsigned)divIdx,
              (unsigned)(uint8_t)league->divisionsCount, (void *)compEntry);
@@ -3441,13 +3473,17 @@ loc_E2D0:
         goto exit_return;
 
 #ifdef SWOS_SDL_BUILD
-    /* On the unemployed DEBUG WORLD picker, BACK is a single-level pop.
+    /* On either OG picker (unemployed or club-offer), BACK pops one
+     * real navigation level. An injected country starts at native
+     * depth 2, which is a ROOT for that invocation, not a continent
+     * that has been pushed onto _countryStackPtr. Never underflow. 
      * Ignore stale selected-row indices and the OG top-of-stack mark;
      * at the root, the regular abort leaves the picker normally. */
     {
         extern int Expanded_UnemployedWorldPickerActive(void);
-        if(Expanded_UnemployedWorldPickerActive() && _exitSelectTeams) {
-            if(_teamDepthLevel==0u)
+        if((Expanded_UnemployedWorldPickerActive() ||
+            Expanded_OfferPickerActive()) && _exitSelectTeams) {
+            if(_teamDepthLevel<=(uint16_t)_topOfStackMark)
                 goto exit_return;
             const uint16_t before=_teamDepthLevel;
             _isCountryNumber=0;
@@ -3582,7 +3618,10 @@ loc_E50A:
         goto loc_E4EA;
 
     _selectedContest = (uintptr_t)contest;
-
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_UnemployedWorldPickerActive() || Expanded_OfferPickerActive())
+        s_expOGPickerLastCountry=(uint8_t)d6;
+#endif
     if (contest[1] == 0)
         goto loc_E65A;
     else if (contest[1] == 1)

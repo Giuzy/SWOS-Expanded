@@ -147,7 +147,21 @@ extern volatile uint16_t _keyCount;
 /* Only the unemployed DEBUG WORLD picker consumes B as genuine BACK.
  * Do not alter the A/B behavior of the original match or other OG menus. */
 static int s_debugWorldPickerBackPending;
+static int s_worldViewBackPending;
 extern int Expanded_UnemployedWorldPickerActive(void);
+extern int Expanded_OfferPickerActive(void);
+extern int Expanded_OGWorld_ViewActive(void);
+static int expanded_native_world_picker_active(void)
+{
+    return Expanded_UnemployedWorldPickerActive() ||
+           Expanded_OfferPickerActive();
+}
+int InputSDL_ConsumeWorldViewBack(void)
+{
+    const int v=s_worldViewBackPending;
+    s_worldViewBackPending=0;
+    return v;
+}
 int InputSDL_ConsumeDebugWorldPickerBack(void)
 {
     const int v=s_debugWorldPickerBackPending;
@@ -1036,8 +1050,15 @@ void InputSDL_HandleEvent(const SDL_Event *e)
         /* Queue a BACK for the menu engine, not a FIRE on the selected
          * country/competition. Never call an OG menu callback in SDL poll. */
         if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B &&
-           Expanded_UnemployedWorldPickerActive()) {
+           expanded_native_world_picker_active()) {
             s_debugWorldPickerBackPending=1;
+            fprintf(stderr,"[og-world-back] PAD B queued for picker\n");
+            break;
+        }
+        if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B &&
+           !_playGame && Expanded_OGWorld_ViewActive()) {
+            s_worldViewBackPending=1;
+            fprintf(stderr,"[og-world-back] PAD B queued for viewer\n");
             break;
         }
         /* A fire button of player 1's pad went down (the latch and the recording's
@@ -1173,11 +1194,13 @@ static void read_device_state(int d,
         if (SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_DPAD_RIGHT)) *right = 1;
         if (SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_A) ||
             (!Expanded_UI_IsBusinessScreen() && !input_on_title_first_level() &&
-             !Expanded_UnemployedWorldPickerActive() &&
+             !expanded_native_world_picker_active() &&
+             !Expanded_OGWorld_ViewActive() &&
              SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B)))
             *_fire = 1;
         if (skip && !input_on_title_first_level() &&
-            !Expanded_UnemployedWorldPickerActive() &&
+            !expanded_native_world_picker_active() &&
+            !Expanded_OGWorld_ViewActive() &&
             SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))
             *skip = 1;
         return;

@@ -13,26 +13,33 @@ echo Non usare save importanti.
 echo Il gioco deve completare il test e uscire normalmente.
 echo Ora analizzo solo SWOS.log presente: non avvio un'altra carriera.
 echo ===========================================================
+set "ORIGINAL_DIAG=%SWOS_DIAGNOSTIC_SESSION%"
 set "SWOS_DIAGNOSTIC_SESSION=1"
-call "%~dp0ANALIZZA_SWOS_LOG.bat" > "OG_70_RUNTIME_DRIVER.log" 2>&1
+set "AUDIT_LOG=SWOS_RUNTIME_AUDIT.log"
+set "DRIVER_LOG=OG_70_RUNTIME_DRIVER.log"
+if defined SWOS_DIAGNOSTIC_DIR (
+ set "AUDIT_LOG=%SWOS_DIAGNOSTIC_DIR%\SWOS_RUNTIME_AUDIT.log"
+ set "DRIVER_LOG=%SWOS_DIAGNOSTIC_DIR%\OG_70_RUNTIME_DRIVER.log"
+)
+call "%~dp0ANALIZZA_SWOS_LOG.bat" > "%DRIVER_LOG%" 2>&1
 set "AUDIT_EXIT=%ERRORLEVEL%"
-type "OG_70_RUNTIME_DRIVER.log"
-if not exist "SWOS_RUNTIME_AUDIT.log" goto incomplete
+type "%DRIVER_LOG%"
+if not exist "%AUDIT_LOG%" goto incomplete
 echo.
-findstr /B /C:"RUNTIME_LOG=READ" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_SEASON_TRANSITIONS=" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_70_NATIVE_SEASONS=" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_RETIREMENTS=" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_CUP_RESIDENT=" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_CUPS_BEFORE_AFTER=" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_CUP_NATIVE_MATCHES=" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_SCORERS_BEFORE_AFTER=" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_LAST_WORLD_STEP=" "SWOS_RUNTIME_AUDIT.log"
-findstr /B /C:"OG_OFFER_NATIVE_VIEW=" "SWOS_RUNTIME_AUDIT.log"
+findstr /B /C:"RUNTIME_LOG=READ" "%AUDIT_LOG%"
+findstr /B /C:"OG_SEASON_TRANSITIONS=" "%AUDIT_LOG%"
+findstr /B /C:"OG_70_NATIVE_SEASONS=" "%AUDIT_LOG%"
+findstr /B /C:"OG_RETIREMENTS=" "%AUDIT_LOG%"
+findstr /B /C:"OG_CUP_RESIDENT=" "%AUDIT_LOG%"
+findstr /B /C:"OG_CUPS_BEFORE_AFTER=" "%AUDIT_LOG%"
+findstr /B /C:"OG_CUP_NATIVE_MATCHES=" "%AUDIT_LOG%"
+findstr /B /C:"OG_SCORERS_BEFORE_AFTER=" "%AUDIT_LOG%"
+findstr /B /C:"OG_LAST_WORLD_STEP=" "%AUDIT_LOG%"
+findstr /B /C:"OG_OFFER_NATIVE_VIEW=" "%AUDIT_LOG%"
 if "%AUDIT_EXIT%"=="1" goto failure
-findstr /B /C:"RUNTIME_LOG=READ" "SWOS_RUNTIME_AUDIT.log" | findstr /C:"scope=CURRENT_BUILD" >nul
+findstr /B /C:"RUNTIME_LOG=READ" "%AUDIT_LOG%" | findstr /C:"scope=CURRENT_BUILD" >nul
 if errorlevel 1 goto incomplete
-findstr /B /C:"OG_70_NATIVE_SEASONS=PASS_TRANSITIONS_ONLY" "SWOS_RUNTIME_AUDIT.log" >nul
+findstr /B /C:"OG_70_NATIVE_SEASONS=PASS_TRANSITIONS_ONLY" "%AUDIT_LOG%" >nul
 if errorlevel 1 goto incomplete
 echo.
 echo [PASS] 70 chiusure e 70 aperture di stagione OG e date esatte.
@@ -51,5 +58,5 @@ echo Eseguire la carriera tramite AVVIA_DIAGNOSTICA.bat e riprovare.
 set "RESULT=2"
 :done
 echo Log utile: SWOS_RUNTIME_AUDIT.log / OG_70_RUNTIME_DRIVER.log.
-pause
+if not "%ORIGINAL_DIAG%"=="1" pause
 exit /b %RESULT%

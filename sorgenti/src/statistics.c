@@ -15,6 +15,9 @@
 #include "dos_mode.h"      /* _gDosView: the DOS release lays this panel out for 320x200 */
 #include "display.h"    /* _screen_width, WIDE_MARGIN — center the stats overlay in widescreen */
 #include "auto_skip_debug.h"
+#ifdef SWOS_SDL_BUILD
+#include <stdio.h>
+#endif
 
 /* ---- External globals ---- */
 extern uint16_t _showStats;
@@ -525,6 +528,21 @@ extern uint8_t  _aCup_10[];              /* "\x04C\x00U\x00P\x00 " */
 /* Menu data (declared in SWOS2.s, used as a6 for ShowMenu) */
 extern uint8_t  _competitionTopGoalScorersMenu[];
 extern uint8_t  _topGoalScorersMenu[];
+#ifdef SWOS_SDL_BUILD
+extern const TeamFileEx *Expanded_OGWorld_ScorerTeams(uint16_t *count);
+extern const TeamFileEx *Expanded_OGWorld_ScorerTeam(uint16_t teamId);
+/* This flag selects an original OG team image, not a second scoring path. */
+static int s_residentScorerSource;
+/* GetPlayer's native pointer is the team header plus index*0x26;
+ * the player name is at +0x4f, goalStats at +0x6d. */
+static uint8_t *resident_scorer_player(uint16_t teamId,int16_t idx)
+{
+    if(idx<0 || idx>=16)return NULL;
+    const TeamFileEx *team=Expanded_OGWorld_ScorerTeam(teamId);
+    return team ? (uint8_t *)(uintptr_t)team+
+                  (size_t)(uint16_t)idx*sizeof(PlayerFile) : NULL;
+}
+#endif
 
 /* ---- External functions ---- */
 extern void ShowMenu(uint8_t *menu);
@@ -634,7 +652,15 @@ static uint8_t *FindReplaceableLowestScorerSlot(uint8_t *base, uint8_t minScore)
                 uint16_t d0 = teamId;
                 uint8_t d1 = *(ptr + 34);  /* playerIdx */
                 int16_t d1w = (int8_t)d1;  /* ext.w d1 */
-                TeamFileEx *teamPtr = VerifyTeamLoaded(d0);
+                TeamFileEx *teamPtr;
+#ifdef SWOS_SDL_BUILD
+                const TeamFileEx *resident = s_residentScorerSource ?
+                    Expanded_OGWorld_ScorerTeam(d0) : NULL;
+                teamPtr = resident ? (TeamFileEx *)(uintptr_t)resident
+                                   : VerifyTeamLoaded(d0);
+#else
+                teamPtr = VerifyTeamLoaded(d0);
+#endif
                 if (teamPtr->team.teamControls == 1)   /* isInDIYTeam == 1 */
                     return ptr;
             }
@@ -679,7 +705,11 @@ static void AddTeamScorersToHighestScorersTable(int16_t statIndex,
     /* For DIY game types with negative statIndex, verify team is in DIY list */
     if (statIndex < 0)
     {
-        if (_gameType == 3 || _gameType == 4)
+        if ((_gameType == 3 || _gameType == 4)
+#ifdef SWOS_SDL_BUILD
+            && !s_residentScorerSource
+#endif
+           )
         {
             if (FindTeamIdInDiyTeamsList((uint16_t *)teamPtr) != 0) {
 #ifdef SWOS_DEBUG_AUTOSKIP
@@ -700,7 +730,11 @@ static void AddTeamScorersToHighestScorersTable(int16_t statIndex,
 
     /* Determine number of players to iterate */
     _numPlayers = 15;  /* default: 16 players (dbf loop 15→0) */
-    if (teamNumber == _selTeamNumber)
+    if (teamNumber == _selTeamNumber
+#ifdef SWOS_SDL_BUILD
+        && !s_residentScorerSource
+#endif
+       )
     {
         _numPlayers = (int16_t)_careerNumPlayers - 1;
     }
@@ -712,7 +746,11 @@ static void AddTeamScorersToHighestScorersTable(int16_t statIndex,
         uint16_t score;
 
         /* For career team, use GetPlayerAtIndex to remap */
-        if (teamNumber == _selTeamNumber)
+        if (teamNumber == _selTeamNumber
+#ifdef SWOS_SDL_BUILD
+            && !s_residentScorerSource
+#endif
+           )
         {
             playerBase = GetPlayerAtIndex(teamNumber, (uint16_t)_numPlayers);
             /* GetPlayerAtIndex stores fileIndex in _cGetPlayerAtIndexFileIdx */
@@ -787,9 +825,13 @@ static void AddTeamScorersToHighestScorersTable(int16_t statIndex,
         }
 
 next_player:
-        if (teamNumber != _selTeamNumber)
+        if (teamNumber != _selTeamNumber
+#ifdef SWOS_SDL_BUILD
+            || s_residentScorerSource
+#endif
+           )
         {
-            /* Non-career: advance playerBase by 38 (PlayerFile size) */
+            /* Resident OG and non-career: natural player-file order. */
             playerBase += 0x26;
         }
         playerIdx++;
@@ -818,6 +860,32 @@ static void PopulateHighestScorersTableFromSelectedTeams(int16_t statIndex)
 #ifdef SWOS_DEBUG_AUTOSKIP
     SWOS_AUTOSKIP_LOG("[bug2-scorers]   PopulateFromSelectedTeams statIdx=%d numSelectedTeams=%u",
                       (int)statIndex, (unsigned)numTeams);
+#endif
+#ifdef SWOS_SDL_BUILD
+    s_residentScorerSource=0;
+    if (_gameType==GAME_TYPE_CAREER) {
+        uint16_t residentCount=0;
+        const TeamFileEx *resident=Expanded_OGWorld_ScorerTeams(&residentCount);
+        if(resident && residentCount>0u) {
+            s_residentScorerSource=1;
+            uint32_t positive=0u;
+            for(uint16_t i=0;i<residentCount;++i) {
+                for(unsigned j=0;j<16u;++j)
+                    if(resident[i].players[j].goalStats[0])++positive;
+                AddTeamScorersToHighestScorersTable(
+                    statIndex,(uint8_t *)(uintptr_t)&resident[i]);
+            }
+            fprintf(stderr,"[og-scorers-view] source=RESIDENT_OG "
+                           "teams=%u players-with-league-goals=%lu "
+                           "stat-index=%d club=%04x\n",
+                    (unsigned)residentCount,(unsigned long)positive,
+                    (int)statIndex,(unsigned)_selTeamNumber);
+            return;
+        }
+        fprintf(stderr,"[og-scorers-view] source=LOCAL_UNVERIFIED "
+                       "teams=%u club=%04x stat-index=%d\n",
+                (unsigned)numTeams,(unsigned)_selTeamNumber,(int)statIndex);
+    }
 #endif
     if (numTeams == 0)
         return;
@@ -863,7 +931,14 @@ static uint8_t *GetScorerSurname(uint8_t *entryBase)
     uint8_t *nameStart;
     uint8_t *surname;
 
-    playerPtr = GetPlayer(teamId, (uint16_t)idxSigned);
+#ifdef SWOS_SDL_BUILD
+    playerPtr = s_residentScorerSource ?
+        resident_scorer_player(teamId,idxSigned) :
+        GetPlayer(teamId,(uint16_t)idxSigned);
+    if(!playerPtr)return (uint8_t *)"UNKNOWN";
+#else
+    playerPtr = GetPlayer(teamId,(uint16_t)idxSigned);
+#endif
     /* Player name at offset 0x4C + PLAYERFILE_PLAYERNAME(3) = 0x4F from GetPlayer result */
     nameStart = playerPtr + 0x4F;
     surname = nameStart;
@@ -968,6 +1043,9 @@ static void ShowCompetitionTopScorers(int16_t statIndex, uint8_t *namePtr)
     _diyStatsName = (uintptr_t)namePtr;
     SortHighestScorerTable();
     ShowMenu(_competitionTopGoalScorersMenu);
+#ifdef SWOS_SDL_BUILD
+    s_residentScorerSource=0;
+#endif
 }
 
 
@@ -1012,6 +1090,9 @@ void TopGoalScorersMenu_0(void)
     }
 #endif
     ShowMenu(_topGoalScorersMenu);
+#ifdef SWOS_SDL_BUILD
+    s_residentScorerSource=0;
+#endif
 }
 
 
@@ -1080,12 +1161,23 @@ void CompetitionTopGoalScorersInit(void)
             uint8_t *playerPtr;
             uint8_t *dest;
 
-            /* Get team name */
-            teamData = GetTeamPointer(teamId);
+            /* Get team/player from the very same OG resident source
+             * used for the scorer count after hire. */
+#ifdef SWOS_SDL_BUILD
+            const TeamFileEx *residentTeam=s_residentScorerSource ?
+                Expanded_OGWorld_ScorerTeam(teamId) : NULL;
+            uint8_t *native=s_residentScorerSource ?
+                resident_scorer_player(teamId,playerIdxSigned) : NULL;
+            if(residentTeam && native) {
+                teamData=(TeamFileEx *)(uintptr_t)residentTeam;
+                playerPtr=native;
+            } else
+#endif
+            {
+                teamData=GetTeamPointer(teamId);
+                playerPtr=GetPlayer(teamId,(uint16_t)playerIdxSigned);
+            }
             teamName = teamData->team.teamName;
-
-            /* Get player name */
-            playerPtr = GetPlayer(teamId, (uint16_t)playerIdxSigned);
 
             /* Entry 1: player name */
             a5 += 1;
@@ -1235,10 +1327,21 @@ void TopGoalScorersBeforeDrawCommon(MenuEntry *entry)
         uint8_t *dest;
         uint16_t d0val;
 
-        teamData = GetTeamPointer(teamId);
+#ifdef SWOS_SDL_BUILD
+        const TeamFileEx *native=s_residentScorerSource ?
+            Expanded_OGWorld_ScorerTeam(teamId) : NULL;
+        uint8_t *nativePlayer=s_residentScorerSource ?
+            resident_scorer_player(teamId,playerIdxSigned) : NULL;
+        if(native && nativePlayer) {
+            teamData=(TeamFileEx *)(uintptr_t)native;
+            playerPtr=nativePlayer;
+        } else
+#endif
+        {
+            teamData=GetTeamPointer(teamId);
+            playerPtr=GetPlayer(teamId,(uint16_t)playerIdxSigned);
+        }
         teamName = teamData->team.teamName;
-
-        playerPtr = GetPlayer(teamId, (uint16_t)playerIdxSigned);
 
         /* Extract surname using ExtractSurname (name at offset 0x4F, maxLen 0x15=21) */
         _surnameBuf = ExtractSurname(playerPtr + 0x4F, 0x15);

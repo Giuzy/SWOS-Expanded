@@ -7,7 +7,7 @@ failed=0
 run_stage() {
   local label="$1" script="$2"
   printf '\n=====================================================\n%s\n=====================================================\n' "$label"
-  if bash "$script"; then
+  if /usr/bin/bash "$script"; then
     printf '[PASS] %s (headless source/data ONLY)\n' "$label"
   else
     printf '[FAIL] %s\n' "$label"

@@ -44,12 +44,14 @@ if errorlevel 1 (
  if not "%SWOS_DIAGNOSTIC_SESSION%"=="1" pause
  exit /b 2
 )
-"%AUDIT_EXE%" "SWOS.log" "%EXPECTED%" > "SWOS_RUNTIME_AUDIT.log" 2>&1
+set "AUDIT_REPORT=SWOS_RUNTIME_AUDIT.log"
+if defined SWOS_DIAGNOSTIC_DIR set "AUDIT_REPORT=%SWOS_DIAGNOSTIC_DIR%\SWOS_RUNTIME_AUDIT.log"
+"%AUDIT_EXE%" "SWOS.log" "%EXPECTED%" > "%AUDIT_REPORT%" 2>&1
 set "RESULT=%ERRORLEVEL%"
 if exist "%AUDIT_EXE%" del /q "%AUDIT_EXE%" >nul 2>&1
-type "SWOS_RUNTIME_AUDIT.log"
+type "%AUDIT_REPORT%"
 echo.
-echo Resoconto salvato in SWOS_RUNTIME_AUDIT.log
+echo Resoconto salvato in %AUDIT_REPORT%
 if "%RESULT%"=="2" echo [INCOMPLETE] Non tutti i controlli Windows sono stati eseguiti.
 if "%RESULT%"=="1" echo [FAIL] Errore reale rilevato: leggere FIRST_RUNTIME_FAILURE.
 echo Il mondo OG resta INCOMPLETE se le coppe residenti/save completi non sono provati.

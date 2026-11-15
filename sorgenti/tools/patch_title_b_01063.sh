@@ -46,9 +46,15 @@ skip_b_guard_present() {
   fi
   awk '
     index($0,"if (skip && !input_on_title_first_level() &&") {
+      # Accept original DEBUG WORLD guard and the new common native-picker
+      # guard, including the optional resident viewer B=BACK exclusion.
       if ((getline) <= 0) next
-      if (!index($0,"!Expanded_UnemployedWorldPickerActive() &&")) next
+      if (!index($0,"!Expanded_UnemployedWorldPickerActive() &&") &&
+          !index($0,"!expanded_native_world_picker_active() &&")) next
       if ((getline) <= 0) next
+      if (index($0,"!Expanded_OGWorld_ViewActive() &&")) {
+        if ((getline) <= 0) next
+      }
       if (index($0,"SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))")) found=1
     }
     END { exit !found }

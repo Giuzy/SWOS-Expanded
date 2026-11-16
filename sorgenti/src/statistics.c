@@ -1037,7 +1037,15 @@ static void ShowCompetitionTopScorers(int16_t statIndex, uint8_t *namePtr)
 {
     if (statIndex == 4)
         statIndex = 0;
-
+#ifdef SWOS_SDL_BUILD
+    /* Do not read beyond the native OG player goalStats[4] array when
+     * another competition left an unexpected statistic column selected. */
+    if(statIndex < 0 || statIndex > 3) {
+        fprintf(stderr,"[og-scorers-view] INVALID_STAT_COLUMN index=%d\n",
+                (int)statIndex);
+        return;
+    }
+#endif
     InitHighestScorersTable();
     PopulateHighestScorersTableFromSelectedTeams(statIndex);
     _diyStatsName = (uintptr_t)namePtr;

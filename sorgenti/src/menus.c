@@ -5486,10 +5486,23 @@ void ViewCompetitionsOnReturn(void)
         _menuEntries[5].y = _menuEntries[4].y;
     }
 
-    /* Hide "Top Goal Scorers" entry (5) if national selector or no team selection cache */
-    if (_isNationalSelector != 0 || _teamSelectionKeyCacheIndex == 0)
+    /* The resident OG viewer installs the actual competition teams without
+     * updating the legacy team-selection cache. Do not hide its scorer
+     * screen solely because that cache index is zero. */
     {
-        _menuEntries[5].isInvisible = 1;
+        int residentScorers = 0;
+#ifdef SWOS_SDL_BUILD
+        extern int Expanded_OGWorld_ViewActive(void);
+        extern const TeamFileEx *Expanded_OGWorld_ScorerTeams(uint16_t *);
+        if (_gameType == 4 && Expanded_OGWorld_ViewActive()) {
+            uint16_t scorerTeams = 0;
+            const TeamFileEx *nativeTeams = Expanded_OGWorld_ScorerTeams(&scorerTeams);
+            residentScorers = nativeTeams != NULL && scorerTeams >= 2;
+        }
+#endif
+        if (_isNationalSelector != 0 ||
+            (_teamSelectionKeyCacheIndex == 0 && !residentScorers))
+            _menuEntries[5].isInvisible = 1;
     }
 
     /* Hide "Squad" entry (6) if not SEASON game type (4) */

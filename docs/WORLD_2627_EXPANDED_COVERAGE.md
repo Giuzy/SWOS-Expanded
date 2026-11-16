@@ -167,3 +167,6 @@ Offerta club: usare lo stesso `_squadMenu` OG+Expanded con stelle e snapshot rea
 
 ## 0.13.57: visible catalogue only, NOT resident OG competitions
 The 2026/27 offer VIEW COMPETITIONS path now shows 3 UEFA and 12 extra-UEFA names as DEFINITIONS ONLY before opening the existing national OG viewer. It does not create fixtures, participants, match dates or results. Missing resident states (Brazil 13 states, Italian Serie D Cup, supercups, UEFA and continental) remain to be integrated and tested on Windows. A visible catalogue is not proof of a completed integration.
+
+## 0.13.58 - scorer UI and coverage, Windows pending
+The read-only native league viewer now retains TOP GOAL SCORERS even without an old team selection cache. Per-country/division/year `NO_PLAYER_SCORERS` diagnostics flag leagues with scored matches but zero player goals; own goals remain possible. This does not initialize nonexistent cup/continental scorer contexts. `patch_title_b_01063.sh` accepts the 0.13.57 additional offer B=BACK guard instead of aborting Windows build before GCC. Windows tests of all 134 divisions and individual cup formats remain pending.

@@ -3797,11 +3797,13 @@ void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out)
            c->comp.base.numTeams>EXP_OG_MAX_TEAMS)continue;
         ++out->resident_leagues;
         const unsigned teams=(unsigned)c->teamCount;
+        uint32_t scorerGoals=0u;
         for(unsigned j=0;j<teams;++j) {
             for(unsigned i=0;i<16u;++i) {
                 const unsigned goals=(unsigned)c->teams[j].players[i].goalStats[0];
                 ++out->players;
                 out->player_league_goals+=goals;
+                scorerGoals+=goals;
                 if(goals)++out->players_with_league_goals;
             }
         }
@@ -3811,6 +3813,17 @@ void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out)
             sum+=(unsigned)c->comp.leagueStandings[j].goalsFor;
         if(sum)++out->leagues_with_goals;
         out->standings_goals+=sum;
+#ifdef SWOS_SDL_BUILD
+        /* Country/division/year identify each OG league, not just its
+         * global totals. An own goal may explain a small difference. */
+        if(sum && !scorerGoals) {
+            fprintf(stderr,"[og-scorer-coverage] country=%u division=%u "
+                           "year=%u league-goals=%u player-goals=%lu "
+                           "status=NO_PLAYER_SCORERS\n",
+                    (unsigned)c->country,(unsigned)c->division,
+                    (unsigned)c->year,sum,(unsigned long)scorerGoals);
+        }
+#endif
     }
 }
 static ExpandedOGLeague *exp_find(uint8_t country,uint8_t division,uint16_t year) {

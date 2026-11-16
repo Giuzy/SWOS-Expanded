@@ -148,6 +148,14 @@ extern volatile uint16_t _keyCount;
  * Do not alter the A/B behavior of the original match or other OG menus. */
 static int s_debugWorldPickerBackPending;
 static int s_worldViewBackPending;
+static int s_offerSquadBackPending;
+extern int Expanded_OfferSquadReadOnly(void);
+int InputSDL_ConsumeOfferSquadBack(void)
+{
+    const int v=s_offerSquadBackPending;
+    s_offerSquadBackPending=0;
+    return v;
+}
 extern int Expanded_UnemployedWorldPickerActive(void);
 extern int Expanded_OfferPickerActive(void);
 extern int Expanded_OGWorld_ViewActive(void);
@@ -1024,6 +1032,13 @@ void InputSDL_HandleEvent(const SDL_Event *e)
             DrawMenu();
             break;
         }
+        /* Switch Pro B pops only the read-only offer squad. */
+        if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B &&
+           !_playGame && Expanded_OfferSquadReadOnly()) {
+            s_offerSquadBackPending=1;
+            fprintf(stderr,"[og-offer-squad] PAD B queued one-level BACK\n");
+            break;
+        }
         if (s_exit_confirm_open) {
             switch(e->cbutton.button) {
             case SDL_CONTROLLER_BUTTON_DPAD_LEFT:
@@ -1196,11 +1211,13 @@ static void read_device_state(int d,
             (!Expanded_UI_IsBusinessScreen() && !input_on_title_first_level() &&
              !expanded_native_world_picker_active() &&
              !Expanded_OGWorld_ViewActive() &&
+             !Expanded_OfferSquadReadOnly() &&
              SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B)))
             *_fire = 1;
         if (skip && !input_on_title_first_level() &&
             !expanded_native_world_picker_active() &&
             !Expanded_OGWorld_ViewActive() &&
+            !Expanded_OfferSquadReadOnly() &&
             SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))
             *skip = 1;
         return;

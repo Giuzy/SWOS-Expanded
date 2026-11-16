@@ -992,10 +992,25 @@ void Expanded_UnemployedReject(void) {
 }
 void Expanded_OfferPreviewDraw(void) {
     char line[90];
-    contest_line(55,s_previewMode==1?"CLUB SQUAD":"VIEW COMPETITIONS",2);
+    contest_line(55,s_previewMode==1?"CLUB SQUAD":
+                 s_previewMode==3?"INTERNATIONAL CUPS":"VIEW COMPETITIONS",2);
     snprintf(line,sizeof line,"%.23s - %.18s",s_waitTeamName,s_waitCountryName);
     contest_line(69,line,7);
-    if(s_previewMode==1) {
+    if(s_previewMode==3) {
+        /* Real 2026/27 Mod definitions, not OG resident results. */
+        static const char *const uefa[3]={
+            "UEFA CHAMPIONS LEAGUE", "UEFA EUROPA LEAGUE",
+            "UEFA CONFERENCE LEAGUE" };
+        unsigned row=0;
+        for(unsigned i=0;i<3u;++i,++row)
+            contest_line(83u+row*8u,uefa[i],7);
+        int32_t n=0;
+        const WorldContiCup *cups=World_ContiCups(&n);
+        for(int32_t i=0;cups && i<n && row<16u;++i,++row)
+            contest_line(83u+row*8u,cups[i].name,7);
+        contest_line(211,"DEFINITIONS ONLY - OG RESULTS NOT READY",6);
+        contest_line(225,"BACK: NATIONAL COMPETITIONS",2);
+    } else if(s_previewMode==1) {
         for(unsigned i=0;i<16;i++) {
             snprintf(line,sizeof line,"%02u %.25s",i+1,s_previewPlayers[i]);
             contest_line(81+i*8,line,7);
@@ -1111,6 +1126,11 @@ void Expanded_OfferViewLeague(void) {
     const uint8_t country=World_FileCountry(s_waitCountry);
     const uint16_t year=(uint16_t)unemployed_season_year(s_waitWeeks);
     Expanded_OGWorld_LogCheckpoint("OFFER_BEFORE");
+    /* Catalogue first, original resident OG country selector second. */
+    if(World_Current()==WORLD_2627) {
+        s_previewMode=3;
+        ShowMenu(_expandedOfferPreviewMenu);
+    }
     fprintf(stderr,"[og-offer-view] OPEN COUNTRY LIST country=%u "
                    "division=%u year=%u club=%04x\n",
             (unsigned)country,(unsigned)s_waitLeague,

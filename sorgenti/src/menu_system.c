@@ -1882,6 +1882,20 @@ void MenuProc(void)
             return;
         }
     }
+    /* Read-only offer squad: B/ESC/BACKSPACE pops one level only. */
+    {
+        extern int Expanded_OfferSquadReadOnly(void);
+        extern int InputSDL_ConsumeOfferSquadBack(void);
+        const int back=InputSDL_ConsumeOfferSquadBack();
+        if(Expanded_OfferSquadReadOnly() &&
+           (back || _currentKey==27 || _currentKey==127 || _currentKey==8)) {
+            fprintf(stderr,"[og-offer-squad] BACK one-level key=%u pad=%d\n",
+                    (unsigned)_currentKey,back);
+            SetExitMenuFlag();
+            _fire=_shortFire=_pl1Fire=0;
+            return;
+        }
+    }
     /* Expanded modal dialogs: ESC or Backspace must ALWAYS return to the
      * caller, regardless of the selected row or joystick state.  The stock
      * menu engine does not assign a global ESC action to custom menus. */

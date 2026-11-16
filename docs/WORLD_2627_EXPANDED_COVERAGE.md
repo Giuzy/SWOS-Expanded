@@ -164,3 +164,6 @@ Offerta club: usare lo stesso `_squadMenu` OG+Expanded con stelle e snapshot rea
 
 ## Test
 `sorgenti/tests/run_test_mod2627_coverage.sh` segnala ogni divisione mancante per country ID, definizioni continentali, stati Brasile e cupD. Lo stato giocato delle coppe continentali resta **NON PROVATO** finché l'OG non produce veri fixture e save/load riscontrabili da una sessione Windows.
+
+## 0.13.57: visible catalogue only, NOT resident OG competitions
+The 2026/27 offer VIEW COMPETITIONS path now shows 3 UEFA and 12 extra-UEFA names as DEFINITIONS ONLY before opening the existing national OG viewer. It does not create fixtures, participants, match dates or results. Missing resident states (Brazil 13 states, Italian Serie D Cup, supercups, UEFA and continental) remain to be integrated and tested on Windows. A visible catalogue is not proof of a completed integration.

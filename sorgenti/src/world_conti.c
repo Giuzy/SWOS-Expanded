@@ -553,27 +553,9 @@ static int ct_round(int c, int r) {
      * No draw, no early simulation; only read it when this dated round
      * actually advances. Original OpenSWOS rounds remain the authority. */
     int fixedMain=0;
-#ifdef SWOS_SDL_BUILD
-    int mainCount=0;
-    const u8 *mainList=(CT_ED.pad & 1u) && R[17] ?
-                        ct_world_s1_list(c,&mainCount) : NULL;
-    if(mainList) {
-        fixedMain=1;n=mainCount;
-        for(int i=0;i<n;i++) {
-            const u16 teamWord=(u16)(mainList[2*i] |
-                                   ((u16)mainList[2*i+1]<<8));
-            D[i]=0;DV[i]=0;DK[i]=0;
-            for(int j=0;j<CT_IN.nclub && teamWord!=0xffffu;j++)
-                if(CT_IN.club[j].id==teamWord) {
-                    D[i]=(u16)(j+1);break;
-                }
-            if(!D[i] && teamWord!=0xffffu)
-                fprintf(stderr,"[og-conti-s1] MAIN_TEAM_MISSING cup=%d row=%d team=%04X\n",
-                        c,i,(unsigned)teamWord);
-        }
-    }
-#endif
-    if (!fixedMain && R[0] == K_KO && R[18] && 2 * n <= R[18]) {     /* (no more than the winners' places: all go through) */
+/* Only original OG access/draw after independently verified team IDs.
+     * Do not paste a season-one draw from an external executable. */
+        if (!fixedMain && R[0] == K_KO && R[18] && 2 * n <= R[18]) {     /* (no more than the winners' places: all go through) */
         for (int i = 0; i < n; i++) { reached(E[c][r][i], c, r); route(c, R[10], E[c][r][i], EK[c][r][i] & 0x7F ? EK[c][r][i] & 0x7F : 0x7F); }
         if (R[10] == CHAMP && n == 1) {             /* (a final with one club: the Intercontinental with no UEFA holder) */
             CT_OUT.winner[c] = E[c][r][0]; CT_OUT.out_of[E[c][r][0] - 1] = 1;
@@ -885,115 +867,29 @@ static int run(int stop) {
 static u8 s_worldNextMonth; /* 0=August ... 11=July, 12=complete */
 static u8 s_worldPrepared;
 #ifdef SWOS_SDL_BUILD
-/* Season-1 edition: exact Mod 4.1.2 S1 format, parsed from the player's
- * local ENGLISH.EXE rather than redistributing copyrighted football data.
- * The OG Mod source tools/conti.c:ct_new1 is the structural reference.
- * This installs ONLY entrant identities and a deterministic seed at START:
- * no scores, brackets played or second clock. */
-enum { CT_S1_BYTES=1266, CT_S1_ENTRIES=178, CT_S1_CUPS=12 };
-static u8 s_worldS1[CT_S1_BYTES];
-static u8 s_worldS1Present;
-static const u8 *s_worldS1Rounds[CT_S1_CUPS];
-static u8 s_worldS1RoundSize[CT_S1_CUPS];
-/* Source code is MIT; Mod football data are not: validate the exact local
- * S1 block without embedding it or any entrant list into the repository. */
-static u32 ct_s1_checksum(const u8 *data,unsigned bytes)
-{
-    u32 h=2166136261u;
-    for(unsigned i=0;i<bytes;i++){h^=data[i];h*=16777619u;}
-    return h;
-}
-static const u8 *ct_world_s1_list(int c,int *n)
-{
-    if(n)*n=0;
-    if(!s_worldS1Present || c<0 || c>=CT_S1_CUPS ||
-       !s_worldS1RoundSize[c])return NULL;
-    if(n)*n=s_worldS1RoundSize[c];
-    return s_worldS1Rounds[c];
-}
-static int ct_world_read_s1(void)
-{
-    const char *paths[]={"ENGLISH.EXE","data/ENGLISH.EXE",
-                          "sorgenti/data/ENGLISH.EXE"};
-    FILE *f=NULL;
-    for(unsigned i=0;i<sizeof(paths)/sizeof(paths[0]);++i) {
-        f=fopen(paths[i],"rb");
-        if(f)break;
-    }
-    if(!f) {
-        fprintf(stderr,"[og-conti-s1] LOCAL_SOURCE_MISSING: ENGLISH.EXE (Mod 4.1.2) beside executable; no fabricated participants\n");
-        return 0;
-    }
-    int valid=0;
-    if(fseek(f,0,SEEK_END)==0 && ftell(f)==2700288L &&
-       fseek(f,0x28A0B0L,SEEK_SET)==0 &&
-       fread(s_worldS1,1,sizeof(s_worldS1),f)==sizeof(s_worldS1) &&
-       s_worldS1[0]=='S' && s_worldS1[1]=='1' &&
-       (s_worldS1[2] | ((unsigned)s_worldS1[3]<<8))==CT_S1_ENTRIES &&
-       ((u32)s_worldS1[4] | ((u32)s_worldS1[5]<<8) |
-        ((u32)s_worldS1[6]<<16) | ((u32)s_worldS1[7]<<24))==0x20270801u) {
-        parse();
-        unsigned off=8u+5u*CT_S1_ENTRIES;
-        valid=(ncup==CT_S1_CUPS);
-        for(unsigned i=0;i<CT_S1_CUPS && valid;++i) {
-            if(off>=sizeof(s_worldS1)) { valid=0;break; }
-            unsigned n=s_worldS1[off++];
-            if(n>CT_NE || off+2u*n>sizeof(s_worldS1)) {valid=0;break;}
-            s_worldS1Rounds[i]=s_worldS1+off;
-            s_worldS1RoundSize[i]=(u8)n;
-            off+=2u*n;
-        }
-        if(off!=sizeof(s_worldS1) ||
-           ct_s1_checksum(s_worldS1,sizeof s_worldS1)!=0xd49af6e0u)
-            valid=0;
-    }
-    fclose(f);
-    if(!valid) {
-        fprintf(stderr,"[og-conti-s1] INVALID_SOURCE: requires exact 4.1.2 sample; no fabricated participants\n");
-        return 0;
-    }
-    s_worldS1Present=1;
-    return 1;
-}
+/* No Mod EXE may be bundled, requested, scanned or read at runtime.
+ * The 2026/27 first-year field needs independently verified OG team
+ * IDs; current league positions are not the real first-year qualifiers.
+ * Without this field the native cup MUST remain NOT_RESIDENT.
+ * Once a future field adapter has filled CT_IN with verified clubs,
+ * ct_world_prepare() remains the sole native OG draw executor. */
 int ct_world_prepare_first(void)
 {
     if(World_Current()!=WORLD_2627 || s_worldPrepared)return 0;
     CT_SPEC=World_ContiSpec();
-    if(!CT_SPEC || !ct_world_read_s1())return 0;
-    /* Same CT_ED layout as the Mod's ct_new1. Manager=0 because the world
-     * must exist before an offer; manager binding comes separately. */
-    memset(&CT_ED,0,sizeof(CT_ED));
-    CT_ED.ne=CT_S1_ENTRIES;
-    CT_ED.seed=(u32)s_worldS1[4] | ((u32)s_worldS1[5]<<8) |
-               ((u32)s_worldS1[6]<<16) | ((u32)s_worldS1[7]<<24);
-    CT_ED.pad=1u; /* Mod ct_new1: 1 means main rounds fixed from S1. */
-    for(unsigned i=0;i<CT_S1_ENTRIES;++i) {
-        const u8 *e=s_worldS1+8u+5u*i;
-        CT_ED.e[i].id0=e[0];CT_ED.e[i].id1=e[1];
-        CT_ED.e[i].cr=e[2];CT_ED.e[i].s0=e[3];CT_ED.e[i].s1=e[4];
+    if(!CT_SPEC)return 0;
+    if(!CT_IN.nclub){
+        fprintf(stderr,"[og-conti-first] world=2627 source=NO_EXTERNAL_EXE "
+                       "entrants=NOT_MAPPED fixtures=NOT_RESIDENT\n");
+        return 0;
     }
-    CT_ED.mark=0x4543;
-    for(unsigned c=0;c<CT_NCUP;++c)
-        for(unsigned r=0;r<CT_NRD;++r) EN[c][r]=0;
-    parse();
-    prepare_run(0); /* real entrants, no fixtures played */
-    s_worldPrepared=1;
-    s_worldNextMonth=0;
-    fprintf(stderr,"[og-conti-s1] INITIAL: edition=2026/27 entries=%u unique-clubs=%u cups=%u seed=%08lX first-round-data=12 games=0; dated OG fixture binding PENDING\n",
-            (unsigned)CT_ED.ne,(unsigned)CT_IN.nclub,(unsigned)ncup,(unsigned long)CT_ED.seed);
-    return 1;
+    return ct_world_prepare();
 }
-int ct_world_first_ready(void) { return s_worldS1Present!=0; }
-unsigned ct_world_first_main_count(unsigned cup)
-{
-    return s_worldS1Present && cup<CT_S1_CUPS ? s_worldS1RoundSize[cup] : 0u;
-}
+int ct_world_first_ready(void){return 0;}
+unsigned ct_world_first_main_count(unsigned cup){(void)cup;return 0u;}
 u16 ct_world_first_main_team(unsigned cup,unsigned index)
 {
-    if(!s_worldS1Present || cup>=CT_S1_CUPS ||
-       index>=s_worldS1RoundSize[cup])return 0xFFFFu;
-    const u8 *p=s_worldS1Rounds[cup]+2u*index;
-    return (u16)(p[0] | (u16)p[1]<<8);
+    (void)cup;(void)index;return 0xffffu;
 }
 #endif
 int ct_world_prepare(void) {
@@ -1032,11 +928,9 @@ int ct_world_advance_month(u8 month) {
     return rounds;
 }
 u8 ct_world_next_month(void) { return s_worldPrepared ? s_worldNextMonth : 0xFFu; }
-void ct_world_reset(void) { s_worldPrepared = 0; s_worldNextMonth = 0;
-#ifdef SWOS_SDL_BUILD
-    s_worldS1Present=0;
-    memset(s_worldS1RoundSize,0,sizeof s_worldS1RoundSize);
-#endif
+void ct_world_reset(void) {
+    s_worldPrepared=0;s_worldNextMonth=0;
+    CT_SPEC=NULL;CT_IN.nclub=0;CT_IN.manager=0;
 }
 
 void ct_finish(void) {                  /* this season's edition finished, as played: the next one's holders (before

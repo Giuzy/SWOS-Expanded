@@ -32,6 +32,7 @@
 #include "team_db.h"
 #include "endian_helpers.h"
 #include "swos_io.h"
+#include "world.h"  /* TeamDb identities follow the selected world */
 
 extern int16_t LoadFileEx(uint8_t *filename, uint8_t *dest, uint32_t *outFileSize);
 extern int     DataJson_LoadTeamFileForCountry(int countryNum, unsigned char *teamFileBuf, int maxTeams);
@@ -206,7 +207,10 @@ static int32_t read_country(int32_t country, uint8_t *records, uint32_t size, Te
     int32_t count;
 
     memset(ids, 0, sizeof *ids * kMaxTeamsInFile);
-    if (!(json && json[0] == '0' && json[1] == '\0') &&
+    /* The 1996/97 identity cache must use the same native TEAM.NNN
+     * source as LoadTeamFile. Modern JSON belongs only to WORLD_2627. */
+    if (World_Current() == WORLD_2627 &&
+        !(json && json[0] == '0' && json[1] == '\0') &&
         (count = DataJson_LoadTeamFileForCountry(country, records, kMaxTeamsInFile)) > 0) {
         if (DataJson_LoadTeamIdsForCountry(country, ids, kMaxTeamsInFile) != count)
             memset(ids, 0, sizeof *ids * kMaxTeamsInFile);

@@ -107,8 +107,8 @@ void ct_season(void);
  * participant mapping, human-team fixtures and persistence are not solved. */
 int ct_world_prepare(void);
 #ifdef SWOS_SDL_BUILD
-/* Mod 4.1.2 CT_S1 loader: initial entrants only, read from local
- * ENGLISH.EXE. Does not run any fixtures or create OG viewer state. */
+/* Source-independent first-edition gate. No external EXE and no
+ * fabricated first-year entrants, fixtures or viewer data. */
 int ct_world_prepare_first(void);
 int ct_world_first_ready(void);
 unsigned ct_world_first_main_count(unsigned cup);

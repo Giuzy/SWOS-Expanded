@@ -1768,6 +1768,41 @@ void MenuInputInjectPoint(void)
 /* ================================================================
  * MenuProc
  * ================================================================ */
+
+#ifdef SWOS_SDL_BUILD
+/* Cycle list boundaries only when the OG select-teams menu is borrowed
+ * by the Expanded DEBUG WORLD / OFFER read-only picker. CLASSIC remains
+ * untouched. OG ordinals: countries 1..10 (2 columns), competition
+ * 11..20, teams 21..86 (three columns of 22), footer 87..89. */
+static MenuEntry *expanded_picker_wrap(Menu *menu,MenuEntry *current,uint16_t dir)
+{
+    extern uint8_t _selectTeamsMenu[];
+    extern int Expanded_UnemployedWorldPickerActive(void);
+    extern int Expanded_OfferPickerActive(void);
+    if(!menu || !current || _currentMenuPtr!=(uintptr_t)_selectTeamsMenu ||
+       !(Expanded_UnemployedWorldPickerActive() || Expanded_OfferPickerActive()) ||
+       (dir!=0u && dir!=4u))return NULL;
+    const unsigned id=(unsigned)current->ordinal;
+    unsigned lo=0u,hi=0u,parity=0u;
+    int twoColumns=0;
+    if(id>=1u && id<=10u){lo=1u;hi=10u;parity=id&1u;twoColumns=1;}
+    else if(id>=11u && id<=20u){lo=11u;hi=20u;}
+    else if(id>=21u && id<=86u){lo=21u+((id-21u)/22u)*22u;hi=lo+21u;}
+    else return NULL;
+    MenuEntry *first=NULL,*last=NULL;
+    for(unsigned n=lo;n<=hi && n<menu->numEntries;++n){
+        if(twoColumns && (n&1u)!=parity)continue;
+        MenuEntry *e=CalcMenuEntryAddress((uint16_t)n);
+        if(e->isInvisible || e->isDisabled)continue;
+        if(!first)first=e;
+        last=e;
+    }
+    if(!first || !last || first==last)return NULL;
+    return dir==0u && current==first ? last :
+           dir==4u && current==last ? first : NULL;
+}
+#endif
+
 /* Prevent the click that closed a nested Expanded popup from immediately
  * reopening it on the parent menu. Cleared only after FIRE is released. */
 static uint8_t s_expandedModalReturnLatch = 0;
@@ -2212,6 +2247,18 @@ no_event_or_done:
 
     {
         uint16_t dirIdx = (uint16_t)dir & 6;
+#ifdef SWOS_SDL_BUILD
+        MenuEntry *wrapped=expanded_picker_wrap(menu,selectedEntry,dirIdx);
+        if(wrapped){
+            menu->selectedEntry=wrapped;
+            fprintf(stderr,"[og-picker-wrap] old=%u new=%u dir=%u\n",
+                    (unsigned)selectedEntry->ordinal,
+                    (unsigned)wrapped->ordinal,(unsigned)dirIdx);
+            if(selectedEntry->background==NO_BACKGROUND)DrawMenu();
+            else CallDrawMenuItem(selectedEntry);
+            return;
+        }
+#endif
         uint16_t fieldOff = _nextEntryDirectionOffsets[dirIdx >> 1];
         uint8_t *navBase = (uint8_t *)selectedEntry;
         int8_t navOrd;

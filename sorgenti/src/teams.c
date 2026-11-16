@@ -399,7 +399,11 @@ int16_t LoadTeamFile(uint16_t extNumber)
          * teamFileBuffer host-native, so it SKIPS the BE byteswap. */
         /* SWOS_DATA_JSON default-ON; SWOS_DATA_JSON=0 disables. */
         const char *djv = getenv("SWOS_DATA_JSON");
-        if (!(djv && djv[0] == '0' && djv[1] == '\0')) {
+        /* WORLD_9697 must use OG TEAM.NNN, not the generic JSON
+         * archive: Finland in the latter had 14 first-division
+         * teams vs 12 in the original native competition. */
+        if (World_Current() == WORLD_2627 &&
+            !(djv && djv[0] == '0' && djv[1] == '\0')) {
             extern int DataJson_LoadTeamFileForCountry(int, uint8_t *, int);
             if (DataJson_LoadTeamFileForCountry((int)ext8, _teamFileBuffer, TEAM_FILE_MAX_TEAMS) > 0)
                 json_loaded = 1;
@@ -440,6 +444,16 @@ int16_t LoadTeamFile(uint16_t extNumber)
         }
 
         /* Shared post-load processing (binary OR json source). */
+#ifdef SWOS_SDL_BUILD
+        if(World_Current()==WORLD_9697 && (ext8==12u || ext8==13u))
+            fprintf(stderr,"[world-team-source] world=9697 file=%u "
+                           "source=OG_BINARY count=%u\n",
+                    (unsigned)ext8,(unsigned)*(uint16_t *)_teamFileBuffer);
+        if(World_Current()==WORLD_2627 && !json_loaded)
+            fprintf(stderr,"[world-team-source] WARNING world=2627 "
+                           "file=%u source=LEGACY_FALLBACK\n",
+                    (unsigned)ext8);
+#endif
         setLoadedTeamsGlobalNumbers();
 
         /* A world's pooled file in a career: its swapped slots' identities (team_pool.c). */

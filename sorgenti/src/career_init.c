@@ -1301,15 +1301,15 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
      * handoff; do NOT silently replay the first year's seed list. */
     int uefaOk=1;
 #if SWOS_WORLDS
-    /* CT_S1 holds optional Mod 4.1.2 first-year club entries, not
-     * code required for the native OpenSWOS continental executor.
-     * An absent local EXE never aborts an otherwise valid OG world. */
+    /* The Mod's 2026/27 starting field is not the 96/97 Copa.
+     * Never replay pre-career qualifiers or import an external EXE. */
     if(World_Current()==WORLD_2627 && year==World_FirstYear() && phase==0u) {
-        const int s1=ct_world_prepare_first();
-        fprintf(stderr,"[og-international-s1] year=%u source=%s "
-                       "first-entries=%s dated-fixtures=NOT_BOUND\n",
-                (unsigned)year,s1?"LOCAL_MOD_S1":"NOT_INSTALLED",
-                s1?"NATIVE_CT_ED":"NEEDS_FIRST_EDITION_QUALIFIERS");
+        const int ready=ct_world_prepare_first();
+        fprintf(stderr,"[og-international-s1] year=%u source=NO_EXTERNAL_EXE "
+                       "first-entries=%s dated-fixtures=%s\n",
+                (unsigned)year,
+                ready?"NATIVE_VERIFIED":"NEEDS_INDEPENDENT_FIELD",
+                ready?"NATIVE_CONTEXT":"NOT_BOUND");
     }
 #endif
     if(year==World_FirstYear() &&

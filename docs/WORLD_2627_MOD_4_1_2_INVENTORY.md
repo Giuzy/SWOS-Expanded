@@ -1,4 +1,11 @@
 # SWOS 96/97 Mod v4.1.2 — World 2026/27, inventario nominale
+
+## Nota integrativa 16/11/2026 — non imporre limiti della Mod in Expanded
+
+Il conteggio 264+10 della Mod e' storico e utile per trovare dati, **non** e' un requisito di esclusione: in Expanded ogni competizione reale applicabile va in carriera, anche se solo PRESET altrove. Le coppe **per nazionali** non fanno parte delle 15 continentali **per club** e vanno censite a parte: EUROPEAN CHAMPIONSHIPS=Euro nazionali; NORTH AMERICAN CUP=Gold Cup nazionali; EUROPEAN CHAMPIONS CUP=Champions club; CONCACAF Champions Cup=club. Nel 1996/97 le competizioni sono storiche e alcune altre non sono ancora nate; nel 2026/27 vanno inclusi nuovi tornei come Central American Cup, Caribbean Cup e Leagues Cup e il FIFA Club World Cup quadriennale distinto dall'Intercontinentale.
+
+`docs/reference/mod2627_4_1_2_supercups.tsv` elenca **10 supercoppe della Mod** ma non tutte quelle reali del mondo: audit paese-per-paese, in particolare CAF/AFC e supercoppe nazionali di Africa e Asia, senza generazioni fittizie. Lo stesso per le competizioni regionali. Specifica completa: [COMPETITIONS_TWO_WORLDS_SPEC.md](COMPETITIONS_TWO_WORLDS_SPEC.md).
+
 Aggiornato 16 novembre 2026. Fonte ufficiale: https://github.com/aminta/swos-9697-mod/blob/v4.1.2/release/world-2026-27-competitions.md
 
 **Riferimento congelato**: 91 nazioni, 134 campionati/gironi, 87 coppe nazionali, 14 coppe di lega, 13 statali brasiliani, 1 Coppa Italia Serie D, 3 UEFA e 12 altre continentali = **264 voci tecniche**. Le **10 Supercoppe** sono elencate separatamente, per 274 controlli complessivi. Il sito promuove 260 competizioni: divergenza di conteggio aperta, non eliminare le quattro voci per far quadrare il numero. Le 65 regole speciali non sono nuove competizioni.

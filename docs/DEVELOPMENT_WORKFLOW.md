@@ -1,5 +1,12 @@
 # SWOS Expanded — development procedures and rationale
 
+## 16/11/2026 — prossimo test e diagnostica 0.13.59
+
+`AVVIA_DIAGNOSTICA.bat` invoca quattro BAT che devono esistere nella root (`ANALIZZA_SWOS_LOG.bat`, `TEST_OG_WORLD.bat`, `TEST_OG_70.bat`, `TEST_OG_CUPS_SCORERS.bat`); wrappers MSYS2 preesistente, non richiedere una nuova toolchain né far finta che i test statici provino Windows. Il parser legge **solo SWOS.log della sessione**, controllando build; stress 70 anni = osservazione del F12 realmente completato, non simulatore alternativo. Gli script LWE storici sono esclusi dal runner attivo. I test d'integrazione dei due mondi nella STESSA sessione inizieranno solo dopo aver tolto il restart per cambiare mondo; intanto prove Windows separate e senza modificare i save esistenti.
+
+Checklist prima del «funziona»: compilazione Windows SI/NO, START 1996/97 SI/NO, START 2026/27 SI/NO, tre UEFA type-2 residenti al START SI/NO, prima partita OG datata SI/NO, OFFERTA 0 partite e club non partecipante SI/NO, selettore B un livello SI/NO, Libertadores CT_IN preparato SI/NO, SAVE/RESTORE residenti SI/NO, 70 anni SI/NO, cambio mondo senza restart NON IMPLEMENTATO. Rapporti e screenshot verranno dall'utente Windows dopo GitKraken. Vedere [COMPETITIONS_TWO_WORLDS_SPEC.md](COMPETITIONS_TWO_WORLDS_SPEC.md); annotare le interruzioni del 16 novembre.
+
+
 ## Regole prevalenti — 15 novembre 2026
 Il vecchio simulatore autonomo LWE, i risultati/calendari LWE e il singolo `AUTOSAVE.CAR` sono descrizioni storiche. Per i due mondi la sola autorita' e' OG OpenSWOS; LWE non genera fixture o risultati paralleli. Su Windows `save/AUTO9697.CAR` e `save/AUTO2627.CAR` sono gli slot scrivibili accanto a `SWOS_Expanded.exe`, mentre `AUTOSAVE.CAR` e' solo fallback legacy in lettura. L'utente esegue la compilazione e i test Windows dopo GitKraken usando MSYS2 gia' installato (`C:\\msys64`). Un commit o la revisione statica non provano una build funzionante.
 

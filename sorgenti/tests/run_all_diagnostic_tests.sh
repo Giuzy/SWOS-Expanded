@@ -46,7 +46,8 @@ for script in sorgenti/tests/run_test*.sh sorgenti/tests/run_audit_competition_f
         run_test_native_history_occurrence.sh|run_test_og_runtime_parser.sh|\
         run_test_og_cup_native_byes.sh|run_test_expanded_phase12.sh|\
         run_audit_competition_formats.sh|run_test_final_og_contract.sh|\
-        run_test_mod2627_coverage.sh)
+        run_test_mod2627_coverage.sh|run_test_og_uefa_wiring.sh|\
+        run_test_og_offer_rollback.sh)
             run_one "$script" ;;
         run_test_engine_suite.sh|run_test_legacy_suite.sh)
             exclude_one "$script" "DUPLICATE_AGGREGATE" ;;

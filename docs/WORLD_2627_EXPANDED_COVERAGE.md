@@ -1,4 +1,11 @@
 # SWOS Expanded 0.13.55/0.13.56 vs Mod v4.1.2 — copertura verificata
+
+## 16/11/2026 — perimetro aggiornato dopo analisi e interruzione chat
+
+L'inventario 2026/27 della Mod 4.1.2 e' SOLO la fonte di partenza, non la copertura massima del progetto. La carriera Expanded deve integrare anche le competizioni del 1996/97 e del 2026/27 esistenti realmente, incluse quelle nate come PRESET; classificare per CLUB / NAZIONALI, evitare doppie Champions, conteggi e calendari anacronistici. Le 10 supercoppe elencate nella reference non esauriscono quelle nazionali presenti davvero in Asia, Africa e altre regioni. [Inventario e regole 2 mondi](COMPETITIONS_TWO_WORLDS_SPEC.md).
+
+Versione **0.13.59 — patch da PROVARE**: tentativo di collegare 3 UEFA come OG type-2, prima annata 36 reali ciascuna, con snapshot/advance per native phase e viewer read-only; `expanded_og_world_run_year` richiama `Expanded_OGWorld_AdvanceUefa`. Non confondere `ct_world_prepare` già esistente nella 0.13.56 con un executor completato: alla Libertadores **manca CT_IN iniziale reale**. `ct_world_advance_month` non va lanciato senza qualificati e senza risoluzione del doppio motore. Escluso il catalogo internazionale testuale dal menu OFFERTA: sono solo gli stati OG effettivi a dare fixture, risultati e standings. Compatibilità manager/FASE e save non certificati; test Windows e 70 anni necessari.
+
 Data: 16/11/2026. Baseline GitHub dev/0.10 HEAD 262a4566. Non è prova gameplay 0.13.56.
 
 ## Regole di lettura

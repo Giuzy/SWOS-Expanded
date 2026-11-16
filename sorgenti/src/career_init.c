@@ -1120,6 +1120,8 @@ extern uint32_t Expanded_OGWorld_CupCount(void);
 extern uint32_t Expanded_OGWorld_CupMatches(void);
 extern uint32_t Expanded_OGWorld_CupUnsupported(void);
 extern uint32_t Expanded_OGWorld_CupFaults(void);
+extern int Expanded_OGWorld_AdvanceUefa(uint16_t,uint8_t);
+extern uint32_t Expanded_OGWorld_UefaResidentCount(void);
 static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
     const uint8_t *countries=World_SeasonCountries();
     if(!countries) {
@@ -1279,6 +1281,24 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                     countryCupDefs,countryCupResidents,
                     countryCupUnsupported,countryCupFailed);
     }
+    /* UEFA belongs to the same OG world event: begin from the genuine
+     * type-2 competition records, NEVER from an external result table.
+     * The native resident executor is currently qualified for the real
+     * first-season 2026/27 entrants only; later-year qualifications need
+     * the end-of-season OG UEFA handoff before extending this gate. */
+    int uefaOk=1;
+    if(World_Current()==WORLD_2627 && year==World_FirstYear()) {
+        uefaOk=Expanded_OGWorld_AdvanceUefa(year,phase);
+        fprintf(stderr,"[og-international-resident] year=%u phase=%u "
+                       "uefa-resident=%lu expected=3 status=%s "
+                       "copa=NEEDS_FIRST_YEAR_QUALIFIED_ENTRANTS\n",
+                (unsigned)year,(unsigned)phase,
+                (unsigned long)Expanded_OGWorld_UefaResidentCount(),
+                uefaOk?"OG_TYPE2_ATTEMPT":"NATIVE_ERROR");
+    } else if(phase==0u)
+        fprintf(stderr,"[og-international-resident] year=%u phase=%u "
+                       "uefa=NEEDS_QUALIFICATION_HANDOFF copa=NEEDS_QUALIFICATION_HANDOFF\n",
+                (unsigned)year,(unsigned)phase);
     if(phase==0u)
         fprintf(stderr,"[og-cup-start] year=%u definitions=%u "
                        "resident=%u unsupported=%u failed=%u "
@@ -1303,6 +1323,14 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
     if(failed||cupsFailed)
         fprintf(stderr,"[og-world] WORLD TICK FAILED: %u leagues, "
                        "%u cups; clock must not advance\n",failed,cupsFailed);
+    /* A non-resident international must be reported, but must not erase a
+     * correctly initialized domestic OG world or abort a player's career.
+     * The Windows diagnostics will explicitly mark the UEFA integration
+     * INCOMPLETE until all three have real fixture evidence. */
+    if(!uefaOk)
+        fprintf(stderr,"[og-international-resident] WARNING year=%u phase=%u "
+                       "uefa=INCOMPLETE domestic-world-preserved\n",
+                (unsigned)year,(unsigned)phase);
     return ok!=0 && failed==0 && cupsFailed==0;
 }
 int Expanded_OGWorld_Start(void) {

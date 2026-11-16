@@ -1,5 +1,12 @@
 # SWOS Expanded — Game Design Document
 
+## Aggiornamento vincolante 16/11/2026 — competizioni di entrambe le epoche
+
+Vedere [COMPETITIONS_TWO_WORLDS_SPEC.md](COMPETITIONS_TWO_WORLDS_SPEC.md): ogni torneo reale pertinente a 1996/97 o 2026/27 va nella carriera OG, senza distinguere la provenienza PRESET/CAREER. Una sola identita' per torneo/epoca, ma CLUB e NAZIONALI separati. Esempi: NORTH AMERICAN CUP = Gold Cup nazionali, CONCACAF Champions Cup = club; EUROPEAN CHAMPIONSHIPS = Europei nazionali, EUROPEAN CHAMPIONS CUP = Champions club; FIFA Intercontinental Cup moderna distinta da FIFA Club World Cup quadriennale. Includere le supercoppe nazionali di TUTTI i paesi che le disputarono realmente (comprese Africa e Asia), e quelle continentali realmente esistenti nell'epoca: il riferimento 4.1.2 con 10 supercoppe NON e' esaustivo.
+
+START prepara tutti i tornei esistenti nel mondo; il player deve poterli consultare prima della prima partita e indipendentemente dal club/contratto. OFFERTA usa il menu OG read-only, senza catalogo testuale surrogato. Salvataggi dei due mondi separati, CONTINUE ultimo e LOAD selezione, senza cancellazioni o riavvio: il cambio senza restart e' ANCORA DA IMPLEMENTARE. La 0.13.59 tenta la residenza OG tipo-2 delle 3 UEFA iniziali; Libertadores e annualita' successive restano incompleti: vedere tabella stato nella guida, nessun PASS Windows dichiarato.
+
+
 ## Decisione vigente del 14-15 novembre 2026
 Per i mondi 1996/97 e 2026/27 **OpenSWOS OG e' l'unica autorita'** per stagione/data, carriera, calendari, partite, risultati, classifiche, coppe, replay, qualificazioni, spareggi e trofei. Le precedenti proposte di un calendario, un simulatore di risultati e un ledger autorevole autonomi LWE sono [STORICO/SUPERATO], mantenute solo per tracciabilita'. LWE puo' aggiungere soltanto dati ed eventi che OG non gestisce gia'; nuovi valori e formule da approvare con l'utente. Le leghe residenti alla 0.13.45_08 non completano ancora le coppe, il save OG globale, lo storico delle fixture e i test pluriennali.
 

@@ -1,0 +1,483 @@
+{
+  "schema": "swos-expanded-libertadores-first-edition-v1",
+  "world": "2627",
+  "edition": 2027,
+  "kind": "project-approved-provisional-entrants",
+  "runtime_status": "DATA_ONLY_NOT_YET_LINKED_TO_OG_MATCHES",
+  "format": {
+    "all": 47,
+    "direct": 28,
+    "qualifying": 19,
+    "q1": 6,
+    "q2_new": 13,
+    "q2_total": 16,
+    "q3": 8,
+    "q3_winners": 4,
+    "groups": 8,
+    "group_size": 4
+  },
+  "notes": "32 teams from user screenshots, four moved into qualifying: ALIANZA LIMA, THE STRONGEST, JUVENTUD, TACHIRA; 15 additional candidates. Q1/Q2 allocation is not yet approved per club. This is NOT the official final 2027 entrant roster. Country/ordinal keys validated against data_json/worlds/2627/teams, including BRAZIL.json.",
+  "calendar_2027": {
+    "q1": [
+      "2027-02-03",
+      "2027-02-10"
+    ],
+    "q2": [
+      "2027-02-17",
+      "2027-02-24"
+    ],
+    "q3": [
+      "2027-03-03",
+      "2027-03-10"
+    ],
+    "groups": [
+      "2027-04-07",
+      "2027-04-14",
+      "2027-04-28",
+      "2027-05-05",
+      "2027-05-19",
+      "2027-05-26"
+    ],
+    "round_of_16": [
+      "2027-08-11",
+      "2027-08-18"
+    ],
+    "quarterfinal": [
+      "2027-09-08",
+      "2027-09-15"
+    ],
+    "semifinal": [
+      "2027-10-13",
+      "2027-10-20"
+    ],
+    "final": [
+      "2027-11-27"
+    ]
+  },
+  "calendar_source": "https://www.afa.com.ar/es/posts/calendario-de-la-copa-libertadores-copa-sudamericana-y-recopa-2027",
+  "participants": [
+    {
+      "country": "COLOMBIA",
+      "country_number": 49,
+      "team_file": "COLOMBIA.json",
+      "team_name": "A. BUCARAMANGA",
+      "team_ordinal": 3,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "BOLIVIA",
+      "country_number": 45,
+      "team_file": "BOLIVIA.json",
+      "team_name": "ALWAYS READY",
+      "team_ordinal": 0,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "ARGENTINA",
+      "country_number": 43,
+      "team_file": "ARGENTINA.json",
+      "team_name": "ARGENTINOS JRS.",
+      "team_ordinal": 0,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "BRAZIL",
+      "country_number": 46,
+      "team_file": "BRAZIL.json",
+      "team_name": "ATHLETICO-PR",
+      "team_ordinal": 17,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "ECUADOR",
+      "country_number": 50,
+      "team_file": "ECUADOR.json",
+      "team_name": "BARCELONA SC",
+      "team_ordinal": 1,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "ARGENTINA",
+      "country_number": 43,
+      "team_file": "ARGENTINA.json",
+      "team_name": "BELGRANO",
+      "team_ordinal": 21,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "ARGENTINA",
+      "country_number": 43,
+      "team_file": "ARGENTINA.json",
+      "team_name": "BOCA JUNIORS",
+      "team_ordinal": 2,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "BOLIVIA",
+      "country_number": 45,
+      "team_file": "BOLIVIA.json",
+      "team_name": "BOLIVAR PAZ",
+      "team_ordinal": 1,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "VENEZUELA",
+      "country_number": 77,
+      "team_file": "VENEZUELA.json",
+      "team_name": "CARABOBO",
+      "team_ordinal": 1,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "PARAGUAY",
+      "country_number": 64,
+      "team_file": "PARAGUAY.json",
+      "team_name": "CERRO PORTENO",
+      "team_ordinal": 1,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "CHILE",
+      "country_number": 48,
+      "team_file": "CHILE.json",
+      "team_name": "COQUIMBO UNIDO",
+      "team_ordinal": 0,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "BRAZIL",
+      "country_number": 46,
+      "team_file": "BRAZIL.json",
+      "team_name": "CRUZEIRO ESPORTE",
+      "team_ordinal": 2,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "COLOMBIA",
+      "country_number": 49,
+      "team_file": "COLOMBIA.json",
+      "team_name": "DEPORTES TOLIMA",
+      "team_ordinal": 1,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "VENEZUELA",
+      "country_number": 77,
+      "team_file": "VENEZUELA.json",
+      "team_name": "DEPORTIVO GUAIRA",
+      "team_ordinal": 0,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "ARGENTINA",
+      "country_number": 43,
+      "team_file": "ARGENTINA.json",
+      "team_name": "ESTUDIANTES LP",
+      "team_ordinal": 14,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "BRAZIL",
+      "country_number": 46,
+      "team_file": "BRAZIL.json",
+      "team_name": "FLAMENGO",
+      "team_ordinal": 0,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "BRAZIL",
+      "country_number": 46,
+      "team_file": "BRAZIL.json",
+      "team_name": "FLUMINENSE",
+      "team_ordinal": 4,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "COLOMBIA",
+      "country_number": 49,
+      "team_file": "COLOMBIA.json",
+      "team_name": "INDEP. MEDELLIN",
+      "team_ordinal": 0,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "ARGENTINA",
+      "country_number": 43,
+      "team_file": "ARGENTINA.json",
+      "team_name": "INDEPENDIENTE",
+      "team_ordinal": 5,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "PARAGUAY",
+      "country_number": 64,
+      "team_file": "PARAGUAY.json",
+      "team_name": "LIBERTAD",
+      "team_ordinal": 0,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "URUGUAY",
+      "country_number": 71,
+      "team_file": "URUGUAY.json",
+      "team_name": "LIVERPOOL FC",
+      "team_ordinal": 0,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "BRAZIL",
+      "country_number": 46,
+      "team_file": "BRAZIL.json",
+      "team_name": "MIRASSOL (SP)",
+      "team_ordinal": 3,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "URUGUAY",
+      "country_number": 71,
+      "team_file": "URUGUAY.json",
+      "team_name": "NACIONAL",
+      "team_ordinal": 1,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "BRAZIL",
+      "country_number": 46,
+      "team_file": "BRAZIL.json",
+      "team_name": "PALMEIRAS",
+      "team_ordinal": 1,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "ARGENTINA",
+      "country_number": 43,
+      "team_file": "ARGENTINA.json",
+      "team_name": "RIVER PLATE",
+      "team_ordinal": 3,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "ARGENTINA",
+      "country_number": 43,
+      "team_file": "ARGENTINA.json",
+      "team_name": "ROSARIO CENTRAL",
+      "team_ordinal": 1,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "CHILE",
+      "country_number": 48,
+      "team_file": "CHILE.json",
+      "team_name": "U. CATOLICA",
+      "team_ordinal": 1,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "PERU",
+      "country_number": 65,
+      "team_file": "PERU.json",
+      "team_name": "UNIVERSITARIO",
+      "team_ordinal": 0,
+      "entry": "direct",
+      "from_screenshot": true
+    },
+    {
+      "country": "PERU",
+      "country_number": 65,
+      "team_file": "PERU.json",
+      "team_name": "ALIANZA LIMA",
+      "team_ordinal": 1,
+      "entry": "preliminary",
+      "from_screenshot": true
+    },
+    {
+      "country": "BOLIVIA",
+      "country_number": 45,
+      "team_file": "BOLIVIA.json",
+      "team_name": "THE STRONGEST",
+      "team_ordinal": 2,
+      "entry": "preliminary",
+      "from_screenshot": true
+    },
+    {
+      "country": "URUGUAY",
+      "country_number": 71,
+      "team_file": "URUGUAY.json",
+      "team_name": "JUVENTUD",
+      "team_ordinal": 2,
+      "entry": "preliminary",
+      "from_screenshot": true
+    },
+    {
+      "country": "VENEZUELA",
+      "country_number": 77,
+      "team_file": "VENEZUELA.json",
+      "team_name": "TACHIRA",
+      "team_ordinal": 3,
+      "entry": "preliminary",
+      "from_screenshot": true
+    },
+    {
+      "country": "ARGENTINA",
+      "country_number": 43,
+      "team_file": "ARGENTINA.json",
+      "team_name": "IND. RIVADAVIA",
+      "team_ordinal": 10,
+      "entry": "preliminary",
+      "from_screenshot": false
+    },
+    {
+      "country": "ARGENTINA",
+      "country_number": 43,
+      "team_file": "ARGENTINA.json",
+      "team_name": "GIMNASIA LP",
+      "team_ordinal": 20,
+      "entry": "preliminary",
+      "from_screenshot": false
+    },
+    {
+      "country": "BOLIVIA",
+      "country_number": 45,
+      "team_file": "BOLIVIA.json",
+      "team_name": "ORIENTE P.",
+      "team_ordinal": 11,
+      "entry": "preliminary",
+      "from_screenshot": false
+    },
+    {
+      "country": "BRAZIL",
+      "country_number": 46,
+      "team_file": "BRAZIL.json",
+      "team_name": "BAHIA",
+      "team_ordinal": 6,
+      "entry": "preliminary",
+      "from_screenshot": false
+    },
+    {
+      "country": "BRAZIL",
+      "country_number": 46,
+      "team_file": "BRAZIL.json",
+      "team_name": "ATLETICO MINEIRO",
+      "team_ordinal": 10,
+      "entry": "preliminary",
+      "from_screenshot": false
+    },
+    {
+      "country": "CHILE",
+      "country_number": 48,
+      "team_file": "CHILE.json",
+      "team_name": "U. DE CHILE",
+      "team_ordinal": 3,
+      "entry": "preliminary",
+      "from_screenshot": false
+    },
+    {
+      "country": "COLOMBIA",
+      "country_number": 49,
+      "team_file": "COLOMBIA.json",
+      "team_name": "JUNIOR",
+      "team_ordinal": 4,
+      "entry": "preliminary",
+      "from_screenshot": false
+    },
+    {
+      "country": "COLOMBIA",
+      "country_number": 49,
+      "team_file": "COLOMBIA.json",
+      "team_name": "ATL. NACIONAL",
+      "team_ordinal": 2,
+      "entry": "preliminary",
+      "from_screenshot": false
+    },
+    {
+      "country": "ECUADOR",
+      "country_number": 50,
+      "team_file": "ECUADOR.json",
+      "team_name": "INDEPENDIENTE",
+      "team_ordinal": 0,
+      "entry": "preliminary",
+      "from_screenshot": false
+    },
+    {
+      "country": "ECUADOR",
+      "country_number": 50,
+      "team_file": "ECUADOR.json",
+      "team_name": "MACARA",
+      "team_ordinal": 9,
+      "entry": "preliminary",
+      "from_screenshot": false
+    },
+    {
+      "country": "PARAGUAY",
+      "country_number": 64,
+      "team_file": "PARAGUAY.json",
+      "team_name": "OLIMPIA",
+      "team_ordinal": 4,
+      "entry": "preliminary",
+      "from_screenshot": false
+    },
+    {
+      "country": "PARAGUAY",
+      "country_number": 64,
+      "team_file": "PARAGUAY.json",
+      "team_name": "NACIONAL",
+      "team_ordinal": 7,
+      "entry": "preliminary",
+      "from_screenshot": false
+    },
+    {
+      "country": "PERU",
+      "country_number": 65,
+      "team_file": "PERU.json",
+      "team_name": "MELGAR",
+      "team_ordinal": 5,
+      "entry": "preliminary",
+      "from_screenshot": false
+    },
+    {
+      "country": "URUGUAY",
+      "country_number": 71,
+      "team_file": "URUGUAY.json",
+      "team_name": "PENAROL",
+      "team_ordinal": 3,
+      "entry": "preliminary",
+      "from_screenshot": false
+    },
+    {
+      "country": "VENEZUELA",
+      "country_number": 77,
+      "team_file": "VENEZUELA.json",
+      "team_name": "METROPOLITANOS",
+      "team_ordinal": 7,
+      "entry": "preliminary",
+      "from_screenshot": false
+    }
+  ]
+}

@@ -3716,9 +3716,22 @@ extern void Career_AutoAdvanceInternationalCompetitionFixtures(uint8_t *,uint16_
 extern void Career_AutoAdvanceLeagueFixtures(void);
 extern void SaveSelectedTeams(void);
 extern void RestoreSelectedTeams(void);
-void Expanded_OGWorld_Reset(void) {
+/* July-year rollover resets domestic OG states, but may preserve the
+ * still-active original continental edition. Full reset remains obligatory
+ * for a new career or switching world. No games are simulated here. */
+static void expanded_og_world_reset_internal(int season_transition) {
 #if SWOS_WORLDS
-    ct_world_reset(); /* never carry dated international cursor across careers */
+    const int keep_continental =
+        season_transition && World_Current()==WORLD_2627 &&
+        ct_world_next_month()!=0xffu && CT_ED.mark==0x4543;
+    if (!keep_continental)
+        ct_world_reset();
+    else
+        fprintf(stderr,"[og-season-transition] CONTINENTAL_PRESERVED "
+                       "edition=%u cursor=%u (no reset/no replay)\n",
+                (unsigned)CT_ST.season,(unsigned)ct_world_next_month());
+#else
+    (void)season_transition;
 #endif
     memset(s_expOG,0,sizeof s_expOG);s_expOGCount=0;
     memset(s_expOGUefa,0,sizeof s_expOGUefa);
@@ -3729,6 +3742,8 @@ void Expanded_OGWorld_Reset(void) {
     s_expOGCupCount=0;s_expOGCupUnsupported=0;s_expOGCupFaults=0;
     s_expOGCupCurrent=NULL;s_expOGCupPhase=-1;s_expOGCupTickFault=0;
 }
+void Expanded_OGWorld_Reset(void) { expanded_og_world_reset_internal(0); }
+void Expanded_OGWorld_ResetSeason(void) { expanded_og_world_reset_internal(1); }
 uint32_t Expanded_OGWorld_LeagueCount(void){return s_expOGCount;}
 int Expanded_OGWorld_ClubBound(void){return s_expOGBound;}
 

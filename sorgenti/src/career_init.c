@@ -897,6 +897,7 @@ void InitCareerCompetitions(void)
  * League contexts are built at START, and Advanced to the real date.
  * This is not the old LWE scheduler and does not synthesize scores. */
 extern void Expanded_OGWorld_Reset(void);
+extern void Expanded_OGWorld_ResetSeason(void);
 extern uint32_t Expanded_OGWorld_LeagueCount(void);
 extern int Expanded_OGWorld_AdvanceLeague(uint8_t *,uint8_t,uint8_t,uint16_t,uint8_t);
 extern int Expanded_OGWorld_BindClub(uint16_t,uint8_t,uint16_t);
@@ -1446,7 +1447,9 @@ int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
             return 0;
         }
         ++s_expOGWorldYear;
-        Expanded_OGWorld_Reset(); /* prior season is no longer live */
+        /* Keep a prepared OG continental edition across July while the
+         * domestic league states enter their new career season. */
+        Expanded_OGWorld_ResetSeason();
         DIY_OGStandings_SetSeason(s_expOGWorldYear);
         if(!expanded_og_world_run_year(s_expOGWorldYear,0))return 0;
         ExpandedOGWorldAudit opening;

@@ -110,6 +110,8 @@ int ct_world_prepare(void);
 /* Source-independent first-edition gate. No external EXE and no
  * fabricated first-year entrants, fixtures or viewer data. */
 int ct_world_prepare_first(void);
+int ct_world_libertadores_2027_fixture_day(u8 stage,u8 matchday,u8 leg,
+                                             u16 *year,u8 *month,u8 *day);
 int ct_world_first_ready(void);
 unsigned ct_world_first_main_count(unsigned cup);
 u16 ct_world_first_main_team(unsigned cup,unsigned index);

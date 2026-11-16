@@ -873,6 +873,38 @@ static u8 s_worldPrepared;
  * Without this field the native cup MUST remain NOT_RESIDENT.
  * Once a future field adapter has filled CT_IN with verified clubs,
  * ct_world_prepare() remains the sole native OG draw executor. */
+/* Official phase-date lookup for individual Libertadores 2027 games.
+ * Read-only: pairings, scores and native fixture registrations are handled
+ * elsewhere; this lookup NEVER resolves a complete round at once.
+ * stage = Q1,Q2,Q3,GROUPS,R16,QF,SF,FINAL (0..7);
+ * GROUPS matchday = 0..5; other stages matchday=0;
+ * leg=0 or leg=1 (a single match has only leg=0). */
+int ct_world_libertadores_2027_fixture_day(u8 stage,u8 matchday,u8 leg,
+                                             u16 *year,u8 *month,u8 *day)
+{
+    static const u32 dates[8][6][2]={
+        {{20270203u,20270210u}},
+        {{20270217u,20270224u}},
+        {{20270303u,20270310u}},
+        {{20270407u,0u},{20270414u,0u},{20270428u,0u},
+         {20270505u,0u},{20270519u,0u},{20270526u,0u}},
+        {{20270811u,20270818u}},
+        {{20270908u,20270915u}},
+        {{20271013u,20271020u}},
+        {{20271127u,0u}}
+    };
+    u32 date;
+    if (World_Current()!=WORLD_2627 || !year || !month || !day ||
+        stage>=8u || matchday>=6u || leg>=2u ||
+        (stage!=3u && matchday!=0u))
+        return 0;
+    date=dates[stage][matchday][leg];
+    if (!date) return 0;
+    *year=(u16)(date/10000u);
+    *month=(u8)((date/100u)%100u);
+    *day=(u8)(date%100u);
+    return 1;
+}
 int ct_world_prepare_first(void)
 {
     if(World_Current()!=WORLD_2627 || s_worldPrepared)return 0;

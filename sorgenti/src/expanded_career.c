@@ -1063,20 +1063,13 @@ void Expanded_OfferPreviewDraw(void) {
 void Expanded_OfferViewSquad(void) {
     if(!offer_is_valid()) return;
 #ifdef SWOS_SDL_BUILD
-    /* Real SWOS read-only squad viewer, pointed at the OFFER SNAPSHOT.
-     * Never LoadTeamFile inside the modal: that would overwrite career state. */
-    extern uint16_t _selTeamNumber;
-    extern uint32_t _viewSquadFlags;
-    extern int16_t ShowSquad(TeamFile *,uint8_t *,uint32_t,uint32_t,uint16_t,uint16_t);
-    static uint8_t title[]="CLUB OFFER - SQUAD";
-    uint16_t saved=_selTeamNumber;
-    uint32_t savedFlags=_viewSquadFlags;
-    _selTeamNumber=0xFFFFu;
-    _viewSquadFlags=0;
-    ShowSquad(&s_offerSnapshot.team,title,0,0,0,0xFFFFu);
-    _selTeamNumber=saved;
-    _viewSquadFlags=savedFlags;
-    /* Native squad viewer is not an expanded modal; redraw its offer parent. */
+    /* Use the EXACT SAME OG-backed _squadMenu and Expanded star renderer as
+     * a hired club. This is a snapshot: never LoadTeamFile, alter the active
+     * manager, or allow edit/training callbacks during the offer. */
+    extern void Expanded_ShowOfferSquadReadOnly(TeamFileEx *);
+    if(!s_offerSnapshotValid)return;
+    Expanded_ShowOfferSquadReadOnly(&s_offerSnapshot);
+    /* Return to the OFFER (not the manager's squad). */
     DrawMenu();
 #else
     s_previewMode=1;

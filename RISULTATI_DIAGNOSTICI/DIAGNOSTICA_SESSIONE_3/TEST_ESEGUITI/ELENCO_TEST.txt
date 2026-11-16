@@ -1,0 +1,16 @@
+TEST=run_test11_offer scope=LEGACY_ISOLATED result=PENDING
+TEST=run_test_calendar_integrity_30 scope=LEGACY_ISOLATED result=PENDING
+TEST=run_test_career_init_lifecycle scope=LEGACY_ISOLATED result=PENDING
+TEST=run_test_database_inventory scope=OG_SOURCE_CHECK result=PENDING
+TEST=run_test_expanded_debug_only scope=OG_SOURCE_CHECK result=PENDING
+TEST=run_test_expanded_midseason_join scope=OG_SOURCE_CHECK result=PENDING
+TEST=run_test_expanded_phase12 scope=LEGACY_ISOLATED result=PENDING
+TEST=run_test_expanded_world_live scope=LEGACY_ISOLATED result=PENDING
+TEST=run_test_expanded_world_time scope=OG_SOURCE_CHECK result=PENDING
+TEST=run_test_join_import_instrumentation scope=LEGACY_ISOLATED result=PENDING
+TEST=run_test_living_world_70 scope=LEGACY_ISOLATED result=PENDING
+TEST=run_test_living_world_mobility scope=LEGACY_ISOLATED result=PENDING
+TEST=run_test_native_history_occurrence scope=OG_SOURCE_CHECK result=PENDING
+TEST=run_test_og_runtime_parser scope=OG_SOURCE_CHECK result=PENDING
+TEST=run_test_real_json_world_70 scope=LEGACY_ISOLATED result=PENDING
+TEST=run_audit_competition_formats scope=OG_SOURCE_CHECK result=PENDING

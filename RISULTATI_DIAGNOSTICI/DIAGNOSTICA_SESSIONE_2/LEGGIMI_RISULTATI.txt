@@ -1,0 +1,21 @@
+SWOS EXPANDED - RISULTATI DIAGNOSTICI
+BUILD_ATTESA=0.13.51
+SESSIONE=DIAGNOSTICA_SESSIONE_2
+DATA_INIZIO=15/11/2026 13:08:08,96
+SORGENTI=dev/0.10; il commit esatto deve essere verificato con GitKraken.
+TEST_AUTOMATICI=compilazione, runtime Windows, parser, calendario/date, suite OG, 70 anni, coppe, marcatori.
+Test 70 anni: solo un trigger F12+8 e FORWARD TIME nel gioco su carriera sacrificabile.
+TUTTI I PASS SONO LIMITATI AL CONTROLLO EFFETTIVAMENTE ESEGUITO.
+SAVE: nessun salvataggio viene cancellato o sovrascritto dal raccoglitore.
+Le coppe non residenti e il salvataggio completo OG non possono essere dichiarati PASS.
+
+DATA_FINE=15/11/2026 13:08:37,04
+AVVIO_COMPILAZIONE_EXIT=1
+RUNTIME_AUDIT_EXIT=2
+SUITE_OG_EXIT=2
+TEST_70_STAGIONI_EXIT=2
+COPPE_E_MARCATORI_EXIT=2
+0=PASS DEL SINGOLO TEST; 1=FAIL; 2=INCOMPLETE/NOT_TESTED.
+COMPILAZIONE_WINDOWS: verificare COMPILAZIONE_0140.log e AVVIO_COMPILAZIONE.log.
+GAMEPLAY_WINDOWS: verificare SWOS.log e SWOS_RUNTIME_AUDIT.log.
+ATTENZIONE: test statici da soli non provano il mondo OG.

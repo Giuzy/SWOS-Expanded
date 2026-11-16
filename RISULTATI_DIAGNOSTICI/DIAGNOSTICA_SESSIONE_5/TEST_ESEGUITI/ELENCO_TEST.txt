@@ -1,0 +1,20 @@
+TEST=run_test11_offer.sh scope=HISTORICAL action=EXCLUDED reason=OLD_ISOLATED_OFFER_HARNESS_NOT_NATIVE_RESIDENT
+TEST=run_test_calendar_integrity_30.sh scope=HISTORICAL action=EXCLUDED reason=OBSOLETE_LWE_SIMULATION
+TEST=run_test_career_init_lifecycle.sh scope=HISTORICAL action=EXCLUDED reason=OBSOLETE_OG_LWE_WIRING_ASSUMPTION
+TEST=run_test_database_inventory scope=OG_CURRENT action=RUN log=/c/Users/xgiuz/Downloads/Repo SWOS expanded/SWOS-Expanded/RISULTATI_DIAGNOSTICI/DIAGNOSTICA_SESSIONE_5/TEST_ESEGUITI/run_test_database_inventory.log
+TEST=run_test_engine_suite.sh scope=HISTORICAL action=EXCLUDED reason=DUPLICATE_AGGREGATE
+TEST=run_test_expanded_debug_only scope=OG_CURRENT action=RUN log=/c/Users/xgiuz/Downloads/Repo SWOS expanded/SWOS-Expanded/RISULTATI_DIAGNOSTICI/DIAGNOSTICA_SESSIONE_5/TEST_ESEGUITI/run_test_expanded_debug_only.log
+TEST=run_test_expanded_midseason_join scope=OG_CURRENT action=RUN log=/c/Users/xgiuz/Downloads/Repo SWOS expanded/SWOS-Expanded/RISULTATI_DIAGNOSTICI/DIAGNOSTICA_SESSIONE_5/TEST_ESEGUITI/run_test_expanded_midseason_join.log
+TEST=run_test_expanded_phase12 scope=OG_CURRENT action=RUN log=/c/Users/xgiuz/Downloads/Repo SWOS expanded/SWOS-Expanded/RISULTATI_DIAGNOSTICI/DIAGNOSTICA_SESSIONE_5/TEST_ESEGUITI/run_test_expanded_phase12.log
+TEST=run_test_expanded_world_live.sh scope=HISTORICAL action=EXCLUDED reason=OBSOLETE_LWE_SIMULATION
+TEST=run_test_expanded_world_time scope=OG_CURRENT action=RUN log=/c/Users/xgiuz/Downloads/Repo SWOS expanded/SWOS-Expanded/RISULTATI_DIAGNOSTICI/DIAGNOSTICA_SESSIONE_5/TEST_ESEGUITI/run_test_expanded_world_time.log
+TEST=run_test_final_og_contract scope=OG_CURRENT action=RUN log=/c/Users/xgiuz/Downloads/Repo SWOS expanded/SWOS-Expanded/RISULTATI_DIAGNOSTICI/DIAGNOSTICA_SESSIONE_5/TEST_ESEGUITI/run_test_final_og_contract.log
+TEST=run_test_join_import_instrumentation.sh scope=HISTORICAL action=EXCLUDED reason=OBSOLETE_OG_LWE_WIRING_ASSUMPTION
+TEST=run_test_legacy_suite.sh scope=HISTORICAL action=EXCLUDED reason=DUPLICATE_AGGREGATE
+TEST=run_test_living_world_70.sh scope=HISTORICAL action=EXCLUDED reason=OBSOLETE_LWE_SIMULATION
+TEST=run_test_living_world_mobility.sh scope=HISTORICAL action=EXCLUDED reason=OBSOLETE_LWE_SIMULATION
+TEST=run_test_native_history_occurrence scope=OG_CURRENT action=RUN log=/c/Users/xgiuz/Downloads/Repo SWOS expanded/SWOS-Expanded/RISULTATI_DIAGNOSTICI/DIAGNOSTICA_SESSIONE_5/TEST_ESEGUITI/run_test_native_history_occurrence.log
+TEST=run_test_og_cup_native_byes scope=OG_CURRENT action=RUN log=/c/Users/xgiuz/Downloads/Repo SWOS expanded/SWOS-Expanded/RISULTATI_DIAGNOSTICI/DIAGNOSTICA_SESSIONE_5/TEST_ESEGUITI/run_test_og_cup_native_byes.log
+TEST=run_test_og_runtime_parser scope=OG_CURRENT action=RUN log=/c/Users/xgiuz/Downloads/Repo SWOS expanded/SWOS-Expanded/RISULTATI_DIAGNOSTICI/DIAGNOSTICA_SESSIONE_5/TEST_ESEGUITI/run_test_og_runtime_parser.log
+TEST=run_test_real_json_world_70.sh scope=HISTORICAL action=EXCLUDED reason=OBSOLETE_LWE_SIMULATION
+TEST=run_audit_competition_formats scope=OG_CURRENT action=RUN log=/c/Users/xgiuz/Downloads/Repo SWOS expanded/SWOS-Expanded/RISULTATI_DIAGNOSTICI/DIAGNOSTICA_SESSIONE_5/TEST_ESEGUITI/run_audit_competition_formats.log

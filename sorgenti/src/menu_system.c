@@ -1872,7 +1872,11 @@ void MenuProc(void)
         extern int Expanded_UnemployedWorldPickerActive(void);
         extern int Expanded_OfferPickerActive(void);
         extern int InputSDL_ConsumeDebugWorldPickerBack(void);
-        if(Expanded_UnemployedWorldPickerActive() || Expanded_OfferPickerActive()) {
+        extern int Expanded_OGWorld_ViewActive(void);
+        extern int Expanded_OfferSquadReadOnly(void);
+        /* Child modal owns BACK before its parent picker. */
+        if((Expanded_UnemployedWorldPickerActive() || Expanded_OfferPickerActive()) &&
+           !Expanded_OGWorld_ViewActive() && !Expanded_OfferSquadReadOnly()) {
             /* All native picker depths belong to this modal. Checking
              * only _selectTeamsMenu loses BACK during nested navigation. */
             const int back=InputSDL_ConsumeDebugWorldPickerBack();

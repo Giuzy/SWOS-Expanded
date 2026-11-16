@@ -59,6 +59,10 @@ skip_b_guard_present() {
       if (index($0,"!Expanded_OfferSquadReadOnly() &&")) {
         if ((getline) <= 0) next
       }
+      # 0.13.62: held-B suppression is an additional valid guard.
+      if (index($0,"!s_modalBackUntilRelease &&")) {
+        if ((getline) <= 0) next
+      }
       if (index($0,"SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))")) found=1
     }
     END { exit !found }

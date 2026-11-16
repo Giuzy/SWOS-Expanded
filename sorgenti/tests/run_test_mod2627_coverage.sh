@@ -73,7 +73,65 @@ awk -F '\t' '
 
 # Confirm OG world has all 12 named non-UEFA competitions and three
 # league-phase UEFA definitions (not proof of playable resident fixtures).
-while IFS=$'\t' read -r kind region name; do
+while IFS=
+  if ! grep -Fq -- "\"$name\"" "$world"; then
+    echo "MOD2627_MISSING_CONTINENTAL=$name";exit 1
+  fi
+done < "$manifest"
+for name in CHAMPIONS_LEAGUE EUROPA_LEAGUE CONFERENCE_LEAGUE; do
+  grep -Fq "\"${name}\"" "$career" || { echo "MOD2627_MISSING_UEFA=$name";exit 1; }
+done
+grep -Fq 'kWorld2627ContiCups[12]' "$world" || { echo 'MOD2627_OTHER_CUPS=FAIL';exit 1; }
+grep -Fq 'kWorld2627UefaClubs' "$world" || { echo 'MOD2627_UEFA_CLUBS=FAIL';exit 1; }
+grep -Eq 'kWorld2627States46[[:space:]]*=[[:space:]]*\{[^}]*,[[:space:]]*13,' "$world" || { echo 'MOD2627_BRAZIL_STATES=FAIL';exit 1; }
+grep -Fq '"COPPA ITALIA SERIE D"' "$world" || { echo 'MOD2627_COPPA_SERIE_D=FAIL';exit 1; }
+echo 'MOD2627_DEFINITIONS=PASS leagues=134 domestic_cups=101 extra=15 states=13 serie_d=1'
+echo 'MOD2627_INTERNATIONAL_FIXTURES=NOT_VERIFIED definitions_do_not_equal_native_residency'
+echo 'MOD2627_SUPERCUP_FIXTURES=NOT_VERIFIED reference=10'
+echo 'MOD2627_OFFICIAL_COUNT_DIFFERENCE=OPEN marketed=260 technical=264'
+
+# Only use the current session if available. Never promote old logs to a
+# PASS for a newly built EXE. All 87 cup-bearing countries must agree.
+log="${MOD2627_RUNTIME_LOG:-}"
+if [[ -z "$log" && -n "${SWOS_DIAGNOSTIC_DIR:-}" ]]; then
+    if command -v cygpath >/dev/null 2>&1; then
+      log="$(cygpath -u "$SWOS_DIAGNOSTIC_DIR")/SWOS.log"
+    else
+      log="$SWOS_DIAGNOSTIC_DIR/SWOS.log"
+    fi
+fi
+if [[ -n "$log" && -s "$log" ]] && grep -Fq '[og-cup-start] year=2026 ' "$log"; then
+  awk -F '\t' '
+    FNR==NR {if($0~/^#/)next;expect[$1]=$4+0;next}
+    /\[og-cup-country\] year=2026 / {
+      c=-1;d=-1;r=-1;f=-1;
+      n=split($0,a," ");
+      for(i=1;i<=n;i++){
+        split(a[i],b,"=");
+        if(b[1]=="country")c=b[2]+0;
+        if(b[1]=="definitions")d=b[2]+0;
+        if(b[1]=="resident")r=b[2]+0;
+        if(b[1]=="failed")f=b[2]+0;
+      }
+      if(c<0||!(c in expect)||expect[c]!=d||r!=d||f!=0){
+        print "MOD2627_CUP_COUNTRY_FAIL id=" c " expected=" expect[c] " got=" d " resident=" r;
+        bad=1;
+      }
+      if(c>=0)seen[c]=1;
+    }
+    END {
+      for(c in expect)if(expect[c]>0 && !(c in seen)){bad=1;print "MOD2627_CUP_COUNTRY_MISSING=" c;}
+      print "MOD2627_RUNTIME_DOMESTIC_COUNTRIES=" length(seen) " status=" (bad?"FAIL":"OBSERVED");
+      if(bad)exit 1;
+    }' "$countries" "$log" || { echo "MOD2627_RUNTIME_DOMESTIC=FAIL";exit 1; }
+  echo 'MOD2627_RUNTIME_DOMESTIC=OBSERVED_NATIVE_IDENTITY_NOT_ALL_FIXTURE_RULES'
+else
+  echo 'MOD2627_RUNTIME_DOMESTIC=NOT_TESTED no_2026_START_log_in_this_session'
+fi
+echo 'MOD2627_COVERAGE=PASS_STATIC_ONLY'
+\t' read -r kind region name; do
+  # Git on Windows may preserve a CR in the final TSV field.
+  name="$(printf '%s' "$name" | tr -d '\r')"
   [[ "$kind" == "CONTINENTAL" ]] || continue
   if ! grep -Fq -- "\"$name\"" "$world"; then
     echo "MOD2627_MISSING_CONTINENTAL=$name";exit 1

@@ -1101,18 +1101,18 @@ void InputSDL_HandleEvent(const SDL_Event *e)
             Expanded_BusinessBack();
             break;
         }
-        /* Queue a BACK for the menu engine, not a FIRE on the selected
-         * country/competition. Never call an OG menu callback in SDL poll. */
-        if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B &&
-           expanded_native_world_picker_active()) {
-            s_debugWorldPickerBackPending=1;
-            fprintf(stderr,"[og-world-back] PAD B queued for picker\n");
-            break;
-        }
+        /* Viewer may be nested inside a country picker: its B must close
+         * that viewer, never pop the still-active parent picker or FIRE. */
         if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B &&
            !_playGame && Expanded_OGWorld_ViewActive()) {
             s_worldViewBackPending=1;
             fprintf(stderr,"[og-world-back] PAD B queued for viewer\n");
+            break;
+        }
+        if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B &&
+           expanded_native_world_picker_active()) {
+            s_debugWorldPickerBackPending=1;
+            fprintf(stderr,"[og-world-back] PAD B queued for picker\n");
             break;
         }
         /* A fire button of player 1's pad went down (the latch and the recording's

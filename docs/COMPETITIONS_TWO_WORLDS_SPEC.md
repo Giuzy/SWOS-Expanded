@@ -79,3 +79,8 @@ Checklist per ogni coppa: record → iscritti reali → presenza a START → pri
 - 0.13.56 commit `3873a630b4c92f155bd5b70f4024d17234ce74a3`: separa preparazione e avanzamento `ct_world_*`.
 - Interruzione di connessione/chat il 16/11/2026: è stata persa una parte della conversazione, NON il codice delle `ct_world_*` già nel repository. Non reimplementarle.
 - Fonti primarie: `docs/WORLD_2627_MOD_4_1_2_INVENTORY.md`, `docs/reference/mod2627_4_1_2_competitions.tsv`, `docs/reference/mod2627_4_1_2_supercups.tsv`, `sorgenti/src/world_conti.c`, `sorgenti/src/world_data.c`, `sorgenti/src/career_status.c`, `sorgenti/src/expanded_career.c` e sorgenti Mod 4.1.2 (MIT) inclusi nell'archivio della conversazione.
+
+
+### Aggiornamento 16/11/2026 — formati e CT_S1
+
+OpenSWOS 1996/97 e OpenSWOS 2026/27 hanno **formati diversi**: preservare Cup Campioni/Coppa Coppe/UEFA storiche nel primo; Champions/Europa/Conference tipo-2 a 36 club (8/8/6 giornate e tabella unica) nel secondo. `LeaguePhase_InstallCups` sostituisce i template europei solo nel mondo moderno. La Mod 4.1.2 fornisce il blocco prima-edizione `CT_S1` per 12 coppe extraeuropee, letto da copia locale per evitare distribuzione di dati non MIT. **Il solo catalogo visibile non dimostra residenti o salvataggi funzionanti**. Analisi, offset, SHA, stato e regressione 96/97 in [COPPE_OG_CT_S1_OPEN_SWOS_2026-11-16.md](COPPE_OG_CT_S1_OPEN_SWOS_2026-11-16.md).

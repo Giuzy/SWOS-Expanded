@@ -106,6 +106,14 @@ void ct_season(void);
  * Dates must come from the OG world clock. World adapter still needed:
  * participant mapping, human-team fixtures and persistence are not solved. */
 int ct_world_prepare(void);
+#ifdef SWOS_SDL_BUILD
+/* Mod 4.1.2 CT_S1 loader: initial entrants only, read from local
+ * ENGLISH.EXE. Does not run any fixtures or create OG viewer state. */
+int ct_world_prepare_first(void);
+int ct_world_first_ready(void);
+unsigned ct_world_first_main_count(unsigned cup);
+u16 ct_world_first_main_team(unsigned cup,unsigned index);
+#endif
 int ct_world_advance_month(u8 month);
 u8 ct_world_next_month(void);
 void ct_world_reset(void);

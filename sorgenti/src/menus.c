@@ -2028,7 +2028,7 @@ void SquadFinish(void)
      * but hides management-only actions. Never render interactive controls
      * whose callbacks are forbidden before the manager signs. */
     if(s_expandedOfferSquadReadOnly) {
-        static const uint8_t actions[]={6u,8u,11u,13u,14u,15u};
+        static const uint8_t actions[]={6u,8u,9u,10u,11u,13u,14u,15u};
         for(unsigned i=0;i<sizeof actions/sizeof actions[0];++i) {
             const unsigned idx=actions[i];
             _menuEntries[idx].isInvisible=1;

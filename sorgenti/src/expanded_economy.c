@@ -1898,6 +1898,29 @@ static void ui_squad_prepare(void) {
     _menuEntries[11].rightEntry=10;
     _menuEntries[10].leftEntry=11;
     _menuEntries[10].rightEntry=11;
+    /* The OFFERTA preview has no EXIT/CONTINUE button or navigable
+     * hotspot. Restrict row movement to rows; B is handled by MenuProc. */
+    { extern int Expanded_OfferSquadReadOnly(void);
+      if(Expanded_OfferSquadReadOnly()) {
+          for(unsigned i=6;i<=11;i++) {
+              MenuEntry *e=&_menuEntries[i];
+              e->isInvisible=1;e->isDisabled=1;
+              e->leftEntry=e->rightEntry=e->upEntry=e->downEntry=-1;
+              e->onSelect=NULL;
+          }
+          for(unsigned i=28;i<=44;i++) {
+              MenuEntry *e=&_menuEntries[i];
+              e->leftEntry=e->rightEntry=-1;
+              e->upEntry=(int8_t)(i==28?44:i-1);
+              e->downEntry=(int8_t)(i==44?28:i+1);
+          }
+          Menu *current=(Menu *)_currentMenu;
+          if(current && current->selectedEntry &&
+             current->selectedEntry->ordinal>=6 &&
+             current->selectedEntry->ordinal<=11)
+              current->selectedEntry=&_menuEntries[28];
+      }
+    }
 }
 static void ui_sacked_prepare(void) {
     Menu *m=(Menu *)_currentMenu;
@@ -2495,8 +2518,12 @@ static void ui_squad_render(void) {
     if(_isSquadViewMode) ui_button(11,"BACK");
     else if(!_menuEntries[8].isInvisible) ui_button(8,"GOALS");
     if(!_menuEntries[6].isInvisible) ui_button(6,"TRAINING");
-    if(!_menuEntries[9].isInvisible) ui_button(9,"EXIT");
-    if(!_menuEntries[10].isInvisible) ui_button(10,"EXIT");
+    { extern int Expanded_OfferSquadReadOnly(void);
+      if(!Expanded_OfferSquadReadOnly()) {
+          if(!_menuEntries[9].isInvisible) ui_button(9,"EXIT");
+          if(!_menuEntries[10].isInvisible) ui_button(10,"EXIT");
+      }
+    }
     if(selectedPlayer && !_isSquadViewMode && s_squadStatsPopupOpen) ui_squad_tooltip(selected,selectedPlayer);
 }
 void Expanded_UI_After(void) {

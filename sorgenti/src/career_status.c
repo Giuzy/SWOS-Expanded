@@ -3886,7 +3886,10 @@ int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
  * competition record come from World_LeaguePhaseCups. Save the full OG DIY
  * competition and team/RNG state, exactly as with domestic resident cups.
  * The human-club binding and cross-save persistence still require an audit. */
-extern void Career_InitCompetitionTeamSelectionFromAltTableHeaderSpec(uint8_t *);
+/* OpenSWOS career uses this complete wrapper (LoadSomeEuroCup + selector),
+ * not the low-level selector alone. Keep the 96/97 templates untouched. */
+extern uint16_t InitCompetitionTeamSelectionFromAltTableHeader(uint8_t *);
+extern uint16_t _careerFileBuffer, _numNeededTeams;
 extern void InitDIYLeagueFromRecord(uint8_t *);
 extern void InitTeams(void);
 int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
@@ -3915,7 +3918,7 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
         for(unsigned i=0;i<36u && _selTeamNumber!=0xffffu;++i)
             if(TEAMID_PACK(cups[k].teamSeedList[i])==_selTeamNumber)
                 manager=1;
-        if(manager) {
+        if(manager && phase>0) {
             fprintf(stderr,"[og-uefa-resident] PENDING_MANAGER_BIND year=%u cup=%u phase=%u (no duplicate matches)\n",
                     (unsigned)year,k,(unsigned)phase);
             if(ctx->used)ctx->lastPhase=phase;
@@ -3926,6 +3929,7 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
         const uint8_t oldSeason=_seasonPlaying,oldView=_viewRandomPhase;
         const uint16_t oldFlag=_internationalAutoAdvanceFlag;
         const uint16_t oldLoaded=_careerLoadedFlag,oldTeamsLoaded=_teamsLoaded;
+        const uint16_t oldCareerFile=_careerFileBuffer,oldNeeded=_numNeededTeams;
         const uint8_t cid=(uint8_t)rec->compId;
         const uint8_t oldLast=_careerLastMatchIndexByCompetitionSlot[cid];
         memcpy(&oldComp,&_diyCompetitionStart,sizeof oldComp);
@@ -3946,10 +3950,15 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
         } else {
             Randomize2((uint16_t)(((uint16_t)((uint8_t *)rec)[0]<<8)|_seasonPlaying));
             _numSelectedTeams=0;
-            Career_InitCompetitionTeamSelectionFromAltTableHeaderSpec((uint8_t *)rec);
+            InitCompetitionTeamSelectionFromAltTableHeader((uint8_t *)rec);
             InitDIYLeagueFromRecord((uint8_t *)rec);
             InitTeams();
-            if(_numSelectedTeams!=36u)s_expOGFault=1;
+            if(_numSelectedTeams!=36u) {
+                fprintf(stderr,"[og-uefa-resident] INIT_COUNT_MISMATCH year=%u cup=%u wanted=36 selected=%u native-type=%u\n",
+                        (unsigned)year,k,(unsigned)_numSelectedTeams,
+                        (unsigned)_diyFileBufferCopy.header.competitionType);
+                s_expOGFault=1;
+            }
         }
         _careerLastMatchIndexByCompetitionSlot[cid]=ctx->lastMatch;
         if(!s_expOGFault && phase>0)Career_AutoAdvanceCompetitionSlots();
@@ -3968,6 +3977,7 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
         _seasonPlaying=oldSeason;_viewRandomPhase=oldView;
         _internationalAutoAdvanceFlag=oldFlag;_careerLoadedFlag=oldLoaded;
         _teamsLoaded=oldTeamsLoaded;
+        _careerFileBuffer=oldCareerFile;_numNeededTeams=oldNeeded;
         RestoreRand2State();RestoreSelectedTeams();
         memcpy(&_diyCompetitionStart,&oldComp,sizeof oldComp);
         memcpy(&_diyFileBufferCopy,&oldTourn,sizeof oldTourn);
@@ -4377,8 +4387,13 @@ static int exp_og_view_cup(const uint8_t *record)
 static int exp_og_view_uefa(const Competition *wanted)
 {
     static uint8_t missing[]="OG WORLD: UEFA CUP NOT RESIDENT";
-    if(World_Current()!=WORLD_2627 || !wanted || wanted->compId<0 ||
-       wanted->compId>=3)return 0;
+    static uint8_t unsupported[]="OG WORLD: CONTINENTAL NOT RESIDENT";
+    if(World_Current()!=WORLD_2627 || !wanted || wanted->compId>=3) {
+        fprintf(stderr,"[og-conti-view] NO RESIDENT TYPE2 cup=%u world=%u (no simulated fallback)\n",
+                wanted?(unsigned)wanted->compId:255u,(unsigned)World_Current());
+        ShowErrorMenu(unsupported);
+        return 0;
+    }
     ExpandedOGLeague *ctx=&s_expOGUefa[(unsigned)wanted->compId];
     if(!ctx->used || ctx->teamCount!=36u ||
        ctx->tournament.header.competitionType!=2) {

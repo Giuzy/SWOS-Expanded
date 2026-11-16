@@ -1027,16 +1027,17 @@ void InputSDL_HandleEvent(const SDL_Event *e)
             DrawMenu();
             break;
         }
-        if (Expanded_UI_IsSquadScreen() && e->cbutton.button==SDL_CONTROLLER_BUTTON_B && Expanded_SquadPopupOpen()) {
-            Expanded_SquadPopupClose();
-            DrawMenu();
-            break;
-        }
-        /* Switch Pro B pops only the read-only offer squad. */
+        /* Offer preview B closes the whole read-only squad in one press,
+         * even if X information was open. Do not select the EXIT hotspot. */
         if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B &&
            !_playGame && Expanded_OfferSquadReadOnly()) {
             s_offerSquadBackPending=1;
             fprintf(stderr,"[og-offer-squad] PAD B queued one-level BACK\n");
+            break;
+        }
+        if (Expanded_UI_IsSquadScreen() && e->cbutton.button==SDL_CONTROLLER_BUTTON_B && Expanded_SquadPopupOpen()) {
+            Expanded_SquadPopupClose();
+            DrawMenu();
             break;
         }
         if (s_exit_confirm_open) {

@@ -1042,6 +1042,24 @@ static void expanded_og_external_inventory(const char *stage)
                        "compId=243 defined=%u activity=%u fixture-proof=NOT_VERIFIED\n",
                 stage?stage:"UNNAMED",CT_SPEC!=NULL,
                 (unsigned)CT_ST.season);
+        /* Inventory *each* original 2026/27 extra-European competition,
+         * not an opaque OTHER bucket. Source of truth remains World_ContiCups
+         * and World_ContiSpec (the Mod's own CT_SPEC), never a new fixture
+         * generator. A record may be defined without being OG-resident. */
+        {
+            int32_t nConti=0;
+            const WorldContiCup *conti=World_ContiCups(&nConti);
+            for(int32_t c=0;conti && c<nConti;++c) {
+                fprintf(stderr,"[og-external-cup-inventory] stage=%s "
+                               "category=CONTINENTAL_CLUB index=%ld name=%s "
+                               "defined=%u spec=%u resident-fixtures=NOT_PROVEN "
+                               "advance=NOT_CONNECTED\n",
+                        stage?stage:"UNNAMED",(long)c,
+                        conti[c].name?conti[c].name:"(UNNAMED)",
+                        (unsigned)(conti[c].name!=NULL),
+                        (unsigned)(World_ContiSpec()!=NULL));
+            }
+        }
         static const struct { const char *name; uint8_t id; } national[]={
             {"WORLD_CUP",COMPID_worldCup},
             {"EUROPEAN_CHAMPIONSHIPS",COMPID_europeanChampionships},

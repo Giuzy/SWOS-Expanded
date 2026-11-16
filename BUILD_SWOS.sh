@@ -113,9 +113,8 @@ bash "$src/tools/patch_title_b_01063.sh" "$src"
 bash "$src/tools/patch_title_ui_01065.sh" "$src"
 # Approved 0.10.71 loading PNG, panel/green fill, and real dynamic atlas text.
 bash "$src/tools/patch_loading_01071.sh" "$src"
-# The newly approved background uses its own path. Mark old replaced assets
-# with _OBSOLETO only if unused by the active C sources (never delete).
-bash "$src/tools/mark_obsolete_assets_01071.sh" "$src" "$game"
+# Superseded assets are handled by the explicit PULISCI_OBSOLETI_SWOS.bat.
+# Never rename or recreate _OBSOLETO files during a compilation.
 echo 'Controllo sintattico delle schermate e dei menu modificati...'  
 gcc -std=gnu11 -fsyntax-only -DSWOS_SDL_BUILD=1 -D_FILE_OFFSET_BITS=64 -include include/debug_no_audio_01060.h -include include/swos_platform.h \
   -Isrc -Iinclude $(pkg-config --cflags sdl2) \

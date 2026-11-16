@@ -101,6 +101,14 @@ void ct_country(const u8 *stand, const u8 *cuprec);
 void ct_go(u32 manager, u32 seed, u32 uefa);
 void ct_finish(void);
 void ct_season(void);
+/* Separate OG native seed/setup and one-month-at-a-time execution, for a
+ * future resident World 2026/27 adapter. NOT the old replaying ct_season().
+ * Dates must come from the OG world clock. World adapter still needed:
+ * participant mapping, human-team fixtures and persistence are not solved. */
+int ct_world_prepare(void);
+int ct_world_advance_month(u8 month);
+u8 ct_world_next_month(void);
+void ct_world_reset(void);
 void ct_result(u32 v);
 void ct_resume(void);
 

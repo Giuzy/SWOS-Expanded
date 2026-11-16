@@ -2028,6 +2028,28 @@ void MenuProc(void)
         }
     }
 #endif
+#ifdef SWOS_SDL_BUILD
+    /* Offer squad is a read-only view of _squadMenu. A row may still have
+     * keyboard/pad focus (and X info), but a stale fire, mouse click or
+     * onSelect MUST NOT dispatch management edits, training or swaps.
+     * Only the original EXIT actions remain active and visible. */
+    {
+        extern uint8_t _squadMenu[];
+        extern int Expanded_OfferSquadReadOnly(void);
+        if(_currentMenuPtr==(uintptr_t)_squadMenu &&
+           Expanded_OfferSquadReadOnly() &&
+           (_fire || _shortFire || _pl1Fire)) {
+            const unsigned ord=selectedEntry?selectedEntry->ordinal:0xffffu;
+            if((ord!=9u && ord!=10u) || !selectedEntry ||
+               selectedEntry->isInvisible || selectedEntry->isDisabled) {
+                fprintf(stderr,"[og-offer-squad] BLOCK action=%u readonly=1\n",ord);
+                _fireResetFlag=1;
+                _fire=0; _shortFire=0; _pl1Fire=0;
+                return;
+            }
+        }
+    }
+#endif
     onSelectPtr = selectedEntry->onSelect;
     if (onSelectPtr == 0)
         goto no_event_or_done;

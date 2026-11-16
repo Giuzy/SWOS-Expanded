@@ -150,8 +150,12 @@ call "%~dp0TEST_OG_CUPS_SCORERS.bat" > "%SESSION%\TEST_OG_CUPS_SCORERS_DRIVER.lo
 set "CUPS_EXIT=!ERRORLEVEL!"
 REM Compatibility alias, never run the same OG tests a second time.
 > "%SESSION%\TEST_LIVING_WORLD_ALIAS.txt" echo TEST_LIVING_WORLD.bat = TEST_OG_WORLD.bat: already executed once.
+REM Prefer the freshly generated format report, if available. Otherwise
+REM copy the historical baseline moved under docs/reference to keep root clean.
 if exist "COMPETITION_FORMAT_AUDIT.csv" (
  copy /Y "COMPETITION_FORMAT_AUDIT.csv" "%SESSION%\TEST_ESEGUITI\COMPETITION_FORMAT_AUDIT.csv" >nul
+) else if exist "docs\reference\COMPETITION_FORMAT_AUDIT.csv" (
+ copy /Y "docs\reference\COMPETITION_FORMAT_AUDIT.csv" "%SESSION%\TEST_ESEGUITI\COMPETITION_FORMAT_AUDIT.csv" >nul
 )
 (
  echo DATA_FINE=%DATE% %TIME%

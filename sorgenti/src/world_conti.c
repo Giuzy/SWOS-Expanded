@@ -802,8 +802,10 @@ static void snapshot(void) {            /* the edition's entrants (after access)
         }
     CT_ED.mark = 0x4543;
 }
-static int run(int stop) {              /* the edition from its entrants, the career club's results forced; stop: at
-                                           its next unplayed game (CT_SEG), 1 returned */
+/* Rebuild OG access/sort/draw state from its canonical entrant snapshot.
+ * Legacy career replay and the new dated world executor share this exact
+ * native preparation. No games are played in this function. */
+static void prepare_run(int stop) {
     static u16 idx[NED];
     CT_IN.nclub = 0;
     CT_IN.manager = 0;
@@ -827,6 +829,10 @@ static int run(int stop) {              /* the edition from its entrants, the ca
         if (CT_ED.e[i].cr != 0xFF) enter(CT_ED.e[i].cr >> 4, CT_ED.e[i].cr & 15, idx[i], 0, CT_ED.e[i].s1 >> 4);
     g_stop = stop;
     CT_SEG.kind = 0xFF;
+}
+/* Original career behavior preserved: stop before a manager's next match. */
+static int run(int stop) {
+    prepare_run(stop);
     /* every round in calendar order: month (8 = August first, the season's order), then cup, then round */
     for (int mo = 0; mo < 12; mo++) {
         int month = (mo + 7) % 12 + 1;
@@ -836,6 +842,52 @@ static int run(int stop) {              /* the edition from its entrants, the ca
     }
     return 0;
 }
+/* Expanded OG world counterpart: separate ENTRY/DRAW preparation from
+ * competition ADVANCE. Caller must first fill CT_IN with the verified native
+ * country's standings and cup winners, and CT_SPEC from World_ContiSpec().
+ * This API is intentionally NOT auto-called by ct_go/ct_season, which are
+ * legacy career paths: changing them would simulate outside manager control.
+ * See docs/WORLD_2627_EXPANDED_COVERAGE.md before wiring first-year data. */
+static u8 s_worldNextMonth; /* 0=August ... 11=July, 12=complete */
+static u8 s_worldPrepared;
+int ct_world_prepare(void) {
+    if (!CT_SPEC || CT_IN.nclub == 0 || s_worldPrepared) return 0;
+    parse();
+    CT_ED.mark = 0;
+    rng = CT_IN.seed ? CT_IN.seed : 1;
+    for (int c = 0; c < NCUP; c++)
+        for (int r = 0; r < NRD; r++) EN[c][r] = 0;
+    for (int c = 0; c < ncup; c++) if (CT_LP[c]) lp_clear(c);
+    access();
+    snapshot();                 /* OG entrants and seeded draw, NO game */
+    CT_ST.mark = 0x5443;
+    CT_ST.season++;
+    prepare_run(0);              /* install OG entrants, NO ct_round() */
+    s_worldNextMonth = 0;
+    s_worldPrepared = 1;
+    return 1;
+}
+int ct_world_advance_month(u8 month) {
+    if (!s_worldPrepared || month < 1 || month > 12) return -1;
+    const u8 limit = (u8)((month + 4u) % 12u); /* August=0 ... July=11 */
+    if (limit < s_worldNextMonth) return 0; /* NEVER play an old round twice */
+    int rounds = 0;
+    for (u8 mo = s_worldNextMonth; mo <= limit; ++mo) {
+        const int calendarMonth = (mo + 7) % 12 + 1;
+        for (int c = 0; c < ncup; ++c)
+            for (int r = 0; r < nrd[c]; ++r)
+                if (RND(c,r)[9] == calendarMonth) {
+                    const int before = EN[c][r];
+                    (void)ct_round(c,r); /* ORIGINAL OG draw, tie and group */
+                    if (before)++rounds;
+                }
+        s_worldNextMonth = (u8)(mo + 1);
+    }
+    return rounds;
+}
+u8 ct_world_next_month(void) { return s_worldPrepared ? s_worldNextMonth : 0xFFu; }
+void ct_world_reset(void) { s_worldPrepared = 0; s_worldNextMonth = 0; }
+
 void ct_finish(void) {                  /* this season's edition finished, as played: the next one's holders (before
                                            the season end's tables fill CT_IN: run() uses CT_IN for the edition) */
     if (!CT_SPEC) return;

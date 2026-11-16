@@ -33,6 +33,7 @@
 #include "league_phase.h"
 #include "uefa_coef.h"
 #include "conti_season.h"
+#include "world_conti.h"   /* reset staged CT world cursor at new career */
 #include "test_rules.h"
 #include "comp_identity.h"
 #include "diy_competition.h"
@@ -3701,6 +3702,9 @@ extern void Career_AutoAdvanceLeagueFixtures(void);
 extern void SaveSelectedTeams(void);
 extern void RestoreSelectedTeams(void);
 void Expanded_OGWorld_Reset(void) {
+#if SWOS_WORLDS
+    ct_world_reset(); /* never carry dated international cursor across careers */
+#endif
     memset(s_expOG,0,sizeof s_expOG);s_expOGCount=0;
     s_expOGCurrent=NULL;s_expOGPhase=-1;s_expOGBound=0;s_expOGViewing=0;s_expOGFault=0;
     memset(s_expOGCups,0,sizeof s_expOGCups);

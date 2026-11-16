@@ -919,6 +919,9 @@ extern void PlayTrainingGame(void);
 
 /* ---- External asm data ---- */
 extern uint8_t _squadMenu[];
+/* Only the temporary offer snapshot uses this guarded read-only mode. */
+static uint8_t s_expandedOfferSquadReadOnly;
+int Expanded_OfferSquadReadOnly(void) { return s_expandedOfferSquadReadOnly!=0; }
 extern uint16_t _squadPrevSelectedPlayerIndex;
 extern uint16_t _isSquadViewMode;
 extern uintptr_t _squadTeamFilePtr;
@@ -931,6 +934,9 @@ extern uintptr_t _squadTeamFilePtr;
 __attribute__((used, externally_visible))
 void SelectTraining(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(s_expandedOfferSquadReadOnly)return;
+#endif
     PlayTrainingGame();
     { extern uint16_t _gameType;
       extern TeamFileEx _careerTeam;
@@ -950,6 +956,9 @@ void SelectTraining(void)
 __attribute__((used, externally_visible))
 void SelectGoals(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(s_expandedOfferSquadReadOnly)return;
+#endif
     _squadPrevSelectedPlayerIndex = 0xFFFF;
     SquadMenuSavePlayerPositions();
     _isSquadViewMode = 1;
@@ -967,6 +976,9 @@ void SelectGoals(void)
 __attribute__((used, externally_visible))
 void SquadOnSelect11(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(s_expandedOfferSquadReadOnly)return;
+#endif
     _isSquadViewMode = 0;
     SquadUpdateMenuState();
     SetCurrentEntry(8);
@@ -1242,6 +1254,8 @@ static void squadSwapPlayersAtIndices(uint16_t prevFileIdx, uint16_t currFileIdx
 __attribute__((used, externally_visible))
 void SquadCommon(void *entryPtr)
 {
+    /* Defense in depth: a stale click/shortcut must never swap offer players. */
+    if(s_expandedOfferSquadReadOnly)return;
     MenuEntry *a5 = (MenuEntry *)entryPtr;
     uint16_t d6 = a5->ordinal - _menuEntries[28].ordinal;
     uint16_t d1 = d6;
@@ -2010,6 +2024,17 @@ void SquadFinish(void)
     }
 
     SquadUpdateGoalsMenuText();
+    /* Offer preview shares the same renderer, stats and star calculations,
+     * but hides management-only actions. Never render interactive controls
+     * whose callbacks are forbidden before the manager signs. */
+    if(s_expandedOfferSquadReadOnly) {
+        static const uint8_t actions[]={6u,8u,11u,13u,14u,15u};
+        for(unsigned i=0;i<sizeof actions/sizeof actions[0];++i) {
+            const unsigned idx=actions[i];
+            _menuEntries[idx].isInvisible=1;
+            _menuEntries[idx].isDisabled=1;
+        }
+    }
     SquadCommitPositionsAndUpdateSkill();
     SquadMenuSavePlayerPositions();
 }
@@ -7506,6 +7531,55 @@ static void ShowSquadMenuForTeam(uint8_t *teamPtr, uint16_t rowMode)
 
     ShowMenu(_squadMenu);
 }
+
+/* Public SDL offer preview: reuse the EXACT active squad menu, no parallel
+ * legacy ShowSquad or second painted/interactive view. All mutable OG state
+ * touched by this temporary navigation is saved and restored. */
+#ifdef SWOS_SDL_BUILD
+void Expanded_ShowOfferSquadReadOnly(TeamFileEx *snapshot)
+{
+    if(!snapshot || s_expandedOfferSquadReadOnly)return;
+    /* OG SquadInit/Finish may update playerValuesDirty in the working team.
+     * Never expose those writes to the actual pending offer snapshot. */
+    static TeamFileEx workingSnapshot;
+    memcpy(&workingSnapshot,snapshot,sizeof workingSnapshot);
+    const uintptr_t savedPtr=_squadTeamFilePtr;
+    const uint16_t savedRow=_squadRowMode;
+    const uint16_t savedEdit=_inEditTactics;
+    const uint16_t savedDiff=_teamSkillDiffAfterChange;
+    const uint16_t savedTeam=_selTeamNumber;
+    const uint16_t savedMode=_isSquadViewMode;
+    const uint16_t savedSkill=_teamSkillCurrent;
+    const uint16_t savedSkillSnap=_teamSkillSnapshot;
+    const uint16_t savedSelected=_squadPrevSelectedPlayerIndex;
+    MenuEntry *savedHighlight=_squadPrevHighlightedMenuEntryPtr;
+    uint8_t savedPositions[32],savedOldPositions[32];
+    memcpy(savedPositions,_playerPositionsArray,sizeof savedPositions);
+    memcpy(savedOldPositions,_oldPlayerPositionsArray,sizeof savedOldPositions);
+    s_expandedOfferSquadReadOnly=1;
+    _squadTeamFilePtr=(uintptr_t)&workingSnapshot;
+    _squadRowMode=0;
+    _inEditTactics=0;
+    _teamSkillDiffAfterChange=0xFFFFu; /* native view, no edit powers */
+    _selTeamNumber=0xFFFFu;            /* never match the career club */
+    fprintf(stderr,"[og-offer-squad] OPEN mode=READ_ONLY renderer=EXPANDED_SQUAD snapshot=1\n");
+    ShowMenu(_squadMenu);
+    _selTeamNumber=savedTeam;
+    _squadTeamFilePtr=savedPtr;
+    _squadRowMode=savedRow;
+    _inEditTactics=savedEdit;
+    _teamSkillDiffAfterChange=savedDiff;
+    _isSquadViewMode=savedMode;
+    _teamSkillCurrent=savedSkill;
+    _teamSkillSnapshot=savedSkillSnap;
+    _squadPrevSelectedPlayerIndex=savedSelected;
+    _squadPrevHighlightedMenuEntryPtr=savedHighlight;
+    memcpy(_playerPositionsArray,savedPositions,sizeof savedPositions);
+    memcpy(_oldPlayerPositionsArray,savedOldPositions,sizeof savedOldPositions);
+    s_expandedOfferSquadReadOnly=0;
+    fprintf(stderr,"[og-offer-squad] CLOSE restored-manager=1 snapshot=UNCHANGED_EXPECTED\n");
+}
+#endif
 
 /* ================================================================
  * SelectAndShowSquadToView  (SWOS2.s line 47290)

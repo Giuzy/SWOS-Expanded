@@ -7569,6 +7569,10 @@ void Expanded_ShowOfferSquadReadOnly(TeamFileEx *snapshot)
     uint8_t savedPositions[32],savedOldPositions[32];
     memcpy(savedPositions,_playerPositionsArray,sizeof savedPositions);
     memcpy(savedOldPositions,_oldPlayerPositionsArray,sizeof savedOldPositions);
+    /* Clear any B carried over from a previous offer preview; the single
+     * nested read-only ShowMenu will clear it again only after unwinding. */
+    { extern void InputSDL_ClearOfferSquadExit(void);
+      InputSDL_ClearOfferSquadExit(); }
     s_expandedOfferSquadReadOnly=1;
     _squadTeamFilePtr=(uintptr_t)&workingSnapshot;
     _squadRowMode=0;
@@ -7577,6 +7581,8 @@ void Expanded_ShowOfferSquadReadOnly(TeamFileEx *snapshot)
     _selTeamNumber=0xFFFFu;            /* never match the career club */
     fprintf(stderr,"[og-offer-squad] OPEN mode=READ_ONLY renderer=EXPANDED_SQUAD snapshot=1\n");
     ShowMenu(_squadMenu);
+    { extern void InputSDL_ClearOfferSquadExit(void);
+      InputSDL_ClearOfferSquadExit(); }
     _selTeamNumber=savedTeam;
     _squadTeamFilePtr=savedPtr;
     _squadRowMode=savedRow;

@@ -1809,6 +1809,23 @@ void MenuProc(void)
     if ((_irqCookieObfuscated ^ 0xCFD1F8B3) != 0x1754)
         return;
 
+#ifdef SWOS_SDL_BUILD
+    /* A BACK already handled inside a nested read-only viewer must unwind
+     * every inner OG menu, without repainting the previous round or
+     * consuming another B press. Exit latch stops at its owner boundary. */
+    { extern int InputSDL_OfferSquadExitRequested(void);
+      extern int InputSDL_WorldViewExitRequested(void);
+      extern int Expanded_OfferSquadReadOnly(void);
+      extern int Expanded_OGWorld_ViewActive(void);
+      if((Expanded_OfferSquadReadOnly() &&
+          InputSDL_OfferSquadExitRequested()) ||
+         (Expanded_OGWorld_ViewActive() &&
+          InputSDL_WorldViewExitRequested())) {
+          SetExitMenuFlag();return;
+      }
+    }
+#endif
+
     if (s_menuFlags & MENU_FLAG_DOS_REDRAW) {
         /* DOS MenuProc, which SWOS 2020's menus are written against: redraw the
          * whole menu every frame -- onDraw, every entry, the selection frame --
@@ -1872,11 +1889,15 @@ void MenuProc(void)
     {
         extern int Expanded_OGWorld_ViewActive(void);
         extern int InputSDL_ConsumeWorldViewBack(void);
+        extern int InputSDL_MappedBackHeld(void);
+        extern void InputSDL_LatchWorldViewExit(void);
         const int back=InputSDL_ConsumeWorldViewBack();
         if(Expanded_OGWorld_ViewActive() &&
-           (back || _currentKey==27 || _currentKey==127 || _currentKey==8)) {
-            fprintf(stderr,"[og-world-back] VIEWER EXIT key=%u pad=%d menu=%p\n",
+           (back || InputSDL_MappedBackHeld() ||
+            _currentKey==27 || _currentKey==127 || _currentKey==8)) {
+            fprintf(stderr,"[og-world-back] VIEWER EXIT key=%u pad=%d menu=%p unwind=1\n",
                     (unsigned)_currentKey,back,(void *)_currentMenuPtr);
+            InputSDL_LatchWorldViewExit();
             SetExitMenuFlag();
             _fire=_shortFire=_pl1Fire=0;
             return;
@@ -1886,11 +1907,15 @@ void MenuProc(void)
     {
         extern int Expanded_OfferSquadReadOnly(void);
         extern int InputSDL_ConsumeOfferSquadBack(void);
+        extern int InputSDL_MappedBackHeld(void);
+        extern void InputSDL_LatchOfferSquadExit(void);
         const int back=InputSDL_ConsumeOfferSquadBack();
         if(Expanded_OfferSquadReadOnly() &&
-           (back || _currentKey==27 || _currentKey==127 || _currentKey==8)) {
-            fprintf(stderr,"[og-offer-squad] BACK one-level key=%u pad=%d\n",
+           (back || InputSDL_MappedBackHeld() ||
+            _currentKey==27 || _currentKey==127 || _currentKey==8)) {
+            fprintf(stderr,"[og-offer-squad] BACK to OFFER key=%u pad=%d unwind=1\n",
                     (unsigned)_currentKey,back);
+            InputSDL_LatchOfferSquadExit();
             SetExitMenuFlag();
             _fire=_shortFire=_pl1Fire=0;
             return;
@@ -2288,6 +2313,21 @@ void ShowMenu(uint8_t *packedMenu)
      * the program actually exits. The same cascade is also visible on
      * the season-transition path where multiple cup result menus
      * stack up. */
+#ifdef SWOS_SDL_BUILD
+    { extern int InputSDL_OfferSquadExitRequested(void);
+      extern int InputSDL_WorldViewExitRequested(void);
+      extern int Expanded_OfferSquadReadOnly(void);
+      extern int Expanded_OGWorld_ViewActive(void);
+      if((Expanded_OfferSquadReadOnly() &&
+          InputSDL_OfferSquadExitRequested()) ||
+         (Expanded_OGWorld_ViewActive() &&
+          InputSDL_WorldViewExitRequested())) {
+          /* No second OG submenu can be opened while unwinding. */
+          _exitMenu=1;
+          return;
+      }
+    }
+#endif
     if (_quitToDos) {
         SWOS_AUTOSKIP_LOG("ShowMenu: SKIPPED packedMenu=%p (%s) — _quitToDos set",
                           packedMenu, swos_autoskip_menu_name(packedMenu));

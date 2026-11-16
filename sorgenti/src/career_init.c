@@ -10,7 +10,9 @@
  */
 
 #include "game_types.h"
-#include "competition_data.h"
+/* Preserve the legacy byte-array externs in this translation unit.
+ * Including competition_data.h conflicts with dozens of OG declarations.
+ * The three European records are declared below as byte arrays. */
 #include "league_playoffs.h"
 #include "uefa_coef.h"
 #include "world_conti.h"
@@ -1132,6 +1134,12 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
     if(!countries)return 0;
     unsigned ok=0,skipped=0,failed=0;
     unsigned cups=0,cupsSkipped=0,cupsFailed=0;
+    /* The reported 96/97 START crash predates this build and has no
+     * current Windows call stack. Trace the exact original country/slot
+     * reached before the crash, without altering the OG fixture engine. */
+    if(phase==0u && World_Current()==WORLD_9697)
+        fprintf(stderr,"[og-9697-start] ENTER year=%u mode=%s\n",
+                (unsigned)year,_selTeamNumber==0xffffu?"UNEMPLOYED":"EMPLOYED");
     for(unsigned i=0;i<256u && countries[i]!=0xffu;++i) {
         const uint8_t country=countries[i];
         unsigned countryCupDefs=0u,countryCupResidents=0u;
@@ -1150,7 +1158,8 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                 ++skipped;continue;
             }
             extern unsigned Expanded_OGStress_Remaining(void);
-            if(Expanded_OGStress_Remaining())
+            if(Expanded_OGStress_Remaining() ||
+               (phase==0u && World_Current()==WORLD_9697))
                 fprintf(stderr,"[og-world-step] BEGIN year=%u phase=%u "
                                "country=%u division=%u\n",
                         (unsigned)year,(unsigned)phase,
@@ -1182,6 +1191,9 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
             const Competition *cup=(const Competition *)rawCup;
             if(cup->type!=1)continue;
             ++countryCupDefs;
+            if(phase==0u && World_Current()==WORLD_9697)
+                fprintf(stderr,"[og-9697-start] CUP_BEGIN country=%u slot=%u id=%u\n",
+                        (unsigned)country,j,(unsigned)cup->compId);
             const int status=Expanded_OGWorld_AdvanceCup(
                 (uint8_t *)cup,country,(uint8_t)j,year,phase);
             if(status>0){++cups;++countryCupResidents;}

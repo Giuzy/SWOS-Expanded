@@ -149,6 +149,27 @@ extern volatile uint16_t _keyCount;
 static int s_debugWorldPickerBackPending;
 static int s_worldViewBackPending;
 static int s_offerSquadBackPending;
+/* A back press must leave ALL nested view-only OG menus, not just the
+ * innermost ShowMenu (otherwise the parent immediately redraws: flicker).
+ * Clear only after the caller's outer viewer has fully returned. */
+static int s_offerSquadExitRequested,s_worldViewExitRequested;
+/* After leaving a modal, physical B may still be held when its parent
+ * screen resumes. Never turn that same press into FIRE/reopen. */
+static int s_modalBackUntilRelease;
+int InputSDL_OfferSquadExitRequested(void){return s_offerSquadExitRequested;}
+int InputSDL_WorldViewExitRequested(void){return s_worldViewExitRequested;}
+void InputSDL_LatchOfferSquadExit(void){
+    s_offerSquadExitRequested=1;s_modalBackUntilRelease=1;
+}
+void InputSDL_LatchWorldViewExit(void){
+    s_worldViewExitRequested=1;s_modalBackUntilRelease=1;
+}
+void InputSDL_ClearOfferSquadExit(void){
+    s_offerSquadExitRequested=0;s_offerSquadBackPending=0;
+}
+void InputSDL_ClearWorldViewExit(void){
+    s_worldViewExitRequested=0;s_worldViewBackPending=0;
+}
 extern int Expanded_OfferSquadReadOnly(void);
 int InputSDL_ConsumeOfferSquadBack(void)
 {
@@ -473,6 +494,17 @@ static int                 s_intro_claim;                     /* the intro is on
 static int                 s_frames;                          /* PostFrame calls, for the test knobs */
 
 static int dev_open(int d) { return s_dev_gc[d] || s_dev_raw[d]; }
+
+/* Poll the mapped controller B while inside an OG read-only modal as well
+ * as consuming the edge event: avoids losing BACK when SDL delivers B just
+ * before the nested menu's input pump. Raw unmapped joysticks retain their
+ * native control scheme; do not guess their button numbering. */
+int InputSDL_MappedBackHeld(void)
+{
+    int d=s_player_dev[0];
+    if(d<0 || d>=INPUTSDL_MAX_DEVICES || !s_dev_gc[d])return 0;
+    return SDL_GameControllerGetButton(s_dev_gc[d],SDL_CONTROLLER_BUTTON_B)!=0;
+}
 
 static const char *dev_name(int d)
 {
@@ -1013,7 +1045,13 @@ void InputSDL_HandleEvent(const SDL_Event *e)
         }
         break;
     }
+    case SDL_CONTROLLERBUTTONUP:
+        if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B)
+            s_modalBackUntilRelease=0;
+        break;
     case SDL_CONTROLLERBUTTONDOWN: {
+        if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B &&
+           s_modalBackUntilRelease)break;
         /* Match VIEW SQUAD: controller X acts on the button-down event,
          * without requiring mouse motion or a menu-navigation tick. */
         if (Expanded_UI_IsBusinessScreen() &&
@@ -1213,14 +1251,18 @@ static void read_device_state(int d,
              !expanded_native_world_picker_active() &&
              !Expanded_OGWorld_ViewActive() &&
              !Expanded_OfferSquadReadOnly() &&
+             !s_modalBackUntilRelease &&
              SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B)))
             *_fire = 1;
         if (skip && !input_on_title_first_level() &&
             !expanded_native_world_picker_active() &&
             !Expanded_OGWorld_ViewActive() &&
             !Expanded_OfferSquadReadOnly() &&
+            !s_modalBackUntilRelease &&
             SDL_GameControllerGetButton(pad, SDL_CONTROLLER_BUTTON_B))
             *skip = 1;
+        if(!SDL_GameControllerGetButton(pad,SDL_CONTROLLER_BUTTON_B))
+            s_modalBackUntilRelease=0;
         return;
     }
 

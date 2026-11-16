@@ -1,0 +1,20 @@
+SWOS EXPANDED - TUTTI I TEST - RISULTATI DIAGNOSTICI
+BUILD_ATTESA=0.13.57
+HEAD_GIT_LOCALE=0fc84910d1f75bf2774d1f890a44c65de3a9288c
+SESSIONE=DIAGNOSTICA_SESSIONE_8
+DATA_INIZIO=16/11/2026 10:58:58,59
+MOTORE_CARRIERA=OG_UNICO
+Un avvio: build, gioco, OG current, vecchi test inclusi, audit, ZIP.
+Tutti i test isolated hanno log separato nella cartella TEST_ESEGUITI.
+Il test reale F12+8 / 70 stagioni richiede sempre gameplay Windows.
+PASS dei test legacy non equivale al PASS del gameplay OG.
+No reset, modifica o cancellazione dei file save da parte del BAT.
+Coppe internazionali, nazionali e save OG: audit read-only, NON PASS automatico.
+[TEST MANUALI] Verifica entrambi i mondi in sessioni distinte senza sovrascrivere save.
+[TEST MANUALI] Prima/dopo contratto: classifica, marcatori, coppe del club, BACK.
+[TEST MANUALI] SAVE: annota data, squadre, risultati, marcatori e coppe; chiudi e riapri con una nuova diagnostica.
+[TEST MANUALI] 70 stagioni F12+8 soltanto in carriera sacrificabile.
+[TEST MANUALI] Dopo autosave: torna al TITLE; il parser verifica la compatibilita' CAR sul disco.
+[TEST MANUALI] Champions/Europa/Conference, UEFA storica, Libertadores e tornei nazionali NON sono provati dal solo inventario.
+SAVE_SNAPSHOT_COUNT=2 errors=0
+RISULTATO_SESIONE=1

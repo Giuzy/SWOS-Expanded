@@ -12,6 +12,7 @@
  */
 #include "league_phase.h"
 #include "uefa_coef.h"
+#include "competition_data.h"
 
 #define N   LEAGUE_PHASE_CLUBS
 #define MAXM LEAGUE_PHASE_MATCHES
@@ -768,10 +769,26 @@ uint16_t LeaguePhase_RowColour(int32_t place)
 
 extern CompetitionCareer _careerContests[];
 
+/* OpenSWOS's VIEW WORLD reads the region table, not only the career
+ * records. Use the very same OG modern templates in both locations,
+ * retaining the classic 96/97 originals for World 9697. Never amend
+ * generated world_data.c: World_InstallBaked installs this mapping. */
 void LeaguePhase_InstallCups(CompetitionLeaguePhase *cups)
 {
-    for (int32_t k = 0; k < 3; k++) {           /* (the contest table's first three: the euro cups) */
-        _careerContests[k].competition = (Competition *)&cups[k];
-        _careerContests[k].templateSize = (uint16_t)sizeof(CompetitionLeaguePhase);
+    if(!cups)return;
+    const Competition *original[3]={
+        (const Competition *)&_euroCup,
+        (const Competition *)&_cupWinnersCup,
+        (const Competition *)&_uefaCup
+    };
+    for(int32_t k=0;k<3;k++) {
+        const Competition *prior=_careerContests[k].competition;
+        for(int32_t i=0;i<9 &&
+            (uintptr_t)_europeTable.compCup[i]!=(uintptr_t)-1;i++)
+            if(_europeTable.compCup[i]==original[k] ||
+               _europeTable.compCup[i]==prior)
+                _europeTable.compCup[i]=(Competition *)&cups[k];
+        _careerContests[k].competition=(Competition *)&cups[k];
+        _careerContests[k].templateSize=(uint16_t)sizeof(CompetitionLeaguePhase);
     }
 }

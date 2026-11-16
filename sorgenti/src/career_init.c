@@ -10,6 +10,7 @@
  */
 
 #include "game_types.h"
+#include "competition_data.h"
 #include "league_playoffs.h"
 #include "uefa_coef.h"
 #include "world_conti.h"
@@ -1281,36 +1282,48 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                     countryCupDefs,countryCupResidents,
                     countryCupUnsupported,countryCupFailed);
     }
-    /* UEFA belongs to the same OG world event: begin from the genuine
-     * type-2 competition records, NEVER from an external result table.
-     * The native resident executor is currently qualified for the real
-     * first-season 2026/27 entrants only; later-year qualifications need
-     * the end-of-season OG UEFA handoff before extending this gate. */
+    /* Two real OG UEFA eras, never the same records with new names:
+     * 96/97 = historic Champions type 2, CWC/UEFA Cup type 1.
+     * 26/27 = three native 36-team league-phase type 2 tournaments.
+     * Later first-year successors need the original UEFA qualification
+     * handoff; do NOT silently replay the first year's seed list. */
     int uefaOk=1;
 #if SWOS_WORLDS
-    /* Mod 4.1.2 CT_S1: initialize its ORIGINAL first edition (participants
-     * and seed only), independently of manager employment and without
-     * producing a second clock or results. External data remain on the
-     * player's machine. Later dated fixtures/OG viewer are NOT yet linked. */
+    /* CT_S1 holds optional Mod 4.1.2 first-year club entries, not
+     * code required for the native OpenSWOS continental executor.
+     * An absent local EXE never aborts an otherwise valid OG world. */
     if(World_Current()==WORLD_2627 && year==World_FirstYear() && phase==0u) {
-        const int first=ct_world_prepare_first();
-        fprintf(stderr,"[og-international-s1] year=%u ready=%d main-cups=%u source=LOCAL_MOD_EXE state=%s\n",
-                (unsigned)year,first,first?12u:0u,
-                first?"PREPARED_ONLY":"SOURCE_MISSING_OR_INVALID");
+        const int s1=ct_world_prepare_first();
+        fprintf(stderr,"[og-international-s1] year=%u source=%s "
+                       "first-entries=%s dated-fixtures=NOT_BOUND\n",
+                (unsigned)year,s1?"LOCAL_MOD_S1":"NOT_INSTALLED",
+                s1?"NATIVE_CT_ED":"NEEDS_FIRST_EDITION_QUALIFIERS");
     }
 #endif
-    if(World_Current()==WORLD_2627 && year==World_FirstYear()) {
+    if(year==World_FirstYear() &&
+       (World_Current()==WORLD_2627 || World_Current()==WORLD_9697)) {
+        const int modern=World_Current()==WORLD_2627;
         uefaOk=Expanded_OGWorld_AdvanceUefa(year,phase);
-        fprintf(stderr,"[og-international-resident] year=%u phase=%u "
-                       "uefa-resident=%lu expected=3 status=%s "
-                       "copa=NEEDS_FIRST_YEAR_QUALIFIED_ENTRANTS\n",
-                (unsigned)year,(unsigned)phase,
+        if(!modern) {
+            const int cw=Expanded_OGWorld_AdvanceCup(
+                (uint8_t *)&_cupWinnersCup,254u,1u,year,phase);
+            const int uc=Expanded_OGWorld_AdvanceCup(
+                (uint8_t *)&_uefaCup,254u,2u,year,phase);
+            if(cw!=1 || uc!=1)
+                fprintf(stderr,"[og-classic-europe] CUPS_UNAVAILABLE "
+                               "year=%u phase=%u cwc=%d uefa=%d\n",
+                        (unsigned)year,(unsigned)phase,cw,uc);
+        }
+        fprintf(stderr,"[og-international-resident] world=%u "
+                       "year=%u phase=%u uefa-resident=%lu expected=%u "
+                       "status=%s continental=VIEWER_NOT_BOUND\n",
+                (unsigned)World_Current(),(unsigned)year,(unsigned)phase,
                 (unsigned long)Expanded_OGWorld_UefaResidentCount(),
-                uefaOk?"OG_TYPE2_ATTEMPT":"NATIVE_ERROR");
+                modern?3u:1u,uefaOk?"NATIVE_ATTEMPT":"NATIVE_ERROR");
     } else if(phase==0u)
-        fprintf(stderr,"[og-international-resident] year=%u phase=%u "
-                       "uefa=NEEDS_QUALIFICATION_HANDOFF copa=NEEDS_QUALIFICATION_HANDOFF\n",
-                (unsigned)year,(unsigned)phase);
+        fprintf(stderr,"[og-international-resident] world=%u "
+                       "year=%u phase=0 status=PENDING_ORIGINAL_QUALIFICATION_HANDOFF\n",
+                (unsigned)World_Current(),(unsigned)year);
     if(phase==0u)
         fprintf(stderr,"[og-cup-start] year=%u definitions=%u "
                        "resident=%u unsupported=%u failed=%u "

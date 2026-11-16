@@ -39,6 +39,7 @@
 #include "diy_competition.h"
 #include "endian_helpers.h"
 #include "career_teams.h"
+#include "competition_data.h"
 #include "game_types.h"
 #include "menu_system.h"
 #include "auto_skip_debug.h"
@@ -3893,30 +3894,38 @@ extern uint16_t _careerFileBuffer, _numNeededTeams;
 extern void InitDIYLeagueFromRecord(uint8_t *);
 extern void InitTeams(void);
 int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
-    if(World_Current()!=WORLD_2627)return 1;
+    const int modern=World_Current()==WORLD_2627;
+    const int classic=World_Current()==WORLD_9697;
+    if(!modern && !classic)return 1;
     if(_gameType!=4 || s_expOGCurrent || s_expOGCupCurrent)return 0;
+    /* Classic entries are the original OpenSWOS 1996/97 tables. After the
+     * first season their qualifiers must come from native season end,
+     * not the 1996 seed list copied as if it were a new competition. */
+    if(classic && year!=World_FirstYear())return 1;
     const uint8_t (*places)[4]=NULL;int32_t nAssoc=0;
-    CompetitionLeaguePhase *cups=World_LeaguePhaseCups(&places,&nAssoc);
-    if(!cups || !places || nAssoc<=0)return 0;
-    for(unsigned k=0;k<3u;++k) {
+    CompetitionLeaguePhase *cups=modern?World_LeaguePhaseCups(&places,&nAssoc):NULL;
+    if(modern && (!cups || !places || nAssoc<=0))return 0;
+    for(unsigned k=0;k<(modern?3u:1u);++k) {
         ExpandedOGLeague *ctx=&s_expOGUefa[k];
         if(!ctx->used)ctx->lastMatch=0xffu;
-        Competition *rec=(Competition *)&cups[k];
+        Competition *rec=modern?(Competition *)&cups[k]:(Competition *)&_euroCup;
+        const TeamId *seed=modern?cups[k].teamSeedList:_euroCup.teamSeedList;
+        const unsigned entrants=modern?36u:16u;
         if(rec->type!=2 || (uint8_t)rec->compId!=k)return 0;
         if(ctx->used && ctx->year==year && phase<=ctx->lastPhase)continue;
         unsigned unique=0;
-        for(unsigned i=0;i<36u;++i) {
-            const uint16_t id=TEAMID_PACK(cups[k].teamSeedList[i]);
+        for(unsigned i=0;i<entrants;++i) {
+            const uint16_t id=TEAMID_PACK(seed[i]);
             if(id==0xffffu || !id)return 0;
             for(unsigned j=0;j<i;++j)
-                if(id==TEAMID_PACK(cups[k].teamSeedList[j]))return 0;
+                if(id==TEAMID_PACK(seed[j]))return 0;
             ++unique;
         }
         /* Manager's original quaternary slot is not yet merged: do not
          * schedule a second match for the same club. */
         int manager=0;
-        for(unsigned i=0;i<36u && _selTeamNumber!=0xffffu;++i)
-            if(TEAMID_PACK(cups[k].teamSeedList[i])==_selTeamNumber)
+        for(unsigned i=0;i<entrants && _selTeamNumber!=0xffffu;++i)
+            if(TEAMID_PACK(seed[i])==_selTeamNumber)
                 manager=1;
         if(manager && phase>0) {
             fprintf(stderr,"[og-uefa-resident] PENDING_MANAGER_BIND year=%u cup=%u phase=%u (no duplicate matches)\n",
@@ -3939,12 +3948,12 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
         _seasonPlaying=(uint8_t)((96u+(unsigned)year-World_FirstYear())%100u);
         s_expOGCurrent=ctx;s_expOGPhase=phase;s_expOGFault=0;
         if(ctx->used) {
-            if(ctx->teamCount!=36u)s_expOGFault=1;
+            if(ctx->teamCount!=entrants)s_expOGFault=1;
             if(!s_expOGFault) {
                 memcpy(&_diyCompetitionStart,&ctx->comp,sizeof ctx->comp);
                 memcpy(&_diyFileBufferCopy,&ctx->tournament,sizeof ctx->tournament);
                 _numSelectedTeams=ctx->teamCount;
-                memcpy(_selectedTeams,ctx->teams,36u*sizeof(TeamFileEx));
+                memcpy(_selectedTeams,ctx->teams,entrants*sizeof(TeamFileEx));
                 _seed2=ctx->seed;_randXorIndex2=ctx->randIndex;_randXorKey2=ctx->randKey;
             }
         } else {
@@ -3953,21 +3962,21 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
             InitCompetitionTeamSelectionFromAltTableHeader((uint8_t *)rec);
             InitDIYLeagueFromRecord((uint8_t *)rec);
             InitTeams();
-            if(_numSelectedTeams!=36u) {
-                fprintf(stderr,"[og-uefa-resident] INIT_COUNT_MISMATCH year=%u cup=%u wanted=36 selected=%u native-type=%u\n",
-                        (unsigned)year,k,(unsigned)_numSelectedTeams,
+            if(_numSelectedTeams!=entrants) {
+                fprintf(stderr,"[og-uefa-resident] INIT_COUNT_MISMATCH year=%u cup=%u wanted=%u selected=%u native-type=%u\n",
+                        (unsigned)year,k,entrants,(unsigned)_numSelectedTeams,
                         (unsigned)_diyFileBufferCopy.header.competitionType);
                 s_expOGFault=1;
             }
         }
         _careerLastMatchIndexByCompetitionSlot[cid]=ctx->lastMatch;
         if(!s_expOGFault && phase>0)Career_AutoAdvanceCompetitionSlots();
-        if(!s_expOGFault && _numSelectedTeams==36u) {
+        if(!s_expOGFault && _numSelectedTeams==entrants) {
             ctx->lastMatch=_careerLastMatchIndexByCompetitionSlot[cid];
             memcpy(&ctx->comp,&_diyCompetitionStart,sizeof ctx->comp);
             memcpy(&ctx->tournament,&_diyFileBufferCopy,sizeof ctx->tournament);
-            memcpy(ctx->teams,_selectedTeams,36u*sizeof(TeamFileEx));
-            ctx->teamCount=36;ctx->country=80;ctx->division=(uint8_t)k;
+            memcpy(ctx->teams,_selectedTeams,entrants*sizeof(TeamFileEx));
+            ctx->teamCount=(uint16_t)entrants;ctx->country=80;ctx->division=(uint8_t)k;
             ctx->year=year;ctx->lastPhase=phase;ctx->used=1;
             ctx->seed=_seed2;ctx->randIndex=_randXorIndex2;ctx->randKey=_randXorKey2;
         } else s_expOGFault=1;
@@ -3986,8 +3995,8 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
                     (unsigned)year,k,(unsigned)phase);
             return 0;
         }
-        fprintf(stderr,"[og-uefa-resident] year=%u cup=%u phase=%u residents=1 entrants=%u OG-matches=%u\n",
-                (unsigned)year,k,(unsigned)phase,unique,
+        fprintf(stderr,"[og-uefa-resident] world=%u year=%u cup=%u phase=%u residents=1 entrants=%u OG-matches=%u\n",
+                (unsigned)World_Current(),(unsigned)year,k,(unsigned)phase,unique,
                 (unsigned)ctx->comp.matchesPlayedCount);
     }
     return 1;
@@ -4329,9 +4338,18 @@ static int exp_og_view_cup(const uint8_t *record)
     for(uint32_t i=0;i<s_expOGCupCount;++i) {
         ExpandedOGCup *ctx=&s_expOGCups[i];
         if(!ctx->used || ctx->year==0u)continue;
-        const void *const *tab=(const void *const *)_competitionsTable[ctx->country];
-        if(!tab)continue;
-        const Competition *native=(const Competition *)tab[ctx->slot];
+        const Competition *native=NULL;
+        if(World_Current()==WORLD_9697 && ctx->country==254u &&
+           (ctx->slot==1u || ctx->slot==2u)) {
+            /* European Cup Winners' Cup and UEFA Cup are separate from the
+             * country's domestic table in the classic OG Europe picker. */
+            native=ctx->slot==1u?(const Competition *)&_cupWinnersCup
+                                :(const Competition *)&_uefaCup;
+        } else {
+            const void *const *tab=(const void *const *)_competitionsTable[ctx->country];
+            if(!tab)continue;
+            native=(const Competition *)tab[ctx->slot];
+        }
         if(native==wanted) {exact=ctx;break;}
         if(native && native->compId==wanted->compId) {
             ++matches;fallback=ctx;
@@ -4388,14 +4406,18 @@ static int exp_og_view_uefa(const Competition *wanted)
 {
     static uint8_t missing[]="OG WORLD: UEFA CUP NOT RESIDENT";
     static uint8_t unsupported[]="OG WORLD: CONTINENTAL NOT RESIDENT";
-    if(World_Current()!=WORLD_2627 || !wanted || wanted->compId>=3) {
+    const int modern=World_Current()==WORLD_2627;
+    const int classic=World_Current()==WORLD_9697;
+    if((!modern && !classic) || !wanted || wanted->compId>=3 ||
+       (classic && wanted!=(const Competition *)&_euroCup)) {
         fprintf(stderr,"[og-conti-view] NO RESIDENT TYPE2 cup=%u world=%u (no simulated fallback)\n",
                 wanted?(unsigned)wanted->compId:255u,(unsigned)World_Current());
         ShowErrorMenu(unsupported);
         return 0;
     }
     ExpandedOGLeague *ctx=&s_expOGUefa[(unsigned)wanted->compId];
-    if(!ctx->used || ctx->teamCount!=36u ||
+    const unsigned entrants=modern?36u:16u;
+    if(!ctx->used || ctx->teamCount!=entrants ||
        ctx->tournament.header.competitionType!=2) {
         fprintf(stderr,"[og-uefa-view] NOT RESIDENT cup=%d year=%u\n",
                 (int)wanted->compId,(unsigned)ctx->year);
@@ -4413,7 +4435,7 @@ static int exp_og_view_uefa(const Competition *wanted)
     memcpy(&_diyCompetitionStart,&ctx->comp,sizeof ctx->comp);
     memcpy(&_diyFileBufferCopy,&ctx->tournament,sizeof ctx->tournament);
     _numSelectedTeams=ctx->teamCount;
-    memcpy(_selectedTeams,ctx->teams,36u*sizeof(TeamFileEx));
+    memcpy(_selectedTeams,ctx->teams,entrants*sizeof(TeamFileEx));
     _diyCompetitionStart.base.namePtr=
         (uint8_t *)_diyCompetitionStart.base.competitionName;
     _diyFileBufferCopy.header.namePtr=
@@ -4439,7 +4461,10 @@ int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
     if(!record || _gameType!=4)return 0;
     const Competition *wanted=(const Competition *)record;
     if(wanted->type==1)return exp_og_view_cup(record);
-    if(wanted->type==2 && World_Current()==WORLD_2627)
+    if(wanted->type==2 &&
+       (World_Current()==WORLD_2627 ||
+        (World_Current()==WORLD_9697 &&
+         wanted==(const Competition *)&_euroCup)))
         return exp_og_view_uefa(wanted);
     ExpandedOGLeague *exact=NULL,*byId=NULL;
     unsigned idMatches=0;

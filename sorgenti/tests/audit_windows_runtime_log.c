@@ -72,6 +72,8 @@ int main(int argc,char **argv)
     long f12_main=0,f12_cups=0,f10_data=0;
     long picker_backs=0,picker_pops=0,picker_unmatched=0;
     long native_faults=0,regressions=0,log_year=-1,log_phase=-1;
+    long world_banks_9697=0,world_banks_2627=0,world_switches=0;
+    long switched_9697=0,switched_2627=0,world_refused=0;
     long native_league_unsupported=0,unsupported_country=-1;
     long unsupported_division=-1,unsupported_expected=-1,unsupported_actual=-1;
     long prev_year=-1,prev_phase=-1;
@@ -116,6 +118,16 @@ int main(int argc,char **argv)
     }
     while(fgets(line,sizeof line,in)) {
         ++rows;
+        if(tag(line,"[world-switch] LOADING STATIC_BANKS ")) {
+            if(strstr(line,"prepared=9697:1"))++world_banks_9697;
+            if(strstr(line,"2627:1"))++world_banks_2627;
+        }
+        if(tag(line,"[world-switch] IN_PROCESS world=")) {
+            ++world_switches;
+            if(strstr(line,"world=9697"))++switched_9697;
+            if(strstr(line,"world=2627"))++switched_2627;
+        }
+        if(tag(line,"[world-switch] REFUSED "))++world_refused;
         if(tag(line,"[build] SWOS Expanded ")) {
             char value[80];
             if(sscanf(line,"[build] SWOS Expanded %79s",value)==1)
@@ -732,6 +744,13 @@ int main(int argc,char **argv)
            native_league_unsupported?"PARTIAL":"NO_UNSUPPORTED_OBSERVED",
            native_league_unsupported,unsupported_country,unsupported_division,
            unsupported_expected,unsupported_actual);
+    printf("WORLD_SWITCH_IN_PROCESS=%s prepared=9697:%ld 2627:%ld "
+           "transitions=%ld to9697=%ld to2627=%ld refused=%ld "
+           "scope=LOG_OBSERVATION_NOT_GAMEPLAY_VALIDATION\n",
+           switched_9697&&switched_2627?"BOTH_DIRECTIONS_OBSERVED":
+           world_switches?"PARTIAL_ONLY":"NOT_TESTED",
+           world_banks_9697,world_banks_2627,world_switches,
+           switched_9697,switched_2627,world_refused);
     printf("OG_NATIVE_FAULTS=%ld CHECK_FAILURES=%ld SESSIONS=%ld\n",native_faults,regressions,og_career_sessions);
     if(first[0])printf("FIRST_RUNTIME_FAILURE: %s\n",first);
     if(!correct_build) {

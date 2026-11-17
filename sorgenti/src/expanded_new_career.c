@@ -7,13 +7,12 @@
 #include "mjson.h"
 #include "menu_system.h"
 #include "world.h"
-#ifdef _WIN32
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+/* Static world namespace banking (src/world_switch.c), no subprocess. */
+extern int WorldSwitch_SelectBeforeCareer(const char *tag);
+extern int WorldSwitch_IsAvailable(const char *tag);
 extern uintptr_t _currentMenuPtr;
 extern uint8_t _currentMenu[],_careerMenu[],_expandedNationalityPickerMenu[],_expandedFamePickerMenu[];
 extern MenuEntry _menuEntries[];
@@ -412,7 +411,9 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
    "WORLD: 2026/27  -  SELECT 1996/97":
    "WORLD: 1996/97  -  SELECT 2026/27",
    0,835,123,1,sx,sy,s_selected==9?1:-1,830.f);
- pixel_text_tint_fit(r,"A / ENTER: SWITCH AND RESTART GAME",
+ pixel_text_tint_fit(r,WorldSwitch_IsAvailable(
+   World_Current()==WORLD_2627?"9697":"2627")?
+   "A / ENTER: SWITCH WORLD (NO RESTART)":"WORLD DATA UNAVAILABLE",
    0,835,157,1,sx,sy,s_selected==9?1:0,830.f);
  const char*labels[]={"TITLE","NAME","SURNAME","NATION","ROLE","AGE (18-70)","FAME"};
  for(int i=0;i<7;i++){
@@ -452,38 +453,20 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
   SDL_RenderCopyF(r,s_legend_ab,NULL,&d);
  }
 }
-/* Debug-only world switch. The baked OG tables are installed before the title,
- * so changing World_Set() while NEW CAREER is open would corrupt the game.
- * Launch the same executable with the other world and close the old process. */
+/* The two OG static-world namespaces were prepared at LOADING.
+ * Selector is available only before a new career starts; no process spawn,
+ * no save deletion and no live fixture execution. */
 static void debug_switch_world(void){
  const char *target=World_Current()==WORLD_2627?"9697":"2627";
-#ifdef _WIN32
- char path[MAX_PATH],cmd[MAX_PATH+128];
- DWORD n=GetModuleFileNameA(NULL,path,(DWORD)sizeof path);
- STARTUPINFOA si;
- PROCESS_INFORMATION pi;
- if(!n||n>=(DWORD)sizeof path){
-  fprintf(stderr,"[world-debug] FAIL: executable path unavailable\n");return;
- }
- snprintf(cmd,sizeof cmd,"\"%s\" --world=%s --fullscreen=off",path,target);
- memset(&si,0,sizeof si);memset(&pi,0,sizeof pi);si.cb=sizeof si;
- /* 96/97 retains its original binary TEAM loader; 2026/27 needs JSON.
-  * The new process inherits these environment variables. */
- SetEnvironmentVariableA("SWOS_DATA_JSON",strcmp(target,"2627")==0?"1":"0");
- if(!CreateProcessA(path,cmd,NULL,NULL,FALSE,0,NULL,NULL,&si,&pi)){
-  fprintf(stderr,"[world-debug] FAIL: CreateProcessA world=%s error=%lu\n",
-          target,(unsigned long)GetLastError());
+ if(!WorldSwitch_SelectBeforeCareer(target)) {
+  fprintf(stderr,"[world-debug] SWITCH REFUSED target=%s; active=%s\n",
+          target,World_Tag());
   return;
  }
- CloseHandle(pi.hThread);CloseHandle(pi.hProcess);
- fprintf(stderr,"[world-debug] RESTART requested world=%s; old process exiting\n",target);
- fflush(stderr);
- SDL_Quit();
- exit(0);
-#else
- fprintf(stderr,"[world-debug] switching requires a Windows test build (requested %s)\n",target);
-#endif
+ fprintf(stderr,"[world-debug] SWITCH IN_PROCESS active=%s no-restart\n",
+         World_Tag());
 }
+
 static void action(int row,int direction){
  MenuEntry*e=&_menuEntries[ord[row==9?0:row]];((Menu*)_currentMenu)->selectedEntry=e;
  _controlMask=direction<0?0x40:direction>0?0x80:0x21;

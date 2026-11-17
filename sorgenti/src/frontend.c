@@ -115,16 +115,17 @@ void FrontEndPreLoopSetup(void)
 #ifndef SWOS_SDL_BUILD
     World_ReadFromData();
 #endif
+#ifdef SWOS_SDL_BUILD
+    /* Prepare BOTH static namespaces at LOADING. Install just one set into
+     * OG pointers, and restore the chosen one before menus / NEW CAREER.
+     * Replaces a re-exec of SWOS_Expanded.exe for a world change. */
+    extern void WorldSwitch_PrepareAtLoading(void);
+    WorldSwitch_PrepareAtLoading();
+#else
     World_InstallBaked();
-#ifndef SWOS_SDL_BUILD
-    WorldCups_Install();        /* its cups into the country tables (the SDL: after the JSON's) */
+    WorldCups_Install();
 #endif
 #ifdef SWOS_SDL_BUILD
-    /* SWOS_DATA_JSON: rebuild normal-country competition tables from data_json/
-       before any menu reads competitionsTable[]. No-op unless the env var is set. */
-    extern void DataJson_InstallCompetitionGraph(void);
-    DataJson_InstallCompetitionGraph();
-    WorldCups_Install();
     /* career_params.json: override the compiled career-mode balance knobs (starting
        balance, gate receipts, wages, board expectations) so testers can tune them
        without a rebuild. Absent file -> compiled defaults. */
@@ -161,12 +162,12 @@ void FrontEndPreLoopSetup(void)
     extern void CopaBaked_Install(void);
     CopaBaked_Install();
 #endif
-    /* Copa Libertadores is registered by compId above (dynamic on SDL, baked on
-       Amiga); splice its record into the South America region's preset-competition
-       list so it appears in "CHOOSE PRESET COMPETITION - SOUTH AMERICA". Inert if
-       Copa isn't installed. Shared code path (career_copa.c) — same on both ports. */
+    /* SDL's registrar is handled during modern bank preparation so each
+     * static snapshot includes its own region table and compId mapping. */
+#ifndef SWOS_SDL_BUILD
     extern void Career_InstallCopaLibertadoresPresetEntry(void);
     Career_InstallCopaLibertadoresPresetEntry();
+#endif
     InitMenuMusic();
     PrepareMenuBackground();
     InitMainMenuStuff();

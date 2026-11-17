@@ -300,6 +300,9 @@ int Comp_AppendCareerContest(Competition *competitionTemplate,
  * compId back to a live record (returns NULL if unregistered). */
 void Comp_Register(Competition *c);
 Competition *Comp_ById(uint8_t compId);
+/* Used only by the SDL two-world STATIC register bank at loading. */
+void Comp_ExportWorldRegistry(Competition **out);
+void Comp_ImportWorldRegistry(Competition *const *in);
 
 /* ======================================================================
  * Master Competition Pointer Arrays

@@ -1649,6 +1649,19 @@ Competition *Comp_ById(uint8_t compId)
     return s_compById[compId];
 }
 
+/* A new career can select either of two static world namespaces in the same
+ * process. Keep the dynamic competition lookup in the same namespace as the
+ * OG pointer tables; never leak a modern compId into the historic registry.
+ * Copy per entry: portable to the original freestanding Amiga build. */
+void Comp_ExportWorldRegistry(Competition **out)
+{
+    if(out) for(unsigned i=0;i<256u;++i) out[i]=s_compById[i];
+}
+void Comp_ImportWorldRegistry(Competition *const *in)
+{
+    if(in) for(unsigned i=0;i<256u;++i) s_compById[i]=in[i];
+}
+
 /* ======================================================================
  * Master Competition Pointer Arrays
  * ====================================================================== */

@@ -798,3 +798,11 @@ Modificato `career_status.c` e `career_init.c`: un'edizione OG continentale con 
 - Preflight OG storica per ogni divisione (lettura reale TEAM.NNN) impedisce panic 0x8885 quando formato campionato e squadre nel file divergono; lega incompatibile SKIPPED / NOT_RESIDENT anziché falsamente riuscita. Debug atteso/effettivo. Finlandia 12 vs 14 NON RISOLTA nel dato.
 - DEBUG WORLD/OFFERTA: navigazione circolare su tutte le righe visibili e ridisegno del focus. VIEW SQUAD offerta: B chiude prima popup X, poi torna all'offerta con una nuova pressione.
 - Non implementati hot switch 96/26, audit completo regole/ID per entrambi i mondi, e tutte le coppe non residenti. Stato esplicito e test in `docs/WORLD_PRIORITY_20261117_BUILD_01366.md`. Compilazione e gameplay Windows 0.13.66 NON PROVATI.
+
+
+### Build 0.13.67 (17/11/2026) — NO RESTART cambio mondo 9697 ↔ 2627
+- `world_switch.c`: banche statiche 9697/2627 preparate al LOADING e scambiate nel processo attivo senza lanciare un EXE; 290 aree native/table snapshot, registro compId separato, check compatibilità WORLD.ini, cache squadra invalidata.
+- `expanded_new_career.c`: eliminata la dipendenza Windows CreateProcess/GetModuleFileName/exit e cambiata etichetta in NO RESTART; con dati 2627 assenti/incompatibili, mostra WORLD DATA UNAVAILABLE.
+- `frontend.c`: integrato setup doppia banca nel bootstrap, amica/CLASSIC rimane nel percorso precedente.
+- `competition_data.c/h`: funzione portabile di esportazione/ripristino registro dinamico, nessun intervento sul motore originale delle partite.
+- Test Windows cross-world, save e startup: **NON PROVATO**. I due mondi NON diventano contemporaneamente attivi e non vengono giocati match in anticipo. Documento: `docs/WORLD_SWITCH_NO_RESTART_20261117.md`.

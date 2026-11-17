@@ -1,5 +1,11 @@
 # SWOS Expanded — development procedures and rationale
 
+## 17/11/2026 — checklist Windows 0.13.70_22
+- In 96 e 26, F12 da START il 1 luglio (fase attesa 48) poi FORWARD TIME: leggere FASE, rapporto IN FASE, gare OG che aumentano quando previste, ANOM campionati, e coppe assenti senza falsi verdi.
+- In club da settembre/dicembre, DEBUG +1 MONTH: cercare BEGIN e COMPLETED o FAILED nel log, verificare data +1 mese, risultati, nessun doppione, save/continue. A giugno blocco prima del cambio stagione; cambio stagione manuale. Usare soltanto una carriera di prova.
+- Il softlock dei giocatori non e' stato modificato. Build Windows, manager/cup, controller e save ripreso: NON PROVATI.
+
+
 ## 17/11/2026 — test START CAREER 0.13.70_21 (Windows)
 - Con build nuova, riprodurre 2627: START UNEMPLOYED, trascorrere 15 settimane, accettare offerta (esempio precedente ENNA). Nel log verificare `BEFORE_OG_RESIDENT` seguito da `SERIALIZED_COMPLETE` e `READY_FOR_ATOMIC_SAVE`, quindi calendario accessibile; controllare file CAR e riavvio CONTINUE. Ripetere con START club immediato e 9697. Non usare salvataggi importanti: controllare data, risultati OG, coppe e assenza duplicati.
 - Compilazione Windows e gameplay di questa build NON PROVATI; se un altro blocco compare allegare ZIP della sessione.

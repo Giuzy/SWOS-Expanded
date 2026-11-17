@@ -1,5 +1,11 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.70_22: F12 fase OG e mese club
+- Il vecchio `cutoff>55u` di Expanded_CareerDebugMonthStart respingeva ogni mese da agosto: la fase native di 1 luglio e' 48, 1 agosto 56, gennaio successivo 96. Il driver ora ammette le fasi 48..144 e registra dettagli del blocco.
+- Expanded_MidseasonJoin_Active include anche il debug mensile per sospendere le azioni collaterali del manager; NEXT MATCH non produce un autosave intermedio e l'input e' resettato dopo il salto.
+- L'F12 legge lastPhase dei contesti OG e coerenza dei risultati aggregati senza generare nuove gare. L'uguaglianza delle fasi NON verifica i singoli risultati o il calendario fixture per fixture.
+
+
 ## 17/11/2026 — 0.13.70_21: mismatch varargs in serializzazione OG
 - `og_saved_emit_context`: `%Q` richiede `char*`, `%u` un int. Il vecchio formato conteneva otto coppie `%Q:%u` piu' `%Q:` finale (17 richieste), mentre gli argomenti effettivi erano sette coppie piu' la chiave finale (15). `mjson_vprintf` leggeva fuori dagli argomenti, compatibile con il crash `msvcrt.dll`/0xEC0 registrato a primo autosave.
 - Nuovo formato: sette coppie `%Q:%u` piu' `%Q:` finale, verifica statica 15/15. Non corregge o modifica altri aspetti di persistenza OG non provati.

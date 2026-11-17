@@ -1,5 +1,11 @@
 # F12 — pannello unico mondo OG (codice 0.13.70_16)
 
+## 17/11/2026 — 0.13.70_22: verifica fase OG in F12
+- AVANZAMENTO confronta la fase OG del residente con la fase richiesta dalla data civile in ogni regione, senza pretendere che esistano gare prima del primo turno. Il 1 luglio e' fase OG 48, non 0. GARE mostra match realmente salvati; ANOM controlla invarianti aggregate della classifica (GP=W+D+L, vittorie/sconfitte, pareggi, GF/GA).
+- Non prova l'esito di ogni fixture, le date individuali, o la duplicazione del manager: non inventa il totale gare attese. Nazionali senza contesti e coppe non residenti restano incomplete. Nessuna simulazione dal viewer.
+- Debug mese club: il precedente cutoff>55 bloccava ogni mese dopo luglio; adesso 48..144, con autosave intermedi sospesi. Windows da provare.
+
+
 ## 0.13.70_17 — presentazione OTHER
 - COPPE INT e NAZIONALI sono visualizzate sotto la sezione OTHER, senza cambiare il denominatore per competizione. Coordinate header y=458, righe 477 e 500, due colonne. Non introdotte nuove categorie sportive.
 

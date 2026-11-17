@@ -2839,18 +2839,18 @@ static void diag_f12_end(const char *page) {
  * no new PNG/font dependency, no submenus and no second simulation. */
 static void diag_f12_ratio(int x,int y,const char *name,
                            uint32_t valid,uint32_t defined,
-                           uint32_t matches,int showMatches)
+                           uint32_t matches,int showMatches,uint32_t issues)
 {
     char line[128];
     if(showMatches)
-        snprintf(line,sizeof line,"%-14s %lu/%lu  GARE %lu",name,
+        snprintf(line,sizeof line,"%-14s %lu/%lu  GARE %lu ANOM %lu",name,
                  (unsigned long)valid,(unsigned long)defined,
-                 (unsigned long)matches);
+                 (unsigned long)matches,(unsigned long)issues);
     else
         snprintf(line,sizeof line,"%-14s %lu/%lu",name,
                  (unsigned long)valid,(unsigned long)defined);
     if(!defined)diag_f12_line(x,y,line,162,180,193);
-    else if(valid==defined)diag_f12_line(x,y,line,100,232,145);
+    else if(valid==defined && !issues)diag_f12_line(x,y,line,100,232,145);
     else diag_f12_line(x,y,line,255,118,118);
 }
 static void draw_world_debug_overlay(void)
@@ -2930,38 +2930,47 @@ static void draw_world_debug_overlay(void)
         "EUROPA","AFRICA","SUD AMERICA","NORD AMERICA","ASIA","OCEANIA"
     };
     const int x1=26,x2=495;
+    if(d.phaseReady) {
+        snprintf(line,sizeof line,"FASE OG ATTESA %u - STATO RESIDENTE",
+                 (unsigned)d.nativePhase);
+        diag_f12_line(26,94,line,88,207,255);
+    } else
+        diag_f12_line(26,94,"FASE OG N/D - ORLOGI NON ALLINEATI",255,118,118);
     diag_f12_line(x1,108,"CARICATE - PAESI COMPLETI",88,207,255);
-    diag_f12_line(x2,108,"AVANZAMENTO - PAESI CON GARE",88,207,255);
+    diag_f12_line(x2,108,"AVANZAMENTO - IN FASE OG",88,207,255);
     diag_f12_line(x1,130,"CAMPIONATI",226,236,245);
     diag_f12_line(x2,130,"CAMPIONATI",226,236,245);
     for(unsigned r=0;r<EXP_OG_DEBUG_REGIONS;++r) {
         const int y=153+(int)r*23;
         diag_f12_ratio(x1,y,regions[r],d.leagueResident[r],
-                       d.leagueExpected[r],0u,0);
-        diag_f12_ratio(x2,y,regions[r],d.leagueAdvanced[r],
-                       d.leagueExpected[r],d.leagueMatches[r],1);
+                       d.leagueExpected[r],0u,0,0u);
+        diag_f12_ratio(x2,y,regions[r],d.leagueInPhase[r],
+                       d.leagueExpected[r],d.leagueMatches[r],1,
+                       d.leagueIssues[r]);
     }
     diag_f12_line(x1,301,"COPPE NAZIONALI",226,236,245);
     diag_f12_line(x2,301,"COPPE NAZIONALI",226,236,245);
     for(unsigned r=0;r<EXP_OG_DEBUG_REGIONS;++r) {
         const int y=324+(int)r*23;
         diag_f12_ratio(x1,y,regions[r],d.cupResident[r],
-                       d.cupExpected[r],0u,0);
-        diag_f12_ratio(x2,y,regions[r],d.cupAdvanced[r],
-                       d.cupExpected[r],d.cupMatches[r],1);
+                       d.cupExpected[r],0u,0,0u);
+        diag_f12_ratio(x2,y,regions[r],d.cupInPhase[r],
+                       d.cupExpected[r],d.cupMatches[r],1,0u);
     }
     /* Other federated tournaments: a distinct section, not a seventh
      * geographical region. Keep these denominators competition-based. */
     diag_f12_line(x1,458,"OTHER",88,207,255);
     diag_f12_line(x2,458,"OTHER",88,207,255);
     diag_f12_ratio(x1,477,"COPPE INT",d.internationalResident,
-                   d.internationalExpected,0u,0);
-    diag_f12_ratio(x2,477,"COPPE INT",d.internationalAdvanced,
-                   d.internationalExpected,d.internationalMatches,1);
+                   d.internationalExpected,0u,0,0u);
+    diag_f12_ratio(x2,477,"COPPE INT",d.internationalInPhase,
+                   d.internationalExpected,d.internationalMatches,1,0u);
     diag_f12_ratio(x1,500,"NAZIONALI",d.nationalResident,
-                   d.nationalExpected,0u,0);
+                   d.nationalExpected,0u,0,0u);
     diag_f12_ratio(x2,500,"NAZIONALI",d.nationalAdvanced,
-                   d.nationalExpected,d.nationalMatches,1);
+                   d.nationalExpected,d.nationalMatches,1,0u);
+    diag_f12_line(26,517,"IN FASE = OG AL GIORNO; NON PROVA SINGOLI RISULTATI; ANOM = CLASSIFICA",
+                  162,180,193);
     diag_f12_end("F12_OG_WORLD");
 finish:
     SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);

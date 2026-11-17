@@ -43,8 +43,14 @@ typedef struct {
     uint32_t internationalAdvanced,internationalMatches;
     uint32_t nationalExpected,nationalResident;
     uint32_t nationalAdvanced,nationalMatches;
+    /* F12 verifies native phase progress and aggregate standings, read-only.
+     * This does NOT prove the results of individual fixtures. */
+    uint32_t leagueInPhase[EXP_OG_DEBUG_REGIONS];
+    uint32_t cupInPhase[EXP_OG_DEBUG_REGIONS];
+    uint32_t leagueIssues[EXP_OG_DEBUG_REGIONS];
+    uint32_t internationalInPhase;
     uint16_t worldYear;
-    uint8_t ready;
+    uint8_t ready,phaseReady,nativePhase;
 } ExpandedOGDashboard;
 void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out);
 /* Per-player goal counters in original resident OG league team files.

@@ -62,6 +62,8 @@ extern CompetitionCup _uefaCup;
 #include "world_cupd.h"
 #include "expanded_og_cup_validation.h"
 #include "expanded_debug.h"
+#include "expanded_world_time.h"
+#include "expanded_world_live.h"
 #include "mjson.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -3964,6 +3966,23 @@ static unsigned exp_debug_count_competitions(Competition *const *v,unsigned cap)
     }
     return count;
 }
+/* Original OG league standings read-only consistency checks. A multistage
+ * competition can reset its table while matchesPlayedCount stays cumulative. */
+static int exp_f12_standings_coherent(const ExpandedOGLeague *ctx)
+{
+    const unsigned n=(unsigned)ctx->comp.base.numTeams;
+    uint64_t gp=0,w=0,d=0,l=0,gf=0,ga=0;
+    if(n<2u || n>64u || n>ctx->teamCount)return 0;
+    for(unsigned i=0;i<n;++i) {
+        const DIYTeamStats *s=&ctx->comp.leagueStandings[i];
+        if((uint32_t)s->gamesPlayed!=(uint32_t)s->wins+s->draws+s->losses)
+            return 0;
+        gp+=s->gamesPlayed;w+=s->wins;d+=s->draws;l+=s->losses;
+        gf+=s->goalsFor;ga+=s->goalsAgainst;
+    }
+    return !(gp&1u) && w==l && !(d&1u) && gf==ga &&
+           gp<=(uint64_t)ctx->comp.matchesPlayedCount*2u;
+}
 void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
 {
     extern int Expanded_OGWorld_SaveStarted(void);
@@ -3982,6 +4001,19 @@ void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
     const uint16_t year=out->worldYear;
     const uint8_t *countries=World_SeasonCountries();
     if(!countries)countries=_careerCompetitionIdRemapTable;
+    /* The same civil-to-native phase conversion used by FORWARD TIME:
+     * at START on July 1, native phase is 48, even with zero matches. */
+    ExpandedLiveCalendarState live;
+    if(ExpandedWorldLive_CalendarState(&live)) {
+        const uint16_t civilYear=(uint16_t)(live.today.year-
+                                              (live.today.month<7u?1u:0u));
+        uint8_t phase=0u;
+        if(civilYear==year &&
+           ExpandedWorld_DateToNativePhaseNext(year,live.today,&phase)) {
+            out->nativePhase=phase;
+            out->phaseReady=1u;
+        }
+    }
 
     int32_t worldCupDefs=0;
     const WorldCup *worldCups=World_Cups(&worldCupDefs);
@@ -3993,6 +4025,7 @@ void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
         if(!table)continue;
 
         unsigned divisions=0,liveDivisions=0,advancedDivisions=0;
+        unsigned inPhaseDivisions=0,brokenDivisions=0;
         const uintptr_t first=(uintptr_t)table[0];
         if(first>0x10000u && first!=(uintptr_t)-1 &&
            first!=(uintptr_t)-2) {
@@ -4012,6 +4045,11 @@ void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
                             out->leagueMatches[region]+=
                                 (uint32_t)ctx->comp.matchesPlayedCount;
                             if(ctx->comp.matchesPlayedCount>0u)++advancedDivisions;
+                            if(!exp_f12_standings_coherent(ctx))
+                                ++brokenDivisions;
+                            else if(out->phaseReady &&
+                                    ctx->lastPhase==out->nativePhase)
+                                ++inPhaseDivisions;
                             break;
                         }
                     }
@@ -4029,6 +4067,8 @@ void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
             ++out->leagueExpected[region];
             if(liveDivisions==divisions)++out->leagueResident[region];
             if(advancedDivisions==divisions)++out->leagueAdvanced[region];
+            if(inPhaseDivisions==divisions)++out->leagueInPhase[region];
+            if(brokenDivisions)++out->leagueIssues[region];
         }
 
         /* Two OG national-cup slots, plus the active Mod's explicit cup
@@ -4047,7 +4087,7 @@ void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
                worldCups[j].slot>=1u && worldCups[j].slot<=2u)
                 expectedMask|=1u<<(worldCups[j].slot-1u);
         if(expectedMask) {
-            unsigned residentMask=0u,advancedMask=0u;
+            unsigned residentMask=0u,advancedMask=0u,inPhaseMask=0u;
             ++out->cupExpected[region];
             for(uint32_t j=0;j<s_expOGCupCount;++j) {
                 const ExpandedOGCup *ctx=&s_expOGCups[j];
@@ -4059,7 +4099,12 @@ void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
                 residentMask|=bit;
                 out->cupMatches[region]+=ctx->matchesPlayed;
                 if(ctx->matchesPlayed)advancedMask|=bit;
+                if(out->phaseReady && ctx->lastPhase==out->nativePhase &&
+                   ctx->comp.base.competitionType==1)
+                    inPhaseMask|=bit;
             }
+            if((inPhaseMask&expectedMask)==expectedMask)
+                ++out->cupInPhase[region];
             if((residentMask&expectedMask)==expectedMask)
                 ++out->cupResident[region];
             if((advancedMask&expectedMask)==expectedMask)
@@ -4085,6 +4130,8 @@ void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
         ++out->internationalResident;
         out->internationalMatches+=(uint32_t)ctx->comp.matchesPlayedCount;
         if(ctx->comp.matchesPlayedCount>0u)++out->internationalAdvanced;
+        if(out->phaseReady && ctx->lastPhase==out->nativePhase)
+            ++out->internationalInPhase;
     }
     if(historical) {
         for(uint32_t j=0;j<s_expOGCupCount;++j) {
@@ -4094,6 +4141,8 @@ void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
             ++out->internationalResident;
             out->internationalMatches+=ctx->matchesPlayed;
             if(ctx->matchesPlayed)++out->internationalAdvanced;
+            if(out->phaseReady && ctx->lastPhase==out->nativePhase)
+                ++out->internationalInPhase;
         }
     }
 

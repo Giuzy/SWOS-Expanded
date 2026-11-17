@@ -364,7 +364,7 @@ void Expanded_MidseasonJoin_RecordForcedSimulation(void) {
     if (s_active) ++s_forced_simulations;
 }
 
-int Expanded_MidseasonJoin_Active(void) { return s_active!=0 && !s_debug_career_month; }
+int Expanded_MidseasonJoin_Active(void) { return s_active!=0; }
 int Expanded_MidseasonJoin_LastResult(void) { return s_last_result; }
 int Expanded_MidseasonJoin_LastKey(void) { return s_last_key; }
 uint32_t Expanded_MidseasonJoin_HistoricalCupEvents(void) {
@@ -454,6 +454,8 @@ static void finish(int reached,int key) {
         s_active=0;
         _careerTeam.team.teamControls=s_old_controls;
         _shortFire=0;_fire=0;_pl1Fire=0;
+        { extern uint16_t _fireResetFlag;
+          _fireResetFlag=1; } /* One held click cannot start another month. */
         if(reached) {
             extern int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate);
             if(!Expanded_OGWorld_AdvanceToDate(target) ||
@@ -808,8 +810,12 @@ void Expanded_CareerDebugMonthStart(MenuEntry *unused) {
     season=(uint16_t)(live.today.year-(live.today.month<7u?1u:0u));
     if(season!=(uint16_t)(World_FirstYear()+_currentSeasonShowing) ||
        !ExpandedWorld_DateToNativePhaseNext(season,target,&cutoff) ||
-       cutoff>55u || _teamSelectionKeyCacheCount>256u) {
-        fprintf(stderr,"[debug-month-career] BLOCKED native phase mismatch\n");
+       cutoff<48u || cutoff>144u || _teamSelectionKeyCacheCount>256u) {
+        fprintf(stderr,"[debug-month-career] BLOCKED season=%u native-index=%u first=%u target=%04u-%02u-%02u cutoff=%u cache=%u\n",
+                (unsigned)season,(unsigned)_currentSeasonShowing,
+                (unsigned)World_FirstYear(),(unsigned)target.year,
+                (unsigned)target.month,(unsigned)target.day,
+                (unsigned)cutoff,(unsigned)_teamSelectionKeyCacheCount);
         return;
     }
     s_debug_career_target=target;

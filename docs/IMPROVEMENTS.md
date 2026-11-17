@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_22 — F12 fase e debug mese
+- F12: stato in fase OG per data, conteggio GARE originali, ANOM aggregato. Non dichiara verificati singoli risultati. Debug +1 MONTH con club: corretto limite dopo luglio, sospesi autosave intermedi, latch input finale. Nessuna modifica ai giocatori.
+
+
 ## 0.13.70_21 — fix START CAREER / autosave mondo OG
 - Rimosso specificatore orfano da `mjson_printf` in serializer resident OG (17 contro 15 parametri). Nessun cambiamento ai campi salvati. Windows e gameplay da verificare.
 

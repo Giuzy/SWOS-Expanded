@@ -1,5 +1,11 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_22: F12 phase audit e debug mese carriera
+- F12 AVANZAMENTO ora confronta stato residente OG e data corrente, campionati e coppe per regione, GARE native e ANOM aggregato dei campionati. START 1 luglio e' fase 48. Le competizioni non residenti restano conteggiate come mancanti.
+- DEBUG +1 MONTH club: corregge cutoff>55 che impediva i mesi da agosto; callback OG VIEW RESULT / NEXT MATCH, guardia sui save intermedi e input finale. Non dichiara equivalenza per ogni partita prima del test Windows.
+- Possibile softlock della formazione durante fast-forward manager ripetuto: causa non provata, nessun cambio al motore OG o ai calciatori.
+
+
 ## 17/11/2026 — 0.13.70_21: correzione crash primo autosave START CAREER
 - ZIP Windows `DIAGNOSTICA_SESSIONE_1(10).zip` v0.13.70_20: ingaggio ENNA dopo 15 settimane nel mondo 2627, ultimo marker `BEFORE_OG_RESIDENT`, eccezione CRT `0xC0000005` in lettura a 0xEC0.
 - `career_status.c::og_saved_emit_context` chiedeva 17 valori variadici con soli 15 argomenti forniti a `mjson_printf`. Eliminato il solo specificatore `,%Q:%u` eccedente; sette campi numerici e chiave `core_hex` preservati. Nessun dato originale del save, fixture o risultato OG modificato.

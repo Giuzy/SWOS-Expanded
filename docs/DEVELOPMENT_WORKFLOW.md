@@ -1,5 +1,11 @@
 # SWOS Expanded — development procedures and rationale
 
+## 17/11/2026 — checklist Windows 0.13.74, Champions 96/97
+- GitKraken su `dev/0.10`, verificare build `0.13.74`, backup separato dei CAR preesistenti. START 1996/97 disoccupato: VIEW WORLD -> Europa -> Champions, annotare anno/girone/gare; accettare un'offerta di club che NON partecipa e aprire la stessa Champions da VIEW WORLD: deve restare consultabile, senza gara retroattiva. Controllare `[og-champions-view] ROUTE_RESIDENT clubSlot=0` e `RETURN resident=1`.
+- Ripetere da club effettivamente iscritto nel primo anno: aprire anche la Champions dal calendario carriera, controllare B/BACK, stesso girone e risultati; se presente verificare `clubSlot=1`. Dopo avanzamento, SAVE e CONTINUE verificare che le gare OG non diminuiscano o si duplichino. Testare 2026/27 Champions/Europa/Conference per esclusione del routing storico.
+- I log `[og-champions-view] RETURN resident=0`, crash, mancata voce menu o perdita gare sono FAIL/da analizzare, non PASS. Il test C isolato verifica solo il selettore di ramo; Windows/build/incontri reali NON PROVATI.
+
+
 ## 17/11/2026 — test Windows 0.13.72 e recupero file mancanti
 - Prima di compilare usare copie esterne in luogo sicuro di save/AUTO9697.CAR, save/AUTO2627.CAR, save/AUTOSAVE.CAR: NON cancellare ne' sovrascrivere i file reali. Sincronizzare GitKraken, compilare. Aprire 9697 se snapshot valido, fare un passo OG, autosave e riaprire in processo nuovo verificando data, club, partite e F12.
 - Ripetere su 2627 con un CAR valido di backup o con carriera DI PROVA separata, testare START->BACK senza firma: atteso WRITE_BLOCKED, non nuovo CAR incompleto. Sotto diagnostica log READ_ONLY_DISK_OK, no piu' vecchio [json-verify-career] N field(s)/byte(s) mismatch, PREWRITE_REJECTED e' errore e deve preservare il vecchio slot.

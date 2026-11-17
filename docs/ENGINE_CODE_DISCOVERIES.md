@@ -1,5 +1,11 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.74: Champions 1996/97 in VIEW WORLD dopo ingaggio (Windows NON PROVATO)
+- Il percorso disoccupato `Expanded_UnemployedDebugWorld` chiama `Expanded_OGWorld_ViewLeague(_euroCup,0)`: legge `s_expOGUefa[0]` OG residente, senza dipendere dal club. Invece il manager assunto passa da `ViewWorldMenu` a `Career_ViewOrEditCompetitionSlot`, che rimappa l'originale nel `_euroCupCopy` e imponeva simultaneamente `_euroCupSlotIndex==0` e `_quaternaryCompetitionPtr==_euroCupCopy`. Il manager senza uno slot Champions non entrava nel ramo residente, anche se il torneo OG era presente.
+- Per 1996/97 e carriera (`_gameType==4`), riconoscere il record originale/copia con `Expanded_ChampionsResidentViewerRoute` e chiamare sempre il viewer OG canonico con `_euroCup`, indipendentemente dall'iscrizione del manager. Il cambio copre sia VIEW WORLD sia i click calendario che arrivano al dispatcher; nessuna copia, nuovo calendario, simulazione, nuova iscrizione, modifica a slot manager o cambiamento 2026/27.
+- Log: `[og-champions-view] ROUTE_RESIDENT ... clubSlot=0/1`, poi `RETURN resident=0/1`. `0` non e' un PASS e deve essere investigato. Test C isolato `sorgenti/tests/test_expanded_champions_view_route.c` con `cc -std=c11 -Wall -Wextra -Werror -pedantic`: PASS sulle due identita' e sulle esclusioni (altri record, moderno, non-carriera, NULL). **Windows non compilato e viewer reale non collaudato**. Non risolve fixture manager/partecipazione o continuita' delle successive edizioni UEFA.
+
+
 ## 17/11/2026 — 0.13.73: F12 OG per competizione e confronto prima/dopo contratto (Windows NON PROVATO)
 - Il vecchio `COPPE INT` fondeva 3 UEFA con altre 12 definizioni; ora F12 mostra singolarmente Champions/Europa/Conference nel 2627 e Champions/Coppa Coppe/Coppa UEFA nel 9697. Le restanti coppe intercontinentali restano separate e NON sono dichiarate residenti solo perche' definite. La Libertadores OG 1996 compare nel gruppo distinto, non e' una quarta UEFA.
 - Campionati: i 13 campionati statali brasiliani sono contati a parte, senza rendere rosso il rapporto dei soli campionati nazionali del Brasile; la sezione Sud America mostra anche la copertura delle singole divisioni. Restano i rapporti per paese delle leghe e delle coppe nazionali.

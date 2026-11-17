@@ -30,6 +30,7 @@
 #include "expanded_world_live.h"
 #include "world.h"
 #include "expanded_debug.h"
+#include "expanded_champions_view_route.h"
 #include <stdio.h>
 /* Keep the native return type visible before the historic Copa viewer call.
  * competition_data.h cannot be included here: legacy extern arrays differ. */
@@ -3170,19 +3171,28 @@ void Career_ViewOrEditCompetitionSlot(uint8_t *comp, uint16_t sel)
     }
 
 #ifdef SWOS_SDL_BUILD
-    /* From the employed manager's calendar, show the SAME resident OG
-     * 1996/97 Champions that DEBUG WORLD displays. The career slot copy
-     * remains only a pointer needed for the calendar row; clicking it
-     * MUST NOT create/advance an independent tournament or fixture. */
-    if(World_Current()==WORLD_9697 &&
-       (comp==_euroCupCopy || comp==_euroCup) &&
-       _euroCupSlotIndex==0u &&
-       _quaternaryCompetitionPtr==_euroCupCopy) {
-        extern int Expanded_OGWorld_ViewLeague(const uint8_t *,uint16_t);
-        fprintf(stderr,"[og-champions-calendar] VIEW_RESIDENT team=%04x "
-                       "world=9697 slot=3 cup=0\n",(unsigned)_selTeamNumber);
-        (void)Expanded_OGWorld_ViewLeague(_euroCup,0);
-        return;
+    /* The historical Champions must use the SAME resident OG viewer as
+     * unemployed DEBUG WORLD, whether opened from VIEW WORLD with a club
+     * or from the club's own calendar. The old slot-3/participation gate
+     * incorrectly hid it from managers who do not play in the Champions.
+     * This is read-only: no career slot reset or automatic match here. */
+    {
+        extern uint16_t _gameType;
+        if(Expanded_ChampionsResidentViewerRoute(
+               _gameType,World_Current()==WORLD_9697,comp,
+               _euroCup,_euroCupCopy)) {
+            extern int Expanded_OGWorld_ViewLeague(const uint8_t *,uint16_t);
+            const int clubSlot=(unsigned)_euroCupSlotIndex==0u &&
+                                _quaternaryCompetitionPtr==_euroCupCopy;
+            fprintf(stderr,"[og-champions-view] ROUTE_RESIDENT world=9697 "
+                           "team=%04x clubSlot=%u (read-only)\n",
+                    (unsigned)_selTeamNumber,(unsigned)clubSlot);
+            const int viewed=Expanded_OGWorld_ViewLeague(_euroCup,0);
+            fprintf(stderr,"[og-champions-view] RETURN resident=%d "
+                           "world=9697 team=%04x\n",
+                    viewed,(unsigned)_selTeamNumber);
+            return;
+        }
     }
     if(World_Current()==WORLD_9697 && _euroCupSlotIndex==3u) {
         extern Competition *Career_CopaWorkingCopy(void);

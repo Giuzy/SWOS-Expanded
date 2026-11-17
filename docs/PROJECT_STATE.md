@@ -1,5 +1,10 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.74: collega Champions 1996/97 al viewer OG dopo ingaggio (Windows NON PROVATO)
+- Risolto a livello di codice il filtro di consultazione che, dal menu carriera `ViewWorldMenu -> Career_ViewOrEditCompetitionSlot`, richiedeva che il manager partecipasse alla Champions per aprire l'unico stato OG `s_expOGUefa[0]`. Ora il record storico originale `_euroCup` e la sua copia da calendario vanno entrambi al medesimo `Expanded_OGWorld_ViewLeague(_euroCup,0)` gia' usato da DEBUG WORLD disoccupato, senza accettare il filtro sullo slot personale del manager. World 2627, altre coppe, simulazione e save invariati.
+- `expanded_champions_view_route.h` e test C isolato: PASS sulle condizioni di instradamento (identita' originale/copia, esclusione 2627/non-carriera). Compilazione Windows, apertura effettiva da VIEW WORLD e calendario, B/BACK, gara OG e SAVE/CONTINUE **NON PROVATI**. Se il contesto residente manca o il percorso UI fallisce, la diagnostica deve riportare l'errore; non promettere aggiornamento delle singole fixture del manager.
+
+
 ## 17/11/2026 — 0.13.73: F12 OG per competizione e confronto prima/dopo contratto (Windows NON PROVATO)
 - Il vecchio `COPPE INT` fondeva 3 UEFA con altre 12 definizioni; ora F12 mostra singolarmente Champions/Europa/Conference nel 2627 e Champions/Coppa Coppe/Coppa UEFA nel 9697. Le restanti coppe intercontinentali restano separate e NON sono dichiarate residenti solo perche' definite. La Libertadores OG 1996 compare nel gruppo distinto, non e' una quarta UEFA.
 - Campionati: i 13 campionati statali brasiliani sono contati a parte, senza rendere rosso il rapporto dei soli campionati nazionali del Brasile; la sezione Sud America mostra anche la copertura delle singole divisioni. Restano i rapporti per paese delle leghe e delle coppe nazionali.

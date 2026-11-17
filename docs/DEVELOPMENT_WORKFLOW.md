@@ -1,5 +1,11 @@
 # SWOS Expanded — development procedures and rationale
 
+## 17/11/2026 — test Windows 0.13.72 e recupero file mancanti
+- Prima di compilare usare copie esterne in luogo sicuro di save/AUTO9697.CAR, save/AUTO2627.CAR, save/AUTOSAVE.CAR: NON cancellare ne' sovrascrivere i file reali. Sincronizzare GitKraken, compilare. Aprire 9697 se snapshot valido, fare un passo OG, autosave e riaprire in processo nuovo verificando data, club, partite e F12.
+- Ripetere su 2627 con un CAR valido di backup o con carriera DI PROVA separata, testare START->BACK senza firma: atteso WRITE_BLOCKED, non nuovo CAR incompleto. Sotto diagnostica log READ_ONLY_DISK_OK, no piu' vecchio [json-verify-career] N field(s)/byte(s) mismatch, PREWRITE_REJECTED e' errore e deve preservare il vecchio slot.
+- Il AUTO2627.CAR incluso nel ZIP _22 contiene living_world:null e potrebbe essere gia' stato scritto dopo un test fallito: NON attestare ripristino fedele; preservarlo per futura analisi, senza fingere di conoscere la data. I commit precedenti _22/_23 restano nella storia; nuova numerazione di build .71 e .72.
+
+
 ## 17/11/2026 — test Windows 0.13.71
 - Salvare copie separate di AUTO9697.CAR, AUTO2627.CAR e AUTOSAVE.CAR prima di fare prove; non sovrascriverle manualmente. Avviare il 96 con un save valido, controllare CONTINUE. Ripetere 26 con un nuovo save valido. Tentare START e poi BACK senza ingaggio; verificare nel log WRITE_BLOCKED e nessuna sostituzione di AUTO2627.CAR.
 - Con il CAR 2627 dello ZIP, atteso INCOMPLETE_CAR reason=MISSING_CIVIL_CLOCK, NON 'schema aggiornato'; esso non puo' essere dichiarato integro. Nessuna verifica gameplay Windows o ripristino della data storica fatta.

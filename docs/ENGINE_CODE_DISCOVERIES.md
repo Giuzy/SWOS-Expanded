@@ -1,5 +1,11 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.72: verify_roundtrip_fields e stato mutato per errore
+- Il vecchio verificatore eseguiva memcpy dei campi, memset(0) sui target e poi reload(filename) ignorando l'esito. La funzione SaveJson_LoadCareer restituiva 1 se il CAR non aveva il clock; il diff dei campi dava 129/4009 ma non ripristinava gli originali. In un processo vivo significava corruzione RAM da solo test.
+- SDL career esegue ora solo preflight JSON read-only su file scritto; i test di PRESET/DIY e il target legacy non sono modificati. Prima del write atomico si controllano OG residente/checksum + orologio civile nel JSON appena serializzato, impedendo file incompleti. Prova di LOAD/CONTINUE Windows obbligatoria, mai chiamare il controllo read-only PASS di equivalenza campo-per-campo.
+- I dati del file con living_world:null non consentono di ricostruire esattamente il giorno civile da un secondo orologio; non forzare date o risultati.
+
+
 ## 17/11/2026 — 0.13.71: falso mismatch versione vs snapshot OG incompleto
 - Su un caso Windows verificato, save 2627 contiene schema_version=5 e stato og_resident ma living_world:null. SaveJson_CareerCompatible controllava soltanto schema, kind, world e checksums OG: TITLE mostrava COMPATIBLE_ON_DISK anche quando SaveJson_LoadCareer rifiutava OG_CIVIL_DATE_MISMATCH. Il writer poteva serializzare null se ExpandedWorldLive_End era gia' stato eseguito dopo START cancellato e un menu-exit avviava ancora autosave.
 - Guardie: WRITE_BLOCKED prima di modificare i buffer o il disco se non esiste giorno civile coerente col residente; compatibilita' e caricamento condividono preflight civil/OG read-only con conversione IndexedDate OG. Non e' una nuova simulazione: niente data inventata o versione schema modificata.

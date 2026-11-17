@@ -195,10 +195,14 @@ static void verify_roundtrip_region(const char *label,
 
 /* Reload wrappers with the simpler `(filename)` signature so the
  * verify helper can take a uniform function pointer. */
+#ifndef SWOS_SDL_BUILD
+/* Legacy target only; SDL must never run this destructive career verifier.
+ * It zeroes live fields and reloads, with no rollback on a rejected CAR. */
 static int16_t verify_reload_career(uint8_t *f)
 {
     return SaveJson_LoadCareer(f, NULL, 0);
 }
+#endif
 static int16_t verify_reload_preset(uint8_t *f)
 {
     return SaveJson_LoadPreset(f, NULL, 0);
@@ -6753,6 +6757,21 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
         return 1;
     }
 #ifdef SWOS_SDL_BUILD
+    /* Validate the fully encoded .CAR in RAM, before the atomic write or
+     * any archive/backup action. The 0.13.70_22 debug session produced a
+     * schema-5 CAR with living_world:null that later failed to load even
+     * though the OG bytes and checksums were valid. Fail closed; NEVER
+     * replace an existing AUTO* save with a partial .CAR. */
+    {
+        extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
+        if(out.len>INT32_MAX ||
+           !savejson_career_civil_clock_ok(out.ptr,(int)out.len,1) ||
+           !Expanded_OGWorld_ReadSaveJson(out.ptr,(int)out.len,0)) {
+            fprintf(stderr,"[og-world-save] PREWRITE_REJECTED reason=INCOMPLETE_OG_OR_CIVIL_STATE prior-save-preserved=1\n");
+            swos_io_free(out.ptr);
+            return 1;
+        }
+    }
     SAVE_CAREER_TRACE("SERIALIZED_COMPLETE");
     /* Do not archive an older slot unless the replacement is fully encoded. */
     if(!savejson_prepare_career_auto(filename)) {
@@ -6780,21 +6799,24 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
     }
 
 #ifdef SWOS_SAVE_FORMAT_JSON_VERIFY
-    /* Per-FIELD verify over s_career_scalars (see verify_roundtrip_fields): diffs
-     * exactly the bytes the save captured, across every standalone extracted
-     * struct. Replaces the old single-region [&careerFileBuffer, +data_size)
-     * diff — that region is the careerFileBufferBuf overlay, which post-untangle
-     * holds only dead .skip zeros + 2 scalars, so it verified almost nothing.
-     * The seasonInformations comp-name pointer slots that once needed exempting
-     * now live outside this set entirely (career_season_info.c).
-     * Not for the golden career test's season saves (src/career_autopilot.c): the
-     * verify leaves the career RELOADED, and the test records a career nobody saves. */
 #ifdef SWOS_SDL_BUILD
-    { extern int32_t CareerAutopilot_Active(void);
-      if (!CareerAutopilot_Active())
-          verify_roundtrip_fields("career", s_career_scalars,
-                                  verify_reload_career, filename); }
+    /* READ-ONLY disk preflight. Never clear any live career fields while
+     * testing SAVE/CONTINUE: the old verifier memset every field then called
+     * SaveJson_LoadCareer() without checking its result. When LOAD rejected
+     * an incomplete CAR (OG_CIVIL_DATE_MISMATCH) 129 fields / 4009 bytes
+     * remained zeroed. That stale in-RAM state could then be saved again.
+     * This is NOT a per-field roundtrip proof; log its exact limited scope. */
+    {
+        const int ok=SaveJson_CareerCompatible(filename);
+        fprintf(stderr,
+            "[json-verify-career] READ_ONLY_DISK_%s scope=SCHEMA_KIND_WORLD_CIVIL_OG_CHECKSUM no-memset=1 not-field-roundtrip=1\n",
+            ok?"OK":"FAILED");
+        if(!ok)
+            fprintf(stderr,
+                "[og-world-save] DISK_PREFLIGHT_FAILED file-preserved=1 investigate-before-continue\n");
+    }
 #else
+    /* Legacy targets retain their existing standalone field verifier. */
     verify_roundtrip_fields("career", s_career_scalars,
                             verify_reload_career, filename);
 #endif

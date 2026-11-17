@@ -1,5 +1,11 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.72: non distruggere RAM in verifica .CAR (Windows NON PROVATO)
+- Nel ZIP reale _22 il test post-save chiamava verify_roundtrip_fields("career") che azzerava tutti i campi prima di SaveJson_LoadCareer. Su rifiuto OG_CIVIL_DATE_MISMATCH ignorava l'errore e lasciava 129 campi/4009 byte differenti in memoria; questo era il rischio immediato di perdita progressi anche senza cambiare schema.
+- SDL: sostituito il test mutante con controllo read-only del file scritto (schema/kind/world/orologio/OG checksum), senza memset, ricaricamento o cambi RAM. Separatamente aggiunta validazione COMPLETA del JSON serializzato in memoria prima di archiviare/cambiare il salvataggio: se e' incompleto, rifiuta la scrittura e conserva il CAR precedente.
+- Non si dichiara PASS del roundtrip campo-per-campo: esso richiede un test isolato che non modifichi lo stato attivo. Salvataggio 2627 incompleto gia' nel ZIP non sanato; non viene cancellato. Due commit lineari 0.13.71 e 0.13.72, niente riscrittura della cronologia 0.13.70_22/_23. Build Windows nuova NON PROVATA.
+
+
 ## 17/11/2026 — 0.13.71: protegge CAR con orologio mancante (Windows da verificare)
 - ZIP reale DIAGNOSTICA_SESSIONE_3(5).zip, build 0.13.70_22: entrambi AUTO9697 e AUTO2627 usano schema_version 5 e resident OG checksum validi; il CAR 2627 alla fine contiene living_world:null. TITLE dichiarava COMPATIBLE_ON_DISK per questo file, mentre la ricarica rifiutava OG_CIVIL_DATE_MISMATCH. Il log Windows mostra anche 129 campi carriera azzerati dopo verifica roundtrip rifiutata (fix separato 0.13.72).
 - SaveJson_WriteCareer ora rifiuta di scrivere se il mondo residente OG non ha uno stato civile coerente: evita di sovrascrivere il CAR esistente quando START viene annullato/il pilot non e' presente. Loader e CONTINUE usano la stessa preflight read-only della coppia og_resident.year e living_world.now, senza invocare sim o inventare data. La causa non e' il cambio schema, che resta 5.

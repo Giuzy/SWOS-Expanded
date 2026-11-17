@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.72 — Verify SAVE/CAR read-only e prewrite OG
+- Eliminato il verificatore distruttivo del solo CAR SDL che azzerava 129 campi in caso di rifiuto reload; controlli read-only del file post-write e del JSON ancora in RAM prima del salvataggio atomico. Non cambiato schema 5, file validi compatibili, nessuna alterazione OG. Build Windows da provare.
+
+
 ## 0.13.71 — guardia SAVE/CAR e compatibilita' titolo
 - Blocca la scrittura CAR se non esiste un orologio civile residente coerente col mondo OG. TITLE/CONTINUE e loader condividono una validazione senza effetti collaterali per evitare il falso COMPATIBLE_ON_DISK. Non aggiunge/modifica campi, schema JSON sempre 5, save precedenti intatti; verifica su Windows pendente.
 

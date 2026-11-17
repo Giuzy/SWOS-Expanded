@@ -51,6 +51,58 @@ uint16_t TrainingMatch_BSourceCareerSlot(uint16_t bFileIdx)
 /* ---- C-callable ASM bridges ---- */
 extern uint8_t *GetPlayer(uint16_t teamNumber, uint16_t playerIndex);
 
+#ifdef SWOS_SDL_BUILD
+extern uint16_t _currentTeamNumber;
+/* Keep B's existing selection and shirt positions when the user explicitly
+ * exchanges two players with X. Rebuilding B would reorder its 11 starters. */
+uint16_t TrainingMatch_SyncBForCareerSwap(uint16_t aSlot, uint16_t bSlot)
+{
+    if (_careerNumPlayers>32u || _numPlayers>32u) return 0;
+    uint16_t updated=0;
+    for (uint16_t file=0;file<_numPlayers;++file) {
+        const uint16_t slot=s_trainingBSourceSlot[file];
+        if (slot!=aSlot && slot!=bSlot) continue;
+        if (slot>=_careerNumPlayers) return 0;
+        const uint16_t realFile=_currentMatchPlayers[slot];
+        if (realFile>=32u) return 0;
+        PlayerFile *dest=(PlayerFile *)(GetPlayer(_currentTeamNumber,file)+76);
+        const PlayerFile *src=(const PlayerFile *)(GetPlayer(_selTeamNumber,realFile)+76);
+        const int8_t oldShirt=dest->shirtNumber;
+        const uint8_t *from=(const uint8_t *)src;
+        uint8_t *to=(uint8_t *)dest;
+        for (unsigned n=0;n<PLAYERFILE_SIZE;++n) to[n]=from[n];
+        dest->shirtNumber=oldShirt; /* B wears numbers from its own lineup */
+        updated++;
+    }
+    return updated;
+}
+
+/* TRAINING restores the official _lastMatchPlayers snapshot on exit.
+ * An explicit X substitution must survive that restoration. Find both
+ * identities in the saved lineup instead of assuming matching ordinals. */
+uint16_t TrainingMatch_KeepCrossSwapForMatch(uint16_t fileA, uint16_t fileB,
+                                             int swapShirtNumbers)
+{
+    if (fileA>=32u || fileB>=32u || fileA==fileB ||
+        _careerNumPlayers>32u) return 0;
+    int slotA=-1,slotB=-1;
+    for (uint16_t i=0;i<_careerNumPlayers;++i) {
+        if (_lastMatchPlayers[i]==(uint8_t)fileA) slotA=(int)i;
+        if (_lastMatchPlayers[i]==(uint8_t)fileB) slotB=(int)i;
+    }
+    if (slotA<0 || slotB<0 || slotA==slotB) return 0;
+    uint8_t t=_lastMatchPlayers[slotA];
+    _lastMatchPlayers[slotA]=_lastMatchPlayers[slotB];
+    _lastMatchPlayers[slotB]=t;
+    if (swapShirtNumbers) {
+        t=_lastMatchSavedShirtNums[fileA];
+        _lastMatchSavedShirtNums[fileA]=_lastMatchSavedShirtNums[fileB];
+        _lastMatchSavedShirtNums[fileB]=t;
+    }
+    return 1;
+}
+#endif
+
 /* Shirt number offset from GetPlayer result: TEAMFILE_PLAYERS(76) + PLAYERFILE_SHIRTNUMBER(2) */
 #define GETPLAYER_SHIRTNUMBER_OFF  0x4E
 

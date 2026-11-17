@@ -93,6 +93,10 @@ extern uint8_t _currentMenu[];
 extern uintptr_t _currentMenuPtr;
 extern uint8_t _playMatchMenu[];
 extern uint16_t TrainingMatch_BSourceCareerSlot(uint16_t bFileIdx);
+extern uint16_t TrainingMatch_SyncBForCareerSwap(uint16_t aSlot, uint16_t bSlot);
+extern uint16_t TrainingMatch_KeepCrossSwapForMatch(uint16_t fileA,
+                                                    uint16_t fileB, int swapShirtNumbers);
+static int s_trainingCrossSwapRunning; /* suppress the automatic B rebuild for X */
 static uint16_t s_trainingCrossSide; /* 0 none; 1 A; 2 B */
 static uint16_t s_trainingCrossSlot;
 int Expanded_TrainingCrossSwapAvailable(void)
@@ -1127,7 +1131,11 @@ void PlayMatchMenuSwapPlayers(TeamFileEx *team, int16_t d3, int16_t d4) {
         pn[(uint16_t)d3] = t;
     }
 
-    if (_trainingGame && !_is_A_team) {
+    if (_trainingGame && !_is_A_team
+#ifdef SWOS_SDL_BUILD
+        && !s_trainingCrossSwapRunning
+#endif
+    ) {
         uint16_t lim = 11 + _maxSubstitutesEntries;
         if ((d3 < (int16_t)lim && d4 >= (int16_t)lim) ||
             (d3 >= (int16_t)lim && d4 < (int16_t)lim))
@@ -1325,19 +1333,59 @@ void Expanded_TrainingCrossSwapX(void)
                 (unsigned)aSlot);
         return;
     }
+    /* Prove that the two canonical OG player identities actually exchange.
+     * Never report SWAPPED solely because the X callback was dispatched. */
+    if (aSlot>=_careerNumPlayers || bSlot>=_careerNumPlayers ||
+        aSlot>=32u || bSlot>=32u) {
+        fprintf(stderr,"[training-cross] REJECT reason=INVALID_SWAP_SLOTS a=%u b=%u\n",
+                (unsigned)aSlot,(unsigned)bSlot);
+        return;
+    }
+    const uint8_t beforeA=_currentMatchPlayers[aSlot];
+    const uint8_t beforeB=_currentMatchPlayers[bSlot];
+    if (beforeA>=32u || beforeB>=32u || beforeA==beforeB) {
+        fprintf(stderr,"[training-cross] REJECT reason=INVALID_PLAYER_IDS a=%u b=%u\n",
+                (unsigned)beforeA,(unsigned)beforeB);
+        return;
+    }
+    /* Same OG callback as a normal swap, minus its auto-B re-sort. */
+    s_trainingCrossSwapRunning=1;
     PlayMatchMenuSwapPlayers(&_careerTeam,(int16_t)aSlot,(int16_t)bSlot);
+    s_trainingCrossSwapRunning=0;
+    const uint8_t afterA=_currentMatchPlayers[aSlot];
+    const uint8_t afterB=_currentMatchPlayers[bSlot];
+    if (afterA!=beforeB || afterB!=beforeA) {
+        fprintf(stderr,"[training-cross] FAILED_INVARIANT a=%u->%u expected=%u "
+                       "b=%u->%u expected=%u\n",
+                (unsigned)beforeA,(unsigned)afterA,(unsigned)beforeB,
+                (unsigned)beforeB,(unsigned)afterB,(unsigned)beforeA);
+        return;
+    }
+    const unsigned bCopies=TrainingMatch_SyncBForCareerSwap(aSlot,bSlot);
+    const unsigned kept=TrainingMatch_KeepCrossSwapForMatch(
+        beforeA,beforeB,!SquadNumbers_On());
     _careerTeam.team.playerValuesDirty=TEAM_VALUES_DIRTY;
+    _currentTeam.team.playerValuesDirty=TEAM_VALUES_DIRTY;
     SetBenchPlayersNumbers(&_careerTeam);
-    TrainingMatch_BuildCurrentTeamFromCareerTeam();
-    SetBenchPlayersNumbers(&_currentTeam);
     _selectedPlayerPosition=-1;
     _pmSelectedPlayerEntry=0;
-    PlayMatchMenuReinit();
+    /* PlayMatchMenuReinit decrements the Y coordinates of entries 12,29,30
+     * on EVERY call. It must run only at menu setup, never on repeated X. */
+    SavePositionsAndUpdateLittleCheckmark();
+    SetVariableButtons();
+    SetUpTacticsButtons();
+    SetPlayerSurnamesOnSidePitch();
+    ShowOrHidePlayMatchButton();
+    UpdateTeamCheckmark();
     SetCurrentEntry(13);
     DrawMenu();
-    fprintf(stderr,"[training-cross] SWAPPED A-slot=%u B-source-slot=%u "
-                   "roster=OG teamB=REBUILT status=OK\n",
-            (unsigned)aSlot,(unsigned)bSlot);
+    fprintf(stderr,"[training-cross] VERIFIED A-slot=%u file=%u->%u "
+                   "B-source-slot=%u file=%u->%u B-copies=%u "
+                   "official-match=%s B-order=RETAINED status=%s\n",
+            (unsigned)aSlot,(unsigned)beforeA,(unsigned)afterA,
+            (unsigned)bSlot,(unsigned)beforeB,(unsigned)afterB,
+            bCopies,kept?"UPDATED":"NOT_IN_SAVED_LINEUP",
+            bCopies?"OK":"B_COPY_NOT_FOUND");
 }
 #endif
 

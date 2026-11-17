@@ -1,5 +1,13 @@
 # SWOS Expanded — development procedures and rationale
 
+## 0.13.86 — test manuale Windows X e grafica del TRAINING (PENDENTE)
+- Sincronizza `dev/0.10` e compila 0.13.86 su Windows. Conserva backup non distruttivi `AUTO9697.CAR` e `AUTO2627.CAR`, senza cancellare il vecchio save. Carica il Newport County (o un club con almeno 17 giocatori) e apri TRAINING.
+- A->B: evidenzia un titolare A con nome annotato, X (deve aprirsi B), poi X su una RIGA B con nome annotato. Ora il giocatore A deve occupare **la stessa riga B selezionata**; passando ad A, il giocatore B deve essere nella riga A originale. Nel log cerca `[training-cross] VERIFIED`, due file ID scambiati e `B-copies=1` (o 2 se entrambi i posti appartenevano a B).
+- B->A: ripeti partendo dalla B. Premere X molte volte e cambiare schermata: entry 12/29/30, pulsanti e campo non devono traslare, diventare artefatti o scomparire. Controlla anche le selezioni OG ordinarie con A e la navigazione B/BACK, X INFO della VIEW SQUAD normale.
+- Esci da TRAINING senza giocare, verifica in SQUAD/partita successiva che il giocatore promosso sia presente: `official-match=UPDATED` significa che il codice ha aggiornato lo snapshot, NON prova da solo la persistenza nel CAR. Salva, riavvia, CONTINUE e verifica prima/dopo in entrambe le epoche. Invia log e screenshot di eventuali anomalie.
+- Altri `error` compilazione, `FAILED_INVARIANT`, `B_COPY_NOT_FOUND` o `official-match=NOT_IN_SAVED_LINEUP` vanno segnalati separatamente; non segnare automaticamente PASS perche' compare `VERIFIED` sullo swap canonico.
+
+
 ## 0.13.85 — riprova compilazione Windows (PENDENTE)
 - Sincronizzare GitKraken `dev/0.10`, poi compilare con i BAT ufficiali; controllare versione 0.13.85.
 - Leggere `diagnostica/log/COMPILAZIONE_0140.log`. Non deve ricomparire `career_init.c:952:47: error: '_gameType' undeclared`; se emergono altri `error:`, inviare i log e non dichiarare compilazione PASS.

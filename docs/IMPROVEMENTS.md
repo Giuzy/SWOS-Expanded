@@ -1,5 +1,11 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.68 — correzione candidata navigazione DEBUG WORLD / OFFERTA -> VIEW SQUAD (17/11/2026)
+- `sorgenti/src/menu_system.c`: passaggio circolare fra l'inizio e la fine **dell'intera lista** di squadre nel picker readonly Expanded, anziche' per singole colonne; mantenuta la gestione delle colonne per i paesi.
+- Aggiunto wrap dei giocatori ordinal 28..43 nella rosa readonly dell'offerta; impedito il salto alla voce invisibile 0 quando il menu incontra il sentinel -1 nella catena di voci non selezionabili.
+- `sorgenti/include/build_info.h`: versione 0.13.68.
+- La **0.13.67** avvia 1996/97 e cambia mondo senza restart nel test dell'utente, ma quattro leghe OG 1996/97 sono isolate; nessuna correzione dei dati campionati in questa patch. **0.13.68 NON COMPILATA e NON TESTATA su Windows** al momento del commit.
+
 ## Stato attuale — 15/11/2026
 Le prove storiche che assegnano al LWE risultati/calendari autonomi o un unico `AUTOSAVE.CAR` non sono piu' il comportamento previsto. OG e' l'unica autorita' sportiva per entrambi i mondi; i salvataggi Windows Expanded sono `save/AUTO9697.CAR` e `save/AUTO2627.CAR` (legacy `AUTOSAVE.CAR` in sola lettura). La 0.13.45_08 ha FALLITO la compilazione Windows per due campi `minSubstitutes` errati; la 0.13.46 contiene la correzione codice ma richiede nuova prova Windows.
 

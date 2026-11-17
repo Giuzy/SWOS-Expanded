@@ -1770,24 +1770,35 @@ void MenuInputInjectPoint(void)
  * ================================================================ */
 
 #ifdef SWOS_SDL_BUILD
-/* Cycle list boundaries only when the OG select-teams menu is borrowed
- * by the Expanded DEBUG WORLD / OFFER read-only picker. CLASSIC remains
- * untouched. OG ordinals: countries 1..10 (2 columns), competition
- * 11..20, teams 21..86 (three columns of 22), footer 87..89. */
+/* Cycle list boundaries only in the two Expanded read-only flows:
+ * native DEBUG WORLD / OFFER select-teams and OFFER -> VIEW SQUAD.
+ * Both reuse OG menus; never affect CLASSIC or normal editable squads.
+ * Picker ordinals: countries 1..10, competitions 11..20, teams 21..86.
+ * Team cycling covers the WHOLE visible list, not each 22-row column.
+ * The readonly squad's player rows are 28..43 (16 OG players). */
 static MenuEntry *expanded_picker_wrap(Menu *menu,MenuEntry *current,uint16_t dir)
 {
     extern uint8_t _selectTeamsMenu[];
+    extern uint8_t _squadMenu[];
     extern int Expanded_UnemployedWorldPickerActive(void);
     extern int Expanded_OfferPickerActive(void);
-    if(!menu || !current || _currentMenuPtr!=(uintptr_t)_selectTeamsMenu ||
-       !(Expanded_UnemployedWorldPickerActive() || Expanded_OfferPickerActive()) ||
-       (dir!=0u && dir!=4u))return NULL;
+    extern int Expanded_OfferSquadReadOnly(void);
+    if(!menu || !current || (dir!=0u && dir!=4u))return NULL;
+    const int worldPicker =
+        _currentMenuPtr==(uintptr_t)_selectTeamsMenu &&
+        (Expanded_UnemployedWorldPickerActive() || Expanded_OfferPickerActive());
+    const int offerSquad =
+        _currentMenuPtr==(uintptr_t)_squadMenu && Expanded_OfferSquadReadOnly();
+    if(!worldPicker && !offerSquad)return NULL;
     const unsigned id=(unsigned)current->ordinal;
     unsigned lo=0u,hi=0u,parity=0u;
     int twoColumns=0;
-    if(id>=1u && id<=10u){lo=1u;hi=10u;parity=id&1u;twoColumns=1;}
+    if(offerSquad){
+        if(id<28u || id>43u)return NULL;
+        lo=28u;hi=43u;
+    } else if(id>=1u && id<=10u){lo=1u;hi=10u;parity=id&1u;twoColumns=1;}
     else if(id>=11u && id<=20u){lo=11u;hi=20u;}
-    else if(id>=21u && id<=86u){lo=21u+((id-21u)/22u)*22u;hi=lo+21u;}
+    else if(id>=21u && id<=86u){lo=21u;hi=86u;}
     else return NULL;
     MenuEntry *first=NULL,*last=NULL;
     for(unsigned n=lo;n<=hi && n<menu->numEntries;++n){
@@ -2275,6 +2286,11 @@ no_event_or_done:
             return;
 
         for (;;) {
+            /* When a hidden entry has no further link, -1 means stop.
+             * Never cast it to uint8_t (255) and select the invisible #0:
+             * reproduced in Windows diagnostic session 25. */
+            if (navOrd < 0)
+                return;
             MenuEntry *cand = CalcMenuEntryAddress((uint16_t)(uint8_t)navOrd);
 
 #ifdef SWOS_SDL_BUILD

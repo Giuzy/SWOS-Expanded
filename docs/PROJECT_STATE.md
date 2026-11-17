@@ -1,5 +1,8 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## Aggiornamento 17/11/2026 — 0.13.68 candidata (menu)
+La diagnostica Windows della **0.13.67** conferma che START 1996/97 non crasha piu' e che il cambio statico 9697/2627 funziona nella stessa sessione. Quattro leghe 96/97 rimangono escluse per mismatch numero di squadre (country/division 12/0, 13/0, 38/0, 73/0), senza generare incontri; non dichiarare mondo completo. L'utente conferma che DEBUG WORLD e la rosa dell'offerta non navigano correttamente. La 0.13.68 modifica solo la navigazione dei due menu readonly: wrap della lista intera e guardia sul sentinel -1 delle voci invisibili. **Modifica di codice, compilazione/test Windows 0.13.68 NON PROVATI; save e gameplay non modificati.** Vedere `ENGINE_CODE_DISCOVERIES.md` per la riproduzione esatta.
+
 **Edizione originaria:** 9 novembre 2026 · **Sintesi aggiornata:** 15 novembre 2026
 **Repository:** `Giuzy/SWOS-Expanded`  
 **Ramo di riferimento al momento della stesura:** `dev/0.10` (il vecchio `release/0.10.40` resta temporaneamente come backup)  

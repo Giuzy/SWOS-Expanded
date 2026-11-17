@@ -1,0 +1,622 @@
+{
+  "source_zip": "OpenSWOS-World-2627 (1).zip",
+  "sha256": "183f19d356b22bc0656056d5be5c3c9d3820106e2340a59111260e3b28d11ccd",
+  "world_tag": "2627",
+  "source_fingerprint": "570162c876a6f3f9",
+  "countries": 101,
+  "clubs": 2385,
+  "clubs_with_extra_players": 2117,
+  "extra_players": 24183,
+  "max_extra_per_club": 14,
+  "empty_clubs": 268,
+  "duplicates_rejected": 0,
+  "bad_entries": [],
+  "country_files": [
+    {
+      "filename": "ALBANIA.json",
+      "country": 0,
+      "clubs_with_extras": 10,
+      "extras": 113
+    },
+    {
+      "filename": "ALGERIA.json",
+      "country": 42,
+      "clubs_with_extras": 16,
+      "extras": 195
+    },
+    {
+      "filename": "ANDORRA.json",
+      "country": 47,
+      "clubs_with_extras": 10,
+      "extras": 102
+    },
+    {
+      "filename": "ARGENTINA.json",
+      "country": 43,
+      "clubs_with_extras": 66,
+      "extras": 805
+    },
+    {
+      "filename": "ARMENIA.json",
+      "country": 52,
+      "clubs_with_extras": 12,
+      "extras": 127
+    },
+    {
+      "filename": "AUSTRALIA.json",
+      "country": 44,
+      "clubs_with_extras": 54,
+      "extras": 609
+    },
+    {
+      "filename": "AUSTRIA.json",
+      "country": 1,
+      "clubs_with_extras": 12,
+      "extras": 140
+    },
+    {
+      "filename": "AZERBAIJAN.json",
+      "country": 53,
+      "clubs_with_extras": 12,
+      "extras": 111
+    },
+    {
+      "filename": "BELARUS.json",
+      "country": 76,
+      "clubs_with_extras": 16,
+      "extras": 157
+    },
+    {
+      "filename": "BELGIUM.json",
+      "country": 2,
+      "clubs_with_extras": 18,
+      "extras": 226
+    },
+    {
+      "filename": "BOLIVIA.json",
+      "country": 45,
+      "clubs_with_extras": 16,
+      "extras": 216
+    },
+    {
+      "filename": "BOSNIA_HERZ.json",
+      "country": 54,
+      "clubs_with_extras": 10,
+      "extras": 133
+    },
+    {
+      "filename": "BRAZIL.json",
+      "country": 46,
+      "clubs_with_extras": 157,
+      "extras": 1854
+    },
+    {
+      "filename": "BRAZIL_POOL.json",
+      "country": 191,
+      "clubs_with_extras": 0,
+      "extras": 0
+    },
+    {
+      "filename": "BULGARIA.json",
+      "country": 3,
+      "clubs_with_extras": 14,
+      "extras": 141
+    },
+    {
+      "filename": "CANADA.json",
+      "country": 56,
+      "clubs_with_extras": 8,
+      "extras": 90
+    },
+    {
+      "filename": "CHILE.json",
+      "country": 48,
+      "clubs_with_extras": 16,
+      "extras": 173
+    },
+    {
+      "filename": "CHINA.json",
+      "country": 57,
+      "clubs_with_extras": 16,
+      "extras": 211
+    },
+    {
+      "filename": "COLOMBIA.json",
+      "country": 49,
+      "clubs_with_extras": 20,
+      "extras": 201
+    },
+    {
+      "filename": "COSTA_RICA.json",
+      "country": 58,
+      "clubs_with_extras": 10,
+      "extras": 128
+    },
+    {
+      "filename": "CROATIA.json",
+      "country": 4,
+      "clubs_with_extras": 10,
+      "extras": 133
+    },
+    {
+      "filename": "CYPRUS.json",
+      "country": 5,
+      "clubs_with_extras": 14,
+      "extras": 180
+    },
+    {
+      "filename": "CZECH_REPUBLIC.json",
+      "country": 6,
+      "clubs_with_extras": 16,
+      "extras": 215
+    },
+    {
+      "filename": "DENMARK.json",
+      "country": 7,
+      "clubs_with_extras": 12,
+      "extras": 134
+    },
+    {
+      "filename": "ECUADOR.json",
+      "country": 50,
+      "clubs_with_extras": 16,
+      "extras": 197
+    },
+    {
+      "filename": "EGYPT.json",
+      "country": 59,
+      "clubs_with_extras": 20,
+      "extras": 280
+    },
+    {
+      "filename": "EL_SALVADOR.json",
+      "country": 51,
+      "clubs_with_extras": 55,
+      "extras": 409
+    },
+    {
+      "filename": "ENGLAND.json",
+      "country": 8,
+      "clubs_with_extras": 92,
+      "extras": 1003
+    },
+    {
+      "filename": "ESTONIA.json",
+      "country": 10,
+      "clubs_with_extras": 10,
+      "extras": 103
+    },
+    {
+      "filename": "FAROE_ISLANDS.json",
+      "country": 11,
+      "clubs_with_extras": 10,
+      "extras": 126
+    },
+    {
+      "filename": "FINLAND.json",
+      "country": 12,
+      "clubs_with_extras": 12,
+      "extras": 132
+    },
+    {
+      "filename": "FRANCE.json",
+      "country": 13,
+      "clubs_with_extras": 36,
+      "extras": 379
+    },
+    {
+      "filename": "GEORGIA.json",
+      "country": 61,
+      "clubs_with_extras": 10,
+      "extras": 103
+    },
+    {
+      "filename": "GERMANY.json",
+      "country": 14,
+      "clubs_with_extras": 56,
+      "extras": 680
+    },
+    {
+      "filename": "GERMANY_POOL.json",
+      "country": 193,
+      "clubs_with_extras": 0,
+      "extras": 0
+    },
+    {
+      "filename": "GHANA.json",
+      "country": 79,
+      "clubs_with_extras": 18,
+      "extras": 245
+    },
+    {
+      "filename": "GIBRALTAR.json",
+      "country": 63,
+      "clubs_with_extras": 11,
+      "extras": 116
+    },
+    {
+      "filename": "GREECE.json",
+      "country": 15,
+      "clubs_with_extras": 14,
+      "extras": 194
+    },
+    {
+      "filename": "GUATEMALA.json",
+      "country": 68,
+      "clubs_with_extras": 12,
+      "extras": 126
+    },
+    {
+      "filename": "GUESTS_AFC.json",
+      "country": 187,
+      "clubs_with_extras": 0,
+      "extras": 0
+    },
+    {
+      "filename": "GUESTS_CAF.json",
+      "country": 186,
+      "clubs_with_extras": 0,
+      "extras": 0
+    },
+    {
+      "filename": "GUESTS_CONCACAF.json",
+      "country": 189,
+      "clubs_with_extras": 0,
+      "extras": 0
+    },
+    {
+      "filename": "GUESTS_OFC.json",
+      "country": 188,
+      "clubs_with_extras": 0,
+      "extras": 0
+    },
+    {
+      "filename": "HOLLAND.json",
+      "country": 25,
+      "clubs_with_extras": 38,
+      "extras": 445
+    },
+    {
+      "filename": "HOLLAND_POOL.json",
+      "country": 195,
+      "clubs_with_extras": 0,
+      "extras": 0
+    },
+    {
+      "filename": "HONDURAS.json",
+      "country": 70,
+      "clubs_with_extras": 12,
+      "extras": 157
+    },
+    {
+      "filename": "HUNGARY.json",
+      "country": 16,
+      "clubs_with_extras": 12,
+      "extras": 151
+    },
+    {
+      "filename": "ICELAND.json",
+      "country": 17,
+      "clubs_with_extras": 12,
+      "extras": 85
+    },
+    {
+      "filename": "INDIA.json",
+      "country": 75,
+      "clubs_with_extras": 24,
+      "extras": 300
+    },
+    {
+      "filename": "IRAN.json",
+      "country": 74,
+      "clubs_with_extras": 18,
+      "extras": 247
+    },
+    {
+      "filename": "ISRAEL.json",
+      "country": 19,
+      "clubs_with_extras": 14,
+      "extras": 155
+    },
+    {
+      "filename": "ITALY.json",
+      "country": 20,
+      "clubs_with_extras": 256,
+      "extras": 2841
+    },
+    {
+      "filename": "ITALY_POOL.json",
+      "country": 194,
+      "clubs_with_extras": 0,
+      "extras": 0
+    },
+    {
+      "filename": "JAPAN.json",
+      "country": 55,
+      "clubs_with_extras": 40,
+      "extras": 557
+    },
+    {
+      "filename": "KAZAKHSTAN.json",
+      "country": 86,
+      "clubs_with_extras": 16,
+      "extras": 167
+    },
+    {
+      "filename": "KOSOVO.json",
+      "country": 88,
+      "clubs_with_extras": 10,
+      "extras": 118
+    },
+    {
+      "filename": "LATVIA.json",
+      "country": 21,
+      "clubs_with_extras": 10,
+      "extras": 119
+    },
+    {
+      "filename": "LIECHTENSTEIN.json",
+      "country": 90,
+      "clubs_with_extras": 6,
+      "extras": 60
+    },
+    {
+      "filename": "LITHUANIA.json",
+      "country": 22,
+      "clubs_with_extras": 9,
+      "extras": 92
+    },
+    {
+      "filename": "LUXEMBOURG.json",
+      "country": 23,
+      "clubs_with_extras": 16,
+      "extras": 173
+    },
+    {
+      "filename": "MALTA.json",
+      "country": 24,
+      "clubs_with_extras": 12,
+      "extras": 106
+    },
+    {
+      "filename": "MEXICO.json",
+      "country": 60,
+      "clubs_with_extras": 34,
+      "extras": 362
+    },
+    {
+      "filename": "MOLDOVA.json",
+      "country": 92,
+      "clubs_with_extras": 8,
+      "extras": 78
+    },
+    {
+      "filename": "MONTENEGRO.json",
+      "country": 94,
+      "clubs_with_extras": 10,
+      "extras": 92
+    },
+    {
+      "filename": "MOROCCO.json",
+      "country": 91,
+      "clubs_with_extras": 16,
+      "extras": 212
+    },
+    {
+      "filename": "NEW_ZEALAND.json",
+      "country": 62,
+      "clubs_with_extras": 32,
+      "extras": 330
+    },
+    {
+      "filename": "NORTHERN_IRELAND.json",
+      "country": 26,
+      "clubs_with_extras": 12,
+      "extras": 111
+    },
+    {
+      "filename": "NORWAY.json",
+      "country": 27,
+      "clubs_with_extras": 16,
+      "extras": 169
+    },
+    {
+      "filename": "N_MACEDONIA.json",
+      "country": 93,
+      "clubs_with_extras": 10,
+      "extras": 93
+    },
+    {
+      "filename": "PANAMA.json",
+      "country": 95,
+      "clubs_with_extras": 12,
+      "extras": 99
+    },
+    {
+      "filename": "PARAGUAY.json",
+      "country": 64,
+      "clubs_with_extras": 12,
+      "extras": 165
+    },
+    {
+      "filename": "PERU.json",
+      "country": 65,
+      "clubs_with_extras": 18,
+      "extras": 210
+    },
+    {
+      "filename": "POLAND.json",
+      "country": 28,
+      "clubs_with_extras": 18,
+      "extras": 229
+    },
+    {
+      "filename": "PORTUGAL.json",
+      "country": 29,
+      "clubs_with_extras": 36,
+      "extras": 451
+    },
+    {
+      "filename": "PORTUGAL_POOL.json",
+      "country": 196,
+      "clubs_with_extras": 0,
+      "extras": 0
+    },
+    {
+      "filename": "QATAR.json",
+      "country": 96,
+      "clubs_with_extras": 12,
+      "extras": 153
+    },
+    {
+      "filename": "REPUBLIC_IRELAND.json",
+      "country": 18,
+      "clubs_with_extras": 10,
+      "extras": 130
+    },
+    {
+      "filename": "ROMANIA.json",
+      "country": 30,
+      "clubs_with_extras": 16,
+      "extras": 190
+    },
+    {
+      "filename": "RUSSIA.json",
+      "country": 31,
+      "clubs_with_extras": 16,
+      "extras": 179
+    },
+    {
+      "filename": "SAN_MARINO.json",
+      "country": 32,
+      "clubs_with_extras": 16,
+      "extras": 142
+    },
+    {
+      "filename": "SAUDI_ARABIA.json",
+      "country": 89,
+      "clubs_with_extras": 18,
+      "extras": 219
+    },
+    {
+      "filename": "SCOTLAND.json",
+      "country": 33,
+      "clubs_with_extras": 42,
+      "extras": 363
+    },
+    {
+      "filename": "SLOVAKIA.json",
+      "country": 78,
+      "clubs_with_extras": 12,
+      "extras": 139
+    },
+    {
+      "filename": "SLOVENIA.json",
+      "country": 34,
+      "clubs_with_extras": 10,
+      "extras": 117
+    },
+    {
+      "filename": "SOUTH_AFRICA.json",
+      "country": 69,
+      "clubs_with_extras": 16,
+      "extras": 224
+    },
+    {
+      "filename": "SOUTH_KOREA.json",
+      "country": 87,
+      "clubs_with_extras": 12,
+      "extras": 167
+    },
+    {
+      "filename": "SPAIN.json",
+      "country": 35,
+      "clubs_with_extras": 42,
+      "extras": 425
+    },
+    {
+      "filename": "SPAIN_POOL.json",
+      "country": 192,
+      "clubs_with_extras": 0,
+      "extras": 0
+    },
+    {
+      "filename": "SURINAM.json",
+      "country": 66,
+      "clubs_with_extras": 10,
+      "extras": 60
+    },
+    {
+      "filename": "SWEDEN.json",
+      "country": 36,
+      "clubs_with_extras": 16,
+      "extras": 164
+    },
+    {
+      "filename": "SWITZERLAND.json",
+      "country": 37,
+      "clubs_with_extras": 12,
+      "extras": 156
+    },
+    {
+      "filename": "TAIWAN.json",
+      "country": 67,
+      "clubs_with_extras": 13,
+      "extras": 157
+    },
+    {
+      "filename": "TUNISIA.json",
+      "country": 97,
+      "clubs_with_extras": 16,
+      "extras": 224
+    },
+    {
+      "filename": "TURKEY.json",
+      "country": 38,
+      "clubs_with_extras": 38,
+      "extras": 495
+    },
+    {
+      "filename": "UKRAINE.json",
+      "country": 39,
+      "clubs_with_extras": 16,
+      "extras": 175
+    },
+    {
+      "filename": "URUGUAY.json",
+      "country": 71,
+      "clubs_with_extras": 30,
+      "extras": 384
+    },
+    {
+      "filename": "USA.json",
+      "country": 73,
+      "clubs_with_extras": 30,
+      "extras": 373
+    },
+    {
+      "filename": "U_A_E.json",
+      "country": 98,
+      "clubs_with_extras": 14,
+      "extras": 191
+    },
+    {
+      "filename": "VENEZUELA.json",
+      "country": 77,
+      "clubs_with_extras": 14,
+      "extras": 180
+    },
+    {
+      "filename": "WALES.json",
+      "country": 40,
+      "clubs_with_extras": 16,
+      "extras": 126
+    },
+    {
+      "filename": "YUGOSLAVIA.json",
+      "country": 41,
+      "clubs_with_extras": 14,
+      "extras": 189
+    }
+  ]
+}

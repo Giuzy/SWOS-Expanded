@@ -1,5 +1,10 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.70_13: errore confermato da diagnostica Windows _12
+- Fonte: `DIAGNOSTICA_SESSIONE_1(6).zip/DIAGNOSTICA_SESSIONE_1/AVVIO_COMPILAZIONE.log` e `COMPILAZIONE_0140.log`: `src/career_init.c:3179:64: error: implicit declaration of function 'Comp_ById'` e `incompatible implicit declaration`; nota GCC alla riga 1045 per `extern Competition *Comp_ById(uint8_t)` posto in un blocco differente. Questa TU NON include `competition_data.h` intenzionalmente perché contiene extern OG byte-array incompatibili.
+- Portato il prototipo identico a file-scope sotto `#ifdef SWOS_SDL_BUILD`, rimosso l'extern locale. Verifica della sola firma in codice C minimale con `cc -std=gnu11 -Wall -Werror=implicit-function-declaration -fsyntax-only`: PASS. Resta NON PROVATO il build Windows e ogni effetto runtime, anche in caso di superamento della fase di sintassi. Il resto della diagnostica non prova la prima Libertadores residente: `SWOS_LOG_MANCANTE.txt`; 13 test isolati PASS e 0 test gameplay.
+
+
 ## 17/11/2026 — 0.13.70_12: `Comp_ById` chiamata prima del prototipo (fix sintattico)
 - `sorgenti/src/career_status.c::Expanded_OGWorld_AdvanceUefa` usa da _11 `Comp_ById(COMPID_copaLibertadores)` prima del vecchio `extern Competition *Comp_ById(uint8_t)` locale dentro `Expanded_OGWorld_LogNoData`. GCC assume `int Comp_ById()` alla prima chiamata e poi segnala tipi incompatibili. Correzione: prototipo unico file-scope; rimossa la copia locale. Riprodotto il difetto con un file C minimale GCC gnu11; la versione corretta supera `-fsyntax-only -Werror=implicit-function-declaration`.
 - Non è una prova di build SWOS o test MinGW. Nessun risultato, calendario, RNG, motore OG o save modificato. Ulteriori errori Windows non escludibili senza `diagnostica/log/COMPILAZIONE_0140.log`.

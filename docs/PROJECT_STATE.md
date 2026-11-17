@@ -1,5 +1,10 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_13: seconda dichiarazione GCC corretta, Windows NON PROVATO
+- La diagnostica Windows `DIAGNOSTICA_SESSIONE_1(6).zip`, build attesa 0.13.70_12, HEAD locale `7ad2185`, conferma fallimento in `src/career_init.c:3179`: `Comp_ById` invocata nel viewer Libertadores senza un prototipo visibile, nonostante un vecchio `extern` locale alla riga 1045. Il medesimo errore era già stato corretto in `career_status.c` nella _12; mancava questo secondo punto.
+- Correzione mirata nel solo `career_init.c`: `extern Competition *Comp_ById(uint8_t)` sotto `SWOS_SDL_BUILD` a livello di file, eliminata la dichiarazione in blocco. Nessuna modifica a dati storici, fixtures, calendari, regole, manager o salvataggi. Il mini-test C della firma è PASS, **non** una compilazione MinGW del gioco. Nei log Windows della _12 i 13 test isolati riportano PASS ma il launcher non produce l'EXE né un nuovo SWOS.log; Windows della _13 PENDENTE. Passaggio alla 0.13.71 ancora subordinato ai test concordati.
+
+
 ## 17/11/2026 — 0.13.70_12: fix compilazione C, prova Windows pendente
 - Dopo il problema di compilazione segnalato per la _11, portato il prototipo `Competition *Comp_ById(uint8_t)` a livello di file in `career_status.c`. La nuova chiamata anticipava la precedente dichiarazione solo locale, creando in GCC `implicit declaration` seguita da `conflicting types`. Non è possibile includere `competition_data.h` in questa TU a causa degli extern OG byte-array.
 - Riproduzione e correzione del conflitto verificate con un mini-sorgente GCC gnu11 (`-fsyntax-only`); non costituiscono compilazione del progetto. Windows EXE, START, avanzamento OG, 1996/97, 2026/27, SAVE/RESTORE: **NON PROVATI**. Nessuna modifica a dati, regole o fixture della Libertadores; 0.13.71 solo dopo i test concordati.

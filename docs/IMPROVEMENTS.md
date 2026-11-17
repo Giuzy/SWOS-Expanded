@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_13 — seconda correzione della compilazione GCC (career_init.c)
+- Diagnostica Windows _12: `career_init.c:3179` usa `Comp_ById` senza una dichiarazione visibile; la dichiarazione preesistente in un altro blocco non aveva ambito file. Spostato l'extern a livello di file sotto SDL, evitando include incompatibili. Controllo C minimale PASS; compilazione dell'EXE, 2 mondi e gameplay NON PROVATI. Nessuna modifica a date, tornei, dati, save o motore OG.
+
+
 ## 0.13.70_12 — riparazione dichiarazione per GCC
 - Risolto in `career_status.c` l'ordine del prototipo `Comp_ById` necessario al percorso Libertadores 1996 introdotto nella _11: dichiarazione a livello di file prima dell'uso, nessun header OG incompatibile. Controllo C minimale PASS, compilazione completa e Windows **NON PROVATI**. Nessun intervento sul gameplay, sui seed, sulle date o sui salvataggi.
 

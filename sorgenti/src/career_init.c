@@ -31,6 +31,9 @@
 #include "world.h"
 #include "expanded_debug.h"
 #include <stdio.h>
+/* Keep the native return type visible before the historic Copa viewer call.
+ * competition_data.h cannot be included here: legacy extern arrays differ. */
+extern Competition *Comp_ById(uint8_t);
 #endif
 #include "random.h"
 #include "string_utils.h"
@@ -1042,7 +1045,6 @@ static void expanded_og_external_inventory(const char *stage)
                     (unsigned)(comp_id(records[k])==(uint8_t)k),
                     (unsigned)g_uefaCoef.phaseEnded[k]);
         {
-            extern Competition *Comp_ById(uint8_t);
             const int copa=Comp_ById(COMPID_copaLibertadores)!=NULL;
             fprintf(stderr,"[og-external-competition] stage=%s "
                            "category=CONMEBOL_CLUB name=COPA_LIBERTADORES "

@@ -1122,6 +1122,10 @@ void Expanded_OGWorld_LogCheckpoint(const char *stage)
      * This reports unavailable future/extra cups without claiming a PASS. */
     extern void Expanded_OGWorld_LogNoData(const char *,uint16_t);
     Expanded_OGWorld_LogNoData(stage?stage:"UNNAMED",s_expOGWorldYear);
+    /* Cross-process fingerprint: pointer-free native OG bytes, rosters,
+     * standings, fixture scratch and RNG. Only SAVE/RESTORE emit records. */
+    extern void Expanded_OGWorld_LogSaveFingerprints(const char *);
+    Expanded_OGWorld_LogSaveFingerprints(stage?stage:"UNNAMED");
 }
 extern int Expanded_OGWorld_AdvanceCup(uint8_t *,uint8_t,uint8_t,uint16_t,uint8_t);
 extern uint32_t Expanded_OGWorld_CupCount(void);

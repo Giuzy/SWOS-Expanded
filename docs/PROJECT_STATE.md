@@ -1,5 +1,9 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_5, confronto fingerprint SAVE/RESTORE OG tra due processi
+- `career_status.c` produce fingerprint READ ONLY per ogni lega OG, coppa nazionale e UEFA residente su SAVE_AFTER e RESTORE_AFTER: identifica mondo/paese/slot/stagione, hash pointer-free di tabelloni, classifiche, round/fixture scratch, rose giocatori e RNG, senza includere puntatori soggetti ad ASLR. `run_save_continuity_audit.sh` compara soltanto lo stesso slot e mondo in due sessioni AVVIA_DIAGNOSTICA, confronta l'ultimo checkpoint, evidenzia contesti assenti o cambiati come FAIL. Uguale fingerprint non equivale ad affermare completo il CAR: risultato INCOMPLETE, fino ad audit di tutti i campi e assenza di gare duplicate dopo un FORWARD TIME. Test Windows e verifica file CAR NON PROVATI.
+
+
 ## 17/11/2026 — 0.13.70_4, Libertadores 1997: 21 club e ID auditati
 - Fonte originale Mod 1997 (`aminta/swos-9697-mod/tools/sacups.py`): 20 club in 5 gironi + River Plate campione 1996 agli ottavi (totale **21 iscritti**, non 20); `tools/lib97.py` gestisce il bypass. Confrontate 21/21 identità con i JSON storici Expanded: 6 ID incompatibili, conversione registrata in `docs/reference/libertadores_1997_source_id_map.json`. Questo e' un MANIFEST, non una connessione giocabile, senza simulatori, fixture o punteggi nuovi. Windows NON PROVATO.
 

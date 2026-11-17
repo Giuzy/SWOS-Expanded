@@ -1,5 +1,9 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.70_5, prova cross-process OG migliorata
+- `Expanded_OGWorld_LogSaveFingerprints` usa FNV64 sugli stati OG residenti effettivi (regole pointer-free dopo base, team ID, rose, RNG; niente puntatori dei menu) e produce `[og-state-fp]` solo su SAVE_AFTER/RESTORE_AFTER. `run_save_continuity_audit.sh` verifica mondo+file AUTO e ultima coppia di campioni in due sessioni Windows, non solo contatori aggregati, e segnala FAIL se nel RESTORE mancano contesti o differiscono hash; uguali campi = INCOMPLETE, non PASS integrale. Nessuna scrittura sui save, nessuna compilazione Windows in questa sessione.
+
+
 ## 17/11/2026 — 0.13.70_4, sorgente Libertadores 1997 storico
 - Fonte indipendente `aminta/swos-9697-mod/tools/sacups.py`: 21 iscritti, 20 gruppi+1 River Plate detentore 1996 bye ottavi, regola in `tools/lib97.py`. Confronto su 10 cataloghi squadra `data_json/teams/*.json`: 21/21 record esistono; 6 source ordinals divergono da Extended. Manifest dati `docs/reference/libertadores_1997_source_id_map.json` senza effetto gameplay. NON copiare gli ordinali o i 20 seed del torneo 1996 in una nuova edizione 1997 senza la conversione. Non ancora OG resident.
 

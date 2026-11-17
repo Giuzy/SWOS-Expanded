@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_5 — test reale salvataggio e ripristino delle entita' OG
+- Aggiunti log fingerprint per leghe, coppe nazionali e UEFA residenti al SAVE/RESTORE e loro confronto cross-process nello script diagnostico. Distingue errore certo (contesti zero o hash divergente), prova insufficiente e campi osservati uguali, senza falsi PASS o simulazioni. Richiede due sessioni Windows utente dello stesso slot AUTO; l'eseguibile non è stato compilato/testato.
+
+
 ## 0.13.70_4 — manifest Libertadores 1997
 - Verificati 21 iscritti originali (20 gruppi + detentore bye) e 6 ID remappati Mod→DB storico Expanded, manifest conservato per l'adattatore OG. Nessuna simulazione o calendario modificati; test Windows N/A sui dati, implementazione giocabile PENDENTE.
 

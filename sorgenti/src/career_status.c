@@ -51,6 +51,7 @@ extern CompetitionCup _uefaCup;
 #include "string_utils.h"
 #include "job_offers.h"
 #include <string.h>
+#include <stddef.h>
 #ifdef SWOS_SDL_BUILD
 #include "world.h"
 #include "world_cups.h"
@@ -4233,6 +4234,98 @@ void Expanded_OGWorld_LogNoData(const char *stage,uint16_t year)
         "resident-checked=%u no-resident=%u review=%u "
         "scope=DEFINITIONS_VS_OG_RESIDENCY_ONLY\n",
         stage,World_Tag(),(unsigned)year,covered,missing,review);
+}
+
+/* Cross-process save/restore probe. This is deliberately a FIELD fingerprint,
+ * not a proof that the JSON contains the complete world. Hash only pointer-free
+ * native bytes and identity/roster/RNG data; never simulate or mutate. A
+ * missing fingerprint or a changed value after CONTINUE is evidence of a gap. */
+static uint64_t exp_og_fp_bytes(uint64_t h,const void *ptr,size_t size)
+{
+    const uint8_t *p=(const uint8_t *)ptr;
+    for(size_t i=0;i<size;++i){h^=p[i];h*=UINT64_C(1099511628211);}
+    return h;
+}
+static uint64_t exp_og_fp_core(uint64_t h,const DIYCompetitionEx *comp,
+                               const DIYTournamentState *tourn,
+                               const TeamFileEx *teams,uint16_t n)
+{
+    /* Skip namePtr in each DIYCompetition base (ASLR addresses differ
+     * between Windows processes). Every byte following the base in
+     * DIYCompetitionEx and every tournament-team/slot record is pointer-free. */
+    h=exp_og_fp_bytes(h,comp->base.competitionName,sizeof comp->base.competitionName);
+    h=exp_og_fp_bytes(h,&comp->base.competitionType,sizeof comp->base.competitionType);
+    h=exp_og_fp_bytes(h,&comp->base.numTeams,sizeof comp->base.numTeams);
+    h=exp_og_fp_bytes(h,&comp->base.viewRandomPhase,sizeof comp->base.viewRandomPhase);
+    h=exp_og_fp_bytes(h,&comp->base.winnerTeam,sizeof comp->base.winnerTeam);
+    h=exp_og_fp_bytes(h,&comp->minSubstitutes,
+                     sizeof(*comp)-offsetof(DIYCompetitionEx,minSubstitutes));
+    h=exp_og_fp_bytes(h,&tourn->header.competitionType,
+                     sizeof(tourn->header.competitionType));
+    h=exp_og_fp_bytes(h,&tourn->teamIds,
+                     sizeof(*tourn)-offsetof(DIYTournamentState,teamIds));
+    h=exp_og_fp_bytes(h,teams,(size_t)n*sizeof(TeamFileEx));
+    return h;
+}
+void Expanded_OGWorld_LogSaveFingerprints(const char *stage)
+{
+    if(!stage || (strcmp(stage,"SAVE_AFTER") && strcmp(stage,"RESTORE_AFTER")))
+        return;
+    unsigned entries=0u;
+    for(uint32_t i=0;i<s_expOGCount;++i) {
+        const ExpandedOGLeague *c=&s_expOG[i];
+        if(!c->used || !c->teamCount || c->teamCount>EXP_OG_MAX_TEAMS)continue;
+        uint64_t h=UINT64_C(14695981039346656037);
+        h=exp_og_fp_bytes(h,&c->year,sizeof c->year);
+        h=exp_og_fp_bytes(h,&c->country,sizeof c->country);
+        h=exp_og_fp_bytes(h,&c->division,sizeof c->division);
+        h=exp_og_fp_bytes(h,&c->lastPhase,sizeof c->lastPhase);
+        h=exp_og_fp_bytes(h,&c->lastMatch,sizeof c->lastMatch);
+        h=exp_og_fp_bytes(h,&c->seed,3u);
+        h=exp_og_fp_core(h,&c->comp,&c->tournament,c->teams,c->teamCount);
+        fprintf(stderr,"[og-state-fp] stage=%s world=%s kind=LEAGUE "
+             "country=%u slot=%u year=%u teams=%u hash=%016llx\n",
+             stage,World_Tag(),(unsigned)c->country,(unsigned)c->division,
+             (unsigned)c->year,(unsigned)c->teamCount,(unsigned long long)h);
+        ++entries;
+    }
+    for(unsigned k=0;k<3u;++k) {
+        const ExpandedOGLeague *c=&s_expOGUefa[k];
+        if(!c->used || !c->teamCount || c->teamCount>EXP_OG_MAX_TEAMS)continue;
+        uint64_t h=UINT64_C(14695981039346656037);
+        h=exp_og_fp_bytes(h,&c->year,sizeof c->year);
+        h=exp_og_fp_bytes(h,&c->lastPhase,sizeof c->lastPhase);
+        h=exp_og_fp_bytes(h,&c->lastMatch,sizeof c->lastMatch);
+        h=exp_og_fp_bytes(h,&c->seed,3u);
+        h=exp_og_fp_core(h,&c->comp,&c->tournament,c->teams,c->teamCount);
+        fprintf(stderr,"[og-state-fp] stage=%s world=%s kind=UEFA "
+             "country=254 slot=%u year=%u teams=%u hash=%016llx\n",
+             stage,World_Tag(),k,(unsigned)c->year,
+             (unsigned)c->teamCount,(unsigned long long)h);
+        ++entries;
+    }
+    for(uint32_t i=0;i<s_expOGCupCount;++i) {
+        const ExpandedOGCup *c=&s_expOGCups[i];
+        if(!c->used || !c->teamCount || c->teamCount>EXP_OG_MAX_CUP_TEAMS)continue;
+        uint64_t h=UINT64_C(14695981039346656037);
+        h=exp_og_fp_bytes(h,&c->year,sizeof c->year);
+        h=exp_og_fp_bytes(h,&c->country,sizeof c->country);
+        h=exp_og_fp_bytes(h,&c->slot,sizeof c->slot);
+        h=exp_og_fp_bytes(h,&c->compId,sizeof c->compId);
+        h=exp_og_fp_bytes(h,&c->lastPhase,sizeof c->lastPhase);
+        h=exp_og_fp_bytes(h,&c->lastMatch,sizeof c->lastMatch);
+        h=exp_og_fp_bytes(h,&c->seed,3u);
+        h=exp_og_fp_bytes(h,&c->matchesPlayed,sizeof c->matchesPlayed);
+        h=exp_og_fp_core(h,&c->comp,&c->tournament,c->teams,c->teamCount);
+        fprintf(stderr,"[og-state-fp] stage=%s world=%s kind=CUP "
+             "country=%u slot=%u year=%u teams=%u hash=%016llx\n",
+             stage,World_Tag(),(unsigned)c->country,(unsigned)c->slot,
+             (unsigned)c->year,(unsigned)c->teamCount,(unsigned long long)h);
+        ++entries;
+    }
+    fprintf(stderr,"[og-state-fp-summary] stage=%s world=%s entries=%u "
+           "scope=POINTER_FREE_NATIVE_FIELDS_NOT_FULL_SAVE_PROOF\n",
+           stage,World_Tag(),entries);
 }
 
 extern void Career_AutoAdvanceCupMatches(void);

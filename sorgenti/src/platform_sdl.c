@@ -2950,13 +2950,17 @@ static void draw_world_debug_overlay(void)
         diag_f12_ratio(x2,y,regions[r],d.cupAdvanced[r],
                        d.cupExpected[r],d.cupMatches[r],1);
     }
-    diag_f12_ratio(x1,467,"COPPE INT",d.internationalResident,
+    /* Other federated tournaments: a distinct section, not a seventh
+     * geographical region. Keep these denominators competition-based. */
+    diag_f12_line(x1,458,"OTHER",88,207,255);
+    diag_f12_line(x2,458,"OTHER",88,207,255);
+    diag_f12_ratio(x1,477,"COPPE INT",d.internationalResident,
                    d.internationalExpected,0u,0);
-    diag_f12_ratio(x2,467,"COPPE INT",d.internationalAdvanced,
+    diag_f12_ratio(x2,477,"COPPE INT",d.internationalAdvanced,
                    d.internationalExpected,d.internationalMatches,1);
-    diag_f12_ratio(x1,490,"NAZIONALI",d.nationalResident,
+    diag_f12_ratio(x1,500,"NAZIONALI",d.nationalResident,
                    d.nationalExpected,0u,0);
-    diag_f12_ratio(x2,490,"NAZIONALI",d.nationalAdvanced,
+    diag_f12_ratio(x2,500,"NAZIONALI",d.nationalAdvanced,
                    d.nationalExpected,d.nationalMatches,1);
     diag_f12_end("F12_OG_WORLD");
 finish:

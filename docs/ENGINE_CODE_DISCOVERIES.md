@@ -1,5 +1,9 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.70_17: sola presentazione F12
+- `platform_sdl.c::draw_world_debug_overlay`: inserita intestazione OTHER sopra Coppe INT e Nazionali in entrambe le colonne, adattate coordinate y=458/477/500 senza cambiare aggregatore. Il pannello termina a y=528 e i glifi a y=507. UI e screenshot Windows: NON PROVATI.
+
+
 ## 17/11/2026 — F12 OG per regioni e settimana corrente (code 0.13.70_16)
 - Nella UI la settimana in corso viene calcolata con ExpandedWorld_SeasonWeek(start=1 luglio della stagione corrente, date.today) dalla data civile read-only; da non confondere con ExpandedWorldLive_Weeks cumulativo. I log F12 rendono osservabile lo stesso numero dopo FORWARD TIME e SAVE/LOAD, da verificare su Windows.
 - F12 legacy era in platform_sdl.c, con tre pagine di testo e righe obsolete. Ora la proposta concentra le verifiche residenti: paesi con ogni divisione/coppia nazionale in s_expOG/s_expOGCups (anno OG corrente), tornei internazionali s_expOGUefa/s_expOGCups, nazionali senza stato residente globale ancora 0. Il COUNT non deriva da menu PRESET, rose o viewer. Per il mondo Mod sono inclusi come definizioni mancanti i 13 campionati statali del Brasile.

@@ -1,5 +1,9 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_17: OTHER nel F12 (Windows NON PROVATO)
+- La riga OTHER nelle due colonne (CARICATE/AVANZAMENTO) raggruppa COPPE INT e NAZIONALI. Sei regioni e tutti i conteggi OG invariati; nessun nuovo stato o simulazione. Si usa la bitmap 5x7 del debug. Limite: compilazione e visualizzazione Windows da verificare.
+
+
 ## 17/11/2026 — 0.13.70_16: F12 OG unico con SETTIMANA (Windows NON PROVATO)
 - Implementata una sola vista F12 con metriche per EUROPA, AFRICA, SUD AMERICA, NORD AMERICA, ASIA, OCEANIA: copertura campionati/coppe per nazioni, avanzamento con gare osservate, totali Coppe Internazionali e Nazionali. Niente F10 ispettore o F12+C sottomenu, ma Arcade F10 e F9 screenshot preservati. Font bitmap corrente 5x7, nessun nuovo PNG a runtime; mock UI con numeri dimostrativi consegnato per approvazione.
 - La riga DATA/SETTIMANA usa ExpandedWorld_SeasonWeek dal 1 luglio della stagione OG civile corrente: la settimana si ricalcola dopo il cambio stagione e dopo il LOAD, senza usare s_weeks cumulativo. Il comando +1 MESE del calendario carriera e' richiesto per una build successiva: NON implementato qui.

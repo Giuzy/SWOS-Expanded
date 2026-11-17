@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_17 — F12: gruppo OTHER
+- COPPE INT e NAZIONALI sono ora sotto l'intestazione OTHER in caricamento e avanzamento. Nessuna modifica ai contatori, ai file .CAR, al tempo o agli algoritmi OG. Windows NON PROVATO.
+
+
 ## 0.13.70_16 — F12 mondo OG unico con SETTIMANA
 - Codice UI read-only F12 unica, con copertura e avanzamento per 6 regioni, coppe INT e nazionali; elimina le pagine F12+C / F10 ispettore, conserva F9 screenshot e l'originale Arcade F10. Usa 5x7 sprite font interno, stesso renderer e 960x540. Non genera fixture, non converte salvataggi, non altera gameplay.
 - Giorno/mese/anno, settimana stagionale 1-based calcolata dal 1 luglio e anno OG affiancati. Il +1 MESE nel calendario carriera rimane separato e NON implementato in questa build.

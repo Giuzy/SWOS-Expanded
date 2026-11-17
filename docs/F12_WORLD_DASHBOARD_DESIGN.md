@@ -1,5 +1,9 @@
 # F12 — pannello unico mondo OG (codice 0.13.70_16)
 
+## 0.13.70_17 — presentazione OTHER
+- COPPE INT e NAZIONALI sono visualizzate sotto la sezione OTHER, senza cambiare il denominatore per competizione. Coordinate header y=458, righe 477 e 500, due colonne. Non introdotte nuove categorie sportive.
+
+
 ## Perimetro autorizzato
 - Sostituire solo l'overlay SDL F12. Rimuovere le pagine secondarie F12+C e l'ispettore F10 dei dati (F10 originale dell'Arcade intatto); F9 continua a fotografare il frame finale.
 - Una schermata, font bitmap 5x7 già esistente in platform_sdl.c con advance di 7 px, dimensione logica 960x540. Solo lettere Z e _ aggiunte all'alfabeto bitmap. Niente asset nuovi da installare, niente nuovo simulatore, niente alterazioni dei controlli delle partite. Shortcut F12+1..8 preesistenti ancora funzionanti per diagnosi/test, ma non occupano spazio nel pannello.

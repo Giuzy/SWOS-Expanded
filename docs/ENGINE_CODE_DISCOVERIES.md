@@ -1,5 +1,11 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.70_1, OFFERTA -> paese (codice, non test Windows)
+- `menus.c::Expanded_OfferChooseCompetitionMenu` apriva direttamente la lista paese solo in WORLD_2627; in WORLD_9697 passava per la lista mondiale per rendere accessibile EUROPE. Decisione aggiornata: l'OFFERTA apre direttamente la lista delle competizioni del paese del club **in entrambi i mondi**, senza preselezionare la divisione. Le coppe continentali restano nei menu WORLD e nel menu del club qualificato, senza cambiamenti di layout/qualificazione. `ChooseCompetitionMenuForCountry` era gia' OG e read-only; BACK nel picker e protezione B restano invariati.
+- La Libertadores storica e' presente in CAREER in tutte e tre le altre versioni SWOS verificate dall'utente: cercare il loro percorso di carriera/partecipanti, non fermarsi al PRESET. A monte, `world_switch.c::WorldSwitch_PrepareAtLoading` salva la banca 9697 prima dell'installazione dinamica Copa: pista tecnica per la sua assenza in WORLD 9697; non ancora corretta in questo commit.
+- Compilazione Windows, navigazione B e selezione offerte 9697/2627: NON PROVATE per 0.13.70_1.
+
+
 ## 17/11/2026 — 0.13.69, sorgenti OpenSWOS 96/97, UI e selettori OG (solo CODICE)
 - **Dati RNC verificati:** i 4 TEAM.NNN forniti dall'utente da OpenSWOS 1996/97 contengono i record completi: 012 Finlandia 12 squadre serie 0; 013 Francia 20 in serie 0 e 22 in serie 1; 038 Turchia 18 in serie 0 e 6 fuori lega (4); 073 USA 10 in serie 0 e 8 fuori lega (4), inclusi Dallas Burn e San Jose Clash. A differenza dei legacy del progetto, corrispondono esattamente agli intervalli _teamsCountryNumbers: 12, 42, 24, 18. Il byte +1 in TeamFile e' teamOrdinal (ID), mentre +25 e' league. Le fonti 96/97 sono aggiunte sotto data/9697/ e caricate solo da CAREER WORLD_9697: CLASSIC e WORLD_2627 mantengono il proprio percorso.
 - **Diagnostica sessione 26 (Windows 0.13.68):** OFFER mostra sequenze ripetute PAD B -> BACK depth=2 root=1 -> CLOSE COUNTRY LIST -> nuovo OPEN COUNTRY LIST; il picker in se' chiude correttamente. L'input B del picker viene latched fino al rilascio e non puo' diventare FIRE nel parent OFFER. Nessuna modifica ai controlli di partita.

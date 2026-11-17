@@ -1,5 +1,10 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_1 (primo checkpoint a commit per funzione)
+- OFFERTA -> VIEW COMPETITIONS ora chiama lo stesso OG picker direttamente sul paese della squadra offerente per WORLD_9697 e WORLD_2627. Europa/altre internazionali rimangono in WORLD e nel menu del club qualificato: posizione/layout non modificati. BACK e viewer restano originari.
+- Audit 96/26, Libertadores 1997, Champions nel calendario post-ingaggio, save/restore OG e OG NO DATA ancora da completare. Compilazione/test Windows NON ESEGUITI dall'assistente; l'utente sincronizza con GitKraken e prova tramite BAT ufficiali dopo il ciclo concordato.
+
+
 ## 17/11/2026 — prossima versione 0.13.69, test Windows NON ESEGUITI
 - Source update solo WORLD_9697 in CAREER: quattro RNC OpenSWOS originali in data/9697/TEAM.012/.013/.038/.073, campionati OG previsti FI 12 / FR 20+22 / TR 18 / USA 10. I file legacy data/TEAM.NNN e JSON 2026/27 NON sono sovrascritti; old saves NON cancellati. L'eventuale incompatibilita' dei vecchi salvataggi 96 richiede collaudo esplicito.
 - OFFER 9697 apre il picker mondiale OG, rendendo raggiungibile la Champions originale nel ramo EUROPE; OFFER 2627 conserva selezione del paese. Fix B/ESC in picker (latch fino al rilascio fisico), senza alterare il gameplay.

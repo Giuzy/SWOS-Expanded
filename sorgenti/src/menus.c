@@ -4071,14 +4071,11 @@ void Expanded_OfferChooseCompetitionMenu(uint8_t country)
     extern void InputSDL_ClearDebugWorldPickerBack(void);
     InputSDL_ClearDebugWorldPickerBack();
     s_offerWorldPickerActive=1;
-    /* In OG 96/97 the European Champions Cup is attached to EUROPE,
-     * not a country's table: the readonly OFFER selector must be able
-     * to reach that existing continental record. Modern world keeps
-     * its original direct-country path. */
-    if(World_Current()==WORLD_9697)
-        ChooseCompetitionMenu();
-    else
-        ChooseCompetitionMenuForCountry(country);
+    /* The offer identifies a club and country in either world.
+     * Enter that country's OG COMPETITION LIST (never auto-select a league).
+     * Continental competitions retain their existing WORLD / admitted-club
+     * access; OFFER does not change their menu or qualification rules. */
+    ChooseCompetitionMenuForCountry(country);
     s_offerWorldPickerActive=0;
     InputSDL_ClearDebugWorldPickerBack();
 }

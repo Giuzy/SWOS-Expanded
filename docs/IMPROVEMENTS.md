@@ -1,5 +1,10 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_1 — OFFERTA direttamente all'elenco competizioni del paese
+- `menus.c`: riutilizzato `ChooseCompetitionMenuForCountry(country)` anche nel 1996/97. Rimangono invariati menu WORLD e competizioni continentali del club qualificato. Nessun campionato preselezionato, nessuna partita o classifica risimulata.
+- `build_info.h`: versione `0.13.70_1`. Test Windows, focus, BACK e apertura 1996/2026 ancora NON PROVATI.
+
+
 ## 17/11/2026 — 0.13.69, interventi da collaudare
 - Importati separatamente i quattro TEAM originali OpenSWOS 1996/97 per i campionati prima esclusi. I conteggi dei file sorgente corrispondono alle regole OG storiche; l'effettiva integrazione nel gioco e' da verificare su Windows dopo GitKraken.
 - Nel menu solo lettura DEBUG WORLD eliminato il tasto ABORT nativo e i link; nel picker OFFERTA corretto il trattenimento di B, aperto il ramo EUROPE storico per la Champions 96. Pulsanti debug compatti aggiunti a TITLE e NEW CAREER senza generare nuovi PNG.

@@ -1,6 +1,0 @@
-TEST=run_test11_offer.sh scope=HISTORICAL action=EXCLUDED reason=OLD_ISOLATED_OFFER_HARNESS_NOT_NATIVE_RESIDENT
-TEST=run_test_calendar_integrity_30.sh scope=HISTORICAL action=EXCLUDED reason=OBSOLETE_LWE_SIMULATION
-TEST=run_test_career_init_lifecycle.sh scope=HISTORICAL action=EXCLUDED reason=OBSOLETE_OG_LWE_WIRING_ASSUMPTION
-TEST=run_test_database_inventory scope=OG_CURRENT action=RUN log=/c/Users/xgiuz/Downloads/Repo SWOS expanded/SWOS-Expanded/RISULTATI_DIAGNOSTICI/DIAGNOSTICA_SESSIONE_4/TEST_ESEGUITI/run_test_database_inventory.log
-TEST=run_test_engine_suite.sh scope=HISTORICAL action=EXCLUDED reason=DUPLICATE_AGGREGATE
-TEST=run_test_expanded_debug_only scope=OG_CURRENT action=RUN log=/c/Users/xgiuz/Downloads/Repo SWOS expanded/SWOS-Expanded/RISULTATI_DIAGNOSTICI/DIAGNOSTICA_SESSIONE_4/TEST_ESEGUITI/run_test_expanded_debug_only.log

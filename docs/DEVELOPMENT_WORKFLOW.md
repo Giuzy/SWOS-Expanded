@@ -1,5 +1,13 @@
 # SWOS Expanded — development procedures and rationale
 
+## 0.13.82 — prova Windows correzione autosave con EXTRA (PENDENTE)
+- Sincronizzare GitKraken su `dev/0.10`; eseguire backup dei CAR in cartella esterna, **non eliminare** quelli preesistenti. Compilare su Windows con lo strumento gia' in uso.
+- Nuova carriera 2026/27 di prova con Gela, oppure club con 11 EXTRA: VIEW SQUAD deve indicare 27 giocatori. Firmare, avanzare, uscire al TITLE. Nel log controllare `[autosave-stage] ... SERIALIZED_COMPLETE`, `READY_FOR_ATOMIC_SAVE`, `[autosave-title] status=COMPATIBLE_ON_DISK`; assenza di `MISSING_CIVIL_CLOCK` e `PREWRITE_REJECTED`. Verificare dimensione/data del CAR e checkpoint **prima** di considerare valido il test.
+- Chiudere il processo, riavviare e CONTINUE 2026/27: confrontare data esatta, rosa 27 e nomi EXTRA, campionati/coppe residenti, risultati e stato manager; fare un altro save e reload. Provare vendita di un EXTRA + cambio club e controllare che non ricompaia alla squadra originaria. Questi test non sono coperti dall'analisi statica.
+- Ripetere una carriera 1996/97 di prova con save separato e senza accesso agli EXTRA moderni. Confermare che AUTO9697.CAR e il vecchio AUTOSAVE.CAR non subiscano modifiche impreviste.
+- Il 26/27 ha ancora 26 competizioni segnate NON RESIDENTI; coppe continentali e 5 conflitti vincitori 1996/97 rimangono aperti e non devono risultare PASS solo grazie al salvataggio corretto.
+
+
 ## 0.13.81 — test rose reali 2026/27 (Windows utente, NON PROVATO)
 - Backup non distruttivo di `save/AUTO2627.CAR` e `save/AUTO9697.CAR` in una cartella fuori dal gioco.
 - Estrarre il pacchetto additivo con `diagnostica/INSTALLA_ROSE_2627.bat` e aprire una nuova carriera 2026/27 con un club del pacchetto. VIEW SQUAD deve vedere i nomi del 17º..30º e devono sparire le 10 riserve inventate quando sono presenti extra reali. Non dichiarare 30 per ogni club: alcuni ne hanno meno.

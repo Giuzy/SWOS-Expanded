@@ -1,5 +1,14 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 17/11/2026 — 0.13.82: fix serializzazione CAR con rose EXTRA 2026/27 (Windows DA TESTARE)
+- Due diagnostiche Windows della 0.13.81 hanno osservato Gela 11 EXTRA/27 giocatori, ma `first-contract` e `menu-exit` 2026/27 rifiutati con `INCOMPLETE_CAR reason=MISSING_CIVIL_CLOCK`, proteggendo AUTO2627.CAR precedente.
+- Causa identificata NEL CODICE 0.13.81: la stringa di formato appena introdotta per `squad_extras` usava due backslash nel sorgente C (`\\\\n`), producendo nel JSON i caratteri letterali backslash+n tra campi invece del separatore newline valido; `mjson_find("$.living_world")` non poteva parsare il JSON malformato. Sostituita con la sequenza C `\\n` che emette un vero newline. Restano attivi i preflight e il salvataggio atomico, senza toccare i CAR esistenti.
+- Tolto il warning `-Wcomment` dal percorso di esempio `squad_extras/<COUNTRY>.json` nell'header (non tocca logica). Versione codice 0.13.82.
+- Verifica isolata di serializzazione del frammento sorgente: JSON precedente RIFIUTATO dal parser, frammento corretto ACCETTATO. Non e' una prova di scrittura/CONTINUE Windows, CAR roundtrip, mercato ne' cambi stagione.
+- Lo `clock-audit ALIGN_PRE phase=0 OG=Jan-01` di luglio deriva da `native_cutoff_at`: prima del primo agosto la fase OG locale e' un SENTINEL 0, NON una seconda data residente; `ALIGN_APPLIED` deve comunque essere verificato con gameplay e fixture. Non cambiare i calendari per azzerare il delta diagnostico.
+- Non corretti e ancora DA INVESTIGARE: 26 competizioni senza residenza OG 2026/27, regola detentore Libertadores 1996, 5 `cup-conflict WINNER`, tracciamento delle eliminatorie e 1996/97/2026/27 roundtrip/stagioni. Non introdurre gare/risultati o qualificazioni inventati.
+
+
 ## 17/11/2026 — 0.13.81 CANDIDATA: rose reali 26/27, integrazione parziale (Windows NON PROVATO)
 - La Mod 4.1.2/OpenSWOS forniscono fino a 14 extra reali oltre ai 16 del file TEAM: `DataJson_LoadTeamExtras` legge SOLO il 2026/27 e valida UUID+checksum dei 16 base, usando gli overlay additivi `data_json/worlds/2627/squad_extras/*.json`. Il 1996/97 rimane OG.
 - `squad_extras.c` (port da OpenSWOS/MIT, attribuzione Davide Lorigliola) carica gli extra della squadra allenata, sopprime i 10 inventati dove ci sono extra reali, li paga come riserve al 66%, include i posti 17..30 nel mercato nazionale e registra le partenze per non ricreare calciatori già ceduti. Storia delle partenze nel CAR tramite oggetto opzionale `squad_extras`; vecchi salvataggi senza il campo sono letti come storia vuota senza migrazioni distruttive.

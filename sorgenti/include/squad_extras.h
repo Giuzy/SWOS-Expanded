@@ -4,7 +4,7 @@
  * xleft.py (4.0.6) -- Davide Lorigliola's, MIT.
  *
  * Expanded stores the real players 17..30 in separate, UUID/checksum-validated
- * data_json/worlds/2627/squad_extras/*.json overlays. The loader merges only
+ * data_json/worlds/2627/squad_extras/<COUNTRY>.json overlays. The loader merges only
  * player data; it never replaces TEAM or the world's competitions. With them:
  *   - the club you take over (a new career, a new job) starts with them in its places 17.. --
  *     the club's real players -- instead of the game's 10 invented reserves and trial players

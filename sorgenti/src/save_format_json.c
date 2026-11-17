@@ -6816,7 +6816,7 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
     /* Persist every departed 2026/27 extra player. Never infer ownership from a
      * fresh team JSON at job change: it would resurrect a sold player. */
     if (World_Current() == WORLD_2627) {
-        mjson_printf(json_out_emit, &out, ",\\n  %Q:{%Q:%u,%Q:[",
+        mjson_printf(json_out_emit, &out, ",\n  %Q:{%Q:%u,%Q:[",
                      "squad_extras", "ring", (unsigned)g_sqx.ring, "left");
         for (uint32_t i = 0; i < g_sqx.n; ++i) {
             const SqxLeft *e = &g_sqx.left[i];

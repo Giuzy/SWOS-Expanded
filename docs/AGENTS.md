@@ -1,10 +1,17 @@
 # SWOS Expanded — AGENTS.md
 
+## Regola vincolante aggiornata — 17 novembre 2026: commit per intervento significativo
+- La regola precedente «un solo commit per build» e' sostituita: **un commit separato per ciascuna modifica significativa e coerente**, in ordine di priorita' concordato. Non raggruppare fix indipendenti in un commit omnibus; non creare commit inutili per singole righe dello stesso intervento.
+- L'autorizzazione corrente dell'utente «prendi la lista priorita' e builda da li» include la registrazione dei commit pertinenti alle priorita' approvate. Per nuove attivita' fuori elenco o nuove scelte di gameplay rimane necessaria l'approvazione.
+- Ogni commit deve avere scopo, diff e verifica statica/isolata distinti; la build **Windows** e i test gameplay sono sempre eseguiti e attestati dall'utente dopo GitKraken. Non dichiarare PASS senza prova.
+- Conservare la storia con commit lineari su `dev/0.10`, senza toccare main, release o backup. Verificare l'HEAD prima di ogni pubblicazione e non perdere modifiche altrui. Non cancellare save o asset runtime.
+- Mantenere la numerazione della build secondo la politica esistente; annotare le scoperte nelle guide al commit pertinente.
+
 ## Regole correnti — 15 novembre 2026 (prevalgono sullo storico)
 - Nei mondi 1996/97 e 2026/27 **solo OpenSWOS OG** e' autorita' per carriera, data, calendario, partite, risultati, classifiche, coppe, replay, spareggi e trofei. LWE puo' aggiungere esclusivamente dati/eventi non gestiti da OG. Le vecchie sezioni su simulazione di fixture/risultati LWE sono [STORICO/SUPERATO].
 - A NEW CAREER -> START gli stati OG delle leghe residenti si inizializzano e raggiungono il 1 luglio prima di mostrare i menu; FORWARD TIME avanza gli eventi originali una sola volta. L'ingaggio/esonero collega/scollega il manager senza rifare la stagione. **Coppe residenti, storico fixture, salvataggio dell'intero mondo e test pluriennali sono tuttora PENDENTI.**
 - Windows Expanded portatile: `save/AUTO9697.CAR` e `save/AUTO2627.CAR` accanto a `SWOS_Expanded.exe`; `SWOS.ini` e `SWOS.log` accanto all'EXE. Il precedente `save/AUTOSAVE.CAR` e' SOLO lettura legacy; non cancellarlo o sovrascriverlo automaticamente. Le istruzioni Windows in `Documents\\SWOS` valgono per OpenSWOS upstream, non per Expanded.
-- L'utente compila e testa su Windows/MSYS2 dopo GitKraken. Non dichiarare compilato/testato un gioco solo perche' e' stata pubblicata una patch. Un solo commit dopo "committa". Per il codice successivo a 0.13.45_08 la versione si aggiorna a **0.13.46** secondo il versionamento a incrementi numerici di AGENTS.md.
+- L'utente compila e testa su Windows/MSYS2 dopo GitKraken. Non dichiarare compilato/testato un gioco solo perche' e' stata pubblicata una patch. Commit separati per intervento significativo approvato; vedi regola 17/11/2026. Per il codice successivo a 0.13.45_08 la versione si aggiorna a **0.13.46** secondo il versionamento a incrementi numerici di AGENTS.md.
 
 
 ## 0. Regole fondamentali ad alta priorità — workflow Codex (2026-11-09)

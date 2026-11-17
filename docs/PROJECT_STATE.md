@@ -1,5 +1,10 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_10, Champions storica nel calendario del manager (non collaudata)
+- Per il 1996/97 la verifica del club nella Champions passa ora dall'identita' di partecipazione residente OG (16 squadre, type-2) e non da offset legacy `cupCopy[1]/[0x0F]`. Da slot-3 del calendario la consultazione apre il torneo residente read-only, con sorgente OG unica per il viewer; Cup Winners' Cup e UEFA Cup non cambiano selettore. Il tipo per aprire il viewer e' letto come int16 nativo.
+- Resta esplicito il limite: giochi/risultati della competizione nel slot manager e la loro propagazione allo stato residente NON PROVATI; questa correzione riguarda enrolment e visualizzazione, non tutta la persistenza o la fixture-history. Test Windows: ingaggio con club partecipante a Champions 96/97, presenza voce in calendario, clic, BACK, confronto fingerprint prima/dopo, FORWARD e match. NON PROVATO.
+
+
 ## 17/11/2026 — 0.13.70_9, pulizia root (Windows NON PROVATO)
 - Unici BAT di avvio root: AVVIA_DIAGNOSTICA.bat e AVVIA_SWOS.bat. COMPILA_SWOS.bat e PREPARA_SWOS.bat sono in diagnostica/; tutti i riferimenti di avvio e compilazione sono aggiornati. BUILD_SWOS.sh scrive fuori dalle sessioni in diagnostica/log/COMPILAZIONE_0140.log; main.c su Windows redirige stderr in diagnostica/log/SWOS.log anche con avvio diretto. La diagnostica cattura solo il log della sessione corrente, archivia quelli precedenti e lascia tutti i .CAR invariati. Marcatori .SWOS_*_COMPILATO e backup SWOS.ini sono spostati in diagnostica/ (i preesistenti sono migrati dal launcher soltanto senza collisioni). La copia ASSETS.ini root viene eliminata dal repo: quella effettivamente letta e' assets/ASSETS.ini.
 - SDL2.dll e SWOS.ini rimangono accanto all'EXE: il loader Windows e la funzione swos_ini_path() li richiedono ancora nella posizione originale; nessun cambiamento ai salvataggi in save/. I file locali non tracciati non possono essere spostati dalla sola operazione Git: la migrazione avviene alla successiva esecuzione del launcher, quando non esiste un file di destinazione omonimo. Verifiche Windows e compilazione PENDENTI.

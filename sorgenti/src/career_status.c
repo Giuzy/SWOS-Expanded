@@ -3646,6 +3646,25 @@ int Expanded_OGWorld_CupContainsTeam(uint8_t country,uint8_t slot,
     return -1;
 }
 
+/* The first historical Champions is already resident at START. Use the
+ * exact native OG entrants (not a second copy's obsolete byte offsets)
+ * to decide whether the employed manager has a slot-3 calendar entry.
+ * -1: not resident, 0: not participating, 1: native participant. */
+int Expanded_OGWorld_HistoricChampionsContainsTeam(uint16_t club)
+{
+    if(World_Current()!=WORLD_9697)return -1;
+    const ExpandedOGLeague *ctx=&s_expOGUefa[0];
+    if(!ctx->used || ctx->year!=s_expOGUefaCalendarYear ||
+       ctx->teamCount!=16u || ctx->tournament.header.competitionType!=2)
+        return -1;
+    for(unsigned i=0;i<ctx->teamCount;++i) {
+        const TeamFile *t=&ctx->teams[i].team;
+        if(PACK_BE_U16(t->countryNumber,t->teamOrdinal)==club)
+            return 1;
+    }
+    return 0;
+}
+
 /* Only native, actually selected cup entrants are reported. Never synthesize
  * a missing participant to make the count match the definition. */
 void Expanded_OGWorld_CupSetupAudit(uint8_t country,uint8_t slot,

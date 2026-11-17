@@ -1644,7 +1644,7 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
                                 ++leagueRuns;
                             }
                         } else {
-                            fprintf(stderr,"[og-unemployed] unsupported divisions country=%u count=%u\\n",
+                            fprintf(stderr,"[og-unemployed] unsupported divisions country=%u count=%u\n",
                                     (unsigned)countries[i],divisions);
                         }
                     }
@@ -1662,7 +1662,7 @@ void Career_AdvanceUnemployedOGCups(uint32_t elapsedWeeks)
         }
         if(cupRuns)WorldCups_SeasonEnded();
         fprintf(stderr,"[og-unemployed] season=%lu native-league-divisions=%u native-cups=%u; "
-                       "LWE result generator DISABLED\\n",
+                       "LWE result generator DISABLED\n",
                 (unsigned long)(s_unemployedOgCupSeasons+1u),leagueRuns,cupRuns);
         const uint32_t afterMatches=ExpandedWorldLive_CupResidentMatches();
         const uint32_t afterTitles=ExpandedWorldLive_CupResidentTitles();
@@ -1928,6 +1928,28 @@ void ContinueCareerNextSeason(void)
  * ================================================================ */
 static int Career_TeamInEuroCup(uint8_t *cupCopy)
 {
+#ifdef SWOS_SDL_BUILD
+    /* Historical Champions is an OG type-2 group tournament. The old
+     * byte-offset probe below is inherited from big-endian Amiga and is
+     * wrong for this merged x64 CompetitionTournament: cupCopy[1] is the
+     * type, but [0x0F] is the number of GROUPS, not the entrant count.
+     * More importantly, the resident tournament, not an old static seed,
+     * owns the current season's participating club identities. */
+    if(World_Current()==WORLD_9697 && cupCopy==_euroCupCopy) {
+        extern int Expanded_OGWorld_HistoricChampionsContainsTeam(uint16_t);
+        const CompetitionTournament *native=(const CompetitionTournament *)cupCopy;
+        if(native->header.comp.type!=2 || native->header.rounds[0].teamCount!=16) {
+            fprintf(stderr,"[og-champions-calendar] REJECT native-type=%d expected-entrants=16\n",
+                    (int)native->header.comp.type);
+            return 0;
+        }
+        const int present=Expanded_OGWorld_HistoricChampionsContainsTeam(_selTeamNumber);
+        fprintf(stderr,"[og-champions-calendar] ENROL_CHECK team=%04x resident=%d "
+                       "first-round-entrants=%d\n",(unsigned)_selTeamNumber,present,
+                (int)native->header.rounds[0].teamCount);
+        return present==1;
+    }
+#endif
     /* team list = cupCopy + 7 + cupCopy[7], with the 64-bit text[2] widening
      * compensation (the static competition's unk1[] is packed BE (country,
      * ordinal) byte pairs; read via BE_READ_U16 to match selTeamNumber, which
@@ -3117,6 +3139,23 @@ void Career_ViewOrEditCompetitionSlot(uint8_t *comp, uint16_t sel)
         }
     }
 
+#ifdef SWOS_SDL_BUILD
+    /* From the employed manager's calendar, show the SAME resident OG
+     * 1996/97 Champions that DEBUG WORLD displays. The career slot copy
+     * remains only a pointer needed for the calendar row; clicking it
+     * MUST NOT create/advance an independent tournament or fixture. */
+    if(World_Current()==WORLD_9697 &&
+       (comp==_euroCupCopy || comp==_euroCup) &&
+       _euroCupSlotIndex==0u &&
+       _quaternaryCompetitionPtr==_euroCupCopy) {
+        extern int Expanded_OGWorld_ViewLeague(const uint8_t *,uint16_t);
+        fprintf(stderr,"[og-champions-calendar] VIEW_RESIDENT team=%04x "
+                       "world=9697 slot=3 cup=0\n",(unsigned)_selTeamNumber);
+        (void)Expanded_OGWorld_ViewLeague(_euroCup,0);
+        return;
+    }
+#endif
+
     /* Step 2: Special replacements for europeanChampionships and worldCup.
      * compId 22/4 appear only on these templates (the "2" copies are 21/3),
      * so by-id is exactly equivalent to the old template-address compare. */
@@ -3160,7 +3199,11 @@ void Career_ViewOrEditCompetitionSlot(uint8_t *comp, uint16_t sel)
 found_slot:
     Career_LoadCompetitionSlotStateFromBuffer(slotCtx);
     {
-        uint8_t compType = slotCtx[1];
+        /* In the native DIYCompetition header competitionType is a host
+         * endian int16_t, not an Amiga big-endian byte at offset +1.
+         * On Windows [1] reads zero for both cups and tournaments.
+         * The historic Champions must open the TYPE-2 OG viewer. */
+        const uint8_t compType=(uint8_t)((DIYCompetition *)slotCtx)->competitionType;
         if (compType == 1) {
             ShowDIYCupMenuWithParams(1, 1, 0);
         } else if (compType == 2) {

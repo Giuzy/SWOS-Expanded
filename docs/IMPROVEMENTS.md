@@ -1,5 +1,10 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_10 — Champions 1996/97, calendario dopo ingaggio
+- Corretto l'enrolment della Champions tipo-2 nel mondo storico: lettura della partecipazione dai 16 club UEFA OG residenti invece di offset Amiga obsoleti. Il click sul calendario personale apre il viewer UEFA residente senza simulazioni da parte del menu. Il dispatcher del viewer ora legge il campo int16 competitionType, non il byte big-endian +1. Le altre due coppe europee mantengono le routine esistenti.
+- Audit statico fonte codice effettuato. Build Windows, prova club partecipante, menu BACK, risultati post-manager e ripristino CAR: NON PROVATI. I calendari di gara OG e sincronizzazione locale-residente non sono completati da questo intervento.
+
+
 ## 17/11/2026 — 0.13.70_9, pulizia root (Windows NON PROVATO)
 - Unici BAT di avvio root: AVVIA_DIAGNOSTICA.bat e AVVIA_SWOS.bat. COMPILA_SWOS.bat e PREPARA_SWOS.bat sono in diagnostica/; tutti i riferimenti di avvio e compilazione sono aggiornati. BUILD_SWOS.sh scrive fuori dalle sessioni in diagnostica/log/COMPILAZIONE_0140.log; main.c su Windows redirige stderr in diagnostica/log/SWOS.log anche con avvio diretto. La diagnostica cattura solo il log della sessione corrente, archivia quelli precedenti e lascia tutti i .CAR invariati. Marcatori .SWOS_*_COMPILATO e backup SWOS.ini sono spostati in diagnostica/ (i preesistenti sono migrati dal launcher soltanto senza collisioni). La copia ASSETS.ini root viene eliminata dal repo: quella effettivamente letta e' assets/ASSETS.ini.
 - SDL2.dll e SWOS.ini rimangono accanto all'EXE: il loader Windows e la funzione swos_ini_path() li richiedono ancora nella posizione originale; nessun cambiamento ai salvataggi in save/. I file locali non tracciati non possono essere spostati dalla sola operazione Git: la migrazione avviene alla successiva esecuzione del launcher, quando non esiste un file di destinazione omonimo. Verifiche Windows e compilazione PENDENTI.

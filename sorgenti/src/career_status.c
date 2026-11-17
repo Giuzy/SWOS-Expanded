@@ -43,6 +43,10 @@
  * are declared as byte arrays. The three European records actually used
  * by our native resident path have individually typed declarations. */
 #include "game_types.h"
+/* competition_data.h conflicts with legacy byte-array externs in this file.
+ * The historic Copa resident path calls Comp_ById before LogNoData; make its
+ * pointer-returning prototype visible here instead of only inside LogNoData. */
+extern Competition *Comp_ById(uint8_t);
 extern CompetitionTournament _euroCup;
 extern CompetitionCup _cupWinnersCup;
 extern CompetitionCup _uefaCup;
@@ -4179,7 +4183,6 @@ void Expanded_OGWorld_LogNoData(const char *stage,uint16_t year)
 {
     extern uint8_t _careerCompetitionIdRemapTable[];
     extern void *_competitionsTable[];
-    extern Competition *Comp_ById(uint8_t);
     const uint8_t *countries=World_SeasonCountries();
     if(!countries)countries=_careerCompetitionIdRemapTable;
     unsigned missing=0u,review=0u,covered=0u;

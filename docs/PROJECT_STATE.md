@@ -1,5 +1,10 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_12: fix compilazione C, prova Windows pendente
+- Dopo il problema di compilazione segnalato per la _11, portato il prototipo `Competition *Comp_ById(uint8_t)` a livello di file in `career_status.c`. La nuova chiamata anticipava la precedente dichiarazione solo locale, creando in GCC `implicit declaration` seguita da `conflicting types`. Non è possibile includere `competition_data.h` in questa TU a causa degli extern OG byte-array.
+- Riproduzione e correzione del conflitto verificate con un mini-sorgente GCC gnu11 (`-fsyntax-only`); non costituiscono compilazione del progetto. Windows EXE, START, avanzamento OG, 1996/97, 2026/27, SAVE/RESTORE: **NON PROVATI**. Nessuna modifica a dati, regole o fixture della Libertadores; 0.13.71 solo dopo i test concordati.
+
+
 ## 17/11/2026 — 0.13.70_11: Libertadores OpenSWOS 1996 — OG residente, test pendenti
 - Attivato nel banco 9697 il record autentico della prima edizione OpenSWOS: 20 squadre, cinque gironi da quattro, 16 agli ottavi, **nessuna detentrice esterna aggiunta**. La Mod 1997 e' diversa (21 con River Plate ammesso agli ottavi) e NON è stata importata. Non cambiate le date.
 - Il mondo START/FORWARD TIME usa la stessa autorita' OG dei tornei di tipo 2, con un secondo contesto residente storico separato dalla Champions e incluso nel salvataggio CAR. Il menu sudamericano e il calendario del manager recuperano il contesto attraverso la registrazione historic compId162.

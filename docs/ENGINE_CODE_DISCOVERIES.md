@@ -1,5 +1,10 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.70_12: `Comp_ById` chiamata prima del prototipo (fix sintattico)
+- `sorgenti/src/career_status.c::Expanded_OGWorld_AdvanceUefa` usa da _11 `Comp_ById(COMPID_copaLibertadores)` prima del vecchio `extern Competition *Comp_ById(uint8_t)` locale dentro `Expanded_OGWorld_LogNoData`. GCC assume `int Comp_ById()` alla prima chiamata e poi segnala tipi incompatibili. Correzione: prototipo unico file-scope; rimossa la copia locale. Riprodotto il difetto con un file C minimale GCC gnu11; la versione corretta supera `-fsyntax-only -Werror=implicit-function-declaration`.
+- Non è una prova di build SWOS o test MinGW. Nessun risultato, calendario, RNG, motore OG o save modificato. Ulteriori errori Windows non escludibili senza `diagnostica/log/COMPILAZIONE_0140.log`.
+
+
 ## 17/11/2026 — 0.13.70_11: prima Libertadores OpenSWOS 1996 OG residente (Windows NON PROVATO)
 - Screenshot originale OpenSWOS del 17/11, PRIMO TURNO: 20 club in 5 gironi di quattro; il record storico `competition_data_copa_baked.c` conserva esattamente i seed OpenSWOS: A Barcelona/Espoli/Cerro Porteno/Olimpia; B Penarol/Defensor Sport/Sporting Cristal/Universitario; C America Cali/Atletico Junior/San Jose Oruro/Guabira; D Corinthians/Botafogo/Univ. de Chile/Univ. Catolica; E River Plate/San Lorenzo/Minerven/Caracas. Le righe sono i seed, non l'ordine visivo delle classifiche.
 - **Confronto del bye**: nel record originale 1996 si trovano 20 seed e rounds `20(5x4)->16->8->4->2`. Nessun 21esimo club o intervento tardivo della detentrice; la detentrice diretta agli ottavi e' una regola distinta della Mod **1997** (`aminta/swos-9697-mod/tools/lib97.py`), NON introdotta nella prima edizione OpenSWOS.

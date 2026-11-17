@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_12 — riparazione dichiarazione per GCC
+- Risolto in `career_status.c` l'ordine del prototipo `Comp_ById` necessario al percorso Libertadores 1996 introdotto nella _11: dichiarazione a livello di file prima dell'uso, nessun header OG incompatibile. Controllo C minimale PASS, compilazione completa e Windows **NON PROVATI**. Nessun intervento sul gameplay, sui seed, sulle date o sui salvataggi.
+
+
 ## 0.13.70_11 — Libertadores 1996 OpenSWOS nel mondo residente
 - Il template OG originale della Copa Libertadores a 20 club (5 gironi x4, 16 ottavi) e' compilato anche su SDL e installato soltanto nel bank 9697, senza contaminare il bank 2627. Registrazione compId162 in menu South America e copia manager; contesto OG type2 residente separato da Champions in `s_expOGUefa[1]`, con salvataggio nella struttura residente già disponibile. Viewer read-only e progressione attraverso il codice OG, senza calendario o simulazione sostitutiva.
 - Verifica codice: il record originale OpenSWOS 1996 **non** contiene il bye del detentore; il bye di River Plate è caratteristico dell'edizione 1997 Mod. Date invariate per richiesta. Test Windows e avanzamenti reali dei gironi ancora NON PROVATI.

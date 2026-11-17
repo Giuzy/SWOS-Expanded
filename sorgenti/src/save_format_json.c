@@ -19,6 +19,7 @@
  */
 
 #include "save_format_json.h"
+#include "save_pointer_guard.h"
 #include "mjson.h"
 #include "game_types.h"
 #include "endian_helpers.h"
@@ -263,6 +264,18 @@ static uintptr_t string_pool_intern(const char *s)
 static void emit_str_pool_field(mjson_print_fn_t fn, void *fnd,
                                 const char *key, const uint8_t *val)
 {
+    /* Old OG career fields sometimes contain raw low 32-bit sentinels,
+     * not host pointers. Never pass them to CRT strlen/memcpy: in _14
+     * both new-career Windows runs faulted reading address 0xEC0
+     * during the first automatic checkpoint. Valid x64 pointers are
+     * never inside the first 64 KiB of address space. */
+#if defined(SWOS_SDL_BUILD) && UINTPTR_MAX > 0xFFFFFFFFu
+    if (SavePointer_IsInvalidHostString(val)) {
+        fprintf(stderr,"[save-pointer-guard] season-string key=%s "
+                       "invalid-low-pointer=%p discarded=1\n",key,(void *)val);
+        val=NULL;
+    }
+#endif
     if (val == NULL) {
         mjson_printf(fn, fnd, "%Q:%Q", key, "");
         return;
@@ -4646,16 +4659,30 @@ static void emit_comp_copy_teamlists(mjson_print_fn_t fn, void *fnd)
     extern CompetitionCareer _careerContests[];
     mjson_printf(fn, fnd, "%Q:[", "comp_copy_teamlists");
     int first = 1;
-    for (CompetitionCareer *e = _careerContests;
-         (uintptr_t)e->competition != 0xFFFFFFFFu; e++) {
+    for (int index = 0; index < CAREER_CONTESTS_CAP; index++) {
+        const CompetitionCareer *e = &_careerContests[index];
+        if ((uintptr_t)e->competition == 0xFFFFFFFFu) break;
+        if (!first) mjson_printf(fn, fnd, "%s", ",");
+        first = 0;
+        /* A preloaded world may have a missing/invalid copy. A low
+         * pointer must not be passed to CRT when the first AUTO saves. */
+        if (!e->competition || !e->competitionCopy ||
+            SavePointer_IsInvalidHostString(e->competition) ||
+            SavePointer_IsInvalidHostString(e->competitionCopy) ||
+            e->templateSize < 8u) {
+#ifdef SWOS_SDL_BUILD
+            fprintf(stderr,"[save-pointer-guard] career-copy index=%d "
+                           "invalid-record=1 omitted=1\n",index);
+#endif
+            mjson_printf(fn, fnd, "%s", "[]");
+            continue;
+        }
         const uint8_t *base = (const uint8_t *)e->competitionCopy;
         int8_t nameOffset = (int8_t)base[5];
         uint16_t text_end = (nameOffset != 0)
             ? (uint16_t)(5 + nameOffset + 2u * sizeof(char *)) : 7u;
         uint16_t off = (uint16_t)(7u + base[7]
                        + 2u * (sizeof(char *) - sizeof(uint32_t)));
-        if (!first) mjson_printf(fn, fnd, "%s", ",");
-        first = 0;
         if (off < text_end || off >= e->templateSize) {
             mjson_printf(fn, fnd, "%s", "[]");   /* no team list / unsafe */
             continue;
@@ -6010,8 +6037,21 @@ static int savejson_prepare_career_auto(const uint8_t *filename)
 }
 #endif
 
+
+#ifdef SWOS_SDL_BUILD
+#define SAVE_CAREER_TRACE(stage) do { \
+    if (getenv("SWOS_DIAGNOSTIC_CAPTURE")) { \
+        fprintf(stderr,"[autosave-stage] world=%s stage=%s\n",World_Tag(),stage); \
+        fflush(stderr); \
+    } \
+} while (0)
+#else
+#define SAVE_CAREER_TRACE(stage) ((void)0)
+#endif
+
 int16_t SaveJson_WriteCareer(uint8_t *filename)
 {
+    SAVE_CAREER_TRACE("BEGIN");
     JsonOutBuf out = { NULL, 0, 0, 0 };
 
     /* Reset string pool — emit_str_pool_field consumers (the four
@@ -6038,6 +6078,7 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
         "num_selected_teams", (int)_numSelectedTeams);
 
     emit_season_informations(json_out_emit, &out);
+    SAVE_CAREER_TRACE("AFTER_SEASON_STRINGS");
     mjson_printf(json_out_emit, &out, "%s", ",\n  ");
     /* careerCompetitionSlotPtrTable / *CompetitionPtr / *CompStringOffset /
      * careerCupPickList are all re-derivable from non-pointer state on
@@ -6051,9 +6092,9 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
      * load. 0xFF when no comp is active (career not yet started). */
     {
         uint8_t pcc = 0xFF;
-        if (_currentCompetitionPtr) {
+        if (_currentCompetitionPtr &&
+            !SavePointer_IsInvalidHostString(_currentCompetitionPtr))
             pcc = (uint8_t)((Competition *)_currentCompetitionPtr)->teamNumber;
-        }
         mjson_printf(json_out_emit, &out,
                      "%Q:%d,\n  ",
                      "primary_country_code", (int)pcc);
@@ -6107,6 +6148,7 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
     emit_comp_copy_dynamic(json_out_emit, &out);
     mjson_printf(json_out_emit, &out, "%s", ",\n  ");
     emit_comp_copy_teamlists(json_out_emit, &out);
+    SAVE_CAREER_TRACE("AFTER_CAREER_COPY");
 
     /* Unified typed competition slots — emit_comp_slot for all 5 slots
      * (primary + 4 contexts) via their DIYCompetitionEx struct view, so
@@ -6560,6 +6602,7 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
     }
 #endif
 
+    SAVE_CAREER_TRACE("AFTER_NATIVE_WORLD_ARRAYS");
     /* Foreign-market player pool — fixed-size MarketPlayer[432]. Emit
      * all 432 slots so unpopulated entries (teamId == 0) round-trip
      * faithfully; the array is dense in practice for active careers. */
@@ -6618,9 +6661,11 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
         }
     }
 
+    SAVE_CAREER_TRACE("AFTER_CAREER_FIELDS");
     /* Living World lives in the SAME career file, not a separate sidecar. */
     mjson_printf(json_out_emit, &out, ",\n  %Q:", "living_world");
 #ifdef SWOS_SDL_BUILD
+    SAVE_CAREER_TRACE("BEFORE_LIVING_WORLD");
     if (!ExpandedWorldLive_WriteJson(json_out_emit, &out)) {
         if (out.ptr) swos_io_free(out.ptr);
         return 1; /* failed compression: never write a truncated career */
@@ -6631,6 +6676,7 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
 #ifdef SWOS_SDL_BUILD
     {
         extern int Expanded_OGWorld_WriteSaveJson(mjson_print_fn_t,void *);
+        SAVE_CAREER_TRACE("BEFORE_OG_RESIDENT");
         if(!Expanded_OGWorld_WriteSaveJson(json_out_emit,&out)) {
             fprintf(stderr,"[og-world-save] WRITE_REJECTED world=%s reason=NO_RESIDENT prior-save-retained=1\n",World_Tag());
             if(out.ptr)swos_io_free(out.ptr);
@@ -6645,6 +6691,7 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
         return 1;
     }
 #ifdef SWOS_SDL_BUILD
+    SAVE_CAREER_TRACE("SERIALIZED_COMPLETE");
     /* Do not archive an older slot unless the replacement is fully encoded. */
     if(!savejson_prepare_career_auto(filename)) {
         swos_io_free(out.ptr);
@@ -6652,6 +6699,7 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
     }
 #endif
 
+    SAVE_CAREER_TRACE("READY_FOR_ATOMIC_SAVE");
     /* The one automatic career slot must be replaced atomically.
      * Keep standard OpenSWOS behaviour for user-selected .CAR filenames. */
     int16_t result;

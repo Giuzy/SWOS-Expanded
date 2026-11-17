@@ -1,5 +1,11 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_15 — mitigazione puntatori legacy durante il primo autosave + diagnosi
+- Dalle sessioni Windows _14 osservato crash accesso `0xEC0` all'entrata nel club sia 96 sia 26, dopo il binding OG e prima di `InitCareer` completato. Il codice sospetto è il primo autosave, che la _14 ora prova a serializzare prima di archiviarne il vecchio file.
+- Guard SDL x64 per stringhe storiche dal puntatore impossibile (NULL escluso, basse 64KiB, sentinelle); limite al numero dei `careerContests` salvati, scrittura di [] e messaggio diagnostico se copia irrisolvibile. Trace per stadi del writer abilitata solo quando `SWOS_DIAGNOSTIC_CAPTURE` è presente. Test C minimale del filtro PASS, Windows e reale sblocco crash NON PROVATI.
+- Le Libertadores restano INCOMPLETE: la 1996 iniziale gioca 60 gare OG ma non prosegue al knockout, nel 1997 non viene creata nuova edizione; la 2026 è definita ma non residente, mai dichiarare OK sulla sola presenza in menu. Non alterati in questo commit partecipanti, calendari o risultati.
+
+
 ## 0.13.70_14 — disponibilità carriera e sblocco slot OG residenti
 - Corretto l'errore Windows _13: il Title non segnala più caricabile un CAR con schema valido ma senza `og_resident`, e la nuova carriera non resta bloccata da precedenti `AUTO9697.CAR` / `AUTO2627.CAR`. Al primo salvataggio completo del nuovo mondo, file incompatibile rinominato con suffisso di archivio unico e poi nuova scrittura atomica; il legacy `AUTOSAVE.CAR` è ancora sola lettura e ogni mondo è isolato.
 - Test isolato C dell'archiviazione PASS (Linux); Windows _14, COMPILA, LOAD e gameplay NON PROVATI. Non modifica calendari, dati storici, simulazione OG o stato Save di carriere già residenti.

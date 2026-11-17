@@ -4203,6 +4203,11 @@ void Expanded_AutoCareer_Save(const char *reason) {
        _seasonUpdateInProgress || Expanded_MidseasonJoin_Active())
         return;
     uint8_t *native=auto_career_slot();
+    if(getenv("SWOS_DIAGNOSTIC_CAPTURE")) {
+        fprintf(stderr,"[autosave-stage] world=%s stage=CALL_SAVE reason=%s\n",
+                World_Tag(),reason?reason:"unknown");
+        fflush(stderr);
+    }
     if(SaveCareerFile(native)!=0) {
         fprintf(stderr,"[autosave] FAILED world=%s at %s; previous file retained\n",
                 World_Tag(),reason?reason:"unknown");

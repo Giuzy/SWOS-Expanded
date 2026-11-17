@@ -1,5 +1,11 @@
 # SWOS Expanded — development procedures and rationale
 
+## 17/11/2026 — prova Windows 0.13.80: WORLD 96/26 sul TITLE
+- GitKraken su dev/0.10, compilazione personale Windows 0.13.80. Prima eseguire backup esterno non distruttivo di AUTO9697.CAR e AUTO2627.CAR. START 96/97 o 26/27 con CAR di PROVA, avanzare un evento, tornare al TITLE: il log deve riportare `[autosave-title] status=COMPATIBLE_ON_DISK`; premere 96/26 con mouse e Switch Pro A. Attesi `[title-world] DETACH_CAREER`, `SELECTED`, preferenza SWOS.ini aggiornata, colore/focus normale e stato del pulsante coerente col nuovo mondo.
+- Ritornare all'altro mondo dal TITLE e usare CONTINUE: verificare che data, calendario OG, risultati e CAR iniziale siano effettivamente ripristinati, non soltanto che la voce 96/26 cambi visivamente. Ripetere per entrambi i CAR; verifica la conservazione dei file via timestamp/checksum esterno, senza cancellare file reali.
+- Caso negativo: carriera con `menu-exit` WRITE_FAILED o nessun CAR valido: click 96/26 deve registrare `checkpoint=NOT_VERIFIED`, non distruggere lo stato vivo e non commutare bank. Il blocco e' intenzionale; non considerare il salvataggio vecchio sufficiente. La sicurezza delle transizioni, il controller/mouse, il gameplay e il load Windows sono PENDENTI fino alla prova dell'utente. Non confondere con DEBUG NEW CAREER, che ha callback diversa.
+
+
 ## 17/11/2026 — checklist Windows 0.13.79 (DEBUG 30 JUNE)
 - GitKraken dev/0.10 e compilazione personale Windows 0.13.79; usare solo AUTO9697/AUTO2627 di **prova**, senza sovrascrivere i CAR importanti. CALENDAR con club: assenza del DEBUG +1 MONTH sopra TRANSFERS e layout/joypad precedente intatti.
 - START UNEMPLOYED 96 e 26: verificare che DEBUG +1 MONTH sia ancora presente e che DEBUG 30 JUNE sia sotto di esso, senza hotspot fantasma o focus bloccati. A/SELECT, mouse e B/BACK. Da luglio/novembre saltare una volta: esattamente 30 giugno seguente, eventi/coppe OG fino al cutoff, F12 data/settimana, log `[debug-june30] OG_ADVANCE_BEGIN` poi `OG_DATE_COMMITTED`. Un secondo click non cambia la data e scrive `STOP_AT_SEASON_BOUNDARY`.

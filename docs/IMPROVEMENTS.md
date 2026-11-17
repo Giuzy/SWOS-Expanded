@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.80 — selettore mondo debug TITLE dopo ritorno dalla carriera
+- Corretto il guard logico che rifiutava il click 96/26 al TITLE quando `_gameType==4`. Il titolo puo' ora cambiare banco OG senza riavviare, ma solo dopo autosave `menu-exit` scritto e verificato per il mondo corrente. Scollega la carriera soltanto dalla RAM; conserva entrambe le copie AUTO*.CAR e non le scrive al click. Nei casi di save fallito o CLASSIC attivo resta la protezione. Versione 0.13.80. Test C isolato PASS; integrazione/compilazione Windows NON PROVATE.
+
+
 ## 0.13.79 — ripristino CALENDAR club e test rapido al 30 giugno da disoccupato
 - Rimossa l'aggiunta di DEBUG +1 MONTH al calendario con squadra, ripristinando la geometria originale senza spostare TRANSFERS.
 - UNEMPLOYED ha il nuovo pulsante reale DEBUG 30 JUNE in posizione nativa libera, con selezione mouse/controller, accanto al DEBUG +1 MONTH preesistente. Passa per lo stesso tick OG e cursore civile di FORWARD TIME, senza cambio stagione automatico; da 30 giugno nessun salto ulteriore. Versione codice 0.13.79; compilazione/gameplay Windows PENDENTI.

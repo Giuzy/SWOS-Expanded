@@ -2760,6 +2760,8 @@ extern void Platform_ToggleFullscreen(void);
 extern int Platform_TitleMouseState(int *x,int *y,int *moved,int *click);
 /* Both title and NEW CAREER choose from the same preloaded OG banks. */
 extern int WorldSwitch_SelectBeforeCareer(const char *tag);
+extern int WorldSwitch_IsAvailable(const char *tag);
+int Expanded_AutoCareer_TitleCheckpointVerified(void);
 
 static volatile int s_title_level;     /* 0 modern main; 1 classic submenu */
 static volatile int s_title_selected;
@@ -2825,15 +2827,27 @@ static void Expanded_TitleMenu_Dispatch(int level,int index)
         case 4: Platform_RequestQuit(); break;
         case EXP_TITLE_VIDEO_INDEX: Platform_ToggleFullscreen(); break;
         case EXP_TITLE_DEBUG_INDEX: Expanded_TitleMenu_QueueNewCareerDebug(); break;
-        case EXP_TITLE_WORLD_INDEX:
-            if(!Expanded_TitleWorldSwitchAllowed(_gameType)) {
-                /* A loaded career or CLASSIC contest still references the
-                 * current OG tables. Refuse to swap those definitions under
-                 * an active game; selecting DEBUG NEW CAREER clears it first. */
-                fprintf(stderr,"[title-world] REFUSED active-game-type=%u world=%s "
-                        "save=UNTOUCHED\n",(unsigned)_gameType,World_Tag());
+        case EXP_TITLE_WORLD_INDEX: {
+            const char *next=World_Current()==WORLD_2627?"9697":"2627";
+            const int checkpoint=Expanded_AutoCareer_TitleCheckpointVerified();
+            if(!Expanded_TitleWorldSwitchAllowed(_gameType,checkpoint)) {
+                fprintf(stderr,"[title-world] REFUSED active-game-type=%u "
+                        "checkpoint=%s world=%s save=UNTOUCHED\n",
+                        (unsigned)_gameType,checkpoint?"VERIFIED":"NOT_VERIFIED",
+                        World_Tag());
+            } else if(!WorldSwitch_IsAvailable(next)) {
+                fprintf(stderr,"[title-world] REFUSED target=%s reason=NOT_AVAILABLE "
+                        "save=UNTOUCHED\n",next);
             } else {
-                const char *next=World_Current()==WORLD_2627?"9697":"2627";
+                if(_gameType==GAME_TYPE_CAREER) {
+                    /* CommonMenuExit already saved and verified this CAR.
+                     * Drop only the in-memory contest before restoring the
+                     * other world's static records. Never write/delete .CAR
+                     * on the selector itself. CONTINUE reloads the CAR. */
+                    fprintf(stderr,"[title-world] DETACH_CAREER world=%s "
+                            "checkpoint=VERIFIED save=UNTOUCHED\n",World_Tag());
+                    InitCareerVariables(GAME_TYPE_NO_GAME);
+                }
                 if(WorldSwitch_SelectBeforeCareer(next))
                     fprintf(stderr,"[title-world] SELECTED %s save=UNTOUCHED\n",
                             World_Tag());
@@ -2842,6 +2856,7 @@ static void Expanded_TitleMenu_Dispatch(int level,int index)
                             "active=%s\n",next,World_Tag());
             }
             break;
+        }
         }
         return;
     }
@@ -4187,6 +4202,11 @@ static uint8_t s_auto_legacy[]="AUTOSAVE.CAR";
 static int s_auto_career_available=-1;
 static int s_auto_career_cached_world=-1;
 static uint8_t *s_auto_career_source;
+/* Written ONLY by the existing CommonMenuExit autosave; the title
+ * selector never creates/overwrites a CAR. No old/stale CAR authorizes
+ * discarding an active in-memory career. */
+static int s_auto_title_checkpoint_verified;
+static int s_auto_title_checkpoint_world=-1;
 static uint8_t *auto_career_slot(void) {
     return World_Current()==WORLD_2627 ? s_auto_2627 : s_auto_9697;
 }
@@ -4217,8 +4237,15 @@ int Expanded_AutoCareer_HasSave(void) {
     }
     return s_auto_career_available;
 }
+int Expanded_AutoCareer_TitleCheckpointVerified(void) {
+    return s_auto_title_checkpoint_verified &&
+           s_auto_title_checkpoint_world==(int)World_Current() &&
+           SaveJson_CareerCompatible(auto_career_slot());
+}
 void Expanded_AutoCareer_Save(const char *reason) {
     extern int Expanded_MidseasonJoin_Active(void);
+    const int titleExit=reason && strcmp(reason,"menu-exit")==0;
+    if(titleExit) s_auto_title_checkpoint_verified=0;
     if(_gameType!=GAME_TYPE_CAREER || _careerAutoAdvanceInProgress ||
        _seasonUpdateInProgress || Expanded_MidseasonJoin_Active())
         return;
@@ -4240,6 +4267,13 @@ void Expanded_AutoCareer_Save(const char *reason) {
     auto_career_cache_world();
     s_auto_career_source=native;
     s_auto_career_available=1;
+    /* Read-only disk verification of the checkpoint just written.
+     * Do not trust an older compatible CAR if this write was rejected. */
+    const int titleCompatible=titleExit?SaveJson_CareerCompatible(native):0;
+    if(titleExit) {
+        s_auto_title_checkpoint_verified=titleCompatible;
+        s_auto_title_checkpoint_world=(int)World_Current();
+    }
     fprintf(stderr,"[autosave] saved %s/%s world=%s at %s\n",
             swos_save_dir(),(const char *)native,World_Tag(),
             reason?reason:"checkpoint");
@@ -4250,12 +4284,10 @@ void Expanded_AutoCareer_Save(const char *reason) {
     /* At TITLE, prove that the named .CAR can be read from disk and that
      * schema, kind and WORLD match. Do not perform a LOAD on live OG state;
      * cross-process resume and fixtures require a separate test. */
-    if(reason && strcmp(reason,"menu-exit")==0 &&
-       getenv("SWOS_DIAGNOSTIC_CAPTURE")) {
-        const int compatible=SaveJson_CareerCompatible(native);
+    if(titleExit && getenv("SWOS_DIAGNOSTIC_CAPTURE")) {
         fprintf(stderr,"[autosave-title] status=%s world=%s file=%s "
                        "scope=SCHEMA_KIND_WORLD_OG_RESIDENT\n",
-                compatible?"COMPATIBLE_ON_DISK":"CHECK_FAILED",
+                titleCompatible?"COMPATIBLE_ON_DISK":"CHECK_FAILED",
                 World_Tag(),(const char *)native);
     }
 }

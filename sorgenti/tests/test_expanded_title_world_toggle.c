@@ -26,9 +26,15 @@ int main(void)
         assert(!overlaps(era,Expanded_TitleMainRect(i)));
     /* Approved Title logo occupies (920,17,620,227); no overlap. */
     assert(!overlaps(era,(ExpandedTitleRect){920,17,620,227}));
-    assert(Expanded_TitleWorldSwitchAllowed(0u));
-    for(unsigned gameType=1;gameType<=4;++gameType)
-        assert(!Expanded_TitleWorldSwitchAllowed(gameType));
-    puts("PASS: title world 96/26 hitbox, separation and no-active-contest switch");
+    assert(Expanded_TitleWorldSwitchAllowed(0u,0));
+    assert(Expanded_TitleWorldSwitchAllowed(0u,1));
+    for(unsigned gameType=1;gameType<=3;++gameType) {
+        assert(!Expanded_TitleWorldSwitchAllowed(gameType,0));
+        assert(!Expanded_TitleWorldSwitchAllowed(gameType,1));
+    }
+    assert(!Expanded_TitleWorldSwitchAllowed(4u,0));
+    assert(Expanded_TitleWorldSwitchAllowed(4u,1));
+    assert(!Expanded_TitleWorldSwitchAllowed(5u,1));
+    puts("PASS: title world 96/26 hitbox and verified-car title switch guard");
     return 0;
 }

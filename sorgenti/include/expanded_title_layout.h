@@ -41,11 +41,14 @@ static inline ExpandedTitleRect Expanded_TitleClassicRect(int index) {
     ExpandedTitleRect r = { 422, 172 + index*55, 820, 46 };
     return r;
 }
-/* Switching static banks while an active career/CLASSIC mode occupies
- * runtime buffers would corrupt its native state; only TITLE with no
- * active contest may change the world. CAR files remain untouched. */
-static inline int Expanded_TitleWorldSwitchAllowed(unsigned gameType) {
-    return gameType==0u;
+/* A loaded career can leave the TITLE's original gameType at 4 even
+ * after returning from gameplay. Allow the TITLE selector only if its
+ * just-written, world-specific CAR was verified read-only; the caller
+ * detaches the RAM career before installing the other OG static bank.
+ * Never abandon an uncheckpointed career or a CLASSIC contest. */
+static inline int Expanded_TitleWorldSwitchAllowed(unsigned gameType,
+                                                    int checkpointVerified) {
+    return gameType==0u || (gameType==4u && checkpointVerified!=0);
 }
 static inline int Expanded_TitleHit(ExpandedTitleRect r,int x,int y) {
     return x>=r.x && x<r.x+r.w && y>=r.y && y<r.y+r.h;

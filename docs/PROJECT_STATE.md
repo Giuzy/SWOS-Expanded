@@ -1,5 +1,11 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.80: TITLE 96/26 selezionabile dopo carriera salvata (Windows NON PROVATO)
+- Diagnostiche Windows precedenti (0.13.78) mostrano realmente `[title-world] REFUSED active-game-type=4` dopo click sul selettore 96/26. La hitbox visuale e' condivisa con l'input; non e' un mancato evento del mouse. Causa: `Expanded_TitleWorldSwitchAllowed` richiedeva sempre `_gameType==0`, anche al TITLE dopo ritorno dalla carriera e checkpoint autosave.
+- Il selettore ora permette `_gameType=4` SOLO se l'ultimo `CommonMenuExit` ha scritto il CAR del mondo corrente e la verifica di compatibilita' su disco e' riuscita. Prima della sostituzione delle definizioni statiche OG, `InitCareerVariables(NO_GAME)` scollega la carriera soltanto in RAM. Non rimuove, ridenomina o scrive CAR durante il click; il mondo alternativo viene letto dal suo save al prossimo CONTINUE.
+- Se il checkpoint `menu-exit` e' fallito/non verificato, non abbandona la carriera in memoria: `[title-world] REFUSED ... checkpoint=NOT_VERIFIED`. CLASSIC (gameType 1..3) rimane protetto. Test isolato C delle hitbox e policy PASS su GCC Linux, non prova input SDL, banco OG, roundtrip save Windows ne' comportamento con CAR assenti. Richiede Windows 96/26 e diagnostiche in caso di fallimento.
+
+
 ## 17/11/2026 — 0.13.79: UI calendario squadra ripristinata; UNEMPLOYED -> DEBUG 30 JUNE
 - Tolto il pulsante `DEBUG +1 MONTH` dal calendario del club (voce 13 dell'originale di nuovo nascosta); posizione e navigazione di TRANSFERS tornano al template. Il vecchio handler month CAREER non e' piu' invocato da quel menu; non e' stato dichiarato un test Windows.
 - In UNEMPLOYED restano `DEBUG +1 MONTH` e FORWARD TIME; aggiunto `DEBUG 30 JUNE` nella seconda posizione sinistra libera (ex JOB OFFERS invisibile). Salta in **una** azione alla fine della stagione civile OG, fermandosi al 30 giugno, mentre il rollover al 1 luglio resta manuale. Solo OG avanza le competizioni; test Windows 96/26, joystick/hover, screenshot e save/continue **NON PROVATI**. Test C data isolato da eseguire/verificare.

@@ -21,7 +21,7 @@ if not exist "data\TEAM.008" (
   goto :errore
 )
 
-if exist "CONFIGURA_4K.ps1" powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0CONFIGURA_4K.ps1"
+if exist "CONFIGURA_4K.ps1" powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0diagnostica\CONFIGURA_4K.ps1"
 set "SWOS_SKIP_INTRO=1"
 set "SWOS_DATA_JSON=0"
 set "SWOS_MENU_JSON=0"

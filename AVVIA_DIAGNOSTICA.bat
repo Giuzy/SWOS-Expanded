@@ -7,7 +7,7 @@ REM ONE CLICK, all historical and current tests, no save manipulation.
 REM No test executable is allowed to act as a second gameplay engine.
 set "SWOS_DIAGNOSTIC_SESSION=1"
 set "SWOS_DIAGNOSTIC_CAPTURE=1"
-set "RESULTS_ROOT=%~dp0RISULTATI_DIAGNOSTICI"
+set "RESULTS_ROOT=%~dp0diagnostica\RISULTATI_DIAGNOSTICI"
 if not exist "%RESULTS_ROOT%" mkdir "%RESULTS_ROOT%"
 if not exist "%RESULTS_ROOT%" (
  echo ERRORE: impossibile creare RISULTATI_DIAGNOSTICI.
@@ -131,12 +131,12 @@ for %%S in (AUTO9697.CAR AUTO2627.CAR AUTOSAVE.CAR) do (
 echo [SAVE] Copie archiviate: !SAVE_SNAPSHOT_COUNT!, errori: !SAVE_SNAPSHOT_ERRORS! (nessun save sorgente modificato).
 echo.
 echo 2/5 Audit del SOLO log Windows di questa sessione...
-call "%~dp0ANALIZZA_SWOS_LOG.bat" > "%SESSION%\ANALISI_RUNTIME_DRIVER.log" 2>&1
+call "%~dp0diagnostica\ANALIZZA_SWOS_LOG.bat" > "%SESSION%\ANALISI_RUNTIME_DRIVER.log" 2>&1
 set "AUDIT_EXIT=!ERRORLEVEL!"
 echo AUDIT_EXIT=!AUDIT_EXIT!
 echo.
 echo 3/5 Tutti i test OG attuali e storici, anche quando la build fallisce...
-call "%~dp0TEST_OG_WORLD.bat" > "%SESSION%\TEST_OG_WORLD_DRIVER.log" 2>&1
+call "%~dp0diagnostica\TEST_OG_WORLD.bat" > "%SESSION%\TEST_OG_WORLD_DRIVER.log" 2>&1
 set "STATIC_EXIT=!ERRORLEVEL!"
 echo TEST_SUITE_EXIT=!STATIC_EXIT!
 if exist "%SESSION%\TEST_ESEGUITI\RIEPILOGO_TEST.txt" (
@@ -144,9 +144,9 @@ if exist "%SESSION%\TEST_ESEGUITI\RIEPILOGO_TEST.txt" (
 )
 echo.
 echo 4/5 Controlli 70 stagioni, coppe e marcatori sullo STESSO audit...
-call "%~dp0TEST_OG_70.bat" > "%SESSION%\TEST_OG_70_DRIVER.log" 2>&1
+call "%~dp0diagnostica\TEST_OG_70.bat" > "%SESSION%\TEST_OG_70_DRIVER.log" 2>&1
 set "STRESS_EXIT=!ERRORLEVEL!"
-call "%~dp0TEST_OG_CUPS_SCORERS.bat" > "%SESSION%\TEST_OG_CUPS_SCORERS_DRIVER.log" 2>&1
+call "%~dp0diagnostica\TEST_OG_CUPS_SCORERS.bat" > "%SESSION%\TEST_OG_CUPS_SCORERS_DRIVER.log" 2>&1
 set "CUPS_EXIT=!ERRORLEVEL!"
 REM Compatibility alias, never run the same OG tests a second time.
 > "%SESSION%\TEST_LIVING_WORLD_ALIAS.txt" echo TEST_LIVING_WORLD.bat = TEST_OG_WORLD.bat: already executed once.

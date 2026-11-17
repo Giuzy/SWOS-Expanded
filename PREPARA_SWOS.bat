@@ -43,7 +43,7 @@ set "MSYSTEM=MINGW64"
 set "CHERE_INVOKING=1"
 set "SWOS_SRC_WIN=%~dp0sorgenti"
 set "SWOS_GAME_WIN=%~dp0"
-"%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash -s" < "%~dp0BUILD_SWOS.sh"
+"%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash -s" < "%~dp0diagnostica\BUILD_SWOS.sh"
 if errorlevel 1 (
   echo.
   if defined SWOS_DIAGNOSTIC_DIR (

@@ -1,5 +1,11 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.70_7, guard diagnostico LOAD/FORWARD (Windows NON PROVATO)
+- `SaveJson_LoadCareer` ripristina la carriera e `ExpandedWorldLive_ReadJson`, ma non serializza gli array statici OG `s_expOG` e `s_expOGCups`. La prova Windows 0.13.70_6 (sessioni 1 e 3) mostra `RESTORE_AFTER world=2627 year=0 resident-checked=0`; il calendario/manager puo' essere caricato mentre i residenti sono assenti.
+- `Expanded_AutoCareer_Load` emette ora `[og-world-restore-guard] LOAD_INCOMPLETE` quando trova zero leghe OG; `Expanded_OGWorld_AdvanceToDate` registra `BLOCKED_ADVANCE` e rifiuta un tick senza residenti, senza risimulare le partite o cancellare i save. La condizione di ritorno 0 esisteva gia': questa e' **strumentazione per diagnosi, NON fix del ripristino**.
+- Il crash osservato in Windows NON ha stack trace conclusivo: le ultime righe contengono anche `[bug20-getfx]`, che non prova la causa. Richiesti test Windows di LOAD e FORWARD, con log di sessione corrente. Persistenza completa e appuntamenti UEFA/Libertadores restano PENDENTI.
+
+
 ## 17/11/2026 — 0.13.70_5, prova cross-process OG migliorata
 - `Expanded_OGWorld_LogSaveFingerprints` usa FNV64 sugli stati OG residenti effettivi (regole pointer-free dopo base, team ID, rose, RNG; niente puntatori dei menu) e produce `[og-state-fp]` solo su SAVE_AFTER/RESTORE_AFTER. `run_save_continuity_audit.sh` verifica mondo+file AUTO e ultima coppia di campioni in due sessioni Windows, non solo contatori aggregati, e segnala FAIL se nel RESTORE mancano contesti o differiscono hash; uguali campi = INCOMPLETE, non PASS integrale. Nessuna scrittura sui save, nessuna compilazione Windows in questa sessione.
 

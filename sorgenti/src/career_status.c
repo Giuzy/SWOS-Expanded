@@ -4213,7 +4213,7 @@ void Expanded_OGWorld_LogNoData(const char *stage,uint16_t year)
                 "category=BRAZIL_STATE index=%u name=%s status=NO_WORLD_RESIDENT "
                 "reason=SEASON_END_SIM_NOT_A_DATED_OG_CONTEXT\n",
                 stage,World_Tag(),(unsigned)year,k,
-                states->contest[k].name[0]?states->contest[k].name[0]:"UNNAMED");
+                states->contest[k].name[0]?states->contest[k].name:"UNNAMED");
         }
         if(World_CupD()) {
             ++missing;

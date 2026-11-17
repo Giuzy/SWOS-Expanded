@@ -1,5 +1,10 @@
 # SWOS Expanded — Libertadores 1997 e 2027: decisioni e audit (17 novembre 2026)
 
+## Decisione applicata 17/11 — 0.13.70_11: prima edizione IDENTICA a OpenSWOS 1996 (senza date modificate)
+La prima Coppa Libertadores di OpenSWOS mostrata nello screenshot del 17/11 e' il **record 1996 a 20 squadre**, 5 gruppi di 4, avanzamento a 16. In tale record il detentore non viene inserito dopo i gironi: non c'e' una 21esima squadra o un bye speciale. I primi 4 gruppi del record corrispondono allo screenshot; il gruppo E contiene River Plate, San Lorenzo, Minerven, Caracas. Questa prima edizione e' ora collegata al banco OG del 1996/97 e usa i passi di avanzamento nativi; DATE NON MODIFICATE. **Non** applicare a essa le regole 1997 della Mod: nel 1997 la Mod introduce River Plate direttamente agli ottavi come detentore 1996, passando a 21 partecipanti totali. L'integrazione dell'edizione 1997 e' ancora separata e da implementare/approvare in relazione alla continuita' del calendario attraversando luglio.
+Il codice compilabile e il comportamento Windows della 0.13.70_11 NON SONO ANCORA PROVATI, inclusi match, qualificazioni, save/load e manager.
+
+
 ## Correzione verificata 17/11 — fonte Mod 1997 (21 iscritti totali)
 La Mod originale `tools/sacups.py` definisce **21 partecipanti della Libertadores 1997**: 20 giocano nei 5 gironi da 4, **River Plate** detentore 1996 entra direttamente agli ottavi. Le precedenti note che contavano 20 erano limitate ai soli gironi. **Non e' la lista del 1996** che appare nell'attuale `tournaments.json` di Expanded. Tutti i 21 nomi sono stati ricontrollati contro i JSON storici; sei ordinali Mod NON coincidono con gli ordinali Expanded: Racing 32→31 e River Plate 33→32 (ARG), Gremio 12→10 e Cruzeiro 8→7 (BRA), Millonarios 14→13 e Deportivo Cali 10→9 (COL). Nuovo manifest read-only `docs/reference/libertadores_1997_source_id_map.json`. Il collegamento residente, il bye originale, il calendario della carriera e il save restano PENDENTI, non dichiarati funzionanti.
 

@@ -3587,7 +3587,10 @@ static int exp_og_is_uefa(void) {
         s_expOGCurrent==&s_expOGUefa[1] || s_expOGCurrent==&s_expOGUefa[2]);
 }
 uint32_t Expanded_OGWorld_UefaResidentCount(void) {
-    uint32_t n=0u;for(unsigned k=0;k<3u;++k)if(s_expOGUefa[k].used)++n;return n;
+    /* Slot 1 in 9697 stores the separate Copa Libertadores type-2 context,
+     * not a second European championship. Exclude it from UEFA diagnostics. */
+    const unsigned slots=World_Current()==WORLD_9697?1u:3u;
+    uint32_t n=0u;for(unsigned k=0;k<slots;++k)if(s_expOGUefa[k].used)++n;return n;
 }
 typedef struct {
     uint8_t used,country,slot,compId,lastPhase,lastMatch,managed_excluded,unsupported_setup;
@@ -3661,6 +3664,22 @@ int Expanded_OGWorld_HistoricChampionsContainsTeam(uint16_t club)
         const TeamFile *t=&ctx->teams[i].team;
         if(PACK_BE_U16(t->countryNumber,t->teamOrdinal)==club)
             return 1;
+    }
+    return 0;
+}
+
+/* First OpenSWOS 1996 Libertadores membership: 20 OG resident entrants.
+ * The Mod's 1997 holder bye must NOT be spliced into the 1996 edition. */
+int Expanded_OGWorld_HistoricCopaContainsTeam(uint16_t club)
+{
+    if(World_Current()!=WORLD_9697)return -1;
+    const ExpandedOGLeague *ctx=&s_expOGUefa[1];
+    if(!ctx->used || ctx->country!=82u ||
+       ctx->year!=s_expOGUefaCalendarYear || ctx->teamCount!=20u ||
+       ctx->tournament.header.competitionType!=2)return -1;
+    for(unsigned i=0;i<ctx->teamCount;++i) {
+        const TeamFile *t=&ctx->teams[i].team;
+        if(PACK_BE_U16(t->countryNumber,t->teamOrdinal)==club)return 1;
     }
     return 0;
 }
@@ -4005,13 +4024,37 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
     const uint8_t (*places)[4]=NULL;int32_t nAssoc=0;
     CompetitionLeaguePhase *cups=modern?World_LeaguePhaseCups(&places,&nAssoc):NULL;
     if(modern && (!cups || !places || nAssoc<=0))return 0;
-    for(unsigned k=0;k<(modern?3u:1u);++k) {
+    /* Original OpenSWOS 96 first edition, NOT the Mod's 1997 bye edition:
+     * twenty seeds, five groups of four, then the native 16-team round.
+     * Slot 1 is the historic South-American resident type-2 tournament,
+     * stored separately from the historic UEFA Champions at slot 0.
+     * Both use the same OG tournament engine and existing CAR snapshot. */
+    Competition *historicCopa=classic?Comp_ById(COMPID_copaLibertadores):NULL;
+    if(classic && (!historicCopa || historicCopa->type!=2)) {
+        fprintf(stderr,"[og-libertadores-96] NO_RECORD at=START advance=SKIPPED\n");
+    }
+    for(unsigned k=0;k<(modern?3u:(historicCopa?2u:1u));++k) {
+        const int isHistoricCopa=classic && k==1u;
         ExpandedOGLeague *ctx=&s_expOGUefa[k];
         if(!ctx->used)ctx->lastMatch=0xffu;
-        Competition *rec=modern?(Competition *)&cups[k]:(Competition *)&_euroCup;
-        const TeamId *seed=modern?cups[k].teamSeedList:_euroCup.teamSeedList;
-        const unsigned entrants=modern?36u:16u;
-        if(rec->type!=2 || (uint8_t)rec->compId!=k)return 0;
+        Competition *rec=isHistoricCopa?historicCopa:
+                         modern?(Competition *)&cups[k]:(Competition *)&_euroCup;
+        const TeamId *seed=isHistoricCopa?comp_team_seed_list(rec):
+                           modern?cups[k].teamSeedList:_euroCup.teamSeedList;
+        const unsigned entrants=isHistoricCopa?20u:(modern?36u:16u);
+        if(!seed || rec->type!=2 ||
+           (uint8_t)rec->compId!=(isHistoricCopa?COMPID_copaLibertadores:k))
+            return 0;
+        if(isHistoricCopa) {
+            const CompetitionTournament *t=(const CompetitionTournament *)rec;
+            if(t->header.rounds[0].teamCount!=20 ||
+               t->header.rounds[0].groupCount!=5 ||
+               t->header.rounds[0].teamGroupCount!=4 ||
+               t->header.rounds[1].teamCount!=16) {
+                fprintf(stderr,"[og-libertadores-96] REJECT non-original-format\n");
+                return 0;
+            }
+        }
         if(ctx->used && ctx->year==year && phase<=ctx->lastPhase)continue;
         unsigned unique=0;
         for(unsigned i=0;i<entrants;++i) {
@@ -4084,7 +4127,9 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
             memcpy(&ctx->comp,&_diyCompetitionStart,sizeof ctx->comp);
             memcpy(&ctx->tournament,&_diyFileBufferCopy,sizeof ctx->tournament);
             memcpy(ctx->teams,_selectedTeams,entrants*sizeof(TeamFileEx));
-            ctx->teamCount=(uint16_t)entrants;ctx->country=80;ctx->division=(uint8_t)k;
+            ctx->teamCount=(uint16_t)entrants;
+            ctx->country=(uint8_t)(isHistoricCopa?82u:80u);
+            ctx->division=(uint8_t)k;
             ctx->year=year;ctx->lastPhase=phase;ctx->used=1;
             ctx->seed=_seed2;ctx->randIndex=_randXorIndex2;ctx->randKey=_randXorKey2;
         } else s_expOGFault=1;
@@ -4103,7 +4148,11 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
                     (unsigned)year,k,(unsigned)phase);
             return 0;
         }
-        fprintf(stderr,"[og-uefa-resident] world=%u year=%u cup=%u phase=%u residents=1 entrants=%u OG-matches=%u\n",
+        fprintf(stderr,isHistoricCopa?
+                "[og-libertadores-96] world=%u year=%u slot=%u phase=%u "
+                "resident=1 entrants=%u OG-matches=%u holder-bye=NO_NATIVE_RULE\n":
+                "[og-uefa-resident] world=%u year=%u cup=%u phase=%u "
+                "residents=1 entrants=%u OG-matches=%u\n",
                 (unsigned)World_Current(),(unsigned)year,k,(unsigned)phase,unique,
                 (unsigned)ctx->comp.matchesPlayedCount);
     }
@@ -4210,12 +4259,19 @@ void Expanded_OGWorld_LogNoData(const char *stage,uint16_t year)
     }
     if(World_Current()==WORLD_9697) {
         const Competition *copa=Comp_ById(COMPID_copaLibertadores);
-        ++missing;
+        const ExpandedOGLeague *resident=&s_expOGUefa[1];
+        const int ready=copa && resident->used && resident->country==82u &&
+                        resident->year==year && resident->teamCount==20u &&
+                        resident->tournament.header.competitionType==2;
+        if(ready)++covered;
+        else ++missing;
         fprintf(stderr,"[og-no-data] stage=%s world=%s year=%u "
             "category=CONMEBOL_CLUB name=COPA_LIBERTADORES compId=%u "
-            "defined=%u status=NO_RESIDENT reason=%s\n",
+            "defined=%u status=%s reason=%s native-matches=%u\n",
             stage,World_Tag(),(unsigned)year,(unsigned)COMPID_copaLibertadores,
-            (unsigned)(copa!=NULL),copa?"NO_WORLD_CONTEXT":"MISSING_HISTORIC_BANK_RECORD");
+            (unsigned)(copa!=NULL),ready?"RESIDENT_OG":"NO_RESIDENT",
+            ready?"1996_OPEN_SWOS_NATIVE":"NOT_INITIALIZED_OR_DIFFERENT_YEAR",
+            ready?(unsigned)resident->comp.matchesPlayedCount:0u);
     } else if(World_Current()==WORLD_2627) {
         int32_t n=0;
         const WorldContiCup *cups=World_ContiCups(&n);
@@ -5029,15 +5085,24 @@ static int exp_og_view_uefa(const Competition *wanted)
     static uint8_t unsupported[]="OG WORLD: CONTINENTAL NOT RESIDENT";
     const int modern=World_Current()==WORLD_2627;
     const int classic=World_Current()==WORLD_9697;
-    if((!modern && !classic) || !wanted || wanted->compId>=3 ||
-       (classic && wanted!=(const Competition *)&_euroCup)) {
+    const Competition *historicCopa=classic?Comp_ById(COMPID_copaLibertadores):NULL;
+    const int copa=classic && wanted && wanted==historicCopa &&
+                   wanted->type==2;
+    if((!modern && !classic) || !wanted ||
+       (!copa && wanted->compId>=3) ||
+       (classic && !copa && wanted!=(const Competition *)&_euroCup)) {
         fprintf(stderr,"[og-conti-view] NO RESIDENT TYPE2 cup=%u world=%u (no simulated fallback)\n",
                 wanted?(unsigned)wanted->compId:255u,(unsigned)World_Current());
         ShowErrorMenu(unsupported);
         return 0;
     }
-    ExpandedOGLeague *ctx=&s_expOGUefa[(unsigned)wanted->compId];
-    const unsigned entrants=modern?36u:16u;
+    ExpandedOGLeague *ctx=&s_expOGUefa[copa?1u:(unsigned)wanted->compId];
+    const unsigned entrants=copa?20u:(modern?36u:16u);
+    if(copa && ctx->country!=82u) {
+        fprintf(stderr,"[og-libertadores-96] VIEW_REJECT missing-resident\n");
+        ShowErrorMenu(missing);
+        return 0;
+    }
     if(!ctx->used || ctx->year!=s_expOGUefaCalendarYear ||
        ctx->teamCount!=entrants ||
        ctx->tournament.header.competitionType!=2) {
@@ -5090,7 +5155,8 @@ int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
     if(wanted->type==2 &&
        (World_Current()==WORLD_2627 ||
         (World_Current()==WORLD_9697 &&
-         wanted==(const Competition *)&_euroCup)))
+         (wanted==(const Competition *)&_euroCup ||
+          wanted==Comp_ById(COMPID_copaLibertadores)))))
         return exp_og_view_uefa(wanted);
     ExpandedOGLeague *exact=NULL,*byId=NULL;
     unsigned idMatches=0;

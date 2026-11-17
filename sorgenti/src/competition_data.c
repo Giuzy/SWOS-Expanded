@@ -1616,7 +1616,26 @@ static int s_careerContestsCount = 34;
 int Comp_AppendCareerContest(Competition *competitionTemplate,
                              Competition *competitionCopy, uint16_t templateSize)
 {
-    /* Need room for the new entry AND a trailing sentinel. */
+    /* 9697 baked record and 2627 JSON may share a compId.
+     * A definition bank must have only ONE career-copy triple for that ID. */
+    /* A bank swap restores the sentinel as well as the entries.
+     * The count is PROCESS-global and may refer to the other world's bank,
+     * so recompute the live length from the actual sentinel before append. */
+    int currentCount=0;
+    while(currentCount<CAREER_CONTESTS_CAP &&
+          (uintptr_t)_careerContests[currentCount].competition!=0xFFFFFFFFu)
+        ++currentCount;
+    if(currentCount>=CAREER_CONTESTS_CAP)return -1;
+    s_careerContestsCount=currentCount;
+    for (int k=0;k<s_careerContestsCount;++k) {
+        CompetitionCareer *old=&_careerContests[k];
+        if(old->competition && old->competition->compId==competitionTemplate->compId) {
+            old->competition=competitionTemplate;
+            old->competitionCopy=competitionCopy;
+            old->templateSize=templateSize;
+            return 0;
+        }
+    }
     if (s_careerContestsCount + 1 >= CAREER_CONTESTS_CAP)
         return -1;
     int i = s_careerContestsCount;

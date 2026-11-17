@@ -1950,6 +1950,20 @@ static int Career_TeamInEuroCup(uint8_t *cupCopy)
         return present==1;
     }
 #endif
+#ifdef SWOS_SDL_BUILD
+    if(World_Current()==WORLD_9697) {
+        extern Competition *Career_CopaWorkingCopy(void);
+        extern int Expanded_OGWorld_HistoricCopaContainsTeam(uint16_t);
+        if(cupCopy==(uint8_t *)Career_CopaWorkingCopy()) {
+            /* The exact same 20-team ORIGINAL 1996 field as resident OG.
+             * Do not use the Amiga raw-byte count (or a 1997 bye seed). */
+            const int present=Expanded_OGWorld_HistoricCopaContainsTeam(_selTeamNumber);
+            fprintf(stderr,"[og-libertadores-96] MANAGER_ENROL team=%04x "
+                           "resident=%d\n",(unsigned)_selTeamNumber,present);
+            return present==1;
+        }
+    }
+#endif
     /* team list = cupCopy + 7 + cupCopy[7], with the 64-bit text[2] widening
      * compensation (the static competition's unk1[] is packed BE (country,
      * ordinal) byte pairs; read via BE_READ_U16 to match selTeamNumber, which
@@ -3153,6 +3167,18 @@ void Career_ViewOrEditCompetitionSlot(uint8_t *comp, uint16_t sel)
                        "world=9697 slot=3 cup=0\n",(unsigned)_selTeamNumber);
         (void)Expanded_OGWorld_ViewLeague(_euroCup,0);
         return;
+    }
+    if(World_Current()==WORLD_9697 && _euroCupSlotIndex==3u) {
+        extern Competition *Career_CopaWorkingCopy(void);
+        extern int Expanded_OGWorld_ViewLeague(const uint8_t *,uint16_t);
+        Competition *copa=Career_CopaWorkingCopy();
+        if(copa && (comp==(uint8_t *)copa ||
+                    comp==(uint8_t *)_quaternaryCompetitionPtr)) {
+            fprintf(stderr,"[og-libertadores-96] VIEW_RESIDENT team=%04x "
+                           "world=9697 slot=3\n",(unsigned)_selTeamNumber);
+            (void)Expanded_OGWorld_ViewLeague((const uint8_t *)Comp_ById(COMPID_copaLibertadores),0);
+            return;
+        }
     }
 #endif
 

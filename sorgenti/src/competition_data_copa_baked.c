@@ -4,25 +4,22 @@
  */
 /* competition_data_copa_baked.c — BAKED Copa Libertadores for the Amiga (Step 8).
  *
- * Copa Libertadores is a PURE-DATA dynamic competition on SDL: loaded at runtime
- * from data_json/competitions/tournaments.json by DataJson_InstallCompetitionGraph
- * (no compiled record). The Amiga port does NOT runtime-parse JSON, so the same
- * record is BAKED here as a compiled global and installed at startup through the
- * very same Comp_AppendCareerContest / Comp_Register path the SDL dynamic loader
- * uses — so the shared career_copa.c (which finds Copa via Comp_ById /
- * _careerContests) works identically on both ports.
+ * This is the original OpenSWOS 1996 20-club tournament template, baked
+ * for Amiga and used in the SDL historical (9697) world bank. The modern
+ * SDL world loads its own competitions from JSON; these definitions are kept
+ * separate by world namespace. Registration uses the native Comp_Register
+ * and Comp_AppendCareerContest paths shared by career_copa.c.
  *
- * WHOLE-FILE gated `#ifndef SWOS_SDL_BUILD`: on the SDL build this file is EMPTY,
- * so there is NO compiled _copaLibertadores there and the dynamic loader installs
- * Copa from JSON (Copa stays a pure-data dynamic comp on SDL — the whole point of
- * the refactor). The file is synced to the Amiga tree and compiled only there.
+ * The original 1996 OpenSWOS tournament is now also compiled into SDL.
+ * It is registered ONLY in the historical 9697 world definition bank; the
+ * modern 2627 bank retains its separate JSON competition namespace.
+ * The Mod's 1997 champion-bye mechanic is NOT part of this 20-team template.
  *
  * The _copaLibertadores literal is generated from tournaments.json by
  * scripts/emit_competitions.py emit_tournament() — REGENERATE it (and keep it
  * byte-faithful to the JSON, like the other baked records in competition_data.c)
  * if the JSON Copa record changes. See docs/COMPETITION_DYNAMIC_REFACTOR.md §8.
  */
-#ifndef SWOS_SDL_BUILD
 
 #include "game_types.h"
 #include "swos_types.h"
@@ -86,4 +83,3 @@ void CopaBaked_Install(void)
     Comp_Register((Competition *)&_copaLibertadores);
 }
 
-#endif /* !SWOS_SDL_BUILD */

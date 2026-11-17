@@ -430,6 +430,19 @@ void WorldSwitch_PrepareAtLoading(void)
     } else {
         fprintf(stderr,"[world-switch] 2627 unavailable or JSON graph disabled\n");
     }
+    /* Historic world: install its original Copa only AFTER capturing the
+     * modern namespace, so 1996 Copa cannot leak into the 2627 registry.
+     * Every restore is of static records, never an active career or fixture. */
+    World_Set("9697");
+    restore_bank(0);
+    {
+        extern void CopaBaked_Install(void);
+        CopaBaked_Install();
+        Career_InstallCopaLibertadoresPresetEntry();
+        save_bank(0);
+        fprintf(stderr,"[og-libertadores-96] historic-record=INSTALLED "
+                       "entrants=20 groups=5 holder-bye=NO_NATIVE_RULE\n");
+    }
     if(wanted==WORLD_2627 && s_modernReady){
         World_Set("2627");
         restore_bank(1);

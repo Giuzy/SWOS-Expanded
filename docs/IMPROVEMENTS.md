@@ -1,5 +1,10 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_11 — Libertadores 1996 OpenSWOS nel mondo residente
+- Il template OG originale della Copa Libertadores a 20 club (5 gironi x4, 16 ottavi) e' compilato anche su SDL e installato soltanto nel bank 9697, senza contaminare il bank 2627. Registrazione compId162 in menu South America e copia manager; contesto OG type2 residente separato da Champions in `s_expOGUefa[1]`, con salvataggio nella struttura residente già disponibile. Viewer read-only e progressione attraverso il codice OG, senza calendario o simulazione sostitutiva.
+- Verifica codice: il record originale OpenSWOS 1996 **non** contiene il bye del detentore; il bye di River Plate è caratteristico dell'edizione 1997 Mod. Date invariate per richiesta. Test Windows e avanzamenti reali dei gironi ancora NON PROVATI.
+
+
 ## 0.13.70_10 — Champions 1996/97, calendario dopo ingaggio
 - Corretto l'enrolment della Champions tipo-2 nel mondo storico: lettura della partecipazione dai 16 club UEFA OG residenti invece di offset Amiga obsoleti. Il click sul calendario personale apre il viewer UEFA residente senza simulazioni da parte del menu. Il dispatcher del viewer ora legge il campo int16 competitionType, non il byte big-endian +1. Le altre due coppe europee mantengono le routine esistenti.
 - Audit statico fonte codice effettuato. Build Windows, prova club partecipante, menu BACK, risultati post-manager e ripristino CAR: NON PROVATI. I calendari di gara OG e sincronizzazione locale-residente non sono completati da questo intervento.

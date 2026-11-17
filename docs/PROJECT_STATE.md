@@ -1,5 +1,11 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_11: Libertadores OpenSWOS 1996 — OG residente, test pendenti
+- Attivato nel banco 9697 il record autentico della prima edizione OpenSWOS: 20 squadre, cinque gironi da quattro, 16 agli ottavi, **nessuna detentrice esterna aggiunta**. La Mod 1997 e' diversa (21 con River Plate ammesso agli ottavi) e NON è stata importata. Non cambiate le date.
+- Il mondo START/FORWARD TIME usa la stessa autorita' OG dei tornei di tipo 2, con un secondo contesto residente storico separato dalla Champions e incluso nel salvataggio CAR. Il menu sudamericano e il calendario del manager recuperano il contesto attraverso la registrazione historic compId162.
+- NON PROVATO: compilazione Windows, visualizzazione dopo START, 20 club, incontri e passaggio alle fasi successive, continuità save, progresso di club allenato e assenza di regressioni nel mondo 2627. Le fixture storiche datate, l'edizione 1997 della Mod e le coppe di altre confederazioni restano incomplete.
+
+
 ## 17/11/2026 — 0.13.70_10, Champions storica nel calendario del manager (non collaudata)
 - Per il 1996/97 la verifica del club nella Champions passa ora dall'identita' di partecipazione residente OG (16 squadre, type-2) e non da offset legacy `cupCopy[1]/[0x0F]`. Da slot-3 del calendario la consultazione apre il torneo residente read-only, con sorgente OG unica per il viewer; Cup Winners' Cup e UEFA Cup non cambiano selettore. Il tipo per aprire il viewer e' letto come int16 nativo.
 - Resta esplicito il limite: giochi/risultati della competizione nel slot manager e la loro propagazione allo stato residente NON PROVATI; questa correzione riguarda enrolment e visualizzazione, non tutta la persistenza o la fixture-history. Test Windows: ingaggio con club partecipante a Champions 96/97, presenza voce in calendario, clic, BACK, confronto fingerprint prima/dopo, FORWARD e match. NON PROVATO.

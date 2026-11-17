@@ -29,6 +29,14 @@ if errorlevel 1 (
  exit /b 2
 )
 mkdir "%SESSION%\LOG_PRECEDENTI" >nul 2>&1
+set "SWOS_LIVE_LOG=%~dp0diagnostica\log\SWOS.log"
+if exist "%SWOS_LIVE_LOG%" (
+ move /Y "%SWOS_LIVE_LOG%" "%SESSION%\LOG_PRECEDENTI\SWOS_PRE_SESSIONE_DIAGNOSTICA.log" >nul
+ if exist "%SWOS_LIVE_LOG%" (
+  echo [ERRORE] Log precedente non archiviabile.
+  exit /b 2
+ )
+)
 set "SWOS_DIAGNOSTIC_DIR=%SESSION%"
 set "EXPECTED=UNKNOWN"
 for /f "tokens=3" %%V in ('findstr /B /C:"#define SWOS_EXPANDED_VERSION" "sorgenti\include\build_info.h"') do set "EXPECTED=%%~V"
@@ -59,7 +67,7 @@ REM A previous SWOS.log must NEVER be mistaken for gameplay of this build.
 REM Move historical LOG ONLY into this session; no saves are touched.
 for %%L in (*.log) do (
  if /I not "%%~nxL"=="SWOS.log" (
-  copy /Y "%%~fL" "%SESSION%\LOG_PRECEDENTI\%%~nxL" >nul
+  move /Y "%%~fL" "%SESSION%\LOG_PRECEDENTI\%%~nxL" >nul
  )
 )
 if exist "SWOS.log" (
@@ -87,8 +95,8 @@ if not "!GAME_EXIT!"=="0" (
  findstr /I /C:"error:" /C:"errore:" /C:"compilazione fallita" /C:"il gioco non e stato avviato" "%SESSION%\AVVIO_COMPILAZIONE.log"
  echo Vedi %SESSION%\AVVIO_COMPILAZIONE.log
 )
-if exist "SWOS.log" (
- copy /Y "SWOS.log" "%SESSION%\SWOS.log" >nul
+if exist "%SWOS_LIVE_LOG%" (
+ copy /Y "%SWOS_LIVE_LOG%" "%SESSION%\SWOS.log" >nul
  echo [GAMEPLAY] Log corrente acquisito.
 ) else (
  > "%SESSION%\SWOS_LOG_MANCANTE.txt" echo SWOS.log di questa sessione non prodotto. GAMEPLAY=NOT_TESTED.
@@ -152,9 +160,7 @@ REM Compatibility alias, never run the same OG tests a second time.
 > "%SESSION%\TEST_LIVING_WORLD_ALIAS.txt" echo TEST_LIVING_WORLD.bat = TEST_OG_WORLD.bat: already executed once.
 REM Prefer the freshly generated format report, if available. Otherwise
 REM copy the historical baseline moved under docs/reference to keep root clean.
-if exist "COMPETITION_FORMAT_AUDIT.csv" (
- copy /Y "COMPETITION_FORMAT_AUDIT.csv" "%SESSION%\TEST_ESEGUITI\COMPETITION_FORMAT_AUDIT.csv" >nul
-) else if exist "docs\reference\COMPETITION_FORMAT_AUDIT.csv" (
+if exist "docs\reference\COMPETITION_FORMAT_AUDIT.csv" (
  copy /Y "docs\reference\COMPETITION_FORMAT_AUDIT.csv" "%SESSION%\TEST_ESEGUITI\COMPETITION_FORMAT_AUDIT.csv" >nul
 )
 (

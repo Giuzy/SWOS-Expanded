@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 17/11/2026 — 0.13.70_9, pulizia root (Windows NON PROVATO)
+- Unici BAT di avvio root: AVVIA_DIAGNOSTICA.bat e AVVIA_SWOS.bat. COMPILA_SWOS.bat e PREPARA_SWOS.bat sono in diagnostica/; tutti i riferimenti di avvio e compilazione sono aggiornati. BUILD_SWOS.sh scrive fuori dalle sessioni in diagnostica/log/COMPILAZIONE_0140.log; main.c su Windows redirige stderr in diagnostica/log/SWOS.log anche con avvio diretto. La diagnostica cattura solo il log della sessione corrente, archivia quelli precedenti e lascia tutti i .CAR invariati. Marcatori .SWOS_*_COMPILATO e backup SWOS.ini sono spostati in diagnostica/ (i preesistenti sono migrati dal launcher soltanto senza collisioni). La copia ASSETS.ini root viene eliminata dal repo: quella effettivamente letta e' assets/ASSETS.ini.
+- SDL2.dll e SWOS.ini rimangono accanto all'EXE: il loader Windows e la funzione swos_ini_path() li richiedono ancora nella posizione originale; nessun cambiamento ai salvataggi in save/. I file locali non tracciati non possono essere spostati dalla sola operazione Git: la migrazione avviene alla successiva esecuzione del launcher, quando non esiste un file di destinazione omonimo. Verifiche Windows e compilazione PENDENTI.
+
 ## 0.13.70_8 — Persistenza degli stati mondiali OG
 - Aggiunto `og_resident` dentro il JSON .CAR per leghe, UEFA e coppe nazionali residenti, inclusi identificativi, stato partita/torneo, rose e RNG. Pointer rebasing e checksum per ogni contesto, controllo delle dimensioni del layout, caricamento prevalidato e nessun replay di partite; autosave per mondo sostituito atomicamente.
 - Vecchi CAR senza questo segmento NON sono migrati automaticamente: non contengono la cronologia OG sufficiente, quindi sono mantenuti sul disco ma non proseguibili in modo coerente con il nuovo sistema.

@@ -1191,7 +1191,14 @@ int main(int argc, char **argv)
 #else
     if (getenv("SWOS_NO_LOG") == NULL) {
         char log_path[1088];
+        #ifdef _WIN32
+        /* Runtime log outside the root, including direct EXE launches. */
+        _mkdir("diagnostica");
+        _mkdir("diagnostica\\log");
+        snprintf(log_path, sizeof log_path, "%s/diagnostica/log/SWOS.log", swos_user_dir());
+#else
         snprintf(log_path, sizeof log_path, "%s/SWOS.log", swos_user_dir());
+#endif
         FILE *log = freopen(log_path, "w", stderr);
         if (log) {
             setvbuf(log, NULL, _IONBF, 0);

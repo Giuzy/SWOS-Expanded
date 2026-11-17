@@ -8,7 +8,7 @@ if ([string]::IsNullOrWhiteSpace($dir)) {
 }
 $path = Join-Path $dir 'SWOS.ini'
 if (Test-Path $path) {
-  $backup = Join-Path $dir 'SWOS.ini.prima_di_Expanded_4K.bak'
+  $backup = Join-Path $PSScriptRoot 'SWOS.ini.prima_di_Expanded_4K.bak'
   if (-not (Test-Path $backup)) { Copy-Item $path $backup }
   $content = [IO.File]::ReadAllText($path)
 } else { $content = '' }

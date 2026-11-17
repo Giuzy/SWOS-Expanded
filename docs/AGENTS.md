@@ -1,5 +1,10 @@
 # SWOS Expanded — AGENTS.md
 
+## Regola aggiornata — 17/11/2026, root semplificata (prevale sulle vecchie istruzioni BAT)
+- Nella root restano **AVVIA_SWOS.bat e AVVIA_DIAGNOSTICA.bat**; COMPILA_SWOS.bat e PREPARA_SWOS.bat, insieme agli altri strumenti BAT, stanno in `diagnostica/`. Il launcher AVVIA_SWOS richiama PREPARA con percorso assoluto; tutte le compilazioni usano ancora la root come directory di lavoro.
+- Log Windows in `diagnostica/log/SWOS.log` e `diagnostica/log/COMPILAZIONE_0140.log` per avvio ordinario; ogni sessione AVVIA_DIAGNOSTICA copia il log corrente nella propria directory isolata. Marker compilazione e backup video in `diagnostica/`. Conservare file preesistenti e salvare le tracce precedenti, non cancellare i CAR.
+- `ASSETS.ini` effettivo in `assets/ASSETS.ini`; la copia nella root e' ridondante. `SDL2.dll` e `SWOS.ini` rimangono **accanto all'EXE** per il loader e le impostazioni native, salvo specifica modifica futura approvata. I BAT e le modifiche ai percorsi vanno verificati da Windows utente, non solo dal sorgente.
+
 ## Regola vincolante aggiornata — 17 novembre 2026: commit per intervento significativo
 - La regola precedente «un solo commit per build» e' sostituita: **un commit separato per ciascuna modifica significativa e coerente**, in ordine di priorita' concordato. Non raggruppare fix indipendenti in un commit omnibus; non creare commit inutili per singole righe dello stesso intervento.
 - L'autorizzazione corrente dell'utente «prendi la lista priorita' e builda da li» include la registrazione dei commit pertinenti alle priorita' approvate. Per nuove attivita' fuori elenco o nuove scelte di gameplay rimane necessaria l'approvazione.

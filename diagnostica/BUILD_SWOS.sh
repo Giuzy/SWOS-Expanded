@@ -56,7 +56,8 @@ done
 }
 # AVVIA_DIAGNOSTICA.bat redirects the real compiler output into its
 # isolated session. Standalone COMPILA/AVVIA keep the legacy root path.
-compile_log="$game/COMPILAZIONE_0140.log"
+mkdir -p "$game/diagnostica/log"
+compile_log="$game/diagnostica/log/COMPILAZIONE_0140.log"
 if [[ -n "${SWOS_DIAGNOSTIC_DIR:-}" ]]; then
   compile_log="$(cygpath -u "$SWOS_DIAGNOSTIC_DIR")/COMPILAZIONE_0140.log"
 fi

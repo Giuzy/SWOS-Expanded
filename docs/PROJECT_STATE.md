@@ -1,5 +1,10 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.79: UI calendario squadra ripristinata; UNEMPLOYED -> DEBUG 30 JUNE
+- Tolto il pulsante `DEBUG +1 MONTH` dal calendario del club (voce 13 dell'originale di nuovo nascosta); posizione e navigazione di TRANSFERS tornano al template. Il vecchio handler month CAREER non e' piu' invocato da quel menu; non e' stato dichiarato un test Windows.
+- In UNEMPLOYED restano `DEBUG +1 MONTH` e FORWARD TIME; aggiunto `DEBUG 30 JUNE` nella seconda posizione sinistra libera (ex JOB OFFERS invisibile). Salta in **una** azione alla fine della stagione civile OG, fermandosi al 30 giugno, mentre il rollover al 1 luglio resta manuale. Solo OG avanza le competizioni; test Windows 96/26, joystick/hover, screenshot e save/continue **NON PROVATI**. Test C data isolato da eseguire/verificare.
+
+
 ## 17/11/2026 — AUDIT SOLO DOCUMENTI dopo 0.13.78: confronto 494 voci Expanded / OpenSWOS / SWOS2020 / Mod e altre edizioni
 - Aggiunti **`docs/SWOS_CROSS_VERSION_COMPETITION_AUDIT_20261117.md`** e **`docs/reference/SWOS_CROSS_VERSION_COMPETITIONS_20261117.tsv`**: 494 righe (= 264 inventario Mod moderno + 91 divisioni, 76 coppe, 14 tornei OG storici + 17 estensioni storiche + 10 supercoppe + 4 moderni aggiuntivi + 18 famiglie nazionali per epoca). **Non sono 494 competizioni indipendenti**: elenco comparativo con sovrapposizioni per edizione e categorie. Ogni riga riporta club, fasi, promozioni/retrocessioni definite, formula e regole disponibili; separa colonne CAREER e PRESET per SWOS2020, OpenSWOS e Mod; esito PRESENTE MA INCOMPLETA o DA INTEGRARE/NV, mai inventati PASS.
 - I 91 record e 134 divisioni Expanded 26 si associano esattamente alle 91/134 righe Mod 4.1.2; completato confronto formule testuali per le 264 voci con 2 fonti Mod versione-specifiche, senza fingere che definizione equivalga a residenti. 70 dimensioni numeriche Mod-Expanded confrontabili tutte uguali; 8 divergenze valori promozione e 13 retrocessione, da investigare includendo play-off / play-out / uscita dal campionato (NUMERICO != bug verificato).

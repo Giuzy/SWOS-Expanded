@@ -254,6 +254,7 @@ static unsigned s_nextOfferWeek=0;
  * Never run DrawMenu or native OG callbacks from SDL's event pump. */
 static unsigned s_debug_wait_jump_years=0;
 static int s_debug_month_once; /* transient button request; never saved */
+static int s_debug_june30_once; /* transient direct-to-boundary debug action */
 /* F12+8: 70 native OG years in independent menu frames (one civil clock). */
 static unsigned s_ogStressRemaining,s_ogStressDone;
 static ExpandedWorldDate s_ogStressTarget;
@@ -261,6 +262,7 @@ void Expanded_OGStress_Reset(void)
 {
     s_debug_wait_jump_years=0;
     s_debug_month_once=0;
+    s_debug_june30_once=0;
     s_ogStressRemaining=0;s_ogStressDone=0;
     memset(&s_ogStressTarget,0,sizeof s_ogStressTarget);
 }
@@ -534,6 +536,7 @@ void Expanded_UnemployedWait(void);
 void Expanded_UnemployedShowOffer(void);
 #ifdef SWOS_SDL_BUILD
 void Expanded_UnemployedDebugMonth(MenuEntry *unused);
+void Expanded_UnemployedDebugJune30(MenuEntry *unused);
 #endif
 void Expanded_UnemployedInit(void) {
     /* This is a clone of the club's packed contest menu, but no club is
@@ -558,7 +561,7 @@ void Expanded_UnemployedInit(void) {
     _menuEntries[18].isInvisible=0; /* native 304x116 center panel */
 
     /* Legitimate actions only: FORWARD TIME, BACK, conditional OFFER,
-     * DEBUG WORLD, DEBUG +1 MONTH and RECORD. Every fixture, SQUAD,
+     * DEBUG WORLD, DEBUG +1 MONTH, DEBUG 30 JUNE and RECORD. Every fixture,
      * TRANSFERS, CLUB BUSINESS and scroll-arrow callback is NULL. */
     _menuEntries[7].isInvisible=0;
     _menuEntries[7].isDisabled=0;
@@ -617,11 +620,35 @@ void Expanded_UnemployedInit(void) {
     _menuEntries[13].leftEntry=12;
     _menuEntries[13].rightEntry=7;
     _menuEntries[13].upEntry=9;
-    _menuEntries[13].downEntry=9;
+    _menuEntries[13].downEntry=14;
     _menuEntries[13].skipLeftEntry=0;
     _menuEntries[13].skipRightEntry=0;
     _menuEntries[13].skipUpEntry=0;
     _menuEntries[13].skipDownEntry=0;
+    /* The old JOB OFFERS position (entry 5) is unused while unemployed.
+     * Preserve the existing +1 MONTH button, with a separate native
+     * hitbox for the direct 30 June checkpoint. CLASSIC is untouched. */
+    _menuEntries[14].isInvisible=0;
+    _menuEntries[14].isDisabled=0;
+    _menuEntries[14].onSelect=Expanded_UnemployedDebugJune30;
+    _menuEntries[14].x=_menuEntries[5].x;
+    _menuEntries[14].y=_menuEntries[5].y;
+    _menuEntries[14].dwWidth=_menuEntries[5].dwWidth;
+    _menuEntries[14].dwHeight=_menuEntries[5].dwHeight;
+    _menuEntries[14].background=ENTRY_FRAME_AND_BACK_COLOR;
+    _menuEntries[14].content=ENTRY_STRING;
+    _menuEntries[14].bgColor=0x8;
+    _menuEntries[14].fg=(uintptr_t)"DEBUG 30 JUNE";
+    _menuEntries[14].stringFlags=
+        (_menuEntries[12].stringFlags & ~0x0fu)|2u;
+    _menuEntries[14].leftEntry=12;
+    _menuEntries[14].rightEntry=9;
+    _menuEntries[14].upEntry=13;
+    _menuEntries[14].downEntry=9;
+    _menuEntries[14].skipLeftEntry=0;
+    _menuEntries[14].skipRightEntry=0;
+    _menuEntries[14].skipUpEntry=0;
+    _menuEntries[14].skipDownEntry=0;
 #endif
     _menuEntries[12].isInvisible=0;
     _menuEntries[12].isDisabled=0;
@@ -649,6 +676,11 @@ void Expanded_UnemployedInit(void) {
     _menuEntries[9].rightEntry=12;
     _menuEntries[9].upEntry=7;
     _menuEntries[9].downEntry=13;
+#ifdef SWOS_SDL_BUILD
+    /* From BACK, reach 30 June with the controller in either direction. */
+    _menuEntries[9].leftEntry=14;
+    _menuEntries[9].downEntry=14;
+#endif
     _menuEntries[10].leftEntry=7;
     _menuEntries[10].rightEntry=11;
     _menuEntries[10].upEntry=7;
@@ -832,7 +864,20 @@ void Expanded_UnemployedWait(void) {
         _fireResetFlag=1; /* arming click must not advance one extra week */
         return;
     }
-    if(s_debug_month_once) {
+    if(s_debug_june30_once) {
+        /* Jump directly to the final day of this OG season, never into
+         * the July rollover. Competitions advance in their native OG
+         * order through the ordinary resident-world call below. */
+        if(!ExpandedDebug_June30BeforeSeason(live.today,&target)) {
+            fprintf(stderr,"[debug-june30] STOP_AT_SEASON_BOUNDARY "
+                           "date=%04u-%02u-%02u "
+                           "regular FORWARD TIME required\n",
+                    (unsigned)live.today.year,(unsigned)live.today.month,
+                    (unsigned)live.today.day);
+            _fireResetFlag=1;
+            return;
+        }
+    } else if(s_debug_month_once) {
         /* Explicit debug calendar click: use the SAME resident OG advance,
          * LWE civil clock commit, offer expiry and menu update below.
          * Stop at 30 June; only ordinary FORWARD TIME can enter 1 July. */
@@ -866,6 +911,12 @@ void Expanded_UnemployedWait(void) {
         return;
     }
     const unsigned target_weeks=(unsigned)(target_index-first_index)/7u;
+    if(s_debug_june30_once)
+        fprintf(stderr,"[debug-june30] OG_ADVANCE_BEGIN "
+                       "from=%04u-%02u-%02u to=%04u-%02u-%02u\n",
+                (unsigned)live.today.year,(unsigned)live.today.month,
+                (unsigned)live.today.day,(unsigned)target.year,
+                (unsigned)target.month,(unsigned)target.day);
     /* Advance OG competitions BEFORE committing the unemployment date.
      * No duplicate LWE scoring, and a failed OG tick must not move time. */
     {
@@ -894,6 +945,13 @@ void Expanded_UnemployedWait(void) {
         return;
     }
     s_debug_wait_jump_years=0u;
+    if(s_debug_june30_once)
+        fprintf(stderr,"[debug-june30] OG_DATE_COMMITTED "
+                       "from=%04u-%02u-%02u to=%04u-%02u-%02u "
+                       "season-change=MANUAL\n",
+                (unsigned)live.today.year,(unsigned)live.today.month,
+                (unsigned)live.today.day,(unsigned)target.year,
+                (unsigned)target.month,(unsigned)target.day);
     if(s_debug_month_once)
         fprintf(stderr,"[debug-month] OG_DATE_COMMITTED "
                        "from=%04u-%02u-%02u to=%04u-%02u-%02u "
@@ -954,8 +1012,9 @@ void Expanded_UnemployedWait(void) {
         s_nextOfferWeek=s_waitWeeks+next_delay();
     _fireResetFlag=1;
     Expanded_UnemployedInit();
-    if(s_debug_month_once)
-        ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[13];
+    if(s_debug_month_once || s_debug_june30_once)
+        ((Menu*)_currentMenu)->selectedEntry=
+            &_menuEntries[s_debug_june30_once?14:13];
     DrawMenu();
 }
 #ifdef SWOS_SDL_BUILD
@@ -972,6 +1031,21 @@ void Expanded_UnemployedDebugMonth(MenuEntry *unused) {
     Expanded_UnemployedWait();
     s_debug_month_once=0;
     _fireResetFlag=1; /* one click = one month, no held-fire repeats */
+}
+void Expanded_UnemployedDebugJune30(MenuEntry *unused) {
+    extern uintptr_t _currentMenuPtr;
+    (void)unused;
+    if(_currentMenuPtr!=(uintptr_t)Expanded_UnemployedCalendarMenu() ||
+       s_debug_wait_jump_years || s_ogStressRemaining ||
+       s_debug_month_once) {
+        fprintf(stderr,"[debug-june30] BLOCKED active-stress-or-wrong-menu\n");
+        _fireResetFlag=1;
+        return;
+    }
+    s_debug_june30_once=1;
+    Expanded_UnemployedWait();
+    s_debug_june30_once=0;
+    _fireResetFlag=1; /* one click = one jump, even with held-fire input */
 }
 #endif
 void Expanded_OfferDraw(void) {

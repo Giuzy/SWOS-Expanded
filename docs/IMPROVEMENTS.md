@@ -1,5 +1,10 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.79 — ripristino CALENDAR club e test rapido al 30 giugno da disoccupato
+- Rimossa l'aggiunta di DEBUG +1 MONTH al calendario con squadra, ripristinando la geometria originale senza spostare TRANSFERS.
+- UNEMPLOYED ha il nuovo pulsante reale DEBUG 30 JUNE in posizione nativa libera, con selezione mouse/controller, accanto al DEBUG +1 MONTH preesistente. Passa per lo stesso tick OG e cursore civile di FORWARD TIME, senza cambio stagione automatico; da 30 giugno nessun salto ulteriore. Versione codice 0.13.79; compilazione/gameplay Windows PENDENTI.
+
+
 ## Audit documentale 17/11/2026 su base 0.13.78 — matrice cross-versione
 - Catalogati e confrontati senza modificare gameplay 494 record di riferimento (264 Mod 26 + 230 altre righe epoca/storiche/nazionali/supercoppe) con numeri/format/cicli, promo-retro, menu CAREER vs PRESET distinti e marcatura NV per le fonti non estraibili. Output `docs/SWOS_CROSS_VERSION_COMPETITION_AUDIT_20261117.md` + `docs/reference/SWOS_CROSS_VERSION_COMPETITIONS_20261117.tsv`.
 - Prova diretta upstream OpenSWOS 96: cinque JSON di competizioni identici; `tournaments.json` differisce solo nelle fasi di Libertadores (112..136 upstream, 16..40 Expanded). Confronto 26 record Mod: 134 divisioni e paesi allineati, 21 differenze numeriche promo/retro da valutare con playoff/split. Completata descrizione 13 statali, Coppa Serie D e tutte 15 continentali della Mod, ma la loro residenza e il gameplay sono altra cosa.

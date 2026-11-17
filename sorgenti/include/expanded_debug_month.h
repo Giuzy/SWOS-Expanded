@@ -28,4 +28,19 @@ static inline int ExpandedDebug_NextMonthBeforeSeason(ExpandedWorldDate today,
     *out=next;
     return 1;
 }
+/* The last day of the CURRENT OG career season, not the next calendar
+ * year's arbitrary June. It never crosses 1 July or mutates the clock. */
+static inline int ExpandedDebug_June30BeforeSeason(ExpandedWorldDate today,
+                                                   ExpandedWorldDate *out)
+{
+    int32_t now=0,limit=0;
+    if(!out || !ExpandedWorld_DateToIndex(today,&now))return 0;
+    const uint16_t season=(uint16_t)(today.year-(today.month<7u));
+    if(season>=2200u)return 0;
+    const ExpandedWorldDate last={(uint16_t)(season+1u),6u,30u};
+    if(!ExpandedWorld_DateToIndex(last,&limit) || now>=limit)return 0;
+    *out=last;
+    return 1;
+}
+
 #endif

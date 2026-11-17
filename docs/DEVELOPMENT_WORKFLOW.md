@@ -1,5 +1,11 @@
 # SWOS Expanded — development procedures and rationale
 
+## 17/11/2026 — checklist Windows 0.13.79 (DEBUG 30 JUNE)
+- GitKraken dev/0.10 e compilazione personale Windows 0.13.79; usare solo AUTO9697/AUTO2627 di **prova**, senza sovrascrivere i CAR importanti. CALENDAR con club: assenza del DEBUG +1 MONTH sopra TRANSFERS e layout/joypad precedente intatti.
+- START UNEMPLOYED 96 e 26: verificare che DEBUG +1 MONTH sia ancora presente e che DEBUG 30 JUNE sia sotto di esso, senza hotspot fantasma o focus bloccati. A/SELECT, mouse e B/BACK. Da luglio/novembre saltare una volta: esattamente 30 giugno seguente, eventi/coppe OG fino al cutoff, F12 data/settimana, log `[debug-june30] OG_ADVANCE_BEGIN` poi `OG_DATE_COMMITTED`. Un secondo click non cambia la data e scrive `STOP_AT_SEASON_BOUNDARY`.
+- Eseguire FORWARD TIME standard dal 30 giugno e verificare separatamente il rollover una sola volta; confrontare risultati/stagione e SAVE/CONTINUE nei due mondi. In caso di FAIL del tick OG, non riprovare o salvare lo stato parziale: inviare ZIP AVVIA_DIAGNOSTICA. Build Windows, gameplay, input, competizioni globali, snapshot CAR NON PROVATI dall'assistente.
+
+
 ## 17/11/2026 — guida all'uso della matrice comparativa (solo documenti)
 - Aprire `docs/reference/SWOS_CROSS_VERSION_COMPETITIONS_20261117.tsv` con editor TSV, filtrare `mondo=9697/2627`, `tipo`, `paese`, `esito`; per ogni record consultare `docs/SWOS_CROSS_VERSION_COMPETITION_AUDIT_20261117.md`. Righe `NV` = non verificato dal materiale indipendente, NON assenza; `PRESENTE MA INCOMPLETA` = record/manifest senza catena mondiale OG pienamente collaudata. Non sommare le 494 righe (duplicazioni fra fonti/epoche) come numero tornei.
 - Verificare, su copie non distruttive delle distribuzioni originali, per SWOS2020, DOS/GOG 96, OpenSWOS versione precisa, Mod 1997 e Mod 4.1.2: (1) hash/versione dataset, (2) presenza nel MENU CAREER, (3) presenza nel PRESET, (4) numero squadre e IDs, (5) fasi e calendario, (6) promozioni/retrocessioni, (7) qualificazioni e rollover, (8) save/restore. Non inserire EXE o dati calcistici terzi nel repo per creare dipendenze. Se dati assenti scrivere NV; usare un esito runtime solo con screenshot/log Windows.

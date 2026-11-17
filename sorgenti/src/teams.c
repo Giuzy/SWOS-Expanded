@@ -427,7 +427,35 @@ int16_t LoadTeamFile(uint16_t extNumber)
 
             StringCopy(_aDataTeamNnn, _teamFilenameBuffer);
 
-            result = LoadFileEx(_teamFilenameBuffer, _teamFileBuffer, &fileSize);
+#ifdef SWOS_SDL_BUILD
+            /* Original 96/97 team files supplied from OpenSWOS. Preserve
+             * existing data/TEAM.NNN for CLASSIC and 2026/27 fallbacks.
+             * These 4 original records match the OG global-base spans:
+             * Finland 12, France 42, Turkey 24, USA 18 slots. */
+            const int historicalCareer =
+                World_Current()==WORLD_9697 && _gameType==GAME_TYPE_CAREER &&
+                (ext8==12u || ext8==13u || ext8==38u || ext8==73u);
+            if(historicalCareer) {
+                char historic[]="data/9697/TEAM.000";
+                historic[15]=(char)('0'+ext8/100u);
+                historic[16]=(char)('0'+(ext8/10u)%10u);
+                historic[17]=(char)('0'+ext8%10u);
+                result=LoadFileEx((uint8_t *)historic,_teamFileBuffer,&fileSize);
+                if(result==0) {
+                    fprintf(stderr,"[og-9697-team-source] country=%u "
+                                   "source=OPEN_SWOS_RNC path=%s\n",
+                            (unsigned)ext8,historic);
+                } else {
+                    /* Missing optional file: leave native preflight to reject
+                     * the legacy mismatch instead of pretending it is fixed. */
+                    fprintf(stderr,"[og-9697-team-source] WARNING country=%u "
+                                   "missing=%s fallback=LEGACY_BINARY\n",
+                            (unsigned)ext8,historic);
+                    result=LoadFileEx(_teamFilenameBuffer,_teamFileBuffer,&fileSize);
+                }
+            } else
+#endif
+            result=LoadFileEx(_teamFilenameBuffer,_teamFileBuffer,&fileSize);
             if (result != 0) {
                 /* Non-custom file load failure: panic and halt */
                 _panicReasonCode = 0x8008;
@@ -2860,6 +2888,10 @@ void SetTeamsCoordinates(void)
     }
 }
 
+#ifdef SWOS_SDL_BUILD
+extern int Expanded_UnemployedWorldPickerActive(void);
+extern uint8_t _currentMenu[];
+#endif
 __attribute__((used, externally_visible))
 void SelectTeamsReinit(void)
 {
@@ -2886,6 +2918,35 @@ void SelectTeamsReinit(void)
         bgc = (bgc & 0xFFF0) + RED_10;
         abortEntry->bgColor = bgc;
     }
+
+#ifdef SWOS_SDL_BUILD
+    /* Only DEBUG WORLD (not OFFER or CLASSIC) removes ABORT, including its
+     * callback, focus destination and every native directional link. B/ESC
+     * own the one-level BACK flow throughout this readonly selector. */
+    if(Expanded_UnemployedWorldPickerActive()) {
+        MenuEntry *abortEntry=&_menuEntries[88];
+        abortEntry->isInvisible=1;
+        abortEntry->isDisabled=1;
+        abortEntry->fg=0;
+        abortEntry->onSelect=NULL;
+        for(unsigned n=1;n<=89u;++n) {
+            if(n==88u)continue;
+            MenuEntry *e=&_menuEntries[n];
+            if(e->leftEntry==88)e->leftEntry=-1;
+            if(e->rightEntry==88)e->rightEntry=-1;
+            if(e->upEntry==88)e->upEntry=-1;
+            if(e->downEntry==88)e->downEntry=-1;
+        }
+        Menu *active=(Menu *)_currentMenu;
+        if(active && active->selectedEntry==abortEntry) {
+            for(unsigned n=1;n<=86u;++n)
+                if(!_menuEntries[n].isInvisible && !_menuEntries[n].isDisabled) {
+                    SetCurrentEntry((uint16_t)n);
+                    break;
+                }
+        }
+    }
+#endif
 
     /* Build header string */
     uint8_t *headerDst = (uint8_t *)_menuEntries[0].fg;
@@ -3232,7 +3293,7 @@ loc_E086:
     /* The offer already identifies the country, division and club.
      * Reuse DEBUG WORLD's resident country cups even when this club is
      * not an entrant. The read-only viewer creates no team/fixture. */
-    if (Expanded_OfferPickerActive()) {
+    if (Expanded_OfferPickerActive() && World_Current()!=WORLD_9697) {
         if ((uintptr_t)compEntry<256u)goto loc_E086;
         const Competition *offerComp=(const Competition *)compEntry;
         if(offerComp->type==0 && !comp_is_type0_cup(offerComp->compId)) {

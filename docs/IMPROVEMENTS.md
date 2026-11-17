@@ -1,5 +1,11 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 17/11/2026 — 0.13.69, interventi da collaudare
+- Importati separatamente i quattro TEAM originali OpenSWOS 1996/97 per i campionati prima esclusi. I conteggi dei file sorgente corrispondono alle regole OG storiche; l'effettiva integrazione nel gioco e' da verificare su Windows dopo GitKraken.
+- Nel menu solo lettura DEBUG WORLD eliminato il tasto ABORT nativo e i link; nel picker OFFERTA corretto il trattenimento di B, aperto il ramo EUROPE storico per la Champions 96. Pulsanti debug compatti aggiunti a TITLE e NEW CAREER senza generare nuovi PNG.
+- **NON PROVATO**: build eseguibile, gameplay, save/restore, joypad e mouse, focus e B flicker, competizioni residenti 96 a lunga distanza. Aggiornare con diagnostica utente della build, mai confermare PASS a priori.
+
+
 ## 0.13.68 — correzione candidata navigazione DEBUG WORLD / OFFERTA -> VIEW SQUAD (17/11/2026)
 - `sorgenti/src/menu_system.c`: passaggio circolare fra l'inizio e la fine **dell'intera lista** di squadre nel picker readonly Expanded, anziche' per singole colonne; mantenuta la gestione delle colonne per i paesi.
 - Aggiunto wrap dei giocatori ordinal 28..43 nella rosa readonly dell'offerta; impedito il salto alla voce invisibile 0 quando il menu incontra il sentinel -1 nella catena di voci non selezionabili.

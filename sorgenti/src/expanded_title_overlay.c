@@ -395,6 +395,22 @@ void Expanded_TitleOverlay_Draw(SDL_Renderer *renderer,
                 if(sel==i) focus_frame(renderer,box,sx,sy);
             }
         }
+        /* A small debug-only new-career action with the same hitbox in
+         * menu input; existing approved title sprites remain unchanged. */
+        {
+            ExpandedTitleRect box=expanded_title_debug_rect;
+            SDL_FRect d=scale_rect(box,sx,sy);
+            int push=sel==EXP_TITLE_DEBUG_INDEX?title_press_offset(press):0;
+            d.y+=(float)push*sy;
+            SDL_SetRenderDrawColor(renderer,18,61,137,255);
+            SDL_RenderFillRectF(renderer,&d);
+            if(sel==EXP_TITLE_DEBUG_INDEX)focus_frame(renderer,box,sx,sy);
+            pixel_text(renderer,"DEBUG NEW CAREER",box.x+box.w/2,
+                       box.y+9+push,2,
+                       sel==EXP_TITLE_DEBUG_INDEX ?
+                          (SDL_Color){255,226,72,255} :
+                          (SDL_Color){244,247,255,255},sx,sy);
+        }
         /* Sixth selectable item, visually separate in the upper-left.
          * The icon shows the ACTION available, not a stale mode hint.
          * Query SDL's actual flags each frame: mouse, gamepad and Alt+Enter

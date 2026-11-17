@@ -1117,7 +1117,11 @@ void InputSDL_HandleEvent(const SDL_Event *e)
         if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B &&
            expanded_native_world_picker_active()) {
             s_debugWorldPickerBackPending=1;
-            fprintf(stderr,"[og-world-back] PAD B queued for picker\n");
+            /* The parent OFFER must never turn this same B into FIRE
+             * after its read-only OG picker has closed. Cleared on B UP. */
+            s_modalBackUntilRelease=1;
+            fprintf(stderr,"[og-world-back] PAD B queued for picker; "
+                           "parent FIRE held until release\n");
             break;
         }
         /* A fire button of player 1's pad went down (the latch and the recording's

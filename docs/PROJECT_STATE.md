@@ -1,5 +1,12 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — prossima versione 0.13.69, test Windows NON ESEGUITI
+- Source update solo WORLD_9697 in CAREER: quattro RNC OpenSWOS originali in data/9697/TEAM.012/.013/.038/.073, campionati OG previsti FI 12 / FR 20+22 / TR 18 / USA 10. I file legacy data/TEAM.NNN e JSON 2026/27 NON sono sovrascritti; old saves NON cancellati. L'eventuale incompatibilita' dei vecchi salvataggi 96 richiede collaudo esplicito.
+- OFFER 9697 apre il picker mondiale OG, rendendo raggiungibile la Champions originale nel ramo EUROPE; OFFER 2627 conserva selezione del paese. Fix B/ESC in picker (latch fino al rilascio fisico), senza alterare il gameplay.
+- DEBUG WORLD: ABORT nativo #88 non e' piu' visibile, non possiede callback ed e' scollegato dalla navigazione in quel menu. TITLE: piccolo DEBUG NEW CAREER. NEW CAREER: piccolo 96/26 in alto a destra in sostituzione del banner temporaneo; asset approvati non modificati.
+- Non e' un risultato Windows: verificare START/FORWARD TIME e lega 96 dei quattro paesi, Champions OFFER+DEBUG, back con joypad, persistenza OG 9697/2627, blocco calendario 96, multi-stagione. La sessione 26 certifica la precedente 0.13.68, non questo codice.
+
+
 ## Aggiornamento 17/11/2026 — 0.13.68 candidata (menu)
 La diagnostica Windows della **0.13.67** conferma che START 1996/97 non crasha piu' e che il cambio statico 9697/2627 funziona nella stessa sessione. Quattro leghe 96/97 rimangono escluse per mismatch numero di squadre (country/division 12/0, 13/0, 38/0, 73/0), senza generare incontri; non dichiarare mondo completo. L'utente conferma che DEBUG WORLD e la rosa dell'offerta non navigano correttamente. La 0.13.68 modifica solo la navigazione dei due menu readonly: wrap della lista intera e guardia sul sentinel -1 delle voci invisibili. **Modifica di codice, compilazione/test Windows 0.13.68 NON PROVATI; save e gameplay non modificati.** Vedere `ENGINE_CODE_DISCOVERIES.md` per la riproduzione esatta.
 

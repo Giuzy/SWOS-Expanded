@@ -6,7 +6,8 @@ enum {
     EXP_TITLE_W=1664, EXP_TITLE_H=936,
     EXP_TITLE_MAIN_COUNT=5,      /* approved large/small text PNGs */
     EXP_TITLE_VIDEO_INDEX=5,     /* top-left independent icon */
-    EXP_TITLE_SELECTABLE_COUNT=6
+    EXP_TITLE_DEBUG_INDEX=6,     /* debug start new career, small control */
+    EXP_TITLE_SELECTABLE_COUNT=7
 };
 typedef struct ExpandedTitleRect {int x,y,w,h;} ExpandedTitleRect;
 /* 0.10.54_01 — tighten the gaps without moving the bottom of the column:
@@ -24,8 +25,10 @@ static const ExpandedTitleRect expanded_title_main_rects[EXP_TITLE_MAIN_COUNT] =
 /* Left corner stays clear of the logo and floodlight. The same icon
  * hitbox is used whichever video-mode image is currently displayed. */
 static const ExpandedTitleRect expanded_title_video_rect = {34,34,92,88};
+static const ExpandedTitleRect expanded_title_debug_rect = {1380,300,265,48};
 static inline ExpandedTitleRect Expanded_TitleMainRect(int i) {
     return i==EXP_TITLE_VIDEO_INDEX ? expanded_title_video_rect :
+           i==EXP_TITLE_DEBUG_INDEX ? expanded_title_debug_rect :
            expanded_title_main_rects[i];
 }
 static inline ExpandedTitleRect Expanded_TitleClassicRect(int index) {

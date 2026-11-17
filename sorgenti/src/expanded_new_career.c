@@ -406,15 +406,19 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
  copy(r,s_start[ready()],532+(s_action==8?sink:0),785+(s_action==8?sink:0),606,89,sx,sy);
  copy(r,s_check[s_unemployed],1179+(s_action==7?sink:0),700+(s_action==7?sink:0),62,58,sx,sy);
  pixel_text(r,"NEW CAREER",2,835,68.5f,1,sx,sy);
- /* Temporary debug selector: explicit current/target world and restart. */
- pixel_text_tint_fit(r,World_Current()==WORLD_2627?
-   "WORLD: 2026/27  -  SELECT 1996/97":
-   "WORLD: 1996/97  -  SELECT 2026/27",
-   0,835,123,1,sx,sy,s_selected==9?1:-1,830.f);
- pixel_text_tint_fit(r,WorldSwitch_IsAvailable(
-   World_Current()==WORLD_2627?"9697":"2627")?
-   "A / ENTER: SWITCH WORLD (NO RESTART)":"WORLD DATA UNAVAILABLE",
-   0,835,157,1,sx,sy,s_selected==9?1:0,830.f);
+ /* Compact in-place current-era switch, not a full-width debug banner.
+  * Hitbox and focus use precisely these career-local coordinates. */
+ {
+  SDL_BlendMode previous=SDL_BLENDMODE_NONE;
+  SDL_GetRenderDrawBlendMode(r,&previous);
+  SDL_SetRenderDrawBlendMode(r,SDL_BLENDMODE_BLEND);
+  SDL_FRect era=rect(1440,78,187,64,sx,sy);
+  SDL_SetRenderDrawColor(r,18,63,146,230);
+  SDL_RenderFillRectF(r,&era);
+  SDL_SetRenderDrawBlendMode(r,previous);
+  pixel_text_tint_fit(r,World_Current()==WORLD_2627?"26":"96",
+                      0,1533.5f,98.f,1,sx,sy,s_selected==9?1:-1,146.f);
+ }
  const char*labels[]={"TITLE","NAME","SURNAME","NATION","ROLE","AGE (18-70)","FAME"};
  for(int i=0;i<7;i++){
   pixel_text(r,labels[i],0,337,217.5f+66*i,0,sx,sy);
@@ -442,7 +446,7 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
   else focus(r,556,797,558,63,sx,sy);
  }else{
   s_focus_field_y=202.f;
-  focus(r,400,110,870,80,sx,sy);
+  focus(r,1440,78,187,64,sx,sy);
  }
  /* Stable right/bottom margin, with one fixed legend sprite. */
  if(s_legend_ab){
@@ -522,7 +526,7 @@ int Expanded_NewCareer_Proc(void){
    int row=(int)(py-200)/66;
    if(row<7 && py<200+66*row+60)hit=row;
   }
-  if(px>=400&&px<1270&&py>=110&&py<190)hit=9;
+  if(px>=1440&&px<1627&&py>=78&&py<142)hit=9;
   if(px>=397&&px<1360&&py>=681&&py<779)hit=7;
   if(px>=539&&px<1132&&py>=788&&py<873)hit=8;
   if(hit>=0){

@@ -1,5 +1,10 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.77 — ultimo mondo ricordato e selector 96/26 sul TITLE
+- `WorldSwitch_SelectBeforeCareer` aggiorna immediatamente `SWOS.ini [general] world` con l'infrastruttura settings gia' presente e controlla la rilettura: scelta ripristinata al prossimo avvio senza schermate o altri file. Lo stesso comportamento vale al tasto debug di NEW CAREER e sul nuovo del TITLE; no modifiche ai CAR o schema save.
+- Il TITLE mostra il pannello 96/26 (187x64, x1440 y365) vicino ai debug, con mouse/joypad/tastiera e focus; tutti i PNG titolo rimangono identici. Cambio solo quando `_gameType==0` (nessuna partita/CLASSIC/career caricata), per sicurezza OG. Verifica unit C del layout PASS; boot/scrittura SWOS.ini, grafica SDL e input Windows NON PROVATI.
+
+
 ## 0.13.76 — impedire perdita dei dati OG continentali al cambio stagione
 - `Expanded_OGWorld_ResetSeason` non distrugge piu' i contesti continentali gia' giocati (tre UEFA type-2 moderne; Champions e Libertadores classiche; due coppe UEFA type-1 paese 254), conservando annualita', tabelloni, rose, RNG e match. Solo la nuova carriera ha il reset integrale. Coppe nazionali e leghe continuano la normale inizializzazione OG nuova stagione; la lista delle coppe domestiche vecchie e' eliminata per capienza, NON archiviata.
 - `Expanded_OGWorld_AdvanceUefa` non sovrascrive piu' `uefa_year` con una annualita' senza qualificazione: quando la nuova edizione non puo' essere creata, la vecchia resta consultabile come ULTIMA EDIZIONE, con log esplicito, senza falsi nuovi incontri. Il CAR gia' supporta queste strutture, nessun cambiamento schema o conversione di file precedenti.

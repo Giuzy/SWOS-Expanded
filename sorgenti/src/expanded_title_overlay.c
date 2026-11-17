@@ -9,6 +9,7 @@
 #include "expanded_club_font.h"
 #include "build_info.h"
 #include "platform_sdl.h" /* live fullscreen state, shared with Alt+Enter */
+#include "world.h" /* era shown by the existing in-process world selector */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h> /* SIZE_MAX for safe sprite-outline allocation */
@@ -293,6 +294,22 @@ static void focus_frame(SDL_Renderer *r,ExpandedTitleRect box,
     SDL_FRect d=scale_rect(box,sx,sy);
     SDL_RenderDrawRectF(r,&d);
 }
+/* Same chamfered focus geometry as the Career 96/26 selector,
+ * drawn at native logical pixels, without a new PNG asset. */
+static void title_world_focus(SDL_Renderer *r,ExpandedTitleRect box,
+                              float sx,float sy)
+{
+    SDL_FRect d=scale_rect(box,sx,sy);
+    const float cx=10.f*sx,cy=10.f*sy;
+    SDL_FPoint pts[9]={
+        {d.x+cx,d.y},{d.x+d.w-cx,d.y},
+        {d.x+d.w,d.y+cy},{d.x+d.w,d.y+d.h-cy},
+        {d.x+d.w-cx,d.y+d.h},{d.x+cx,d.y+d.h},
+        {d.x,d.y+d.h-cy},{d.x,d.y+cy},{d.x+cx,d.y}
+    };
+    SDL_SetRenderDrawColor(r,255,220,52,255);
+    SDL_RenderDrawLinesF(r,pts,9);
+}
 static int title_press_offset(int frames)
 {
     /* Canonical button feel: gentle five-tick press and small 1-px bounce
@@ -410,6 +427,29 @@ void Expanded_TitleOverlay_Draw(SDL_Renderer *renderer,
                        sel==EXP_TITLE_DEBUG_INDEX ?
                           (SDL_Color){255,226,72,255} :
                           (SDL_Color){244,247,255,255},sx,sy);
+        }
+        /* The same 187x64 blue 96/26 debug selector as NEW CAREER,
+         * placed clear of the approved Title logo, new-career debug
+         * button and main column. Renderer and mouse both use the same
+         * expanded_title_world_rect; controller uses title index 7. */
+        {
+            ExpandedTitleRect box=expanded_title_world_rect;
+            const int push=sel==EXP_TITLE_WORLD_INDEX?
+                           title_press_offset(press):0;
+            SDL_FRect d=scale_rect(box,sx,sy);
+            d.y+=(float)push*sy;
+            SDL_BlendMode oldBlend=SDL_BLENDMODE_NONE;
+            SDL_GetRenderDrawBlendMode(renderer,&oldBlend);
+            SDL_SetRenderDrawBlendMode(renderer,SDL_BLENDMODE_BLEND);
+            SDL_SetRenderDrawColor(renderer,18,63,146,230);
+            SDL_RenderFillRectF(renderer,&d);
+            SDL_SetRenderDrawBlendMode(renderer,oldBlend);
+            if(sel==EXP_TITLE_WORLD_INDEX)title_world_focus(renderer,box,sx,sy);
+            pixel_text(renderer,World_Current()==WORLD_2627?"26":"96",
+                       box.x+box.w/2,box.y+16+push,4,
+                       sel==EXP_TITLE_WORLD_INDEX ?
+                           (SDL_Color){255,226,72,255}:
+                           (SDL_Color){244,247,255,255},sx,sy);
         }
         /* Sixth selectable item, visually separate in the upper-left.
          * The icon shows the ACTION available, not a stale mode hint.

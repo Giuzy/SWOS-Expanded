@@ -7,7 +7,8 @@ enum {
     EXP_TITLE_MAIN_COUNT=5,      /* approved large/small text PNGs */
     EXP_TITLE_VIDEO_INDEX=5,     /* top-left independent icon */
     EXP_TITLE_DEBUG_INDEX=6,     /* debug start new career, small control */
-    EXP_TITLE_SELECTABLE_COUNT=7
+    EXP_TITLE_WORLD_INDEX=7,     /* same 96/26 debug selector as NEW CAREER */
+    EXP_TITLE_SELECTABLE_COUNT=8
 };
 typedef struct ExpandedTitleRect {int x,y,w,h;} ExpandedTitleRect;
 /* 0.10.54_01 — tighten the gaps without moving the bottom of the column:
@@ -26,14 +27,25 @@ static const ExpandedTitleRect expanded_title_main_rects[EXP_TITLE_MAIN_COUNT] =
  * hitbox is used whichever video-mode image is currently displayed. */
 static const ExpandedTitleRect expanded_title_video_rect = {34,34,92,88};
 static const ExpandedTitleRect expanded_title_debug_rect = {1380,300,265,48};
+/* The approved logo ends at y=244; DEBUG NEW CAREER ends at y=348.
+ * The reused 187x64 blue world toggle fits below both, to the right
+ * of the main Career button, with no overlapping hitboxes. */
+static const ExpandedTitleRect expanded_title_world_rect = {1440,365,187,64};
 static inline ExpandedTitleRect Expanded_TitleMainRect(int i) {
     return i==EXP_TITLE_VIDEO_INDEX ? expanded_title_video_rect :
            i==EXP_TITLE_DEBUG_INDEX ? expanded_title_debug_rect :
+           i==EXP_TITLE_WORLD_INDEX ? expanded_title_world_rect :
            expanded_title_main_rects[i];
 }
 static inline ExpandedTitleRect Expanded_TitleClassicRect(int index) {
     ExpandedTitleRect r = { 422, 172 + index*55, 820, 46 };
     return r;
+}
+/* Switching static banks while an active career/CLASSIC mode occupies
+ * runtime buffers would corrupt its native state; only TITLE with no
+ * active contest may change the world. CAR files remain untouched. */
+static inline int Expanded_TitleWorldSwitchAllowed(unsigned gameType) {
+    return gameType==0u;
 }
 static inline int Expanded_TitleHit(ExpandedTitleRect r,int x,int y) {
     return x>=r.x && x<r.x+r.w && y>=r.y && y<r.y+r.h;

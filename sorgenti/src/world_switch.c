@@ -11,6 +11,7 @@
 #include "world.h"
 #include "competition_data.h"
 #include "swos_io.h"
+#include "swos_settings.h" /* existing [general] world preference */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -25,6 +26,29 @@ extern uint32_t _teamFileDataSize;
 extern void DataJson_InstallCompetitionGraph(void);
 extern void WorldCups_Install(void);
 extern void Career_InstallCopaLibertadoresPresetEntry(void);
+/* main.c owns the active SWOS.ini options for the full menu lifetime.
+ * Reuse its non-destructive writer instead of creating a second settings
+ * file or writing any .CAR during a debug world selection. */
+extern PlatformInitOptions *g_arcadeOpts;
+extern const char *g_arcadeIniPath;
+static void remember_selected_world(void)
+{
+    if(!g_arcadeOpts || !g_arcadeIniPath || !*g_arcadeIniPath) {
+        fprintf(stderr,"[world-preference] NOT_SAVED world=%s reason=NO_SETTINGS_CONTEXT\n",
+                World_Tag());
+        return;
+    }
+    snprintf(g_arcadeOpts->world,sizeof g_arcadeOpts->world,"%s",World_Tag());
+    Settings_Save(g_arcadeOpts,g_arcadeIniPath);
+    /* Never report a successful write merely because Settings_Save was
+     * called (it has a void API and may fail on a read-only game folder). */
+    PlatformInitOptions verify={0};
+    Settings_Load(&verify,g_arcadeIniPath);
+    fprintf(stderr,"[world-preference] %s world=%s file=%s\n",
+            strcmp(verify.world,World_Tag())==0?"STORED":"WRITE_UNCONFIRMED",
+            World_Tag(),g_arcadeIniPath);
+}
+
 
 /* Registry entries live in competition_data.c; snapshots are by compId.
  * Dynamic JSON templates remain allocated and resident in either namespace. */
@@ -500,6 +524,10 @@ int WorldSwitch_SelectBeforeCareer(const char *tag)
                    "teams-cache=INVALIDATED static-registry=RESTORED "
                    "other-world=INACTIVE save=UNTOUCHED\n",
             World_Tag(),s_switches);
+    /* Write the selected world immediately: waiting until normal shutdown
+     * loses the user's choice after an interrupted debug session.
+     * On the next boot main.c already loads [general] world automatically. */
+    remember_selected_world();
     fflush(stderr);
     return 1;
 }

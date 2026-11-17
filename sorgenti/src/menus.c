@@ -2758,6 +2758,8 @@ extern void Expanded_ShowHall(void);
 extern void Platform_RequestQuit(void);
 extern void Platform_ToggleFullscreen(void);
 extern int Platform_TitleMouseState(int *x,int *y,int *moved,int *click);
+/* Both title and NEW CAREER choose from the same preloaded OG banks. */
+extern int WorldSwitch_SelectBeforeCareer(const char *tag);
 
 static volatile int s_title_level;     /* 0 modern main; 1 classic submenu */
 static volatile int s_title_selected;
@@ -2823,6 +2825,23 @@ static void Expanded_TitleMenu_Dispatch(int level,int index)
         case 4: Platform_RequestQuit(); break;
         case EXP_TITLE_VIDEO_INDEX: Platform_ToggleFullscreen(); break;
         case EXP_TITLE_DEBUG_INDEX: Expanded_TitleMenu_QueueNewCareerDebug(); break;
+        case EXP_TITLE_WORLD_INDEX:
+            if(!Expanded_TitleWorldSwitchAllowed(_gameType)) {
+                /* A loaded career or CLASSIC contest still references the
+                 * current OG tables. Refuse to swap those definitions under
+                 * an active game; selecting DEBUG NEW CAREER clears it first. */
+                fprintf(stderr,"[title-world] REFUSED active-game-type=%u world=%s "
+                        "save=UNTOUCHED\n",(unsigned)_gameType,World_Tag());
+            } else {
+                const char *next=World_Current()==WORLD_2627?"9697":"2627";
+                if(WorldSwitch_SelectBeforeCareer(next))
+                    fprintf(stderr,"[title-world] SELECTED %s save=UNTOUCHED\n",
+                            World_Tag());
+                else
+                    fprintf(stderr,"[title-world] REFUSED unavailable=%s "
+                            "active=%s\n",next,World_Tag());
+            }
+            break;
         }
         return;
     }
@@ -2925,8 +2944,9 @@ void Expanded_TitleMenu_Proc(void)
          * {2,1,3,0}. The SWOS compass is 0=UP,2=RIGHT,4=DOWN,6=LEFT.
          * Both Title levels are single-column: only vertical navigation
          * moves the selection. Diagonals inherit their vertical component.
-         * First level: UP from CAREER -> video icon, DOWN from EXIT ->
-         * video icon; FROM icon, UP -> EXIT and DOWN -> CAREER. */
+         * Main-level UP/DOWN wraps through CAREER, options, video,
+         * debug-new and the world toggle. Mouse hitboxes remain shared
+         * with the actual SDL title overlay. */
         switch(_menuControlsDirection & 6) {
         case 0: /* Up / up-right */
             s_title_selected=(s_title_selected+count-1)%count;

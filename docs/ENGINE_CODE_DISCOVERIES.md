@@ -1,5 +1,12 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.70_18: mese diagnostico in disoccupazione
+- L'unico FORWARD TIME cronologico gia' collegato agli stati OG si trova in `expanded_career.c::Expanded_UnemployedWait`. Il manager occupato usa `menus.c::PlayMatchMenu/NextMatch`, che non e' equivalente a un salto civile: un fast-forward diretto dell'impiegato rischierebbe di ignorare match del giocatore. Il debug mensile quindi usa la prima callback senza alterare il match engine.
+- `expanded_debug_month.h` offre funzione pura `ExpandedDebug_NextMonthBeforeSeason`: mese di calendario mantenendo il giorno, clamp per fine mese, clamp 30 giugno prima di cambio OG 1 luglio; ritorna 0 al limite senza toccare il parametro output. Il normale `Expanded_UnemployedWait` calcola ancora gli eventi OG in ordine e committa la data civile solo dopo conferma. Lo stato `s_debug_month_once` e' transitorio, non salvato.
+- `expanded_career.c::Expanded_UnemployedInit` usa ordinal 13 gia' presente nel template, clona il rettangolo sinistro di TRANSFERS, installa callback e lega focus. La whitelist di `menu_system.c` per le voci disoccupate richiede il nuovo ordinal 13; dimenticarlo farebbe cliccare un tasto visibile ma bloccato. Non cambiare layout OG contest con club o SEASON.
+- Test solo isolato Linux della funzione di calcolo con calendario di validazione equivalente: PASS. NON chiamare PASS OG/Windows senza i log della build.
+
+
 ## 17/11/2026 — 0.13.70_17: sola presentazione F12
 - `platform_sdl.c::draw_world_debug_overlay`: inserita intestazione OTHER sopra Coppe INT e Nazionali in entrambe le colonne, adattate coordinate y=458/477/500 senza cambiare aggregatore. Il pannello termina a y=528 e i glifi a y=507. UI e screenshot Windows: NON PROVATI.
 

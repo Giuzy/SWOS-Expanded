@@ -2102,7 +2102,8 @@ void MenuProc(void)
         extern uint8_t *Expanded_UnemployedCalendarPointer(void);
         if(_currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarPointer()) {
             unsigned ord=selectedEntry?selectedEntry->ordinal:0xffffu;
-            int allowed=(ord==7u || ord==9u || ord==11u || ord==12u ||
+            int allowed=(ord==7u || ord==9u || ord==11u ||
+                         ord==12u || ord==13u ||
                          (ord==10u && !_menuEntries[10].isDisabled));
             if(!allowed || !selectedEntry || selectedEntry->isInvisible ||
                selectedEntry->isDisabled || !selectedEntry->onSelect) {

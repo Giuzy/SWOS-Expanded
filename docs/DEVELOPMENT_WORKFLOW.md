@@ -1,5 +1,11 @@
 # SWOS Expanded — development procedures and rationale
 
+## 17/11/2026 — diagnostica mese UNEMPLOYED e verifica cambio stagione
+- Build di codice 0.13.70_18: dopo START UNEMPLOYED (96 e 26), aprire F12 e vedere data/SETTIMANA/stagione. Usare il nuovo bottone `DEBUG +1 MONTH` (lato sinistro del calendario) fino al 30 giugno: verificare che ogni click conservi il giorno dove possibile, non superi il 30 giugno, e che il successivo click sia un NO-OP con `[debug-month] STOP_BEFORE_SEASON_CHANGE`. Poi premere `FORWARD TIME` normale per verificare il cambio stagione OG, confrontare F12 e stati delle competizioni.
+- Ripetere dopo salvataggio/ripresa .CAR dei due mondi, verificando nessun reset di competizioni, nessun doppio risultato. Shortcut F12+7/8 rimangono separati; il nuovo pulsante rifiuta di sovrapporsi agli stress test armati.
+- Questo pulsante non e' nel calendario del manager impiegato: esso usa PLAY/NEXT MATCH ed e' escluso per evitare match saltati. Si richiede audit distinto per il comportamento con club. Windows test NON ESEGUITO in questa consegna.
+
+
 ## 17/11/2026 — 0.13.70_9, pulizia root (Windows NON PROVATO)
 - Unici BAT di avvio root: AVVIA_DIAGNOSTICA.bat e AVVIA_SWOS.bat. COMPILA_SWOS.bat e PREPARA_SWOS.bat sono in diagnostica/; tutti i riferimenti di avvio e compilazione sono aggiornati. BUILD_SWOS.sh scrive fuori dalle sessioni in diagnostica/log/COMPILAZIONE_0140.log; main.c su Windows redirige stderr in diagnostica/log/SWOS.log anche con avvio diretto. La diagnostica cattura solo il log della sessione corrente, archivia quelli precedenti e lascia tutti i .CAR invariati. Marcatori .SWOS_*_COMPILATO e backup SWOS.ini sono spostati in diagnostica/ (i preesistenti sono migrati dal launcher soltanto senza collisioni). La copia ASSETS.ini root viene eliminata dal repo: quella effettivamente letta e' assets/ASSETS.ini.
 - SDL2.dll e SWOS.ini rimangono accanto all'EXE: il loader Windows e la funzione swos_ini_path() li richiedono ancora nella posizione originale; nessun cambiamento ai salvataggi in save/. I file locali non tracciati non possono essere spostati dalla sola operazione Git: la migrazione avviene alla successiva esecuzione del launcher, quando non esiste un file di destinazione omonimo. Verifiche Windows e compilazione PENDENTI.

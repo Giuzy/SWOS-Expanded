@@ -12,6 +12,7 @@
 #include "career_status.h"
 #include "world.h"
 #include "expanded_world_time.h"
+#include "expanded_debug_month.h" /* pure target-date calculation only */
 #include "expanded_debug.h"
 #include "expanded_world_live.h"
 #include "expanded_midseason_join.h"
@@ -252,12 +253,14 @@ static unsigned s_nextOfferWeek=0;
 /* Test-only F12+7: consumed on the NEXT genuine FORWARD TIME menu action.
  * Never run DrawMenu or native OG callbacks from SDL's event pump. */
 static unsigned s_debug_wait_jump_years=0;
+static int s_debug_month_once; /* transient button request; never saved */
 /* F12+8: 70 native OG years in independent menu frames (one civil clock). */
 static unsigned s_ogStressRemaining,s_ogStressDone;
 static ExpandedWorldDate s_ogStressTarget;
 void Expanded_OGStress_Reset(void)
 {
     s_debug_wait_jump_years=0;
+    s_debug_month_once=0;
     s_ogStressRemaining=0;s_ogStressDone=0;
     memset(&s_ogStressTarget,0,sizeof s_ogStressTarget);
 }
@@ -529,6 +532,9 @@ extern void Expanded_UnemployedDebugWorld(MenuEntry *unused);
  * explicit unemployment allowlist now also references them from this TU. */
 void Expanded_UnemployedWait(void);
 void Expanded_UnemployedShowOffer(void);
+#ifdef SWOS_SDL_BUILD
+void Expanded_UnemployedDebugMonth(MenuEntry *unused);
+#endif
 void Expanded_UnemployedInit(void) {
     /* This is a clone of the club's packed contest menu, but no club is
      * assigned. Hidden does not imply non-interactive on every SDL/mouse
@@ -552,8 +558,8 @@ void Expanded_UnemployedInit(void) {
     _menuEntries[18].isInvisible=0; /* native 304x116 center panel */
 
     /* Legitimate actions only: FORWARD TIME, BACK, conditional OFFER,
-     * DEBUG WORLD and RECORD. Every fixture, SQUAD, TRANSFERS, CLUB
-     * BUSINESS, hidden season button and scroll-arrow callback is NULL. */
+     * DEBUG WORLD, DEBUG +1 MONTH and RECORD. Every fixture, SQUAD,
+     * TRANSFERS, CLUB BUSINESS and scroll-arrow callback is NULL. */
     _menuEntries[7].isInvisible=0;
     _menuEntries[7].isDisabled=0;
     _menuEntries[7].onSelect=(MenuEntryFn)Expanded_UnemployedWait;
@@ -590,6 +596,33 @@ void Expanded_UnemployedInit(void) {
     _menuEntries[11].stringFlags=
         (_menuEntries[12].stringFlags & ~0x0fu)|2u;
 #endif
+#ifdef SWOS_SDL_BUILD
+    /* The original contest's hidden ordinal 13 is cloned ONLY here:
+     * reuse the left TRANSFERS rectangle (entry 4), which is disabled
+     * while unemployed. No new PNG, row or phantom click target.
+     * Click, A/SELECT and hover use this native MenuEntry onSelect. */
+    _menuEntries[13].isInvisible=0;
+    _menuEntries[13].isDisabled=0;
+    _menuEntries[13].onSelect=Expanded_UnemployedDebugMonth;
+    _menuEntries[13].x=_menuEntries[4].x;
+    _menuEntries[13].y=_menuEntries[4].y;
+    _menuEntries[13].dwWidth=_menuEntries[4].dwWidth;
+    _menuEntries[13].dwHeight=_menuEntries[4].dwHeight;
+    _menuEntries[13].background=ENTRY_FRAME_AND_BACK_COLOR;
+    _menuEntries[13].content=ENTRY_STRING;
+    _menuEntries[13].bgColor=0x8;
+    _menuEntries[13].fg=(uintptr_t)"DEBUG +1 MONTH";
+    _menuEntries[13].stringFlags=
+        (_menuEntries[12].stringFlags & ~0x0fu)|2u;
+    _menuEntries[13].leftEntry=12;
+    _menuEntries[13].rightEntry=7;
+    _menuEntries[13].upEntry=9;
+    _menuEntries[13].downEntry=9;
+    _menuEntries[13].skipLeftEntry=0;
+    _menuEntries[13].skipRightEntry=0;
+    _menuEntries[13].skipUpEntry=0;
+    _menuEntries[13].skipDownEntry=0;
+#endif
     _menuEntries[12].isInvisible=0;
     _menuEntries[12].isDisabled=0;
     _menuEntries[12].onSelect=Expanded_UnemployedRecord;
@@ -608,14 +641,14 @@ void Expanded_UnemployedInit(void) {
     _menuEntries[11].rightEntry=12;
     _menuEntries[11].upEntry=offerReady?10:7;
     _menuEntries[11].downEntry=12;
-    _menuEntries[7].leftEntry=9;
+    _menuEntries[7].leftEntry=13;
     _menuEntries[7].rightEntry=offerReady?10:11;
-    _menuEntries[7].upEntry=9;
+    _menuEntries[7].upEntry=13;
     _menuEntries[7].downEntry=9;
-    _menuEntries[9].leftEntry=7;
+    _menuEntries[9].leftEntry=13;
     _menuEntries[9].rightEntry=12;
     _menuEntries[9].upEntry=7;
-    _menuEntries[9].downEntry=7;
+    _menuEntries[9].downEntry=13;
     _menuEntries[10].leftEntry=7;
     _menuEntries[10].rightEntry=11;
     _menuEntries[10].upEntry=7;
@@ -799,7 +832,20 @@ void Expanded_UnemployedWait(void) {
         _fireResetFlag=1; /* arming click must not advance one extra week */
         return;
     }
-    if(jump_years) {
+    if(s_debug_month_once) {
+        /* Explicit debug calendar click: use the SAME resident OG advance,
+         * LWE civil clock commit, offer expiry and menu update below.
+         * Stop at 30 June; only ordinary FORWARD TIME can enter 1 July. */
+        if(!ExpandedDebug_NextMonthBeforeSeason(live.today,&target)) {
+            fprintf(stderr,"[debug-month] STOP_BEFORE_SEASON_CHANGE "
+                           "date=%04u-%02u-%02u "
+                           "regular FORWARD TIME required\n",
+                    (unsigned)live.today.year,(unsigned)live.today.month,
+                    (unsigned)live.today.day);
+            _fireResetFlag=1;
+            return;
+        }
+    } else if(jump_years) {
         if(!ExpandedWorld_AddCalendarYears(live.today,
                                           (uint16_t)jump_years,&target)) {
             fprintf(stderr,"[calendar] FAIL FIVE_YEAR_DATE_OUT_OF_RANGE\n");
@@ -848,6 +894,13 @@ void Expanded_UnemployedWait(void) {
         return;
     }
     s_debug_wait_jump_years=0u;
+    if(s_debug_month_once)
+        fprintf(stderr,"[debug-month] OG_DATE_COMMITTED "
+                       "from=%04u-%02u-%02u to=%04u-%02u-%02u "
+                       "boundary=JUNE_30\n",
+                (unsigned)live.today.year,(unsigned)live.today.month,
+                (unsigned)live.today.day,(unsigned)target.year,
+                (unsigned)target.month,(unsigned)target.day);
     /* FORWARD TIME deliberately expires an unanswered offer. */
     if (s_waitTeam && s_waitWeeks>=s_nextOfferWeek) {
         fprintf(stderr,"[offers] week %u: pending offer from %.17s expired "
@@ -901,8 +954,26 @@ void Expanded_UnemployedWait(void) {
         s_nextOfferWeek=s_waitWeeks+next_delay();
     _fireResetFlag=1;
     Expanded_UnemployedInit();
+    if(s_debug_month_once)
+        ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[13];
     DrawMenu();
 }
+#ifdef SWOS_SDL_BUILD
+void Expanded_UnemployedDebugMonth(MenuEntry *unused) {
+    extern uintptr_t _currentMenuPtr;
+    (void)unused;
+    if(_currentMenuPtr!=(uintptr_t)Expanded_UnemployedCalendarMenu() ||
+       s_debug_wait_jump_years || s_ogStressRemaining) {
+        fprintf(stderr,"[debug-month] BLOCKED active-stress-or-wrong-menu\n");
+        _fireResetFlag=1;
+        return;
+    }
+    s_debug_month_once=1;
+    Expanded_UnemployedWait();
+    s_debug_month_once=0;
+    _fireResetFlag=1; /* one click = one month, no held-fire repeats */
+}
+#endif
 void Expanded_OfferDraw(void) {
     char line[100];
     contest_line(59,"A CLUB WANTS TO HIRE YOU",7);

@@ -1,5 +1,13 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_18: DEBUG +1 MONTH nel calendario UNEMPLOYED (Windows NON PROVATO)
+- Aggiunta voce di menu `DEBUG +1 MONTH` nella colonna sinistra della schermata UNEMPLOYED (solo SDL/Expanded), riutilizzando l'ordinal 13 del clone contest e il rettangolo della vecchia TRANSFERS nascosta; menu CLASSIC, SEASON e carriera con club intatti.
+- Ogni click calcola il medesimo giorno del mese seguente; se il mese e' piu corto, limita all'ultimo giorno valido. Se la data attraverserebbe il 1 luglio, si ferma al 30 giugno. Dal 30 giugno click ulteriore non modifica stato e scrive `STOP_BEFORE_SEASON_CHANGE`; il successivo FORWARD TIME standard resta responsabilita' manuale dell'utente.
+- La callback inoltra alla stessa `Expanded_UnemployedWait` OG, con `Expanded_OGWorld_AdvanceToDate` prima di `ExpandedWorldLive_AdvanceToDate`, senza seconda clock/score engine. Offerte, s_waitWeeks, menu e salvataggio mantengono il percorso standard; `[debug-month] OG_DATE_COMMITTED` registra data prima/dopo. Guard di menu ordinal 13 esplicitamente abilitato; focus ripristinato al pulsante per test ripetuti, B continua BACK.
+- Per un manager gia' sotto contratto il calendario usa PLAY/NEXT MATCH e non possiede un FORWARD TIME mensile che possa saltare partite senza ripeterle: volutamente NON aggiunto il pulsante a quella vista. Richiedere progetto OG specifico per il caso impiegato, senza simulazioni separate.
+- Test C isolato del puro calcolo delle date (inclusi febbraio, bisestile, limite 30 giugno) PASS su Linux con stub equivalente della conversione date; NON prova l'integrazione reale. Windows compilazione, controller, mouse, avanzamento OG, 96/26, e save/restore: NON PROVATI.
+
+
 ## 17/11/2026 — 0.13.70_17: OTHER nel F12 (Windows NON PROVATO)
 - La riga OTHER nelle due colonne (CARICATE/AVANZAMENTO) raggruppa COPPE INT e NAZIONALI. Sei regioni e tutti i conteggi OG invariati; nessun nuovo stato o simulazione. Si usa la bitmap 5x7 del debug. Limite: compilazione e visualizzazione Windows da verificare.
 

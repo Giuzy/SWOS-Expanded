@@ -1,5 +1,11 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_14: autosave bloccati da vecchi CAR (Windows NON PROVATO)
+- Nei quattro ZIP diagnostici della _13, `AUTO9697.CAR` e `AUTO2627.CAR` sono JSON schema 5 privi di `og_resident`. Il Title mostrava CONTINUE disponibile, il loader rifiutava `INVALID_OR_LEGACY_OG_STATE`, e i nuovi checkpoint fallivano con `PROTECTED_LEGACY_AUTO` in entrambi i mondi.
+- Correzione: `SaveJson_CareerCompatible` effettua anche validazione completa read-only degli stati OG residenti; il vecchio AUTO non è proposto come caricabile. Dopo una serializzazione nuova e completa, il singolo slot AUTO incompatibile viene archiviato con suffisso univoco `.legacy-0001` ecc. e il nuovo slot è scritto con l'operazione atomica già esistente. Nessuna cancellazione, sovrascrittura di archive, né alterazione di `AUTOSAVE.CAR` (sola lettura) o dello slot dell'altro mondo.
+- **Verifica isolata effettiva**: test C con GCC Linux su archivio, due rotazioni, assenza collisioni, file invariati in altro mondo: PASS. **Windows _14, compilazione, scrittura di veri snapshot, caricamento e gameplay: NON PROVATI**. I vecchi CAR senza stati OG residenti restano non convertibili senza inventare competizioni.
+
+
 ## 17/11/2026 — 0.13.70_13: seconda dichiarazione GCC corretta, Windows NON PROVATO
 - La diagnostica Windows `DIAGNOSTICA_SESSIONE_1(6).zip`, build attesa 0.13.70_12, HEAD locale `7ad2185`, conferma fallimento in `src/career_init.c:3179`: `Comp_ById` invocata nel viewer Libertadores senza un prototipo visibile, nonostante un vecchio `extern` locale alla riga 1045. Il medesimo errore era già stato corretto in `career_status.c` nella _12; mancava questo secondo punto.
 - Correzione mirata nel solo `career_init.c`: `extern Competition *Comp_ById(uint8_t)` sotto `SWOS_SDL_BUILD` a livello di file, eliminata la dichiarazione in blocco. Nessuna modifica a dati storici, fixtures, calendari, regole, manager o salvataggi. Il mini-test C della firma è PASS, **non** una compilazione MinGW del gioco. Nei log Windows della _12 i 13 test isolati riportano PASS ma il launcher non produce l'EXE né un nuovo SWOS.log; Windows della _13 PENDENTE. Passaggio alla 0.13.71 ancora subordinato ai test concordati.

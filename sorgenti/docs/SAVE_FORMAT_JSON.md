@@ -1,5 +1,11 @@
 # SWOS Save Format — JSON Migration Roadmap
 
+## 0.13.70_14 — compatibilità Title e primo nuovo autosave
+- Un file JSON schema 5 precedente alla _8 può essere valido per `schema_version/file_kind/world` ma non avere `og_resident`: non è caricabile senza stato originale OG. Ora `SaveJson_CareerCompatible` verifica in sola lettura anche tutto lo snapshot OG, inclusi checksum e ABI (la data civile resta un controllo ulteriore in LOAD).
+- Quando una nuova carriera deve salvare nel solo `AUTO9697.CAR` o `AUTO2627.CAR`, un precedente file incompatibile viene archiviato con nome libero `AUTOxxxx.CAR.legacy-0001` ecc., **solo dopo** che il serializer ha prodotto un JSON completo. La scrittura successiva è atomica; nessun vecchio save o backup viene cancellato. Il precedente `AUTOSAVE.CAR` non viene mai scritto. Schema JSON rimane 5: non è una migrazione di carriere vecchie né ricostruzione di risultati.
+- Test C isolato `sorgenti/tests/test_save_slot_archive.c`: archivi successivi, contenuti intatti, isolamento due mondi, legacy protetto PASS su Linux. Windows MinGW, SAVE, restore e partita NON PROVATI.
+
+
 ## 0.13.70_8 — Sezione `og_resident` nei salvataggi carriera
 - Estensione **solo SDL Windows x64** a JSON schema 5: `og_resident` versione 1, `world`, `year`, `league_slots`, `cup_slots`, `uefa_year`, dimensioni ABI, flag manager, contatori coppe, array `leagues`, `uefa`, `cups`. Ogni record conserva indice, paese, slot, stagione, compId, numero squadre e snapshot `core_hex`/`teams_hex` con checksum FNV64. I campi puntatore `DIYCompetitionEx.base.namePtr` e `DIYTournamentState.header.namePtr` sono azzerati durante l'export e ricalcolati dopo l'import.
 - **Eccezione puntuale all'encoder semantico**: i complessi stati OG residenti adottano la codifica byte esadecimale, non il precedente blob opaco dell'intera carriera. Formato dipendente dal layout compilato e protetto da check `sizeof`; non e' ancora una serializzazione portable tra architetture/toolchain differenti. Il resto della carriera resta semanticamente codificato.

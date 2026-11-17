@@ -4159,7 +4159,7 @@ extern int16_t LoadCareerFile(uint8_t *filename);
 #ifdef SWOS_SDL_BUILD
 /* One atomic career checkpoint PER WORLD. The legacy AUTOSAVE.CAR is
  * read-only fallback, never overwritten by either world. The world tag
- * remains in JSON and SaveJson_CareerCompatible checks it before CONTINUE.
+ * remains in JSON; CONTINUE also requires a valid resident OG snapshot.
  * Cache the selected source, not merely the existence of some JSON. */
 static uint8_t s_auto_9697[]="AUTO9697.CAR";
 static uint8_t s_auto_2627[]="AUTO2627.CAR";
@@ -4229,7 +4229,7 @@ void Expanded_AutoCareer_Save(const char *reason) {
        getenv("SWOS_DIAGNOSTIC_CAPTURE")) {
         const int compatible=SaveJson_CareerCompatible(native);
         fprintf(stderr,"[autosave-title] status=%s world=%s file=%s "
-                       "scope=SCHEMA_KIND_WORLD_ONLY\n",
+                       "scope=SCHEMA_KIND_WORLD_OG_RESIDENT\n",
                 compatible?"COMPATIBLE_ON_DISK":"CHECK_FAILED",
                 World_Tag(),(const char *)native);
     }

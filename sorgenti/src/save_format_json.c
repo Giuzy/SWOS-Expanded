@@ -60,6 +60,7 @@ uint8_t SaveJson_GetLoadedPrimaryCountryCode(void)
 #ifdef SWOS_SDL_BUILD
 #include <stdlib.h>  /* atoi */
 #include <stdio.h>   /* DataJson self-test */
+#include "save_slot_archive.h"
 #endif
 #ifdef SWOS_SAVE_FORMAT_JSON_PROFILE
 /* clock() — only the PROFILE macros need this. The Amiga toolchain
@@ -5964,44 +5965,53 @@ static void load_ctx_stage(const char *src, int src_size, const char *key,
     }
 }
 
+#ifdef SWOS_SDL_BUILD
+/* The current world's AUTO is the only eligible slot. Call this only AFTER
+ * serializing a full resident OG JSON replacement in memory. */
+static int savejson_prepare_career_auto(const uint8_t *filename)
+{
+    static uint8_t checked[2]={0,0};
+    int index=-1;
+    if(filename && !strcmp((const char *)filename,"AUTO9697.CAR"))index=0;
+    if(filename && !strcmp((const char *)filename,"AUTO2627.CAR"))index=1;
+    if(index<0 || checked[index])return 1;
+
+    char path[1280];
+    int n=snprintf(path,sizeof path,"%s/%s",swos_save_dir(),
+                   (const char *)filename);
+    if(n<0 || (size_t)n>=sizeof path)return 0;
+
+    FILE *existing=fopen(path,"rb");
+    if(!existing) {
+        if(errno!=ENOENT) {
+            fprintf(stderr,"[og-world-save] AUTO_ACCESS_FAILED world=%s file=%s\n",
+                    World_Tag(),(const char *)filename);
+            return 0;
+        }
+    } else {
+        fclose(existing);
+        if(!SaveJson_CareerCompatible(filename)) {
+            char archived[1340];
+            if(!SaveSlot_ArchiveIncompatible(swos_save_dir(),
+                                            (const char *)filename,
+                                            archived,sizeof archived)) {
+                fprintf(stderr,"[og-world-save] AUTO_ARCHIVE_FAILED world=%s "
+                               "file=%s old-file-preserved=1\n",
+                        World_Tag(),(const char *)filename);
+                return 0;
+            }
+            fprintf(stderr,"[og-world-save] LEGACY_AUTO_ARCHIVED world=%s "
+                           "file=%s archive=%s\n",
+                    World_Tag(),(const char *)filename,archived);
+        }
+    }
+    checked[index]=1;
+    return 1;
+}
+#endif
+
 int16_t SaveJson_WriteCareer(uint8_t *filename)
 {
-#ifdef SWOS_SDL_BUILD
-    /* A pre-0.13.70_8 AUTO has no resident OG history; never overwrite it
-     * during a new career. Preserve it for explicit external recovery.
-     * Existing native-snapshot AUTOs may be replaced atomically as usual. */
-    static uint8_t s_nativeAutoValidated[2]={0,0};
-    int autoIdx=-1;
-    if(filename && !strcmp((const char *)filename,"AUTO9697.CAR"))autoIdx=0;
-    if(filename && !strcmp((const char *)filename,"AUTO2627.CAR"))autoIdx=1;
-    if(autoIdx>=0 && !s_nativeAutoValidated[autoIdx]) {
-        char oldPath[1200];
-        snprintf(oldPath,sizeof oldPath,"%s/%s",
-                 swos_save_dir(),(const char *)filename);
-        FILE *existing=fopen(oldPath,"rb");
-        if(existing) {
-            fclose(existing);
-            uint8_t *old=NULL;uint32_t oldSize=0;
-            int valid=0;
-            if(!read_save_file_heap(filename,&old,&oldSize)) {
-                extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
-                valid=save_world_ok(old,oldSize) &&
-                    Expanded_OGWorld_ReadSaveJson((const char *)old,(int)oldSize,0);
-                swos_io_free(old);
-            }
-            if(!valid) {
-                fprintf(stderr,"[og-world-save] PROTECTED_LEGACY_AUTO world=%s "
-                               "file=%s action=REFUSE_OVERWRITE "
-                               "move-old-file-manually-to-archive=1\n",
-                        World_Tag(),(const char *)filename);
-                return 1;
-            }
-        }
-        /* The slot was absent or contained a validated native snapshot.
-         * Revalidate on the next process, not on every weekly autosave. */
-        s_nativeAutoValidated[autoIdx]=1;
-    }
-#endif
     JsonOutBuf out = { NULL, 0, 0, 0 };
 
     /* Reset string pool — emit_str_pool_field consumers (the four
@@ -6634,6 +6644,13 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
         if (out.ptr) swos_io_free(out.ptr);
         return 1;
     }
+#ifdef SWOS_SDL_BUILD
+    /* Do not archive an older slot unless the replacement is fully encoded. */
+    if(!savejson_prepare_career_auto(filename)) {
+        swos_io_free(out.ptr);
+        return 1;
+    }
+#endif
 
     /* The one automatic career slot must be replaced atomically.
      * Keep standard OpenSWOS behaviour for user-selected .CAR filenames. */
@@ -6706,8 +6723,16 @@ int SaveJson_CareerCompatible(const uint8_t *filename)
                         "$.file_kind",kind,sizeof kind)>0 &&
        strcmp(kind,KIND_CAREER)==0 && save_world_ok(buf,size))
         ok=1;
+#ifdef SWOS_SDL_BUILD
+    /* Use the loader's read-only OG preflight: old schema-5 careers
+     * without og_resident are NOT playable. */
+    if(ok) {
+        extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
+        ok=Expanded_OGWorld_ReadSaveJson((const char *)buf,(int)size,0);
+    }
+#endif
     swos_io_free(buf);
-    if(!ok) SWOS_DBG("[autosave] CONTINUE hidden: incompatible schema/kind/world; save preserved\n");
+    if(!ok) SWOS_DBG("[autosave] CONTINUE hidden: incompatible schema/kind/world/og_resident; save preserved\n");
     return ok;
 }
 

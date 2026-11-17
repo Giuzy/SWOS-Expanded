@@ -1,5 +1,10 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_14 — disponibilità carriera e sblocco slot OG residenti
+- Corretto l'errore Windows _13: il Title non segnala più caricabile un CAR con schema valido ma senza `og_resident`, e la nuova carriera non resta bloccata da precedenti `AUTO9697.CAR` / `AUTO2627.CAR`. Al primo salvataggio completo del nuovo mondo, file incompatibile rinominato con suffisso di archivio unico e poi nuova scrittura atomica; il legacy `AUTOSAVE.CAR` è ancora sola lettura e ogni mondo è isolato.
+- Test isolato C dell'archiviazione PASS (Linux); Windows _14, COMPILA, LOAD e gameplay NON PROVATI. Non modifica calendari, dati storici, simulazione OG o stato Save di carriere già residenti.
+
+
 ## 0.13.70_13 — seconda correzione della compilazione GCC (career_init.c)
 - Diagnostica Windows _12: `career_init.c:3179` usa `Comp_ById` senza una dichiarazione visibile; la dichiarazione preesistente in un altro blocco non aveva ambito file. Spostato l'extern a livello di file sotto SDL, evitando include incompatibili. Controllo C minimale PASS; compilazione dell'EXE, 2 mondi e gameplay NON PROVATI. Nessuna modifica a date, tornei, dati, save o motore OG.
 

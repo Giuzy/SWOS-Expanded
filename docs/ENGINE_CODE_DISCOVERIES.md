@@ -1,5 +1,11 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.70_14: falsi positivi CONTINUE e blocco autosave
+- `DIAGNOSTICA_SESSIONE_1(7).zip`, `_2(3)`, `_3(3)`, `_4(3)`: tre CAR JSON schema 5 world 9697/2627 identici in tutte le sessioni, `og_resident` assente. Il vecchio `SaveJson_CareerCompatible` verificava solo schema/kind/world, ma `SaveJson_LoadCareer` chiamava `Expanded_OGWorld_ReadSaveJson(...,0)`: Title prometteva CONTINUE e falliva il load. `SaveJson_WriteCareer` rifiutava sempre gli AUTO occupati prima ancora di serializzare i nuovi residenti.
+- La sonda Title esegue ora il medesimo preflight OG read-only del loader. Nuovo `savejson_prepare_career_auto`: dopo encoding del nuovo CAR, sposta solo lo slot AUTO attivo incompatibile in `.legacy-NNNN` senza perdita, poi salva con writer atomico. Un problema di accesso o nome archivio produce errore senza sovrascrivere. `AUTOSAVE.CAR` e altro mondo invariati, vecchi save non trasformati o rigenerati. Non cambia il formato schema 5 e non tocca logica/fixture OG.
+- `sorgenti/include/save_slot_archive.h` e `sorgenti/tests/test_save_slot_archive.c`: prova filesystem C isolata con `cc -std=c11 -Wall -Wextra -Werror` PASS su Linux. Build Windows ed end-to-end NON PROVATI.
+
+
 ## 17/11/2026 — 0.13.70_13: errore confermato da diagnostica Windows _12
 - Fonte: `DIAGNOSTICA_SESSIONE_1(6).zip/DIAGNOSTICA_SESSIONE_1/AVVIO_COMPILAZIONE.log` e `COMPILAZIONE_0140.log`: `src/career_init.c:3179:64: error: implicit declaration of function 'Comp_ById'` e `incompatible implicit declaration`; nota GCC alla riga 1045 per `extern Competition *Comp_ById(uint8_t)` posto in un blocco differente. Questa TU NON include `competition_data.h` intenzionalmente perché contiene extern OG byte-array incompatibili.
 - Portato il prototipo identico a file-scope sotto `#ifdef SWOS_SDL_BUILD`, rimosso l'extern locale. Verifica della sola firma in codice C minimale con `cc -std=gnu11 -Wall -Werror=implicit-function-declaration -fsyntax-only`: PASS. Resta NON PROVATO il build Windows e ogni effetto runtime, anche in caso di superamento della fase di sintassi. Il resto della diagnostica non prova la prima Libertadores residente: `SWOS_LOG_MANCANTE.txt`; 13 test isolati PASS e 0 test gameplay.

@@ -29,6 +29,7 @@
 #include "fixture_rounds.h"
 #include "expanded_world_live.h"
 #include "world.h"
+#include "squad_extras.h"
 #include "expanded_debug.h"
 #include "expanded_champions_view_route.h"
 #include <stdio.h>
@@ -623,6 +624,9 @@ void Career_InitializeSelectedTeamAndStartingBalance(uint16_t teamNumber, int32_
     }
 
     _careerNumPlayers = 16;
+#ifdef SWOS_SDL_BUILD
+    SquadExtras_ClubLoaded(); /* real 2026/27 reserves, not ten invented */
+#endif
     _teamsLoaded = 0;
     _newBalance = 0;
     _sensisoftPlcSponsorshipFactor = 0;
@@ -1757,6 +1761,9 @@ void InitCareerManager(void)
     _wonInvitationTournament = 0;
 
     Career_InitTransferMarketState();
+#ifdef SWOS_SDL_BUILD
+    SquadExtras_Reset(); /* only at NEW career, not on changing club */
+#endif
     InitCareerVariables(4);
     /* Expanded lifetime economy must not be reset on an employment change. */
     { extern void Expanded_StartCareer(void); Expanded_StartCareer(); }

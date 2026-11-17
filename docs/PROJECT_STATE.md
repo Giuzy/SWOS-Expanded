@@ -1,5 +1,13 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.81 CANDIDATA: rose reali 26/27, integrazione parziale (Windows NON PROVATO)
+- La Mod 4.1.2/OpenSWOS forniscono fino a 14 extra reali oltre ai 16 del file TEAM: `DataJson_LoadTeamExtras` legge SOLO il 2026/27 e valida UUID+checksum dei 16 base, usando gli overlay additivi `data_json/worlds/2627/squad_extras/*.json`. Il 1996/97 rimane OG.
+- `squad_extras.c` (port da OpenSWOS/MIT, attribuzione Davide Lorigliola) carica gli extra della squadra allenata, sopprime i 10 inventati dove ci sono extra reali, li paga come riserve al 66%, include i posti 17..30 nel mercato nazionale e registra le partenze per non ricreare calciatori già ceduti. Storia delle partenze nel CAR tramite oggetto opzionale `squad_extras`; vecchi salvataggi senza il campo sono letti come storia vuota senza migrazioni distruttive.
+- Limiti: la pagina 2 di BUY OTHER PLAYERS/VIEW SQUAD di club esterni, convocazioni B-team/CPU REPL e gli eventuali trasferimenti autonomi OG dei club AI non sono integrati. Il mercato può selezionare extra nelle liste nazionali, ma **nessuna compilazione Windows o prova end-to-end ancora**.
+- Il pacchetto dei 101 overlay reali preparato dai file ufficiali dell'utente NON è stato caricato nel ramo remoto tramite il connettore GitHub (non supporta il passaggio dei bytes ZIP locali). Si distribuisce separatamente come `SWOS_Expanded_Rose_Reali_2627_DATI.zip`; va importato nella root con `diagnostica/INSTALLA_ROSE_2627.bat`, poi registrato in GitKraken. Finché manca, caricamento 26 mantiene fallback OG a 16+10. Nessuna sovrascrittura dei file `teams/`.
+- Test statici previsti: assenza overlay -> fallback OG; overlay con UUID/checksum validi -> 16+n reali; mismatch -> non caricare; vendita/cambio club/reload CAR -> no doppioni; 96 invariato. Risultato Windows: **NON PROVATO**.
+
+
 ## 17/11/2026 — 0.13.80: TITLE 96/26 selezionabile dopo carriera salvata (Windows NON PROVATO)
 - Diagnostiche Windows precedenti (0.13.78) mostrano realmente `[title-world] REFUSED active-game-type=4` dopo click sul selettore 96/26. La hitbox visuale e' condivisa con l'input; non e' un mancato evento del mouse. Causa: `Expanded_TitleWorldSwitchAllowed` richiedeva sempre `_gameType==0`, anche al TITLE dopo ritorno dalla carriera e checkpoint autosave.
 - Il selettore ora permette `_gameType=4` SOLO se l'ultimo `CommonMenuExit` ha scritto il CAR del mondo corrente e la verifica di compatibilita' su disco e' riuscita. Prima della sostituzione delle definizioni statiche OG, `InitCareerVariables(NO_GAME)` scollega la carriera soltanto in RAM. Non rimuove, ridenomina o scrive CAR durante il click; il mondo alternativo viene letto dal suo save al prossimo CONTINUE.

@@ -58,6 +58,7 @@ extern CompetitionCup _uefaCup;
 #include <stddef.h>
 #ifdef SWOS_SDL_BUILD
 #include "world.h"
+#include "squad_extras.h"
 #include "world_cups.h"
 #include "world_cupd.h"
 #include "expanded_og_cup_validation.h"
@@ -2357,8 +2358,12 @@ void Career_UpdatePlayerWeeklyWageCache(uint16_t playerIndex)
     if (someFlag == PLAYER_FORM_TRIALIST) {
         /* Trialist: reduce wage (default 33%) */
         avgBase = (uint16_t)((uint32_t)avgBase * _careerParams.wage_trialist_pct / 100);
-    } else if (someFlag == PLAYER_FORM_RESERVE) {
-        /* Youth: reduce wage (default 66%) */
+    } else if (someFlag == PLAYER_FORM_RESERVE
+#ifdef SWOS_SDL_BUILD
+               || SquadExtras_IsOwnExtra(pf)
+#endif
+              ) {
+        /* OG reserve, or a real 2026/27 player 17..30 on his original club. */
         avgBase = (uint16_t)((uint32_t)avgBase * _careerParams.wage_reserve_pct / 100);
     }
 

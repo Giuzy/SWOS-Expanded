@@ -27,6 +27,7 @@
 #include "world.h"             /* "world" in career and competition saves */
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_live.h" /* same .CAR, one ledger */
+#include "squad_extras.h" /* 2026/27 extra roster departure history, in the SAME .CAR */
 #include "expanded_world_time.h" /* civil index read-only check */
 #endif
 #include "team_pool.h"         /* "team_pool" in career saves */
@@ -3250,6 +3251,89 @@ static char *dj_slurp_country_teams(int countryNum, char *team_file, int team_fi
             return w;
     }
     return dj_slurp(path, out_len);
+}
+
+/* Real 2026/27 squad players 17..30 are stored in add-only overlays, never in
+ * the OG 684-byte TEAM record. The overlay must match BOTH the source club UUID
+ * and the checksum of the sixteen base players currently in Expanded.
+ * Source: official OpenSWOS World 2627, supplied/approved by the project owner. */
+int32_t DataJson_LoadTeamExtras(int32_t file, int32_t ordinal, PlayerFile *out, int32_t max)
+{
+    if (World_Current() != WORLD_2627 || !out || max <= 0 || max > 14 ||
+        file < 0 || file > 255 || ordinal < 0 || ordinal > 255)
+        return 0;
+    char team_file[128], club_uuid[80] = {0}, club_checksum[40] = {0};
+    int jlen = 0;
+    char *base = dj_slurp_country_teams(file, team_file, sizeof team_file, &jlen);
+    if (!base)
+        return 0;
+    const char *teams = NULL;
+    int teams_len = 0;
+    if (mjson_find(base, jlen, "$.teams", &teams, &teams_len) == MJSON_TOK_ARRAY) {
+        int pos = 0, vo, vl, vt;
+        while ((pos = fast_array_next(teams, teams_len, pos, &vo, &vl, &vt)) != 0) {
+            double o = -1;
+            if (vt != MJSON_TOK_OBJECT ||
+                !mjson_get_number(teams + vo, vl, "$.team.team_ordinal", &o) ||
+                (int32_t)o != ordinal)
+                continue;
+            mjson_get_string(teams + vo, vl, "$.uuid", club_uuid, sizeof club_uuid);
+            mjson_get_string(teams + vo, vl, "$.checksum", club_checksum, sizeof club_checksum);
+            break;
+        }
+    }
+    free(base);
+    if (!club_uuid[0] || !club_checksum[0])
+        return 0;
+
+    const char *leaf = strrchr(team_file, '/');
+    leaf = leaf ? leaf + 1 : team_file;
+    if (!*leaf || strchr(leaf, '\\'))
+        return 0;
+    char path[256];
+    snprintf(path, sizeof path, "data_json/worlds/2627/squad_extras/%s", leaf);
+    int olen = 0;
+    char *extra_file = dj_slurp(path, &olen);
+    if (!extra_file)
+        return 0;
+
+    int found = 0, count = 0;
+    const char *arr = NULL;
+    int arr_len = 0;
+    if (mjson_find(extra_file, olen, "$.teams", &arr, &arr_len) == MJSON_TOK_ARRAY) {
+        int pos = 0, vo, vl, vt;
+        while ((pos = fast_array_next(arr, arr_len, pos, &vo, &vl, &vt)) != 0) {
+            char uuid[80] = {0}, checksum[40] = {0};
+            double country = -1;
+            if (vt != MJSON_TOK_OBJECT ||
+                !mjson_get_number(arr + vo, vl, "$.team.country_number", &country) ||
+                (int32_t)country != file ||
+                !mjson_get_string(arr + vo, vl, "$.uuid", uuid, sizeof uuid) ||
+                !mjson_get_string(arr + vo, vl, "$.checksum", checksum, sizeof checksum) ||
+                strcmp(uuid, club_uuid) || strcmp(checksum, club_checksum))
+                continue;
+            found = 1;
+            const char *extra = NULL;
+            int extra_len = 0;
+            if (mjson_find(arr + vo, vl, "$.extra_players", &extra, &extra_len) == MJSON_TOK_ARRAY) {
+                int at = 0, po, pl, pt;
+                while (count < max &&
+                       (at = fast_array_next(extra, extra_len, at, &po, &pl, &pt)) != 0) {
+                    if (pt != MJSON_TOK_OBJECT) continue;
+                    PlayerFile p;
+                    memset(&p, 0, sizeof p);
+                    load_player_file_body(extra + po, pl, (uint8_t *)&p);
+                    if (p.playerName[0])
+                        out[count++] = p;
+                }
+            }
+            break;
+        }
+    }
+    free(extra_file);
+    if (!found)
+        SWOS_DBG("[squad-extras] %d/%d: overlay UUID/checksum mismatch (ignored)\\n", (int)file, (int)ordinal);
+    return count;
 }
 
 /* A world's own team file by name (teams/<name> of the world: an off-file pool,
@@ -6728,6 +6812,22 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
     }
 
     SAVE_CAREER_TRACE("AFTER_CAREER_FIELDS");
+#ifdef SWOS_SDL_BUILD
+    /* Persist every departed 2026/27 extra player. Never infer ownership from a
+     * fresh team JSON at job change: it would resurrect a sold player. */
+    if (World_Current() == WORLD_2627) {
+        mjson_printf(json_out_emit, &out, ",\\n  %Q:{%Q:%u,%Q:[",
+                     "squad_extras", "ring", (unsigned)g_sqx.ring, "left");
+        for (uint32_t i = 0; i < g_sqx.n; ++i) {
+            const SqxLeft *e = &g_sqx.left[i];
+            mjson_printf(json_out_emit, &out, "%s[%u,%u,%Q]",
+                         i ? "," : "", (unsigned)e->team,
+                         (unsigned)e->index, (const char *)e->name);
+        }
+        mjson_printf(json_out_emit, &out, "%s", "]}");
+    }
+#endif
+
     /* Living World lives in the SAME career file, not a separate sidecar. */
     mjson_printf(json_out_emit, &out, ",\n  %Q:", "living_world");
 #ifdef SWOS_SDL_BUILD
@@ -7675,6 +7775,46 @@ static void apply_semantic_load(const char *src, int src_size)
         }
     }
     PROF_END(reserves, "career-load");
+
+#ifdef SWOS_SDL_BUILD
+    /* A missing field belongs to a pre-extras save: no departed entries.
+     * A loaded field replaces the previous world's list (no stale pointers). */
+    SquadExtras_Reset();
+    if (World_Current() == WORLD_2627) {
+        const char *record = NULL, *left = NULL;
+        int record_len = 0, left_len = 0;
+        long ring = 0;
+        if (mjson_find(src, src_size, "$.squad_extras", &record,
+                       &record_len) == MJSON_TOK_OBJECT) {
+            if (mjson_get_long(record, record_len, "$.ring", &ring) > 0 &&
+                ring >= 0 && ring < SQX_LEFT_MAX)
+                g_sqx.ring = (uint16_t)ring;
+            if (mjson_find(record, record_len, "$.left", &left,
+                           &left_len) == MJSON_TOK_ARRAY) {
+                int pos = 0, ko, kl, vo, vl, vt;
+                while (g_sqx.n < SQX_LEFT_MAX &&
+                       (pos = mjson_next(left, left_len, pos,
+                                        &ko, &kl, &vo, &vl, &vt)) != 0) {
+                    long t = -1, idx = -1;
+                    char name[32] = {0};
+                    if (vt != MJSON_TOK_ARRAY ||
+                        mjson_get_long(left + vo, vl, "$[0]", &t) <= 0 ||
+                        mjson_get_long(left + vo, vl, "$[1]", &idx) <= 0 ||
+                        mjson_get_string(left + vo, vl, "$[2]", name, sizeof name) <= 0 ||
+                        t < 0 || t > 65535 || idx < 16 || idx > 29 || !name[0])
+                        continue;
+                    SqxLeft *e = &g_sqx.left[g_sqx.n++];
+                    e->team = (uint16_t)t;
+                    e->index = (uint8_t)idx;
+                    memset(e->name, 0, sizeof e->name);
+                    memcpy(e->name, name, strlen(name) < sizeof(e->name) - 1
+                                          ? strlen(name) : sizeof(e->name) - 1);
+                }
+            }
+        }
+    }
+    SquadExtras_Changed();
+#endif
 }
 
 int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,

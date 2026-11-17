@@ -1,5 +1,13 @@
 # SWOS Expanded — development procedures and rationale
 
+## 0.13.81 — test rose reali 2026/27 (Windows utente, NON PROVATO)
+- Backup non distruttivo di `save/AUTO2627.CAR` e `save/AUTO9697.CAR` in una cartella fuori dal gioco.
+- Estrarre il pacchetto additivo con `diagnostica/INSTALLA_ROSE_2627.bat` e aprire una nuova carriera 2026/27 con un club del pacchetto. VIEW SQUAD deve vedere i nomi del 17º..30º e devono sparire le 10 riserve inventate quando sono presenti extra reali. Non dichiarare 30 per ogni club: alcuni ne hanno meno.
+- Provare il mercato nazionale e un acquisto di extra, poi cambio club, salvataggio, chiusura e CONTINUE; confrontare nomi, dati e la mancata ricomparsa presso il club d'origine. Provare anche un club senza extra (fallback 10 inventati).
+- Ripetere nuova carriera 1996/97: solo i 16 OG + 10 generati; nessun accesso ai dati 2026. Verificare salvataggi separati, non sovrascrivere i CAR reali.
+- B-team, CPU autonomous replacements e pagina 2 manuale dei club esterni: NON IMPLEMENTATI, non dichiarare PASS. I test Windows devono essere provati con screenshot/log e il codice può richiedere correzioni prima del rilascio.
+
+
 ## 17/11/2026 — prova Windows 0.13.80: WORLD 96/26 sul TITLE
 - GitKraken su dev/0.10, compilazione personale Windows 0.13.80. Prima eseguire backup esterno non distruttivo di AUTO9697.CAR e AUTO2627.CAR. START 96/97 o 26/27 con CAR di PROVA, avanzare un evento, tornare al TITLE: il log deve riportare `[autosave-title] status=COMPATIBLE_ON_DISK`; premere 96/26 con mouse e Switch Pro A. Attesi `[title-world] DETACH_CAREER`, `SELECTED`, preferenza SWOS.ini aggiornata, colore/focus normale e stato del pulsante coerente col nuovo mondo.
 - Ritornare all'altro mondo dal TITLE e usare CONTINUE: verificare che data, calendario OG, risultati e CAR iniziale siano effettivamente ripristinati, non soltanto che la voce 96/26 cambi visivamente. Ripetere per entrambi i CAR; verifica la conservazione dei file via timestamp/checksum esterno, senza cancellare file reali.

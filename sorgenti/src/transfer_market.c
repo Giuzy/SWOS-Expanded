@@ -14,6 +14,7 @@
 #include "teams.h"
 #include "auto_skip_debug.h"
 #include "world.h"
+#include "squad_extras.h"
 
 /* Offset from GetPlayer() return value to actual PlayerFile data */
 #define PF_OFF              76  /* sizeof(TeamFile) */
@@ -712,18 +713,22 @@ retry:
     /* Pick a random player (0-15) */
     rand = Rand2();
     playerOrd = rand & 0xF;                                 /* andi.w #$F,d0 */
+    playerOrd = SquadExtras_MarketPick(teamNum, playerOrd); /* real 2026/27 extras */
     /* Now d0 = teamNum, d1 = playerOrd (after exg) */
 
     /* If not first attempt (attemptsLeft was > 0), check price range */
     if (attemptsLeft != 0) {
         TeamFileEx *teamEx = (TeamFileEx *)teamEntry;
-        uint8_t price = (uint8_t)teamEx->players[playerOrd].price;
+        const PlayerFile *picked = playerOrd < 16 ? &teamEx->players[playerOrd]
+                                            : SquadExtras_Player(teamNum, playerOrd);
+        if (!picked) goto retry;
+        uint8_t price = (uint8_t)picked->price;
         if (lowestPrice > price)                            /* cmp.b ... bhi retry */
             goto retry;
         if (highestPrice < price)                           /* cmp.b ... bcs retry */
             goto retry;
         /* Check position bit 2 (goalkeeper flag?) */
-        if (teamEx->players[playerOrd].positionAndFace & PF_TRIALIST)
+        if (picked->positionAndFace & PF_TRIALIST)
             goto retry;                                     /* btst #2,... bne retry */
     }
 
@@ -2810,6 +2815,10 @@ void PlayerMarketItemBeforeDraw(MenuEntry *entry)
             extra = (uint8_t *)teamData->team.teamName; /* team name area */
             uint8_t ordinal = item[2];
             player = (uint8_t *)teamData + (uint16_t)ordinal * 0x26;
+            if (ordinal >= 16) {
+                uint8_t *extra = SquadExtras_GetPlayer(teamNum, ordinal);
+                if (extra) player = extra;
+            }
         } else {
             /* Foreign player */
             uint16_t teamNum = PACK_BE_U16(item[0], item[1]);
@@ -3935,6 +3944,8 @@ void Career_BuildForeignMarketPoolFromSelectedTeam(void)
     uint8_t *src, *dst;
     int16_t i, j;
 
+    SquadExtras_JobChange(); /* never resurrect extras promoted into the original 16 */
+
     /* Copy careerTeam (0x2AC bytes) to tempTeamBuffer */
     src = (uint8_t *)&_careerTeam;
     dst = _tempTeamBuffer;
@@ -4309,6 +4320,12 @@ void Career_RemovePlayerAndAddAsTrialist(uint16_t sourceTeam, uint16_t playerOrd
     _careerNumPlayers++;
     SquadNumbers_Free(freeSlot);        /* (real squad numbers: his own, or a free one; teams.c) */
     Career_UpdatePlayerWeeklyWageCache(freeSlot);
+
+    /* An extra 17..30 sold to us is gone from its old club permanently.
+     * No OG-generated replacement in the old extra slot. */
+    if (SquadExtras_Bought(savedTeam, savedOrd,
+            ((const PlayerFile *)(dstBase + PF_OFF))->playerName))
+        return;
 
     /* Convert player to trialist using source name */
     Career_ConvertPlayerToTrialistFromName(savedTeam, savedOrd);
@@ -5169,6 +5186,10 @@ void PlayerMarketBuildVisiblePlayerList(void)
             TeamFileEx *teamData = VerifyTeamLoaded(teamNum);
             uint16_t ordinal = (uint16_t)(uint8_t)a1[2];
             uint8_t *blockPtr = (uint8_t *)teamData + (uint32_t)ordinal * 38;  /* mulu #$26 */
+            if (ordinal >= 16) {
+                uint8_t *extra = SquadExtras_GetPlayer(teamNum, ordinal);
+                if (extra) blockPtr = extra;
+            }
             if (playerMarketPlayerMatchesFilters(blockPtr, ratingThreshold,
                                                   countryRange, positionList,
                                                   skillBitIndex) == 0) {

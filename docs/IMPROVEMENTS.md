@@ -1,5 +1,13 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 17/11/2026 — 0.13.81 CANDIDATA: rose reali 26/27, integrazione parziale (Windows NON PROVATO)
+- La Mod 4.1.2/OpenSWOS forniscono fino a 14 extra reali oltre ai 16 del file TEAM: `DataJson_LoadTeamExtras` legge SOLO il 2026/27 e valida UUID+checksum dei 16 base, usando gli overlay additivi `data_json/worlds/2627/squad_extras/*.json`. Il 1996/97 rimane OG.
+- `squad_extras.c` (port da OpenSWOS/MIT, attribuzione Davide Lorigliola) carica gli extra della squadra allenata, sopprime i 10 inventati dove ci sono extra reali, li paga come riserve al 66%, include i posti 17..30 nel mercato nazionale e registra le partenze per non ricreare calciatori già ceduti. Storia delle partenze nel CAR tramite oggetto opzionale `squad_extras`; vecchi salvataggi senza il campo sono letti come storia vuota senza migrazioni distruttive.
+- Limiti: la pagina 2 di BUY OTHER PLAYERS/VIEW SQUAD di club esterni, convocazioni B-team/CPU REPL e gli eventuali trasferimenti autonomi OG dei club AI non sono integrati. Il mercato può selezionare extra nelle liste nazionali, ma **nessuna compilazione Windows o prova end-to-end ancora**.
+- Il pacchetto dei 101 overlay reali preparato dai file ufficiali dell'utente NON è stato caricato nel ramo remoto tramite il connettore GitHub (non supporta il passaggio dei bytes ZIP locali). Si distribuisce separatamente come `SWOS_Expanded_Rose_Reali_2627_DATI.zip`; va importato nella root con `diagnostica/INSTALLA_ROSE_2627.bat`, poi registrato in GitKraken. Finché manca, caricamento 26 mantiene fallback OG a 16+10. Nessuna sovrascrittura dei file `teams/`.
+- Test statici previsti: assenza overlay -> fallback OG; overlay con UUID/checksum validi -> 16+n reali; mismatch -> non caricare; vendita/cambio club/reload CAR -> no doppioni; 96 invariato. Risultato Windows: **NON PROVATO**.
+
+
 ## 0.13.80 — selettore mondo debug TITLE dopo ritorno dalla carriera
 - Corretto il guard logico che rifiutava il click 96/26 al TITLE quando `_gameType==4`. Il titolo puo' ora cambiare banco OG senza riavviare, ma solo dopo autosave `menu-exit` scritto e verificato per il mondo corrente. Scollega la carriera soltanto dalla RAM; conserva entrambe le copie AUTO*.CAR e non le scrive al click. Nei casi di save fallito o CLASSIC attivo resta la protezione. Versione 0.13.80. Test C isolato PASS; integrazione/compilazione Windows NON PROVATE.
 

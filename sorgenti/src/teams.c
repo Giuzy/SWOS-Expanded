@@ -5,6 +5,7 @@
  */
 #include "teams.h"
 #include "world.h"
+#include "squad_extras.h"
 #include "career_teams.h"
 #include "comp_identity.h"
 #include "swos_platform.h"   /* HLOG — force-included by the SDL Makefile, not the
@@ -1060,8 +1061,14 @@ uint8_t *GetPlayer(uint16_t teamNumber, uint16_t playerFileIndex)
         teamBase = _currentTeam;
     else if (teamNumber == _selTeamNumber)
         teamBase = (uint8_t *)&_careerTeam;
-    else
+    else {
+        /* A 17th+ player from an AI club does not live in the next TEAM record. */
+        if (playerFileIndex >= 16) {
+            uint8_t *extra = SquadExtras_GetPlayer(teamNumber, playerFileIndex);
+            if (extra) return extra;
+        }
         teamBase = (uint8_t *)GetTeamPointer(teamNumber);
+    }
 
     return teamBase + (uint16_t)(playerFileIndex * sizeof(PlayerFile));
 }
@@ -1483,6 +1490,8 @@ void Career_RemovePlayerFromSelectedTeamRoster(uint16_t index)
     uint8_t *a1;
 
     d1 = index;
+
+    SquadExtras_OwnLeaving(d1); /* Original real extras never return after a sale. */
 
     /* Get player record and accumulate stats */
     player = GetPlayer(_selTeamNumber, d1);

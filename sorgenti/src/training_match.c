@@ -14,6 +14,9 @@
 #include "game_types.h"
 #include "panic.h"
 #include "career_status.h"
+#ifdef SWOS_SDL_BUILD
+#include "squad_extras.h"
+#endif
 
 /* ---- ASM externs ---- */
 extern uint8_t _trainingMatchSavedPlayers[];     /* 32 bytes — player file indices */
@@ -456,6 +459,12 @@ void TrainingMatch_AddTrialPlayersForNewSeason(void)
 {
     if (_isNationalSelector != 0)
         return;
+#ifdef SWOS_SDL_BUILD
+    if (SquadExtras_TakeAdded()) {
+        TrainingMatch_ApplyUseMatchTeamAndSwapSubs();
+        return;
+    }
+#endif
 
     TrainingMatch_TryAddTrialPlayerAtPosition(2);
     TrainingMatch_TryAddTrialPlayerAtPosition(1);

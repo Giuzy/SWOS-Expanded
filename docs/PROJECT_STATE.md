@@ -1,5 +1,9 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_4, Libertadores 1997: 21 club e ID auditati
+- Fonte originale Mod 1997 (`aminta/swos-9697-mod/tools/sacups.py`): 20 club in 5 gironi + River Plate campione 1996 agli ottavi (totale **21 iscritti**, non 20); `tools/lib97.py` gestisce il bypass. Confrontate 21/21 identità con i JSON storici Expanded: 6 ID incompatibili, conversione registrata in `docs/reference/libertadores_1997_source_id_map.json`. Questo e' un MANIFEST, non una connessione giocabile, senza simulatori, fixture o punteggi nuovi. Windows NON PROVATO.
+
+
 ## 17/11/2026 — 0.13.70_3, audit multi-fonte in corso
 - Documento: `docs/COMPETITION_AUDIT_SOURCE_MATRIX_20261117.md` (confronto per 48 formati/divisioni cambiati, 26 record aggiunti moderni, 1 record CUSTOM solo storico; catalogo mancanze storico/moderni/nazionali). Dati GOG e SWOS 2020 non presenti come inventari indipendenti nel repository, quindi confronto integrale a tre NON certificabile. Aggiunta dichiarazione locale `extern` per la nuova diagnostica OG NO DATA compilabile; resto motore invariato. Versione `0.13.70_3`, test Windows NON PROVATO.
 

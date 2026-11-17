@@ -1,4 +1,8 @@
 # SWOS Expanded — Libertadores 1997 e 2027: decisioni e audit (17 novembre 2026)
+
+## Correzione verificata 17/11 — fonte Mod 1997 (21 iscritti totali)
+La Mod originale `tools/sacups.py` definisce **21 partecipanti della Libertadores 1997**: 20 giocano nei 5 gironi da 4, **River Plate** detentore 1996 entra direttamente agli ottavi. Le precedenti note che contavano 20 erano limitate ai soli gironi. **Non e' la lista del 1996** che appare nell'attuale `tournaments.json` di Expanded. Tutti i 21 nomi sono stati ricontrollati contro i JSON storici; sei ordinali Mod NON coincidono con gli ordinali Expanded: Racing 32→31 e River Plate 33→32 (ARG), Gremio 12→10 e Cruzeiro 8→7 (BRA), Millonarios 14→13 e Deportivo Cali 10→9 (COL). Nuovo manifest read-only `docs/reference/libertadores_1997_source_id_map.json`. Il collegamento residente, il bye originale, il calendario della carriera e il save restano PENDENTI, non dichiarati funzionanti.
+
 ## Decisioni APPROVATE
 1. **Entrambi i mondi 1996/97 e 2026/27** devono utilizzare le date reali delle singole competizioni. Il cambio di stagione manager resta il 1 luglio: una coppa a cavallo di tale data mantiene la propria edizione OG, senza perdere club, risultati, calendario e RNG; eventuali fine-anno diversi per regione sono un ripiego da concordare se il metodo non funziona.
 2. **Libertadores 1996/97:** preservare il formato originale OG di 20 club in 5 gironi da 4. Il formato del 1997 prevede anche l'ingresso della detentrice negli ottavi; verifica delle identità iniziali e dello storico fixture ancora richiesta. Non applicare le regole 2027 al mondo storico. Il torneo reale 1997 attraversa luglio (febbraio–agosto).

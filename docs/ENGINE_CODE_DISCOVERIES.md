@@ -1,5 +1,9 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.70_4, sorgente Libertadores 1997 storico
+- Fonte indipendente `aminta/swos-9697-mod/tools/sacups.py`: 21 iscritti, 20 gruppi+1 River Plate detentore 1996 bye ottavi, regola in `tools/lib97.py`. Confronto su 10 cataloghi squadra `data_json/teams/*.json`: 21/21 record esistono; 6 source ordinals divergono da Extended. Manifest dati `docs/reference/libertadores_1997_source_id_map.json` senza effetto gameplay. NON copiare gli ordinali o i 20 seed del torneo 1996 in una nuova edizione 1997 senza la conversione. Non ancora OG resident.
+
+
 ## 17/11/2026 — audit per paese 0.13.70_3
 - JSON storico `data_json/competitions/leagues.json`: 66 record (CUSTOM 3 gironi incluso), 91 divisioni; JSON moderni 91 record/134 divisioni. 48 identificativi comuni hanno conteggi squadra/divisioni diversi; 26 sono modern-only, CUSTOM è historical-only. Matrice completa nel nuovo `docs/COMPETITION_AUDIT_SOURCE_MATRIX_20261117.md`.
 - La Mod storica 1997 contiene competizioni di club/paesi oltre all'OG base, compresa Italia C1/C2; quelle del 2026/27 NON sostituiscono formule o rose del 1997. Per un raffronto indipendente dei tre installati servono gli archivi di GOG e SWOS 2020: 4 TEAM OpenSWOS non bastano.

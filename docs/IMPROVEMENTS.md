@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_4 — manifest Libertadores 1997
+- Verificati 21 iscritti originali (20 gruppi + detentore bye) e 6 ID remappati Mod→DB storico Expanded, manifest conservato per l'adattatore OG. Nessuna simulazione o calendario modificati; test Windows N/A sui dati, implementazione giocabile PENDENTE.
+
+
 ## 0.13.70_3 — correzione compilabilita' diagnostica, audit delle epoche
 - Dichiarazione visibile di `_competitionsTable` per nuovo checker NO DATA e guardia sul vettore statali; non tocca calendari/rng. Documento di audit statico per epoca e collegamenti, incluso confronto delle 48 leghe con dimensioni diverse. Versione 0.13.70_3; verifica compilatore Windows e gameplay NON PROVATI.
 

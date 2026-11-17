@@ -1,5 +1,12 @@
 # SWOS Expanded — development procedures and rationale
 
+## 17/11/2026 — verifica Windows 0.13.75, Copa Libertadores OG 1996/97
+- Prima di provare archiviare separatamente il CAR 96/97 e non cancellare/sovrascrivere altri salvataggi; per la prova di avanzamento temporale iniziare una carriera **nuova di prova**, disoccupato, mondo 1996/97. Il CAR della 0.13.74 puo' gia' contenere partite Copa disputate troppo presto e NON viene riavvolto.
+- Al 1 luglio 1996 in DEBUG WORLD -> SUD AMERICA -> Copa Libertadores 1996 verificare contesto residente, gironi iniziali, gare ancora zero, `[og-libertadores-96] world-phase=48 fixture-phase=0`. Fare FORWARD TIME fino a febbraio 1997: nessun risultato Copa anticipato. Fra marzo e giugno 1997, nuove gare devono apparire progressivamente; nei log confrontare `world-phase`, `fixture-phase`, `OG-matches=a->b`, `stage=x->y`. Controllare realmente gironi, ottavi, quarti, semifinali e finale; se resta fermo segnalarlo FAIL.
+- Provare anche al confine giugno/luglio, senza doppia simulazione, e CONTINUE dopo salvataggio; confrontare date, partite già giocate, tabelloni e nessuna perdita. Ripetere con manager assunto in club NON partecipante e verificare che il torneo resti consultabile/avanzabile. Se il manager e' una delle 20 squadre, il percorso e' ancora `PENDING_MANAGER_BIND`: non segnare PASS, richiede integrazione con il suo slot OG.
+- Verificare regressioni 96/97 Champions/Coppa Coppe/Coppa UEFA e leghe; 2026/27 Champions/Europa/Conference e Libertadores moderna non devono cambiare. Test Windows, save nuovo, multianno, controller: NON PROVATI dall'assistente; allegare ZIP AVVIA_DIAGNOSTICA e screenshot prima/dopo se un controllo fallisce.
+
+
 ## 17/11/2026 — checklist Windows 0.13.74, Champions 96/97
 - GitKraken su `dev/0.10`, verificare build `0.13.74`, backup separato dei CAR preesistenti. START 1996/97 disoccupato: VIEW WORLD -> Europa -> Champions, annotare anno/girone/gare; accettare un'offerta di club che NON partecipa e aprire la stessa Champions da VIEW WORLD: deve restare consultabile, senza gara retroattiva. Controllare `[og-champions-view] ROUTE_RESIDENT clubSlot=0` e `RETURN resident=1`.
 - Ripetere da club effettivamente iscritto nel primo anno: aprire anche la Champions dal calendario carriera, controllare B/BACK, stesso girone e risultati; se presente verificare `clubSlot=1`. Dopo avanzamento, SAVE e CONTINUE verificare che le gare OG non diminuiscano o si duplichino. Testare 2026/27 Champions/Europa/Conference per esclusione del routing storico.

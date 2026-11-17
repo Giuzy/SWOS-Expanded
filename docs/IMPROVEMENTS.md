@@ -1,5 +1,10 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.75 — Libertadores 96/97: avanzamento OG datato a FORWARD TIME
+- Problema: il torneo nativo possiede begin/end fasi 16..40 (MAR-GIU) ma la carriera parte a luglio 1996 (fase 48), causando anticipo degli incontri e nessun avanzamento successivo nel periodo visualizzato. Solo `s_expOGUefa[1]` traduce il cutoff mondiale in fase di torneo per il marzo-giugno successivo, senza toccare data OG, algoritmo, fixture, squadre o RNG.
+- Audit diff: logs `[og-libertadores-96]` di delta match/stadi per fase. Il world `lastPhase` resta assoluto; le altre UEFA e coppe nazionali non cambiano. Test C isolato di date/phase PASS, build e gameplay Windows non eseguiti. La gestione del manager direttamente iscritto e le edizioni dopo la prima non sono completate da questo fix.
+
+
 ## 0.13.74 — Champions 1996/97 visualizzata da manager assunto via OG residente
 - In `Career_ViewOrEditCompetitionSlot` eliminato il requisito di essere iscritti personalmente alla Champions per consultarla: record OG e relativa copia di carriera vengono entrambi inviati al viewer OG read-only `Expanded_OGWorld_ViewLeague(_euroCup,0)`, come nel DEBUG WORLD del disoccupato. Il menu VIEW WORLD occupato richiama gia' il dispatcher. Log della scelta e dell'esito, nessun nuovo simulatore/fixture/slot.
 - Test C isolato della condizione di routing PASS; compilazione Windows, visibilita' del menu, calendario e LOAD restano NON PROVATI. Nessuna dichiarazione di risoluzione delle gare del manager.

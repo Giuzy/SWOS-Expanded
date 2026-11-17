@@ -61,6 +61,7 @@ extern CompetitionCup _uefaCup;
 #include "world_cups.h"
 #include "world_cupd.h"
 #include "expanded_og_cup_validation.h"
+#include "expanded_og_copa_phase.h"
 #include "expanded_debug.h"
 #include "expanded_world_time.h"
 #include "expanded_world_live.h"
@@ -4530,7 +4531,18 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
     }
     for(unsigned k=0;k<(modern?3u:(historicCopa?2u:1u));++k) {
         const int isHistoricCopa=classic && k==1u;
+        /* Classic Copa's OG record plays at phases 16..40 (MAR-JUN).
+         * The Expanded 96/97 world starts in JUL 1996 at phase 48.
+         * Forward the same ORIGINAL native tournament in MAR-JUN 1997,
+         * not retroactively during July 1996. Keep lastPhase as the
+         * actual world key for idempotent weekly FORWARD TIME. */
+        const uint8_t fixturePhase=isHistoricCopa?
+            Expanded_OGCopa1996_FixturePhase(phase):phase;
         ExpandedOGLeague *ctx=&s_expOGUefa[k];
+        const uint32_t beforeMatches=ctx->used?
+            (uint32_t)ctx->comp.matchesPlayedCount:0u;
+        const unsigned beforeStage=ctx->used?
+            (unsigned)ctx->tournament.header.roundComplete:0u;
         if(!ctx->used)ctx->lastMatch=0xffu;
         Competition *rec=isHistoricCopa?historicCopa:
                          modern?(Competition *)&cups[k]:(Competition *)&_euroCup;
@@ -4565,9 +4577,16 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
         for(unsigned i=0;i<entrants && _selTeamNumber!=0xffffu;++i)
             if(TEAMID_PACK(seed[i])==_selTeamNumber)
                 manager=1;
-        if(manager && phase>0) {
-            fprintf(stderr,"[og-uefa-resident] PENDING_MANAGER_BIND year=%u cup=%u phase=%u (no duplicate matches)\n",
-                    (unsigned)year,k,(unsigned)phase);
+        if(manager && fixturePhase>0) {
+            /* The manager's OG slot is not reconciled into this resident
+             * draw yet. DO NOT double-simulate their cup encounters. */
+            if(phase==112u || phase%8u==0u)
+                fprintf(stderr,
+                    "[og-uefa-resident] PENDING_MANAGER_BIND "
+                    "year=%u cup=%u world-phase=%u fixture-phase=%u "
+                    "OG-matches=%lu (NO DOUBLE MATCHES)\n",
+                    (unsigned)year,k,(unsigned)phase,
+                    (unsigned)fixturePhase,(unsigned long)beforeMatches);
             if(ctx->used)ctx->lastPhase=phase;
             continue;
         }
@@ -4584,7 +4603,7 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
         SaveSelectedTeams();SaveRand2State();
         _internationalAutoAdvanceFlag=1;_careerLoadedFlag=1;_teamsLoaded=0;
         _seasonPlaying=(uint8_t)((96u+(unsigned)year-World_FirstYear())%100u);
-        s_expOGCurrent=ctx;s_expOGPhase=phase;s_expOGFault=0;
+        s_expOGCurrent=ctx;s_expOGPhase=(int)fixturePhase;s_expOGFault=0;
         if(ctx->used) {
             if(ctx->teamCount!=entrants)s_expOGFault=1;
             if(!s_expOGFault) {
@@ -4608,9 +4627,14 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
             }
         }
         _careerLastMatchIndexByCompetitionSlot[cid]=ctx->lastMatch;
-        if(!s_expOGFault && phase>0) {
-            fprintf(stderr,"[og-uefa-resident] BEFORE_ADVANCE world=%u year=%u cup=%u phase=%u slot=%u viewPhase=%u played=%u remaining=%u\n",
-                    (unsigned)World_Current(),(unsigned)year,k,(unsigned)phase,
+        if(!s_expOGFault && fixturePhase>0) {
+            if(!isHistoricCopa || phase%8u==0u || phase==113u)
+                fprintf(stderr,
+                    "[og-uefa-resident] BEFORE_ADVANCE world=%u year=%u "
+                    "cup=%u world-phase=%u fixture-phase=%u slot=%u "
+                    "viewPhase=%u played=%u remaining=%u\n",
+                    (unsigned)World_Current(),(unsigned)year,k,
+                    (unsigned)phase,(unsigned)fixturePhase,
                     (unsigned)_diyFileBufferCopy.header.roundComplete,
                     (unsigned)_diyCompetitionStart.base.viewRandomPhase,
                     (unsigned)_diyCompetitionStart.matchesPlayedCount,
@@ -4643,13 +4667,37 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
                     (unsigned)year,k,(unsigned)phase);
             return 0;
         }
-        fprintf(stderr,isHistoricCopa?
-                "[og-libertadores-96] world=%u year=%u slot=%u phase=%u "
-                "resident=1 entrants=%u OG-matches=%u holder-bye=NO_NATIVE_RULE\n":
-                "[og-uefa-resident] world=%u year=%u cup=%u phase=%u "
-                "residents=1 entrants=%u OG-matches=%u\n",
-                (unsigned)World_Current(),(unsigned)year,k,(unsigned)phase,unique,
-                (unsigned)ctx->comp.matchesPlayedCount);
+        if(isHistoricCopa) {
+            const uint32_t afterMatches=(uint32_t)ctx->comp.matchesPlayedCount;
+            const unsigned afterStage=(unsigned)ctx->tournament.header.roundComplete;
+            if(phase==0u || phase==48u || phase==96u ||
+               phase==112u || phase==136u || phase==143u ||
+               afterMatches!=beforeMatches || afterStage!=beforeStage ||
+               (phase>=112u && phase%8u==0u)) {
+                fprintf(stderr,
+                    "[og-libertadores-96] year=%u world-phase=%u "
+                    "fixture-phase=%u period=MAR-JUN-1997 "
+                    "resident=1 entrants=%u OG-matches=%lu->%lu "
+                    "stage=%u->%u holder-bye=NO_NATIVE_RULE\n",
+                    (unsigned)year,(unsigned)phase,
+                    (unsigned)fixturePhase,unique,
+                    (unsigned long)beforeMatches,(unsigned long)afterMatches,
+                    beforeStage,afterStage);
+                if(fixturePhase==0u && beforeMatches>0u)
+                    fprintf(stderr,
+                        "[og-libertadores-96] LEGACY_EARLY_MATCHES "
+                        "year=%u already-played=%lu "
+                        "status=NOT_REWOUND (save preserved)\n",
+                        (unsigned)year,(unsigned long)beforeMatches);
+            }
+        } else {
+            fprintf(stderr,
+                    "[og-uefa-resident] world=%u year=%u cup=%u phase=%u "
+                    "residents=1 entrants=%u OG-matches=%u\n",
+                    (unsigned)World_Current(),(unsigned)year,k,
+                    (unsigned)phase,unique,
+                    (unsigned)ctx->comp.matchesPlayedCount);
+        }
     }
     return 1;
 }

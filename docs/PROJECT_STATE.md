@@ -1,5 +1,10 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.75: Libertadores storica distribuita su MAR-GIU nel mondo 96/97 (Windows NON PROVATO)
+- Correzione mirata del cutoff delle gare del contesto residente `s_expOGUefa[1]`: il record originale marzo-giugno (fase 16..40) non deve scattare a luglio 1996 (fase mondiale 48). Ora il driver OG usa il cutoff 0 fino a dicembre 1996 e `worldPhase-96` da gennaio 1997: l'edizione iniziale si vede avanzare al FORWARD TIME nel marzo-giugno della carriera 1996/97, anziche' essere calcolata anticipatamente. Identita' OG e `lastPhase` assoluta conservate, altri tornei invariati.
+- Test helper C isolato PASS; simulazione OG reale, gironi -> ottavi -> finale, comportamento con club partecipante, persistenza .CAR e collaudo Windows NON PROVATI. Non riparare automaticamente salvataggi precedenti in cui risultati Copa siano gia' stati calcolati fuori finestra. Usare carriera di prova nuova per dimostrare il cambio.
+
+
 ## 17/11/2026 — 0.13.74: collega Champions 1996/97 al viewer OG dopo ingaggio (Windows NON PROVATO)
 - Risolto a livello di codice il filtro di consultazione che, dal menu carriera `ViewWorldMenu -> Career_ViewOrEditCompetitionSlot`, richiedeva che il manager partecipasse alla Champions per aprire l'unico stato OG `s_expOGUefa[0]`. Ora il record storico originale `_euroCup` e la sua copia da calendario vanno entrambi al medesimo `Expanded_OGWorld_ViewLeague(_euroCup,0)` gia' usato da DEBUG WORLD disoccupato, senza accettare il filtro sullo slot personale del manager. World 2627, altre coppe, simulazione e save invariati.
 - `expanded_champions_view_route.h` e test C isolato: PASS sulle condizioni di instradamento (identita' originale/copia, esclusione 2627/non-carriera). Compilazione Windows, apertura effettiva da VIEW WORLD e calendario, B/BACK, gara OG e SAVE/CONTINUE **NON PROVATI**. Se il contesto residente manca o il percorso UI fallisce, la diagnostica deve riportare l'errore; non promettere aggiornamento delle singole fixture del manager.

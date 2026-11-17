@@ -1,5 +1,11 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.71: protegge CAR con orologio mancante (Windows da verificare)
+- ZIP reale DIAGNOSTICA_SESSIONE_3(5).zip, build 0.13.70_22: entrambi AUTO9697 e AUTO2627 usano schema_version 5 e resident OG checksum validi; il CAR 2627 alla fine contiene living_world:null. TITLE dichiarava COMPATIBLE_ON_DISK per questo file, mentre la ricarica rifiutava OG_CIVIL_DATE_MISMATCH. Il log Windows mostra anche 129 campi carriera azzerati dopo verifica roundtrip rifiutata (fix separato 0.13.72).
+- SaveJson_WriteCareer ora rifiuta di scrivere se il mondo residente OG non ha uno stato civile coerente: evita di sovrascrivere il CAR esistente quando START viene annullato/il pilot non e' presente. Loader e CONTINUE usano la stessa preflight read-only della coppia og_resident.year e living_world.now, senza invocare sim o inventare data. La causa non e' il cambio schema, che resta 5.
+- Il CAR 2627 gia' incompleto nell'archivio NON viene modificato: manca la data civile originale e un recupero fedele non e' provato. AUTO9697 del medesimo ZIP ha living_world valido. Test Windows per entrambe le epoche da fare, senza cancellare save.
+
+
 ## 17/11/2026 — 0.13.70_23: primo fix mirato softlock rosa
 - Caso osservato: Crewe Alexandra, 16 giocatori in DB, due indisponibili, controllo della formazione 11+posti di riserva impossibile se richiede tutti i posti. Riconosciuto anche che il menu mostra un solo giocatore extra ruotabile.
 - Il solo menu partita carriera con club reale prova a sostituire tramite la callback OG PlayMatchMenuSwapPlayers i titolari e le riserve indisponibili con giocatori sani della stessa rosa; limita la panchina nominata al numero di disponibili senza superare il massimo OG. Non guarisce, crea o trasferisce giocatori, non modifica risultati/fixture e non cambia CLASSIC/SEASON.

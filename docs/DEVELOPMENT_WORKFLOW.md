@@ -1,5 +1,10 @@
 # SWOS Expanded — development procedures and rationale
 
+## 17/11/2026 — test Windows 0.13.71
+- Salvare copie separate di AUTO9697.CAR, AUTO2627.CAR e AUTOSAVE.CAR prima di fare prove; non sovrascriverle manualmente. Avviare il 96 con un save valido, controllare CONTINUE. Ripetere 26 con un nuovo save valido. Tentare START e poi BACK senza ingaggio; verificare nel log WRITE_BLOCKED e nessuna sostituzione di AUTO2627.CAR.
+- Con il CAR 2627 dello ZIP, atteso INCOMPLETE_CAR reason=MISSING_CIVIL_CLOCK, NON 'schema aggiornato'; esso non puo' essere dichiarato integro. Nessuna verifica gameplay Windows o ripristino della data storica fatta.
+
+
 ## 17/11/2026 — test Windows 0.13.70_23
 - Carriera prova Crewe 2026/27 con 2 indisponibili: verificare che si presentino 11 titolari e una panchina di sani, che i due rossi rimangano nella rosa extra e che PLAY MATCH sia selezionabile. Ruotare il piccolo controllo extra e verificare se si raggiungono entrambi. Nessun calciatore deve essere guarito o duplicato.
 - AVVIA_DIAGNOSTICA: cercare career-lineup con roster, available, unavailable, old-bench, active-bench, swaps, extra e status; in presenza di NOT_REPAIRED non dichiarare il caso risolto. Verificare salvataggio, successivo turno, e 1996/97; niente prova gameplay Linux sostitutiva. Coppe con team copia e oltre 16 giocatori sono fuori perimetro.

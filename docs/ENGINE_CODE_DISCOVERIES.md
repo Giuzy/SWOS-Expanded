@@ -1,5 +1,11 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.71: falso mismatch versione vs snapshot OG incompleto
+- Su un caso Windows verificato, save 2627 contiene schema_version=5 e stato og_resident ma living_world:null. SaveJson_CareerCompatible controllava soltanto schema, kind, world e checksums OG: TITLE mostrava COMPATIBLE_ON_DISK anche quando SaveJson_LoadCareer rifiutava OG_CIVIL_DATE_MISMATCH. Il writer poteva serializzare null se ExpandedWorldLive_End era gia' stato eseguito dopo START cancellato e un menu-exit avviava ancora autosave.
+- Guardie: WRITE_BLOCKED prima di modificare i buffer o il disco se non esiste giorno civile coerente col residente; compatibilita' e caricamento condividono preflight civil/OG read-only con conversione IndexedDate OG. Non e' una nuova simulazione: niente data inventata o versione schema modificata.
+- La routine di VERIFY della carriera puo' zeroizzare 129 campi quando ricaricamento fallisce: anomalia indipendente da correggere nel commit successivo.
+
+
 ## 17/11/2026 — 0.13.70_23: disponibilita' OG e giocatori extra
 - ShowOrHidePlayMatchButton conta i giocatori indisponibili tra i primi 11+maxSubstitutesEntries e puo' nascondere il pulsante anche se esistono almeno 11 giocatori sani. L'entry 30 ruota i giocatori fuori convocazione: un solo extra appare per volta. La routine ora aggiorna anche la visibilita' del pulsante dopo la rotazione.
 - Il nuovo Career_IsSelectionUnavailable espone il medesimo predicato isPlayerDisabled gia' usato dai contatori OG; in PlayMatchMenuInit solo il manager con il team originale (non copie di coppa) riordina i soli giocatori necessari con PlayMatchMenuSwapPlayers e riduce i posti nominati in panchina ai disponibili. Niente modifiche agli stati dei giocatori.

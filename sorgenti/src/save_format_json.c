@@ -27,6 +27,7 @@
 #include "world.h"             /* "world" in career and competition saves */
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_live.h" /* same .CAR, one ledger */
+#include "expanded_world_time.h" /* civil index read-only check */
 #endif
 #include "team_pool.h"         /* "team_pool" in career saves */
 #include "world_playoff.h"     /* "world_playoff" in career saves */
@@ -349,6 +350,45 @@ static void load_str_pool_field(const char *buf, int buflen,
 /* The football world a save was made in (include/world.h): written by the career and
  * competition saves as "world"; a save without it is 96/97, the world before worlds. A
  * save of another world is refused: its teams and competitions are not this one's. */
+
+#ifdef SWOS_SDL_BUILD
+/* No side effects: the TITLE compatibility probe must enforce the very
+ * same OG/civil invariant as the career loader. On the 17/11 Windows
+ * session a CAR with schema_version=5 and fully checksummed og_resident
+ * nevertheless carried living_world:null. The old TITLE probe reported
+ * COMPATIBLE_ON_DISK, then load failed with OG_CIVIL_DATE_MISMATCH.
+ * Never accept or automatically rewrite such incomplete saves.
+ *
+ * The absence of a real calendar is NOT a schema-version mismatch.
+ * Do not invent a civil date from today's wall clock or OG match count. */
+static int savejson_career_civil_clock_ok(const char *json,int size,int log_reject)
+{
+    const char *clock=NULL;
+    int clock_len=0;
+    long og_year=0, first_year=0, now=0;
+    ExpandedWorldDate civil;
+    const int token=mjson_find(json,size,"$.living_world",&clock,&clock_len);
+    if(token!=MJSON_TOK_OBJECT || clock_len<=0) {
+        if(log_reject)fprintf(stderr,
+            "[og-world-save] INCOMPLETE_CAR reason=MISSING_CIVIL_CLOCK file-preserved=1\n");
+        return 0;
+    }
+    if(mjson_get_long(json,size,"$.og_resident.year",&og_year)<=0 ||
+       mjson_get_long(clock,clock_len,"$.first_year",&first_year)<=0 ||
+       mjson_get_long(clock,clock_len,"$.now",&now)<=0 ||
+       now<0 || now>INT32_MAX || first_year<1900 || first_year>2198 ||
+       og_year<first_year || og_year>2198 ||
+       !ExpandedWorld_IndexToDate((int32_t)now,&civil) ||
+       civil.year<(civil.month<7u?1u:0u) ||
+       og_year!=(long)(civil.year-(civil.month<7u?1u:0u))) {
+        if(log_reject)fprintf(stderr,
+            "[og-world-save] INCOMPLETE_CAR reason=OG_CIVIL_DATE_MISMATCH file-preserved=1\n");
+        return 0;
+    }
+    return 1;
+}
+#endif
+
 static int save_world_ok(const uint8_t *src, uint32_t size)
 {
     char tag[16] = {0};
@@ -6052,6 +6092,27 @@ static int savejson_prepare_career_auto(const uint8_t *filename)
 
 int16_t SaveJson_WriteCareer(uint8_t *filename)
 {
+#ifdef SWOS_SDL_BUILD
+    /* Cancelled START (or a terminated pilot) has OG resident data but no
+     * civil clock. SaveJson_WriteCareer formerly emitted living_world:null,
+     * then atomically replaced a valid world-specific autosave with an
+     * unloadable file. Reject BEFORE string-pool or disk mutation. */
+    {
+        ExpandedLiveCalendarState civil;
+        extern int Expanded_OGWorld_SaveStarted(void);
+        extern uint16_t Expanded_OGWorld_SaveYear(void);
+        if(!Expanded_OGWorld_SaveStarted() ||
+           !ExpandedWorldLive_CalendarState(&civil) ||
+           civil.today.year<(civil.today.month<7u?1u:0u) ||
+           Expanded_OGWorld_SaveYear()!=(uint16_t)
+               (civil.today.year-(civil.today.month<7u?1u:0u))) {
+            fprintf(stderr,
+                "[og-world-save] WRITE_BLOCKED reason=MISSING_OR_MISMATCHED_CIVIL_CLOCK world=%s old-save-preserved=1\n",
+                World_Tag());
+            return 1;
+        }
+    }
+#endif
     SAVE_CAREER_TRACE("BEGIN");
     JsonOutBuf out = { NULL, 0, 0, 0 };
 
@@ -6777,7 +6838,8 @@ int SaveJson_CareerCompatible(const uint8_t *filename)
      * without og_resident are NOT playable. */
     if(ok) {
         extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
-        ok=Expanded_OGWorld_ReadSaveJson((const char *)buf,(int)size,0);
+        ok=savejson_career_civil_clock_ok((const char *)buf,(int)size,1) &&
+           Expanded_OGWorld_ReadSaveJson((const char *)buf,(int)size,0);
     }
 #endif
     swos_io_free(buf);
@@ -7617,6 +7679,12 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
 #endif
 
 #ifdef SWOS_SDL_BUILD
+    /* Side-effect-free checks must happen BEFORE any living-world state is
+     * restored/ended, and BEFORE the career's legacy fields are cleared. */
+    if(!savejson_career_civil_clock_ok((const char *)src,(int)src_size,1)) {
+        swos_io_free(src);
+        return 1;
+    }
     /* A CAR without exact OG contexts must never replay an old season. */
     {
         extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);

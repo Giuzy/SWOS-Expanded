@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.71 — guardia SAVE/CAR e compatibilita' titolo
+- Blocca la scrittura CAR se non esiste un orologio civile residente coerente col mondo OG. TITLE/CONTINUE e loader condividono una validazione senza effetti collaterali per evitare il falso COMPATIBLE_ON_DISK. Non aggiunge/modifica campi, schema JSON sempre 5, save precedenti intatti; verifica su Windows pendente.
+
+
 ## 0.13.70_23 — recupero formazione prepartita
 - In CAREER con club originale, se vi sono 11 sani e portiere, selezionare automaticamente riserve sane e nominare una panchina inferiore al massimo quando due o piu' indisponibili lo rendono necessario. Callback di scambio OG, nessun calciatore fittizio e nessuna guarigione. Recheck bottone alla rotazione del giocatore extra. Compilazione e test Windows pendenti.
 

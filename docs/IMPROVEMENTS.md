@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_3 — correzione compilabilita' diagnostica, audit delle epoche
+- Dichiarazione visibile di `_competitionsTable` per nuovo checker NO DATA e guardia sul vettore statali; non tocca calendari/rng. Documento di audit statico per epoca e collegamenti, incluso confronto delle 48 leghe con dimensioni diverse. Versione 0.13.70_3; verifica compilatore Windows e gameplay NON PROVATI.
+
+
 ## 0.13.70_2 — diagnostica permanente OG NO DATA
 - Nuovo audit di sola lettura su definizioni vs contesti residenti per le due epoche, sia club sia nazionali da valutare: dettagli mondo, paese/slot/divisione, anno, compId, motivo. Le categorie non datate/nazionali sono marcate REVIEW invece di falso FAIL. Non cambia OG fixture, RNG, save o stato di carriera. Versione 0.13.70_2, Windows NON PROVATO.
 

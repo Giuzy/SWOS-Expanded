@@ -4105,6 +4105,7 @@ static ExpandedOGCup *exp_cup_find(uint8_t country,uint8_t slot,uint16_t year)
 void Expanded_OGWorld_LogNoData(const char *stage,uint16_t year)
 {
     extern uint8_t _careerCompetitionIdRemapTable[];
+    extern void *_competitionsTable[];
     extern Competition *Comp_ById(uint8_t);
     const uint8_t *countries=World_SeasonCountries();
     if(!countries)countries=_careerCompetitionIdRemapTable;
@@ -4205,7 +4206,7 @@ void Expanded_OGWorld_LogNoData(const char *stage,uint16_t year)
             } else ++review; /* field ready != proof of per-fixture OG play */
         }
         const WorldStates *states=World_States(CN_BRAZIL);
-        for(unsigned k=0;states && k<states->states;++k) {
+        for(unsigned k=0;states && states->contest && k<states->states;++k) {
             ++missing;
             fprintf(stderr,"[og-no-data] stage=%s world=%s year=%u "
                 "category=BRAZIL_STATE index=%u name=%s status=NO_WORLD_RESIDENT "

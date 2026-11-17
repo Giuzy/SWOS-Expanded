@@ -1,5 +1,11 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — audit per paese 0.13.70_3
+- JSON storico `data_json/competitions/leagues.json`: 66 record (CUSTOM 3 gironi incluso), 91 divisioni; JSON moderni 91 record/134 divisioni. 48 identificativi comuni hanno conteggi squadra/divisioni diversi; 26 sono modern-only, CUSTOM è historical-only. Matrice completa nel nuovo `docs/COMPETITION_AUDIT_SOURCE_MATRIX_20261117.md`.
+- La Mod storica 1997 contiene competizioni di club/paesi oltre all'OG base, compresa Italia C1/C2; quelle del 2026/27 NON sostituiscono formule o rose del 1997. Per un raffronto indipendente dei tre installati servono gli archivi di GOG e SWOS 2020: 4 TEAM OpenSWOS non bastano.
+- Corretto prototipo locale `_competitionsTable` nel rilevatore OG NO DATA (precedentemente dichiarato soltanto più avanti nello stesso file C), più guard `states->contest`. Questo e' un fix sintattico non un test runtime. Windows ancora NON PROVATO.
+
+
 ## 17/11/2026 — 0.13.70_2, OG NO DATA (sorgenti, Windows NON PROVATO)
 - `career_status.c::Expanded_OGWorld_LogNoData`: osserva soltanto i record di leghe/coppe nazionali delle tabelle OG correnti e i contesti `s_expOG`/`s_expOGCups`, senza creare risultati e senza usare il solo compId. Include UEFA storica/moderna prima annata, Libertadores storica `Comp_ById`, 12 continental 2026/27 da `World_ContiCups`, statali brasiliani da `World_States` e Coppa Serie D da `World_CupD`. L'eventuale assenza e' `NO_RESIDENT`, distinta da `REVIEW` delle nazionali (calendario non due) e dalle qualificazioni UEFA anni seguenti.
 - `career_init.c::Expanded_OGWorld_LogCheckpoint` ora include marcatori `[og-no-data]` e `[og-no-data-summary]` al START, SAVE_AFTER, RESTORE_AFTER e rotazione stagionale, senza simulazioni o serializzazioni. I 13 statali e Coppa Italia Serie D risultano non connessi a un contesto mondiale OG datato; le funzioni manager-only della Mod non bastano. Il log e' un controllo dati/stato **non** una prova automatica che ogni formula e fixture sia corretta.

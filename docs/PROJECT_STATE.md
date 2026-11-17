@@ -1,5 +1,9 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_3, audit multi-fonte in corso
+- Documento: `docs/COMPETITION_AUDIT_SOURCE_MATRIX_20261117.md` (confronto per 48 formati/divisioni cambiati, 26 record aggiunti moderni, 1 record CUSTOM solo storico; catalogo mancanze storico/moderni/nazionali). Dati GOG e SWOS 2020 non presenti come inventari indipendenti nel repository, quindi confronto integrale a tre NON certificabile. Aggiunta dichiarazione locale `extern` per la nuova diagnostica OG NO DATA compilabile; resto motore invariato. Versione `0.13.70_3`, test Windows NON PROVATO.
+
+
 ## 17/11/2026 — 0.13.70_2
 - OG NO DATA per definizioni e contesti da leggere in diagnostica (START, SAVE, RESTORE). L'utente conferma che statali brasiliani e COPPA ITALIA SERIE D NON compaiono nel calendario mondiale OG: MANCANTI, non solo incerti. Manca ancora integrazione effettiva, calendario e salvataggio residenti; la sola definizione Mod non vale come progresso del motore. Per nazionali la diagnostica evita falsi allarmi su anni senza gare previste. Test Windows NON PROVATO.
 

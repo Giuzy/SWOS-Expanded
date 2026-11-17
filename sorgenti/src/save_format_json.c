@@ -1,18 +1,19 @@
 /*
  * save_format_json.c — JSON serializer/parser for SWOS save files.
  *
- * Five save kinds, all fully structured (no base64 blobs):
+ * Five save kinds, with semantic core fields. SDL career saves also
+ * carry a versioned, pointer-sanitized native OG context snapshot as
+ * named hex fields (ABI-bound; see sorgenti/docs/SAVE_FORMAT_JSON.md):
  *   - career      (.CAR) — SaveJson_WriteCareer / SaveJson_LoadCareer
  *   - preset      (.PRE) — write/load_competition_buf via SaveJson_*Preset
  *   - DIY         (.DIY) — same path with KIND_DIY
  *   - highlights  (.HIL) — SaveJson_WriteHighlights / SaveJson_LoadHighlights
  *   - tactics     (.TAC) — SaveJson_WriteTactics / SaveJson_LoadTactics
  *
- * Every byte that round-trips is covered by either a typed scalar
- * (s_career_scalars FLD_* entries) or a structured top-level field
- * (selected_teams, tmd_teams, career_foreign_market_players,
- * career_team_reserves, current_team_reserves, scenes, etc.). The
- * legacy `opaque_data` blob and the `blobs` sub-object are gone.
+ * The established career fields use typed scalars and structured JSON
+ * objects. Resident OG world state uses its own tagged, checksummed
+ * Windows-x64 ABI snapshot (og_resident), with pointer fields removed
+ * and restored into new addresses during LOAD. No sidecar is written.
  *
  * See SAVE_FORMAT_JSON.md for the migration history.
  */
@@ -5965,6 +5966,42 @@ static void load_ctx_stage(const char *src, int src_size, const char *key,
 
 int16_t SaveJson_WriteCareer(uint8_t *filename)
 {
+#ifdef SWOS_SDL_BUILD
+    /* A pre-0.13.70_8 AUTO has no resident OG history; never overwrite it
+     * during a new career. Preserve it for explicit external recovery.
+     * Existing native-snapshot AUTOs may be replaced atomically as usual. */
+    static uint8_t s_nativeAutoValidated[2]={0,0};
+    int autoIdx=-1;
+    if(filename && !strcmp((const char *)filename,"AUTO9697.CAR"))autoIdx=0;
+    if(filename && !strcmp((const char *)filename,"AUTO2627.CAR"))autoIdx=1;
+    if(autoIdx>=0 && !s_nativeAutoValidated[autoIdx]) {
+        char oldPath[1200];
+        snprintf(oldPath,sizeof oldPath,"%s/%s",
+                 swos_save_dir(),(const char *)filename);
+        FILE *existing=fopen(oldPath,"rb");
+        if(existing) {
+            fclose(existing);
+            uint8_t *old=NULL;uint32_t oldSize=0;
+            int valid=0;
+            if(!read_save_file_heap(filename,&old,&oldSize)) {
+                extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
+                valid=save_world_ok(old,oldSize) &&
+                    Expanded_OGWorld_ReadSaveJson((const char *)old,(int)oldSize,0);
+                swos_io_free(old);
+            }
+            if(!valid) {
+                fprintf(stderr,"[og-world-save] PROTECTED_LEGACY_AUTO world=%s "
+                               "file=%s action=REFUSE_OVERWRITE "
+                               "move-old-file-manually-to-archive=1\n",
+                        World_Tag(),(const char *)filename);
+                return 1;
+            }
+        }
+        /* The slot was absent or contained a validated native snapshot.
+         * Revalidate on the next process, not on every weekly autosave. */
+        s_nativeAutoValidated[autoIdx]=1;
+    }
+#endif
     JsonOutBuf out = { NULL, 0, 0, 0 };
 
     /* Reset string pool — emit_str_pool_field consumers (the four
@@ -6581,6 +6618,16 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
 #else
     mjson_printf(json_out_emit, &out, "%s", "null");
 #endif
+#ifdef SWOS_SDL_BUILD
+    {
+        extern int Expanded_OGWorld_WriteSaveJson(mjson_print_fn_t,void *);
+        if(!Expanded_OGWorld_WriteSaveJson(json_out_emit,&out)) {
+            fprintf(stderr,"[og-world-save] WRITE_REJECTED world=%s reason=NO_RESIDENT prior-save-retained=1\n",World_Tag());
+            if(out.ptr)swos_io_free(out.ptr);
+            return 1;
+        }
+    }
+#endif
     mjson_printf(json_out_emit, &out, "%s", "\n}\n");
 
     if (out.oom || !out.ptr) {
@@ -6592,7 +6639,8 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
      * Keep standard OpenSWOS behaviour for user-selected .CAR filenames. */
     int16_t result;
 #ifdef SWOS_SDL_BUILD
-    if (strcmp((const char *)filename, "AUTOSAVE.CAR") == 0)
+    if (strcmp((const char *)filename, "AUTO9697.CAR") == 0 ||
+        strcmp((const char *)filename, "AUTO2627.CAR") == 0)
         result = (int16_t)swos_io_save_atomic(filename,
                           (const uint8_t *)out.ptr, (uint32_t)out.len);
     else
@@ -7494,6 +7542,16 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
     SWOS_DBG_FLUSH();
 #endif
 
+#ifdef SWOS_SDL_BUILD
+    /* A CAR without exact OG contexts must never replay an old season. */
+    {
+        extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
+        if(!Expanded_OGWorld_ReadSaveJson((const char *)src,(int)src_size,0)) {
+            fprintf(stderr,"[og-world-save] LOAD_REJECTED world=%s reason=INVALID_OR_LEGACY_OG_STATE file-preserved=1\n",World_Tag());
+            swos_io_free(src);return 1;
+        }
+    }
+#endif
     /* Verify schema_version. */
     long version = 0;
     if (mjson_get_long((const char *)src, (int)src_size,
@@ -7539,6 +7597,22 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
         swos_io_free(src);
         return 1;
     }
+    /* The native OG season and the saved civil date must agree. The world
+     * clock is NOT reconstructed from current real time or a second clock. */
+    {
+        ExpandedLiveCalendarState cal;
+        long savedYear=0;
+        if(!ExpandedWorldLive_CalendarState(&cal) ||
+           mjson_get_long((const char *)src,(int)src_size,
+                          "$.og_resident.year",&savedYear)<=0 ||
+           cal.today.year<(cal.today.month<7u?1u:0u) ||
+           savedYear!=(long)(cal.today.year-(cal.today.month<7u?1u:0u))) {
+            fprintf(stderr,"[og-world-save] LOAD_REJECTED reason=OG_CIVIL_DATE_MISMATCH "
+                           "file-preserved=1\n");
+            swos_io_free(src);
+            return 1;
+        }
+    }
 #endif
 
     /* Clear the two surviving careerFileBuffer scalars before the typed load
@@ -7570,6 +7644,15 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
     PROF_START(rebuild_ptrs);
     extern void RebuildPointersAfterLoad(void);
     RebuildPointersAfterLoad();
+#ifdef SWOS_SDL_BUILD
+    {
+        extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
+        if(!Expanded_OGWorld_ReadSaveJson((const char *)src,(int)src_size,1)) {
+            fprintf(stderr,"[og-world-save] LOAD_RESTORE_FAILED after-preflight world=%s\n",World_Tag());
+            swos_io_free(src);return 1;
+        }
+    }
+#endif
     PROF_END(rebuild_ptrs, "career-load");
 
     swos_io_free(src);

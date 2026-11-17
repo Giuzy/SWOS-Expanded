@@ -1,5 +1,11 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_8 — Persistenza degli stati mondiali OG
+- Aggiunto `og_resident` dentro il JSON .CAR per leghe, UEFA e coppe nazionali residenti, inclusi identificativi, stato partita/torneo, rose e RNG. Pointer rebasing e checksum per ogni contesto, controllo delle dimensioni del layout, caricamento prevalidato e nessun replay di partite; autosave per mondo sostituito atomicamente.
+- Vecchi CAR senza questo segmento NON sono migrati automaticamente: non contengono la cronologia OG sufficiente, quindi sono mantenuti sul disco ma non proseguibili in modo coerente con il nuovo sistema.
+- Conferme Windows e fixture storiche non ancora presenti: **NON PROVATE**.
+
+
 ## 0.13.70_5 — test reale salvataggio e ripristino delle entita' OG
 - Aggiunti log fingerprint per leghe, coppe nazionali e UEFA residenti al SAVE/RESTORE e loro confronto cross-process nello script diagnostico. Distingue errore certo (contesti zero o hash divergente), prova insufficiente e campi osservati uguali, senza falsi PASS o simulazioni. Richiede due sessioni Windows utente dello stesso slot AUTO; l'eseguibile non è stato compilato/testato.
 

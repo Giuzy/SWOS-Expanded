@@ -1,5 +1,11 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_8, snapshot OG nella carriera — test Windows PENDENTE
+- Il `.CAR` porta ora `og_resident` (lega OG/UEFA/coppe nazionali effettivamente presenti, comp/torneo/squadre/RNG, ID e fasi). Il decoder precontrolla interi contesti prima della modifica; i puntatori vengono ricostruiti dopo LOAD e l'anno OG viene riallineato **senza replay**. Salvati separatamente AUTO9697 e AUTO2627 con sostituzione atomica.
+- Formato tecnico v1 (blob esadecimali di stato nativo ABI-checked dentro JSON), non ancora schema campo-per-campo multipiattaforma; non contiene i tornei mai inizializzati come Libertadores. Un vecchio .CAR non contiene i residenti OG e viene rifiutato dal nuovo restore anziche' creare dati simulati. File legacy preservato.
+- Compilazione Windows, SAVE/RESTORE, FORWARD TIME, stagioni multiple, join/leave club, prove per entrambe le epoche: **NON PROVATI**. Non dichiarare crash risolto prima del test.
+
+
 ## 17/11/2026 — 0.13.70_5, confronto fingerprint SAVE/RESTORE OG tra due processi
 - `career_status.c` produce fingerprint READ ONLY per ogni lega OG, coppa nazionale e UEFA residente su SAVE_AFTER e RESTORE_AFTER: identifica mondo/paese/slot/stagione, hash pointer-free di tabelloni, classifiche, round/fixture scratch, rose giocatori e RNG, senza includere puntatori soggetti ad ASLR. `run_save_continuity_audit.sh` compara soltanto lo stesso slot e mondo in due sessioni AVVIA_DIAGNOSTICA, confronta l'ultimo checkpoint, evidenzia contesti assenti o cambiati come FAIL. Uguale fingerprint non equivale ad affermare completo il CAR: risultato INCOMPLETE, fino ad audit di tutti i campi e assenza di gare duplicate dopo un FORWARD TIME. Test Windows e verifica file CAR NON PROVATI.
 

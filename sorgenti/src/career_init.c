@@ -904,6 +904,16 @@ extern int Expanded_OGWorld_BindClub(uint16_t,uint8_t,uint16_t);
 extern int Expanded_OGWorld_ClubBound(void);
 static int s_expOGWorldStarted;
 static uint16_t s_expOGWorldYear;
+/* Restore the validated native season WITHOUT replaying earlier fixtures. */
+uint16_t Expanded_OGWorld_SaveYear(void){return s_expOGWorldYear;}
+int Expanded_OGWorld_SaveStarted(void){return s_expOGWorldStarted!=0;}
+void Expanded_OGWorld_AdoptRestoredYear(uint16_t year){
+    s_expOGWorldYear=year;s_expOGWorldStarted=1;
+    DIY_OGStandings_SetSeason(year);
+    fprintf(stderr,"[og-world-save] ADOPT_YEAR world=%s year=%u no-replay=1\n",
+            World_Tag(),(unsigned)year);
+}
+
 
 /* These are native cup DEFINITIONS, not resident cups. Current s_expOG
  * instances cover leagues only. Old end-of-season callbacks are counted

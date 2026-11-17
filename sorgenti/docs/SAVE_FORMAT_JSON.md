@@ -1,5 +1,12 @@
 # SWOS Save Format — JSON Migration Roadmap
 
+## 0.13.70_8 — Sezione `og_resident` nei salvataggi carriera
+- Estensione **solo SDL Windows x64** a JSON schema 5: `og_resident` versione 1, `world`, `year`, `league_slots`, `cup_slots`, `uefa_year`, dimensioni ABI, flag manager, contatori coppe, array `leagues`, `uefa`, `cups`. Ogni record conserva indice, paese, slot, stagione, compId, numero squadre e snapshot `core_hex`/`teams_hex` con checksum FNV64. I campi puntatore `DIYCompetitionEx.base.namePtr` e `DIYTournamentState.header.namePtr` sono azzerati durante l'export e ricalcolati dopo l'import.
+- **Eccezione puntuale all'encoder semantico**: i complessi stati OG residenti adottano la codifica byte esadecimale, non il precedente blob opaco dell'intera carriera. Formato dipendente dal layout compilato e protetto da check `sizeof`; non e' ancora una serializzazione portable tra architetture/toolchain differenti. Il resto della carriera resta semanticamente codificato.
+- Il reader controlla integralmente il segmento prima di caricare la carriera, rifiuta il legacy privo dello snapshot e ripristina senza rigenerazione. AUTO9697 e AUTO2627 sono sostituiti in modo atomico; non toccare vecchi CAR e AUTOSAVE.CAR.
+- Verifiche Windows e integrita' cross-process ancora da eseguire.
+
+
 > **Status (2026-09-30): complete — kept as the record of how.** Every save kind
 > is structured JSON (`src/save_format_json.c`, `SAVE_JSON_SCHEMA_VERSION` 3, a
 > mismatch is refused). `.CAR`/`.SEA`/`.PRE`/`.DIY` are JSON-only (legacy raw

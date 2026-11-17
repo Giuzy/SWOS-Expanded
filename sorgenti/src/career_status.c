@@ -58,6 +58,10 @@ extern CompetitionCup _uefaCup;
 #include "world_cupd.h"
 #include "expanded_og_cup_validation.h"
 #include "expanded_debug.h"
+#include "mjson.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 #endif
 
 /* ---- Assembly externs (functions still in asm) ---- */
@@ -4235,6 +4239,286 @@ void Expanded_OGWorld_LogNoData(const char *stage,uint16_t year)
         "scope=DEFINITIONS_VS_OG_RESIDENCY_ONLY\n",
         stage,World_Tag(),(unsigned)year,covered,missing,review);
 }
+
+
+/* Resident OG contexts in a CAR: pointer-neutral, checksummed, versioned.
+ * This saves the ORIGINAL competition/teams/RNG state without replaying a
+ * fixture. The ABI sizes are recorded: refuse incompatible binaries. */
+#ifdef SWOS_SDL_BUILD
+typedef int (*OGEmit)(const char *,int,void *);
+static uint64_t og_saved_hash(uint64_t h,const uint8_t *p,size_t n) {
+    for(size_t i=0;i<n;i++){h^=p[i];h*=UINT64_C(1099511628211);}return h;
+}
+static int og_saved_nibble(char c) {
+    if(c>='0'&&c<='9')return c-'0';
+    if(c>='a'&&c<='f')return c-'a'+10;
+    return -1;
+}
+static int og_saved_hex(OGEmit emit,void *ud,const uint8_t *p,size_t n,
+                         size_t ptr1,size_t ptr2,uint64_t *hash) {
+    static const char hex[]="0123456789abcdef";
+    char buf[1024];size_t k=0;
+    for(size_t i=0;i<n;i++){
+        uint8_t b=p[i];
+        if((i>=ptr1 && i-ptr1<sizeof(void *)) ||
+           (i>=ptr2 && i-ptr2<sizeof(void *)))b=0;
+        *hash^=b;*hash*=UINT64_C(1099511628211);
+        buf[k++]=hex[b>>4];buf[k++]=hex[b&15];
+        if(k==sizeof(buf)){if(emit(buf,(int)k,ud)!=(int)k)return 0;k=0;}
+    }
+    return !k || emit(buf,(int)k,ud)==(int)k;
+}
+static int og_saved_emit_context(OGEmit emit,void *ud,const void *ptr,
+                                  int cup,unsigned idx) {
+    const ExpandedOGLeague *l=(const ExpandedOGLeague *)ptr;
+    const ExpandedOGCup *c=(const ExpandedOGCup *)ptr;
+    const unsigned n=cup?c->teamCount:l->teamCount;
+    const unsigned country=cup?c->country:l->country;
+    const unsigned slot=cup?c->slot:l->division;
+    const unsigned year=cup?c->year:l->year;
+    const unsigned cid=cup?c->compId:(unsigned)l->comp.base.field_2E;
+    const size_t core=cup?offsetof(ExpandedOGCup,teams):offsetof(ExpandedOGLeague,teams);
+    const uint8_t *team=(const uint8_t *)(cup?(const void *)c->teams:(const void *)l->teams);
+    const size_t nteam=(size_t)n*sizeof(TeamFileEx);
+    const size_t p1=(cup?offsetof(ExpandedOGCup,comp):offsetof(ExpandedOGLeague,comp))+
+                     offsetof(DIYCompetitionEx,base.namePtr);
+    const size_t p2=(cup?offsetof(ExpandedOGCup,tournament):offsetof(ExpandedOGLeague,tournament))+
+                     offsetof(DIYTournamentState,header.namePtr);
+    if(n>(cup?EXP_OG_MAX_CUP_TEAMS:EXP_OG_MAX_TEAMS))return 0;
+    uint64_t hash=UINT64_C(14695981039346656037);
+    mjson_printf(emit,ud,"{%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:",
+                 "index",idx,"country",country,"slot",slot,"year",year,
+                 "comp_id",cid,"team_count",n,"core_size",(unsigned)core,
+                 "core_hex");
+    if(emit("\"",1,ud)!=1 || !og_saved_hex(emit,ud,(const uint8_t *)ptr,core,p1,p2,&hash) ||
+       emit("\"",1,ud)!=1)return 0;
+    mjson_printf(emit,ud,",%Q:","teams_hex");
+    if(emit("\"",1,ud)!=1 ||
+       !og_saved_hex(emit,ud,team,nteam,(size_t)-1,(size_t)-1,&hash) ||
+       emit("\"",1,ud)!=1)return 0;
+    char checksum[17];static const char digits[]="0123456789abcdef";
+    for(int i=15;i>=0;i--){checksum[i]=digits[hash&15];hash>>=4;}
+    checksum[16]=0;
+    mjson_printf(emit,ud,",%Q:%Q}","checksum",checksum);
+    return 1;
+}
+extern uint16_t Expanded_OGWorld_SaveYear(void);
+extern int Expanded_OGWorld_SaveStarted(void);
+int Expanded_OGWorld_WriteSaveJson(OGEmit emit,void *ud) {
+    if(!emit || !Expanded_OGWorld_SaveStarted() || !s_expOGCount ||
+       s_expOGCount>EXP_OG_MAX_LEAGUES || s_expOGCupCount>EXP_OG_MAX_CUPS)return 0;
+    mjson_printf(emit,ud,",\n  %Q:{%Q:%u,%Q:%Q,%Q:%u,%Q:%u,%Q:%u,%Q:%u,"
+                         "%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:%u",
+        "og_resident","format",1u,"world",World_Tag(),
+        "year",(unsigned)Expanded_OGWorld_SaveYear(),
+        "league_slots",(unsigned)s_expOGCount,
+        "cup_slots",(unsigned)s_expOGCupCount,
+        "uefa_year",(unsigned)s_expOGUefaCalendarYear,
+        "league_size",(unsigned)sizeof(ExpandedOGLeague),
+        "cup_size",(unsigned)sizeof(ExpandedOGCup),
+        "team_size",(unsigned)sizeof(TeamFileEx),
+        "club_bound",(unsigned)(s_expOGBound!=0),
+        "cup_unsupported",(unsigned)s_expOGCupUnsupported,
+        "cup_faults",(unsigned)s_expOGCupFaults);
+    mjson_printf(emit,ud,",%Q:[","leagues");
+    for(uint32_t i=0;i<s_expOGCount;i++){
+        if(i)mjson_printf(emit,ud,",");
+        if(!og_saved_emit_context(emit,ud,&s_expOG[i],0,i))return 0;
+    }
+    mjson_printf(emit,ud,"],%Q:[","uefa");
+    for(unsigned i=0;i<3u;i++){
+        if(i)mjson_printf(emit,ud,",");
+        if(!og_saved_emit_context(emit,ud,&s_expOGUefa[i],0,i))return 0;
+    }
+    mjson_printf(emit,ud,"],%Q:[","cups");
+    for(uint32_t i=0;i<s_expOGCupCount;i++){
+        if(i)mjson_printf(emit,ud,",");
+        if(!og_saved_emit_context(emit,ud,&s_expOGCups[i],1,i))return 0;
+    }
+    mjson_printf(emit,ud,"]}");
+    return 1;
+}
+static int og_saved_next(const char *p,int n,int *pos,const char **out,int *len) {
+    int i=*pos;
+    while(i<n && (p[i]=='[' || p[i]==',' || p[i]==' ' ||
+                  p[i]=='\r' || p[i]=='\n' || p[i]=='\t'))i++;
+    if(i>=n || p[i]==']')return 0;
+    if(p[i]!='{')return -1;
+    int start=i,depth=0,quoted=0,esc=0;
+    for(;i<n;i++){
+        char ch=p[i];
+        if(quoted) {
+            if(esc)esc=0;
+            else if(ch=='\\')esc=1;
+            else if(ch=='"')quoted=0;
+        } else if(ch=='"')quoted=1;
+        else if(ch=='{')depth++;
+        else if(ch=='}' && --depth==0){
+            *out=p+start;*len=i+1-start;*pos=i+1;return 1;
+        }
+    }
+    return -1;
+}
+static int og_saved_num(const char *s,int n,const char *key,long *v) {
+    return mjson_get_long(s,n,key,v)>0;
+}
+static int og_saved_read_hex(const char *s,int len,const char *key,uint8_t *dst,
+                             size_t bytes,uint64_t *hash) {
+    const char *v=NULL;int n=0;
+    if(mjson_find(s,len,key,&v,&n)!=MJSON_TOK_STRING ||
+       n<2 || v[0]!='"' || v[n-1]!='"' || (size_t)(n-2)!=bytes*2)return 0;
+    for(size_t i=0;i<bytes;i++){
+        int hi=og_saved_nibble(v[1+2*i]),lo=og_saved_nibble(v[2+2*i]);
+        if(hi<0||lo<0)return 0;
+        dst[i]=(uint8_t)((hi<<4)|lo);
+    }
+    *hash=og_saved_hash(*hash,dst,bytes);
+    return 1;
+}
+static int og_saved_read_context(const char *obj,int len,void *dest,int cup,unsigned idx) {
+    ExpandedOGLeague *l=(ExpandedOGLeague *)dest;
+    ExpandedOGCup *c=(ExpandedOGCup *)dest;
+    const size_t size=cup?offsetof(ExpandedOGCup,teams):offsetof(ExpandedOGLeague,teams);
+    const unsigned max=cup?EXP_OG_MAX_CUP_TEAMS:EXP_OG_MAX_TEAMS;
+    long index=0,country=0,slot=0,year=0,cid=0,teams=0,sz=0;
+    if(!og_saved_num(obj,len,"$.index",&index) || index!=(long)idx ||
+       !og_saved_num(obj,len,"$.country",&country) ||
+       !og_saved_num(obj,len,"$.slot",&slot) ||
+       !og_saved_num(obj,len,"$.year",&year) ||
+       !og_saved_num(obj,len,"$.comp_id",&cid) ||
+       !og_saved_num(obj,len,"$.team_count",&teams) ||
+       !og_saved_num(obj,len,"$.core_size",&sz) || sz!=(long)size ||
+       teams<0 || teams>(long)max || year<0 || year>2198)
+        return 0;
+    uint64_t hash=UINT64_C(14695981039346656037);
+    uint8_t *team=(uint8_t *)(cup?(void *)c->teams:(void *)l->teams);
+    if(!og_saved_read_hex(obj,len,"$.core_hex",(uint8_t *)dest,size,&hash) ||
+       !og_saved_read_hex(obj,len,"$.teams_hex",team,
+                          (size_t)teams*sizeof(TeamFileEx),&hash))return 0;
+    const char *v=NULL;int n=0;
+    if(mjson_find(obj,len,"$.checksum",&v,&n)!=MJSON_TOK_STRING ||
+       n!=18 || v[0]!='"' || v[17]!='"')return 0;
+    uint64_t expected=0;
+    for(int i=1;i<17;i++){int d=og_saved_nibble(v[i]);if(d<0)return 0;expected=(expected<<4)|(unsigned)d;}
+    if(expected!=hash ||
+       (cup?c->country:l->country)!=(unsigned)country ||
+       (cup?c->slot:l->division)!=(unsigned)slot ||
+       (cup?c->year:l->year)!=(unsigned)year ||
+       (cup?c->compId:(unsigned)l->comp.base.field_2E)!=(unsigned)cid ||
+       (cup?c->teamCount:l->teamCount)!=(unsigned)teams ||
+       (cup?c->used:l->used)>1 ||
+       ((cup?c->used:l->used)!=0 && year<World_FirstYear()))return 0;
+    DIYCompetitionEx *comp=cup?&c->comp:&l->comp;
+    DIYTournamentState *tourn=cup?&c->tournament:&l->tournament;
+    if(comp->base.namePtr || tourn->header.namePtr)return 0;
+    comp->base.namePtr=(uint8_t *)comp->base.competitionName;
+    tourn->header.namePtr=(uint8_t *)tourn->header.competitionName;
+    return 1;
+}
+extern void Expanded_OGWorld_AdoptRestoredYear(uint16_t year);
+int Expanded_OGWorld_ReadSaveJson(const char *json,int len,int apply) {
+    const char *root=NULL;int nr=0;
+    if(mjson_find(json,len,"$.og_resident",&root,&nr)!=MJSON_TOK_OBJECT)return 0;
+    long ver=0,year=0,lc=0,cc=0,uy=0,sl=0,sc=0,st=0,bound=0,unsupported=0,faults=0;
+    char world[16]={0};
+    if(!og_saved_num(root,nr,"$.format",&ver) || ver!=1 ||
+       mjson_get_string(root,nr,"$.world",world,sizeof world)<=0 ||
+       strcmp(world,World_Tag()) ||
+       !og_saved_num(root,nr,"$.year",&year) ||
+       !og_saved_num(root,nr,"$.league_slots",&lc) ||
+       !og_saved_num(root,nr,"$.cup_slots",&cc) ||
+       !og_saved_num(root,nr,"$.uefa_year",&uy) ||
+       !og_saved_num(root,nr,"$.league_size",&sl) ||
+       !og_saved_num(root,nr,"$.cup_size",&sc) ||
+       !og_saved_num(root,nr,"$.team_size",&st) ||
+       !og_saved_num(root,nr,"$.club_bound",&bound) ||
+       !og_saved_num(root,nr,"$.cup_unsupported",&unsupported) ||
+       !og_saved_num(root,nr,"$.cup_faults",&faults) ||
+       sl!=(long)sizeof(ExpandedOGLeague) ||
+       sc!=(long)sizeof(ExpandedOGCup) ||
+       st!=(long)sizeof(TeamFileEx) ||
+       lc<1 || lc>EXP_OG_MAX_LEAGUES || cc<0 || cc>EXP_OG_MAX_CUPS ||
+       year<World_FirstYear() || year>2198 || uy<0 || uy>2198 ||
+       bound<0 || bound>1 || unsupported<0 || faults<0)return 0;
+    ExpandedOGLeague *l=(ExpandedOGLeague *)calloc((size_t)lc,sizeof(*l));
+    ExpandedOGLeague *u=(ExpandedOGLeague *)calloc(3u,sizeof(*u));
+    ExpandedOGCup *c=(ExpandedOGCup *)calloc((size_t)(cc?cc:1),sizeof(*c));
+    if(!l||!u||!c){free(l);free(u);free(c);return 0;}
+    int valid=1;unsigned live=0;
+    const char *const paths[]={"$.leagues","$.uefa","$.cups"};
+    for(int k=0;k<3 && valid;k++){
+        const char *arr=NULL;int al=0,pos=0;
+        const long count=k==0?lc:k==1?3:cc;
+        if(mjson_find(root,nr,paths[k],&arr,&al)!=MJSON_TOK_ARRAY){valid=0;break;}
+        for(long i=0;i<count;i++){
+            const char *obj=NULL;int ol=0;
+            if(og_saved_next(arr,al,&pos,&obj,&ol)!=1 ||
+               !og_saved_read_context(obj,ol,k==0?(void *)&l[i]:
+                   k==1?(void *)&u[i]:(void *)&c[i],k==2,(unsigned)i)) {
+                valid=0;break;
+            }
+        }
+        if(valid) { const char *extra=NULL; int extraLen=0;
+            if(og_saved_next(arr,al,&pos,&extra,&extraLen)!=0)valid=0; }
+    }
+    if(valid)for(long i=0;i<lc;i++){
+        if(l[i].used){
+            if(l[i].teamCount<2 || l[i].year>(unsigned)year)valid=0;
+            live++;
+        }
+        for(long j=0;j<i;j++)
+            if(l[i].used && l[j].used &&
+               l[i].country==l[j].country && l[i].division==l[j].division &&
+               l[i].year==l[j].year)valid=0;
+    }
+    /* Unique OG competition keys: never import two resident brackets for
+     * the same country, table slot and season. Different countries may
+     * legitimately reuse a native compId. */
+    if(valid)for(long i=0;i<cc;i++){
+        if(c[i].used && c[i].teamCount<2)valid=0;
+        for(long j=0;j<i;j++)
+            if(c[i].used && c[j].used &&
+               c[i].country==c[j].country && c[i].slot==c[j].slot &&
+               c[i].year==c[j].year)valid=0;
+    }
+    if(valid)for(unsigned i=0;i<3u;i++)
+        if(u[i].used && (u[i].division!=i || u[i].teamCount<2))
+            valid=0;
+    if(!live)valid=0;
+    if(valid && apply){
+        memset(s_expOG,0,sizeof s_expOG);
+        memset(s_expOGUefa,0,sizeof s_expOGUefa);
+        memset(s_expOGCups,0,sizeof s_expOGCups);
+        memcpy(s_expOG,l,(size_t)lc*sizeof(*l));
+        memcpy(s_expOGUefa,u,3u*sizeof(*u));
+        if(cc)memcpy(s_expOGCups,c,(size_t)cc*sizeof(*c));
+        for(long i=0;i<lc;i++){
+            s_expOG[i].comp.base.namePtr=(uint8_t *)s_expOG[i].comp.base.competitionName;
+            s_expOG[i].tournament.header.namePtr=(uint8_t *)s_expOG[i].tournament.header.competitionName;
+        }
+        for(unsigned i=0;i<3;i++){
+            s_expOGUefa[i].comp.base.namePtr=(uint8_t *)s_expOGUefa[i].comp.base.competitionName;
+            s_expOGUefa[i].tournament.header.namePtr=(uint8_t *)s_expOGUefa[i].tournament.header.competitionName;
+        }
+        for(long i=0;i<cc;i++){
+            s_expOGCups[i].comp.base.namePtr=(uint8_t *)s_expOGCups[i].comp.base.competitionName;
+            s_expOGCups[i].tournament.header.namePtr=(uint8_t *)s_expOGCups[i].tournament.header.competitionName;
+        }
+        s_expOGCount=(uint32_t)lc;s_expOGCupCount=(uint32_t)cc;
+        s_expOGUefaCalendarYear=(uint16_t)uy;
+        s_expOGCurrent=NULL;s_expOGCupCurrent=NULL;
+        s_expOGPhase=-1;s_expOGCupPhase=-1;s_expOGViewing=0;
+        s_expOGCupTickFault=0;s_expOGFault=0;s_expOGBound=(int)bound;
+        s_expOGCupUnsupported=(uint32_t)unsupported;
+        s_expOGCupFaults=(uint32_t)faults;
+        Expanded_OGWorld_AdoptRestoredYear((uint16_t)year);
+        fprintf(stderr,"[og-world-save] RESTORED world=%s year=%ld leagues=%ld "
+                       "uefa=3 cups=%ld checksum=VALID\n",World_Tag(),year,lc,cc);
+    }
+    free(l);free(u);free(c);
+    return valid;
+}
+#endif /* SWOS_SDL_BUILD */
 
 /* Cross-process save/restore probe. This is deliberately a FIELD fingerprint,
  * not a proof that the JSON contains the complete world. Hash only pointer-free

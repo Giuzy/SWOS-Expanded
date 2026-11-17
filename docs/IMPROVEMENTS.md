@@ -1,5 +1,10 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.78 — debug +1 mese CAREER diretto su motore OG
+- Eliminato il vecchio uso di `Expanded_MidseasonJoin_Tick` in modalità `s_debug_career_month`: il pulsante non preme piu' automaticamente VIEW RESULT/NEXT MATCH e non modifica i controlli squadra per nascondere le partite. L'avanzamento di tutte le competizioni residenti e' affidato a `Expanded_OGWorld_AdvanceToDate`, una volta, seguito da rebind della lega locale OG e riposizionamento read-only del cursore OG. Il mese e' gregoriano, 30 giugno e' il limite; la transizione al nuovo anno richiede la normale scelta FINISH SEASON.
+- Guard per non sovrascrivere risultati manager divergenti dal residente, verifica chiavi natie/stride, menu refresh e autosave normale. Il vecchio catch-up *dopo ingaggio* resta identico. Nuovo test C delle date/limite; niente nuove dipendenze, asset o formato CAR. Economie, score personali del vecchio calendario e coppe del manager **non sono ancora riconciliate**: solo debug del mondo OG, NON un simulatore carriera completo. Build Windows/test integrato NON PROVATI.
+
+
 ## 0.13.77 — ultimo mondo ricordato e selector 96/26 sul TITLE
 - `WorldSwitch_SelectBeforeCareer` aggiorna immediatamente `SWOS.ini [general] world` con l'infrastruttura settings gia' presente e controlla la rilettura: scelta ripristinata al prossimo avvio senza schermate o altri file. Lo stesso comportamento vale al tasto debug di NEW CAREER e sul nuovo del TITLE; no modifiche ai CAR o schema save.
 - Il TITLE mostra il pannello 96/26 (187x64, x1440 y365) vicino ai debug, con mouse/joypad/tastiera e focus; tutti i PNG titolo rimangono identici. Cambio solo quando `_gameType==0` (nessuna partita/CLASSIC/career caricata), per sicurezza OG. Verifica unit C del layout PASS; boot/scrittura SWOS.ini, grafica SDL e input Windows NON PROVATI.

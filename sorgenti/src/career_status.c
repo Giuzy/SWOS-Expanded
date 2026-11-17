@@ -5865,21 +5865,24 @@ int Expanded_OGWorld_ViewLeagueForCountry(uint8_t country,uint8_t division,
             (unsigned)(before==after),ok);
     return ok && before==after;
 }
-/* NEW: bind existing world league, not a second scorer or a fresh OG
- * league. Translate world team identities into this club's native list.
- * Requires the club-local menu/keycache to have been allocated first. */
-int Expanded_OGWorld_BindClub(uint16_t club,uint8_t division,uint16_t year) {
-    s_expOGBound=0;
+/* Bind a manager to the ONE resident OG league. The debug month jump
+ * must first validate the same ID mapping WITHOUT writing any career slot:
+ * an invalid one must never cause OG to simulate a month that cannot be
+ * rebound to the player's menu. */
+static int expanded_og_club_image(uint16_t club,uint8_t division,
+                                  uint16_t year,DIYCompetitionEx *image,
+                                  ExpandedOGLeague **resident)
+{
     ExpandedOGLeague *ctx=exp_find(World_FileCountry((uint8_t)(club>>8)),
                                    division,year);
-    if(!ctx || !ctx->teamCount ||
+    if(!image || !ctx || !ctx->used ||
+       ctx->teamCount<2u || ctx->teamCount>EXP_OG_MAX_TEAMS ||
        _primaryCompetitionBuf.tourn.header.competitionType!=0)return 0;
-    DIYCompetitionEx image;
-    memcpy(&image,&ctx->comp,sizeof image);
-    const unsigned n=(unsigned)image.base.numTeams;
-    if(n<2u||n>EXP_OG_MAX_TEAMS)return 0;
+    memcpy(image,&ctx->comp,sizeof(*image));
+    const unsigned n=(unsigned)image->base.numTeams;
+    if(n<2u || n>EXP_OG_MAX_TEAMS || n>ctx->teamCount)return 0;
     for(unsigned i=0;i<n;++i) {
-        const int32_t id=image.leagueStandings[i].teamSelOffset;
+        const int32_t id=image->leagueStandings[i].teamSelOffset;
         if(id<0 || (uint32_t)id>=ctx->teamCount)return 0;
         const TeamFile *original=&ctx->teams[id].team;
         const uint16_t word=PACK_BE_U16(original->countryNumber,
@@ -5894,7 +5897,44 @@ int Expanded_OGWorld_BindClub(uint16_t club,uint8_t division,uint16_t year) {
             }
         }
         if(mapped==-2)return 0;
-        image.leagueStandings[i].teamSelOffset=mapped;
+        image->leagueStandings[i].teamSelOffset=mapped;
+    }
+    if(resident)*resident=ctx;
+    return 1;
+}
+int Expanded_OGWorld_DebugCanAdvanceClub(uint16_t club,uint8_t division,
+                                         uint16_t year)
+{
+    /* Never rewrite matches the manager has played locally but which
+     * have not entered the resident OG context. These require a proper
+     * match-by-match synchronization, NOT an automatic VIEW RESULT. */
+    DIYCompetitionEx image;
+    ExpandedOGLeague *resident=NULL;
+    if(!s_expOGBound ||
+       !expanded_og_club_image(club,division,year,&image,&resident))return 0;
+    /* Type-0 club slots are copied from byte ZERO of the buffer
+     * (Career_StoreCompetitionSlotStateToBuffer), NOT stageSnapshot:
+     * the latter is the type-2 tournament-only trailing storage. */
+    const DIYCompetitionEx *local=
+        (const DIYCompetitionEx *)(const void *)&_primaryCompetitionBuf;
+    if(local->matchesPlayedCount!=resident->comp.matchesPlayedCount ||
+       memcmp(local->leagueStandings,image.leagueStandings,
+              sizeof image.leagueStandings)!=0) {
+        fprintf(stderr,"[debug-month-career] BLOCKED unsynced OG club league "
+                "local-matches=%u resident-matches=%u "
+                "standings=DIFFERENT no-overwrite\n",
+                (unsigned)local->matchesPlayedCount,
+                (unsigned)resident->comp.matchesPlayedCount);
+        return 0;
+    }
+    return 1;
+}
+int Expanded_OGWorld_BindClub(uint16_t club,uint8_t division,uint16_t year) {
+    DIYCompetitionEx image;
+    ExpandedOGLeague *ctx=NULL;
+    if(!expanded_og_club_image(club,division,year,&image,&ctx)) {
+        s_expOGBound=0;
+        return 0;
     }
     image.base.namePtr=
         (uint8_t *)_primaryCompetitionBuf.tourn.header.competitionName;

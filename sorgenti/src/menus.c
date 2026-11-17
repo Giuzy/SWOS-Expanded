@@ -3944,9 +3944,7 @@ void PlayMatchMenu(MenuEntry *callerEntry)
     /* Once the OG points, wages, cards and transfers have settled the
      * checkpoint is consistent. Never save in the 50 Hz match loop. */
 #ifdef SWOS_SDL_BUILD
-    { extern int Expanded_CareerDebugMonthActive(void);
-      if(!Expanded_CareerDebugMonthActive())
-          Expanded_AutoCareer_Save("post-match"); }
+    Expanded_AutoCareer_Save("post-match");
 #endif
     /* ContestMenuOnReturn_NoOp() — no-op, skip */
 
@@ -3995,9 +3993,7 @@ void NextMatch(MenuEntry *callerEntry)
     /* Once the OG points, wages, cards and transfers have settled the
      * checkpoint is consistent. Never save in the 50 Hz match loop. */
 #ifdef SWOS_SDL_BUILD
-    { extern int Expanded_CareerDebugMonthActive(void);
-      if(!Expanded_CareerDebugMonthActive())
-          Expanded_AutoCareer_Save("post-match"); }
+    Expanded_AutoCareer_Save("post-match");
 #endif
     /* ContestMenuOnReturn_NoOp() — no-op, skip */
 

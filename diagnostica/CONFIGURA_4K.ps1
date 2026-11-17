@@ -2,7 +2,7 @@ param([switch]$Release)
 $ErrorActionPreference = 'Stop'
 # Portable Expanded: keep the edited INI beside this script and EXE.
 # No writes to Documents, AppData, or unrelated OpenSWOS installations.
-$dir = $PSScriptRoot
+$dir = Split-Path -Parent $PSScriptRoot
 if ([string]::IsNullOrWhiteSpace($dir)) {
   throw 'Impossibile identificare la cartella del gioco'
 }

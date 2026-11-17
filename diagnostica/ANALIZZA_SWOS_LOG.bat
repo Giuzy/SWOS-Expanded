@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableExtensions
-cd /d "%~dp0"
+cd /d "%~dp0.."
 set "MSYSTEM=MINGW64"
 set "CHERE_INVOKING=1"
 set "MSYS_ROOT="
@@ -12,5 +12,5 @@ if not defined MSYS_ROOT (
   echo [DIAGNOSTICA] MSYS2 gia installato non trovato: imposta MSYS2_ROOT.
   exit /b 2
 )
-"%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash sorgenti/tests/run_diagnostic_stress.sh"
+"%MSYS_ROOT%\usr\bin\bash.exe" -lc "bash sorgenti/tests/run_diagnostic_runtime.sh"
 exit /b %ERRORLEVEL%

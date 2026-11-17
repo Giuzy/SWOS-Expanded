@@ -88,6 +88,24 @@ extern uint16_t _team1SelectedPlayerIndex;
 extern uint16_t _team2SelectedPlayerIndex;
 extern uint32_t _allowShorterMenuItemsWithFrames;
 
+#ifdef SWOS_SDL_BUILD
+extern uint8_t _currentMenu[];
+extern uintptr_t _currentMenuPtr;
+extern uint8_t _playMatchMenu[];
+extern uint16_t TrainingMatch_BSourceCareerSlot(uint16_t bFileIdx);
+static uint16_t s_trainingCrossSide; /* 0 none; 1 A; 2 B */
+static uint16_t s_trainingCrossSlot;
+int Expanded_TrainingCrossSwapAvailable(void)
+{
+    return _trainingGame && _gameType==GAME_TYPE_CAREER &&
+           _squadChangesAllowed && !_viewingOpponentTeam &&
+           !_showingCpuTeams &&
+           _currentMenuPtr==(uintptr_t)_playMatchMenu &&
+           (_playMatchTeam1Ptr==&_careerTeam ||
+            _playMatchTeam1Ptr==&_currentTeam);
+}
+#endif
+
 /* String constants from SWOS2.s */
 extern uint8_t _aViewResult[];
 extern uint8_t _aPlayCoachMatch[];
@@ -929,6 +947,9 @@ static void Expanded_RepairCareerMatchdaySquad(void)
 /* ================================================================ */
 __attribute__((used, externally_visible))
 void PlayMatchMenuInit(void) {
+#ifdef SWOS_SDL_BUILD
+    s_trainingCrossSide=0; /* no cross-swap pending in a fresh menu */
+#endif
     if (!_allowShorterMenuItemsWithFrames)
         _fireResetFlag = 1;
 
@@ -1249,6 +1270,76 @@ common:
     UpdateTeamCheckmark();
     DrawMenu();
 }
+
+#ifdef SWOS_SDL_BUILD
+/* TRAINING Team B is regenerated from A's OG career slots >=13. Cross-team
+ * X therefore exchanges canonical career lineup slots, never PlayerFile
+ * copies (which would duplicate identities and vanish on B rebuild). */
+void Expanded_TrainingCrossSwapX(void)
+{
+    if(!Expanded_TrainingCrossSwapAvailable()) {
+        s_trainingCrossSide=0;
+        return;
+    }
+    const Menu *menu=(const Menu *)_currentMenu;
+    const MenuEntry *entry=menu->selectedEntry;
+    if(!entry || entry->isInvisible || entry->isDisabled ||
+       entry->ordinal<13u || entry->ordinal>29u) {
+        fprintf(stderr,"[training-cross] IGNORE reason=NOT_PLAYER_ROW\n");
+        return;
+    }
+    unsigned row=(unsigned)entry->ordinal-13u;
+    if(row==16u) row=11u+(unsigned)_maxSubstitutesEntries;
+    const unsigned side=_playMatchTeam1Ptr==&_careerTeam ? 1u : 2u;
+    const unsigned visible=side==1u ? _careerNumPlayers : _numPlayers;
+    if(row>=visible) {
+        fprintf(stderr,"[training-cross] IGNORE reason=ROW_OUT_OF_RANGE row=%u visible=%u\n",
+                row,visible);
+        return;
+    }
+    uint16_t slot=0xffffu,fileIdx=0xffffu;
+    GetPlayerInfoBreakPosition(_playMatchTeam1Ptr,(uint16_t)row,&slot,&fileIdx);
+    const uint16_t careerSlot=side==1u ? slot :
+        TrainingMatch_BSourceCareerSlot(fileIdx);
+    if(careerSlot>=_careerNumPlayers || careerSlot>=32u) {
+        fprintf(stderr,"[training-cross] IGNORE reason=UNKNOWN_CAREER_SLOT "
+                       "side=%c row=%u file=%u slot=%u\n",
+                side==1u?'A':'B',row,(unsigned)fileIdx,(unsigned)careerSlot);
+        return;
+    }
+    if(!s_trainingCrossSide || s_trainingCrossSide==side) {
+        s_trainingCrossSide=(uint16_t)side;
+        s_trainingCrossSlot=careerSlot;
+        fprintf(stderr,"[training-cross] SOURCE side=%c slot=%u "
+                       "next=%c status=WAITING_TARGET\n",
+                side==1u?'A':'B',(unsigned)careerSlot,side==1u?'B':'A');
+        SetCurrentEntry(13);
+        ViewOpponentsSelect();
+        return;
+    }
+    const uint16_t aSlot=side==1u ? careerSlot : s_trainingCrossSlot;
+    const uint16_t bSlot=side==2u ? careerSlot : s_trainingCrossSlot;
+    s_trainingCrossSide=0;
+    if(aSlot==bSlot) {
+        fprintf(stderr,"[training-cross] CANCEL reason=SAME_PLAYER slot=%u\n",
+                (unsigned)aSlot);
+        return;
+    }
+    PlayMatchMenuSwapPlayers(&_careerTeam,(int16_t)aSlot,(int16_t)bSlot);
+    _careerTeam.team.playerValuesDirty=TEAM_VALUES_DIRTY;
+    SetBenchPlayersNumbers(&_careerTeam);
+    TrainingMatch_BuildCurrentTeamFromCareerTeam();
+    SetBenchPlayersNumbers(&_currentTeam);
+    _selectedPlayerPosition=-1;
+    _pmSelectedPlayerEntry=0;
+    PlayMatchMenuReinit();
+    SetCurrentEntry(13);
+    DrawMenu();
+    fprintf(stderr,"[training-cross] SWAPPED A-slot=%u B-source-slot=%u "
+                   "roster=OG teamB=REBUILT status=OK\n",
+            (unsigned)aSlot,(unsigned)bSlot);
+}
+#endif
 
 /* ================================================================ */
 __attribute__((used, externally_visible))

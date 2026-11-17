@@ -1,5 +1,12 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 18/11/2026 — 0.13.84: scambio X bidirezionale TRAINING squadra A/B (Windows NON PROVATO)
+- Nella schermata formazione TRAINING, X sul giocatore A o B memorizza la sorgente e apre l'altro lato; secondo X sul giocatore dell'altro lato effettua lo scambio. A/SELECT continua a scambiare giocatori solo all'interno della squadra corrente; X Info nel normale VIEW SQUAD resta invariato.
+- Scoperta: TRAINING B (`_currentTeam`) e' una COPIA provvisoria da slot >=13 della rosa OG A (`_careerTeam`), non una squadra distinta. `training_match.c` associa ogni B file index allo slot OG di provenienza; `play_match_menu.c` scambia soltanto gli indici reali della formazione tramite `PlayMatchMenuSwapPlayers(&_careerTeam,...)` e ricostruisce B. Niente duplicazioni di PlayerFile e nessun nuovo algoritmo di partite.
+- X tastiera e Switch Pro viene intercettato solo nel menu prepartita TRAINING; evento accodato in `input_sdl.c`, eseguito sul thread del menu in `menu_system.c`. Click su righe non giocatore, slot non valido o stesso giocatore non scambia nessuno. I comandi A e popup degli altri menu non cambiano.
+- Verifiche statiche sui percorsi A->B e B->A e modello a 27 giocatori senza perdita/duplicazione. Build completa C, gameplay e pad Windows, persistenza save/CONTINUE e rose EXTRA restano DA PROVARE. Non dichiarare PASS di gameplay da tali verifiche.
+
+
 ## 17/11/2026 — 0.13.83: fix TITLE 96/26 dopo BACK da nuova carriera (Windows PENDENTE)
 - Diagnostica 0.13.81: il TITLE riceve il click ma mostra `REFUSED active-game-type=4 checkpoint=NOT_VERIFIED` dopo autosave 2627 fallito; il JSON EXTRA che lo causava e' stato corretto nella 0.13.82, senza prova Windows successiva.
 - Secondo bug verificato nel codice: uscire da START UNEMPLOYED o da CHOOSE TEAM con BACK terminava il calendario civile, ma lasciava `_gameType=4`. Al successivo `CommonMenuExit`, il sistema provava a salvare una carriera annullata senza orologio, bloccando il selettore.

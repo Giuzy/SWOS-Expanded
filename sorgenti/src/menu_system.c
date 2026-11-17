@@ -2090,6 +2090,16 @@ void MenuProc(void)
             return;
         }
     }
+    /* SDL latches X; the only OG roster mutation runs on the menu thread.
+     * Native A/FIRE within-team selections are unaffected. */
+    {
+        extern int InputSDL_ConsumeTrainingCrossSwapX(void);
+        if(InputSDL_ConsumeTrainingCrossSwapX()) {
+            extern void Expanded_TrainingCrossSwapX(void);
+            Expanded_TrainingCrossSwapX();
+            return;
+        }
+    }
 #endif
     menu = (Menu *)_currentMenu;
     selectedEntry = menu->selectedEntry;

@@ -36,6 +36,17 @@ extern uint16_t _selTeamNumber;
 extern uint16_t _careerNumPlayers;
 extern uint16_t _selTeamSelectedPlayerPosition;
 extern uint16_t _panicReasonCode;
+extern uint16_t _numPlayers;
+
+#ifdef SWOS_SDL_BUILD
+/* B contains temporary copies, not new player identities. */
+static uint8_t s_trainingBSourceSlot[32];
+uint16_t TrainingMatch_BSourceCareerSlot(uint16_t bFileIdx)
+{
+    if (bFileIdx>=32u || bFileIdx>=_numPlayers) return 0xffffu;
+    return s_trainingBSourceSlot[bFileIdx];
+}
+#endif
 
 /* ---- C-callable ASM bridges ---- */
 extern uint8_t *GetPlayer(uint16_t teamNumber, uint16_t playerIndex);
@@ -546,6 +557,9 @@ void TrainingMatch_BuildCurrentTeamFromCareerTeam(void)
     uint8_t *a4 = _playerPositions;
     _numPlayers = 0;
     uint8_t *destPlayer = (uint8_t *)&teamEx->players[0];
+#ifdef SWOS_SDL_BUILD
+    for(unsigned i=0;i<32u;++i) s_trainingBSourceSlot[i]=0xffu;
+#endif
     uint16_t d6 = 0; /* output player index */
     int16_t d7 = (int16_t)_careerNumPlayers - 1;
 
@@ -561,6 +575,9 @@ void TrainingMatch_BuildCurrentTeamFromCareerTeam(void)
             for (int16_t i = PLAYERFILE_SIZE - 1; i >= 0; i--)
                 *dstV++ = *srcV++;
             destPlayer = (uint8_t *)dstV;
+#ifdef SWOS_SDL_BUILD
+            if(d6<32u) s_trainingBSourceSlot[d6]=(uint8_t)d7;
+#endif
             *a4++ = (uint8_t)d6;
             _numPlayers++;
             d6++;

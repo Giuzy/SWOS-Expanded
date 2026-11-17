@@ -1,5 +1,12 @@
 # SWOS Expanded — development procedures and rationale
 
+## 0.13.84 — prove Windows: X scambio TRAINING A/B (PENDENTI)
+- Backup esterno non distruttivo dei CAR, sincronizzare GitKraken dev/0.10, compilare 0.13.84 su Windows.
+- Carriera Gela 26 con 27 giocatori, SQUAD -> TRAINING prima della partita. A -> X sul titolare -> passaggio automatico a B -> X su giocatore B: log `[training-cross] SOURCE side=A`, poi `SWAPPED`. Tornare A e verificare che il B scelto sia al posto dell'A, mentre l'altro risulti nella B, senza doppioni. Ripetere partendo da B -> X -> A -> X.
+- Provare normale A/SELECT due volte all'interno di A e poi B (funzione preesistente), X su riga non giocatore, X sullo stesso giocatore, tastiera X, Switch Pro X, focus, B/ESC e popup X INFO nel normale VIEW SQUAD.
+- Uscire da TRAINING, verificare la formazione nella carriera, salvare, riavviare, CONTINUE e confrontare giocatori e posizioni. Ripetere almeno in 1996/97, inclusi giocatori indisponibili. Inviare log `[training-cross]` e anomalie: nessun PASS Windows e' attestato da questo commit.
+
+
 ## 0.13.83 — prova Windows: TITLE WORLD 96/26 (PENDENTE)
 - Backup dei tre salvataggi CAR in posizione esterna, sincronizzare GitKraken e compilare 0.13.83.
 - Da 26 -> NEW CAREER -> START -> CHOOSE TEAM -> BACK: tornare al TITLE, cercare `CANCELLED_SETUP_RESET reason=team-selection-back game-type=0` e cambiare 96/26 senza riavvio.

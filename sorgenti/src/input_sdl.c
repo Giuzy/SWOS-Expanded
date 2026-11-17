@@ -64,6 +64,14 @@ extern int Expanded_SquadPopupOpen(void);
 extern void Expanded_SquadPopupToggle(void);
 extern void Expanded_SquadPopupClose(void);
 extern void DrawMenu(void); /* force immediate redraw when squad popup changes */
+extern int Expanded_TrainingCrossSwapAvailable(void);
+static int s_trainingCrossXPending;
+int InputSDL_ConsumeTrainingCrossSwapX(void)
+{
+    const int pending=s_trainingCrossXPending;
+    s_trainingCrossXPending=0;
+    return pending;
+}
 static int s_exit_confirm_open=0, s_exit_confirm_choice=0; /* 0=BACK, 1=EXIT */
 int InputSDL_ExitConfirmOpen(void) { return s_exit_confirm_open; }
 int InputSDL_ExitConfirmChoice(void) { return s_exit_confirm_choice; }
@@ -835,6 +843,11 @@ void InputSDL_HandleEvent(const SDL_Event *e)
         break;
     case SDL_KEYDOWN: {
         if (!e->key.repeat && e->key.keysym.sym==SDLK_x &&
+            !_playGame && Expanded_TrainingCrossSwapAvailable()) {
+            s_trainingCrossXPending=1; /* OG changes only on the menu thread */
+            break;
+        }
+        if (!e->key.repeat && e->key.keysym.sym==SDLK_x &&
             Expanded_UI_IsBusinessScreen()) {
             /* Toggle repaints immediately; do not redraw a second time. */
             Expanded_BusinessPopupToggle();
@@ -1058,6 +1071,11 @@ void InputSDL_HandleEvent(const SDL_Event *e)
             e->cbutton.button==SDL_CONTROLLER_BUTTON_X) {
             /* Edge-triggered X opens/closes STAFF details on this event. */
             Expanded_BusinessPopupToggle();
+            break;
+        }
+        if (e->cbutton.button==SDL_CONTROLLER_BUTTON_X &&
+            !_playGame && Expanded_TrainingCrossSwapAvailable()) {
+            s_trainingCrossXPending=1;
             break;
         }
         if (Expanded_UI_IsSquadScreen() && e->cbutton.button==SDL_CONTROLLER_BUTTON_X) {

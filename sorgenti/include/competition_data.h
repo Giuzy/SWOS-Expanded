@@ -5,6 +5,7 @@
 #define COMPETITION_DATA_H
 
 #include "game_types.h"
+#include "career_contests_cap.h"
 
 /* ======================================================================
  * Major International Cups
@@ -284,7 +285,6 @@ extern CompetitionCup _oceaniaWorldCupQualificationCopy;
 
 /* 34 compiled entries + sentinel + spare slots for runtime-appended
  * (dynamically-loaded) competitions — roadmap step 5/6. */
-#define CAREER_CONTESTS_CAP 48
 extern CompetitionCareer _careerContests[CAREER_CONTESTS_CAP];
 
 /* Append a competition's {template, working-copy, sizeof(template)} triple to

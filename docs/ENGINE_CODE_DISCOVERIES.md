@@ -1,5 +1,10 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.70_20: correzione simbolo CAREER_CONTESTS_CAP (Windows da verificare)
+- Il serializer `save_format_json.c` usava `CAREER_CONTESTS_CAP` senza poter includere `competition_data.h`, per conflitti tra extern OG tipizzati e dichiarazioni byte-array legacy. Il limite compilato di 48 voci e' stato spostato senza cambiarne il valore in `career_contests_cap.h`, incluso da entrambi i file.
+- Nessuna modifica a dimensioni reali della tabella, dati dei CAR, algoritmo di serializzazione, motore partite o calendario. Correzione delle dichiarazioni verificata a livello sorgente; compilazione Windows completa e test gameplay ancora NON PROVATI.
+
+
 0.13.70_19 — Il driver nativo di NEXT MATCH / VIEW RESULT puo' essere riutilizzato per debug del calendario con club; fase mensile da data civile read-only e tick della carriera. Verificare in Windows equivalenza risultati e assenza di doppia simulazione.
 
 

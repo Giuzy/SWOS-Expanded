@@ -22,6 +22,7 @@
 #include "save_pointer_guard.h"
 #include "mjson.h"
 #include "game_types.h"
+#include "career_contests_cap.h" /* shared capacity without OG typed extern conflicts */
 #include "endian_helpers.h"
 #include "world.h"             /* "world" in career and competition saves */
 #ifdef SWOS_SDL_BUILD

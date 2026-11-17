@@ -1,5 +1,10 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.70_21: mismatch varargs in serializzazione OG
+- `og_saved_emit_context`: `%Q` richiede `char*`, `%u` un int. Il vecchio formato conteneva otto coppie `%Q:%u` piu' `%Q:` finale (17 richieste), mentre gli argomenti effettivi erano sette coppie piu' la chiave finale (15). `mjson_vprintf` leggeva fuori dagli argomenti, compatibile con il crash `msvcrt.dll`/0xEC0 registrato a primo autosave.
+- Nuovo formato: sette coppie `%Q:%u` piu' `%Q:` finale, verifica statica 15/15. Non corregge o modifica altri aspetti di persistenza OG non provati.
+
+
 ## 17/11/2026 — 0.13.70_20: correzione simbolo CAREER_CONTESTS_CAP (Windows da verificare)
 - Il serializer `save_format_json.c` usava `CAREER_CONTESTS_CAP` senza poter includere `competition_data.h`, per conflitti tra extern OG tipizzati e dichiarazioni byte-array legacy. Il limite compilato di 48 voci e' stato spostato senza cambiarne il valore in `career_contests_cap.h`, incluso da entrambi i file.
 - Nessuna modifica a dimensioni reali della tabella, dati dei CAR, algoritmo di serializzazione, motore partite o calendario. Correzione delle dichiarazioni verificata a livello sorgente; compilazione Windows completa e test gameplay ancora NON PROVATI.

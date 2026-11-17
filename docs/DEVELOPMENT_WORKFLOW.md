@@ -1,5 +1,10 @@
 # SWOS Expanded — development procedures and rationale
 
+## 17/11/2026 — test START CAREER 0.13.70_21 (Windows)
+- Con build nuova, riprodurre 2627: START UNEMPLOYED, trascorrere 15 settimane, accettare offerta (esempio precedente ENNA). Nel log verificare `BEFORE_OG_RESIDENT` seguito da `SERIALIZED_COMPLETE` e `READY_FOR_ATOMIC_SAVE`, quindi calendario accessibile; controllare file CAR e riavvio CONTINUE. Ripetere con START club immediato e 9697. Non usare salvataggi importanti: controllare data, risultati OG, coppe e assenza duplicati.
+- Compilazione Windows e gameplay di questa build NON PROVATI; se un altro blocco compare allegare ZIP della sessione.
+
+
 0.13.70_19 — Compilare su Windows e testare DEBUG +1 MONTH nella carriera 96 e 26. Confrontare giornate, risultati della propria squadra, F12, date, autosave e CONTINUE, fermando al 30 giugno. In caso di FAILED in SWOS.log usare solo salvataggi di prova. NON PROVATO.
 
 

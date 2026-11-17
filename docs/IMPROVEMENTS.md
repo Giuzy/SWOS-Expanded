@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_21 — fix START CAREER / autosave mondo OG
+- Rimosso specificatore orfano da `mjson_printf` in serializer resident OG (17 contro 15 parametri). Nessun cambiamento ai campi salvati. Windows e gameplay da verificare.
+
+
 0.13.70_19 — Aggiunto DEBUG +1 MONTH alla carriera con club; usa il driver delle callback OG con controllo CPU temporaneo, oltre al precedente bottone UNEMPLOYED. Test Windows NON ESEGUITO.
 
 

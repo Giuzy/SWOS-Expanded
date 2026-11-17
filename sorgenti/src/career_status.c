@@ -4568,7 +4568,10 @@ static int og_saved_emit_context(OGEmit emit,void *ud,const void *ptr,
                      offsetof(DIYTournamentState,header.namePtr);
     if(n>(cup?EXP_OG_MAX_CUP_TEAMS:EXP_OG_MAX_TEAMS))return 0;
     uint64_t hash=UINT64_C(14695981039346656037);
-    mjson_printf(emit,ud,"{%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:",
+    /* Seven numeric properties plus core_hex key: exactly 15 varargs.
+     * The previous 17-specifier / 15-argument mismatch caused a CRT
+     * invalid read (0xEC0) during the first START CAREER autosave. */
+    mjson_printf(emit,ud,"{%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:",
                  "index",idx,"country",country,"slot",slot,"year",year,
                  "comp_id",cid,"team_count",n,"core_size",(unsigned)core,
                  "core_hex");

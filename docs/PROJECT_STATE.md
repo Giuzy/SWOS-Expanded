@@ -1,5 +1,11 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_21: correzione crash primo autosave START CAREER
+- ZIP Windows `DIAGNOSTICA_SESSIONE_1(10).zip` v0.13.70_20: ingaggio ENNA dopo 15 settimane nel mondo 2627, ultimo marker `BEFORE_OG_RESIDENT`, eccezione CRT `0xC0000005` in lettura a 0xEC0.
+- `career_status.c::og_saved_emit_context` chiedeva 17 valori variadici con soli 15 argomenti forniti a `mjson_printf`. Eliminato il solo specificatore `,%Q:%u` eccedente; sette campi numerici e chiave `core_hex` preservati. Nessun dato originale del save, fixture o risultato OG modificato.
+- Contratto di formato controllato staticamente (15 specificatori / 15 argomenti). Compilazione, autosave e ripresa Windows successivi al fix NON PROVATI.
+
+
 ## 17/11/2026 — 0.13.70_20: correzione simbolo CAREER_CONTESTS_CAP (Windows da verificare)
 - Il serializer `save_format_json.c` usava `CAREER_CONTESTS_CAP` senza poter includere `competition_data.h`, per conflitti tra extern OG tipizzati e dichiarazioni byte-array legacy. Il limite compilato di 48 voci e' stato spostato senza cambiarne il valore in `career_contests_cap.h`, incluso da entrambi i file.
 - Nessuna modifica a dimensioni reali della tabella, dati dei CAR, algoritmo di serializzazione, motore partite o calendario. Correzione delle dichiarazioni verificata a livello sorgente; compilazione Windows completa e test gameplay ancora NON PROVATI.

@@ -1,5 +1,11 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.76 — impedire perdita dei dati OG continentali al cambio stagione
+- `Expanded_OGWorld_ResetSeason` non distrugge piu' i contesti continentali gia' giocati (tre UEFA type-2 moderne; Champions e Libertadores classiche; due coppe UEFA type-1 paese 254), conservando annualita', tabelloni, rose, RNG e match. Solo la nuova carriera ha il reset integrale. Coppe nazionali e leghe continuano la normale inizializzazione OG nuova stagione; la lista delle coppe domestiche vecchie e' eliminata per capienza, NON archiviata.
+- `Expanded_OGWorld_AdvanceUefa` non sovrascrive piu' `uefa_year` con una annualita' senza qualificazione: quando la nuova edizione non puo' essere creata, la vecchia resta consultabile come ULTIMA EDIZIONE, con log esplicito, senza falsi nuovi incontri. Il CAR gia' supporta queste strutture, nessun cambiamento schema o conversione di file precedenti.
+- Header/test decisionale `expanded_og_season_retention.h`, GCC C isolato PASS; build Windows, generazione nuove edizioni, multi-stagione, NAV, salvataggio/ripresa **NON PROVATI**. Questo e' un fix di conservazione, NON la completazione del calendario pluriennale.
+
+
 ## 0.13.75 — Libertadores 96/97: avanzamento OG datato a FORWARD TIME
 - Problema: il torneo nativo possiede begin/end fasi 16..40 (MAR-GIU) ma la carriera parte a luglio 1996 (fase 48), causando anticipo degli incontri e nessun avanzamento successivo nel periodo visualizzato. Solo `s_expOGUefa[1]` traduce il cutoff mondiale in fase di torneo per il marzo-giugno successivo, senza toccare data OG, algoritmo, fixture, squadre o RNG.
 - Audit diff: logs `[og-libertadores-96]` di delta match/stadi per fase. Il world `lastPhase` resta assoluto; le altre UEFA e coppe nazionali non cambiano. Test C isolato di date/phase PASS, build e gameplay Windows non eseguiti. La gestione del manager direttamente iscritto e le edizioni dopo la prima non sono completate da questo fix.

@@ -62,6 +62,7 @@ extern CompetitionCup _uefaCup;
 #include "world_cupd.h"
 #include "expanded_og_cup_validation.h"
 #include "expanded_og_copa_phase.h"
+#include "expanded_og_season_retention.h"
 #include "expanded_debug.h"
 #include "expanded_world_time.h"
 #include "expanded_world_live.h"
@@ -3795,14 +3796,49 @@ static void expanded_og_world_reset_internal(int season_transition) {
 #else
     (void)season_transition;
 #endif
+    /* The July transition retires the season's NATIONAL league/cup
+     * schedules. It must not erase the actual continental results while
+     * next-year OG qualifications are still unconnected: those would be
+     * irrecoverable at the next autosave. Keep only the final played
+     * continental edition in the already-serialized OG slots, not a
+     * falsely re-seeded next-year competition. New career/full reset
+     * continues to clear everything. */
+    const uint16_t oldContinentalYear=s_expOGUefaCalendarYear;
+    unsigned retainedUefa=0u,retainedCups=0u;
+    if(season_transition) {
+        for(unsigned k=0;k<3u;++k)
+            if(ExpandedOG_RetainContinentalType2(
+                   season_transition,s_expOGUefa[k].used,
+                   s_expOGUefa[k].year,oldContinentalYear))
+                ++retainedUefa;
+        for(uint32_t i=0;i<s_expOGCupCount;++i) {
+            const ExpandedOGCup *c=&s_expOGCups[i];
+            if(ExpandedOG_RetainContinentalType1(
+                   season_transition,c->used,c->country,c->slot,
+                   c->year,oldContinentalYear)) {
+                if(retainedCups!=i)
+                    memmove(&s_expOGCups[retainedCups],c,sizeof(*c));
+                ++retainedCups;
+            }
+        }
+    }
     memset(s_expOG,0,sizeof s_expOG);s_expOGCount=0;
-    memset(s_expOGUefa,0,sizeof s_expOGUefa);
-    s_expOGUefaCalendarYear=0u;
-    for(unsigned k=0;k<3u;++k)s_expOGUefa[k].lastMatch=0xffu;
+    if(!retainedUefa) {
+        memset(s_expOGUefa,0,sizeof s_expOGUefa);
+        s_expOGUefaCalendarYear=0u;
+        for(unsigned k=0;k<3u;++k)s_expOGUefa[k].lastMatch=0xffu;
+    }
     s_expOGCurrent=NULL;s_expOGPhase=-1;s_expOGBound=0;s_expOGViewing=0;s_expOGFault=0;
-    memset(s_expOGCups,0,sizeof s_expOGCups);
-    s_expOGCupCount=0;s_expOGCupUnsupported=0;s_expOGCupFaults=0;
+    memset(s_expOGCups+retainedCups,0,
+           (EXP_OG_MAX_CUPS-retainedCups)*sizeof s_expOGCups[0]);
+    s_expOGCupCount=retainedCups;s_expOGCupUnsupported=0;s_expOGCupFaults=0;
     s_expOGCupCurrent=NULL;s_expOGCupPhase=-1;s_expOGCupTickFault=0;
+    if(season_transition && (retainedUefa || retainedCups))
+        fprintf(stderr,"[og-season-retain] KEEP_LAST_CONTINENTAL_EDITION "
+                "world=%s original-year=%u uefa-type2=%u classic-type1=%u "
+                "results=READ_ONLY_IN_CAR new-edition=QUALIFICATION_PENDING\n",
+                World_Tag(),(unsigned)oldContinentalYear,
+                retainedUefa,retainedCups);
     /* A different career/world or season must not inherit the old hire
      * comparison. Old log snapshots remain in the diagnostic ZIP. */
     memset(&s_f12BeforeHire,0,sizeof s_f12BeforeHire);
@@ -4510,13 +4546,20 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
      * list. Never carry the previous-year finalist into the next season
      * under a false current-year title. OG end-of-season qualification is
      * still required before a new edition can be instantiated. */
-    if(phase==0u)s_expOGUefaCalendarYear=year;
     if(year!=World_FirstYear()) {
+        /* Do not change the edition year when no valid qualifying field
+         * exists for this season. The original resident final, including
+         * its fixture/result bytes and RNG, remains viewable and serializable
+         * as the LAST edition, not a fictitious new tournament. */
         if(phase==0u)
-            fprintf(stderr,"[og-uefa-resident] NEXT_YEAR_NOT_RESIDENT year=%u previous-seed-year=%u qualification=NOT_CONNECTED\n",
-                    (unsigned)year,(unsigned)World_FirstYear());
+            fprintf(stderr,"[og-uefa-resident] NEW_EDITION_PENDING "
+                    "world=%s requested-year=%u last-real-edition=%u "
+                    "qualification=NOT_CONNECTED result=OLD_OG_DATA_PRESERVED\n",
+                    World_Tag(),(unsigned)year,
+                    (unsigned)s_expOGUefaCalendarYear);
         return 1;
     }
+    if(phase==0u)s_expOGUefaCalendarYear=year;
     const uint8_t (*places)[4]=NULL;int32_t nAssoc=0;
     CompetitionLeaguePhase *cups=modern?World_LeaguePhaseCups(&places,&nAssoc):NULL;
     if(modern && (!cups || !places || nAssoc<=0))return 0;
@@ -5603,6 +5646,15 @@ static int exp_og_view_cup(const uint8_t *record)
       InputSDL_ClearWorldViewExit(); }
     s_expOGViewing=1;
     const uint32_t before=ctx->matchesPlayed;
+    if(ctx->country==254u) {
+        extern uint16_t Expanded_OGWorld_SaveYear(void);
+        if(ctx->year!=Expanded_OGWorld_SaveYear())
+            fprintf(stderr,"[og-cup-view] LAST_COMPLETED_EDITION "
+                "slot=%u edition-year=%u active-world-year=%u "
+                "new-qualification=NOT_CONNECTED (NO NEW RESULTS)\n",
+                (unsigned)ctx->slot,(unsigned)ctx->year,
+                (unsigned)Expanded_OGWorld_SaveYear());
+    }
     fprintf(stderr,"[og-cup-view] READ ONLY country=%u slot=%u year=%u "
                    "phase=%u matches=%lu\n",
             (unsigned)ctx->country,(unsigned)ctx->slot,
@@ -5673,6 +5725,13 @@ static int exp_og_view_uefa(const Competition *wanted)
     _diyFileBufferCopy.header.namePtr=
         (uint8_t *)_diyFileBufferCopy.header.competitionName;
     const unsigned before=(unsigned)ctx->comp.matchesPlayedCount;
+    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    if(ctx->year!=Expanded_OGWorld_SaveYear())
+        fprintf(stderr,"[og-uefa-view] LAST_COMPLETED_EDITION "
+                       "cup=%u edition-year=%u active-world-year=%u "
+                       "new-qualification=NOT_CONNECTED (NO NEW RESULTS)\n",
+                (unsigned)cid,(unsigned)ctx->year,
+                (unsigned)Expanded_OGWorld_SaveYear());
     fprintf(stderr,"[og-uefa-view] READ ONLY cup=%u year=%u phase=%u native-matches=%u\n",
             (unsigned)cid,(unsigned)ctx->year,(unsigned)ctx->lastPhase,before);
     { extern void InputSDL_ClearWorldViewExit(void);

@@ -4256,6 +4256,17 @@ int Expanded_AutoCareer_Load(void) {
      * contexts are absent. Report both rather than asserting save PASS. */
     extern void Expanded_OGWorld_LogCheckpoint(const char *);
     Expanded_OGWorld_LogCheckpoint("RESTORE_AFTER");
+    {
+        extern uint32_t Expanded_OGWorld_LeagueCount(void);
+        const uint32_t resident=Expanded_OGWorld_LeagueCount();
+        if(!resident)
+            fprintf(stderr,"[og-world-restore-guard] LOAD_INCOMPLETE "
+                           "world=%s file=%s resident-leagues=0 "
+                           "career=LOADED native-world=NOT_RESTORED "
+                           "save=RETAINED\n",
+                    World_Tag(),(const char *)source);
+        fflush(stderr);
+    }
     return 1;
 }
 void Expanded_AutoCareer_Delete(void) {

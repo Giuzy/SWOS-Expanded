@@ -1437,7 +1437,18 @@ int Expanded_OGWorld_Start(void) {
     return 1;
 }
 int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
-    if(!s_expOGWorldStarted)return 0;
+    if(!s_expOGWorldStarted) {
+        /* An old/current CAR can restore the manager and civil date without
+         * restoring our resident OG leagues/cups.  Never reconstruct a
+         * replacement season from its date: doing so invents results. */
+        fprintf(stderr,"[og-world-restore-guard] BLOCKED_ADVANCE world=%s "
+                       "date=%04u-%02u-%02u resident=0 "
+                       "reason=OG_STATE_NOT_RESTORED (save retained)\n",
+                World_Tag(),(unsigned)today.year,(unsigned)today.month,
+                (unsigned)today.day);
+        fflush(stderr);
+        return 0;
+    }
     const uint16_t year=(uint16_t)(today.year-(today.month<7u?1u:0u));
     if(year<s_expOGWorldYear || year>2198u)return 0;
     while(s_expOGWorldYear<year) {

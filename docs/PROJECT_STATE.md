@@ -1,5 +1,11 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_23: primo fix mirato softlock rosa
+- Caso osservato: Crewe Alexandra, 16 giocatori in DB, due indisponibili, controllo della formazione 11+posti di riserva impossibile se richiede tutti i posti. Riconosciuto anche che il menu mostra un solo giocatore extra ruotabile.
+- Il solo menu partita carriera con club reale prova a sostituire tramite la callback OG PlayMatchMenuSwapPlayers i titolari e le riserve indisponibili con giocatori sani della stessa rosa; limita la panchina nominata al numero di disponibili senza superare il massimo OG. Non guarisce, crea o trasferisce giocatori, non modifica risultati/fixture e non cambia CLASSIC/SEASON.
+- Guardia su ID validi e unici, portiere e dieci giocatori di movimento sani; log career-lineup attivo con diagnostica. Copie delle squadre coppa, rose estese oltre 16 e casi di meno di 11 disponibili non sono forzati. Compilazione e gameplay Windows NON PROVATI.
+
+
 ## 17/11/2026 — 0.13.70_22: F12 phase audit e debug mese carriera
 - F12 AVANZAMENTO ora confronta stato residente OG e data corrente, campionati e coppe per regione, GARE native e ANOM aggregato dei campionati. START 1 luglio e' fase 48. Le competizioni non residenti restano conteggiate come mancanti.
 - DEBUG +1 MONTH club: corregge cutoff>55 che impediva i mesi da agosto; callback OG VIEW RESULT / NEXT MATCH, guardia sui save intermedi e input finale. Non dichiara equivalenza per ogni partita prima del test Windows.

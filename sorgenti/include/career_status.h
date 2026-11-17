@@ -30,6 +30,7 @@ uint16_t IsPlayerInjured(PlayerFile *playerFile, int16_t mode);
 uint16_t IsPlayerInjuredForDisplay(PlayerFile *playerFile, int16_t mode);
 
 /* --- Player count utilities --- */
+uint16_t Career_IsSelectionUnavailable(const PlayerFile *player,int16_t flags);
 uint16_t GetNumberOfSubstitutes(TeamFileEx *team, uint16_t numPl);
 uint16_t GetNumberOfSubstitutesInSelectionList(TeamFileEx *team, uint16_t extraCount);
 uint32_t GetNumberOfAvailablePlayers(TeamFileEx *team, int16_t excludeCardsFlag, uint16_t numPl);

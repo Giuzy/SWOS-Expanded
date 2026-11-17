@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_23 — recupero formazione prepartita
+- In CAREER con club originale, se vi sono 11 sani e portiere, selezionare automaticamente riserve sane e nominare una panchina inferiore al massimo quando due o piu' indisponibili lo rendono necessario. Callback di scambio OG, nessun calciatore fittizio e nessuna guarigione. Recheck bottone alla rotazione del giocatore extra. Compilazione e test Windows pendenti.
+
+
 ## 0.13.70_22 — F12 fase e debug mese
 - F12: stato in fase OG per data, conteggio GARE originali, ANOM aggregato. Non dichiara verificati singoli risultati. Debug +1 MONTH con club: corretto limite dopo luglio, sospesi autosave intermedi, latch input finale. Nessuna modifica ai giocatori.
 

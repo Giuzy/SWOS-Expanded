@@ -747,6 +747,13 @@ static uint16_t isPlayerDisabled(PlayerFile *pf, int16_t excludeCardsFlag) {
     return 0;
 }
 
+/* Expose the exact OG selection predicate to the Expanded pre-match UI.
+ * Injuries, suspensions, status bucket and tester rules remain unchanged. */
+uint16_t Career_IsSelectionUnavailable(const PlayerFile *player,int16_t flags)
+{
+    return player ? isPlayerDisabled((PlayerFile *)player,flags) : 1u;
+}
+
 /* ================================================================
  * GetNumberOfAvailablePlayers
  * Returns (disabled << 16) | (available & 0xFFFF).

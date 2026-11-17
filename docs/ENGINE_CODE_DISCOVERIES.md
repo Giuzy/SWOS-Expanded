@@ -1,5 +1,11 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 17/11/2026 — 0.13.70_23: disponibilita' OG e giocatori extra
+- ShowOrHidePlayMatchButton conta i giocatori indisponibili tra i primi 11+maxSubstitutesEntries e puo' nascondere il pulsante anche se esistono almeno 11 giocatori sani. L'entry 30 ruota i giocatori fuori convocazione: un solo extra appare per volta. La routine ora aggiorna anche la visibilita' del pulsante dopo la rotazione.
+- Il nuovo Career_IsSelectionUnavailable espone il medesimo predicato isPlayerDisabled gia' usato dai contatori OG; in PlayMatchMenuInit solo il manager con il team originale (non copie di coppa) riordina i soli giocatori necessari con PlayMatchMenuSwapPlayers e riduce i posti nominati in panchina ai disponibili. Niente modifiche agli stati dei giocatori.
+- Casi con meno di 11, portiere mancante, coppie manager di coppa o rose con oltre 16 giocatori rimangono separati. Verificare su Windows.
+
+
 ## 17/11/2026 — 0.13.70_22: F12 fase OG e mese club
 - Il vecchio `cutoff>55u` di Expanded_CareerDebugMonthStart respingeva ogni mese da agosto: la fase native di 1 luglio e' 48, 1 agosto 56, gennaio successivo 96. Il driver ora ammette le fasi 48..144 e registra dettagli del blocco.
 - Expanded_MidseasonJoin_Active include anche il debug mensile per sospendere le azioni collaterali del manager; NEXT MATCH non produce un autosave intermedio e l'input e' resettato dopo il salto.

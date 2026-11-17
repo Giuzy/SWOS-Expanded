@@ -23,6 +23,8 @@
 #ifdef SWOS_SDL_BUILD
 #include "uniform.h"            /* the UNIFORM button (entry 68) */
 #include "custom_team.h"        /* (CUSTOM) where the country would be named */
+#include <stdio.h>
+#include <stdlib.h>
 #endif
 
 /* Prevent GCC from converting byte loops to memcpy/memset (no libc) */
@@ -126,6 +128,9 @@ extern void InitPlayerValueDisplayStruct(uint8_t *playerEntry, uint8_t *dst);
 extern uint16_t IsPlayerInjured(PlayerFile *playerFile, int16_t mode);
 /* Honest injury/suspension status for DISPLAY decisions — no beta override. */
 extern uint16_t IsPlayerInjuredForDisplay(PlayerFile *playerFile, int16_t mode);
+#ifdef SWOS_SDL_BUILD
+extern uint16_t Career_IsSelectionUnavailable(const PlayerFile *player,int16_t flags);
+#endif
 extern uint16_t GetNumberOfSubstitutes(uint8_t *team, uint16_t numPl);
 extern uint16_t GetNumberOfSubstitutesInSelectionList(uint8_t *team, uint16_t extraCount);
 extern uint32_t GetNumberOfAvailablePlayers(uint8_t *team, int16_t excludeCardsFlag, uint16_t numPl);
@@ -797,6 +802,130 @@ void PlayMatchMenuReinit(void) {
     UpdateLittleCheckmark();
 }
 
+
+#ifdef SWOS_SDL_BUILD
+/* CAREER-only OG matchday squad repair: never changes injury, player DB,
+ * fixture/result, tactics or the original competition's max substitutions.
+ * With 16 players and 2 unavailable, 11 + 3 legal players can be nominated
+ * even if the pre-match selection initially contains 11 + 5 slots.
+ * The existing OG swap callback is the only way we move player positions. */
+static void Expanded_RepairCareerMatchdaySquad(void)
+{
+    TeamFileEx *team=_playMatchTeam1Ptr;
+    if(_gameType!=GAME_TYPE_CAREER || team!=&_careerTeam ||
+       !_squadChangesAllowed || _trainingGame ||
+       team->team.teamControls==TEAM_COMPUTER)return;
+
+    const unsigned n=_careerNumPlayers;
+    const unsigned originalBench=_maxSubstitutesEntries;
+    unsigned eligible=0,healthyGk=0,healthyOutfield=0,moves=0;
+    uint32_t seen=0u;
+#ifndef NDEBUG
+    const char *capture=getenv("SWOS_DIAGNOSTIC_CAPTURE");
+    const int trace=capture && capture[0]=='1';
+#else
+    const int trace=0;
+#endif
+    if(n<11u || n>16u || originalBench>8u) {
+        if(trace)fprintf(stderr,"[career-lineup] UNSUPPORTED roster=%u bench=%u\n",
+                         n,originalBench);
+        return;
+    }
+    for(unsigned i=0;i<n;++i) {
+        const unsigned id=_currentMatchPlayers[i];
+        if(id>=16u || (seen&(1u<<id))) {
+            if(trace)fprintf(stderr,
+                "[career-lineup] INVALID_SLOT ordinal=%u index=%u\n",i,id);
+            return;
+        }
+        seen|=1u<<id;
+        const PlayerFile *pf=&team->players[id];
+        if(Career_IsSelectionUnavailable(pf,_playMatchExcludeFlags))
+            continue;
+        ++eligible;
+        const unsigned pos=((unsigned)pf->positionAndFace&PF_POSITION_MASK)
+                            >>PF_POSITION_SHIFT;
+        if(pos==0u)++healthyGk;
+        else ++healthyOutfield;
+    }
+    if(eligible<11u || !healthyGk || healthyOutfield<10u) {
+        if(trace)fprintf(stderr,
+            "[career-lineup] NOT_REPAIRED roster=%u available=%u gk=%u outfield=%u reason=INSUFFICIENT_XI\n",
+            n,eligible,healthyGk,healthyOutfield);
+        return;
+    }
+
+    /* Preserve legal starters. Only a missing starter is replaced;
+     * first look for the same position, then for another eligible player.
+     * Goalkeeper slot zero must still contain a real eligible goalkeeper. */
+    for(unsigned slot=0;slot<11u;++slot) {
+        const unsigned id=_currentMatchPlayers[slot];
+        const PlayerFile *pf=&team->players[id];
+        if(!Career_IsSelectionUnavailable(pf,_playMatchExcludeFlags))
+            continue;
+        const unsigned wanted=((unsigned)pf->positionAndFace&PF_POSITION_MASK)
+                               >>PF_POSITION_SHIFT;
+        int chosen=-1;
+        for(int pass=0;pass<2 && chosen<0;++pass) {
+            for(unsigned j=11u;j<n;++j) {
+                const PlayerFile *c=&team->players[_currentMatchPlayers[j]];
+                if(Career_IsSelectionUnavailable(c,_playMatchExcludeFlags))
+                    continue;
+                const unsigned pos=((unsigned)c->positionAndFace&PF_POSITION_MASK)
+                                    >>PF_POSITION_SHIFT;
+                if(slot==0u ? pos!=0u :
+                   (pos==0u || (!pass && pos!=wanted)))continue;
+                chosen=(int)j;
+                break;
+            }
+        }
+        if(chosen<0) {
+            if(trace)fprintf(stderr,
+               "[career-lineup] PARTIAL_REPAIR starter=%u reason=NO_ELIGIBLE_REPLACEMENT\n",
+               slot);
+            return;
+        }
+        PlayMatchMenuSwapPlayers(team,(int16_t)slot,(int16_t)chosen);
+        ++moves;
+    }
+
+    /* The number actually NOMINATED on the bench can be lower than the
+     * competition's maximum; never put injured players on that bench.
+     * Remaining players stay selectable in the OG rotating extra row. */
+    unsigned bench=eligible-11u;
+    if(bench>originalBench)bench=originalBench;
+    const unsigned selected=11u+bench;
+    for(unsigned i=11u;i<selected;++i) {
+        const unsigned id=_currentMatchPlayers[i];
+        if(!Career_IsSelectionUnavailable(&team->players[id],
+                                           _playMatchExcludeFlags))continue;
+        int chosen=-1;
+        for(unsigned j=selected;j<n;++j) {
+            const unsigned test=_currentMatchPlayers[j];
+            if(!Career_IsSelectionUnavailable(&team->players[test],
+                                               _playMatchExcludeFlags)) {
+                chosen=(int)j;break;
+            }
+        }
+        if(chosen<0) {
+            if(trace)fprintf(stderr,
+               "[career-lineup] PARTIAL_REPAIR bench=%u reason=NO_ELIGIBLE_REPLACEMENT\n",i);
+            return;
+        }
+        PlayMatchMenuSwapPlayers(team,(int16_t)i,(int16_t)chosen);
+        ++moves;
+    }
+    _maxSubstitutesEntries=(uint16_t)bench;
+    if(moves) {
+        team->team.playerValuesDirty=TEAM_VALUES_DIRTY;
+        SetBenchPlayersNumbers(team);
+    }
+    if(trace)fprintf(stderr,
+       "[career-lineup] roster=%u available=%u unavailable=%u old-bench=%u active-bench=%u swaps=%u extra=%u status=REPAIRED\n",
+       n,eligible,n-eligible,originalBench,bench,moves,n-selected);
+}
+#endif
+
 /* ================================================================ */
 __attribute__((used, externally_visible))
 void PlayMatchMenuInit(void) {
@@ -824,6 +953,9 @@ void PlayMatchMenuInit(void) {
     CheckIsTeamNational();
     SetBenchPlayersNumbers((TeamFileEx *)_playMatchTeam1Ptr);
     _is_A_team = 0;
+#ifdef SWOS_SDL_BUILD
+    Expanded_RepairCareerMatchdaySquad();
+#endif
     PlayMatchMenuReinit();
 
     /* If entry 9 (PLAY/VIEW RESULT button) is invisible, default to entry 7 (VIEW OPPO).
@@ -1136,6 +1268,8 @@ void ReturnFromViewOpponent(void) {
 __attribute__((used, externally_visible))
 void PlayMatchOnSelect30(void) {
     RotatePlayersLeft((TeamFileEx *)_playMatchTeam1Ptr, _maxSubstitutesEntries);
+    /* Refresh eligibility when the extra row is rotated. */
+    ShowOrHidePlayMatchButton();
     DrawMenuItemsWaitForVSync(_playMatchRedrawList);
 }
 

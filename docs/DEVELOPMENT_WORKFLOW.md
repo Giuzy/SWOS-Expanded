@@ -1,5 +1,10 @@
 # SWOS Expanded — development procedures and rationale
 
+## 17/11/2026 — test Windows 0.13.70_23
+- Carriera prova Crewe 2026/27 con 2 indisponibili: verificare che si presentino 11 titolari e una panchina di sani, che i due rossi rimangano nella rosa extra e che PLAY MATCH sia selezionabile. Ruotare il piccolo controllo extra e verificare se si raggiungono entrambi. Nessun calciatore deve essere guarito o duplicato.
+- AVVIA_DIAGNOSTICA: cercare career-lineup con roster, available, unavailable, old-bench, active-bench, swaps, extra e status; in presenza di NOT_REPAIRED non dichiarare il caso risolto. Verificare salvataggio, successivo turno, e 1996/97; niente prova gameplay Linux sostitutiva. Coppe con team copia e oltre 16 giocatori sono fuori perimetro.
+
+
 ## 17/11/2026 — checklist Windows 0.13.70_22
 - In 96 e 26, F12 da START il 1 luglio (fase attesa 48) poi FORWARD TIME: leggere FASE, rapporto IN FASE, gare OG che aumentano quando previste, ANOM campionati, e coppe assenti senza falsi verdi.
 - In club da settembre/dicembre, DEBUG +1 MONTH: cercare BEGIN e COMPLETED o FAILED nel log, verificare data +1 mese, risultati, nessun doppione, save/continue. A giugno blocco prima del cambio stagione; cambio stagione manuale. Usare soltanto una carriera di prova.

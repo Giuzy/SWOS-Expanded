@@ -2254,8 +2254,10 @@ no_event_or_done:
             fprintf(stderr,"[og-picker-wrap] old=%u new=%u dir=%u\n",
                     (unsigned)selectedEntry->ordinal,
                     (unsigned)wrapped->ordinal,(unsigned)dirIdx);
-            if(selectedEntry->background==NO_BACKGROUND)DrawMenu();
-            else CallDrawMenuItem(selectedEntry);
+            /* Both the OLD and NEW selected rows must be redrawn.
+             * Repainting the old entry alone left the focus frame stale
+             * even though menu->selectedEntry had already moved. */
+            DrawMenu();
             return;
         }
 #endif

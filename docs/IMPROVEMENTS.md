@@ -792,3 +792,9 @@ Audit per nome di Champions, Europa League, Conference, coppe europee storiche, 
 
 ### 0.13.65 (17/11/2026) — Reset annuale selettivo, calendario-base gara Libertadores e 47 ID verificati
 Modificato `career_status.c` e `career_init.c`: un'edizione OG continentale con CT_ED attivo non viene azzerata durante il cambio delle leghe al 1 luglio; reset completo su nuova carriera resta. Helper in `world_conti.c` restituisce date-base reali per singolo fixture/leg 2027 (non registra né simula partite). Manifest dati dei 47 club moderni e guida dettagliata per 1997/2027. **NON IMPLEMENTATO** collegamento completo calendario per gara, sorteggi, risultati, viewer o save per fixture: `ct_round` attuale continua a simulare il turno intero e l'helper non è invocato dall'esecutore residente. Windows compile/gameplay NON PROVATI.
+
+
+### Build 0.13.66 — 17/11/2026 — protezione crash e input picker
+- Preflight OG storica per ogni divisione (lettura reale TEAM.NNN) impedisce panic 0x8885 quando formato campionato e squadre nel file divergono; lega incompatibile SKIPPED / NOT_RESIDENT anziché falsamente riuscita. Debug atteso/effettivo. Finlandia 12 vs 14 NON RISOLTA nel dato.
+- DEBUG WORLD/OFFERTA: navigazione circolare su tutte le righe visibili e ridisegno del focus. VIEW SQUAD offerta: B chiude prima popup X, poi torna all'offerta con una nuova pressione.
+- Non implementati hot switch 96/26, audit completo regole/ID per entrambi i mondi, e tutte le coppe non residenti. Stato esplicito e test in `docs/WORLD_PRIORITY_20261117_BUILD_01366.md`. Compilazione e gameplay Windows 0.13.66 NON PROVATI.

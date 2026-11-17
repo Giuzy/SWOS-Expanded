@@ -1065,17 +1065,22 @@ void InputSDL_HandleEvent(const SDL_Event *e)
             DrawMenu();
             break;
         }
-        /* Offer preview B closes the whole read-only squad in one press,
-         * even if X information was open. Do not select the EXIT hotspot. */
+        /* The information popup is the nearest navigation level. B
+         * closes it first even in OFFER's read-only squad, just as ESC
+         * already does; a second distinct B returns to the offer.
+         * Never turn this B into a FIRE or trigger the parent's picker. */
+        if (Expanded_UI_IsSquadScreen() &&
+            e->cbutton.button==SDL_CONTROLLER_BUTTON_B &&
+            Expanded_SquadPopupOpen()) {
+            Expanded_SquadPopupClose();
+            DrawMenu();
+            fprintf(stderr,"[og-offer-squad] PAD B closed X popup only\n");
+            break;
+        }
         if(e->cbutton.button==SDL_CONTROLLER_BUTTON_B &&
            !_playGame && Expanded_OfferSquadReadOnly()) {
             s_offerSquadBackPending=1;
             fprintf(stderr,"[og-offer-squad] PAD B queued one-level BACK\n");
-            break;
-        }
-        if (Expanded_UI_IsSquadScreen() && e->cbutton.button==SDL_CONTROLLER_BUTTON_B && Expanded_SquadPopupOpen()) {
-            Expanded_SquadPopupClose();
-            DrawMenu();
             break;
         }
         if (s_exit_confirm_open) {

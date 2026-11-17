@@ -72,6 +72,8 @@ int main(int argc,char **argv)
     long f12_main=0,f12_cups=0,f10_data=0;
     long picker_backs=0,picker_pops=0,picker_unmatched=0;
     long native_faults=0,regressions=0,log_year=-1,log_phase=-1;
+    long native_league_unsupported=0,unsupported_country=-1;
+    long unsupported_division=-1,unsupported_expected=-1,unsupported_actual=-1;
     long prev_year=-1,prev_phase=-1;
     long season_closes=0,season_opens=0,season_failures=0;
     long og_stress_started=0,og_stress_finished=0,og_stress_date_exact=0;
@@ -156,6 +158,15 @@ int main(int argc,char **argv)
             last_op_year=last_op_phase=last_op_country=last_op_division=-1;
             pending_native_step=0;
             first[0]=0;
+        }
+        if(tag(line,"[og-native-league-preflight] UNSUPPORTED ")) {
+            ++native_league_unsupported;
+            unsupported_country=field(line,"country",-1);
+            unsupported_division=field(line,"division",-1);
+            unsupported_expected=field(line,"expected",-1);
+            unsupported_actual=field(line,"actual",-1);
+            /* An unsupported league is not a simulated fixture or a
+             * crash; report INCOMPLETE, never count it as resident. */
         }
         if(tag(line,"[og-world] START READY:")) {
             unsigned cy=0,cm=0,cd=0;
@@ -715,6 +726,12 @@ int main(int argc,char **argv)
     puts("OG_FULL_RESIDENT_SAVE=NOT_TESTED");
     printf("F12_OG_CAPTURE=main:%ld cups:%ld data:%ld\n",
            f12_main,f12_cups,f10_data);
+    printf("OG_NATIVE_LEAGUE_FORMAT=%s unsupported=%ld "
+           "last-country=%ld last-division=%ld expected=%ld actual=%ld "
+           "scope=REAL_WINDOWS_RUNTIME_ONLY\n",
+           native_league_unsupported?"PARTIAL":"NO_UNSUPPORTED_OBSERVED",
+           native_league_unsupported,unsupported_country,unsupported_division,
+           unsupported_expected,unsupported_actual);
     printf("OG_NATIVE_FAULTS=%ld CHECK_FAILURES=%ld SESSIONS=%ld\n",native_faults,regressions,og_career_sessions);
     if(first[0])printf("FIRST_RUNTIME_FAILURE: %s\n",first);
     if(!correct_build) {
@@ -730,6 +747,13 @@ int main(int argc,char **argv)
     }
     if(!start_ready||!start_audit||!have_audit||leagues<=0) {
         puts("WINDOWS_OG_INTEGRATION=INCOMPLETE reason=NO_OG_START_EVIDENCE");
+        puts("OVERALL=INCOMPLETE");
+        return 2;
+    }
+    /* Do not misreport a career with skipped native league formats as
+     * a complete world even if the remaining OG competitions advance. */
+    if(native_league_unsupported) {
+        puts("WINDOWS_OG_INTEGRATION=INCOMPLETE reason=NATIVE_LEAGUE_FORMAT_UNSUPPORTED");
         puts("OVERALL=INCOMPLETE");
         return 2;
     }

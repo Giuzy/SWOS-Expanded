@@ -3744,7 +3744,12 @@ static void expanded_og_world_reset_internal(int season_transition) {
 }
 void Expanded_OGWorld_Reset(void) { expanded_og_world_reset_internal(0); }
 void Expanded_OGWorld_ResetSeason(void) { expanded_og_world_reset_internal(1); }
-uint32_t Expanded_OGWorld_LeagueCount(void){return s_expOGCount;}
+uint32_t Expanded_OGWorld_LeagueCount(void){
+    uint32_t resident=0u;
+    for(uint32_t i=0;i<s_expOGCount;++i)
+        if(s_expOG[i].used)++resident;
+    return resident;
+}
 int Expanded_OGWorld_ClubBound(void){return s_expOGBound;}
 
 /* After hire, club-local _selectedTeams is merely scratch for native menus.
@@ -3799,6 +3804,9 @@ void Expanded_OGWorld_Audit(ExpandedOGWorldAudit *out)
     uint8_t seen[256]={0};
     for(uint32_t i=0;i<s_expOGCount;++i) {
         const ExpandedOGLeague *c=&s_expOG[i];
+        /* A known format mismatch is an explicit UNSUPPORTED division,
+         * not a corrupted resident tournament and not a played fixture. */
+        if(!c->used && c->lastMatch==0xfeu)continue;
         if(!c->used || c->teamCount<2u || c->teamCount>EXP_OG_MAX_TEAMS ||
            c->comp.base.numTeams<2 || c->comp.base.numTeams>EXP_OG_MAX_TEAMS ||
            c->comp.base.competitionType!=0) {
@@ -3861,7 +3869,8 @@ void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out)
 }
 static ExpandedOGLeague *exp_find(uint8_t country,uint8_t division,uint16_t year) {
     for(uint32_t i=0;i<s_expOGCount;++i)
-        if(s_expOG[i].used && s_expOG[i].country==country &&
+        if((s_expOG[i].used || s_expOG[i].lastMatch==0xfeu) &&
+           s_expOG[i].country==country &&
            s_expOG[i].division==division && s_expOG[i].year==year)return &s_expOG[i];
     return NULL;
 }
@@ -3871,6 +3880,8 @@ int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
     if(!record||_gameType!=4 || s_expOGCurrent)return 0;
     const uint8_t compId=(uint8_t)((Competition *)record)->compId;
     ExpandedOGLeague *ctx=exp_find(country,division,year);
+    if(ctx && !ctx->used && ctx->lastMatch==0xfeu)
+        return -1; /* a diagnosed native record mismatch: never retry/panic */
     if(ctx && phase<=ctx->lastPhase)return 1;
     if(!ctx) {
         if(s_expOGCount==EXP_OG_MAX_LEAGUES)return 0;
@@ -3880,6 +3891,41 @@ int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
         ctx->lastMatch=0xffu;
     }
     if(ctx->used && phase<=ctx->lastPhase)return 1; /* phase already applied */
+#ifdef SWOS_SDL_BUILD
+    /* Session 22 proved that even the original TEAM.012 file contains
+     * 14 first-division flags against a native record requiring 12.
+     * Before entering OG's selection code (which panics on mismatch), audit
+     * the ORIGINAL selected-team metadata for every historical country.
+     * Do not delete clubs, rewrite the competition size or invent results.
+     * An unsupported league is isolated; other native leagues still START. */
+    if(World_Current()==WORLD_9697 && !ctx->used) {
+        extern int16_t LoadTeamFile(uint16_t);
+        extern uint8_t _teamFileBuffer[];
+        extern uint16_t _teamsLoaded;
+        const CompetitionLeague *native=(const CompetitionLeague *)record;
+        const unsigned expected=(unsigned)native->divisions[division].teams;
+        _teamsLoaded=0; /* force source re-read and season league adjustments */
+        if(LoadTeamFile(country)!=0)return 0;
+        const unsigned n=(unsigned)*(const uint16_t *)_teamFileBuffer;
+        const TeamFileEx *entries=(const TeamFileEx *)(_teamFileBuffer+2);
+        unsigned actual=0;
+        if(n>256u)return 0;
+        for(unsigned i=0;i<n;++i)
+            if(entries[i].team.league==division)++actual;
+        if(actual!=expected) {
+            fprintf(stderr,"[og-native-league-preflight] UNSUPPORTED "
+                           "world=9697 country=%u division=%u year=%u "
+                           "expected=%u actual=%u file-count=%u "
+                           "reason=NATIVE_DATA_FORMAT_MISMATCH "
+                           "no-matches-generated\n",
+                    (unsigned)country,(unsigned)division,(unsigned)year,
+                    expected,actual,n);
+            ctx->lastMatch=0xfeu; /* distinct from 0xff uninitialized */
+            ctx->lastPhase=phase;
+            return -1;
+        }
+    }
+#endif
     DIYCompetitionEx oldComp;
     DIYTournamentState oldTournament;
     const uint8_t last=_careerLastMatchIndexByCompetitionSlot[compId];

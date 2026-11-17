@@ -1165,14 +1165,22 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                                "country=%u division=%u\n",
                         (unsigned)year,(unsigned)phase,
                         (unsigned)country,d);
-            if(Expanded_OGWorld_AdvanceLeague((uint8_t *)rec,
-                                              country,(uint8_t)d,year,phase)) {
+            const int leagueStatus=Expanded_OGWorld_AdvanceLeague(
+                (uint8_t *)rec,country,(uint8_t)d,year,phase);
+            if(leagueStatus>0) {
                 ++ok;
                 if(Expanded_OGStress_Remaining())
                     fprintf(stderr,"[og-world-step] END year=%u phase=%u "
                                    "country=%u division=%u\n",
                             (unsigned)year,(unsigned)phase,
                             (unsigned)country,d);
+            } else if(leagueStatus<0) {
+                ++skipped; /* explicitly unsupported format, never claim played */
+                if(phase==0u)
+                    fprintf(stderr,"[og-world] LEAGUE_UNSUPPORTED "
+                                   "country=%u division=%u year=%u "
+                                   "native-context=NOT_RESIDENT\n",
+                            (unsigned)country,d,(unsigned)year);
             } else {
                 ++failed;
                 fprintf(stderr,"[og-world] LEAGUE ERROR country=%u "

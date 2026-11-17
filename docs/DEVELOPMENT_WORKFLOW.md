@@ -1,5 +1,12 @@
 # SWOS Expanded — development procedures and rationale
 
+## 0.13.85 — riprova compilazione Windows (PENDENTE)
+- Sincronizzare GitKraken `dev/0.10`, poi compilare con i BAT ufficiali; controllare versione 0.13.85.
+- Leggere `diagnostica/log/COMPILAZIONE_0140.log`. Non deve ricomparire `career_init.c:952:47: error: '_gameType' undeclared`; se emergono altri `error:`, inviare i log e non dichiarare compilazione PASS.
+- Se la build funziona: avviare il gioco, provare TITLE 96/26 dopo BACK, TRAINING A->B/B->A con X nei mondi 96 e 26, quindi save/CONTINUE. Non cancellare ne' sostituire CAR esistenti.
+- I 13 test OG della diagnostica allegata erano solo isolati. Compilazione, gameplay e persistenza Windows restano NON PROVATI fino al nuovo test.
+
+
 ## 0.13.84 — prove Windows: X scambio TRAINING A/B (PENDENTI)
 - Backup esterno non distruttivo dei CAR, sincronizzare GitKraken dev/0.10, compilare 0.13.84 su Windows.
 - Carriera Gela 26 con 27 giocatori, SQUAD -> TRAINING prima della partita. A -> X sul titolare -> passaggio automatico a B -> X su giocatore B: log `[training-cross] SOURCE side=A`, poi `SWAPPED`. Tornare A e verificare che il B scelto sia al posto dell'A, mentre l'altro risulti nella B, senza doppioni. Ripetere partendo da B -> X -> A -> X.

@@ -478,6 +478,8 @@ void LoadLiverpool(void)
 
 extern void ShowRetirementMessage(void);
 extern void InitCareerVariables(uint16_t gameTypeParam);
+/* OG game type used by the aborted-career TITLE diagnostic below. */
+extern uint16_t _gameType;
 
 __attribute__((used, externally_visible))
 void ContinueCareer(void)

@@ -1,5 +1,11 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 18/11/2026 — 0.13.85: dichiarazione C mancante nel TITLE (build Windows DA RIPROVARE)
+- La diagnostica Windows 0.13.84 `DIAGNOSTICA_SESSIONE_1(20261117-233321).zip` mostra in `AVVIO_COMPILAZIONE.log` e `COMPILAZIONE_0140.log` `src/career_init.c:952:47: error: '_gameType' undeclared`. Il primo controllo sintattico non completa la build. I warning `-Waddress-of-packed-member` non sono errori bloccanti riportati in questa sessione.
+- `Expanded_CareerDiscardAbortedStart` della 0.13.83 usava `_gameType` nel solo `fprintf`, ma la variabile aveva solo dichiarazioni `extern` locali ad altre funzioni e non era visibile in questo helper. Aggiunto `extern uint16_t _gameType;` a livello file PRIMA dell'helper. Logica e layout TITLE, mondo OG, swap A/B, CAR non modificati.
+- Build marcata `0.13.85`. Revisione statica di simbolo, posizione dichiarazione e delta di codice: effettuata; compilazione completa, avvio Windows, gameplay e salvataggi 0.13.85: NON PROVATI. Il pacchetto Windows aveva 13 test OG `PASS_ISOLATED_ONLY`, non una prova di compilazione integrata.
+
+
 ## 18/11/2026 — 0.13.84: scambio X bidirezionale TRAINING squadra A/B (Windows NON PROVATO)
 - Nella schermata formazione TRAINING, X sul giocatore A o B memorizza la sorgente e apre l'altro lato; secondo X sul giocatore dell'altro lato effettua lo scambio. A/SELECT continua a scambiare giocatori solo all'interno della squadra corrente; X Info nel normale VIEW SQUAD resta invariato.
 - Scoperta: TRAINING B (`_currentTeam`) e' una COPIA provvisoria da slot >=13 della rosa OG A (`_careerTeam`), non una squadra distinta. `training_match.c` associa ogni B file index allo slot OG di provenienza; `play_match_menu.c` scambia soltanto gli indici reali della formazione tramite `PlayMatchMenuSwapPlayers(&_careerTeam,...)` e ricostruisce B. Niente duplicazioni di PlayerFile e nessun nuovo algoritmo di partite.

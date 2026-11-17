@@ -3619,6 +3619,10 @@ static ExpandedOGCup s_expOGCups[EXP_OG_MAX_CUPS];
 static uint32_t s_expOGCupCount,s_expOGCupUnsupported,s_expOGCupFaults;
 static ExpandedOGCup *s_expOGCupCurrent;
 static int s_expOGCupPhase=-1,s_expOGCupTickFault;
+/* Diagnostic snapshots live only in RAM, never in portable career saves. */
+static ExpandedF12Snapshot s_f12BeforeHire,s_f12AfterHire;
+static ExpandedOGDashboard s_f12BeforePanel,s_f12AfterPanel;
+static uint32_t s_f12DiffLogHash;
 int Expanded_OGWorld_IsSimulating(void) {
     return s_expOGCurrent!=NULL || s_expOGCupCurrent!=NULL;
 }
@@ -3798,6 +3802,13 @@ static void expanded_og_world_reset_internal(int season_transition) {
     memset(s_expOGCups,0,sizeof s_expOGCups);
     s_expOGCupCount=0;s_expOGCupUnsupported=0;s_expOGCupFaults=0;
     s_expOGCupCurrent=NULL;s_expOGCupPhase=-1;s_expOGCupTickFault=0;
+    /* A different career/world or season must not inherit the old hire
+     * comparison. Old log snapshots remain in the diagnostic ZIP. */
+    memset(&s_f12BeforeHire,0,sizeof s_f12BeforeHire);
+    memset(&s_f12AfterHire,0,sizeof s_f12AfterHire);
+    memset(&s_f12BeforePanel,0,sizeof s_f12BeforePanel);
+    memset(&s_f12AfterPanel,0,sizeof s_f12AfterPanel);
+    s_f12DiffLogHash=0u;
 }
 void Expanded_OGWorld_Reset(void) { expanded_og_world_reset_internal(0); }
 void Expanded_OGWorld_ResetSeason(void) { expanded_og_world_reset_internal(1); }
@@ -4044,32 +4055,39 @@ void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
                     for(unsigned d=0;d<count;++d) {
                         if(league->divisions[d].teams<2u)continue;
                         ++divisions;
+                        ++out->divisionsExpected[region];
                         for(uint32_t j=0;j<s_expOGCount;++j) {
                             const ExpandedOGLeague *ctx=&s_expOG[j];
                             if(ctx->country!=country || ctx->division!=d ||
                                !exp_debug_live_league(ctx,year))continue;
                             ++liveDivisions;
+                            ++out->divisionsResident[region];
                             out->leagueMatches[region]+=
                                 (uint32_t)ctx->comp.matchesPlayedCount;
                             if(ctx->comp.matchesPlayedCount>0u)++advancedDivisions;
-                            if(!exp_f12_standings_coherent(ctx))
+                            ++out->fixturesUnavailable; /* no dated fixture ledger */
+                            if(!exp_f12_standings_coherent(ctx)) {
                                 ++brokenDivisions;
-                            else if(out->phaseReady &&
-                                    ctx->lastPhase==out->nativePhase)
-                                ++inPhaseDivisions;
+                                ++out->resultsIssues;
+                            } else {
+                                ++out->resultsChecked;
+                                if(out->phaseReady &&
+                                   ctx->lastPhase==out->nativePhase) {
+                                    ++inPhaseDivisions;
+                                    ++out->divisionsInPhase[region];
+                                }
+                            }
                             break;
                         }
                     }
                 }
             }
         }
-        /* The Mod also defines thirteen Brazilian STATE championships.
-         * They are genuine league definitions but not yet resident OG
-         * competitions. Never mark Brazil complete merely because its
-         * national first division loaded successfully. */
+        /* State competitions are a separate denominator; national Brazilian
+         * leagues must not be judged against thirteen unconnected states. */
         const WorldStates *stateWorld=World_States(country);
         if(stateWorld && stateWorld->contest && stateWorld->states>0u)
-            divisions+=(unsigned)stateWorld->states;
+            out->statesExpected+=(uint32_t)stateWorld->states;
         if(divisions) {
             ++out->leagueExpected[region];
             if(liveDivisions==divisions)++out->leagueResident[region];
@@ -4105,6 +4123,7 @@ void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
                 if(!(expectedMask&bit) || (residentMask&bit))continue;
                 residentMask|=bit;
                 out->cupMatches[region]+=ctx->matchesPlayed;
+                ++out->fixturesUnavailable; /* totals, not dated fixture results */
                 if(ctx->matchesPlayed)advancedMask|=bit;
                 if(out->phaseReady && ctx->lastPhase==out->nativePhase &&
                    ctx->comp.base.competitionType==1)
@@ -4129,16 +4148,31 @@ void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
     (void)World_ContiCups(&nConti);
     out->internationalExpected=historical?4u:
         (uint32_t)(3+(nConti>0?nConti:0));
+    out->uefaExpected=3u; /* 96: Champions, CWC, UEFA Cup; 26: CL, EL, ECL */
+    out->otherExpected=historical?1u:(uint32_t)(nConti>0?nConti:0);
     for(unsigned k=0;k<(historical?2u:3u);++k) {
         const ExpandedOGLeague *ctx=&s_expOGUefa[k];
         if(!ctx->used || ctx->year!=year ||
            ctx->teamCount<2u || ctx->teamCount>EXP_OG_MAX_TEAMS ||
-           ctx->comp.base.competitionType!=2)continue;
+           ctx->tournament.header.competitionType!=2)continue;
         ++out->internationalResident;
         out->internationalMatches+=(uint32_t)ctx->comp.matchesPlayedCount;
+        ++out->fixturesUnavailable;
         if(ctx->comp.matchesPlayedCount>0u)++out->internationalAdvanced;
         if(out->phaseReady && ctx->lastPhase==out->nativePhase)
             ++out->internationalInPhase;
+        /* The 1996 slot 1 is the original Copa Libertadores, NOT UEFA. */
+        if(historical && k==1u) {
+            ++out->otherResident;
+            out->otherMatches+=(uint32_t)ctx->comp.matchesPlayedCount;
+            if(out->phaseReady && ctx->lastPhase==out->nativePhase)
+                ++out->otherInPhase;
+        } else {
+            ++out->uefaResident[k];
+            out->uefaMatches[k]+=(uint32_t)ctx->comp.matchesPlayedCount;
+            if(out->phaseReady && ctx->lastPhase==out->nativePhase)
+                ++out->uefaInPhase[k];
+        }
     }
     if(historical) {
         for(uint32_t j=0;j<s_expOGCupCount;++j) {
@@ -4147,9 +4181,14 @@ void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
                !exp_debug_live_cup(ctx,year))continue;
             ++out->internationalResident;
             out->internationalMatches+=ctx->matchesPlayed;
+            ++out->fixturesUnavailable;
             if(ctx->matchesPlayed)++out->internationalAdvanced;
             if(out->phaseReady && ctx->lastPhase==out->nativePhase)
                 ++out->internationalInPhase;
+            ++out->uefaResident[ctx->slot];
+            out->uefaMatches[ctx->slot]+=ctx->matchesPlayed;
+            if(out->phaseReady && ctx->lastPhase==out->nativePhase)
+                ++out->uefaInPhase[ctx->slot];
         }
     }
 
@@ -4172,6 +4211,198 @@ void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
     for(unsigned k=0;k<5u;++k) {
         const uintptr_t ptr=(uintptr_t)regionalQualifiers[k]->compCup[0];
         if(ptr>0x10000u && ptr!=(uintptr_t)-1)++out->nationalExpected;
+    }
+}
+
+/* Observe exactly the same resident keys before and after employment.
+ * This is an API-level viewer-readiness check; the actual picker focus/B
+ * navigation still needs the user's Windows interaction test. */
+static int exp_f12_view_league(const ExpandedOGLeague *c)
+{
+    extern void *_competitionsTable[];
+    const void *const *table=(const void *const *)_competitionsTable[c->country];
+    if(!table || (uintptr_t)table[0]<0x10000u ||
+       (uintptr_t)table[0]==(uintptr_t)-1 ||
+       (uintptr_t)table[0]==(uintptr_t)-2)return 0;
+    const Competition *native=(const Competition *)table[0];
+    const unsigned n=(unsigned)c->comp.base.numTeams;
+    if(native->type!=0 || c->division>=16u ||
+       n<2u || n>EXP_OG_MAX_TEAMS || n>c->teamCount)return 0;
+    for(unsigned i=0;i<n;++i) {
+        const unsigned off=(unsigned)c->comp.matchData.league.teamEntryOffsets[i];
+        const int32_t team=c->comp.leagueStandings[i].teamSelOffset;
+        if(off%18u || off/18u>=n || team<0 ||
+           (uint32_t)team>=c->teamCount)return 0;
+    }
+    return 1;
+}
+static int exp_f12_view_cup(const ExpandedOGCup *c)
+{
+    extern void *_competitionsTable[];
+    const Competition *native=NULL;
+    if(c->country==254u && World_Current()==WORLD_9697 &&
+       (c->slot==1u || c->slot==2u)) {
+        native=c->slot==1u?(const Competition *)&_cupWinnersCup
+                          :(const Competition *)&_uefaCup;
+    } else if(c->slot<=3u) {
+        const void *const *table=(const void *const *)_competitionsTable[c->country];
+        if(table && (uintptr_t)table[c->slot]>=0x10000u &&
+           (uintptr_t)table[c->slot]!=(uintptr_t)-1 &&
+           (uintptr_t)table[c->slot]!=(uintptr_t)-2)
+            native=(const Competition *)table[c->slot];
+    }
+    const unsigned n=(unsigned)c->comp.base.numTeams;
+    return native && native->type==1 && native->compId==c->compId &&
+           n>=2u && n<=EXP_OG_MAX_CUP_TEAMS &&
+           c->teamCount>=2u && c->teamCount<=EXP_OG_MAX_CUP_TEAMS;
+}
+static void exp_f12_append(ExpandedF12Snapshot *s,uint8_t kind,
+                           uint8_t country,uint8_t slot,uint16_t year,
+                           uint8_t phase,uint32_t matches,uint8_t viewable)
+{
+    if(s->count>=EXP_F12_MAX_CONTEXTS) {
+        s->valid=0u; /* never silently truncate and claim no regression */
+        return;
+    }
+    s->rows[s->count++]=(ExpandedF12Context){
+        kind,country,slot,viewable,phase,year,matches
+    };
+}
+static void exp_f12_capture(ExpandedF12Snapshot *s,
+                            ExpandedOGDashboard *panel)
+{
+    memset(s,0,sizeof(*s));
+    Expanded_OGWorld_Dashboard(panel); /* uses only native read-only data */
+    if(!panel->ready)return;
+    s->valid=1u;s->world=(uint8_t)World_Current();s->year=panel->worldYear;
+    for(uint32_t i=0;i<s_expOGCount;++i) {
+        const ExpandedOGLeague *c=&s_expOG[i];
+        if(!c->used || c->year!=s->year)continue;
+        exp_f12_append(s,0u,c->country,c->division,c->year,c->lastPhase,
+                       (uint32_t)c->comp.matchesPlayedCount,
+                       (uint8_t)exp_f12_view_league(c));
+    }
+    for(uint32_t i=0;i<s_expOGCupCount;++i) {
+        const ExpandedOGCup *c=&s_expOGCups[i];
+        if(!c->used || c->year!=s->year)continue;
+        exp_f12_append(s,1u,c->country,c->slot,c->year,c->lastPhase,
+                       c->matchesPlayed,(uint8_t)exp_f12_view_cup(c));
+    }
+    for(unsigned i=0;i<(World_Current()==WORLD_9697?2u:3u);++i) {
+        const ExpandedOGLeague *c=&s_expOGUefa[i];
+        if(!c->used || c->year!=s->year)continue;
+        const unsigned entrants=World_Current()==WORLD_2627?36u:
+                                (i==1u?20u:16u);
+        const uint8_t viewable=(uint8_t)(c->teamCount==entrants &&
+             c->tournament.header.competitionType==2);
+        exp_f12_append(s,2u,c->country,(uint8_t)i,c->year,c->lastPhase,
+                       (uint32_t)c->comp.matchesPlayedCount,viewable);
+    }
+    if(!s->valid)
+        fprintf(stderr,"[f12-hire] OVERFLOW inventory count=%u cap=%u "
+                       "NOT_COMPARABLE\n",(unsigned)s->count,
+                       (unsigned)EXP_F12_MAX_CONTEXTS);
+}
+static void exp_f12_log_differences(const ExpandedF12Snapshot *before,
+                                    const ExpandedF12Snapshot *after,
+                                    const ExpandedF12Diff *d)
+{
+    if(!d->comparable)return;
+    for(uint16_t i=0;i<before->count;++i) {
+        const ExpandedF12Context *b=&before->rows[i];
+        const ExpandedF12Context *a=ExpandedF12_Find(after,b);
+        if(!a || (b->viewable != a->viewable) ||
+           (a && (a->matches<b->matches || a->phase<b->phase))) {
+            fprintf(stderr,"[f12-hire-detail] kind=%u country=%u slot=%u "
+                "year=%u PRE_VIEW=%u POST_VIEW=%u PRE_GAMES=%lu "
+                "POST_GAMES=%lu PRE_PHASE=%u POST_PHASE=%u status=%s\n",
+                (unsigned)b->kind,(unsigned)b->country,(unsigned)b->slot,
+                (unsigned)b->year,(unsigned)b->viewable,
+                a?(unsigned)a->viewable:0u,(unsigned long)b->matches,
+                a?(unsigned long)a->matches:0ul,(unsigned)b->phase,
+                a?(unsigned)a->phase:0u,!a?"MISSING":
+                b->viewable&&!a->viewable?"VIEW_LOST":
+                !b->viewable&&a->viewable?"VIEW_GAINED":"STATE_REGRESSED");
+        }
+    }
+    for(uint16_t i=0;i<after->count;++i) {
+        const ExpandedF12Context *a=&after->rows[i];
+        if(!ExpandedF12_Find(before,a))
+            fprintf(stderr,"[f12-hire-detail] kind=%u country=%u slot=%u "
+                "year=%u status=NEW_POST_HIRE games=%lu phase=%u view=%u\n",
+                (unsigned)a->kind,(unsigned)a->country,(unsigned)a->slot,
+                (unsigned)a->year,(unsigned long)a->matches,
+                (unsigned)a->phase,(unsigned)a->viewable);
+    }
+}
+void Expanded_OGWorld_DebugHireCheckpoint(uint8_t after)
+{
+    if(!after) {
+        exp_f12_capture(&s_f12BeforeHire,&s_f12BeforePanel);
+        memset(&s_f12AfterHire,0,sizeof s_f12AfterHire);
+        memset(&s_f12AfterPanel,0,sizeof s_f12AfterPanel);
+        s_f12DiffLogHash=0u;
+        fprintf(stderr,"[f12-hire] PRE world=%s year=%u ready=%u "
+                       "contexts=%u\n",World_Tag(),
+                (unsigned)s_f12BeforeHire.year,
+                (unsigned)s_f12BeforeHire.valid,
+                (unsigned)s_f12BeforeHire.count);
+        return;
+    }
+    exp_f12_capture(&s_f12AfterHire,&s_f12AfterPanel);
+    ExpandedF12Diff diff;
+    ExpandedF12_Compare(&s_f12BeforeHire,&s_f12AfterHire,&diff);
+    fprintf(stderr,"[f12-hire] POST world=%s year=%u ready=%u contexts=%u "
+                   "comparable=%u missing=%lu new=%lu viewLost=%lu "
+                   "viewGained=%lu gamesBack=%lu phaseBack=%lu dup=%lu\n",
+            World_Tag(),(unsigned)s_f12AfterHire.year,
+            (unsigned)s_f12AfterHire.valid,(unsigned)s_f12AfterHire.count,
+            (unsigned)diff.comparable,(unsigned long)diff.missing,
+            (unsigned long)diff.appeared,(unsigned long)diff.viewLost,
+            (unsigned long)diff.viewGained,(unsigned long)diff.matchesBack,
+            (unsigned long)diff.phaseBack,(unsigned long)diff.duplicates);
+    exp_f12_log_differences(&s_f12BeforeHire,&s_f12AfterHire,&diff);
+}
+void Expanded_OGWorld_DebugHireAudit(ExpandedOGHireAudit *out)
+{
+    if(!out)return;
+    memset(out,0,sizeof(*out));
+    out->before=s_f12BeforePanel;
+    out->beforeReady=s_f12BeforeHire.valid;
+    if(!s_f12AfterHire.valid)return;
+    /* Re-evaluate after each FORWARD TIME too: a competition lost a week
+     * after employment must not escape the hire regression detector. */
+    ExpandedF12Snapshot live;
+    exp_f12_capture(&live,&out->after);
+    out->afterReady=live.valid;
+    ExpandedF12_Compare(&s_f12BeforeHire,&live,&out->diff);
+    if(out->diff.comparable &&
+       (out->diff.missing || out->diff.appeared || out->diff.viewLost ||
+        out->diff.viewGained || out->diff.matchesBack ||
+        out->diff.phaseBack || out->diff.duplicates)) {
+        uint32_t hash=2166136261u;
+        for(uint16_t i=0;i<live.count;++i) {
+            const ExpandedF12Context *c=&live.rows[i];
+            hash=(hash^(unsigned)c->kind)*16777619u;
+            hash=(hash^(unsigned)c->country)*16777619u;
+            hash=(hash^(unsigned)c->slot)*16777619u;
+            hash=(hash^(unsigned)c->viewable)*16777619u;
+            hash=(hash^(unsigned)c->matches)*16777619u;
+            hash=(hash^(unsigned)c->phase)*16777619u;
+        }
+        if(hash!=s_f12DiffLogHash) {
+            s_f12DiffLogHash=hash;
+            fprintf(stderr,"[f12-hire] LIVE regression: missing=%lu "
+                           "new=%lu viewLost=%lu gamesBack=%lu "
+                           "phaseBack=%lu duplicates=%lu\n",
+                    (unsigned long)out->diff.missing,
+                    (unsigned long)out->diff.appeared,
+                    (unsigned long)out->diff.viewLost,
+                    (unsigned long)out->diff.matchesBack,
+                    (unsigned long)out->diff.phaseBack,
+                    (unsigned long)out->diff.duplicates);
+            exp_f12_log_differences(&s_f12BeforeHire,&live,&out->diff);
+        }
     }
 }
 

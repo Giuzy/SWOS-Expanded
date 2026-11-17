@@ -1,5 +1,13 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 17/11/2026 — 0.13.73: F12 OG per competizione e confronto prima/dopo contratto (Windows NON PROVATO)
+- Il vecchio `COPPE INT` fondeva 3 UEFA con altre 12 definizioni; ora F12 mostra singolarmente Champions/Europa/Conference nel 2627 e Champions/Coppa Coppe/Coppa UEFA nel 9697. Le restanti coppe intercontinentali restano separate e NON sono dichiarate residenti solo perche' definite. La Libertadores OG 1996 compare nel gruppo distinto, non e' una quarta UEFA.
+- Campionati: i 13 campionati statali brasiliani sono contati a parte, senza rendere rosso il rapporto dei soli campionati nazionali del Brasile; la sezione Sud America mostra anche la copertura delle singole divisioni. Restano i rapporti per paese delle leghe e delle coppe nazionali.
+- Colonne F12 ATTUALE / PRIMA ASSUNZIONE / DOPO ASSUNZIONE: checkpoint transitori read-only attorno a primo ingaggio (immediato e dopo disoccupazione) e riassunzione; confronto per identita' OG (tipo, paese, slot, stagione), non per semplici totali. Segnala scomparsa, nuova comparsa, prontezza di consultazione persa/guadagnata, partite diminuite, fase regredita e duplicati. Il confronto successivo alla firma puo' essere rivalutato con F12 durante la stessa stagione: anomalie con ID nei log `[f12-hire-detail]`. Questi checkpoint NON entrano nei .CAR; dopo cambio stagione/nuova carriera/caricamento senza un checkpoint precedente il confronto e' N/D, mai PASS inventato.
+- `VIEW` verifica solo i prerequisiti strutturali per il viewer OG. La presenza effettiva nel menu e la navigazione B/A con manager assunto DEVONO ancora essere verificate su Windows: un torneo strutturalmente residente puo' restare nascosto dalla UI. Un controllo sulle classifiche aggregate segnala incoerenze, ma NON certifica ogni singolo incontro: gare previste/fixture con data sono indicate N/D finche' non esiste un registro OG consultabile e affidabile per quella coppa. Nessuna nuova simulazione o modifica agli algoritmi OG, ai risultati o ai save.
+- Test C isolato puro `test_expanded_f12_compare.c`: PASS per identita' sostituita a conteggio invariato, vista persa, regressione gare/fase e cambio stagione non confrontabile. Build Windows, menu visibili prima/dopo, progressione integrata e SAVE/CONTINUE: NON PROVATI dall'assistente.
+
+
 ## 0.13.72 — Verify SAVE/CAR read-only e prewrite OG
 - Eliminato il verificatore distruttivo del solo CAR SDL che azzerava 129 campi in caso di rifiuto reload; controlli read-only del file post-write e del JSON ancora in RAM prima del salvataggio atomico. Non cambiato schema 5, file validi compatibili, nessuna alterazione OG. Build Windows da provare.
 

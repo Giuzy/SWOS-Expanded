@@ -49,10 +49,33 @@ typedef struct {
     uint32_t cupInPhase[EXP_OG_DEBUG_REGIONS];
     uint32_t leagueIssues[EXP_OG_DEBUG_REGIONS];
     uint32_t internationalInPhase;
+    /* Genuine per-division coverage; Brazil's state tournaments are NOT
+     * included in country-level national league denominators. */
+    uint32_t divisionsExpected[EXP_OG_DEBUG_REGIONS];
+    uint32_t divisionsResident[EXP_OG_DEBUG_REGIONS];
+    uint32_t divisionsInPhase[EXP_OG_DEBUG_REGIONS];
+    uint32_t statesExpected,statesResident,statesInPhase,statesMatches;
+    /* Each UEFA title is checked separately. In 1996 slots 1 and 2 are
+     * Cup Winners' Cup and UEFA Cup, not modern Europa/Conference. */
+    uint32_t uefaExpected,uefaResident[3],uefaInPhase[3],uefaMatches[3];
+    uint32_t otherExpected,otherResident,otherInPhase,otherMatches;
+    /* Aggregate OG standings invariants only, never fixture-by-fixture
+     * certification where a date-specific ledger is unavailable. */
+    uint32_t resultsChecked,resultsIssues,fixturesUnavailable;
     uint16_t worldYear;
     uint8_t ready,phaseReady,nativePhase;
 } ExpandedOGDashboard;
 void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out);
+#include "expanded_f12_compare.h"
+typedef struct {
+    ExpandedOGDashboard before, after;
+    ExpandedF12Diff diff;
+    uint8_t beforeReady,afterReady;
+} ExpandedOGHireAudit;
+/* 0=just before a contract binds a manager, 1=after the bind.
+ * Snapshots are read-only and transient; they never enter .CAR files. */
+void Expanded_OGWorld_DebugHireCheckpoint(uint8_t after);
+void Expanded_OGWorld_DebugHireAudit(ExpandedOGHireAudit *out);
 /* Per-player goal counters in original resident OG league team files.
  * Not a second top scorers table: READ-ONLY inspector. */
 typedef struct {

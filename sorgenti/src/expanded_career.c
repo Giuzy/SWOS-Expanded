@@ -1301,6 +1301,9 @@ int Expanded_HandleSackingAfterMatch(void) {
         extern void Career_AttachManagerToClub(uint16_t);
         extern uint8_t _contestMenu[];
         extern void ActivateMenu(uint8_t *);
+#ifdef SWOS_SDL_BUILD
+        Expanded_OGWorld_DebugHireCheckpoint(0u);
+#endif
         Career_AttachManagerToClub(newTeam);
         { extern int Expanded_MidseasonJoin_AlignSeason(uint32_t);
           if (!Expanded_MidseasonJoin_AlignSeason(s_waitWeeks)) {
@@ -1334,6 +1337,7 @@ int Expanded_HandleSackingAfterMatch(void) {
               return 1;
           }
         }
+        Expanded_OGWorld_DebugHireCheckpoint(1u);
         /* A tester save roundtrip reloads OG competition contexts.
          * Never do it in the middle of the native cup catch-up loop:
          * finish() performs native-join-complete after success. */

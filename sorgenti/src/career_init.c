@@ -356,6 +356,11 @@ void ChooseTeamAndStartCareer(void)
         }
         fprintf(stderr,"[expanded11] InitCareer: starting team=%04x\n",(unsigned)offerTeam);
         fflush(stderr);
+#ifdef SWOS_SDL_BUILD
+        /* Snapshot BEFORE binding: diagnose lost/hidden resident OG contexts
+         * even when the tester never manually opened F12 unemployed. */
+        Expanded_OGWorld_DebugHireCheckpoint(0u);
+#endif
         InitCareer(offerTeam);
         /* InitCareer creates a fresh native 1996/97 season. An offer after
          * years of unemployment must use the CURRENT Living World season;
@@ -397,6 +402,7 @@ void ChooseTeamAndStartCareer(void)
               return;
           }
         }
+        Expanded_OGWorld_DebugHireCheckpoint(1u);
         /* DO NOT save/reload while the OG cup/league catch-up cursor is
          * active. VERIFY builds reload the just-saved .CAR and reconstruct
          * competition slot pointers; that invalidates the running native
@@ -426,8 +432,12 @@ void ChooseTeamAndStartCareer(void)
 #endif
             return;
         }
+#ifdef SWOS_SDL_BUILD
+        Expanded_OGWorld_DebugHireCheckpoint(0u);
+#endif
         InitCareer(_selectedTeamCountryNumber);
 #ifdef SWOS_SDL_BUILD
+        Expanded_OGWorld_DebugHireCheckpoint(1u);
         { extern void Expanded_AutoCareer_Save(const char *);
           Expanded_AutoCareer_Save("first-contract"); }
 #endif
@@ -442,8 +452,12 @@ void LoadLiverpool(void)
 {
     _coachOrPlayer = 1;
     Career_BeginNewCareer();
+#ifdef SWOS_SDL_BUILD
+    Expanded_OGWorld_DebugHireCheckpoint(0u);
+#endif
     InitCareer(0x811);
 #ifdef SWOS_SDL_BUILD
+    Expanded_OGWorld_DebugHireCheckpoint(1u);
     { extern void Expanded_AutoCareer_Save(const char *);
       Expanded_AutoCareer_Save("debug-new-career"); }
 #endif

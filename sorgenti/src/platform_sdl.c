@@ -2837,21 +2837,46 @@ static void diag_f12_end(const char *page) {
  * after unemployment FORWARD TIME, an accepted contract and CAR restore.
  * The panel uses the existing 5x7 bitmap with a 7px character advance:
  * no new PNG/font dependency, no submenus and no second simulation. */
-static void diag_f12_ratio(int x,int y,const char *name,
-                           uint32_t valid,uint32_t defined,
-                           uint32_t matches,int showMatches,uint32_t issues)
+/* Three directly comparable columns fit in the existing F12 panel.
+ * R/DEF = resident/defined, F = native phase alignment, G = OG games;
+ * no green cell certifies individual fixtures or menu navigation. */
+typedef struct {
+    uint32_t defined,resident,phase,matches,issues;
+} F12Row;
+static void diag_f12_cell(int x,int y,const char *name,F12Row r,int ready)
 {
-    char line[128];
-    if(showMatches)
-        snprintf(line,sizeof line,"%-14s %lu/%lu  GARE %lu ANOM %lu",name,
-                 (unsigned long)valid,(unsigned long)defined,
-                 (unsigned long)matches,(unsigned long)issues);
+    char line[108];
+    if(!ready) {
+        diag_f12_line(x,y,"N/D (NESSUNO SNAPSHOT)",162,180,193);
+        return;
+    }
+    if(name)
+        snprintf(line,sizeof line,"%-12.12s %lu/%lu F%lu G%lu",name,
+                 (unsigned long)r.resident,(unsigned long)r.defined,
+                 (unsigned long)r.phase,(unsigned long)r.matches);
     else
-        snprintf(line,sizeof line,"%-14s %lu/%lu",name,
-                 (unsigned long)valid,(unsigned long)defined);
-    if(!defined)diag_f12_line(x,y,line,162,180,193);
-    else if(valid==defined && !issues)diag_f12_line(x,y,line,100,232,145);
-    else diag_f12_line(x,y,line,255,118,118);
+        snprintf(line,sizeof line,"%lu/%lu  F%lu  G%lu",
+                 (unsigned long)r.resident,(unsigned long)r.defined,
+                 (unsigned long)r.phase,(unsigned long)r.matches);
+    if(!r.defined)diag_f12_line(x,y,line,162,180,193);
+    else if(r.resident==r.defined && r.phase==r.defined && !r.issues)
+        diag_f12_line(x,y,line,100,232,145);
+    else diag_f12_line(x,y,line,255,140,118);
+}
+static void diag_f12_triplet(int y,const char *name,
+                              F12Row now,F12Row before,F12Row after,
+                              int hasBefore,int hasAfter)
+{
+    diag_f12_cell(26,y,name,now,1);
+    diag_f12_cell(335,y,NULL,before,hasBefore);
+    diag_f12_cell(655,y,NULL,after,hasAfter);
+}
+static uint32_t diag_f12_games(const ExpandedOGDashboard *d)
+{
+    uint32_t games=d->internationalMatches;
+    for(unsigned i=0;i<EXP_OG_DEBUG_REGIONS;++i)
+        games+=d->leagueMatches[i]+d->cupMatches[i];
+    return games;
 }
 static void draw_world_debug_overlay(void)
 {
@@ -2872,28 +2897,25 @@ static void draw_world_debug_overlay(void)
     SDL_RenderFillRect(s_renderer,&panel);
     SDL_SetRenderDrawColor(s_renderer,70,149,181,255);
     SDL_RenderDrawRect(s_renderer,&panel);
-    SDL_RenderDrawLine(s_renderer,479,110,479,509);
+    SDL_RenderDrawLine(s_renderer,323,103,323,515);
+    SDL_RenderDrawLine(s_renderer,644,103,644,515);
 
-    char line[128];
-    diag_f12_line(26,26,"F12 / MONDO OG IN TEMPO REALE",88,207,255);
-    snprintf(line,sizeof line,"MONDO %s  BUILD %s",
-             World_Tag(),SWOS_EXPANDED_VERSION);
-    diag_f12_line(26,50,line,226,236,245);
+    char line[160];
+    diag_f12_line(26,25,"F12 / MONDO OG - RESIDENZA E AVANZAMENTO",88,207,255);
+    snprintf(line,sizeof line,"MONDO %s  BUILD %s",World_Tag(),
+             SWOS_EXPANDED_VERSION);
+    diag_f12_line(26,44,line,226,236,245);
 
     ExpandedOGDashboard d;
     Expanded_OGWorld_Dashboard(&d);
+    ExpandedOGHireAudit hire;
+    Expanded_OGWorld_DebugHireAudit(&hire);
     ExpandedLiveCalendarState date;
     const int calendar=ExpandedWorldLive_CalendarState(&date);
     if(calendar) {
-        /* Week 1 begins on 1 July of the CURRENT native OG season.
-         * Do not use ExpandedWorldLive_Weeks(): that is the cumulative
-         * number of weeks since the first career START, not the
-         * season's week after a transition or a restored .CAR. */
         const unsigned season=(unsigned)(date.today.year-
                                        (date.today.month<7u?1u:0u));
-        const ExpandedWorldDate seasonStart={
-            (uint16_t)season,7u,1u
-        };
+        const ExpandedWorldDate seasonStart={(uint16_t)season,7u,1u};
         uint32_t week=0u;
         const int hasWeek=ExpandedWorld_SeasonWeek(
             seasonStart,date.today,&week);
@@ -2908,69 +2930,135 @@ static void draw_world_debug_overlay(void)
                      "DATA %04u/%02u/%02u  SETTIMANA N/D  STAGIONE OG %u",
                      (unsigned)date.today.year,(unsigned)date.today.month,
                      (unsigned)date.today.day,(unsigned)d.worldYear);
-        if(!d.ready || season!=d.worldYear || !hasWeek)
-            diag_f12_line(26,74,line,255,118,118);
-        else
-            diag_f12_line(26,74,line,100,232,145);
+        diag_f12_line(26,63,line,
+                      (!d.ready || season!=d.worldYear || !hasWeek)?255:100,
+                      (!d.ready || season!=d.worldYear || !hasWeek)?118:232,
+                      (!d.ready || season!=d.worldYear || !hasWeek)?118:145);
     } else
-        diag_f12_line(26,74,"DATA NON DISPONIBILE",255,118,118);
-
+        diag_f12_line(26,63,"DATA NON DISPONIBILE",255,118,118);
     if(!d.ready) {
-        diag_f12_line(26,125,
-             "OG NON RESIDENTE - AVVIA O RICARICA UNA CARRIERA",
-             255,118,118);
-        diag_f12_line(26,157,
-             "NESSUNA COMPETIZIONE CONSIDERATA CARICATA SENZA OG",
-             226,236,245);
+        diag_f12_line(26,85,"OG NON RESIDENTE - AVVIA O RICARICA CARRIERA",
+                      255,118,118);
+        diag_f12_line(26,110,"NESSUNA VERIFICA ESEGUITA",162,180,193);
         diag_f12_end("F12_OG_WORLD");
         goto finish;
     }
+    snprintf(line,sizeof line,
+             "FASE OG %s%u  /  PRIMA E DOPO: STESSO MONDO E STAGIONE",
+             d.phaseReady?"":"N/D ",(unsigned)d.nativePhase);
+    diag_f12_line(26,82,line,d.phaseReady?88:255,
+                  d.phaseReady?207:118,d.phaseReady?255:118);
+    diag_f12_line(26,109,"ATTUALE R/DEF F G",88,207,255);
+    diag_f12_line(335,109,"PRIMA ASSUNZIONE",88,207,255);
+    diag_f12_line(655,109,"DOPO ASSUNZIONE / ORA",88,207,255);
 
     static const char *const regions[EXP_OG_DEBUG_REGIONS]={
         "EUROPA","AFRICA","SUD AMERICA","NORD AMERICA","ASIA","OCEANIA"
     };
-    const int x1=26,x2=495;
-    if(d.phaseReady) {
-        snprintf(line,sizeof line,"FASE OG ATTESA %u - STATO RESIDENTE",
-                 (unsigned)d.nativePhase);
-        diag_f12_line(26,94,line,88,207,255);
-    } else
-        diag_f12_line(26,94,"FASE OG N/D - ORLOGI NON ALLINEATI",255,118,118);
-    diag_f12_line(x1,108,"CARICATE - PAESI COMPLETI",88,207,255);
-    diag_f12_line(x2,108,"AVANZAMENTO - IN FASE OG",88,207,255);
-    diag_f12_line(x1,130,"CAMPIONATI",226,236,245);
-    diag_f12_line(x2,130,"CAMPIONATI",226,236,245);
-    for(unsigned r=0;r<EXP_OG_DEBUG_REGIONS;++r) {
-        const int y=153+(int)r*23;
-        diag_f12_ratio(x1,y,regions[r],d.leagueResident[r],
-                       d.leagueExpected[r],0u,0,0u);
-        diag_f12_ratio(x2,y,regions[r],d.leagueInPhase[r],
-                       d.leagueExpected[r],d.leagueMatches[r],1,
-                       d.leagueIssues[r]);
+#define F12_LEAGUE(D,R) ((F12Row){(D).leagueExpected[R],(D).leagueResident[R],(D).leagueInPhase[R],(D).leagueMatches[R],(D).leagueIssues[R]})
+#define F12_CUP(D,R) ((F12Row){(D).cupExpected[R],(D).cupResident[R],(D).cupInPhase[R],(D).cupMatches[R],0u})
+#define F12_UEFA(D,K) ((F12Row){(D).uefaExpected?1u:0u,(D).uefaResident[K],(D).uefaInPhase[K],(D).uefaMatches[K],0u})
+#define F12_OTHER(D) ((F12Row){(D).otherExpected,(D).otherResident,(D).otherInPhase,(D).otherMatches,0u})
+#define F12_SOUTH(D) ((F12Row){(D).divisionsExpected[2],(D).divisionsResident[2],(D).divisionsInPhase[2],(D).leagueMatches[2],(D).leagueIssues[2]})
+#define F12_STATES(D) ((F12Row){(D).statesExpected,(D).statesResident,(D).statesInPhase,(D).statesMatches,0u})
+#define F12_NATIONS(D) ((F12Row){(D).nationalExpected,(D).nationalResident,(D).nationalAdvanced,(D).nationalMatches,0u})
+    diag_f12_line(26,127,"LEGHE NAZIONALI (PAESI COMPLETI)",226,236,245);
+    for(unsigned r=0;r<EXP_OG_DEBUG_REGIONS;++r)
+        diag_f12_triplet(142+(int)r*15,regions[r],
+            F12_LEAGUE(d,r),F12_LEAGUE(hire.before,r),
+            F12_LEAGUE(hire.after,r),hire.beforeReady,hire.afterReady);
+
+    diag_f12_line(26,235,"COPPE NAZIONALI (PAESI COMPLETI)",226,236,245);
+    for(unsigned r=0;r<EXP_OG_DEBUG_REGIONS;++r)
+        diag_f12_triplet(250+(int)r*15,regions[r],
+            F12_CUP(d,r),F12_CUP(hire.before,r),
+            F12_CUP(hire.after,r),hire.beforeReady,hire.afterReady);
+
+    diag_f12_line(26,344,"COPPE EUROPEE OG (SEPARATE)",226,236,245);
+    static const char *const modernUefa[3]={
+        "CHAMPIONS","EUROPA L.","CONFERENCE"
+    };
+    static const char *const classicUefa[3]={
+        "CHAMPIONS","COPPA COPPE","COPPA UEFA"
+    };
+    for(unsigned k=0;k<3u;++k)
+        diag_f12_triplet(359+(int)k*15,
+            (World_Current()==WORLD_9697?classicUefa:modernUefa)[k],
+            F12_UEFA(d,k),F12_UEFA(hire.before,k),
+            F12_UEFA(hire.after,k),hire.beforeReady,hire.afterReady);
+
+    diag_f12_line(26,404,"OTHER - COMPETIZIONI SEPARATE",226,236,245);
+    diag_f12_triplet(419,World_Current()==WORLD_9697?"LIBERTAD.96":"ALTRE INT",
+        F12_OTHER(d),F12_OTHER(hire.before),F12_OTHER(hire.after),
+        hire.beforeReady,hire.afterReady);
+    diag_f12_triplet(434,"SUD AM. DIV.",
+        F12_SOUTH(d),F12_SOUTH(hire.before),F12_SOUTH(hire.after),
+        hire.beforeReady,hire.afterReady);
+    diag_f12_triplet(449,"BR STATI",
+        F12_STATES(d),F12_STATES(hire.before),F12_STATES(hire.after),
+        hire.beforeReady,hire.afterReady);
+    diag_f12_triplet(464,"NAZIONALI",
+        F12_NATIONS(d),F12_NATIONS(hire.before),F12_NATIONS(hire.after),
+        hire.beforeReady,hire.afterReady);
+#undef F12_LEAGUE
+#undef F12_CUP
+#undef F12_UEFA
+#undef F12_OTHER
+#undef F12_SOUTH
+#undef F12_STATES
+#undef F12_NATIONS
+    snprintf(line,sizeof line,"RISULTATI: AGG OG %lu OK  %lu ANOM",
+             (unsigned long)d.resultsChecked,
+             (unsigned long)d.resultsIssues);
+    diag_f12_line(26,479,line,d.resultsIssues?255:226,
+                  d.resultsIssues?118:236,d.resultsIssues?118:245);
+    if(hire.beforeReady) {
+        snprintf(line,sizeof line,"AGG %lu OK  ANOM %lu",
+                 (unsigned long)hire.before.resultsChecked,
+                 (unsigned long)hire.before.resultsIssues);
+        diag_f12_line(335,479,line,226,236,245);
+    } else diag_f12_line(335,479,"N/D",162,180,193);
+    if(hire.afterReady) {
+        snprintf(line,sizeof line,"AGG %lu OK  ANOM %lu",
+                 (unsigned long)hire.after.resultsChecked,
+                 (unsigned long)hire.after.resultsIssues);
+        diag_f12_line(655,479,line,226,236,245);
+    } else diag_f12_line(655,479,"N/D",162,180,193);
+    snprintf(line,sizeof line,"GARE OG %lu / ATTESE N/D",
+             (unsigned long)diag_f12_games(&d));
+    diag_f12_line(26,494,line,162,180,193);
+    if(hire.beforeReady) {
+        snprintf(line,sizeof line,"GARE %lu / ATTESE N/D",
+                 (unsigned long)diag_f12_games(&hire.before));
+        diag_f12_line(335,494,line,162,180,193);
     }
-    diag_f12_line(x1,301,"COPPE NAZIONALI",226,236,245);
-    diag_f12_line(x2,301,"COPPE NAZIONALI",226,236,245);
-    for(unsigned r=0;r<EXP_OG_DEBUG_REGIONS;++r) {
-        const int y=324+(int)r*23;
-        diag_f12_ratio(x1,y,regions[r],d.cupResident[r],
-                       d.cupExpected[r],0u,0,0u);
-        diag_f12_ratio(x2,y,regions[r],d.cupInPhase[r],
-                       d.cupExpected[r],d.cupMatches[r],1,0u);
+    if(hire.afterReady) {
+        snprintf(line,sizeof line,"GARE %lu / ATTESE N/D",
+                 (unsigned long)diag_f12_games(&hire.after));
+        diag_f12_line(655,494,line,162,180,193);
     }
-    /* Other federated tournaments: a distinct section, not a seventh
-     * geographical region. Keep these denominators competition-based. */
-    diag_f12_line(x1,458,"OTHER",88,207,255);
-    diag_f12_line(x2,458,"OTHER",88,207,255);
-    diag_f12_ratio(x1,477,"COPPE INT",d.internationalResident,
-                   d.internationalExpected,0u,0,0u);
-    diag_f12_ratio(x2,477,"COPPE INT",d.internationalInPhase,
-                   d.internationalExpected,d.internationalMatches,1,0u);
-    diag_f12_ratio(x1,500,"NAZIONALI",d.nationalResident,
-                   d.nationalExpected,0u,0,0u);
-    diag_f12_ratio(x2,500,"NAZIONALI",d.nationalAdvanced,
-                   d.nationalExpected,d.nationalMatches,1,0u);
-    diag_f12_line(26,517,"IN FASE = OG AL GIORNO; NON PROVA SINGOLI RISULTATI; ANOM = CLASSIFICA",
-                  162,180,193);
+    if(!hire.beforeReady || !hire.afterReady || !hire.diff.comparable) {
+        diag_f12_line(26,509,"ASSUNZIONE: CONFRONTO N/D (SNAPSHOT NON DISPONIBILE)",
+                      162,180,193);
+    } else {
+        snprintf(line,sizeof line,
+                 "ASSUNZIONE: PERSI %lu NUOVI %lu VIEW- %lu VIEW+ %lu G- %lu F- %lu DUP %lu",
+                 (unsigned long)hire.diff.missing,
+                 (unsigned long)hire.diff.appeared,
+                 (unsigned long)hire.diff.viewLost,
+                 (unsigned long)hire.diff.viewGained,
+                 (unsigned long)hire.diff.matchesBack,
+                 (unsigned long)hire.diff.phaseBack,
+                 (unsigned long)hire.diff.duplicates);
+        const int problem=hire.diff.missing || hire.diff.viewLost ||
+                          hire.diff.matchesBack || hire.diff.phaseBack ||
+                          hire.diff.duplicates;
+        diag_f12_line(26,509,line,problem?255:100,
+                      problem?118:232,problem?118:145);
+    }
+    diag_f12_line(26,519,
+          "F=FASE OG, NON PROVA FIXTURE. VIEW=PRONTEZZA OG, MENU WINDOWS DA TESTARE.",
+          162,180,193);
     diag_f12_end("F12_OG_WORLD");
 finish:
     SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);

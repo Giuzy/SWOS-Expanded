@@ -1,5 +1,8 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+0.13.70_19 — Il driver nativo di NEXT MATCH / VIEW RESULT puo' essere riutilizzato per debug del calendario con club; fase mensile da data civile read-only e tick della carriera. Verificare in Windows equivalenza risultati e assenza di doppia simulazione.
+
+
 ## 17/11/2026 — 0.13.70_18: mese diagnostico in disoccupazione
 - L'unico FORWARD TIME cronologico gia' collegato agli stati OG si trova in `expanded_career.c::Expanded_UnemployedWait`. Il manager occupato usa `menus.c::PlayMatchMenu/NextMatch`, che non e' equivalente a un salto civile: un fast-forward diretto dell'impiegato rischierebbe di ignorare match del giocatore. Il debug mensile quindi usa la prima callback senza alterare il match engine.
 - `expanded_debug_month.h` offre funzione pura `ExpandedDebug_NextMonthBeforeSeason`: mese di calendario mantenendo il giorno, clamp per fine mese, clamp 30 giugno prima di cambio OG 1 luglio; ritorna 0 al limite senza toccare il parametro output. Il normale `Expanded_UnemployedWait` calcola ancora gli eventi OG in ordine e committa la data civile solo dopo conferma. Lo stato `s_debug_month_once` e' transitorio, non salvato.

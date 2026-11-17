@@ -1,5 +1,8 @@
 # SWOS Expanded — development procedures and rationale
 
+0.13.70_19 — Compilare su Windows e testare DEBUG +1 MONTH nella carriera 96 e 26. Confrontare giornate, risultati della propria squadra, F12, date, autosave e CONTINUE, fermando al 30 giugno. In caso di FAILED in SWOS.log usare solo salvataggi di prova. NON PROVATO.
+
+
 ## 17/11/2026 — diagnostica mese UNEMPLOYED e verifica cambio stagione
 - Build di codice 0.13.70_18: dopo START UNEMPLOYED (96 e 26), aprire F12 e vedere data/SETTIMANA/stagione. Usare il nuovo bottone `DEBUG +1 MONTH` (lato sinistro del calendario) fino al 30 giugno: verificare che ogni click conservi il giorno dove possibile, non superi il 30 giugno, e che il successivo click sia un NO-OP con `[debug-month] STOP_BEFORE_SEASON_CHANGE`. Poi premere `FORWARD TIME` normale per verificare il cambio stagione OG, confrontare F12 e stati delle competizioni.
 - Ripetere dopo salvataggio/ripresa .CAR dei due mondi, verificando nessun reset di competizioni, nessun doppio risultato. Shortcut F12+7/8 rimangono separati; il nuovo pulsante rifiuta di sovrapporsi agli stress test armati.

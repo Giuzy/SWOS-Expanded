@@ -1,5 +1,8 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+0.13.70_19 — Aggiunto DEBUG +1 MONTH alla carriera con club; usa il driver delle callback OG con controllo CPU temporaneo, oltre al precedente bottone UNEMPLOYED. Test Windows NON ESEGUITO.
+
+
 ## 0.13.70_18 — comando DEBUG +1 MONTH nel calendario disoccupato
 - Pulsante visibile e raggiungibile via selezione, mouse e controller nel clone UNEMPLOYED del calendario; il percorso della normale FORWARD TIME OG viene riusato, non duplicato. Un clic calcola un mese di calendario esatto, clamp a 30 giugno prima della transizione: nessun salto automatico di stagione, nessun risultato sintetico.
 - Aggiunta funzione pura testabile e test C `test_expanded_debug_month.c`; abilitazione ordinal13 nella difesa del menu. Non toccata la carriera con squadra, priva di un salto mensile che non salti i match del manager. Verifiche statiche e C isolato Linux non sostituiscono compilazione/test Windows.

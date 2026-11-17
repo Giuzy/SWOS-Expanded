@@ -1,5 +1,8 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+0.13.70_19: il calendario carriera occupata include DEBUG +1 MONTH, con simulazione tramite callback OG NEXT MATCH / VIEW RESULT e controllo CPU temporaneo. Target di un mese, arresto al 30 giugno. Doppie gare, sync mondo e salvataggi richiedono test Windows: NON PROVATO.
+
+
 ## 17/11/2026 — 0.13.70_18: DEBUG +1 MONTH nel calendario UNEMPLOYED (Windows NON PROVATO)
 - Aggiunta voce di menu `DEBUG +1 MONTH` nella colonna sinistra della schermata UNEMPLOYED (solo SDL/Expanded), riutilizzando l'ordinal 13 del clone contest e il rettangolo della vecchia TRANSFERS nascosta; menu CLASSIC, SEASON e carriera con club intatti.
 - Ogni click calcola il medesimo giorno del mese seguente; se il mese e' piu corto, limita all'ultimo giorno valido. Se la data attraverserebbe il 1 luglio, si ferma al 30 giugno. Dal 30 giugno click ulteriore non modifica stato e scrive `STOP_BEFORE_SEASON_CHANGE`; il successivo FORWARD TIME standard resta responsabilita' manuale dell'utente.

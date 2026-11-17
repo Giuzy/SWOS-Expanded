@@ -3819,6 +3819,29 @@ void ContestMenuOnReturn(void)
     CheckClubBusiness();
     CheckJobOffers();
     SetNationalSelectorButtons();
+#ifdef SWOS_SDL_BUILD
+    if(_gameType==GAME_TYPE_CAREER) {
+        extern void Expanded_CareerDebugMonthStart(MenuEntry *);
+        MenuEntry *debug=&_menuEntries[13];
+        MenuEntry *transfers=&_menuEntries[4];
+        debug->isInvisible=0;
+        debug->isDisabled=0;
+        debug->onSelect=Expanded_CareerDebugMonthStart;
+        debug->x=transfers->x;
+        debug->y=transfers->y>transfers->dwHeight+2u ?
+                 (uint16_t)(transfers->y-transfers->dwHeight-2u):0u;
+        debug->dwWidth=transfers->dwWidth;
+        debug->dwHeight=transfers->dwHeight;
+        debug->background=ENTRY_FRAME_AND_BACK_COLOR;
+        debug->content=ENTRY_STRING;
+        debug->bgColor=0x8;
+        debug->fg=(uintptr_t)"DEBUG +1 MONTH";
+        debug->stringFlags=(debug->stringFlags & ~0x0fu)|2u;
+        debug->leftEntry=9;debug->rightEntry=7;
+        debug->upEntry=7;debug->downEntry=4;
+        transfers->upEntry=13;
+    }
+#endif
 }
 
 /* ==========================================================================
@@ -3901,7 +3924,9 @@ void PlayMatchMenu(MenuEntry *callerEntry)
     /* Once the OG points, wages, cards and transfers have settled the
      * checkpoint is consistent. Never save in the 50 Hz match loop. */
 #ifdef SWOS_SDL_BUILD
-    Expanded_AutoCareer_Save("post-match");
+    { extern int Expanded_CareerDebugMonthActive(void);
+      if(!Expanded_CareerDebugMonthActive())
+          Expanded_AutoCareer_Save("post-match"); }
 #endif
     /* ContestMenuOnReturn_NoOp() — no-op, skip */
 

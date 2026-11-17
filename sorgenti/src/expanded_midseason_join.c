@@ -8,6 +8,9 @@
  */
 #include "expanded_midseason_join.h"
 #include "expanded_world_time.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_debug_month.h"
+#endif
 #include "world.h"
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_live.h"
@@ -142,6 +145,10 @@ extern void SetCurrentEntry(uint16_t ordinal);
 extern MenuEntry *CalcMenuEntryAddress(uint16_t ordinal);
 
 static uint8_t s_active,s_old_controls,s_target_key;
+static int s_debug_career_month;
+static ExpandedWorldDate s_debug_career_target;
+int Expanded_CareerDebugMonthActive(void) {return s_debug_career_month;}
+
 static uint32_t s_passes,s_elapsed_weeks,s_actions,s_forced_simulations;
 static uint32_t s_league_exits;
 static int s_direct_league_import;
@@ -357,7 +364,7 @@ void Expanded_MidseasonJoin_RecordForcedSimulation(void) {
     if (s_active) ++s_forced_simulations;
 }
 
-int Expanded_MidseasonJoin_Active(void) { return s_active!=0; }
+int Expanded_MidseasonJoin_Active(void) { return s_active!=0 && !s_debug_career_month; }
 int Expanded_MidseasonJoin_LastResult(void) { return s_last_result; }
 int Expanded_MidseasonJoin_LastKey(void) { return s_last_key; }
 uint32_t Expanded_MidseasonJoin_HistoricalCupEvents(void) {
@@ -440,6 +447,29 @@ static int choose_action(MenuEntryFn fn) {
 }
 
 static void finish(int reached,int key) {
+    if(s_debug_career_month) {
+        const ExpandedWorldDate target=s_debug_career_target;
+        const uint32_t actions=s_actions,passes=s_passes;
+        s_debug_career_month=0;
+        s_active=0;
+        _careerTeam.team.teamControls=s_old_controls;
+        _shortFire=0;_fire=0;_pl1Fire=0;
+        if(reached) {
+            extern int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate);
+            if(!Expanded_OGWorld_AdvanceToDate(target) ||
+               !ExpandedWorldLive_AdvanceToDate(target))
+                reached=0;
+        }
+        fprintf(stderr,"[debug-month-career] %s target=%04u-%02u-%02u key=%d actions=%lu passes=%lu\n",
+                reached?"COMPLETED":"FAILED",(unsigned)target.year,
+                (unsigned)target.month,(unsigned)target.day,key,
+                (unsigned long)actions,(unsigned long)passes);
+        if(reached) {
+            extern void Expanded_AutoCareer_Save(const char *);
+            Expanded_AutoCareer_Save("debug-career-month");
+        }
+        return;
+    }
     const uint8_t actual=Expanded_Career_NativeCalendarKey();
     if(reached && !Expanded_MidseasonJoin_HandoffReached(s_target_key,actual)) {
         fprintf(stderr,"[midseason] FAIL EARLY_HANDOFF target=%u actual=%u "
@@ -753,6 +783,50 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
     fflush(stderr);
 }
 
+
+/* Debug CAREER uses the original native NEXT MATCH / VIEW RESULT handlers.
+ * The month is transient and stops before a 1 July season transition. */
+void Expanded_CareerDebugMonthStart(MenuEntry *unused) {
+    extern uintptr_t _currentMenuPtr;
+    extern uint8_t _contestMenu[];
+    extern int CareerAutopilot_Active(void);
+    ExpandedLiveCalendarState live;
+    ExpandedWorldDate target;
+    uint8_t cutoff=0;
+    uint16_t season;
+    (void)unused;
+    if(_gameType!=4 || _currentMenuPtr!=(uintptr_t)_contestMenu ||
+       s_active || CareerAutopilot_Active() ||
+       !ExpandedWorldLive_CalendarState(&live)) {
+        fprintf(stderr,"[debug-month-career] BLOCKED invalid state\n");
+        return;
+    }
+    if(!ExpandedDebug_NextMonthBeforeSeason(live.today,&target)) {
+        fprintf(stderr,"[debug-month-career] STOP_BEFORE_SEASON_CHANGE\n");
+        return;
+    }
+    season=(uint16_t)(live.today.year-(live.today.month<7u?1u:0u));
+    if(season!=(uint16_t)(World_FirstYear()+_currentSeasonShowing) ||
+       !ExpandedWorld_DateToNativePhaseNext(season,target,&cutoff) ||
+       cutoff>55u || _teamSelectionKeyCacheCount>256u) {
+        fprintf(stderr,"[debug-month-career] BLOCKED native phase mismatch\n");
+        return;
+    }
+    s_debug_career_target=target;
+    s_target_key=cutoff;
+    s_old_controls=_careerTeam.team.teamControls;
+    s_passes=s_actions=s_forced_simulations=s_league_exits=0u;
+    s_direct_league_import=0;
+    s_complete_season_handoff=0;
+    s_debug_career_month=1;
+    s_active=1;
+    _careerTeam.team.teamControls=1; /* CPU-controlled OG VIEW RESULT */
+    _fire=0; _shortFire=0; _pl1Fire=0;
+    fprintf(stderr,"[debug-month-career] BEGIN target=%04u-%02u-%02u native-cutoff=%u\n",
+            (unsigned)target.year,(unsigned)target.month,
+            (unsigned)target.day,(unsigned)cutoff);
+}
+
 void Expanded_MidseasonJoin_Tick(void) {
     if (!s_active) return;
     /* Sample only on actual cursor/phase changes, not every SDL frame.
@@ -775,6 +849,11 @@ void Expanded_MidseasonJoin_Tick(void) {
     const Menu *m=(const Menu *)_currentMenu;
     if (!m) { finish(0,-3); return; }
     if (m->onInit==ContestMenuInit) {
+        if(s_debug_career_month && (_careerFinished || _seasonFinished ||
+           !_teamSelectionKeyCacheCount ||
+           _teamSelectionKeyCacheIndex>=_teamSelectionKeyCacheCount)) {
+            finish(1,(int)Expanded_Career_NativeCalendarKey());return;
+        }
         if ((_careerFinished || _seasonFinished) &&
             s_complete_season_handoff && s_direct_league_import) {
             finish(1,(int)_lastFinancialWeekIndex);
@@ -835,6 +914,9 @@ void Expanded_MidseasonJoin_Tick(void) {
         return;
     }
     if(m->onInit==CareerOverInit) {
+        if(s_debug_career_month) {
+            finish(1,(int)Expanded_Career_NativeCalendarKey());return;
+        }
         /* The last original fixture has genuinely completed. Returning to
          * native season-end UI is correct for an offseason hire, provided
          * that its entire league table came from the canonical world. */

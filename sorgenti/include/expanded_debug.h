@@ -25,6 +25,28 @@ typedef struct {
 } ExpandedOGCupAudit;
 void Expanded_OGWorld_Audit(ExpandedOGWorldAudit *out);
 void Expanded_OGWorld_CupAudit(ExpandedOGCupAudit *out);
+/* F12 single-page world coverage: each regional ratio counts COUNTRIES whose
+ * complete OG league/cup set is resident in the current season. Match progress
+ * counts countries with OG results; totals are original OG match counters.
+ * International/national ratios count COMPETITIONS, not countries. */
+#define EXP_OG_DEBUG_REGIONS 6
+typedef struct {
+    uint32_t leagueExpected[EXP_OG_DEBUG_REGIONS];
+    uint32_t leagueResident[EXP_OG_DEBUG_REGIONS];
+    uint32_t leagueAdvanced[EXP_OG_DEBUG_REGIONS];
+    uint32_t leagueMatches[EXP_OG_DEBUG_REGIONS];
+    uint32_t cupExpected[EXP_OG_DEBUG_REGIONS];
+    uint32_t cupResident[EXP_OG_DEBUG_REGIONS];
+    uint32_t cupAdvanced[EXP_OG_DEBUG_REGIONS];
+    uint32_t cupMatches[EXP_OG_DEBUG_REGIONS];
+    uint32_t internationalExpected,internationalResident;
+    uint32_t internationalAdvanced,internationalMatches;
+    uint32_t nationalExpected,nationalResident;
+    uint32_t nationalAdvanced,nationalMatches;
+    uint16_t worldYear;
+    uint8_t ready;
+} ExpandedOGDashboard;
+void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out);
 /* Per-player goal counters in original resident OG league team files.
  * Not a second top scorers table: READ-ONLY inspector. */
 typedef struct {

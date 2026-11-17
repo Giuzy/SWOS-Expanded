@@ -1,5 +1,11 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_16 — F12 mondo OG unico con SETTIMANA
+- Codice UI read-only F12 unica, con copertura e avanzamento per 6 regioni, coppe INT e nazionali; elimina le pagine F12+C / F10 ispettore, conserva F9 screenshot e l'originale Arcade F10. Usa 5x7 sprite font interno, stesso renderer e 960x540. Non genera fixture, non converte salvataggi, non altera gameplay.
+- Giorno/mese/anno, settimana stagionale 1-based calcolata dal 1 luglio e anno OG affiancati. Il +1 MESE nel calendario carriera rimane separato e NON implementato in questa build.
+- Conteggi per nazioni con tutte le competizioni definite del gruppo residenti; avanzamento: nazioni con almeno una gara OG per ogni competizione, affiancando gare native osservate. INT/Nazionali per torneo, non per paese. Mock PNG con valori illustrativi; niente Windows test. Commit autorizzato dall'utente; Windows ancora da compilare e provare.
+
+
 ## 0.13.70_15 — mitigazione puntatori legacy durante il primo autosave + diagnosi
 - Dalle sessioni Windows _14 osservato crash accesso `0xEC0` all'entrata nel club sia 96 sia 26, dopo il binding OG e prima di `InitCareer` completato. Il codice sospetto è il primo autosave, che la _14 ora prova a serializzare prima di archiviarne il vecchio file.
 - Guard SDL x64 per stringhe storiche dal puntatore impossibile (NULL escluso, basse 64KiB, sentinelle); limite al numero dei `careerContests` salvati, scrittura di [] e messaggio diagnostico se copia irrisolvibile. Trace per stadi del writer abilitata solo quando `SWOS_DIAGNOSTIC_CAPTURE` è presente. Test C minimale del filtro PASS, Windows e reale sblocco crash NON PROVATI.

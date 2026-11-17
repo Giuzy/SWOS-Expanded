@@ -3915,6 +3915,210 @@ void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out)
 #endif
     }
 }
+/* F12 dashboard: all counters below are READ-ONLY. Coverage is per-country
+ * and complete only when every defined OG division/cup slot for that country
+ * has a current-year resident native context. No fixture generation, reset,
+ * readjusted date, data imports or RNG consumption is allowed here. */
+static int exp_debug_region(uint8_t country)
+{
+    extern QualifyingGroup _europeTable,_africaTable,_southAmericaTable;
+    extern QualifyingGroup _northAmericaTable,_asiaTable,_oceaniaTable;
+    const QualifyingGroup *const original[EXP_OG_DEBUG_REGIONS]={
+        &_europeTable,&_africaTable,&_southAmericaTable,
+        &_northAmericaTable,&_asiaTable,&_oceaniaTable
+    };
+    for(unsigned region=0;region<EXP_OG_DEBUG_REGIONS;++region) {
+        const uint8_t *countries=World_ContinentCountries((uint8_t)(80u+region));
+        unsigned cap=128u; /* world list is 255-terminated */
+        if(!countries) {
+            countries=(const uint8_t *)original[region]->countries;
+            cap=(unsigned)sizeof(original[region]->countries) /
+                (unsigned)sizeof(original[region]->countries[0]);
+        }
+        for(unsigned i=0;i<cap && countries[i]!=255u;++i)
+            if(countries[i]==country)return (int)region;
+    }
+    return -1; /* A country outside the active world's region table is NOT guessed. */
+}
+static int exp_debug_live_league(const ExpandedOGLeague *c,uint16_t year)
+{
+    return c->used && c->year==year && c->teamCount>=2u &&
+        c->teamCount<=EXP_OG_MAX_TEAMS &&
+        c->comp.base.competitionType==0 &&
+        c->comp.base.numTeams>=2;
+}
+static int exp_debug_live_cup(const ExpandedOGCup *c,uint16_t year)
+{
+    return c->used && c->year==year && !c->managed_excluded &&
+        !c->unsupported_setup && c->teamCount>=2u &&
+        c->teamCount<=EXP_OG_MAX_CUP_TEAMS;
+}
+static unsigned exp_debug_count_competitions(Competition *const *v,unsigned cap)
+{
+    unsigned count=0;
+    for(unsigned i=0;i<cap;++i) {
+        const uintptr_t ptr=(uintptr_t)v[i];
+        if(!ptr || ptr==(uintptr_t)-1)break;
+        if(ptr<(uintptr_t)0x10000u)continue; /* native table special markers */
+        ++count;
+    }
+    return count;
+}
+void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
+{
+    extern int Expanded_OGWorld_SaveStarted(void);
+    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    extern uint8_t _careerCompetitionIdRemapTable[];
+    extern void *_competitionsTable[];
+    extern QualifyingGroup _worldTable,_worldCupQualifyingGroups,_ecQualifyingGroups;
+    extern QualifyingGroup _africaTable,_southAmericaTable,_northAmericaTable;
+    extern QualifyingGroup _asiaTable,_oceaniaTable;
+    extern Competition *_continentalCups[];
+    if(!out)return;
+    memset(out,0,sizeof(*out));
+    if(_gameType!=4 || !Expanded_OGWorld_SaveStarted())return;
+    out->ready=1u;
+    out->worldYear=Expanded_OGWorld_SaveYear();
+    const uint16_t year=out->worldYear;
+    const uint8_t *countries=World_SeasonCountries();
+    if(!countries)countries=_careerCompetitionIdRemapTable;
+
+    int32_t worldCupDefs=0;
+    const WorldCup *worldCups=World_Cups(&worldCupDefs);
+    for(unsigned i=0;countries && i<256u && countries[i]!=255u;++i) {
+        const uint8_t country=countries[i];
+        const int region=exp_debug_region(country);
+        if(region<0)continue;
+        const void *const *table=(const void *const *)_competitionsTable[country];
+        if(!table)continue;
+
+        unsigned divisions=0,liveDivisions=0,advancedDivisions=0;
+        const uintptr_t first=(uintptr_t)table[0];
+        if(first>0x10000u && first!=(uintptr_t)-1 &&
+           first!=(uintptr_t)-2) {
+            const Competition *rec=(const Competition *)first;
+            if(rec->type==0 && !comp_is_type0_cup(rec->compId)) {
+                const CompetitionLeague *league=(const CompetitionLeague *)rec;
+                const unsigned count=league->header.divisionsCount;
+                if(count>=1u && count<=16u) {
+                    for(unsigned d=0;d<count;++d) {
+                        if(league->divisions[d].teams<2u)continue;
+                        ++divisions;
+                        for(uint32_t j=0;j<s_expOGCount;++j) {
+                            const ExpandedOGLeague *ctx=&s_expOG[j];
+                            if(ctx->country!=country || ctx->division!=d ||
+                               !exp_debug_live_league(ctx,year))continue;
+                            ++liveDivisions;
+                            out->leagueMatches[region]+=
+                                (uint32_t)ctx->comp.matchesPlayedCount;
+                            if(ctx->comp.matchesPlayedCount>0u)++advancedDivisions;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        /* The Mod also defines thirteen Brazilian STATE championships.
+         * They are genuine league definitions but not yet resident OG
+         * competitions. Never mark Brazil complete merely because its
+         * national first division loaded successfully. */
+        const WorldStates *stateWorld=World_States(country);
+        if(stateWorld && stateWorld->contest && stateWorld->states>0u)
+            divisions+=(unsigned)stateWorld->states;
+        if(divisions) {
+            ++out->leagueExpected[region];
+            if(liveDivisions==divisions)++out->leagueResident[region];
+            if(advancedDivisions==divisions)++out->leagueAdvanced[region];
+        }
+
+        /* Two OG national-cup slots, plus the active Mod's explicit cup
+         * definitions (which may not yet have been connected to the table).
+         * Slot 1 in WorldCup == table[2]; slot 2 == table[3]. */
+        unsigned expectedMask=0u;
+        for(unsigned slot=2;slot<=3u;++slot) {
+            const uintptr_t ptr=(uintptr_t)table[slot];
+            if(!ptr || ptr==(uintptr_t)-1)break;
+            if(ptr==(uintptr_t)-2 || ptr<0x10000u)continue;
+            if(((const Competition *)ptr)->type==1)
+                expectedMask|=1u<<(slot-2u);
+        }
+        for(int32_t j=0;worldCups && j<worldCupDefs;++j)
+            if(worldCups[j].country==country &&
+               worldCups[j].slot>=1u && worldCups[j].slot<=2u)
+                expectedMask|=1u<<(worldCups[j].slot-1u);
+        if(expectedMask) {
+            unsigned residentMask=0u,advancedMask=0u;
+            ++out->cupExpected[region];
+            for(uint32_t j=0;j<s_expOGCupCount;++j) {
+                const ExpandedOGCup *ctx=&s_expOGCups[j];
+                if(ctx->country!=country || ctx->slot<2u ||
+                   ctx->slot>3u || !exp_debug_live_cup(ctx,year))
+                    continue;
+                const unsigned bit=1u<<(ctx->slot-2u);
+                if(!(expectedMask&bit) || (residentMask&bit))continue;
+                residentMask|=bit;
+                out->cupMatches[region]+=ctx->matchesPlayed;
+                if(ctx->matchesPlayed)advancedMask|=bit;
+            }
+            if((residentMask&expectedMask)==expectedMask)
+                ++out->cupResident[region];
+            if((advancedMask&expectedMask)==expectedMask)
+                ++out->cupAdvanced[region];
+        }
+    }
+
+    /* European club competitions live in the three dedicated OG contexts.
+     * In the historical era the second context is the distinct 1996 Copa
+     * Libertadores, and two more European cups are in native cup contexts
+     * with country 254. Modern extra-European CT definitions are NOT counted
+     * resident until they have individual native contexts and match state. */
+    const int historical=World_Current()==WORLD_9697;
+    int32_t nConti=0;
+    (void)World_ContiCups(&nConti);
+    out->internationalExpected=historical?4u:
+        (uint32_t)(3+(nConti>0?nConti:0));
+    for(unsigned k=0;k<(historical?2u:3u);++k) {
+        const ExpandedOGLeague *ctx=&s_expOGUefa[k];
+        if(!ctx->used || ctx->year!=year ||
+           ctx->teamCount<2u || ctx->teamCount>EXP_OG_MAX_TEAMS ||
+           ctx->comp.base.competitionType!=2)continue;
+        ++out->internationalResident;
+        out->internationalMatches+=(uint32_t)ctx->comp.matchesPlayedCount;
+        if(ctx->comp.matchesPlayedCount>0u)++out->internationalAdvanced;
+    }
+    if(historical) {
+        for(uint32_t j=0;j<s_expOGCupCount;++j) {
+            const ExpandedOGCup *ctx=&s_expOGCups[j];
+            if(ctx->country!=254u || ctx->slot<1u || ctx->slot>2u ||
+               !exp_debug_live_cup(ctx,year))continue;
+            ++out->internationalResident;
+            out->internationalMatches+=ctx->matchesPlayed;
+            if(ctx->matchesPlayed)++out->internationalAdvanced;
+        }
+    }
+
+    /* National-team finals and qualifying competitions are definitions
+     * only in the CURRENT worldwide resident architecture. Count genuine
+     * source definitions; never call them resident because a PRESET viewer
+     * exists or the manager has an unrelated local slot. */
+    out->nationalExpected+=exp_debug_count_competitions(
+        _worldTable.compCup,9u);
+    out->nationalExpected+=exp_debug_count_competitions(
+        _continentalCups,7u);
+    out->nationalExpected+=exp_debug_count_competitions(
+        _worldCupQualifyingGroups.compCup,9u);
+    out->nationalExpected+=exp_debug_count_competitions(
+        _ecQualifyingGroups.compCup,9u);
+    QualifyingGroup *const regionalQualifiers[5]={
+        &_africaTable,&_southAmericaTable,&_northAmericaTable,
+        &_asiaTable,&_oceaniaTable
+    };
+    for(unsigned k=0;k<5u;++k) {
+        const uintptr_t ptr=(uintptr_t)regionalQualifiers[k]->compCup[0];
+        if(ptr>0x10000u && ptr!=(uintptr_t)-1)++out->nationalExpected;
+    }
+}
+
 static ExpandedOGLeague *exp_find(uint8_t country,uint8_t division,uint16_t year) {
     for(uint32_t i=0;i<s_expOGCount;++i)
         if((s_expOG[i].used || s_expOG[i].lastMatch==0xfeu) &&

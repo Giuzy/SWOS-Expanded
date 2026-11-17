@@ -455,11 +455,8 @@ static volatile Uint32 s_last_main_render_ms;
  * In all cases the request is processed inside Platform_RenderFrame while
  * the render mutex is held, so the captured ARGB buffer is consistent. */
 static volatile int s_screenshot_request;
-/* F12 text diagnostic + F9 capture of final presented pixels. */
+/* One F12 read-only OG dashboard; no obsolete F12+C / F10 subpages. */
 static volatile int s_world_debug_visible;
-/* F12+C switches to read-only OG cup evidence. Never alters DIY/OG state. */
-static volatile int s_world_debug_cup_page;
-static volatile int s_world_debug_import_page;
 /* Debug-only fast real match: every original game frame runs normally at
  * four times the wall-clock rate. No result teleport or changed physics. */
 static volatile int s_debug_match_fast;
@@ -1565,7 +1562,7 @@ int Platform_Init(const PlatformInitOptions *opts)
         }
     }
     fprintf(stderr,
-        "[screenshot] F9 = final PNG incl. F12 world debug; F12 = toggle debug; "
+        "[screenshot] F9 = final PNG incl. single-page F12 OG dashboard; F12 = toggle; "
         "F11/PrintScreen = legacy screenshot. "
         "(env SWOS_SCREENSHOT_INTERVAL=N for auto-capture every N frames, "
         "SWOS_PRESENT_CAPTURE=N for the presented output)\n");
@@ -2133,21 +2130,7 @@ static void pump_events_any_thread(void)
             }
             if (ev.key.repeat == 0 && ev.key.keysym.sym == SDLK_F12) {
                 s_world_debug_visible = !s_world_debug_visible;
-                if(!s_world_debug_visible)s_world_debug_import_page=0;
                 continue;
-            }
-            if(ev.key.repeat==0 && ev.key.keysym.sym==SDLK_F10) {
-                extern uint16_t _gameType;
-                extern volatile uint16_t _playGame;
-                extern volatile uintptr_t _currentMenuPtr;
-                extern uint8_t *Expanded_UnemployedCalendarPointer(void);
-                /* Preserve the original Arcade F10 during gameplay/attract. */
-                if(!_playGame && (_gameType==4 ||
-                   _currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarPointer())) {
-                    s_world_debug_import_page=!s_world_debug_import_page;
-                    s_world_debug_visible=s_world_debug_import_page?1:0;
-                    continue;
-                }
             }
             if (ev.key.repeat == 0 && ev.key.keysym.sym == SDLK_F9) {
                 /* Capture final renderer output, including the diagnostic.
@@ -2157,10 +2140,6 @@ static void pump_events_any_thread(void)
             }
             if (ev.key.repeat == 0 && s_world_debug_visible) {
                 SDL_Keycode code = ev.key.keysym.sym;
-                if (code == SDLK_c) {
-                    s_world_debug_cup_page=!s_world_debug_cup_page;
-                    continue;
-                }
                 if (code == SDLK_7 || code == SDLK_KP_7) {
                     /* Arm, don't mutate modal menus inside SDL_PollEvent.
                      * Next UNEMPLOYED/FORWARD TIME uses the same world tick. */
@@ -2706,6 +2685,8 @@ static const uint8_t splash_glyphs[][7]={
     {0x11,0x11,0x11,0x11,0x11,0x0A,0x04}, /* V */
     {0x11,0x11,0x11,0x15,0x15,0x15,0x0A}, /* W */
     {0x11,0x11,0x0A,0x04,0x04,0x04,0x04}, /* Y */
+    {0x1F,0x01,0x02,0x04,0x08,0x10,0x1F}, /* Z */
+    {0x00,0x00,0x00,0x00,0x00,0x00,0x1F}, /* _ */
 };
 static int splash_glyph_index(char c)
 {
@@ -2717,7 +2698,8 @@ static int splash_glyph_index(char c)
       case 'R':return 25;case 'H':return 26;case ':':return 27;case '/':return 28;
       case ' ':return 29;case 'B':return 30;case 'M':return 31;case 'X':return 32;
       case 'F':return 33;case 'K':return 34;case 'V':return 35;
-      case 'W':return 36;case 'Y':return 37;
+      case 'W':return 36;case 'Y':return 37;case 'Z':return 38;
+      case '_':return 39;
       default:return -1;}
 }
 static void splash_text(int x,int y,const char *txt)
@@ -2799,11 +2781,11 @@ static void draw_midseason_catchup_overlay(void)
     SDL_RenderSetViewport(s_renderer,&oldvp);
     SDL_SetRenderDrawBlendMode(s_renderer,oldblend);
 }
-/* Optional F12/F10/F12+C text snapshots into the ordinary SWOS.log.
- * When started through AVVIA_DIAGNOSTICA.bat the player only needs to
- * open each debug page; no PNG or screenshot transcriptions are needed.
- * Throttle to at most one snapshot per 5 seconds/page, and log only
- * changed content. Rendering and gameplay inputs are unchanged. */
+/* Optional single-page F12 world snapshot into SWOS.log.
+ * With AVVIA_DIAGNOSTICA.bat, a stable OG ratio can be checked before/after
+ * FORWARD TIME or CONTINUE by opening F12. The screen redraws every frame;
+ * only the log snapshot is throttled to at most once every five seconds.
+ * No additional data-inspector submenu or gameplay mutation here. */
 static int s_diag_f12_enabled=-1;
 static char s_diag_f12_buffer[16384];
 static size_t s_diag_f12_length;
@@ -2850,14 +2832,31 @@ static void diag_f12_end(const char *page) {
             (unsigned long)s_diag_f12_length,s_diag_f12_buffer,page);
     fflush(stderr);
 }
-/* Read-only F12 diagnostics for the ONE native OpenSWOS world.
- * Do not use the old LWE fixture/standings counters as gameplay evidence.
- * F10 displays data definitions; F12+C explains missing resident OG cups. */
+/* The one F12 dashboard never calls OG advancement. All rows are rebuilt
+ * from the CURRENT world's resident states every rendered frame, including
+ * after unemployment FORWARD TIME, an accepted contract and CAR restore.
+ * The panel uses the existing 5x7 bitmap with a 7px character advance:
+ * no new PNG/font dependency, no submenus and no second simulation. */
+static void diag_f12_ratio(int x,int y,const char *name,
+                           uint32_t valid,uint32_t defined,
+                           uint32_t matches,int showMatches)
+{
+    char line[128];
+    if(showMatches)
+        snprintf(line,sizeof line,"%-14s %lu/%lu  GARE %lu",name,
+                 (unsigned long)valid,(unsigned long)defined,
+                 (unsigned long)matches);
+    else
+        snprintf(line,sizeof line,"%-14s %lu/%lu",name,
+                 (unsigned long)valid,(unsigned long)defined);
+    if(!defined)diag_f12_line(x,y,line,162,180,193);
+    else if(valid==defined)diag_f12_line(x,y,line,100,232,145);
+    else diag_f12_line(x,y,line,255,118,118);
+}
 static void draw_world_debug_overlay(void)
 {
-    if (!s_world_debug_visible || !s_renderer) return;
+    if(!s_world_debug_visible || !s_renderer)return;
     diag_f12_begin();
-#define splash_text_tinted(x,y,msg,r,g,b) diag_f12_line(x,y,msg,r,g,b)
     int oldw=0,oldh=0;
     float oldsx=1.0f,oldsy=1.0f;
     SDL_Rect oldvp;
@@ -2868,174 +2867,103 @@ static void draw_world_debug_overlay(void)
     SDL_GetRenderDrawBlendMode(s_renderer,&oldblend);
     SDL_RenderSetLogicalSize(s_renderer,960,540);
     SDL_SetRenderDrawBlendMode(s_renderer,SDL_BLENDMODE_BLEND);
-    SDL_SetRenderDrawColor(s_renderer,8,18,28,222);
-    SDL_Rect left={12,12,465,516},right={483,12,465,516};
-    SDL_RenderFillRect(s_renderer,&left);
-    SDL_RenderFillRect(s_renderer,&right);
+    SDL_SetRenderDrawColor(s_renderer,8,18,28,235);
+    SDL_Rect panel={12,12,936,516};
+    SDL_RenderFillRect(s_renderer,&panel);
     SDL_SetRenderDrawColor(s_renderer,70,149,181,255);
-    SDL_RenderDrawRect(s_renderer,&left);
-    SDL_RenderDrawRect(s_renderer,&right);
+    SDL_RenderDrawRect(s_renderer,&panel);
+    SDL_RenderDrawLine(s_renderer,479,110,479,509);
 
-    ExpandedOGWorldAudit leagues;
-    ExpandedOGCupAudit cups;
-    ExpandedOGScorerAudit scorers;
-    Expanded_OGWorld_Audit(&leagues);
-    Expanded_OGWorld_CupAudit(&cups);
-    Expanded_OGWorld_ScorerAudit(&scorers);
-    char line[160];
-    int x=22,y=22;
-#define OGLINE(msg) do { splash_text_tinted(x,y,(msg),226,236,245); y+=18; } while(0)
-#define OGHEAD(msg) do { y+=5; splash_text_tinted(x,y,(msg),88,207,255); y+=22; } while(0)
-#define OGWARN(msg) do { splash_text_tinted(x,y,(msg),255,196,90); y+=18; } while(0)
-#define OGGOOD(msg) do { splash_text_tinted(x,y,(msg),100,232,145); y+=18; } while(0)
-    if (s_world_debug_import_page) {
-        OGHEAD("F10 / OG DATABASE INSPECTOR - READ ONLY");
-        OGLINE("F10 CLOSE  F12 MAIN  F9 PNG");
-        snprintf(line,sizeof line,"WORLD %s  BUILD %s",
-                 World_Tag(),SWOS_EXPANDED_VERSION);
-        OGLINE(line);
-        OGHEAD("NATIVE COMPETITION DEFINITIONS");
-        snprintf(line,sizeof line,"DOMESTIC CUP RECORDS %lu  COUNTRIES %lu",
-                 (unsigned long)cups.domestic_definitions,
-                 (unsigned long)cups.domestic_countries);
-        OGLINE(line);
-        int32_t wc=0,continental=0;
-        (void)World_Cups(&wc);
-        (void)World_ContiCups(&continental);
-        snprintf(line,sizeof line,"WORLD CUP RECORDS %ld  CONTI RECORDS %ld",
-                 (long)wc,(long)continental);
-        OGLINE(line);
-        snprintf(line,sizeof line,"RESIDENT OG LEAGUES %lu / %lu COUNTRIES",
-                 (unsigned long)leagues.resident_leagues,
-                 (unsigned long)leagues.countries);
-        OGLINE(line);
-        OGWARN("DATABASE RECORDS ARE NOT RUNNING COMPETITIONS");
-        OGWARN("CUPS RESIDENT: NOT IMPLEMENTED / NOT SIMULATED");
-        OGHEAD("SOURCE");
-        OGLINE("OG NATIVE TABLES ONLY, NO SECOND SCORE ENGINE");
-        OGLINE("CHECK F12+C FOR RESIDENT CUP DIAGNOSIS");
-        diag_f12_end("F10_OG_DATA");
-    } else if (s_world_debug_cup_page) {
-        OGHEAD("F12+C / NATIVE OG CUPS - READ ONLY");
-        OGLINE("F12+C BACK  F9 PNG  F12 HIDE");
-        snprintf(line,sizeof line,"WORLD %s  BUILD %s",
-                 World_Tag(),SWOS_EXPANDED_VERSION);
-        OGLINE(line);
-        OGHEAD("DEFINITIONS FROM ACTUAL OG COUNTRY TABLES");
-        snprintf(line,sizeof line,"DOMESTIC CUP DEFS %lu IN %lu COUNTRIES",
-                 (unsigned long)cups.domestic_definitions,
-                 (unsigned long)cups.domestic_countries);
-        OGLINE(line);
-        int32_t wc=0,continental=0;
-        (void)World_Cups(&wc);
-        (void)World_ContiCups(&continental);
-        snprintf(line,sizeof line,"WORLD CUP SPECS %ld  CONTINENTAL SPECS %ld",
-                 (long)wc,(long)continental);
-        OGLINE(line);
-        OGHEAD("PERSISTENT ORIGINAL OG CUP STATES");
-        snprintf(line,sizeof line,"RESIDENT CUP CONTEXTS %lu",
-                 (unsigned long)cups.resident_cups);
-        OGWARN(line);
-        snprintf(line,sizeof line,"OLD YEAR-END CALLBACK SEASONS %lu",
-                 (unsigned long)cups.completed_year_callbacks);
-        OGLINE(line);
-        OGWARN("CALLBACKS DO NOT PROVE DATED CUP ROUNDS");
-        OGWARN("COMPETITION NOT RESIDENT = EXPECTED LIMITATION");
-        OGWARN("CUP FIXTURES / RESULTS / WINNERS: NOT TESTED");
-        OGHEAD("SCORERS / NATIVE GOAL COUNTERS");
-        snprintf(line,sizeof line,"PLAYERS WITH GOALS %lu / TOTAL GOALS %lu",
-                 (unsigned long)scorers.players_with_league_goals,
-                 (unsigned long)scorers.player_league_goals);
-        OGLINE(line);
-        OGWARN("TOP GOAL SCORERS VIEW STILL NEEDS UI TEST");
-        OGHEAD("NEXT ENGINE TASK");
-        OGLINE("BUILD DATED PER-CUP OG STATES AT START");
-        OGLINE("ADVANCE OG ROUNDS ONCE VIA FORWARD TIME");
-        diag_f12_end("F12_OG_CUPS");
-    } else {
-        OGHEAD("F12 / ORIGINAL OG RESIDENT WORLD");
-        OGLINE("F12+C CUPS  F10 DATA  F9 PNG  F12 HIDE");
-        snprintf(line,sizeof line,"BUILD %s  WORLD %s",
-                 SWOS_EXPANDED_VERSION,World_Tag());
-        OGLINE(line);
-        ExpandedLiveCalendarState date;
-        if(ExpandedWorldLive_CalendarState(&date)) {
-            snprintf(line,sizeof line,"CAREER CIVIL DATE %04u-%02u-%02u",
-                     (unsigned)date.today.year,
-                     (unsigned)date.today.month,
-                     (unsigned)date.today.day);
-            OGLINE(line);
-        } else OGWARN("CAREER DATE UNAVAILABLE");
-        OGHEAD("NATIVE RESIDENT LEAGUES - ACTUAL OG STATE");
-        snprintf(line,sizeof line,"LEAGUES %lu  COUNTRIES %lu  PLAYED %lu",
-                 (unsigned long)leagues.resident_leagues,
-                 (unsigned long)leagues.countries,
-                 (unsigned long)leagues.leagues_with_matches);
-        OGLINE(line);
-        snprintf(line,sizeof line,"NATIVE OG RESULTS %lu  FINISHED %lu",
-                 (unsigned long)leagues.native_matches,
-                 (unsigned long)leagues.completed_leagues);
-        OGLINE(line);
-        snprintf(line,sizeof line,"OG SCORER PLAYERS %lu  PLAYER GOALS %lu",
-                 (unsigned long)scorers.players_with_league_goals,
-                 (unsigned long)scorers.player_league_goals);
-        OGLINE(line);
-        snprintf(line,sizeof line,"OG TABLE GOALS %lu (NOT UI PROOF)",
-                 (unsigned long)scorers.standings_goals);
-        OGLINE(line);
-        snprintf(line,sizeof line,"SEASON YEARS %u..%u",
-                 (unsigned)leagues.min_year,(unsigned)leagues.max_year);
-        OGLINE(line);
-        snprintf(line,sizeof line,"CLUB BOUND %lu  INVALID CONTEXTS %lu",
-                 (unsigned long)leagues.club_bound,
-                 (unsigned long)leagues.invalid_contexts);
-        if(leagues.invalid_contexts)OGWARN(line);else OGLINE(line);
-        OGHEAD("OG CUPS / LIMITATIONS");
-        snprintf(line,sizeof line,"DEFS %lu  RESIDENT %lu",
-                 (unsigned long)cups.domestic_definitions,
-                 (unsigned long)cups.resident_cups);
-        OGWARN(line);
-        OGWARN("NO WORLDWIDE OG CUP STATES YET");
-        if(!leagues.resident_leagues)
-            OGWARN("START/LOAD: NO OG LEAGUE CONTEXTS");
-        else OGGOOD("OG LEAGUES READ-ONLY SNAPSHOT AVAILABLE");
-        x=493; y=22;
-        OGHEAD("TEST CONTROLS - GAMEPLAY UNCHANGED");
-        OGLINE("7 +5 YEARS: THEN FORWARD TIME (UNEMPLOYED)");
-        OGLINE("8 +70 OG YEARS: 1 YEAR PER FRAME");
-        OGWARN("70-YEAR TEST ADVANCES LIVE CAREER / USE NEW SAVE");
-        OGLINE("N: NEW CAREER (TITLE ONLY)");
-        snprintf(line,sizeof line,"1 FORCE WIN %s",
-                 ExpandedDebug_ResultMode()==1?"ON":"OFF");
-        OGLINE(line);
-        snprintf(line,sizeof line,"2 FORCE LOSE %s",
-                 ExpandedDebug_ResultMode()==2?"ON":"OFF");
-        OGLINE(line);
-        snprintf(line,sizeof line,"4 FORCE DRAW %s",
-                 ExpandedDebug_ResultMode()==4?"ON":"OFF");
-        OGLINE(line);
-        snprintf(line,sizeof line,"3 SACK NEXT %s",
-                 ExpandedDebug_SackArmed()?"ARMED":"OFF");
-        OGLINE(line);
-        OGLINE("5 FAST X4 / 6 END MATCH (IF ARMED)");
-        OGHEAD("VERIFICATION GATES");
-        OGLINE("START DATE / LEAGUES: SEE SWOS.LOG");
-        OGLINE("AFTER HIRE: COMPARE OG TABLES");
-        OGWARN("CUP STATE: NOT RESIDENT");
-        OGWARN("70-YEAR OG: NATIVE STAGES ONLY, NOT RETIREMENTS");
-        OGWARN("MULTI-YEAR SAVE/LOAD: NOT TESTED");
-        OGLINE("ONLY OG PROVIDES SPORTING RESULTS");
-        diag_f12_end("F12_OG_MAIN");
+    char line[128];
+    diag_f12_line(26,26,"F12 / MONDO OG IN TEMPO REALE",88,207,255);
+    snprintf(line,sizeof line,"MONDO %s  BUILD %s",
+             World_Tag(),SWOS_EXPANDED_VERSION);
+    diag_f12_line(26,50,line,226,236,245);
+
+    ExpandedOGDashboard d;
+    Expanded_OGWorld_Dashboard(&d);
+    ExpandedLiveCalendarState date;
+    const int calendar=ExpandedWorldLive_CalendarState(&date);
+    if(calendar) {
+        /* Week 1 begins on 1 July of the CURRENT native OG season.
+         * Do not use ExpandedWorldLive_Weeks(): that is the cumulative
+         * number of weeks since the first career START, not the
+         * season's week after a transition or a restored .CAR. */
+        const unsigned season=(unsigned)(date.today.year-
+                                       (date.today.month<7u?1u:0u));
+        const ExpandedWorldDate seasonStart={
+            (uint16_t)season,7u,1u
+        };
+        uint32_t week=0u;
+        const int hasWeek=ExpandedWorld_SeasonWeek(
+            seasonStart,date.today,&week);
+        if(hasWeek)
+            snprintf(line,sizeof line,
+                     "DATA %04u/%02u/%02u  SETTIMANA %lu  STAGIONE OG %u",
+                     (unsigned)date.today.year,(unsigned)date.today.month,
+                     (unsigned)date.today.day,(unsigned long)week,
+                     (unsigned)d.worldYear);
+        else
+            snprintf(line,sizeof line,
+                     "DATA %04u/%02u/%02u  SETTIMANA N/D  STAGIONE OG %u",
+                     (unsigned)date.today.year,(unsigned)date.today.month,
+                     (unsigned)date.today.day,(unsigned)d.worldYear);
+        if(!d.ready || season!=d.worldYear || !hasWeek)
+            diag_f12_line(26,74,line,255,118,118);
+        else
+            diag_f12_line(26,74,line,100,232,145);
+    } else
+        diag_f12_line(26,74,"DATA NON DISPONIBILE",255,118,118);
+
+    if(!d.ready) {
+        diag_f12_line(26,125,
+             "OG NON RESIDENTE - AVVIA O RICARICA UNA CARRIERA",
+             255,118,118);
+        diag_f12_line(26,157,
+             "NESSUNA COMPETIZIONE CONSIDERATA CARICATA SENZA OG",
+             226,236,245);
+        diag_f12_end("F12_OG_WORLD");
+        goto finish;
     }
-#undef OGLINE
-#undef OGHEAD
-#undef OGWARN
-#undef OGGOOD
+
+    static const char *const regions[EXP_OG_DEBUG_REGIONS]={
+        "EUROPA","AFRICA","SUD AMERICA","NORD AMERICA","ASIA","OCEANIA"
+    };
+    const int x1=26,x2=495;
+    diag_f12_line(x1,108,"CARICATE - PAESI COMPLETI",88,207,255);
+    diag_f12_line(x2,108,"AVANZAMENTO - PAESI CON GARE",88,207,255);
+    diag_f12_line(x1,130,"CAMPIONATI",226,236,245);
+    diag_f12_line(x2,130,"CAMPIONATI",226,236,245);
+    for(unsigned r=0;r<EXP_OG_DEBUG_REGIONS;++r) {
+        const int y=153+(int)r*23;
+        diag_f12_ratio(x1,y,regions[r],d.leagueResident[r],
+                       d.leagueExpected[r],0u,0);
+        diag_f12_ratio(x2,y,regions[r],d.leagueAdvanced[r],
+                       d.leagueExpected[r],d.leagueMatches[r],1);
+    }
+    diag_f12_line(x1,301,"COPPE NAZIONALI",226,236,245);
+    diag_f12_line(x2,301,"COPPE NAZIONALI",226,236,245);
+    for(unsigned r=0;r<EXP_OG_DEBUG_REGIONS;++r) {
+        const int y=324+(int)r*23;
+        diag_f12_ratio(x1,y,regions[r],d.cupResident[r],
+                       d.cupExpected[r],0u,0);
+        diag_f12_ratio(x2,y,regions[r],d.cupAdvanced[r],
+                       d.cupExpected[r],d.cupMatches[r],1);
+    }
+    diag_f12_ratio(x1,467,"COPPE INT",d.internationalResident,
+                   d.internationalExpected,0u,0);
+    diag_f12_ratio(x2,467,"COPPE INT",d.internationalAdvanced,
+                   d.internationalExpected,d.internationalMatches,1);
+    diag_f12_ratio(x1,490,"NAZIONALI",d.nationalResident,
+                   d.nationalExpected,0u,0);
+    diag_f12_ratio(x2,490,"NAZIONALI",d.nationalAdvanced,
+                   d.nationalExpected,d.nationalMatches,1);
+    diag_f12_end("F12_OG_WORLD");
+finish:
     SDL_RenderSetLogicalSize(s_renderer,oldw,oldh);
     if(!oldw || !oldh)SDL_RenderSetScale(s_renderer,oldsx,oldsy);
     SDL_RenderSetViewport(s_renderer,&oldvp);
     SDL_SetRenderDrawBlendMode(s_renderer,oldblend);
-#undef splash_text_tinted
 }
 
 static void expanded_splash_draw(void)

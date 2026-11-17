@@ -1118,6 +1118,10 @@ void Expanded_OGWorld_LogCheckpoint(const char *stage)
             (unsigned long)scorers.standings_goals,
             (unsigned long)scorers.leagues_with_goals);
     expanded_og_external_inventory(stage);
+    /* Each actual definition is compared with its native resident state.
+     * This reports unavailable future/extra cups without claiming a PASS. */
+    extern void Expanded_OGWorld_LogNoData(const char *,uint16_t);
+    Expanded_OGWorld_LogNoData(stage?stage:"UNNAMED",s_expOGWorldYear);
 }
 extern int Expanded_OGWorld_AdvanceCup(uint8_t *,uint8_t,uint8_t,uint16_t,uint8_t);
 extern uint32_t Expanded_OGWorld_CupCount(void);

@@ -1,5 +1,9 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 17/11/2026 — 0.13.70_2
+- OG NO DATA per definizioni e contesti da leggere in diagnostica (START, SAVE, RESTORE). L'utente conferma che statali brasiliani e COPPA ITALIA SERIE D NON compaiono nel calendario mondiale OG: MANCANTI, non solo incerti. Manca ancora integrazione effettiva, calendario e salvataggio residenti; la sola definizione Mod non vale come progresso del motore. Per nazionali la diagnostica evita falsi allarmi su anni senza gare previste. Test Windows NON PROVATO.
+
+
 ## 17/11/2026 — 0.13.70_1 (primo checkpoint a commit per funzione)
 - OFFERTA -> VIEW COMPETITIONS ora chiama lo stesso OG picker direttamente sul paese della squadra offerente per WORLD_9697 e WORLD_2627. Europa/altre internazionali rimangono in WORLD e nel menu del club qualificato: posizione/layout non modificati. BACK e viewer restano originari.
 - Audit 96/26, Libertadores 1997, Champions nel calendario post-ingaggio, save/restore OG e OG NO DATA ancora da completare. Compilazione/test Windows NON ESEGUITI dall'assistente; l'utente sincronizza con GitKraken e prova tramite BAT ufficiali dopo il ciclo concordato.

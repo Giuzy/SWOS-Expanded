@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 0.13.70_2 — diagnostica permanente OG NO DATA
+- Nuovo audit di sola lettura su definizioni vs contesti residenti per le due epoche, sia club sia nazionali da valutare: dettagli mondo, paese/slot/divisione, anno, compId, motivo. Le categorie non datate/nazionali sono marcate REVIEW invece di falso FAIL. Non cambia OG fixture, RNG, save o stato di carriera. Versione 0.13.70_2, Windows NON PROVATO.
+
+
 ## 0.13.70_1 — OFFERTA direttamente all'elenco competizioni del paese
 - `menus.c`: riutilizzato `ChooseCompetitionMenuForCountry(country)` anche nel 1996/97. Rimangono invariati menu WORLD e competizioni continentali del club qualificato. Nessun campionato preselezionato, nessuna partita o classifica risimulata.
 - `build_info.h`: versione `0.13.70_1`. Test Windows, focus, BACK e apertura 1996/2026 ancora NON PROVATI.

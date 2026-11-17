@@ -54,6 +54,7 @@ extern CompetitionCup _uefaCup;
 #ifdef SWOS_SDL_BUILD
 #include "world.h"
 #include "world_cups.h"
+#include "world_cupd.h"
 #include "expanded_og_cup_validation.h"
 #include "expanded_debug.h"
 #endif
@@ -4097,6 +4098,142 @@ static ExpandedOGCup *exp_cup_find(uint8_t country,uint8_t slot,uint16_t year)
             return &s_expOGCups[i];
     return NULL;
 }
+/* Permanent, READ-ONLY gap detector: a definition is not a resident OG
+ * competition. No draws, RNG, teams or fixture arrays are changed here.
+ * Country+division / country+slot identify native records; compId alone
+ * is not unique. Called at START, season boundary and SAVE/RESTORE. */
+void Expanded_OGWorld_LogNoData(const char *stage,uint16_t year)
+{
+    extern uint8_t _careerCompetitionIdRemapTable[];
+    extern Competition *Comp_ById(uint8_t);
+    const uint8_t *countries=World_SeasonCountries();
+    if(!countries)countries=_careerCompetitionIdRemapTable;
+    unsigned missing=0u,review=0u,covered=0u;
+    for(unsigned i=0;countries && i<256u && countries[i]!=0xffu;++i) {
+        const uint8_t country=countries[i];
+        const void *const *tab=(const void *const *)_competitionsTable[country];
+        if(!tab)continue;
+        const uintptr_t raw=(uintptr_t)tab[0];
+        if(raw && raw!=(uintptr_t)-1 && raw!=(uintptr_t)-2) {
+            const Competition *rec=(const Competition *)raw;
+            if(rec->type==0 && !comp_is_type0_cup(rec->compId)) {
+                const CompetitionLeague *league=(const CompetitionLeague *)rec;
+                const unsigned divisions=(unsigned)league->header.divisionsCount;
+                for(unsigned d=0;d<divisions && d<16u;++d) {
+                    const ExpandedOGLeague *ctx=exp_find(country,(uint8_t)d,year);
+                    if(!ctx || !ctx->used) {
+                        ++missing;
+                        fprintf(stderr,"[og-no-data] stage=%s world=%s year=%u "
+                            "category=LEAGUE country=%u division=%u compId=%u "
+                            "status=NO_RESIDENT reason=%s\n",
+                            stage,World_Tag(),(unsigned)year,(unsigned)country,d,
+                            (unsigned)rec->compId,
+                            ctx?"NATIVE_UNSUPPORTED":"MISSING_CONTEXT");
+                    } else ++covered;
+                }
+                if(divisions>16u) {
+                    ++missing;
+                    fprintf(stderr,"[og-no-data] stage=%s world=%s year=%u "
+                        "category=LEAGUE country=%u status=UNSUPPORTED_DIVISION_COUNT count=%u\n",
+                        stage,World_Tag(),(unsigned)year,(unsigned)country,divisions);
+                }
+            }
+        }
+        for(unsigned slot=2u;slot<=3u;++slot) {
+            const uintptr_t ptr=(uintptr_t)tab[slot];
+            if(!ptr || ptr==(uintptr_t)-1)break;
+            if(ptr==(uintptr_t)-2)continue;
+            const Competition *cup=(const Competition *)ptr;
+            if(cup->type!=1)continue;
+            const ExpandedOGCup *ctx=exp_cup_find(country,(uint8_t)slot,year);
+            if(!ctx || !ctx->used) {
+                ++missing;
+                fprintf(stderr,"[og-no-data] stage=%s world=%s year=%u "
+                    "category=DOMESTIC_CUP country=%u slot=%u compId=%u "
+                    "status=NO_RESIDENT reason=%s\n",
+                    stage,World_Tag(),(unsigned)year,(unsigned)country,slot,
+                    (unsigned)cup->compId,ctx?"NATIVE_UNSUPPORTED":"MISSING_CONTEXT");
+            } else ++covered;
+        }
+    }
+    if(year==World_FirstYear()) {
+        const unsigned ueExpected=World_Current()==WORLD_2627?3u:1u;
+        for(unsigned k=0;k<ueExpected;++k) {
+            if(!s_expOGUefa[k].used || s_expOGUefa[k].year!=year) {
+                ++missing;
+                fprintf(stderr,"[og-no-data] stage=%s world=%s year=%u "
+                    "category=UEFA_CLUB cup=%u status=NO_RESIDENT "
+                    "reason=FIRST_EDITION_MISSING\n",stage,World_Tag(),(unsigned)year,k);
+            } else ++covered;
+        }
+        if(World_Current()==WORLD_9697) {
+            for(unsigned slot=1u;slot<=2u;++slot) {
+                const ExpandedOGCup *ctx=exp_cup_find(254u,(uint8_t)slot,year);
+                if(!ctx || !ctx->used) {
+                    ++missing;
+                    fprintf(stderr,"[og-no-data] stage=%s world=%s year=%u "
+                        "category=UEFA_CLASSIC_CUP country=254 slot=%u "
+                        "status=NO_RESIDENT\n",stage,World_Tag(),(unsigned)year,slot);
+                } else ++covered;
+            }
+        }
+    } else {
+        ++review;
+        fprintf(stderr,"[og-no-data] stage=%s world=%s year=%u "
+            "category=UEFA_CLUB status=QUALIFICATION_NOT_CONNECTED "
+            "severity=REVIEW\n",stage,World_Tag(),(unsigned)year);
+    }
+    if(World_Current()==WORLD_9697) {
+        const Competition *copa=Comp_ById(COMPID_copaLibertadores);
+        ++missing;
+        fprintf(stderr,"[og-no-data] stage=%s world=%s year=%u "
+            "category=CONMEBOL_CLUB name=COPA_LIBERTADORES compId=%u "
+            "defined=%u status=NO_RESIDENT reason=%s\n",
+            stage,World_Tag(),(unsigned)year,(unsigned)COMPID_copaLibertadores,
+            (unsigned)(copa!=NULL),copa?"NO_WORLD_CONTEXT":"MISSING_HISTORIC_BANK_RECORD");
+    } else if(World_Current()==WORLD_2627) {
+        int32_t n=0;
+        const WorldContiCup *cups=World_ContiCups(&n);
+        for(int32_t k=0;cups && k<n;++k) {
+            if(!ct_world_first_ready()) {
+                ++missing;
+                fprintf(stderr,"[og-no-data] stage=%s world=%s year=%u "
+                    "category=CONTINENTAL_CLUB index=%ld name=%s "
+                    "status=NO_RESIDENT reason=FIRST_EDITION_NOT_CONNECTED\n",
+                    stage,World_Tag(),(unsigned)year,(long)k,
+                    cups[k].name?cups[k].name:"UNNAMED");
+            } else ++review; /* field ready != proof of per-fixture OG play */
+        }
+        const WorldStates *states=World_States(CN_BRAZIL);
+        for(unsigned k=0;states && k<states->states;++k) {
+            ++missing;
+            fprintf(stderr,"[og-no-data] stage=%s world=%s year=%u "
+                "category=BRAZIL_STATE index=%u name=%s status=NO_WORLD_RESIDENT "
+                "reason=SEASON_END_SIM_NOT_A_DATED_OG_CONTEXT\n",
+                stage,World_Tag(),(unsigned)year,k,
+                states->contest[k].name[0]?states->contest[k].name[0]:"UNNAMED");
+        }
+        if(World_CupD()) {
+            ++missing;
+            fprintf(stderr,"[og-no-data] stage=%s world=%s year=%u "
+                "category=ITALY_CUPD name=COPPA_ITALIA_SERIE_D "
+                "status=NO_WORLD_RESIDENT reason=CLUB_SLOT_IS_NOT_ALL_WORLD_FIXTURES\n",
+                stage,World_Tag(),(unsigned)year);
+        }
+    }
+    /* Original national-team definitions exist, but their real annual
+     * schedule/qualification must not be inferred from the club calendar.
+     * Mark REVIEW, not missing in an edition where no such cup is due. */
+    ++review;
+    fprintf(stderr,"[og-no-data] stage=%s world=%s year=%u "
+        "category=NATIONAL_TEAMS status=CALENDAR_AND_QUALIFICATION_UNVERIFIED "
+        "severity=REVIEW\n",stage,World_Tag(),(unsigned)year);
+    fprintf(stderr,"[og-no-data-summary] stage=%s world=%s year=%u "
+        "resident-checked=%u no-resident=%u review=%u "
+        "scope=DEFINITIONS_VS_OG_RESIDENCY_ONLY\n",
+        stage,World_Tag(),(unsigned)year,covered,missing,review);
+}
+
 extern void Career_AutoAdvanceCupMatches(void);
 /* Native bye detection for a real country cup, NOT a general exemption
  * from bracket validation. WorldCups_Entrants/Padded/CupMade have already

@@ -4247,8 +4247,17 @@ void Expanded_AutoCareer_Save(const char *reason) {
     const int titleExit=reason && strcmp(reason,"menu-exit")==0;
     if(titleExit) s_auto_title_checkpoint_verified=0;
     if(_gameType!=GAME_TYPE_CAREER || _careerAutoAdvanceInProgress ||
-       _seasonUpdateInProgress || Expanded_MidseasonJoin_Active())
+       _seasonUpdateInProgress || Expanded_MidseasonJoin_Active()) {
+        if(titleExit)
+            fprintf(stderr,"[autosave-title] status=SKIPPED world=%s "
+                           "game-type=%u career-auto=%u season-update=%u "
+                           "join-active=%d; active state kept\n",
+                    World_Tag(),(unsigned)_gameType,
+                    (unsigned)_careerAutoAdvanceInProgress,
+                    (unsigned)_seasonUpdateInProgress,
+                    Expanded_MidseasonJoin_Active());
         return;
+    }
     uint8_t *native=auto_career_slot();
     if(getenv("SWOS_DIAGNOSTIC_CAPTURE")) {
         fprintf(stderr,"[autosave-stage] world=%s stage=CALL_SAVE reason=%s\n",

@@ -1,5 +1,13 @@
 # SWOS Expanded — development procedures and rationale
 
+## 0.13.83 — prova Windows: TITLE WORLD 96/26 (PENDENTE)
+- Backup dei tre salvataggi CAR in posizione esterna, sincronizzare GitKraken e compilare 0.13.83.
+- Da 26 -> NEW CAREER -> START -> CHOOSE TEAM -> BACK: tornare al TITLE, cercare `CANCELLED_SETUP_RESET reason=team-selection-back game-type=0` e cambiare 96/26 senza riavvio.
+- Da 26 -> NEW CAREER -> START UNEMPLOYED -> BACK: tornare al TITLE, cercare `reason=unemployed-back game-type=0`, cambiare 96/26; ripetere nei due mondi.
+- Da carriera Gela 26 con contratto -> TITLE: richiedere `[autosave-title] status=COMPATIBLE_ON_DISK`, poi `[title-world] DETACH_CAREER` e `SELECTED 9697`; tornare a 26 e CONTINUE, verificando data, nomi EXTRA e competizioni OG. Ripetere da 96 a 26. Provare mouse e pad A.
+- In caso di `WRITE_FAILED`, `CHECK_FAILED`, `SKIPPED` o `checkpoint=NOT_VERIFIED` di una carriera attiva, il cambio resta bloccato intenzionalmente: non bypassare il CAR, inviare log diagnostico nuovo.
+
+
 ## 0.13.82 — prova Windows correzione autosave con EXTRA (PENDENTE)
 - Sincronizzare GitKraken su `dev/0.10`; eseguire backup dei CAR in cartella esterna, **non eliminare** quelli preesistenti. Compilare su Windows con lo strumento gia' in uso.
 - Nuova carriera 2026/27 di prova con Gela, oppure club con 11 EXTRA: VIEW SQUAD deve indicare 27 giocatori. Firmare, avanzare, uscire al TITLE. Nel log controllare `[autosave-stage] ... SERIALIZED_COMPLETE`, `READY_FOR_ATOMIC_SAVE`, `[autosave-title] status=COMPATIBLE_ON_DISK`; assenza di `MISSING_CIVIL_CLOCK` e `PREWRITE_REJECTED`. Verificare dimensione/data del CAR e checkpoint **prima** di considerare valido il test.

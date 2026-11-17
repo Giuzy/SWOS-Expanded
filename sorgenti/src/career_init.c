@@ -276,6 +276,7 @@ void Career_BeginNewCareer(void);
 int Expanded_OGWorld_Start(void);
 int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today);
 int Expanded_OGWorld_ClubBound(void);
+static void Expanded_CareerDiscardAbortedStart(const char *reason);
 #endif
 void InitCareerWorld(void);
 void InitCareerManager(void);
@@ -313,6 +314,7 @@ void ChooseTeamAndStartCareer(void)
             extern uint16_t _fireResetFlag;
             fprintf(stderr,"[living-world] FAILED to start new career world "
                            "at START; no league snapshot available\n");
+            Expanded_CareerDiscardAbortedStart("world-import-failed");
             _fireResetFlag=1;
             return;
         }
@@ -327,6 +329,7 @@ void ChooseTeamAndStartCareer(void)
             extern uint16_t _fireResetFlag;
             fprintf(stderr,"[og-world] START FAILED: no native league "
                            "contexts available; refusing empty career\n");
+            Expanded_CareerDiscardAbortedStart("og-start-failed");
             _fireResetFlag=1;return;
         }
     }
@@ -345,9 +348,9 @@ void ChooseTeamAndStartCareer(void)
         uint16_t offerTeam = 0;
         if (!Expanded_WaitForFirstOffer(&offerTeam)) {
 #ifdef SWOS_SDL_BUILD
-            /* Setup cancelled: discard unsaved pilot from RAM only.
-             * Never touch an existing AUTOSAVE.CAR on disk. */
-            ExpandedWorldLive_End();
+            /* No manager was bound. Drop the abandoned NEW CAREER state,
+             * not just the civil pilot. CAR files stay untouched. */
+            Expanded_CareerDiscardAbortedStart("unemployed-back");
 #endif
             /* BACK cancels only the unemployed calendar. It must return
              * to the previous career setup screen, not unwind the whole
@@ -426,7 +429,7 @@ void ChooseTeamAndStartCareer(void)
         SelectTeamToManage();
         if (_selectedTeamPtr == 0) {
 #ifdef SWOS_SDL_BUILD
-            ExpandedWorldLive_End(); /* No signed contract yet. */
+            Expanded_CareerDiscardAbortedStart("team-selection-back");
             extern uint16_t _fireResetFlag;
             _fireResetFlag=1; /* Cancel team selection returns to setup. */
 #else
@@ -929,6 +932,25 @@ static uint16_t s_expOGWorldYear;
 /* Restore the validated native season WITHOUT replaying earlier fixtures. */
 uint16_t Expanded_OGWorld_SaveYear(void){return s_expOGWorldYear;}
 int Expanded_OGWorld_SaveStarted(void){return s_expOGWorldStarted!=0;}
+/* Explicit BACK / failed initial START of an unattached NEW CAREER only.
+ * Previously the pilot was ended but _gameType stayed CAREER=4, so TITLE
+ * tried to save a null civil clock and locked 96/26 at NOT_VERIFIED.
+ * Never use this on an active career or after a failed in-game save. */
+static void Expanded_CareerDiscardAbortedStart(const char *reason)
+{
+    ExpandedWorldLive_End();
+    Expanded_OGWorld_Reset();
+    s_expOGWorldStarted=0;
+    s_expOGWorldYear=World_FirstYear();
+    s_careerWorldInitialized=0;
+    s_careerCompetitionsInitialized=0;
+    s_careerManagerInitialized=0;
+    s_unemployedOgCupSeasons=0;
+    InitCareerVariables(0);
+    fprintf(stderr,"[title-world] CANCELLED_SETUP_RESET reason=%s "
+                   "game-type=%u world=%s save=UNTOUCHED\n",
+            reason?reason:"unknown",(unsigned)_gameType,World_Tag());
+}
 void Expanded_OGWorld_AdoptRestoredYear(uint16_t year){
     s_expOGWorldYear=year;s_expOGWorldStarted=1;
     DIY_OGStandings_SetSeason(year);

@@ -1,5 +1,13 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 17/11/2026 — 0.13.83: fix TITLE 96/26 dopo BACK da nuova carriera (Windows PENDENTE)
+- Diagnostica 0.13.81: il TITLE riceve il click ma mostra `REFUSED active-game-type=4 checkpoint=NOT_VERIFIED` dopo autosave 2627 fallito; il JSON EXTRA che lo causava e' stato corretto nella 0.13.82, senza prova Windows successiva.
+- Secondo bug verificato nel codice: uscire da START UNEMPLOYED o da CHOOSE TEAM con BACK terminava il calendario civile, ma lasciava `_gameType=4`. Al successivo `CommonMenuExit`, il sistema provava a salvare una carriera annullata senza orologio, bloccando il selettore.
+- `career_init.c`: `Expanded_CareerDiscardAbortedStart` pulisce i dati OG/civili SOLO in RAM, azzera i flag del nuovo setup e richiama `InitCareerVariables(0)`; usato nei due BACK e nei fallimenti di import/START prima del contratto. Non cancella o sovrascrive i CAR. Non va chiamato in carriera attiva o su salvataggio fallito.
+- `menus.c`: log `[autosave-title] status=SKIPPED` con motivi se il salvataggio e' inibito dagli altri guard. La verifica di sicurezza delle carriere attive e il vincolo di non scrivere CAR al click 96/26 restano invariati.
+- 0.13.83: audit statico dei quattro call site e cambi di versione/documentazione. Build Windows, input mouse/pad, save/CONTINUE, mondo 96/26, gameplay NON PROVATI. In caso di blocco dopo carriera realmente avviata servono nuova diagnostica e CAR per individuare il motivo senza perdere progressi.
+
+
 ## 17/11/2026 — 0.13.82: fix serializzazione CAR con rose EXTRA 2026/27 (Windows DA TESTARE)
 - Due diagnostiche Windows della 0.13.81 hanno osservato Gela 11 EXTRA/27 giocatori, ma `first-contract` e `menu-exit` 2026/27 rifiutati con `INCOMPLETE_CAR reason=MISSING_CIVIL_CLOCK`, proteggendo AUTO2627.CAR precedente.
 - Causa identificata NEL CODICE 0.13.81: la stringa di formato appena introdotta per `squad_extras` usava due backslash nel sorgente C (`\\\\n`), producendo nel JSON i caratteri letterali backslash+n tra campi invece del separatore newline valido; `mjson_find("$.living_world")` non poteva parsare il JSON malformato. Sostituita con la sequenza C `\\n` che emette un vero newline. Restano attivi i preflight e il salvataggio atomico, senza toccare i CAR esistenti.

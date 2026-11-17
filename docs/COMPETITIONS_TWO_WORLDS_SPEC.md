@@ -1,4 +1,7 @@
 # SWOS Expanded — Copertura universale per epoca, club/nazionali, menu e prove
+
+> **Nota audit 17/11/2026, snapshot codice 0.13.78:** questa e' la specifica di *obiettivo*, NON il test. Per stato e confronto effettivo con OpenSWOS, SWOS2020 e Mod v4.1.2, leggere **[SWOS_CROSS_VERSION_COMPETITION_AUDIT_20261117.md](SWOS_CROSS_VERSION_COMPETITION_AUDIT_20261117.md)** e **[reference/SWOS_CROSS_VERSION_COMPETITIONS_20261117.tsv](reference/SWOS_CROSS_VERSION_COMPETITIONS_20261117.tsv)** (494 righe; voci overlapping e non tutte residenti). Prima di alterare dati storici considerare il confronto diretto: OpenSWOS 96 `_copaLibertadores` usa chiavi 112..136, Expanded usa 16..40 con traduzione 0.13.75; **nessun cambio deciso**. La matrice documenta anche differenze numeric promo/retro moderne non ancora provate nel gameplay.
+
 _Data decisionale del 16 novembre 2026. Preparato per 0.13.59; non è una certificazione di gameplay._
 
 ## Regola definitiva approvata

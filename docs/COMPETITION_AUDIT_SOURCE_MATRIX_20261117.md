@@ -1,4 +1,7 @@
 # Audit comparativo competizioni e collegamenti — 17 novembre 2026
+
+> **Aggiornamento audit 17/11/2026, HEAD 0.13.78:** questo file e' il confronto statico originale dello snapshot 0.13.70_3. La verifica piu' estesa, con **494 righe**, campi per CAREER/PRESET e numeri/regole per ogni competizione, e' in **[SWOS_CROSS_VERSION_COMPETITION_AUDIT_20261117.md](SWOS_CROSS_VERSION_COMPETITION_AUDIT_20261117.md)** e **[reference/SWOS_CROSS_VERSION_COMPETITIONS_20261117.tsv](reference/SWOS_CROSS_VERSION_COMPETITIONS_20261117.tsv)**. Contiene confronto diretto dei JSON OpenSWOS: 5 identici, `tournaments.json` diverso solo per begin/end della Libertadores 1997. Non interpretare la fotografia sottostante come stato corrente del codice (le coppe residenti 0.13.78 sono cambiate). Windows NON PROVATO.
+
 **Build di riferimento:** dev/0.10, 0.13.70_3. **Stato:** audit statico di definizioni e collegamenti; non collaudo Windows. Non alterare regole storiche in base a dati moderni.
 
 ## Fonti: quattro ecosistemi, due stagioni

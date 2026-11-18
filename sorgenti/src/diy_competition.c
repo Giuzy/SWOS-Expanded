@@ -12266,7 +12266,12 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
     _diyRightTeamPtr = team2;
     _diyLeftTeamResult = goals1;
     _diyRightTeamResult = goals2;
-
+#ifdef SWOS_SDL_BUILD
+    if(_gameType==4 && !Expanded_OGWorld_IsSimulating() &&
+       (team1==&_careerTeam || team2==&_careerTeam))
+        Expanded_OGWorld_AuditManagerLeagueResult(team1,team2,baseEx,
+                                                  goals1,goals2);
+#endif
     return 0;
 }
 

@@ -19,7 +19,8 @@ run_one() {
     logfile="$out/${name}.log"
     local scope="OG_CURRENT"
     case "$name" in
-        run_test_expanded_event_scheduler|run_test_expanded_competition_history)
+        run_test_expanded_event_scheduler|run_test_expanded_competition_history|\
+        run_test_expanded_og_cache_match)
             scope="COMPETITION_ENGINE_ISOLATED" ;;
     esac
     printf 'TEST=%s scope=%s action=RUN log=%s\n' "$name" "$scope" "$logfile" >> "$out/ELENCO_TEST.txt"
@@ -53,7 +54,7 @@ for script in sorgenti/tests/run_test*.sh sorgenti/tests/run_audit_competition_f
         run_audit_competition_formats.sh|run_test_final_og_contract.sh|\
         run_test_mod2627_coverage.sh|run_test_og_uefa_wiring.sh|\
         run_test_og_offer_rollback.sh|run_test_expanded_event_scheduler.sh|\
-        run_test_expanded_competition_history.sh)
+        run_test_expanded_competition_history.sh|run_test_expanded_og_cache_match.sh)
             run_one "$script" ;;
         run_test_engine_suite.sh|run_test_legacy_suite.sh)
             exclude_one "$script" "DUPLICATE_AGGREGATE" ;;

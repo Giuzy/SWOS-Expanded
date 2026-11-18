@@ -65,6 +65,7 @@ extern CompetitionCup _uefaCup;
 #include "expanded_og_cup_validation.h"
 #include "expanded_og_copa_phase.h"
 #include "expanded_og_season_retention.h"
+#include "expanded_og_cache_match.h"
 #include "expanded_debug.h"
 #include "expanded_world_time.h"
 #include "expanded_world_live.h"
@@ -6005,6 +6006,135 @@ int Expanded_OGWorld_DebugCanAdvanceClub(uint16_t club,uint8_t division,
         return 0;
     }
     return 1;
+}
+
+/* 0.13.101: observe the exact original result before attempting ANY
+ * manager-to-world merge. The old keycache contains real career scores but
+ * is NOT the universal worldwide journal. No fixture is simulated here.
+ * All checks are read-only; unexpected states remain distinct in logs. */
+void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
+    const TeamFileEx *away,const DIYCompetitionEx *local,
+    uint16_t goals_home,uint16_t goals_away)
+{
+    if(!home || !away || !local || _gameType!=4 || !s_expOGBound ||
+       s_expOGCurrent || s_expOGCupCurrent || s_expOGViewing ||
+       _selTeamNumber==0xffffu || local->base.competitionType!=0)return;
+    const uint16_t home_id=PACK_BE_U16(home->team.countryNumber,
+                                        home->team.teamOrdinal);
+    const uint16_t away_id=PACK_BE_U16(away->team.countryNumber,
+                                        away->team.teamOrdinal);
+    if(home_id!=_selTeamNumber && away_id!=_selTeamNumber)return;
+    ExpandedLiveCalendarState cal;
+    if(!ExpandedWorldLive_CalendarState(&cal) ||
+       cal.today.year<(cal.today.month<7u?1u:0u))return;
+    const uint16_t year=(uint16_t)(cal.today.year-
+                                    (cal.today.month<7u?1u:0u));
+    ExpandedOGLeague *ctx=exp_find(World_FileCountry((uint8_t)
+                                   (_selTeamNumber>>8)),
+                                   (uint8_t)_currentDivisionIndex,year);
+    if(!ctx || !ctx->used) {
+        fprintf(stderr,"[og-manager-fixture] status=NO_RESIDENT world=%s "
+                       "club=%04x home=%04x away=%04x year=%u\n",
+                World_Tag(),(unsigned)_selTeamNumber,
+                (unsigned)home_id,(unsigned)away_id,(unsigned)year);
+        return;
+    }
+    extern uint8_t _teamSelectionKeyCache[8192];
+    extern uint16_t _teamSelectionKeyCacheOffset;
+    extern uint16_t _teamSelectionKeyCacheCount;
+    if((unsigned)_teamSelectionKeyCacheOffset>
+       8192u-sizeof(TeamSelectionKeyCacheEntry)) {
+        fprintf(stderr,"[og-manager-fixture] status=INVALID_CACHE_OFFSET "
+                       "offset=%u no-world-mutation=1\n",
+                (unsigned)_teamSelectionKeyCacheOffset);
+        return;
+    }
+    const TeamSelectionKeyCacheEntry *active=
+        (const TeamSelectionKeyCacheEntry *)(const void *)
+        (_teamSelectionKeyCache+_teamSelectionKeyCacheOffset);
+    const uint8_t slot=active->compSlot,phase=active->sortKey;
+    ExpandedOGCacheMatch match;
+    const ExpandedOGCacheStatus cache=ExpandedOGCache_Find(
+        _teamSelectionKeyCache,8192u,_teamSelectionKeyCacheCount,
+        slot,phase,home_id,away_id,&match);
+    const uint16_t packed=(uint16_t)((goals_home<<8)|
+                                      (goals_away&255u));
+    const int cached_score_ok=
+        cache==EXP_OG_CACHE_PLAYED && match.packed_goals==packed;
+    const unsigned world_n=(unsigned)ctx->comp.base.numTeams;
+    const unsigned local_n=(unsigned)local->base.numTeams;
+    unsigned unmapped=0u,table_differences=0u;
+    if(ctx->teamCount<2u || ctx->teamCount>EXP_OG_MAX_TEAMS ||
+       world_n!=local_n || world_n<2u || world_n>EXP_OG_MAX_TEAMS) {
+        unmapped=1u;
+    } else {
+        /* The row indices/offsets are scratch identities, NOT club IDs.
+         * Compare club by club, ignoring rank and the local -1 manager
+         * marker, so a reordering cannot look like a different world. */
+        for(unsigned i=0;i<world_n;++i) {
+            const int32_t wi=ctx->comp.leagueStandings[i].teamSelOffset;
+            if(wi<0 || (unsigned)wi>=ctx->teamCount) {
+                ++unmapped;continue;
+            }
+            const uint16_t club=PACK_BE_U16(
+                ctx->teams[wi].team.countryNumber,
+                ctx->teams[wi].team.teamOrdinal);
+            unsigned found=0u;
+            for(unsigned j=0;j<local_n;++j) {
+                const int32_t li=local->leagueStandings[j].teamSelOffset;
+                uint16_t local_club=0xffffu;
+                if(li==-1)local_club=_selTeamNumber;
+                else if(li>=0 && (unsigned)li<_numSelectedTeams)
+                    local_club=PACK_BE_U16(
+                        _selectedTeams[li].team.countryNumber,
+                        _selectedTeams[li].team.teamOrdinal);
+                if(local_club!=club)continue;
+                ++found;
+                if(ctx->comp.leagueStandings[i].wins!=
+                        local->leagueStandings[j].wins ||
+                   ctx->comp.leagueStandings[i].draws!=
+                        local->leagueStandings[j].draws ||
+                   ctx->comp.leagueStandings[i].losses!=
+                        local->leagueStandings[j].losses ||
+                   ctx->comp.leagueStandings[i].goalsFor!=
+                        local->leagueStandings[j].goalsFor ||
+                   ctx->comp.leagueStandings[i].goalsAgainst!=
+                        local->leagueStandings[j].goalsAgainst ||
+                   ctx->comp.leagueStandings[i].points!=
+                        local->leagueStandings[j].points)
+                    ++table_differences;
+            }
+            if(found!=1u)++unmapped;
+        }
+    }
+    const char *cache_name=
+        cache==EXP_OG_CACHE_PLAYED?"PLAYED":
+        cache==EXP_OG_CACHE_SCHEDULED?"SCHEDULED":
+        cache==EXP_OG_CACHE_AMBIGUOUS?"AMBIGUOUS":
+        cache==EXP_OG_CACHE_CORRUPT?"CORRUPT":"NOT_FOUND";
+    const unsigned resident_matches=(unsigned)ctx->comp.matchesPlayedCount;
+    const unsigned local_matches=(unsigned)local->matchesPlayedCount;
+    const char *result=
+        !cached_score_ok?"CACHE_UNVERIFIED":
+        unmapped?"CLUB_MAP_INVALID":
+        table_differences?"TABLES_DIVERGED":
+        resident_matches!=local_matches?"COUNTERS_DIVERGED":"ALREADY_EQUAL";
+    fprintf(stderr,
+        "[og-manager-fixture] world=%s year=%u div=%u "
+        "home=%04x away=%04x score=%u-%u cache=%s "
+        "cache-score=%s slot=%u phase=%u "
+        "world-matches=%u local-matches=%u row-diff=%u unmapped=%u "
+        "cache-used=%lu match-end=%lu car-raw-limit=1870 "
+        "car-capacity-risk=%s status=%s no-world-mutation=1\n",
+        World_Tag(),(unsigned)year,(unsigned)_currentDivisionIndex,
+        (unsigned)home_id,(unsigned)away_id,
+        (unsigned)goals_home,(unsigned)goals_away,cache_name,
+        cached_score_ok?"MATCH":"UNVERIFIED",
+        (unsigned)slot,(unsigned)phase,
+        resident_matches,local_matches,table_differences,unmapped,
+        (unsigned long)match.used_bytes,(unsigned long)match.record_end,
+        match.used_bytes>1870u || match.record_end>1870u?"YES":"NO",
+        result);
 }
 int Expanded_OGWorld_BindClub(uint16_t club,uint8_t division,uint16_t year) {
     DIYCompetitionEx image;

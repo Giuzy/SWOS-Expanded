@@ -19,6 +19,7 @@ run_stage "OG RUNTIME AUDITOR REGRESSION FIXTURES (NOT GAMEPLAY)" "sorgenti/test
 run_stage "OG CIVIL DATE AND NATIVE PHASE MATHEMATICS" "sorgenti/tests/run_test_expanded_world_time.sh"
 run_stage "COMPETITION ENGINE EVENT SCHEDULER (ISOLATED, NO CAR)" "sorgenti/tests/run_test_expanded_event_scheduler.sh"
 run_stage "COMPETITION ENGINE TWO-SEASON HISTORY (ISOLATED, NO CAR)" "sorgenti/tests/run_test_expanded_competition_history.sh"
+run_stage "OG MANAGER FIXTURE KEYCACHE MATCH (READ-ONLY, NO CAR)" "sorgenti/tests/run_test_expanded_og_cache_match.sh"
 run_stage "OG MATCH OCCURRENCE AND 3/4 CYCLES" "sorgenti/tests/run_test_native_history_occurrence.sh"
 run_stage "MIDSEASON NATIVE PHASE DATE MATH" "sorgenti/tests/run_test_expanded_midseason_join.sh"
 run_stage "INSTALLED OG COMPETITION DATA FORMATS" "sorgenti/tests/run_audit_competition_formats.sh"

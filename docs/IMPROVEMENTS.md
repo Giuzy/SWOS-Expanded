@@ -1,5 +1,10 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 18/11/2026 — audit punto 1 chiuso, B rinviata, bug France/Turkey documentato
+- RNC decodificati isolatamente: France generic/storico 18/20 league0, Turkey 17/18; `team_db.c` continua a leggere il generico e mantiene cache non separata per mondo mentre `teams.c` usa override in 9697. Bug di coerenza della sorgente, non test runtime. [Relazione](COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md).
+- Scelta B approvata per formati storici evolutivi **dopo** le coppe basiche; audit statico completo, codice adapter e Windows non provati. Tutto documentale, versione 0.13.87 invariata.
+
+
 ## 18/11/2026 — audit tecnico DOCUMENTALE nuova infrastruttura competizioni, 0.13.87 invariata
 - Audit statico e comparazione dei simulatori OG: [COMPETITION_ENGINE_OG_AUDIT_20261118.md](COMPETITION_ENGINE_OG_AUDIT_20261118.md). Pilot proposto Champions storica OG 96/97, 16 partecipanti/quattro gironi/KO, tre annate consecutive dopo verifiche di formati e qualificazioni.
 - I risultati di `CalculateViewResult`, `world_conti.c`, `uefa_access.c` e `world_cupd.c` non sono intercambiabili; la funzione integrale OG di season-end simula e muta competizioni. Salvare nuove fixture nel CAR og_resident esteso, non creare doppio ledger/simulatore.

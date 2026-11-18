@@ -1,5 +1,10 @@
 # SWOS Expanded — AGENTS.md
 
+## 18/11/2026 — Fase 1 Competition Engine: audit statico CHIUSO, decisione B
+- [COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md](COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md): audit source e RNC France/Turkey concluso, ma **NON** nuovo engine o test Windows. L'utente approva **B**, formati/regolamenti storici evolutivi **DOPO** il sistema basico funzionante. Champions OG a 16 squadre oltre il 1996/97 solo sandbox tecnico; non pubblicare il 1997/98 a 16 come storia reale.
+- **Incoerenza confermata:** `teams.c::LoadTeamFile` usa per CAREER 9697 `data/9697/TEAM.013/.038` (France 20, Turkey 18 prime squadre), `team_db.c::read_country` prende generici (France 18, Turkey 17), cache `s_country` priva di mondo. Servono resolver comune/isolamento cache e test prima di nuovi ID; NON confondere TeamDb UUID/skill checksum con ClubKey stabile in carriera. Nessuna modifica a codice o asset in questo commit.
+
+
 ## 18/11/2026 — Audit OG di fattibilita' + coppa pilota: riferimento obbligatorio
 - L'audit statico [COMPETITION_ENGINE_OG_AUDIT_20261118.md](COMPETITION_ENGINE_OG_AUDIT_20261118.md) distingue RIUSA, ADATTA e NON CHIAMARE LIVE. Per il Competition Engine **non usare un solo simulatore per tutti i tornei**: `CalculateViewResult`, `world_conti.c`, `uefa_access.c`, `world_cupd.c` usano logiche/RNG diversi. Mai chiamare `Career_AdvanceToNextSeason_UpdateCompetitions` integralmente nel nuovo orologio, perche' simula e muta competizioni; mai creare un secondo writer.
 - **Pilota proposto:** Champions OG 1996/97, type-2, 16 squadre e quattro gironi; tre edizioni consecutive SOLO dopo verifica fonti qualificati, formato delle successive e binding manager. Francia/Turchia e gli altri file sono stati corretti nel codice 0.13.69 secondo audit precedente, ma il preflight e' ancora obbligatorio. In assenza di dati attendibili, STOP e richiesta decisione, nessun riempimento inventato.

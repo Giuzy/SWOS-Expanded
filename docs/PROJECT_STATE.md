@@ -1,5 +1,10 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 18/11/2026 — Chiusura punto 1, audit statico (0.13.87 invariata)
+- [COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md](COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md): 16 seed Champions/15 federazioni, quote OG 4+5+5+2, matrice riuso OG e confronto binario RNC. In 1996/97 la France TEAM.013 passa 18→20 club in prima divisione e Turkey TEAM.038 17→18; cambiano anche nomi di ordinali. Loader carriera usa override corretti, TeamDb usa file generici e cache non world-scoped. Impatto concreto sul gameplay non provato: da correggere prima di sviluppare ClubKey/journal.
+- Scelta B dell'utente: evoluzioni storiche anno-per-anno desiderate ma POSTICIPATE dopo sistema base/competizioni basiche. **Audit statico SI; adapters, golden, 3 edizioni, CAR nuovo e Windows NON PROVATO**. Nessun codice/asset/save/EXE modificato.
+
+
 ## 18/11/2026 — Audit OG dopo approvazione Competition Engine (SOLO DOCUMENTI)
 - [COMPETITION_ENGINE_OG_AUDIT_20261118.md](COMPETITION_ENGINE_OG_AUDIT_20261118.md): scelta tecnica motivata del pilota Champions storica OG 96/97 (16 squadre, 4 gironi e KO), CON PREFLIGHT per partecipanti reali, qualificazioni dei successivi anni, regole per epoca, calendario e manager binding. La scelta non rende il pilota implementato.
 - **Scoperta chiave:** esistono motori di simulazione differenti OG/Mod (`CalculateViewResult`, `world_conti.c::match/tie`, `world_cupd.c::cd_sim`, preliminari `uefa_access.c`). `Career_AdvanceToNextSeason_UpdateCompetitions` fa anche avanzamenti, quindi NON e' un'API pura delle qualificazioni. `SaveJson_WriteCareer/LoadCareer` ha gia' snapshot residenti OG e scrittura atomica: estendere compatibilmente, non rifare il CAR.

@@ -1,5 +1,10 @@
 # Competition Engine — audit OG iniziale e scelta pilota (18/11/2026)
 
+## UPDATE CONCLUSIVO — 18/11/2026
+- Audit OG statico punto 1 completato; [relazione e verifica RNC France/Turkey](COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md). Il vecchio testo sottostante che chiede A/B è SUPERATO: l'utente ha scelto **B, regolamenti storici evolutivi**, da implementare **DOPO** il sistema di base. Champions 16 come pilot tecnico, non come finta edizione storica 1997/98.
+- `teams.c` usa override 9697 per France/Turkey, `team_db.c` usa generici e cache paese: rischio identità nomi, ordinale, div e checksum divergente. RNC: Francia 18 vs 20; Turchia 17 vs 18. Nessun fix C/test Windows di questa decisione, golden runtime pendente.
+
+
 **Ramo e base osservata:** `dev/0.10`, HEAD `b5758c41b7bd03b684b6de4fe46db374dcfbec08`, versione `0.13.87`.
 **Natura:** analisi statica dei sorgenti e confronto documentale con OpenSWOS; nessuna nuova architettura implementata, nessun codice toccato, nessun test di compilazione o gameplay Windows. **Non dichiarare completato il gate 1**: rimangono l'audit completo delle chiamate, i golden test e la conferma degli ingressi del pilot.
 

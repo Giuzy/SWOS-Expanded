@@ -1,5 +1,11 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 18/11/2026 — bug sorgente France/Turkey e confine UUID vs ClubKey
+- [COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md](COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md) contiene prova isolata RNC: `data/TEAM.013` France 42 club / 18 league0 vs `data/9697/TEAM.013` 42 / 20, **10** record con name/league cambiati; `data/TEAM.038` Turkey 24 / 17 vs `data/9697/TEAM.038` 24 / 18, **6** record cambiati.
+- `teams.c:432-459` cambia sorgente SOLO per WORLD_9697 CAREER (012/013/038/073), `team_db.c:202-233` usa sempre generici per mondo non-JSON; `team_db.c::s_country[256]` è cache paese non mondo. Causa statica accertata, riproduzione Windows non fatta. `custom_team.c` dipende da TeamDb, non alterare CLASSIC/DIY/SEASON.
+- `sorgenti/docs/TEAM_IDS.md` definisce UUID e checksum dei dati fissi: **NO** usarli come unica identità del club lungo la carriera; progettare ClubKey stabile, versionare dataset e mappare TeamFile alle rose. Decisione B futura con format storici annui, ma primo engine usa soltanto il formato OG pilota tecnico e coppe basiche. Nessuna patch code ora.
+
+
 ## 18/11/2026 — audit oggetti e side effects Competition Engine, scelta pilota
 - Fonte [COMPETITION_ENGINE_OG_AUDIT_20261118.md](COMPETITION_ENGINE_OG_AUDIT_20261118.md), base 0.13.87. `competition_data.c:206-230`: `_euroCup` 1996/97 type2 16 seed, quattro gironi, KO. `career_status.c:4545-4748`: residente `s_expOGUefa[0]` funziona solo `World_FirstYear`, poi `NEW_EDITION_PENDING qualification=NOT_CONNECTED`; il ramo club qualificato `PENDING_MANAGER_BIND` salta invece le gare, quindi il bind e' un gate del pilota.
 - `career_season.c:1707-1782`: l'entry `Career_AdvanceToNextSeason_UpdateCompetitions` **simula** e costruisce liste euro/CONMEBOL e fa `Conti_SeasonEnd` e `WorldCups_SeasonEnded`, con limiti TMD 16/32/32 oppure 36/36/36 e panics 0x8998/0x8999; NON e' un reader di classifiche/qualificati e NON va chiamata integralmente dal nuovo scheduler.

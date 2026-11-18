@@ -1,5 +1,10 @@
 # SWOS Expanded — Game Design Document
 
+## 18/11/2026 — scelta B FUTURA, prime competizioni BASILARI adesso
+- Utente approva **B**: mondo che nasce nel 1996/97 con competizioni che evolvono storicamente fra edizioni (Champions 16→24 nel 1997/98 come esempio), tramite ruleset/data pack verificati. **Ora la priorità è far funzionare engine unico e coppe basilari**, non implementare subito i cambi di formato. Il pilot OG a 16 ripetuto è SOLO test di API, non tre autentiche edizioni storiche; CAREER live non può presentare finte edizioni 1997/98.
+- Distinguere ClubKey persistente, TeamDb UUID di dati fissi, compId nativo non globalmente unico; rispettare file TEAM storici usati dalla CAREER e non dalla cache generica. Fonte: [COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md](COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md). Questo commit non cambia gameplay.
+
+
 ## 18/11/2026 — precisazione progettuale emersa dall'audit OG
 - Non esiste un unico simulatore OG universale: diverse famiglie (partita normale, continentali moderne, playoff/Serie D, qualificazioni) usano algoritmi e RNG differenti. Il Competition Engine definisce un contratto UNICO DI EVENTO/RISULTATO e seleziona il rispettivo adapter OG con comportamento verificato, senza imporre la stessa funzione di score a tutte le competizioni.
 - Prima coppa pilota scelta come candidato tecnico: **Champions storica 1996/97, type-2 con 16 squadre/quattro gironi/KO**, tre edizioni consecutive con veri qualificati. Il formato negli anni successivi nel mondo storico NON si assume invariato o aggiornato senza decisione e dati; data civile, risultato unico e manager bind devono funzionare. Secondo formato proposto: Coppa delle Coppe 1996/97.

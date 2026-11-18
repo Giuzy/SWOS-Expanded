@@ -1,5 +1,10 @@
 # SWOS Expanded — development procedures and rationale
 
+## 18/11/2026 — esito fase 1 e gate implementazione
+- Audit statico fase 1 `SI`, golden adapter/Windows `NON PROVATO`. [Analisi e checklist](COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md). In fase 2: risolvere source/cache `TeamDb` senza regressioni CLASSIC; verificare 13:20 / 38:18 / ordinali, cambio mondi 9697→2627→9697; definire ClubKey per club persistente distinto da UUID team fixed data. Poi golden adapter con seed RNG e qualificati identici indipendenti dal manager, fixture single-writer, CAR roundtrip e test Windows.
+- Opzione B è DECISIONE sul futuro, NON modifica runtime oggi: tre test tecnici con Champions OG 16 non sono tre campionati storicamente corretti 1997/98+. STOP su duplicazione, perdita CAR o regressione OG 50 Hz. Nessuna nuova toolchain.
+
+
 ## 18/11/2026 — test/gate audit OG e pilota (non e' una nuova build)
 - Leggere [COMPETITION_ENGINE_OG_AUDIT_20261118.md](COMPETITION_ENGINE_OG_AUDIT_20261118.md): matrice RIUSA/ADATTA/NON CHIAMARE LIVE, simulatori OG con RNG differenti e specifica della Champions 96 pilota. Non chiamare il vecchio `Career_AdvanceToNextSeason_UpdateCompetitions` per ricostruire gli iscritti nel mondo live: simula e muta i tornei.
 - Prima di modificare codice: preflight sui 16 seed Champions e sulle classifiche nazionali, detentore, draw, date e regole degli anni successivi; per il 1996/97 le correzioni TEAM dei quattro paesi vanno verificate sui file disponibili nel build effettivo. Stabilire con utente il modello formati fra 1997 e anni futuri.

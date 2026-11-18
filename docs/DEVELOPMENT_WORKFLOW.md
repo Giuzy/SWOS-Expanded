@@ -1,5 +1,11 @@
 # SWOS Expanded — development procedures and rationale
 
+## 18/11/2026 — protocollo gated della futura architettura competizioni (solo doc)
+- Seguire [COMPETITION_ENGINE_ARCHITECTURE_TODO_20261118.md](COMPETITION_ENGINE_ARCHITECTURE_TODO_20261118.md): SETTE task in TRE traguardi, non sette versioni obbligatorie. Un'unica coppa SWOS esistente usata come pilot, non un torneo inventato.
+- **GATE fondamentale:** TRE edizioni CONSECUTIVE con qualificate vere da altre competizioni, fixture per ID e un risultato unico; data/fase/turni vincitore corretti, CAR atomico e CONTINUE dopo ogni anno, senza perdita o ripetizione; stessi dati con manager disoccupato, assunto, esonerato e riassunto; verifiche sul secondo formato e su entrambi i mondi prima di importazione massiva. Confronto algoritmi OG ove riutilizzati.
+- **STOP** se doppio match, regressione OG 50 Hz, mismatch classifiche, cambio stagione non risolto o salvataggio corrotto. Non aggirare i test, non ripristinare LWE autorevole. Distinguere documentazione/statico/test isolati/Windows (utente GitKraken). Nuovo codice e schema CAR soltanto dopo perimetro autorizzato e con sicurezza degli autosave. Nessuna toolchain nuova richiesta.
+
+
 ## 0.13.87 — verifica Windows TRAINING nomi A/B e avviso lampeggiante (PENDENTE)
 - Sincronizza GitKraken su `dev/0.10`, compila personalmente Windows 0.13.87, conservando copie esterne non distruttive di `AUTO9697.CAR` e `AUTO2627.CAR`.
 - Apri TRAINING di un club con abbastanza giocatori: prima schermata **nome club A**, pulsante `VIEW B TEAM`; dopo averlo premuto, **nome club B**, pulsante `VIEW A TEAM`. Ripeti dopo X A->B, X B->A, BACK e variazione della formazione. Nomi e rose devono riferirsi al lato visualizzato realmente.

@@ -1,5 +1,11 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 18/11/2026 — NUOVA ARCHITETTURA COMPETIZIONI APPROVATA: solo documenti, NON implementata
+- Documento canonico: [COMPETITION_ENGINE_ARCHITECTURE_TODO_20261118.md](COMPETITION_ENGINE_ARCHITECTURE_TODO_20261118.md). L'utente approva un Competition Engine Expanded single-writer (calendario civile, edizioni, qualificazioni, fixture, storico e CAR) con riuso degli algoritmi OG e PARTITA OG 50 Hz invariata; NON riattivare LWE autonomo o duplicare una gara. Sette attivita' in tre traguardi, non sette build: A audit/ID/scheduler/save, B qualificazioni/coppa pilota tre edizioni/test secondo formato, C importatore/validatore batch.
+- Fatti tecnici: leghe piu' semplici perche' `career_season.c::processPrimaryCompetitionForNextSeason` e `career_init.c::InitializeNewSeason` hanno gia' promozioni/retrocessioni e nuova stagione; coppe continentali dipendono da altre leghe/coppe e `career_status.c::Expanded_OGWorld_AdvanceUefa` mantiene la prima edizione con `qualification=NOT_CONNECTED` per le successive. `Expanded_OGWorld_ResetSeason` conserva i contesti finali come misura di sicurezza, NON genera il prossimo tabellone.
+- Gate pilota: UNA coppa gia' esistente, tre edizioni consecutive, qualificati reali, fixture uniche, save/chiusura/CONTINUE in tutte le transizioni, anche con e senza manager. Nessun intervento codice, CAR, logica partita, asset o test Windows di questa architettura nel commit. Il default NEW CAREER 1 luglio resta immutato.
+
+
 ## 18/11/2026 — 0.13.87: nome A/B corretto in TRAINING, lampeggio B identificato (Windows PENDENTE)
 - HEAD di partenza `49220b861a84d60740f1aa9b830db6f7cb6723ef` (0.13.86). Nella schermata TRAINING il nome indicava B per entrambe le squadre: `SetVariableButtons` interpretava `_is_A_team` come identita' della squadra, ma questa variabile determina la direzione del pulsante VIEW. Ora l'intestazione usa la squadra mostrata realmente (`_careerTeam` = A, `_currentTeam` = B).
 - La scritta `VIEW B TEAM` lampeggia intenzionalmente quando manca la configurazione attesa delle riserve B; bit 13 in `stringFlags`, dipendente da `GetNumberOfSubstitutes(_currentTeam,1)`. Non cambiare tale avviso ne' confonderlo con lo spostamento grafico corretto in 0.13.86.

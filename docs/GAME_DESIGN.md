@@ -1,5 +1,12 @@
 # SWOS Expanded — Game Design Document
 
+## APPROVATO 18/11/2026 — gestione Expanded delle competizioni, riuso OG
+- Superata SOLO la parte della regola 14–15/11 che attribuiva obbligatoriamente a OG anche la titolarita' esclusiva dei calendari e del ciclo completo dei tornei. Expanded diventera' **UNICO** gestore di data/fixture/edizioni/qualificazioni/storico/CAR, riutilizzando algoritmi OG (e preservando partita originale 50 Hz). Vietati due mondi, due simulatori concorrenti, doppi risultati, replay di gare precedenti e reset al cambio club. Resta invariato il mondo 96/97 vs 26/27 con regole specifiche; CLASSIC/DIY/SEASON intatti.
+- Obiettivo: definizioni di tornei tramite pack versionati validati (OG, altri SWOS, creazioni dell'utente), per aggiungere molte competizioni senza nuovo C per ogni torneo esprimibile con primitive comuni. Primo traguardo reale: una COPPA OG gia' esistente, preferibilmente continentale, con TRE edizioni consecutive, qualificazioni, fixture/ID, save e CONTINUE; poi formato differente e import batch. Sette attivita' in TRE traguardi NON sette versioni.
+- Possibile data scelta in NEW CAREER successiva all'origine verificabile del mondo e pre-simulazione di tutti gli eventi; DEFAULT 1 luglio non cambiato ora. Storia per-gara a finestra o totale pluridecennale da decidere dopo misure; regolamenti e date source da verificare.
+- Specifica completa, TODO e gate: [COMPETITION_ENGINE_ARCHITECTURE_TODO_20261118.md](COMPETITION_ENGINE_ARCHITECTURE_TODO_20261118.md). Questo e' DESIGN, non codice gia' implementato.
+
+
 ## Aggiornamento vincolante 16/11/2026 — competizioni di entrambe le epoche
 
 Vedere [COMPETITIONS_TWO_WORLDS_SPEC.md](COMPETITIONS_TWO_WORLDS_SPEC.md): ogni torneo reale pertinente a 1996/97 o 2026/27 va nella carriera OG, senza distinguere la provenienza PRESET/CAREER. Una sola identita' per torneo/epoca, ma CLUB e NAZIONALI separati. Esempi: NORTH AMERICAN CUP = Gold Cup nazionali, CONCACAF Champions Cup = club; EUROPEAN CHAMPIONSHIPS = Europei nazionali, EUROPEAN CHAMPIONS CUP = Champions club; FIFA Intercontinental Cup moderna distinta da FIFA Club World Cup quadriennale. Includere le supercoppe nazionali di TUTTI i paesi che le disputarono realmente (comprese Africa e Asia), e quelle continentali realmente esistenti nell'epoca: il riferimento 4.1.2 con 10 supercoppe NON e' esaustivo.

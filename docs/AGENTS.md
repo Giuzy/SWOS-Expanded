@@ -1,5 +1,11 @@
 # SWOS Expanded — AGENTS.md
 
+## Decisione VINCOLANTE 18/11/2026 — Competition Engine, prevale dove confligge con OG-unico 14/11
+- **APPROVATO, NON IMPLEMENTATO:** Expanded diventera' il gestore unico delle competizioni mondiali, data civile, fixture, qualificazioni, edizioni, risultati persistenti, storico e CAR. OG rimane il riferimento degli algoritmi calcistici e della partita 50 Hz INVARIATA. Le precedenti regole 14–15/11 «OG unico proprietario anche dei calendari e dell'intero ciclo delle competizioni» sono [STORICO/SUPERATO] limitatamente all'autorita' sul calendario/competizione; continuano a valere: niente doppia gara, risultati inventati, doppio LWE, reset del mondo all'ingaggio, modifiche CLASSIC/DIY/SEASON, cancellazione CAR.
+- TODO completa e vincolante: [COMPETITION_ENGINE_ARCHITECTURE_TODO_20261118.md](COMPETITION_ENGINE_ARCHITECTURE_TODO_20261118.md). **Sette attivita' ≠ sette versioni:** tre traguardi A fondamenta, B coppa pilota, C importatore. Coppa pilota = una coppa SWOS gia' esistente, preferibilmente continentale, TRE edizioni consecutive con qualificazioni, fixture per ID, save/CONTINUE e controllo no-double-sim. Seguire gate GO/NO-GO, STOP su duplicazioni, perdita save, regressioni. Nessuna migrazione massiva prima del pilota e secondo formato.
+- Nuovi dettagli di origine del mondo, archivio integrale pluridecennale, coppa pilota specifica, regole personalizzate richiedono verifica/decisione; nessuna nuova toolchain. **Questo e' un commit solo documentale, 0.13.87 invariata.**
+
+
 ## Regola aggiornata — 17/11/2026, root semplificata (prevale sulle vecchie istruzioni BAT)
 - Nella root restano **AVVIA_SWOS.bat e AVVIA_DIAGNOSTICA.bat**; COMPILA_SWOS.bat e PREPARA_SWOS.bat, insieme agli altri strumenti BAT, stanno in `diagnostica/`. Il launcher AVVIA_SWOS richiama PREPARA con percorso assoluto; tutte le compilazioni usano ancora la root come directory di lavoro.
 - Log Windows in `diagnostica/log/SWOS.log` e `diagnostica/log/COMPILAZIONE_0140.log` per avvio ordinario; ogni sessione AVVIA_DIAGNOSTICA copia il log corrente nella propria directory isolata. Marker compilazione e backup video in `diagnostica/`. Conservare file preesistenti e salvare le tracce precedenti, non cancellare i CAR.

@@ -493,14 +493,39 @@ int swos_io_save_atomic(const uint8_t *name,const uint8_t *buf,uint32_t size)
         return 1;
     }
 #if defined(_WIN32) && !defined(__CYGWIN__)
-    /* Win32 rename() cannot replace an existing destination. */
-    if (!MoveFileExA(temp,path,MOVEFILE_REPLACE_EXISTING |
-                              MOVEFILE_WRITE_THROUGH)) {
-        fprintf(stderr,"[autosave] atomic replace failed (Win32 %lu)\n",
-                (unsigned long)GetLastError());
-        remove(temp);
-        return 1;
+    /* Some Windows scanners/indexers briefly open the previous CAR without
+     * FILE_SHARE_DELETE, causing MoveFileExA to fail with Win32 5. Retry ONLY
+     * access/sharing/lock failures, without touching the existing CAR or
+     * rewriting the already flushed temporary JSON. Max 5 total attempts;
+     * other filesystem errors still fail immediately. */
+    static const DWORD retry_delay_ms[] = {50u,100u,200u,400u};
+    unsigned retries = 0;
+    for (;;) {
+        if (MoveFileExA(temp,path,MOVEFILE_REPLACE_EXISTING |
+                                 MOVEFILE_WRITE_THROUGH))
+            break;
+        const DWORD err = GetLastError();
+        if ((err != ERROR_ACCESS_DENIED &&
+             err != ERROR_SHARING_VIOLATION &&
+             err != ERROR_LOCK_VIOLATION) ||
+            retries >= sizeof retry_delay_ms / sizeof retry_delay_ms[0]) {
+            fprintf(stderr,
+                    "[autosave] atomic replace failed Win32=%lu attempts=%u "
+                    "previous-file-retained=1\n",
+                    (unsigned long)err,retries+1u);
+            if (remove(temp)!=0)
+                fprintf(stderr,
+                        "[autosave] temp cleanup failed; previous CAR untouched\n");
+            return 1;
+        }
+        fprintf(stderr,
+                "[autosave] atomic replace busy Win32=%lu retry=%u/%u\n",
+                (unsigned long)err,retries+1u,
+                (unsigned)(sizeof retry_delay_ms / sizeof retry_delay_ms[0]));
+        Sleep(retry_delay_ms[retries++]);
     }
+    if (retries)
+        fprintf(stderr,"[autosave] atomic replace RECOVERED retries=%u\n",retries);
 #else
     if (rename(temp,path)!=0) {
         remove(temp);

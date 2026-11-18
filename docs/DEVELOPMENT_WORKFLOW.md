@@ -1,5 +1,11 @@
 # SWOS Expanded — development procedures and rationale
 
+## 18/11/2026 — checklist 0.13.90 Windows: tutti i warning osservati e CAR Win32
+- [Analisi esatta delle diagnostiche 0.13.89 e diff](WARNINGS_AND_SAVE_RETRY_01390_20261118.md). I quattro warning visibili sono corretti; soprattutto l'argomento Makefile ora `-Waddress-of-packed-member` e' ATTIVO. Dopo GitKraken compilare con `diagnostica/COMPILA_SWOS.bat`, non riutilizzare log precedenti: verificare **full rebuild** via build-flags stamp, contare ogni warning GCC ed errore. Se compaiono nuovi warning packed, fermarsi e inviare log: non ignorarli o impostare PASS.
+- Backup esterno dei CAR `AUTO9697.CAR`, `AUTO2627.CAR`, `AUTOSAVE.CAR`; provare salvataggi di test nel 96/26, menu-exit, chiusura/CONTINUE, switch world, stagione e coppe. Registrare `atomic replace busy Win32=`, `RECOVERED`, `failed Win32=` con tentativi. Se Win32 5 non si ripete, esito fix runtime **NON PROVATO**.
+- Rispetto a 0.13.89: cambi solo Hall of Fame init, memoria del sorteggio 36 squadre, due commenti, flag warning, retry Windows, versione. Controllare CLASSIC/DIY/SEASON, mouse/joypad e partita 50 Hz. STOP se save o calendari OG regrediscono; nessuna nuova toolchain.
+
+
 ## 18/11/2026 — checklist Windows dopo 0.13.89 packed
 - [Rapporto](PACKED_ALIGNMENT_AUDIT_20261118.md): modificati sei file e aggiunto `sorgenti/tests/test_expanded_packed_alignment.c` per i 29 warning della 0.13.88. I controlli statici e il test C rappresentativo NON equivalgono alla compilazione completa di Expanded.
 - Dopo GitKraken su `dev/0.10`, verificare Build 0.13.89, compilare con `diagnostica/COMPILA_SWOS.bat` usando la toolchain già installata e leggere il `COMPILAZIONE_0140.log` nuovo. Contare warning packed e ogni altro error/warning senza riciclare i log vecchi.

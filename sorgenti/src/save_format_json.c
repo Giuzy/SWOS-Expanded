@@ -3138,7 +3138,7 @@ void DataJson_LoadCareerParams(void)
 /* Slurp `path`, find the record whose "$.id" == id inside the array at
    "$.<arrkey>", and return its object slice. On success returns 1, sets
    *filebuf to the malloc'd file (caller must free it once done with the slice)
-   and *o/*ol to the record slice. Returns 0 (and frees the file) otherwise. */
+   and both output parameters *o and *ol to the record slice. Returns 0 (and frees the file) otherwise. */
 /* A world's data (include/world.h) sits in data_json/worlds/<tag>/ beside 96/97's, file
  * for file -- teams/ITALY.json, competitions/leagues.json -- holding only what differs:
  * a competition record by its id, a country's team file whole. `path` is 96/97's
@@ -3439,7 +3439,7 @@ int DataJson_LoadTeamFileForCountry(int countryNum, unsigned char *teamFileBuf, 
 }
 
 /* ----------------------------------------------------------------------------
- * Competition JSON loader (data_json/competitions/*.json) — first increment:
+ * Competition JSON loader (JSON files in data_json/competitions) — first increment:
  * parse a single competition RECORD (the cup / playoff family: comp base +
  * scalars + round_rule_flags + name strings + team_seed_list) into the typed
  * CompetitionCup struct. Tournament rounds[]/league divisions[] and the

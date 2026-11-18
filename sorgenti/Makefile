@@ -506,15 +506,16 @@ CFLAGS  := $(ARCHFLAGS) -O2 -g -std=gnu11 -fno-strict-aliasing -fno-builtin \
            -Wall -Wno-unused-function -Wno-unused-variable -Wno-unused-but-set-variable \
            -Wno-attributes -Wno-multichar -Wno-builtin-declaration-mismatch \
            -Wno-pointer-sign -Wno-int-conversion -Wno-incompatible-pointer-types \
-           -Wno-braces -Wno-address-of-packed-member \
+           -Wno-braces -Waddress-of-packed-member \
            -Wno-strict-aliasing -Wno-array-bounds -Wno-stringop-overflow \
            $(DATA_FLAGS) \
            -include $(INCDIR)/swos_platform.h \
            -I$(SRCDIR) -I$(INCDIR) $(SDL2_CFLAGS)
 # -Wno-braces:                 tactics_data.c auto-extractor wraps scalar
 #                              initialisers in `{ }`; intentional, ~4200 hits.
-# -Wno-address-of-packed-member: packed structs mirror Amiga byte layout
-#                              everywhere; we take &field deliberately.
+# -Waddress-of-packed-member: keep this warning ACTIVE in full Windows
+#                              builds, so unsafe address taking is visible.
+#                              Do not globally suppress packed warnings.
 # -Wno-strict-aliasing:        we already pass -fno-strict-aliasing for the
 #                              same reason; this just silences the diag.
 # -Wno-array-bounds:           Amiga BSS adjacency reads (e.g. extern

@@ -1,5 +1,10 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 18/11/2026 — 0.13.90: dangling draw e Win32 replace
+- Nei tre nuovi log Windows della 0.13.89, sessione 1 compila con 4 warning: Hall Record init (1), `LeaguePhase_Draw` salva puntatore di `drawn[N]` sullo stack in `s_country` (1), commenti in `save_format_json.c` (2). Sessioni 2/3 compilazioni incrementali (0 warning non significativo). Makefile ancora con `-Wno-address-of-packed-member`; 0.13.90 riattiva la diagnostica.
+- `league_phase.c`: il globale `s_country` e' letto da `fits/same_country` durante `draw`; ora usa un buffer statico di `N` byte copiati all'ingresso, senza variare s_rng, ordine di fixture o l'algoritmo. `swos_io.c`: `MoveFileExA` con `MOVEFILE_REPLACE_EXISTING|MOVEFILE_WRITE_THROUGH` ha fallito una volta per Win32 5 nella sessione 2 DOPO `READY_FOR_ATOMIC_SAVE`; implementato retry limitato e solo per access/sharing/lock, vecchio CAR sempre conservato al fallimento. [Report e limiti](WARNINGS_AND_SAVE_RETRY_01390_20261118.md). Compilazione/gioco Windows **NON PROVATI**.
+
+
 ## 18/11/2026 — 0.13.89: audit allineamento packed, 29 warning 0.13.88
 - Tre `COMPILAZIONE_0140.log` (sessioni 1 070243, 2(9), 3(6)): 29 warning GCC per build: 12 in save_format_json, 9 in career_status, 5 ripetuti dall'include diy_competition.h, 1 ciascuno in menus, statistics e career_teams. Localizzati i call site, corretti con valori temporanei allineati e `memcpy` per pointer/int32 packed, oppure accesso diretto a parent mutante. `DIYTeamStats` usa `offsetof` e `_Static_assert` per allineamento 2. [Audit](PACKED_ALIGNMENT_AUDIT_20261118.md).
 - Fonte C modificata nella 0.13.89; test C sintetico dell'operazione packed eseguito separatamente, non prova runtime. `FindTeamInDIY` mantiene un percorso OG esistente che richiede ancora audit dei chiamanti. Compilazione integrale, zero warning residui, CAR 96/26 e gameplay Windows: **NON PROVATI**.

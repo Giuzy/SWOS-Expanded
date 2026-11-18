@@ -1,5 +1,10 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 18/11/2026 — 0.13.90: warning reali e scrittura atomica
+- Riparati nel codice i quattro warning GCC della full build 0.13.89 (initializer, dangling pointer, due commenti); `-Waddress-of-packed-member` reso visibile per il prossimo full rebuild. Attenzione: 29 warning precedenti non dichiarabili zero finche' il compilatore non li controlla senza soppressione.
+- Salvataggio: singolo Win32 5 in 2627 su MoveFileExA dopo la serializzazione; retry con backoff limitato per errori 5/32/33 senza mai eliminare il CAR precedente. No conversione save, niente nuovo motore o cambi OG. [Rapporto](WARNINGS_AND_SAVE_RETRY_01390_20261118.md). Test simulati isolati SI; Windows, conteggio warning e persistenza **NON PROVATI**.
+
+
 ## 18/11/2026 — 0.13.89: accessi packed rivisti (Windows da verificare)
 - Patch dei 29 punti di `-Waddress-of-packed-member` riscontrati nei tre log della 0.13.88, in sei sorgenti/header: accessi con allineamento garantito o `memcpy` e assert compile-time; nessuna alterazione volontaria di struct OG, gameplay e formato dei file CAR.
 - [Rapporto](PACKED_ALIGNMENT_AUDIT_20261118.md) e test C isolato inclusi. Mancano build Windows della 0.13.89, nuovo conteggio warning, roundtrip dei CAR per entrambi i mondi e regressioni: **NON PROVATI**.

@@ -1,5 +1,10 @@
 # SWOS Expanded — AGENTS.md
 
+## 18/11/2026 — 0.13.90: warning GCC visibili e retry CAR Windows
+- [Audit, codice e test pendenti](WARNINGS_AND_SAVE_RETRY_01390_20261118.md): su 0.13.89 compilazione completa Windows 4 warning (Hall init, puntatore stack del sorteggio, due commenti). Correzioni minime 0.13.90; `-Waddress-of-packed-member` riattivato, NON dichiarare zero warning finche' un intero rebuild Windows non lo conferma.
+- Un salvataggio menu-exit 2627 della sessione 2 falliva in MoveFileExA con Win32 5 DOPO la serializzazione. Aggiunti retry limitati per access denied/sharing/lock con pause massime totali 750 ms; vecchio CAR mai cancellato. La causa esterna non e' provata; test Win32 reali, 96/26 e CLASSIC/DIY/SEASON ancora PENDENTI. Non cambiare formato CAR, gameplay o altri warning soppressi senza audit.
+
+
 ## 18/11/2026 — 0.13.89: audit warning packed applicato (Windows PENDENTE)
 - Correzione mirata dei 29 `-Waddress-of-packed-member` osservati nei tre log Windows della 0.13.88. Sei file sorgente/header, più test C isolato. [Rapporto tecnico](PACKED_ALIGNMENT_AUDIT_20261118.md). Nessuna modifica alle strutture packed, agli algoritmi OG a 50 Hz, alle competizioni o al formato CAR; non disabilitare i warning.
 - Dove necessario, copie temporanee allineate e `memcpy` delle rappresentazioni di puntatori/int32; nelle callback mutanti letture dei campi dal parent packed vivo. `FindTeamInDIY` e altri vecchi cast richiedono audit separato. Le 29 espressioni sono state revisionate nel codice, ma compilazione completa Windows, confronto warning e roundtrip CAR **NON PROVATI**.

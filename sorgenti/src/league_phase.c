@@ -13,6 +13,7 @@
 #include "league_phase.h"
 #include "uefa_coef.h"
 #include "competition_data.h"
+#include <string.h> /* owned country snapshot for synchronous draw */
 
 #define N   LEAGUE_PHASE_CLUBS
 #define MAXM LEAGUE_PHASE_MATCHES
@@ -37,7 +38,8 @@ static void shuffle(uint8_t *a, int32_t n)
 
 /* ---- the opponents so far ---- */
 
-static const uint8_t *s_country;
+/* Never retain a caller's stack array after LeaguePhase_Draw returns. */
+static uint8_t s_country[N];
 static uint8_t s_opp[N][8], s_nopp[N];
 
 static int32_t same_country(int32_t c, uint8_t k)
@@ -264,7 +266,8 @@ static int32_t draw(int32_t six, uint8_t (*cal)[2]);
 
 int32_t LeaguePhase_Draw(const uint8_t *country, int32_t six, uint32_t seed, uint8_t (*cal)[2])
 {
-    s_country = country;
+    /* Copy only the country tags: same fixture rules/RNG, no dangling ptr. */
+    memcpy(s_country, country, sizeof s_country);
     s_rng = seed;
     for (s_relax = 0; s_relax < 3; s_relax++)   /* (a field no draw fits: a country's rule relaxed, */
         if (draw(six, cal))                     /*  never a season without its league phase) */

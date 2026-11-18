@@ -1,5 +1,10 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 18/11/2026 — 0.13.90: quattro warning GCC e Win32 5
+- Ramo `dev/0.10`, build_info incrementata a 0.13.90. Correzione di 4 warning visibili nella compilazione completa 0.13.89: `expanded_career.c` (zero init), `league_phase.c` (copia dei paesi nella fase 36 squadre per evitare dangling pointer), `save_format_json.c` (due commenti). Il Makefile riattiva l'audit `-Waddress-of-packed-member`; i 29 warning della 0.13.88 non risultano ancora convalidati come zero.
+- `swos_io_save_atomic` ora ritenta fino a cinque volte SOLO errori transitori Win32 5/32/33 di MoveFileExA, senza modificare il CAR esistente al fallimento. Logga retry/RECOVERED/codice finale. [Report](WARNINGS_AND_SAVE_RETRY_01390_20261118.md). Test C isolati SI; build Windows completa, numero finale warning, save/CONTINUE per due mondi e regressioni OG **NON PROVATI**.
+
+
 ## 18/11/2026 — 0.13.89: correzioni di allineamento packed
 - Versione codice 0.13.89 su `dev/0.10`: integrate le correzioni mirate alle 29 segnalazioni di `-Waddress-of-packed-member` della 0.13.88 in 6 file, senza cambiare layout OG o schema CAR. [Audit e limiti](PACKED_ALIGNMENT_AUDIT_20261118.md). Compreso test C isolato in `sorgenti/tests/test_expanded_packed_alignment.c`.
 - Le copie allineate riguardano letture/puntatori; le callback che modificano lo stato OG leggono i dati vivi. Mancano ancora verifica dell'effettivo numero di warning dopo compilazione Windows, CONTINUE e nuovo save 1996/97 e 2026/27, CLASSIC/DIY/SEASON e gameplay: **NON PROVATO**.

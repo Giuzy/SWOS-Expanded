@@ -193,7 +193,7 @@ typedef struct HallRecord {
 } HallRecord;
 
 void Expanded_HallInit(void) {
-    HallRecord top[5]={{0}};
+    HallRecord top[5]={0};
     for(int i=0;i<5;i++) strcpy(_expandedHallLines[i],"--");
     char path[1200],line[256];
     hall_path(path,sizeof path);

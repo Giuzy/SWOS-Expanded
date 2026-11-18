@@ -34,6 +34,7 @@
 #include "expanded_champions_view_route.h"
 #include "expanded_qualification_transition.h"
 #include <stdio.h>
+#include <SDL.h> /* monotonic, high-resolution FORWARD TIME profiling */
 /* Keep the native return type visible before the historic Copa viewer call.
  * competition_data.h cannot be included here: legacy extern arrays differ. */
 extern Competition *Comp_ById(uint8_t);
@@ -482,6 +483,10 @@ extern void InitCareerVariables(uint16_t gameTypeParam);
 /* OG game type used by the aborted-career TITLE diagnostic below. */
 extern uint16_t _gameType;
 
+#ifdef SWOS_SDL_BUILD
+/* This flag is checked by ContinueCareer BEFORE its new-year autosave. */
+static int s_ogManualSeasonReady=1;
+#endif
 __attribute__((used, externally_visible))
 void ContinueCareer(void)
 {
@@ -512,6 +517,13 @@ void ContinueCareer(void)
     } else {
         ContinueCareerNextSeason();
 #ifdef SWOS_SDL_BUILD
+        if(!s_ogManualSeasonReady) {
+            static uint8_t failMenu[]=
+                "NEW SEASON OG WORLD NOT READY - PREVIOUS SAVE PRESERVED";
+            ShowErrorMenu(failMenu);
+            SetExitMenuFlag();
+            return;
+        }
         { extern void Expanded_AutoCareer_Save(const char *);
           Expanded_AutoCareer_Save("new-season"); }
 #endif
@@ -1214,6 +1226,9 @@ extern uint32_t Expanded_OGWorld_CupFaults(void);
 extern int Expanded_OGWorld_AdvanceUefa(uint16_t,uint8_t);
 extern uint32_t Expanded_OGWorld_UefaResidentCount(void);
 static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
+    const Uint64 perfStart=SDL_GetPerformanceCounter();
+    const double perfHz=(double)SDL_GetPerformanceFrequency();
+    Uint64 perfLeagues=0u,perfCups=0u,perfInternational=0u;
     const uint8_t *countries=World_SeasonCountries();
     if(!countries) {
         extern uint8_t _careerCompetitionIdRemapTable[];
@@ -1252,8 +1267,10 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                                "country=%u division=%u\n",
                         (unsigned)year,(unsigned)phase,
                         (unsigned)country,d);
+            const Uint64 leagueStart=SDL_GetPerformanceCounter();
             const int leagueStatus=Expanded_OGWorld_AdvanceLeague(
                 (uint8_t *)rec,country,(uint8_t)d,year,phase);
+            perfLeagues+=SDL_GetPerformanceCounter()-leagueStart;
             if(leagueStatus>0) {
                 ++ok;
                 if(Expanded_OGStress_Remaining())
@@ -1290,8 +1307,10 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
             if(phase==0u && World_Current()==WORLD_9697)
                 fprintf(stderr,"[og-9697-start] CUP_BEGIN country=%u slot=%u id=%u\n",
                         (unsigned)country,j,(unsigned)cup->compId);
+            const Uint64 cupStart=SDL_GetPerformanceCounter();
             const int status=Expanded_OGWorld_AdvanceCup(
                 (uint8_t *)cup,country,(uint8_t)j,year,phase);
+            perfCups+=SDL_GetPerformanceCounter()-cupStart;
             if(status>0){++cups;++countryCupResidents;}
             else if(status<0){++cupsSkipped;++countryCupUnsupported;}
             else {
@@ -1307,6 +1326,55 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
              * an undersized native team selection is NOT filled by a
              * separate simulator or silently counted as supported. */
             if(phase==0u) {
+                /* Independent check: initial real OG list vs resident,
+                 * and (after July) ORIGINAL OG national-cup access quotas.
+                 * A failed list is not replaced with a fictitious champion. */
+                TeamId expectedIds[64],actualIds[64];
+                int derived=0;
+                const int32_t expectedCount=WorldCups_PreviewEntrants(
+                    (const uint8_t *)cup,expectedIds,64u,&derived);
+                extern unsigned Expanded_OGWorld_ReadCupEntries(
+                    uint8_t,uint8_t,uint16_t,TeamId *,unsigned);
+                const unsigned actualCount=Expanded_OGWorld_ReadCupEntries(
+                    country,(uint8_t)j,year,actualIds,64u);
+                uint16_t expectedWords[EXP_QUAL_MAX_ENTRANTS]={0};
+                uint16_t actualWords[EXP_QUAL_MAX_ENTRANTS]={0};
+                if(expectedCount>0)for(unsigned k=0;k<(unsigned)expectedCount;++k)
+                    expectedWords[k]=TEAMID_PACK(expectedIds[k]);
+                for(unsigned k=0;k<actualCount;++k)
+                    actualWords[k]=TEAMID_PACK(actualIds[k]);
+                const ExpandedQualDiff diff=ExpandedQual_Compare(
+                    expectedWords,expectedCount>0?(unsigned)expectedCount:0u,
+                    actualWords,actualCount);
+                const int realRule=expectedCount>0 &&
+                    (year==World_FirstYear() || derived==2);
+                const int exact=realRule && ExpandedQual_IsExact(&diff);
+                const char *const classification=expectedCount<0?
+                    "NOT_TESTED_NO_OG_ACCESS_RULE":
+                    !realRule?(derived==1?
+                        "FAIL_OG_FINAL_PLACES_UNAVAILABLE":
+                        "FAIL_OG_ACCESS_NOT_DERIVED"):
+                    !actualCount?"FAIL_RESIDENT_MISSING":
+                    exact?"PASS_EXACT_NATIVE_CLUB_IDS":"FAIL_WRONG_CUP_ENTRANTS";
+                fprintf(stderr,"[og-cup-entry] world=%s year=%u "
+                               "country=%u slot=%u compId=%u "
+                               "source=%s expected=%d actual=%u "
+                               "matched=%u missing=%u extra=%u "
+                               "dup-source=%u dup-resident=%u status=%s "
+                               "manual-override=NONE "
+                               "provenance=%s\n",
+                        World_Tag(),(unsigned)year,
+                        (unsigned)country,(unsigned)j,(unsigned)cup->compId,
+                        year==World_FirstYear()?
+                            "INITIAL_NATIVE_SEED":"NATIVE_NEXT_YEAR_ACCESS",
+                        expectedCount,actualCount,
+                        diff.matched,diff.missing,diff.extra,
+                        diff.duplicate_source,diff.duplicate_resident,
+                        classification,derived==2?
+                            "OG_COUNTRY_QUOTA_AND_FINAL_PLACES":
+                            derived==1?"OG_QUOTA_WITHOUT_FINAL_PLACES":
+                            year==World_FirstYear()?
+                            "NATIVE_FIRST_YEAR_LIST":"ACCESS_UNAVAILABLE");
                 extern unsigned Expanded_OGWorld_CupSelectedTeams(
                     uint8_t,uint8_t,uint16_t);
                 extern const char *Expanded_OGWorld_CupCoverageReason(
@@ -1395,6 +1463,7 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
      * 26/27 = three native 36-team league-phase type 2 tournaments.
      * Later first-year successors need the original UEFA qualification
      * handoff; do NOT silently replay the first year's seed list. */
+    const Uint64 internationalStart=SDL_GetPerformanceCounter();
     int uefaOk=1;
 #if SWOS_WORLDS
     /* The Mod's 2026/27 starting field is not the 96/97 Copa.
@@ -1408,19 +1477,44 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                 ready?"NATIVE_CONTEXT":"NOT_BOUND");
     }
 #endif
-    if(year==World_FirstYear() &&
-       (World_Current()==WORLD_2627 || World_Current()==WORLD_9697)) {
+    if(World_Current()==WORLD_2627 || World_Current()==WORLD_9697) {
         const int modern=World_Current()==WORLD_2627;
         uefaOk=Expanded_OGWorld_AdvanceUefa(year,phase);
         if(!modern) {
-            const int cw=Expanded_OGWorld_AdvanceCup(
-                (uint8_t *)&_cupWinnersCup,254u,1u,year,phase);
-            const int uc=Expanded_OGWorld_AdvanceCup(
-                (uint8_t *)&_uefaCup,254u,2u,year,phase);
-            if(cw!=1 || uc!=1)
-                fprintf(stderr,"[og-classic-europe] CUPS_UNAVAILABLE "
-                               "year=%u phase=%u cwc=%d uefa=%d\n",
-                        (unsigned)year,(unsigned)phase,cw,uc);
+            static CompetitionCup nextClassic[2];
+            CompetitionCup *records[2]={&_cupWinnersCup,&_uefaCup};
+            int classicReady=1;
+            if(year>World_FirstYear()) {
+                const unsigned names[2]={1u,2u};
+                for(unsigned c=0;c<2u;++c) {
+                    uint16_t field[EXP_QUAL_MAX_ENTRANTS]={0};
+                    if(Expanded_OGWorld_QualReadNext(year,names[c],field,
+                             EXP_QUAL_MAX_ENTRANTS)!=32u) {
+                        classicReady=0;break;
+                    }
+                    memcpy(&nextClassic[c],records[c],sizeof nextClassic[c]);
+                    for(unsigned j=0;j<32u;++j) {
+                        nextClassic[c].teamSeedList[j].countryNumber=
+                            (uint8_t)(field[j]>>8);
+                        nextClassic[c].teamSeedList[j].teamOrdinal=
+                            (uint8_t)field[j];
+                    }
+                    records[c]=&nextClassic[c];
+                }
+            }
+            if(classicReady) {
+                const int cw=Expanded_OGWorld_AdvanceCup(
+                    (uint8_t *)records[0],254u,1u,year,phase);
+                const int uc=Expanded_OGWorld_AdvanceCup(
+                    (uint8_t *)records[1],254u,2u,year,phase);
+                if(cw!=1 || uc!=1)
+                    fprintf(stderr,"[og-classic-europe] CUPS_UNAVAILABLE "
+                                   "year=%u phase=%u cwc=%d uefa=%d\n",
+                            (unsigned)year,(unsigned)phase,cw,uc);
+            } else if(phase==0u)
+                fprintf(stderr,"[og-classic-europe] NEW_EDITION_PENDING "
+                               "year=%u reason=NO_COMPLETE_OG_QUALIFIER_FIELD\n",
+                        (unsigned)year);
         }
         /* A resident OG type-2 viewer route exists in career_status.c.
          * Do not emit the obsolete unconditional VIEWER_NOT_BOUND marker.
@@ -1434,10 +1528,8 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                 (unsigned long)residentUefa,modern?3u:1u,
                 uefaOk?"NATIVE_ATTEMPT":"NATIVE_ERROR",
                 residentUefa?"NATIVE_OG_TYPE2_PRESENT":"NO_RESIDENT_CONTEXT");
-    } else if(phase==0u)
-        fprintf(stderr,"[og-international-resident] world=%u "
-                       "year=%u phase=0 status=PENDING_ORIGINAL_QUALIFICATION_HANDOFF\n",
-                (unsigned)World_Current(),(unsigned)year);
+    }
+    perfInternational+=SDL_GetPerformanceCounter()-internationalStart;
     if(phase==0u && year>World_FirstYear())
         Expanded_OGWorld_QualAuditNextYear(year);
     if(phase==0u)
@@ -1472,6 +1564,21 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
         fprintf(stderr,"[og-international-resident] WARNING year=%u phase=%u "
                        "uefa=INCOMPLETE domestic-world-preserved\n",
                 (unsigned)year,(unsigned)phase);
+    {
+        const Uint64 total=SDL_GetPerformanceCounter()-perfStart;
+        const Uint64 active=perfLeagues+perfCups+perfInternational;
+        const Uint64 misc=total>=active?total-active:0u;
+        const double factor=perfHz>0.0?1000.0/perfHz:0.0;
+        fprintf(stderr,"[og-forward-perf] world=%s year=%u phase=%u "
+                       "leagues-ms=%.3f cups-ms=%.3f "
+                       "international-ms=%.3f overhead-ms=%.3f "
+                       "total-ms=%.3f league-count=%u cup-count=%u "
+                       "faults=%u\n",
+                World_Tag(),(unsigned)year,(unsigned)phase,
+                factor*(double)perfLeagues,factor*(double)perfCups,
+                factor*(double)perfInternational,factor*(double)misc,
+                factor*(double)total,ok,cups,failed+cupsFailed);
+    }
     return ok!=0 && failed==0 && cupsFailed==0;
 }
 extern void Expanded_OGWorld_FixtureTickBegin(void);
@@ -1531,6 +1638,7 @@ int Expanded_OGWorld_Start(void) {
     return 1;
 }
 int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
+    const Uint64 cycleStart=SDL_GetPerformanceCounter();
     if(!s_expOGWorldStarted) {
         /* An old/current CAR can restore the manager and civil date without
          * restoring our resident OG leagues/cups.  Never reconstruct a
@@ -1582,6 +1690,31 @@ int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
             return 0;
         }
         ++s_expOGWorldYear;
+        /* In unemployment the OG career's season-end callback is NOT
+         * invoked. Its national-cup season counter must nevertheless
+         * reach the same single OG July transition, without replaying
+         * any cup result or season-end fixture. Employed careers may
+         * already have advanced it: never increment twice. */
+        {
+            const unsigned expected=(unsigned)
+                (s_expOGWorldYear-World_FirstYear());
+            const unsigned before=(unsigned)g_worldCups.seasons;
+            if(expected<=255u && before<=expected) {
+                while((unsigned)g_worldCups.seasons<expected)
+                    WorldCups_SeasonEnded();
+                if(phase==0u || before!=expected)
+                    fprintf(stderr,"[og-cup-season-index] world=%s "
+                                   "year=%u before=%u after=%u expected=%u "
+                                   "source=ONE_NATIVE_JULY_TRANSITION\n",
+                            World_Tag(),(unsigned)s_expOGWorldYear,
+                            before,(unsigned)g_worldCups.seasons,expected);
+            } else
+                fprintf(stderr,"[og-cup-season-index] ANOMALY world=%s "
+                               "year=%u before=%u expected=%u "
+                               "action=NO_REWIND\n",
+                        World_Tag(),(unsigned)s_expOGWorldYear,
+                        before,expected);
+        }
         Expanded_OGWorld_FixturePrune(s_expOGWorldYear);
         Expanded_OGWorld_FixtureSetAsOf((ExpandedWorldDate){
             s_expOGWorldYear,7u,1u});
@@ -1622,6 +1755,19 @@ int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
     if(ok)expanded_og_world_log_audit("TICK",year,cutoff);
     else Expanded_OGWorld_FixtureTickAbort("FINAL_NATIVE_TICK_FAILED");
     Expanded_OGWorld_FixtureTickEnd();
+    {
+        const double hz=(double)SDL_GetPerformanceFrequency();
+        const Uint64 elapsed=SDL_GetPerformanceCounter()-cycleStart;
+        fprintf(stderr,"[og-forward-cycle] world=%s date=%04u-%02u-%02u "
+                       "year=%u native-phase=%u status=%s "
+                       "elapsed-ms=%.3f mode=%s includes=OG_WORLD_AND_JOURNAL "
+                       "excludes=SAVE_UI_RENDER\n",
+                World_Tag(),(unsigned)today.year,(unsigned)today.month,
+                (unsigned)today.day,(unsigned)year,(unsigned)cutoff,
+                ok?"PASS":"FAIL",
+                hz>0.0?1000.0*(double)elapsed/hz:0.0,
+                _selTeamNumber==0xffffu?"UNEMPLOYED":"EMPLOYED");
+    }
     return ok;
 }
 #endif
@@ -1988,6 +2134,9 @@ __attribute__((used, externally_visible))
 void ContinueCareerNextSeason(void)
 {
     extern uint16_t _gameType;
+#ifdef SWOS_SDL_BUILD
+    s_ogManualSeasonReady=1;
+#endif
     SWOS_AUTOSKIP_LOG("[bug1] ContinueCareerNextSeason ENTER: youreSacked=%u "
                       "teamNoOfferAccepted=0x%04X gameType=%u",
                       (unsigned)_youreSacked,
@@ -2013,24 +2162,57 @@ void ContinueCareerNextSeason(void)
         SWOS_AUTOSKIP_LOG("[bug1] back from InitializeNewSeason: youreSacked=%u", (unsigned)_youreSacked);
     }
 #ifdef SWOS_SDL_BUILD
-    /* Keep the ONE living-world clock at the new season's July boundary.
-     * This is after OG InitializeNewSeason, never inside a manual match.
-     * The world now rolls old competitions before the next season starts. */
+    /* The world must be advanced by the ORIGINAL native OG executor
+     * before the auxiliary civil-time cursor or any new-year autosave.
+     * AdvanceToSeason alone moves only the compatibility clock: the 185
+     * crash left it in 2028 with native OG resident still in 2027. */
     if (_gameType==4 && _currentSeasonShowing!=0xffffu &&
         ExpandedWorldLive_Clubs()) {
-        uint32_t year=(uint32_t)World_FirstYear()+_currentSeasonShowing;
-        if (year<=2199u) {
-            if (!ExpandedWorldLive_AdvanceToSeason((uint16_t)year))
-                fprintf(stderr,"[living-world] WARN: unable to sync OG career "
-                               "season %lu; native game left intact\n",
-                        (unsigned long)year);
-            else
-                fprintf(stderr,"[living-world] OG career season %lu synced "
-                               "window=%u\n",(unsigned long)year,
-                        (unsigned)ExpandedWorldLive_WindowFirstYear());
+        const uint32_t year=(uint32_t)World_FirstYear()+_currentSeasonShowing;
+        if(year>2199u) s_ogManualSeasonReady=0;
+        else {
+            const ExpandedWorldDate july={(uint16_t)year,7u,1u};
+            const Uint64 t0=SDL_GetPerformanceCounter();
+            const int nativeOk=Expanded_OGWorld_AdvanceToDate(july);
+            const Uint64 t1=SDL_GetPerformanceCounter();
+            const int clockOk=nativeOk?
+                ExpandedWorldLive_AdvanceToSeason((uint16_t)year):0;
+            const Uint64 t2=SDL_GetPerformanceCounter();
+            int bindOk=1;
+            if(clockOk && _selTeamNumber!=0xffffu && !_youreSacked) {
+                bindOk=Expanded_OGWorld_BindClub(
+                    _selTeamNumber,(uint8_t)_currentDivisionIndex,
+                    (uint16_t)year);
+                if(bindOk) {
+                    extern int Expanded_OGWorld_PositionClubCalendar(
+                        uint16_t,ExpandedWorldDate);
+                    if(!Expanded_OGWorld_PositionClubCalendar(
+                        (uint16_t)year,july))
+                        fprintf(stderr,"[og-manual-season] CALENDAR_NEEDS_AUDIT "
+                                       "world=%s year=%lu\n",
+                                World_Tag(),(unsigned long)year);
+                }
+            }
+            const Uint64 t3=SDL_GetPerformanceCounter();
+            const double hz=(double)SDL_GetPerformanceFrequency();
+            s_ogManualSeasonReady=nativeOk && clockOk && bindOk;
+            fprintf(stderr,"[og-manual-season] world=%s year=%lu "
+                           "native=%d clock=%d bound=%d status=%s "
+                           "native-ms=%.3f clock-ms=%.3f bind-ms=%.3f "
+                           "save=%s\n",
+                    World_Tag(),(unsigned long)year,
+                    nativeOk,clockOk,bindOk,
+                    s_ogManualSeasonReady?"SYNCED":"BLOCKED",
+                    hz>0.0?1000.0*(double)(t1-t0)/hz:0.0,
+                    hz>0.0?1000.0*(double)(t2-t1)/hz:0.0,
+                    hz>0.0?1000.0*(double)(t3-t2)/hz:0.0,
+                    s_ogManualSeasonReady?"PERMITTED":"PREVIOUS_CAR_PRESERVED");
+            if(!s_ogManualSeasonReady)
+                fprintf(stderr,"[og-manual-season] ERROR "
+                               "new-season-career-menu-and-autosave=BLOCKED "
+                               "reason=NATIVE_WORLD_NOT_SYNCHRONIZED\n");
+            else Expanded_OGWorld_QualAuditNextYear((uint16_t)year);
         }
-        if(year<=2199u)
-            Expanded_OGWorld_QualAuditNextYear((uint16_t)year);
     }
 #endif
     SWOS_AUTOSKIP_LOG("[bug1] ContinueCareerNextSeason EXIT");

@@ -11,6 +11,7 @@
 #include "world_cupd.h"
 #include "endian_helpers.h"
 #include "league_groups.h"
+#include <string.h> /* copy preview into caller-owned buffer */
 
 extern void *_competitionsTable[];
 extern DIYCompetitionEx _diyCompetitionStart;
@@ -256,6 +257,36 @@ void WorldCups_Install(void)
             s_real[i][k] = list[k];
     }
     World_SyncSecondFiles();            /* (a second team file's clubs: their country's tables) */
+}
+
+int32_t WorldCups_PreviewEntrants(const uint8_t *record,
+                                  TeamId *out,uint16_t capacity,
+                                  int *derived)
+{
+    const WorldCup *c=cup_of(record);
+    if(derived)*derived=0;
+    if(!c)return -1;
+    if(!out || c->n>WORLD_CUP_CLUBS || c->n>capacity)return 0;
+    if(!g_worldCups.seasons) {
+        const int32_t index=cup_index(c);
+        if(index<0 || index>=WORLD_CUPS_MAX)return 0;
+        memcpy(out,s_real[index],(size_t)c->n*sizeof(*out));
+        return c->n;
+    }
+    /* Deliberately call the original Mod/OG access builder. The normal
+     * entrants() would silently FALL BACK to the initial field on failure,
+     * which must NOT make a second-season qualification test pass. */
+    const int32_t n=build(c,out);
+    if(n>0 && derived) {
+        /* g_worldCups.placesCountry is the ONE country's final OG table
+         * retained by the career path. Without it, the builder uses a
+         * team-ordinal fallback: a plausible list is NOT evidence of
+         * earned qualification. Do not call it a PASS. */
+        const int ranked=g_worldCups.placesCountry==c->country &&
+            (uint8_t)(g_worldCups.placesSeason+1u)==g_worldCups.seasons;
+        *derived=ranked?2:1;
+    }
+    return n;
 }
 
 uint16_t WorldCups_Entrants(const uint8_t *record, uint16_t count)

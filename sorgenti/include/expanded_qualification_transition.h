@@ -61,11 +61,28 @@ static inline int ExpandedQual_IsExact(const ExpandedQualDiff *d)
            !d->duplicate_source && !d->duplicate_resident &&
            !d->invalid_source && !d->invalid_resident;
 }
+/* First edition is a SEED field, not a fictional earned qualification.
+ * Manual entrants require an explicitly approved source; invented or
+ * unverified lists cannot be promoted to validated first-season data. */
+enum {EXP_QUAL_FIRST_NATIVE=1u,EXP_QUAL_FIRST_MANUAL_APPROVED=2u,
+      EXP_QUAL_FIRST_MANUAL_UNVERIFIED=3u};
+static inline int ExpandedQual_FirstEditionValid(unsigned source,
+                                                 const ExpandedQualDiff *d,
+                                                 unsigned entries)
+{
+    return entries>=2u && ExpandedQual_IsExact(d) &&
+           (source==EXP_QUAL_FIRST_NATIVE ||
+            source==EXP_QUAL_FIRST_MANUAL_APPROVED);
+}
 #ifdef SWOS_SDL_BUILD
 /* Diagnostic only: native source identity vs next year's resident OG IDs. */
 void Expanded_OGWorld_QualCaptureNative(uint16_t year,
  const uint8_t *a,unsigned na,const uint8_t *b,unsigned nb,
  const uint8_t *c,unsigned nc,const uint8_t *d,unsigned nd);
 void Expanded_OGWorld_QualAuditNextYear(uint16_t year);
+/* Validated OG career field for a single new edition. A missing source is
+ * never substituted with the original first-year seed list. */
+unsigned Expanded_OGWorld_QualReadNext(uint16_t year,unsigned cup,
+                                      uint16_t *ids,unsigned capacity);
 #endif
 #endif

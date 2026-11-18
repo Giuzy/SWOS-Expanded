@@ -50,6 +50,11 @@ cat >> "$work/positive.log" <<'EOF'
 [og-qual-next] SUMMARY world=2627 year=2027 status=FAIL checked=1 passed=0 failed=1 not-tested=3
 [og-qual-next] ROUTE world=9697 year=1997 competition=CHAMPIONS status=PASS_EXACT_IDS expected=16 actual=16 matched=16 missing=0
 [og-qual-next] SUMMARY world=9697 year=1997 status=PARTIAL checked=1 passed=1 failed=0 not-tested=3
+[og-cup-entry] world=2627 year=2026 country=0 slot=2 compId=109 source=INITIAL_NATIVE_SEED expected=10 actual=10 matched=10 missing=0 extra=0 dup-source=0 dup-resident=0 status=PASS_EXACT_NATIVE_CLUB_IDS manual-override=NONE provenance=NATIVE_FIRST_YEAR_LIST
+[og-cup-entry] world=2627 year=2027 country=0 slot=2 compId=109 source=NATIVE_NEXT_YEAR_ACCESS expected=0 actual=10 matched=0 missing=0 extra=10 dup-source=0 dup-resident=0 status=FAIL_OG_ACCESS_NOT_DERIVED manual-override=NONE provenance=ACCESS_UNAVAILABLE
+[og-manual-season] world=2627 year=2027 native=1 clock=1 bound=1 status=SYNCED native-ms=30.000 clock-ms=1.000 bind-ms=0.500 save=PERMITTED
+[og-forward-perf] world=2627 year=2027 phase=48 leagues-ms=10.000 cups-ms=9.000 international-ms=3.000 overhead-ms=8.000 total-ms=30.000 league-count=134 cup-count=101 faults=0
+[og-forward-perf] world=9697 year=1997 phase=48 leagues-ms=4.000 cups-ms=3.000 international-ms=1.000 overhead-ms=2.000 total-ms=10.000 league-count=88 cup-count=51 faults=0
 [og-cup-bye] NATIVE DRAW VERIFIED country=0 compId=109 real=10 bracket=16 round1-ties=2 byes=6 (OG ONLY)
 [og-cup-coverage] country=0 slot=2 compId=109 year=2096 expected=16 selected=10 state=RESIDENT reason=NATIVE_BYES_VERIFIED
 [og-cup-rule] country=0 slot=2 compId=109 year=2096 bracket=16 selected=10 real-entrants=10 first-round-ties=2 byes=6 padded-slots=6 native-bracket=16 native-round1-ties=2 native-round1-pairs=8 classification=OG_BYE_FORMAT_CANDIDATE round-structure=OG_ROUND1_MATCHES_RULE native-validation=NATIVE_DRAW_IDENTITIES_VERIFIED fixtures=NOT_VERIFIED_BY_RULE
@@ -75,17 +80,23 @@ grep -q '^OG_CUP_COUNTRIES=PARTIAL expected=87 audited=2 incomplete=1' "$work/po
 grep -q '^OG_MANAGER_LOCAL_OG_BRIDGE=SNAPSHOTS_COMMITTED witnesses=1 resident-commits=1 blocked=0 earlier-cycle-pairs=0 same-phase-collisions=0 ' "$work/positive.out"
 grep -q '^OG_MANAGER_CALENDAR_PAIR_IDENTITY=FAIL_REAL_PAIR_MISMATCH audits=1 native-calendar-mismatches=1 ' "$work/positive.out"
 grep -q '^OG_NEXT_SEASON_QUALIFICATION=FAIL_REAL_HANDOFF rollovers=2 checked=2 passed=1 failed=1 missing-editions=1 wrong-clubs=0 not-tested=6 world9697=1 world2627=1 ' "$work/positive.out"
+grep -q '^OG_FIRST_EDITION_CUP_SEED=PARTIAL_OG_ONLY exact=1 wrong=0 unsupported=0 ' "$work/positive.out"
+grep -q '^OG_NEXT_EDITION_DOMESTIC_CUP_IDS=FAIL exact=0 wrong=1 no-access-rule=0 ' "$work/positive.out"
+grep -q '^OG_MANUAL_SEASON_SYNC=OBSERVED synced=1 blocked=0 ' "$work/positive.out"
+grep -q '^OG_FORWARD_PERFORMANCE=MEASURED_NATIVE_COMPONENTS samples=2 modern-samples=1 modern-total-ms=30.000 ' "$work/positive.out"
 grep -q '^OG_CUP_NATIVE_BYE_EVENTS=OBSERVED verified=1 rejected=0' "$work/positive.out"
 ! grep -q '^FIRST_RUNTIME_FAILURE:' "$work/positive.out"
 # A complete 70-year log without a FINISHED marker must never pass.
 sed '/^\[og-stress\] FINISHED years=70/d' "$work/positive.log" > "$work/negative.log"
 echo "[og-world-step] BEGIN year=2096 phase=48 country=28 division=0" >> "$work/negative.log"
+echo "[og-manual-season] world=2627 year=2028 native=0 clock=0 bound=0 status=BLOCKED save=PREVIOUS_CAR_PRESERVED" >> "$work/negative.log"
 set +e
 "$work/audit" "$work/negative.log" "$version" > "$work/negative.out"
 rc=$?
 set -e
 [[ "$rc" -eq 1 ]] || { cat "$work/negative.out"; echo "Expected interrupted stress FAIL (1), got $rc"; exit 1; }
 grep -q '^OG_70_NATIVE_SEASONS=FAIL ' "$work/negative.out"
+grep -q '^OG_MANUAL_SEASON_SYNC=FAIL synced=1 blocked=1 ' "$work/negative.out"
 grep -q '^OG_LAST_WORLD_STEP=NO_END_RECORDED year=2096 phase=48 country=28 division=0' "$work/negative.out"
 echo "OG_RUNTIME_PARSER_STATIC_FIXTURES=PASS"
 echo "OG_REAL_WINDOWS_GAMEPLAY=NOT_TESTED_BY_THESE_FIXTURES"

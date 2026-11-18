@@ -35,6 +35,16 @@ static void feature_read(FeatureSnapshot *out,const char *line)
     out->scorer_goals=field(line,"scorer-league-goals",-1);
     out->standings_goals=field(line,"standings-goals",-1);
 }
+static double real_field(const char *s,const char *key,double fallback)
+{
+    char needle[80];
+    if(snprintf(needle,sizeof needle,"%s=",key)<0)return fallback;
+    const char *p=strstr(s,needle);
+    if(!p)return fallback;
+    p+=strlen(needle);
+    if((*p>='0' && *p<='9') || *p=='-')return strtod(p,NULL);
+    return fallback;
+}
 static long field(const char *s,const char *key,long fallback)
 {
     char needle[80];
@@ -126,6 +136,14 @@ int main(int argc,char **argv)
     long qual_years=0,qual_checked=0,qual_passed=0,qual_failed=0;
     long qual_untested=0,qual_missing_editions=0,qual_wrong_clubs=0;
     long qual_world_9697=0,qual_world_2627=0;
+    long firstNativePass=0,firstNativeFail=0,firstNativeUnknown=0;
+    long cupNextPass=0,cupNextFail=0,cupNextUnknown=0;
+    long manualSyncPass=0,manualSyncFail=0;
+    long performanceSamples=0,performance2627=0,performance9697=0;
+    double perfTotal2627=0,perfTotal9697=0;
+    double perfLeagues2627=0,perfLeagues9697=0;
+    double perfCups2627=0,perfCups9697=0;
+    double perfInternational2627=0,perfInternational9697=0;
     char historical_first[500]="";
     long notice_optional_pad=0,notice_title_skipped=0;
     long notice_import_outside=0,notice_import_wrong=0;
@@ -174,6 +192,42 @@ int main(int argc,char **argv)
         if(strstr(line,"UNEXPLAINED_SAME_SCOPE"))++notice_same_scope;
         if(strstr(line,"NOT_VERIFIED") || strstr(line,"NOT_TESTED"))
             ++notice_not_verified;
+        if(tag(line,"[og-cup-entry] ")) {
+            const int initial=strstr(line,"source=INITIAL_NATIVE_SEED")!=NULL;
+            const int pass=strstr(line,"status=PASS_EXACT_NATIVE_CLUB_IDS")!=NULL;
+            const int fail=strstr(line,"status=FAIL_")!=NULL;
+            if(initial){if(pass)++firstNativePass;else if(fail)++firstNativeFail;
+                        else ++firstNativeUnknown;}
+            else {if(pass)++cupNextPass;else if(fail)++cupNextFail;
+                  else ++cupNextUnknown;}
+        }
+        if(tag(line,"[og-manual-season] ") && strstr(line,"status=")) {
+            if(strstr(line,"status=SYNCED"))++manualSyncPass;
+            else if(strstr(line,"status=BLOCKED")) {
+                ++manualSyncFail;
+                ++regressions;
+                remember(first,sizeof first,"NATIVE_MANUAL_SEASON_DESYNC",rows,line);
+            }
+        }
+        if(tag(line,"[og-forward-perf] ")) {
+            const double total=real_field(line,"total-ms",-1.0);
+            if(total>=0.0) {
+                ++performanceSamples;
+                if(strstr(line,"world=2627")) {
+                    ++performance2627;perfTotal2627+=total;
+                    perfLeagues2627+=real_field(line,"leagues-ms",0.0);
+                    perfCups2627+=real_field(line,"cups-ms",0.0);
+                    perfInternational2627+=real_field(
+                        line,"international-ms",0.0);
+                } else if(strstr(line,"world=9697")) {
+                    ++performance9697;perfTotal9697+=total;
+                    perfLeagues9697+=real_field(line,"leagues-ms",0.0);
+                    perfCups9697+=real_field(line,"cups-ms",0.0);
+                    perfInternational9697+=real_field(
+                        line,"international-ms",0.0);
+                }
+            }
+        }
         if(tag(line,"[og-qual-next] SUMMARY ")) {
             ++qual_years;
             long checked=field(line,"checked",0);
@@ -676,6 +730,30 @@ int main(int argc,char **argv)
            scorer_resident_views?"RESIDENT_DATA_READ_OBSERVED":
            scorer_local_views?"LOCAL_SOURCE_UNVERIFIED":"NOT_TESTED",
            scorer_resident_views,scorer_local_views,scorer_resident_players);
+    printf("OG_FIRST_EDITION_CUP_SEED=%s exact=%ld wrong=%ld "
+           "unsupported=%ld scope=NATIVE_REAL_AND_APPROVED_ONLY "
+           "manual-input=NOT_CONFIGURED\n",
+           firstNativeFail?"FAIL":firstNativePass?"PARTIAL_OG_ONLY":
+           "NOT_TESTED",firstNativePass,firstNativeFail,firstNativeUnknown);
+    printf("OG_NEXT_EDITION_DOMESTIC_CUP_IDS=%s exact=%ld wrong=%ld "
+           "no-access-rule=%ld scope=OG_NATIVE_COUNTRY_QUOTA_NO_FAKE_SEEDS\\n",
+           cupNextFail?"FAIL":cupNextPass?"PARTIAL_OG_ONLY":
+           "NOT_TESTED",cupNextPass,cupNextFail,cupNextUnknown);
+    printf("OG_MANUAL_SEASON_SYNC=%s synced=%ld blocked=%ld "
+           "save-on-error=PREVIOUS_CAR_PRESERVED\n",
+           manualSyncFail?"FAIL":manualSyncPass?"OBSERVED":"NOT_TESTED",
+           manualSyncPass,manualSyncFail);
+    printf("OG_FORWARD_PERFORMANCE=%s samples=%ld "
+           "modern-samples=%ld modern-total-ms=%.3f modern-leagues-ms=%.3f "
+           "modern-cups-ms=%.3f modern-international-ms=%.3f "
+           "classic-samples=%ld classic-total-ms=%.3f classic-leagues-ms=%.3f "
+           "classic-cups-ms=%.3f classic-international-ms=%.3f "
+           "comparison=OBSERVED_NOT_SAME_HARDWARE_PHASES_UNLESS_MATCHED\n",
+           performanceSamples?"MEASURED_NATIVE_COMPONENTS":"NOT_TESTED",
+           performanceSamples,performance2627,perfTotal2627,
+           perfLeagues2627,perfCups2627,perfInternational2627,
+           performance9697,perfTotal9697,perfLeagues9697,
+           perfCups9697,perfInternational9697);
     printf("OG_NEXT_SEASON_QUALIFICATION=%s "
            "rollovers=%ld checked=%ld passed=%ld failed=%ld "
            "missing-editions=%ld wrong-clubs=%ld not-tested=%ld "

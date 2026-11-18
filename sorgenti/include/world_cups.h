@@ -78,6 +78,16 @@ int32_t WorldCups_Plays(const uint8_t *record);
 /* Career_InitCompetitionTeamSelectionFromTableHeaderSpec: the clubs to load of a cup's
  * listed `count` (a world cup's: its real ones), then the bracket's spare places. */
 uint16_t WorldCups_Entrants(const uint8_t *record, uint16_t count);
+/* Read-only preview of the ORIGINAL OG cup membership rules. -1: not
+ * a WorldCup rule; 0: access conditions cannot form this year's field;
+ * >0: real club IDs, without touching the competition record/seed list.
+ * derived=2: OG final placements exist for this country and year;
+ * derived=1: quota was generated WITHOUT last year's final places
+ *            (must never be reported as verified); 0: initial seed.
+ * NEVER turn a failed derived list into the first-year seed list. */
+int32_t WorldCups_PreviewEntrants(const uint8_t *record,
+                                  TeamId *out,uint16_t capacity,
+                                  int *derived);
 void     WorldCups_Padded(const uint8_t *record);
 
 /* InitDIYCupFromRecord's end: round 1 -- the byes laid out, a later season's draw. */

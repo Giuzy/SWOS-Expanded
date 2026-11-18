@@ -41,6 +41,15 @@ int main(void)
     assert(!ExpandedQual_IsExact(&d) && d.invalid_source);
     d=ExpandedQual_Compare(NULL,0,NULL,0);
     assert(ExpandedQual_IsExact(&d)); /* caller must still reject absent source */
+    d=ExpandedQual_Compare(champions,3,champions_reordered,3);
+    assert(ExpandedQual_FirstEditionValid(EXP_QUAL_FIRST_NATIVE,&d,3));
+    assert(ExpandedQual_FirstEditionValid(EXP_QUAL_FIRST_MANUAL_APPROVED,&d,3));
+    assert(!ExpandedQual_FirstEditionValid(EXP_QUAL_FIRST_MANUAL_UNVERIFIED,&d,3));
+    d=ExpandedQual_Compare(champions,3,wrong_cup,3);
+    assert(!ExpandedQual_FirstEditionValid(EXP_QUAL_FIRST_NATIVE,&d,3));
+    d=ExpandedQual_Compare(NULL,0,NULL,0);
+    assert(!ExpandedQual_FirstEditionValid(EXP_QUAL_FIRST_NATIVE,&d,0));
+    puts("OG_FIRST_YEAR_REAL_VS_MANUAL_APPROVAL=PASS_ISOLATED_ONLY");
     puts("OG_QUALIFICATION_IDENTITY_MATCHER=PASS_ISOLATED_ONLY");
     puts("OG_QUALIFICATION_NEXT_SEASON_IN_GAME=NOT_TESTED");
     return 0;

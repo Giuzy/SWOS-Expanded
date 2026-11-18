@@ -74,10 +74,10 @@ volatile uint32_t _bitPlane1BasePtr;
 volatile uint32_t _bitPlane2BasePtr;
 volatile uint32_t _bitPlane3BasePtr;
 #ifdef AGA
-volatile uint32_t bitPlane4BasePtr;
-volatile uint32_t bitPlane5BasePtr;
-volatile uint32_t bitPlane6BasePtr;
-volatile uint32_t bitPlane7BasePtr;
+volatile uintptr_t bitPlane4BasePtr;
+volatile uintptr_t bitPlane5BasePtr;
+volatile uintptr_t bitPlane6BasePtr;
+volatile uintptr_t bitPlane7BasePtr;
 #endif
 
 /* "Frontbuffer" arrays. Layout depends on build:

@@ -1886,14 +1886,17 @@ typedef char _teamid_size_check[(sizeof(TeamId) == 2) ? 1 : -1];
  * per-call-site `base + 5/7 + selfOffset` byte arithmetic (which was fragile and
  * 64-bit-unsafe). Defined in competition_data.c.
  *
- *  comp_name_table(c)     -> the char *[] name table, or NULL if the record uses
- *                            the default names. Callers index per their own
- *                            stride: leagues use 2 ptrs/division ([i*2]=full,
- *                            [i*2+1]=abbrev); cups/tournaments a single [0].
- *  comp_team_seed_list(c) -> the {country,ordinal} draw / qualifier list
- *                            (TeamId *), or NULL if the record has none (leagues).
+ *  comp_name_at(c,i)     -> name pointer VALUE or NULL (default names).
+ *                            Leagues use two per division; cups two total.
+ *                            Never exports a char** to the packed member.
+ *  comp_copy_name_pair(d,s) -> writes both canonical pointer VALUES from s
+ *                            into d when s has a nonempty name table. Used
+ *                            after CAR restore; updates the live record.
+ *  comp_team_seed_list(c)   -> {country,ordinal} draw / qualifier list
+ *                            (TeamId *), or NULL if none (leagues).
  * ================================================================== */
-char  **comp_name_table(Competition *c);
+char  *comp_name_at(Competition *c, size_t index);
+void   comp_copy_name_pair(Competition *dest, Competition *src);
 TeamId *comp_team_seed_list(Competition *c);
 
 /* ==================================================================

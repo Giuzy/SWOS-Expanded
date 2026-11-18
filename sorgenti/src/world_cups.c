@@ -357,14 +357,14 @@ static int32_t lists(const WorldCup *c, uint16_t team)
 void WorldCups_TieDecided(uint16_t team1, uint16_t team2, int32_t team2Won)
 {
     const WorldCup *c = cup_under_way();
-    const DIYCompetition *b = &_diyCompetitionStart.base;
     /* (the id alone is not enough: a later cup's state can keep it) */
-    if (!c || c->slot != 2 || b->currentRoundIndex + 1 != b->numRounds ||
+    if (!c || c->slot != 2 ||
+        _diyCompetitionStart.base.currentRoundIndex + 1 != _diyCompetitionStart.base.numRounds ||
         !lists(c, team1) || !lists(c, team2))
         return;
     g_worldCups.leagueCupWinner = team2Won ? team2 : team1;
     g_worldCups.leagueCupSeason = g_worldCups.seasons;
-    SWOS_DBG("[world-cup] %u won by %04X\n", (unsigned)(uint8_t)b->field_2E,
+    SWOS_DBG("[world-cup] %u won by %04X\n", (unsigned)(uint8_t)_diyCompetitionStart.base.field_2E,
              (unsigned)g_worldCups.leagueCupWinner);
 }
 

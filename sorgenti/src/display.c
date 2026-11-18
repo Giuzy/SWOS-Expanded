@@ -64,10 +64,10 @@ extern volatile uint32_t _bitPlane1BasePtr;
 extern volatile uint32_t _bitPlane2BasePtr;
 extern volatile uint32_t _bitPlane3BasePtr;
 #ifdef AGA
-extern volatile uint32_t bitPlane4BasePtr;
-extern volatile uint32_t bitPlane5BasePtr;
-extern volatile uint32_t bitPlane6BasePtr;
-extern volatile uint32_t bitPlane7BasePtr;
+extern volatile uintptr_t bitPlane4BasePtr;
+extern volatile uintptr_t bitPlane5BasePtr;
+extern volatile uintptr_t bitPlane6BasePtr;
+extern volatile uintptr_t bitPlane7BasePtr;
 #endif
 
 /* Copper list */
@@ -468,10 +468,10 @@ void InitDisplayAndCopper(void)
     _bitPlane2BasePtr = (uintptr_t)_bitPlane2Base;
     _bitPlane3BasePtr = (uintptr_t)_bitPlane3Base;
 #ifdef AGA
-    bitPlane4BasePtr = (uint32_t)_emptySpriteDma;
-    bitPlane5BasePtr = (uint32_t)_emptySpriteDma;
-    bitPlane6BasePtr = (uint32_t)_emptySpriteDma;
-    bitPlane7BasePtr = (uint32_t)_emptySpriteDma;
+    bitPlane4BasePtr = (uintptr_t)_emptySpriteDma;
+    bitPlane5BasePtr = (uintptr_t)_emptySpriteDma;
+    bitPlane6BasePtr = (uintptr_t)_emptySpriteDma;
+    bitPlane7BasePtr = (uintptr_t)_emptySpriteDma;
 #endif
 
     /* Clear first long of each bitplane */
@@ -871,10 +871,10 @@ void SwapBuffersAndCameraViewState(void)
         _bitPlane2BasePtr = (uintptr_t)_bitPlane2BaseAlt;
         _bitPlane3BasePtr = (uintptr_t)_bitPlane3BaseAlt;
 #ifdef AGA
-        bitPlane4BasePtr = (uint32_t)_emptySpriteDma;
-        bitPlane5BasePtr = (uint32_t)_emptySpriteDma;
-        bitPlane6BasePtr = (uint32_t)_emptySpriteDma;
-        bitPlane7BasePtr = (uint32_t)_emptySpriteDma;
+        bitPlane4BasePtr = (uintptr_t)_emptySpriteDma;
+        bitPlane5BasePtr = (uintptr_t)_emptySpriteDma;
+        bitPlane6BasePtr = (uintptr_t)_emptySpriteDma;
+        bitPlane7BasePtr = (uintptr_t)_emptySpriteDma;
 #endif
 
         *(volatile uint32_t *)_bitPlane0BaseAlt = _copperZeroLong;
@@ -920,10 +920,10 @@ void SwapBuffersAndCameraViewState(void)
         _bitPlane2BasePtr = (uintptr_t)_bitPlane2Base;
         _bitPlane3BasePtr = (uintptr_t)_bitPlane3Base;
 #ifdef AGA
-        bitPlane4BasePtr = (uint32_t)_emptySpriteDma;
-        bitPlane5BasePtr = (uint32_t)_emptySpriteDma;
-        bitPlane6BasePtr = (uint32_t)_emptySpriteDma;
-        bitPlane7BasePtr = (uint32_t)_emptySpriteDma;
+        bitPlane4BasePtr = (uintptr_t)_emptySpriteDma;
+        bitPlane5BasePtr = (uintptr_t)_emptySpriteDma;
+        bitPlane6BasePtr = (uintptr_t)_emptySpriteDma;
+        bitPlane7BasePtr = (uintptr_t)_emptySpriteDma;
 #endif
 
         *(volatile uint32_t *)_bitPlane0Base = _copperZeroLong;

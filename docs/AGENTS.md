@@ -1,5 +1,10 @@
 # SWOS Expanded — AGENTS.md
 
+## REGOLA PERMANENTE approvata 18/11/2026 — WARNING DI COMPILAZIONE
+- Ogni warning emerso da una compilazione va affrontato SUBITO: individuare causa e gravita', correggerne il codice senza sopprimerlo/disabilitarlo e verificarne la sparizione con una NUOVA compilazione completa. I warning di stile e quelli con rischio runtime si correggono entrambi; mai dichiararli superflui, ignorarli o assegnare un PASS statico. Se una correzione cambia algoritmi OG, formati CAR o scelte di design, chiedere il consenso prima. **Zero warning e zero errori restano obiettivi misurabili, NON risultati promessi.**
+- 0.13.91: audit completo dei 91 warning della full build Windows 0.13.90 e patch mirata; [rapporto e verifiche pendenti](WARNINGS_AUDIT_01391_20261118.md). Il numero finale dopo compilazione Windows 0.13.91 e' **NON PROVATO**. Non spegnere `-Waddress-of-packed-member`, non toccare salvataggi originali, CLASSIC/DIY/SEASON o il motore OG in modo non autorizzato.
+
+
 ## 18/11/2026 — 0.13.90: warning GCC visibili e retry CAR Windows
 - [Audit, codice e test pendenti](WARNINGS_AND_SAVE_RETRY_01390_20261118.md): su 0.13.89 compilazione completa Windows 4 warning (Hall init, puntatore stack del sorteggio, due commenti). Correzioni minime 0.13.90; `-Waddress-of-packed-member` riattivato, NON dichiarare zero warning finche' un intero rebuild Windows non lo conferma.
 - Un salvataggio menu-exit 2627 della sessione 2 falliva in MoveFileExA con Win32 5 DOPO la serializzazione. Aggiunti retry limitati per access denied/sharing/lock con pause massime totali 750 ms; vecchio CAR mai cancellato. La causa esterna non e' provata; test Win32 reali, 96/26 e CLASSIC/DIY/SEASON ancora PENDENTI. Non cambiare formato CAR, gameplay o altri warning soppressi senza audit.

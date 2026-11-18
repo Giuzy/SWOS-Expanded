@@ -131,7 +131,7 @@ void FrontEndPreLoopSetup(void)
        without a rebuild. Absent file -> compiled defaults. */
     extern void DataJson_LoadCareerParams(void);
     DataJson_LoadCareerParams();
-    /* SWOS_MENU_JSON: load every menu from bin/data_json/menus/*.json and overwrite
+    /* SWOS_MENU_JSON: load every menu JSON from bin/data_json/menus and overwrite
        the compiled static menu bytes IN PLACE (docs/MENUS.md §2d), so editing the
        JSON changes the running game. Bounded by each menu's compiled size; a menu
        grown beyond it stays compiled and is flagged. Default-ON; SWOS_MENU_JSON=0
@@ -146,7 +146,7 @@ void FrontEndPreLoopSetup(void)
     extern void OnlineMenus_Init(void);
     OnlineMenus_Init();
     /* SWOS_TACTICS_JSON: load the 12 built-in formations from
-       bin/data_json/tactics/*.json and overwrite the compiled TeamTactics
+       JSON in bin/data_json/tactics and overwrite the compiled TeamTactics
        structs IN PLACE (src/tactics_load_json.c), so editing a formation's JSON
        changes the running game. Default-ON; SWOS_TACTICS_JSON=0 disables. */
     { const char *vt = getenv("SWOS_TACTICS_JSON");

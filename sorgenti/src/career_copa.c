@@ -129,19 +129,20 @@ void Career_InstallCopaLibertadoresPresetEntry(void)
     if (!copa)
         return;
 
-    Competition **cc = _southAmericaTable.compCup;
-    const int cap = (int)(sizeof _southAmericaTable.compCup / sizeof cc[0]);  /* 9 */
+    /* Access packed pointer entries directly, not through a pointer
+     * that assumes stronger alignment than their storage. */
+    const int cap = (int)(sizeof _southAmericaTable.compCup / sizeof _southAmericaTable.compCup[0]);  /* 9 */
     int i = 0;
     /* Walk to the -1 terminator; bail out if Copa is already spliced in. */
-    while (i < cap && cc[i] != (Competition *)-1) {
-        if (cc[i] == copa)
+    while (i < cap && _southAmericaTable.compCup[i] != (Competition *)-1) {
+        if (_southAmericaTable.compCup[i] == copa)
             return;                 /* already installed */
         i++;
     }
     if (i >= cap - 1)               /* need room for Copa + the moved terminator */
         return;
-    cc[i]     = copa;               /* overwrite the -1 slot with Copa Libertadores */
-    cc[i + 1] = (Competition *)-1;  /* re-plant the -1 terminator after it */
+    _southAmericaTable.compCup[i]     = copa;               /* overwrite the -1 slot with Copa Libertadores */
+    _southAmericaTable.compCup[i + 1] = (Competition *)-1;  /* re-plant the -1 terminator after it */
 }
 
 /* appendTeamToCopaList — mirror of appendTeamToList (career_eurocups.c). The

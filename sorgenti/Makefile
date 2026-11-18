@@ -506,7 +506,7 @@ CFLAGS  := $(ARCHFLAGS) -O2 -g -std=gnu11 -fno-strict-aliasing -fno-builtin \
            -Wall -Wno-unused-function -Wno-unused-variable -Wno-unused-but-set-variable \
            -Wno-attributes -Wno-multichar -Wno-builtin-declaration-mismatch \
            -Wno-pointer-sign -Wno-int-conversion -Wno-incompatible-pointer-types \
-           -Wno-braces -Waddress-of-packed-member \
+           -Wmissing-braces -Waddress-of-packed-member \
            -Wno-strict-aliasing -Wno-array-bounds -Wno-stringop-overflow \
            $(DATA_FLAGS) \
            -include $(INCDIR)/swos_platform.h \

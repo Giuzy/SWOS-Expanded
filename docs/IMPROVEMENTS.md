@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 18/11/2026 — warning GCC 0.13.90 e regola permanente
+- L'utente richiede di NON ignorare nessun warning: correggerlo appena emerge, mantenere attivo il relativo controllo e fare una full build di verifica, senza esiti PASS simulati. Per 0.13.91 preparate riparazioni mirate dei 91 warning Windows 0.13.90 (72 packed, 12 pointer cast, 4 font, 3 commenti) e corretta anche l'opzione sconosciuta `-Wno-braces`. Nessuna modifica ai file CAR o al gameplay volontaria. [Audit/limiti](WARNINGS_AUDIT_01391_20261118.md); full Windows, input, save, OG e 0-warning **NON PROVATI**.
+
+
 ## 18/11/2026 — 0.13.90: warning reali e scrittura atomica
 - Riparati nel codice i quattro warning GCC della full build 0.13.89 (initializer, dangling pointer, due commenti); `-Waddress-of-packed-member` reso visibile per il prossimo full rebuild. Attenzione: 29 warning precedenti non dichiarabili zero finche' il compilatore non li controlla senza soppressione.
 - Salvataggio: singolo Win32 5 in 2627 su MoveFileExA dopo la serializzazione; retry con backoff limitato per errori 5/32/33 senza mai eliminare il CAR precedente. No conversione save, niente nuovo motore o cambi OG. [Rapporto](WARNINGS_AND_SAVE_RETRY_01390_20261118.md). Test simulati isolati SI; Windows, conteggio warning e persistenza **NON PROVATI**.

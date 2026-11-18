@@ -1,5 +1,10 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 18/11/2026 — 0.13.91 patch warning, Windows PENDENTE
+- Sorgenti e documenti della patch 0.13.91 per i 91 warning trovati nella compilazione completa Windows 0.13.90: 72 `packed`, 12 cast puntatori, quattro voci font, tre commenti. Rispettati gli invarianti di layout; la tabella nomi packed ha ora read per valore e restore sui record LIVE. [Audit dettagliato](WARNINGS_AUDIT_01391_20261118.md).
+- La nuova regola permanente richiede correzione immediata di OGNI warning, mai soppressioni o falsi PASS. La build Windows 0.13.91, warning finali, partita, CLASSIC/DIY/SEASON e roundtrip CAR dei due mondi sono **NON PROVATI**. L'ultimo save 0.13.90 e' riuscito; il retry Win32 5 resta non esercitato in test reale.
+
+
 ## 18/11/2026 — 0.13.90: quattro warning GCC e Win32 5
 - Ramo `dev/0.10`, build_info incrementata a 0.13.90. Correzione di 4 warning visibili nella compilazione completa 0.13.89: `expanded_career.c` (zero init), `league_phase.c` (copia dei paesi nella fase 36 squadre per evitare dangling pointer), `save_format_json.c` (due commenti). Il Makefile riattiva l'audit `-Waddress-of-packed-member`; i 29 warning della 0.13.88 non risultano ancora convalidati come zero.
 - `swos_io_save_atomic` ora ritenta fino a cinque volte SOLO errori transitori Win32 5/32/33 di MoveFileExA, senza modificare il CAR esistente al fallimento. Logga retry/RECOVERED/codice finale. [Report](WARNINGS_AND_SAVE_RETRY_01390_20261118.md). Test C isolati SI; build Windows completa, numero finale warning, save/CONTINUE per due mondi e regressioni OG **NON PROVATI**.

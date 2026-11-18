@@ -18,6 +18,7 @@
 #include "career_teams.h"
 #include "career_status.h"
 #include "endian_helpers.h"
+#include <string.h> /* memcpy: preserve native 2-byte compSlot alias */
 
 extern TeamFileEx _careerTeam;
 extern DIYCompetitionEx _diyCompetitionStart;
@@ -1143,15 +1144,17 @@ void WorldPlayoff_RecordLines(void)
     {   /* each into its line if there already, else the first free of lines 4 / 3 / 2; a title won
          * with none free: in place of the weakest line not won (an elimination), not ours */
         SeasonInformations *rec = (SeasonInformations *)GetCurrentSeasonPointer();
-        uint8_t **line[4] = { &rec->leagueStrPtr, &rec->strPtr1, &rec->strPtr2, &rec->strPtr3 };
+        /* SeasonInformations is packed. Work on aligned pointer values and
+         * write results back through the live packed fields after ranking. */
+        uint8_t *line[4] = { rec->leagueStrPtr, rec->strPtr1, rec->strPtr2, rec->strPtr3 };
         int8_t *code[4] = { &rec->comp1Result, &rec->comp2Result, &rec->comp3Result, &rec->comp4Result };
         int32_t ours = 0;
         for (int32_t i = 0; i < rl_n; i++) {
             int32_t at = -1;
             for (int32_t o = 3; o >= 1 && at < 0; o--)
-                if (!(ours & 1 << o) && *line[o] && same_text((const char *)*line[o], rln[i])) at = o;
+                if (!(ours & 1 << o) && line[o] && same_text((const char *)line[o], rln[i])) at = o;
             for (int32_t o = 3; o >= 1 && at < 0; o--)
-                if (!*line[o]) at = o;
+                if (!line[o]) at = o;
             if (at < 0 && rlc[i] == 1) {
                 int32_t best = 99;
                 for (int32_t o = 3; o >= 1; o--) {
@@ -1163,11 +1166,14 @@ void WorldPlayoff_RecordLines(void)
             }
             if (at < 0)
                 continue;
-            *line[at] = (uint8_t *)rln[i];
+            line[at] = (uint8_t *)rln[i];
             *code[at] = rlc[i];
             ours |= 1 << at;
             SWOS_DBG("[world-playoff] season record line %d: %s (%d)\n", (int)at, rln[i], (int)rlc[i]);
         }
+        rec->strPtr1 = line[1];
+        rec->strPtr2 = line[2];
+        rec->strPtr3 = line[3];
     }
 }
 
@@ -1708,8 +1714,8 @@ void WorldPlayoff_TieDecided(uint16_t team1, uint16_t team2, int32_t team2Won)
                  (unsigned)(team2Won ? team1 : team2));
         return;
     }
-    const DIYCompetition *b = &_diyCompetitionStart.base;
-    if (!our_tie(team1, team2) || b->currentRoundIndex + 1 != b->numRounds)
+    if (!our_tie(team1, team2) ||
+        _diyCompetitionStart.base.currentRoundIndex + 1 != _diyCompetitionStart.base.numRounds)
         return;                                 /* (the last round's: the contest's result) */
     if (g_worldPlayoff.kind == WORLD_PLAYOFF_SPEC && g_worldPlayoff.gend) {
         /* a part's last round: its ties' winners, the next part built when all are decided */
@@ -1768,8 +1774,11 @@ static void relabel_entries(const uint8_t *s, int32_t g, int32_t r)
 {
     extern uint8_t _teamSelectionKeyCache[];
     extern uint16_t _teamSelectionKeyCacheCount, _teamSelectionKeyCacheIndex, _teamSelectionKeyCacheOffset;
-    const DIYCompetition *b = &_diyCompetitionStart.base;
-    const uint8_t slot = (uint8_t)*(uint16_t *)&b->compSlot;
+    /* Preserve the original native-endian word alias, but read the
+     * possibly packed two-byte field without an unaligned uint16_t deref. */
+    uint16_t slotWord;
+    memcpy(&slotWord, &_diyCompetitionStart.base.compSlot, sizeof slotWord);
+    const uint8_t slot = (uint8_t)slotWord;
     uint8_t gsr[K_GAMES], gno[K_GAMES];
     const int32_t ng = k_games(s, gsr, gno);
     uint8_t *e = _teamSelectionKeyCache + _teamSelectionKeyCacheOffset;
@@ -1779,7 +1788,7 @@ static void relabel_entries(const uint8_t *s, int32_t g, int32_t r)
         if (i > _teamSelectionKeyCacheIndex && h->compSlot == slot && !h->phaseFlag) {
             const int32_t nm = WorldPlayoff_RoundStringIndex((uint8_t)COMPID_worldPlayoff, (uint16_t)r);
             h->cupRoundStringIdx = (uint8_t)(nm >= 0 ? nm : GetNextCupRoundStringIndex((uint16_t)r,
-                                             (uint16_t)b->numRounds, (uint16_t)b->subRoundCounter));
+                                             (uint16_t)_diyCompetitionStart.base.numRounds, (uint16_t)_diyCompetitionStart.base.subRoundCounter));
             h->roundIdx = (uint8_t)r;
             if (++leg >= (k_round(s, gsr[g])[1] == 2 ? 2 : 1)) {
                 leg = 0;
@@ -1955,14 +1964,13 @@ const char *WorldPlayoff_RoundName(uint16_t round, uint16_t rounds)
 
 void WorldPlayoff_RoundSize(void)
 {
-    DIYCompetition *b = &_diyCompetitionStart.base;
     if (!ours())
         return;
     if (g_worldPlayoff.kind == WORLD_PLAYOFF_SPEC)  /* (the round's places: the halving bracket of the
                                                      *  rounds left, wider where it needs: k_lay_out) */
-        b->matchPairsPerRound = (int16_t)s_pairs;
+        _diyCompetitionStart.base.matchPairsPerRound = (int16_t)s_pairs;
     if (g_worldPlayoff.kind == WORLD_PLAYOFF_C_PLAYOFF || g_worldPlayoff.kind == WORLD_PLAYOFF_SPEC)
-        b->totalMatchesInRound = g_worldPlayoff.ties;
+        _diyCompetitionStart.base.totalMatchesInRound = g_worldPlayoff.ties;
 }
 
 void WorldPlayoff_RestoreEarlyTable(uint16_t division)

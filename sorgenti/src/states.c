@@ -179,9 +179,10 @@ int32_t States_StageDays(uint8_t compId, uint16_t groups, uint16_t perGroup)
 
 static int32_t calendar_on(const WorldStateContest *ct)
 {
-    const DIYCompetition *b = &_diyCompetitionStart.base;
-    return ct->cal && b->matchPairsPerRound == ct->stage[0][0] && b->totalMatchesInRound == ct->stage[0][1] &&
-           b->numTeams == ct->clubs;
+    return ct->cal &&
+           _diyCompetitionStart.base.matchPairsPerRound == ct->stage[0][0] &&
+           _diyCompetitionStart.base.totalMatchesInRound == ct->stage[0][1] &&
+           _diyCompetitionStart.base.numTeams == ct->clubs;
 }
 
 void States_StageStart(void)

@@ -135,8 +135,8 @@ static const short TROGF15_index[128] = {
     76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, -1, -1,
 };
 
-/* ---- TROGF7: 87 glyphs ---- */
-#define TROGF7_COUNT 87
+/* ---- TROGF7: 91 glyphs (include braces, pipe, backspace) ---- */
+#define TROGF7_COUNT 91
 static const FontGlyph TROGF7_glyphs[TROGF7_COUNT] = {
     {  ' ',   4, 199,  4,  0,  1 },  /* space */
     {  '!',  16, 199,  3,  8,  1 },  /* FONT7excla */

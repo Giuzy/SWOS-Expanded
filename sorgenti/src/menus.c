@@ -8117,12 +8117,12 @@ pastTeamLoad:
              * divisions[] grew to LEAGUE_MAX_DIVISIONS, and the byte's offset
              * then lands inside divisions[] -- garbage once a world's league
              * fills them (World 2026-27's Italy, 14 divisions). */
-            char **nameTbl = compInfo ?
-                comp_name_table((Competition *)compInfo) : NULL;
-            if (!nameTbl) {
+            Competition *nameComp = (Competition *)compInfo;
+            if (!nameComp || !comp_name_at(nameComp, 0)) {
                 namePtr = (uint8_t *)_divStringTable[_currentDivisionIndex];
             } else {
-                namePtr = (uint8_t *)nameTbl[_currentDivisionIndex * 2 + 1];
+                namePtr = (uint8_t *)comp_name_at(nameComp,
+                                      _currentDivisionIndex * 2u + 1u);
             }
 
             a5->fg = (uintptr_t)namePtr;
@@ -8136,10 +8136,8 @@ pastTeamLoad:
         } else if (slotVal == 1) {
             /* --- Cup-style header (single line comp name + round info) --- */
             /* Slot 1 is the abbreviation (full name + abbreviation pair). */
-            char **nameTbl = compInfo ?
-                comp_name_table((Competition *)compInfo) : NULL;
-            if (nameTbl)
-                namePtr = (uint8_t *)nameTbl[1];
+            if (compInfo && comp_name_at((Competition *)compInfo, 0))
+                namePtr = (uint8_t *)comp_name_at((Competition *)compInfo, 1);
 
             a5->fg = (uintptr_t)namePtr;
 
@@ -8211,10 +8209,8 @@ pastTeamLoad:
         } else {
             /* --- Default (slotVal >= 2) header: same as cup but different path --- */
             /* Slot 1 is the abbreviation (full name + abbreviation pair). */
-            char **nameTbl = compInfo ?
-                comp_name_table((Competition *)compInfo) : NULL;
-            if (nameTbl)
-                namePtr = (uint8_t *)nameTbl[1];
+            if (compInfo && comp_name_at((Competition *)compInfo, 0))
+                namePtr = (uint8_t *)comp_name_at((Competition *)compInfo, 1);
 
             a5->fg = (uintptr_t)namePtr;
 

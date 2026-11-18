@@ -2862,11 +2862,9 @@ static void Rebuild_CupRecordNameSourcePointers(void)
         uint8_t *dest = (uint8_t *)e->competitionCopy;
         /* Copy the 2 name pointers (full + abbreviation) into the comp copy.
            dest is a byte copy of src, so its name table sits at the same place. */
-        char **srcName = comp_name_table((Competition *)src);
-        if (srcName) {
-            memcpy((char **)comp_name_table((Competition *)dest),
-                   srcName, 2 * sizeof(void *));
-        }
+        /* Update pointer VALUES in the saved live record, not a scratch
+         * name table or an unaligned char** inside a packed structure. */
+        comp_copy_name_pair((Competition *)dest, (Competition *)src);
     }
 }
 

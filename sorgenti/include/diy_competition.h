@@ -357,7 +357,8 @@ void DIYLeagueTournament16BeforeDraw(MenuEntry *entry);
 void ShowDiyLeaguesTournamentMenu(uint16_t type, uint16_t viewOnly, uint16_t focusOverride);
 
 /* --- GetMoreExpensiveTeamsCount (Chunk 171) --- */
-uint16_t GetMoreExpensiveTeamsCount(uint16_t teamNo, DIYCompetition *comp);
+/* Byte-addressable DIY contest image (live or saved, including packed header). */
+uint16_t GetMoreExpensiveTeamsCount(uint16_t teamNo, const void *compRaw);
 
 /* --- InitializeNewSeason_BuildTeamBudgetRankTable (Chunk 172) --- */
 void InitializeNewSeason_BuildTeamBudgetRankTable(void);

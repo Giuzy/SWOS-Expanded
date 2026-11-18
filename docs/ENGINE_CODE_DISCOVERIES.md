@@ -1,5 +1,10 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 18/11/2026 — 0.13.91: packed member, ABI e pointer table nomi
+- 91 warning GCC 0.13.90 nel rebuild Windows completo: 55 in `diy_competition.c` per `&DIYCompetitionEx.base` (header ha allineamento di puntatore nativo maggiore della parent packed), 7 in `world_playoff.c`, 5 in `competition_data.c`, altri packed sparsi, 12 cast AGA x64, 4 font entries, 3 commenti. Gli avvisi erano stati nascosti nel passato dal flag packed. [Report](WARNINGS_AUDIT_01391_20261118.md).
+- Proposta patch 0.13.91: read/write dei campi della parent packed direttamente; snapshot/bytes solo per letture senza scrittura; `GetMoreExpensiveTeamsCount` e `CalcTeamPriceRankPercentOffset` ricevono raw contesto e ricostruiscono scalari allineati preservando la selezione live; `comp_name_at` restituisce valori e `comp_copy_name_pair` ripopola i due puntatori della copia nel restore CAR. `display.c` usa `uintptr_t` per sprite AGA sul host x64. Conservato il layout; compilazione OG/Windows **NON PROVATA**.
+
+
 ## 18/11/2026 — 0.13.90: dangling draw e Win32 replace
 - Nei tre nuovi log Windows della 0.13.89, sessione 1 compila con 4 warning: Hall Record init (1), `LeaguePhase_Draw` salva puntatore di `drawn[N]` sullo stack in `s_country` (1), commenti in `save_format_json.c` (2). Sessioni 2/3 compilazioni incrementali (0 warning non significativo). Makefile ancora con `-Wno-address-of-packed-member`; 0.13.90 riattiva la diagnostica.
 - `league_phase.c`: il globale `s_country` e' letto da `fits/same_country` durante `draw`; ora usa un buffer statico di `N` byte copiati all'ingresso, senza variare s_rng, ordine di fixture o l'algoritmo. `swos_io.c`: `MoveFileExA` con `MOVEFILE_REPLACE_EXISTING|MOVEFILE_WRITE_THROUGH` ha fallito una volta per Win32 5 nella sessione 2 DOPO `READY_FOR_ATOMIC_SAVE`; implementato retry limitato e solo per access/sharing/lock, vecchio CAR sempre conservato al fallimento. [Report e limiti](WARNINGS_AND_SAVE_RETRY_01390_20261118.md). Compilazione/gioco Windows **NON PROVATI**.

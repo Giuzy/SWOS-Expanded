@@ -493,8 +493,9 @@ int32_t LeaguePhase_StageDays(uint8_t compId, uint16_t groups, uint16_t perGroup
 /* The league phase is in _diyCompetitionStart (any of its matches). */
 static int32_t ours(void)
 {
-    const DIYCompetition *b = &_diyCompetitionStart.base;
-    return ours_id((uint8_t)b->field_2E) && b->matchPairsPerRound == 2 && b->totalMatchesInRound == 18;
+    return ours_id((uint8_t)_diyCompetitionStart.base.field_2E) &&
+           _diyCompetitionStart.base.matchPairsPerRound == 2 &&
+           _diyCompetitionStart.base.totalMatchesInRound == 18;
 }
 
 static DIYTeamStats *lp_row(int32_t row)

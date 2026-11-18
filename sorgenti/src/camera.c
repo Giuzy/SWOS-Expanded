@@ -204,7 +204,7 @@ void Render_PublishScrollSubpixel(void)
     s_scroll_frac_ms = Platform_NowMs();
 }
 
-/* Returns 0 (and leaves *fx/*fy at 0) unless a match frame published recently. */
+/* Returns 0 (and leaves both output coordinates at 0) unless a match frame published recently. */
 int Render_ScrollSubpixel(uint16_t *fx, uint16_t *fy)
 {
     extern uint64_t Platform_NowMs(void);

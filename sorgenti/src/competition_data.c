@@ -23,28 +23,76 @@
  * self-offset bytes, no name[2]-growth delta math. The former nameTableOffset /
  * teamListOffset bytes (Competition byte 5 / 7) are now inert.
  * ====================================================================== */
-char **comp_name_table(Competition *c)
+/* Name tables live inside packed competition records. Return pointer VALUES,
+ * never a char** pointing at an unaligned packed member. A missing first
+ * entry keeps the original "use default text" semantics. */
+char *comp_name_at(Competition *c, size_t index)
 {
-    char **nm;
+    if (!c) return NULL;
     switch (c->type) {
     case 0:
-        /* Real leagues use CompetitionLeague.name (offset 38). BUT invitation/
-         * tour/friendly are authored type==0 while physically CompetitionCup
-         * (name[] at offset 20, teamSeedList at 36) — reading them as a league
-         * lands name[] on teamSeedList[1], which is a valid team-id-as-pointer
-         * once the national-coach season fills the draw list -> StringCopy
-         * SIGSEGV. Route those three to the cup name field. */
-        nm = comp_is_type0_cup(c->compId) ? ((CompetitionCup *)c)->name
-                                          : ((CompetitionLeague *)c)->name;
-        break;
-    case 1:  nm = c->isPlayoff ? ((Playoffs *)c)->name
-                               : ((CompetitionCup *)c)->name; break;      /* playoff / cup */
-    case 2:  nm = ((CompetitionTournament *)c)->name; break;             /* tournament */
-    default: return (char **)0;
+        if (comp_is_type0_cup(c->compId)) {
+            CompetitionCup *p = (CompetitionCup *)c;
+            return p->name[0] && index < 2 ? p->name[index] : NULL;
+        } else {
+            CompetitionLeague *p = (CompetitionLeague *)c;
+            return p->name[0] && index < 2u * LEAGUE_MAX_DIVISIONS ?
+                   p->name[index] : NULL;
+        }
+    case 1:
+        if (c->isPlayoff) {
+            Playoffs *p = (Playoffs *)c;
+            return p->name[0] && index < 2 ? p->name[index] : NULL;
+        } else {
+            CompetitionCup *p = (CompetitionCup *)c;
+            return p->name[0] && index < 2 ? p->name[index] : NULL;
+        }
+    case 2: {
+        CompetitionTournament *p = (CompetitionTournament *)c;
+        return p->name[0] && index < 2 ? p->name[index] : NULL;
     }
-    /* An empty table (name[0] == NULL) means the record uses default names;
-       callers substitute divisionStringTable / aCup_0 / aLeague_1. */
-    return nm[0] ? nm : (char **)0;
+    default:
+        return NULL;
+    }
+}
+
+/* Store each pointer VALUE through the actual packed parent. Do not pass
+ * member addresses to memcpy or to callers that assume pointer alignment. */
+static void comp_name_set_at(Competition *c, size_t index, char *value)
+{
+    if (!c) return;
+    switch (c->type) {
+    case 0:
+        if (comp_is_type0_cup(c->compId)) {
+            if (index < 2) ((CompetitionCup *)c)->name[index] = value;
+        } else if (index < 2u * LEAGUE_MAX_DIVISIONS) {
+            ((CompetitionLeague *)c)->name[index] = value;
+        }
+        break;
+    case 1:
+        if (index < 2) {
+            if (c->isPlayoff) ((Playoffs *)c)->name[index] = value;
+            else ((CompetitionCup *)c)->name[index] = value;
+        }
+        break;
+    case 2:
+        if (index < 2) ((CompetitionTournament *)c)->name[index] = value;
+        break;
+    default:
+        break;
+    }
+}
+
+/* Career save resumption: put the TWO canonical pointer values back into the
+ * live saved record, just as the previous memcpy to char** did. No scratch
+ * copy: the destination must be updated for subsequent menus/season logic. */
+void comp_copy_name_pair(Competition *dest, Competition *src)
+{
+    char *full = comp_name_at(src, 0);
+    if (!full || !dest) return;
+    char *shortName = comp_name_at(src, 1);
+    comp_name_set_at(dest, 0, full);
+    comp_name_set_at(dest, 1, shortName);
 }
 
 TeamId *comp_team_seed_list(Competition *c)

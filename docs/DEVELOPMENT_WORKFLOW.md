@@ -1,5 +1,10 @@
 # SWOS Expanded — development procedures and rationale
 
+## REGOLA PERMANENTE DAL 18/11/2026 — ogni warning prima di proseguire
+- Dopo OGNI compilazione: leggere l'intero log, contare errori e warning **inclusi** quelli dei membri packed, verificare `-Werror`/flag effettivi. Se un warning esiste, fermare la progressione funzionale, correggere la CAUSA nel codice e richiedere nuova compilazione Windows completa. Non aggiungere flag `-Wno` per nascondere, non chiamare PASS le compilazioni incrementali a 0 warning. Modifiche sostanziali ai regolamenti o ai CAR: chiedere prima all'utente.
+- Checklist specifica 0.13.91 in [WARNINGS_AUDIT_01391_20261118.md](WARNINGS_AUDIT_01391_20261118.md). Verificare da GitKraken HEAD/versione, rebuild in `diagnostica/COMPILA_SWOS.bat`, warning totali, poi snapshot dei CAR e roundtrip 96/26, menu nomi/abbreviazioni, CLASSIC/DIY/SEASON, playoff e partita OG. ZERO warning resta **NON PROVATO** finche' il nuovo log non lo dimostra; STOP su errori.
+
+
 ## 18/11/2026 — checklist 0.13.90 Windows: tutti i warning osservati e CAR Win32
 - [Analisi esatta delle diagnostiche 0.13.89 e diff](WARNINGS_AND_SAVE_RETRY_01390_20261118.md). I quattro warning visibili sono corretti; soprattutto l'argomento Makefile ora `-Waddress-of-packed-member` e' ATTIVO. Dopo GitKraken compilare con `diagnostica/COMPILA_SWOS.bat`, non riutilizzare log precedenti: verificare **full rebuild** via build-flags stamp, contare ogni warning GCC ed errore. Se compaiono nuovi warning packed, fermarsi e inviare log: non ignorarli o impostare PASS.
 - Backup esterno dei CAR `AUTO9697.CAR`, `AUTO2627.CAR`, `AUTOSAVE.CAR`; provare salvataggi di test nel 96/26, menu-exit, chiusura/CONTINUE, switch world, stagione e coppe. Registrare `atomic replace busy Win32=`, `RECOVERED`, `failed Win32=` con tentativi. Se Win32 5 non si ripete, esito fix runtime **NON PROVATO**.

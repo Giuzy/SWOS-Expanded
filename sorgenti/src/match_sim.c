@@ -28,6 +28,7 @@
 #include "deterministic.h"
 #include "auto_skip_debug.h"
 #include "expanded_team_mood.h"
+#include <string.h> /* memcpy: aligned snapshot of packed competition fields */
 
 /* Team control type constants (matching play_match_menu.h) */
 #ifndef TEAM_COMPUTER
@@ -42,7 +43,7 @@ extern uint16_t ShouldApplyRandomPlayerStatusAfterSim(void);
 
 /* C functions (defined in diy_competition.c) */
 extern uint16_t FindTeamInDIY(uint16_t teamNo, DIYCompetition *comp);
-extern uint16_t GetMoreExpensiveTeamsCount(uint16_t teamNo, DIYCompetition *comp);
+extern uint16_t GetMoreExpensiveTeamsCount(uint16_t teamNo, const void *compRaw);
 
 /* C-callable bridges to asm functions (defined in swos2_unit.s) */
 /* Forward declaration: UpdatePlayerPositionAndReturnRole (Chunk 187) */
@@ -1402,7 +1403,7 @@ int16_t GetPlayerPricePercentageChange(int16_t factor, TeamFile *teamFile,
             d4 += (int16_t)callerD0;
 
             /* Add price rank offset */
-            int16_t pctOff = CalcTeamPriceRankPercentOffset(&_diyCompetitionStart.base, teamFile);
+            int16_t pctOff = CalcTeamPriceRankPercentOffset((const void *)&_diyCompetitionStart, teamFile);
             d4 += pctOff;
         }
     }
@@ -1881,16 +1882,20 @@ uint8_t *BuildMatchResultString(uint16_t control, uint16_t leg2, uint16_t leg1,
  * a0 = competition context, a1 = team file pointer.
  * Returns half of the clamped [-50, +50] percentage offset. */
 __attribute__((used, externally_visible))
-int16_t CalcTeamPriceRankPercentOffset(DIYCompetition *comp, TeamFile *team)
+int16_t CalcTeamPriceRankPercentOffset(const void *compRaw, TeamFile *team)
 {
-    /* competitionType must be 0 */
-    if (comp->competitionType != 0)
+    /* May be an embedded packed base: read scalar values from the live
+     * contest bytes into aligned temporaries, never through an unaligned
+     * DIYCompetition* or DIYTeamStats* dereference. */
+    DIYCompetition header;
+    memcpy(&header, compRaw, sizeof header);
+    if (header.competitionType != 0)
         return 0;
 
-    /* Check minimum number of entries: row[0].gamesPlayed
-     * (DIYTeamStats[0] starts at parent +0x2B4, gamesPlayed at +0x2B8). */
-    DIYTeamStats *row0 = (DIYTeamStats *)((uint8_t *)comp + DIY_STANDINGS_OFFSET);
-    uint16_t numEntries = row0->gamesPlayed;
+    uint16_t numEntries;
+    memcpy(&numEntries,
+           (const uint8_t *)compRaw + DIY_STANDINGS_OFFSET +
+           offsetof(DIYTeamStats, gamesPlayed), sizeof numEntries);
     if (team->teamControls == TEAM_COMPUTER) {
         /* Cup: need at least 3 entries */
         if (numEntries < 3)
@@ -1903,13 +1908,13 @@ int16_t CalcTeamPriceRankPercentOffset(DIYCompetition *comp, TeamFile *team)
 
     /* Read first two bytes as a packed uint16_t: (countryNumber << 8) | teamOrdinal */
     uint16_t teamNum = ((uint16_t)team->countryNumber << 8) | team->teamOrdinal;
-    uint16_t teamIndex = FindTeamInDIY(teamNum, comp);
-    uint16_t expensiveCount = GetMoreExpensiveTeamsCount(teamNum, comp);
+    uint16_t teamIndex = FindTeamInDIY(teamNum, (DIYCompetition *)compRaw);
+    uint16_t expensiveCount = GetMoreExpensiveTeamsCount(teamNum, compRaw);
 
     int16_t diff = (int16_t)(expensiveCount - teamIndex);
     int32_t scaled = (int32_t)diff * 100;
 
-    int16_t totalTeams = comp->numTeams;
+    int16_t totalTeams = header.numTeams;
     int16_t divisor = totalTeams - 1;
     if (divisor == 0)
         return 0;

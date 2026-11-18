@@ -66,6 +66,7 @@ extern CompetitionCup _uefaCup;
 #include "expanded_og_copa_phase.h"
 #include "expanded_og_season_retention.h"
 #include "expanded_og_cache_match.h"
+#include "expanded_og_league_bridge.h"
 #include "expanded_debug.h"
 #include "expanded_world_time.h"
 #include "expanded_world_live.h"
@@ -4758,6 +4759,29 @@ int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
     ExpandedOGLeague *ctx=exp_find(country,division,year);
     if(ctx && !ctx->used && ctx->lastMatch==0xfeu)
         return -1; /* a diagnosed native record mismatch: never retry/panic */
+    /* The local manager OG context owns every fixture of this league.
+     * Verify the native club is actually resident: a stale bound flag
+     * after a job change cannot freeze an unrelated competition. */
+    int manager_resident=0;
+    if(ctx && ctx->used && ctx->teamCount<=EXP_OG_MAX_TEAMS &&
+       _selTeamNumber!=0xffffu)
+        for(unsigned i=0;i<ctx->teamCount;i++) {
+            const TeamFile *t=&ctx->teams[i].team;
+            if(PACK_BE_U16(t->countryNumber,t->teamOrdinal)==
+               _selTeamNumber){manager_resident=1;break;}
+        }
+    if(manager_resident && s_expOGBound &&
+       !_youreSacked && _selTeamNumber!=0xffffu &&
+       World_FileCountry((uint8_t)(_selTeamNumber>>8))==country &&
+       (uint8_t)_currentDivisionIndex==division) {
+        if(phase>ctx->lastPhase)
+            fprintf(stderr,"[og-manager-bridge] DEFER_RESIDENT_CPU "
+                "country=%u division=%u year=%u phase=%u "
+                "matches=%u owner=LOCAL_OG\n",
+                (unsigned)country,(unsigned)division,(unsigned)year,
+                (unsigned)phase,(unsigned)ctx->comp.matchesPlayedCount);
+        return 1;
+    }
     if(ctx && phase<=ctx->lastPhase)return 1;
     if(!ctx) {
         if(s_expOGCount==EXP_OG_MAX_LEAGUES)return 0;
@@ -6336,6 +6360,240 @@ static int expanded_og_club_image(uint16_t club,uint8_t division,
     if(resident)*resident=ctx;
     return 1;
 }
+
+/* The manager's league runs in the original OG local context. The resident
+ * copy receives ONLY fully validated results, with all signed local
+ * team-selection indices mapped back to stable original OG team indices. */
+typedef struct {
+    uint16_t native_ids[EXP_OG_BRIDGE_MAX_ROWS];
+    uint16_t selected_ids[SELECTED_TEAMS_MAX];
+    uint16_t native_for_row[EXP_OG_BRIDGE_MAX_ROWS];
+    uint16_t native_row[EXP_OG_BRIDGE_MAX_ROWS];
+    int32_t local_offsets[EXP_OG_BRIDGE_MAX_ROWS];
+    int32_t native_offsets[EXP_OG_BRIDGE_MAX_ROWS];
+    ExpandedOGLeagueTotals before[EXP_OG_BRIDGE_MAX_ROWS];
+    ExpandedOGLeagueTotals after[EXP_OG_BRIDGE_MAX_ROWS];
+} ExpandedOGBridgeScratch;
+static uint16_t exp_bridge_club(const TeamFileEx *t)
+{
+    return PACK_BE_U16(t->team.countryNumber,t->team.teamOrdinal);
+}
+static ExpandedOGLeagueTotals exp_bridge_totals(const DIYTeamStats *r)
+{
+    ExpandedOGLeagueTotals v;
+    v.played=r->gamesPlayed;v.wins=r->wins;v.draws=r->draws;
+    v.losses=r->losses;v.for_goals=r->goalsFor;
+    v.against_goals=r->goalsAgainst;v.points=r->points;
+    return v;
+}
+static int exp_bridge_totals_equal(const ExpandedOGLeagueTotals *a,
+                                    const ExpandedOGLeagueTotals *b)
+{
+    return a->played==b->played && a->wins==b->wins &&
+        a->draws==b->draws && a->losses==b->losses &&
+        a->for_goals==b->for_goals &&
+        a->against_goals==b->against_goals && a->points==b->points;
+}
+static int exp_bridge_local_active(const DIYCompetitionEx *local)
+{
+    if(!local || !s_expOGBound || _gameType!=4 || _youreSacked ||
+       _selTeamNumber==0xffffu || s_expOGCurrent || s_expOGCupCurrent ||
+       s_expOGViewing || local->base.competitionType!=0 ||
+       local->base.numTeams<2 || local->base.numTeams>EXP_OG_MAX_TEAMS)
+        return 0;
+    /* Prevent an unrelated type-0 cup/group from masquerading as the
+     * national league. Manager identity is exactly one -1 local row. */
+    if(local->base.field_2E !=
+       _primaryCompetitionBuf.tourn.header.field_2E)return 0;
+    unsigned managers=0u;
+    for(unsigned i=0;i<(unsigned)local->base.numTeams;++i)
+        if(local->leagueStandings[i].teamSelOffset==-1)++managers;
+    return managers==1u;
+}
+/* Pure lookup of split metadata. LeagueSplit_Count is MUTATING and must
+ * never be used as a preflight predicate (it consumes the current day). */
+static int exp_bridge_has_split(void)
+{
+    int32_t count=0;
+    const LeagueSplit *defs=World_LeagueSplits(&count);
+    if(count<0 || count>1024 || (count && !defs))return 1;
+    const uint8_t country=World_FileCountry((uint8_t)(_selTeamNumber>>8));
+    for(int32_t i=0;i<count;i++)
+        if(defs[i].country==country &&
+           defs[i].division==(uint8_t)_currentDivisionIndex)return 1;
+    return 0;
+}
+static ExpandedOGLeague *exp_bridge_resident(const DIYCompetitionEx *local)
+{
+    ExpandedLiveCalendarState cal;
+    if(!exp_bridge_local_active(local) ||
+       !ExpandedWorldLive_CalendarState(&cal) ||
+       cal.today.year<(cal.today.month<7u?1u:0u))return NULL;
+    const uint16_t year=(uint16_t)(
+        cal.today.year-(cal.today.month<7u?1u:0u));
+    ExpandedOGLeague *ctx=exp_find(
+        World_FileCountry((uint8_t)(_selTeamNumber>>8)),
+        (uint8_t)_currentDivisionIndex,year);
+    if(!ctx || !ctx->used ||
+       ctx->comp.base.field_2E!=local->base.field_2E ||
+       ctx->comp.base.competitionType!=0 ||
+       /* Group/split stage indices require a distinct verified bridge.
+        * Never copy a tournament seed/order using league-only offsets. */
+       ctx->comp.base.hasGroups!=0 || local->base.hasGroups!=0 ||
+       exp_bridge_has_split() ||
+       ctx->comp.base.numTeams!=local->base.numTeams ||
+       ctx->teamCount!=(uint16_t)local->base.numTeams ||
+       ctx->comp.pointsForAWin!=local->pointsForAWin)return NULL;
+    return ctx;
+}
+static int exp_bridge_rows(const ExpandedOGLeague *ctx,
+                            const DIYCompetitionEx *local,
+                            ExpandedOGBridgeScratch *b)
+{
+    if(!ctx || !local || !b || _numSelectedTeams>SELECTED_TEAMS_MAX)
+        return 0;
+    const unsigned n=(unsigned)local->base.numTeams;
+    if(n<2u || n>EXP_OG_BRIDGE_MAX_ROWS || n!=ctx->teamCount)return 0;
+    for(unsigned i=0;i<n;++i) {
+        b->native_ids[i]=exp_bridge_club(&ctx->teams[i]);
+        b->native_offsets[i]=ctx->comp.leagueStandings[i].teamSelOffset;
+        b->local_offsets[i]=local->leagueStandings[i].teamSelOffset;
+    }
+    for(unsigned i=0;i<(unsigned)_numSelectedTeams;++i)
+        b->selected_ids[i]=exp_bridge_club(&_selectedTeams[i]);
+    if(!ExpandedOGLeagueBridge_Map(b->native_ids,n,b->native_offsets,
+             b->selected_ids,(unsigned)_numSelectedTeams,
+             _selTeamNumber,b->local_offsets,n,
+             b->native_for_row,b->native_row))return 0;
+    for(unsigned i=0;i<n;++i) {
+        const unsigned original=b->native_for_row[i];
+        /* Both DIYCompetitionEx and its relocated standings have OG
+         * packed ancestry. Copy into aligned locals before taking a
+         * DIYTeamStats pointer (no -Waddress-of-packed-member). */
+        DIYTeamStats world_row,local_row;
+        memcpy(&world_row,(const uint8_t *)&ctx->comp+
+               offsetof(DIYCompetitionEx,leagueStandings)+
+               (size_t)b->native_row[i]*sizeof world_row,sizeof world_row);
+        memcpy(&local_row,(const uint8_t *)local+
+               offsetof(DIYCompetitionEx,leagueStandings)+
+               (size_t)i*sizeof local_row,sizeof local_row);
+        b->before[original]=exp_bridge_totals(&world_row);
+        b->after[i]=exp_bridge_totals(&local_row);
+    }
+    return 1;
+}
+static int exp_bridge_equal(const ExpandedOGBridgeScratch *b,unsigned n)
+{
+    for(unsigned i=0;i<n;++i)
+        if(!exp_bridge_totals_equal(&b->before[b->native_for_row[i]],
+                                   &b->after[i]))return 0;
+    return 1;
+}
+static void exp_bridge_fault(const char *reason,
+                              const DIYCompetitionEx *local,
+                              const ExpandedOGLeague *ctx)
+{
+    /* Fail closed: never corrupt an existing CAR or silently replay. */
+    ++s_expOGFixtureIssues;
+    fprintf(stderr,"[og-manager-bridge] WRITE_BLOCKED world=%s club=%04x "
+        "reason=%s local-matches=%u resident-matches=%u "
+        "no-replay=1 prior-CAR-preserved=1\n",
+        World_Tag(),(unsigned)_selTeamNumber,reason,
+        local?(unsigned)local->matchesPlayedCount:0u,
+        ctx?(unsigned)ctx->comp.matchesPlayedCount:0u);
+}
+int Expanded_OGWorld_PreflightLocalLeague(const DIYCompetitionEx *local)
+{
+    if(!exp_bridge_local_active(local))return 1;
+    ExpandedOGLeague *ctx=exp_bridge_resident(local);
+    if(!ctx){
+        exp_bridge_fault("MISSING_OR_INCOMPATIBLE_RESIDENT",local,NULL);
+        return 0;
+    }
+    ExpandedOGBridgeScratch b={0};
+    if(ctx->comp.matchesPlayedCount!=local->matchesPlayedCount ||
+       !exp_bridge_rows(ctx,local,&b) ||
+       !exp_bridge_equal(&b,(unsigned)local->base.numTeams)){
+        exp_bridge_fault("STALE_OR_DIVERGENT_LOCAL_BASE",local,ctx);
+        return 0;
+    }
+    return 1;
+}
+int Expanded_OGWorld_CommitLocalLeagueFixture(
+    const TeamFileEx *home,const TeamFileEx *away,
+    const DIYCompetitionEx *local,uint16_t gh,uint16_t ga,uint8_t phase)
+{
+    if(!exp_bridge_local_active(local))return 1;
+    ExpandedOGLeague *ctx=exp_bridge_resident(local);
+    if(!ctx || !home || !away){
+        exp_bridge_fault("MISSING_RESIDENT_AFTER_RESULT",local,ctx);
+        return 0;
+    }
+    ExpandedOGBridgeScratch b={0};
+    const unsigned n=(unsigned)local->base.numTeams;
+    if(ctx->comp.matchesPlayedCount==UINT16_MAX ||
+       local->matchesPlayedCount!=ctx->comp.matchesPlayedCount+1u ||
+       !exp_bridge_rows(ctx,local,&b)){
+        exp_bridge_fault("SERIAL_OR_TEAM_MAP_DIVERGED",local,ctx);
+        return 0;
+    }
+    const uint16_t home_id=exp_bridge_club(home);
+    const uint16_t away_id=exp_bridge_club(away);
+    unsigned hi=n,ai=n;
+    for(unsigned i=0;i<n;++i){
+        if(b.native_ids[i]==home_id)hi=i;
+        if(b.native_ids[i]==away_id)ai=i;
+    }
+    if(hi>=n || ai>=n ||
+       !ExpandedOGLeagueBridge_CheckStep(b.before,b.after,
+             b.native_for_row,n,hi,ai,gh,ga,
+             (unsigned)ctx->comp.pointsForAWin)){
+        exp_bridge_fault("SCORE_OR_TABLE_DELTA_INVALID",local,ctx);
+        return 0;
+    }
+    DIYCompetitionEx image;
+    TeamFileEx teams[EXP_OG_MAX_TEAMS];
+    memcpy(&image,local,sizeof image);
+    memcpy(teams,ctx->teams,(size_t)n*sizeof(TeamFileEx));
+    for(unsigned i=0;i<n;++i){
+        const unsigned original=b.native_for_row[i];
+        const int32_t local_index=b.local_offsets[i];
+        const TeamFileEx *source=local_index==-1?&_careerTeam:
+                                       &_selectedTeams[local_index];
+        if(exp_bridge_club(source)!=b.native_ids[original]){
+            exp_bridge_fault("TEAM_FILE_ID_CHANGED",local,ctx);
+            return 0;
+        }
+        image.leagueStandings[i].teamSelOffset=(int32_t)original;
+        teams[original]=*source;
+        /* Human-only team control cannot enter the CPU resident roster. */
+        teams[original].team.teamControls=
+            ctx->teams[original].team.teamControls;
+    }
+    /* Commit as one state transfer, never by invoking OG match routines.
+     * The existing CAR resident serializer includes competition, native
+     * tournament state, teams and RNG; the witness is in that SAME CAR. */
+    memcpy(&ctx->comp,&image,sizeof image);
+    ctx->comp.base.namePtr=(uint8_t *)ctx->comp.base.competitionName;
+    /* Standard OG league games do not modify diyFileBufferCopy
+     * (DIY_SyncProgressToDiyFileBufferCopy returns on hasGroups==0).
+     * Preserve the already-native tournament indices/seed orders instead
+     * of importing manager-local team-index order without a second map. */
+    memcpy(ctx->teams,teams,(size_t)n*sizeof(TeamFileEx));
+    ctx->seed=_seed2;ctx->randIndex=_randXorIndex2;ctx->randKey=_randXorKey2;
+    ctx->lastMatch=_careerLastMatchIndexByCompetitionSlot[local->base.field_2E];
+    if(phase>ctx->lastPhase)ctx->lastPhase=phase;
+    if(s_expOGTickActive)++s_expOGCapturedLeague;
+    fprintf(stderr,"[og-manager-bridge] COMMITTED world=%s country=%u "
+        "division=%u year=%u phase=%u score=%u-%u "
+        "native-matches=%u remapped=%u journal=OBSERVED "
+        "source=LOCAL_OG_NO_SECOND_SIM\n",
+        World_Tag(),(unsigned)ctx->country,(unsigned)ctx->division,
+        (unsigned)ctx->year,(unsigned)phase,(unsigned)gh,(unsigned)ga,
+        (unsigned)ctx->comp.matchesPlayedCount,n);
+    return 1;
+}
+
 int Expanded_OGWorld_DebugCanAdvanceClub(uint16_t club,uint8_t division,
                                          uint16_t year)
 {
@@ -6514,18 +6772,18 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
  * records the canonical OG score as EVIDENCE, never rolls another score.
  * The native serial disambiguates repeated oriented pairs in 3/4-cycle
  * leagues; dates are upper bounds from the civil cursor, not fabricated. */
-void Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
+int Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
     const TeamFileEx *away,const DIYCompetitionEx *local,
     uint16_t goalsHome,uint16_t goalsAway,uint16_t serial,
     uint8_t phase,uint8_t leg)
 {
     if(_gameType!=4 || !home || !away || !local ||
-       goalsHome>255u || goalsAway>255u)return;
+       goalsHome>255u || goalsAway>255u)return 0;
     const uint16_t h=PACK_BE_U16(home->team.countryNumber,
                                  home->team.teamOrdinal);
     const uint16_t a=PACK_BE_U16(away->team.countryNumber,
                                  away->team.teamOrdinal);
-    if(h==a)return;
+    if(h==a)return 0;
     uint8_t kind=0u,country=0u,slot=0u,origin=0u;
     uint16_t edition=0u;
     ExpandedWorldDate stamp=s_expOGFixtureAsOf;
@@ -6538,21 +6796,25 @@ void Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
         slot=s_expOGCurrent->division;
         edition=s_expOGCurrent->year;
     } else {
-        if(_selTeamNumber==0xffffu ||
-           (h!=_selTeamNumber && a!=_selTeamNumber))return;
-        origin=2u;
+        if(_selTeamNumber==0xffffu)return 0;
+        const int manager=(h==_selTeamNumber || a==_selTeamNumber);
+        /* The same local OG league also plays CPU fixtures between the
+         * manager's games. Include ALL of those results in this journal. */
+        const int bound_local=!cup && exp_bridge_local_active(local);
+        if(!manager && !bound_local)return 0;
+        origin=manager?2u:3u; /* source 3: CPU game in local OG league */
         kind=cup?3u:0u;
         country=World_FileCountry((uint8_t)(_selTeamNumber>>8));
         slot=cup?(uint8_t)local->base.field_2E:
                  (uint8_t)_currentDivisionIndex;
         ExpandedLiveCalendarState cal;
-        if(!ExpandedWorldLive_CalendarState(&cal))return;
+        if(!ExpandedWorldLive_CalendarState(&cal))return 0;
         stamp=cal.today;
         edition=(uint16_t)(stamp.year-(stamp.month<7u?1u:0u));
     }
     int32_t day=0;
     if(!edition || !ExpandedWorld_DateToIndex(stamp,&day) || day<0)
-        return;
+        return 0;
     uint8_t record[EXP_OG_FIXTURE_SIZE]={0};
     record[0]=kind;record[1]=country;record[2]=slot;
     record[3]=phase;
@@ -6563,7 +6825,7 @@ void Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
     record[12]=(uint8_t)goalsHome;record[13]=(uint8_t)goalsAway;
     record[14]=leg;record[15]=origin;
     exp_fixture_put32(record+16,(uint32_t)day);
-    if(!exp_fixture_append(record))return;
+    if(!exp_fixture_append(record))return 0;
     if(origin==1u) {
         if(kind==0u)++s_expOGCapturedLeague;
         else if(kind==1u)++s_expOGCapturedCup;
@@ -6578,7 +6840,7 @@ void Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
             if(p[0]!=0u || p[1]!=country || p[2]!=slot ||
                exp_fixture_get16(p+4)!=edition ||
                exp_fixture_get16(p+8)!=h ||
-               exp_fixture_get16(p+10)!=a || !(p[15]&1u))continue;
+               exp_fixture_get16(p+10)!=a || p[15]!=1u)continue;
             ++candidates;
             if(p[12]==record[12] && p[13]==record[13])++scoreSame;
             if(p[3]==record[3])++phaseSame;
@@ -6597,6 +6859,7 @@ void Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
             candidates>1u?"AMBIGUOUS_MULTI_LEG_OR_CYCLE":
                 "SCORE_OR_PHASE_DIVERGENCE");
     }
+    return 1;
 }
 int Expanded_OGWorld_BindClub(uint16_t club,uint8_t division,uint16_t year) {
     DIYCompetitionEx image;

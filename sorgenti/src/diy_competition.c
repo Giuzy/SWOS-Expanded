@@ -12012,6 +12012,13 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
         SWOS_DBG_FLUSH();
     }
 
+#ifdef SWOS_SDL_BUILD
+    /* Fail before an already-consumed/unsynchronised local fixture can
+     * enter the OG player/CPU simulator. Other modes are unchanged. */
+    if(_gameType==4 && !Expanded_OGWorld_PreflightLocalLeague(baseEx))
+        return 1;
+#endif
+
     /* Safety guard ONLY for auto-advance paths. If either teamSelOffset
      * offset is genuinely out of range for selTeamsPtr during
      * careerAutoAdvanceInProgress / seasonUpdateInProgress, the
@@ -12286,12 +12293,19 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
     _diyLeftTeamResult = goals1;
     _diyRightTeamResult = goals2;
 #ifdef SWOS_SDL_BUILD
-    if(_gameType==4)
-        Expanded_OGWorld_ObserveFixture(0,team1,team2,baseEx,
-            goals1,goals2,
+    if(_gameType==4) {
+        const int witnessed=Expanded_OGWorld_ObserveFixture(
+            0,team1,team2,baseEx,goals1,goals2,
             baseEx->matchesPlayedCount?
                (uint16_t)(baseEx->matchesPlayedCount-1u):0u,
             observedLeaguePhase,0u);
+        /* A successful ORIGINAL OG result is copied into the resident
+         * native context, never played again. This includes local CPU
+         * games in the manager's national league, not just human ones. */
+        if(witnessed && !Expanded_OGWorld_IsSimulating())
+            (void)Expanded_OGWorld_CommitLocalLeagueFixture(
+                team1,team2,baseEx,goals1,goals2,observedLeaguePhase);
+    }
     if(_gameType==4 && !Expanded_OGWorld_IsSimulating() &&
        (team1==&_careerTeam || team2==&_careerTeam))
         Expanded_OGWorld_AuditManagerLeagueResult(team1,team2,baseEx,

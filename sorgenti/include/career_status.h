@@ -17,10 +17,17 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
     uint16_t goals_home,uint16_t goals_away);
 /* Original OG result witness: executes AFTER the score has been applied.
  * It never invokes game simulation or changes native standings/RNG. */
-void Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
+int Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
     const TeamFileEx *away,const DIYCompetitionEx *local,
     uint16_t goalsHome,uint16_t goalsAway,uint16_t serial,
     uint8_t phase,uint8_t leg);
+/* Guard before actual OG match, then publish a verified native snapshot
+ * after the result has been observed. No second score generator. */
+int Expanded_OGWorld_PreflightLocalLeague(const DIYCompetitionEx *local);
+int Expanded_OGWorld_CommitLocalLeagueFixture(
+    const TeamFileEx *home,const TeamFileEx *away,
+    const DIYCompetitionEx *local,uint16_t goals_home,
+    uint16_t goals_away,uint8_t phase);
 void Expanded_OGWorld_FixtureTickBegin(void);
 void Expanded_OGWorld_FixtureTickEnd(void);
 void Expanded_OGWorld_FixtureTickAbort(const char *reason);

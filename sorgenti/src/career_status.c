@@ -58,6 +58,7 @@ extern CompetitionCup _uefaCup;
 #include <stddef.h>
 #ifdef SWOS_SDL_BUILD
 #include "world.h"
+#include "league_split.h" /* OG native stage reset: read-only scorer audit */
 #include "squad_extras.h"
 #include "world_cups.h"
 #include "world_cupd.h"
@@ -3936,8 +3937,32 @@ void Expanded_OGWorld_Audit(ExpandedOGWorldAudit *out)
         if(c->year>out->max_year)out->max_year=c->year;
     }
 }
-/* Read the OG player counters which the native simulated-match code fills
- * (PlayerFile.goalStats[0]); no standings, result or RNG mutation. */
+/* An OG split can clear the league's GF table at the beginning of a new
+ * stage without clearing season-to-date goals stored in TeamFileEx. Inspect
+ * the same native LeagueSplitState and baked table used by LeagueSplit.
+ * Do not infer any missing scores or alter the native state. */
+static int exp_og_scorer_has_reset_stage(const ExpandedOGLeague *ctx)
+{
+    const LeagueSplitState *state=&ctx->comp.leagueSplit;
+    int32_t count=0;
+    const LeagueSplit *splits=World_LeagueSplits(&count);
+    if(!splits || state->magic!=LEAGUE_SPLIT_MAGIC ||
+       !state->entry || (int32_t)state->entry>count ||
+       !state->frozen || state->compId!=ctx->comp.base.field_2E ||
+       state->n!=ctx->comp.base.numTeams)return 0;
+    const LeagueSplit *split=&splits[state->entry-1u];
+    if(split->country!=ctx->country || split->division!=ctx->division ||
+       !split->table || split->table[3]!=ctx->comp.base.numTeams)return 0;
+    const uint8_t *tab=split->table;
+    const unsigned stages=(unsigned)tab[7];
+    if(stages==0u || stages>16u || state->frozen>stages)return 0;
+    for(unsigned k=0;k<(unsigned)state->frozen;++k)
+        if(tab[16u+28u*k+2u]&1u) /* LeagueSplit F_RESET */
+            return 1;
+    return 0;
+}
+/* Read-only native player/own-goal counters. In stage-reset leagues, the
+ * season totals and the current standings cover DIFFERENT time windows. */
 void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out)
 {
     if(!out)return;
@@ -3982,22 +4007,30 @@ void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out)
         }
         const int32_t residual=(int32_t)(scorerGoals+ownGoals)-
                                (int32_t)sum;
-        if(residual)++out->leagues_with_residual_delta;
+        const int resetStage=exp_og_scorer_has_reset_stage(c);
+        if(resetStage) {
+            ++out->leagues_with_reset_standings;
+            if(residual)++out->reset_scope_differences;
+        } else if(residual) {
+            ++out->leagues_with_residual_delta;
+        }
 #ifdef SWOS_SDL_BUILD
-        /* Original native values, never rewritten. Print the first six
-         * unexplained cases; autogols are counted but not double-assigned
-         * to players. A residual may need fixture/stage investigation. */
+        /* Report all nonzero differences by category, with at most six
+         * detailed examples per checkpoint. Stage-reset differences are
+         * expected scope mismatches, NOT fabricated missing goals. */
         if(residual && delta_examples++<6u)
             fprintf(stderr,"[og-scorer-delta] country=%u division=%u "
                            "year=%u played=%u player-goals=%lu "
                            "own-goals=%lu player-plus-own=%lu "
                            "standings-gf=%u residual=%ld "
-                           "status=NOT_RECONCILED\n",
+                           "status=%s\n",
                     (unsigned)c->country,(unsigned)c->division,
                     (unsigned)c->year,(unsigned)c->comp.matchesPlayedCount,
                     (unsigned long)scorerGoals,(unsigned long)ownGoals,
                     (unsigned long)(scorerGoals+ownGoals),sum,
-                    (long)residual);
+                    (long)residual,
+                    resetStage?"STAGE_RESET_DIFFERENT_SCOPE":
+                               "UNEXPLAINED_SAME_SCOPE");
 #endif
     }
 }

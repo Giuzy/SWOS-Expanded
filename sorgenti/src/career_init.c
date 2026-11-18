@@ -1174,7 +1174,8 @@ void Expanded_OGWorld_LogCheckpoint(const char *stage)
             (unsigned long)scorers.leagues_with_goals);
     fprintf(stderr,"[og-scorer-audit] stage=%s compared=%lu "
                    "different-raw=%lu reconciled-by-own=%lu "
-                   "unexplained=%lu own-goals=%lu "
+                   "unexplained-same-scope=%lu reset-leagues=%lu "
+                   "reset-scope-differences=%lu own-goals=%lu "
                    "players-more-raw=%lu standings-more-raw=%lu "
                    "player-plus-own=%lu standings-gf=%lu "
                    "status=%s\n",
@@ -1183,13 +1184,17 @@ void Expanded_OGWorld_LogCheckpoint(const char *stage)
             (unsigned long)scorers.leagues_with_delta,
             (unsigned long)scorers.leagues_reconciled_by_own_goals,
             (unsigned long)scorers.leagues_with_residual_delta,
+            (unsigned long)scorers.leagues_with_reset_standings,
+            (unsigned long)scorers.reset_scope_differences,
             (unsigned long)scorers.own_goals,
             (unsigned long)scorers.player_goals_greater,
             (unsigned long)scorers.standings_goals_greater,
             (unsigned long)(scorers.player_league_goals+scorers.own_goals),
             (unsigned long)scorers.standings_goals,
             scorers.leagues_with_residual_delta?
-                "FIXTURE_ATTRIBUTION_NOT_VERIFIED":"RECONCILED_WITH_OWN_GOALS");
+                "UNEXPLAINED_SAME_SCOPE":
+                scorers.reset_scope_differences?
+                "STAGE_RESET_DIFFERENT_SCOPE":"RECONCILED_WITH_OWN_GOALS");
     expanded_og_external_inventory(stage);
     /* Each actual definition is compared with its native resident state.
      * This reports unavailable future/extra cups without claiming a PASS. */

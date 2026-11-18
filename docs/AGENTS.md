@@ -1,3 +1,6 @@
+## REGOLA PERMANENTE — 18/11/2026: SEGNALAZIONE COMPLETA LOG E WARNING
+- In OGNI analisi diagnostica riferire esplicitamente tutti i warning di compilazione, errori, messaggi runtime anomali, SKIP/FAIL, avvisi di salvataggio e altre anomalie osservate: distinguere cause corrette, messaggi innocui ma presenti e problemi aperti. Non omettere un evento perche' non bloccante o noto. Dichiarare per ogni categoria la quantita' o NON VERIFICATO se il log non la misura. Ogni warning GCC va corretto subito, non soppresso; un commit non equivale a compilazione/test Windows.
+
 # SWOS Expanded — AGENTS.md
 
 ## REGOLA PERMANENTE approvata 18/11/2026 — WARNING DI COMPILAZIONE

@@ -67,6 +67,10 @@ int main(int argc,char **argv)
     long rows=0,start_ready=0,start_audit=0,ticks=0;
     long leagues=0,played=0,completed=0,matches=0,countries=0,invalid=0;
     long cup_defs=0,cup_countries=0,cup_resident=0,yearend=0;
+    /* Only domestic type-1 cups from [og-cup-start]. The broad feature
+     * snapshot also includes historic UEFA cups in 1996/97. */
+    long start_domestic_defs=-1,start_domestic_resident=-1;
+    long start_domestic_unsupported=-1,start_domestic_failed=-1;
     long views=0,view_missing=0,binds=0,career_saves=0,career_loads=0;
     long title_save_ok=0,title_save_fail=0;
     long f12_main=0,f12_cups=0,f10_data=0;
@@ -194,6 +198,8 @@ int main(int argc,char **argv)
             start_ready=start_audit=ticks=0;
             leagues=played=completed=matches=countries=invalid=0;
             cup_defs=cup_countries=cup_resident=yearend=0;
+            start_domestic_defs=start_domestic_resident=-1;
+            start_domestic_unsupported=start_domestic_failed=-1;
             views=view_missing=binds=career_saves=career_loads=0;
             title_save_ok=title_save_fail=0;
             f12_main=f12_cups=f10_data=0;
@@ -247,6 +253,14 @@ int main(int argc,char **argv)
             prev_year=-1;
             prev_phase=-1;
             picker_unmatched=0;
+        }
+        if(tag(line,"[og-cup-start] ") && start_domestic_defs<0) {
+            /* One first-season snapshot per career. Unlike
+             * [og-feature-audit], this excludes historic extra cups. */
+            start_domestic_defs=field(line,"definitions",-1);
+            start_domestic_resident=field(line,"resident",-1);
+            start_domestic_unsupported=field(line,"unsupported",-1);
+            start_domestic_failed=field(line,"failed",-1);
         }
         if(tag(line,"[og-world-audit] ")) {
             const int is_start=strstr(line,"stage=START")!=NULL;
@@ -686,18 +700,19 @@ int main(int argc,char **argv)
            picker_backs,picker_pops);
     printf("OG_CUP_DEFINITIONS=%ld countries=%ld\n",cup_defs,cup_countries);
     printf("OG_CUP_START_COVERAGE=%s definitions=%ld resident=%ld "
-           "unsupported=%ld faults=%ld scope=DOMESTIC_TYPE1_ONLY\n",
-           !feature_start.seen?"NOT_TESTED":
-           feature_start.cup_definitions>0 &&
-           feature_start.cup_definitions==feature_start.cup_resident &&
-           feature_start.cup_unsupported==0 &&
-           feature_start.cup_faults==0?
+           "unsupported=%ld failed=%ld scope=DOMESTIC_TYPE1_ONLY "
+           "historic-uefa=EXCLUDED\n",
+           start_domestic_defs<0 || start_domestic_resident<0 ||
+           start_domestic_unsupported<0 || start_domestic_failed<0?
+           "NOT_TESTED":
+           start_domestic_defs>0 &&
+           start_domestic_defs==start_domestic_resident &&
+           start_domestic_unsupported==0 &&
+           start_domestic_failed==0?
            "ALL_SCOPED_CUPS_RESIDENT_AT_START":
            "PARTIAL_OR_INVALID",
-           feature_start.seen?feature_start.cup_definitions:-1,
-           feature_start.seen?feature_start.cup_resident:-1,
-           feature_start.seen?feature_start.cup_unsupported:-1,
-           feature_start.seen?feature_start.cup_faults:-1);
+           start_domestic_defs,start_domestic_resident,
+           start_domestic_unsupported,start_domestic_failed);
     printf("OG_CUP_NATIVE_BYE_EVENTS=OBSERVED verified=%ld rejected=%ld\n",
            cup_native_bye_verified,cup_native_bye_rejected);
     {

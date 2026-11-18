@@ -100,7 +100,15 @@ void Career_FillRandomTeamListExcludingSelected(uint16_t excludeCount,
                                                   uint8_t *table, uint8_t *compIndexs)
 {
     /* move.b (selTeamNumber).l,d0 — reads MSB on big-endian 68k */
-    uint8_t selTeam = World_FileCountry((uint8_t)(_selTeamNumber >> 8));     /* (a second team file: its country, include/world.h) */
+#ifdef SWOS_SDL_BUILD
+    extern int Expanded_OGWorld_UnemployedQualificationActive(void);
+    /* Resident OG has no selected manager club: do not resolve invalid
+     * country 255 or force the manager into a UEFA qualifier list. */
+    uint8_t selTeam=Expanded_OGWorld_UnemployedQualificationActive()?
+        0xffu:World_FileCountry((uint8_t)(_selTeamNumber >> 8));
+#else
+    uint8_t selTeam=World_FileCountry((uint8_t)(_selTeamNumber >> 8));
+#endif
     int16_t d7 = (int16_t)excludeCount;
     uint8_t *out = compIndexs;
 

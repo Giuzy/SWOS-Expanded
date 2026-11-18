@@ -32,6 +32,7 @@
 #include "teams.h"
 #include "league_phase.h"
 #include "uefa_coef.h"
+#include "uefa_access.h" /* original association inputs and qualifiers */
 #include "conti_season.h"
 #include "world_conti.h"   /* reset staged CT world cursor at new career */
 #include "test_rules.h"
@@ -3643,11 +3644,25 @@ int Expanded_OGWorld_BridgeBlocked(void){return s_expOGBridgeBlocked;}
 
 /* Read-only season-end qualification -> next-edition audit. This witness is
  * never serialized and must not generate any fixture, score or draw. */
-static struct {
+typedef struct ExpandedOGQualificationSource {
     int valid; unsigned world,last_world; uint16_t year,last_year;
     unsigned count[4],invalid[4];
     uint16_t ids[4][EXP_QUAL_MAX_ENTRANTS];
-} s_expQual;
+} ExpandedOGQualificationSource;
+static ExpandedOGQualificationSource s_expQual;
+/* One guarded call to the ORIGINAL career qualification functions after
+ * the resident OG season is closed. Never a second fixture simulator. */
+static int s_expOGQualUnemployedActive,s_expOGQualUnemployedError;
+void Expanded_OGWorld_UnemployedQualificationError(const char *reason)
+{
+    ++s_expOGQualUnemployedError;
+    if(s_expOGQualUnemployedError==1)
+        fprintf(stderr,"[og-unemployed-qual] REJECT reason=%s "
+                       "state=SOURCE_INVALID_NO_NEW_FIELD\n",
+                reason?reason:"UNKNOWN");
+}
+int Expanded_OGWorld_UnemployedQualificationActive(void)
+{return s_expOGQualUnemployedActive;}
 static const char *exp_qual_name(unsigned c)
 {
     if(c==0u)return "CHAMPIONS";
@@ -3727,7 +3742,7 @@ unsigned Expanded_OGWorld_QualReadNext(uint16_t year,unsigned cup,
     if(n<2u || n>EXP_QUAL_MAX_ENTRANTS)return 0u;
     for(unsigned i=0;i<n;++i) {
         const uint16_t id=s_expQual.ids[cup][i];
-        if(id==0u || id==0xffffu)return 0u;
+        if(id==0xffffu)return 0u;
         for(unsigned j=0;j<i;++j)
             if(s_expQual.ids[cup][j]==id)return 0u;
         ids[i]=id;
@@ -5389,6 +5404,333 @@ static ExpandedOGCup *exp_cup_find(uint8_t country,uint8_t slot,uint16_t year)
             return &s_expOGCups[i];
     return NULL;
 }
+
+/* The existing end-of-season OG qualification callbacks expect ten real
+ * TeamFileEx records: nine ranked league clubs plus the cup winner. Read
+ * those records from the CLOSED resident competition, not from manager
+ * menus or a reconstructed LWE table. Fail closed on ambiguous identities.
+ * No match, draw, RNG or resident data is touched by this reader. */
+static int exp_og_qualification_country(uint8_t country,uint16_t closedYear,
+                                      TeamFileEx out[10],unsigned *ranked,
+                                      int *cupVerified)
+{
+    memset(out,0,10u*sizeof(*out));
+    *ranked=0u;*cupVerified=0;
+    const ExpandedOGLeague *ctx=exp_find(country,0u,closedYear);
+    if(ctx && ctx->used && ctx->lastPhase>=56u &&
+       ctx->teamCount>=2u && ctx->teamCount<=EXP_OG_MAX_TEAMS &&
+       ctx->comp.base.competitionType==0 &&
+       ctx->comp.matchesPlayedCount>0u &&
+       ctx->comp.minSubstitutes==0u) {
+        const unsigned n=(unsigned)ctx->comp.base.numTeams;
+        if(n<2u || n>ctx->teamCount)return 0;
+        for(unsigned i=0;i<n && i<9u;++i) {
+            const unsigned offset=ctx->comp.matchData.league.teamEntryOffsets[i];
+            if(offset%sizeof(DIYTeamStats)!=0u ||
+               offset/sizeof(DIYTeamStats)>=n)return 0;
+            DIYTeamStats row;
+            memcpy(&row,(const uint8_t *)&ctx->comp+
+                offsetof(DIYCompetitionEx,leagueStandings)+offset,sizeof row);
+            if(row.teamSelOffset<0 ||
+               (unsigned)row.teamSelOffset>=ctx->teamCount)return 0;
+            const TeamFileEx *t=&ctx->teams[row.teamSelOffset];
+            if(World_FileCountry(t->team.countryNumber)!=country)return 0;
+            const uint16_t id=PACK_BE_U16(t->team.countryNumber,
+                                          t->team.teamOrdinal);
+            if(id==0xffffu)return 0;
+            for(unsigned j=0;j<i;++j)
+                if(PACK_BE_U16(out[j].team.countryNumber,
+                               out[j].team.teamOrdinal)==id)return 0;
+            memcpy(&out[i],t,sizeof(*t));
+            ++*ranked;
+        }
+    }
+    /* The original OG cup result is the winnerTeam identity, NOT the
+     * seed list's first club or the last remaining bracket index. */
+    for(uint8_t slot=2u;slot<=3u && !*cupVerified;++slot) {
+        const ExpandedOGCup *cup=exp_cup_find(country,slot,closedYear);
+        if(!cup || !cup->used || cup->managed_excluded ||
+           cup->unsupported_setup || cup->lastPhase<56u ||
+           !cup->comp.base.competitionFinished)continue;
+        const uint16_t id=cup->tournament.header.winnerTeam;
+        if(!id || id==0xffffu)continue;
+        for(unsigned i=0;i<cup->teamCount;++i) {
+            const TeamFileEx *t=&cup->teams[i];
+            if(PACK_BE_U16(t->team.countryNumber,
+                           t->team.teamOrdinal)==id) {
+                memcpy(&out[9],t,sizeof(*t));
+                *cupVerified=1;break;
+            }
+        }
+    }
+    return *ranked || *cupVerified;
+}
+
+static const TeamFileEx *exp_og_qualification_holder(unsigned cup,
+                                                    uint16_t closedYear)
+{
+    const ExpandedOGLeague *l=NULL;
+    const ExpandedOGCup *c=NULL;
+    if(World_Current()==WORLD_9697 && cup!=0u)
+        c=exp_cup_find(254u,(uint8_t)cup,closedYear);
+    else l=&s_expOGUefa[cup];
+    if(l && (!l->used || l->year!=closedYear ||
+             !l->comp.base.competitionFinished))l=NULL;
+    if(c && (!c->used || c->year!=closedYear ||
+             !c->comp.base.competitionFinished))c=NULL;
+    /* OG tournament winner is in the persisted tournament header.
+     * The DIY competition's 0x3A doubles as resultCode. */
+    const uint16_t id=l?l->tournament.header.winnerTeam:
+                      c?c->tournament.header.winnerTeam:0xffffu;
+    if(!id || id==0xffffu)return NULL;
+    const unsigned n=l?l->teamCount:c?c->teamCount:0u;
+    for(unsigned i=0;i<n;++i) {
+        const TeamFileEx *t=l?&l->teams[i]:&c->teams[i];
+        if(PACK_BE_U16(t->team.countryNumber,t->team.teamOrdinal)==id)
+            return t;
+    }
+    return NULL;
+}
+
+/* The unemployed manager has no OG season-end callback, but the ORIGINAL
+ * native league/cup contexts are closed by the same world. Feed their exact
+ * club records to OG's existing career qualification functions without
+ * simulating a fixture or touching the manager's TMD pool.
+ * The resulting ID lists are stored as part of the resident .CAR. */
+int Expanded_OGWorld_QualifyUnemployed(uint16_t closedYear,uint16_t nextYear)
+{
+    if(_gameType!=4 || (World_Current()!=WORLD_2627 &&
+                        World_Current()!=WORLD_9697) ||
+       (_selTeamNumber!=0xffffu && !_youreSacked) ||
+       s_expOGQualUnemployedActive)return 0;
+    if(s_expQual.valid &&
+       ExpandedQual_SameEdition(s_expQual.world,s_expQual.year,
+                       (unsigned)World_Current(),nextYear))
+        return 1; /* existing witnessed OG field, never draw twice */
+    extern void Career_PrepareEuropeanCupQualificationState(void);
+    extern void Career_ProcessCompetitionForEuropeanCupQualification(void);
+    extern void Career_DrawEuropeanCupTeamsAndCopyGrids(void);
+    extern void Career_PrepareCopaLibertadoresQualificationState(void);
+    extern void Career_ProcessCompetitionForCopaLibertadoresQualification(void);
+    extern uint16_t Career_CopaLibertadoresQualifiedTeamCount(void);
+    extern Competition *Career_CopaWorkingCopy(void);
+    extern uint8_t _primaryQualifiedTeamGrids[];
+    extern uint16_t _cachedPrimaryQualifiedTeamIds[];
+    extern uint16_t _cachedSecondaryQualifiedTeamIds[];
+    extern uint16_t _cachedTertiaryQualifiedTeamId;
+    extern uint8_t _currentCompetitionIndex;
+    extern uint16_t _isNationalSelector;
+    extern uint16_t _teamNoOfferAccepted;
+    extern uint16_t _euroCupQualifiedTeamCount,_cupWinnersCupQualifiedTeamCount;
+    extern uint16_t _uefaCupQualifiedTeamCount;
+    extern uint8_t *_euroCupTeamListPtr,*_euroCupTeamListWritePtr;
+    extern uint8_t *_cupWinnersCupTeamListPtr,*_cupWinnersCupTeamListWritePtr;
+    extern uint8_t *_uefaCupTeamListPtr,*_uefaCupTeamListWritePtr;
+    extern uint16_t _euroCupTitleHolderTeamId,_cupWinnersCupTitleHolderTeamId;
+    extern uint16_t _uefaCupTitleHolderTeamId;
+    extern uint8_t _euroCupTitleHolderGrid[],_cupWinnersCupTitleHolderGrid[];
+    extern uint8_t _uefaCupTitleHolderGrid[];
+    extern uint8_t _careerCompetitionIdRemapTable[];
+    extern void *_countriesTable[];
+    /* A separate scratch list replaces each *Copy's original write cursor.
+     * The original qualification callbacks still choose all entrants. */
+    static uint8_t field[3][EXP_QUAL_MAX_ENTRANTS*2u];
+    TeamFileEx savedGrids[10],savedHolders[3];
+    uint16_t savedPrimary[9],savedSecondary[3];
+    const uint16_t savedTertiary=_cachedTertiaryQualifiedTeamId;
+    const uint16_t savedSel=_selTeamNumber,savedNat=_isNationalSelector;
+    const uint16_t savedOffer=_teamNoOfferAccepted;
+    const uint8_t savedComp=_currentCompetitionIndex;
+    const uint16_t savedCounts[3]={
+        _euroCupQualifiedTeamCount,_cupWinnersCupQualifiedTeamCount,
+        _uefaCupQualifiedTeamCount};
+    uint8_t *const savedStart[3]={
+        _euroCupTeamListPtr,_cupWinnersCupTeamListPtr,_uefaCupTeamListPtr};
+    uint8_t *const savedEnd[3]={
+        _euroCupTeamListWritePtr,_cupWinnersCupTeamListWritePtr,
+        _uefaCupTeamListWritePtr};
+    uint16_t *const titleIds[3]={
+        &_euroCupTitleHolderTeamId,&_cupWinnersCupTitleHolderTeamId,
+        &_uefaCupTitleHolderTeamId};
+    uint8_t *const titleGrids[3]={
+        _euroCupTitleHolderGrid,_cupWinnersCupTitleHolderGrid,
+        _uefaCupTitleHolderGrid};
+    uint16_t savedTitle[3];
+    /* Capture the original first-year Copa list before the native
+     * selector updates its career working copy. New editions consume
+     * the verified s_expQual IDs; the old template must not change. */
+    Competition *const copaWorking=Career_CopaWorkingCopy();
+    TeamId originalCopa[20];
+    TeamId *const copaWorkingSeed=copaWorking?
+        comp_team_seed_list(copaWorking):NULL;
+    if(copaWorkingSeed)
+        memcpy(originalCopa,copaWorkingSeed,sizeof originalCopa);
+    memcpy(savedGrids,_primaryQualifiedTeamGrids,sizeof savedGrids);
+    memcpy(savedPrimary,_cachedPrimaryQualifiedTeamIds,sizeof savedPrimary);
+    memcpy(savedSecondary,_cachedSecondaryQualifiedTeamIds,sizeof savedSecondary);
+    for(unsigned k=0;k<3u;++k) {
+        savedTitle[k]=*titleIds[k];
+        memcpy(&savedHolders[k],titleGrids[k],sizeof(TeamFileEx));
+    }
+    memset(field,0,sizeof field);
+    _selTeamNumber=0xffffu;_teamNoOfferAccepted=0xffffu;
+    s_expOGQualUnemployedActive=1;s_expOGQualUnemployedError=0;
+    /* The original Prepare treats a club's country as a required lookup.
+     * In unemployment it doesn't exist: no selected country is excluded. */
+    _isNationalSelector=1u;
+    Career_PrepareEuropeanCupQualificationState();
+    _isNationalSelector=0u;
+    Career_PrepareCopaLibertadoresQualificationState();
+    _euroCupTeamListPtr=_euroCupTeamListWritePtr=field[0];
+    _cupWinnersCupTeamListPtr=_cupWinnersCupTeamListWritePtr=field[1];
+    _uefaCupTeamListPtr=_uefaCupTeamListWritePtr=field[2];
+    _euroCupQualifiedTeamCount=_cupWinnersCupQualifiedTeamCount=0u;
+    _uefaCupQualifiedTeamCount=0u;
+    unsigned sources=0u,missing=0u,cupWinners=0u;
+    for(unsigned k=0;k<3u;++k) {
+        const TeamFileEx *holder=exp_og_qualification_holder(k,closedYear);
+        *titleIds[k]=holder?PACK_BE_U16(
+            holder->team.countryNumber,holder->team.teamOrdinal):0xffffu;
+        if(holder)memcpy(titleGrids[k],holder,sizeof(*holder));
+    }
+    const uint8_t *countries=World_SeasonCountries();
+    if(!countries)countries=_careerCompetitionIdRemapTable;
+    for(unsigned i=0;i<256u && countries && countries[i]!=0xffu;++i) {
+        const uint8_t country=countries[i];
+        const uint8_t *tag=(const uint8_t *)_countriesTable[country];
+        if(!tag || (uintptr_t)tag==(uintptr_t)-1 ||
+           (uintptr_t)tag==(uintptr_t)-2)continue;
+        /* Eligibility and continental association are applied by the
+         * actual native OG callbacks, not a new set of football rules. */
+        TeamFileEx ranked[10];
+        unsigned n=0u;int cup=0;
+        if(!exp_og_qualification_country(country,closedYear,
+                                         ranked,&n,&cup)) {
+            ++missing;
+            fprintf(stderr,"[og-unemployed-qual-country] "
+                "world=%s year=%u country=%u "
+                "status=NO_VERIFIED_OG_FINAL_TABLE_OR_CUP\n",
+                World_Tag(),(unsigned)closedYear,(unsigned)country);
+            continue;
+        }
+        ++sources;if(cup)++cupWinners;
+        memcpy(_primaryQualifiedTeamGrids,ranked,sizeof ranked);
+        for(unsigned j=0;j<9u;++j)
+            _cachedPrimaryQualifiedTeamIds[j]=
+                PACK_BE_U16(ranked[j].team.countryNumber,
+                            ranked[j].team.teamOrdinal);
+        _cachedSecondaryQualifiedTeamIds[0]=cup?
+            PACK_BE_U16(ranked[9].team.countryNumber,
+                        ranked[9].team.teamOrdinal):0xffffu;
+        _cachedTertiaryQualifiedTeamId=0xffffu;
+        _currentCompetitionIndex=country;
+        /* Modern UEFAQ reads the same OG table but must NOT enter
+         * Conti_Country -> ct_finish: the CT engine is a different,
+         * still-unbound resident competition and may run old rounds. */
+        if(World_Current()==WORLD_2627)UefaQual_Country();
+        else Career_ProcessCompetitionForEuropeanCupQualification();
+        if(World_Current()==WORLD_9697)
+            Career_ProcessCompetitionForCopaLibertadoresQualification();
+    }
+    /* Modern UEFAQ may fill a missing association with a best-unused
+     * club. That is a valid OG bracket fallback, but NOT proof of actual
+     * eligibility from all 55 resident league/cup tables. Require each
+     * association's real OG input, including cup-only associations. */
+    if(World_Current()==WORLD_2627) {
+        const WorldUefaSeeds *const seeds=World_UefaSeeds();
+        unsigned present=0u;
+        for(unsigned rk=1u;rk<NA;++rk)
+            if(UQ_IN.present[rk])++present;
+        if(!seeds || present!=(unsigned)seeds->nCountries) {
+            Expanded_OGWorld_UnemployedQualificationError(
+                "UEFA_ASSOCIATION_FINAL_INPUT_MISSING");
+            fprintf(stderr,"[og-unemployed-qual] UEFA_ACCESS "
+                           "present=%u required=%u status=INCOMPLETE\n",
+                    present,seeds?(unsigned)seeds->nCountries:0u);
+        }
+    }
+    /* OG draws only QUALIFICATION brackets via its existing algorithm.
+     * No played league/continental fixture is executed here. */
+    if(World_Current()==WORLD_2627)UefaQual_Fill();
+    Career_DrawEuropeanCupTeamsAndCopyGrids();
+    const unsigned n[3]={_euroCupQualifiedTeamCount,
+        _cupWinnersCupQualifiedTeamCount,_uefaCupQualifiedTeamCount};
+    const unsigned expected[3]={
+        World_Current()==WORLD_2627?36u:16u,
+        World_Current()==WORLD_2627?36u:32u,
+        World_Current()==WORLD_2627?36u:32u};
+    const unsigned copaCount=Career_CopaLibertadoresQualifiedTeamCount();
+    const Competition *const copa=Career_CopaWorkingCopy();
+    const uint8_t *const copaIds=copa?
+        (const uint8_t *)comp_team_seed_list((Competition *)copa):NULL;
+    int valid=n[0]==expected[0] && n[1]==expected[1] &&
+        n[2]==expected[2] && (!copaCount || copaCount==20u) &&
+        !s_expOGQualUnemployedError;
+    /* The same club cannot play two of the three UEFA club editions.
+     * This also rejects zero/invalid club IDs before they can enter CAR. */
+    for(unsigned k=0;k<3u;++k)
+        for(unsigned i=0;i<n[k] && i<EXP_QUAL_MAX_ENTRANTS;++i) {
+            const uint16_t id=(uint16_t)
+                (((uint16_t)field[k][2u*i]<<8)|field[k][2u*i+1u]);
+            if(id==0xffffu)valid=0;
+            for(unsigned j=0;j<i;++j)
+                if(field[k][2u*j]==field[k][2u*i] &&
+                   field[k][2u*j+1u]==field[k][2u*i+1u])valid=0;
+            for(unsigned q=0;q<k;++q)
+                for(unsigned j=0;j<n[q] && j<EXP_QUAL_MAX_ENTRANTS;++j)
+                    if(field[q][2u*j]==field[k][2u*i] &&
+                       field[q][2u*j+1u]==field[k][2u*i+1u])valid=0;
+        }
+    fprintf(stderr,"[og-unemployed-qual] world=%s closed=%u next=%u "
+        "source=OG_RESIDENT_FINAL_STANDINGS_AND_WINNERS "
+        "countries-read=%u absent-country-finals=%u cup-winners=%u "
+        "clubs=%u,%u,%u copa=%u status=%s "
+        "no-replay=1 no-manager-TMD=1\n",
+        World_Tag(),(unsigned)closedYear,(unsigned)nextYear,
+        sources,missing,cupWinners,n[0],n[1],n[2],
+        copaCount,valid?"NATIVE_FIELD_READY":"INCOMPLETE_FIELD");
+    /* Libertadores is validated separately: one invalid or duplicate
+     * club must not make the next CAR fail its checksum/ID guard. */
+    if(copaCount && copaIds)for(unsigned j=0;j<copaCount && j<20u;++j) {
+        const uint16_t id=(uint16_t)
+            (((uint16_t)copaIds[2u*j]<<8)|copaIds[2u*j+1u]);
+        if(id==0xffffu)valid=0;
+        for(unsigned z=0;z<j;++z)
+            if(copaIds[2u*z]==copaIds[2u*j] &&
+               copaIds[2u*z+1u]==copaIds[2u*j+1u])valid=0;
+    }
+    if(copaCount && !copaIds)valid=0;
+    if(valid)
+        Expanded_OGWorld_QualCaptureNative(nextYear,
+             field[0],n[0],field[1],n[1],field[2],n[2],
+             copaIds,copaCount);
+    /* Restore local manager/UI state. Original OG qualification state
+     * (UEFA coefficients and bracket) and the resident league/cup records
+     * stay owned by the ONE world; its next entrants live in qual_next CAR. */
+    for(unsigned k=0;k<3u;++k) {
+        *titleIds[k]=savedTitle[k];
+        memcpy(titleGrids[k],&savedHolders[k],sizeof(TeamFileEx));
+    }
+    memcpy(_primaryQualifiedTeamGrids,savedGrids,sizeof savedGrids);
+    memcpy(_cachedPrimaryQualifiedTeamIds,savedPrimary,sizeof savedPrimary);
+    memcpy(_cachedSecondaryQualifiedTeamIds,savedSecondary,sizeof savedSecondary);
+    _cachedTertiaryQualifiedTeamId=savedTertiary;
+    _euroCupTeamListPtr=savedStart[0];
+    _cupWinnersCupTeamListPtr=savedStart[1];
+    _uefaCupTeamListPtr=savedStart[2];
+    _euroCupTeamListWritePtr=savedEnd[0];
+    _cupWinnersCupTeamListWritePtr=savedEnd[1];
+    _uefaCupTeamListWritePtr=savedEnd[2];
+    _euroCupQualifiedTeamCount=savedCounts[0];
+    _cupWinnersCupQualifiedTeamCount=savedCounts[1];
+    _uefaCupQualifiedTeamCount=savedCounts[2];
+    if(copaWorkingSeed)
+        memcpy(copaWorkingSeed,originalCopa,sizeof originalCopa);
+    _selTeamNumber=savedSel;_isNationalSelector=savedNat;
+    _teamNoOfferAccepted=savedOffer;_currentCompetitionIndex=savedComp;
+    s_expOGQualUnemployedActive=0;
+    return valid;
+}
 /* Read actual selected IDs, not the first-year template, when comparing
  * national cup access rules. No mutable pointers escape the resident. */
 unsigned Expanded_OGWorld_ReadCupEntries(uint8_t country,uint8_t slot,
@@ -5615,6 +5957,53 @@ static int og_saved_emit_context(OGEmit emit,void *ud,const void *ptr,
 }
 extern uint16_t Expanded_OGWorld_SaveYear(void);
 extern int Expanded_OGWorld_SaveStarted(void);
+
+/* Portably checkpoint the source qualification IDs in the SAME atomic CAR
+ * as its native OG contexts. This is a WITNESS, not a separate calendar or
+ * simulation. Missing data in older CAR files must remain unverified.
+ * Hashes are over an endian-independent 524-byte wire, not native structs. */
+#define EXP_OG_QUAL_WIRE_SIZE (12u+4u*EXP_QUAL_MAX_ENTRANTS*2u)
+static int exp_qual_emit_json(OGEmit emit,void *ud)
+{
+    if(!s_expQual.valid)return 1;
+    uint8_t wire[EXP_OG_QUAL_WIRE_SIZE]={0};
+    wire[0]=1u;wire[1]=(uint8_t)s_expQual.world;
+    wire[2]=(uint8_t)(s_expQual.year>>8);
+    wire[3]=(uint8_t)s_expQual.year;
+    for(unsigned k=0;k<4u;++k) {
+        if(s_expQual.count[k]>EXP_QUAL_MAX_ENTRANTS ||
+           s_expQual.invalid[k]>1u)return 0;
+        wire[4u+k]=(uint8_t)s_expQual.count[k];
+        wire[8u+k]=(uint8_t)s_expQual.invalid[k];
+        for(unsigned j=0;j<s_expQual.count[k];++j) {
+            const uint16_t id=s_expQual.ids[k][j];
+            if(id==0xffffu)return 0;
+            for(unsigned z=0;z<j;++z)
+                if(s_expQual.ids[k][z]==id)return 0;
+            const unsigned pos=12u+2u*(k*EXP_QUAL_MAX_ENTRANTS+j);
+            wire[pos]=(uint8_t)(id>>8);
+            wire[pos+1u]=(uint8_t)id;
+        }
+    }
+    uint64_t hash=UINT64_C(14695981039346656037);
+    mjson_printf(emit,ud,",%Q:{%Q:%u,%Q:",
+                 "qual_next","format",1u,"hex");
+    if(emit("\"",1,ud)!=1 ||
+       !og_saved_hex(emit,ud,wire,sizeof wire,(size_t)-1,
+                     (size_t)-1,&hash) ||
+       emit("\"",1,ud)!=1)return 0;
+    static const char digits[]="0123456789abcdef";
+    char checksum[17];
+    for(int i=15;i>=0;--i){checksum[i]=digits[hash&15u];hash>>=4;}
+    checksum[16]=0;
+    mjson_printf(emit,ud,",%Q:%Q}","checksum",checksum);
+    fprintf(stderr,"[og-qual-car] SAVE world=%s year=%u "
+        "counts=%u,%u,%u,%u status=CHECKSUMMED\n",
+        World_Tag(),(unsigned)s_expQual.year,
+        s_expQual.count[0],s_expQual.count[1],
+        s_expQual.count[2],s_expQual.count[3]);
+    return 1;
+}
 static int exp_fixture_emit_json(OGEmit emit,void *ud);
 static int exp_fixture_read_json(const char *root,int len,
                                   uint8_t **data,size_t *count,
@@ -5651,6 +6040,7 @@ int Expanded_OGWorld_WriteSaveJson(OGEmit emit,void *ud) {
         if(!og_saved_emit_context(emit,ud,&s_expOGCups[i],1,i))return 0;
     }
     mjson_printf(emit,ud,"]");
+    if(!exp_qual_emit_json(emit,ud))return 0;
     if(!exp_fixture_emit_json(emit,ud))return 0;
     mjson_printf(emit,ud,"}");
     return 1;
@@ -5831,6 +6221,53 @@ static int og_saved_read_context(const char *obj,int len,void *dest,int cup,unsi
     tourn->header.namePtr=(uint8_t *)tourn->header.competitionName;
     return 1;
 }
+
+static int exp_qual_read_json(const char *root,int len,
+                               ExpandedOGQualificationSource *out)
+{
+    memset(out,0,sizeof *out);
+    const char *obj=NULL;int n=0;
+    const int token=mjson_find(root,len,"$.qual_next",&obj,&n);
+    if(token==MJSON_TOK_INVALID)return 1; /* old CAR: never forge */
+    if(token!=MJSON_TOK_OBJECT)return 0;
+    long format=0;
+    if(!og_saved_num(obj,n,"$.format",&format)||format!=1)return 0;
+    uint8_t wire[EXP_OG_QUAL_WIRE_SIZE];
+    uint64_t hash=UINT64_C(14695981039346656037);
+    if(!og_saved_read_hex(obj,n,"$.hex",wire,sizeof wire,&hash))
+        return 0;
+    char checksum[32]={0};
+    if(mjson_get_string(obj,n,"$.checksum",checksum,
+                         sizeof checksum)!=16)return 0;
+    uint64_t claimed=0;
+    for(unsigned i=0;i<16u;++i) {
+        const int digit=og_saved_nibble(checksum[i]);
+        if(digit<0)return 0;
+        claimed=(claimed<<4)|(unsigned)digit;
+    }
+    if(claimed!=hash || wire[0]!=1u ||
+       wire[1]!=(unsigned)World_Current())return 0;
+    out->world=wire[1];
+    out->year=(uint16_t)(((unsigned)wire[2]<<8)|wire[3]);
+    if(out->year<World_FirstYear()||out->year>2198u)return 0;
+    out->valid=1;out->last_world=(unsigned)-1;
+    for(unsigned k=0;k<4u;++k) {
+        const unsigned count=wire[4u+k],invalid=wire[8u+k];
+        if(count>EXP_QUAL_MAX_ENTRANTS || invalid>1u)return 0;
+        out->count[k]=count;out->invalid[k]=invalid;
+        for(unsigned j=0;j<EXP_QUAL_MAX_ENTRANTS;++j) {
+            const unsigned pos=12u+2u*(k*EXP_QUAL_MAX_ENTRANTS+j);
+            const uint16_t id=(uint16_t)
+                (((uint16_t)wire[pos]<<8)|wire[pos+1u]);
+            if(j>=count) {if(id)return 0;continue;}
+            if(id==0xffffu)return 0;
+            for(unsigned z=0;z<j;++z)
+                if(out->ids[k][z]==id)return 0;
+            out->ids[k][j]=id;
+        }
+    }
+    return 1;
+}
 extern void Expanded_OGWorld_AdoptRestoredYear(uint16_t year);
 int Expanded_OGWorld_ReadSaveJson(const char *json,int len,int apply) {
     const char *root=NULL;int nr=0;
@@ -5901,6 +6338,62 @@ int Expanded_OGWorld_ReadSaveJson(const char *json,int len,int apply) {
         if(u[i].used && (u[i].division!=i || u[i].teamCount<2))
             valid=0;
     if(!live)valid=0;
+    ExpandedOGQualificationSource savedQual;
+    if(valid && !exp_qual_read_json(root,nr,&savedQual))
+        valid=0;
+    if(valid && savedQual.valid &&
+       savedQual.year!=(uint16_t)year &&
+       savedQual.year!=(uint16_t)((unsigned)year+1u))
+        valid=0;
+    /* Compare verified CAR qualification IDs against any already
+     * installed SAME-YEAR native OG edition BEFORE applying the save.
+     * No new fixture or draw: a mismatch rejects the CAR atomically. */
+    unsigned comparedFields=0u;
+    if(valid && savedQual.valid) {
+        for(unsigned k=0;k<4u;++k) {
+            if(!savedQual.count[k] || savedQual.invalid[k])continue;
+            const TeamFileEx *teams=NULL;
+            unsigned count=0u;
+            if(World_Current()==WORLD_9697 && (k==1u || k==2u)) {
+                for(long j=0;j<cc;++j)
+                    if(c[j].used && c[j].country==254u &&
+                       c[j].slot==k && c[j].year==savedQual.year) {
+                        teams=c[j].teams;count=c[j].teamCount;break;
+                    }
+            } else if(k!=3u || World_Current()==WORLD_9697) {
+                const ExpandedOGLeague *const slot=
+                    &u[k==3u?1u:k];
+                if(slot->used && slot->year==savedQual.year) {
+                    teams=slot->teams;count=slot->teamCount;
+                }
+            }
+            if(!teams)continue; /* a future edition has not opened */
+            uint16_t resident[EXP_QUAL_MAX_ENTRANTS]={0};
+            if(!count || count>EXP_QUAL_MAX_ENTRANTS) {
+                valid=0;break;
+            }
+            for(unsigned j=0;j<count;++j)
+                resident[j]=PACK_BE_U16(
+                    teams[j].team.countryNumber,teams[j].team.teamOrdinal);
+            const ExpandedQualDiff diff=ExpandedQual_Compare(
+                savedQual.ids[k],savedQual.count[k],resident,count);
+            if(!ExpandedQual_IsExact(&diff)) {
+                fprintf(stderr,"[og-qual-car] REJECT world=%s "
+                    "year=%u cup=%u status=SOURCE_RESIDENT_ID_MISMATCH "
+                    "missing=%u extra=%u duplicate=%u\n",
+                    World_Tag(),(unsigned)savedQual.year,k,
+                    diff.missing,diff.extra,diff.duplicate_resident);
+                valid=0;break;
+            }
+            ++comparedFields;
+        }
+    }
+    if(valid && savedQual.valid)
+        fprintf(stderr,"[og-qual-car] PRECHECK world=%s year=%u "
+            "source-checksum=VALID resident-fields-compared=%u "
+            "status=%s\n",World_Tag(),(unsigned)savedQual.year,
+            comparedFields,comparedFields?
+                "VERIFIED_SAME_YEAR_IDS":"SOURCE_ONLY_EDITION_NOT_YET_OPEN");
     uint8_t *fixtureData=NULL;
     size_t fixtureCount=0u;
     uint32_t fixturePartial=1u;
@@ -5933,6 +6426,13 @@ int Expanded_OGWorld_ReadSaveJson(const char *json,int len,int apply) {
         s_expOGCupTickFault=0;s_expOGFault=0;s_expOGBound=(int)bound;
         s_expOGCupUnsupported=(uint32_t)unsupported;
         s_expOGCupFaults=(uint32_t)faults;
+        s_expQual=savedQual;
+        fprintf(stderr,"[og-qual-car] RESTORE world=%s year=%u "
+            "valid=%d counts=%u,%u,%u,%u status=%s\n",
+            World_Tag(),(unsigned)s_expQual.year,s_expQual.valid,
+            s_expQual.count[0],s_expQual.count[1],
+            s_expQual.count[2],s_expQual.count[3],
+            s_expQual.valid?"CHECKSUM_VERIFIED":"LEGACY_SOURCE_UNAVAILABLE");
         Expanded_OGWorld_AdoptRestoredYear((uint16_t)year);
         free(s_expOGFixtures);
         s_expOGFixtures=fixtureData;

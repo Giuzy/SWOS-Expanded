@@ -136,6 +136,8 @@ int main(int argc,char **argv)
     long qual_years=0,qual_checked=0,qual_passed=0,qual_failed=0;
     long qual_untested=0,qual_missing_editions=0,qual_wrong_clubs=0;
     long qual_world_9697=0,qual_world_2627=0;
+    long unemployed9697=0,unemployed2627=0,unemployedMissing=0;
+    long qualifyingCarWrites=0,qualifyingCarRestores=0,qualifyingCarLegacy=0;
     long firstNativePass=0,firstNativeFail=0,firstNativeUnknown=0;
     long cupNextPass=0,cupNextFail=0,cupNextUnknown=0;
     long manualSyncPass=0,manualSyncFail=0;
@@ -192,6 +194,21 @@ int main(int argc,char **argv)
         if(strstr(line,"UNEXPLAINED_SAME_SCOPE"))++notice_same_scope;
         if(strstr(line,"NOT_VERIFIED") || strstr(line,"NOT_TESTED"))
             ++notice_not_verified;
+        if(tag(line,"[og-unemployed-qualification] ")) {
+            const int pass=strstr(line,"status=OG_FIELD_CAPTURED")!=NULL;
+            if(strstr(line,"world=9697")) {
+                if(pass)++unemployed9697;else ++unemployedMissing;
+            } else if(strstr(line,"world=2627")) {
+                if(pass)++unemployed2627;else ++unemployedMissing;
+            }
+        }
+        if(tag(line,"[og-qual-car] SAVE ") &&
+           strstr(line,"status=CHECKSUMMED"))++qualifyingCarWrites;
+        if(tag(line,"[og-qual-car] RESTORE ")) {
+            if(strstr(line,"status=CHECKSUM_VERIFIED"))
+                ++qualifyingCarRestores;
+            else ++qualifyingCarLegacy;
+        }
         if(tag(line,"[og-cup-entry] ")) {
             const int initial=strstr(line,"source=INITIAL_NATIVE_SEED")!=NULL;
             const int pass=strstr(line,"status=PASS_EXACT_NATIVE_CLUB_IDS")!=NULL;
@@ -736,7 +753,7 @@ int main(int argc,char **argv)
            firstNativeFail?"FAIL":firstNativePass?"PARTIAL_OG_ONLY":
            "NOT_TESTED",firstNativePass,firstNativeFail,firstNativeUnknown);
     printf("OG_NEXT_EDITION_DOMESTIC_CUP_IDS=%s exact=%ld wrong=%ld "
-           "no-access-rule=%ld scope=OG_NATIVE_COUNTRY_QUOTA_NO_FAKE_SEEDS\\n",
+           "no-access-rule=%ld scope=OG_NATIVE_COUNTRY_QUOTA_NO_FAKE_SEEDS\n",
            cupNextFail?"FAIL":cupNextPass?"PARTIAL_OG_ONLY":
            "NOT_TESTED",cupNextPass,cupNextFail,cupNextUnknown);
     printf("OG_MANUAL_SEASON_SYNC=%s synced=%ld blocked=%ld "
@@ -754,6 +771,24 @@ int main(int argc,char **argv)
            perfLeagues2627,perfCups2627,perfInternational2627,
            performance9697,perfTotal9697,perfLeagues9697,
            perfCups9697,perfInternational9697);
+    printf("OG_UNEMPLOYED_QUALIFICATION=%s "
+           "world9697-fields=%ld world2627-fields=%ld "
+           "incomplete=%ld origin=REAL_RESIDENT_OG_TABLES "
+           "next-year-identity=SEE_OG_NEXT_SEASON_QUALIFICATION\n",
+           unemployedMissing?"INCOMPLETE":
+           unemployed9697 && unemployed2627?"BOTH_WORLDS_CAPTURED":
+           unemployed9697 || unemployed2627?"ONE_WORLD_CAPTURED":
+           "NOT_TESTED",
+           unemployed9697,unemployed2627,unemployedMissing);
+    printf("OG_UNEMPLOYED_QUALIFICATION_CAR=%s "
+           "checksummed-saves=%ld checksum-verified-restores=%ld "
+           "legacy-no-source=%ld identity-comparison=SEE_NEXT_YEAR_AUDIT\n",
+           qualifyingCarWrites && qualifyingCarRestores?
+             "SAVED_AND_RESTORED_CHECKSUM_VERIFIED":
+           qualifyingCarWrites?"SAVE_ONLY_RESTORE_NOT_TESTED":
+           qualifyingCarRestores?"RESTORED_FROM_PRIOR_SESSION":
+           "NOT_TESTED",
+           qualifyingCarWrites,qualifyingCarRestores,qualifyingCarLegacy);
     printf("OG_NEXT_SEASON_QUALIFICATION=%s "
            "rollovers=%ld checked=%ld passed=%ld failed=%ld "
            "missing-editions=%ld wrong-clubs=%ld not-tested=%ld "

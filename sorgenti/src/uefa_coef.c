@@ -339,6 +339,18 @@ void UefaQual_Country(void)
         if (t && t != 0xFFFF)
             first = assoc(t);
     }
+    /* OG has a cup-only UEFA association with no domestic league.
+     * Its real native cup winner occupies grid 9; it must not be ignored
+     * just because the first nine league records are (correctly) blank. */
+#ifdef SWOS_SDL_BUILD
+    extern int Expanded_OGWorld_UnemployedQualificationActive(void);
+    if(first<0 && Expanded_OGWorld_UnemployedQualificationActive()) {
+        const WorldUefaSeeds *sd=World_UefaSeeds();
+        const uint16_t cw=BE_READ_U16(g0+9u*sizeof(TeamFileEx));
+        if(sd && sd->cupOnly && cw && cw!=0xffffu &&
+           assoc(cw)==sd->cupOnly)first=sd->cupOnly;
+    }
+#endif
     int32_t rk = 0;
     for (int32_t i = 0; i < s_rankN && !rk; i++)
         if (s_rankC[i] == first)

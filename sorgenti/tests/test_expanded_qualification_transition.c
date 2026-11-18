@@ -49,6 +49,33 @@ int main(void)
     assert(!ExpandedQual_FirstEditionValid(EXP_QUAL_FIRST_NATIVE,&d,3));
     d=ExpandedQual_Compare(NULL,0,NULL,0);
     assert(!ExpandedQual_FirstEditionValid(EXP_QUAL_FIRST_NATIVE,&d,0));
+    /* Current native UEFA fields: 36/36/36 modern and 16/32/32
+     * historic. Test stable IDs against SAVE/CONTINUE-like reorder,
+     * duplicate injection, and an old field used as a new edition.
+     * This is NOT a native-world Windows gameplay test. */
+    for(unsigned world=0;world<2u;++world) {
+        uint16_t original[3][36]={{0}},restored[3][36]={{0}};
+        unsigned sizes[3]={world?36u:16u,world?36u:32u,
+                           world?36u:32u};
+        for(unsigned cup=0;cup<3u;++cup) {
+            for(unsigned i=0;i<sizes[cup];++i) {
+                const uint16_t id=(uint16_t)
+                    (0x1000u+cup*0x100u+i+1u);
+                original[cup][i]=id;
+                restored[cup][sizes[cup]-1u-i]=id;
+            }
+            d=ExpandedQual_Compare(original[cup],sizes[cup],
+                                   restored[cup],sizes[cup]);
+            assert(ExpandedQual_IsExact(&d) &&
+                   d.matched==sizes[cup]);
+        }
+        restored[0][0]=restored[0][1];
+        d=ExpandedQual_Compare(original[0],sizes[0],
+                               restored[0],sizes[0]);
+        assert(!ExpandedQual_IsExact(&d));
+        assert(d.duplicate_resident==1 && d.missing==1);
+    }
+    puts("OG_UNEMPLOYED_SOURCE_AND_RESTORED_IDS=PASS_ISOLATED_ONLY");
     puts("OG_FIRST_YEAR_REAL_VS_MANUAL_APPROVAL=PASS_ISOLATED_ONLY");
     puts("OG_QUALIFICATION_IDENTITY_MATCHER=PASS_ISOLATED_ONLY");
     puts("OG_QUALIFICATION_NEXT_SEASON_IN_GAME=NOT_TESTED");

@@ -53,6 +53,9 @@ extern uint8_t *_uefaCupTeamListWritePtr;
 
 extern void *_countriesTable[];
 extern uint16_t _selTeamNumber;
+#ifdef SWOS_SDL_BUILD
+extern int Expanded_OGWorld_UnemployedQualificationActive(void);
+#endif
 
 /* C-to-asm bridges */
 extern TeamFileEx *VerifyTeamLoaded(uint16_t teamNum);
@@ -102,10 +105,25 @@ static int16_t isTeamInList(uint16_t team, uint8_t *listPtr, uint16_t count)
 static void appendTeamToList(uint8_t *teamGrid, uint8_t **writePtrAddr, uint16_t *count)
 {
     uint8_t *writePos = *writePtrAddr;
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_OGWorld_UnemployedQualificationActive() &&
+       *count>=64u) {
+        extern void Expanded_OGWorld_UnemployedQualificationError(const char *);
+        Expanded_OGWorld_UnemployedQualificationError("UEFA_FIELD_CAPACITY");
+        return;
+    }
+#endif
     writePos[0] = teamGrid[0];
     writePos[1] = teamGrid[1];
     *writePtrAddr = writePos + 2;
     (*count)++;
+#ifdef SWOS_SDL_BUILD
+    /* The unemployed WORLD only reads completed OG tables and invokes
+     * the SAME native qualification rules; no manager TMD pool exists.
+     * The caller owns isolated cup-list output and persists its IDs in
+     * the world CAR. Never append to a nonexistent manager's roster. */
+    if(Expanded_OGWorld_UnemployedQualificationActive())return;
+#endif
     Career_AppendTeamToTmdTeamPool((TeamFileEx *)teamGrid);
 }
 
@@ -215,6 +233,23 @@ static void qualifyTeamForCupWinnersCup(void)
      * a team that doesn't match the primary cached team or Euro Cup holder.
      * Boundary spill: walks through contiguous BSS buffers. */
     uint8_t *a5 = _primaryQualifiedTeamGrids + (8 * sizeof(TeamFileEx));
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_OGWorld_UnemployedQualificationActive()) {
+        /* The original OG fallback reads beyond the ninth grid if its
+         * cup winner also won the league or equals a title holder. A
+         * resident-final witness alone cannot prove that fallback club.
+         * Reject the field rather than walk uninitialized manager memory. */
+        const uint16_t cw=BE_READ_U16(a5+sizeof(TeamFileEx));
+        if(!cw || cw==0xffffu ||
+           cw==_cachedPrimaryQualifiedTeamIds[0] ||
+           cw==_euroCupTitleHolderTeamId) {
+            extern void Expanded_OGWorld_UnemployedQualificationError(const char *);
+            Expanded_OGWorld_UnemployedQualificationError(
+                "CLASSIC_CUP_WINNER_FALLBACK_UNVERIFIED");
+            return;
+        }
+    }
+#endif
     for (;;) {
         a5 += sizeof(TeamFileEx);
         uint16_t team = BE_READ_U16(a5);
@@ -243,8 +278,22 @@ static void qualifyTeamsForUefaCup(void)
     a5 -= sizeof(TeamFileEx);
 
     while (tryConsumeCompetitionIdFromList(_uefaCupEligibleCompetitionIds)) {
+#ifdef SWOS_SDL_BUILD
+        unsigned qualifyingAttempts=0u;
+#endif
         for (;;) {
             a5 += sizeof(TeamFileEx);
+#ifdef SWOS_SDL_BUILD
+            if(Expanded_OGWorld_UnemployedQualificationActive() &&
+               (a5>_primaryQualifiedTeamGrids+
+                    9u*sizeof(TeamFileEx) ||
+                ++qualifyingAttempts>10u)) {
+                extern void Expanded_OGWorld_UnemployedQualificationError(const char *);
+                Expanded_OGWorld_UnemployedQualificationError(
+                    "CLASSIC_UEFA_RANKING_EXHAUSTED");
+                return;
+            }
+#endif
             if (a5 == _euroCupTitleHolderGrid) {
                 a5 = _primaryQualifiedTeamGrids + sizeof(TeamFileEx); /* wrap to slot 1 */
             }
@@ -299,7 +348,13 @@ void Career_AppendTeamToEuroCupListN(int32_t cup, TeamFileEx *record)
 __attribute__((used, externally_visible))
 void Career_ProcessCompetitionForEuropeanCupQualification(void)
 {
-    Conti_Country();        /* (a world's other confederations' cups: every country's table, conti_season.c) */
+#ifdef SWOS_SDL_BUILD
+    /* When unemployed the one resident OG world already ran all its
+     * continental matches. Qualification must only read final tables:
+     * Conti_Country may close/play a CT edition, so NEVER call it here. */
+    if(!Expanded_OGWorld_UnemployedQualificationActive())
+#endif
+        Conti_Country();        /* original career path */
     /* countriesTable is uint32_t[] (pointer table); index by competition ID */
     uint16_t idx = (uint8_t)_currentCompetitionIndex;
     uint8_t *countryPtr = (uint8_t *)_countriesTable[idx];
@@ -640,6 +695,15 @@ static void drawRandomTeamFromPoolAndCopyGrid(uint16_t titleHolder,
 {
     if (titleHolder == 0xFFFF)
         return;
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_OGWorld_UnemployedQualificationActive() &&
+       (!teamList || !count)) {
+        extern void Expanded_OGWorld_UnemployedQualificationError(const char *);
+        Expanded_OGWorld_UnemployedQualificationError(
+            "CLASSIC_TITLE_HOLDER_REPLACEMENT_EMPTY");
+        return;
+    }
+#endif
 
     uint8_t titleHolderCountry = (uint8_t)(titleHolder >> 8);
     /* teamList stores BE byte pairs (see appendTeamToList). Read each slot
@@ -651,7 +715,19 @@ static void drawRandomTeamFromPoolAndCopyGrid(uint16_t titleHolder,
     uint16_t selectedTeam;
     uint8_t selectedCountry;
 
+#ifdef SWOS_SDL_BUILD
+    unsigned replacementAttempts=0u;
+#endif
     for (;;) {
+#ifdef SWOS_SDL_BUILD
+        if(Expanded_OGWorld_UnemployedQualificationActive() &&
+           ++replacementAttempts>8192u) {
+            extern void Expanded_OGWorld_UnemployedQualificationError(const char *);
+            Expanded_OGWorld_UnemployedQualificationError(
+                "CLASSIC_TITLE_HOLDER_REPLACEMENT_LOOP");
+            return;
+        }
+#endif
         randIdx = Rand2();
         randIdx = (uint16_t)((uint32_t)randIdx * count >> 8);
         selectedTeam = BE_READ_U16(&listBytes[randIdx * 2]);
@@ -675,6 +751,10 @@ static void drawRandomTeamFromPoolAndCopyGrid(uint16_t titleHolder,
     uint16_t removedTeam = BE_READ_U16(&listBytes[randIdx * 2]);
     BE_WRITE_U16(&listBytes[randIdx * 2], titleHolder);
 
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_OGWorld_UnemployedQualificationActive())
+        return; /* native holder rule already swapped the ID, no TMD write */
+#endif
     uint16_t savedCareerFile = _careerFileBuffer;
     Career_RemoveTeamFromTmdTeamPool(removedTeam);
     Career_AppendTeamToTmdTeamPool((TeamFileEx *)dstGrid);

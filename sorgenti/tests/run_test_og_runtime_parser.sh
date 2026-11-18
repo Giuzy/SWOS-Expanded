@@ -55,6 +55,13 @@ cat >> "$work/positive.log" <<'EOF'
 [og-manual-season] world=2627 year=2027 native=1 clock=1 bound=1 status=SYNCED native-ms=30.000 clock-ms=1.000 bind-ms=0.500 save=PERMITTED
 [og-forward-perf] world=2627 year=2027 phase=48 leagues-ms=10.000 cups-ms=9.000 international-ms=3.000 overhead-ms=8.000 total-ms=30.000 league-count=134 cup-count=101 faults=0
 [og-forward-perf] world=9697 year=1997 phase=48 leagues-ms=4.000 cups-ms=3.000 international-ms=1.000 overhead-ms=2.000 total-ms=10.000 league-count=88 cup-count=51 faults=0
+[og-unemployed-qual] world=2627 closed=2026 next=2027 source=OG_RESIDENT_FINAL_STANDINGS_AND_WINNERS countries-read=91 absent-country-finals=0 cup-winners=87 clubs=36,36,36 copa=0 status=NATIVE_FIELD_READY no-replay=1 no-manager-TMD=1
+[og-unemployed-qualification] world=2627 closed=2026 opened=2027 status=OG_FIELD_CAPTURED no-replay=1
+[og-unemployed-qual] world=9697 closed=1996 next=1997 source=OG_RESIDENT_FINAL_STANDINGS_AND_WINNERS countries-read=86 absent-country-finals=2 cup-winners=51 clubs=16,32,32 copa=20 status=NATIVE_FIELD_READY no-replay=1 no-manager-TMD=1
+[og-unemployed-qualification] world=9697 closed=1996 opened=1997 status=OG_FIELD_CAPTURED no-replay=1
+[og-qual-car] SAVE world=2627 year=2027 counts=36,36,36,0 status=CHECKSUMMED
+[og-qual-car] PRECHECK world=2627 year=2027 source-checksum=VALID resident-fields-compared=3 status=VERIFIED_SAME_YEAR_IDS
+[og-qual-car] RESTORE world=2627 year=2027 valid=1 counts=36,36,36,0 status=CHECKSUM_VERIFIED
 [og-cup-bye] NATIVE DRAW VERIFIED country=0 compId=109 real=10 bracket=16 round1-ties=2 byes=6 (OG ONLY)
 [og-cup-coverage] country=0 slot=2 compId=109 year=2096 expected=16 selected=10 state=RESIDENT reason=NATIVE_BYES_VERIFIED
 [og-cup-rule] country=0 slot=2 compId=109 year=2096 bracket=16 selected=10 real-entrants=10 first-round-ties=2 byes=6 padded-slots=6 native-bracket=16 native-round1-ties=2 native-round1-pairs=8 classification=OG_BYE_FORMAT_CANDIDATE round-structure=OG_ROUND1_MATCHES_RULE native-validation=NATIVE_DRAW_IDENTITIES_VERIFIED fixtures=NOT_VERIFIED_BY_RULE
@@ -83,6 +90,8 @@ grep -q '^OG_NEXT_SEASON_QUALIFICATION=FAIL_REAL_HANDOFF rollovers=2 checked=2 p
 grep -q '^OG_FIRST_EDITION_CUP_SEED=PARTIAL_OG_ONLY exact=1 wrong=0 unsupported=0 ' "$work/positive.out"
 grep -q '^OG_NEXT_EDITION_DOMESTIC_CUP_IDS=FAIL exact=0 wrong=1 no-access-rule=0 ' "$work/positive.out"
 grep -q '^OG_MANUAL_SEASON_SYNC=OBSERVED synced=1 blocked=0 ' "$work/positive.out"
+grep -q '^OG_UNEMPLOYED_QUALIFICATION=BOTH_WORLDS_CAPTURED world9697-fields=1 world2627-fields=1 incomplete=0 ' "$work/positive.out"
+grep -q '^OG_UNEMPLOYED_QUALIFICATION_CAR=SAVED_AND_RESTORED_CHECKSUM_VERIFIED checksummed-saves=1 checksum-verified-restores=1 legacy-no-source=0 ' "$work/positive.out"
 grep -q '^OG_FORWARD_PERFORMANCE=MEASURED_NATIVE_COMPONENTS samples=2 modern-samples=1 modern-total-ms=30.000 ' "$work/positive.out"
 grep -q '^OG_CUP_NATIVE_BYE_EVENTS=OBSERVED verified=1 rejected=0' "$work/positive.out"
 ! grep -q '^FIRST_RUNTIME_FAILURE:' "$work/positive.out"
@@ -90,6 +99,7 @@ grep -q '^OG_CUP_NATIVE_BYE_EVENTS=OBSERVED verified=1 rejected=0' "$work/positi
 sed '/^\[og-stress\] FINISHED years=70/d' "$work/positive.log" > "$work/negative.log"
 echo "[og-world-step] BEGIN year=2096 phase=48 country=28 division=0" >> "$work/negative.log"
 echo "[og-manual-season] world=2627 year=2028 native=0 clock=0 bound=0 status=BLOCKED save=PREVIOUS_CAR_PRESERVED" >> "$work/negative.log"
+echo "[og-unemployed-qualification] world=2627 closed=2027 opened=2028 status=FIELD_INCOMPLETE no-replay=1" >> "$work/negative.log"
 set +e
 "$work/audit" "$work/negative.log" "$version" > "$work/negative.out"
 rc=$?
@@ -97,6 +107,7 @@ set -e
 [[ "$rc" -eq 1 ]] || { cat "$work/negative.out"; echo "Expected interrupted stress FAIL (1), got $rc"; exit 1; }
 grep -q '^OG_70_NATIVE_SEASONS=FAIL ' "$work/negative.out"
 grep -q '^OG_MANUAL_SEASON_SYNC=FAIL synced=1 blocked=1 ' "$work/negative.out"
+grep -q '^OG_UNEMPLOYED_QUALIFICATION=INCOMPLETE world9697-fields=1 world2627-fields=1 incomplete=1 ' "$work/negative.out"
 grep -q '^OG_LAST_WORLD_STEP=NO_END_RECORDED year=2096 phase=48 country=28 division=0' "$work/negative.out"
 echo "OG_RUNTIME_PARSER_STATIC_FIXTURES=PASS"
 echo "OG_REAL_WINDOWS_GAMEPLAY=NOT_TESTED_BY_THESE_FIXTURES"

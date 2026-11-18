@@ -154,6 +154,16 @@ static void appendTeamToCopaList(uint8_t *teamGrid)
 {
     if (!s_copaTeamListWritePtr)
         return;
+#ifdef SWOS_SDL_BUILD
+    extern int Expanded_OGWorld_UnemployedQualificationActive(void);
+    if(Expanded_OGWorld_UnemployedQualificationActive() &&
+       s_copaQualifiedTeamCount>=20u) {
+        extern void Expanded_OGWorld_UnemployedQualificationError(const char *);
+        Expanded_OGWorld_UnemployedQualificationError(
+            "CLASSIC_LIBERTADORES_FIELD_CAPACITY");
+        return;
+    }
+#endif
     s_copaTeamListWritePtr[0] = teamGrid[0];
     s_copaTeamListWritePtr[1] = teamGrid[1];
     s_copaTeamListWritePtr += 2;
@@ -166,6 +176,10 @@ static void appendTeamToCopaList(uint8_t *teamGrid)
      * _careerFileBuffer == 0x50 (80-append) season-transition gate was
      * generalised to 0x50 + the Copa count (career_season.c) so the season still
      * completes. */
+#ifdef SWOS_SDL_BUILD
+    extern int Expanded_OGWorld_UnemployedQualificationActive(void);
+    if(Expanded_OGWorld_UnemployedQualificationActive())return;
+#endif
     Career_AppendTeamToTmdTeamPool((TeamFileEx *)teamGrid);
 }
 

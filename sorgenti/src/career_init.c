@@ -1689,6 +1689,21 @@ int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
             Expanded_OGWorld_FixtureTickEnd();
             return 0;
         }
+        /* Read actual OG resident finals BEFORE resetting the outgoing
+         * league/cup contexts. This runs the ORIGINAL qualification
+         * selectors, not Career_AdvanceToNextSeason_UpdateCompetitions
+         * (which would simulate 88/134 resident leagues again). */
+        if(_selTeamNumber==0xffffu || _youreSacked) {
+            extern int Expanded_OGWorld_QualifyUnemployed(uint16_t,uint16_t);
+            const int ready=Expanded_OGWorld_QualifyUnemployed(
+                closedYear,(uint16_t)(closedYear+1u));
+            fprintf(stderr,"[og-unemployed-qualification] world=%s "
+                           "closed=%u opened=%u status=%s "
+                           "no-replay=1\n",
+                    World_Tag(),(unsigned)closedYear,
+                    (unsigned)(closedYear+1u),
+                    ready?"OG_FIELD_CAPTURED":"FIELD_INCOMPLETE");
+        }
         ++s_expOGWorldYear;
         /* In unemployment the OG career's season-end callback is NOT
          * invoked. Its national-cup season counter must nevertheless

@@ -1,3 +1,8 @@
+## 18/11/2026 — 0.13.98: fase 3 (nucleo scheduler isolato), controllo coppe
+- Scheduler a eventi civili ordinati, jump al prossimo evento, blocco dipendenze, ID univoci e validazione stato; nessuna chiamata OG, nuovo writer o serializzazione CAR. [Dettagli e gate](COMPETITION_ENGINE_PHASE3_FOUNDATION_20261118.md).
+- Incluso il fix gia' preparato del verificatore OG_CUP_START_COVERAGE: campi scoped da og-cup-start, evitando confronto 51 domestiche con 53 contesti anche storici.
+- Test isolato C su Linux con GCC -Wall -Wextra -Werror -pedantic: PASS_ISOLATED_ONLY con piccolo date stub. Script con libreria Gregorian reale, build Windows e gameplay NON ESEGUITI. CAR, fixture single-writer e coppe cross-year NON PROVATI; fase 3 NON completa.
+
 ## 18/11/2026 — 0.13.93: controller DB opzionale e tracciamento scarti marcatori
 - Windows 0.13.92: la sessione 1 carica il controller Switch Pro via hotplug; il messaggio `Invalid RWops` nasce dal tentativo incondizionato di leggere `gamecontrollerdb.txt` assente. `input_sdl.c` prova prima l'esistenza del file nella directory corrente e accanto all'EXE, salta silenziosamente il caricamento SDL se assente (messaggio informativo), e conserva i mapping built-in senza alterare i comandi.
 - `Expanded_OGWorld_ScorerAudit` somma `goalStats[0]` dei 16 calciatori residenti per squadra e confronta con il totale `leagueStandings[].goalsFor`. I numeri del log 0.13.92 divergono gia' al checkpoint START (2026: 12291 vs 10547; 1996: 6827 vs 7097), quindi NON sono introdotti dal restore. `match_sim.c` incrementa `goalStats[statCol]` soltanto per marcatori non-autogol; autogol su campo separato. Non e' dimostrata equivalenza contabile fra i due aggregati.

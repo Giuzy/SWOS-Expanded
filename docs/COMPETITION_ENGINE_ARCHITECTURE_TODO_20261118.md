@@ -1,4 +1,15 @@
 # SWOS Expanded — Competition Engine: architettura, TODO e gate
+
+## Aggiornamento AUDIT punto 1 — 18/11/2026 (base 0.13.87)
+**Audit statico eseguito, gate 1 ANCORA APERTO.** Matrice, scelta motivata e side effects: [COMPETITION_ENGINE_OG_AUDIT_20261118.md](COMPETITION_ENGINE_OG_AUDIT_20261118.md).
+- [x] **1a. Ricognizione statica** delle routine e del loro ownership/RNG per `CalculateViewResult`, `DIY_PlayCupMatchAndAdvance`, `DIY_PlayOrSimulateLeagueFixture`, `Career_AdvanceToNextSeason_UpdateCompetitions`, qualificazione storica, `world_cups`, `world_conti`, `world_cupd`, `uefa_access`, `uefa_coef`, `league_playoffs`, data civile e `og_resident` CAR.
+- [x] **1b. Scelta candidata del pilot:** Champions League OG 1996/97 (`_euroCup`, 16 squadre, 4 gironi + KO) in quanto meno intrecciata della UEFA moderna, ma adatta a testare davvero le QUALIFICAZIONI multiple.
+- [ ] **1c. Preflight ingressi/regole:** confermare i 16 seed e le classifiche OG residenti, detentore, date reali e formati delle annate successive; l'audit 0.13.69 dice corretti 4 TEAM storici, ma i controlli runtime restano. **Decisione utente aperta** su regole del mondo storico negli anni successivi.
+- [ ] **1d. Contratto API exhaustive side effect + golden test:** isolare RNG, `_selectedTeams`, `_careerFileBuffer`, memoria, `keycache`, mutazioni squadre/fixture; riprodurre OG su identici input senza nuovi risultati, verificare test e licenze/versioni.
+- [ ] **1e. Gate GO/NO-GO condiviso:** nulla di runtime e niente migrazione massiva finche' non sono dimostrate ownership unica, idempotenza, salvataggio senza perdita e nessuna regressione OG; documenti/analisi non equivalgono a PASS.
+**Nuova specifica chiarita:** i sottosistemi OG non usano tutti `CalculateViewResult()` ma vari simulatori/ruleset; il wrapper del nuovo engine seleziona quello originale pertinente, senza duplicare risultati. La transizione OG `Career_AdvanceToNextSeason_UpdateCompetitions()` NON e' una funzione pura di qualificazione.
+**Dati gia' salvati:** `Expanded_OGWorld_WriteSaveJson/ReadSaveJson` conserva snapshot OG e `SaveJson_WriteCareer` li valida prima di write atomic. Estendere questo meccanismo, non crearne un secondo.
+
 Data: 18 novembre 2026. Snapshot consultato: dev/0.10, HEAD f3ff905d9, build 0.13.87.
 **STATO: decisione architetturale APPROVATA; nuovo codice NON implementato; test della nuova architettura NON PROVATI.**
 
@@ -28,7 +39,7 @@ Le sette attivita' sotto NON significano sette build, commit o versioni. **Tre t
 8. **Data NEW CAREER**: proposta approvata come direzione, NON implementata: inizio scelto dal manager dopo l'origine attendibile del world-pack, pre-simulazione cronologica di TUTTI gli eventi dall'origine fino alla data scelta. L'origine 1 giugno 2026 e' solo un esempio da verificare; default 1 luglio invariato. Nessun mondo antecedente all'origine inventato.
 
 ## TODO CANONICA — sette ATTIVITA', tre TRAGUARDI
-Tutti gli item seguenti sono **[ ] DA FARE / NON PROVATO** per il nuovo engine, anche se esistono porzioni di codice OG.
+Gli item del nuovo engine restano **[ ] DA FARE / NON PROVATO**, eccetto il sotto-audit statico 1a–1b marcato [x] sopra. Il gate 1 rimane APERTO: esiste una mappa statica, non la prova di equivalenza; le attività 2–7 non sono implementate.
 
 ### TRAGUARDO A — fondamenta/sicurezza (1–3)
 - [ ] **1. Audit OG e matrice REUSE/ADAPTER/NEW.** Mappare chiamate/side effect di `CalculateViewResult`, `DIY_PlayOrSimulateLeagueFixture`, `DIY_PlayCupMatchAndAdvance`, `Career_AdvanceToNextSeason_UpdateCompetitions`, `world_cups.c`, `world_conti.c`, `league_playoffs.c`, `career_init.c` e libreria upstream OpenSWOS `src/rules/`; documentare RNG, ID, overlay, slot, dati e licenze. **GATE:** si sa precisamente chi scrive risultato, calendario, classifica, save.

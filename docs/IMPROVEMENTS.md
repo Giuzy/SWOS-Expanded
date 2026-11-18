@@ -1,5 +1,11 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 18/11/2026 — audit tecnico DOCUMENTALE nuova infrastruttura competizioni, 0.13.87 invariata
+- Audit statico e comparazione dei simulatori OG: [COMPETITION_ENGINE_OG_AUDIT_20261118.md](COMPETITION_ENGINE_OG_AUDIT_20261118.md). Pilot proposto Champions storica OG 96/97, 16 partecipanti/quattro gironi/KO, tre annate consecutive dopo verifiche di formati e qualificazioni.
+- I risultati di `CalculateViewResult`, `world_conti.c`, `uefa_access.c` e `world_cupd.c` non sono intercambiabili; la funzione integrale OG di season-end simula e muta competizioni. Salvare nuove fixture nel CAR og_resident esteso, non creare doppio ledger/simulatore.
+- TODO 7 attivita'/3 traguardi aggiornata; solo analisi statica del punto 1 fatta, prove side effect, goldens, build Windows e nuovo engine NON PROVATI. Nessuna modifica C/save/EXE/versione.
+
+
 ## 18/11/2026 — 0.13.86: correzione X A/B e deriva grafica del menu TRAINING (Windows DA PROVARE)
 - Segnalazione reale Windows 0.13.85: screenshot `image(20261117-234106).png`, diagnostica `DIAGNOSTICA_SESSIONE_1(20261117-234115).zip`, HEAD locale `c186623`. La compilazione Windows 0.13.85 e' riuscita (scritto `Compilazione completata: SWOS_Expanded.exe aggiornato`); in SWOS.log ci sono `[training-cross] SOURCE` e `SWAPPED` sia A->B che B->A (esempi 10/15, 1/20), ma il log 0.13.85 dichiarava OK senza confrontare le identita', l'utente vedeva i nomi invariati e componenti grafici spostati.
 - Radice grafica nel codice: `Expanded_TrainingCrossSwapX` della 0.13.84 chiamava `PlayMatchMenuReinit()` DOPO il secondo X, mentre il menu era gia' attivo; `PlayMatchMenuReinit` sottrae ripetutamente 9 px dalle Y delle entries 12/29/30 per panchine corte e non e' idempotente. Rimosso il richiamo nel percorso X: aggiornati soltanto i callback dati, focus e `DrawMenu` (come nello swap OG).

@@ -1,5 +1,11 @@
 # SWOS Expanded — Game Design Document
 
+## 18/11/2026 — precisazione progettuale emersa dall'audit OG
+- Non esiste un unico simulatore OG universale: diverse famiglie (partita normale, continentali moderne, playoff/Serie D, qualificazioni) usano algoritmi e RNG differenti. Il Competition Engine definisce un contratto UNICO DI EVENTO/RISULTATO e seleziona il rispettivo adapter OG con comportamento verificato, senza imporre la stessa funzione di score a tutte le competizioni.
+- Prima coppa pilota scelta come candidato tecnico: **Champions storica 1996/97, type-2 con 16 squadre/quattro gironi/KO**, tre edizioni consecutive con veri qualificati. Il formato negli anni successivi nel mondo storico NON si assume invariato o aggiornato senza decisione e dati; data civile, risultato unico e manager bind devono funzionare. Secondo formato proposto: Coppa delle Coppe 1996/97.
+- `CAR` OG esistente e' base da preservare, non da sostituire; processo intero di season-end OG NON puo' essere richiamato come sola qualificazione. Vedi [COMPETITION_ENGINE_OG_AUDIT_20261118.md](COMPETITION_ENGINE_OG_AUDIT_20261118.md). Nessuna modifica al gameplay/decoder/motore e nessun nuovo sistema in uso.
+
+
 ## APPROVATO 18/11/2026 — gestione Expanded delle competizioni, riuso OG
 - Superata SOLO la parte della regola 14–15/11 che attribuiva obbligatoriamente a OG anche la titolarita' esclusiva dei calendari e del ciclo completo dei tornei. Expanded diventera' **UNICO** gestore di data/fixture/edizioni/qualificazioni/storico/CAR, riutilizzando algoritmi OG (e preservando partita originale 50 Hz). Vietati due mondi, due simulatori concorrenti, doppi risultati, replay di gare precedenti e reset al cambio club. Resta invariato il mondo 96/97 vs 26/27 con regole specifiche; CLASSIC/DIY/SEASON intatti.
 - Obiettivo: definizioni di tornei tramite pack versionati validati (OG, altri SWOS, creazioni dell'utente), per aggiungere molte competizioni senza nuovo C per ogni torneo esprimibile con primitive comuni. Primo traguardo reale: una COPPA OG gia' esistente, preferibilmente continentale, con TRE edizioni consecutive, qualificazioni, fixture/ID, save e CONTINUE; poi formato differente e import batch. Sette attivita' in TRE traguardi NON sette versioni.

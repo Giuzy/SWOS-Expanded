@@ -1,5 +1,12 @@
 # SWOS Expanded — development procedures and rationale
 
+## 18/11/2026 — test/gate audit OG e pilota (non e' una nuova build)
+- Leggere [COMPETITION_ENGINE_OG_AUDIT_20261118.md](COMPETITION_ENGINE_OG_AUDIT_20261118.md): matrice RIUSA/ADATTA/NON CHIAMARE LIVE, simulatori OG con RNG differenti e specifica della Champions 96 pilota. Non chiamare il vecchio `Career_AdvanceToNextSeason_UpdateCompetitions` per ricostruire gli iscritti nel mondo live: simula e muta i tornei.
+- Prima di modificare codice: preflight sui 16 seed Champions e sulle classifiche nazionali, detentore, draw, date e regole degli anni successivi; per il 1996/97 le correzioni TEAM dei quattro paesi vanno verificate sui file disponibili nel build effettivo. Stabilire con utente il modello formati fra 1997 e anni futuri.
+- Test richiesti dopo futura implementazione: golden `qualificati+RNG+detentore` per OG vs adapter; reader VIEW non mutante, fixture ID idempotente AI/manager; CAR atomico cross-process; tre edizioni con club allenato/disoccupato e successivo CONTINUE; zero ricostruzioni retroattive. In caso di SKIP per fonti Mod mancanti segnare NON PROVATO, mai PASS. Distinguere test statici/isolati/Windows.
+- Questa e' SOLO DOCUMENTAZIONE sulla 0.13.87: nessun test nuovo affermato, nessuna toolchain imposta.
+
+
 ## 18/11/2026 — protocollo gated della futura architettura competizioni (solo doc)
 - Seguire [COMPETITION_ENGINE_ARCHITECTURE_TODO_20261118.md](COMPETITION_ENGINE_ARCHITECTURE_TODO_20261118.md): SETTE task in TRE traguardi, non sette versioni obbligatorie. Un'unica coppa SWOS esistente usata come pilot, non un torneo inventato.
 - **GATE fondamentale:** TRE edizioni CONSECUTIVE con qualificate vere da altre competizioni, fixture per ID e un risultato unico; data/fase/turni vincitore corretti, CAR atomico e CONTINUE dopo ogni anno, senza perdita o ripetizione; stessi dati con manager disoccupato, assunto, esonerato e riassunto; verifiche sul secondo formato e su entrambi i mondi prima di importazione massiva. Confronto algoritmi OG ove riutilizzati.

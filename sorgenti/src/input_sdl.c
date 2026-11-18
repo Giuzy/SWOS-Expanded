@@ -765,13 +765,38 @@ int InputSDL_Init(void)
      * SDL mappings cover popular pads (Xbox, PS4/5, Switch Pro, most
      * Logitechs); the file is for everything else. */
     {
-        int loaded = SDL_GameControllerAddMappingsFromFile("gamecontrollerdb.txt");
-        if (loaded > 0)
-            fprintf(stderr, "[input] loaded %d controller mappings from gamecontrollerdb.txt\n",
-                    loaded);
-        else if (loaded < 0)
-            /* missing file is fine; SDL only sets the error on parse failure */
-            fprintf(stderr, "[input] gamecontrollerdb.txt not loaded: %s\n", SDL_GetError());
+        /* The community DB is OPTIONAL. SDL's built-in Switch Pro mapping
+         * already handles the pad. Probe before AddMappings: SDL otherwise
+         * reports "Invalid RWops" for an entirely absent file. Support both
+         * a working-directory override and a DB alongside the executable. */
+        const char *mappingPath = "gamecontrollerdb.txt";
+        char *basePath = SDL_GetBasePath();
+        char *exeMappingPath = NULL;
+        FILE *probe = fopen(mappingPath, "rb");
+        if (!probe && basePath) {
+            const size_t len = strlen(basePath) + sizeof("gamecontrollerdb.txt");
+            exeMappingPath = (char *)SDL_malloc(len);
+            if (exeMappingPath) {
+                snprintf(exeMappingPath, len, "%sgamecontrollerdb.txt", basePath);
+                probe = fopen(exeMappingPath, "rb");
+                if (probe)
+                    mappingPath = exeMappingPath;
+            }
+        }
+        if (probe) {
+            fclose(probe);
+            const int loaded = SDL_GameControllerAddMappingsFromFile(mappingPath);
+            if (loaded >= 0)
+                fprintf(stderr, "[input] optional controller mappings loaded=%d path=%s\n",
+                        loaded, mappingPath);
+            else
+                fprintf(stderr, "[input] optional controller mappings unreadable path=%s: %s\n",
+                        mappingPath, SDL_GetError());
+        } else {
+            fprintf(stderr, "[input] optional gamecontrollerdb.txt absent; built-in mappings active\n");
+        }
+        SDL_free(exeMappingPath);
+        SDL_free(basePath);
     }
 
     virtual_pads_attach();

@@ -1172,6 +1172,14 @@ void Expanded_OGWorld_LogCheckpoint(const char *stage)
             (unsigned long)scorers.player_league_goals,
             (unsigned long)scorers.standings_goals,
             (unsigned long)scorers.leagues_with_goals);
+    fprintf(stderr,"[og-scorer-audit] stage=%s compared=%lu "
+                   "different=%lu players-more=%lu standings-more=%lu "
+                   "status=FIXTURE_ATTRIBUTION_NOT_VERIFIED\n",
+            stage?stage:"UNNAMED",
+            (unsigned long)scorers.resident_leagues,
+            (unsigned long)scorers.leagues_with_delta,
+            (unsigned long)scorers.player_goals_greater,
+            (unsigned long)scorers.standings_goals_greater);
     expanded_og_external_inventory(stage);
     /* Each actual definition is compared with its native resident state.
      * This reports unavailable future/extra cups without claiming a PASS. */

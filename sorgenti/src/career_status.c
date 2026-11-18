@@ -3942,6 +3942,7 @@ void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out)
 {
     if(!out)return;
     memset(out,0,sizeof(*out));
+    unsigned delta_examples=0u;
     for(uint32_t k=0;k<s_expOGCount;++k) {
         const ExpandedOGLeague *c=&s_expOG[k];
         if(!c->used || c->teamCount<2u ||
@@ -3968,14 +3969,23 @@ void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out)
         if(sum)++out->leagues_with_goals;
         out->standings_goals+=sum;
 #ifdef SWOS_SDL_BUILD
-        /* Country/division/year identify each OG league, not just its
-         * global totals. An own goal may explain a small difference. */
-        if(sum && !scorerGoals) {
-            fprintf(stderr,"[og-scorer-coverage] country=%u division=%u "
-                           "year=%u league-goals=%u player-goals=%lu "
-                           "status=NO_PLAYER_SCORERS\n",
-                    (unsigned)c->country,(unsigned)c->division,
-                    (unsigned)c->year,sum,(unsigned long)scorerGoals);
+        /* Compare like-for-like native contexts, never repair totals by
+         * arithmetic. Own goals, team/match attribution and stage resets
+         * require a separate fixture-level check before equality is assumed.
+         * Cap examples because save checkpoints are frequent. */
+        if(scorerGoals!=sum) {
+            ++out->leagues_with_delta;
+            if(scorerGoals>sum)++out->player_goals_greater;
+            else ++out->standings_goals_greater;
+            if(delta_examples++<6u)
+                fprintf(stderr,"[og-scorer-delta] country=%u division=%u "
+                               "year=%u played=%u player-goals=%lu "
+                               "standings-gf=%u delta=%ld "
+                               "status=ATTRIBUTION_NOT_VERIFIED\n",
+                        (unsigned)c->country,(unsigned)c->division,
+                        (unsigned)c->year,(unsigned)c->comp.matchesPlayedCount,
+                        (unsigned long)scorerGoals,sum,
+                        (long)((int32_t)scorerGoals-(int32_t)sum));
         }
 #endif
     }

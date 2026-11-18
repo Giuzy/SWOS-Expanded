@@ -1,3 +1,9 @@
+## 18/11/2026 — 0.13.93: controller DB opzionale e tracciamento scarti marcatori
+- Windows 0.13.92: la sessione 1 carica il controller Switch Pro via hotplug; il messaggio `Invalid RWops` nasce dal tentativo incondizionato di leggere `gamecontrollerdb.txt` assente. `input_sdl.c` prova prima l'esistenza del file nella directory corrente e accanto all'EXE, salta silenziosamente il caricamento SDL se assente (messaggio informativo), e conserva i mapping built-in senza alterare i comandi.
+- `Expanded_OGWorld_ScorerAudit` somma `goalStats[0]` dei 16 calciatori residenti per squadra e confronta con il totale `leagueStandings[].goalsFor`. I numeri del log 0.13.92 divergono gia' al checkpoint START (2026: 12291 vs 10547; 1996: 6827 vs 7097), quindi NON sono introdotti dal restore. `match_sim.c` incrementa `goalStats[statCol]` soltanto per marcatori non-autogol; autogol su campo separato. Non e' dimostrata equivalenza contabile fra i due aggregati.
+- Aggiunta diagnostica READ-ONLY `[og-scorer-delta]` per i primi sei contesti diversi, con country/division/year/played, e sintesi `[og-scorer-audit]` con il numero di leghe per verso della differenza. Nessun goal, fixture, CAR, classifiche, regolamenti, RNG o controller binding modificato. Scarto statistico NON CORRETTO: nuova diagnostica Windows necessaria per individuare il primo contesto e successivamente attribuire gli eventi delle singole partite.
+- Test Windows completi e gameplay 0.13.93: NON PROVATI. Versione aggiornata per il codice; un solo commit.
+
 # SWOS Expanded — development procedures and rationale
 
 ## REGOLA PERMANENTE DAL 18/11/2026 — ogni warning prima di proseguire

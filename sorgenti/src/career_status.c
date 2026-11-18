@@ -3631,6 +3631,170 @@ static ExpandedOGCup s_expOGCups[EXP_OG_MAX_CUPS];
 static uint32_t s_expOGCupCount,s_expOGCupUnsupported,s_expOGCupFaults;
 static ExpandedOGCup *s_expOGCupCurrent;
 static int s_expOGCupPhase=-1,s_expOGCupTickFault;
+/* Append-only EVIDENCE from OG, not a second result engine. This is
+ * deliberately separate from the ABI-sensitive resident OG context.
+ * Wire fields are endian-neutral: kind/country/slot/phase, edition year,
+ * native sequence, oriented home/away, scores, leg, source, civil as-of.
+ * The as-of day is a tick upper bound, NOT an invented fixture date. */
+#define EXP_OG_FIXTURE_SIZE 20u
+#define EXP_OG_FIXTURE_MAX 65536u
+static uint8_t *s_expOGFixtures;
+/* Open-addressed identity index: O(1) replay check even when 130+ native
+ * leagues have interleaved 20,000+ results in one world season. */
+#define EXP_OG_FIXTURE_BUCKETS 131072u
+static uint32_t s_expOGFixtureBuckets[EXP_OG_FIXTURE_BUCKETS];
+static size_t s_expOGFixtureCount,s_expOGFixtureCapacity;
+static uint32_t s_expOGFixtureIssues,s_expOGFixturePartial;
+static uint64_t s_expOGCapturedLeague,s_expOGCapturedCup,s_expOGCapturedUefa;
+static ExpandedWorldDate s_expOGFixtureAsOf;
+static uint32_t s_expOGTickNativeLeague,s_expOGTickNativeCup;
+static uint64_t s_expOGTickCapturedLeague,s_expOGTickCapturedCup;
+static uint16_t s_expOGTickYear;
+static int s_expOGTickActive;
+static void exp_fixture_put16(uint8_t *p,uint16_t value)
+{p[0]=(uint8_t)(value>>8);p[1]=(uint8_t)value;}
+static uint16_t exp_fixture_get16(const uint8_t *p)
+{return (uint16_t)(((uint16_t)p[0]<<8)|p[1]);}
+static void exp_fixture_put32(uint8_t *p,uint32_t value)
+{p[0]=(uint8_t)(value>>24);p[1]=(uint8_t)(value>>16);
+ p[2]=(uint8_t)(value>>8);p[3]=(uint8_t)value;}
+static uint32_t exp_fixture_get32(const uint8_t *p)
+{return ((uint32_t)p[0]<<24)|((uint32_t)p[1]<<16)|
+        ((uint32_t)p[2]<<8)|p[3];}
+static uint64_t exp_fixture_hash(const uint8_t *bytes,size_t len)
+{
+    uint64_t h=UINT64_C(14695981039346656037);
+    for(size_t i=0;i<len;i++){h^=bytes[i];h*=UINT64_C(1099511628211);}
+    return h;
+}
+void Expanded_OGWorld_FixtureReset(void)
+{
+    free(s_expOGFixtures);s_expOGFixtures=NULL;
+    memset(s_expOGFixtureBuckets,0,sizeof s_expOGFixtureBuckets);
+    s_expOGFixtureCount=s_expOGFixtureCapacity=0u;
+    s_expOGFixtureIssues=0u;s_expOGFixturePartial=0u;
+    s_expOGCapturedLeague=s_expOGCapturedCup=s_expOGCapturedUefa=0u;
+    memset(&s_expOGFixtureAsOf,0,sizeof s_expOGFixtureAsOf);
+    s_expOGTickActive=0;
+}
+void Expanded_OGWorld_FixtureSetAsOf(ExpandedWorldDate date)
+{s_expOGFixtureAsOf=date;}
+static uint32_t exp_fixture_key_hash(const uint8_t *r)
+{
+    uint32_t h=2166136261u;
+    for(unsigned i=0;i<12u;i++){h^=r[i];h*=16777619u;}
+    h^=r[14];h*=16777619u;
+    return h;
+}
+static int exp_fixture_key_same(const uint8_t *a,const uint8_t *b)
+{return memcmp(a,b,12u)==0 && a[14]==b[14];}
+/* Returns 1 if a duplicate stable witness key exists, 0 if a free bucket.
+ * The same function is used for scratch validation on CAR restore. */
+static int exp_fixture_locate(const uint8_t *wire,const uint32_t *buckets,
+                              const uint8_t *record,uint32_t *position)
+{
+    uint32_t pos=exp_fixture_key_hash(record)&(EXP_OG_FIXTURE_BUCKETS-1u);
+    for(uint32_t k=0;k<EXP_OG_FIXTURE_BUCKETS;k++) {
+        const uint32_t entry=buckets[pos];
+        if(!entry){*position=pos;return 0;}
+        if(exp_fixture_key_same(wire+
+               ((size_t)entry-1u)*EXP_OG_FIXTURE_SIZE,record)) {
+            *position=pos;return 1;
+        }
+        pos=(pos+1u)&(EXP_OG_FIXTURE_BUCKETS-1u);
+    }
+    return -1;
+}
+static int exp_fixture_build_index(const uint8_t *wire,size_t count,
+                                    uint32_t *buckets)
+{
+    memset(buckets,0,EXP_OG_FIXTURE_BUCKETS*sizeof(*buckets));
+    for(size_t i=0;i<count;i++) {
+        uint32_t pos=0u;
+        if(exp_fixture_locate(wire,buckets,
+            wire+i*EXP_OG_FIXTURE_SIZE,&pos)!=0)return 0;
+        buckets[pos]=(uint32_t)i+1u;
+    }
+    return 1;
+}
+static int exp_fixture_append(const uint8_t *rec)
+{
+    /* Any exact replay from the same source is an error, not a second
+     * score. The native progression counters provide the serial; other
+     * callbacks are deliberately never invoked by this observer. */
+    const size_t n=s_expOGFixtureCount;
+    uint32_t pos=0u;
+    const int match=exp_fixture_locate(s_expOGFixtures,
+                                       s_expOGFixtureBuckets,rec,&pos);
+    if(match<0){++s_expOGFixtureIssues;return 0;}
+    if(match) {
+        uint8_t *prior=s_expOGFixtures+
+            ((size_t)s_expOGFixtureBuckets[pos]-1u)*EXP_OG_FIXTURE_SIZE;
+        ++s_expOGFixtureIssues;
+        fprintf(stderr,"[og-fixture-journal] %s world=%s "
+                       "edition=%u country=%u slot=%u phase=%u "
+                       "serial=%u home=%04x away=%04x "
+                       "previous=%u-%u new=%u-%u source-old=%u new=%u "
+                       "status=BLOCK_NEW_CAR_NO_REPLAY\n",
+                prior[12]!=rec[12] || prior[13]!=rec[13]?
+                    "SCORE_CONFLICT":"TWO_WRITERS",
+                World_Tag(),(unsigned)exp_fixture_get16(rec+4),
+                rec[1],rec[2],rec[3],
+                (unsigned)exp_fixture_get16(rec+6),
+                (unsigned)exp_fixture_get16(rec+8),
+                (unsigned)exp_fixture_get16(rec+10),
+                prior[12],prior[13],rec[12],rec[13],
+                prior[15],rec[15]);
+        return 0;
+    }
+    if(n>=EXP_OG_FIXTURE_MAX) {
+        ++s_expOGFixtureIssues;
+        fprintf(stderr,"[og-fixture-journal] CAPACITY_EXHAUSTED old-CAR-protected=1\n");
+        return 0;
+    }
+    if(n==s_expOGFixtureCapacity) {
+        size_t cap=s_expOGFixtureCapacity?s_expOGFixtureCapacity*2u:1024u;
+        if(cap>EXP_OG_FIXTURE_MAX)cap=EXP_OG_FIXTURE_MAX;
+        uint8_t *larger=(uint8_t *)realloc(s_expOGFixtures,
+                                           cap*EXP_OG_FIXTURE_SIZE);
+        if(!larger) {
+            ++s_expOGFixtureIssues;
+            fprintf(stderr,"[og-fixture-journal] ALLOCATION_FAILED no-save=1\n");
+            return 0;
+        }
+        s_expOGFixtures=larger;s_expOGFixtureCapacity=cap;
+    }
+    memcpy(s_expOGFixtures+n*EXP_OG_FIXTURE_SIZE,rec,EXP_OG_FIXTURE_SIZE);
+    s_expOGFixtureBuckets[pos]=(uint32_t)n+1u;
+    ++s_expOGFixtureCount;
+    return 1;
+}
+/* Only the last two JULY-JUNE observation seasons remain detailed. Old
+ * edition conclusions/qualifiers continue to be held by native OG; this
+ * does not claim to be the final Competition Engine archive format. */
+void Expanded_OGWorld_FixturePrune(uint16_t openedYear)
+{
+    if(openedYear<=World_FirstYear()+1u)return;
+    ExpandedWorldDate start={(uint16_t)(openedYear-1u),7u,1u};
+    int32_t index=0;
+    if(!ExpandedWorld_DateToIndex(start,&index))return;
+    size_t kept=0u,discarded=0u;
+    for(size_t i=0;i<s_expOGFixtureCount;i++) {
+        uint8_t *row=s_expOGFixtures+i*EXP_OG_FIXTURE_SIZE;
+        const uint32_t day=exp_fixture_get32(row+16);
+        if(day<(uint32_t)index) {++discarded;continue;}
+        if(kept!=i)memmove(s_expOGFixtures+kept*EXP_OG_FIXTURE_SIZE,
+                           row,EXP_OG_FIXTURE_SIZE);
+        ++kept;
+    }
+    s_expOGFixtureCount=kept;
+    if(!exp_fixture_build_index(s_expOGFixtures,kept,
+                                 s_expOGFixtureBuckets))
+        ++s_expOGFixtureIssues;
+    if(discarded)fprintf(stderr,"[og-fixture-journal] PRUNE opened=%u "
+        "discarded=%lu retained=%lu cross-year=BY_OBSERVATION_DAY\n",
+        (unsigned)openedYear,(unsigned long)discarded,(unsigned long)kept);
+}
 /* Diagnostic snapshots live only in RAM, never in portable career saves. */
 static ExpandedF12Snapshot s_f12BeforeHire,s_f12AfterHire;
 static ExpandedOGDashboard s_f12BeforePanel,s_f12AfterPanel;
@@ -3793,6 +3957,9 @@ extern void RestoreSelectedTeams(void);
  * still-active original continental edition. Full reset remains obligatory
  * for a new career or switching world. No games are simulated here. */
 static void expanded_og_world_reset_internal(int season_transition) {
+    /* The witness journal belongs to ONE career, not to the global
+     * process. Season rollover retains only its last two seasons. */
+    if(!season_transition)Expanded_OGWorld_FixtureReset();
 #if SWOS_WORLDS
     const int keep_continental =
         season_transition && World_Current()==WORLD_2627 &&
@@ -3937,6 +4104,66 @@ void Expanded_OGWorld_Audit(ExpandedOGWorldAudit *out)
         if(!out->min_year || c->year<out->min_year)out->min_year=c->year;
         if(c->year>out->max_year)out->max_year=c->year;
     }
+}
+/* World tick read-back: compares OG's actual resident match counters to
+ * the number of native match callbacks observed this tick. Works for
+ * employed and UNEMPLOYED. Never calls match simulation or RNG. */
+extern uint16_t Expanded_OGWorld_SaveYear(void);
+void Expanded_OGWorld_FixtureTickBegin(void)
+{
+    ExpandedOGWorldAudit a;
+    Expanded_OGWorld_Audit(&a);
+    s_expOGTickNativeLeague=a.native_matches;
+    s_expOGTickNativeCup=Expanded_OGWorld_CupMatches();
+    s_expOGTickCapturedLeague=s_expOGCapturedLeague;
+    s_expOGTickCapturedCup=s_expOGCapturedCup;
+    s_expOGTickYear=Expanded_OGWorld_SaveYear();
+    s_expOGTickActive=1;
+}
+void Expanded_OGWorld_FixtureTickAbort(const char *reason)
+{
+    ++s_expOGFixtureIssues;
+    fprintf(stderr,"[og-fixture-tick] ABORT reason=%s "
+                   "prior-CAR-preserved=1\n",
+                   reason?reason:"FAILED_NATIVE_TICK");
+}
+void Expanded_OGWorld_FixtureTickEnd(void)
+{
+    if(!s_expOGTickActive)return;
+    s_expOGTickActive=0;
+    ExpandedOGWorldAudit a;
+    Expanded_OGWorld_Audit(&a);
+    const uint32_t cups=Expanded_OGWorld_CupMatches();
+    const uint64_t observedLeague=s_expOGCapturedLeague-s_expOGTickCapturedLeague;
+    const uint64_t observedCup=s_expOGCapturedCup-s_expOGTickCapturedCup;
+    const int crossed=Expanded_OGWorld_SaveYear()!=s_expOGTickYear;
+    const int monotonic=!crossed &&
+        a.native_matches>=s_expOGTickNativeLeague &&
+        cups>=s_expOGTickNativeCup;
+    const uint64_t dl=monotonic?
+        (uint64_t)(a.native_matches-s_expOGTickNativeLeague):0u;
+    const uint64_t dc=monotonic?
+        (uint64_t)(cups-s_expOGTickNativeCup):0u;
+    const int identical=monotonic && dl==observedLeague && dc==observedCup;
+    if(!crossed && !identical) {
+        ++s_expOGFixtureIssues;
+        fprintf(stderr,"[og-fixture-tick] WRITE_BLOCKED "
+                       "cause=CALLBACK_COUNTER_MISMATCH prior-CAR-preserved=1\n");
+    }
+    fprintf(stderr,"[og-fixture-tick] world=%s year=%u manager=%s "
+                   "native-league-delta=%llu captured-league=%llu "
+                   "native-cup-delta=%llu captured-cup=%llu "
+                   "journal-count=%lu journal-issues=%u legacy-partial=%u "
+                   "status=%s comparison=%s\n",
+        World_Tag(),(unsigned)Expanded_OGWorld_SaveYear(),
+        _selTeamNumber==0xffffu?"UNEMPLOYED":"EMPLOYED",
+        (unsigned long long)dl,(unsigned long long)observedLeague,
+        (unsigned long long)dc,(unsigned long long)observedCup,
+        (unsigned long)s_expOGFixtureCount,(unsigned)s_expOGFixtureIssues,
+        (unsigned)s_expOGFixturePartial,
+        crossed?"CROSS_SEASON_SNAPSHOT":
+        identical?"MATCH_COUNTERS_AND_CALLBACKS_EQUAL":"NOT_RECONCILED",
+        "CPU_WORLD_ONLY_NO_MANAGER_MERGE");
 }
 /* An OG split can clear the league's GF table at the beginning of a new
  * stage without clearing season-to-date goals stored in TeamFileEx. Inspect
@@ -5040,6 +5267,10 @@ static int og_saved_emit_context(OGEmit emit,void *ud,const void *ptr,
 }
 extern uint16_t Expanded_OGWorld_SaveYear(void);
 extern int Expanded_OGWorld_SaveStarted(void);
+static int exp_fixture_emit_json(OGEmit emit,void *ud);
+static int exp_fixture_read_json(const char *root,int len,
+                                  uint8_t **data,size_t *count,
+                                  uint32_t *partial);
 int Expanded_OGWorld_WriteSaveJson(OGEmit emit,void *ud) {
     if(!emit || !Expanded_OGWorld_SaveStarted() || !s_expOGCount ||
        s_expOGCount>EXP_OG_MAX_LEAGUES || s_expOGCupCount>EXP_OG_MAX_CUPS)return 0;
@@ -5071,7 +5302,9 @@ int Expanded_OGWorld_WriteSaveJson(OGEmit emit,void *ud) {
         if(i)mjson_printf(emit,ud,",");
         if(!og_saved_emit_context(emit,ud,&s_expOGCups[i],1,i))return 0;
     }
-    mjson_printf(emit,ud,"]}");
+    mjson_printf(emit,ud,"]");
+    if(!exp_fixture_emit_json(emit,ud))return 0;
+    mjson_printf(emit,ud,"}");
     return 1;
 }
 static int og_saved_next(const char *p,int n,int *pos,const char **out,int *len) {
@@ -5109,6 +5342,105 @@ static int og_saved_read_hex(const char *s,int len,const char *key,uint8_t *dst,
         dst[i]=(uint8_t)((hi<<4)|lo);
     }
     *hash=og_saved_hash(*hash,dst,bytes);
+    return 1;
+}
+/* A separate, checksummed fixture witness inside the same atomic CAR.
+ * Byte wire is portable across endian/ABI, unlike packed native pointers.
+ * This is NOT permission to replay or synthesize any result on CONTINUE. */
+static int exp_fixture_emit_json(OGEmit emit,void *ud)
+{
+    if(s_expOGFixtureIssues || s_expOGFixtureCount>EXP_OG_FIXTURE_MAX)
+        return 0; /* bad tick must preserve the prior CAR */
+    const size_t n=s_expOGFixtureCount*EXP_OG_FIXTURE_SIZE;
+    if(n>(size_t)EXP_OG_FIXTURE_MAX*EXP_OG_FIXTURE_SIZE)return 0;
+    char *hex=(char *)malloc(n*2u+1u);
+    if(!hex)return 0;
+    static const char digits[]="0123456789abcdef";
+    for(size_t i=0;i<n;i++) {
+        const uint8_t b=s_expOGFixtures[i];
+        hex[2u*i]=digits[b>>4];hex[2u*i+1u]=digits[b&15u];
+    }
+    hex[n*2u]=0;
+    const uint64_t hash=exp_fixture_hash(s_expOGFixtures,n);
+    char checksum[17];
+    uint64_t value=hash;
+    for(int i=15;i>=0;i--){checksum[i]=digits[value&15u];value>>=4;}
+    checksum[16]=0;
+    mjson_printf(emit,ud,",%Q:{%Q:%u,%Q:%u,%Q:%u,%Q:%u,%Q:%Q,%Q:%Q}",
+        "fixture_journal","format",1u,
+        "record_size",EXP_OG_FIXTURE_SIZE,
+        "count",(unsigned)s_expOGFixtureCount,
+        "partial",(unsigned)s_expOGFixturePartial,
+        "hash",checksum,"hex",hex);
+    free(hex);
+    fprintf(stderr,"[og-fixture-journal] SERIALIZED world=%s count=%lu "
+                   "hash=%016llx partial=%u status=CHECKSUMMED\n",
+        World_Tag(),(unsigned long)s_expOGFixtureCount,
+        (unsigned long long)hash,(unsigned)s_expOGFixturePartial);
+    return 1;
+}
+static int exp_fixture_read_json(const char *root,int len,
+                                  uint8_t **data,size_t *count,
+                                  uint32_t *partial)
+{
+    *data=NULL;*count=0u;*partial=1u;
+    const char *obj=NULL;int size=0;
+    const int type=mjson_find(root,len,"$.fixture_journal",&obj,&size);
+    if(type==MJSON_TOK_INVALID) {
+        /* An older .CAR still restores its actual native OG state. The
+         * missing per-fixture witnesses are explicitly UNKNOWN. */
+        return 1;
+    }
+    if(type!=MJSON_TOK_OBJECT)return 0;
+    long fmt=0,recordSize=0,entries=0,isPartial=0;
+    if(!og_saved_num(obj,size,"$.format",&fmt) || fmt!=1 ||
+       !og_saved_num(obj,size,"$.record_size",&recordSize) ||
+       recordSize!=EXP_OG_FIXTURE_SIZE ||
+       !og_saved_num(obj,size,"$.count",&entries) ||
+       entries<0 || entries>EXP_OG_FIXTURE_MAX ||
+       !og_saved_num(obj,size,"$.partial",&isPartial) ||
+       (isPartial!=0 && isPartial!=1))return 0;
+    const size_t n=(size_t)entries*EXP_OG_FIXTURE_SIZE;
+    uint8_t *wire=(uint8_t *)malloc(n?n:1u);
+    if(!wire)return 0;
+    uint64_t hash=UINT64_C(14695981039346656037);
+    int valid=og_saved_read_hex(obj,size,"$.hex",wire,n,&hash);
+    char checksum[32]={0};
+    if(valid)valid=mjson_get_string(obj,size,"$.hash",checksum,
+                                    sizeof checksum)==16;
+    if(valid) {
+        uint64_t claimed=0;
+        for(unsigned i=0;i<16u;i++){
+            int v=og_saved_nibble(checksum[i]);
+            if(v<0){valid=0;break;}
+            claimed=(claimed<<4)|(unsigned)v;
+        }
+        if(claimed!=hash)valid=0;
+    }
+    /* Validate all IDs/wire observations without using OG simulation.
+     * The observed civil date is an UPPER bound, not fixture kick-off. */
+    for(size_t i=0;valid && i<(size_t)entries;i++){
+        const uint8_t *p=wire+i*EXP_OG_FIXTURE_SIZE;
+        ExpandedWorldDate observed;
+        const uint32_t day=exp_fixture_get32(p+16);
+        if(p[0]>3u || !p[15] || (p[15]&~3u)!=0u ||
+           exp_fixture_get16(p+4)<World_FirstYear() ||
+           exp_fixture_get16(p+8)==exp_fixture_get16(p+10) ||
+           day>INT32_MAX ||
+           !ExpandedWorld_IndexToDate((int32_t)day,&observed))
+            valid=0;
+    }
+    if(valid) {
+        uint32_t *scratch=(uint32_t *)calloc(
+            EXP_OG_FIXTURE_BUCKETS,sizeof(uint32_t));
+        if(!scratch)valid=0;
+        else {
+            valid=exp_fixture_build_index(wire,(size_t)entries,scratch);
+            free(scratch);
+        }
+    }
+    if(!valid){free(wire);return 0;}
+    *data=wire;*count=(size_t)entries;*partial=(uint32_t)isPartial;
     return 1;
 }
 static int og_saved_read_context(const char *obj,int len,void *dest,int cup,unsigned idx) {
@@ -5221,6 +5553,12 @@ int Expanded_OGWorld_ReadSaveJson(const char *json,int len,int apply) {
         if(u[i].used && (u[i].division!=i || u[i].teamCount<2))
             valid=0;
     if(!live)valid=0;
+    uint8_t *fixtureData=NULL;
+    size_t fixtureCount=0u;
+    uint32_t fixturePartial=1u;
+    if(valid && !exp_fixture_read_json(root,nr,&fixtureData,
+                                        &fixtureCount,&fixturePartial))
+        valid=0;
     if(valid && apply){
         memset(s_expOG,0,sizeof s_expOG);
         memset(s_expOGUefa,0,sizeof s_expOGUefa);
@@ -5248,10 +5586,28 @@ int Expanded_OGWorld_ReadSaveJson(const char *json,int len,int apply) {
         s_expOGCupUnsupported=(uint32_t)unsupported;
         s_expOGCupFaults=(uint32_t)faults;
         Expanded_OGWorld_AdoptRestoredYear((uint16_t)year);
+        free(s_expOGFixtures);
+        s_expOGFixtures=fixtureData;
+        s_expOGFixtureCount=fixtureCount;
+        s_expOGFixtureCapacity=fixtureCount;
+        s_expOGFixturePartial=fixturePartial;
+        s_expOGFixtureIssues=0u;
+        if(!exp_fixture_build_index(s_expOGFixtures,s_expOGFixtureCount,
+                                    s_expOGFixtureBuckets))
+            ++s_expOGFixtureIssues;
+        s_expOGCapturedLeague=s_expOGCapturedCup=s_expOGCapturedUefa=0u;
+        fixtureData=NULL;
+        fprintf(stderr,"[og-fixture-journal] RESTORE world=%s year=%ld "
+            "count=%lu partial=%u hash=%016llx status=%s\n",
+            World_Tag(),year,(unsigned long)fixtureCount,
+            (unsigned)fixturePartial,
+            (unsigned long long)exp_fixture_hash(
+                s_expOGFixtures,s_expOGFixtureCount*EXP_OG_FIXTURE_SIZE),
+            fixturePartial?"LEGACY_INCOMPLETE":"CHECKSUM_VERIFIED");
         fprintf(stderr,"[og-world-save] RESTORED world=%s year=%ld leagues=%ld "
                        "uefa=3 cups=%ld checksum=VALID\n",World_Tag(),year,lc,cc);
     }
-    free(l);free(u);free(c);
+    free(l);free(u);free(c);free(fixtureData);
     return valid;
 }
 #endif /* SWOS_SDL_BUILD */
@@ -6124,7 +6480,7 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
         "home=%04x away=%04x score=%u-%u cache=%s "
         "cache-score=%s slot=%u phase=%u "
         "world-matches=%u local-matches=%u row-diff=%u unmapped=%u "
-        "cache-used=%lu match-end=%lu car-raw-limit=1870 "
+        "cache-used=%lu match-end=%lu car-raw-limit=8192 "
         "car-capacity-risk=%s status=%s no-world-mutation=1\n",
         World_Tag(),(unsigned)year,(unsigned)_currentDivisionIndex,
         (unsigned)home_id,(unsigned)away_id,
@@ -6133,8 +6489,97 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
         (unsigned)slot,(unsigned)phase,
         resident_matches,local_matches,table_differences,unmapped,
         (unsigned long)match.used_bytes,(unsigned long)match.record_end,
-        match.used_bytes>1870u || match.record_end>1870u?"YES":"NO",
+        match.used_bytes>EXP_OG_CACHE_CAPACITY ||
+        match.record_end>EXP_OG_CACHE_CAPACITY?"YES":"NO",
         result);
+}
+/* Called ONLY AFTER OG has calculated and applied the result. This
+ * records the canonical OG score as EVIDENCE, never rolls another score.
+ * The native serial disambiguates repeated oriented pairs in 3/4-cycle
+ * leagues; dates are upper bounds from the civil cursor, not fabricated. */
+void Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
+    const TeamFileEx *away,const DIYCompetitionEx *local,
+    uint16_t goalsHome,uint16_t goalsAway,uint16_t serial,
+    uint8_t phase,uint8_t leg)
+{
+    if(_gameType!=4 || !home || !away || !local ||
+       goalsHome>255u || goalsAway>255u)return;
+    const uint16_t h=PACK_BE_U16(home->team.countryNumber,
+                                 home->team.teamOrdinal);
+    const uint16_t a=PACK_BE_U16(away->team.countryNumber,
+                                 away->team.teamOrdinal);
+    if(h==a)return;
+    uint8_t kind=0u,country=0u,slot=0u,origin=0u;
+    uint16_t edition=0u;
+    ExpandedWorldDate stamp=s_expOGFixtureAsOf;
+    if(s_expOGCupCurrent) {
+        kind=1u;origin=1u;country=s_expOGCupCurrent->country;
+        slot=s_expOGCupCurrent->slot;edition=s_expOGCupCurrent->year;
+    } else if(s_expOGCurrent) {
+        kind=exp_og_is_uefa()?2u:0u;origin=1u;
+        country=s_expOGCurrent->country;
+        slot=s_expOGCurrent->division;
+        edition=s_expOGCurrent->year;
+    } else {
+        if(_selTeamNumber==0xffffu ||
+           (h!=_selTeamNumber && a!=_selTeamNumber))return;
+        origin=2u;
+        kind=cup?3u:0u;
+        country=World_FileCountry((uint8_t)(_selTeamNumber>>8));
+        slot=cup?(uint8_t)local->base.field_2E:
+                 (uint8_t)_currentDivisionIndex;
+        ExpandedLiveCalendarState cal;
+        if(!ExpandedWorldLive_CalendarState(&cal))return;
+        stamp=cal.today;
+        edition=(uint16_t)(stamp.year-(stamp.month<7u?1u:0u));
+    }
+    int32_t day=0;
+    if(!edition || !ExpandedWorld_DateToIndex(stamp,&day) || day<0)
+        return;
+    uint8_t record[EXP_OG_FIXTURE_SIZE]={0};
+    record[0]=kind;record[1]=country;record[2]=slot;
+    record[3]=phase;
+    exp_fixture_put16(record+4,edition);
+    exp_fixture_put16(record+6,serial);
+    exp_fixture_put16(record+8,h);
+    exp_fixture_put16(record+10,a);
+    record[12]=(uint8_t)goalsHome;record[13]=(uint8_t)goalsAway;
+    record[14]=leg;record[15]=origin;
+    exp_fixture_put32(record+16,(uint32_t)day);
+    if(!exp_fixture_append(record))return;
+    if(origin==1u) {
+        if(kind==0u)++s_expOGCapturedLeague;
+        else if(kind==1u)++s_expOGCapturedCup;
+        else ++s_expOGCapturedUefa;
+    } else if(!cup) {
+        /* A counterpart can exist in the resident world BEFORE the
+         * manager's local OG slot catches up. Match only exact IDs;
+         * no silent equivalence by team names/rank/club points. */
+        unsigned candidates=0u,scoreSame=0u,phaseSame=0u;
+        for(size_t i=0;i<s_expOGFixtureCount;i++) {
+            const uint8_t *p=s_expOGFixtures+i*EXP_OG_FIXTURE_SIZE;
+            if(p[0]!=0u || p[1]!=country || p[2]!=slot ||
+               exp_fixture_get16(p+4)!=edition ||
+               exp_fixture_get16(p+8)!=h ||
+               exp_fixture_get16(p+10)!=a || !(p[15]&1u))continue;
+            ++candidates;
+            if(p[12]==record[12] && p[13]==record[13])++scoreSame;
+            if(p[3]==record[3])++phaseSame;
+        }
+        fprintf(stderr,"[og-manager-world-fixture] world=%s "
+            "edition=%u country=%u div=%u home=%04x away=%04x "
+            "phase=%u score=%u-%u cpu-candidates=%u "
+            "score-equal=%u phase-equal=%u status=%s\n",
+            World_Tag(),(unsigned)edition,(unsigned)country,(unsigned)slot,
+            (unsigned)h,(unsigned)a,(unsigned)record[3],
+            (unsigned)record[12],(unsigned)record[13],
+            candidates,scoreSame,phaseSame,
+            candidates==0u?"CPU_FIXTURE_NOT_OBSERVED":
+            candidates==1u && scoreSame==1u && phaseSame==1u?
+                "SAME_SCORE_NEEDS_ID_RECONCILIATION":
+            candidates>1u?"AMBIGUOUS_MULTI_LEG_OR_CYCLE":
+                "SCORE_OR_PHASE_DIVERGENCE");
+    }
 }
 int Expanded_OGWorld_BindClub(uint16_t club,uint8_t division,uint16_t year) {
     DIYCompetitionEx image;

@@ -15,6 +15,18 @@
 void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
     const TeamFileEx *away,const DIYCompetitionEx *local,
     uint16_t goals_home,uint16_t goals_away);
+/* Original OG result witness: executes AFTER the score has been applied.
+ * It never invokes game simulation or changes native standings/RNG. */
+void Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
+    const TeamFileEx *away,const DIYCompetitionEx *local,
+    uint16_t goalsHome,uint16_t goalsAway,uint16_t serial,
+    uint8_t phase,uint8_t leg);
+void Expanded_OGWorld_FixtureTickBegin(void);
+void Expanded_OGWorld_FixtureTickEnd(void);
+void Expanded_OGWorld_FixtureTickAbort(const char *reason);
+void Expanded_OGWorld_FixtureSetAsOf(ExpandedWorldDate date);
+void Expanded_OGWorld_FixturePrune(uint16_t openedYear);
+void Expanded_OGWorld_FixtureReset(void);
 /* Non-mutating read of the OG league resident in the career world. */
 int Expanded_OGWorld_ReadLeagueStandings(uint8_t country,uint8_t division,
                                          uint16_t year,ExpandedLiveRow *rows,

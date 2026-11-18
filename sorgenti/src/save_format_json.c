@@ -25,10 +25,12 @@
 #include "career_contests_cap.h" /* shared capacity without OG typed extern conflicts */
 #include "endian_helpers.h"
 #include "world.h"             /* "world" in career and competition saves */
+#include "expanded_og_cache_match.h" /* portable keycache capacity + stream guard */
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_live.h" /* same .CAR, one ledger */
 #include "squad_extras.h" /* 2026/27 extra roster departure history, in the SAME .CAR */
 #include "expanded_world_time.h" /* civil index read-only check */
+
 #endif
 #include "team_pool.h"         /* "team_pool" in career saves */
 #include "world_playoff.h"     /* "world_playoff" in career saves */
@@ -1599,7 +1601,7 @@ static const FieldDesc s_career_scalars[] = {
      * fixture on the Amiga from a 64-bit cup save). The blob still carries
      * everything correctly; cache_strides (below) re-lays the strides
      * host-native on load. See fixup_cache_strides_on_load. */
-    FA("team_selection_key_cache",    _teamSelectionKeyCache,      1870, FLD_BYTES),
+    FA("team_selection_key_cache",    _teamSelectionKeyCache,      EXP_OG_CACHE_CAPACITY, FLD_BYTES),
 
     /* Six user-saved tactic slots (teamTacticsUSERA..F). Same 370-byte
      * TeamTactics shape as a .TAC file (see write_tactics_buf). Saved
@@ -4916,9 +4918,9 @@ static void load_comp_copy_region(const char *buf, int buflen)
  * cache_strides[] holds one stride per entry; cache_scores[] holds 3
  * decimals (packed,agg,pen) per game record, flattened in walk order.
  * Both walks use the LIVE/just-restored strides + numGames; bounds-guarded
- * (stride [10,256], stay within TSKC_SIZE) so corrupt data can't overrun. */
+ * (stride and game-count fit TSKC_SIZE) so corrupt data cannot overrun. */
 extern uint16_t _teamSelectionKeyCacheCount;
-#define TSKC_SIZE 1870u
+#define TSKC_SIZE EXP_OG_CACHE_CAPACITY
 #define TSKC_GAMEREC_OFF 0x0A      /* game records start here within an entry */
 
 static void emit_cache_strides(mjson_print_fn_t fn, void *fnd)
@@ -4934,7 +4936,8 @@ static void emit_cache_strides(mjson_print_fn_t fn, void *fnd)
         uint16_t stride = *(uint16_t *)(base + off + 2);
         if (i > 0) mjson_printf(fn, fnd, "%s", ",");
         mjson_printf(fn, fnd, "%u", (unsigned)stride);
-        if (stride < 10 || stride > 256) break;
+        if (stride < 10 || stride > TSKC_SIZE - off ||
+            (uint32_t)base[off + 5] > (uint32_t)(stride-10u)/12u) break;
         off += stride;
     }
     mjson_printf(fn, fnd, "%s", "]");
@@ -4946,7 +4949,8 @@ static void emit_cache_strides(mjson_print_fn_t fn, void *fnd)
     for (int i = 0; i < count; i++) {
         if (off + 6 > TSKC_SIZE) break;
         uint16_t stride = *(uint16_t *)(base + off + 2);
-        if (stride < 10 || stride > 256) break;
+        if (stride < 10 || stride > TSKC_SIZE - off ||
+            (uint32_t)base[off + 5] > (uint32_t)(stride-10u)/12u) break;
         int numGames = base[off + 5];
         for (int g = 0; g < numGames; g++) {
             uint32_t rec = off + TSKC_GAMEREC_OFF + (uint32_t)g * 12u;
@@ -4979,9 +4983,12 @@ static void fixup_cache_strides_on_load(const char *buf, int buflen)
         while ((pos = fast_array_next(arr, alen, pos, &voff, &vlen, &vt)) != 0) {
             if (vt != MJSON_TOK_NUMBER) break;
             if (off + 4 > TSKC_SIZE) break;
-            uint16_t stride = (uint16_t)parse_long_slice(arr + voff, vlen);
-            *(uint16_t *)(base + off + 2) = stride;
-            if (stride < 10 || stride > 256) break;
+            const long parsed = parse_long_slice(arr + voff, vlen);
+            if (parsed < 10 || parsed > UINT16_MAX ||
+                (uint32_t)parsed > TSKC_SIZE - off ||
+                (uint32_t)base[off + 5] > ((uint32_t)parsed - 10u)/12u) break;
+            const uint16_t stride = (uint16_t)parsed;
+            memcpy(base + off + 2, &stride, sizeof stride);
             off += stride;
         }
     }
@@ -4998,7 +5005,8 @@ static void fixup_cache_strides_on_load(const char *buf, int buflen)
         for (int i = 0; i < count; i++) {
             if (off + 6 > TSKC_SIZE) break;
             uint16_t stride = *(uint16_t *)(base + off + 2);
-            if (stride < 10 || stride > 256) break;
+            if (stride < 10 || stride > TSKC_SIZE - off ||
+                (uint32_t)base[off + 5] > (uint32_t)(stride-10u)/12u) break;
             int numGames = base[off + 5];
             for (int g = 0; g < numGames; g++) {
                 uint32_t rec = off + TSKC_GAMEREC_OFF + (uint32_t)g * 12u;
@@ -5019,6 +5027,88 @@ static void fixup_cache_strides_on_load(const char *buf, int buflen)
     done:;
     }
 }
+
+/* The expanded 8192-byte cache is a same-key, backward-readable CAR
+ * extension. Validate all ACTIVE entries before save, and validate an
+ * incoming legacy (1870) or expanded (8192) blob before restoring ANY
+ * career/world state. Never truncate a live entry silently. */
+#ifdef SWOS_SDL_BUILD
+static int savejson_preflight_career_keycache(const char *json,int size)
+{
+    const char *arr=NULL;int len=0;
+    const int found=mjson_find(json,size,
+        "$.career_scalars.team_selection_key_cache",&arr,&len);
+    if(found!=MJSON_TOK_ARRAY) {
+        /* A truly old CAR may predate the named scalar section. */
+        return found==MJSON_TOK_INVALID;
+    }
+    uint8_t raw[EXP_OG_CACHE_CAPACITY]={0};
+    int pos=0,off=0,vlen=0,type=0;
+    unsigned bytes=0u;
+    while((pos=fast_array_next(arr,len,pos,&off,&vlen,&type))!=0) {
+        if(type!=MJSON_TOK_NUMBER || bytes>=EXP_OG_CACHE_CAPACITY)
+            return 0;
+        const long value=parse_long_slice(arr+off,vlen);
+        if(value<0 || value>255)return 0;
+        raw[bytes++]=(uint8_t)value;
+    }
+    if(bytes!=EXP_OG_CACHE_LEGACY_SIZE &&
+       bytes!=EXP_OG_CACHE_CAPACITY) {
+        fprintf(stderr,"[og-cache-car] LOAD_REJECTED unexpected-bytes=%u\n",
+                bytes);
+        return 0;
+    }
+    long count=0;
+    if(mjson_get_long(json,size,
+        "$.career_scalars.team_selection_key_cache_count",
+        &count)<=0 || count<0 || count>UINT16_MAX)
+        return 0;
+    /* The old cross-endian cache writes +2 stride as a decimal override.
+     * Apply it only to scratch bytes before bounded stream validation. */
+    const char *strides=NULL;int strideLen=0;
+    if(mjson_find(json,size,"$.cache_strides",&strides,&strideLen)
+       ==MJSON_TOK_ARRAY) {
+        size_t cursor=0u;int sp=0,voff=0,vsize=0,kind=0;
+        for(long i=0;i<count;i++) {
+            if(!(sp=fast_array_next(strides,strideLen,sp,
+                                    &voff,&vsize,&kind)) ||
+               kind!=MJSON_TOK_NUMBER || cursor+4u>bytes)return 0;
+            const long d=parse_long_slice(strides+voff,vsize);
+            if(d<10 || d>256 || (size_t)d>bytes-cursor)return 0;
+            const uint16_t stride=(uint16_t)d;
+            memcpy(raw+cursor+2u,&stride,sizeof stride);
+            cursor+=(size_t)stride;
+        }
+    }
+    size_t used=0u;
+    if(!ExpandedOGCache_Measure(raw,bytes,(uint16_t)count,&used) ||
+       used>bytes) {
+        fprintf(stderr,"[og-cache-car] LOAD_REJECTED invalid-or-truncated "
+                       "entries=%ld bytes=%u\n",count,bytes);
+        return 0;
+    }
+    fprintf(stderr,"[og-cache-car] LOAD_CHECK bytes=%u used=%lu entries=%ld "
+                   "status=%s\n",bytes,(unsigned long)used,count,
+            bytes==EXP_OG_CACHE_CAPACITY?"EXPANDED":"LEGACY_1870");
+    return 1;
+}
+static int savejson_prewrite_career_keycache(void)
+{
+    size_t used=0u;
+    if(!ExpandedOGCache_Measure(_teamSelectionKeyCache,
+           EXP_OG_CACHE_CAPACITY,_teamSelectionKeyCacheCount,&used)) {
+        fprintf(stderr,"[og-cache-car] WRITE_BLOCKED invalid-cache "
+                       "entries=%u old-car-preserved=1\n",
+                (unsigned)_teamSelectionKeyCacheCount);
+        return 0;
+    }
+    fprintf(stderr,"[og-cache-car] WRITE_CHECK entries=%u used=%lu "
+                   "capacity=%u status=SAFE\n",
+            (unsigned)_teamSelectionKeyCacheCount,(unsigned long)used,
+            (unsigned)EXP_OG_CACHE_CAPACITY);
+    return 1;
+}
+#endif
 
 /* ---------- Cross-target competition-buffer override ----------
  *
@@ -6247,6 +6337,9 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
         }
     }
 #endif
+#ifdef SWOS_SDL_BUILD
+    if(!savejson_prewrite_career_keycache())return 1;
+#endif
     SAVE_CAREER_TRACE("BEGIN");
     JsonOutBuf out = { NULL, 0, 0, 0 };
 
@@ -7124,6 +7217,11 @@ static void apply_semantic_load(const char *src, int src_size)
     _expandedContractPremiumPct=0;
     _expandedSuccessfulRaises=0;
     _expandedSupporters = 0;
+    /* Pre-0.13.102 CAR files carry only 1870 cache bytes.
+     * Clear any stale tail before importing the old variable-length array. */
+#ifdef SWOS_SDL_BUILD
+    memset(_teamSelectionKeyCache,0,EXP_OG_CACHE_CAPACITY);
+#endif
     load_scalar_table(src, src_size, "career_scalars", s_career_scalars);
     if (_expandedStadiumLevel < 1 || _expandedStadiumLevel > 5) _expandedStadiumLevel = 1;
     for (int i=0;i<8;i++)
@@ -7889,7 +7987,8 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
 #ifdef SWOS_SDL_BUILD
     /* Side-effect-free checks must happen BEFORE any living-world state is
      * restored/ended, and BEFORE the career's legacy fields are cleared. */
-    if(!savejson_career_civil_clock_ok((const char *)src,(int)src_size,1)) {
+    if(!savejson_preflight_career_keycache((const char *)src,(int)src_size) ||
+       !savejson_career_civil_clock_ok((const char *)src,(int)src_size,1)) {
         swos_io_free(src);
         return 1;
     }

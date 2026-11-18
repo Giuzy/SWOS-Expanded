@@ -11735,6 +11735,20 @@ uint16_t DIY_PlayCupMatchAndAdvance(int16_t allowSquadChanges, int16_t mode) {
     }
 #endif
 
+#ifdef SWOS_SDL_BUILD
+    /* Record the final OG cup score before the bracket changes its
+     * round/match cursor. No second writer or simulated result. */
+    if(_gameType==4) {
+        const uint8_t leg=(uint8_t)(
+            (((unsigned)baseS->currentRoundIndex&31u)<<3) |
+             ((unsigned)a3Ex->matchData.cup.competitionFormat&7u));
+        Expanded_OGWorld_ObserveFixture(1,team1,team2,baseEx,
+            (uint16_t)(packedGoals>>8),(uint16_t)(packedGoals&255u),
+            (uint16_t)a3Ex->bracketScratch.matchCount,
+            baseS->viewRandomPhase,leg);
+    }
+#endif
+
     /* Increment match counter */
     a3Ex->bracketScratch.matchCount += 1;
 
@@ -12105,6 +12119,11 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
     /* Get match results */
     uint16_t goals1, goals2, flags;
     ProcessDIYLeagueMatchResultAndCareerUpdates(team1, team2, &goals1, &goals2, &flags);
+#ifdef SWOS_SDL_BUILD
+    /* The OG callback may advance viewRandomPhase at a round boundary:
+     * keep the phase of THIS match, not the next scheduled match. */
+    const uint8_t observedLeaguePhase=baseEx->base.viewRandomPhase;
+#endif
 
     /* Advance league progress using comp pointers */
     DIY_AdvanceLeagueProgressAfterMatch(compPtr1, compPtr2);
@@ -12267,6 +12286,12 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
     _diyLeftTeamResult = goals1;
     _diyRightTeamResult = goals2;
 #ifdef SWOS_SDL_BUILD
+    if(_gameType==4)
+        Expanded_OGWorld_ObserveFixture(0,team1,team2,baseEx,
+            goals1,goals2,
+            baseEx->matchesPlayedCount?
+               (uint16_t)(baseEx->matchesPlayedCount-1u):0u,
+            observedLeaguePhase,0u);
     if(_gameType==4 && !Expanded_OGWorld_IsSimulating() &&
        (team1==&_careerTeam || team2==&_careerTeam))
         Expanded_OGWorld_AuditManagerLeagueResult(team1,team2,baseEx,

@@ -1,3 +1,9 @@
+## 0.13.102 — estensione backward-readable della cache CAR e witness OG
+- Fixup stride: il limite fisso di 256 byte per entry è stato sostituito con un controllo sulla capacità residua di 8192 byte e sul numero effettivo di record da 12 byte. Test isolated: 370 byte/30 gare, caso corrotto da 31 gare rifiutato.
+- Cache team selection: versione salvata 1870 byte e nuova versione 8192 byte; lettura con preflight e fixup endian su tutta la regione. Tutti i byte attivi devono rientrare nel blob; preservare i vecchi CAR.
+- Aggiunta `og_resident.fixture_journal` opzionale, FNV64 su wire endian-neutral da 20 byte per fixture osservata. Il loader di CAR vecchi senza witness crea journal `partial=1` e NON genera risultati precedenti. Il writer preflight-a tutta la sezione prima del salvataggio atomico. Le modifiche valgono solo come evidenza, non completano single-writer OG manager/CPU. [Rapporto](../../docs/OG_RESULT_WITNESS_SAVE_013102_20261118.md).
+- Windows EXE/warning/CONTINUE NON PROVATI; testare su backup separati e riportare ogni errore.
+
 # SWOS Save Format — JSON Migration Roadmap
 
 ## 0.13.70_14 — compatibilità Title e primo nuovo autosave

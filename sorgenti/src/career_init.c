@@ -1471,6 +1471,11 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                 (unsigned)year,(unsigned)phase);
     return ok!=0 && failed==0 && cupsFailed==0;
 }
+extern void Expanded_OGWorld_FixtureTickBegin(void);
+extern void Expanded_OGWorld_FixtureTickAbort(const char *);
+extern void Expanded_OGWorld_FixtureTickEnd(void);
+extern void Expanded_OGWorld_FixtureSetAsOf(ExpandedWorldDate);
+extern void Expanded_OGWorld_FixturePrune(uint16_t);
 int Expanded_OGWorld_Start(void) {
     /* This explicit boundary prevents consecutive careers in one SWOS.log
      * from being misclassified as a native calendar rewind. */
@@ -1478,6 +1483,8 @@ int Expanded_OGWorld_Start(void) {
     Expanded_OGWorld_Reset();
     s_expOGWorldStarted=0;
     s_expOGWorldYear=World_FirstYear();
+    Expanded_OGWorld_FixtureSetAsOf((ExpandedWorldDate){
+        s_expOGWorldYear,7u,1u});
     DIY_OGStandings_SetSeason(s_expOGWorldYear);
     /* START establishes the resident OG world before the manager can be
      * employed or unemployed. Phase zero only initializes the native
@@ -1535,9 +1542,21 @@ int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
     }
     const uint16_t year=(uint16_t)(today.year-(today.month<7u?1u:0u));
     if(year<s_expOGWorldYear || year>2198u)return 0;
+    /* Every world forward, including unemployed, checks witnesses against
+     * ORIGINAL OG progression. No independent calendar or score engine. */
+    Expanded_OGWorld_FixtureTickBegin();
+    Expanded_OGWorld_FixtureSetAsOf(today);
     while(s_expOGWorldYear<year) {
         const uint16_t closedYear=s_expOGWorldYear;
-        if(!expanded_og_world_run_year(closedYear,56u))return 0;
+        /* Native phase 56 closes by 30 June, even on a multi-year jump.
+         * The as-of is an upper bound, not an invented match date. */
+        Expanded_OGWorld_FixtureSetAsOf((ExpandedWorldDate){
+            (uint16_t)(closedYear+1u),6u,30u});
+        if(!expanded_og_world_run_year(closedYear,56u)) {
+            Expanded_OGWorld_FixtureTickAbort("CLOSING_YEAR_FAILED");
+            Expanded_OGWorld_FixtureTickEnd();
+            return 0;
+        }
         ExpandedOGWorldAudit closing;
         Expanded_OGWorld_Audit(&closing);
         /* Audit the SAME original OG competition contexts before resetting.
@@ -1555,14 +1574,23 @@ int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
            !closing.native_matches || closing.invalid_contexts) {
             fprintf(stderr,"[og-season-transition] FAIL CLOSE year=%u "
                            "empty/invalid OG state\n",(unsigned)closedYear);
+            Expanded_OGWorld_FixtureTickAbort("CLOSING_YEAR_INVALID");
+            Expanded_OGWorld_FixtureTickEnd();
             return 0;
         }
         ++s_expOGWorldYear;
+        Expanded_OGWorld_FixturePrune(s_expOGWorldYear);
+        Expanded_OGWorld_FixtureSetAsOf((ExpandedWorldDate){
+            s_expOGWorldYear,7u,1u});
         /* Keep a prepared OG continental edition across July while the
          * domestic league states enter their new career season. */
         Expanded_OGWorld_ResetSeason();
         DIY_OGStandings_SetSeason(s_expOGWorldYear);
-        if(!expanded_og_world_run_year(s_expOGWorldYear,0))return 0;
+        if(!expanded_og_world_run_year(s_expOGWorldYear,0)) {
+            Expanded_OGWorld_FixtureTickAbort("OPENING_YEAR_FAILED");
+            Expanded_OGWorld_FixtureTickEnd();
+            return 0;
+        }
         ExpandedOGWorldAudit opening;
         Expanded_OGWorld_Audit(&opening);
         fprintf(stderr,"[og-season-transition] OPEN year=%u "
@@ -1575,13 +1603,22 @@ int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
             fprintf(stderr,"[og-season-transition] FAIL OPEN year=%u "
                            "missing/invalid OG league states\n",
                     (unsigned)s_expOGWorldYear);
+            Expanded_OGWorld_FixtureTickAbort("OPENING_YEAR_INVALID");
+            Expanded_OGWorld_FixtureTickEnd();
             return 0;
         }
     }
     uint8_t cutoff=0;
-    if(!ExpandedWorld_DateToNativePhaseNext(year,today,&cutoff))return 0;
+    if(!ExpandedWorld_DateToNativePhaseNext(year,today,&cutoff)) {
+        Expanded_OGWorld_FixtureTickAbort("PHASE_MAPPING_INVALID");
+        Expanded_OGWorld_FixtureTickEnd();
+        return 0;
+    }
+    Expanded_OGWorld_FixtureSetAsOf(today);
     const int ok=expanded_og_world_run_year(year,cutoff);
     if(ok)expanded_og_world_log_audit("TICK",year,cutoff);
+    else Expanded_OGWorld_FixtureTickAbort("FINAL_NATIVE_TICK_FAILED");
+    Expanded_OGWorld_FixtureTickEnd();
     return ok;
 }
 #endif

@@ -23,6 +23,29 @@ typedef struct {
     size_t record_end, used_bytes;
 } ExpandedOGCacheMatch;
 
+/* Validate the occupied OG stream before SERIALIZATION or after RESTORE.
+ * The historical 1870-byte CAR blob and the full 8192-byte buffer use
+ * identical entry layouts. The save writer must reject, not truncate, an
+ * invalid or overflowing stream. Compiles on host/Amiga without SDL. */
+#define EXP_OG_CACHE_CAPACITY 8192u
+#define EXP_OG_CACHE_LEGACY_SIZE 1870u
+static inline int ExpandedOGCache_Measure(const uint8_t *bytes,size_t capacity,
+                                           uint16_t count,size_t *used)
+{
+    size_t off=0u;
+    if(!bytes || !used || capacity<10u || count>capacity/10u)return 0;
+    for(uint16_t i=0;i<count;i++) {
+        uint16_t stride=0u;
+        if(off>capacity || capacity-off<10u)return 0;
+        memcpy(&stride,bytes+off+2u,sizeof stride);
+        if(stride<10u || (size_t)stride>capacity-off ||
+           bytes[off+5u]>(size_t)(stride-10u)/12u)return 0;
+        off+=stride;
+    }
+    *used=off;
+    return 1;
+}
+
 /* The caller supplies the actual occupied stream size (not an arbitrary
  * number of entries in untrusted memory). A duplicate key fails closed:
  * world+edition identity must be checked separately by the caller.

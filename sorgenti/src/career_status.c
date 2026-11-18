@@ -7331,6 +7331,22 @@ static void exp_bridge_fault(const char *reason,
             ctx?(unsigned)ctx->comp.matchesPlayedCount:0u);
     }
 }
+/* Count the REAL OG league fixtures, not a menu phase or cached date.
+ * A 24-team two-leg league finishes after exactly 552 games. Manager hire
+ * must never cause the previous season's exhausted native fixture iterator
+ * to be invoked for game 553. Fail closed if the resident is unavailable. */
+int Expanded_OGWorld_ManagerLeagueFinished(const DIYCompetitionEx *local)
+{
+    if(!s_expOGBound || !exp_bridge_local_active(local))return 0;
+    ExpandedOGLeague *ctx=exp_bridge_resident(local);
+    return ctx &&
+        local->base.playEachTeam==ctx->comp.base.playEachTeam &&
+        ExpandedOGLeagueBridge_SeasonComplete(
+            (unsigned)local->base.numTeams,
+            (unsigned)local->base.playEachTeam,
+            (unsigned)local->matchesPlayedCount,
+            (unsigned)ctx->comp.matchesPlayedCount);
+}
 int Expanded_OGWorld_PreflightLocalLeague(const DIYCompetitionEx *local)
 {
     if(!exp_bridge_local_active(local))return 1;
@@ -8365,6 +8381,17 @@ void Career_AutoAdvanceLeagueFixtures(void)
                 (unsigned)_diyCompetitionStart.matchesPlayedCount);
         return;
     }
+    /* The manager may accept a club after its OG resident league finished.
+     * On both worlds the 24-team 2-leg table has 552 results already.
+     * The native fixture iterator must not see match 553 or a self-pair. */
+    if(Expanded_OGWorld_ManagerLeagueFinished(&_diyCompetitionStart)) {
+        fprintf(stderr,"[og-manager-bridge] FINISHED_NO_EXTRA_FIXTURE "
+                       "world=%s club=%04x played=%u "
+                       "resident=COMPLETE no-replay=1\n",
+                World_Tag(),(unsigned)_selTeamNumber,
+                (unsigned)_diyCompetitionStart.matchesPlayedCount);
+        return;
+    }
     uint32_t ogWorldIterations=0;
 #endif
     /* Inline DIY_AdvanceLeagueFixtureIndex: advance fixture and set d6 */
@@ -8384,6 +8411,7 @@ main_loop:
     }
     if(s_expOGCurrent && _diyCompetitionStart.minSubstitutes==0 &&
        _diyCompetitionStart.matchesPlayedCount>0u)return;
+    if(Expanded_OGWorld_ManagerLeagueFinished(&_diyCompetitionStart))return;
 #endif
     if (currentPhase <= _diyCompetitionStart.base.viewRandomPhase)
         goto check_next_phase;
@@ -8469,6 +8497,8 @@ catch_up_phase:
         /* Catch-up loop: sim until leagueCurrentSlot != 0 */
         do {
 #ifdef SWOS_SDL_BUILD
+            if(Expanded_OGWorld_ManagerLeagueFinished(&_diyCompetitionStart))
+                return;
             if(s_expOGCurrent && ++ogWorldIterations>8192u) {
                 s_expOGFault=1;
                 fprintf(stderr,"[og-world-fixture] CATCHUP LOOP LIMIT phase=%u\n",
@@ -8478,6 +8508,13 @@ catch_up_phase:
 #endif
             if(DIY_PlayOrSimulateLeagueFixture(0, 0)!=0) {
 #ifdef SWOS_SDL_BUILD
+                if(s_expOGBridgeBlocked && !s_expOGCurrent && !s_expOGCupCurrent) {
+                    /* Fail closed also in catch-up; never retry a blocked
+                     * fixture forever on the unchanged leagueCurrentSlot. */
+                    fprintf(stderr,"[og-manager-bridge] ABORT_CATCHUP "
+                                   "reason=LOCAL_RESIDENT_DESYNC no-replay=1\n");
+                    return;
+                }
                 if(s_expOGCurrent){s_expOGFault=1;return;}
 #endif
             }

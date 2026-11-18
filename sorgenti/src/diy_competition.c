@@ -11939,7 +11939,17 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
     }
     DIYCompetitionEx *baseEx = &_diyCompetitionStart;
     uint8_t *base = (uint8_t *)baseEx;
-
+#ifdef SWOS_SDL_BUILD
+    /* Guard the direct fixture entry as well as auto-advance. A finished,
+     * reconciled resident season has no legal extra fixture to resolve,
+     * play, journal, or commit (including a same-team phantom fixture). */
+    if(_gameType==4 && Expanded_OGWorld_ManagerLeagueFinished(baseEx)) {
+        fprintf(stderr,"[og-manager-bridge] REJECT_EXTRA_FIXTURE "
+                       "played=%u no-replay=1\n",
+                (unsigned)baseEx->matchesPlayedCount);
+        return 1;
+    }
+#endif
 
     /* Set progressFieldA = 1 */
     baseEx->base.matchStarted = 1;  /* 0x44 */

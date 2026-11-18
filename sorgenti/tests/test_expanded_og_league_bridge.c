@@ -32,6 +32,18 @@ int main(void){
     local_rows[1]=-1;local_rows[3]=-1;
     assert(!ExpandedOGLeagueBridge_Map(resident,4u,resident_rows,
         selected,3u,0x101u,local_rows,4u,native,rows));
+    /* Windows 00.13.189 diagnostics: both worlds ended at 552/552,
+     * followed by a phantom 553rd local match. */
+    assert(ExpandedOGLeagueBridge_SeasonComplete(24u,2u,552u,552u));
+    assert(!ExpandedOGLeagueBridge_SeasonComplete(24u,2u,553u,552u));
+    assert(!ExpandedOGLeagueBridge_SeasonComplete(24u,2u,552u,551u));
+    assert(!ExpandedOGLeagueBridge_SeasonComplete(24u,2u,551u,552u));
+    assert(!ExpandedOGLeagueBridge_SeasonComplete(24u,2u,0u,0u));
+    assert(ExpandedOGLeagueBridge_SeasonComplete(24u,4u,1104u,1104u));
+    assert(ExpandedOGLeagueBridge_SeasonComplete(18u,2u,306u,306u));
+    assert(!ExpandedOGLeagueBridge_SeasonComplete(24u,1u,276u,276u));
+    assert(!ExpandedOGLeagueBridge_SeasonComplete(0u,2u,0u,0u));
+    puts("OG_MANAGER_COMPLETED_LEAGUE_NO_EXTRA_FIXTURE=PASS_ISOLATED");
     puts("OG_LEAGUE_BRIDGE_REMAP_AND_SCORE=PASS_ISOLATED");
     return 0;
 }

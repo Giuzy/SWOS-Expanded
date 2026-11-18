@@ -23,6 +23,8 @@ int Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
     uint8_t phase,uint8_t leg);
 /* Guard before actual OG match, then publish a verified native snapshot
  * after the result has been observed. No second score generator. */
+/* A fully completed and reconciled manager league cannot play fixture N+1. */
+int Expanded_OGWorld_ManagerLeagueFinished(const DIYCompetitionEx *local);
 int Expanded_OGWorld_PreflightLocalLeague(const DIYCompetitionEx *local);
 int Expanded_OGWorld_CommitLocalLeagueFixture(
     const TeamFileEx *home,const TeamFileEx *away,

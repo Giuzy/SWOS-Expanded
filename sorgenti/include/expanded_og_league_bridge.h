@@ -3,6 +3,18 @@
 #define EXPANDED_OG_LEAGUE_BRIDGE_H
 #include <stdint.h>
 #define EXP_OG_BRIDGE_MAX_ROWS 64u
+/* Guard for the complete ordinary native round-robin season. A count alone
+ * does not authorize a result: BOTH OG contexts must agree exactly. No
+ * fixture generation, replay or CAR state changes are performed here. */
+static inline int ExpandedOGLeagueBridge_SeasonComplete(
+    unsigned teams,unsigned cycles,unsigned local_matches,
+    unsigned resident_matches)
+{
+    if(teams<2u||teams>EXP_OG_BRIDGE_MAX_ROWS||
+       cycles<2u||cycles>4u)return 0;
+    const unsigned expected=(teams*(teams-1u)/2u)*cycles;
+    return local_matches==expected&&resident_matches==expected;
+}
 static inline int ExpandedOGLeagueBridge_Map(
     const uint16_t *native_ids,unsigned n,const int32_t *native_rows,
     const uint16_t *selected_ids,unsigned selected_count,uint16_t manager_id,

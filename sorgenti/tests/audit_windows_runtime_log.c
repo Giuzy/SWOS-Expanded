@@ -121,6 +121,11 @@ int main(int argc,char **argv)
     long resident_phase_collisions=0,local_og_committed=0;
     long local_og_write_blocked=0,calendar_pair_audits=0;
     long calendar_pair_mismatches=0;
+    /* Lifetime read-only rollover identity evidence across both worlds.
+     * Not reset by new career or SAVE/CONTINUE. */
+    long qual_years=0,qual_checked=0,qual_passed=0,qual_failed=0;
+    long qual_untested=0,qual_missing_editions=0,qual_wrong_clubs=0;
+    long qual_world_9697=0,qual_world_2627=0;
     char historical_first[500]="";
     long notice_optional_pad=0,notice_title_skipped=0;
     long notice_import_outside=0,notice_import_wrong=0;
@@ -169,6 +174,25 @@ int main(int argc,char **argv)
         if(strstr(line,"UNEXPLAINED_SAME_SCOPE"))++notice_same_scope;
         if(strstr(line,"NOT_VERIFIED") || strstr(line,"NOT_TESTED"))
             ++notice_not_verified;
+        if(tag(line,"[og-qual-next] SUMMARY ")) {
+            ++qual_years;
+            long checked=field(line,"checked",0);
+            long passed=field(line,"passed",0);
+            long failed=field(line,"failed",0);
+            long untested=field(line,"not-tested",0);
+            if(checked>0)qual_checked+=checked;
+            if(passed>0)qual_passed+=passed;
+            if(failed>0)qual_failed+=failed;
+            if(untested>0)qual_untested+=untested;
+            if(strstr(line,"world=9697"))++qual_world_9697;
+            if(strstr(line,"world=2627"))++qual_world_2627;
+        }
+        if(tag(line,"[og-qual-next] ROUTE ")) {
+            if(strstr(line,"status=FAIL_NEW_EDITION_MISSING"))
+                ++qual_missing_editions;
+            if(strstr(line,"status=FAIL_WRONG_QUALIFIERS"))
+                ++qual_wrong_clubs;
+        }
         if(tag(line,"[world-switch] LOADING STATIC_BANKS ")) {
             if(strstr(line,"prepared=9697:1"))++world_banks_9697;
             if(strstr(line,"2627:1"))++world_banks_2627;
@@ -652,6 +676,19 @@ int main(int argc,char **argv)
            scorer_resident_views?"RESIDENT_DATA_READ_OBSERVED":
            scorer_local_views?"LOCAL_SOURCE_UNVERIFIED":"NOT_TESTED",
            scorer_resident_views,scorer_local_views,scorer_resident_players);
+    printf("OG_NEXT_SEASON_QUALIFICATION=%s "
+           "rollovers=%ld checked=%ld passed=%ld failed=%ld "
+           "missing-editions=%ld wrong-clubs=%ld not-tested=%ld "
+           "world9697=%ld world2627=%ld "
+           "domestic-cups=NOT_VERIFIED other-confederations=NOT_VERIFIED "
+           "scope=ACTUAL_NATIVE_IDENTITY_NOT_FORMAT_COUNTS\n",
+           qual_failed?"FAIL_REAL_HANDOFF":
+           qual_checked && !qual_untested?
+             "PASS_CHECKED_ROUTES_ONLY":
+           qual_years?"INCOMPLETE_SOURCE_OR_EDITION":"NOT_TESTED",
+           qual_years,qual_checked,qual_passed,qual_failed,
+           qual_missing_editions,qual_wrong_clubs,qual_untested,
+           qual_world_9697,qual_world_2627);
     puts("OG_RETIREMENTS=NOT_TESTED (manager/player lifecycle separate)");
     printf("OG_RESIDENT_SAVE_CHECKPOINTS=OBSERVED_IN_RAM saved=%ld "
            "restored=%ld player-records-before=%ld player-records-after=%ld "

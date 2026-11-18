@@ -46,6 +46,10 @@ version="$(sed -n 's/^#define SWOS_EXPANDED_VERSION "\([^"]*\)".*/\1/p' sorgenti
 # RESIDENT, not as an invented extra team. Missing countries remain
 # INCOMPLETE because the official world definition count is 101/87.
 cat >> "$work/positive.log" <<'EOF'
+[og-qual-next] ROUTE world=2627 year=2027 competition=CHAMPIONS status=FAIL_NEW_EDITION_MISSING expected=36 actual=0 missing=36
+[og-qual-next] SUMMARY world=2627 year=2027 status=FAIL checked=1 passed=0 failed=1 not-tested=3
+[og-qual-next] ROUTE world=9697 year=1997 competition=CHAMPIONS status=PASS_EXACT_IDS expected=16 actual=16 matched=16 missing=0
+[og-qual-next] SUMMARY world=9697 year=1997 status=PARTIAL checked=1 passed=1 failed=0 not-tested=3
 [og-cup-bye] NATIVE DRAW VERIFIED country=0 compId=109 real=10 bracket=16 round1-ties=2 byes=6 (OG ONLY)
 [og-cup-coverage] country=0 slot=2 compId=109 year=2096 expected=16 selected=10 state=RESIDENT reason=NATIVE_BYES_VERIFIED
 [og-cup-rule] country=0 slot=2 compId=109 year=2096 bracket=16 selected=10 real-entrants=10 first-round-ties=2 byes=6 padded-slots=6 native-bracket=16 native-round1-ties=2 native-round1-pairs=8 classification=OG_BYE_FORMAT_CANDIDATE round-structure=OG_ROUND1_MATCHES_RULE native-validation=NATIVE_DRAW_IDENTITIES_VERIFIED fixtures=NOT_VERIFIED_BY_RULE
@@ -70,6 +74,7 @@ grep -q '^OG_CUP_COUNTRY year=2096 country=1 definitions=1 resident=0 native-bye
 grep -q '^OG_CUP_COUNTRIES=PARTIAL expected=87 audited=2 incomplete=1' "$work/positive.out"
 grep -q '^OG_MANAGER_LOCAL_OG_BRIDGE=SNAPSHOTS_COMMITTED witnesses=1 resident-commits=1 blocked=0 earlier-cycle-pairs=0 same-phase-collisions=0 ' "$work/positive.out"
 grep -q '^OG_MANAGER_CALENDAR_PAIR_IDENTITY=FAIL_REAL_PAIR_MISMATCH audits=1 native-calendar-mismatches=1 ' "$work/positive.out"
+grep -q '^OG_NEXT_SEASON_QUALIFICATION=FAIL_REAL_HANDOFF rollovers=2 checked=2 passed=1 failed=1 missing-editions=1 wrong-clubs=0 not-tested=6 world9697=1 world2627=1 ' "$work/positive.out"
 grep -q '^OG_CUP_NATIVE_BYE_EVENTS=OBSERVED verified=1 rejected=0' "$work/positive.out"
 ! grep -q '^FIRST_RUNTIME_FAILURE:' "$work/positive.out"
 # A complete 70-year log without a FINISHED marker must never pass.

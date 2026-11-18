@@ -32,6 +32,7 @@
 #include "squad_extras.h"
 #include "expanded_debug.h"
 #include "expanded_champions_view_route.h"
+#include "expanded_qualification_transition.h"
 #include <stdio.h>
 /* Keep the native return type visible before the historic Copa viewer call.
  * competition_data.h cannot be included here: legacy extern arrays differ. */
@@ -1437,6 +1438,8 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
         fprintf(stderr,"[og-international-resident] world=%u "
                        "year=%u phase=0 status=PENDING_ORIGINAL_QUALIFICATION_HANDOFF\n",
                 (unsigned)World_Current(),(unsigned)year);
+    if(phase==0u && year>World_FirstYear())
+        Expanded_OGWorld_QualAuditNextYear(year);
     if(phase==0u)
         fprintf(stderr,"[og-cup-start] year=%u definitions=%u "
                        "resident=%u unsupported=%u failed=%u "
@@ -2026,6 +2029,8 @@ void ContinueCareerNextSeason(void)
                                "window=%u\n",(unsigned long)year,
                         (unsigned)ExpandedWorldLive_WindowFirstYear());
         }
+        if(year<=2199u)
+            Expanded_OGWorld_QualAuditNextYear((uint16_t)year);
     }
 #endif
     SWOS_AUTOSKIP_LOG("[bug1] ContinueCareerNextSeason EXIT");

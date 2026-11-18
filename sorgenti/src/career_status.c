@@ -68,6 +68,7 @@ extern CompetitionCup _uefaCup;
 #include "expanded_og_cache_match.h"
 #include "expanded_og_fixture_history.h"
 #include "expanded_og_league_bridge.h"
+#include "expanded_qualification_transition.h"
 #include "expanded_debug.h"
 #include "expanded_world_time.h"
 #include "expanded_world_live.h"
@@ -3633,6 +3634,159 @@ static ExpandedOGCup s_expOGCups[EXP_OG_MAX_CUPS];
 static uint32_t s_expOGCupCount,s_expOGCupUnsupported,s_expOGCupFaults;
 static ExpandedOGCup *s_expOGCupCurrent;
 static int s_expOGCupPhase=-1,s_expOGCupTickFault;
+
+/* Read-only season-end qualification -> next-edition audit. This witness is
+ * never serialized and must not generate any fixture, score or draw. */
+static struct {
+    int valid; unsigned world,last_world; uint16_t year,last_year;
+    unsigned count[4],invalid[4];
+    uint16_t ids[4][EXP_QUAL_MAX_ENTRANTS];
+} s_expQual;
+static const char *exp_qual_name(unsigned c)
+{
+    if(c==0u)return "CHAMPIONS";
+    if(c==1u)return World_Current()==WORLD_9697?"CUP_WINNERS_CUP":"EUROPA";
+    if(c==2u)return World_Current()==WORLD_9697?"UEFA_CUP":"CONFERENCE";
+    return "LIBERTADORES";
+}
+void Expanded_OGWorld_QualCaptureNative(uint16_t year,
+    const uint8_t *a,unsigned na,const uint8_t *b,unsigned nb,
+    const uint8_t *c,unsigned nc,const uint8_t *d,unsigned nd)
+{
+    const uint8_t *const p[4]={a,b,c,d};
+    const unsigned n[4]={na,nb,nc,nd};
+    memset(&s_expQual,0,sizeof s_expQual);
+    s_expQual.valid=1;s_expQual.world=(unsigned)World_Current();
+    s_expQual.year=year;s_expQual.last_world=(unsigned)-1;
+    for(unsigned k=0;k<4u;++k) {
+        if(n[k]>EXP_QUAL_MAX_ENTRANTS || (n[k] && !p[k]))
+            s_expQual.invalid[k]=1u;
+        else {
+            s_expQual.count[k]=n[k];
+            for(unsigned j=0;j<n[k];++j)
+                s_expQual.ids[k][j]=(uint16_t)
+                    (((uint16_t)p[k][2u*j]<<8)|p[k][2u*j+1u]);
+        }
+        fprintf(stderr,"[og-qual-next] SOURCE world=%s year=%u "
+                       "competition=%s count=%u invalid=%u "
+                       "origin=OG_NATIVE_SEASON_END\n",
+                World_Tag(),(unsigned)year,exp_qual_name(k),
+                n[k],s_expQual.invalid[k]);
+        /* Keep real earned team IDs in the external SWOS.log, so a
+         * SAVE/CONTINUE across processes can be audited offline too. */
+        for(unsigned j=0;j<s_expQual.count[k];++j)
+            fprintf(stderr,"[og-qual-next-source] world=%s year=%u "
+                           "competition=%s club=%04x source=OG_NATIVE\n",
+                    World_Tag(),(unsigned)year,exp_qual_name(k),
+                    s_expQual.ids[k][j]);
+    }
+}
+static unsigned exp_qual_resident(unsigned cup,uint16_t year,
+    uint16_t *out,uint16_t *actualYear,int *available)
+{
+    *available=0;*actualYear=0u;
+    if(World_Current()==WORLD_9697 && (cup==1u || cup==2u)) {
+        for(uint32_t k=0;k<s_expOGCupCount;++k) {
+            const ExpandedOGCup *const x=&s_expOGCups[k];
+            if(!x->used || x->country!=254u || x->slot!=cup)continue;
+            *actualYear=x->year;
+            if(x->year!=year || x->managed_excluded ||
+               x->unsupported_setup || x->teamCount>EXP_QUAL_MAX_ENTRANTS)
+                return 0u;
+            *available=1;
+            for(unsigned j=0;j<x->teamCount;++j) {
+                const TeamFile *const t=&x->teams[j].team;
+                out[j]=PACK_BE_U16(t->countryNumber,t->teamOrdinal);
+            }
+            return x->teamCount;
+        }
+        return 0u;
+    }
+    if(cup==3u && World_Current()==WORLD_2627)
+        return 0u; /* modern CONMEBOL belongs to CT_ED, not historic type 2 */
+    const ExpandedOGLeague *const x=&s_expOGUefa[cup==3u?1u:cup];
+    if(!x->used)return 0u;
+    *actualYear=x->year;
+    if(x->year!=year || x->teamCount>EXP_QUAL_MAX_ENTRANTS)return 0u;
+    *available=1;
+    for(unsigned j=0;j<x->teamCount;++j) {
+        const TeamFile *const t=&x->teams[j].team;
+        out[j]=PACK_BE_U16(t->countryNumber,t->teamOrdinal);
+    }
+    return x->teamCount;
+}
+void Expanded_OGWorld_QualAuditNextYear(uint16_t year)
+{
+    const unsigned world=(unsigned)World_Current();
+    if(year<=World_FirstYear())return;
+    if(s_expQual.last_world==world && s_expQual.last_year==year)return;
+    s_expQual.last_world=world;s_expQual.last_year=year;
+    if(!s_expQual.valid ||
+       !ExpandedQual_SameEdition(s_expQual.world,s_expQual.year,world,year)){
+        fprintf(stderr,"[og-qual-next] SUMMARY world=%s year=%u "
+                       "status=NOT_TESTED_SOURCE_UNAVAILABLE "
+                       "checked=0 passed=0 failed=0 not-tested=4\n",
+                World_Tag(),(unsigned)year);
+        return;
+    }
+    unsigned checked=0u,pass=0u,fail=0u,untested=0u;
+    for(unsigned c=0;c<4u;++c) {
+        uint16_t actual[EXP_QUAL_MAX_ENTRANTS]={0};
+        uint16_t actualYear=0u;int available=0;
+        const unsigned n=exp_qual_resident(c,year,actual,
+                                          &actualYear,&available);
+        const unsigned ne=s_expQual.count[c];
+        if(!ne && !s_expQual.invalid[c]) {
+            ++untested;
+            fprintf(stderr,"[og-qual-next] ROUTE world=%s year=%u "
+                           "competition=%s status=NOT_TESTED_SOURCE_EMPTY "
+                           "expected=0 actual=%u\n",
+                    World_Tag(),(unsigned)year,exp_qual_name(c),n);
+            continue;
+        }
+        const ExpandedQualDiff diff=ExpandedQual_Compare(
+            s_expQual.ids[c],ne,actual,n);
+        const int ok=available && !s_expQual.invalid[c] &&
+                     ExpandedQual_IsExact(&diff);
+        const char *const verdict=s_expQual.invalid[c]?
+            "FAIL_INVALID_SOURCE":!available?"FAIL_NEW_EDITION_MISSING":
+            !ExpandedQual_IsExact(&diff)?"FAIL_WRONG_QUALIFIERS":
+            "PASS_EXACT_IDS";
+        ++checked;if(ok)++pass;else ++fail;
+        fprintf(stderr,"[og-qual-next] ROUTE world=%s year=%u "
+                       "competition=%s status=%s source-year=%u "
+                       "resident-year=%u expected=%u actual=%u "
+                       "matched=%u missing=%u extra=%u dup-source=%u "
+                       "dup-resident=%u invalid-source=%u invalid-resident=%u "
+                       "first-missing=%04x first-extra=%04x\n",
+                World_Tag(),(unsigned)year,exp_qual_name(c),verdict,
+                (unsigned)s_expQual.year,(unsigned)actualYear,ne,n,
+                diff.matched,diff.missing,diff.extra,diff.duplicate_source,
+                diff.duplicate_resident,diff.invalid_source+s_expQual.invalid[c],
+                diff.invalid_resident,diff.first_missing,diff.first_extra);
+        if(!ok)
+            for(unsigned j=0;j<ne;++j) {
+                const uint16_t club=s_expQual.ids[c][j];
+                unsigned present=0u;
+                for(unsigned z=0;z<n;++z)
+                    if(actual[z]==club){present=1u;break;}
+                if(!present)
+                    fprintf(stderr,"[og-qual-next-team] world=%s year=%u "
+                                   "competition=%s club=%04x "
+                                   "status=MISSING_FROM_NEXT_OG_EDITION\n",
+                            World_Tag(),(unsigned)year,
+                            exp_qual_name(c),club);
+            }
+    }
+    fprintf(stderr,"[og-qual-next] SUMMARY world=%s year=%u "
+                   "status=%s checked=%u passed=%u failed=%u not-tested=%u "
+                   "domestic-cups=NOT_TESTED_SOURCE_MAPPING "
+                   "other-confederations=NOT_TESTED_ACCESS_MAPPING\n",
+            World_Tag(),(unsigned)year,
+            fail?"FAIL":untested?"PARTIAL":"PASS_EXACT_IDS",
+            checked,pass,fail,untested);
+}
+
 /* Append-only EVIDENCE from OG, not a second result engine. This is
  * deliberately separate from the ABI-sensitive resident OG context.
  * Wire fields are endian-neutral: kind/country/slot/phase, edition year,
@@ -3961,7 +4115,10 @@ extern void RestoreSelectedTeams(void);
 static void expanded_og_world_reset_internal(int season_transition) {
     /* The witness journal belongs to ONE career, not to the global
      * process. Season rollover retains only its last two seasons. */
-    if(!season_transition)Expanded_OGWorld_FixtureReset();
+    if(!season_transition) {
+        Expanded_OGWorld_FixtureReset();
+        memset(&s_expQual,0,sizeof s_expQual);
+    }
 #if SWOS_WORLDS
     const int keep_continental =
         season_transition && World_Current()==WORLD_2627 &&

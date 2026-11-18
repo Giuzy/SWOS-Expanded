@@ -32,6 +32,11 @@
 #include "world_playoff.h"
 #include "world_winners.h"
 #include "world_cups.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_qualification_transition.h"
+extern uint16_t _currentSeasonShowing;
+extern Competition *Career_CopaWorkingCopy(void);
+#endif
 #include "states.h"
 
 extern uint8_t _diyLeagueSeasonStateTable[];
@@ -1779,6 +1784,21 @@ void Career_AdvanceToNextSeason_UpdateCompetitions(void)
             WorldCups_SeasonEnded();    /* (the next season plays its cups' own draw) */
             if (lp)
                 UefaQual_Post();        /* (the career club's qualifying opponents' records) */
+#ifdef SWOS_SDL_BUILD
+            /* Witness OG's own qualified ID lists, no second calculation. */
+            {
+                Competition *const copa=Career_CopaWorkingCopy();
+                const uint8_t *const list=copa?
+                    (const uint8_t *)comp_team_seed_list(copa):NULL;
+                const uint16_t next=(uint16_t)
+                    (World_FirstYear()+_currentSeasonShowing+1u);
+                Expanded_OGWorld_QualCaptureNative(next,
+                    _euroCupTeamListPtr,_euroCupQualifiedTeamCount,
+                    _cupWinnersCupTeamListPtr,_cupWinnersCupQualifiedTeamCount,
+                    _uefaCupTeamListPtr,_uefaCupQualifiedTeamCount,
+                    list,Career_CopaLibertadoresQualifiedTeamCount());
+            }
+#endif
             return;
         }
         _panicReasonCode = 0x8998;

@@ -5,6 +5,6 @@
 
 #define SWOS_BUILD_ID      "unknown"
 #define SWOS_BUILD_ID_UC   "UNKNOWN"
-#define SWOS_BUILD_DATE    "2026-11-17"
+#define SWOS_BUILD_DATE    "2026-11-18"
 
 #endif /* SWOS_BUILD_H */

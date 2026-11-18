@@ -1,0 +1,1060 @@
+adesso una cosa importante: allora parliamo un attimo dello stato del progetto. stiamo incontrando grosse difficolta a inserire competizioni e sono un po preoccupato, la mia idea è inserire tutte quelle disponibili sui vari SWOS piu aggiungerne di fatte da me quindi non posso pensare di metterci una settimana ognuna. Quindi ti volevo chiedere che strategia potremmo adottare per superare questo blocco e poter aggiungere facilmente e in modo reliable tutte le competizioni che vogliamo siano esse OG, di altri swos o aggiunte di sana pianta. cosa potremmo fare? qualche idea e pensiero:
+
+abbiamo il problema delle qualificazioni che probabilmente è relazionato al non salvataggio a fine stagione per le coppe. dobbiamo trovare un modo di poter usare le definizioni delle comp in modo semplice e inserirle nel calendario senza che crashi tutto, partendo dalle qualificazioni se no le coppe non funzionano. cosa ne pensi?
+abiamo bisogno uno storico completo, collegato per ID, dei punteggi delle singole gare simulate nel mondo? il motore OG simula un anno e poi avevamo stabilito la strategia su cosa archiviare (guarda guide) quindi non so. cosa ne pensi?
+potremmo tenere il motore OG solo per simulare la singola partita , noi gli passiamo le squadre e la loro forza (forma e morale eventualmente) e lui ci da il risultato poi noi lo inseriamo la posto giusto nella competizione giusta nella fase giusta. pensi sia fattibile e piu semplice?
+oppure rifacciamo tutto l'orologio eliminando le fasi da 3-4 giorni OG e basando tutto su un avanzamento giornaliero invece. sarebbe piu facile dA GESTIRE forse cosa ne pensi?
+potemmo creare un infrastruttura sopra OG  che gestisce le competizioni e i suoi dati e li passa a OG quando è necessario per calcolare i punteggi o uno a uno o per fase se simulazione veloce che ne pensi?
+spiegami bene tutti i nostri problemi di calendario. dovrebbe essere in tempo reale cosi se inizia il primo luglio si deve simluare tutto quello che viene dopo come data. stavo pensando di inserire anche la data d inizio nel menu career come possibile selezione quindi si dovrebbe simulare tutto quello che il giocatore imposterebbe oltre il 1 giugno 26. cosa possiamo fare per rendere la gestione del calendario e quindi degli eventi piu semplice?
+
+quale pensi sia meglio tra queste? e tu hai altre idee per un metodo facile e veloce di importare aggiungere competizioni?
+…
+SWOS Expanded — come superare il blocco delle competizioni
+Penso che la tua preoccupazione sia fondata. Ma vedo anche una possibilità importante: possiamo cambiare il modo in cui integriamo le competizioni, invece di continuare ad adattare singolarmente ogni torneo al funzionamento attuale di OG.
+
+Il risultato a cui punterei è questo:
+
+Definire una competizione attraverso i suoi dati e regolamenti, importarla nel mondo corretto, collegarla alle qualificazioni e lasciare che un'infrastruttura comune gestisca calendario, partite, classifiche, turni, storico e stagioni successive.
+
+Così aggiungere una coppa non dovrebbe più significare modificare cinque o sei parti del motore C, bensì compilare una definizione, validarla e verificare il torneo.
+
+1. Dove siamo realmente
+Ho controllato dev/0.10, HEAD f3ff905d (versione 0.13.87), le guide di progetto e le principali decisioni precedenti.
+
+Il nostro problema non è semplicemente la mancanza delle definizioni dei tornei.
+
+Abbiamo già una base considerevole:
+
+Mondo 2026/27: 91 paesi, 134 divisioni e un inventario di 264 voci tecniche fra competizioni nazionali, statali e internazionali.
+
+Mondo 1996/97: definizioni e routine storiche OG, comprese leghe e coppe continentali.
+
+Stati residenti OG già introdotti per molte competizioni della prima stagione.
+
+Un calendario civile e un sistema di avanzamento che coordinano gli eventi OG.
+
+Salvataggi che conservano parte degli stati residenti e delle informazioni mondiali.
+
+L'audit comparativo contiene 494 righe di confronto fra versioni SWOS, ma non sono 494 competizioni distinte.
+
+La vera difficoltà è il ciclo di vita completo di ogni competizione.
+
+Il ciclo che dobbiamo rendere automatico
+Definizione e regolamento
+
+Partecipanti e qualificazioni
+
+Calendario e singole fixture
+
+Partite, risultati e classifiche
+
+Vincitori, promozioni e retrocessioni
+
+Archiviazione e salvataggio
+
+Nuova edizione e nuovi qualificati
+
+Oggi alcuni passaggi sono implementati, altri funzionano solo per determinate competizioni o non sono ancora verificati. Una nuova definizione JSON non garantisce che l'intero ciclo funzioni.
+La migliore conferma è il lavoro sulle coppe continentali: siamo riusciti a farle avanzare nella prima stagione, ma generare correttamente le edizioni successive e farle sopravvivere al salvataggio rimane molto più complicato.
+
+Quindi non cercherei di inserire altre venti coppe prima di risolvere questo ciclo una volta per tutte.
+
+2. I problemi concreti del calendario attuale
+La lettura del codice chiarisce diversi problemi strutturali. Alcuni sono difetti documentati; altri sono limiti di integrazione ancora da verificare.
+
+Problema
+
+Che cosa succede e perché è importante
+
+Fasi OG e date
+
+OG usa chiavi temporali con otto segmenti per mese, non vere date per ogni incontro. La conversione esiste, ma non sempre rappresenta il giorno reale della gara.
+
+Stagioni diverse per paese
+
+Un campionato può disputarsi da gennaio a dicembre, un altro da agosto a maggio. Il cambio di stagione della carriera al 1° luglio non può azzerarli tutti.
+
+Coppe che attraversano l'anno
+
+La Libertadores moderna può continuare dopo il 1° luglio, mentre altri campionati sono già nella nuova stagione. Dobbiamo conservare più edizioni contemporaneamente.
+
+Qualificazioni
+
+I qualificati dell'anno successivo devono provenire da classifiche, vincitori e regolamenti corretti. Per diverse coppe internazionali questo collegamento mondiale non esiste ancora.
+
+Partite del manager
+
+Il mondo residente e il calendario del club non sono ancora completamente unificati per fixture. In alcune coppe il sistema evita di simulare per non rischiare di giocare due volte la stessa partita.
+
+Competizioni non residenti
+
+Avere una definizione nel database non basta. Stati brasiliani, Coppa Italia Serie D e varie competizioni continentali non hanno ancora una catena completa di eventi mondiali.
+
+Risultati per incontro
+
+Spesso conserviamo lo stato complessivo del torneo OG, ma non un registro universale che associ in modo affidabile una data e un risultato a ogni fixture.
+
+Fine stagione
+
+I risultati dell'annata precedente vengono conservati parzialmente; non tutte le informazioni necessarie a generare e consultare l'edizione successiva sono collegate.
+
+Save/CONTINUE
+
+Esiste una serializzazione degli stati residenti OG, ma deve essere completata e verificata con tutte le categorie di competizione, soprattutto durante i passaggi di stagione.
+
+ID e formati
+
+Squadre, competizioni e regole differiscono tra 1996/97 e 2026/27. Servono identità persistenti indipendenti dagli slot temporanei usati dal codice nativo.
+
+Una prova importante nel codice
+In career_status.c, Expanded_OGWorld_AdvanceUefa() contiene esplicitamente una protezione: dopo la prima annata, se mancano i qualificati della nuova edizione, non genera un nuovo torneo. Conserva quello precedente.
+
+In altre parole, un comportamento che vediamo come coppa che non riparte è attualmente una scelta difensiva per non inventare partecipanti né cancellare risultati.
+
+Analogamente, Expanded_OGWorld_ResetSeason() cerca di conservare gli stati continentali, ma il reset delle leghe nazionali è un passaggio separato.
+
+C'è anche un'altra osservazione rilevante: in world_conti.c, il percorso SDL che verifica la disponibilità del campo iniziale delle coppe extraeuropee contiene ancora un ct_world_first_ready() che restituisce zero. Questo dimostra che almeno quel percorso non è collegato completamente, anche quando altri viewer o percorsi della Mod mostrano le competizioni.
+
+La mia diagnosi è che ci manchi soprattutto un gestore generale del ciclo di vita delle competizioni, non semplicemente un calendario migliore o qualche correzione delle date.
+
+3. Quale delle tue soluzioni sceglierei?
+Soluzione
+
+Vantaggi
+
+Limiti
+
+Valutazione
+
+Continuare a collegare tutto dentro OG, come ora
+
+Minimo cambiamento concettuale
+
+Molto lavoro specifico per torneo; difficoltà a gestire tutte le estensioni
+
+Poco scalabile
+
+Usare OG soltanto per simulare una partita
+
+Massima libertà per creare competizioni
+
+Dobbiamo gestire noi quasi tutti i regolamenti, risultati e stati; serve isolare bene il simulatore OG
+
+Fattibile, ma impegnativo
+
+Rifare l'orologio su base giornaliera
+
+Date reali, eventi ordinati, più leggibilità
+
+Da solo non risolve qualificazioni, coppe e salvataggi
+
+Utile, ma non sufficiente
+
+Infrastruttura sopra OG, riutilizzando le sue routine
+
+Una sola gestione mondiale, competizioni definibili tramite dati, conservazione degli algoritmi SWOS
+
+Richiede un intervento iniziale importante sull'architettura
+
+La scelta che preferisco
+
+Non riscriverei il motore di gioco. E non butterei via gli algoritmi OG di coppe, pareggi, classifiche e sorteggi che già funzionano.
+
+Separerei piuttosto tre responsabilità che oggi sono troppo intrecciate:
+
+Definizione del torneo: chi partecipa, in quali fasi, con quali regolamenti e qualificazioni.
+
+Gestione della competizione: stato, eventi, calendario, transizioni, classifiche, storico e salvataggi.
+
+Risoluzione sportiva: simulare la gara con OG, oppure eseguire la partita giocabile originale.
+
+L'importante è che ci sia un solo responsabile del risultato e dell'avanzamento di ciascuna competizione, mai due sistemi che simulano contemporaneamente.
+
+Questa proposta cambierebbe in parte la decisione del 14 novembre che attribuiva a OG anche l'autorità esclusiva sui calendari e sulle competizioni. La considero quindi una nuova scelta progettuale da approvare, non qualcosa da introdurre automaticamente.
+
+4. Come funzionerebbe la nuova infrastruttura
+La chiamerei, provvisoriamente, Expanded Competition Engine. Non sarebbe un secondo mondo parallelo: sostituirebbe progressivamente i collegamenti più fragili con una gestione comune, riutilizzando dove possibile il codice originale.
+
+DATABASE DELLE COMPETIZIONI
+
+1996/97 · 2026/27 · nuovi tornei creati dall'utente
+
+COMPETITION ENGINE
+
+Qualificazioni · calendario · fasi · fixture · risultati · storico · salvataggi
+
+Partita giocata
+
+Motore OG 50 Hz intatto
+Partita simulata
+
+Routine OG di simulazione
+UNICO REGISTRO DEGLI EVENTI
+
+Risultati definitivi, progressione dei tornei, aggiornamenti del mondo e checkpoint CAR
+
+Come avanzerebbe il tempo
+Un calendario davvero giornaliero è utile, ma non farei elaborare inutilmente tutte le competizioni per ogni giorno.
+
+Realizzerei uno scheduler basato sul prossimo evento, usando comunque date esatte.
+
+Esempio ipotetico:
+
+Data
+
+Evento
+
+1 luglio
+
+Inizio stagione della carriera
+
+3 luglio
+
+Amichevoli
+
+5 luglio
+
+Partita di campionato
+
+8 luglio
+
+Andata di una coppa
+
+12 luglio
+
+Campionati nazionali
+
+15 luglio
+
+Ritorno di coppa e qualificazioni
+
+Se premi FORWARD TIME, il sistema raggiunge il prossimo evento utile. Se invece chiedi di avanzare un mese, elabora in ordine tutte le gare intermedie, senza saltarne nessuna.
+
+Alla stessa data più eventi vengono risolti in ordine deterministico. Per esempio, la finale di una coppa deve essere completata prima che il suo vincitore sia usato per una qualificazione successiva.
+
+Le partite non ancora disputate hanno uno stato SCHEDULED; dopo il risultato diventano PLAYED. La stessa fixture non può essere conclusa due volte.
+
+Sarebbe molto più semplice da comprendere, diagnosticare e salvare.
+
+E le vecchie fasi OG?
+Le manterrei come meccanismo di compatibilità per gli algoritmi che ne hanno bisogno, ma non le userei come calendario civile definitivo.
+
+Inoltre, parte del lavoro è già fatta: expanded_world_time.c gestisce date giornaliere, conversioni e settimane; expanded_world_live.c è già stato ridotto a un cursore compatibile senza generare risultati autonomi.
+
+Quindi non dobbiamo rifare l'orologio da zero. Dobbiamo completare il collegamento tra date, eventi e competizioni.
+
+5. Le qualificazioni devono diventare il cuore del sistema
+Su questo sono particolarmente d'accordo con te.
+
+Oggi spesso si parte da una coppa con una lista iniziale di partecipanti e si cerca di far avanzare il torneo. Ma una carriera di decenni deve funzionare nella direzione opposta:
+
+Risultati della stagione
+
+Classifiche e vincitori
+
+Motore comune di qualificazione
+
+Quote per paese, piazzamenti, detentori, preliminari, esclusioni, ripescaggi e accessi fra coppe
+Partecipanti della nuova edizione
+
+Per esempio, un regolamento può stabilire che una competizione ammetta le prime due squadre di certi campionati, i vincitori di determinate coppe e il detentore del titolo.
+
+Invece di riscrivere questo procedimento dentro ogni torneo, avremmo regole riutilizzabili:
+
+LEAGUE_POSITION: posizione finale in campionato.
+
+CUP_WINNER: vincitore di una coppa.
+
+TITLE_HOLDER: detentore del torneo.
+
+GROUP_POSITION: posizione in un girone.
+
+WINNER_OF: vincitore di una fase o di un confronto.
+
+BEST_ELIGIBLE: migliore squadra non ancora qualificata.
+
+TRANSFER_FROM: squadra proveniente da un altro torneo, ad esempio dopo l'eliminazione in una fase.
+
+Sono proposte di tipi di regola, non funzioni già implementate con questi nomi.
+
+Una volta disponibili, potrebbero essere combinate per moltissimi campionati e coppe, anche con qualificazioni incrociate.
+
+La regola fondamentale sarebbe questa: non si apre la nuova edizione finché non sono disponibili tutti i risultati da cui dipendono i suoi partecipanti. Se manca qualcosa, il sistema segnala esattamente la competizione e la fonte non risolta, invece di generare una lista sbagliata o andare in crash.
+
+Un'opportunità che ho trovato in OpenSWOS
+C'è una base interessante da valutare: l'OpenSWOS upstream dispone già di una libreria di regolamenti in src/rules/, derivata dal lavoro condiviso con la Mod. Contiene funzioni riutilizzabili per playoff, retrocessioni, promozioni, ingresso nelle coppe e altre regole di fine stagione. 
+
+GitHub
+
+Non è un calendario mondiale completo, ma potrebbe farci risparmiare parecchio lavoro sulle qualificazioni. Prima di riusarla dovremmo confrontare la versione upstream, quella presente in Expanded, le interfacce e le condizioni di licenza, senza sostituire indiscriminatamente il codice attuale.
+
+6. Possiamo usare OG soltanto per simulare le singole gare?
+Sì, tecnicamente è plausibile. Il codice offre già una base concreta: match_sim.c::CalculateViewResult().
+
+Questa funzione prende le strutture delle due squadre e produce i gol simulati usando la forza ricavata dai giocatori, gli elementi tattici e la casualità OG.
+
+Ma c'è un dettaglio importante: non è una funzione pura che riceve due numeri di forza e restituisce un punteggio.
+
+Durante il calcolo può intervenire anche su stati dei giocatori, disponibilità, marcatori, statistiche e RNG. Il resto del motore gestisce poi i casi di supplementari, rigori, avanzamento dei turni e classifiche.
+
+Dovremmo quindi costruire un adattatore ben controllato:
+
+Fixture + squadre reali + contesto → simulazione OG → risultato e conseguenze → aggiornamento della competizione
+
+Questo adattatore dovrebbe usare lo stato reale delle rose, non una forza artificiale scollegata da SWOS.
+
+Per forma e morale, i modificatori Expanded potranno essere applicati soltanto nei punti già compatibili con il calcolo OG e dopo averne verificato gli effetti.
+
+È la strada che preferisco per la risoluzione delle partite, ma non basta da sola a gestire un torneo: serve comunque un'infrastruttura per sorteggi, accoppiamenti, gironi, classifiche e qualificazioni.
+
+7. Che storico dobbiamo conservare?
+Qui distinguerei ciò che serve al funzionamento del mondo da ciò che vogliamo poter consultare dopo molti anni.
+
+La decisione precedente, registrata nelle guide, prevedeva un CAR piccolo: database statici esterni, identificativi stabili, delta persistenti, risultati irripetibili e archivi compatti.
+
+La 0.13.22 aveva già introdotto una finestra mobile di due stagioni nel precedente Living World, con riepiloghi delle stagioni archiviate. Ma questo non equivale al salvataggio completo di ogni partita del mondo OG attuale.
+
+La soluzione che propongo è a due livelli.
+
+Dati
+
+Conservazione proposta
+
+Stagione ed edizioni attive
+
+Tutte le fixture, risultati, progressi, rose e RNG necessari
+
+Qualificate, promozioni, campioni, trofei
+
+Permanentemente
+
+Ultime stagioni
+
+Risultati per singola gara, consultabili
+
+Stagioni molto vecchie
+
+Archivio compatto, eventualmente completo se desideriamo uno storico mondiale consultabile
+
+Database statici
+
+Solo nei world-pack, non duplicati nel CAR
+
+Trasferimenti e modifiche persistenti
+
+Delta e fatti che non possono essere ricostruiti in sicurezza
+
+Gli ID sono essenziali
+Darei a ogni evento un'identità univoca costruita da più componenti:
+
+mondo / competizione / edizione / fase / fixture / eventuale replay
+
+Per esempio, la finale del 2027 e quella del 2028 non possono condividere lo stesso identificativo, anche se il codice OG usa temporaneamente lo stesso slot.
+
+Lo storico dovrebbe registrare i risultati effettivi, non rigenerarli dalla casualità durante il caricamento.
+
+Questo risolverebbe anche un problema fondamentale: se un allenatore firma per una squadra a stagione iniziata, il calendario visualizzato dovrebbe leggere le gare già presenti nel mondo, con i risultati reali, senza recuperarle attraverso una seconda simulazione.
+
+Abbiamo bisogno di uno storico per fixture affidabile nella stagione attiva. Non è invece necessario conservare tutte le gare di settant'anni per far funzionare le qualificazioni future: bastano classifiche e fatti sportivi persistenti corretti. Lo storico completo di ogni gara sarebbe una scelta aggiuntiva, soprattutto per consultazione e analisi.
+
+Personalmente, proverei prima a misurare un archivio compresso con i risultati di tutte le gare, perché potrebbe essere più sostenibile di quanto immaginiamo. Solo dopo deciderei quanta storia dettagliare e quanta riassumere.
+
+8. Come aggiungeremmo facilmente una nuova competizione
+Immagina di voler creare una tua coppa, per esempio una Expanded Summer Cup, con 16 squadre, quattro gironi e successiva eliminazione diretta.
+
+Vorrei che tu potessi impostare una scheda come questa:
+
+Expanded Summer Cup
+Esempio ipotetico
+Mondo
+2026/27
+
+Partecipanti
+16 club
+
+Prima fase
+4 gironi da 4
+
+Qualificate
+Prime 2 per girone
+
+Seconda fase
+Quarti → Semifinali → Finale
+
+Calendario
+Date configurabili
+
+Regole aggiuntive
+
+Vincitore registrato nello storico
+
+Partecipanti definiti da regole o selezione iniziale
+
+Edizione successiva generata automaticamente
+
+Questa è l'interfaccia che immagino per un futuro editor; non è una funzione attualmente disponibile nel gioco.
+Una volta confermata la definizione, il sistema la validerebbe e la trasformerebbe in una competizione utilizzabile.
+
+Lo stesso procedimento potrebbe importare un torneo da OpenSWOS o dalla Mod, attraverso un convertitore dedicato al loro formato.
+
+Per un torneo con regolamenti già supportati, non dovremmo scrivere nuovo C. Soltanto i formati davvero nuovi — per esempio un particolare playoff nazionale non rappresentabile dai modelli esistenti — richiederebbero l'aggiunta di una regola generica nuova.
+
+Questo è ciò che ci permetterebbe di passare da settimane per torneo a un procedimento ripetibile. Non prometterei minuti per qualsiasi competizione, ma non dovremmo ricominciare da zero ogni volta.
+
+9. La data iniziale selezionabile in NEW CAREER
+È una buona idea, e la nuova infrastruttura dovrebbe prevederla fin dall'inizio.
+
+Separerei due date:
+
+Data di origine del world-pack: il momento da cui esistono dati iniziali affidabili per simulare quel mondo.
+
+Data di ingresso del manager: il giorno scelto dall'utente in NEW CAREER.
+
+Per esempio, nel mondo moderno, se i dati consentono di partire dal 1° giugno 2026 e il giocatore sceglie il 15 ottobre 2026, il sistema dovrebbe:
+
+Inizializzare tutte le competizioni alla data di origine.
+
+Elaborare cronologicamente tutti gli eventi reali previsti fino al 14 ottobre.
+
+Conservare risultati, classifiche, eliminazioni, qualificazioni e stati del mondo.
+
+Inserire il manager il 15 ottobre, senza ricominciare alcuna competizione.
+
+Per il 1996/97 si applicherebbe lo stesso principio, con l'origine specifica del suo database.
+
+Non simulerei automaticamente un periodo precedente ai dati iniziali affidabili: servirebbe un pacchetto storico o una definizione esplicita dello stato di partenza.
+
+Questo consentirebbe di iniziare una carriera a ottobre, gennaio, marzo o in una stagione successiva, avendo un mondo già coerentemente avanzato.
+
+Il tempo di simulazione potrebbe essere accelerato elaborando soltanto gli eventi necessari, non ogni giorno vuoto.
+
+10. La strategia di sviluppo che seguirei
+Non inizierei subito con una riscrittura completa. La dividerei in interventi verificabili, ognuno dei quali deve produrre qualcosa di riutilizzabile.
+
+Audit delle funzioni OG riutilizzabili. Individuare esattamente quali routine risolvono singole partite, accoppiamenti, gironi, classifiche, promozioni, playoff e qualificazioni. Valutare la libreria src/rules/ upstream e i moduli già portati in Expanded.
+
+Registro universale delle competizioni e delle fixture. Un ID stabile per ogni torneo, edizione e incontro, con una sola fonte dei risultati. Conservare separatamente lo stato tecnico OG e i dati persistenti del mondo.
+
+Scheduler giornaliero a eventi. Elaborare le partite in ordine cronologico, con una sola data mondiale, gestione del manager e delle coppe che attraversano il cambio stagione.
+
+Motore comune delle qualificazioni. Prima stagione con partecipanti reali verificati; stagioni successive determinate da risultati, classifiche e regolamenti.
+
+Salvataggio e archiviazione affidabili. Checkpoint atomici del mondo, transizioni di stagione, storico e ripristino senza ricreare o ripetere gare.
+
+Tre competizioni pilota molto differenti. Un campionato con promozioni e retrocessioni, una coppa nazionale e una coppa continentale con più fasi e date che attraversano la stagione. Provarle per più anni con e senza manager, anche dopo CONTINUE.
+
+Importatore e validatore di definizioni. Prima conversione e controllo automatico dei tornei esistenti, poi possibilità di creare i tuoi attraverso JSON e, in futuro, un editor visuale.
+
+I test dovrebbero essere parte dell'importazione stessa. Un torneo non dovrebbe essere dichiarato pronto solo perché compare nel menu: bisogna verificare numero di partecipanti, date, incontri unici, qualificazioni, fase finale, salvataggio e seconda edizione.
+
+E non chiederei di installare nuove toolchain su Windows: useremmo gli strumenti attuali o componenti integrati nel progetto.
+
+11. La decisione più importante
+Ritengo che abbiamo due percorsi ragionevoli:
+
+Percorso A — OG resta autorità di tutto
+
+Costruiamo un livello generico che organizza le competizioni, ma OG conserva la gestione delle proprie fasi e dei calendari. È meno rischioso per la compatibilità, però le estensioni molto diverse dalle competizioni originali continueranno a incontrare limiti.
+
+Percorso B — Expanded governa le competizioni, OG fornisce gli algoritmi
+
+Un'unica infrastruttura Expanded gestisce calendario, qualificazioni, stati e storico. Dove possibile richiama le routine OG originali per partite, sorteggi, spareggi e calcoli sportivi. Il motore della partita resta identico. È più flessibile, ma richiede più lavoro iniziale e test di equivalenza per evitare divergenze rispetto a SWOS.
+
+Io sceglierei il percorso B come direzione a lungo termine, ma con una migrazione progressiva. Prima realizziamo un'infrastruttura comune su cui far lavorare gli algoritmi esistenti, poi spostiamo i vari tipi di competizione solo quando otteniamo gli stessi risultati e le stesse regole OG a parità di input.
+
+Non riscriverei gli algoritmi calcistici se possiamo recuperarli.
+
+La cosa che mi convince di più è che questa architettura non nasce soltanto per risolvere Libertadores o Champions: è pensata per permetterti di inventare campionati, coppe, qualificazioni e interi world-pack senza dovermi chiedere ogni volta di modificare il motore.
+
+La domanda progettuale che ti porrei è questa: sei disposto a rivedere la precedente regola «OG è l'unica autorità anche per calendario e competizioni», mantenendo però OG come riferimento per gli algoritmi calcistici e soprattutto per il gameplay?
+
+È la scelta che può davvero liberarci dal blocco attuale. Per ora non ho modificato codice, guide o repository: siamo ancora in fase di progettazione.
+
+a questo punto direi di si, voglio solo farlo funzionare mi fido di te. spero non ci mettiamo su un pecorso lunghissimo che poi non portera a nulla e non voglio entrare in un incubo di duplicazioni che aveamo un po all'inizio, spero tu sia sicuro di dove voglaimo arrivare e di come arrivarci. comunque salva tutta questa analisi nelle guide al prossimo commit ultima cosa perche i campionati invece son cosi semplici e funziona anche il reset x nuova stagione solo x le quali?
+Sono d'accordo. Adottiamo la nuova direzione architetturale, ma voglio impostarla in modo da evitare esattamente i problemi che abbiamo avuto con il vecchio LWE.
+
+Non posso garantirti che non incontreremo difficoltà. Posso però dirti che abbiamo individuato un problema concreto, abbiamo già molto codice riutilizzabile e soprattutto possiamo verificare la nuova architettura prima di impegnarci in una migrazione completa.
+
+Non voglio ricominciare SWOS Expanded da zero. Voglio eliminare la complessità che ci impedisce di completarlo.
+
+1. Perché i campionati funzionano più facilmente delle coppe?
+Ho ricontrollato il codice, e la differenza principale è abbastanza chiara.
+
+I campionati hanno un ciclo relativamente semplice
+Squadre iscritte al campionato
+
+Calendario di andata e ritorno
+Partite e classifica
+Promozioni, retrocessioni ed eventuali playoff
+Nuove divisioni e stagione successiva
+
+Nel codice OG questo procedimento è già organizzato.
+
+In particolare:
+
+career_season.c::processPrimaryCompetitionForNextSeason() elabora tutte le divisioni e le relative classifiche.
+
+LeaguePlayoffs_Decide() gestisce i movimenti che dipendono da playoff e playout.
+
+career_init.c::InitializeNewSeason() applica i movimenti alle divisioni attraverso LeagueGroups_Apply().
+
+Expanded_OGWorld_AdvanceLeague() mantiene lo stato residente del campionato, distinto per paese, divisione e anno.
+
+La maggior parte delle informazioni necessarie alla prossima stagione è disponibile all'interno dello stesso sistema nazionale.
+
+Per esempio, se tre squadre retrocedono dalla Serie A e tre salgono dalla Serie B, abbiamo già i risultati delle due divisioni. Non occorre interrogare venti competizioni di altri paesi.
+
+Le coppe internazionali sono diverse
+Prendiamo una Champions League.
+
+Per preparare la nuova edizione dobbiamo sapere chi è arrivato nelle posizioni utili in tanti campionati, chi ha vinto determinate coppe, chi detiene il titolo, quali squadre sono ammesse ai preliminari e quali sono già qualificate.
+
+Alcuni tornei richiedono inoltre coefficienti, quote per federazione, esclusioni, ripescaggi e trasferimenti fra competizioni.
+
+Quindi abbiamo una rete di dipendenze:
+
+Campionati nazionali
+
+Coppe nazionali
+
+Detentori dei titoli
+
+Coefficienti e quote
+
+Qualificazioni continentali
+
+Risolvere tutti gli accessi ed eliminare i duplicati
+Nuova edizione della competizione
+
+Queste dipendenze devono essere completate nell'ordine giusto. Inoltre una coppa potrebbe essere ancora in corso quando un campionato nazionale sta già preparando la stagione successiva.
+
+È questo il motivo per cui il reset delle coppe è più difficile.
+
+2. Quindi è soltanto un problema di qualificazioni?
+No, ma le qualificazioni sono probabilmente il blocco principale per le seconde edizioni.
+
+La prova più evidente è in Expanded_OGWorld_AdvanceUefa(): per qualsiasi anno successivo alla prima stagione, la funzione non inizializza il nuovo torneo perché il campo dei qualificati non è ancora collegato.
+
+E Expanded_OGWorld_ResetSeason() preserva deliberatamente l'edizione continentale precedente per evitare che venga cancellata.
+
+In pratica abbiamo:
+
+Funzionalità
+
+Campionati
+
+Coppe continentali
+
+Partecipanti iniziali
+
+Generalmente disponibili
+
+Disponibili soltanto per le edizioni collegate
+
+Risultati e avanzamento
+
+Percorso OG residente già presente
+
+Percorso OG parziale secondo la coppa
+
+Preparazione anno successivo
+
+Routine OG esistenti
+
+Qualificazioni mondiali non completamente collegate
+
+Reset di stagione
+
+Percorso nazionale presente
+
+Ultima edizione conservata quando la nuova non è pronta
+
+Storico completo per fixture
+
+Ancora da completare
+
+Ancora da completare
+
+Save/CONTINUE pluriennale
+
+Da certificare completamente
+
+Da certificare completamente
+
+Una precisazione importante: anche le coppe nazionali sono relativamente più semplici. Infatti world_cups.c::WorldCups_Entrants() contiene già la logica per costruire i partecipanti delle edizioni successive in diversi casi.
+
+Quindi non è vero che tutte le coppe sono difficili allo stesso modo.
+
+Anche i campionati non sono ancora perfetti: dobbiamo verificare ogni regolamento nazionale, gli ID, le classifiche storiche e i passaggi di stagione. Ma abbiamo una base migliore su cui lavorare.
+
+3. Come evitiamo di ricreare il vecchio problema LWE?
+Qui voglio essere rigoroso.
+
+Il nuovo Competition Engine non deve diventare un secondo sistema che simula il mondo accanto a OG.
+
+Il principio sarà:
+
+Una competizione, uno stato autorevole, una fixture, un risultato.
+
+La nuova infrastruttura gestirà il ciclo di vita delle competizioni. Gli algoritmi OG continueranno a essere utilizzati quando adatti. Durante la migrazione, per ogni tipo di competizione sarà attivo un solo percorso di avanzamento.
+
+Non avremo quindi un campionato simulato sia dal vecchio scheduler sia da quello nuovo, e non avremo due classifiche da riconciliare.
+
+Per ridurre i rischi propongo tre condizioni:
+
+Migrazione progressiva: non sostituiamo subito il funzionamento dei campionati che già avanzano. Prima realizziamo un prototipo indipendente e confrontiamo i risultati con OG.
+
+Verifiche obbligatorie: ogni gara deve essere registrata una volta, il salvataggio deve riprodurre esattamente lo stato e l'ingaggio non deve modificare nessuna competizione. Verifichiamo i due mondi e più stagioni, con e senza manager.
+
+Possibilità di fermarci: se il prototipo introduce duplicazioni, differenze ingiustificate o problemi di compatibilità, non estendiamo l'architettura alle altre competizioni finché non abbiamo risolto la causa.
+
+Il primo risultato che vorrei ottenere non è cento competizioni importate. È una competizione che completa tre stagioni consecutive, con qualificazioni, fixture, risultati, save e CONTINUE corretti, senza codice speciale per ciascuna stagione.
+
+Poi la proviamo su un secondo formato completamente diverso.
+
+Se funziona, abbiamo dimostrato che l'architettura è realmente riutilizzabile.
+
+4. Cosa registreremo nelle guide
+Al prossimo commit autorizzato aggiornerò AGENTS.md, PROJECT_STATE.md, docs/GAME_DESIGN.md e docs/ENGINE_CODE_DISCOVERIES.md, distinguendo le decisioni approvate dalle parti ancora proposte.
+
+Registreremo tutta l'analisi precedente, compresi scheduler giornaliero a eventi, qualificazioni, fixture per ID, storico, salvataggi, importazione delle competizioni, data iniziale della carriera e strategia di migrazione.
+
+Aggiorneremo anche la vecchia regola del 14 novembre: Expanded potrà essere l'autorità per calendario e gestione delle competizioni; OG rimarrà il riferimento per gli algoritmi calcistici e il motore di gioco originale.
+
+La nuova architettura sarà una sostituzione controllata, non una seconda simulazione.
+
+Nessun commit ora. Rimaniamo su dev/0.10, versione 0.13.87.
+
+La mia conclusione
+Credo che finora abbiamo cercato soprattutto di far funzionare tutti i tornei dentro un sistema originariamente costruito per un insieme molto più limitato di competizioni.
+
+E ogni nuova coppa ci costringe a correggere qualcosa nella gestione di fasi, puntatori, calendari, qualificazioni o salvataggi.
+
+Non è sostenibile se vogliamo importare centinaia di competizioni e crearne altre.
+
+La nuova direzione è più impegnativa all'inizio, ma affronta il problema generale anziché riparare ogni singola coppa.
+
+E partirei proprio dalle qualificazioni, perché abbiamo già campionati funzionanti e classifiche OG da cui recuperare i dati. Sono il punto migliore per dimostrare che riusciamo a generare nuove edizioni senza falsificare risultati o duplicare calendari.
+
+Non ti prometto che sarà un percorso breve. Ti propongo un percorso in cui ogni fase deve dimostrare di funzionare prima di continuare. E soprattutto voglio che tutto il lavoro già fatto su Expanded rimanga utile, non venga buttato via.
+
+
+nuova vuoi dire una coppa? ok dai mi spaventa un po che tu mi dica non ti propongo un percorso breve... 7 punti, 7 versioni... no? segna tutto nelle guide anche queste ultime cose che hai detto e committa cosi non le perdiamo segna soprattutto la to do list
+Sì, la prima prova sarà una coppa, preferibilmente una continentale già presente in SWOS, non una nuova inventata da zero. Dovrà completare tre edizioni consecutive, con qualificazioni, risultati, salvataggio e ripristino corretti.
+
+E soprattutto: sette attività non significano sette versioni. Le raggruppiamo in tre traguardi verificabili: fondamenta comuni, coppa pilota funzionante, importazione riutilizzabile. Il numero effettivo di build dipenderà dai test; non voglio moltiplicarle artificialmente.
+
+La regola che registro come prioritaria è: nessuna doppia simulazione, nessuna perdita dei salvataggi e nessuna migrazione generale prima che la coppa pilota abbia superato le verifiche.
+
+Commit pubblicato
+Documentazione salvata su GitHub e commit verificato.
+
+Ramo
+
+dev/0.10
+
+Commit
+
+b5758c41b7bd03b684b6de4fe46db374dcfbec08
+
+Versione del gioco
+
+0.13.87 — invariata
+
+File modificati
+
+6 documenti, nessun sorgente C
+
+Apri il commit su GitHub
+La guida principale è:
+
+Competition Engine — architettura e TODO completa
+
+Contiene le sette attività in ordine, i tre traguardi, la coppa pilota, le condizioni di superamento dei test, i problemi del calendario, la gestione degli ID, le qualificazioni, lo storico e le decisioni ancora aperte.
+
+Ho aggiornato inoltre AGENTS.md, PROJECT_STATE.md, GAME_DESIGN.md, ENGINE_CODE_DISCOVERIES.md e DEVELOPMENT_WORKFLOW.md, rendendo esplicito che la nuova decisione prevale sulla vecchia regola OG-unico soltanto per la gestione di calendario e competizioni.
+
+Checklist finale
+Controllo
+
+Esito
+
+Nuova architettura registrata
+
+SI
+
+TODO completa con priorità e gate
+
+SI
+
+Regola anti-duplicazione registrata
+
+SI
+
+Commit verificato su dev/0.10
+
+SI
+
+Motore e salvataggi modificati
+
+NO
+
+Nuova architettura implementata
+
+NO
+
+Test Windows della nuova architettura
+
+NON PROVATO
+
+Il prossimo lavoro sarà il punto 1: audit delle funzioni OG e scelta della coppa pilota, senza iniziare riscritture indiscriminate.
+
+Abbiamo quindi fissato sia la direzione sia i criteri per evitare che il progetto si trasformi in una migrazione interminabile senza risultati verificabili.
+
+vai poi updata di nuovo i file dopo analisi
+quando hai finito committa
+Audit OG — primi risultati
+Ho verificato il ramo dev/0.10, HEAD b5758c41, versione 0.13.87. La nuova architettura è ancora soltanto una decisione documentata.
+
+C'è una scoperta importante: OG non usa un unico simulatore per tutte le competizioni.
+
+CalculateViewResult() calcola i risultati delle normali partite simulate utilizzando le squadre e lo stato del gioco.
+
+world_conti.c utilizza un proprio algoritmo basato sulla forza dei club e un proprio generatore casuale per molte coppe continentali moderne.
+
+uefa_access.c e world_cupd.c contengono ulteriori procedure specifiche per qualificazioni e spareggi.
+
+Questo cambia leggermente il piano: non dovremo obbligare tutte le coppe a usare CalculateViewResult(), perché rischieremmo di cambiarne i risultati e i regolamenti. Dovremo riutilizzare l'algoritmo OG appropriato per ciascun formato, esponendolo attraverso un'interfaccia comune.
+
+Ho confermato anche che Career_AdvanceToNextSeason_UpdateCompetitions() mescola ancora simulazione di competizioni, qualificazioni e preparazione della stagione successiva. Non potremo richiamarla integralmente dal nuovo calendario: rischieremmo proprio le duplicazioni che vogliamo eliminare.
+
+Questi sono due vincoli fondamentali da inserire nell'audit e nella TODO.
+
+Audit completato e commit pubblicato
+Ho analizzato le principali routine OG, scelto la coppa pilota e aggiornato 8 documenti su GitHub.
+
+Commit verificato
+
+dev/0.10 · Versione 0.13.87 invariata
+
+b0ac50d1be9ae03bbfd67da9afeea0861df35507
+
+Visualizza il commit
+La coppa pilota scelta
+Champions League 1996/97, con 16 squadre, quattro gironi da quattro ed eliminazione diretta.
+
+È un buon punto di partenza perché utilizza già strutture OG residenti, ma richiede di risolvere le qualificazioni dalle classifiche nazionali per generare tre edizioni consecutive.
+
+Le scoperte principali
+OG ha più algoritmi di simulazione. Non dobbiamo sostituirli tutti con CalculateViewResult().
+
+La funzione OG di fine stagione fa troppe cose insieme. Simula gare, aggiorna campionati e genera qualificati: dobbiamo separarne le responsabilità per non duplicare risultati.
+
+Il sistema CAR contiene già gli snapshot residenti OG. Possiamo estenderlo, senza creare un nuovo sistema di salvataggio.
+
+Le qualificazioni sono il blocco principale delle seconde edizioni, ma bisogna risolvere anche ID delle fixture, calendario e collegamento delle partite del manager.
+
+Documenti aggiornati
+Nuovo audit tecnico OG
+
+Matrice delle routine da riutilizzare, adattare o non chiamare direttamente; motivazione della coppa pilota e rischi verificati.
+
+TODO principale aggiornata
+
+Punto 1 suddiviso in verifiche effettuate e ancora pendenti; rimangono i tre traguardi generali.
+
+Aggiornati anche AGENTS.md, PROJECT_STATE.md, ENGINE_CODE_DISCOVERIES.md, GAME_DESIGN.md, IMPROVEMENTS.md e DEVELOPMENT_WORKFLOW.md.
+
+Stato della TODO
+Attività
+
+Stato
+
+Analisi statica routine OG
+
+SI
+
+Scelta coppa pilota
+
+SI
+
+Verifica completa ingressi e regolamenti successivi
+
+DA FARE
+
+Test equivalenza algoritmi OG
+
+NON PROVATO
+
+Nuovo Competition Engine
+
+NON IMPLEMENTATO
+
+Tre edizioni consecutive
+
+NON PROVATO
+
+Nessun codice C, salvataggio o asset modificato. Non serve compilare questa revisione documentale.
+
+Il passo successivo è chiudere le verifiche ancora aperte del punto 1, prima di scrivere l'infrastruttura. Abbiamo ora una mappa tecnica concreta per procedere senza ripetere i problemi del vecchio LWE.
+
+dai
+Punto 1 — verifica approfondita
+Ho confermato alcuni aspetti importanti direttamente nei sorgenti della versione 0.13.87, ramo dev/0.10, HEAD b0ac50d1.
+
+Verifica
+
+Esito
+
+Champions OG 1996/97: 16 partecipanti iniziali
+
+SI
+
+Identificativi duplicati tra i 16 partecipanti
+
+0
+
+File TEAM corrispondenti presenti nel repository
+
+16/16 riferimenti coperti
+
+Quote iniziali delle qualificazioni OG
+
+4 + 5 + 5 + 2 = 16
+
+Algoritmo originale delle qualificazioni individuato
+
+SI
+
+Seconda e terza edizione residenti funzionanti
+
+NON PROVATO
+
+Test di equivalenza completo con OG
+
+NON PROVATO
+
+La verifica dei file è ancora statica: i file esistono, ma non ho certificato il caricamento di tutti i loro record nella carriera Windows.
+
+Una scoperta particolarmente importante
+Nel sistema storico, Career_PrepareEuropeanCupQualificationState() può influenzare l'estrazione delle federazioni ammesse in base al paese del manager.
+
+Questo comportamento aveva senso nella carriera originale, ma è incompatibile con il nostro nuovo principio: un mondo che continua indipendentemente dall'allenatore.
+
+Quindi dobbiamo conservare quote, criteri e algoritmi OG, ma rendere l'estrazione delle qualificazioni indipendente dal manager. È uno dei punti da isolare prima di scrivere il Competition Engine; altrimenti ricreeremmo il problema delle competizioni che cambiano quando firmi per un club.
+
+Altri due punti emersi
+Il caricamento dei dati 1996/97 usa correttamente i file storici sostitutivi per Francia e Turchia, ma ho individuato una possibile incoerenza: team_db.c sembra leggere ancora i file generici per alcune operazioni sugli identificativi. Va verificato prima di collegare gli ID persistenti delle nuove competizioni.
+
+Inoltre, la differenza fra i formati non è soltanto teorica: la UEFA conferma che nel 1997/98 la Champions passò a 24 partecipanti. 
+
+UEFA.com
+ Quindi non sarebbe corretto presentare tre edizioni a 16 squadre come tre riproduzioni storiche esatte.
+
+Ho preparato l'approfondimento tecnico, con funzioni analizzate, rischi, controlli effettuati e TODO aggiornata da integrare:
+
+Scarica il rapporto di preflight del punto 1
+
+Stato: verifica statica approfondita eseguita; test di equivalenza OG, dati delle edizioni successive e test Windows ancora non provati. Nessuna modifica al codice. Il rapporto è preparato localmente, non ancora committato su GitHub.
+
+Una scelta necessaria prima del codice
+Nel mondo 1996/97, per le stagioni successive preferisci:
+
+
+A — Regolamenti SWOS originali invariati. Champions sempre a 16, come nel motore OG 1996/97. È la soluzione iniziale più semplice.
+
+
+B — Regolamenti storici che evolvono. Champions a 24 dal 1997/98 e successive modifiche quando previste. Più lavoro, ma maggiore fedeltà storica.
+
+È l'ultima decisione di design che eviterei di prendere al posto tuo prima di realizzare il pilota.
+
+
+COMPETITION_ENGINE_PUNTO1_PREFLIGHT_20261118.md
+Document
+
+
+sceglierei B sarebbe piu bello sopratttuo se possiamo inserire competizioni facilmente. per adesso pero vediamo solo di far funzionare le basiche, e tutto il sistema poi vediamo. comunque segna tutto anche che vorrei ma dopo. controlla incoerenza Francia e Turchia, finisci fase 1 e committa
+Fase 1 conclusa e commit pubblicato
+Ho completato l'audit tecnico OG, controllato i file reali di Francia e Turchia e aggiornato le guide. Il commit è stato pubblicato e verificato su GitHub.
+
+Commit pubblicato
+
+Ramo dev/0.10 · Versione 0.13.87 invariata
+
+1fcdfeef53226ccc06b3ef9b07900bb702c7ef93
+
+Visualizza il commit su GitHub
+1. Francia e Turchia: problema confermato
+Ho decodificato e confrontato i file RNC originali e quelli corretti.
+
+Paese
+
+File generico
+
+File storico corretto
+
+Francia — prima divisione
+
+18 squadre
+
+20 squadre
+
+Turchia — prima divisione
+
+17 squadre
+
+18 squadre
+
+Ho trovato anche 10 record francesi e 6 turchi con differenze di nome e/o divisione.
+
+La causa è precisa: teams.c carica correttamente i file storici nella carriera 1996/97, mentre team_db.c continua a leggere i file generici e utilizza una cache non separata per mondo.
+
+La discrepanza è confermata. Non ho ancora modificato quel codice, perché prima va gestito anche il cambio di mondo senza compromettere gli identificativi e i modi classici. La correzione è ora una priorità esplicita della fase successiva.
+
+2. Scelta B registrata
+Ho salvato la tua decisione:
+
+Vogliamo competizioni e regolamenti che evolvono storicamente, ma soltanto dopo aver completato il sistema fondamentale.
+
+Perciò la Champions OG 1996/97 a 16 squadre rimane il riferimento tecnico iniziale. Non introdurremo una falsa Champions 1997/98 a 16 squadre nella carriera definitiva.
+
+3. Guide aggiornate
+Relazione conclusiva fase 1
+
+Nuovo documento con risultati binari, rischi, funzioni OG, decisione B e verifiche ancora necessarie.
+
+TODO principale aggiornata
+
+Punto 1 segnato come completato per l'audit statico. Restano le attività 2–7 con i relativi controlli.
+
+In totale 9 documenti aggiornati, compresi AGENTS.md, PROJECT_STATE.md, ENGINE_CODE_DISCOVERIES.md e GAME_DESIGN.md.
+
+Stato finale
+Controllo
+
+Risultato
+
+Fase 1 — audit statico OG
+
+SI
+
+Confronto binario Francia/Turchia
+
+SI
+
+Regolamenti evolutivi B registrati
+
+SI
+
+Bug cache TeamDb corretto
+
+NO
+
+Nuovo Competition Engine implementato
+
+NO
+
+Test golden del nuovo adapter
+
+NON PROVATO
+
+Compilazione e gameplay Windows
+
+NON PROVATO
+
+Nessun sorgente C, asset, salvataggio o versione è stato modificato. Non occorre compilare questo commit documentale.
+
+Il prossimo intervento concreto sarà il punto 2: identità stabili di club, competizioni e partite, partendo proprio dalla correzione dell'incoerenza TeamDb. Sarà il primo passo di codice verso il sistema unico, senza riattivare il vecchio LWE.
+
+
+dai col punto 2 poi committa
+Punto 2 — Build 0.13.88 pubblicata
+Commit creato e verificato su GitHub
+
+Ramo
+
+dev/0.10
+
+Versione
+
+0.13.88
+
+HEAD / Commit
+
+2fef8fc26c1ab5d37e4a8e2b412f3450eb7210c3
+
+Apri il commit su GitHub
+Cosa ho implementato
+1. Correzione Francia e Turchia
+
+teams.c e team_db.c ora condividono la stessa regola per caricare i file storici 1996/97.
+
+La cache TeamDb è separata per mondo e modalità, per evitare che i dati dei club storici vengano confusi con quelli generici o moderni. Le modalità classiche mantengono il percorso originale.
+
+2. Identificativi delle competizioni
+
+Aggiunto expanded_competition_identity.h, con le strutture per identificare univocamente club, competizione, edizione e singola partita.
+
+3. Protezione contro i duplicati
+
+Predisposto un protocollo che consente a una fixture di essere presa in carico una sola volta e rifiuta risultati successivi in conflitto. Il contratto ha superato una verifica C isolata equivalente, ma non è ancora collegato alle partite reali.
+
+Documentazione
+Ho aggiornato 14 file complessivi, di cui 8 documenti.
+
+Rapporto tecnico del punto 2
+
+Modifiche, verifiche, limiti e attività ancora aperte.
+
+Checklist
+Controllo
+
+Esito
+
+Fix sorgente storica TeamDb
+
+SI — codice
+
+Cache separata 96/26
+
+SI — codice
+
+Nuove strutture ID
+
+SI
+
+Contratto anti-duplicazione isolato
+
+SI
+
+Collegamento alle partite OG
+
+NO
+
+Persistenza delle fixture nel CAR
+
+NO
+
+Compilazione Windows
+
+NON PROVATO
+
+Gameplay e CONTINUE
+
+NON PROVATO
+
+Il punto 2 è quindi avviato concretamente, ma non ancora completo nel gameplay. Ho preferito non collegare il nuovo registro alle partite prima di poter salvare atomicamente risultato, effetti e stato: sarebbe rischioso per i tuoi CAR.
+
+Cosa verificare su Windows
+Dopo la sincronizzazione con GitKraken, compila con COMPILA_SWOS.bat e controlla che compaia Build 0.13.88. Poi prova una carriera 1996/97: Francia con 20 squadre in prima divisione, Turchia con 18; verifica anche il cambio mondo 96→26→96 e che CLASSIC continui a funzionare.
+
+Mandami il log diagnostico se qualcosa non va. Il prossimo intervento sarà il collegamento sicuro degli ID al mondo residente e al salvataggio, non l'aggiunta prematura di nuove coppe.
+
+domani controllo e andiamo con la fase 3 adesso a dormire ciao
+Perfetto, buonanotte! 😴⚽
+
+Domani controlliamo insieme la 0.13.88 su Windows e, se tutto funziona, proseguiamo con il punto 3: calendario, persistenza delle fixture e salvataggi CAR.
+
+Sempre una sola simulazione per partita, senza rischiare i salvataggi esistenti.
+
+A domani! 🌙

@@ -3132,7 +3132,7 @@ static int16_t s_groupLevel = -1;
 static uint16_t groupedLeagueRows(const LeagueGroups *lg, uint8_t *compEntry,
                                   void ***names, void ***comps, uint16_t **nums)
 {
-    char **nameTbl = comp_name_table((Competition *)compEntry);
+    
     uint16_t rows = 0;
     for (int32_t l = 0; l < lg->levels; l++) {
         const LeagueLevel *L = &lg->level[l];
@@ -3146,7 +3146,8 @@ static uint16_t groupedLeagueRows(const LeagueGroups *lg, uint8_t *compEntry,
             continue;
         }
         for (uint16_t d = L->first; d < L->first + L->groups; d++) {
-            *(*names)++ = nameTbl ? (void *)nameTbl[d * 2] : (void *)_divisionStringTable[d];
+            char *divisionName = comp_name_at((Competition *)compEntry, d * 2u);
+            *(*names)++ = divisionName ? (void *)divisionName : (void *)_divisionStringTable[d];
             *(*comps)++ = compEntry;
             *(*nums)++ = d;
             rows++;
@@ -3458,9 +3459,10 @@ loc_E246:
 #endif
         {
             /* leagues: 2 char* per division (full name + abbreviation) */
-            char **nameTbl = comp_name_table(compHdr);
-            namePtr = nameTbl ? (uint8_t *)nameTbl[divIdx * 2]
-                              : (uint8_t *)_divisionStringTable[divIdx];
+            
+            char *divisionName = comp_name_at(compHdr, divIdx * 2u);
+            namePtr = divisionName ? (uint8_t *)divisionName
+                                   : (uint8_t *)_divisionStringTable[divIdx];
             *teamNamesPtr++ = (void *)namePtr;
             *leaguesPtrOut++ = compEntry;
             *leagueNumsOut++ = divIdx;
@@ -3476,8 +3478,9 @@ loc_E246:
     } else if (compType == 1) {
         /* Cup — single name pointer at +5+off16 (1 entry, char *). */
         {
-            char **nameTbl = comp_name_table(compHdr);
-            namePtr = nameTbl ? (uint8_t *)nameTbl[0] : (uint8_t *)_aCup_0;
+            
+            char *competitionName = comp_name_at(compHdr, 0u);
+            namePtr = competitionName ? (uint8_t *)competitionName : (uint8_t *)_aCup_0;
         }
         *teamNamesPtr++ = (void *)namePtr;
         *leaguesPtrOut++ = compEntry;
@@ -3487,8 +3490,9 @@ loc_E246:
     } else if (compType == 2) {
         /* Tournament — same as Cup */
         {
-            char **nameTbl = comp_name_table(compHdr);
-            namePtr = nameTbl ? (uint8_t *)nameTbl[0] : (uint8_t *)_aLeague_1;
+            
+            char *competitionName = comp_name_at(compHdr, 0u);
+            namePtr = competitionName ? (uint8_t *)competitionName : (uint8_t *)_aLeague_1;
         }
         *teamNamesPtr++ = (void *)namePtr;
         *leaguesPtrOut++ = compEntry;

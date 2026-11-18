@@ -13,10 +13,10 @@ static int32_t date(uint16_t year, uint8_t month, uint8_t day)
 }
 int main(void)
 {
-    ExpandedFixtureLedgerEntry matches[8] = {{0}};
+    ExpandedFixtureLedgerEntry matches[8] = {0};
     ExpandedFixtureLedger ledger = {matches, 0u, 8u};
-    ExpandedFixtureDetail detail[8] = {{0}};
-    ExpandedEditionSummary summaries[8] = {{0}};
+    ExpandedFixtureDetail detail[8] = {0};
+    ExpandedEditionSummary summaries[8] = {0};
     ExpandedCompetitionHistory h = {detail, 0u, 8u, summaries, 0u, 8u};
     ExpandedFixtureKey first = {
         {{WORLD_2627, 301u}, 0, 0u}, 1u, 1u, 0u, 0u
@@ -87,8 +87,8 @@ int main(void)
 
     /* Never discard evidence of a result that claims to lie in the future. */
     {
-        ExpandedFixtureDetail staged[2] = {{0}};
-        ExpandedEditionSummary complete[2] = {{0}};
+        ExpandedFixtureDetail staged[2] = {0};
+        ExpandedEditionSummary complete[2] = {0};
         ExpandedCompetitionHistory check = {staged,1u,2u,complete,1u,2u};
         staged[0] = (ExpandedFixtureDetail){
             first,home,away,score,date(2028,2,1),123u

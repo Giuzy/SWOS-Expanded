@@ -6417,6 +6417,18 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
                                       (goals_away&255u));
     const int cached_score_ok=
         cache==EXP_OG_CACHE_PLAYED && match.packed_goals==packed;
+    /* Some native calendar rows are oriented opposite to the actual
+     * home/away callback. Diagnose that separately; swapping identities
+     * is NOT a verified fixture bind and must never produce a false PASS. */
+    ExpandedOGCacheMatch reverse_match;
+    const ExpandedOGCacheStatus reverse_cache=ExpandedOGCache_Find(
+        _teamSelectionKeyCache,8192u,_teamSelectionKeyCacheCount,
+        slot,phase,away_id,home_id,&reverse_match);
+    const uint16_t mirrored=(uint16_t)((goals_away<<8)|
+                                        (goals_home&255u));
+    const int reverse_score_ok=
+        reverse_cache==EXP_OG_CACHE_PLAYED &&
+        reverse_match.packed_goals==mirrored;
     const unsigned world_n=(unsigned)ctx->comp.base.numTeams;
     const unsigned local_n=(unsigned)local->base.numTeams;
     unsigned unmapped=0u,table_differences=0u;
@@ -6478,7 +6490,7 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
     fprintf(stderr,
         "[og-manager-fixture] world=%s year=%u div=%u "
         "home=%04x away=%04x score=%u-%u cache=%s "
-        "cache-score=%s slot=%u phase=%u "
+        "cache-score=%s reverse-cache=%s slot=%u phase=%u "
         "world-matches=%u local-matches=%u row-diff=%u unmapped=%u "
         "cache-used=%lu match-end=%lu car-raw-limit=8192 "
         "car-capacity-risk=%s status=%s no-world-mutation=1\n",
@@ -6486,6 +6498,11 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
         (unsigned)home_id,(unsigned)away_id,
         (unsigned)goals_home,(unsigned)goals_away,cache_name,
         cached_score_ok?"MATCH":"UNVERIFIED",
+        reverse_score_ok?"PLAYED_MIRRORED":
+            reverse_cache==EXP_OG_CACHE_AMBIGUOUS?"AMBIGUOUS":
+            reverse_cache==EXP_OG_CACHE_CORRUPT?"CORRUPT":
+            reverse_cache==EXP_OG_CACHE_PLAYED?"PLAYED_SCORE_DIFF":
+            reverse_cache==EXP_OG_CACHE_SCHEDULED?"SCHEDULED":"NOT_FOUND",
         (unsigned)slot,(unsigned)phase,
         resident_matches,local_matches,table_differences,unmapped,
         (unsigned long)match.used_bytes,(unsigned long)match.record_end,

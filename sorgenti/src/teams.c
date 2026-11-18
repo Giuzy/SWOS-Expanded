@@ -5,6 +5,7 @@
  */
 #include "teams.h"
 #include "world.h"
+#include "team_source.h"
 #include "squad_extras.h"
 #include "career_teams.h"
 #include "comp_identity.h"
@@ -433,14 +434,9 @@ int16_t LoadTeamFile(uint16_t extNumber)
              * existing data/TEAM.NNN for CLASSIC and 2026/27 fallbacks.
              * These 4 original records match the OG global-base spans:
              * Finland 12, France 42, Turkey 24, USA 18 slots. */
-            const int historicalCareer =
-                World_Current()==WORLD_9697 && _gameType==GAME_TYPE_CAREER &&
-                (ext8==12u || ext8==13u || ext8==38u || ext8==73u);
-            if(historicalCareer) {
-                char historic[]="data/9697/TEAM.000";
-                historic[15]=(char)('0'+ext8/100u);
-                historic[16]=(char)('0'+(ext8/10u)%10u);
-                historic[17]=(char)('0'+ext8%10u);
+            char historic[sizeof "data/9697/TEAM.000"];
+            if(TeamSource_HistoricCareerPath(World_Current(), _gameType,
+                                            ext8, historic, sizeof historic)) {
                 result=LoadFileEx((uint8_t *)historic,_teamFileBuffer,&fileSize);
                 if(result==0) {
                     fprintf(stderr,"[og-9697-team-source] country=%u "

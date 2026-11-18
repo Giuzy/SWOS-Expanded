@@ -1,5 +1,11 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 18/11/2026 — 0.13.88: path sorgente TeamDb e identity claim
+- team_source.h contiene il predicato puro degli override 96/97 CAREER, ora usato sia da teams.c che team_db.c. TeamDb::read_country controlla e carica l'RNC storico in buffer privato, senza chiamare LoadTeamFile e senza contaminare TeamPool; fallback generico invariato.
+- team_db.c::country_of sceglie s_country[WORLD_COUNT][2][256] invece di cache per paese soltanto. Puntatori alle entry persistono al cambio world/mode; ogni banco è un dataset isolato. Mancano ancora test Windows e verifica cache se dati cambiati esternamente a caldo.
+- expanded_competition_identity.h definisce Club/Comp/Edition/Fixture keys e Ledger Schedule/Begin/Finish. Header non connesso agli OG match writers: protezione duplicati ancora solo in contratto isolato. Sorgente e TODO: [COMPETITION_ENGINE_POINT2_20261118.md](COMPETITION_ENGINE_POINT2_20261118.md).
+
+
 ## 18/11/2026 — bug sorgente France/Turkey e confine UUID vs ClubKey
 - [COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md](COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md) contiene prova isolata RNC: `data/TEAM.013` France 42 club / 18 league0 vs `data/9697/TEAM.013` 42 / 20, **10** record con name/league cambiati; `data/TEAM.038` Turkey 24 / 17 vs `data/9697/TEAM.038` 24 / 18, **6** record cambiati.
 - `teams.c:432-459` cambia sorgente SOLO per WORLD_9697 CAREER (012/013/038/073), `team_db.c:202-233` usa sempre generici per mondo non-JSON; `team_db.c::s_country[256]` è cache paese non mondo. Causa statica accertata, riproduzione Windows non fatta. `custom_team.c` dipende da TeamDb, non alterare CLASSIC/DIY/SEASON.

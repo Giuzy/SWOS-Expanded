@@ -1,5 +1,11 @@
 # SWOS Expanded — development procedures and rationale
 
+## 18/11/2026 — checklist Windows 0.13.88 TeamDb / punto 2
+- Dopo GitKraken compilare con COMPILA_SWOS.bat / strumenti già installati. Verificare nel log Build 0.13.88 e assenza errori GCC; l'assistente non compila su Windows.
+- In NEW CAREER 96/97 provare START disoccupato e DEBUG WORLD: Francia prima divisione 20, Turchia 18; niente NATIVE_DATA_FORMAT_MISMATCH. Provare il cambio mondo 96→26→96 prima della carriera senza riavvio. Controllare CLASSIC/DIY/SEASON/CUSTOM e vecchi save SENZA sovrascriverli.
+- Il test pure-C aggiunto in sorgenti/tests/test_expanded_competition_identity.c non prova carriere/fixture: 2d–2h rimangono NON PROVATI. Conservare SWOS.log e AVVIA_DIAGNOSTICA.bat, dare SI/NO/NON PROVATO per ogni caso. [Report](COMPETITION_ENGINE_POINT2_20261118.md).
+
+
 ## 18/11/2026 — esito fase 1 e gate implementazione
 - Audit statico fase 1 `SI`, golden adapter/Windows `NON PROVATO`. [Analisi e checklist](COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md). In fase 2: risolvere source/cache `TeamDb` senza regressioni CLASSIC; verificare 13:20 / 38:18 / ordinali, cambio mondi 9697→2627→9697; definire ClubKey per club persistente distinto da UUID team fixed data. Poi golden adapter con seed RNG e qualificati identici indipendenti dal manager, fixture single-writer, CAR roundtrip e test Windows.
 - Opzione B è DECISIONE sul futuro, NON modifica runtime oggi: tre test tecnici con Champions OG 16 non sono tre campionati storicamente corretti 1997/98+. STOP su duplicazione, perdita CAR o regressione OG 50 Hz. Nessuna nuova toolchain.

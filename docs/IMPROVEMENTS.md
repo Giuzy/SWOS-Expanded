@@ -1,5 +1,11 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 18/11/2026 — build 0.13.88: TeamDb source alignment + contract fixture (Windows DA PROVARE)
+- teams.c e team_db.c usano stesso team_source.h per file storici 012/013/038/073 in 96/97 CAREER; TeamDb cache per mondo e mode evita letture legacy nel contesto corretto e mantiene puntatori esistenti. Asset e CAR non modificati.
+- expanded_competition_identity.h: tipi di ID e pre-claim anti-doppio-writer, test C isolato. NON attivo nel gameplay/CONTINUE, non certifica assenza doppie partite in SWOS. [Dettagli e rimanenti](COMPETITION_ENGINE_POINT2_20261118.md).
+- Build Windows, regressioni 96/26/CLASSIC e test save NON PROVATI. Nessun secondo simulatore e nessuna coppa migrata.
+
+
 ## 18/11/2026 — audit punto 1 chiuso, B rinviata, bug France/Turkey documentato
 - RNC decodificati isolatamente: France generic/storico 18/20 league0, Turkey 17/18; `team_db.c` continua a leggere il generico e mantiene cache non separata per mondo mentre `teams.c` usa override in 9697. Bug di coerenza della sorgente, non test runtime. [Relazione](COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md).
 - Scelta B approvata per formati storici evolutivi **dopo** le coppe basiche; audit statico completo, codice adapter e Windows non provati. Tutto documentale, versione 0.13.87 invariata.

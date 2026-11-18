@@ -1,5 +1,11 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 18/11/2026 — 0.13.88: punto 2 FONDAMENTA, non completato end-to-end
+- [COMPETITION_ENGINE_POINT2_20261118.md](COMPETITION_ENGINE_POINT2_20261118.md): source helper per 012/013/038/073 in carriera WORLD_9697; TeamDb legge gli stessi file che legge OG con fallback e cache s_country[WORLD_COUNT][2][256] per mondo/modalità/file. Correzione mira al mismatch Francia 18 vs 20 e Turchia 17 vs 18, non cambia asset.
+- Introdotti ClubKey, CompetitionKey, EditionKey, FixtureKey e ledger claim header-only con test C isolato. NON ancora collegati alla simulazione, alla firma del manager o ai salvataggi. B evoluzioni storiche rinviata; build_info.h 0.13.88.
+- PUNTO2 2a–2c implementati; 2d–2h e Windows NON PROVATI. Nessun nuovo calendario, risultato, competizione o file CAR.
+
+
 ## 18/11/2026 — Chiusura punto 1, audit statico (0.13.87 invariata)
 - [COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md](COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md): 16 seed Champions/15 federazioni, quote OG 4+5+5+2, matrice riuso OG e confronto binario RNC. In 1996/97 la France TEAM.013 passa 18→20 club in prima divisione e Turkey TEAM.038 17→18; cambiano anche nomi di ordinali. Loader carriera usa override corretti, TeamDb usa file generici e cache non world-scoped. Impatto concreto sul gameplay non provato: da correggere prima di sviluppare ClubKey/journal.
 - Scelta B dell'utente: evoluzioni storiche anno-per-anno desiderate ma POSTICIPATE dopo sistema base/competizioni basiche. **Audit statico SI; adapters, golden, 3 edizioni, CAR nuovo e Windows NON PROVATO**. Nessun codice/asset/save/EXE modificato.

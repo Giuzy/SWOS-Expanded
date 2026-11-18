@@ -1,5 +1,10 @@
 # SWOS Expanded — Game Design Document
 
+## 18/11/2026 — punto2: entità e fixture senza secondo motore
+- La versione 0.13.88 aggiunge ClubKey/CompetitionKey/EditionKey/FixtureKey tipizzati e un possibile claim esclusivo di fixture, ma non attiva nuovo scheduler né risultato. ID dei club persistenti da world-pack, NON UUID/checksum di TeamDb o compId a 8 bit.
+- La cache dati squadre viene segregata per 96/26 e CAREER/CLASSIC. Per le coppe live la presa in carico deve diventare un'unica transazione atomica con OG e CAR prima di migrare una competizione. Decisione B storica rinviata. [Report](COMPETITION_ENGINE_POINT2_20261118.md).
+
+
 ## 18/11/2026 — scelta B FUTURA, prime competizioni BASILARI adesso
 - Utente approva **B**: mondo che nasce nel 1996/97 con competizioni che evolvono storicamente fra edizioni (Champions 16→24 nel 1997/98 come esempio), tramite ruleset/data pack verificati. **Ora la priorità è far funzionare engine unico e coppe basilari**, non implementare subito i cambi di formato. Il pilot OG a 16 ripetuto è SOLO test di API, non tre autentiche edizioni storiche; CAREER live non può presentare finte edizioni 1997/98.
 - Distinguere ClubKey persistente, TeamDb UUID di dati fissi, compId nativo non globalmente unico; rispettare file TEAM storici usati dalla CAREER e non dalla cache generica. Fonte: [COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md](COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md). Questo commit non cambia gameplay.

@@ -1,5 +1,18 @@
 # SWOS Expanded — Competition Engine: architettura, TODO e gate
 
+## Punto 2 — 0.13.88: base codice, integrazione live ancora DA FARE
+Dettagli: [COMPETITION_ENGINE_POINT2_20261118.md](COMPETITION_ENGINE_POINT2_20261118.md).
+- [x] 2a Shared source path dei file storici 96/97 CAREER, fallback OG preservato.
+- [x] 2b Cache TeamDb per WORLD e modo carriera/classico, senza liberare puntatori CUSTOM.
+- [x] 2c Tipo di ID club/competizione/edizione/fixture e protocollo header-only Schedule/Begin/Finish + test isolato.
+- [ ] 2d Registro reale degli ID club/competizione da world-pack; mapping verificato di record/rose.
+- [ ] 2e Un solo writer live per fixture (manager e CPU), senza callback OG concorrenti.
+- [ ] 2f Claim/risultato/effetti/RNG con salvataggio CAR atomico e CONTINUE (punto 3).
+- [ ] 2g Test Windows 96/26/CLASSIC/DIY/SEASON/CUSTOM e vecchi CAR.
+- [ ] 2h Golden OG e dimostrazione pratica di idempotenza delle partite.
+Il punto 2 NON è completo sul gameplay: gli header sono volutamente scollegati dalle competizioni fino al gate CAR. B evoluzioni storiche DOPO il sistema basico.
+
+
 ## Punto 1 — audit statico CHIUSO 18/11/2026
 **[x] ATTIVITÀ 1 COMPLETATA COME AUDIT OG STATICO; NON è un gate di implementazione.** [Relazione finale](COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md) e [reuse map](COMPETITION_ENGINE_OG_AUDIT_20261118.md).
 - [x] Mappa OG RIUSA/ADATTA/NON CHIAMARE LIVE, side effects principali, RNG, calendario, save, seed Champions OG 16 / quote 4+5+5+2.

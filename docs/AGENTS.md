@@ -1,5 +1,11 @@
 # SWOS Expanded — AGENTS.md
 
+## 18/11/2026 — 0.13.88: punto 2 con gate runtime ancora aperti
+- Report e TODO: [COMPETITION_ENGINE_POINT2_20261118.md](COMPETITION_ENGINE_POINT2_20261118.md). Il codice ora condivide la regola degli override TEAM storici fra teams.c e TeamDb, e mantiene cache separate per world+mode. Non cancellare le cache alla selezione del mondo: potrebbero esserci puntatori CUSTOM già restituiti.
+- Il nuovo header expanded_competition_identity.h contiene ID stabili da registry futuro e claim per fixture, ma NON è collegato a OG, manager, calendario o CAR. Non dichiarare funzionante il single-writer del mondo né il punto2 completo con il solo test header.
+- Versione sorgenti 0.13.88; test Windows dell'utente PENDENTI. Prima sistema base poi B storico. Zero LWE, CLASSIC/DIY/SEASON invariati per progetto.
+
+
 ## 18/11/2026 — Fase 1 Competition Engine: audit statico CHIUSO, decisione B
 - [COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md](COMPETITION_ENGINE_PHASE1_CLOSURE_20261118.md): audit source e RNC France/Turkey concluso, ma **NON** nuovo engine o test Windows. L'utente approva **B**, formati/regolamenti storici evolutivi **DOPO** il sistema basico funzionante. Champions OG a 16 squadre oltre il 1996/97 solo sandbox tecnico; non pubblicare il 1997/98 a 16 come storia reale.
 - **Incoerenza confermata:** `teams.c::LoadTeamFile` usa per CAREER 9697 `data/9697/TEAM.013/.038` (France 20, Turkey 18 prime squadre), `team_db.c::read_country` prende generici (France 18, Turkey 17), cache `s_country` priva di mondo. Servono resolver comune/isolamento cache e test prima di nuovi ID; NON confondere TeamDb UUID/skill checksum con ClubKey stabile in carriera. Nessuna modifica a codice o asset in questo commit.

@@ -33,6 +33,9 @@
 #include "endian_helpers.h"
 #include "swos_io.h"
 #include "world.h"  /* TeamDb identities follow the selected world */
+#include "team_source.h"  /* shared historic CAREER TEAM path */
+
+extern uint16_t _gameType;
 
 extern int16_t LoadFileEx(uint8_t *filename, uint8_t *dest, uint32_t *outFileSize);
 extern int     DataJson_LoadTeamFileForCountry(int countryNum, unsigned char *teamFileBuf, int maxTeams);
@@ -193,7 +196,7 @@ static struct Country {
     TeamDbEntry *entries;
     int32_t      count;
     int32_t      absent;
-} s_country[kCountries];
+} s_country[WORLD_COUNT][2][kCountries];  /* world x career mode x country */
 
 /* One country's teams as LoadTeamFile reads them -- the JSON database unless it is
  * turned off or has no such country, then the binary TEAM.nnn (big-endian count) --
@@ -215,6 +218,34 @@ static int32_t read_country(int32_t country, uint8_t *records, uint32_t size, Te
         if (DataJson_LoadTeamIdsForCountry(country, ids, kMaxTeamsInFile) != count)
             memset(ids, 0, sizeof *ids * kMaxTeamsInFile);
         return count;
+    }
+    /* Match LoadTeamFile's career-only OpenSWOS files. When an optional
+     * historic file is missing or invalid, use the original binary source;
+     * avoid LoadFileEx's interactive missing-file path during cache reads. */
+    {
+        char historic[sizeof "data/9697/TEAM.000"];
+        if (TeamSource_HistoricCareerPath(World_Current(), _gameType,
+                                          (uint8_t)country,
+                                          historic, sizeof historic)) {
+            char anchored[1024];
+            FILE *probe = fopen(swos_data_path(historic, anchored,
+                                              (uint32_t)sizeof anchored), "rb");
+            if (probe) {
+                fclose(probe);
+                got = 0u;
+                if (LoadFileEx((uint8_t *)historic, records, &got) == 0 &&
+                    got >= 2u && got <= size) {
+                    count = BE_READ_U16(records);
+                    if (count > 0 && count <= kMaxTeamsInFile &&
+                        (uint32_t)count * kTeamRecord + 2u <= got) {
+                        fprintf(stderr, "[team-db-source] world=9697 file=%d "
+                                        "source=HISTORIC_CAREER count=%d\n",
+                                (int)country, (int)count);
+                        return count;
+                    }
+                }
+            }
+        }
     }
     snprintf(name, sizeof name, "data/team.%03d", (int)country);
     {
@@ -241,7 +272,15 @@ static struct Country *country_of(int32_t country)
 
     if (country < 0 || country >= kCountries || country == kOwnCustoms)
         return NULL;
-    c = &s_country[country];
+    /* Separate cached identities by world and career mode. Do not free the
+     * opposite bank on switch: custom-team users may hold entry pointers. */
+    {
+        unsigned w = (unsigned)World_Current();
+        unsigned career = _gameType == 4u ? 1u : 0u;
+        if (w >= (unsigned)WORLD_COUNT)
+            return NULL;
+        c = &s_country[w][career][country];
+    }
     if (c->absent)
         return NULL;
     if (c->entries)

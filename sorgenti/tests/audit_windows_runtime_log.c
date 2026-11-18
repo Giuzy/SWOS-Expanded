@@ -106,6 +106,17 @@ int main(int argc,char **argv)
     long scorer_resident_views=0,scorer_local_views=0,scorer_resident_players=0;
     long viewer_back=0,picker_back_events=0;
     long cup_native_bye_verified=0,cup_native_bye_rejected=0;
+    /* Across NEW CAREER boundaries, failures must never disappear from
+     * the Windows session report. Per-career counters below may reset. */
+    long historical_faults=0,historical_regressions=0;
+    long historical_season_failures=0,historical_offer_failures=0;
+    long historical_title_save_failures=0,historical_unsupported=0;
+    char historical_first[500]="";
+    long notice_optional_pad=0,notice_title_skipped=0;
+    long notice_import_outside=0,notice_import_wrong=0;
+    long notice_import_division=0,notice_import_rejected=0;
+    long notice_world_no_resident=0,notice_viewer_unbound=0;
+    long notice_stage_reset=0,notice_same_scope=0,notice_not_verified=0;
     CupCoverageRecord cup_coverage[MAX_CUP_COVERAGE];
     unsigned cup_coverage_count=0;
     long cup_coverage_year=-1;
@@ -118,6 +129,29 @@ int main(int argc,char **argv)
     }
     while(fgets(line,sizeof line,in)) {
         ++rows;
+        /* Lifetime informational/coverage inventory: these are NOT
+         * automatically faults and are not erased by a new career. */
+        if(strstr(line,"[input] optional gamecontrollerdb.txt absent"))
+            ++notice_optional_pad;
+        if(tag(line,"[autosave-title] ") &&
+           strstr(line,"SKIPPED"))++notice_title_skipped;
+        if(tag(line,"[world-import-exclusion] ")) {
+            if(strstr(line,"reason=OUTSIDE_LEAGUE"))++notice_import_outside;
+            else if(strstr(line,"reason=WRONG_FILE"))++notice_import_wrong;
+            else if(strstr(line,"reason=UNSUPPORTED_DIVISION"))
+                ++notice_import_division;
+            else if(strstr(line,"reason=LEDGER_REJECTED"))
+                ++notice_import_rejected;
+        }
+        if(tag(line,"[og-no-data] ") &&
+           (strstr(line,"status=NO_RESIDENT") ||
+            strstr(line,"status=NO_WORLD_RESIDENT")))
+            ++notice_world_no_resident;
+        if(strstr(line,"VIEWER_NOT_BOUND"))++notice_viewer_unbound;
+        if(strstr(line,"STAGE_RESET_DIFFERENT_SCOPE"))++notice_stage_reset;
+        if(strstr(line,"UNEXPLAINED_SAME_SCOPE"))++notice_same_scope;
+        if(strstr(line,"NOT_VERIFIED") || strstr(line,"NOT_TESTED"))
+            ++notice_not_verified;
         if(tag(line,"[world-switch] LOADING STATIC_BANKS ")) {
             if(strstr(line,"prepared=9697:1"))++world_banks_9697;
             if(strstr(line,"2627:1"))++world_banks_2627;
@@ -137,6 +171,18 @@ int main(int argc,char **argv)
          * The old parser reset only on START READY (too late), creating the
          * observed false OG_DATE_REWIND across two NEW CAREER operations. */
         if(tag(line,"[og-career] RESET")) {
+            /* Save the previous career's error evidence before zeroing its
+             * per-career counters. Never allow a later START to hide a FAIL. */
+            historical_faults+=native_faults;
+            historical_regressions+=regressions;
+            historical_season_failures+=season_failures;
+            historical_offer_failures+=offer_view_failures;
+            historical_title_save_failures+=title_save_fail;
+            historical_unsupported+=native_league_unsupported;
+            if(!historical_first[0] && first[0])
+                snprintf(historical_first,sizeof historical_first,"%s",first);
+            /* Cross-career reset is valid; these counters belong to the
+             * active career only, while historical_* remain immutable. */
             ++og_career_sessions;
             start_ready=start_audit=ticks=0;
             leagues=played=completed=matches=countries=invalid=0;
@@ -473,6 +519,14 @@ int main(int argc,char **argv)
         remember(first,sizeof first,"PICKER_BACK_NOT_POPPED",
                  rows,"Nested BACK did not return exactly one selector level");
     }
+    /* Inspect all careers, not only the last one. Format is explicit so
+     * a non-fatal SKIP/coverage gap cannot be mistaken for an OG crash. */
+    const long all_faults=historical_faults+native_faults;
+    const long all_regressions=historical_regressions+regressions;
+    const long all_season_failures=historical_season_failures+season_failures;
+    const long all_offer_failures=historical_offer_failures+offer_view_failures;
+    const long all_title_save_failures=historical_title_save_failures+title_save_fail;
+    const long all_unsupported=historical_unsupported+native_league_unsupported;
     const int correct_build=build[0] && expected[0] &&
                             strcmp(build,expected)==0;
     printf("RUNTIME_LOG=READ lines=%ld build=%s expected=%s scope=%s\n",
@@ -751,15 +805,33 @@ int main(int argc,char **argv)
            world_switches?"PARTIAL_ONLY":"NOT_TESTED",
            world_banks_9697,world_banks_2627,world_switches,
            switched_9697,switched_2627,world_refused);
-    printf("OG_NATIVE_FAULTS=%ld CHECK_FAILURES=%ld SESSIONS=%ld\n",native_faults,regressions,og_career_sessions);
-    if(first[0])printf("FIRST_RUNTIME_FAILURE: %s\n",first);
+    printf("OG_NATIVE_FAULTS=%ld CHECK_FAILURES=%ld SESSIONS=%ld scope=ALL_CAREERS\n",
+           all_faults,all_regressions,og_career_sessions);
+    printf("OG_LOG_NOTICE_SUMMARY pad-db-optional=%ld title-skip=%ld "
+           "outside-league=%ld wrong-file=%ld unsupported-division=%ld "
+           "legacy-ledger-rejected=%ld no-resident-events=%ld "
+           "viewer-unbound-markers=%ld stage-reset-lines=%ld "
+           "same-scope-warning-lines=%ld unverified-lines=%ld "
+           "scope=WHOLE_LOG_NOT_UNIQUE_COMPETITIONS\n",
+           notice_optional_pad,notice_title_skipped,
+           notice_import_outside,notice_import_wrong,notice_import_division,
+           notice_import_rejected,notice_world_no_resident,
+           notice_viewer_unbound,notice_stage_reset,notice_same_scope,
+           notice_not_verified);
+    printf("OG_SESSION_FAILURES faults=%ld regressions=%ld season=%ld "
+           "offer=%ld title-save=%ld unsupported-native-leagues=%ld "
+           "scope=ALL_CAREERS\n",
+           all_faults,all_regressions,all_season_failures,all_offer_failures,
+           all_title_save_failures,all_unsupported);
+    if(historical_first[0])printf("FIRST_RUNTIME_FAILURE: %s\n",historical_first);
+    else if(first[0])printf("FIRST_RUNTIME_FAILURE: %s\n",first);
     if(!correct_build) {
         puts("WINDOWS_OG_INTEGRATION=INCOMPLETE reason=BUILD_MISMATCH");
         puts("OVERALL=INCOMPLETE");
         return 2;
     }
-    if(native_faults||regressions||season_failures||offer_view_failures||
-       title_save_fail) {
+    if(all_faults||all_regressions||all_season_failures||all_offer_failures||
+       all_title_save_failures) {
         puts("WINDOWS_OG_INTEGRATION=FAIL");
         puts("OVERALL=FAIL");
         return 1;
@@ -771,7 +843,7 @@ int main(int argc,char **argv)
     }
     /* Do not misreport a career with skipped native league formats as
      * a complete world even if the remaining OG competitions advance. */
-    if(native_league_unsupported) {
+    if(all_unsupported) {
         puts("WINDOWS_OG_INTEGRATION=INCOMPLETE reason=NATIVE_LEAGUE_FORMAT_UNSUPPORTED");
         puts("OVERALL=INCOMPLETE");
         return 2;

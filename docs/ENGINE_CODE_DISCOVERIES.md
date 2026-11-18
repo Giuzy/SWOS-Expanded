@@ -1,3 +1,9 @@
+## 18/11/2026 — 0.13.96: audit stabilita' Windows persistente
+- Individuato un errore del parser `sorgenti/tests/audit_windows_runtime_log.c`: ad ogni `[og-career] RESET` azzerava errori e primo fallimento, causando possibili falsi esiti positivi per log con due carriere o due mondi. Ora cumula i fallimenti delle sessioni precedenti, preserva il primo fallimento e non esprime un PASS se un'altra carriera ha gia' fallito.
+- Aggiunto `OG_LOG_NOTICE_SUMMARY` per file SDL controller opzionale, title autosave skipped, esclusioni import per causa, `NO_RESIDENT`, stringhe `VIEWER_NOT_BOUND`, reset di fase e messaggi non verificati; i conteggi sono OCCORRENZE del log, non numero di gare o competizioni, e non sono trattati falsamente come errori.
+- Restano 26 definizioni senza stato mondiale OG residente (12 coppe continentali, 13 stati brasiliani, Coppa Italia Serie D); approvato rinvio al nuovo motore, SENZA introdurre ora orologi/risultati paralleli. I messaggi `VIEWER_NOT_BOUND` sono marcatori hardcoded, non prove di fallimento: eventuale collegamento del viewer va testato su Windows. Gli 8 `LEDGER_REJECTED` appartengono al vecchio import LWE; nessuna rimozione/aggiunta di club OG senza audit separato.
+- Codice runtime OG, save, regolamenti, controller, coppe e simulazione INVARIATI. Compilazione Windows 0.13.96, warning e test cross-career NON PROVATI, richiedere diagnostica reale. Riferire comunque TUTTI gli avvisi nei log e separare i limiti rinviati.
+
 ## 18/11/2026 — 0.13.95: gol OG e reset di fase, segnalazione integrale dei log
 - Nuova regola: comunicare sempre tutti i warning/errori e messaggi anomali in log, inclusi SKIP, FAIL e diagnostica save, anche non bloccanti. Distinguere quantita' verificata da esito non verificato.
 - 1996/97: nel log 0.13.94 i 475 autogol residenti riconciliano esattamente 11.881 gol individuali con 12.356 GF OG. Nessun dato partita deve cambiare; diagnostica resa esplicita.

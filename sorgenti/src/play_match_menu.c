@@ -753,22 +753,17 @@ void SetVariableButtons(void) {
     /* Set team name and coach name */
     {
         MenuEntry *nm = &_menuEntries[1];
-
-        if (_trainingGame && !_is_A_team) {
-            /* B team: show team B name */
-            if (_playMatchTeam1Ptr == &_careerTeam)
+        TeamFileEx *shownTeam = _viewingOpponentTeam ?
+            _playMatchTeam2Ptr : _playMatchTeam1Ptr;
+        nm->fg = (uintptr_t)shownTeam->team.teamName;
+        /* In TRAINING, _is_A_team controls the VIEW button direction:
+         * it starts at zero while the actual visible team is A. It
+         * must NOT choose the name, or both screens can say "B". */
+        if (_trainingGame) {
+            if (shownTeam == &_careerTeam)
+                nm->fg = (uintptr_t)_teamAName;
+            else if (shownTeam == &_currentTeam)
                 nm->fg = (uintptr_t)_teamBName;
-            else
-                nm->fg = (uintptr_t)_teamAName;
-        } else {
-            TeamFileEx *tm = _playMatchTeam1Ptr;
-            if (_viewingOpponentTeam) tm = _playMatchTeam2Ptr;
-            nm->fg = (uintptr_t)tm->team.teamName;
-            if (_trainingGame) {
-                nm->fg = (uintptr_t)_teamAName;
-                if (_playMatchTeam1Ptr != &_careerTeam)
-                    nm->fg = (uintptr_t)_teamBName;
-            }
         }
     }
 

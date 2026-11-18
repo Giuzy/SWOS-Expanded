@@ -1,5 +1,13 @@
 # SWOS Expanded — development procedures and rationale
 
+## 0.13.87 — verifica Windows TRAINING nomi A/B e avviso lampeggiante (PENDENTE)
+- Sincronizza GitKraken su `dev/0.10`, compila personalmente Windows 0.13.87, conservando copie esterne non distruttive di `AUTO9697.CAR` e `AUTO2627.CAR`.
+- Apri TRAINING di un club con abbastanza giocatori: prima schermata **nome club A**, pulsante `VIEW B TEAM`; dopo averlo premuto, **nome club B**, pulsante `VIEW A TEAM`. Ripeti dopo X A->B, X B->A, BACK e variazione della formazione. Nomi e rose devono riferirsi al lato visualizzato realmente.
+- `VIEW B TEAM` puo' lampeggiare quando il controllo OG delle riserve B non e' soddisfatto: verifica se cambia dopo aver sistemato gli 11 titolari e le riserve. Non segnare `flicker grafico` solo per il lampeggio della scritta, ma segnala qualsiasi pannello/sprite che salti o si sposti.
+- Per X: primo evento = `SOURCE ... WAITING_TARGET`, secondo sul lato opposto = `VERIFIED ... status=OK`. Confronta *nominativi* sulle medesime righe e formazione ufficiale dopo TRAINING; salva, chiudi, CONTINUE e verifica anche il CAR. Se compare `FAILED_INVARIANT`, `B_COPY_NOT_FOUND`, `NOT_IN_SAVED_LINEUP` o un artefatto, allega la nuova sessione di `AVVIA_DIAGNOSTICA` con screenshot.
+- Non considerare superati i test 1996/97, 2026/27, gioco reale, pad, save/restore e 0.13.86 solo grazie a revisione dei sorgenti. Build Windows e gameplay di 0.13.87: NON PROVATI.
+
+
 ## 0.13.86 — test manuale Windows X e grafica del TRAINING (PENDENTE)
 - Sincronizza `dev/0.10` e compila 0.13.86 su Windows. Conserva backup non distruttivi `AUTO9697.CAR` e `AUTO2627.CAR`, senza cancellare il vecchio save. Carica il Newport County (o un club con almeno 17 giocatori) e apri TRAINING.
 - A->B: evidenzia un titolare A con nome annotato, X (deve aprirsi B), poi X su una RIGA B con nome annotato. Ora il giocatore A deve occupare **la stessa riga B selezionata**; passando ad A, il giocatore B deve essere nella riga A originale. Nel log cerca `[training-cross] VERIFIED`, due file ID scambiati e `B-copies=1` (o 2 se entrambi i posti appartenevano a B).

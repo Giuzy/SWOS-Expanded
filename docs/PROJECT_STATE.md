@@ -1,5 +1,11 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 18/11/2026 — 0.13.87: nome A/B corretto in TRAINING, lampeggio B identificato (Windows PENDENTE)
+- HEAD di partenza `49220b861a84d60740f1aa9b830db6f7cb6723ef` (0.13.86). Nella schermata TRAINING il nome indicava B per entrambe le squadre: `SetVariableButtons` interpretava `_is_A_team` come identita' della squadra, ma questa variabile determina la direzione del pulsante VIEW. Ora l'intestazione usa la squadra mostrata realmente (`_careerTeam` = A, `_currentTeam` = B).
+- La scritta `VIEW B TEAM` lampeggia intenzionalmente quando manca la configurazione attesa delle riserve B; bit 13 in `stringFlags`, dipendente da `GetNumberOfSubstitutes(_currentTeam,1)`. Non cambiare tale avviso ne' confonderlo con lo spostamento grafico corretto in 0.13.86.
+- Il test raccontato dall'utente (prima incerto, poi riuscito) non e' accompagnato da nuova diagnostica Windows; restano da verificare log `[training-cross] VERIFIED`, nominativi effettivi prima/dopo, uscita da TRAINING, roundtrip CAR e ripetizione con controller. Nessun test integrato certificato, nessuna modifica a motore OG, rose o formato CAR.
+
+
 ## 18/11/2026 — 0.13.86: correzione X A/B e deriva grafica del menu TRAINING (Windows DA PROVARE)
 - Segnalazione reale Windows 0.13.85: screenshot `image(20261117-234106).png`, diagnostica `DIAGNOSTICA_SESSIONE_1(20261117-234115).zip`, HEAD locale `c186623`. La compilazione Windows 0.13.85 e' riuscita (scritto `Compilazione completata: SWOS_Expanded.exe aggiornato`); in SWOS.log ci sono `[training-cross] SOURCE` e `SWAPPED` sia A->B che B->A (esempi 10/15, 1/20), ma il log 0.13.85 dichiarava OK senza confrontare le identita', l'utente vedeva i nomi invariati e componenti grafici spostati.
 - Radice grafica nel codice: `Expanded_TrainingCrossSwapX` della 0.13.84 chiamava `PlayMatchMenuReinit()` DOPO il secondo X, mentre il menu era gia' attivo; `PlayMatchMenuReinit` sottrae ripetutamente 9 px dalle Y delle entries 12/29/30 per panchine corte e non e' idempotente. Rimosso il richiamo nel percorso X: aggiornati soltanto i callback dati, focus e `DrawMenu` (come nello swap OG).

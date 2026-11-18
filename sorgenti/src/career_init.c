@@ -270,6 +270,10 @@ void CoachOrPlayerCoach(MenuEntry *entry)
 extern uint8_t _contestMenu[];
 extern void ActivateMenu(uint8_t *menu);
 extern void SetExitMenuFlag(void);
+#ifdef SWOS_SDL_BUILD
+/* Same typed popup entry point used by the OG WORLD viewer. */
+extern void ShowErrorMenu(uint8_t *text);
+#endif
 
 /* Forward declarations for Chunk 197 functions (defined later in this file) */
 void InitCareer(uint16_t teamNo);
@@ -1482,7 +1486,12 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
         uefaOk=Expanded_OGWorld_AdvanceUefa(year,phase);
         if(!modern) {
             static CompetitionCup nextClassic[2];
-            CompetitionCup *records[2]={&_cupWinnersCup,&_uefaCup};
+            /* These legacy globals are declared as byte arrays in this TU.
+             * The real backing objects are CompetitionCup records: cast the
+             * ARRAY DATA ADDRESS, never the address of the whole array. */
+            CompetitionCup *records[2]={
+                (CompetitionCup *)(void *)_cupWinnersCup,
+                (CompetitionCup *)(void *)_uefaCup};
             int classicReady=1;
             if(year>World_FirstYear()) {
                 const unsigned names[2]={1u,2u};
@@ -1717,7 +1726,7 @@ int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
             if(expected<=255u && before<=expected) {
                 while((unsigned)g_worldCups.seasons<expected)
                     WorldCups_SeasonEnded();
-                if(phase==0u || before!=expected)
+                if(before!=expected)
                     fprintf(stderr,"[og-cup-season-index] world=%s "
                                    "year=%u before=%u after=%u expected=%u "
                                    "source=ONE_NATIVE_JULY_TRANSITION\n",

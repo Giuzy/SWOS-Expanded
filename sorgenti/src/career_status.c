@@ -5519,7 +5519,8 @@ int Expanded_OGWorld_QualifyUnemployed(uint16_t closedYear,uint16_t nextYear)
     extern uint16_t _cachedSecondaryQualifiedTeamIds[];
     extern uint16_t _cachedTertiaryQualifiedTeamId;
     extern uint8_t _currentCompetitionIndex;
-    extern uint16_t _isNationalSelector;
+    /* _isNationalSelector is declared volatile at file scope; do not
+     * redeclare it here with incompatible qualifiers. */
     extern uint16_t _teamNoOfferAccepted;
     extern uint16_t _euroCupQualifiedTeamCount,_cupWinnersCupQualifiedTeamCount;
     extern uint16_t _uefaCupQualifiedTeamCount;

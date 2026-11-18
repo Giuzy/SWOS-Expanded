@@ -1,3 +1,8 @@
+## 18/11/2026 — 0.13.99: regola journal due stagioni nel Competition Engine (codice isolato)
+- Decisione dell'utente: **solo la stagione corrente e quella precedente** conservano risultati delle singole gare nel nuovo journal; le edizioni precedenti rimangono nell'archivio con **solo vincitore, finalista se applicabile, giorno di chiusura, numero gare e ID immutabile dell'edizione**. L'archivio NON duplica formazione, reti per partita, statistiche, calendari, ranking o RNG.
+- In `expanded_competition_history.h`: record giocati provenienti dal ledger single-writer, deduplica/anti-riscrittura, tombstone per edizioni concluse, chiusura verificata e compattazione condizionata; uso dell'anno stagionale luglio-giugno, nessun reset della coppa ancora attiva al 1 luglio. **Non comprimere finche' qualificazioni e dipendenze non sono persistite separatamente e confermate**.
+- Test aggiunti per archiviazione, duplicati, world 9697/2627 e coppe cross-year; test C isolato e build Windows 0.13.99 **NON PROVATI in questa consegna**. Nessuna integrazione live OG o nuovo campo CAR; il gate fase 3 non e' completo fino a dispatcher single-writer, checkpoint CAR con RNG e CONTINUE verificato. [Rapporto](COMPETITION_ENGINE_HISTORY_RETENTION_20261118.md).
+
 ## 18/11/2026 — 0.13.98: fase 3 (nucleo scheduler isolato), controllo coppe
 - Scheduler a eventi civili ordinati, jump al prossimo evento, blocco dipendenze, ID univoci e validazione stato; nessuna chiamata OG, nuovo writer o serializzazione CAR. [Dettagli e gate](COMPETITION_ENGINE_PHASE3_FOUNDATION_20261118.md).
 - Incluso il fix gia' preparato del verificatore OG_CUP_START_COVERAGE: campi scoped da og-cup-start, evitando confronto 51 domestiche con 53 contesti anche storici.

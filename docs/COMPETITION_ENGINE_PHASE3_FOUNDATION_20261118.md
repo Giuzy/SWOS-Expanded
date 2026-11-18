@@ -1,6 +1,6 @@
 # Competition Engine — fase 3: nucleo scheduler a eventi (18/11/2026)
 
-Stato: **NUCLEO ISOLATO IMPLEMENTATO**, **INTEGRAZIONE LIVE NON IMPLEMENTATA**.
+Stato aggiornato 0.13.99: **NUCLEO SCHEDULER E CONTRATTO ARCHIVIO IMPLEMENTATI ISOLATAMENTE**, **INTEGRAZIONE LIVE/CAR NON IMPLEMENTATA**. [Regola due stagioni](COMPETITION_ENGINE_HISTORY_RETENTION_20261118.md).
 Ramo dev/0.10. La fase 3 non e' completa nei gate della TODO architetturale.
 
 ## Funzionalita' effettivamente implementate

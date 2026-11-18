@@ -67,6 +67,34 @@ int main(void)
         assert(ExpandedEventScheduler_Complete(&t,9u)==EXP_EVENT_OK);
         assert(ExpandedEventScheduler_Next(&t,day(1996,8,1),&due)==EXP_EVENT_EMPTY);
     }
+    /* A still-active cross-year cup must keep its event identity and order.
+     * July 1 is not a reset or an implicit competition finish. */
+    {
+        ExpandedScheduledEvent cross[4] = {0};
+        ExpandedEventScheduler t = {0};
+        const int32_t june = day(2027,6,30);
+        const int32_t july = day(2027,7,1);
+        const int32_t november = day(2027,11,12);
+        assert(ExpandedEventScheduler_Init(&t,cross,4u,
+               (ExpandedWorldDate){2027,2,1}) == EXP_EVENT_OK);
+        assert(ExpandedEventScheduler_Schedule(&t,
+               (ExpandedScheduledEvent){100u,0u,june,1u,
+               EXP_EVENT_FIXTURE,EXP_EVENT_PENDING}) == EXP_EVENT_OK);
+        assert(ExpandedEventScheduler_Schedule(&t,
+               (ExpandedScheduledEvent){101u,100u,november,1u,
+               EXP_EVENT_CUP_ADVANCE,EXP_EVENT_PENDING}) == EXP_EVENT_OK);
+        assert(ExpandedEventScheduler_Next(&t,july,&due) ==
+               EXP_EVENT_DUE && due->id == 100u);
+        assert(ExpandedEventScheduler_Complete(&t,100u) == EXP_EVENT_OK);
+        assert(ExpandedEventScheduler_Next(&t,july,&due) ==
+               EXP_EVENT_EMPTY && t.clock.day_index == july);
+        assert(ExpandedEventScheduler_ValidateRestore(&t));
+        assert(ExpandedEventScheduler_Next(&t,november,&due) ==
+               EXP_EVENT_DUE && due->id == 101u);
+        assert(ExpandedEventScheduler_Complete(&t,101u) == EXP_EVENT_OK);
+        assert(ExpandedEventScheduler_Next(&t,november,&due) == EXP_EVENT_EMPTY);
+        assert(ExpandedEventScheduler_ValidateRestore(&t));
+    }
     puts("POINT3_EVENT_SCHEDULER=PASS_ISOLATED_ONLY");
     return 0;
 }

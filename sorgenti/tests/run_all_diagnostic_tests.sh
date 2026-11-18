@@ -23,6 +23,8 @@ run_one() {
         run_test_expanded_og_cache_match|run_test_expanded_og_league_bridge|\
         run_test_expanded_qualification_transition)
             scope="COMPETITION_ENGINE_ISOLATED" ;;
+        run_test_expanded_f12_compare)
+            scope="F12_READ_ONLY_ISOLATED" ;;
     esac
     printf 'TEST=%s scope=%s action=RUN log=%s\n' "$name" "$scope" "$logfile" >> "$out/ELENCO_TEST.txt"
     if /usr/bin/bash "$script" > "$logfile" 2>&1; then
@@ -57,7 +59,8 @@ for script in sorgenti/tests/run_test*.sh sorgenti/tests/run_audit_competition_f
         run_test_og_offer_rollback.sh|run_test_expanded_event_scheduler.sh|\
         run_test_expanded_competition_history.sh|run_test_expanded_og_cache_match.sh|\
         run_test_expanded_og_league_bridge.sh|\
-        run_test_expanded_qualification_transition.sh)
+        run_test_expanded_qualification_transition.sh|\
+        run_test_expanded_f12_compare.sh)
             run_one "$script" ;;
         run_test_engine_suite.sh|run_test_legacy_suite.sh)
             exclude_one "$script" "DUPLICATE_AGGREGATE" ;;

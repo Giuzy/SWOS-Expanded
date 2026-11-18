@@ -4940,12 +4940,79 @@ void Expanded_OGWorld_DebugHireCheckpoint(uint8_t after)
             (unsigned long)diff.phaseBack,(unsigned long)diff.duplicates);
     exp_f12_log_differences(&s_f12BeforeHire,&s_f12AfterHire,&diff);
 }
+/* SaveStarted is needed below (Dashboard's earlier prototype was local).
+ * SaveYear is already declared before FixtureTickBegin. */
+extern int Expanded_OGWorld_SaveStarted(void);
+/* F12 never runs the next-season qualification callback: inspect only
+ * source IDs previously recorded from OG and the current native residents.
+ * This count is scoped to the four known routes, NOT all world cups. */
+void Expanded_OGWorld_IntegrityAudit(ExpandedOGIntegrityAudit *out)
+{
+    if(!out)return;
+    memset(out,0,sizeof(*out));
+    out->fixtureRecords=(uint32_t)s_expOGFixtureCount;
+    out->fixtureIssues=s_expOGFixtureIssues;
+    out->fixturePartial=s_expOGFixturePartial;
+    out->bridgeRejections=s_expOGBridgeRejections;
+    out->bridgeBlocked=(uint8_t)(s_expOGBridgeBlocked!=0);
+    out->cupFaults=s_expOGCupFaults;
+    out->cupUnsupported=s_expOGCupUnsupported;
+    out->unemployedQualErrors=(uint32_t)s_expOGQualUnemployedError;
+    out->qualYear=Expanded_OGWorld_SaveYear();
+    if(!Expanded_OGWorld_SaveStarted() ||
+       out->qualYear<=World_FirstYear())return;
+    if(!s_expQual.valid ||
+       !ExpandedQual_SameEdition(s_expQual.world,s_expQual.year,
+                                 (unsigned)World_Current(),out->qualYear)) {
+        out->qualUnknown=4u;
+        return;
+    }
+    out->qualSourceReady=1u;
+    for(unsigned c=0;c<4u;++c) {
+        uint16_t resident[EXP_QUAL_MAX_ENTRANTS]={0};
+        uint16_t residentYear=0u;
+        int available=0;
+        const unsigned count=exp_qual_resident(
+            c,out->qualYear,resident,&residentYear,&available);
+        const unsigned source=s_expQual.count[c];
+        out->qualSourceCount[c]=(uint16_t)source;
+        out->qualResidentCount[c]=(uint16_t)count;
+        if(s_expQual.invalid[c]) {
+            out->qualRouteStatus[c]=2u;
+            ++out->qualSourceInvalid;
+            ++out->qualFail;
+            ++out->qualChecked;
+        } else if(source<2u || source>EXP_QUAL_MAX_ENTRANTS) {
+            /* First edition and unsupported entry paths have no source
+             * proof. An empty list matching another empty list is NOT OK. */
+            ++out->qualUnknown;
+        } else {
+            const ExpandedQualDiff d=ExpandedQual_Compare(
+                s_expQual.ids[c],source,resident,count);
+            ++out->qualChecked;
+            if(available && residentYear==out->qualYear &&
+               count>=2u && ExpandedQual_IsExact(&d)) {
+                out->qualRouteStatus[c]=1u;
+                ++out->qualPass;
+            } else {
+                out->qualRouteStatus[c]=2u;
+                ++out->qualFail;
+            }
+        }
+    }
+}
 void Expanded_OGWorld_DebugHireAudit(ExpandedOGHireAudit *out)
 {
     if(!out)return;
     memset(out,0,sizeof(*out));
     out->before=s_f12BeforePanel;
     out->beforeReady=s_f12BeforeHire.valid;
+    /* Exact snapshots taken immediately before/after the CONTRACT, even
+     * if the calendar has subsequently advanced. Keep the existing live
+     * comparison separately for regressions later in the season. */
+    out->atHire=s_f12AfterPanel;
+    out->atHireReady=s_f12AfterHire.valid;
+    ExpandedF12_Compare(&s_f12BeforeHire,&s_f12AfterHire,&out->hireDiff);
     if(!s_f12AfterHire.valid)return;
     /* Re-evaluate after each FORWARD TIME too: a competition lost a week
      * after employment must not escape the hire regression detector. */
@@ -5956,9 +6023,6 @@ static int og_saved_emit_context(OGEmit emit,void *ud,const void *ptr,
     mjson_printf(emit,ud,",%Q:%Q}","checksum",checksum);
     return 1;
 }
-extern uint16_t Expanded_OGWorld_SaveYear(void);
-extern int Expanded_OGWorld_SaveStarted(void);
-
 /* Portably checkpoint the source qualification IDs in the SAME atomic CAR
  * as its native OG contexts. This is a WITNESS, not a separate calendar or
  * simulation. Missing data in older CAR files must remain unverified.

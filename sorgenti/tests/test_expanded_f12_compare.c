@@ -26,6 +26,23 @@ int main(void) {
     post.year=2026;pre.valid=0;
     ExpandedF12_Compare(&pre,&post,&d);
     assert(!d.comparable);
+    /* Exact hire comparison remains independent of later time advancement:
+     * compare PRE->POST once, PRE->LIVE with the same pure identity check. */
+    pre.valid=post.valid=1;pre.year=post.year=2026;
+    pre.count=post.count=2;
+    pre.rows[0]=(ExpandedF12Context){0,4,0,1,50,2026,552};
+    pre.rows[1]=(ExpandedF12Context){1,4,1,1,50,2026,42};
+    post.rows[0]=pre.rows[0];post.rows[1]=pre.rows[1];
+    ExpandedF12_Compare(&pre,&post,&d);
+    assert(d.comparable && d.checked==2 && d.missing==0 &&
+           d.appeared==0 && d.matchesBack==0 && d.phaseBack==0);
+    post.rows[0].matches=553;
+    ExpandedF12_Compare(&pre,&post,&d);
+    assert(d.comparable && d.matchesBack==0); /* later forward time */
+    post.rows[0].matches=551;
+    ExpandedF12_Compare(&pre,&post,&d);
+    assert(d.comparable && d.matchesBack==1); /* true regression */
+    puts("F12 PRE_POST_VS_LIVE=PASS_ISOLATED");
     puts("F12 comparison isolated: PASS (identity swap, viewer, matches, phase, year)");
     return 0;
 }

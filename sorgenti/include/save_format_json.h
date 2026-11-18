@@ -34,6 +34,12 @@ int  SaveJson_BufferIsJson(const uint8_t *buf, uint32_t _size);
 int  SaveJson_FileIsJson(const uint8_t *filename);
 /* Read-only schema/kind/world compatibility probe for Title CONTINUE. */
 int  SaveJson_CareerCompatible(const uint8_t *filename);
+#ifdef SWOS_SDL_BUILD
+/* Debug-only evidence from the LAST real JSON career write/load call in
+ * this world. 0=not attempted, 1=returned success, -1=failed. This does
+ * not certify round-trip gameplay or automatically open a CAR. */
+void SaveJson_DebugCareerOperations(int *write_result,int *load_result);
+#endif
 
 /* Per-file-type save/load. Each returns 0 on success, non-zero on
  * error (caller shows the appropriate error menu). */

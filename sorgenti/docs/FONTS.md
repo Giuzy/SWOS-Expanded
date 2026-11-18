@@ -1,3 +1,8 @@
+## F12 SDL (00.13.191, 18/11/2026)
+- F12 usa esclusivamente il font bitmap **5x7**, passo monospaziato di **7 px**, logica 960x540, non il charset SWOS da 6/8 px. `splash_text_tinted` in `platform_sdl.c` applica il passo anche alle lettere non note; i glifi `>`, `Q`, `J`, `+`, `(`, `)` sono aggiunti alla tabella, nessuna altra metrica cambiata.
+- Divisione verticale x378, prima colonna x26 (dati attuali); confronto assunzione e salute a x395, nel pannello [12,948] e righe [12,528]. Stringhe dello status sono troncate a 16, 8 e 42 caratteri; niente testo fuori bordo dal renderer per le righe nuove.
+- Nuovo F12 senza asset raster: qualsiasi PNG dimostrativo rimane SOLO preview, la UI e' composta da testo/cifre dinamiche originali. Verifica pixel/GLIF e leggibilita' Windows ancora da svolgere.
+
 # SWOS fonts — adding glyphs (Amiga + DOS)
 
 The SWOS font is a **charset sprite sheet**: a 320×256 grid of glyph cells, each glyph

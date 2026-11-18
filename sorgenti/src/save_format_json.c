@@ -6314,8 +6314,28 @@ static int savejson_prepare_career_auto(const uint8_t *filename)
 #define SAVE_CAREER_TRACE(stage) ((void)0)
 #endif
 
+#ifdef SWOS_SDL_BUILD
+/* F12 must distinguish a readable on-disk CAR from a successful SAVE and
+ * from a successful LOAD. These transient flags never enter CAR / gameplay. */
+static int s_f12CareerWriteResult,s_f12CareerLoadResult;
+static unsigned s_f12CareerWriteWorld=(unsigned)-1;
+static unsigned s_f12CareerLoadWorld=(unsigned)-1;
+void SaveJson_DebugCareerOperations(int *write_result,int *load_result)
+{
+    if(write_result)
+        *write_result=s_f12CareerWriteWorld==(unsigned)World_Current()?
+                      s_f12CareerWriteResult:0;
+    if(load_result)
+        *load_result=s_f12CareerLoadWorld==(unsigned)World_Current()?
+                     s_f12CareerLoadResult:0;
+}
+#endif
 int16_t SaveJson_WriteCareer(uint8_t *filename)
 {
+#ifdef SWOS_SDL_BUILD
+    s_f12CareerWriteWorld=(unsigned)World_Current();
+    s_f12CareerWriteResult=-1;
+#endif
 #ifdef SWOS_SDL_BUILD
     /* Cancelled START (or a terminated pilot) has OG resident data but no
      * civil clock. SaveJson_WriteCareer formerly emitted living_world:null,
@@ -7060,7 +7080,9 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
                             verify_reload_career, filename);
 #endif
 #endif
-
+#ifdef SWOS_SDL_BUILD
+    s_f12CareerWriteResult=1;
+#endif
     return 0;
 }
 
@@ -7964,6 +7986,10 @@ static void apply_semantic_load(const char *src, int src_size)
 int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
                             uint32_t src_size_unused)
 {
+#ifdef SWOS_SDL_BUILD
+    s_f12CareerLoadWorld=(unsigned)World_Current();
+    s_f12CareerLoadResult=-1;
+#endif
     /* JSON saves can be several hundred KB after base64 expansion —
      * larger than careerFileBuffer can hold as a destination — so
      * we ignore the legacy in-place `src` buffer and read the file
@@ -8106,6 +8132,9 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
 
     swos_io_free(src);
     PROF_END(total, "career-load");
+#ifdef SWOS_SDL_BUILD
+    s_f12CareerLoadResult=1;
+#endif
     return 0;
 }
 

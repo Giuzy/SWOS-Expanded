@@ -25,6 +25,7 @@ typedef struct {
 } ExpandedOGCupAudit;
 void Expanded_OGWorld_Audit(ExpandedOGWorldAudit *out);
 void Expanded_OGWorld_CupAudit(ExpandedOGCupAudit *out);
+int Expanded_OGWorld_ClubBound(void); /* read-only manager link status */
 /* F12 single-page world coverage: each regional ratio counts COUNTRIES whose
  * complete OG league/cup set is resident in the current season. Match progress
  * counts countries with OG results; totals are original OG match counters.
@@ -68,10 +69,25 @@ typedef struct {
 void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out);
 #include "expanded_f12_compare.h"
 typedef struct {
-    ExpandedOGDashboard before, after;
-    ExpandedF12Diff diff;
-    uint8_t beforeReady,afterReady;
+    ExpandedOGDashboard before, after, atHire;
+    ExpandedF12Diff diff, hireDiff;
+    uint8_t beforeReady,afterReady,atHireReady;
 } ExpandedOGHireAudit;
+/* F12 health = live diagnostic evidence, never an automatic gameplay PASS.
+ * A missing qualification source/edition remains NOT VERIFIED, not invented.
+ * Snapshot contains only scalar counters, no mutable OG/save pointers. */
+typedef struct {
+    uint32_t fixtureRecords, fixtureIssues, fixturePartial;
+    uint32_t bridgeRejections, cupFaults, cupUnsupported;
+    uint32_t qualChecked, qualPass, qualFail, qualUnknown;
+    uint32_t qualSourceInvalid, unemployedQualErrors;
+    uint16_t qualYear;
+    uint16_t qualSourceCount[4], qualResidentCount[4];
+    /* 0=N/D (no evidence), 1=exact IDs, 2=mismatch/invalid source. */
+    uint8_t qualRouteStatus[4];
+    uint8_t qualSourceReady, bridgeBlocked;
+} ExpandedOGIntegrityAudit;
+void Expanded_OGWorld_IntegrityAudit(ExpandedOGIntegrityAudit *out);
 /* 0=just before a contract binds a manager, 1=after the bind.
  * Snapshots are read-only and transient; they never enter .CAR files. */
 void Expanded_OGWorld_DebugHireCheckpoint(uint8_t after);

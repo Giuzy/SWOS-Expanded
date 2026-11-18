@@ -1,5 +1,9 @@
 # SWOS Expanded — AGENTS.md
 
+## 18/11/2026 — 0.13.89: audit warning packed applicato (Windows PENDENTE)
+- Correzione mirata dei 29 `-Waddress-of-packed-member` osservati nei tre log Windows della 0.13.88. Sei file sorgente/header, più test C isolato. [Rapporto tecnico](PACKED_ALIGNMENT_AUDIT_20261118.md). Nessuna modifica alle strutture packed, agli algoritmi OG a 50 Hz, alle competizioni o al formato CAR; non disabilitare i warning.
+- Dove necessario, copie temporanee allineate e `memcpy` delle rappresentazioni di puntatori/int32; nelle callback mutanti letture dei campi dal parent packed vivo. `FindTeamInDIY` e altri vecchi cast richiedono audit separato. Le 29 espressioni sono state revisionate nel codice, ma compilazione completa Windows, confronto warning e roundtrip CAR **NON PROVATI**.
+
 ## 18/11/2026 — 0.13.88: punto 2 con gate runtime ancora aperti
 - Report e TODO: [COMPETITION_ENGINE_POINT2_20261118.md](COMPETITION_ENGINE_POINT2_20261118.md). Il codice ora condivide la regola degli override TEAM storici fra teams.c e TeamDb, e mantiene cache separate per world+mode. Non cancellare le cache alla selezione del mondo: potrebbero esserci puntatori CUSTOM già restituiti.
 - Il nuovo header expanded_competition_identity.h contiene ID stabili da registry futuro e claim per fixture, ma NON è collegato a OG, manager, calendario o CAR. Non dichiarare funzionante il single-writer del mondo né il punto2 completo con il solo test header.

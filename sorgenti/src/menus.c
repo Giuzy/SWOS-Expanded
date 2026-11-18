@@ -7773,22 +7773,21 @@ void SquadMenu(void)
      * offsets (+50 numTeams, +302/+590/+154 team lists) were reading
      * stale field bytes on 64-bit. Use typed fields instead.
      * See project_raw_offset_64bit_shift_trap.md. */
-    DIYCompetitionEx *cfbEx = (DIYCompetitionEx *)&_primaryCompetitionBuf;
-    DIYCompetition   *cfb   = &cfbEx->base;
-    uint16_t compType = (uint16_t)cfb->competitionType;
-    uint16_t numT = (uint16_t)cfb->numTeams;
-    uint16_t *teamList;
+    const DIYCompetitionEx *cfbEx = (const DIYCompetitionEx *)&_primaryCompetitionBuf;
+    uint16_t compType = (uint16_t)cfbEx->base.competitionType;
+    uint16_t numT = (uint16_t)cfbEx->base.numTeams;
+    const uint8_t *teamList;
 
     if (compType == 0) {
-        teamList = cfbEx->matchData.league.leagueTeamIds;  /* parent +0x12E */
+        teamList = (const uint8_t *)cfbEx->matchData.league.leagueTeamIds;  /* parent +0x12E */
     } else if (compType == 1) {
-        teamList = cfbEx->cupTeamIds;                       /* parent +0x24E */
+        teamList = (const uint8_t *)cfbEx->cupTeamIds;                       /* parent +0x24E */
     } else {
         /* Tournament: team-id list is DIYTournamentState.teamIds (parent +0x9A).
          * competitionFileBuffer's tournament view keeps teamIds at byte 0x9A on
          * both 32- and 64-bit (the DIYTournamentState header pad self-adjusts),
          * so the typed access is correct cross-target. */
-        teamList = ((DIYTournamentState *)cfb)->teamIds;
+        teamList = (const uint8_t *)cfbEx + offsetof(DIYTournamentState, teamIds);
     }
 
     if (numT > 64) numT = 0;  /* safety clamp — should never trigger now */
@@ -7803,7 +7802,7 @@ void SquadMenu(void)
     {
         uint16_t decoded[64];
         for (uint16_t i = 0; i < numT; i++)
-            decoded[i] = BE_READ_U16((uint8_t *)&teamList[i]);
+            decoded[i] = BE_READ_U16(teamList + (size_t)i * 2u);
         SelectAndShowSquadToView(decoded, numT, rowMode);
     }
 }

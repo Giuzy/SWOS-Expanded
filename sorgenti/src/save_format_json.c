@@ -656,10 +656,23 @@ static void load_season_informations(const char *buf, int buflen)
         if (mjson_get_long(e_slice, e_slen, "$.trophy_flags", &num) > 0)
             e->trophyFlags = (uint16_t)num;
 
-        load_str_pool_field(e_slice, e_slen, "$.league_str", &e->leagueStrPtr);
-        load_str_pool_field(e_slice, e_slen, "$.str_1",      &e->strPtr1);
-        load_str_pool_field(e_slice, e_slen, "$.str_2",      &e->strPtr2);
-        load_str_pool_field(e_slice, e_slen, "$.str_3",      &e->strPtr3);
+        /* SeasonInformations is packed; even a pointer field at an even
+         * offset can be unaligned to sizeof(void *) on x64. */
+        {
+            uint8_t *value = NULL;
+            load_str_pool_field(e_slice, e_slen, "$.league_str", &value);
+            memcpy((uint8_t *)e + offsetof(SeasonInformations, leagueStrPtr),
+                   &value, sizeof value);
+            load_str_pool_field(e_slice, e_slen, "$.str_1", &value);
+            memcpy((uint8_t *)e + offsetof(SeasonInformations, strPtr1),
+                   &value, sizeof value);
+            load_str_pool_field(e_slice, e_slen, "$.str_2", &value);
+            memcpy((uint8_t *)e + offsetof(SeasonInformations, strPtr2),
+                   &value, sizeof value);
+            load_str_pool_field(e_slice, e_slen, "$.str_3", &value);
+            memcpy((uint8_t *)e + offsetof(SeasonInformations, strPtr3),
+                   &value, sizeof value);
+        }
 
         if (mjson_get_long(e_slice, e_slen, "$.best_scorer_goals", &num) > 0)
             e->bestScorerNumGoals = (uint16_t)num;
@@ -3495,9 +3508,14 @@ static int dj_comp_base(const char *o, int ol, Competition *c, int isPlayoff)
    writing pointers to out[]. Missing/over-long entries stay as-is (caller
    memset the record to 0, so they read NULL = "use default name"). */
 static void dj_intern_names(const char *o, int ol, const char *path,
-                            char **out, int max, char *strpool, int strpoolsz)
+                            void *packed_out, int max, char *strpool, int strpoolsz)
 {
+    /* Competition records are packed to byte alignment: their char* name[]
+     * slots are not necessarily pointer-aligned on x64. Work with an aligned
+     * temporary array and copy pointer REPRESENTATIONS back as bytes. */
+    char *out[2 * LEAGUE_MAX_DIVISIONS] = {0};
     const char *arr; int al, pos = 0, voff, vlen, vt, i = 0, used = 0;
+    if (max < 0 || max > 2 * LEAGUE_MAX_DIVISIONS) return;
     if (mjson_find(o, ol, path, &arr, &al) != MJSON_TOK_ARRAY) return;
     while (i < max && (pos = fast_array_next(arr, al, pos, &voff, &vlen, &vt)) != 0) {
         if (vt == MJSON_TOK_STRING) {
@@ -3542,6 +3560,7 @@ static void dj_intern_names(const char *o, int ol, const char *path,
         }
         i++;
     }
+    memcpy(packed_out, out, (size_t)max * sizeof(out[0]));
 }
 
 /* Parse "$.team_seed_list" ({country: "CN_*", ordinal}) into out[max] TeamIds. */
@@ -3625,7 +3644,7 @@ int DataJson_LoadCompetitionCup(const char *o, int ol, void *outv,
     out->header.roundStringBase     = (int8_t)GN(o, ol, "$.round_string_base");
 #undef GN
     dj_round_rules(o, ol, "$.round_rule_flags", out->roundRuleFlags, 6);
-    dj_intern_names(o, ol, "$.name", out->name, 2, strpool, strpoolsz);
+    dj_intern_names(o, ol, "$.name", (uint8_t *)out + offsetof(CompetitionCup, name), 2, strpool, strpoolsz);
     dj_seed_list(o, ol, out->teamSeedList, 32);
     return 0;
 }
@@ -3651,7 +3670,7 @@ int DataJson_LoadPlayoffs(const char *o, int ol, void *outv,
     out->roundStringBase   = (int8_t)GN(o, ol, "$.round_string_base");
 #undef GN
     dj_round_rules(o, ol, "$.round_rule_flags", out->roundRuleFlags, 2);
-    dj_intern_names(o, ol, "$.name", out->name, 2, strpool, strpoolsz);
+    dj_intern_names(o, ol, "$.name", (uint8_t *)out + offsetof(Playoffs, name), 2, strpool, strpoolsz);
     return 0;
 }
 
@@ -3685,7 +3704,7 @@ int DataJson_LoadCompetitionTournament(const char *o, int ol, void *outv,
     }
 #undef GN
     dj_round_rules(o, ol, "$.round_rule_flags", out->roundRuleFlags, 6);
-    dj_intern_names(o, ol, "$.name", out->name, 2, strpool, strpoolsz);
+    dj_intern_names(o, ol, "$.name", (uint8_t *)out + offsetof(CompetitionTournament, name), 2, strpool, strpoolsz);
     dj_seed_list(o, ol, out->teamSeedList, 32);
     return 0;
 }
@@ -3724,7 +3743,7 @@ int DataJson_LoadCompetitionLeague(const char *o, int ol, void *outv,
         }
     }
 #undef GN
-    dj_intern_names(o, ol, "$.name", out->name, 2 * LEAGUE_MAX_DIVISIONS, strpool, strpoolsz);
+    dj_intern_names(o, ol, "$.name", (uint8_t *)out + offsetof(CompetitionLeague, name), 2 * LEAGUE_MAX_DIVISIONS, strpool, strpoolsz);
     dj_i8_array(o, ol, "$.promotion_link_data", (int8_t *)out->promotionLinkData, 24);
     return 0;
 }
@@ -5055,7 +5074,17 @@ static void fixup_cache_strides_on_load(const char *buf, int buflen)
  * auto-adjusts for the 32/64-bit struct growth. */
 static inline DIYTeamStats *diy_ovr_row(DIYCompetitionEx *comp, int idx)
 {
-    return &comp->leagueStandings[idx];
+    /* Both parent and row have 2-byte alignment; the trailing offset
+     * and 18-byte stride preserve it. Anonymous packed union alone does
+     * not let GCC prove this, so enforce it at compile time. */
+    _Static_assert(_Alignof(DIYCompetitionEx) >= _Alignof(DIYTeamStats),
+                   "DIY standings parent alignment");
+    _Static_assert(offsetof(DIYCompetitionEx,leagueStandings) %
+                       _Alignof(DIYTeamStats) == 0,
+                   "DIY standings offset alignment");
+    return (DIYTeamStats *)((uint8_t *)comp +
+        offsetof(DIYCompetitionEx,leagueStandings) +
+        (size_t)idx * sizeof(DIYTeamStats));
 }
 
 /* teamSelOffset / teamOffsetTable now hold a stable team IDENTITY at runtime
@@ -5099,7 +5128,13 @@ static int32_t diy_identity_to_teamseloffset(int32_t v) { return v; }
 static void emit_comp_slot(mjson_print_fn_t fn, void *fnd,
                            const char *key, const DIYCompetitionEx *s)
 {
-    const DIYCompetition *b = &s->base;
+    /* Read-only aligned copy: DIYCompetition has pointer alignment while
+     * DIYCompetitionEx is packed/aligned(2). Do not dereference &s->base
+     * through a potentially misaligned DIYCompetition*. */
+    DIYCompetition aligned_base;
+    memcpy(&aligned_base, (const uint8_t *)s + offsetof(DIYCompetitionEx, base),
+           sizeof aligned_base);
+    const DIYCompetition *b = &aligned_base;
     mjson_printf(fn, fnd, "%Q:{", key);
 
     /* Scalar header fields — all endian-neutral decimals. */
@@ -5155,8 +5190,11 @@ static void emit_comp_slot(mjson_print_fn_t fn, void *fnd,
      * slotId=0 → BE reads (1<<8)=256 → compType ∉ {0..4} →
      * UpdateCareerFinancesAfterMatch panic 0x9200). Emit the logical word
      * endian-neutral; load_comp_slot restores it as a word AFTER the bytes. */
-    mjson_printf(fn, fnd, ",%Q:%u", "comp_slot_word",
-                 (unsigned)*(const uint16_t *)&b->compSlot);
+    {
+        uint16_t word;
+        memcpy(&word, &b->compSlot, sizeof word);
+        mjson_printf(fn, fnd, ",%Q:%u", "comp_slot_word", (unsigned)word);
+    }
 
     /* competitionName[36] — char string. */
     mjson_printf(fn, fnd, "%s", ",");
@@ -5328,12 +5366,16 @@ static void emit_comp_slot(mjson_print_fn_t fn, void *fnd,
      * slots stay 0 → identity 0, harmless (never read for absent teams).
      * League view doesn't use this field. */
     if (b->competitionType == 1) {
-        const int32_t *ot = s->bracketScratch.teamOffsetTable;
+        const uint8_t *ot = (const uint8_t *)s +
+            offsetof(DIYCompetitionEx, bracketScratch.teamOffsetTable);
         mjson_printf(fn, fnd, ",%Q:[", "team_offset_table");
         for (int i = 0; i < 64; i++) {
+            int32_t aligned_offset;
+            memcpy(&aligned_offset, ot + (size_t)i * sizeof aligned_offset,
+                   sizeof aligned_offset);
             if (i > 0) mjson_printf(fn, fnd, "%s", ",");
             mjson_printf(fn, fnd, "%d",
-                         (int)diy_teamseloffset_to_identity(ot[i]));
+                         (int)diy_teamseloffset_to_identity(aligned_offset));
         }
         mjson_printf(fn, fnd, "%s", "]");
 
@@ -5510,7 +5552,7 @@ static void load_comp_slot(const char *parent, int plen,
     if (mjson_find(parent, plen, path, &o, &olen) != MJSON_TOK_OBJECT)
         return;                          /* slot absent (older save) */
 
-    DIYCompetition *b = &s->base;
+    /* Assign to packed members directly: compiler generates safe accesses. */
     long v;
 #define LD16(jk, fld) \
     if (mjson_get_long(o, olen, "$." jk, &v) > 0) (fld) = (int16_t)v
@@ -5519,45 +5561,49 @@ static void load_comp_slot(const char *parent, int plen,
 #define LDU16(jk, fld) \
     if (mjson_get_long(o, olen, "$." jk, &v) > 0) (fld) = (uint16_t)v
 
-    LD16("type", b->competitionType);
-    LDU16("is_active", b->isActive);
-    LD8("comp_slot", b->compSlot);
-    LD8("slot_id", b->slotId);
-    LD8("field_2e", b->field_2E);
+    LD16("type", s->base.competitionType);
+    LDU16("is_active", s->base.isActive);
+    LD8("comp_slot", s->base.compSlot);
+    LD8("slot_id", s->base.slotId);
+    LD8("field_2e", s->base.field_2E);
     /* compSlot/slotId is a host-native word (see emit_comp_slot). The bytes
      * above are the saving host's decomposition — wrong cross-endian. Override
      * with the logical word so it round-trips on BE. New-save key; absent in
      * old saves (then the bytes stand, same-target-correct). MUST run after the
      * two LD8s since it overwrites both bytes. */
     if (mjson_get_long(o, olen, "$.comp_slot_word", &v) > 0)
-        *(uint16_t *)&b->compSlot = (uint16_t)v;
-    LD8("view_phase", b->viewRandomPhase);
-    LD8("avg_skill", b->avgSkill);
-    LD8("str_tier", b->strengthTier);
-    LD16("num_teams", b->numTeams);
-    LD16("pitch_type_or_season", b->pitchTypeOrSeason);
-    LD16("pitch_type", b->pitchType);
-    if (mjson_get_long(o, olen, "$.start_month", &v) > 0) b->startMonth = (int8_t)v;
-    if (mjson_get_long(o, olen, "$.end_month", &v) > 0)   b->endMonth   = (int8_t)v;
-    LD16("result_code", b->resultCode);
-    LD16("subs_count", b->substitutesCount);
-    LD16("slot_state_a", b->slotStateA);
-    LD16("slot_state_b", b->slotStateB);
-    LD16("slot_state_c", b->slotStateC);
-    LD16("match_started", b->matchStarted);
-    LD16("career_team_involved", b->careerTeamInvolved);
-    LD16("has_groups", b->hasGroups);
-    LD16("menu_state", b->menuState);
-    LD16("round_iterator", b->roundIterator);
-    LD16("num_teams_in_stage", b->numTeamsInStage);
-    LD16("match_pairs_per_round", b->matchPairsPerRound);
-    LD16("total_matches_in_round", b->totalMatchesInRound);
-    LD16("round_complete", b->roundComplete);
-    LD16("competition_finished", b->competitionFinished);
-    LD16("current_round_index", b->currentRoundIndex);
-    LD16("num_rounds", b->numRounds);
-    LD16("sub_round_counter", b->subRoundCounter);
-    LD16("play_each_team", b->playEachTeam);
+        {
+            uint16_t word = (uint16_t)v;
+            memcpy((uint8_t *)s + offsetof(DIYCompetitionEx, base.compSlot),
+                   &word, sizeof word);
+        }
+    LD8("view_phase", s->base.viewRandomPhase);
+    LD8("avg_skill", s->base.avgSkill);
+    LD8("str_tier", s->base.strengthTier);
+    LD16("num_teams", s->base.numTeams);
+    LD16("pitch_type_or_season", s->base.pitchTypeOrSeason);
+    LD16("pitch_type", s->base.pitchType);
+    if (mjson_get_long(o, olen, "$.start_month", &v) > 0) s->base.startMonth = (int8_t)v;
+    if (mjson_get_long(o, olen, "$.end_month", &v) > 0)   s->base.endMonth   = (int8_t)v;
+    LD16("result_code", s->base.resultCode);
+    LD16("subs_count", s->base.substitutesCount);
+    LD16("slot_state_a", s->base.slotStateA);
+    LD16("slot_state_b", s->base.slotStateB);
+    LD16("slot_state_c", s->base.slotStateC);
+    LD16("match_started", s->base.matchStarted);
+    LD16("career_team_involved", s->base.careerTeamInvolved);
+    LD16("has_groups", s->base.hasGroups);
+    LD16("menu_state", s->base.menuState);
+    LD16("round_iterator", s->base.roundIterator);
+    LD16("num_teams_in_stage", s->base.numTeamsInStage);
+    LD16("match_pairs_per_round", s->base.matchPairsPerRound);
+    LD16("total_matches_in_round", s->base.totalMatchesInRound);
+    LD16("round_complete", s->base.roundComplete);
+    LD16("competition_finished", s->base.competitionFinished);
+    LD16("current_round_index", s->base.currentRoundIndex);
+    LD16("num_rounds", s->base.numRounds);
+    LD16("sub_round_counter", s->base.subRoundCounter);
+    LD16("play_each_team", s->base.playEachTeam);
     LDU16("min_subs", s->minSubstitutes);
     LDU16("points_for_win", s->pointsForAWin);
 #undef LD16
@@ -5565,8 +5611,8 @@ static void load_comp_slot(const char *parent, int plen,
 #undef LDU16
 
     load_string_field(o, olen, "$.name",
-                      (uint8_t *)b->competitionName,
-                      sizeof(b->competitionName));
+                      (uint8_t *)s->base.competitionName,
+                      sizeof(s->base.competitionName));
 
     /* Team-id byte array → the per-type slot field. COUNT = numTeams*2
      * (NOT sizeof the declared field — the game writes numTeams entries
@@ -5576,11 +5622,11 @@ static void load_comp_slot(const char *parent, int plen,
      * field base, matching the runtime write. */
     {
         uint8_t *tids = NULL;
-        if (b->competitionType == 0)
+        if (s->base.competitionType == 0)
             tids = (uint8_t *)s->matchData.league.leagueTeamIds;
-        else if (b->competitionType == 1)
+        else if (s->base.competitionType == 1)
             tids = (uint8_t *)s->cupTeamIds;
-        int16_t nt = b->numTeams;
+        int16_t nt = s->base.numTeams;
         if (nt < 0) nt = 0; else if (nt > 64) nt = 64;
         uint32_t tlen = (uint32_t)nt * 2u;
         if (tids && tlen) {
@@ -5595,7 +5641,7 @@ static void load_comp_slot(const char *parent, int plen,
      * endian-neutral cup_score_* / teamEntryOffsets fixups below so those
      * layer their host-native values on top. Skipped for tournaments
      * (type 2) — see the emit-side TYPE-2 EXCEPTION note. */
-    if (b->competitionType != 2) {
+    if (s->base.competitionType != 2) {
         const char *mr = NULL; int mrl = 0;
         if (mjson_find(o, olen, "$.matchdata_raw", &mr, &mrl) == MJSON_TOK_ARRAY)
             parse_byte_array_slice(mr, mrl, (uint8_t *)&s->matchData,
@@ -5605,8 +5651,8 @@ static void load_comp_slot(const char *parent, int plen,
     /* LEAGUE teamEntryOffsets — host-native uint16 words, numTeams of them
      * (see emit). parse_u16_array_slice writes host-native (endian-neutral
      * on disk). Caps at numTeams*2 bytes so it can't overrun. */
-    if (b->competitionType == 0) {
-        int16_t nt = b->numTeams;
+    if (s->base.competitionType == 0) {
+        int16_t nt = s->base.numTeams;
         if (nt < 0) nt = 0; else if (nt > 64) nt = 64;
         uint32_t elen = (uint32_t)nt * 2u;
         if (elen) {
@@ -5621,7 +5667,7 @@ static void load_comp_slot(const char *parent, int plen,
     /* LEAGUE progress run (0x1BE..0x24D) — endian-neutral re-lay over the raw
      * blob's cross-target-shifted bytes; see emit. Old saves lacking these
      * keys leave the prior (blob/recomputed) values, defaulting to 0. */
-    if (b->competitionType == 0) {
+    if (s->base.competitionType == 0) {
         if (mjson_get_long(o, olen, "$.matches_played_count", &v) > 0)        s->matchesPlayedCount = (uint16_t)v;
         if (mjson_get_long(o, olen, "$.league_current_slot", &v) > 0)         s->leagueCurrentSlot = (uint16_t)v;
         if (mjson_get_long(o, olen, "$.league_match_progress", &v) > 0)       s->leagueMatchProgress = (uint16_t)v;
@@ -5652,7 +5698,7 @@ static void load_comp_slot(const char *parent, int plen,
      * selTeamsPtr byte-offsets (see emit). Walk the 64-element array; each
      * decimal is a team index (or -1 careerTeam sentinel) converted back
      * via diy_identity_to_teamseloffset. */
-    if (b->competitionType == 1) {
+    if (s->base.competitionType == 1) {
         const char *arr = NULL; int alen = 0;
         if (mjson_find(o, olen, "$.team_offset_table", &arr, &alen)
                 == MJSON_TOK_ARRAY) {
@@ -5721,7 +5767,7 @@ static void load_comp_slot(const char *parent, int plen,
      * +0x15A. The 2-byte pad / progressionTable / team-ids / shuffle were
      * already restored by the raw context blob (byte-safe), so this only
      * re-lays the endian-sensitive uint16 fields on top. */
-    if (b->competitionType == 2) {
+    if (s->base.competitionType == 2) {
         DIYTournamentSlot *slots =
             (DIYTournamentSlot *)((uint8_t *)s + 0x15A);
         const char *arr = NULL; int alen = 0;

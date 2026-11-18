@@ -1,5 +1,9 @@
 # SWOS EXPANDED — PROJECT_STATE.md
 
+## 18/11/2026 — 0.13.89: correzioni di allineamento packed
+- Versione codice 0.13.89 su `dev/0.10`: integrate le correzioni mirate alle 29 segnalazioni di `-Waddress-of-packed-member` della 0.13.88 in 6 file, senza cambiare layout OG o schema CAR. [Audit e limiti](PACKED_ALIGNMENT_AUDIT_20261118.md). Compreso test C isolato in `sorgenti/tests/test_expanded_packed_alignment.c`.
+- Le copie allineate riguardano letture/puntatori; le callback che modificano lo stato OG leggono i dati vivi. Mancano ancora verifica dell'effettivo numero di warning dopo compilazione Windows, CONTINUE e nuovo save 1996/97 e 2026/27, CLASSIC/DIY/SEASON e gameplay: **NON PROVATO**.
+
 ## 18/11/2026 — 0.13.88: punto 2 FONDAMENTA, non completato end-to-end
 - [COMPETITION_ENGINE_POINT2_20261118.md](COMPETITION_ENGINE_POINT2_20261118.md): source helper per 012/013/038/073 in carriera WORLD_9697; TeamDb legge gli stessi file che legge OG con fallback e cache s_country[WORLD_COUNT][2][256] per mondo/modalità/file. Correzione mira al mismatch Francia 18 vs 20 e Turchia 17 vs 18, non cambia asset.
 - Introdotti ClubKey, CompetitionKey, EditionKey, FixtureKey e ledger claim header-only con test C isolato. NON ancora collegati alla simulazione, alla firma del manager o ai salvataggi. B evoluzioni storiche rinviata; build_info.h 0.13.88.

@@ -1,5 +1,9 @@
 # SWOS EXPANDED — IMPROVEMENTS
 
+## 18/11/2026 — 0.13.89: accessi packed rivisti (Windows da verificare)
+- Patch dei 29 punti di `-Waddress-of-packed-member` riscontrati nei tre log della 0.13.88, in sei sorgenti/header: accessi con allineamento garantito o `memcpy` e assert compile-time; nessuna alterazione volontaria di struct OG, gameplay e formato dei file CAR.
+- [Rapporto](PACKED_ALIGNMENT_AUDIT_20261118.md) e test C isolato inclusi. Mancano build Windows della 0.13.89, nuovo conteggio warning, roundtrip dei CAR per entrambi i mondi e regressioni: **NON PROVATI**.
+
 ## 18/11/2026 — build 0.13.88: TeamDb source alignment + contract fixture (Windows DA PROVARE)
 - teams.c e team_db.c usano stesso team_source.h per file storici 012/013/038/073 in 96/97 CAREER; TeamDb cache per mondo e mode evita letture legacy nel contesto corretto e mantiene puntatori esistenti. Asset e CAR non modificati.
 - expanded_competition_identity.h: tipi di ID e pre-claim anti-doppio-writer, test C isolato. NON attivo nel gameplay/CONTINUE, non certifica assenza doppie partite in SWOS. [Dettagli e rimanenti](COMPETITION_ENGINE_POINT2_20261118.md).

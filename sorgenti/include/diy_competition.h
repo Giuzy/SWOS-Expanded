@@ -26,8 +26,19 @@
  * teamOffsetTable. They are now the explicit trailing `leagueStandings[64]`
  * field, clear of the cup scratch — see
  * docs/TEAMOFFSETTABLE_OVERLAY_UNTANGLE.md. */
+/* The anonymous union is packed, but its address and each 18-byte row
+ * are provably aligned to DIYTeamStats' actual alignment (2 bytes) for
+ * every valid DIYCompetitionEx object. GCC cannot infer this across the
+ * packed union; assert the invariant instead of silencing the warning. */
+_Static_assert(_Alignof(DIYCompetitionEx) >= _Alignof(DIYTeamStats),
+               "DIY standings require stronger parent alignment");
+_Static_assert(offsetof(DIYCompetitionEx, leagueStandings) %
+                   _Alignof(DIYTeamStats) == 0,
+               "DIY standings start must be aligned");
 static inline DIYTeamStats *diy_standings_row(DIYCompetitionEx *comp, int idx) {
-    return &comp->leagueStandings[idx];
+    return (DIYTeamStats *)((uint8_t *)comp +
+        offsetof(DIYCompetitionEx, leagueStandings) +
+        (size_t)idx * sizeof(DIYTeamStats));
 }
 static inline DIYTeamStats *diy_standings_row_from_raw(uint8_t *compRaw, int idx) {
     return diy_standings_row((DIYCompetitionEx *)compRaw, idx);

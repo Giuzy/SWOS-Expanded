@@ -7,6 +7,7 @@
 #include "translations.h"
 #include "comp_identity.h"
 #include "game_types.h"
+#include <string.h>  /* memcpy aligned snapshot of packed DIY base */
 #include "world.h"
 #include "menu_system.h"
 #include "play_match_menu.h"
@@ -1676,7 +1677,12 @@ static int16_t EncodeCompetitionPositionForSeasonInfo_impl(
      * the AutoAdvance dispatch fix in `_Career_AutoAdvanceCompetition
      * AndPersistSlotState` — see project memory `low-byte-of-uint16-field`. */
     DIYCompetitionEx *compEx = (DIYCompetitionEx *)compBuf;
-    DIYCompetition   *comp   = &compEx->base;
+    /* The packed parent permits only 2-byte alignment; the base type
+     * contains a pointer and requires stronger alignment on x64. This
+     * path only reads the base, so copy it into aligned local storage. */
+    DIYCompetition aligned_base;
+    memcpy(&aligned_base, compBuf, sizeof aligned_base);
+    const DIYCompetition *comp = &aligned_base;
     uint8_t type = (uint8_t)(uint16_t)comp->competitionType;
 
     if (type == 0) {
@@ -1703,7 +1709,7 @@ static int16_t EncodeCompetitionPositionForSeasonInfo_impl(
         /* --- Cup path --- */
         if (comp->competitionFinished == 0) {
             /* Cup not finished — check if team is still in it */
-            FindTeamInDIY(_selTeamNumber, comp);
+            FindTeamInDIY(_selTeamNumber, (DIYCompetition *)compBuf);
             if (_diyFoundTeamIndex == 0)
                 return -104;   /* team not found in cup */
         }
@@ -1732,7 +1738,7 @@ static int16_t EncodeCompetitionPositionForSeasonInfo_impl(
     /* --- Tournament/Groups path (type >= 2) --- */
     if (comp->currentRoundIndex == 0) {
         /* Tournament not finished — check if team is still in it */
-        FindTeamInDIY(_selTeamNumber, comp);
+        FindTeamInDIY(_selTeamNumber, (DIYCompetition *)compBuf);
         if (_diyFoundTeamIndex == 0)
             return -104;   /* team not found */
     }

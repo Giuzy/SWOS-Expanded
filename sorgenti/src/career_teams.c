@@ -2366,16 +2366,18 @@ void Career_UpdateHybridCompetitionProgressAndMaybeAdvanceSlot(void)
     uint16_t slotIdx = bufComp->roundComplete;
     DIYTournamentSlot *slot = (DIYTournamentSlot *)(buf + (uint32_t)slotIdx * 0x76 + 0x15A);
 
-    DIYCompetition *comp = &_diyCompetitionStart.base;
+    /* The working DIYCompetitionEx is packed: read fields directly from
+     * its live parent AFTER each OG callback rather than through a pointer
+     * that assumes DIYCompetition's stronger alignment. */
 
     if (slot->isLeagueFormat != 0) {
         /* League type slot */
         Career_AutoPlayOrSimulateLeagueFixtureLoop();
 
         /* Copy progress fields: comp→buf */
-        bufComp->matchStarted = comp->matchStarted;
-        bufComp->careerTeamInvolved = comp->careerTeamInvolved;
-        bufComp->resultCode     = comp->resultCode;
+        bufComp->matchStarted = _diyCompetitionStart.base.matchStarted;
+        bufComp->careerTeamInvolved = _diyCompetitionStart.base.careerTeamInvolved;
+        bufComp->resultCode     = _diyCompetitionStart.base.resultCode;
 
         /* Advance if diyCompetitionStart.minSubstitutes == 0 */
         if (_diyCompetitionStart.minSubstitutes == 0)
@@ -2385,13 +2387,13 @@ void Career_UpdateHybridCompetitionProgressAndMaybeAdvanceSlot(void)
         Career_AutoPlayCupMatchAndAdvanceLoop();
 
         /* Copy progress fields: comp→buf (4 fields) */
-        bufComp->matchStarted  = comp->matchStarted;
-        bufComp->careerTeamInvolved  = comp->careerTeamInvolved;
-        bufComp->resultCode      = comp->resultCode;
-        bufComp->hasGroups       = comp->roundIterator;
+        bufComp->matchStarted  = _diyCompetitionStart.base.matchStarted;
+        bufComp->careerTeamInvolved  = _diyCompetitionStart.base.careerTeamInvolved;
+        bufComp->resultCode      = _diyCompetitionStart.base.resultCode;
+        bufComp->hasGroups       = _diyCompetitionStart.base.roundIterator;
 
         /* Advance if competition finished */
-        if (comp->competitionFinished != 0)
+        if (_diyCompetitionStart.base.competitionFinished != 0)
             DIY_AdvanceToNextCompetitionSlot();
     }
 }

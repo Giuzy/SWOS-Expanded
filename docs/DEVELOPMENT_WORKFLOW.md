@@ -1,5 +1,10 @@
 # SWOS Expanded — development procedures and rationale
 
+## 18/11/2026 — checklist Windows dopo 0.13.89 packed
+- [Rapporto](PACKED_ALIGNMENT_AUDIT_20261118.md): modificati sei file e aggiunto `sorgenti/tests/test_expanded_packed_alignment.c` per i 29 warning della 0.13.88. I controlli statici e il test C rappresentativo NON equivalgono alla compilazione completa di Expanded.
+- Dopo GitKraken su `dev/0.10`, verificare Build 0.13.89, compilare con `diagnostica/COMPILA_SWOS.bat` usando la toolchain già installata e leggere il `COMPILAZIONE_0140.log` nuovo. Contare warning packed e ogni altro error/warning senza riciclare i log vecchi.
+- Proteggere i vecchi `AUTO9697.CAR`, `AUTO2627.CAR` e `AUTOSAVE.CAR` (legacy). Provare con CAR di prova save, chiusura, CONTINUE, cambio mondo, campionati/coppe, CLASSIC/DIY/SEASON e input mouse/joypad. STOP in caso di errore compilazione, perdita save o regressione OG. Segnare SI/NO/NON PROVATO, non attribuire PASS Windows per i test isolati.
+
 ## 18/11/2026 — checklist Windows 0.13.88 TeamDb / punto 2
 - Dopo GitKraken compilare con COMPILA_SWOS.bat / strumenti già installati. Verificare nel log Build 0.13.88 e assenza errori GCC; l'assistente non compila su Windows.
 - In NEW CAREER 96/97 provare START disoccupato e DEBUG WORLD: Francia prima divisione 20, Turchia 18; niente NATIVE_DATA_FORMAT_MISMATCH. Provare il cambio mondo 96→26→96 prima della carriera senza riavvio. Controllare CLASSIC/DIY/SEASON/CUSTOM e vecchi save SENZA sovrascriverli.

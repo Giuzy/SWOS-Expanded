@@ -1,5 +1,9 @@
 # SWOS Expanded — Registro delle scoperte sul codice
 
+## 18/11/2026 — 0.13.89: audit allineamento packed, 29 warning 0.13.88
+- Tre `COMPILAZIONE_0140.log` (sessioni 1 070243, 2(9), 3(6)): 29 warning GCC per build: 12 in save_format_json, 9 in career_status, 5 ripetuti dall'include diy_competition.h, 1 ciascuno in menus, statistics e career_teams. Localizzati i call site, corretti con valori temporanei allineati e `memcpy` per pointer/int32 packed, oppure accesso diretto a parent mutante. `DIYTeamStats` usa `offsetof` e `_Static_assert` per allineamento 2. [Audit](PACKED_ALIGNMENT_AUDIT_20261118.md).
+- Fonte C modificata nella 0.13.89; test C sintetico dell'operazione packed eseguito separatamente, non prova runtime. `FindTeamInDIY` mantiene un percorso OG esistente che richiede ancora audit dei chiamanti. Compilazione integrale, zero warning residui, CAR 96/26 e gameplay Windows: **NON PROVATI**.
+
 ## 18/11/2026 — 0.13.88: path sorgente TeamDb e identity claim
 - team_source.h contiene il predicato puro degli override 96/97 CAREER, ora usato sia da teams.c che team_db.c. TeamDb::read_country controlla e carica l'RNC storico in buffer privato, senza chiamare LoadTeamFile e senza contaminare TeamPool; fallback generico invariato.
 - team_db.c::country_of sceglie s_country[WORLD_COUNT][2][256] invece di cache per paese soltanto. Puntatori alle entry persistono al cambio world/mode; ogni banco è un dataset isolato. Mancano ancora test Windows e verifica cache se dati cambiati esternamente a caldo.

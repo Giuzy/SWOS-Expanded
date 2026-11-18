@@ -1705,7 +1705,10 @@ update_and_clamp:
  */
 static uint16_t getExpectedLeagueRankIndex(uint8_t *ctx, uint16_t moreExpensiveCount) {
     DIYCompetitionEx *ctxEx = (DIYCompetitionEx *)ctx;
-    DIYCompetition *ctxBase = &ctxEx->base;
+    DIYCompetition aligned_base;
+    memcpy(&aligned_base, (const uint8_t *)ctxEx + offsetof(DIYCompetitionEx,base),
+           sizeof aligned_base);
+    const DIYCompetition *ctxBase = &aligned_base;
     uint16_t d3 = (uint16_t)ctxBase->numTeams;
     uint16_t compType = (uint16_t)ctxBase->competitionType;
 
@@ -3390,9 +3393,9 @@ void Career_AutoAdvanceCompetitionAndPersistSlotState(uint8_t *compPtr)
      * the context further, but the actual sim is bypassed. One-shot
      * log so we know which competition was bad. */
     {
-        DIYCompetition *dcs = &_diyCompetitionStart.base;
-        int16_t numTeams = dcs->numTeams;
-        int16_t totalInRound = dcs->totalMatchesInRound;
+        /* Read packed state directly; no potentially 8-byte-aligned base pointer. */
+        int16_t numTeams = _diyCompetitionStart.base.numTeams;
+        int16_t totalInRound = _diyCompetitionStart.base.totalMatchesInRound;
         int bail = 0;
         const char *bailReason = 0;
         uint32_t bailTeamSelPtr = 0;
@@ -4015,11 +4018,15 @@ static int exp_debug_live_cup(const ExpandedOGCup *c,uint16_t year)
         !c->unsupported_setup && c->teamCount>=2u &&
         c->teamCount<=EXP_OG_MAX_CUP_TEAMS;
 }
-static unsigned exp_debug_count_competitions(Competition *const *v,unsigned cap)
+static unsigned exp_debug_count_competitions(const void *packed_array,unsigned cap)
 {
     unsigned count=0;
+    /* QualifyingGroup is packed(1). Dereference pointers only after copying
+     * their representation into naturally aligned local storage. */
     for(unsigned i=0;i<cap;++i) {
-        const uintptr_t ptr=(uintptr_t)v[i];
+        Competition *item=NULL;
+        memcpy(&item,(const uint8_t *)packed_array + i*sizeof item,sizeof item);
+        const uintptr_t ptr=(uintptr_t)item;
         if(!ptr || ptr==(uintptr_t)-1)break;
         if(ptr<(uintptr_t)0x10000u)continue; /* native table special markers */
         ++count;
@@ -4034,7 +4041,13 @@ static int exp_f12_standings_coherent(const ExpandedOGLeague *ctx)
     uint64_t gp=0,w=0,d=0,l=0,gf=0,ga=0;
     if(n<2u || n>64u || n>ctx->teamCount)return 0;
     for(unsigned i=0;i<n;++i) {
-        const DIYTeamStats *s=&ctx->comp.leagueStandings[i];
+        DIYTeamStats aligned_stat;
+        memcpy(&aligned_stat,
+               (const uint8_t *)&ctx->comp +
+                   offsetof(DIYCompetitionEx,leagueStandings) +
+                   i * sizeof aligned_stat,
+               sizeof aligned_stat);
+        const DIYTeamStats *s=&aligned_stat;
         if((uint32_t)s->gamesPlayed!=(uint32_t)s->wins+s->draws+s->losses)
             return 0;
         gp+=s->gamesPlayed;w+=s->wins;d+=s->draws;l+=s->losses;
@@ -4239,13 +4252,13 @@ void Expanded_OGWorld_Dashboard(ExpandedOGDashboard *out)
      * source definitions; never call them resident because a PRESET viewer
      * exists or the manager has an unrelated local slot. */
     out->nationalExpected+=exp_debug_count_competitions(
-        _worldTable.compCup,9u);
+        ((const uint8_t *)&_worldTable + offsetof(QualifyingGroup,compCup)),9u);
     out->nationalExpected+=exp_debug_count_competitions(
         _continentalCups,7u);
     out->nationalExpected+=exp_debug_count_competitions(
-        _worldCupQualifyingGroups.compCup,9u);
+        ((const uint8_t *)&_worldCupQualifyingGroups + offsetof(QualifyingGroup,compCup)),9u);
     out->nationalExpected+=exp_debug_count_competitions(
-        _ecQualifyingGroups.compCup,9u);
+        ((const uint8_t *)&_ecQualifyingGroups + offsetof(QualifyingGroup,compCup)),9u);
     QualifyingGroup *const regionalQualifiers[5]={
         &_africaTable,&_southAmericaTable,&_northAmericaTable,
         &_asiaTable,&_oceaniaTable
@@ -5548,7 +5561,12 @@ int Expanded_OGWorld_ReadLeagueStandings(uint8_t country,uint8_t division,
         const unsigned off=comp->matchData.league.teamEntryOffsets[i];
         if(off%sizeof(DIYTeamStats)!=0u ||
            off/sizeof(DIYTeamStats)>=n)return 0;
-        const DIYTeamStats *stat=&comp->leagueStandings[off/sizeof(DIYTeamStats)];
+        DIYTeamStats aligned_stat;
+        memcpy(&aligned_stat,
+               (const uint8_t *)comp +
+                   offsetof(DIYCompetitionEx,leagueStandings) + off,
+               sizeof aligned_stat);
+        const DIYTeamStats *stat=&aligned_stat;
         const int32_t id=stat->teamSelOffset;
         if(id<0 || (uint32_t)id>=ctx->teamCount)return 0;
         const TeamFile *team=&ctx->teams[id].team;
@@ -6485,6 +6503,17 @@ extern void ShowDIYCupMenuWithParams(uint16_t arg0, uint16_t arg1, uint16_t arg2
  * until the competition phase catches up with the current/next cache phase.
  * When done, optionally shows the league/tournament menu.
  */
+#ifdef SWOS_DEBUG_AUTOSKIP
+/* Host-native compSlot/slotId word, but the parent is only 2-byte
+ * aligned on x64: memcpy avoids int16 pointer aliasing and misalignment. */
+static uint16_t Career_ReadCompSlotWordUnaligned(const DIYCompetitionEx *comp)
+{
+    uint16_t word;
+    memcpy(&word, (const uint8_t *)comp + offsetof(DIYCompetitionEx,base.compSlot),
+           sizeof word);
+    return word;
+}
+#endif
 __attribute__((used, externally_visible))
 void Career_AutoAdvanceLeagueFixtures(void)
 {
@@ -6516,9 +6545,9 @@ void Career_AutoAdvanceLeagueFixtures(void)
         }
     }
 
-    DIYCompetition *base = &_diyCompetitionStart.base;
+    /* Access the packed parent directly; OG updates remain live. */
     uint8_t *lastMatchSlots = _careerLastMatchIndexByCompetitionSlot;
-    uint8_t slotIdx = base->field_2E;
+    uint8_t slotIdx = _diyCompetitionStart.base.field_2E;
     uint8_t *lastMatchPtr = lastMatchSlots + (uint16_t)slotIdx;
     uint8_t lastMatch = *lastMatchPtr;
 
@@ -6531,15 +6560,15 @@ void Career_AutoAdvanceLeagueFixtures(void)
                           "leagueCurrentSlot=%u totalMatchesPerSectionLive=%d "
                           "totalMatchesInRound=%d subRoundCounter=%d "
                           "seasonFinished=%u",
-                          (unsigned)*(uint16_t *)&base->compSlot, (unsigned)slotIdx,
+                          (unsigned)Career_ReadCompSlotWordUnaligned(&_diyCompetitionStart), (unsigned)slotIdx,
                           (unsigned)currentPhase, (unsigned)nextPhase,
-                          (unsigned)base->viewRandomPhase,
+                          (unsigned)_diyCompetitionStart.base.viewRandomPhase,
                           (unsigned)lastMatch, (unsigned)bex->leagueMatchProgress,
                           (unsigned)bex->minSubstitutes,
                           (unsigned)bex->leagueCurrentSlot,
                           (int)bex->matchData.league.totalMatchesPerSectionLive,
-                          (int)base->totalMatchesInRound,
-                          (int)base->subRoundCounter,
+                          (int)_diyCompetitionStart.base.totalMatchesInRound,
+                          (int)_diyCompetitionStart.base.subRoundCounter,
                           (unsigned)_seasonFinished);
     }
 #endif
@@ -6560,7 +6589,7 @@ void Career_AutoAdvanceLeagueFixtures(void)
     uint32_t ogWorldIterations=0;
 #endif
     /* Inline DIY_AdvanceLeagueFixtureIndex: advance fixture and set d6 */
-    uint8_t viewRP = base->viewRandomPhase;
+    uint8_t viewRP = _diyCompetitionStart.base.viewRandomPhase;
     DIY_AdvanceFixtureIndex(0, (uint16_t)viewRP);
     /* d6 tracking not needed — sim path (selector=0) ignores allowSquadChanges */
 
@@ -6577,7 +6606,7 @@ main_loop:
     if(s_expOGCurrent && _diyCompetitionStart.minSubstitutes==0 &&
        _diyCompetitionStart.matchesPlayedCount>0u)return;
 #endif
-    if (currentPhase <= base->viewRandomPhase)
+    if (currentPhase <= _diyCompetitionStart.base.viewRandomPhase)
         goto check_next_phase;
 
     /* Sim league fixtures until phase catches up */
@@ -6589,25 +6618,25 @@ main_loop:
 #ifdef SWOS_SDL_BUILD
     if(s_expOGCurrent && s_expOGFault)return;
 #endif
-    if (((DIYCompetitionEx *)base)->leagueCurrentSlot == 0)
+    if (_diyCompetitionStart.leagueCurrentSlot == 0)
         goto main_loop; /* more matches pending in current fixture set */
 
-    if (((DIYCompetitionEx *)base)->minSubstitutes != 0) {
+    if (_diyCompetitionStart.minSubstitutes != 0) {
         /* Advance fixture index and continue */
-        viewRP = base->viewRandomPhase;
+        viewRP = _diyCompetitionStart.base.viewRandomPhase;
         DIY_AdvanceFixtureIndex((uint16_t)(viewRP + 1), (uint16_t)viewRP);
         goto main_loop;
     }
 
     /* Check groups type */
-    if (base->hasGroups == 0)
+    if (_diyCompetitionStart.base.hasGroups == 0)
         goto show_menu_check;
-    if (base->hasGroups == 2)
+    if (_diyCompetitionStart.base.hasGroups == 2)
         goto show_menu_check;
     return; /* groups type 1/3 — return silently */
 
 check_next_phase:
-    if (nextPhase > base->viewRandomPhase)
+    if (nextPhase > _diyCompetitionStart.base.viewRandomPhase)
         goto catch_up_phase;
 
 show_menu_check:
@@ -6622,13 +6651,13 @@ show_menu_check:
         SWOS_AUTOSKIP_LOG("[bug3-league] AutoAdvanceLeague EXIT(show_menu) compId=0x%04X "
                           "viewRandomPhase=%u leagueMatchProgress=%u sectionsLeft=%u "
                           "leagueCurrentSlot=%u totalMatchesPerSectionLive=%d subRoundCounter=%d",
-                          (unsigned)*(uint16_t *)&base->compSlot,
-                          (unsigned)base->viewRandomPhase,
+                          (unsigned)Career_ReadCompSlotWordUnaligned(&_diyCompetitionStart),
+                          (unsigned)_diyCompetitionStart.base.viewRandomPhase,
                           (unsigned)bex->leagueMatchProgress,
                           (unsigned)bex->minSubstitutes,
                           (unsigned)bex->leagueCurrentSlot,
                           (int)bex->matchData.league.totalMatchesPerSectionLive,
-                          (int)base->subRoundCounter);
+                          (int)_diyCompetitionStart.base.subRoundCounter);
     }
 #endif
 
@@ -6646,12 +6675,12 @@ catch_up_phase:
 #ifdef SWOS_DEBUG_AUTOSKIP
     SWOS_AUTOSKIP_LOG("[bug3-league] AutoAdvanceLeague catch_up_phase compId=0x%04X "
                       "lastMatch=%u viewRandomPhase=%u (eq=%d)",
-                      (unsigned)*(uint16_t *)&base->compSlot,
-                      (unsigned)lastMatch, (unsigned)base->viewRandomPhase,
-                      (int)(lastMatch == base->viewRandomPhase));
+                      (unsigned)Career_ReadCompSlotWordUnaligned(&_diyCompetitionStart),
+                      (unsigned)lastMatch, (unsigned)_diyCompetitionStart.base.viewRandomPhase,
+                      (int)(lastMatch == _diyCompetitionStart.base.viewRandomPhase));
 #endif
     /* Check if lastMatch matches current viewRandomPhase */
-    if (lastMatch == base->viewRandomPhase) {
+    if (lastMatch == _diyCompetitionStart.base.viewRandomPhase) {
         /* Catch-up loop: sim until leagueCurrentSlot != 0 */
         do {
 #ifdef SWOS_SDL_BUILD
@@ -6670,12 +6699,12 @@ catch_up_phase:
 #ifdef SWOS_SDL_BUILD
             if(s_expOGCurrent && s_expOGFault)return;
 #endif
-        } while (((DIYCompetitionEx *)base)->leagueCurrentSlot == 0);
+        } while (_diyCompetitionStart.leagueCurrentSlot == 0);
         goto show_menu_check;
     }
 
     /* Store current viewRandomPhase as last match index */
-    *lastMatchPtr = base->viewRandomPhase;
+    *lastMatchPtr = _diyCompetitionStart.base.viewRandomPhase;
     if (_highlightedLeagueTeamId != 0xFFFF) {
         ShowDiyLeaguesTournamentMenu(1, 1, 0);
     } else {
@@ -6724,9 +6753,9 @@ void Career_AutoAdvanceCupMatches(void)
         }
     }
 
-    DIYCompetition *base = &_diyCompetitionStart.base;
+    /* Access the packed parent directly; OG updates remain live. */
     uint8_t *lastMatchSlots = _careerLastMatchIndexByCompetitionSlot;
-    uint8_t slotIdx = base->field_2E;
+    uint8_t slotIdx = _diyCompetitionStart.base.field_2E;
     uint8_t *lastMatchPtr = lastMatchSlots + (uint16_t)slotIdx;
     uint8_t lastMatch = *lastMatchPtr;
 
@@ -6736,23 +6765,23 @@ void Career_AutoAdvanceCupMatches(void)
                       "currentPhase=%u nextPhase=%u viewRandomPhase=%u lastMatch=%u "
                       "currentRoundIdx=%d/%d matchIdx=%d/%d roundComplete=%d "
                       "competitionFinished=%d hasGroups=%d",
-                      (unsigned)*(uint16_t *)&base->compSlot,
+                      (unsigned)Career_ReadCompSlotWordUnaligned(&_diyCompetitionStart),
                       (unsigned)currentPhase, (unsigned)nextPhase,
-                      (unsigned)base->viewRandomPhase, (unsigned)lastMatch,
-                      (int)base->currentRoundIndex, (int)base->numRounds,
+                      (unsigned)_diyCompetitionStart.base.viewRandomPhase, (unsigned)lastMatch,
+                      (int)_diyCompetitionStart.base.currentRoundIndex, (int)_diyCompetitionStart.base.numRounds,
                       (int)_diyCompetitionStart.matchData.cup.currentMatchIndex,
-                      (int)base->totalMatchesInRound,
-                      (int)base->roundComplete,
-                      (int)base->competitionFinished,
-                      (int)base->hasGroups);
+                      (int)_diyCompetitionStart.base.totalMatchesInRound,
+                      (int)_diyCompetitionStart.base.roundComplete,
+                      (int)_diyCompetitionStart.base.competitionFinished,
+                      (int)_diyCompetitionStart.base.hasGroups);
 #endif
 
     /* Inline DIY_AdvanceCupFixtureIndex */
-    uint8_t viewRP = base->viewRandomPhase;
+    uint8_t viewRP = _diyCompetitionStart.base.viewRandomPhase;
     DIY_AdvanceFixtureIndex(0, (uint16_t)viewRP);
 
     /* First check: if currentPhase <= viewRandomPhase, skip main loop */
-    if (currentPhase <= base->viewRandomPhase)
+    if (currentPhase <= _diyCompetitionStart.base.viewRandomPhase)
         goto check_next_phase_cup;
 
     /* Main cup sim loop. A resident cup must never spin forever when
@@ -6778,10 +6807,10 @@ cup_main_loop:
                           "iter>%d compId=0x%04X viewRandomPhase=%u currentPhase=%u "
                           "roundComplete=%d competitionFinished=%d",
                           debug_cup_iters,
-                          (unsigned)*(uint16_t *)&base->compSlot,
-                          (unsigned)base->viewRandomPhase, (unsigned)currentPhase,
-                          (int)base->roundComplete,
-                          (int)base->competitionFinished);
+                          (unsigned)Career_ReadCompSlotWordUnaligned(&_diyCompetitionStart),
+                          (unsigned)_diyCompetitionStart.base.viewRandomPhase, (unsigned)currentPhase,
+                          (int)_diyCompetitionStart.base.roundComplete,
+                          (int)_diyCompetitionStart.base.competitionFinished);
         return;
     }
 #endif
@@ -6799,18 +6828,18 @@ cup_main_loop:
 #endif
     }
 
-    if (base->roundComplete == 0)
+    if (_diyCompetitionStart.base.roundComplete == 0)
         goto cup_main_loop; /* roundComplete == 0, keep going */
 
-    if (base->competitionFinished != 0)
+    if (_diyCompetitionStart.base.competitionFinished != 0)
         goto cup_finished; /* finishedFlag != 0 */
 
-    if (currentPhase <= base->viewRandomPhase)
+    if (currentPhase <= _diyCompetitionStart.base.viewRandomPhase)
         goto check_next_phase_cup;
 
     /* Update competition progress and advance fixture */
     DIY_UpdateCompetitionProgress();
-    viewRP = base->viewRandomPhase;
+    viewRP = _diyCompetitionStart.base.viewRandomPhase;
     DIY_AdvanceFixtureIndex(0, (uint16_t)viewRP);
     goto cup_main_loop;
 
@@ -6818,18 +6847,18 @@ cup_finished:
 #ifdef SWOS_DEBUG_AUTOSKIP
     SWOS_AUTOSKIP_LOG("[bug4-cup] AutoAdvanceCupMatches cup_finished compId=0x%04X "
                       "iters=%d hasGroups=%d viewRandomPhase=%u",
-                      (unsigned)*(uint16_t *)&base->compSlot,
-                      debug_cup_iters, (int)base->hasGroups,
-                      (unsigned)base->viewRandomPhase);
+                      (unsigned)Career_ReadCompSlotWordUnaligned(&_diyCompetitionStart),
+                      debug_cup_iters, (int)_diyCompetitionStart.base.hasGroups,
+                      (unsigned)_diyCompetitionStart.base.viewRandomPhase);
 #endif
-    if (base->hasGroups == 0)
+    if (_diyCompetitionStart.base.hasGroups == 0)
         goto cup_show_menu_check;
-    if (base->hasGroups == 2)
+    if (_diyCompetitionStart.base.hasGroups == 2)
         goto cup_show_menu_check;
     return; /* groups type 1/3 — return silently */
 
 check_next_phase_cup:
-    if (nextPhase > base->viewRandomPhase)
+    if (nextPhase > _diyCompetitionStart.base.viewRandomPhase)
         goto cup_catch_up;
 
 cup_show_menu_check:
@@ -6842,11 +6871,11 @@ cup_show_menu_check:
     SWOS_AUTOSKIP_LOG("[bug4-cup] AutoAdvanceCupMatches EXIT (show_menu) compId=0x%04X "
                       "iters=%d currentRoundIdx=%d viewRandomPhase=%u "
                       "roundComplete=%d competitionFinished=%d",
-                      (unsigned)*(uint16_t *)&base->compSlot,
-                      debug_cup_iters, (int)base->currentRoundIndex,
-                      (unsigned)base->viewRandomPhase,
-                      (int)base->roundComplete,
-                      (int)base->competitionFinished);
+                      (unsigned)Career_ReadCompSlotWordUnaligned(&_diyCompetitionStart),
+                      debug_cup_iters, (int)_diyCompetitionStart.base.currentRoundIndex,
+                      (unsigned)_diyCompetitionStart.base.viewRandomPhase,
+                      (int)_diyCompetitionStart.base.roundComplete,
+                      (int)_diyCompetitionStart.base.competitionFinished);
 #endif
 
     /* Show cup menu. SWOS2.s loc_12D884/loc_12D894 calls (1,1,0)
@@ -6862,22 +6891,22 @@ cup_show_menu_check:
 
 cup_catch_up:
     /* If roundComplete, update progress and advance fixture */
-    if (base->roundComplete != 0) {
+    if (_diyCompetitionStart.base.roundComplete != 0) {
         DIY_UpdateCompetitionProgress();
-        viewRP = base->viewRandomPhase;
+        viewRP = _diyCompetitionStart.base.viewRandomPhase;
         DIY_AdvanceFixtureIndex(0, (uint16_t)viewRP);
     }
 
-    if (lastMatch == base->viewRandomPhase) {
+    if (lastMatch == _diyCompetitionStart.base.viewRandomPhase) {
         /* Catch-up loop */
         do {
             DIY_PlayCupMatchAndAdvance(0, 0);
-        } while (base->roundComplete == 0);
+        } while (_diyCompetitionStart.base.roundComplete == 0);
         goto cup_show_menu_check;
     }
 
     /* Store current viewRandomPhase as last match index */
-    *lastMatchPtr = base->viewRandomPhase;
+    *lastMatchPtr = _diyCompetitionStart.base.viewRandomPhase;
     if (_highlightedLeagueTeamId != 0xFFFF) {
         ShowDIYCupMenuWithParams(1, 1, 0);
     } else {

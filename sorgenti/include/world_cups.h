@@ -27,6 +27,11 @@
 #include "swos_types.h"
 #include "world.h"
 
+/* WorldCups_PreviewEntrants only exposes a TeamId pointer. The concrete
+ * tagged struct is defined in game_types.h; do not require callers such
+ * as frontend.c to include that large header before world_cups.h. */
+typedef struct TeamId TeamId;
+
 typedef struct {
     uint8_t         country;
     uint8_t         slot;       /* 1 the national cup, 2 the league cup */

@@ -116,6 +116,7 @@ int main(int argc,char **argv)
     long notice_import_outside=0,notice_import_wrong=0;
     long notice_import_division=0,notice_import_rejected=0;
     long notice_world_no_resident=0,notice_viewer_unbound=0;
+    long notice_viewer_route_present=0,notice_viewer_route_missing=0;
     long notice_stage_reset=0,notice_same_scope=0,notice_not_verified=0;
     CupCoverageRecord cup_coverage[MAX_CUP_COVERAGE];
     unsigned cup_coverage_count=0;
@@ -147,7 +148,13 @@ int main(int argc,char **argv)
            (strstr(line,"status=NO_RESIDENT") ||
             strstr(line,"status=NO_WORLD_RESIDENT")))
             ++notice_world_no_resident;
+        /* Old logs can still carry the obsolete marker. New builds
+         * distinguish resident route availability from visual testing. */
         if(strstr(line,"VIEWER_NOT_BOUND"))++notice_viewer_unbound;
+        if(strstr(line,"viewer-route=NATIVE_OG_TYPE2_PRESENT"))
+            ++notice_viewer_route_present;
+        if(strstr(line,"viewer-route=NO_RESIDENT_CONTEXT"))
+            ++notice_viewer_route_missing;
         if(strstr(line,"STAGE_RESET_DIFFERENT_SCOPE"))++notice_stage_reset;
         if(strstr(line,"UNEXPLAINED_SAME_SCOPE"))++notice_same_scope;
         if(strstr(line,"NOT_VERIFIED") || strstr(line,"NOT_TESTED"))
@@ -810,13 +817,15 @@ int main(int argc,char **argv)
     printf("OG_LOG_NOTICE_SUMMARY pad-db-optional=%ld title-skip=%ld "
            "outside-league=%ld wrong-file=%ld unsupported-division=%ld "
            "legacy-ledger-rejected=%ld no-resident-events=%ld "
-           "viewer-unbound-markers=%ld stage-reset-lines=%ld "
+           "obsolete-viewer-markers=%ld resident-view-routes=%ld "
+           "missing-resident-view-routes=%ld stage-reset-lines=%ld "
            "same-scope-warning-lines=%ld unverified-lines=%ld "
            "scope=WHOLE_LOG_NOT_UNIQUE_COMPETITIONS\n",
            notice_optional_pad,notice_title_skipped,
            notice_import_outside,notice_import_wrong,notice_import_division,
            notice_import_rejected,notice_world_no_resident,
-           notice_viewer_unbound,notice_stage_reset,notice_same_scope,
+           notice_viewer_unbound,notice_viewer_route_present,
+           notice_viewer_route_missing,notice_stage_reset,notice_same_scope,
            notice_not_verified);
     printf("OG_SESSION_FAILURES faults=%ld regressions=%ld season=%ld "
            "offer=%ld title-save=%ld unsupported-native-leagues=%ld "

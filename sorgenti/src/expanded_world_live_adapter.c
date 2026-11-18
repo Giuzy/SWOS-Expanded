@@ -60,12 +60,11 @@ uint32_t ExpandedWorldLive_ImportSkippedCountries(uint8_t *out,uint32_t capacity
 static void track_rejection(const TeamFileEx *team,uint8_t file,
                             uint8_t reason) {
     if(reason<1u||reason>4u)return;
-    /* The compact F10 page shows examples only. The complete Windows log
-     * must preserve EACH rejected TEAM row (including the 127 historically
-     * excluded clubs), with both the file/ordinal identifier and the
-     * record's actual country number. These are not interchangeable for
-     * second-file countries or the historical cup TMD entries. */
-    {
+    /* OUTSIDE_LEAGUE is an expected OG database category, not a failed
+     * import. Keep its count and F10 samples, but avoid hundreds of
+     * obsolete per-club warnings. Unexpected rejects retain full identity
+     * in SWOS.log so they remain actionable. */
+    if(reason!=LIVE_IMPORT_OUTSIDE) {
         static const char *const why[]={
             "OUTSIDE_LEAGUE","WRONG_FILE","UNSUPPORTED_DIVISION","LEDGER_REJECTED"
         };
@@ -226,14 +225,13 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
                 ++s_import_cup_records[2];
             } else if(((const Competition *)table[cupSlot])->type==1) {
                 ++s_import_cup_records[cupSlot-2u];
-                fprintf(stderr,"[world-import-cup] OG RECORD country=%u slot=%u id=%u (registered, NOT played)\n",
-                        (unsigned)country,(unsigned)cupSlot,
-                        (unsigned)comp_id((const uint8_t *)table[cupSlot]));
+                /* The summary [world-import]/[world-cup-load-audit]
+                 * retains the coverage numbers. Native OG cup residency is
+                 * audited separately; this repeated legacy row is obsolete. */
             } else {
                 ++s_import_cup_records[3];
-                fprintf(stderr,"[world-import-cup] NON-CUP RECORD country=%u slot=%u type=%d\n",
-                        (unsigned)country,(unsigned)cupSlot,
-                        (int)((const Competition *)table[cupSlot])->type);
+                /* A non-cup record is normal in some country slots.
+                 * Preserve the category count in the import summary. */
             }
         }
         int points=league->header.pointsForWin;

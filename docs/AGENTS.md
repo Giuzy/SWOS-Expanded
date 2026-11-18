@@ -1,3 +1,6 @@
+## REGOLA — 18/11/2026: RIMOZIONE DEI LOG OBSOLETI
+- Quando si verifica una segnalazione legacy, eliminare o riclassificare le stampe ormai fuorvianti e il rumore ripetitivo. Conservare SEMPRE gli errori veri, i warning GCC, i dettagli diagnostici necessari, i contatori riassuntivi e i limiti non implementati. Non eliminare messaggi per far apparire PASS un controllo. Le categorie normali (es. club fuori lega) possono essere aggregate anziche' stampate riga per riga. Prima audit del codice, poi modifica minima, con compilazione e test Windows esplicitamente NON PROVATI se assenti.
+
 ## REGOLA PERMANENTE — 18/11/2026: SEGNALAZIONE COMPLETA LOG E WARNING
 - In OGNI analisi diagnostica riferire esplicitamente tutti i warning di compilazione, errori, messaggi runtime anomali, SKIP/FAIL, avvisi di salvataggio e altre anomalie osservate: distinguere cause corrette, messaggi innocui ma presenti e problemi aperti. Non omettere un evento perche' non bloccante o noto. Dichiarare per ogni categoria la quantita' o NON VERIFICATO se il log non la misura. Ogni warning GCC va corretto subito, non soppresso; un commit non equivale a compilazione/test Windows.
 

@@ -11,7 +11,10 @@
 #define LIVE_MAX_CLUBS 4096u
 #define LIVE_MAX_LEAGUES 512u
 #define LIVE_MAX_FIXTURES 250000u
-#define LIVE_MAX_LEAGUE_CLUBS 26u
+/* The OG-only auxiliary registry must accept the 30-club Argentina/MLS
+ * divisions. It stores membership only; native OG owns the real fixtures.
+ * The retired LWE fixture generator remains separately limited to 24. */
+#define LIVE_MAX_LEAGUE_CLUBS 32u
 #define NATIVE_FIXTURE_MAX_CLUBS 24u
 /* Canonical OpenSWOS pairing tables: also used by DIY league fixtures.
  * The odd-sized tables are installed by FixtureRounds_Install at startup. */

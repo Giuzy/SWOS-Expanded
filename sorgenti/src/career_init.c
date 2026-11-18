@@ -1421,12 +1421,18 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                                "year=%u phase=%u cwc=%d uefa=%d\n",
                         (unsigned)year,(unsigned)phase,cw,uc);
         }
+        /* A resident OG type-2 viewer route exists in career_status.c.
+         * Do not emit the obsolete unconditional VIEWER_NOT_BOUND marker.
+         * Presence of that route does NOT prove visual/navigation testing. */
+        const uint32_t residentUefa=Expanded_OGWorld_UefaResidentCount();
         fprintf(stderr,"[og-international-resident] world=%u "
                        "year=%u phase=%u uefa-resident=%lu expected=%u "
-                       "status=%s continental=VIEWER_NOT_BOUND\n",
+                       "status=%s viewer-route=%s "
+                       "viewer-visual-test=NOT_TESTED\n",
                 (unsigned)World_Current(),(unsigned)year,(unsigned)phase,
-                (unsigned long)Expanded_OGWorld_UefaResidentCount(),
-                modern?3u:1u,uefaOk?"NATIVE_ATTEMPT":"NATIVE_ERROR");
+                (unsigned long)residentUefa,modern?3u:1u,
+                uefaOk?"NATIVE_ATTEMPT":"NATIVE_ERROR",
+                residentUefa?"NATIVE_OG_TYPE2_PRESENT":"NO_RESIDENT_CONTEXT");
     } else if(phase==0u)
         fprintf(stderr,"[og-international-resident] world=%u "
                        "year=%u phase=0 status=PENDING_ORIGINAL_QUALIFICATION_HANDOFF\n",

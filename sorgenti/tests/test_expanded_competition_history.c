@@ -65,10 +65,17 @@ int main(void)
            EXP_HISTORY_BLOCKED && h.detail_count == 2u);
     assert(ExpandedHistory_FactsSecured(&h, first.edition) == EXP_HISTORY_OK);
     assert(ExpandedHistory_FactsSecured(&h, first.edition) == EXP_HISTORY_ALREADY);
+    /* A closed edition contains a match from November: time cannot rewind
+     * to the earlier July checkpoint and erase knowledge of that game. */
     assert(ExpandedHistory_Compact(&h, date(2027, 7, 1), &removed) ==
-           EXP_HISTORY_OK && removed == 0u); /* active cross-year cup */
+           EXP_HISTORY_CONFLICT && removed == 0u);
+    /* February-start tournament: April was 2026/27, November 2027/28.
+     * July 2028 must retain the November fixture as previous season. */
     assert(ExpandedHistory_Compact(&h, date(2028, 7, 1), &removed) ==
-           EXP_HISTORY_OK && removed == 2u && h.detail_count == 0u);
+           EXP_HISTORY_OK && removed == 1u && h.detail_count == 1u);
+    assert(ExpandedHistory_Lookup(&h, second) == EXP_HISTORY_DETAILED);
+    assert(ExpandedHistory_Compact(&h, date(2029, 7, 1), &removed) ==
+           EXP_HISTORY_OK && removed == 1u && h.detail_count == 0u);
     assert(h.summary_count == 1u && h.summaries[0].match_count == 2u);
     assert(h.summaries[0].champion == 1001u &&
            h.summaries[0].runner_up == 1002u);
@@ -77,6 +84,19 @@ int main(void)
     assert(ExpandedHistory_RecordPlayed(&h, &ledger, first, home, away,
            date(2027, 4, 1), 101u) == EXP_HISTORY_CONFLICT);
     assert(ExpandedHistory_ValidateRestore(&h));
+
+    /* Never discard evidence of a result that claims to lie in the future. */
+    {
+        ExpandedFixtureDetail staged[2] = {{0}};
+        ExpandedEditionSummary complete[2] = {{0}};
+        ExpandedCompetitionHistory check = {staged,1u,2u,complete,1u,2u};
+        staged[0] = (ExpandedFixtureDetail){
+            first,home,away,score,date(2028,2,1),123u
+        };
+        complete[0] = h.summaries[0];
+        assert(ExpandedHistory_Compact(&check,date(2028,1,1),&removed) ==
+               EXP_HISTORY_CONFLICT && check.detail_count == 1u);
+    }
 
     /* A still-running old edition is NEVER compressed at July rollover. */
     assert(ExpandedFixtureLedger_Schedule(&ledger, open) == EXP_FIXTURE_OK);

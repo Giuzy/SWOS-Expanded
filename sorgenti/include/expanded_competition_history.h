@@ -255,11 +255,13 @@ static inline ExpandedHistoryResult ExpandedHistory_FactsSecured(
     return EXP_HISTORY_BLOCKED;
 }
 
-/* Retain full fixture details for the current and previous manager seasons.
- * All old entries must belong to completed editions whose downstream facts
- * were secured. Preflight ALL eligible records before mutating the array:
- * a single missing fact blocks compaction, never silently loses results.
- * The July-1 boundary does not reset a still-active cross-year edition. */
+/* Retain full fixture details for the current and previous July-June
+ * seasons of EACH ACTUAL MATCH, not the season when its edition started.
+ * Example: a Copa starting in February 2027 has matches in both seasons
+ * 2026 and 2027. At July 2028, its post-July 2027 matches are still in
+ * the previous season and MUST remain detailed. Never compact an ACTIVE
+ * edition, nor an edition without durable downstream qualification facts.
+ * Preflight all candidate removals before touching the caller's buffers. */
 static inline ExpandedHistoryResult ExpandedHistory_Compact(
     ExpandedCompetitionHistory *h, int32_t today, uint32_t *removed)
 {
@@ -273,8 +275,9 @@ static inline ExpandedHistoryResult ExpandedHistory_Compact(
         const ExpandedFixtureDetail *d = &h->details[i];
         const ExpandedEditionSummary *summary;
         uint16_t season;
-        if (!ExpandedHistory_Season(d->key.edition.start_day, &season))
+        if (!ExpandedHistory_Season(d->played_day, &season))
             return EXP_HISTORY_INVALID;
+        if (d->played_day > today) return EXP_HISTORY_CONFLICT;
         if ((uint32_t)season + 1u >= (uint32_t)current) continue;
         summary = ExpandedHistory_FindSummary(h, d->key.edition);
         if (!summary || !summary->qualification_facts_secured ||
@@ -284,7 +287,7 @@ static inline ExpandedHistoryResult ExpandedHistory_Compact(
     for (i = 0u; i < h->detail_count; ++i) {
         uint16_t season = 0u;
         /* The preflight above already checked all dates. */
-        (void)ExpandedHistory_Season(h->details[i].key.edition.start_day,
+        (void)ExpandedHistory_Season(h->details[i].played_day,
                                      &season);
         if ((uint32_t)season + 1u >= (uint32_t)current)
             h->details[write++] = h->details[i];

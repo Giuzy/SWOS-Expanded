@@ -17,14 +17,19 @@ run_one() {
     local script="$1" name rc logfile
     name="${script##*/}"; name="${name%.sh}"
     logfile="$out/${name}.log"
-    printf 'TEST=%s scope=OG_CURRENT action=RUN log=%s\n' "$name" "$logfile" >> "$out/ELENCO_TEST.txt"
+    local scope="OG_CURRENT"
+    case "$name" in
+        run_test_expanded_event_scheduler|run_test_expanded_competition_history)
+            scope="COMPETITION_ENGINE_ISOLATED" ;;
+    esac
+    printf 'TEST=%s scope=%s action=RUN log=%s\n' "$name" "$scope" "$logfile" >> "$out/ELENCO_TEST.txt"
     if /usr/bin/bash "$script" > "$logfile" 2>&1; then
         rc=0
-        printf 'TEST=%s scope=OG_CURRENT status=PASS_ISOLATED_ONLY log=%s\n' "$name" "$logfile" >> "$out/RIEPILOGO_TEST.txt"
+        printf 'TEST=%s scope=%s status=PASS_ISOLATED_ONLY log=%s\n' "$name" "$scope" "$logfile" >> "$out/RIEPILOGO_TEST.txt"
         printf '[tests-og] PASS %s\n' "$name"
     else
         rc=$?
-        printf 'TEST=%s scope=OG_CURRENT status=FAIL exit=%d log=%s\n' "$name" "$rc" "$logfile" >> "$out/RIEPILOGO_TEST.txt"
+        printf 'TEST=%s scope=%s status=FAIL exit=%d log=%s\n' "$name" "$scope" "$rc" "$logfile" >> "$out/RIEPILOGO_TEST.txt"
         printf '[tests-og] FAIL %s exit=%d\n' "$name" "$rc"
         current_failed=$((current_failed+1))
     fi
@@ -47,7 +52,8 @@ for script in sorgenti/tests/run_test*.sh sorgenti/tests/run_audit_competition_f
         run_test_og_cup_native_byes.sh|run_test_expanded_phase12.sh|\
         run_audit_competition_formats.sh|run_test_final_og_contract.sh|\
         run_test_mod2627_coverage.sh|run_test_og_uefa_wiring.sh|\
-        run_test_og_offer_rollback.sh)
+        run_test_og_offer_rollback.sh|run_test_expanded_event_scheduler.sh|\
+        run_test_expanded_competition_history.sh)
             run_one "$script" ;;
         run_test_engine_suite.sh|run_test_legacy_suite.sh)
             exclude_one "$script" "DUPLICATE_AGGREGATE" ;;

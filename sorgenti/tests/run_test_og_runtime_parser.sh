@@ -26,6 +26,9 @@ version="$(sed -n 's/^#define SWOS_EXPANDED_VERSION "\([^"]*\)".*/\1/p' sorgenti
     echo "[og-external-competition] stage=START category=UEFA_CLUB name=CONFERENCE_LEAGUE compId=2 defined=1 activity=0 fixture-proof=NOT_VERIFIED"
     echo "[og-external-competition] stage=START category=NATIONAL name=WORLD_CUP compId=4 defined=1 activity=0 fixture-proof=NOT_VERIFIED"
     echo "[autosave-title] status=COMPATIBLE_ON_DISK world=2627 file=AUTO2627.CAR scope=SCHEMA_KIND_WORLD_ONLY"
+    echo "[og-manager-world-fixture] world=2627 edition=2027 country=8 div=3 home=0857 away=0847 phase=76 serial=163 score=2-1 source=LOCAL_MANAGER_OG historic-pair-other-phase=0 resident-same-phase=0 status=LOCAL_OG_WITNESSED_PENDING_RESIDENT_BRIDGE"
+    echo "[og-manager-bridge] COMMITTED world=2627 country=8 division=3 year=2027 phase=76 score=2-1 native-matches=163 remapped=24 journal=OBSERVED source=LOCAL_OG_NO_SECOND_SIM"
+    echo "[og-manager-fixture] world=2627 year=2027 div=3 home=0857 away=0847 score=2-1 cache=NOT_FOUND calendar-phase=PLAYED calendar-home=0847 calendar-away=0844 status=CALENDAR_PAIR_MISMATCH no-world-mutation=1"
     echo "[og-stress] ARMED years=70 press FORWARD TIME once"
     echo "[og-stress] START years=70 from=2026-07-01 to=2096-07-01 mode=ANNUAL_COMMIT"
     for n in $(seq 1 70); do
@@ -65,6 +68,8 @@ grep -q '^OG_CUP_COVERAGE=PARTIAL_WITH_EXPLICIT_REASONS .*native-byes-verified=1
 grep -q '^OG_CUP_COUNTRY year=2096 country=0 definitions=1 resident=1 native-byes=1 unavailable=0 state=ALL_RESIDENT' "$work/positive.out"
 grep -q '^OG_CUP_COUNTRY year=2096 country=1 definitions=1 resident=0 native-byes=0 unavailable=1 state=INCOMPLETE' "$work/positive.out"
 grep -q '^OG_CUP_COUNTRIES=PARTIAL expected=87 audited=2 incomplete=1' "$work/positive.out"
+grep -q '^OG_MANAGER_LOCAL_OG_BRIDGE=SNAPSHOTS_COMMITTED witnesses=1 resident-commits=1 blocked=0 earlier-cycle-pairs=0 same-phase-collisions=0 ' "$work/positive.out"
+grep -q '^OG_MANAGER_CALENDAR_PAIR_IDENTITY=FAIL_REAL_PAIR_MISMATCH audits=1 native-calendar-mismatches=1 ' "$work/positive.out"
 grep -q '^OG_CUP_NATIVE_BYE_EVENTS=OBSERVED verified=1 rejected=0' "$work/positive.out"
 ! grep -q '^FIRST_RUNTIME_FAILURE:' "$work/positive.out"
 # A complete 70-year log without a FINISHED marker must never pass.

@@ -115,6 +115,12 @@ int main(int argc,char **argv)
     long historical_faults=0,historical_regressions=0;
     long historical_season_failures=0,historical_offer_failures=0;
     long historical_title_save_failures=0,historical_unsupported=0;
+    /* Lifetime observations across both careers. A native journal witness
+     * is not another CPU execution; a wrong keycache pair is a real issue. */
+    long local_og_witnesses=0,local_og_prior_cycles=0;
+    long resident_phase_collisions=0,local_og_committed=0;
+    long local_og_write_blocked=0,calendar_pair_audits=0;
+    long calendar_pair_mismatches=0;
     char historical_first[500]="";
     long notice_optional_pad=0,notice_title_skipped=0;
     long notice_import_outside=0,notice_import_wrong=0;
@@ -173,6 +179,25 @@ int main(int argc,char **argv)
             if(strstr(line,"world=2627"))++switched_2627;
         }
         if(tag(line,"[world-switch] REFUSED "))++world_refused;
+        if(tag(line,"[og-manager-world-fixture] ")) {
+            if(strstr(line,"status=LOCAL_OG_WITNESSED_"))
+                ++local_og_witnesses;
+            if(field(line,"historic-pair-other-phase",0)>0)
+                ++local_og_prior_cycles;
+            if(strstr(line,"RESIDENT_SAME_PHASE_COLLISION") ||
+               strstr(line,"status=BLOCK_NEW_CAR_RESIDENT_PHASE_COLLISION"))
+                ++resident_phase_collisions;
+        }
+        if(tag(line,"[og-manager-bridge] COMMITTED "))
+            ++local_og_committed;
+        if(tag(line,"[og-manager-bridge] WRITE_BLOCKED "))
+            ++local_og_write_blocked;
+        if(tag(line,"[og-manager-fixture] ") &&
+           strstr(line,"status=")) {
+            ++calendar_pair_audits;
+            if(strstr(line,"status=CALENDAR_PAIR_MISMATCH"))
+                ++calendar_pair_mismatches;
+        }
         if(tag(line,"[build] SWOS Expanded ")) {
             char value[80];
             if(sscanf(line,"[build] SWOS Expanded %79s",value)==1)
@@ -691,6 +716,22 @@ int main(int argc,char **argv)
     printf("OG_VIEW=OBSERVED_READ_ONLY views=%ld missing=%ld\n",
            views,view_missing);
     printf("OG_MANAGER_BIND=%s events=%ld\n",binds?"OBSERVED":"NOT_TESTED",binds);
+    printf("OG_MANAGER_LOCAL_OG_BRIDGE=%s witnesses=%ld "
+           "resident-commits=%ld blocked=%ld earlier-cycle-pairs=%ld "
+           "same-phase-collisions=%ld scope=WHOLE_LOG\n",
+           local_og_write_blocked||resident_phase_collisions?
+              "CHECK_BLOCKS":
+           local_og_committed?"SNAPSHOTS_COMMITTED":
+           local_og_witnesses?"WITNESS_ONLY_NOT_YET_COMMITTED":"NOT_TESTED",
+           local_og_witnesses,local_og_committed,
+           local_og_write_blocked,local_og_prior_cycles,
+           resident_phase_collisions);
+    printf("OG_MANAGER_CALENDAR_PAIR_IDENTITY=%s audits=%ld "
+           "native-calendar-mismatches=%ld "
+           "scope=READ_ONLY_NOT_RESOLVED_BY_EQUAL_TABLES\n",
+           calendar_pair_mismatches?"FAIL_REAL_PAIR_MISMATCH":
+           calendar_pair_audits?"NO_MISMATCH_OBSERVED":"NOT_TESTED",
+           calendar_pair_audits,calendar_pair_mismatches);
     printf("OG_VIEWER_BACK=%s viewer-level-exits=%ld pad-queue-events=%ld\n",
            viewer_back?"LOGGED_NOT_VISUALLY_PROVED":"NOT_TESTED",
            viewer_back,picker_back_events);

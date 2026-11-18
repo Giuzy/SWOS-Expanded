@@ -66,6 +66,7 @@ extern CompetitionCup _uefaCup;
 #include "expanded_og_copa_phase.h"
 #include "expanded_og_season_retention.h"
 #include "expanded_og_cache_match.h"
+#include "expanded_og_fixture_history.h"
 #include "expanded_og_league_bridge.h"
 #include "expanded_debug.h"
 #include "expanded_world_time.h"
@@ -6687,6 +6688,20 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
     const int reverse_score_ok=
         reverse_cache==EXP_OG_CACHE_PLAYED &&
         reverse_match.packed_goals==mirrored;
+    /* The keycache can contain an ACTUAL PLAYED score for a DIFFERENT
+     * home/away pair at the same week. That is NOT a missing result
+     * and it must not be called reconciled because the points tables
+     * happen to agree. Diagnose the calendar identity separately. */
+    ExpandedOGCacheMatch phase_match={0};
+    const ExpandedOGCacheStatus phase_cache=ExpandedOGCache_FindPhaseSlot(
+        _teamSelectionKeyCache,8192u,_teamSelectionKeyCacheCount,
+        slot,phase,&phase_match);
+    const int phase_has_pair=
+        phase_cache==EXP_OG_CACHE_PLAYED ||
+        phase_cache==EXP_OG_CACHE_SCHEDULED;
+    const int phase_identity_matches=phase_has_pair &&
+        phase_match.home==home_id && phase_match.away==away_id;
+    const int phase_other_pair=phase_has_pair && !phase_identity_matches;
     const unsigned world_n=(unsigned)ctx->comp.base.numTeams;
     const unsigned local_n=(unsigned)local->base.numTeams;
     unsigned unmapped=0u,table_differences=0u;
@@ -6741,14 +6756,26 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
     const unsigned resident_matches=(unsigned)ctx->comp.matchesPlayedCount;
     const unsigned local_matches=(unsigned)local->matchesPlayedCount;
     const char *result=
-        !cached_score_ok?"CACHE_UNVERIFIED":
         unmapped?"CLUB_MAP_INVALID":
         table_differences?"TABLES_DIVERGED":
-        resident_matches!=local_matches?"COUNTERS_DIVERGED":"ALREADY_EQUAL";
+        resident_matches!=local_matches?"COUNTERS_DIVERGED":
+        phase_other_pair?"CALENDAR_PAIR_MISMATCH":
+        phase_cache==EXP_OG_CACHE_CORRUPT?"CALENDAR_CACHE_CORRUPT":
+        phase_cache==EXP_OG_CACHE_AMBIGUOUS?"CALENDAR_PHASE_AMBIGUOUS":
+        phase_cache==EXP_OG_CACHE_NOT_FOUND?"CALENDAR_PHASE_MISSING":
+        phase_cache==EXP_OG_CACHE_SCHEDULED?"CALENDAR_RESULT_NOT_PLAYED":
+        !cached_score_ok?"CALENDAR_SCORE_MISMATCH":"RESIDENT_AND_CACHE_MATCH";
+    const char *phase_name=
+        phase_cache==EXP_OG_CACHE_PLAYED?"PLAYED":
+        phase_cache==EXP_OG_CACHE_SCHEDULED?"SCHEDULED":
+        phase_cache==EXP_OG_CACHE_AMBIGUOUS?"AMBIGUOUS":
+        phase_cache==EXP_OG_CACHE_CORRUPT?"CORRUPT":"NOT_FOUND";
     fprintf(stderr,
         "[og-manager-fixture] world=%s year=%u div=%u "
         "home=%04x away=%04x score=%u-%u cache=%s "
         "cache-score=%s reverse-cache=%s slot=%u phase=%u "
+        "calendar-phase=%s calendar-home=%04x calendar-away=%04x "
+        "calendar-score=%u-%u calendar-flags=%02x "
         "world-matches=%u local-matches=%u row-diff=%u unmapped=%u "
         "cache-used=%lu match-end=%lu car-raw-limit=8192 "
         "car-capacity-risk=%s status=%s no-world-mutation=1\n",
@@ -6761,7 +6788,12 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
             reverse_cache==EXP_OG_CACHE_CORRUPT?"CORRUPT":
             reverse_cache==EXP_OG_CACHE_PLAYED?"PLAYED_SCORE_DIFF":
             reverse_cache==EXP_OG_CACHE_SCHEDULED?"SCHEDULED":"NOT_FOUND",
-        (unsigned)slot,(unsigned)phase,
+        (unsigned)slot,(unsigned)phase,phase_name,
+        phase_has_pair?(unsigned)phase_match.home:0xffffu,
+        phase_has_pair?(unsigned)phase_match.away:0xffffu,
+        phase_has_pair?(unsigned)(phase_match.packed_goals>>8):0u,
+        phase_has_pair?(unsigned)(phase_match.packed_goals&255u):0u,
+        phase_has_pair?(unsigned)phase_match.flags:0u,
         resident_matches,local_matches,table_differences,unmapped,
         (unsigned long)match.used_bytes,(unsigned long)match.record_end,
         match.used_bytes>EXP_OG_CACHE_CAPACITY ||
@@ -6831,33 +6863,42 @@ int Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
         else if(kind==1u)++s_expOGCapturedCup;
         else ++s_expOGCapturedUefa;
     } else if(!cup) {
-        /* A counterpart can exist in the resident world BEFORE the
-         * manager's local OG slot catches up. Match only exact IDs;
-         * no silent equivalence by team names/rank/club points. */
-        unsigned candidates=0u,scoreSame=0u,phaseSame=0u;
-        for(size_t i=0;i<s_expOGFixtureCount;i++) {
-            const uint8_t *p=s_expOGFixtures+i*EXP_OG_FIXTURE_SIZE;
-            if(p[0]!=0u || p[1]!=country || p[2]!=slot ||
-               exp_fixture_get16(p+4)!=edition ||
-               exp_fixture_get16(p+8)!=h ||
-               exp_fixture_get16(p+10)!=a || p[15]!=1u)continue;
-            ++candidates;
-            if(p[12]==record[12] && p[13]==record[13])++scoreSame;
-            if(p[3]==record[3])++phaseSame;
+        /* Manager and local CPU share ONE OG league executor. The resident
+         * snapshot is published by CommitLocalLeagueFixture AFTER this
+         * witness, never through another CPU simulation. An older resident
+         * match with the same oriented pair in a DIFFERENT native phase is
+         * a legitimate second/third/fourth meeting, not divergence. */
+        const ExpandedOGFixtureHistory history=
+            ExpandedOGFixtureHistory_Check(s_expOGFixtures,
+                                           s_expOGFixtureCount,record);
+        if(history.resident_same_phase) {
+            ++s_expOGFixtureIssues;
+            fprintf(stderr,"[og-manager-world-fixture] "
+                "RESIDENT_SAME_PHASE_COLLISION_BLOCK_NEW_CAR "
+                "world=%s edition=%u country=%u div=%u "
+                "home=%04x away=%04x phase=%u previous=%u "
+                "score-conflicts=%u no-replay=1\n",
+                World_Tag(),(unsigned)edition,(unsigned)country,
+                (unsigned)slot,(unsigned)h,(unsigned)a,
+                (unsigned)phase,(unsigned)history.resident_same_phase,
+                (unsigned)history.resident_same_phase_score_conflict);
         }
         fprintf(stderr,"[og-manager-world-fixture] world=%s "
             "edition=%u country=%u div=%u home=%04x away=%04x "
-            "phase=%u score=%u-%u cpu-candidates=%u "
-            "score-equal=%u phase-equal=%u status=%s\n",
-            World_Tag(),(unsigned)edition,(unsigned)country,(unsigned)slot,
-            (unsigned)h,(unsigned)a,(unsigned)record[3],
-            (unsigned)record[12],(unsigned)record[13],
-            candidates,scoreSame,phaseSame,
-            candidates==0u?"CPU_FIXTURE_NOT_OBSERVED":
-            candidates==1u && scoreSame==1u && phaseSame==1u?
-                "SAME_SCORE_NEEDS_ID_RECONCILIATION":
-            candidates>1u?"AMBIGUOUS_MULTI_LEG_OR_CYCLE":
-                "SCORE_OR_PHASE_DIVERGENCE");
+            "phase=%u serial=%u score=%u-%u source=%s "
+            "historic-pair-other-phase=%u resident-same-phase=%u "
+            "status=%s\n",
+            World_Tag(),(unsigned)edition,(unsigned)country,
+            (unsigned)slot,(unsigned)h,(unsigned)a,(unsigned)phase,
+            (unsigned)serial,(unsigned)record[12],(unsigned)record[13],
+            origin==3u?"LOCAL_CPU_OG":"LOCAL_MANAGER_OG",
+            (unsigned)history.historical_other_phase,
+            (unsigned)history.resident_same_phase,
+            history.resident_same_phase?
+                "BLOCK_NEW_CAR_RESIDENT_PHASE_COLLISION":
+            history.historical_other_phase?
+                "LOCAL_OG_WITNESSED_PREVIOUS_CYCLE":
+                "LOCAL_OG_WITNESSED_PENDING_RESIDENT_BRIDGE");
     }
     return 1;
 }

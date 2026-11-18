@@ -93,4 +93,52 @@ static inline ExpandedOGCacheStatus ExpandedOGCache_Find(
     *out=candidate;
     return candidate.flags&0x80u?EXP_OG_CACHE_PLAYED:EXP_OG_CACHE_SCHEDULED;
 }
+
+/* Read the actual calendar row at a native OG phase, even when its pair
+ * differs from the fixture played by the OG competition. This is a DIAGNOSTIC,
+ * not a fixture resolver: same pair at some OTHER phase may be a different
+ * home/away cycle and must never be used to rewrite a result.
+ * Returns AMBIGUOUS for several rows at the phase and CORRUPT on invalid
+ * strides; no fallback by home/away alone or phase alone is a valid bind. */
+static inline ExpandedOGCacheStatus ExpandedOGCache_FindPhaseSlot(
+    const uint8_t *bytes,size_t capacity,uint16_t entry_count,
+    uint8_t comp_slot,uint8_t phase,ExpandedOGCacheMatch *out)
+{
+    size_t off=0u;
+    unsigned found=0u;
+    ExpandedOGCacheMatch candidate={0};
+    if(!bytes || !out || capacity<10u || entry_count>capacity/10u)
+        return EXP_OG_CACHE_CORRUPT;
+    memset(out,0,sizeof(*out));
+    for(uint16_t i=0;i<entry_count;++i){
+        uint16_t stride=0u;
+        if(off>capacity || capacity-off<10u)return EXP_OG_CACHE_CORRUPT;
+        memcpy(&stride,bytes+off+2u,sizeof stride);
+        if(stride<10u || (size_t)stride>capacity-off ||
+           bytes[off+5u]>(size_t)(stride-10u)/12u)
+            return EXP_OG_CACHE_CORRUPT;
+        if(bytes[off]==comp_slot && bytes[off+1u]==phase){
+            const unsigned n=bytes[off+5u];
+            for(unsigned j=0;j<n;++j){
+                const uint8_t *s=bytes+off+10u+(size_t)j*12u;
+                if(++found>1u)return EXP_OG_CACHE_AMBIGUOUS;
+                candidate.comp_slot=comp_slot;
+                candidate.phase=phase;
+                candidate.home=(uint16_t)(((uint16_t)s[2]<<8)|s[3]);
+                candidate.away=(uint16_t)(((uint16_t)s[4]<<8)|s[5]);
+                candidate.flags=s[1];
+                candidate.record_end=off+10u+(size_t)(j+1u)*12u;
+                memcpy(&candidate.packed_goals,s+6u,
+                       sizeof candidate.packed_goals);
+            }
+        }
+        off+=(size_t)stride;
+    }
+    if(!found){out->used_bytes=off;return EXP_OG_CACHE_NOT_FOUND;}
+    candidate.match_count=found;
+    candidate.used_bytes=off;
+    *out=candidate;
+    return candidate.flags&0x80u?EXP_OG_CACHE_PLAYED:EXP_OG_CACHE_SCHEDULED;
+}
+
 #endif

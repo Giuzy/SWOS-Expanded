@@ -83,6 +83,10 @@ typedef struct {
     uint32_t player_league_goals, standings_goals, leagues_with_goals;
     /* Audit ONLY: totals are not necessarily the same scoring domain. */
     uint32_t leagues_with_delta, player_goals_greater, standings_goals_greater;
+    /* OG own-goal counts are stored on each resident TeamFileEx, not in
+     * player.goalStats[0]. Compare player + own goals with league GF. */
+    uint32_t own_goals, leagues_reconciled_by_own_goals;
+    uint32_t leagues_with_residual_delta;
 } ExpandedOGScorerAudit;
 void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out);
 void Expanded_OGWorld_LogCheckpoint(const char *stage);

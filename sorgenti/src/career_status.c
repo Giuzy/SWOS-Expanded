@@ -3952,8 +3952,12 @@ void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out)
            c->comp.base.numTeams>EXP_OG_MAX_TEAMS)continue;
         ++out->resident_leagues;
         const unsigned teams=(unsigned)c->teamCount;
-        uint32_t scorerGoals=0u;
+        uint32_t scorerGoals=0u,ownGoals=0u;
         for(unsigned j=0;j<teams;++j) {
+            /* OG AssignSimulatedGoalsToScorers() increments this field
+             * on a non-player (own-goal) event. teamInit() resets it at
+             * the same season boundary as the player goal counters. */
+            ownGoals+=(uint32_t)c->teams[j].team.writesZeroHere;
             for(unsigned i=0;i<16u;++i) {
                 const unsigned goals=(unsigned)c->teams[j].players[i].goalStats[0];
                 ++out->players;
@@ -3968,25 +3972,32 @@ void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out)
             sum+=(unsigned)c->comp.leagueStandings[j].goalsFor;
         if(sum)++out->leagues_with_goals;
         out->standings_goals+=sum;
-#ifdef SWOS_SDL_BUILD
-        /* Compare like-for-like native contexts, never repair totals by
-         * arithmetic. Own goals, team/match attribution and stage resets
-         * require a separate fixture-level check before equality is assumed.
-         * Cap examples because save checkpoints are frequent. */
+        out->own_goals+=ownGoals;
         if(scorerGoals!=sum) {
             ++out->leagues_with_delta;
             if(scorerGoals>sum)++out->player_goals_greater;
             else ++out->standings_goals_greater;
-            if(delta_examples++<6u)
-                fprintf(stderr,"[og-scorer-delta] country=%u division=%u "
-                               "year=%u played=%u player-goals=%lu "
-                               "standings-gf=%u delta=%ld "
-                               "status=ATTRIBUTION_NOT_VERIFIED\n",
-                        (unsigned)c->country,(unsigned)c->division,
-                        (unsigned)c->year,(unsigned)c->comp.matchesPlayedCount,
-                        (unsigned long)scorerGoals,sum,
-                        (long)((int32_t)scorerGoals-(int32_t)sum));
+            if(scorerGoals+ownGoals==sum)
+                ++out->leagues_reconciled_by_own_goals;
         }
+        const int32_t residual=(int32_t)(scorerGoals+ownGoals)-
+                               (int32_t)sum;
+        if(residual)++out->leagues_with_residual_delta;
+#ifdef SWOS_SDL_BUILD
+        /* Original native values, never rewritten. Print the first six
+         * unexplained cases; autogols are counted but not double-assigned
+         * to players. A residual may need fixture/stage investigation. */
+        if(residual && delta_examples++<6u)
+            fprintf(stderr,"[og-scorer-delta] country=%u division=%u "
+                           "year=%u played=%u player-goals=%lu "
+                           "own-goals=%lu player-plus-own=%lu "
+                           "standings-gf=%u residual=%ld "
+                           "status=NOT_RECONCILED\n",
+                    (unsigned)c->country,(unsigned)c->division,
+                    (unsigned)c->year,(unsigned)c->comp.matchesPlayedCount,
+                    (unsigned long)scorerGoals,(unsigned long)ownGoals,
+                    (unsigned long)(scorerGoals+ownGoals),sum,
+                    (long)residual);
 #endif
     }
 }

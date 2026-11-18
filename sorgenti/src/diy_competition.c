@@ -9229,7 +9229,11 @@ uint32_t DIY_WorldStandingsAuditChecks(void){return s_worldTableAuditChecks;}
 uint32_t DIY_WorldStandingsAuditFailures(void){return s_worldTableAuditFailures;}
 void DIY_WorldAuditStandingsAtMenu(void)
 {
-    if (_gameType!=4 || !ExpandedWorldLive_Clubs())return;
+    /* In OG-only careers the old LWE table is deliberately disabled.
+     * Do not report its absence as a missing native OG standing. The
+     * resident OG standings are inspected by Expanded_OGWorld_Dashboard. */
+    if (_gameType!=4 || EXPANDED_WORLD_OG_ONLY ||
+        !ExpandedWorldLive_Clubs())return;
     const DIYCompetitionEx *c=&_diyCompetitionStart;
     unsigned n=(unsigned)c->base.numTeams;
     if(n<2u || n>32u || c->base.hasGroups ||

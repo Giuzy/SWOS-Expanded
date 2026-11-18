@@ -1,3 +1,8 @@
+## 18/11/2026 — 0.13.94: OG-only standings audit and native own goals
+- L'evento Windows 0.13.93 `[join-standings] SKIP world table missing country=51 div=4 club=332d` deriva da `DIY_WorldAuditStandingsAtMenu`, che cerca il vecchio ledger LWE mentre `EXPANDED_WORLD_OG_ONLY=1` forza `ExpandedWorldLive_Table()` a ritornare 0. Il confronto con il ledger disattivato e' ora saltato in OG-only, senza sopprimere verifiche OG e senza creare classifiche fittizie.
+- In `match_sim.c`, il percorso `AssignSimulatedGoalsToScorers()` incrementa `TeamGeneralInfo.writesZeroHere` quando il tiro marcato come autogol non attribuisce `PlayerFile.goalStats[statCol]`. `teamInit()` azzera entrambi alla inizializzazione della squadra. L'audit in `career_status.c` aggrega gli autogol delle squadre residenti, confronta `player-goals + own-goals` contro `leagueStandings[].goalsFor`, e distingue leghe riconciliate da scarti residui; i primi sei scarti non spiegati vengono tracciati separatamente.
+- Patch solo diagnostica: nessuna modifica a simulazione OG, classifiche, goalStats, autogol, save CAR, input o RNG. Windows e compilazione 0.13.94 NON PROVATI. Un successivo log deve stabilire quanti residui restano; non chiamare corretto cio' che non e' ancora dimostrato.
+
 # SWOS EXPANDED — IMPROVEMENTS
 
 ## 18/11/2026 — warning GCC 0.13.90 e regola permanente

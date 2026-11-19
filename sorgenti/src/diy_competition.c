@@ -10326,6 +10326,12 @@ extern uint16_t _isNationalSelector;
 __attribute__((used, externally_visible))
 uint16_t FindTeamInDIY(uint16_t teamNo, DIYCompetition *comp)
 {
+    /* Retain the ORIGINAL queried slot even when a tournament lookup
+     * descends into its embedded group stage (the comp pointer changes).
+     * A manager eliminated from an optional cup is not necessarily in
+     * its CURRENT stage; original code otherwise trips panic 0x6006. */
+    const DIYCompetition *const originalComp=comp;
+    const uint16_t originalType=(uint16_t)comp->competitionType;
     /* Extended area raw pointer — offsets beyond 0x60 are not in DIYCompetition struct */
     uint8_t *raw = (uint8_t *)comp;
     DIYCompetitionEx *compEx = (DIYCompetitionEx *)comp;
@@ -10531,6 +10537,40 @@ tournament_entry:
 not_found:
     if (_isNationalSelector != 0)
         return 0xFFFF;
+#ifdef SWOS_SDL_BUILD
+    /* The season-review logic explicitly handles -1 for optional cups
+     * (career_season.c::computeCategoryForCompetition and the chairman's
+     * top-two bonus checks). But the original failure path panicked for
+     * ANY club manager, even one legitimately eliminated before the
+     * current group/knockout stage. Never invent a cup placement. This
+     * precise branch covers only existing OPTIONAL slot contexts in
+     * an Expanded career, not the PRIMARY league or other game modes. */
+    if(_gameType==4u && (originalType==1u || originalType==2u) &&
+       (originalComp==(const DIYCompetition *)&_competitionContextBuf ||
+        originalComp==(const DIYCompetition *)&_tertiaryCompetitionContextBuf ||
+        originalComp==(const DIYCompetition *)&_euroCupsCompetitionContextBuf)) {
+        fprintf(stderr,"[career-optional-cup] TEAM_ABSENT_FROM_CURRENT_STAGE "
+                       "club=%04x type=%u slot=%u "
+                       "placement=NOT_ELIGIBLE native-results=UNCHANGED "
+                       "no-panic=1\n",
+                (unsigned)teamNo,(unsigned)originalType,
+                originalComp==(const DIYCompetition *)&_competitionContextBuf?1u:
+                originalComp==(const DIYCompetition *)&_tertiaryCompetitionContextBuf?2u:3u);
+        return 0xFFFF; /* real absence; NEVER synthesize a rank */
+    }
+    fprintf(stderr,"[find-team-in-diy] PANIC_PREFLIGHT "
+                   "club=%04x gameType=%u originalType=%u currentType=%u "
+                   "numTeams=%u orig=%p current=%p "
+                   "primary=%d secondary=%d tertiary=%d quaternary=%d\n",
+            (unsigned)teamNo,(unsigned)_gameType,(unsigned)originalType,
+            (unsigned)compType,(unsigned)numTeams,
+            (const void *)originalComp,(const void *)comp,
+            originalComp==(const DIYCompetition *)&_primaryCompetitionBuf,
+            originalComp==(const DIYCompetition *)&_competitionContextBuf,
+            originalComp==(const DIYCompetition *)&_tertiaryCompetitionContextBuf,
+            originalComp==(const DIYCompetition *)&_euroCupsCompetitionContextBuf);
+    fflush(stderr);
+#endif
     _panicReasonCode = 0x6006;
     PanicHaltLoop();
     /* not reached */

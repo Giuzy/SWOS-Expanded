@@ -1996,7 +1996,16 @@ void Expanded_UI_Prepare(void) {
     switch(ui_kind()) {
         case 1: ui_main_prepare();break;
         case 2: ui_career_prepare();break;
-        case 3: ui_calendar_prepare();break;
+        case 3:
+            ui_calendar_prepare();
+            /* The native ContestMenuOnReturn can run before the OG July
+             * resident club is finally bound. Re-apply the real callback
+             * and caption NOW, immediately before rendering this menu. */
+            if(_currentMenuPtr==(uintptr_t)_contestMenu && _gameType==4u) {
+                extern void Expanded_CareerJulyPrepareMenu(void);
+                Expanded_CareerJulyPrepareMenu();
+            }
+            break;
         case 4: ui_offer_prepare();break;
         case 5: ui_welcome_prepare();break;
         case 6: ui_sacked_prepare();break;

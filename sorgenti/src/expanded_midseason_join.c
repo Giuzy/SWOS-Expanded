@@ -880,14 +880,13 @@ static int exp_career_july_plan(ExpandedWorldDate *target,
                                 ExpandedLiveCalendarState *live)
 {
     extern uint16_t _selTeamNumber,_currentSeasonShowing;
-    extern uint16_t _seasonFinished,_careerFinished,_youreSacked;
+    extern uint16_t _youreSacked;
     extern volatile uint16_t _isNationalSelector;
     extern uint16_t Expanded_OGWorld_SaveYear(void);
     extern int Expanded_OGWorld_ClubBound(void);
     ExpandedWorldDate next;
     if(!target || !live || _gameType!=4 || s_active ||
        _selTeamNumber==0xffffu || _youreSacked || _isNationalSelector ||
-       _seasonFinished || _careerFinished ||
        !Expanded_OGWorld_ClubBound() ||
        !ExpandedWorldLive_CalendarState(live))return 0;
     const uint16_t year=live->today.year;
@@ -907,21 +906,59 @@ void Expanded_CareerJulyPrepareMenu(void)
     extern MenuEntry _menuEntries[];
     extern void NextMatch(MenuEntry *);
     extern uint8_t _aNextMatch[];
+    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    extern int Expanded_OGWorld_ClubBound(void);
     static int wasForward;
     ExpandedLiveCalendarState live;
     ExpandedWorldDate target;
     if(_currentMenuPtr!=(uintptr_t)_contestMenu || _gameType!=4)return;
     MenuEntry *e=&_menuEntries[10]; /* EXISTING NEXT MATCH button */
-    if(exp_career_july_plan(&target,&live)) {
+    const int ready=exp_career_july_plan(&target,&live);
+    /* The old 205 code applied only in ContestMenuOnReturn, which is
+     * called during native menu setup, BEFORE a late OG July world bind.
+     * Expanded_UI_Prepare now retries this on every real DrawMenu. Only
+     * log once for each civil date/eligibility transition, not each frame. */
+    {
+        ExpandedLiveCalendarState observed;
+        if(ExpandedWorldLive_CalendarState(&observed) &&
+           observed.today.month==7u) {
+            const uint32_t stamp=(uint32_t)observed.today.year*10000u+
+                                  700u+(uint32_t)observed.today.day;
+            static uint32_t lastStamp;
+            static int lastReady=-1;
+            if(stamp!=lastStamp || ready!=lastReady) {
+                extern uint16_t _currentSeasonShowing,_selTeamNumber;
+                extern uint16_t _seasonFinished,_careerFinished;
+                fprintf(stderr,"[career-july-menu] world=%s date=%04u-07-%02u "
+                        "eligible=%d club=%04x bound=%d native-year=%u "
+                        "current-season=%u next-key=%u "
+                        "OG-finished=%u/%u reason=%s\n",
+                        World_Tag(),(unsigned)observed.today.year,
+                        (unsigned)observed.today.day,ready,
+                        (unsigned)_selTeamNumber,
+                        Expanded_OGWorld_ClubBound(),
+                        (unsigned)Expanded_OGWorld_SaveYear(),
+                        (unsigned)_currentSeasonShowing,
+                        (unsigned)Expanded_Career_NativeCalendarKey(),
+                        (unsigned)_seasonFinished,(unsigned)_careerFinished,
+                        ready?"NATIVE_PRESEASON_READY":"PREFLIGHT_NOT_READY");
+                lastStamp=stamp;lastReady=ready;
+            }
+        }
+    }
+    if(ready) {
         wasForward=1;
         e->isInvisible=0;
         e->isDisabled=0;
         e->onSelect=(MenuEntryFn)Expanded_CareerJulyForward;
         e->fg=(uintptr_t)"FORWARD TIME";
     } else if(wasForward) {
-        /* Revert the original button when July ends: no new hitboxes. */
-        e->onSelect=(MenuEntryFn)NextMatch;
-        e->fg=(uintptr_t)_aNextMatch;
+        /* Do not overwrite the genuine FINISH SEASON / NEXT MATCH state
+         * when an OG callback has already replaced our temporary action. */
+        if(e->onSelect==(MenuEntryFn)Expanded_CareerJulyForward) {
+            e->onSelect=(MenuEntryFn)NextMatch;
+            e->fg=(uintptr_t)_aNextMatch;
+        }
         wasForward=0;
     }
 }

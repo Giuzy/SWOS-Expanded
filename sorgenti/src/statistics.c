@@ -1796,6 +1796,25 @@ static int16_t EncodeCompetitionPositionForSeasonInfo_impl(
 }
 
 
+/* A season-info name is historical metadata, NOT proof that the club
+ * participates in a live competition. In 2627, the native manager
+ * can finish its last league fixture while a previous cup name remains
+ * in strPtr1/2/3. Dereferencing that inactive cup in FindTeamInDIY
+ * causes panic 0x6006 during Career_FillCurrentSeasonInfo.
+ * Read the packed base via memcpy; do not infer eligibility from text. */
+static int career_season_info_optional_live(const uint8_t *definition,
+                                            const void *slot)
+{
+    DIYCompetition aligned;
+    if(!definition || !slot)return 0;
+    memcpy(&aligned,slot,sizeof aligned);
+    return aligned.isActive!=0 && aligned.numTeams>=2 &&
+           aligned.numTeams<=64 &&
+           (aligned.competitionType==1 || aligned.competitionType==2) &&
+           ((const Competition *)definition)->type==
+                aligned.competitionType;
+}
+
 /* ================================================================
  * Career_FillCurrentSeasonInfo  (SWOS2.s line 53078)
  *
@@ -1933,34 +1952,67 @@ void Career_FillCurrentSeasonInfo(void)
         }
     }
 
-    /* Secondary competition */
+    /* Secondary competition: do NOT treat a stale name as enrollment. */
     if (a5->strPtr1 != 0) {
-        d1 = (int16_t)FindTeamInDIY(_selTeamNumber,
-                                      (DIYCompetition *)&_competitionContextBuf);
         uint8_t *compDef = _secondaryCompetitionPtr;
-        d1 = EncodeCompetitionPositionForSeasonInfo_impl(
-            d1, (uint8_t *)&_competitionContextBuf, compDef);
-        a5->comp2Result = (int8_t)d1;
+        if(career_season_info_optional_live(
+               compDef,&_competitionContextBuf)) {
+            d1=(int16_t)FindTeamInDIY(
+                _selTeamNumber,(DIYCompetition *)&_competitionContextBuf);
+            a5->comp2Result=(int8_t)(d1<0?-104:
+                EncodeCompetitionPositionForSeasonInfo_impl(
+                    d1,(uint8_t *)&_competitionContextBuf,compDef));
+        } else {
+            a5->comp2Result=-104;
+#ifdef SWOS_SDL_BUILD
+            fprintf(stderr,"[career-season-info] OPTIONAL_NOT_ACTIVE "
+                           "slot=1 club=%04x name=HISTORIC "
+                           "result=NOT_PARTICIPATING no-native-simulation\n",
+                    (unsigned)_selTeamNumber);
+#endif
+        }
     }
 
-    /* Tertiary competition */
+    /* Tertiary competition: a cached display name is not an active slot. */
     if (a5->strPtr2 != 0) {
-        d1 = (int16_t)FindTeamInDIY(_selTeamNumber,
-                                      (DIYCompetition *)&_tertiaryCompetitionContextBuf);
         uint8_t *compDef = _tertiaryCompetitionPtr;
-        d1 = EncodeCompetitionPositionForSeasonInfo_impl(
-            d1, (uint8_t *)&_tertiaryCompetitionContextBuf, compDef);
-        a5->comp3Result = (int8_t)d1;
+        if(career_season_info_optional_live(
+               compDef,&_tertiaryCompetitionContextBuf)) {
+            d1=(int16_t)FindTeamInDIY(
+                _selTeamNumber,(DIYCompetition *)&_tertiaryCompetitionContextBuf);
+            a5->comp3Result=(int8_t)(d1<0?-104:
+                EncodeCompetitionPositionForSeasonInfo_impl(
+                    d1,(uint8_t *)&_tertiaryCompetitionContextBuf,compDef));
+        } else {
+            a5->comp3Result=-104;
+#ifdef SWOS_SDL_BUILD
+            fprintf(stderr,"[career-season-info] OPTIONAL_NOT_ACTIVE "
+                           "slot=2 club=%04x name=HISTORIC "
+                           "result=NOT_PARTICIPATING no-native-simulation\n",
+                    (unsigned)_selTeamNumber);
+#endif
+        }
     }
 
-    /* Quaternary competition */
+    /* Quaternary continental cup: use the LIVE slot, not legacy name. */
     if (a5->strPtr3 != 0) {
-        d1 = (int16_t)FindTeamInDIY(_selTeamNumber,
-                                      (DIYCompetition *)&_euroCupsCompetitionContextBuf);
         uint8_t *compDef = _quaternaryCompetitionPtr;
-        d1 = EncodeCompetitionPositionForSeasonInfo_impl(
-            d1, (uint8_t *)&_euroCupsCompetitionContextBuf, compDef);
-        a5->comp4Result = (int8_t)d1;
+        if(career_season_info_optional_live(
+               compDef,&_euroCupsCompetitionContextBuf)) {
+            d1=(int16_t)FindTeamInDIY(
+                _selTeamNumber,(DIYCompetition *)&_euroCupsCompetitionContextBuf);
+            a5->comp4Result=(int8_t)(d1<0?-104:
+                EncodeCompetitionPositionForSeasonInfo_impl(
+                    d1,(uint8_t *)&_euroCupsCompetitionContextBuf,compDef));
+        } else {
+            a5->comp4Result=-104;
+#ifdef SWOS_SDL_BUILD
+            fprintf(stderr,"[career-season-info] OPTIONAL_NOT_ACTIVE "
+                           "slot=3 club=%04x name=HISTORIC "
+                           "result=NOT_PARTICIPATING no-native-simulation\n",
+                    (unsigned)_selTeamNumber);
+#endif
+        }
     }
 }
 

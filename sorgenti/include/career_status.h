@@ -26,6 +26,10 @@ int Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
 /* A fully completed and reconciled manager league cannot play fixture N+1. */
 int Expanded_OGWorld_ManagerLeagueFinished(const DIYCompetitionEx *local);
 int Expanded_OGWorld_PreflightLocalLeague(const DIYCompetitionEx *local);
+/* Read-only owner probe: manager's plain national league local image,
+ * never a cup, group, viewer or standalone DIY competition. */
+int Expanded_OGWorld_LocalLeagueBridgeActive(const DIYCompetitionEx *local);
+int Expanded_OGWorld_IsSimulating(void);
 int Expanded_OGWorld_CommitLocalLeagueFixture(
     const TeamFileEx *home,const TeamFileEx *away,
     const DIYCompetitionEx *local,uint16_t goals_home,

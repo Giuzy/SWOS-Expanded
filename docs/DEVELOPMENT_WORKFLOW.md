@@ -1,3 +1,6 @@
+## 19/11/2026 — protocollo A2.1 non committata
+Recuperare prima Issue #1 a ogni ripresa e dopo ogni singolo passaggio sovrascrivere checkpoint tecnico con motivo e punto esatto di ripresa. Git HEAD 198; 199 e' solo staging. **Non attribuire alla 198/199 le diagnostiche 197**. Alla futura build autorizzata Windows controllare GCC warning immediatamente; entrambi i mondi con START/UNEMPLOYED/FORWARD, ingaggio, manager NEXT MATCH e coppe, verifica `[competition-coordinator]` no doppio writer, SAVE/CONTINUE cross-process CAR identico; ERROR dopo score deve bloccare autosave invece di ripetere gara. Le coppe 2027 con quota ACCESS_UNAVAILABLE restano NOT_VERIFIED, 3 UEFA da controllare per ID dopo LOAD. Manual FINISH 2627 resta difettoso e non modificato nei blob 199. [Report/prove](COMPETITION_ENGINE_A2_SOURCE_AUDIT_0013199_20261119.md).
+
 ### 00.13.198 — test recovery SAVE obbligatorio
 Oltre ai test Forward, verificare che dopo un fault OG [competition-coordinator] FAULT l'eventuale autosave risponda WRITE_BLOCKED / COORDINATOR_RECOVERY_REQUIRED, senza sovrascrivere AUTO9697.CAR/AUTO2627.CAR; controllare SHA dei CAR prima/dopo. Ricaricare un CAR valido prima di riprovare; non far passare un test in assenza di prova di errore reale. Tutto NON PROVATO Windows.
 

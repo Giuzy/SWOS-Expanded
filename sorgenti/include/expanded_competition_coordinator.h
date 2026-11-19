@@ -13,5 +13,7 @@ int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,const char 
 int Expanded_CompetitionCoordinator_PreflightBind(uint16_t season);
 int Expanded_CompetitionCoordinator_ValidateRestore(void);
 int Expanded_CompetitionCoordinator_CanSave(void);
+int Expanded_CompetitionCoordinator_PreflightFixture(const char *kind);
+void Expanded_CompetitionCoordinator_ReportFixtureFault(const char *reason);
 #endif
 #endif

@@ -1,3 +1,6 @@
+## 19/11/2026 — staging A2.1 00.13.199 NON COMMITTATO
+Base reale dev/0.10 HEAD 1e6f6b62f22e69752b0afa31e9b128a92ec2e9a9 / 00.13.198. Nuovi ZIP diagnostici ore 12:13 sono entrambi **Windows 00.13.197**, NON test della 198. Compilazione 197 completata e senza warning GCC espliciti; sessione1 2627 chiude 2026/apre 2027 134 leghe e 101 coppe nazionali residenti ma source qualifiche 101 ACCESS_UNAVAILABLE (NON prova 101 club errati), tre UEFA 2027 36 ID esatti; Copa moderna non verificata. Sessione2 manual FINISH 2627 PANIC dopo TYPE2_REUSED. Preparati blocchi codice orphan GitHub A2.1 (preflight match manager, fault latch per witness/resident falliti, no LWE duplicato cup, version string 00.13.199 nel solo blob), senza commit. Mancano ownership total, claim CAR atomico, access nazionali multi-paese, 3 stagioni pilota. [Rapporto](COMPETITION_ENGINE_A2_SOURCE_AUDIT_0013199_20261119.md) [Design accessi](COMPETITION_ENGINE_WORLD_CUPS_MULTICOUNTRY_DESIGN_20261119.md). Windows 199 NON PROVATO.
+
 ### Integrazione finale 00.13.198 — barriera SAVE dopo fail OG
 Expanded_CompetitionCoordinator_CanSave() blocca SaveJson_WriteCareer se un precedente OG tick fallito ha richiesto recovery oppure se il mondo OG e data civile non coincidono. Questo rende operativo il fail-closed sul CAR; non attesta transazioni atomiche del motore. Windows NON PROVATO.
 

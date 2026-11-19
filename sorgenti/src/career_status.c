@@ -7668,6 +7668,12 @@ int Expanded_OGWorld_ManagerLeagueFinished(const DIYCompetitionEx *local)
             (unsigned)local->matchesPlayedCount,
             (unsigned)ctx->comp.matchesPlayedCount);
 }
+/* Published purely as a read-only owner predicate. Do not use the
+ * native fixture ID alone: another type-0 slot can reuse the ordinal. */
+int Expanded_OGWorld_LocalLeagueBridgeActive(const DIYCompetitionEx *local)
+{
+    return exp_bridge_local_active(local);
+}
 int Expanded_OGWorld_PreflightLocalLeague(const DIYCompetitionEx *local)
 {
     if(!exp_bridge_local_active(local))return 1;

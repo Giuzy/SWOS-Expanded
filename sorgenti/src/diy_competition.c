@@ -13,6 +13,9 @@
 #include "expanded_midseason_join.h"
 #include "expanded_native_history.h"
 #include "expanded_world_live.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_competition_coordinator.h"
+#endif
 #include "diy_competition.h"
 #include "comp_identity.h"
 #include "translations.h"
@@ -11616,6 +11619,15 @@ uint16_t DIY_PlayCupMatchAndAdvance(int16_t allowSquadChanges, int16_t mode) {
     }
 #endif
 
+#ifdef SWOS_SDL_BUILD
+    /* A local career cup MUST use the same civil/resident contract as
+     * unemployed progression. Resident OG cup ticks remain OG-owned.
+     * Leave legacy manual FINISH SEASON untouched in this phase. */
+    if(_gameType==4 && !_seasonUpdateInProgress &&
+       !Expanded_OGWorld_IsSimulating() &&
+       !Expanded_CompetitionCoordinator_PreflightFixture("LOCAL_CUP"))
+        return 1;
+#endif
     /* Set progressFieldA = 1 */
     baseS->matchStarted = 1;  /* 0x44 */
 
@@ -11764,7 +11776,8 @@ uint16_t DIY_PlayCupMatchAndAdvance(int16_t allowSquadChanges, int16_t mode) {
      * especially across 70 career years or repeated competition IDs.
      * Complete save/history of resident states remains a separate task. */
     extern uint16_t Expanded_OGWorld_CurrentCupYear(void);
-    if (_gameType == 4 && !Expanded_OGWorld_CurrentCupYear() &&
+    if (_gameType == 4 && !EXPANDED_WORLD_OG_ONLY &&
+        !Expanded_OGWorld_CurrentCupYear() &&
         ExpandedWorldLive_Clubs()) {
         extern uint16_t _currentSeasonShowing;
         const uint16_t home=(uint16_t)(
@@ -11793,10 +11806,24 @@ uint16_t DIY_PlayCupMatchAndAdvance(int16_t allowSquadChanges, int16_t mode) {
         const uint8_t leg=(uint8_t)(
             (((unsigned)baseS->currentRoundIndex&31u)<<3) |
              ((unsigned)a3Ex->matchData.cup.competitionFormat&7u));
-        Expanded_OGWorld_ObserveFixture(1,team1,team2,baseEx,
+        const int witnessed=Expanded_OGWorld_ObserveFixture(
+            1,team1,team2,baseEx,
             (uint16_t)(packedGoals>>8),(uint16_t)(packedGoals&255u),
             (uint16_t)a3Ex->bracketScratch.matchCount,
             baseS->viewRandomPhase,leg);
+        /* A human career cup score was already produced by ORIGINAL OG.
+         * Missing witness is a SAVE/REPLAY integrity failure. CPU-only
+         * local cups may not have a manager-bound identity, so never
+         * misclassify those unsupported contexts as manager matches. */
+        if(!witnessed && !_seasonUpdateInProgress &&
+           !Expanded_OGWorld_IsSimulating() &&
+           _selTeamNumber!=0xffffu &&
+           (PACK_BE_U16(team1->team.countryNumber,
+                        team1->team.teamOrdinal)==_selTeamNumber ||
+            PACK_BE_U16(team2->team.countryNumber,
+                        team2->team.teamOrdinal)==_selTeamNumber))
+            Expanded_CompetitionCoordinator_ReportFixtureFault(
+                "LOCAL_MANAGER_CUP_WITNESS_REJECTED");
     }
 #endif
 
@@ -11955,7 +11982,8 @@ final_or_groups:
 #ifdef SWOS_SDL_BUILD
         /* Same career-only guard for the champion. Standalone DIY cups
          * continue through their original SWOS code, without journal I/O. */
-        if (_gameType==4 && ExpandedWorldLive_Clubs()) {
+        if (_gameType==4 && !EXPANDED_WORLD_OG_ONLY &&
+            ExpandedWorldLive_Clubs()) {
             extern uint16_t _currentSeasonShowing;
             if(!ExpandedWorldLive_RecordNativeCupChampion(
                    (uint16_t)(World_FirstYear()+_currentSeasonShowing),
@@ -12017,6 +12045,14 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
     }
 #endif
 
+#ifdef SWOS_SDL_BUILD
+    /* Local career manager + CPU league fixtures share one preflight:
+     * never mutate OG while civil/native state needs CAR recovery. */
+    if(_gameType==4 && !_seasonUpdateInProgress &&
+       !Expanded_OGWorld_IsSimulating() &&
+       !Expanded_CompetitionCoordinator_PreflightFixture("LOCAL_LEAGUE"))
+        return 1;
+#endif
     /* Set progressFieldA = 1 */
     baseEx->base.matchStarted = 1;  /* 0x44 */
 
@@ -12378,9 +12414,22 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
         /* A successful ORIGINAL OG result is copied into the resident
          * native context, never played again. This includes local CPU
          * games in the manager's national league, not just human ones. */
-        if(witnessed && !Expanded_OGWorld_IsSimulating())
-            (void)Expanded_OGWorld_CommitLocalLeagueFixture(
-                team1,team2,baseEx,goals1,goals2,observedLeaguePhase);
+        if(!Expanded_OGWorld_IsSimulating()) {
+            const int expectedOwner=
+                Expanded_OGWorld_LocalLeagueBridgeActive(baseEx);
+            int committed=1;
+            if(witnessed)
+                committed=Expanded_OGWorld_CommitLocalLeagueFixture(
+                    team1,team2,baseEx,goals1,goals2,observedLeaguePhase);
+            /* The OG match is ALREADY over at this point. A missing
+             * witness or rejected resident transfer must not be followed
+             * by an autosave or another local match on this damaged
+             * timeline. Never pretend the mutation was rolled back. */
+            if(expectedOwner && (!witnessed || !committed))
+                Expanded_CompetitionCoordinator_ReportFixtureFault(
+                    !witnessed?"LOCAL_OG_WITNESS_REJECTED":
+                               "LOCAL_OG_RESIDENT_COMMIT_REJECTED");
+        }
     }
     if(_gameType==4 && !Expanded_OGWorld_IsSimulating() &&
        (team1==&_careerTeam || team2==&_careerTeam))

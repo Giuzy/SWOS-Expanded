@@ -1908,6 +1908,30 @@ int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
             (unsigned)target.day);
     return 1;
 }
+/* The same civil/resident contract must cover real employed fixtures,
+ * not only unemployed FORWARD. Never run another scheduler from here.
+ * Called before OG mutates team state, scoreboard or RNG. */
+int Expanded_CompetitionCoordinator_PreflightFixture(const char *kind)
+{
+    if(s_expCoordinatorRecoveryRequired) {
+        fprintf(stderr,"[competition-coordinator] BLOCK op=FIXTURE "
+            "kind=%s reason=RECOVERY_REQUIRED no-OG-replay=1\n",
+            kind?kind:"UNKNOWN");
+        return 0;
+    }
+    return exp_coordinator_check(kind?kind:"FIXTURE",NULL);
+}
+void Expanded_CompetitionCoordinator_ReportFixtureFault(const char *reason)
+{
+    /* No in-memory rollback is possible after OG has resolved a match.
+     * Preserve the most recent valid CAR and prevent a subsequent replay.
+     * A validated CAR LOAD clears this latch; START creates a new world. */
+    s_expCoordinatorRecoveryRequired=1;
+    fprintf(stderr,"[competition-coordinator] FAULT op=FIXTURE "
+        "reason=%s action=RELOAD_PRIOR_CAR "
+        "old-CAR-preserved=1 no-automatic-replay=1\n",
+        reason?reason:"NATIVE_COMMIT_UNVERIFIED");
+}
 int Expanded_CompetitionCoordinator_CanSave(void)
 {
     /* A failed OG tick may have mutated resident state without committing

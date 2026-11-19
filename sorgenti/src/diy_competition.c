@@ -1642,6 +1642,28 @@ void DIY_ValidateLeagueScratchBuffer(void)
         checksum += *teamData++;
     }
     if (checksum != 0) {
+#ifdef SWOS_SDL_BUILD
+        /* A country-level imbalance at the native year boundary is
+         * not a cosmetic failure: identify the actual nonzero team
+         * movements before the original OG panic. Never cancel or
+         * invent a promotion simply to make the checksum pass. */
+        if (_gameType == 4) {
+            unsigned reported = 0u;
+            fprintf(stderr,"[og-season-scratch] FILE_BALANCE_MISMATCH "
+                "world=%s file-country=%u offset=%u count=%u "
+                "sum-mod256=%u reason=OG_MOBILITY_UNBALANCED\n",
+                World_Tag(),(unsigned)_teamFileBuffer[2],
+                (unsigned)offset,(unsigned)count,(unsigned)checksum);
+            for(unsigned i=0;i<count && reported<12u;++i) {
+                const int8_t delta=(int8_t)teamData[i];
+                if(delta!=0) {
+                    fprintf(stderr,"[og-season-scratch] DELTA global=%u value=%d\n",
+                            (unsigned)offset+i,(int)delta);
+                    ++reported;
+                }
+            }
+        }
+#endif
         _panicReasonCode = 0x5555;
         PanicHaltLoop();
     }

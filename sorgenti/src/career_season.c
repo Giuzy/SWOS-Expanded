@@ -1676,15 +1676,13 @@ static void processPrimaryCompetitionForNextSeason(uint8_t *competition)
             /* Player's current division — interactive */
             RestoreSelectedTeams();
             Career_CopyCompetitionFileBufferToOrFromActive();
-#ifdef SWOS_SDL_BUILD
-            /* This viewer is a presentation of an OG-resident result, not
-             * an event writer. FINISH SEASON must still run the original
-             * qualifying/mobility logic below, but need not open a modal
-             * standings screen for the club's already completed division. */
-            if(!(_gameType==4 && EXPANDED_WORLD_OG_ONLY &&
-                 _seasonUpdateInProgress))
-#endif
-                ShowDiyLeaguesTournamentMenu(1, 1, 0);
+            /* REQUIRED OG STATE UPDATE: this menu entry sorts the league
+             * standings before promotion/relegation consumes its indexed
+             * rows. Never skip the callback to hide graphics: 00.13.193
+             * did so and left year-end mobility inconsistent. The SDL
+             * renderer hides the intermediate frames, while MenuProc
+             * removes the artificial one-second hold. */
+            ShowDiyLeaguesTournamentMenu(1, 1, 0);
             if (d7 == 0)
                 DIY_CachePrimaryQualifiedTeamsGrid();
             SaveSelectedTeams();

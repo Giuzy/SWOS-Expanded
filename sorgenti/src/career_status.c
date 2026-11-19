@@ -7938,7 +7938,23 @@ void Career_AutoAdvanceInternationalCompetitionFixtures(uint8_t *record, uint16_
     if(s_expOGCurrent) {
         ExpandedOGLeague *ctx=s_expOGCurrent;
         const uint8_t compId=(uint8_t)((Competition *)record)->compId;
-        if(ctx->used) {
+        /* On a new season, the native league record and the actually
+         * selected OG teams must agree BEFORE we persist a resident.
+         * A 12/11 mismatch in 00.13.193 was only detected a later week;
+         * refuse it at its source rather than storing a broken season. */
+        if(!ctx->used &&
+           (_numSelectedTeams!=_diyCompetitionStart.base.numTeams ||
+            _numSelectedTeams>EXP_OG_MAX_TEAMS)) {
+            fprintf(stderr,"[og-resident-id] INITIAL_TEAM_SELECTION_MISMATCH "
+                "world=%s country=%u div=%u year=%u phase=%d "
+                "selected=%u required=%u action=BLOCK_NO_FABRICATED_CLUB\n",
+                World_Tag(),(unsigned)ctx->country,(unsigned)ctx->division,
+                (unsigned)ctx->year,s_expOGPhase,
+                (unsigned)_numSelectedTeams,
+                (unsigned)_diyCompetitionStart.base.numTeams);
+            s_expOGFault=1;
+        }
+        if(!s_expOGFault && ctx->used) {
             memcpy(&_diyCompetitionStart,&ctx->comp,sizeof ctx->comp);
             memcpy(&_diyFileBufferCopy,&ctx->tournament,sizeof ctx->tournament);
             _numSelectedTeams=ctx->teamCount;
@@ -7947,8 +7963,10 @@ void Career_AutoAdvanceInternationalCompetitionFixtures(uint8_t *record, uint16_
             _seed2=ctx->seed;_randXorIndex2=ctx->randIndex;
             _randXorKey2=ctx->randKey;
         }
-        _careerLastMatchIndexByCompetitionSlot[compId]=ctx->lastMatch;
-        if(s_expOGPhase>0)Career_AutoAdvanceLeagueFixtures();
+        if(!s_expOGFault) {
+            _careerLastMatchIndexByCompetitionSlot[compId]=ctx->lastMatch;
+            if(s_expOGPhase>0)Career_AutoAdvanceLeagueFixtures();
+        }
         if(!s_expOGFault) { /* do not persist an invalid OG fixture */
         ctx->lastMatch=_careerLastMatchIndexByCompetitionSlot[compId];
         memcpy(&ctx->comp,&_diyCompetitionStart,sizeof ctx->comp);
@@ -8628,13 +8646,10 @@ show_menu_check:
     }
 #endif
 
-#ifdef SWOS_SDL_BUILD
-    /* Repeated view-only menus during OG season qualification are not
-     * competition results. Preserve the original simulation, league
-     * tables and qualification calls; suppress presentation only. */
-    if(EXPANDED_WORLD_OG_ONLY && _gameType==4 &&
-       _seasonUpdateInProgress) return;
-#endif
+    /* DO NOT skip the OG menu callback in FINISH SEASON: its standings
+     * sort and state transitions are consumed by the native qualification
+     * and promotion algorithms. SDL suppresses intermediate presentation
+     * without suppressing these operations. */
     /* Show league menu. SWOS2.s loc_12D754/loc_12D764 calls (1,1,0)
      * unconditionally here — the highlightedLeagueTeamId check belongs
      * only on the catch_up_phase first-time path (loc_12D790).

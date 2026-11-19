@@ -3442,6 +3442,30 @@ static void render_frame_impl(int pump_full)
     AudioSDL_Tick();
 #endif
 
+    /* The native year-end menu callbacks do more than draw: they sort
+     * standings and apply qualification/mobility state. Keep executing
+     * them, and keep pumping window/quit events above, but never present
+     * the dozens of transient league/cup menus in Expanded CAREER.
+     * The last stable frame stays visible until season processing ends. */
+    {
+        extern volatile uint16_t _seasonUpdateInProgress;
+        extern uint16_t _gameType;
+        static uint32_t hiddenSeasonFrames=0u;
+        if(EXPANDED_WORLD_OG_ONLY && _gameType==4 &&
+           _seasonUpdateInProgress) {
+            if(pump_full && hiddenSeasonFrames<UINT32_MAX)
+                ++hiddenSeasonFrames;
+            return;
+        }
+        if(hiddenSeasonFrames) {
+            fprintf(stderr,"[og-season-ui] HEADLESS_NATIVE_MENUS "
+                "frames-withheld=%lu callbacks=EXECUTED "
+                "render=SUPPRESSED\n",
+                (unsigned long)hiddenSeasonFrames);
+            hiddenSeasonFrames=0u;
+        }
+    }
+
     /* The historical competition callbacks are still synchronous, but
      * they do not require OpenGL/D3D present, texture upload, CRT effects,
      * or a fresh painted league table for every simulated match.

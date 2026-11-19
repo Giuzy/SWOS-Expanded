@@ -2206,8 +2206,15 @@ void MenuProc(void)
          * drops to 0 (see top of MenuProc), so a single press skips the whole
          * sequence without the user having to hold the button. */
 #ifdef SWOS_SDL_BUILD
-        if (_pauseSkipRequested)
-            s_seasonSkipLatched = 1;
+        /* Expanded CAREER has an OG resident world and the season-review
+         * menus are internal native state transitions, not a slideshow.
+         * Preserve every onInit/onSelect callback, but remove the 50-frame
+         * hold per cup/league. CLASSIC/DIY and Amiga keep original timing. */
+        { extern uint16_t _gameType;
+          if ((EXPANDED_WORLD_OG_ONLY && _gameType==4) ||
+              _pauseSkipRequested)
+              s_seasonSkipLatched = 1;
+        }
 #else
         /* Amiga: SPACE is post-LUT 0x20 in currentKey (NOT the raw 0x40 in
          * keyIn). MenuCheckControls already called GetKey() this frame, so

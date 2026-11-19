@@ -873,6 +873,146 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
  * league table is rebound to the manager and the local cursor moves past
  * the already-played native calendar events, without playing them again.
  * No artificial results, no change to the real season-boundary action. */
+/* The civilian world continues through July even if the manager has no
+ * OG fixture before August. Never simulate the manager's first kickoff in
+ * the resident CPU world: cap the week to the day BEFORE that native key. */
+static int exp_career_july_plan(ExpandedWorldDate *target,
+                                ExpandedLiveCalendarState *live)
+{
+    extern uint16_t _selTeamNumber,_currentSeasonShowing;
+    extern uint16_t _seasonFinished,_careerFinished,_youreSacked;
+    extern volatile uint16_t _isNationalSelector;
+    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    extern int Expanded_OGWorld_ClubBound(void);
+    ExpandedWorldDate next;
+    if(!target || !live || _gameType!=4 || s_active ||
+       _selTeamNumber==0xffffu || _youreSacked || _isNationalSelector ||
+       _seasonFinished || _careerFinished ||
+       !Expanded_OGWorld_ClubBound() ||
+       !ExpandedWorldLive_CalendarState(live))return 0;
+    const uint16_t year=live->today.year;
+    if(year!=(uint16_t)(World_FirstYear()+_currentSeasonShowing) ||
+       year!=Expanded_OGWorld_SaveYear() ||
+       !ExpandedWorld_NativePhaseToDate(
+            year,Expanded_Career_NativeCalendarKey(),&next) ||
+       !ExpandedWorld_CareerJulyForwardTarget(live->today,next,target))
+        return 0;
+    return 1;
+}
+void Expanded_CareerJulyForward(MenuEntry *entry);
+void Expanded_CareerJulyPrepareMenu(void)
+{
+    extern uint8_t _contestMenu[];
+    extern uintptr_t _currentMenuPtr;
+    extern MenuEntry _menuEntries[];
+    extern void NextMatch(MenuEntry *);
+    extern uint8_t _aNextMatch[];
+    static int wasForward;
+    ExpandedLiveCalendarState live;
+    ExpandedWorldDate target;
+    if(_currentMenuPtr!=(uintptr_t)_contestMenu || _gameType!=4)return;
+    MenuEntry *e=&_menuEntries[10]; /* EXISTING NEXT MATCH button */
+    if(exp_career_july_plan(&target,&live)) {
+        wasForward=1;
+        e->isInvisible=0;
+        e->isDisabled=0;
+        e->onSelect=(MenuEntryFn)Expanded_CareerJulyForward;
+        e->fg=(uintptr_t)"FORWARD TIME";
+    } else if(wasForward) {
+        /* Revert the original button when July ends: no new hitboxes. */
+        e->onSelect=(MenuEntryFn)NextMatch;
+        e->fg=(uintptr_t)_aNextMatch;
+        wasForward=0;
+    }
+}
+void Expanded_CareerJulyForward(MenuEntry *entry)
+{
+    extern uintptr_t _currentMenuPtr;
+    extern uint8_t _contestMenu[];
+    extern uint16_t _selTeamNumber,_currentDivisionIndex,_fireResetFlag;
+    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    extern int Expanded_OGWorld_DebugCanAdvanceClub(uint16_t,uint8_t,uint16_t);
+    extern int Expanded_CompetitionCoordinator_Advance(
+        ExpandedWorldDate,const char *);
+    extern void Expanded_AutoCareer_Save(const char *);
+    extern void ContestMenuOnReturn(void);
+    extern void DrawMenu(void);
+    ExpandedLiveCalendarState live;
+    ExpandedWorldDate target;
+    int future=0;
+    (void)entry;
+    _fireResetFlag=1;
+    if(_currentMenuPtr!=(uintptr_t)_contestMenu ||
+       !exp_career_july_plan(&target,&live) ||
+       !Expanded_OGWorld_PreflightClubCalendar(
+           Expanded_OGWorld_SaveYear(),target,&future) || !future ||
+       !Expanded_OGWorld_DebugCanAdvanceClub(
+           _selTeamNumber,(uint8_t)_currentDivisionIndex,
+           Expanded_OGWorld_SaveYear())) {
+        fprintf(stderr,"[career-july-forward] BLOCKED before-OG "
+                       "reason=INVALID_OR_PENDING_MANAGER_FIXTURE\n");
+        return;
+    }
+    /* This single coordinator advances only OTHER clubs' resident states.
+     * Expanded_OGWorld_AdvanceLeague skips the bound manager league, and
+     * the date is always strictly BEFORE the next local OG event. */
+    if(!Expanded_CompetitionCoordinator_Advance(target,"CAREER_JULY_FORWARD")) {
+        fprintf(stderr,"[career-july-forward] FAILED "
+                       "prior-CAR-preserved=1 do-not-retry-partial=1\n");
+        return;
+    }
+    fprintf(stderr,"[career-july-forward] COMMITTED "
+            "world=%s from=%04u-%02u-%02u to=%04u-%02u-%02u "
+            "next-manager-fixture=NOT_PLAYED\n",
+            World_Tag(),(unsigned)live.today.year,
+            (unsigned)live.today.month,(unsigned)live.today.day,
+            (unsigned)target.year,(unsigned)target.month,
+            (unsigned)target.day);
+    ContestMenuOnReturn(); /* native rows + button eligibility */
+    if(target.day<31u)SetCurrentEntry(10); /* keep controller focus */
+    else SetCurrentEntry(7); /* next legal step is PLAY MATCH */
+    DrawMenu();
+    Expanded_AutoCareer_Save("career-july-week");
+}
+void Expanded_CareerSyncWorldAfterLeagueMatch(uint8_t phase,
+                                               unsigned playedBefore)
+{
+    extern DIYCompetitionEx _diyCompetitionStart;
+    extern uint16_t _currentSeasonShowing,_selTeamNumber;
+    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    extern int Expanded_OGWorld_ClubBound(void);
+    extern int Expanded_OGWorld_PreflightLocalLeague(const DIYCompetitionEx *);
+    extern int Expanded_CompetitionCoordinator_Advance(
+        ExpandedWorldDate,const char *);
+    ExpandedLiveCalendarState live;
+    ExpandedWorldDate fixture;
+    if(_gameType!=4 || _selTeamNumber==0xffffu ||
+       _diyCompetitionStart.base.competitionType!=0) return;
+    if(!Expanded_OGWorld_ClubBound() ||
+       _diyCompetitionStart.base.competitionType!=0 ||
+       _diyCompetitionStart.matchesPlayedCount<=playedBefore ||
+       !ExpandedWorldLive_CalendarState(&live))return;
+    const uint16_t season=(uint16_t)(World_FirstYear()+
+                                     _currentSeasonShowing);
+    int32_t a=0,b=0;
+    if(season!=Expanded_OGWorld_SaveYear() ||
+       !ExpandedWorld_NativePhaseToDate(season,phase,&fixture) ||
+       !ExpandedWorld_DateToIndex(live.today,&a) ||
+       !ExpandedWorld_DateToIndex(fixture,&b) || b<=a ||
+       !Expanded_OGWorld_PreflightLocalLeague(&_diyCompetitionStart))return;
+    if(!Expanded_CompetitionCoordinator_Advance(fixture,"CAREER_NATIVE_MATCH")) {
+        fprintf(stderr,"[career-match-clock] FAILED "
+                       "source=OG_LEAGUE prior-CAR-preserved=1\n");
+        return;
+    }
+    fprintf(stderr,"[career-match-clock] COMMITTED "
+                   "world=%s phase=%u from=%04u-%02u-%02u "
+                   "to=%04u-%02u-%02u native-score=UNCHANGED\n",
+            World_Tag(),(unsigned)phase,(unsigned)live.today.year,
+            (unsigned)live.today.month,(unsigned)live.today.day,
+            (unsigned)fixture.year,(unsigned)fixture.month,
+            (unsigned)fixture.day);
+}
 void Expanded_CareerDebugMonthStart(MenuEntry *unused) {
     extern uintptr_t _currentMenuPtr;
     extern uint8_t _contestMenu[];

@@ -98,6 +98,35 @@ int ExpandedWorld_RegularForwardTarget(ExpandedWorldDate today,
     return 1;
 }
 
+int ExpandedWorld_CareerJulyForwardTarget(ExpandedWorldDate today,
+                                          ExpandedWorldDate next_fixture,
+                                          ExpandedWorldDate *out_date)
+{
+    int32_t now=0,fixture=0,end=0,lastSafe=0;
+    uint8_t firstKey=0u;
+    ExpandedWorldDate previousPhase;
+    if(!out_date || today.month!=7u ||
+       !ExpandedWorld_DateToIndex(today,&now) ||
+       !ExpandedWorld_DateToIndex(next_fixture,&fixture) ||
+       !ExpandedWorld_DateToIndex((ExpandedWorldDate){today.year,7u,31u},&end) ||
+       now>=end || fixture<=now ||
+       !ExpandedWorld_DateToNativePhaseFloor(
+           today.year,next_fixture,&firstKey) || firstKey<=48u ||
+       !ExpandedWorld_NativePhaseToDate(
+           today.year,(uint8_t)(firstKey-1u),&previousPhase) ||
+       !ExpandedWorld_DateToIndex(previousPhase,&lastSafe))
+        return 0;
+    /* The OG world tick runs through the NEXT native phase, not merely
+     * through the civil day. Therefore a July 29 target could execute
+     * the August 1 phase EARLY. Stop at its previous phase boundary
+     * (July 28 for phase 56); never simulate the manager's first match. */
+    int32_t target=now+7;
+    if(target>end)target=end;
+    if(target>=fixture)target=fixture-1;
+    if(target>lastSafe)target=lastSafe;
+    return target>now && ExpandedWorld_IndexToDate(target,out_date);
+}
+
 /* OpenSWOS native competition keys count 1/8 of a calendar month,
  * NOT weeks since August. A byte key advances by +0x60 every January:
  * 56=1 Aug in the season's first year, 96=1 Jan next year.

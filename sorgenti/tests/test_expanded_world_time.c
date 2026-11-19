@@ -88,6 +88,34 @@ int main(void) {
         (ExpandedWorldDate){2027,2,30},&target));
     assert(!ExpandedWorld_RegularForwardTarget(
         (ExpandedWorldDate){2027,6,30},NULL));
+    /* Real club preseason, unlike unemployed, must NEVER auto-play the
+     * first August 1 OG manager match. February/other modes unaffected. */
+    ExpandedWorldDate kickoff={2027,8,1};
+    assert(ExpandedWorld_CareerJulyForwardTarget(
+        (ExpandedWorldDate){2027,7,1},kickoff,&target) &&
+        target.year==2027 && target.month==7 && target.day==8);
+    assert(ExpandedWorld_CareerJulyForwardTarget(
+        (ExpandedWorldDate){2027,7,8},kickoff,&target) &&
+        target.day==15);
+    assert(ExpandedWorld_CareerJulyForwardTarget(
+        (ExpandedWorldDate){2027,7,22},kickoff,&target) &&
+        target.day==28);
+    /* Phase 56 (Aug 1) must never run on a July 29 world tick. */
+    assert(!ExpandedWorld_CareerJulyForwardTarget(
+        (ExpandedWorldDate){2027,7,28},kickoff,&target));
+    assert(!ExpandedWorld_CareerJulyForwardTarget(
+        (ExpandedWorldDate){2027,7,29},kickoff,&target));
+    assert(!ExpandedWorld_CareerJulyForwardTarget(
+        (ExpandedWorldDate){2027,7,31},kickoff,&target));
+    assert(!ExpandedWorld_CareerJulyForwardTarget(
+        (ExpandedWorldDate){2027,7,1},
+        (ExpandedWorldDate){2027,7,1},&target));
+    assert(ExpandedWorld_CareerJulyForwardTarget(
+        (ExpandedWorldDate){1997,7,1},(ExpandedWorldDate){1997,8,1},
+        &target) && target.year==1997 && target.day==8);
+    assert(!ExpandedWorld_CareerJulyForwardTarget(
+        (ExpandedWorldDate){2027,6,30},kickoff,&target));
+    puts("OG_CAREER_JULY_PRESEASON_NO_REPLAY=PASS_ISOLATED");
     puts("OG_UNEMPLOYED_JULY1_BOUNDARY=PASS_ISOLATED");
     puts("OK: calendar dates, season weeks, leap years, monotonic advances");
     return 0;

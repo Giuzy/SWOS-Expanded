@@ -59,6 +59,10 @@ extern void Expanded_SetAgeText(void);
 static void Expanded_UpdateFameText(void);
 void CareerMenuFinish(void);
 #ifdef SWOS_SDL_BUILD
+/* Match date synchronization reads the real OG local league before the
+ * original callback; the later legacy extern at line ~4400 is not visible
+ * in this function's scope. */
+extern DIYCompetitionEx _diyCompetitionStart;
 int Expanded_AutoCareer_HasSave(void);
 void Expanded_AutoCareer_Save(const char *reason);
 int Expanded_AutoCareer_Load(void);
@@ -3854,6 +3858,14 @@ void ContestMenuOnReturn(void)
     CheckClubBusiness();
     CheckJobOffers();
     SetNationalSelectorButtons();
+#ifdef SWOS_SDL_BUILD
+    /* One existing CAREER button becomes weekly FORWARD only while July
+     * has no manager fixture. No new menu entry or changed classic mode. */
+    if(_gameType==GAME_TYPE_CAREER) {
+        extern void Expanded_CareerJulyPrepareMenu(void);
+        Expanded_CareerJulyPrepareMenu();
+    }
+#endif
 }
 
 /* ==========================================================================
@@ -3905,7 +3917,22 @@ void PlayMatchMenu(MenuEntry *callerEntry)
         return;
     }
 
+#ifdef SWOS_SDL_BUILD
+    const unsigned julyPlayedBefore=(unsigned)_diyCompetitionStart.matchesPlayedCount;
+    extern uint8_t Expanded_Career_NativeCalendarKey(void);
+    const uint8_t julyPlayedPhase=Expanded_Career_NativeCalendarKey();
+#endif
     Career_PlayMatchMenuLoop();
+#ifdef SWOS_SDL_BUILD
+    /* The actual OG manager league has now committed its result to the
+     * resident world. Move the civil date to that played fixture's phase
+     * through the same native coordinator, BEFORE post-match autosave. */
+    if(_gameType==GAME_TYPE_CAREER) {
+        extern void Expanded_CareerSyncWorldAfterLeagueMatch(uint8_t,unsigned);
+        Expanded_CareerSyncWorldAfterLeagueMatch(
+            julyPlayedPhase,julyPlayedBefore);
+    }
+#endif
 
     if (_gameType != GAME_TYPE_SEASON) {
         UpdateCareerAfterMatch();
@@ -3954,7 +3981,19 @@ void NextMatch(MenuEntry *callerEntry)
         extern int Expanded_HandleSackingAfterMatch(void);
         if (Expanded_HandleSackingAfterMatch()) return;
     }
+#ifdef SWOS_SDL_BUILD
+    const unsigned julyNextPlayedBefore=(unsigned)_diyCompetitionStart.matchesPlayedCount;
+    extern uint8_t Expanded_Career_NativeCalendarKey(void);
+    const uint8_t julyNextPlayedPhase=Expanded_Career_NativeCalendarKey();
+#endif
     Career_NextMatch();
+#ifdef SWOS_SDL_BUILD
+    if(_gameType==GAME_TYPE_CAREER) {
+        extern void Expanded_CareerSyncWorldAfterLeagueMatch(uint8_t,unsigned);
+        Expanded_CareerSyncWorldAfterLeagueMatch(
+            julyNextPlayedPhase,julyNextPlayedBefore);
+    }
+#endif
 
     if (_gameType != GAME_TYPE_SEASON) {
         UpdateCareerAfterMatch();

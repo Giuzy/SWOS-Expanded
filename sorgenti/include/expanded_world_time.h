@@ -27,6 +27,11 @@ int ExpandedWorld_DateAfterWeeks(ExpandedWorldDate start, uint32_t elapsed_weeks
  * crossing that boundary; no effect on other calendar/debug actions. */
 int ExpandedWorld_RegularForwardTarget(ExpandedWorldDate today,
                                        ExpandedWorldDate *out_date);
+/* Employed July preseason: a weekly click must stay strictly before the
+ * FIRST pending native manager fixture and never cross July 31. */
+int ExpandedWorld_CareerJulyForwardTarget(ExpandedWorldDate today,
+                                          ExpandedWorldDate next_fixture,
+                                          ExpandedWorldDate *out_date);
 /* Native OpenSWOS sortKey: calendar month / 8 (+0x60 at year rollover).
  * Example: 56 -> 1 Aug 1996, 63 -> 28 Aug 1996, 96 -> 1 Jan 1997. */
 int ExpandedWorld_NativePhaseToDate(uint16_t season_year, uint8_t native_key,

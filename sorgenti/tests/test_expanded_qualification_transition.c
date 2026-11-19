@@ -87,6 +87,23 @@ int main(void)
     assert(!ExpandedQual_ClassicEditionReady(1u,16u));
     assert(!ExpandedQual_ClassicEditionReady(2u,0u));
     assert(!ExpandedQual_ClassicEditionReady(3u,32u));
+    /* The 209 creation gate had treated the CWC/UEFA entrant sources as
+     * independent. Native OG resolves places in priority order. A valid
+     * UEFA 32 field is NOT usable if the prior CWC 32 field is missing. */
+    const unsigned all_ready[3]={16u,32u,32u};
+    const unsigned no_champions[3]={0u,32u,32u};
+    const unsigned no_cwc[3]={16u,0u,32u};
+    assert(ExpandedQual_ClassicDependentReady(0u,all_ready));
+    assert(ExpandedQual_ClassicDependentReady(1u,all_ready));
+    assert(ExpandedQual_ClassicDependentReady(2u,all_ready));
+    assert(!ExpandedQual_ClassicDependentReady(1u,no_champions));
+    assert(!ExpandedQual_ClassicDependentReady(2u,no_champions));
+    assert(ExpandedQual_ClassicDependentReady(0u,no_cwc));
+    assert(!ExpandedQual_ClassicDependentReady(1u,no_cwc));
+    assert(!ExpandedQual_ClassicDependentReady(2u,no_cwc));
+    assert(!ExpandedQual_ClassicDependentReady(2u,NULL));
+    assert(!ExpandedQual_ClassicDependentReady(3u,all_ready));
+    puts("OG_CLASSIC_UPSTREAM_QUALIFICATION_GATES=PASS_ISOLATED_ONLY");
     puts("OG_CLASSIC_INDEPENDENT_QUALIFIER_GATES=PASS_ISOLATED_ONLY");
     puts("OG_UNEMPLOYED_SOURCE_AND_RESTORED_IDS=PASS_ISOLATED_ONLY");
     puts("OG_FIRST_YEAR_REAL_VS_MANUAL_APPROVAL=PASS_ISOLATED_ONLY");

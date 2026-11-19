@@ -1510,42 +1510,47 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
             CompetitionCup *records[2]={
                 (CompetitionCup *)(void *)_cupWinnersCup,
                 (CompetitionCup *)(void *)_uefaCup};
-            /* Historic CWC and UEFA Cup use distinct real OG entrant
-             * fields, independent of each other and the Champions draw.
-             * No field -> no new edition; do NOT reuse the year-1 seed. */
+            /* OG qualification resolves the full continental allocation
+             * in order: Champions, domestic-cup CWC (after Champions),
+             * UEFA Cup (after BOTH). The competitions themselves remain
+             * distinct resident OG contexts but cannot be seeded from an
+             * incomplete upstream source or the old first-year list. */
+            uint16_t qualified[3][EXP_QUAL_MAX_ENTRANTS]={{0}};
+            unsigned qualifiedCount[3]={0u,0u,0u};
+            const int later=year>World_FirstYear();
+            if(later)for(unsigned route=0u;route<3u;++route)
+                qualifiedCount[route]=Expanded_OGWorld_QualReadNext(
+                    year,route,qualified[route],EXP_QUAL_MAX_ENTRANTS);
             for(unsigned c=0;c<2u;++c) {
-                const unsigned cup=c+1u;
-                int ready=year==World_FirstYear();
-                if(!ready) {
-                    uint16_t field[EXP_QUAL_MAX_ENTRANTS]={0};
-                    const unsigned count=Expanded_OGWorld_QualReadNext(
-                        year,cup,field,EXP_QUAL_MAX_ENTRANTS);
-                    ready=ExpandedQual_ClassicEditionReady(cup,count);
-                    if(ready) {
-                        memcpy(&nextClassic[c],records[c],
-                               sizeof nextClassic[c]);
-                        for(unsigned j=0;j<32u;++j) {
-                            nextClassic[c].teamSeedList[j].countryNumber=
-                                (uint8_t)(field[j]>>8);
-                            nextClassic[c].teamSeedList[j].teamOrdinal=
-                                (uint8_t)field[j];
-                        }
-                        records[c]=&nextClassic[c];
+                const unsigned route=c+1u;
+                const int ready=!later ||
+                    ExpandedQual_ClassicDependentReady(route,qualifiedCount);
+                if(ready && later) {
+                    memcpy(&nextClassic[c],records[c],
+                           sizeof nextClassic[c]);
+                    for(unsigned j=0;j<32u;++j) {
+                        nextClassic[c].teamSeedList[j].countryNumber=
+                            (uint8_t)(qualified[route][j]>>8);
+                        nextClassic[c].teamSeedList[j].teamOrdinal=
+                            (uint8_t)qualified[route][j];
                     }
+                    records[c]=&nextClassic[c];
                 }
                 if(ready) {
                     const int result=Expanded_OGWorld_AdvanceCup(
-                        (uint8_t *)records[c],254u,(uint8_t)cup,
+                        (uint8_t *)records[c],254u,(uint8_t)route,
                         year,phase);
                     if(result!=1)
                         fprintf(stderr,"[og-classic-europe] CUP_UNAVAILABLE "
                                "year=%u phase=%u slot=%u status=%d\n",
-                                (unsigned)year,(unsigned)phase,cup,result);
+                                (unsigned)year,(unsigned)phase,route,result);
                 } else if(phase==0u) {
                     fprintf(stderr,"[og-classic-europe] EDITION_PENDING "
-                           "year=%u slot=%u reason=NO_VERIFIED_OG_FIELD "
-                           "other-editions=INDEPENDENT\n",
-                           (unsigned)year,cup);
+                           "year=%u slot=%u reason=UPSTREAM_OG_FIELD_MISSING "
+                           "champions=%u cwc=%u uefa=%u "
+                           "no-previous-seed=1\n",
+                           (unsigned)year,route,qualifiedCount[0],
+                           qualifiedCount[1],qualifiedCount[2]);
                 }
             }
         }

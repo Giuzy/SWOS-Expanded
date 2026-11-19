@@ -5837,16 +5837,22 @@ static int exp_og_qualification_country(uint8_t country,uint16_t closedYear,
             ++*ranked;
         }
     }
-    /* The original OG cup result is the winnerTeam identity, NOT the
-     * seed list's first club or the last remaining bracket index. */
-    for(uint8_t slot=2u;slot<=3u && !*cupVerified;++slot) {
-        const ExpandedOGCup *cup=exp_cup_find(country,slot,closedYear);
-        if(!cup || !cup->used || cup->managed_excluded ||
-           cup->unsupported_setup || cup->lastPhase<56u ||
-           !cup->comp.base.competitionFinished)continue;
+    /* Only table slot 2 is the NATIONAL cup. Slot 3 can be a LEAGUE
+     * cup and cannot supply the CWC/Europa domestic-cup place when the
+     * national cup has not been decided. No guessed runner-up or winner. */
+    const void *const *const table=
+        (const void *const *)_competitionsTable[country];
+    const uintptr_t nativeCup=table?(uintptr_t)table[2]:0u;
+    const int nationalDefined=nativeCup &&
+        nativeCup!=(uintptr_t)-1 && nativeCup!=(uintptr_t)-2 &&
+        ((const Competition *)nativeCup)->type==1;
+    const ExpandedOGCup *cup=nationalDefined?
+        exp_cup_find(country,2u,closedYear):NULL;
+    if(cup && cup->used && !cup->managed_excluded &&
+       !cup->unsupported_setup && cup->lastPhase>=56u &&
+       cup->comp.base.competitionFinished) {
         const uint16_t id=cup->tournament.header.winnerTeam;
-        if(!id || id==0xffffu)continue;
-        for(unsigned i=0;i<cup->teamCount;++i) {
+        if(id && id!=0xffffu)for(unsigned i=0;i<cup->teamCount;++i) {
             const TeamFileEx *t=&cup->teams[i];
             if(PACK_BE_U16(t->team.countryNumber,
                            t->team.teamOrdinal)==id) {
@@ -5854,6 +5860,27 @@ static int exp_og_qualification_country(uint8_t country,uint16_t closedYear,
                 *cupVerified=1;break;
             }
         }
+    }
+    /* A European national cup that is known to exist but has no
+     * verified OG winner is a missing qualification prerequisite. A
+     * complete league table alone MUST NOT turn that uncertainty into
+     * a final UEFA field or silently use the league cup's champion. */
+    extern void *_countriesTable[];
+    const uintptr_t countryRaw=(uintptr_t)_countriesTable[country];
+    const int isEurope=countryRaw &&
+        countryRaw!=(uintptr_t)-1 && countryRaw!=(uintptr_t)-2 &&
+        *(const uint8_t *)countryRaw==0u;
+    if(isEurope && nationalDefined && !*cupVerified) {
+        Expanded_OGWorld_UnemployedQualificationError(
+            "EUROPE_NATIONAL_CUP_WINNER_NOT_VERIFIED");
+        fprintf(stderr,"[og-qual-source-dependency] "
+                       "world=%s closed=%u country=%u national-slot=2 "
+                       "cup-resident=%d cup-finished=%d "
+                       "winner-verified=0 action=HOLD_ALL_UEFA_FIELDS\n",
+                World_Tag(),(unsigned)closedYear,(unsigned)country,
+                cup && cup->used,
+                cup && cup->used && cup->comp.base.competitionFinished);
+        return 0;
     }
     return *ranked || *cupVerified;
 }
@@ -6106,10 +6133,26 @@ int Expanded_OGWorld_QualifyUnemployed(uint16_t closedYear,uint16_t nextYear)
             "year=%u copa=20 source=OG_RESIDENT_FINAL_TABLES "
             "uefa=INCOMPLETE separately-validated=1\n",
             (unsigned)nextYear);
-    if(valid || copaVerified)
+    if(valid) {
+        /* All three European fields are the outcome of ONE native OG
+         * qualification allocation: cup winners, titleholders, overlaps
+         * and reallocated places have now been checked together. */
         Expanded_OGWorld_QualCaptureNative(nextYear,
              field[0],n[0],field[1],n[1],field[2],n[2],
              copaIds,copaCount);
+    } else if(copaVerified) {
+        /* The historic Copa may be authentic while European cup winners
+         * or the UEFA allocation remain unresolved. Persist ONLY Copa in
+         * the existing CAR wire; mark all three UEFA routes INVALID so a
+         * fresh process cannot mistake a partial field for qualification. */
+        Expanded_OGWorld_QualCaptureNative(nextYear,
+             NULL,0u,NULL,0u,NULL,0u,copaIds,copaCount);
+        for(unsigned k=0;k<3u;++k)s_expQual.invalid[k]=1u;
+        fprintf(stderr,"[og-qual-source-dependency] "
+                       "world=%s next=%u euro=WITHHELD_UNVERIFIED "
+                       "copa=VERIFIED_ONLY persisted-invalid=1\n",
+                World_Tag(),(unsigned)nextYear);
+    }
     /* Restore local manager/UI state. Original OG qualification state
      * (UEFA coefficients and bracket) and the resident league/cup records
      * stay owned by the ONE world; its next entrants live in qual_next CAR. */

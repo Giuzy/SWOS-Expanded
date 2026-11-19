@@ -16,6 +16,20 @@ static inline int ExpandedQual_ClassicEditionReady(unsigned route,
 {
     return route<3u && verified_count==(route==0u?16u:32u);
 }
+/* Qualification is one OG allocation with upstream competition priority.
+ * A later cup must not open if an earlier route remains unverified:
+ * 0 Champions (league/titleholder), 1 CWC (national cup plus Champions),
+ * 2 UEFA (remaining clubs after both previous allocations). This checks
+ * only already-validated native fields, never decides access itself. */
+static inline int ExpandedQual_ClassicDependentReady(
+    unsigned route,const unsigned verified_counts[3])
+{
+    if(route>=3u || !verified_counts)return 0;
+    for(unsigned i=0;i<=route;++i)
+        if(!ExpandedQual_ClassicEditionReady(i,verified_counts[i]))
+            return 0;
+    return 1;
+}
 typedef struct {
     unsigned matched,missing,extra,duplicate_source,duplicate_resident;
     unsigned invalid_source,invalid_resident;

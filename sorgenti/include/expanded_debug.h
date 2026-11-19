@@ -109,6 +109,22 @@ typedef struct {
 } ExpandedOGScorerAudit;
 void Expanded_OGWorld_ScorerAudit(ExpandedOGScorerAudit *out);
 void Expanded_OGWorld_LogCheckpoint(const char *stage);
+/* Wall-clock diagnostics for F12, transient and never serialized to CAR.
+ * Last, average, total and worst are observed elapsed milliseconds, not
+ * proof of gameplay correctness. */
+enum {
+    EXP_PERF_WORLD_TICK=0, EXP_PERF_OG_LEAGUES, EXP_PERF_OG_CUPS,
+    EXP_PERF_OG_INT, EXP_PERF_OG_OVERHEAD, EXP_PERF_FORWARD_UNEMPLOYED,
+    EXP_PERF_MANUAL_SEASON, EXP_PERF_LEGACY_ROLLOVER,
+    EXP_PERF_SAVE_CAR, EXP_PERF_LOAD_CAR, EXP_PERF_BOOT,
+    EXP_PERF_RENDER_FRAME, EXP_PERF_COUNT
+};
+typedef struct {
+    uint32_t count;
+    double last_ms, total_ms, worst_ms;
+} ExpandedPerfSample;
+void Expanded_Perf_Record(unsigned key, double elapsed_ms);
+void Expanded_Perf_Read(ExpandedPerfSample out[EXP_PERF_COUNT]);
 /* Native world-resident OG national cups: never a second results engine. */
 int Expanded_OGWorld_IsSimulating(void);
 uint16_t Expanded_OGWorld_CurrentCupYear(void);

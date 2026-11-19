@@ -1578,6 +1578,10 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
         const Uint64 active=perfLeagues+perfCups+perfInternational;
         const Uint64 misc=total>=active?total-active:0u;
         const double factor=perfHz>0.0?1000.0/perfHz:0.0;
+        Expanded_Perf_Record(EXP_PERF_OG_LEAGUES,factor*(double)perfLeagues);
+        Expanded_Perf_Record(EXP_PERF_OG_CUPS,factor*(double)perfCups);
+        Expanded_Perf_Record(EXP_PERF_OG_INT,factor*(double)perfInternational);
+        Expanded_Perf_Record(EXP_PERF_OG_OVERHEAD,factor*(double)misc);
         fprintf(stderr,"[og-forward-perf] world=%s year=%u phase=%u "
                        "leagues-ms=%.3f cups-ms=%.3f "
                        "international-ms=%.3f overhead-ms=%.3f "
@@ -1782,6 +1786,8 @@ int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
     {
         const double hz=(double)SDL_GetPerformanceFrequency();
         const Uint64 elapsed=SDL_GetPerformanceCounter()-cycleStart;
+        Expanded_Perf_Record(EXP_PERF_WORLD_TICK,
+            hz>0.0?1000.0*(double)elapsed/hz:0.0);
         fprintf(stderr,"[og-forward-cycle] world=%s date=%04u-%02u-%02u "
                        "year=%u native-phase=%u status=%s "
                        "elapsed-ms=%.3f mode=%s includes=OG_WORLD_AND_JOURNAL "
@@ -2154,6 +2160,21 @@ void InitCareer(uint16_t teamNo)
     InitCareerClub(teamNo);
 }
 
+/* Measure the required original qualification/mobility callback separately
+ * from the already resident OG tick. Do not skip or duplicate qualification
+ * just to make the interface faster. */
+static void career_run_season_legacy_measured(void)
+{
+#ifdef SWOS_SDL_BUILD
+    const Uint64 start=SDL_GetPerformanceCounter();
+#endif
+    Career_AdvanceToNextSeason_UpdateCompetitions();
+#ifdef SWOS_SDL_BUILD
+    const Uint64 hz=SDL_GetPerformanceFrequency();
+    if(hz)Expanded_Perf_Record(EXP_PERF_LEGACY_ROLLOVER,
+        1000.0*(double)(SDL_GetPerformanceCounter()-start)/(double)hz);
+#endif
+}
 /* ================================================================
  * ContinueCareerNextSeason  (SWOS2.s line 32355)
  *
@@ -2168,6 +2189,7 @@ void ContinueCareerNextSeason(void)
     extern uint16_t _gameType;
 #ifdef SWOS_SDL_BUILD
     s_ogManualSeasonReady=1;
+    const Uint64 manualStart=SDL_GetPerformanceCounter();
 #endif
     SWOS_AUTOSKIP_LOG("[bug1] ContinueCareerNextSeason ENTER: youreSacked=%u "
                       "teamNoOfferAccepted=0x%04X gameType=%u",
@@ -2179,14 +2201,14 @@ void ContinueCareerNextSeason(void)
             ShowLeavingMessage();
         }
         SWOS_AUTOSKIP_LOG("[bug1] ContinueCareerNextSeason: offer-accepted branch");
-        Career_AdvanceToNextSeason_UpdateCompetitions();
+        career_run_season_legacy_measured();
         Career_ContinueToNextSeasonInitTeamAndFunds(_teamNoOfferAccepted, _teamFundsAccepted);
         InitializeNewSeason();
     } else {
         SWOS_AUTOSKIP_LOG("[bug1] ContinueCareerNextSeason: chairman branch (no offer accepted)");
         ShowChairmanOpinionAboutTheSeason();
         SWOS_AUTOSKIP_LOG("[bug1] back from ShowChairmanOpinion: youreSacked=%u", (unsigned)_youreSacked);
-        Career_AdvanceToNextSeason_UpdateCompetitions();
+        career_run_season_legacy_measured();
         SWOS_AUTOSKIP_LOG("[bug1] back from AdvanceToNextSeason: youreSacked=%u", (unsigned)_youreSacked);
         InitializeStartingBalanceForNewSeason();
         SWOS_AUTOSKIP_LOG("[bug1] back from InitStartingBalance: youreSacked=%u", (unsigned)_youreSacked);
@@ -2207,8 +2229,25 @@ void ContinueCareerNextSeason(void)
             const Uint64 t0=SDL_GetPerformanceCounter();
             const int nativeOk=Expanded_OGWorld_AdvanceToDate(july);
             const Uint64 t1=SDL_GetPerformanceCounter();
-            const int clockOk=nativeOk?
+            int clockOk=nativeOk?
                 ExpandedWorldLive_AdvanceToSeason((uint16_t)year):0;
+            if(clockOk) {
+                ExpandedLiveCalendarState checked;
+                const int valid=ExpandedWorldLive_CalendarState(&checked);
+                if(!valid ||
+                   checked.today.year!=july.year ||
+                   checked.today.month!=7u || checked.today.day!=1u) {
+                    fprintf(stderr,"[og-manual-season] CLOCK_DATE_MISMATCH "
+                        "expected=%04u-07-01 actual=%04u-%02u-%02u "
+                        "native-year=%lu action=BLOCK_NEW_CAR\n",
+                        (unsigned)july.year,
+                        valid?(unsigned)checked.today.year:0u,
+                        valid?(unsigned)checked.today.month:0u,
+                        valid?(unsigned)checked.today.day:0u,
+                        (unsigned long)year);
+                    clockOk=0;
+                }
+            }
             const Uint64 t2=SDL_GetPerformanceCounter();
             int bindOk=1;
             if(clockOk && _selTeamNumber!=0xffffu && !_youreSacked) {
@@ -2245,6 +2284,13 @@ void ContinueCareerNextSeason(void)
                                "reason=NATIVE_WORLD_NOT_SYNCHRONIZED\n");
             else Expanded_OGWorld_QualAuditNextYear((uint16_t)year);
         }
+    }
+#endif
+#ifdef SWOS_SDL_BUILD
+    {
+        const Uint64 hz=SDL_GetPerformanceFrequency();
+        if(hz)Expanded_Perf_Record(EXP_PERF_MANUAL_SEASON,
+            1000.0*(double)(SDL_GetPerformanceCounter()-manualStart)/(double)hz);
     }
 #endif
     SWOS_AUTOSKIP_LOG("[bug1] ContinueCareerNextSeason EXIT");

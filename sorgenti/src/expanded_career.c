@@ -14,6 +14,9 @@
 #include "expanded_world_time.h"
 #include "expanded_debug_month.h" /* pure target-date calculation only */
 #include "expanded_debug.h"
+#ifdef SWOS_SDL_BUILD
+#include <SDL.h>
+#endif
 #include "expanded_world_live.h"
 #include "expanded_midseason_join.h"
 #include "swos_io.h"
@@ -826,6 +829,9 @@ int Expanded_OGStress_Tick(void)
     return 1;
 }
 void Expanded_UnemployedWait(void) {
+#ifdef SWOS_SDL_BUILD
+    const Uint64 forwardStart=SDL_GetPerformanceCounter();
+#endif
     const unsigned jump_years=s_debug_wait_jump_years;
     ExpandedLiveCalendarState live;
     ExpandedWorldDate target;
@@ -1016,6 +1022,17 @@ void Expanded_UnemployedWait(void) {
         ((Menu*)_currentMenu)->selectedEntry=
             &_menuEntries[s_debug_june30_once?14:13];
     DrawMenu();
+#ifdef SWOS_SDL_BUILD
+    {
+        const Uint64 hz=SDL_GetPerformanceFrequency();
+        const double ms=hz?1000.0*(double)(
+            SDL_GetPerformanceCounter()-forwardStart)/(double)hz:0.0;
+        Expanded_Perf_Record(EXP_PERF_FORWARD_UNEMPLOYED,ms);
+        fprintf(stderr,"[f12-forward-total] world=%s mode=UNEMPLOYED "
+            "years=%u elapsed-ms=%.3f includes=OG_WORLD_CIVIL_OFFERS_MENU\n",
+            World_Tag(),jump_years,ms);
+    }
+#endif
 }
 #ifdef SWOS_SDL_BUILD
 void Expanded_UnemployedDebugMonth(MenuEntry *unused) {

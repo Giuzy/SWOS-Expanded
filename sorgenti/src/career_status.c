@@ -5095,6 +5095,31 @@ int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
                 (unsigned)phase,(unsigned)ctx->comp.matchesPlayedCount);
         return 1;
     }
+    if(ctx && ctx->used) {
+        /* The resident must always have real 0..N-1 offsets.
+         * -1 is only the manager's LOCAL OG identity; treating it as
+         * a resident team index can crash the historical world. */
+        const unsigned n=(unsigned)ctx->comp.base.numTeams;
+        int invalid=n<2u || n>EXP_OG_MAX_TEAMS || n>ctx->teamCount;
+        if(invalid)
+            fprintf(stderr,"[og-resident-id] BLOCK_INVALID_TEAM_COUNT "
+                "world=%s country=%u div=%u year=%u n=%u teams=%u\n",
+                World_Tag(),(unsigned)country,(unsigned)division,
+                (unsigned)year,n,(unsigned)ctx->teamCount);
+        for(unsigned i=0u;!invalid && i<n;++i) {
+            const int32_t offset=ctx->comp.leagueStandings[i].teamSelOffset;
+            if(offset<0 || (unsigned)offset>=ctx->teamCount) {
+                fprintf(stderr,"[og-resident-id] BLOCK_INVALID_OFFSET "
+                    "world=%s country=%u div=%u year=%u phase=%u "
+                    "row=%u offset=%ld teams=%u no-replay=1\n",
+                    World_Tag(),(unsigned)country,(unsigned)division,
+                    (unsigned)year,(unsigned)phase,i,(long)offset,
+                    (unsigned)ctx->teamCount);
+                invalid=1;
+            }
+        }
+        if(invalid)return 0;
+    }
     if(ctx && phase<=ctx->lastPhase)return 1;
     if(!ctx) {
         if(s_expOGCount==EXP_OG_MAX_LEAGUES)return 0;
@@ -8603,6 +8628,13 @@ show_menu_check:
     }
 #endif
 
+#ifdef SWOS_SDL_BUILD
+    /* Repeated view-only menus during OG season qualification are not
+     * competition results. Preserve the original simulation, league
+     * tables and qualification calls; suppress presentation only. */
+    if(EXPANDED_WORLD_OG_ONLY && _gameType==4 &&
+       _seasonUpdateInProgress) return;
+#endif
     /* Show league menu. SWOS2.s loc_12D754/loc_12D764 calls (1,1,0)
      * unconditionally here — the highlightedLeagueTeamId check belongs
      * only on the catch_up_phase first-time path (loc_12D790).

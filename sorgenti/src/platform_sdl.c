@@ -458,6 +458,30 @@ static volatile Uint32 s_last_main_render_ms;
 static volatile int s_screenshot_request;
 /* One F12 read-only OG dashboard; no obsolete F12+C / F10 subpages. */
 static volatile int s_world_debug_visible;
+/* F12+9 timing page, F12+0 original OG health page. */
+static volatile int s_world_perf_page;
+/* Do not mix timing samples from the two careers when switching worlds
+ * without restarting. The boot and SDL render samples use the world
+ * active at the moment they are observed. */
+static ExpandedPerfSample s_world_perf[2][EXP_PERF_COUNT];
+static unsigned perf_world_index(void)
+{
+    return World_Current()==WORLD_9697?0u:1u;
+}
+void Expanded_Perf_Record(unsigned key,double elapsed_ms)
+{
+    if(key>=EXP_PERF_COUNT || elapsed_ms<0.0)return;
+    ExpandedPerfSample *s=&s_world_perf[perf_world_index()][key];
+    if(s->count!=UINT32_MAX)++s->count;
+    s->last_ms=elapsed_ms;
+    s->total_ms+=elapsed_ms;
+    if(elapsed_ms>s->worst_ms)s->worst_ms=elapsed_ms;
+}
+void Expanded_Perf_Read(ExpandedPerfSample out[EXP_PERF_COUNT])
+{
+    if(out)memcpy(out,s_world_perf[perf_world_index()],
+                  sizeof s_world_perf[0]);
+}
 /* Debug-only fast real match: every original game frame runs normally at
  * four times the wall-clock rate. No result teleport or changed physics. */
 static volatile int s_debug_match_fast;
@@ -2141,6 +2165,14 @@ static void pump_events_any_thread(void)
             }
             if (ev.key.repeat == 0 && s_world_debug_visible) {
                 SDL_Keycode code = ev.key.keysym.sym;
+                if (code == SDLK_9 || code == SDLK_KP_9) {
+                    s_world_perf_page=1;
+                    continue;
+                }
+                if (code == SDLK_0 || code == SDLK_KP_0) {
+                    s_world_perf_page=0;
+                    continue;
+                }
                 if (code == SDLK_7 || code == SDLK_KP_7) {
                     /* Arm, don't mutate modal menus inside SDL_PollEvent.
                      * Next UNEMPLOYED/FORWARD TIME uses the same world tick. */
@@ -2975,9 +3007,50 @@ static void draw_world_debug_overlay(void)
     SDL_RenderFillRect(s_renderer,&panel);
     SDL_SetRenderDrawColor(s_renderer,70,149,181,255);
     SDL_RenderDrawRect(s_renderer,&panel);
-    SDL_RenderDrawLine(s_renderer,378,103,378,515);
+    SDL_RenderDrawLine(s_renderer,s_world_perf_page?476:378,103,
+                       s_world_perf_page?476:378,515);
 
     char line[160];
+    if(s_world_perf_page) {
+        static const char *const names[EXP_PERF_COUNT]={
+            "OG WORLD TICK", "OG LEGHE", "OG COPPE", "OG INTERNAZ.",
+            "OG ALTRO", "FORWARD DISOCC.", "FINISH SEASON",
+            "ROLLOVER LEGACY", "SAVE CAR", "LOAD CAR", "BOOT 0-100",
+            "FRAME RENDER"
+        };
+        ExpandedPerfSample samples[EXP_PERF_COUNT];
+        Expanded_Perf_Read(samples);
+        snprintf(line,sizeof line,"F12+9 / PRESTAZIONI %s (SOLO QUESTO MONDO)",
+                 World_Tag());
+        diag_f12_line(26,25,line,88,207,255);
+        diag_f12_line(26,43,"F12+0 SALUTE OG  |  F12 CHIUDE  |  TEMPI IN MS",
+                      226,236,245);
+        diag_f12_line(26,66,"ULTIMO / MEDIA / PEGGIORE / TOTALE - SOLO OSSERVAZIONI",
+                      162,180,193);
+        diag_f12_line(26,83,"NON MISURA LA CORRETTEZZA DEL GAMEPLAY",162,180,193);
+        for(unsigned i=0u;i<EXP_PERF_COUNT;++i) {
+            const ExpandedPerfSample s=samples[i];
+            const int x=i<6u?26:489;
+            const int y=116+(int)(i%6u)*58;
+            snprintf(line,sizeof line,"%s  N=%lu",names[i],
+                     (unsigned long)s.count);
+            diag_f12_line(x,y,line,88,207,255);
+            if(s.count) {
+                snprintf(line,sizeof line,"ULT %.1f  MED %.1f  MAX %.1f",
+                         s.last_ms,s.total_ms/(double)s.count,s.worst_ms);
+                diag_f12_line(x,y+17,line,226,236,245);
+                snprintf(line,sizeof line,"TOT %.1f MS",s.total_ms);
+                diag_f12_line(x,y+32,line,162,180,193);
+            } else
+                diag_f12_line(x,y+17,"N/D - NON ESEGUITO",162,180,193);
+        }
+        diag_f12_line(26,489,"TEMPI OG = SIMULAZIONE NATIVA, NON SECONDA CPU.",
+                      162,180,193);
+        diag_f12_line(26,509,"F12+9 TEMPI  /  F12+0 STATO  /  F9 SCREENSHOT",
+                      162,180,193);
+        diag_f12_end("F12_OG_PERF");
+        goto finish;
+    }
     diag_f12_line(26,25,"F12 / MONDO OG - COPERTURA E SALUTE",88,207,255);
     snprintf(line,sizeof line,"MONDO %s  BUILD %s",World_Tag(),
              SWOS_EXPANDED_VERSION);
@@ -3267,7 +3340,7 @@ static void draw_world_debug_overlay(void)
         health.managerPairMismatched?F12_BAD:
         health.managerPairRepaired?F12_PARTIAL:
         health.managerPairChecked?F12_OK:F12_ND,line);
-    diag_f12_line(395,519,"OK E SOLO IL TEST INDICATO. ALTRE CONFED. E GAMEPLAY N/D.",
+    diag_f12_line(395,519,"F12+9 TEMPI  /  F12+0 SALUTE. GAMEPLAY N/D.",
                   162,180,193);
     diag_f12_end("F12_OG_HEALTH");
 finish:
@@ -3309,6 +3382,9 @@ int Platform_ExpandedSplashSet(int percent)
     if(percent<0)percent=0;
     if(percent>100)percent=100;
     if(percent==0)s_expandedSplashStartMs=SDL_GetTicks();
+    if(percent==100 && s_expandedSplashPct!=100 && s_expandedSplashStartMs)
+        Expanded_Perf_Record(EXP_PERF_BOOT,
+            (double)(Uint32)(SDL_GetTicks()-s_expandedSplashStartMs));
     s_expandedSplashPct=percent;
     s_expandedSplashActive=1;
     Platform_RenderFrame();
@@ -3534,7 +3610,11 @@ shots_done:
 
 void Platform_RenderFrame(void)
 {
-    render_frame_impl(1);   /* public entry: runs on the main thread, full SDL event pump */
+    const Uint64 start=SDL_GetPerformanceCounter();
+    render_frame_impl(1);   /* full event pump, excludes the native game tick */
+    const Uint64 hz=SDL_GetPerformanceFrequency();
+    if(hz)Expanded_Perf_Record(EXP_PERF_RENDER_FRAME,
+        1000.0*(double)(SDL_GetPerformanceCounter()-start)/(double)hz);
 }
 
 /* ---- Full vblank: render + 50 Hz pacing ---------------------------

@@ -30,6 +30,8 @@
 #include "expanded_world_live.h" /* same .CAR, one ledger */
 #include "squad_extras.h" /* 2026/27 extra roster departure history, in the SAME .CAR */
 #include "expanded_world_time.h" /* civil index read-only check */
+#include "expanded_debug.h" /* transient F12 SAVE/LOAD timings */
+#include <SDL.h>
 
 #endif
 #include "team_pool.h"         /* "team_pool" in career saves */
@@ -6330,7 +6332,11 @@ void SaveJson_DebugCareerOperations(int *write_result,int *load_result)
                      s_f12CareerLoadResult:0;
 }
 #endif
+#ifdef SWOS_SDL_BUILD
+static int16_t SaveJson_WriteCareer_Impl(uint8_t *filename)
+#else
 int16_t SaveJson_WriteCareer(uint8_t *filename)
+#endif
 {
 #ifdef SWOS_SDL_BUILD
     s_f12CareerWriteWorld=(unsigned)World_Current();
@@ -7983,8 +7989,13 @@ static void apply_semantic_load(const char *src, int src_size)
 #endif
 }
 
+#ifdef SWOS_SDL_BUILD
+static int16_t SaveJson_LoadCareer_Impl(uint8_t *filename, const uint8_t *src_unused,
+                            uint32_t src_size_unused)
+#else
 int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
                             uint32_t src_size_unused)
+#endif
 {
 #ifdef SWOS_SDL_BUILD
     s_f12CareerLoadWorld=(unsigned)World_Current();
@@ -9854,3 +9865,27 @@ int16_t SaveJson_LoadTactics(uint8_t *filename, uint8_t *dst, uint32_t dst_capac
     swos_io_free(src);
     return r;
 }
+
+#ifdef SWOS_SDL_BUILD
+/* The existing serializer/loader is unchanged. These thin wrappers
+ * time successful and failing disk operations, without serializing any
+ * debug state or writing sidecar files. */
+int16_t SaveJson_WriteCareer(uint8_t *filename)
+{
+    const Uint64 start=SDL_GetPerformanceCounter();
+    const int16_t result=SaveJson_WriteCareer_Impl(filename);
+    const Uint64 hz=SDL_GetPerformanceFrequency();
+    if(hz)Expanded_Perf_Record(EXP_PERF_SAVE_CAR,
+        1000.0*(double)(SDL_GetPerformanceCounter()-start)/(double)hz);
+    return result;
+}
+int16_t SaveJson_LoadCareer(uint8_t *filename,const uint8_t *src,uint32_t size)
+{
+    const Uint64 start=SDL_GetPerformanceCounter();
+    const int16_t result=SaveJson_LoadCareer_Impl(filename,src,size);
+    const Uint64 hz=SDL_GetPerformanceFrequency();
+    if(hz)Expanded_Perf_Record(EXP_PERF_LOAD_CAR,
+        1000.0*(double)(SDL_GetPerformanceCounter()-start)/(double)hz);
+    return result;
+}
+#endif

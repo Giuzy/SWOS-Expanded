@@ -34,7 +34,9 @@
 #include "world_cups.h"
 #ifdef SWOS_SDL_BUILD
 #include "expanded_qualification_transition.h"
+#include "expanded_world_live.h"
 extern uint16_t _currentSeasonShowing;
+extern uint16_t _gameType;
 extern Competition *Career_CopaWorkingCopy(void);
 #endif
 #include "states.h"
@@ -1674,7 +1676,15 @@ static void processPrimaryCompetitionForNextSeason(uint8_t *competition)
             /* Player's current division — interactive */
             RestoreSelectedTeams();
             Career_CopyCompetitionFileBufferToOrFromActive();
-            ShowDiyLeaguesTournamentMenu(1, 1, 0);
+#ifdef SWOS_SDL_BUILD
+            /* This viewer is a presentation of an OG-resident result, not
+             * an event writer. FINISH SEASON must still run the original
+             * qualifying/mobility logic below, but need not open a modal
+             * standings screen for the club's already completed division. */
+            if(!(_gameType==4 && EXPANDED_WORLD_OG_ONLY &&
+                 _seasonUpdateInProgress))
+#endif
+                ShowDiyLeaguesTournamentMenu(1, 1, 0);
             if (d7 == 0)
                 DIY_CachePrimaryQualifiedTeamsGrid();
             SaveSelectedTeams();

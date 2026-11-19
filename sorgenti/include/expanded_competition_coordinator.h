@@ -15,5 +15,7 @@ int Expanded_CompetitionCoordinator_ValidateRestore(void);
 int Expanded_CompetitionCoordinator_CanSave(void);
 int Expanded_CompetitionCoordinator_PreflightFixture(const char *kind);
 void Expanded_CompetitionCoordinator_ReportFixtureFault(const char *reason);
+int Expanded_CompetitionCoordinator_RecoveryRequired(void);
+void Expanded_CompetitionCoordinator_ReportWorldFault(const char *reason);
 #endif
 #endif

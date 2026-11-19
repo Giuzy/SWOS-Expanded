@@ -29,6 +29,7 @@
 #include "fixture_rounds.h"
 #include "expanded_world_live.h"
 #include "expanded_competition_coordinator.h"
+#include "expanded_event_scheduler.h" /* NO live fixture dispatch */
 #include "world.h"
 #include "squad_extras.h"
 #include "expanded_debug.h"
@@ -1862,6 +1863,54 @@ int Expanded_CompetitionCoordinator_PreflightBind(uint16_t season)
                    "no-world-reset=1\n",World_Tag(),actual);
     return 1;
 }
+/* First safe scheduler connection: inspect ONE real OG July boundary
+ * without running a fixture, owning a second clock, or acknowledging an
+ * event. Everything here is a disposable stack object (NO CAR writes).
+ * Scheduler_Complete is intentionally forbidden until OG effects and an
+ * atomic CAR event acknowledgement can be saved together. */
+static int exp_coordinator_shadow_july(
+    ExpandedWorldDate from,ExpandedWorldDate to)
+{
+    const uint16_t first=(uint16_t)(from.year-(from.month<7u?1u:0u));
+    const uint16_t last=(uint16_t)(to.year-(to.month<7u?1u:0u));
+    if(last<first)return 0;
+    if(last==first)return 1;
+    if(last-first>1u) {
+        fprintf(stderr,"[competition-scheduler-shadow] SKIP "
+                       "world=%s from=%u to=%u reason=MULTI_YEAR "
+                       "fixtures=0 ack=NONE\n",
+                World_Tag(),(unsigned)first,(unsigned)last);
+        return 1; /* leave 70-year OG stress unchanged */
+    }
+    const ExpandedWorldDate close={(uint16_t)(first+1u),6u,30u};
+    int32_t closeIndex=0,targetIndex=0;
+    if(!ExpandedWorld_DateToIndex(close,&closeIndex) ||
+       !ExpandedWorld_DateToIndex(to,&targetIndex))return 0;
+    ExpandedScheduledEvent buffer[1]={{0}};
+    ExpandedEventScheduler planner;
+    if(ExpandedEventScheduler_Init(&planner,buffer,1u,from)!=EXP_EVENT_OK)
+        return 0;
+    ExpandedScheduledEvent milestone={0};
+    milestone.id=((uint64_t)(World_Current()+1u)<<32) |
+                 ((uint64_t)(first+1u)<<8) |
+                 (uint64_t)EXP_EVENT_SEASON_CLOSE;
+    milestone.day_index=closeIndex;
+    milestone.kind=EXP_EVENT_SEASON_CLOSE;
+    milestone.state=EXP_EVENT_PENDING;
+    if(ExpandedEventScheduler_Schedule(&planner,milestone)!=EXP_EVENT_OK)
+        return 0;
+    const ExpandedScheduledEvent *due=NULL;
+    if(ExpandedEventScheduler_Next(&planner,targetIndex,&due)!=
+           EXP_EVENT_DUE || !due || due->id!=milestone.id ||
+       due->kind!=EXP_EVENT_SEASON_CLOSE ||
+       due->day_index!=closeIndex)return 0;
+    fprintf(stderr,"[competition-scheduler-shadow] PEEK_MATCH "
+                   "world=%s closing-year=%u date=%04u-06-30 "
+                   "authority=OG_ONLY fixtures=0 dispatched=0 "
+                   "completed=0 CAR-ACK=NONE clock=EPHEMERAL\n",
+            World_Tag(),(unsigned)first,(unsigned)(first+1u));
+    return 1;
+}
 int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
                                              const char *origin)
 {
@@ -1880,6 +1929,12 @@ int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
         return 0;
     }
     if(toIndex==fromIndex)return 1; /* no duplicate native tick */
+    /* Shadow scheduler can only PEEK; OG remains the sole real executor.
+     * Divergence is diagnostic, never an excuse to simulate again. */
+    if(!exp_coordinator_shadow_july(from,target))
+        fprintf(stderr,"[competition-scheduler-shadow] MISMATCH "
+                       "world=%s action=OBSERVE_ONLY NO_REPLAY\n",
+                World_Tag());
     /* Important: validate both date and resident BEFORE the OG mutation.
      * A failing OG executor may have partially advanced native contexts:
      * latch recovery; the old CAR remains the recovery point. */
@@ -1913,13 +1968,32 @@ int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
  * Called before OG mutates team state, scoreboard or RNG. */
 int Expanded_CompetitionCoordinator_PreflightFixture(const char *kind)
 {
-    if(s_expCoordinatorRecoveryRequired) {
-        fprintf(stderr,"[competition-coordinator] BLOCK op=FIXTURE "
-            "kind=%s reason=RECOVERY_REQUIRED no-OG-replay=1\n",
-            kind?kind:"UNKNOWN");
-        return 0;
+    /* A failed preflight must stop OG's unchanged league fixture loop:
+     * a one-time latch prevents repeated attempts and excessive logging. */
+    if(s_expCoordinatorRecoveryRequired)return 0;
+    if(exp_coordinator_check(kind?kind:"FIXTURE",NULL))return 1;
+    s_expCoordinatorRecoveryRequired=1;
+    fprintf(stderr,"[competition-coordinator] FAULT op=FIXTURE_PREFLIGHT "
+        "kind=%s reason=OG_CIVIL_NOT_ALIGNED "
+        "action=RELOAD_PRIOR_CAR no-automatic-retry=1\n",
+        kind?kind:"UNKNOWN");
+    return 0;
+}
+int Expanded_CompetitionCoordinator_RecoveryRequired(void)
+{
+    return s_expCoordinatorRecoveryRequired!=0;
+}
+void Expanded_CompetitionCoordinator_ReportWorldFault(const char *reason)
+{
+    /* The previous CAR remains the recovery point when a failed OG
+     * July transition has already mutated some resident contexts. */
+    if(!s_expCoordinatorRecoveryRequired) {
+        s_expCoordinatorRecoveryRequired=1;
+        fprintf(stderr,"[competition-coordinator] FAULT op=YEAR_CHANGE "
+            "reason=%s action=RELOAD_PRIOR_CAR "
+            "old-CAR-preserved=1 no-automatic-retry=1\n",
+            reason?reason:"OG_WORLD_ROLLOVER_INCOMPLETE");
     }
-    return exp_coordinator_check(kind?kind:"FIXTURE",NULL);
 }
 void Expanded_CompetitionCoordinator_ReportFixtureFault(const char *reason)
 {
@@ -2367,6 +2441,8 @@ void ContinueCareerNextSeason(void)
         { extern int Expanded_YearEndFaulted(void);
           if(_gameType==4 && Expanded_YearEndFaulted()) {
               s_ogManualSeasonReady=0;
+              Expanded_CompetitionCoordinator_ReportWorldFault(
+                  "LEGACY_OG_YEAR_END_FAULT");
               fprintf(stderr,"[og-manual-season] ABORT_BEFORE_NEW_SEASON "
                   "reason=LEGACY_OG_YEAR_END_FAULT "
                   "previous-CAR-preserved=1\n");
@@ -2385,6 +2461,8 @@ void ContinueCareerNextSeason(void)
         { extern int Expanded_YearEndFaulted(void);
           if(_gameType==4 && Expanded_YearEndFaulted()) {
               s_ogManualSeasonReady=0;
+              Expanded_CompetitionCoordinator_ReportWorldFault(
+                  "LEGACY_OG_YEAR_END_FAULT");
               fprintf(stderr,"[og-manual-season] ABORT_BEFORE_NEW_SEASON "
                   "reason=LEGACY_OG_YEAR_END_FAULT "
                   "previous-CAR-preserved=1\n");
@@ -2461,11 +2539,14 @@ void ContinueCareerNextSeason(void)
                     hz>0.0?1000.0*(double)(t2-t1)/hz:0.0,
                     hz>0.0?1000.0*(double)(t3-t2)/hz:0.0,
                     s_ogManualSeasonReady?"PERMITTED":"PREVIOUS_CAR_PRESERVED");
-            if(!s_ogManualSeasonReady)
+            if(!s_ogManualSeasonReady) {
+                Expanded_CompetitionCoordinator_ReportWorldFault(
+                    "MANUAL_OG_OPEN_OR_BIND_FAILED");
                 fprintf(stderr,"[og-manual-season] ERROR "
                                "new-season-career-menu-and-autosave=BLOCKED "
-                               "reason=NATIVE_WORLD_NOT_SYNCHRONIZED\n");
-            else Expanded_OGWorld_QualAuditNextYear((uint16_t)year);
+                               "reason=NATIVE_WORLD_NOT_SYNCHRONIZED "
+                               "action=RELOAD_PREVIOUS_CAR\n");
+            } else Expanded_OGWorld_QualAuditNextYear((uint16_t)year);
         }
     }
 #endif

@@ -73,6 +73,7 @@ extern CompetitionCup _uefaCup;
 #include "expanded_debug.h"
 #include "expanded_world_time.h"
 #include "expanded_world_live.h"
+#include "expanded_competition_coordinator.h"
 #include "mjson.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -8190,6 +8191,32 @@ void Career_AutoAdvanceInternationalCompetitionFixtures(uint8_t *record, uint16_
                 (unsigned)ctx->year,s_expOGPhase,
                 (unsigned)_numSelectedTeams,
                 (unsigned)_diyCompetitionStart.base.numTeams);
+            /* Diagnostic only: dump REAL selected file IDs and the
+             * manager club to identify the missing squad without ever
+             * fabricating a promoted/relegated participant. */
+            unsigned managerFound=0u;
+            for(unsigned k=0;k<(unsigned)_numSelectedTeams &&
+                             k<EXP_OG_MAX_TEAMS;++k) {
+                const TeamFileEx *selected=&_selectedTeams[k];
+                const uint16_t id=(uint16_t)(
+                    ((uint16_t)selected->team.countryNumber<<8) |
+                    (uint16_t)selected->team.teamOrdinal);
+                if(id==_selTeamNumber)++managerFound;
+                fprintf(stderr,"[og-resident-id] ACTUAL_TEAM "
+                    "world=%s country=%u div=%u year=%u "
+                    "index=%u club=%04x team-league=%u\n",
+                    World_Tag(),(unsigned)ctx->country,
+                    (unsigned)ctx->division,(unsigned)ctx->year,
+                    k,(unsigned)id,(unsigned)selected->team.league);
+            }
+            fprintf(stderr,"[og-resident-id] MANAGER_CHECK "
+                "club=%04x present-in-selection=%u "
+                "career-country=%u career-team-league=%u "
+                "current-division=%u no-club-invented=1\n",
+                (unsigned)_selTeamNumber,managerFound,
+                (unsigned)_careerTeam.team.countryNumber,
+                (unsigned)_careerTeam.team.league,
+                (unsigned)_currentDivisionIndex);
             s_expOGFault=1;
         }
         if(!s_expOGFault && ctx->used) {
@@ -8713,6 +8740,9 @@ void Career_AutoAdvanceLeagueFixtures(void)
 {
     uint8_t currentPhase, nextPhase;
 #ifdef SWOS_SDL_BUILD
+    /* No OG local match after a failed July opening; load the prior CAR. */
+    if(_gameType==4 && !s_expOGCurrent && !s_expOGCupCurrent &&
+       Expanded_CompetitionCoordinator_RecoveryRequired())return;
     /* Never dereference a stale keycache cursor or advance any fixture
      * after the exact resident season is already complete. The menu must
      * transition via FINISH SEASON, not retry an impossible match. */
@@ -8829,6 +8859,8 @@ main_loop:
     /* Sim league fixtures until phase catches up */
     if(DIY_PlayOrSimulateLeagueFixture(0, 0)!=0) {
 #ifdef SWOS_SDL_BUILD
+        if(_gameType==4 && !s_expOGCurrent && !s_expOGCupCurrent &&
+           Expanded_CompetitionCoordinator_RecoveryRequired())return;
         if(s_expOGBridgeBlocked && !s_expOGCurrent && !s_expOGCupCurrent) {
             /* The failed preflight did not consume an OG fixture. Leaving
              * leagueCurrentSlot unchanged is correct, but retrying it
@@ -8922,6 +8954,8 @@ catch_up_phase:
 #endif
             if(DIY_PlayOrSimulateLeagueFixture(0, 0)!=0) {
 #ifdef SWOS_SDL_BUILD
+                if(_gameType==4 && !s_expOGCurrent && !s_expOGCupCurrent &&
+                   Expanded_CompetitionCoordinator_RecoveryRequired())return;
                 if(s_expOGBridgeBlocked && !s_expOGCurrent && !s_expOGCupCurrent) {
                     /* Fail closed also in catch-up; never retry a blocked
                      * fixture forever on the unchanged leagueCurrentSlot. */
@@ -8958,6 +8992,10 @@ __attribute__((used, externally_visible))
 void Career_AutoAdvanceCupMatches(void)
 {
     uint8_t currentPhase, nextPhase;
+#ifdef SWOS_SDL_BUILD
+    if(_gameType==4 && !s_expOGCupCurrent && !exp_og_is_uefa() &&
+       Expanded_CompetitionCoordinator_RecoveryRequired())return;
+#endif
 
     /* For a world-resident OG cup, the phase is the ONE authoritative
      * world phase, never the manager's (unrelated) key-cache cursor.
@@ -9052,6 +9090,8 @@ cup_main_loop:
 #endif
     if(DIY_PlayCupMatchAndAdvance(0, 0)!=0) {
 #ifdef SWOS_SDL_BUILD
+        if(_gameType==4 && !s_expOGCupCurrent && !exp_og_is_uefa() &&
+           Expanded_CompetitionCoordinator_RecoveryRequired())return;
         if(s_expOGCupCurrent || exp_og_is_uefa()) {
             if(s_expOGCupCurrent)s_expOGCupTickFault=1;
             if(exp_og_is_uefa())s_expOGFault=1;
@@ -9210,6 +9250,8 @@ restart:
 #ifdef SWOS_SDL_BUILD
         /* Never sort/advance a native stage after its local fixture failed.
          * In particular an unchanged leagueCurrentSlot would loop forever. */
+        if(_gameType==4 && !s_expOGCurrent && !s_expOGCupCurrent &&
+           Expanded_CompetitionCoordinator_RecoveryRequired())return;
         if(s_expOGBridgeBlocked && !s_expOGCurrent && !s_expOGCupCurrent) {
             fprintf(stderr,"[og-manager-bridge] ABORT_COMPETITION_STAGES "
                            "world=%s reason=LOCAL_RESIDENT_DESYNC\n",

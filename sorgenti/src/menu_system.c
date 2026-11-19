@@ -2115,8 +2115,8 @@ void MenuProc(void)
             /* DEBUG 30 JUNE uses the already registered ordinal 14.
              * Without it the generic safety whitelist swallowed mouse,
              * keyboard and controller selection before the OG callback. */
-            int allowed=(ord==7u || ord==9u || ord==11u ||
-                         ord==12u || ord==13u || ord==14u ||
+            int allowed=(ord==4u || ord==5u || ord==7u || ord==9u ||
+                         ord==11u || ord==12u ||
                          (ord==10u && !_menuEntries[10].isDisabled));
             if(!allowed || !selectedEntry || selectedEntry->isInvisible ||
                selectedEntry->isDisabled || !selectedEntry->onSelect) {

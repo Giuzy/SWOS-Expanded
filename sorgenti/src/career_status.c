@@ -3694,12 +3694,26 @@ int Expanded_OGWorld_YearEndType2Result(uint8_t *record)
         return 0;
     }
     const unsigned n=(unsigned)ctx->teamCount;
-    if(n<2u || n>EXP_OG_MAX_TEAMS ||
-       ctx->comp.base.numTeams!=n) {
+    const int nativeTeams=(int)ctx->comp.base.numTeams;
+    /* A native type-2 knockout bracket can shrink after initial entry. */
+    if(n<2u || n>EXP_OG_MAX_TEAMS || nativeTeams<2 ||
+       (unsigned)nativeTeams>n) {
         extern void Expanded_YearEndReportFault(const char *);
+        fprintf(stderr,"[og-yearend-resident] INVALID_TYPE2_DETAILS "
+            "world=%s cup=%u slot=%d source-year=%u save-year=%u "
+            "selected=%u bracket=%d played=%u stage=%u "
+            "action=NO_REPLAY_BLOCK_NEW_SEASON\n",
+            World_Tag(),(unsigned)c->compId,slot,(unsigned)ctx->year,
+            (unsigned)Expanded_OGWorld_SaveYear(),n,nativeTeams,
+            (unsigned)ctx->comp.matchesPlayedCount,
+            (unsigned)ctx->tournament.header.roundComplete);
         Expanded_YearEndReportFault("INVALID_RESIDENT_TYPE2");
         return -1;
     }
+    if((unsigned)nativeTeams!=n)
+        fprintf(stderr,"[og-yearend-resident] TYPE2_STAGE_BRACKET "
+            "world=%s cup=%u entrants=%u bracket=%d source=OG\n",
+            World_Tag(),(unsigned)c->compId,n,nativeTeams);
     memcpy(&_diyCompetitionStart,&ctx->comp,sizeof ctx->comp);
     memcpy(&_diyFileBufferCopy,&ctx->tournament,sizeof ctx->tournament);
     _numSelectedTeams=ctx->teamCount;

@@ -1,0 +1,23 @@
+# SWOS Expanded — 00.13.197: diagnostiche 196, debug 30 giugno e guardia type-2
+Data 19/11/2026. Ramo dev/0.10. Base bbb1180bd3d5883c3377171412f2696e6d95fc26 (00.13.196). Richiesta utente di correggere, integrare quanto possibile e fare UN commit finale.
+## Input Windows effettivamente esaminato
+- DIAGNOSTICA_SESSIONE_2(20261119-104607)(1).zip: compilazione Windows 00.13.196 completata, 0 warning/error GCC espliciti nel log; mondo 2627 134 leghe e 101 coppe domestiche residenti. Da occupato dopo stagione completata: INVALID_RESIDENT_TYPE2 -> VerifyTeamLoaded(0x0000) -> PANIC 0x0000 ed eccezione c000001d. In secondo anno Champions, Europa, Conference hanno 36/36 qualificati ID esatti; Libertadores moderna senza campo sorgente verificato. 3 disallineamenti calendario nativo/cache, save cross-process non provato.
+- DIAGNOSTICA_SESSIONE_3(20261119-104606)(1).zip: build Windows 196 completata, 0 warning/error espliciti; mondo 9697 88 leghe e 51 coppe nazionali residenti iniziali. Stesso INVALID_RESIDENT_TYPE2 -> VerifyTeamLoaded(0x0000) -> PANIC. Libertadores 1997: 20/20 qualificati ID corretti; Champions 1997 16 qualificati, ma nessuna nuova edizione residente; UEFA Cup 1997 32 qualificati, ma nessuna nuova edizione residente; Cup Winners Cup campo incompleto. Anche qui 3 mismatch OG/keycache; SAVE/CONTINUE non provato.
+- Screenshot 19/11: UNEMPLOYED mostra FORWARD TIME, DEBUG WORLD, RECORD e BACK ma NON DEBUG +1 MONTH e DEBUG 30 JUNE; sono stati collocati nelle entry 13/14 storicamente invisibili nel menu OG.
+## Intervento 00.13.197 (codice)
+1. expanded_career.c: DEBUG +1 MONTH e DEBUG 30 JUNE rimappati sui veri slot di sinistra 4 e 5, che non hanno alcun ruolo di club quando UNEMPLOYED. Nessun nuovo asset/font/entry. Callback, isDisabled/isInvisible, focus e navigazione impostati sulla geometria OG esistente. menu_system.c: whitelist aggiornata alle entry 4/5, invece delle 13/14 nascoste. Messaggio [unemployed-debug-buttons] al ritorno nel menu.
+2. career_season.c: fra le quattro chiamate legacy di aggiornamento coppe a fine anno inserito un controllo immediato del latch fault; al primo rifiuto ripristina selectedTeams, chiude il flag di aggiornamento e non chiama le routine successive, che nei log 196 arrivavano a VerifyTeamLoaded(0). Rimane blocco del nuovo CAR se non si puo' chiudere correttamente.
+3. career_status.c: per l'edizione residente OG di tipo 2 il numero di partecipanti iniziali puo' superare il numero presente nel bracket OG durante i knockout. Accetta un bracket nativo non vuoto e non superiore alle squadre OG salvate, ma blocca gli stati non plausibili. Log INVALID_TYPE2_DETAILS (mondo, coppa, anno, iscritti, bracket, partite, stage) e TYPE2_STAGE_BRACKET. Non riesegue gare, non inventa club.
+4. build_info.h -> 00.13.197.
+## Architettura approvata e limiti
+Piano 18/11 prevalente: Expanded coordina calendario/edizioni/persistenza; OG esegue partite e algoritmi. Nei sorgenti attuali expanded_event_scheduler.h e expanded_competition_identity.h NON sono dispatcher live e non fanno checkpoint transazionale CAR. I tre grandi interventi (unico coordinator, rollover atomico, regole data-driven) NON sono conclusi e NON possono essere attivati in sicurezza finche' non sono collegate identita' reali, single writer e salvataggio CAR. Le patch 197 sono minime, per evitare un secondo esecutore. Vedere COMPETITION_ENGINE_ARCHITECTURE_TODO_20261118.md.
+## Checklist Windows dell'utente
+- Compilare e cercare immediatamente qualunque nuovo warning GCC, anche nei test C isolati.
+- Aprire NEW CAREER UNEMPLOYED 9697 e 2627: tasti sinistri DEBUG +1 MONTH e DEBUG 30 JUNE visibili con mouse/A/B; 30 JUNE si arresta esattamente al 30 giugno e mostra offerta OG solo quando valida.
+- Da un club allenato, FINISH SEASON entrambi i mondi: controllare [og-yearend-resident], [og-manual-season], nessun VerifyTeamLoaded(0) o PANIC; il successo richiede anno/civile e residenti corretti, non soltanto assenza crash.
+- Champions/CWC/UEFA Cup/Libertadores: verificare le qualificate PER ID, anche anni 2/3; no finti PASS.
+- SAVE/CONTINUE a cavallo dell'anno, confrontare fixture, RNG, classifica, offerte e data; F12+9 per tempi FORWARD; CLASSIC/DIY/SEASON regressioni.
+## Stati
+SI: analisi dei due ZIP Windows 196 e sorgenti 196; modifiche codice 197 preparate, controllo statico di sostituzioni e bilancio preprocessore/parentesi; aggiornamento di 9 guide.
+NO: completamento nuovo scheduler live, claim preventivo, CAR transazionale globale, rollover puro, importatore di competizioni, copertura qualificazioni completa.
+NON PROVATO: compilazione/zero warning/gameplay Windows 197, visualizzazione/funzionamento tasti 197, stagione manuale 197, roundtrip CAR 197 e prestazioni 197.

@@ -603,55 +603,40 @@ void Expanded_UnemployedInit(void) {
         (_menuEntries[12].stringFlags & ~0x0fu)|2u;
 #endif
 #ifdef SWOS_SDL_BUILD
-    /* The original contest's hidden ordinal 13 is cloned ONLY here:
-     * reuse the left TRANSFERS rectangle (entry 4), which is disabled
-     * while unemployed. No new PNG, row or phantom click target.
-     * Click, A/SELECT and hover use this native MenuEntry onSelect. */
-    _menuEntries[13].isInvisible=0;
-    _menuEntries[13].isDisabled=0;
-    _menuEntries[13].onSelect=Expanded_UnemployedDebugMonth;
-    _menuEntries[13].x=_menuEntries[4].x;
-    _menuEntries[13].y=_menuEntries[4].y;
-    _menuEntries[13].dwWidth=_menuEntries[4].dwWidth;
-    _menuEntries[13].dwHeight=_menuEntries[4].dwHeight;
-    _menuEntries[13].background=ENTRY_FRAME_AND_BACK_COLOR;
-    _menuEntries[13].content=ENTRY_STRING;
-    _menuEntries[13].bgColor=0x8;
-    _menuEntries[13].fg=(uintptr_t)"DEBUG +1 MONTH";
-    _menuEntries[13].stringFlags=
-        (_menuEntries[12].stringFlags & ~0x0fu)|2u;
-    _menuEntries[13].leftEntry=12;
-    _menuEntries[13].rightEntry=7;
-    _menuEntries[13].upEntry=9;
-    _menuEntries[13].downEntry=14;
-    _menuEntries[13].skipLeftEntry=0;
-    _menuEntries[13].skipRightEntry=0;
-    _menuEntries[13].skipUpEntry=0;
-    _menuEntries[13].skipDownEntry=0;
-    /* The old JOB OFFERS position (entry 5) is unused while unemployed.
-     * Preserve the existing +1 MONTH button, with a separate native
-     * hitbox for the direct 30 June checkpoint. CLASSIC is untouched. */
-    _menuEntries[14].isInvisible=0;
-    _menuEntries[14].isDisabled=0;
-    _menuEntries[14].onSelect=Expanded_UnemployedDebugJune30;
-    _menuEntries[14].x=_menuEntries[5].x;
-    _menuEntries[14].y=_menuEntries[5].y;
-    _menuEntries[14].dwWidth=_menuEntries[5].dwWidth;
-    _menuEntries[14].dwHeight=_menuEntries[5].dwHeight;
-    _menuEntries[14].background=ENTRY_FRAME_AND_BACK_COLOR;
-    _menuEntries[14].content=ENTRY_STRING;
-    _menuEntries[14].bgColor=0x8;
-    _menuEntries[14].fg=(uintptr_t)"DEBUG 30 JUNE";
-    _menuEntries[14].stringFlags=
-        (_menuEntries[12].stringFlags & ~0x0fu)|2u;
-    _menuEntries[14].leftEntry=12;
-    _menuEntries[14].rightEntry=9;
-    _menuEntries[14].upEntry=13;
-    _menuEntries[14].downEntry=9;
-    _menuEntries[14].skipLeftEntry=0;
-    _menuEntries[14].skipRightEntry=0;
-    _menuEntries[14].skipUpEntry=0;
-    _menuEntries[14].skipDownEntry=0;
+    /* Native left column is visible; OG ordinals 13/14 are hidden. */
+    _menuEntries[4].isInvisible=0;
+    _menuEntries[4].isDisabled=0;
+    _menuEntries[4].onSelect=Expanded_UnemployedDebugMonth;
+    _menuEntries[4].background=ENTRY_FRAME_AND_BACK_COLOR;
+    _menuEntries[4].content=ENTRY_STRING;
+    _menuEntries[4].bgColor=0x8;
+    _menuEntries[4].fg=(uintptr_t)"DEBUG +1 MONTH";
+    _menuEntries[4].stringFlags=(_menuEntries[12].stringFlags & ~0x0fu)|2u;
+    _menuEntries[4].leftEntry=12;
+    _menuEntries[4].rightEntry=7;
+    _menuEntries[4].upEntry=9;
+    _menuEntries[4].downEntry=5;
+    _menuEntries[4].skipLeftEntry=0;
+    _menuEntries[4].skipRightEntry=0;
+    _menuEntries[4].skipUpEntry=0;
+    _menuEntries[4].skipDownEntry=0;
+    _menuEntries[5].isInvisible=0;
+    _menuEntries[5].isDisabled=0;
+    _menuEntries[5].onSelect=Expanded_UnemployedDebugJune30;
+    _menuEntries[5].background=ENTRY_FRAME_AND_BACK_COLOR;
+    _menuEntries[5].content=ENTRY_STRING;
+    _menuEntries[5].bgColor=0x8;
+    _menuEntries[5].fg=(uintptr_t)"DEBUG 30 JUNE";
+    _menuEntries[5].stringFlags=(_menuEntries[12].stringFlags & ~0x0fu)|2u;
+    _menuEntries[5].leftEntry=12;
+    _menuEntries[5].rightEntry=7;
+    _menuEntries[5].upEntry=4;
+    _menuEntries[5].downEntry=9;
+    _menuEntries[5].skipLeftEntry=0;
+    _menuEntries[5].skipRightEntry=0;
+    _menuEntries[5].skipUpEntry=0;
+    _menuEntries[5].skipDownEntry=0;
+    fprintf(stderr,"[unemployed-debug-buttons] month=4 june30=5 visible=1\n");
 #endif
     _menuEntries[12].isInvisible=0;
     _menuEntries[12].isDisabled=0;
@@ -671,18 +656,18 @@ void Expanded_UnemployedInit(void) {
     _menuEntries[11].rightEntry=12;
     _menuEntries[11].upEntry=offerReady?10:7;
     _menuEntries[11].downEntry=12;
-    _menuEntries[7].leftEntry=13;
+    _menuEntries[7].leftEntry=4;
     _menuEntries[7].rightEntry=offerReady?10:11;
-    _menuEntries[7].upEntry=13;
+    _menuEntries[7].upEntry=4;
     _menuEntries[7].downEntry=9;
-    _menuEntries[9].leftEntry=13;
+    _menuEntries[9].leftEntry=4;
     _menuEntries[9].rightEntry=12;
     _menuEntries[9].upEntry=7;
-    _menuEntries[9].downEntry=13;
+    _menuEntries[9].downEntry=5;
 #ifdef SWOS_SDL_BUILD
     /* From BACK, reach 30 June with the controller in either direction. */
-    _menuEntries[9].leftEntry=14;
-    _menuEntries[9].downEntry=14;
+    _menuEntries[9].leftEntry=5;
+    _menuEntries[9].downEntry=5;
 #endif
     _menuEntries[10].leftEntry=7;
     _menuEntries[10].rightEntry=11;

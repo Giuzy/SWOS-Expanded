@@ -1780,10 +1780,26 @@ void Career_AdvanceToNextSeason_UpdateCompetitions(void)
         Career_UpdateWorldCupCompetitions();
     }
 
+    /* Abort between callbacks, before another reads invalid OG scratch. */
     Career_UpdateEuroCupCompetitionSlot();
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_YearEndFaulted()) {
+        _seasonUpdateInProgress=0;RestoreSelectedTeams();return;
+    }
+#endif
     Career_UpdateCupWinnersCupCompetitionSlot();
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_YearEndFaulted()) {
+        _seasonUpdateInProgress=0;RestoreSelectedTeams();return;
+    }
+#endif
     Career_UpdateUefaCupCompetitionSlot();
-    Career_UpdateCopaLibertadoresCompetitionSlot();   /* Inc3b-part-2: auto-advance Copa */
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_YearEndFaulted()) {
+        _seasonUpdateInProgress=0;RestoreSelectedTeams();return;
+    }
+#endif
+    Career_UpdateCopaLibertadoresCompetitionSlot();
 #ifdef SWOS_SDL_BUILD
     if(Expanded_YearEndFaulted()) {
         _seasonUpdateInProgress=0;RestoreSelectedTeams();return;

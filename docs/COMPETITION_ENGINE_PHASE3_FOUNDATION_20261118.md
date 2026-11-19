@@ -28,5 +28,5 @@ Ramo dev/0.10. La fase 3 non e' completa nei gate della TODO architetturale.
 ## Correzione precedente inclusa nella build
 OG_CUP_START_COVERAGE legge ora solo [og-cup-start] domestico (definitions/resident/unsupported/failed) anziche' il totale di tutti i contesti OG. Non scambia piu' le 51 coppe domestiche 1996/97 con le 53 includenti le due coppe storiche extra; se il log scoped manca rimane NOT_TESTED.
 
-## Conflitto di autorita' da risolvere prima dell'integrazione live
-Le istruzioni storiche definiscono OG unica autorita' del mondo; il piano architetturale del 18/11 consente Expanded unico gestore calendario mondiale con algoritmi OG. Il nucleo e' compatibile con entrambe le opzioni poiche' non esegue gare. Non migrare il writer live senza decisione esplicita e gate di persistenza.
+## Autorita' risolta il 19/11/2026; gate live ancora aperti
+Prevale il piano del 18/11: Expanded unico coordinatore di calendario ed edizioni, OG unico motore di gara e algoritmi calcistici attraverso adapter verificati. La regola OG-only e' superata solo dove incompatibile. Scheduler ancora isolato dal gameplay, CAR transazionale e single-writer preventivo da integrare. Mai attivare due esecutori per una fixture. COMPETITION_ENGINE_ARCHITECTURE_TODO_20261118.md.

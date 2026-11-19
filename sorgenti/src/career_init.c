@@ -2167,6 +2167,8 @@ static void career_run_season_legacy_measured(void)
 {
 #ifdef SWOS_SDL_BUILD
     const Uint64 start=SDL_GetPerformanceCounter();
+    extern void Expanded_YearEndResetFault(void);
+    Expanded_YearEndResetFault();
 #endif
     Career_AdvanceToNextSeason_UpdateCompetitions();
 #ifdef SWOS_SDL_BUILD
@@ -2202,6 +2204,17 @@ void ContinueCareerNextSeason(void)
         }
         SWOS_AUTOSKIP_LOG("[bug1] ContinueCareerNextSeason: offer-accepted branch");
         career_run_season_legacy_measured();
+#ifdef SWOS_SDL_BUILD
+        { extern int Expanded_YearEndFaulted(void);
+          if(_gameType==4 && Expanded_YearEndFaulted()) {
+              s_ogManualSeasonReady=0;
+              fprintf(stderr,"[og-manual-season] ABORT_BEFORE_NEW_SEASON "
+                  "reason=LEGACY_OG_YEAR_END_FAULT "
+                  "previous-CAR-preserved=1\n");
+              return;
+          }
+        }
+#endif
         Career_ContinueToNextSeasonInitTeamAndFunds(_teamNoOfferAccepted, _teamFundsAccepted);
         InitializeNewSeason();
     } else {
@@ -2209,6 +2222,17 @@ void ContinueCareerNextSeason(void)
         ShowChairmanOpinionAboutTheSeason();
         SWOS_AUTOSKIP_LOG("[bug1] back from ShowChairmanOpinion: youreSacked=%u", (unsigned)_youreSacked);
         career_run_season_legacy_measured();
+#ifdef SWOS_SDL_BUILD
+        { extern int Expanded_YearEndFaulted(void);
+          if(_gameType==4 && Expanded_YearEndFaulted()) {
+              s_ogManualSeasonReady=0;
+              fprintf(stderr,"[og-manual-season] ABORT_BEFORE_NEW_SEASON "
+                  "reason=LEGACY_OG_YEAR_END_FAULT "
+                  "previous-CAR-preserved=1\n");
+              return;
+          }
+        }
+#endif
         SWOS_AUTOSKIP_LOG("[bug1] back from AdvanceToNextSeason: youreSacked=%u", (unsigned)_youreSacked);
         InitializeStartingBalanceForNewSeason();
         SWOS_AUTOSKIP_LOG("[bug1] back from InitStartingBalance: youreSacked=%u", (unsigned)_youreSacked);

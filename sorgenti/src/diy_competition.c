@@ -1636,6 +1636,9 @@ void DIY_ValidateLeagueScratchBuffer(void)
     }
 #endif
     volatile uint8_t *teamData = _diyLeagueScratchBuffer + offset;
+#ifdef SWOS_SDL_BUILD
+    volatile uint8_t *const teamStart = teamData;
+#endif
 
     checksum = 0;
     for (int16_t i = (int16_t)(count - 1); i >= 0; i--) {
@@ -1655,13 +1658,27 @@ void DIY_ValidateLeagueScratchBuffer(void)
                 World_Tag(),(unsigned)_teamFileBuffer[2],
                 (unsigned)offset,(unsigned)count,(unsigned)checksum);
             for(unsigned i=0;i<count && reported<12u;++i) {
-                const int8_t delta=(int8_t)teamData[i];
+                const int8_t delta=(int8_t)teamStart[i];
                 if(delta!=0) {
                     fprintf(stderr,"[og-season-scratch] DELTA global=%u value=%d\n",
                             (unsigned)offset+i,(int)delta);
                     ++reported;
                 }
             }
+        }
+#endif
+#ifdef SWOS_SDL_BUILD
+        /* This is the OG validator, not a recoverable match. In
+         * Expanded CAREER, stop the season transaction instead of a
+         * Windows trap, and prohibit writing a new CAR. All other
+         * original game modes retain the OG panic. */
+        { extern volatile uint16_t _seasonUpdateInProgress;
+          if(_gameType==4 && EXPANDED_WORLD_OG_ONLY &&
+             _seasonUpdateInProgress) {
+              extern void Expanded_YearEndReportFault(const char *);
+              Expanded_YearEndReportFault("OG_MOBILITY_BALANCE_5555");
+              return;
+          }
         }
 #endif
         _panicReasonCode = 0x5555;

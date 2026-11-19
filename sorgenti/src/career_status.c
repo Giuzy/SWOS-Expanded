@@ -3512,6 +3512,12 @@ extern void InitDIYCompetitionFromTableEntry(uint16_t index, uint8_t *record);
 extern void InitTeams(void);
 extern void Career_InitCompetitionTeamSelectionFromTableEntrySpec(uint8_t *record, uint16_t index);
 
+#ifdef SWOS_SDL_BUILD
+/* The original year-end callback must consume existing OG cup results
+ * when the competition already has a dated resident context. */
+extern int Expanded_OGWorld_YearEndCupResult(uint8_t *);
+extern int Expanded_OGWorld_YearEndType2Result(uint8_t *);
+#endif
 /* Career_AutoAdvanceCupCompetitionFromRecord (SWOS2.s line 35246)
  * Auto-advances a cup competition: initializes team selection from record,
  * loads competition, runs cup match advancement, then restores RNG state.
@@ -3519,6 +3525,18 @@ extern void Career_InitCompetitionTeamSelectionFromTableEntrySpec(uint8_t *recor
 __attribute__((used, externally_visible))
 void Career_AutoAdvanceCupCompetitionFromRecord(uint8_t *record)
 {
+#ifdef SWOS_SDL_BUILD
+    if(_gameType==4 && EXPANDED_WORLD_OG_ONLY &&
+       _seasonUpdateInProgress) {
+        /* Some legacy paths dispatch type-2 continental rounds through
+         * the cup wrapper. Resolve the REAL resident type before
+         * considering domestic national-cup records. */
+        const int type2=Expanded_OGWorld_YearEndType2Result(record);
+        if(type2!=0)return;
+        const int resident=Expanded_OGWorld_YearEndCupResult(record);
+        if(resident!=0) return; /* +1 = OG snapshot, -1 = fail closed */
+    }
+#endif
     /* Special-case English cup aliases (118/119 → 120/121). */
     uint8_t rid = record ? comp_id(record) : 0xFFu;
     if (rid == COMPID_englishCup)
@@ -3555,11 +3573,21 @@ void Career_AutoAdvanceCupCompetitionFromRecord(uint8_t *record)
     _careerLoadedFlag = 0;
 }
 
+#ifdef SWOS_SDL_BUILD
+extern int Expanded_OGWorld_YearEndType2Result(uint8_t *);
+#endif
 /* Career_AutoAdvanceLeagueCompetitionFromRecord (SWOS2.s line 35291)
  * Same as above but for league competitions. */
 __attribute__((used, externally_visible))
 void Career_AutoAdvanceLeagueCompetitionFromRecord(uint8_t *record)
 {
+#ifdef SWOS_SDL_BUILD
+    if(_gameType==4 && EXPANDED_WORLD_OG_ONLY &&
+       _seasonUpdateInProgress) {
+        const int resident=Expanded_OGWorld_YearEndType2Result(record);
+        if(resident!=0)return;
+    }
+#endif
     _careerLoadedFlag = 1;
 
     if (_seasonUpdateInProgress == 0 && _internationalAutoAdvanceFlag == 0)
@@ -3635,6 +3663,52 @@ static ExpandedOGCup s_expOGCups[EXP_OG_MAX_CUPS];
 static uint32_t s_expOGCupCount,s_expOGCupUnsupported,s_expOGCupFaults;
 static ExpandedOGCup *s_expOGCupCurrent;
 static int s_expOGCupPhase=-1,s_expOGCupTickFault;
+
+/* The resident original type-2 European/Libertadores edition is the ONLY
+ * match writer. During FINISH SEASON expose its played OG result to
+ * the original title/qualification callback rather than simulating it
+ * again from the first-year template. */
+int Expanded_OGWorld_YearEndType2Result(uint8_t *record)
+{
+    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    if(_gameType!=4 || !_seasonUpdateInProgress || !record ||
+       s_expOGCurrent || s_expOGCupCurrent)return 0;
+    const Competition *const c=(const Competition *)record;
+    if(c->type!=2)return 0;
+    const int classic=World_Current()==WORLD_9697;
+    int slot=-1;
+    if(classic && (uint8_t)c->compId==COMPID_copaLibertadores)
+        slot=1;
+    else if((uint8_t)c->compId<3u)
+        slot=(int)c->compId;
+    if(slot<0 || (classic && slot>0))return 0;
+    ExpandedOGLeague *ctx=&s_expOGUefa[slot];
+    if(!ctx->used || ctx->year!=Expanded_OGWorld_SaveYear()) {
+        fprintf(stderr,"[og-yearend-resident] TYPE2_NOT_RESIDENT "
+            "world=%s cup=%u action=LEGACY_ONLY_NO_DUPLICATE\n",
+            World_Tag(),(unsigned)c->compId);
+        return 0;
+    }
+    const unsigned n=(unsigned)ctx->teamCount;
+    if(n<2u || n>EXP_OG_MAX_TEAMS ||
+       ctx->comp.base.numTeams!=n) {
+        extern void Expanded_YearEndReportFault(const char *);
+        Expanded_YearEndReportFault("INVALID_RESIDENT_TYPE2");
+        return -1;
+    }
+    memcpy(&_diyCompetitionStart,&ctx->comp,sizeof ctx->comp);
+    memcpy(&_diyFileBufferCopy,&ctx->tournament,sizeof ctx->tournament);
+    _numSelectedTeams=ctx->teamCount;
+    memcpy(_selectedTeams,ctx->teams,(size_t)n*sizeof(TeamFileEx));
+    _diyCompetitionStart.base.namePtr=
+        (uint8_t *)_diyCompetitionStart.base.competitionName;
+    fprintf(stderr,"[og-yearend-resident] TYPE2_REUSED "
+        "world=%s cup=%u year=%u matches=%u "
+        "source=DATED_OG_NO_REPLAY\n",
+        World_Tag(),(unsigned)c->compId,(unsigned)ctx->year,
+        (unsigned)ctx->comp.matchesPlayedCount);
+    return 1;
+}
 /* Latch a failed local->resident bridge. A rejected fixture MUST NOT make
  * Career_AutoAdvanceLeagueFixtures retry the same fixture indefinitely. */
 static int s_expOGBridgeBlocked;
@@ -5064,6 +5138,60 @@ static ExpandedOGLeague *exp_find(uint8_t country,uint8_t division,uint16_t year
            s_expOG[i].division==division && s_expOG[i].year==year)return &s_expOG[i];
     return NULL;
 }
+/* Reuse the actual season-end OG standings in the original promotion and
+ * qualification callback. That callback used to replay an already finished
+ * league, producing DIFFERENT mobility from the resident world. Installing
+ * the read-only native image avoids a second match executor. */
+static int exp_og_yearend_league(uint8_t *record,uint16_t division)
+{
+    extern uint8_t _currentCompetitionIndex;
+    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    extern void DIY_SortLeagueTableByStandings(void);
+    if(_gameType!=4 || !_seasonUpdateInProgress || !record ||
+       s_expOGCurrent || s_expOGCupCurrent || division>15u)
+        return 0;
+    const uint8_t country=_currentCompetitionIndex;
+    const void *const *table=(const void *const *)_competitionsTable[country];
+    if(!table || table[0]!=(const void *)record)return 0;
+    ExpandedOGLeague *ctx=exp_find(country,(uint8_t)division,
+                                    Expanded_OGWorld_SaveYear());
+    if(!ctx || !ctx->used) {
+        fprintf(stderr,"[og-yearend-resident] LEAGUE_NOT_RESIDENT "
+            "world=%s country=%u div=%u action=LEGACY_ONLY_NO_DUPLICATE\n",
+            World_Tag(),(unsigned)country,(unsigned)division);
+        return 0; /* no resident result to duplicate */
+    }
+    const unsigned n=(unsigned)ctx->comp.base.numTeams;
+    int valid=n>=2u && n<=EXP_OG_MAX_TEAMS && n==ctx->teamCount;
+    for(unsigned i=0u;i<n && valid;++i) {
+        const int32_t off=ctx->comp.leagueStandings[i].teamSelOffset;
+        if(off<0 || (unsigned)off>=n)valid=0;
+    }
+    if(!valid) {
+        extern void Expanded_YearEndReportFault(const char *);
+        fprintf(stderr,"[og-yearend-resident] INVALID_LEAGUE "
+            "world=%s country=%u div=%u year=%u table=%u teams=%u\n",
+            World_Tag(),(unsigned)country,(unsigned)division,
+            (unsigned)ctx->year,n,(unsigned)ctx->teamCount);
+        Expanded_YearEndReportFault("INVALID_RESIDENT_LEAGUE");
+        return -1;
+    }
+    memcpy(&_diyCompetitionStart,&ctx->comp,sizeof ctx->comp);
+    memcpy(&_diyFileBufferCopy,&ctx->tournament,sizeof ctx->tournament);
+    _numSelectedTeams=ctx->teamCount;
+    memcpy(_selectedTeams,ctx->teams,(size_t)n*sizeof(TeamFileEx));
+    _diyCompetitionStart.base.namePtr=
+        (uint8_t *)_diyCompetitionStart.base.competitionName;
+    /* Also reproduces the non-visual native menu's sorting side effect,
+     * before DIY_UpdatePromotionRelegationScratchCounts reads the rows. */
+    DIY_SortLeagueTableByStandings();
+    fprintf(stderr,"[og-yearend-resident] LEAGUE_REUSED "
+        "world=%s country=%u div=%u year=%u matches=%u "
+        "source=DATED_OG_NO_REPLAY\n",World_Tag(),(unsigned)country,
+        (unsigned)division,(unsigned)ctx->year,
+        (unsigned)ctx->comp.matchesPlayedCount);
+    return 1;
+}
 int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
                                    uint8_t division,uint16_t year,
                                    uint8_t phase) {
@@ -5220,6 +5348,12 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
             if(Expanded_OGWorld_QualReadNext(year,k,qualified[k],
                         EXP_QUAL_MAX_ENTRANTS)!=expected[k])
                 ready=0;
+        /* Historic Copa is independent of the three UEFA fields. One
+         * missing Cup Winners' Cup entrant list must not discard the
+         * 20 verified CONMEBOL champions/runners-up from OG standings. */
+        if(classic)
+            historicCopaQualified=Expanded_OGWorld_QualReadNext(
+                year,3u,qualified[3],EXP_QUAL_MAX_ENTRANTS);
         if(!ready) {
             if(phase==0u)
                 fprintf(stderr,"[og-uefa-resident] NEW_EDITION_PENDING "
@@ -5229,14 +5363,16 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
                         World_Tag(),(unsigned)year,
                         (unsigned)s_expOGUefaCalendarYear,
                         _selTeamNumber==0xffffu?"UNEMPLOYED":"EMPLOYED");
-            return 1;
+            if(!classic || historicCopaQualified!=20u)
+                return 1;
+            if(phase==0u)
+                fprintf(stderr,"[og-libertadores-96] "
+                    "PARTIAL_OG_FIELDS_COPA_READY "
+                    "year=%u qualified=20 missing-UEFA=NOT_FORCED\n",
+                    (unsigned)year);
         }
-        /* Libertadores 1996/97 is a separate historical 20-team type-2
-         * record. An absent Copa witness must NOT change its original field. */
-        historicCopaQualified=Expanded_OGWorld_QualReadNext(
-            year,3u,qualified[3],EXP_QUAL_MAX_ENTRANTS);
     }
-    if(phase==0u) {
+    if(phase==0u && ready) {
         s_expOGUefaCalendarYear=year;
         if(later) {
             const int actualSource=s_expQual.valid &&
@@ -5268,6 +5404,8 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
     static CompetitionTournament historicChampNext,historicCopaNext;
     for(unsigned k=0;k<(modern?3u:(historicCopa?2u:1u));++k) {
         const int isHistoricCopa=classic && k==1u;
+        if(later && !ready && !isHistoricCopa)
+            continue; /* don't overwrite old UEFA editions with no field */
         if(later && isHistoricCopa &&
            historicCopaQualified!=20u) {
             if(phase==0u)
@@ -5502,6 +5640,62 @@ static ExpandedOGCup *exp_cup_find(uint8_t country,uint8_t slot,uint16_t year)
            s_expOGCups[i].year==year)
             return &s_expOGCups[i];
     return NULL;
+}
+/* The same OG replay avoidance for finished national cups. The native
+ * year-end career callback still extracts the REAL winner/qualifiers,
+ * but it must never redraw and re-simulate a resident competition. */
+int Expanded_OGWorld_YearEndCupResult(uint8_t *record)
+{
+    extern uint8_t _currentCompetitionIndex;
+    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    if(_gameType!=4 || !_seasonUpdateInProgress || !record ||
+       s_expOGCurrent || s_expOGCupCurrent)return 0;
+    uint8_t country=_currentCompetitionIndex;
+    uint8_t slot=0u;
+    const Competition *const cup=(const Competition *)record;
+    /* Original 96/97 CWC and UEFA Cup have their own actual OG
+     * residents under country 254 (slots 1 and 2). The legacy
+     * year-end copies are not country table[2]/[3] pointers. */
+    if(World_Current()==WORLD_9697 &&
+       ((uint8_t)cup->compId==COMPID_cupWinnersCup ||
+        (uint8_t)cup->compId==COMPID_uefaCup)) {
+        country=254u;
+        slot=(uint8_t)cup->compId;
+    } else {
+        const void *const *table=
+            (const void *const *)_competitionsTable[country];
+        if(!table)return 0;
+        if(table[2]==(const void *)record)slot=2u;
+        else if(table[3]==(const void *)record)slot=3u;
+        else return 0; /* e.g. a native English promotion playoff */
+    }
+    ExpandedOGCup *ctx=exp_cup_find(country,slot,Expanded_OGWorld_SaveYear());
+    if(!ctx || !ctx->used) {
+        fprintf(stderr,"[og-yearend-resident] CUP_NOT_RESIDENT "
+            "world=%s country=%u slot=%u action=LEGACY_ONLY_NO_DUPLICATE\n",
+            World_Tag(),(unsigned)country,(unsigned)slot);
+        return 0;
+    }
+    const unsigned n=(unsigned)ctx->teamCount;
+    if(n<2u || n>EXP_OG_MAX_CUP_TEAMS ||
+       ctx->comp.base.numTeams<2u ||
+       ctx->comp.base.numTeams>EXP_OG_MAX_CUP_TEAMS) {
+        extern void Expanded_YearEndReportFault(const char *);
+        Expanded_YearEndReportFault("INVALID_RESIDENT_CUP");
+        return -1;
+    }
+    memcpy(&_diyCompetitionStart,&ctx->comp,sizeof ctx->comp);
+    memcpy(&_diyFileBufferCopy,&ctx->tournament,sizeof ctx->tournament);
+    _numSelectedTeams=ctx->teamCount;
+    memcpy(_selectedTeams,ctx->teams,(size_t)n*sizeof(TeamFileEx));
+    _diyCompetitionStart.base.namePtr=
+        (uint8_t *)_diyCompetitionStart.base.competitionName;
+    fprintf(stderr,"[og-yearend-resident] CUP_REUSED "
+        "world=%s country=%u slot=%u year=%u matches=%lu "
+        "source=DATED_OG_NO_REPLAY\n",World_Tag(),(unsigned)country,
+        (unsigned)slot,(unsigned)ctx->year,
+        (unsigned long)ctx->matchesPlayed);
+    return 1;
 }
 
 /* The existing end-of-season OG qualification callbacks expect ten real
@@ -5791,16 +5985,29 @@ int Expanded_OGWorld_QualifyUnemployed(uint16_t closedYear,uint16_t nextYear)
         copaCount,valid?"NATIVE_FIELD_READY":"INCOMPLETE_FIELD");
     /* Libertadores is validated separately: one invalid or duplicate
      * club must not make the next CAR fail its checksum/ID guard. */
+    int copaVerified=World_Current()==WORLD_9697 &&
+                     copaCount==20u && copaIds!=NULL &&
+                     sources>0u && missing==0u;
     if(copaCount && copaIds)for(unsigned j=0;j<copaCount && j<20u;++j) {
         const uint16_t id=(uint16_t)
             (((uint16_t)copaIds[2u*j]<<8)|copaIds[2u*j+1u]);
-        if(id==0xffffu)valid=0;
+        if(id==0xffffu || !id) {
+            valid=0;copaVerified=0;
+        }
         for(unsigned z=0;z<j;++z)
             if(copaIds[2u*z]==copaIds[2u*j] &&
-               copaIds[2u*z+1u]==copaIds[2u*j+1u])valid=0;
+               copaIds[2u*z+1u]==copaIds[2u*j+1u]) {
+                valid=0;copaVerified=0;
+            }
     }
     if(copaCount && !copaIds)valid=0;
-    if(valid)
+    if(!valid && copaVerified)
+        fprintf(stderr,"[og-libertadores-96] "
+            "PARTIAL_NATIVE_QUALIFICATION "
+            "year=%u copa=20 source=OG_RESIDENT_FINAL_TABLES "
+            "uefa=INCOMPLETE separately-validated=1\n",
+            (unsigned)nextYear);
+    if(valid || copaVerified)
         Expanded_OGWorld_QualCaptureNative(nextYear,
              field[0],n[0],field[1],n[1],field[2],n[2],
              copaIds,copaCount);
@@ -7919,6 +8126,13 @@ int Expanded_OGWorld_BindClub(uint16_t club,uint8_t division,uint16_t year) {
 __attribute__((used, externally_visible))
 void Career_AutoAdvanceInternationalCompetitionFixtures(uint8_t *record, uint16_t index)
 {
+#ifdef SWOS_SDL_BUILD
+    if(_gameType==4 && EXPANDED_WORLD_OG_ONLY &&
+       _seasonUpdateInProgress) {
+        const int resident=exp_og_yearend_league(record,index);
+        if(resident!=0)return; /* source OG standings or failure */
+    }
+#endif
     _careerLoadedFlag = 1;
     if (_seasonUpdateInProgress == 0 && _internationalAutoAdvanceFlag == 0)
         _teamSelectionKeyCacheEnd = 1;

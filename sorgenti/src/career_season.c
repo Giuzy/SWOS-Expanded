@@ -33,6 +33,7 @@
 #include "world_winners.h"
 #include "world_cups.h"
 #ifdef SWOS_SDL_BUILD
+#include <stdio.h>
 #include "expanded_qualification_transition.h"
 #include "expanded_world_live.h"
 extern uint16_t _currentSeasonShowing;
@@ -40,6 +41,23 @@ extern uint16_t _gameType;
 extern Competition *Career_CopaWorkingCopy(void);
 #endif
 #include "states.h"
+
+/* Only the Expanded OG-only career uses a nonfatal year-end fault:
+ * the previous CAR remains intact and the manager cannot enter a season
+ * with unbalanced team mobility or missing resident results. */
+#ifdef SWOS_SDL_BUILD
+static int s_expandedYearEndFault;
+void Expanded_YearEndResetFault(void) { s_expandedYearEndFault=0; }
+int Expanded_YearEndFaulted(void) { return s_expandedYearEndFault; }
+void Expanded_YearEndReportFault(const char *reason)
+{
+    if(!s_expandedYearEndFault)
+        fprintf(stderr,"[og-yearend] ABORT reason=%s "
+                "result=BLOCK_NEW_SEASON_KEEP_PREVIOUS_CAR\n",
+                reason?reason:"UNKNOWN");
+    s_expandedYearEndFault=1;
+}
+#endif
 
 extern uint8_t _diyLeagueSeasonStateTable[];
 extern uint8_t _diyLeagueScratchBuffer[];
@@ -794,6 +812,9 @@ void Career_ProcessSecondaryCompetitionForNextSeason(uint8_t *competition)
         SaveSelectedTeams();
     } else {
         Career_AutoAdvanceCupCompetitionFromRecord(competition);
+#ifdef SWOS_SDL_BUILD
+        if(Expanded_YearEndFaulted()) return;
+#endif
         DIY_CacheSecondaryQualifiedTeamsGrid();
     }
 }
@@ -816,6 +837,9 @@ void Career_ProcessTertiaryCompetitionForNextSeason(uint8_t *competition)
         SaveSelectedTeams();
     } else {
         Career_AutoAdvanceCupCompetitionFromRecord(competition);
+#ifdef SWOS_SDL_BUILD
+        if(Expanded_YearEndFaulted()) return;
+#endif
         DIY_CacheTertiaryQualifiedTeamGrid();
     }
     /* a world's league cup with no European place (world_cups.c): its winner takes none */
@@ -839,10 +863,16 @@ void Career_ProcessCompetitionForNextSeason(uint16_t compIndex)
     /* Entry layout: [0]=primary ptr, [1]=skip, [2]=secondary ptr, [3]=tertiary ptr */
     uint8_t *primary = (uint8_t *)tableEntry[0];
     processPrimaryCompetitionForNextSeason(primary);
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_YearEndFaulted()) return;
+#endif
 
     uint8_t *secondary = (uint8_t *)tableEntry[2];
     if (secondary != (uint8_t *)(uintptr_t)-1) {
         Career_ProcessSecondaryCompetitionForNextSeason(secondary);
+#ifdef SWOS_SDL_BUILD
+        if(Expanded_YearEndFaulted()) return;
+#endif
 
         uint8_t *tertiary = (uint8_t *)tableEntry[3];
         if (tertiary != (uint8_t *)(uintptr_t)-1) {
@@ -851,6 +881,9 @@ void Career_ProcessCompetitionForNextSeason(uint16_t compIndex)
     }
 
     DIY_ValidateLeagueScratchBuffer();
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_YearEndFaulted()) return;
+#endif
 
     /* A world's play-offs and play-outs: after the original's moves are checked, the
      * places they decide (one-level moves, placed by InitializeNewSeason's groups pass). */
@@ -1689,6 +1722,9 @@ static void processPrimaryCompetitionForNextSeason(uint8_t *competition)
         } else {
             /* Other division — auto-advance */
             Career_AutoAdvanceInternationalCompetitionFixtures(competition, d7);
+#ifdef SWOS_SDL_BUILD
+            if(Expanded_YearEndFaulted()) return;
+#endif
             if (competition == _currentCompetitionPtr)   /* (the career's league, not one the */
                 WorldPlayoff_RestoreEarlyTable(d7);      /* European places simulate: world_playoff.c) */
             if (d7 == 0)
@@ -1748,12 +1784,22 @@ void Career_AdvanceToNextSeason_UpdateCompetitions(void)
     Career_UpdateCupWinnersCupCompetitionSlot();
     Career_UpdateUefaCupCompetitionSlot();
     Career_UpdateCopaLibertadoresCompetitionSlot();   /* Inc3b-part-2: auto-advance Copa */
+#ifdef SWOS_SDL_BUILD
+    if(Expanded_YearEndFaulted()) {
+        _seasonUpdateInProgress=0;RestoreSelectedTeams();return;
+    }
+#endif
 
     _careerFileBuffer = 0;
 
     if (!_isNationalSelector) {
         uint16_t compIndex = World_FileCountry((uint8_t)(_selTeamNumber >> 8));   /* (include/world.h) */
         Career_ProcessCompetitionForNextSeason(compIndex);
+#ifdef SWOS_SDL_BUILD
+        if(Expanded_YearEndFaulted()) {
+            _seasonUpdateInProgress=0;RestoreSelectedTeams();return;
+        }
+#endif
         Career_ProcessCompetitionForEuropeanCupQualification();
         Career_ProcessCompetitionForCopaLibertadoresQualification();   /* Inc3 */
     }
@@ -1768,6 +1814,11 @@ void Career_AdvanceToNextSeason_UpdateCompetitions(void)
         if (!_isNationalSelector && compByte == World_FileCountry((uint8_t)(_selTeamNumber >> 8)))
             continue;
         Career_ProcessCompetitionForNextSeason((uint16_t)compByte);
+#ifdef SWOS_SDL_BUILD
+        if(Expanded_YearEndFaulted()) {
+            _seasonUpdateInProgress=0;RestoreSelectedTeams();return;
+        }
+#endif
         Career_ProcessCompetitionForEuropeanCupQualification();
         Career_ProcessCompetitionForCopaLibertadoresQualification();   /* Inc3 */
     }

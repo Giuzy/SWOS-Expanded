@@ -2112,8 +2112,11 @@ void MenuProc(void)
         extern uint8_t *Expanded_UnemployedCalendarPointer(void);
         if(_currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarPointer()) {
             unsigned ord=selectedEntry?selectedEntry->ordinal:0xffffu;
+            /* DEBUG 30 JUNE uses the already registered ordinal 14.
+             * Without it the generic safety whitelist swallowed mouse,
+             * keyboard and controller selection before the OG callback. */
             int allowed=(ord==7u || ord==9u || ord==11u ||
-                         ord==12u || ord==13u ||
+                         ord==12u || ord==13u || ord==14u ||
                          (ord==10u && !_menuEntries[10].isDisabled));
             if(!allowed || !selectedEntry || selectedEntry->isInvisible ||
                selectedEntry->isDisabled || !selectedEntry->onSelect) {

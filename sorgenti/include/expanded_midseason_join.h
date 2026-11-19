@@ -2,6 +2,7 @@
 #define EXPANDED_MIDSEASON_JOIN_H
 
 #include "swos_types.h"
+#include "expanded_world_time.h" /* calendar inspector uses real civil date */
 
 /* The native career is initialized normally; only the CURRENT world's
  * season is aligned and the OG league/cup fixtures before the offer are
@@ -44,6 +45,41 @@ int Expanded_MidseasonJoin_AbsoluteCutoff(uint16_t first_year,
                                           uint32_t elapsed_weeks,
                                           uint16_t *out_season,
                                           uint8_t *out_key);
+/* Calendar state is read-only except when PositionClubCalendar is invoked
+ * after a real manager bind. A completed season must never present a
+ * fictitious past event as the next match. */
+typedef enum {
+    EXP_OG_CLUB_CALENDAR_ND=0,
+    EXP_OG_CLUB_CALENDAR_FUTURE=1,
+    EXP_OG_CLUB_CALENDAR_COMPLETE=2,
+    EXP_OG_CLUB_CALENDAR_BEHIND=3,
+    EXP_OG_CLUB_CALENDAR_INVALID=4
+} ExpandedOGClubCalendarState;
+typedef struct {
+    ExpandedOGClubCalendarState status;
+    uint16_t current_index,expected_index,total;
+    uint8_t cutoff,current_phase,next_phase;
+} ExpandedOGClubCalendarAudit;
+/* Pure state classifier; a no-future cache is COMPLETE only with a
+ * verified OG resident season. Other missing dates are INVALID. */
+static inline ExpandedOGClubCalendarState ExpandedOGClubCalendar_Classify(
+    unsigned planned,unsigned total,unsigned cursor,int valid,int og_complete)
+{
+    if(!valid || !total || planned>total || cursor>total)
+        return EXP_OG_CLUB_CALENDAR_INVALID;
+    if(planned==total)
+        return og_complete?EXP_OG_CLUB_CALENDAR_COMPLETE:
+                           EXP_OG_CLUB_CALENDAR_INVALID;
+    if(cursor==total)return EXP_OG_CLUB_CALENDAR_INVALID;
+    return cursor<planned?EXP_OG_CLUB_CALENDAR_BEHIND:
+                          EXP_OG_CLUB_CALENDAR_FUTURE;
+}
+#ifdef SWOS_SDL_BUILD
+/* Does NOT move cursors, consume RNG, update scores or load a CAR. */
+int Expanded_OGWorld_ClubCalendarAudit(uint16_t year,ExpandedWorldDate now,
+                                        ExpandedOGClubCalendarAudit *out);
+#endif
+
 /* A native league whose first fixture is before August can already
  * have results during July. Pure helper: returns 1 only if correction
  * is applicable; it never certifies an OG/LWE handoff. */

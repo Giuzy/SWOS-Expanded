@@ -146,6 +146,52 @@ int main(void)
         assert(check.resident_same_phase_score_conflict==1u);
     }
 
+
+    /* 1996/97 real diagnostic: native 2C14-2C1E 2:0 at phase 80,
+     * cache had played 2C14-2C24 2:0. Change IDs ONLY, preserving score. */
+    {
+        uint8_t rows[44],copy[44];
+        ExpandedOGCacheMatch old={0},now={0};
+        fixture(rows,80u,0u,0x2c14u,0x2c24u,1,2,0);
+        fixture(rows+22u,99u,0u,0x2c14u,0x2c1eu,0,0,0);
+        memcpy(copy,rows,sizeof rows);
+        assert(ExpandedOGCache_RebindPlayedIdentity(
+            rows,sizeof rows,2u,0u,80u,0x2c14u,
+            0x2c14u,0x2c1eu,0x0200u,&old)==1);
+        assert(old.home==0x2c14u && old.away==0x2c24u);
+        assert(ExpandedOGCache_Find(rows,sizeof rows,2u,0u,80u,
+                 0x2c14u,0x2c1eu,&now)==EXP_OG_CACHE_PLAYED);
+        assert(now.packed_goals==0x0200u && now.flags==0x82u);
+        /* Exactly four bytes at the recorded old home/away identity. */
+        for(unsigned j=0;j<sizeof rows;++j)
+            if(j<12u || j>15u)assert(rows[j]==copy[j]);
+        assert(ExpandedOGCache_RebindPlayedIdentity(
+            rows,sizeof rows,2u,0u,80u,0x2c14u,
+            0x2c14u,0x2c1eu,0x0200u,&old)==0);
+        memcpy(rows,copy,sizeof rows);
+        assert(ExpandedOGCache_RebindPlayedIdentity(
+            rows,sizeof rows,2u,0u,80u,0x2c14u,
+            0x2c14u,0x2c1eu,0x0300u,&old)==-1);
+        assert(!memcmp(rows,copy,sizeof rows)); /* score conflict */
+        assert(ExpandedOGCache_RebindPlayedIdentity(
+            rows,sizeof rows,2u,0u,80u,0x2c15u,
+            0x2c14u,0x2c1eu,0x0200u,&old)==-1);
+        assert(!memcmp(rows,copy,sizeof rows)); /* wrong manager */
+        rows[23]=80u; /* two rows at the same phase = ambiguous */
+        assert(ExpandedOGCache_RebindPlayedIdentity(
+            rows,sizeof rows,2u,0u,80u,0x2c14u,
+            0x2c14u,0x2c1eu,0x0200u,&old)==-1);
+        rows[23]=99u;
+        assert(ExpandedOGCache_RebindPlayedIdentity(
+            rows,sizeof rows,2u,0u,81u,0x2c14u,
+            0x2c14u,0x2c1eu,0x0200u,&old)==-1);
+        rows[2]=0u;rows[3]=0u;
+        assert(ExpandedOGCache_RebindPlayedIdentity(
+            rows,sizeof rows,2u,0u,80u,0x2c14u,
+            0x2c14u,0x2c1eu,0x0200u,&old)==-1);
+    }
+    puts("OG_CALENDAR_PAIR_IDENTITY_REBIND=PASS_ISOLATED_ONLY");
+
     b[2]=0;b[3]=0;
     assert(ExpandedOGCache_Find(b,sizeof b,3,0,48,0x0102,0x0304,&m)==EXP_OG_CACHE_CORRUPT);
     assert(ExpandedOGCache_Find(b,20,1,0,48,0x0102,0x0304,&m)==EXP_OG_CACHE_CORRUPT);

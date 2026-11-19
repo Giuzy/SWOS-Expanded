@@ -1,5 +1,6 @@
-/* SWOS Expanded - read-only manager-keycache match lookup.
- * Does not execute matches, mutate OG state, or claim to reconcile a world.
+/* SWOS Expanded - read-only manager-keycache match lookup plus strictly
+ * verified ID-only correction of a played career calendar entry.
+ * Does not execute matches, mutate OG scores, or claim to reconcile a world.
  * Team IDs in keycache match records are BE; stride and score are host-native.
  */
 #ifndef EXPANDED_OG_CACHE_MATCH_H
@@ -139,6 +140,49 @@ static inline ExpandedOGCacheStatus ExpandedOGCache_FindPhaseSlot(
     candidate.used_bytes=off;
     *out=candidate;
     return candidate.flags&0x80u?EXP_OG_CACHE_PLAYED:EXP_OG_CACHE_SCHEDULED;
+}
+
+/* Correct ONLY the team IDs of one already-played, uniquely identified
+ * manager keycache row after the REAL native OG score was applied. The
+ * native engine is the authority for the fixture's oriented participants;
+ * flags, score, penalties, dates, standings and journal are NEVER changed.
+ * The caller must additionally verify that resident/local OG tables agree,
+ * the native phase equals this calendar phase, and the manager was involved.
+ * Returns 1 if corrected, 0 if already exact, -1 if evidence insufficient.
+ * This is not a generic phase-only fallback: the played score, same manager,
+ * unique row and exact native identities are mandatory. */
+static inline int ExpandedOGCache_RebindPlayedIdentity(
+    uint8_t *bytes,size_t capacity,uint16_t count,
+    uint8_t slot,uint8_t phase,uint16_t manager,
+    uint16_t native_home,uint16_t native_away,uint16_t native_score,
+    ExpandedOGCacheMatch *old_row)
+{
+    ExpandedOGCacheMatch row,existing;
+    if(!bytes || !old_row || native_home==native_away ||
+       native_home==0xffffu || native_away==0xffffu ||
+       manager==0xffffu ||
+       (native_home!=manager && native_away!=manager))return -1;
+    const ExpandedOGCacheStatus exact=ExpandedOGCache_Find(
+        bytes,capacity,count,slot,phase,native_home,native_away,&existing);
+    if(exact==EXP_OG_CACHE_PLAYED &&
+       existing.packed_goals==native_score)return 0;
+    if(exact!=EXP_OG_CACHE_NOT_FOUND)return -1;
+    if(ExpandedOGCache_FindPhaseSlot(bytes,capacity,count,
+                                    slot,phase,&row)!=EXP_OG_CACHE_PLAYED)
+        return -1;
+    if(row.packed_goals!=native_score ||
+       row.home==row.away ||
+       (row.home!=manager && row.away!=manager) ||
+       row.record_end<12u || row.record_end>row.used_bytes ||
+       row.record_end>capacity)return -1;
+    const size_t pos=row.record_end-12u;
+    if(pos>capacity-6u)return -1;
+    *old_row=row; /* evidence before modifying only 4 ID bytes */
+    bytes[pos+2u]=(uint8_t)(native_home>>8);
+    bytes[pos+3u]=(uint8_t)native_home;
+    bytes[pos+4u]=(uint8_t)(native_away>>8);
+    bytes[pos+5u]=(uint8_t)native_away;
+    return 1;
 }
 
 #endif

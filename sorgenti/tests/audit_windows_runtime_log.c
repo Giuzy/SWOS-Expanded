@@ -130,7 +130,10 @@ int main(int argc,char **argv)
     long local_og_witnesses=0,local_og_prior_cycles=0;
     long resident_phase_collisions=0,local_og_committed=0;
     long local_og_write_blocked=0,calendar_pair_audits=0;
-    long calendar_pair_mismatches=0;
+    long calendar_pair_mismatches=0,calendar_pair_rebounded=0;
+    long calendar_pair_rebind_blocked=0;
+    long completed_calendar_binds=0,completed_native_handoffs=0;
+    long extra_fixture_blocked_once=0;
     /* Lifetime read-only rollover identity evidence across both worlds.
      * Not reset by new career or SAVE/CONTINUE. */
     long qual_years=0,qual_checked=0,qual_passed=0,qual_failed=0;
@@ -287,6 +290,16 @@ int main(int argc,char **argv)
             ++local_og_committed;
         if(tag(line,"[og-manager-bridge] WRITE_BLOCKED "))
             ++local_og_write_blocked;
+        if(tag(line,"[og-calendar] COMPLETED_BIND "))
+            ++completed_calendar_binds;
+        if(tag(line,"[midseason] COMPLETED_RESIDENT_HANDOFF "))
+            ++completed_native_handoffs;
+        if(tag(line,"[og-manager-bridge] EXTRA_FIXTURE_BLOCKED_ONCE "))
+            ++extra_fixture_blocked_once;
+        if(tag(line,"[og-manager-calendar] REBOUND_EXACT_OG "))
+            ++calendar_pair_rebounded;
+        if(tag(line,"[og-manager-calendar] BLOCK_PAIR_RECONCILIATION "))
+            ++calendar_pair_rebind_blocked;
         if(tag(line,"[og-manager-fixture] ") &&
            strstr(line,"status=")) {
             ++calendar_pair_audits;
@@ -877,11 +890,23 @@ int main(int argc,char **argv)
            local_og_write_blocked,local_og_prior_cycles,
            resident_phase_collisions);
     printf("OG_MANAGER_CALENDAR_PAIR_IDENTITY=%s audits=%ld "
-           "native-calendar-mismatches=%ld "
-           "scope=READ_ONLY_NOT_RESOLVED_BY_EQUAL_TABLES\n",
-           calendar_pair_mismatches?"FAIL_REAL_PAIR_MISMATCH":
+           "native-calendar-mismatches=%ld rebound-id-only=%ld "
+           "rebound-blocked=%ld "
+           "scope=OG_RESULT_IMMUTABLE_CACHE_ID_CORRECTION_ONLY\n",
+           calendar_pair_mismatches || calendar_pair_rebind_blocked?
+               "FAIL_REAL_PAIR_MISMATCH":
+           calendar_pair_rebounded?
+               "PARTIAL_CACHE_IDS_REBOUND_NEEDS_WINDOWS_CHECK":
            calendar_pair_audits?"NO_MISMATCH_OBSERVED":"NOT_TESTED",
-           calendar_pair_audits,calendar_pair_mismatches);
+           calendar_pair_audits,calendar_pair_mismatches,
+           calendar_pair_rebounded,calendar_pair_rebind_blocked);
+    printf("OG_COMPLETED_HIRE_CALENDAR=%s completed-binds=%ld "
+           "native-handoffs=%ld extra-fixtures-blocked-once=%ld "
+           "scope=LOG_ONLY_NOT_GAMEPLAY_PROVEN\n",
+           completed_native_handoffs?"COMPLETED_HANDOFF_OBSERVED":
+           completed_calendar_binds?"COMPLETED_BIND_OBSERVED":"NOT_TESTED",
+           completed_calendar_binds,completed_native_handoffs,
+           extra_fixture_blocked_once);
     printf("OG_VIEWER_BACK=%s viewer-level-exits=%ld pad-queue-events=%ld\n",
            viewer_back?"LOGGED_NOT_VISUALLY_PROVED":"NOT_TESTED",
            viewer_back,picker_back_events);

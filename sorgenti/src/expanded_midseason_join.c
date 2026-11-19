@@ -17,6 +17,7 @@
 #endif
 
 #include <stdio.h>
+#include <string.h> /* read-only calendar audit initialization */
 
 /* One date-to-OG-phase mapping for first-season and later hires. */
 static int native_cutoff_at(uint16_t season,ExpandedWorldDate now,uint8_t *out) {
@@ -406,7 +407,7 @@ static int expanded_og_calendar_plan(uint16_t year,ExpandedWorldDate now,
        !ExpandedWorld_DateToNativePhaseNext(year,now,&cutoff) ||
        !_teamSelectionKeyCacheCount || _teamSelectionKeyCacheCount>256u)
         return 0;
-    size_t offset=0,selectedOffset=0;
+    size_t offset=0,selectedOffset=0,lastValidOffset=0;
     uint16_t selected=_teamSelectionKeyCacheCount;
     uint8_t previous=0;
     for(uint16_t i=0;i<_teamSelectionKeyCacheCount;++i) {
@@ -420,10 +421,15 @@ static int expanded_og_calendar_plan(uint16_t year,ExpandedWorldDate now,
            e->phaseFlag==0u && e->sortKey>=cutoff) {
             selected=i;selectedOffset=offset;
         }
+        lastValidOffset=offset;
         previous=e->sortKey;
         offset+=e->entryStride;
     }
-    *phase=cutoff;*index=selected;*chosenOffset=selectedOffset;
+    *phase=cutoff;*index=selected;
+    /* A completed keycache points to its LAST VALID header, not byte 0
+     * of an old season or the out-of-range end-of-buffer sentinel. */
+    *chosenOffset=selected==_teamSelectionKeyCacheCount?
+                  lastValidOffset:selectedOffset;
     return 1;
 }
 int Expanded_OGWorld_PreflightClubCalendar(uint16_t year,ExpandedWorldDate now,
@@ -440,10 +446,30 @@ int Expanded_OGWorld_PositionClubCalendar(uint16_t year,ExpandedWorldDate now) {
     if(!expanded_og_calendar_plan(year,now,&phase,
                                   &chosenIndex,&chosenOffset))return 0;
     if(chosenIndex==_teamSelectionKeyCacheCount) {
-        fprintf(stderr,"[og-calendar] no future event year=%u phase=%u "
-                       "(season complete; do not restart)\n",
-                (unsigned)year,(unsigned)phase);
-        return 0;
+        extern int Expanded_OGWorld_ManagerLeagueFinished(const DIYCompetitionEx *);
+        extern DIYCompetitionEx _diyCompetitionStart;
+        extern void Career_FillCurrentSeasonInfo(void);
+        /* The absence of a future keycache row is NOT proof of a completed
+         * championship. Verify BOTH native OG counters, or fail closed. */
+        if(!Expanded_OGWorld_ManagerLeagueFinished(&_diyCompetitionStart)) {
+            fprintf(stderr,"[og-calendar] INVALID_NO_FUTURE year=%u phase=%u "
+                           "resident=NOT_CONFIRMED no-replay=1\n",
+                    (unsigned)year,(unsigned)phase);
+            return 0;
+        }
+        _teamSelectionKeyCacheIndex=(uint16_t)(_teamSelectionKeyCacheCount-1u);
+        _teamSelectionKeyCacheOffset=(uint16_t)chosenOffset;
+        _lastFinancialWeekIndex=phase;
+        _seasonFinished=1;
+        _careerFinished=1;
+        Career_FillCurrentSeasonInfo(); /* the native season summary */
+        fprintf(stderr,"[og-calendar] COMPLETED_BIND year=%u phase=%u "
+                       "index=%u/%u resident=VERIFIED "
+                       "next=MANUAL_FINISH_SEASON no-replay=1\n",
+                (unsigned)year,(unsigned)phase,
+                (unsigned)_teamSelectionKeyCacheIndex,
+                (unsigned)_teamSelectionKeyCacheCount);
+        return 2; /* legitimate completed calendar, not a failed bind */
     }
     _teamSelectionKeyCacheIndex=chosenIndex;
     _teamSelectionKeyCacheOffset=(uint16_t)chosenOffset;
@@ -455,6 +481,43 @@ int Expanded_OGWorld_PositionClubCalendar(uint16_t year,ExpandedWorldDate now) {
             (unsigned)_teamSelectionKeyCacheCount,
             (unsigned)((TeamSelectionKeyCacheEntry *)
                 (_teamSelectionKeyCache+chosenOffset))->sortKey);
+    return 1;
+}
+
+
+int Expanded_OGWorld_ClubCalendarAudit(uint16_t year,ExpandedWorldDate now,
+                                        ExpandedOGClubCalendarAudit *out)
+{
+    extern uint16_t _selTeamNumber;
+    extern int Expanded_OGWorld_ClubBound(void);
+    extern int Expanded_OGWorld_ManagerLeagueFinished(const DIYCompetitionEx *);
+    extern DIYCompetitionEx _diyCompetitionStart;
+    if(!out)return 0;
+    memset(out,0,sizeof(*out));
+    out->status=EXP_OG_CLUB_CALENDAR_ND;
+    if(_gameType!=4 || _selTeamNumber==0xffffu ||
+       !Expanded_OGWorld_ClubBound())return 1;
+    uint16_t planned=0;
+    size_t offset=0;
+    uint8_t phase=0;
+    out->total=_teamSelectionKeyCacheCount;
+    out->current_index=_teamSelectionKeyCacheIndex;
+    out->current_phase=Expanded_Career_NativeCalendarKey();
+    if(!expanded_og_calendar_plan(year,now,&phase,&planned,&offset)) {
+        out->status=EXP_OG_CLUB_CALENDAR_INVALID;
+        return 1;
+    }
+    out->cutoff=phase;
+    out->expected_index=planned;
+    const int complete=Expanded_OGWorld_ManagerLeagueFinished(
+        &_diyCompetitionStart);
+    out->status=ExpandedOGClubCalendar_Classify(
+        planned,out->total,out->current_index,1,complete);
+    if(planned<out->total)
+        out->next_phase=((const TeamSelectionKeyCacheEntry *)
+                          (_teamSelectionKeyCache+offset))->sortKey;
+    else
+        out->next_phase=0xffu;
     return 1;
 }
 
@@ -756,6 +819,23 @@ void Expanded_MidseasonJoin_Begin(uint32_t elapsed) {
         return;
     }
     if (!has_future && !s_direct_league_import) {
+        /* In OG-only mode the club league has ALREADY been rebound to its
+         * real resident table. It is illegal to replay all its old results.
+         * A genuine completed native season needs NO legacy catch-up. */
+        extern int Expanded_OGWorld_ClubBound(void);
+        extern int Expanded_OGWorld_ManagerLeagueFinished(const DIYCompetitionEx *);
+        extern DIYCompetitionEx _diyCompetitionStart;
+        if(EXPANDED_WORLD_OG_ONLY && Expanded_OGWorld_ClubBound() &&
+           Expanded_OGWorld_ManagerLeagueFinished(&_diyCompetitionStart)) {
+            s_complete_season_handoff=1;
+            s_last_result=3; /* verified native state, no catch-up needed */
+            s_last_key=cutoff;
+            fprintf(stderr,"[midseason] COMPLETED_RESIDENT_HANDOFF "
+                           "season=%u phase=%u actions=0 "
+                           "native-scores=ALREADY_APPLIED next=MANUAL_FINISH_SEASON\n",
+                    (unsigned)season,(unsigned)cutoff);
+            return;
+        }
         fprintf(stderr,"[midseason] cannot enter completed season: "
                        "world/native league standings unavailable. "
                        "Refusing to label empty OG table as synced\n");

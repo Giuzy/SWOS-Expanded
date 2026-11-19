@@ -3153,6 +3153,28 @@ static void draw_world_debug_overlay(void)
     }
     snprintf(line,sizeof line,"LEGHE %lu/%lu",
              (unsigned long)leagueResident,(unsigned long)leagueExpected);
+    ExpandedOGClubCalendarAudit clubcal={0};
+    if(calendar)
+        (void)Expanded_OGWorld_ClubCalendarAudit(
+            (uint16_t)season,date.today,&clubcal);
+    const int clubstate=clubcal.status;
+    snprintf(line,sizeof line,"CUR %u/%u TARGET %u  PH %u>%u",
+             (unsigned)clubcal.current_index,(unsigned)clubcal.total,
+             (unsigned)clubcal.expected_index,
+             (unsigned)clubcal.current_phase,
+             (unsigned)clubcal.next_phase);
+    diag_f12_health(283,"CALENDARIO CLUB",
+        clubstate==EXP_OG_CLUB_CALENDAR_FUTURE?F12_OK:
+        clubstate==EXP_OG_CLUB_CALENDAR_COMPLETE?F12_PARTIAL:
+        clubstate==EXP_OG_CLUB_CALENDAR_ND?F12_ND:F12_BAD,
+        clubstate==EXP_OG_CLUB_CALENDAR_COMPLETE?
+            "FINITA - PROSSIMO FINISH SEASON":
+        clubstate==EXP_OG_CLUB_CALENDAR_BEHIND?
+            "CURSORE ARRETRATO RISPETTO A DATA":
+        clubstate==EXP_OG_CLUB_CALENDAR_INVALID?
+            "CACHE NON VALIDA / STATO NON VERIFICATO":
+        clubstate==EXP_OG_CLUB_CALENDAR_ND?
+            "NESSUN CLUB ATTIVO":line);
     diag_f12_health(293,"MONDO RESIDENTE",
         leagueExpected && leagueResident==leagueExpected?F12_OK:F12_PARTIAL,
         line);
@@ -3190,8 +3212,9 @@ static void draw_world_debug_overlay(void)
              health.qualRouteStatus[k]==1u?F12_OK:
              health.qualRouteStatus[k]==2u?F12_BAD:F12_ND,line);
     }
-    snprintf(line,sizeof line,"CUP %lu/%lu  ERRORI %lu",
+    snprintf(line,sizeof line,"CUP %lu/%lu NON GEST. %lu ERR %lu",
              (unsigned long)cupResident,(unsigned long)cupExpected,
+             (unsigned long)health.cupUnsupported,
              (unsigned long)health.cupFaults);
     diag_f12_health(405,"COPPE NAZ OG",
         health.cupFaults?F12_BAD:
@@ -3236,12 +3259,14 @@ static void draw_world_debug_overlay(void)
              (unsigned long)d.resultsIssues);
     diag_f12_health(489,"CLASSIFICHE",
         d.resultsIssues?F12_BAD:d.resultsChecked?F12_OK:F12_ND,line);
-    snprintf(line,sizeof line,"NON GESTITE %lu  FAULT %lu",
-             (unsigned long)health.cupUnsupported,
-             (unsigned long)health.cupFaults);
-    diag_f12_health(503,"COPPE LIMITI",
-        health.cupFaults?F12_BAD:health.cupUnsupported?F12_PARTIAL:
-        cupResident?F12_OK:F12_ND,line);
+    snprintf(line,sizeof line,"VER %lu RIAL %lu NON RISOLTI %lu",
+             (unsigned long)health.managerPairChecked,
+             (unsigned long)health.managerPairRepaired,
+             (unsigned long)health.managerPairMismatched);
+    diag_f12_health(503,"PAIR OG/CACHE",
+        health.managerPairMismatched?F12_BAD:
+        health.managerPairRepaired?F12_PARTIAL:
+        health.managerPairChecked?F12_OK:F12_ND,line);
     diag_f12_line(395,519,"OK E SOLO IL TEST INDICATO. ALTRE CONFED. E GAMEPLAY N/D.",
                   162,180,193);
     diag_f12_end("F12_OG_HEALTH");

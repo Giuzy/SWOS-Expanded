@@ -10022,8 +10022,20 @@ void DIYLeagueTournamentMatchCommon(uint16_t action)
         Expanded_MidseasonJoin_RecordForcedSimulation();
     }
     uint16_t result = DIY_PlayOrSimulateLeagueFixture(_diyTournamentType, action);
-    if (result != 0)
+    if (result != 0) {
+#ifdef SWOS_SDL_BUILD
+        if(_gameType==4 && Expanded_OGWorld_ManagerLeagueFinished(
+                               &_diyCompetitionStart)) {
+            /* Rejected fixture must not leave an actionable PLAY button
+             * selected; OG native callbacks handle the season transition. */
+            _diyAllMatchesPlayed=1;
+            _diyFixtureViewMode=0xffffu;
+            DIYLeagueTournament_UpdateMenuEntryVisibilityAndFocus();
+            DrawMenu();
+        }
+#endif
         return;
+    }
 
     DIYLeagueTournament_UpdateViewOptionsAvailability();
     _diyFixtureViewMode = 0xFFFF;   /* -1 = show results */
@@ -11944,9 +11956,24 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
      * reconciled resident season has no legal extra fixture to resolve,
      * play, journal, or commit (including a same-team phantom fixture). */
     if(_gameType==4 && Expanded_OGWorld_ManagerLeagueFinished(baseEx)) {
-        fprintf(stderr,"[og-manager-bridge] REJECT_EXTRA_FIXTURE "
-                       "played=%u no-replay=1\n",
-                (unsigned)baseEx->matchesPlayedCount);
+        /* The native league already owns its final score. A rejected
+         * extra match is NOT a replayable menu action: mark the OG DIY
+         * screen complete so it exposes EXIT/FINISH instead of retaining
+         * the stale active MATCH/RESULT button. Log once per club/season,
+         * not 161k times in a hot loop. */
+        static uint16_t lastClub=0xffffu,lastYear=0xffffu;
+        extern uint16_t _selTeamNumber;
+        extern uint16_t Expanded_OGWorld_SaveYear(void);
+        const uint16_t year=Expanded_OGWorld_SaveYear();
+        _diyAllMatchesPlayed=1;
+        if(lastClub!=_selTeamNumber || lastYear!=year) {
+            lastClub=_selTeamNumber;lastYear=year;
+            fprintf(stderr,"[og-manager-bridge] EXTRA_FIXTURE_BLOCKED_ONCE "
+                           "club=%04x year=%u played=%u "
+                           "exit=FINISH_SEASON no-replay=1\n",
+                    (unsigned)_selTeamNumber,(unsigned)year,
+                    (unsigned)baseEx->matchesPlayedCount);
+        }
         return 1;
     }
 #endif
@@ -12319,7 +12346,7 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
     if(_gameType==4 && !Expanded_OGWorld_IsSimulating() &&
        (team1==&_careerTeam || team2==&_careerTeam))
         Expanded_OGWorld_AuditManagerLeagueResult(team1,team2,baseEx,
-                                                  goals1,goals2);
+                                       goals1,goals2,observedLeaguePhase);
 #endif
     return 0;
 }

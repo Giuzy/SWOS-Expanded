@@ -2083,9 +2083,17 @@ void InitCareerClub(uint16_t teamNo)
             if(Expanded_OGWorld_BindClub(teamNo,(uint8_t)_currentDivisionIndex,
                                           actual)) {
                 extern int Expanded_OGWorld_PositionClubCalendar(uint16_t,ExpandedWorldDate);
-                if(!Expanded_OGWorld_PositionClubCalendar(actual,state.today))
-                    fprintf(stderr,"[og-calendar] WARNING bound table but no "
-                                   "valid future native career calendar event\n");
+                const int position=Expanded_OGWorld_PositionClubCalendar(
+                    actual,state.today);
+                if(position==2)
+                    fprintf(stderr,"[career-init-audit] CLUB_CALENDAR_COMPLETE "
+                                   "world=%s season=%u team=%04x "
+                                   "NEXT=MANUAL_FINISH_SEASON no-replay=1\n",
+                            World_Tag(),(unsigned)actual,(unsigned)teamNo);
+                else if(!position)
+                    fprintf(stderr,"[og-calendar] ERROR bound club but "
+                                   "native calendar is invalid or not "
+                                   "verified complete (no-replay)\n");
             } else
                 fprintf(stderr,"[og-world-bind] NO EXISTING CONTEXT team=%04x "
                                "division=%u year=%u; legacy handoff required\n",

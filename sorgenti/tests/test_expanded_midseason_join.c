@@ -56,6 +56,23 @@ int main(void) {
     assert(Expanded_MidseasonJoin_HandoffReached(143u,143u));
     assert(Expanded_MidseasonJoin_HandoffReached(92u,93u));
     assert(Expanded_MidseasonJoin_HandoffReached(0u,0u));
+    /* Exact completed resident table: safe only when all native games
+     * agree. No fixture event may be inferred from the calendar alone. */
+    assert(ExpandedOGClubCalendar_Classify(27u,27u,26u,1,1)==
+           EXP_OG_CLUB_CALENDAR_COMPLETE);
+    assert(ExpandedOGClubCalendar_Classify(27u,27u,26u,1,0)==
+           EXP_OG_CLUB_CALENDAR_INVALID);
+    assert(ExpandedOGClubCalendar_Classify(27u,27u,27u,1,1)==
+           EXP_OG_CLUB_CALENDAR_COMPLETE);
+    assert(ExpandedOGClubCalendar_Classify(25u,27u,0u,1,0)==
+           EXP_OG_CLUB_CALENDAR_BEHIND);
+    assert(ExpandedOGClubCalendar_Classify(25u,27u,25u,1,0)==
+           EXP_OG_CLUB_CALENDAR_FUTURE);
+    assert(ExpandedOGClubCalendar_Classify(25u,27u,27u,1,0)==
+           EXP_OG_CLUB_CALENDAR_INVALID);
+    assert(ExpandedOGClubCalendar_Classify(0u,0u,0u,1,0)==
+           EXP_OG_CLUB_CALENDAR_INVALID);
+    puts("OG_MANAGER_END_SEASON_CALENDAR=PASS_ISOLATED_ONLY");
     puts("OG_CATCHUP_EARLY_FINISH_REJECTION_RUNTIME=PASS");
     puts("SOUTHERN_JULY_NATIVE_PHASE_RUNTIME=PASS");
     puts("OK: native month-phase cutover, including hires after 5 years");

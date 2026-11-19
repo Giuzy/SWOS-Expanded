@@ -3639,6 +3639,8 @@ static int s_expOGCupPhase=-1,s_expOGCupTickFault;
  * Career_AutoAdvanceLeagueFixtures retry the same fixture indefinitely. */
 static int s_expOGBridgeBlocked;
 static uint32_t s_expOGBridgeRejections;
+static uint32_t s_expOGManagerPairChecked,s_expOGManagerPairRepaired;
+static uint32_t s_expOGManagerPairMismatch;
 int Expanded_OGWorld_BridgeBlocked(void){return s_expOGBridgeBlocked;}
 
 
@@ -4246,6 +4248,8 @@ static void expanded_og_world_reset_internal(int season_transition) {
     }
     s_expOGCurrent=NULL;s_expOGPhase=-1;s_expOGBound=0;s_expOGViewing=0;s_expOGFault=0;
     s_expOGBridgeBlocked=0;s_expOGBridgeRejections=0u;
+    s_expOGManagerPairChecked=0u;s_expOGManagerPairRepaired=0u;
+    s_expOGManagerPairMismatch=0u;
     memset(s_expOGCups+retainedCups,0,
            (EXP_OG_MAX_CUPS-retainedCups)*sizeof s_expOGCups[0]);
     s_expOGCupCount=retainedCups;s_expOGCupUnsupported=0;s_expOGCupFaults=0;
@@ -4954,6 +4958,9 @@ void Expanded_OGWorld_IntegrityAudit(ExpandedOGIntegrityAudit *out)
     out->fixtureIssues=s_expOGFixtureIssues;
     out->fixturePartial=s_expOGFixturePartial;
     out->bridgeRejections=s_expOGBridgeRejections;
+    out->managerPairChecked=s_expOGManagerPairChecked;
+    out->managerPairRepaired=s_expOGManagerPairRepaired;
+    out->managerPairMismatched=s_expOGManagerPairMismatch;
     out->bridgeBlocked=(uint8_t)(s_expOGBridgeBlocked!=0);
     out->cupFaults=s_expOGCupFaults;
     out->cupUnsupported=s_expOGCupUnsupported;
@@ -7531,13 +7538,13 @@ int Expanded_OGWorld_DebugCanAdvanceClub(uint16_t club,uint8_t division,
     return 1;
 }
 
-/* 0.13.101: observe the exact original result before attempting ANY
- * manager-to-world merge. The old keycache contains real career scores but
- * is NOT the universal worldwide journal. No fixture is simulated here.
- * All checks are read-only; unexpected states remain distinct in logs. */
+/* Observe genuine OG result after the normal local->resident commit.
+ * The keycache is not a universal journal. All checks are read-only EXCEPT
+ * the narrow verified correction of 4 ID bytes in a played cache row.
+ * OG results/standings/RNG remain immutable and failures stay logged. */
 void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
     const TeamFileEx *away,const DIYCompetitionEx *local,
-    uint16_t goals_home,uint16_t goals_away)
+    uint16_t goals_home,uint16_t goals_away,uint8_t native_phase)
 {
     if(!home || !away || !local || _gameType!=4 || !s_expOGBound ||
        s_expOGCurrent || s_expOGCupCurrent || s_expOGViewing ||
@@ -7656,6 +7663,51 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
             if(found!=1u)++unmapped;
         }
     }
+    /* The OG result has been committed to its resident context. Only now
+     * reconcile a *unique already-played* calendar entry that the OLD club
+     * fixture keycache associated with a different opponent. Identity is
+     * from the exact native callback, phase, score and the same manager.
+     * Never rewrite score/flags or accept a phase-only/score-only match. */
+    int pair_rebound=0;
+    ++s_expOGManagerPairChecked;
+    if(phase_other_pair) {
+        ExpandedOGCacheMatch previous={0};
+        const int can_rebind=!s_expOGBridgeBlocked &&
+            !unmapped && !table_differences &&
+            ctx->comp.matchesPlayedCount==local->matchesPlayedCount &&
+            active->phaseFlag==0u && slot==local->base.field_2E &&
+            native_phase==phase &&
+            phase_cache==EXP_OG_CACHE_PLAYED &&
+            phase_match.packed_goals==packed &&
+            cache==EXP_OG_CACHE_NOT_FOUND;
+        const int rebound=can_rebind?ExpandedOGCache_RebindPlayedIdentity(
+            _teamSelectionKeyCache,8192u,_teamSelectionKeyCacheCount,
+            slot,phase,_selTeamNumber,home_id,away_id,packed,
+            &previous):-1;
+        if(rebound==1) {
+            ++s_expOGManagerPairRepaired;pair_rebound=1;
+            fprintf(stderr,"[og-manager-calendar] REBOUND_EXACT_OG "
+                    "world=%s year=%u native-phase=%u slot=%u "
+                    "old=%04x-%04x new=%04x-%04x score=%u-%u "
+                    "identity-only=1 scores-unchanged=1 "
+                    "resident-OG-untouched=1\n",
+                    World_Tag(),(unsigned)year,(unsigned)phase,(unsigned)slot,
+                    (unsigned)previous.home,(unsigned)previous.away,
+                    (unsigned)home_id,(unsigned)away_id,
+                    (unsigned)goals_home,(unsigned)goals_away);
+        } else {
+            ++s_expOGManagerPairMismatch;
+            fprintf(stderr,"[og-manager-calendar] BLOCK_PAIR_RECONCILIATION "
+                    "world=%s year=%u slot=%u native-phase=%u "
+                    "cache-phase=%u home=%04x away=%04x "
+                    "score=%u-%u reason=NOT_PROVEN_EXACT "
+                    "scores-unchanged=1\n",
+                    World_Tag(),(unsigned)year,(unsigned)slot,
+                    (unsigned)native_phase,(unsigned)phase,
+                    (unsigned)home_id,(unsigned)away_id,
+                    (unsigned)goals_home,(unsigned)goals_away);
+        }
+    }
     const char *cache_name=
         cache==EXP_OG_CACHE_PLAYED?"PLAYED":
         cache==EXP_OG_CACHE_SCHEDULED?"SCHEDULED":
@@ -7667,7 +7719,8 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
         unmapped?"CLUB_MAP_INVALID":
         table_differences?"TABLES_DIVERGED":
         resident_matches!=local_matches?"COUNTERS_DIVERGED":
-        phase_other_pair?"CALENDAR_PAIR_MISMATCH":
+        phase_other_pair?(pair_rebound?"CALENDAR_PAIR_REBOUND_EXACT_OG":
+                                       "CALENDAR_PAIR_MISMATCH"):
         phase_cache==EXP_OG_CACHE_CORRUPT?"CALENDAR_CACHE_CORRUPT":
         phase_cache==EXP_OG_CACHE_AMBIGUOUS?"CALENDAR_PHASE_AMBIGUOUS":
         phase_cache==EXP_OG_CACHE_NOT_FOUND?"CALENDAR_PHASE_MISSING":
@@ -7686,7 +7739,8 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
         "calendar-score=%u-%u calendar-flags=%02x "
         "world-matches=%u local-matches=%u row-diff=%u unmapped=%u "
         "cache-used=%lu match-end=%lu car-raw-limit=8192 "
-        "car-capacity-risk=%s status=%s no-world-mutation=1\n",
+        "car-capacity-risk=%s status=%s cache-id-rebound=%u "
+        "no-OG-score-mutation=1\n",
         World_Tag(),(unsigned)year,(unsigned)_currentDivisionIndex,
         (unsigned)home_id,(unsigned)away_id,
         (unsigned)goals_home,(unsigned)goals_away,cache_name,
@@ -7706,7 +7760,7 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
         (unsigned long)match.used_bytes,(unsigned long)match.record_end,
         match.used_bytes>EXP_OG_CACHE_CAPACITY ||
         match.record_end>EXP_OG_CACHE_CAPACITY?"YES":"NO",
-        result);
+        result,(unsigned)pair_rebound);
 }
 /* Called ONLY AFTER OG has calculated and applied the result. This
  * records the canonical OG score as EVIDENCE, never rolls another score.
@@ -8377,6 +8431,17 @@ __attribute__((used, externally_visible))
 void Career_AutoAdvanceLeagueFixtures(void)
 {
     uint8_t currentPhase, nextPhase;
+#ifdef SWOS_SDL_BUILD
+    /* Never dereference a stale keycache cursor or advance any fixture
+     * after the exact resident season is already complete. The menu must
+     * transition via FINISH SEASON, not retry an impossible match. */
+    if(_gameType==4 && Expanded_OGWorld_ManagerLeagueFinished(
+                          &_diyCompetitionStart)) {
+        extern uint16_t _diyAllMatchesPlayed;
+        _diyAllMatchesPlayed=1;
+        return;
+    }
+#endif
 
     /* World OG updates have their own phase, not a manager's keycache. */
 #ifdef SWOS_SDL_BUILD

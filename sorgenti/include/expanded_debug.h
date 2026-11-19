@@ -78,6 +78,8 @@ typedef struct {
  * Snapshot contains only scalar counters, no mutable OG/save pointers. */
 typedef struct {
     uint32_t fixtureRecords, fixtureIssues, fixturePartial;
+    /* Runtime observations only, never persisted in CAR. */
+    uint32_t managerPairChecked,managerPairRepaired,managerPairMismatched;
     uint32_t bridgeRejections, cupFaults, cupUnsupported;
     uint32_t qualChecked, qualPass, qualFail, qualUnknown;
     uint32_t qualSourceInvalid, unemployedQualErrors;

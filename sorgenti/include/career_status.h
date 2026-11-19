@@ -9,12 +9,12 @@
 #include "game_types.h"
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_live.h"
-/* Read-only, fail-closed audit of a real played manager league fixture versus
- * the resident OG league and the existing career keycache. Never writes a
- * result, changes a bracket, or advances the world clock. */
+/* Fail-closed audit of a real played manager league fixture versus the OG
+ * resident. May correct only the 4 participant-ID bytes of a proven played
+ * keycache row, never scores, brackets, OG standings, RNG or world clock. */
 void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
     const TeamFileEx *away,const DIYCompetitionEx *local,
-    uint16_t goals_home,uint16_t goals_away);
+    uint16_t goals_home,uint16_t goals_away,uint8_t native_phase);
 /* Original OG result witness: executes AFTER the score has been applied.
  * It never invokes game simulation or changes native standings/RNG. */
 int Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,

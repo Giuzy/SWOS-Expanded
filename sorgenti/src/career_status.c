@@ -4050,13 +4050,21 @@ void Expanded_OGWorld_QualAuditNextYear(uint16_t year)
  * Wire fields are endian-neutral: kind/country/slot/phase, edition year,
  * native sequence, oriented home/away, scores, leg, source, civil as-of.
  * The as-of day is a tick upper bound, NOT an invented fixture date. */
-#define EXP_OG_FIXTURE_SIZE 20u
-#define EXP_OG_FIXTURE_MAX 65536u
+#include "expanded_og_fixture_hash.h"
+#define EXP_OG_FIXTURE_SIZE EXP_OG_HASH_RECORD_SIZE
 static uint8_t *s_expOGFixtures;
-/* Open-addressed identity index: O(1) replay check even when 130+ native
- * leagues have interleaved 20,000+ results in one world season. */
-#define EXP_OG_FIXTURE_BUCKETS 131072u
-static uint32_t s_expOGFixtureBuckets[EXP_OG_FIXTURE_BUCKETS];
+/* Both the byte ledger and hash index grow with actual played OG matches.
+ * There is no season-sized or million-match threshold. UINT32_MAX is the
+ * format's physical 32-bit index limit, never a preallocated capacity. */
+static uint32_t *s_expOGFixtureBuckets;
+static size_t s_expOGFixtureBucketCount;
+/* Compact permanent tombstones for fully certified old league editions.
+ * Native OG remains owner of winners/standings. This archive records only
+ * exact observed counts/identities and hash, NEVER invents a champion. */
+#define EXP_OG_ARCHIVE_SIZE 24u
+static uint8_t *s_expOGArchive;
+static size_t s_expOGArchiveCount,s_expOGArchiveCapacity;
+static uint16_t s_expOGArchiveLatestYear;
 static size_t s_expOGFixtureCount,s_expOGFixtureCapacity;
 static uint32_t s_expOGFixtureIssues,s_expOGFixturePartial;
 static uint64_t s_expOGCapturedLeague,s_expOGCapturedCup,s_expOGCapturedUefa;
@@ -4084,7 +4092,11 @@ static uint64_t exp_fixture_hash(const uint8_t *bytes,size_t len)
 void Expanded_OGWorld_FixtureReset(void)
 {
     free(s_expOGFixtures);s_expOGFixtures=NULL;
-    memset(s_expOGFixtureBuckets,0,sizeof s_expOGFixtureBuckets);
+    free(s_expOGFixtureBuckets);s_expOGFixtureBuckets=NULL;
+    s_expOGFixtureBucketCount=0u;
+    free(s_expOGArchive);s_expOGArchive=NULL;
+    s_expOGArchiveCount=s_expOGArchiveCapacity=0u;
+    s_expOGArchiveLatestYear=0u;
     s_expOGFixtureCount=s_expOGFixtureCapacity=0u;
     s_expOGFixtureIssues=0u;s_expOGFixturePartial=0u;
     s_expOGCapturedLeague=s_expOGCapturedCup=s_expOGCapturedUefa=0u;
@@ -4093,53 +4105,117 @@ void Expanded_OGWorld_FixtureReset(void)
 }
 void Expanded_OGWorld_FixtureSetAsOf(ExpandedWorldDate date)
 {s_expOGFixtureAsOf=date;}
-static uint32_t exp_fixture_key_hash(const uint8_t *r)
+/* Pure hash and duplicate logic is shared with a >100K-row isolated C test. */
+#define exp_fixture_locate ExpandedOGFixture_Locate
+#define exp_fixture_build_index ExpandedOGFixture_BuildIndex
+#define exp_fixture_make_index ExpandedOGFixture_MakeIndex
+static int exp_fixture_reserve_index(size_t required)
 {
-    uint32_t h=2166136261u;
-    for(unsigned i=0;i<12u;i++){h^=r[i];h*=16777619u;}
-    h^=r[14];h*=16777619u;
-    return h;
-}
-static int exp_fixture_key_same(const uint8_t *a,const uint8_t *b)
-{return memcmp(a,b,12u)==0 && a[14]==b[14];}
-/* Returns 1 if a duplicate stable witness key exists, 0 if a free bucket.
- * The same function is used for scratch validation on CAR restore. */
-static int exp_fixture_locate(const uint8_t *wire,const uint32_t *buckets,
-                              const uint8_t *record,uint32_t *position)
-{
-    uint32_t pos=exp_fixture_key_hash(record)&(EXP_OG_FIXTURE_BUCKETS-1u);
-    for(uint32_t k=0;k<EXP_OG_FIXTURE_BUCKETS;k++) {
-        const uint32_t entry=buckets[pos];
-        if(!entry){*position=pos;return 0;}
-        if(exp_fixture_key_same(wire+
-               ((size_t)entry-1u)*EXP_OG_FIXTURE_SIZE,record)) {
-            *position=pos;return 1;
+    if(s_expOGFixtureBuckets &&
+       required<=s_expOGFixtureBucketCount/2u)return 1;
+    uint32_t *next=NULL;size_t cap=0u;
+    if(!exp_fixture_make_index(s_expOGFixtures,s_expOGFixtureCount,
+                               &next,&cap))return 0;
+    while(required>cap/2u) {
+        if(cap>SIZE_MAX/2u || cap*2u>SIZE_MAX/sizeof(uint32_t)) {
+            free(next);return 0;
         }
-        pos=(pos+1u)&(EXP_OG_FIXTURE_BUCKETS-1u);
+        const size_t wider=cap*2u;
+        uint32_t *grown=(uint32_t *)calloc(wider,sizeof(uint32_t));
+        if(!grown){free(next);return 0;}
+        if(!exp_fixture_build_index(s_expOGFixtures,
+                                    s_expOGFixtureCount,grown,wider)) {
+            free(grown);free(next);return 0;
+        }
+        free(next);next=grown;cap=wider;
     }
-    return -1;
+    free(s_expOGFixtureBuckets);
+    s_expOGFixtureBuckets=next;
+    s_expOGFixtureBucketCount=cap;
+    return 1;
 }
-static int exp_fixture_build_index(const uint8_t *wire,size_t count,
-                                    uint32_t *buckets)
+static uint64_t exp_archive_get64(const uint8_t *p)
 {
-    memset(buckets,0,EXP_OG_FIXTURE_BUCKETS*sizeof(*buckets));
-    for(size_t i=0;i<count;i++) {
-        uint32_t pos=0u;
-        if(exp_fixture_locate(wire,buckets,
-            wire+i*EXP_OG_FIXTURE_SIZE,&pos)!=0)return 0;
-        buckets[pos]=(uint32_t)i+1u;
+    uint64_t v=0u;
+    for(unsigned i=0u;i<8u;++i)v=(v<<8)|p[i];
+    return v;
+}
+static void exp_archive_put64(uint8_t *p,uint64_t v)
+{
+    for(int i=7;i>=0;--i){p[i]=(uint8_t)v;v>>=8;}
+}
+static uint8_t *exp_archive_find(const uint8_t *record)
+{
+    if(!s_expOGArchiveCount ||
+       exp_fixture_get16(record+4u)>s_expOGArchiveLatestYear)return NULL;
+    for(size_t i=0;i<s_expOGArchiveCount;++i) {
+        uint8_t *a=s_expOGArchive+i*EXP_OG_ARCHIVE_SIZE;
+        if(a[0]==record[0] && a[1]==record[1] &&
+           a[2]==record[2] && a[4]==record[4] && a[5]==record[5])
+            return a;
     }
+    return NULL;
+}
+static int exp_archive_add(const uint8_t *record)
+{
+    uint8_t *a=exp_archive_find(record);
+    if(!a) {
+        if(s_expOGArchiveCount>=SIZE_MAX/EXP_OG_ARCHIVE_SIZE)return 0;
+        if(s_expOGArchiveCount==s_expOGArchiveCapacity) {
+            size_t cap=s_expOGArchiveCapacity?s_expOGArchiveCapacity:128u;
+            if(s_expOGArchiveCapacity) {
+                if(cap>SIZE_MAX/2u)return 0;
+                cap*=2u;
+            }
+            if(cap>SIZE_MAX/EXP_OG_ARCHIVE_SIZE)return 0;
+            uint8_t *grown=(uint8_t *)realloc(
+                s_expOGArchive,cap*EXP_OG_ARCHIVE_SIZE);
+            if(!grown)return 0;
+            s_expOGArchive=grown;s_expOGArchiveCapacity=cap;
+        }
+        a=s_expOGArchive+s_expOGArchiveCount*EXP_OG_ARCHIVE_SIZE;
+        memset(a,0,EXP_OG_ARCHIVE_SIZE);
+        a[0]=record[0];a[1]=record[1];a[2]=record[2];
+        a[4]=record[4];a[5]=record[5];
+        exp_archive_put64(a+14u,UINT64_C(14695981039346656037));
+        ++s_expOGArchiveCount;
+        const uint16_t year=exp_fixture_get16(record+4u);
+        if(year>s_expOGArchiveLatestYear)s_expOGArchiveLatestYear=year;
+    }
+    uint32_t n=exp_fixture_get32(a+6u);
+    if(n==UINT32_MAX)return 0;
+    exp_fixture_put32(a+6u,n+1u);
+    const uint32_t day=exp_fixture_get32(record+16u);
+    if(day>exp_fixture_get32(a+10u))exp_fixture_put32(a+10u,day);
+    uint64_t hash=exp_archive_get64(a+14u);
+    for(unsigned i=0u;i<EXP_OG_FIXTURE_SIZE;++i) {
+        hash^=record[i];hash*=UINT64_C(1099511628211);
+    }
+    exp_archive_put64(a+14u,hash);
     return 1;
 }
 static int exp_fixture_append(const uint8_t *rec)
 {
-    /* Any exact replay from the same source is an error, not a second
-     * score. The native progression counters provide the serial; other
-     * callbacks are deliberately never invoked by this observer. */
     const size_t n=s_expOGFixtureCount;
-    uint32_t pos=0u;
+    if(exp_archive_find(rec)) {
+        ++s_expOGFixtureIssues;
+        fprintf(stderr,"[og-fixture-journal] ARCHIVED_EDITION_REPLAY_BLOCK "
+                "world=%s edition=%u kind=%u country=%u slot=%u "
+                "old-CAR-protected=1\n",
+                World_Tag(),(unsigned)exp_fixture_get16(rec+4),
+                (unsigned)rec[0],(unsigned)rec[1],(unsigned)rec[2]);
+        return 0;
+    }
+    if(n>=UINT32_MAX || n>SIZE_MAX/EXP_OG_FIXTURE_SIZE-1u ||
+       !exp_fixture_reserve_index(n+1u)) {
+        ++s_expOGFixtureIssues;
+        fprintf(stderr,"[og-fixture-journal] INDEX_GROW_FAILED old-CAR-protected=1 count=%lu\n",
+                (unsigned long)n);
+        return 0;
+    }
+    size_t pos=0u;
     const int match=exp_fixture_locate(s_expOGFixtures,
-                                       s_expOGFixtureBuckets,rec,&pos);
+              s_expOGFixtureBuckets,s_expOGFixtureBucketCount,rec,&pos);
     if(match<0){++s_expOGFixtureIssues;return 0;}
     if(match) {
         uint8_t *prior=s_expOGFixtures+
@@ -4161,16 +4237,17 @@ static int exp_fixture_append(const uint8_t *rec)
                 prior[15],rec[15]);
         return 0;
     }
-    if(n>=EXP_OG_FIXTURE_MAX) {
-        ++s_expOGFixtureIssues;
-        fprintf(stderr,"[og-fixture-journal] CAPACITY_EXHAUSTED old-CAR-protected=1\n");
-        return 0;
-    }
     if(n==s_expOGFixtureCapacity) {
-        size_t cap=s_expOGFixtureCapacity?s_expOGFixtureCapacity*2u:1024u;
-        if(cap>EXP_OG_FIXTURE_MAX)cap=EXP_OG_FIXTURE_MAX;
+        size_t cap=s_expOGFixtureCapacity?s_expOGFixtureCapacity:1024u;
+        if(s_expOGFixtureCapacity) {
+            if(cap>SIZE_MAX/2u) {++s_expOGFixtureIssues;return 0;}
+            cap*=2u;
+        }
+        if(cap>SIZE_MAX/EXP_OG_FIXTURE_SIZE) {
+            ++s_expOGFixtureIssues;return 0;
+        }
         uint8_t *larger=(uint8_t *)realloc(s_expOGFixtures,
-                                           cap*EXP_OG_FIXTURE_SIZE);
+                                            cap*EXP_OG_FIXTURE_SIZE);
         if(!larger) {
             ++s_expOGFixtureIssues;
             fprintf(stderr,"[og-fixture-journal] ALLOCATION_FAILED no-save=1\n");
@@ -4179,35 +4256,100 @@ static int exp_fixture_append(const uint8_t *rec)
         s_expOGFixtures=larger;s_expOGFixtureCapacity=cap;
     }
     memcpy(s_expOGFixtures+n*EXP_OG_FIXTURE_SIZE,rec,EXP_OG_FIXTURE_SIZE);
-    s_expOGFixtureBuckets[pos]=(uint32_t)n+1u;
+    s_expOGFixtureBuckets[pos]=(uint32_t)(n+1u);
     ++s_expOGFixtureCount;
     return 1;
 }
-/* Only the last two JULY-JUNE observation seasons remain detailed. Old
- * edition conclusions/qualifiers continue to be held by native OG; this
- * does not claim to be the final Competition Engine archive format. */
+/* Retention: ordinary played league matches are kept only for the current
+ * JULY-JUNE season. A still-open native OG context and any unresolved
+ * qualification dependency retain their exact witness even across seasons.
+ * Removing a closed result NEVER resets a live OG tournament or clock. */
+static int exp_fixture_country_south_america(uint8_t fileCountry)
+{
+    const uint8_t *countries=World_ContinentCountries(82u);
+    for(unsigned k=0u;countries && k<256u && countries[k]!=255u;++k)
+        if(countries[k]==fileCountry)return 1;
+    return 0;
+}
+static int exp_fixture_keep_older(const uint8_t *row,uint16_t openedYear)
+{
+    const unsigned kind=row[0],country=row[1],slot=row[2];
+    const uint16_t edition=exp_fixture_get16(row+4);
+    if(edition>=openedYear)return 1;
+    /* Without verified OG season-end source, do not throw away evidence. */
+    if(!s_expQual.valid || s_expQual.year!=openedYear)return 1;
+    if(kind==0u) {
+        for(uint32_t i=0;i<s_expOGCount;++i) {
+            const ExpandedOGLeague *ctx=&s_expOG[i];
+            if(ctx->used && ctx->country==country &&
+               ctx->division==slot && ctx->year==edition &&
+               !ctx->comp.base.competitionFinished)return 1;
+        }
+        /* Moderna Libertadores qualifications are not yet connected;
+         * keep South American source evidence until the missing field is
+         * resolved, instead of silently losing qualification candidates. */
+        if(World_Current()==WORLD_2627 &&
+           (!s_expQual.count[3] || s_expQual.invalid[3]) &&
+           exp_fixture_country_south_america(country))return 1;
+        return 0; /* completed old league, OG qualification witness secured */
+    }
+    if(kind==1u || kind==3u) {
+        for(uint32_t i=0;i<s_expOGCupCount;++i) {
+            const ExpandedOGCup *c=&s_expOGCups[i];
+            if(c->used && c->country==country && c->slot==slot &&
+               c->year==edition && !c->comp.base.competitionFinished)
+                return 1;
+        }
+        /* OG native cup access regulations are still incomplete; until
+         * source attribution is proven, keep rather than infer a winner. */
+        return 1;
+    }
+    if(kind==2u) {
+        for(unsigned i=0;i<3u;++i) {
+            const ExpandedOGLeague *ctx=&s_expOGUefa[i];
+            if(ctx->used && ctx->country==country &&
+               ctx->division==slot && ctx->year==edition &&
+               !ctx->comp.base.competitionFinished)return 1;
+        }
+        /* Some OG continental editions span the July boundary; never
+         * discard their per-fixture facts without a closure certificate. */
+        return 1;
+    }
+    return 1;
+}
 void Expanded_OGWorld_FixturePrune(uint16_t openedYear)
 {
-    if(openedYear<=World_FirstYear()+1u)return;
-    ExpandedWorldDate start={(uint16_t)(openedYear-1u),7u,1u};
+    if(openedYear<=World_FirstYear())return;
+    ExpandedWorldDate start={openedYear,7u,1u};
     int32_t index=0;
     if(!ExpandedWorld_DateToIndex(start,&index))return;
-    size_t kept=0u,discarded=0u;
-    for(size_t i=0;i<s_expOGFixtureCount;i++) {
+    size_t kept=0u,discarded=0u,deferred=0u;
+    for(size_t i=0;i<s_expOGFixtureCount;++i) {
         uint8_t *row=s_expOGFixtures+i*EXP_OG_FIXTURE_SIZE;
         const uint32_t day=exp_fixture_get32(row+16);
-        if(day<(uint32_t)index) {++discarded;continue;}
+        if(day<(uint32_t)index &&
+           !exp_fixture_keep_older(row,openedYear)) {
+            if(exp_archive_add(row)) {++discarded;continue;}
+            /* Fail-closed: cannot store a replay tombstone, so never
+             * delete the original single-match witness. */
+            ++s_expOGFixtureIssues;
+            fprintf(stderr,"[og-fixture-journal] ARCHIVE_FAILED "
+                "old-match-preserved=1 prior-CAR-protected=1\n");
+        }
+        if(day<(uint32_t)index)++deferred;
         if(kept!=i)memmove(s_expOGFixtures+kept*EXP_OG_FIXTURE_SIZE,
                            row,EXP_OG_FIXTURE_SIZE);
         ++kept;
     }
     s_expOGFixtureCount=kept;
-    if(!exp_fixture_build_index(s_expOGFixtures,kept,
-                                 s_expOGFixtureBuckets))
+    if(s_expOGFixtureBuckets && !exp_fixture_build_index(
+        s_expOGFixtures,kept,s_expOGFixtureBuckets,
+        s_expOGFixtureBucketCount))
         ++s_expOGFixtureIssues;
-    if(discarded)fprintf(stderr,"[og-fixture-journal] PRUNE opened=%u "
-        "discarded=%lu retained=%lu cross-year=BY_OBSERVATION_DAY\n",
-        (unsigned)openedYear,(unsigned long)discarded,(unsigned long)kept);
+    fprintf(stderr,"[og-fixture-journal] PRUNE opened=%u discarded=%lu "
+        "retained=%lu dependency-deferred=%lu policy=ONE_SEASON_IF_VERIFIED\n",
+        (unsigned)openedYear,(unsigned long)discarded,
+        (unsigned long)kept,(unsigned long)deferred);
 }
 /* Diagnostic snapshots live only in RAM, never in portable career saves. */
 static ExpandedF12Snapshot s_f12BeforeHire,s_f12AfterHire;
@@ -6547,6 +6689,9 @@ static int exp_qual_emit_json(OGEmit emit,void *ud)
         s_expQual.count[2],s_expQual.count[3]);
     return 1;
 }
+static int exp_archive_emit_json(OGEmit emit,void *ud);
+static int exp_archive_read_json(const char *root,int len,
+                                 uint8_t **data,size_t *count);
 static int exp_fixture_emit_json(OGEmit emit,void *ud);
 static int exp_fixture_read_json(const char *root,int len,
                                   uint8_t **data,size_t *count,
@@ -6585,6 +6730,7 @@ int Expanded_OGWorld_WriteSaveJson(OGEmit emit,void *ud) {
     mjson_printf(emit,ud,"]");
     if(!exp_qual_emit_json(emit,ud))return 0;
     if(!exp_fixture_emit_json(emit,ud))return 0;
+    if(!exp_archive_emit_json(emit,ud))return 0;
     mjson_printf(emit,ud,"}");
     return 1;
 }
@@ -6625,24 +6771,103 @@ static int og_saved_read_hex(const char *s,int len,const char *key,uint8_t *dst,
     *hash=og_saved_hash(*hash,dst,bytes);
     return 1;
 }
+/* Permanent bounded-by-actual-editions anti-replay tombstones. Each native
+ * closed edition is indexed by kind/country/slot/season; only authentic
+ * result counts and FNV witnesses are preserved. Champions/runner-up live
+ * in OG's separately serialized WorldWinners, never guessed from scores. */
+static int exp_archive_emit_json(OGEmit emit,void *ud)
+{
+    if(s_expOGArchiveCount>UINT32_MAX ||
+       s_expOGArchiveCount>SIZE_MAX/EXP_OG_ARCHIVE_SIZE)return 0;
+    const size_t n=s_expOGArchiveCount*EXP_OG_ARCHIVE_SIZE;
+    if(n>INT32_MAX/2u)return 0; /* mjson uses signed int lengths */
+    uint64_t checksum=UINT64_C(14695981039346656037);
+    mjson_printf(emit,ud,",%Q:{%Q:%u,%Q:%u,%Q:%u,%Q:",
+        "fixture_archive","format",1u,
+        "record_size",EXP_OG_ARCHIVE_SIZE,
+        "count",(unsigned)s_expOGArchiveCount,"hex");
+    if(emit("\"",1,ud)!=1 ||
+       !og_saved_hex(emit,ud,s_expOGArchive,n,
+                    (size_t)-1,(size_t)-1,&checksum) ||
+       emit("\"",1,ud)!=1)return 0;
+    static const char digits[]="0123456789abcdef";
+    char hex[17];
+    for(int i=15;i>=0;--i){hex[i]=digits[checksum&15u];checksum>>=4;}
+    hex[16]=0;
+    mjson_printf(emit,ud,",%Q:%Q}","checksum",hex);
+    return 1;
+}
+static int exp_archive_read_json(const char *root,int len,
+                                 uint8_t **data,size_t *count)
+{
+    *data=NULL;*count=0u;
+    const char *obj=NULL;int size=0;
+    const int type=mjson_find(root,len,"$.fixture_archive",&obj,&size);
+    if(type==MJSON_TOK_INVALID)return 1; /* old CAR, no tombstones */
+    if(type!=MJSON_TOK_OBJECT)return 0;
+    long fmt=0,bytes=0,entries=0;
+    if(!og_saved_num(obj,size,"$.format",&fmt) || fmt!=1 ||
+       !og_saved_num(obj,size,"$.record_size",&bytes) ||
+       bytes!=EXP_OG_ARCHIVE_SIZE ||
+       !og_saved_num(obj,size,"$.count",&entries) ||
+       entries<0 || (uint64_t)entries>UINT32_MAX ||
+       (uint64_t)entries>SIZE_MAX/EXP_OG_ARCHIVE_SIZE)return 0;
+    const size_t n=(size_t)entries*EXP_OG_ARCHIVE_SIZE;
+    uint8_t *wire=(uint8_t *)malloc(n?n:1u);
+    if(!wire)return 0;
+    uint64_t h=UINT64_C(14695981039346656037);
+    int valid=og_saved_read_hex(obj,size,"$.hex",wire,n,&h);
+    char checksum[32]={0};
+    if(valid)valid=mjson_get_string(obj,size,"$.checksum",checksum,
+                                     sizeof checksum)==16;
+    if(valid) {
+        uint64_t claimed=0;
+        for(unsigned k=0;k<16u;++k){
+            int nib=og_saved_nibble(checksum[k]);
+            if(nib<0){valid=0;break;}
+            claimed=(claimed<<4)|(unsigned)nib;
+        }
+        if(claimed!=h)valid=0;
+    }
+    for(size_t i=0;valid && i<(size_t)entries;++i) {
+        const uint8_t *p=wire+i*EXP_OG_ARCHIVE_SIZE;
+        ExpandedWorldDate day;
+        const uint32_t observed=exp_fixture_get32(p+10u);
+        if(p[0]>3u || p[3] || p[22] || p[23] ||
+           exp_fixture_get16(p+4u)<World_FirstYear() ||
+           exp_fixture_get32(p+6u)==0u ||
+           observed>INT32_MAX ||
+           !ExpandedWorld_IndexToDate((int32_t)observed,&day) ||
+           exp_fixture_get16(p+4u)>day.year)valid=0;
+        for(size_t j=0;valid && j<i;++j) {
+            const uint8_t *q=wire+j*EXP_OG_ARCHIVE_SIZE;
+            if(p[0]==q[0] && p[1]==q[1] && p[2]==q[2] &&
+               p[4]==q[4] && p[5]==q[5])valid=0;
+        }
+    }
+    if(!valid){free(wire);return 0;}
+    *data=wire;*count=(size_t)entries;
+    return 1;
+}
+
 /* A separate, checksummed fixture witness inside the same atomic CAR.
  * Byte wire is portable across endian/ABI, unlike packed native pointers.
  * This is NOT permission to replay or synthesize any result on CONTINUE. */
 static int exp_fixture_emit_json(OGEmit emit,void *ud)
 {
-    if(s_expOGFixtureIssues || s_expOGFixtureCount>EXP_OG_FIXTURE_MAX) {
+    if(s_expOGFixtureIssues || s_expOGFixtureCount>UINT32_MAX ||
+       s_expOGFixtureCount>SIZE_MAX/EXP_OG_FIXTURE_SIZE) {
         fprintf(stderr,"[og-fixture-journal] SAVE_REJECTED "
-                       "reason=%s issues=%u count=%lu max=%u "
+                       "reason=%s issues=%u count=%lu index-format=UINT32 "
                        "prior-CAR-preserved=1\n",
                 s_expOGFixtureIssues?"OBSERVED_NATIVE_COUNTER_OR_ID_ERROR":
                                       "CAPACITY_EXCEEDED",
                 (unsigned)s_expOGFixtureIssues,
-                (unsigned long)s_expOGFixtureCount,
-                (unsigned)EXP_OG_FIXTURE_MAX);
+                (unsigned long)s_expOGFixtureCount);
         return 0; /* never overwrite a valid prior CAR */
     }
     const size_t n=s_expOGFixtureCount*EXP_OG_FIXTURE_SIZE;
-    if(n>(size_t)EXP_OG_FIXTURE_MAX*EXP_OG_FIXTURE_SIZE)return 0;
+    if(n>INT32_MAX/2u)return 0; /* mjson parser uses int lengths */
     char *hex=(char *)malloc(n*2u+1u);
     if(!hex)return 0;
     static const char digits[]="0123456789abcdef";
@@ -6687,7 +6912,8 @@ static int exp_fixture_read_json(const char *root,int len,
        !og_saved_num(obj,size,"$.record_size",&recordSize) ||
        recordSize!=EXP_OG_FIXTURE_SIZE ||
        !og_saved_num(obj,size,"$.count",&entries) ||
-       entries<0 || entries>EXP_OG_FIXTURE_MAX ||
+       entries<0 || (uint64_t)entries>UINT32_MAX ||
+       (uint64_t)entries>SIZE_MAX/EXP_OG_FIXTURE_SIZE ||
        !og_saved_num(obj,size,"$.partial",&isPartial) ||
        (isPartial!=0 && isPartial!=1))return 0;
     const size_t n=(size_t)entries*EXP_OG_FIXTURE_SIZE;
@@ -6721,13 +6947,10 @@ static int exp_fixture_read_json(const char *root,int len,
             valid=0;
     }
     if(valid) {
-        uint32_t *scratch=(uint32_t *)calloc(
-            EXP_OG_FIXTURE_BUCKETS,sizeof(uint32_t));
-        if(!scratch)valid=0;
-        else {
-            valid=exp_fixture_build_index(wire,(size_t)entries,scratch);
-            free(scratch);
-        }
+        uint32_t *scratch=NULL;size_t capacity=0u;
+        valid=exp_fixture_make_index(wire,(size_t)entries,
+                                     &scratch,&capacity);
+        free(scratch);
     }
     if(!valid){free(wire);return 0;}
     *data=wire;*count=(size_t)entries;*partial=(uint32_t)isPartial;
@@ -6952,6 +7175,26 @@ int Expanded_OGWorld_ReadSaveJson(const char *json,int len,int apply) {
     if(valid && !exp_fixture_read_json(root,nr,&fixtureData,
                                         &fixtureCount,&fixturePartial))
         valid=0;
+    uint8_t *archiveData=NULL;size_t archiveCount=0u;
+    if(valid && !exp_archive_read_json(root,nr,&archiveData,
+                                       &archiveCount))valid=0;
+    /* Reject a CAR containing a simultaneously live AND archived edition:
+     * a finished edition is a tombstone, not a second fixture writer. */
+    if(valid) {
+        for(size_t i=0;i<archiveCount && valid;++i) {
+            const uint8_t *a=archiveData+i*EXP_OG_ARCHIVE_SIZE;
+            for(size_t j=0;j<fixtureCount;++j) {
+                const uint8_t *f=fixtureData+j*EXP_OG_FIXTURE_SIZE;
+                if(a[0]==f[0] && a[1]==f[1] && a[2]==f[2] &&
+                   a[4]==f[4] && a[5]==f[5]) {valid=0;break;}
+            }
+        }
+    }
+    /* Allocate the restored index BEFORE mutating live OG resident state.
+     * Failed allocation leaves the current career untouched. */
+    uint32_t *restoredIndex=NULL;size_t restoredCapacity=0u;
+    if(valid && apply && !exp_fixture_make_index(fixtureData,fixtureCount,
+                              &restoredIndex,&restoredCapacity))valid=0;
     if(valid && apply){
         memset(s_expOG,0,sizeof s_expOG);
         memset(s_expOGUefa,0,sizeof s_expOGUefa);
@@ -6992,9 +7235,21 @@ int Expanded_OGWorld_ReadSaveJson(const char *json,int len,int apply) {
         s_expOGFixtureCapacity=fixtureCount;
         s_expOGFixturePartial=fixturePartial;
         s_expOGFixtureIssues=0u;
-        if(!exp_fixture_build_index(s_expOGFixtures,s_expOGFixtureCount,
-                                    s_expOGFixtureBuckets))
-            ++s_expOGFixtureIssues;
+        free(s_expOGFixtureBuckets);
+        s_expOGFixtureBuckets=restoredIndex;
+        s_expOGFixtureBucketCount=restoredCapacity;
+        restoredIndex=NULL;
+        free(s_expOGArchive);
+        s_expOGArchive=archiveData;
+        s_expOGArchiveCount=s_expOGArchiveCapacity=archiveCount;
+        s_expOGArchiveLatestYear=0u;
+        for(size_t i=0;i<archiveCount;++i) {
+            const uint16_t archivedYear=exp_fixture_get16(
+                archiveData+i*EXP_OG_ARCHIVE_SIZE+4u);
+            if(archivedYear>s_expOGArchiveLatestYear)
+                s_expOGArchiveLatestYear=archivedYear;
+        }
+        archiveData=NULL;
         s_expOGCapturedLeague=s_expOGCapturedCup=s_expOGCapturedUefa=0u;
         fixtureData=NULL;
         fprintf(stderr,"[og-fixture-journal] RESTORE world=%s year=%ld "
@@ -7008,6 +7263,7 @@ int Expanded_OGWorld_ReadSaveJson(const char *json,int len,int apply) {
                        "uefa=3 cups=%ld checksum=VALID\n",World_Tag(),year,lc,cc);
     }
     free(l);free(u);free(c);free(fixtureData);
+    free(archiveData);free(restoredIndex);
     return valid;
 }
 #endif /* SWOS_SDL_BUILD */

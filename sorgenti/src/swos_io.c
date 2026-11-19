@@ -5,6 +5,9 @@
  */
 /* swos_io.c — portable I/O + heap shim. See swos_io.h. */
 #include "swos_io.h"
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+#include "save_car_zstd.h"
+#endif
 #include "project_identity.h"   /* PROJECT_USER_DIR: the player\'s folder */
 #if defined(SWOS_SDL_BUILD) && !defined(_WIN32)
 /* SDL_GetPrefPath / SDL_free — the Switch mounts save:/ through them, and
@@ -439,14 +442,34 @@ int swos_io_load_alloc(const uint8_t *name, uint8_t **out_buf, uint32_t *out_siz
     fseek(f, 0, SEEK_END);
     long n = ftell(f);
     fseek(f, 0, SEEK_SET);
-    if (n <= 0) { fclose(f); return 1; }
-
+    if (n <= 0 || (uint64_t)n >= INT32_MAX) {
+        fclose(f);return 1; /* invalid/oversized CAR, fail closed */
+    }
     uint8_t *buf = (uint8_t *)swos_io_alloc((uint32_t)n + 1u);
     if (!buf) { fclose(f); return 1; }
     size_t got = fread(buf, 1, (size_t)n, f);
     fclose(f);
     if (got != (size_t)n) { swos_io_free(buf); return 1; }
     buf[n] = '\0';
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+    /* The CAR's Zstd container is decoded at the I/O boundary.
+     * Thus all existing JSON preflight/LOAD paths see identical JSON;
+     * old uncompressed JSON and other save formats remain unchanged. */
+    if (SaveCarZstd_IsFrame(buf,(uint32_t)n)) {
+        uint8_t *decoded=NULL;uint32_t raw=0u;
+        if(!SaveCarZstd_Decode(buf,(uint32_t)n,&decoded,&raw)) {
+            fprintf(stderr,"[car-zstd] LOAD_REJECTED file=%s reason=CORRUPT_FRAME_OR_CHECKSUM prior-file-preserved=1\n",
+                    (const char *)name);
+            swos_io_free(buf);
+            return 1;
+        }
+        swos_io_free(buf);
+        *out_buf=decoded;*out_size=raw;
+        fprintf(stderr,"[car-zstd] DECODE raw=%u stored=%lu level=3 hash=VERIFIED\n",
+                (unsigned)raw,(unsigned long)n);
+        return 0;
+    }
+#endif
 
     *out_buf = buf;
     *out_size = (uint32_t)n;

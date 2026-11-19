@@ -32,6 +32,9 @@
 #include "squad_extras.h" /* 2026/27 extra roster departure history, in the SAME .CAR */
 #include "expanded_world_time.h" /* civil index read-only check */
 #include "expanded_debug.h" /* transient F12 SAVE/LOAD timings */
+#if defined(SWOS_CAR_ZSTD)
+#include "save_car_zstd.h" /* single-file compressed .CAR, old JSON still readable */
+#endif
 #include <SDL.h>
 
 #endif
@@ -328,6 +331,9 @@ static void load_str_pool_field(const char *buf, int buflen,
  * save can never be loaded by a newer binary that would misread it.
  *
  * History:
+ *   6 — optional checksum-validated compact OG fixture_archive and the
+ *       external single-file Zstandard CAR envelope (level 3); existing
+ *       career JSON schema 5, 4, 3 remain readable without migration.
  *   1 — initial structured JSON format.
  *   2 — cross-target (64-bit SDL <-> 32-bit BE Amiga) rework: typed
  *       competition-slot serializer (comp_slots), FLD_U16_ARRAY /
@@ -353,9 +359,10 @@ static void load_str_pool_field(const char *buf, int buflen,
  *       teamEntryOffsets, round info; cup_score_* layers endian-neutral
  *       scores on top). Saves from v2 are rejected.
  */
-#define SAVE_JSON_SCHEMA_VERSION 5
-#define SAVE_JSON_COMPAT_PREVIOUS_VERSION 4
-#define SAVE_JSON_COMPAT_SCHEMA_VERSION 3
+#define SAVE_JSON_SCHEMA_VERSION 6
+#define SAVE_JSON_COMPAT_PREVIOUS_VERSION 5
+#define SAVE_JSON_COMPAT_SCHEMA_VERSION 4
+#define SAVE_JSON_COMPAT_OLDEST_VERSION 3
 
 /* The football world a save was made in (include/world.h): written by the career and
  * competition saves as "world"; a save without it is 96/97, the world before worlds. A
@@ -7056,17 +7063,50 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
 #endif
 
     SAVE_CAREER_TRACE("READY_FOR_ATOMIC_SAVE");
-    /* The one automatic career slot must be replaced atomically.
-     * Keep standard OpenSWOS behaviour for user-selected .CAR filenames. */
+    /* Compression happens only AFTER the full OG/civil/read-only preflight.
+     * All career .CAR files use the same portable compressed container;
+     * old plain-JSON careers remain fully readable on CONTINUE. */
     int16_t result;
+    const uint8_t *diskBuffer=(const uint8_t *)out.ptr;
+    uint32_t diskSize=(uint32_t)out.len;
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+    uint8_t *compressed=NULL;
+    uint32_t compressedSize=0u;
+    if(out.len>INT32_MAX ||
+       !SaveCarZstd_Encode(diskBuffer,diskSize,&compressed,&compressedSize)) {
+        fprintf(stderr,"[car-zstd] ENCODE_FAILED old-CAR-preserved=1\n");
+        swos_io_free(out.ptr);
+        return 1;
+    }
+    /* Verify the *actual compressed frame*, not only the source JSON,
+     * BEFORE changing any existing AUTO CAR on disk. */
+    uint8_t *verified=NULL;uint32_t verifiedSize=0u;
+    if(!SaveCarZstd_Decode(compressed,compressedSize,
+                           &verified,&verifiedSize) ||
+       verifiedSize!=(uint32_t)out.len ||
+       memcmp(verified,out.ptr,out.len)!=0) {
+        fprintf(stderr,"[car-zstd] PREWRITE_FRAME_REJECTED prior-CAR-preserved=1\n");
+        if(verified)swos_io_free(verified);
+        free(compressed);swos_io_free(out.ptr);
+        return 1;
+    }
+    swos_io_free(verified);
+    diskBuffer=compressed;diskSize=compressedSize;
+    fprintf(stderr,"[car-zstd] ENCODE world=%s level=3 raw=%lu compressed=%lu savings=%lu\n",
+            World_Tag(),(unsigned long)out.len,
+            (unsigned long)diskSize,
+            (unsigned long)(out.len>diskSize?out.len-diskSize:0u));
+#endif
 #ifdef SWOS_SDL_BUILD
     if (strcmp((const char *)filename, "AUTO9697.CAR") == 0 ||
         strcmp((const char *)filename, "AUTO2627.CAR") == 0)
-        result = (int16_t)swos_io_save_atomic(filename,
-                          (const uint8_t *)out.ptr, (uint32_t)out.len);
+        result = (int16_t)swos_io_save_atomic(filename,diskBuffer,diskSize);
     else
 #endif
-        result = WriteFile(filename, (uint8_t *)out.ptr, (uint32_t)out.len);
+        result = WriteFile(filename, (uint8_t *)diskBuffer,diskSize);
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+    free(compressed);
+#endif
     swos_io_free(out.ptr);
     if (result != 0) {
         ShowFsErrorByCode((uint16_t)result);
@@ -7102,6 +7142,97 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
     return 0;
 }
 
+/* Read-only F12 on-disk metrics, cached by its 5-second UI probe.
+ * Count is from the valid saved JSON, NEVER the unsaved RAM journal.
+ * No CAR rewriting and no gameplay state mutation. */
+#ifdef SWOS_SDL_BUILD
+/* Strictly count archived OG fixtures from the compact witness records.
+ * This is read-only and includes no simulated or extrapolated match. */
+static int savejson_f12_archive_matches(const char *json,int size,
+                  uint64_t *editionCount,uint64_t *archivedMatches)
+{
+    *editionCount=0u;*archivedMatches=0u;
+    const char *archiveObj=NULL;int archiveObjLen=0;
+    const int archiveType=mjson_find(json,size,
+        "$.og_resident.fixture_archive",&archiveObj,&archiveObjLen);
+    if(archiveType==MJSON_TOK_INVALID)return 1; /* old schema 5 CAR */
+    if(archiveType!=MJSON_TOK_OBJECT)return 0;
+    long entries=0;
+    if(mjson_get_long(json,size,
+        "$.og_resident.fixture_archive.count",&entries)<=0 ||
+       entries<0 || entries>INT32_MAX/48)return 0;
+    const char *value=NULL;int len=0;
+    if(mjson_find(json,size,"$.og_resident.fixture_archive.hex",
+                  &value,&len)!=MJSON_TOK_STRING ||
+       !value || len!=2+entries*48 ||
+       value[0]!='"' || value[len-1]!='"')return 0;
+    uint64_t total=0u;
+    for(long i=0;i<entries;++i) {
+        /* Each record is 24 bytes = 48 hex digits.
+         * Offset 6 has the BE32 number of authenticated OG witness rows. */
+        const char *countHex=value+1+i*48+12;
+        uint32_t matches=0u;
+        for(unsigned j=0;j<8u;++j) {
+            const char c=countHex[j];
+            const int digit=c>='0' && c<='9'?c-'0':
+                c>='a' && c<='f'?c-'a'+10:
+                c>='A' && c<='F'?c-'A'+10:-1;
+            if(digit<0)return 0;
+            matches=(matches<<4)|(uint32_t)digit;
+        }
+        if(!matches || total>UINT64_MAX-matches)return 0;
+        total+=matches;
+    }
+    *editionCount=(uint64_t)entries;
+    *archivedMatches=total;
+    return 1;
+}
+int SaveJson_CareerDiskStats(const uint8_t *filename,
+    uint64_t *diskBytes,uint64_t *uncompressedBytes,uint64_t *savedMatches,
+    uint64_t *archivedMatches,uint64_t *archivedEditions,
+    int *compressedFormat)
+{
+    if(diskBytes)*diskBytes=0u;
+    if(uncompressedBytes)*uncompressedBytes=0u;
+    if(savedMatches)*savedMatches=0u;
+    if(archivedMatches)*archivedMatches=0u;
+    if(archivedEditions)*archivedEditions=0u;
+    if(compressedFormat)*compressedFormat=0;
+    if(!filename || !diskBytes || !uncompressedBytes || !savedMatches ||
+       !archivedMatches || !archivedEditions || !compressedFormat)return 0;
+    char path[1280];
+    const int n=snprintf(path,sizeof path,"%s/%s",
+                         swos_save_dir(),(const char *)filename);
+    if(n<0 || (size_t)n>=sizeof path)return 0;
+    FILE *f=fopen(path,"rb");
+    if(!f)return 0;
+    uint8_t magic[8]={0};
+    const size_t got=fread(magic,1u,sizeof magic,f);
+    *compressedFormat=got==sizeof magic &&
+        SaveCarZstd_IsFrame(magic,(uint32_t)sizeof magic);
+    const int okSeek=fseek(f,0,SEEK_END)==0;
+    const long length=okSeek?ftell(f):-1L;
+    fclose(f);
+    if(length<=0)return 0;
+    uint8_t *json=NULL;uint32_t rawSize=0;
+    if(swos_io_load_alloc(filename,&json,&rawSize)!=0)return 0;
+    long matches=0;
+    const int valid=rawSize<=INT32_MAX &&
+        mjson_get_long((const char *)json,(int)rawSize,
+             "$.og_resident.fixture_journal.count",&matches)>0 &&
+        matches>=0 &&
+        savejson_f12_archive_matches((const char *)json,(int)rawSize,
+                                     archivedEditions,archivedMatches);
+    if(valid) {
+        *diskBytes=(uint64_t)length;
+        *uncompressedBytes=(uint64_t)rawSize;
+        *savedMatches=(uint64_t)matches;
+    }
+    swos_io_free(json);
+    return valid;
+}
+#endif
+
 /* Probe the first bytes of the named save file. Used by the
  * file_io.c dispatcher to decide which loader to invoke without
  * having to stage the whole file through LoadFileEx (which the
@@ -7127,7 +7258,8 @@ int SaveJson_CareerCompatible(const uint8_t *filename)
        mjson_get_long((const char*)buf,(int)size,"$.schema_version",&version)>0 &&
        ((int)version==SAVE_JSON_SCHEMA_VERSION ||
         (int)version==SAVE_JSON_COMPAT_PREVIOUS_VERSION ||
-        (int)version==SAVE_JSON_COMPAT_SCHEMA_VERSION) &&
+        (int)version==SAVE_JSON_COMPAT_SCHEMA_VERSION ||
+         (int)version==SAVE_JSON_COMPAT_OLDEST_VERSION) &&
        mjson_get_string((const char*)buf,(int)size,
                         "$.file_kind",kind,sizeof kind)>0 &&
        strcmp(kind,KIND_CAREER)==0 && save_world_ok(buf,size))
@@ -8055,7 +8187,7 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
         swos_io_free(src);
         return 1;
     }
-    if (((int)version != SAVE_JSON_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_PREVIOUS_VERSION && (int)version != SAVE_JSON_COMPAT_SCHEMA_VERSION)) {
+    if (((int)version != SAVE_JSON_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_PREVIOUS_VERSION && (int)version != SAVE_JSON_COMPAT_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_OLDEST_VERSION)) {
         swos_io_free(src);
         return 1;
     }
@@ -8079,7 +8211,7 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
     /* Validate/restore world BEFORE touching the native career state.
      * Legacy schema-3 .CAR files had no world field and safely clear it. */
 #ifdef SWOS_SDL_BUILD
-    if (version == SAVE_JSON_SCHEMA_VERSION) {
+    if (version >= SAVE_JSON_COMPAT_PREVIOUS_VERSION) {
         const char *world_obj=NULL;
         int world_len=0;
         int world_type=mjson_find((const char *)src,(int)src_size,
@@ -8763,7 +8895,7 @@ static int16_t load_competition_buf(uint8_t *filename, const char *kind)
     long version = 0;
     if (mjson_get_long((const char *)src, (int)src_size,
                          "$.schema_version", &version) <= 0 ||
-        ((int)version != SAVE_JSON_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_PREVIOUS_VERSION && (int)version != SAVE_JSON_COMPAT_SCHEMA_VERSION)) {
+        ((int)version != SAVE_JSON_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_PREVIOUS_VERSION && (int)version != SAVE_JSON_COMPAT_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_OLDEST_VERSION)) {
         swos_io_free(src);
         return 1;
     }
@@ -9605,7 +9737,7 @@ int16_t SaveJson_LoadHighlights(uint8_t *filename, const uint8_t *src_unused,
     long version = 0;
     if (mjson_get_long((const char *)src, (int)src_size,
                          "$.schema_version", &version) <= 0 ||
-        ((int)version != SAVE_JSON_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_PREVIOUS_VERSION && (int)version != SAVE_JSON_COMPAT_SCHEMA_VERSION)) {
+        ((int)version != SAVE_JSON_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_PREVIOUS_VERSION && (int)version != SAVE_JSON_COMPAT_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_OLDEST_VERSION)) {
         swos_io_free(src); return 1;
     }
     char kind[16] = {0};
@@ -9822,7 +9954,7 @@ static int16_t load_tactics_buf(const char *src, int src_size, uint8_t *dst)
 {
     long version = 0;
     if (mjson_get_long(src, src_size, "$.schema_version", &version) <= 0 ||
-        ((int)version != SAVE_JSON_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_PREVIOUS_VERSION && (int)version != SAVE_JSON_COMPAT_SCHEMA_VERSION))
+        ((int)version != SAVE_JSON_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_PREVIOUS_VERSION && (int)version != SAVE_JSON_COMPAT_SCHEMA_VERSION && (int)version != SAVE_JSON_COMPAT_OLDEST_VERSION))
         return 1;
 
     char kind[16] = {0};

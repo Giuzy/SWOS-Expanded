@@ -2972,6 +2972,11 @@ static void diag_f12_health(int y,const char *label,int status,
  * 2=incompatible/corrupted; 3=non-JSON legacy, not verified as Expanded. */
 static int s_f12DiskWorld=-1,s_f12DiskProbe;
 static Uint32 s_f12DiskTime;
+/* Cached on-disk bytes and REAL persisted fixture count, not RAM totals.
+ * The preflight invokes no OG simulation and is refreshed at most every 5s. */
+static uint64_t s_f12CarBytes,s_f12CarRawBytes,s_f12CarMatches;
+static uint64_t s_f12ArchiveMatches,s_f12ArchiveEditions;
+static int s_f12CarStatsReady,s_f12CarCompressed;
 static int diag_f12_disk_probe(void)
 {
     const int world=(int)World_Current();
@@ -2983,6 +2988,14 @@ static int diag_f12_disk_probe(void)
         const int fmt=SaveJson_FileIsJson(filename);
         s_f12DiskProbe=fmt<0?0:fmt==0?3:
                           SaveJson_CareerCompatible(filename)?1:2;
+        s_f12CarStatsReady=s_f12DiskProbe==1 &&
+            SaveJson_CareerDiskStats(filename,
+               &s_f12CarBytes,&s_f12CarRawBytes,&s_f12CarMatches,
+               &s_f12ArchiveMatches,&s_f12ArchiveEditions,
+               &s_f12CarCompressed);
+        if(!s_f12CarStatsReady)
+            s_f12CarBytes=s_f12CarRawBytes=s_f12CarMatches=
+                s_f12ArchiveMatches=s_f12ArchiveEditions=0u;
         s_f12DiskWorld=world;
         s_f12DiskTime=now;
     }
@@ -3143,10 +3156,31 @@ static void draw_world_debug_overlay(void)
              (unsigned long)d.resultsIssues);
     diag_f12_line(26,479,line,d.resultsIssues?255:226,
                   d.resultsIssues?118:236,d.resultsIssues?118:245);
-    snprintf(line,sizeof line,"GARE OG %lu / ATTESE N/D",
-             (unsigned long)diag_f12_games(&d));
-    diag_f12_line(26,494,line,162,180,193);
-    diag_f12_line(26,509,"R/DEF RESIDENTI  F FASE  G GARE",162,180,193);
+    /* Values are from the SAME saved CAR, never unsaved RAM.
+     * Detail and archive sizes are the precise binary WIRE bytes before
+     * hex/JSON/Zstd. Compressed bytes cannot be assigned to one section:
+     * Zstd compresses the WHOLE file as a single frame. */
+    if(diag_f12_disk_probe()==1 && s_f12CarStatsReady) {
+        snprintf(line,sizeof line,s_f12CarCompressed?
+            "CAR COMP %.2f MB / RAW %.2f MB":
+            "CAR VECCHIO %.2f MB / RAW %.2f MB",
+             (double)s_f12CarBytes/1000000.0,
+             (double)s_f12CarRawBytes/1000000.0);
+        diag_f12_line(26,479,line,100,232,145);
+        snprintf(line,sizeof line,"DETT %llu GARE  %.1f KB DATI",
+             (unsigned long long)s_f12CarMatches,
+             (double)s_f12CarMatches*20.0/1000.0);
+        diag_f12_line(26,494,line,226,236,245);
+        snprintf(line,sizeof line,"ARCH %llu GARE/%llu ED  %.1f KB DATI",
+             (unsigned long long)s_f12ArchiveMatches,
+             (unsigned long long)s_f12ArchiveEditions,
+             (double)s_f12ArchiveEditions*24.0/1000.0);
+        diag_f12_line(26,509,line,226,236,245);
+    } else {
+        diag_f12_line(26,479,"CAR COMP N/D - SAVE NON VERIFICATO",162,180,193);
+        diag_f12_line(26,494,"DETT GARE N/D - DIM. N/D",162,180,193);
+        diag_f12_line(26,509,"ARCH GARE N/D - DIM. N/D",162,180,193);
+    }
 
     /* Exactly at hire, not the later live view. Same-world/year is a hard
      * precondition; cross-season snapshots stay N/D, never green. */

@@ -199,7 +199,18 @@ BUILD_STAMP_UNUSED := $(shell sh scripts/gen_build_info.sh)
 
 SOURCES := $(wildcard $(SRCDIR)/*.c) $(wildcard $(SRCDIR)/generated/*.c)
 OBJECTS := $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o,$(SOURCES))
+# Vendored Zstandard 1.5.7, BSD license in ../docs/ZSTANDARD/.
+# Static C only: NO new DLL, executable, toolchain or runtime install.
+ifneq ($(filter windows linux macos,$(BUILD_OS)),)
+ZSTD_ROOT := third_party/zstd/lib
+ZSTD_SOURCES := $(wildcard $(ZSTD_ROOT)/common/*.c) \
+                $(wildcard $(ZSTD_ROOT)/compress/*.c) \
+                $(wildcard $(ZSTD_ROOT)/decompress/*.c)
+ZSTD_OBJECTS := $(patsubst $(ZSTD_ROOT)/%.c,$(OBJDIR)/zstd/%.o,$(ZSTD_SOURCES))
+OBJECTS += $(ZSTD_OBJECTS)
+endif
 DEPS    := $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.d,$(SOURCES))
+DEPS    += $(patsubst %.o,%.d,$(ZSTD_OBJECTS))
 
 # The generated-C rules below define `src/*.c` TARGETS, which would otherwise become the
 # Makefile's first (default) goal. Pin the default goal so a bare `make` still builds the
@@ -511,6 +522,9 @@ CFLAGS  := $(ARCHFLAGS) -O2 -g -std=gnu11 -fno-strict-aliasing -fno-builtin \
            $(DATA_FLAGS) \
            -include $(INCDIR)/swos_platform.h \
            -I$(SRCDIR) -I$(INCDIR) $(SDL2_CFLAGS)
+ifneq ($(filter windows linux macos,$(BUILD_OS)),)
+CFLAGS += -DSWOS_CAR_ZSTD=1
+endif
 # -Wno-braces:                 tactics_data.c auto-extractor wraps scalar
 #                              initialisers in `{ }`; intentional, ~4200 hits.
 # -Waddress-of-packed-member: keep this warning ACTIVE in full Windows
@@ -803,6 +817,16 @@ $(OUTDIR):
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(BUILD_FLAGS_STAMP)
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
+
+# Upstream Zstandard is compiled separately without the game's forced
+# swos_platform.h or SDL globals. Every object has a unique build path.
+ifneq ($(filter windows linux macos,$(BUILD_OS)),)
+$(OBJDIR)/zstd/%.o: $(ZSTD_ROOT)/%.c $(BUILD_FLAGS_STAMP)
+	@mkdir -p $(dir $@)
+	$(CC) $(ARCHFLAGS) -O2 -std=gnu11 -fno-strict-aliasing -MMD -MP \
+	  -DZSTD_DISABLE_ASM=1 -DXXH_NAMESPACE=ZSTD_ -DNDEBUG \
+	  -I$(ZSTD_ROOT) -c $< -o $@
+endif
 
 ifeq ($(NETPLAY),1)
 $(OBJDIR)/ggpo/%.o: $(GGPO_DIR)/lib/ggpo/%.cpp $(BUILD_FLAGS_STAMP)

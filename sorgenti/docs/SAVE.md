@@ -1,3 +1,9 @@
+### 00.13.215 debug spazio — DETT e ARCH
+Il F12 (solo lettura con cache 5 secondi) mostra la dimensione compressa reale sul filesystem, la dimensione JSON dopo decompressione, le partite OG ancora dettagliate + KB di record wire20, e partite riassunte + numero edizioni + KB di record wire24. Non stimare separatamente quanti byte compressi appartengono a una sezione: Zstandard livello3 produce UN SOLO frame per l'intero CAR. Il nuovo JSON è schema6 e legge precedenti schema5/4/3. Lo stato OG, i risultati e le qualificazioni sono comunque verificabili soltanto da test reali Windows.
+
+## 00.13.215 — un CAR compresso Zstandard livello 3 (codice; Windows NON PROVATO)
+I due slot `save/AUTO9697.CAR` e `save/AUTO2627.CAR` sono ancora file UNICI portatili. Nuovo header `SWOSZC3A` + frame Zstandard 1.5.7 livello 3; interni JSON schema5 invariati, checksum FNV64 raw, controllo lunghezza, OG/civile e rimpiazzo atomico del solo AUTO. I vecchi `.CAR` JSON sono letti in automatico, il vecchio AUTOSAVE.CAR non viene sovrascritto. Sorgenti Zstd compilati staticamente, licenza BSD/documentazione in `../../docs/ZSTANDARD/`, niente DLL/installazione utente. Hash-index partite si espande; alla stagione seguente il journal delle leghe chiuse e comprovate diventa archivio sintetico `og_resident.fixture_archive`, con ID, conteggio e hash e tombstone anti-replay; le coppe e qualificazioni non provate restano dettagliate per evitare perdita. F12 mostra BYTE del CAR COMPRESSO reale sul disco, JSON raw e COUNT fixture giornaliere salvate. Lo stato RAM 2028 perso nella Windows 214 NON e' ricostruibile e va ripreso dal CAR preesistente 2027. SAVE/EXIT/CONTINUE e la compilazione completa Windows restano test utente.
+
 # Save Data — SWOS Expanded
 
 ## SWOS Expanded Windows — regola vigente dal 14/11/2026

@@ -60,7 +60,8 @@ for script in sorgenti/tests/run_test*.sh sorgenti/tests/run_audit_competition_f
         run_test_expanded_competition_history.sh|run_test_expanded_og_cache_match.sh|\
         run_test_expanded_og_league_bridge.sh|\
         run_test_expanded_qualification_transition.sh|\
-        run_test_expanded_f12_compare.sh)
+        run_test_expanded_f12_compare.sh|run_test_save_car_zstd.sh|\
+        run_test_expanded_og_fixture_hash.sh)
             run_one "$script" ;;
         run_test_engine_suite.sh|run_test_legacy_suite.sh)
             exclude_one "$script" "DUPLICATE_AGGREGATE" ;;

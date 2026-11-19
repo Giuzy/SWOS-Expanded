@@ -39,6 +39,15 @@ int  SaveJson_CareerCompatible(const uint8_t *filename);
  * this world. 0=not attempted, 1=returned success, -1=failed. This does
  * not certify round-trip gameplay or automatically open a CAR. */
 void SaveJson_DebugCareerOperations(int *write_result,int *load_result);
+/* Read-only disk data for F12, from the saved (not in-RAM) career.
+ * bytes: real compressed/uncompressed file and fixture journal entries. */
+/* Actual disk compressed bytes; detailed and archived counts from that
+ * SAME persisted CAR. Archive bytes = editions*24; detail bytes = rows*20,
+ * both before Zstandard compression (shared frame has no per-field size). */
+int SaveJson_CareerDiskStats(const uint8_t *filename,
+    uint64_t *diskBytes,uint64_t *uncompressedBytes,uint64_t *savedMatches,
+    uint64_t *archivedMatches,uint64_t *archivedEditions,
+    int *compressedFormat);
 #endif
 
 /* Per-file-type save/load. Each returns 0 on success, non-zero on

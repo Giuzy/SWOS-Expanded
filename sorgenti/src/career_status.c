@@ -76,6 +76,7 @@ extern CompetitionCup _uefaCup;
 #include "expanded_world_live.h"
 #include "expanded_competition_coordinator.h"
 #include "expanded_og_resident_selection.h"
+#include "expanded_classic_cup_view_route.h"
 #include "mjson.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -7429,29 +7430,51 @@ static int exp_og_view_cup(const uint8_t *record)
 {
     static uint8_t missing[]="OG WORLD: CUP NOT RESIDENT";
     const Competition *wanted=(const Competition *)record;
-    ExpandedOGCup *exact=NULL,*fallback=NULL;
+    ExpandedOGCup *ctx=NULL;
     unsigned matches=0u;
-    for(uint32_t i=0;i<s_expOGCupCount;++i) {
-        ExpandedOGCup *ctx=&s_expOGCups[i];
-        if(!ctx->used || ctx->year==0u)continue;
+    /* Native classic CWC/UEFA have a STABLE competition template shared
+     * across editions. The first pointer match is the OLD finished year.
+     * Resolve the exact (country, slot, OG world year), or fail closed:
+     * no old scores presented as the current 1997 competition. */
+    if(World_Current()==WORLD_9697 &&
+       (wanted==(const Competition *)&_cupWinnersCup ||
+        wanted==(const Competition *)&_uefaCup)) {
+        extern uint16_t Expanded_OGWorld_SaveYear(void);
+        const uint16_t currentYear=Expanded_OGWorld_SaveYear();
+        const uint8_t slot=wanted==(const Competition *)&_cupWinnersCup?
+            1u:2u;
+        ctx=exp_cup_find(254u,slot,currentYear);
+        if(!Expanded_ClassicCupCurrentEdition(
+               ctx?ctx->year:0u,currentYear,ctx && ctx->used))
+            ctx=NULL;
+        fprintf(stderr,"[og-classic-europe-view] EDITION "
+                       "slot=%u year=%u status=%s historical-replay=NO\n",
+                (unsigned)slot,(unsigned)currentYear,
+                ctx?"EXACT_RESIDENT_OG":"NOT_RESIDENT_OG");
+    } else {
+        ExpandedOGCup *exact=NULL,*fallback=NULL;
+        for(uint32_t i=0;i<s_expOGCupCount;++i) {
+        ExpandedOGCup *candidate=&s_expOGCups[i];
+        if(!candidate->used || candidate->year==0u)continue;
         const Competition *native=NULL;
-        if(World_Current()==WORLD_9697 && ctx->country==254u &&
-           (ctx->slot==1u || ctx->slot==2u)) {
+        if(World_Current()==WORLD_9697 && candidate->country==254u &&
+           (candidate->slot==1u || candidate->slot==2u)) {
             /* European Cup Winners' Cup and UEFA Cup are separate from the
              * country's domestic table in the classic OG Europe picker. */
-            native=ctx->slot==1u?(const Competition *)&_cupWinnersCup
+            native=candidate->slot==1u?(const Competition *)&_cupWinnersCup
                                 :(const Competition *)&_uefaCup;
         } else {
-            const void *const *tab=(const void *const *)_competitionsTable[ctx->country];
+            const void *const *tab=(const void *const *)_competitionsTable[candidate->country];
             if(!tab)continue;
-            native=(const Competition *)tab[ctx->slot];
+            native=(const Competition *)tab[candidate->slot];
         }
-        if(native==wanted) {exact=ctx;break;}
+        if(native==wanted) {exact=candidate;break;}
         if(native && native->compId==wanted->compId) {
-            ++matches;fallback=ctx;
+            ++matches;fallback=candidate;
         }
     }
-    ExpandedOGCup *ctx=exact?exact:(matches==1u?fallback:NULL);
+        ctx=exact?exact:(matches==1u?fallback:NULL);
+    }
     if(!ctx || ctx->teamCount<2u ||
        ctx->teamCount>EXP_OG_MAX_CUP_TEAMS ||
        ctx->comp.base.competitionType!=1 ||
@@ -7515,8 +7538,20 @@ static int exp_og_view_uefa(const Competition *wanted)
 {
     static uint8_t missing[]="OG WORLD: UEFA CUP NOT RESIDENT";
     static uint8_t unsupported[]="OG WORLD: CONTINENTAL NOT RESIDENT";
+    static uint8_t pendingCopa[]="LIBERTADORES 2027 NOT YET RESIDENT";
     const int modern=World_Current()==WORLD_2627;
     const int classic=World_Current()==WORLD_9697;
+    /* compId=162 in the modern database is a DATA DEFINITION, not an
+     * initialized native OG cup. Do not show a synthetic/preset bracket,
+     * run a whole round, or claim results that have no dated OG fixtures. */
+    if(modern && wanted && wanted->type==2 &&
+       (uint8_t)wanted->compId==COMPID_copaLibertadores) {
+        fprintf(stderr,"[og-libertadores-27] VIEW_BLOCKED "
+                       "status=FIRST_EDITION_NOT_CONNECTED "
+                       "fixtures=NOT_RESIDENT no-simulation=1\n");
+        ShowErrorMenu(pendingCopa);
+        return 0;
+    }
     const Competition *historicCopa=classic?Comp_ById(COMPID_copaLibertadores):NULL;
     const int copa=classic && wanted && wanted==historicCopa &&
                    wanted->type==2;

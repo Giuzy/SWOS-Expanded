@@ -35,6 +35,7 @@
 #include "expanded_debug.h"
 #include "expanded_champions_view_route.h"
 #include "expanded_libertadores_view_route.h"
+#include "expanded_classic_cup_view_route.h"
 #include "expanded_qualification_transition.h"
 #include <stdio.h>
 #include <SDL.h> /* monotonic, high-resolution FORWARD TIME profiling */
@@ -3870,6 +3871,35 @@ void Career_ViewOrEditCompetitionSlot(uint8_t *comp, uint16_t sel)
                            "resident=%d (no fixture replay)\n",
                     (unsigned)_selTeamNumber,viewed);
             return;
+        }
+    }
+#endif
+
+    /* Classic Cup Winners' Cup and UEFA Cup use dedicated type-1 OG cup
+     * residents (country=254, slots 1/2). After the generic career mapping
+     * above, 'comp' is often the *Copy, not the original template. The
+     * viewer must observe the same current-year resident before and after
+     * employment; a cup slot is NOT required to spectate. Do not activate
+     * a playable manager cup or auto-advance any fixtures here. */
+#ifdef SWOS_SDL_BUILD
+    if(World_Current()==WORLD_9697) {
+        extern int Expanded_OGWorld_ViewLeague(const uint8_t *,uint16_t);
+        const uint8_t *const originals[2]={_cupWinnersCup,_uefaCup};
+        const uint8_t *const copies[2]={_cupWinnersCupCopy,_uefaCupCopy};
+        for(unsigned k=0u;k<2u;++k) {
+            const int clubSlot=_euroCupSlotIndex==k+1u;
+            if(Expanded_ClassicCupResidentViewerRoute(
+                   _gameType,1,comp,originals[k],copies[k],
+                   _quaternaryCompetitionPtr,clubSlot)) {
+                fprintf(stderr,"[og-classic-europe-view] ROUTE "
+                               "cup=%u team=%04x club-slot=%d read-only=1\n",
+                        k+1u,(unsigned)_selTeamNumber,clubSlot);
+                const int viewed=Expanded_OGWorld_ViewLeague(originals[k],0);
+                fprintf(stderr,"[og-classic-europe-view] RETURN "
+                               "cup=%u resident=%d no-fixture-replay=1\n",
+                        k+1u,viewed);
+                return;
+            }
         }
     }
 #endif

@@ -24,6 +24,11 @@ trap 'rm -rf "$tmp"' EXIT
     -Isorgenti/include sorgenti/tests/test_expanded_libertadores_view_route.c \
     -o "$tmp/test_libertadores_view_route"
 "$tmp/test_libertadores_view_route"
+"${CC:-gcc}" -std=c11 -Wall -Wextra -Werror -pedantic -O2 \
+    -Isorgenti/include sorgenti/tests/test_expanded_classic_cup_view_route.c \
+    -o "$tmp/test_classic_cup_view_route"
+"$tmp/test_classic_cup_view_route"
+echo 'OG_CLASSIC_CWC_UEFA_VIEWER_GAMEPLAY=NOT_TESTED_BY_ISOLATED_TEST'
 echo 'OG_LIBERTADORES_9697_VIEWER_GAMEPLAY=NOT_TESTED_BY_ISOLATED_TEST'
 echo 'OG_LIBERTADORES_2627_FIRST_EDITION=NOT_CONNECTED'
 echo 'OG_CONTINENTAL_SAVE_LOAD=NOT_VERIFIED'

@@ -1011,16 +1011,64 @@ void Expanded_UnemployedWait(void) {
         extern void Career_AdvanceUnemployedOGCups(uint32_t);
         Career_AdvanceUnemployedOGCups((uint32_t)s_waitWeeks);
     }
-    if(!s_ogStressRemaining && s_waitWeeks>=s_nextOfferWeek &&
-       !s_waitTeam) choose_small_club();
-    if(!s_ogStressRemaining && !s_waitTeam &&
-       s_waitWeeks>=s_nextOfferWeek)
-        s_nextOfferWeek=s_waitWeeks+next_delay();
+    if(s_debug_june30_once && !s_ogStressRemaining) {
+        /* DEBUG ONLY: a multi-month jump expires an old offer, which
+         * should not be presented as a fresh 30 June vacancy. Now that
+         * the original OG world and civil clock have both reached the
+         * target, pick a club using the SAME native-team/OG-standings
+         * eligibility check as ordinary unemployed offers. Do not
+         * bypass offer_is_valid, fabricate a club, or change fixture
+         * results to make a vacancy available. */
+        s_waitTeam=0;
+        s_offerSnapshotValid=0;
+        s_offerAgreedWeekly=0;
+        s_waitAccepted=0;
+        s_nextOfferWeek=s_waitWeeks;
+        choose_small_club();
+        if(offer_is_valid()) {
+            /* Make the newly selected real offer immediately visible,
+             * even if the ordinary randomized delay is still pending. */
+            s_nextOfferWeek=s_waitWeeks;
+            fprintf(stderr,"[debug-june30] OFFER_READY "
+                    "world=%s date=%04u-%02u-%02u club=%04x "
+                    "country=%u div=%u source=OG_ELIGIBLE_TEAM "
+                    "available=NOW\n",
+                    World_Tag(),(unsigned)target.year,
+                    (unsigned)target.month,(unsigned)target.day,
+                    (unsigned)s_waitTeam,(unsigned)s_waitCountry,
+                    (unsigned)s_waitLeague);
+        } else {
+            /* A missing genuine candidate is a test failure, not
+             * permission to choose an invented or out-of-league team. */
+            s_waitTeam=0;
+            s_offerSnapshotValid=0;
+            s_nextOfferWeek=s_waitWeeks+next_delay();
+            fprintf(stderr,"[debug-june30] OFFER_UNAVAILABLE "
+                    "world=%s date=%04u-%02u-%02u "
+                    "reason=NO_VALID_OG_CANDIDATE no-fabricated-club=1\n",
+                    World_Tag(),(unsigned)target.year,
+                    (unsigned)target.month,(unsigned)target.day);
+        }
+    } else {
+        if(!s_ogStressRemaining && s_waitWeeks>=s_nextOfferWeek &&
+           !s_waitTeam) choose_small_club();
+        if(!s_ogStressRemaining && !s_waitTeam &&
+           s_waitWeeks>=s_nextOfferWeek)
+            s_nextOfferWeek=s_waitWeeks+next_delay();
+    }
     _fireResetFlag=1;
     Expanded_UnemployedInit();
-    if(s_debug_month_once || s_debug_june30_once)
+    if(s_debug_month_once)
+        ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[13];
+    else if(s_debug_june30_once) {
+        /* Offer READY means keyboard/Switch Pro A can open the job
+         * offer immediately. Otherwise leave focus on the debug
+         * checkpoint for clear feedback; no invisible hitbox. */
+        const int offerReady=offer_is_valid() &&
+                             s_waitWeeks>=s_nextOfferWeek;
         ((Menu*)_currentMenu)->selectedEntry=
-            &_menuEntries[s_debug_june30_once?14:13];
+            &_menuEntries[offerReady?10:14];
+    }
     DrawMenu();
 #ifdef SWOS_SDL_BUILD
     {

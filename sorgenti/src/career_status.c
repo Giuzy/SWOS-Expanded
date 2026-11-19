@@ -77,6 +77,10 @@ extern CompetitionCup _uefaCup;
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+/* Native OG country/competition pointer table. Year-end resident readers
+ * below need it before the later function-local declarations; omitting it
+ * stopped the Windows 00.13.195 build at career_status.c:5154/5666. */
+extern void *_competitionsTable[];
 #endif
 
 /* ---- Assembly externs (functions still in asm) ---- */

@@ -7209,7 +7209,7 @@ int SaveJson_CareerDiskStats(const uint8_t *filename,
     uint8_t magic[8]={0};
     const size_t got=fread(magic,1u,sizeof magic,f);
     *compressedFormat=got==sizeof magic &&
-        SaveCarZstd_IsFrame(magic,(uint32_t)sizeof magic);
+        memcmp(magic,"SWOSZC3A",sizeof magic)==0;
     const int okSeek=fseek(f,0,SEEK_END)==0;
     const long length=okSeek?ftell(f):-1L;
     fclose(f);

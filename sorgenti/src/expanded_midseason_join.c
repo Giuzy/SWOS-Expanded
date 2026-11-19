@@ -908,11 +908,14 @@ void Expanded_CareerJulyPrepareMenu(void)
     extern uint8_t _aNextMatch[];
     extern uint16_t Expanded_OGWorld_SaveYear(void);
     extern int Expanded_OGWorld_ClubBound(void);
+    extern void ContestSetButtons(void);
+    static const char kJulyCaption[]="FORWARD TIME";
     static int wasForward;
     ExpandedLiveCalendarState live;
     ExpandedWorldDate target;
     if(_currentMenuPtr!=(uintptr_t)_contestMenu || _gameType!=4)return;
-    MenuEntry *e=&_menuEntries[10]; /* EXISTING NEXT MATCH button */
+    MenuEntry *e=&_menuEntries[10]; /* original NEXT MATCH (entry 10) */
+    MenuEntry *primary=&_menuEntries[7]; /* original PLAY MATCH (entry 7) */
     const int ready=exp_career_july_plan(&target,&live);
     /* The old 205 code applied only in ContestMenuOnReturn, which is
      * called during native menu setup, BEFORE a late OG July world bind.
@@ -948,19 +951,53 @@ void Expanded_CareerJulyPrepareMenu(void)
     }
     if(ready) {
         wasForward=1;
+        /* The highlighted primary career action is entry 7; intercepting
+         * only entry 10 in 205/206 let PLAY MATCH launch August on July 1.
+         * Both existing buttons display FORWARD TIME while it is safe.
+         * No new hitboxes, pixels, native fixtures or stored state. */
+        primary->isInvisible=0;
+        primary->isDisabled=0;
+        primary->stringFlags &= (uint16_t)~(1u<<13);
+        primary->fg=(uintptr_t)kJulyCaption;
         e->isInvisible=0;
         e->isDisabled=0;
         e->onSelect=(MenuEntryFn)Expanded_CareerJulyForward;
-        e->fg=(uintptr_t)"FORWARD TIME";
+        e->fg=(uintptr_t)kJulyCaption;
     } else if(wasForward) {
-        /* Do not overwrite the genuine FINISH SEASON / NEXT MATCH state
-         * when an OG callback has already replaced our temporary action. */
         if(e->onSelect==(MenuEntryFn)Expanded_CareerJulyForward) {
             e->onSelect=(MenuEntryFn)NextMatch;
             e->fg=(uintptr_t)_aNextMatch;
         }
+        /* Restore PLAY MATCH vs FINISH SEASON according to the original
+         * OG callback, including the end-of-season button coloring. */
+        ContestSetButtons();
         wasForward=0;
     }
+}
+/* Called at the TOP of both original match dispatchers, not merely from
+ * the optional label/callback. Native play is not entered for any July
+ * date when an authentic next manager fixture begins in August or later.
+ * If OG truly has July fixtures, return 0: do not reschedule real games. */
+int Expanded_CareerJulyIntercept(MenuEntry *entry,unsigned ordinal)
+{
+    extern uintptr_t _currentMenuPtr;
+    extern uint8_t _contestMenu[];
+    ExpandedLiveCalendarState live;
+    ExpandedWorldDate target;
+    /* Other nested OG menus can also reach the native handler. Restrict
+     * the preseason redirect to the actual visible CAREER calendar. */
+    if((ordinal!=7u && ordinal!=10u) ||
+       _currentMenuPtr!=(uintptr_t)_contestMenu)return 0;
+    if(!exp_career_july_plan(&target,&live))return 0;
+    fprintf(stderr,"[career-july-intercept] world=%s action=%u "
+                   "civil=%04u-%02u-%02u target=%04u-%02u-%02u "
+                   "native-match=DEFERRED_TO_REAL_DATE no-replay=1\n",
+            World_Tag(),ordinal,(unsigned)live.today.year,
+            (unsigned)live.today.month,(unsigned)live.today.day,
+            (unsigned)target.year,(unsigned)target.month,
+            (unsigned)target.day);
+    Expanded_CareerJulyForward(entry);
+    return 1;
 }
 void Expanded_CareerJulyForward(MenuEntry *entry)
 {
@@ -977,17 +1014,23 @@ void Expanded_CareerJulyForward(MenuEntry *entry)
     ExpandedLiveCalendarState live;
     ExpandedWorldDate target;
     int future=0;
-    (void)entry;
     _fireResetFlag=1;
-    if(_currentMenuPtr!=(uintptr_t)_contestMenu ||
-       !exp_career_july_plan(&target,&live) ||
-       !Expanded_OGWorld_PreflightClubCalendar(
-           Expanded_OGWorld_SaveYear(),target,&future) || !future ||
-       !Expanded_OGWorld_DebugCanAdvanceClub(
-           _selTeamNumber,(uint8_t)_currentDivisionIndex,
-           Expanded_OGWorld_SaveYear())) {
+    const int menuOk=_currentMenuPtr==(uintptr_t)_contestMenu;
+    const int planned=menuOk && exp_career_july_plan(&target,&live);
+    const int calendarOk=planned && Expanded_OGWorld_PreflightClubCalendar(
+        Expanded_OGWorld_SaveYear(),target,&future);
+    const int residentOk=calendarOk && future &&
+        Expanded_OGWorld_DebugCanAdvanceClub(
+            _selTeamNumber,(uint8_t)_currentDivisionIndex,
+            Expanded_OGWorld_SaveYear());
+    if(!residentOk) {
         fprintf(stderr,"[career-july-forward] BLOCKED before-OG "
-                       "reason=INVALID_OR_PENDING_MANAGER_FIXTURE\n");
+                       "menu=%d plan=%d calendar=%d future=%d "
+                       "resident-exact=%d club=%04x next-key=%u "
+                       "no-native-result=1\n",
+                menuOk,planned,calendarOk,future,residentOk,
+                (unsigned)_selTeamNumber,
+                (unsigned)Expanded_Career_NativeCalendarKey());
         return;
     }
     /* This single coordinator advances only OTHER clubs' resident states.
@@ -1006,8 +1049,17 @@ void Expanded_CareerJulyForward(MenuEntry *entry)
             (unsigned)target.year,(unsigned)target.month,
             (unsigned)target.day);
     ContestMenuOnReturn(); /* native rows + button eligibility */
-    if(target.day<31u)SetCurrentEntry(10); /* keep controller focus */
-    else SetCurrentEntry(7); /* next legal step is PLAY MATCH */
+    /* Focus stays on whichever REAL button the player used, until the
+     * last safe July phase. At July 28 (when OG kickoff is August 1),
+     * select native PLAY MATCH, never pretend there is another safe
+     * July week or silently run an August result. */
+    {
+        ExpandedLiveCalendarState after;
+        ExpandedWorldDate more;
+        const int another=exp_career_july_plan(&more,&after);
+        const uint16_t origin=(entry && entry->ordinal==10u)?10u:7u;
+        SetCurrentEntry(another?origin:7u);
+    }
     DrawMenu();
     Expanded_AutoCareer_Save("career-july-week");
 }

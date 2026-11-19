@@ -113,6 +113,13 @@ int main(void) {
     assert(ExpandedWorld_CareerJulyForwardTarget(
         (ExpandedWorldDate){1997,7,1},(ExpandedWorldDate){1997,8,1},
         &target) && target.year==1997 && target.day==8);
+    /* Real 00.13.206 Windows 96/97 club 2c1b has an actual OG July-4
+     * fixture (native phase 49), so a universal no-match July would
+     * silently override that resident league's genuine calendar.
+     * Do not offer a July skip for a native July-start competition. */
+    assert(!ExpandedWorld_CareerJulyForwardTarget(
+        (ExpandedWorldDate){1997,7,1},(ExpandedWorldDate){1997,7,4},
+        &target));
     assert(!ExpandedWorld_CareerJulyForwardTarget(
         (ExpandedWorldDate){2027,6,30},kickoff,&target));
     puts("OG_CAREER_JULY_PRESEASON_NO_REPLAY=PASS_ISOLATED");

@@ -1,6 +1,7 @@
 /* Pure C regression for the identity matcher, not evidence of
  * qualifiers earned in a running Windows OG career. */
 #include "expanded_qualification_transition.h"
+#include "expanded_og_native_qualification.h"
 #include <assert.h>
 #include <stdio.h>
 int main(void)
@@ -103,6 +104,40 @@ int main(void)
     assert(!ExpandedQual_ClassicDependentReady(2u,no_cwc));
     assert(!ExpandedQual_ClassicDependentReady(2u,NULL));
     assert(!ExpandedQual_ClassicDependentReady(3u,all_ready));
+    /* Real 00.13.210 CAR cup evidence (year 1996, Europe country=254):
+     * native comp.resultCode CWC=0x0f00 and UEFA=0x1428 are members,
+     * whereas the independent tournament header may not carry the winner.
+     * A club word of 0x0000 is allowed when genuinely in the roster. */
+    {
+        const uint16_t cwc_ids[3]={0x0f00u,0x4e02u,0x0702u};
+        const uint16_t uefa_ids[3]={0x1f13u,0x1428u,0x0702u};
+        const uint16_t zero_ids[2]={0x0000u,0x0101u};
+        const uint16_t duplicate[3]={0x0f00u,0x0f00u,0x0101u};
+        assert(ExpandedOGQual_WinnerIndex(0x0f00u,cwc_ids,3u)==0);
+        assert(ExpandedOGQual_WinnerIndex(0x1428u,uefa_ids,3u)==1);
+        assert(ExpandedOGQual_WinnerIndex(0x0000u,zero_ids,2u)==0);
+        assert(ExpandedOGQual_WinnerIndex(0xffffu,cwc_ids,3u)==-1);
+        assert(ExpandedOGQual_WinnerIndex(0x0102u,cwc_ids,3u)==-1);
+        assert(ExpandedOGQual_WinnerIndex(0x0f00u,duplicate,3u)==-1);
+        assert(ExpandedOGQual_WinnerIndex(0x0f00u,NULL,3u)==-1);
+    }
+    /* In the CAR 1996 type1 cup precedes the real 1997 edition.
+     * An edition-scoped lookup must skip 1996, then find 1997. */
+    {
+        const unsigned countries[3]={254u,254u,0u};
+        const unsigned slots[3]={1u,1u,1u};
+        const uint16_t years[3]={1996u,1997u,1997u};
+        int found=-1;
+        for(unsigned i=0;i<3u;++i)
+            if(ExpandedOGQual_SameCupEdition(countries[i],slots[i],years[i],
+                                             254u,1u,1997u)){found=(int)i;break;}
+        assert(found==1);
+        assert(!ExpandedOGQual_SameCupEdition(254u,1u,1996u,
+                                               254u,1u,1997u));
+        assert(!ExpandedOGQual_SameCupEdition(254u,2u,1997u,
+                                               254u,1u,1997u));
+    }
+    puts("OG_NATIVE_CUP_WINNER_AND_EDITION_IDS=PASS_ISOLATED_ONLY");
     puts("OG_CLASSIC_UPSTREAM_QUALIFICATION_GATES=PASS_ISOLATED_ONLY");
     puts("OG_CLASSIC_INDEPENDENT_QUALIFIER_GATES=PASS_ISOLATED_ONLY");
     puts("OG_UNEMPLOYED_SOURCE_AND_RESTORED_IDS=PASS_ISOLATED_ONLY");

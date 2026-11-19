@@ -190,6 +190,20 @@ int main(void)
             rows,sizeof rows,2u,0u,80u,0x2c14u,
             0x2c14u,0x2c1eu,0x0200u,&old)==-1);
     }
+    /* Native cache key differs from the competition ID (field_2E):
+     * manager slot 0 + league compId 88 is perfectly legitimate.
+     * Use the host-endian word's low byte, NOT league ID 88. */
+    {
+        uint16_t native_word=0u;
+        uint8_t bytes[2];
+        memcpy(bytes,&native_word,sizeof bytes);
+        assert(ExpandedOGCache_NativeSlotFromWord(bytes)==0u);
+        native_word=3u;
+        memcpy(bytes,&native_word,sizeof bytes);
+        assert(ExpandedOGCache_NativeSlotFromWord(bytes)==3u);
+        assert(ExpandedOGCache_NativeSlotFromWord(NULL)==0xffu);
+    }
+    puts("OG_NATIVE_CACHE_SLOT_VS_COMPETITION_ID=PASS_ISOLATED_ONLY");
     puts("OG_CALENDAR_PAIR_IDENTITY_REBIND=PASS_ISOLATED_ONLY");
 
     b[2]=0;b[3]=0;

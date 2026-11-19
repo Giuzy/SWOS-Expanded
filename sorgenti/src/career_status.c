@@ -70,6 +70,7 @@ extern CompetitionCup _uefaCup;
 #include "expanded_og_fixture_history.h"
 #include "expanded_og_league_bridge.h"
 #include "expanded_qualification_transition.h"
+#include "expanded_og_native_qualification.h"
 #include "expanded_debug.h"
 #include "expanded_world_time.h"
 #include "expanded_world_live.h"
@@ -3924,10 +3925,18 @@ static unsigned exp_qual_resident(unsigned cup,uint16_t year,
     if(World_Current()==WORLD_9697 && (cup==1u || cup==2u)) {
         for(uint32_t k=0;k<s_expOGCupCount;++k) {
             const ExpandedOGCup *const x=&s_expOGCups[k];
-            if(!x->used || x->country!=254u || x->slot!=cup)continue;
-            *actualYear=x->year;
-            if(x->year!=year || x->managed_excluded ||
-               x->unsupported_setup || x->teamCount>EXP_QUAL_MAX_ENTRANTS)
+            if(!x->used || !ExpandedOGQual_SameCupEdition(
+                    x->country,x->slot,x->year,254u,cup,year)) {
+                if(x->used && x->country==254u && x->slot==cup &&
+                   !*actualYear)*actualYear=x->year;
+                continue;
+            }
+            /* The last edition is retained across July. Search the
+             * requested edition BEFORE rejecting a stale year: a 1996
+             * cup can legitimately precede the 1997 cup in the CAR. */
+            *actualYear=year;
+            if(x->managed_excluded || x->unsupported_setup ||
+               x->teamCount>EXP_QUAL_MAX_ENTRANTS)
                 return 0u;
             *available=1;
             for(unsigned j=0;j<x->teamCount;++j) {
@@ -5837,9 +5846,11 @@ static int exp_og_qualification_country(uint8_t country,uint16_t closedYear,
             ++*ranked;
         }
     }
-    /* Only table slot 2 is the NATIONAL cup. Slot 3 can be a LEAGUE
-     * cup and cannot supply the CWC/Europa domestic-cup place when the
-     * national cup has not been decided. No guessed runner-up or winner. */
+    /* The national cup is table slot 2 (not the league cup in slot 3).
+     * The OG final writes resultCode to the ACTIVE competition descriptor;
+     * Expanded_OGWorld_AdvanceCup stores it in ctx->comp.base.winnerTeam.
+     * ctx->tournament.header.winnerTeam is a different slot-overlay field
+     * and is not the championship result of this resident type-1 cup. */
     const void *const *const table=
         (const void *const *)_competitionsTable[country];
     const uintptr_t nativeCup=table?(uintptr_t)table[2]:0u;
@@ -5848,19 +5859,34 @@ static int exp_og_qualification_country(uint8_t country,uint16_t closedYear,
         ((const Competition *)nativeCup)->type==1;
     const ExpandedOGCup *cup=nationalDefined?
         exp_cup_find(country,2u,closedYear):NULL;
-    if(cup && cup->used && !cup->managed_excluded &&
-       !cup->unsupported_setup && cup->lastPhase>=56u &&
-       cup->comp.base.competitionFinished) {
-        const uint16_t id=cup->tournament.header.winnerTeam;
-        if(id && id!=0xffffu)for(unsigned i=0;i<cup->teamCount;++i) {
-            const TeamFileEx *t=&cup->teams[i];
-            if(PACK_BE_U16(t->team.countryNumber,
-                           t->team.teamOrdinal)==id) {
-                memcpy(&out[9],t,sizeof(*t));
-                *cupVerified=1;break;
-            }
+    const int cupFinished=cup && cup->used &&
+        !cup->managed_excluded && !cup->unsupported_setup &&
+        cup->lastPhase>=56u && cup->comp.base.competitionFinished &&
+        cup->teamCount>=2u && cup->teamCount<=EXP_QUAL_MAX_ENTRANTS;
+    int winningIndex=-1;
+    if(cupFinished) {
+        uint16_t participantIds[EXP_QUAL_MAX_ENTRANTS];
+        for(unsigned i=0;i<cup->teamCount;++i)
+            participantIds[i]=PACK_BE_U16(
+                cup->teams[i].team.countryNumber,
+                cup->teams[i].team.teamOrdinal);
+        winningIndex=ExpandedOGQual_WinnerIndex(
+            cup->comp.base.winnerTeam,participantIds,cup->teamCount);
+        if(winningIndex>=0) {
+            memcpy(&out[9],&cup->teams[winningIndex],sizeof(out[9]));
+            *cupVerified=1;
         }
     }
+    if(nationalDefined)
+        fprintf(stderr,"[og-qual-native-winner] world=%s closed=%u "
+            "country=%u national-slot=2 resident=%d finished=%d "
+            "comp-winner=%04x tournament-alias=%04x "
+            "member-index=%d status=%s\n",
+            World_Tag(),(unsigned)closedYear,(unsigned)country,
+            cup && cup->used,cupFinished,
+            (unsigned)(cup?cup->comp.base.winnerTeam:0xffffu),
+            (unsigned)(cup?cup->tournament.header.winnerTeam:0xffffu),
+            winningIndex,*cupVerified?"VERIFIED_OG_NATIVE":"NOT_VERIFIED");
     /* A European national cup that is known to exist but has no
      * verified OG winner is a missing qualification prerequisite. A
      * complete league table alone MUST NOT turn that uncertainty into
@@ -5897,17 +5923,21 @@ static const TeamFileEx *exp_og_qualification_holder(unsigned cup,
              !l->comp.base.competitionFinished))l=NULL;
     if(c && (!c->used || c->year!=closedYear ||
              !c->comp.base.competitionFinished))c=NULL;
-    /* OG tournament winner is in the persisted tournament header.
-     * The DIY competition's 0x3A doubles as resultCode. */
-    const uint16_t id=l?l->tournament.header.winnerTeam:
-                      c?c->tournament.header.winnerTeam:0xffffu;
-    if(!id || id==0xffffu)return NULL;
+    /* OG's final writes base.resultCode (alias winnerTeam) into the
+     * active DIY competition. Both resident type-1 and type-2 save it in
+     * ctx->comp, never in the tournament header's slot alias. */
+    const uint16_t winner=l?l->comp.base.winnerTeam:
+                          c?c->comp.base.winnerTeam:0xffffu;
     const unsigned n=l?l->teamCount:c?c->teamCount:0u;
+    if(n<2u || n>EXP_QUAL_MAX_ENTRANTS)return NULL;
+    uint16_t participantIds[EXP_QUAL_MAX_ENTRANTS];
     for(unsigned i=0;i<n;++i) {
         const TeamFileEx *t=l?&l->teams[i]:&c->teams[i];
-        if(PACK_BE_U16(t->team.countryNumber,t->team.teamOrdinal)==id)
-            return t;
+        participantIds[i]=PACK_BE_U16(
+            t->team.countryNumber,t->team.teamOrdinal);
     }
+    const int index=ExpandedOGQual_WinnerIndex(winner,participantIds,n);
+    if(index>=0)return l?&l->teams[index]:&c->teams[index];
     return NULL;
 }
 
@@ -8001,6 +8031,17 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
         (const TeamSelectionKeyCacheEntry *)(const void *)
         (_teamSelectionKeyCache+_teamSelectionKeyCacheOffset);
     const uint8_t slot=active->compSlot,phase=active->sortKey;
+    /* Native keycache slot comes from the LOW BYTE of the OG host-word
+     * (compSlot,slotId). field_2E is instead the competition ID (e.g.
+     * 46, 74, 88) and MUST NOT be compared with slot 0. The resident and
+     * local competition IDs must still agree independently. */
+    const uint8_t local_cache_slot=ExpandedOGCache_NativeSlotFromWord(
+        (const uint8_t *)&local->base.compSlot);
+    const uint8_t resident_cache_slot=ExpandedOGCache_NativeSlotFromWord(
+        (const uint8_t *)&ctx->comp.base.compSlot);
+    const int same_cache_namespace=
+        slot==local_cache_slot && slot==resident_cache_slot &&
+        ctx->comp.base.field_2E==local->base.field_2E;
     ExpandedOGCacheMatch match;
     const ExpandedOGCacheStatus cache=ExpandedOGCache_Find(
         _teamSelectionKeyCache,8192u,_teamSelectionKeyCacheCount,
@@ -8093,7 +8134,7 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
         const int can_rebind=!s_expOGBridgeBlocked &&
             !unmapped && !table_differences &&
             ctx->comp.matchesPlayedCount==local->matchesPlayedCount &&
-            active->phaseFlag==0u && slot==local->base.field_2E &&
+            active->phaseFlag==0u && same_cache_namespace &&
             native_phase==phase &&
             phase_cache==EXP_OG_CACHE_PLAYED &&
             phase_match.packed_goals==packed &&
@@ -8121,6 +8162,8 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
                     "score=%u-%u reason=NOT_PROVEN_EXACT "
                     "bridge-blocked=%d unmapped=%u table-diff=%u "
                     "matches=%u/%u active-phase-flag=%u local-slot=%u "
+                    "cache-slot-local=%u cache-slot-resident=%u "
+                    "resident-comp-id=%u same-cache-namespace=%d "
                     "phase-matches=%d cache-not-found=%d "
                     "played-score-matches=%d gate=%d rebound=%d "
                     "scores-unchanged=1\n",
@@ -8133,6 +8176,8 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
                     (unsigned)local->matchesPlayedCount,
                     (unsigned)active->phaseFlag,
                     (unsigned)local->base.field_2E,
+                    (unsigned)local_cache_slot,(unsigned)resident_cache_slot,
+                    (unsigned)ctx->comp.base.field_2E,same_cache_namespace,
                     (int)(native_phase==phase),
                     (int)(cache==EXP_OG_CACHE_NOT_FOUND),
                     (int)(phase_cache==EXP_OG_CACHE_PLAYED &&

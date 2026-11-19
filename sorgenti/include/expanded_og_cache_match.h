@@ -30,6 +30,17 @@ typedef struct {
  * invalid or overflowing stream. Compiles on host/Amiga without SDL. */
 #define EXP_OG_CACHE_CAPACITY 8192u
 #define EXP_OG_CACHE_LEGACY_SIZE 1870u
+/* Native keycache compares the low byte of the host-endian 0x2C WORD,
+ * not the independent competition-ID byte field_2E. Reading the 2-byte
+ * pair by memcpy also avoids strict-aliasing/alignment assumptions. */
+static inline uint8_t ExpandedOGCache_NativeSlotFromWord(
+    const uint8_t *pair)
+{
+    uint16_t word=0u;
+    if(!pair)return 0xffu;
+    memcpy(&word,pair,sizeof word);
+    return (uint8_t)word;
+}
 static inline int ExpandedOGCache_Measure(const uint8_t *bytes,size_t capacity,
                                            uint16_t count,size_t *used)
 {

@@ -1,3 +1,6 @@
+## Stato implementativo dopo 00.13.213 (19/11/2026)
+Il fix riguarda **soltanto l'accesso read-only** alla Libertadores residente del primo mondo 1996/97 anche dopo l'assunzione di un manager non qualificato. Non cambia il roster/risultati residenti di OpenSWOS, non crea calendario manager e non abilita la 2027. I veri 20 ID della Copa 1996 sono gia' residenti; il test Windows 212 precedente usava manager inglesi non partecipanti, quindi la partita da un club CONMEBOL qualificato non e' provata. Per 2027 `ct_world_first_ready()==0` e il CT engine mensile `ct_round` non crea singoli fixture OG giornalieri. Restano da approvare **i 6 entranti di Q1 e i 13 di Q2 e gli accoppiamenti** dei 19 preliminari, come nelle decisioni sotto. Non inventare tali dati: scelta utente prima dell'attivazione del primo sorteggio. Compilazione e gameplay 213 Windows NON PROVATI.
+
 # SWOS Expanded — Libertadores 1997 e 2027: decisioni e audit (17 novembre 2026)
 
 ## Decisione applicata 17/11 — 0.13.70_11: prima edizione IDENTICA a OpenSWOS 1996 (senza date modificate)

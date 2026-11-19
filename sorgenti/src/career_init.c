@@ -34,6 +34,7 @@
 #include "squad_extras.h"
 #include "expanded_debug.h"
 #include "expanded_champions_view_route.h"
+#include "expanded_libertadores_view_route.h"
 #include "expanded_qualification_transition.h"
 #include <stdio.h>
 #include <SDL.h> /* monotonic, high-resolution FORWARD TIME profiling */
@@ -3845,15 +3846,29 @@ void Career_ViewOrEditCompetitionSlot(uint8_t *comp, uint16_t sel)
             return;
         }
     }
-    if(World_Current()==WORLD_9697 && _euroCupSlotIndex==3u) {
+    /* The first historic Copa is a WORLD competition, not a manager
+     * slot-3 privilege. The dispatcher has already mapped its original
+     * record to the career working copy above. Resolve either identity
+     * to the canonical resident OG record for read-only viewing; the
+     * separate interactive calendar still requires real qualification. */
+    {
         extern Competition *Career_CopaWorkingCopy(void);
         extern int Expanded_OGWorld_ViewLeague(const uint8_t *,uint16_t);
-        Competition *copa=Career_CopaWorkingCopy();
-        if(copa && (comp==(uint8_t *)copa ||
-                    comp==(uint8_t *)_quaternaryCompetitionPtr)) {
-            fprintf(stderr,"[og-libertadores-96] VIEW_RESIDENT team=%04x "
-                           "world=9697 slot=3\n",(unsigned)_selTeamNumber);
-            (void)Expanded_OGWorld_ViewLeague((const uint8_t *)Comp_ById(COMPID_copaLibertadores),0);
+        const Competition *const original=World_Current()==WORLD_9697?
+            Comp_ById(COMPID_copaLibertadores):NULL;
+        const Competition *const copy=original?Career_CopaWorkingCopy():NULL;
+        const int clubSlot=_euroCupSlotIndex==3u;
+        if(original && original->type==2 &&
+           Expanded_LibertadoresResidentViewerRoute(
+                _gameType,World_Current()==WORLD_9697,comp,original,copy,
+                _quaternaryCompetitionPtr,clubSlot)) {
+            fprintf(stderr,"[og-libertadores-96] VIEW_ROUTE team=%04x "
+                           "world=9697 club-slot=%d read-only=1\n",
+                    (unsigned)_selTeamNumber,clubSlot);
+            const int viewed=Expanded_OGWorld_ViewLeague((const uint8_t *)original,0);
+            fprintf(stderr,"[og-libertadores-96] VIEW_RETURN team=%04x "
+                           "resident=%d (no fixture replay)\n",
+                    (unsigned)_selTeamNumber,viewed);
             return;
         }
     }

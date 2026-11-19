@@ -10,11 +10,20 @@ grep -Fq 'InitCompetitionTeamSelectionFromAltTableHeader((uint8_t *)rec)' "$src"
 grep -Fq 'Career_AutoAdvanceCompetitionSlots();' "$src"
 grep -Fq 'ctx->lastPhase=phase;ctx->used=1;' "$src"
 grep -Fq 'int exp_og_view_uefa' "$src"
+grep -Fq 'Expanded_LibertadoresResidentViewerRoute(' "$start"
 grep -Fq 'Expanded_OGWorld_AdvanceUefa(year,phase)' "$start"
 grep -Fq '[og-international-s1]' "$start"
 grep -Fq 'ct_world_prepare(void)' sorgenti/src/world_conti.c
 grep -Fq 'ct_world_advance_month(u8 month)' sorgenti/src/world_conti.c
 echo 'OG_UEFA_TYPE2_SOURCE_WIRING=PASS_SOURCE_ONLY three_cups=3'
 echo 'OG_UEFA_FIXTURE_DATES=NOT_VERIFIED_BY_SOURCE'
-echo 'OG_COPA_LIBERTADORES_RESIDENT=NOT_CONNECTED'
+# Pure C routing regression only. The REAL viewer/manager fixture needs Windows.
+tmp="$(mktemp -d)"
+trap 'rm -rf "$tmp"' EXIT
+"${CC:-gcc}" -std=c11 -Wall -Wextra -Werror -pedantic -O2 \
+    -Isorgenti/include sorgenti/tests/test_expanded_libertadores_view_route.c \
+    -o "$tmp/test_libertadores_view_route"
+"$tmp/test_libertadores_view_route"
+echo 'OG_LIBERTADORES_9697_VIEWER_GAMEPLAY=NOT_TESTED_BY_ISOLATED_TEST'
+echo 'OG_LIBERTADORES_2627_FIRST_EDITION=NOT_CONNECTED'
 echo 'OG_CONTINENTAL_SAVE_LOAD=NOT_VERIFIED'

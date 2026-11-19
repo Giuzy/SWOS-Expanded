@@ -137,6 +137,35 @@ int main(void)
         assert(!ExpandedOGQual_SameCupEdition(254u,2u,1997u,
                                                254u,1u,1997u));
     }
+    /* Classic OG final bracket: first two positions represent finalists.
+     * The native swap uses the final score bit to bring the winner to
+     * the front, and grid[2] is the third eligible bracket candidate. */
+    {
+        const uint16_t teams[]={0x0603u,0x060au,0x0607u,0x0610u};
+        const uint8_t ordered[]={1u,0u,2u};
+        const uint8_t swapped[]={0u,1u,2u};
+        uint16_t podium[3]={0};
+        assert(ExpandedOGQual_ClassicCupPodium(ordered,0u,1u,
+                    teams,teams,4u,0x060au,podium));
+        assert(podium[0]==0x060au && podium[1]==0x0603u &&
+               podium[2]==0x0607u);
+        assert(ExpandedOGQual_ClassicCupPodium(swapped,1u,1u,
+                    teams,teams,4u,0x060au,podium));
+        assert(!ExpandedOGQual_ClassicCupPodium(swapped,1u,1u,
+                    teams,teams,4u,0x0603u,podium));
+        assert(!ExpandedOGQual_ClassicCupPodium(ordered,0u,2u,
+                    teams,teams,4u,0x060au,podium));
+        const uint8_t duplicateIndex[]={1u,0u,1u};
+        assert(!ExpandedOGQual_ClassicCupPodium(duplicateIndex,0u,1u,
+                    teams,teams,4u,0x060au,podium));
+        const uint8_t outOfRange[]={1u,0u,6u};
+        assert(!ExpandedOGQual_ClassicCupPodium(outOfRange,0u,1u,
+                    teams,teams,4u,0x060au,podium));
+        const uint16_t badRoster[]={0x0603u,0x060au,0x0607u,0x0607u};
+        assert(!ExpandedOGQual_ClassicCupPodium(ordered,0u,1u,
+                    teams,badRoster,4u,0x060au,podium));
+    }
+    puts("OG_CLASSIC_CWC_NATIVE_BRACKET_FALLBACK=PASS_ISOLATED_ONLY");
     puts("OG_NATIVE_CUP_WINNER_AND_EDITION_IDS=PASS_ISOLATED_ONLY");
     puts("OG_CLASSIC_UPSTREAM_QUALIFICATION_GATES=PASS_ISOLATED_ONLY");
     puts("OG_CLASSIC_INDEPENDENT_QUALIFIER_GATES=PASS_ISOLATED_ONLY");

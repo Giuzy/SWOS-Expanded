@@ -19,6 +19,9 @@
 #include "uefa_coef.h"
 #include "world_conti.h"
 #include "world.h"
+#ifdef SWOS_SDL_BUILD
+#include <stdio.h>
+#endif
 
 /* ---- ASM externs (globals defined in assembly) ---- */
 extern DIYCompetitionEx _diyCompetitionStart;
@@ -235,19 +238,39 @@ static void qualifyTeamForCupWinnersCup(void)
     uint8_t *a5 = _primaryQualifiedTeamGrids + (8 * sizeof(TeamFileEx));
 #ifdef SWOS_SDL_BUILD
     if(Expanded_OGWorld_UnemployedQualificationActive()) {
-        /* The original OG fallback reads beyond the ninth grid if its
-         * cup winner also won the league or equals a title holder. A
-         * resident-final witness alone cannot prove that fallback club.
-         * Reject the field rather than walk uninitialized manager memory. */
-        const uint16_t cw=BE_READ_U16(a5+sizeof(TeamFileEx));
-        if(!cw || cw==0xffffu ||
-           cw==_cachedPrimaryQualifiedTeamIds[0] ||
-           cw==_euroCupTitleHolderTeamId) {
-            extern void Expanded_OGWorld_UnemployedQualificationError(const char *);
-            Expanded_OGWorld_UnemployedQualificationError(
-                "CLASSIC_CUP_WINNER_FALLBACK_UNVERIFIED");
+        /* OG's original 1996/97 career caches THREE real cup bracket
+         * places into grid positions 9..11. The retired unemployed
+         * reader copied only the winner at 9, so its normal fallback
+         * stepped into empty BSS and invalidated the entire UEFA field.
+         * Read the SAME OG priority order, but only when the original
+         * national-cup resident verified each candidate's identity.
+         * The normal employed/CLASSIC OG loop below remains unchanged. */
+        for(unsigned i=0;i<3u;++i) {
+            uint8_t *grid=_primaryQualifiedTeamGrids+
+                (9u+i)*sizeof(TeamFileEx);
+            const uint16_t id=_cachedSecondaryQualifiedTeamIds[i];
+            if(id==0xffffu)continue; /* no verified native bracket slot */
+            if(BE_READ_U16(grid)!=id) {
+                extern void Expanded_OGWorld_UnemployedQualificationError(const char *);
+                Expanded_OGWorld_UnemployedQualificationError(
+                    "CLASSIC_CUP_PODIUM_ID_MISMATCH");
+                return;
+            }
+            if(id==_cachedPrimaryQualifiedTeamIds[0] ||
+               id==_euroCupTitleHolderTeamId)continue;
+            clearEuropeanCupTitleHolderIfMatchTeam(id);
+            appendTeamToCupWinnersCupList(grid);
+            if(i)
+                fprintf(stderr,"[og-classic-cwc-fallback] "
+                    "country=%u candidate=%u team=%04x "
+                    "source=VERIFIED_OG_CUP_BRACKET\n",
+                    (unsigned)_currentCompetitionIndex,i,(unsigned)id);
             return;
         }
+        extern void Expanded_OGWorld_UnemployedQualificationError(const char *);
+        Expanded_OGWorld_UnemployedQualificationError(
+            "CLASSIC_CUP_WINNER_FALLBACK_UNVERIFIED");
+        return;
     }
 #endif
     for (;;) {

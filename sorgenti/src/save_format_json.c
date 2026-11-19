@@ -7019,7 +7019,7 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
         extern int Expanded_OGWorld_WriteSaveJson(mjson_print_fn_t,void *);
         SAVE_CAREER_TRACE("BEFORE_OG_RESIDENT");
         if(!Expanded_OGWorld_WriteSaveJson(json_out_emit,&out)) {
-            fprintf(stderr,"[og-world-save] WRITE_REJECTED world=%s reason=NO_RESIDENT prior-save-retained=1\n",World_Tag());
+            fprintf(stderr,"[og-world-save] WRITE_REJECTED world=%s reason=OG_STATE_OR_JOURNAL_REJECTED prior-save-retained=1\n",World_Tag());
             if(out.ptr)swos_io_free(out.ptr);
             return 1;
         }

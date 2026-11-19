@@ -34,4 +34,32 @@ static inline int ExpandedOGQual_SameCupEdition(
            year==wanted_year;
 }
 
+/* Exact 1996/97 OG Cup Winners' Cup priority: three cup-bracket
+ * finalists/candidates from DIY_CacheSecondaryQualifiedTeamsGrid.
+ * That native routine swaps the first final pair by the final result
+ * bit (matchPairsPerRound==1), then copies grid positions [0..2].
+ * The caller supplies BE-decoded original cupTeamIds and verifies all
+ * returned IDs against the original resident participant list. */
+static inline int ExpandedOGQual_ClassicCupPodium(
+    const uint8_t *grid,uint8_t finalResult,unsigned finalPairs,
+    const uint16_t *nativeTeamIds,const uint16_t *participants,
+    unsigned count,uint16_t knownWinner,uint16_t podium[3])
+{
+    if(!grid || !nativeTeamIds || !participants || !podium ||
+       count<3u || count>64u || finalPairs!=1u)return 0;
+    const unsigned slots[3]={
+        (unsigned)grid[(finalResult&1u)?1u:0u],
+        (unsigned)grid[(finalResult&1u)?0u:1u],
+        (unsigned)grid[2]};
+    for(unsigned k=0;k<3u;++k) {
+        if(slots[k]>=count)return 0;
+        const uint16_t id=nativeTeamIds[slots[k]];
+        if(ExpandedOGQual_WinnerIndex(id,participants,count)<0)return 0;
+        for(unsigned j=0;j<k;++j)
+            if(podium[j]==id)return 0;
+        podium[k]=id;
+    }
+    return podium[0]==knownWinner;
+}
+
 #endif

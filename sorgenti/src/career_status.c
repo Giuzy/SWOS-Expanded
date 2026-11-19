@@ -4229,8 +4229,16 @@ uint32_t Expanded_OGWorld_CupCount(void) {
 }
 uint32_t Expanded_OGWorld_CupMatches(void) {
     uint32_t count=0u;
-    for(uint32_t k=0;k<s_expOGCupCount;++k)
-        if(s_expOGCups[k].used)count+=s_expOGCups[k].matchesPlayed;
+    for(uint32_t k=0;k<s_expOGCupCount;++k) {
+        const ExpandedOGCup *c=&s_expOGCups[k];
+        /* A manager entering the cup unbinds its RESIDENT executor to
+         * prevent a second match, but does not undo the OG matches this
+         * same resident already completed and witnessed in the journal.
+         * Removing them from the cumulative counter makes a tick with
+         * valid new callbacks look non-monotonic and blocks autosave. */
+        count+=ExpandedOGCup_ObservedMatchCount(c->used,
+                           c->managed_excluded,c->matchesPlayed);
+    }
     return count;
 }
 uint32_t Expanded_OGWorld_CupUnsupported(void){return s_expOGCupUnsupported;}
@@ -4567,7 +4575,16 @@ void Expanded_OGWorld_FixtureTickEnd(void)
     if(!crossed && !identical) {
         ++s_expOGFixtureIssues;
         fprintf(stderr,"[og-fixture-tick] WRITE_BLOCKED "
-                       "cause=CALLBACK_COUNTER_MISMATCH prior-CAR-preserved=1\n");
+                       "cause=CALLBACK_COUNTER_MISMATCH "
+                       "league-before=%u league-after=%u "
+                       "cup-before=%u cup-after=%u "
+                       "captured-league=%llu captured-cup=%llu "
+                       "prior-CAR-preserved=1\n",
+                (unsigned)s_expOGTickNativeLeague,
+                (unsigned)a.native_matches,
+                (unsigned)s_expOGTickNativeCup,(unsigned)cups,
+                (unsigned long long)observedLeague,
+                (unsigned long long)observedCup);
     }
     fprintf(stderr,"[og-fixture-tick] world=%s year=%u manager=%s "
                    "native-league-delta=%llu captured-league=%llu "
@@ -5812,11 +5829,11 @@ int Expanded_OGWorld_YearEndCupResult(uint8_t *record)
  * menus or a reconstructed LWE table. Fail closed on ambiguous identities.
  * No match, draw, RNG or resident data is touched by this reader. */
 static int exp_og_qualification_country(uint8_t country,uint16_t closedYear,
-                                      TeamFileEx out[10],unsigned *ranked,
-                                      int *cupVerified)
+                                      TeamFileEx out[12],unsigned *ranked,
+                                      int *cupVerified,unsigned *podiumCount)
 {
-    memset(out,0,10u*sizeof(*out));
-    *ranked=0u;*cupVerified=0;
+    memset(out,0,12u*sizeof(*out));
+    *ranked=0u;*cupVerified=0;*podiumCount=0u;
     const ExpandedOGLeague *ctx=exp_find(country,0u,closedYear);
     if(ctx && ctx->used && ctx->lastPhase>=56u &&
        ctx->teamCount>=2u && ctx->teamCount<=EXP_OG_MAX_TEAMS &&
@@ -5874,7 +5891,45 @@ static int exp_og_qualification_country(uint8_t country,uint16_t closedYear,
             cup->comp.base.winnerTeam,participantIds,cup->teamCount);
         if(winningIndex>=0) {
             memcpy(&out[9],&cup->teams[winningIndex],sizeof(out[9]));
-            *cupVerified=1;
+            *cupVerified=1;*podiumCount=1u;
+            /* Original DIY_CacheSecondaryQualifiedTeamsGrid obtains THREE
+             * grids (champion, finalist and next bracket candidate) from
+             * the finished OG bracket, after the native final home/away
+             * result has reordered its first pairing. The Amiga BSS
+             * reserves two additional TeamFileEx records after slot 9.
+             * Populate them only with UNIQUE original OG participants:
+             * never derive a runner-up from league rank or random draw. */
+            if(World_Current()==WORLD_9697) {
+                uint16_t bracketIds[EXP_OG_MAX_CUP_TEAMS]={0};
+                uint16_t podium[3];
+                for(unsigned i=0;i<cup->teamCount;++i)
+                    bracketIds[i]=BE_READ_U16(
+                        (const uint8_t *)&cup->comp.cupTeamIds[i]);
+                const int complete=ExpandedOGQual_ClassicCupPodium(
+                    cup->comp.teamGridPairings,
+                    cup->comp.matchData.cup.cupRoundResults[0],
+                    (unsigned)cup->comp.base.matchPairsPerRound,
+                    bracketIds,participantIds,cup->teamCount,
+                    cup->comp.base.winnerTeam,podium);
+                if(complete) {
+                    *podiumCount=3u;
+                    for(unsigned i=1;i<3u;++i) {
+                        const int index=ExpandedOGQual_WinnerIndex(
+                            podium[i],participantIds,cup->teamCount);
+                        memcpy(&out[9u+i],&cup->teams[index],
+                               sizeof(out[9u+i]));
+                    }
+                }
+                fprintf(stderr,"[og-classic-cup-podium] world=%s "
+                     "year=%u country=%u winner=%04x "
+                     "finalist=%04x next=%04x status=%s "
+                     "source=OG_BRACKET_NO_DRAW\n",
+                     World_Tag(),(unsigned)closedYear,(unsigned)country,
+                     (unsigned)cup->comp.base.winnerTeam,
+                     complete?(unsigned)podium[1]:0xffffu,
+                     complete?(unsigned)podium[2]:0xffffu,
+                     complete?"THREE_NATIVE_IDS":"FALLBACK_UNVERIFIED");
+            }
         }
     }
     if(nationalDefined)
@@ -5985,7 +6040,10 @@ int Expanded_OGWorld_QualifyUnemployed(uint16_t closedYear,uint16_t nextYear)
     /* A separate scratch list replaces each *Copy's original write cursor.
      * The original qualification callbacks still choose all entrants. */
     static uint8_t field[3][EXP_QUAL_MAX_ENTRANTS*2u];
-    TeamFileEx savedGrids[10],savedHolders[3];
+    /* Twelve contiguous OG grid records: nine league places, the cup
+     * champion, two native bracket fallback places. This is exactly the
+     * BSS area before _tertiaryQualifiedTeamGrid in swos_globals.c. */
+    TeamFileEx savedGrids[12],savedHolders[3];
     uint16_t savedPrimary[9],savedSecondary[3];
     const uint16_t savedTertiary=_cachedTertiaryQualifiedTeamId;
     const uint16_t savedSel=_selTeamNumber,savedNat=_isNationalSelector;
@@ -6052,10 +6110,10 @@ int Expanded_OGWorld_QualifyUnemployed(uint16_t closedYear,uint16_t nextYear)
            (uintptr_t)tag==(uintptr_t)-2)continue;
         /* Eligibility and continental association are applied by the
          * actual native OG callbacks, not a new set of football rules. */
-        TeamFileEx ranked[10];
-        unsigned n=0u;int cup=0;
+        TeamFileEx ranked[12];
+        unsigned n=0u,podiumCount=0u;int cup=0;
         if(!exp_og_qualification_country(country,closedYear,
-                                         ranked,&n,&cup)) {
+                                         ranked,&n,&cup,&podiumCount)) {
             ++missing;
             fprintf(stderr,"[og-unemployed-qual-country] "
                 "world=%s year=%u country=%u "
@@ -6069,9 +6127,17 @@ int Expanded_OGWorld_QualifyUnemployed(uint16_t closedYear,uint16_t nextYear)
             _cachedPrimaryQualifiedTeamIds[j]=
                 PACK_BE_U16(ranked[j].team.countryNumber,
                             ranked[j].team.teamOrdinal);
-        _cachedSecondaryQualifiedTeamIds[0]=cup?
-            PACK_BE_U16(ranked[9].team.countryNumber,
-                        ranked[9].team.teamOrdinal):0xffffu;
+        /* The native Classic CWC callback walks cup grids 9,10,11
+         * in precisely this order when a league winner/titleholder
+         * excludes an earlier candidate. Mark absent fallback slots
+         * as INVALID, not as an invented country 0/team 0. */
+        for(unsigned j=0;j<3u;++j) {
+            const TeamFileEx *t=&ranked[9u+j];
+            const uint16_t id=PACK_BE_U16(
+                t->team.countryNumber,t->team.teamOrdinal);
+            _cachedSecondaryQualifiedTeamIds[j]=
+                j<podiumCount?id:0xffffu;
+        }
         _cachedTertiaryQualifiedTeamId=0xffffu;
         _currentCompetitionIndex=country;
         /* Modern UEFAQ reads the same OG table but must NOT enter
@@ -6563,8 +6629,17 @@ static int og_saved_read_hex(const char *s,int len,const char *key,uint8_t *dst,
  * This is NOT permission to replay or synthesize any result on CONTINUE. */
 static int exp_fixture_emit_json(OGEmit emit,void *ud)
 {
-    if(s_expOGFixtureIssues || s_expOGFixtureCount>EXP_OG_FIXTURE_MAX)
-        return 0; /* bad tick must preserve the prior CAR */
+    if(s_expOGFixtureIssues || s_expOGFixtureCount>EXP_OG_FIXTURE_MAX) {
+        fprintf(stderr,"[og-fixture-journal] SAVE_REJECTED "
+                       "reason=%s issues=%u count=%lu max=%u "
+                       "prior-CAR-preserved=1\n",
+                s_expOGFixtureIssues?"OBSERVED_NATIVE_COUNTER_OR_ID_ERROR":
+                                      "CAPACITY_EXCEEDED",
+                (unsigned)s_expOGFixtureIssues,
+                (unsigned long)s_expOGFixtureCount,
+                (unsigned)EXP_OG_FIXTURE_MAX);
+        return 0; /* never overwrite a valid prior CAR */
+    }
     const size_t n=s_expOGFixtureCount*EXP_OG_FIXTURE_SIZE;
     if(n>(size_t)EXP_OG_FIXTURE_MAX*EXP_OG_FIXTURE_SIZE)return 0;
     char *hex=(char *)malloc(n*2u+1u);

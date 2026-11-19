@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include "expanded_og_league_bridge.h"
+#include "expanded_og_season_retention.h"
 int main(void){
     const uint16_t resident[4]={0x101u,0x102u,0x103u,0x104u};
     const int32_t resident_rows[4]={0,1,2,3};
@@ -59,6 +60,16 @@ int main(void){
     assert(ExpandedOGLeagueBridge_SeasonComplete(18u,2u,306u,306u));
     assert(!ExpandedOGLeagueBridge_SeasonComplete(24u,1u,276u,276u));
     assert(!ExpandedOGLeagueBridge_SeasonComplete(0u,2u,0u,0u));
+    /* Real Windows 211 failure: excluding a manager's cup with 75
+     * historical native fixtures must not make the cumulative OG cup
+     * count decrease by 75 when other resident cups advance by 18. */
+    assert(ExpandedOGCup_ObservedMatchCount(1,0,75u)==75u);
+    assert(ExpandedOGCup_ObservedMatchCount(0,1,75u)==75u);
+    assert(ExpandedOGCup_ObservedMatchCount(0,0,75u)==0u);
+    assert(ExpandedOGCup_ObservedMatchCount(0,1,0u)==0u);
+    assert(611u+ExpandedOGCup_ObservedMatchCount(0,1,75u)==686u);
+    assert(686u-668u==18u);
+    puts("OG_CUP_MANAGER_UNBOUND_HISTORIC_COUNTERS=PASS_ISOLATED_ONLY");
     puts("OG_MANAGER_COMPLETED_LEAGUE_NO_EXTRA_FIXTURE=PASS_ISOLATED");
     puts("OG_LEAGUE_BRIDGE_REMAP_AND_SCORE=PASS_ISOLATED");
     puts("OG_SCOTTISH_FOUR_CYCLES_STAGE0_GUARD=PASS_ISOLATED");

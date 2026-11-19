@@ -32,6 +32,22 @@ int main(void){
     local_rows[1]=-1;local_rows[3]=-1;
     assert(!ExpandedOGLeagueBridge_Map(resident,4u,resident_rows,
         selected,3u,0x101u,local_rows,4u,native,rows));
+    /* Scotland 2026/27: country 33, divisions 1-3 have ten clubs,
+     * four meetings and NO stage transitions (SP_TAB[7]==0).
+     * The Premiership has a true stage and stays protected. */
+    const uint8_t scot_lower[16]={0,33,3,10,4,36,0,0,16,0,16,0,16,0,16,0};
+    const uint8_t scot_premier[16]={0,33,0,12,4,33,5,1,44,0,50,0,60,0,40,1};
+    const uint8_t scot_bad[16]={0,33,3,12,4,36,0,0,16,0,16,0,16,0,16,0};
+    assert(!ExpandedOGLeagueBridge_NeedsStageBridge(scot_lower,10u,4u));
+    assert(ExpandedOGLeagueBridge_NeedsStageBridge(scot_premier,12u,4u));
+    assert(ExpandedOGLeagueBridge_NeedsStageBridge(scot_bad,10u,4u));
+    assert(ExpandedOGLeagueBridge_NeedsStageBridge(scot_lower,10u,2u));
+    assert(ExpandedOGLeagueBridge_NeedsStageBridge(NULL,10u,4u));
+    /* Fifteen already played games are a valid partial checkpoint, not
+     * completed 180-match season and not fixtures to replay. */
+    assert(!ExpandedOGLeagueBridge_SeasonComplete(10u,4u,15u,15u));
+    assert(ExpandedOGLeagueBridge_SeasonComplete(10u,4u,180u,180u));
+    assert(!ExpandedOGLeagueBridge_SeasonComplete(10u,4u,181u,180u));
     /* Windows 00.13.189 diagnostics: both worlds ended at 552/552,
      * followed by a phantom 553rd local match. */
     assert(ExpandedOGLeagueBridge_SeasonComplete(24u,2u,552u,552u));
@@ -45,5 +61,6 @@ int main(void){
     assert(!ExpandedOGLeagueBridge_SeasonComplete(0u,2u,0u,0u));
     puts("OG_MANAGER_COMPLETED_LEAGUE_NO_EXTRA_FIXTURE=PASS_ISOLATED");
     puts("OG_LEAGUE_BRIDGE_REMAP_AND_SCORE=PASS_ISOLATED");
+    puts("OG_SCOTTISH_FOUR_CYCLES_STAGE0_GUARD=PASS_ISOLATED");
     return 0;
 }

@@ -64,6 +64,31 @@ int main(void) {
     assert(ExpandedWorld_NativePhaseToDate(2026,56,&back));
     assert(back.year==2026 && back.month==8 && back.day==1);
     assert(!ExpandedWorld_NativePhaseToDate(1996,56,NULL));
+    /* Ordinary unemployed weekly FORWARD reaches July 1 exactly;
+     * the following click moves on from July 1. Debug jumps are separate. */
+    ExpandedWorldDate target;
+    assert(ExpandedWorld_RegularForwardTarget(
+        (ExpandedWorldDate){2027,6,23},&target) &&
+        target.year==2027 && target.month==6 && target.day==30);
+    assert(ExpandedWorld_RegularForwardTarget(
+        (ExpandedWorldDate){2027,6,24},&target) &&
+        target.year==2027 && target.month==7 && target.day==1);
+    assert(ExpandedWorld_RegularForwardTarget(
+        (ExpandedWorldDate){2027,6,30},&target) &&
+        target.year==2027 && target.month==7 && target.day==1);
+    assert(ExpandedWorld_RegularForwardTarget(target,&target) &&
+        target.year==2027 && target.month==7 && target.day==8);
+    assert(ExpandedWorld_RegularForwardTarget(
+        (ExpandedWorldDate){1997,6,30},&target) &&
+        target.year==1997 && target.month==7 && target.day==1);
+    assert(ExpandedWorld_RegularForwardTarget(
+        (ExpandedWorldDate){2026,12,30},&target) &&
+        target.year==2027 && target.month==1 && target.day==6);
+    assert(!ExpandedWorld_RegularForwardTarget(
+        (ExpandedWorldDate){2027,2,30},&target));
+    assert(!ExpandedWorld_RegularForwardTarget(
+        (ExpandedWorldDate){2027,6,30},NULL));
+    puts("OG_UNEMPLOYED_JULY1_BOUNDARY=PASS_ISOLATED");
     puts("OK: calendar dates, season weeks, leap years, monotonic advances");
     return 0;
 }

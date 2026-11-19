@@ -3,6 +3,18 @@
 #define EXPANDED_OG_LEAGUE_BRIDGE_H
 #include <stdint.h>
 #define EXP_OG_BRIDGE_MAX_ROWS 64u
+/* A World_LeagueSplits definition may encode ordinary 4-cycle leagues
+ * with zero actual split stages. Byte [4] gives the number of meetings
+ * and byte [7] the number of stage transitions. LeagueSplit_Init uses
+ * these exact fields. Invalid/mismatched metadata must stay blocked. */
+static inline int ExpandedOGLeagueBridge_NeedsStageBridge(
+    const uint8_t *table,unsigned teams,unsigned cycles)
+{
+    if(!table || teams<2u || teams>EXP_OG_BRIDGE_MAX_ROWS ||
+       cycles<2u || cycles>4u ||
+       table[3]!=teams || table[4]!=cycles)return 1;
+    return table[7]!=0u;
+}
 /* Guard for the complete ordinary native round-robin season. A count alone
  * does not authorize a result: BOTH OG contexts must agree exactly. No
  * fixture generation, replay or CAR state changes are performed here. */

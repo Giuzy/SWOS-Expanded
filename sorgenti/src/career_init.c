@@ -389,6 +389,22 @@ void ChooseTeamAndStartCareer(void)
               return;
           }
         }
+#ifdef SWOS_SDL_BUILD
+        /* A resident bind is NOT a new league. Before salary, save or
+         * MATCH, all previous OG results and each standings row must
+         * already be present in the attached club's local context. */
+        if(Expanded_OGWorld_ClubBound()) {
+            extern int Expanded_OGWorld_PreflightClubHire(void);
+            if(!Expanded_OGWorld_PreflightClubHire()) {
+                fprintf(stderr,"[og-hire-preflight] ABORT BEFORE FIRST MATCH "
+                               "reason=LOCAL_RESIDENT_NOT_EXACT "
+                               "prior-CAR-preserved=1 no-replay=1\n");
+                extern uint16_t _fireResetFlag;
+                _fireResetFlag=1;
+                return;
+            }
+        }
+#endif
         extern void Expanded_CommitNegotiatedSalary(void);
         Expanded_CommitNegotiatedSalary();
         /* The actual midseason hire is NOT a fresh first-week contest:

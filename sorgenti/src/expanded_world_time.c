@@ -83,6 +83,21 @@ int ExpandedWorld_DateAfterWeeks(ExpandedWorldDate start, uint32_t elapsed_weeks
     return ExpandedWorld_IndexToDate((int32_t)target, out_date);
 }
 
+int ExpandedWorld_RegularForwardTarget(ExpandedWorldDate today,
+                                       ExpandedWorldDate *out_date)
+{
+    ExpandedWorldDate target;
+    int32_t index=0;
+    if(!out_date || !ExpandedWorld_DateToIndex(today,&index) ||
+       index>INT32_MAX-7 || !ExpandedWorld_IndexToDate(index+7,&target))
+        return 0;
+    if(today.month==6u && target.year==today.year &&
+       target.month==7u)
+        target=(ExpandedWorldDate){today.year,7u,1u};
+    *out_date=target;
+    return 1;
+}
+
 /* OpenSWOS native competition keys count 1/8 of a calendar month,
  * NOT weeks since August. A byte key advances by +0x60 every January:
  * 56=1 Aug in the season's first year, 96=1 Jan next year.

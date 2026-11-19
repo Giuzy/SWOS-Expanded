@@ -917,9 +917,9 @@ void Expanded_UnemployedWait(void) {
             fprintf(stderr,"[calendar] FAIL FIVE_YEAR_DATE_OUT_OF_RANGE\n");
             return;
         }
-    } else if(now_index<=INT32_MAX-7 &&
-              ExpandedWorld_IndexToDate(now_index+7,&target)) {
-        /* A regular FORWARD TIME always means precisely seven civil days. */
+    } else if(ExpandedWorld_RegularForwardTarget(live.today,&target)) {
+        /* A normal week crossing the season boundary ends at July 1.
+         * The following click continues to July 8, not July 7. */
     } else {
         fprintf(stderr,"[calendar] FAIL WEEK_DATE_OUT_OF_RANGE\n");
         return;
@@ -961,6 +961,15 @@ void Expanded_UnemployedWait(void) {
     if(!ExpandedWorldLive_AdvanceToDate(target))return;
 #endif
     s_debug_wait_jump_years=0u;
+    if(!jump_years && !s_debug_june30_once && !s_debug_month_once &&
+       live.today.month==6u && target.month==7u &&
+       target.day==1u && target.year==live.today.year)
+        fprintf(stderr,"[calendar] FORWARD_JULY1_COMMITTED "
+                       "world=%s from=%04u-%02u-%02u to=%04u-07-01 "
+                       "native=OG single-writer=1\n",
+                World_Tag(),(unsigned)live.today.year,
+                (unsigned)live.today.month,(unsigned)live.today.day,
+                (unsigned)target.year);
     if(s_debug_june30_once)
         fprintf(stderr,"[debug-june30] OG_DATE_COMMITTED "
                        "from=%04u-%02u-%02u to=%04u-%02u-%02u "

@@ -23,6 +23,10 @@ int ExpandedWorld_SeasonWeek(ExpandedWorldDate start, ExpandedWorldDate now,
                              uint32_t *out_week); /* 1-based, not ISO */
 int ExpandedWorld_DateAfterWeeks(ExpandedWorldDate start, uint32_t elapsed_weeks,
                                   ExpandedWorldDate *out_date);
+/* Normal unemployed FORWARD TIME: 7 days, but exactly July 1 when
+ * crossing that boundary; no effect on other calendar/debug actions. */
+int ExpandedWorld_RegularForwardTarget(ExpandedWorldDate today,
+                                       ExpandedWorldDate *out_date);
 /* Native OpenSWOS sortKey: calendar month / 8 (+0x60 at year rollover).
  * Example: 56 -> 1 Aug 1996, 63 -> 28 Aug 1996, 96 -> 1 Jan 1997. */
 int ExpandedWorld_NativePhaseToDate(uint16_t season_year, uint8_t native_key,

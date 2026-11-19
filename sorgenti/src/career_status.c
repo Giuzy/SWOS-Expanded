@@ -7632,17 +7632,22 @@ static int exp_bridge_local_active(const DIYCompetitionEx *local)
         if(local->leagueStandings[i].teamSelOffset==-1)++managers;
     return managers==1u;
 }
-/* Pure lookup of split metadata. LeagueSplit_Count is MUTATING and must
- * never be used as a preflight predicate (it consumes the current day). */
-static int exp_bridge_has_split(void)
+/* An OG split definition may describe only normal four-cycle meetings.
+ * LeagueSplit_Init consumes byte [4] as cycles, and initializes a real
+ * split only when stage count byte [7] is nonzero. Never call the
+ * mutating LeagueSplit_Count for this read-only bridge preflight. */
+static int exp_bridge_needs_stage_bridge(const DIYCompetitionEx *local)
 {
     int32_t count=0;
     const LeagueSplit *defs=World_LeagueSplits(&count);
-    if(count<0 || count>1024 || (count && !defs))return 1;
+    if(!local || count<0 || count>1024 || (count && !defs))return 1;
     const uint8_t country=World_FileCountry((uint8_t)(_selTeamNumber>>8));
     for(int32_t i=0;i<count;i++)
         if(defs[i].country==country &&
-           defs[i].division==(uint8_t)_currentDivisionIndex)return 1;
+           defs[i].division==(uint8_t)_currentDivisionIndex &&
+           ExpandedOGLeagueBridge_NeedsStageBridge(
+               defs[i].table,(unsigned)local->base.numTeams,
+               (unsigned)local->base.playEachTeam))return 1;
     return 0;
 }
 static ExpandedOGLeague *exp_bridge_resident(const DIYCompetitionEx *local)
@@ -7662,7 +7667,8 @@ static ExpandedOGLeague *exp_bridge_resident(const DIYCompetitionEx *local)
        /* Group/split stage indices require a distinct verified bridge.
         * Never copy a tournament seed/order using league-only offsets. */
        ctx->comp.base.hasGroups!=0 || local->base.hasGroups!=0 ||
-       exp_bridge_has_split() ||
+       exp_bridge_needs_stage_bridge(local) ||
+       ctx->comp.base.playEachTeam!=local->base.playEachTeam ||
        ctx->comp.base.numTeams!=local->base.numTeams ||
        ctx->teamCount!=(uint16_t)local->base.numTeams ||
        ctx->comp.pointsForAWin!=local->pointsForAWin)return NULL;
@@ -7765,6 +7771,36 @@ int Expanded_OGWorld_PreflightLocalLeague(const DIYCompetitionEx *local)
         exp_bridge_fault("STALE_OR_DIVERGENT_LOCAL_BASE",local,ctx);
         return 0;
     }
+    return 1;
+}
+/* At contract handoff the resident's past OG results are already copied
+ * by BindClub. Verify the complete table, club IDs and counters before
+ * payroll or autosave; do not re-run even one old fixture. */
+int Expanded_OGWorld_PreflightClubHire(void)
+{
+    const DIYCompetitionEx *local=&_diyCompetitionStart;
+    if(!s_expOGBound || !exp_bridge_local_active(local)) {
+        exp_bridge_fault("HIRE_LOCAL_BIND_INVALID",local,NULL);
+        return 0;
+    }
+    if(!Expanded_OGWorld_PreflightLocalLeague(local))return 0;
+    const ExpandedOGLeague *ctx=exp_bridge_resident(local);
+    if(!ctx) {
+        exp_bridge_fault("HIRE_RESIDENT_DISAPPEARED",local,NULL);
+        return 0;
+    }
+    fprintf(stderr,"[og-hire-preflight] VERIFIED world=%s club=%04x "
+           "country=%u div=%u year=%u local-matches=%u "
+           "resident-matches=%u teams=%u cycles=%u "
+           "IDs-and-standings=EXACT historic-replay=0 "
+           "prior-CAR-preserved=1\n",
+           World_Tag(),(unsigned)_selTeamNumber,
+           (unsigned)ctx->country,(unsigned)ctx->division,
+           (unsigned)ctx->year,
+           (unsigned)local->matchesPlayedCount,
+           (unsigned)ctx->comp.matchesPlayedCount,
+           (unsigned)local->base.numTeams,
+           (unsigned)local->base.playEachTeam);
     return 1;
 }
 int Expanded_OGWorld_CommitLocalLeagueFixture(

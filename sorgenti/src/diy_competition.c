@@ -12053,6 +12053,12 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
        !Expanded_CompetitionCoordinator_PreflightFixture("LOCAL_LEAGUE"))
         return 1;
 #endif
+#ifdef SWOS_SDL_BUILD
+    /* Verify resident league identity and history BEFORE matchStarted,
+     * cache writes or dereferencing native fixture team pointers. */
+    if(_gameType==4 && !Expanded_OGWorld_PreflightLocalLeague(baseEx))
+        return 1;
+#endif
     /* Set progressFieldA = 1 */
     baseEx->base.matchStarted = 1;  /* 0x44 */
 
@@ -12123,13 +12129,6 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
         SWOS_DBG("\n");
         SWOS_DBG_FLUSH();
     }
-
-#ifdef SWOS_SDL_BUILD
-    /* Fail before an already-consumed/unsynchronised local fixture can
-     * enter the OG player/CPU simulator. Other modes are unchanged. */
-    if(_gameType==4 && !Expanded_OGWorld_PreflightLocalLeague(baseEx))
-        return 1;
-#endif
 
     /* Safety guard ONLY for auto-advance paths. If either teamSelOffset
      * offset is genuinely out of range for selTeamsPtr during

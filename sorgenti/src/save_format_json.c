@@ -28,6 +28,7 @@
 #include "expanded_og_cache_match.h" /* portable keycache capacity + stream guard */
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_live.h" /* same .CAR, one ledger */
+#include "expanded_competition_coordinator.h" /* post-restore read-only contract */
 #include "squad_extras.h" /* 2026/27 extra roster departure history, in the SAME .CAR */
 #include "expanded_world_time.h" /* civil index read-only check */
 #include "expanded_debug.h" /* transient F12 SAVE/LOAD timings */
@@ -6343,6 +6344,15 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
     s_f12CareerWriteResult=-1;
 #endif
 #ifdef SWOS_SDL_BUILD
+    /* The coordinator has an explicit recovery latch for partially
+     * failed OG ticks. Preserve the PREVIOUS CAR before any allocation,
+     * archive action or disk write; no fake transactional rollback. */
+    if(!Expanded_CompetitionCoordinator_CanSave()) {
+        fprintf(stderr,"[og-world-save] WRITE_BLOCKED "
+                       "reason=COORDINATOR_RECOVERY_REQUIRED "
+                       "old-save-preserved=1\n");
+        return 1;
+    }
     /* Cancelled START (or a terminated pilot) has OG resident data but no
      * civil clock. SaveJson_WriteCareer formerly emitted living_world:null,
      * then atomically replaced a valid world-specific autosave with an
@@ -8133,8 +8143,12 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
 #ifdef SWOS_SDL_BUILD
     {
         extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
-        if(!Expanded_OGWorld_ReadSaveJson((const char *)src,(int)src_size,1)) {
-            fprintf(stderr,"[og-world-save] LOAD_RESTORE_FAILED after-preflight world=%s\n",World_Tag());
+        if(!Expanded_OGWorld_ReadSaveJson((const char *)src,(int)src_size,1) ||
+           !Expanded_CompetitionCoordinator_ValidateRestore()) {
+            fprintf(stderr,"[og-world-save] LOAD_RESTORE_FAILED "
+                           "after-preflight world=%s "
+                           "reason=RESIDENT_OR_CIVIL_COORDINATOR\n",
+                    World_Tag());
             swos_io_free(src);return 1;
         }
     }

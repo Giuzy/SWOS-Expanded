@@ -1,3 +1,6 @@
+## 19/11/2026 — Competition Coordinator / implementazione incrementale 00.13.198
+Il piano 18/11 rimane l'autorita': Expanded coordina data/edizioni, OG esegue/calcola le gare. Fase A1 ha collegato START, avanzamento calendario disoccupato, preflight firma e convalida LOAD ad un contratto condiviso; sono ancora da integrare i giochi del manager, i writer delle coppe e un vero commit atomico CAR. Nessuna nuova competizione, algoritmo o date inventate. FINISH SEASON manuale lasciato intatto per priorita' al motore. [Rapporto](COMPETITION_ENGINE_STEP1_COORDINATOR_0013198_20261119.md).
+
 ## 19/11/2026 — Precedenza decisione 18/11, calendario unificato
 In CAREER Expanded e' il FUTURO coordinatore unico di data, eventi, edizioni, calendario, qualificazioni, storico e salvataggio; OG esegue le gare e fornisce algoritmi di regolamenti/competizioni. Tutti i formati e periodi storici saranno definibili mediante regole e dati validati; l'ingaggio non resetta calendari, il 1 luglio non resetta coppe cross-year. Il precedente vincolo OG-only del 14-15/11 e' superato SOLO per l'autorita' di calendario. NON dichiarare gia' operativo lo scheduler live nella 00.13.197. COMPETITION_ENGINE_ARCHITECTURE_TODO_20261118.md.
 

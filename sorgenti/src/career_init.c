@@ -28,6 +28,7 @@
 #include "expanded_world_time.h"
 #include "fixture_rounds.h"
 #include "expanded_world_live.h"
+#include "expanded_competition_coordinator.h"
 #include "world.h"
 #include "squad_extras.h"
 #include "expanded_debug.h"
@@ -331,7 +332,7 @@ void ChooseTeamAndStartCareer(void)
                 (unsigned long)ExpandedWorldLive_Fixtures());
         /* THE new career's OG world is initialized HERE, before any
          * manager has chosen or accepted a team. */
-        if(!Expanded_OGWorld_Start()) {
+        if(!Expanded_CompetitionCoordinator_Start()) {
             extern uint16_t _fireResetFlag;
             fprintf(stderr,"[og-world] START FAILED: no native league "
                            "contexts available; refusing empty career\n");
@@ -1800,6 +1801,139 @@ int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
     }
     return ok;
 }
+/* Phase A: a single ENTRY POINT for new-world initialization, civil
+ * unemployment advances and read-only START/HIRE/LOAD consistency.
+ * The native OG executor remains the only producer of results; this
+ * facade never uses ExpandedEventScheduler to simulate fixtures.
+ * Manual FINISH SEASON is explicitly left unchanged in 00.13.198. */
+static int s_expCoordinatorRecoveryRequired;
+
+static int exp_coordinator_check(const char *operation,
+                                 ExpandedWorldDate *today)
+{
+    ExpandedLiveCalendarState state;
+    const int live=ExpandedWorldLive_Clubs()!=0 &&
+                   ExpandedWorldLive_CalendarState(&state);
+    const unsigned civilSeason=live?
+        (unsigned)state.today.year-(state.today.month<7u?1u:0u):0u;
+    const int valid=live && s_expOGWorldStarted &&
+                    s_expOGWorldYear==civilSeason;
+    if(!valid) {
+        fprintf(stderr,"[competition-coordinator] BLOCK op=%s "
+            "world=%s live=%d resident=%d native-year=%u "
+            "civil-year=%u reason=OG_CIVIL_NOT_ALIGNED "
+            "action=NO_REPLAY_NO_SAVE_OVERWRITE\n",
+            operation?operation:"UNKNOWN",World_Tag(),live,
+            s_expOGWorldStarted,(unsigned)s_expOGWorldYear,civilSeason);
+        return 0;
+    }
+    if(today)*today=state.today;
+    return 1;
+}
+int Expanded_CompetitionCoordinator_Start(void)
+{
+    s_expCoordinatorRecoveryRequired=0;
+    if(!Expanded_OGWorld_Start() ||
+       !exp_coordinator_check("START",NULL)) {
+        s_expCoordinatorRecoveryRequired=1;
+        return 0;
+    }
+    fprintf(stderr,"[competition-coordinator] START_READY "
+                   "world=%s year=%u owner=OG_NATIVE "
+                   "civil=EXPANDED no-second-simulator=1\n",
+            World_Tag(),(unsigned)s_expOGWorldYear);
+    return 1;
+}
+int Expanded_CompetitionCoordinator_PreflightBind(uint16_t season)
+{
+    ExpandedWorldDate today;
+    if(s_expCoordinatorRecoveryRequired ||
+       !exp_coordinator_check("BIND",&today))return 0;
+    const unsigned actual=(unsigned)today.year-
+                          (today.month<7u?1u:0u);
+    if(actual!=(unsigned)season) {
+        fprintf(stderr,"[competition-coordinator] BLOCK op=BIND "
+                       "requested=%u resident=%u reason=SEASON_MISMATCH\n",
+                (unsigned)season,actual);
+        return 0;
+    }
+    fprintf(stderr,"[competition-coordinator] BIND_PREFLIGHT "
+                   "world=%s season=%u owner=OG_RESIDENT "
+                   "no-world-reset=1\n",World_Tag(),actual);
+    return 1;
+}
+int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
+                                             const char *origin)
+{
+    ExpandedWorldDate from;
+    int32_t fromIndex=0,toIndex=0;
+    const char *tag=origin?origin:"UNEMPLOYED";
+    if(s_expCoordinatorRecoveryRequired ||
+       !exp_coordinator_check(tag,&from) ||
+       !ExpandedWorld_DateToIndex(from,&fromIndex) ||
+       !ExpandedWorld_DateToIndex(target,&toIndex) ||
+       toIndex<fromIndex) {
+        fprintf(stderr,"[competition-coordinator] BLOCK op=%s "
+                       "reason=INVALID_OR_REWIND "
+                       "recovery-required=%d\n",
+                tag,s_expCoordinatorRecoveryRequired);
+        return 0;
+    }
+    if(toIndex==fromIndex)return 1; /* no duplicate native tick */
+    /* Important: validate both date and resident BEFORE the OG mutation.
+     * A failing OG executor may have partially advanced native contexts:
+     * latch recovery; the old CAR remains the recovery point. */
+    if(!Expanded_OGWorld_AdvanceToDate(target)) {
+        s_expCoordinatorRecoveryRequired=1;
+        fprintf(stderr,"[competition-coordinator] FAULT op=%s "
+                       "stage=OG_NATIVE action=RELOAD_PRIOR_CAR "
+                       "no-automatic-retry=1\n",tag);
+        return 0;
+    }
+    if(!ExpandedWorldLive_AdvanceToDate(target) ||
+       !exp_coordinator_check(tag,NULL)) {
+        s_expCoordinatorRecoveryRequired=1;
+        fprintf(stderr,"[competition-coordinator] FAULT op=%s "
+                       "stage=CIVIL_COMMIT action=RELOAD_PRIOR_CAR "
+                       "no-automatic-retry=1\n",tag);
+        return 0;
+    }
+    fprintf(stderr,"[competition-coordinator] ADVANCE_COMMITTED "
+                   "world=%s source=%s from=%04u-%02u-%02u "
+                   "to=%04u-%02u-%02u owner=OG_NATIVE "
+                   "civil=EXPANDED\n",
+            World_Tag(),tag,(unsigned)from.year,
+            (unsigned)from.month,(unsigned)from.day,
+            (unsigned)target.year,(unsigned)target.month,
+            (unsigned)target.day);
+    return 1;
+}
+int Expanded_CompetitionCoordinator_CanSave(void)
+{
+    /* A failed OG tick may have mutated resident state without committing
+     * civil time. Never replace a valid CAR until a validated LOAD. */
+    if(s_expCoordinatorRecoveryRequired) {
+        fprintf(stderr,"[competition-coordinator] BLOCK op=SAVE "
+                       "reason=PARTIAL_NATIVE_TICK "
+                       "old-CAR-preserved=1\n");
+        return 0;
+    }
+    return exp_coordinator_check("SAVE",NULL);
+}
+int Expanded_CompetitionCoordinator_ValidateRestore(void)
+{
+    if(!exp_coordinator_check("LOAD",NULL)) {
+        s_expCoordinatorRecoveryRequired=1;
+        return 0;
+    }
+    s_expCoordinatorRecoveryRequired=0;
+    fprintf(stderr,"[competition-coordinator] LOAD_READY "
+                   "world=%s season=%u resident=OG "
+                   "civil=EXPANDED no-replay=1\n",
+            World_Tag(),(unsigned)s_expOGWorldYear);
+    return 1;
+}
+
 #endif
 
 /* Explicit NEW career. Do not reset the manager or world on a job offer. */
@@ -2086,7 +2220,8 @@ void InitCareerClub(uint16_t teamNo)
         if(ExpandedWorldLive_CalendarState(&state)) {
             const uint16_t actual=(uint16_t)(state.today.year-
                                                   (state.today.month<7u?1u:0u));
-            if(Expanded_OGWorld_BindClub(teamNo,(uint8_t)_currentDivisionIndex,
+            if(Expanded_CompetitionCoordinator_PreflightBind(actual) &&
+               Expanded_OGWorld_BindClub(teamNo,(uint8_t)_currentDivisionIndex,
                                           actual)) {
                 extern int Expanded_OGWorld_PositionClubCalendar(uint16_t,ExpandedWorldDate);
                 const int position=Expanded_OGWorld_PositionClubCalendar(

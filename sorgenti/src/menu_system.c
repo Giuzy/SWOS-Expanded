@@ -1521,6 +1521,16 @@ void DrawMenu(void)
         DrawSelectedMenuItemFrame();
 
     { extern void Expanded_UI_After(void); Expanded_UI_After(); }
+#ifdef SWOS_SDL_BUILD
+    /* Repaint native UNEMPLOYED debug labels above all overlays, with
+     * the real active hitboxes and SWOS font (Windows 197 screenshot). */
+    {
+        extern uint8_t *Expanded_UnemployedCalendarPointer(void);
+        extern void Expanded_UnemployedPaintDebugButtons(void);
+        if(_currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarPointer())
+            Expanded_UnemployedPaintDebugButtons();
+    }
+#endif
 
     /* Which build is this? Every tester report used to open with that question,
      * unanswerable after the fact -- and one macOS report cost a session because

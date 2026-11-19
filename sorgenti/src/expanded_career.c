@@ -18,6 +18,7 @@
 #include <SDL.h>
 #endif
 #include "expanded_world_live.h"
+#include "expanded_competition_coordinator.h"
 #include "expanded_midseason_join.h"
 #include "swos_io.h"
 #include "career_params.h"
@@ -720,6 +721,35 @@ void Expanded_UnemployedDate(char *out,size_t cap) {
 unsigned Expanded_DebugUnemployedWeeks(void) {
     return s_waitWeeks;
 }
+/* Native debug controls are operable but their inherited OG slot
+ * rendering may be masked on SDL; paint the very SAME geometry after
+ * all other menu layers. The labels use the loaded SWOS charset, not
+ * a new font or invisible mouse rectangle. */
+void Expanded_UnemployedPaintDebugButtons(void)
+{
+#ifdef SWOS_SDL_BUILD
+    static const char *const captions[2]={
+        "DEBUG +1 MONTH","DEBUG 30 JUNE"
+    };
+    for(unsigned k=0;k<2u;++k) {
+        MenuEntry *const e=&_menuEntries[4u+k];
+        if(e->isInvisible || e->isDisabled ||
+           !e->dwWidth || !e->dwHeight)continue;
+        DrawMenuItemBackground(8u,e->x,e->y,e->dwWidth,e->dwHeight);
+        DrawMenuItemOuterFrame(8u,e->x,e->y,e->dwWidth,e->dwHeight);
+        const uint16_t y=(uint16_t)(e->y+
+            (e->dwHeight>=6u?(e->dwHeight-6u)/2u:0u));
+        DrawMenuTextCentered((uint16_t)(e->x+e->dwWidth/2u),
+                             y,2u,(uint8_t *)captions[k],
+                             (uint8_t *)_charTables[0]);
+    }
+    /* Respect keyboard and Switch Pro focus after the final paint. */
+    Menu *const menu=(Menu *)_currentMenu;
+    if(menu->selectedEntry==&_menuEntries[4] ||
+       menu->selectedEntry==&_menuEntries[5])
+        DrawSelectedMenuItemFrame();
+#endif
+}
 void Expanded_UnemployedDraw(void) {
     char line[90],date[40],first[32],last[32];
     unsigned season=unemployed_season_year(s_waitWeeks);
@@ -908,33 +938,28 @@ void Expanded_UnemployedWait(void) {
                 (unsigned)live.today.year,(unsigned)live.today.month,
                 (unsigned)live.today.day,(unsigned)target.year,
                 (unsigned)target.month,(unsigned)target.day);
-    /* Advance OG competitions BEFORE committing the unemployment date.
-     * No duplicate LWE scoring, and a failed OG tick must not move time. */
-    {
-        extern int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate);
-        if(!Expanded_OGWorld_AdvanceToDate(target)) {
-            fprintf(stderr,"[og-world] FORWARD TIME FAILED at %04u-%02u-%02u\n",
-                    (unsigned)target.year,(unsigned)target.month,
-                    (unsigned)target.day);
-            if(jump_years==70u) {
-                s_debug_wait_jump_years=0u; /* do not rerun partial stress */
-                fprintf(stderr,"[og-stress] FAILED: STOP AND DISCARD "
-                               "TEST CAREER; DO NOT RETRY PARTIAL WORLD\n");
-            }
-            return;
-        }
-    }
-    if(!ExpandedWorldLive_AdvanceToDate(target)) {
-        fprintf(stderr,"[calendar] FAIL DATE_ADVANCE target=%04u-%02u-%02u\n",
-                (unsigned)target.year,(unsigned)target.month,
-                (unsigned)target.day);
+    /* One live entry point: native OG result execution, followed by the
+     * matching Expanded civil-time commit. Never retry partial failures. */
+#ifdef SWOS_SDL_BUILD
+    if(!Expanded_CompetitionCoordinator_Advance(
+           target,s_debug_june30_once?"DEBUG_JUNE30":
+           s_debug_month_once?"DEBUG_MONTH":"UNEMPLOYED")) {
         if(jump_years==70u) {
             s_debug_wait_jump_years=0u;
-            fprintf(stderr,"[og-stress] FAILED: CURSOR NOT COMMITTED; "
-                           "DISCARD TEST CAREER\n");
+            fprintf(stderr,"[og-stress] FAILED: STOP AND DISCARD "
+                           "TEST CAREER; DO NOT RETRY PARTIAL WORLD\n");
         }
         return;
     }
+#else
+    /* Preserve the preexisting non-SDL path byte-for-byte in behavior.
+     * The SDL-only coordinator cannot own Amiga/classic execution. */
+    {
+        extern int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate);
+        if(!Expanded_OGWorld_AdvanceToDate(target))return;
+    }
+    if(!ExpandedWorldLive_AdvanceToDate(target))return;
+#endif
     s_debug_wait_jump_years=0u;
     if(s_debug_june30_once)
         fprintf(stderr,"[debug-june30] OG_DATE_COMMITTED "
@@ -1044,7 +1069,7 @@ void Expanded_UnemployedWait(void) {
     _fireResetFlag=1;
     Expanded_UnemployedInit();
     if(s_debug_month_once)
-        ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[13];
+        ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[4];
     else if(s_debug_june30_once) {
         /* Offer READY means keyboard/Switch Pro A can open the job
          * offer immediately. Otherwise leave focus on the debug
@@ -1052,7 +1077,7 @@ void Expanded_UnemployedWait(void) {
         const int offerReady=offer_is_valid() &&
                              s_waitWeeks>=s_nextOfferWeek;
         ((Menu*)_currentMenu)->selectedEntry=
-            &_menuEntries[offerReady?10:14];
+            &_menuEntries[offerReady?10:5];
     }
     DrawMenu();
 #ifdef SWOS_SDL_BUILD

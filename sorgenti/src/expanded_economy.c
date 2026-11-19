@@ -12,6 +12,10 @@
 #include "build_info.h"
 #include "world.h"
 #include "expanded_world_time.h"
+#include "expanded_career_date.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_world_live.h"
+#endif
 #include "expanded_midseason_join.h"
 #include "game_types.h"
 #include "expanded_squad_rating.h"
@@ -23,6 +27,7 @@
 
 extern int32_t _newBalance, _gateReceipts, _competitionBonuses;
 extern uint16_t _selTeamNumber, _currentSeasonShowing;
+extern uint16_t _gameType;
 extern uint16_t _currentDivisionIndex;
 extern uint8_t _expandedInfrastructureMenu[];
 extern uint8_t _expandedFacilityDetailMenu[];
@@ -846,6 +851,33 @@ void Expanded_FormatDate(char *out,size_t cap,unsigned season,unsigned phase) {
     }
     Expanded_FormatCivilDate(out,cap,date);
 }
+/* In CAREER, the club banner shows the SAME civil day as UNEMPLOYED
+ * and the saved world. The native sortKey is the NEXT OG match date:
+ * showing it as today falsely skips July on accepting an offer.
+ * Display only; signing does not advance the world or alter fixtures. */
+static void Expanded_FormatCurrentCareerDate(char *out,size_t cap)
+{
+    ExpandedWorldDate civil={0,0,0},shown;
+    int hasCivil=0,isCareer=0;
+    if(!out || !cap)return;
+#ifdef SWOS_SDL_BUILD
+    isCareer=(_gameType==GAME_TYPE_CAREER);
+    if(isCareer) {
+        ExpandedLiveCalendarState state;
+        hasCivil=ExpandedWorldLive_CalendarState(&state);
+        if(hasCivil)civil=state.today;
+    }
+#endif
+    const uint16_t year=(uint16_t)(World_FirstYear()+
+                                   (unsigned)_currentSeasonShowing);
+    const uint8_t nextKey=isCareer?0u:Expanded_Career_NativeCalendarKey();
+    if(!Expanded_CareerDate_Select(isCareer,hasCivil,civil,year,
+                                   nextKey,&shown)) {
+        snprintf(out,cap,"DATE NOT AVAILABLE");
+        return;
+    }
+    Expanded_FormatCivilDate(out,cap,shown);
+}
 extern uint8_t _seasonPlaying;
 extern uint8_t _lastFinancialWeekIndex;
 extern uint16_t _boardConfidenceScore;
@@ -1318,8 +1350,7 @@ static int cb_draw_approved(void) {
     const uint8_t white=2,gold=15;
     char t[100],money[48];
     cb_native(160,8,gold,"BUSINESS",0,110);
-    Expanded_FormatDate(t,sizeof t,World_FirstYear()+(unsigned)_currentSeasonShowing,
-                        (unsigned)Expanded_Career_NativeCalendarKey());
+    Expanded_FormatCurrentCareerDate(t,sizeof t);
     cb_native(277,9,white,strlen(t)>4?t+4:t,0,74);
     cb_mood_face(18,43,_expandedBoardMood);
     cb_native(58,34,white,"BOARD",0,51);
@@ -1459,8 +1490,7 @@ static int cb_draw_full(void) {
     const uint8_t gold=15,white=2;
     cb_center_narrow(160,8,white,"CLUB BUSINESS");
     cb_center_narrow(29,8,white,"< BACK");
-    Expanded_FormatDate(t,sizeof t,World_FirstYear()+(unsigned)_currentSeasonShowing,
-                        (unsigned)Expanded_Career_NativeCalendarKey());
+    Expanded_FormatCurrentCareerDate(t,sizeof t);
     /* Short date fits the top-right plaque. */
     cb_center_narrow(278,8,gold,strlen(t)>4?t+4:t);
     /* BOARD: only the actual approval percentage and changing face. */
@@ -1595,8 +1625,7 @@ void Expanded_ClubOverviewDraw(void) {
     /* Facility captions end near y=146. BACK is now beside the date,
      * and the horizontal separator stops before the clickable button. */
     rect(20,151,220,1,7);
-    Expanded_FormatDate(t,sizeof t,World_FirstYear()+(unsigned)_currentSeasonShowing,
-                        (unsigned)Expanded_Career_NativeCalendarKey());
+    Expanded_FormatCurrentCareerDate(t,sizeof t);
     label(160,154,2,t);
     snprintf(t,sizeof t,"WEEKLY: +%c%lu / -%c%lu",c,(unsigned long)(income/52),
              c,(unsigned long)(expense/52));
@@ -2716,8 +2745,7 @@ void Expanded_UI_After(void) {
             extern void Expanded_UnemployedDate(char *,size_t);
             Expanded_UnemployedDate(date,sizeof date);
         } else
-            Expanded_FormatDate(date,sizeof date,World_FirstYear()+(unsigned)_currentSeasonShowing,
-                                (unsigned)Expanded_Career_NativeCalendarKey());
+            Expanded_FormatCurrentCareerDate(date,sizeof date);
         /* Native font, inside the top-right 126px date textbox, away from
          * all fixture rows (which begin below y=39). */
         ui_native_text(252,24,118,15,date,0);

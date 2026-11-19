@@ -8,3 +8,6 @@ trap 'rm -rf "$DIR"' EXIT
 "$DIR/world_time"
 "$CC" -std=c11 -Wall -Wextra -Werror -O2 -Iinclude src/expanded_world_time.c tests/test_expanded_world_time_all_days.c -o "$DIR/world_time_all_days"
 "$DIR/world_time_all_days"
+"$CC" -std=c11 -Wall -Wextra -Werror -pedantic -Iinclude \
+  src/expanded_world_time.c tests/test_expanded_career_date.c -o "$DIR/career_date"
+"$DIR/career_date"

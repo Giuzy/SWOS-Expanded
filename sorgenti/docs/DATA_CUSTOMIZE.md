@@ -1,3 +1,18 @@
+## Phase 7 (SWOS Expanded; approved 2026-11-19) — progress 00.13.208
+
+**Source-of-truth paths in this repository** are `data_json/competitions/` (the 1996/97 baseline), `data_json/worlds/2627/competitions/` (modern overlay) and `data_json/{teams,worlds/2627/teams,worlds/2627/squad_extras}/`. Older OpenSWOS docs below refer to `bin/data_json/` because the repository layout originally differed. Preserve the existing native OG data/bake/runtime overlay system; do not invent a second engine.
+
+The user approved four outcomes, in order: **A** inventory and convert existing competitions; **B** validate all definitions and cross-links with clear file/field errors; **C** connect them to *real resident OG* competition, matches, next edition and CAR save/continue; **D** equivalent workflow for clubs and players. No visual editor is needed. The assistant can author/validate JSON based on natural-language requests, with consent for any new rule. In 208, the only executable work is the **offline** preflight `sorgenti/scripts/validate_data.py` with synthetic tests `sorgenti/tests/test_validate_data.py`. It is optional developer tooling, uses the Python standard library already used by `sorgenti/scripts/world_import.py`, and is NOT required on the user's Windows machine or a part of the game build.
+
+Developer-only invocation from repo root (not a new Windows requirement):
+```sh
+python3 sorgenti/scripts/validate_data.py --world both --root . --json
+python3 sorgenti/scripts/validate_data.py --world both --root . --teams
+python3 -m unittest discover -s sorgenti/tests -p 'test_validate_data.py'
+```
+
+**Scoped status**: metadata / registered IDs / OG sentinels / references / first-edition JSON dates/entrants can be checked; `--teams` is an optional deeper roster/UUID scan; modern `squad_extras` cross-file IDs, load-time native C safety, full season/qualification/fixture schedule, and CAR cross-process replay prevention still require implementation and Windows evidence. `PASS_SCOPED` never means a competition is installed or playable. Missing/mismatched pointers and OG state cannot be silently repaired; a new primitive needs explicit design consent. The data shape in `libertadores_2027_first.json` is deliberately provisional, and its `runtime_status` remains DATA_ONLY.
+
 # Safe data customization — add/remove countries, teams, players, competitions
 
 Status: **DESIGN / ANALYSIS.** The data→JSON migration (`docs/DATA_JSON.md`,

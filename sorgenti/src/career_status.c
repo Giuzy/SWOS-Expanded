@@ -74,6 +74,7 @@ extern CompetitionCup _uefaCup;
 #include "expanded_world_time.h"
 #include "expanded_world_live.h"
 #include "expanded_competition_coordinator.h"
+#include "expanded_og_resident_selection.h"
 #include "mjson.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -3668,6 +3669,78 @@ static ExpandedOGCup s_expOGCups[EXP_OG_MAX_CUPS];
 static uint32_t s_expOGCupCount,s_expOGCupUnsupported,s_expOGCupFaults;
 static ExpandedOGCup *s_expOGCupCurrent;
 static int s_expOGCupPhase=-1,s_expOGCupTickFault;
+/* OG resident snapshot must not keep the LOCAL career-team identity -1.
+ * Original selectors intentionally omit the human team's file from the
+ * selected-team scratch cache; InitTeams then maps its row to -1.
+ * For a NEW native resident (never the local manager league), restore
+ * only that very same real, already-enrolled OG club and map its row to
+ * a stable nonnegative _selectedTeams index. No standings, IDs, RNG,
+ * promotion rules, or match outcomes are created or changed. */
+static int exp_og_restore_cached_manager_record(int cup,uint8_t country,
+    uint8_t division,uint16_t year,unsigned realEntrants)
+{
+    const unsigned selected=(unsigned)_numSelectedTeams;
+    const unsigned bracket=(unsigned)_diyCompetitionStart.base.numTeams;
+    if(_gameType!=4 || _selTeamNumber==0xffffu || _youreSacked ||
+       World_FileCountry((uint8_t)(_selTeamNumber>>8))!=country ||
+       PACK_BE_U16(_careerTeam.team.countryNumber,
+                    _careerTeam.team.teamOrdinal)!=_selTeamNumber ||
+       (!cup && _careerTeam.team.league!=division) ||
+       realEntrants<2u || realEntrants>64u ||
+       realEntrants>SELECTED_TEAMS_MAX || selected+1u!=realEntrants ||
+       /* Do not mistake an original native cup BYE for a missing club. */
+       bracket!=realEntrants)return 0;
+    uint16_t entrants[64],selectedIds[64];
+    int32_t identities[64];
+    const size_t idOffset=cup?
+        offsetof(DIYCompetitionEx,cupTeamIds):
+        offsetof(DIYCompetitionEx,matchData.league.leagueTeamIds);
+    const uint8_t *const packed=(const uint8_t *)&_diyCompetitionStart+idOffset;
+    for(unsigned i=0u;i<realEntrants;++i) {
+        entrants[i]=(uint16_t)(((uint16_t)packed[2u*i]<<8)|packed[2u*i+1u]);
+        identities[i]=cup?
+            _diyCompetitionStart.bracketScratch.teamOffsetTable[i]:
+            _diyCompetitionStart.leagueStandings[i].teamSelOffset;
+    }
+    for(unsigned i=0u;i<selected;++i)
+        selectedIds[i]=PACK_BE_U16(_selectedTeams[i].team.countryNumber,
+                                  _selectedTeams[i].team.teamOrdinal);
+    unsigned managerRow=0u;
+    if(!ExpandedOGResidentSelection_ManagerRow(_selTeamNumber,
+          entrants,realEntrants,selectedIds,selected,
+          identities,realEntrants,&managerRow))return 0;
+    memcpy(&_selectedTeams[selected],&_careerTeam,sizeof(_careerTeam));
+    /* Native world copy is CPU-owned; local careerTeam stays human-owned.
+     * This makes the resident valid even after job changes/sacking. */
+    _selectedTeams[selected].team.teamControls=1u;
+    if(cup)
+        _diyCompetitionStart.bracketScratch.teamOffsetTable[managerRow]=
+            (int32_t)selected;
+    else
+        _diyCompetitionStart.leagueStandings[managerRow].teamSelOffset=
+            (int32_t)selected;
+    _numSelectedTeams=(uint16_t)(selected+1u);
+    fprintf(stderr,"[og-resident-id] CACHED_MANAGER_RESTORED "
+        "kind=%s world=%s country=%u slot=%u year=%u club=%04x "
+        "row=%u resident-index=%u count=%u->%u source=REAL_OG_MEMBER "
+        "no-extra-club=1 no-replay=1\n",
+        cup?"CUP":"LEAGUE",World_Tag(),(unsigned)country,
+        (unsigned)division,(unsigned)year,(unsigned)_selTeamNumber,
+        managerRow,selected,selected,(unsigned)_numSelectedTeams);
+    return 1;
+}
+static unsigned exp_og_real_cup_entrants(const uint8_t *record,uint8_t country,
+                                        uint8_t slot)
+{
+    int32_t count=0;
+    const WorldCup *rules=World_Cups(&count);
+    if(rules)for(int32_t i=0;i<count;++i)
+        if(rules[i].country==country && rules[i].slot==slot &&
+           rules[i].record==(const void *)record)
+            return (unsigned)rules[i].n;
+    return (unsigned)((const CompCupHeader *)record)->teams;
+}
+
 
 /* The resident original type-2 European/Libertadores edition is the ONLY
  * match writer. During FINISH SEASON expose its played OG result to
@@ -6995,6 +7068,8 @@ int Expanded_OGWorld_AdvanceCup(uint8_t *record,uint8_t country,
         Career_InitCompetitionTeamSelectionFromTableHeaderSpec(record);
         InitDIYCupFromRecord(record);
         InitTeams();
+        (void)exp_og_restore_cached_manager_record(1,country,slot,year,
+            exp_og_real_cup_entrants(record,country,slot));
     }
     const unsigned selected=(unsigned)_numSelectedTeams;
     const unsigned bracket=(unsigned)_diyCompetitionStart.base.numTeams;
@@ -8174,6 +8249,11 @@ void Career_AutoAdvanceInternationalCompetitionFixtures(uint8_t *record, uint16_
     InitDIYCompetitionFromTableEntry(index, record);
     InitTeams();
 #ifdef SWOS_SDL_BUILD
+    if(s_expOGCurrent && !s_expOGCurrent->used)
+        (void)exp_og_restore_cached_manager_record(0,
+            s_expOGCurrent->country,s_expOGCurrent->division,
+            s_expOGCurrent->year,
+            (unsigned)_diyCompetitionStart.base.numTeams);
     if(s_expOGCurrent) {
         ExpandedOGLeague *ctx=s_expOGCurrent;
         const uint8_t compId=(uint8_t)((Competition *)record)->compId;

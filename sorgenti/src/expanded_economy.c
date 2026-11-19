@@ -861,7 +861,9 @@ static void Expanded_FormatCurrentCareerDate(char *out,size_t cap)
     int hasCivil=0,isCareer=0;
     if(!out || !cap)return;
 #ifdef SWOS_SDL_BUILD
-    isCareer=(_gameType==GAME_TYPE_CAREER);
+    /* Original OG game type 4 is CAREER. The GAME_TYPE_CAREER macro
+     * is local to menus.c; it is not exported by game_types.h. */
+    isCareer=(_gameType==4u);
     if(isCareer) {
         ExpandedLiveCalendarState state;
         hasCivil=ExpandedWorldLive_CalendarState(&state);

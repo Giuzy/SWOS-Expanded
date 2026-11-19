@@ -5436,10 +5436,17 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
                                 modern?36u:32u};
     int ready=1;
     if(later) {
-        for(unsigned k=0;k<3u;++k)
-            if(Expanded_OGWorld_QualReadNext(year,k,qualified[k],
-                        EXP_QUAL_MAX_ENTRANTS)!=expected[k])
+        /* The historic Champions (type 2) is independent of CWC and
+         * UEFA Cup (type 1). Requiring all three OG fields here can
+         * silently suppress a verified Champions next edition. Modern
+         * UEFA keeps its existing three-field preflight unchanged. */
+        for(unsigned k=0;k<(modern?3u:1u);++k) {
+            const unsigned count=Expanded_OGWorld_QualReadNext(
+                year,k,qualified[k],EXP_QUAL_MAX_ENTRANTS);
+            if(modern ? count!=expected[k] :
+               !ExpandedQual_ClassicEditionReady(k,count))
                 ready=0;
+        }
         /* Historic Copa is independent of the three UEFA fields. One
          * missing Cup Winners' Cup entrant list must not discard the
          * 20 verified CONMEBOL champions/runners-up from OG standings. */
@@ -8069,11 +8076,25 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
                     "world=%s year=%u slot=%u native-phase=%u "
                     "cache-phase=%u home=%04x away=%04x "
                     "score=%u-%u reason=NOT_PROVEN_EXACT "
+                    "bridge-blocked=%d unmapped=%u table-diff=%u "
+                    "matches=%u/%u active-phase-flag=%u local-slot=%u "
+                    "phase-matches=%d cache-not-found=%d "
+                    "played-score-matches=%d gate=%d rebound=%d "
                     "scores-unchanged=1\n",
                     World_Tag(),(unsigned)year,(unsigned)slot,
                     (unsigned)native_phase,(unsigned)phase,
                     (unsigned)home_id,(unsigned)away_id,
-                    (unsigned)goals_home,(unsigned)goals_away);
+                    (unsigned)goals_home,(unsigned)goals_away,
+                    s_expOGBridgeBlocked,unmapped,table_differences,
+                    (unsigned)ctx->comp.matchesPlayedCount,
+                    (unsigned)local->matchesPlayedCount,
+                    (unsigned)active->phaseFlag,
+                    (unsigned)local->base.field_2E,
+                    (int)(native_phase==phase),
+                    (int)(cache==EXP_OG_CACHE_NOT_FOUND),
+                    (int)(phase_cache==EXP_OG_CACHE_PLAYED &&
+                          phase_match.packed_goals==packed),
+                    can_rebind,rebound);
         }
     }
     const char *cache_name=

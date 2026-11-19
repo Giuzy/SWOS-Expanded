@@ -75,6 +75,19 @@ int main(void)
         assert(!ExpandedQual_IsExact(&d));
         assert(d.duplicate_resident==1 && d.missing==1);
     }
+    /* 1996/97 regression: a missing CWC list must not cancel the
+     * verified OG Champions and UEFA fields, nor create a phantom CWC. */
+    const unsigned independent[3]={16u,0u,32u};
+    assert(ExpandedQual_ClassicEditionReady(0u,independent[0]));
+    assert(!ExpandedQual_ClassicEditionReady(1u,independent[1]));
+    assert(ExpandedQual_ClassicEditionReady(2u,independent[2]));
+    assert(ExpandedQual_ClassicEditionReady(1u,32u));
+    assert(!ExpandedQual_ClassicEditionReady(0u,0u));
+    assert(!ExpandedQual_ClassicEditionReady(0u,32u));
+    assert(!ExpandedQual_ClassicEditionReady(1u,16u));
+    assert(!ExpandedQual_ClassicEditionReady(2u,0u));
+    assert(!ExpandedQual_ClassicEditionReady(3u,32u));
+    puts("OG_CLASSIC_INDEPENDENT_QUALIFIER_GATES=PASS_ISOLATED_ONLY");
     puts("OG_UNEMPLOYED_SOURCE_AND_RESTORED_IDS=PASS_ISOLATED_ONLY");
     puts("OG_FIRST_YEAR_REAL_VS_MANUAL_APPROVAL=PASS_ISOLATED_ONLY");
     puts("OG_QUALIFICATION_IDENTITY_MATCHER=PASS_ISOLATED_ONLY");

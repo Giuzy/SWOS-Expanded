@@ -1510,38 +1510,44 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
             CompetitionCup *records[2]={
                 (CompetitionCup *)(void *)_cupWinnersCup,
                 (CompetitionCup *)(void *)_uefaCup};
-            int classicReady=1;
-            if(year>World_FirstYear()) {
-                const unsigned names[2]={1u,2u};
-                for(unsigned c=0;c<2u;++c) {
+            /* Historic CWC and UEFA Cup use distinct real OG entrant
+             * fields, independent of each other and the Champions draw.
+             * No field -> no new edition; do NOT reuse the year-1 seed. */
+            for(unsigned c=0;c<2u;++c) {
+                const unsigned cup=c+1u;
+                int ready=year==World_FirstYear();
+                if(!ready) {
                     uint16_t field[EXP_QUAL_MAX_ENTRANTS]={0};
-                    if(Expanded_OGWorld_QualReadNext(year,names[c],field,
-                             EXP_QUAL_MAX_ENTRANTS)!=32u) {
-                        classicReady=0;break;
+                    const unsigned count=Expanded_OGWorld_QualReadNext(
+                        year,cup,field,EXP_QUAL_MAX_ENTRANTS);
+                    ready=ExpandedQual_ClassicEditionReady(cup,count);
+                    if(ready) {
+                        memcpy(&nextClassic[c],records[c],
+                               sizeof nextClassic[c]);
+                        for(unsigned j=0;j<32u;++j) {
+                            nextClassic[c].teamSeedList[j].countryNumber=
+                                (uint8_t)(field[j]>>8);
+                            nextClassic[c].teamSeedList[j].teamOrdinal=
+                                (uint8_t)field[j];
+                        }
+                        records[c]=&nextClassic[c];
                     }
-                    memcpy(&nextClassic[c],records[c],sizeof nextClassic[c]);
-                    for(unsigned j=0;j<32u;++j) {
-                        nextClassic[c].teamSeedList[j].countryNumber=
-                            (uint8_t)(field[j]>>8);
-                        nextClassic[c].teamSeedList[j].teamOrdinal=
-                            (uint8_t)field[j];
-                    }
-                    records[c]=&nextClassic[c];
+                }
+                if(ready) {
+                    const int result=Expanded_OGWorld_AdvanceCup(
+                        (uint8_t *)records[c],254u,(uint8_t)cup,
+                        year,phase);
+                    if(result!=1)
+                        fprintf(stderr,"[og-classic-europe] CUP_UNAVAILABLE "
+                               "year=%u phase=%u slot=%u status=%d\n",
+                                (unsigned)year,(unsigned)phase,cup,result);
+                } else if(phase==0u) {
+                    fprintf(stderr,"[og-classic-europe] EDITION_PENDING "
+                           "year=%u slot=%u reason=NO_VERIFIED_OG_FIELD "
+                           "other-editions=INDEPENDENT\n",
+                           (unsigned)year,cup);
                 }
             }
-            if(classicReady) {
-                const int cw=Expanded_OGWorld_AdvanceCup(
-                    (uint8_t *)records[0],254u,1u,year,phase);
-                const int uc=Expanded_OGWorld_AdvanceCup(
-                    (uint8_t *)records[1],254u,2u,year,phase);
-                if(cw!=1 || uc!=1)
-                    fprintf(stderr,"[og-classic-europe] CUPS_UNAVAILABLE "
-                                   "year=%u phase=%u cwc=%d uefa=%d\n",
-                            (unsigned)year,(unsigned)phase,cw,uc);
-            } else if(phase==0u)
-                fprintf(stderr,"[og-classic-europe] NEW_EDITION_PENDING "
-                               "year=%u reason=NO_COMPLETE_OG_QUALIFIER_FIELD\n",
-                        (unsigned)year);
         }
         /* A resident OG type-2 viewer route exists in career_status.c.
          * Do not emit the obsolete unconditional VIEWER_NOT_BOUND marker.

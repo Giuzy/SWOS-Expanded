@@ -7,6 +7,15 @@
 #define EXPANDED_QUALIFICATION_TRANSITION_H
 #include <stdint.h>
 #define EXP_QUAL_MAX_ENTRANTS 64u
+/* Historic OG routes have separate verified native lists:
+ * 0=Champions (type 2, 16), 1=CWC (type 1, 32), 2=UEFA Cup (type 1, 32).
+ * The caller must first obtain an ID-validated current-edition field with
+ * QualReadNext; this count gate is never a first-season seed fallback. */
+static inline int ExpandedQual_ClassicEditionReady(unsigned route,
+                                                  unsigned verified_count)
+{
+    return route<3u && verified_count==(route==0u?16u:32u);
+}
 typedef struct {
     unsigned matched,missing,extra,duplicate_source,duplicate_resident;
     unsigned invalid_source,invalid_resident;

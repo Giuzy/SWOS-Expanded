@@ -9,7 +9,7 @@
   "legacy_native_type": 1,
   "requested_native_type": 2,
   "runtime_connected": false,
-  "reason": "The isolated 4x4 plus interseries fixture FORMAT has a code builder; the native type-2 resident, dated per-match OG dispatch, manager bind and CAR SAVE/CONTINUE are not connected. The original type-1 knockout is blocked to avoid fake results.",
+  "reason": "Native type2 OG zero-result context, group fixture pair stage hooks, readonly viewer and optional CAR context are coded but Windows untested. Dated match dispatch, manager binding and future-year automatic entrants remain unimplemented; no scores must be fabricated.",
   "career_start_date": "2026-07-01",
   "real_draw_date": "2026-07-22",
   "first_match_scheduled": "2026-08-19",
@@ -201,5 +201,34 @@
     "first_edition_real_day_by_day_dates": "NOT_VERIFIED",
     "rankings_results": "ONLY_FROM_OG_NEVER_GENERATED_HERE",
     "legacy_knockout_competition": "BLOCKED_FOR_2026_27_TO_AVOID_FAKE_ROUND_OF_16"
+  },
+  "eligibility": {
+    "rule": "ALL_16_CURRENT_DIVISION_PROFESIONAL_CLUBS",
+    "first_edition_2026": "EXACT_NATIVE_2026_TOP_DIVISION_ID_SET",
+    "preliminary_qualifying": "NONE",
+    "future_editions": "READ_NATIVE_OG_FIRST_DIVISION_AFTER_REAL_PROMOTION_RELEGATION",
+    "future_editions_implemented": false,
+    "groups": "FRESH_SEASON_DRAW_REQUIRED_AFTER_2026",
+    "fbf_source": "https://fbf.com.bo/copa-pacena-2026/"
+  },
+  "conmebol_access": {
+    "libertadores_2027_bolivia_3": "CUP_CHAMPION_UNLESS_ALREADY_BOLIVIA_1_OR_2",
+    "libertadores_reallocation": "NEXT_BEST_LIGA_TEAM_NOT_QUALIFIED",
+    "sudamericana_2027_bolivia_1": "CUP_RUNNER_UP_IF_NOT_QUALIFIED_TO_LIBERTADORES",
+    "source": "https://fbf.com.bo/temporada-2026-de-la-division-profesional/",
+    "runtime_qualification_connected": false
+  },
+  "native_connection": {
+    "status": "TYPE2_INIT_AND_READONLY_VIEW_CAR_CODED_WINDOWS_UNPROVEN",
+    "world_career_start": "NATIVE_TOP_DIVISION_VALIDATION",
+    "resident_slot": "BOLIVIA_NATIVE_TYPE2_SEPARATE_FROM_UEFA3",
+    "group_program": "NATIVE_DIY_LEAGUE_PHASE_CAL_64",
+    "draw_date": "2026-07-22",
+    "cutoff_date": "2026-07-01",
+    "match_dispatch": "BLOCKED_UNTIL_AUTHENTICATED_DATED_FIXTURES",
+    "manager_playback": "NOT_CONNECTED",
+    "car_resident": "OPTIONAL_CONTEXT_COMPATIBLE_WITH_218_OLD_CAR",
+    "knockout": "OG_TYPE2_STRUCTURE_ALLOCATED_NO_OG_RESULTS",
+    "result_simulator": "OPEN_SWOS_ONLY"
   }
 }

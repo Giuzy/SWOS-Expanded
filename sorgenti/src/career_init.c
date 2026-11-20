@@ -1260,8 +1260,8 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
         const int valid=BoliviaCup_ValidateGroupFixtures(fixtures,n);
         fprintf(stderr,"[og-bolivia-format] year=%u groups=4 teams=16 "
                        "fixtures=%u intra=48 interseries=16 total-planned=78 "
-                       "validated=%u OG-execution=NOT_CONNECTED "
-                       "fixture-dates=NOT_VERIFIED save=UNCHANGED\n",
+                       "validated=%u native-type2=INITIALIZE_AFTER_LEAGUES "
+                       "fixture-dates=NOT_VERIFIED save=OPTIONAL_BOLIVIA\n",
                        (unsigned)year,n,(unsigned)valid);
         if(!valid)return 0;
     }
@@ -1516,6 +1516,19 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
      * Later first-year successors need the original UEFA qualification
      * handoff; do NOT silently replay the first year's seed list. */
     const Uint64 internationalStart=SDL_GetPerformanceCounter();
+    /* The Bolivian cup uses the native OG type-2 first-stage buffer,
+     * separate from UEFA and from the old type-1 knockout record.
+     * Its first-division entrants come from the already-initialized
+     * Bolivian OG league context, never the 10+6 legacy cup quota. */
+    extern int Expanded_OGWorld_AdvanceBolivia(uint16_t,uint8_t);
+    const int boliviaOk=Expanded_OGWorld_AdvanceBolivia(year,phase);
+    if(World_Current()==WORLD_2627 && phase==0u)
+        fprintf(stderr,"[og-bolivia-entry] world=2627 year=%u "
+                       "national-type2=%s group-matches=64 "
+                       "OG-result-dispatch=NOT_DATED\n",
+                (unsigned)year,
+                boliviaOk>0?"RESIDENT_OR_PENDING":
+                boliviaOk<0?"INVALID_TOP_DIVISION":"FAILED");
     int uefaOk=1;
 #if SWOS_WORLDS
     /* The Mod's 2026/27 starting field is not the 96/97 Copa.

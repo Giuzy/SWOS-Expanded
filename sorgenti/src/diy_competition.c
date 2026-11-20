@@ -39,6 +39,9 @@
 #include "game_init.h"
 #include "league_split.h"
 #include "league_phase.h"
+#ifdef SWOS_SDL_BUILD
+#include "bolivia_cup_sequence.h" /* 2026/27 type2 fixture format, OG results only */
+#endif
 #include "uefa_coef.h"
 #include "conti_season.h"
 #include "states.h"
@@ -205,6 +208,68 @@ static const uint16_t diyTournamentInitTable[20] = {
     0x0000, 0x0008, 0x0004, 0x0000, 0x0004, 0x0002, 0x0000, 0x0002,
     0x0001, 0x0001, 0x0001, 0x0001
 };
+
+
+#ifdef SWOS_SDL_BUILD
+/* Copa Bolivia's native tournament keeps OG as the ONLY match/result writer.
+ * These hooks choose a pair in the existing type-2 competition buffer.
+ * Never calculate scores, increment results or advance civil time here. */
+extern int Expanded_OGWorld_BoliviaActive(void);
+static int BoliviaCup_OGCalendarOn(void)
+{
+    const DIYCompetitionEx *c=&_diyCompetitionStart;
+    return Expanded_OGWorld_BoliviaActive() &&
+           c->base.field_2E==164u && c->base.numTeams==16 &&
+           c->base.matchPairsPerRound==4 &&
+           c->base.totalMatchesInRound==4;
+}
+static int BoliviaCup_OGStageDays(uint8_t cid,uint16_t groups,
+                                  uint16_t perGroup)
+{
+    return Expanded_OGWorld_BoliviaActive() && cid==164u &&
+           groups==4u && perGroup==4u?BOLIVIA_CUP_MATCHDAYS:0;
+}
+int BoliviaCup_OGStageStart(void)
+{
+    if(!BoliviaCup_OGCalendarOn())return 0;
+    DIYCompetitionEx *c=&_diyCompetitionStart;
+    int8_t row[16];
+    for(unsigned x=0;x<16u;++x)row[x]=-1;
+    for(unsigned r=0;r<16u;++r) {
+        const int32_t idx=c->leagueStandings[r].teamSelOffset;
+        if(idx<0 || idx>=_numSelectedTeams)return 0;
+        const TeamFileEx *t=(const TeamFileEx *)diy_resolve_team(idx);
+        if(t->team.countryNumber!=45u || t->team.teamOrdinal>=16u ||
+           row[t->team.teamOrdinal]>=0)return 0;
+        row[t->team.teamOrdinal]=(int8_t)r;
+    }
+    for(unsigned x=0;x<16u;++x)if(row[x]<0)return 0;
+    BoliviaCupFixture fx[BOLIVIA_CUP_GROUP_FIXTURES];
+    if(BoliviaCup_BuildGroupFixtures(fx)!=64u ||
+       !BoliviaCup_ValidateGroupFixtures(fx,64u))return 0;
+    for(unsigned m=0;m<64u;++m) {
+        c->leaguePhase.cal[m][0]=(uint8_t)row[fx[m].home];
+        c->leaguePhase.cal[m][1]=(uint8_t)row[fx[m].away];
+    }
+    c->matchData.league.totalMatchesPerSection=16u;
+    c->matchData.league.totalMatchesPerSectionLive=16u;
+    c->leagueTotalMatches=BOLIVIA_CUP_MATCHDAYS;
+    return 1;
+}
+static int BoliviaCup_OGPair(uint8_t **home,uint8_t **away)
+{
+    if(!BoliviaCup_OGCalendarOn())return 0;
+    const DIYCompetitionEx *c=&_diyCompetitionStart;
+    const unsigned m=4u*c->leagueSectionState.sectionMatchesProgress+
+                       (unsigned)c->base.subRoundCounter;
+    if(m>=64u)return 0;
+    const unsigned a=c->leaguePhase.cal[m][0],b=c->leaguePhase.cal[m][1];
+    if(a>=16u || b>=16u || a==b)return 0;
+    *home=(uint8_t *)&_diyCompetitionStart+a*18u;
+    *away=(uint8_t *)&_diyCompetitionStart+b*18u;
+    return 1;
+}
+#endif /* SWOS_SDL_BUILD */
 
 /* ================================================================
  * GetAveragePlayerPrice — average price of 16 players in team file
@@ -1103,6 +1168,11 @@ void DIYTournament_RecalculateMatchesPerTeam(void)
                                                      slot->groups, slot->teamsPerGroup);
             if (lp)
                 slot->matchesPerSlot = (uint16_t)lp;
+#ifdef SWOS_SDL_BUILD
+            const int bdays=BoliviaCup_OGStageDays((uint8_t)_diyFileBufferCopy.header.field_2E,
+                                                    slot->groups,slot->teamsPerGroup);
+            if(bdays)slot->matchesPerSlot=(uint16_t)bdays;
+#endif
             const int32_t sd = States_StageDays((uint8_t)_diyFileBufferCopy.header.field_2E,     /* (a state's */
                                                 slot->groups, slot->teamsPerGroup);              /*  calendar) */
             if (sd)
@@ -2134,6 +2204,9 @@ void DIY_RecomputeCompetitionDerivedFields(void)
  * ================================================================ */
 static void getCurrentFixtureTeamPtrs(uint8_t **team1Out, uint8_t **team2Out)
 {
+#ifdef SWOS_SDL_BUILD
+    if (BoliviaCup_OGPair(team1Out,team2Out))return;
+#endif
     if (LeagueSplit_Pair(team1Out, team2Out))   /* (after a world league's split: its days) */
         return;
     if (LeaguePhase_Pair(team1Out, team2Out))   /* (a world's league phase: its draw) */

@@ -1,3 +1,6 @@
+### 20/11/2026 — Bolivia 00.13.219: residente type2 parzialmente collegato
+Preparato un type2 OG nazionale con 4 gironi, 16 squadre della prima divisione, 64 coppie fixture, lettura viewer e CAR opzionale. PENDENTI: audit e date vere per ogni gara 2026, dispatch e risultati dal SOLO OG, manager-local binding, derby/non-replay, 14 KO, accesso internazionale con precedenza FBF e anno successivo con promozioni. Build/test Windows 219 NON PROVATO; nessuna gara giocabile in questa versione. Guida docs/BOLIVIA_2026_NATIVE_RESIDENT_0013219.md.
+
 ### 20/11/2026 — status Copa Bolivia 00.13.218: SOLO FORMATO C, non gameplay
 Sequenza di 64 fixture a 8 giornate (48 intra +16 derby) e test C11 aggiunti; rimosso dal runtime il falso KO residente type1 Bolivia. Pending critici: torneo nazionale OG type2 con date/partite vere, 14 KO, viewer e manager sullo stesso stato, CAR, qualificati e test 2026/27/28. Una build che segnala `OG GROUPS NOT RESIDENT` è coerente con questo stato incompleto, NON una correzione del torneo. Docs/BOLIVIA_2026_SEQUENCE_0013218.md.
 

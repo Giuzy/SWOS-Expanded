@@ -1,3 +1,5 @@
+> **RETROSPETTIVA 20/11/2026:** questo file documenta esattamente i limiti della **00.13.219** (type2 OG e viewer senza esecuzione datata; attesa sorteggio e REGOLE a rischio). Non usarlo da solo come procedura definitiva. La storia completa e le soluzioni 220–225, le prove Windows e il metodo generalizzabile sono nel **[manuale Competition Engine](COMPETITION_ENGINE_IMPLEMENTATION_GUIDE.md)**. La cronologia originale rimane intatta.
+
 # SWOS Expanded 00.13.219 — Copa Bolivia: native OG type-2 initial resident, group viewer and CAR
 
 ## Scope and reason

@@ -1,3 +1,5 @@
+> **AGGIORNAMENTO STORICO 20/11/2026:** qui si descrive il commit **solo dati `5c66d9b3`**, non un runtime. Per collegare correttamente una definizione JSON a OG, con spiegazione degli errori successivi 218–225 e delle verifiche di date/format/manager/KO/CAR, usare il **[manuale operativo Competition Engine](COMPETITION_ENGINE_IMPLEMENTATION_GUIDE.md)**. Attenzione: Argentina e Paraguay necessitano la soluzione specifica Apertura/Clausura, non una copia del calendario type2 Bolivia. Le fonti originali sottostanti sono preservate.
+
 # SWOS Expanded — 20/11/2026, definizioni Bolivia/Argentina/Paraguay (NON runtime)
 
 ## Decisione e risultato

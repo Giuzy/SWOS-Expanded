@@ -1,3 +1,5 @@
+> **RETROSPETTIVA 20/11/2026:** documento storico della build **00.13.218**, corretto per il suo momento ma NON descrive lo stato attuale. Il percorso completo 217→225, il residente OG, le 64+14 gare, la riparazione crash REGOLE, le semifinali duplicate, la ricorrenza 2027+ e tutte le lezioni riutilizzabili sono nel **[manuale di implementazione delle competizioni](COMPETITION_ENGINE_IMPLEMENTATION_GUIDE.md)**. Questo testo storico rimane invariato come prova di quali limiti esistessero nella 218.
+
 # SWOS Expanded 00.13.218 — Copa Bolivia: fixture sequence safe bridge (partial)
 
 ## Decision and scope

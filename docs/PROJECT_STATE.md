@@ -1,6 +1,6 @@
 ## 20/11/2026 — STATO EFFETTIVO DEL MOTORE / AUDIT REGRESSIONI (VIGENTE)
 
-**Codice sul ramo prima del presente intervento documentale:** `dev/0.10`, HEAD `3b2542ec8c7b57a3942882d9c2e00cbd618dea11`, versione runtime `00.13.225` (ultimo codice [57c75f445](https://github.com/Giuzy/SWOS-Expanded/commit/57c75f4455077086148ed3631a7a4dd50dae97d5)). La presente attività modifica SOLO guide, quindi `build_info.h` resta `00.13.225`. Il [registro storico e mappa delle dipendenze](REGRESSION_HISTORY_AND_DEPENDENCIES.md) raccoglie 32 incidenti e test mirati; [AGENTS](AGENTS.md) e [WORKFLOW](DEVELOPMENT_WORKFLOW.md) rendono obbligatorio il preflight.
+**Baseline STORICA del primo audit, NON HEAD corrente:** `dev/0.10`, commit documentale di partenza `3b2542ec8c7b57a3942882d9c2e00cbd618dea11`, runtime `00.13.225` (ultimo commit CODICE [57c75f445](https://github.com/Giuzy/SWOS-Expanded/commit/57c75f4455077086148ed3631a7a4dd50dae97d5)). I commit documentali successivi modificano la HEAD, ma non dimostrano nuove funzioni o test gameplay; **verificare sempre la HEAD remota e `build_info.h` a ogni ripresa**, non riutilizzare questa SHA come attuale. Il [registro e mappa delle dipendenze](REGRESSION_HISTORY_AND_DEPENDENCIES.md) contiene **32 famiglie principali più sottocasi**, **24 scenari test catalogati**, non un elenco completo di ogni bug né 24 test già eseguiti. Le regole sono in [AGENTS](AGENTS.md) e [WORKFLOW](DEVELOPMENT_WORKFLOW.md).
 
 | Sottosistema | Stato dimostrato, separato dal non provato |
 |---|---|

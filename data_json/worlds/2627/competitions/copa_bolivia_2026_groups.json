@@ -1,0 +1,189 @@
+{
+  "schema": 1,
+  "kind": "OG_TYPE2_CUP_FORMAT_DEFINITION_NOT_RUNTIME",
+  "world": "2627",
+  "country": 45,
+  "competition": "COPA BOLIVIA (COPA PACEÑA)",
+  "edition": 2026,
+  "legacy_native_record": "kWorld2627_worldBolCup",
+  "legacy_native_type": 1,
+  "requested_native_type": 2,
+  "runtime_connected": false,
+  "reason": "The active type-1 resident cannot be cast to the OG type-2 tournament; save/calendar/qualification migration is pending.",
+  "career_start_date": "2026-07-01",
+  "real_draw_date": "2026-07-22",
+  "first_match_scheduled": "2026-08-19",
+  "final_2026_calendar_note": "18 and 25 November in updated calendar; initial official programme had 2 December. Validate stage-level dates before runtime activation.",
+  "groups": [
+    {
+      "group": "A",
+      "teams": [
+        {
+          "country": 45,
+          "team_ordinal": 3,
+          "db_team_name": "SA BULO BULO",
+          "official_team_name": "SAN ANTONIO BULO BULO"
+        },
+        {
+          "country": 45,
+          "team_ordinal": 14,
+          "db_team_name": "A.B.B.",
+          "official_team_name": "ABB"
+        },
+        {
+          "country": 45,
+          "team_ordinal": 9,
+          "db_team_name": "AURORA",
+          "official_team_name": "AURORA"
+        },
+        {
+          "country": 45,
+          "team_ordinal": 15,
+          "db_team_name": "REAL POTOSI",
+          "official_team_name": "REAL POTOSÍ"
+        }
+      ]
+    },
+    {
+      "group": "B",
+      "teams": [
+        {
+          "country": 45,
+          "team_ordinal": 0,
+          "db_team_name": "ALWAYS READY",
+          "official_team_name": "ALWAYS READY"
+        },
+        {
+          "country": 45,
+          "team_ordinal": 12,
+          "db_team_name": "REAL ORURO",
+          "official_team_name": "REAL ORURO"
+        },
+        {
+          "country": 45,
+          "team_ordinal": 10,
+          "db_team_name": "REAL TOMAYAPO",
+          "official_team_name": "REAL TOMAYAPO"
+        },
+        {
+          "country": 45,
+          "team_ordinal": 6,
+          "db_team_name": "NACIONAL POTOSI",
+          "official_team_name": "NACIONAL POTOSÍ"
+        }
+      ]
+    },
+    {
+      "group": "C",
+      "teams": [
+        {
+          "country": 45,
+          "team_ordinal": 7,
+          "db_team_name": "GUABIRA",
+          "official_team_name": "GUABIRÁ"
+        },
+        {
+          "country": 45,
+          "team_ordinal": 11,
+          "db_team_name": "ORIENTE P.",
+          "official_team_name": "ORIENTE PETROLERO"
+        },
+        {
+          "country": 45,
+          "team_ordinal": 2,
+          "db_team_name": "THE STRONGEST",
+          "official_team_name": "THE STRONGEST"
+        },
+        {
+          "country": 45,
+          "team_ordinal": 13,
+          "db_team_name": "UNIV. DE VINTO",
+          "official_team_name": "FC UNIVERSITARIO"
+        }
+      ]
+    },
+    {
+      "group": "D",
+      "teams": [
+        {
+          "country": 45,
+          "team_ordinal": 1,
+          "db_team_name": "BOLIVAR PAZ",
+          "official_team_name": "BOLÍVAR"
+        },
+        {
+          "country": 45,
+          "team_ordinal": 8,
+          "db_team_name": "GV SAN JOSE",
+          "official_team_name": "GV SAN JOSÉ"
+        },
+        {
+          "country": 45,
+          "team_ordinal": 4,
+          "db_team_name": "BLOOMING",
+          "official_team_name": "BLOOMING"
+        },
+        {
+          "country": 45,
+          "team_ordinal": 5,
+          "db_team_name": "IND. PETROLERO",
+          "official_team_name": "INDEPENDIENTE PETROLERO"
+        }
+      ]
+    }
+  ],
+  "native_type2_rounds": [
+    {
+      "phase": "GROUP",
+      "team_count": 16,
+      "group_count": 4,
+      "team_group_count": 4
+    },
+    {
+      "phase": "QUARTER_FINAL",
+      "team_count": 8,
+      "group_count": 0,
+      "team_group_count": 8
+    },
+    {
+      "phase": "SEMI_FINAL",
+      "team_count": 4,
+      "group_count": 0,
+      "team_group_count": 4
+    },
+    {
+      "phase": "FINAL",
+      "team_count": 2,
+      "group_count": 0,
+      "team_group_count": 2
+    }
+  ],
+  "real_format": {
+    "group_home_away": true,
+    "group_classic_cross_group_extra_games": true,
+    "qualified_per_group": 2,
+    "quarter_final_two_legs": true,
+    "semi_final_two_legs": true,
+    "final_two_legs": true,
+    "group_special_fixtures": "PENDING_AUTHENTICATED_DATED_FIXTURES",
+    "qualified_pairing_rules": "PENDING_AUTHENTICATED_RULES",
+    "champion_libertadores_2027_slot": "BOLIVIA_3",
+    "runner_up_sudamericana_2027_slot": "BOLIVIA_1"
+  },
+  "state_at_cutoff": {
+    "matches_played": 0,
+    "draw_completed": false,
+    "qualified_known": false
+  },
+  "sources": [
+    "https://fbf.com.bo/copa-pacena-2026/",
+    "https://erbol.com.bo/deporte/la-copa-bolivia-ya-tiene-hoja-de-ruta",
+    "https://www.vision360.bo/amp/noticias/2026/07/22/59416-la-copa-bolivia-comenzara-el-19-de-agosto-y-tendra-cuatro-meses-de-competencia"
+  ],
+  "blocked_until": [
+    "New native type-2 identity, edition, OG resident and manager/CPU single-writer wiring",
+    "Per-fixture group calendar including inter-group derby days",
+    "Correct group-to-knockout advancement and verified fixtures",
+    "Persist/restore complete tournament state in CAR and verify post-July rollover"
+  ]
+}

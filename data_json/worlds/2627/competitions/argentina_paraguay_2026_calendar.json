@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "kind": "ARG_PAR_2026_APERTURA_CLAUSURA_CALENDAR_DEFINITION_NOT_RUNTIME",
+  "world": "2627",
+  "career_start_date": "2026-07-01",
+  "runtime_connected": false,
+  "shared_legacy_problem": "Both countries are currently represented by one native type-0 league record; changing begin_month/end_month only would simulate the wrong season, erase true Apertura/Clausura distinction, and risk CAR consistency.",
+  "countries": [
+    {
+      "country": 43,
+      "code": "ARG",
+      "native_record": "kWorld2627_argentinianLeague",
+      "team_count_first_division": 30,
+      "apertura": {
+        "start": "2026-01-22",
+        "final": "2026-05-24",
+        "state_at_career_start": "FINISHED_HISTORICAL",
+        "winner": {
+          "team_id": "43:21",
+          "team": "BELGRANO",
+          "runner_up_id": "43:3",
+          "runner_up": "RIVER PLATE",
+          "score": "3-2"
+        },
+        "two_zones_of_15": true,
+        "league_tables_and_full_results_loaded": false
+      },
+      "clausura": {
+        "start": "2026-07-23",
+        "final_scheduled": "2026-12-12",
+        "state_at_career_start": "NOT_STARTED",
+        "two_zones_of_15": true,
+        "playoffs": true,
+        "actual_fixtures_loaded": false
+      },
+      "annual_table": {
+        "required": true,
+        "historical_apertura_regular_phase_points_loaded": false,
+        "derive_from_OG_only": true
+      },
+      "sources": [
+        "https://www.afa.com.ar/salarios/posts/el-torneo-clausura-de-la-liga-profesional-comenzara-este-jueves",
+        "https://www.ligaprofesional.ar/notas/institucional/2026/08/05/se-confirmaron-fechas-y-sedes-de-las-finales/",
+        "https://www.afa.com.ar/es/posts/datos-de-un-torneo-apertura-inolvidable"
+      ]
+    },
+    {
+      "country": 64,
+      "code": "PAR",
+      "native_record": "kWorld2627_paraguayanLeague",
+      "team_count_first_division": 12,
+      "apertura": {
+        "start": "2026-01-23",
+        "end": "2026-05-24",
+        "state_at_career_start": "FINISHED_HISTORICAL",
+        "rounds": 22,
+        "full_results_and_table_loaded": false
+      },
+      "clausura": {
+        "start": "2026-07-24",
+        "end_scheduled": "2026-11-30",
+        "state_at_career_start": "NOT_STARTED",
+        "rounds": 22,
+        "full_fixtures_loaded": false
+      },
+      "annual_table": {
+        "required": true,
+        "requires_both_OG_editions": true,
+        "aggregate_historical_data_loaded": false
+      },
+      "sources": [
+        "https://www.apf.org.py/noticias/listo-calendario-para-la-temporada-2026",
+        "https://www.apf.org.py/noticias/la-espera-termino-arranca-el-clausura"
+      ]
+    }
+  ],
+  "semantics": [
+    "Never reset live edition on 1 July; administrative year is separate",
+    "Never simulate or invent pre-1-July 2026 results",
+    "Keep source competitions distinct and qualification precedence documented",
+    "Do not migrate existing CAR files in this data-only change"
+  ]
+}

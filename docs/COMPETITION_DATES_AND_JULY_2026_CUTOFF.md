@@ -87,3 +87,8 @@ Inventariare leghe, coppe domestiche **anche quelle con preliminari**, coppe int
 | Windows compilazione, gameplay, SAVE/CONTINUE | **NON PROVATO** |
 
 **Non dichiarare completata la richiesta di una Libertadores funzionante sulla sola base di questo commit**. La documentazione registra anche le attività da riprendere prima di una release, non equivale a un test o a un algoritmo implementato.
+
+
+## 20/11/2026 — definizioni corrette, motore da collegare
+
+Per i 4 gruppi boliviani e le date reali 2026 dei campionati argentino/paraguayano vedere [COPA_BOLIVIA_ARG_PAR_2026_DATA_AUDIT.md](COPA_BOLIVIA_ARG_PAR_2026_DATA_AUDIT.md). Nuovi JSON sotto `data_json/worlds/2627/competitions/` (Bolivia: 16 ID, 4×4; Argentina e Paraguay: Apertura/Clausura distinti). **NON CONSUMATI DAL RUNTIME OG**: non sono un fix automatico del viewer, calendario del manager, qualificazioni o CAR. Non fingere che il cambio di mesi basti: le competizioni richiedono edizioni residenti vere. La data finale paraguayana aggiornata da APF è 30/11/2026.

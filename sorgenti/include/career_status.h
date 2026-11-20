@@ -40,6 +40,23 @@ void Expanded_OGWorld_FixtureTickAbort(const char *reason);
 void Expanded_OGWorld_FixtureSetAsOf(ExpandedWorldDate date);
 void Expanded_OGWorld_FixturePrune(uint16_t openedYear);
 void Expanded_OGWorld_FixtureReset(void);
+/* Read the NEXT verified, unplayed Copa Bolivia fixture for the hired club.
+ * 0 = groups (native type2), 1 = KO (native type1). No second calendar or
+ * match owner: dates/pairs/serial are read from the resident OG snapshot.
+ * No ABI-packed structs or CAR fields are added by this UI bridge. */
+typedef struct ExpandedBoliviaManagerFixture {
+    uint16_t year,home,away,serial,fixtureId;
+    uint8_t month,day,stage;
+    char opponent[18]; /* bounded OG teamName for the existing SWOS font */
+} ExpandedBoliviaManagerFixture;
+int Expanded_OGWorld_BoliviaManagerNext(ExpandedBoliviaManagerFixture *out);
+/* Play exactly the next pending fixture on the ORIGINAL OG executor.
+ * Returns 1 only after native progress AND one witness; 0 on rejection
+ * or cancellation. Call only from the career calendar thread. */
+int Expanded_OGWorld_BoliviaManagerPlay(
+    const ExpandedBoliviaManagerFixture *expected);
+int Expanded_OGWorld_BoliviaManagerInteractive(void);
+
 /* Non-mutating read of the OG league resident in the career world. */
 int Expanded_OGWorld_ReadLeagueStandings(uint8_t country,uint8_t division,
                                          uint16_t year,ExpandedLiveRow *rows,

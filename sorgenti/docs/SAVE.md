@@ -1,5 +1,12 @@
 ### 20/11/2026 — REGRESSION GATE CAR / ROLLOVER / NO-REPLAY (VIGENTE)
 
+## 21/11/2026 — 00.13.226 Copa Bolivia manager: persistence contract (PREPARATO)
+
+Il bridge manager Copa Bolivia (RG-014) NON aggiunge campi al CAR, NON cambia schema6, Zstandard o paths dei salvataggi. Usa esattamente i residenti già serializzati: `s_expOGBolivia` per le gare OG type2 dei gironi, `s_expOGCups` paese45/slot2/anno per KO, più il journal witness append-only. La gara interattiva deve registrare una sola variazione OG e un solo witness; temporary `teamSelOffset=-1` (careerTeam) viene ripristinato all'indice CPU PRIMA della copia del contesto su residente. TSKC locale non viene riscritta (la Copa non possiede uno dei 5 slot originali). Ogni match usa una copia PRIVATA di selectedTeams e numero squadre, perche' SaveSelectedTeams/RestoreSelectedTeams sono single static backup; tre byte di stato Rand2 vengono preservati localmente senza nuove push. SOLO dopo commit validato autosave manager; cancel non salva, witness fallito innesca `Expanded_CompetitionCoordinator_ReportFixtureFault` e mantiene il vecchio CAR.
+
+**PROVE MANCANTI:** build Windows, prime gare e KO MANAGER, stessa coppia/score dopo SAVE→EXIT→CONTINUE, manager cambio club/sacking, 2027 promoted, legacy CAR 223/224/225 e entrambi mondi. ISO 5 check date su copia locale non certifica persistenza. Conservare invariati AUTO9697.CAR/AUTO2627.CAR e AUTOSAVE.CAR legacy; NO sovrascrittura dei save validi. Status CODICE PREPARATO, WIN GP NP.
+
+
 Prima di modificare il writer, il reader, il codec Zstandard o i record OG consultare: [regole AGENTS](../../docs/AGENTS.md), [workflow](../../docs/DEVELOPMENT_WORKFLOW.md), [registro bug e mappa](../../docs/REGRESSION_HISTORY_AND_DEPENDENCIES.md) (in particolare RG-006/012/017/022–026/028 e test RG-T14–T17/T23). **Non dedurre il PASS dai tre hash validi 00.13.225**: è stata verificata l'integrità delle copie e una decodifica preesistente, non un nuovo SAVE → EXIT → CONTINUE del manager 2028.
 
 **Dependency gate:** `SaveJson_WriteCareer/LoadCareer` → `Expanded_OGWorld_WriteSaveJson/ReadSaveJson` → snapshot comp/fixture/witness/RNG → mondo/edizione/club IDs → `swos_io_save_atomic` → test indipendente legacy e cross-process. Ogni nuova sezione CAR versionata è opzionale e validata; un CAR vecchio senza dato non deve ricevere risultati o classifiche inventate. Il file esistente non viene mai distrutto su errore, l'autosave è atomico, non richiamare OG per riprodurre gare già registrate. Distinguere test C isolati da compilazione e gameplay Windows.

@@ -15,6 +15,7 @@
 #include "expanded_career_date.h"
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_live.h"
+#include "career_status.h"
 #endif
 #include "expanded_midseason_join.h"
 #include "game_types.h"
@@ -2760,6 +2761,22 @@ void Expanded_UI_After(void) {
         /* Native font, inside the top-right 126px date textbox, away from
          * all fixture rows (which begin below y=39). */
         ui_native_text(252,24,118,15,date,0);
+        /* RG-014. A bounded native-font CALENDAR line derived only from
+         * the OG resident's unplayed fixture. The same event is actionable
+         * via PlayMatchMenu/NextMatch; never fabricate a TSKC row. */
+        if(!unemployed && _currentMenuPtr==(uintptr_t)_contestMenu) {
+            ExpandedBoliviaManagerFixture cup;
+            if(Expanded_OGWorld_BoliviaManagerNext(&cup)) {
+                char line[72];
+                snprintf(line,sizeof line,"COPA BOL %02u/%02u %s %.17s",
+                         (unsigned)cup.day,(unsigned)cup.month,
+                         cup.home==_selTeamNumber?"VS":"AT",cup.opponent);
+                /* Header strip ends before the separate top-right date,
+                 * and stays above the fixture panel's y=39 border. */
+                rect(25,29,224,9,42);
+                ui_native_text(28,30,219,15,line,-1);
+            }
+        }
     }
 }
 

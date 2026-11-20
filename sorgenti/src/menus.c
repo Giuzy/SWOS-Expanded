@@ -3894,6 +3894,12 @@ __attribute__((used, externally_visible))
 void PlayMatchMenu(MenuEntry *callerEntry)
 {
 #ifdef SWOS_SDL_BUILD
+    /* RG-014: Copa Bolivia is a separate OG resident type2/KO; route its
+     * next dated fixture before the legacy five-slot career cache. */
+    if(_gameType==GAME_TYPE_CAREER) {
+        extern int Expanded_BoliviaManagerIntercept(MenuEntry *,unsigned);
+        if(Expanded_BoliviaManagerIntercept(callerEntry,7u))return;
+    }
     /* In an employed July with NO OG fixture until August, the primary
      * PLAY MATCH button must advance the REAL world one safe week first.
      * 205/206 changed only entry 10 (NEXT MATCH), leaving this entry 7
@@ -3988,6 +3994,11 @@ __attribute__((used, externally_visible))
 void NextMatch(MenuEntry *callerEntry)
 {
 #ifdef SWOS_SDL_BUILD
+    /* The same OG resident, even if NEXT MATCH is invoked by keyboard. */
+    if(_gameType==GAME_TYPE_CAREER) {
+        extern int Expanded_BoliviaManagerIntercept(MenuEntry *,unsigned);
+        if(Expanded_BoliviaManagerIntercept(callerEntry,10u))return;
+    }
     /* Safety net for a callback restored by the native menu or a keyboard /
      * controller shortcut: never skip July via the original NEXT MATCH path
      * when the next authentic manager fixture is in August. */
@@ -4097,6 +4108,14 @@ void JobOffersMenu(void)
 __attribute__((used, externally_visible))
 void SeasonFinished(void)
 {
+#ifdef SWOS_SDL_BUILD
+    /* Do not cross July and discard an unplayed Bolivia cup fixture
+     * merely because the manager's domestic league keycache ended. */
+    if(_gameType==GAME_TYPE_CAREER) {
+        extern int Expanded_BoliviaManagerIntercept(MenuEntry *,unsigned);
+        if(Expanded_BoliviaManagerIntercept(NULL,7u))return;
+    }
+#endif
     if (_gameType != GAME_TYPE_CAREER) {
         InitCareerVariables(0);
         SetExitMenuFlag();

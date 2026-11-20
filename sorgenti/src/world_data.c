@@ -4702,7 +4702,9 @@ static const uint8_t kWorld2627_belarusianCupOrder1[] = { 0, 1, 2, 3 };
 static const uint8_t kWorld2627_belarusianCupQuota[][3] = { { 0, 8, 0 } };
 
 static CompetitionCup kWorld2627_worldBolCup = {
-    { { -92, 1, 45, 56, 32, 15, 0, 21, 1 }, 0, 16, 0, 53, 2 },
+    /* 2026 Copa Bolivia: starts August 19, final November 25.
+     * Date-band change ONLY. Do not infer a Libertadores entrant or a cup fixture. */
+    { { -92, 1, 45, 56, 87, 15, 0, 21, 1 }, 0, 16, 0, 53, 2 },
     { 84, 84, 84, 84, 0, 0 },
     { kWorld2627_name197, kWorld2627_name197 },
     {

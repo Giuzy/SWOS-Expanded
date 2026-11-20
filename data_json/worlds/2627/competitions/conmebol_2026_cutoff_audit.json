@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "kind": "CONMEBOL_2026_PRESTART_AUDIT_ONLY_NOT_RUNTIME",
+  "checked_as_of": "2026-11-20",
+  "career_start": "2026-07-01",
+  "world": "2627",
+  "authoritative_results_loaded": false,
+  "purpose": "Registry of 2026 cup sources, chronological cutoffs and missing historic results. Not an OG competition, not a draw, not fixtures and not a qualification registry.",
+  "historical_titles_verified": [
+    {
+      "country": 43,
+      "competition": "TORNEO APERTURA",
+      "season": 2026,
+      "winner_team_id": "43:21",
+      "winner_name": "BELGRANO",
+      "date": "2026-05-24",
+      "runner_up_team_id": "43:3",
+      "runner_up_name": "RIVER PLATE",
+      "score": "3-2",
+      "table_30_clubs_loaded": false,
+      "league_stage_loaded": false,
+      "club_qualified_for_libertadores_2027_by_real_rule": true,
+      "source": "https://www.rsssf.org/tablesa/arg2026.html"
+    }
+  ],
+  "entries": [
+    {
+      "country": 43,
+      "code": "ARG",
+      "native_record": "kWorld2627_worldArgCup",
+      "competition": "COPA ARGENTINA",
+      "first_match": null,
+      "known_started_before_cutoff": true,
+      "last_match_scheduled": "2026-12-02",
+      "libertadores_access": "CUP_WINNER_WITH_REALLOCATION",
+      "source": "https://www.tycsports.com/copa-argentina/copa-argentina-2026-cronograma-de-partidos-y-todos-los-resultados-id706751.html"
+    },
+    {
+      "country": 45,
+      "code": "BOL",
+      "native_record": "kWorld2627_worldBolCup",
+      "competition": "COPA BOLIVIA",
+      "first_match": "2026-08-19",
+      "known_started_before_cutoff": false,
+      "last_match_scheduled": "2026-11-25",
+      "libertadores_access": "CUP_WINNER_IF_NOT_ALREADY_QUALIFIED",
+      "source": "https://fbf.com.bo/temporada-2026-de-la-division-profesional/"
+    },
+    {
+      "country": 46,
+      "code": "BRA",
+      "native_record": "kWorld2627_worldBraCup",
+      "competition": "COPA DO BRASIL",
+      "first_match": null,
+      "known_started_before_cutoff": true,
+      "last_match_scheduled": "2026-12-06",
+      "libertadores_access": "WINNER_AND_RUNNER_UP_REVALIDATE_DETAILS",
+      "source": "https://www.cbf.com.br/futebol-brasileiro/noticias/copa-brasil/copa-brasil-masculino/a/brasilia-recebe-final-da-copa-do-brasil-2026"
+    },
+    {
+      "country": 48,
+      "code": "CHI",
+      "native_record": "kWorld2627_worldChiCup",
+      "competition": "COPA CHILE",
+      "first_match": "2026-01-30",
+      "known_started_before_cutoff": true,
+      "last_match_scheduled": null,
+      "libertadores_access": "PLAYOFF_RULE_MUST_BE_VERIFIED",
+      "source": "https://www.cooperativa.cl/noticias/site/artic/20260122/pags-amp/20260122173507.html"
+    },
+    {
+      "country": 48,
+      "code": "CHI",
+      "native_record": "kWorld2627_worldChiLeagueCup",
+      "competition": "COPA DE LA LIGA",
+      "first_match": "2026-03-20",
+      "known_started_before_cutoff": true,
+      "last_match_scheduled": "2026-11-14",
+      "libertadores_access": "CHILE_3_CUP_WINNER",
+      "source": "https://www.campeonatochileno.cl/competition/copa-de-la-liga/"
+    },
+    {
+      "country": 49,
+      "code": "COL",
+      "native_record": "kWorld2627_worldColCup",
+      "competition": "COPA COLOMBIA",
+      "first_match": "2026-05-06",
+      "known_started_before_cutoff": true,
+      "last_match_scheduled": null,
+      "libertadores_access": "NO_DIRECT_LIBERTADORES_2027",
+      "source": "https://caracol.com.co/2026/04/13/copa-colombia-2026-formato-del-campeonato-y-fechas-en-las-que-iniciaria/"
+    },
+    {
+      "country": 50,
+      "code": "ECU",
+      "native_record": "kWorld2627_worldEcuCup",
+      "competition": "COPA ECUADOR",
+      "first_match": "2026-04-07",
+      "known_started_before_cutoff": true,
+      "last_match_scheduled": null,
+      "libertadores_access": "CUP_WINNER_WITH_REALLOCATION",
+      "source": "https://www.primicias.ec/deportes/futbol/cupos-copa-libertadores-equipos-ecuador-clubes-clasificacion-136417/"
+    },
+    {
+      "country": 64,
+      "code": "PAR",
+      "native_record": "kWorld2627_worldParCup",
+      "competition": "COPA PARAGUAY",
+      "first_match": "2026-06-02",
+      "known_started_before_cutoff": true,
+      "last_match_scheduled": "2026-12-06",
+      "libertadores_access": "CUP_WINNER_FIRST_PRELIMINARY",
+      "source": "https://www.apf.org.py/noticias/esta-es-la-hoja-de-ruta-de-la-copa-de-todos-2026"
+    },
+    {
+      "country": 65,
+      "code": "PER",
+      "native_record": "kWorld2627_worldPerCup",
+      "competition": "COPA DE LA LIGA",
+      "first_match": "2026-06-11",
+      "known_started_before_cutoff": true,
+      "last_match_scheduled": "2026-11-15",
+      "libertadores_access": "NO_DIRECT_LIBERTADORES_2027",
+      "source": "https://andina.pe/agencia/noticia-copa-de-liga-2026-premio-recibira-campeon-esta-novedosa-competicion-1075293.aspx"
+    },
+    {
+      "country": 71,
+      "code": "URU",
+      "native_record": "kWorld2627_worldUruCup",
+      "competition": "COPA AUF URUGUAY",
+      "first_match": "2026-08-04",
+      "known_started_before_cutoff": false,
+      "last_match_scheduled": null,
+      "libertadores_access": "URUGUAY_4_ONLY_IF_ELIGIBLE_TOP_DIVISION",
+      "source": "https://auf.org.uy/copa-auf-uruguay-2026/"
+    },
+    {
+      "country": 77,
+      "code": "VEN",
+      "native_record": "kWorld2627_worldVenCup",
+      "competition": "COPA VENEZUELA",
+      "first_match": "2026-06-24",
+      "known_started_before_cutoff": true,
+      "last_match_scheduled": null,
+      "libertadores_access": "VERIFY_RULE_BEFORE_ASSIGNING",
+      "source": "https://www.fvf.com.ve/articulos/vuelve-la-copa-venezuela-la-fvf-anuncia-el-inicio-de-la-edicion-2026"
+    }
+  ],
+  "native_og_first_year_status": "NOT_HISTORICALLY_IMPORTED",
+  "history_required_for_cups_before_july": true,
+  "source_coverage_note": "Source URLs establish dates/rules, NOT a complete authenticated dated match list. A cut-off snapshot must include every real fixture and team mapped to native IDs before enabling OG continuation.",
+  "not_implemented": [
+    "2026 pre-July scores and ties for any partially played cup",
+    "30-club Apertura group table and corresponding true OG stage cursor",
+    "2027 Libertadores 47 entrants as native residents",
+    "Q1/Q2/Q3 approvals, pairings and single-match OG execution",
+    "independent per-competition finish/edition rollover across 1 July",
+    "CAR migration and reload validation for these new states"
+  ]
+}

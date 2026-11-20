@@ -7760,6 +7760,10 @@ static int exp_og_view_cup(const uint8_t *record)
       InputSDL_ClearWorldViewExit(); }
     s_expOGViewing=1;
     const uint32_t before=ctx->matchesPlayed;
+    /* A read-only viewer must not mutate any resident bracket, club or RNG.
+     * Count-only checks miss silently changed rows and team selection. */
+    const uint64_t residentBefore=exp_fixture_hash(
+        (const uint8_t *)ctx,sizeof *ctx);
     if(ctx->country==254u) {
         extern uint16_t Expanded_OGWorld_SaveYear(void);
         if(ctx->year!=Expanded_OGWorld_SaveYear())
@@ -7784,9 +7788,20 @@ static int exp_og_view_cup(const uint8_t *record)
     memcpy(&_diyFileBufferCopy,&oldTournament,sizeof oldTournament);
     _careerLastMatchIndexByCompetitionSlot[ctx->compId]=oldLast;
     _viewRandomPhase=oldPhase;_seasonPlaying=oldSeason;
+    const uint64_t residentAfter=exp_fixture_hash(
+        (const uint8_t *)ctx,sizeof *ctx);
+    const int unchanged=before==ctx->matchesPlayed &&
+        residentBefore==residentAfter;
+    fprintf(stderr,"[og-viewer-check] kind=CUP world=%s "
+                   "country=%u slot=%u year=%u unchanged=%d "
+                   "before=%016llx after=%016llx\n",
+        World_Tag(),(unsigned)ctx->country,(unsigned)ctx->slot,
+        (unsigned)ctx->year,unchanged,
+        (unsigned long long)residentBefore,
+        (unsigned long long)residentAfter);
     fprintf(stderr,"[og-cup-view] BACK unchanged=%u\n",
-            (unsigned)(before==ctx->matchesPlayed));
-    return before==ctx->matchesPlayed;
+            (unsigned)unchanged);
+    return unchanged;
 }
 /* Type-2 resident UEFA viewer. Like the native domestic cups viewer,
  * this is a temporary read-only scratch image, never a re-initialization. */
@@ -7851,6 +7866,8 @@ static int exp_og_view_uefa(const Competition *wanted)
     _diyFileBufferCopy.header.namePtr=
         (uint8_t *)_diyFileBufferCopy.header.competitionName;
     const unsigned before=(unsigned)ctx->comp.matchesPlayedCount;
+    const uint64_t residentBefore=exp_fixture_hash(
+        (const uint8_t *)ctx,sizeof *ctx);
     extern uint16_t Expanded_OGWorld_SaveYear(void);
     if(ctx->year!=Expanded_OGWorld_SaveYear())
         fprintf(stderr,"[og-uefa-view] LAST_COMPLETED_EDITION "
@@ -7872,9 +7889,19 @@ static int exp_og_view_uefa(const Competition *wanted)
     memcpy(&_diyFileBufferCopy,&oldTournament,sizeof oldTournament);
     _careerLastMatchIndexByCompetitionSlot[cid]=oldLast;
     _viewRandomPhase=oldPhase;_seasonPlaying=oldSeason;
+    const uint64_t residentAfter=exp_fixture_hash(
+        (const uint8_t *)ctx,sizeof *ctx);
+    const int unchanged=before==(unsigned)ctx->comp.matchesPlayedCount &&
+        residentBefore==residentAfter;
+    fprintf(stderr,"[og-viewer-check] kind=TYPE2 world=%s "
+                   "country=%u year=%u cup=%u unchanged=%d "
+                   "before=%016llx after=%016llx\n",
+        World_Tag(),(unsigned)ctx->country,(unsigned)ctx->year,
+        (unsigned)cid,unchanged,(unsigned long long)residentBefore,
+        (unsigned long long)residentAfter);
     fprintf(stderr,"[og-uefa-view] BACK unchanged=%u\n",
-            (unsigned)(before==(unsigned)ctx->comp.matchesPlayedCount));
-    return before==(unsigned)ctx->comp.matchesPlayedCount;
+            (unsigned)unchanged);
+    return unchanged;
 }
 int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
 {
@@ -7930,6 +7957,8 @@ int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
     const uint8_t oldSeason=_seasonPlaying;
     const uint8_t compId=(uint8_t)ctx->comp.base.field_2E;
     const uint8_t oldLast=_careerLastMatchIndexByCompetitionSlot[compId];
+    const uint64_t residentBefore=exp_fixture_hash(
+        (const uint8_t *)ctx,sizeof *ctx);
     memcpy(&oldComp,&_diyCompetitionStart,sizeof oldComp);
     memcpy(&oldTournament,&_diyFileBufferCopy,sizeof oldTournament);
     SaveSelectedTeams();
@@ -7960,7 +7989,17 @@ int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
     _careerLastMatchIndexByCompetitionSlot[compId]=oldLast;
     _viewRandomPhase=oldPhase;
     _seasonPlaying=oldSeason;
-    return 1;
+    const uint64_t residentAfter=exp_fixture_hash(
+        (const uint8_t *)ctx,sizeof *ctx);
+    const int unchanged=residentBefore==residentAfter;
+    fprintf(stderr,"[og-viewer-check] kind=LEAGUE world=%s "
+                   "country=%u division=%u year=%u unchanged=%d "
+                   "before=%016llx after=%016llx\n",
+        World_Tag(),(unsigned)ctx->country,(unsigned)ctx->division,
+        (unsigned)ctx->year,unchanged,
+        (unsigned long long)residentBefore,
+        (unsigned long long)residentAfter);
+    return unchanged;
 }
 /* Offer -> native OG viewer, directly resolved by the authoritative resident
  * country / division / year (the offer modal already knows all three). */

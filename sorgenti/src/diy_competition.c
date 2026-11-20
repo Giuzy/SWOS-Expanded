@@ -1638,6 +1638,29 @@ void DIY_ValidateLeagueScratchBuffer(void)
         }
     }
 #endif
+    /* Fail closed on an invalid OG range before walking the scratch
+     * memory. A malformed range must never turn into a Windows access
+     * violation or silently corrupt another country's mobility bytes. */
+    if((unsigned)offset>(unsigned)GLOBAL_TEAM_NUMBERS ||
+       (unsigned)count>(unsigned)GLOBAL_TEAM_NUMBERS-(unsigned)offset) {
+#ifdef SWOS_SDL_BUILD
+        if(_gameType==4 && EXPANDED_WORLD_OG_ONLY) {
+            extern volatile uint16_t _seasonUpdateInProgress;
+            fprintf(stderr,"[og-season-scratch] INVALID_RANGE "
+                "world=%s file=%u offset=%u count=%u max=%u\n",
+                World_Tag(),(unsigned)_teamFileBuffer[2],
+                (unsigned)offset,(unsigned)count,
+                (unsigned)GLOBAL_TEAM_NUMBERS);
+            if(_seasonUpdateInProgress) {
+                extern void Expanded_YearEndReportFault(const char *);
+                Expanded_YearEndReportFault("OG_MOBILITY_RANGE_INVALID");
+                return;
+            }
+        }
+#endif
+        _panicReasonCode=0x5555;
+        PanicHaltLoop();
+    }
     volatile uint8_t *teamData = _diyLeagueScratchBuffer + offset;
 #ifdef SWOS_SDL_BUILD
     volatile uint8_t *const teamStart = teamData;
@@ -1660,14 +1683,27 @@ void DIY_ValidateLeagueScratchBuffer(void)
                 "sum-mod256=%u reason=OG_MOBILITY_UNBALANCED\n",
                 World_Tag(),(unsigned)_teamFileBuffer[2],
                 (unsigned)offset,(unsigned)count,(unsigned)checksum);
-            for(unsigned i=0;i<count && reported<12u;++i) {
+            unsigned nonzero=0u;
+            int32_t positive=0,negative=0;
+            for(unsigned i=0;i<count;++i) {
                 const int8_t delta=(int8_t)teamStart[i];
-                if(delta!=0) {
-                    fprintf(stderr,"[og-season-scratch] DELTA global=%u value=%d\n",
-                            (unsigned)offset+i,(int)delta);
+                if(!delta)continue;
+                ++nonzero;
+                if(delta>0)positive+=(int32_t)delta;
+                else negative+=(int32_t)delta;
+                if(reported<12u) {
+                    fprintf(stderr,"[og-season-scratch] DELTA "
+                        "global=%u value=%d\n",
+                        (unsigned)offset+i,(int)delta);
                     ++reported;
                 }
             }
+            fprintf(stderr,"[og-season-scratch] MOBILITY_SUMMARY "
+                "country=%u positive=%ld negative=%ld "
+                "signed-total=%ld nonzero=%u reported=%u\n",
+                (unsigned)World_FileCountry(_teamFileBuffer[2]),
+                (long)positive,(long)negative,
+                (long)(positive+negative),nonzero,reported);
         }
 #endif
 #ifdef SWOS_SDL_BUILD

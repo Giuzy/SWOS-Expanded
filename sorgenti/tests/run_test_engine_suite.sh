@@ -23,6 +23,7 @@ run_stage "OG MANAGER FIXTURE KEYCACHE MATCH (READ-ONLY, NO CAR)" "sorgenti/test
 run_stage "OG MANAGER LEAGUE ID REMAP AND RESULT DELTA (ISOLATED)" "sorgenti/tests/run_test_expanded_og_league_bridge.sh"
 run_stage "OG MATCH OCCURRENCE AND 3/4 CYCLES" "sorgenti/tests/run_test_native_history_occurrence.sh"
 run_stage "MIDSEASON NATIVE PHASE DATE MATH" "sorgenti/tests/run_test_expanded_midseason_join.sh"
+run_stage "BOLIVIA 4-GROUP + 2 INTERSERIES DAYS (ISOLATED; NO OG RESULTS)" "sorgenti/tests/run_test_bolivia_cup_sequence.sh"
 run_stage "INSTALLED OG COMPETITION DATA FORMATS" "sorgenti/tests/run_audit_competition_formats.sh"
 run_stage "INSTALLED NATIVE TEAM DATA INVENTORY" "sorgenti/tests/run_test_database_inventory.sh"
 echo

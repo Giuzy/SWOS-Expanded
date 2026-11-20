@@ -9,7 +9,7 @@
   "legacy_native_type": 1,
   "requested_native_type": 2,
   "runtime_connected": false,
-  "reason": "The active type-1 resident cannot be cast to the OG type-2 tournament; save/calendar/qualification migration is pending.",
+  "reason": "The isolated 4x4 plus interseries fixture FORMAT has a code builder; the native type-2 resident, dated per-match OG dispatch, manager bind and CAR SAVE/CONTINUE are not connected. The original type-1 knockout is blocked to avoid fake results.",
   "career_start_date": "2026-07-01",
   "real_draw_date": "2026-07-22",
   "first_match_scheduled": "2026-08-19",
@@ -181,9 +181,25 @@
     "https://www.vision360.bo/amp/noticias/2026/07/22/59416-la-copa-bolivia-comenzara-el-19-de-agosto-y-tendra-cuatro-meses-de-competencia"
   ],
   "blocked_until": [
-    "New native type-2 identity, edition, OG resident and manager/CPU single-writer wiring",
-    "Per-fixture group calendar including inter-group derby days",
-    "Correct group-to-knockout advancement and verified fixtures",
-    "Persist/restore complete tournament state in CAR and verify post-July rollover"
-  ]
+    "Map immutable 64 fixture IDs to correct first-edition historical dates/home-away",
+    "Bind real national type-2 OG resident to fixture scheduler and original match scoring callbacks",
+    "Resolve first two of each group's OG standings to 8 team knockout draw with 14 native games",
+    "Bind/unbind manager without double OG fixture or career slot type mismatch",
+    "Persist/read same resident OG tournament and journal in CAR across load and July",
+    "Verify in Windows both unemployed and employed with SAVE/EXIT/CONTINUE"
+  ],
+  "format_sequence": {
+    "code_header": "sorgenti/include/bolivia_cup_sequence.h",
+    "tested_with": "sorgenti/tests/run_test_bolivia_cup_sequence.sh",
+    "status": "BUILDER_VERIFIED_ISOLATED_NOT_OG_RUNTIME",
+    "group_matchdays": 8,
+    "group_fixtures": 64,
+    "intragroup_fixtures": 48,
+    "interseries_fixtures": 16,
+    "knockout_fixtures_expected": 14,
+    "knockout_program": "NOT_BUILT",
+    "first_edition_real_day_by_day_dates": "NOT_VERIFIED",
+    "rankings_results": "ONLY_FROM_OG_NEVER_GENERATED_HERE",
+    "legacy_knockout_competition": "BLOCKED_FOR_2026_27_TO_AVOID_FAKE_ROUND_OF_16"
+  }
 }

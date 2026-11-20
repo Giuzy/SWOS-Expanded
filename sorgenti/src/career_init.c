@@ -26,6 +26,7 @@
 #ifdef SWOS_SDL_BUILD
 #include "diy_competition.h" /* DIY_OGStandings_SetSeason prototype */
 #include "expanded_world_time.h"
+#include "bolivia_cup_sequence.h" /* immutable first-edition fixture format */
 #include "fixture_rounds.h"
 #include "expanded_world_live.h"
 #include "expanded_competition_coordinator.h"
@@ -1250,6 +1251,20 @@ extern uint32_t Expanded_OGWorld_CupFaults(void);
 extern int Expanded_OGWorld_AdvanceUefa(uint16_t,uint8_t);
 extern uint32_t Expanded_OGWorld_UefaResidentCount(void);
 static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
+    /* The immutable fixture sequence is only a preflight; OG still owns
+     * every match, table and result. Reject a malformed format before
+     * this native world tick, never simulate from this generator. */
+    if(World_Current()==WORLD_2627 && year==World_FirstYear() && phase==0u) {
+        BoliviaCupFixture fixtures[BOLIVIA_CUP_GROUP_FIXTURES];
+        const unsigned n=BoliviaCup_BuildGroupFixtures(fixtures);
+        const int valid=BoliviaCup_ValidateGroupFixtures(fixtures,n);
+        fprintf(stderr,"[og-bolivia-format] year=%u groups=4 teams=16 "
+                       "fixtures=%u intra=48 interseries=16 total-planned=78 "
+                       "validated=%u OG-execution=NOT_CONNECTED "
+                       "fixture-dates=NOT_VERIFIED save=UNCHANGED\n",
+                       (unsigned)year,n,(unsigned)valid);
+        if(!valid)return 0;
+    }
     const Uint64 perfStart=SDL_GetPerformanceCounter();
     const double perfHz=(double)SDL_GetPerformanceFrequency();
     Uint64 perfLeagues=0u,perfCups=0u,perfInternational=0u;
@@ -1328,6 +1343,19 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
             const Competition *cup=(const Competition *)rawCup;
             if(cup->type!=1)continue;
             ++countryCupDefs;
+            if(World_Current()==WORLD_2627 && country==45u && j==2u) {
+                /* The old Mod record is a fake 16-club KO placeholder.
+                 * No results until the group/derby fixture sequence is
+                 * attached to the real type-2 OG resident and CAR. */
+                ++cupsSkipped;
+                ++countryCupUnsupported;
+                if(phase==0u)
+                    fprintf(stderr,"[og-bolivia-format] LEGACY_TYPE1_BLOCKED "
+                                   "country=45 slot=2 compId=%u "
+                                   "group-OG-resident=NOT_CONNECTED\n",
+                            (unsigned)cup->compId);
+                continue;
+            }
             if(phase==0u && World_Current()==WORLD_9697)
                 fprintf(stderr,"[og-9697-start] CUP_BEGIN country=%u slot=%u id=%u\n",
                         (unsigned)country,j,(unsigned)cup->compId);

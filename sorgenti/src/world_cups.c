@@ -176,6 +176,11 @@ static const TeamId *entrants(const WorldCup *c)
 int32_t WorldCups_Plays(const uint8_t *record)
 {
     const WorldCup *c = cup_of(record);
+    /* The obsolete 2026 Copa Bolivia type-1 KO cannot enroll a manager.
+     * Keep the real 4-group format authoritative while its OG type-2
+     * executor/save bridge is still pending; never play duplicate fixtures. */
+    if(c && World_Current()==WORLD_2627 && c->country==45u &&
+       c->slot==1u)return 0;
     if (!c)
         return 1;
     const TeamId *list = entrants(c);

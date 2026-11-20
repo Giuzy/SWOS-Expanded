@@ -7413,6 +7413,10 @@ static int exp_og_cup_valid_native_byes(const uint8_t *record,
 int Expanded_OGWorld_AdvanceCup(uint8_t *record,uint8_t country,
                                 uint8_t slot,uint16_t year,uint8_t phase)
 {
+    /* No obsolete 16-club direct knockout in the modern Copa Bolivia.
+     * A true type-2 4-group resident must be connected before execution. */
+    if(World_Current()==WORLD_2627 && country==45u && slot==2u)
+        return -1;
     if(!record||_gameType!=4||s_expOGCupCurrent||s_expOGCurrent||
        ((Competition *)record)->type!=1) return 0;
     const CompCupHeader *cup=(const CompCupHeader *)record;
@@ -7685,7 +7689,16 @@ extern void ShowDIYCupMenuWithParams(uint16_t,uint16_t,uint16_t);
 static int exp_og_view_cup(const uint8_t *record)
 {
     static uint8_t missing[]="OG WORLD: CUP NOT RESIDENT";
+    static uint8_t boliviaPending[]="COPA BOLIVIA: OG GROUPS NOT RESIDENT";
     const Competition *wanted=(const Competition *)record;
+    if(wanted && World_Current()==WORLD_2627 &&
+       wanted->compId==164u && wanted->teamNumber==45) {
+        fprintf(stderr,"[og-bolivia-view] BLOCK_OLD_ROUND_OF_16 "
+                       "fixtures=64 format=VERIFIED "
+                       "OG-resident-type2=NOT_CONNECTED read-only=1\n");
+        ShowErrorMenu(boliviaPending);
+        return 0;
+    }
     ExpandedOGCup *ctx=NULL;
     unsigned matches=0u;
     /* Native classic CWC/UEFA have a STABLE competition template shared

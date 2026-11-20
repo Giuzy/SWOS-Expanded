@@ -1,3 +1,9 @@
+## 00.13.221 (20/11/2026) — Copa Bolivia OG: fase a gironi datata (verifica Windows PENDENTE)
+- Corretto ABI puntatori della lista native league-format: `comp base + row*18`, applicazione di `DIY_STANDINGS_OFFSET` esclusivamente dal consumer OG; correzione delle sentinelle `TEXT_NO_PTR` in COMPETITION INFO/ReGOLE sul type2 2627.
+- Esecutore unico OG delle 64 coppie Copa Bolivia per data civile, rinvii ordinati per data, 32+32 partite anziche' 16+16; verifica seriale, esito journal, record CUP originario, contatore cup coerente, CAR precedente preservato in caso di fault. Se il manager deve giocare una gara di coppa: bloccare la simulazione automatica fino al bridge non ancora completato.
+- Nel campionato Bolivia 2627 soltanto i limiti fase nativa sono aggiornati al periodo reale 3 aprile–13 dicembre 2026 (`24..92`), senza toccare engine, fixture pairs, squadre o regole. **Non sono ancora 240 date individuali e non e' verificata la regola globale sulle sovrapposizioni.**
+- Test dati C ampliato (ordine cronologico 64, idempotenza IDs, collisione data per club), Windows compile/gameplay e SAVE/CONTINUE non provati. UI messaggio `Competition not started...` approvata nel design, NON implementata. Next: calendario reale per fixture Liga, manager cup, knockout e future edizioni.
+
 ## 20/11/2026 — 00.13.220 Copa Bolivia: crash REGOLE + vero calendario statico; NON completa motore
 Fix codice per sentinelle -1 negli entry fg della pagina RULES, buffer validi prima di Reinit e OnDraw; fix puntatori row OG; visibilità immediata prima della cerimonia. Sostituiti i 64 fixture pair provvisori con quelli reali, con date e rinvii 2026, nessun risultato importato. PENDENTI: gare OG con evento civile singolo, manager=stesso OG, 14 KO, accessi CONMEBOL, iscrizioni 2027+, CAR completo e visibilità precedente edizione di tutti i tornei. Vedi docs/BOLIVIA_2026_RULES_AND_FIXTURES_0013220.md.
 

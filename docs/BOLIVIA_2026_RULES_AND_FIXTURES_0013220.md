@@ -1,3 +1,7 @@
+## AGGIORNAMENTO 20/11/2026 — 00.13.221, collegamento OG datato per fase a gironi; test Windows obbligatorio
+Le 64 coppie e date ufficiali della fase a gironi restano nella tabella `bolivia_cup_sequence.h`, SENZA risultati importati. `BoliviaCup_ChronologicalFixtures` crea una permutazione per data civile (rinvii della fase 1/2 compresi), preservando `fixtureId` e le 64 coppie esistenti nel residente OG/vecchi CAR. La routine `Expanded_OGWorld_AdvanceBolivia` ora invoca `DIY_PlayOrSimulateLeagueFixture(0,0)` OG una volta per evento CPU scaduto, verificando il journal CUP e il contatore; blocca una gara del manager finche' non esiste il bridge manager/CPU OG (nessun risultato inventato). Totale 64 partite = 32 per sezione nativa x2; corretto l'offset del puntatore base di ciascuna riga e tutte le sentinelle TEXT_NO_PTR nella pagina Regole OG. Per il campionato la finestra nativa e' stata portata ad Apr–Dic come FONTI REALI, ma il singolo calendario OG non contiene ancora tutte le 240 date: collisioni future ancora da verificare, NON DARE PASS. Compilazione Windows 221, test gioco e salva/riprendi NON PROVATI.
+Fonti: https://es.wikipedia.org/wiki/Primera_Divisi%C3%B3n_de_Bolivia_2026 ; https://es.wikipedia.org/wiki/Copa_Bolivia_2026 ; https://premiumsportsbo.com/vuelve-la-copa-bolivia-la-liga-entra-en-un-largo-parentesis/ .
+
 # SWOS Expanded 00.13.220 — Copa Bolivia: regole, visibilità, calendario reale (intervento parziale)
 
 ## Evidenza e causa

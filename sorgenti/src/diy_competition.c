@@ -251,25 +251,36 @@ int BoliviaCup_OGStageStart(void)
         c->leaguePhase.cal[m][0]=(uint8_t)row[fx[m].home];
         c->leaguePhase.cal[m][1]=(uint8_t)row[fx[m].away];
     }
-    c->matchData.league.totalMatchesPerSection=16u;
-    c->matchData.league.totalMatchesPerSectionLive=16u;
+    /* 4 groups x 4 clubs: 32 OG games in each of two sections.
+     * 16 ended the whole native league after only 32 of the 64 matches. */
+    c->matchData.league.totalMatchesPerSection=32u;
+    c->matchData.league.totalMatchesPerSectionLive=32u;
     c->leagueTotalMatches=BOLIVIA_CUP_MATCHDAYS;
+    c->leagueSectionState.phaseStartMonths[BOLIVIA_CUP_MATCHDAYS]=
+        (uint8_t)c->base.endMonth; /* no phase reset after game 64 */
     return 1;
 }
 static int BoliviaCup_OGPair(uint8_t **home,uint8_t **away)
 {
     if(!BoliviaCup_OGCalendarOn())return 0;
     const DIYCompetitionEx *c=&_diyCompetitionStart;
-    const unsigned m=4u*c->leagueSectionState.sectionMatchesProgress+
-                       (unsigned)c->base.subRoundCounter;
-    if(m>=64u)return 0;
-    const unsigned a=c->leaguePhase.cal[m][0],b=c->leaguePhase.cal[m][1];
+    const unsigned serial=(unsigned)c->matchesPlayedCount;
+    if(serial>=BOLIVIA_CUP_GROUP_FIXTURES)return 0;
+    BoliviaCupFixture chronological[BOLIVIA_CUP_GROUP_FIXTURES];
+    if(BoliviaCup_ChronologicalFixtures(chronological)!=
+       BOLIVIA_CUP_GROUP_FIXTURES)return 0;
+    /* Retain the old 00.13.220 CAR stage table in its original fixture-ID
+     * order; reorder the EXECUTION only (the dates include postponements). */
+    const unsigned fixture=(unsigned)chronological[serial].fixtureId-1u;
+    const unsigned a=c->leaguePhase.cal[fixture][0];
+    const unsigned b=c->leaguePhase.cal[fixture][1];
     if(a>=16u || b>=16u || a==b)return 0;
-    /* The 18-byte rows live in the relocated leagueStandings member,
-     * NOT at the start of DIYCompetitionEx. Match the working OG
-     * LeaguePhase_Pair/States_Pair row-address contract. */
-    *home=(uint8_t *)&_diyCompetitionStart.leagueStandings[a];
-    *away=(uint8_t *)&_diyCompetitionStart.leagueStandings[b];
+    /* OG callers add DIY_STANDINGS_OFFSET to these record-base pointers
+     * BEFORE reading teamSelOffset or updating the table. Returning a
+     * leagueStandings pointer here added the offset TWICE (00.13.220).
+     * Match LeaguePhase_Pair / States_Pair's actual base+18*row ABI. */
+    *home=(uint8_t *)&_diyCompetitionStart+a*sizeof(DIYTeamStats);
+    *away=(uint8_t *)&_diyCompetitionStart+b*sizeof(DIYTeamStats);
     return 1;
 }
 #endif /* SWOS_SDL_BUILD */
@@ -5931,12 +5942,25 @@ void DesignDIYTournamentInit(void)
        World_Current()==WORLD_2627 &&
        (uint8_t)_diyFileBufferCopy.header.field_2E==164u &&
        _diyFileBufferCopy.header.competitionType==2) {
-        static uint8_t s_boliviaRulesCounters[2][16];
-        _menuEntries[11].fg=(uintptr_t)s_boliviaRulesCounters[0];
-        _menuEntries[13].fg=(uintptr_t)s_boliviaRulesCounters[1];
+        /* Every TEXT_NO_PTR slot is a -1 sentinel, not a valid mutable
+         * string. Reinit and stage callbacks write to multiple entries,
+         * not just 11/13. Bind each placeholder to a stable owned buffer
+         * BEFORE any native callback, without changing the OG menu. */
+        static uint8_t s_rulesText[93][256];
+        unsigned fixed=0u;
+        for(unsigned i=0u;i<93u;++i) {
+            MenuEntry *const e=&_menuEntries[i];
+            if(e->content==ENTRY_STRING &&
+               (e->fg==(uintptr_t)0xffffffffu ||
+                e->fg==(uintptr_t)-1)) {
+                e->fg=(uintptr_t)s_rulesText[i];
+                s_rulesText[i][0]=0u;
+                ++fixed;
+            }
+        }
         fprintf(stderr,"[og-bolivia-rules] type2=1 read-only=1 "
-                       "numeric-buffers=OWNED stage-buffers=OWNED "
-                       "Windows-render=NOT_PROVEN\\n");
+                       "sentinels-rebound=%u buffer=OWNED "
+                       "Windows-render=NOT_PROVEN\\n",fixed);
     }
 #endif
     if (_diyTournamentLookOnly == 0)

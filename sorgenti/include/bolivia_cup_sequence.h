@@ -120,9 +120,40 @@ static inline int BoliviaCup_ValidateGroupFixtures(
             ++inGroup;
         }
     }
+    /* Dates, not merely matchday numbers, must not double-book a club:
+     * postponed ties may cross later rounds in the real 2026 calendar. */
+    for(unsigned i=0u;i<count;++i)
+        for(unsigned j=0u;j<i;++j)
+            if(fx[i].month==fx[j].month && fx[i].day==fx[j].day &&
+               (fx[i].home==fx[j].home || fx[i].home==fx[j].away ||
+                fx[i].away==fx[j].home || fx[i].away==fx[j].away))
+                return 0;
     if(derby!=16u || inGroup!=48u)return 0;
     for(unsigned i=0;i<16u;++i)
         if(homes[i]!=4u || aways[i]!=4u)return 0;
     return 1;
+}
+/* A postponed game in round 1 can occur AFTER round 3. This canonical
+ * permutation is the match execution order, not a second fixture source.
+ * fixtureId continues to address the unmodified native stage pair table. */
+static inline unsigned BoliviaCup_ChronologicalFixtures(
+    BoliviaCupFixture out[BOLIVIA_CUP_GROUP_FIXTURES])
+{
+    const unsigned count=BoliviaCup_BuildGroupFixtures(out);
+    if(!BoliviaCup_ValidateGroupFixtures(out,count))return 0u;
+    for(unsigned i=1u;i<count;++i) {
+        BoliviaCupFixture current=out[i];
+        unsigned j=i;
+        while(j>0u) {
+            const BoliviaCupFixture prev=out[j-1u];
+            const unsigned a=100u*(unsigned)prev.month+(unsigned)prev.day;
+            const unsigned b=100u*(unsigned)current.month+(unsigned)current.day;
+            if(a<b || (a==b && prev.fixtureId<current.fixtureId))break;
+            out[j]=prev;
+            --j;
+        }
+        out[j]=current;
+    }
+    return count;
 }
 #endif /* BOLIVIA_CUP_SEQUENCE_H */

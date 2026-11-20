@@ -25,7 +25,24 @@ int main(void) {
     for(unsigned i=0;i<64u;++i)bad[i]=f[i];
     bad[0].away=3u;
     if(BoliviaCup_ValidateGroupFixtures(bad,64u))return 8;
-    puts("BOLIVIA_SEQUENCE_ISOLATED=PASS groups=4 teams=16 group_matches=64 derby=16 dated-2026-fixtures=64 ko_capacity=14");
+    /* Play ACTUAL dates in order, not the old matchday order. Delayed
+     * round-1/round-2 games must not be played retrospectively. */
+    BoliviaCupFixture sorted[64];
+    if(BoliviaCup_ChronologicalFixtures(sorted)!=64u)return 9;
+    uint8_t ids[65]={0};
+    for(unsigned i=0u;i<64u;++i) {
+        const unsigned id=sorted[i].fixtureId;
+        if(!id || id>64u || ids[id]++)return 10;
+        if(i>0u && (100u*sorted[i].month+sorted[i].day)<
+                    (100u*sorted[i-1u].month+sorted[i-1u].day))
+            return 11;
+    }
+    /* Inject a same-day conflict for San Antonio from matchday 2;
+     * the dated validator must catch it even though rounds differ. */
+    for(unsigned i=0;i<64u;++i)bad[i]=f[i];
+    bad[12].month=f[0].month;bad[12].day=f[0].day;
+    if(BoliviaCup_ValidateGroupFixtures(bad,64u))return 12;
+    puts("BOLIVIA_SEQUENCE_ISOLATED=PASS groups=4 teams=16 group_matches=64 derby=16 dated-2026-fixtures=64 chronological=64 no-club-day-overlap=YES ko_capacity=14");
     puts("BOLIVIA_REAL_DATED_OG_EXECUTION=NOT_TESTED");
     return 0;
 }

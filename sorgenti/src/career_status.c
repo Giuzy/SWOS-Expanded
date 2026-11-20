@@ -4375,7 +4375,9 @@ uint32_t Expanded_OGWorld_CupCount(void) {
     return count;
 }
 uint32_t Expanded_OGWorld_CupMatches(void) {
-    uint32_t count=0u;
+    /* The dedicated Bolivia type-2 native resident records CUP matches. */
+    uint32_t count=s_expOGBolivia.used?
+        (uint32_t)s_expOGBolivia.comp.matchesPlayedCount:0u;
     for(uint32_t k=0;k<s_expOGCupCount;++k) {
         const ExpandedOGCup *c=&s_expOGCups[k];
         /* A manager entering the cup unbinds its RESIDENT executor to
@@ -5915,6 +5917,145 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
  * simulator. July transitions must not erase it; it is stored in the CAR.
  */
 extern int BoliviaCup_OGStageStart(void);
+
+extern uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t,int16_t);
+
+/* First-year Copa Bolivia: single ORIGINAL OG match/result writer.
+ * The inherited fixture table retains IDs 1..64 and 00.13.220 CAR layout;
+ * its postponed fixtures are executed by actual civil date, not round number.
+ * A hired manager's match is deferred, never silently CPU-simulated. */
+static int exp_bolivia_dispatch_native(uint16_t year,uint8_t phase)
+{
+    ExpandedOGLeague *const ctx=&s_expOGBolivia;
+    BoliviaCupFixture ordered[BOLIVIA_CUP_GROUP_FIXTURES];
+    if(BoliviaCup_ChronologicalFixtures(ordered)!=
+       BOLIVIA_CUP_GROUP_FIXTURES)return 0;
+    const unsigned before=(unsigned)ctx->comp.matchesPlayedCount;
+    if(before>64u || ctx->teamCount!=16u ||
+       ctx->comp.base.numTeams!=16 || ctx->comp.base.field_2E!=164u ||
+       ctx->comp.base.matchPairsPerRound!=4 ||
+       ctx->comp.base.totalMatchesInRound!=4 ||
+       ctx->tournament.header.competitionType!=2)return 0;
+    const ExpandedWorldDate target=s_expOGFixtureAsOf;
+    unsigned due=0u;
+    while(due<64u) {
+        const BoliviaCupFixture *const f=&ordered[due];
+        if(target.year<year || (target.year==year &&
+           (target.month<f->month ||
+            (target.month==f->month && target.day<f->day))))break;
+        ++due;
+    }
+    if(due<=before)return 1;
+    for(unsigned i=0u;i<16u;++i) {
+        const int32_t idx=ctx->comp.leagueStandings[i].teamSelOffset;
+        if(idx<0 || idx>=16 ||
+           ctx->teams[idx].team.countryNumber!=45u ||
+           ctx->teams[idx].team.teamControls!=1u)return 0;
+    }
+    /* The old unplayed 220 CAR used an erroneous 16-match section;
+     * upgrade only when zero games have been produced by OG. */
+    if(before==0u &&
+       ctx->comp.matchData.league.totalMatchesPerSection==16u &&
+       ctx->comp.matchData.league.totalMatchesPerSectionLive==16u) {
+        ctx->comp.matchData.league.totalMatchesPerSection=32u;
+        ctx->comp.matchData.league.totalMatchesPerSectionLive=32u;
+    }
+    if(ctx->comp.matchData.league.totalMatchesPerSection!=32u ||
+       ctx->comp.leagueTotalMatches!=8u)return 0;
+    ctx->comp.leagueSectionState.phaseStartMonths[8]=
+        (uint8_t)ctx->comp.base.endMonth;
+
+    DIYCompetitionEx oldComp;
+    DIYTournamentState oldTournament;
+    const uint8_t oldSeason=_seasonPlaying,oldView=_viewRandomPhase;
+    const uint16_t oldFlag=_internationalAutoAdvanceFlag;
+    const uint16_t oldLoaded=_careerLoadedFlag;
+    const uint8_t cid=164u;
+    const uint8_t oldLast=_careerLastMatchIndexByCompetitionSlot[cid];
+    memcpy(&oldComp,&_diyCompetitionStart,sizeof oldComp);
+    memcpy(&oldTournament,&_diyFileBufferCopy,sizeof oldTournament);
+    SaveSelectedTeams();SaveRand2State();
+    memcpy(&_diyCompetitionStart,&ctx->comp,sizeof ctx->comp);
+    memcpy(&_diyFileBufferCopy,&ctx->tournament,sizeof ctx->tournament);
+    memcpy(_selectedTeams,ctx->teams,16u*sizeof(TeamFileEx));
+    _numSelectedTeams=16u;
+    _diyCompetitionStart.base.namePtr=
+        (uint8_t *)_diyCompetitionStart.base.competitionName;
+    _diyFileBufferCopy.header.namePtr=
+        (uint8_t *)_diyFileBufferCopy.header.competitionName;
+    _seed2=ctx->seed;_randXorIndex2=ctx->randIndex;_randXorKey2=ctx->randKey;
+    _seasonPlaying=(uint8_t)((96u+(unsigned)year-World_FirstYear())%100u);
+    _internationalAutoAdvanceFlag=1;_careerLoadedFlag=1;
+    s_expOGCurrent=ctx;s_expOGPhase=(int)phase;
+    int failed=0,managerPending=0;
+    for(unsigned serial=before;serial<due;++serial) {
+        const BoliviaCupFixture *const f=&ordered[serial];
+        const uint16_t home=PACK_BE_U16(45u,f->home);
+        const uint16_t away=PACK_BE_U16(45u,f->away);
+        if(_selTeamNumber!=0xffffu && !_youreSacked &&
+           (_selTeamNumber==home || _selTeamNumber==away)) {
+            managerPending=1;
+            fprintf(stderr,"[og-bolivia-fixture] DEFER_MANAGER "
+                "fixture=%u date=%04u-%02u-%02u "
+                "local-bridge=NOT_CONNECTED cpu-replay=BLOCKED\n",
+                (unsigned)f->fixtureId,(unsigned)year,
+                (unsigned)f->month,(unsigned)f->day);
+            break;
+        }
+        const size_t oldWitness=s_expOGFixtureCount;
+        const uint64_t oldCup=s_expOGCapturedCup;
+        if(_diyCompetitionStart.minSubstitutes==0 ||
+           _diyCompetitionStart.matchesPlayedCount!=serial) {
+            failed=1;break;
+        }
+        s_expOGFixtureAsOf=(ExpandedWorldDate){year,f->month,f->day};
+        if(DIY_PlayOrSimulateLeagueFixture(0,0)!=0 ||
+           _diyCompetitionStart.matchesPlayedCount!=serial+1u ||
+           s_expOGFixtureCount!=oldWitness+1u ||
+           s_expOGCapturedCup!=oldCup+1u) {
+            failed=1;
+            fprintf(stderr,"[og-bolivia-fixture] FAIL witness-or-native "
+                "serial=%u fixture=%u played=%u "
+                "car-write=BLOCKED\n",serial,(unsigned)f->fixtureId,
+                (unsigned)_diyCompetitionStart.matchesPlayedCount);
+            break;
+        }
+        fprintf(stderr,"[og-bolivia-fixture] OG_PLAYED "
+            "year=%u serial=%u fixture=%u date=%04u-%02u-%02u "
+            "home=%04x away=%04x native-played=%u\n",
+            (unsigned)year,serial,(unsigned)f->fixtureId,
+            (unsigned)year,(unsigned)f->month,(unsigned)f->day,
+            (unsigned)home,(unsigned)away,
+            (unsigned)_diyCompetitionStart.matchesPlayedCount);
+    }
+    if(!failed) {
+        memcpy(&ctx->comp,&_diyCompetitionStart,sizeof ctx->comp);
+        memcpy(&ctx->tournament,&_diyFileBufferCopy,sizeof ctx->tournament);
+        memcpy(ctx->teams,_selectedTeams,16u*sizeof(TeamFileEx));
+        ctx->seed=_seed2;ctx->randIndex=_randXorIndex2;
+        ctx->randKey=_randXorKey2;ctx->lastPhase=phase;
+        ctx->comp.base.namePtr=(uint8_t *)ctx->comp.base.competitionName;
+        ctx->tournament.header.namePtr=
+            (uint8_t *)ctx->tournament.header.competitionName;
+    }
+    s_expOGCurrent=NULL;s_expOGPhase=-1;
+    s_expOGFixtureAsOf=target;
+    _seasonPlaying=oldSeason;_viewRandomPhase=oldView;
+    _careerLoadedFlag=oldLoaded;_internationalAutoAdvanceFlag=oldFlag;
+    _careerLastMatchIndexByCompetitionSlot[cid]=oldLast;
+    RestoreRand2State();RestoreSelectedTeams();
+    memcpy(&_diyCompetitionStart,&oldComp,sizeof oldComp);
+    memcpy(&_diyFileBufferCopy,&oldTournament,sizeof oldTournament);
+    if(failed) {
+        s_expOGFault=1;
+        return 0; /* never publish a partly applied native transition */
+    }
+    if(managerPending)
+        fprintf(stderr,"[og-bolivia-fixture] MANAGER_BRIDGE_PENDING "
+            "year=%u native-played=%u due=%u\n",
+            (unsigned)year,(unsigned)ctx->comp.matchesPlayedCount,due);
+    return 1;
+}
 int Expanded_OGWorld_AdvanceBolivia(uint16_t year,uint8_t phase)
 {
     if(World_Current()!=WORLD_2627)return 1;
@@ -5925,7 +6066,9 @@ int Expanded_OGWorld_AdvanceBolivia(uint16_t year,uint8_t phase)
             fprintf(stderr,"[og-bolivia-resident] NEW_EDITION_PENDING "
                            "requested=%u existing=%u reason=KO_AND_OG_QUAL_PENDING\n",
                     (unsigned)year,(unsigned)s_expOGBolivia.year);
-        return 1; /* Never re-run native fixtures or overwrite a CAR edition. */
+        if(year==s_expOGBolivia.year && phase!=0u)
+            return exp_bolivia_dispatch_native(year,phase);
+        return 1; /* Old/future edition preserved; never reinitialize. */
     }
     if(year!=first)return 1; /* no fabricated subsequent entrant draw */
     /* Old 218 CAR created during July can still adopt the unplayed real
@@ -6030,7 +6173,7 @@ int Expanded_OGWorld_AdvanceBolivia(uint16_t year,uint8_t phase)
         fprintf(stderr,"[og-bolivia-resident] INITIALIZED year=%u "
                        "country=45 slot=2 type=2 teams=16 groups=4 "
                        "fixture-pairs=64 played=0 source=NATIVE_TOP_DIVISION "
-                       "dated-dispatch=NOT_CONNECTED no-score-synthesis=1\n",
+                       "dated-dispatch=OG_CPU_GROUPS no-score-synthesis=1\n",
                 (unsigned)year);
     } else {
         memset(&s_expOGBolivia,0,sizeof s_expOGBolivia);
@@ -7903,7 +8046,7 @@ static int exp_og_view_bolivia(void)
     fprintf(stderr,"[og-bolivia-view] NATIVE_OG_TYPE2 "
                    "world=2627 year=%u groups=4 teams=16 "
                    "played=%u readonly=1 entrants-known=1 "
-                   "draw-wait=REMOVED dated-dispatch=NOT_CONNECTED\n",
+                   "draw-wait=REMOVED dated-dispatch=OG_CPU_GROUPS\n",
             (unsigned)ctx->year,(unsigned)ctx->comp.matchesPlayedCount);
     { extern void InputSDL_ClearWorldViewExit(void);
       InputSDL_ClearWorldViewExit(); }
@@ -8913,6 +9056,9 @@ int Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
     if(s_expOGCupCurrent) {
         kind=1u;origin=1u;country=s_expOGCupCurrent->country;
         slot=s_expOGCupCurrent->slot;edition=s_expOGCupCurrent->year;
+    } else if(s_expOGCurrent==&s_expOGBolivia) {
+        kind=1u;origin=1u;country=45u;slot=2u;
+        edition=s_expOGBolivia.year;
     } else if(s_expOGCurrent) {
         kind=exp_og_is_uefa()?2u:0u;origin=1u;
         country=s_expOGCurrent->country;

@@ -1522,10 +1522,13 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
      * Bolivian OG league context, never the 10+6 legacy cup quota. */
     extern int Expanded_OGWorld_AdvanceBolivia(uint16_t,uint8_t);
     const int boliviaOk=Expanded_OGWorld_AdvanceBolivia(year,phase);
+    /* A failed native match/witness must block the world tick and CAR.
+     * Never call this OPTIONAL after a failure and still report PASS. */
+    if(World_Current()==WORLD_2627 && boliviaOk<=0)++failed;
     if(World_Current()==WORLD_2627 && phase==0u)
         fprintf(stderr,"[og-bolivia-entry] world=2627 year=%u "
                        "national-type2=%s group-matches=64 "
-                       "OG-result-dispatch=NOT_DATED\n",
+                       "OG-result-dispatch=OG_CPU_GROUPS_DATE_GATED\n",
                 (unsigned)year,
                 boliviaOk>0?"RESIDENT_OR_PENDING":
                 boliviaOk<0?"INVALID_TOP_DIVISION":"FAILED");

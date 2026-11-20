@@ -3652,6 +3652,16 @@ int Expanded_OGWorld_BoliviaActive(void) { return s_expOGCurrent==&s_expOGBolivi
 
 static uint16_t s_expOGUefaCalendarYear; /* no previous-year FINAL as current */
 static int s_expOGPhase=-1,s_expOGBound,s_expOGViewing,s_expOGFault;
+/* Read-only OG RULES viewer for 2026: show the group/derby format as
+ * historical stage one before the native QF/SF/Final rules. */
+int Expanded_OGWorld_BoliviaKOViewing(void)
+{
+    return s_expOGViewing && _gameType==4 &&
+           World_Current()==WORLD_2627 && s_expOGBolivia.used &&
+           s_expOGBolivia.year==World_FirstYear() &&
+           (uint8_t)_diyFileBufferCopy.header.field_2E==164u &&
+           _diyFileBufferCopy.header.competitionType==1;
+}
 static int exp_og_is_uefa(void) {
     return s_expOGCurrent && (s_expOGCurrent==&s_expOGUefa[0] ||
         s_expOGCurrent==&s_expOGUefa[1] || s_expOGCurrent==&s_expOGUefa[2]);
@@ -6384,10 +6394,20 @@ int Expanded_OGWorld_AdvanceBolivia(uint16_t year,uint8_t phase)
     if(_gameType!=4 || s_expOGCurrent || s_expOGCupCurrent)return 0;
     const uint16_t first=World_FirstYear();
     if(s_expOGBolivia.used) {
-        if(phase==0u && year!=s_expOGBolivia.year)
-            fprintf(stderr,"[og-bolivia-resident] NEW_EDITION_PENDING "
-                           "requested=%u existing=%u reason=KO_AND_OG_QUAL_PENDING\n",
-                    (unsigned)year,(unsigned)s_expOGBolivia.year);
+        if(phase==0u && year!=s_expOGBolivia.year) {
+            /* The next edition's entrants are the CURRENT native OG
+             * first-division clubs, not last year's eight quarter-finalists
+             * or the initial 2026 hardcoded list. This does not construct
+             * any fictitious draw, fixtures, dates or results. */
+            const ExpandedOGLeague *const top=exp_find(45u,0u,year);
+            fprintf(stderr,"[og-bolivia-resident] NEW_EDITION_ENTRANTS "
+                "requested=%u previous=%u country=45 division=0 "
+                "teams=%u source=%s date=UNAVAILABLE "
+                "no-future-fixtures=1\n",
+                (unsigned)year,(unsigned)s_expOGBolivia.year,
+                (unsigned)(top && top->used ? top->teamCount : 0u),
+                top && top->used?"CURRENT_OG_FIRST_DIVISION":"PENDING_OG_LEAGUE");
+        }
         if(year==s_expOGBolivia.year && phase!=0u) {
             if(!exp_bolivia_dispatch_native(year,phase))return 0;
             return exp_bolivia_ko_advance(year,phase);
@@ -8334,10 +8354,74 @@ extern void ShowErrorMenu(uint8_t *text);
 extern void ShowDiyLeaguesTournamentMenu(uint16_t type,uint16_t viewOnly,uint16_t focusOverride);
 extern void ShowDIYCupMenuWithParams(uint16_t,uint16_t,uint16_t);
 
+/* All first-division teams in the CURRENT OG edition are eligible for
+ * the next Copa Bolivia, including clubs promoted since 2026. The
+ * full match-by-match 2027 fixture and competition format have NOT been
+ * verified; show a participant list through the original OG selector,
+ * never the 2026 group table masquerading as a 2027 classification. */
+static int exp_og_view_bolivia_pending(uint16_t edition)
+{
+    static uint8_t missing[]="COPA BOLIVIA: CURRENT OG TEAMS UNAVAILABLE";
+    static uint8_t title[64];
+    extern TeamFileEx *ChooseTeamForEditTactics(uint8_t *,uint16_t *,uint16_t);
+    const ExpandedOGLeague *top=exp_find(45u,0u,edition);
+    uint16_t entrants[EXP_OG_MAX_TEAMS];
+    if(!top || !top->used || top->year!=edition ||
+       top->teamCount<2u || top->teamCount>EXP_OG_MAX_TEAMS) {
+        ShowErrorMenu(missing);
+        return 0;
+    }
+    for(unsigned i=0u;i<top->teamCount;++i) {
+        const TeamFile *const id=&top->teams[i].team;
+        if(id->countryNumber!=45u) {
+            ShowErrorMenu(missing);
+            return 0;
+        }
+        entrants[i]=(uint16_t)(((uint16_t)id->countryNumber<<8) |
+                                 (uint8_t)id->teamOrdinal);
+        for(unsigned j=0u;j<i;++j)
+            if(entrants[i]==entrants[j]) {
+                ShowErrorMenu(missing);
+                return 0;
+            }
+    }
+    snprintf((char *)title,sizeof title,"COPA BOLIVIA %u CLUBS",
+             (unsigned)edition);
+    const uint64_t before=exp_fixture_hash((const uint8_t *)top,sizeof *top);
+    fprintf(stderr,"[og-bolivia-view] PENDING_EDITION year=%u "
+        "entrants=%u source=CURRENT_OG_FIRST_DIVISION "
+        "start=UNAVAILABLE matches=0 historical-2026=NOT_CURRENT\n",
+        (unsigned)edition,(unsigned)top->teamCount);
+    /* The original club picker loads scratch team records, not OG fixtures.
+     * Restore scratch selection and RNG like every other readonly OG viewer. */
+    /* Entrants are known from the current OG first division. Open their
+     * list directly; no misleading unavailable-participant popup. */
+    const uint16_t previousSelected=_numSelectedTeams;
+    SaveSelectedTeams();
+    SaveRand2State();
+    memcpy(_selectedTeams,top->teams,
+           (size_t)top->teamCount*sizeof(TeamFileEx));
+    _numSelectedTeams=top->teamCount;
+    (void)ChooseTeamForEditTactics(title,entrants,top->teamCount);
+    RestoreRand2State();
+    RestoreSelectedTeams();
+    _numSelectedTeams=previousSelected;
+    const uint64_t after=exp_fixture_hash((const uint8_t *)top,sizeof *top);
+    fprintf(stderr,"[og-viewer-check] kind=BOLIVIA_NEXT_ENTRANTS "
+        "year=%u unchanged=%d before=%016llx after=%016llx\n",
+        (unsigned)edition,before==after,
+        (unsigned long long)before,(unsigned long long)after);
+    return before==after;
+}
+
 static int exp_og_view_bolivia(void)
 {
     static uint8_t notReady[]="COPA BOLIVIA: OG GROUPS NOT RESIDENT";
     ExpandedOGLeague *ctx=&s_expOGBolivia;
+    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    const uint16_t currentEdition=Expanded_OGWorld_SaveYear();
+    if(currentEdition>ctx->year && ctx->used)
+        return exp_og_view_bolivia_pending(currentEdition);
     if(!ctx->used || ctx->country!=45u || ctx->division!=2u ||
        ctx->teamCount!=16u ||
        ctx->tournament.header.competitionType!=2 ||

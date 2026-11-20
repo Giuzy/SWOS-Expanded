@@ -7301,6 +7301,12 @@ __attribute__((used, externally_visible))
 void DesignDIYCupOnDraw(void)
 {
     DIYCompetitionEx *comp = &_diyCompetitionStart;
+#ifdef SWOS_SDL_BUILD
+    extern int Expanded_OGWorld_BoliviaKOViewing(void);
+    const int boliviaStages=Expanded_OGWorld_BoliviaKOViewing();
+#else
+    const int boliviaStages=0;
+#endif
 
     MenuEntry *entry9 = &_menuEntries[9];   /* menuEntries+$1F8 */
 
@@ -7312,17 +7318,47 @@ void DesignDIYCupOnDraw(void)
     /* Entry 11: show and write numRounds */
     MenuEntry *entry11 = &_menuEntries[11]; /* menuEntries+$268 */
     entry11->isInvisible = 0;
-    entry11->fgWord = (uint16_t)comp->base.numRounds;
+    entry11->fgWord = (uint16_t)(comp->base.numRounds +
+                                  (boliviaStages?1:0));
 
     /* Entries 18+ : loop over 6 round slots (d7 = 0,2,4,6,8,10) */
     MenuEntry *a4 = &_menuEntries[18];      /* menuEntries+$3F0 */
     uint16_t d7 = 0;
-    uint16_t d6 = (uint16_t)comp->base.numTeams;
+    uint16_t d6 = boliviaStages?16u:(uint16_t)comp->base.numTeams;
     uint16_t d5 = 0;
 
     while (d7 < 0x0C) {
         uint16_t roundIdx = d7 >> 1;
-
+#ifdef SWOS_SDL_BUILD
+        if (boliviaStages && roundIdx==0u) {
+            /* Viewer-only reconstruction of the REAL 2026 first stage.
+             * 64 native OG games: 48 within the four groups plus 16
+             * cross-group derbies. The following three visible rows
+             * remain the original 8/4/2-club OG knockout stage.
+             * Never add a synthetic round to the game state. */
+            static const char *const labels[4]={
+                "4 GROUPS OF 4", "3 PTS",
+                "6+2 DERBIES", "TOP 2 QUALIFY"
+            };
+            a4->isInvisible=0;
+            a4->content=ENTRY_STRING;
+            a4->fg=(uintptr_t)labels[0];
+            ++a4;
+            a4->isInvisible=0;
+            a4->fgWord=16u;
+            ++a4;
+            for(unsigned i=1u;i<4u;++i) {
+                a4->isInvisible=0;
+                a4->content=ENTRY_STRING;
+                a4->fg=(uintptr_t)labels[i];
+                ++a4;
+            }
+            d6>>=1;
+            d7+=2;
+            continue;
+        }
+#endif
+        if(boliviaStages) --roundIdx;
         if (roundIdx < (uint16_t)comp->base.numRounds) {
             /* Active round: show entries */
             a4->isInvisible = 0;

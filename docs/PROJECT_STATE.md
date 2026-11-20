@@ -1,3 +1,15 @@
+## 20/11/2026 — BUILD 00.13.224 (IN PREPARAZIONE): 2027 ENTRANTS E REGOLE COPA BOLIVIA
+
+**PROVA WINDOWS GIA' ESEGUITA SU 223:** i log DIAGNOSTICA_SESSIONE_1(20261120-111014).zip verificano Copa Bolivia 2026 completata: 64 OG gruppi (48 nel gruppo+16 derby), 14 KO, vincitore OG al 25/11, nessuna semifinale doppia; le nuove regole tipo2 includono 3 punti. Poi rollover 2027 funziona, MA viewer continua ad aprire classifica 2026 e lo stato NEW_EDITION_PENDING non crea un nuovo calendario.
+
+**CORREZIONE 224 PREPARATA (NON PROVATA WINDOWS):** per le edizioni successive le partecipanti sono TUTTI i club della prima divisione boliviana OG della stagione corrente, rilevati da country45/division0/anno corrente, includendo promozioni e retrocessioni (non 8 qualificate da QF, non sorteggio 2026). Il viewer quando anno corrente supera il 2026 mostra subito la lista OG delle partecipanti del campionato corrente, senza popup generico di indisponibilita', non una falsa classifica 2027. Vecchia edizione OG 2026 preservata per storico, nessun nuovo replay né calendario 2027 inventato. Questa e' **REGISTRAZIONE PARTECIPANTI**, NON competizione 2027 giocabile: formato e date per-gara 2027 non ancora verificati. Dati derive dal residente OG già salvato; nessun nuovo formato CAR.
+
+**REGOLE KO:** nel viewer storico Copa Bolivia 2026, schermata KO deve presentare anche 4 gruppi di 4, 6 gare interne +2 derby per club e 3 punti/vittoria, prime due avanzano; mostra prima riga di sintesi e poi 3 turni QF/SF/F OG (4 righe UI, 3 turni KO veri). CLASSIC/DIY/SEASON non alterati. Verifica grafica Windows pendente.
+
+**DECISIONE PANCHINE (DOPO COMPLETAMENTO MOTORE, NON IMPLEMENTATA):** tre entita' separate (rosa club estesa, distinta 11+7/9/12/15 panchinari, cambi fino a 5 con eventuale sesto nei supplementari secondo regolamento); UI panchine del SWOS 96/97 Mod come riferimento, copiare asset solo con diritti verificati. Dettagli in GAME_DESIGN.md.
+
+QA 224 su Windows **NON PROVATO**: compilazione, viewer 2027, REGOLE nuove, CAR SAVE/EXIT/CONTINUE, regole e calendario della Copa 2027, manager KO e qualificazioni. Prima di dichiarare anno successivo funzionante serve fonte per la data di ogni incontro e test. Deposito recupero Issue #1.
+
 ## 20/11/2026 — 00.13.223 COPA BOLIVIA (patch Windows 222, gameplay DA PROVARE)
 
 Ramo dev/0.10, base 746d762 (00.13.222). ZIP diagnostici Windows sessioni1/2 20/11 10:35: 64 gruppi OG, QF 8/8; poi WorldCups_ArrangeNextRound modifica per compId164 il KO residente a semifinale doppia 2d00-2d07, FAIL_CLOSED due=13, data non avanzata e CAR vecchio preservato. 223 prepara guardia d'identità del KO (country45/slot2/compId164/8 club/primo anno) per impedire esclusivamente l'hook WorldCups del vecchio torneo, mantenendo la normale progressione OG di quarti, semifinali, finale. Manager KO rimane DEFER (nessuna seconda simulazione).

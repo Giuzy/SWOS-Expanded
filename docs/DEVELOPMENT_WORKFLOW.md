@@ -1,3 +1,14 @@
+## 20/11/2026 — WINDOWS QA BUILD 00.13.224: COPA BOLIVIA 2026/2027
+
+**BASE 223 PROVATA:** Windows ZIP 20/11 11:10: 64+14 OG Copa Bolivia 2026 concluse, campione dal risultato OG, 2027 viewer mostra ancora la classifica 2026. 224 prepara (1) riga 4 GRUPPI e DERBY nel viewer KO 2026, (2) lista partecipanti OG prima divisione nel mondo 2027. **2027 calendario e formato non verificati: nessuna partita della Copa Paceña 2027 generata.** Non chiamarla 'giocabile'. 223 CAR preesistenti non cancellati.
+
+1. GitKraken sync dev/0.10; compilare con AVVIA_DIAGNOSTICA.bat. Verificare versione 00.13.224, zero errori di compilazione (report reale, mai presunto). 
+2. Carriera nuova 2026/27, senza club: Copa Bolivia prima dei quarti -> REGOLE con 4 GROUPS OF 4, 3 PTS, 6+2 DERBIES, TOP 2; dopo quarti, REGOLE KO mostra 4 righe (riga storico gruppi+QF/SF/F), nessun crash, BACK da joystick B/ESC, valori corretti 3 sostituzioni da 5, no testo sovrapposto.
+3. Avanzare fino al 25/11/2026: 64 partite gruppi+14 KO=78, campione OG, journal e CAR; nessun match simulato solo per aprire viewer.
+4. Superare il rollover e arrivare al 2027. La nuova Copa Bolivia non deve riaprire tabellone/classifica con score del 2026 come se fossero del 2027. Deve mostrare SUBITO **l'elenco di tutte le squadre della prima divisione OG CORRENTE**, senza popup generico di indisponibilita' (country45/div0, teamCount osservato, incluse eventuali promosse). Non attribuire nuovi gironi, date o risultati: 2027 formato per-gara ancora non verificato.
+5. SAVE→EXIT→CONTINUE dopo aver raggiunto il 2027, ripetere viewer e verificare elenco identico con hash check, no replay delle 78 gare 2026. CAR antecedente conservato; prova anche 1996/97 e CLASSIC/DIY/SEASON.
+6. Mandare ZIP della diagnostica più screenshot REGOLE 2026 e lista partecipanti 2027. Distinguere '2026 gameplay PASS' dalla '2027 club list PASS' e '2027 calendario/formato NON DISPONIBILE'. Manager KO e qualificazioni CONMEBOL ancora non implementati.
+
 ## 20/11/2026 — 00.13.223 DIAGNOSTICA WINDOWS COPA BOLIVIA / F12
 
 Base 00.13.222: ZIP sessioni 1/2 10:35 confermano 64 gruppi+8 quarti, poi due SF duplicate (11 e 12 novembre) a causa dell'hook WorldCups sul compId164; salvataggio precedente protetto. Patch 223 proposta, **non dichiarare gameplay risolto senza ZIP Windows**.

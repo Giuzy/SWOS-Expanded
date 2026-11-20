@@ -9,7 +9,7 @@
   "legacy_native_type": 1,
   "requested_native_type": 2,
   "runtime_connected": false,
-  "reason": "Native type2 OG zero-result context, group fixture pair stage hooks, readonly viewer and optional CAR context are coded but Windows untested. Dated match dispatch, manager binding and future-year automatic entrants remain unimplemented; no scores must be fabricated.",
+  "reason": "First edition 64 real dated pairings are now defined and Bolivia viewer/rules pointer repair is coded, but user Windows build 220 and OG match-by-match scheduler, manager, full KO, qualification, subsequent seasons and CAR game round-trip remain unproven/unconnected.",
   "career_start_date": "2026-07-01",
   "real_draw_date": "2026-07-22",
   "first_match_scheduled": "2026-08-19",
@@ -191,16 +191,36 @@
   "format_sequence": {
     "code_header": "sorgenti/include/bolivia_cup_sequence.h",
     "tested_with": "sorgenti/tests/run_test_bolivia_cup_sequence.sh",
-    "status": "BUILDER_VERIFIED_ISOLATED_NOT_OG_RUNTIME",
+    "status": "64_HISTORICAL_DATED_PAIR_DEFINITIONS_NOT_OG_DISPATCH",
     "group_matchdays": 8,
     "group_fixtures": 64,
     "intragroup_fixtures": 48,
     "interseries_fixtures": 16,
     "knockout_fixtures_expected": 14,
-    "knockout_program": "NOT_BUILT",
+    "knockout_program": "PENDING_NATIVE_OG_POST_GROUP_RESULTS",
     "first_edition_real_day_by_day_dates": "NOT_VERIFIED",
     "rankings_results": "ONLY_FROM_OG_NEVER_GENERATED_HERE",
-    "legacy_knockout_competition": "BLOCKED_FOR_2026_27_TO_AVOID_FAKE_ROUND_OF_16"
+    "legacy_knockout_competition": "BLOCKED_FOR_2026_27_TO_AVOID_FAKE_ROUND_OF_16",
+    "source": "https://www.bolivia.com/futbol/liga-boliviana/copa-bolivia/resultados",
+    "first_civil_match": "2026-08-18",
+    "last_group_civil_match": "2026-10-08",
+    "date_verified_in_header": true,
+    "postponed_match_examples": [
+      {
+        "matchday": 1,
+        "home": 8,
+        "away": 1,
+        "date": "2026-09-02"
+      },
+      {
+        "matchday": 2,
+        "home": 6,
+        "away": 15,
+        "date": "2026-09-22"
+      }
+    ],
+    "result_policy": "DO_NOT_IMPORT_REAL_WORLD_SCORES; OG_ONLY",
+    "disclaimer": "Individual first-2026 dated pairs are known; dates are metadata, no OG match execution connected yet."
   },
   "eligibility": {
     "rule": "ALL_16_CURRENT_DIVISION_PROFESIONAL_CLUBS",
@@ -222,13 +242,23 @@
     "status": "TYPE2_INIT_AND_READONLY_VIEW_CAR_CODED_WINDOWS_UNPROVEN",
     "world_career_start": "NATIVE_TOP_DIVISION_VALIDATION",
     "resident_slot": "BOLIVIA_NATIVE_TYPE2_SEPARATE_FROM_UEFA3",
-    "group_program": "NATIVE_DIY_LEAGUE_PHASE_CAL_64",
-    "draw_date": "2026-07-22",
+    "group_program": "NATIVE_DIY_LEAGUE_PHASE_CAL_64_REAL_2026_PAIRS",
+    "draw_date": "2026-07-22 HISTORICAL ONLY; viewer shows known groups from career start",
     "cutoff_date": "2026-07-01",
-    "match_dispatch": "BLOCKED_UNTIL_AUTHENTICATED_DATED_FIXTURES",
+    "match_dispatch": "NOT_CONNECTED",
     "manager_playback": "NOT_CONNECTED",
     "car_resident": "OPTIONAL_CONTEXT_COMPATIBLE_WITH_218_OLD_CAR",
-    "knockout": "OG_TYPE2_STRUCTURE_ALLOCATED_NO_OG_RESULTS",
-    "result_simulator": "OPEN_SWOS_ONLY"
+    "knockout": "NATIVE_OG_PHASE_DESCRIPTORS_ONLY_NO_EXECUTION",
+    "result_simulator": "OPEN_SWOS_ONLY",
+    "real_first_edition_dates": "HEADER_DEFINED_64_NOT_OG_DISPATCH",
+    "visibility": "IMMEDIATE_KNOWN_FIRST_2026_PARTICIPANTS"
+  },
+  "visibility_policy": {
+    "state": "APPROVED_GENERIC_RULE; BOLIVIA_SPECIFIC_VIEWER_IMPLEMENTED_00.13.220",
+    "participants_known": "SHOW_LATEST_KNOWN_REAL_OG_EDITION_AND_IF_CURRENT_ENTRANTS_KNOWN_CURRENT_RESIDENT",
+    "draw_wait": "NONE",
+    "old_edition_unknown_entrants": "READ_ONLY_LAST_REAL_EDITION_WITH_EXPLICIT_YEAR; NEVER_FAKE_RESULTS",
+    "prior_edition_requirement": "WHEN_AVAILABLE_STILL_RETAIN_PREVIOUS_OG_RESIDENT_UNTIL_NEW_PARTICIPANTS_ARE_KNOWN",
+    "full_generic_implementation": "PENDING"
   }
 }

@@ -265,8 +265,11 @@ static int BoliviaCup_OGPair(uint8_t **home,uint8_t **away)
     if(m>=64u)return 0;
     const unsigned a=c->leaguePhase.cal[m][0],b=c->leaguePhase.cal[m][1];
     if(a>=16u || b>=16u || a==b)return 0;
-    *home=(uint8_t *)&_diyCompetitionStart+a*18u;
-    *away=(uint8_t *)&_diyCompetitionStart+b*18u;
+    /* The 18-byte rows live in the relocated leagueStandings member,
+     * NOT at the start of DIYCompetitionEx. Match the working OG
+     * LeaguePhase_Pair/States_Pair row-address contract. */
+    *home=(uint8_t *)&_diyCompetitionStart.leagueStandings[a];
+    *away=(uint8_t *)&_diyCompetitionStart.leagueStandings[b];
     return 1;
 }
 #endif /* SWOS_SDL_BUILD */
@@ -5919,6 +5922,23 @@ void DesignDIYTournamentReinit(void)
 __attribute__((used, externally_visible))
 void DesignDIYTournamentInit(void)
 {
+#ifdef SWOS_SDL_BUILD
+    /* The numeric labels of this menu are also TEXT_NO_PTR placeholders.
+     * Reinit() calls Int2Ascii through their fg pointer BEFORE OnDraw().
+     * Supply stable writable strings for the 2026 Bolivian native type-2
+     * rules, otherwise Windows dereferences the -1 sentinel on entry. */
+    if(_diyTournamentLookOnly && _gameType==4 &&
+       World_Current()==WORLD_2627 &&
+       (uint8_t)_diyFileBufferCopy.header.field_2E==164u &&
+       _diyFileBufferCopy.header.competitionType==2) {
+        static uint8_t s_boliviaRulesCounters[2][16];
+        _menuEntries[11].fg=(uintptr_t)s_boliviaRulesCounters[0];
+        _menuEntries[13].fg=(uintptr_t)s_boliviaRulesCounters[1];
+        fprintf(stderr,"[og-bolivia-rules] type2=1 read-only=1 "
+                       "numeric-buffers=OWNED stage-buffers=OWNED "
+                       "Windows-render=NOT_PROVEN\\n");
+    }
+#endif
     if (_diyTournamentLookOnly == 0)
         DesignDIYTournament_UpdateSelectTeamsPrompt();
     DesignDIYTournamentReinit();
@@ -6343,6 +6363,19 @@ __attribute__((used, externally_visible))
 void DesignDIYTournamentOnDraw(void)
 {
     DIYTournamentSlot *slot = _diyFileBufferCopy.slots;
+#ifdef SWOS_SDL_BUILD
+    /* MENU_CMD_TEXT_NO_PTR is an explicit 0xffffffff sentinel on Windows.
+     * The original tournament-info callback below writes text through fg.
+     * For the new national type-2 rules page, supply OWNED writable
+     * buffers before StringCopy/PrintFormatted; never dereference -1.
+     * Other (classic/DIY/UEFA) rules/menu paths are left unchanged. */
+    static uint8_t s_boliviaRulesStageName[6][96];
+    static uint8_t s_boliviaRulesStageQual[6][192];
+    const int boliviaRules=_diyTournamentLookOnly!=0 &&
+        _gameType==4 && World_Current()==WORLD_2627 &&
+        (uint8_t)_diyFileBufferCopy.header.field_2E==164u &&
+        _diyFileBufferCopy.header.competitionType==2;
+#endif
     uint16_t numStages = (uint16_t)_diyFileBufferCopy.header.totalMatchesInRound;
     int16_t scanCount = (int16_t)numStages - 1;
     int16_t found3rdPlayoff = 0;
@@ -6378,7 +6411,14 @@ void DesignDIYTournamentOnDraw(void)
     extern void DIY_SetFirstStagePlayOnceText(const char *text);
     const int32_t lpDays = LeaguePhase_StageDays((uint8_t)_diyFileBufferCopy.header.field_2E,
                                                  slot->groups, slot->teamsPerGroup);
+#ifdef SWOS_SDL_BUILD
+    DIY_SetFirstStagePlayOnceText(boliviaRules ?
+        "6 GROUP + 2 CLASSICS" :
+        (lpDays == 8 ? "8 OPPONENTS, ONCE" :
+         lpDays ? "6 OPPONENTS, ONCE" : 0));
+#else
     DIY_SetFirstStagePlayOnceText(lpDays == 8 ? "8 OPPONENTS, ONCE" : lpDays ? "6 OPPONENTS, ONCE" : 0);
+#endif
 
     for (d7 = 0; d7 < 6; d7++) {
         /* Check if this slot is past the last active stage */
@@ -6417,6 +6457,9 @@ void DesignDIYTournamentOnDraw(void)
 
         /* Show entry and set stage name string */
         a4->isInvisible = 0;
+#ifdef SWOS_SDL_BUILD
+        if(boliviaRules)a4->fg=(uintptr_t)s_boliviaRulesStageName[d7];
+#endif
         {
             uint8_t *dst = (uint8_t *)a4->fg;
             if (slot->isLeagueFormat == 0) {
@@ -6464,6 +6507,9 @@ void DesignDIYTournamentOnDraw(void)
         /* Next entry: qualification description */
         a4++;
         a4->isInvisible = 0;
+#ifdef SWOS_SDL_BUILD
+        if(boliviaRules)a4->fg=(uintptr_t)s_boliviaRulesStageQual[d7];
+#endif
         {
             uint8_t *dst = (uint8_t *)a4->fg;
             if (slot->isLeagueFormat == 0) {

@@ -1,104 +1,94 @@
 /*
- * Copa Bolivia 2026: immutable 8-matchday fixture sequence (16 clubs).
+ * 2026 Copa Bolivia (Copa Paceña): actual 64 first-edition group fixtures.
+ * Source for each dated pairing: Bolivia.com 2026 Copa Bolivia results,
+ * https://www.bolivia.com/futbol/liga-boliviana/copa-bolivia/resultados
  *
- * Produces NO goals, standings, winners, simulated results or independent time.
- * IDs are in the original 2026/27 TEAM.045 order. The sequence is a native
- * fixture source for an OG match executor, NOT an alternate match engine.
- * The six intra-group rounds are a deterministic RULES-VALID template;
- * the authoritative historical 2026 per-match date/venue mapping is still
- * required before this can be played as the first edition.
+ * The 2026 edition began on August 18, not August 19. Fixture dates
+ * are schedules/real-world metadata only: goals, tables, winners and
+ * match execution belong exclusively to the native OpenSWOS engine.
+ * The game must NEVER import real-world scores into a new 1 July career.
+ * Some postponed matches have a later civil date than later matchdays.
  */
 #ifndef BOLIVIA_CUP_SEQUENCE_H
 #define BOLIVIA_CUP_SEQUENCE_H
 #include <stdint.h>
 
 enum {
-    BOLIVIA_CUP_TEAMS = 16,
-    BOLIVIA_CUP_GROUPS = 4,
-    BOLIVIA_CUP_MATCHDAYS = 8,
-    BOLIVIA_CUP_GROUP_FIXTURES = 64,
-    BOLIVIA_CUP_KNOCKOUT_FIXTURES = 14,
-    BOLIVIA_CUP_TOTAL_FIXTURES = 78
+    BOLIVIA_CUP_TEAMS=16, BOLIVIA_CUP_GROUPS=4,
+    BOLIVIA_CUP_MATCHDAYS=8, BOLIVIA_CUP_GROUP_FIXTURES=64,
+    BOLIVIA_CUP_KNOCKOUT_FIXTURES=14,
+    BOLIVIA_CUP_TOTAL_FIXTURES=78
 };
 
 typedef struct {
-    uint16_t fixtureId; /* 1..64; identity key is world+edition+fixtureId */
-    uint8_t matchday;   /* 1..8; only 2 and 4 are cross-group */
-    uint8_t home;       /* TEAM.045 ordinal, never a global selectedTeams offset */
+    uint16_t fixtureId; /* 1..64, stable in edition; not a global ordinal */
+    uint8_t matchday;   /* 1..8, 2 and 4 are cross-group classics */
+    uint8_t home;       /* TEAM.045 ordinal */
     uint8_t away;
-    uint8_t groupHome;  /* 0..3 */
+    uint8_t groupHome;
     uint8_t groupAway;
     uint8_t isDerby;
+    uint8_t month;      /* 2026 civil month, 8..10 */
+    uint8_t day;        /* 2026 civil day; no score or simulation */
 } BoliviaCupFixture;
 
-/* Real 22 July 2026 draw, by team-file ordinal. */
 static const uint8_t kBoliviaCupGroups[4][4] = {
-    { 3, 14, 9, 15 },  /* San Antonio Bulo Bulo, ABB, Aurora, Real Potosi */
-    { 0, 12, 10, 6 },  /* Always Ready, Real Oruro, Tomayapo, Nacional Potosi */
-    { 7, 11, 2, 13 },  /* Guabira, Oriente, The Strongest, Universitario Vinto */
-    { 1, 8, 4, 5 }     /* Bolivar, GV San Jose, Blooming, Independiente */
-};
-/* Verified reciprocal interseries opponent PAIRS. The template alternates
- * home/away across derby days 2 and 4; the exact historical first-home
- * order/dates still need an authenticated match-by-match source. There
- * are eight opponent pairs, yielding sixteen interseries fixtures. */
-static const uint8_t kBoliviaCupDerbies[8][2] = {
-    { 14, 0 }, { 1, 2 }, { 4, 11 }, { 8, 12 },
-    { 6, 15 }, { 13, 9 }, { 3, 7 }, { 10, 5 }
+    { 3,14, 9,15 }, /* San Antonio, ABB, Aurora, Real Potosi */
+    { 0,12,10, 6 }, /* Always Ready, Real Oruro, Tomayapo, Nacional */
+    { 7,11, 2,13 }, /* Guabira, Oriente, Strongest, Universitario */
+    { 1, 8, 4, 5 }  /* Bolivar, GV San Jose, Blooming, Independiente */
 };
 
-static inline int BoliviaCup_GroupOf(uint8_t ordinal)
-{
+typedef struct { uint8_t home,away,month,day; } BoliviaCupRealPair;
+/* One authoritative initial 2026 dated pair table. Not results. */
+static const BoliviaCupRealPair kBoliviaCup2026[8][8] = {
+    /* Matchday 1: eight matches, some rescheduled onto later dates. */
+    { {  3,  9, 8, 18 }, {  7, 13, 8, 18 }, {  2, 11, 8, 18 }, { 14, 15, 8, 19 }, {  5,  4, 8, 19 }, {  0, 12, 8, 20 }, {  8,  1, 9,  2 }, {  6, 10, 9,  3 } },
+    /* Matchday 2: eight matches, some rescheduled onto later dates. */
+    { {  8, 12, 8, 29 }, { 14,  0, 8, 30 }, {  1,  2, 8, 30 }, {  4, 11, 8, 30 }, {  3,  7, 8, 31 }, { 10,  5, 8, 31 }, { 13,  9, 9,  1 }, {  6, 15, 9, 22 } },
+    /* Matchday 3: eight matches, some rescheduled onto later dates. */
+    { { 14,  3, 9,  8 }, {  9, 15, 9,  8 }, { 11,  7, 9,  8 }, { 12,  6, 9,  9 }, { 13,  2, 9,  9 }, {  4,  8, 9,  9 }, { 10,  0, 9, 10 }, {  1,  5, 9, 10 } },
+    /* Matchday 4: eight matches, some rescheduled onto later dates. */
+    { {  0, 14, 9, 19 }, {  9, 13, 9, 19 }, { 15,  6, 9, 19 }, { 12,  8, 9, 20 }, {  2,  1, 9, 20 }, { 11,  4, 9, 20 }, {  7,  3, 9, 21 }, {  5, 10, 9, 21 } },
+    /* Matchday 5: eight matches, some rescheduled onto later dates. */
+    { {  3, 15, 9, 25 }, { 14,  9, 9, 25 }, {  6,  0, 9, 25 }, {  2,  7, 9, 26 }, { 13, 11, 9, 26 }, { 10, 12, 9, 27 }, {  8,  5, 9, 27 }, {  1,  4, 9, 27 } },
+    /* Matchday 6: eight matches, some rescheduled onto later dates. */
+    { { 15, 14, 9, 29 }, {  9,  3, 9, 29 }, { 13,  7, 9, 29 }, { 12,  0, 9, 30 }, { 10,  6, 9, 30 }, { 11,  2, 9, 30 }, {  1,  8, 10,  1 }, {  4,  5, 10,  1 } },
+    /* Matchday 7: eight matches, some rescheduled onto later dates. */
+    { {  3, 14, 10,  2 }, { 15,  9, 10,  2 }, {  0, 10, 10,  3 }, {  6, 12, 10,  3 }, {  2, 13, 10,  3 }, {  8,  4, 10,  4 }, {  7, 11, 10,  4 }, {  5,  1, 10,  4 } },
+    /* Matchday 8: eight matches, some rescheduled onto later dates. */
+    { { 15,  3, 10,  6 }, {  9, 14, 10,  6 }, { 12, 10, 10,  6 }, {  7,  2, 10,  7 }, { 11, 13, 10,  7 }, {  5,  8, 10,  7 }, {  0,  6, 10,  8 }, {  4,  1, 10,  8 } }
+};
+
+static inline int BoliviaCup_GroupOf(uint8_t ordinal) {
     for(unsigned g=0;g<4u;++g)
         for(unsigned k=0;k<4u;++k)
             if(kBoliviaCupGroups[g][k]==ordinal)return (int)g;
     return -1;
 }
 
-/* 8 days x 8 games. Native OG will resolve/play these encounters later;
- * there is deliberately no match result type anywhere in this interface. */
 static inline unsigned BoliviaCup_BuildGroupFixtures(
     BoliviaCupFixture out[BOLIVIA_CUP_GROUP_FIXTURES])
 {
-    static const uint8_t pair[3][2][2] = {
-        {{0,3},{1,2}}, {{0,2},{3,1}}, {{0,1},{2,3}}
-    };
-    unsigned count=0u, regular=0u;
     if(!out)return 0u;
-    for(unsigned d=0;d<8u;++d) {
-        if(d==1u || d==3u) {
-            for(unsigned i=0;i<8u;++i) {
-                uint8_t a=kBoliviaCupDerbies[i][0],b=kBoliviaCupDerbies[i][1];
-                if(d==3u){uint8_t temp=a;a=b;b=temp;}
-                const int ga=BoliviaCup_GroupOf(a),gb=BoliviaCup_GroupOf(b);
-                if(ga<0 || gb<0 || ga==gb)return 0u;
-                out[count]=(BoliviaCupFixture){
-                    (uint16_t)(count+1u),(uint8_t)(d+1u),a,b,
-                    (uint8_t)ga,(uint8_t)gb,1u
-                };
-                ++count;
-            }
-        } else {
-            const unsigned round=regular%3u,back=regular>=3u;
-            for(unsigned g=0;g<4u;++g)for(unsigned i=0;i<2u;++i) {
-                uint8_t a=kBoliviaCupGroups[g][pair[round][i][0]];
-                uint8_t b=kBoliviaCupGroups[g][pair[round][i][1]];
-                if(back){uint8_t temp=a;a=b;b=temp;}
-                out[count]=(BoliviaCupFixture){
-                    (uint16_t)(count+1u),(uint8_t)(d+1u),a,b,
-                    (uint8_t)g,(uint8_t)g,0u
-                };
-                ++count;
-            }
-            ++regular;
-        }
+    for(unsigned d=0;d<8u;++d)for(unsigned i=0;i<8u;++i) {
+        const BoliviaCupRealPair *p=&kBoliviaCup2026[d][i];
+        const int gh=BoliviaCup_GroupOf(p->home);
+        const int ga=BoliviaCup_GroupOf(p->away);
+        if(gh<0 || ga<0)return 0u;
+        const unsigned k=d*8u+i;
+        out[k]=(BoliviaCupFixture){
+            (uint16_t)(k+1u),(uint8_t)(d+1u),p->home,p->away,
+            (uint8_t)gh,(uint8_t)ga,(uint8_t)(gh!=ga),
+            p->month,p->day
+        };
     }
-    return count==64u && regular==6u?count:0u;
+    return 64u;
 }
 
-/* Fail closed before handing a plan to the native OG executor. Every team
- * must play eight fixtures (4 home, 4 away); each head-to-head host/guest
- * identity is unique and the derby matches cannot be duplicated. */
+/* Validate that all 16 clubs play once on each of eight matchdays,
+ * four home and four away, with 48 internal +16 reciprocal cross-group
+ * games and no duplicate directed pair or duplicate derby day. */
 static inline int BoliviaCup_ValidateGroupFixtures(
     const BoliviaCupFixture *fx,unsigned count)
 {
@@ -112,7 +102,13 @@ static inline int BoliviaCup_ValidateGroupFixtures(
            f->home>=16u || f->away>=16u || f->home==f->away ||
            f->groupHome!=(uint8_t)BoliviaCup_GroupOf(f->home) ||
            f->groupAway!=(uint8_t)BoliviaCup_GroupOf(f->away) ||
+           f->month<8u || f->month>10u || f->day<1u || f->day>31u ||
            seen[f->home][f->away]++)return 0;
+        const unsigned d=i/8u;
+        for(unsigned j=d*8u;j<i;++j)
+            if(fx[j].home==f->home || fx[j].away==f->home ||
+               fx[j].home==f->away || fx[j].away==f->away)
+                return 0;
         ++homes[f->home];++aways[f->away];
         if(f->isDerby) {
             if(f->groupHome==f->groupAway ||

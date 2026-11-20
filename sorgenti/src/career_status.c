@@ -7870,7 +7870,6 @@ extern void ShowDIYCupMenuWithParams(uint16_t,uint16_t,uint16_t);
 static int exp_og_view_bolivia(void)
 {
     static uint8_t notReady[]="COPA BOLIVIA: OG GROUPS NOT RESIDENT";
-    static uint8_t drawPending[]="COPA BOLIVIA: DRAW ON JULY 22";
     ExpandedOGLeague *ctx=&s_expOGBolivia;
     if(!ctx->used || ctx->country!=45u || ctx->division!=2u ||
        ctx->teamCount!=16u ||
@@ -7879,15 +7878,11 @@ static int exp_og_view_bolivia(void)
         ShowErrorMenu(notReady);
         return 0;
     }
-    /* As of the real 1 July 2026 cutoff the teams are enrolled but
-     * the four groups have not been drawn yet (22 July). */
-    ExpandedLiveCalendarState date;
-    if(ctx->year==2026u && ExpandedWorldLive_CalendarState(&date) &&
-       date.today.year==2026u && date.today.month==7u &&
-       date.today.day<22u) {
-        ShowErrorMenu(drawPending);
-        return 1;
-    }
+    /* UI availability is governed by known participants, not by the
+     * historical ceremony date. The official initial 2026 club IDs
+     * and groups are already resident; viewing never simulates a game.
+     * Do not confuse displaying the fixture definition with claiming
+     * that a historic draw or match already happened. */
     DIYCompetitionEx oldComp;
     DIYTournamentState oldTournament;
     const uint8_t oldPhase=_viewRandomPhase,oldSeason=_seasonPlaying;
@@ -7907,7 +7902,8 @@ static int exp_og_view_bolivia(void)
         (uint8_t *)_diyFileBufferCopy.header.competitionName;
     fprintf(stderr,"[og-bolivia-view] NATIVE_OG_TYPE2 "
                    "world=2627 year=%u groups=4 teams=16 "
-                   "played=%u readonly=1 dated-dispatch=NOT_CONNECTED\n",
+                   "played=%u readonly=1 entrants-known=1 "
+                   "draw-wait=REMOVED dated-dispatch=NOT_CONNECTED\n",
             (unsigned)ctx->year,(unsigned)ctx->comp.matchesPlayedCount);
     { extern void InputSDL_ClearWorldViewExit(void);
       InputSDL_ClearWorldViewExit(); }

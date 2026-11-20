@@ -1,3 +1,6 @@
+## 20/11/2026 — 00.13.220 Copa Bolivia: crash REGOLE + vero calendario statico; NON completa motore
+Fix codice per sentinelle -1 negli entry fg della pagina RULES, buffer validi prima di Reinit e OnDraw; fix puntatori row OG; visibilità immediata prima della cerimonia. Sostituiti i 64 fixture pair provvisori con quelli reali, con date e rinvii 2026, nessun risultato importato. PENDENTI: gare OG con evento civile singolo, manager=stesso OG, 14 KO, accessi CONMEBOL, iscrizioni 2027+, CAR completo e visibilità precedente edizione di tutti i tornei. Vedi docs/BOLIVIA_2026_RULES_AND_FIXTURES_0013220.md.
+
 ### 20/11/2026 — Bolivia 00.13.219: residente type2 parzialmente collegato
 Preparato un type2 OG nazionale con 4 gironi, 16 squadre della prima divisione, 64 coppie fixture, lettura viewer e CAR opzionale. PENDENTI: audit e date vere per ogni gara 2026, dispatch e risultati dal SOLO OG, manager-local binding, derby/non-replay, 14 KO, accesso internazionale con precedenza FBF e anno successivo con promozioni. Build/test Windows 219 NON PROVATO; nessuna gara giocabile in questa versione. Guida docs/BOLIVIA_2026_NATIVE_RESIDENT_0013219.md.
 

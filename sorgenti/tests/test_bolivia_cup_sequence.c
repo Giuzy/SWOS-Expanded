@@ -10,7 +10,22 @@ int main(void) {
     for(unsigned i=0;i<16u;++i)if(BoliviaCup_GroupOf((uint8_t)i)<0)return 3;
     if(BoliviaCup_GroupOf(16u)>=0)return 4;
     if(BOLIVIA_CUP_GROUP_FIXTURES+BOLIVIA_CUP_KNOCKOUT_FIXTURES!=78)return 5;
-    puts("BOLIVIA_SEQUENCE_ISOLATED=PASS groups=4 teams=16 group_matches=64 derby=16 ko_capacity=14");
+    /* 2026 real fixture mapping: opening match 18 Aug, postponed derby
+     * of matchday 2 only on 22 Sep, last group date 8 Oct. */
+    if(f[0].home!=3u || f[0].away!=9u ||
+       f[0].month!=8u || f[0].day!=18u)return 6;
+    unsigned delayed=0u,closing=0u;
+    for(unsigned i=0;i<64u;++i) {
+        if(f[i].matchday==2u && f[i].home==6u && f[i].away==15u &&
+           f[i].month==9u && f[i].day==22u)++delayed;
+        if(f[i].matchday==8u && f[i].month==10u && f[i].day==8u)
+            ++closing;
+    }
+    if(delayed!=1u || closing!=2u)return 7;
+    for(unsigned i=0;i<64u;++i)bad[i]=f[i];
+    bad[0].away=3u;
+    if(BoliviaCup_ValidateGroupFixtures(bad,64u))return 8;
+    puts("BOLIVIA_SEQUENCE_ISOLATED=PASS groups=4 teams=16 group_matches=64 derby=16 dated-2026-fixtures=64 ko_capacity=14");
     puts("BOLIVIA_REAL_DATED_OG_EXECUTION=NOT_TESTED");
     return 0;
 }

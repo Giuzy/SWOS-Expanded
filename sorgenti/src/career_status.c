@@ -3675,6 +3675,15 @@ typedef struct {
 static ExpandedOGCup s_expOGCups[EXP_OG_MAX_CUPS];
 static uint32_t s_expOGCupCount,s_expOGCupUnsupported,s_expOGCupFaults;
 static ExpandedOGCup *s_expOGCupCurrent;
+/* Valid only while the new eight-club Bolivia KO is the native OG executor.
+ * Guard compId-only legacy WorldCups hooks, not normal OG progression. */
+int Expanded_OGWorld_BoliviaKnockoutActive(void)
+{
+    const ExpandedOGCup *c=s_expOGCupCurrent;
+    return _gameType==4 && World_Current()==WORLD_2627 && c &&
+           c->country==45u && c->slot==2u && c->compId==164u &&
+           c->teamCount==8u && c->year==World_FirstYear();
+}
 static int s_expOGCupPhase=-1,s_expOGCupTickFault;
 /* OG resident snapshot must not keep the LOCAL career-team identity -1.
  * Original selectors intentionally omit the human team's file from the
@@ -6130,10 +6139,10 @@ static int exp_bolivia_ko_make(uint16_t year)
     native.header.numRoundsOverride=0;
     native.header.teams=8;
     native.header.awayGoalsMode=0;
-    /* Packed high nibble=substitutes, low nibble=points per win:
-     * 0x53 is five substitutes / three points. Decimal 53 (0x35)
-     * would silently invert those two OG rules. */
-    native.header.subsAndPointsForWin=0x53;
+    /* The OG editor's 0x35 means THREE substitutions FROM FIVE on
+     * the bench. In this cup the low nibble is not a table's points:
+     * the 00.13.222 0x53 accidentally reversed the two UI figures. */
+    native.header.subsAndPointsForWin=0x35;
     native.header.roundStringBase=3;
     for(unsigned i=0u;i<6u;++i)native.roundRuleFlags[i]=(int8_t)0x94;
     for(unsigned i=0u;i<8u;++i)native.teamSeedList[i]=qualified[i];
@@ -6168,8 +6177,8 @@ static int exp_bolivia_ko_make(uint16_t year)
         _diyCompetitionStart.base.numRounds==3 &&
         _diyCompetitionStart.matchData.cup.roundFormat==2 &&
         _diyCompetitionStart.bracketScratch.matchCount==0u &&
-        _diyCompetitionStart.minSubstitutes==5 &&
-        _diyCompetitionStart.pointsForAWin==3 &&
+        _diyCompetitionStart.minSubstitutes==3 &&
+        _diyCompetitionStart.pointsForAWin==5 &&
         _diyCompetitionStart.matchData.cup.roundLegs[0]==2 &&
         _diyCompetitionStart.matchData.cup.roundLegs[1]==2 &&
         _diyCompetitionStart.matchData.cup.roundLegs[2]==2;
@@ -6426,9 +6435,9 @@ int Expanded_OGWorld_AdvanceBolivia(uint16_t year,uint8_t phase)
     native.header.comp.seedReorderFlag=1;
     native.header.seedingType=1;
     native.header.menuState=0;
-    native.header.playEachTeam=2;
-    native.header.awayGoalsMode=0;
-    native.header.subsAndPointsForWin=53;
+    native.header.playEachTeam=2; /* two cross-group derby matchdays */
+    native.header.awayGoalsMode=3; /* type-2: OG points per GROUP win */
+    native.header.subsAndPointsForWin=0x35; /* 3 substitutions from 5 */
     native.header.roundStringBase=4;
     native.header.rounds[0]=(Round){16,4,4};
     native.header.rounds[1]=(Round){8,0,8};

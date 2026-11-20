@@ -1,3 +1,15 @@
+## 20/11/2026 — 00.13.223: Copa Bolivia KO, 6+2 derby e F12 (correzione 222)
+
+**PROVA**: ZIP Windows 00.13.222 DIAGNOSTICA_SESSIONE_2(20261120-103544).zip, SWOS.log: QF serial 0..7 (20/10–05/11) eseguiti. Dopo DIY_UpdateCompetitionProgress, WorldCups_ArrangeNextRound stampa '[world-cup] 164 the next round (the real bracket): 0-7 0-7'; SF serial 8 e 9 (11/12 novembre) sono ENTRAMBE 2d00–2d07, ritorni il 15/11 ugualmente duplicati, FAIL_CLOSED due=13 prima della finale. Il journal protegge CAR precedente. **CAUSA**: world_cups.c:cup_under_way() identificava WorldCup solo per compId=164, scambiando nuovo KO di 8 club per vecchia coppa 16 squadre con ordine speciale. La guardia Expanded_OGWorld_BoliviaKnockoutActive() verifica contesto residente preciso (career, 26/27, paese45, slot2, compId164, 8 club, prima edizione, tick nativo) e disabilita SOLO l'hook storico WorldCups in quella fase. OG DIY progression e match restano originali. WorldPlayoff usa compId200 e CupD 201/202: nessun altro hook uguale. Non provato Windows 223.
+
+**Punti e derby OG**: la type2 Copa Bolivia 222 aveva native.header.awayGoalsMode=0; InitDIYLeagueFromRecord passa quel campo a slot->initConst168 e DIY_LoadCurrentCompetitionSlot a pointsForAWin: lo 0 mostrato era un errore REALE del punteggio OG. Nuovo valore =3. bolivia_cup_sequence.h contiene 48 incontri entro gruppo e 16 derby intergruppo, giornate 2/4: 6+2 per ogni squadra, 64 gare. Viewer ora esplicita '6 GROUP + 2 DERBIES'; test C11 verifica per-club, senza gare sintetiche. CAR precedenti con punti OG zero non vengono ricalcolati: per verificare 3 punti serve nuova carriera; non cancellare CAR.
+
+**Cambi KO**: la 222 fissava 0x53 interpretandolo erroneamente come 3 sostituzioni FROM 5: in OG il nibble alto sono i cambi e il basso il bench/from, quindi valore corretto **0x35**, cioè 3 FROM 5. Il cup initializer riutilizza campo basso pointsForAWin come bench (non c'entra il punteggio dei gironi).
+
+**F12**: platform_sdl.c disegnava sia 'CLASSIF...' sia 'CAR COMP...' a x26/y479. Spostata classifiche in spazio vuoto x395/y252 (tra righe y237 e y269); opacità pannello F12 da 235 a 255, per eliminare testo native menu trasparente; font 5x7 step7 logico960×540. Nessun nuovo asset.
+
+**Limiti**: fixture manager KO ancora DEFER (non giocabile tramite calendario personale), qualificazioni CONMEBOL e nuove edizioni non collegate, collisioni campionato generale da verificare. Niente seconda simulazione. Richiede nuova diagnostica 223 Windows e SAVE/CONTINUE; non dichiarare gameplay PASS.
+
 ## 20/11/2026 — Copa Bolivia 00.13.222: OG knockout residente (da verificare Windows)
 
 - La 00.13.221 gioca 64 partite del girone OG nel residente `s_expOGBolivia`, poi si fermava senza KO. Il nuovo coordinatore `exp_bolivia_ko_make/advance` lega le prime due OG di ciascuno dei quattro gruppi a un **secondo contesto OG della STESSA COPPA** in `s_expOGCups` con identità `(country=45,slot=2,year=2026,stage=KO)`: quarti D2-A1/A2-D1/C2-B1/B2-C1, 14 partite OG native in 3 turni di andata/ritorno. Gli 8 club provengono SOLO dalle classifiche OG, non dai qualificati reali; nessun secondo score maker.

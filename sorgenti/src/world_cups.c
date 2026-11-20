@@ -39,6 +39,16 @@ static const WorldCup *cup_of(const uint8_t *record)
 /* The world cup under way in the DIY competition, by its id. */
 static const WorldCup *cup_under_way(void)
 {
+#ifdef SWOS_SDL_BUILD
+    /* The first-edition Bolivia type-2 groups advance into a separate
+     * resident 8-team OG cup with the SAME compId (164) as a registered
+     * 16-team national WorldCup record. That record's order/flips are NOT
+     * the new quarter-final bracket: applying them duplicates semi-final
+     * teams (Windows 00.13.222, 11-18 Nov). Do not reinterpret a resident
+     * stage by compId alone. Other national and classic cups are unchanged. */
+    extern int Expanded_OGWorld_BoliviaKnockoutActive(void);
+    if (Expanded_OGWorld_BoliviaKnockoutActive()) return 0;
+#endif
     int32_t count = 0;
     const WorldCup *cups = World_Cups(&count);
     const uint8_t id = (uint8_t)_diyCompetitionStart.base.field_2E;

@@ -3015,7 +3015,9 @@ static void draw_world_debug_overlay(void)
     SDL_GetRenderDrawBlendMode(s_renderer,&oldblend);
     SDL_RenderSetLogicalSize(s_renderer,960,540);
     SDL_SetRenderDrawBlendMode(s_renderer,SDL_BLENDMODE_BLEND);
-    SDL_SetRenderDrawColor(s_renderer,8,18,28,235);
+    /* F12 is a full diagnostic page, not a see-through HUD. Underlying
+     * competition/menu labels must not overlap its rows. */
+    SDL_SetRenderDrawColor(s_renderer,8,18,28,255);
     const SDL_Rect panel={12,12,936,516};
     SDL_RenderFillRect(s_renderer,&panel);
     SDL_SetRenderDrawColor(s_renderer,70,149,181,255);
@@ -3154,7 +3156,9 @@ static void draw_world_debug_overlay(void)
     snprintf(line,sizeof line,"CLASSIF. %lu OK  %lu ANOM",
              (unsigned long)d.resultsChecked,
              (unsigned long)d.resultsIssues);
-    diag_f12_line(26,479,line,d.resultsIssues?255:226,
+    /* Previous x=26,y=479 was overpainted by the CAR size row.
+     * Free right-column gap: hire summary y=237, health y=269. */
+    diag_f12_line(395,252,line,d.resultsIssues?255:226,
                   d.resultsIssues?118:236,d.resultsIssues?118:245);
     /* Values are from the SAME saved CAR, never unsaved RAM.
      * Detail and archive sizes are the precise binary WIRE bytes before

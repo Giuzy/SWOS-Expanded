@@ -6445,7 +6445,7 @@ void DesignDIYTournamentOnDraw(void)
                                                  slot->groups, slot->teamsPerGroup);
 #ifdef SWOS_SDL_BUILD
     DIY_SetFirstStagePlayOnceText(boliviaGroupRules ?
-        "6 GROUP + 2 CLASSICS" :
+        "6 GROUP + 2 DERBIES" :
         (lpDays == 8 ? "8 OPPONENTS, ONCE" :
          lpDays ? "6 OPPONENTS, ONCE" : 0));
 #else
@@ -6735,8 +6735,13 @@ after_qual_text: ;
                 if(boliviaRules) {
                     a4->content=ENTRY_STRING;
                     a4->fg=(uintptr_t)s_boliviaRulesOptions[d7][4];
-                    snprintf((char *)a4->fg,48,"PLAY %u TIMES",
-                        (unsigned)slot->playEachTeam);
+                    /* The OG group calendar contains 48 within-group games
+                     * plus 16 cross-group derbies, not merely two circuits. */
+                    if(boliviaGroupRules && d7==0)
+                        snprintf((char *)a4->fg,48,"6 GROUP + 2 DERBIES");
+                    else
+                        snprintf((char *)a4->fg,48,"PLAY %u TIMES",
+                            (unsigned)slot->playEachTeam);
                 } else
 #endif
                 {

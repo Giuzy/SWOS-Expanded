@@ -1,3 +1,16 @@
+## 20/11/2026 — 00.13.223 DIAGNOSTICA WINDOWS COPA BOLIVIA / F12
+
+Base 00.13.222: ZIP sessioni 1/2 10:35 confermano 64 gruppi+8 quarti, poi due SF duplicate (11 e 12 novembre) a causa dell'hook WorldCups sul compId164; salvataggio precedente protetto. Patch 223 proposta, **non dichiarare gameplay risolto senza ZIP Windows**.
+
+1. GitKraken sincronizza dev/0.10, compilare normalmente tramite AVVIA_DIAGNOSTICA.bat. Controllare eventuali errori/warning. Versione 00.13.223 sul log e F12; nessuna nuova toolchain.
+2. Nuova carriera 2026/27 da disoccupato: aprire REGOLE Copa Bolivia. Verificare **3 PTS FOR A WIN**, **6 GROUP + 2 DERBIES**, TOP 2 PER GROUP QUALIFY e nella testata 3 SUBSTITUTES FROM 5. Verificare calendario OG 64 gare: per ogni club 6 partite dentro il gruppo + 2 derby intergruppo (giornate 2 e 4).
+3. Avanzare al 20 ottobre: QF 8 gare OG alle date 20,21 ottobre e 2,4,5 novembre; avanzare all'11 e 12 novembre e controllare che siano **due semifinali tra QUATTRO squadre distinte**, NON le due copie 2d00-2d07 rilevate nella 222. I ritorni il 15 novembre non devono duplicare la stessa partita. Dopo 18 e 25 novembre verificare FINALE 2 gare, risultato e trofeo OG, totale 64 + 14 = 78 partite. Assenza di '[world-cup] 164 the next round (the real bracket)' nel KO; verificare eventuali FAIL_CLOSED e CUP faults.
+4. SAVE/EXIT/CONTINUE durante QF/SF e dopo finale, controllare ID, RNG, fixture, zero replay e CAR intatti. ATTENZIONE: un AUTO2627.CAR creato dalla 222 può conservare 0 punti nella fase storica, **non ricalcolati** da 223: test 3 punti richiede nuova carriera; non cancellare/sovrascrivere alcun file senza backup.
+5. F12 mentre aperto calendario e REGOLE: pannello opaco, riga CLASSIF chiaramente separata da CAR COMP, dati CAR compresso/RAW e partite archiviate visibili. F9 screenshot, anche a 3840x2160. Controllare altre schermate e mondo 9697, CLASSIC/DIY/SEASON.
+6. Nuovo test isolato sorgenti/tests/run_test_bolivia_cup_sequence.sh copre 6+2 per team (16 derby), eseguire C11 e separare sempre PASS statici e Windows gameplay. Gara manager KO ancora DEFER, qualificazioni e nuove edizioni PENDING: NON dichiararle giocabili.
+
+Allegare DIAGNOSTICA_SESSIONE_1/2 ZIP con SWOS.log, Windows build, screenshot F12 e REGOLE.
+
 ## 20/11/2026 — CHECKLIST WINDOWS 00.13.222 Copa Bolivia: GIRONE → KO → FINALE
 
 **Stato**: commit del codice non equivale a compilazione o gameplay. Dopo GitKraken su `dev/0.10`, compilare SOLO tramite `AVVIA_DIAGNOSTICA.bat`/script ufficiali e riportare warning/errori REALI. **Nessun PASS Windows preventivo.** Non cancellare i CAR.

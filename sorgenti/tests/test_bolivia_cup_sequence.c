@@ -42,7 +42,18 @@ int main(void) {
     for(unsigned i=0;i<64u;++i)bad[i]=f[i];
     bad[12].month=f[0].month;bad[12].day=f[0].day;
     if(BoliviaCup_ValidateGroupFixtures(bad,64u))return 12;
-    puts("BOLIVIA_SEQUENCE_ISOLATED=PASS groups=4 teams=16 group_matches=64 derby=16 dated-2026-fixtures=64 chronological=64 no-club-day-overlap=YES ko_capacity=14");
+    /* Each team plays six inside its group (all 3 opponents twice)
+     * and TWO cross-group derbies. This catches losing the derby dates
+     * while leaving the "4 groups of 4" viewer apparently correct. */
+    unsigned inside[16]={0},derbies[16]={0};
+    for(unsigned i=0;i<64u;++i) {
+        unsigned h=f[i].home,a=f[i].away;
+        if(f[i].isDerby) {++derbies[h];++derbies[a];}
+        else {++inside[h];++inside[a];}
+    }
+    for(unsigned i=0;i<16u;++i)
+        if(inside[i]!=6u || derbies[i]!=2u)return 13;
+    puts("BOLIVIA_SEQUENCE_ISOLATED=PASS groups=4 teams=16 group_matches=64 derby=16 per-team=6-group+2-derby dated-2026-fixtures=64 chronological=64 no-club-day-overlap=YES ko_capacity=14");
     puts("BOLIVIA_REAL_DATED_OG_EXECUTION=NOT_TESTED");
     return 0;
 }

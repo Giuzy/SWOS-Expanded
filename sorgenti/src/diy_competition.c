@@ -215,6 +215,7 @@ static const uint16_t diyTournamentInitTable[20] = {
  * These hooks choose a pair in the existing type-2 competition buffer.
  * Never calculate scores, increment results or advance civil time here. */
 extern int Expanded_OGWorld_BoliviaActive(void);
+extern int Expanded_OGWorld_BoliviaTemplateOrdinal(uint8_t templateOrdinal);
 static int BoliviaCup_OGCalendarOn(void)
 {
     const DIYCompetitionEx *c=&_diyCompetitionStart;
@@ -239,9 +240,20 @@ int BoliviaCup_OGStageStart(void)
         const int32_t idx=c->leagueStandings[r].teamSelOffset;
         if(idx<0 || idx>=_numSelectedTeams)return 0;
         const TeamFileEx *t=(const TeamFileEx *)diy_resolve_team(idx);
-        if(t->team.countryNumber!=45u || t->team.teamOrdinal>=16u ||
-           row[t->team.teamOrdinal]>=0)return 0;
-        row[t->team.teamOrdinal]=(int8_t)r;
+        if(t->team.countryNumber!=45u)return 0;
+        /* The dated 2026 fixture table is a stable set of SLOT IDs.
+         * Current OG top-division clubs, including promoted ordinal>15,
+         * map to those same 16 slots; do not reject them or invent games. */
+        int templateSlot=-1;
+        for(unsigned x=0u;x<16u;++x) {
+            if(Expanded_OGWorld_BoliviaTemplateOrdinal((uint8_t)x)==
+               (int)t->team.teamOrdinal) {
+                templateSlot=(int)x;
+                break;
+            }
+        }
+        if(templateSlot<0 || row[templateSlot]>=0)return 0;
+        row[templateSlot]=(int8_t)r;
     }
     for(unsigned x=0;x<16u;++x)if(row[x]<0)return 0;
     BoliviaCupFixture fx[BOLIVIA_CUP_GROUP_FIXTURES];

@@ -3658,7 +3658,6 @@ int Expanded_OGWorld_BoliviaKOViewing(void)
 {
     return s_expOGViewing && _gameType==4 &&
            World_Current()==WORLD_2627 && s_expOGBolivia.used &&
-           s_expOGBolivia.year==World_FirstYear() &&
            (uint8_t)_diyFileBufferCopy.header.field_2E==164u &&
            _diyFileBufferCopy.header.competitionType==1;
 }
@@ -3692,7 +3691,7 @@ int Expanded_OGWorld_BoliviaKnockoutActive(void)
     const ExpandedOGCup *c=s_expOGCupCurrent;
     return _gameType==4 && World_Current()==WORLD_2627 && c &&
            c->country==45u && c->slot==2u && c->compId==164u &&
-           c->teamCount==8u && c->year==World_FirstYear();
+           c->teamCount==8u && c->year==s_expOGBolivia.year;
 }
 static int s_expOGCupPhase=-1,s_expOGCupTickFault;
 /* OG resident snapshot must not keep the LOCAL career-team identity -1.
@@ -4574,7 +4573,7 @@ static void expanded_og_world_reset_internal(int season_transition) {
      * falsely re-seeded next-year competition. New career/full reset
      * continues to clear everything. */
     const uint16_t oldContinentalYear=s_expOGUefaCalendarYear;
-    unsigned retainedUefa=0u,retainedCups=0u;
+    unsigned retainedUefa=0u,retainedCups=0u,retainedBolivia=0u;
     if(season_transition) {
         for(unsigned k=0;k<3u;++k)
             if(ExpandedOG_RetainContinentalType2(
@@ -4583,12 +4582,17 @@ static void expanded_og_world_reset_internal(int season_transition) {
                 ++retainedUefa;
         for(uint32_t i=0;i<s_expOGCupCount;++i) {
             const ExpandedOGCup *c=&s_expOGCups[i];
-            if(ExpandedOG_RetainContinentalType1(
+            const int keepBolivia=
+                c->used && s_expOGBolivia.used &&
+                c->country==45u && c->slot==2u &&
+                c->year==s_expOGBolivia.year;
+            if(keepBolivia || ExpandedOG_RetainContinentalType1(
                    season_transition,c->used,c->country,c->slot,
                    c->year,oldContinentalYear)) {
                 if(retainedCups!=i)
                     memmove(&s_expOGCups[retainedCups],c,sizeof(*c));
                 ++retainedCups;
+                if(keepBolivia)++retainedBolivia;
             }
         }
     }
@@ -4609,7 +4613,12 @@ static void expanded_og_world_reset_internal(int season_transition) {
            (EXP_OG_MAX_CUPS-retainedCups)*sizeof s_expOGCups[0]);
     s_expOGCupCount=retainedCups;s_expOGCupUnsupported=0;s_expOGCupFaults=0;
     s_expOGCupCurrent=NULL;s_expOGCupPhase=-1;s_expOGCupTickFault=0;
-    if(season_transition && (retainedUefa || retainedCups))
+    if(season_transition && retainedBolivia)
+        fprintf(stderr,"[og-season-retain] BOLIVIA_LAST_KO "
+                "edition=%u resident=1 preserve-CAR=1\n",
+                (unsigned)s_expOGBolivia.year);
+    if(season_transition &&
+       (retainedUefa || retainedCups>retainedBolivia))
         fprintf(stderr,"[og-season-retain] KEEP_LAST_CONTINENTAL_EDITION "
                 "world=%s original-year=%u uefa-type2=%u classic-type1=%u "
                 "results=READ_ONLY_IN_CAR new-edition=QUALIFICATION_PENDING\n",
@@ -5944,12 +5953,79 @@ extern uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t,int16_t);
  * The inherited fixture table retains IDs 1..64 and 00.13.220 CAR layout;
  * its postponed fixtures are executed by actual civil date, not round number.
  * A hired manager's match is deferred, never silently CPU-simulated. */
+/* Reuse the 2026 matchday/derby SLOTS in later in-game seasons.
+ * Keep surviving clubs in their template slots and fill relegated places
+ * with current top-division promoted clubs, deterministically by ordinal.
+ * This is a game calendar template, not an official future fixture. */
+static const uint8_t kBoliviaSeedSlots[16]={
+    3,14,9,15, 0,12,10,6, 7,11,2,13, 1,8,4,5
+};
+static int exp_bolivia_seed_order(const ExpandedOGLeague *division,
+                                 uint8_t mapped[16])
+{
+    uint8_t available[256]={0};
+    int slot[16];
+    if(!division || !division->used || division->teamCount!=16u ||
+       !mapped)return 0;
+    for(unsigned j=0u;j<16u;++j) {
+        TeamFile t;
+        memcpy(&t,&division->teams[j].team,sizeof t);
+        if(t.countryNumber!=45u || available[t.teamOrdinal])return 0;
+        available[t.teamOrdinal]=1u;
+    }
+    for(unsigned i=0u;i<16u;++i) {
+        const unsigned ordinal=kBoliviaSeedSlots[i];
+        slot[i]=available[ordinal]?(int)ordinal:-1;
+        available[ordinal]=0u;
+    }
+    for(unsigned i=0u;i<16u;++i)if(slot[i]<0) {
+        int next=-1;
+        for(unsigned id=0u;id<256u;++id)if(available[id]) {
+            next=(int)id;
+            available[id]=0u;
+            break;
+        }
+        if(next<0)return 0;
+        slot[i]=next;
+    }
+    for(unsigned id=0u;id<256u;++id)if(available[id])return 0;
+    for(unsigned i=0u;i<16u;++i)mapped[i]=(uint8_t)slot[i];
+    return 1;
+}
+static int exp_bolivia_slot_team(const uint8_t mapped[16],
+                                uint8_t templateOrdinal)
+{
+    for(unsigned i=0u;i<16u;++i)
+        if(kBoliviaSeedSlots[i]==templateOrdinal)return mapped[i];
+    return -1;
+}
+static int exp_bolivia_mapped_group(const uint8_t mapped[16],
+                                   uint8_t actualOrdinal)
+{
+    for(unsigned i=0u;i<16u;++i)
+        if(mapped[i]==actualOrdinal)return (int)(i/4u);
+    return -1;
+}
+/* Initialization-only identity bridge for the original native 64-pair
+ * calendar. The emitted OG fixture slots are stored in the resident CAR;
+ * neither this temporary map nor a second schedule is serialized. */
+static uint8_t s_expBoliviaInitMap[16];
+static int s_expBoliviaInitActive;
+int Expanded_OGWorld_BoliviaTemplateOrdinal(uint8_t templateOrdinal)
+{
+    if(!s_expBoliviaInitActive || s_expOGCurrent!=&s_expOGBolivia)
+        return -1;
+    return exp_bolivia_slot_team(s_expBoliviaInitMap,templateOrdinal);
+}
+
 static int exp_bolivia_dispatch_native(uint16_t year,uint8_t phase)
 {
     ExpandedOGLeague *const ctx=&s_expOGBolivia;
     BoliviaCupFixture ordered[BOLIVIA_CUP_GROUP_FIXTURES];
     if(BoliviaCup_ChronologicalFixtures(ordered)!=
        BOLIVIA_CUP_GROUP_FIXTURES)return 0;
+    uint8_t mapped[16];
+    if(!exp_bolivia_seed_order(exp_find(45u,0u,year),mapped))return 0;
     const unsigned before=(unsigned)ctx->comp.matchesPlayedCount;
     if(before>64u || ctx->teamCount!=16u ||
        ctx->comp.base.numTeams!=16 || ctx->comp.base.field_2E!=164u ||
@@ -6010,8 +6086,13 @@ static int exp_bolivia_dispatch_native(uint16_t year,uint8_t phase)
     int failed=0,managerPending=0;
     for(unsigned serial=before;serial<due;++serial) {
         const BoliviaCupFixture *const f=&ordered[serial];
-        const uint16_t home=PACK_BE_U16(45u,f->home);
-        const uint16_t away=PACK_BE_U16(45u,f->away);
+        const int homeOrdinal=exp_bolivia_slot_team(mapped,f->home);
+        const int awayOrdinal=exp_bolivia_slot_team(mapped,f->away);
+        if(homeOrdinal<0 || awayOrdinal<0 || homeOrdinal==awayOrdinal) {
+            failed=1;break;
+        }
+        const uint16_t home=PACK_BE_U16(45u,(uint8_t)homeOrdinal);
+        const uint16_t away=PACK_BE_U16(45u,(uint8_t)awayOrdinal);
         if(_selTeamNumber!=0xffffu && !_youreSacked &&
            (_selTeamNumber==home || _selTeamNumber==away)) {
             managerPending=1;
@@ -6091,6 +6172,9 @@ static int exp_bolivia_ko_seed(const ExpandedOGLeague *group,
     if(!group || !group->used || group->teamCount!=16u ||
        group->comp.matchesPlayedCount!=64u ||
        !BoliviaKO_Validate())return 0;
+    uint8_t mapped[16];
+    if(!exp_bolivia_seed_order(exp_find(45u,0u,group->year),mapped))
+        return 0;
     TeamId rank[4][2];
     uint16_t seen[8]={0};
     for(unsigned g=0u;g<4u;++g)for(unsigned pos=0u;pos<2u;++pos) {
@@ -6098,15 +6182,18 @@ static int exp_bolivia_ko_seed(const ExpandedOGLeague *group,
             g*4u+pos];
         if(off%sizeof(DIYTeamStats)!=0u ||
            off/sizeof(DIYTeamStats)>=16u)return 0;
-        const DIYTeamStats *r=&group->comp.leagueStandings[
-            off/sizeof(DIYTeamStats)];
-        const int32_t idx=r->teamSelOffset;
-        if(idx<0 || idx>=16 || r->gamesPlayed!=8u ||
-           (unsigned)r->wins+r->draws+r->losses!=8u)return 0;
-        const TeamFile *team=&group->teams[idx].team;
-        if(team->countryNumber!=45u ||
-           BoliviaCup_GroupOf(team->teamOrdinal)!=(int)g)return 0;
-        rank[g][pos]=(TeamId){team->countryNumber,team->teamOrdinal};
+        DIYTeamStats row;
+        memcpy(&row,&group->comp.leagueStandings[
+            off/sizeof(DIYTeamStats)],sizeof row);
+        const int32_t idx=row.teamSelOffset;
+        if(idx<0 || idx>=16 || row.gamesPlayed!=8u ||
+           (unsigned)row.wins+row.draws+row.losses!=8u)return 0;
+        TeamFile team;
+        memcpy(&team,&group->teams[idx].team,sizeof team);
+        if(team.countryNumber!=45u ||
+           exp_bolivia_mapped_group(mapped,team.teamOrdinal)!=(int)g)
+            return 0;
+        rank[g][pos]=(TeamId){team.countryNumber,team.teamOrdinal};
     }
     for(unsigned i=0u;i<8u;++i) {
         const uint8_t g=kBoliviaKOGroups[i][0];
@@ -6122,8 +6209,7 @@ static int exp_bolivia_ko_seed(const ExpandedOGLeague *group,
 
 static int exp_bolivia_ko_make(uint16_t year)
 {
-    if(year!=World_FirstYear() || !s_expOGBolivia.used ||
-       s_expOGBolivia.year!=year)return 0;
+    if(!s_expOGBolivia.used || s_expOGBolivia.year!=year)return 0;
     if(exp_cup_find(45u,2u,year))return 1;
     if(s_expOGCupCount>=EXP_OG_MAX_CUPS)return 0;
     TeamId qualified[8];
@@ -6221,8 +6307,9 @@ static int exp_bolivia_ko_make(uint16_t year)
         fprintf(stderr,"[og-bolivia-ko] PREPARED year=%u "
             "top-two-per-group=8 native-knockout=1 "
             "qf=8 sf=4 final=2 old-group-state=UNCHANGED "
-            "fixture-dates=REAL_2026 manager=DEFER_IF_PRESENT\n",
-            (unsigned)year);
+            "fixture-calendar=%s manager=DEFER_IF_PRESENT\n",
+            (unsigned)year,
+            year==World_FirstYear()?"REAL_2026":"2026_GAME_TEMPLATE");
     } else {
 rejected:
         fprintf(stderr,"[og-bolivia-ko] INITIALIZE_FAILED year=%u "
@@ -6393,50 +6480,57 @@ int Expanded_OGWorld_AdvanceBolivia(uint16_t year,uint8_t phase)
     if(World_Current()!=WORLD_2627)return 1;
     if(_gameType!=4 || s_expOGCurrent || s_expOGCupCurrent)return 0;
     const uint16_t first=World_FirstYear();
-    if(s_expOGBolivia.used) {
-        if(phase==0u && year!=s_expOGBolivia.year) {
-            /* The next edition's entrants are the CURRENT native OG
-             * first-division clubs, not last year's eight quarter-finalists
-             * or the initial 2026 hardcoded list. This does not construct
-             * any fictitious draw, fixtures, dates or results. */
-            const ExpandedOGLeague *const top=exp_find(45u,0u,year);
-            fprintf(stderr,"[og-bolivia-resident] NEW_EDITION_ENTRANTS "
-                "requested=%u previous=%u country=45 division=0 "
-                "teams=%u source=%s date=UNAVAILABLE "
-                "no-future-fixtures=1\n",
-                (unsigned)year,(unsigned)s_expOGBolivia.year,
-                (unsigned)(top && top->used ? top->teamCount : 0u),
-                top && top->used?"CURRENT_OG_FIRST_DIVISION":"PENDING_OG_LEAGUE");
-        }
+    const int rollover=s_expOGBolivia.used && year>s_expOGBolivia.year;
+    if(s_expOGBolivia.used && !rollover) {
         if(year==s_expOGBolivia.year && phase!=0u) {
             if(!exp_bolivia_dispatch_native(year,phase))return 0;
             return exp_bolivia_ko_advance(year,phase);
         }
-        return 1; /* Old/future edition preserved; never reinitialize. */
+        return year==s_expOGBolivia.year ? 1 : 0;
     }
-    if(year!=first)return 1; /* no fabricated subsequent entrant draw */
-    /* Old 218 CAR created during July can still adopt the unplayed real
-     * national tournament. Never backdate it after the August opener. */
-    if(phase>=56u)return 1;
+    if(rollover &&
+       (year!=(uint16_t)(s_expOGBolivia.year+1u) ||
+        s_expOGBolivia.comp.matchesPlayedCount!=64u))
+        return 0; /* Do not lose an incomplete native OG edition. */
+    if(rollover) {
+        /* Version 224 did not retain the finished 2026 KO at July rollover.
+         * Keep compatibility with that legacy CAR (no previous KO context),
+         * but never throw away an existing, unfinished native bracket. */
+        const ExpandedOGCup *prior=exp_cup_find(
+            45u,2u,s_expOGBolivia.year);
+        if(prior && (prior->matchesPlayed!=BOLIVIA_KO_FIXTURES ||
+                     !prior->comp.base.competitionFinished)) {
+            fprintf(stderr,"[og-bolivia-resident] PREVIOUS_KO_ACTIVE "
+                "edition=%u played=%lu new-edition=BLOCKED\n",
+                (unsigned)prior->year,
+                (unsigned long)prior->matchesPlayed);
+            return 0;
+        }
+        if(!prior)
+            fprintf(stderr,"[og-bolivia-resident] LEGACY_PRIOR_KO "
+                "previous=%u snapshot=NOT_RETAINED_BY_224 "
+                "source=OG_WITNESS_ONLY\n",
+                (unsigned)s_expOGBolivia.year);
+    }
+    if(!rollover && year!=first)return 1;
+    /* A prior 224 CAR in July may adopt the new competition; never
+     * retroactively run games after the template opening month. */
+    if(phase>=56u) {
+        if(rollover)
+            fprintf(stderr,"[og-bolivia-resident] LATE_ADOPTION_BLOCKED "
+                "year=%u phase=%u old-year=%u no-retro-simulation=1\n",
+                (unsigned)year,(unsigned)phase,
+                (unsigned)s_expOGBolivia.year);
+        return rollover?0:1;
+    }
     ExpandedOGLeague *division=exp_find(45u,0u,year);
-    if(!division || !division->used || division->teamCount!=16u)
-        return -1;
+    uint8_t mapped[16];
+    if(!exp_bolivia_seed_order(division,mapped))return -1;
     BoliviaCupFixture f[BOLIVIA_CUP_GROUP_FIXTURES];
     if(BoliviaCup_BuildGroupFixtures(f)!=64u ||
        !BoliviaCup_ValidateGroupFixtures(f,64u))return 0;
-    const uint8_t firstOrder[16]={
-        3,14,9,15, 0,12,10,6, 7,11,2,13, 1,8,4,5
-    };
-    /* First 2026 edition: all and ONLY the 16 clubs in the actual OG
-     * top division. Do not seed from stale 10+6 old cup quota. */
-    for(unsigned i=0;i<16u;++i) {
-        unsigned matches=0u;
-        for(unsigned j=0;j<division->teamCount;++j)
-            if(division->teams[j].team.countryNumber==45u &&
-               division->teams[j].team.teamOrdinal==firstOrder[i])
-                ++matches;
-        if(matches!=1u)return -1;
-    }
+    /* The 2026 4x4 bracket order is retained as slots only. Promoted
+     * clubs take vacated slots; every actual entrant is from CURRENT OG. */
     const void *const *tab=(const void *const *)_competitionsTable[45u];
     const uintptr_t rawCup=tab?(uintptr_t)tab[2]:0u;
     if(!rawCup || rawCup==(uintptr_t)-1 ||
@@ -6473,9 +6567,16 @@ int Expanded_OGWorld_AdvanceBolivia(uint16_t year,uint8_t phase)
     native.name[1]=old->name[1];
     for(unsigned i=0;i<16u;++i) {
         native.teamSeedList[i].countryNumber=45;
-        native.teamSeedList[i].teamOrdinal=firstOrder[i];
+        native.teamSeedList[i].teamOrdinal=mapped[i];
     }
 
+    ExpandedOGLeague *oldBolivia=NULL;
+    if(rollover) {
+        oldBolivia=(ExpandedOGLeague *)malloc(sizeof(*oldBolivia));
+        if(!oldBolivia)return 0;
+        memcpy(oldBolivia,&s_expOGBolivia,sizeof(*oldBolivia));
+        memset(&s_expOGBolivia,0,sizeof s_expOGBolivia);
+    }
     DIYCompetitionEx oldComp;
     DIYTournamentState oldTourn;
     const uint8_t oldSeason=_seasonPlaying,oldView=_viewRandomPhase;
@@ -6492,6 +6593,8 @@ int Expanded_OGWorld_AdvanceBolivia(uint16_t year,uint8_t phase)
     _teamsLoaded=0;
     _seasonPlaying=(uint8_t)((96u+(unsigned)year-first)%100u);
     _numSelectedTeams=0;
+    memcpy(s_expBoliviaInitMap,mapped,sizeof s_expBoliviaInitMap);
+    s_expBoliviaInitActive=1;
     s_expOGCurrent=&s_expOGBolivia;
     s_expOGPhase=0;
     Randomize2((uint16_t)((164u<<8)|_seasonPlaying));
@@ -6504,6 +6607,7 @@ int Expanded_OGWorld_AdvanceBolivia(uint16_t year,uint8_t phase)
                     _diyFileBufferCopy.header.competitionType==2 &&
                     _diyCompetitionStart.base.numTeams==16 &&
                     BoliviaCup_OGStageStart());
+    s_expBoliviaInitActive=0;
     if(good) {
         ExpandedOGLeague *ctx=&s_expOGBolivia;
         memcpy(&ctx->comp,&_diyCompetitionStart,sizeof ctx->comp);
@@ -6517,10 +6621,15 @@ int Expanded_OGWorld_AdvanceBolivia(uint16_t year,uint8_t phase)
         fprintf(stderr,"[og-bolivia-resident] INITIALIZED year=%u "
                        "country=45 slot=2 type=2 teams=16 groups=4 "
                        "fixture-pairs=64 played=0 source=NATIVE_TOP_DIVISION "
-                       "dated-dispatch=OG_CPU_GROUPS no-score-synthesis=1\n",
-                (unsigned)year);
+                       "dated-dispatch=OG_CPU_GROUPS no-score-synthesis=1 "
+                       "calendar=%s previous-year=%u\n",
+                (unsigned)year,
+                year==first?"REAL_2026":"2026_GAME_TEMPLATE",
+                oldBolivia?(unsigned)oldBolivia->year:0u);
     } else {
         memset(&s_expOGBolivia,0,sizeof s_expOGBolivia);
+        if(oldBolivia)
+            memcpy(&s_expOGBolivia,oldBolivia,sizeof s_expOGBolivia);
         fprintf(stderr,"[og-bolivia-resident] INITIALIZE_REJECTED "
                        "year=%u selected=%u type=%u teams=%u "
                        "failed-closed=1\n",(unsigned)year,
@@ -6537,6 +6646,7 @@ int Expanded_OGWorld_AdvanceBolivia(uint16_t year,uint8_t phase)
     RestoreRand2State();RestoreSelectedTeams();
     memcpy(&_diyCompetitionStart,&oldComp,sizeof oldComp);
     memcpy(&_diyFileBufferCopy,&oldTourn,sizeof oldTourn);
+    free(oldBolivia);
     return good?1:0;
 }
 

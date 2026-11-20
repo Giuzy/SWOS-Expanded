@@ -6395,9 +6395,17 @@ void DesignDIYTournamentOnDraw(void)
      * Other (classic/DIY/UEFA) rules/menu paths are left unchanged. */
     static uint8_t s_boliviaRulesStageName[6][96];
     static uint8_t s_boliviaRulesStageQual[6][192];
-    const int boliviaRules=_diyTournamentLookOnly!=0 &&
-        _gameType==4 && World_Current()==WORLD_2627 &&
+    static uint8_t s_boliviaRulesOptions[6][5][48];
+    /* Both career Bolivia stages have the same read-only RULES menu:
+     * the type-2 group stage AND the type-1 KO after qualification.
+     * Do not rely on _diyTournamentLookOnly, which is not guaranteed
+     * to be set before this original OG draw callback runs. */
+    const int boliviaRules=_gameType==4 &&
+        World_Current()==WORLD_2627 &&
         (uint8_t)_diyFileBufferCopy.header.field_2E==164u &&
+        (_diyFileBufferCopy.header.competitionType==2 ||
+         _diyFileBufferCopy.header.competitionType==1);
+    const int boliviaGroupRules=boliviaRules &&
         _diyFileBufferCopy.header.competitionType==2;
 #endif
     uint16_t numStages = (uint16_t)_diyFileBufferCopy.header.totalMatchesInRound;
@@ -6436,7 +6444,7 @@ void DesignDIYTournamentOnDraw(void)
     const int32_t lpDays = LeaguePhase_StageDays((uint8_t)_diyFileBufferCopy.header.field_2E,
                                                  slot->groups, slot->teamsPerGroup);
 #ifdef SWOS_SDL_BUILD
-    DIY_SetFirstStagePlayOnceText(boliviaRules ?
+    DIY_SetFirstStagePlayOnceText(boliviaGroupRules ?
         "6 GROUP + 2 CLASSICS" :
         (lpDays == 8 ? "8 OPPONENTS, ONCE" :
          lpDays ? "6 OPPONENTS, ONCE" : 0));
@@ -6630,20 +6638,50 @@ after_qual_text: ;
             a4->isInvisible = 0;
             {
                 /* Set number value via double-indirection: fg → ptr → write */
-                uint16_t **pp = (uint16_t **)(uintptr_t)a4->fg;
-                **pp = slot->formatFlag16E;
+#ifdef SWOS_SDL_BUILD
+                if(boliviaRules) {
+                    a4->content=ENTRY_STRING;
+                    a4->fg=(uintptr_t)s_boliviaRulesOptions[d7][0];
+                    snprintf((char *)a4->fg,48,"%u LEGS",
+                        slot->formatFlag16E==2?2u:1u);
+                } else
+#endif
+                {
+                    uint16_t **pp = (uint16_t **)(uintptr_t)a4->fg;
+                    **pp = slot->formatFlag16E;
+                }
             }
             a4++;
             a4->isInvisible = 0;
             {
-                uint16_t **pp = (uint16_t **)(uintptr_t)a4->fg;
-                **pp = slot->initConst170;
+#ifdef SWOS_SDL_BUILD
+                if(boliviaRules) {
+                    a4->content=ENTRY_STRING;
+                    a4->fg=(uintptr_t)s_boliviaRulesOptions[d7][1];
+                    snprintf((char *)a4->fg,48,"%s",
+                        slot->initConst170?"EXTRA TIME":"NO EXTRA TIME");
+                } else
+#endif
+                {
+                    uint16_t **pp = (uint16_t **)(uintptr_t)a4->fg;
+                    **pp = slot->initConst170;
+                }
             }
             a4++;
             a4->isInvisible = 0;
             {
-                uint16_t **pp = (uint16_t **)(uintptr_t)a4->fg;
-                **pp = slot->formatFlag172;
+#ifdef SWOS_SDL_BUILD
+                if(boliviaRules) {
+                    a4->content=ENTRY_STRING;
+                    a4->fg=(uintptr_t)s_boliviaRulesOptions[d7][2];
+                    snprintf((char *)a4->fg,48,"%s",
+                        slot->formatFlag172?"PENALTIES":"NO PENALTIES");
+                } else
+#endif
+                {
+                    uint16_t **pp = (uint16_t **)(uintptr_t)a4->fg;
+                    **pp = slot->formatFlag172;
+                }
             }
             a4++;
             a4->isInvisible = 1; /* hide separator */
@@ -6669,8 +6707,18 @@ after_qual_text: ;
             /* Show group toggle entry */
             a4->isInvisible = 0;
             {
-                uint16_t **pp = (uint16_t **)(uintptr_t)a4->fg;
-                **pp = slot->initConst168;
+#ifdef SWOS_SDL_BUILD
+                if(boliviaRules) {
+                    a4->content=ENTRY_STRING;
+                    a4->fg=(uintptr_t)s_boliviaRulesOptions[d7][3];
+                    snprintf((char *)a4->fg,48,"%u PTS FOR A WIN",
+                        (unsigned)slot->initConst168);
+                } else
+#endif
+                {
+                    uint16_t **pp = (uint16_t **)(uintptr_t)a4->fg;
+                    **pp = slot->initConst168;
+                }
             }
             a4++;
             /* Set navigation links */
@@ -6683,8 +6731,18 @@ after_qual_text: ;
             /* Show group count entry */
             a4->isInvisible = 0;
             {
-                uint16_t **pp = (uint16_t **)(uintptr_t)a4->fg;
-                **pp = slot->playEachTeam;
+#ifdef SWOS_SDL_BUILD
+                if(boliviaRules) {
+                    a4->content=ENTRY_STRING;
+                    a4->fg=(uintptr_t)s_boliviaRulesOptions[d7][4];
+                    snprintf((char *)a4->fg,48,"PLAY %u TIMES",
+                        (unsigned)slot->playEachTeam);
+                } else
+#endif
+                {
+                    uint16_t **pp = (uint16_t **)(uintptr_t)a4->fg;
+                    **pp = slot->playEachTeam;
+                }
             }
             a4++;
         }

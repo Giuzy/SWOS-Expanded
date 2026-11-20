@@ -1,3 +1,18 @@
+## 20/11/2026 — MIGLIORAMENTO PERMANENTE: PREVENZIONE DELLE REGRESSIONI
+
+**Adottato come metodo, non come patch al motore.** Le otto regole di collaborazione sono in [AGENTS.md](AGENTS.md); il protocollo dei GATE obbligatori è in [DEVELOPMENT_WORKFLOW.md](DEVELOPMENT_WORKFLOW.md); il [registro RG e la mappa delle dipendenze](REGRESSION_HISTORY_AND_DEPENDENCIES.md) contiene incidenti con prove differenziate, writer/reader e test RG-Txx. Non aprire un altro registro parallelo; incrementare quello canonico con fatti dimostrati e link a diff/ZIP.
+
+**Nuova priorità pre-build:** per ogni richiesta tecnica, descrivere prima sintomo e causa `verificata/ipotesi/ignota`, fattibilità, effetti su calendario e OG, strutture condivise, salvataggi, manager, qualificazioni, 96/26, CLASSIC e diagnostiche; spiegare la logica a chi conosce basi C/C++/Java; definire test e oracoli, poi solo il cambiamento approvato. Non assecondare automaticamente l'utente né invalidare senza prova una sua osservazione. Se una richiesta è troppo vasta, dire prima quali pezzi non sono realizzabili nella singola build e quali compromessi architetturali vanno concordati. Non produrre build «di facciata», false conclusioni o PASS non esercitati.
+
+**Rischi prioritari ricavati dall'audit:**
+1. **RG-014**: collegare lo stesso OG type2 Bolivia al manager, non un simulatore UI/CPU parallelo; il problema è una dipendenza architetturale di local slot/cache, non un semplice flag.
+2. **RG-012**: classifiche finali OG per paese/anno e provenienza iscritti delle coppe future; non considerare il fallback ordinal un risultato sportivo.
+3. **RG-004/005/022**: riconciliare identità fixture, score e CAR fra percorso locale e residente, non soltanto contatori/F12; SAVE/EXIT/CONTINUE su Windows con no-replay.
+4. **RG-010/016/017/020**: passaggio 1 luglio, KO, edizioni e titolari europei in un'unica timeline OG; test più stagioni.
+5. **RG-026/027**: ABI packed, build MSYS2 completa e parser F12 con scope/negative tests; preservare strumenti di diagnostica e log originali.
+
+**Obiettivo misurabile (senza promessa automatica):** ridurre iterazioni Windows non mirate mediante test isolati prima del commit, contratti di dati e matrice regressione; completamento certificabile solo per scenari effettivamente testati. I commenti delle build storiche sottostanti descrivono esiti del loro momento, non stato sempre aggiornato.
+
 ## 20/11/2026 — RETROSPETTIVA TECNICA 217–225 (SOLO DOCUMENTAZIONE)
 Pubblicare insieme alle guide il nuovo **[COMPETITION_ENGINE_IMPLEMENTATION_GUIDE.md](COMPETITION_ENGINE_IMPLEMENTATION_GUIDE.md)**: guida operativa con diff delle versioni 00.13.217–225, commit dati intermedi, crash/diagnostiche, patch su ABI, 64+14 OG, 3 punti/derby, KO e WorldCups, REGOLE, CAR/F12, rinnovo annuale, promosse, storicità e QA. Questo aggiornamento **NON modifica codice o build_info.h** e NON certifica i test Windows 225. Usare la guida prima di ogni ulteriore coppa per non rifare le stesse regressioni. Le note storiche delle build precedenti restano sotto, con i loro esiti originali.
 

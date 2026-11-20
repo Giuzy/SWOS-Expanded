@@ -1,3 +1,13 @@
+## 20/11/2026 — REGOLE DI DESIGN E DIPENDENZE PRIMA DI CAMBIARE IL MOTORE
+
+Sono operative le [otto regole di collaborazione e qualità](AGENTS.md), il [workflow obbligatorio pre-modifica](DEVELOPMENT_WORKFLOW.md) e il [registro storico dei bug con dependency map](REGRESSION_HISTORY_AND_DEPENDENCIES.md). Non replicare le 32 schede qui: consultarle prima di progettare cambi al calendario, al motore competizioni, al mercato o ai salvataggi.
+
+**Compromessi da concordare preventivamente con l'utente:** calendario reale e adattamenti date, 1 luglio e snapshot storico; nuove regole/format/qualificazioni; type1/type2 e limiti degli slot career; manager e CPU nello **stesso match OG**; roster e ABI packed; vecchi CAR e progressi residenti; vecchi mondi 96/97 vs 26/27. «Possibile ma architetturalmente esteso» non significa «impossibile»: esporre alternative e conseguenze, ma non adottarne una unilateralmente.
+
+**Invarianti non negoziabili:** OG unica autorità per il tempo, gli incontri, risultati, qualifiche e trofei; nessun secondo clock/risultato, match duplicato o replay su CONTINUE; 50 Hz/algoritmi OG e CLASSIC/DIY/SEASON invariati; editor/viewer/debug in sola lettura per gare non mutate; un manager assunto cambia binding, non mondo/edizione. Una competizione *visibile* non è per ciò stesso giocabile e una patch preparata non è automaticamente una build Windows verificata.
+
+**Procedura di game design:** esplicitare l'impatto su writer/reader e i test RG-Txx prima della scrittura di codice. Per design dubbio o conflittuale proporre alternative e chiedere decisione; non rimuovere o sovrascrivere asset, font, screenshot o archivio storico.
+
 ## 20/11/2026 — GUIDA E STANDARD DI CAMBIAMENTO DELLE COMPETIZIONI
 Manuale operativo e storico: **[COMPETITION_ENGINE_IMPLEMENTATION_GUIDE.md](COMPETITION_ENGINE_IMPLEMENTATION_GUIDE.md)**. Ogni nuovo campionato/coppa/torneo segue A inventario, B validazione sicura, C collegamento a un SOLO OG residente (CPU+manager), D rose soltanto dopo il motore. Include matrice errori/soluzioni 217–225, calendario/KO/verifiche, rinvii, 1 luglio, viewer immediato e SAVE/CAR. **Regola vigente 2627:** stesse regole/date fissate nel 2026 per le stagioni di gioco future, fino a update esplicito; non presentarle come previsioni ufficiali. **Mondo 9697:** proposta di seguire i veri cambi di formato negli anni storici da concordare prima di implementarla. Un documento approvato non è una nuova partita già giocabile; non retrodatare verifiche.
 

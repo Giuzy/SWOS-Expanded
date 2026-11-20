@@ -1,3 +1,5 @@
+> **AGGIORNAMENTO OPERATIVO 20/11/2026 — REGRESSION GATE (VIGENTE).** Le [otto regole di collaborazione](AGENTS.md), i [gate di analisi e test](DEVELOPMENT_WORKFLOW.md) e il [registro trasversale di 32 incidenti + 24 test e dipendenze](REGRESSION_HISTORY_AND_DEPENDENCIES.md) sono obbligatori prima di modificare una routine del motore. Il presente manuale mantiene gli approfondimenti effettivi dei commit 00.13.217–225 e non va duplicato nel registro. Ogni spiegazione distingue causa V/I/?, intervento ST/ISO, prova CPU Windows e prova manager gameplay/CONTINUE. La diagnostica 225 oggi documentata in Issue #1 dimostra per Copa Bolivia 2026 e 2027 **64+14 match OG CPU**, ma **non** collegamento al calendario manager; WorldCups next-year ha ancora quote senza prova di final places. Nessuna patch al motore è implementata da questa nota; il lavoro va preceduto da impact map writer/reader, scelta test e consenso sui compromessi.
+>
 # SWOS Expanded — Manuale operativo per implementare e modificare competizioni OG
 ## Lezioni reali dalle build 00.13.217–00.13.225 (20 novembre 2026)
 

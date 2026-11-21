@@ -1113,11 +1113,11 @@ void Expanded_BoliviaManagerPrepareMenu(void)
     extern uint8_t _contestMenu[];
     extern MenuEntry _menuEntries[];
     extern void ContestSetButtons(void);
-    extern void NextMatch(MenuEntry *);
-    /* Same original button captions for LEAGUE and CUP; only OG routing
-     * changes, never the menu callback or the visible action name. */
+    extern uint8_t _aNextMatch[];
+    /* Restore OG NEXT MATCH: never attach an additional Copa simulation
+     * to entry 10 or override its native callback/eligibility. Only the
+     * existing PLAY MATCH action may route the resident Copa manually. */
     static const char kPlayCup[]="PLAY MATCH";
-    static const char kNextCup[]="SIMULATE MATCH";
     static const char kClash[]="CUP DATE CONFLICT";
     static const char kLate[]="CUP FIXTURE OVERDUE";
     static int wasCup;
@@ -1127,18 +1127,16 @@ void Expanded_BoliviaManagerPrepareMenu(void)
     if(_gameType!=4 || _currentMenuPtr!=(uintptr_t)_contestMenu)return;
     const int plan=exp_bolivia_manager_plan(&m,&live,&date);
     MenuEntry *primary=&_menuEntries[7];
-    MenuEntry *next=&_menuEntries[10];
+    /* ContestSetButtons does not rewrite entry 10's fg every time; clear
+     * the old SIMULATE MATCH caption even within the same running menu.
+     * Do not change its flags or onSelect (original NextMatch callback). */
+    _menuEntries[10].fg=(uintptr_t)_aNextMatch;
     if(plan!=0) {
         const char *caption=plan==1?kPlayCup:
                             plan==-1?kClash:kLate;
-        const char *nextCaption=plan==1?kNextCup:caption;
         primary->fg=(uintptr_t)caption;
         primary->isInvisible=0;
         primary->isDisabled=plan!=1;
-        next->fg=(uintptr_t)nextCaption;
-        next->isInvisible=0;
-        next->isDisabled=plan!=1;
-        next->onSelect=(MenuEntryFn)NextMatch;
         wasCup=1;
     } else {
         unsigned leaguePlayed=0u;
@@ -1153,16 +1151,11 @@ void Expanded_BoliviaManagerPrepareMenu(void)
             Expanded_OGWorld_BoliviaLeagueFixtures(league,
                 EXP_BOLIVIA_LEAGUE_ROUNDS)==EXP_BOLIVIA_LEAGUE_ROUNDS;
         if(leagueReady) {
-            /* Button eligibility comes from our civil event/OG witness
-             * projection rather than TSKC sortKey. Actual PLAY/SIM
-             * continues via the unchanged original OG callbacks. */
+            /* The dated League witness makes original PLAY MATCH ready.
+             * Native NEXT MATCH remains independently OG-owned. */
             primary->fg=(uintptr_t)kPlayCup;
             primary->isInvisible=0;
             primary->isDisabled=0;
-            next->fg=(uintptr_t)kNextCup;
-            next->isInvisible=0;
-            next->isDisabled=0;
-            next->onSelect=(MenuEntryFn)NextMatch;
             wasCup=1;
         } else if(wasCup) {
             ExpandedLiveCalendarState current;
@@ -1174,9 +1167,10 @@ void Expanded_BoliviaManagerPrepareMenu(void)
         }
     }
 }
-/* This is the actual original OG PLAY MATCH route; NEXT MATCH and
- * FINISH SEASON enter the same function before touching the legacy cache.
- * Canceled match: no witness, no result and NO post-match autosave. */
+/* Copa manager manual PLAY MATCH (entry 7) and FINISH SEASON guard.
+ * The native NEXT MATCH (entry 10) must NOT enter this single-fixture
+ * bridge: it keeps the original OG NextMatch/Career_NextMatch callback.
+ * Canceled Copa match: no witness, result or post-match autosave. */
 int Expanded_BoliviaManagerIntercept(MenuEntry *entry,unsigned ordinal)
 {
     extern uintptr_t _currentMenuPtr;
@@ -1192,7 +1186,8 @@ int Expanded_BoliviaManagerIntercept(MenuEntry *entry,unsigned ordinal)
     ExpandedLiveCalendarState live;
     ExpandedWorldDate date;
     int32_t oldDay=0,eventDay=0;
-    if((ordinal!=7u && ordinal!=10u) ||
+    (void)entry;
+    if(ordinal!=7u ||
        _currentMenuPtr!=(uintptr_t)_contestMenu || _gameType!=4)return 0;
     const int plan=exp_bolivia_manager_plan(&m,&live,&date);
     if(plan==0)return 0;
@@ -1216,9 +1211,9 @@ int Expanded_BoliviaManagerIntercept(MenuEntry *entry,unsigned ordinal)
             (unsigned)m.fixtureId);
         return 1;
     }
-    /* Ordinal 7 = manual, ordinal 10 = OG native score simulation.
-     * Both consume precisely the same dated resident fixture. */
-    if(!Expanded_OGWorld_BoliviaManagerPlay(&m,ordinal==10u)) {
+    /* The only Copa manager shortcut left is manual PLAY MATCH.
+     * Full OG Copa menu / VIEW RESULT remains RG-014, not implemented. */
+    if(!Expanded_OGWorld_BoliviaManagerPlay(&m,0)) {
         fprintf(stderr,"[og-bolivia-manager] NO_NATIVE_COMMIT "
             "fixture=%u canceled-or-fault=1 no-postmatch-save=1\n",
             (unsigned)m.fixtureId);
@@ -1227,7 +1222,7 @@ int Expanded_BoliviaManagerIntercept(MenuEntry *entry,unsigned ordinal)
     UpdateCareerAfterMatch();
     if(Expanded_HandleSackingAfterMatch())return 1;
     ContestMenuOnReturn();
-    SetCurrentEntry(entry && entry->ordinal==10u?10u:7u);
+    SetCurrentEntry(7u);
     DrawMenu();
     Expanded_AutoCareer_Save("bolivia-manager-og");
     return 1;

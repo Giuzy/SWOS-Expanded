@@ -4009,13 +4009,10 @@ void PlayMatchMenu(MenuEntry *callerEntry)
 __attribute__((used, externally_visible))
 void NextMatch(MenuEntry *callerEntry)
 {
-#ifdef SWOS_SDL_BUILD
-    /* The same OG resident, even if NEXT MATCH is invoked by keyboard. */
-    if(_gameType==GAME_TYPE_CAREER) {
-        extern int Expanded_BoliviaManagerIntercept(MenuEntry *,unsigned);
-        if(Expanded_BoliviaManagerIntercept(callerEntry,10u))return;
-    }
-#endif
+    /* Original OG NEXT MATCH route, including the career's native
+     * Career_NextMatch callback. Copa Bolivia is not simulated here by
+     * an extra single-fixture intercept; the existing Bolivia League
+     * preflight below still blocks skipping an earlier Cup fixture. */
     if (_gameType == GAME_TYPE_CAREER) {
         extern int Expanded_HandleSackingAfterMatch(void);
         if (Expanded_HandleSackingAfterMatch()) return;

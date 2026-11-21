@@ -10366,6 +10366,10 @@ void DIYLeagueTournamentMatchCommon(uint16_t action)
     uint16_t result = DIY_PlayOrSimulateLeagueFixture(_diyTournamentType, action);
     if (result != 0) {
 #ifdef SWOS_SDL_BUILD
+        /* The native resident modal owns a transaction per REAL OG
+         * fixture. A canceled manual match is not a score or CAR event. */
+        extern void Expanded_OGWorld_BoliviaModalCancel(void);
+        Expanded_OGWorld_BoliviaModalCancel();
         if(_gameType==4 && Expanded_OGWorld_ManagerLeagueFinished(
                                &_diyCompetitionStart)) {
             /* Rejected fixture must not leave an actionable PLAY button
@@ -12371,6 +12375,15 @@ final_or_groups:
  */
 __attribute__((used, externally_visible))
 uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t selector) {
+#ifdef SWOS_SDL_BUILD
+    /* The original OG tournament menu remains responsible for MATCH,
+     * RESULT and CPU callbacks. The one resident Copa session stamps
+     * this fixture's civil date and verifies the witness before write. */
+    extern int Expanded_OGWorld_BoliviaModalActive(void);
+    extern int Expanded_OGWorld_BoliviaModalBefore(int);
+    if(Expanded_OGWorld_BoliviaModalActive() &&
+       !Expanded_OGWorld_BoliviaModalBefore(selector))return 1;
+#endif
     if (Expanded_MidseasonJoin_Active() && selector != 0) {
         selector=0;
         Expanded_MidseasonJoin_RecordForcedSimulation();
@@ -12800,6 +12813,12 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
        (team1==&_careerTeam || team2==&_careerTeam))
         Expanded_OGWorld_AuditManagerLeagueResult(team1,team2,baseEx,
                                        goals1,goals2,observedLeaguePhase);
+    /* The original OG result is already committed to its standings and
+     * append-only journal. Publish THAT native image (not a second sim),
+     * obtain an actual CAR write receipt, then return to the same menu. */
+    extern int Expanded_OGWorld_BoliviaModalAfter(void);
+    if(Expanded_OGWorld_BoliviaModalActive() &&
+       !Expanded_OGWorld_BoliviaModalAfter())return 1;
 #endif
     return 0;
 }

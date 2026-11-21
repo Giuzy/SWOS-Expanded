@@ -66,6 +66,7 @@ extern CompetitionCup _uefaCup;
 #include "bolivia_cup_sequence.h"
 #include "bolivia_cup_knockout.h" /* First-edition 4 groups and interseries fixture identities */
 #include "expanded_bolivia_event_registry.h" /* civil-only Bolivia date template/registry */
+#include "expanded_bolivia_modal_invariants.h" /* original OG per-event checks */
 #include "expanded_og_cup_validation.h"
 #include "expanded_og_copa_phase.h"
 #include "expanded_og_season_retention.h"
@@ -6935,6 +6936,225 @@ int Expanded_OGWorld_BoliviaManagerScore(
     return found;
 }
 
+
+/* RG-014 experimental native OG session. This is NOT an alternate match
+ * engine: every action executes the original DIY league callback and its
+ * normal standings/result menu. A session is bound to the SAME resident Copa
+ * and the civil coordinator. It owns every fixture separately, rather than
+ * cutting ShowMenu short after one match or one day. */
+typedef struct {
+    int active,suspended,armed,failed;
+    unsigned committed,serial,managerIndex;
+    uint16_t nativeSlot,careerSelectedCount,careerLoaded,careerAutoFlag;
+    uint16_t careerSlotProcessing,careerSimulated,careerCacheEnd;
+    uint8_t careerSeason,careerView,careerSeed,careerRandIndex,careerRandKey;
+    size_t witnessed;
+    uint64_t captured;
+    const DIYCompetitionEx *careerComp;
+    const DIYTournamentState *careerTournament;
+    const TeamFileEx *careerTeams;
+    TeamFileEx *scratchTeams;
+} ExpandedBoliviaNativeModal;
+static ExpandedBoliviaNativeModal s_expBoliviaNativeModal;
+int Expanded_OGWorld_BoliviaModalActive(void)
+{ return s_expBoliviaNativeModal.active && !s_expBoliviaNativeModal.suspended; }
+
+/* Temporarily expose the unmodified CAREER image to the single world tick
+ * or CAR writer. Then restore the active original OG ShowMenu image. No
+ * second scheduler, fixture list, RNG stream or separate CAR schema. */
+static int exp_bolivia_modal_delegate(ExpandedWorldDate date,int save)
+{
+    ExpandedBoliviaNativeModal *const m=&s_expBoliviaNativeModal;
+    if(!m->active || m->suspended || !m->scratchTeams ||
+       !m->careerComp || !m->careerTournament || !m->careerTeams)return 0;
+    DIYCompetitionEx modalComp;
+    DIYTournamentState modalTournament;
+    const uint16_t modalSelected=_numSelectedTeams;
+    const uint8_t modalSeason=_seasonPlaying,modalView=_viewRandomPhase;
+    const uint8_t modalSeed=_seed2,modalRandIndex=_randXorIndex2;
+    const uint8_t modalRandKey=_randXorKey2;
+    const uint16_t modalLoaded=_careerLoadedFlag;
+    const uint16_t modalAuto=_internationalAutoAdvanceFlag;
+    const uint16_t modalProcessing=_careerSlotProcessingInProgress;
+    const uint16_t modalSimulated=_careerMatchSimulatedFlag;
+    const uint16_t modalCacheEnd=_teamSelectionKeyCacheEnd;
+    const int modalPhase=s_expOGPhase;
+    const ExpandedWorldDate modalAsOf=s_expOGFixtureAsOf;
+    const int modalInteractive=s_expBoliviaManagerInteractive;
+    memcpy(&modalComp,&_diyCompetitionStart,sizeof modalComp);
+    memcpy(&modalTournament,&_diyFileBufferCopy,sizeof modalTournament);
+    memcpy(m->scratchTeams,_selectedTeams,sizeof _selectedTeams);
+    m->suspended=1;
+    s_expOGCurrent=NULL;s_expOGPhase=-1;
+    s_expBoliviaManagerInteractive=0;
+    memcpy(&_diyCompetitionStart,m->careerComp,sizeof _diyCompetitionStart);
+    memcpy(&_diyFileBufferCopy,m->careerTournament,sizeof _diyFileBufferCopy);
+    memcpy(_selectedTeams,m->careerTeams,sizeof _selectedTeams);
+    _numSelectedTeams=m->careerSelectedCount;
+    _seasonPlaying=m->careerSeason;_viewRandomPhase=m->careerView;
+    _seed2=m->careerSeed;_randXorIndex2=m->careerRandIndex;
+    _randXorKey2=m->careerRandKey;
+    _careerLoadedFlag=m->careerLoaded;
+    _internationalAutoAdvanceFlag=m->careerAutoFlag;
+    _careerSlotProcessingInProgress=m->careerSlotProcessing;
+    _careerMatchSimulatedFlag=m->careerSimulated;
+    _teamSelectionKeyCacheEnd=m->careerCacheEnd;
+    int ok=0;
+    if(save) {
+        extern int Expanded_AutoCareer_SaveChecked(const char *);
+        ok=Expanded_AutoCareer_SaveChecked("bolivia-og-modal-fixture");
+    } else {
+        /* This check is intentionally against the TRUE manager league
+         * witness. A pending DPN before/same-day Copa cannot be skipped,
+         * even while the original Cup modal is still open. */
+        unsigned played=0u;
+        ExpandedWorldDate due;
+        ExpandedLiveCalendarState live;
+        int32_t dueIdx=0,targetIdx=0,nowIdx=0;
+        if(Expanded_OGWorld_BoliviaLeagueWitnessProgress(&played) &&
+           ExpandedWorldLive_CalendarState(&live) &&
+           ExpandedWorld_DateToIndex(live.today,&nowIdx) &&
+           ExpandedWorld_DateToIndex(date,&targetIdx) &&
+           (played>=EXP_BOLIVIA_LEAGUE_ROUNDS ||
+            (ExpandedBolivia_LeagueRoundDate(
+                 s_expOGBolivia.year,played,&due) &&
+             ExpandedWorld_DateToIndex(due,&dueIdx))) &&
+           ExpandedBoliviaModal_DateGate(
+               nowIdx,targetIdx,played<EXP_BOLIVIA_LEAGUE_ROUNDS,
+               dueIdx)==EXP_BOLIVIA_MODAL_DUE) {
+            extern int Expanded_CompetitionCoordinator_Advance(
+                ExpandedWorldDate,const char *);
+            ok=Expanded_CompetitionCoordinator_Advance(
+                date,"BOLIVIA_OG_NATIVE_MODAL_FIXTURE");
+        } else {
+            fprintf(stderr,"[bolivia-modal] WAIT_LEAGUE_OR_DATE "
+                "fixture-day=%04u-%02u-%02u next-league=%u\n",
+                (unsigned)date.year,(unsigned)date.month,
+                (unsigned)date.day,played);
+        }
+    }
+    memcpy(&_diyCompetitionStart,&modalComp,sizeof modalComp);
+    memcpy(&_diyFileBufferCopy,&modalTournament,sizeof modalTournament);
+    memcpy(_selectedTeams,m->scratchTeams,sizeof _selectedTeams);
+    _numSelectedTeams=modalSelected;
+    _seasonPlaying=modalSeason;_viewRandomPhase=modalView;
+    _seed2=modalSeed;_randXorIndex2=modalRandIndex;
+    _randXorKey2=modalRandKey;
+    _careerLoadedFlag=modalLoaded;
+    _internationalAutoAdvanceFlag=modalAuto;
+    _careerSlotProcessingInProgress=modalProcessing;
+    _careerMatchSimulatedFlag=modalSimulated;
+    _teamSelectionKeyCacheEnd=modalCacheEnd;
+    s_expOGCurrent=&s_expOGBolivia;s_expOGPhase=modalPhase;
+    s_expOGFixtureAsOf=modalAsOf;
+    s_expBoliviaManagerInteractive=modalInteractive;
+    m->suspended=0;
+    return ok;
+}
+
+/* Called immediately before the original OG fixture result writer. */
+int Expanded_OGWorld_BoliviaModalBefore(int action)
+{
+    ExpandedBoliviaNativeModal *const m=&s_expBoliviaNativeModal;
+    if(!Expanded_OGWorld_BoliviaModalActive())return 1;
+    if(m->failed || m->armed || s_expOGCurrent!=&s_expOGBolivia ||
+       s_expOGCupCurrent || World_Current()!=WORLD_2627)goto reject;
+    const unsigned serial=_diyCompetitionStart.matchesPlayedCount;
+    if(serial>=BOLIVIA_CUP_GROUP_FIXTURES ||
+       serial!=s_expOGBolivia.comp.matchesPlayedCount)goto reject;
+    BoliviaCupFixture ordered[BOLIVIA_CUP_GROUP_FIXTURES];
+    if(BoliviaCup_ChronologicalFixtures(ordered)!=
+       BOLIVIA_CUP_GROUP_FIXTURES)goto reject;
+    const BoliviaCupFixture *const f=&ordered[serial];
+    uint16_t home=0,away=0;
+    if(!exp_bolivia_group_pair(&s_expOGBolivia,f,&home,&away,
+                              NULL,NULL,NULL,NULL))goto reject;
+    ExpandedWorldDate date={s_expOGBolivia.year,f->month,f->day};
+    ExpandedLiveCalendarState live;
+    int32_t now=0,due=0;
+    if(!ExpandedWorldLive_CalendarState(&live) ||
+       !ExpandedWorld_DateToIndex(live.today,&now) ||
+       !ExpandedWorld_DateToIndex(date,&due) || due<now)goto reject;
+    /* A current OG date may have several independent CPU fixtures.
+     * On later dates the SAME coordinator ticks all OTHER OG residents,
+     * while this resident is held by its native modal. */
+    if(!exp_bolivia_modal_delegate(date,0))return 0;
+    m->serial=serial;m->witnessed=s_expOGFixtureCount;
+    m->captured=s_expOGCapturedCup;m->armed=1;
+    s_expOGFixtureAsOf=date;
+    fprintf(stderr,"[bolivia-modal] PRE_NATIVE event=%u fixture=%u "
+        "date=%04u-%02u-%02u action=%d home=%04x away=%04x\n",
+        serial,(unsigned)f->fixtureId,(unsigned)date.year,
+        (unsigned)date.month,(unsigned)date.day,action,
+        (unsigned)home,(unsigned)away);
+    return 1;
+reject:
+    m->failed=1;
+    Expanded_CompetitionCoordinator_ReportFixtureFault(
+        "BOLIVIA_NATIVE_MODAL_PRE_MATCH_IDENTITY");
+    return 0;
+}
+void Expanded_OGWorld_BoliviaModalCancel(void)
+{
+    ExpandedBoliviaNativeModal *const m=&s_expBoliviaNativeModal;
+    if(!Expanded_OGWorld_BoliviaModalActive() || !m->armed)return;
+    if(s_expOGFixtureCount!=m->witnessed ||
+       s_expOGBolivia.comp.matchesPlayedCount!=m->serial) {
+        m->failed=1;
+        Expanded_CompetitionCoordinator_ReportFixtureFault(
+            "BOLIVIA_NATIVE_MODAL_CANCEL_MUTATED_RESULT");
+    }
+    m->armed=0;
+    fprintf(stderr,"[bolivia-modal] CANCEL no-score no-CAR=1\n");
+}
+/* Called after the original writer has updated OG standings and journal.
+ * Successful real fixtures are published into the SINGLE resident and
+ * atomically saved, before the next original menu action is possible. */
+int Expanded_OGWorld_BoliviaModalAfter(void)
+{
+    ExpandedBoliviaNativeModal *const m=&s_expBoliviaNativeModal;
+    if(!Expanded_OGWorld_BoliviaModalActive())return 1;
+    if(!m->armed || m->failed || s_expOGCurrent!=&s_expOGBolivia ||
+       s_expOGCupCurrent)goto fault;
+    m->armed=0;
+    if(!ExpandedBoliviaModal_WitnessGate(
+           m->serial,_diyCompetitionStart.matchesPlayedCount,
+           m->witnessed,s_expOGFixtureCount,
+           m->captured,s_expOGCapturedCup))goto fault;
+    ExpandedOGLeague *const ctx=&s_expOGBolivia;
+    memcpy(&ctx->comp,&_diyCompetitionStart,sizeof ctx->comp);
+    memcpy(&ctx->tournament,&_diyFileBufferCopy,sizeof ctx->tournament);
+    memcpy(ctx->teams,_selectedTeams,16u*sizeof(TeamFileEx));
+    /* The live manager uses -1 as a private sentinel. In the resident,
+     * all standing offsets must remain normal 0..15 team indices. */
+    unsigned replaced=0u;
+    for(unsigned i=0u;i<16u;++i) {
+        if(ctx->comp.leagueStandings[i].teamSelOffset==-1) {
+            ctx->comp.leagueStandings[i].teamSelOffset=(int32_t)m->managerIndex;
+            ++replaced;
+        }
+    }
+    if(replaced!=1u)goto fault;
+    memcpy(&ctx->teams[m->managerIndex],&_careerTeam,sizeof _careerTeam);
+    ctx->teams[m->managerIndex].team.teamControls=1u;
+    *(uint16_t *)&ctx->comp.base.compSlot=m->nativeSlot;
+    ctx->comp.base.namePtr=(uint8_t *)ctx->comp.base.competitionName;
+    ctx->tournament.header.namePtr=
+        (uint8_t *)ctx->tournament.header.competitionName;
+    ctx->seed=_seed2;ctx->randIndex=_randXorIndex2;ctx->randKey=_randXorKey2;
+    if(!exp_bolivia_modal_delegate(s_expOGFixtureAsOf,1))goto fault;
+    ++m->committed;
+    fprintf(stderr,"[bolivia-modal] POST_NATIVE_COMMITTED "
+        "serial=%u witness=ONE event-ack=ATOMIC_CAR_RETURN_OK "
+        "session-played=%u\n",m->serial,m->committed);
+    return 1;
+fault:
+    m->failed=1;
+    Expanded_CompetitionCoordinator_ReportFixtureFault(
+        "BOLIVIA_NATIVE_MODAL_POST_WITNESS_OR_SAVE");
+    return 0;
+}
+
 /* Callable only after the CIVIL coordinator reaches the exact real fixture
  * day. It cannot move the clock, simulate an alternative score or write
  * the local career cache: only the resident OG DIY match runs. */
@@ -7052,27 +7272,68 @@ int Expanded_OGWorld_BoliviaManagerPlay(
         (unsigned)pending.serial,(unsigned)pending.fixtureId,
         (unsigned)home,(unsigned)away,
         (unsigned)pending.year,(unsigned)pending.month,(unsigned)pending.day);
-    const int canceled=cup?
-        DIY_PlayCupMatchAndAdvance(1,simulate?0:2)!=0:
-        DIY_PlayOrSimulateLeagueFixture(1,simulate?0:2)!=0;
+    int modalGroup=0;
+    int canceled=0;
+    if(!cup && !simulate) {
+        /* A real session: OG's original standings/MATCH/RESULT/CPU menu
+         * stays open until the player exits it normally. */
+        ExpandedBoliviaNativeModal *const ms=&s_expBoliviaNativeModal;
+        memset(ms,0,sizeof *ms);
+        ms->scratchTeams=(TeamFileEx *)malloc(sizeof _selectedTeams);
+        if(!ms->scratchTeams) {
+            canceled=1;
+        } else {
+            modalGroup=1;ms->active=1;
+            ms->nativeSlot=nativeSlot;ms->managerIndex=(unsigned)managerIndex;
+            ms->careerComp=&savedComp;ms->careerTournament=&savedTournament;
+            ms->careerTeams=savedTeams;ms->careerSelectedCount=savedSelectedCount;
+            ms->careerSeason=oldSeason;ms->careerView=oldView;
+            ms->careerSeed= savedSeed2;ms->careerRandIndex=savedRandIndex2;
+            ms->careerRandKey=savedRandKey2;
+            ms->careerLoaded=oldLoaded;ms->careerAutoFlag=oldFlag;
+            ms->careerSlotProcessing=oldSlotProcessing;
+            ms->careerSimulated=oldSimulated;ms->careerCacheEnd=oldCacheEnd;
+            extern void ShowDiyLeaguesTournamentMenu(uint16_t,uint16_t,uint16_t);
+            fprintf(stderr,"[bolivia-modal] ENTER OG_SHOW_MENU "
+                "year=%u serial=%u native=TYPE2_RESIDENT\n",
+                (unsigned)pending.year,(unsigned)pending.serial);
+            ShowDiyLeaguesTournamentMenu(1,0,0);
+            ms->active=0;
+            canceled=ms->committed==0u || ms->failed;
+            fprintf(stderr,"[bolivia-modal] EXIT OG_SHOW_MENU "
+                "committed=%u fault=%d\n",ms->committed,ms->failed);
+        }
+    } else {
+        canceled=cup?
+            DIY_PlayCupMatchAndAdvance(1,simulate?0:2)!=0:
+            DIY_PlayOrSimulateLeagueFixture(1,simulate?0:2)!=0;
+    }
     /* Never let sentinel -1 escape into the resident snapshot/CAR. */
     if(cup) {
         for(unsigned i=0;i<8u;++i)
             if(_diyCompetitionStart.bracketScratch.teamOffsetTable[i]<0)
                 _diyCompetitionStart.bracketScratch.teamOffsetTable[i]=
                     (int32_t)managerIndex;
-    } else
-        _diyCompetitionStart.leagueStandings[managerRow].teamSelOffset=
-            (int32_t)managerIndex;
+    } else {
+        for(unsigned i=0;i<16u;++i)
+            if(_diyCompetitionStart.leagueStandings[i].teamSelOffset==-1)
+                _diyCompetitionStart.leagueStandings[i].teamSelOffset=
+                    (int32_t)managerIndex;
+    }
     *(uint16_t *)&_diyCompetitionStart.base.compSlot=nativeSlot;
     int good=!canceled && !s_expOGFault &&
         (!cup || !s_expOGCupTickFault) &&
-        s_expOGFixtureCount==oldWitness+1u &&
-        s_expOGCapturedCup==oldCup+1u &&
-        (cup?
-         _diyCompetitionStart.bracketScratch.matchCount==
-                                      pending.serial+1u:
-         _diyCompetitionStart.matchesPlayedCount==pending.serial+1u);
+        (modalGroup?
+          (s_expBoliviaNativeModal.committed>0u &&
+           !s_expBoliviaNativeModal.failed &&
+           s_expOGBolivia.comp.matchesPlayedCount==
+               pending.serial+s_expBoliviaNativeModal.committed):
+          (s_expOGFixtureCount==oldWitness+1u &&
+           s_expOGCapturedCup==oldCup+1u &&
+           (cup?
+            _diyCompetitionStart.bracketScratch.matchCount==
+                                         pending.serial+1u:
+            _diyCompetitionStart.matchesPlayedCount==pending.serial+1u)));
     if(good) {
         if(cup) {
             ++ko->matchesPlayed;
@@ -7087,29 +7348,36 @@ int Expanded_OGWorld_BoliviaManagerPlay(
             if(ShouldApplyRandomPlayerStatusAfterSim()==0)
                 ClearCareerMatchPlayerStatusBucket();
         }
-        memcpy(native,&_diyCompetitionStart,sizeof *native);
-        memcpy(cup?&ko->tournament:&group->tournament,
-               &_diyFileBufferCopy,sizeof _diyFileBufferCopy);
-        TeamFileEx *dest=cup?ko->teams:group->teams;
-        memcpy(dest,_selectedTeams,teamCount*sizeof(TeamFileEx));
-        memcpy(&dest[managerIndex],&_careerTeam,sizeof _careerTeam);
-        dest[managerIndex].team.teamControls=1u;
-        if(cup) {
-            ko->seed=_seed2;ko->randIndex=_randXorIndex2;
-            ko->randKey=_randXorKey2;
-        } else {
-            group->seed=_seed2;group->randIndex=_randXorIndex2;
-            group->randKey=_randXorKey2;
+        /* Per-fixture modal POST has ALREADY copied and saved the
+         * resident. EXIT may alter the menu-only hasGroups flag, so do
+         * NOT overwrite the resident with the exited scratch image. */
+        if(!modalGroup) {
+            memcpy(native,&_diyCompetitionStart,sizeof *native);
+            memcpy(cup?&ko->tournament:&group->tournament,
+                   &_diyFileBufferCopy,sizeof _diyFileBufferCopy);
+            TeamFileEx *dest=cup?ko->teams:group->teams;
+            memcpy(dest,_selectedTeams,teamCount*sizeof(TeamFileEx));
+            memcpy(&dest[managerIndex],&_careerTeam,sizeof _careerTeam);
+            dest[managerIndex].team.teamControls=1u;
+            if(cup) {
+                ko->seed=_seed2;ko->randIndex=_randXorIndex2;
+                ko->randKey=_randXorKey2;
+            } else {
+                group->seed=_seed2;group->randIndex=_randXorIndex2;
+                group->randKey=_randXorKey2;
+            }
+            native->base.namePtr=(uint8_t *)native->base.competitionName;
+            (cup?&ko->tournament:&group->tournament)->header.namePtr=
+                (uint8_t *)(cup?ko->tournament.header.competitionName:
+                                  group->tournament.header.competitionName);
         }
-        native->base.namePtr=(uint8_t *)native->base.competitionName;
-        (cup?&ko->tournament:&group->tournament)->header.namePtr=
-            (uint8_t *)(cup?ko->tournament.header.competitionName:
-                              group->tournament.header.competitionName);
         fprintf(stderr,"[og-bolivia-manager] OG_PLAYED year=%u stage=%s "
-            "serial=%u fixture=%u witness=ONE native=ONE "
+            "serial=%u fixture=%u witness=%s native=%s "
             "cache=UNMODIFIED\n",
             (unsigned)pending.year,cup?"KO":"GROUP",
-            (unsigned)pending.serial,(unsigned)pending.fixtureId);
+            (unsigned)pending.serial,(unsigned)pending.fixtureId,
+            modalGroup?"PER_FIXTURE_CAR":"ONE",
+            modalGroup?"SESSION_OG":"ONE");
     } else if(!canceled) {
         s_expOGFault=1;
         Expanded_CompetitionCoordinator_ReportFixtureFault(
@@ -7131,6 +7399,8 @@ int Expanded_OGWorld_BoliviaManagerPlay(
     _randXorKey2=savedRandKey2;
     memcpy(_selectedTeams,savedTeams,sizeof _selectedTeams);
     _numSelectedTeams=savedSelectedCount;
+    free(s_expBoliviaNativeModal.scratchTeams);
+    memset(&s_expBoliviaNativeModal,0,sizeof s_expBoliviaNativeModal);
     free(savedTeams);
     memcpy(&_diyCompetitionStart,&savedComp,sizeof savedComp);
     memcpy(&_diyFileBufferCopy,&savedTournament,sizeof savedTournament);
@@ -7140,6 +7410,11 @@ int Expanded_OGWorld_BoliviaManagerPlay(
 int Expanded_OGWorld_AdvanceBolivia(uint16_t year,uint8_t phase)
 {
     if(World_Current()!=WORLD_2627)return 1;
+    /* During an original OG Copa modal the modal owns its resident's
+     * fixtures. Only OTHER world competitions advance in a civil tick;
+     * no duplicate CPU match or recursive occupied contest. */
+    if(s_expBoliviaNativeModal.active && s_expBoliviaNativeModal.suspended)
+        return s_expOGBolivia.used && s_expOGBolivia.year==year;
     if(_gameType!=4 || s_expOGCurrent || s_expOGCupCurrent)return 0;
     const uint16_t first=World_FirstYear();
     const int rollover=s_expOGBolivia.used && year>s_expOGBolivia.year;

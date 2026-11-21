@@ -4349,7 +4349,7 @@ int Expanded_AutoCareer_TitleCheckpointVerified(void) {
            s_auto_title_checkpoint_world==(int)World_Current() &&
            SaveJson_CareerCompatible(auto_career_slot());
 }
-void Expanded_AutoCareer_Save(const char *reason) {
+int Expanded_AutoCareer_SaveChecked(const char *reason) {
     extern int Expanded_MidseasonJoin_Active(void);
     const int titleExit=reason && strcmp(reason,"menu-exit")==0;
     if(titleExit) s_auto_title_checkpoint_verified=0;
@@ -4363,7 +4363,7 @@ void Expanded_AutoCareer_Save(const char *reason) {
                     (unsigned)_careerAutoAdvanceInProgress,
                     (unsigned)_seasonUpdateInProgress,
                     Expanded_MidseasonJoin_Active());
-        return;
+        return 0;
     }
     uint8_t *native=auto_career_slot();
     if(getenv("SWOS_DIAGNOSTIC_CAPTURE")) {
@@ -4378,7 +4378,7 @@ void Expanded_AutoCareer_Save(const char *reason) {
            getenv("SWOS_DIAGNOSTIC_CAPTURE"))
             fprintf(stderr,"[autosave-title] status=WRITE_FAILED world=%s file=%s\n",
                     World_Tag(),(const char *)native);
-        return;
+        return 0;
     }
     auto_career_cache_world();
     s_auto_career_source=native;
@@ -4406,6 +4406,10 @@ void Expanded_AutoCareer_Save(const char *reason) {
                 titleCompatible?"COMPATIBLE_ON_DISK":"CHECK_FAILED",
                 World_Tag(),(const char *)native);
     }
+    return 1; /* SaveCareerFile returned success, not merely attempted. */
+}
+void Expanded_AutoCareer_Save(const char *reason) {
+    (void)Expanded_AutoCareer_SaveChecked(reason);
 }
 int Expanded_AutoCareer_Load(void) {
     if(!Expanded_AutoCareer_HasSave()) return 0;

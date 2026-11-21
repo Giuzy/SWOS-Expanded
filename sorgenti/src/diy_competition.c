@@ -41,6 +41,8 @@
 #include "league_phase.h"
 #ifdef SWOS_SDL_BUILD
 #include "bolivia_cup_sequence.h" /* 2026/27 type2 fixture format, OG results only */
+#include "bolivia_league_2026_phases.h" /* type0 thirty-round OG date template */
+#include "bolivia_manager_offset_gate.h" /* sentinel -1 only for real manager OG */
 #endif
 #include "uefa_coef.h"
 #include "conti_season.h"
@@ -1157,6 +1159,7 @@ void DIYTournament_BuildMatchesPerTeamProgressionTable(void)
         slotMatchesRemaining--;
         matchIdx++;
     }
+
 }
 
 /* ================================================================
@@ -11026,6 +11029,22 @@ void DIY_RecomputeCompetitionDerivedProgressionTable(void)
         uint16_t val = (i * range) / divisor;
         out[i] = (uint8_t)(val + startVal);
     }
+#ifdef SWOS_SDL_BUILD
+    /* Type0 Bolivia uses THIS original OG progression writer, not the
+     * type2 DIYTournament builder. Change ONLY the 30 existing phase bytes
+     * for the current national top league, no extra fixtures or result path.
+     * For later in-game editions this is GAME_TEMPLATE_2026, not a claim
+     * about future official dates. Existing CAR records are not rewritten. */
+    if(World_Current()==WORLD_2627 &&
+       (uint8_t)comp->base.field_2E==89u &&
+       (uint8_t)comp->base.competitionType==0u &&
+       comp->base.numTeams==16 && count==BOLIVIA_LEAGUE_ROUNDS &&
+       (uint8_t)comp->base.startMonth==24u &&
+       (uint8_t)comp->base.endMonth==92u &&
+       BoliviaLeague2026_ValidatePhases()) {
+        memcpy(out,kBoliviaLeague2026NativePhases,BOLIVIA_LEAGUE_ROUNDS);
+    }
+#endif
 }
 
 /* ===================================================================
@@ -12412,11 +12431,14 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
     extern int Expanded_OGWorld_IsSimulating(void);
     extern void Expanded_OGWorld_InvalidFixture(int32_t,int32_t,uint16_t);
     extern uint16_t _numSelectedTeams;
+    /* During the sole resident Copa manager match, the original DIY
+     * resolver deliberately uses -1 for _careerTeam. CPU fixtures remain
+     * strictly index-only; allow precisely one transient -1 identity. */
+    extern int Expanded_OGWorld_BoliviaManagerInteractive(void);
+    const int copaManager=Expanded_OGWorld_BoliviaManagerInteractive();
     if(Expanded_OGWorld_IsSimulating() &&
-       (teamSelOff1<0 || teamSelOff2<0 ||
-        (uint32_t)teamSelOff1>=_numSelectedTeams ||
-        (uint32_t)teamSelOff2>=_numSelectedTeams ||
-        teamSelOff1==teamSelOff2)) {
+       !BoliviaManagerFixture_ValidOffsets(teamSelOff1,teamSelOff2,
+                                           _numSelectedTeams,copaManager)) {
         Expanded_OGWorld_InvalidFixture(teamSelOff1,teamSelOff2,
                                          _numSelectedTeams);
         return 1;

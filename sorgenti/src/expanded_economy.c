@@ -1683,8 +1683,10 @@ static int ui_state=0;
 /* The contest panel is drawn to the number of available fixtures.  The
  * underlying art contains only the pitch, not a permanently tall box. */
 static unsigned ui_fixture_rows_drawn=0;
-static void ui_draw_fixture_panel(void);
+static unsigned ui_fixture_count(void);
+static void ui_draw_fixture_panel(unsigned requested);
 static void ui_fixture_finish_panel(void);
+static void ui_render_merged_calendar(void);
 static int ui_load(void) {
     if(ui_state) return ui_state>0;
     if(!cb_read_file("data/expanded/expanded_title_bg.raw",ui_title,sizeof ui_title) ||
@@ -2032,7 +2034,7 @@ void Expanded_UI_Before(void) {
             _currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarPointer()?ui_unemployed:ui_calendar);
         if(_currentMenuPtr==(uintptr_t)_contestMenu) {
             ui_fixture_rows_drawn=0;
-            ui_draw_fixture_panel();
+            ui_draw_fixture_panel(ui_fixture_count());
         }
     }
 }
@@ -2138,6 +2140,16 @@ static unsigned ui_fixture_count(void) {
     while(n<14 && _gameListArray[n*2]) n++;
     return n;
 }
+/* Visual-only objects: never reinterpret them as packed SWOS TSKC or
+ * expose them as a career match callback. The original menu owns scrolling
+ * and the original resident OG owns EVERY fixture/result. */
+typedef struct UICompactFixture {
+    uint32_t dayKey;
+    uint8_t day,month,cup,highlight,scoreText,expandedBolivia;
+    char label[80],first[80],side[24],mark[24],opponent[90];
+} UICompactFixture;
+static UICompactFixture s_uiNativeFixtures[14];
+static unsigned s_uiNativeFixtureCount=0;
 static int ui_fixture_panel_bottom=0;
 static int ui_fixture_bottom_for_count(unsigned n) {
     if(n<1) n=1;
@@ -2147,8 +2159,8 @@ static int ui_fixture_bottom_for_count(unsigned n) {
     int bottom=67+(int)n*9; /* 8 fixtures -> 139; 14 -> 190 */
     return bottom>190?190:bottom;
 }
-static void ui_draw_fixture_panel(void) {
-    int bottom=ui_fixture_bottom_for_count(ui_fixture_count());
+static void ui_draw_fixture_panel(unsigned requested) {
+    int bottom=ui_fixture_bottom_for_count(requested);
     ui_fixture_panel_bottom=bottom;
     /* x=5..314: symmetric side margins in the 320px SWOS framebuffer. */
     rect(5,39,310,(unsigned)(bottom-39),42);
@@ -2170,7 +2182,8 @@ void Expanded_UI_ClearFixtureArea(void) {
      * Also clear stale team names when using the red scroll arrows. */
     ui_restore_rect(ui_calendar,5,39,310,151);
     ui_fixture_rows_drawn=0;
-    ui_draw_fixture_panel();
+    s_uiNativeFixtureCount=0;
+    ui_draw_fixture_panel(ui_fixture_count());
 }
 static void ui_fixture_finish_panel(void) {
     if(_currentMenuPtr!=(uintptr_t)_contestMenu || !ui_fixture_panel_bottom)
@@ -2211,43 +2224,144 @@ static void ui_native_ellipsis(int x,int y,int maxWidth,uint8_t color,
     }
     ui_native_text(x,y,maxWidth,color,text,align);
 }
-int Expanded_UI_CompactFixtureRow(unsigned row,unsigned slotType) {
-    if(!ui_load() || _currentMenuPtr!=(uintptr_t)_contestMenu) return 0;
-    if(row>=14 || row>=ui_fixture_count()) return 1;
-    if(row+1>ui_fixture_rows_drawn) ui_fixture_rows_drawn=row+1;
-    const int y=53+(int)row*9;
-    /* Dark 8-pixel rows never extend beyond the panel's right border. */
-    rect(28,y-1,282,8,(row&1)?40:42);
-    if(!_menuEntries[37].isInvisible)
-        rect(81,y-1,229,8,11);
-    char comp[80];
-    const char *name=_menuEntries[34].fg?
-        (const char *)(uintptr_t)_menuEntries[34].fg:"";
-    const char *round=(!_menuEntries[35].isInvisible && _menuEntries[35].fg)?
-        (const char *)(uintptr_t)_menuEntries[35].fg:"";
-    ui_short_comp(comp,sizeof comp,name,round,slotType!=0);
-    ui_native_text(29,y,73,slotType?15:2,comp,-1);
-    if(!_menuEntries[38].isInvisible && _menuEntries[38].fg) {
-        ui_native_ellipsis(102,y,68,2,
-            (const char *)(uintptr_t)_menuEntries[38].fg,-1);
+/* Native game-list row decoder supplies the real league/cup labels here.
+ * Copy immediately: entries[34..42] are scratch reused for the next row. */
+static void ui_fixture_copy_menu(char *dst,size_t capacity,unsigned ordinal)
+{
+    if(!capacity)return;
+    dst[0]=0;
+    if(_menuEntries[ordinal].isInvisible || !_menuEntries[ordinal].fg ||
+       _menuEntries[ordinal].fg==(uintptr_t)0xFFFFFFFFu)return;
+    snprintf(dst,capacity,"%.78s",
+             (const char *)(uintptr_t)_menuEntries[ordinal].fg);
+}
+static uint32_t ui_fixture_date_key(uint16_t year,unsigned month,unsigned day)
+{
+    if(!year || month<1u || month>12u || day<1u || day>31u)return 0u;
+    return (uint32_t)year*10000u+month*100u+day;
+}
+static void ui_paint_compact_fixture(const UICompactFixture *r,unsigned index)
+{
+    if(!r || index>=14u)return;
+    const int y=53+(int)index*9;
+    rect(28,y-1,282,8,(index&1u)?40:42);
+    if(r->highlight)rect(81,y-1,229,8,11);
+    char date[8]="";
+    if(r->day && r->month)
+        snprintf(date,sizeof date,"%02u/%02u",
+                 (unsigned)r->day,(unsigned)r->month);
+    if(r->expandedBolivia) {
+        ui_native_text(29,y,34,2,date,-1);
+        ui_native_ellipsis(65,y,36,r->cup?15:2,r->label,-1);
+    } else {
+        /* Original competition-name column for 9697 / other nations and
+         * CLASSIC/DIY/SEASON: no forced COPPA/DPN/date truncation. */
+        ui_native_text(29,y,73,r->cup?15:2,r->label,-1);
     }
-    if(!_menuEntries[36].isInvisible && _menuEntries[36].fg)
-        ui_native_text(178,y,18,2,
-            (const char *)(uintptr_t)_menuEntries[36].fg,0);
-    if(!_menuEntries[40].isInvisible && _menuEntries[40].fg) {
-        ui_native_text(196,y,12,2,
-            (const char *)(uintptr_t)_menuEntries[40].fg,0);
-    } else if(!_menuEntries[39].isInvisible && !_menuEntries[41].isInvisible) {
-        char score[16];
-        snprintf(score,sizeof score,"%d-%d",
+    if(r->first[0])ui_native_ellipsis(102,y,68,2,r->first,-1);
+    if(r->side[0])ui_native_text(178,y,18,2,r->side,0);
+    if(r->mark[0])ui_native_text(196,y,r->scoreText?24:12,2,r->mark,0);
+    if(r->opponent[0])ui_native_ellipsis(210,y,100,2,r->opponent,-1);
+}
+int Expanded_UI_CompactFixtureRow(unsigned row,unsigned slotType)
+{
+    if(!ui_load() || _currentMenuPtr!=(uintptr_t)_contestMenu)return 0;
+    if(row>=14u || row>=ui_fixture_count())return 1;
+    UICompactFixture *r=&s_uiNativeFixtures[row];
+    memset(r,0,sizeof *r);
+    r->cup=slotType==1u || slotType==2u;
+    r->expandedBolivia=World_Current()==WORLD_2627 && _gameType==4 &&
+                       (uint8_t)(_selTeamNumber>>8)==45u;
+    r->highlight=!_menuEntries[37].isInvisible;
+    const char *name=(!_menuEntries[34].isInvisible &&
+                      _menuEntries[34].fg &&
+                      _menuEntries[34].fg!=(uintptr_t)0xFFFFFFFFu)?
+        (const char *)(uintptr_t)_menuEntries[34].fg:"";
+    const char *round=(!_menuEntries[35].isInvisible &&
+                       _menuEntries[35].fg &&
+                       _menuEntries[35].fg!=(uintptr_t)0xFFFFFFFFu)?
+        (const char *)(uintptr_t)_menuEntries[35].fg:"";
+    ui_short_comp(r->label,sizeof r->label,name,round,slotType!=0);
+    if(r->cup && r->expandedBolivia)
+        snprintf(r->label,sizeof r->label,"COPPA");
+    else if(r->expandedBolivia && slotType==0u)
+        snprintf(r->label,sizeof r->label,"DPN");
+    ui_fixture_copy_menu(r->first,sizeof r->first,38u);
+    ui_fixture_copy_menu(r->side,sizeof r->side,36u);
+    ui_fixture_copy_menu(r->mark,sizeof r->mark,40u);
+    if(!r->mark[0] && !_menuEntries[39].isInvisible &&
+       !_menuEntries[41].isInvisible) {
+        snprintf(r->mark,sizeof r->mark,"%d-%d",
                  (int)(int16_t)_menuEntries[39].fgWord,
                  (int)(int16_t)_menuEntries[41].fgWord);
-        ui_native_text(196,y,24,2,score,0);
+        r->scoreText=1u;
     }
-    if(!_menuEntries[42].isInvisible && _menuEntries[42].fg)
-        ui_native_ellipsis(210,y,100,2,
-            (const char *)(uintptr_t)_menuEntries[42].fg,-1);
+    ui_fixture_copy_menu(r->opponent,sizeof r->opponent,42u);
+    if(_gameType==4 && _gameListArray[row*2u]) {
+        extern uint16_t Expanded_OGWorld_SaveYear(void);
+        const TeamSelectionKeyCacheEntry *const entry=
+            (const TeamSelectionKeyCacheEntry *)_gameListArray[row*2u];
+        ExpandedWorldDate civil;
+        if(ExpandedWorld_NativePhaseToDate(Expanded_OGWorld_SaveYear(),
+                                           entry->sortKey,&civil)) {
+            r->day=civil.day;r->month=civil.month;
+            r->dayKey=ui_fixture_date_key(civil.year,civil.month,civil.day);
+        }
+    }
+    if(row+1u>s_uiNativeFixtureCount)s_uiNativeFixtureCount=row+1u;
+    if(row+1u>ui_fixture_rows_drawn)ui_fixture_rows_drawn=row+1u;
+    ui_paint_compact_fixture(r,row);
     return 1;
+}
+/* Merge the VISUAL representation of the native league page with all eight
+ * already-known 2026 Copa group fixtures. KO opponents enter only once OG
+ * has produced them. Sorting/copying here NEVER mutates TSKC, OG or CAR;
+ * the original scroll arrows move the league page and reveal later rows. */
+static void ui_render_merged_calendar(void)
+{
+    if(_currentMenuPtr!=(uintptr_t)_contestMenu || _gameType!=4 ||
+       World_Current()!=WORLD_2627 ||
+       (uint8_t)(_selTeamNumber>>8)!=45u)return;
+    UICompactFixture merged[32];
+    unsigned count=0u;
+    for(unsigned i=0u;i<s_uiNativeFixtureCount && i<14u;++i)
+        merged[count++]=s_uiNativeFixtures[i];
+    ExpandedBoliviaManagerFixture cup[16],next;
+    const unsigned cupCount=Expanded_OGWorld_BoliviaManagerFixtures(cup,16u);
+    const int haveNext=Expanded_OGWorld_BoliviaManagerNext(&next);
+    const uint32_t first=count?merged[0].dayKey:0u;
+    for(unsigned i=0u;i<cupCount && i<16u && count<32u;++i) {
+        const uint32_t key=ui_fixture_date_key(cup[i].year,
+                                               cup[i].month,cup[i].day);
+        if(!key)continue;
+        /* Do not pin old cup games above the current scrolled league page.
+         * Exception: a pending Copa fixture before the next league round
+         * must never disappear from the manager's calendar. */
+        if(first && key<first &&
+           (!haveNext || cup[i].fixtureId!=next.fixtureId))continue;
+        UICompactFixture *r=&merged[count++];
+        memset(r,0,sizeof *r);
+        r->dayKey=key;r->day=cup[i].day;r->month=cup[i].month;
+        r->cup=1u;r->expandedBolivia=1u;
+        snprintf(r->label,sizeof r->label,"COPPA");
+        snprintf(r->side,sizeof r->side,"%s",
+                 cup[i].home==_selTeamNumber?"(H)":"(A)");
+        snprintf(r->mark,sizeof r->mark,"V");
+        snprintf(r->opponent,sizeof r->opponent,"%.17s",cup[i].opponent);
+    }
+    for(unsigned i=1u;i<count;++i) {
+        const UICompactFixture row=merged[i];
+        unsigned j=i;
+        while(j>0u && merged[j-1u].dayKey>row.dayKey) {
+            merged[j]=merged[j-1u];--j;
+        }
+        merged[j]=row;
+    }
+    const unsigned showing=count<14u?count:14u;
+    ui_draw_fixture_panel(showing);
+    ui_fixture_rows_drawn=showing;
+    for(unsigned i=0u;i<showing;++i)
+        ui_paint_compact_fixture(&merged[i],i);
 }
 static void ui_button(unsigned ordinal,const char *caption) {
     Menu *m=(Menu *)_currentMenu;
@@ -2726,7 +2840,10 @@ void Expanded_UI_After(void) {
         ui_button(11,"BACK");
         ui_button(1,"LOAD LIVERPOOL");
     } else if(kind==3) {
-        if(_currentMenuPtr==(uintptr_t)_contestMenu) ui_fixture_finish_panel();
+        if(_currentMenuPtr==(uintptr_t)_contestMenu) {
+            ui_render_merged_calendar();
+            ui_fixture_finish_panel();
+        }
         int unemployed=_currentMenuPtr==(uintptr_t)Expanded_UnemployedCalendarPointer();
         /* Fixture rows are now rendered once per entry by the compact
          * calendar renderer, with bounded columns and no stock overpaint. */
@@ -2761,22 +2878,8 @@ void Expanded_UI_After(void) {
         /* Native font, inside the top-right 126px date textbox, away from
          * all fixture rows (which begin below y=39). */
         ui_native_text(252,24,118,15,date,0);
-        /* RG-014. A bounded native-font CALENDAR line derived only from
-         * the OG resident's unplayed fixture. The same event is actionable
-         * via PlayMatchMenu/NextMatch; never fabricate a TSKC row. */
-        if(!unemployed && _currentMenuPtr==(uintptr_t)_contestMenu) {
-            ExpandedBoliviaManagerFixture cup;
-            if(Expanded_OGWorld_BoliviaManagerNext(&cup)) {
-                char line[72];
-                snprintf(line,sizeof line,"COPA BOL %02u/%02u %s %.17s",
-                         (unsigned)cup.day,(unsigned)cup.month,
-                         cup.home==_selTeamNumber?"VS":"AT",cup.opponent);
-                /* Header strip ends before the separate top-right date,
-                 * and stays above the fixture panel's y=39 border. */
-                rect(25,29,224,9,42);
-                ui_native_text(28,30,219,15,line,-1);
-            }
-        }
+        /* Copa events are interleaved as YELLOW calendar rows above;
+         * no disconnected yellow banner outside the fixture list. */
     }
 }
 

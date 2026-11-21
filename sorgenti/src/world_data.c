@@ -804,11 +804,13 @@ static CompetitionLeague kWorld2627_belarussiaLleague = {
     { kWorld2627_name36, kWorld2627_name37 }
 };
 
-/* Real FBF 2026 league window: 3 April - 13 December.
- * OG native date keys are EIGHTHS OF A MONTH, not exact civil days:
- * 24 includes 3 April, 92 closes after 13 December. Competition
- * format, clubs, draw, results, promotion and OG match loop unchanged.
- * True per-fixture dates still need the shared dated scheduler. */
+/* 2026 FBF Liga real opening 3 April, closing planned by 13 December.
+ * OG competition bounds are MONTH EIGHTHS: phase 24 = 1 April and
+ * phase 92 = 16 December, NOT the exact real opening/final dates.
+ * The 30 approximate OG round dates are supplied to the ORIGINAL type0
+ * progression writer from bolivia_league_2026_phases.h. JSON must use
+ * these same bounds (24..92). Individual fixtures/recuperi and 1 July
+ * historical import remain NOT verified/implemented by this template. */
 static CompetitionLeague kWorld2627_bolivianLeague = {
     { { 89, 0, 45, 24, 92, 33, 0, 0, 0 }, 1, 2, 3, 53 },
     { { 16, 0, 0, 0, 0, 0 } },

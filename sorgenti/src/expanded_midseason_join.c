@@ -1105,8 +1105,10 @@ void Expanded_BoliviaManagerPrepareMenu(void)
     extern MenuEntry _menuEntries[];
     extern void ContestSetButtons(void);
     extern void NextMatch(MenuEntry *);
-    static const char kPlayCup[]="PLAY COPA BOLIVIA";
-    static const char kNextCup[]="NEXT COPA BOLIVIA";
+    /* Same original button captions for LEAGUE and CUP; only OG routing
+     * changes, never the menu callback or the visible action name. */
+    static const char kPlayCup[]="PLAY MATCH";
+    static const char kNextCup[]="NEXT MATCH";
     static const char kClash[]="CUP DATE CONFLICT";
     static const char kLate[]="CUP FIXTURE OVERDUE";
     static int wasCup;

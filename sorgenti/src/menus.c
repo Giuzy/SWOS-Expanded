@@ -5596,6 +5596,17 @@ static void SetNationalityField(void)
  * Sets up competition name text pointers and shuffles Y coordinates
  * when hiding unavailable competition slots.
  * ================================================================ */
+#ifdef SWOS_SDL_BUILD
+/* Extra club competition without hijacking a packed career slot. The
+ * original second-slot callback is restored for every other club. */
+static MenuEntryFn s_viewCompSecondSlotCallback;
+static void Expanded_ViewClubBoliviaCup(MenuEntry *entry)
+{
+    (void)entry;
+    (void)Expanded_OGWorld_ViewBoliviaClubCup();
+}
+#endif
+
 __attribute__((used, externally_visible))
 void ViewCompetitionsOnReturn(void)
 {
@@ -5604,6 +5615,22 @@ void ViewCompetitionsOnReturn(void)
     _menuEntries[2].fg = (uintptr_t)_competitionContextBuf.tourn.header.competitionName;
     _menuEntries[3].fg = (uintptr_t)_tertiaryCompetitionContextBuf.tourn.header.competitionName;
     _menuEntries[4].fg = (uintptr_t)_euroCupsCompetitionContextBuf.tourn.header.competitionName;
+    int boliviaClubCupSlot=0;
+#ifdef SWOS_SDL_BUILD
+    if(!s_viewCompSecondSlotCallback)
+        s_viewCompSecondSlotCallback=_menuEntries[2].onSelect;
+    if(s_viewCompSecondSlotCallback)
+        _menuEntries[2].onSelect=s_viewCompSecondSlotCallback;
+    if(Expanded_OGWorld_BoliviaClubCupAvailable() &&
+       (!_secondaryCompetitionPtr ||
+        comp_is_tour_or_friendly(comp_id((void *)_secondaryCompetitionPtr)))) {
+        static const char kBoliviaClubCup[]="COPA BOLIVIA";
+        _menuEntries[2].fg=(uintptr_t)kBoliviaClubCup;
+        _menuEntries[2].onSelect=Expanded_ViewClubBoliviaCup;
+        _menuEntries[2].isInvisible=0;
+        boliviaClubCupSlot=1;
+    }
+#endif
 
     /* If primary competition is tour/friendly, hide entry 1 and shift Y coords up */
     if (comp_is_tour_or_friendly(_currentCompetitionPtr
@@ -5618,8 +5645,8 @@ void ViewCompetitionsOnReturn(void)
     }
 
     /* If secondary competition is null/tour/friendly, hide entry 2 and shift */
-    if (_secondaryCompetitionPtr == 0
-        || comp_is_tour_or_friendly(comp_id((void *)_secondaryCompetitionPtr)))
+    if (!boliviaClubCupSlot && (_secondaryCompetitionPtr == 0
+        || comp_is_tour_or_friendly(comp_id((void *)_secondaryCompetitionPtr))))
     {
         _menuEntries[2].isInvisible = 1;
         /* Shift Y coordinates: 5←4, 4←3, 3←2 */

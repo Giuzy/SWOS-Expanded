@@ -6593,6 +6593,67 @@ int Expanded_OGWorld_BoliviaManagerNext(ExpandedBoliviaManagerFixture *out)
     }
     return 0;
 }
+/* Presentation-only complete group fixture projection. No TSKC slot, no
+ * OG write, no date generator: each pair comes from s_expOGBolivia.comp
+ * and the existing real 2026 / GAME_TEMPLATE_2026 date table. */
+unsigned Expanded_OGWorld_BoliviaManagerFixtures(
+    ExpandedBoliviaManagerFixture *out,unsigned capacity)
+{
+    if(!out || capacity<8u || World_Current()!=WORLD_2627 ||
+       _gameType!=4 || _selTeamNumber==0xffffu || _youreSacked ||
+       (uint8_t)(_selTeamNumber>>8)!=45u ||
+       !s_expOGBolivia.used || s_expOGCurrent || s_expOGCupCurrent ||
+       s_expOGBolivia.year!=Expanded_OGWorld_SaveYear())return 0u;
+    BoliviaCupFixture fixtures[64];
+    if(BoliviaCup_ChronologicalFixtures(fixtures)!=64u)return 0u;
+    unsigned count=0u;
+    for(unsigned serial=0u;serial<64u;++serial) {
+        const BoliviaCupFixture *f=&fixtures[serial];
+        uint16_t home=0,away=0;
+        int homeIndex=-1,awayIndex=-1;
+        if(!exp_bolivia_group_pair(&s_expOGBolivia,f,&home,&away,
+                                    NULL,NULL,&homeIndex,&awayIndex))return 0u;
+        if(home!=_selTeamNumber && away!=_selTeamNumber)continue;
+        if(count>=capacity)return 0u;
+        const int opponent=home==_selTeamNumber?awayIndex:homeIndex;
+        out[count]=(ExpandedBoliviaManagerFixture){
+            s_expOGBolivia.year,home,away,(uint16_t)serial,f->fixtureId,
+            f->month,f->day,0u,{0}};
+        memcpy(out[count].opponent,
+               s_expOGBolivia.teams[opponent].team.teamName,17u);
+        out[count].opponent[17]=0;
+        ++count;
+    }
+    /* KO teams/ties exist only after the actual eight OG qualifiers are
+     * known. Never draw hypothetical later rounds from today's bracket. */
+    if(s_expOGBolivia.comp.matchesPlayedCount==64u) {
+        const ExpandedOGCup *ko=exp_cup_find(45u,2u,s_expOGBolivia.year);
+        if(ko && ko->used && ko->teamCount==8u) {
+            for(unsigned serial=ko->matchesPlayed;
+                serial<BOLIVIA_KO_FIXTURES;++serial) {
+                const BoliviaKODate *d=&kBoliviaKO2026[serial];
+                if(d->round!=(uint8_t)ko->comp.base.currentRoundIndex ||
+                   d->leg!=(uint8_t)ko->comp.matchData.cup.competitionFormat)
+                    break;
+                uint16_t home=0,away=0;
+                int hi=-1,ai=-1;
+                if(!exp_bolivia_ko_pair(ko,d,&home,&away,NULL,NULL,&hi,&ai))
+                    break;
+                if(home!=_selTeamNumber && away!=_selTeamNumber)continue;
+                if(count>=capacity)break;
+                const int opponent=home==_selTeamNumber?ai:hi;
+                out[count]=(ExpandedBoliviaManagerFixture){
+                    ko->year,home,away,(uint16_t)serial,
+                    (uint16_t)(serial+65u),d->month,d->day,1u,{0}};
+                memcpy(out[count].opponent,ko->teams[opponent].team.teamName,17u);
+                out[count].opponent[17]=0;
+                ++count;
+            }
+        }
+    }
+    return count;
+}
+
 /* Callable only after the CIVIL coordinator reaches the exact real fixture
  * day. It cannot move the clock, simulate an alternative score or write
  * the local career cache: only the resident OG DIY match runs. */
@@ -8950,6 +9011,20 @@ static int exp_og_view_bolivia(void)
             (unsigned long long)after);
     return before==after;
 }
+/* The hired club's COMPETITIONS entry opens the SAME OG resident cup
+ * viewer as VIEW WORLD. The five original local slots stay untouched. */
+int Expanded_OGWorld_BoliviaClubCupAvailable(void)
+{
+    return World_Current()==WORLD_2627 && _gameType==4 &&
+           _selTeamNumber!=0xffffu && !_youreSacked &&
+           (uint8_t)(_selTeamNumber>>8)==45u && s_expOGBolivia.used;
+}
+int Expanded_OGWorld_ViewBoliviaClubCup(void)
+{
+    return Expanded_OGWorld_BoliviaClubCupAvailable()?
+           exp_og_view_bolivia():0;
+}
+
 static int exp_og_view_cup(const uint8_t *record)
 {
     static uint8_t missing[]="OG WORLD: CUP NOT RESIDENT";

@@ -1,3 +1,9 @@
+## 21/11/2026 — 00.13.227 Bolivia type0 dates + manager Copa: CAR invariants (PREPARATO, NO Win GP)
+
+Il nuovo template 30 date civili **rappresentative** della Liga Bolivia 2026 (phase bytes da `bolivia_league_2026_phases.h`, real writer `DIY_RecomputeCompetitionDerivedProgressionTable` TYPE0, JSON begin24/end92) viene applicato soltanto durante la normale nuova inizializzazione OG; non aggiunge campi al CAR, non tocca compressione Zstandard3 o journal. **NON MIGRARE né RISCRIVERE AUTOMATICAMENTE i validi `AUTO2627.CAR` della 00.13.226:** hanno nel residente 30 fasi da 32 a88 e risultati OG già registrati; cambiargli il calendario a posteriori cancellerebbe l'origine temporale e rischierebbe replay. Per le NUOVE carriere la fase18 passa al 04/09, evitando la collisione del 01/09 di fase64 originale con Copa, ma serve audit globale nel gameplay Windows.
+
+Nel manager Copa `teamSelOffset=-1` è temporaneo SOLO mentre il vero OG interattivo utilizza `_careerTeam`: l'helper `BoliviaManagerFixture_ValidOffsets` limita questa identità a esattamente un club e il bridge `Expanded_OGWorld_BoliviaManagerPlay` deve ripristinare `teamSelOffset=indice CPU` prima di copiare il resident e serializzarlo; CPU -1, doppio -1, OOB, mismatch home/away devono bloccare. La nuova vista `COMPETITIONS` club e proiezione `DPN/COPPA/DD/MM` sono SOLO LETTURA e NON creano TSKC/fixture journal/CAR. Prova obbligatoria ancora NON SVOLTA: user gioca Copa 03/09 OG 50Hz, witness+1 una sola volta, risultato in resident e giornale, SAVE/EXIT/CONTINUE anche dopo cancella/retry e su KO, hash readonly viewer, compatibilità CAR 226/legacy, nessuna sovrascrittura di save valido. Tutti i blob sono PREPARATI, non significano build Windows completata.
+
 ### 20/11/2026 — REGRESSION GATE CAR / ROLLOVER / NO-REPLAY (VIGENTE)
 
 ## 21/11/2026 — 00.13.226 Copa Bolivia manager: persistence contract (PREPARATO)

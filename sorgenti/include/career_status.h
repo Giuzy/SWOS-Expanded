@@ -56,6 +56,15 @@ int Expanded_OGWorld_BoliviaManagerNext(ExpandedBoliviaManagerFixture *out);
 int Expanded_OGWorld_BoliviaManagerPlay(
     const ExpandedBoliviaManagerFixture *expected);
 int Expanded_OGWorld_BoliviaManagerInteractive(void);
+/* The current hired club's independent type2/KO Copa Bolivia resident.
+ * Read-only viewer binding, never a fake local career competition slot. */
+int Expanded_OGWorld_BoliviaClubCupAvailable(void);
+int Expanded_OGWorld_ViewBoliviaClubCup(void);
+/* Read-only list of KNOWN native Copa fixtures involving this club.
+ * 8 group fixtures can be listed at START; later KO opponents only once
+ * the actual OG bracket exists. Does not advance clock or match cursor. */
+unsigned Expanded_OGWorld_BoliviaManagerFixtures(
+    ExpandedBoliviaManagerFixture *out,unsigned capacity);
 
 /* Non-mutating read of the OG league resident in the career world. */
 int Expanded_OGWorld_ReadLeagueStandings(uint8_t country,uint8_t division,

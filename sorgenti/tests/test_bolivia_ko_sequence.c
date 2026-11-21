@@ -18,7 +18,7 @@ int main(void)
     if(!BoliviaKO_Validate())return 1;
     if(BOLIVIA_CUP_GROUP_FIXTURES!=64 ||
        BOLIVIA_KO_FIXTURES!=14 ||
-       BOLIVIA_CUP_KNOCKOUT_FIXTURES!=BOLIVIA_KO_FIXTURES)
+       (int)BOLIVIA_CUP_KNOCKOUT_FIXTURES!=(int)BOLIVIA_KO_FIXTURES)
        return 2;
     for(unsigned i=0;i<8u;i++) {
         const unsigned g=kBoliviaKOGroups[i][0];

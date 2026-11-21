@@ -103,29 +103,73 @@ if [[ -z "$log" && -n "${SWOS_DIAGNOSTIC_DIR:-}" ]]; then
     fi
 fi
 if [[ -n "$log" && -s "$log" ]] && grep -Fq '[og-cup-start] year=2026 ' "$log"; then
+  # Country 45 is a deliberately excluded legacy type-1 placeholder.
+  # It must remain non-resident, while the single real Bolivia type-2 OG
+  # resident initializes independently with 16 clubs, 4 groups and 64 pairs.
+  # Require BOTH witnesses from this same log; never waive the old failure
+  # merely because the definition count still matches.
   awk -F '\t' '
+    function fieldnum(line,key,  parts,pair,n,i) {
+      n=split(line,parts," ");
+      for(i=1;i<=n;i++){
+        split(parts[i],pair,"=");
+        if(pair[1]==key)return pair[2]+0;
+      }
+      return -999;
+    }
     FNR==NR {if($0~/^#/)next;expect[$1]=$4+0;next}
     /\[og-cup-country\] year=2026 / {
-      c=-1;d=-1;r=-1;f=-1;
-      n=split($0,a," ");
-      for(i=1;i<=n;i++){
-        split(a[i],b,"=");
-        if(b[1]=="country")c=b[2]+0;
-        if(b[1]=="definitions")d=b[2]+0;
-        if(b[1]=="resident")r=b[2]+0;
-        if(b[1]=="failed")f=b[2]+0;
-      }
-      if(c<0||!(c in expect)||expect[c]!=d||r!=d||f!=0){
-        print "MOD2627_CUP_COUNTRY_FAIL id=" c " expected=" expect[c] " got=" d " resident=" r;
+      c=fieldnum($0,"country");
+      d=fieldnum($0,"definitions");
+      r=fieldnum($0,"resident");
+      f=fieldnum($0,"failed");
+      u=fieldnum($0,"unsupported");
+      if(c==45){
+        if(!(c in expect)||expect[c]!=1||d!=1||r!=0||u!=1||f!=0){
+          print "MOD2627_BOLIVIA_LEGACY_TYPE1_FAIL expected-definition=1 definitions=" d \
+                " resident=" r " unsupported=" u " failed=" f;
+          bad=1;
+        }else bolLegacy++;
+      }else if(c<0||!(c in expect)||expect[c]!=d||r!=d||f!=0){
+        print "MOD2627_CUP_COUNTRY_FAIL id=" c " expected=" expect[c] \
+              " got=" d " resident=" r;
         bad=1;
       }
       if(c>=0)seen[c]=1;
     }
+    /\[og-bolivia-resident\] INITIALIZED year=2026 / {
+      bolType2++;
+      y=fieldnum($0,"year");
+      c=fieldnum($0,"country");
+      slot=fieldnum($0,"slot");
+      typ=fieldnum($0,"type");
+      teams=fieldnum($0,"teams");
+      groups=fieldnum($0,"groups");
+      pairs=fieldnum($0,"fixture-pairs");
+      played=fieldnum($0,"played");
+      if(y!=2026||c!=45||slot!=2||typ!=2||
+         teams!=16||groups!=4||pairs!=64||played!=0){
+        print "MOD2627_BOLIVIA_TYPE2_FAIL year=" y " country=" c \
+              " slot=" slot " type=" typ " teams=" teams \
+              " groups=" groups " pairs=" pairs " played=" played;
+        bad=1;
+      }
+    }
     END {
-      for(c in expect)if(expect[c]>0 && !(c in seen)){bad=1;print "MOD2627_CUP_COUNTRY_MISSING=" c;}
-      print "MOD2627_RUNTIME_DOMESTIC_COUNTRIES=" length(seen) " status=" (bad?"FAIL":"OBSERVED");
+      for(c in expect)if(expect[c]>0 && !(c in seen)){
+        bad=1;print "MOD2627_CUP_COUNTRY_MISSING=" c;
+      }
+      if(bolLegacy<1||bolType2<1){
+        print "MOD2627_BOLIVIA_RESIDENCY_FAIL legacy-type1=" bolLegacy \
+              " type2-initialized=" bolType2;
+        bad=1;
+      }
+      if(!bad)print "MOD2627_BOLIVIA_RESIDENT=OBSERVED_TYPE2_16_TEAMS_64_PAIRS_NOT_MANAGER_GAMEPLAY";
+      print "MOD2627_RUNTIME_DOMESTIC_COUNTRIES=" length(seen) \
+            " status=" (bad?"FAIL":"OBSERVED_WITH_BOLIVIA_TYPE2");
       if(bad)exit 1;
-    }' "$countries" "$log" || { echo "MOD2627_RUNTIME_DOMESTIC=FAIL";exit 1; }
+    }
+  ' "$countries" "$log" || { echo "MOD2627_RUNTIME_DOMESTIC=FAIL";exit 1; }
   echo 'MOD2627_RUNTIME_DOMESTIC=OBSERVED_NATIVE_IDENTITY_NOT_ALL_FIXTURE_RULES'
 else
   echo 'MOD2627_RUNTIME_DOMESTIC=NOT_TESTED no_2026_START_log_in_this_session'

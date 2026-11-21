@@ -21,6 +21,16 @@ static inline int ExpandedBoliviaModal_DateGate(
         return EXP_BOLIVIA_MODAL_LEAGUE_FIRST;
     return EXP_BOLIVIA_MODAL_DUE;
 }
+/* A whole Copa menu can include the manager while the current
+ * ORIGINAL OG fixture has two CPU sides. Never apply a session-wide
+ * interactive sentinel requirement to CPU/CPU fixtures. */
+static inline int ExpandedBoliviaModal_ManagerMode(
+    uint16_t manager,uint16_t home,uint16_t away)
+{
+    if(manager==0xffffu || home==0xffffu || away==0xffffu ||
+       home==away)return -1;
+    return (home==manager || away==manager)?1:0;
+}
 /* One original OG callback may publish exactly one score. A cancelled
  * callback does not call this; a multiple-witness delta is never PASS. */
 static inline int ExpandedBoliviaModal_WitnessGate(

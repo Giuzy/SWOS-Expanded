@@ -67,6 +67,7 @@ extern CompetitionCup _uefaCup;
 #include "bolivia_cup_knockout.h" /* First-edition 4 groups and interseries fixture identities */
 #include "expanded_bolivia_event_registry.h" /* civil-only Bolivia date template/registry */
 #include "expanded_bolivia_modal_invariants.h" /* original OG per-event checks */
+#include "bolivia_manager_offset_gate.h" /* actual CPU/manager offset contract */
 #include "expanded_og_cup_validation.h"
 #include "expanded_og_copa_phase.h"
 #include "expanded_og_season_retention.h"
@@ -6943,7 +6944,7 @@ int Expanded_OGWorld_BoliviaManagerScore(
  * and the civil coordinator. It owns every fixture separately, rather than
  * cutting ShowMenu short after one match or one day. */
 typedef struct {
-    int active,suspended,armed,failed;
+    int active,suspended,armed,failed,yieldForLeague;
     unsigned committed,serial,managerIndex;
     uint16_t nativeSlot,careerSelectedCount,careerLoaded,careerAutoFlag;
     uint16_t careerSlotProcessing,careerSimulated,careerCacheEnd;
@@ -7011,26 +7012,38 @@ static int exp_bolivia_modal_delegate(ExpandedWorldDate date,int save)
         ExpandedWorldDate due;
         ExpandedLiveCalendarState live;
         int32_t dueIdx=0,targetIdx=0,nowIdx=0;
-        if(Expanded_OGWorld_BoliviaLeagueWitnessProgress(&played) &&
-           ExpandedWorldLive_CalendarState(&live) &&
-           ExpandedWorld_DateToIndex(live.today,&nowIdx) &&
-           ExpandedWorld_DateToIndex(date,&targetIdx) &&
-           (played>=EXP_BOLIVIA_LEAGUE_ROUNDS ||
-            (ExpandedBolivia_LeagueRoundDate(
-                 s_expOGBolivia.year,played,&due) &&
-             ExpandedWorld_DateToIndex(due,&dueIdx))) &&
-           ExpandedBoliviaModal_DateGate(
-               nowIdx,targetIdx,played<EXP_BOLIVIA_LEAGUE_ROUNDS,
-               dueIdx)==EXP_BOLIVIA_MODAL_DUE) {
+        const int haveDates=
+            Expanded_OGWorld_BoliviaLeagueWitnessProgress(&played) &&
+            ExpandedWorldLive_CalendarState(&live) &&
+            ExpandedWorld_DateToIndex(live.today,&nowIdx) &&
+            ExpandedWorld_DateToIndex(date,&targetIdx) &&
+            (played>=EXP_BOLIVIA_LEAGUE_ROUNDS ||
+             (ExpandedBolivia_LeagueRoundDate(
+                  s_expOGBolivia.year,played,&due) &&
+              ExpandedWorld_DateToIndex(due,&dueIdx)));
+        const int gate=haveDates?ExpandedBoliviaModal_DateGate(
+            nowIdx,targetIdx,played<EXP_BOLIVIA_LEAGUE_ROUNDS,dueIdx):0;
+        if(gate==EXP_BOLIVIA_MODAL_DUE) {
             extern int Expanded_CompetitionCoordinator_Advance(
                 ExpandedWorldDate,const char *);
             ok=Expanded_CompetitionCoordinator_Advance(
                 date,"BOLIVIA_OG_NATIVE_MODAL_FIXTURE");
+        } else if(gate==EXP_BOLIVIA_MODAL_LEAGUE_FIRST) {
+            /* The original league fixture is earlier or same-day.
+             * Yield the real OG Copa menu to the native CAREER owner,
+             * rather than spin on an unplayable CPU result button. */
+            m->yieldForLeague=1;
+            fprintf(stderr,"[bolivia-modal] YIELD_TO_LEAGUE "
+                "cup=%04u-%02u-%02u league-index=%ld round=%u "
+                "no-cup-sim=1\n",(unsigned)date.year,
+                (unsigned)date.month,(unsigned)date.day,
+                (long)dueIdx,played);
         } else {
-            fprintf(stderr,"[bolivia-modal] WAIT_LEAGUE_OR_DATE "
-                "fixture-day=%04u-%02u-%02u next-league=%u\n",
+            fprintf(stderr,"[bolivia-modal] INVALID_CIVIL_GATE "
+                "cup=%04u-%02u-%02u league-round=%u "
+                "gate=%d no-cup-sim=1\n",
                 (unsigned)date.year,(unsigned)date.month,
-                (unsigned)date.day,played);
+                (unsigned)date.day,played,gate);
         }
     }
     memcpy(&_diyCompetitionStart,&modalComp,sizeof modalComp);
@@ -7067,8 +7080,19 @@ int Expanded_OGWorld_BoliviaModalBefore(int action)
        BOLIVIA_CUP_GROUP_FIXTURES)goto reject;
     const BoliviaCupFixture *const f=&ordered[serial];
     uint16_t home=0,away=0;
+    int hr=-1,ar=-1;
     if(!exp_bolivia_group_pair(&s_expOGBolivia,f,&home,&away,
-                              NULL,NULL,NULL,NULL))goto reject;
+                              &hr,&ar,NULL,NULL))goto reject;
+    /* The modal owns the competition, NOT every fixture's human team.
+     * A CPU/CPU game has two ordinary nonnegative team indices and
+     * must never be validated as requiring the manager's -1 sentinel. */
+    const int mode=ExpandedBoliviaModal_ManagerMode(
+        _selTeamNumber,home,away);
+    if(mode<0 || hr<0 || ar<0 ||
+       !BoliviaManagerFixture_ValidOffsets(
+           _diyCompetitionStart.leagueStandings[hr].teamSelOffset,
+           _diyCompetitionStart.leagueStandings[ar].teamSelOffset,
+           _numSelectedTeams,mode))goto reject;
     ExpandedWorldDate date={s_expOGBolivia.year,f->month,f->day};
     ExpandedLiveCalendarState live;
     int32_t now=0,due=0;
@@ -7078,14 +7102,29 @@ int Expanded_OGWorld_BoliviaModalBefore(int action)
     /* A current OG date may have several independent CPU fixtures.
      * On later dates the SAME coordinator ticks all OTHER OG residents,
      * while this resident is held by its native modal. */
-    if(!exp_bolivia_modal_delegate(date,0))return 0;
+    if(!exp_bolivia_modal_delegate(date,0)) {
+        extern void SetExitMenuFlag(void);
+        if(m->yieldForLeague) {
+            /* Civil date ownership changes to DPN: return to original
+             * CAREER, preserving all already committed Copa results. */
+            SetExitMenuFlag();
+            return 0;
+        }
+        m->failed=1;
+        Expanded_CompetitionCoordinator_ReportFixtureFault(
+            "BOLIVIA_NATIVE_MODAL_CIVIL_TICK_REJECTED");
+        SetExitMenuFlag();
+        return 0;
+    }
     m->serial=serial;m->witnessed=s_expOGFixtureCount;
     m->captured=s_expOGCapturedCup;m->armed=1;
+    s_expBoliviaManagerInteractive=mode;
     s_expOGFixtureAsOf=date;
     fprintf(stderr,"[bolivia-modal] PRE_NATIVE event=%u fixture=%u "
-        "date=%04u-%02u-%02u action=%d home=%04x away=%04x\n",
+        "date=%04u-%02u-%02u action=%d mode=%s home=%04x away=%04x\n",
         serial,(unsigned)f->fixtureId,(unsigned)date.year,
         (unsigned)date.month,(unsigned)date.day,action,
+        mode?"MANAGER":"CPU",
         (unsigned)home,(unsigned)away);
     return 1;
 reject:

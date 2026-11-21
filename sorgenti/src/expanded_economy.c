@@ -2317,6 +2317,52 @@ int Expanded_UI_CompactFixtureRow(unsigned row,unsigned slotType)
             r->dayKey=ui_fixture_date_key(civil.year,civil.month,civil.day);
         }
     }
+    /* Before the 01/07 career START, the world OG resident may already
+     * hold real OG match witnesses while this manager's native TSKC still
+     * has matchFlags=0. Read those witnesses for DISPLAY ONLY.
+     * These are OG in-game scores, NOT certified real-life 2026 imports.
+     * Fail closed on no/ambiguous witness: never fabricate an outcome. */
+    if(r->expandedBolivia && slotType==0u && !r->scoreText &&
+       r->mark[0]=='V' && !r->mark[1] &&
+       r->dayKey>=ui_fixture_date_key(World_FirstYear(),1u,1u) &&
+       r->dayKey<ui_fixture_date_key(World_FirstYear(),7u,1u) &&
+       _gameListArray[row*2u] && _gameListArray[row*2u+1u]) {
+        extern uint8_t _teamSelectionKeyCache[8192];
+        const uintptr_t start=(uintptr_t)_teamSelectionKeyCache;
+        const uintptr_t game=(uintptr_t)_gameListArray[row*2u+1u];
+        const uintptr_t header=(uintptr_t)_gameListArray[row*2u];
+        if(game>=start && game-start<=8192u-18u &&
+           header>=start && header-start<=
+                8192u-sizeof(TeamSelectionKeyCacheEntry)) {
+            const uint8_t *bytes=(const uint8_t *)game;
+            const uint16_t firstTeam=(uint16_t)(
+                ((uint16_t)bytes[0x0cu]<<8)|bytes[0x0du]);
+            const uint16_t secondTeam=(uint16_t)(
+                ((uint16_t)bytes[0x0eu]<<8)|bytes[0x0fu]);
+            if((firstTeam==_selTeamNumber) !=
+               (secondTeam==_selTeamNumber)) {
+                const TeamSelectionKeyCacheEntry *const entry=
+                    (const TeamSelectionKeyCacheEntry *)
+                    _gameListArray[row*2u];
+                uint8_t firstGoals=0u,secondGoals=0u;
+                const int historical=Expanded_OGWorld_BoliviaEarlyLeagueScore(
+                    World_FirstYear(),(uint8_t)_currentDivisionIndex,
+                    entry->sortKey,firstTeam,secondTeam,
+                    &firstGoals,&secondGoals);
+                if(historical==1 && firstGoals<=99u && secondGoals<=99u) {
+                    const unsigned managerFirst=firstTeam==_selTeamNumber;
+                    snprintf(r->mark,sizeof r->mark,"%u-%u",
+                        managerFirst?(unsigned)firstGoals:(unsigned)secondGoals,
+                        managerFirst?(unsigned)secondGoals:(unsigned)firstGoals);
+                    r->scoreText=1u;
+                } else {
+                    /* Do not show a past fixture with no certified OG
+                     * witness as another unplayed future 'V' match. */
+                    snprintf(r->mark,sizeof r->mark,"?");
+                }
+            }
+        }
+    }
     if(row+1u>s_uiNativeFixtureCount)s_uiNativeFixtureCount=row+1u;
     if(row+1u>ui_fixture_rows_drawn)ui_fixture_rows_drawn=row+1u;
     ui_paint_compact_fixture(r,row);
@@ -2338,6 +2384,15 @@ static void ui_render_merged_calendar(void)
     ExpandedBoliviaManagerFixture cup[16],next;
     const unsigned cupCount=Expanded_OGWorld_BoliviaManagerFixtures(cup,16u);
     const int haveNext=Expanded_OGWorld_BoliviaManagerNext(&next);
+    ExpandedBoliviaManagerFixture actionable={0};
+    /* Same gate as the real OG PLAY/SIMULATE action, not a second
+     * calendar decision inferred from the picture or the row index. */
+    const int cupPlan=Expanded_BoliviaManagerActionableCup(&actionable);
+    const int actionableCup=cupPlan==1;
+    if(cupPlan!=0)
+        for(unsigned i=0u;i<count;++i)
+            merged[i].highlight=0u; /* Cup next, or action is blocked. */
+    unsigned focusMatches=0u;
     BoliviaCupFixture ordered[BOLIVIA_CUP_GROUP_FIXTURES];
     const int groupDates=BoliviaCup_ChronologicalFixtures(ordered)==
                          BOLIVIA_CUP_GROUP_FIXTURES;
@@ -2355,6 +2410,14 @@ static void ui_render_merged_calendar(void)
         memset(r,0,sizeof *r);
         r->dayKey=key;r->day=cup[i].day;r->month=cup[i].month;
         r->cup=1u;r->expandedBolivia=1u;
+        r->highlight=actionableCup &&
+            cup[i].year==actionable.year &&
+            cup[i].month==actionable.month && cup[i].day==actionable.day &&
+            cup[i].home==actionable.home && cup[i].away==actionable.away &&
+            cup[i].stage==actionable.stage &&
+            cup[i].serial==actionable.serial &&
+            cup[i].fixtureId==actionable.fixtureId;
+        focusMatches+=(unsigned)r->highlight;
         snprintf(r->label,sizeof r->label,"COPA");
         /* Same phase dictionary used by Competition Info. The 36/68px
          * native columns cannot fit the full competition title AND a
@@ -2396,10 +2459,27 @@ static void ui_render_merged_calendar(void)
         merged[j]=row;
     }
     const unsigned showing=count<14u?count:14u;
+    unsigned page=0u;
+    if(actionableCup && focusMatches!=1u) {
+        /* Missing/duplicate OG identity: fail closed, never highlight a
+         * different fixture or silently change the native cursor. */
+        for(unsigned i=0u;i<count;++i)merged[i].highlight=0u;
+    } else if(actionableCup && count>showing) {
+        /* The chronological merge may push the next Copa past the native
+         * 14-row page. Present the real actionable row, without changing
+         * TSKC, menu callbacks, or the original scroll-arrow handlers. */
+        for(unsigned i=0u;i<count;++i)if(merged[i].highlight) {
+            if(i>=showing) {
+                page=i>showing/2u?i-showing/2u:0u;
+                if(page>count-showing)page=count-showing;
+            }
+            break;
+        }
+    }
     ui_draw_fixture_panel(showing);
     ui_fixture_rows_drawn=showing;
     for(unsigned i=0u;i<showing;++i)
-        ui_paint_compact_fixture(&merged[i],i);
+        ui_paint_compact_fixture(&merged[page+i],i);
 }
 static void ui_button(unsigned ordinal,const char *caption) {
     Menu *m=(Menu *)_currentMenu;

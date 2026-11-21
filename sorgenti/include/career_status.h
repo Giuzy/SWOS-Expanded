@@ -65,6 +65,16 @@ int Expanded_OGWorld_BoliviaManagerAutoSim(void);
 int Expanded_OGWorld_BoliviaManagerScore(
     const ExpandedBoliviaManagerFixture *fixture,
     uint8_t *homeGoals,uint8_t *awayGoals);
+/* READONLY: retrieve a unique earlier-than-July first-edition Bolivia
+ * league score actually witnessed by OG. Identifies country/division/edition,
+ * native phase and both team IDs. Does NOT attest a REAL historical 2026
+ * source (resident OG catch-up can differ from real-life results).
+ * 1=unique witness; 0=no matching witnessed match; -1=invalid/ambiguous.
+ * No keycache, result, date, standings or CAR mutation. */
+int Expanded_OGWorld_BoliviaEarlyLeagueScore(
+    uint16_t year,uint8_t division,uint8_t phase,
+    uint16_t firstTeam,uint16_t secondTeam,
+    uint8_t *firstGoals,uint8_t *secondGoals);
 /* The current hired club's independent type2/KO Copa Bolivia resident.
  * Read-only viewer binding, never a fake local career competition slot. */
 int Expanded_OGWorld_BoliviaClubCupAvailable(void);

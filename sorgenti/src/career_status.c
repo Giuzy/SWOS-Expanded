@@ -6656,6 +6656,40 @@ unsigned Expanded_OGWorld_BoliviaManagerFixtures(
     return count;
 }
 
+/* The already existing OG fixture journal is the ONLY score source here.
+ * Read with exact division, phase, edition and BOTH oriented team IDs.
+ * The journal 'as-of' is a capture bound, not a verified real match date.
+ * A reverse orientation is allowed only as the same unique recorded pair. */
+int Expanded_OGWorld_BoliviaEarlyLeagueScore(
+    uint16_t year,uint8_t division,uint8_t phase,
+    uint16_t firstTeam,uint16_t secondTeam,
+    uint8_t *firstGoals,uint8_t *secondGoals)
+{
+    if(!firstGoals || !secondGoals || firstTeam==secondTeam ||
+       firstTeam==0xffffu || secondTeam==0xffffu ||
+       World_Current()!=WORLD_2627 || year!=World_FirstYear() ||
+       phase>=48u)return -1;
+    unsigned found=0u;
+    uint8_t a=0u,b=0u;
+    for(size_t i=0;i<s_expOGFixtureCount;++i) {
+        const uint8_t *row=s_expOGFixtures+i*EXP_OG_FIXTURE_SIZE;
+        if(row[0]!=0u || row[1]!=45u || row[2]!=division ||
+           row[3]!=phase || row[15]!=1u ||
+           exp_fixture_get16(row+4u)!=year)continue;
+        const uint16_t home=exp_fixture_get16(row+8u);
+        const uint16_t away=exp_fixture_get16(row+10u);
+        const int normal=home==firstTeam && away==secondTeam;
+        const int reverse=home==secondTeam && away==firstTeam;
+        if(!normal && !reverse)continue;
+        if(++found>1u)return -1; /* no phase/pair ambiguity allowed */
+        a=normal?row[12]:row[13];
+        b=normal?row[13]:row[12];
+    }
+    if(!found)return 0;
+    *firstGoals=a;*secondGoals=b;
+    return 1;
+}
+
 /* Journal-only scoreboard: the date/pair/edition is a stable fixture
  * identity in this first-edition Copa. Neither the UI nor this query
  * generates a result, advances a phase, or changes a CAR. */

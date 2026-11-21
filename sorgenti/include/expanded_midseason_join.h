@@ -75,6 +75,13 @@ static inline ExpandedOGClubCalendarState ExpandedOGClubCalendar_Classify(
                           EXP_OG_CLUB_CALENDAR_FUTURE;
 }
 #ifdef SWOS_SDL_BUILD
+/* The same chronological Copa-vs-Liga decision used by PLAY/SIMULATE.
+ * Readonly: +1 Cup actionable; 0 native League first; <0 conflict or
+ * overdue -- nothing playable should be highlighted. Caller must match
+ * the exact fixture identity before drawing focus. No TSKC cursor writes. */
+struct ExpandedBoliviaManagerFixture;
+int Expanded_BoliviaManagerActionableCup(
+    struct ExpandedBoliviaManagerFixture *out);
 /* Does NOT move cursors, consume RNG, update scores or load a CAR. */
 int Expanded_OGWorld_ClubCalendarAudit(uint16_t year,ExpandedWorldDate now,
                                         ExpandedOGClubCalendarAudit *out);

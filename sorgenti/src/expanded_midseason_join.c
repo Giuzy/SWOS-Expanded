@@ -1096,6 +1096,15 @@ static int exp_bolivia_manager_plan(ExpandedBoliviaManagerFixture *pending,
     return BoliviaManagerCalendar_Gate(
         todayDay,cupDay,hasNative,nativeDay);
 }
+/* The VISUAL focus must follow the exact same chronological plan that
+ * routes PLAY/SIMULATE to OG. No duplicate date comparison, no TSKC writes. */
+int Expanded_BoliviaManagerActionableCup(ExpandedBoliviaManagerFixture *out)
+{
+    ExpandedLiveCalendarState live;
+    ExpandedWorldDate target;
+    if(!out)return 0;
+    return exp_bolivia_manager_plan(out,&live,&target);
+}
 /* Update ONLY a real career action caption/callback. This does not install
  * a fake TSKC fixture, alter hitboxes or introduce a tournament simulator. */
 void Expanded_BoliviaManagerPrepareMenu(void)

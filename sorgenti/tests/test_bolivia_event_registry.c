@@ -13,8 +13,39 @@ static int32_t idx(uint16_t y,uint8_t m,uint8_t d)
     assert(ExpandedWorld_DateToIndex((ExpandedWorldDate){y,m,d},&day));
     return day;
 }
+/* Native OG advances only for currentPhase > viewRandomPhase.
+ * Verify that every civil due round is INCLUDED by the exclusive cutoff,
+ * and that the following round is not played prematurely. Static/ISO
+ * contract only: no simulation, manager menu, Windows or CAR evidence. */
+static void verify_exclusive_native_cutoffs(void)
+{
+    uint8_t cutoff=0xffu;
+    for(unsigned r=0u;r<EXP_BOLIVIA_LEAGUE_ROUNDS;++r) {
+        ExpandedWorldDate due,before;
+        assert(ExpandedBolivia_LeagueRoundDate(2026u,r,&due));
+        assert(ExpandedBolivia_LeagueExecutionCutoff(2026u,due,&cutoff));
+        assert(cutoff==(uint8_t)(kBoliviaLeague2026NativePhases[r]+1u));
+        assert(cutoff>kBoliviaLeague2026NativePhases[r]);
+        if(r+1u<EXP_BOLIVIA_LEAGUE_ROUNDS)
+            assert(cutoff<=kBoliviaLeague2026NativePhases[r+1u]);
+        assert(ExpandedWorld_IndexToDate(idx(due.year,due.month,due.day)-1,
+                                         &before));
+        assert(ExpandedBolivia_LeagueExecutionCutoff(2026u,before,&cutoff));
+        assert(cutoff==(uint8_t)(r==0u?0u:
+                         kBoliviaLeague2026NativePhases[r-1u]+1u));
+    }
+    assert(ExpandedBolivia_LeagueExecutionCutoff(2026u,
+             (ExpandedWorldDate){2026u,7u,1u},&cutoff));
+    assert(cutoff==37u); /* 8 pre-July native matchdays, last phase 36 */
+    assert(ExpandedBolivia_LeagueExecutionCutoff(2026u,
+             (ExpandedWorldDate){2026u,3u,31u},&cutoff));
+    assert(cutoff==0u); /* START phase0 cannot simulate fixtures */
+    puts("BOLIVIA_OG_EXCLUSIVE_CUTOFF=PASS_ISOLATED 30_rounds july=37");
+}
+
 int main(void)
 {
+    verify_exclusive_native_cutoffs();
     uint16_t league[16],map[256];
     ExpandedBoliviaEvent program[EXP_BOLIVIA_PILOT_EVENTS];
     ExpandedScheduledEvent storage[EXP_BOLIVIA_PILOT_EVENTS]={0};

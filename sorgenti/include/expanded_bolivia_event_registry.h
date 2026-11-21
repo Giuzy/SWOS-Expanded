@@ -78,7 +78,13 @@ static inline int ExpandedBolivia_LeagueExecutionCutoff(
         if(!ExpandedBolivia_LeagueRoundDate(edition,r,&due) ||
            !ExpandedWorld_DateToIndex(due,&day))return 0;
         if(day>now)break;
-        *cutoff=kBoliviaLeague2026NativePhases[r];
+        /* OG advances only while (currentPhase > fixturePhase).
+         * The civil due date INCLUDES this round, so hand OG the
+         * EXCLUSIVE upper bound (phase+1), not fixturePhase itself.
+         * Never invent/advance a match or alter the civil due date. */
+        const uint8_t phase=kBoliviaLeague2026NativePhases[r];
+        if(phase>=95u)return 0; /* native eighth-month phase range */
+        *cutoff=(uint8_t)(phase+1u);
     }
     return 1;
 }

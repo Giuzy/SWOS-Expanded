@@ -1,3 +1,6 @@
+## 21/11/2026 — RG-014 RETTIFICA USER OFFERTE + LAMPEGGIO OG (PREPARATO v240)
+Manager già assunto: offerte di altri club non fermano né FORWARD TIME né auto-forward; restano in JOB OFFERS, visualizzate come NEW OFFERS lampeggiante usando bit13/counter originali OG. Offerta accettata resta evento obbligatorio; conservare club/world/date/score OG e testare trasferimento manager e CAR. Fonte e recovery: docs/REGRESSION_HISTORY_AND_DEPENDENCIES.md, nuova sotto-scheda offer after first derby Win 19/09/2026 e Issue #1. Non dichiarare Windows cambio club certificato dai test ISO; base dev/0.10 fc60e9bb v239.
+
 ## 21/11/2026 — USER RESTORED ORIGINAL OG NEXT MATCH / VIEWPORT NO BLANKS (v00.13.239, PREP)
 La decisione utente più recente SUPERSEDE solo la regola v238 di nascondere NEXT MATCH nel calendario Bolivia: mostrare di nuovo ordinal10 NEXT MATCH con callback e enabled state originali OG (preflight DPN/Copa resta). Viewport scroll clamp prima/ultima gara, no padding grafico e pannello corto se meno di 14 fixture. Screenshot WIN v238 e blocco dopo primo DERBY: solo screenshot a luglio; causa del blocco NON PROVATA, RG-014 resta aperto. Registro canonico: docs/REGRESSION_HISTORY_AND_DEPENDENCIES.md, addendum v239. Un solo commit esplicitamente autorizzato, non asserire build Win.
 

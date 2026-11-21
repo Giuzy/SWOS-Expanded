@@ -17,6 +17,7 @@
 #include "career_status.h"
 #include "expanded_bolivia_event_registry.h"
 #include "expanded_bolivia_career_action.h" /* visual action date: never match executor */
+#include "expanded_bolivia_career_offer_gate.h" /* optional offers cannot stop employed */
 #endif
 
 #include <stdio.h>
@@ -1072,16 +1073,21 @@ int Expanded_BoliviaCareerReadNext(ExpandedWorldDate *due,int *cupFirst)
     ExpandedLiveCalendarState live;
     return exp_bolivia_career_next(due,&live,cupFirst);
 }
-/* Only new offers and mandatory transitions interrupt the automatic
- * advance; this probe is made BEFORE and AFTER each SAME-coordinator
- * civil tick. Do not silently skip an interactive decision. */
+/* Only mandatory transitions stop an employed manager's civil clock.
+ * A NEW job offer is optional while managing an OG club: it remains
+ * visible in JOB OFFERS, but must NOT stall either AUTO postmatch or
+ * explicit FORWARD TIME. An ACCEPTED job is still a hard stop.
+ * This gate is checked BEFORE/AFTER each single-OG-coordinator day. */
 static int exp_bolivia_career_stop(void)
 {
     extern uint16_t _numNewJobOffers,_teamNoOfferAccepted,_youreSacked;
-    extern uint16_t _careerFinished,_seasonFinished;
+    extern uint16_t _selTeamNumber,_careerFinished,_seasonFinished;
     extern volatile uint16_t _seasonUpdateInProgress;
+    extern int Expanded_OGWorld_ClubBound(void);
     extern int Expanded_CompetitionCoordinator_RecoveryRequired(void);
-    return _numNewJobOffers || _teamNoOfferAccepted!=0xffffu ||
+    return ExpandedBoliviaCareer_OfferStops(
+               _numNewJobOffers,_selTeamNumber,Expanded_OGWorld_ClubBound()) ||
+           _teamNoOfferAccepted!=0xffffu ||
            _youreSacked || _careerFinished || _seasonFinished ||
            _seasonUpdateInProgress || s_active ||
            Expanded_CompetitionCoordinator_RecoveryRequired();

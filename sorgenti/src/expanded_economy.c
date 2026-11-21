@@ -27,6 +27,7 @@
 #include "expanded_facility_rules.h"
 #include "expanded_team_mood.h"
 #include "expanded_squad_layout.h"
+#include "expanded_career_job_offer_flash.h" /* native OG new-offer blink */
 #include "expanded_business_rules.h"
 
 extern int32_t _newBalance, _gateReceipts, _competitionBonuses;
@@ -2615,6 +2616,14 @@ static void ui_button(unsigned ordinal,const char *caption) {
     int x=e->x,y=e->y,w=e->dwWidth,h=e->dwHeight;
     if(x<0 || y<0 || x+w>320 || y+h>256 || w<5 || h<8) return;
     int kind=ui_kind();
+    /* Native CheckJobOffers sets bit13. Its 0..31 blink counter advances
+     * from UpdateBlinkingMenuText at 50Hz. The Expanded full-menu repaint
+     * must reflect that SAME flag or new offers appear completely static.
+     * Never alter entry data, hitbox, focus or the OG job-offer callback. */
+    extern uint16_t _menuTextBlinkCounter;
+    const int offerFlash=ExpandedCareer_JobOfferFlashOn(
+        (unsigned)kind,ordinal,e->stringFlags,
+        _menuTextBlinkCounter,e->isDisabled);
     uint8_t fill=46;
     if((kind==1 && ordinal==10) || (kind==2 && ordinal==10) ||
        (kind==3 && ordinal==7)) fill=230;
@@ -2626,6 +2635,7 @@ static void ui_button(unsigned ordinal,const char *caption) {
     if(kind==4 && ordinal==6) fill=72; /* less: brown */
     if(kind==4 && ordinal==7) fill=14; /* more: green */
     if(e->isDisabled) fill=46; /* readable, muted; callback stays disabled */
+    if(offerFlash) fill=230; /* yellow native 50Hz pulse, no new timer */
     rect(x+1,y+1,w-2,h-2,fill);
     cb_box_outline(x,y,w,h,e->isDisabled?7:204);
     if(m->selectedEntry==e) ui_focus(x,y,w,h);
@@ -2636,7 +2646,8 @@ static void ui_button(unsigned ordinal,const char *caption) {
      * The selection border never changes font, size, or text position. */
     int ty=y+(h-fontHeight)/2;
     if(ty<y+1) ty=y+1;
-    ui_native_text(x+w/2,ty,w-10,e->isDisabled?7:2,caption,0);
+    ui_native_text(x+w/2,ty,w-10,e->isDisabled?7:
+                   offerFlash?15:2,caption,0);
 }
 static void ui_record_status(char *out,size_t cap,int code) {
     if(code==0) snprintf(out,cap,"-");
@@ -3108,6 +3119,13 @@ void Expanded_UI_After(void) {
             /* The live game can change captions without altering the callback. */
             else if(e->fg && e->fg!=(uintptr_t)0xFFFFFFFFu)
                 name=(const char *)(uintptr_t)e->fg;
+            /* A NEW native job offer can arrive after the default button
+             * had said NO OFFERS. The original menu sets blinking bit13,
+             * but does not necessarily rewrite the foreground caption.
+             * Show a short explicit label using that SAME native flag. */
+            if(!unemployed && i==5u && !e->isDisabled &&
+               (e->stringFlags & (uint16_t)(1u<<13)))
+                name="NEW OFFERS";
             /* The full native text is too long for a 90px pixel-art key.
              * Only shorten its VISUAL label, not the original onSelect. */
             if(!unemployed && (i==11 || i==14)) name="COMPETITIONS";

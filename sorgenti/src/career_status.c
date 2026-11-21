@@ -65,6 +65,7 @@ extern CompetitionCup _uefaCup;
 #include "world_cupd.h"
 #include "bolivia_cup_sequence.h"
 #include "bolivia_cup_knockout.h" /* First-edition 4 groups and interseries fixture identities */
+#include "expanded_bolivia_event_registry.h" /* civil-only Bolivia date template/registry */
 #include "expanded_og_cup_validation.h"
 #include "expanded_og_copa_phase.h"
 #include "expanded_og_season_retention.h"
@@ -6537,6 +6538,121 @@ static int exp_bolivia_ko_pair(const ExpandedOGCup *ctx,
     if(homeIndex)*homeIndex=(int)hi;
     if(awayIndex)*awayIndex=(int)ai;
     return 1;
+}
+/* The event-registry's Liga occurrence cursor is reconstructed from
+ * original OG result witnesses, never from the native TSKC/phase date.
+ * A manager's next civil date belongs to our Bolivia pilot registry.
+ * This reader does not mutate the resident, RNG, journal or save. */
+int Expanded_OGWorld_BoliviaLeagueWitnessProgress(unsigned *played)
+{
+    if(played)*played=0u;
+    if(!played || World_Current()!=WORLD_2627 || _gameType!=4 ||
+       _selTeamNumber==0xffffu || _youreSacked ||
+       (uint8_t)(_selTeamNumber>>8)!=45u ||
+       _currentDivisionIndex!=0u || s_expOGCurrent || s_expOGCupCurrent)
+        return 0;
+    const uint16_t year=Expanded_OGWorld_SaveYear();
+    const ExpandedOGLeague *const ctx=exp_find(45u,0u,year);
+    if(!ctx || !ctx->used || ctx->teamCount!=16u)return 0;
+    int member=0;
+    for(unsigned k=0u;k<16u;++k)
+        if(PACK_BE_U16(ctx->teams[k].team.countryNumber,
+                       ctx->teams[k].team.teamOrdinal)==_selTeamNumber)
+            ++member;
+    if(member!=1)return 0;
+    unsigned count=0u;
+    for(size_t i=0u;i<s_expOGFixtureCount;++i) {
+        const uint8_t *row=s_expOGFixtures+i*EXP_OG_FIXTURE_SIZE;
+        if(row[0]!=0u || row[1]!=45u || row[2]!=0u ||
+           row[15]!=1u || exp_fixture_get16(row+4u)!=year)continue;
+        const uint16_t home=exp_fixture_get16(row+8u);
+        const uint16_t away=exp_fixture_get16(row+10u);
+        if(home==_selTeamNumber && away==_selTeamNumber)return 0;
+        if(home==_selTeamNumber || away==_selTeamNumber)
+            if(++count>30u)return 0;
+    }
+    if(count>(unsigned)ctx->comp.matchesPlayedCount)return 0;
+    *played=count;
+    return 1;
+}
+/* Bolivia pilot: original OG league pair table is immutable INPUT data;
+ * the civil date comes from the new registry, not the native phase/TSKC.
+ * leagueStandings[row].teamSelOffset resolves the selected team INDEX. */
+unsigned Expanded_OGWorld_BoliviaLeagueFixtures(
+    ExpandedBoliviaManagerFixture *out,unsigned capacity)
+{
+    if(!out || capacity<30u || World_Current()!=WORLD_2627 ||
+       _gameType!=4 || _selTeamNumber==0xffffu || _youreSacked ||
+       (uint8_t)(_selTeamNumber>>8)!=45u ||
+       _currentDivisionIndex!=0u || s_expOGCurrent || s_expOGCupCurrent)
+        return 0u;
+    const uint16_t year=Expanded_OGWorld_SaveYear();
+    const ExpandedOGLeague *const ctx=exp_find(45u,0u,year);
+    if(!ctx || !ctx->used || ctx->teamCount!=16u ||
+       ctx->comp.base.numTeams!=16)return 0u;
+    unsigned count=0u;
+    for(unsigned round=0u;round<30u;++round) {
+        ExpandedWorldDate date;
+        if(!ExpandedBolivia_LeagueRoundDate(year,round,&date))return 0u;
+        unsigned found=0u;
+        for(unsigned match=0u;match<8u;++match) {
+            const unsigned slot=(round%15u)*8u+match;
+            const unsigned rowH=ctx->comp.leaguePhase.cal[slot][0];
+            const unsigned rowA=ctx->comp.leaguePhase.cal[slot][1];
+            if(rowH>=16u || rowA>=16u || rowH==rowA)return 0u;
+            const int32_t idxH=ctx->comp.leagueStandings[rowH].teamSelOffset;
+            const int32_t idxA=ctx->comp.leagueStandings[rowA].teamSelOffset;
+            if(idxH<0 || idxA<0 || idxH>=16 || idxA>=16 || idxH==idxA)
+                return 0u;
+            const TeamFileEx *const th=&ctx->teams[idxH];
+            const TeamFileEx *const ta=&ctx->teams[idxA];
+            if(th->team.countryNumber!=45u || ta->team.countryNumber!=45u)
+                return 0u;
+            uint16_t home=PACK_BE_U16(45u,th->team.teamOrdinal);
+            uint16_t away=PACK_BE_U16(45u,ta->team.teamOrdinal);
+            const TeamFileEx *homeTeam=th,*awayTeam=ta;
+            if(round>=15u) {
+                const uint16_t swap=home;home=away;away=swap;
+                homeTeam=ta;awayTeam=th;
+            }
+            if(home==_selTeamNumber || away==_selTeamNumber) {
+                if(++found!=1u || count>=capacity)return 0u;
+                out[count]=(ExpandedBoliviaManagerFixture){
+                    year,home,away,(uint16_t)round,
+                    (uint16_t)(round*8u+match+1u),
+                    date.month,date.day,2u,{0}};
+                const TeamFileEx *opponent=
+                    home==_selTeamNumber?awayTeam:homeTeam;
+                memcpy(out[count].opponent,opponent->team.teamName,17u);
+                out[count].opponent[17]=0;
+                ++count;
+            }
+        }
+        if(found!=1u)return 0u;
+    }
+    return count==30u?count:0u;
+}
+/* Never infer a score from dates, counters, or a pre-hire TSKC row. */
+int Expanded_OGWorld_BoliviaLeagueScore(
+    const ExpandedBoliviaManagerFixture *f,
+    uint8_t *homeGoals,uint8_t *awayGoals)
+{
+    if(!f || !homeGoals || !awayGoals || f->stage!=2u ||
+       f->home==f->away || (uint8_t)(f->home>>8)!=45u ||
+       (uint8_t)(f->away>>8)!=45u ||
+       World_Current()!=WORLD_2627 ||
+       f->year!=Expanded_OGWorld_SaveYear())return -1;
+    unsigned found=0u;
+    for(size_t i=0u;i<s_expOGFixtureCount;++i) {
+        const uint8_t *row=s_expOGFixtures+i*EXP_OG_FIXTURE_SIZE;
+        if(row[0]!=0u || row[1]!=45u || row[2]!=0u ||
+           row[15]!=1u || exp_fixture_get16(row+4u)!=f->year ||
+           exp_fixture_get16(row+8u)!=f->home ||
+           exp_fixture_get16(row+10u)!=f->away)continue;
+        if(++found>1u)return -1;
+        *homeGoals=row[12];*awayGoals=row[13];
+    }
+    return found?1:0;
 }
 /* READONLY: consult the resident pair table and its original OG cursor.
  * Future KO opponents aren't guessed before OG produces their bracket. */

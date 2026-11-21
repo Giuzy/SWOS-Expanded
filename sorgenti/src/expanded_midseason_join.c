@@ -15,7 +15,7 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_live.h"
 #include "career_status.h"
-#include "bolivia_manager_calendar_gate.h"
+#include "expanded_bolivia_event_registry.h"
 #endif
 
 #include <stdio.h>
@@ -986,30 +986,114 @@ void Expanded_CareerJulyForward(MenuEntry *entry)
 /* RG-014. Before the legacy TSKC callback, compare the next real resident
  * Copa fixture with the currently actionable manager league fixture.
  * No calendar is authored here: native date / original OG pair only. */
+/* Bolivia-only civil pilot: the world registry schedules BOTH competitions.
+ * The next OG Copa resident pair is evidence of identity, not a date gate;
+ * the next Liga occurrence is counted from immutable OG score witnesses,
+ * never from the legacy keycache/phase as a scheduling authority.
+ * Only the true native OG match path is allowed to write a result. */
 static int exp_bolivia_manager_plan(ExpandedBoliviaManagerFixture *pending,
                                    ExpandedLiveCalendarState *live,
                                    ExpandedWorldDate *target)
 {
-    extern uint16_t _selTeamNumber,_seasonFinished,_careerFinished;
+    extern uint16_t _selTeamNumber;
     extern uint16_t Expanded_OGWorld_SaveYear(void);
     extern int Expanded_OGWorld_ClubBound(void);
-    int32_t todayDay=0,cupDay=0,nativeDay=0;
-    ExpandedWorldDate nativeDate;
+    unsigned leaguePlayed=0u;
     if(!pending || !live || !target || _gameType!=4 ||
        _selTeamNumber==0xffffu || !Expanded_OGWorld_ClubBound() ||
        !Expanded_OGWorld_BoliviaManagerNext(pending) ||
        !ExpandedWorldLive_CalendarState(live))return 0;
-    *target=(ExpandedWorldDate){
-        pending->year,pending->month,pending->day};
+    *target=(ExpandedWorldDate){pending->year,pending->month,pending->day};
     if(pending->year!=Expanded_OGWorld_SaveYear() ||
-       !ExpandedWorld_DateToIndex(live->today,&todayDay) ||
-       !ExpandedWorld_DateToIndex(*target,&cupDay))return -2;
-    const int hasNative=!_seasonFinished && !_careerFinished &&
-        ExpandedWorld_NativePhaseToDate(pending->year,
-             Expanded_Career_NativeCalendarKey(),&nativeDate) &&
-        ExpandedWorld_DateToIndex(nativeDate,&nativeDay);
-    return BoliviaManagerCalendar_Gate(
-        todayDay,cupDay,hasNative,nativeDay);
+       !Expanded_OGWorld_BoliviaLeagueWitnessProgress(&leaguePlayed))
+        return -2; /* unknown league occurrence: never bypass OG integrity */
+    return ExpandedBolivia_ChooseNext(
+        (uint8_t)World_Current(),pending->year,live->today,
+        leaguePlayed,leaguePlayed<EXP_BOLIVIA_LEAGUE_ROUNDS,
+        *target,pending->fixtureId,1);
+}
+/* A short-lived dispatch claim. The permanent completion evidence is
+ * the existing OG witness written in the same atomic CAR as the game
+ * itself; on CONTINUE the registry recovers by re-reading that journal.
+ * This is NOT an independent persistent result writer or manual ACK. */
+static struct {
+    ExpandedBoliviaManagerFixture fixture;
+    uint16_t club;
+    unsigned before;
+    uint8_t armed;
+} s_expBoliviaLeagueClaim;
+/* Called at the OUTER career menu boundary, never recursively from
+ * inside OG's modal ShowMenu/50-Hz match loop. The date/priority are from
+ * our civil event program; OG remains sole fixture/result executor.
+ * No TSKC phase decides when the next DPN match occurs. */
+int Expanded_BoliviaLeaguePreflight(void)
+{
+    extern uint16_t _selTeamNumber,_currentDivisionIndex;
+    extern int Expanded_CompetitionCoordinator_Advance(
+        ExpandedWorldDate,const char *);
+    extern int Expanded_OGWorld_ClubBound(void);
+    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    if(_gameType!=4 || World_Current()!=WORLD_2627 ||
+       (uint8_t)(_selTeamNumber>>8)!=45u)return 1;
+    /* Only the top-division 16-club pilot has a certified event
+     * template. Other Bolivia divisions retain their native OG path. */
+    if(_currentDivisionIndex!=0u)return 1;
+    if(_selTeamNumber==0xffffu ||
+       !Expanded_OGWorld_ClubBound())return 0;
+    ExpandedLiveCalendarState live;
+    ExpandedBoliviaManagerFixture league[EXP_BOLIVIA_LEAGUE_ROUNDS];
+    ExpandedBoliviaManagerFixture cup;
+    unsigned played=0u;
+    if(!ExpandedWorldLive_CalendarState(&live) ||
+       !Expanded_OGWorld_BoliviaLeagueWitnessProgress(&played) ||
+       Expanded_OGWorld_BoliviaLeagueFixtures(
+           league,EXP_BOLIVIA_LEAGUE_ROUNDS)!=
+               EXP_BOLIVIA_LEAGUE_ROUNDS)
+        return 0; /* do not fall through to phase-driven legacy calendar */
+    if(played>=EXP_BOLIVIA_LEAGUE_ROUNDS)return 1;
+    const ExpandedBoliviaManagerFixture *const next=&league[played];
+    const ExpandedWorldDate date={next->year,next->month,next->day};
+    int32_t now=0,when=0;
+    if(!ExpandedWorld_DateToIndex(live.today,&now) ||
+       !ExpandedWorld_DateToIndex(date,&when) || when<now) {
+        fprintf(stderr,"[bolivia-event-preflight] BLOCK_OVERDUE "
+                       "round=%u witness=%u\n",
+                (unsigned)next->serial,played);
+        return 0;
+    }
+    /* A Copa earlier than the Liga date MUST be routed by the same
+     * planner first; a same-day club collision is not a valid event. */
+    if(Expanded_OGWorld_BoliviaManagerNext(&cup)) {
+        const ExpandedWorldDate cupDate={cup.year,cup.month,cup.day};
+        const int decision=ExpandedBolivia_ChooseNext(
+            (uint8_t)World_Current(),next->year,live.today,
+            played,1,cupDate,cup.fixtureId,1);
+        if(decision!=0) {
+            fprintf(stderr,"[bolivia-event-preflight] BLOCK_ORDER "
+                           "decision=%d league-round=%u cup-fixture=%u\n",
+                    decision,played,(unsigned)cup.fixtureId);
+            return 0;
+        }
+    }
+    if(now<when &&
+       !Expanded_CompetitionCoordinator_Advance(
+           date,"CAREER_BOLIVIA_LEAGUE_EVENT"))return 0;
+    ExpandedLiveCalendarState after;
+    int32_t observed=0;
+    if(!ExpandedWorldLive_CalendarState(&after) ||
+       !ExpandedWorld_DateToIndex(after.today,&observed) ||
+       observed!=when)return 0;
+    s_expBoliviaLeagueClaim.fixture=*next;
+    s_expBoliviaLeagueClaim.club=_selTeamNumber;
+    s_expBoliviaLeagueClaim.before=played;
+    s_expBoliviaLeagueClaim.armed=1u;
+    fprintf(stderr,"[bolivia-event-preflight] LEAGUE_DUE "
+           "year=%u fixture=%u round=%u date=%04u-%02u-%02u "
+           "scheduler=CIVIL_ONLY native=OG_MENU\n",
+           (unsigned)next->year,(unsigned)next->fixtureId,
+           (unsigned)next->serial,(unsigned)date.year,
+           (unsigned)date.month,(unsigned)date.day);
+    return 1;
 }
 /* The VISUAL focus must follow the exact same chronological plan that
  * routes PLAY/SIMULATE to OG. No duplicate date comparison, no TSKC writes. */
@@ -1055,13 +1139,38 @@ void Expanded_BoliviaManagerPrepareMenu(void)
         next->isDisabled=plan!=1;
         next->onSelect=(MenuEntryFn)NextMatch;
         wasCup=1;
-    } else if(wasCup) {
-        ExpandedLiveCalendarState current;
-        ExpandedWorldDate future;
-        /* Don't undo the genuine preseason FORWARD action. */
-        if(!exp_career_july_plan(&future,&current))
-            ContestSetButtons();
-        wasCup=0;
+    } else {
+        unsigned leaguePlayed=0u;
+        ExpandedBoliviaManagerFixture league[EXP_BOLIVIA_LEAGUE_ROUNDS];
+        const int isBolivia=_gameType==4 &&
+            World_Current()==WORLD_2627 &&
+            (uint8_t)(_selTeamNumber>>8)==45u;
+        const int leagueReady=isBolivia &&
+            Expanded_OGWorld_BoliviaLeagueWitnessProgress(
+                &leaguePlayed) &&
+            leaguePlayed<EXP_BOLIVIA_LEAGUE_ROUNDS &&
+            Expanded_OGWorld_BoliviaLeagueFixtures(league,
+                EXP_BOLIVIA_LEAGUE_ROUNDS)==EXP_BOLIVIA_LEAGUE_ROUNDS;
+        if(leagueReady) {
+            /* Button eligibility comes from our civil event/OG witness
+             * projection rather than TSKC sortKey. Actual PLAY/SIM
+             * continues via the unchanged original OG callbacks. */
+            primary->fg=(uintptr_t)kPlayCup;
+            primary->isInvisible=0;
+            primary->isDisabled=0;
+            next->fg=(uintptr_t)kNextCup;
+            next->isInvisible=0;
+            next->isDisabled=0;
+            next->onSelect=(MenuEntryFn)NextMatch;
+            wasCup=1;
+        } else if(wasCup) {
+            ExpandedLiveCalendarState current;
+            ExpandedWorldDate future;
+            /* Don't undo the genuine preseason FORWARD action. */
+            if(!exp_career_july_plan(&future,&current))
+                ContestSetButtons();
+            wasCup=0;
+        }
     }
 }
 /* This is the actual original OG PLAY MATCH route; NEXT MATCH and
@@ -1134,6 +1243,46 @@ void Expanded_CareerSyncWorldAfterLeagueMatch(uint8_t phase,
         ExpandedWorldDate,const char *);
     ExpandedLiveCalendarState live;
     ExpandedWorldDate fixture;
+    if(_gameType==4 && World_Current()==WORLD_2627 &&
+       _selTeamNumber!=0xffffu && (uint8_t)(_selTeamNumber>>8)==45u &&
+       _currentDivisionIndex==0u) {
+        /* Native phases are execution internals, NOT a scheduling
+         * authority for this pilot. The coordinator already advanced
+         * to the civil event BEFORE the original OG menu opened. */
+        const ExpandedBoliviaManagerFixture expected=
+            s_expBoliviaLeagueClaim.fixture;
+        unsigned witnesses=0u;
+        uint8_t gh=0u,ga=0u;
+        const int progress=Expanded_OGWorld_BoliviaLeagueWitnessProgress(
+            &witnesses);
+        const int score=s_expBoliviaLeagueClaim.armed?
+            Expanded_OGWorld_BoliviaLeagueScore(&expected,&gh,&ga):-1;
+        if(!s_expBoliviaLeagueClaim.armed ||
+           s_expBoliviaLeagueClaim.club!=_selTeamNumber || !progress ||
+           witnesses<s_expBoliviaLeagueClaim.before ||
+           witnesses>s_expBoliviaLeagueClaim.before+1u ||
+           (witnesses==s_expBoliviaLeagueClaim.before+1u && score!=1) ||
+           (witnesses==s_expBoliviaLeagueClaim.before && score==1)) {
+            extern void Expanded_CompetitionCoordinator_ReportFixtureFault(
+                const char *);
+            Expanded_CompetitionCoordinator_ReportFixtureFault(
+                "BOLIVIA_LEAGUE_EVENT_OG_WITNESS_MISMATCH");
+            fprintf(stderr,"[bolivia-event-postflight] REJECT "
+                   "claim=%u before=%u after=%u score=%d no-CAR=1\n",
+                   (unsigned)s_expBoliviaLeagueClaim.armed,
+                   s_expBoliviaLeagueClaim.before,witnesses,score);
+        } else {
+            fprintf(stderr,"[bolivia-event-postflight] OG_WITNESS "
+                   "fixture=%u before=%u after=%u result=%s "
+                   "event-ack=DERIVE_FROM_OG_CAR\n",
+                   (unsigned)expected.fixtureId,
+                   s_expBoliviaLeagueClaim.before,witnesses,
+                   witnesses>s_expBoliviaLeagueClaim.before?
+                       "OG_PLAYED":"CANCELLED_NO_RESULT");
+        }
+        s_expBoliviaLeagueClaim.armed=0u;
+        return;
+    }
     if(_gameType!=4 || _selTeamNumber==0xffffu ||
        _diyCompetitionStart.base.competitionType!=0) return;
     if(!Expanded_OGWorld_ClubBound() ||

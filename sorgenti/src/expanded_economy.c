@@ -2380,27 +2380,64 @@ static void ui_render_merged_calendar(void)
     if(_currentMenuPtr!=(uintptr_t)_contestMenu || _gameType!=4 ||
        World_Current()!=WORLD_2627 ||
        (uint8_t)(_selTeamNumber>>8)!=45u)return;
-    UICompactFixture merged[32];
+    /* Bolivia pilot: the complete DPN/Copa view is driven by civil
+     * registry dates, NOT a presentation merge over TSKC native phases.
+     * OG supplies only immutable pair DATA and real witnessed results. */
+    UICompactFixture merged[64];
     unsigned count=0u;
-    for(unsigned i=0u;i<s_uiNativeFixtureCount && i<14u;++i)
-        merged[count++]=s_uiNativeFixtures[i];
+    ExpandedBoliviaManagerFixture liga[30];
+    const unsigned ligaCount=Expanded_OGWorld_BoliviaLeagueFixtures(
+        liga,30u);
+    unsigned ligaPlayed=0u;
+    const int haveLeagueProgress=
+        Expanded_OGWorld_BoliviaLeagueWitnessProgress(&ligaPlayed);
     ExpandedBoliviaManagerFixture cup[16],next;
     const unsigned cupCount=Expanded_OGWorld_BoliviaManagerFixtures(cup,16u);
     const int haveNext=Expanded_OGWorld_BoliviaManagerNext(&next);
     ExpandedBoliviaManagerFixture actionable={0};
-    /* Same gate as the real OG PLAY/SIMULATE action, not a second
-     * calendar decision inferred from the picture or the row index. */
+    /* Same registry-based scheduler chooser as PLAY/SIMULATE.
+     * The legacy manager TSKC sortKey never chooses an event date. */
     const int cupPlan=Expanded_BoliviaManagerActionableCup(&actionable);
     const int actionableCup=cupPlan==1;
-    if(cupPlan!=0)
-        for(unsigned i=0u;i<count;++i)
-            merged[i].highlight=0u; /* Cup next, or action is blocked. */
+    const int actionableLeague=cupPlan==0 && haveLeagueProgress &&
+                              ligaPlayed<ligaCount;
     unsigned focusMatches=0u;
+    for(unsigned i=0u;i<ligaCount && count<64u;++i) {
+        const ExpandedBoliviaManagerFixture *f=&liga[i];
+        const uint32_t key=ui_fixture_date_key(f->year,f->month,f->day);
+        if(!key)continue;
+        UICompactFixture *r=&merged[count++];
+        memset(r,0,sizeof *r);
+        r->expandedBolivia=1u;
+        r->dayKey=key;r->day=f->day;r->month=f->month;
+        r->highlight=actionableLeague && i==ligaPlayed;
+        focusMatches+=(unsigned)r->highlight;
+        snprintf(r->label,sizeof r->label,"DPN");
+        snprintf(r->first,sizeof r->first,"ROUND %u",
+                 (unsigned)f->serial+1u);
+        snprintf(r->side,sizeof r->side,"%s",
+                 f->home==_selTeamNumber?"(H)":"(A)");
+        uint8_t hg=0u,ag=0u;
+        const int score=Expanded_OGWorld_BoliviaLeagueScore(
+            f,&hg,&ag);
+        if(score==1) {
+            const int home=f->home==_selTeamNumber;
+            snprintf(r->mark,sizeof r->mark,"%u-%u",
+                     home?(unsigned)hg:(unsigned)ag,
+                     home?(unsigned)ag:(unsigned)hg);
+            r->scoreText=1u;
+        } else if(score<0) {
+            snprintf(r->mark,sizeof r->mark,"?");
+        } else {
+            snprintf(r->mark,sizeof r->mark,"V");
+        }
+        snprintf(r->opponent,sizeof r->opponent,"%.17s",f->opponent);
+    }
     BoliviaCupFixture ordered[BOLIVIA_CUP_GROUP_FIXTURES];
     const int groupDates=BoliviaCup_ChronologicalFixtures(ordered)==
                          BOLIVIA_CUP_GROUP_FIXTURES;
     const uint32_t first=count?merged[0].dayKey:0u;
-    for(unsigned i=0u;i<cupCount && i<16u && count<32u;++i) {
+    for(unsigned i=0u;i<cupCount && i<16u && count<64u;++i) {
         const uint32_t key=ui_fixture_date_key(cup[i].year,
                                                cup[i].month,cup[i].day);
         if(!key)continue;
@@ -2463,11 +2500,11 @@ static void ui_render_merged_calendar(void)
     }
     const unsigned showing=count<14u?count:14u;
     unsigned page=0u;
-    if(actionableCup && focusMatches!=1u) {
+    if((actionableCup || actionableLeague) && focusMatches!=1u) {
         /* Missing/duplicate OG identity: fail closed, never highlight a
          * different fixture or silently change the native cursor. */
         for(unsigned i=0u;i<count;++i)merged[i].highlight=0u;
-    } else if(actionableCup && count>showing) {
+    } else if((actionableCup || actionableLeague) && count>showing) {
         /* The chronological merge may push the next Copa past the native
          * 14-row page. Present the real actionable row, without changing
          * TSKC, menu callbacks, or the original scroll-arrow handlers. */

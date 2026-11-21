@@ -3930,6 +3930,18 @@ void PlayMatchMenu(MenuEntry *callerEntry)
     extern uint8_t Expanded_Career_NativeCalendarKey(void);
     const uint8_t julyPlayedPhase=Expanded_Career_NativeCalendarKey();
 #endif
+#ifdef SWOS_SDL_BUILD
+    /* The Bolivia pilot moves the civil cursor BEFORE entering OG's modal
+     * matchday; never call the world dispatcher from inside ShowMenu. */
+    if(_gameType==GAME_TYPE_CAREER) {
+        extern int Expanded_BoliviaLeaguePreflight(void);
+        if(!Expanded_BoliviaLeaguePreflight()) {
+            fprintf(stderr,"[bolivia-event-menu] PREFLIGHT_BLOCKED "
+                           "owner=OG_NO_MATCH no-save=1\n");
+            return;
+        }
+    }
+#endif
     Career_PlayMatchMenuLoop();
 #ifdef SWOS_SDL_BUILD
     /* The actual OG manager league has now committed its result to the
@@ -3939,6 +3951,18 @@ void PlayMatchMenu(MenuEntry *callerEntry)
         extern void Expanded_CareerSyncWorldAfterLeagueMatch(uint8_t,unsigned);
         Expanded_CareerSyncWorldAfterLeagueMatch(
             julyPlayedPhase,julyPlayedBefore);
+    }
+#endif
+#ifdef SWOS_SDL_BUILD
+    if(_gameType==GAME_TYPE_CAREER &&
+       World_Current()==WORLD_2627 &&
+       (uint8_t)(_selTeamNumber>>8)==45u) {
+        extern int Expanded_CompetitionCoordinator_RecoveryRequired(void);
+        if(Expanded_CompetitionCoordinator_RecoveryRequired()) {
+            fprintf(stderr,"[bolivia-event-menu] POSTFLIGHT_FAULT "
+                           "action=NO_POST_MATCH_SAVE\n");
+            return;
+        }
     }
 #endif
 
@@ -4001,12 +4025,36 @@ void NextMatch(MenuEntry *callerEntry)
     extern uint8_t Expanded_Career_NativeCalendarKey(void);
     const uint8_t julyNextPlayedPhase=Expanded_Career_NativeCalendarKey();
 #endif
+#ifdef SWOS_SDL_BUILD
+    /* The Bolivia pilot moves the civil cursor BEFORE entering OG's modal
+     * matchday; never call the world dispatcher from inside ShowMenu. */
+    if(_gameType==GAME_TYPE_CAREER) {
+        extern int Expanded_BoliviaLeaguePreflight(void);
+        if(!Expanded_BoliviaLeaguePreflight()) {
+            fprintf(stderr,"[bolivia-event-menu] PREFLIGHT_BLOCKED "
+                           "owner=OG_NO_MATCH no-save=1\n");
+            return;
+        }
+    }
+#endif
     Career_NextMatch();
 #ifdef SWOS_SDL_BUILD
     if(_gameType==GAME_TYPE_CAREER) {
         extern void Expanded_CareerSyncWorldAfterLeagueMatch(uint8_t,unsigned);
         Expanded_CareerSyncWorldAfterLeagueMatch(
             julyNextPlayedPhase,julyNextPlayedBefore);
+    }
+#endif
+#ifdef SWOS_SDL_BUILD
+    if(_gameType==GAME_TYPE_CAREER &&
+       World_Current()==WORLD_2627 &&
+       (uint8_t)(_selTeamNumber>>8)==45u) {
+        extern int Expanded_CompetitionCoordinator_RecoveryRequired(void);
+        if(Expanded_CompetitionCoordinator_RecoveryRequired()) {
+            fprintf(stderr,"[bolivia-event-menu] POSTFLIGHT_FAULT "
+                           "action=NO_POST_MATCH_SAVE\n");
+            return;
+        }
     }
 #endif
 

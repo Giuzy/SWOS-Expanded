@@ -27,6 +27,7 @@
 #include "diy_competition.h" /* DIY_OGStandings_SetSeason prototype */
 #include "expanded_world_time.h"
 #include "bolivia_cup_sequence.h" /* immutable first-edition fixture format */
+#include "expanded_bolivia_event_registry.h" /* Bolivia civil event dates drive OG cutoff */
 #include "fixture_rounds.h"
 #include "expanded_world_live.h"
 #include "expanded_competition_coordinator.h"
@@ -970,6 +971,9 @@ extern int Expanded_OGWorld_BindClub(uint16_t,uint8_t,uint16_t);
 extern int Expanded_OGWorld_ClubBound(void);
 static int s_expOGWorldStarted;
 static uint16_t s_expOGWorldYear;
+/* Active world-tick target. Original native OG uses this only as an
+ * execution cutoff for Bolivia DPN; events own the civil date. */
+static ExpandedWorldDate s_expOGCivilDispatchDate;
 /* Restore the validated native season WITHOUT replaying earlier fixtures. */
 uint16_t Expanded_OGWorld_SaveYear(void){return s_expOGWorldYear;}
 int Expanded_OGWorld_SaveStarted(void){return s_expOGWorldStarted!=0;}
@@ -1308,8 +1312,23 @@ static int expanded_og_world_run_year(uint16_t year,uint8_t phase) {
                         (unsigned)year,(unsigned)phase,
                         (unsigned)country,d);
             const Uint64 leagueStart=SDL_GetPerformanceCounter();
+            uint8_t executionCutoff=phase;
+            if(World_Current()==WORLD_2627 && country==45u && d==0u &&
+               phase!=0u && s_expOGCivilDispatchDate.year) {
+                if(!ExpandedBolivia_LeagueExecutionCutoff(
+                    year,s_expOGCivilDispatchDate,&executionCutoff)) {
+                    fprintf(stderr,"[bolivia-civil-cutoff] INVALID "
+                           "year=%u date=%04u-%02u-%02u no-OG=1\n",
+                           (unsigned)year,
+                           (unsigned)s_expOGCivilDispatchDate.year,
+                           (unsigned)s_expOGCivilDispatchDate.month,
+                           (unsigned)s_expOGCivilDispatchDate.day);
+                    ++failed;
+                    continue;
+                }
+            }
             const int leagueStatus=Expanded_OGWorld_AdvanceLeague(
-                (uint8_t *)rec,country,(uint8_t)d,year,phase);
+                (uint8_t *)rec,country,(uint8_t)d,year,executionCutoff);
             perfLeagues+=SDL_GetPerformanceCounter()-leagueStart;
             if(leagueStatus>0) {
                 ++ok;
@@ -1742,6 +1761,7 @@ int Expanded_OGWorld_AdvanceToDate(ExpandedWorldDate today) {
     }
     const uint16_t year=(uint16_t)(today.year-(today.month<7u?1u:0u));
     if(year<s_expOGWorldYear || year>2198u)return 0;
+    s_expOGCivilDispatchDate=today; /* one owner for this entire OG tick */
     /* Every world forward, including unemployed, checks witnesses against
      * ORIGINAL OG progression. No independent calendar or score engine. */
     Expanded_OGWorld_FixtureTickBegin();
@@ -1982,32 +2002,75 @@ int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
         return 0;
     }
     if(toIndex==fromIndex)return 1; /* no duplicate native tick */
-    /* One disposable dated event, one resident OG executor, one live civil
-     * commit. No additional simulation, score or CAR schema. The event
-     * acknowledgement is valid only after resident/civil verification. */
+    /* Bolivia pilot: split a requested forward into exact civil fixture
+     * date boundaries before invoking the SAME native OG world tick.
+     * This avoids consuming a later Liga round before an earlier Copa day.
+     * On a year boundary include 1 July so one OG edition closes/opens
+     * before the next edition's event programme is consulted. */
     const ExpandedNativeTimelineOps ops={
         exp_coordinator_native_tick,
         exp_coordinator_civil_tick,
         exp_coordinator_verify_tick,
         NULL
     };
-    const ExpandedNativeTimelineResult outcome=ExpandedNativeTimeline_Advance(
-        (uint16_t)World_Current(),from,target,&ops);
-    if(outcome!=EXP_NATIVE_TICK_OK) {
-        s_expCoordinatorRecoveryRequired=1;
-        fprintf(stderr,"[competition-coordinator] FAULT op=%s "
-            "stage=%s action=RELOAD_PRIOR_CAR "
-            "no-automatic-retry=1\n",
-            tag,ExpandedNativeTimeline_ResultName(outcome));
-        return 0;
+    ExpandedWorldDate cursor=from;
+    int32_t cursorIndex=fromIndex;
+    unsigned dateSteps=0u;
+    while(cursorIndex<toIndex) {
+        ExpandedWorldDate step=target;
+        int32_t stepIndex=toIndex;
+        if(World_Current()==WORLD_2627) {
+            if(!ExpandedBolivia_NextBoundary(
+                s_expOGWorldYear,cursor,target,&step) ||
+               !ExpandedWorld_DateToIndex(step,&stepIndex)) {
+                s_expCoordinatorRecoveryRequired=1;
+                fprintf(stderr,"[bolivia-civil-dispatch] INVALID_BOUNDARY "
+                               "no-automatic-retry=1\n");
+                return 0;
+            }
+            const ExpandedWorldDate july={
+                (uint16_t)(cursor.year+(cursor.month>=7u)),7u,1u};
+            int32_t julyIndex=0;
+            if(ExpandedWorld_DateToIndex(july,&julyIndex) &&
+               julyIndex>cursorIndex && julyIndex<stepIndex) {
+                step=july;stepIndex=julyIndex;
+            }
+        }
+        if(stepIndex<=cursorIndex || stepIndex>toIndex) {
+            s_expCoordinatorRecoveryRequired=1;
+            fprintf(stderr,"[bolivia-civil-dispatch] NON_FORWARD_STEP "
+                           "no-automatic-retry=1\n");
+            return 0;
+        }
+        const ExpandedNativeTimelineResult outcome=
+            ExpandedNativeTimeline_Advance(
+                (uint16_t)World_Current(),cursor,step,&ops);
+        if(outcome!=EXP_NATIVE_TICK_OK) {
+            s_expCoordinatorRecoveryRequired=1;
+            fprintf(stderr,"[competition-coordinator] FAULT op=%s "
+                "stage=%s date=%04u-%02u-%02u "
+                "action=RELOAD_PRIOR_CAR no-automatic-retry=1\n",
+                tag,ExpandedNativeTimeline_ResultName(outcome),
+                (unsigned)step.year,(unsigned)step.month,
+                (unsigned)step.day);
+            return 0;
+        }
+        if(World_Current()==WORLD_2627)
+            fprintf(stderr,"[bolivia-civil-dispatch] STEP_VERIFIED "
+                "year=%u date=%04u-%02u-%02u "
+                "owner=SINGLE_OG_WORLD event-ack=PENDING_CAR\n",
+                (unsigned)s_expOGWorldYear,(unsigned)step.year,
+                (unsigned)step.month,(unsigned)step.day);
+        cursor=step;cursorIndex=stepIndex;++dateSteps;
     }
     fprintf(stderr,"[competition-native-timeline] WORLD_TICK_VERIFIED "
         "world=%s id=%llu from-index=%ld to-index=%ld "
-        "executor=OG_ONLY civil=ONE_CURSOR event-ack=PENDING_CAR CAR=CALLER_SAVE\n",
+        "date-steps=%u executor=OG_ONLY civil=ONE_CURSOR "
+        "event-ack=PENDING_CAR CAR=CALLER_SAVE\n",
         World_Tag(),
         (unsigned long long)ExpandedNativeTimeline_TickId(
             (uint16_t)World_Current(),toIndex),
-        (long)fromIndex,(long)toIndex);
+        (long)fromIndex,(long)toIndex,dateSteps);
     fprintf(stderr,"[competition-coordinator] ADVANCE_COMMITTED "
                    "world=%s source=%s from=%04u-%02u-%02u "
                    "to=%04u-%02u-%02u owner=OG_NATIVE "

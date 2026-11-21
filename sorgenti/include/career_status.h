@@ -50,6 +50,19 @@ typedef struct ExpandedBoliviaManagerFixture {
     char opponent[18]; /* bounded OG teamName for the existing SWOS font */
 } ExpandedBoliviaManagerFixture;
 int Expanded_OGWorld_BoliviaManagerNext(ExpandedBoliviaManagerFixture *out);
+/* Read-only count of this manager's completed native Liga Bolivia fixtures.
+ * Uses OG journal witnesses ONLY to select a stable registry occurrence;
+ * it does not use the legacy OG keycache/phase as a calendar authority. */
+int Expanded_OGWorld_BoliviaLeagueWitnessProgress(unsigned *played);
+/* Read the manager's 30 DPN fixtures from resident OG pair DATA with
+ * GAME_TEMPLATE_2026 civil dates; never from a TSKC schedule cursor. */
+unsigned Expanded_OGWorld_BoliviaLeagueFixtures(
+    ExpandedBoliviaManagerFixture *out,unsigned capacity);
+/* Score source is the real OG witness journal only (no CPU replay).
+ * 1=unique score, 0=unplayed, -1=invalid/ambiguous. */
+int Expanded_OGWorld_BoliviaLeagueScore(
+    const ExpandedBoliviaManagerFixture *fixture,
+    uint8_t *homeGoals,uint8_t *awayGoals);
 /* Run exactly ONE pending Copa fixture with the original OG executor.
  * simulate=0: interactive OG game; simulate=1: OG score simulator.
  * The same resident, RNG, journal witness and CAR transaction are used.

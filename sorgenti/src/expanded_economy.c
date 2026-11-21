@@ -18,6 +18,7 @@
 #include "career_status.h"
 #include "bolivia_cup_sequence.h" /* shared OG stage labels + exact group identities */
 #include "bolivia_cup_knockout.h" /* native KO stage from actual bracket round */
+#include "expanded_bolivia_calendar_viewport.h" /* render-only red arrows and OG focus */
 #endif
 #include "expanded_midseason_join.h"
 #include "game_types.h"
@@ -2152,6 +2153,68 @@ typedef struct UICompactFixture {
 } UICompactFixture;
 static UICompactFixture s_uiNativeFixtures[14];
 static unsigned s_uiNativeFixtureCount=0;
+/* The canonical native menu owns matches and its TSKC cursor. The Bolivia
+ * full resident-calendar overlay has its OWN presentation page: changing
+ * these pixels never scrolls a fixture inside OpenSWOS or modifies CAR. */
+static ExpandedBoliviaCalendarViewport s_uiBoliviaCalendarView;
+static uint16_t s_uiBoliviaArrowOriginal[2][4];
+static int s_uiBoliviaArrowMoved;
+static int ui_bolivia_calendar_active(void)
+{
+    return _currentMenuPtr==(uintptr_t)_contestMenu &&
+           _gameType==4 && World_Current()==WORLD_2627 &&
+           (uint8_t)(_selTeamNumber>>8)==45u &&
+           _currentDivisionIndex==0u;
+}
+/* The compact red arrows were moved VISUALLY, but native MenuEntry mouse
+ * hitboxes stayed at their old coordinates. Keep actual input rectangles
+ * over the exact rendered glyphs, including the movable bottom arrow. */
+static void ui_bolivia_sync_scroll_hitboxes(int bottom)
+{
+    if(!s_uiBoliviaArrowMoved) {
+        for(unsigned i=0u;i<2u;++i) {
+            const MenuEntry *const e=&_menuEntries[16u+i];
+            s_uiBoliviaArrowOriginal[i][0]=e->x;
+            s_uiBoliviaArrowOriginal[i][1]=e->y;
+            s_uiBoliviaArrowOriginal[i][2]=e->dwWidth;
+            s_uiBoliviaArrowOriginal[i][3]=e->dwHeight;
+        }
+        s_uiBoliviaArrowMoved=1;
+    }
+    for(unsigned i=0u;i<2u;++i) {
+        MenuEntry *const e=&_menuEntries[16u+i];
+        e->x=14u;e->y=(uint16_t)(i?bottom-24:49);
+        e->dwWidth=12u;e->dwHeight=14u;
+    }
+}
+static void ui_bolivia_restore_scroll_hitboxes(void)
+{
+    if(!s_uiBoliviaArrowMoved)return;
+    for(unsigned i=0u;i<2u;++i) {
+        MenuEntry *const e=&_menuEntries[16u+i];
+        e->x=s_uiBoliviaArrowOriginal[i][0];
+        e->y=s_uiBoliviaArrowOriginal[i][1];
+        e->dwWidth=s_uiBoliviaArrowOriginal[i][2];
+        e->dwHeight=s_uiBoliviaArrowOriginal[i][3];
+    }
+    s_uiBoliviaArrowMoved=0;
+}
+/* Called ONLY from the stock red arrow's existing onSelect callback.
+ * Return 0 for other countries/worlds so their original SWOS scroll runs. */
+int Expanded_UI_BoliviaCalendarScroll(int direction)
+{
+    if(!ui_bolivia_calendar_active() || !ui_load())return 0;
+    (void)ExpandedBoliviaCalendar_Scroll(&s_uiBoliviaCalendarView,direction);
+    return 1;
+}
+/* Restore the centered OG fixture on re-entering CAREER. Browsing with
+ * arrows meanwhile does not recenter until the actionable fixture changes. */
+void Expanded_UI_BoliviaCalendarResetView(void)
+{
+    if(ui_bolivia_calendar_active())
+        memset(&s_uiBoliviaCalendarView,0,sizeof s_uiBoliviaCalendarView);
+}
+
 static int ui_fixture_panel_bottom=0;
 static int ui_fixture_bottom_for_count(unsigned n) {
     if(n<1) n=1;
@@ -2371,15 +2434,16 @@ int Expanded_UI_CompactFixtureRow(unsigned row,unsigned slotType)
     ui_paint_compact_fixture(r,row);
     return 1;
 }
-/* Merge the VISUAL representation of the native league page with all eight
- * already-known 2026 Copa group fixtures. KO opponents enter only once OG
- * has produced them. Sorting/copying here NEVER mutates TSKC, OG or CAR;
- * the original scroll arrows move the league page and reveal later rows. */
+/* Merge the VISUAL representation of resident DPN/Copa fixtures; actual
+ * scores, dates and the PLAY MATCH target still come only from OG.
+ * The native arrow callbacks now move THIS visual page, never TSKC. */
 static void ui_render_merged_calendar(void)
 {
-    if(_currentMenuPtr!=(uintptr_t)_contestMenu || _gameType!=4 ||
-       World_Current()!=WORLD_2627 ||
-       (uint8_t)(_selTeamNumber>>8)!=45u)return;
+    if(_currentMenuPtr!=(uintptr_t)_contestMenu)return;
+    if(!ui_bolivia_calendar_active()) {
+        ui_bolivia_restore_scroll_hitboxes();
+        return;
+    }
     /* Bolivia pilot: the complete DPN/Copa view is driven by civil
      * registry dates, NOT a presentation merge over TSKC native phases.
      * OG supplies only immutable pair DATA and real witnessed results. */
@@ -2398,9 +2462,17 @@ static void ui_render_merged_calendar(void)
     /* Same registry-based scheduler chooser as PLAY/SIMULATE.
      * The legacy manager TSKC sortKey never chooses an event date. */
     const int cupPlan=Expanded_BoliviaManagerActionableCup(&actionable);
-    const int actionableCup=cupPlan==1;
-    const int actionableLeague=cupPlan==0 && haveLeagueProgress &&
-                              ligaPlayed<ligaCount;
+    ExpandedWorldDate due={0};
+    int cupFirst=0;
+    extern int Expanded_BoliviaCareerReadNext(ExpandedWorldDate *,int *);
+    const int verified=Expanded_BoliviaCareerReadNext(&due,&cupFirst)==1;
+    /* If the action is blocked by an overdue/colliding OG fixture, no
+     * row may appear actionable in blue. One shared reader decides both
+     * the button and its visual calendar target. */
+    const int actionableCup=verified && cupFirst && cupPlan==1;
+    const int actionableLeague=verified && !cupFirst && cupPlan==0 &&
+                               haveLeagueProgress && ligaPlayed<ligaCount;
+    (void)due;
     unsigned focusMatches=0u;
     for(unsigned i=0u;i<ligaCount && count<64u;++i) {
         const ExpandedBoliviaManagerFixture *f=&liga[i];
@@ -2498,28 +2570,45 @@ static void ui_render_merged_calendar(void)
         }
         merged[j]=row;
     }
-    const unsigned showing=count<14u?count:14u;
-    unsigned page=0u;
+    int focusRow=-1;
+    uint64_t focusKey=0u;
     if((actionableCup || actionableLeague) && focusMatches!=1u) {
-        /* Missing/duplicate OG identity: fail closed, never highlight a
-         * different fixture or silently change the native cursor. */
+        /* Missing/duplicate OG identity: fail closed. Never highlight a
+         * different or invented fixture merely to centre the viewport. */
         for(unsigned i=0u;i<count;++i)merged[i].highlight=0u;
-    } else if((actionableCup || actionableLeague) && count>showing) {
-        /* The chronological merge may push the next Copa past the native
-         * 14-row page. Present the real actionable row, without changing
-         * TSKC, menu callbacks, or the original scroll-arrow handlers. */
+    } else {
         for(unsigned i=0u;i<count;++i)if(merged[i].highlight) {
-            if(i>=showing) {
-                page=i>showing/2u?i-showing/2u:0u;
-                if(page>count-showing)page=count-showing;
-            }
+            focusRow=(int)i;
+            /* World 2627, manager club, real civil date + DPN/Copa kind
+             * + chronological occurrence: stable across redraws but
+             * changes after an actual resident OG result/next fixture. */
+            focusKey=((uint64_t)_selTeamNumber<<48) |
+                     ((uint64_t)merged[i].dayKey<<16) |
+                     ((uint64_t)(merged[i].cup!=0u)<<15) |
+                     (uint64_t)i;
             break;
         }
     }
-    ui_draw_fixture_panel(showing);
-    ui_fixture_rows_drawn=showing;
-    for(unsigned i=0u;i<showing;++i)
-        ui_paint_compact_fixture(&merged[page+i],i);
+    ExpandedBoliviaCalendar_Update(&s_uiBoliviaCalendarView,
+                                    count,focusRow,focusKey);
+    /* Always use the full 14-row fixture panel. Padding near either
+     * chronological end keeps the selected OG match at the VISUAL centre.
+     * Up/down arrows remain free to browse and cannot move OG's cursor. */
+    ui_draw_fixture_panel(BOLIVIA_CALENDAR_VIEW_ROWS);
+    ui_bolivia_sync_scroll_hitboxes(
+        ui_fixture_bottom_for_count(BOLIVIA_CALENDAR_VIEW_ROWS));
+    ui_fixture_rows_drawn=BOLIVIA_CALENDAR_VIEW_ROWS;
+    for(int row=0;row<BOLIVIA_CALENDAR_VIEW_ROWS;++row) {
+        const int src=s_uiBoliviaCalendarView.page+row;
+        if(src>=0 && (unsigned)src<count) {
+            ui_paint_compact_fixture(&merged[src],(unsigned)row);
+        } else {
+            /* Empty context at the beginning/end: never index outside
+             * the genuine resident list or paint a phantom fixture. */
+            const int y=53+row*9;
+            rect(28,y-1,282,8,(row&1)?40:42);
+        }
+    }
 }
 static void ui_button(unsigned ordinal,const char *caption) {
     Menu *m=(Menu *)_currentMenu;

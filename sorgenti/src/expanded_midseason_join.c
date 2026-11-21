@@ -16,6 +16,7 @@
 #include "expanded_world_live.h"
 #include "career_status.h"
 #include "expanded_bolivia_event_registry.h"
+#include "expanded_bolivia_career_action.h" /* visual action date: never match executor */
 #endif
 
 #include <stdio.h>
@@ -1012,6 +1013,197 @@ static int exp_bolivia_manager_plan(ExpandedBoliviaManagerFixture *pending,
         leaguePlayed,leaguePlayed<EXP_BOLIVIA_LEAGUE_ROUNDS,
         *target,pending->fixtureId,1);
 }
+/* RG-014: exactly one real manager fixture for the Bolivia civil pilot.
+ * A return of 1 identifies a valid next fixture; -1 means an invalid/
+ * overdue resident schedule and 0 means this feature does not own the UI.
+ * Neither native TSKC nor a duplicate result simulator is consulted. */
+static int exp_bolivia_career_next(ExpandedWorldDate *due,
+                                  ExpandedLiveCalendarState *live,
+                                  int *cupFirst)
+{
+    extern uint16_t _selTeamNumber,_currentDivisionIndex,_youreSacked;
+    extern uint16_t _careerFinished,_seasonFinished;
+    extern volatile uint16_t _seasonUpdateInProgress;
+    extern int Expanded_OGWorld_ClubBound(void);
+    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    if(_gameType!=4 || World_Current()!=WORLD_2627 ||
+       (uint8_t)(_selTeamNumber>>8)!=45u || _currentDivisionIndex!=0u ||
+       _selTeamNumber==0xffffu || s_active ||
+       !Expanded_OGWorld_ClubBound() || _youreSacked ||
+       _careerFinished || _seasonFinished ||
+       _seasonUpdateInProgress)return 0;
+    if(!due || !live || !cupFirst)return -1;
+    unsigned played=0u;
+    ExpandedBoliviaManagerFixture league[EXP_BOLIVIA_LEAGUE_ROUNDS],cup={0};
+    if(!ExpandedWorldLive_CalendarState(live) ||
+       !Expanded_OGWorld_BoliviaLeagueWitnessProgress(&played) ||
+       played>EXP_BOLIVIA_LEAGUE_ROUNDS ||
+       Expanded_OGWorld_BoliviaLeagueFixtures(
+           league,EXP_BOLIVIA_LEAGUE_ROUNDS)!=EXP_BOLIVIA_LEAGUE_ROUNDS)
+        return -1;
+    const int hasLeague=played<EXP_BOLIVIA_LEAGUE_ROUNDS;
+    const int hasCup=Expanded_OGWorld_BoliviaManagerNext(&cup);
+    if(!hasLeague && !hasCup)return 0; /* original FINISH SEASON */
+    if(live->today.year!=Expanded_OGWorld_SaveYear() ||
+       (hasCup && cup.year!=Expanded_OGWorld_SaveYear()))
+        return -1;
+    const ExpandedWorldDate cupDate=hasCup?
+        (ExpandedWorldDate){cup.year,cup.month,cup.day}:
+        (ExpandedWorldDate){0};
+    const int selection=hasCup?ExpandedBolivia_ChooseNext(
+        (uint8_t)World_Current(),Expanded_OGWorld_SaveYear(),live->today,
+        played,hasLeague,cupDate,cup.fixtureId,1):0;
+    if(selection<0)return -1; /* collision/overdue: no fake action */
+    if(selection==1) {
+        *due=cupDate;*cupFirst=1;
+    } else {
+        if(!hasLeague)return -1;
+        *due=(ExpandedWorldDate){league[played].year,
+                                  league[played].month,
+                                  league[played].day};
+        *cupFirst=0;
+    }
+    return ExpandedBoliviaCareer_Action(live->today,*due) < 0 ? -1:1;
+}
+/* Shared READONLY action gate for the visual blue fixture. An error
+ * hides the highlight rather than presenting a match PLAY cannot open. */
+int Expanded_BoliviaCareerReadNext(ExpandedWorldDate *due,int *cupFirst)
+{
+    ExpandedLiveCalendarState live;
+    return exp_bolivia_career_next(due,&live,cupFirst);
+}
+/* Only new offers and mandatory transitions interrupt the automatic
+ * advance; this probe is made BEFORE and AFTER each SAME-coordinator
+ * civil tick. Do not silently skip an interactive decision. */
+static int exp_bolivia_career_stop(void)
+{
+    extern uint16_t _numNewJobOffers,_teamNoOfferAccepted,_youreSacked;
+    extern uint16_t _careerFinished,_seasonFinished;
+    extern volatile uint16_t _seasonUpdateInProgress;
+    extern int Expanded_CompetitionCoordinator_RecoveryRequired(void);
+    return _numNewJobOffers || _teamNoOfferAccepted!=0xffffu ||
+           _youreSacked || _careerFinished || _seasonFinished ||
+           _seasonUpdateInProgress || s_active ||
+           Expanded_CompetitionCoordinator_RecoveryRequired();
+}
+/* This is not a second clock. All intermediate days use the existing
+ * single OG coordinator; a manager fixture is NEVER executed by it.
+ * Return 1 if an actual tick completed, 0 if stopped, -1 if failed.
+ * An interactive event may stop it before the requested manager date. */
+static int exp_bolivia_career_advance(const char *reason)
+{
+    ExpandedWorldDate due;
+    ExpandedLiveCalendarState live;
+    int cup=0,fromDay=0,toDay=0;
+    const int found=exp_bolivia_career_next(&due,&live,&cup);
+    (void)cup;
+    if(found!=1 || exp_bolivia_career_stop())return found<0?-1:0;
+    int32_t from=0,to=0;
+    if(!ExpandedWorld_DateToIndex(live.today,&from) ||
+       !ExpandedWorld_DateToIndex(due,&to) || to<from)return -1;
+    if(to==from)return 0;
+    fromDay=(int)from;toDay=(int)to;
+    extern int Expanded_CompetitionCoordinator_Advance(
+        ExpandedWorldDate,const char *);
+    for(int32_t day=from+1;day<=to;++day) {
+        ExpandedWorldDate step;
+        if(exp_bolivia_career_stop())break;
+        if(!ExpandedWorld_IndexToDate(day,&step) ||
+           !Expanded_CompetitionCoordinator_Advance(step,reason)) {
+            fprintf(stderr,"[bolivia-career-forward] FAILED day=%ld "
+                    "reason=%s old-CAR-preserved=1\n",
+                    (long)day,reason?reason:"UNKNOWN");
+            return -1;
+        }
+        /* The true KO resident is born only when all 64 OG group ties
+         * finish. A newly qualified manager can therefore acquire an
+         * earlier KO fixture DURING this forward. Re-evaluate after
+         * EVERY native day so a previously selected later DPN fixture
+         * never hides a newly real KO fixture. */
+        ExpandedWorldDate fresh;
+        ExpandedLiveCalendarState observed;
+        int freshCup=0;
+        const int newPlan=exp_bolivia_career_next(
+            &fresh,&observed,&freshCup);
+        (void)freshCup;
+        if(newPlan<0) {
+            fprintf(stderr,"[bolivia-career-forward] BLOCK "
+                    "reason=NEW_RESIDENT_FIXTURE_INVALID day=%ld "
+                    "old-CAR-preserved=1\n",(long)day);
+            return -1;
+        }
+        if(newPlan==0) {to=day;break;}
+        int32_t newDue=0;
+        if(!ExpandedWorld_DateToIndex(fresh,&newDue) || newDue<day) {
+            fprintf(stderr,"[bolivia-career-forward] BLOCK "
+                    "reason=NEW_RESIDENT_FIXTURE_OVERDUE day=%ld "
+                    "old-CAR-preserved=1\n",(long)day);
+            return -1;
+        }
+        if(newDue<to)to=newDue;
+        if(newDue==day)break; /* STOP before PLAY MATCH */
+    }
+    ExpandedLiveCalendarState after;
+    int32_t arrived=0;
+    if(!ExpandedWorldLive_CalendarState(&after) ||
+       !ExpandedWorld_DateToIndex(after.today,&arrived))return -1;
+    fprintf(stderr,"[bolivia-career-forward] STOP source=%s "
+        "from=%d target=%d reached=%ld next-manager=%s "
+        "no-manager-auto-play=1\n",reason?reason:"UNKNOWN",
+        fromDay,toDay,(long)arrived,arrived==to?"READY":"INTERACTIVE_EVENT");
+    return arrived>from?1:0;
+}
+/* Used by the real menu onSelect before PLAY MATCH. FORWARD TIME merely
+ * reaches the next actual OG manager fixture, without executing it. */
+int Expanded_BoliviaCareerForwardIntercept(MenuEntry *entry,unsigned ordinal)
+{
+    extern uintptr_t _currentMenuPtr;
+    extern uint8_t _contestMenu[];
+    extern uint16_t _fireResetFlag;
+    extern int Expanded_AutoCareer_SaveChecked(const char *);
+    extern void ContestMenuOnReturn(void);
+    extern void DrawMenu(void);
+    if(ordinal!=7u || _currentMenuPtr!=(uintptr_t)_contestMenu)return 0;
+    ExpandedWorldDate due;
+    ExpandedLiveCalendarState live;
+    int cup=0;
+    const int found=exp_bolivia_career_next(&due,&live,&cup);
+    (void)entry;(void)cup;
+    if(found==0)return 0; /* native OG for non-pilot/season finish */
+    if(found<0) {
+        fprintf(stderr,"[bolivia-career-forward] BLOCK invalid fixture\n");
+        return 1;
+    }
+    const int action=ExpandedBoliviaCareer_Action(live.today,due);
+    if(action==EXP_BOLIVIA_ACTION_PLAY)return 0;
+    if(action<0)return 1;
+    _fireResetFlag=1;
+    const int progressed=exp_bolivia_career_advance("CAREER_FORWARD_TIME");
+    if(progressed>0 && !Expanded_AutoCareer_SaveChecked(
+           "bolivia-forward-time"))
+        fprintf(stderr,"[bolivia-career-forward] SAVE_FAILED "
+                "old-CAR-preserved=1\n");
+    ContestMenuOnReturn();
+    SetCurrentEntry(7u);
+    DrawMenu();
+    return 1;
+}
+/* Invoked only AFTER the actual OG modal has returned and a verified
+ * native + CAR post-match checkpoint exists. Stops before next manager
+ * fixture, transfer/job decision or season transition. */
+int Expanded_BoliviaCareerAutoForward(void)
+{
+    extern int Expanded_AutoCareer_SaveChecked(const char *);
+    const int progressed=exp_bolivia_career_advance(
+        "CAREER_POST_MATCH_AUTO_FORWARD");
+    if(progressed>0 && !Expanded_AutoCareer_SaveChecked(
+           "bolivia-post-match-auto-forward")) {
+        fprintf(stderr,"[bolivia-career-forward] POST_SAVE_FAILED "
+                "old-CAR-preserved=1\n");
+        return 0;
+    }
+    return progressed>0;
+}
 /* A short-lived dispatch claim. The permanent completion evidence is
  * the existing OG witness written in the same atomic CAR as the game
  * itself; on CONTINUE the registry recovers by re-reading that journal.
@@ -1108,65 +1300,64 @@ int Expanded_BoliviaManagerActionableCup(ExpandedBoliviaManagerFixture *out)
  * a fake TSKC fixture, alter hitboxes or introduce a tournament simulator. */
 void Expanded_BoliviaManagerPrepareMenu(void)
 {
-    extern uint16_t _selTeamNumber;
     extern uintptr_t _currentMenuPtr;
     extern uint8_t _contestMenu[];
     extern MenuEntry _menuEntries[];
+    extern uint16_t _selTeamNumber,_currentDivisionIndex;
     extern void ContestSetButtons(void);
-    extern uint8_t _aNextMatch[];
-    /* Restore OG NEXT MATCH: never attach an additional Copa simulation
-     * to entry 10 or override its native callback/eligibility. Only the
-     * existing PLAY MATCH action may route the resident Copa manually. */
-    static const char kPlayCup[]="PLAY MATCH";
-    static const char kClash[]="CUP DATE CONFLICT";
-    static const char kLate[]="CUP FIXTURE OVERDUE";
-    static int wasCup;
-    ExpandedBoliviaManagerFixture m;
+    static const char kPlay[]="PLAY MATCH";
+    static const char kForward[]="FORWARD TIME";
+    static const char kInvalid[]="DATE CONFLICT";
+    static int owned;
+    if(_currentMenuPtr!=(uintptr_t)_contestMenu || _gameType!=4)return;
+    MenuEntry *const primary=&_menuEntries[7];
+    MenuEntry *const next=&_menuEntries[10];
+    ExpandedWorldDate due;
     ExpandedLiveCalendarState live;
-    ExpandedWorldDate date;
-    if(_gameType!=4 || _currentMenuPtr!=(uintptr_t)_contestMenu)return;
-    const int plan=exp_bolivia_manager_plan(&m,&live,&date);
-    MenuEntry *primary=&_menuEntries[7];
-    /* ContestSetButtons does not rewrite entry 10's fg every time; clear
-     * the old SIMULATE MATCH caption even within the same running menu.
-     * Do not change its flags or onSelect (original NextMatch callback). */
-    _menuEntries[10].fg=(uintptr_t)_aNextMatch;
-    if(plan!=0) {
-        const char *caption=plan==1?kPlayCup:
-                            plan==-1?kClash:kLate;
-        primary->fg=(uintptr_t)caption;
-        primary->isInvisible=0;
-        primary->isDisabled=plan!=1;
-        wasCup=1;
-    } else {
-        unsigned leaguePlayed=0u;
-        ExpandedBoliviaManagerFixture league[EXP_BOLIVIA_LEAGUE_ROUNDS];
-        const int isBolivia=_gameType==4 &&
-            World_Current()==WORLD_2627 &&
-            (uint8_t)(_selTeamNumber>>8)==45u;
-        const int leagueReady=isBolivia &&
-            Expanded_OGWorld_BoliviaLeagueWitnessProgress(
-                &leaguePlayed) &&
-            leaguePlayed<EXP_BOLIVIA_LEAGUE_ROUNDS &&
-            Expanded_OGWorld_BoliviaLeagueFixtures(league,
-                EXP_BOLIVIA_LEAGUE_ROUNDS)==EXP_BOLIVIA_LEAGUE_ROUNDS;
-        if(leagueReady) {
-            /* The dated League witness makes original PLAY MATCH ready.
-             * Native NEXT MATCH remains independently OG-owned. */
-            primary->fg=(uintptr_t)kPlayCup;
-            primary->isInvisible=0;
-            primary->isDisabled=0;
-            wasCup=1;
-        } else if(wasCup) {
-            ExpandedLiveCalendarState current;
-            ExpandedWorldDate future;
-            /* Don't undo the genuine preseason FORWARD action. */
-            if(!exp_career_july_plan(&future,&current))
-                ContestSetButtons();
-            wasCup=0;
+    int cup=0;
+    const int pilot=World_Current()==WORLD_2627 &&
+        (uint8_t)(_selTeamNumber>>8)==45u && _currentDivisionIndex==0u;
+    if(!pilot) {
+        if(owned) {
+            /* Original callback stays intact for all other game modes. */
+            next->isInvisible=0;
+            next->isDisabled=0;
+            ContestSetButtons();
+            owned=0;
         }
+        return;
+    }
+    owned=1;
+    /* Single visible action; never rewrite original NEXT MATCH callback. */
+    next->isInvisible=1;
+    next->isDisabled=1;
+    /* A focus retained on the now-hidden original NEXT MATCH entry
+     * must not leave the user navigating an invisible menu control. */
+    Menu *const menu=(Menu *)_currentMenu;
+    if(menu && menu->selectedEntry==next)SetCurrentEntry(7u);
+    const int found=exp_bolivia_career_next(&due,&live,&cup);
+    (void)cup;
+    if(found<0) {
+        primary->fg=(uintptr_t)kInvalid;
+        primary->isInvisible=0;
+        primary->isDisabled=1;
+    } else if(found==1) {
+        const int action=ExpandedBoliviaCareer_Action(live.today,due);
+        primary->fg=(uintptr_t)(action==EXP_BOLIVIA_ACTION_PLAY?
+                                kPlay:kForward);
+        primary->isInvisible=0;
+        primary->isDisabled=action<0;
+    } else {
+        /* Completed OG season retains original FINISH SEASON.
+         * The native button writer can re-show old NEXT MATCH; this
+         * pilot must keep it hidden even after the last fixture. */
+        ContestSetButtons();
+        next->isInvisible=1;
+        next->isDisabled=1;
+        if(menu && menu->selectedEntry==next)SetCurrentEntry(7u);
     }
 }
+
 /* Copa manager manual PLAY MATCH (entry 7) and FINISH SEASON guard.
  * The native NEXT MATCH (entry 10) must NOT enter this single-fixture
  * bridge: it keeps the original OG NextMatch/Career_NextMatch callback.
@@ -1178,9 +1369,7 @@ int Expanded_BoliviaManagerIntercept(MenuEntry *entry,unsigned ordinal)
     extern uint16_t _fireResetFlag;
     extern void ContestMenuOnReturn(void);
     extern void DrawMenu(void);
-    extern void Expanded_AutoCareer_Save(const char *);
-    extern int Expanded_CompetitionCoordinator_Advance(
-        ExpandedWorldDate,const char *);
+    extern int Expanded_AutoCareer_SaveChecked(const char *);
     extern int Expanded_HandleSackingAfterMatch(void);
     ExpandedBoliviaManagerFixture m;
     ExpandedLiveCalendarState live;
@@ -1203,12 +1392,12 @@ int Expanded_BoliviaManagerIntercept(MenuEntry *entry,unsigned ordinal)
     }
     if(!ExpandedWorld_DateToIndex(live.today,&oldDay) ||
        !ExpandedWorld_DateToIndex(date,&eventDay))return 1;
-    if(oldDay<eventDay &&
-       !Expanded_CompetitionCoordinator_Advance(
-            date,"CAREER_BOLIVIA_MANAGER_FIXTURE")) {
-        fprintf(stderr,"[og-bolivia-manager] CLOCK_PRECHECK_FAILED "
-            "fixture=%u no-game=1 prior-CAR-preserved=1\n",
-            (unsigned)m.fixtureId);
+    /* The first button is FORWARD TIME until the verified fixture day.
+     * Never silently turn PLAY MATCH into an advance-and-play shortcut. */
+    if(oldDay!=eventDay) {
+        fprintf(stderr,"[og-bolivia-manager] BLOCK_NOT_DUE "
+            "fixture=%u now=%ld due=%ld no-game=1\n",
+            (unsigned)m.fixtureId,(long)oldDay,(long)eventDay);
         return 1;
     }
     /* The only Copa manager shortcut left is manual PLAY MATCH.
@@ -1221,10 +1410,15 @@ int Expanded_BoliviaManagerIntercept(MenuEntry *entry,unsigned ordinal)
     }
     UpdateCareerAfterMatch();
     if(Expanded_HandleSackingAfterMatch())return 1;
+    /* Save the completed OG modal BEFORE allowing a second civil tick.
+     * The original modal already saved every witnessed CPU/manager tie. */
+    const int saved=Expanded_AutoCareer_SaveChecked("bolivia-manager-og");
+    if(saved) (void)Expanded_BoliviaCareerAutoForward();
+    else fprintf(stderr,"[bolivia-career-forward] POST_MATCH "
+                        "SAVE_FAILED no-auto-forward=1\n");
     ContestMenuOnReturn();
     SetCurrentEntry(7u);
     DrawMenu();
-    Expanded_AutoCareer_Save("bolivia-manager-og");
     return 1;
 }
 void Expanded_CareerSyncWorldAfterLeagueMatch(uint8_t phase,

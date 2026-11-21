@@ -8806,8 +8806,13 @@ static void DIYCupOnSelectCommonC(uint16_t mode)
         Expanded_MidseasonJoin_RecordForcedSimulation();
     }
     uint16_t result = DIY_PlayCupMatchAndAdvance(_diyTournamentType, mode);
-    if (result != 0)
+    if (result != 0) {
+#ifdef SWOS_SDL_BUILD
+        extern void Expanded_OGWorld_BoliviaModalCancel(void);
+        Expanded_OGWorld_BoliviaModalCancel();
+#endif
         return;
+    }
 
     /* Match results stored in globals by internal match code */
     _diyCupMenuArg0Copy = 0xFFFF;
@@ -8908,6 +8913,18 @@ final_draw:
     DesignDIYCup_UpdateMatchListScrollAndRebuildStrings();
     DesignDIYCup_UpdateMenuEntriesVisibilityAndSelection();
     DesignDIYCup_BuildMatchListEntryStrings();
+#ifdef SWOS_SDL_BUILD
+    /* AFTER the entire ORIGINAL OG cup result, bracket and menu state are
+     * settled, serialize the exact KO resident + one native witness.
+     * Do not call a second scorer or save from the 50Hz match loop. */
+    { extern int Expanded_OGWorld_BoliviaModalActive(void);
+      extern int Expanded_OGWorld_BoliviaModalAfter(void);
+      if(Expanded_OGWorld_BoliviaModalActive() &&
+         !Expanded_OGWorld_BoliviaModalAfter()) {
+          SetExitMenuFlag();return;
+      }
+    }
+#endif
     DrawMenu();
 }
 
@@ -9019,6 +9036,16 @@ void DIYCupOnSelect1(void)
     _diyCupMatchListScrollIndex = 0;
     DesignDIYCup_BuildMatchListEntryStrings();
     DesignDIYCup_UpdateMenuEntriesVisibilityAndSelection();
+#ifdef SWOS_SDL_BUILD
+    /* The genuine native NEXT ROUND/LEG button changes OG bracket state.
+     * Persist that cursor without fabricating another fixture or score. */
+    if(state==1u || state==3u || state==4u) {
+        extern int Expanded_OGWorld_BoliviaModalRoundChanged(void);
+        if(!Expanded_OGWorld_BoliviaModalRoundChanged()) {
+            SetExitMenuFlag();return;
+        }
+    }
+#endif
     DrawMenu();
 }
 
@@ -11950,6 +11977,16 @@ uint16_t DIY_PlayCupMatchAndAdvance(int16_t allowSquadChanges, int16_t mode) {
          * on the disposable OG cup viewer scratch image. */
         fprintf(stderr,"[og-cup-view] BLOCK PLAY/RESULT IN READ ONLY MENU\n");
         return 1;
+    }
+#endif
+#ifdef SWOS_SDL_BUILD
+    /* Exact KO event/manager vs CPU owner is certified BEFORE the original
+     * type1 writer; the same modal hook suspends/resumes the civil world.
+     * Never run this on standalone DIY or a read-only viewer. */
+    { extern int Expanded_OGWorld_BoliviaModalActive(void);
+      extern int Expanded_OGWorld_BoliviaModalBefore(int);
+      if(Expanded_OGWorld_BoliviaModalActive() &&
+         !Expanded_OGWorld_BoliviaModalBefore(mode))return 1;
     }
 #endif
     if (Expanded_MidseasonJoin_Active() && mode != 0) {

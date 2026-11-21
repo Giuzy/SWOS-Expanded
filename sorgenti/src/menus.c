@@ -65,6 +65,7 @@ void CareerMenuFinish(void);
 extern DIYCompetitionEx _diyCompetitionStart;
 int Expanded_AutoCareer_HasSave(void);
 void Expanded_AutoCareer_Save(const char *reason);
+int Expanded_AutoCareer_SaveChecked(const char *reason);
 int Expanded_AutoCareer_Load(void);
 void Expanded_AutoCareer_Delete(void);
 #endif
@@ -3151,6 +3152,16 @@ void ViewSelectedTeams(void)
 __attribute__((used, externally_visible))
 void ContestMenuScrollUp(void)
 {
+#ifdef SWOS_SDL_BUILD
+    /* Bolivia shows a chronology merged from TWO original OG residents.
+     * Its arrows move ONLY the visual page, not the league-only TSKC
+     * cursor. All other worlds/modes keep the original callback below. */
+    { extern int Expanded_UI_BoliviaCalendarScroll(int);
+      if(Expanded_UI_BoliviaCalendarScroll(-1)) {
+          DrawMenu(); return;
+      }
+    }
+#endif
     ScrollUpInGameList();
     BuildGameListArrayFromTeamSelectionKeyCache();
 #ifdef SWOS_SDL_BUILD
@@ -3169,6 +3180,13 @@ void ContestMenuScrollUp(void)
 __attribute__((used, externally_visible))
 void ContestMenuScrollDown(void)
 {
+#ifdef SWOS_SDL_BUILD
+    { extern int Expanded_UI_BoliviaCalendarScroll(int);
+      if(Expanded_UI_BoliviaCalendarScroll(1)) {
+          DrawMenu(); return;
+      }
+    }
+#endif
     ScrollDownInGameList();
     BuildGameListArrayFromTeamSelectionKeyCache();
 #ifdef SWOS_SDL_BUILD
@@ -3853,6 +3871,15 @@ void ContestMenuOnReturn(void)
     SelectActiveContestAndRound();
     RestoreContestScrollPosition();
     BuildGameListArrayFromTeamSelectionKeyCache();
+#ifdef SWOS_SDL_BUILD
+    /* Re-entering CAREER or completing the next ORIGINAL OG match always
+     * re-centres the real actionable DPN/Copa fixture. Red-arrow browsing
+     * during a single visit is preserved by the presentation viewport. */
+    if(_gameType==GAME_TYPE_CAREER) {
+        extern void Expanded_UI_BoliviaCalendarResetView(void);
+        Expanded_UI_BoliviaCalendarResetView();
+    }
+#endif
     ContestSetButtons();
     CheckTransfers();
     CheckClubBusiness();
@@ -3897,7 +3924,11 @@ void PlayMatchMenu(MenuEntry *callerEntry)
     /* RG-014: Copa Bolivia is a separate OG resident type2/KO; route its
      * next dated fixture before the legacy five-slot career cache. */
     if(_gameType==GAME_TYPE_CAREER) {
+        /* The same OG fixture has ONE visible action: advance to its real
+         * date without playing, or enter the native OG match on its day. */
+        extern int Expanded_BoliviaCareerForwardIntercept(MenuEntry *,unsigned);
         extern int Expanded_BoliviaManagerIntercept(MenuEntry *,unsigned);
+        if(Expanded_BoliviaCareerForwardIntercept(callerEntry,7u))return;
         if(Expanded_BoliviaManagerIntercept(callerEntry,7u))return;
     }
 #endif
@@ -3941,6 +3972,16 @@ void PlayMatchMenu(MenuEntry *callerEntry)
             return;
         }
     }
+#endif
+#ifdef SWOS_SDL_BUILD
+    /* Count REAL OG manager league witnesses before the unmodified
+     * modal; a cancel must never trigger an automatic post-match advance. */
+    unsigned boliviaWitnessBefore=0u;
+    const int boliviaWitnessSnapshot=_gameType==GAME_TYPE_CAREER &&
+        World_Current()==WORLD_2627 &&
+        (uint8_t)(_selTeamNumber>>8)==45u &&
+        Expanded_OGWorld_BoliviaLeagueWitnessProgress(
+            &boliviaWitnessBefore);
 #endif
     Career_PlayMatchMenuLoop();
 #ifdef SWOS_SDL_BUILD
@@ -3995,7 +4036,27 @@ void PlayMatchMenu(MenuEntry *callerEntry)
     /* Once the OG points, wages, cards and transfers have settled the
      * checkpoint is consistent. Never save in the 50 Hz match loop. */
 #ifdef SWOS_SDL_BUILD
-    Expanded_AutoCareer_Save("post-match");
+    unsigned boliviaWitnessAfter=0u;
+    extern int Expanded_CompetitionCoordinator_RecoveryRequired(void);
+    const int realBoliviaCommit=boliviaWitnessSnapshot &&
+        Expanded_OGWorld_BoliviaLeagueWitnessProgress(
+            &boliviaWitnessAfter) &&
+        boliviaWitnessAfter==boliviaWitnessBefore+1u &&
+        !Expanded_CompetitionCoordinator_RecoveryRequired();
+    if(realBoliviaCommit) {
+        /* Native match+post-writer checkpoint must be on disk BEFORE
+         * advancing the single civil/OG coordinator beyond this matchday. */
+        if(Expanded_AutoCareer_SaveChecked("post-match")) {
+            extern int Expanded_BoliviaCareerAutoForward(void);
+            (void)Expanded_BoliviaCareerAutoForward();
+        } else
+            fprintf(stderr,"[bolivia-career-forward] LEAGUE "
+                           "SAVE_FAILED no-auto-forward=1\n");
+        ContestMenuOnReturn();
+        SetCurrentEntry(7u);
+        DrawMenu();
+    } else
+        Expanded_AutoCareer_Save("post-match");
 #endif
     /* ContestMenuOnReturn_NoOp() — no-op, skip */
 

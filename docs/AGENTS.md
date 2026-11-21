@@ -1,3 +1,6 @@
+## 22/11/2026 — INPUT APPROVATO ULTIMO: SOLO TASTIERA E JOYPAD, MOUSE DISATTIVATO
+La decisione utente «togli i controlli mouse da tutto il gioco lascia solo joypad e tastiera» prevale sulle indicazioni precedenti di conservazione mouse in §5 e negli esempi storici. In Windows SDL2 non accettare click, hover, drag, right-click, focus o selezione via mouse in nessuna modalità/schermata, compresa conferma uscita. Servono navigazione pad/keyboard coerente e tutti i bottoni raggiungibili; B=BACK, A=SELECT, X=INFO solo dove esistono callback; ESC/ENTER tastiera e text input intatti. Gli eventi OS finestra/chiusura/Alt+Invio NON sono controlli mouse in-game e rimangono. Touch web virtual pad è separato: non cancellarlo senza audit multipiattaforma. Rif. RG canonical 22/11, HEAD dev/0.10 v241, preparati mouse platform f5e939..., input f08a3a...; Windows/GP N/P. Ogni riferimento storico al mouse nelle righe successive è SUPERATO da questo paragrafo.
+
 ## 21/11/2026 — ULTIMA DECISIONE USER: OFFERTA FACOLTATIVA NON BLOCCA MANAGER ASSUNTO, NEW OFFERS LAMPEGGIA (v240)
 **PRECEDE le precedenti note v238/v239 sugli stop per qualunque nuova offerta.** Se il manager è già vincolato a un club OG, una nuova offerta di lavoro è facoltativa: non blocca né il postmatch automatico né FORWARD TIME manuale. Rimane visibile in JOB OFFERS, evidenziata in NEW OFFERS con il lampeggio del menu OG originale. Solo un'offerta **accettata** (_teamNoOfferAccepted!=0xffff), esonero, fine carriera/stagione, recupero o altri stop realmente obbligatori sospendono il coordinatore. Il cambio club mantiene unica autorità OG, data e risultati; il ramo sorgente mantiene però rebuild slot locali (V), test completo di cambio club/CONTINUE Windows ancora necessario. Fonte ZIP Win v238+CAR readonly 19/09 e RG-014/010; base dev/0.10 HEAD fc60e9bb v239, patch v240 in preparazione ISO puro PASS, compilazione Win NON PROVATA.
 
@@ -443,7 +446,7 @@ Ogni schermata deve essere utilizzabile con joypad.
 - Tooltip e hover devono funzionare premendo il tasto x sul joypad per attivare disattivare.
 - EXIT, BACK e gli altri comandi non devono diventare irraggiungibili.
 - Evitare blocchi, cicli di navigazione errati e perdita del focus.
-- Mantenere il supporto per mouse e tastiera.
+- [SUPERATO dalla regola input 22/11/2026] Mantenere il supporto per mouse e tastiera.
 
 **Legenda controller universale approvata:** usare, quando la schermata richiede queste azioni, il BMP nativo `assets/ui/controller_abc_approved_2026-11-07.bmp` (70×14, sfondo trasparente): **A SELECT**, **B BACK**, **X +INFO**. È una UI comune riutilizzabile, non esclusiva della Business Screen. La posizione **X=9, Y=6** è approvata per BUSINESS; nelle altre schermate le coordinate devono essere controllate sul layout e concordate, senza coprire testi o pannelli approvati. Non aggiungere la legenda nelle schermate dove un'azione non è disponibile e non far presumere che la stessa mappatura sia già implementata ovunque: collegare e testare le callback reali per tastiera, joypad e mouse prima di mostrarla come attiva. Non alterare il BMP approvato.
 

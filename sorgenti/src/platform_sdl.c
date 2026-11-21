@@ -153,7 +153,6 @@ static volatile int s_menu_art_fullscreen;
 static int s_stretch;
 /* Always use the modern title when the original packed main menu is
  * active; the packed menu remains a callback store, not visible artwork. */
-static volatile int s_title_mouse_click;
 static int expanded_title_main_active(void)
 {
     extern volatile uintptr_t _currentMenuPtr;
@@ -161,113 +160,38 @@ static int expanded_title_main_active(void)
     return _screen_width==336 && _screen_height==272 &&
            _currentMenuPtr==(uintptr_t)_swosMainMenu;
 }
+/* The user has disabled in-game mouse controls globally.
+ * Keep the ABI for title/new-career callers, but report no pointer event;
+ * keyboard and controller still drive the original actions. */
 int Platform_TitleMouseState(int *x,int *y,int *moved,int *click)
 {
-    static int prev_x=-1,prev_y=-1;
-    int mx=0,my=0,ww=0,wh=0;
-    if(!s_window || !x || !y || !moved || !click) return 0;
-    SDL_GetMouseState(&mx,&my);
-    SDL_GetWindowSize(s_window,&ww,&wh);
-    if(ww<=0 || wh<=0) return 0;
-    *x=mx*EXP_TITLE_W/ww;
-    *y=my*EXP_TITLE_H/wh;
-    *moved=(*x!=prev_x || *y!=prev_y);
-    prev_x=*x;
-    prev_y=*y;
-    *click=s_title_mouse_click;
-    s_title_mouse_click=0;
-    return 1;
+    if(x)*x=0;
+    if(y)*y=0;
+    if(moved)*moved=0;
+    if(click)*click=0;
+    return 0;
 }
-static volatile int s_career_mouse_click;
-int Platform_NewCareerMouseState(int*x,int*y,int*moved,int*click)
+int Platform_NewCareerMouseState(int *x,int *y,int *moved,int *click)
 {
-    static int prev_x=-1,prev_y=-1;
-    int mx,my,ww,wh;
-    if(!s_window || !s_renderer)return 0;
-    SDL_GetMouseState(&mx,&my);SDL_GetWindowSize(s_window,&ww,&wh);
-    if(ww<=0||wh<=0)return 0;
-    if(Expanded_NewCareer_Active()){*x=mx*1664/ww;*y=my*936/wh;}
-    else {
-        float lx,ly;SDL_RenderWindowToLogical(s_renderer,mx,my,&lx,&ly);
-        *x=(int)lx;*y=(int)ly;
-        if(s_stretch){*x=mx*336/ww;*y=my*272/wh;}
-        if(s_stretch&&s_menu_art_fullscreen){*x=*x*320/336;*y=*y*256/272;}
-    }
-    *moved=*x!=prev_x||*y!=prev_y;prev_x=*x;prev_y=*y;
-    *click=s_career_mouse_click;s_career_mouse_click=0;return 1;
+    if(x)*x=0;
+    if(y)*y=0;
+    if(moved)*moved=0;
+    if(click)*click=0;
+    return 0;
 }
 void Platform_SetMenuArtFullscreen(int enabled)
 {
     s_menu_art_fullscreen = enabled != 0;
 }
-static void menu_art_mouse_coords(int *x, int *y)
+/* No mouse hover may modify game menu selection or UI focus.
+ * These entrypoints remain as harmless legacy ABI consumers. */
+void Platform_SquadMouseTracking(int enabled)
 {
-    if (s_menu_art_fullscreen && s_stretch && _screen_width == 336 &&
-        _screen_height == 272) {
-        *x = *x * 320 / 336;
-        *y = *y * 256 / 272;
-    }
+    (void)enabled;
+    SDL_EventState(SDL_MOUSEMOTION,SDL_DISABLE);
 }
-/* The roster is the ONLY legacy menu with a mouse hover tooltip. Return a
- * row only when the pointer actually MOVES, so a parked mouse never steals
- * selection from the joypad/d-pad. SDL logical letterboxing is respected. */
-void Platform_SquadMouseTracking(int enabled) {
-    SDL_EventState(SDL_MOUSEMOTION,enabled?SDL_ENABLE:SDL_DISABLE);
-}
-int Platform_SquadPointerMovedRow(void) {
-    static int prevX=-1,prevY=-1;
-    if(!s_window || !s_renderer) return -1;
-    int mx,my;
-    SDL_GetMouseState(&mx,&my);
-    if(mx==prevX && my==prevY) return -1;
-    prevX=mx;prevY=my;
-    int ww=0,wh=0,lw=0,lh=0;
-    SDL_GetWindowSize(s_window,&ww,&wh);
-    SDL_RenderGetLogicalSize(s_renderer,&lw,&lh);
-    if(ww<=0 || wh<=0) return -1;
-    int hasLogical=(lw>0 && lh>0);
-    if(!hasLogical) {lw=_screen_width;lh=_screen_height;}
-    if(lw<=0 || lh<=0) return -1;
-    double sx=(double)ww/lw,sy=(double)wh/lh;
-    double scale=sx<sy?sx:sy;
-    int x,y;
-    if(hasLogical) {
-        x=(int)((mx-(ww-lw*scale)*0.5)/scale);
-        y=(int)((my-(wh-lh*scale)*0.5)/scale);
-    } else {
-        x=(int)(mx/sx);y=(int)(my/sy);
-    }
-    menu_art_mouse_coords(&x, &y);
-    x-=_menu_draw_x_offset;
-    if(x<7 || x>312 || y<90 || y>=226) return -1;
-    return (y-90)/8;
-}
-
-/* Club Business STAFF row: map the real mouse position through the same
- * SDL logical-size letterboxing as squad hover. No fake menu entry is added;
- * the existing finance toggle and facility callbacks remain unchanged. */
-int Platform_BusinessPointerOverStaff(void) {
-    if(!s_window || !s_renderer) return 0;
-    int mx,my,ww=0,wh=0,lw=0,lh=0;
-    SDL_GetMouseState(&mx,&my);
-    SDL_GetWindowSize(s_window,&ww,&wh);
-    SDL_RenderGetLogicalSize(s_renderer,&lw,&lh);
-    if(ww<=0 || wh<=0) return 0;
-    int hasLogical=lw>0 && lh>0;
-    if(!hasLogical) {lw=_screen_width;lh=_screen_height;}
-    if(lw<=0 || lh<=0) return 0;
-    double sx=(double)ww/lw,sy=(double)wh/lh;
-    double scale=sx<sy?sx:sy;
-    int x=hasLogical?(int)((mx-(ww-lw*scale)*0.5)/scale):(int)(mx/sx);
-    int y=hasLogical?(int)((my-(wh-lh*scale)*0.5)/scale):(int)(my/sy);
-    menu_art_mouse_coords(&x, &y);
-    x-=_menu_draw_x_offset;
-    { extern int Expanded_BusinessUsesApprovedUI(void);
-      if(Expanded_BusinessUsesApprovedUI())
-          return x>=164 && x<=311 && y>=220 && y<=231;
-    }
-    return x>=111 && x<=211 && y>=222 && y<=235;
-}
+int Platform_SquadPointerMovedRow(void) { return -1; }
+int Platform_BusinessPointerOverStaff(void) { return 0; }
 
 /* A small RING of streaming textures. We upload into a DIFFERENT one each frame so
  * we never lock/refill the texture the GPU is still sampling from a recent frame.
@@ -2306,17 +2230,13 @@ static void pump_events_any_thread(void)
         case SDL_JOYDEVICEREMOVED:
             InputSDL_HandleEvent(&ev);
             break;
+        /* Mouse never dispatches a game action (including title, editor,
+         * right-click BACK and all overlays). SDL window CLOSE/FOCUS events
+         * above are OS controls and remain enabled. */
         case SDL_MOUSEBUTTONDOWN:
-            if(Expanded_NewCareer_InputActive()) {
-                if(ev.button.button==SDL_BUTTON_LEFT)s_career_mouse_click=1;
-                else if(ev.button.button==SDL_BUTTON_RIGHT)Expanded_NewCareer_Back();
-                break;
-            }
-            if(expanded_title_main_active()) {
-                if(ev.button.button==SDL_BUTTON_LEFT) s_title_mouse_click=1;
-                else if(ev.button.button==SDL_BUTTON_RIGHT)
-                    Expanded_TitleMenu_QueueBack();
-            }
+        case SDL_MOUSEBUTTONUP:
+        case SDL_MOUSEMOTION:
+        case SDL_MOUSEWHEEL:
             break;
         default:
             break;

@@ -849,22 +849,12 @@ void InputSDL_HandleEvent(const SDL_Event *e)
                 raw_push((uint8_t)*t);
         }
         break;
+    /* Defence in depth: even a direct InputSDL_HandleEvent caller cannot
+     * turn a mouse press into EXIT confirmation or a VIEW SQUAD popup. */
     case SDL_MOUSEBUTTONDOWN:
-        if(s_exit_confirm_open) {
-            if(e->button.button==SDL_BUTTON_LEFT) {
-                int hit=Platform_ExitConfirmHitTest(e->button.x,e->button.y);
-                if(hit>=0) {
-                    s_exit_confirm_choice=hit;
-                    exit_confirm_close(hit==1);
-                }
-            }
-            break;
-        }
-        if (e->button.button==SDL_BUTTON_RIGHT && Expanded_UI_IsSquadScreen()) {
-            Expanded_SquadPopupToggle();
-            DrawMenu();
-            break;
-        }
+    case SDL_MOUSEBUTTONUP:
+    case SDL_MOUSEMOTION:
+    case SDL_MOUSEWHEEL:
         break;
     case SDL_KEYDOWN: {
         if (!e->key.repeat && e->key.keysym.sym==SDLK_x &&

@@ -100,21 +100,74 @@ extern uint16_t TrainingMatch_KeepCrossSwapForMatch(uint16_t fileA,
  * No synthetic TEAM B, no opponent editing, no second match controller. */
 enum { kCareerExtraFirst=69, kCareerExtraCount=16 };
 static int16_t s_extraReserveSlot=-1, s_extraDrawSlot=-1;
+/* Original OG packed navigation and pitch visibility saved at every menu
+ * unpack; never leak extra-list links into opponent/other match menus. */
+static int8_t s_extraNativeRight[17];
+static uint8_t s_extraNativePitchInvisible[12];
+static int16_t s_extraNativeCheckX;
+static int s_extraNavReady, s_extraLastVisible=-1;
+
+static int Expanded_ManagedCareerTeam(const TeamFileEx *team)
+{
+    if(!team || _gameType!=GAME_TYPE_CAREER)return 0;
+    if(team==&_careerTeam)return 1;
+    return !_trainingGame && _selTeamNumber!=0xFFFF &&
+        PACK_BE_U16(team->team.countryNumber,
+                    team->team.teamOrdinal)==_selTeamNumber;
+}
 static int Expanded_CareerExtraVisible(void)
 {
     if (_gameType!=GAME_TYPE_CAREER || _trainingGame || !_squadChangesAllowed ||
         _showingCpuTeams || _viewingOpponentTeam || !_playMatchTeam1Ptr ||
         _selTeamNumber==0xFFFF || _careerNumPlayers<=16 || _careerNumPlayers>32)
         return 0;
-    return PACK_BE_U16(_playMatchTeam1Ptr->team.countryNumber,
-                       _playMatchTeam1Ptr->team.teamOrdinal)==_selTeamNumber;
+    return Expanded_ManagedCareerTeam(_playMatchTeam1Ptr);
 }
 static void Expanded_CareerExtraUpdate(void)
 {
     const int visible=Expanded_CareerExtraVisible();
+    const unsigned extras=visible?(unsigned)_careerNumPlayers-16u:0u;
     for(unsigned i=0;i<kCareerExtraCount;++i)
         _menuEntries[kCareerExtraFirst+i].isInvisible =
-            !visible || 16u+i>=(unsigned)_careerNumPlayers;
+            !visible || i>=extras;
+    if(s_extraNavReady) {
+        for(unsigned i=0;i<17u;++i) {
+            /* RIGHT from any original player enters the reserve column.
+             * LEFT from the reserve row is already linked in JSON. */
+            _menuEntries[13u+i].rightEntry=visible?
+                (int8_t)(kCareerExtraFirst+
+                         (i<extras?i:extras-1u)):
+                s_extraNativeRight[i];
+        }
+        /* Native side-pitch art + surnames, not tactic buttons.
+         * Their original visibility is restored for all other contexts. */
+        for(unsigned i=0;i<12u;++i)
+            _menuEntries[56u+i].isInvisible=visible?1:
+                s_extraNativePitchInvisible[i];
+    }
+#ifndef NDEBUG
+    if(s_extraLastVisible!=visible && _gameType==GAME_TYPE_CAREER &&
+       _careerNumPlayers>16u) {
+        const char *capture=getenv("SWOS_DIAGNOSTIC_CAPTURE");
+        if(capture && capture[0]=='1')
+            fprintf(stderr,
+                "[career-prematch] extras-visible=%d roster=%u bench=%u "
+                "squad-changes=%u training=%u opponent=%u cpu-view=%u "
+                "club=%04x shown=%04x controls=%u\n",
+                visible,(unsigned)_careerNumPlayers,
+                (unsigned)_maxSubstitutesEntries,
+                (unsigned)_squadChangesAllowed,(unsigned)_trainingGame,
+                (unsigned)_viewingOpponentTeam,(unsigned)_showingCpuTeams,
+                (unsigned)_selTeamNumber,
+                _playMatchTeam1Ptr?
+                    (unsigned)PACK_BE_U16(
+                        _playMatchTeam1Ptr->team.countryNumber,
+                        _playMatchTeam1Ptr->team.teamOrdinal):0xffffu,
+                _playMatchTeam1Ptr?
+                    (unsigned)_playMatchTeam1Ptr->team.teamControls:0u);
+    }
+#endif
+    s_extraLastVisible=visible;
 }
 static int s_trainingCrossSwapRunning; /* suppress the automatic B rebuild for X */
 static uint16_t s_trainingCrossSide; /* 0 none; 1 A; 2 B */
@@ -195,6 +248,36 @@ extern void SetSquadMenuEntryStatusSprite(MenuEntry *entry, PlayerFile *playerFi
 extern void TrainingMatch_BuildCurrentTeamFromCareerTeam(void);
 extern void TrainingMatch_ApplyUseMatchTeamAndSwapSubs(void);
 
+#ifdef SWOS_SDL_BUILD
+/* True OG selection from the club's ordered _currentMatchPlayers slots.
+ * This native menu can nominate fewer substitutes than the competition
+ * maximum; a legal XI with bench=0 must not become unplayable solely
+ * because the original 16-player gate insists on >=1 substitute. */
+static int Expanded_CareerPrematchLegalSelection(const TeamFileEx *team)
+{
+    if(!Expanded_ManagedCareerTeam(team) || _selTeamNumber==0xFFFF ||
+       _trainingGame || !_squadChangesAllowed || _showingCpuTeams || _viewingOpponentTeam ||
+       team->team.teamControls==TEAM_COMPUTER)return 0;
+    const unsigned n=_careerNumPlayers;
+    const unsigned bench=_maxSubstitutesEntries;
+    if(n<11u || n>32u || bench>8u || 11u+bench>n)return 0;
+    uint32_t seen=0;
+    for(unsigned i=0;i<11u+bench;++i) {
+        const unsigned id=_currentMatchPlayers[i];
+        if(id>=32u || (seen&(1u<<id)))return 0;
+        seen|=1u<<id;
+        const PlayerFile *pf=(const PlayerFile *)
+            (GetPlayer(_selTeamNumber,(uint16_t)id)+76);
+        if(Career_IsSelectionUnavailable(pf,_playMatchExcludeFlags))return 0;
+        const unsigned pos=((unsigned)pf->positionAndFace&PF_POSITION_MASK)
+                            >>PF_POSITION_SHIFT;
+        if((i==0u && pos!=0u) || (i>0u && i<11u && pos==0u))
+            return 0;
+    }
+    return 1;
+}
+#endif
+
 /* ---- Helper: menu entry from byte offset ---- */
 
 /* Helper: access bg as the high 16 bits (big-endian BACKANDFRAMECOLOR) */
@@ -207,7 +290,11 @@ extern void TrainingMatch_ApplyUseMatchTeamAndSwapSubs(void);
 __attribute__((used, externally_visible))
 int16_t GetPlayerPosition(TeamFileEx *team, int16_t playerIndex) {
     int16_t total;
-    if (team == &_careerTeam)
+    if (team == &_careerTeam
+#ifdef SWOS_SDL_BUILD
+        || Expanded_ManagedCareerTeam(team)
+#endif
+       )
         total = (int16_t)_careerNumPlayers;
     else if (team == &_currentTeam)
         total = (int16_t)_numPlayers;
@@ -357,6 +444,12 @@ void ShowOrHidePlayMatchButton(void) {
 
     {
         TeamFileEx *team = _playMatchTeam1Ptr;
+#ifdef SWOS_SDL_BUILD
+        /* The stock gate expects one or more available subs even when the
+         * legal nominated bench is zero. Check actual OG lineup identities
+         * and availability, leaving all non-manager menus unchanged. */
+        if(Expanded_CareerPrematchLegalSelection(team))goto canPlay;
+#endif
         uint32_t subsR = GetNumberOfAvailableSubstitutes((uint8_t *)team, _playMatchExcludeFlags);
         uint16_t d2 = (uint16_t)(subsR & 0xFFFF); /* d7→d2: available subs (goalkeepers) */
 
@@ -471,6 +564,10 @@ void UpdateTeamCheckmark(void) {
 
     int16_t d1;
     TeamFileEx *team1 = _playMatchTeam1Ptr;
+    int managed=team1==&_careerTeam;
+#ifdef SWOS_SDL_BUILD
+    managed=Expanded_ManagedCareerTeam(team1);
+#endif
 
     if (_viewingOpponentTeam) {
         uint16_t *ip = (uint16_t *)_currentSelectedPlayerIndexPtr;
@@ -478,7 +575,7 @@ void UpdateTeamCheckmark(void) {
         if (d1 < 0) return;
         d1 = GetPlayerPosition(_playMatchTeam2Ptr, d1);
     } else {
-        if (team1 == &_careerTeam)
+        if (managed)
             d1 = (int16_t)_selTeamSelectedPlayerPosition;
         else if (team1 == &_currentTeam)
             d1 = (int16_t)_currentTeamSelectedPlayerPosition;
@@ -488,9 +585,14 @@ void UpdateTeamCheckmark(void) {
         }
         if (d1 < 0) return;
         d1 = GetPlayerPosition(team1, d1);
-        if ((uint16_t)d1 >= _pmMenuNumPlayers) {
+        uint16_t allowed=_pmMenuNumPlayers;
+#ifdef SWOS_SDL_BUILD
+        if(managed && Expanded_CareerExtraVisible())
+            allowed=_careerNumPlayers;
+#endif
+        if ((uint16_t)d1 >= allowed) {
             if (team1 == &_currentTeam) _currentTeamSelectedPlayerPosition = 0xFFFF;
-            else _selTeamSelectedPlayerPosition = 0xFFFF;
+            else if(managed)_selTeamSelectedPlayerPosition = 0xFFFF;
             return;
         }
     }
@@ -499,6 +601,13 @@ void UpdateTeamCheckmark(void) {
         MenuEntry *ck = &_menuEntries[37];
         ck->stringFlags |= (1u << 13);
         MenuEntry *pe = CalcMenuEntryAddress(13 + d1);
+#ifdef SWOS_SDL_BUILD
+        if(managed && Expanded_CareerExtraVisible() && d1>=16) {
+            pe=CalcMenuEntryAddress(kCareerExtraFirst+(uint16_t)(d1-16));
+            ck->x=(int16_t)(pe->x-12);
+        } else if(s_extraNavReady)
+            ck->x=s_extraNativeCheckX;
+#endif
         ck->y = pe->y;
         ck->isInvisible = 0;
     }
@@ -979,6 +1088,16 @@ __attribute__((used, externally_visible))
 void PlayMatchMenuInit(void) {
 #ifdef SWOS_SDL_BUILD
     s_trainingCrossSide=0; /* no cross-swap pending in a fresh menu */
+    s_extraNavReady=0;
+    s_extraLastVisible=-1;
+    s_extraReserveSlot=-1;
+    s_extraDrawSlot=-1;
+    for(unsigned i=0;i<17u;++i)
+        s_extraNativeRight[i]=_menuEntries[13u+i].rightEntry;
+    for(unsigned i=0;i<12u;++i)
+        s_extraNativePitchInvisible[i]=_menuEntries[56u+i].isInvisible;
+    s_extraNativeCheckX=_menuEntries[37].x;
+    s_extraNavReady=1;
 #endif
     if (!_allowShorterMenuItemsWithFrames)
         _fireResetFlag = 1;
@@ -1181,7 +1300,11 @@ int16_t HandleSquadSwapSelectionToggle(int16_t d6) {
 
     if (_playMatchTeam1Ptr == &_currentTeam) {
         /* defaults already set */
-    } else if (_playMatchTeam1Ptr == &_careerTeam) {
+    } else if (_playMatchTeam1Ptr == &_careerTeam
+#ifdef SWOS_SDL_BUILD
+               || Expanded_ManagedCareerTeam(_playMatchTeam1Ptr)
+#endif
+              ) {
         tNum = _selTeamNumber;
         selPos = &_selTeamSelectedPlayerPosition;
     } else {
@@ -1192,7 +1315,14 @@ int16_t HandleSquadSwapSelectionToggle(int16_t d6) {
     if (!_longFireFlag) return 1;
     if (_longFireFlag != 1) return 0;
     if (!_squadChangesAllowed) return 0;
-    if ((uint16_t)d6 >= _pmMenuNumPlayers) return 0;
+    if ((uint16_t)d6 >= _pmMenuNumPlayers) {
+#ifdef SWOS_SDL_BUILD
+        if(!(s_extraReserveSlot>=0 && Expanded_CareerExtraVisible() &&
+             (uint16_t)d6<_careerNumPlayers))return 0;
+#else
+        return 0;
+#endif
+    }
 
     int16_t curSel = (int16_t)_selectedPlayerPosition;
     if (curSel == (int16_t)*selPos) {
@@ -1619,7 +1749,11 @@ void DrawPlayerEntries(MenuEntry *a5) {
         int16_t selIdx;
         if (_viewingOpponentTeam) {
             selIdx = (int16_t)*(uint16_t *)_currentSelectedPlayerIndexPtr;
-        } else if (_playMatchTeam1Ptr == &_careerTeam) {
+        } else if (_playMatchTeam1Ptr == &_careerTeam
+#ifdef SWOS_SDL_BUILD
+                   || Expanded_ManagedCareerTeam(_playMatchTeam1Ptr)
+#endif
+                  ) {
             selIdx = (int16_t)_selTeamSelectedPlayerPosition;
         } else if (_playMatchTeam1Ptr == &_currentTeam) {
             selIdx = (int16_t)_currentTeamSelectedPlayerPosition;
@@ -1628,6 +1762,11 @@ void DrawPlayerEntries(MenuEntry *a5) {
         }
         if (selIdx == d1) {
             MenuEntry *ck = &_menuEntries[37];
+#ifdef SWOS_SDL_BUILD
+            if(s_extraNavReady)
+                ck->x=s_extraDrawSlot>=0?
+                    (int16_t)(a5->x-12):s_extraNativeCheckX;
+#endif
             ck->y = bgE->y;
             ck->bgColor = bgE->bgColor;
             ck->fgWord = bgE->fgWord;

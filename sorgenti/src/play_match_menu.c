@@ -104,6 +104,7 @@ static int16_t s_extraReserveSlot=-1, s_extraDrawSlot=-1;
  * unpack; never leak extra-list links into opponent/other match menus. */
 static int8_t s_extraNativeRight[17];
 static uint8_t s_extraNativePitchInvisible[12];
+static uint8_t s_extraNativeDisabled[kCareerExtraCount];
 static int16_t s_extraNativeCheckX;
 static int s_extraNavReady, s_extraLastVisible=-1;
 
@@ -117,7 +118,10 @@ static int Expanded_ManagedCareerTeam(const TeamFileEx *team)
 }
 static int Expanded_CareerExtraVisible(void)
 {
-    if (_gameType!=GAME_TYPE_CAREER || _trainingGame || !_squadChangesAllowed ||
+    /* Display is independent of permission: a readonly manager result/CPU
+     * preview still has real native reserve records. Editing is guarded
+     * separately by _squadChangesAllowed in OnSwapPlayer and menu focus. */
+    if (_gameType!=GAME_TYPE_CAREER || _trainingGame ||
         _showingCpuTeams || _viewingOpponentTeam || !_playMatchTeam1Ptr ||
         _selTeamNumber==0xFFFF || _careerNumPlayers<=16 || _careerNumPlayers>32)
         return 0;
@@ -127,14 +131,18 @@ static void Expanded_CareerExtraUpdate(void)
 {
     const int visible=Expanded_CareerExtraVisible();
     const unsigned extras=visible?(unsigned)_careerNumPlayers-16u:0u;
-    for(unsigned i=0;i<kCareerExtraCount;++i)
-        _menuEntries[kCareerExtraFirst+i].isInvisible =
-            !visible || i>=extras;
+    for(unsigned i=0;i<kCareerExtraCount;++i) {
+        MenuEntry *reserve=&_menuEntries[kCareerExtraFirst+i];
+        reserve->isInvisible=!visible || i>=extras;
+        /* Readonly rows remain visible but never focusable/selectable. */
+        reserve->isDisabled=visible && !_squadChangesAllowed ?
+            1 : s_extraNativeDisabled[i];
+    }
     if(s_extraNavReady) {
         for(unsigned i=0;i<17u;++i) {
             /* RIGHT from any original player enters the reserve column.
              * LEFT from the reserve row is already linked in JSON. */
-            _menuEntries[13u+i].rightEntry=visible?
+            _menuEntries[13u+i].rightEntry=(visible && _squadChangesAllowed)?
                 (int8_t)(kCareerExtraFirst+
                          (i<extras?i:extras-1u)):
                 s_extraNativeRight[i];
@@ -1096,6 +1104,8 @@ void PlayMatchMenuInit(void) {
         s_extraNativeRight[i]=_menuEntries[13u+i].rightEntry;
     for(unsigned i=0;i<12u;++i)
         s_extraNativePitchInvisible[i]=_menuEntries[56u+i].isInvisible;
+    for(unsigned i=0;i<kCareerExtraCount;++i)
+        s_extraNativeDisabled[i]=_menuEntries[kCareerExtraFirst+i].isDisabled;
     s_extraNativeCheckX=_menuEntries[37].x;
     s_extraNavReady=1;
 #endif
@@ -1139,6 +1149,13 @@ void PlayMatchMenuInit(void) {
 __attribute__((used, externally_visible))
 void OnSwapPlayer(MenuEntry *a5) {
     TeamFileEx *t1 = _playMatchTeam1Ptr;
+#ifdef SWOS_SDL_BUILD
+    /* The original normal-team path has no readonly guard. Without this,
+     * displaying real reserves during selector-0 CPU/VIEW RESULT could
+     * illegally write _currentMatchPlayers, tactics and shirt numbers. */
+    if (_gameType == GAME_TYPE_CAREER && !_squadChangesAllowed)
+        return;
+#endif
 
     if (_viewingOpponentTeam) {
         t1 = _playMatchTeam2Ptr;
@@ -1645,7 +1662,7 @@ __attribute__((used, externally_visible))
 void OnCareerReserveSelected(MenuEntry *e)
 {
 #ifdef SWOS_SDL_BUILD
-    if(!Expanded_CareerExtraVisible())return;
+    if(!_squadChangesAllowed || !Expanded_CareerExtraVisible())return;
     const int row=(int)e->ordinal-kCareerExtraFirst;
     if(row<0 || row>=kCareerExtraCount ||
        16u+(unsigned)row>=(unsigned)_careerNumPlayers)return;

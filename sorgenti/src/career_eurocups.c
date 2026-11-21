@@ -58,6 +58,10 @@ extern void *_countriesTable[];
 extern uint16_t _selTeamNumber;
 #ifdef SWOS_SDL_BUILD
 extern int Expanded_OGWorld_UnemployedQualificationActive(void);
+extern uint16_t _gameType;
+extern volatile uint16_t _seasonUpdateInProgress;
+extern uint16_t _numSelectedTeams;
+extern void Expanded_YearEndReportFault(const char *reason);
 #endif
 
 /* C-to-asm bridges */
@@ -486,6 +490,55 @@ void DIY_CacheTertiaryQualifiedTeamGrid(void)
  * panic'd inside VerifyTeamLoaded. Use typed field access instead. */
 static void copyTitleHolderGrid(uint16_t *titleHolderTeamId, uint8_t *titleHolderGrid)
 {
+#ifdef SWOS_SDL_BUILD
+    /* RG-014/RG-027: a resident OG type-2 tournament does NOT own the
+     * type-1 cupTeamIds/teamGridPairings map used by the original helper.
+     * YearEndType2Result has already copied the SAME native resident's
+     * final competition and participant TeamFileEx records into these
+     * scratch buffers. Read only OG's witnessed winnerTeam; do not draw,
+     * replay fixtures, or manufacture a title holder from bracket slot 0.
+     * Other modes and native type-1 cups keep the original reader. */
+    if (_gameType == 4 && _seasonUpdateInProgress &&
+        _diyCompetitionStart.base.competitionType == 2) {
+        const uint16_t winner = _diyCompetitionStart.base.winnerTeam;
+        const unsigned n = (unsigned)_numSelectedTeams;
+        int found = -1;
+        if (_diyCompetitionStart.base.competitionFinished &&
+            winner != 0u && winner != 0xffffu && n >= 2u && n <= 36u) {
+            for (unsigned i = 0u; i < n; ++i) {
+                const TeamFileEx *team = &_selectedTeams[i];
+                const uint16_t id = PACK_BE_U16(
+                    team->team.countryNumber, team->team.teamOrdinal);
+                if (id == winner) {
+                    if (found >= 0) {
+                        found = -2; /* duplicate identity: invalid resident */
+                        break;
+                    }
+                    found = (int)i;
+                }
+            }
+        }
+        if (found < 0) {
+            fprintf(stderr,
+                "[og-yearend-titleholder] TYPE2_INVALID "
+                "winner=%04x finished=%u selected=%u member=%d "
+                "action=HOLD_YEAR_NO_REPLAY\n",
+                (unsigned)winner,
+                (unsigned)_diyCompetitionStart.base.competitionFinished,
+                n, found);
+            Expanded_YearEndReportFault("TYPE2_TITLEHOLDER_UNVERIFIED");
+            return; /* never VerifyTeamLoaded(0), nor mutate a valid CAR */
+        }
+        copyTeamGridWords((uint8_t *)&_selectedTeams[found],
+                          titleHolderGrid, 0x155);
+        *titleHolderTeamId = winner;
+        fprintf(stderr,
+            "[og-yearend-titleholder] TYPE2_NATIVE "
+            "winner=%04x member=%d source=OG_RESULT_NO_REPLAY\n",
+            (unsigned)winner, found);
+        return;
+    }
+#endif
     DIY_ApplyHomeAwaySwapFlagsToTeamGridPairs();
     int8_t gridByte = (int8_t)_diyCompetitionStart.teamGridPairings[0];
     int16_t idx = gridByte;

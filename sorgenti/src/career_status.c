@@ -6483,7 +6483,9 @@ extern uint16_t _careerMatchSimulatedFlag;
 extern uint16_t _careerSlotProcessingInProgress;
 static int s_expBoliviaManagerInteractive;
 int Expanded_OGWorld_BoliviaManagerInteractive(void)
-{ return s_expBoliviaManagerInteractive; }
+{ return s_expBoliviaManagerInteractive!=0; }
+int Expanded_OGWorld_BoliviaManagerAutoSim(void)
+{ return s_expBoliviaManagerInteractive==2; }
 
 static int exp_bolivia_group_pair(const ExpandedOGLeague *ctx,
     const BoliviaCupFixture *fixture,uint16_t *home,uint16_t *away,
@@ -6654,11 +6656,44 @@ unsigned Expanded_OGWorld_BoliviaManagerFixtures(
     return count;
 }
 
+/* Journal-only scoreboard: the date/pair/edition is a stable fixture
+ * identity in this first-edition Copa. Neither the UI nor this query
+ * generates a result, advances a phase, or changes a CAR. */
+int Expanded_OGWorld_BoliviaManagerScore(
+    const ExpandedBoliviaManagerFixture *f,
+    uint8_t *homeGoals,uint8_t *awayGoals)
+{
+    int32_t day=0;
+    if(!f || !homeGoals || !awayGoals ||
+       World_Current()!=WORLD_2627 || !f->year ||
+       !ExpandedWorld_DateToIndex(
+            (ExpandedWorldDate){f->year,f->month,f->day},&day) ||
+       day<0)return -1;
+    int found=0;
+    for(size_t i=0;i<s_expOGFixtureCount;++i) {
+        const uint8_t *const row=s_expOGFixtures+i*EXP_OG_FIXTURE_SIZE;
+        if(row[0]!=1u || row[1]!=45u || row[2]!=2u ||
+           exp_fixture_get16(row+4u)!=f->year ||
+           exp_fixture_get16(row+8u)!=f->home ||
+           exp_fixture_get16(row+10u)!=f->away ||
+           exp_fixture_get32(row+16u)!=(uint32_t)day)continue;
+        /* For the type2 groups the native serial is global 0..63;
+         * for type1 KO it restarts with each native bracket round.
+         * Exact date + oriented pair disambiguate legs safely. */
+        if(f->stage==0u && exp_fixture_get16(row+6u)!=f->serial)
+            return -1;
+        if(found)return -1; /* duplicate/writer conflict: never guess */
+        found=1;*homeGoals=row[12];*awayGoals=row[13];
+    }
+    return found;
+}
+
 /* Callable only after the CIVIL coordinator reaches the exact real fixture
  * day. It cannot move the clock, simulate an alternative score or write
  * the local career cache: only the resident OG DIY match runs. */
+/* Never make an alternative match or seed: both actions share one OG fixture. */
 int Expanded_OGWorld_BoliviaManagerPlay(
-    const ExpandedBoliviaManagerFixture *expected)
+    const ExpandedBoliviaManagerFixture *expected,int simulate)
 {
     ExpandedBoliviaManagerFixture pending;
     ExpandedLiveCalendarState live;
@@ -6760,7 +6795,7 @@ int Expanded_OGWorld_BoliviaManagerPlay(
         _diyCompetitionStart.leagueStandings[managerRow].teamSelOffset=-1;
         s_expOGCurrent=group;s_expOGPhase=(int)group->lastPhase;
     }
-    s_expBoliviaManagerInteractive=1;
+    s_expBoliviaManagerInteractive=simulate?2:1;
     s_expOGFixtureAsOf=(ExpandedWorldDate){
         pending.year,pending.month,pending.day};
     fprintf(stderr,"[og-bolivia-manager] PLAY_BEGIN year=%u stage=%s "
@@ -6771,8 +6806,8 @@ int Expanded_OGWorld_BoliviaManagerPlay(
         (unsigned)home,(unsigned)away,
         (unsigned)pending.year,(unsigned)pending.month,(unsigned)pending.day);
     const int canceled=cup?
-        DIY_PlayCupMatchAndAdvance(1,2)!=0:
-        DIY_PlayOrSimulateLeagueFixture(1,2)!=0;
+        DIY_PlayCupMatchAndAdvance(1,simulate?0:2)!=0:
+        DIY_PlayOrSimulateLeagueFixture(1,simulate?0:2)!=0;
     /* Never let sentinel -1 escape into the resident snapshot/CAR. */
     if(cup) {
         for(unsigned i=0;i<8u;++i)

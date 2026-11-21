@@ -1108,7 +1108,7 @@ void Expanded_BoliviaManagerPrepareMenu(void)
     /* Same original button captions for LEAGUE and CUP; only OG routing
      * changes, never the menu callback or the visible action name. */
     static const char kPlayCup[]="PLAY MATCH";
-    static const char kNextCup[]="NEXT MATCH";
+    static const char kNextCup[]="SIMULATE MATCH";
     static const char kClash[]="CUP DATE CONFLICT";
     static const char kLate[]="CUP FIXTURE OVERDUE";
     static int wasCup;
@@ -1182,7 +1182,9 @@ int Expanded_BoliviaManagerIntercept(MenuEntry *entry,unsigned ordinal)
             (unsigned)m.fixtureId);
         return 1;
     }
-    if(!Expanded_OGWorld_BoliviaManagerPlay(&m)) {
+    /* Ordinal 7 = manual, ordinal 10 = OG native score simulation.
+     * Both consume precisely the same dated resident fixture. */
+    if(!Expanded_OGWorld_BoliviaManagerPlay(&m,ordinal==10u)) {
         fprintf(stderr,"[og-bolivia-manager] NO_NATIVE_COMMIT "
             "fixture=%u canceled-or-fault=1 no-postmatch-save=1\n",
             (unsigned)m.fixtureId);

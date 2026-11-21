@@ -16,6 +16,8 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_live.h"
 #include "career_status.h"
+#include "bolivia_cup_sequence.h" /* shared OG stage labels + exact group identities */
+#include "bolivia_cup_knockout.h" /* native KO stage from actual bracket round */
 #endif
 #include "expanded_midseason_join.h"
 #include "game_types.h"
@@ -2283,18 +2285,25 @@ int Expanded_UI_CompactFixtureRow(unsigned row,unsigned slotType)
         (const char *)(uintptr_t)_menuEntries[35].fg:"";
     ui_short_comp(r->label,sizeof r->label,name,round,slotType!=0);
     if(r->cup && r->expandedBolivia)
-        snprintf(r->label,sizeof r->label,"COPPA");
+        snprintf(r->label,sizeof r->label,"COPA");
     else if(r->expandedBolivia && slotType==0u)
         snprintf(r->label,sizeof r->label,"DPN");
     ui_fixture_copy_menu(r->first,sizeof r->first,38u);
     ui_fixture_copy_menu(r->side,sizeof r->side,36u);
     ui_fixture_copy_menu(r->mark,sizeof r->mark,40u);
-    if(!r->mark[0] && !_menuEntries[39].isInvisible &&
+    /* A played OG fixture has a visible '-' separator in entry 40;
+     * the real two scores are in visible entries 39 and 41. Reading
+     * only the separator hid the score (RG-014, 227 screenshots).
+     * Keep the historical fallback for other worlds/modes. */
+    if((r->expandedBolivia || !r->mark[0]) &&
+       !_menuEntries[39].isInvisible &&
        !_menuEntries[41].isInvisible) {
-        snprintf(r->mark,sizeof r->mark,"%d-%d",
-                 (int)(int16_t)_menuEntries[39].fgWord,
-                 (int)(int16_t)_menuEntries[41].fgWord);
-        r->scoreText=1u;
+        const int homeScore=(int)(int16_t)_menuEntries[39].fgWord;
+        const int awayScore=(int)(int16_t)_menuEntries[41].fgWord;
+        if(homeScore>=0 && homeScore<=99 && awayScore>=0 && awayScore<=99) {
+            snprintf(r->mark,sizeof r->mark,"%d-%d",homeScore,awayScore);
+            r->scoreText=1u;
+        }
     }
     ui_fixture_copy_menu(r->opponent,sizeof r->opponent,42u);
     if(_gameType==4 && _gameListArray[row*2u]) {
@@ -2329,6 +2338,9 @@ static void ui_render_merged_calendar(void)
     ExpandedBoliviaManagerFixture cup[16],next;
     const unsigned cupCount=Expanded_OGWorld_BoliviaManagerFixtures(cup,16u);
     const int haveNext=Expanded_OGWorld_BoliviaManagerNext(&next);
+    BoliviaCupFixture ordered[BOLIVIA_CUP_GROUP_FIXTURES];
+    const int groupDates=BoliviaCup_ChronologicalFixtures(ordered)==
+                         BOLIVIA_CUP_GROUP_FIXTURES;
     const uint32_t first=count?merged[0].dayKey:0u;
     for(unsigned i=0u;i<cupCount && i<16u && count<32u;++i) {
         const uint32_t key=ui_fixture_date_key(cup[i].year,
@@ -2343,10 +2355,36 @@ static void ui_render_merged_calendar(void)
         memset(r,0,sizeof *r);
         r->dayKey=key;r->day=cup[i].day;r->month=cup[i].month;
         r->cup=1u;r->expandedBolivia=1u;
-        snprintf(r->label,sizeof r->label,"COPPA");
+        snprintf(r->label,sizeof r->label,"COPA");
+        /* Same phase dictionary used by Competition Info. The 36/68px
+         * native columns cannot fit the full competition title AND a
+         * long stage: show COPA + phase, while the club viewer carries
+         * the full name Copa Bolivia. Derby is a group-stage class. */
+        unsigned phase=BOLIVIA_CUP_PHASE_GROUP;
+        if(cup[i].stage==0u && groupDates && cup[i].serial<64u &&
+           ordered[cup[i].serial].fixtureId==cup[i].fixtureId &&
+           ordered[cup[i].serial].isDerby)
+            phase=BOLIVIA_CUP_PHASE_DERBY;
+        else if(cup[i].stage==1u && cup[i].serial<BOLIVIA_KO_FIXTURES)
+            phase=BOLIVIA_CUP_PHASE_QUARTER+
+                  (unsigned)kBoliviaKO2026[cup[i].serial].round;
+        snprintf(r->first,sizeof r->first,"%s",BoliviaCup_PhaseName(phase));
         snprintf(r->side,sizeof r->side,"%s",
                  cup[i].home==_selTeamNumber?"(H)":"(A)");
-        snprintf(r->mark,sizeof r->mark,"V");
+        uint8_t goalsHome=0u,goalsAway=0u;
+        const int score=Expanded_OGWorld_BoliviaManagerScore(
+            &cup[i],&goalsHome,&goalsAway);
+        if(score==1) {
+            const unsigned managerHome=cup[i].home==_selTeamNumber;
+            snprintf(r->mark,sizeof r->mark,"%u-%u",
+                     managerHome?(unsigned)goalsHome:(unsigned)goalsAway,
+                     managerHome?(unsigned)goalsAway:(unsigned)goalsHome);
+            r->scoreText=1u;
+        } else if(score<0) {
+            snprintf(r->mark,sizeof r->mark,"?");
+        } else {
+            snprintf(r->mark,sizeof r->mark,"V");
+        }
         snprintf(r->opponent,sizeof r->opponent,"%.17s",cup[i].opponent);
     }
     for(unsigned i=1u;i<count;++i) {

@@ -156,4 +156,23 @@ static inline unsigned BoliviaCup_ChronologicalFixtures(
     }
     return count;
 }
+/* One phase-label dictionary for Competition Info and the career calendar.
+ * DERBY is a GROUP STAGE match class (the two cross-series days), NOT
+ * an extra native OG elimination round. The KO round values come from
+ * the original bracket's round index, not a predicted future opponent. */
+enum { BOLIVIA_CUP_PHASE_GROUP=0, BOLIVIA_CUP_PHASE_DERBY=1,
+       BOLIVIA_CUP_PHASE_QUARTER=2, BOLIVIA_CUP_PHASE_SEMI=3,
+       BOLIVIA_CUP_PHASE_FINAL=4 };
+static inline const char *BoliviaCup_PhaseName(unsigned phase)
+{
+    switch(phase) {
+        case BOLIVIA_CUP_PHASE_GROUP: return "GROUP STAGE";
+        case BOLIVIA_CUP_PHASE_DERBY: return "DERBY";
+        case BOLIVIA_CUP_PHASE_QUARTER: return "QUARTER-FINAL";
+        case BOLIVIA_CUP_PHASE_SEMI: return "SEMI-FINAL";
+        case BOLIVIA_CUP_PHASE_FINAL: return "FINAL";
+        default: return "STAGE UNAVAILABLE";
+    }
+}
+
 #endif /* BOLIVIA_CUP_SEQUENCE_H */

@@ -50,12 +50,21 @@ typedef struct ExpandedBoliviaManagerFixture {
     char opponent[18]; /* bounded OG teamName for the existing SWOS font */
 } ExpandedBoliviaManagerFixture;
 int Expanded_OGWorld_BoliviaManagerNext(ExpandedBoliviaManagerFixture *out);
-/* Play exactly the next pending fixture on the ORIGINAL OG executor.
- * Returns 1 only after native progress AND one witness; 0 on rejection
- * or cancellation. Call only from the career calendar thread. */
+/* Run exactly ONE pending Copa fixture with the original OG executor.
+ * simulate=0: interactive OG game; simulate=1: OG score simulator.
+ * The same resident, RNG, journal witness and CAR transaction are used.
+ * Returns 1 ONLY for native progress + one witness, 0 on cancel/reject. */
 int Expanded_OGWorld_BoliviaManagerPlay(
-    const ExpandedBoliviaManagerFixture *expected);
+    const ExpandedBoliviaManagerFixture *expected,int simulate);
 int Expanded_OGWorld_BoliviaManagerInteractive(void);
+/* Only skip the manual lineup when the manager explicitly selected
+ * the Copa OG SIMULATE MATCH action, never for ordinary OG/CPU matches. */
+int Expanded_OGWorld_BoliviaManagerAutoSim(void);
+/* Read a completed fixture's actual OG witness, never generate a score.
+ * 1=verified score, 0=no played witness, -1=ambiguous/inconsistent. */
+int Expanded_OGWorld_BoliviaManagerScore(
+    const ExpandedBoliviaManagerFixture *fixture,
+    uint8_t *homeGoals,uint8_t *awayGoals);
 /* The current hired club's independent type2/KO Copa Bolivia resident.
  * Read-only viewer binding, never a fake local career competition slot. */
 int Expanded_OGWorld_BoliviaClubCupAvailable(void);

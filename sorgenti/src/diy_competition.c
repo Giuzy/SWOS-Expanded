@@ -7380,6 +7380,13 @@ void DesignDIYCupOnDraw(void)
             uint16_t d1 = *(uint16_t *)&_diyCompetitionStart.base.numRounds; /* DIY_COMPETITION_FIELD_3A+$20 */
             uint16_t d2 = *(uint16_t *)&_diyCompetitionStart.base.subRoundCounter; /* DIY_COMPETITION_FIELD_3A+$22 */
             const char *roundStr = GetNextCupRoundString(roundIdx, d1, d2);
+#ifdef SWOS_SDL_BUILD
+            /* The career calendar uses this SAME phase name table;
+             * bracket stage remains the original OG round index. */
+            if(boliviaStages)
+                roundStr=BoliviaCup_PhaseName(
+                    BOLIVIA_CUP_PHASE_QUARTER+(unsigned)roundIdx);
+#endif
             a4->fg = (uintptr_t)roundStr;
             a4++;
 
@@ -12015,6 +12022,9 @@ uint16_t DIY_PlayCupMatchAndAdvance(int16_t allowSquadChanges, int16_t mode) {
             !Expanded_MidseasonJoin_Active()
 #ifdef SWOS_SDL_BUILD
             && !Expanded_OGWorld_IsSimulating()
+            /* Explicit hired Copa SIMULATE MATCH must never open the
+             * player-coach manual lineup before OG produces a score. */
+            && !Expanded_OGWorld_BoliviaManagerAutoSim()
 #endif
             ) {
             /* At least one human/coach team — show SetupPlayers with no squad changes.
@@ -12563,7 +12573,11 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
         if ((ctrl1 == 2 || ctrl2 == 2 || ctrl1 == 3 || ctrl2 == 3) &&
             _seasonUpdateInProgress == 0 &&
             _careerAutoAdvanceInProgress == 0 &&
-            !Expanded_MidseasonJoin_Active()) {
+            !Expanded_MidseasonJoin_Active()
+#ifdef SWOS_SDL_BUILD
+            && !Expanded_OGWorld_BoliviaManagerAutoSim()
+#endif
+            ) {
             /* At least one human/coach team — show SetupPlayers */
             SetupPlayers(team1, team2, (int16_t)_diyCompetitionStart.matchData.league.leagueMaxSubstitutes,
                           baseEx->base.substitutesCount, 0, 0);  /* 0x3C */

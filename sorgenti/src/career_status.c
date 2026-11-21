@@ -6539,10 +6539,53 @@ static int exp_bolivia_ko_pair(const ExpandedOGCup *ctx,
     if(awayIndex)*awayIndex=(int)ai;
     return 1;
 }
-/* The event-registry's Liga occurrence cursor is reconstructed from
- * original OG result witnesses, never from the native TSKC/phase date.
- * A manager's next civil date belongs to our Bolivia pilot registry.
- * This reader does not mutate the resident, RNG, journal or save. */
+/* The 16-club DPN is a regular OG type0 league, not the type2
+ * LeaguePhase grid. Its ONLY pairing source is the same pointer table,
+ * shuffle index and second-leg swap used by getCurrentFixtureTeamPtrs.
+ * This is a readonly projection; OG still executes and owns every result.
+ * We never use the resident's mutable progress cursor to invent dates. */
+extern const uint8_t *_fixtureSchedulePtrTable[];
+static int exp_bolivia_league_pair(const ExpandedOGLeague *ctx,
+    unsigned serial,uint16_t *home,uint16_t *away,
+    const TeamFileEx **homeTeam,const TeamFileEx **awayTeam)
+{
+    if(!ctx || !ctx->used || !home || !away || serial>=240u ||
+       ctx->teamCount!=16u || ctx->comp.base.numTeams!=16 ||
+       ctx->comp.base.competitionType!=0 ||
+       ctx->comp.base.totalMatchesInRound!=16 ||
+       ctx->comp.base.matchPairsPerRound!=1 ||
+       ctx->comp.base.playEachTeam!=2 ||
+       ctx->comp.leagueTotalMatches!=30u ||
+       !_fixtureSchedulePtrTable[14])return 0;
+    const unsigned slot=serial%120u;
+    const uint8_t *const schedule=_fixtureSchedulePtrTable[14];
+    const uint8_t *const shuffle=ctx->comp.matchData.league.shuffleAndPad;
+    const unsigned posH=schedule[slot*2u];
+    const unsigned posA=schedule[slot*2u+1u];
+    if(posH>=16u || posA>=16u || posH==posA)return 0;
+    const unsigned rowH=shuffle[posH],rowA=shuffle[posA];
+    if(rowH>=16u || rowA>=16u || rowH==rowA)return 0;
+    const int32_t indexH=ctx->comp.leagueStandings[rowH].teamSelOffset;
+    const int32_t indexA=ctx->comp.leagueStandings[rowA].teamSelOffset;
+    if(indexH<0 || indexA<0 || indexH>=16 || indexA>=16 ||
+       indexH==indexA)return 0;
+    const TeamFileEx *h=&ctx->teams[indexH],*a=&ctx->teams[indexA];
+    if(h->team.countryNumber!=45u || a->team.countryNumber!=45u ||
+       h->team.teamControls!=1u || a->team.teamControls!=1u)return 0;
+    if(serial>=120u) {
+        const TeamFileEx *swap=h;h=a;a=swap;
+    }
+    *home=PACK_BE_U16(h->team.countryNumber,h->team.teamOrdinal);
+    *away=PACK_BE_U16(a->team.countryNumber,a->team.teamOrdinal);
+    if(*home==*away)return 0;
+    if(homeTeam)*homeTeam=h;
+    if(awayTeam)*awayTeam=a;
+    return 1;
+}
+/* A played occurrence is the exact OG journal serial/pair, irrespective of
+ * whether the original OG result came from the resident CPU (origin 1),
+ * the locally played manager (2) or another local CPU fixture (3).
+ * The local->resident commit does not make a second result. */
 int Expanded_OGWorld_BoliviaLeagueWitnessProgress(unsigned *played)
 {
     if(played)*played=0u;
@@ -6560,24 +6603,34 @@ int Expanded_OGWorld_BoliviaLeagueWitnessProgress(unsigned *played)
                        ctx->teams[k].team.teamOrdinal)==_selTeamNumber)
             ++member;
     if(member!=1)return 0;
-    unsigned count=0u;
+    uint8_t witnessed[30]={0};
     for(size_t i=0u;i<s_expOGFixtureCount;++i) {
         const uint8_t *row=s_expOGFixtures+i*EXP_OG_FIXTURE_SIZE;
         if(row[0]!=0u || row[1]!=45u || row[2]!=0u ||
-           row[15]!=1u || exp_fixture_get16(row+4u)!=year)continue;
+           exp_fixture_get16(row+4u)!=year)continue;
         const uint16_t home=exp_fixture_get16(row+8u);
         const uint16_t away=exp_fixture_get16(row+10u);
-        if(home==_selTeamNumber && away==_selTeamNumber)return 0;
-        if(home==_selTeamNumber || away==_selTeamNumber)
-            if(++count>30u)return 0;
+        if(home!=_selTeamNumber && away!=_selTeamNumber)continue;
+        const unsigned serial=exp_fixture_get16(row+6u);
+        if(row[15]<1u || row[15]>3u || serial>=240u ||
+           serial>=ctx->comp.matchesPlayedCount ||
+           (home==_selTeamNumber && away==_selTeamNumber))return 0;
+        uint16_t expectedH=0u,expectedA=0u;
+        if(!exp_bolivia_league_pair(ctx,serial,&expectedH,&expectedA,
+                                    NULL,NULL) ||
+           home!=expectedH || away!=expectedA ||
+           ++witnessed[serial/8u]!=1u)return 0;
     }
-    if(count>(unsigned)ctx->comp.matchesPlayedCount)return 0;
+    unsigned count=0u;
+    for(unsigned r=0u;r<30u;++r) {
+        if(witnessed[r]) {
+            if(count!=r)return 0; /* no holes and no synthetic progress */
+            ++count;
+        }
+    }
     *played=count;
     return 1;
 }
-/* Bolivia pilot: original OG league pair table is immutable INPUT data;
- * the civil date comes from the new registry, not the native phase/TSKC.
- * leagueStandings[row].teamSelOffset resolves the selected team INDEX. */
 unsigned Expanded_OGWorld_BoliviaLeagueFixtures(
     ExpandedBoliviaManagerFixture *out,unsigned capacity)
 {
@@ -6596,30 +6649,16 @@ unsigned Expanded_OGWorld_BoliviaLeagueFixtures(
         if(!ExpandedBolivia_LeagueRoundDate(year,round,&date))return 0u;
         unsigned found=0u;
         for(unsigned match=0u;match<8u;++match) {
-            const unsigned slot=(round%15u)*8u+match;
-            const unsigned rowH=ctx->comp.leaguePhase.cal[slot][0];
-            const unsigned rowA=ctx->comp.leaguePhase.cal[slot][1];
-            if(rowH>=16u || rowA>=16u || rowH==rowA)return 0u;
-            const int32_t idxH=ctx->comp.leagueStandings[rowH].teamSelOffset;
-            const int32_t idxA=ctx->comp.leagueStandings[rowA].teamSelOffset;
-            if(idxH<0 || idxA<0 || idxH>=16 || idxA>=16 || idxH==idxA)
-                return 0u;
-            const TeamFileEx *const th=&ctx->teams[idxH];
-            const TeamFileEx *const ta=&ctx->teams[idxA];
-            if(th->team.countryNumber!=45u || ta->team.countryNumber!=45u)
-                return 0u;
-            uint16_t home=PACK_BE_U16(45u,th->team.teamOrdinal);
-            uint16_t away=PACK_BE_U16(45u,ta->team.teamOrdinal);
-            const TeamFileEx *homeTeam=th,*awayTeam=ta;
-            if(round>=15u) {
-                const uint16_t swap=home;home=away;away=swap;
-                homeTeam=ta;awayTeam=th;
-            }
+            const unsigned serial=round*8u+match;
+            uint16_t home=0u,away=0u;
+            const TeamFileEx *homeTeam=NULL,*awayTeam=NULL;
+            if(!exp_bolivia_league_pair(ctx,serial,&home,&away,
+                &homeTeam,&awayTeam))return 0u;
             if(home==_selTeamNumber || away==_selTeamNumber) {
                 if(++found!=1u || count>=capacity)return 0u;
                 out[count]=(ExpandedBoliviaManagerFixture){
                     year,home,away,(uint16_t)round,
-                    (uint16_t)(round*8u+match+1u),
+                    (uint16_t)(serial+1u),
                     date.month,date.day,2u,{0}};
                 const TeamFileEx *opponent=
                     home==_selTeamNumber?awayTeam:homeTeam;
@@ -6632,7 +6671,9 @@ unsigned Expanded_OGWorld_BoliviaLeagueFixtures(
     }
     return count==30u?count:0u;
 }
-/* Never infer a score from dates, counters, or a pre-hire TSKC row. */
+/* A score is not proved by a date or by local TSKC status. Require the
+ * original OG serial plus the oriented pair and a unique resident/local
+ * witness. A mismatch means corrupted identity, not "unplayed". */
 int Expanded_OGWorld_BoliviaLeagueScore(
     const ExpandedBoliviaManagerFixture *f,
     uint8_t *homeGoals,uint8_t *awayGoals)
@@ -6640,16 +6681,25 @@ int Expanded_OGWorld_BoliviaLeagueScore(
     if(!f || !homeGoals || !awayGoals || f->stage!=2u ||
        f->home==f->away || (uint8_t)(f->home>>8)!=45u ||
        (uint8_t)(f->away>>8)!=45u ||
+       f->fixtureId<1u || f->fixtureId>240u ||
+       f->serial!=(uint16_t)((f->fixtureId-1u)/8u) ||
        World_Current()!=WORLD_2627 ||
        f->year!=Expanded_OGWorld_SaveYear())return -1;
+    const ExpandedOGLeague *const ctx=exp_find(45u,0u,f->year);
+    uint16_t expectedH=0u,expectedA=0u;
+    if(!ctx || !exp_bolivia_league_pair(ctx,f->fixtureId-1u,
+                                        &expectedH,&expectedA,NULL,NULL) ||
+       expectedH!=f->home || expectedA!=f->away)return -1;
     unsigned found=0u;
     for(size_t i=0u;i<s_expOGFixtureCount;++i) {
         const uint8_t *row=s_expOGFixtures+i*EXP_OG_FIXTURE_SIZE;
         if(row[0]!=0u || row[1]!=45u || row[2]!=0u ||
-           row[15]!=1u || exp_fixture_get16(row+4u)!=f->year ||
+           exp_fixture_get16(row+4u)!=f->year ||
+           exp_fixture_get16(row+6u)!=f->fixtureId-1u)continue;
+        if(row[15]<1u || row[15]>3u ||
            exp_fixture_get16(row+8u)!=f->home ||
-           exp_fixture_get16(row+10u)!=f->away)continue;
-        if(++found>1u)return -1;
+           exp_fixture_get16(row+10u)!=f->away ||
+           ++found>1u)return -1;
         *homeGoals=row[12];*awayGoals=row[13];
     }
     return found?1:0;

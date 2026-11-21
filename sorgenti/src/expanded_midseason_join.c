@@ -1108,6 +1108,7 @@ int Expanded_BoliviaManagerActionableCup(ExpandedBoliviaManagerFixture *out)
  * a fake TSKC fixture, alter hitboxes or introduce a tournament simulator. */
 void Expanded_BoliviaManagerPrepareMenu(void)
 {
+    extern uint16_t _selTeamNumber;
     extern uintptr_t _currentMenuPtr;
     extern uint8_t _contestMenu[];
     extern MenuEntry _menuEntries[];
@@ -1235,7 +1236,7 @@ void Expanded_CareerSyncWorldAfterLeagueMatch(uint8_t phase,
                                                unsigned playedBefore)
 {
     extern DIYCompetitionEx _diyCompetitionStart;
-    extern uint16_t _currentSeasonShowing,_selTeamNumber;
+    extern uint16_t _currentSeasonShowing,_selTeamNumber,_currentDivisionIndex;
     extern uint16_t Expanded_OGWorld_SaveYear(void);
     extern int Expanded_OGWorld_ClubBound(void);
     extern int Expanded_OGWorld_PreflightLocalLeague(const DIYCompetitionEx *);

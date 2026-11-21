@@ -192,6 +192,8 @@ extern void DesignDIYTournamentOnSelect9(void);
 extern void DesignDIYTournamentReinit(void);
 extern void DesignDIYTournament_AdjustStageQualifiers(void);
 extern void DrawPlayerEntries(void);
+extern void DrawCareerReserveEntries(void);
+extern void OnCareerReserveSelected(void);
 extern void EditCustomTeamMenu(void);
 extern void EditTacicsMovePlayersOrBall(void);
 extern void EditTactics28AfterDraw(void);
@@ -9131,11 +9133,158 @@ Menu_PlayMatch _playMatchMenu = {
     },
     {
         { 63, -50, 68, 11 },
-        { MENU_CMD_NAV, 7, -1, 10, -1 },
+        { MENU_CMD_NAV, 7, -1, 10, 69 },
         { MENU_CMD_COLORS, 0xD },
         { MENU_CMD_TEXT_PTR, 0x0, _aUniform },
         { MENU_CMD_ONSELECT_FIRE, UniformSelected },
         MENU_CMD_END
+    },
+    { MENU_MARK_START_MENU, 0, -20 },
+    {
+        {
+            { 116, 24, 82, 8 },
+            { MENU_CMD_NAV, 13, -1, 68, 70 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, 33, 82, 8 },
+            { MENU_CMD_NAV, 14, -1, 69, 71 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, 42, 82, 8 },
+            { MENU_CMD_NAV, 15, -1, 70, 72 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, 51, 82, 8 },
+            { MENU_CMD_NAV, 16, -1, 71, 73 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, 60, 82, 8 },
+            { MENU_CMD_NAV, 17, -1, 72, 74 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, 69, 82, 8 },
+            { MENU_CMD_NAV, 18, -1, 73, 75 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, 78, 82, 8 },
+            { MENU_CMD_NAV, 19, -1, 74, 76 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, 87, 82, 8 },
+            { MENU_CMD_NAV, 20, -1, 75, 77 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, 96, 82, 8 },
+            { MENU_CMD_NAV, 21, -1, 76, 78 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, 105, 82, 8 },
+            { MENU_CMD_NAV, 22, -1, 77, 79 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, 114, 82, 8 },
+            { MENU_CMD_NAV, 23, -1, 78, 80 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, 123, 82, 8 },
+            { MENU_CMD_NAV, 24, -1, 79, 81 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, -124, 82, 8 },
+            { MENU_CMD_NAV, 25, -1, 80, 82 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, -115, 82, 8 },
+            { MENU_CMD_NAV, 26, -1, 81, 83 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, -106, 82, 8 },
+            { MENU_CMD_NAV, 27, -1, 82, 84 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        },
+        {
+            { 116, -97, 82, 8 },
+            { MENU_CMD_NAV, 28, -1, 83, 9 },
+            MENU_CMD_INVISIBLE,
+            { MENU_CMD_COLORS, 0xB },
+            { MENU_CMD_AFTER_DRAW, DrawCareerReserveEntries },
+            { MENU_CMD_ONSELECT_FIRE, OnCareerReserveSelected },
+            MENU_CMD_END
+        }
     },
     MENU_MARK_END_MENU
 };

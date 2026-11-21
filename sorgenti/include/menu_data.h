@@ -3120,7 +3120,7 @@ typedef struct Menu_SelectNationalTeam
 } Menu_SelectNationalTeam;
 #pragma pack(pop)
 
-/* 234 - Menu 37: playMatchMenu (0x4BC = 1212 bytes) */
+/* 234 - Menu 37: playMatchMenu (0x6A2 = 1698 bytes on 32-bit; original 0x4BC) */
 #pragma pack(push, 1)
 typedef struct Menu_PlayMatch
 {
@@ -3300,6 +3300,16 @@ typedef struct Menu_PlayMatch
   MenuEntry_Byte_SpriteFgOnly entry56;
   MenuEntry_Byte_TextNoPtrOnly entries57_67[11];
   MenuEntry_Byte_Nav_Colors_TextPtr_OnSelect entry68;   /* UNIFORM (SDL only) */
+  MenuMark_StartMenu extraCareerOrigin; /* reset coordinates after side pitch */
+  struct __attribute__((packed)) {
+    MenuCoords8 rc;
+    MenuCmd_Nav nav;
+    MenuCmd_Invisible invisible;
+    MenuCmd_Colors colors;
+    MenuCmd_AfterDraw afterDraw;
+    MenuCmd_OnSelect onSelect;
+    MenuCommand end;
+  } entries69_84[16];
   MenuMark markEndMenu;
 } Menu_PlayMatch;
 #pragma pack(pop)

@@ -1523,7 +1523,7 @@
           "left": 7,
           "right": -1,
           "up": 10,
-          "down": -1
+          "down": 69
         },
         {
           "op": "colors",
@@ -1538,6 +1538,555 @@
         {
           "op": "onselect_fire",
           "func": "UniformSelected"
+        }
+      ]
+    },
+    {
+      "kind": "set_origin",
+      "x": 0,
+      "y": -20
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": 24,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 13,
+          "right": -1,
+          "up": 68,
+          "down": 70
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": 33,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 14,
+          "right": -1,
+          "up": 69,
+          "down": 71
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": 42,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 15,
+          "right": -1,
+          "up": 70,
+          "down": 72
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": 51,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 16,
+          "right": -1,
+          "up": 71,
+          "down": 73
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": 60,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 17,
+          "right": -1,
+          "up": 72,
+          "down": 74
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": 69,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 18,
+          "right": -1,
+          "up": 73,
+          "down": 75
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": 78,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 19,
+          "right": -1,
+          "up": 74,
+          "down": 76
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": 87,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 20,
+          "right": -1,
+          "up": 75,
+          "down": 77
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": 96,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 21,
+          "right": -1,
+          "up": 76,
+          "down": 78
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": 105,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 22,
+          "right": -1,
+          "up": 77,
+          "down": 79
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": 114,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 23,
+          "right": -1,
+          "up": 78,
+          "down": 80
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": 123,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 24,
+          "right": -1,
+          "up": 79,
+          "down": 81
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": -124,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 25,
+          "right": -1,
+          "up": 80,
+          "down": 82
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": -115,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 26,
+          "right": -1,
+          "up": 81,
+          "down": 83
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": -106,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 27,
+          "right": -1,
+          "up": 82,
+          "down": 84
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "coords": {
+        "x": 116,
+        "y": -97,
+        "w": 82,
+        "h": 8
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 28,
+          "right": -1,
+          "up": 83,
+          "down": 9
+        },
+        {
+          "op": "invisible"
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 11
+        },
+        {
+          "op": "after_draw",
+          "func": "DrawCareerReserveEntries"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "OnCareerReserveSelected"
         }
       ]
     }

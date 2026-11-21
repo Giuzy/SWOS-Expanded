@@ -96,6 +96,26 @@ extern uint16_t TrainingMatch_BSourceCareerSlot(uint16_t bFileIdx);
 extern uint16_t TrainingMatch_SyncBForCareerSwap(uint16_t aSlot, uint16_t bSlot);
 extern uint16_t TrainingMatch_KeepCrossSwapForMatch(uint16_t fileA,
                                                     uint16_t fileB, int swapShirtNumbers);
+/* Original pre-match menu: extra true career players 16..31 (SDL only).
+ * No synthetic TEAM B, no opponent editing, no second match controller. */
+enum { kCareerExtraFirst=69, kCareerExtraCount=16 };
+static int16_t s_extraReserveSlot=-1, s_extraDrawSlot=-1;
+static int Expanded_CareerExtraVisible(void)
+{
+    if (_gameType!=GAME_TYPE_CAREER || _trainingGame || !_squadChangesAllowed ||
+        _showingCpuTeams || _viewingOpponentTeam || !_playMatchTeam1Ptr ||
+        _selTeamNumber==0xFFFF || _careerNumPlayers<=16 || _careerNumPlayers>32)
+        return 0;
+    return PACK_BE_U16(_playMatchTeam1Ptr->team.countryNumber,
+                       _playMatchTeam1Ptr->team.teamOrdinal)==_selTeamNumber;
+}
+static void Expanded_CareerExtraUpdate(void)
+{
+    const int visible=Expanded_CareerExtraVisible();
+    for(unsigned i=0;i<kCareerExtraCount;++i)
+        _menuEntries[kCareerExtraFirst+i].isInvisible =
+            !visible || 16u+i>=(unsigned)_careerNumPlayers;
+}
 static int s_trainingCrossSwapRunning; /* suppress the automatic B rebuild for X */
 static uint16_t s_trainingCrossSide; /* 0 none; 1 A; 2 B */
 static uint16_t s_trainingCrossSlot;
@@ -774,6 +794,9 @@ void SetVariableButtons(void) {
     }
 
     UpdateUniformButton();
+#ifdef SWOS_SDL_BUILD
+    Expanded_CareerExtraUpdate();
+#endif
 }
 
 /* ================================================================ */
@@ -829,9 +852,12 @@ void PlayMatchMenuReinit(void) {
 static void Expanded_RepairCareerMatchdaySquad(void)
 {
     TeamFileEx *team=_playMatchTeam1Ptr;
-    if(_gameType!=GAME_TYPE_CAREER || team!=&_careerTeam ||
-       !_squadChangesAllowed || _trainingGame ||
-       team->team.teamControls==TEAM_COMPUTER)return;
+    if(_gameType!=GAME_TYPE_CAREER || !team || !_squadChangesAllowed ||
+       _trainingGame || team->team.teamControls==TEAM_COMPUTER)return;
+    const uint16_t teamNum=PACK_BE_U16(team->team.countryNumber,
+                                      team->team.teamOrdinal);
+    /* The Copa menu can use a selected-team COPY of our same OG club. */
+    if(_selTeamNumber==0xFFFF || teamNum!=_selTeamNumber)return;
 
     const unsigned n=_careerNumPlayers;
     const unsigned originalBench=_maxSubstitutesEntries;
@@ -843,20 +869,20 @@ static void Expanded_RepairCareerMatchdaySquad(void)
 #else
     const int trace=0;
 #endif
-    if(n<11u || n>16u || originalBench>8u) {
+    if(n<11u || n>32u || originalBench>8u) {
         if(trace)fprintf(stderr,"[career-lineup] UNSUPPORTED roster=%u bench=%u\n",
                          n,originalBench);
         return;
     }
     for(unsigned i=0;i<n;++i) {
         const unsigned id=_currentMatchPlayers[i];
-        if(id>=16u || (seen&(1u<<id))) {
+        if(id>=32u || (seen&(1u<<id))) {
             if(trace)fprintf(stderr,
                 "[career-lineup] INVALID_SLOT ordinal=%u index=%u\n",i,id);
             return;
         }
         seen|=1u<<id;
-        const PlayerFile *pf=&team->players[id];
+        const PlayerFile *pf=(const PlayerFile *)(GetPlayer(teamNum,(uint16_t)id)+76);
         if(Career_IsSelectionUnavailable(pf,_playMatchExcludeFlags))
             continue;
         ++eligible;
@@ -877,15 +903,20 @@ static void Expanded_RepairCareerMatchdaySquad(void)
      * Goalkeeper slot zero must still contain a real eligible goalkeeper. */
     for(unsigned slot=0;slot<11u;++slot) {
         const unsigned id=_currentMatchPlayers[slot];
-        const PlayerFile *pf=&team->players[id];
-        if(!Career_IsSelectionUnavailable(pf,_playMatchExcludeFlags))
+        const PlayerFile *pf=(const PlayerFile *)(GetPlayer(teamNum,(uint16_t)id)+76);
+        const unsigned starterPos=((unsigned)pf->positionAndFace&PF_POSITION_MASK)
+                                  >>PF_POSITION_SHIFT;
+        /* A legal XI contains one GK at slot 0 and no GK in outfield. */
+        if(!Career_IsSelectionUnavailable(pf,_playMatchExcludeFlags) &&
+           ((slot==0u && starterPos==0u) ||
+            (slot!=0u && starterPos!=0u)))
             continue;
         const unsigned wanted=((unsigned)pf->positionAndFace&PF_POSITION_MASK)
                                >>PF_POSITION_SHIFT;
         int chosen=-1;
         for(int pass=0;pass<2 && chosen<0;++pass) {
             for(unsigned j=11u;j<n;++j) {
-                const PlayerFile *c=&team->players[_currentMatchPlayers[j]];
+                const PlayerFile *c=(const PlayerFile *)(GetPlayer(teamNum,(uint16_t)_currentMatchPlayers[j])+76);
                 if(Career_IsSelectionUnavailable(c,_playMatchExcludeFlags))
                     continue;
                 const unsigned pos=((unsigned)c->positionAndFace&PF_POSITION_MASK)
@@ -914,12 +945,12 @@ static void Expanded_RepairCareerMatchdaySquad(void)
     const unsigned selected=11u+bench;
     for(unsigned i=11u;i<selected;++i) {
         const unsigned id=_currentMatchPlayers[i];
-        if(!Career_IsSelectionUnavailable(&team->players[id],
+        if(!Career_IsSelectionUnavailable((const PlayerFile *)(GetPlayer(teamNum,(uint16_t)id)+76),
                                            _playMatchExcludeFlags))continue;
         int chosen=-1;
         for(unsigned j=selected;j<n;++j) {
             const unsigned test=_currentMatchPlayers[j];
-            if(!Career_IsSelectionUnavailable(&team->players[test],
+            if(!Career_IsSelectionUnavailable((const PlayerFile *)(GetPlayer(teamNum,(uint16_t)test)+76),
                                                _playMatchExcludeFlags)) {
                 chosen=(int)j;break;
             }
@@ -999,6 +1030,10 @@ void OnSwapPlayer(MenuEntry *a5) {
     /* Normal player path */
     {
         int16_t d6 = a5->ordinal - _menuEntries[13].ordinal;
+#ifdef SWOS_SDL_BUILD
+        if(s_extraReserveSlot>=0) d6=s_extraReserveSlot;
+        else
+#endif
         if (d6 == 16) d6 = d6 - 5 + _maxSubstitutesEntries;
 
         uint16_t slot, fIdx;
@@ -1477,14 +1512,37 @@ void TogglePlayerCoach(void) {
  * skills, and value/status for each player row.
  * ================================================================ */
 __attribute__((used, externally_visible))
+void OnCareerReserveSelected(MenuEntry *e)
+{
+#ifdef SWOS_SDL_BUILD
+    if(!Expanded_CareerExtraVisible())return;
+    const int row=(int)e->ordinal-kCareerExtraFirst;
+    if(row<0 || row>=kCareerExtraCount ||
+       16u+(unsigned)row>=(unsigned)_careerNumPlayers)return;
+    s_extraReserveSlot=(int16_t)(16+row);
+    OnSwapPlayer(e);
+    s_extraReserveSlot=-1;
+#else
+    (void)e;
+#endif
+}
+
+__attribute__((used, externally_visible))
 void DrawPlayerEntries(MenuEntry *a5) {
     int16_t d7 = a5->ordinal - 13;
     int16_t d5 = 0;
+#ifdef SWOS_SDL_BUILD
+    if(s_extraDrawSlot>=0)d7=s_extraDrawSlot;
+#endif
 
     MenuEntry *bgE = &_menuEntries[31];  /* entry 31 */
     MenuEntry *numE = &_menuEntries[33]; /* entry 33 */
 
-    if (d7 == 16) {
+    if (d7 == 16
+#ifdef SWOS_SDL_BUILD
+        && s_extraDrawSlot<0
+#endif
+       ) {
         d5 = 1;
         d7 = d7 - 5 + _maxSubstitutesEntries;
         bgE->bgColor = (bgE->bgColor & 0xFFF0) | BLUE_TO_BLACK_8;
@@ -1633,7 +1691,36 @@ void DrawPlayerEntries(MenuEntry *a5) {
         valE->isInvisible = 0;
     }
 
+#ifdef SWOS_SDL_BUILD
+    int16_t savedX[6];
+    if(s_extraDrawSlot>=0)
+        for(unsigned i=0;i<6;++i) {
+            savedX[i]=_menuEntries[31+i].x;
+            _menuEntries[31+i].x=(int16_t)(savedX[i]+93);
+        }
+#endif
     DrawMultipleItems(6, &_menuEntries[31]);
+#ifdef SWOS_SDL_BUILD
+    if(s_extraDrawSlot>=0)
+        for(unsigned i=0;i<6;++i)_menuEntries[31+i].x=savedX[i];
+#endif
+}
+
+/* Temporary second list; reuses the original OG row renderer and input. */
+__attribute__((used, externally_visible))
+void DrawCareerReserveEntries(MenuEntry *e)
+{
+#ifdef SWOS_SDL_BUILD
+    if(!Expanded_CareerExtraVisible())return;
+    const int row=(int)e->ordinal-kCareerExtraFirst;
+    if(row<0 || row>=kCareerExtraCount ||
+       16u+(unsigned)row>=(unsigned)_careerNumPlayers)return;
+    s_extraDrawSlot=(int16_t)(16+row);
+    DrawPlayerEntries(e);
+    s_extraDrawSlot=-1;
+#else
+    (void)e;
+#endif
 }
 
 /* ================================================================

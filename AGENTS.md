@@ -1,3 +1,6 @@
+**NON-NEGOTIABLE USER RULE (21/11/2026):** NEVER replace the requested native OG feature or interaction flow with an unapproved workaround, partial simulation, different UI button, shortcut, fake visual flow, or artificially restricted native loop just because the correct implementation is difficult. Report blockers transparently, ask before any compromise, and leave the item OPEN rather than committing a substitute. See docs/AGENTS.md and RG-014 case history. Failed preparatory blobs are not authorized fixes.
+
+
 # SWOS Expanded — entry point for coding agents
 
 This is a **pointer**, not a second copy of the rules. Applicable to the whole repository, including Roo Code and other coding agents.

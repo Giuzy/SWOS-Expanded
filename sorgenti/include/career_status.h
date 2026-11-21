@@ -71,6 +71,14 @@ int Expanded_OGWorld_BoliviaManagerScore(
  * source (resident OG catch-up can differ from real-life results).
  * 1=unique witness; 0=no matching witnessed match; -1=invalid/ambiguous.
  * No keycache, result, date, standings or CAR mutation. */
+/* READONLY: identify the one OG-played first-edition Bolivia league fixture
+ * involving this manager in the native phase. Unlike the legacy keycache,
+ * the resident witness supplies the REAL opponent and oriented score.
+ * 1=one certified OG witness, 0=none, -1=ambiguous/invalid. */
+int Expanded_OGWorld_BoliviaEarlyLeagueFixture(
+    uint16_t year,uint8_t division,uint8_t phase,uint16_t manager,
+    char opponentName[18],uint8_t *managerHome,
+    uint8_t *goalsFor,uint8_t *goalsAgainst);
 int Expanded_OGWorld_BoliviaEarlyLeagueScore(
     uint16_t year,uint8_t division,uint8_t phase,
     uint16_t firstTeam,uint16_t secondTeam,

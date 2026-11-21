@@ -2326,40 +2326,43 @@ int Expanded_UI_CompactFixtureRow(unsigned row,unsigned slotType)
        r->mark[0]=='V' && !r->mark[1] &&
        r->dayKey>=ui_fixture_date_key(World_FirstYear(),1u,1u) &&
        r->dayKey<ui_fixture_date_key(World_FirstYear(),7u,1u) &&
-       _gameListArray[row*2u] && _gameListArray[row*2u+1u]) {
+       _gameListArray[row*2u]) {
         extern uint8_t _teamSelectionKeyCache[8192];
         const uintptr_t start=(uintptr_t)_teamSelectionKeyCache;
-        const uintptr_t game=(uintptr_t)_gameListArray[row*2u+1u];
         const uintptr_t header=(uintptr_t)_gameListArray[row*2u];
-        if(game>=start && game-start<=8192u-18u &&
-           header>=start && header-start<=
-                8192u-sizeof(TeamSelectionKeyCacheEntry)) {
-            const uint8_t *bytes=(const uint8_t *)game;
-            const uint16_t firstTeam=(uint16_t)(
-                ((uint16_t)bytes[0x0cu]<<8)|bytes[0x0du]);
-            const uint16_t secondTeam=(uint16_t)(
-                ((uint16_t)bytes[0x0eu]<<8)|bytes[0x0fu]);
-            if((firstTeam==_selTeamNumber) !=
-               (secondTeam==_selTeamNumber)) {
-                const TeamSelectionKeyCacheEntry *const entry=
-                    (const TeamSelectionKeyCacheEntry *)
-                    _gameListArray[row*2u];
-                uint8_t firstGoals=0u,secondGoals=0u;
-                const int historical=Expanded_OGWorld_BoliviaEarlyLeagueScore(
-                    World_FirstYear(),(uint8_t)_currentDivisionIndex,
-                    entry->sortKey,firstTeam,secondTeam,
-                    &firstGoals,&secondGoals);
-                if(historical==1 && firstGoals<=99u && secondGoals<=99u) {
-                    const unsigned managerFirst=firstTeam==_selTeamNumber;
-                    snprintf(r->mark,sizeof r->mark,"%u-%u",
-                        managerFirst?(unsigned)firstGoals:(unsigned)secondGoals,
-                        managerFirst?(unsigned)secondGoals:(unsigned)firstGoals);
-                    r->scoreText=1u;
-                } else {
-                    /* Do not show a past fixture with no certified OG
-                     * witness as another unplayed future 'V' match. */
-                    snprintf(r->mark,sizeof r->mark,"?");
-                }
+        if(header>=start && header-start<=
+           8192u-sizeof(TeamSelectionKeyCacheEntry)) {
+            const TeamSelectionKeyCacheEntry *const entry=
+                (const TeamSelectionKeyCacheEntry *)_gameListArray[row*2u];
+            char realOpponent[18]={0};
+            uint8_t managerHome=0u,gf=0u,ga=0u;
+            const int witnessed=Expanded_OGWorld_BoliviaEarlyLeagueFixture(
+                World_FirstYear(),(uint8_t)_currentDivisionIndex,
+                entry->sortKey,_selTeamNumber,realOpponent,&managerHome,
+                &gf,&ga);
+            ExpandedWorldDate witnessedDate;
+            const int dateVerified=ExpandedWorld_NativePhaseToDate(
+                World_FirstYear(),entry->sortKey,&witnessedDate) &&
+                witnessedDate.year==World_FirstYear() &&
+                witnessedDate.month<7u;
+            if(witnessed==1u && dateVerified &&
+               gf<=99u && ga<=99u) {
+                /* All four displayed fields identify the SAME real OG
+                 * fixture; the local cached opponent/date may be stale.
+                 * This is OG's canonical native phase date, not an
+                 * independently verified historical FBF date. */
+                r->day=witnessedDate.day;
+                r->month=witnessedDate.month;
+                r->dayKey=ui_fixture_date_key(witnessedDate.year,
+                                 witnessedDate.month,witnessedDate.day);
+                snprintf(r->opponent,sizeof r->opponent,"%.17s",realOpponent);
+                snprintf(r->side,sizeof r->side,"(%c)",managerHome?'H':'A');
+                snprintf(r->mark,sizeof r->mark,"%u-%u",
+                         (unsigned)gf,(unsigned)ga);
+                r->scoreText=1u;
+            } else {
+                /* Phase absent/ambiguous: report unknown, never fabricate. */
+                snprintf(r->mark,sizeof r->mark,"?");
             }
         }
     }

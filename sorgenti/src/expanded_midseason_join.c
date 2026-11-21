@@ -909,6 +909,7 @@ void Expanded_CareerJulyPrepareMenu(void)
     extern MenuEntry _menuEntries[];
     extern void NextMatch(MenuEntry *);
     extern uint8_t _aNextMatch[];
+    extern uint8_t _aPlayMatch[];
     extern uint16_t Expanded_OGWorld_SaveYear(void);
     extern int Expanded_OGWorld_ClubBound(void);
     extern void ContestSetButtons(void);
@@ -954,14 +955,14 @@ void Expanded_CareerJulyPrepareMenu(void)
     }
     if(ready) {
         wasForward=1;
-        /* The highlighted primary career action is entry 7; intercepting
-         * only entry 10 in 205/206 let PLAY MATCH launch August on July 1.
-         * Both existing buttons display FORWARD TIME while it is safe.
-         * No new hitboxes, pixels, native fixtures or stored state. */
+        /* Keep the original primary PLAY MATCH label, but disable it
+         * while July has no playable OG manager fixture. Only the right
+         * existing NEXT MATCH entry may advance the civil clock.
+         * Do not offer two FORWARD TIME buttons or a fake playable match. */
         primary->isInvisible=0;
-        primary->isDisabled=0;
+        primary->isDisabled=1;
         primary->stringFlags &= (uint16_t)~(1u<<13);
-        primary->fg=(uintptr_t)kJulyCaption;
+        primary->fg=(uintptr_t)_aPlayMatch;
         e->isInvisible=0;
         e->isDisabled=0;
         e->onSelect=(MenuEntryFn)Expanded_CareerJulyForward;
@@ -1000,6 +1001,13 @@ int Expanded_CareerJulyIntercept(MenuEntry *entry,unsigned ordinal)
             (unsigned)live.today.month,(unsigned)live.today.day,
             (unsigned)target.year,(unsigned)target.month,
             (unsigned)target.day);
+    if(ordinal==7u) {
+        /* Defensive guard even if a shortcut bypasses the disabled button:
+         * PLAY MATCH must never be a hidden FORWARD TIME action. */
+        fprintf(stderr,"[career-july-intercept] PLAY_BLOCKED "
+                       "no-playable-fixture=1 advance-only-entry=10\n");
+        return 1;
+    }
     Expanded_CareerJulyForward(entry);
     return 1;
 }

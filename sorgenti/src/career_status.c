@@ -6660,6 +6660,53 @@ unsigned Expanded_OGWorld_BoliviaManagerFixtures(
  * Read with exact division, phase, edition and BOTH oriented team IDs.
  * The journal 'as-of' is a capture bound, not a verified real match date.
  * A reverse orientation is allowed only as the same unique recorded pair. */
+/* Read the genuine resident OG journal identity, not the stale manager
+ * TSKC opponent. This is only a visual projection; neither scores nor
+ * fixtures are synthesized, replayed or written back into a CAR. */
+int Expanded_OGWorld_BoliviaEarlyLeagueFixture(
+    uint16_t year,uint8_t division,uint8_t phase,uint16_t manager,
+    char opponentName[18],uint8_t *managerHome,
+    uint8_t *goalsFor,uint8_t *goalsAgainst)
+{
+    if(!opponentName || !managerHome || !goalsFor || !goalsAgainst ||
+       manager==0xffffu || World_Current()!=WORLD_2627 ||
+       year!=World_FirstYear() || phase>=48u)return -1;
+    const ExpandedOGLeague *const ctx=exp_find(45u,division,year);
+    if(!ctx || !ctx->used || ctx->teamCount<2u ||
+       ctx->teamCount>EXP_OG_MAX_TEAMS)return 0;
+    unsigned found=0;
+    uint16_t opponentId=0xffffu;
+    uint8_t home=0u,gf=0u,ga=0u;
+    for(size_t i=0u;i<s_expOGFixtureCount;++i) {
+        const uint8_t *const row=s_expOGFixtures+i*EXP_OG_FIXTURE_SIZE;
+        if(row[0]!=0u || row[1]!=45u || row[2]!=division ||
+           row[3]!=phase || row[15]!=1u ||
+           exp_fixture_get16(row+4u)!=year)continue;
+        const uint16_t h=exp_fixture_get16(row+8u);
+        const uint16_t a=exp_fixture_get16(row+10u);
+        if((h==manager)==(a==manager))continue;
+        if(++found>1u)return -1;
+        home=(uint8_t)(h==manager);
+        opponentId=home?a:h;
+        gf=home?row[12]:row[13];
+        ga=home?row[13]:row[12];
+    }
+    if(found!=1u)return 0;
+    unsigned names=0u;
+    const char *name=NULL;
+    for(unsigned i=0u;i<ctx->teamCount;++i) {
+        const TeamFile *const team=&ctx->teams[i].team;
+        if(PACK_BE_U16(team->countryNumber,team->teamOrdinal)!=opponentId)
+            continue;
+        if(++names>1u)return -1;
+        name=(const char *)team->teamName;
+    }
+    if(names!=1u || !name)return -1;
+    memcpy(opponentName,name,17u);
+    opponentName[17]=0;
+    *managerHome=home;*goalsFor=gf;*goalsAgainst=ga;
+    return 1;
+}
 int Expanded_OGWorld_BoliviaEarlyLeagueScore(
     uint16_t year,uint8_t division,uint8_t phase,
     uint16_t firstTeam,uint16_t secondTeam,

@@ -1328,13 +1328,10 @@ void Expanded_BoliviaManagerPrepareMenu(void)
         return;
     }
     owned=1;
-    /* Single visible action; never rewrite original NEXT MATCH callback. */
-    next->isInvisible=1;
-    next->isDisabled=1;
-    /* A focus retained on the now-hidden original NEXT MATCH entry
-     * must not leave the user navigating an invisible menu control. */
-    Menu *const menu=(Menu *)_currentMenu;
-    if(menu && menu->selectedEntry==next)SetCurrentEntry(7u);
+    /* User correction (v239): show original NEXT MATCH beside the
+     * independent dated CAREER action. NEVER intercept its OG callback.
+     * ContestSetButtons owns NEXT's native enabled/finished state. */
+    next->isInvisible=0;
     const int found=exp_bolivia_career_next(&due,&live,&cup);
     (void)cup;
     if(found<0) {
@@ -1348,19 +1345,15 @@ void Expanded_BoliviaManagerPrepareMenu(void)
         primary->isInvisible=0;
         primary->isDisabled=action<0;
     } else {
-        /* Completed OG season retains original FINISH SEASON.
-         * The native button writer can re-show old NEXT MATCH; this
-         * pilot must keep it hidden even after the last fixture. */
+        /* Completed OG season retains native FINISH SEASON and OG NEXT
+         * disabled state exactly as ContestSetButtons decides. */
         ContestSetButtons();
-        next->isInvisible=1;
-        next->isDisabled=1;
-        if(menu && menu->selectedEntry==next)SetCurrentEntry(7u);
     }
 }
 
 /* Copa manager manual PLAY MATCH (entry 7) and FINISH SEASON guard.
- * The native NEXT MATCH (entry 10) must NOT enter this single-fixture
- * bridge: it keeps the original OG NextMatch/Career_NextMatch callback.
+ * User restored native NEXT MATCH (entry 10): do NOT intercept it here,
+ * retain original OG NextMatch/Career_NextMatch callback.
  * Canceled Copa match: no witness, result or post-match autosave. */
 int Expanded_BoliviaManagerIntercept(MenuEntry *entry,unsigned ordinal)
 {

@@ -27,29 +27,24 @@ static inline void ExpandedBoliviaCalendar_Update(
     v->anchor=v->focusRow>=0?
         v->focusRow-BOLIVIA_CALENDAR_CENTER_ROW:0;
     if(!total) {v->page=0;v->offset=0;return;}
-    const int minPage=v->focusRow>=0?-BOLIVIA_CALENDAR_CENTER_ROW:0;
-    const int maxPage=v->focusRow>=0?
-        (int)total-1-BOLIVIA_CALENDAR_CENTER_ROW:
-        (total>BOLIVIA_CALENDAR_VIEW_ROWS?
-            (int)total-BOLIVIA_CALENDAR_VIEW_ROWS:0);
+    /* Keep the viewport entirely inside real fixtures. Preserve the
+     * visual centre only when there are seven real rows on either side. */
+    const int maxPage=total>BOLIVIA_CALENDAR_VIEW_ROWS?
+        (int)total-BOLIVIA_CALENDAR_VIEW_ROWS:0;
     v->page=ExpandedBoliviaCalendar_Clamp(
-        v->anchor+v->offset,minPage,maxPage);
+        v->anchor+v->offset,0,maxPage);
     v->offset=v->page-v->anchor;
 }
 /* direction -1 = previous chronological fixture; +1 = next.
- * Negative page offsets are legal: blank padding keeps the first/last
- * genuinely actionable OG row at the panel's centre rather than top. */
+ * At the chronological bounds never scroll into blank padding. */
 static inline int ExpandedBoliviaCalendar_Scroll(
     ExpandedBoliviaCalendarViewport *v,int direction)
 {
     if(!v || !v->total || (direction!=-1 && direction!=1))return 0;
-    const int minPage=v->focusRow>=0?-BOLIVIA_CALENDAR_CENTER_ROW:0;
-    const int maxPage=v->focusRow>=0?
-        (int)v->total-1-BOLIVIA_CALENDAR_CENTER_ROW:
-        (v->total>BOLIVIA_CALENDAR_VIEW_ROWS?
-            (int)v->total-BOLIVIA_CALENDAR_VIEW_ROWS:0);
+    const int maxPage=v->total>BOLIVIA_CALENDAR_VIEW_ROWS?
+        (int)v->total-BOLIVIA_CALENDAR_VIEW_ROWS:0;
     const int next=ExpandedBoliviaCalendar_Clamp(
-        v->page+direction,minPage,maxPage);
+        v->page+direction,0,maxPage);
     if(next==v->page)return 0;
     v->page=next;
     v->offset=v->page-v->anchor;

@@ -2591,23 +2591,20 @@ static void ui_render_merged_calendar(void)
     }
     ExpandedBoliviaCalendar_Update(&s_uiBoliviaCalendarView,
                                     count,focusRow,focusKey);
-    /* Always use the full 14-row fixture panel. Padding near either
-     * chronological end keeps the selected OG match at the VISUAL centre.
-     * Up/down arrows remain free to browse and cannot move OG's cursor. */
-    ui_draw_fixture_panel(BOLIVIA_CALENDAR_VIEW_ROWS);
+    /* Do not invent blank rows at either chronological end.
+     * When the club has fewer than fourteen native fixtures, shrink the
+     * panel and move the original red-arrow hitbox with its real glyph.
+     * The presentation page never changes any OG competition cursor. */
+    const unsigned visibleRows=count<BOLIVIA_CALENDAR_VIEW_ROWS?
+        count:BOLIVIA_CALENDAR_VIEW_ROWS;
+    ui_draw_fixture_panel(visibleRows);
     ui_bolivia_sync_scroll_hitboxes(
-        ui_fixture_bottom_for_count(BOLIVIA_CALENDAR_VIEW_ROWS));
-    ui_fixture_rows_drawn=BOLIVIA_CALENDAR_VIEW_ROWS;
-    for(int row=0;row<BOLIVIA_CALENDAR_VIEW_ROWS;++row) {
-        const int src=s_uiBoliviaCalendarView.page+row;
-        if(src>=0 && (unsigned)src<count) {
-            ui_paint_compact_fixture(&merged[src],(unsigned)row);
-        } else {
-            /* Empty context at the beginning/end: never index outside
-             * the genuine resident list or paint a phantom fixture. */
-            const int y=53+row*9;
-            rect(28,y-1,282,8,(row&1)?40:42);
-        }
+        ui_fixture_bottom_for_count(visibleRows));
+    ui_fixture_rows_drawn=visibleRows;
+    for(unsigned row=0u;row<visibleRows;++row) {
+        const int src=s_uiBoliviaCalendarView.page+(int)row;
+        if(src>=0 && (unsigned)src<count)
+            ui_paint_compact_fixture(&merged[src],row);
     }
 }
 static void ui_button(unsigned ordinal,const char *caption) {

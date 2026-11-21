@@ -19,18 +19,18 @@ int main(void)
     assert(v.page==10);
     /* New actionable fixture recentres even when already in first14. */
     ExpandedBoliviaCalendar_Update(&v,38u,3,0x9876u);
-    assert(v.page==-4 && 3-v.page==BOLIVIA_CALENDAR_CENTER_ROW);
-    assert(v.offset==0);
+    assert(v.page==0 && v.focusRow==3); /* never blank above first */
+    assert(v.offset==4); /* clamped to real first row; anchor=-4 */
     ExpandedBoliviaCalendar_Update(&v,38u,0,0xabceu);
-    assert(v.page==-7 && 0-v.page==BOLIVIA_CALENDAR_CENTER_ROW);
+    assert(v.page==0 && v.focusRow==0); /* first fixture at top */
     assert(!ExpandedBoliviaCalendar_Scroll(&v,-1)); /* first bound */
     assert(ExpandedBoliviaCalendar_Scroll(&v,1));
-    assert(v.page==-6);
+    assert(v.page==1);
     ExpandedBoliviaCalendar_Update(&v,38u,37,0xabcdu);
-    assert(v.page==30 && 37-v.page==BOLIVIA_CALENDAR_CENTER_ROW);
+    assert(v.page==24 && 37-v.page==13); /* last fixture at bottom */
     assert(!ExpandedBoliviaCalendar_Scroll(&v,1)); /* last bound */
     assert(ExpandedBoliviaCalendar_Scroll(&v,-1));
-    assert(v.page==29);
+    assert(v.page==23);
     /* No selectable OG fixture: browsing may reveal the entire page,
      * but must never manufacture a blue match highlight. */
     ExpandedBoliviaCalendar_Update(&v,38u,-1,0);
@@ -45,11 +45,22 @@ int main(void)
     assert(v.total==0 && v.page==0 && v.focusRow==-1);
     assert(!ExpandedBoliviaCalendar_Scroll(&v,1));
     ExpandedBoliviaCalendar_Update(&v,5u,2,124);
-    assert(v.page==-5 && 2-v.page==BOLIVIA_CALENDAR_CENTER_ROW);
+    assert(v.page==0 && v.focusRow==2); /* short list cannot scroll */
     ExpandedBoliviaCalendar_Update(&v,5u,99,125);
     assert(v.focusRow==-1 && v.page==0);
+    assert(!ExpandedBoliviaCalendar_Scroll(&v,1));
+    assert(!ExpandedBoliviaCalendar_Scroll(&v,-1));
+    ExpandedBoliviaCalendar_Update(&v,14u,0,126);
+    assert(v.page==0);
+    assert(!ExpandedBoliviaCalendar_Scroll(&v,1));
+    assert(!ExpandedBoliviaCalendar_Scroll(&v,-1));
+    ExpandedBoliviaCalendar_Update(&v,15u,14,127);
+    assert(v.page==1);
+    assert(!ExpandedBoliviaCalendar_Scroll(&v,1));
+    assert(ExpandedBoliviaCalendar_Scroll(&v,-1));
+    assert(v.page==0);
     assert(!ExpandedBoliviaCalendar_Scroll(&v,0));
-    puts("RG-014 CALENDAR_VIEWPORT_ISO PASS: center, arrows, bounds, reset");
+    puts("RG-014 CALENDAR_VIEWPORT_ISO PASS: centre-when-possible, no-padding bounds, arrows");
     puts("WINDOWS_MOUSE_FOCUS_OG_CAR: NOT_TESTED");
     return 0;
 }

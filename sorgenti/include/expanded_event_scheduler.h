@@ -14,7 +14,9 @@ typedef enum ExpandedEventKind {
     EXP_EVENT_QUALIFICATION = 1,
     EXP_EVENT_FIXTURE = 2,
     EXP_EVENT_CUP_ADVANCE = 3,
-    EXP_EVENT_SEASON_CLOSE = 4
+    EXP_EVENT_SEASON_CLOSE = 4,
+    /* Native OG + civil tick. Not a match and not a second simulator. */
+    EXP_EVENT_NATIVE_TICK = 5
 } ExpandedEventKind;
 typedef enum ExpandedEventState {
     EXP_EVENT_PENDING = 0,
@@ -84,7 +86,7 @@ static inline ExpandedEventResult ExpandedEventScheduler_Schedule(
     uint32_t i,pos;
     if (!ExpandedEventScheduler_Valid(s) || !event.id ||
         event.requires_id == event.id ||
-        event.kind < EXP_EVENT_QUALIFICATION || event.kind > EXP_EVENT_SEASON_CLOSE ||
+        event.kind < EXP_EVENT_QUALIFICATION || event.kind > EXP_EVENT_NATIVE_TICK ||
         event.state != EXP_EVENT_PENDING ||
         !ExpandedWorld_IndexToDate(event.day_index,&date))return EXP_EVENT_INVALID;
     for (i=0;i<s->count;++i)
@@ -167,7 +169,7 @@ static inline int ExpandedEventScheduler_ValidateRestore(const ExpandedEventSche
         ExpandedWorldDate date;
         if(!e->id || e->requires_id==e->id ||
            !ExpandedWorld_IndexToDate(e->day_index,&date) ||
-           e->kind<EXP_EVENT_QUALIFICATION || e->kind>EXP_EVENT_SEASON_CLOSE ||
+           e->kind<EXP_EVENT_QUALIFICATION || e->kind>EXP_EVENT_NATIVE_TICK ||
            (e->state!=EXP_EVENT_PENDING && e->state!=EXP_EVENT_COMPLETE) ||
            (e->state==EXP_EVENT_COMPLETE && e->day_index>s->clock.day_index) ||
            (i && !ExpandedEvent_Before(&s->events[i-1u],e)))return 0;

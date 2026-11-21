@@ -3900,14 +3900,6 @@ void PlayMatchMenu(MenuEntry *callerEntry)
         extern int Expanded_BoliviaManagerIntercept(MenuEntry *,unsigned);
         if(Expanded_BoliviaManagerIntercept(callerEntry,7u))return;
     }
-    /* In an employed July with NO OG fixture until August, the primary
-     * PLAY MATCH button must advance the REAL world one safe week first.
-     * 205/206 changed only entry 10 (NEXT MATCH), leaving this entry 7
-     * able to jump straight to the August kickoff on the first press. */
-    if(_gameType==GAME_TYPE_CAREER) {
-        extern int Expanded_CareerJulyIntercept(MenuEntry *,unsigned);
-        if(Expanded_CareerJulyIntercept(callerEntry,7u)) return;
-    }
 #endif
     /* 0.10.17: test the one-shot low-liking dismissal immediately on the
      * first PLAY MATCH click, without starting/simulating a match. */
@@ -3998,13 +3990,6 @@ void NextMatch(MenuEntry *callerEntry)
     if(_gameType==GAME_TYPE_CAREER) {
         extern int Expanded_BoliviaManagerIntercept(MenuEntry *,unsigned);
         if(Expanded_BoliviaManagerIntercept(callerEntry,10u))return;
-    }
-    /* Safety net for a callback restored by the native menu or a keyboard /
-     * controller shortcut: never skip July via the original NEXT MATCH path
-     * when the next authentic manager fixture is in August. */
-    if(_gameType==GAME_TYPE_CAREER) {
-        extern int Expanded_CareerJulyIntercept(MenuEntry *,unsigned);
-        if(Expanded_CareerJulyIntercept(callerEntry,10u)) return;
     }
 #endif
     if (_gameType == GAME_TYPE_CAREER) {

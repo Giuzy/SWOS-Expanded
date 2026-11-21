@@ -902,114 +902,21 @@ static int exp_career_july_plan(ExpandedWorldDate *target,
 }
 void Expanded_BoliviaManagerPrepareMenu(void);
 void Expanded_CareerJulyForward(MenuEntry *entry);
+/* Preserve OG ContestSetButtons/PlayMatchMenu/NextMatch exactly as the
+ * career menu defines them. The special July button rewrite was not requested
+ * and must not disable PLAY MATCH or replace NEXT MATCH with FORWARD TIME.
+ * Keep only the already-existing Bolivia match-date routing here. */
 void Expanded_CareerJulyPrepareMenu(void)
 {
-    extern uint8_t _contestMenu[];
-    extern uintptr_t _currentMenuPtr;
-    extern MenuEntry _menuEntries[];
-    extern void NextMatch(MenuEntry *);
-    extern uint8_t _aNextMatch[];
-    extern uint8_t _aPlayMatch[];
-    extern uint16_t Expanded_OGWorld_SaveYear(void);
-    extern int Expanded_OGWorld_ClubBound(void);
-    extern void ContestSetButtons(void);
-    static const char kJulyCaption[]="FORWARD TIME";
-    static int wasForward;
-    ExpandedLiveCalendarState live;
-    ExpandedWorldDate target;
-    if(_currentMenuPtr!=(uintptr_t)_contestMenu || _gameType!=4)return;
-    MenuEntry *e=&_menuEntries[10]; /* original NEXT MATCH (entry 10) */
-    MenuEntry *primary=&_menuEntries[7]; /* original PLAY MATCH (entry 7) */
-    const int ready=exp_career_july_plan(&target,&live);
-    /* The old 205 code applied only in ContestMenuOnReturn, which is
-     * called during native menu setup, BEFORE a late OG July world bind.
-     * Expanded_UI_Prepare now retries this on every real DrawMenu. Only
-     * log once for each civil date/eligibility transition, not each frame. */
-    {
-        ExpandedLiveCalendarState observed;
-        if(ExpandedWorldLive_CalendarState(&observed) &&
-           observed.today.month==7u) {
-            const uint32_t stamp=(uint32_t)observed.today.year*10000u+
-                                  700u+(uint32_t)observed.today.day;
-            static uint32_t lastStamp;
-            static int lastReady=-1;
-            if(stamp!=lastStamp || ready!=lastReady) {
-                extern uint16_t _currentSeasonShowing,_selTeamNumber;
-                extern uint16_t _seasonFinished,_careerFinished;
-                fprintf(stderr,"[career-july-menu] world=%s date=%04u-07-%02u "
-                        "eligible=%d club=%04x bound=%d native-year=%u "
-                        "current-season=%u next-key=%u "
-                        "OG-finished=%u/%u reason=%s\n",
-                        World_Tag(),(unsigned)observed.today.year,
-                        (unsigned)observed.today.day,ready,
-                        (unsigned)_selTeamNumber,
-                        Expanded_OGWorld_ClubBound(),
-                        (unsigned)Expanded_OGWorld_SaveYear(),
-                        (unsigned)_currentSeasonShowing,
-                        (unsigned)Expanded_Career_NativeCalendarKey(),
-                        (unsigned)_seasonFinished,(unsigned)_careerFinished,
-                        ready?"NATIVE_PRESEASON_READY":"PREFLIGHT_NOT_READY");
-                lastStamp=stamp;lastReady=ready;
-            }
-        }
-    }
-    if(ready) {
-        wasForward=1;
-        /* Keep the original primary PLAY MATCH label, but disable it
-         * while July has no playable OG manager fixture. Only the right
-         * existing NEXT MATCH entry may advance the civil clock.
-         * Do not offer two FORWARD TIME buttons or a fake playable match. */
-        primary->isInvisible=0;
-        primary->isDisabled=1;
-        primary->stringFlags &= (uint16_t)~(1u<<13);
-        primary->fg=(uintptr_t)_aPlayMatch;
-        e->isInvisible=0;
-        e->isDisabled=0;
-        e->onSelect=(MenuEntryFn)Expanded_CareerJulyForward;
-        e->fg=(uintptr_t)kJulyCaption;
-    } else if(wasForward) {
-        if(e->onSelect==(MenuEntryFn)Expanded_CareerJulyForward) {
-            e->onSelect=(MenuEntryFn)NextMatch;
-            e->fg=(uintptr_t)_aNextMatch;
-        }
-        /* Restore PLAY MATCH vs FINISH SEASON according to the original
-         * OG callback, including the end-of-season button coloring. */
-        ContestSetButtons();
-        wasForward=0;
-    }
     Expanded_BoliviaManagerPrepareMenu();
 }
-/* Called at the TOP of both original match dispatchers, not merely from
- * the optional label/callback. Native play is not entered for any July
- * date when an authentic next manager fixture begins in August or later.
- * If OG truly has July fixtures, return 0: do not reschedule real games. */
+/* Compatibility entrypoint: the native OG menu is never intercepted for July.
+ * Keeping the symbol avoids breaking any older external test harness. */
 int Expanded_CareerJulyIntercept(MenuEntry *entry,unsigned ordinal)
 {
-    extern uintptr_t _currentMenuPtr;
-    extern uint8_t _contestMenu[];
-    ExpandedLiveCalendarState live;
-    ExpandedWorldDate target;
-    /* Other nested OG menus can also reach the native handler. Restrict
-     * the preseason redirect to the actual visible CAREER calendar. */
-    if((ordinal!=7u && ordinal!=10u) ||
-       _currentMenuPtr!=(uintptr_t)_contestMenu)return 0;
-    if(!exp_career_july_plan(&target,&live))return 0;
-    fprintf(stderr,"[career-july-intercept] world=%s action=%u "
-                   "civil=%04u-%02u-%02u target=%04u-%02u-%02u "
-                   "native-match=DEFERRED_TO_REAL_DATE no-replay=1\n",
-            World_Tag(),ordinal,(unsigned)live.today.year,
-            (unsigned)live.today.month,(unsigned)live.today.day,
-            (unsigned)target.year,(unsigned)target.month,
-            (unsigned)target.day);
-    if(ordinal==7u) {
-        /* Defensive guard even if a shortcut bypasses the disabled button:
-         * PLAY MATCH must never be a hidden FORWARD TIME action. */
-        fprintf(stderr,"[career-july-intercept] PLAY_BLOCKED "
-                       "no-playable-fixture=1 advance-only-entry=10\n");
-        return 1;
-    }
-    Expanded_CareerJulyForward(entry);
-    return 1;
+    (void)entry;
+    (void)ordinal;
+    return 0;
 }
 void Expanded_CareerJulyForward(MenuEntry *entry)
 {

@@ -30,7 +30,8 @@
 #include "fixture_rounds.h"
 #include "expanded_world_live.h"
 #include "expanded_competition_coordinator.h"
-#include "expanded_event_scheduler.h" /* NO live fixture dispatch */
+#include "expanded_event_scheduler.h" /* event ordering and legacy July diagnostic */
+#include "expanded_native_timeline.h" /* live native OG world tick, no fixture dispatch */
 #include "world.h"
 #include "squad_extras.h"
 #include "expanded_debug.h"
@@ -1936,53 +1937,32 @@ int Expanded_CompetitionCoordinator_PreflightBind(uint16_t season)
                    "no-world-reset=1\n",World_Tag(),actual);
     return 1;
 }
-/* First safe scheduler connection: inspect ONE real OG July boundary
- * without running a fixture, owning a second clock, or acknowledging an
- * event. Everything here is a disposable stack object (NO CAR writes).
- * Scheduler_Complete is intentionally forbidden until OG effects and an
- * atomic CAR event acknowledgement can be saved together. */
-static int exp_coordinator_shadow_july(
-    ExpandedWorldDate from,ExpandedWorldDate to)
+/* The former exp_coordinator_shadow_july PEEK-only experiment is retired.
+ * Native world ticks are dispatched by ExpandedNativeTimeline_Advance below;
+ * never operate two competing schedulers at this site. */
+/* Live event carrier for the EXISTING native OG world advance.
+ * These callbacks do not simulate a new fixture or create a second clock.
+ * Only the coordinator may call this; any error must latch recovery before
+ * further world mutation or CAR overwrite. */
+static int exp_coordinator_native_tick(ExpandedWorldDate date,void *user)
 {
-    const uint16_t first=(uint16_t)(from.year-(from.month<7u?1u:0u));
-    const uint16_t last=(uint16_t)(to.year-(to.month<7u?1u:0u));
-    if(last<first)return 0;
-    if(last==first)return 1;
-    if(last-first>1u) {
-        fprintf(stderr,"[competition-scheduler-shadow] SKIP "
-                       "world=%s from=%u to=%u reason=MULTI_YEAR "
-                       "fixtures=0 ack=NONE\n",
-                World_Tag(),(unsigned)first,(unsigned)last);
-        return 1; /* leave 70-year OG stress unchanged */
-    }
-    const ExpandedWorldDate close={(uint16_t)(first+1u),6u,30u};
-    int32_t closeIndex=0,targetIndex=0;
-    if(!ExpandedWorld_DateToIndex(close,&closeIndex) ||
-       !ExpandedWorld_DateToIndex(to,&targetIndex))return 0;
-    ExpandedScheduledEvent buffer[1]={{0}};
-    ExpandedEventScheduler planner;
-    if(ExpandedEventScheduler_Init(&planner,buffer,1u,from)!=EXP_EVENT_OK)
-        return 0;
-    ExpandedScheduledEvent milestone={0};
-    milestone.id=((uint64_t)(World_Current()+1u)<<32) |
-                 ((uint64_t)(first+1u)<<8) |
-                 (uint64_t)EXP_EVENT_SEASON_CLOSE;
-    milestone.day_index=closeIndex;
-    milestone.kind=EXP_EVENT_SEASON_CLOSE;
-    milestone.state=EXP_EVENT_PENDING;
-    if(ExpandedEventScheduler_Schedule(&planner,milestone)!=EXP_EVENT_OK)
-        return 0;
-    const ExpandedScheduledEvent *due=NULL;
-    if(ExpandedEventScheduler_Next(&planner,targetIndex,&due)!=
-           EXP_EVENT_DUE || !due || due->id!=milestone.id ||
-       due->kind!=EXP_EVENT_SEASON_CLOSE ||
-       due->day_index!=closeIndex)return 0;
-    fprintf(stderr,"[competition-scheduler-shadow] PEEK_MATCH "
-                   "world=%s closing-year=%u date=%04u-06-30 "
-                   "authority=OG_ONLY fixtures=0 dispatched=0 "
-                   "completed=0 CAR-ACK=NONE clock=EPHEMERAL\n",
-            World_Tag(),(unsigned)first,(unsigned)(first+1u));
-    return 1;
+    (void)user;
+    return Expanded_OGWorld_AdvanceToDate(date);
+}
+static int exp_coordinator_civil_tick(ExpandedWorldDate date,void *user)
+{
+    (void)user;
+    return ExpandedWorldLive_AdvanceToDate(date);
+}
+static int exp_coordinator_verify_tick(ExpandedWorldDate expected,void *user)
+{
+    (void)user;
+    ExpandedWorldDate observed={0};
+    int32_t expectedDay=0,observedDay=0;
+    return exp_coordinator_check("NATIVE_TICK_VERIFY",&observed) &&
+           ExpandedWorld_DateToIndex(expected,&expectedDay) &&
+           ExpandedWorld_DateToIndex(observed,&observedDay) &&
+           expectedDay==observedDay;
 }
 int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
                                              const char *origin)
@@ -2002,30 +1982,32 @@ int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
         return 0;
     }
     if(toIndex==fromIndex)return 1; /* no duplicate native tick */
-    /* Shadow scheduler can only PEEK; OG remains the sole real executor.
-     * Divergence is diagnostic, never an excuse to simulate again. */
-    if(!exp_coordinator_shadow_july(from,target))
-        fprintf(stderr,"[competition-scheduler-shadow] MISMATCH "
-                       "world=%s action=OBSERVE_ONLY NO_REPLAY\n",
-                World_Tag());
-    /* Important: validate both date and resident BEFORE the OG mutation.
-     * A failing OG executor may have partially advanced native contexts:
-     * latch recovery; the old CAR remains the recovery point. */
-    if(!Expanded_OGWorld_AdvanceToDate(target)) {
+    /* One disposable dated event, one resident OG executor, one live civil
+     * commit. No additional simulation, score or CAR schema. The event
+     * acknowledgement is valid only after resident/civil verification. */
+    const ExpandedNativeTimelineOps ops={
+        exp_coordinator_native_tick,
+        exp_coordinator_civil_tick,
+        exp_coordinator_verify_tick,
+        NULL
+    };
+    const ExpandedNativeTimelineResult outcome=ExpandedNativeTimeline_Advance(
+        (uint16_t)World_Current(),from,target,&ops);
+    if(outcome!=EXP_NATIVE_TICK_OK) {
         s_expCoordinatorRecoveryRequired=1;
         fprintf(stderr,"[competition-coordinator] FAULT op=%s "
-                       "stage=OG_NATIVE action=RELOAD_PRIOR_CAR "
-                       "no-automatic-retry=1\n",tag);
+            "stage=%s action=RELOAD_PRIOR_CAR "
+            "no-automatic-retry=1\n",
+            tag,ExpandedNativeTimeline_ResultName(outcome));
         return 0;
     }
-    if(!ExpandedWorldLive_AdvanceToDate(target) ||
-       !exp_coordinator_check(tag,NULL)) {
-        s_expCoordinatorRecoveryRequired=1;
-        fprintf(stderr,"[competition-coordinator] FAULT op=%s "
-                       "stage=CIVIL_COMMIT action=RELOAD_PRIOR_CAR "
-                       "no-automatic-retry=1\n",tag);
-        return 0;
-    }
+    fprintf(stderr,"[competition-native-timeline] WORLD_TICK_VERIFIED "
+        "world=%s id=%llu from-index=%ld to-index=%ld "
+        "executor=OG_ONLY civil=ONE_CURSOR event-ack=PENDING_CAR CAR=CALLER_SAVE\n",
+        World_Tag(),
+        (unsigned long long)ExpandedNativeTimeline_TickId(
+            (uint16_t)World_Current(),toIndex),
+        (long)fromIndex,(long)toIndex);
     fprintf(stderr,"[competition-coordinator] ADVANCE_COMMITTED "
                    "world=%s source=%s from=%04u-%02u-%02u "
                    "to=%04u-%02u-%02u owner=OG_NATIVE "

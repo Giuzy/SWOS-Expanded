@@ -98,13 +98,18 @@ extern uint16_t TrainingMatch_KeepCrossSwapForMatch(uint16_t fileA,
                                                     uint16_t fileB, int swapShirtNumbers);
 /* Original pre-match menu: extra true career players 16..31 (SDL only).
  * No synthetic TEAM B, no opponent editing, no second match controller. */
-enum { kCareerExtraFirst=69, kCareerExtraCount=16 };
+enum { kCareerExtraFirst=69, kCareerExtraCount=16, kCareerExtraShiftX=40 };
 static int16_t s_extraReserveSlot=-1, s_extraDrawSlot=-1;
 /* Original OG packed navigation and pitch visibility saved at every menu
  * unpack; never leak extra-list links into opponent/other match menus. */
 static int8_t s_extraNativeRight[17];
 static uint8_t s_extraNativePitchInvisible[12];
 static uint8_t s_extraNativeDisabled[kCareerExtraCount];
+static int16_t s_extraNativeX[kCareerExtraCount];
+extern int Expanded_OGWorld_BoliviaModalActive(void);
+extern int Expanded_OGWorld_BoliviaManagerInteractive(void);
+extern int Expanded_OGWorld_BoliviaManagerAutoSim(void);
+extern int Expanded_OGWorld_IsSimulating(void);
 static int16_t s_extraNativeCheckX;
 static int s_extraNavReady, s_extraLastVisible=-1;
 
@@ -115,6 +120,24 @@ static int Expanded_ManagedCareerTeam(const TeamFileEx *team)
     return !_trainingGame && _selTeamNumber!=0xFFFF &&
         PACK_BE_U16(team->team.countryNumber,
                     team->team.teamOrdinal)==_selTeamNumber;
+}
+/* Use the original native PLAY permission whenever available. In a live
+ * original OG Bolivia modal, action=VIEW RESULT can also prompt the true
+ * MANAGER fixture just BEFORE that fixture is scored. Unlike the previous
+ * blanket career readonly guard, this narrowly lets the manager arrange
+ * their OWN pending OG lineup, never CPU/auto-sim/processed results. The
+ * modal's preflight already validated its date, fixture and manager mode.
+ * Do not restore the removed career SIMULATE MATCH contest button. */
+static int Expanded_CareerLineupEditsAllowed(void)
+{
+    if (_squadChangesAllowed) return 1;
+    return _gameType==GAME_TYPE_CAREER && !_trainingGame &&
+        !_showingCpuTeams && !_viewingOpponentTeam &&
+        Expanded_ManagedCareerTeam(_playMatchTeam1Ptr) &&
+        Expanded_OGWorld_BoliviaModalActive() &&
+        Expanded_OGWorld_BoliviaManagerInteractive() &&
+        !Expanded_OGWorld_BoliviaManagerAutoSim() &&
+        !Expanded_OGWorld_IsSimulating();
 }
 static int Expanded_CareerExtraVisible(void)
 {
@@ -130,19 +153,24 @@ static int Expanded_CareerExtraVisible(void)
 static void Expanded_CareerExtraUpdate(void)
 {
     const int visible=Expanded_CareerExtraVisible();
+    const int canEdit=Expanded_CareerLineupEditsAllowed();
     const unsigned extras=visible?(unsigned)_careerNumPlayers-16u:0u;
     for(unsigned i=0;i<kCareerExtraCount;++i) {
         MenuEntry *reserve=&_menuEntries[kCareerExtraFirst+i];
+        /* Native hitbox/focus moves together with OG row contents;
+         * recompute from unpacked original x, never accumulate shifts. */
+        if(s_extraNavReady)
+            reserve->x=(int16_t)(s_extraNativeX[i]+(visible?kCareerExtraShiftX:0));
         reserve->isInvisible=!visible || i>=extras;
-        /* Readonly rows remain visible but never focusable/selectable. */
-        reserve->isDisabled=visible && !_squadChangesAllowed ?
+        /* A true CPU/result viewer remains visually available, not editable. */
+        reserve->isDisabled=visible && !canEdit ?
             1 : s_extraNativeDisabled[i];
     }
     if(s_extraNavReady) {
         for(unsigned i=0;i<17u;++i) {
             /* RIGHT from any original player enters the reserve column.
              * LEFT from the reserve row is already linked in JSON. */
-            _menuEntries[13u+i].rightEntry=(visible && _squadChangesAllowed)?
+            _menuEntries[13u+i].rightEntry=(visible && canEdit)?
                 (int8_t)(kCareerExtraFirst+
                          (i<extras?i:extras-1u)):
                 s_extraNativeRight[i];
@@ -160,11 +188,12 @@ static void Expanded_CareerExtraUpdate(void)
         if(capture && capture[0]=='1')
             fprintf(stderr,
                 "[career-prematch] extras-visible=%d roster=%u bench=%u "
-                "squad-changes=%u training=%u opponent=%u cpu-view=%u "
-                "club=%04x shown=%04x controls=%u\n",
+                "squad-changes=%u modal-manager-edit=%u training=%u "
+                "opponent=%u cpu-view=%u club=%04x shown=%04x controls=%u\n",
                 visible,(unsigned)_careerNumPlayers,
                 (unsigned)_maxSubstitutesEntries,
-                (unsigned)_squadChangesAllowed,(unsigned)_trainingGame,
+                (unsigned)_squadChangesAllowed,
+                (unsigned)canEdit,(unsigned)_trainingGame,
                 (unsigned)_viewingOpponentTeam,(unsigned)_showingCpuTeams,
                 (unsigned)_selTeamNumber,
                 _playMatchTeam1Ptr?
@@ -568,7 +597,11 @@ hidePlayBtn:
 __attribute__((used, externally_visible))
 void UpdateTeamCheckmark(void) {
     _menuEntries[37].isInvisible = 1;
+#ifdef SWOS_SDL_BUILD
+    if (!Expanded_CareerLineupEditsAllowed()) return;
+#else
     if (!_squadChangesAllowed) return;
+#endif
 
     int16_t d1;
     TeamFileEx *team1 = _playMatchTeam1Ptr;
@@ -919,6 +952,11 @@ void SetVariableButtons(void) {
 /* ================================================================ */
 __attribute__((used, externally_visible))
 void PlayMatchMenuReinit(void) {
+#ifdef SWOS_SDL_BUILD
+    /* Native reserve x must be final BEFORE the checkmark reads row x.
+     * Later SetVariableButtons repeats this idempotently for nav/pitch. */
+    Expanded_CareerExtraUpdate();
+#endif
     UpdateTeamCheckmark();
     _pmMenuNumPlayers = 16 - 5 + _maxSubstitutesEntries;
 
@@ -1104,8 +1142,10 @@ void PlayMatchMenuInit(void) {
         s_extraNativeRight[i]=_menuEntries[13u+i].rightEntry;
     for(unsigned i=0;i<12u;++i)
         s_extraNativePitchInvisible[i]=_menuEntries[56u+i].isInvisible;
-    for(unsigned i=0;i<kCareerExtraCount;++i)
+    for(unsigned i=0;i<kCareerExtraCount;++i) {
         s_extraNativeDisabled[i]=_menuEntries[kCareerExtraFirst+i].isDisabled;
+        s_extraNativeX[i]=_menuEntries[kCareerExtraFirst+i].x;
+    }
     s_extraNativeCheckX=_menuEntries[37].x;
     s_extraNavReady=1;
 #endif
@@ -1150,10 +1190,9 @@ __attribute__((used, externally_visible))
 void OnSwapPlayer(MenuEntry *a5) {
     TeamFileEx *t1 = _playMatchTeam1Ptr;
 #ifdef SWOS_SDL_BUILD
-    /* The original normal-team path has no readonly guard. Without this,
-     * displaying real reserves during selector-0 CPU/VIEW RESULT could
-     * illegally write _currentMatchPlayers, tactics and shirt numbers. */
-    if (_gameType == GAME_TYPE_CAREER && !_squadChangesAllowed)
+    /* The original manager's still-pending OG fixture may change their
+     * lineup; an actual CPU/viewer/result after witness cannot. */
+    if (_gameType == GAME_TYPE_CAREER && !Expanded_CareerLineupEditsAllowed())
         return;
 #endif
 
@@ -1331,7 +1370,11 @@ int16_t HandleSquadSwapSelectionToggle(int16_t d6) {
 
     if (!_longFireFlag) return 1;
     if (_longFireFlag != 1) return 0;
+#ifdef SWOS_SDL_BUILD
+    if (!Expanded_CareerLineupEditsAllowed()) return 0;
+#else
     if (!_squadChangesAllowed) return 0;
+#endif
     if ((uint16_t)d6 >= _pmMenuNumPlayers) {
 #ifdef SWOS_SDL_BUILD
         if(!(s_extraReserveSlot>=0 && Expanded_CareerExtraVisible() &&
@@ -1662,7 +1705,7 @@ __attribute__((used, externally_visible))
 void OnCareerReserveSelected(MenuEntry *e)
 {
 #ifdef SWOS_SDL_BUILD
-    if(!_squadChangesAllowed || !Expanded_CareerExtraVisible())return;
+    if(!Expanded_CareerLineupEditsAllowed() || !Expanded_CareerExtraVisible())return;
     const int row=(int)e->ordinal-kCareerExtraFirst;
     if(row<0 || row>=kCareerExtraCount ||
        16u+(unsigned)row>=(unsigned)_careerNumPlayers)return;
@@ -1852,7 +1895,7 @@ void DrawPlayerEntries(MenuEntry *a5) {
     if(s_extraDrawSlot>=0)
         for(unsigned i=0;i<6;++i) {
             savedX[i]=_menuEntries[31+i].x;
-            _menuEntries[31+i].x=(int16_t)(savedX[i]+93);
+            _menuEntries[31+i].x=(int16_t)(savedX[i]+93+kCareerExtraShiftX);
         }
 #endif
     DrawMultipleItems(6, &_menuEntries[31]);

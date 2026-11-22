@@ -3653,6 +3653,16 @@ static ExpandedOGLeague *s_expOGCurrent;
 static ExpandedOGLeague s_expOGUefa[3]; /* distinct from 134 country divisions */
 static ExpandedOGLeague s_expOGBolivia; /* national type2; NEVER one of the UEFA slots */
 int Expanded_OGWorld_BoliviaActive(void) { return s_expOGCurrent==&s_expOGBolivia; }
+/* Current Bolivia country edition is NOT the manager's July-year.
+ * The first-year July snapshot is kept; from Jan15 the next authentic
+ * native edition is observed even while manager admin remains 2026/27. */
+uint16_t Expanded_OGWorld_BoliviaEditionYear(void)
+{
+    if(World_Current()==WORLD_2627 && s_expOGBolivia.used)
+        return s_expOGBolivia.year;
+    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    return Expanded_OGWorld_SaveYear();
+}
 
 static uint16_t s_expOGUefaCalendarYear; /* no previous-year FINAL as current */
 static int s_expOGPhase=-1,s_expOGBound,s_expOGViewing,s_expOGFault;
@@ -5508,12 +5518,37 @@ static int exp_og_yearend_league(uint8_t *record,uint16_t division)
         (unsigned)ctx->comp.matchesPlayedCount);
     return 1;
 }
+/* Expiry is a country/edition clock policy; the OG resident is the
+ * ONLY authority that previous matches and the final are complete.
+ * This reader changes neither OG score nor saved competition identity. */
+extern int Expanded_OGWorld_CountryWindowAllowsNext(uint8_t,uint16_t);
 int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
                                    uint8_t division,uint16_t year,
                                    uint8_t phase) {
     if(!record||_gameType!=4 || s_expOGCurrent)return 0;
     const uint8_t compId=(uint8_t)((Competition *)record)->compId;
     ExpandedOGLeague *ctx=exp_find(country,division,year);
+    if(!ctx && year>World_FirstYear()) {
+        const ExpandedOGLeague *old=exp_find(
+            country,division,(uint16_t)(year-1u));
+        if(!Expanded_OGWorld_CountryWindowAllowsNext(country,year) ||
+           !old || !old->used ||
+           !old->comp.base.competitionFinished ||
+           !old->comp.matchesPlayedCount) {
+            fprintf(stderr,"[og-edition-gate] PENDING league "
+                "country=%u div=%u next=%u previous=%u "
+                "expiry-or-OG-finish=NOT_CONFIRMED preserve-old=1\n",
+                (unsigned)country,(unsigned)division,(unsigned)year,
+                (unsigned)(year-1u));
+            return -1;
+        }
+        fprintf(stderr,"[og-edition-gate] OPEN league "
+            "country=%u div=%u previous=%u new=%u "
+            "previous-OG=FINISHED country-expiry=PASSED "
+            "new-matches=INIT_ZERO\n",
+            (unsigned)country,(unsigned)division,
+            (unsigned)(year-1u),(unsigned)year);
+    }
     if(ctx && !ctx->used && ctx->lastMatch==0xfeu)
         return -1; /* a diagnosed native record mismatch: never retry/panic */
     /* The local manager OG context owns every fixture of this league.
@@ -5746,8 +5781,23 @@ int Expanded_OGWorld_AdvanceUefa(uint16_t year,uint8_t phase) {
             Expanded_OGCopa1996_FixturePhase(phase):phase;
         ExpandedOGLeague *ctx=&s_expOGUefa[k];
         if(ctx->used && ctx->year!=year) {
-            /* The previous edition was already journaled; never treat its
-             * final as a current-year fixture or use its old RNG. */
+            /* Even a verified successor FIELD cannot erase an unfinished
+             * UEFA/Libertadores OG resident. The completed native final,
+             * actual played matches and July start are all required. */
+            if(year<=ctx->year ||
+               !ctx->comp.base.competitionFinished ||
+               !ctx->comp.matchesPlayedCount) {
+                fprintf(stderr,"[og-edition-gate] INTERNATIONAL_PENDING "
+                    "slot=%u old=%u new=%u finished=%u played=%u "
+                    "preserve-native-old=1\n",
+                    k,(unsigned)ctx->year,(unsigned)year,
+                    (unsigned)ctx->comp.base.competitionFinished,
+                    (unsigned)ctx->comp.matchesPlayedCount);
+                continue;
+            }
+            /* Completed old edition can be replaced in the fixed UEFA
+             * compatibility slot ONLY after exact OG end; its prior
+             * witness and compact history stay in CAR/journal. */
             fprintf(stderr,"[og-uefa-resident] EDITION_REPLACED "
                            "cup=%u old=%u new=%u old-matches=%u "
                            "old-results=JOURNAL_ONLY\n",
@@ -6610,7 +6660,7 @@ int Expanded_OGWorld_BoliviaLeagueWitnessProgress(unsigned *played)
        (uint8_t)(_selTeamNumber>>8)!=45u ||
        _currentDivisionIndex!=0u || s_expOGCurrent || s_expOGCupCurrent)
         return 0;
-    const uint16_t year=Expanded_OGWorld_SaveYear();
+    const uint16_t year=Expanded_OGWorld_BoliviaEditionYear();
     const ExpandedOGLeague *const ctx=exp_find(45u,0u,year);
     if(!ctx || !ctx->used || ctx->teamCount!=16u)return 0;
     int member=0;
@@ -6655,7 +6705,7 @@ unsigned Expanded_OGWorld_BoliviaLeagueFixtures(
        (uint8_t)(_selTeamNumber>>8)!=45u ||
        _currentDivisionIndex!=0u || s_expOGCurrent || s_expOGCupCurrent)
         return 0u;
-    const uint16_t year=Expanded_OGWorld_SaveYear();
+    const uint16_t year=Expanded_OGWorld_BoliviaEditionYear();
     const ExpandedOGLeague *const ctx=exp_find(45u,0u,year);
     if(!ctx || !ctx->used || ctx->teamCount!=16u ||
        ctx->comp.base.numTeams!=16)return 0u;
@@ -6730,7 +6780,7 @@ int Expanded_OGWorld_BoliviaManagerNext(ExpandedBoliviaManagerFixture *out)
        (uint8_t)(_selTeamNumber>>8)!=45u ||
        !s_expOGBolivia.used || s_expOGCurrent || s_expOGCupCurrent)return 0;
     const uint16_t year=s_expOGBolivia.year;
-    if(year!=Expanded_OGWorld_SaveYear())return 0;
+    if(year!=Expanded_OGWorld_BoliviaEditionYear())return 0;
     const unsigned played=(unsigned)s_expOGBolivia.comp.matchesPlayedCount;
     if(played<64u) {
         BoliviaCupFixture ordered[64];
@@ -7640,8 +7690,15 @@ int Expanded_OGWorld_AdvanceBolivia(uint16_t year,uint8_t phase)
     }
     if(rollover &&
        (year!=(uint16_t)(s_expOGBolivia.year+1u) ||
-        s_expOGBolivia.comp.matchesPlayedCount!=64u))
-        return 0; /* Do not lose an incomplete native OG edition. */
+        s_expOGBolivia.comp.matchesPlayedCount!=64u ||
+        !Expanded_OGWorld_CountryWindowAllowsNext(45u,year))) {
+        fprintf(stderr,"[og-edition-gate] BOLIVIA_PENDING "
+            "old=%u new=%u group-played=%u "
+            "country-expiry-or-OG-finish=NOT_CONFIRMED\n",
+            (unsigned)s_expOGBolivia.year,(unsigned)year,
+            (unsigned)s_expOGBolivia.comp.matchesPlayedCount);
+        return 0;
+    } /* Do not lose an incomplete native OG edition. */
     if(rollover) {
         /* Version 224 did not retain the finished 2026 KO at July rollover.
          * Keep compatibility with that legacy CAR (no previous KO context),
@@ -9359,6 +9416,27 @@ int Expanded_OGWorld_AdvanceCup(uint8_t *record,uint8_t country,
         return -1;
     }
     ExpandedOGCup *ctx=exp_cup_find(country,slot,year);
+    if(!ctx && year>World_FirstYear()) {
+        const ExpandedOGCup *old=exp_cup_find(
+            country,slot,(uint16_t)(year-1u));
+        if(!Expanded_OGWorld_CountryWindowAllowsNext(country,year) ||
+           !old || !old->used || old->managed_excluded ||
+           old->unsupported_setup ||
+           !old->comp.base.competitionFinished || !old->matchesPlayed) {
+            if(phase==0u)
+                fprintf(stderr,"[og-edition-gate] PENDING cup "
+                    "country=%u slot=%u next=%u previous=%u "
+                    "expiry-or-OG-final=NOT_CONFIRMED preserve-old=1\n",
+                    (unsigned)country,(unsigned)slot,(unsigned)year,
+                    (unsigned)(year-1u));
+            return -1;
+        }
+        fprintf(stderr,"[og-edition-gate] OPEN cup "
+            "country=%u slot=%u previous=%u new=%u "
+            "prior-OG=FINAL_COMPLETE new-matches=INIT_ZERO\n",
+            (unsigned)country,(unsigned)slot,
+            (unsigned)(year-1u),(unsigned)year);
+    }
     if(ctx && (ctx->managed_excluded || ctx->unsupported_setup))return -1;
     if(ctx && ctx->used &&
        (ctx->teamCount<2u || ctx->teamCount>EXP_OG_MAX_CUP_TEAMS))

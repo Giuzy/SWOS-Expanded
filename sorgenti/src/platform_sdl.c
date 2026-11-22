@@ -2097,6 +2097,12 @@ static void pump_events_any_thread(void)
                     s_world_perf_page=0;
                     continue;
                 }
+                if (code == SDLK_o) {
+                    /* One-shot +7 civil days: event pump only ARMS,
+                     * never generates a club, OG match or offer here. */
+                    (void)ExpandedDebug_OfferWeekToggle();
+                    continue;
+                }
                 if (code == SDLK_7 || code == SDLK_KP_7) {
                     /* Arm, don't mutate modal menus inside SDL_PollEvent.
                      * Next UNEMPLOYED/FORWARD TIME uses the same world tick. */
@@ -3005,6 +3011,11 @@ static void draw_world_debug_overlay(void)
     diag_f12_line(680,63,line,ExpandedDebug_SackArmed()?250:162,
                   ExpandedDebug_SackArmed()?194:180,
                   ExpandedDebug_SackArmed()?97:193);
+    snprintf(line,sizeof line,"F12+O OFFER NEXT [%s]",
+             ExpandedDebug_OfferWeekArmed()?"ON":"OFF");
+    diag_f12_line(680,82,line,ExpandedDebug_OfferWeekArmed()?250:162,
+                  ExpandedDebug_OfferWeekArmed()?194:180,
+                  ExpandedDebug_OfferWeekArmed()?97:193);
     snprintf(line,sizeof line,"MONDO %s  BUILD %s",World_Tag(),
              SWOS_EXPANDED_VERSION);
     diag_f12_line(26,44,line,226,236,245);

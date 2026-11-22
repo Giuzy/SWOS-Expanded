@@ -88,6 +88,47 @@ int main(void) {
         (ExpandedWorldDate){2027,2,30},&target));
     assert(!ExpandedWorld_RegularForwardTarget(
         (ExpandedWorldDate){2027,6,30},NULL));
+    /* New Sunday cadence: explicit weeks visible regardless of June/July.
+     * A real manager fixture before Sunday wins; no fake result/clock.
+     * Gregorian dates are verified using the SAME world clock mapper. */
+    assert(ExpandedWorld_NextSundayOrFixture(
+        (ExpandedWorldDate){2027,6,24},0,(ExpandedWorldDate){0},&target) &&
+        target.year==2027 && target.month==6 && target.day==27);
+    assert(ExpandedWorld_NextSundayOrFixture(
+        (ExpandedWorldDate){2027,6,27},0,(ExpandedWorldDate){0},&target) &&
+        target.year==2027 && target.month==7 && target.day==4);
+    assert(ExpandedWorld_NextSundayOrFixture(
+        (ExpandedWorldDate){2027,6,30},0,(ExpandedWorldDate){0},&target) &&
+        target.year==2027 && target.month==7 && target.day==4);
+    assert(ExpandedWorld_NextSundayOrFixture(
+        (ExpandedWorldDate){2027,7,1},0,(ExpandedWorldDate){0},&target) &&
+        target.year==2027 && target.month==7 && target.day==4);
+    assert(ExpandedWorld_NextSundayOrFixture(
+        (ExpandedWorldDate){2027,1,1},0,(ExpandedWorldDate){0},&target) &&
+        target.year==2027 && target.month==1 && target.day==3);
+    assert(ExpandedWorld_NextSundayOrFixture(
+        (ExpandedWorldDate){2027,1,3},0,(ExpandedWorldDate){0},&target) &&
+        target.year==2027 && target.month==1 && target.day==10);
+    assert(ExpandedWorld_NextSundayOrFixture(
+        (ExpandedWorldDate){2027,8,11},1,
+        (ExpandedWorldDate){2027,8,12},&target) &&
+        target.year==2027 && target.month==8 && target.day==12);
+    assert(ExpandedWorld_NextSundayOrFixture(
+        (ExpandedWorldDate){2027,8,11},1,
+        (ExpandedWorldDate){2027,8,22},&target) &&
+        target.year==2027 && target.month==8 && target.day==15);
+    assert(!ExpandedWorld_NextSundayOrFixture(
+        (ExpandedWorldDate){2027,8,12},1,
+        (ExpandedWorldDate){2027,8,12},&target));
+    assert(!ExpandedWorld_NextSundayOrFixture(
+        (ExpandedWorldDate){2027,8,12},1,
+        (ExpandedWorldDate){2027,8,11},&target));
+    assert(!ExpandedWorld_NextSundayOrFixture(
+        (ExpandedWorldDate){2027,8,12},2,
+        (ExpandedWorldDate){2027,8,22},&target));
+    assert(!ExpandedWorld_NextSundayOrFixture(
+        (ExpandedWorldDate){2027,8,12},0,
+        (ExpandedWorldDate){0},NULL));
     /* Real club preseason, unlike unemployed, must NEVER auto-play the
      * first August 1 OG manager match. February/other modes unaffected. */
     ExpandedWorldDate kickoff={2027,8,1};

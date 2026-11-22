@@ -83,6 +83,29 @@ int ExpandedWorld_DateAfterWeeks(ExpandedWorldDate start, uint32_t elapsed_weeks
     return ExpandedWorld_IndexToDate((int32_t)target, out_date);
 }
 
+/* STRICT next-Sunday free-time cadence for every country; the
+ * original OG fixture date always wins if earlier. Do not cap 1 July:
+ * it is not a universal competition-expiry/reset event. No simulation. */
+int ExpandedWorld_NextSundayOrFixture(ExpandedWorldDate today,
+                                      int has_fixture,
+                                      ExpandedWorldDate next_fixture,
+                                      ExpandedWorldDate *out_date)
+{
+    int32_t now=0,target=0,fixture=0;
+    if(!out_date || (has_fixture!=0 && has_fixture!=1) ||
+       !ExpandedWorld_DateToIndex(today,&now))return 0;
+    const int weekday=ExpandedWorld_Weekday(now);
+    if(weekday<0 || weekday>6)return 0;
+    const int days=weekday==6?7:6-weekday;
+    if(now>INT32_MAX-days)return 0;
+    target=now+days;
+    if(has_fixture) {
+        if(!ExpandedWorld_DateToIndex(next_fixture,&fixture) ||
+           fixture<=now)return 0; /* pending today => PLAY, overdue => BLOCK */
+        if(fixture<target)target=fixture;
+    }
+    return target>now && ExpandedWorld_IndexToDate(target,out_date);
+}
 int ExpandedWorld_RegularForwardTarget(ExpandedWorldDate today,
                                        ExpandedWorldDate *out_date)
 {

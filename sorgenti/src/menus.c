@@ -3883,6 +3883,42 @@ void ContestMenuOnReturn(void)
     ContestSetButtons();
     CheckTransfers();
     CheckClubBusiness();
+#ifdef SWOS_SDL_BUILD
+    /* F12+O: only after the REAL civil/OG clock reached due date,
+     * at the native CAREER contest menu (never in SDL event pump).
+     * Reuse original random/native eligible club generator and its
+     * authentic queue writer; bypass only the chance/phase barrier.
+     * A full queue or no real club is a reported failed DEBUG request. */
+    if(_gameType==GAME_TYPE_CAREER &&
+       _selTeamNumber!=0xffffu && !_youreSacked &&
+       _teamNoOfferAccepted==0xffffu) {
+        extern int Expanded_OGWorld_ClubBound(void);
+        extern int Expanded_MidseasonJoin_Active(void);
+        extern int ExpandedDebug_OfferWeekTake(void);
+        extern void ExpandedDebug_OfferNativeForce(int);
+        extern void Career_MaybeGenerateJobOffer(void);
+        if(Expanded_OGWorld_ClubBound() &&
+           !Expanded_MidseasonJoin_Active() &&
+           ExpandedDebug_OfferWeekTake()) {
+            const unsigned before=(unsigned)_numNewJobOffers;
+            unsigned attempts=0u;
+            ExpandedDebug_OfferNativeForce(1);
+            while(attempts<100u &&
+                  (unsigned)_numNewJobOffers==before) {
+                Career_MaybeGenerateJobOffer();
+                ++attempts;
+            }
+            ExpandedDebug_OfferNativeForce(0);
+            fprintf(stderr,"[debug-offer-week] %s "
+                "mode=EMPLOYED source=OG_NATIVE_CANDIDATE "
+                "attempts=%u old-new-offers=%u new-new-offers=%u "
+                "no-world-reset=1\n",
+                (unsigned)_numNewJobOffers>before?
+                    "OFFER_READY":"OFFER_UNAVAILABLE",
+                attempts,before,(unsigned)_numNewJobOffers);
+        }
+    }
+#endif
     CheckJobOffers();
     SetNationalSelectorButtons();
 #ifdef SWOS_SDL_BUILD

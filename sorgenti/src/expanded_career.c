@@ -269,6 +269,9 @@ void Expanded_OGStress_Reset(void)
     s_debug_june30_once=0;
     s_ogStressRemaining=0;s_ogStressDone=0;
     memset(&s_ogStressTarget,0,sizeof s_ogStressTarget);
+#ifdef SWOS_SDL_BUILD
+    ExpandedDebug_OfferWeekReset(); /* never inherit debug from new career */
+#endif
 }
 unsigned Expanded_OGStress_Done(void){return s_ogStressDone;}
 unsigned Expanded_OGStress_Remaining(void){return s_ogStressRemaining;}
@@ -917,9 +920,11 @@ void Expanded_UnemployedWait(void) {
             fprintf(stderr,"[calendar] FAIL FIVE_YEAR_DATE_OUT_OF_RANGE\n");
             return;
         }
-    } else if(ExpandedWorld_RegularForwardTarget(live.today,&target)) {
-        /* A normal week crossing the season boundary ends at July 1.
-         * The following click continues to July 8, not July 7. */
+    } else if(ExpandedWorld_NextSundayOrFixture(
+                  live.today,0,(ExpandedWorldDate){0},&target)) {
+        /* One real OG/civil week at a time. No fixture while unemployed:
+         * stop on NEXT Sunday, including across the country's own
+         * season boundary. July 1 is not a universal manager season. */
     } else {
         fprintf(stderr,"[calendar] FAIL WEEK_DATE_OUT_OF_RANGE\n");
         return;
@@ -996,6 +1001,14 @@ void Expanded_UnemployedWait(void) {
     }
     const unsigned previous_week=s_waitWeeks;
     s_waitWeeks=target_weeks;
+#ifdef SWOS_SDL_BUILD
+    /* F12+O one-shot only AFTER OG and single civil date both advanced.
+     * Long debug stress/year jumps are not a next-week offer event. */
+    const int debugOfferDue=!s_ogStressRemaining && !jump_years &&
+                            ExpandedDebug_OfferWeekTake();
+#else
+    const int debugOfferDue=0;
+#endif
     if(jump_years==5u) {
         ExpandedWorldDate check;
         ExpandedLiveCalendarState after;
@@ -1030,7 +1043,35 @@ void Expanded_UnemployedWait(void) {
         extern void Career_AdvanceUnemployedOGCups(uint32_t);
         Career_AdvanceUnemployedOGCups((uint32_t)s_waitWeeks);
     }
-    if(s_debug_june30_once && !s_ogStressRemaining) {
+    if(debugOfferDue) {
+        /* The actual unemployed route: a REAL CLUB from TEAM data and
+         * OG standings, with original offer_is_valid safety. Arming
+         * only adjusted when it appears, never the club selection rules
+         * or acceptance flow. No fabricated vacancies or OG results. */
+        s_waitTeam=0;
+        s_offerSnapshotValid=0;
+        s_offerAgreedWeekly=0;
+        s_waitAccepted=0;
+        s_nextOfferWeek=s_waitWeeks;
+        choose_small_club();
+        if(offer_is_valid()) {
+            s_nextOfferWeek=s_waitWeeks;
+            fprintf(stderr,"[debug-offer-week] OFFER_READY "
+                "mode=UNEMPLOYED world=%s target=%04u-%02u-%02u "
+                "club=%04x source=OG_ELIGIBLE_TEAM no-world-reset=1\n",
+                World_Tag(),(unsigned)target.year,(unsigned)target.month,
+                (unsigned)target.day,(unsigned)s_waitTeam);
+        } else {
+            s_waitTeam=0;
+            s_offerSnapshotValid=0;
+            s_nextOfferWeek=s_waitWeeks+next_delay();
+            fprintf(stderr,"[debug-offer-week] OFFER_UNAVAILABLE "
+                "mode=UNEMPLOYED world=%s target=%04u-%02u-%02u "
+                "reason=NO_VALID_OG_CANDIDATE no-fabricated-club=1\n",
+                World_Tag(),(unsigned)target.year,(unsigned)target.month,
+                (unsigned)target.day);
+        }
+    } else if(s_debug_june30_once && !s_ogStressRemaining) {
         /* DEBUG ONLY: a multi-month jump expires an old offer, which
          * should not be presented as a fresh 30 June vacancy. Now that
          * the original OG world and civil clock have both reached the

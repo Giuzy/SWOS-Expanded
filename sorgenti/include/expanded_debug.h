@@ -14,6 +14,15 @@ void ExpandedDebug_ForceScore(int career_home, uint16_t *home, uint16_t *away);
 /* Read-only counters from the genuine resident OpenSWOS competition states.
  * These functions NEVER initialize, simulate or advance a competition. */
 #ifdef SWOS_SDL_BUILD
+/* F12+O: transient real-club offer request after +7 civil days.
+ * Never auto-accept or alter OG/CAR. Native override enabled only
+ * during the explicit one-shot original-career candidate search. */
+int ExpandedDebug_OfferWeekToggle(void);
+int ExpandedDebug_OfferWeekArmed(void);
+int ExpandedDebug_OfferWeekTake(void);
+void ExpandedDebug_OfferWeekReset(void);
+void ExpandedDebug_OfferNativeForce(int enabled);
+int ExpandedDebug_OfferNativeForced(void);
 typedef struct {
     uint32_t resident_leagues, leagues_with_matches, completed_leagues;
     uint32_t native_matches, countries, invalid_contexts, club_bound;

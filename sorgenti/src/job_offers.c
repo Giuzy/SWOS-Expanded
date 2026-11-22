@@ -11,6 +11,9 @@
  */
 
 #include "job_offers.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_debug.h" /* transient F12+O native offer chance bypass */
+#endif
 #include "translations.h"  /* tr_fmt — localize the offer-letter text */
 #include "endian_helpers.h"
 #include "game_types.h"
@@ -1004,6 +1007,10 @@ __attribute__((used, externally_visible))
 void Career_MaybeGenerateJobOffer(void)
 {
     uint16_t foundTeamId = 0;
+    int debugNativeOffer=0;
+#ifdef SWOS_SDL_BUILD
+    debugNativeOffer=ExpandedDebug_OfferNativeForced();
+#endif
 
     if (_teamNoOfferAccepted != 0xFFFF)
         return;
@@ -1040,6 +1047,16 @@ void Career_MaybeGenerateJobOffer(void)
     }
 #endif
 
+    /* F12+O uses the SAME OG candidate and queue writer, but when
+     * the civil week is due it bypasses ONLY RNG/phase chance gates.
+     * Real native rank/reputation, duplicate, club and max5 checks below
+     * remain authoritative. No artificial club or contract is created. */
+    if(debugNativeOffer) {
+        if(_isNationalSelector!=0 ||
+           _primaryCompetitionBuf.tourn.header.numTeams<2u ||
+           _numSelectedTeams<2u) return;
+        goto searchDomestic;
+    }
     if (_careerJobOfferMode == 1)
         goto searchDomestic;
     if (_careerJobOfferMode == 2)
@@ -1087,7 +1104,7 @@ checkNational:
     }
 
 noNational:
-    if (_careerJobOfferMode == 2)
+    if (_careerJobOfferMode == 2 && !debugNativeOffer)
         return;
 
     /* Random chance to generate offer */
@@ -1137,7 +1154,7 @@ searchDomestic:
         repLow = (uint16_t)((uint16_t)(repHigh * 0) / 100);  /* mulu #0 */
     }
 
-    if (_careerJobOfferMode == 1)
+    if (_careerJobOfferMode == 1 && !debugNativeOffer)
         goto searchNational;
 
     if (_youreSacked != 0 && _isNationalSelector != 0)
@@ -1146,7 +1163,7 @@ searchDomestic:
     /* Try domestic (selected teams) first */
     {
         uint16_t rnd = Rand();
-        if (rnd < 0x15) {
+        if (!debugNativeOffer && rnd < 0x15) {
             /* Try national team selector offer */
             if (_isNationalSelector != 0)
                 goto searchNational;

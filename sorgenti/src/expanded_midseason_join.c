@@ -998,7 +998,7 @@ static int exp_bolivia_manager_plan(ExpandedBoliviaManagerFixture *pending,
                                    ExpandedWorldDate *target)
 {
     extern uint16_t _selTeamNumber;
-    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    extern uint16_t Expanded_OGWorld_BoliviaEditionYear(void);
     extern int Expanded_OGWorld_ClubBound(void);
     unsigned leaguePlayed=0u;
     if(!pending || !live || !target || _gameType!=4 ||
@@ -1006,7 +1006,7 @@ static int exp_bolivia_manager_plan(ExpandedBoliviaManagerFixture *pending,
        !Expanded_OGWorld_BoliviaManagerNext(pending) ||
        !ExpandedWorldLive_CalendarState(live))return 0;
     *target=(ExpandedWorldDate){pending->year,pending->month,pending->day};
-    if(pending->year!=Expanded_OGWorld_SaveYear() ||
+    if(pending->year!=Expanded_OGWorld_BoliviaEditionYear() ||
        !Expanded_OGWorld_BoliviaLeagueWitnessProgress(&leaguePlayed))
         return -2; /* unknown league occurrence: never bypass OG integrity */
     return ExpandedBolivia_ChooseNext(
@@ -1026,7 +1026,7 @@ static int exp_bolivia_career_next(ExpandedWorldDate *due,
     extern uint16_t _careerFinished,_seasonFinished;
     extern volatile uint16_t _seasonUpdateInProgress;
     extern int Expanded_OGWorld_ClubBound(void);
-    extern uint16_t Expanded_OGWorld_SaveYear(void);
+    extern uint16_t Expanded_OGWorld_BoliviaEditionYear(void);
     if(_gameType!=4 || World_Current()!=WORLD_2627 ||
        (uint8_t)(_selTeamNumber>>8)!=45u || _currentDivisionIndex!=0u ||
        _selTeamNumber==0xffffu || s_active ||
@@ -1045,14 +1045,14 @@ static int exp_bolivia_career_next(ExpandedWorldDate *due,
     const int hasLeague=played<EXP_BOLIVIA_LEAGUE_ROUNDS;
     const int hasCup=Expanded_OGWorld_BoliviaManagerNext(&cup);
     if(!hasLeague && !hasCup)return 0; /* original FINISH SEASON */
-    if(live->today.year!=Expanded_OGWorld_SaveYear() ||
-       (hasCup && cup.year!=Expanded_OGWorld_SaveYear()))
+    if(live->today.year!=Expanded_OGWorld_BoliviaEditionYear() ||
+       (hasCup && cup.year!=Expanded_OGWorld_BoliviaEditionYear()))
         return -1;
     const ExpandedWorldDate cupDate=hasCup?
         (ExpandedWorldDate){cup.year,cup.month,cup.day}:
         (ExpandedWorldDate){0};
     const int selection=hasCup?ExpandedBolivia_ChooseNext(
-        (uint8_t)World_Current(),Expanded_OGWorld_SaveYear(),live->today,
+        (uint8_t)World_Current(),Expanded_OGWorld_BoliviaEditionYear(),live->today,
         played,hasLeague,cupDate,cup.fixtureId,1):0;
     if(selection<0)return -1; /* collision/overdue: no fake action */
     if(selection==1) {
@@ -1108,6 +1108,16 @@ static int exp_bolivia_career_advance(const char *reason)
     if(!ExpandedWorld_DateToIndex(live.today,&from) ||
        !ExpandedWorld_DateToIndex(due,&to) || to<from)return -1;
     if(to==from)return 0;
+    /* Country pilot: expose every WEEK on the NEXT Sunday when no
+     * human OG fixture occurs sooner. The verified dated fixture still
+     * wins, and is never automatically played by FORWARD TIME. */
+    ExpandedWorldDate weekly;
+    int32_t weeklyIndex=0;
+    if(!ExpandedWorld_NextSundayOrFixture(
+           live.today,1,due,&weekly) ||
+       !ExpandedWorld_DateToIndex(weekly,&weeklyIndex) ||
+       weeklyIndex<=from || weeklyIndex>to)return -1;
+    to=weeklyIndex;
     fromDay=(int)from;toDay=(int)to;
     extern int Expanded_CompetitionCoordinator_Advance(
         ExpandedWorldDate,const char *);

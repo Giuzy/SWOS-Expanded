@@ -23,6 +23,16 @@ int ExpandedWorld_SeasonWeek(ExpandedWorldDate start, ExpandedWorldDate now,
                              uint32_t *out_week); /* 1-based, not ISO */
 int ExpandedWorld_DateAfterWeeks(ExpandedWorldDate start, uint32_t elapsed_weeks,
                                   ExpandedWorldDate *out_date);
+/* New 22/11 rule: any career free-time FORWARD reaches the NEXT
+ * Sunday (never the same Sunday). If a verified manager fixture falls
+ * first, stop ON its real date so PLAY MATCH can be offered by OG.
+ * This is one read-only civil-target computation, not a reset/clock.
+ * A past/current fixture fails closed and must be handled as PLAY/error.
+ * 'has_fixture' is either 0 or 1. No automatic July 1 truncation. */
+int ExpandedWorld_NextSundayOrFixture(ExpandedWorldDate today,
+                                      int has_fixture,
+                                      ExpandedWorldDate next_fixture,
+                                      ExpandedWorldDate *out_date);
 /* Normal unemployed FORWARD TIME: 7 days, but exactly July 1 when
  * crossing that boundary; no effect on other calendar/debug actions. */
 int ExpandedWorld_RegularForwardTarget(ExpandedWorldDate today,

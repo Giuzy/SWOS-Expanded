@@ -2405,6 +2405,11 @@ int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
                            "no-automatic-retry=1\n");
             return 0;
         }
+        /* During large F12/30-June native forwards, give the host OS
+         * a chance to dispatch window messages at REAL OG step boundaries.
+         * Pump does NOT dequeue inputs, run another sim, skip a fixture,
+         * alter RNG, or imply that the CPU workload has been reduced. */
+        if(toIndex-fromIndex>=28)SDL_PumpEvents();
         const ExpandedNativeTimelineResult outcome=
             ExpandedNativeTimeline_Advance(
                 (uint16_t)World_Current(),cursor,step,&ops);
@@ -3012,14 +3017,14 @@ void ContinueCareerNextSeason(void)
                 (ExpandedWorldDate){(uint16_t)year,1u,15u}:
                 (ExpandedWorldDate){(uint16_t)year,7u,1u};
             const Uint64 t0=SDL_GetPerformanceCounter();
-            const int nativeOk=boliviaJanuary?
-                Expanded_CompetitionCoordinator_Advance(
-                    boundary,"MANAGER_BOLIVIA_JAN15_OPEN"):
-                Expanded_OGWorld_AdvanceToDate(boundary);
+            const int nativeOk=Expanded_CompetitionCoordinator_Advance(
+                boundary,boliviaJanuary?
+                    "MANAGER_BOLIVIA_JAN15_OPEN":
+                    "MANAGER_COUNTRY_JUL1_OPEN");
             const Uint64 t1=SDL_GetPerformanceCounter();
-            int clockOk=nativeOk?
-                (boliviaJanuary?1:
-                ExpandedWorldLive_AdvanceToSeason((uint16_t)year)):0;
+            /* The coordinator already committed native OG AND civil.
+             * Validate the exact target below; no separate civil write. */
+            int clockOk=nativeOk;
             if(clockOk) {
                 ExpandedLiveCalendarState checked;
                 const int valid=ExpandedWorldLive_CalendarState(&checked);

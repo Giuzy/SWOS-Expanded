@@ -68,6 +68,7 @@ extern CompetitionCup _uefaCup;
 #include "expanded_bolivia_event_registry.h" /* civil-only Bolivia date template/registry */
 #include "bolivia_og_league_completion.h" /* read-only OG 16x30 standings proof */
 #include "expanded_og_edition_transition.h" /* native OG certified one-edition retire contract */
+#include "expanded_og_car_country_edition.h" /* readonly OG country edition CAR gate */
 #include "expanded_bolivia_modal_invariants.h"
 #include "expanded_bolivia_ko_modal_invariants.h" /* original OG per-event checks */
 #include "bolivia_manager_offset_gate.h" /* actual CPU/manager offset contract */
@@ -6854,7 +6855,7 @@ int Expanded_OGWorld_BoliviaLeagueScore(
        f->fixtureId<1u || f->fixtureId>240u ||
        f->serial!=(uint16_t)((f->fixtureId-1u)/8u) ||
        World_Current()!=WORLD_2627 ||
-       f->year!=Expanded_OGWorld_SaveYear())return -1;
+       f->year!=Expanded_OGWorld_BoliviaEditionYear())return -1;
     const ExpandedOGLeague *const ctx=exp_find(45u,0u,f->year);
     uint16_t expectedH=0u,expectedA=0u;
     if(!ctx || !exp_bolivia_league_pair(ctx,f->fixtureId-1u,
@@ -6941,7 +6942,7 @@ unsigned Expanded_OGWorld_BoliviaManagerFixtures(
        _gameType!=4 || _selTeamNumber==0xffffu || _youreSacked ||
        (uint8_t)(_selTeamNumber>>8)!=45u ||
        !s_expOGBolivia.used || s_expOGCurrent || s_expOGCupCurrent ||
-       s_expOGBolivia.year!=Expanded_OGWorld_SaveYear())return 0u;
+       s_expOGBolivia.year!=Expanded_OGWorld_BoliviaEditionYear())return 0u;
     BoliviaCupFixture fixtures[64];
     if(BoliviaCup_ChronologicalFixtures(fixtures)!=64u)return 0u;
     unsigned count=0u;
@@ -6967,6 +6968,64 @@ unsigned Expanded_OGWorld_BoliviaManagerFixtures(
     if(s_expOGBolivia.comp.matchesPlayedCount==64u) {
         const ExpandedOGCup *ko=exp_cup_find(45u,2u,s_expOGBolivia.year);
         if(ko && ko->used && ko->teamCount==8u) {
+            /* Historical KO manager fixtures come from the ONE original
+             * scored OG journal, not today's advanced/reshuffled bracket.
+             * Retain the exact played semi-final legs after elimination.
+             * The 16-team Copa group roster owns stable club/name IDs. */
+            for(unsigned serial=0u;
+                serial<ko->matchesPlayed &&
+                serial<BOLIVIA_KO_FIXTURES;++serial) {
+                const BoliviaKODate *d=&kBoliviaKO2026[serial];
+                const ExpandedWorldDate fixtureDate={
+                    ko->year,d->month,d->day};
+                int32_t dayIndex=-1;
+                if(!ExpandedWorld_DateToIndex(fixtureDate,&dayIndex) ||
+                   dayIndex<0)return 0u;
+                unsigned matches=0u;
+                uint16_t home=0xffffu,away=0xffffu;
+                for(size_t i=0u;i<s_expOGFixtureCount;++i) {
+                    const uint8_t *const row=
+                        s_expOGFixtures+i*EXP_OG_FIXTURE_SIZE;
+                    /* The actual Bolivia journal stores the GLOBAL
+                     * KO serial (0..13), even when two legs share DATE.
+                     * Round/leg are the original DIY cup encoded byte. */
+                    if(row[0]!=1u || row[1]!=45u || row[2]!=2u ||
+                       exp_fixture_get16(row+4u)!=ko->year ||
+                       exp_fixture_get16(row+6u)!=serial ||
+                       row[14]!=(uint8_t)((d->round<<3u)|d->leg) ||
+                       exp_fixture_get32(row+16u)!=(uint32_t)dayIndex)
+                        continue;
+                    const uint16_t h=exp_fixture_get16(row+8u);
+                    const uint16_t a=exp_fixture_get16(row+10u);
+                    if((h==_selTeamNumber)==(a==_selTeamNumber))
+                        continue;
+                    if(row[15]<1u || row[15]>3u || ++matches>1u)
+                        return 0u; /* ambiguous or invalid OG evidence */
+                    home=h;away=a;
+                }
+                if(matches==0u)continue; /* not this manager's tie */
+                if(count>=capacity)return 0u;
+                const uint16_t other=home==_selTeamNumber?away:home;
+                const TeamFileEx *opponent=NULL;
+                unsigned identities=0u;
+                for(unsigned i=0u;i<s_expOGBolivia.teamCount;++i) {
+                    const TeamFileEx *t=&s_expOGBolivia.teams[i];
+                    if(PACK_BE_U16(t->team.countryNumber,
+                                   t->team.teamOrdinal)!=other)continue;
+                    opponent=t;
+                    if(++identities>1u)return 0u;
+                }
+                if(identities!=1u || !opponent)return 0u;
+                out[count]=(ExpandedBoliviaManagerFixture){
+                    ko->year,home,away,(uint16_t)serial,
+                    (uint16_t)(serial+65u),d->month,d->day,1u,{0}};
+                memcpy(out[count].opponent,
+                       opponent->team.teamName,17u);
+                out[count].opponent[17]=0;
+                ++count;
+            }
+            /* Future fixtures still require the CURRENT native OG
+             * bracket; never forecast opponents after elimination. */
             for(unsigned serial=ko->matchesPlayed;
                 serial<BOLIVIA_KO_FIXTURES;++serial) {
                 const BoliviaKODate *d=&kBoliviaKO2026[serial];
@@ -9156,9 +9215,45 @@ int Expanded_OGWorld_ReadSaveJson(const char *json,int len,int apply) {
         if(valid) { const char *extra=NULL; int extraLen=0;
             if(og_saved_next(arr,al,&pos,&extra,&extraLen)!=0)valid=0; }
     }
+    /* The July compatibility year is not every country's native OG
+     * edition. Check a newer active country resident against the DATE
+     * encoded in this very CAR, not the current process's live clock. */
+    ExpandedWorldDate savedCivil={0};
+    const char *savedClock=NULL;
+    int savedClockLen=0;
+    long savedCivilIndex=-1;
+    const int haveSavedCivil=
+        mjson_find(json,len,"$.living_world",&savedClock,&savedClockLen)==
+            MJSON_TOK_OBJECT &&
+        mjson_get_long(savedClock,savedClockLen,"$.now",&savedCivilIndex)>0 &&
+        savedCivilIndex>=0 && savedCivilIndex<=INT32_MAX &&
+        ExpandedWorld_IndexToDate((int32_t)savedCivilIndex,&savedCivil);
     if(valid)for(long i=0;i<lc;i++){
         if(l[i].used){
-            if(l[i].teamCount<2 || l[i].year>(unsigned)year)valid=0;
+            if(l[i].teamCount<2)valid=0;
+            else if(l[i].year>(unsigned)year) {
+                const int allowed=haveSavedCivil &&
+                    ExpandedOGCar_FutureCountryEditionAllowed(
+                        World_Current()==WORLD_2627,
+                        (uint16_t)year,(uint16_t)l[i].country,
+                        l[i].year,savedCivil);
+                if(!allowed) {
+                    fprintf(stderr,"[og-car-country-edition] REJECT "
+                        "world=%s country=%u admin=%ld native=%u "
+                        "civil=%04u-%02u-%02u no-restore=1 no-save=1\n",
+                        World_Tag(),(unsigned)l[i].country,year,
+                        (unsigned)l[i].year,(unsigned)savedCivil.year,
+                        (unsigned)savedCivil.month,(unsigned)savedCivil.day);
+                    valid=0;
+                } else {
+                    fprintf(stderr,"[og-car-country-edition] VERIFIED "
+                        "world=%s country=%u admin=%ld native=%u "
+                        "civil=%04u-%02u-%02u native-fixtures=UNCHANGED\n",
+                        World_Tag(),(unsigned)l[i].country,year,
+                        (unsigned)l[i].year,(unsigned)savedCivil.year,
+                        (unsigned)savedCivil.month,(unsigned)savedCivil.day);
+                }
+            }
             live++;
         }
         for(long j=0;j<i;j++)

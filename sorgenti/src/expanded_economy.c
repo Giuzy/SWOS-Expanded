@@ -18,6 +18,8 @@
 #include "career_status.h"
 #include "bolivia_cup_sequence.h" /* shared OG stage labels + exact group identities */
 #include "bolivia_cup_knockout.h" /* native KO stage from actual bracket round */
+#include "expanded_country_season_baked.h" /* country-wide manager calendar cycle */
+#include "expanded_og_cache_match.h" /* read-only native fixture dates, no score writer */
 #include "expanded_bolivia_calendar_viewport.h" /* render-only red arrows and OG focus */
 #endif
 #include "expanded_midseason_join.h"
@@ -2149,7 +2151,7 @@ static unsigned ui_fixture_count(void) {
  * and the original resident OG owns EVERY fixture/result. */
 typedef struct UICompactFixture {
     uint32_t dayKey;
-    uint8_t day,month,cup,highlight,scoreText,expandedBolivia;
+    uint8_t day,month,cup,highlight,scoreText,expandedBolivia,seasonBreak;
     char label[80],first[80],side[24],mark[24],opponent[90];
 } UICompactFixture;
 static UICompactFixture s_uiNativeFixtures[14];
@@ -2158,6 +2160,7 @@ static unsigned s_uiNativeFixtureCount=0;
  * full resident-calendar overlay has its OWN presentation page: changing
  * these pixels never scrolls a fixture inside OpenSWOS or modifies CAR. */
 static ExpandedBoliviaCalendarViewport s_uiBoliviaCalendarView;
+static ExpandedBoliviaCalendarViewport s_uiCountryCalendarView;
 static uint16_t s_uiBoliviaArrowOriginal[2][4];
 static int s_uiBoliviaArrowMoved;
 static int ui_bolivia_calendar_active(void)
@@ -2166,6 +2169,13 @@ static int ui_bolivia_calendar_active(void)
            _gameType==4 && World_Current()==WORLD_2627 &&
            (uint8_t)(_selTeamNumber>>8)==45u &&
            _currentDivisionIndex==0u;
+}
+/* General career reader, not a Bolivia-only fixture implementation.
+ * Other game modes keep their native OG row layout and scrolling. */
+static int ui_country_calendar_active(void)
+{
+    return _currentMenuPtr==(uintptr_t)_contestMenu &&
+           _gameType==4 && _selTeamNumber!=0xffffu && !_youreSacked;
 }
 /* The compact red arrows were moved VISUALLY, but native MenuEntry mouse
  * hitboxes stayed at their old coordinates. Keep actual input rectangles
@@ -2204,16 +2214,24 @@ static void ui_bolivia_restore_scroll_hitboxes(void)
  * Return 0 for other countries/worlds so their original SWOS scroll runs. */
 int Expanded_UI_BoliviaCalendarScroll(int direction)
 {
-    if(!ui_bolivia_calendar_active() || !ui_load())return 0;
-    (void)ExpandedBoliviaCalendar_Scroll(&s_uiBoliviaCalendarView,direction);
-    return 1;
+    if(!ui_country_calendar_active() || !ui_load())return 0;
+    if(ui_bolivia_calendar_active()) {
+        (void)ExpandedBoliviaCalendar_Scroll(
+            &s_uiBoliviaCalendarView,direction);
+        return 1;
+    }
+    /* The generic view pages inside the current genuine OG native
+     * fixture window. At its edge, defer to original native scrolling
+     * to fetch the preceding/following actual fixture window. */
+    return ExpandedBoliviaCalendar_Scroll(
+        &s_uiCountryCalendarView,direction);
 }
 /* Restore the centered OG fixture on re-entering CAREER. Browsing with
  * arrows meanwhile does not recenter until the actionable fixture changes. */
 void Expanded_UI_BoliviaCalendarResetView(void)
 {
-    if(ui_bolivia_calendar_active())
-        memset(&s_uiBoliviaCalendarView,0,sizeof s_uiBoliviaCalendarView);
+    memset(&s_uiBoliviaCalendarView,0,sizeof s_uiBoliviaCalendarView);
+    memset(&s_uiCountryCalendarView,0,sizeof s_uiCountryCalendarView);
 }
 
 static int ui_fixture_panel_bottom=0;
@@ -2306,6 +2324,118 @@ static uint32_t ui_fixture_date_key(uint16_t year,unsigned month,unsigned day)
     if(!year || month<1u || month>12u || day<1u || day>31u)return 0u;
     return (uint32_t)year*10000u+month*100u+day;
 }
+/* Readonly projection of the ACTUAL weekly no-match FORWARD stops.
+ * A stop row is never a fixture, an OG result or an input callback.
+ * Only elapsed Sundays and (when the current scheduler can reach it)
+ * the very next Sunday are displayed. Do not predict unknown KO draws. */
+/* Purely readonly: the existing OG keycache contains REAL manager
+ * matches for every native competition phase in this calendar window.
+ * If the cache cannot certify absence, do not invent a break row. */
+static int ui_country_native_match_on(uint32_t key,uint16_t manager,
+                                      uint16_t nativeYear,
+                                      uint32_t *latestPlayed)
+{
+    extern uint8_t _teamSelectionKeyCache[8192];
+    extern uint16_t _teamSelectionKeyCacheCount;
+    size_t occupied=0u,offset=0u;
+    if(!ExpandedOGCache_Measure(_teamSelectionKeyCache,
+          sizeof _teamSelectionKeyCache,_teamSelectionKeyCacheCount,
+          &occupied))return -1;
+    for(uint16_t i=0u;i<_teamSelectionKeyCacheCount;++i) {
+        const uint8_t *p=_teamSelectionKeyCache+offset;
+        uint16_t stride=0u;
+        memcpy(&stride,p+2u,sizeof stride);
+        if(stride<10u || offset+stride>occupied)return -1;
+        for(unsigned j=0u;j<p[5];++j) {
+            const uint8_t *f=p+10u+j*12u;
+            const uint16_t home=(uint16_t)((uint16_t)f[2]<<8|f[3]);
+            const uint16_t away=(uint16_t)((uint16_t)f[4]<<8|f[5]);
+            if(home!=manager && away!=manager)continue;
+            ExpandedWorldDate nativeDate;
+            if(!ExpandedWorld_NativePhaseToDate(
+                    nativeYear,p[1],&nativeDate))return -1;
+            const uint32_t date=ui_fixture_date_key(nativeDate.year,
+                                 nativeDate.month,nativeDate.day);
+            if(latestPlayed && (f[1]&0x80u) &&
+               date<=key && date>*latestPlayed)*latestPlayed=date;
+            if(date==key && !latestPlayed)return 1;
+        }
+        offset+=stride;
+    }
+    return 0;
+}
+static void ui_append_country_season_breaks(
+    UICompactFixture *rows,unsigned *count,unsigned capacity,
+    uint16_t country,uint16_t edition,ExpandedWorldDate today,
+    int hasNextFixture,ExpandedWorldDate nextFixture,
+    uint32_t earliestBreak,int strictNative)
+{
+    if(!rows || !count || !capacity || !edition ||
+       edition<World_FirstYear())return;
+    ExpandedCountrySeasonCycle cycle={7u,1u,6u,30u};
+    ExpandedWorldDate start={edition,7u,1u},expiry={0};
+    if(World_Current()==WORLD_2627) {
+        /* Explicit one-off editions (e.g. MLS 2027) require certified
+         * dates before projecting a country-level weekly break. */
+        if((country==73u && edition==2027u) ||
+           !ExpandedCountrySeason_Baked2627(country,&cycle))return;
+        if(edition!=World_FirstYear() &&
+           !ExpandedCountrySeason_AnnualDates(
+                 edition,cycle,&start,&expiry))return;
+    }
+    int32_t startDay=0,todayDay=0;
+    if(!ExpandedWorld_DateToIndex(start,&startDay) ||
+       !ExpandedWorld_DateToIndex(today,&todayDay) ||
+       todayDay<startDay)return;
+    if(expiry.year) {
+        int32_t end=0;
+        if(!ExpandedWorld_DateToIndex(expiry,&end))return;
+        if(todayDay>end)todayDay=end;
+    }
+    int32_t nextFixtureDay=0;
+    const int knownNext=hasNextFixture &&
+        ExpandedWorld_DateToIndex(nextFixture,&nextFixtureDay) &&
+        nextFixtureDay>todayDay;
+    ExpandedWorldDate cursor=start;
+    /* At most 54 Sunday stops per annual edition; the fiscal/OG cycle
+     * is bounded independently of any future fixture count. */
+    for(unsigned week=0u;week<54u && *count<capacity;++week) {
+        ExpandedWorldDate stop;
+        int32_t dayIndex=0;
+        if(!ExpandedWorld_NextSundayOrFixture(
+               cursor,0,(ExpandedWorldDate){0},&stop) ||
+           !ExpandedWorld_DateToIndex(stop,&dayIndex) ||
+           dayIndex<=startDay || dayIndex>todayDay+7 ||
+           (dayIndex>todayDay &&
+            (!knownNext || dayIndex>=nextFixtureDay)))break;
+        const uint32_t key=ui_fixture_date_key(
+            stop.year,stop.month,stop.day);
+        int matchOnDay=0;
+        for(unsigned i=0u;i<*count;++i)
+            if(rows[i].dayKey==key && !rows[i].seasonBreak) {
+                matchOnDay=1;break;
+            }
+        /* Never call a verified native match date a SEASON BREAK.
+         * The keycache scan is cross-slot: league/cup are not treated
+         * as independent manager calendars. Incomplete cache fails shut. */
+        const int native=strictNative?
+            ui_country_native_match_on(key,_selTeamNumber,
+                (uint16_t)(World_FirstYear()+_currentSeasonShowing),
+                NULL):0;
+        if(native<0)return;
+        if(!matchOnDay && !native &&
+           (!earliestBreak || key>=earliestBreak)) {
+            UICompactFixture *row=&rows[(*count)++];
+            memset(row,0,sizeof *row);
+            row->dayKey=key;row->day=stop.day;row->month=stop.month;
+            row->expandedBolivia=1u;row->seasonBreak=1u;
+            snprintf(row->first,sizeof row->first,"SEASON BREAK");
+        }
+        cursor=stop;
+        startDay=dayIndex;
+    }
+}
+
 static void ui_paint_compact_fixture(const UICompactFixture *r,unsigned index)
 {
     if(!r || index>=14u)return;
@@ -2316,6 +2446,13 @@ static void ui_paint_compact_fixture(const UICompactFixture *r,unsigned index)
     if(r->day && r->month)
         snprintf(date,sizeof date,"%02u/%02u",
                  (unsigned)r->day,(unsigned)r->month);
+    if(r->seasonBreak) {
+        /* Date only, followed by the status where the match would be.
+         * No opponent, score, stage, action color or invented fixture. */
+        ui_native_text(29,y,34,2,date,-1);
+        ui_native_text(102,y,199,2,"SEASON BREAK",-1);
+        return;
+    }
     if(r->expandedBolivia) {
         ui_native_text(29,y,34,2,date,-1);
         ui_native_ellipsis(65,y,36,r->cup?15:2,r->label,-1);
@@ -2435,6 +2572,107 @@ int Expanded_UI_CompactFixtureRow(unsigned row,unsigned slotType)
     ui_paint_compact_fixture(r,row);
     return 1;
 }
+/* Universal CAREER overlay: 9697/2627 and every certified manager
+ * country. Preserve every true OG native row in the current native page;
+ * add only civil weekly stops that can be checked against its keycache.
+ * Original OG arrows still turn native fixture pages at visual bounds. */
+static void ui_render_country_calendar(void)
+{
+    extern uint16_t _careerFinished,_seasonFinished;
+    extern uint16_t Expanded_OGWorld_CurrentCountryEdition(uint8_t);
+    if(!ui_country_calendar_active())return;
+    ExpandedLiveCalendarState civil;
+    if(!ExpandedWorldLive_CalendarState(&civil))return;
+    const uint8_t country=World_FileCountry(
+        (uint8_t)(_selTeamNumber>>8));
+    const uint16_t edition=
+        Expanded_OGWorld_CurrentCountryEdition(country);
+    if(!edition)return;
+    /* Country-owned annual start, not the Bolivia January special.
+     * First selectable career starts 01 July in either world. */
+    ExpandedWorldDate cycleStart={edition,7u,1u};
+    if(World_Current()==WORLD_2627) {
+        ExpandedCountrySeasonCycle cycle;
+        ExpandedWorldDate expiry;
+        if((country==73u && edition==2027u) ||
+           !ExpandedCountrySeason_Baked2627(country,&cycle))return;
+        if(edition!=World_FirstYear() &&
+           !ExpandedCountrySeason_AnnualDates(
+                 edition,cycle,&cycleStart,&expiry))return;
+    }
+    int32_t startIndex=0,todayIndex=0;
+    if(!ExpandedWorld_DateToIndex(cycleStart,&startIndex) ||
+       !ExpandedWorld_DateToIndex(civil.today,&todayIndex) ||
+       todayIndex<startIndex)return;
+    /* Actual weekly FORWARD windows are the country's first 35 days
+     * or the period after the manager's last native league fixture. */
+    const int preseason=todayIndex-startIndex<=35;
+    if(!_careerFinished && !_seasonFinished && !preseason)return;
+    UICompactFixture merged[14u+54u];
+    const unsigned capacity=(unsigned)(sizeof merged/sizeof merged[0]);
+    unsigned count=0u;
+    const uint32_t nowKey=ui_fixture_date_key(
+        civil.today.year,civil.today.month,civil.today.day);
+    uint32_t lastPlayed=0u;
+    for(unsigned i=0u;i<s_uiNativeFixtureCount && i<14u;++i) {
+        if(!s_uiNativeFixtures[i].dayKey)return;
+        merged[count++]=s_uiNativeFixtures[i];
+        if(s_uiNativeFixtures[i].scoreText &&
+           s_uiNativeFixtures[i].dayKey<=nowKey &&
+           s_uiNativeFixtures[i].dayKey>lastPlayed)
+            lastPlayed=s_uiNativeFixtures[i].dayKey;
+    }
+    /* All native manager slots, not only the visible page, determine
+     * when the last truly played game precedes a weekly free-time stop. */
+    const int scanned=ui_country_native_match_on(
+        nowKey,_selTeamNumber,
+        (uint16_t)(World_FirstYear()+_currentSeasonShowing),
+        &lastPlayed);
+    if(scanned<0)return;
+    /* Native keycache cross-slot scan independently gates each stop. */
+    ui_append_country_season_breaks(
+        merged,&count,capacity,country,edition,civil.today,
+        0,(ExpandedWorldDate){0},lastPlayed,1);
+    if(count<=s_uiNativeFixtureCount)return;
+    for(unsigned i=1u;i<count;++i) {
+        const UICompactFixture row=merged[i];
+        unsigned j=i;
+        while(j>0u && merged[j-1u].dayKey>row.dayKey) {
+            merged[j]=merged[j-1u];--j;
+        }
+        merged[j]=row;
+    }
+    int focus=-1;
+    uint64_t key=0u;
+    for(unsigned i=0u;i<count;++i)
+        if(merged[i].seasonBreak && merged[i].dayKey==nowKey) {
+            focus=(int)i;
+            key=((uint64_t)_selTeamNumber<<48) |
+                ((uint64_t)nowKey<<16) | UINT64_C(0x4000);
+            break;
+        }
+    if(focus<0)for(unsigned i=0u;i<count;++i)
+        if(merged[i].highlight) {
+            focus=(int)i;
+            key=((uint64_t)_selTeamNumber<<48) |
+                ((uint64_t)merged[i].dayKey<<16) | (uint64_t)i;
+            break;
+        }
+    /* The native OG page identity is retained separately from the
+     * cosmetic SEASON BREAK page, so game callbacks are untouched. */
+    ExpandedBoliviaCalendar_Update(
+        &s_uiCountryCalendarView,count,focus,key);
+    const unsigned shown=count<BOLIVIA_CALENDAR_VIEW_ROWS?
+        count:BOLIVIA_CALENDAR_VIEW_ROWS;
+    ui_draw_fixture_panel(shown);
+    ui_bolivia_sync_scroll_hitboxes(ui_fixture_bottom_for_count(shown));
+    ui_fixture_rows_drawn=shown;
+    for(unsigned row=0u;row<shown;++row) {
+        const int src=s_uiCountryCalendarView.page+(int)row;
+        if(src>=0 && (unsigned)src<count)
+            ui_paint_compact_fixture(&merged[src],row);
+    }
+}
 /* Merge the VISUAL representation of resident DPN/Copa fixtures; actual
  * scores, dates and the PLAY MATCH target still come only from OG.
  * The native arrow callbacks now move THIS visual page, never TSKC. */
@@ -2442,13 +2680,18 @@ static void ui_render_merged_calendar(void)
 {
     if(_currentMenuPtr!=(uintptr_t)_contestMenu)return;
     if(!ui_bolivia_calendar_active()) {
-        ui_bolivia_restore_scroll_hitboxes();
+        if(ui_country_calendar_active())
+            ui_render_country_calendar();
+        else ui_bolivia_restore_scroll_hitboxes();
         return;
     }
     /* Bolivia pilot: the complete DPN/Copa view is driven by civil
      * registry dates, NOT a presentation merge over TSKC native phases.
      * OG supplies only immutable pair DATA and real witnessed results. */
-    UICompactFixture merged[64];
+    /* 30 DPN + 16 Copa rows plus up to 54 verified Sunday stops.
+     * Presentation only; OG journal/save has no such cap or rows. */
+    UICompactFixture merged[30u+16u+54u];
+    const unsigned capacity=(unsigned)(sizeof merged/sizeof merged[0]);
     unsigned count=0u;
     ExpandedBoliviaManagerFixture liga[30];
     const unsigned ligaCount=Expanded_OGWorld_BoliviaLeagueFixtures(
@@ -2475,7 +2718,7 @@ static void ui_render_merged_calendar(void)
                                haveLeagueProgress && ligaPlayed<ligaCount;
     (void)due;
     unsigned focusMatches=0u;
-    for(unsigned i=0u;i<ligaCount && count<64u;++i) {
+    for(unsigned i=0u;i<ligaCount && count<capacity;++i) {
         const ExpandedBoliviaManagerFixture *f=&liga[i];
         const uint32_t key=ui_fixture_date_key(f->year,f->month,f->day);
         if(!key)continue;
@@ -2510,7 +2753,7 @@ static void ui_render_merged_calendar(void)
     const int groupDates=BoliviaCup_ChronologicalFixtures(ordered)==
                          BOLIVIA_CUP_GROUP_FIXTURES;
     const uint32_t first=count?merged[0].dayKey:0u;
-    for(unsigned i=0u;i<cupCount && i<16u && count<64u;++i) {
+    for(unsigned i=0u;i<cupCount && i<16u && count<capacity;++i) {
         const uint32_t key=ui_fixture_date_key(cup[i].year,
                                                cup[i].month,cup[i].day);
         if(!key)continue;
@@ -2563,6 +2806,19 @@ static void ui_render_merged_calendar(void)
         }
         snprintf(r->opponent,sizeof r->opponent,"%.17s",cup[i].opponent);
     }
+    /* Same exact Sunday step used by manager FORWARD TIME. This augments
+     * the calendar visually, never the resident OG fixture programme. */
+    ExpandedLiveCalendarState civilForBreak;
+    const int haveCivilForBreak=
+        ExpandedWorldLive_CalendarState(&civilForBreak);
+    const uint32_t todayKey=haveCivilForBreak?
+        ui_fixture_date_key(civilForBreak.today.year,
+                            civilForBreak.today.month,
+                            civilForBreak.today.day):0u;
+    if(ligaCount && haveCivilForBreak)
+        ui_append_country_season_breaks(
+            merged,&count,capacity,45u,liga[0].year,civilForBreak.today,
+            verified,due,0u,0);
     for(unsigned i=1u;i<count;++i) {
         const UICompactFixture row=merged[i];
         unsigned j=i;
@@ -2578,7 +2834,18 @@ static void ui_render_merged_calendar(void)
          * different or invented fixture merely to centre the viewport. */
         for(unsigned i=0u;i<count;++i)merged[i].highlight=0u;
     } else {
-        for(unsigned i=0u;i<count;++i)if(merged[i].highlight) {
+        /* A real no-match stop is the current scroll focus, not an OG
+         * PLAY highlight; otherwise retain the next native fixture. */
+        for(unsigned i=0u;i<count;++i)
+            if(todayKey && merged[i].seasonBreak &&
+               merged[i].dayKey==todayKey) {
+                focusRow=(int)i;
+                focusKey=((uint64_t)_selTeamNumber<<48) |
+                         ((uint64_t)todayKey<<16) | UINT64_C(0x4000);
+                break;
+            }
+        for(unsigned i=0u;focusRow<0 && i<count;++i)
+            if(merged[i].highlight) {
             focusRow=(int)i;
             /* World 2627, manager club, real civil date + DPN/Copa kind
              * + chronological occurrence: stable across redraws but

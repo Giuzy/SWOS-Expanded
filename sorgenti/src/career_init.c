@@ -509,6 +509,10 @@ extern void ShowRetirementMessage(void);
 extern void InitCareerVariables(uint16_t gameTypeParam);
 /* OG game type used by the aborted-career TITLE diagnostic below. */
 extern uint16_t _gameType;
+/* Required by the midseason job handoff in ContinueCareer below.
+ * Keep these declarations before their first C11 use. */
+extern uint16_t _seasonFinished;
+extern uint16_t _youreSacked;
 
 #ifdef SWOS_SDL_BUILD
 /* This flag is checked by ContinueCareer BEFORE its new-year autosave. */
@@ -863,7 +867,6 @@ extern uint32_t CalculateStartingBalance(uint16_t teamNumber);
 extern uint16_t _selTeamSelectedPlayerPosition;
 extern uint8_t  _careerUnavailablePlayerList[];
 extern uint16_t _retired;
-extern uint16_t _youreSacked;
 extern uint16_t _competitionSlotUpdatedFlag;
 extern uint16_t _boardConfidenceMod0;
 extern uint16_t _boardConfidenceMod1;
@@ -928,7 +931,6 @@ extern uint8_t  _viewRandomPhase;
 extern uint8_t  _lastFinancialWeekIndex;
 extern uint16_t _wageScalingDivisor;
 extern uint16_t _leagueFirstRoundNumber;
-extern uint16_t _seasonFinished;
 extern uint16_t _careerFinished;
 extern uint8_t  _managerNameBuffer[];
 extern uint8_t  _managerSurnameBuffer[];

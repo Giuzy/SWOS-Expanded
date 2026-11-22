@@ -23,6 +23,7 @@ run_one() {
         run_test_expanded_og_cache_match|run_test_expanded_og_league_bridge|\
         run_test_expanded_qualification_transition|\
         run_test_expanded_universal_fixture_registry|\
+        run_test_expanded_universal_world_catalog|\
         run_test_expanded_universal_car)
             scope="COMPETITION_ENGINE_ISOLATED" ;;
         run_test_expanded_f12_compare)
@@ -63,6 +64,7 @@ for script in sorgenti/tests/run_test*.sh sorgenti/tests/run_audit_competition_f
         run_test_expanded_og_league_bridge.sh|\
         run_test_expanded_qualification_transition.sh|\
         run_test_expanded_universal_fixture_registry.sh|\
+        run_test_expanded_universal_world_catalog.sh|\
         run_test_expanded_universal_car.sh|\
         run_test_expanded_f12_compare.sh|run_test_save_car_zstd.sh|\
         run_test_expanded_og_fixture_hash.sh)

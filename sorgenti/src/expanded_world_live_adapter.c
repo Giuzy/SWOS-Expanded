@@ -9,6 +9,7 @@
 #include "game_types.h"
 #include "teams.h"
 #include "comp_identity.h"
+#include "expanded_universal_world_catalog.h"
 #ifdef SWOS_SDL_BUILD
 #include <stdio.h>
 #include <string.h>
@@ -152,9 +153,15 @@ static unsigned import_file(uint8_t file, uint8_t country,
         char name[18];
         memcpy(name,t->team.teamName,17); name[17]=0;
         if (ExpandedWorldLive_AddClub(country,t->team.league,id,
-                                      (uint16_t)rating,name,(uint8_t)points))
+                                      (uint16_t)rating,name,(uint8_t)points)) {
+            /* Copy the real writable TeamFileEx while the shared TEAM
+             * buffer is still valid. No extra loader or country switch. */
             imported++;
-        else track_rejection(t,file,LIVE_IMPORT_LWE_REJECTED);
+            if(!ExpandedUniversalCatalog_AddClub(t))
+                fprintf(stderr,"[universal-catalog] MISSING_ROSTER "
+                               "file=%u ordinal=%u\n",(unsigned)file,
+                        (unsigned)t->team.teamOrdinal);
+        } else track_rejection(t,file,LIVE_IMPORT_LWE_REJECTED);
     }
     return imported;
 }
@@ -185,6 +192,9 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
     s_import_country_samples_count=0;
     const uint8_t *countries=World_SeasonCountries();
     if (!countries) countries=_careerCompetitionIdRemapTable;
+    if(!ExpandedUniversalCatalog_Begin())
+        fprintf(stderr,"[universal-catalog] BEGIN_FAILED world=%s\n",
+                World_Tag());
     if (!ExpandedWorldLive_Begin(World_FirstYear())) {
         s_import_runtime.status=3;
         fprintf(stderr,"[world-import-error] stage=WORLD_BEGIN attempt=%lu result=FAIL\n",
@@ -225,6 +235,10 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
                 ++s_import_cup_records[2];
             } else if(((const Competition *)table[cupSlot])->type==1) {
                 ++s_import_cup_records[cupSlot-2u];
+                /* Definition only: unknown KO entrants are NOT fixtures. */
+                (void)ExpandedUniversalCatalog_AddCup(
+                    country,(uint8_t)((const Competition *)table[cupSlot])->compId,
+                    1u);
                 /* The summary [world-import]/[world-cup-load-audit]
                  * retains the coverage numbers. Native OG cup residency is
                  * audited separately; this repeated legacy row is obsolete. */
@@ -268,6 +282,15 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
                     country,(uint8_t)d,
                     (uint8_t)base->beginMonth,(uint8_t)base->endMonth,
                     (uint8_t)original_legs);
+                /* Normalize ALL countries into the same native-fixture
+                 * input catalogue. No country-specific scheduling. */
+                if(!ExpandedUniversalCatalog_AddLeague(
+                       country,(uint8_t)base->compId,(uint8_t)d,
+                       (uint8_t)base->beginMonth,(uint8_t)base->endMonth,
+                       (uint8_t)original_legs))
+                    fprintf(stderr,"[universal-catalog] LEAGUE_NOT_IMPORTED "
+                                   "country=%u division=%u comp=%u\n",
+                            (unsigned)country,d,(unsigned)base->compId);
                 /* Read the ORIGINAL division's automatic promotions, relegations
                  * and playoff flags. Unsupported or grouped systems are logged;
                  * they are never replaced with fabricated rank cutoffs. */
@@ -303,6 +326,11 @@ void ExpandedWorldLive_LoadOfferCountries(void) {
                 (unsigned long)attempt);
         ExpandedWorldLive_End();
     } else {
+        /* One input catalogue after ALL countries/TEAM files. Do NOT
+         * activate CAR while old OG Career is still the runtime writer. */
+        if(!ExpandedUniversalCatalog_Seal())
+            fprintf(stderr,"[universal-catalog] SEAL_FAILED world=%s\n",
+                    World_Tag());
         s_import_audit.scheduled_leagues=ExpandedWorldLive_NativeScheduleLeagues();
         s_import_runtime.status=(s_import_runtime.rows_accounted &&
                                  s_import_runtime.failed_files==0u)?2u:3u;

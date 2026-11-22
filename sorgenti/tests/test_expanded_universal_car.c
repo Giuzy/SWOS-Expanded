@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "expanded_universal_car.h"
+#include "expanded_universal_standings.h"
 
 static WorldId s_world=WORLD_2627;
 WorldId World_Current(void) {return s_world;}
@@ -107,6 +108,26 @@ int main(void)
      * production CAR Claim/Completion callbacks and codec. */
     assert(ExpandedUniversal_RunDue(r,d,&ops)==EXP_UNIVERSAL_OK);
     assert(s_games==1u && s_writes==3u);
+    /* A single original OG witness becomes exactly one table update.
+     * The second fixture is still scheduled and must not produce points. */
+    {
+        ExpandedUniversalStanding rows[4];
+        ExpandedClubKey winner={0};
+        uint32_t count=0u, played=0u, points=0u;
+        assert(ExpandedUniversal_Standings(
+            r,f0.key.edition,1u,3u,rows,4u,&count));
+        assert(count==4u);
+        for(uint32_t i=0;i<count;++i) {
+            played+=rows[i].played;
+            points+=rows[i].points;
+        }
+        assert(played==2u && points==3u);
+        assert(ExpandedUniversal_KnockoutWinner(
+            r,f0.key.edition,1u,1u,&winner));
+        assert(ExpandedClubKey_Equal(winner,f0.home));
+        assert(!ExpandedUniversal_KnockoutWinner(
+            r,f1.key.edition,1u,2u,&winner));
+    }
     assert(ExpandedUniversal_CarValidate(s_disk,(int)strlen(s_disk)));
     assert(ExpandedUniversal_CarRestore(s_disk,(int)strlen(s_disk)));
     r=ExpandedUniversal_CarRegistry();

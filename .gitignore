@@ -40,3 +40,12 @@ Thumbs.db
 PULIZIA_SWOS.ps1
 
 RAPPORTO_PULIZIA_SWOS.txt
+
+# Dati personali e runtime di SWOS Expanded: mai aggiungere nuovi file a Git
+# I file gia' tracciati devono essere rimossi DALL'INDICE con protezione dei dati.
+# Il solo .gitignore NON interrompe il tracciamento di file gia' committati.
+/SWOS.ini
+/save/
+# Screenshot diagnostici occasionali: non confondere con asset approvati.
+/docs/ChatGPT Image*.png
+/docs/Screenshot *.png

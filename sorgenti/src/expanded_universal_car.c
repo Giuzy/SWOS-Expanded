@@ -8,6 +8,7 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_universal_car.h"
 #include "world.h"
+#include "platform_sdl.h" /* monotonic CPU-forward CAR stage timings */
 #include <limits.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -142,11 +143,14 @@ int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
     ExpandedCarEventIndex *events=NULL;
     uint32_t i;
     int result;
+    const Uint64 started_ms=Platform_NowMs();
+    Uint64 validated_ms;
     if(!output)return 0;
     if(!r)
         return mjson_printf(output,user,",\n  %Q:null","universal_engine")>0;
     if(r->world!=(uint16_t)World_Current() ||
        !ExpandedUniversal_ValidateRestore(r))return 0;
+    validated_ms=Platform_NowMs();
     if(r->fixture_count>(uint32_t)((INT_MAX-EXP_CAR_HEX_HEAD-
         EXP_CAR_HEX_CRC-1)/EXP_CAR_HEX_ROW))return 0;
     len=EXP_CAR_HEX_HEAD+(size_t)r->fixture_count*EXP_CAR_HEX_ROW+
@@ -214,6 +218,12 @@ int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
     result=mjson_printf(output,user,",\n  %Q:%Q","universal_engine",buf);
     free(events);
     free(buf);
+    fprintf(stderr,"[universal-perf] CAR_EMIT_TIMING "
+        "fixtures=%lu validate_ms=%llu encode_ms=%llu status=%s\n",
+        (unsigned long)r->fixture_count,
+        (unsigned long long)(validated_ms-started_ms),
+        (unsigned long long)(Platform_NowMs()-validated_ms),
+        result>0?"OK":"FAILED");
     return result>0;
 }
 /* Parse a complete candidate in TEMPORARY heap memory. No current world
@@ -374,15 +384,24 @@ int ExpandedUniversal_CarSaveClaim(void *user,
     const ExpandedUniversalRegistry *r,const ExpandedUniversalFixture *f)
 {
     ExpandedFixtureLedgerEntry *entry;
+    const Uint64 started_ms=Platform_NowMs();
+    Uint64 validated_ms;
     (void)user;
     if(!r || r!=ExpandedUniversal_CarRegistry() || !f ||
        !ExpandedUniversal_ValidateRestore((ExpandedUniversalRegistry *)r))
         return 0;
+    validated_ms=Platform_NowMs();
     entry=ExpandedUniversal_EntryFor((ExpandedUniversalRegistry *)r,f);
     if(!entry || entry->state!=EXP_FIXTURE_CLAIMED)return 0;
     {
         const int ok=Expanded_AutoCareer_SaveChecked(
             "universal-fixture-claimed");
+        fprintf(stderr,"[universal-perf] CAR_CLAIM_TIMING "
+            "event=%llu validate_ms=%llu full_save_ms=%llu status=%s\n",
+            (unsigned long long)f->event_id,
+            (unsigned long long)(validated_ms-started_ms),
+            (unsigned long long)(Platform_NowMs()-validated_ms),
+            ok?"SAVED":"REJECTED");
         if(ok)fprintf(stderr,"[universal-car] CLAIMED_PERSISTED "
             "event=%llu replay=FORBIDDEN\n",
             (unsigned long long)f->event_id);
@@ -398,6 +417,8 @@ int ExpandedUniversal_CarSaveCompletion(void *user,
     ExpandedScheduledEvent old_event;
     uint32_t i;
     int ok;
+    const Uint64 started_ms=Platform_NowMs();
+    Uint64 validated_ms,saved_ms;
     (void)user;
     if(!r || r!=ExpandedUniversal_CarRegistry() || !f || !proposal ||
        !proposal->witness.valid ||
@@ -429,8 +450,16 @@ int ExpandedUniversal_CarSaveCompletion(void *user,
     /* A proposed snapshot must itself be structurally recoverable BEFORE
      * any disk write; a rejected proposal preserves the previous CAR. */
     ok=ExpandedUniversal_ValidateRestore((ExpandedUniversalRegistry *)r);
+    validated_ms=Platform_NowMs();
     if(ok)ok=Expanded_AutoCareer_SaveChecked("universal-fixture-complete");
+    saved_ms=Platform_NowMs();
     *entry=saved;*event=old_event;
+    fprintf(stderr,"[universal-perf] CAR_COMPLETE_TIMING "
+        "event=%llu precheck_ms=%llu full_save_ms=%llu status=%s\n",
+        (unsigned long long)f->event_id,
+        (unsigned long long)(validated_ms-started_ms),
+        (unsigned long long)(saved_ms-validated_ms),
+        ok?"SAVED":"REJECTED");
     if(ok)fprintf(stderr,"[universal-car] COMPLETED_PERSISTED "
         "event=%llu score=%u:%u state=COMPLETED "
         "one-atomic-CAR=1\n",

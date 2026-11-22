@@ -179,7 +179,7 @@ static ExpandedUniversalResult run_match(
         interactive?"MANAGER":"CPU",(int)result);
     return result;
 }
-int ExpandedUniversalLive_Advance(ExpandedWorldDate target)
+static int exp_universal_live_advance_impl(ExpandedWorldDate target)
 {
     ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
     ExpandedLiveCalendarState state={0};
@@ -252,6 +252,21 @@ int ExpandedUniversalLive_Advance(ExpandedWorldDate target)
             }
         }
     }
+}
+/* Measure the COMPLETE civil FORWARD call, including zero-event windows,
+ * OG CPU batches, all durable CAR checkpoints, and fail-closed exits. No
+ * new clock or result writer: the old return paths remain inside _impl. */
+int ExpandedUniversalLive_Advance(ExpandedWorldDate target)
+{
+    const Uint64 started_ms=Platform_NowMs();
+    const int ok=exp_universal_live_advance_impl(target);
+    fprintf(stderr,"[universal-perf] FORWARD_TOTAL "
+        "target=%04u-%02u-%02u elapsed_ms=%llu status=%s "
+        "owner=JSON_ENGINE no-old-OG-tick=1\n",
+        (unsigned)target.year,(unsigned)target.month,(unsigned)target.day,
+        (unsigned long long)(Platform_NowMs()-started_ms),
+        ok?"ADVANCED_OR_WAIT_MANAGER":"BLOCKED");
+    return ok;
 }
 int ExpandedUniversalLive_PlayManager(void)
 {

@@ -6,6 +6,7 @@
 #include "expanded_universal_native_match.h"
 #include "game_init.h"
 #include "replay_v2.h" /* scope CPU-only no-SRP; interactive replays unchanged */
+#include "platform_sdl.h" /* real monotonic OG 50 Hz match duration */
 #include "play_match_menu.h" /* GAME_TYPE_CAREER from existing OG header */
 #include "world.h"
 #include <stdint.h>
@@ -106,6 +107,7 @@ int ExpandedUniversal_NativeRunOriginal(
     uint16_t oldCareer;
     uint16_t homeControls,awayControls;
     int32_t priorReplaySuppression=0;
+    Uint64 og_started_ms;
     int bad;
     if(witness)memset(witness,0,sizeof *witness);
     if(!witness || !c || !c->lineup_ready ||
@@ -151,6 +153,7 @@ int ExpandedUniversal_NativeRunOriginal(
     SDL_AtomicSet(&s_universal_match_active,1);
     /* True OpenSWOS 50Hz/AI input and post-match player effects.
      * No old DIY competition progression callback is called. */
+    og_started_ms=Platform_NowMs();
     InitializeInGameTeamsAndStartGame(0,c->minimum_substitutes,
         c->maximum_substitutes,c->match_parameters,c->match_postprocess,
         (TeamFile *)c->home,(TeamFile *)c->away);
@@ -168,6 +171,12 @@ int ExpandedUniversal_NativeRunOriginal(
         _penaltiesState<0 ||
         _statsTeam1Goals!=_statsTeam1GoalsCopy ||
         _statsTeam2Goals!=_statsTeam2GoalsCopy;
+    fprintf(stderr,"[universal-perf] OG_NATIVE_TIMING "
+        "event=%llu cpu=%u og_elapsed_ms=%llu natural_end=%u valid=%u\n",
+        (unsigned long long)fixture->event_id,(unsigned)!c->interactive,
+        (unsigned long long)(Platform_NowMs()-og_started_ms),
+        (unsigned)SDL_AtomicGet(&s_universal_match_completed),
+        (unsigned)!bad);
     if(bad) {
         fprintf(stderr,"[universal-native] OG_RESULT_REJECTED "
             "cpu=%u completed=%u quit=%u canceled=%u exit=%u "

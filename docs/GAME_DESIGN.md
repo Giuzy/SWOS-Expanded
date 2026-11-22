@@ -1,3 +1,6 @@
+## 22/11/2026 — v00.13.245 PREPARATO (COMMIT AUTORIZZATO, WIN NON VERIFICATO)
+Approved native OG prematch temp UI: only reserves B shift +80 logical to far-right inside 320px, no yellow skill or monetary value on B; original XI keep 6 visual parts. Keyboard/joypad only. Manager league and Copa pending native fixtures can edit own roster; CPU/viewers readonly. No deleted separate SIMULATE MATCH career UI restored. No new clock/simulator, fixture or score.
+
 ## 22/11/2026 — PREMATCH ORIGINAL OG v244, FOLLOWUP TO RG-014 (PREP NOT WIN)
 Latest user instruction overrides prior request to hide starter monetary values: KEEP all starter OG form/skills/status/values; shift only real manager B/reserve list farther RIGHT by +40 native logical pixels, including focus/hitbox, full six row parts and selected checkmark. Keyboard/Pro A/B navigation; old additional career SIMULATE MATCH was already removed and must NOT return. Preserve original OG competition menu with PLAY/COACH, VIEW RESULT, CPU matches, score/standings. Eligible editing only while original native OG manager match pending and verified; other/CPU/post-result viewers readonly. Proposed play_match_menu.c SHA 6f27b209db838cd49996222b18d449bab47e97ae; no new second simulator. Windows behavior NOT PROVEN.
 

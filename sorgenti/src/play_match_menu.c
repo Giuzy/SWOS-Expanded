@@ -98,7 +98,9 @@ extern uint16_t TrainingMatch_KeepCrossSwapForMatch(uint16_t fileA,
                                                     uint16_t fileB, int swapShirtNumbers);
 /* Original pre-match menu: extra true career players 16..31 (SDL only).
  * No synthetic TEAM B, no opponent editing, no second match controller. */
-enum { kCareerExtraFirst=69, kCareerExtraCount=16, kCareerExtraShiftX=40 };
+/* Reserve row footprint: name x=140+S width82, position x=223+S width14.
+ * In OG 320px logical width S<=82 to leave a border; choose S=80. */
+enum { kCareerExtraFirst=69, kCareerExtraCount=16, kCareerExtraShiftX=80 };
 static int16_t s_extraReserveSlot=-1, s_extraDrawSlot=-1;
 /* Original OG packed navigation and pitch visibility saved at every menu
  * unpack; never leak extra-list links into opponent/other match menus. */
@@ -109,7 +111,15 @@ static int16_t s_extraNativeX[kCareerExtraCount];
 extern int Expanded_OGWorld_BoliviaModalActive(void);
 extern int Expanded_OGWorld_BoliviaManagerInteractive(void);
 extern int Expanded_OGWorld_BoliviaManagerAutoSim(void);
+extern int Expanded_OGWorld_BoliviaModalManagerFixtureArmed(void);
 extern int Expanded_OGWorld_IsSimulating(void);
+/* Set only around a real user-facing OG league RESULT action-0 SetupPlayers.
+ * Never a new UI simulator, scoring callback or second clock. */
+static int s_nativeOGManagerResultPrompt;
+void Expanded_CareerNativeOGResultPromptSet(int enabled)
+{
+    s_nativeOGManagerResultPrompt=enabled!=0;
+}
 static int16_t s_extraNativeCheckX;
 static int s_extraNavReady, s_extraLastVisible=-1;
 
@@ -131,12 +141,22 @@ static int Expanded_ManagedCareerTeam(const TeamFileEx *team)
 static int Expanded_CareerLineupEditsAllowed(void)
 {
     if (_squadChangesAllowed) return 1;
-    return _gameType==GAME_TYPE_CAREER && !_trainingGame &&
-        !_showingCpuTeams && !_viewingOpponentTeam &&
-        Expanded_ManagedCareerTeam(_playMatchTeam1Ptr) &&
-        Expanded_OGWorld_BoliviaModalActive() &&
-        Expanded_OGWorld_BoliviaManagerInteractive() &&
-        !Expanded_OGWorld_BoliviaManagerAutoSim() &&
+    if (_gameType!=GAME_TYPE_CAREER || _trainingGame ||
+        _showingCpuTeams || _viewingOpponentTeam ||
+        !Expanded_ManagedCareerTeam(_playMatchTeam1Ptr))
+        return 0;
+    /* Resident OG ownership is NOT an auto-sim indicator. A verified,
+     * armed manager fixture remains resident while its ORIGINAL action0
+     * shows the pre-result lineup. The old !IsSimulating check was
+     * contradictory and rejected every such legitimate Copa menu. */
+    if (Expanded_OGWorld_BoliviaModalActive())
+        return Expanded_OGWorld_BoliviaManagerInteractive() &&
+            !Expanded_OGWorld_BoliviaManagerAutoSim() &&
+            Expanded_OGWorld_BoliviaModalManagerFixtureArmed();
+    /* A distinct original, user-entered local OG league RESULT prompt.
+     * Its source path guarantees no season update / CPU auto-advance;
+     * no stale modal fixture, no unbound team, no autonomous simulation. */
+    return s_nativeOGManagerResultPrompt &&
         !Expanded_OGWorld_IsSimulating();
 }
 static int Expanded_CareerExtraVisible(void)
@@ -1898,7 +1918,14 @@ void DrawPlayerEntries(MenuEntry *a5) {
             _menuEntries[31+i].x=(int16_t)(savedX[i]+93+kCareerExtraShiftX);
         }
 #endif
+    /* Extended reserves use real OG player/status/name/position only.
+     * Drop solely their yellow skill column (entry35) and value (36):
+     * never hide the shared scratch entries used by the starters. */
+#ifdef SWOS_SDL_BUILD
+    DrawMultipleItems(s_extraDrawSlot>=0?4:6, &_menuEntries[31]);
+#else
     DrawMultipleItems(6, &_menuEntries[31]);
+#endif
 #ifdef SWOS_SDL_BUILD
     if(s_extraDrawSlot>=0)
         for(unsigned i=0;i<6;++i)_menuEntries[31+i].x=savedX[i];

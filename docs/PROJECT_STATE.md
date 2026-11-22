@@ -1,3 +1,6 @@
+## 22/11/2026 — v00.13.245 PREPARATO (COMMIT AUTORIZZATO, WIN NON VERIFICATO)
+State: v00.13.245 prepared original OG manager league selector0 prematch editing, Copa mode1 armed editing; reserve column +80, only first 4 scratch render parts for reserves; V source, I behavior. Fails Windows GP not tested. RG-014 OPEN. Source bloba2445f/388cf0/bc75b3 and version770339; no duplicate OG simulation or new action.
+
 ## 22/11/2026 — PREMATCH ORIGINAL OG v244, FOLLOWUP TO RG-014 (PREP NOT WIN)
 User Windows screenshot v243 Nacional Potosi original OG prematch shows real extra players but all selection/swaps blocked; user latest correction KEEP starter fields/value and move right list farther RIGHT, never restore removed SIMULATE MATCH contest button. Code prepared src/play_match_menu.c SHA 6f27b209db838cd49996222b18d449bab47e97ae and version244 build_info.h SHA612c2aa0c071a74d4a00dfba93f484a797c92ad1, dev/0.10 base HEAD1fbbe16c20021a20353d1f70fc9fbae23e2e90d1. No changes to DIY action, original OG scheduler/result/fixture, or CAR. Edit exception only real active manager native fixture source career_status.c modal mode1. UI native +40, six text pieces +40, checkmark ordered. Speculative old diy_competition.c blob81865a6a and header f1d44477 rejected. Static20/20 PASS, Windows build/gameplay/9697/2627/CAR NOT PROVEN. RG-014 remains OPEN.
 

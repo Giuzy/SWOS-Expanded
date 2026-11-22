@@ -6960,6 +6960,12 @@ typedef struct {
 static ExpandedBoliviaNativeModal s_expBoliviaNativeModal;
 int Expanded_OGWorld_BoliviaModalActive(void)
 { return s_expBoliviaNativeModal.active && !s_expBoliviaNativeModal.suspended; }
+/* Source-validated pending manager fixture only; never CPU/viewer/autosim. */
+int Expanded_OGWorld_BoliviaModalManagerFixtureArmed(void)
+{ return Expanded_OGWorld_BoliviaModalActive() &&
+         s_expBoliviaNativeModal.armed && !s_expBoliviaNativeModal.failed &&
+         s_expBoliviaManagerInteractive==1; }
+
 
 /* Temporarily expose the unmodified CAREER image to the single world tick
  * or CAR writer. Then restore the active original OG ShowMenu image. No

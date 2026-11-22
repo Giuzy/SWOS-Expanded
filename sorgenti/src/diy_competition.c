@@ -12628,9 +12628,31 @@ uint16_t DIY_PlayOrSimulateLeagueFixture(int16_t allowSquadChanges, int16_t sele
             && !Expanded_OGWorld_BoliviaManagerAutoSim()
 #endif
             ) {
-            /* At least one human/coach team — show SetupPlayers */
+            /* Only this original interactive career league RESULT prompt
+             * may prepare the manager's OWN lineup. No alternate result,
+             * simulator or cup routing; never enable world/CPU auto paths. */
+#ifdef SWOS_SDL_BUILD
+            extern uint16_t _selTeamNumber;
+            extern void Expanded_CareerNativeOGResultPromptSet(int);
+            const int managerPrompt=_gameType==4 &&
+                !Expanded_OGWorld_IsSimulating() &&
+                !_seasonUpdateInProgress && !_careerAutoAdvanceInProgress &&
+                !Expanded_MidseasonJoin_Active() &&
+                ((PACK_BE_U16(team1->team.countryNumber,
+                             team1->team.teamOrdinal)==_selTeamNumber &&
+                  (ctrl1==2 || ctrl1==3)) ||
+                 (PACK_BE_U16(team2->team.countryNumber,
+                             team2->team.teamOrdinal)==_selTeamNumber &&
+                  (ctrl2==2 || ctrl2==3)));
+            Expanded_CareerNativeOGResultPromptSet(managerPrompt);
+#endif
             SetupPlayers(team1, team2, (int16_t)_diyCompetitionStart.matchData.league.leagueMaxSubstitutes,
                           baseEx->base.substitutesCount, 0, 0);  /* 0x3C */
+#ifdef SWOS_SDL_BUILD
+            /* Clear before any cancellation, score callback or next CPU
+             * fixture; the flag is UI-only and never persisted in CAR. */
+            Expanded_CareerNativeOGResultPromptSet(0);
+#endif
             if (_exitGameFlag != 0)
                 return 1;
         }

@@ -924,19 +924,32 @@ static int exp_employed_country_free_week(ExpandedWorldDate *next,
     extern int Expanded_CompetitionCoordinator_RecoveryRequired(void);
     if(_gameType!=4 || s_active || _selTeamNumber==0xffffu ||
        _youreSacked || _seasonUpdateInProgress ||
-       _teamNoOfferAccepted!=0xffffu ||
-       (!_careerFinished && !_seasonFinished))return 0;
+       _teamNoOfferAccepted!=0xffffu)return 0;
+    const uint8_t country=World_FileCountry(
+        (uint8_t)(_selTeamNumber>>8));
+    const int nativeCycleAdapter=World_Current()==WORLD_2627 &&
+        country==45u && _currentDivisionIndex==0u;
+    const int localCacheFinished=_careerFinished || _seasonFinished;
+    /* TSKC is the manager's VIEW. A midseason job handoff can leave it
+     * behind the true native OG league. Only a certified country adapter
+     * may use resident completion instead of local-cache end; all other
+     * countries retain the original local-cache gate. */
+    if(!localCacheFinished && !nativeCycleAdapter)return 0;
     if(!next || !live || !ExpandedWorldLive_Clubs() ||
        !ExpandedWorldLive_CalendarState(live) ||
        !Expanded_OGWorld_ClubBound() ||
-       Expanded_CompetitionCoordinator_RecoveryRequired() ||
-       !Expanded_OGWorld_ManagerLeagueFinished(&_diyCompetitionStart))
-        return -1;
-    const uint32_t edition=(uint32_t)World_FirstYear()+
-                            (uint32_t)_currentSeasonShowing;
-    if(edition>2199u)return -1;
-    const uint8_t country=World_FileCountry(
-        (uint8_t)(_selTeamNumber>>8));
+       Expanded_CompetitionCoordinator_RecoveryRequired())return -1;
+    if(!Expanded_OGWorld_ManagerLeagueFinished(&_diyCompetitionStart))
+        return localCacheFinished?-1:0; /* true OG league still active */
+    if(nativeCycleAdapter) {
+        ExpandedBoliviaManagerFixture pendingCup={0};
+        /* An actual upcoming Copa manager fixture vetoes the weekly
+         * no-match stop, regardless of the stale local TSKC finished flag. */
+        if(Expanded_OGWorld_BoliviaManagerNext(&pendingCup))return 0;
+    }
+    extern uint16_t Expanded_OGWorld_CurrentCountryEdition(uint8_t);
+    const uint16_t edition=Expanded_OGWorld_CurrentCountryEdition(country);
+    if(!edition)return -1;
     ExpandedCountrySeasonCycle cycle={7u,1u,6u,30u};
     ExpandedWorldDate start={0},expiry={0};
     if(World_Current()==WORLD_2627 &&
@@ -956,13 +969,12 @@ static int exp_employed_country_free_week(ExpandedWorldDate *next,
        now<0 || expires<now-366 || _currentDivisionIndex>15u)
         return -1;
     if(now>=expires) {
-        /* TYPE-0 flag is not Bolivia's OG end proof: match table 240
-         * + COPA 64 + KO 14 all must be certified at Jan 14. Other
-         * countries retain the OG local-league finish gate pending
-         * their native country-wide proof in the Competition Engine. */
-        if(World_Current()==WORLD_2627 && country==45u &&
-           !Expanded_OGWorld_BoliviaNativeEndReady((uint16_t)edition))
-            return -1;
+        /* FINISH is owned by COUNTRY expiry, not by local TSKC.
+         * If a valid CAR resumes after the expiry, only the genuine OG
+         * finished proof may authorize delayed manager administration.
+         * No time rewind, competition reset or second date writer. */
+        if(nativeCycleAdapter &&
+           !Expanded_OGWorld_BoliviaNativeEndReady(edition))return -1;
         return 2;
     }
     if(!ExpandedWorld_NextSundayOrFixture(live->today,0,
@@ -991,12 +1003,18 @@ void Expanded_CareerJulyPrepareMenu(void)
     extern MenuEntry _menuEntries[];
     static const char kForward[]="FORWARD TIME";
     static const char kPending[]="OG PENDING";
+    extern uint8_t _aFinishSeason[];
     Expanded_BoliviaManagerPrepareMenu();
     ExpandedWorldDate target;
     ExpandedLiveCalendarState live;
     const int free=exp_employed_country_free_week(&target,&live);
     if(free==1) {
         _menuEntries[7].fg=(uintptr_t)kForward;
+        _menuEntries[7].isInvisible=0;
+        _menuEntries[7].isDisabled=0;
+    } else if(free==2) {
+        /* Only manager administration, never a competition reset. */
+        _menuEntries[7].fg=(uintptr_t)_aFinishSeason;
         _menuEntries[7].isInvisible=0;
         _menuEntries[7].isDisabled=0;
     } else if(free<0) {
@@ -1123,7 +1141,6 @@ static int exp_bolivia_career_next(ExpandedWorldDate *due,
        (uint8_t)(_selTeamNumber>>8)!=45u || _currentDivisionIndex!=0u ||
        _selTeamNumber==0xffffu || s_active ||
        !Expanded_OGWorld_ClubBound() || _youreSacked ||
-       _careerFinished || _seasonFinished ||
        _seasonUpdateInProgress)return 0;
     if(!due || !live || !cupFirst)return -1;
     unsigned played=0u;
@@ -1268,6 +1285,7 @@ int Expanded_BoliviaCareerForwardIntercept(MenuEntry *entry,unsigned ordinal)
     extern uintptr_t _currentMenuPtr;
     extern uint8_t _contestMenu[];
     extern uint16_t _fireResetFlag;
+    extern uint16_t _selTeamNumber,_currentDivisionIndex;
     extern int Expanded_AutoCareer_SaveChecked(const char *);
     extern void ContestMenuOnReturn(void);
     extern void DrawMenu(void);
@@ -1283,6 +1301,24 @@ int Expanded_BoliviaCareerForwardIntercept(MenuEntry *entry,unsigned ordinal)
                 "reason=NATIVE_COUNTRY_END_NOT_VERIFIED "
                 "prior-CAR-preserved=1\n");
             return 1;
+        }
+        if(free==2 && World_Current()==WORLD_2627 &&
+           World_FileCountry((uint8_t)(_selTeamNumber>>8))==45u &&
+           _currentDivisionIndex==0u) {
+            extern uint16_t _careerFinished,_seasonFinished;
+            extern void Career_FillCurrentSeasonInfo(void);
+            /* ONLY manager administration ends here. Native competition
+             * editions, fixtures, RNG, journal and CAR are unchanged.
+             * PlayMatchMenu then takes the original SeasonFinished path. */
+            _careerFinished=1;
+            _seasonFinished=1;
+            Career_FillCurrentSeasonInfo();
+            fprintf(stderr,"[career-country-free-week] NATIVE_END_FINISH "
+                "club=%04x date=%04u-%02u-%02u "
+                "country-OG=VERIFIED manager-only=1 no-replay=1\n",
+                (unsigned)_selTeamNumber,(unsigned)before.today.year,
+                (unsigned)before.today.month,(unsigned)before.today.day);
+            return 0;
         }
         if(free==1) {
             extern int Expanded_CompetitionCoordinator_Advance(

@@ -2324,10 +2324,10 @@ static uint32_t ui_fixture_date_key(uint16_t year,unsigned month,unsigned day)
     if(!year || month<1u || month>12u || day<1u || day>31u)return 0u;
     return (uint32_t)year*10000u+month*100u+day;
 }
-/* Readonly projection of the ACTUAL weekly no-match FORWARD stops.
- * A stop row is never a fixture, an OG result or an input callback.
- * Only elapsed Sundays and (when the current scheduler can reach it)
- * the very next Sunday are displayed. Do not predict unknown KO draws. */
+/* Readonly projection of the country-owned weekly FORWARD stops.
+ * Preview from the known native manager fixture dates and the approved
+ * country-year expiry. Future native KO fixtures supersede break rows
+ * on redraw. No new OG match/result/clock/callback is created here. */
 /* Purely readonly: the existing OG keycache contains REAL manager
  * matches for every native competition phase in this calendar window.
  * If the cache cannot certify absence, do not invent a break row. */
@@ -2375,27 +2375,26 @@ static void ui_append_country_season_breaks(
     ExpandedCountrySeasonCycle cycle={7u,1u,6u,30u};
     ExpandedWorldDate start={edition,7u,1u},expiry={0};
     if(World_Current()==WORLD_2627) {
-        /* Explicit one-off editions (e.g. MLS 2027) require certified
-         * dates before projecting a country-level weekly break. */
+        /* Never predict an unverified format/edition. */
         if((country==73u && edition==2027u) ||
            !ExpandedCountrySeason_Baked2627(country,&cycle))return;
-        if(edition!=World_FirstYear() &&
-           !ExpandedCountrySeason_AnnualDates(
-                 edition,cycle,&start,&expiry))return;
-    }
-    int32_t startDay=0,todayDay=0;
+        if(country==45u && edition==World_FirstYear())
+            expiry=(ExpandedWorldDate){(uint16_t)(edition+1u),1u,14u};
+        else {
+            ExpandedWorldDate policyStart={0};
+            if(!ExpandedCountrySeason_AnnualDates(
+                    edition,cycle,&policyStart,&expiry))return;
+            if(edition!=World_FirstYear())start=policyStart;
+        }
+    } else if(!ExpandedCountrySeason_AnnualDates(
+                  edition,cycle,&start,&expiry))return;
+    int32_t startDay=0,todayDay=0,expiryDay=0;
     if(!ExpandedWorld_DateToIndex(start,&startDay) ||
        !ExpandedWorld_DateToIndex(today,&todayDay) ||
-       todayDay<startDay)return;
-    if(expiry.year) {
-        int32_t end=0;
-        if(!ExpandedWorld_DateToIndex(expiry,&end))return;
-        if(todayDay>end)todayDay=end;
-    }
-    int32_t nextFixtureDay=0;
-    const int knownNext=hasNextFixture &&
-        ExpandedWorld_DateToIndex(nextFixture,&nextFixtureDay) &&
-        nextFixtureDay>todayDay;
+       !ExpandedWorld_DateToIndex(expiry,&expiryDay) ||
+       todayDay<startDay || expiryDay<startDay)return;
+    (void)hasNextFixture;
+    (void)nextFixture;
     ExpandedWorldDate cursor=start;
     /* At most 54 Sunday stops per annual edition; the fiscal/OG cycle
      * is bounded independently of any future fixture count. */
@@ -2405,9 +2404,7 @@ static void ui_append_country_season_breaks(
         if(!ExpandedWorld_NextSundayOrFixture(
                cursor,0,(ExpandedWorldDate){0},&stop) ||
            !ExpandedWorld_DateToIndex(stop,&dayIndex) ||
-           dayIndex<=startDay || dayIndex>todayDay+7 ||
-           (dayIndex>todayDay &&
-            (!knownNext || dayIndex>=nextFixtureDay)))break;
+           dayIndex<=startDay || dayIndex>expiryDay)break;
         const uint32_t key=ui_fixture_date_key(
             stop.year,stop.month,stop.day);
         int matchOnDay=0;
@@ -2420,8 +2417,7 @@ static void ui_append_country_season_breaks(
          * as independent manager calendars. Incomplete cache fails shut. */
         const int native=strictNative?
             ui_country_native_match_on(key,_selTeamNumber,
-                (uint16_t)(World_FirstYear()+_currentSeasonShowing),
-                NULL):0;
+                edition,NULL):0;
         if(native<0)return;
         if(!matchOnDay && !native &&
            (!earliestBreak || key>=earliestBreak)) {
@@ -2507,13 +2503,21 @@ int Expanded_UI_CompactFixtureRow(unsigned row,unsigned slotType)
         }
     }
     ui_fixture_copy_menu(r->opponent,sizeof r->opponent,42u);
-    if(_gameType==4 && _gameListArray[row*2u]) {
-        extern uint16_t Expanded_OGWorld_SaveYear(void);
+    if(_gameType==4 && _selTeamNumber!=0xffffu &&
+       _gameListArray[row*2u]) {
+        extern uint16_t Expanded_OGWorld_CurrentCountryEdition(uint8_t);
+        const uint8_t managerCountry=World_FileCountry(
+            (uint8_t)(_selTeamNumber>>8));
+        const uint16_t nativeEdition=
+            Expanded_OGWorld_CurrentCountryEdition(managerCountry);
         const TeamSelectionKeyCacheEntry *const entry=
             (const TeamSelectionKeyCacheEntry *)_gameListArray[row*2u];
         ExpandedWorldDate civil;
-        if(ExpandedWorld_NativePhaseToDate(Expanded_OGWorld_SaveYear(),
-                                           entry->sortKey,&civil)) {
+        /* Do not project a Jan-to-Jan country fixture using the old
+         * July administrative SAVE year. Unavailable edition fails shut. */
+        if(nativeEdition &&
+           ExpandedWorld_NativePhaseToDate(nativeEdition,
+                                            entry->sortKey,&civil)) {
             r->day=civil.day;r->month=civil.month;
             r->dayKey=ui_fixture_date_key(civil.year,civil.month,civil.day);
         }
@@ -2578,7 +2582,6 @@ int Expanded_UI_CompactFixtureRow(unsigned row,unsigned slotType)
  * Original OG arrows still turn native fixture pages at visual bounds. */
 static void ui_render_country_calendar(void)
 {
-    extern uint16_t _careerFinished,_seasonFinished;
     extern uint16_t Expanded_OGWorld_CurrentCountryEdition(uint8_t);
     if(!ui_country_calendar_active())return;
     ExpandedLiveCalendarState civil;
@@ -2604,10 +2607,8 @@ static void ui_render_country_calendar(void)
     if(!ExpandedWorld_DateToIndex(cycleStart,&startIndex) ||
        !ExpandedWorld_DateToIndex(civil.today,&todayIndex) ||
        todayIndex<startIndex)return;
-    /* Actual weekly FORWARD windows are the country's first 35 days
-     * or the period after the manager's last native league fixture. */
-    const int preseason=todayIndex-startIndex<=35;
-    if(!_careerFinished && !_seasonFinished && !preseason)return;
+    /* Build the timeline at season entry, not only after a FORWARD stop.
+     * Each SEASON BREAK remains visual, not a PLAY MATCH target. */
     UICompactFixture merged[14u+54u];
     const unsigned capacity=(unsigned)(sizeof merged/sizeof merged[0]);
     unsigned count=0u;
@@ -2625,14 +2626,12 @@ static void ui_render_country_calendar(void)
     /* All native manager slots, not only the visible page, determine
      * when the last truly played game precedes a weekly free-time stop. */
     const int scanned=ui_country_native_match_on(
-        nowKey,_selTeamNumber,
-        (uint16_t)(World_FirstYear()+_currentSeasonShowing),
-        &lastPlayed);
+        nowKey,_selTeamNumber,edition,&lastPlayed);
     if(scanned<0)return;
     /* Native keycache cross-slot scan independently gates each stop. */
     ui_append_country_season_breaks(
         merged,&count,capacity,country,edition,civil.today,
-        0,(ExpandedWorldDate){0},lastPlayed,1);
+        0,(ExpandedWorldDate){0},0u,1);
     if(count<=s_uiNativeFixtureCount)return;
     for(unsigned i=1u;i<count;++i) {
         const UICompactFixture row=merged[i];
@@ -2646,6 +2645,8 @@ static void ui_render_country_calendar(void)
     uint64_t key=0u;
     for(unsigned i=0u;i<count;++i)
         if(merged[i].seasonBreak && merged[i].dayKey==nowKey) {
+            for(unsigned j=0u;j<count;++j)merged[j].highlight=0u;
+            merged[i].highlight=1u;
             focus=(int)i;
             key=((uint64_t)_selTeamNumber<<48) |
                 ((uint64_t)nowKey<<16) | UINT64_C(0x4000);
@@ -2839,6 +2840,8 @@ static void ui_render_merged_calendar(void)
         for(unsigned i=0u;i<count;++i)
             if(todayKey && merged[i].seasonBreak &&
                merged[i].dayKey==todayKey) {
+                for(unsigned j=0u;j<count;++j)merged[j].highlight=0u;
+                merged[i].highlight=1u;
                 focusRow=(int)i;
                 focusKey=((uint64_t)_selTeamNumber<<48) |
                          ((uint64_t)todayKey<<16) | UINT64_C(0x4000);

@@ -85,6 +85,8 @@ extern CompetitionCup _uefaCup;
 #include "expanded_world_live.h"
 #include "expanded_competition_coordinator.h"
 #include "expanded_og_resident_selection.h"
+#include "expanded_og_view_edition.h" /* pure current-country OG viewer selection */
+#include "expanded_og_type0_completion.h" /* native-only TYPE0 year-end proof */
 #include "expanded_classic_cup_view_route.h"
 #include "mjson.h"
 #include <stdio.h>
@@ -5602,6 +5604,35 @@ static int exp_og_bolivia_native_league_complete(const ExpandedOGLeague *old)
     return BoliviaOGLeague_CompletedFromOG(
         old->teamCount,(unsigned)old->comp.matchesPlayedCount,rows);
 }
+/* Ordinary TYPE0 leagues do not necessarily write the TYPE1 cup-style
+ * competitionFinished flag. Prove a completed calendar from the ORIGINAL
+ * OG resident: exact n*(n-1)/2*cycles played, unique stable club IDs,
+ * each team GP, W+D+L and shared goal conservation. A split that reset
+ * standings cannot be misclassified as fully complete by this proof.
+ * This is read-only and leaves CAR/history/stage writers unchanged. */
+static int exp_og_regular_native_league_complete(const ExpandedOGLeague *old)
+{
+    if(!old || !old->used || old->comp.base.competitionType!=0)return 0;
+    const unsigned n=(unsigned)old->comp.base.numTeams;
+    if(n<2u || n>EXP_OG_TYPE0_PROOF_CAPACITY ||
+       old->teamCount!=n)return 0;
+    ExpandedOGType0ProofRow rows[EXP_OG_TYPE0_PROOF_CAPACITY]={0};
+    for(unsigned i=0u;i<n;++i) {
+        DIYTeamStats stat;
+        memcpy(&stat,&old->comp.leagueStandings[i],sizeof stat);
+        const int32_t index=stat.teamSelOffset;
+        if(index<0 || (unsigned)index>=old->teamCount)return 0;
+        const TeamFile *team=&old->teams[index].team;
+        rows[i]=(ExpandedOGType0ProofRow){
+            index,PACK_BE_U16(team->countryNumber,team->teamOrdinal),
+            stat.gamesPlayed,stat.wins,stat.draws,stat.losses,
+            stat.goalsFor,stat.goalsAgainst
+        };
+    }
+    return ExpandedOGType0_CompletedFromOG(
+        n,(unsigned)old->comp.base.playEachTeam,
+        (unsigned)old->comp.matchesPlayedCount,rows);
+}
 int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
                                    uint8_t division,uint16_t year,
                                    uint8_t phase) {
@@ -5613,11 +5644,17 @@ int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
             country,division,(uint16_t)(year-1u));
         const int boliviaNative=(World_Current()==WORLD_2627 &&
             country==45u && division==0u);
+        const int regularNative=old && old->used && !boliviaNative &&
+            exp_og_regular_native_league_complete(old);
+        /* A genuine OG finished flag still supports stage-specific formats
+         * which cannot be certified by the ordinary round-robin proof. */
+        const int nativeFlag=old && old->used &&
+            old->comp.base.competitionFinished!=0 &&
+            old->comp.matchesPlayedCount!=0u;
         const int leagueFinished=old && old->used &&
             (boliviaNative?
                 exp_og_bolivia_native_league_complete(old):
-                (old->comp.base.competitionFinished!=0 &&
-                 old->comp.matchesPlayedCount!=0u));
+                (regularNative || nativeFlag));
         const int expiryPassed=
             Expanded_OGWorld_CountryWindowAllowsNext(country,year);
         if(!expiryPassed || !leagueFinished) {
@@ -5625,11 +5662,12 @@ int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
                 "country=%u div=%u next=%u previous=%u "
                 "expiry-passed=%d native-OG-finished=%d "
                 "old-played=%u old-type0-flag=%u "
-                "preserve-old=1\n",
+                "regular-OG-proof=%d preserve-old=1\n",
                 (unsigned)country,(unsigned)division,(unsigned)year,
                 (unsigned)(year-1u),expiryPassed,leagueFinished,
                 old?(unsigned)old->comp.matchesPlayedCount:0u,
-                old?(unsigned)old->comp.base.competitionFinished:0u);
+                old?(unsigned)old->comp.base.competitionFinished:0u,
+                regularNative);
             return -1;
         }
         fprintf(stderr,"[og-edition-gate] OPEN league "
@@ -5638,7 +5676,8 @@ int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
             "new-matches=INIT_ZERO\n",
             (unsigned)country,(unsigned)division,
             (unsigned)(year-1u),(unsigned)year,
-            boliviaNative?"NATIVE_16x30_VERIFIED":"FINISHED");
+            boliviaNative?"NATIVE_16x30_VERIFIED":
+                regularNative?"NATIVE_TYPE0_FULL_SCORE_PROOF":"FINISHED_FLAG");
     }
     if(ctx && !ctx->used && ctx->lastMatch==0xfeu)
         return -1; /* a diagnosed native record mismatch: never retry/panic */
@@ -10297,32 +10336,13 @@ static int exp_og_view_uefa(const Competition *wanted)
             (unsigned)unchanged);
     return unchanged;
 }
-int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
+/* One year-specific OG viewer. Only the original scratch copy is
+ * changed; all resident league state/standings/witnesses stay readonly. */
+static int exp_og_view_exact_league(ExpandedOGLeague *ctx,
+                                   const Competition *wanted,
+                                   uint16_t division,int historical)
 {
     static uint8_t unavailable[]="OG WORLD: COMPETITION NOT RESIDENT";
-    if(!record || _gameType!=4)return 0;
-    const Competition *wanted=(const Competition *)record;
-    if(wanted->type==1)return exp_og_view_cup(record);
-    if(wanted->type==2 &&
-       (World_Current()==WORLD_2627 ||
-        (World_Current()==WORLD_9697 &&
-         (wanted==(const Competition *)&_euroCup ||
-          wanted==Comp_ById(COMPID_copaLibertadores)))))
-        return exp_og_view_uefa(wanted);
-    ExpandedOGLeague *exact=NULL,*byId=NULL;
-    unsigned idMatches=0;
-    for(uint32_t i=0;i<s_expOGCount;++i) {
-        ExpandedOGLeague *ctx=&s_expOG[i];
-        if(!ctx->used || !ctx->teamCount || ctx->division!=division)continue;
-        const void *const *table=(const void *const *)_competitionsTable[ctx->country];
-        if(!table || !table[0])continue;
-        const Competition *native=(const Competition *)table[0];
-        if(native==wanted){exact=ctx;break;}
-        /* Career competition copies sometimes have a different address.
-         * Resolve by OG competition ID ONLY when unambiguous. */
-        if(native->compId==wanted->compId){byId=ctx;++idMatches;}
-    }
-    ExpandedOGLeague *ctx=exact ? exact : (idMatches==1u ? byId : NULL);
     /* The OG viewer resolves every standings team through _selectedTeams.
      * Reject malformed/incomplete scratch images BEFORE entering the OG
      * view menu, so a corrupt context cannot dereference a bad team ID. */
@@ -10363,12 +10383,30 @@ int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
     memcpy(_selectedTeams,ctx->teams,(size_t)ctx->teamCount*sizeof(TeamFileEx));
     /* This pointer must belong to the LIVE scratch copy, not the
      * original scratch buffer used while the world was initialized. */
+    /* Multiple OG editions share one static Competition record.
+     * Only the temporary viewer name gets the real edition label. */
+    char nativeName[sizeof _diyCompetitionStart.base.competitionName];
+    memcpy(nativeName,_diyCompetitionStart.base.competitionName,
+           sizeof nativeName);
+    nativeName[sizeof nativeName-1u]=0;
+    snprintf((char *)_diyCompetitionStart.base.competitionName,
+             sizeof _diyCompetitionStart.base.competitionName,
+             historical ? "LAST %.25s %04u" : "%.30s %04u",
+             nativeName,(unsigned)ctx->year);
     _diyCompetitionStart.base.namePtr=
         (uint8_t *)_diyCompetitionStart.base.competitionName;
     fprintf(stderr,"[og-world-view] READ ONLY country=%u division=%u "
                    "year=%u phase=%u native-matches=%u\n",
             (unsigned)ctx->country,(unsigned)ctx->division,(unsigned)ctx->year,
             (unsigned)ctx->lastPhase,(unsigned)ctx->comp.matchesPlayedCount);
+    fprintf(stderr,"[og-world-view] EDITION_SELECTED "
+                   "world=%s country=%u division=%u native-year=%u "
+                   "current-country=%u status=%s source=OG_RESIDENT "
+                   "mutated=0\n",
+            World_Tag(),(unsigned)ctx->country,(unsigned)ctx->division,
+            (unsigned)ctx->year,
+            (unsigned)Expanded_OGWorld_CurrentCountryEdition(ctx->country),
+            historical?"LAST_SAVED_EDITION":"CURRENT_NATIVE_EDITION");
     { extern void InputSDL_ClearWorldViewExit(void);
       InputSDL_ClearWorldViewExit(); }
     s_expOGViewing=1;
@@ -10395,12 +10433,85 @@ int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
         (unsigned long long)residentAfter);
     return unchanged;
 }
+/* Generic OG CAREER picker: country's native year, never first array slot.
+ * Even two real editions for one pointer must resolve deterministically. */
+static ExpandedOGLeague *exp_og_view_resolve_league(
+    const Competition *wanted,uint16_t division,int *historical)
+{
+    uint16_t pointerCountry=UINT16_MAX;
+    unsigned pointerConflict=0u;
+    for(uint32_t i=0u;i<s_expOGCount;++i) {
+        const ExpandedOGLeague *c=&s_expOG[i];
+        if(!c->used || !c->teamCount || c->division!=division)continue;
+        const void *const *table=
+            (const void *const *)_competitionsTable[c->country];
+        if(!table || !table[0] ||
+           (uintptr_t)table[0]==(uintptr_t)-1 ||
+           (uintptr_t)table[0]==(uintptr_t)-2)continue;
+        if((const Competition *)table[0]!=wanted)continue;
+        if(pointerCountry!=UINT16_MAX &&
+           pointerCountry!=c->country)pointerConflict=1u;
+        pointerCountry=c->country;
+    }
+    if(pointerConflict)return NULL;
+    ExpandedOGViewEditionChoice choice={0};
+    for(uint32_t i=0u;i<s_expOGCount;++i) {
+        ExpandedOGLeague *c=&s_expOG[i];
+        if(!c->used || !c->teamCount || c->division!=division ||
+           (pointerCountry!=UINT16_MAX &&
+            pointerCountry!=c->country))continue;
+        const void *const *table=
+            (const void *const *)_competitionsTable[c->country];
+        if(!table || !table[0] ||
+           (uintptr_t)table[0]==(uintptr_t)-1 ||
+           (uintptr_t)table[0]==(uintptr_t)-2)continue;
+        const Competition *native=(const Competition *)table[0];
+        const int exact=native==wanted;
+        if(!exact && native->compId!=wanted->compId)continue;
+        const uint16_t current=
+            Expanded_OGWorld_CurrentCountryEdition(c->country);
+        ExpandedOGViewEdition_Consider(&choice,i,c->country,c->year,
+                                        current,exact,1);
+    }
+    uint32_t chosen=0u;
+    if(!ExpandedOGViewEdition_Selected(&choice,&chosen) ||
+       chosen>=s_expOGCount)return NULL;
+    ExpandedOGLeague *best=&s_expOG[chosen];
+    if(historical)*historical=
+        best->year!=Expanded_OGWorld_CurrentCountryEdition(best->country);
+    return best;
+}
+int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
+{
+    static uint8_t unavailable[]="OG WORLD: COMPETITION NOT RESIDENT";
+    if(!record || _gameType!=4)return 0;
+    const Competition *wanted=(const Competition *)record;
+    if(wanted->type==1)return exp_og_view_cup(record);
+    if(wanted->type==2 &&
+       (World_Current()==WORLD_2627 ||
+        (World_Current()==WORLD_9697 &&
+         (wanted==(const Competition *)&_euroCup ||
+          wanted==Comp_ById(COMPID_copaLibertadores)))))
+        return exp_og_view_uefa(wanted);
+    int historical=0;
+    ExpandedOGLeague *ctx=
+        wanted->type==0?exp_og_view_resolve_league(
+            wanted,division,&historical):NULL;
+    if(!ctx) {
+        fprintf(stderr,"[og-world-view] NO_UNAMBIGUOUS_EDITION "
+                       "world=%s comp=%u div=%u no-fake-standings=1\n",
+                World_Tag(),(unsigned)wanted->compId,(unsigned)division);
+        ShowErrorMenu(unavailable);
+        return 0;
+    }
+    return exp_og_view_exact_league(ctx,wanted,division,historical);
+}
 /* Offer -> native OG viewer, directly resolved by the authoritative resident
  * country / division / year (the offer modal already knows all three). */
 int Expanded_OGWorld_ViewLeagueForCountry(uint8_t country,uint8_t division,
                                           uint16_t year)
 {
-    const ExpandedOGLeague *ctx=exp_find(country,division,year);
+    ExpandedOGLeague *ctx=exp_find(country,division,year);
     if(!ctx||!ctx->used) {
         static uint8_t unavailable[]="OG WORLD: COMPETITION NOT RESIDENT";
         fprintf(stderr,"[og-offer-view] MISSING country=%u division=%u year=%u\n",
@@ -10409,13 +10520,20 @@ int Expanded_OGWorld_ViewLeagueForCountry(uint8_t country,uint8_t division,
         return 0;
     }
     const void *const *table=(const void *const *)_competitionsTable[country];
-    if(!table || !table[0] || (uintptr_t)table[0]==(uintptr_t)-1) {
+    if(!table || !table[0] ||
+       (uintptr_t)table[0]==(uintptr_t)-1 ||
+       (uintptr_t)table[0]==(uintptr_t)-2) {
         static uint8_t unavailable[]="OG WORLD: COMPETITION NOT AVAILABLE";
         ShowErrorMenu(unavailable);
         return 0;
     }
     const uint16_t before=ctx->comp.matchesPlayedCount;
-    const int ok=Expanded_OGWorld_ViewLeague((const uint8_t *)table[0],division);
+    /* Explicit offer country/division/year is authoritative for the view.
+     * Never reselect an old edition by a shared native record pointer. */
+    const int historical=
+        year!=Expanded_OGWorld_CurrentCountryEdition(country);
+    const int ok=exp_og_view_exact_league(
+        ctx,(const Competition *)table[0],division,historical);
     const uint16_t after=ctx->comp.matchesPlayedCount;
     fprintf(stderr,"[og-offer-view] RESIDENT country=%u division=%u year=%u "
                    "before=%u after=%u unchanged=%u ok=%d\n",
@@ -10432,11 +10550,25 @@ static int expanded_og_club_image(uint16_t club,uint8_t division,
                                   uint16_t year,DIYCompetitionEx *image,
                                   ExpandedOGLeague **resident)
 {
-    ExpandedOGLeague *ctx=exp_find(World_FileCountry((uint8_t)(club>>8)),
-                                   division,year);
+    const uint8_t country=World_FileCountry((uint8_t)(club>>8));
+    ExpandedOGLeague *ctx=exp_find(country,division,year);
     if(!image || !ctx || !ctx->used ||
        ctx->teamCount<2u || ctx->teamCount>EXP_OG_MAX_TEAMS ||
-       _primaryCompetitionBuf.tourn.header.competitionType!=0)return 0;
+       _primaryCompetitionBuf.tourn.header.competitionType!=0) {
+        fprintf(stderr,"[og-bind-preflight] REJECT "
+            "country=%u div=%u year=%u club=%04x "
+            "reason=%s local-type=%u resident-teams=%u "
+            "preserve-prior-CAR=1\n",
+            (unsigned)country,(unsigned)division,(unsigned)year,
+            (unsigned)club,
+            !ctx?"CURRENT_RESIDENT_MISSING":
+            !ctx->used?"CURRENT_RESIDENT_NOT_STARTED":
+            _primaryCompetitionBuf.tourn.header.competitionType!=0?
+                "LOCAL_COMPETITION_NOT_TYPE0":"RESIDENT_INVALID_TEAM_COUNT",
+            (unsigned)_primaryCompetitionBuf.tourn.header.competitionType,
+            ctx?(unsigned)ctx->teamCount:0u);
+        return 0;
+    }
     memcpy(image,&ctx->comp,sizeof(*image));
     const unsigned n=(unsigned)image->base.numTeams;
     if(n<2u || n>EXP_OG_MAX_TEAMS || n>ctx->teamCount)return 0;
@@ -10455,7 +10587,16 @@ static int expanded_og_club_image(uint16_t club,uint8_t division,
                 mapped=(int32_t)j;break;
             }
         }
-        if(mapped==-2)return 0;
+        if(mapped==-2) {
+            fprintf(stderr,"[og-bind-preflight] REJECT "
+                "country=%u div=%u year=%u club=%04x "
+                "reason=NATIVE_ENTRANT_MISSING_FROM_LOCAL "
+                "entrant=%04x native-row=%u selected=%u "
+                "no-fake-mobility=1 preserve-prior-CAR=1\n",
+                (unsigned)country,(unsigned)division,(unsigned)year,
+                (unsigned)club,(unsigned)word,i,(unsigned)_numSelectedTeams);
+            return 0;
+        }
         image->leagueStandings[i].teamSelOffset=mapped;
     }
     if(resident)*resident=ctx;

@@ -9735,6 +9735,21 @@ void DIYLeagueTournamentInit(void)
             _diyFixtureViewMode = 0;
         }
     }
+#ifdef SWOS_SDL_BUILD
+    /* A new manager can join an already running league, and its old local
+     * TSKC may still have a stale playable row when the ONE resident OG
+     * league has truly completed. Decide menu ACTION visibility BEFORE
+     * presenting it; never wait for an illegal extra-fixture callback.
+     * This is a read-only projection, not a new season or result writer. */
+    if(_gameType==4 && _diyTournamentType!=0u &&
+       Expanded_OGWorld_ManagerLeagueFinished(&_diyCompetitionStart)) {
+        _diyAllMatchesPlayed=1;
+        _diyFixtureViewMode=0;
+        fprintf(stderr,"[og-manager-bridge] MODAL_NATIVE_COMPLETE "
+                "matches=%u action=READ_ONLY_NO_EXTRA_MATCH\n",
+                (unsigned)_diyCompetitionStart.matchesPlayedCount);
+    }
+#endif
 
     if (_diyTournamentViewOnly != 0) {
         SWOS_AUTOSKIP_LOG("DIYLeagueInit: viewOnly!=0 -> SetCurrentEntry(10)");
@@ -10410,6 +10425,22 @@ void DIYLeagueTournamentMatchCommon(uint16_t action)
         action=0;
         Expanded_MidseasonJoin_RecordForcedSimulation();
     }
+#ifdef SWOS_SDL_BUILD
+    /* A button event queued before the completed menu was redrawn must
+     * never invoke a 241st OG fixture. The same native proof decides the
+     * modal action and this callback; preserve original EXIT/results. */
+    if(_gameType==4 && _diyTournamentType!=0u &&
+       Expanded_OGWorld_ManagerLeagueFinished(&_diyCompetitionStart)) {
+        _diyAllMatchesPlayed=1;
+        _diyFixtureViewMode=0;
+        DIYLeagueTournament_UpdateMenuEntryVisibilityAndFocus();
+        DrawMenu();
+        fprintf(stderr,"[og-manager-bridge] STALE_MODAL_ACTION_BLOCKED "
+                "matches=%u native-OG=COMPLETE no-replay=1\n",
+                (unsigned)_diyCompetitionStart.matchesPlayedCount);
+        return;
+    }
+#endif
     uint16_t result = DIY_PlayOrSimulateLeagueFixture(_diyTournamentType, action);
     if (result != 0) {
 #ifdef SWOS_SDL_BUILD

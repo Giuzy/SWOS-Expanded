@@ -67,6 +67,7 @@ extern CompetitionCup _uefaCup;
 #include "bolivia_cup_knockout.h" /* First-edition 4 groups and interseries fixture identities */
 #include "expanded_bolivia_event_registry.h" /* civil-only Bolivia date template/registry */
 #include "bolivia_og_league_completion.h" /* read-only OG 16x30 standings proof */
+#include "expanded_og_edition_transition.h" /* native OG certified one-edition retire contract */
 #include "expanded_bolivia_modal_invariants.h"
 #include "expanded_bolivia_ko_modal_invariants.h" /* original OG per-event checks */
 #include "bolivia_manager_offset_gate.h" /* actual CPU/manager offset contract */
@@ -4123,6 +4124,9 @@ static ExpandedWorldDate s_expOGFixtureAsOf;
 static uint32_t s_expOGTickNativeLeague,s_expOGTickNativeCup;
 static uint64_t s_expOGTickCapturedLeague,s_expOGTickCapturedCup;
 static uint16_t s_expOGTickYear;
+static uint16_t s_expOGTickBoliviaEdition;
+static uint32_t s_expOGTickBoliviaPlayed;
+static int s_expOGTickBoliviaCertified;
 static int s_expOGTickActive;
 static void exp_fixture_put16(uint8_t *p,uint16_t value)
 {p[0]=(uint8_t)(value>>8);p[1]=(uint8_t)value;}
@@ -4745,6 +4749,9 @@ void Expanded_OGWorld_Audit(ExpandedOGWorldAudit *out)
  * the number of native match callbacks observed this tick. Works for
  * employed and UNEMPLOYED. Never calls match simulation or RNG. */
 extern uint16_t Expanded_OGWorld_SaveYear(void);
+extern int Expanded_OGWorld_BoliviaNativeEndReady(uint16_t);
+extern uint16_t Expanded_OGWorld_CurrentCountryEdition(uint8_t);
+extern int Expanded_OGWorld_CountryWindowAllowsNext(uint8_t,uint16_t);
 void Expanded_OGWorld_FixtureTickBegin(void)
 {
     ExpandedOGWorldAudit a;
@@ -4754,6 +4761,17 @@ void Expanded_OGWorld_FixtureTickBegin(void)
     s_expOGTickCapturedLeague=s_expOGCapturedLeague;
     s_expOGTickCapturedCup=s_expOGCapturedCup;
     s_expOGTickYear=Expanded_OGWorld_SaveYear();
+    /* Country/competition edition rollover may retire a completed OG
+     * resident from ACTIVE memory. Capture native proof before the
+     * replacement: its historical score journal remains authoritative.
+     * Bolivia type2 is the first verified country-edition adapter. */
+    s_expOGTickBoliviaEdition=s_expOGBolivia.used?
+        s_expOGBolivia.year:0u;
+    s_expOGTickBoliviaPlayed=s_expOGBolivia.used?
+        (uint32_t)s_expOGBolivia.comp.matchesPlayedCount:0u;
+    s_expOGTickBoliviaCertified=s_expOGTickBoliviaEdition &&
+        Expanded_OGWorld_BoliviaNativeEndReady(
+            s_expOGTickBoliviaEdition);
     s_expOGTickActive=1;
 }
 void Expanded_OGWorld_FixtureTickAbort(const char *reason)
@@ -4773,13 +4791,47 @@ void Expanded_OGWorld_FixtureTickEnd(void)
     const uint64_t observedLeague=s_expOGCapturedLeague-s_expOGTickCapturedLeague;
     const uint64_t observedCup=s_expOGCapturedCup-s_expOGTickCapturedCup;
     const int crossed=Expanded_OGWorld_SaveYear()!=s_expOGTickYear;
+    uint32_t comparableCupCount=cups;
+    int certifiedRetirement=0;
+    /* A finished country edition leaves ACTIVE resident state, and its
+     * successor begins with ZERO native games. Worldwide active totals
+     * can shrink even while the July administrative year stays the same.
+     * Normalize only this single certified change in counter basis.
+     * Keep historical match witnesses and reject ANY extra unaccounted
+     * loss or missing OG callback. Other countries use the same checked
+     * helper once they have proven, connected OG edition adapters. */
+    if(!crossed && World_Current()==WORLD_2627 &&
+       s_expOGTickBoliviaCertified && s_expOGBolivia.used &&
+       s_expOGTickBoliviaEdition &&
+       s_expOGTickBoliviaEdition!=s_expOGBolivia.year &&
+       Expanded_OGWorld_CurrentCountryEdition(45u)==
+           s_expOGBolivia.year &&
+       Expanded_OGWorld_CountryWindowAllowsNext(
+           45u,s_expOGBolivia.year) &&
+       ExpandedOGEditionTransition_CertifiedCounter(
+           s_expOGTickBoliviaEdition,s_expOGBolivia.year,
+           BOLIVIA_CUP_GROUP_FIXTURES,s_expOGTickBoliviaPlayed,
+           (uint32_t)s_expOGBolivia.comp.matchesPlayedCount,1,
+           s_expOGTickNativeCup,cups,&comparableCupCount)) {
+        certifiedRetirement=1;
+        fprintf(stderr,"[og-fixture-tick] COUNTRY_EDITION_RETIRED "
+            "country=45 slot=2 old=%u new=%u "
+            "old-played=%u new-played=0 worldwide-before=%u "
+            "worldwide-after=%u comparable-after=%u "
+            "journal=RETAINED completed-OG=VERIFIED no-replay=1\n",
+            (unsigned)s_expOGTickBoliviaEdition,
+            (unsigned)s_expOGBolivia.year,
+            (unsigned)s_expOGTickBoliviaPlayed,
+            (unsigned)s_expOGTickNativeCup,(unsigned)cups,
+            (unsigned)comparableCupCount);
+    }
     const int monotonic=!crossed &&
         a.native_matches>=s_expOGTickNativeLeague &&
-        cups>=s_expOGTickNativeCup;
+        comparableCupCount>=s_expOGTickNativeCup;
     const uint64_t dl=monotonic?
         (uint64_t)(a.native_matches-s_expOGTickNativeLeague):0u;
     const uint64_t dc=monotonic?
-        (uint64_t)(cups-s_expOGTickNativeCup):0u;
+        (uint64_t)(comparableCupCount-s_expOGTickNativeCup):0u;
     const int identical=monotonic && dl==observedLeague && dc==observedCup;
     if(!crossed && !identical) {
         ++s_expOGFixtureIssues;
@@ -4807,6 +4859,8 @@ void Expanded_OGWorld_FixtureTickEnd(void)
         (unsigned long)s_expOGFixtureCount,(unsigned)s_expOGFixtureIssues,
         (unsigned)s_expOGFixturePartial,
         crossed?"CROSS_SEASON_SNAPSHOT":
+        certifiedRetirement && identical?
+            "COUNTRY_EDITION_COUNTER_REBASED_VERIFIED":
         identical?"MATCH_COUNTERS_AND_CALLBACKS_EQUAL":"NOT_RECONCILED",
         "CPU_WORLD_ONLY_NO_MANAGER_MERGE");
 }
@@ -10382,15 +10436,16 @@ static int exp_bridge_needs_stage_bridge(const DIYCompetitionEx *local)
 }
 static ExpandedOGLeague *exp_bridge_resident(const DIYCompetitionEx *local)
 {
-    ExpandedLiveCalendarState cal;
-    if(!exp_bridge_local_active(local) ||
-       !ExpandedWorldLive_CalendarState(&cal) ||
-       cal.today.year<(cal.today.month<7u?1u:0u))return NULL;
-    const uint16_t year=(uint16_t)(
-        cal.today.year-(cal.today.month<7u?1u:0u));
+    if(!exp_bridge_local_active(local))return NULL;
+    const uint8_t country=
+        World_FileCountry((uint8_t)(_selTeamNumber>>8));
+    /* One verified native COUNTRY edition: July is administrative only.
+     * This is reusable for any country when its OG cycle is connected. */
+    extern uint16_t Expanded_OGWorld_CurrentCountryEdition(uint8_t);
+    const uint16_t year=Expanded_OGWorld_CurrentCountryEdition(country);
+    if(!year)return NULL;
     ExpandedOGLeague *ctx=exp_find(
-        World_FileCountry((uint8_t)(_selTeamNumber>>8)),
-        (uint8_t)_currentDivisionIndex,year);
+        country,(uint8_t)_currentDivisionIndex,year);
     if(!ctx || !ctx->used ||
        ctx->comp.base.field_2E!=local->base.field_2E ||
        ctx->comp.base.competitionType!=0 ||
@@ -10652,14 +10707,12 @@ void Expanded_OGWorld_AuditManagerLeagueResult(const TeamFileEx *home,
     const uint16_t away_id=PACK_BE_U16(away->team.countryNumber,
                                         away->team.teamOrdinal);
     if(home_id!=_selTeamNumber && away_id!=_selTeamNumber)return;
-    ExpandedLiveCalendarState cal;
-    if(!ExpandedWorldLive_CalendarState(&cal) ||
-       cal.today.year<(cal.today.month<7u?1u:0u))return;
-    const uint16_t year=(uint16_t)(cal.today.year-
-                                    (cal.today.month<7u?1u:0u));
-    ExpandedOGLeague *ctx=exp_find(World_FileCountry((uint8_t)
-                                   (_selTeamNumber>>8)),
-                                   (uint8_t)_currentDivisionIndex,year);
+    const uint8_t country=
+        World_FileCountry((uint8_t)(_selTeamNumber>>8));
+    const uint16_t year=Expanded_OGWorld_CurrentCountryEdition(country);
+    if(!year)return; /* cannot audit an unknown country edition */
+    ExpandedOGLeague *ctx=exp_find(
+        country,(uint8_t)_currentDivisionIndex,year);
     if(!ctx || !ctx->used) {
         fprintf(stderr,"[og-manager-fixture] status=NO_RESIDENT world=%s "
                        "club=%04x home=%04x away=%04x year=%u\n",
@@ -10934,7 +10987,8 @@ int Expanded_OGWorld_ObserveFixture(int cup,const TeamFileEx *home,
         ExpandedLiveCalendarState cal;
         if(!ExpandedWorldLive_CalendarState(&cal))return 0;
         stamp=cal.today;
-        edition=(uint16_t)(stamp.year-(stamp.month<7u?1u:0u));
+        /* Edition in the OG fixture journal must match the live resident. */
+        edition=Expanded_OGWorld_CurrentCountryEdition(country);
     }
     int32_t day=0;
     if(!edition || !ExpandedWorld_DateToIndex(stamp,&day) || day<0)

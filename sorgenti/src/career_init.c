@@ -2404,8 +2404,17 @@ int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
         ExpandedWorldDate step=target;
         int32_t stepIndex=toIndex;
         if(World_Current()==WORLD_2627) {
-            if(!ExpandedBolivia_NextBoundary(
-                s_expOGWorldYear,cursor,target,&step) ||
+            /* RG-001/014/027: the manager's JULY compatibility year is
+             * NOT Bolivia's country-edition year.  On 15 Jan the native
+             * 2027 edition starts while s_expOGWorldYear remains 2026.
+             * Evaluate the current resident country cycle after EACH
+             * verified tick, including the Jan-15 mid-request split.
+             * Otherwise an unemployed +week/DEBUG 30 JUNE jump bypasses
+             * 2027 Liga/Copa dated events until the next July. */
+            const uint16_t boliviaEdition=
+                Expanded_OGWorld_CurrentCountryEdition(45u);
+            if(!boliviaEdition || !ExpandedBolivia_NextBoundary(
+                boliviaEdition,cursor,target,&step) ||
                !ExpandedWorld_DateToIndex(step,&stepIndex)) {
                 s_expCoordinatorRecoveryRequired=1;
                 fprintf(stderr,"[bolivia-civil-dispatch] INVALID_BOUNDARY "
@@ -2457,9 +2466,11 @@ int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
         }
         if(World_Current()==WORLD_2627)
             fprintf(stderr,"[bolivia-civil-dispatch] STEP_VERIFIED "
-                "year=%u date=%04u-%02u-%02u "
+                "admin-year=%u country-edition=%u date=%04u-%02u-%02u "
                 "owner=SINGLE_OG_WORLD event-ack=PENDING_CAR\n",
-                (unsigned)s_expOGWorldYear,(unsigned)step.year,
+                (unsigned)s_expOGWorldYear,
+                (unsigned)Expanded_OGWorld_CurrentCountryEdition(45u),
+                (unsigned)step.year,
                 (unsigned)step.month,(unsigned)step.day);
         cursor=step;cursorIndex=stepIndex;++dateSteps;
     }

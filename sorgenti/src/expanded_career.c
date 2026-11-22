@@ -771,6 +771,18 @@ void Expanded_UnemployedDraw(void) {
     snprintf(line,sizeof line,"%u/%02u SEASON",season,(season+1u)%100u);
     contest_at(compact?270:282,compact?7:40,line,7);
     contest_line(70,"NO FIXTURES - NO CLUB",6);
+#ifdef SWOS_SDL_BUILD
+    /* An OG world tick may have failed after partially advancing a
+     * resident. It must NOT be retried or saved; keep the unemployment
+     * menu usable, show the recovery action and preserve the old CAR. */
+    if(Expanded_CompetitionCoordinator_RecoveryRequired()) {
+        contest_line(100,"OG WORLD ADVANCE FAILED",2);
+        contest_line(127,"BACK - RELOAD LAST SAVE",7);
+        Expanded_UnemployedDate(date,sizeof date);
+        if(!compact)contest_line(171,date,2);
+        return;
+    }
+#endif
     if (s_waitTeam && s_waitWeeks>=s_nextOfferWeek) {
         snprintf(line,sizeof line,"WEEK %02u - CLUB OFFER RECEIVED",
                  unemployed_week_of_season(s_waitWeeks));
@@ -949,6 +961,23 @@ void Expanded_UnemployedWait(void) {
     if(!Expanded_CompetitionCoordinator_Advance(
            target,s_debug_june30_once?"DEBUG_JUNE30":
            s_debug_month_once?"DEBUG_MONTH":"UNEMPLOYED")) {
+        /* RG-001/014/027: a rejected OG tick must not leave the native
+         * menu on an input-held, stale selection with no visual status.
+         * Do NOT clear the coordinator recovery latch: the last valid
+         * AUTO*.CAR remains the only safe resume point. */
+        fprintf(stderr,"[calendar] WORLD_ADVANCE_REJECTED "
+                       "source=%s date=%04u-%02u-%02u "
+                       "recovery=%d action=BACK_AND_RELOAD "
+                       "last-CAR=UNTOUCHED no-retry=1\n",
+                s_debug_june30_once?"DEBUG_JUNE30":
+                s_debug_month_once?"DEBUG_MONTH":"UNEMPLOYED",
+                (unsigned)target.year,(unsigned)target.month,
+                (unsigned)target.day,
+                Expanded_CompetitionCoordinator_RecoveryRequired());
+        _fireResetFlag=1;
+        Expanded_UnemployedInit();
+        ((Menu*)_currentMenu)->selectedEntry=&_menuEntries[9];
+        DrawMenu();
         if(jump_years==70u) {
             s_debug_wait_jump_years=0u;
             fprintf(stderr,"[og-stress] FAILED: STOP AND DISCARD "

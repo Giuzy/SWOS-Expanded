@@ -43,6 +43,7 @@
 #include "bolivia_cup_sequence.h" /* 2026/27 type2 fixture format, OG results only */
 #include "bolivia_league_2026_phases.h" /* type0 thirty-round OG date template */
 #include "bolivia_manager_offset_gate.h" /* sentinel -1 only for real manager OG */
+#include "expanded_cup_keycache_owner.h" /* OG resident Copa modal has NO local CAREER cup keycache */
 #endif
 #include "uefa_coef.h"
 #include "conti_season.h"
@@ -3357,6 +3358,25 @@ static void diy_ResetCompetitionStatsAndProgress(void);
 __attribute__((used, externally_visible))
 void DIY_RecordCupBracketProgress(void)
 {
+#ifdef SWOS_SDL_BUILD
+    /* RG-014 / WIN v250 0x6666: Copa Bolivia's original OG type1 KO
+     * resident is NOT one of the five local CAREER cup cache slots.
+     * After the native bracket advances, the legacy keycache writer
+     * would search a non-existent (compSlot,roundIdx), then panic.
+     * The OG resident bracket and per-fixture CAR receipts are ALREADY
+     * managed by the original cup callback plus BoliviaModalAfter and
+     * BoliviaModalRoundChanged; never rewrite them via a fake TSKC.
+     * During save/world delegate the modal is suspended: the ORIGINAL
+     * CAREER keycache path remains available and completely unchanged. */
+    {
+        extern int Expanded_OGWorld_BoliviaModalActive(void);
+        if(ExpandedCupKeyCache_SkipNativeModal((unsigned)_gameType,
+                Expanded_OGWorld_BoliviaModalActive())) {
+            SWOS_DBG("[rg014-cup-cache] SKIP_NATIVE_RESIDENT local-tskc=UNOWNED\n");
+            return;
+        }
+    }
+#endif
     int16_t d7 = 0;
 
     /* Stage-3 band-aid removal (TEAMOFFSETTABLE_OVERLAY_UNTANGLE.md §4). The

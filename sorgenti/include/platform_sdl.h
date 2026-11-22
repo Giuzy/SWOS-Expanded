@@ -197,6 +197,9 @@ PlatformFullscreenMode Platform_GetFullscreenMode(void);
  * pace to the next 50 Hz boundary. Intended to run on the main thread
  * from game-loop waits. Returns non-zero if the user closed the window. */
 int  Platform_VBlank(void);
+/* Main-thread-only title progress for unseen universal CPU OG fixtures.
+ * count=0 restores the exact previous title; no game clock/result writes. */
+void Platform_UniversalCpuProgress(uint32_t count);
 /* Platform_VBlank without running the VBlank interrupt: present the finished frame and
  * pace. For a caller that runs the interrupt itself, once per simulated frame. */
 int  Platform_Present(void);

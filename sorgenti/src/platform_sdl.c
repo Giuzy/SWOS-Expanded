@@ -3709,6 +3709,32 @@ static void key_script_tick(void)
     s_key_script_frame++;
 }
 
+/* Progress remains visible in the OS window chrome while the original
+ * 50 Hz CPU GameLoop runs without rendering. Never present a second frame,
+ * consume UI input, advance the clock or change the OG simulation here.
+ * Called on the main thread by the universal civil dispatcher only. */
+void Platform_UniversalCpuProgress(uint32_t count)
+{
+    static char *saved_title;
+    char title[112];
+    if(!s_window)return;
+    if(count) {
+        if(!saved_title) {
+            const char *current=SDL_GetWindowTitle(s_window);
+            saved_title=SDL_strdup(current?current:"");
+            if(!saved_title)return; /* presentation must never fail a fixture */
+        }
+        snprintf(title,sizeof title,
+                 "SWOS Expanded - FORWARD TIME: CPU match %lu (OG 50 Hz)",
+                 (unsigned long)count);
+        SDL_SetWindowTitle(s_window,title);
+    } else if(saved_title) {
+        SDL_SetWindowTitle(s_window,saved_title);
+        SDL_free(saved_title);
+        saved_title=NULL;
+    }
+}
+
 int Platform_VBlank(void)
 {
     /* Drive the Amiga Level-3 ISR from the main thread too, in case the

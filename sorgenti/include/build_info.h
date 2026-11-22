@@ -16,7 +16,7 @@
 /* Single source of truth for the user-facing release/build number. */
 /* Diagnostic CMD parser fix and competition audit output relocation.
  * Engine remains original v262; Windows compile/gameplay of v263 untested. */
-#define SWOS_EXPANDED_VERSION "00.13.263"
+#define SWOS_EXPANDED_VERSION "00.13.264"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

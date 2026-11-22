@@ -9,6 +9,7 @@
 #include "expanded_universal_car.h"
 #include "expanded_universal_native_match.h"
 #include "expanded_world_live.h"
+#include "platform_sdl.h" /* CPU batch progress + monotonic diagnostics only */
 #include "play_match_menu.h"
 #include "world.h"
 extern uint16_t _quitToDos; /* SDL close: do not durably claim another match */
@@ -68,6 +69,8 @@ int ExpandedUniversalLive_Start(void)
     ExpandedUniversalRegistry *r;
     uint32_t i,registered=0u,skipped=0u;
     const ExpandedUniversalCatalogFixture **ordered=NULL;
+    const Uint64 start_ms=Platform_NowMs();
+    Uint64 validated_ms;
     if(World_Current()!=WORLD_2627)return 1;
     if(!ExpandedUniversalCatalog_Audit(&a) || !a.sealed ||
        !a.future_fixtures) {
@@ -131,6 +134,11 @@ int ExpandedUniversalLive_Start(void)
         fprintf(stderr,"[universal-live] REGISTRY_REJECTED no-CAR-write=1\n");
         return 0;
     }
+    validated_ms=Platform_NowMs();
+    fprintf(stderr,"[universal-perf] START_REGISTRY register=%lu "
+        "sorted-validated-ms=%llu no-old-OG=1\n",
+        (unsigned long)registered,
+        (unsigned long long)(validated_ms-start_ms));
     fprintf(stderr,"[universal-live] ACTIVE world=2627 "
         "owner=JSON_FIXTURE_REGISTRY OG=MATCH_50HZ_ONLY "
         "registered=%lu skipped=%lu source-complete=%u "
@@ -176,6 +184,7 @@ int ExpandedUniversalLive_Advance(ExpandedWorldDate target)
     ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
     ExpandedLiveCalendarState state={0};
     int32_t to=0,from=0;
+    uint32_t cpu_batch_count=0u;
     if(!ExpandedUniversalLive_Active() || !r || r->recovery_required ||
        !ExpandedWorldLive_CalendarState(&state) ||
        !ExpandedWorld_DateToIndex(state.today,&from) ||
@@ -219,12 +228,28 @@ int ExpandedUniversalLive_Advance(ExpandedWorldDate target)
                 "before-next-claim=1 preserved-CAR=1 no-replay=1\n");
             return 0;
         }
-        if(run_match(f,0)!=EXP_UNIVERSAL_OK) {
-            r->recovery_required=1u;
-            fprintf(stderr,"[universal-live] CPU_FAULT "
-                "event=%llu CAR_CLAIMED_NO_REPLAY=1\n",
-                (unsigned long long)f->event_id);
-            return 0;
+        {
+            const Uint64 started_ms=Platform_NowMs();
+            ExpandedUniversalResult match_result;
+            /* No partial civil advancement or new scorer: show OS-level
+             * progress while this fixture's original OG 50 Hz runs. */
+            Platform_UniversalCpuProgress(++cpu_batch_count);
+            match_result=run_match(f,0);
+            Platform_UniversalCpuProgress(0);
+            fprintf(stderr,"[universal-live] CPU_MATCH_TIMING "
+                "ordinal=%lu event=%llu elapsed_ms=%llu outcome=%d "
+                "og-50hz=1 srp-background=OFF\n",
+                (unsigned long)cpu_batch_count,
+                (unsigned long long)f->event_id,
+                (unsigned long long)(Platform_NowMs()-started_ms),
+                (int)match_result);
+            if(match_result!=EXP_UNIVERSAL_OK) {
+                r->recovery_required=1u;
+                fprintf(stderr,"[universal-live] CPU_FAULT "
+                    "event=%llu CAR_CLAIMED_NO_REPLAY=1\n",
+                    (unsigned long long)f->event_id);
+                return 0;
+            }
         }
     }
 }

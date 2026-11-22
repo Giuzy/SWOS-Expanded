@@ -5,6 +5,7 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_universal_native_match.h"
 #include "game_init.h"
+#include "replay_v2.h" /* scope CPU-only no-SRP; interactive replays unchanged */
 #include "play_match_menu.h" /* GAME_TYPE_CAREER from existing OG header */
 #include "world.h"
 #include <stdint.h>
@@ -104,6 +105,7 @@ int ExpandedUniversal_NativeRunOriginal(
     ExpandedUniversalNativeMatch *const c=(ExpandedUniversalNativeMatch *)user;
     uint16_t oldCareer;
     uint16_t homeControls,awayControls;
+    int32_t priorReplaySuppression=0;
     int bad;
     if(witness)memset(witness,0,sizeof *witness);
     if(!witness || !c || !c->lineup_ready ||
@@ -118,6 +120,11 @@ int ExpandedUniversal_NativeRunOriginal(
          * Restore the persistent roster controls after OG match effects. */
         c->home->team.teamControls=TEAM_COMPUTER;
         c->away->team.teamControls=TEAM_COMPUTER;
+        /* Full-frame .SRP capture is for watched matches, not thousands
+         * of unseen CPU fixtures. Keep every original OG 50 Hz tick and
+         * preserve a suppression owner already active (replay test/rig). */
+        priorReplaySuppression=ReplayRec_Suppressed();
+        ReplayRec_Suppress(1);
         SDL_AtomicSet(&s_universal_cpu_match,1);
     }
     _isCareer=(uint16_t)(c->home==&_careerTeam || c->away==&_careerTeam);
@@ -148,6 +155,8 @@ int ExpandedUniversal_NativeRunOriginal(
         c->maximum_substitutes,c->match_parameters,c->match_postprocess,
         (TeamFile *)c->home,(TeamFile *)c->away);
     SDL_AtomicSet(&s_universal_match_active,0);
+    if(!c->interactive)
+        ReplayRec_Suppress(priorReplaySuppression);
     /* Restore the caller's original controls even after an OG failure;
      * every claimed match still remains non-replayable on uncertain score. */
     SDL_AtomicSet(&s_universal_cpu_match,0);

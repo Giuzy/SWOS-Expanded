@@ -43,6 +43,9 @@ int32_t ReplayRec_Recording(void);
 /* Record nothing from now on, for a run that plays a match only to check it (--srp-resim):
  * LATEST.SRP is the last match PLAYED, and a re-simulation is not one. */
 void    ReplayRec_Suppress(int32_t on);
+/* Current recorder suppression state: CPU background fixtures must restore
+ * the previous owner rather than clearing an existing replay/test guard. */
+int32_t ReplayRec_Suppressed(void);
 
 /* The recording so far, as the parts of a file (include/srp_writer.h): what the match
  * recorder (src/match_record.c) streams, frame by confirmed frame. Pointers into the

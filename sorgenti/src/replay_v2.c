@@ -252,6 +252,11 @@ void ReplayRec_Suppress(int32_t on)
     s_rec.suppressed = on;
 }
 
+int32_t ReplayRec_Suppressed(void)
+{
+    return s_rec.suppressed;
+}
+
 static void rec_on_sound(uint8_t kind, uint8_t channel, uint16_t id)
 {
     AudioEvent *e;

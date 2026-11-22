@@ -164,7 +164,10 @@
         "SERIE D GIRONE H",
         "SERIE D GIRONE I",
         "SERIE D GIRONE I"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_albanianLeague",
@@ -198,7 +201,10 @@
       "name": [
         "KATEGORIA SUPERIORE",
         "KAT. SUPERIORE"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_algerianLeague",
@@ -232,7 +238,10 @@
       "name": [
         "LIGUE PROFESSIONNELLE 1",
         "LIGUE 1"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldAndLeague",
@@ -271,7 +280,10 @@
         "country": 47,
         "name": "ANDORRA",
         "byte": 0
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_argentinianLeague",
@@ -325,7 +337,10 @@
         "P. NACIONAL A",
         "PRIMERA NACIONAL ZONA B",
         "P. NACIONAL B"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldArmLeague",
@@ -364,7 +379,10 @@
         "country": 52,
         "name": "ARMENIA",
         "byte": 0
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_australianLeague",
@@ -428,7 +446,10 @@
         "NPL VICTORIA",
         "NPL QUEENSLAND",
         "NPL QUEENSLAND"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_austrianLeague",
@@ -462,7 +483,10 @@
       "name": [
         "BUNDESLIGA",
         "BUNDESLIGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldAzeLeague",
@@ -501,7 +525,10 @@
         "country": 53,
         "name": "AZERBAIJAN",
         "byte": 0
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_belgianLeague",
@@ -535,7 +562,10 @@
       "name": [
         "BELGIAN PRO LEAGUE",
         "PRO LEAGUE"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldBihLeague",
@@ -574,7 +604,10 @@
         "country": 54,
         "name": "BOSNIA-HERZ.",
         "byte": 0
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_belarussiaLleague",
@@ -608,7 +641,10 @@
       "name": [
         "BELARUSIAN PREMIER LEAGUE",
         "VYSHEYSHAYA LIGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_bolivianLeague",
@@ -642,7 +678,16 @@
       "name": [
         "DIVISION PROFESIONAL",
         "DIV. PROFESIONAL"
-      ]
+      ],
+      "season_start_date": "2026-04-03",
+      "season_expiry_date": "2027-01-14",
+      "season_dates_runtime_connected": false,
+      "next_edition_start_date": "2027-01-15",
+      "next_edition_expiry_date": "2028-01-14",
+      "provisional_game_cycle": "01-15_TO_01-14",
+      "season_date_source": "data_json/worlds/2627/competitions/bolivia_division_profesional_calendar.json",
+      "announced_initial_start_date": "2026-04-05",
+      "season_date_provenance": "2026-04-03 first real 2026 opening fixture, 2026-04-05 prior FBF release date"
     },
     {
       "id": "_brasilianLeague",
@@ -686,7 +731,10 @@
         "BRASILEIRAO A",
         "CAMPEONATO BRASILEIRO SERIE B",
         "BRASILEIRAO B"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_bulgarianLeague",
@@ -720,7 +768,10 @@
       "name": [
         "PARVA PROFESIONALNA LIGA",
         "PARVA LIGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldCanLeague",
@@ -759,7 +810,10 @@
         "country": 56,
         "name": "CANADA",
         "byte": 1
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_chileanLeague",
@@ -793,7 +847,10 @@
       "name": [
         "LIGA DE PRIMERA",
         "LIGA DE PRIMERA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldChnLeague",
@@ -832,7 +889,10 @@
         "country": 57,
         "name": "CHINA",
         "byte": 3
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_colombianLeague",
@@ -866,7 +926,10 @@
       "name": [
         "CATEGORIA PRIMERA A",
         "PRIMERA A"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldCrcLeague",
@@ -905,7 +968,10 @@
         "country": 58,
         "name": "COSTA RICA",
         "byte": 1
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_croatianLeague",
@@ -939,7 +1005,10 @@
       "name": [
         "HRVATSKA NOGOMETNA LIGA",
         "HNL"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_cypriotLeague",
@@ -973,7 +1042,10 @@
       "name": [
         "CYPRIOT FIRST DIVISION",
         "FIRST DIVISION"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_czechLeague",
@@ -1007,7 +1079,10 @@
       "name": [
         "1. CESKA FOTBALOVA LIGA",
         "1. LIGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_danishLeague",
@@ -1041,7 +1116,10 @@
       "name": [
         "SUPERLIGAEN",
         "SUPERLIGAEN"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_ecuadorLeague",
@@ -1075,7 +1153,10 @@
       "name": [
         "LIGAPRO SERIE A",
         "LIGAPRO"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldEgyLeague",
@@ -1114,7 +1195,10 @@
         "country": 59,
         "name": "EGYPT",
         "byte": 5
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_englishLeague",
@@ -1178,7 +1262,10 @@
         "LEAGUE ONE",
         "EFL LEAGUE TWO",
         "LEAGUE TWO"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_spanishLeague",
@@ -1222,7 +1309,10 @@
         "LALIGA",
         "SEGUNDA DIVISION",
         "SEGUNDA DIVISION"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_estonianLeague",
@@ -1256,7 +1346,10 @@
       "name": [
         "MEISTRILIIGA",
         "MEISTRILIIGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_finnishLeague",
@@ -1290,7 +1383,10 @@
       "name": [
         "VEIKKAUSLIIGA",
         "VEIKKAUSLIIGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_frenchLeague",
@@ -1334,7 +1430,10 @@
         "LIGUE 1",
         "LIGUE 2",
         "LIGUE 2"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_faroeIslesLeague",
@@ -1368,7 +1467,10 @@
       "name": [
         "MEISTARADEILDIN",
         "MEISTARADEILDIN"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldGeoLeague",
@@ -1407,7 +1509,10 @@
         "country": 61,
         "name": "GEORGIA",
         "byte": 0
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_germanLeague",
@@ -1461,7 +1566,10 @@
         "2. BUNDESLIGA",
         "3. LIGA",
         "3. LIGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_ghanaLeague",
@@ -1495,7 +1603,10 @@
       "name": [
         "GHANA PREMIER LEAGUE",
         "GHANA PREM. LGE"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldGibLeague",
@@ -1534,7 +1645,10 @@
         "country": 63,
         "name": "GIBRALTAR",
         "byte": 0
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_greekLeague",
@@ -1568,7 +1682,10 @@
       "name": [
         "SUPER LEAGUE GREECE",
         "SUPER LEAGUE"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldGuaLeague",
@@ -1607,7 +1724,10 @@
         "country": 68,
         "name": "GUATEMALA",
         "byte": 1
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldHonLeague",
@@ -1646,7 +1766,10 @@
         "country": 70,
         "name": "HONDURAS",
         "byte": 1
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_hungarianLeague",
@@ -1680,7 +1803,10 @@
       "name": [
         "NEMZETI BAJNOKSAG I",
         "NB I"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_indianLeague",
@@ -1724,7 +1850,10 @@
         "ISL",
         "INDIAN FOOTBALL LEAGUE",
         "IFL"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_irishLeague",
@@ -1758,7 +1887,10 @@
       "name": [
         "LOI PREMIER DIVISION",
         "PREMIER DIVISION"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldIrnLeague",
@@ -1797,7 +1929,10 @@
         "country": 74,
         "name": "IRAN",
         "byte": 3
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_icelandicLeague",
@@ -1831,7 +1966,10 @@
       "name": [
         "BESTA DEILD KARLA",
         "BESTA DEILD"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_israeliLeague",
@@ -1865,7 +2003,10 @@
       "name": [
         "ISRAELI PREMIER LEAGUE",
         "LIGAT HA'AL"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_japaneseLeague",
@@ -1909,7 +2050,10 @@
         "J1 LEAGUE",
         "J2 LEAGUE",
         "J2 LEAGUE"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldKazLeague",
@@ -1948,7 +2092,10 @@
         "country": 86,
         "name": "KAZAKHSTAN",
         "byte": 0
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldKorLeague",
@@ -1987,7 +2134,10 @@
         "country": 87,
         "name": "SOUTH KOREA",
         "byte": 3
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldKosLeague",
@@ -2026,7 +2176,10 @@
         "country": 88,
         "name": "KOSOVO",
         "byte": 0
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldKsaLeague",
@@ -2065,7 +2218,10 @@
         "country": 89,
         "name": "SAUDI ARABIA",
         "byte": 3
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldLieLeague",
@@ -2104,7 +2260,10 @@
         "country": 90,
         "name": "LIECHTENSTEIN",
         "byte": 0
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_lithuanianLeague",
@@ -2138,7 +2297,10 @@
       "name": [
         "TOPLYGA",
         "TOPLYGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_luxembourgLeague",
@@ -2172,7 +2334,10 @@
       "name": [
         "DIVISION NATIONALE",
         "DIV. NATIONALE"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_latvianLeague",
@@ -2206,7 +2371,10 @@
       "name": [
         "VIRSLIGA",
         "VIRSLIGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldMarLeague",
@@ -2245,7 +2413,10 @@
         "country": 91,
         "name": "MOROCCO",
         "byte": 5
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldMdaLeague",
@@ -2284,7 +2455,10 @@
         "country": 92,
         "name": "MOLDOVA",
         "byte": 0
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_mexicanLeague",
@@ -2328,7 +2502,10 @@
         "LIGA MX",
         "LIGA DE EXPANSION MX",
         "LIGA EXPANSION"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldMkdLeague",
@@ -2367,7 +2544,10 @@
         "country": 93,
         "name": "N. MACEDONIA",
         "byte": 0
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_malteseLeague",
@@ -2401,7 +2581,10 @@
       "name": [
         "MALTESE PREMIER LEAGUE",
         "PREMIER LEAGUE"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldMneLeague",
@@ -2440,7 +2623,10 @@
         "country": 94,
         "name": "MONTENEGRO",
         "byte": 0
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_dutchLeague",
@@ -2484,7 +2670,10 @@
         "EREDIVISIE",
         "EERSTE DIVISIE",
         "EERSTE DIVISIE"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_northernIrishLeague",
@@ -2518,7 +2707,10 @@
       "name": [
         "NIFL PREMIERSHIP",
         "PREMIERSHIP"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_norwegianLeague",
@@ -2552,7 +2744,10 @@
       "name": [
         "ELITESERIEN",
         "ELITESERIEN"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_newZealandLeague",
@@ -2606,7 +2801,10 @@
         "CENTRAL LEAGUE",
         "SOUTHERN LEAGUE",
         "SOUTHERN LEAGUE"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldPanLeague",
@@ -2645,7 +2843,10 @@
         "country": 95,
         "name": "PANAMA",
         "byte": 1
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_paraguayanLeague",
@@ -2679,7 +2880,10 @@
       "name": [
         "DIVISION PROFESIONAL",
         "DIV. PROFESIONAL"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_peruvianLeague",
@@ -2713,7 +2917,10 @@
       "name": [
         "LIGA 1",
         "LIGA 1"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_polishLeague",
@@ -2747,7 +2954,10 @@
       "name": [
         "EKSTRAKLASA",
         "EKSTRAKLASA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_portugeseLeague",
@@ -2791,7 +3001,10 @@
         "LIGA PORTUGAL",
         "LIGA PORTUGAL 2",
         "LIGA PORTUGAL 2"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldQatLeague",
@@ -2830,7 +3043,10 @@
         "country": 96,
         "name": "QATAR",
         "byte": 3
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_romanianLeague",
@@ -2864,7 +3080,10 @@
       "name": [
         "SUPERLIGA",
         "SUPERLIGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_southAfricanLeague",
@@ -2898,7 +3117,10 @@
       "name": [
         "PSL PREMIERSHIP",
         "PREMIERSHIP"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_russianLeague",
@@ -2932,7 +3154,10 @@
       "name": [
         "RUSSIAN PREMIER LEAGUE",
         "PREMIER LIGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_scottishLeague",
@@ -2996,7 +3221,10 @@
         "LEAGUE ONE",
         "SCOTTISH LEAGUE TWO",
         "LEAGUE TWO"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_elSalvadorLeague",
@@ -3070,7 +3298,10 @@
         "TERCERA OCCIDENT",
         "TERCERA DIVISION ORIENTE",
         "TERCERA ORIENTE"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_sanMarinoLeague",
@@ -3104,7 +3335,10 @@
       "name": [
         "CAMPIONATO SAMMARINESE",
         "CAMPIONATO SMR"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_yugoslavianLeague",
@@ -3138,7 +3372,10 @@
       "name": [
         "SUPERLIGA SRBIJE",
         "SUPERLIGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_swissLeague",
@@ -3172,7 +3409,10 @@
       "name": [
         "SWISS SUPER LEAGUE",
         "SUPER LEAGUE"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_surinamLeague",
@@ -3206,7 +3446,10 @@
       "name": [
         "SURINAME MAJOR LEAGUE",
         "MAJOR LEAGUE"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_slovakianLeague",
@@ -3240,7 +3483,10 @@
       "name": [
         "SLOVAK FIRST FOOTBALL LEAGUE",
         "1. LIGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_slovenianLeague",
@@ -3274,7 +3520,10 @@
       "name": [
         "PRVA SLOVENSKA NOGOMETNA LIGA",
         "PRVA LIGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_swedishLeague",
@@ -3308,7 +3557,10 @@
       "name": [
         "ALLSVENSKAN",
         "ALLSVENSKAN"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_taiwaneseLeague",
@@ -3352,7 +3604,10 @@
         "TFPL",
         "TAIWAN FOOTBALL LEAGUE DIV. 2",
         "TFL DIV. 2"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldTunLeague",
@@ -3391,7 +3646,10 @@
         "country": 97,
         "name": "TUNISIA",
         "byte": 5
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_turkishLeague",
@@ -3435,7 +3693,10 @@
         "SUPER LIG",
         "TFF 1. LIG",
         "1. LIG"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_worldUaeLeague",
@@ -3474,7 +3735,10 @@
         "country": 98,
         "name": "U.A.E.",
         "byte": 3
-      }
+      },
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_ukrainianLeague",
@@ -3508,7 +3772,10 @@
       "name": [
         "UKRAINIAN PREMIER LEAGUE",
         "PREMIER LIGA"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_uruguayanLeague",
@@ -3552,7 +3819,10 @@
         "PRIMERA DIVISION",
         "SEGUNDA DIVISION",
         "SEGUNDA DIVISION"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_americanLeague",
@@ -3586,7 +3856,10 @@
       "name": [
         "MAJOR LEAGUE SOCCER",
         "MLS"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_venezuelanLeague",
@@ -3620,7 +3893,10 @@
       "name": [
         "LIGA FUTVE",
         "LIGA FUTVE"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     },
     {
       "id": "_welshLeague",
@@ -3654,7 +3930,10 @@
       "name": [
         "CYMRU PREMIER",
         "CYMRU PREMIER"
-      ]
+      ],
+      "season_start_date": null,
+      "season_expiry_date": null,
+      "season_dates_runtime_connected": false
     }
   ]
 }

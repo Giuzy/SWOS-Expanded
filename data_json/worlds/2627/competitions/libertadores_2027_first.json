@@ -479,5 +479,12 @@
       "entry": "preliminary",
       "from_screenshot": false
     }
-  ]
+  ],
+  "season_start_date": "2027-02-03",
+  "season_expiry_date": "2027-11-27",
+  "season_start_date_policy": "FIRST_CALENDAR_FIXTURE_PROVISIONAL_NOT_OFFICIAL",
+  "season_expiry_policy": "SCHEDULED_FINAL_DATE_AND_ALL_OG_RESULT_WITNESSES_REQUIRED",
+  "expiry_incomplete_action": "KEEP_ACTIVE_PAST_EXPIRY_UNTIL_OG_FINAL",
+  "administrative_july_reset_prohibited": true,
+  "season_dates_runtime_connected": false
 }

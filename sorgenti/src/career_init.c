@@ -26,6 +26,7 @@
 #ifdef SWOS_SDL_BUILD
 #include "diy_competition.h" /* DIY_OGStandings_SetSeason prototype */
 #include "expanded_world_time.h"
+#include "expanded_competition_finish_week.h" /* pure Sunday-only post-league cadence */
 #include "bolivia_cup_sequence.h" /* immutable first-edition fixture format */
 #include "expanded_bolivia_event_registry.h" /* Bolivia civil event dates drive OG cutoff */
 #include "fixture_rounds.h"
@@ -604,6 +605,172 @@ void ContinueCareer(void)
         }
         ActivateMenu(_contestMenu);
         return;
+    }
+#endif
+#ifdef SWOS_SDL_BUILD
+    /* RG-027: the OG manager's LAST local fixture is not the world's
+     * last event. On 2027-05-01 the manager had _seasonFinished=1, but
+     * UEFA's real knockout finals were still upcoming. Run the REMAINING
+     * civil OG season through the single resident coordinator BEFORE any
+     * native FINISH SEASON titleholder/qualifier callback.
+     *
+     * This is not another simulation, a fake champion or a new clock.
+     * Never auto-play unfinished human league matches; a rejected native
+     * tick holds the season and preserves the previous valid CAR. */
+    if (_gameType==4 && _seasonFinished) {
+        ExpandedLiveCalendarState civil;
+        const uint32_t season=(uint32_t)World_FirstYear()+
+                              (uint32_t)_currentSeasonShowing;
+        const int hasCivil=ExpandedWorldLive_Clubs()!=0 &&
+            ExpandedWorldLive_CalendarState(&civil);
+        const uint32_t civilSeason=hasCivil?
+            (uint32_t)civil.today.year-(civil.today.month<7u?1u:0u):0u;
+        const ExpandedWorldDate end={(uint16_t)(season+1u),6u,30u};
+        int32_t fromIndex=0,endIndex=0;
+        extern uint16_t Expanded_OGWorld_SaveYear(void);
+        extern int Expanded_OGWorld_ManagerLeagueFinished(
+            const DIYCompetitionEx *);
+        const int managerFinished=(_selTeamNumber==0xffffu || _youreSacked) ||
+            Expanded_OGWorld_ManagerLeagueFinished(&_diyCompetitionStart);
+        const int preflight=hasCivil && season>=1990u && season<2199u &&
+            civilSeason==season &&
+            Expanded_OGWorld_SaveYear()==(uint16_t)season &&
+            Expanded_CompetitionCoordinator_PreflightBind(
+                (uint16_t)season) &&
+            managerFinished &&
+            ExpandedWorld_DateToIndex(civil.today,&fromIndex) &&
+            ExpandedWorld_DateToIndex(end,&endIndex) &&
+            fromIndex<=endIndex;
+        if(!preflight) {
+            fprintf(stderr,"[career-finish-world] BLOCK "
+                "reason=PREMATURE_OR_DESYNCED_LOCAL_FINISH "
+                "civil=%04u-%02u-%02u manager-season=%lu "
+                "native-year=%u local-complete=%d "
+                "no-yearend-no-replay=1\n",
+                hasCivil?(unsigned)civil.today.year:0u,
+                hasCivil?(unsigned)civil.today.month:0u,
+                hasCivil?(unsigned)civil.today.day:0u,
+                (unsigned long)season,
+                (unsigned)Expanded_OGWorld_SaveYear(),managerFinished);
+            Expanded_CompetitionCoordinator_ReportWorldFault(
+                "MANAGER_FINISH_NOT_WORLD_FINISH");
+            static uint8_t msg[]=
+                "OG WORLD NOT READY - PREVIOUS SAVE PRESERVED";
+            ShowErrorMenu(msg);
+            return;
+        }
+        if(fromIndex<endIndex) {
+            /* Finish the remaining OG year with REAL civil weekly
+             * FORWARD steps. The final interval can be shorter than
+             * seven days, but it ends EXACTLY on 30 June. Only the
+             * one resident coordinator dispatches the OG CPU events. */
+            int32_t reachedIndex=fromIndex;
+            unsigned weeklySteps=0u;
+            fprintf(stderr,"[career-finish-world] WEEKLY_START "
+                "from=%04u-%02u-%02u to=%04u-06-30 "
+                "source=ONE_OG_COORDINATOR manager-league=FINISHED "
+                "no-second-simulation=1\n",
+                (unsigned)civil.today.year,
+                (unsigned)civil.today.month,(unsigned)civil.today.day,
+                (unsigned)end.year);
+            while(reachedIndex<endIndex) {
+                const int32_t remaining=endIndex-reachedIndex;
+                /* ExpandedWorld_Weekday: Mon=0 .. Sun=6.
+                 * The first FORWARD after a locally finished championship
+                 * ends on the next SUNDAY, not on the same weekday +7.
+                 * Then every Sunday, or June 30 if it comes first. */
+                const int weekday=ExpandedWorld_Weekday(reachedIndex);
+                int32_t days=0;
+                if(!ExpandedFinish_DaysToNextSundayOrEnd(
+                       weekday,remaining,&days)) {
+                    Expanded_CompetitionCoordinator_ReportWorldFault(
+                        "WORLD_FINISH_INVALID_WEEKDAY");
+                    fprintf(stderr,"[career-finish-world] BLOCK "
+                        "reason=INVALID_WEEKDAY previous-CAR-preserved=1\n");
+                    static uint8_t msg[]=
+                        "OG DATE NOT READY - PREVIOUS SAVE PRESERVED";
+                    ShowErrorMenu(msg);
+                    return;
+                }
+                ExpandedWorldDate next;
+
+                if(!ExpandedWorld_IndexToDate(reachedIndex+days,&next)) {
+                    Expanded_CompetitionCoordinator_ReportWorldFault(
+                        "WORLD_FINISH_WEEK_DATE_INVALID");
+                    fprintf(stderr,"[career-finish-world] BLOCK "
+                        "reason=WEEK_DATE_INVALID "
+                        "previous-CAR-preserved=1\n");
+                    static uint8_t msg[]=
+                        "OG DATE NOT READY - PREVIOUS SAVE PRESERVED";
+                    ShowErrorMenu(msg);
+                    return;
+                }
+                fprintf(stderr,"[career-finish-world] WEEK_FORWARD "
+                    "step=%u days=%ld next=%04u-%02u-%02u "
+                    "source=OG_NATIVE_ONLY\n",
+                    weeklySteps+1u,(long)days,
+                    (unsigned)next.year,(unsigned)next.month,
+                    (unsigned)next.day);
+                if(!Expanded_CompetitionCoordinator_Advance(
+                       next,"CAREER_FINISH_WORLD_WEEK")) {
+                    fprintf(stderr,"[career-finish-world] BLOCK "
+                        "reason=OG_WEEKLY_TICK_FAILED step=%u "
+                        "previous-CAR-preserved=1\n",weeklySteps+1u);
+                    static uint8_t msg[]=
+                        "OG EVENTS NOT READY - PREVIOUS SAVE PRESERVED";
+                    ShowErrorMenu(msg);
+                    return;
+                }
+                ExpandedLiveCalendarState weekly;
+                if(!ExpandedWorldLive_CalendarState(&weekly) ||
+                   weekly.today.year!=next.year ||
+                   weekly.today.month!=next.month ||
+                   weekly.today.day!=next.day ||
+                   Expanded_OGWorld_SaveYear()!=(uint16_t)season) {
+                    Expanded_CompetitionCoordinator_ReportWorldFault(
+                        "WORLD_FINISH_WEEK_POSTCHECK");
+                    fprintf(stderr,"[career-finish-world] BLOCK "
+                        "reason=WEEK_POSTCHECK_FAILED step=%u "
+                        "previous-CAR-preserved=1\n",weeklySteps+1u);
+                    static uint8_t msg[]=
+                        "OG WORLD NOT READY - PREVIOUS SAVE PRESERVED";
+                    ShowErrorMenu(msg);
+                    return;
+                }
+                reachedIndex+=days;
+                ++weeklySteps;
+                fprintf(stderr,"[career-finish-world] WEEK_COMMITTED "
+                    "step=%u civil=%04u-%02u-%02u "
+                    "remaining-days=%ld no-duplicate=1\n",
+                    weeklySteps,(unsigned)weekly.today.year,
+                    (unsigned)weekly.today.month,
+                    (unsigned)weekly.today.day,
+                    (long)(endIndex-reachedIndex));
+            }
+            fprintf(stderr,"[career-finish-world] WEEKLY_COMPLETE "
+                "steps=%u final=%04u-06-30 "
+                "action=VERIFY_BEFORE_NATIVE_YEAR_END\n",
+                weeklySteps,(unsigned)end.year);
+            ExpandedLiveCalendarState after;
+            if(!ExpandedWorldLive_CalendarState(&after) ||
+               after.today.year!=end.year || after.today.month!=6u ||
+               after.today.day!=30u ||
+               Expanded_OGWorld_SaveYear()!=(uint16_t)season) {
+                Expanded_CompetitionCoordinator_ReportWorldFault(
+                    "WORLD_FINISH_DATE_MISMATCH");
+                fprintf(stderr,"[career-finish-world] BLOCK "
+                    "reason=DATE_POSTCHECK_FAILED "
+                    "previous-CAR-preserved=1\n");
+                static uint8_t msg[]=
+                    "OG DATE NOT READY - PREVIOUS SAVE PRESERVED";
+                ShowErrorMenu(msg);
+                return;
+            }
+            fprintf(stderr,"[career-finish-world] READY "
+                "civil=%04u-06-30 native-season=%lu "
+                "action=ORIGINAL_OG_YEAR_END event-ack=PENDING_CAR\n",
+                (unsigned)end.year,(unsigned long)season);
+        }
     }
 #endif
     Expanded_CompleteSeason();

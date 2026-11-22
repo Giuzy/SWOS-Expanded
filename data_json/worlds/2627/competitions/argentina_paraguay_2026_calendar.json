@@ -23,7 +23,14 @@
           "score": "3-2"
         },
         "two_zones_of_15": true,
-        "league_tables_and_full_results_loaded": false
+        "league_tables_and_full_results_loaded": false,
+        "season_start_date": "2026-01-22",
+        "season_end_date": "2026-05-24",
+        "season_end_date_authority": "SCHEDULE_ONLY_VERIFIED_OG_LAST_MATCH_REQUIRED",
+        "runtime_lifecycle_connected": false,
+        "season_expiry_date": "2026-05-24",
+        "expiry_rule": "ON_DATE_ONLY_AFTER_OG_ALL_MATCHES_PLUS_KO_OR_PLAYOFF_COMPLETE",
+        "expiry_incomplete_action": "BLOCK_KEEP_CURRENT_EDITION_UNTIL_VERIFIED"
       },
       "clausura": {
         "start": "2026-07-23",
@@ -31,7 +38,14 @@
         "state_at_career_start": "NOT_STARTED",
         "two_zones_of_15": true,
         "playoffs": true,
-        "actual_fixtures_loaded": false
+        "actual_fixtures_loaded": false,
+        "season_start_date": "2026-07-23",
+        "season_end_date": "2026-12-12",
+        "season_end_date_authority": "SCHEDULE_ONLY_VERIFIED_OG_LAST_MATCH_REQUIRED",
+        "runtime_lifecycle_connected": false,
+        "season_expiry_date": "2026-12-12",
+        "expiry_rule": "ON_DATE_ONLY_AFTER_OG_ALL_MATCHES_PLUS_KO_OR_PLAYOFF_COMPLETE",
+        "expiry_incomplete_action": "BLOCK_KEEP_CURRENT_EDITION_UNTIL_VERIFIED"
       },
       "annual_table": {
         "required": true,
@@ -54,14 +68,28 @@
         "end": "2026-05-24",
         "state_at_career_start": "FINISHED_HISTORICAL",
         "rounds": 22,
-        "full_results_and_table_loaded": false
+        "full_results_and_table_loaded": false,
+        "season_start_date": "2026-01-23",
+        "season_end_date": "2026-05-24",
+        "season_end_date_authority": "SCHEDULE_ONLY_VERIFIED_OG_LAST_MATCH_REQUIRED",
+        "runtime_lifecycle_connected": false,
+        "season_expiry_date": "2026-05-24",
+        "expiry_rule": "ON_DATE_ONLY_AFTER_OG_ALL_MATCHES_PLUS_KO_OR_PLAYOFF_COMPLETE",
+        "expiry_incomplete_action": "BLOCK_KEEP_CURRENT_EDITION_UNTIL_VERIFIED"
       },
       "clausura": {
         "start": "2026-07-24",
         "end_scheduled": "2026-11-30",
         "state_at_career_start": "NOT_STARTED",
         "rounds": 22,
-        "full_fixtures_loaded": false
+        "full_fixtures_loaded": false,
+        "season_start_date": "2026-07-24",
+        "season_end_date": "2026-11-30",
+        "season_end_date_authority": "SCHEDULE_ONLY_VERIFIED_OG_LAST_MATCH_REQUIRED",
+        "runtime_lifecycle_connected": false,
+        "season_expiry_date": "2026-11-30",
+        "expiry_rule": "ON_DATE_ONLY_AFTER_OG_ALL_MATCHES_PLUS_KO_OR_PLAYOFF_COMPLETE",
+        "expiry_incomplete_action": "BLOCK_KEEP_CURRENT_EDITION_UNTIL_VERIFIED"
       },
       "annual_table": {
         "required": true,
@@ -79,5 +107,8 @@
     "Never simulate or invent pre-1-July 2026 results",
     "Keep source competitions distinct and qualification precedence documented",
     "Do not migrate existing CAR files in this data-only change"
-  ]
+  ],
+  "administrative_year_resets_competitions": false,
+  "per_competition_lifecycle_policy": "EACH_OG_EDITION_CLOSES_AFTER_VERIFIED_LAST_MATCH_NOT_ON_JULY_1",
+  "competition_expiry_policy": "JSON_DATE_AND_OG_ALL_RESULTS_WITNESSED"
 }

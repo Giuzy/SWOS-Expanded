@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "kind": "PER_COMPETITION_SEASON_DATES_METADATA_NOT_RUNTIME",
+  "world": "2627",
+  "country": 45,
+  "country_name": "BOLIVIA",
+  "administrative_career_year_start": "07-01",
+  "competition_year_rollover": "WHEN_OWN_OG_FINAL_FIXTURE_FINISHED",
+  "administrative_year_resets_competitions": false,
+  "lifecycle_runtime_connected": false,
+  "date_policy": "ISO8601; real scheduled date when verified; unspecified = null; OG result witness always authoritative",
+  "edition_2026": {
+    "country_season_start_date": "2026-04-03",
+    "country_season_start_source": "https://fbf.com.bo/temporada-2026-de-la-division-profesional/",
+    "league": {
+      "competition_id": 89,
+      "native_type": 0,
+      "season_start_date": "2026-04-03",
+      "first_actual_fixture_date": null,
+      "fixture_schedule_provenance": "2026_APPROXIMATE_GAME_TEMPLATE_ACTIVE; real per-fixture dates unverified",
+      "scheduled_last_regular_match_date": "2026-12-13",
+      "scheduled_last_match_status": "PLANNED_NOT_PLAYED",
+      "result_completion_policy": "OG_LAST_LEAGUE_FIXTURE_AND_FINAL_TABLE_VERIFIED",
+      "season_expiry_date": "2027-01-14",
+      "announced_formal_start_date": "2026-04-05",
+      "first_match_source": "https://www.vision360.bo/noticias/2026/04/02/42608-la-temporada-oficial-del-futbol-boliviano-se-pone-en-marcha-este-viernes",
+      "announced_start_source": "https://fbf.com.bo/temporada-2026-de-la-division-profesional/",
+      "start_discrepancy_explained": "FBF initially announced 5 April, but official matchday one started Friday 3 April; no matches are imported into OG by these dates."
+    },
+    "copa": {
+      "competition_id": 164,
+      "native_type": 2,
+      "season_start_date": "2026-08-18",
+      "start_date_source": "sorgenti/include/bolivia_cup_sequence.h first chronological OG template fixture",
+      "official_initial_start_date": "2026-08-19",
+      "last_fixture_date": null,
+      "fixture_schedule_provenance": "GAME_TEMPLATE_2026_WITH_POSTPONEMENTS",
+      "result_completion_policy": "OG_GROUP_64_PLUS_KO_FINAL_VERIFIED",
+      "season_expiry_date": "2027-01-14"
+    },
+    "promotion_relegation": {
+      "scheduled_first_playoff_date": "2026-12-16",
+      "scheduled_last_playoff_date": "2026-12-20",
+      "status": "FBF_PLANNED_DATES_SUBJECT_TO_CHANGE",
+      "title_decision_policy": "PROMOTION_ONLY_FROM_ACTUAL_OG_TWO_LEG_RESULT"
+    }
+  },
+  "edition_2027": {
+    "country_season_start_date": "2027-01-15",
+    "country_season_scheduled_end_date": "2027-12-12",
+    "window_source": "https://www.vision360.bo/noticias/2026/10/26/74304-la-temporada-2027-de-la-division-profesional-se-jugara-entre-el-31-de-enero-y-el-12-de-diciembre",
+    "format_verified": "ONE_ROUND_ROBIN_LEAGUE_PLUS_ONE_SERIES_TOURNAMENT; EXACT_ORDER_AND_FIXTURES_PENDING",
+    "league": {
+      "competition_id": 89,
+      "native_type": 0,
+      "season_start_date": "2027-01-15",
+      "start_date_status": "NOT_YET_PUBLISHED_FOR_THIS_COMPETITION",
+      "game_template_2026_fallback_label": "GAME_TEMPLATE_2026_NOT_OFFICIAL_2027",
+      "completed_when": "FINAL_OG_MATCH_AND_TABLE_VERIFIED",
+      "season_start_date_status": "PROVISIONAL_OG_EDITION_OPEN_NOT_FIRST_MATCH",
+      "season_expiry_date": "2028-01-14"
+    },
+    "copa": {
+      "competition_id": 164,
+      "native_type": 2,
+      "season_start_date": "2027-01-15",
+      "start_date_status": "NOT_YET_PUBLISHED_FOR_THIS_COMPETITION",
+      "game_template_2026_fallback_label": "GAME_TEMPLATE_2026_NOT_OFFICIAL_2027",
+      "completed_when": "FINAL_OG_KNOCKOUT_RESULT_VERIFIED",
+      "season_start_date_status": "PROVISIONAL_OG_EDITION_OPEN_NOT_FIRST_MATCH",
+      "season_expiry_date": "2028-01-14"
+    },
+    "promotion_relegation": {
+      "scheduled_last_playoff_date": null,
+      "completed_when": "LAST_REAL_OG_PLAYOFF_IF_REQUIRED"
+    },
+    "fbf_real_fixture_window_starts": "2027-01-31",
+    "fbf_real_fixture_window_ends": "2027-12-12",
+    "country_season_start_provenance": "USER_APPROVED_GAME_START_JAN15_NOT_FBF"
+  },
+  "last_real_season_reference": {
+    "edition": 2025,
+    "last_relegation_playoff_date": "2025-12-23",
+    "last_relegation_playoff_source": "https://www.bolivia.com/futbol/liga-boliviana/abb-derrota-2-0-a-san-juan-fc-iguala-la-serie-3-3-y-define-el-descenso-indirecto-556370"
+  },
+  "known_limitations": [
+    "Metadata only; native OG July-based career year and Bolivia Jan-Dec competition edition are not yet decoupled in all manager/CPU paths",
+    "No verification of first 2027 league/cup fixture dates or formats; do not label fallback official",
+    "No reset when July 1 occurs inside an unfinished edition; CAR/OG witness identity must survive"
+  ],
+  "competition_year_start_month_day": "01-15",
+  "competition_year_start_rule": "PROVISIONAL_GAME_DESIGN_NOT_OFFICIAL_FBF",
+  "competition_year_start_applies_from_edition": 2027,
+  "administrative_july_reset_prohibited": true,
+  "competition_year_reset_conditions": "SAME_OG_EDITION_COMPLETED_ALL_GAMES_AND_ANY_PLAYOFFS_BEFORE_OPENING_NEXT_ON_JAN_15",
+  "lifecycle_runtime_blocker": "OG local manager keycache and bridge remain July-season scoped; Jan15 independent year not safely dispatchable for manager and CPU in current code",
+  "competition_reset_gate": "ON_JSON_EXPIRY_ONLY_IF_ALL_OG_FIXTURES_AND_PLAYOFFS_WITNESSED_COMPLETED",
+  "competition_expiry_month_day": "01-14",
+  "competition_expiry_date_2026": "2027-01-14",
+  "competition_expiry_date_2027": "2028-01-14",
+  "competition_expiry_source": "PROVISIONAL_USER_APPROVED_GAME_DESIGN_END_DAY_BEFORE_NEXT_JAN_15_START",
+  "expiry_incomplete_behavior": "KEEP_OG_RESIDENT_SAME_EDITION_NO_RESET_NO_NEW_EDITION_NO_CAR_OVERWRITE"
+}

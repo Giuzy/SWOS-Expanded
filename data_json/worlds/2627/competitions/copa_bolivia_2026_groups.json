@@ -260,5 +260,20 @@
     "old_edition_unknown_entrants": "READ_ONLY_LAST_REAL_EDITION_WITH_EXPLICIT_YEAR; NEVER_FAKE_RESULTS",
     "prior_edition_requirement": "WHEN_AVAILABLE_STILL_RETAIN_PREVIOUS_OG_RESIDENT_UNTIL_NEW_PARTICIPANTS_ARE_KNOWN",
     "full_generic_implementation": "PENDING"
-  }
+  },
+  "season_start_date": "2026-08-18",
+  "season_start_date_provenance": "OG_GAME_TEMPLATE_2026_FIRST_NATIVE_FIXTURE",
+  "season_start_date_official_initial": "2026-08-19",
+  "administrative_career_year_start": "2026-07-01",
+  "competition_rollover_policy": "OWN_EDITION_BOUNDARY_AFTER_OG_FINISH_NO_JULY_RESET",
+  "season_end_date": null,
+  "season_end_date_provenance": "NO_VERIFIED_FINAL_NATIVE_GAME_DAY",
+  "runtime_lifecycle_connected": false,
+  "runtime_lifecycle_note": "JSON defines per-competition start and independent rollover; OG resident lifecycle/CAR migration not yet proven. Never infer winner or reset on July1.",
+  "season_expiry_date": "2027-01-14",
+  "expiry_rule": "ON_DATE_ONLY_AFTER_ALL_78_OG_MATCHES_AND_FINAL_BRACKET_WITNESSED",
+  "next_edition_season_start_date": "2027-01-15",
+  "next_edition_expiry_date": "2028-01-14",
+  "expiry_origin": "USER_APPROVED_PROVISIONAL_GAME_JANUARY_RENEWAL",
+  "expiry_incomplete_action": "BLOCK_KEEP_OG_EDITION_PERSIST_AND_CAR_NO_REPLAY"
 }

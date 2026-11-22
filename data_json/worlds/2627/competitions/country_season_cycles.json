@@ -1,0 +1,907 @@
+{
+  "schema": 1,
+  "kind": "SWOS_EXPANDED_COUNTRY_SEASON_POLICIES_PREPARED_NOT_RUNTIME_CONNECTED",
+  "world": "2627",
+  "documented_user_rule": "Manager season tracks club's current country season; domestic editions inherit country cycle unless explicit competition edition exception. July1 never automatically resets any OG contest.",
+  "clock_authority": "ONE_EXPANDED_WORLD_CIVIL_DATE",
+  "results_authority": "ONLY_ORIGINAL_OG_RESULTS",
+  "expiry_gate": "now>=edition_expiry AND OG_ALL_REAL_FIXTURES_KO_PLAYOFFS_COMPLETE_AND_NO_PENDING",
+  "rules_version": "PREPARATO_2026-11-22_v248_NO_CODE_INTEGRATION",
+  "lifecycle_runtime_connected": false,
+  "notes": [
+    "All unspecified country cycles are GAME_TEMPLATE not certified national federation dates.",
+    "month-day country cycle is not a scheduled first or last match.",
+    "Official format changes require edition_overrides rather than using old same-country month/day forever.",
+    "National cup may override country schedule only if documented; continental competitions never forced to domestic expiry.",
+    "Do not seed future entrants, fabricate matches, prune ongoing residents or replay historical matches based on these rules.",
+    "WORLD_9697 country cycle policy is NOT populated here; OG historical formats must be audited separately.",
+    "No change to packed OG ABI, match RNG, CAR writer or manager TSKC is achieved by this metadata."
+  ],
+  "countries": [
+    {
+      "country_id": 20,
+      "league_record_id": "_italianLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 0,
+      "league_record_id": "_albanianLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 42,
+      "league_record_id": "_algerianLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 47,
+      "league_record_id": "_worldAndLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 43,
+      "league_record_id": "_argentinianLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 52,
+      "league_record_id": "_worldArmLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 44,
+      "league_record_id": "_australianLeague",
+      "default_season_start_mm_dd": "10-01",
+      "default_season_expiry_mm_dd": "09-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "AUSTRALIA_ALEAGUE",
+      "edition_overrides": [
+        {
+          "edition": "2026-27",
+          "season_start_date": "2026-10-01",
+          "season_expiry_date": "2027-09-30",
+          "verified_first_fixture_date": "2026-10-16",
+          "reason": "A-League 2026/27 official kick-off October 16, administrative country expiry Sep30 provisional",
+          "source": "https://aleagues.com.au/news/aleague-men-2026-2027-fixture-list-revealed-key-dates-fixture-information/",
+          "status": "OFFICIAL_FIRST_FIXTURE_ADMIN_EXPIRY_GAME_TEMPLATE"
+        }
+      ]
+    },
+    {
+      "country_id": 1,
+      "league_record_id": "_austrianLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 53,
+      "league_record_id": "_worldAzeLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 2,
+      "league_record_id": "_belgianLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 54,
+      "league_record_id": "_worldBihLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 76,
+      "league_record_id": "_belarussiaLleague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 45,
+      "league_record_id": "_bolivianLeague",
+      "default_season_start_mm_dd": "01-15",
+      "default_season_expiry_mm_dd": "01-14",
+      "provenance": "USER_PROVISIONAL_GAME_DESIGN",
+      "cycle_class": "BOLIVIA_PROVISIONAL",
+      "edition_overrides": [
+        {
+          "edition": "2026",
+          "season_start_date": "2026-04-03",
+          "season_expiry_date": "2027-01-14",
+          "reason": "first season started before user-provisional 15 Jan cycle",
+          "source": "https://fbf.com.bo/temporada-2026-de-la-division-profesional/",
+          "first_match_source": "https://www.vision360.bo/noticias/2026/04/02/42608-la-temporada-oficial-del-futbol-boliviano-se-pone-en-marcha-este-viernes",
+          "status": "GAME_DATE_RULE_OG_MATCHDAY_APPROXIMATE"
+        },
+        {
+          "edition": "2027",
+          "season_start_date": "2027-01-15",
+          "season_expiry_date": "2028-01-14",
+          "reason": "user-approved provisional country season, NOT federation fixture schedule",
+          "source": "USER_GAME_DESIGN",
+          "status": "PROVISIONAL_GAME_DESIGN"
+        }
+      ]
+    },
+    {
+      "country_id": 46,
+      "league_record_id": "_brasilianLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 3,
+      "league_record_id": "_bulgarianLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 56,
+      "league_record_id": "_worldCanLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 48,
+      "league_record_id": "_chileanLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 57,
+      "league_record_id": "_worldChnLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 49,
+      "league_record_id": "_colombianLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 58,
+      "league_record_id": "_worldCrcLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 4,
+      "league_record_id": "_croatianLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 5,
+      "league_record_id": "_cypriotLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 6,
+      "league_record_id": "_czechLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 7,
+      "league_record_id": "_danishLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 50,
+      "league_record_id": "_ecuadorLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 59,
+      "league_record_id": "_worldEgyLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 8,
+      "league_record_id": "_englishLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 35,
+      "league_record_id": "_spanishLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 10,
+      "league_record_id": "_estonianLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 12,
+      "league_record_id": "_finnishLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 13,
+      "league_record_id": "_frenchLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 11,
+      "league_record_id": "_faroeIslesLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 61,
+      "league_record_id": "_worldGeoLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 14,
+      "league_record_id": "_germanLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 79,
+      "league_record_id": "_ghanaLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 63,
+      "league_record_id": "_worldGibLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 15,
+      "league_record_id": "_greekLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 68,
+      "league_record_id": "_worldGuaLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 70,
+      "league_record_id": "_worldHonLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 16,
+      "league_record_id": "_hungarianLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 75,
+      "league_record_id": "_indianLeague",
+      "default_season_start_mm_dd": "08-01",
+      "default_season_expiry_mm_dd": "07-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "INDIA_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 18,
+      "league_record_id": "_irishLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 74,
+      "league_record_id": "_worldIrnLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 17,
+      "league_record_id": "_icelandicLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 19,
+      "league_record_id": "_israeliLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 55,
+      "league_record_id": "_japaneseLeague",
+      "default_season_start_mm_dd": "08-01",
+      "default_season_expiry_mm_dd": "07-31",
+      "provenance": "OFFICIAL_TRANSITION_WITH_GAME_CYCLE_CONVENTION",
+      "cycle_class": "JLEAGUE_MIGRATION",
+      "edition_overrides": [
+        {
+          "edition": "2026-27",
+          "season_start_date": "2026-08-01",
+          "season_expiry_date": "2027-07-31",
+          "first_verified_og_fixture_date": "2026-08-07",
+          "scheduled_last_j1_match": "2027-06-06",
+          "reason": "JLeague official season August 2026–June 2027, country administrative expiry July31 only GAME_TEMPLATE",
+          "source": "https://www.jleague.jp/en/outline/j1/",
+          "status": "OFFICIAL_FIRST_LAST_FIXTURE_ADMIN_EXPIRY_GAME_TEMPLATE"
+        }
+      ]
+    },
+    {
+      "country_id": 86,
+      "league_record_id": "_worldKazLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 87,
+      "league_record_id": "_worldKorLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 88,
+      "league_record_id": "_worldKosLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 89,
+      "league_record_id": "_worldKsaLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 90,
+      "league_record_id": "_worldLieLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 22,
+      "league_record_id": "_lithuanianLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 23,
+      "league_record_id": "_luxembourgLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 21,
+      "league_record_id": "_latvianLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 91,
+      "league_record_id": "_worldMarLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 92,
+      "league_record_id": "_worldMdaLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 60,
+      "league_record_id": "_mexicanLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 93,
+      "league_record_id": "_worldMkdLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 24,
+      "league_record_id": "_malteseLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 94,
+      "league_record_id": "_worldMneLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 25,
+      "league_record_id": "_dutchLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 26,
+      "league_record_id": "_northernIrishLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 27,
+      "league_record_id": "_norwegianLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 62,
+      "league_record_id": "_newZealandLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 95,
+      "league_record_id": "_worldPanLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 64,
+      "league_record_id": "_paraguayanLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 65,
+      "league_record_id": "_peruvianLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 28,
+      "league_record_id": "_polishLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 29,
+      "league_record_id": "_portugeseLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 96,
+      "league_record_id": "_worldQatLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 30,
+      "league_record_id": "_romanianLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 69,
+      "league_record_id": "_southAfricanLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 31,
+      "league_record_id": "_russianLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 33,
+      "league_record_id": "_scottishLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 51,
+      "league_record_id": "_elSalvadorLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 32,
+      "league_record_id": "_sanMarinoLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 41,
+      "league_record_id": "_yugoslavianLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 37,
+      "league_record_id": "_swissLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 66,
+      "league_record_id": "_surinamLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 78,
+      "league_record_id": "_slovakianLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 34,
+      "league_record_id": "_slovenianLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 36,
+      "league_record_id": "_swedishLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 67,
+      "league_record_id": "_taiwaneseLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 97,
+      "league_record_id": "_worldTunLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 38,
+      "league_record_id": "_turkishLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 98,
+      "league_record_id": "_worldUaeLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 39,
+      "league_record_id": "_ukrainianLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 71,
+      "league_record_id": "_uruguayanLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 73,
+      "league_record_id": "_americanLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "OFFICIAL_TRANSITION_WITH_GAME_CYCLE_CONVENTION",
+      "cycle_class": "MLS_TRANSITION",
+      "edition_overrides": [
+        {
+          "edition": "2026",
+          "season_start_date": "2026-01-01",
+          "season_expiry_date": "2026-12-31",
+          "reason": "last current-year format; exact OG calendar must still be verified",
+          "source": "https://www.mlssoccer.com/news/mls-to-align-calendar-with-top-leagues-around-the-world",
+          "status": "GAME_TEMPLATE_COUNTRY_CYCLE"
+        },
+        {
+          "edition": "2027_SPRINT",
+          "season_start_date": "2027-01-01",
+          "season_expiry_date": "2027-06-30",
+          "verified_first_regular_fixture_date": "2027-02-19",
+          "verified_last_regular_fixture_date": "2027-05-08",
+          "reason": "official 2027 transitional spring season; expiry June30 is administrative convention, playoffs after regular fixture",
+          "source": "https://www.mlssoccer.com/news/2027-mls-sprint-season-schedule-unveiled",
+          "status": "OFFICIAL_WINDOW_ADMIN_EXPIRY_GAME_TEMPLATE"
+        },
+        {
+          "edition": "2027-28",
+          "season_start_date": "2027-07-01",
+          "season_expiry_date": "2028-06-30",
+          "reason": "official July 2027–May 2028 season; specific game dates not yet used",
+          "source": "https://www.mlssoccer.com/news/mls-to-align-calendar-with-top-leagues-around-the-world",
+          "status": "OFFICIAL_WINDOW_ADMIN_EXPIRY_GAME_TEMPLATE"
+        }
+      ]
+    },
+    {
+      "country_id": 77,
+      "league_record_id": "_venezuelanLeague",
+      "default_season_start_mm_dd": "01-01",
+      "default_season_expiry_mm_dd": "12-31",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "CALENDAR_YEAR_GAME_TEMPLATE",
+      "edition_overrides": []
+    },
+    {
+      "country_id": 40,
+      "league_record_id": "_welshLeague",
+      "default_season_start_mm_dd": "07-01",
+      "default_season_expiry_mm_dd": "06-30",
+      "provenance": "GAME_TEMPLATE_COUNTRY_CYCLE",
+      "cycle_class": "JULY_JUNE_GAME_TEMPLATE",
+      "edition_overrides": []
+    }
+  ]
+}

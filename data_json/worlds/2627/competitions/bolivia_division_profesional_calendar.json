@@ -99,5 +99,18 @@
   "competition_expiry_date_2026": "2027-01-14",
   "competition_expiry_date_2027": "2028-01-14",
   "competition_expiry_source": "PROVISIONAL_USER_APPROVED_GAME_DESIGN_END_DAY_BEFORE_NEXT_JAN_15_START",
-  "expiry_incomplete_behavior": "KEEP_OG_RESIDENT_SAME_EDITION_NO_RESET_NO_NEW_EDITION_NO_CAR_OVERWRITE"
+  "expiry_incomplete_behavior": "KEEP_OG_RESIDENT_SAME_EDITION_NO_RESET_NO_NEW_EDITION_NO_CAR_OVERWRITE",
+  "country_season_policy_source": "country_season_cycles.json",
+  "season_recurrence": {
+    "applies_from_edition": 2027,
+    "recurrence_kind": "COUNTRY_ANNUAL_MONTH_DAY_WITH_EXPLICIT_FIRST_EDITION_EXCEPTION",
+    "country_season_start_month_day": "01-15",
+    "country_season_expiry_month_day": "01-14",
+    "expiry_date_formula": "YEAR(edition)+1-01-14; recompute EACH new edition, never keep static 2028",
+    "league_and_copa_inherit_default": true,
+    "exception_policy": "competition or edition may override dates only if validated source",
+    "rollover_gate": "NOW_AT_OR_PAST_EXPIRY_AND_EVERY_ORIGINAL_OG_MATCH_KO_PLAYOFF_COMPLETED",
+    "administrative_june30_resets_competitions": false,
+    "status": "PREPARED_METADATA_NOT_NATIVE_OG_RUNTIME"
+  }
 }

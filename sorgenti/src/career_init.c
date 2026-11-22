@@ -27,6 +27,8 @@
 #include "diy_competition.h" /* DIY_OGStandings_SetSeason prototype */
 #include "expanded_world_time.h"
 #include "expanded_competition_finish_week.h" /* pure Sunday-only post-league cadence */
+#include "expanded_country_season_year.h" /* annual expiry, Gregorian checked */
+#include "expanded_country_season_baked.h" /* world 2627 country defaults, metadata */
 #include "bolivia_cup_sequence.h" /* immutable first-edition fixture format */
 #include "expanded_bolivia_event_registry.h" /* Bolivia civil event dates drive OG cutoff */
 #include "fixture_rounds.h"
@@ -625,14 +627,61 @@ void ContinueCareer(void)
             ExpandedWorldLive_CalendarState(&civil);
         const uint32_t civilSeason=hasCivil?
             (uint32_t)civil.today.year-(civil.today.month<7u?1u:0u):0u;
-        const ExpandedWorldDate end={(uint16_t)(season+1u),6u,30u};
+        /* Even the legacy July-June manager compatibility window must
+         * derive its expiry from the EDITION YEAR on every transition.
+         * Never hold a fixed 2027 deadline across multiple seasons.
+         * The separate country policy below is observational only until
+         * the native OG resident/manager TSKC lifecycle is decoupled. */
+        const ExpandedCountrySeasonCycle nativeJulyCycle={7u,1u,6u,30u};
+        ExpandedWorldDate nativeStart={0},end={0};
+        const int annualExpiryOk=season<=2199u &&
+            ExpandedCountrySeason_AnnualDates(
+                (uint16_t)season,nativeJulyCycle,&nativeStart,&end);
+        /* Country metadata is read by manager's CURRENT club identity,
+         * never the previous job's nation or the world default. Special
+         * editions cannot be treated as a permanent calendar template. */
+        if(_selTeamNumber!=0xffffu && !_youreSacked &&
+           World_Current()==WORLD_2627 && season<=2199u) {
+            const uint16_t country=World_FileCountry(
+                (uint8_t)(_selTeamNumber>>8));
+            ExpandedCountrySeasonCycle countryCycle;
+            ExpandedWorldDate countryStart={0},countryExpiry={0};
+            int countryOk=ExpandedCountrySeason_Baked2627(
+                country,&countryCycle);
+            if(countryOk && country==45u && season==2026u)
+                countryOk=ExpandedCountrySeason_SpecialDates(
+                    (ExpandedWorldDate){2026u,4u,3u},
+                    (ExpandedWorldDate){2027u,1u,14u},
+                    &countryStart,&countryExpiry);
+            else if(countryOk && country==73u && season==2027u)
+                countryOk=0; /* 2027 MLS sprint + new edition: no guessing */
+            else if(countryOk)
+                countryOk=ExpandedCountrySeason_AnnualDates(
+                    (uint16_t)season,countryCycle,
+                    &countryStart,&countryExpiry);
+            fprintf(stderr,"[career-country-season] manager-country=%u "
+                "world=%s edition=%lu country-window=%s "
+                "start=%04u-%02u-%02u expiry=%04u-%02u-%02u "
+                "source=COUNTRY_POLICY_NOT_NATIVE_RESET "
+                "legacy-manager-calendar=JULY_JUNE\n",
+                (unsigned)country,World_Tag(),(unsigned long)season,
+                countryOk?"VALID_METADATA":"UNAVAILABLE_OR_SPECIAL",
+                (unsigned)countryStart.year,(unsigned)countryStart.month,
+                (unsigned)countryStart.day,(unsigned)countryExpiry.year,
+                (unsigned)countryExpiry.month,(unsigned)countryExpiry.day);
+        }
         int32_t fromIndex=0,endIndex=0;
         extern uint16_t Expanded_OGWorld_SaveYear(void);
         extern int Expanded_OGWorld_ManagerLeagueFinished(
             const DIYCompetitionEx *);
+        /* This TU does not include competition_data.h: its legacy
+         * byte-array globals collide with modern typed declarations.
+         * Declare the native resident scratch object locally BEFORE use. */
+        extern DIYCompetitionEx _diyCompetitionStart;
         const int managerFinished=(_selTeamNumber==0xffffu || _youreSacked) ||
             Expanded_OGWorld_ManagerLeagueFinished(&_diyCompetitionStart);
-        const int preflight=hasCivil && season>=1990u && season<2199u &&
+        const int preflight=hasCivil && annualExpiryOk &&
+            season>=1990u && season<2199u &&
             civilSeason==season &&
             Expanded_OGWorld_SaveYear()==(uint16_t)season &&
             Expanded_CompetitionCoordinator_PreflightBind(

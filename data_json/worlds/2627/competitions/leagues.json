@@ -3935,5 +3935,14 @@
       "season_expiry_date": null,
       "season_dates_runtime_connected": false
     }
-  ]
+  ],
+  "country_season_policy": {
+    "source": "country_season_cycles.json",
+    "inheritance": "COUNTRY_BASE_CYCLE_UNLESS_EDITION_SPECIFIC_OVERRIDE",
+    "expiry_recomputed": "EACH_NEW_EDITION_YEAR_FROM_MONTH_DAY",
+    "manager_calendar_owner": "COUNTRY_OF_CURRENT_OG_CLUB",
+    "june30_automatic_competition_reset": false,
+    "retirement_gate": "NOW_GE_EDITION_EXPIRY_AND_ALL_ORIGINAL_OG_MATCHES_FINALS_KO_PLAYOFFS_WITNESSED",
+    "status": "DATA_ONLY_NON_RUNTIME_OG_YEAR_RESET_NOT_MIGRATED"
+  }
 }

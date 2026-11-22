@@ -29,6 +29,7 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_live.h" /* same .CAR, one ledger */
 #include "expanded_competition_coordinator.h" /* post-restore read-only contract */
+#include "expanded_universal_car.h" /* optional universal fixture ledger in SAME CAR */
 #include "squad_extras.h" /* 2026/27 extra roster departure history, in the SAME .CAR */
 #include "expanded_world_time.h" /* civil index read-only check */
 #include "expanded_debug.h" /* transient F12 SAVE/LOAD timings */
@@ -400,6 +401,14 @@ static int savejson_career_civil_clock_ok(const char *json,int size,int log_reje
        og_year!=(long)(civil.year-(civil.month<7u?1u:0u))) {
         if(log_reject)fprintf(stderr,
             "[og-world-save] INCOMPLETE_CAR reason=OG_CIVIL_DATE_MISMATCH file-preserved=1\n");
+        return 0;
+    }
+    /* Even the Title compatibility probe must reject a corrupt future
+     * universal fixture/CLAIMED ledger BEFORE any career/world mutation.
+     * Absent/null on old CAR is accepted; the new section is opt-in. */
+    if(!ExpandedUniversal_CarValidate(json,size)) {
+        if(log_reject)fprintf(stderr,
+            "[universal-car] INVALID_LEDGER_OR_WORLD old-save-preserved=1\n");
         return 0;
     }
     return 1;
@@ -7032,6 +7041,17 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
         }
     }
 #endif
+#ifdef SWOS_SDL_BUILD
+    /* The universal fixture registry is encoded in the SAME full career
+     * JSON, validated before atomic replacement, never a second sidecar.
+     * The inactive registry emits null for legacy OG-only careers. */
+    if(!ExpandedUniversal_CarEmit(json_out_emit,&out)) {
+        fprintf(stderr,
+            "[universal-car] WRITE_REJECTED before-atomic old-CAR-preserved=1\n");
+        if(out.ptr)swos_io_free(out.ptr);
+        return 1;
+    }
+#endif
     mjson_printf(json_out_emit, &out, "%s", "\n}\n");
 
     if (out.oom || !out.ptr) {
@@ -8276,7 +8296,8 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
     {
         extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
         if(!Expanded_OGWorld_ReadSaveJson((const char *)src,(int)src_size,1) ||
-           !Expanded_CompetitionCoordinator_ValidateRestore()) {
+           !Expanded_CompetitionCoordinator_ValidateRestore() ||
+           !ExpandedUniversal_CarRestore((const char *)src,(int)src_size)) {
             fprintf(stderr,"[og-world-save] LOAD_RESTORE_FAILED "
                            "after-preflight world=%s "
                            "reason=RESIDENT_OR_CIVIL_COORDINATOR\n",

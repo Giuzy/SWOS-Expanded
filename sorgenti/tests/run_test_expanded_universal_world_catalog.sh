@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# One all-country 2627 catalogue adapter test; no new toolchain.
-# Original OG pairing indices are fixture INPUTS, not CPU score producers.
+# World2627 catalog now receives rule values from a mocked JSON reader.
+# Pairing kernel and catalog C code are real; no OG seed/table input.
 set -eu
 cd "$(dirname "$0")/.."
 CC="${CC:-cc}"
@@ -12,5 +12,6 @@ trap 'rm -rf "$DIR"' EXIT
   tests/test_expanded_universal_world_catalog.c \
   -o "$DIR/universal_world_catalog"
 "$DIR/universal_world_catalog"
-echo "WORLD_2627_CATALOG_LIVE=NOT_IMPLEMENTED"
+echo "WORLD_2627_JSON_FIRST_PAIRINGS=PASS_ISOLATED_ONLY_IF_ASSERTIONS_RAN"
+echo "WORLD_2627_FULL_JSON_PARSER_AND_CAR_LIVE=NOT_TESTED"
 echo "WINDOWS_ORIGINAL_OG_50HZ_AND_CAR=NOT_TESTED"

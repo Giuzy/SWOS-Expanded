@@ -34,6 +34,8 @@
 #include "fixture_rounds.h"
 #include "expanded_world_live.h"
 #include "expanded_competition_coordinator.h"
+#include "expanded_universal_live.h" /* JSON single-owner world2627 */
+#include "expanded_universal_car.h" /* RAM registry lifecycle on START/ABORT */
 #include "expanded_event_scheduler.h" /* event ordering and legacy July diagnostic */
 #include "expanded_native_timeline.h" /* live native OG world tick, no fixture dispatch */
 #include "world.h"
@@ -348,6 +350,16 @@ void ChooseTeamAndStartCareer(void)
             Expanded_CareerDiscardAbortedStart("og-start-failed");
             _fireResetFlag=1;return;
         }
+        /* Legacy init is compatibility only. The JSON calendar now owns
+         * the 2627 fixture registry before employment or unemployment. */
+        if(World_Current()==WORLD_2627 &&
+           !ExpandedUniversalLive_Start()) {
+            extern uint16_t _fireResetFlag;
+            fprintf(stderr,"[universal-live] START_BLOCKED "
+                "reason=NO_SAFE_JSON_REGISTRY old-CAR-preserved=1\n");
+            Expanded_CareerDiscardAbortedStart("universal-start-failed");
+            _fireResetFlag=1;return;
+        }
     }
 #endif
     /* Expanded 0.8: zero-fame managers start without a club. The waiting
@@ -388,7 +400,8 @@ void ChooseTeamAndStartCareer(void)
          * archived seasons stay archived. This occurs before OG cup replay. */
         { extern int Expanded_MidseasonJoin_AlignSeason(uint32_t);
           extern unsigned Expanded_DebugUnemployedWeeks(void);
-          if (!Expanded_MidseasonJoin_AlignSeason(
+          if (!ExpandedUniversalLive_Active() &&
+              !Expanded_MidseasonJoin_AlignSeason(
                   Expanded_DebugUnemployedWeeks())) {
               fprintf(stderr,"[midseason] cannot align OG to living-world year; "
                              "not starting a career in the wrong season\n");
@@ -401,7 +414,7 @@ void ChooseTeamAndStartCareer(void)
         /* A resident bind is NOT a new league. Before salary, save or
          * MATCH, all previous OG results and each standings row must
          * already be present in the attached club's local context. */
-        if(Expanded_OGWorld_ClubBound()) {
+        if(!ExpandedUniversalLive_Active() && Expanded_OGWorld_ClubBound()) {
             extern int Expanded_OGWorld_PreflightClubHire(void);
             if(!Expanded_OGWorld_PreflightClubHire()) {
                 fprintf(stderr,"[og-hire-preflight] ABORT BEFORE FIRST MATCH "
@@ -420,7 +433,10 @@ void ChooseTeamAndStartCareer(void)
         extern void Expanded_MidseasonJoin_Begin(uint32_t weeks);
         extern unsigned Expanded_DebugUnemployedWeeks(void);
 #ifdef SWOS_SDL_BUILD
-        if(Expanded_OGWorld_ClubBound())
+        if(ExpandedUniversalLive_Active())
+            fprintf(stderr,"[universal-live] HIRED manager-bind-only=1 "
+                           "old-OG-midseason-replay=SKIPPED\n");
+        else if(Expanded_OGWorld_ClubBound())
             fprintf(stderr,"[og-world] accepted club uses existing OG table; "
                            "legacy midseason replay SKIPPED\n");
         else
@@ -431,7 +447,8 @@ void ChooseTeamAndStartCareer(void)
          * don't overwrite the one autosave with a freshly zeroed table.
          * A new attempt can be made from setup; the old save is intact. */
         { extern int Expanded_MidseasonJoin_LastResult(void);
-          if (Expanded_MidseasonJoin_LastResult()==2) {
+          if (!ExpandedUniversalLive_Active() &&
+              Expanded_MidseasonJoin_LastResult()==2) {
               fprintf(stderr,"[midseason] JOIN FAILED: original standings "
                              "not reconciled; autosave NOT overwritten\n");
               extern uint16_t _fireResetFlag;
@@ -1193,6 +1210,7 @@ int Expanded_OGWorld_SaveStarted(void){return s_expOGWorldStarted!=0;}
  * Never use this on an active career or after a failed in-game save. */
 static void Expanded_CareerDiscardAbortedStart(const char *reason)
 {
+    ExpandedUniversal_CarResetCurrent(); /* RAM only; old CAR disk untouched */
     ExpandedWorldLive_End();
     Expanded_OGWorld_Reset();
     s_expOGWorldStarted=0;
@@ -2171,6 +2189,11 @@ static int exp_coordinator_check(const char *operation,
     ExpandedLiveCalendarState state;
     const int live=ExpandedWorldLive_Clubs()!=0 &&
                    ExpandedWorldLive_CalendarState(&state);
+    if(ExpandedUniversalLive_Active()) {
+        if(!live)return 0;
+        if(today)*today=state.today;
+        return 1; /* old OG native career year no longer authoritative */
+    }
     const unsigned civilSeason=live?
         (unsigned)state.today.year-(state.today.month<7u?1u:0u):0u;
     const int valid=live && s_expOGWorldStarted &&
@@ -2206,6 +2229,11 @@ int Expanded_CompetitionCoordinator_PreflightBind(uint16_t season)
     ExpandedWorldDate today;
     if(s_expCoordinatorRecoveryRequired ||
        !exp_coordinator_check("BIND",&today))return 0;
+    if(ExpandedUniversalLive_Active()) {
+        fprintf(stderr,"[competition-coordinator] BIND "
+            "owner=JSON_FIXTURE_REGISTRY manager-only=1 no-reset=1\n");
+        return 1;
+    }
     const unsigned actual=(unsigned)today.year-
                           (today.month<7u?1u:0u);
     if(actual!=(unsigned)season) {
@@ -2313,6 +2341,13 @@ int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
     ExpandedWorldDate from;
     int32_t fromIndex=0,toIndex=0;
     const char *tag=origin?origin:"UNEMPLOYED";
+    if(ExpandedUniversalLive_Active()) {
+        const int ok=ExpandedUniversalLive_Advance(target);
+        fprintf(stderr,"[competition-coordinator] UNIVERSAL_FORWARD "
+            "source=%s status=%s no-old-OG-tick=1\n",
+            tag,ok?"OK":"BLOCKED");
+        return ok;
+    }
     if(s_expCoordinatorRecoveryRequired ||
        !exp_coordinator_check(tag,&from) ||
        !ExpandedWorld_DateToIndex(from,&fromIndex) ||
@@ -2541,6 +2576,7 @@ __attribute__((used, externally_visible))
 void Career_BeginNewCareer(void)
 {
 #ifdef SWOS_SDL_BUILD
+    ExpandedUniversal_CarResetCurrent(); /* new career; no old registry carryover */
     extern void Expanded_ClockTrace_Reset(void);
     Expanded_ClockTrace_Reset();
 #endif

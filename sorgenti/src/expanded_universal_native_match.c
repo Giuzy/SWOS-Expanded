@@ -56,10 +56,10 @@ static int exp_universal_native_match_valid(
        c->maximum_substitutes<c->minimum_substitutes ||
        c->maximum_substitutes>16 ||
        c->interactive>1u)return 0;
-    /* The shared OG native cup path depends on old bracket and leg
-     * scratch data. Until the new KO rules/leg effects are installed,
-     * refuse these formats instead of inventing aggregates/trophies. */
-    if(f->competition_type!=0u || f->key.leg!=0u ||
+    /* A type0 league's repeated meetings are independent matches,
+     * NOT KO two-leg ties. Accept 1..4 JSON-declared cycles (leg 0..3);
+     * the separate legacy bracket/aggregate remains forbidden. */
+    if(f->competition_type!=0u || f->key.leg>3u ||
        f->key.replay!=0u)return 0;
     return 1;
 }

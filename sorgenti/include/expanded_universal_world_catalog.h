@@ -1,8 +1,8 @@
-/* SWOS Expanded: world-wide native fixture/roster catalogue.
- * The catalogue is an INPUT STAGE, not a second competition simulator.
- * No results, civil ticks, standings or CAR are written here.
- * Source: original country/club tables, round pairings and OG phase keys.
- * Data with no authoritative pairing/phase remains explicitly unresolved.
+/* SWOS Expanded: JSON-first world-wide fixture/roster catalogue.
+ * New Competition Engine generates deterministic club pairings from JSON
+ * format and stable club IDs; OG remains ONLY a 50 Hz match executor.
+ * No results, civil ticks, standings or CAR are written here yet.
+ * Date fallback uses first day of phase as provisional date metadata.
  */
 #ifndef EXPANDED_UNIVERSAL_WORLD_CATALOG_H
 #define EXPANDED_UNIVERSAL_WORLD_CATALOG_H
@@ -27,11 +27,12 @@ typedef struct ExpandedUniversalCatalogAudit {
     uint32_t fixtures, future_fixtures, prestart_unresolved;
     uint32_t unsupported_leagues, failed_clubs, bad_pairs;
     uint32_t day_collisions, missing_cup_fixtures;
-    uint32_t unverified_native_order; /* OG team seed order not yet witnessed */
+    uint32_t unverified_native_order; /* retired diagnostic; stays 0 JSON-first */
+    uint32_t json_rule_failures,native_rule_mismatches;
     uint8_t sealed, source_complete;
 } ExpandedUniversalCatalogAudit;
 
-/* Called ONCE at NEW CAREER START by the existing all-country team importer,
+/* Called ONCE at NEW CAREER START by all-country JSON/TEAM importer,
  * never after accepting a job or changing clubs. WORLD_9697 is untouched.
  */
 int ExpandedUniversalCatalog_Begin(void);
@@ -46,6 +47,8 @@ int ExpandedUniversalCatalog_Seal(void);
 int ExpandedUniversalCatalog_Audit(ExpandedUniversalCatalogAudit *out);
 const ExpandedUniversalCatalogFixture *ExpandedUniversalCatalog_Fixture(uint32_t i);
 TeamFileEx *ExpandedUniversalCatalog_Roster(ExpandedClubKey key);
+uint32_t ExpandedUniversalCatalog_RosterCount(void);
+const TeamFileEx *ExpandedUniversalCatalog_RosterAt(uint32_t i);
 /* This is deliberately not a CAR activation API: old OG CAREER/TSKC is still
  * resident. Moving these fixtures into CAR requires a single-owner cutover,
  * full KO/qualifier rules and persisted roster state.

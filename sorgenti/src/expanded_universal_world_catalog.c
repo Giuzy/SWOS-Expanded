@@ -6,13 +6,13 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_universal_world_catalog.h"
 #include "world.h"
-#include "fixture_rounds.h"
+#include "expanded_universal_pairings.h"
+#include "expanded_universal_json_leagues.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
 
-extern const uint8_t *_fixtureSchedulePtrTable[];
 
 typedef struct CatalogClub {
     TeamFileEx *roster;              /* stable across shared TEAM file loads */
@@ -21,6 +21,7 @@ typedef struct CatalogClub {
 } CatalogClub;
 typedef struct CatalogLeague {
     uint8_t country, comp_id, division, begin, end, legs;
+    uint16_t expected_clubs;
 } CatalogLeague;
 typedef struct CatalogDayClub {
     int32_t day;
@@ -66,6 +67,7 @@ void ExpandedUniversalCatalog_Reset(void)
     free(s_catalog.leagues);
     free(s_catalog.fixtures);
     memset(&s_catalog,0,sizeof s_catalog);
+    ExpandedUniversalJsonLeagues_Reset();
 }
 int ExpandedUniversalCatalog_Begin(void)
 {
@@ -75,6 +77,8 @@ int ExpandedUniversalCatalog_Begin(void)
     july=(ExpandedWorldDate){World_FirstYear(),7u,1u};
     if(!ExpandedWorld_DateToIndex(july,&s_catalog.start_day))return 0;
     s_catalog.active=1u;
+    if(!ExpandedUniversalJsonLeagues_Load())
+        ++s_catalog.audit.json_rule_failures;
     return 1;
 }
 static int cat_key(const TeamFileEx *team,ExpandedClubKey *out)
@@ -117,6 +121,15 @@ reject:
     ++s_catalog.audit.failed_clubs;
     return 0;
 }
+uint32_t ExpandedUniversalCatalog_RosterCount(void)
+{
+    return s_catalog.active?s_catalog.nclubs:0u;
+}
+const TeamFileEx *ExpandedUniversalCatalog_RosterAt(uint32_t i)
+{
+    return s_catalog.active && i<s_catalog.nclubs?
+        s_catalog.clubs[i].roster:NULL;
+}
 TeamFileEx *ExpandedUniversalCatalog_Roster(ExpandedClubKey key)
 {
     uint32_t i;
@@ -132,18 +145,29 @@ int ExpandedUniversalCatalog_AddLeague(uint8_t country,uint8_t native_comp_id,
 {
     uint32_t i;
     CatalogLeague *dst;
+    ExpandedUniversalJsonLeague rule={0};
     if(!s_catalog.active)return World_Current()!=WORLD_2627;
-    if(s_catalog.audit.sealed || begin_phase>=96u || end_phase>=96u ||
-       division>=16u || legs<1u || legs>4u)return 0;
+    if(s_catalog.audit.sealed || division>=16u ||
+       !ExpandedUniversalJsonLeagues_Find(
+           country,native_comp_id,division,&rule)) {
+        ++s_catalog.audit.json_rule_failures;return 0;
+    }
     for(i=0;i<s_catalog.nleagues;++i)
         if(s_catalog.leagues[i].country==country &&
            s_catalog.leagues[i].division==division &&
            s_catalog.leagues[i].comp_id==native_comp_id)return 0;
+    if(begin_phase!=rule.begin_phase || end_phase!=rule.end_phase ||
+       legs!=rule.meetings) {
+        ++s_catalog.audit.native_rule_mismatches;
+        fprintf(stderr,"[universal-json] NATIVE_RULE_DIFF "
+            "country=%u comp=%u division=%u source=JSON_USED\n",
+            (unsigned)country,(unsigned)native_comp_id,(unsigned)division);
+    }
     if(!cat_grow((void **)&s_catalog.leagues,&s_catalog.cleagues,
                  s_catalog.nleagues+1u,sizeof *s_catalog.leagues))return 0;
     dst=&s_catalog.leagues[s_catalog.nleagues++];
     *dst=(CatalogLeague){country,native_comp_id,division,
-                         begin_phase,end_phase,legs};
+         rule.begin_phase,rule.end_phase,rule.meetings,rule.declared_clubs};
     s_catalog.audit.league_definitions=s_catalog.nleagues;
     return 1;
 }
@@ -173,84 +197,103 @@ static int cat_fixture(const ExpandedUniversalFixture *f,uint8_t phase)
     else ++s_catalog.audit.future_fixtures;
     return 1;
 }
-static int cat_pair_valid(unsigned a,unsigned b,unsigned n)
+/* Stable JSON club order, independent from TEAM insertion and OG seed. */
+static int cat_club_cmp(const void *aa,const void *bb)
 {
-    return a<n && b<n && a!=b;
+    const CatalogClub *a=*(CatalogClub *const *)aa;
+    const CatalogClub *b=*(CatalogClub *const *)bb;
+    return a->key.stable_club<b->key.stable_club?-1:
+           a->key.stable_club>b->key.stable_club?1:0;
+}
+typedef struct CatalogPairPlan {
+    const CatalogLeague *league;
+    CatalogClub **clubs;
+    uint32_t rounds,total_rounds,begin,end;
+    int32_t first_day;
+} CatalogPairPlan;
+static int cat_pair_emit(void *user,uint32_t cycle,uint32_t round,
+                         uint32_t serial,uint32_t home,uint32_t away)
+{
+    const CatalogPairPlan *p=(const CatalogPairPlan *)user;
+    const CatalogLeague *l=p->league;
+    const uint32_t round_id=cycle*p->rounds+round;
+    const uint32_t phase=p->total_rounds>1u?
+        p->begin+(round_id*(p->end-p->begin))/(p->total_rounds-1u):
+        p->begin;
+    ExpandedUniversalFixture f={0};
+    ExpandedWorldDate date={0};
+    int32_t day=0;
+    if(home>=l->expected_clubs || away>=l->expected_clubs ||
+       phase>=255u || serial>=(1u<<17) ||
+       !ExpandedWorld_NativePhaseToDate(World_FirstYear(),
+                                        (uint8_t)phase,&date) ||
+       !ExpandedWorld_DateToIndex(date,&day))return 0;
+    f.home=p->clubs[home]->key;f.away=p->clubs[away]->key;
+    f.day_index=day;f.country=l->country;f.slot=l->division;
+    f.competition_type=0u;
+    f.key.edition.competition.world=(uint16_t)WORLD_2627;
+    f.key.edition.competition.stable_competition=
+        ((uint32_t)(l->country+1u)<<24)|
+        ((uint32_t)l->comp_id<<16)|
+        ((uint32_t)(l->division+1u)<<8)|1u;
+    f.key.edition.start_day=p->first_day;
+    f.key.edition.sequence=0u;
+    f.key.stage=1u;
+    f.key.tie=serial+1u;
+    f.key.leg=(uint16_t)cycle;
+    f.event_id=((uint64_t)WORLD_2627<<60)|
+        ((uint64_t)World_FirstYear()<<44)|
+        ((uint64_t)l->country<<36)|
+        ((uint64_t)l->comp_id<<28)|
+        ((uint64_t)l->division<<20)|
+        ((uint64_t)cycle<<17)|
+        ((uint64_t)serial+1u);
+    return ExpandedUniversal_FixtureValid(&f) &&
+           cat_fixture(&f,(uint8_t)phase);
 }
 static int cat_make_league(const CatalogLeague *l)
 {
-    CatalogClub *clubs[24];
-    uint32_t i,j,n=0;
+    CatalogClub **clubs=NULL;
+    uint32_t i,n=0;
+    unsigned begin=l->begin,end=l->end;
+    ExpandedWorldDate first_date;
+    int32_t first_day=0;
+    CatalogPairPlan p={0};
     const uint32_t saved_count=s_catalog.nfixtures;
     const uint32_t saved_future=s_catalog.audit.future_fixtures;
     const uint32_t saved_prestart=s_catalog.audit.prestart_unresolved;
-    unsigned first,rounds,per_round,total_rounds;
-    unsigned begin,end;
-    ExpandedWorldDate first_date;
-    int32_t start_day;
     for(i=0;i<s_catalog.nclubs;++i)
         if(s_catalog.clubs[i].country==l->country &&
-           s_catalog.clubs[i].division==l->division) {
-            if(n>=24u)return 0; /* no guess for unsupported native pair table */
+           s_catalog.clubs[i].division==l->division)++n;
+    if(n!=l->expected_clubs || n<2u ||
+       n>UINT32_MAX/sizeof *clubs)goto rollback;
+    clubs=(CatalogClub **)malloc((size_t)n*sizeof *clubs);
+    if(!clubs)goto rollback;
+    n=0u;
+    for(i=0;i<s_catalog.nclubs;++i)
+        if(s_catalog.clubs[i].country==l->country &&
+           s_catalog.clubs[i].division==l->division)
             clubs[n++]=&s_catalog.clubs[i];
-        }
-    if(n<2u || !_fixtureSchedulePtrTable[n-2u])return 0;
-    first=(unsigned)(n*(n-1u)/2u);
-    per_round=(unsigned)(n/2u);
-    rounds=(unsigned)((n&1u)?n:n-1u);
-    total_rounds=rounds*l->legs;
-    begin=l->begin;end=l->end;
+    qsort(clubs,(size_t)n,sizeof *clubs,cat_club_cmp);
+    for(i=1;i<n;++i)
+        if(ExpandedClubKey_Equal(clubs[i-1u]->key,clubs[i]->key))
+            goto rollback;
     if(end<begin)end+=96u;
-    if(end<=begin || total_rounds==0u ||
-       !ExpandedWorld_NativePhaseToDate(World_FirstYear(),(uint8_t)begin,
-                                        &first_date) ||
-       !ExpandedWorld_DateToIndex(first_date,&start_day))return 0;
-    for(j=0;j<(uint32_t)first*l->legs;++j) {
-        unsigned leg=j/first;
-        unsigned pair_index=j%first;
-        unsigned a=_fixtureSchedulePtrTable[n-2u][2u*pair_index];
-        unsigned b=_fixtureSchedulePtrTable[n-2u][2u*pair_index+1u];
-        unsigned round=leg*rounds+pair_index/per_round;
-        unsigned phase=total_rounds>1u?
-            begin+(round*(end-begin))/(total_rounds-1u):begin;
-        unsigned reverse=(l->legs-leg)&1u;
-        ExpandedUniversalFixture f={0};
-        ExpandedWorldDate date;
-        int32_t day;
-        if(!cat_pair_valid(a,b,n) || phase>=255u ||
-           !ExpandedWorld_NativePhaseToDate(World_FirstYear(),
-                                            (uint8_t)phase,&date) ||
-           !ExpandedWorld_DateToIndex(date,&day))goto rollback;
-        f.home=clubs[reverse?b:a]->key;
-        f.away=clubs[reverse?a:b]->key;
-        f.day_index=day;
-        f.country=l->country; f.slot=l->division;
-        f.competition_type=0u;
-        f.key.edition.competition.world=(uint16_t)WORLD_2627;
-        f.key.edition.competition.stable_competition=
-            ((uint32_t)(l->country+1u)<<24)|
-            ((uint32_t)l->comp_id<<16)|
-            ((uint32_t)(l->division+1u)<<8)|1u;
-        f.key.edition.start_day=start_day;
-        f.key.edition.sequence=0u;
-        f.key.stage=1u;
-        f.key.tie=(uint32_t)pair_index+1u;
-        f.key.leg=(uint16_t)leg;
-        f.event_id=((uint64_t)WORLD_2627<<60)|
-            ((uint64_t)World_FirstYear()<<44)|
-            ((uint64_t)l->country<<36)|
-            ((uint64_t)l->comp_id<<28)|
-            ((uint64_t)l->division<<20)|
-            ((uint64_t)leg<<16)|
-            ((uint64_t)pair_index+1u);
-        if(!ExpandedUniversal_FixtureValid(&f) ||
-           !cat_fixture(&f,(uint8_t)phase))goto rollback;
-    }
-    /* Original pairing indices are known; the resident OG team-index/seed
-     * order is NOT yet witnessed. No fixture here is gameplay-certified. */
-    ++s_catalog.audit.unverified_native_order;
+    if(end<=begin || end>=255u ||
+       !ExpandedWorld_NativePhaseToDate(World_FirstYear(),
+                                        (uint8_t)begin,&first_date) ||
+       !ExpandedWorld_DateToIndex(first_date,&first_day))
+        goto rollback;
+    p.league=l;p.clubs=clubs;
+    p.rounds=(n&1u)?n:n-1u;
+    p.total_rounds=p.rounds*l->legs;
+    p.begin=begin;p.end=end;p.first_day=first_day;
+    if(!ExpandedUniversal_GenerateRoundRobin(
+        n,l->legs,cat_pair_emit,&p))goto rollback;
+    free(clubs);
     return 1;
 rollback:
+    free(clubs);
     s_catalog.nfixtures=saved_count;
     s_catalog.audit.future_fixtures=saved_future;
     s_catalog.audit.prestart_unresolved=saved_prestart;
@@ -306,12 +349,13 @@ int ExpandedUniversalCatalog_Seal(void)
         s_catalog.audit.day_collisions==0u &&
         s_catalog.audit.prestart_unresolved==0u &&
         s_catalog.audit.missing_cup_fixtures==0u &&
-        s_catalog.audit.unverified_native_order==0u);
+        s_catalog.audit.json_rule_failures==0u);
     fprintf(stderr,"[universal-catalog] world=%s clubs=%lu leagues=%lu "
                    "cup-definitions=%lu fixtures=%lu future=%lu "
                    "prestart-unresolved=%lu unsupported-leagues=%lu "
                    "day-collisions=%lu cup-fixtures-unavailable=%lu "
-                   "unverified-seed-orders=%lu "
+                   "json-rule-failures=%lu native-rule-diffs=%lu "
+                   "pair-source=JSON_CIRCLE_NO_OG "
                    "source-complete=%u OWNER=INPUT_ONLY not-simulated=1\n",
             World_Tag(),(unsigned long)s_catalog.audit.clubs,
             (unsigned long)s_catalog.audit.league_definitions,
@@ -322,7 +366,8 @@ int ExpandedUniversalCatalog_Seal(void)
             (unsigned long)s_catalog.audit.unsupported_leagues,
             (unsigned long)s_catalog.audit.day_collisions,
             (unsigned long)s_catalog.audit.missing_cup_fixtures,
-            (unsigned long)s_catalog.audit.unverified_native_order,
+            (unsigned long)s_catalog.audit.json_rule_failures,
+            (unsigned long)s_catalog.audit.native_rule_mismatches,
             (unsigned)s_catalog.audit.source_complete);
     return 1;
 }

@@ -29,6 +29,9 @@
 #include "diy_competition.h"
 #include "file_io.h"
 #include "world.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_universal_live.h"
+#endif
 
 /* ---- Constants ---- */
 /* Bytes parked by SaveSelectedTeams: numSelectedTeams + the records. The original parked 32
@@ -1785,6 +1788,10 @@ extern void ClearCareerMatchPlayerStatusBucket(void);
 __attribute__((used, externally_visible))
 void Career_ProcessCurrentCompetitionSlotForMatch(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedUniversalLive_Active())return; /* no original OG writer */
+#endif
+
     uint8_t *entry = TeamSelectionKeyCache_GetCurrentListPtr();
     int16_t slotIdx = (int16_t)(int8_t)entry[0];
     uint8_t *slotPtr = _careerCompetitionSlotPtrTable[slotIdx];
@@ -1814,6 +1821,10 @@ void Career_ProcessCurrentCompetitionSlotForMatch(void)
 __attribute__((used, externally_visible))
 void Career_ProcessCurrentCompetitionSlotAfterMatch(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedUniversalLive_Active())return; /* no original OG writer */
+#endif
+
     uint8_t *entry = TeamSelectionKeyCache_GetCurrentListPtr();
 
     if (_careerSlotProcessingInProgress != 0) {
@@ -1862,6 +1873,13 @@ void Career_ProcessCurrentCompetitionSlotAfterMatch(void)
 __attribute__((used, externally_visible))
 void Career_OpenCompetitionSlotMenuAndApplyChanges(uint16_t d2)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedUniversalLive_Active()) {
+        (void)ExpandedUniversalLive_PlayManager();
+        return; /* same JSON fixture; never old TSKC */
+    }
+#endif
+
     _careerMatchSimulatedFlag = 0;
 
     uint8_t *entry = TeamSelectionKeyCache_GetCurrentListPtr();
@@ -1982,6 +2000,13 @@ void Career_OpenCompetitionSlotMenuAndApplyChanges(uint16_t d2)
 __attribute__((used, externally_visible))
 void CareerPlayMatch(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedUniversalLive_Active()) {
+        (void)ExpandedUniversalLive_PlayManager();
+        return; /* same JSON fixture; never old TSKC */
+    }
+#endif
+
     if (_careerFinished == 0) {
         _panicReasonCode = 0x8342;
         PanicHaltLoop();
@@ -2009,6 +2034,13 @@ void CareerPlayMatch(void)
 __attribute__((used, externally_visible))
 void Career_PlayMatchMenuLoop(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedUniversalLive_Active()) {
+        (void)ExpandedUniversalLive_PlayManager();
+        return; /* same JSON fixture; never old TSKC */
+    }
+#endif
+
     if (_careerFinished != 0) {
         _panicReasonCode = 0x8340;
         PanicHaltLoop();
@@ -2075,6 +2107,13 @@ done_no_advance_pml:
 __attribute__((used, externally_visible))
 void Career_NextMatch(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedUniversalLive_Active()) {
+        (void)ExpandedUniversalLive_PlayManager();
+        return; /* same JSON fixture; never old TSKC */
+    }
+#endif
+
     if (_seasonFinished != 0) {
         _panicReasonCode = 0x8341;
         PanicHaltLoop();
@@ -2130,6 +2169,10 @@ extern uint8_t *_fixtureTeam2CompPtr;
 __attribute__((used, externally_visible))
 void Career_AutoSimulateLeagueFixturesUntilHumanTeam(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedUniversalLive_Active())return; /* no original OG writer */
+#endif
+
     for (;;) {
         /* After a world league's split the career club may play no more today: the rest of
          * the day only (else the next day's matches up to its own, include/league_split.h). */
@@ -2194,6 +2237,10 @@ static void getCurrentMatchTeamSlotIndices(int16_t *slot1Idx, int16_t *slot2Idx)
 __attribute__((used, externally_visible))
 void Career_AutoSimulateCupMatchesUntilHumanTeam(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedUniversalLive_Active())return; /* no original OG writer */
+#endif
+
 #ifdef SWOS_DEBUG_AUTOSKIP
     int iter = 0;
     DIYCompetitionEx *bex0 = &_diyCompetitionStart;

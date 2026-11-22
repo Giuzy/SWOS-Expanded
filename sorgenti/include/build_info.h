@@ -14,7 +14,9 @@
 #define BUILD_INFO_H
 
 /* Single source of truth for the user-facing release/build number. */
-#define SWOS_EXPANDED_VERSION "00.13.259"
+/* JSON-first universal fixture generator + experimental live OG50Hz/CAR path.
+ * This is NOT the revoked OG resident team-order reader proposal. */
+#define SWOS_EXPANDED_VERSION "00.13.260"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

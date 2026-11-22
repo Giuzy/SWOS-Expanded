@@ -84,6 +84,7 @@ extern CompetitionCup _uefaCup;
 #include "expanded_world_time.h"
 #include "expanded_world_live.h"
 #include "expanded_competition_coordinator.h"
+#include "expanded_universal_live.h" /* no old cache score writer on live JSON */
 #include "expanded_og_resident_selection.h"
 #include "expanded_og_view_edition.h" /* pure current-country OG viewer selection */
 #include "expanded_og_type0_completion.h" /* native-only TYPE0 year-end proof */
@@ -11707,7 +11708,10 @@ void Career_UpdateStatsAfterMatch(TeamFileEx *team1, TeamFileEx *team2, uint16_t
                                     uint16_t packedGoals, uint16_t aggregate,
                                     uint16_t penalty, uint16_t flags)
 {
-    _teamSelectionKeyCacheEnd = 1;
+#ifdef SWOS_SDL_BUILD
+    if(!ExpandedUniversalLive_Active())
+#endif
+        _teamSelectionKeyCacheEnd = 1;
 
     /* Pre-hire matches belong to the CLUB, not to the new manager.
      * Still run the native competition score/cache bookkeeping below. */
@@ -11820,6 +11824,10 @@ void Career_UpdateStatsAfterMatch(TeamFileEx *team1, TeamFileEx *team2, uint16_t
 
 skipStats: ;
 #ifdef SWOS_SDL_BUILD
+    /* Player sentiment/statistics above remain real OG match effects.
+     * The JSON Engine alone records the canonical fixture/standing.
+     * Never decrement or write the old manager's TSKC here. */
+    if(ExpandedUniversalLive_Active())return;
     /* RG-014: a Copa fixture is executed on its resident OG context,
      * without any owned entry in the five-slot career keycache.
      * Player stats above are real OG callbacks; its packed match cache

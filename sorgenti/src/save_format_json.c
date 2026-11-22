@@ -30,6 +30,8 @@
 #include "expanded_world_live.h" /* same .CAR, one ledger */
 #include "expanded_competition_coordinator.h" /* post-restore read-only contract */
 #include "expanded_universal_car.h" /* optional universal fixture ledger in SAME CAR */
+#include "expanded_universal_world_catalog.h" /* typed mutable CPU club rosters */
+#include "expanded_universal_live.h"
 #include "squad_extras.h" /* 2026/27 extra roster departure history, in the SAME .CAR */
 #include "expanded_world_time.h" /* civil index read-only check */
 #include "expanded_debug.h" /* transient F12 SAVE/LOAD timings */
@@ -386,6 +388,11 @@ static int savejson_career_civil_clock_ok(const char *json,int size,int log_reje
     long og_year=0, first_year=0, now=0;
     ExpandedWorldDate civil;
     const int token=mjson_find(json,size,"$.living_world",&clock,&clock_len);
+    const char *universal=NULL,*rosters=NULL;
+    int universal_len=0,roster_len=0;
+    const int universal_kind=mjson_find(json,size,"$.universal_engine",&universal,&universal_len);
+    const int is_universal=World_Current()==WORLD_2627 &&
+        universal_kind==MJSON_TOK_STRING;
     if(token!=MJSON_TOK_OBJECT || clock_len<=0) {
         if(log_reject)fprintf(stderr,
             "[og-world-save] INCOMPLETE_CAR reason=MISSING_CIVIL_CLOCK file-preserved=1\n");
@@ -409,6 +416,14 @@ static int savejson_career_civil_clock_ok(const char *json,int size,int log_reje
     if(!ExpandedUniversal_CarValidate(json,size)) {
         if(log_reject)fprintf(stderr,
             "[universal-car] INVALID_LEDGER_OR_WORLD old-save-preserved=1\n");
+        return 0;
+    }
+    if(is_universal &&
+       mjson_find(json,size,"$.universal_rosters",
+                  &rosters,&roster_len)!=MJSON_TOK_ARRAY) {
+        if(log_reject)fprintf(stderr,
+            "[universal-car-rosters] REQUIRED_FOR_CONTINUE "
+            "missing=1 old-save-preserved=1\n");
         return 0;
     }
     return 1;
@@ -3061,6 +3076,69 @@ static void load_team_file_ex_slice(const char *buf, int buflen,
         }
     }
 }
+
+#ifdef SWOS_SDL_BUILD
+/* Match-roster persistence: ALL source clubs are mutable originals passed to
+ * OG 50Hz; serializing just career_team would lose CPU injuries after CONTINUE.
+ * Stage the restored CPU rosters off-heap before replacing the catalogue.
+ * A missing or invalid roster is not permission to import a fresh TEAM file.
+ */
+static int universal_rosters_restore(const char *json,int len)
+{
+    const char *root=NULL,*arr=NULL;
+    int root_len=0,arr_len=0,token,off=0,vo,vl,vt;
+    long requested=0;
+    uint32_t i=0,n=0;
+    TeamFileEx *copies=NULL;
+    ExpandedUniversalCatalogAudit audit={0};
+    token=mjson_find(json,len,"$.universal_engine",&root,&root_len);
+    if(token==MJSON_TOK_NULL || token==MJSON_TOK_INVALID) {
+        ExpandedUniversalCatalog_Reset();
+        return 1; /* old CAR retains native OG semantics */
+    }
+    if(token!=MJSON_TOK_STRING || World_Current()!=WORLD_2627 ||
+       mjson_get_long(json,len,"$.universal_rosters_count",&requested)<=0 ||
+       requested<1 || (uint64_t)requested>UINT32_MAX ||
+       mjson_find(json,len,"$.universal_rosters",&arr,&arr_len)!=MJSON_TOK_ARRAY)
+        return 0;
+    n=(uint32_t)requested;
+#if SIZE_MAX < UINT64_MAX
+    if((size_t)n>SIZE_MAX/sizeof *copies)return 0;
+#endif
+    copies=(TeamFileEx *)calloc(n,sizeof *copies);
+    if(!copies)return 0;
+    while(i<n && (off=fast_array_next(arr,arr_len,off,
+                                       &vo,&vl,&vt))!=0) {
+        const char *check=NULL;
+        int checklen=0;
+        if(vt!=MJSON_TOK_OBJECT ||
+           mjson_find(arr+vo,vl,"$.team",&check,&checklen)!=MJSON_TOK_OBJECT ||
+           mjson_find(arr+vo,vl,"$.players",&check,&checklen)!=MJSON_TOK_ARRAY)
+            goto fail;
+        load_team_file_ex_slice(arr+vo,vl,(uint8_t *)&copies[i]);
+        ++i;
+    }
+    if(i!=n || fast_array_next(arr,arr_len,off,&vo,&vl,&vt)!=0 ||
+       !ExpandedUniversalCatalog_Begin() ||
+       !ExpandedUniversalCatalog_Audit(&audit) ||
+       audit.json_rule_failures!=0u)goto fail;
+    for(i=0;i<n;++i)
+        if(!ExpandedUniversalCatalog_AddClub(&copies[i]))
+            goto fail;
+    if(ExpandedUniversalCatalog_RosterCount()!=n)goto fail;
+    free(copies);
+    fprintf(stderr,"[universal-car-rosters] RESTORED count=%lu "
+        "source=TYPED_CAR original-OG-50HZ-only=1\n",
+        (unsigned long)n);
+    return 1;
+fail:
+    ExpandedUniversalCatalog_Reset();
+    free(copies);
+    fprintf(stderr,"[universal-car-rosters] REJECTED "
+        "missing-or-invalid-cpu-club no-fabricated-restore=1\n");
+    return 0;
+}
+#endif
 
 /* ======================================================================
  * Data-file JSON loaders (bin/data_json) — docs/DATA_INTERNAL_JSON.md
@@ -6616,6 +6694,33 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
                                (uint8_t *)(_selectedTeams + i));
     }
     mjson_printf(json_out_emit, &out, "%s", "]");
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedUniversalLive_Active()) {
+        const uint32_t n=ExpandedUniversalCatalog_RosterCount();
+        if(n==0u) {
+            if(out.ptr)swos_io_free(out.ptr);
+            fprintf(stderr,"[universal-car-rosters] WRITE_REJECTED "
+                "source-roster-unavailable old-CAR-preserved=1\n");
+            return 1;
+        }
+        mjson_printf(json_out_emit,&out,",\n  %Q:%lu,\n  %Q:[",
+            "universal_rosters_count",(unsigned long)n,
+            "universal_rosters");
+        for(uint32_t i=0;i<n;++i) {
+            const TeamFileEx *team=ExpandedUniversalCatalog_RosterAt(i);
+            if(!team) {
+                if(out.ptr)swos_io_free(out.ptr);
+                return 1;
+            }
+            if(i)mjson_printf(json_out_emit,&out,"%s",",");
+            emit_team_file_ex_body(json_out_emit,&out,(const uint8_t *)team);
+        }
+        mjson_printf(json_out_emit,&out,"%s","]");
+    } else {
+        mjson_printf(json_out_emit,&out,",\n  %Q:null",
+            "universal_rosters");
+    }
+#endif
 
     /* TMD team pool — emit only the populated count (= tmd_team_count
      * scalar = uint16 at &careerFileBuffer + 0). Empty trailing slots
@@ -8296,8 +8401,10 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
     {
         extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
         if(!Expanded_OGWorld_ReadSaveJson((const char *)src,(int)src_size,1) ||
+           !ExpandedUniversal_CarRestore((const char *)src,(int)src_size) ||
+           !universal_rosters_restore((const char *)src,(int)src_size) ||
            !Expanded_CompetitionCoordinator_ValidateRestore() ||
-           !ExpandedUniversal_CarRestore((const char *)src,(int)src_size)) {
+           !ExpandedUniversalLive_CanRestoreRosters()) {
             fprintf(stderr,"[og-world-save] LOAD_RESTORE_FAILED "
                            "after-preflight world=%s "
                            "reason=RESIDENT_OR_CIVIL_COORDINATOR\n",

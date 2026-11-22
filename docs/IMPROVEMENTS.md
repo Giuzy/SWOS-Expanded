@@ -1,3 +1,6 @@
+## 22/11/2026 — RG-027 JOB HANDOFF + F12 v00.13.246 PREP, WINDOWS NP
+v246 regression fix proposed: real Win v245 after accepted job crashed in yearend UEFA type2 title holder (VerifyTeamLoaded0000). Root: accepted offer reuses ContinueCareer callback which mistakenly marks a season completed; new current-season job route preflights civil/OG and existing club binding, no OG fixture/results/date mutation, checked-save. Secondary type2 one-shot reader prevents SIGILL and fails closed on unverified OG winner. F12 toggle status top-right in x680..948 free header 3 rows only, existing keys 1/2/3 unchanged. No new debug result writer, no replay, CAR ABI unchanged. Do NOT declare GP PASS until Win verification.
+
 ## 22/11/2026 — v00.13.245 PREPARATO (COMMIT AUTORIZZATO, WIN NON VERIFICATO)
 v245 user-approved followup from v244: manager true OG interactive league selector0 and armed Copa type2/type1 scopes, transient no CPU edit; reserve list B shifted +80, four native drawable parts to hide yellow skills/value only on extras. Regression risk original OG manager/CPU modes and CAR. Source test only, Windows QA pending.
 

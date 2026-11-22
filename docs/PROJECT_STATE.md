@@ -1,3 +1,6 @@
+## 22/11/2026 — RG-027 JOB HANDOFF + F12 v00.13.246 PREP, WINDOWS NP
+v246 PREP on v245 Windows ZIP 20261122-004031: accepted job, salary, UEFA type2 resident18, old type1 grid0000, PANIC SIGILL 0xc000001d. Not proof that user was truly at season end. Source verified ContinueCareer always CompleteSeason then ContinueCareerNextSeason which runs legacy UEFA update for accepted offer. New career_init 6441da99 guards in-season accepted offers (!seasonFinished) and binds manager to existing OG resident preserving civil date/season; no replay/yearend, checked save. Secondary type2 title holder source writer 5f74c48 / reader 645277a fail closed unfinished cup. F12 toggles restored visible upper-right x680 y25/44/63 in platform_sdl 5c8b13c. Header b5831f4 v00.13.246; RG-027/014 open, Windows gameplay NP.
+
 ## 22/11/2026 — v00.13.245 PREPARATO (COMMIT AUTORIZZATO, WIN NON VERIFICATO)
 State: v00.13.245 prepared original OG manager league selector0 prematch editing, Copa mode1 armed editing; reserve column +80, only first 4 scratch render parts for reserves; V source, I behavior. Fails Windows GP not tested. RG-014 OPEN. Source bloba2445f/388cf0/bc75b3 and version770339; no duplicate OG simulation or new action.
 

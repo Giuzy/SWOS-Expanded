@@ -2987,6 +2987,24 @@ static void draw_world_debug_overlay(void)
         goto finish;
     }
     diag_f12_line(26,25,"F12 / MONDO OG - COPERTURA E SALUTE",88,207,255);
+    /* F12+1/2/3 already work; reserve ONLY the far-right header
+     * x=680..935 (960px logical). Never overlap the left title, world,
+     * civil date, phase or the right-column audit beginning at y=109.
+     * One line per flag, text length <= 25 glyphs at max 8px each. */
+    const int debugResult=ExpandedDebug_ResultMode();
+    snprintf(line,sizeof line,"F12+1 WIN ALWAYS [%s]",
+             debugResult==1?"ON":"OFF");
+    diag_f12_line(680,25,line,debugResult==1?100:162,
+                  debugResult==1?232:180,debugResult==1?145:193);
+    snprintf(line,sizeof line,"F12+2 LOSE ALWAYS [%s]",
+             debugResult==2?"ON":"OFF");
+    diag_f12_line(680,44,line,debugResult==2?100:162,
+                  debugResult==2?232:180,debugResult==2?145:193);
+    snprintf(line,sizeof line,"F12+3 SACK NEXT [%s]",
+             ExpandedDebug_SackArmed()?"ARMED":"OFF");
+    diag_f12_line(680,63,line,ExpandedDebug_SackArmed()?250:162,
+                  ExpandedDebug_SackArmed()?194:180,
+                  ExpandedDebug_SackArmed()?97:193);
     snprintf(line,sizeof line,"MONDO %s  BUILD %s",World_Tag(),
              SWOS_EXPANDED_VERSION);
     diag_f12_line(26,44,line,226,236,245);

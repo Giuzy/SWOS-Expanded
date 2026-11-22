@@ -498,8 +498,15 @@ static void copyTitleHolderGrid(uint16_t *titleHolderTeamId, uint8_t *titleHolde
      * scratch buffers. Read only OG's witnessed winnerTeam; do not draw,
      * replay fixtures, or manufacture a title holder from bracket slot 0.
      * Other modes and native type-1 cups keep the original reader. */
+    /* A type-2 resident's source identity is established by the writer,
+     * not by DIYCompetition.base.competitionType: this field can still
+     * describe the legacy wrapper after a genuine OG type-2 snapshot.
+     * The one-shot tag is consumed before the next slot can overwrite
+     * scratch. The original non-resident type-2 gate stays fail-closed. */
+    extern int Expanded_OGWorld_YearEndType2SnapshotTake(void);
+    const int residentType2=Expanded_OGWorld_YearEndType2SnapshotTake();
     if (_gameType == 4 && _seasonUpdateInProgress &&
-        _diyCompetitionStart.base.competitionType == 2) {
+        (residentType2 || _diyCompetitionStart.base.competitionType == 2)) {
         const uint16_t winner = _diyCompetitionStart.base.winnerTeam;
         const unsigned n = (unsigned)_numSelectedTeams;
         int found = -1;

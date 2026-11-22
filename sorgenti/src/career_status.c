@@ -3775,8 +3775,20 @@ static unsigned exp_og_real_cup_entrants(const uint8_t *record,uint8_t country,
  * match writer. During FINISH SEASON expose its played OG result to
  * the original title/qualification callback rather than simulating it
  * again from the first-year template. */
+/* One-shot source tag: title-holder reader must distinguish a true type-2
+ * OG resident snapshot from the legacy type-1 cup scratch layout.
+ * Never serialize this flag. Only the next native title-holder read may
+ * consume it, and every new year-end lookup first invalidates it. */
+static int s_expYearEndType2SnapshotReady;
+int Expanded_OGWorld_YearEndType2SnapshotTake(void)
+{
+    const int ready=s_expYearEndType2SnapshotReady;
+    s_expYearEndType2SnapshotReady=0;
+    return ready;
+}
 int Expanded_OGWorld_YearEndType2Result(uint8_t *record)
 {
+    s_expYearEndType2SnapshotReady=0;
     extern uint16_t Expanded_OGWorld_SaveYear(void);
     if(_gameType!=4 || !_seasonUpdateInProgress || !record ||
        s_expOGCurrent || s_expOGCupCurrent)return 0;
@@ -3823,6 +3835,7 @@ int Expanded_OGWorld_YearEndType2Result(uint8_t *record)
     memcpy(_selectedTeams,ctx->teams,(size_t)n*sizeof(TeamFileEx));
     _diyCompetitionStart.base.namePtr=
         (uint8_t *)_diyCompetitionStart.base.competitionName;
+    s_expYearEndType2SnapshotReady=1;
     fprintf(stderr,"[og-yearend-resident] TYPE2_REUSED "
         "world=%s cup=%u year=%u matches=%u "
         "source=DATED_OG_NO_REPLAY\n",

@@ -1,3 +1,6 @@
+## 22/11/2026 — RG-027 JOB HANDOFF + F12 v00.13.246 PREP, WINDOWS NP
+Approved: accepting another club or being sacked attaches/detaches ONLY manager to same current OG world/date/season and does not FINISH SEASON, resimulate cup, reset tables, invent wins or overwrite saved CAR. Genuine FINISH SEASON remains separate guarded workflow. When accepting offer in current season use existing OG club binding/calendar and save only after verification; errors require recovery rather than forced fake progress. WIN ALWAYS and LOSE ALWAYS are mutually exclusive debug cheats, SACK NEXT at next game action, not a seven-day event; F12 visible ON/OFF upper-right without overlapping health dashboard, no mouse. Code v246 source pending GP.
+
 ## 22/11/2026 — v00.13.245 PREPARATO (COMMIT AUTORIZZATO, WIN NON VERIFICATO)
 Approved native OG prematch temp UI: only reserves B shift +80 logical to far-right inside 320px, no yellow skill or monetary value on B; original XI keep 6 visual parts. Keyboard/joypad only. Manager league and Copa pending native fixtures can edit own roster; CPU/viewers readonly. No deleted separate SIMULATE MATCH career UI restored. No new clock/simulator, fixture or score.
 

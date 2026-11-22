@@ -520,6 +520,88 @@ void ContinueCareer(void)
     extern void Expanded_CompleteSeason(void);
     extern int Expanded_ShouldRetire(void);
     extern void Expanded_RecordRetirement(void);
+#ifdef SWOS_SDL_BUILD
+    /* RG-027: a new job during an OG season must not use the old SWOS
+     * FINISH SEASON callback. In the old route accepting an offer entered
+     * the UEFA year-end reader and could read a type-2 tournament as a
+     * type-1 cup, causing VerifyTeamLoaded(0000) / SIGILL. */
+    if (_gameType==4 && _teamNoOfferAccepted!=0xffffu &&
+        !_seasonFinished) {
+        ExpandedLiveCalendarState before;
+        const int clockOk=ExpandedWorldLive_Clubs()!=0 &&
+            ExpandedWorldLive_CalendarState(&before);
+        const unsigned civilSeason=clockOk?
+            (unsigned)before.today.year-
+                (before.today.month<7u?1u:0u):0u;
+        const unsigned careerSeason=(unsigned)World_FirstYear()+
+            (unsigned)_currentSeasonShowing;
+        /* Stop BEFORE any mutation when world and manager do not point
+         * to the same resident edition. No time/season correction here. */
+        if (!clockOk || civilSeason!=careerSeason ||
+            !Expanded_CompetitionCoordinator_PreflightBind(
+                (uint16_t)civilSeason)) {
+            fprintf(stderr,"[career-job-handoff] BLOCK "
+                "reason=OG_CIVIL_PREFLIGHT clock=%d civil=%u career=%u "
+                "action=NO_YEAR_END_KEEP_CAR\n",
+                clockOk,civilSeason,careerSeason);
+            Expanded_CompetitionCoordinator_ReportWorldFault(
+                "JOB_HANDOFF_PREFLIGHT_FAILED");
+            static uint8_t err[]=
+                "NEW JOB OG WORLD NOT READY - RELOAD PREVIOUS SAVE";
+            ShowErrorMenu(err);
+            return;
+        }
+        const uint16_t offeredTeam=_teamNoOfferAccepted;
+        const uint16_t previousTeam=_selTeamNumber;
+        const uint16_t previousSeason=_currentSeasonShowing;
+        extern void ShowLeavingMessage(void);
+        if (!_youreSacked && previousTeam!=0xffffu &&
+            previousTeam!=offeredTeam)
+            ShowLeavingMessage();
+        /* Only manager-local club selection and binding are rebuilt.
+         * No InitializeNewSeason, result replay, qualification or
+         * Expanded_CompleteSeason. InitCareerClub consumes the offer. */
+        Career_AttachManagerToClub(offeredTeam);
+        ExpandedLiveCalendarState after;
+        const int attached=ExpandedWorldLive_CalendarState(&after) &&
+            _currentSeasonShowing==previousSeason &&
+            _selTeamNumber==offeredTeam && !_youreSacked &&
+            Expanded_OGWorld_ClubBound() &&
+            after.today.year==before.today.year &&
+            after.today.month==before.today.month &&
+            after.today.day==before.today.day;
+        if(!attached) {
+            fprintf(stderr,"[career-job-handoff] FAILED "
+                "reason=CLUB_BIND_OR_DATE_CHANGED old=%04x new=%04x "
+                "season=%u action=RELOAD_PRIOR_CAR\n",
+                (unsigned)previousTeam,(unsigned)_selTeamNumber,
+                (unsigned)_currentSeasonShowing);
+            Expanded_CompetitionCoordinator_ReportWorldFault(
+                "JOB_HANDOFF_INVARIANT_FAILED");
+            static uint8_t err[]=
+                "NEW JOB BIND FAILED - RELOAD PREVIOUS SAVE";
+            ShowErrorMenu(err);
+            return;
+        }
+        fprintf(stderr,"[career-job-handoff] ATTACHED "
+            "old=%04x new=%04x world=%s civil=%04u-%02u-%02u "
+            "season=%u owner=OG_RESIDENT no-season-reset=1\n",
+            (unsigned)previousTeam,(unsigned)offeredTeam,World_Tag(),
+            (unsigned)after.today.year,(unsigned)after.today.month,
+            (unsigned)after.today.day,(unsigned)previousSeason);
+        extern int Expanded_AutoCareer_SaveChecked(const char *);
+        if(!Expanded_AutoCareer_SaveChecked("job-handoff")) {
+            Expanded_CompetitionCoordinator_ReportWorldFault(
+                "JOB_HANDOFF_SAVE_FAILED");
+            static uint8_t err[]=
+                "NEW JOB SAVE FAILED - RELOAD PREVIOUS SAVE";
+            ShowErrorMenu(err);
+            return;
+        }
+        ActivateMenu(_contestMenu);
+        return;
+    }
+#endif
     Expanded_CompleteSeason();
     if (Expanded_ShouldRetire()) {
         Expanded_RecordRetirement();

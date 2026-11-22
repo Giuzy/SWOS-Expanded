@@ -634,9 +634,10 @@ void ContinueCareer(void)
          * the native OG resident/manager TSKC lifecycle is decoupled. */
         const ExpandedCountrySeasonCycle nativeJulyCycle={7u,1u,6u,30u};
         ExpandedWorldDate nativeStart={0},end={0};
-        const int annualExpiryOk=season<=2199u &&
+        int annualExpiryOk=season<=2199u &&
             ExpandedCountrySeason_AnnualDates(
                 (uint16_t)season,nativeJulyCycle,&nativeStart,&end);
+        int verifiedCountryEnd=1;
         /* Country metadata is read by manager's CURRENT club identity,
          * never the previous job's nation or the world default. Special
          * editions cannot be treated as a permanent calendar template. */
@@ -659,6 +660,16 @@ void ContinueCareer(void)
                 countryOk=ExpandedCountrySeason_AnnualDates(
                     (uint16_t)season,countryCycle,
                     &countryStart,&countryExpiry);
+            if(countryOk) {
+                nativeStart=countryStart;
+                end=countryExpiry; /* owner is current club COUNTRY, not June 30 */
+            }
+            annualExpiryOk=countryOk;
+            if(country==45u && countryOk) {
+                extern int Expanded_OGWorld_BoliviaNativeEndReady(uint16_t);
+                verifiedCountryEnd=Expanded_OGWorld_BoliviaNativeEndReady(
+                    (uint16_t)season);
+            }
             fprintf(stderr,"[career-country-season] manager-country=%u "
                 "world=%s edition=%lu country-window=%s "
                 "start=%04u-%02u-%02u expiry=%04u-%02u-%02u "
@@ -686,10 +697,10 @@ void ContinueCareer(void)
             Expanded_OGWorld_SaveYear()==(uint16_t)season &&
             Expanded_CompetitionCoordinator_PreflightBind(
                 (uint16_t)season) &&
-            managerFinished &&
+            managerFinished && verifiedCountryEnd &&
             ExpandedWorld_DateToIndex(civil.today,&fromIndex) &&
             ExpandedWorld_DateToIndex(end,&endIndex) &&
-            fromIndex<=endIndex;
+            fromIndex==endIndex; /* no hidden multi-Sunday FINISH jump */
         if(!preflight) {
             fprintf(stderr,"[career-finish-world] BLOCK "
                 "reason=PREMATURE_OR_DESYNCED_LOCAL_FINISH "
@@ -708,118 +719,17 @@ void ContinueCareer(void)
             ShowErrorMenu(msg);
             return;
         }
-        if(fromIndex<endIndex) {
-            /* Finish the remaining OG year with REAL civil weekly
-             * FORWARD steps. The final interval can be shorter than
-             * seven days, but it ends EXACTLY on 30 June. Only the
-             * one resident coordinator dispatches the OG CPU events. */
-            int32_t reachedIndex=fromIndex;
-            unsigned weeklySteps=0u;
-            fprintf(stderr,"[career-finish-world] WEEKLY_START "
-                "from=%04u-%02u-%02u to=%04u-06-30 "
-                "source=ONE_OG_COORDINATOR manager-league=FINISHED "
-                "no-second-simulation=1\n",
-                (unsigned)civil.today.year,
-                (unsigned)civil.today.month,(unsigned)civil.today.day,
-                (unsigned)end.year);
-            while(reachedIndex<endIndex) {
-                const int32_t remaining=endIndex-reachedIndex;
-                /* ExpandedWorld_Weekday: Mon=0 .. Sun=6.
-                 * The first FORWARD after a locally finished championship
-                 * ends on the next SUNDAY, not on the same weekday +7.
-                 * Then every Sunday, or June 30 if it comes first. */
-                const int weekday=ExpandedWorld_Weekday(reachedIndex);
-                int32_t days=0;
-                if(!ExpandedFinish_DaysToNextSundayOrEnd(
-                       weekday,remaining,&days)) {
-                    Expanded_CompetitionCoordinator_ReportWorldFault(
-                        "WORLD_FINISH_INVALID_WEEKDAY");
-                    fprintf(stderr,"[career-finish-world] BLOCK "
-                        "reason=INVALID_WEEKDAY previous-CAR-preserved=1\n");
-                    static uint8_t msg[]=
-                        "OG DATE NOT READY - PREVIOUS SAVE PRESERVED";
-                    ShowErrorMenu(msg);
-                    return;
-                }
-                ExpandedWorldDate next;
+        /* The manager has already advanced each Sunday through the
+         * contest menu. FINISH is ONLY administrative here, on exactly
+         * this country's expiry after OG end proof. Do not replay CPU,
+         * skip weeks, reset cups or force the world to global June 30. */
+        fprintf(stderr,"[career-country-season] READY "
+            "country-expiry=%04u-%02u-%02u "
+            "local-manager=FINISHED OG-country=%s "
+            "action=ADMIN_ONLY no-calendar-jump=1 no-competition-reset=1\\n",
+            (unsigned)end.year,(unsigned)end.month,(unsigned)end.day,
+            verifiedCountryEnd?"VERIFIED":"UNAVAILABLE");
 
-                if(!ExpandedWorld_IndexToDate(reachedIndex+days,&next)) {
-                    Expanded_CompetitionCoordinator_ReportWorldFault(
-                        "WORLD_FINISH_WEEK_DATE_INVALID");
-                    fprintf(stderr,"[career-finish-world] BLOCK "
-                        "reason=WEEK_DATE_INVALID "
-                        "previous-CAR-preserved=1\n");
-                    static uint8_t msg[]=
-                        "OG DATE NOT READY - PREVIOUS SAVE PRESERVED";
-                    ShowErrorMenu(msg);
-                    return;
-                }
-                fprintf(stderr,"[career-finish-world] WEEK_FORWARD "
-                    "step=%u days=%ld next=%04u-%02u-%02u "
-                    "source=OG_NATIVE_ONLY\n",
-                    weeklySteps+1u,(long)days,
-                    (unsigned)next.year,(unsigned)next.month,
-                    (unsigned)next.day);
-                if(!Expanded_CompetitionCoordinator_Advance(
-                       next,"CAREER_FINISH_WORLD_WEEK")) {
-                    fprintf(stderr,"[career-finish-world] BLOCK "
-                        "reason=OG_WEEKLY_TICK_FAILED step=%u "
-                        "previous-CAR-preserved=1\n",weeklySteps+1u);
-                    static uint8_t msg[]=
-                        "OG EVENTS NOT READY - PREVIOUS SAVE PRESERVED";
-                    ShowErrorMenu(msg);
-                    return;
-                }
-                ExpandedLiveCalendarState weekly;
-                if(!ExpandedWorldLive_CalendarState(&weekly) ||
-                   weekly.today.year!=next.year ||
-                   weekly.today.month!=next.month ||
-                   weekly.today.day!=next.day ||
-                   Expanded_OGWorld_SaveYear()!=(uint16_t)season) {
-                    Expanded_CompetitionCoordinator_ReportWorldFault(
-                        "WORLD_FINISH_WEEK_POSTCHECK");
-                    fprintf(stderr,"[career-finish-world] BLOCK "
-                        "reason=WEEK_POSTCHECK_FAILED step=%u "
-                        "previous-CAR-preserved=1\n",weeklySteps+1u);
-                    static uint8_t msg[]=
-                        "OG WORLD NOT READY - PREVIOUS SAVE PRESERVED";
-                    ShowErrorMenu(msg);
-                    return;
-                }
-                reachedIndex+=days;
-                ++weeklySteps;
-                fprintf(stderr,"[career-finish-world] WEEK_COMMITTED "
-                    "step=%u civil=%04u-%02u-%02u "
-                    "remaining-days=%ld no-duplicate=1\n",
-                    weeklySteps,(unsigned)weekly.today.year,
-                    (unsigned)weekly.today.month,
-                    (unsigned)weekly.today.day,
-                    (long)(endIndex-reachedIndex));
-            }
-            fprintf(stderr,"[career-finish-world] WEEKLY_COMPLETE "
-                "steps=%u final=%04u-06-30 "
-                "action=VERIFY_BEFORE_NATIVE_YEAR_END\n",
-                weeklySteps,(unsigned)end.year);
-            ExpandedLiveCalendarState after;
-            if(!ExpandedWorldLive_CalendarState(&after) ||
-               after.today.year!=end.year || after.today.month!=6u ||
-               after.today.day!=30u ||
-               Expanded_OGWorld_SaveYear()!=(uint16_t)season) {
-                Expanded_CompetitionCoordinator_ReportWorldFault(
-                    "WORLD_FINISH_DATE_MISMATCH");
-                fprintf(stderr,"[career-finish-world] BLOCK "
-                    "reason=DATE_POSTCHECK_FAILED "
-                    "previous-CAR-preserved=1\n");
-                static uint8_t msg[]=
-                    "OG DATE NOT READY - PREVIOUS SAVE PRESERVED";
-                ShowErrorMenu(msg);
-                return;
-            }
-            fprintf(stderr,"[career-finish-world] READY "
-                "civil=%04u-06-30 native-season=%lu "
-                "action=ORIGINAL_OG_YEAR_END event-ack=PENDING_CAR\n",
-                (unsigned)end.year,(unsigned long)season);
-        }
     }
 #endif
     Expanded_CompleteSeason();
@@ -2368,6 +2278,35 @@ static int exp_og_next_country_start(ExpandedWorldDate from,
     }
     return found;
 }
+/* The Bolivian country cycle expires at the END of 14 January, not
+ * at the global 30 June manager boundary. Insert this real country
+ * expiry as an intermediate native OG tick before the 15 January start.
+ * The date is read from the existing country/edition policy; this helper
+ * neither ends a competition nor runs a second calendar. */
+static int exp_og_next_bolivia_expiry(ExpandedWorldDate from,
+                                     ExpandedWorldDate until,
+                                     ExpandedWorldDate *out)
+{
+    if(World_Current()!=WORLD_2627 || !out)return 0;
+    int32_t now=0,end=0,best=0;
+    if(!ExpandedWorld_DateToIndex(from,&now) ||
+       !ExpandedWorld_DateToIndex(until,&end) || end<=now)return 0;
+    best=end;
+    const uint16_t first=World_FirstYear();
+    const uint16_t year0=from.year>first?
+        (uint16_t)(from.year-1u):from.year;
+    int found=0;
+    for(uint32_t year=year0;year<=until.year && year<=2199u;++year) {
+        ExpandedWorldDate start={0},expiry={0};
+        int32_t expiryIndex=0;
+        if(!exp_og_country_window(45u,(uint16_t)year,&start,&expiry) ||
+           !ExpandedWorld_DateToIndex(expiry,&expiryIndex))continue;
+        if(expiryIndex>now && expiryIndex<best) {
+            best=expiryIndex;*out=expiry;found=1;
+        }
+    }
+    return found;
+}
 int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
                                              const char *origin)
 {
@@ -2445,6 +2384,21 @@ int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
             step=ownStart;
             stepIndex=ownIndex;
         }
+        /* An edition expiring Jan14 is checked ON Jan14 in OG before
+         * the Jan15 new-edition tick. Do not erase the old resident on
+         * an incomplete date/KO, and do not jump straight across it. */
+        ExpandedWorldDate expiryBoundary={0};
+        if(exp_og_next_bolivia_expiry(cursor,step,&expiryBoundary)) {
+            int32_t expiryIndex=0;
+            if(!ExpandedWorld_DateToIndex(expiryBoundary,&expiryIndex) ||
+               expiryIndex<=cursorIndex || expiryIndex>=stepIndex) {
+                s_expCoordinatorRecoveryRequired=1;
+                fprintf(stderr,"[og-country-expiry] INVALID_BOUNDARY "
+                    "country=45 no-CAR=1\n");
+                return 0;
+            }
+            step=expiryBoundary;stepIndex=expiryIndex;
+        }
         if(stepIndex<=cursorIndex || stepIndex>toIndex) {
             s_expCoordinatorRecoveryRequired=1;
             fprintf(stderr,"[bolivia-civil-dispatch] NON_FORWARD_STEP "
@@ -2463,6 +2417,20 @@ int Expanded_CompetitionCoordinator_Advance(ExpandedWorldDate target,
                 (unsigned)step.year,(unsigned)step.month,
                 (unsigned)step.day);
             return 0;
+        }
+        if(World_Current()==WORLD_2627 &&
+           step.month==1u && step.day==14u &&
+           step.year>World_FirstYear()) {
+            extern int Expanded_OGWorld_BoliviaNativeEndReady(uint16_t);
+            const unsigned oldEdition=(unsigned)step.year-1u;
+            const int finished=Expanded_OGWorld_BoliviaNativeEndReady(
+                (uint16_t)oldEdition);
+            fprintf(stderr,"[og-country-expiry] BOLIVIA "
+                "date=%04u-01-14 old-edition=%u "
+                "OG-league-copa-groups-KO=%s old-contexts=PRESERVED "
+                "next-start=JAN15 new-matches=ZERO_ONLY_IF_VERIFIED\n",
+                (unsigned)step.year,oldEdition,
+                finished?"FINISHED":"PENDING");
         }
         if(World_Current()==WORLD_2627)
             fprintf(stderr,"[bolivia-civil-dispatch] STEP_VERIFIED "
@@ -3033,22 +3001,37 @@ void ContinueCareerNextSeason(void)
         const uint32_t year=(uint32_t)World_FirstYear()+_currentSeasonShowing;
         if(year>2199u) s_ogManualSeasonReady=0;
         else {
-            const ExpandedWorldDate july={(uint16_t)year,7u,1u};
+            /* Country-owned manager year: Bolivia expires Jan14 and
+             * begins Jan15, never an implicit July reset. Other countries
+             * keep their previous transition pending country-wide audit. */
+            const uint8_t managerCountry=_selTeamNumber==0xffffu?
+                0xffu:World_FileCountry((uint8_t)(_selTeamNumber>>8));
+            const int boliviaJanuary=World_Current()==WORLD_2627 &&
+                managerCountry==45u && year>World_FirstYear();
+            const ExpandedWorldDate boundary=boliviaJanuary?
+                (ExpandedWorldDate){(uint16_t)year,1u,15u}:
+                (ExpandedWorldDate){(uint16_t)year,7u,1u};
             const Uint64 t0=SDL_GetPerformanceCounter();
-            const int nativeOk=Expanded_OGWorld_AdvanceToDate(july);
+            const int nativeOk=boliviaJanuary?
+                Expanded_CompetitionCoordinator_Advance(
+                    boundary,"MANAGER_BOLIVIA_JAN15_OPEN"):
+                Expanded_OGWorld_AdvanceToDate(boundary);
             const Uint64 t1=SDL_GetPerformanceCounter();
             int clockOk=nativeOk?
-                ExpandedWorldLive_AdvanceToSeason((uint16_t)year):0;
+                (boliviaJanuary?1:
+                ExpandedWorldLive_AdvanceToSeason((uint16_t)year)):0;
             if(clockOk) {
                 ExpandedLiveCalendarState checked;
                 const int valid=ExpandedWorldLive_CalendarState(&checked);
                 if(!valid ||
-                   checked.today.year!=july.year ||
-                   checked.today.month!=7u || checked.today.day!=1u) {
+                   checked.today.year!=boundary.year ||
+                   checked.today.month!=boundary.month ||
+                   checked.today.day!=boundary.day) {
                     fprintf(stderr,"[og-manual-season] CLOCK_DATE_MISMATCH "
-                        "expected=%04u-07-01 actual=%04u-%02u-%02u "
+                        "expected=%04u-%02u-%02u actual=%04u-%02u-%02u "
                         "native-year=%lu action=BLOCK_NEW_CAR\n",
-                        (unsigned)july.year,
+                        (unsigned)boundary.year,
+                        (unsigned)boundary.month,(unsigned)boundary.day,
                         valid?(unsigned)checked.today.year:0u,
                         valid?(unsigned)checked.today.month:0u,
                         valid?(unsigned)checked.today.day:0u,
@@ -3066,10 +3049,14 @@ void ContinueCareerNextSeason(void)
                 if(bindOk) {
                     extern int Expanded_OGWorld_PositionClubCalendar(
                         uint16_t,ExpandedWorldDate);
-                    if(!Expanded_OGWorld_PositionClubCalendar(local,july))
+                    if(!Expanded_OGWorld_PositionClubCalendar(local,boundary)) {
+                        /* Prevent new CAR if Bolivia manager has no
+                         * validated OG calendar projection yet. */
+                        if(boliviaJanuary)bindOk=0;
                         fprintf(stderr,"[og-manual-season] CALENDAR_NEEDS_AUDIT "
                                        "world=%s year=%lu\n",
                                 World_Tag(),(unsigned long)year);
+                    }
                 }
             }
             const Uint64 t3=SDL_GetPerformanceCounter();

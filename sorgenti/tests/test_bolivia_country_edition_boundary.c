@@ -18,6 +18,14 @@ int main(void)
     const ExpandedWorldDate jan17={2027u,1u,17u};
     const ExpandedWorldDate june30={2027u,6u,30u};
     /* Historical first entry is Apr 3, 2026; next edition opens Jan15. */
+    /* The first Bolivia country edition is an explicit 2026 exception:
+     * ALL original OG contests expire 14 Jan 2027, not 30 June.
+     * Its successor starts Jan15 with a clean resident ONLY after OG
+     * league+groups+KO prove finished (tested in separate native proof). */
+    assert(ExpandedCountrySeason_SpecialDates(
+        (ExpandedWorldDate){2026u,4u,3u},
+        (ExpandedWorldDate){2027u,1u,14u},&start,&expiry));
+    assert(same(expiry,2027u,1u,14u));
     assert(ExpandedCountrySeason_AnnualDates(2027u,cycle,&start,&expiry));
     assert(same(start,2027u,1u,15u));
     assert(same(expiry,2028u,1u,14u));

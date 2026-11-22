@@ -15,6 +15,8 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_live.h"
 #include "career_status.h"
+#include "expanded_country_season_year.h"
+#include "expanded_country_season_baked.h"
 #include "expanded_bolivia_event_registry.h"
 #include "expanded_bolivia_career_action.h" /* visual action date: never match executor */
 #include "expanded_bolivia_career_offer_gate.h" /* optional offers cannot stop employed */
@@ -904,13 +906,103 @@ static int exp_career_july_plan(ExpandedWorldDate *target,
 }
 void Expanded_BoliviaManagerPrepareMenu(void);
 void Expanded_CareerJulyForward(MenuEntry *entry);
+/* RG-014: a FINISHED MANAGER KEYCACHE is NOT a finished COUNTRY.
+ * Keep the career's real contest menu and real OG native executor. This
+ * reader projects ONE next weekly free-time tick from the SAME world
+ * clock, even after the last local match. No new fixture/TSKC entry.
+ * 0=not owned, 1=weekly FORWARD, 2=native country FINISH, -1=BLOCK. */
+static int exp_employed_country_free_week(ExpandedWorldDate *next,
+                                          ExpandedLiveCalendarState *live)
+{
+    extern uint16_t _selTeamNumber,_currentDivisionIndex;
+    extern uint16_t _currentSeasonShowing,_youreSacked;
+    extern volatile uint16_t _seasonUpdateInProgress;
+    extern uint16_t _teamNoOfferAccepted;
+    extern DIYCompetitionEx _diyCompetitionStart;
+    extern int Expanded_OGWorld_ClubBound(void);
+    extern int Expanded_OGWorld_BoliviaNativeEndReady(uint16_t);
+    extern int Expanded_CompetitionCoordinator_RecoveryRequired(void);
+    if(_gameType!=4 || s_active || _selTeamNumber==0xffffu ||
+       _youreSacked || _seasonUpdateInProgress ||
+       _teamNoOfferAccepted!=0xffffu ||
+       (!_careerFinished && !_seasonFinished))return 0;
+    if(!next || !live || !ExpandedWorldLive_Clubs() ||
+       !ExpandedWorldLive_CalendarState(live) ||
+       !Expanded_OGWorld_ClubBound() ||
+       Expanded_CompetitionCoordinator_RecoveryRequired() ||
+       !Expanded_OGWorld_ManagerLeagueFinished(&_diyCompetitionStart))
+        return -1;
+    const uint32_t edition=(uint32_t)World_FirstYear()+
+                            (uint32_t)_currentSeasonShowing;
+    if(edition>2199u)return -1;
+    const uint8_t country=World_FileCountry(
+        (uint8_t)(_selTeamNumber>>8));
+    ExpandedCountrySeasonCycle cycle={7u,1u,6u,30u};
+    ExpandedWorldDate start={0},expiry={0};
+    if(World_Current()==WORLD_2627 &&
+       (!ExpandedCountrySeason_Baked2627(country,&cycle) ||
+        (country==73u && edition==2027u)))return -1;
+    const int datesOk=(World_Current()==WORLD_2627 &&
+                        country==45u && edition==World_FirstYear())?
+        ExpandedCountrySeason_SpecialDates(
+            (ExpandedWorldDate){(uint16_t)edition,4u,3u},
+            (ExpandedWorldDate){(uint16_t)(edition+1u),1u,14u},
+            &start,&expiry):
+        ExpandedCountrySeason_AnnualDates((uint16_t)edition,
+                                          cycle,&start,&expiry);
+    int32_t now=0,expires=0,target=0;
+    if(!datesOk || !ExpandedWorld_DateToIndex(live->today,&now) ||
+       !ExpandedWorld_DateToIndex(expiry,&expires) ||
+       now<0 || expires<now-366 || _currentDivisionIndex>15u)
+        return -1;
+    if(now>=expires) {
+        /* TYPE-0 flag is not Bolivia's OG end proof: match table 240
+         * + COPA 64 + KO 14 all must be certified at Jan 14. Other
+         * countries retain the OG local-league finish gate pending
+         * their native country-wide proof in the Competition Engine. */
+        if(World_Current()==WORLD_2627 && country==45u &&
+           !Expanded_OGWorld_BoliviaNativeEndReady((uint16_t)edition))
+            return -1;
+        return 2;
+    }
+    if(!ExpandedWorld_NextSundayOrFixture(live->today,0,
+               (ExpandedWorldDate){0},next) ||
+       !ExpandedWorld_DateToIndex(*next,&target))return -1;
+    if(target>expires && !ExpandedWorld_IndexToDate(expires,next))
+        return -1;
+    fprintf(stderr,"[career-country-free-week] PLAN "
+        "world=%s club=%04x country=%u edition=%u "
+        "today=%04u-%02u-%02u to=%04u-%02u-%02u "
+        "expiry=%04u-%02u-%02u manager-TSKC=FINISHED OG-only=1\n",
+        World_Tag(),(unsigned)_selTeamNumber,(unsigned)country,
+        (unsigned)edition,(unsigned)live->today.year,
+        (unsigned)live->today.month,(unsigned)live->today.day,
+        (unsigned)next->year,(unsigned)next->month,
+        (unsigned)next->day,(unsigned)expiry.year,
+        (unsigned)expiry.month,(unsigned)expiry.day);
+    return 1;
+}
 /* Preserve OG ContestSetButtons/PlayMatchMenu/NextMatch exactly as the
  * career menu defines them. The special July button rewrite was not requested
  * and must not disable PLAY MATCH or replace NEXT MATCH with FORWARD TIME.
  * Keep only the already-existing Bolivia match-date routing here. */
 void Expanded_CareerJulyPrepareMenu(void)
 {
+    extern MenuEntry _menuEntries[];
+    static const char kForward[]="FORWARD TIME";
+    static const char kPending[]="OG PENDING";
     Expanded_BoliviaManagerPrepareMenu();
+    ExpandedWorldDate target;
+    ExpandedLiveCalendarState live;
+    const int free=exp_employed_country_free_week(&target,&live);
+    if(free==1) {
+        _menuEntries[7].fg=(uintptr_t)kForward;
+        _menuEntries[7].isInvisible=0;
+        _menuEntries[7].isDisabled=0;
+    } else if(free<0) {
+        _menuEntries[7].fg=(uintptr_t)kPending;
+        _menuEntries[7].isDisabled=1;
+    }
 }
 /* Compatibility entrypoint: the native OG menu is never intercepted for July.
  * Keeping the symbol avoids breaking any older external test harness. */
@@ -1180,6 +1272,42 @@ int Expanded_BoliviaCareerForwardIntercept(MenuEntry *entry,unsigned ordinal)
     extern void ContestMenuOnReturn(void);
     extern void DrawMenu(void);
     if(ordinal!=7u || _currentMenuPtr!=(uintptr_t)_contestMenu)return 0;
+    /* Called BEFORE legacy PlayMatchMenu's _seasonFinished gate.
+     * Do not invoke ContinueCareer to jump December -> June in one click. */
+    {
+        ExpandedWorldDate target;
+        ExpandedLiveCalendarState before,after;
+        const int free=exp_employed_country_free_week(&target,&before);
+        if(free<0) {
+            fprintf(stderr,"[career-country-free-week] BLOCK "
+                "reason=NATIVE_COUNTRY_END_NOT_VERIFIED "
+                "prior-CAR-preserved=1\n");
+            return 1;
+        }
+        if(free==1) {
+            extern int Expanded_CompetitionCoordinator_Advance(
+                ExpandedWorldDate,const char *);
+            int32_t expected=0,actual=0;
+            _fireResetFlag=1;
+            if(!ExpandedWorld_DateToIndex(target,&expected) ||
+               !Expanded_CompetitionCoordinator_Advance(
+                   target,"CAREER_COUNTRY_WEEKLY_FORWARD") ||
+               !ExpandedWorldLive_CalendarState(&after) ||
+               !ExpandedWorld_DateToIndex(after.today,&actual) ||
+               actual!=expected) {
+                fprintf(stderr,"[career-country-free-week] FAILED "
+                    "reason=NATIVE_TICK_OR_CLOCK prior-CAR-preserved=1\n");
+                return 1;
+            }
+            if(!Expanded_AutoCareer_SaveChecked("career-country-week"))
+                fprintf(stderr,"[career-country-free-week] SAVE_BLOCKED "
+                    "prior-CAR-preserved=1\n");
+            ContestMenuOnReturn();
+            SetCurrentEntry(7u);
+            DrawMenu();
+            return 1;
+        }
+    }
     ExpandedWorldDate due;
     ExpandedLiveCalendarState live;
     int cup=0;

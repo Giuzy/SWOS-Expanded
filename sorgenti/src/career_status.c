@@ -66,6 +66,7 @@ extern CompetitionCup _uefaCup;
 #include "bolivia_cup_sequence.h"
 #include "bolivia_cup_knockout.h" /* First-edition 4 groups and interseries fixture identities */
 #include "expanded_bolivia_event_registry.h" /* civil-only Bolivia date template/registry */
+#include "bolivia_og_league_completion.h" /* read-only OG 16x30 standings proof */
 #include "expanded_bolivia_modal_invariants.h"
 #include "expanded_bolivia_ko_modal_invariants.h" /* original OG per-event checks */
 #include "bolivia_manager_offset_gate.h" /* actual CPU/manager offset contract */
@@ -5522,6 +5523,30 @@ static int exp_og_yearend_league(uint8_t *record,uint16_t division)
  * ONLY authority that previous matches and the final are complete.
  * This reader changes neither OG score nor saved competition identity. */
 extern int Expanded_OGWorld_CountryWindowAllowsNext(uint8_t,uint16_t);
+/* The native TYPE-0 league may have finished every OG fixture without
+ * setting the TYPE-1 cup flag 'competitionFinished'. In Bolivia the 2026
+ * programme is a known 16-team, two-leg, 30-game native league. Prove
+ * completion from the ACTUAL OG scoreboard and selected-team identities,
+ * not from a July manager year, a simulated table or a guessed winner. */
+static int exp_og_bolivia_native_league_complete(const ExpandedOGLeague *old)
+{
+    if(!old || !old->used || old->country!=45u ||
+       old->division!=0u || old->teamCount!=16u ||
+       old->comp.base.competitionType!=0 ||
+       old->comp.base.numTeams!=16)return 0;
+    BoliviaOGLeagueProofRow rows[BOLIVIA_OG_LEAGUE_TEAMS];
+    for(unsigned i=0;i<BOLIVIA_OG_LEAGUE_TEAMS;++i) {
+        DIYTeamStats native;
+        memcpy(&native,&old->comp.leagueStandings[i],sizeof native);
+        rows[i]=(BoliviaOGLeagueProofRow){
+            native.teamSelOffset,native.gamesPlayed,
+            native.wins,native.draws,native.losses,
+            native.goalsFor,native.goalsAgainst
+        };
+    }
+    return BoliviaOGLeague_CompletedFromOG(
+        old->teamCount,(unsigned)old->comp.matchesPlayedCount,rows);
+}
 int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
                                    uint8_t division,uint16_t year,
                                    uint8_t phase) {
@@ -5531,23 +5556,34 @@ int Expanded_OGWorld_AdvanceLeague(uint8_t *record,uint8_t country,
     if(!ctx && year>World_FirstYear()) {
         const ExpandedOGLeague *old=exp_find(
             country,division,(uint16_t)(year-1u));
-        if(!Expanded_OGWorld_CountryWindowAllowsNext(country,year) ||
-           !old || !old->used ||
-           !old->comp.base.competitionFinished ||
-           !old->comp.matchesPlayedCount) {
+        const int boliviaNative=(World_Current()==WORLD_2627 &&
+            country==45u && division==0u);
+        const int leagueFinished=old && old->used &&
+            (boliviaNative?
+                exp_og_bolivia_native_league_complete(old):
+                (old->comp.base.competitionFinished!=0 &&
+                 old->comp.matchesPlayedCount!=0u));
+        const int expiryPassed=
+            Expanded_OGWorld_CountryWindowAllowsNext(country,year);
+        if(!expiryPassed || !leagueFinished) {
             fprintf(stderr,"[og-edition-gate] PENDING league "
                 "country=%u div=%u next=%u previous=%u "
-                "expiry-or-OG-finish=NOT_CONFIRMED preserve-old=1\n",
+                "expiry-passed=%d native-OG-finished=%d "
+                "old-played=%u old-type0-flag=%u "
+                "preserve-old=1\n",
                 (unsigned)country,(unsigned)division,(unsigned)year,
-                (unsigned)(year-1u));
+                (unsigned)(year-1u),expiryPassed,leagueFinished,
+                old?(unsigned)old->comp.matchesPlayedCount:0u,
+                old?(unsigned)old->comp.base.competitionFinished:0u);
             return -1;
         }
         fprintf(stderr,"[og-edition-gate] OPEN league "
             "country=%u div=%u previous=%u new=%u "
-            "previous-OG=FINISHED country-expiry=PASSED "
+            "previous-OG=%s country-expiry=PASSED "
             "new-matches=INIT_ZERO\n",
             (unsigned)country,(unsigned)division,
-            (unsigned)(year-1u),(unsigned)year);
+            (unsigned)(year-1u),(unsigned)year,
+            boliviaNative?"NATIVE_16x30_VERIFIED":"FINISHED");
     }
     if(ctx && !ctx->used && ctx->lastMatch==0xfeu)
         return -1; /* a diagnosed native record mismatch: never retry/panic */
@@ -6231,6 +6267,20 @@ static int exp_bolivia_dispatch_native(uint16_t year,uint8_t phase)
  * ExpandedOGCup. Never turn the 64-game group league into a fake 65th game.
  * The existing OG cup functions own all 14 scores, tie winners and trophy. */
 static ExpandedOGCup *exp_cup_find(uint8_t,uint8_t,uint16_t);
+/* Read-only end-of-edition gate at the CIVIL 14 January. The new edition
+ * can be opened on the 15th only after all three ORIGINAL OG residents
+ * (Division, 64 Copa groups and 14 KO matches) have finished. Keeping
+ * the previous contexts is intentional: scores and champions survive. */
+int Expanded_OGWorld_BoliviaNativeEndReady(uint16_t year)
+{
+    const ExpandedOGLeague *league=exp_find(45u,0u,year);
+    const ExpandedOGCup *ko=exp_cup_find(45u,2u,year);
+    return exp_og_bolivia_native_league_complete(league) &&
+        s_expOGBolivia.used && s_expOGBolivia.year==year &&
+        s_expOGBolivia.comp.matchesPlayedCount==64u &&
+        ko && ko->used && ko->matchesPlayed==BOLIVIA_KO_FIXTURES &&
+        ko->comp.base.competitionFinished;
+}
 extern uint16_t DIY_PlayCupMatchAndAdvance(int16_t,int16_t);
 extern void DIY_UpdateCompetitionProgress(void);
 static int exp_bolivia_ko_seed(const ExpandedOGLeague *group,

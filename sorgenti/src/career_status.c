@@ -10360,7 +10360,8 @@ static int exp_og_view_exact_league(ExpandedOGLeague *ctx,
     if(!valid) {
         fprintf(stderr,"[og-world-view] MISSING/INVALID id=%u div=%u "
                        "matches=%u teams=%u n=%u\n",
-                (unsigned)wanted->compId,(unsigned)division,idMatches,
+                (unsigned)wanted->compId,(unsigned)division,
+                ctx?(unsigned)ctx->comp.matchesPlayedCount:0u,
                 ctx?(unsigned)ctx->teamCount:0u,n);
         ShowErrorMenu(unavailable);
         return 0;

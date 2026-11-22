@@ -21,7 +21,8 @@ run_one() {
     case "$name" in
         run_test_expanded_event_scheduler|run_test_expanded_competition_history|\
         run_test_expanded_og_cache_match|run_test_expanded_og_league_bridge|\
-        run_test_expanded_qualification_transition)
+        run_test_expanded_qualification_transition|\
+        run_test_expanded_universal_fixture_registry)
             scope="COMPETITION_ENGINE_ISOLATED" ;;
         run_test_expanded_f12_compare)
             scope="F12_READ_ONLY_ISOLATED" ;;
@@ -60,6 +61,7 @@ for script in sorgenti/tests/run_test*.sh sorgenti/tests/run_audit_competition_f
         run_test_expanded_competition_history.sh|run_test_expanded_og_cache_match.sh|\
         run_test_expanded_og_league_bridge.sh|\
         run_test_expanded_qualification_transition.sh|\
+        run_test_expanded_universal_fixture_registry.sh|\
         run_test_expanded_f12_compare.sh|run_test_save_car_zstd.sh|\
         run_test_expanded_og_fixture_hash.sh)
             run_one "$script" ;;

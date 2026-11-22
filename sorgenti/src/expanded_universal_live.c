@@ -11,6 +11,7 @@
 #include "expanded_world_live.h"
 #include "play_match_menu.h"
 #include "world.h"
+extern uint16_t _quitToDos; /* SDL close: do not durably claim another match */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -210,6 +211,13 @@ int ExpandedUniversalLive_Advance(ExpandedWorldDate target)
                 (unsigned long long)f->event_id,
                 (unsigned)day.year,(unsigned)day.month,(unsigned)day.day);
             return 1;
+        }
+        /* A Windows close during a long CPU batch must not start/CLAIM
+         * the NEXT fixture after the quit request was already observed. */
+        if(_quitToDos) {
+            fprintf(stderr,"[universal-live] CPU_BATCH_EXIT_REQUESTED "
+                "before-next-claim=1 preserved-CAR=1 no-replay=1\n");
+            return 0;
         }
         if(run_match(f,0)!=EXP_UNIVERSAL_OK) {
             r->recovery_required=1u;

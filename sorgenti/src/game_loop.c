@@ -1000,6 +1000,10 @@ GameLoop(void)
 
 end_of_match_flow:
 #ifdef SWOS_SDL_BUILD
+    /* A genuine original OG 50Hz match reached its native finish label.
+     * Only the universal match adapter consumes this positive witness;
+     * quits, cancel and early window closure use cleanup_and_return. */
+    ExpandedUniversal_NativeMarkMatchCompleted();
     { extern void ReplayRec_MatchEnd(void); ReplayRec_MatchEnd(); }
 #endif
     FadeOutToBlack();

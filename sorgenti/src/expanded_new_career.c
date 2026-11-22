@@ -494,7 +494,18 @@ static void action(int row,int direction){
   if(direction){_controlMask=direction<0?0x40:0x80;Expanded_ChangeManagerFame(e);}
   break;
  case 7:if(!direction)s_unemployed=!s_unemployed;break;
- case 8:if(!direction&&ready())ChooseTeamAndStartCareer();break;
+ case 8:
+  if(!direction&&ready()) {
+   /* START opens another (unemployed/club) menu synchronously. Consume
+    * this confirmation BEFORE entering the child ShowMenu: otherwise the
+    * still-held START fire can immediately select its FORWARD TIME row
+    * and start CPU matches without a separate user action. */
+   _fireResetFlag=1;
+   s_previous_fire=1;
+   fprintf(stderr,"[new-career] START_CONFIRM_CONSUMED before-child-menu=1 no-auto-forward=1\n");
+   ChooseTeamAndStartCareer();
+  }
+  break;
  case 9:if(!direction)debug_switch_world();break;
  }
  _fireResetFlag=1;s_previous_fire=1;

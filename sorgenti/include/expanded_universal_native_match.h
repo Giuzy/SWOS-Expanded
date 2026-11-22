@@ -26,6 +26,10 @@ typedef struct ExpandedUniversalNativeMatch {
  * Skip the stadium UI and input capture only in that scope; manager games,
  * all legacy modes and replay keep their original UI and pacing. */
 int ExpandedUniversal_NativeCpuSilent(void);
+/* GameLoop calls this ONLY at its genuine end_of_match_flow label.
+ * A forced SDL window close / aborted frame must not certify OG results,
+ * even if the previous match's cached score equals current counters. */
+void ExpandedUniversal_NativeMarkMatchCompleted(void);
 /* Canonical identity from actual team bytes, including second-country files.
  * A fixture's stable_club is (original-country << 16) | (slot + 1).
  * This is independent of manager employment and old TSKC/phase.

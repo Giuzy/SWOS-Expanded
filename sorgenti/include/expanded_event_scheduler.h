@@ -144,7 +144,10 @@ static inline ExpandedEventResult ExpandedEventScheduler_Next(
         *due=e;
         return EXP_EVENT_DUE;
     }
-    s->pending_hint=s->count;
+    /* If the first pending event lies AFTER target_day, retain its cursor.
+     * Setting hint=count here loses all future fixtures after a quiet date.
+     * Only exhaustion of the actual event array permits hint=count. */
+    s->pending_hint=i;
     s->clock.day_index=target_day;
     return EXP_EVENT_EMPTY;
 }

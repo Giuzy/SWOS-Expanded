@@ -17,10 +17,13 @@ for %%B in ("%~dp0*.bat") do (
 )
 if exist "%~dp0SWOS.log" if not exist "%~dp0diagnostica\log\SWOS_PRE_MIGRAZIONE.log" move "%~dp0SWOS.log" "%~dp0diagnostica\log\SWOS_PRE_MIGRAZIONE.log" >nul
 
-REM Compila sempre i sorgenti locali prima di avviare il gioco.
-REM make ricompila solo i file modificati.
+REM La diagnostica puo separare COMPILA e AVVIA senza ricompilare al CONTINUE.
+REM Fuori dalla diagnostica il percorso originale compila e avvia normalmente.
+if "%SWOS_DIAGNOSTIC_RUN_ONLY%"=="1" goto :prerequisiti
 call "%~dp0diagnostica\PREPARA_SWOS.bat"
 if errorlevel 1 goto :errore
+
+:prerequisiti
 
 if not exist "SWOS_Expanded.exe" (
   echo ERRORE: SWOS_Expanded.exe non e stato generato.
@@ -33,6 +36,12 @@ if not exist "SDL2.dll" (
 if not exist "data\TEAM.008" (
   echo ERRORE: dati delle squadre mancanti.
   goto :errore
+)
+
+REM La compilazione validata termina qui: NON avviare il gioco.
+if "%SWOS_DIAGNOSTIC_BUILD_ONLY%"=="1" (
+  echo [DIAGNOSTICA] BUILD_ONLY completato: EXE e prerequisiti presenti.
+  exit /b 0
 )
 
 if exist "%~dp0diagnostica\CONFIGURA_4K.ps1" powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0diagnostica\CONFIGURA_4K.ps1"
@@ -52,6 +61,7 @@ if "%SWOS_DIAGNOSTIC_SESSION%"=="1" (
   echo [DIAGNOSTICA] Avvio dopo compilazione, attesa chiusura per raccogliere i log.
   start "" /WAIT /D "%~dp0" "%~dp0SWOS_Expanded.exe" --fullscreen=off
   if errorlevel 1 goto :errore_avvio
+  if not errorlevel 0 goto :errore_avvio
   exit /b 0
 )
 REM Avvio indipendente: il gioco continua mentre questa finestra CMD si chiude.
@@ -62,7 +72,7 @@ exit /b 0
 
 :errore_avvio
 echo.
-echo ERRORE: impossibile avviare SWOS_Expanded.exe.
+echo ERRORE: avvio o esecuzione SWOS_Expanded.exe terminati in modo anomalo.
 echo Controlla SWOS.log nella cartella della sessione diagnostica.
 if not "%SWOS_DIAGNOSTIC_SESSION%"=="1" pause
 exit /b 1

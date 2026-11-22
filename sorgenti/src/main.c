@@ -1507,6 +1507,16 @@ int main(int argc, char **argv)
     MatchReport_Flush(5000);        /* a match report still on its way to the server */
     Platform_Shutdown();
     SDL_Quit();
+
+    /* Diagnostic runner: only a fully completed normal shutdown permits
+     * the next-process CONTINUE test. In particular, Windows "Not responding
+     * -> Close program", task termination and a crash cannot write this final
+     * sentinel. An exit code of zero by itself is not a sufficient witness.
+     * Keep the marker AFTER the original game/SDL shutdown, not before it. */
+    if (getenv("SWOS_DIAGNOSTIC_SESSION") != NULL) {
+        fprintf(stderr, "[diagnostic] CLEAN_SHUTDOWN_COMPLETED=1\n");
+        fflush(stderr);
+    }
     return 0;
 }
 

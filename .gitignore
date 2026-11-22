@@ -49,3 +49,10 @@ RAPPORTO_PULIZIA_SWOS.txt
 # Screenshot diagnostici occasionali: non confondere con asset approvati.
 /docs/ChatGPT Image*.png
 /docs/Screenshot *.png
+
+# Test-generated competition audit belongs under docs/generated, never project root.
+/COMPETITION_FORMAT_AUDIT.csv
+/docs/generated/
+
+# Diagnostic session folders accumulate logs and CAR copies; never version them.
+/diagnostica/RISULTATI_DIAGNOSTICI/

@@ -6,6 +6,8 @@ cd "$(dirname "$0")/../.."
 CC=gcc
 DIR="$(mktemp -d)"
 trap 'rm -rf "$DIR"' EXIT
+# Separate generated audit from tracked docs and the game root.
+mkdir -p docs/generated
 "$CC" -std=c11 -O2 -Wall -Wextra -Werror -DSWOS_SDL_BUILD -I sorgenti/include \
     -Wno-unused-but-set-variable -DMJSON_REALLOC=realloc -include stdlib.h \
     -c sorgenti/src/mjson.c -o "$DIR/mjson.o"

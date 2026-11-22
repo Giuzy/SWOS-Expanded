@@ -34,6 +34,7 @@ if exist "%SWOS_LIVE_LOG%" (
  move /Y "%SWOS_LIVE_LOG%" "%SESSION%\LOG_PRECEDENTI\SWOS_PRE_SESSIONE_DIAGNOSTICA.log" >nul
  if exist "%SWOS_LIVE_LOG%" (
   echo [ERRORE] Log precedente non archiviabile.
+  pause
   exit /b 2
  )
 )
@@ -49,7 +50,7 @@ for /f "delims=" %%H in ('git rev-parse --verify HEAD 2^>nul') do set "REVISION=
  echo SESSIONE=%SESSION_NAME%
  echo DATA_INIZIO=%DATE% %TIME%
  echo MOTORE_CARRIERA=CE_JSON_2627_OG_SOLO_50HZ
- echo Una compilazione, due processi gioco distinti (solo dopo chiusura regolare), audit e ZIP.
+ echo Una compilazione, due processi gioco distinti SOLO dopo chiusura regolare, audit e ZIP.
  echo Tutti i test isolated hanno log separato nella cartella TEST_ESEGUITI.
  echo Il test reale F12+8 / 70 stagioni richiede sempre gameplay Windows.
  echo PASS dei test legacy non equivale al PASS del gameplay OG.
@@ -244,9 +245,9 @@ set "STRESS_EXIT=!ERRORLEVEL!"
 call "%~dp0diagnostica\TEST_OG_CUPS_SCORERS.bat" > "%SESSION%\TEST_OG_CUPS_SCORERS_DRIVER.log" 2>&1
 set "CUPS_EXIT=!ERRORLEVEL!"
 > "%SESSION%\TEST_LIVING_WORLD_ALIAS.txt" echo TEST_LIVING_WORLD.bat = TEST_OG_WORLD.bat: already executed once.
-if exist "docs\reference\COMPETITION_FORMAT_AUDIT.csv" (
+if exist "docs\generated\COMPETITION_FORMAT_AUDIT.csv" (
  if not exist "%SESSION%\TEST_ESEGUITI" mkdir "%SESSION%\TEST_ESEGUITI"
- copy /Y "docs\reference\COMPETITION_FORMAT_AUDIT.csv" "%SESSION%\TEST_ESEGUITI\COMPETITION_FORMAT_AUDIT.csv" >nul
+ copy /Y "docs\generated\COMPETITION_FORMAT_AUDIT.csv" "%SESSION%\TEST_ESEGUITI\COMPETITION_FORMAT_AUDIT.csv" >nul
 )
 
 set "RESULT=0"

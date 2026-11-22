@@ -14,10 +14,9 @@
 #define BUILD_INFO_H
 
 /* Single source of truth for the user-facing release/build number. */
-/* Next diagnostic build: same universal fixture engine, two-process
- * Windows diagnostic with compile gate and clean shutdown sentinel.
- * No claims of certified OG50Hz CPU/manager gameplay or CAR CONTINUE yet. */
-#define SWOS_EXPANDED_VERSION "00.13.262"
+/* Diagnostic CMD parser fix and competition audit output relocation.
+ * Engine remains original v262; Windows compile/gameplay of v263 untested. */
+#define SWOS_EXPANDED_VERSION "00.13.263"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

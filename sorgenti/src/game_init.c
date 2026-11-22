@@ -8,6 +8,9 @@
 #include <stdlib.h>
 #endif
 #include "game_init.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_universal_native_match.h" /* silent CPU OG 50Hz scope only */
+#endif
 #include "league_phase.h"
 #include "dos_gameplay.h"   /* ApplyGameStyle — DOS/Amiga match tuning */
 #include "endian_helpers.h"
@@ -1119,7 +1122,13 @@ void InitializeInGameTeamsAndStartGame(int16_t randomizePitch, int16_t minSubs,
          * dress the side differently here than there. */
         if (NetplayMatch_Enabled())
             Uniform_Clear();
-        chosen = Uniform_Kits(team1, team2, &kit1, &kit2);
+        if(ExpandedUniversal_NativeCpuSilent()) {
+            /* The original OG match still needs kits, not a player-facing
+             * uniform-choice menu for a fixture without a human manager. */
+            kit1=*team1;kit2=*team2;chosen=0;
+        } else {
+            chosen = Uniform_Kits(team1, team2, &kit1, &kit2);
+        }
         SetTeamSecondaryColors((uint16_t)kit1.prShirtType, kit1.prStripesColor,
             kit1.prBasicColor, kit1.prShortsColor, kit1.prSocksColor, &_topTeamInGame);
         SetTeamSecondaryColors((uint16_t)kit2.prShirtType, kit2.prStripesColor,
@@ -1220,26 +1229,39 @@ void InitializeInGameTeamsAndStartGame(int16_t randomizePitch, int16_t minSubs,
         StopMusic();
     }
 
-    /* Show stadium menu */
+    /* Computer-only fixtures still execute the unmodified original
+     * ShowMatchSequence -> GameLoop_Frame 50 Hz gameplay. They must not
+     * open an interactive stadium menu or wait 150 PRESENTED frames. */
 #ifdef SWOS_SDL_BUILD
-    fprintf(stderr, "[match-diag05] before ShowMenu(_stadiumMenu)\n"); fflush(stderr);
+    if(!ExpandedUniversal_NativeCpuSilent()) {
 #endif
-    ShowMenu(_stadiumMenu);
-#ifdef SWOS_SDL_BUILD
-    fprintf(stderr, "[match-diag05] after ShowMenu(_stadiumMenu)\n"); fflush(stderr);
-#endif
-
-    /* Wait 150 frames (~3 seconds at 50Hz). Original was a busy spin on
-     * currentGameTick; on SDL that starves the timer thread on WSL2 and
-     * the wait can hang indefinitely (caught by user with SIGINT). Use
-     * WaitForVSync so the main thread yields each frame and pumps
-     * events / audio. */
-    {
-        int16_t i;
-        for (i = 0x95; i >= 0; i--) {
-            WaitForVSync();
+        /* Show stadium menu */
+    #ifdef SWOS_SDL_BUILD
+        fprintf(stderr, "[match-diag05] before ShowMenu(_stadiumMenu)\n"); fflush(stderr);
+    #endif
+        ShowMenu(_stadiumMenu);
+    #ifdef SWOS_SDL_BUILD
+        fprintf(stderr, "[match-diag05] after ShowMenu(_stadiumMenu)\n"); fflush(stderr);
+    #endif
+    
+        /* Wait 150 frames (~3 seconds at 50Hz). Original was a busy spin on
+         * currentGameTick; on SDL that starves the timer thread on WSL2 and
+         * the wait can hang indefinitely (caught by user with SIGINT). Use
+         * WaitForVSync so the main thread yields each frame and pumps
+         * events / audio. */
+        {
+            int16_t i;
+            for (i = 0x95; i >= 0; i--) {
+                WaitForVSync();
+            }
         }
+    
+#ifdef SWOS_SDL_BUILD
+    } else {
+        fprintf(stderr,"[universal-native] CPU_STADIUM_SKIPPED "
+                       "50HZ_PHYSICS_UNCHANGED\n");
     }
+#endif
 
     _deadVarAlways0 = 0;
     _gameLengthInGame = _gameLength;

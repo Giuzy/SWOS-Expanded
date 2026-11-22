@@ -12,6 +12,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 enum { EXP_CAR_HEX_HEAD=24, EXP_CAR_HEX_ROW=134, EXP_CAR_HEX_CRC=8 };
 typedef struct ExpandedCarWorld {
@@ -106,19 +107,39 @@ static uint32_t exp_car_hash(const char *text,size_t bytes)
     }
     return h;
 }
-static const ExpandedScheduledEvent *exp_car_event(
-    const ExpandedUniversalRegistry *r,uint64_t id)
+typedef struct ExpandedCarEventIndex {
+    uint64_t id;
+    const ExpandedScheduledEvent *event;
+} ExpandedCarEventIndex;
+static int exp_car_event_index_cmp(const void *aa,const void *bb)
 {
-    uint32_t i;
-    for(i=0;i<r->scheduler.count;++i)
-        if(r->scheduler.events[i].id==id)return &r->scheduler.events[i];
-    return NULL;
+    const ExpandedCarEventIndex *a=(const ExpandedCarEventIndex *)aa,
+        *b=(const ExpandedCarEventIndex *)bb;
+    return a->id<b->id?-1:a->id>b->id?1:0;
+}
+static const ExpandedScheduledEvent *exp_car_event(
+    const ExpandedCarEventIndex *events,uint32_t count,uint64_t id)
+{
+    uint32_t lo=0u,hi=count;
+    while(lo<hi) {
+        const uint32_t mid=lo+(hi-lo)/2u;
+        if(events[mid].id<id)lo=mid+1u;
+        else hi=mid;
+    }
+    return lo<count && events[lo].id==id?events[lo].event:NULL;
+}
+static int exp_car_chrono_cmp(const void *aa,const void *bb)
+{
+    const ExpandedScheduledEvent *a=(const ExpandedScheduledEvent *)aa,
+        *b=(const ExpandedScheduledEvent *)bb;
+    return ExpandedEvent_Before(a,b)?-1:ExpandedEvent_Before(b,a)?1:0;
 }
 int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
 {
     ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
     size_t len;
     char *buf,*p;
+    ExpandedCarEventIndex *events=NULL;
     uint32_t i;
     int result;
     if(!output)return 0;
@@ -131,8 +152,19 @@ int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
     len=EXP_CAR_HEX_HEAD+(size_t)r->fixture_count*EXP_CAR_HEX_ROW+
         EXP_CAR_HEX_CRC;
     if(len>INT_MAX-1)return 0;
+#if SIZE_MAX < UINT64_MAX
+    if((size_t)r->scheduler.count>SIZE_MAX/sizeof *events)return 0;
+#endif
+    events=(ExpandedCarEventIndex *)malloc(
+        (size_t)r->scheduler.count*sizeof *events);
+    if(!events)return 0;
+    for(i=0;i<r->scheduler.count;++i)
+        events[i]=(ExpandedCarEventIndex){
+            r->scheduler.events[i].id,&r->scheduler.events[i]};
+    qsort(events,(size_t)r->scheduler.count,sizeof *events,
+          exp_car_event_index_cmp);
     buf=(char *)malloc(len+1u);
-    if(!buf)return 0;
+    if(!buf){free(events);return 0;}
     p=buf;
     memcpy(p,"UE01",4u);p+=4u;
     exp_hex_put(&p,r->world,4u);
@@ -140,11 +172,15 @@ int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
     exp_hex_put(&p,r->fixture_count,8u);
     for(i=0;i<r->fixture_count;++i) {
         const ExpandedUniversalFixture *f=&r->fixtures[i];
-        const ExpandedFixtureLedgerEntry *claim=
-            ExpandedFixtureLedger_Find(&r->ledger,f->key);
-        const ExpandedScheduledEvent *e=exp_car_event(r,f->event_id);
-        if(!claim || !e || e->kind!=EXP_EVENT_FIXTURE) {
-            free(buf);return 0;
+        const ExpandedFixtureLedgerEntry *claim=&r->ledger.entries[i];
+        const ExpandedScheduledEvent *e=exp_car_event(
+            events,r->scheduler.count,f->event_id);
+        /* All generated and restored UE01 payloads are aligned by row.
+         * An external nonaligned ledger fails closed, never picks a wrong
+         * result from another fixture. */
+        if(!ExpandedFixtureKey_Equal(claim->key,f->key) ||
+           !e || e->kind!=EXP_EVENT_FIXTURE) {
+            free(events);free(buf);return 0;
         }
         exp_hex_put(&p,f->event_id,16u);
         exp_hex_put(&p,e->requires_id,16u);
@@ -171,11 +207,12 @@ int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
         exp_hex_put(&p,e->priority,4u);
     }
     if((size_t)(p-buf)!=len-EXP_CAR_HEX_CRC) {
-        free(buf);return 0;
+        free(events);free(buf);return 0;
     }
     exp_hex_put(&p,exp_car_hash(buf,len-EXP_CAR_HEX_CRC),8u);
     *p=0;
     result=mjson_printf(output,user,",\n  %Q:%Q","universal_engine",buf);
+    free(events);
     free(buf);
     return result>0;
 }
@@ -273,19 +310,20 @@ static int exp_car_parse(const char *json,int size,
         f->home.world=world;f->away.world=world;
         claim->key=f->key;
         e.day_index=f->day_index;e.kind=EXP_EVENT_FIXTURE;
-        /* The serializer stores fixtures in edition order; events must
-         * still be in date/priority/id order for scheduler restore. */
-        {
-            uint32_t j=i;
-            while(j && ExpandedEvent_Before(&e,&candidate->events[j-1u])) {
-                candidate->events[j]=candidate->events[j-1u];
-                --j;
-            }
-            candidate->events[j]=e;
-        }
+        /* Order only once after decoding all rows. Insertion sorting each
+         * event made CAR restore quadratic for 27k scheduled fixtures. */
+        candidate->events[i]=e;
         if(claim->state==EXP_FIXTURE_CLAIMED)
             candidate->reg.recovery_required=1u;
     }
+    qsort(candidate->events,n,sizeof *candidate->events,
+          exp_car_chrono_cmp);
+    candidate->reg.fixtures_sorted_by_event=1u;
+    for(i=1u;i<n;++i)
+        if(candidate->fixtures[i-1u].event_id>=candidate->fixtures[i].event_id) {
+            candidate->reg.fixtures_sorted_by_event=0u;
+            break;
+        }
     if(!exp_hex_get(&p,end,8u,&crc) || p!=end ||
        (uint32_t)crc!=exp_car_hash(text,len-EXP_CAR_HEX_CRC) ||
        !ExpandedUniversal_ValidateRestore(&candidate->reg))
@@ -310,7 +348,22 @@ int ExpandedUniversal_CarRestore(const char *json,int size)
     if(world>=WORLD_COUNT ||
        !exp_car_parse(json,size,&candidate,&present))return 0;
     exp_car_clear(&s_worlds[world]);
-    if(present)s_worlds[world]=candidate;
+    if(present) {
+        uint32_t i,scheduled=0u,claimed=0u,completed=0u;
+        s_worlds[world]=candidate;
+        for(i=0;i<candidate.reg.ledger.count;++i) {
+            const ExpandedFixtureLedgerEntry *e=&candidate.ledger[i];
+            if(e->state==EXP_FIXTURE_SCHEDULED)++scheduled;
+            else if(e->state==EXP_FIXTURE_CLAIMED)++claimed;
+            else if(e->state==EXP_FIXTURE_PLAYED)++completed;
+        }
+        fprintf(stderr,"[universal-car] CONTINUE_RESTORED "
+            "world=%u scheduled=%lu claimed=%lu completed=%lu "
+            "recovery=%u replay=FORBIDDEN_ON_CLAIMED\n",
+            (unsigned)world,(unsigned long)scheduled,
+            (unsigned long)claimed,(unsigned long)completed,
+            (unsigned)candidate.reg.recovery_required);
+    }
     return 1;
 }
 /* The only permitted durable transaction boundary for this registry.
@@ -325,10 +378,16 @@ int ExpandedUniversal_CarSaveClaim(void *user,
     if(!r || r!=ExpandedUniversal_CarRegistry() || !f ||
        !ExpandedUniversal_ValidateRestore((ExpandedUniversalRegistry *)r))
         return 0;
-    entry=ExpandedFixtureLedger_Find(
-        (ExpandedFixtureLedger *)&r->ledger,f->key);
+    entry=ExpandedUniversal_EntryFor((ExpandedUniversalRegistry *)r,f);
     if(!entry || entry->state!=EXP_FIXTURE_CLAIMED)return 0;
-    return Expanded_AutoCareer_SaveChecked("universal-fixture-claimed");
+    {
+        const int ok=Expanded_AutoCareer_SaveChecked(
+            "universal-fixture-claimed");
+        if(ok)fprintf(stderr,"[universal-car] CLAIMED_PERSISTED "
+            "event=%llu replay=FORBIDDEN\n",
+            (unsigned long long)f->event_id);
+        return ok;
+    }
 }
 int ExpandedUniversal_CarSaveCompletion(void *user,
     const ExpandedUniversalRegistry *r,const ExpandedUniversalFixture *f,
@@ -349,8 +408,7 @@ int ExpandedUniversal_CarSaveCompletion(void *user,
        !ExpandedFixtureScore_Equal(proposal->witness.score,
                                     proposal->played.score))
         return 0;
-    entry=ExpandedFixtureLedger_Find(
-        (ExpandedFixtureLedger *)&r->ledger,f->key);
+    entry=ExpandedUniversal_EntryFor((ExpandedUniversalRegistry *)r,f);
     for(i=0;i<r->scheduler.count;++i)
         if(r->scheduler.events[i].id==f->event_id) {
             event=&r->scheduler.events[i];break;
@@ -373,6 +431,12 @@ int ExpandedUniversal_CarSaveCompletion(void *user,
     ok=ExpandedUniversal_ValidateRestore((ExpandedUniversalRegistry *)r);
     if(ok)ok=Expanded_AutoCareer_SaveChecked("universal-fixture-complete");
     *entry=saved;*event=old_event;
+    if(ok)fprintf(stderr,"[universal-car] COMPLETED_PERSISTED "
+        "event=%llu score=%u:%u state=COMPLETED "
+        "one-atomic-CAR=1\n",
+        (unsigned long long)f->event_id,
+        (unsigned)proposal->played.score.home,
+        (unsigned)proposal->played.score.away);
     return ok;
 }
 #endif

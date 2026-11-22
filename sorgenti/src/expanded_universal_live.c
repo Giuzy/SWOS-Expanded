@@ -12,6 +12,8 @@
 #include "play_match_menu.h"
 #include "world.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
 #include <string.h>
 extern TeamFileEx _careerTeam;
 extern uint16_t _gameType,_selTeamNumber;
@@ -42,11 +44,29 @@ int ExpandedUniversalLive_CanRestoreRosters(void)
             return 0;
     return 1;
 }
+/* Source fixtures may be grouped by country/league. Install once with
+ * indexed validation instead of O(N²) per-fixture Add/Schedule scans. */
+static int exp_catalog_event_cmp(const void *aa,const void *bb)
+{
+    const ExpandedUniversalCatalogFixture *const a=
+        *(const ExpandedUniversalCatalogFixture *const *)aa;
+    const ExpandedUniversalCatalogFixture *const b=
+        *(const ExpandedUniversalCatalogFixture *const *)bb;
+    return a->fixture.event_id<b->fixture.event_id?-1:
+           a->fixture.event_id>b->fixture.event_id?1:0;
+}
+static int exp_event_chrono_cmp(const void *aa,const void *bb)
+{
+    const ExpandedScheduledEvent *a=(const ExpandedScheduledEvent *)aa,
+        *b=(const ExpandedScheduledEvent *)bb;
+    return ExpandedEvent_Before(a,b)?-1:ExpandedEvent_Before(b,a)?1:0;
+}
 int ExpandedUniversalLive_Start(void)
 {
     ExpandedUniversalCatalogAudit a={0};
     ExpandedUniversalRegistry *r;
     uint32_t i,registered=0u,skipped=0u;
+    const ExpandedUniversalCatalogFixture **ordered=NULL;
     if(World_Current()!=WORLD_2627)return 1;
     if(!ExpandedUniversalCatalog_Audit(&a) || !a.sealed ||
        !a.future_fixtures) {
@@ -59,14 +79,52 @@ int ExpandedUniversalLive_Start(void)
         a.future_fixtures))return 0;
     r=ExpandedUniversal_CarRegistry();
     if(!r)return 0;
+#if SIZE_MAX < UINT64_MAX
+    if(a.fixtures && (size_t)a.fixtures>
+       SIZE_MAX/sizeof *ordered) {
+        ExpandedUniversal_CarResetCurrent();
+        return 0;
+    }
+#endif
+    ordered=(const ExpandedUniversalCatalogFixture **)malloc(
+        (size_t)(a.fixtures?a.fixtures:1u)*sizeof *ordered);
+    if(!ordered) {
+        ExpandedUniversal_CarResetCurrent();
+        return 0;
+    }
     for(i=0;i<a.fixtures;++i) {
         const ExpandedUniversalCatalogFixture *f=
             ExpandedUniversalCatalog_Fixture(i);
-        if(!f || f->past_at_start || f->date_collision ||
-           ExpandedUniversal_Add(r,f->fixture)!=EXP_UNIVERSAL_OK)
+        if(!f || f->past_at_start || f->date_collision) {
             ++skipped;
-        else ++registered;
+            continue;
+        }
+        if(registered>=r->fixture_capacity) {
+            free(ordered);ExpandedUniversal_CarResetCurrent();return 0;
+        }
+        ordered[registered++]=f;
     }
+    qsort(ordered,(size_t)registered,sizeof *ordered,exp_catalog_event_cmp);
+    for(i=0;i<registered;++i) {
+        const ExpandedUniversalFixture *f=&ordered[i]->fixture;
+        ExpandedFixtureLedgerEntry *claim=&r->ledger.entries[i];
+        ExpandedScheduledEvent *event=&r->scheduler.events[i];
+        r->fixtures[i]=*f;
+        memset(claim,0,sizeof *claim);
+        claim->key=f->key;
+        claim->state=EXP_FIXTURE_SCHEDULED;
+        *event=(ExpandedScheduledEvent){
+            f->event_id,0u,f->day_index,10u,EXP_EVENT_FIXTURE,
+            EXP_EVENT_PENDING};
+    }
+    free(ordered);ordered=NULL;
+    r->fixture_count=registered;
+    r->ledger.count=registered;
+    r->scheduler.count=registered;
+    r->fixtures_sorted_by_event=1u;
+    r->pending_hint=0u;
+    qsort(r->scheduler.events,(size_t)registered,
+          sizeof *r->scheduler.events,exp_event_chrono_cmp);
     if(!registered || !ExpandedUniversal_ValidateRestore(r)) {
         ExpandedUniversal_CarResetCurrent();
         fprintf(stderr,"[universal-live] REGISTRY_REJECTED no-CAR-write=1\n");

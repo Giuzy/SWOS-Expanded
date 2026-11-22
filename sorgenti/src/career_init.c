@@ -341,23 +341,14 @@ void ChooseTeamAndStartCareer(void)
                 (unsigned long)ExpandedWorldLive_Clubs(),
                 (unsigned long)ExpandedWorldLive_Leagues(),
                 (unsigned long)ExpandedWorldLive_Fixtures());
-        /* THE new career's OG world is initialized HERE, before any
-         * manager has chosen or accepted a team. */
+        /* Single START authority: 2627 never runs old OG season init.
+         * Universal calendar is initialized once before manager selection. */
         if(!Expanded_CompetitionCoordinator_Start()) {
             extern uint16_t _fireResetFlag;
-            fprintf(stderr,"[og-world] START FAILED: no native league "
-                           "contexts available; refusing empty career\n");
-            Expanded_CareerDiscardAbortedStart("og-start-failed");
-            _fireResetFlag=1;return;
-        }
-        /* Legacy init is compatibility only. The JSON calendar now owns
-         * the 2627 fixture registry before employment or unemployment. */
-        if(World_Current()==WORLD_2627 &&
-           !ExpandedUniversalLive_Start()) {
-            extern uint16_t _fireResetFlag;
-            fprintf(stderr,"[universal-live] START_BLOCKED "
-                "reason=NO_SAFE_JSON_REGISTRY old-CAR-preserved=1\n");
-            Expanded_CareerDiscardAbortedStart("universal-start-failed");
+            fprintf(stderr,"[competition-coordinator] START_BLOCKED "
+                "world=%s owner-initialization-failed old-CAR-preserved=1\n",
+                World_Tag());
+            Expanded_CareerDiscardAbortedStart("competition-start-failed");
             _fireResetFlag=1;return;
         }
     }
@@ -2213,6 +2204,20 @@ static int exp_coordinator_check(const char *operation,
 int Expanded_CompetitionCoordinator_Start(void)
 {
     s_expCoordinatorRecoveryRequired=0;
+    /* Old OG resident START used to simulate 4,993 league and 34 cup
+     * games BEFORE the JSON registry existed. In 2627 no old resident
+     * is initialized or advanced; OG is only the 50 Hz match executor. */
+    if(World_Current()==WORLD_2627) {
+        if(!ExpandedUniversalLive_Start() ||
+           !exp_coordinator_check("UNIVERSAL_START",NULL)) {
+            s_expCoordinatorRecoveryRequired=1;
+            return 0;
+        }
+        fprintf(stderr,"[competition-coordinator] START_READY "
+            "world=%s owner=UNIVERSAL_JSON old-OG-start=SKIPPED "
+            "old-OG-results=0 match-core=OG_50HZ_ONLY\n",World_Tag());
+        return 1;
+    }
     if(!Expanded_OGWorld_Start() ||
        !exp_coordinator_check("START",NULL)) {
         s_expCoordinatorRecoveryRequired=1;
@@ -2563,9 +2568,9 @@ int Expanded_CompetitionCoordinator_ValidateRestore(void)
     }
     s_expCoordinatorRecoveryRequired=0;
     fprintf(stderr,"[competition-coordinator] LOAD_READY "
-                   "world=%s season=%u resident=OG "
-                   "civil=EXPANDED no-replay=1\n",
-            World_Tag(),(unsigned)s_expOGWorldYear);
+                   "world=%s owner=%s civil=EXPANDED no-replay=1\n",
+            World_Tag(),ExpandedUniversalLive_Active()?
+            "UNIVERSAL_JSON":"OG_NATIVE");
     return 1;
 }
 

@@ -11,6 +11,9 @@
 
 #include "raster_bars.h"     /* -DRASTER_BARS: the frame's phases as colour bands */
 #include "game_loop.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_universal_native_match.h" /* CPU fixture input isolation */
+#endif
 #include "dos_sound.h"
 #include "game_types.h"
 #include "display.h"
@@ -682,6 +685,12 @@ GameFrameResult GameLoop_Frame(void)
 
     /* Read inputs and dispatch */
     GetKey();
+#ifdef SWOS_SDL_BUILD
+    /* A universal CPU/CPU fixture must not become controllable from
+     * leftover keyboard/controller state. Keep SDL window/QUIT pumping
+     * in Platform_VBlank but never dispatch game controls here. */
+    if(ExpandedUniversal_NativeCpuSilent())_currentKey=0;
+#endif
 #if MATCH_BACKGROUND_UNDRAW
     if (_currentKey != 0)
         BlitQueueDrain();
@@ -970,9 +979,13 @@ GameLoop(void)
     /* nullsub_2 — no-op */
     ReadTimerDelta();
 
-    /* Poll keys until clear */
+    /* Poll keys until clear; never block an unattended OG CPU match on
+     * a key held by the player while pressing FORWARD. */
     do {
         GetKey();
+#ifdef SWOS_SDL_BUILD
+        if(ExpandedUniversal_NativeCpuSilent())_currentKey=0;
+#endif
     } while (_currentKey != 0);
 
     /* The first pass starts at the vblank wait, as the original's does. */

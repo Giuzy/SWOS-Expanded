@@ -1,6 +1,7 @@
 /* Isolated generic kernel test; mock OG is NOT gameplay or CAR persistence. */
 #include <assert.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "expanded_universal_fixture_registry.h"
 
@@ -213,6 +214,64 @@ int main(void) {
             (ExpandedWorldDate){2026,7,1})==EXP_UNIVERSAL_OK);
         assert(ExpandedUniversal_Add(&historical,other)==EXP_UNIVERSAL_OK);
         assert(ExpandedUniversal_ValidateRestore(&historical));
+    }
+    /* Stress the exact indexed validator with 512 original distinct fixtures.
+     * No mock score is assumed valid without the ledger/event witness. */
+    {
+        enum { N=512 };
+        ExpandedUniversalRegistry bulk={0};
+        ExpandedUniversalFixture *fs=
+            (ExpandedUniversalFixture *)calloc(N,sizeof *fs);
+        ExpandedFixtureLedgerEntry *ls=
+            (ExpandedFixtureLedgerEntry *)calloc(N,sizeof *ls);
+        ExpandedScheduledEvent *es=
+            (ExpandedScheduledEvent *)calloc(N,sizeof *es);
+        const ExpandedUniversalFixture *found=NULL;
+        assert(fs && ls && es);
+        assert(ExpandedUniversal_Init(&bulk,fs,ls,es,WORLD_2627,N,
+            (ExpandedWorldDate){2026,7,1})==EXP_UNIVERSAL_OK);
+        for(unsigned i=0;i<N;++i) {
+            fs[i]=match(WORLD_2627,500u,2u*i+1u,2u*i+2u,
+                        (uint64_t)i+1000u,july,a+(int32_t)(i/64u),
+                        45u,0u,0u,i+1u);
+            ls[i].key=fs[i].key;
+            ls[i].state=EXP_FIXTURE_SCHEDULED;
+            es[i]=(ExpandedScheduledEvent){
+                fs[i].event_id,0u,fs[i].day_index,10u,
+                EXP_EVENT_FIXTURE,EXP_EVENT_PENDING};
+        }
+        bulk.fixture_count=N;
+        bulk.ledger.count=N;
+        bulk.scheduler.count=N;
+        bulk.fixtures_sorted_by_event=1u;
+        assert(ExpandedUniversal_ValidateRestore(&bulk));
+        assert(ExpandedUniversal_Find(&bulk,1000u)==&fs[0]);
+        assert(ExpandedUniversal_Find(&bulk,1511u)==&fs[N-1]);
+        assert(!ExpandedUniversal_Find(&bulk,999u));
+        assert(!ExpandedUniversal_Find(&bulk,1512u));
+        /* Negative: duplicate event ID, ledger key and club/date each fail. */
+        es[17].id=es[16].id;
+        assert(!ExpandedUniversal_ValidateRestore(&bulk));
+        es[17].id=fs[17].event_id;
+        ls[17].key=ls[16].key;
+        assert(!ExpandedUniversal_ValidateRestore(&bulk));
+        ls[17].key=fs[17].key;
+        fs[17].away=fs[16].home;
+        assert(!ExpandedUniversal_ValidateRestore(&bulk));
+        fs[17].away=(ExpandedClubKey){WORLD_2627,36u};
+        assert(ExpandedUniversal_ValidateRestore(&bulk));
+        /* Full matchday snapshot: prior played, next still pending. */
+        bulk.scheduler.clock.day_index=a;
+        es[0].state=EXP_EVENT_COMPLETE;
+        ls[0].state=EXP_FIXTURE_PLAYED;
+        assert(ExpandedUniversal_ValidateRestore(&bulk));
+        assert(ExpandedUniversal_Peek(&bulk,a,&found)==EXP_UNIVERSAL_DUE);
+        assert(found && found->event_id==1001u && bulk.pending_hint==1u);
+        /* A CLAIMED/PENDING CAR is legitimate but never replayable. */
+        ls[1].state=EXP_FIXTURE_CLAIMED;
+        assert(ExpandedUniversal_ValidateRestore(&bulk));
+        assert(ExpandedUniversal_Peek(&bulk,a,&found)==EXP_UNIVERSAL_RECOVERY);
+        free(fs);free(ls);free(es);
     }
     puts("POINTS_1_2_3_REGISTRY_DISPATCH_ISOLATED=PASS");
     puts("OG_50HZ_GAMEPLAY_AND_ATOMIC_CAR=NOT_TESTED");

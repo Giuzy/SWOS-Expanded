@@ -381,6 +381,16 @@ static void load_str_pool_field(const char *buf, int buflen,
  *
  * The absence of a real calendar is NOT a schema-version mismatch.
  * Do not invent a civil date from today's wall clock or OG match count. */
+/* New 2627 CARs deliberately do NOT contain an OG resident tournament.
+ * The universal ledger/typed rosters are their sole competition authority.
+ * Older CARs with universal_engine:null retain the strict OG preflight. */
+static int savejson_universal_owner(const char *json,int size)
+{
+    const char *value=NULL;
+    int len=0;
+    return World_Current()==WORLD_2627 &&
+        mjson_find(json,size,"$.universal_engine",&value,&len)==MJSON_TOK_STRING;
+}
 static int savejson_career_civil_clock_ok(const char *json,int size,int log_reject)
 {
     const char *clock=NULL;
@@ -391,21 +401,23 @@ static int savejson_career_civil_clock_ok(const char *json,int size,int log_reje
     const char *universal=NULL,*rosters=NULL;
     int universal_len=0,roster_len=0;
     const int universal_kind=mjson_find(json,size,"$.universal_engine",&universal,&universal_len);
-    const int is_universal=World_Current()==WORLD_2627 &&
-        universal_kind==MJSON_TOK_STRING;
+    const int is_universal=savejson_universal_owner(json,size);
+    (void)universal_kind;
     if(token!=MJSON_TOK_OBJECT || clock_len<=0) {
         if(log_reject)fprintf(stderr,
             "[og-world-save] INCOMPLETE_CAR reason=MISSING_CIVIL_CLOCK file-preserved=1\n");
         return 0;
     }
-    if(mjson_get_long(json,size,"$.og_resident.year",&og_year)<=0 ||
-       mjson_get_long(clock,clock_len,"$.first_year",&first_year)<=0 ||
+    if(mjson_get_long(clock,clock_len,"$.first_year",&first_year)<=0 ||
        mjson_get_long(clock,clock_len,"$.now",&now)<=0 ||
        now<0 || now>INT32_MAX || first_year<1900 || first_year>2198 ||
-       og_year<first_year || og_year>2198 ||
+       (is_universal && first_year!=(long)World_FirstYear()) ||
        !ExpandedWorld_IndexToDate((int32_t)now,&civil) ||
        civil.year<(civil.month<7u?1u:0u) ||
-       og_year!=(long)(civil.year-(civil.month<7u?1u:0u))) {
+       (!is_universal &&
+        (mjson_get_long(json,size,"$.og_resident.year",&og_year)<=0 ||
+         og_year<first_year || og_year>2198 ||
+         og_year!=(long)(civil.year-(civil.month<7u?1u:0u))))) {
         if(log_reject)fprintf(stderr,
             "[og-world-save] INCOMPLETE_CAR reason=OG_CIVIL_DATE_MISMATCH file-preserved=1\n");
         return 0;
@@ -6455,11 +6467,18 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
         ExpandedLiveCalendarState civil;
         extern int Expanded_OGWorld_SaveStarted(void);
         extern uint16_t Expanded_OGWorld_SaveYear(void);
-        if(!Expanded_OGWorld_SaveStarted() ||
-           !ExpandedWorldLive_CalendarState(&civil) ||
+        ExpandedUniversalRegistry *const registry=ExpandedUniversal_CarRegistry();
+        const int universal=ExpandedUniversalLive_Active();
+        int32_t day=0;
+        if(!ExpandedWorldLive_CalendarState(&civil) ||
            civil.today.year<(civil.today.month<7u?1u:0u) ||
-           Expanded_OGWorld_SaveYear()!=(uint16_t)
-               (civil.today.year-(civil.today.month<7u?1u:0u))) {
+           (universal?
+               (!registry || !ExpandedWorld_DateToIndex(civil.today,&day) ||
+                day!=registry->scheduler.clock.day_index ||
+                registry->recovery_required):
+               (!Expanded_OGWorld_SaveStarted() ||
+                Expanded_OGWorld_SaveYear()!=(uint16_t)
+                    (civil.today.year-(civil.today.month<7u?1u:0u))))) {
             fprintf(stderr,
                 "[og-world-save] WRITE_BLOCKED reason=MISSING_OR_MISMATCHED_CIVIL_CLOCK world=%s old-save-preserved=1\n",
                 World_Tag());
@@ -6468,7 +6487,8 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
     }
 #endif
 #ifdef SWOS_SDL_BUILD
-    if(!savejson_prewrite_career_keycache())return 1;
+    if(!ExpandedUniversalLive_Active() &&
+       !savejson_prewrite_career_keycache())return 1;
 #endif
     SAVE_CAREER_TRACE("BEGIN");
     JsonOutBuf out = { NULL, 0, 0, 0 };
@@ -7139,7 +7159,8 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
     {
         extern int Expanded_OGWorld_WriteSaveJson(mjson_print_fn_t,void *);
         SAVE_CAREER_TRACE("BEFORE_OG_RESIDENT");
-        if(!Expanded_OGWorld_WriteSaveJson(json_out_emit,&out)) {
+        if(!ExpandedUniversalLive_Active() &&
+           !Expanded_OGWorld_WriteSaveJson(json_out_emit,&out)) {
             fprintf(stderr,"[og-world-save] WRITE_REJECTED world=%s reason=OG_STATE_OR_JOURNAL_REJECTED prior-save-retained=1\n",World_Tag());
             if(out.ptr)swos_io_free(out.ptr);
             return 1;
@@ -7173,7 +7194,8 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
         extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
         if(out.len>INT32_MAX ||
            !savejson_career_civil_clock_ok(out.ptr,(int)out.len,1) ||
-           !Expanded_OGWorld_ReadSaveJson(out.ptr,(int)out.len,0)) {
+           (!savejson_universal_owner(out.ptr,(int)out.len) &&
+            !Expanded_OGWorld_ReadSaveJson(out.ptr,(int)out.len,0))) {
             fprintf(stderr,"[og-world-save] PREWRITE_REJECTED reason=INCOMPLETE_OG_OR_CIVIL_STATE prior-save-preserved=1\n");
             swos_io_free(out.ptr);
             return 1;
@@ -7395,7 +7417,8 @@ int SaveJson_CareerCompatible(const uint8_t *filename)
     if(ok) {
         extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
         ok=savejson_career_civil_clock_ok((const char *)buf,(int)size,1) &&
-           Expanded_OGWorld_ReadSaveJson((const char *)buf,(int)size,0);
+           (savejson_universal_owner((const char *)buf,(int)size) ||
+            Expanded_OGWorld_ReadSaveJson((const char *)buf,(int)size,0));
     }
 #endif
     swos_io_free(buf);
@@ -8291,7 +8314,8 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
 #ifdef SWOS_SDL_BUILD
     /* Side-effect-free checks must happen BEFORE any living-world state is
      * restored/ended, and BEFORE the career's legacy fields are cleared. */
-    if(!savejson_preflight_career_keycache((const char *)src,(int)src_size) ||
+    if((!savejson_universal_owner((const char *)src,(int)src_size) &&
+        !savejson_preflight_career_keycache((const char *)src,(int)src_size)) ||
        !savejson_career_civil_clock_ok((const char *)src,(int)src_size,1)) {
         swos_io_free(src);
         return 1;
@@ -8299,7 +8323,8 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
     /* A CAR without exact OG contexts must never replay an old season. */
     {
         extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
-        if(!Expanded_OGWorld_ReadSaveJson((const char *)src,(int)src_size,0)) {
+        if(!savejson_universal_owner((const char *)src,(int)src_size) &&
+           !Expanded_OGWorld_ReadSaveJson((const char *)src,(int)src_size,0)) {
             fprintf(stderr,"[og-world-save] LOAD_REJECTED world=%s reason=INVALID_OR_LEGACY_OG_STATE file-preserved=1\n",World_Tag());
             swos_io_free(src);return 1;
         }
@@ -8356,10 +8381,11 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
         ExpandedLiveCalendarState cal;
         long savedYear=0;
         if(!ExpandedWorldLive_CalendarState(&cal) ||
-           mjson_get_long((const char *)src,(int)src_size,
-                          "$.og_resident.year",&savedYear)<=0 ||
            cal.today.year<(cal.today.month<7u?1u:0u) ||
-           savedYear!=(long)(cal.today.year-(cal.today.month<7u?1u:0u))) {
+           (!savejson_universal_owner((const char *)src,(int)src_size) &&
+            (mjson_get_long((const char *)src,(int)src_size,
+                             "$.og_resident.year",&savedYear)<=0 ||
+             savedYear!=(long)(cal.today.year-(cal.today.month<7u?1u:0u))))) {
             fprintf(stderr,"[og-world-save] LOAD_REJECTED reason=OG_CIVIL_DATE_MISMATCH "
                            "file-preserved=1\n");
             swos_io_free(src);
@@ -8400,7 +8426,8 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
 #ifdef SWOS_SDL_BUILD
     {
         extern int Expanded_OGWorld_ReadSaveJson(const char *,int,int);
-        if(!Expanded_OGWorld_ReadSaveJson((const char *)src,(int)src_size,1) ||
+        if((!savejson_universal_owner((const char *)src,(int)src_size) &&
+            !Expanded_OGWorld_ReadSaveJson((const char *)src,(int)src_size,1)) ||
            !ExpandedUniversal_CarRestore((const char *)src,(int)src_size) ||
            !universal_rosters_restore((const char *)src,(int)src_size) ||
            !Expanded_CompetitionCoordinator_ValidateRestore() ||

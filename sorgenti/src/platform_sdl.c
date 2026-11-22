@@ -406,6 +406,10 @@ void Expanded_Perf_Read(ExpandedPerfSample out[EXP_PERF_COUNT])
     if(out)memcpy(out,s_world_perf[perf_world_index()],
                   sizeof s_world_perf[0]);
 }
+/* Scoped universal CPU fixture. Only the original OG match sets this;
+ * no listener input, GPU frame present or real-time pacing for CPU games. */
+extern int ExpandedUniversal_NativeCpuSilent(void);
+
 /* Debug-only fast real match: every original game frame runs normally at
  * four times the wall-clock rate. No result teleport or changed physics. */
 static volatile int s_debug_match_fast;
@@ -861,7 +865,8 @@ void RunInt3HandlerThrottled(void)
     /* Throttle just under one frame interval: 18 ms @ 50 Hz, ~12 ms @ 70 Hz (DOS
      * or a 70 Hz replay). */
     const int hz=Platform_ActivePacingFps();
-    const Uint32 thr = s_harness_turbo ? 0u :
+    const Uint32 thr = (s_harness_turbo ||
+        ExpandedUniversal_NativeCpuSilent()) ? 0u :
         (Uint32)((1000 / hz)>2 ? (1000 / hz)-2 : 0);
     Uint32 now = SDL_GetTicks();
     /* Cheap pre-check before the lock — most calls will be too soon. */
@@ -908,7 +913,11 @@ static Uint32 SDLCALL tick_timer_cb(Uint32 interval, void *param)
      * On the SDL host we run it from the SDL_Timer thread at 50 Hz, with
      * Platform_VBlank on the main thread also driving it as a fallback
      * for when the timer thread gets starved (common on WSL2). */
-    RunInt3HandlerThrottled();
+    /* During universal CPU games only the main thread's original VBlank
+     * advances the 50 Hz ISR exactly once per simulated frame. A timer
+     * worker tick here could otherwise add non-deterministic extra ticks. */
+    if(!ExpandedUniversal_NativeCpuSilent())
+        RunInt3HandlerThrottled();
 
     /* Pump audio production from the worker thread regardless of
      * renderer mode. With --vsync=on the main thread can occasionally
@@ -3709,6 +3718,17 @@ int Platform_VBlank(void)
     RunInt3HandlerThrottled();
     if (s_frame_hook)
         s_frame_hook();
+    /* All physics/AI frames still run in the original GameLoop_Frame.
+     * Only PRESENT and wall-time pacing are bypassed. Keep a sparse SDL
+     * event pump so the Windows window remains responsive without giving
+     * the CPU/CPU fixture to a human player. */
+    if(ExpandedUniversal_NativeCpuSilent()) {
+        static uint32_t silent_frames;
+        s_last_main_render_ms=SDL_GetTicks();
+        if((++silent_frames&63u)==0u)
+            pump_events_any_thread();
+        return _quitToDos?1:0;
+    }
     return Platform_Present();
 }
 

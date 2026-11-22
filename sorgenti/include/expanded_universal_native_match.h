@@ -22,6 +22,10 @@ typedef struct ExpandedUniversalNativeMatch {
     uint8_t lineup_ready;   /* set only after original SetupPlayers succeeds */
 } ExpandedUniversalNativeMatch;
 
+/* Read-only during a scoped universal CPU OG-50Hz fixture.
+ * Skip the stadium UI and input capture only in that scope; manager games,
+ * all legacy modes and replay keep their original UI and pacing. */
+int ExpandedUniversal_NativeCpuSilent(void);
 /* Canonical identity from actual team bytes, including second-country files.
  * A fixture's stable_club is (original-country << 16) | (slot + 1).
  * This is independent of manager employment and old TSKC/phase.

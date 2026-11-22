@@ -9,6 +9,8 @@
 #include "world.h"
 #include <stdint.h>
 #include <string.h>
+#include <stdio.h>
+#include <SDL.h> /* timer/main thread scope published atomically */
 
 extern uint16_t _gameType, _exitGameFlag, _gameCanceled, _isCareer;
 extern uint16_t _gamePitchTypeOrSeason, _gameSeason, _gamePitchType;
@@ -22,6 +24,13 @@ extern uint8_t _gameName[], _gameRound;
 extern TeamFileEx _careerTeam;
 extern uint8_t *StringCopy(const uint8_t *,uint8_t *);
 
+/* Only the universal dispatcher sets this scope, around its original
+ * OG 50 Hz game. Legacy match/replay/other worlds never use it. */
+static SDL_atomic_t s_universal_cpu_match;
+int ExpandedUniversal_NativeCpuSilent(void)
+{
+    return SDL_AtomicGet(&s_universal_cpu_match)!=0;
+}
 int ExpandedUniversal_NativeTeamKey(const TeamFileEx *team,
                                     ExpandedClubKey *club)
 {
@@ -86,12 +95,23 @@ int ExpandedUniversal_NativeRunOriginal(
 {
     ExpandedUniversalNativeMatch *const c=(ExpandedUniversalNativeMatch *)user;
     uint16_t oldCareer;
+    uint16_t homeControls,awayControls;
+    int bad;
     if(witness)memset(witness,0,sizeof *witness);
     if(!witness || !c || !c->lineup_ready ||
        !exp_universal_native_match_valid(c,fixture))return 0;
     /* A prepared session is one-shot, even on cancel / match fault. */
     c->lineup_ready=0u;
     oldCareer=_isCareer;
+    homeControls=c->home->team.teamControls;
+    awayControls=c->away->team.teamControls;
+    if(!c->interactive) {
+        /* Prevent game-input ownership by the user on CPU-only fixtures.
+         * Restore the persistent roster controls after OG match effects. */
+        c->home->team.teamControls=TEAM_COMPUTER;
+        c->away->team.teamControls=TEAM_COMPUTER;
+        SDL_AtomicSet(&s_universal_cpu_match,1);
+    }
     _isCareer=(uint16_t)(c->home==&_careerTeam || c->away==&_careerTeam);
     if(c->competition_name && c->competition_name[0]) {
         uint8_t name[31];
@@ -115,12 +135,27 @@ int ExpandedUniversal_NativeRunOriginal(
     InitializeInGameTeamsAndStartGame(0,c->minimum_substitutes,
         c->maximum_substitutes,c->match_parameters,c->match_postprocess,
         (TeamFile *)c->home,(TeamFile *)c->away);
+    /* Restore the caller's original controls even after an OG failure;
+     * every claimed match still remains non-replayable on uncertain score. */
+    SDL_AtomicSet(&s_universal_cpu_match,0);
+    c->home->team.teamControls=homeControls;
+    c->away->team.teamControls=awayControls;
     _isCareer=oldCareer;
-    if(_gameCanceled || _exitGameFlag || _extraTimeState<0 ||
-       _penaltiesState<0 ||
-       _statsTeam1Goals!=_statsTeam1GoalsCopy ||
-       _statsTeam2Goals!=_statsTeam2GoalsCopy)
-        return 0; /* league only; other result forms need rule handlers */
+    bad=_gameCanceled || _exitGameFlag || _extraTimeState<0 ||
+        _penaltiesState<0 ||
+        _statsTeam1Goals!=_statsTeam1GoalsCopy ||
+        _statsTeam2Goals!=_statsTeam2GoalsCopy;
+    if(bad) {
+        fprintf(stderr,"[universal-native] OG_RESULT_REJECTED "
+            "cpu=%u canceled=%u exit=%u extra=%d penalty=%d "
+            "live=%u:%u cached=%u:%u CAR_CLAIMED_NO_REPLAY=1\n",
+            (unsigned)!c->interactive,(unsigned)_gameCanceled,
+            (unsigned)_exitGameFlag,(int)_extraTimeState,
+            (int)_penaltiesState,(unsigned)_statsTeam1Goals,
+            (unsigned)_statsTeam2Goals,(unsigned)_statsTeam1GoalsCopy,
+            (unsigned)_statsTeam2GoalsCopy);
+        return 0;
+    }
     witness->key=fixture->key;
     witness->home=fixture->home;
     witness->away=fixture->away;

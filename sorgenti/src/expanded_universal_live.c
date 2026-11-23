@@ -24,9 +24,38 @@ extern uint16_t _gameType,_selTeamNumber;
 /* RAM-only completed quick matches since last explicit batch checkpoint.
  * Accumulates across FORWARD calls; not a persisted journal field. */
 static uint32_t s_cpu_batch_pending;
+/* v292: FNV-1a/64 chain over (event id, score) of the RAM-only quick results
+ * since the last durable checkpoint. Logged at each FORWARD end so a controlled
+ * crash + CONTINUE + same FORWARD can be compared line by line: identical
+ * digest at the same clock day = deterministic backlog recomputation. */
+static uint64_t s_backlog_digest;
+static void exp_backlog_note(const ExpandedUniversalRegistry *r,
+                             const ExpandedUniversalFixture *g)
+{
+    const ExpandedFixtureLedgerEntry *e=
+        ExpandedUniversal_EntryFor((ExpandedUniversalRegistry *)r,g);
+    uint64_t h=s_backlog_digest?s_backlog_digest:UINT64_C(14695981039346656037);
+    uint64_t v[2];
+    unsigned i;
+    v[0]=g->event_id;
+    v[1]=e?((uint64_t)e->score.home<<48)|((uint64_t)e->score.away<<32)|
+          ((uint64_t)e->score.penalties_home<<16)|e->score.penalties_away:0u;
+    for(i=0u;i<16u;++i){h^=((const uint8_t *)v)[i];h*=UINT64_C(1099511628211);}
+    s_backlog_digest=h;
+}
 /* RAM-only completed quick results that force a full CAR at the next
  * FORWARD (see exp_universal_live_advance_impl). */
 #define EXP_CPU_BATCH_SAVE_THRESHOLD 4000u
+/* A DIAGNOSTIC session (AVVIA_DIAGNOSTICA.bat sets SWOS_DIAGNOSTIC_SESSION)
+ * checkpoints every 1000 quick results so the short scripted runs reach the
+ * automatic snapshot activation AND real mode=ASYNC writes. Same code path,
+ * same results; only the checkpoint cadence differs. */
+static uint32_t exp_cpu_threshold(void)
+{
+    static int cached=-1;
+    if(cached<0)cached=getenv("SWOS_DIAGNOSTIC_SESSION")!=NULL;
+    return cached?1000u:EXP_CPU_BATCH_SAVE_THRESHOLD;
+}
 static int s_async_failed; /* last async CAR write failed: next flush is SYNC */
 
 static int manager_key(ExpandedClubKey *out)
@@ -110,7 +139,7 @@ int ExpandedUniversalLive_Start(void)
     const Uint64 start_ms=Platform_NowMs();
     Uint64 validated_ms;
     if(World_Current()!=WORLD_2627)return 1;
-    s_cpu_batch_pending=0u; /* new career, never inherit another world */
+    {s_cpu_batch_pending=0u;s_backlog_digest=0u;} /* new career, never inherit another world */
     if(!ExpandedUniversalCatalog_Audit(&a) || !a.sealed ||
        !a.future_fixtures) {
         fprintf(stderr,"[universal-live] NO_JSON_FIXTURES fail-closed=1\n");
@@ -241,7 +270,7 @@ static int exp_live_flush_cpu(ExpandedUniversalRegistry *r)
         }
         if(!async)s_async_failed=0; /* a synchronous save is durable again */
     }
-    s_cpu_batch_pending=0u;
+    {s_cpu_batch_pending=0u;s_backlog_digest=0u;}
     return 1;
 }
 /* An ASYNC CAR write that failed left its results only in RAM: treat the
@@ -250,8 +279,8 @@ static void exp_live_check_async_failure(void)
 {
     if(CarWriter_TakeFailure()) {
         s_async_failed=1;
-        if(s_cpu_batch_pending<EXP_CPU_BATCH_SAVE_THRESHOLD)
-            s_cpu_batch_pending=EXP_CPU_BATCH_SAVE_THRESHOLD;
+        if(s_cpu_batch_pending<exp_cpu_threshold())
+            s_cpu_batch_pending=exp_cpu_threshold();
         fprintf(stderr,"[universal-live] ASYNC_CAR_FAILED backlog-treated-as-"
             "unsaved next-flush=SYNC no-replay=1\n");
     }
@@ -259,7 +288,7 @@ static void exp_live_check_async_failure(void)
 /* A loaded CAR is already a durable snapshot: transient CPU count resets. */
 void ExpandedUniversalLive_ResetCpuBatch(void)
 {
-    s_cpu_batch_pending=0u;
+    {s_cpu_batch_pending=0u;s_backlog_digest=0u;}
     s_async_failed=0;
 }
 /* OG CAREER board round: the manager's league fixtures of the same edition
@@ -307,7 +336,7 @@ static int exp_live_drain_today(ExpandedUniversalRegistry *r,int32_t today,
                 "CAR_CLAIMED_NO_REPLAY=1\n",(unsigned long long)g->event_id);
             return 1;
         }
-        if(s_cpu_batch_pending<UINT32_MAX)++s_cpu_batch_pending;
+        { if(s_cpu_batch_pending<UINT32_MAX)++s_cpu_batch_pending; exp_backlog_note(r,g); }
         if(g->event_id==stop_event)return 2;
     }
 }
@@ -331,7 +360,7 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
      * recomputes it from the previous complete CAR, never replaying a
      * durable result. */
     exp_live_check_async_failure();
-    if(s_cpu_batch_pending>=EXP_CPU_BATCH_SAVE_THRESHOLD &&
+    if(s_cpu_batch_pending>=exp_cpu_threshold() &&
        !exp_live_flush_cpu(r))return 0;
     /* The manager fixture is never executed by ordinary FORWARD, so its
      * round anchor cannot change inside this call. DEBUG keeps old path. */
@@ -406,7 +435,7 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
                     (unsigned long long)f->event_id);
                 return 0;
             }
-            if(s_cpu_batch_pending<UINT32_MAX)++s_cpu_batch_pending;
+            { if(s_cpu_batch_pending<UINT32_MAX)++s_cpu_batch_pending; exp_backlog_note(r,f); }
         }
     }
 }
@@ -423,6 +452,10 @@ int ExpandedUniversalLive_Advance(ExpandedWorldDate target)
         (unsigned)target.year,(unsigned)target.month,(unsigned)target.day,
         (unsigned long long)(Platform_NowMs()-started_ms),
         ok?"ADVANCED_OR_WAIT_MANAGER":"BLOCKED");
+    if(s_cpu_batch_pending)
+        fprintf(stderr,"[universal-live] BACKLOG_DIGEST pending=%lu "
+            "digest=%016llx\n",(unsigned long)s_cpu_batch_pending,
+            (unsigned long long)s_backlog_digest);
     return ok;
 }
 /* Next manager fixture is a readonly projection of the same CE ledger.
@@ -491,7 +524,7 @@ static int exp_universal_live_manager_action(int interactive)
     res=run_match(f,interactive,0);
     /* This per-fixture durable completion also commits preceding CPU
      * results from RAM; avoid a redundant threshold save on next FORWARD. */
-    if(res==EXP_UNIVERSAL_OK)s_cpu_batch_pending=0u;
+    if(res==EXP_UNIVERSAL_OK){s_cpu_batch_pending=0u;s_backlog_digest=0u;}
     fprintf(stderr,"[universal-live] MANAGER_ACTION mode=%s "
         "event=%llu result=%d CAR_ONE_FIXTURE=1\n",
         interactive?"PLAY_50HZ":"VIEW_RESULT_QUICK",

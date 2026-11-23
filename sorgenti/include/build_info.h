@@ -127,7 +127,12 @@
  * artefact, real zstd is ~7 ms); synthetic edition archive persisted as
  * $.universal_archive ("UA01:"); closure gate refuses open editions. CARs
  * written by the unreleased v290 base64 UE02 are NOT readable. */
-#define SWOS_EXPANDED_VERSION "00.13.291"
+/* v00.13.292 (SAVE/CAR): indexed-block CAR container SWOSZC4A (writer + the
+ * ONE reader shared with SWOSZC3A + compressed-block cache), roster groups /
+ * CE section as separate blocks, backlog digest log, diagnostic checkpoint
+ * cadence (1000) so real mode=ASYNC appears in AVVIA_DIAGNOSTICA runs.
+ * Old CAR (JSON, SWOSZC3A, UE01) still load. Windows gameplay NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.292"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

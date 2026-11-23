@@ -14,6 +14,7 @@
 #include "swos_settings.h" /* existing [general] world preference */
 #if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
 #include "car_writer.h"
+#include "save_car_zstd.h"
 #endif
 #include <stdio.h>
 #include <stdlib.h>
@@ -516,6 +517,7 @@ int WorldSwitch_SelectBeforeCareer(const char *tag)
     /* v288: the CarWriter worker reads World_Current() while it validates a
      * snapshot image; never switch the world under a job in flight. */
     (void)CarWriter_Wait();
+    SaveCarZstd_CacheReset(); /* v292: block cache never crosses worlds */
 #endif
     if(World_Set(requested)!=0)return 0;
     restore_bank(modern);

@@ -6550,13 +6550,42 @@ void SaveJson_DebugCareerOperations(int *write_result,int *load_result)
  * may run on the writer thread. */
 static int s_nextWriteAsync;
 void SaveJson_SetNextWriteAsync(int async) { s_nextWriteAsync=async!=0; }
+/* v292: block plan of the image the CURRENT prepared job just built. Written
+ * by car_ops_prepare and consumed by car_ops_encode on the SAME writer thread
+ * (jobs are strictly sequential). Bound to the image pointer + length, so a
+ * stale plan can never apply to another image. */
+static uint32_t *s_blockCuts;
+static uint32_t s_blockCutsN;
+static const uint8_t *s_blockImg;
+static uint32_t s_blockImgLen;
+static void car_block_plan_clear(void)
+{
+    free(s_blockCuts);
+    s_blockCuts=NULL;s_blockCutsN=0u;s_blockImg=NULL;s_blockImgLen=0u;
+}
 static int car_ops_encode(const uint8_t *json,uint32_t len,
                           uint8_t **frame,uint32_t *frame_len)
 {
     uint8_t *compressed=NULL,*verified=NULL;
     uint32_t compressedSize=0u,verifiedSize=0u;
-    if(len>INT32_MAX ||
-       !SaveCarZstd_Encode(json,len,&compressed,&compressedSize)) {
+    int encoded;
+    const int blocks=s_blockCutsN>0u && s_blockImg==json && s_blockImgLen==len &&
+                     !getenv("SWOS_CAR_BLOCKS_OFF");
+    if(len>INT32_MAX)encoded=0;
+    else if(blocks)
+        encoded=SaveCarZstd_EncodeBlocks(json,len,s_blockCuts,s_blockCutsN,
+                                         &compressed,&compressedSize);
+    else encoded=SaveCarZstd_Encode(json,len,&compressed,&compressedSize);
+    if(blocks && encoded) {
+        const SaveCarZstdStats bs=SaveCarZstd_Stats();
+        fprintf(stderr,"[car-blocks] ENCODE container=SWOSZC4A blocks=%lu hits=%lu "
+            "misses=%lu raw_reused=%llu raw_total=%llu cache_bytes=%llu\n",
+            (unsigned long)bs.blocks,(unsigned long)bs.hits,
+            (unsigned long)bs.misses,(unsigned long long)bs.raw_reused,
+            (unsigned long long)bs.raw_total,(unsigned long long)bs.cache_bytes);
+    }
+    car_block_plan_clear();
+    if(!encoded) {
         fprintf(stderr,"[car-zstd] ENCODE_FAILED old-CAR-preserved=1\n");
         return 0;
     }
@@ -6614,11 +6643,14 @@ typedef struct CarSnap {
     size_t roster_bytes,ce_bytes;
     WorldId world;          /* captured on the main thread */
     uint16_t first_year;    /* captured on the main thread */
+    uint32_t *rcuts;        /* v292: roster group starts (offsets in the roster text) */
+    uint32_t nrcuts;
 } CarSnap;
 static void car_snap_free(CarSnap *s)
 {
     if(!s)return;
     free(s->rosters);
+    free(s->rcuts);
     ExpandedUniversal_CarSnapshotRelease(s->ce);
     if(s->main_ptr)swos_io_free(s->main_ptr);
     free(s);
@@ -6701,6 +6733,7 @@ static int car_rc_reserve(CarRosterCache *c,uint32_t n)
     }
     return 1;
 }
+enum { CAR_BLOCK_CLUBS=64 };
 static int car_roster_serialise(CarSnap *s,JsonOutBuf *roster,int use_cache)
 {
     CarRosterCache *c=&s_rosterCache;
@@ -6710,6 +6743,9 @@ static int car_roster_serialise(CarSnap *s,JsonOutBuf *roster,int use_cache)
     TeamFileEx *nraw=NULL;
     int ok=0;
     unsigned long hits0=s_rcHits;
+    free(s->rcuts);s->rcuts=NULL;s->nrcuts=0u;
+    if(n>CAR_BLOCK_CLUBS)
+        s->rcuts=(uint32_t *)calloc((size_t)(n/CAR_BLOCK_CLUBS),sizeof *s->rcuts);
     if(s_rcOff)use_cache=0;
     if(use_cache) {
         noff=(uint32_t *)malloc((size_t)(n?n:1u)*sizeof *noff);
@@ -6724,6 +6760,9 @@ static int car_roster_serialise(CarSnap *s,JsonOutBuf *roster,int use_cache)
         size_t start;
         if(i)mjson_printf(json_out_emit,roster,"%s",",");
         start=roster->len;(void)start0;
+        if(i && (i%CAR_BLOCK_CLUBS)==0u && s->rcuts && start<=UINT32_MAX &&
+           s->nrcuts<(n/CAR_BLOCK_CLUBS))
+            s->rcuts[s->nrcuts++]=(uint32_t)start;
         if(use_cache && i<c->count &&
            !memcmp(&c->raw[i],&nraw[i],sizeof c->raw[i]) &&
            (size_t)c->off[i]+c->len[i]<=c->text_len) {
@@ -6823,6 +6862,29 @@ static int car_ops_prepare(void *ctx,uint8_t **json,uint32_t *len)
         goto done;
     }
     t3=car_now_ms();
+    car_block_plan_clear();
+    {   /* block boundaries: roster groups and the CE section stay separate so
+         * an unchanged group / section reuses its compressed frame. */
+        const size_t cap=(size_t)s->nrcuts+8u;
+        uint32_t *cuts=(uint32_t *)malloc(cap*sizeof *cuts);
+        size_t nc=0u,j;
+        const size_t r0=s->p1s,r1=s->p1s+roster.len,
+                     c0=r1+(s->p2s-s->p1e),c1=c0+ce.len;
+        uint32_t prev=0u;
+        if(cuts) {
+#define ADDCUT(v) do { const size_t v_=(v); \
+            if(v_>prev && v_<at && v_<=UINT32_MAX && nc<cap) \
+                {cuts[nc++]=(uint32_t)v_;prev=(uint32_t)v_;} } while(0)
+            ADDCUT(r0);
+            for(j=0;j<s->nrcuts;++j)ADDCUT(r0+s->rcuts[j]);
+            ADDCUT(r1);ADDCUT(c0);ADDCUT(c1);
+#undef ADDCUT
+            if(nc) {
+                s_blockCuts=cuts;s_blockCutsN=(uint32_t)nc;
+                s_blockImg=img;s_blockImgLen=(uint32_t)at;
+            } else free(cuts);
+        }
+    }
     fprintf(stderr,"[car-snapshot] PREPARED raw=%lu serialise_ms=%llu "
         "assemble_ms=%llu validate_ms=%llu worker_ram_bytes=%lu\n",
         (unsigned long)at,(unsigned long long)(t1-t0),

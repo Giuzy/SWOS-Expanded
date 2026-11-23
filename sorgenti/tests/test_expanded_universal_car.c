@@ -75,6 +75,22 @@ static int run_original_mock(void *p,const ExpandedUniversalFixture *f,
     w->valid=1u;
     return 1;
 }
+static uint64_t s_rng,s_rng_log[64];
+static unsigned s_rng_log_n;
+static int run_original_rng(void *p,const ExpandedUniversalFixture *f,
+                            ExpandedUniversalMatchWitness *w)
+{
+    (void)p;
+    ++s_games;
+    s_rng^=s_rng<<13;s_rng^=s_rng>>7;s_rng^=s_rng<<17;
+    *w=(ExpandedUniversalMatchWitness){0};
+    w->key=f->key;w->home=f->home;w->away=f->away;
+    w->day_index=f->day_index;
+    w->score=(ExpandedFixtureScore){(uint16_t)(s_rng%5u),(uint16_t)((s_rng>>8)%4u),0u,0u,0u};
+    if(s_rng_log_n<64u)s_rng_log[s_rng_log_n++]=s_rng;
+    w->valid=1u;
+    return 1;
+}
 int main(void)
 {
     const int32_t d=date(2026,7,1);
@@ -377,6 +393,58 @@ int main(void)
         assert(ExpandedUniversal_CarValidate(corrupted,(int)strlen(corrupted)));
         assert(ExpandedUniversal_CarRestore(corrupted,(int)strlen(corrupted)));
         assert(ExpandedUniversal_ArchiveCount()==0u);
+    }
+    /* v292: BACKLOG RECOVERY (controlled crash). CAR A persisted after two
+     * results; four more results are produced WITHOUT being persisted; the
+     * "process" dies; CONTINUE from A recomputes exactly those four in the same
+     * order with the same persisted RNG state and reaches IDENTICAL results;
+     * the two durable results are never replayed. The RNG is a stateful mock of
+     * the OG score source (the real fields random_seed/seed_2/... are persisted
+     * in the CAR); proving the OG scorer itself needs gameplay. */
+    {
+        static char carA[65536];
+        uint64_t rngA,digest1=0u,digest2=0u,res1[4],res2[4];
+        unsigned k,gamesA;
+        ExpandedUniversalFixture bf[6];
+        ExpandedUniversalOps bops={ExpandedUniversal_CarSaveClaim,
+            run_original_rng,ExpandedUniversal_CarSaveCompletion,NULL,NULL,NULL};
+        ExpandedUniversal_CarResetCurrent();
+        assert(ExpandedUniversal_CarBegin((ExpandedWorldDate){2026,7,1},8u));
+        r=ExpandedUniversal_CarRegistry();
+        for(k=0;k<6u;++k) {
+            bf[k]=fixture(UINT64_C(0x2000000000000100)+k,k+1u,
+                (45u<<16)|(2u*k+1u),(45u<<16)|(2u*k+2u),d);
+            bf[k].key.edition.competition.stable_competition=450002u;
+            assert(ExpandedUniversal_Add(r,bf[k])==EXP_UNIVERSAL_OK);
+        }
+        s_civil_clock=d;s_rng=UINT64_C(0x9e3779b97f4a7c15);s_rng_log_n=0u;
+        assert(Expanded_AutoCareer_SaveChecked("initial-b"));
+        for(k=0;k<2u;++k)
+            assert(ExpandedUniversal_RunDue(r,d,&bops)==EXP_UNIVERSAL_OK);
+        memcpy(carA,s_disk,sizeof carA);rngA=s_rng;gamesA=s_games;
+        for(k=0;k<4u;++k) {
+            assert(ExpandedUniversal_RunDue(r,d,&bops)==EXP_UNIVERSAL_OK);
+            res1[k]=s_rng_log[s_rng_log_n-1u];digest1=digest1*1099511628211ull+res1[k]+1u;
+        }
+        assert(s_games==gamesA+4u);
+        /* crash: only CAR A survives */
+        assert(ExpandedUniversal_CarRestore(carA,(int)strlen(carA)));
+        r=ExpandedUniversal_CarRegistry();
+        s_rng=rngA;
+        for(k=0;k<4u;++k) {
+            assert(ExpandedUniversal_RunDue(r,d,&bops)==EXP_UNIVERSAL_OK);
+            res2[k]=s_rng_log[s_rng_log_n-1u];digest2=digest2*1099511628211ull+res2[k]+1u;
+        }
+        assert(s_games==gamesA+8u);                  /* 2 durable never replayed */
+        assert(digest1==digest2 && !memcmp(res1,res2,sizeof res1));
+        assert(ExpandedUniversal_RunDue(r,d,&bops)!=EXP_UNIVERSAL_OK ||
+               s_games==gamesA+8u);                  /* nothing left to play */
+        /* a WRONG RNG after CONTINUE would diverge: the guard is persisting it */
+        assert(ExpandedUniversal_CarRestore(carA,(int)strlen(carA)));
+        r=ExpandedUniversal_CarRegistry();
+        s_rng=rngA^1u;
+        assert(ExpandedUniversal_RunDue(r,d,&bops)==EXP_UNIVERSAL_OK);
+        assert(s_rng_log[s_rng_log_n-1u]!=res1[0]);
     }
     printf("UNIVERSAL_CAR_CODEC_REAL_C11=PASS claims and ACK, CRC, world, rollback, legacy\n");
     printf("OG_50HZ_GAMEPLAY=NOT_TESTED LIVE_CUTOVER=NOT_IMPLEMENTED\n");

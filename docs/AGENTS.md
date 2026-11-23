@@ -1004,3 +1004,7 @@ Le competizioni OG non si ricreano alla firma; la routine Expanded di binding de
 
 ### 17/11/2026 — attuazione controllata della decisione NO RESTART (0.13.67)
 Il requisito 14/11 di preparare i dati statici al LOADING e attivare un solo mondo OG prima della carriera è applicato con snapshot in memoria, NON con un secondo processo o uno switch di una carriera già attiva. Il selettore in NEW CAREER ripristina banche statiche e compId e invalida la cache squadre; le scelte del manager e i salvataggi restano separati. Dettagli e limiti in `docs/WORLD_SWITCH_NO_RESTART_20261117.md`. La compilazione/test Windows resta NON PROVATA.
+
+
+## REGOLA PERMANENTE 23/11/2026 — QUOTA CLAUDE
+Seguire la regola di efficienza in `AGENTS.md` (root) e la procedura in `docs/DEVELOPMENT_WORKFLOW.md`. Minimizzare token, tool calls, letture e build ripetute senza saltare precheck, RG-T, QA, documentazione e checkpoint. Claude opera solo in locale, senza commit/push o scritture remote non autorizzate.

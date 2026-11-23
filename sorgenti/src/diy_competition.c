@@ -10561,12 +10561,17 @@ void DIYLeagueTournament_UpdateMenuEntryVisibilityAndFocus(void)
 {
 #ifdef SWOS_SDL_BUILD
     if(s_ceBoardActive) {
-        /* Same original OG callbacks, exposing both user options. */
+        /* Original OG menu only: after a CE COMMITTED result there is no
+         * second MATCH/VIEW RESULT action for that immutable fixture. */
         unsigned i;
         for(i=1u;i<=8u;++i)_menuEntries[i].isInvisible=1;
-        _menuEntries[3].isInvisible=0; /* MATCH => 50Hz */
-        _menuEntries[8].isInvisible=0; /* VIEW RESULT => OG QUICK */
-        SetCurrentEntry(3u);
+        if(!s_ceBoardCommitted && !s_ceBoardViewOnly) {
+            _menuEntries[3].isInvisible=0; /* MATCH => original OG 50Hz */
+            _menuEntries[8].isInvisible=0; /* VIEW RESULT => OG QUICK */
+            SetCurrentEntry(3u);
+        } else {
+            SetCurrentEntry(10u);
+        }
         return;
     }
 #endif
@@ -10699,6 +10704,7 @@ show_match_view:
  * a CAR checkpoint. All manager actions still use the one CE event. */
 static int s_ceBoardActive;
 static int s_ceBoardHomeRow,s_ceBoardAwayRow,s_ceBoardCommitted;
+static uint64_t s_ceBoardEventId; /* exact fixture to redisplay after CE commit */
 static int s_ceBoardViewOnly; /* no action can write a CE match from WORLD */
 static DIYCompetitionEx s_ceBoardSavedCompetition;
 static DIYTournamentState s_ceBoardSavedTournament;
@@ -10766,6 +10772,97 @@ static int ce_board_row_before(const DIYTeamStats *a,
     if(ga!=gb)return ga>gb;
     return a->goalsFor>b->goalsFor;
 }
+/* Rebuild ONLY the disposable native OG table from the POST-COMMIT CE ledger.
+ * Original OG match + CAR were already completed; there is no second result
+ * writer and no standings stored into a local career competition slot.
+ * Validate every identity and count before changing the displayed table. */
+static int ce_board_refresh_completed(void)
+{
+    ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    const ExpandedUniversalFixture *f;
+    ExpandedFixtureLedgerEntry *played;
+    ExpandedUniversalStanding values[64];
+    ExpandedClubKey clubs[64];
+    uint8_t matched[64]={0};
+    uint32_t count=0u,total=0u;
+    const unsigned n=(unsigned)_numSelectedTeams;
+    unsigned i,j;
+    if(!s_ceBoardActive || s_ceBoardViewOnly || !r || r->recovery_required ||
+       !r->fixtures || !r->ledger.entries || n<2u || n>64u ||
+       s_ceBoardHomeRow<0 || s_ceBoardAwayRow<0 ||
+       (unsigned)s_ceBoardHomeRow>=n || (unsigned)s_ceBoardAwayRow>=n)
+        return 0;
+    f=ExpandedUniversal_Find(r,s_ceBoardEventId);
+    played=f?ExpandedUniversal_EntryFor(r,f):NULL;
+    if(!played || played->state!=EXP_FIXTURE_PLAYED ||
+       !ExpandedUniversal_Standings(r,f->key.edition,f->key.stage,
+                                   3u,values,64u,&count) || count!=n)
+        return 0;
+    for(i=0u;i<n;++i)
+        if(!ExpandedUniversal_NativeTeamKey(&_selectedTeams[i],&clubs[i]))
+            return 0;
+    if(!ExpandedClubKey_Equal(clubs[s_ceBoardHomeRow],f->home) ||
+       !ExpandedClubKey_Equal(clubs[s_ceBoardAwayRow],f->away))
+        return 0;
+    for(i=0u;i<n;++i) {
+        const ExpandedUniversalStanding *v=&values[i];
+        for(j=0u;j<n;++j)
+            if(ExpandedClubKey_Equal(clubs[j],v->club))break;
+        if(j==n || matched[j] || v->played>UINT16_MAX ||
+           v->wins>UINT16_MAX || v->draws>UINT16_MAX ||
+           v->losses>UINT16_MAX || v->goals_for>UINT16_MAX ||
+           v->goals_against>UINT16_MAX || v->points>UINT16_MAX ||
+           UINT32_MAX-total<v->played)return 0;
+        matched[j]=1u;
+        total+=v->played;
+    }
+    if((total&1u) || total/2u>UINT16_MAX)return 0;
+    for(i=0u;i<n;++i) {
+        const ExpandedUniversalStanding *v=&values[i];
+        for(j=0u;j<n;++j)
+            if(ExpandedClubKey_Equal(clubs[j],v->club))break;
+        DIYTeamStats *row=diy_standings_row(&_diyCompetitionStart,(int)j);
+        row->gamesPlayed=(uint16_t)v->played;
+        row->wins=(uint16_t)v->wins;
+        row->draws=(uint16_t)v->draws;
+        row->losses=(uint16_t)v->losses;
+        row->goalsFor=(uint16_t)v->goals_for;
+        row->goalsAgainst=(uint16_t)v->goals_against;
+        row->points=(uint16_t)v->points;
+    }
+    _diyCompetitionStart.matchesPlayedCount=(uint16_t)(total/2u);
+    for(i=0u;i<n;++i)
+        _diyCompetitionStart.matchData.league.teamEntryOffsets[i]=
+            (uint16_t)(i*sizeof(DIYTeamStats));
+    for(i=1u;i<n;++i) {
+        const uint16_t key=
+            _diyCompetitionStart.matchData.league.teamEntryOffsets[i];
+        j=i;
+        while(j>0u && ce_board_row_before(
+            diy_standings_row(&_diyCompetitionStart,
+                              (int)(key/sizeof(DIYTeamStats))),
+            diy_standings_row(&_diyCompetitionStart,
+                (int)(_diyCompetitionStart.matchData.league.teamEntryOffsets[j-1u]/
+                      sizeof(DIYTeamStats))))) {
+            _diyCompetitionStart.matchData.league.teamEntryOffsets[j]=
+                _diyCompetitionStart.matchData.league.teamEntryOffsets[j-1u];
+            --j;
+        }
+        _diyCompetitionStart.matchData.league.teamEntryOffsets[j]=key;
+    }
+    _diyLeftTeamPtr=&_selectedTeams[s_ceBoardHomeRow];
+    _diyRightTeamPtr=&_selectedTeams[s_ceBoardAwayRow];
+    _diyLeftTeamResult=played->score.home;
+    _diyRightTeamResult=played->score.away;
+    _diyFixtureViewMode=0xffffu; /* original OG result header, NOT a new UI */
+    DIYSetTeamNamesAndResults();
+    fprintf(stderr,"[universal-og-board] CE_RESULT_VISIBLE event=%llu "
+        "score=%u:%u table-clubs=%u played=%u source=CE_LEDGER "
+        "CAR=UNCHANGED refresh=1\n",
+        (unsigned long long)f->event_id,(unsigned)played->score.home,
+        (unsigned)played->score.away,n,(unsigned)(total/2u));
+    return 1;
+}
 /* Called only by ORIGINAL OG menu match callbacks. The old DIY table is
  * restored BEFORE the CE CLAIMED write, so transient rows/rosters can
  * never contaminate the atomic CAR. Re-mount only until ShowMenu exits. */
@@ -10805,7 +10902,19 @@ static void ce_board_action(unsigned action)
     fprintf(stderr,"[universal-og-board] ORIGINAL_ACTION "
         "action=%s result=%d committed=%d CE_ONE_WRITER=1\n",
         action==0u?"VIEW_RESULT":"PLAY_50HZ",result,s_ceBoardCommitted);
-    SetExitMenuFlag(); /* no legacy standings/round advance after action */
+    if(s_ceBoardCommitted && !ce_board_refresh_completed()) {
+        /* The CE result may already be durably saved. Never display stale
+         * standings or retry its OG match after a failed projection. */
+        fprintf(stderr,"[universal-og-board] CE_RESULT_PROJECTION_FAILED "
+            "event=%llu no-replay=1\n",
+            (unsigned long long)s_ceBoardEventId);
+        SetExitMenuFlag();
+        return;
+    }
+    /* Stay in the ORIGINAL OG result/table menu. The same read-only
+     * projected standings and fixture score are visible immediately. */
+    DIYLeagueTournament_UpdateMenuEntryVisibilityAndFocus();
+    DrawMenu();
 }
 /* One entry for EVERY managed 2627 club. The fixture/ledger is authoritative;
  * display rows are reconstructed from immutable CE match identities. */
@@ -10944,6 +11053,7 @@ static int ce_board_project(const ExpandedUniversalFixture *f,
         _diyCompetitionStart.matchData.league.teamEntryOffsets[j]=key;
     }
     s_ceBoardHomeRow=home;s_ceBoardAwayRow=away;
+    s_ceBoardEventId=f->event_id;
     s_ceBoardCommitted=0;s_ceBoardViewOnly=viewOnly;s_ceBoardActive=1;
     _careerLoadedFlag=0;
     _diyFixtureViewMode=1;

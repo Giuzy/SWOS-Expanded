@@ -14,12 +14,12 @@
 #define BUILD_INFO_H
 
 /* Single source of truth for the user-facing release/build number. */
-/* CE2627 calendar/VIEW WORLD use the one fixture+OG score ledger READ ONLY.
- * Existing original OG presentation restored after every CE table viewer;
- * fixtures with unverified civil date provenance remain flagged in the data.
- * No new OG UI layout or pagination. Cup KO, 23+ table, Windows and CAR
- * save/exit/continue evidence remain unproven. */
-#define SWOS_EXPANDED_VERSION "00.13.272"
+/* CE2627 VIEW RESULT refreshes the original OG result/table immediately
+ * from its one completed fixture ledger; VIEW COMPETITION league type0
+ * reads that same CE ledger readonly. The original cup entry is unchanged.
+ * No OG screen/pagination or score/CAR writer changes. Windows gameplay,
+ * 23+ club table, WORLD routing, and CAR crossprocess remain unproven. */
+#define SWOS_EXPANDED_VERSION "00.13.273"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

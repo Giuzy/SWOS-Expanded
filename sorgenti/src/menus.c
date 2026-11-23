@@ -5815,6 +5815,32 @@ static void SetNationalityField(void)
  * when hiding unavailable competition slots.
  * ================================================================ */
 #ifdef SWOS_SDL_BUILD
+/* CE owns the current league standings, not the old local OG slot-0.
+ * Reuse the ORIGINAL OG league viewer via the already-protected readonly
+ * CE projection. No layout, input, or cup callback changes. */
+extern uint16_t _currentDivisionIndex;
+static MenuEntryFn s_viewCompFirstSlotCallback;
+static void Expanded_ViewClubCELeague(MenuEntry *entry)
+{
+    const Competition *const comp=(const Competition *)_currentCompetitionPtr;
+    const uint8_t country=World_FileCountry(_careerTeam.team.countryNumber);
+    (void)entry;
+    if(_gameType!=GAME_TYPE_CAREER || !ExpandedUniversalLive_Active() ||
+       !comp || comp->type!=0 || _currentDivisionIndex>255u)return;
+    extern int ExpandedUniversal_OGBoardViewLeague(
+        uint8_t,const uint8_t *,uint16_t);
+    const int ok=ExpandedUniversal_OGBoardViewLeague(
+        country,(const uint8_t *)comp,_currentDivisionIndex);
+    fprintf(stderr,"[ce-view-competition] LEAGUE country=%u "
+        "division=%u comp=%u source=CE_LEDGER ok=%d no-CAR-write=1\n",
+        (unsigned)country,(unsigned)_currentDivisionIndex,
+        (unsigned)comp->compId,ok);
+    if(!ok) {
+        static uint8_t unavailable[]=
+            "CE LEAGUE: COMPETITION FIXTURES UNAVAILABLE";
+        ShowErrorMenu(unavailable);
+    }
+}
 /* Extra club competition without hijacking a packed career slot. The
  * original second-slot callback is restored for every other club. */
 static MenuEntryFn s_viewCompSecondSlotCallback;
@@ -5835,6 +5861,15 @@ void ViewCompetitionsOnReturn(void)
     _menuEntries[4].fg = (uintptr_t)_euroCupsCompetitionContextBuf.tourn.header.competitionName;
     int boliviaClubCupSlot=0;
 #ifdef SWOS_SDL_BUILD
+    if(!s_viewCompFirstSlotCallback)
+        s_viewCompFirstSlotCallback=_menuEntries[1].onSelect;
+    if(s_viewCompFirstSlotCallback)
+        _menuEntries[1].onSelect=s_viewCompFirstSlotCallback;
+    if(_gameType==GAME_TYPE_CAREER && ExpandedUniversalLive_Active() &&
+       _currentCompetitionPtr &&
+       ((const Competition *)_currentCompetitionPtr)->type==0)
+        _menuEntries[1].onSelect=Expanded_ViewClubCELeague;
+    /* Slot 2 COPA / any other cup is deliberately kept EXACTLY OG. */
     if(!s_viewCompSecondSlotCallback)
         s_viewCompSecondSlotCallback=_menuEntries[2].onSelect;
     if(s_viewCompSecondSlotCallback)

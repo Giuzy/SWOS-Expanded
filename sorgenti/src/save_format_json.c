@@ -385,14 +385,21 @@ static void load_str_pool_field(const char *buf, int buflen,
 /* New 2627 CARs deliberately do NOT contain an OG resident tournament.
  * The universal ledger/typed rosters are their sole competition authority.
  * Older CARs with universal_engine:null retain the strict OG preflight. */
-static int savejson_universal_owner(const char *json,int size)
+static int savejson_universal_owner_for(const char *json,int size,WorldId world)
 {
     const char *value=NULL;
     int len=0;
-    return World_Current()==WORLD_2627 &&
+    return world==WORLD_2627 &&
         mjson_find(json,size,"$.universal_engine",&value,&len)==MJSON_TOK_STRING;
 }
-static int savejson_career_civil_clock_ok(const char *json,int size,int log_reject)
+static int savejson_universal_owner(const char *json,int size)
+{
+    return savejson_universal_owner_for(json,size,World_Current());
+}
+/* v289: world and first year are PARAMETERS so the CarWriter thread validates
+ * a snapshot image without reading any game global. */
+static int savejson_career_civil_clock_ok_for(const char *json,int size,
+    int log_reject,WorldId world,uint16_t first_year_expected)
 {
     const char *clock=NULL;
     int clock_len=0;
@@ -402,7 +409,7 @@ static int savejson_career_civil_clock_ok(const char *json,int size,int log_reje
     const char *universal=NULL,*rosters=NULL;
     int universal_len=0,roster_len=0;
     const int universal_kind=mjson_find(json,size,"$.universal_engine",&universal,&universal_len);
-    const int is_universal=savejson_universal_owner(json,size);
+    const int is_universal=savejson_universal_owner_for(json,size,world);
     (void)universal_kind;
     if(token!=MJSON_TOK_OBJECT || clock_len<=0) {
         if(log_reject)fprintf(stderr,
@@ -412,7 +419,7 @@ static int savejson_career_civil_clock_ok(const char *json,int size,int log_reje
     if(mjson_get_long(clock,clock_len,"$.first_year",&first_year)<=0 ||
        mjson_get_long(clock,clock_len,"$.now",&now)<=0 ||
        now<0 || now>INT32_MAX || first_year<1900 || first_year>2198 ||
-       (is_universal && first_year!=(long)World_FirstYear()) ||
+       (is_universal && first_year!=(long)first_year_expected) ||
        !ExpandedWorld_IndexToDate((int32_t)now,&civil) ||
        civil.year<(civil.month<7u?1u:0u) ||
        (!is_universal &&
@@ -426,7 +433,7 @@ static int savejson_career_civil_clock_ok(const char *json,int size,int log_reje
     /* Even the Title compatibility probe must reject a corrupt future
      * universal fixture/CLAIMED ledger BEFORE any career/world mutation.
      * Absent/null on old CAR is accepted; the new section is opt-in. */
-    if(!ExpandedUniversal_CarValidate(json,size)) {
+    if(!ExpandedUniversal_CarValidateFor(json,size,(uint16_t)world)) {
         if(log_reject)fprintf(stderr,
             "[universal-car] INVALID_LEDGER_OR_WORLD old-save-preserved=1\n");
         return 0;
@@ -436,7 +443,7 @@ static int savejson_career_civil_clock_ok(const char *json,int size,int log_reje
      * any state is replaced. Old CAR (CE section absent) are not affected. */
     if(is_universal) {
         int32_t ceDay=0;
-        if(!ExpandedUniversal_CarPeekClock(json,size,&ceDay) ||
+        if(!ExpandedUniversal_CarPeekClockFor(json,size,(uint16_t)world,&ceDay) ||
            (long)ceDay!=now) {
             if(log_reject)fprintf(stderr,
                 "[universal-car] CLOCK_DIVERGES_FROM_CIVIL ce=%ld civil=%ld "
@@ -453,6 +460,11 @@ static int savejson_career_civil_clock_ok(const char *json,int size,int log_reje
         return 0;
     }
     return 1;
+}
+static int savejson_career_civil_clock_ok(const char *json,int size,int log_reject)
+{
+    return savejson_career_civil_clock_ok_for(json,size,log_reject,
+        World_Current(),World_FirstYear());
 }
 #endif
 
@@ -6600,6 +6612,8 @@ typedef struct CarSnap {
     char *main_ptr;
     size_t main_len,p1s,p1e,p2s,p2e;
     size_t roster_bytes,ce_bytes;
+    WorldId world;          /* captured on the main thread */
+    uint16_t first_year;    /* captured on the main thread */
 } CarSnap;
 static void car_snap_free(CarSnap *s)
 {
@@ -6634,6 +6648,8 @@ static CarSnap *car_snap_capture(void)
         if(!t){car_snap_free(s);return NULL;}
         memcpy(&s->rosters[i],t,sizeof *t);
     }
+    s->world=World_Current();
+    s->first_year=World_FirstYear();
     s->roster_count=n;
     s->roster_bytes=(size_t)n*sizeof *s->rosters;
     s->ce_bytes=ExpandedUniversal_CarSnapshotBytes(s->ce);
@@ -6674,20 +6690,20 @@ static int car_ops_prepare(void *ctx,uint8_t **json,uint32_t *len)
     if(!s || !s->main_ptr || !s->ce)return 0;
     if(!car_snap_serialise_parts(s,&roster,&ce))goto done;
     t1=car_now_ms();
-    total=s->main_len-(s->p1e-s->p1s)-(s->p2e-s->p2s)+roster.len+ce.len;
-    if(total>INT32_MAX)goto done;
+    total=CarImage_Splice(s->main_ptr,s->main_len,s->p1s,s->p1e,s->p2s,s->p2e,
+                          roster.ptr,roster.len,ce.ptr,ce.len,NULL,0u);
+    if(total==(size_t)-1 || total>INT32_MAX)goto done;
     img=(uint8_t *)swos_io_alloc((uint32_t)total+1u);
     if(!img)goto done;
-    memcpy(img+at,s->main_ptr,s->p1s);at+=s->p1s;
-    memcpy(img+at,roster.ptr,roster.len);at+=roster.len;
-    memcpy(img+at,s->main_ptr+s->p1e,s->p2s-s->p1e);at+=s->p2s-s->p1e;
-    memcpy(img+at,ce.ptr,ce.len);at+=ce.len;
-    memcpy(img+at,s->main_ptr+s->p2e,s->main_len-s->p2e);at+=s->main_len-s->p2e;
-    img[at]=0;
+    at=CarImage_Splice(s->main_ptr,s->main_len,s->p1s,s->p1e,s->p2s,s->p2e,
+                       roster.ptr,roster.len,ce.ptr,ce.len,(char *)img,
+                       total+1u);
+    if(at!=total)goto done;
     t2=car_now_ms();
     /* Exactly the validation the inline path performs on the same image. */
     if(at!=total ||
-       !savejson_career_civil_clock_ok((const char *)img,(int)at,1)) {
+       !savejson_career_civil_clock_ok_for((const char *)img,(int)at,1,
+                                           s->world,s->first_year)) {
         fprintf(stderr,"[og-world-save] PREWRITE_REJECTED "
             "reason=INCOMPLETE_OG_OR_CIVIL_STATE snapshot-image "
             "prior-save-preserved=1\n");
@@ -6717,19 +6733,21 @@ static void car_ops_free_ctx(void *ctx) { car_snap_free((CarSnap *)ctx); }
  * mismatch switches it off for the session. SWOS_CAR_SNAPSHOT=1 forces it on
  * (no proof), SWOS_CAR_SNAPSHOT_VERIFY=1 keeps verifying forever, and
  * SWOS_CAR_SNAPSHOT_OFF=1 disables it. */
-enum { CAR_SNAP_VERIFYING=0, CAR_SNAP_ON=1, CAR_SNAP_OFF=-1,
-       CAR_SNAP_PROOF_SAVES=3 };
-static int s_snapState=CAR_SNAP_VERIFYING;
-static int s_snapProofs;
+#define CAR_SNAP_PROOF_SAVES 3
+static CarGate s_carGate;
+static int s_carGateReady;
+static void car_gate_env(CarGateEnv *e)
+{
+    e->force_on=getenv("SWOS_CAR_SNAPSHOT")!=NULL;
+    e->verify_only=getenv("SWOS_CAR_SNAPSHOT_VERIFY")!=NULL;
+    e->force_off=getenv("SWOS_CAR_SNAPSHOT_OFF")!=NULL;
+}
 static int car_snap_enabled_for_save(int *shadow)
 {
-    *shadow=0;
-    if(getenv("SWOS_CAR_SNAPSHOT_OFF") || s_snapState==CAR_SNAP_OFF)return 0;
-    if(getenv("SWOS_CAR_SNAPSHOT")) {s_snapState=CAR_SNAP_ON;return 1;}
-    if(getenv("SWOS_CAR_SNAPSHOT_VERIFY")) {*shadow=1;return 1;}
-    if(s_snapState==CAR_SNAP_ON)return 1;
-    *shadow=1; /* still proving equivalence on this career */
-    return 1;
+    CarGateEnv env;
+    if(!s_carGateReady) {CarGate_Init(&s_carGate,CAR_SNAP_PROOF_SAVES);s_carGateReady=1;}
+    car_gate_env(&env);
+    return CarGate_Decide(&s_carGate,&env,shadow);
 }
 static void car_snap_shadow_compare(CarSnap *s,const JsonOutBuf *out)
 {
@@ -6747,20 +6765,18 @@ static void car_snap_shadow_compare(CarSnap *s,const JsonOutBuf *out)
         roster_ok?"PASS":"FAIL",ce_ok?"PASS":"FAIL",
         (unsigned long)(s->p1e-s->p1s),(unsigned long)(s->p2e-s->p2s),
         (unsigned long long)(car_now_ms()-t0));
-    if(!getenv("SWOS_CAR_SNAPSHOT_VERIFY")) {
-        if(roster_ok && ce_ok) {
-            if(++s_snapProofs>=CAR_SNAP_PROOF_SAVES &&
-               s_snapState==CAR_SNAP_VERIFYING) {
-                s_snapState=CAR_SNAP_ON;
-                fprintf(stderr,"[car-snapshot] ACTIVATED after %d byte-identical "
-                    "saves; later saves use the snapshot writer\n",s_snapProofs);
-            }
-        } else {
-            s_snapState=CAR_SNAP_OFF;
+    {
+        CarGateEnv env;
+        const int was_on=s_carGate.state==CAR_GATE_ON;
+        car_gate_env(&env);
+        CarGate_Report(&s_carGate,&env,roster_ok && ce_ok);
+        if(!(roster_ok && ce_ok) && !env.verify_only)
             fprintf(stderr,"[car-snapshot] DISABLED for this session: snapshot "
                 "serialiser differs from the inline bytes (inline stays "
                 "authoritative)\n");
-        }
+        else if(!was_on && s_carGate.state==CAR_GATE_ON)
+            fprintf(stderr,"[car-snapshot] ACTIVATED after %d byte-identical "
+                "saves; later saves use the snapshot writer\n",s_carGate.proofs);
     }
     if(roster.ptr)swos_io_free(roster.ptr);
     if(ce.ptr)swos_io_free(ce.ptr);

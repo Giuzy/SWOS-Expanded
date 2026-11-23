@@ -102,5 +102,37 @@ int CarWriter_TakeFailure(void);
 void CarWriter_Stats(CarWriterStats *out);
 /* Joins the worker (also registered with atexit on first async use). */
 void CarWriter_Shutdown(void);
+
+/* ---- v289: pure helpers (no globals, unit-tested) ----------------------- */
+/* Final image = main[0,p1s) + a + main[p1e,p2s) + b + main[p2e,main_len).
+ * Requires 0<=p1s<=p1e<=p2s<=p2e<=main_len. Returns the image length, or
+ * (size_t)-1 on bad ranges / too small cap. out==NULL: returns the length
+ * only. A trailing NUL is written when cap allows. */
+size_t CarImage_Splice(const char *main,size_t main_len,size_t p1s,size_t p1e,
+                       size_t p2s,size_t p2e,const char *a,size_t alen,
+                       const char *b,size_t blen,char *out,size_t cap);
+
+/* Self-validating activation of the snapshot path. After `proofs_needed`
+ * consecutive saves in which the snapshot serialiser reproduced the inline
+ * bytes exactly, the snapshot path turns ON for the rest of the session; one
+ * mismatch turns it OFF for the session (inline stays authoritative).
+ * Overrides are passed in (environment is read by the caller). */
+typedef enum CarGateState {
+    CAR_GATE_VERIFYING = 0, CAR_GATE_ON = 1, CAR_GATE_OFF = -1
+} CarGateState;
+typedef struct CarGate {
+    int state,proofs,proofs_needed;
+} CarGate;
+typedef struct CarGateEnv {
+    int force_on;      /* SWOS_CAR_SNAPSHOT: on without proof */
+    int verify_only;   /* SWOS_CAR_SNAPSHOT_VERIFY: compare forever, never on */
+    int force_off;     /* SWOS_CAR_SNAPSHOT_OFF */
+} CarGateEnv;
+void CarGate_Init(CarGate *g,int proofs_needed);
+/* 1 = use the snapshot for this save; *shadow=1: also keep inline bytes
+ * authoritative and compare. 0 = plain inline save. */
+int CarGate_Decide(CarGate *g,const CarGateEnv *env,int *shadow);
+/* Report the verdict of a shadow comparison (equal=1 byte-identical). */
+void CarGate_Report(CarGate *g,const CarGateEnv *env,int equal);
 #endif
 #endif

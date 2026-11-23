@@ -37,6 +37,11 @@ int ExpandedUniversal_CarRestore(const char *json,int size);
  * candidate CAR into scratch memory and never touch the live registry. */
 /* 1 = CE section present; *day = its civil clock. */
 int ExpandedUniversal_CarPeekClock(const char *json,int size,int32_t *day);
+/* v289: world passed explicitly, so a worker thread never reads World_Current(). */
+int ExpandedUniversal_CarValidateFor(const char *json,int size,uint16_t world);
+int ExpandedUniversal_CarPeekClockFor(const char *json,int size,uint16_t world,
+                                      int32_t *day);
+uint16_t ExpandedUniversal_CarSnapshotWorld(const ExpandedUniversalCarSnapshot *s);
 /* 1 = every fixture club of the CE section is in sorted_keys (stable_club). */
 int ExpandedUniversal_CarCoversClubs(const char *json,int size,
     const uint32_t *sorted_keys,uint32_t n);

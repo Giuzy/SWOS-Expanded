@@ -275,6 +275,42 @@ int main(int argc,char **argv)
             free(cx); /* no free_ctx op installed: ownership stays here */
         }
     }
+    {   /* v289: splice (pure) */
+        const char m[]="AAxxBByyCC";char out[64];size_t n;
+        n=CarImage_Splice(m,10,2,4,6,8,"11",2,"2222",4,out,sizeof out);
+        assert(n==12 && !memcmp(out,"AA11BB2222CC",12) && out[12]==0);
+        assert(CarImage_Splice(m,10,2,4,6,8,"11",2,"2222",4,NULL,0)==12);
+        assert(CarImage_Splice(m,10,0,0,10,10,"X",1,"Y",1,out,sizeof out)==12);
+        assert(!memcmp(out,"XAAxxBByyCCY",12));
+        assert(CarImage_Splice(m,10,3,3,3,3,NULL,0,NULL,0,out,sizeof out)==10);
+        assert(CarImage_Splice(m,10,5,4,6,8,"",0,"",0,out,sizeof out)==(size_t)-1);
+        assert(CarImage_Splice(m,10,2,4,3,8,"",0,"",0,out,sizeof out)==(size_t)-1);
+        assert(CarImage_Splice(m,10,2,4,6,11,"",0,"",0,out,sizeof out)==(size_t)-1);
+        assert(CarImage_Splice(m,10,2,4,6,8,"11",2,"2222",4,out,11)==(size_t)-1);
+        assert(CarImage_Splice(m,10,2,4,6,8,NULL,2,"",0,out,64)==(size_t)-1);
+    }
+    {   /* v289: activation gate */
+        CarGate g;CarGateEnv e={0,0,0};int sh;
+        CarGate_Init(&g,3);
+        assert(CarGate_Decide(&g,&e,&sh)==1 && sh==1);
+        CarGate_Report(&g,&e,1);CarGate_Report(&g,&e,1);
+        assert(g.state==CAR_GATE_VERIFYING);
+        CarGate_Report(&g,&e,1);
+        assert(g.state==CAR_GATE_ON);
+        assert(CarGate_Decide(&g,&e,&sh)==1 && sh==0);
+        CarGate_Report(&g,&e,0);          /* a mismatch always latches OFF */
+        assert(g.state==CAR_GATE_OFF && CarGate_Decide(&g,&e,&sh)==0);
+        CarGate_Init(&g,3);CarGate_Report(&g,&e,1);CarGate_Report(&g,&e,0);
+        assert(g.state==CAR_GATE_OFF);
+        { CarGateEnv f={1,0,0};CarGate_Init(&g,3);
+          assert(CarGate_Decide(&g,&f,&sh)==1 && sh==0 && g.state==CAR_GATE_ON); }
+        { CarGateEnv v={0,1,0};CarGate_Init(&g,3);
+          assert(CarGate_Decide(&g,&v,&sh)==1 && sh==1);
+          CarGate_Report(&g,&v,1);CarGate_Report(&g,&v,1);CarGate_Report(&g,&v,1);
+          assert(g.state==CAR_GATE_VERIFYING); }
+        { CarGateEnv o={0,0,1};CarGate_Init(&g,3);
+          assert(CarGate_Decide(&g,&o,&sh)==0 && sh==0); }
+    }
     CarWriter_Shutdown();
     reset_flags();
     (void)put_file;

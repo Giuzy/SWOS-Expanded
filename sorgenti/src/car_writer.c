@@ -257,4 +257,52 @@ void CarWriter_Shutdown(void)
     W.thread=NULL;W.stopping=0;
     SDL_UnlockMutex(W.lock);
 }
+
+/* ---- v289: pure helpers --------------------------------------------------- */
+size_t CarImage_Splice(const char *main,size_t main_len,size_t p1s,size_t p1e,
+                       size_t p2s,size_t p2e,const char *a,size_t alen,
+                       const char *b,size_t blen,char *out,size_t cap)
+{
+    size_t total,at=0u;
+    if(!main || (!a && alen) || (!b && blen) || p1s>p1e || p1e>p2s ||
+       p2s>p2e || p2e>main_len)return (size_t)-1;
+    total=main_len-(p1e-p1s)-(p2e-p2s);
+    if(alen>(size_t)-1-total || blen>(size_t)-1-total-alen)return (size_t)-1;
+    total+=alen+blen;
+    if(!out)return total;
+    if(cap<total)return (size_t)-1;
+    memcpy(out+at,main,p1s);at+=p1s;
+    if(alen) {memcpy(out+at,a,alen);}
+    at+=alen;
+    memcpy(out+at,main+p1e,p2s-p1e);at+=p2s-p1e;
+    if(blen) {memcpy(out+at,b,blen);}
+    at+=blen;
+    memcpy(out+at,main+p2e,main_len-p2e);at+=main_len-p2e;
+    if(cap>at)out[at]=0;
+    return at;
+}
+void CarGate_Init(CarGate *g,int proofs_needed)
+{
+    if(!g)return;
+    g->state=CAR_GATE_VERIFYING;g->proofs=0;
+    g->proofs_needed=proofs_needed>0?proofs_needed:1;
+}
+int CarGate_Decide(CarGate *g,const CarGateEnv *env,int *shadow)
+{
+    if(shadow)*shadow=0;
+    if(!g || (env && env->force_off) || g->state==CAR_GATE_OFF)return 0;
+    if(env && env->force_on) {g->state=CAR_GATE_ON;return 1;}
+    if(env && env->verify_only) {if(shadow)*shadow=1;return 1;}
+    if(g->state==CAR_GATE_ON)return 1;
+    if(shadow)*shadow=1; /* still proving equivalence on this career */
+    return 1;
+}
+void CarGate_Report(CarGate *g,const CarGateEnv *env,int equal)
+{
+    if(!g || (env && env->verify_only))return;
+    if(!equal) {g->state=CAR_GATE_OFF;return;}
+    if(++g->proofs>=g->proofs_needed && g->state==CAR_GATE_VERIFYING)
+        g->state=CAR_GATE_ON;
+}
+
 #endif

@@ -143,6 +143,7 @@ static int exp_car_chrono_cmp(const void *aa,const void *bb)
 }
 /* Emit core: reads ONLY through r (live registry or an owned snapshot copy). */
 static int exp_car_emit_registry(ExpandedUniversalRegistry *r,
+                                 uint16_t expected_world,
                                  mjson_print_fn_t output,void *user)
 {
     size_t len;
@@ -153,7 +154,7 @@ static int exp_car_emit_registry(ExpandedUniversalRegistry *r,
     const Uint64 started_ms=Platform_NowMs();
     Uint64 validated_ms;
     if(!output || !r)return 0;
-    if(r->world!=(uint16_t)World_Current() ||
+    if(r->world!=expected_world ||
        !ExpandedUniversal_ValidateRestore(r))return 0;
     validated_ms=Platform_NowMs();
     if(r->fixture_count>(uint32_t)((INT_MAX-EXP_CAR_HEX_HEAD-
@@ -237,7 +238,7 @@ int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
     if(!output)return 0;
     if(!r)
         return mjson_printf(output,user,",\n  %Q:null","universal_engine")>0;
-    return exp_car_emit_registry(r,output,user);
+    return exp_car_emit_registry(r,(uint16_t)World_Current(),output,user);
 }
 /* v288: IMMUTABLE, SELF-SUFFICIENT copy of the CE registry (fixtures, ledger,
  * events, clock, flags). The emitter below reads only this copy, so it may
@@ -248,6 +249,7 @@ struct ExpandedUniversalCarSnapshot {
     ExpandedFixtureLedgerEntry *ledger;
     ExpandedScheduledEvent *events;
     size_t bytes;
+    uint16_t world;   /* captured on the main thread: the worker never asks */
 };
 int ExpandedUniversal_CarSnapshotCapture(ExpandedUniversalCarSnapshot **out)
 {
@@ -257,6 +259,7 @@ int ExpandedUniversal_CarSnapshotCapture(ExpandedUniversalCarSnapshot **out)
     if(!out)return 0;
     *out=NULL;
     if(!r)return 1; /* inactive registry: the caller emits null */
+    if(r->world!=(uint16_t)World_Current())return 0;
     nf=r->fixture_count;nl=r->ledger.count;ne=r->scheduler.count;
     if(nf==0u || nl!=nf || ne!=nf || !r->fixtures || !r->ledger.entries ||
        !r->scheduler.events)return 0;
@@ -272,6 +275,7 @@ int ExpandedUniversal_CarSnapshotCapture(ExpandedUniversalCarSnapshot **out)
     memcpy(s->fixtures,r->fixtures,(size_t)nf*sizeof *s->fixtures);
     memcpy(s->ledger,r->ledger.entries,(size_t)nl*sizeof *s->ledger);
     memcpy(s->events,r->scheduler.events,(size_t)ne*sizeof *s->events);
+    s->world=r->world;
     s->reg=*r;
     s->reg.fixtures=s->fixtures;s->reg.fixture_capacity=nf;
     s->reg.ledger.entries=s->ledger;s->reg.ledger.capacity=nl;
@@ -289,7 +293,11 @@ int ExpandedUniversal_CarEmitSnapshot(ExpandedUniversalCarSnapshot *s,
                                       mjson_print_fn_t output,void *user)
 {
     if(!s)return mjson_printf(output,user,",\n  %Q:null","universal_engine")>0;
-    return exp_car_emit_registry(&s->reg,output,user);
+    return exp_car_emit_registry(&s->reg,s->world,output,user);
+}
+uint16_t ExpandedUniversal_CarSnapshotWorld(const ExpandedUniversalCarSnapshot *s)
+{
+    return s?s->world:0xffffu;
 }
 void ExpandedUniversal_CarSnapshotRelease(ExpandedUniversalCarSnapshot *s)
 {
@@ -300,7 +308,8 @@ void ExpandedUniversal_CarSnapshotRelease(ExpandedUniversalCarSnapshot *s)
  * state changes on failed CRC, world, civil clock, event or ledger proof.
  * Nor is a missing optional section an invitation to invent fixtures. */
 static int exp_car_parse(const char *json,int size,
-                          ExpandedCarWorld *candidate,int *present)
+                          ExpandedCarWorld *candidate,int *present,
+                          uint16_t expected_world)
 {
     const char *token=NULL,*p,*end;
     int tok_len=0,kind;
@@ -332,7 +341,7 @@ static int exp_car_parse(const char *json,int size,
     if(memcmp(p,"UE01",4u)!=0) {free(text);return 0;}
     p+=4;
     if(!exp_hex_get(&p,end,4u,&v) || v>=WORLD_COUNT ||
-       v!=(uint16_t)World_Current()) {free(text);return 0;}
+       v!=expected_world) {free(text);return 0;}
     world=(uint16_t)v;
     if(!exp_hex_get(&p,end,8u,&v) || v>INT32_MAX ||
        !ExpandedWorld_IndexToDate((int32_t)v,&date)) {
@@ -412,22 +421,31 @@ static int exp_car_parse(const char *json,int size,
 fail:
     free(text);exp_car_clear(candidate);return 0;
 }
-int ExpandedUniversal_CarValidate(const char *json,int size)
+int ExpandedUniversal_CarValidateFor(const char *json,int size,uint16_t world)
 {
     ExpandedCarWorld candidate={0};
     int present=0;
-    const int ok=exp_car_parse(json,size,&candidate,&present);
+    const int ok=exp_car_parse(json,size,&candidate,&present,world);
+    exp_car_clear(&candidate);
+    return ok;
+}
+int ExpandedUniversal_CarValidate(const char *json,int size)
+{
+    return ExpandedUniversal_CarValidateFor(json,size,(uint16_t)World_Current());
+}
+int ExpandedUniversal_CarPeekClockFor(const char *json,int size,uint16_t world,
+                                      int32_t *day)
+{
+    ExpandedCarWorld candidate={0};
+    int present=0,ok;
+    ok=day && exp_car_parse(json,size,&candidate,&present,world) && present;
+    if(ok)*day=candidate.reg.scheduler.clock.day_index;
     exp_car_clear(&candidate);
     return ok;
 }
 int ExpandedUniversal_CarPeekClock(const char *json,int size,int32_t *day)
 {
-    ExpandedCarWorld candidate={0};
-    int present=0,ok;
-    ok=day && exp_car_parse(json,size,&candidate,&present) && present;
-    if(ok)*day=candidate.reg.scheduler.clock.day_index;
-    exp_car_clear(&candidate);
-    return ok;
+    return ExpandedUniversal_CarPeekClockFor(json,size,(uint16_t)World_Current(),day);
 }
 static int exp_key_cmp(const void *aa,const void *bb)
 {
@@ -440,7 +458,7 @@ int ExpandedUniversal_CarCoversClubs(const char *json,int size,
     ExpandedCarWorld candidate={0};
     int present=0,ok;
     uint32_t i;
-    ok=sorted_keys && n && exp_car_parse(json,size,&candidate,&present) &&
+    ok=sorted_keys && n && exp_car_parse(json,size,&candidate,&present,(uint16_t)World_Current()) &&
        present;
     for(i=0;ok && i<candidate.reg.fixture_count;++i) {
         const ExpandedUniversalFixture *f=&candidate.reg.fixtures[i];
@@ -463,7 +481,7 @@ int ExpandedUniversal_CarRestore(const char *json,int size)
     int present=0;
     const WorldId world=World_Current();
     if(world>=WORLD_COUNT ||
-       !exp_car_parse(json,size,&candidate,&present))return 0;
+       !exp_car_parse(json,size,&candidate,&present,(uint16_t)World_Current()))return 0;
     exp_car_clear(&s_worlds[world]);
     if(world==WORLD_2627)ExpandedUniversalLive_ResetCpuBatch();
     if(present) {

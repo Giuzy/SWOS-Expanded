@@ -112,7 +112,12 @@
  * SWOS_CAR_SNAPSHOT=1 (force on), _VERIFY=1 (verify forever), _OFF=1. The
  * first save of a session and the non-snapshot path are always synchronous.
  * No CAR format change. Windows gameplay NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.288"
+/* v00.13.289 (SAVE/CAR completion): the CarWriter worker no longer reads any
+ * game global (world, first year captured with the snapshot; CarValidateFor /
+ * CarPeekClockFor / savejson_career_civil_clock_ok_for); pure CarImage_Splice
+ * and CarGate (activation latch) extracted and unit-tested. No CAR format
+ * change. Windows gameplay NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.289"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

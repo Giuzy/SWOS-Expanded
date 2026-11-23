@@ -14,6 +14,10 @@
  * (the "disk" is the last JSON image produced by the real CAR emitter).
  * It is NOT a Windows build, NOT gameplay and NOT the OG menus/board.
  */
+/* Standalone MSYS2/SDL2 test: do not rename main() to SDL_main(). */
+#ifndef SDL_MAIN_HANDLED
+#define SDL_MAIN_HANDLED
+#endif
 #include <assert.h>
 #include <stdint.h>
 #include <stdio.h>

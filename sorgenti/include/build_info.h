@@ -145,7 +145,10 @@
  * CONTINUE of a CAR holding a CLAIMED 50 Hz match of today puts it back to
  * SCHEDULED like ESC (user decision), explicit log, no replay, no score.
  * Isolated live-cycle test added. Windows build/gameplay NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.294"
+/* v00.13.295: Windows standalone CE live-cycle test uses SDL_MAIN_HANDLED
+ * to keep test main(void) from SDL2 SDL_main macro substitution.
+ * Production engine unchanged. Windows harness rerun not yet proven. */
+#define SWOS_EXPANDED_VERSION "00.13.295"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

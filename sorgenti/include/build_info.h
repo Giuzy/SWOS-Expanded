@@ -132,7 +132,10 @@
  * CE section as separate blocks, backlog digest log, diagnostic checkpoint
  * cadence (1000) so real mode=ASYNC appears in AVVIA_DIAGNOSTICA runs.
  * Old CAR (JSON, SWOSZC3A, UE01) still load. Windows gameplay NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.292"
+/* v00.13.293: the ORIGINAL incomplete-squad block is back on the manager prematch
+ * screen: an injured/suspended player in the first 11 + bench entries hides the
+ * match button (stock counters read the wrong list for the selected-team copy). */
+#define SWOS_EXPANDED_VERSION "00.13.293"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

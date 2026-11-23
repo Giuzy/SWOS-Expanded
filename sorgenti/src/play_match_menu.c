@@ -335,6 +335,42 @@ static int Expanded_CareerPrematchLegalSelection(const TeamFileEx *team)
 }
 #endif
 
+#ifdef SWOS_SDL_BUILD
+/* v293: the ORIGINAL block for an incomplete squad. Stock SWOS hides the match
+ * button while an injured/suspended player stands in the first 11 + bench
+ * entries (GetNumberOfAvailablePlayers(11+maxSubs) disabled != 0, see
+ * ShowOrHidePlayMatchButton). The stock counters read the OG 16-slot list of
+ * the TeamFileEx they are given; the manager's club here is a selected-team
+ * COPY whose real order lives in _currentMatchPlayers + the club roster
+ * (GetPlayer), so the stock gate looked at another list and never blocked.
+ * Same predicate, same slots (11+bench; the extra reserve row below the list
+ * stays outside, exactly as before), evaluated on the real lineup. Returns 1
+ * only when the manager can actually fix the lineup (edits allowed) and every
+ * slot id is valid, so it can never soft-lock a read-only view. */
+static int Expanded_CareerPrematchHasUnavailable(const TeamFileEx *team)
+{
+    if(!Expanded_ManagedCareerTeam(team) || team==&_careerTeam ||
+       _selTeamNumber==0xFFFF || _trainingGame || _showingCpuTeams ||
+       _viewingOpponentTeam || team->team.teamControls==TEAM_COMPUTER ||
+       !Expanded_CareerLineupEditsAllowed())return 0;
+    const unsigned n=_careerNumPlayers;
+    const unsigned bench=_maxSubstitutesEntries;
+    if(n<11u || n>32u || bench>8u || 11u+bench>n)return 0;
+    uint32_t seen=0;
+    int unavailable=0;
+    for(unsigned i=0;i<11u+bench;++i) {
+        const unsigned id=_currentMatchPlayers[i];
+        if(id>=32u || (seen&(1u<<id)))return 0;
+        seen|=1u<<id;
+        const PlayerFile *pf=(const PlayerFile *)
+            (GetPlayer(_selTeamNumber,(uint16_t)id)+76);
+        if(Career_IsSelectionUnavailable(pf,_playMatchExcludeFlags))
+            unavailable=1;
+    }
+    return unavailable;
+}
+#endif
+
 /* ---- Helper: menu entry from byte offset ---- */
 
 /* Helper: access bg as the high 16 bits (big-endian BACKANDFRAMECOLOR) */
@@ -506,6 +542,8 @@ void ShowOrHidePlayMatchButton(void) {
          * legal nominated bench is zero. Check actual OG lineup identities
          * and availability, leaving all non-manager menus unchanged. */
         if(Expanded_CareerPrematchLegalSelection(team))goto canPlay;
+        /* OG block: an injured/suspended player in 11+bench hides the button */
+        if(Expanded_CareerPrematchHasUnavailable(team))goto showPlayBtnPath;
 #endif
         uint32_t subsR = GetNumberOfAvailableSubstitutes((uint8_t *)team, _playMatchExcludeFlags);
         uint16_t d2 = (uint16_t)(subsR & 0xFFFF); /* d7→d2: available subs (goalkeepers) */

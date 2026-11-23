@@ -1,5 +1,9 @@
 # SWOS Expanded — Piano integrale di sviluppo verso il rilascio
 
+## 23/11/2026 — ADDENDUM APPROVATO FASE 0: CALENDARIO E REGOLAMENTI (PREVALE SULLE PROPOSTE PRECEDENTI)
+
+Le decisioni aggiornate sono trascritte in dettaglio in [GAME_DESIGN.md](GAME_DESIGN.md), sezione «FASE 0: CALENDARI E REGOLAMENTI REALI, VERSIONATI». Per il piano FASI 0/2/3/12 valgono: base reale 1996/97 e 2026/27 con data partita verificata o data turno reale; nuove edizioni generate dai giorni reali di ciascuna competizione (NON data mese/giorno invariata), coordinando tutte le gare di un club; weekend dei campionati ven–lun quando previsto, 1–2 partite ordinarie e 3/7 soglia di congestione non assoluta, 72h recupero obiettivo; no doppie gare per club nello stesso giorno e nessuna gerarchia automatica Champions/lega; futuro update 2027+ o riforma storica applicabile solo a nuove edizioni, mai modifica edizione attiva o archivio. Distinguere sempre fonte reale, real-date per round e GAME_TEMPLATE. **Solo decisione/design, nessun codice/test implementato.** Prossima questione FASE 0: accoppiamenti, sorteggi e vincoli specifici.
+
 **Bozza di pianificazione da concordare — 23 novembre 2026**  
 **Base verificata:** repository `Giuzy/SWOS-Expanded`, ramo `dev/0.10`, HEAD `b9f65566b00f5fca49da32f73be005e008da3fc3`, versione `00.13.292`.  
 **Natura:** guida di prodotto e piano operativo; **non** certificazione di funzioni, non commit, non modifica del repository.

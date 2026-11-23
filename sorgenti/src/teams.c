@@ -3707,7 +3707,12 @@ loc_E50A:
 
     _selectedContest = (uintptr_t)contest;
 #ifdef SWOS_SDL_BUILD
-    if(Expanded_UnemployedWorldPickerActive() || Expanded_OfferPickerActive())
+    /* The employed VIEW WORLD uses the same original competition picker
+     * without unemployed/offer flags. The chosen country's native d6 is
+     * still authoritative for the CE read-only league lookup; never reuse
+     * a prior picker country or the uninitialized 255 sentinel. */
+    if(Expanded_UnemployedWorldPickerActive() || Expanded_OfferPickerActive() ||
+       (_chooseCompetitionOnly && _gameType==GAME_TYPE_CAREER))
         s_expOGPickerLastCountry=(uint8_t)d6;
 #endif
     if (contest[1] == 0)

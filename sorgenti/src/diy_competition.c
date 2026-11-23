@@ -98,6 +98,9 @@ extern DIYCompetitionEx _diyCompetitionStart;
  * definitions are beside the league menu and its protected callbacks. */
 static int s_ceBoardActive;
 static int s_ceBoardHomeRow,s_ceBoardAwayRow;
+/* The original OG menu visibility callback is above the full CE board
+ * definitions: declare these before use on the Windows C compiler. */
+static int s_ceBoardCommitted,s_ceBoardViewOnly;
 static void ce_board_action(unsigned action);
 #endif
 /* The standalone backing buffer behind diyCompetitionStart (7136 B). The

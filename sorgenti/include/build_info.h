@@ -14,12 +14,12 @@
 #define BUILD_INFO_H
 
 /* Single source of truth for the user-facing release/build number. */
-/* CE2627 VIEW RESULT refreshes the original OG result/table immediately
- * from its one completed fixture ledger; VIEW COMPETITION league type0
- * reads that same CE ledger readonly. The original cup entry is unchanged.
- * No OG screen/pagination or score/CAR writer changes. Windows gameplay,
- * 23+ club table, WORLD routing, and CAR crossprocess remain unproven. */
-#define SWOS_EXPANDED_VERSION "00.13.273"
+/* v274: keep v273 CE VIEW RESULT and VIEW COMPETITION fixes unchanged.
+ * Ensure C declarations precede OG board visibility callback; employed
+ * VIEW WORLD picker carries selected country into existing CE read-only
+ * standings projection (no new UI, cup changes, or result writer).
+ * Windows GCC/gameplay, 23+ native table and CAR CONTINUE not yet proven. */
+#define SWOS_EXPANDED_VERSION "00.13.274"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

@@ -886,7 +886,13 @@ int ExpandedWorldLive_ClockProviderActive(void) {
 static int exp_live_sync_from_ce(void) {
     int32_t day=0;
     if (!s_live || !s_clock_provider || !s_clock_provider(&day)) return 0;
-    if (day>=s_initial_day && day>s_ledger.now) {
+    /* The mirror must EQUAL the CE day (v283): both directions when the
+     * LWE ledger holds no fixtures (always true in OG-only WORLD2627), so a
+     * restore or a new career can never leave it ahead of the CE. With
+     * legacy LWE fixtures it only moves forward (ledger invariant); the
+     * CE day is then still what CalendarState reports. */
+    if (day>=s_initial_day && day!=s_ledger.now &&
+        (day>s_ledger.now || s_ledger.count==0u)) {
         s_ledger.now=day;
         s_weeks=(uint32_t)(day-s_initial_day)/7u;
     }
@@ -1207,8 +1213,10 @@ int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *out) {
     }
     if (!out || !s_live || !s_fixtures) return 0;
     memset(out,0,sizeof *out);
-    (void)exp_live_sync_from_ce(); /* CE day, when the CE is active */
-    if (!ExpandedWorld_IndexToDate(s_ledger.now,&out->today)) return 0;
+    const int ce_clock=exp_live_sync_from_ce(); /* CE day, when active */
+    if (ce_clock && s_clock_provider(&ce_day))
+        { if (!ExpandedWorld_IndexToDate(ce_day,&out->today)) return 0; }
+    else if (!ExpandedWorld_IndexToDate(s_ledger.now,&out->today)) return 0;
     for (uint32_t i=0;i<s_ledger.count;++i) {
         const ExpandedWorldFixture *f=&s_fixtures[i];
         if (f->played) { ++played; continue; }

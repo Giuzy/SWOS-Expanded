@@ -15,6 +15,8 @@ int ExpandedUniversalLive_Active(void);
  * the LWE mirror that follows it); nothing advances any other clock. */
 int ExpandedUniversalLive_TodayIndex(int32_t *out);
 int ExpandedUniversalLive_Today(ExpandedWorldDate *out);
+/* Register the CE clock with the LWE mirror (explicit, no constructor). */
+void ExpandedUniversalLive_RegisterClock(void);
 int ExpandedUniversalLive_Advance(ExpandedWorldDate target); /* WAIT manager */
 int ExpandedUniversalLive_DebugAdvance(ExpandedWorldDate target); /* quick-sim manager */
 /* Readonly next fixture: -1 invalid, 0 none, 1 FORWARD, 2 PLAY due. */

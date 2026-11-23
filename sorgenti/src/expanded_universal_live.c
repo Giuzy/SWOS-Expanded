@@ -59,9 +59,12 @@ static int exp_universal_clock_provider(int32_t *day)
 {
     return ExpandedUniversalLive_TodayIndex(day);
 }
-/* Registered before main(): the LWE mirror asks the CE for the day, the CE
- * never calls LWE. Harmless in WORLD9697 (provider answers 0 there). */
-__attribute__((constructor)) static void exp_universal_register_clock(void)
+/* Explicit registration (v283, replaces the v282 GCC constructor): called
+ * from the two places that make a CE registry active, ExpandedUniversal_
+ * CarBegin (new career) and ExpandedUniversal_CarRestore (CONTINUE). The
+ * LWE mirror asks the CE for the day; the CE never calls LWE. Idempotent;
+ * before any registry exists, and in WORLD9697, the provider answers 0. */
+void ExpandedUniversalLive_RegisterClock(void)
 {
     ExpandedWorldLive_SetClockProvider(exp_universal_clock_provider);
 }

@@ -66,7 +66,15 @@
  * LWE clubs. Also: CE board fire-reset (NEXT MATCH) from the 23/11 diag.
  * NOT removed: LWE importer still feeds the CE club/league catalogue.
  * Windows gameplay/CONTINUE NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.282"
+/* v283: v282 clock hardening. (1) LWE mirror is EXACT: equals the CE day
+ * also backwards when LWE holds no fixtures, and CalendarState always reports
+ * the CE day when the CE is active. (2) GCC constructor replaced by explicit
+ * ExpandedUniversalLive_RegisterClock() called from ExpandedUniversal_CarBegin
+ * and _CarRestore. (3) CAR load drops a stale CE registry BEFORE the LWE
+ * state is read (save_format_json.c), so an old career clock can never leak
+ * into a restored one. New isolated test run_test_expanded_world_clock_mirror.sh.
+ * Windows gameplay/CONTINUE NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.283"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

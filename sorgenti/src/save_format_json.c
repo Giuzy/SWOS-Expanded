@@ -8371,6 +8371,12 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
             return 1;
         }
     }
+    /* v283: drop any CE registry still in RAM from an earlier career BEFORE
+     * the LWE state is read. Otherwise its clock would answer for the
+     * restored mirror (and the civil check below) until ExpandedUniversal_
+     * CarRestore replaces it. CarRestore re-creates it from THIS CAR (it
+     * already clears the registry first), so no valid CAR is altered. */
+    ExpandedUniversal_CarResetCurrent();
     if (!ExpandedWorldLive_ReadJson((const char *)src,(int)src_size)) {
         swos_io_free(src);
         return 1;

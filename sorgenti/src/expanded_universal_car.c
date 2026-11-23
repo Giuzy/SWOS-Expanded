@@ -71,7 +71,10 @@ int ExpandedUniversal_CarBegin(ExpandedWorldDate date,uint32_t capacity)
 {
     const WorldId world=World_Current();
     if(world>=WORLD_COUNT || !capacity || s_worlds[world].active)return 0;
-    return exp_car_alloc(&s_worlds[world],(uint16_t)world,capacity,date);
+    if(!exp_car_alloc(&s_worlds[world],(uint16_t)world,capacity,date))
+        return 0;
+    if(world==WORLD_2627)ExpandedUniversalLive_RegisterClock();
+    return 1;
 }
 
 /* Each field has a fixed width in hex, no host-endian struct dumps. */
@@ -364,6 +367,7 @@ int ExpandedUniversal_CarRestore(const char *json,int size)
     if(present) {
         uint32_t i,scheduled=0u,claimed=0u,completed=0u;
         s_worlds[world]=candidate;
+        if(world==WORLD_2627)ExpandedUniversalLive_RegisterClock();
         for(i=0;i<candidate.reg.ledger.count;++i) {
             const ExpandedFixtureLedgerEntry *e=&candidate.ledger[i];
             if(e->state==EXP_FIXTURE_SCHEDULED)++scheduled;

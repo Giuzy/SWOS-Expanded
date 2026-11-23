@@ -32,6 +32,7 @@
  */
 #ifndef SWOS_CAR_WRITER_H
 #define SWOS_CAR_WRITER_H
+#include <stddef.h>
 #include <stdint.h>
 #ifdef SWOS_SDL_BUILD
 

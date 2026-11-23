@@ -581,7 +581,13 @@ void ContinueCareer(void)
         const int attached=ExpandedWorldLive_CalendarState(&after) &&
             _currentSeasonShowing==previousSeason &&
             _selTeamNumber==offeredTeam && !_youreSacked &&
-            Expanded_OGWorld_ClubBound() &&
+            /* Fase 1: in WORLD2627 the CE is the world; the OG resident
+             * is never started, so Expanded_OGWorld_ClubBound() stays 0
+             * and every employed club change failed here (I, source).
+             * The CE binding check replaces it; no CE state is rebuilt. */
+            (ExpandedUniversalLive_Active()?
+                ExpandedUniversalLive_ManagerBound():
+                Expanded_OGWorld_ClubBound()) &&
             after.today.year==before.today.year &&
             after.today.month==before.today.month &&
             after.today.day==before.today.day;

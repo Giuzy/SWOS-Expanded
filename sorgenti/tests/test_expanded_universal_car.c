@@ -304,10 +304,31 @@ int main(void)
     assert(ExpandedUniversal_RunDue(r,d,&ops)==EXP_UNIVERSAL_RECOVERY);
     assert(s_games==2u);
     assert(ExpandedUniversal_CarValidate(s_disk,(int)strlen(s_disk)));
+    /* Fase 1 (user decision "come ESC"): a durable CLAIMED of TODAY means
+     * the match never produced a durable result; CONTINUE puts it back to
+     * SCHEDULED (logged), the registry is usable and the match was NOT
+     * re-run by the restore itself. */
     assert(ExpandedUniversal_CarRestore(s_disk,(int)strlen(s_disk)));
     r=ExpandedUniversal_CarRegistry();
-    assert(r && r->recovery_required);
-    assert(ExpandedUniversal_Peek(r,d,&next)==EXP_UNIVERSAL_RECOVERY);
+    assert(r && !r->recovery_required);
+    assert(s_games==2u);
+    assert(ExpandedUniversal_Peek(r,d,&next)==EXP_UNIVERSAL_DUE &&
+           next && ExpandedUniversal_EntryFor(r,next)->state==EXP_FIXTURE_SCHEDULED);
+    /* negative: a CLAIMED row that is not of today (inconsistent CAR) is
+     * NOT released: recovery, no replay. */
+    {
+        ExpandedFixtureLedgerEntry *claim=ExpandedUniversal_EntryFor(r,next);
+        claim->state=EXP_FIXTURE_CLAIMED;
+        r->scheduler.clock.day_index=d+1;s_civil_clock=d+1;
+        s_fail_completion=0;
+        assert(Expanded_AutoCareer_SaveChecked("test-claimed-past"));
+        assert(ExpandedUniversal_CarRestore(s_disk,(int)strlen(s_disk)));
+        r=ExpandedUniversal_CarRegistry();
+        assert(r && r->recovery_required);
+        assert(ExpandedUniversal_Peek(r,d+1,&next)==EXP_UNIVERSAL_RECOVERY);
+        assert(s_games==2u);
+        s_civil_clock=d;
+    }
     /* NULL section restores old-career compatibility without scores. */
     {
         char old[200];

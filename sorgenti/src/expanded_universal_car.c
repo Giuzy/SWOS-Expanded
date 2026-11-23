@@ -622,9 +622,71 @@ int ExpandedUniversal_CarRestore(const char *json,int size)
     exp_car_clear(&s_worlds[world]);
     if(world==WORLD_2627)ExpandedUniversalLive_ResetCpuBatch();
     if(present) {
-        uint32_t i,scheduled=0u,claimed=0u,completed=0u;
+        uint32_t i,scheduled=0u,claimed=0u,completed=0u,released=0u;
         s_worlds[world]=candidate;
         if(world==WORLD_2627)ExpandedUniversalLive_RegisterClock();
+        /* Fase 1, user decision 23/11/2026 ("come ESC"): only an
+         * interactive 50 Hz match is ever durably CLAIMED (CPU and VIEW
+         * RESULT claims stay in RAM). A CLAIMED row in a CAR therefore means
+         * the 50 Hz match was interrupted (window close / crash) before a
+         * result existed. Like the v284 ESC abort and the original OG
+         * (`if(_gameCanceled) return 1`), it goes back to the state BEFORE
+         * the match: SCHEDULED, explicitly logged, never silently replayed
+         * and never scored. Only a CLAIMED fixture of TODAY with a PENDING
+         * event is released; anything else keeps recovery. No CAR write
+         * here (transactional CONTINUE v285): the next atomic CAR (PLAY's
+         * own CLAIMED save, VIEW RESULT completion, menu exit, quit)
+         * persists it; a new crash before that repeats the same release. */
+        if(candidate.reg.recovery_required) {
+            ExpandedUniversalRegistry *const r=&s_worlds[world].reg;
+            int releasable=1;
+            for(i=0;i<r->ledger.count && releasable;++i) {
+                const ExpandedFixtureLedgerEntry *e=&r->ledger.entries[i];
+                const ExpandedUniversalFixture *f;
+                const ExpandedScheduledEvent *ev=NULL;
+                uint32_t j;
+                if(e->state!=EXP_FIXTURE_CLAIMED)continue;
+                f=i<r->fixture_count &&
+                  ExpandedFixtureKey_Equal(r->fixtures[i].key,e->key)?
+                  &r->fixtures[i]:NULL;
+                if(f)for(j=0;j<r->scheduler.count;++j)
+                    if(r->scheduler.events[j].id==f->event_id) {
+                        ev=&r->scheduler.events[j];break;
+                    }
+                if(!f || !ev || ev->state!=EXP_EVENT_PENDING ||
+                   f->day_index!=r->scheduler.clock.day_index)releasable=0;
+            }
+            if(releasable) {
+                for(i=0;i<r->ledger.count;++i) {
+                    ExpandedFixtureLedgerEntry *e=&r->ledger.entries[i];
+                    if(e->state!=EXP_FIXTURE_CLAIMED)continue;
+                    e->state=EXP_FIXTURE_SCHEDULED;
+                    ++released;
+                    fprintf(stderr,"[universal-car] CLAIMED_RELEASED_ON_CONTINUE "
+                        "world=%u event=%llu country=%u competition=%lu "
+                        "day=%ld home=%lu away=%lu state=CLAIMED->SCHEDULED "
+                        "cause=V:interrupted-50hz-no-result "
+                        "OG=BACK_TO_PRE_MATCH persisted=NEXT_ATOMIC_CAR\n",
+                        (unsigned)world,
+                        (unsigned long long)r->fixtures[i].event_id,
+                        (unsigned)r->fixtures[i].country,
+                        (unsigned long)r->fixtures[i].key.edition.competition.stable_competition,
+                        (long)r->fixtures[i].day_index,
+                        (unsigned long)r->fixtures[i].home.stable_club,
+                        (unsigned long)r->fixtures[i].away.stable_club);
+                }
+                r->recovery_required=0u;
+                if(!ExpandedUniversal_ValidateRestore(r)) {
+                    r->recovery_required=1u; /* never continue half-released */
+                    fprintf(stderr,"[universal-car] CLAIMED_RELEASE_REJECTED "
+                        "world=%u reason=registry-invalid recovery=1\n",
+                        (unsigned)world);
+                }
+            } else
+                fprintf(stderr,"[universal-car] CLAIMED_NOT_RELEASABLE "
+                    "world=%u reason=not-today-or-event-not-pending "
+                    "recovery=1 replay=FORBIDDEN\n",(unsigned)world);
+        }
         for(i=0;i<candidate.reg.ledger.count;++i) {
             const ExpandedFixtureLedgerEntry *e=&candidate.ledger[i];
             if(e->state==EXP_FIXTURE_SCHEDULED)++scheduled;
@@ -633,10 +695,11 @@ int ExpandedUniversal_CarRestore(const char *json,int size)
         }
         fprintf(stderr,"[universal-car] CONTINUE_RESTORED "
             "world=%u scheduled=%lu claimed=%lu completed=%lu "
-            "recovery=%u replay=FORBIDDEN_ON_CLAIMED\n",
+            "released=%lu recovery=%u replay=FORBIDDEN_ON_CLAIMED\n",
             (unsigned)world,(unsigned long)scheduled,
             (unsigned long)claimed,(unsigned long)completed,
-            (unsigned)candidate.reg.recovery_required);
+            (unsigned long)released,
+            (unsigned)s_worlds[world].reg.recovery_required);
     }
     return 1;
 }

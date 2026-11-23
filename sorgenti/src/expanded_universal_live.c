@@ -21,6 +21,7 @@ extern uint16_t _quitToDos; /* SDL close: do not durably claim another match */
 #include <string.h>
 extern TeamFileEx _careerTeam;
 extern uint16_t _gameType,_selTeamNumber;
+extern uint16_t _youreSacked; /* sacked = unemployed for every OG reader */
 /* RAM-only completed quick matches since last explicit batch checkpoint.
  * Accumulates across FORWARD calls; not a persisted journal field. */
 static uint32_t s_cpu_batch_pending;
@@ -58,14 +59,63 @@ static uint32_t exp_cpu_threshold(void)
 }
 static int s_async_failed; /* last async CAR write failed: next flush is SYNC */
 
+/* Fase 1: the ONLY test of "the manager owns this fixture". A sacked
+ * manager keeps _selTeamNumber/_careerTeam of the old club until a new
+ * contract (InitCareerClub clears _youreSacked), exactly like every other
+ * OG reader treats `_selTeamNumber==0xffff || _youreSacked` as unemployed.
+ * Without this check FORWARD after a dismissal stopped on the OLD club's
+ * fixture (WAIT_MANAGER) and PLAY MATCH could offer it (RG FORWARD da
+ * disoccupato / partita manager assente). */
 static int manager_key(ExpandedClubKey *out)
 {
     const uint16_t word=(uint16_t)(
         ((uint16_t)_careerTeam.team.countryNumber<<8) |
         (uint16_t)_careerTeam.team.teamOrdinal);
-    return out && _gameType==GAME_TYPE_CAREER &&
+    return out && _gameType==GAME_TYPE_CAREER && !_youreSacked &&
         _selTeamNumber!=0xffffu && _selTeamNumber==word &&
         ExpandedUniversal_NativeTeamKey(&_careerTeam,out);
+}
+static const char *exp_live_fixture_state(ExpandedUniversalRegistry *r,
+                                          const ExpandedUniversalFixture *f)
+{
+    const ExpandedFixtureLedgerEntry *e=r && f?ExpandedUniversal_EntryFor(r,f):NULL;
+    if(!e)return "NO_LEDGER";
+    return e->state==EXP_FIXTURE_SCHEDULED?"SCHEDULED":
+           e->state==EXP_FIXTURE_CLAIMED?"CLAIMED":
+           e->state==EXP_FIXTURE_PLAYED?"COMPLETED":"UNKNOWN";
+}
+/* Fase 1 diagnostics: every fault names world, country, competition,
+ * edition, stage, date, fixture and clubs, the fixture state before the
+ * attempt and after it, the result code and whether the cause is V/I. */
+static void exp_live_fault(const char *tag,ExpandedUniversalRegistry *r,
+                           const ExpandedUniversalFixture *f,
+                           const char *before,int code,const char *cause)
+{
+    ExpandedWorldDate d={0};
+    if(!f) {
+        fprintf(stderr,"[universal-fault] %s world=%u fixture=NONE code=%d "
+            "clock=%ld recovery=%u cause=%s\n",tag?tag:"FAULT",
+            r?(unsigned)r->world:0u,code,
+            r?(long)r->scheduler.clock.day_index:-1L,
+            r?(unsigned)r->recovery_required:0u,cause?cause:"?");
+        return;
+    }
+    (void)ExpandedWorld_IndexToDate(f->day_index,&d);
+    fprintf(stderr,"[universal-fault] %s world=%u country=%u slot=%u "
+        "type=%u competition=%lu edition=%ld/%u stage=%u tie=%u leg=%u "
+        "date=%04u-%02u-%02u event=%llu home=%lu away=%lu "
+        "state-before=%s state-after=%s code=%d recovery=%u cause=%s\n",
+        tag?tag:"FAULT",(unsigned)f->key.edition.competition.world,
+        (unsigned)f->country,(unsigned)f->slot,
+        (unsigned)f->competition_type,
+        (unsigned long)f->key.edition.competition.stable_competition,
+        (long)f->key.edition.start_day,(unsigned)f->key.edition.sequence,
+        (unsigned)f->key.stage,(unsigned)f->key.tie,(unsigned)f->key.leg,
+        (unsigned)d.year,(unsigned)d.month,(unsigned)d.day,
+        (unsigned long long)f->event_id,
+        (unsigned long)f->home.stable_club,(unsigned long)f->away.stable_club,
+        before?before:"?",exp_live_fixture_state(r,f),code,
+        r?(unsigned)r->recovery_required:0u,cause?cause:"?");
 }
 int ExpandedUniversalLive_Active(void)
 {
@@ -227,11 +277,28 @@ static ExpandedUniversalResult run_match(
     const uint16_t game_before=_gameType;
     ExpandedUniversalResult result;
     if(!f)return EXP_UNIVERSAL_INVALID;
+    /* Fase 1 dispatcher scope: only type0 league fixtures (draw is a
+     * valid final score). A type1/type2 tie needs the competition's real
+     * extra-time/penalty/aggregate rules; no KO handler is installed, so
+     * refuse BEFORE any claim instead of recording a winnerless draw.
+     * (V: the catalog emits only competition_type=0 today.) */
+    if(f->competition_type!=0u) {
+        exp_live_fault("UNSUPPORTED_KO_HANDLER",ExpandedUniversal_CarRegistry(),
+            f,"SCHEDULED",(int)EXP_UNIVERSAL_INVALID,
+            "V:no-type1/2-tie-rules-in-dispatcher");
+        return EXP_UNIVERSAL_INVALID;
+    }
     ctx.home=human && ExpandedClubKey_Equal(manager,f->home)?
         &_careerTeam:ExpandedUniversalCatalog_Roster(f->home);
     ctx.away=human && ExpandedClubKey_Equal(manager,f->away)?
         &_careerTeam:ExpandedUniversalCatalog_Roster(f->away);
-    if(!ctx.home || !ctx.away)return EXP_UNIVERSAL_RECOVERY;
+    if(!ctx.home || !ctx.away) {
+        exp_live_fault("ROSTER_MISSING",ExpandedUniversal_CarRegistry(),f,
+            "SCHEDULED",(int)EXP_UNIVERSAL_RECOVERY,
+            ctx.home?"V:away-roster-not-in-catalog":
+                     "V:home-roster-not-in-catalog");
+        return EXP_UNIVERSAL_RECOVERY;
+    }
     ctx.competition_name="LEAGUE";
     ctx.minimum_substitutes=0;
     ctx.maximum_substitutes=5;
@@ -334,6 +401,8 @@ static int exp_live_drain_today(ExpandedUniversalRegistry *r,int32_t today,
             r->recovery_required=1u;
             fprintf(stderr,"[universal-live] ROUND_CPU_FAULT event=%llu "
                 "CAR_CLAIMED_NO_REPLAY=1\n",(unsigned long long)g->event_id);
+            exp_live_fault("ROUND_CPU_FAULT",r,g,"SCHEDULED",(int)res,
+                "V:og-quick-or-dispatch-refused");
             return 1;
         }
         { if(s_cpu_batch_pending<UINT32_MAX)++s_cpu_batch_pending; exp_backlog_note(r,g); }
@@ -387,6 +456,10 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
             r->recovery_required=1u;
             fprintf(stderr,"[universal-live] ADVANCE_BLOCKED code=%d "
                 "no-old-OG-tick=1 no-replay=1\n",(int)res);
+            exp_live_fault("ADVANCE_BLOCKED",r,f,f?exp_live_fixture_state(r,f):
+                "NONE",(int)res,res==EXP_UNIVERSAL_RECOVERY?
+                "V:registry-recovery(claimed/past-pending/mismatch)":
+                "V:peek-not-due");
             return 0;
         }
         r->scheduler.clock.day_index=f->day_index; /* CE clock only */
@@ -433,6 +506,8 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
                 fprintf(stderr,"[universal-live] CPU_FAULT "
                     "event=%llu CAR_CLAIMED_NO_REPLAY=1\n",
                     (unsigned long long)f->event_id);
+                exp_live_fault("CPU_FAULT",r,f,"SCHEDULED",
+                    (int)match_result,"V:og-quick-or-dispatch-refused");
                 return 0;
             }
             { if(s_cpu_batch_pending<UINT32_MAX)++s_cpu_batch_pending; exp_backlog_note(r,f); }
@@ -489,6 +564,16 @@ int ExpandedUniversalLive_ManagerNext(ExpandedWorldDate *due)
             exp_live_same_round(world_due,f))?2:1;
 }
 
+/* Fase 1: a contract/club change in WORLD2627 only rebinds the manager;
+ * the CE world (fixtures, ledger, clock) is never rebuilt. 1 = the bound
+ * club is a CE club with a catalog roster (replaces the OG resident
+ * Expanded_OGWorld_ClubBound() test, which the CE never sets). */
+int ExpandedUniversalLive_ManagerBound(void)
+{
+    ExpandedClubKey manager={0};
+    return ExpandedUniversalLive_Active() && manager_key(&manager) &&
+           ExpandedUniversalCatalog_Roster(manager)!=NULL;
+}
 static int exp_universal_live_manager_action(int interactive)
 {
     ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
@@ -510,8 +595,17 @@ static int exp_universal_live_manager_action(int interactive)
         const ExpandedUniversalFixture *mf=exp_live_manager_fixture(r,manager);
         if(mf && mf->day_index==today &&
            ExpandedUniversal_Peek(r,today,&f)==EXP_UNIVERSAL_DUE &&
-           f && f->event_id!=mf->event_id)
-            (void)exp_live_drain_today(r,today,mf->event_id,0,manager);
+           f && f->event_id!=mf->event_id &&
+           exp_live_drain_today(r,today,mf->event_id,0,manager)!=2) {
+            /* Earlier same-day events did not all complete (CPU fault,
+             * quit request): never jump over them to the manager. */
+            exp_live_fault("MANAGER_PREDRAIN_STOPPED",r,mf,"SCHEDULED",
+                r->recovery_required?(int)EXP_UNIVERSAL_RECOVERY:
+                                     (int)EXP_UNIVERSAL_BLOCKED,
+                r->recovery_required?"V:earlier-cpu-event-failed":
+                                     "V:quit-requested");
+            return 1;
+        }
         f=NULL;
     }
     res=ExpandedUniversal_Peek(r,today,&f);
@@ -529,8 +623,12 @@ static int exp_universal_live_manager_action(int interactive)
         "event=%llu result=%d CAR_ONE_FIXTURE=1\n",
         interactive?"PLAY_50HZ":"VIEW_RESULT_QUICK",
         (unsigned long long)f->event_id,(int)res);
-    if(res!=EXP_UNIVERSAL_OK && res!=EXP_UNIVERSAL_BLOCKED)
+    if(res!=EXP_UNIVERSAL_OK && res!=EXP_UNIVERSAL_BLOCKED) {
         r->recovery_required=1u;
+        exp_live_fault("MANAGER_MATCH_FAULT",r,f,"SCHEDULED",(int)res,
+            interactive?"V:50hz-ended-without-valid-witness(CLAIMED kept)":
+                        "V:og-quick-witness-or-CAR-completion-rejected");
+    }
     return res==EXP_UNIVERSAL_OK?2:1; /* no legacy fixture */
 }
 /* Only the explicit career DEBUG advance is permitted to quick-sim

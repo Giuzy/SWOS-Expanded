@@ -135,7 +135,17 @@
 /* v00.13.293: the ORIGINAL incomplete-squad block is back on the manager prematch
  * screen: an injured/suspended player in the first 11 + bench entries hides the
  * match button (stock counters read the wrong list for the selected-team copy). */
-#define SWOS_EXPANDED_VERSION "00.13.293"
+/* v00.13.294 (FASE 1, CE single match CPU/manager): a sacked manager is
+ * unemployed for the CE (manager_key checks _youreSacked: FORWARD no longer
+ * stops on / offers the old club's fixture); employed club change in 2627
+ * validates the CE binding instead of the never-set OG resident bind; same-day
+ * pre-drain result checked before the manager match; type1/2 fixtures refused
+ * before claim (no KO handler, no winnerless draw); [universal-fault] lines
+ * with world/country/competition/edition/date/fixture/clubs/state/code/cause.
+ * CONTINUE of a CAR holding a CLAIMED 50 Hz match of today puts it back to
+ * SCHEDULED like ESC (user decision), explicit log, no replay, no score.
+ * Isolated live-cycle test added. Windows build/gameplay NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.294"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

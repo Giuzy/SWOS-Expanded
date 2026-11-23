@@ -24,7 +24,8 @@ run_one() {
         run_test_expanded_qualification_transition|\
         run_test_expanded_universal_fixture_registry|\
         run_test_expanded_universal_world_catalog|\
-        run_test_expanded_universal_car)
+        run_test_expanded_universal_car|\
+        run_test_expanded_universal_live)
             scope="COMPETITION_ENGINE_ISOLATED" ;;
         run_test_expanded_f12_compare)
             scope="F12_READ_ONLY_ISOLATED" ;;
@@ -66,6 +67,7 @@ for script in sorgenti/tests/run_test*.sh sorgenti/tests/run_audit_competition_f
         run_test_expanded_universal_fixture_registry.sh|\
         run_test_expanded_universal_world_catalog.sh|\
         run_test_expanded_universal_car.sh|\
+        run_test_expanded_universal_live.sh|\
         run_test_expanded_f12_compare.sh|run_test_save_car_zstd.sh|\
         run_test_expanded_og_fixture_hash.sh)
             run_one "$script" ;;

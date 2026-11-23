@@ -21,6 +21,9 @@ int ExpandedUniversalLive_Advance(ExpandedWorldDate target); /* WAIT manager */
 int ExpandedUniversalLive_DebugAdvance(ExpandedWorldDate target); /* quick-sim manager */
 /* Readonly next fixture: -1 invalid, 0 none, 1 FORWARD, 2 PLAY due. */
 int ExpandedUniversalLive_ManagerNext(ExpandedWorldDate *due);
+/* Fase 1: 1 = WORLD2627 CE active and the bound (not sacked) manager club
+ * is a CE catalog club. Club change = manager rebinding only. */
+int ExpandedUniversalLive_ManagerBound(void);
 /* 0 not owned, 1 handled/blocked, 2 actual OG + CAR completed. */
 int ExpandedUniversalLive_PlayManager(void); /* only manual real OG 50 Hz */
 int ExpandedUniversalLive_ViewManagerResult(void); /* OG fast, same CAR */

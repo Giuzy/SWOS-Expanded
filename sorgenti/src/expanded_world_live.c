@@ -379,37 +379,6 @@ int ExpandedWorldLive_Seal(void) {
                    "NO LWE fixtures, scores, friendlies, tables or mobility\\n",
             (unsigned long)s_club_count,(unsigned long)s_league_count);
     return 1;
-#if 0 /* retired autonomous simulator: retained for historical comparison only */
-
-    for (uint32_t i=0;i<s_league_count;++i) s_leagues[i].native_schedule=0;
-    s_native_schedule_leagues=0;
-    for (unsigned season=0;season<LIVE_SEASONS;++season) {
-        ExpandedWorldDate start={(uint16_t)(s_first_year+season),8,1};
-        int32_t day;
-        if (!ExpandedWorld_DateToIndex(start,&day)) break;
-        for(uint32_t i=0;i<s_league_count;++i) {
-            int mobile=0;
-            if (season==1u)
-                for(uint32_t j=0;j<s_league_count;++j)
-                    if(s_leagues[j].country==s_leagues[i].country &&
-                       (s_leagues[j].auto_up || s_leagues[j].auto_down ||
-                        s_leagues[j].playoff_up || s_leagues[j].playoff_down)) {
-                        mobile=1;break;
-                    }
-            if (!mobile)
-                (void)make_fixtures(&s_leagues[i],season,day);
-            if(season==1u) s_generated_fresh[i]=(uint8_t)!mobile;
-        }
-    }
-    if (!s_ledger.count) return 0;
-    qsort(s_fixtures,s_ledger.count,sizeof s_fixtures[0],fixture_compare);
-    s_live=1;
-    if (!live_complete_prestart()) {
-        ExpandedWorldLive_End();
-        return 0;
-    }
-    return 1;
-#endif
 }
 
 /* One chronological boundary: the oldest of two resident league seasons is
@@ -899,25 +868,6 @@ static int live_complete_prestart(void) {
     /* A pre-career score is never manufactured by Expanded.
      * Existing legacy snapshots are read, not backfilled with LWE scores. */
     return s_live && s_fixtures!=NULL;
-#if 0 /* old autonomous backfill disabled */
-    uint32_t completed=0;
-    if (!s_live || !s_fixtures) return 0;
-    for (uint32_t i=0;i<s_ledger.count;++i) {
-        ExpandedWorldFixture *f=&s_fixtures[i];
-        if (f->played || f->day>=s_initial_day) continue;
-        uint8_t home=0,away=0;
-        if (!resolve_game(f,&home,&away,NULL) ||
-            home>31u || away>31u) return 0;
-        f->goals_home=home;f->goals_away=away;f->played=1;
-        ++s_ledger.played;
-        ++completed;
-    }
-    if(completed)
-        fprintf(stderr,"[living-world] recovered %lu pre-career May/June "
-                       "fixtures before 1 July %u\n",
-                (unsigned long)completed,(unsigned)s_first_year);
-    return 1;
-#endif
 }
 /* All world advances now pass through ONE exact civil-day cursor.
  * OpenSWOS weekly menus call AdvanceWeeks; native season transitions call
@@ -940,23 +890,6 @@ int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate date) {
     s_ledger.now=target;
     s_weeks=(uint32_t)(target-s_initial_day)/7u;
     return 1;
-#if 0 /* duplicate autonomous results/mobility retired */
-
-    while ((unsigned)s_window_first_year+2u<=2199u) {
-        const uint16_t newest=(uint16_t)(s_window_first_year+2u);
-        ExpandedWorldDate boundary={newest,1u,1u};
-        int32_t boundary_day=0;
-        if (!ExpandedWorld_DateToIndex(boundary,&boundary_day)) return 0;
-        if (target<boundary_day) break;
-        if (s_ledger.now<boundary_day &&
-            !live_advance_with_mobility(boundary_day-1)) return 0;
-        if (!live_roll_window()) return 0;
-    }
-    if (!live_advance_with_mobility(target)) return 0;
-    /* Full weeks elapsed, never a rounded-up fictional event date. */
-    s_weeks=(uint32_t)(target-s_initial_day)/7u;
-    return 1;
-#endif
 }
 int ExpandedWorldLive_AdvanceWeeks(uint32_t weeks) {
     uint64_t d=(uint64_t)(uint32_t)s_initial_day+(uint64_t)weeks*7u;

@@ -1,3 +1,11 @@
+## 23/11/2026 — v268 USER REFINED BATCH SAVE POLICY
+Expected latency improvement: no complete CAR on normal FORWARD stop and no SaveChecked during a single forward simply because 512 quick CPU events have elapsed. Count completed quick results across FORWARD calls; at start of *next* FORWARD after >=512, save a single atomic CAR (512 or more). Selected manager/manual full CAR resets accumulator, quit handling preserved. Hard crash before checkpoint replays only speculative RAM quick results. Validate cross-process CONTINUE, manager and crash recovery before declaring performance or correctness PASS. Windows tests pending.
+
+
+## 23/11/2026 — v268 PERFORMANCE EXPERIMENT (NO MEASURED SPEEDUP YET)
+Increase WORLD2627 OG quick CPU batch checkpoint from 256 to 512 and avoid forced checkpoint on ordinary FORWARD completion or manager WAIT. Expected fewer full CAR validations, Zstd3 compression, and atomic writes. Manual pre-game CLAIMED mandatory; menu exit, contract, post-match, quit still persist. Results under 512 can be provisional RAM until another save (per-invocation counter); crash rollback of uncommitted block is accepted, persisted fixture remains anti-replay. No source benchmark/Windows/GP/CONTINUE yet, compare `FORWARD_TOTAL` and `CPU_BATCH_CAR` before claiming benefit.
+
+
 ## 23/11/2026 — v267 QUICK OG CPU BLOCK SAVE PERFORMANCE (IMPLEMENTATION PREPARED)
 Replace two complete SaveChecked operations PER automatic CPU fixture with one SaveChecked per completed block (up to 256 quick fixtures), plus stop/boundary checkpoints. No removal of original quick OG score, single JSON fixture authority, validation, Zstd3, atomic CAR, or manual no-replay. Expected first 147-match day reduces ~294 full saves to 1, but real wall-clock acceleration is NOT measured yet. Unsaved block results roll back on crash as in OG transactional advancement; committed fixtures remain unique. No CPU 50Hz. `CPU_BATCH_CAR count,validate_ms,full_save_ms` and `FORWARD_TOTAL` measure change. Follow RG-T and SAVE/EXIT/CONTINUE before declaring PASS.
 

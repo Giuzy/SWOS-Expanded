@@ -20,6 +20,9 @@ extern uint16_t _quitToDos; /* SDL close: do not durably claim another match */
 #include <string.h>
 extern TeamFileEx _careerTeam;
 extern uint16_t _gameType,_selTeamNumber;
+/* RAM-only completed quick matches since last explicit batch checkpoint.
+ * Accumulates across FORWARD calls; not a persisted journal field. */
+static uint32_t s_cpu_batch_pending;
 
 static int manager_key(ExpandedClubKey *out)
 {
@@ -73,6 +76,7 @@ int ExpandedUniversalLive_Start(void)
     const Uint64 start_ms=Platform_NowMs();
     Uint64 validated_ms;
     if(World_Current()!=WORLD_2627)return 1;
+    s_cpu_batch_pending=0u; /* new career, never inherit another world */
     if(!ExpandedUniversalCatalog_Audit(&a) || !a.sealed ||
        !a.future_fixtures) {
         fprintf(stderr,"[universal-live] NO_JSON_FIXTURES fail-closed=1\n");
@@ -187,18 +191,23 @@ static ExpandedUniversalResult run_match(
 /* One full-world atomic CAR for a set of already-completed OG quick games.
  * Nothing in an unfinished block is durable; a process crash restarts the
  * block from the previous CAR, without duplicating a durable result. */
-static int exp_live_flush_cpu(ExpandedUniversalRegistry *r,uint32_t *dirty)
+static int exp_live_flush_cpu(ExpandedUniversalRegistry *r)
 {
-    if(!r || !dirty)return 0;
-    if(!*dirty)return 1;
-    if(!ExpandedUniversal_CarSaveCpuBatch(*dirty)) {
+    if(!r)return 0;
+    if(!s_cpu_batch_pending)return 1;
+    if(!ExpandedUniversal_CarSaveCpuBatch(s_cpu_batch_pending)) {
         r->recovery_required=1u;
         fprintf(stderr,"[universal-live] CPU_BATCH_COMMIT_FAILED "
             "recovery=1 previous-CAR-preserved=1\n");
         return 0;
     }
-    *dirty=0u;
+    s_cpu_batch_pending=0u;
     return 1;
+}
+/* A loaded CAR is already a durable snapshot: transient CPU count resets. */
+void ExpandedUniversalLive_ResetCpuBatch(void)
+{
+    s_cpu_batch_pending=0u;
 }
 static int exp_universal_live_advance_impl(ExpandedWorldDate target,
                                            int debug_autosim_manager)
@@ -207,13 +216,15 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
     ExpandedLiveCalendarState state={0};
     int32_t to=0,from=0;
     uint32_t cpu_batch_count=0u;
-    uint32_t cpu_batch_dirty=0u;
-    enum { CPU_BATCH_MAX=256 }; /* bounded work since last durable CAR */
     if(!ExpandedUniversalLive_Active() || !r || r->recovery_required ||
        !ExpandedWorldLive_CalendarState(&state) ||
        !ExpandedWorld_DateToIndex(state.today,&from) ||
        !ExpandedWorld_DateToIndex(target,&to) || to<from ||
        from!=r->scheduler.clock.day_index)return 0;
+    /* Next FORWARD after at least 512 completed quick results saves the
+     * whole prior RAM block, possibly larger than 512. This is NOT a
+     * checkpoint at the end of the previous FORWARD. */
+    if(s_cpu_batch_pending>=512u && !exp_live_flush_cpu(r))return 0;
     for(;;) {
         const ExpandedUniversalFixture *f=NULL;
         ExpandedUniversalResult res=ExpandedUniversal_Peek(r,to,&f);
@@ -222,9 +233,9 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
         if(res==EXP_UNIVERSAL_EMPTY) {
             if(!ExpandedWorldLive_AdvanceToDate(target))return 0;
             r->scheduler.clock.day_index=to;
-            /* Commit final completed block + exact civil clock/RNG/rosters.
-             * Do not report a successful FORWARD with an unsaved CPU block. */
-            return exp_live_flush_cpu(r,&cpu_batch_dirty);
+            /* A FORWARD stop is not an autosave. Quick CPU scores below the
+             * batch limit stay in RAM until a later durable checkpoint. */
+            return 1;
         }
         if(res!=EXP_UNIVERSAL_DUE || !f ||
            f->day_index<r->scheduler.clock.day_index ||
@@ -242,7 +253,6 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
             (ExpandedClubKey_Equal(manager,f->home) ||
              ExpandedClubKey_Equal(manager,f->away));
         if(manager_due && !debug_autosim_manager) {
-            if(!exp_live_flush_cpu(r,&cpu_batch_dirty))return 0;
             fprintf(stderr,"[universal-live] WAIT_MANAGER event=%llu "
                 "date=%04u-%02u-%02u one-calendar=1\n",
                 (unsigned long long)f->event_id,
@@ -252,7 +262,7 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
         /* A Windows close during a long CPU batch must not start/CLAIM
          * the NEXT fixture after the quit request was already observed. */
         if(_quitToDos) {
-            if(!exp_live_flush_cpu(r,&cpu_batch_dirty))return 0;
+            if(!exp_live_flush_cpu(r))return 0;
             fprintf(stderr,"[universal-live] CPU_BATCH_EXIT_REQUESTED "
                 "before-next-claim=1 preserved-CAR=1 no-replay=1\n");
             return 0;
@@ -282,9 +292,7 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
                     (unsigned long long)f->event_id);
                 return 0;
             }
-            ++cpu_batch_dirty;
-            if(cpu_batch_dirty>=CPU_BATCH_MAX &&
-               !exp_live_flush_cpu(r,&cpu_batch_dirty))return 0;
+            if(s_cpu_batch_pending<UINT32_MAX)++s_cpu_batch_pending;
         }
     }
 }
@@ -328,6 +336,9 @@ static int exp_universal_live_manager_action(int interactive)
         return 1;
     }
     res=run_match(f,interactive,0);
+    /* This per-fixture durable completion also commits preceding CPU
+     * results from RAM; avoid a redundant threshold save on next FORWARD. */
+    if(res==EXP_UNIVERSAL_OK)s_cpu_batch_pending=0u;
     fprintf(stderr,"[universal-live] MANAGER_ACTION mode=%s "
         "event=%llu result=%d CAR_ONE_FIXTURE=1\n",
         interactive?"PLAY_50HZ":"VIEW_RESULT_QUICK",

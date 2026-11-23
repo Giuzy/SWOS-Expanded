@@ -1,3 +1,11 @@
+## 23/11/2026 — LATEST USER DIRECTIVE v268: 512+ OG QUICK CPU, SAVE ON FOLLOWING FORWARD
+In 2627 accumulate quick OG CPU results in RAM across multiple forward calls. Once 512 reached, wait until *next* FORWARD invocation to write one atomic verified CAR containing ALL pending events, so number may exceed 512. Never save only due to normal FORWARD STOP or manager WAIT; retain quit/explicit autosaves. Critically preserve pre-OG manual MATCH CLAIMED durable save and post-result COMPLETED. Reset transient CPU count on new career, CAR restore/reset and manager completed durable save. OG original score calculator, CE sole calendar, other worlds/modes unchanged. Source prepared/current Win GP/CONTINUE NP. Older same-day local per-call threshold wording is superseded.
+
+
+## 23/11/2026 — CURRENT USER APPROVED v268 SAVE POLICY
+In WORLD2627 automatic OG QUICK CPU/debug play uses up to 512 fixtures in RAM and one atomic CAR after 512 within same FORWARD. Do NOT force save just because FORWARD reaches target or WAIT_MANAGER. Existing quit, menu-exit, job, postmatch/new-season autosaves unchanged. User explicitly reversed suggestion to remove premanual save: **manual 50 Hz OG PLAY must persist CLAIMED BEFORE match**, then COMPLETED after score. No OG old calendar/score writer, original QUICK unchanged, other worlds/modes untouched. Uncommitted CPU quick can roll back from previous CAR after crash; note per-call counter limitation. Windows gameplay/CONTINUE unproven.
+
+
 ## 23/11/2026 — LATEST USER RULE: OG-STYLE FAST FORWARD CPU BATCH v267
 WORLD2627 FORWARD/explicit DEBUG automatic OG QUICK matches may accumulate in RAM up to 256, saving one full validated atomic CAR per completed block and on manager wait/forward stop/quit. Preserve CE sole fixture/calendar authority, original OG quick scorer, single event ACK, clock/RNG/roster coherence. Incomplete unsaved CPU blocks roll back after process crash; durable results never replay. Manually selected manager VIEW RESULT/PLAY keep per-match durable CLAIMED/COMPLETED, manual actual PLAY remains original 50Hz. No new scoring or old OG calendar. Legacy 9697, CLASSIC, DIY, SEASON unchanged. RG-005/022/027/032, SAVE and DEV_WORKFLOW describe tests. v267 static prepared, Windows compile and CAR CONTINUE not proven.
 

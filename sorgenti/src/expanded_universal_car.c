@@ -7,6 +7,7 @@
  */
 #ifdef SWOS_SDL_BUILD
 #include "expanded_universal_car.h"
+#include "expanded_universal_live.h"
 #include "world.h"
 #include "platform_sdl.h" /* monotonic CPU-forward CAR stage timings */
 #include <limits.h>
@@ -64,6 +65,7 @@ ExpandedUniversalRegistry *ExpandedUniversal_CarRegistry(void)
 void ExpandedUniversal_CarResetCurrent(void)
 {
     if(World_Current()<WORLD_COUNT)exp_car_clear(&s_worlds[World_Current()]);
+    if(World_Current()==WORLD_2627)ExpandedUniversalLive_ResetCpuBatch();
 }
 int ExpandedUniversal_CarBegin(ExpandedWorldDate date,uint32_t capacity)
 {
@@ -358,6 +360,7 @@ int ExpandedUniversal_CarRestore(const char *json,int size)
     if(world>=WORLD_COUNT ||
        !exp_car_parse(json,size,&candidate,&present))return 0;
     exp_car_clear(&s_worlds[world]);
+    if(world==WORLD_2627)ExpandedUniversalLive_ResetCpuBatch();
     if(present) {
         uint32_t i,scheduled=0u,claimed=0u,completed=0u;
         s_worlds[world]=candidate;

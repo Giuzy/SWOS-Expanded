@@ -7,6 +7,8 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_time.h"
 int ExpandedUniversalLive_Start(void);
+/* Clear only transient, unsaved OG quick batch accounting on world restore. */
+void ExpandedUniversalLive_ResetCpuBatch(void);
 int ExpandedUniversalLive_Active(void);
 int ExpandedUniversalLive_Advance(ExpandedWorldDate target); /* WAIT manager */
 int ExpandedUniversalLive_DebugAdvance(ExpandedWorldDate target); /* quick-sim manager */

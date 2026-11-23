@@ -1,3 +1,11 @@
+## 23/11/2026 — v268 CURRENT OVERRIDE: NEXT FORWARD FLUSH OF CUMULATIVE 512+ OG QUICK MATCHES
+For world2627 count CPU original OG quick completed events across FORWARD/DEBUG calls. After count>=512, perform ONE atomic CAR checkpoint at BEGINNING of the NEXT forward, not at the current FORWARD end nor the 512th fixture; count may exceed 512. Existing quit, contract/menu exit/postmatch saves preserved; successful manager selected match full CAR resets pending. Do not remove manual OG 50Hz pre-CLAIMED anti-save-scum save. Reset transient count on CAR restore/new world. Same CE single authority and CAR format; RG-005/022/027/032 tests including 300+300 then 600 checkpoint next forward. Windows validation NP.
+
+
+## 23/11/2026 — CURRENT v268 USER: 512 OG QUICK CPU, NO FORWARD-STOP SAVE, MANUAL CLAIMED RETAINED
+Implementation scope: only WORLD2627 live's CPU_BATCH_MAX 256→512 and stop flushing at EMPTY/WAIT_MANAGER, leave quit flush, original OG quick, event ledger, full checked CAR and manual durable CLAIMED/COMPLETED unchanged. Counters are local per FORWARD call. A crash before next checkpoint may discard uncommitted quick results; valid persisted fixture never replayed. Do not mistake prepared guide/update for Windows test or gameplay. Regression RG-005/022/027/032, SAVE guidance.
+
+
 ## 23/11/2026 — CURRENT v267 CPU AUTO QUICK CAR BLOCKS
 User asks FORWARD speed comparable to OG, keeping light fixture identity/checks. For WORLD2627 CPU automatic OG original quick matches and explicit DEBUG auto quick, perform in-RAM RunDue completion and group up to 256 into one validated atomic CAR; additionally save before WAIT_MANAGER / at end of FORWARD / on quit. CAR has same UE01 and per-block atomic snapshot of clock/RNG/rosters/ledger. Uncommitted CPU block can replay only from preceding valid CAR on restart (transaction rollback); persisted fixture never replays. Standard selected-manager match uses prior durable per-fixture CLAIMED-before-OG then COMPLETED. Do not revive OG world schedule or second scorer. Compile/Win/CONTINUE NP; RG+SAVE tests required.
 

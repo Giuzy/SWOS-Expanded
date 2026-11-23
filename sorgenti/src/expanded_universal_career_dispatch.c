@@ -1,4 +1,4 @@
-/* One callable, opt-in chain: canonical event -> OG 50 Hz -> CAR.
+/* One canonical fixture -> original OG quick or manual 50 Hz -> same CAR.
  * A data importer must first populate the SAME per-world CarRegistry, and
  * the universal civil dispatcher must position the one clock on matchday.
  * No Bolivia branch, no TSKC cache, no old DIY result/competition writer.
@@ -23,8 +23,8 @@ ExpandedUniversalResult ExpandedUniversal_CareerExecuteNext(
     ready=ExpandedUniversal_Peek(r,target_day,&due);
     if(ready!=EXP_UNIVERSAL_DUE)return ready;
     if(!due || due->day_index!=target_day)return EXP_UNIVERSAL_BLOCKED;
-    /* Lineup cancellation must occur BEFORE CAR CLAIMED. This does not
-     * call the 50 Hz engine or write a score/journal entry. */
+    /* Manual lineup cancellation must occur BEFORE CAR CLAIMED. Quick
+     * CPU results do not prompt a lineup and never enter GameLoop. */
     if(!ExpandedUniversal_NativePrepare(match,due))
         return EXP_UNIVERSAL_BLOCKED;
     ops.save_claim=ExpandedUniversal_CarSaveClaim;

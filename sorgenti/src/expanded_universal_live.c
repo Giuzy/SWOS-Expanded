@@ -1,5 +1,6 @@
-/* JSON-first 2026/27 live path, experimental. Only the original OG 50Hz
- * match function produces scores. This scheduler never ticks OG contests.
+/* JSON-first 2026/27 live path, experimental. Only original OG
+ * scoring produces scores: fast view result or actual 50Hz PLAY.
+ * This scheduler never ticks OG contests.
  * Missing cup entrants, historical results and invalid dates stay OPEN.
  */
 #ifdef SWOS_SDL_BUILD
@@ -140,7 +141,7 @@ int ExpandedUniversalLive_Start(void)
         (unsigned long)registered,
         (unsigned long long)(validated_ms-start_ms));
     fprintf(stderr,"[universal-live] ACTIVE world=2627 "
-        "owner=JSON_FIXTURE_REGISTRY OG=MATCH_50HZ_ONLY "
+        "owner=JSON_FIXTURE_REGISTRY OG=QUICK_CPU_AND_50HZ_PLAY "
         "registered=%lu skipped=%lu source-complete=%u "
         "cups-missing=%lu historical-unresolved=%lu "
         "day-collisions=%lu roster-restore=NOT_PROVEN\n",
@@ -179,7 +180,8 @@ static ExpandedUniversalResult run_match(
         interactive?"MANAGER":"CPU",(int)result);
     return result;
 }
-static int exp_universal_live_advance_impl(ExpandedWorldDate target)
+static int exp_universal_live_advance_impl(ExpandedWorldDate target,
+                                           int debug_autosim_manager)
 {
     ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
     ExpandedLiveCalendarState state={0};
@@ -212,9 +214,10 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target)
             r->recovery_required=1u;return 0;
         }
         r->scheduler.clock.day_index=f->day_index;
-        if(manager_key(&manager) &&
-           (ExpandedClubKey_Equal(manager,f->home) ||
-            ExpandedClubKey_Equal(manager,f->away))) {
+        const int manager_due=manager_key(&manager) &&
+            (ExpandedClubKey_Equal(manager,f->home) ||
+             ExpandedClubKey_Equal(manager,f->away));
+        if(manager_due && !debug_autosim_manager) {
             fprintf(stderr,"[universal-live] WAIT_MANAGER event=%llu "
                 "date=%04u-%02u-%02u one-calendar=1\n",
                 (unsigned long long)f->event_id,
@@ -231,16 +234,17 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target)
         {
             const Uint64 started_ms=Platform_NowMs();
             ExpandedUniversalResult match_result;
-            /* No partial civil advancement or new scorer: show OS-level
-             * progress while this fixture's original OG 50 Hz runs. */
+            /* No partial civil advancement or new scorer: progress while
+             * the original OG quick VIEW RESULT calculates this fixture. */
             Platform_UniversalCpuProgress(++cpu_batch_count);
-            match_result=run_match(f,0);
+            match_result=run_match(f,0); /* OG quick for all non-PLAY */
             Platform_UniversalCpuProgress(0);
             fprintf(stderr,"[universal-live] CPU_MATCH_TIMING "
-                "ordinal=%lu event=%llu elapsed_ms=%llu outcome=%d "
-                "og-50hz=1 srp-background=OFF\n",
+                "ordinal=%lu event=%llu role=%s elapsed_ms=%llu "
+                "outcome=%d og-quick=1 srp-background=NOT_NEEDED\n",
                 (unsigned long)cpu_batch_count,
                 (unsigned long long)f->event_id,
+                manager_due?"DEBUG_MANAGER":"CPU",
                 (unsigned long long)(Platform_NowMs()-started_ms),
                 (int)match_result);
             if(match_result!=EXP_UNIVERSAL_OK) {
@@ -259,7 +263,7 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target)
 int ExpandedUniversalLive_Advance(ExpandedWorldDate target)
 {
     const Uint64 started_ms=Platform_NowMs();
-    const int ok=exp_universal_live_advance_impl(target);
+    const int ok=exp_universal_live_advance_impl(target,0);
     fprintf(stderr,"[universal-perf] FORWARD_TOTAL "
         "target=%04u-%02u-%02u elapsed_ms=%llu status=%s "
         "owner=JSON_ENGINE no-old-OG-tick=1\n",
@@ -268,7 +272,7 @@ int ExpandedUniversalLive_Advance(ExpandedWorldDate target)
         ok?"ADVANCED_OR_WAIT_MANAGER":"BLOCKED");
     return ok;
 }
-int ExpandedUniversalLive_PlayManager(void)
+static int exp_universal_live_manager_action(int interactive)
 {
     ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
     ExpandedLiveCalendarState state={0};
@@ -292,9 +296,35 @@ int ExpandedUniversalLive_PlayManager(void)
         fprintf(stderr,"[universal-live] MANAGER_NOT_DUE code=%d\n",(int)res);
         return 1;
     }
-    res=run_match(f,1);
+    res=run_match(f,interactive);
+    fprintf(stderr,"[universal-live] MANAGER_ACTION mode=%s "
+        "event=%llu result=%d CAR_ONE_FIXTURE=1\n",
+        interactive?"PLAY_50HZ":"VIEW_RESULT_QUICK",
+        (unsigned long long)f->event_id,(int)res);
     if(res!=EXP_UNIVERSAL_OK && res!=EXP_UNIVERSAL_BLOCKED)
         r->recovery_required=1u;
     return 1; /* even cancel never routes to legacy fixture */
+}
+/* Only the explicit career DEBUG advance is permitted to quick-sim
+ * a manager's fixture. Ordinary FORWARD always stops BEFORE that fixture. */
+int ExpandedUniversalLive_DebugAdvance(ExpandedWorldDate target)
+{
+    const Uint64 started_ms=Platform_NowMs();
+    const int ok=exp_universal_live_advance_impl(target,1);
+    fprintf(stderr,"[universal-perf] DEBUG_ADVANCE_TOTAL "
+        "target=%04u-%02u-%02u elapsed_ms=%llu status=%s "
+        "manager=OG_QUICK no-legacy-writer=1\n",
+        (unsigned)target.year,(unsigned)target.month,(unsigned)target.day,
+        (unsigned long long)(Platform_NowMs()-started_ms),
+        ok?"COMPLETED":"BLOCKED");
+    return ok;
+}
+int ExpandedUniversalLive_PlayManager(void)
+{
+    return exp_universal_live_manager_action(1);
+}
+int ExpandedUniversalLive_ViewManagerResult(void)
+{
+    return exp_universal_live_manager_action(0);
 }
 #endif

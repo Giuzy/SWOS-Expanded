@@ -1,11 +1,13 @@
-/* SWOS Expanded universal career: ONLY the original 50 Hz match engine.
+/* SWOS Expanded universal career: ORIGINAL OG score functions only.
+ * CPU/VIEW RESULT uses OG CalculateViewResult; actual PLAY uses OG 50 Hz.
  * No old TSKC, no DIY league/cup writer, no standings or CAR writes here.
  * A caller must provide persistent live rosters and durable fixture claim.
  */
 #ifdef SWOS_SDL_BUILD
 #include "expanded_universal_native_match.h"
 #include "game_init.h"
-#include "replay_v2.h" /* scope CPU-only no-SRP; interactive replays unchanged */
+#include "match_sim.h" /* the original OG fast VIEW RESULT scorer */
+#include "expanded_world_live.h" /* fixture date -> OG view-random phase */
 #include "platform_sdl.h" /* real monotonic OG 50 Hz match duration */
 #include "play_match_menu.h" /* GAME_TYPE_CAREER from existing OG header */
 #include "world.h"
@@ -25,6 +27,8 @@ extern uint16_t _statsTeam1Goals, _statsTeam2Goals;
 extern uint16_t _team1PenaltyGoals, _team2PenaltyGoals;
 extern uint8_t _gameName[], _gameRound;
 extern TeamFileEx _careerTeam;
+extern uint8_t _viewRandomPhase, _currentMatchPlayers[];
+extern uint16_t _inEditTactics; /* scorer writes this transient OG mode */
 extern uint8_t *StringCopy(const uint8_t *,uint8_t *);
 
 /* Only the universal dispatcher sets this scope, around its original
@@ -89,6 +93,21 @@ int ExpandedUniversal_NativePrepare(
     if(!context)return 0;
     context->lineup_ready=0u;
     if(!exp_universal_native_match_valid(context,fixture))return 0;
+    if(!context->interactive) {
+        /* Universal OG quick scoring is only certified for league 0/5
+         * inputs. A malformed params/manager lineup is INVALID BEFORE
+         * CAR CLAIMED, never an unreplayable poisoned claim. Runtime scorer
+         * checks the same values again after the durable claim. */
+        unsigned i;
+        if(context->maximum_substitutes<1 ||
+           context->maximum_substitutes>5 ||
+           context->minimum_substitutes<0 ||
+           context->minimum_substitutes>context->maximum_substitutes)
+            return 0;
+        if(context->home==&_careerTeam || context->away==&_careerTeam)
+            for(i=0u;i<11u;++i)
+                if(_currentMatchPlayers[i]>=32u)return 0;
+    }
     if(context->interactive) {
         _exitGameFlag=0;
         SetupPlayers(context->home,context->away,
@@ -99,6 +118,84 @@ int ExpandedUniversal_NativePrepare(
     context->lineup_ready=1u;
     return 1;
 }
+/* OG's historical CPU auto-fixture mode never ran the match GameLoop.
+ * Its original view-result scorer is the sole result producer here.
+ * We pass a zeroed LEAGUE scoring context (no second OG table/fixture);
+ * league placement-price adjustments requiring resident DIY standings
+ * remain unavailable in JSON-first mode and must not be invented.
+ * This call updates authentic OG scorer, injury/card and RNG fields on
+ * the persistent team records; those effects are saved by the SAME CAR.
+ * VIEW RESULT for an employed manager uses this same boundary, whereas
+ * the separate PLAY callback still invokes the original 50 Hz engine. */
+static int exp_universal_native_quick_result(
+    const ExpandedUniversalNativeMatch *c,
+    const ExpandedUniversalFixture *fixture,
+    ExpandedUniversalMatchWitness *witness)
+{
+    /* Original CalculateViewResult holds ctx in a module-static pointer.
+     * Give it a suitably aligned, persistent context backed by the FULL
+     * DIYCompetitionEx size; a temporary packed local could leave a
+     * dangling pointer or too-short standings tail for OG price logic. */
+    static union {
+        DIYCompetition base;
+        unsigned char bytes[sizeof(DIYCompetitionEx)];
+    } scoring;
+    ExpandedWorldDate day={0};
+    uint16_t home=0u,away=0u;
+    const uint8_t previous_phase=_viewRandomPhase;
+    const uint16_t previous_in_edit=_inEditTactics;
+    const Uint64 started=Platform_NowMs();
+    /* The original scorer indexes candidate player tables by
+     * (maximum_substitutes-1). A zero here underflows before the table.
+     * Universal league config currently uses exactly 0/5. */
+    if(!ExpandedWorld_IndexToDate(fixture->day_index,&day) ||
+       _quitToDos || c->maximum_substitutes<1 ||
+       c->maximum_substitutes>5 ||
+       c->minimum_substitutes<0 ||
+       c->minimum_substitutes>c->maximum_substitutes)
+        return 0;
+    /* The manager's original VIEW RESULT scorer reads the shared XI.
+     * Do not index an unverified player slot in the 32-man career roster. */
+    if(c->home==&_careerTeam || c->away==&_careerTeam) {
+        unsigned i;
+        for(i=0;i<11u;++i)
+            if(_currentMatchPlayers[i]>=32u)return 0;
+    }
+    _exitGameFlag=0u;
+    _gameCanceled=0u;
+    memset(&scoring,0,sizeof scoring);
+    scoring.base.competitionType=0;
+    scoring.base.numTeams=2;
+    scoring.base.substitutesCount=c->match_parameters;
+    scoring.base.viewRandomPhase=day.month;
+    _viewRandomPhase=day.month;
+    CalculateViewResult(&scoring.base,0u,
+        (uint16_t)c->minimum_substitutes,
+        (uint16_t)c->maximum_substitutes,0u,
+        c->home,c->away,&home,&away);
+    _viewRandomPhase=previous_phase;
+    _inEditTactics=previous_in_edit;
+    if(_quitToDos || home>31u || away>31u) {
+        fprintf(stderr,"[universal-native] OG_QUICK_REJECTED "
+            "event=%llu score=%u:%u quit=%u CAR_CLAIMED_NO_REPLAY=1\n",
+            (unsigned long long)fixture->event_id,(unsigned)home,
+            (unsigned)away,(unsigned)_quitToDos);
+        return 0;
+    }
+    witness->key=fixture->key;
+    witness->home=fixture->home;
+    witness->away=fixture->away;
+    witness->day_index=fixture->day_index;
+    witness->score=(ExpandedFixtureScore){home,away,0u,0u,0u};
+    witness->valid=1u;
+    fprintf(stderr,"[universal-native] OG_QUICK_RESULT "
+        "event=%llu score=%u:%u elapsed_ms=%llu "
+        "original=CalculateViewResult game-loop=NO CAR_ONE_WITNESS=1\n",
+        (unsigned long long)fixture->event_id,(unsigned)home,
+        (unsigned)away,
+        (unsigned long long)(Platform_NowMs()-started));
+    return 1;
+}
 int ExpandedUniversal_NativeRunOriginal(
     void *user,const ExpandedUniversalFixture *fixture,
     ExpandedUniversalMatchWitness *witness)
@@ -106,7 +203,6 @@ int ExpandedUniversal_NativeRunOriginal(
     ExpandedUniversalNativeMatch *const c=(ExpandedUniversalNativeMatch *)user;
     uint16_t oldCareer;
     uint16_t homeControls,awayControls;
-    int32_t priorReplaySuppression=0;
     Uint64 og_started_ms;
     int bad;
     if(witness)memset(witness,0,sizeof *witness);
@@ -118,16 +214,19 @@ int ExpandedUniversal_NativeRunOriginal(
     homeControls=c->home->team.teamControls;
     awayControls=c->away->team.teamControls;
     if(!c->interactive) {
-        /* Prevent game-input ownership by the user on CPU-only fixtures.
-         * Restore the persistent roster controls after OG match effects. */
-        c->home->team.teamControls=TEAM_COMPUTER;
-        c->away->team.teamControls=TEAM_COMPUTER;
-        /* Full-frame .SRP capture is for watched matches, not thousands
-         * of unseen CPU fixtures. Keep every original OG 50 Hz tick and
-         * preserve a suppression owner already active (replay test/rig). */
-        priorReplaySuppression=ReplayRec_Suppressed();
-        ReplayRec_Suppress(1);
-        SDL_AtomicSet(&s_universal_cpu_match,1);
+        int quick_ok;
+        /* CPU and manager VIEW RESULT use the ORIGINAL OG quick scorer.
+         * Never open a field or invoke the old DIY competition writer. */
+        if(c->home!=&_careerTeam)
+            c->home->team.teamControls=TEAM_COMPUTER;
+        if(c->away!=&_careerTeam)
+            c->away->team.teamControls=TEAM_COMPUTER;
+        _isCareer=(uint16_t)(c->home==&_careerTeam || c->away==&_careerTeam);
+        quick_ok=exp_universal_native_quick_result(c,fixture,witness);
+        c->home->team.teamControls=homeControls;
+        c->away->team.teamControls=awayControls;
+        _isCareer=oldCareer;
+        return quick_ok;
     }
     _isCareer=(uint16_t)(c->home==&_careerTeam || c->away==&_careerTeam);
     if(c->competition_name && c->competition_name[0]) {
@@ -158,11 +257,8 @@ int ExpandedUniversal_NativeRunOriginal(
         c->maximum_substitutes,c->match_parameters,c->match_postprocess,
         (TeamFile *)c->home,(TeamFile *)c->away);
     SDL_AtomicSet(&s_universal_match_active,0);
-    if(!c->interactive)
-        ReplayRec_Suppress(priorReplaySuppression);
     /* Restore the caller's original controls even after an OG failure;
      * every claimed match still remains non-replayable on uncertain score. */
-    SDL_AtomicSet(&s_universal_cpu_match,0);
     c->home->team.teamControls=homeControls;
     c->away->team.teamControls=awayControls;
     _isCareer=oldCareer;

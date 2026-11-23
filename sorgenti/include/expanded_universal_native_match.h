@@ -1,6 +1,8 @@
-/* The SINGLE original 50 Hz football game boundary for a future
- * universal Competition Engine career fixture. Never a calendar, table,
- * bracket, qualification or save writer. Not enabled by legacy menus.
+/* The SINGLE original OG scoring boundary for a universal 2627 fixture.
+ * Automatic CPU and manager VIEW RESULT use OG CalculateViewResult QUICK;
+ * manually selected PLAY/COACH uses the full original 50 Hz football game.
+ * Never a calendar, table, bracket, qualification or save writer;
+ * WORLD9697/CLASSIC/DIY/SEASON keep their original callbacks.
  *
  * Call Prepare before CLAIMED/CAR: cancellation of lineup is harmless.
  * Call Run only after the universal dispatcher has durably claimed exactly
@@ -22,9 +24,8 @@ typedef struct ExpandedUniversalNativeMatch {
     uint8_t lineup_ready;   /* set only after original SetupPlayers succeeds */
 } ExpandedUniversalNativeMatch;
 
-/* Read-only during a scoped universal CPU OG-50Hz fixture.
- * Skip the stadium UI and input capture only in that scope; manager games,
- * all legacy modes and replay keep their original UI and pacing. */
+/* Read-only legacy match UI safeguard; automatic 2627 games now use
+ * OG quick result and never enter GameLoop. */
 int ExpandedUniversal_NativeCpuSilent(void);
 /* GameLoop calls this ONLY at its genuine end_of_match_flow label.
  * A forced SDL window close / aborted frame must not certify OG results,
@@ -41,11 +42,10 @@ int ExpandedUniversal_NativeTeamKey(const TeamFileEx *team,
 int ExpandedUniversal_NativePrepare(
     ExpandedUniversalNativeMatch *context,
     const ExpandedUniversalFixture *fixture);
-/* Callback for ExpandedUniversal_RunDue, AFTER durable save_claim. Original
- * InitializeInGameTeamsAndStartGame is the sole score producer. On a
- * canceled or mismatching game return 0 and leave recovery required.
- * No invocation of DIY_PlayOrSimulateLeagueFixture or other legacy writer.
- */
+/* Callback for ExpandedUniversal_RunDue, AFTER durable save_claim.
+ * Automatic: original OG CalculateViewResult; manual: original OG 50Hz.
+ * Both return ONE same-key witness, or fail closed with CLAIMED retained.
+ * No DIY_PlayOrSimulateLeagueFixture/legacy competition writer. */
 int ExpandedUniversal_NativeRunOriginal(
     void *context,const ExpandedUniversalFixture *fixture,
     ExpandedUniversalMatchWitness *witness);

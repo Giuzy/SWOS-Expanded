@@ -14,6 +14,7 @@
 #include "world.h"
 #ifdef SWOS_SDL_BUILD
 #include "expanded_world_live.h"
+#include "expanded_universal_live.h" /* debug advances same JSON fixture/car owner */
 #include "career_status.h"
 #include "expanded_country_season_year.h"
 #include "expanded_country_season_baked.h"
@@ -1695,6 +1696,42 @@ void Expanded_CareerDebugMonthStart(MenuEntry *unused) {
     int hasFuture=0;
     (void)unused;
     _fireResetFlag=1;
+    /* DEBUG +1 MONTH is an explicit simulate-all command, unlike normal
+     * FORWARD which must stop BEFORE the manager's next fixture.
+     * WORLD2627 has NO old resident OG career: use the sole JSON scheduler,
+     * OG quick scorer and the same durable per-fixture CAR, never the
+     * legacy OG_Career/TSKC engine or manual 50Hz GameLoop. */
+    if(ExpandedUniversalLive_Active()) {
+        extern int Expanded_AutoCareer_SaveChecked(const char *);
+        if(_gameType!=4 || _currentMenuPtr!=(uintptr_t)_contestMenu ||
+           s_active || CareerAutopilot_Active() ||
+           _selTeamNumber==0xffffu ||
+           !ExpandedWorldLive_CalendarState(&live)) {
+            fprintf(stderr,"[debug-month-career] UNIVERSAL_BLOCK "
+                "reason=INVALID_MANAGER_OR_CALENDAR no-legacy=1\n");
+            return;
+        }
+        if(!ExpandedDebug_NextMonthBeforeSeason(live.today,&target)) {
+            fprintf(stderr,"[debug-month-career] UNIVERSAL_STOP "
+                "reason=SEASON_BOUNDARY date=%04u-%02u-%02u\n",
+                (unsigned)live.today.year,(unsigned)live.today.month,
+                (unsigned)live.today.day);
+            return;
+        }
+        if(!ExpandedUniversalLive_DebugAdvance(target)) {
+            fprintf(stderr,"[debug-month-career] UNIVERSAL_FAULT "
+                "status=BLOCKED no-old-OG-retry=1 "
+                "CAR_CLAIMED_NO_REPLAY=1\n");
+            return;
+        }
+        ContestMenuOnReturn();
+        SetCurrentEntry(13);
+        DrawMenu();
+        if(!Expanded_AutoCareer_SaveChecked("debug-career-month-universal"))
+            fprintf(stderr,"[debug-month-career] UNIVERSAL_FINAL_SAVE_FAILED "
+                "last-CAR=UNCHANGED_OR_PER_FIXTURE checkpoint-not-proven=1\n");
+        return;
+    }
     if(_gameType!=4 || _currentMenuPtr!=(uintptr_t)_contestMenu ||
        s_active || CareerAutopilot_Active() ||
        _selTeamNumber==0xffffu || !Expanded_OGWorld_ClubBound() ||

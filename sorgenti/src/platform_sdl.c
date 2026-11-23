@@ -3725,7 +3725,7 @@ void Platform_UniversalCpuProgress(uint32_t count)
             if(!saved_title)return; /* presentation must never fail a fixture */
         }
         snprintf(title,sizeof title,
-                 "SWOS Expanded - FORWARD TIME: CPU match %lu (OG 50 Hz)",
+                 "SWOS Expanded - FORWARD TIME: CPU match %lu (OG quick result)",
                  (unsigned long)count);
         SDL_SetWindowTitle(s_window,title);
     } else if(saved_title) {

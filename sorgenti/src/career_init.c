@@ -2205,8 +2205,10 @@ int Expanded_CompetitionCoordinator_Start(void)
 {
     s_expCoordinatorRecoveryRequired=0;
     /* Old OG resident START used to simulate 4,993 league and 34 cup
-     * games BEFORE the JSON registry existed. In 2627 no old resident
-     * is initialized or advanced; OG is only the 50 Hz match executor. */
+     * games BEFORE the JSON registry existed. WORLD2627 START ONLY
+     * registers JSON fixtures; no automatic match or old OG startup.
+     * Later CPU and explicit VIEW RESULT use ORIGINAL OG quick scorer;
+     * manual PLAY stays original OG 50 Hz. */
     if(World_Current()==WORLD_2627) {
         if(!ExpandedUniversalLive_Start() ||
            !exp_coordinator_check("UNIVERSAL_START",NULL)) {
@@ -2215,7 +2217,7 @@ int Expanded_CompetitionCoordinator_Start(void)
         }
         fprintf(stderr,"[competition-coordinator] START_READY "
             "world=%s owner=UNIVERSAL_JSON old-OG-start=SKIPPED "
-            "old-OG-results=0 match-core=OG_50HZ_ONLY\n",World_Tag());
+            "old-OG-results=0 OG=QUICK_CPU_VIEW_OR_50HZ_MANUAL\n",World_Tag());
         return 1;
     }
     if(!Expanded_OGWorld_Start() ||

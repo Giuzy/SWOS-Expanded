@@ -19,6 +19,9 @@
 #endif
 #include "expanded_world_live.h"
 #include "expanded_competition_coordinator.h"
+#ifdef SWOS_SDL_BUILD
+#include "expanded_universal_live.h" /* old OG cup auto writer is not 2627 authority */
+#endif
 #include "expanded_midseason_join.h"
 #include "swos_io.h"
 #include "career_params.h"
@@ -1069,8 +1072,20 @@ void Expanded_UnemployedWait(void) {
         fprintf(stderr,"[og-stress] OG_CUPS_NOT_TESTED "
                        "legacy-yearend-callbacks-skipped=1\n");
     } else {
-        extern void Career_AdvanceUnemployedOGCups(uint32_t);
-        Career_AdvanceUnemployedOGCups((uint32_t)s_waitWeeks);
+#ifdef SWOS_SDL_BUILD
+        if(ExpandedUniversalLive_Active()) {
+            /* Universal START installed only JSON events. On FORWARD and all
+             * debug month/year jumps the OLD resident cup autoplayer must
+             * never run afterward as a second scores/calendar writer.
+             * Unsupported universal cups remain explicitly UNAVAILABLE. */
+            fprintf(stderr,"[universal-live] LEGACY_UNEMPLOYED_CUPS_SKIPPED "
+                "owner=JSON_REGISTRY no-old-OG-tick=1\n");
+        } else
+#endif
+        {
+            extern void Career_AdvanceUnemployedOGCups(uint32_t);
+            Career_AdvanceUnemployedOGCups((uint32_t)s_waitWeeks);
+        }
     }
     if(debugOfferDue) {
         /* The actual unemployed route: a REAL CLUB from TEAM data and

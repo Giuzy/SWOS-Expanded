@@ -1,4 +1,4 @@
-/* Exact registered fixture -> original OG 50 Hz -> same atomic CAR.
+/* Exact registered fixture -> original OG fast/manual 50 Hz -> atomic CAR.
  * No historical OG keycache, standings, cups or second simulator.
  * Caller supplies long-lived rosters and an already-current civil day.
  * Until a verified fixture importer/manager+CPU caller is installed this

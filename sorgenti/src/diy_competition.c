@@ -15,6 +15,7 @@
 #include "expanded_world_live.h"
 #ifdef SWOS_SDL_BUILD
 #include "expanded_competition_coordinator.h"
+#include "expanded_universal_live.h" /* JSON 2627: original OG VIEW RESULT vs PLAY */
 #endif
 #include "diy_competition.h"
 #include "comp_identity.h"
@@ -10416,6 +10417,24 @@ void DIYLeagueTournamentViewResult(MenuEntry *entry)
 __attribute__((used, externally_visible))
 void DIYLeagueTournamentMatchCommon(uint16_t action)
 {
+#ifdef SWOS_SDL_BUILD
+    /* The 2026/27 universal career must NEVER mutate its results through
+     * the old DIY standings/fixture writer. If the original OG tournament
+     * VIEW RESULT callback reaches here, use the SAME JSON manager fixture
+     * and original fast OG scorer; MATCH remains full original 50 Hz.
+     * The full historical OG board UI itself is a separate adapter:
+     * do not synthesize a table or re-enter the old DIY competition. */
+    if(_gameType==4 && ExpandedUniversalLive_Active()) {
+        if(action==0u)
+            (void)ExpandedUniversalLive_ViewManagerResult();
+        else if(action==2u)
+            (void)ExpandedUniversalLive_PlayManager();
+        else
+            fprintf(stderr,"[universal-live] OG_BOARD_UNSUPPORTED_ACTION "
+                "action=%u no-legacy-writer=1\n",(unsigned)action);
+        return;
+    }
+#endif
     /* ASM passes d6 (allowSquadChanges) implicitly via register preservation
      * from the outer caller. diyTournamentType==1 for career (squad changes allowed),
      * 0 for standalone DIY (no squad changes). */

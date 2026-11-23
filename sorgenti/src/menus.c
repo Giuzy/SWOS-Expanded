@@ -3970,7 +3970,11 @@ static int exp_universal_contest_action(MenuEntry *entry)
     if(state==2) {
         /* The real native runner stores CLAIMED before OG50Hz and the
          * verified result+ACK in CAR before reporting success. */
-        const int result=ExpandedUniversalLive_PlayManager();
+        /* Bolivia pilot: present the ORIGINAL OG competition screen,
+         * backed by a transient read-only CE projection. Its OG MATCH and
+         * VIEW RESULT buttons both execute the same CE fixture. */
+        extern int ExpandedUniversal_OGBoardPresent(void);
+        const int result=ExpandedUniversal_OGBoardPresent();
         if(result==2) {
             fprintf(stderr,"[universal-manager-menu] MATCH_COMMITTED "
                 "owner=CE postmatch=NO_OLD_TSKC_WITNESS=1\n");

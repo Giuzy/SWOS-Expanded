@@ -109,10 +109,25 @@ int ExpandedUniversal_NativePrepare(
                 if(_currentMatchPlayers[i]>=32u)return 0;
     }
     if(context->interactive) {
+        /* The JSON rosters default teamControls to 0 (human).  The original
+         * OG SetupPlayers must see exactly ONE human side, otherwise it
+         * offers a second controller/tactics screen for the CPU opponent.
+         * Keep the manager's Player/Coach selection; this is temporary and
+         * is restored even when the original OG UI is cancelled. */
+        const uint16_t savedHome=context->home->team.teamControls;
+        const uint16_t savedAway=context->away->team.teamControls;
+        if(context->home!=&_careerTeam)
+            context->home->team.teamControls=TEAM_COMPUTER;
+        if(context->away!=&_careerTeam)
+            context->away->team.teamControls=TEAM_COMPUTER;
         _exitGameFlag=0;
         SetupPlayers(context->home,context->away,
                      context->maximum_substitutes,context->match_parameters,
                      1,0);
+        if(context->home!=&_careerTeam)
+            context->home->team.teamControls=savedHome;
+        if(context->away!=&_careerTeam)
+            context->away->team.teamControls=savedAway;
         if(_exitGameFlag)return 0;
     }
     context->lineup_ready=1u;
@@ -228,6 +243,13 @@ int ExpandedUniversal_NativeRunOriginal(
         _isCareer=oldCareer;
         return quick_ok;
     }
+    /* Keep the CPU side computer-controlled THROUGH the original 50 Hz
+     * GameLoop.  NativePrepare restored roster metadata after the menu;
+     * here we restore it after the actual match (including abort). */
+    if(c->home!=&_careerTeam)
+        c->home->team.teamControls=TEAM_COMPUTER;
+    if(c->away!=&_careerTeam)
+        c->away->team.teamControls=TEAM_COMPUTER;
     _isCareer=(uint16_t)(c->home==&_careerTeam || c->away==&_careerTeam);
     if(c->competition_name && c->competition_name[0]) {
         uint8_t name[31];

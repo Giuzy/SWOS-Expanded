@@ -1875,8 +1875,9 @@ void Career_OpenCompetitionSlotMenuAndApplyChanges(uint16_t d2)
 {
 #ifdef SWOS_SDL_BUILD
     if(ExpandedUniversalLive_Active()) {
-        (void)ExpandedUniversalLive_PlayManager();
-        return; /* same JSON fixture; never old TSKC */
+        extern int ExpandedUniversal_OGBoardPresent(void);
+        (void)ExpandedUniversal_OGBoardPresent();
+        return; /* ORIGINAL OG modal, CE ledger owns every score */
     }
 #endif
 
@@ -2002,8 +2003,9 @@ void CareerPlayMatch(void)
 {
 #ifdef SWOS_SDL_BUILD
     if(ExpandedUniversalLive_Active()) {
-        (void)ExpandedUniversalLive_PlayManager();
-        return; /* same JSON fixture; never old TSKC */
+        /* CE has already committed its unique OG witness; the legacy
+         * after-match callback must never claim or play another fixture. */
+        return;
     }
 #endif
 
@@ -2036,8 +2038,9 @@ void Career_PlayMatchMenuLoop(void)
 {
 #ifdef SWOS_SDL_BUILD
     if(ExpandedUniversalLive_Active()) {
-        (void)ExpandedUniversalLive_PlayManager();
-        return; /* same JSON fixture; never old TSKC */
+        extern int ExpandedUniversal_OGBoardPresent(void);
+        (void)ExpandedUniversal_OGBoardPresent();
+        return; /* ORIGINAL OG modal, CE ledger owns every score */
     }
 #endif
 
@@ -2109,8 +2112,9 @@ void Career_NextMatch(void)
 {
 #ifdef SWOS_SDL_BUILD
     if(ExpandedUniversalLive_Active()) {
-        (void)ExpandedUniversalLive_PlayManager();
-        return; /* same JSON fixture; never old TSKC */
+        extern int ExpandedUniversal_OGBoardPresent(void);
+        (void)ExpandedUniversal_OGBoardPresent();
+        return; /* ORIGINAL OG modal, CE ledger owns every score */
     }
 #endif
 

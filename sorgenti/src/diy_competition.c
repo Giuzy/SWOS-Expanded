@@ -16,6 +16,9 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_competition_coordinator.h"
 #include "expanded_universal_live.h" /* JSON 2627: original OG VIEW RESULT vs PLAY */
+#include "expanded_universal_car.h"
+#include "expanded_universal_world_catalog.h"
+#include "expanded_universal_native_match.h"
 #endif
 #include "diy_competition.h"
 #include "comp_identity.h"
@@ -50,6 +53,7 @@
 #include "conti_season.h"
 #include "states.h"
 #include <string.h>   /* memcpy — used by the tournament field-map copies */
+#include <stdlib.h>   /* private, non-persistent OG board modal snapshots */
 
 /* DIYCompetitionEx embeds a DIYCompetition base inside a packed, 2-byte
  * aligned parent. On 64-bit a DIYCompetition* would assume 8-byte alignment.
@@ -87,6 +91,17 @@ int DIY_WorldLastLeagueAudit(uint16_t *g1,uint16_t *g2,
  * / diyFileBufferCopy.header. */
 extern DIYTournamentState _diyFileBufferCopy;
 extern DIYCompetitionEx _diyCompetitionStart;
+#ifdef SWOS_SDL_BUILD
+/* Forward declarations for the CE-only original OG modal.  Its actual
+ * definitions are beside the league menu and its protected callbacks. */
+static int s_ceBoardActive;
+static int s_ceBoardHomeRow,s_ceBoardAwayRow;
+static unsigned s_ceBoardPageSize;
+static uint8_t s_ceBoardPageNames[4][16] = {
+    "PAGE 1", "PAGE 2", "PAGE 3", "PAGE 4"
+};
+static void ce_board_action(unsigned action);
+#endif
 /* The standalone backing buffer behind diyCompetitionStart (7136 B). The
  * current-stage copies below address it as a byte array (DIY_CFB_STANDINGS_LEN
  * == sizeof(DIYCompetitionEx)) to move the full image without a (false)
@@ -760,6 +775,9 @@ static void capture_native_og_league_table(void);
 #endif
 void DIY_SortLeagueTableByStandings(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if (s_ceBoardActive) return; /* CE table already projected and sorted */
+#endif
     if (LeaguePhase_Sort())     /* (a world's league phase: one table of 36, include/league_phase.h) */
         return;
     DIYCompetitionEx *comp = &_diyCompetitionStart;
@@ -2236,6 +2254,13 @@ void DIY_RecomputeCompetitionDerivedFields(void)
 static void getCurrentFixtureTeamPtrs(uint8_t **team1Out, uint8_t **team2Out)
 {
 #ifdef SWOS_SDL_BUILD
+    if(s_ceBoardActive) {
+        *team1Out=(uint8_t *)&_diyCompetitionStart+
+            (size_t)s_ceBoardHomeRow*sizeof(DIYTeamStats);
+        *team2Out=(uint8_t *)&_diyCompetitionStart+
+            (size_t)s_ceBoardAwayRow*sizeof(DIYTeamStats);
+        return;
+    }
     if (BoliviaCup_OGPair(team1Out,team2Out))return;
 #endif
     if (LeagueSplit_Pair(team1Out, team2Out))   /* (after a world league's split: its days) */
@@ -7950,12 +7975,22 @@ extern uint16_t _highlightedLeagueTeamId;
  * (more than 22 clubs: its zones, league_split.c). */
 static uint16_t table_groups(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(s_ceBoardActive) {
+        const unsigned count=(unsigned)_diyCompetitionStart.base.numTeams;
+        return s_ceBoardPageSize?
+            (uint16_t)((count+s_ceBoardPageSize-1u)/s_ceBoardPageSize):1u;
+    }
+#endif
     uint16_t g, n;
     return LeagueSplit_Pages(&g, &n) ? g : (uint16_t)_diyCompetitionStart.base.matchPairsPerRound;
 }
 
 static uint16_t table_per_group(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(s_ceBoardActive)return (uint16_t)s_ceBoardPageSize;
+#endif
     uint16_t g, n;
     return LeagueSplit_Pages(&g, &n) ? n : (uint16_t)_diyCompetitionStart.base.totalMatchesInRound;
 }
@@ -8159,9 +8194,18 @@ void DIYLeagueTournament16BeforeDraw(MenuEntry *entry)
 
     /* Set group string if halfTeams != 1 */
     if (table_groups() != 1) {
-        entry->fg = (uintptr_t)_groupStringTable[d7];
+#ifdef SWOS_SDL_BUILD
+        if(s_ceBoardActive && d7>=0 && d7<4)
+            entry->fg=(uintptr_t)s_ceBoardPageNames[d7];
+        else
+#endif
+            entry->fg = (uintptr_t)_groupStringTable[d7];
     }
-    const int32_t lpTable = LeaguePhase_Showing();     /* (a world's league phase: one table of 36) */
+    const int32_t lpTable =
+#ifdef SWOS_SDL_BUILD
+        s_ceBoardActive?0:
+#endif
+        LeaguePhase_Showing();     /* (a world's league phase: one table of 36) */
     if (lpTable)
         entry->fg = (uintptr_t)LeaguePhase_PageHeader(d7);
 
@@ -8189,6 +8233,16 @@ void DIYLeagueTournament16BeforeDraw(MenuEntry *entry)
     uint16_t d4 = _diyLeagueTournament_fixtureRowHeight;
     int16_t rowIdx = d7;
     uint16_t teamIdx = (uint16_t)rowIdx * numTeamsPerGroup;
+#ifdef SWOS_SDL_BUILD
+    if(s_ceBoardActive) {
+        const uint16_t count=(uint16_t)_diyCompetitionStart.base.numTeams;
+        const unsigned start=(unsigned)rowIdx*s_ceBoardPageSize;
+        if(rowIdx<0 || !s_ceBoardPageSize || start>=count)return;
+        teamIdx=(uint16_t)start;
+        if(numTeamsPerGroup>count-teamIdx)
+            numTeamsPerGroup=(uint16_t)(count-teamIdx);
+    }
+#endif
     teamIdx <<= 1; /* byte offset into fixture table */
 
     MenuEntry *a5 = &_menuEntries[31];
@@ -8205,7 +8259,13 @@ void DIYLeagueTournament16BeforeDraw(MenuEntry *entry)
 
         /* Entry for team number */
         a5->y = d2;
-        a5->fgWord = lpTable ? (uint16_t)(d5 + d7 * numTeamsPerGroup) : d5; /* ENTRYTYPE2UNION_NUMBER */
+#ifdef SWOS_SDL_BUILD
+        a5->fgWord=s_ceBoardActive?
+            (uint16_t)(d5+(unsigned)d7*s_ceBoardPageSize):
+            (lpTable?(uint16_t)(d5+d7*numTeamsPerGroup):d5);
+#else
+        a5->fgWord = lpTable ? (uint16_t)(d5 + d7 * numTeamsPerGroup) : d5;
+#endif /* ENTRYTYPE2UNION_NUMBER */
         a5++;
 
         /* Entry for team name */
@@ -9311,6 +9371,9 @@ void DIYLeagueTournamentStats(void)
 __attribute__((used, externally_visible))
 void DIYLeagueTournamentExit(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(s_ceBoardActive) {SetExitMenuFlag();return;}
+#endif
     DIYCompetitionEx *compEx = &_diyCompetitionStart;
     uint8_t *a0 = (uint8_t *)compEx;
     int16_t field48 = (int16_t)compEx->base.hasGroups;
@@ -10418,6 +10481,11 @@ __attribute__((used, externally_visible))
 void DIYLeagueTournamentMatchCommon(uint16_t action)
 {
 #ifdef SWOS_SDL_BUILD
+    if(s_ceBoardActive) {
+        if(action==0u || action==2u)ce_board_action(action);
+        else {fprintf(stderr,"[universal-og-board] UNSUPPORTED_ACTION=%u\n",(unsigned)action);SetExitMenuFlag();}
+        return;
+    }
     /* The 2026/27 universal career must NEVER mutate its results through
      * the old DIY standings/fixture writer. If the original OG tournament
      * VIEW RESULT callback reaches here, use the SAME JSON manager fixture
@@ -10528,6 +10596,17 @@ void DIYLeagueTournamentMatchCommon(uint16_t action)
 __attribute__((used, externally_visible))
 void DIYLeagueTournament_UpdateMenuEntryVisibilityAndFocus(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(s_ceBoardActive) {
+        /* Same original OG callbacks, exposing both user options. */
+        unsigned i;
+        for(i=1u;i<=8u;++i)_menuEntries[i].isInvisible=1;
+        _menuEntries[3].isInvisible=0; /* MATCH => 50Hz */
+        _menuEntries[8].isInvisible=0; /* VIEW RESULT => OG QUICK */
+        SetCurrentEntry(3u);
+        return;
+    }
+#endif
     /* If view-only mode, hide entries 1-8 (action buttons) */
     if (_diyTournamentViewOnly != 0) {
         _menuEntries[1].isInvisible = 1;
@@ -10648,6 +10727,302 @@ show_match_view:
         return;
     }
 }
+
+
+#ifdef SWOS_SDL_BUILD
+/* JSON CE -> ORIGINAL OG TABLE SCREEN, modeled after the Bolivia resident
+ * pilot. Unlike Bolivia, CE owns the real fixtures and standings: this
+ * image is disposable and must NEVER reach the old competition writer or
+ * a CAR checkpoint. All manager actions still use the one CE event. */
+static int s_ceBoardActive;
+static int s_ceBoardHomeRow,s_ceBoardAwayRow,s_ceBoardCommitted;
+static DIYCompetitionEx s_ceBoardSavedCompetition;
+static DIYTournamentState s_ceBoardSavedTournament;
+static TeamFileEx *s_ceBoardSavedTeams;
+static TeamFileEx *s_ceBoardWorkingTeams;
+static uint16_t s_ceBoardSavedCount,s_ceBoardSavedType;
+static uint16_t s_ceBoardSavedView,s_ceBoardSavedOnly;
+static uint16_t s_ceBoardSavedAll,s_ceBoardSavedFocus;
+static uint16_t s_ceBoardSavedLine,s_ceBoardSavedRows;
+static uint16_t s_ceBoardSavedLoaded;
+static uint16_t s_ceBoardSavedViewAvailable,s_ceBoardSavedHighlight;
+static uint16_t s_ceBoardSavedFireReset,s_ceBoardSavedWriteOnly;
+static uint8_t s_ceBoardSavedPhase;
+
+static void ce_board_restore_original(void)
+{
+    memcpy(&_diyCompetitionStart,&s_ceBoardSavedCompetition,
+           sizeof _diyCompetitionStart);
+    memcpy(&_diyFileBufferCopy,&s_ceBoardSavedTournament,
+           sizeof _diyFileBufferCopy);
+    memcpy(_selectedTeams,s_ceBoardSavedTeams,sizeof _selectedTeams);
+    _numSelectedTeams=s_ceBoardSavedCount;
+    _diyTournamentType=s_ceBoardSavedType;
+    _diyFixtureViewMode=s_ceBoardSavedView;
+    _diyTournamentViewOnly=s_ceBoardSavedOnly;
+    _diyAllMatchesPlayed=s_ceBoardSavedAll;
+    _diyInitFocusOverride=s_ceBoardSavedFocus;
+    _currentDiyLine=s_ceBoardSavedLine;
+    _numDiyResults=s_ceBoardSavedRows;
+    _careerLoadedFlag=s_ceBoardSavedLoaded;
+    _diyLeagueTournament_viewOptionsAvailable=s_ceBoardSavedViewAvailable;
+    _highlightedLeagueTeamId=s_ceBoardSavedHighlight;
+    _fireResetFlag=s_ceBoardSavedFireReset;
+    _writeOnlyVar01=s_ceBoardSavedWriteOnly;
+    _viewRandomPhase=s_ceBoardSavedPhase;
+}
+static int ce_board_slot(const ExpandedClubKey *clubs,unsigned n,
+                         ExpandedClubKey key)
+{
+    unsigned i;
+    for(i=0;i<n;++i)
+        if(ExpandedClubKey_Equal(clubs[i],key))return (int)i;
+    return -1;
+}
+static int ce_board_same_edition(const ExpandedUniversalFixture *a,
+                                 const ExpandedUniversalFixture *b)
+{
+    return ExpandedEditionKey_Equal(a->key.edition,b->key.edition);
+}
+static int ce_board_add(ExpandedClubKey *clubs,unsigned *n,
+                        ExpandedClubKey key)
+{
+    int i=ce_board_slot(clubs,*n,key);
+    if(i>=0)return i;
+    if(*n>=64u)return -1; /* real OG table has exactly 64 rows */
+    clubs[*n]=key;
+    return (int)(*n)++;
+}
+static int ce_board_row_before(const DIYTeamStats *a,
+                               const DIYTeamStats *b)
+{
+    const int ga=(int)a->goalsFor-(int)a->goalsAgainst;
+    const int gb=(int)b->goalsFor-(int)b->goalsAgainst;
+    if(a->points!=b->points)return a->points>b->points;
+    if(ga!=gb)return ga>gb;
+    return a->goalsFor>b->goalsFor;
+}
+/* Called only by ORIGINAL OG menu match callbacks. The old DIY table is
+ * restored BEFORE the CE CLAIMED write, so transient rows/rosters can
+ * never contaminate the atomic CAR. Re-mount only until ShowMenu exits. */
+static void ce_board_action(unsigned action)
+{
+    DIYCompetitionEx working;
+    DIYTournamentState tournament;
+    int result;
+    if(!s_ceBoardActive || !s_ceBoardSavedTeams ||
+       !s_ceBoardWorkingTeams)return;
+    memcpy(&working,&_diyCompetitionStart,sizeof working);
+    memcpy(&tournament,&_diyFileBufferCopy,sizeof tournament);
+    memcpy(s_ceBoardWorkingTeams,_selectedTeams,sizeof _selectedTeams);
+    s_ceBoardActive=0;
+    ce_board_restore_original();
+    result=action==0u?ExpandedUniversalLive_ViewManagerResult():
+                      ExpandedUniversalLive_PlayManager();
+    /* Preserve any genuine OG/CE side effects, never restore a stale
+     * pregame snapshot over a real match or over mutable career data. */
+    memcpy(&s_ceBoardSavedCompetition,&_diyCompetitionStart,
+           sizeof _diyCompetitionStart);
+    memcpy(&s_ceBoardSavedTournament,&_diyFileBufferCopy,
+           sizeof _diyFileBufferCopy);
+    memcpy(s_ceBoardSavedTeams,_selectedTeams,sizeof _selectedTeams);
+    s_ceBoardSavedCount=_numSelectedTeams;
+    s_ceBoardSavedViewAvailable=_diyLeagueTournament_viewOptionsAvailable;
+    s_ceBoardSavedHighlight=_highlightedLeagueTeamId;
+    s_ceBoardSavedFireReset=_fireResetFlag;
+    s_ceBoardSavedWriteOnly=_writeOnlyVar01;
+    s_ceBoardSavedPhase=_viewRandomPhase;
+    memcpy(&_diyCompetitionStart,&working,sizeof working);
+    memcpy(&_diyFileBufferCopy,&tournament,sizeof tournament);
+    memcpy(_selectedTeams,s_ceBoardWorkingTeams,sizeof _selectedTeams);
+    _numSelectedTeams=(uint16_t)working.base.numTeams;
+    s_ceBoardActive=1;
+    if(result==2)s_ceBoardCommitted=1;
+    fprintf(stderr,"[universal-og-board] ORIGINAL_ACTION "
+        "action=%s result=%d committed=%d CE_ONE_WRITER=1\n",
+        action==0u?"VIEW_RESULT":"PLAY_50HZ",result,s_ceBoardCommitted);
+    SetExitMenuFlag(); /* no legacy standings/round advance after action */
+}
+/* One entry for EVERY managed 2627 club. The fixture/ledger is authoritative;
+ * display rows are reconstructed from immutable CE match identities. */
+int ExpandedUniversal_OGBoardPresent(void)
+{
+    ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    ExpandedLiveCalendarState clock={0};
+    ExpandedWorldDate due={0};
+    ExpandedClubKey manager={0},clubs[64];
+    const ExpandedUniversalFixture *f=NULL;
+    unsigned n=0u,i,j;
+    int32_t today=0;
+    int home=-1,away=-1,hasManager=0;
+    int result=0;
+    if(s_ceBoardActive || !r || r->recovery_required ||
+       _gameType!=4 || !ExpandedUniversalLive_Active() ||
+       ExpandedUniversalLive_ManagerNext(&due)!=2 ||
+       !ExpandedWorldLive_CalendarState(&clock) ||
+       !ExpandedWorld_DateToIndex(clock.today,&today) ||
+       !ExpandedUniversal_NativeTeamKey(&_careerTeam,&manager) ||
+       ExpandedUniversal_Peek(r,today,&f)!=EXP_UNIVERSAL_DUE ||
+       !f || f->day_index!=today || f->competition_type!=0u ||
+       (!ExpandedClubKey_Equal(f->home,manager) &&
+        !ExpandedClubKey_Equal(f->away,manager)))
+        return 0;
+    /* Do not fabricate a native cup/tournament bracket. Those are gated
+     * pending verified generic CE bracket phase and action projection. */
+    for(i=0u;i<r->fixture_count;++i) {
+        const ExpandedUniversalFixture *x=&r->fixtures[i];
+        if(!ce_board_same_edition(x,f))continue;
+        if(x->competition_type!=0u ||
+           ce_board_add(clubs,&n,x->home)<0 ||
+           ce_board_add(clubs,&n,x->away)<0)return 0;
+    }
+    if(n<2u || n>64u ||
+       (home=ce_board_slot(clubs,n,f->home))<0 ||
+       (away=ce_board_slot(clubs,n,f->away))<0 ||
+       ce_board_slot(clubs,n,manager)<0)return 0;
+    if(!(s_ceBoardSavedTeams=(TeamFileEx *)malloc(sizeof _selectedTeams)))
+        return 0;
+    if(!(s_ceBoardWorkingTeams=(TeamFileEx *)malloc(sizeof _selectedTeams))) {
+        free(s_ceBoardSavedTeams);s_ceBoardSavedTeams=NULL;return 0;
+    }
+    memcpy(&s_ceBoardSavedCompetition,&_diyCompetitionStart,
+           sizeof _diyCompetitionStart);
+    memcpy(&s_ceBoardSavedTournament,&_diyFileBufferCopy,
+           sizeof _diyFileBufferCopy);
+    memcpy(s_ceBoardSavedTeams,_selectedTeams,sizeof _selectedTeams);
+    s_ceBoardSavedCount=_numSelectedTeams;
+    s_ceBoardSavedType=_diyTournamentType;
+    s_ceBoardSavedView=_diyFixtureViewMode;
+    s_ceBoardSavedOnly=_diyTournamentViewOnly;
+    s_ceBoardSavedAll=_diyAllMatchesPlayed;
+    s_ceBoardSavedFocus=_diyInitFocusOverride;
+    s_ceBoardSavedLine=_currentDiyLine;
+    s_ceBoardSavedRows=_numDiyResults;
+    s_ceBoardSavedLoaded=_careerLoadedFlag;
+    s_ceBoardSavedViewAvailable=_diyLeagueTournament_viewOptionsAvailable;
+    s_ceBoardSavedHighlight=_highlightedLeagueTeamId;
+    s_ceBoardSavedFireReset=_fireResetFlag;
+    s_ceBoardSavedWriteOnly=_writeOnlyVar01;
+    s_ceBoardSavedPhase=_viewRandomPhase;
+    memset(&_diyCompetitionStart,0,sizeof _diyCompetitionStart);
+    DIY_InitCompetitionDefaults();
+    _diyCompetitionStart.base.numTeams=(int16_t)n;
+    _diyCompetitionStart.base.totalMatchesInRound=(int16_t)n;
+    _diyCompetitionStart.base.matchPairsPerRound=1;
+    _diyCompetitionStart.base.hasGroups=0;
+    _diyCompetitionStart.base.field_2E=0xffu; /* OG league, not national cup */
+    _diyCompetitionStart.base.namePtr=
+        (uint8_t *)_diyCompetitionStart.base.competitionName;
+    _diyCompetitionStart.base.slotStateA=3;
+    _diyCompetitionStart.base.slotStateC=8;
+    _diyCompetitionStart.minSubstitutes=1;
+    _diyCompetitionStart.pointsForAWin=3;
+    _diyCompetitionStart.leagueSectionState.sectionMatchesProgress=0;
+    _diyCompetitionStart.base.subRoundCounter=0;
+    _diyCompetitionStart.base.playEachTeam=1;
+    _diyCompetitionStart.matchesPlayedCount=0;
+    _numSelectedTeams=(uint16_t)n;
+    for(i=0u;i<n;++i) {
+        TeamFileEx *src=ExpandedUniversalCatalog_Roster(clubs[i]);
+        DIYTeamStats *row=diy_standings_row(&_diyCompetitionStart,(int)i);
+        if(!src)goto restore;
+        memcpy(&_selectedTeams[i],src,sizeof(TeamFileEx));
+        if(ExpandedClubKey_Equal(clubs[i],manager)) {
+            row->teamSelOffset=-1;
+            hasManager=1;
+        } else {
+            _selectedTeams[i].team.teamControls=TEAM_COMPUTER;
+            row->teamSelOffset=(int32_t)i;
+        }
+        _diyCompetitionStart.matchData.league.teamEntryOffsets[i]=
+            (uint16_t)(i*sizeof(DIYTeamStats));
+    }
+    if(!hasManager)goto restore;
+    for(i=0u;i<r->fixture_count;++i) {
+        const ExpandedUniversalFixture *x=&r->fixtures[i];
+        ExpandedFixtureLedgerEntry *e;
+        DIYTeamStats *h,*a;
+        int ih,ia;
+        if(!ce_board_same_edition(x,f))continue;
+        e=ExpandedUniversal_EntryFor(r,x);
+        if(!e || (e->state!=EXP_FIXTURE_PLAYED &&
+                  e->state!=EXP_FIXTURE_SCHEDULED &&
+                  e->state!=EXP_FIXTURE_CLAIMED))goto restore;
+        if(e->state!=EXP_FIXTURE_PLAYED)continue;
+        ih=ce_board_slot(clubs,n,x->home);
+        ia=ce_board_slot(clubs,n,x->away);
+        if(ih<0 || ia<0 || ih==ia ||
+           e->score.home>255u || e->score.away>255u)goto restore;
+        h=diy_standings_row(&_diyCompetitionStart,ih);
+        a=diy_standings_row(&_diyCompetitionStart,ia);
+        if(h->gamesPlayed==UINT16_MAX || a->gamesPlayed==UINT16_MAX ||
+           h->goalsFor>UINT16_MAX-e->score.home ||
+           a->goalsFor>UINT16_MAX-e->score.away ||
+           h->goalsAgainst>UINT16_MAX-e->score.away ||
+           a->goalsAgainst>UINT16_MAX-e->score.home)goto restore;
+        ++h->gamesPlayed;++a->gamesPlayed;
+        h->goalsFor+=e->score.home;h->goalsAgainst+=e->score.away;
+        a->goalsFor+=e->score.away;a->goalsAgainst+=e->score.home;
+        if(e->score.home>e->score.away) {
+            ++h->wins;++a->losses;
+            if(h->points>UINT16_MAX-3u)goto restore;
+            h->points+=3u;
+        } else if(e->score.home<e->score.away) {
+            ++a->wins;++h->losses;
+            if(a->points>UINT16_MAX-3u)goto restore;
+            a->points+=3u;
+        } else {
+            ++h->draws;++a->draws;
+            if(h->points==UINT16_MAX || a->points==UINT16_MAX)
+                goto restore;
+            ++h->points;++a->points;
+        }
+        ++_diyCompetitionStart.matchesPlayedCount;
+    }
+    /* Original table renderer consumes offset rows in rank order. The
+     * projection sorts a COPY, never the CE standings or OG resident. */
+    for(i=1u;i<n;++i) {
+        uint16_t key=_diyCompetitionStart.matchData.league.teamEntryOffsets[i];
+        j=i;
+        while(j>0u &&
+              ce_board_row_before(
+                diy_standings_row(&_diyCompetitionStart,
+                    (int)(key/sizeof(DIYTeamStats))),
+                diy_standings_row(&_diyCompetitionStart,
+                    (int)(_diyCompetitionStart.matchData.league.teamEntryOffsets[j-1u]/
+                         sizeof(DIYTeamStats))))) {
+            _diyCompetitionStart.matchData.league.teamEntryOffsets[j]=
+                _diyCompetitionStart.matchData.league.teamEntryOffsets[j-1u];
+            --j;
+        }
+        _diyCompetitionStart.matchData.league.teamEntryOffsets[j]=key;
+    }
+    s_ceBoardHomeRow=home;s_ceBoardAwayRow=away;
+    /* Bound the physical OG page to 16 rows; original menu visibility
+     * calculations must never produce zero visible groups at 20+ teams.
+     * Up to 64 real CE clubs form at most four scrollable pages. */
+    s_ceBoardPageSize=n>16u?16u:n;
+    s_ceBoardCommitted=0;s_ceBoardActive=1;
+    _careerLoadedFlag=0;
+    _diyFixtureViewMode=1;
+    _diyAllMatchesPlayed=0;
+    fprintf(stderr,"[universal-og-board] OG_MENU_OPEN event=%llu "
+        "clubs=%u home=%u away=%u source=CE ONLY "
+        "fixture-date=%d temporary=1 CAR=UNCHANGED\n",
+        (unsigned long long)f->event_id,n,(unsigned)home,
+        (unsigned)away,(int)today);
+    ShowDiyLeaguesTournamentMenu(1,0,0);
+    result=s_ceBoardCommitted?2:1;
+restore:
+    s_ceBoardActive=0;
+    ce_board_restore_original();
+    free(s_ceBoardWorkingTeams);s_ceBoardWorkingTeams=NULL;
+    free(s_ceBoardSavedTeams);s_ceBoardSavedTeams=NULL;
+    fprintf(stderr,"[universal-og-board] OG_MENU_EXIT result=%d "
+        "temp-restored=1 no-legacy-writer=1\n",result);
+    return result;
+}
+#endif /* SWOS_SDL_BUILD */
 
 /* ================================================================
  * Chunk 153: ShowDiyLeaguesTournamentMenu  (SWOS2.s line 40652)

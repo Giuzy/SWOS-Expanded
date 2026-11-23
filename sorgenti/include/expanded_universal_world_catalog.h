@@ -2,7 +2,9 @@
  * New Competition Engine generates deterministic club pairings from JSON
  * format and stable club IDs; OG remains ONLY a 50 Hz match executor.
  * No results, civil ticks, standings or CAR are written here yet.
- * Date fallback uses first day of phase as provisional date metadata.
+ * v00.13.280: every round gets a real civil day from the CE date planner
+ * and league_calendar.json; OG native phases no longer date CE fixtures
+ * (EXP_CATALOG_DATE_OG_PHASE_FIRST_DAY kept only as a retired value).
  */
 #ifndef EXPANDED_UNIVERSAL_WORLD_CATALOG_H
 #define EXPANDED_UNIVERSAL_WORLD_CATALOG_H
@@ -13,7 +15,8 @@
 
 enum {
     EXP_CATALOG_DATE_VERIFIED = 1,
-    EXP_CATALOG_DATE_OG_PHASE_FIRST_DAY = 2
+    EXP_CATALOG_DATE_OG_PHASE_FIRST_DAY = 2, /* retired in v280 */
+    EXP_CATALOG_DATE_CE_PLANNER = 3          /* league_calendar.json */
 };
 typedef struct ExpandedUniversalCatalogFixture {
     ExpandedUniversalFixture fixture;

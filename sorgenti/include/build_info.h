@@ -40,7 +40,17 @@
  * keeps CLAIMED + COMPLETED. Windows NOT PROVEN. */
 /* v279: after the manager's VIEW RESULT the CE board cursor starts on
  * EXIT (NEXT MATCH still visible). Windows NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.279"
+/* NOTE: the label 00.13.275 was used twice on 23/11/2026: commit ce8ba4e
+ * (removal of 3 disabled #if 0 LWE blocks in expanded_world_live.c) and
+ * the CE board work v275-v279 above (commit 2c7d5e1). */
+/* v280: CE fixture dates on ANY civil day. New pure planner
+ * (expanded_universal_date_planner.c) + data
+ * data_json/worlds/2627/competitions/league_calendar.json (window,
+ * SUN rounds, WED only if needed, rest 3, breaks). OG native phases no
+ * longer date CE fixtures (first-day-of-phase retired); missing/impossible
+ * calendar data fails closed. Same CE clock (scheduler.clock.day_index),
+ * LWE cursor only a mirror. Isolated tests PASS; Windows NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.280"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

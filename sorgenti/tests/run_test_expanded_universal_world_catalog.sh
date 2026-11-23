@@ -9,6 +9,7 @@ trap 'rm -rf "$DIR"' EXIT
 "$CC" -std=c11 -Wall -Wextra -Werror \
   -DSWOS_SDL_BUILD=1 -DSWOS_WORLDS=1 -Iinclude \
   src/expanded_world_time.c src/expanded_universal_world_catalog.c \
+  src/expanded_universal_date_planner.c \
   tests/test_expanded_universal_world_catalog.c \
   -o "$DIR/universal_world_catalog"
 "$DIR/universal_world_catalog"

@@ -21,6 +21,6 @@ done
   -c src/mjson.c -o "$DIR/mjson.o"
 "$CC" -std=c11 -Wall -Wextra -Werror -DSWOS_SDL_BUILD=1 -DSWOS_WORLDS=1 \
   -Iinclude $SDL_INC \
-  src/expanded_world_time.c src/expanded_universal_car.c \
+  src/expanded_world_time.c src/expanded_car_compact.c src/expanded_universal_car.c \
   tests/test_expanded_universal_car.c "$DIR/mjson.o" -lm -o "$DIR/universal_car"
 "$DIR/universal_car"

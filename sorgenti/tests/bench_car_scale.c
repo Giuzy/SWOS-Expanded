@@ -95,6 +95,19 @@ static void bench(uint32_t n)
     t2=ms_now();
     assert(ExpandedUniversal_CarEmitSnapshot(snap,sink,&out));
     t3=ms_now();
+    {   /* v290: decode + full validation of the section (CONTINUE cost) */
+        char head[96];
+        const int hl=snprintf(head,sizeof head,"{\"living_world\":{\"now\":%ld}",(long)r->scheduler.clock.day_index);
+        char *js=(char *)malloc((size_t)hl+out.len+2u);
+        double d0,d1;
+        assert(js);memcpy(js,head,(size_t)hl);memcpy(js+hl,out.p,out.len);
+        js[hl+out.len]='}';js[hl+out.len+1u]=0;
+        d0=ms_now();
+        assert(ExpandedUniversal_CarValidate(js,(int)(hl+out.len+1u)));
+        d1=ms_now();
+        printf("n=%-8u decode+validate(CONTINUE section)=%7.1f ms\n",n,d1-d0);
+        free(js);
+    }
     bound=ZSTD_compressBound(out.len);zbuf=malloc(bound);assert(zbuf);
     cs=ZSTD_compress(zbuf,bound,out.p,out.len,3);
     t4=ms_now();

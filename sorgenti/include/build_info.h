@@ -117,7 +117,12 @@
  * CarPeekClockFor / savejson_career_civil_clock_ok_for); pure CarImage_Splice
  * and CarGate (activation latch) extracted and unit-tested. No CAR format
  * change. Windows gameplay NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.289"
+/* v00.13.290 (SAVE/CAR): CE fixture section now UE02 (compact columnar binary,
+ * base64 inside the same JSON field; UE01 hex still readable = lossless
+ * migration on next save); roster block cache on the CarWriter thread with a
+ * self-check against uncached bytes. Old builds cannot read UE02 CARs.
+ * Windows gameplay NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.290"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

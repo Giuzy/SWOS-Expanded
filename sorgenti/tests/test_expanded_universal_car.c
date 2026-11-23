@@ -139,12 +139,73 @@ int main(void)
     /* Field checksum must reject any tampering, without mutating runtime. */
     strcpy(corrupted,s_disk);
     {
-        char *p=strstr(corrupted,"UE01");
+        char *p=strstr(corrupted,"UE02:");
         assert(p);
-        p[24]=(p[24]=='0')?'1':'0';
+        p[5+40]=(p[5+40]=='A')?'B':'A';
     }
     assert(!ExpandedUniversal_CarValidate(corrupted,(int)strlen(corrupted)));
     assert(ExpandedUniversal_CarRegistry()==r);
+    /* v290: a LEGACY UE01 (hex) CAR must still validate and restore, and a
+     * UE02 save of the restored registry must be byte-identical to the one
+     * saved before (migration is lossless). */
+    {
+        static char legacy[65536],hex[32768],again[65536];
+        char *at=legacy;
+        const char *key="\"universal_engine\":\"";
+        const char *k0=strstr(s_disk,key),*k1;
+        uint32_t i,j;
+        uint32_t crc=2166136261u;
+        size_t hl=0u,pre,k;
+        char *hp=hex;
+        struct mjson_fixedbuf dst2={again,(int)sizeof again,0};
+        assert(k0);k0+=strlen(key);k1=strchr(k0,'"');assert(k1);
+        pre=(size_t)(k0-s_disk);
+#define HX(val,dig) do { uint64_t q_=(uint64_t)(val);int d_; \
+            for(d_=(int)(dig)-1;d_>=0;--d_) \
+                *hp++="0123456789abcdef"[(q_>>(4*d_))&15u]; } while(0)
+        memcpy(hp,"UE01",4);hp+=4;
+        HX(r->world,4);HX((uint32_t)r->scheduler.clock.day_index,8);
+        HX(r->fixture_count,8);
+        for(i=0;i<r->fixture_count;++i) {
+            const ExpandedUniversalFixture *f=&r->fixtures[i];
+            const ExpandedFixtureLedgerEntry *cl=&r->ledger.entries[i];
+            const ExpandedScheduledEvent *e=NULL;
+            for(j=0;j<r->scheduler.count;++j)
+                if(r->scheduler.events[j].id==f->event_id)
+                    e=&r->scheduler.events[j];
+            assert(e);
+            HX(f->event_id,16);HX(e->requires_id,16);
+            HX(f->key.edition.competition.stable_competition,8);
+            HX((uint32_t)f->key.edition.start_day,8);
+            HX(f->key.edition.sequence,4);HX(f->key.stage,8);
+            HX(f->key.tie,8);HX(f->key.leg,4);HX(f->key.replay,4);
+            HX(f->home.stable_club,8);HX(f->away.stable_club,8);
+            HX((uint32_t)f->day_index,8);HX(f->country,4);HX(f->slot,2);
+            HX(f->competition_type,2);HX(cl->state,2);
+            HX(cl->score.home,4);HX(cl->score.away,4);
+            HX(cl->score.penalties_home,4);HX(cl->score.penalties_away,4);
+            HX(cl->score.flags,2);HX(e->state,2);HX(e->priority,4);
+        }
+        hl=(size_t)(hp-hex);
+        for(k=0;k<hl;++k){crc^=(uint8_t)hex[k];crc*=16777619u;}
+        HX(crc,8);*hp=0;
+#undef HX
+        memcpy(at,s_disk,pre);at+=pre;
+        memcpy(at,hex,strlen(hex));at+=strlen(hex);
+        strcpy(at,k1);
+        assert(ExpandedUniversal_CarValidate(legacy,(int)strlen(legacy)));
+        /* tamper with the legacy hex: rejected as before */
+        legacy[pre+30]=(legacy[pre+30]=='0')?'1':'0';
+        assert(!ExpandedUniversal_CarValidate(legacy,(int)strlen(legacy)));
+        legacy[pre+30]=(legacy[pre+30]=='0')?'1':'0';
+        assert(ExpandedUniversal_CarRestore(legacy,(int)strlen(legacy)));
+        r=ExpandedUniversal_CarRegistry();
+        assert(ExpandedUniversal_CarEmit(mjson_print_fixed_buf,&dst2));
+        {   const char *a0=strstr(again,"UE02:");
+            assert(a0 && (size_t)(strchr(a0,'"')-a0)==(size_t)(k1-k0) &&
+                   !memcmp(a0,k0,(size_t)(k1-k0)));   /* lossless migration */
+        }
+    }
     /* Cross-world CAR cannot load or erase the 2627 state. */
     s_world=WORLD_9697;
     assert(!ExpandedUniversal_CarValidate(s_disk,(int)strlen(s_disk)));

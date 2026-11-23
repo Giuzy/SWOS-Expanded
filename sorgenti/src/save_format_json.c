@@ -6663,15 +6663,128 @@ static CarSnap *car_snap_capture(void)
     return s;
 }
 /* Pure serialisation of the two holes from the snapshot ONLY. */
-static int car_snap_serialise_parts(CarSnap *s,JsonOutBuf *roster,
-                                    JsonOutBuf *ce)
+/* v290 BLOCK CACHE (roster blocks). The serialised text of a club is a pure
+ * function of its 684 raw bytes, so the writer thread keeps the previous
+ * generation's raw bytes + text and re-serialises only the clubs whose bytes
+ * changed. Content-addressed per slot: a changed, added, removed or reordered
+ * club simply misses; a cold, invalidated or failed cache is a full serialise
+ * with identical output. Owned and touched ONLY by the CarWriter job (jobs
+ * are strictly sequential); the main-thread shadow compare never uses it. */
+typedef struct CarRosterCache {
+    TeamFileEx *raw;      /* raw bytes of the last serialised generation */
+    uint32_t *off,*len;   /* per-club text span inside text */
+    char *text;
+    size_t text_len,text_cap;
+    uint32_t count,cap;
+} CarRosterCache;
+static CarRosterCache s_rosterCache;
+static unsigned long s_rcHits,s_rcMisses;
+static int s_rcOff,s_rcChecks; /* self-check of the first cached outputs */
+enum { CAR_RC_MAX_TEXT=96u*1024u*1024u };
+static void car_rc_invalidate(void)
 {
-    uint32_t i;
-    for(i=0;i<s->roster_count;++i) {
-        if(i)mjson_printf(json_out_emit,roster,"%s",",");
-        emit_team_file_ex_body(json_out_emit,roster,
-            (const uint8_t *)&s->rosters[i]);
+    s_rosterCache.count=0u;s_rosterCache.text_len=0u;
+}
+static int car_rc_reserve(CarRosterCache *c,uint32_t n)
+{
+    if(n>c->cap) {
+        TeamFileEx *r=(TeamFileEx *)realloc(c->raw,(size_t)n*sizeof *r);
+        uint32_t *o,*l;
+        if(!r)return 0;
+        c->raw=r;
+        o=(uint32_t *)realloc(c->off,(size_t)n*sizeof *o);
+        if(!o)return 0;
+        c->off=o;
+        l=(uint32_t *)realloc(c->len,(size_t)n*sizeof *l);
+        if(!l)return 0;
+        c->len=l;c->cap=n;
     }
+    return 1;
+}
+static int car_roster_serialise(CarSnap *s,JsonOutBuf *roster,int use_cache)
+{
+    CarRosterCache *c=&s_rosterCache;
+    const uint32_t n=s->roster_count;
+    uint32_t i;
+    uint32_t *noff=NULL,*nlen=NULL;
+    TeamFileEx *nraw=NULL;
+    int ok=0;
+    unsigned long hits0=s_rcHits;
+    if(s_rcOff)use_cache=0;
+    if(use_cache) {
+        noff=(uint32_t *)malloc((size_t)(n?n:1u)*sizeof *noff);
+        nlen=(uint32_t *)malloc((size_t)(n?n:1u)*sizeof *nlen);
+        nraw=(TeamFileEx *)malloc((size_t)(n?n:1u)*sizeof *nraw);
+        if(!noff || !nlen || !nraw)use_cache=0;
+    }
+    if(use_cache)memcpy(nraw,s->rosters,(size_t)n*sizeof *nraw); /* RAW, before
+        emit_str_at normalises the private snapshot copy */
+    for(i=0;i<n;++i) {
+        const size_t start0=roster->len;
+        size_t start;
+        if(i)mjson_printf(json_out_emit,roster,"%s",",");
+        start=roster->len;(void)start0;
+        if(use_cache && i<c->count &&
+           !memcmp(&c->raw[i],&nraw[i],sizeof c->raw[i]) &&
+           (size_t)c->off[i]+c->len[i]<=c->text_len) {
+            json_out_emit(c->text+c->off[i],(int)c->len[i],roster);
+            ++s_rcHits;
+        } else {
+            emit_team_file_ex_body(json_out_emit,roster,
+                (const uint8_t *)&s->rosters[i]);
+            if(use_cache)++s_rcMisses;
+        }
+        if(use_cache) {
+            if(start>UINT32_MAX || roster->len-start>UINT32_MAX)use_cache=0;
+            else {noff[i]=(uint32_t)start;nlen[i]=(uint32_t)(roster->len-start);}
+        }
+    }
+    if(roster->oom || !roster->ptr) {car_rc_invalidate();goto done;}
+    if(use_cache && s_rcHits>hits0 && s_rcChecks<3) {
+        /* prove cached == uncached on the first generations that hit */
+        JsonOutBuf plain={0};
+        uint32_t k;
+        for(k=0;k<n;++k) {
+            if(k)mjson_printf(json_out_emit,&plain,"%s",",");
+            emit_team_file_ex_body(json_out_emit,&plain,
+                (const uint8_t *)&s->rosters[k]);
+        }
+        ++s_rcChecks;
+        if(plain.oom || !plain.ptr || plain.len!=roster->len ||
+           memcmp(plain.ptr,roster->ptr,plain.len)!=0) {
+            fprintf(stderr,"[car-cache] ROSTER_BLOCK_CACHE MISMATCH: cache "
+                "disabled for the session, uncached bytes used\n");
+            s_rcOff=1;car_rc_invalidate();
+            if(roster->ptr)swos_io_free(roster->ptr);
+            *roster=plain;
+            ok=!plain.oom && plain.ptr;
+            goto done;
+        }
+        fprintf(stderr,"[car-cache] ROSTER_BLOCK_CACHE EQUIVALENCE PASS "
+            "check=%d hits=%lu misses=%lu\n",s_rcChecks,s_rcHits,s_rcMisses);
+        if(plain.ptr)swos_io_free(plain.ptr);
+    }
+    if(use_cache && roster->len<=CAR_RC_MAX_TEXT && car_rc_reserve(c,n)) {
+        char *t=(char *)realloc(c->text,roster->len?roster->len:1u);
+        if(t) {
+            c->text=t;c->text_cap=roster->len;
+            memcpy(c->text,roster->ptr,roster->len);
+            c->text_len=roster->len;
+            memcpy(c->raw,nraw,(size_t)n*sizeof *nraw);
+            memcpy(c->off,noff,(size_t)n*sizeof *noff);
+            memcpy(c->len,nlen,(size_t)n*sizeof *nlen);
+            c->count=n;
+        } else car_rc_invalidate();
+    } else car_rc_invalidate();
+    ok=1;
+done:
+    free(noff);free(nlen);free(nraw);
+    return ok;
+}
+static int car_snap_serialise_parts(CarSnap *s,JsonOutBuf *roster,
+                                    JsonOutBuf *ce,int use_cache)
+{
+    if(!car_roster_serialise(s,roster,use_cache))return 0;
     if(roster->oom || !roster->ptr)return 0;
     return ExpandedUniversal_CarEmitSnapshot(s->ce,json_out_emit,ce) &&
            !ce->oom && ce->ptr;
@@ -6688,7 +6801,7 @@ static int car_ops_prepare(void *ctx,uint8_t **json,uint32_t *len)
     Uint64 t1,t2,t3;
     int ok=0;
     if(!s || !s->main_ptr || !s->ce)return 0;
-    if(!car_snap_serialise_parts(s,&roster,&ce))goto done;
+    if(!car_snap_serialise_parts(s,&roster,&ce,1))goto done;
     t1=car_now_ms();
     total=CarImage_Splice(s->main_ptr,s->main_len,s->p1s,s->p1e,s->p2s,s->p2e,
                           roster.ptr,roster.len,ce.ptr,ce.len,NULL,0u);
@@ -6754,7 +6867,7 @@ static void car_snap_shadow_compare(CarSnap *s,const JsonOutBuf *out)
     JsonOutBuf roster={NULL,0,0,0},ce={NULL,0,0,0};
     int roster_ok=0,ce_ok=0;
     const Uint64 t0=car_now_ms();
-    if(car_snap_serialise_parts(s,&roster,&ce)) {
+    if(car_snap_serialise_parts(s,&roster,&ce,0)) {
         roster_ok=roster.len==s->p1e-s->p1s &&
             memcmp(roster.ptr,out->ptr+s->p1s,roster.len)==0;
         ce_ok=ce.len==s->p2e-s->p2s &&

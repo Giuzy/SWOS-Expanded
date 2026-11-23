@@ -11,6 +11,7 @@
 #include "save_format_json.h" /* SaveJson_SetNextWriteAsync */
 #include "world.h"
 #include "platform_sdl.h" /* monotonic CPU-forward CAR stage timings */
+#include "expanded_car_compact.h"
 #include <limits.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -78,15 +79,6 @@ int ExpandedUniversal_CarBegin(ExpandedWorldDate date,uint32_t capacity)
     return 1;
 }
 
-/* Each field has a fixed width in hex, no host-endian struct dumps. */
-static void exp_hex_put(char **ptr,uint64_t value,unsigned digits)
-{
-    static const char h[]="0123456789abcdef";
-    unsigned i;
-    for(i=0;i<digits;++i)
-        (*ptr)[i]=h[(value>>((digits-1u-i)*4u))&15u];
-    *ptr+=digits;
-}
 static int exp_hex_get(const char **p,const char *end,
                        unsigned digits,uint64_t *out)
 {
@@ -142,94 +134,88 @@ static int exp_car_chrono_cmp(const void *aa,const void *bb)
     return ExpandedEvent_Before(a,b)?-1:ExpandedEvent_Before(b,a)?1:0;
 }
 /* Emit core: reads ONLY through r (live registry or an owned snapshot copy). */
+typedef struct ExpCarRowCtx {
+    const ExpandedUniversalRegistry *r;
+    const ExpandedCarEventIndex *events;
+} ExpCarRowCtx;
+static int exp_car_row_get(uint32_t i,uint64_t *v,void *user)
+{
+    const ExpCarRowCtx *x=(const ExpCarRowCtx *)user;
+    const ExpandedUniversalFixture *f=&x->r->fixtures[i];
+    const ExpandedFixtureLedgerEntry *claim=&x->r->ledger.entries[i];
+    const ExpandedScheduledEvent *e=exp_car_event(
+        x->events,x->r->scheduler.count,f->event_id);
+    /* Rows stay aligned fixture/ledger/event; a misaligned ledger fails
+     * closed instead of writing another fixture's result. */
+    if(!ExpandedFixtureKey_Equal(claim->key,f->key) ||
+       !e || e->kind!=EXP_EVENT_FIXTURE)return 0;
+    v[0]=f->event_id;v[1]=e->requires_id;
+    v[2]=f->key.edition.competition.stable_competition;
+    v[3]=(uint32_t)f->key.edition.start_day;
+    v[4]=f->key.edition.sequence;v[5]=f->key.stage;v[6]=f->key.tie;
+    v[7]=f->key.leg;v[8]=f->key.replay;
+    v[9]=f->home.stable_club;v[10]=f->away.stable_club;
+    v[11]=(uint32_t)f->day_index;v[12]=f->country;v[13]=f->slot;
+    v[14]=f->competition_type;v[15]=claim->state;
+    v[16]=claim->score.home;v[17]=claim->score.away;
+    v[18]=claim->score.penalties_home;v[19]=claim->score.penalties_away;
+    v[20]=claim->score.flags;v[21]=e->state;v[22]=e->priority;
+    return 1;
+}
+/* Emit core: reads ONLY through r (live registry or an owned snapshot copy).
+ * v290: compact "UE02:" columnar binary (base64 in the same JSON field). */
 static int exp_car_emit_registry(ExpandedUniversalRegistry *r,
                                  uint16_t expected_world,
                                  mjson_print_fn_t output,void *user)
 {
-    size_t len;
-    char *buf,*p;
     ExpandedCarEventIndex *events=NULL;
     uint32_t i;
-    int result;
+    int result=0;
     const Uint64 started_ms=Platform_NowMs();
     Uint64 validated_ms;
+    uint8_t *bin=NULL;
+    char *text=NULL;
+    size_t binlen=0u,b64len;
+    ExpCarRowCtx ctx;
     if(!output || !r)return 0;
     if(r->world!=expected_world ||
        !ExpandedUniversal_ValidateRestore(r))return 0;
     validated_ms=Platform_NowMs();
-    if(r->fixture_count>(uint32_t)((INT_MAX-EXP_CAR_HEX_HEAD-
-        EXP_CAR_HEX_CRC-1)/EXP_CAR_HEX_ROW))return 0;
-    len=EXP_CAR_HEX_HEAD+(size_t)r->fixture_count*EXP_CAR_HEX_ROW+
-        EXP_CAR_HEX_CRC;
-    if(len>INT_MAX-1)return 0;
 #if SIZE_MAX < UINT64_MAX
     if((size_t)r->scheduler.count>SIZE_MAX/sizeof *events)return 0;
 #endif
     events=(ExpandedCarEventIndex *)malloc(
-        (size_t)r->scheduler.count*sizeof *events);
+        ((size_t)r->scheduler.count?(size_t)r->scheduler.count:1u)*sizeof *events);
     if(!events)return 0;
     for(i=0;i<r->scheduler.count;++i)
         events[i]=(ExpandedCarEventIndex){
             r->scheduler.events[i].id,&r->scheduler.events[i]};
     qsort(events,(size_t)r->scheduler.count,sizeof *events,
           exp_car_event_index_cmp);
-    buf=(char *)malloc(len+1u);
-    if(!buf){free(events);return 0;}
-    p=buf;
-    memcpy(p,"UE01",4u);p+=4u;
-    exp_hex_put(&p,r->world,4u);
-    exp_hex_put(&p,(uint32_t)r->scheduler.clock.day_index,8u);
-    exp_hex_put(&p,r->fixture_count,8u);
-    for(i=0;i<r->fixture_count;++i) {
-        const ExpandedUniversalFixture *f=&r->fixtures[i];
-        const ExpandedFixtureLedgerEntry *claim=&r->ledger.entries[i];
-        const ExpandedScheduledEvent *e=exp_car_event(
-            events,r->scheduler.count,f->event_id);
-        /* All generated and restored UE01 payloads are aligned by row.
-         * An external nonaligned ledger fails closed, never picks a wrong
-         * result from another fixture. */
-        if(!ExpandedFixtureKey_Equal(claim->key,f->key) ||
-           !e || e->kind!=EXP_EVENT_FIXTURE) {
-            free(events);free(buf);return 0;
-        }
-        exp_hex_put(&p,f->event_id,16u);
-        exp_hex_put(&p,e->requires_id,16u);
-        exp_hex_put(&p,f->key.edition.competition.stable_competition,8u);
-        exp_hex_put(&p,(uint32_t)f->key.edition.start_day,8u);
-        exp_hex_put(&p,f->key.edition.sequence,4u);
-        exp_hex_put(&p,f->key.stage,8u);
-        exp_hex_put(&p,f->key.tie,8u);
-        exp_hex_put(&p,f->key.leg,4u);
-        exp_hex_put(&p,f->key.replay,4u);
-        exp_hex_put(&p,f->home.stable_club,8u);
-        exp_hex_put(&p,f->away.stable_club,8u);
-        exp_hex_put(&p,(uint32_t)f->day_index,8u);
-        exp_hex_put(&p,f->country,4u);
-        exp_hex_put(&p,f->slot,2u);
-        exp_hex_put(&p,f->competition_type,2u);
-        exp_hex_put(&p,claim->state,2u);
-        exp_hex_put(&p,claim->score.home,4u);
-        exp_hex_put(&p,claim->score.away,4u);
-        exp_hex_put(&p,claim->score.penalties_home,4u);
-        exp_hex_put(&p,claim->score.penalties_away,4u);
-        exp_hex_put(&p,claim->score.flags,2u);
-        exp_hex_put(&p,e->state,2u);
-        exp_hex_put(&p,e->priority,4u);
-    }
-    if((size_t)(p-buf)!=len-EXP_CAR_HEX_CRC) {
-        free(events);free(buf);return 0;
-    }
-    exp_hex_put(&p,exp_car_hash(buf,len-EXP_CAR_HEX_CRC),8u);
-    *p=0;
-    result=mjson_printf(output,user,",\n  %Q:%Q","universal_engine",buf);
+    ctx.r=r;ctx.events=events;
+    bin=ExpCarCompact_Encode(r->world,r->scheduler.clock.day_index,
+        r->fixture_count,exp_car_row_get,&ctx,&binlen);
     free(events);
-    free(buf);
-    fprintf(stderr,"[universal-perf] CAR_EMIT_TIMING "
-        "fixtures=%lu validate_ms=%llu encode_ms=%llu status=%s\n",
-        (unsigned long)r->fixture_count,
+    if(!bin)return 0;
+    b64len=ExpCarCompact_B64Encode(bin,binlen,NULL,0u);
+    if(b64len==(size_t)-1 || b64len>(size_t)INT_MAX-16u) {free(bin);return 0;}
+    text=(char *)malloc(5u+b64len+1u);
+    if(!text) {free(bin);return 0;}
+    memcpy(text,"UE02:",5u);
+    if(ExpCarCompact_B64Encode(bin,binlen,text+5,b64len)!=b64len) {
+        free(bin);free(text);return 0;
+    }
+    text[5u+b64len]=0;
+    result=mjson_printf(output,user,",\n  %Q:%Q","universal_engine",text);
+    fprintf(stderr,"[universal-perf] CAR_EMIT_TIMING format=UE02 "
+        "fixtures=%lu binary_bytes=%lu json_bytes=%lu validate_ms=%llu "
+        "encode_ms=%llu status=%s\n",
+        (unsigned long)r->fixture_count,(unsigned long)binlen,
+        (unsigned long)(5u+b64len),
         (unsigned long long)(validated_ms-started_ms),
         (unsigned long long)(Platform_NowMs()-validated_ms),
         result>0?"OK":"FAILED");
+    free(bin);free(text);
     return result>0;
 }
 int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
@@ -307,6 +293,81 @@ void ExpandedUniversal_CarSnapshotRelease(ExpandedUniversalCarSnapshot *s)
 /* Parse a complete candidate in TEMPORARY heap memory. No current world
  * state changes on failed CRC, world, civil clock, event or ledger proof.
  * Nor is a missing optional section an invitation to invent fixtures. */
+/* v290: UE02 decoder. Same validation tail as UE01. */
+static int exp_car_parse_ue02(const char *json,int size,const char *text,
+    size_t len,ExpandedCarWorld *candidate,int *present,uint16_t expected_world)
+{
+    ExpCarCompactReader rd;
+    uint8_t *bin=NULL;
+    size_t binlen;
+    uint64_t v[EXP_CCOL];
+    uint32_t i,n;
+    ExpandedWorldDate date;
+    long civil_day=0;
+    uint16_t world;
+    if(len<5u+4u)return 0;
+    binlen=ExpCarCompact_B64Decode(text+5,len-5u,NULL,0u);
+    if(binlen==(size_t)-1 || !binlen)return 0;
+    bin=(uint8_t *)malloc(binlen);
+    if(!bin || ExpCarCompact_B64Decode(text+5,len-5u,bin,binlen)!=binlen) {
+        free(bin);return 0;
+    }
+    if(!ExpCarCompact_Open(&rd,bin,binlen) || rd.world>=WORLD_COUNT ||
+       rd.world!=expected_world || rd.day<0 ||
+       !ExpandedWorld_IndexToDate(rd.day,&date) ||
+       mjson_get_long(json,size,"$.living_world.now",&civil_day)<=0 ||
+       civil_day!=rd.day) {free(bin);return 0;}
+    world=rd.world;n=rd.n;
+    /* each row needs >= EXP_CCOL bytes: bounds n against the payload */
+    if((uint64_t)n*EXP_CCOL>binlen || !exp_car_alloc(candidate,world,n,date)) {
+        free(bin);return 0;
+    }
+    candidate->reg.fixture_count=n;
+    candidate->reg.ledger.count=n;
+    candidate->reg.scheduler.count=n;
+    for(i=0;i<n;++i) {
+        ExpandedUniversalFixture *f=&candidate->fixtures[i];
+        ExpandedFixtureLedgerEntry *claim=&candidate->ledger[i];
+        ExpandedScheduledEvent e={0};
+        if(!ExpCarCompact_Next(&rd,v))goto fail;
+        f->event_id=v[0];e.id=f->event_id;e.requires_id=v[1];
+        f->key.edition.competition.stable_competition=(uint32_t)v[2];
+        f->key.edition.start_day=(int32_t)(uint32_t)v[3];
+        f->key.edition.sequence=(uint16_t)v[4];
+        f->key.stage=(uint32_t)v[5];f->key.tie=(uint32_t)v[6];
+        f->key.leg=(uint16_t)v[7];f->key.replay=(uint16_t)v[8];
+        f->home.stable_club=(uint32_t)v[9];f->away.stable_club=(uint32_t)v[10];
+        f->day_index=(int32_t)(uint32_t)v[11];
+        f->country=(uint16_t)v[12];f->slot=(uint8_t)v[13];
+        f->competition_type=(uint8_t)v[14];
+        claim->state=(uint8_t)v[15];
+        claim->score.home=(uint16_t)v[16];claim->score.away=(uint16_t)v[17];
+        claim->score.penalties_home=(uint16_t)v[18];
+        claim->score.penalties_away=(uint16_t)v[19];
+        claim->score.flags=(uint8_t)v[20];
+        e.state=(uint8_t)v[21];e.priority=(uint16_t)v[22];
+        f->key.edition.competition.world=world;
+        f->home.world=world;f->away.world=world;
+        claim->key=f->key;
+        e.day_index=f->day_index;e.kind=EXP_EVENT_FIXTURE;
+        candidate->events[i]=e;
+        if(claim->state==EXP_FIXTURE_CLAIMED)
+            candidate->reg.recovery_required=1u;
+    }
+    if(!ExpCarCompact_Finish(&rd))goto fail;
+    qsort(candidate->events,n,sizeof *candidate->events,exp_car_chrono_cmp);
+    candidate->reg.fixtures_sorted_by_event=1u;
+    for(i=1u;i<n;++i)
+        if(candidate->fixtures[i-1u].event_id>=candidate->fixtures[i].event_id) {
+            candidate->reg.fixtures_sorted_by_event=0u;
+            break;
+        }
+    if(!ExpandedUniversal_ValidateRestore(&candidate->reg))goto fail;
+    free(bin);*present=1;return 1;
+fail:
+    free(bin);exp_car_clear(candidate);return 0;
+}
+
 static int exp_car_parse(const char *json,int size,
                           ExpandedCarWorld *candidate,int *present,
                           uint16_t expected_world)
@@ -333,6 +394,12 @@ static int exp_car_parse(const char *json,int size,
         free(text);return 0;
     }
     len=strlen(text);
+    if(len>=5u && memcmp(text,"UE02:",5u)==0) {
+        const int ok=exp_car_parse_ue02(json,size,text,len,candidate,
+                                        present,expected_world);
+        free(text);
+        return ok;
+    }
     if(len<EXP_CAR_HEX_HEAD+EXP_CAR_HEX_CRC ||
        (len-EXP_CAR_HEX_HEAD-EXP_CAR_HEX_CRC)%EXP_CAR_HEX_ROW) {
         free(text);return 0;

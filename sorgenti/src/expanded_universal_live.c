@@ -209,6 +209,55 @@ void ExpandedUniversalLive_ResetCpuBatch(void)
 {
     s_cpu_batch_pending=0u;
 }
+/* OG CAREER board round: the manager's league fixtures of the same edition
+ * on the same civil day. OG shows every one of them in its own tabellone
+ * (CPU ones with VIEW RESULT), so ordinary FORWARD must stop BEFORE the
+ * first of them, not only before the manager's own fixture. Cups keep the
+ * previous manager-fixture-only stop (no native CE bracket yet). */
+static int exp_live_same_round(const ExpandedUniversalFixture *f,
+                               const ExpandedUniversalFixture *mf)
+{
+    return f && mf && f->competition_type==0u && mf->competition_type==0u &&
+           f->day_index==mf->day_index &&
+           ExpandedEditionKey_Equal(f->key.edition,mf->key.edition);
+}
+static const ExpandedUniversalFixture *exp_live_manager_fixture(
+    ExpandedUniversalRegistry *r,ExpandedClubKey manager)
+{
+    const ExpandedUniversalFixture *mf=NULL;
+    if(!r || !r->scheduler.count)return NULL;
+    if(ExpandedUniversal_NextForClub(r,manager,
+           r->scheduler.events[r->scheduler.count-1u].day_index,&mf)!=
+       EXP_UNIVERSAL_DUE)return NULL;
+    return mf;
+}
+/* Runs, in the ONE CE chronological order, the pending events of TODAY
+ * up to stop_event (included or not). Unattended fixtures only: original
+ * OG quick scorer, same RAM CPU batch as FORWARD. Never runs a manager
+ * fixture and never moves the civil clock. 2 reached, 1 blocked. */
+static int exp_live_drain_today(ExpandedUniversalRegistry *r,int32_t today,
+                                uint64_t stop_event,int inclusive,
+                                ExpandedClubKey manager)
+{
+    for(;;) {
+        const ExpandedUniversalFixture *g=NULL;
+        ExpandedUniversalResult res=ExpandedUniversal_Peek(r,today,&g);
+        if(res!=EXP_UNIVERSAL_DUE || !g || g->day_index!=today)return 1;
+        if(g->event_id==stop_event && !inclusive)return 2;
+        if(ExpandedClubKey_Equal(manager,g->home) ||
+           ExpandedClubKey_Equal(manager,g->away))return 1;
+        if(_quitToDos)return 1;
+        res=run_match(g,0,1);
+        if(res!=EXP_UNIVERSAL_OK) {
+            r->recovery_required=1u;
+            fprintf(stderr,"[universal-live] ROUND_CPU_FAULT event=%llu "
+                "CAR_CLAIMED_NO_REPLAY=1\n",(unsigned long long)g->event_id);
+            return 1;
+        }
+        if(s_cpu_batch_pending<UINT32_MAX)++s_cpu_batch_pending;
+        if(g->event_id==stop_event)return 2;
+    }
+}
 static int exp_universal_live_advance_impl(ExpandedWorldDate target,
                                            int debug_autosim_manager)
 {
@@ -225,6 +274,14 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
      * whole prior RAM block, possibly larger than 512. This is NOT a
      * checkpoint at the end of the previous FORWARD. */
     if(s_cpu_batch_pending>=512u && !exp_live_flush_cpu(r))return 0;
+    /* The manager fixture is never executed by ordinary FORWARD, so its
+     * round anchor cannot change inside this call. DEBUG keeps old path. */
+    const ExpandedUniversalFixture *round_anchor=NULL;
+    {
+        ExpandedClubKey round_manager={0};
+        if(!debug_autosim_manager && manager_key(&round_manager))
+            round_anchor=exp_live_manager_fixture(r,round_manager);
+    }
     for(;;) {
         const ExpandedUniversalFixture *f=NULL;
         ExpandedUniversalResult res=ExpandedUniversal_Peek(r,to,&f);
@@ -252,11 +309,13 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
         const int manager_due=manager_key(&manager) &&
             (ExpandedClubKey_Equal(manager,f->home) ||
              ExpandedClubKey_Equal(manager,f->away));
-        if(manager_due && !debug_autosim_manager) {
+        if((manager_due || exp_live_same_round(f,round_anchor)) &&
+           !debug_autosim_manager) {
             fprintf(stderr,"[universal-live] WAIT_MANAGER event=%llu "
-                "date=%04u-%02u-%02u one-calendar=1\n",
+                "date=%04u-%02u-%02u role=%s one-calendar=1\n",
                 (unsigned long long)f->event_id,
-                (unsigned)day.year,(unsigned)day.month,(unsigned)day.day);
+                (unsigned)day.year,(unsigned)day.month,(unsigned)day.day,
+                manager_due?"MANAGER_FIXTURE":"OG_BOARD_ROUND_CPU");
             return 1;
         }
         /* A Windows close during a long CPU batch must not start/CLAIM
@@ -337,10 +396,12 @@ int ExpandedUniversalLive_ManagerNext(ExpandedWorldDate *due)
        f->day_index<today ||
        !ExpandedWorld_IndexToDate(f->day_index,due))return -1;
     if(f->day_index>today)return 1;
-    /* Earlier CPU events on the same day must complete before PLAY. */
+    /* Earlier CPU events on the same day must complete before PLAY,
+     * except the manager's own league round: OG shows those in its board. */
     res=ExpandedUniversal_Peek(r,today,&world_due);
     if(res!=EXP_UNIVERSAL_DUE || !world_due)return -1;
-    return world_due->event_id==f->event_id?2:1;
+    return (world_due->event_id==f->event_id ||
+            exp_live_same_round(world_due,f))?2:1;
 }
 
 static int exp_universal_live_manager_action(int interactive)
@@ -359,6 +420,17 @@ static int exp_universal_live_manager_action(int interactive)
        !manager_key(&manager)) {
         fprintf(stderr,"[universal-live] MANAGER_BLOCKED no-OG-TSKC=1\n");
         return 1;
+    }
+    {
+        /* Same-day events ordered before the manager fixture (other
+         * leagues, or round CPU fixtures not shown in the board) run first
+         * in the one CE order, exactly like FORWARD would run them. */
+        const ExpandedUniversalFixture *mf=exp_live_manager_fixture(r,manager);
+        if(mf && mf->day_index==today &&
+           ExpandedUniversal_Peek(r,today,&f)==EXP_UNIVERSAL_DUE &&
+           f && f->event_id!=mf->event_id)
+            (void)exp_live_drain_today(r,today,mf->event_id,0,manager);
+        f=NULL;
     }
     res=ExpandedUniversal_Peek(r,today,&f);
     if(res!=EXP_UNIVERSAL_DUE || !f ||
@@ -399,6 +471,42 @@ int ExpandedUniversalLive_PlayManager(void)
 }
 int ExpandedUniversalLive_ViewManagerResult(void)
 {
-    return exp_universal_live_manager_action(0);
+    int rc;
+    /* OG: RESULT opens the team screen; VIEW RESULT there = OG quick. */
+    ExpandedUniversal_NativeSetResultPrompt(1);
+    rc=exp_universal_live_manager_action(0);
+    ExpandedUniversal_NativeSetResultPrompt(0);
+    return rc;
+}
+/* OG board VIEW RESULT on a CPU fixture of the manager's round. */
+int ExpandedUniversalLive_ViewRoundCpuResult(uint64_t event_id)
+{
+    ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    ExpandedLiveCalendarState state={0};
+    ExpandedClubKey manager={0};
+    const ExpandedUniversalFixture *f;
+    ExpandedFixtureLedgerEntry *entry;
+    int32_t today=0;
+    int rc;
+    if(!ExpandedUniversalLive_Active())return 0;
+    if(!r || r->recovery_required ||
+       !ExpandedWorldLive_CalendarState(&state) ||
+       !ExpandedWorld_DateToIndex(state.today,&today) ||
+       today!=r->scheduler.clock.day_index ||
+       !manager_key(&manager) ||
+       !(f=ExpandedUniversal_Find(r,event_id)) || f->day_index!=today ||
+       ExpandedClubKey_Equal(manager,f->home) ||
+       ExpandedClubKey_Equal(manager,f->away) ||
+       !(entry=ExpandedUniversal_EntryFor(r,f)) ||
+       entry->state!=EXP_FIXTURE_SCHEDULED) {
+        fprintf(stderr,"[universal-live] ROUND_CPU_BLOCKED event=%llu\n",
+            (unsigned long long)event_id);
+        return 1;
+    }
+    rc=exp_live_drain_today(r,today,event_id,1,manager);
+    fprintf(stderr,"[universal-live] ROUND_CPU_VIEW_RESULT event=%llu "
+        "result=%d og-quick=1 batch-pending=%lu\n",
+        (unsigned long long)event_id,rc,(unsigned long)s_cpu_batch_pending);
+    return rc;
 }
 #endif

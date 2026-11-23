@@ -99,6 +99,13 @@ extern DIYCompetitionEx _diyCompetitionStart;
 static int s_ceBoardActive;
 static int s_ceBoardHomeRow,s_ceBoardAwayRow;
 static int s_ceBoardCommitted,s_ceBoardViewOnly;
+static int s_ceBoardRoundDone;
+/* An OG match/result callback is running: the original competition is
+ * temporarily mounted for the CE writer. A nested OG menu (lineup) that
+ * returns to the board must NOT run the legacy board logic or draw the
+ * table from that original (CE-empty, all-zero) data. */
+static int s_ceBoardInAction,s_ceBoardRestorePending;
+static uint64_t s_ceBoardEventId,s_ceBoardManagerEvent;
 static void ce_board_action(unsigned action);
 #endif
 /* The standalone backing buffer behind diyCompetitionStart (7136 B). The
@@ -7987,6 +7994,13 @@ static uint16_t table_per_group(void)
 __attribute__((used, externally_visible))
 void DIYLeagueTournamentOnRestore(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(s_ceBoardInAction) {
+        /* Re-run by ce_board_action once the CE board image is back. */
+        s_ceBoardRestorePending=1;
+        return;
+    }
+#endif
 
     uint8_t *comp = (uint8_t *)&_diyCompetitionStart;  /* raw pointer for name data access */
 
@@ -8176,6 +8190,9 @@ void DIYLeagueTournamentOnRestore(void)
 __attribute__((used, externally_visible))
 void DIYLeagueTournament16BeforeDraw(MenuEntry *entry)
 {
+#ifdef SWOS_SDL_BUILD
+    if(s_ceBoardInAction)return; /* never draw the original zero table */
+#endif
 
     uint8_t *comp = (uint8_t *)&_diyCompetitionStart;  /* raw pointer for extended buffer access */
     int16_t d7 = entry->ordinal - 16 + _currentDiyLine;
@@ -9615,6 +9632,14 @@ void DIYLeagueTournament_DrawPlayMatchAndFixtureHeader(void)
 __attribute__((used, externally_visible))
 void DIYLeagueTournamentNextMatch(void)
 {
+#ifdef SWOS_SDL_BUILD
+    if(s_ceBoardActive && s_ceBoardRoundDone) {
+        /* OG: NEXT MATCH after the last fixture of the day returns to
+         * the career menu. */
+        SetExitMenuFlag();
+        return;
+    }
+#endif
     DIYCompetitionEx *compEx = &_diyCompetitionStart;
     uint8_t *a0 = (uint8_t *)compEx;
     /* +0x60 = minSubstitutes; raw offset wrong on 64-bit, use typed
@@ -10562,16 +10587,34 @@ void DIYLeagueTournament_UpdateMenuEntryVisibilityAndFocus(void)
 {
 #ifdef SWOS_SDL_BUILD
     if(s_ceBoardActive) {
-        /* Original OG menu only: after a CE COMMITTED result there is no
-         * second MATCH/VIEW RESULT action for that immutable fixture. */
+        /* Same visible entries/focus as the ORIGINAL OG career branches
+         * below (show_next_match / show_match_view / all played), applied
+         * to the CE round: no extra button, page or label. */
         unsigned i;
         for(i=1u;i<=8u;++i)_menuEntries[i].isInvisible=1;
-        if(!s_ceBoardCommitted && !s_ceBoardViewOnly) {
-            _menuEntries[3].isInvisible=0; /* MATCH => original OG 50Hz */
-            _menuEntries[8].isInvisible=0; /* VIEW RESULT => OG QUICK */
-            SetCurrentEntry(3u);
+        if(s_ceBoardViewOnly) {
+            SetCurrentEntry(10u); /* view-only => EXIT */
+            return;
+        }
+        if((int16_t)_diyFixtureViewMode<=0 || s_ceBoardRoundDone) {
+            /* OG after a result: NEXT MATCH to the following fixture,
+             * or back to the career menu after the last one. */
+            _menuEntries[1].fg=(uintptr_t)_aNextMatch;
+            _menuEntries[1].isInvisible=0;
+            SetCurrentEntry(1u);
+            return;
+        }
+        if(s_ceBoardEventId!=s_ceBoardManagerEvent) {
+            /* OG career CPU v CPU: VIEW RESULT only, in VIEW MATCH place */
+            _menuEntries[8].isInvisible=0;
+            _menuEntries[8].x=_menuEntries[6].x;
+            _menuEntries[8].dwWidth=0xCA;
+            SetCurrentEntry(8u);
         } else {
-            SetCurrentEntry(10u);
+            /* OG human fixture: MATCH (OG 50 Hz) + RESULT (OG quick) */
+            _menuEntries[3].isInvisible=0;
+            _menuEntries[5].isInvisible=0;
+            SetCurrentEntry(3u);
         }
         return;
     }
@@ -10705,8 +10748,14 @@ show_match_view:
  * a CAR checkpoint. All manager actions still use the one CE event. */
 static int s_ceBoardActive;
 static int s_ceBoardHomeRow,s_ceBoardAwayRow,s_ceBoardCommitted;
-static uint64_t s_ceBoardEventId; /* exact fixture to redisplay after CE commit */
+static uint64_t s_ceBoardEventId; /* current board fixture (OG current fixture) */
 static int s_ceBoardViewOnly; /* no action can write a CE match from WORLD */
+/* OG round of the manager's league: same edition, same civil day, CE order.
+ * Only event ids are kept; every state is re-read from the CE ledger. */
+static uint64_t s_ceBoardRound[32];
+static unsigned s_ceBoardRoundCount;
+static ExpandedClubKey s_ceBoardClubs[64];
+static unsigned s_ceBoardClubCount;
 static DIYCompetitionEx s_ceBoardSavedCompetition;
 static DIYTournamentState s_ceBoardSavedTournament;
 static TeamFileEx *s_ceBoardSavedTeams;
@@ -10864,6 +10913,29 @@ static int ce_board_refresh_completed(void)
         (unsigned)played->score.away,n,(unsigned)(total/2u));
     return 1;
 }
+/* Make the first not-yet-played fixture of the round the OG current
+ * fixture. 1 selected, 0 round complete, -1 identity error. */
+static int ce_board_select_current(void)
+{
+    ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    unsigned i;
+    if(!r)return -1;
+    for(i=0u;i<s_ceBoardRoundCount;++i) {
+        const ExpandedUniversalFixture *x=
+            ExpandedUniversal_Find(r,s_ceBoardRound[i]);
+        ExpandedFixtureLedgerEntry *e=x?ExpandedUniversal_EntryFor(r,x):NULL;
+        int home,away;
+        if(!e)return -1;
+        if(e->state==EXP_FIXTURE_PLAYED)continue;
+        home=ce_board_slot(s_ceBoardClubs,s_ceBoardClubCount,x->home);
+        away=ce_board_slot(s_ceBoardClubs,s_ceBoardClubCount,x->away);
+        if(home<0 || away<0)return -1;
+        s_ceBoardHomeRow=home;s_ceBoardAwayRow=away;
+        s_ceBoardEventId=x->event_id;
+        return 1;
+    }
+    return 0;
+}
 /* Called only by ORIGINAL OG menu match callbacks. The old DIY table is
  * restored BEFORE the CE CLAIMED write, so transient rows/rosters can
  * never contaminate the atomic CAR. Re-mount only until ShowMenu exits. */
@@ -10877,10 +10949,21 @@ static void ce_board_action(unsigned action)
     memcpy(&working,&_diyCompetitionStart,sizeof working);
     memcpy(&tournament,&_diyFileBufferCopy,sizeof tournament);
     memcpy(s_ceBoardWorkingTeams,_selectedTeams,sizeof _selectedTeams);
+    const int cpuFixture=s_ceBoardEventId!=s_ceBoardManagerEvent;
+    if(cpuFixture && action!=0u)return; /* OG: CPU fixture is VIEW RESULT only */
+    /* Board view state: the original one is mounted for the CE writer. */
+    const uint16_t boardView=_diyFixtureViewMode,boardLine=_currentDiyLine;
+    const uint16_t boardRows=_numDiyResults,boardLoaded=_careerLoadedFlag;
+    const uint16_t boardAll=_diyAllMatchesPlayed;
+    const uint16_t boardOnly=_diyTournamentViewOnly;
+    const uint16_t boardType=_diyTournamentType;
     s_ceBoardActive=0;
+    s_ceBoardInAction=1;s_ceBoardRestorePending=0;
     ce_board_restore_original();
-    result=action==0u?ExpandedUniversalLive_ViewManagerResult():
-                      ExpandedUniversalLive_PlayManager();
+    result=cpuFixture?
+        ExpandedUniversalLive_ViewRoundCpuResult(s_ceBoardEventId):
+        action==0u?ExpandedUniversalLive_ViewManagerResult():
+                   ExpandedUniversalLive_PlayManager();
     /* Preserve any genuine OG/CE side effects, never restore a stale
      * pregame snapshot over a real match or over mutable career data. */
     memcpy(&s_ceBoardSavedCompetition,&_diyCompetitionStart,
@@ -10898,12 +10981,30 @@ static void ce_board_action(unsigned action)
     memcpy(&_diyFileBufferCopy,&tournament,sizeof tournament);
     memcpy(_selectedTeams,s_ceBoardWorkingTeams,sizeof _selectedTeams);
     _numSelectedTeams=(uint16_t)working.base.numTeams;
+    _diyFixtureViewMode=boardView;_currentDiyLine=boardLine;
+    _numDiyResults=boardRows;_careerLoadedFlag=boardLoaded;
+    _diyAllMatchesPlayed=boardAll;_diyTournamentViewOnly=boardOnly;
+    _diyTournamentType=boardType;
+    s_ceBoardInAction=0;
     s_ceBoardActive=1;
-    if(result==2)s_ceBoardCommitted=1;
+    if(s_ceBoardRestorePending) {
+        /* A nested OG menu (lineup) re-unpacked the board: rebuild its
+         * layout now, from the CE board image. */
+        s_ceBoardRestorePending=0;
+        DIYLeagueTournamentOnRestore();
+    }
+    if(result==2 && !cpuFixture)s_ceBoardCommitted=1;
     fprintf(stderr,"[universal-og-board] ORIGINAL_ACTION "
-        "action=%s result=%d committed=%d CE_ONE_WRITER=1\n",
-        action==0u?"VIEW_RESULT":"PLAY_50HZ",result,s_ceBoardCommitted);
-    if(s_ceBoardCommitted && !ce_board_refresh_completed()) {
+        "action=%s role=%s result=%d manager-committed=%d CE_ONE_WRITER=1\n",
+        action==0u?"VIEW_RESULT":"PLAY_50HZ",cpuFixture?"CPU":"MANAGER",
+        result,s_ceBoardCommitted);
+    if(result!=2) {
+        /* Cancelled lineup / blocked: same fixture stays current. */
+        DIYLeagueTournament_UpdateMenuEntryVisibilityAndFocus();
+        DrawMenu();
+        return;
+    }
+    if(!ce_board_refresh_completed()) {
         /* The CE result may already be durably saved. Never display stale
          * standings or retry its OG match after a failed projection. */
         fprintf(stderr,"[universal-og-board] CE_RESULT_PROJECTION_FAILED "
@@ -10913,8 +11014,22 @@ static void ce_board_action(unsigned action)
         return;
     }
     /* Stay in the ORIGINAL OG result/table menu. The same read-only
-     * projected standings and fixture score are visible immediately. */
+     * projected standings and fixture score are visible immediately;
+     * NEXT MATCH then moves to the following fixture of the round. */
+    {
+        const int next=ce_board_select_current();
+        if(next<0) {
+            fprintf(stderr,"[universal-og-board] ROUND_IDENTITY_FAILED "
+                "no-replay=1\n");
+            SetExitMenuFlag();
+            return;
+        }
+        s_ceBoardRoundDone=next==0;
+    }
     DIYLeagueTournament_UpdateMenuEntryVisibilityAndFocus();
+    /* User request (v279): after the manager's own VIEW RESULT the board
+     * opens with the cursor on EXIT; NEXT MATCH stays available. */
+    if(!cpuFixture)SetCurrentEntry(10u);
     DrawMenu();
 }
 /* One entry for EVERY managed 2627 club. The fixture/ledger is authoritative;
@@ -10948,6 +11063,34 @@ static int ce_board_project(const ExpandedUniversalFixture *f,
        (home=ce_board_slot(clubs,n,f->home))<0 ||
        (away=ce_board_slot(clubs,n,f->away))<0 ||
        (!viewOnly && ce_board_slot(clubs,n,manager)<0))return 0;
+    if(!viewOnly) {
+        /* OG opens the board on the MANAGER fixture: the fixtures of the
+         * round ordered before it are already played and only visible in
+         * the table. Complete them now (same OG quick scorer, same RAM
+         * CPU batch, once) BEFORE the table is projected. The ones after
+         * it are presented by NEXT MATCH / VIEW RESULT one by one. */
+        uint64_t stop=0u;
+        for(i=0u;i<r->fixture_count;++i) {
+            const ExpandedUniversalFixture *x=&r->fixtures[i];
+            ExpandedFixtureLedgerEntry *e;
+            if(!ce_board_same_edition(x,f) || x->day_index!=f->day_index ||
+               x->event_id>=f->event_id ||
+               ExpandedClubKey_Equal(x->home,manager) ||
+               ExpandedClubKey_Equal(x->away,manager))continue;
+            e=ExpandedUniversal_EntryFor(r,x);
+            if(!e)return 0;
+            if(e->state==EXP_FIXTURE_SCHEDULED && x->event_id>stop)
+                stop=x->event_id;
+        }
+        if(stop && ExpandedUniversalLive_ViewRoundCpuResult(stop)!=2) {
+            fprintf(stderr,"[universal-og-board] PRE_MANAGER_ROUND_BLOCKED "
+                "stop=%llu\n",(unsigned long long)stop);
+            return 0;
+        }
+        if(stop)
+            fprintf(stderr,"[universal-og-board] PRE_MANAGER_ROUND_DONE "
+                "through=%llu og-quick=1 once=1\n",(unsigned long long)stop);
+    }
     if(!(s_ceBoardSavedTeams=(TeamFileEx *)malloc(sizeof _selectedTeams)))
         return 0;
     if(!(s_ceBoardWorkingTeams=(TeamFileEx *)malloc(sizeof _selectedTeams))) {
@@ -11007,6 +11150,15 @@ static int ce_board_project(const ExpandedUniversalFixture *f,
         }
         _diyCompetitionStart.matchData.league.teamEntryOffsets[i]=
             (uint16_t)(i*sizeof(DIYTeamStats));
+        /* OG league team-id list (BE {country,ordinal}), read by the
+         * original STATS -> VIEW SQUADS. Written through a pointer: a
+         * league of more than 14 runs past the declared array exactly
+         * as the original overlay does. Empty ids => VerifyTeamLoaded(0)
+         * PANIC. */
+        BE_WRITE_U16((uint8_t *)_diyCompetitionStart.matchData.league.
+                         leagueTeamIds+(size_t)i*2u,
+                     PACK_BE_U16(_selectedTeams[i].team.countryNumber,
+                                 _selectedTeams[i].team.teamOrdinal));
     }
     if(!viewOnly && !hasManager)goto restore;
     /* One table calculator for all CE views; never duplicate the points
@@ -11055,20 +11207,45 @@ static int ce_board_project(const ExpandedUniversalFixture *f,
     }
     s_ceBoardHomeRow=home;s_ceBoardAwayRow=away;
     s_ceBoardEventId=f->event_id;
+    s_ceBoardManagerEvent=viewOnly?0u:f->event_id;
+    s_ceBoardRoundCount=0u;s_ceBoardRoundDone=0;
+    memcpy(s_ceBoardClubs,clubs,sizeof clubs);
+    s_ceBoardClubCount=n;
+    if(!viewOnly) {
+        /* OG round: every fixture of this edition on the manager's day,
+         * in the one CE order (event id within the same day). */
+        for(i=0u;i<r->fixture_count;++i) {
+            const ExpandedUniversalFixture *x=&r->fixtures[i];
+            if(!ce_board_same_edition(x,f) || x->day_index!=f->day_index)
+                continue;
+            if(s_ceBoardRoundCount>=32u)goto restore;
+            s_ceBoardRound[s_ceBoardRoundCount++]=x->event_id;
+        }
+        for(i=1u;i<s_ceBoardRoundCount;++i) {
+            const uint64_t id=s_ceBoardRound[i];
+            j=i;
+            while(j>0u && s_ceBoardRound[j-1u]>id) {
+                s_ceBoardRound[j]=s_ceBoardRound[j-1u];--j;
+            }
+            s_ceBoardRound[j]=id;
+        }
+        if(ce_board_select_current()!=1)goto restore;
+    }
     s_ceBoardCommitted=0;s_ceBoardViewOnly=viewOnly;s_ceBoardActive=1;
     _careerLoadedFlag=0;
     _diyFixtureViewMode=1;
     _diyAllMatchesPlayed=0;
     fprintf(stderr,"[universal-og-board] OG_MENU_OPEN event=%llu "
         "clubs=%u home=%u away=%u source=CE_LEDGER "
-        "mode=%s fixture-date=%d temporary=1 CAR=UNCHANGED\n",
-        (unsigned long long)f->event_id,n,(unsigned)home,
-        (unsigned)away,viewOnly?"READ_ONLY_WORLD":"MANAGER_MATCH",
-        (int)r->scheduler.clock.day_index);
+        "mode=%s fixture-date=%d round=%u temporary=1 CAR=UNCHANGED\n",
+        (unsigned long long)s_ceBoardEventId,n,(unsigned)s_ceBoardHomeRow,
+        (unsigned)s_ceBoardAwayRow,viewOnly?"READ_ONLY_WORLD":"MANAGER_MATCH",
+        (int)r->scheduler.clock.day_index,s_ceBoardRoundCount);
     ShowDiyLeaguesTournamentMenu(1,viewOnly?1u:0u,0);
     result=viewOnly?1:(s_ceBoardCommitted?2:1);
 restore:
-    s_ceBoardActive=0;s_ceBoardViewOnly=0;
+    s_ceBoardActive=0;s_ceBoardViewOnly=0;s_ceBoardRoundDone=0;
+    s_ceBoardRoundCount=0u;
     ce_board_restore_original();
     free(s_ceBoardWorkingTeams);s_ceBoardWorkingTeams=NULL;
     free(s_ceBoardSavedTeams);s_ceBoardSavedTeams=NULL;
@@ -11091,11 +11268,21 @@ int ExpandedUniversal_OGBoardPresent(void)
        !ExpandedWorldLive_CalendarState(&clock) ||
        !ExpandedWorld_DateToIndex(clock.today,&today) ||
        !ExpandedUniversal_NativeTeamKey(&_careerTeam,&manager) ||
-       ExpandedUniversal_Peek(r,today,&f)!=EXP_UNIVERSAL_DUE ||
-       !f || f->day_index!=today || f->competition_type!=0u ||
-       (!ExpandedClubKey_Equal(f->home,manager) &&
-        !ExpandedClubKey_Equal(f->away,manager)))
+       !r->scheduler.count ||
+       ExpandedUniversal_NextForClub(r,manager,
+           r->scheduler.events[r->scheduler.count-1u].day_index,&f)!=
+           EXP_UNIVERSAL_DUE ||
+       !f || f->day_index!=today || f->competition_type!=0u)
         return 0;
+    {
+        /* The next world event must belong to this OG round (earlier
+         * fixtures of other competitions are completed by FORWARD). */
+        const ExpandedUniversalFixture *g=NULL;
+        if(ExpandedUniversal_Peek(r,today,&g)!=EXP_UNIVERSAL_DUE || !g ||
+           g->day_index!=today || g->competition_type!=0u ||
+           !ce_board_same_edition(g,f))
+            return 0;
+    }
     return ce_board_project(f,manager,0,"LEAGUE");
 }
 /* Generic WORLD country/division reader; no manager employment needed.

@@ -86,6 +86,11 @@ static int exp_universal_native_match_valid(
        f->key.replay!=0u)return 0;
     return 1;
 }
+static int s_result_prompt;
+void ExpandedUniversal_NativeSetResultPrompt(int on)
+{
+    s_result_prompt=on!=0;
+}
 int ExpandedUniversal_NativePrepare(
     ExpandedUniversalNativeMatch *context,
     const ExpandedUniversalFixture *fixture)
@@ -93,6 +98,30 @@ int ExpandedUniversal_NativePrepare(
     if(!context)return 0;
     context->lineup_ready=0u;
     if(!exp_universal_native_match_valid(context,fixture))return 0;
+    if(!context->interactive && s_result_prompt &&
+       (context->home==&_careerTeam || context->away==&_careerTeam)) {
+        /* OG career RESULT on the manager's fixture: the original team
+         * screen with VIEW RESULT (same SetupPlayers prompt as the OG DIY
+         * RESULT path). EXIT there cancels BEFORE CAR CLAIMED. */
+        extern void Expanded_CareerNativeOGResultPromptSet(int);
+        const uint16_t savedHome=context->home->team.teamControls;
+        const uint16_t savedAway=context->away->team.teamControls;
+        if(context->home!=&_careerTeam)
+            context->home->team.teamControls=TEAM_COMPUTER;
+        if(context->away!=&_careerTeam)
+            context->away->team.teamControls=TEAM_COMPUTER;
+        _exitGameFlag=0;
+        Expanded_CareerNativeOGResultPromptSet(1);
+        SetupPlayers(context->home,context->away,
+                     context->maximum_substitutes,context->match_parameters,
+                     0,0);
+        Expanded_CareerNativeOGResultPromptSet(0);
+        if(context->home!=&_careerTeam)
+            context->home->team.teamControls=savedHome;
+        if(context->away!=&_careerTeam)
+            context->away->team.teamControls=savedAway;
+        if(_exitGameFlag)return 0;
+    }
     if(!context->interactive) {
         /* Universal OG quick scoring is only certified for league 0/5
          * inputs. A malformed params/manager lineup is INVALID BEFORE

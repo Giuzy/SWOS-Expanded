@@ -60,7 +60,11 @@ static ExpandedUniversalResult exp_execute_next(
         return EXP_UNIVERSAL_BLOCKED;
     /* Never batch an explicitly interactive match: its anti-save-scum
      * CLAIMED transaction must remain on disk before the 50 Hz runner. */
-    ops.save_claim=cpu_batch && !match->interactive?
+    /* The durable CLAIMED barrier protects only the long 50 Hz match.
+     * A quick OG VIEW RESULT (manager or CPU) is instantaneous: one
+     * atomic COMPLETED save after the result is enough (user decision,
+     * v278), so no replay is possible after it is shown. */
+    ops.save_claim=!match->interactive?
         exp_batch_claim:ExpandedUniversal_CarSaveClaim;
     ops.run_match=ExpandedUniversal_NativeRunOriginal;
     ops.save_completion=cpu_batch && !match->interactive?

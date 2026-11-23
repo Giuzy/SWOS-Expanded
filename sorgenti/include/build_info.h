@@ -14,11 +14,33 @@
 #define BUILD_INFO_H
 
 /* Single source of truth for the user-facing release/build number. */
-/* v275 candidate: remove only three preprocessor-disabled (#if 0)
- * retired autonomous LWE simulator blocks from expanded_world_live.c.
- * No active code, original OG UI, CE scheduler, data, assets, or CAR changed.
- * Windows GCC/gameplay and CAR CONTINUE not yet proven. */
-#define SWOS_EXPANDED_VERSION "00.13.275"
+/* v274: keep v273 CE VIEW RESULT and VIEW COMPETITION fixes unchanged.
+ * Ensure C declarations precede OG board visibility callback; employed
+ * VIEW WORLD picker carries selected country into existing CE read-only
+ * standings projection (no new UI, cup changes, or result writer).
+ * Windows GCC/gameplay, 23+ native table and CAR CONTINUE not yet proven. */
+/* v275: CE2627 league board follows the ORIGINAL OG career buttons:
+ * manager fixture MATCH + RESULT; CPU fixtures of the manager's round one
+ * by one with VIEW RESULT (OG quick, same CE order, RAM CPU batch), then
+ * NEXT MATCH; EXIT when the round is complete. FORWARD stops before the
+ * round. Windows GCC/gameplay NOT PROVEN. */
+/* v276: CE2627 board as in the OG video: PLAY MATCH opens on the manager
+ * fixture (round fixtures before it completed once by OG quick and shown
+ * only in the table); after it NEXT MATCH / VIEW RESULT one by one; NEXT
+ * MATCH after the last returns to the career menu. A nested OG menu
+ * (lineup) no longer runs legacy board code or draws the all-zero original
+ * table during a CE action (crash after MATCH, zero-table flash).
+ * Windows GCC/gameplay NOT PROVEN. */
+/* v277: board RESULT on the manager fixture opens the ORIGINAL OG team
+ * screen (VIEW RESULT / EXIT) before the OG quick result, as in OG career;
+ * EXIT cancels before CAR CLAIMED. Windows GCC/gameplay NOT PROVEN. */
+/* v278: CE board fills the OG league team-id list, so STATS -> VIEW
+ * SQUADS no longer PANICs on VerifyTeamLoaded(0). Manager quick VIEW
+ * RESULT: one CAR save AFTER the result (no CLAIMED save); 50 Hz MATCH
+ * keeps CLAIMED + COMPLETED. Windows NOT PROVEN. */
+/* v279: after the manager's VIEW RESULT the CE board cursor starts on
+ * EXIT (NEXT MATCH still visible). Windows NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.279"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

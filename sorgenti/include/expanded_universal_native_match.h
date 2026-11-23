@@ -42,6 +42,9 @@ int ExpandedUniversal_NativeTeamKey(const TeamFileEx *team,
 int ExpandedUniversal_NativePrepare(
     ExpandedUniversalNativeMatch *context,
     const ExpandedUniversalFixture *fixture);
+/* OG career RESULT: the manager's quick result first shows the original
+ * team screen (VIEW RESULT button). UI only; set around the one call. */
+void ExpandedUniversal_NativeSetResultPrompt(int on);
 /* Callback for ExpandedUniversal_RunDue, AFTER durable save_claim.
  * Automatic: original OG CalculateViewResult; manual: original OG 50Hz.
  * Both return ONE same-key witness, or fail closed with CLAIMED retained.

@@ -8,6 +8,7 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_universal_car.h"
 #include "expanded_universal_live.h"
+#include "save_format_json.h" /* SaveJson_SetNextWriteAsync */
 #include "world.h"
 #include "platform_sdl.h" /* monotonic CPU-forward CAR stage timings */
 #include <limits.h>
@@ -140,9 +141,10 @@ static int exp_car_chrono_cmp(const void *aa,const void *bb)
         *b=(const ExpandedScheduledEvent *)bb;
     return ExpandedEvent_Before(a,b)?-1:ExpandedEvent_Before(b,a)?1:0;
 }
-int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
+/* Emit core: reads ONLY through r (live registry or an owned snapshot copy). */
+static int exp_car_emit_registry(ExpandedUniversalRegistry *r,
+                                 mjson_print_fn_t output,void *user)
 {
-    ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
     size_t len;
     char *buf,*p;
     ExpandedCarEventIndex *events=NULL;
@@ -150,9 +152,7 @@ int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
     int result;
     const Uint64 started_ms=Platform_NowMs();
     Uint64 validated_ms;
-    if(!output)return 0;
-    if(!r)
-        return mjson_printf(output,user,",\n  %Q:null","universal_engine")>0;
+    if(!output || !r)return 0;
     if(r->world!=(uint16_t)World_Current() ||
        !ExpandedUniversal_ValidateRestore(r))return 0;
     validated_ms=Platform_NowMs();
@@ -230,6 +230,71 @@ int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
         (unsigned long long)(Platform_NowMs()-validated_ms),
         result>0?"OK":"FAILED");
     return result>0;
+}
+int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
+{
+    ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    if(!output)return 0;
+    if(!r)
+        return mjson_printf(output,user,",\n  %Q:null","universal_engine")>0;
+    return exp_car_emit_registry(r,output,user);
+}
+/* v288: IMMUTABLE, SELF-SUFFICIENT copy of the CE registry (fixtures, ledger,
+ * events, clock, flags). The emitter below reads only this copy, so it may
+ * run on the CarWriter thread while the game keeps simulating. */
+struct ExpandedUniversalCarSnapshot {
+    ExpandedUniversalRegistry reg;
+    ExpandedUniversalFixture *fixtures;
+    ExpandedFixtureLedgerEntry *ledger;
+    ExpandedScheduledEvent *events;
+    size_t bytes;
+};
+int ExpandedUniversal_CarSnapshotCapture(ExpandedUniversalCarSnapshot **out)
+{
+    ExpandedUniversalRegistry *const r=ExpandedUniversal_CarRegistry();
+    ExpandedUniversalCarSnapshot *s;
+    uint32_t nf,nl,ne;
+    if(!out)return 0;
+    *out=NULL;
+    if(!r)return 1; /* inactive registry: the caller emits null */
+    nf=r->fixture_count;nl=r->ledger.count;ne=r->scheduler.count;
+    if(nf==0u || nl!=nf || ne!=nf || !r->fixtures || !r->ledger.entries ||
+       !r->scheduler.events)return 0;
+    s=(ExpandedUniversalCarSnapshot *)calloc(1u,sizeof *s);
+    if(!s)return 0;
+    s->fixtures=(ExpandedUniversalFixture *)malloc((size_t)nf*sizeof *s->fixtures);
+    s->ledger=(ExpandedFixtureLedgerEntry *)malloc((size_t)nl*sizeof *s->ledger);
+    s->events=(ExpandedScheduledEvent *)malloc((size_t)ne*sizeof *s->events);
+    if(!s->fixtures || !s->ledger || !s->events) {
+        free(s->fixtures);free(s->ledger);free(s->events);free(s);
+        return 0;
+    }
+    memcpy(s->fixtures,r->fixtures,(size_t)nf*sizeof *s->fixtures);
+    memcpy(s->ledger,r->ledger.entries,(size_t)nl*sizeof *s->ledger);
+    memcpy(s->events,r->scheduler.events,(size_t)ne*sizeof *s->events);
+    s->reg=*r;
+    s->reg.fixtures=s->fixtures;s->reg.fixture_capacity=nf;
+    s->reg.ledger.entries=s->ledger;s->reg.ledger.capacity=nl;
+    s->reg.scheduler.events=s->events;s->reg.scheduler.capacity=ne;
+    s->bytes=sizeof *s+(size_t)nf*sizeof *s->fixtures+
+        (size_t)nl*sizeof *s->ledger+(size_t)ne*sizeof *s->events;
+    *out=s;
+    return 1;
+}
+size_t ExpandedUniversal_CarSnapshotBytes(const ExpandedUniversalCarSnapshot *s)
+{
+    return s?s->bytes:0u;
+}
+int ExpandedUniversal_CarEmitSnapshot(ExpandedUniversalCarSnapshot *s,
+                                      mjson_print_fn_t output,void *user)
+{
+    if(!s)return mjson_printf(output,user,",\n  %Q:null","universal_engine")>0;
+    return exp_car_emit_registry(&s->reg,output,user);
+}
+void ExpandedUniversal_CarSnapshotRelease(ExpandedUniversalCarSnapshot *s)
+{
+    if(!s)return;
+    free(s->fixtures);free(s->ledger);free(s->events);free(s);
 }
 /* Parse a complete candidate in TEMPORARY heap memory. No current world
  * state changes on failed CRC, world, civil clock, event or ledger proof.
@@ -429,7 +494,10 @@ extern int Expanded_AutoCareer_SaveChecked(const char *reason);
  * boundary. Until this succeeds, the whole unsaved group is speculative:
  * on process loss CONTINUE loads the previous complete CAR and recomputes it.
  * The caller must never invoke this while a fixture remains CLAIMED. */
-int ExpandedUniversal_CarSaveCpuBatch(uint32_t completed_count)
+/* v287: async=1 lets the CarWriter thread encode/write/verify the already
+ * validated image while the game continues; the outcome is reported later by
+ * CarWriter_TakeFailure(). async=0 returns only after the file is durable. */
+int ExpandedUniversal_CarSaveCpuBatchEx(uint32_t completed_count,int async)
 {
     ExpandedUniversalRegistry *const r=ExpandedUniversal_CarRegistry();
     const Uint64 started_ms=Platform_NowMs();
@@ -438,8 +506,13 @@ int ExpandedUniversal_CarSaveCpuBatch(uint32_t completed_count)
     uint32_t i;
     if(!completed_count || !r || r->recovery_required)return 0;
     /* Structural validation is O(N) and therefore happens PER BATCH,
-     * never before every CPU quick match. */
-    if(!ExpandedUniversal_ValidateRestore(r)) {
+     * never before every CPU quick match. v288: an ASYNC batch is validated
+     * by the writer thread on its immutable snapshot (the CE emitter always
+     * validates what it serialises; measured 53 ms per 100k fixtures, 684 ms
+     * per 1.2M, so it must not stay on the FORWARD thread). A failure there
+     * is reported through CarWriter_TakeFailure and the next flush is
+     * synchronous, i.e. validated here. */
+    if(!async && !ExpandedUniversal_ValidateRestore(r)) {
         r->recovery_required=1u;
         fprintf(stderr,"[universal-perf] CPU_BATCH_REJECTED reason=registry\n");
         return 0;
@@ -451,7 +524,15 @@ int ExpandedUniversal_CarSaveCpuBatch(uint32_t completed_count)
             return 0;
         }
     validated_ms=Platform_NowMs();
+#ifdef SWOS_CAR_ZSTD
+    SaveJson_SetNextWriteAsync(async);
+#else
+    (void)async;
+#endif
     ok=Expanded_AutoCareer_SaveChecked("universal-cpu-batch");
+#ifdef SWOS_CAR_ZSTD
+    SaveJson_SetNextWriteAsync(0);
+#endif
     fprintf(stderr,"[universal-perf] CPU_BATCH_CAR count=%lu "
         "validate_ms=%llu full_save_ms=%llu status=%s\n",
         (unsigned long)completed_count,
@@ -460,6 +541,10 @@ int ExpandedUniversal_CarSaveCpuBatch(uint32_t completed_count)
         ok?"SAVED":"REJECTED");
     if(!ok)r->recovery_required=1u;
     return ok;
+}
+int ExpandedUniversal_CarSaveCpuBatch(uint32_t completed_count)
+{
+    return ExpandedUniversal_CarSaveCpuBatchEx(completed_count,0);
 }
 
 int ExpandedUniversal_CarSaveClaim(void *user,

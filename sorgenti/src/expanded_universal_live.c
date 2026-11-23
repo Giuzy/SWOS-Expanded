@@ -9,6 +9,7 @@
 #include "expanded_universal_career_dispatch.h"
 #include "expanded_universal_car.h"
 #include "expanded_universal_native_match.h"
+#include "car_writer.h"
 #include "expanded_world_live.h"
 #include "platform_sdl.h" /* CPU batch progress + monotonic diagnostics only */
 #include "play_match_menu.h"
@@ -23,6 +24,10 @@ extern uint16_t _gameType,_selTeamNumber;
 /* RAM-only completed quick matches since last explicit batch checkpoint.
  * Accumulates across FORWARD calls; not a persisted journal field. */
 static uint32_t s_cpu_batch_pending;
+/* RAM-only completed quick results that force a full CAR at the next
+ * FORWARD (see exp_universal_live_advance_impl). */
+#define EXP_CPU_BATCH_SAVE_THRESHOLD 4000u
+static int s_async_failed; /* last async CAR write failed: next flush is SYNC */
 
 static int manager_key(ExpandedClubKey *out)
 {
@@ -224,19 +229,38 @@ static int exp_live_flush_cpu(ExpandedUniversalRegistry *r)
 {
     if(!r)return 0;
     if(!s_cpu_batch_pending)return 1;
-    if(!ExpandedUniversal_CarSaveCpuBatch(s_cpu_batch_pending)) {
-        r->recovery_required=1u;
-        fprintf(stderr,"[universal-live] CPU_BATCH_COMMIT_FAILED "
-            "recovery=1 previous-CAR-preserved=1\n");
-        return 0;
+    {
+        /* Normal flush: the CarWriter thread writes it while the game goes
+         * on. After an async failure the next flush is synchronous. */
+        const int async=!s_async_failed;
+        if(!ExpandedUniversal_CarSaveCpuBatchEx(s_cpu_batch_pending,async)) {
+            r->recovery_required=1u;
+            fprintf(stderr,"[universal-live] CPU_BATCH_COMMIT_FAILED "
+                "recovery=1 previous-CAR-preserved=1\n");
+            return 0;
+        }
+        if(!async)s_async_failed=0; /* a synchronous save is durable again */
     }
     s_cpu_batch_pending=0u;
     return 1;
+}
+/* An ASYNC CAR write that failed left its results only in RAM: treat the
+ * backlog as unsaved again and make the next flush synchronous. */
+static void exp_live_check_async_failure(void)
+{
+    if(CarWriter_TakeFailure()) {
+        s_async_failed=1;
+        if(s_cpu_batch_pending<EXP_CPU_BATCH_SAVE_THRESHOLD)
+            s_cpu_batch_pending=EXP_CPU_BATCH_SAVE_THRESHOLD;
+        fprintf(stderr,"[universal-live] ASYNC_CAR_FAILED backlog-treated-as-"
+            "unsaved next-flush=SYNC no-replay=1\n");
+    }
 }
 /* A loaded CAR is already a durable snapshot: transient CPU count resets. */
 void ExpandedUniversalLive_ResetCpuBatch(void)
 {
     s_cpu_batch_pending=0u;
+    s_async_failed=0;
 }
 /* OG CAREER board round: the manager's league fixtures of the same edition
  * on the same civil day. OG shows every one of them in its own tabellone
@@ -297,10 +321,18 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
     if(!ExpandedUniversalLive_Active() || !r || r->recovery_required ||
        !ExpandedUniversalLive_TodayIndex(&from) ||
        !ExpandedWorld_DateToIndex(target,&to) || to<from)return 0;
-    /* Next FORWARD after at least 512 completed quick results saves the
-     * whole prior RAM block, possibly larger than 512. This is NOT a
-     * checkpoint at the end of the previous FORWARD. */
-    if(s_cpu_batch_pending>=512u && !exp_live_flush_cpu(r))return 0;
+    /* v286 (user 23/11/2026): the weekly FORWARD no longer pays a full CAR
+     * save. With ~800 CPU quick results a week the old 512 threshold fired on
+     * EVERY forward (0.75 s of a 1.3 s call), although the manager's own
+     * VIEW RESULT / PLAY already persists every pending result in one atomic
+     * CAR. A save now happens at the manager's match, on quit/menu exit and
+     * existing autosaves, and when this RAM-only backlog reaches the bound
+     * below (about five weeks). A crash loses at most the backlog; CONTINUE
+     * recomputes it from the previous complete CAR, never replaying a
+     * durable result. */
+    exp_live_check_async_failure();
+    if(s_cpu_batch_pending>=EXP_CPU_BATCH_SAVE_THRESHOLD &&
+       !exp_live_flush_cpu(r))return 0;
     /* The manager fixture is never executed by ordinary FORWARD, so its
      * round anchor cannot change inside this call. DEBUG keeps old path. */
     const ExpandedUniversalFixture *round_anchor=NULL;

@@ -88,7 +88,31 @@
  * first; a failure after the first mutation locks the registry in recovery
  * (ExpandedUniversal_CarMarkRecovery). CAR isolated test now runs. Windows
  * CONTINUE NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.285"
+/* v286: FORWARD no longer saves the CAR every week: threshold 512 -> 4000
+ * RAM-only quick results (manager match, quit and autosaves still persist
+ * everything pending in one atomic CAR). Every autosave stage now logs
+ * t=/dt= milliseconds (serialise / prewrite / compress / verify / write /
+ * read-back) to find where the ~750 ms of a full save go. No format change.
+ * Windows NOT PROVEN. */
+/* v287: ordered CarWriter (car_writer.c): the automatic CAR is encoded,
+ * atomically replaced and verified BYTE FOR BYTE against the validated JSON
+ * image (replaces the ~275 ms re-parse read-back); the CE RAM-only CPU backlog
+ * save can run on the single writer thread (one job in flight, ordered
+ * generations; CLAIMED/completion/exit/quit stay synchronous and wait for it).
+ * Interfaces for the future snapshot/compact/blocks/diff formats only.
+ * Windows NOT PROVEN. */
+/* v288: IMMUTABLE CAR SNAPSHOT (phase 2b + 3). Later saves of a session
+ * capture an owned copy of the rosters and of the CE registry on the main
+ * thread (milliseconds) and the CarWriter thread serialises, validates,
+ * encodes, writes and byte-verifies the image; the worker never reads game
+ * globals. SELF-VALIDATING: the first 3 saves after the first of a session
+ * compare the snapshot serialiser with the inline bytes (inline authoritative,
+ * log EQUIVALENCE); the snapshot path switches on only if all 3 are
+ * byte-identical, off for the session on any mismatch. Overrides:
+ * SWOS_CAR_SNAPSHOT=1 (force on), _VERIFY=1 (verify forever), _OFF=1. The
+ * first save of a session and the non-snapshot path are always synchronous.
+ * No CAR format change. Windows gameplay NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.288"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

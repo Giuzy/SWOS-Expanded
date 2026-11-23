@@ -39,6 +39,18 @@ int main(void)
     assert(!SaveCarZstd_Decode(out,stored,&decoded,&size));
     out[24]^=1u;
     assert(!SaveCarZstd_Decode(out,stored-1u,&decoded,&size));
+    /* v287: truncation anywhere, header-only, empty and a damaged payload byte
+     * must all fail closed (the byte-for-byte read-back relies on this). */
+    assert(!SaveCarZstd_Decode(out,stored/2u,&decoded,&size));
+    assert(!SaveCarZstd_Decode(out,24u,&decoded,&size));
+    assert(!SaveCarZstd_Decode(out,8u,&decoded,&size));
+    assert(!SaveCarZstd_Decode(out,0u,&decoded,&size));
+    out[24u+(stored-24u)/2u]^=0x5au;
+    assert(!SaveCarZstd_Decode(out,stored,&decoded,&size));
+    out[24u+(stored-24u)/2u]^=0x5au;
+    assert(SaveCarZstd_Decode(out,stored,&decoded,&size) && size==BYTES &&
+           memcmp(raw,decoded,BYTES)==0); /* restored bytes decode again */
+    swos_io_free(decoded);decoded=NULL;
     free(raw);free(out);
     puts("CAR_ZSTD_LEVEL3_ROUNDTRIP_LEGACY_DETECT_CORRUPTION=PASS_ISOLATED_ONLY");
     return 0;

@@ -35,6 +35,11 @@ int  SaveJson_FileIsJson(const uint8_t *filename);
 /* Read-only schema/kind/world compatibility probe for Title CONTINUE. */
 int  SaveJson_CareerCompatible(const uint8_t *filename);
 #ifdef SWOS_SDL_BUILD
+/* One-shot: the NEXT automatic CAR write may run on the CarWriter thread
+ * (only for the CE RAM-only CPU backlog; mandatory saves stay synchronous). */
+void SaveJson_SetNextWriteAsync(int async);
+#endif
+#ifdef SWOS_SDL_BUILD
 /* Debug-only evidence from the LAST real JSON career write/load call in
  * this world. 0=not attempted, 1=returned success, -1=failed. This does
  * not certify round-trip gameplay or automatically open a CAR. */

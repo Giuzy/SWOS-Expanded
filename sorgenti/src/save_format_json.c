@@ -37,6 +37,7 @@
 #include "expanded_debug.h" /* transient F12 SAVE/LOAD timings */
 #if defined(SWOS_CAR_ZSTD)
 #include "save_car_zstd.h" /* single-file compressed .CAR, old JSON still readable */
+#include "car_writer.h"      /* one ordered writer for the automatic CAR (v287) */
 #endif
 #include <SDL.h>
 
@@ -6433,9 +6434,21 @@ static void load_ctx_stage(const char *src, int src_size, const char *key,
 #ifdef SWOS_SDL_BUILD
 /* The current world's AUTO is the only eligible slot. Call this only AFTER
  * serializing a full resident OG JSON replacement in memory. */
+static uint8_t s_autoSlotChecked[2];
+/* 1 once the existing AUTO slot of this session was checked/archived: only
+ * then may a save use the CarSnapshot path (the first save of a session keeps
+ * the original synchronous order: validate, then archive, then write). */
+static int savejson_auto_slot_checked(const uint8_t *filename)
+{
+    if(filename && !strcmp((const char *)filename,"AUTO9697.CAR"))
+        return s_autoSlotChecked[0]!=0u;
+    if(filename && !strcmp((const char *)filename,"AUTO2627.CAR"))
+        return s_autoSlotChecked[1]!=0u;
+    return 0;
+}
 static int savejson_prepare_career_auto(const uint8_t *filename)
 {
-    static uint8_t checked[2]={0,0};
+    uint8_t *checked=s_autoSlotChecked;
     int index=-1;
     if(filename && !strcmp((const char *)filename,"AUTO9697.CAR"))index=0;
     if(filename && !strcmp((const char *)filename,"AUTO2627.CAR"))index=1;
@@ -6477,12 +6490,25 @@ static int savejson_prepare_career_auto(const uint8_t *filename)
 
 
 #ifdef SWOS_SDL_BUILD
-#define SAVE_CAREER_TRACE(stage) do { \
-    if (getenv("SWOS_DIAGNOSTIC_CAPTURE")) { \
-        fprintf(stderr,"[autosave-stage] world=%s stage=%s\n",World_Tag(),stage); \
-        fflush(stderr); \
-    } \
-} while (0)
+/* v286: every stage now reports elapsed milliseconds since BEGIN (t) and
+ * since the previous stage (dt), so the cost of one full CAR save can be
+ * attributed (serialise / prewrite parse / compress / verify / disk write /
+ * read-back). Diagnostic only; no behaviour change. */
+static void savejson_trace_stage(const char *stage)
+{
+    static Uint64 t0=0u,last=0u;
+    const Uint64 now=SDL_GetPerformanceCounter()*1000u/
+                     SDL_GetPerformanceFrequency();
+    if(!strcmp(stage,"BEGIN"))t0=last=now;
+    if (getenv("SWOS_DIAGNOSTIC_CAPTURE")) {
+        fprintf(stderr,"[autosave-stage] world=%s stage=%s t=%llu dt=%llu\n",
+                World_Tag(),stage,(unsigned long long)(now-t0),
+                (unsigned long long)(now-last));
+        fflush(stderr);
+    }
+    last=now;
+}
+#define SAVE_CAREER_TRACE(stage) savejson_trace_stage(stage)
 #else
 #define SAVE_CAREER_TRACE(stage) ((void)0)
 #endif
@@ -6504,6 +6530,246 @@ void SaveJson_DebugCareerOperations(int *write_result,int *load_result)
 }
 #endif
 #ifdef SWOS_SDL_BUILD
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+/* ---- CarWriter pipeline stages for the automatic CAR (v287) ------------
+ * Same operations the old inline code performed, now replaceable behind
+ * CarWriterOps (a compact CAR / cached blocks / roster diffs would be other
+ * implementations of encode/verify). Stages must not touch game state: they
+ * may run on the writer thread. */
+static int s_nextWriteAsync;
+void SaveJson_SetNextWriteAsync(int async) { s_nextWriteAsync=async!=0; }
+static int car_ops_encode(const uint8_t *json,uint32_t len,
+                          uint8_t **frame,uint32_t *frame_len)
+{
+    uint8_t *compressed=NULL,*verified=NULL;
+    uint32_t compressedSize=0u,verifiedSize=0u;
+    if(len>INT32_MAX ||
+       !SaveCarZstd_Encode(json,len,&compressed,&compressedSize)) {
+        fprintf(stderr,"[car-zstd] ENCODE_FAILED old-CAR-preserved=1\n");
+        return 0;
+    }
+    /* Verify the *actual compressed frame* BEFORE changing the AUTO CAR. */
+    if(!SaveCarZstd_Decode(compressed,compressedSize,&verified,&verifiedSize) ||
+       verifiedSize!=len || memcmp(verified,json,len)!=0) {
+        fprintf(stderr,"[car-zstd] PREWRITE_FRAME_REJECTED prior-CAR-preserved=1\n");
+        if(verified)swos_io_free(verified);
+        free(compressed);
+        return 0;
+    }
+    swos_io_free(verified);
+    fprintf(stderr,"[car-zstd] ENCODE level=3 raw=%lu compressed=%lu savings=%lu\n",
+            (unsigned long)len,(unsigned long)compressedSize,
+            (unsigned long)(len>compressedSize?len-compressedSize:0u));
+    *frame=compressed;*frame_len=compressedSize;
+    return 1;
+}
+static void car_ops_free_frame(uint8_t *frame) { free(frame); }
+static void car_ops_free_json(uint8_t *json) { swos_io_free(json); }
+static int car_ops_write(const char *name,const uint8_t *frame,uint32_t n)
+{
+    return swos_io_save_atomic((const uint8_t *)name,frame,n);
+}
+/* Byte-for-byte read-back: the file on disk is decoded (container hash is
+ * verified by the decoder) and must equal the image validated before the
+ * write. Replaces the old full re-parse (SaveJson_CareerCompatible, ~275 ms)
+ * with a strictly stronger identity check (~25 ms). */
+static int car_ops_verify(const char *name,const uint8_t *json,uint32_t len)
+{
+    uint8_t *buf=NULL;
+    uint32_t size=0u;
+    int ok;
+    if(swos_io_load_alloc((const uint8_t *)name,&buf,&size)!=0)return 0;
+    ok=size==len && memcmp(buf,json,len)==0;
+    swos_io_free(buf);
+    return ok;
+}
+/* ---- v288: IMMUTABLE CAR SNAPSHOT (phase 2b) ----------------------------
+ * The main thread serialises every legacy/native section as before into
+ * `main` but leaves TWO holes: the roster array body (p1) and the CE section
+ * (p2). Those two parts are ~97 % of the bytes. They are produced on the
+ * writer thread from OWNED COPIES (rosters + CE registry): the worker never
+ * reads or writes a game global. Final image = main[0,p1s) + R + main[p1e,p2s)
+ * + E + main[p2e,end). The snapshot is captured in the SAME synchronous pass
+ * as `main`, between completed events, so both describe one instant (RNG
+ * fields, rosters, ledger, clock). Format-independent: a future compact /
+ * block / roster-diff CAR replaces car_snap_prepare's serialisation only. */
+typedef struct CarSnap {
+    TeamFileEx *rosters;
+    uint32_t roster_count;
+    ExpandedUniversalCarSnapshot *ce;
+    char *main_ptr;
+    size_t main_len,p1s,p1e,p2s,p2e;
+    size_t roster_bytes,ce_bytes;
+} CarSnap;
+static void car_snap_free(CarSnap *s)
+{
+    if(!s)return;
+    free(s->rosters);
+    ExpandedUniversal_CarSnapshotRelease(s->ce);
+    if(s->main_ptr)swos_io_free(s->main_ptr);
+    free(s);
+}
+static Uint64 car_now_ms(void)
+{
+    return SDL_GetPerformanceCounter()*1000u/SDL_GetPerformanceFrequency();
+}
+/* Main thread only. NULL on any failure (caller falls back to the legacy
+ * inline serialisation of the same pass). */
+static CarSnap *car_snap_capture(void)
+{
+    const Uint64 t0=car_now_ms();
+    const uint32_t n=ExpandedUniversalCatalog_RosterCount();
+    CarSnap *s;
+    uint32_t i;
+    if(n==0u)return NULL;
+    s=(CarSnap *)calloc(1u,sizeof *s);
+    if(!s)return NULL;
+    s->rosters=(TeamFileEx *)malloc((size_t)n*sizeof *s->rosters);
+    if(!s->rosters || !ExpandedUniversal_CarSnapshotCapture(&s->ce) ||
+       !s->ce) {
+        car_snap_free(s);return NULL;
+    }
+    for(i=0;i<n;++i) {
+        const TeamFileEx *t=ExpandedUniversalCatalog_RosterAt(i);
+        if(!t){car_snap_free(s);return NULL;}
+        memcpy(&s->rosters[i],t,sizeof *t);
+    }
+    s->roster_count=n;
+    s->roster_bytes=(size_t)n*sizeof *s->rosters;
+    s->ce_bytes=ExpandedUniversal_CarSnapshotBytes(s->ce);
+    fprintf(stderr,"[car-snapshot] CAPTURED rosters=%lu roster_bytes=%lu "
+        "ce_bytes=%lu snapshot_ram_bytes=%lu capture_ms=%llu "
+        "worker-reads-globals=0\n",
+        (unsigned long)n,(unsigned long)s->roster_bytes,
+        (unsigned long)s->ce_bytes,
+        (unsigned long)(s->roster_bytes+s->ce_bytes),
+        (unsigned long long)(car_now_ms()-t0));
+    return s;
+}
+/* Pure serialisation of the two holes from the snapshot ONLY. */
+static int car_snap_serialise_parts(CarSnap *s,JsonOutBuf *roster,
+                                    JsonOutBuf *ce)
+{
+    uint32_t i;
+    for(i=0;i<s->roster_count;++i) {
+        if(i)mjson_printf(json_out_emit,roster,"%s",",");
+        emit_team_file_ex_body(json_out_emit,roster,
+            (const uint8_t *)&s->rosters[i]);
+    }
+    if(roster->oom || !roster->ptr)return 0;
+    return ExpandedUniversal_CarEmitSnapshot(s->ce,json_out_emit,ce) &&
+           !ce->oom && ce->ptr;
+}
+/* Worker: ctx = CarSnap (freed by car_ops_free_ctx). Output image is owned by
+ * the writer (freed through car_ops_free_json). */
+static int car_ops_prepare(void *ctx,uint8_t **json,uint32_t *len)
+{
+    CarSnap *s=(CarSnap *)ctx;
+    JsonOutBuf roster={NULL,0,0,0},ce={NULL,0,0,0};
+    uint8_t *img=NULL;
+    size_t total,at=0u;
+    const Uint64 t0=car_now_ms();
+    Uint64 t1,t2,t3;
+    int ok=0;
+    if(!s || !s->main_ptr || !s->ce)return 0;
+    if(!car_snap_serialise_parts(s,&roster,&ce))goto done;
+    t1=car_now_ms();
+    total=s->main_len-(s->p1e-s->p1s)-(s->p2e-s->p2s)+roster.len+ce.len;
+    if(total>INT32_MAX)goto done;
+    img=(uint8_t *)swos_io_alloc((uint32_t)total+1u);
+    if(!img)goto done;
+    memcpy(img+at,s->main_ptr,s->p1s);at+=s->p1s;
+    memcpy(img+at,roster.ptr,roster.len);at+=roster.len;
+    memcpy(img+at,s->main_ptr+s->p1e,s->p2s-s->p1e);at+=s->p2s-s->p1e;
+    memcpy(img+at,ce.ptr,ce.len);at+=ce.len;
+    memcpy(img+at,s->main_ptr+s->p2e,s->main_len-s->p2e);at+=s->main_len-s->p2e;
+    img[at]=0;
+    t2=car_now_ms();
+    /* Exactly the validation the inline path performs on the same image. */
+    if(at!=total ||
+       !savejson_career_civil_clock_ok((const char *)img,(int)at,1)) {
+        fprintf(stderr,"[og-world-save] PREWRITE_REJECTED "
+            "reason=INCOMPLETE_OG_OR_CIVIL_STATE snapshot-image "
+            "prior-save-preserved=1\n");
+        goto done;
+    }
+    t3=car_now_ms();
+    fprintf(stderr,"[car-snapshot] PREPARED raw=%lu serialise_ms=%llu "
+        "assemble_ms=%llu validate_ms=%llu worker_ram_bytes=%lu\n",
+        (unsigned long)at,(unsigned long long)(t1-t0),
+        (unsigned long long)(t2-t1),(unsigned long long)(t3-t2),
+        (unsigned long)(s->roster_bytes+s->ce_bytes+s->main_len+
+                        roster.len+ce.len+at));
+    *json=img;*len=(uint32_t)at;img=NULL;ok=1;
+done:
+    if(roster.ptr)swos_io_free(roster.ptr);
+    if(ce.ptr)swos_io_free(ce.ptr);
+    if(img)swos_io_free(img);
+    return ok;
+}
+static void car_ops_free_ctx(void *ctx) { car_snap_free((CarSnap *)ctx); }
+/* Diagnostic shadow check (SWOS_CAR_SNAPSHOT_VERIFY=1): the legacy inline
+ * serialisation stays authoritative; the snapshot serialiser must reproduce
+ * its roster body and CE section BYTE FOR BYTE. */
+/* Self-validating activation (v288). The snapshot path is switched on for the
+ * rest of the session ONLY after CAR_SNAP_PROOF_SAVES consecutive saves in
+ * which the snapshot serialiser reproduced the inline bytes exactly; one
+ * mismatch switches it off for the session. SWOS_CAR_SNAPSHOT=1 forces it on
+ * (no proof), SWOS_CAR_SNAPSHOT_VERIFY=1 keeps verifying forever, and
+ * SWOS_CAR_SNAPSHOT_OFF=1 disables it. */
+enum { CAR_SNAP_VERIFYING=0, CAR_SNAP_ON=1, CAR_SNAP_OFF=-1,
+       CAR_SNAP_PROOF_SAVES=3 };
+static int s_snapState=CAR_SNAP_VERIFYING;
+static int s_snapProofs;
+static int car_snap_enabled_for_save(int *shadow)
+{
+    *shadow=0;
+    if(getenv("SWOS_CAR_SNAPSHOT_OFF") || s_snapState==CAR_SNAP_OFF)return 0;
+    if(getenv("SWOS_CAR_SNAPSHOT")) {s_snapState=CAR_SNAP_ON;return 1;}
+    if(getenv("SWOS_CAR_SNAPSHOT_VERIFY")) {*shadow=1;return 1;}
+    if(s_snapState==CAR_SNAP_ON)return 1;
+    *shadow=1; /* still proving equivalence on this career */
+    return 1;
+}
+static void car_snap_shadow_compare(CarSnap *s,const JsonOutBuf *out)
+{
+    JsonOutBuf roster={NULL,0,0,0},ce={NULL,0,0,0};
+    int roster_ok=0,ce_ok=0;
+    const Uint64 t0=car_now_ms();
+    if(car_snap_serialise_parts(s,&roster,&ce)) {
+        roster_ok=roster.len==s->p1e-s->p1s &&
+            memcmp(roster.ptr,out->ptr+s->p1s,roster.len)==0;
+        ce_ok=ce.len==s->p2e-s->p2s &&
+            memcmp(ce.ptr,out->ptr+s->p2s,ce.len)==0;
+    }
+    fprintf(stderr,"[car-snapshot] EQUIVALENCE roster=%s ce=%s "
+        "roster_bytes=%lu ce_bytes=%lu compare_ms=%llu\n",
+        roster_ok?"PASS":"FAIL",ce_ok?"PASS":"FAIL",
+        (unsigned long)(s->p1e-s->p1s),(unsigned long)(s->p2e-s->p2s),
+        (unsigned long long)(car_now_ms()-t0));
+    if(!getenv("SWOS_CAR_SNAPSHOT_VERIFY")) {
+        if(roster_ok && ce_ok) {
+            if(++s_snapProofs>=CAR_SNAP_PROOF_SAVES &&
+               s_snapState==CAR_SNAP_VERIFYING) {
+                s_snapState=CAR_SNAP_ON;
+                fprintf(stderr,"[car-snapshot] ACTIVATED after %d byte-identical "
+                    "saves; later saves use the snapshot writer\n",s_snapProofs);
+            }
+        } else {
+            s_snapState=CAR_SNAP_OFF;
+            fprintf(stderr,"[car-snapshot] DISABLED for this session: snapshot "
+                "serialiser differs from the inline bytes (inline stays "
+                "authoritative)\n");
+        }
+    }
+    if(roster.ptr)swos_io_free(roster.ptr);
+    if(ce.ptr)swos_io_free(ce.ptr);
+}
+static const CarWriterOps s_carWriterOps={
+    car_ops_encode,car_ops_free_frame,car_ops_free_json,
+    car_ops_write,car_ops_verify,car_ops_prepare,car_ops_free_ctx
+};
+#endif
 static int16_t SaveJson_WriteCareer_Impl(uint8_t *filename)
 #else
 int16_t SaveJson_WriteCareer(uint8_t *filename)
@@ -6556,6 +6822,11 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
 #endif
     SAVE_CAREER_TRACE("BEGIN");
     JsonOutBuf out = { NULL, 0, 0, 0 };
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+    CarSnap *snap=NULL;               /* v288 immutable snapshot, or NULL */
+    int snapMode=0,shadowMode=0;
+    size_t p1s=0,p1e=0,p2s=0,p2e=0;   /* roster body / CE section ranges */
+#endif
 
     /* Reset string pool — emit_str_pool_field consumers (the four
      * seasonInformations comp-name slots) read pointer-typed fields
@@ -6790,15 +7061,45 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
         mjson_printf(json_out_emit,&out,",\n  %Q:%lu,\n  %Q:[",
             "universal_rosters_count",(unsigned long)n,
             "universal_rosters");
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+        /* v288: later saves of the session (slot already checked) take an
+         * immutable snapshot HERE, in the same synchronous pass that
+         * serialises everything else, and leave the roster body and the CE
+         * section to the writer thread. SELF-VALIDATING (v288): the first
+         * CAR_SNAP_PROOF_SAVES saves of the session keep the inline bytes
+         * authoritative and compare the snapshot serialiser against them; the
+         * snapshot path activates only if all are byte-identical (see
+         * car_snap_enabled_for_save for the overrides). */
+        if(strcmp((const char *)filename,"AUTO2627.CAR")==0 &&
+           savejson_auto_slot_checked(filename)) {
+            int shadow=0;
+            if(car_snap_enabled_for_save(&shadow)) {
+                snap=car_snap_capture();
+                snapMode=snap!=NULL;
+                shadowMode=snapMode && shadow;
+            }
+        }
+        p1s=out.len;
+        if(snapMode && !shadowMode) {
+            p1e=out.len; /* empty hole: the worker writes the roster body */
+        } else {
+#endif
         for(uint32_t i=0;i<n;++i) {
             const TeamFileEx *team=ExpandedUniversalCatalog_RosterAt(i);
             if(!team) {
                 if(out.ptr)swos_io_free(out.ptr);
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+                car_snap_free(snap);
+#endif
                 return 1;
             }
             if(i)mjson_printf(json_out_emit,&out,"%s",",");
             emit_team_file_ex_body(json_out_emit,&out,(const uint8_t *)team);
         }
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+        p1e=out.len;
+        }
+#endif
         mjson_printf(json_out_emit,&out,"%s","]");
     } else {
         mjson_printf(json_out_emit,&out,",\n  %Q:null",
@@ -7214,6 +7515,9 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
     SAVE_CAREER_TRACE("BEFORE_LIVING_WORLD");
     if (!ExpandedWorldLive_WriteJson(json_out_emit, &out)) {
         if (out.ptr) swos_io_free(out.ptr);
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+        car_snap_free(snap);
+#endif
         return 1; /* failed compression: never write a truncated career */
     }
 #else
@@ -7235,19 +7539,76 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
     /* The universal fixture registry is encoded in the SAME full career
      * JSON, validated before atomic replacement, never a second sidecar.
      * The inactive registry emits null for legacy OG-only careers. */
-    if(!ExpandedUniversal_CarEmit(json_out_emit,&out)) {
-        fprintf(stderr,
-            "[universal-car] WRITE_REJECTED before-atomic old-CAR-preserved=1\n");
-        if(out.ptr)swos_io_free(out.ptr);
-        return 1;
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+    p2s=out.len;
+    if(snapMode && !shadowMode) {
+        p2e=out.len; /* empty hole: the worker writes the CE section */
+    } else
+#endif
+    {
+        if(!ExpandedUniversal_CarEmit(json_out_emit,&out)) {
+            fprintf(stderr,
+                "[universal-car] WRITE_REJECTED before-atomic old-CAR-preserved=1\n");
+            if(out.ptr)swos_io_free(out.ptr);
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+            car_snap_free(snap);
+#endif
+            return 1;
+        }
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+        p2e=out.len;
+#endif
     }
 #endif
     mjson_printf(json_out_emit, &out, "%s", "\n}\n");
 
     if (out.oom || !out.ptr) {
         if (out.ptr) swos_io_free(out.ptr);
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+        car_snap_free(snap);
+#endif
         return 1;
     }
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+    if(snapMode && shadowMode) {
+        /* verification run: inline bytes stay authoritative */
+        snap->p1s=p1s;snap->p1e=p1e;snap->p2s=p2s;snap->p2e=p2e;
+        car_snap_shadow_compare(snap,&out);
+        car_snap_free(snap);snap=NULL;snapMode=0;
+    }
+    if(snapMode) {
+        /* The writer takes ownership of the snapshot AND of the main-thread
+         * image (holes included). It builds + validates the final image on
+         * its own thread, then encodes/writes/verifies it. Mandatory saves
+         * (async==0) run the same job inline and return only when durable. */
+        const int async=s_nextWriteAsync;
+        uint64_t generation=0u;
+        s_nextWriteAsync=0;
+        snap->main_ptr=out.ptr;snap->main_len=out.len;
+        snap->p1s=p1s;snap->p1e=p1e;snap->p2s=p2s;snap->p2e=p2e;
+        out.ptr=NULL;
+        SAVE_CAREER_TRACE("MAIN_THREAD_SERIALIZED_SNAPSHOT");
+        CarWriter_SetOps(&s_carWriterOps);
+        {
+            const int rc=CarWriter_SubmitPrepared((const char *)filename,
+                snap,async,&generation);
+            SAVE_CAREER_TRACE(async?"SUBMITTED_SNAPSHOT_JOB_ASYNC":
+                                    "SNAPSHOT_JOB_SYNC_DONE");
+            if (rc==CAR_WRITE_OK) {
+                s_f12CareerWriteResult=1;
+                return 0;
+            }
+            if (rc==CAR_WRITE_IO_FAILED) ShowFsErrorByCode(1);
+            else if (rc==CAR_WRITE_VERIFY_FAILED)
+                fprintf(stderr,
+                    "[og-world-save] DISK_PREFLIGHT_FAILED generation=%llu "
+                    "on-disk-bytes-differ-from-validated-image "
+                    "investigate-before-continue\n",
+                    (unsigned long long)generation);
+            return 1;
+        }
+    }
+#endif
 #ifdef SWOS_SDL_BUILD
     /* Validate the fully encoded .CAR in RAM, before the atomic write or
      * any archive/backup action. The 0.13.70_22 debug session produced a
@@ -7274,6 +7635,39 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
 #endif
 
     SAVE_CAREER_TRACE("READY_FOR_ATOMIC_SAVE");
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+    /* v287: the automatic career CARs go through the ONE ordered CarWriter
+     * (encode + frame verify -> atomic replace -> byte-for-byte read-back of
+     * the JSON image validated above). The writer owns out.ptr from here on.
+     * async only for the CE's RAM-only CPU backlog; every mandatory save
+     * (CLAIMED, completion, exit, quit) is synchronous and first waits for
+     * any job still in flight, so generations stay ordered. */
+    if (strcmp((const char *)filename,"AUTO9697.CAR")==0 ||
+        strcmp((const char *)filename,"AUTO2627.CAR")==0) {
+        /* An async job is only honest when the worker does the heavy part:
+         * this inline path still serialises (almost) everything on the main
+         * thread, so it always runs synchronously (v288). */
+        const int async=0;
+        uint64_t generation=0u;
+        s_nextWriteAsync=0;
+        CarWriter_SetOps(&s_carWriterOps);
+        const int rc=CarWriter_Submit((const char *)filename,
+            (uint8_t *)out.ptr,(uint32_t)out.len,async,&generation);
+        SAVE_CAREER_TRACE(async?"SUBMITTED_TO_CAR_WRITER_ASYNC":
+                                "CAR_WRITER_SYNC_DONE");
+        if (rc==CAR_WRITE_OK) {
+            s_f12CareerWriteResult=1;
+            return 0;
+        }
+        if (rc==CAR_WRITE_IO_FAILED) ShowFsErrorByCode(1);
+        else if (rc==CAR_WRITE_VERIFY_FAILED)
+            fprintf(stderr,
+                "[og-world-save] DISK_PREFLIGHT_FAILED generation=%llu "
+                "on-disk-bytes-differ-from-validated-image "
+                "investigate-before-continue\n",(unsigned long long)generation);
+        return 1;
+    }
+#endif
     /* Compression happens only AFTER the full OG/civil/read-only preflight.
      * All career .CAR files use the same portable compressed container;
      * old plain-JSON careers remain fully readable on CONTINUE. */
@@ -7303,6 +7697,7 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
     }
     swos_io_free(verified);
     diskBuffer=compressed;diskSize=compressedSize;
+    SAVE_CAREER_TRACE("AFTER_ENCODE_AND_FRAME_VERIFY");
     fprintf(stderr,"[car-zstd] ENCODE world=%s level=3 raw=%lu compressed=%lu savings=%lu\n",
             World_Tag(),(unsigned long)out.len,
             (unsigned long)diskSize,
@@ -7318,6 +7713,7 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
 #if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
     free(compressed);
 #endif
+    SAVE_CAREER_TRACE("AFTER_ATOMIC_WRITE");
     swos_io_free(out.ptr);
     if (result != 0) {
         ShowFsErrorByCode((uint16_t)result);
@@ -7334,6 +7730,7 @@ int16_t SaveJson_WriteCareer(uint8_t *filename)
      * This is NOT a per-field roundtrip proof; log its exact limited scope. */
     {
         const int ok=SaveJson_CareerCompatible(filename);
+        SAVE_CAREER_TRACE("AFTER_DISK_READBACK_VERIFY");
         fprintf(stderr,
             "[json-verify-career] READ_ONLY_DISK_%s scope=SCHEMA_KIND_WORLD_CIVIL_OG_CHECKSUM no-memset=1 not-field-roundtrip=1\n",
             ok?"OK":"FAILED");
@@ -8366,6 +8763,10 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
     PROF_START(read_file);
     uint8_t *src = NULL;
     uint32_t src_size = 0;
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+    /* A CAR write still in flight must be on disk before we read it. */
+    (void)CarWriter_Wait();
+#endif
     if (read_save_file_heap(filename, &src, &src_size) != 0)
         return 1;
     PROF_END(read_file, "career-load");

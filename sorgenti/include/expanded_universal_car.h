@@ -7,6 +7,7 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_universal_fixture_registry.h"
 #include "mjson.h"
+#include <stddef.h>
 
 /* Register verified fixture INPUTS on the active world only; this cannot
  * start a second game, change the career calendar or invent a score. */
@@ -18,6 +19,16 @@ void ExpandedUniversal_CarResetCurrent(void);
  * The same prewrite validator, Zstd3 roundtrip and atomic writer remain
  * responsible for durability. Old CAR without this optional field is valid. */
 int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user);
+/* v288: immutable snapshot of the CE registry for the CarWriter thread.
+ * Capture on the main thread between completed events; Emit/Release may run
+ * anywhere (they read only the snapshot). Capture of an inactive registry
+ * returns 1 with *out==NULL (Emit then writes null, like the live path). */
+typedef struct ExpandedUniversalCarSnapshot ExpandedUniversalCarSnapshot;
+int ExpandedUniversal_CarSnapshotCapture(ExpandedUniversalCarSnapshot **out);
+size_t ExpandedUniversal_CarSnapshotBytes(const ExpandedUniversalCarSnapshot *s);
+int ExpandedUniversal_CarEmitSnapshot(ExpandedUniversalCarSnapshot *s,
+                                      mjson_print_fn_t output,void *user);
+void ExpandedUniversal_CarSnapshotRelease(ExpandedUniversalCarSnapshot *s);
 /* Read-only integrity check BEFORE any legacy/OG world mutates on load. */
 int ExpandedUniversal_CarValidate(const char *json,int size);
 /* Apply only after the preflight checks passed (no replay). */
@@ -40,6 +51,8 @@ void ExpandedUniversal_CarMarkRecovery(void);
 /* Atomic transaction after a full CPU quick block has completed in RAM.
  * A crash before this call commits nothing from the current block. */
 int ExpandedUniversal_CarSaveCpuBatch(uint32_t completed_count);
+/* v287: same, optionally written by the CarWriter thread (async=1). */
+int ExpandedUniversal_CarSaveCpuBatchEx(uint32_t completed_count,int async);
 /* v284: put a CLAIMED fixture back to SCHEDULED on disk after a clean manual
  * abort of the 50 Hz match (original OG behaviour). */
 int ExpandedUniversal_CarSaveRelease(void *user,

@@ -12,6 +12,9 @@
 #include "competition_data.h"
 #include "swos_io.h"
 #include "swos_settings.h" /* existing [general] world preference */
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+#include "car_writer.h"
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -509,6 +512,11 @@ int WorldSwitch_SelectBeforeCareer(const char *tag)
     }
     if(World_Current()==(modern?WORLD_2627:WORLD_9697))
         return 1;
+#if defined(SWOS_SDL_BUILD) && defined(SWOS_CAR_ZSTD)
+    /* v288: the CarWriter worker reads World_Current() while it validates a
+     * snapshot image; never switch the world under a job in flight. */
+    (void)CarWriter_Wait();
+#endif
     if(World_Set(requested)!=0)return 0;
     restore_bank(modern);
     if(!set_json_mode(modern))

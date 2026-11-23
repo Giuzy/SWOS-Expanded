@@ -95,6 +95,47 @@ int main(void)
     assert(ExpandedUniversal_Add(r,f0)==EXP_UNIVERSAL_OK);
     assert(ExpandedUniversal_Add(r,f1)==EXP_UNIVERSAL_OK);
     assert(Expanded_AutoCareer_SaveChecked("initial"));
+    /* v288: immutable CE snapshot. Emitting it equals emitting the live
+     * registry at capture time, and it NEVER changes when the live registry
+     * advances afterwards (the writer thread depends on this). */
+    {
+        char live_before[4096],snap_a[4096],snap_b[4096],live_after[4096];
+        struct mjson_fixedbuf l0={live_before,(int)sizeof live_before,0};
+        struct mjson_fixedbuf s0={snap_a,(int)sizeof snap_a,0};
+        struct mjson_fixedbuf s1={snap_b,(int)sizeof snap_b,0};
+        struct mjson_fixedbuf l1={live_after,(int)sizeof live_after,0};
+        ExpandedUniversalCarSnapshot *snap=NULL;
+        assert(ExpandedUniversal_CarEmit(mjson_print_fixed_buf,&l0));
+        assert(ExpandedUniversal_CarSnapshotCapture(&snap) && snap);
+        assert(ExpandedUniversal_CarSnapshotBytes(snap)>0u);
+        assert(ExpandedUniversal_CarEmitSnapshot(snap,mjson_print_fixed_buf,&s0));
+        assert(s0.len==l0.len && memcmp(snap_a,live_before,(size_t)l0.len)==0);
+        /* the live registry memory is changed behind the snapshot's back:
+         * club id, a score and an event priority (reverted right after) */
+        {
+            const uint32_t club=r->fixtures[0].home.stable_club;
+            const uint16_t sc=r->ledger.entries[0].score.home;
+            const uint32_t pr=r->scheduler.events[0].priority;
+            r->fixtures[0].home.stable_club^=0x55u;
+            r->ledger.entries[0].score.home=(uint16_t)(sc+9u);
+            r->scheduler.events[0].priority=pr+7u;
+            assert(ExpandedUniversal_CarEmitSnapshot(snap,mjson_print_fixed_buf,&l1));
+            assert(l1.len==l0.len && memcmp(live_after,live_before,(size_t)l0.len)==0);
+            r->fixtures[0].home.stable_club=club;
+            r->ledger.entries[0].score.home=sc;
+            r->scheduler.events[0].priority=pr;
+        }
+        assert(ExpandedUniversal_CarEmitSnapshot(snap,mjson_print_fixed_buf,&s1));
+        assert(s1.len==s0.len && memcmp(snap_b,snap_a,(size_t)s0.len)==0);
+        ExpandedUniversal_CarSnapshotRelease(snap);
+        /* inactive registry: capture reports nothing to snapshot */
+        {
+            ExpandedUniversalCarSnapshot *none=(ExpandedUniversalCarSnapshot *)1;
+            s_world=WORLD_9697;
+            assert(ExpandedUniversal_CarSnapshotCapture(&none) && none==NULL);
+            s_world=WORLD_2627;
+        }
+    }
     /* Field checksum must reject any tampering, without mutating runtime. */
     strcpy(corrupted,s_disk);
     {

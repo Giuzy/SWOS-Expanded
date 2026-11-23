@@ -15,5 +15,9 @@
  */
 ExpandedUniversalResult ExpandedUniversal_CareerExecuteNext(
     int32_t target_day,ExpandedUniversalNativeMatch *match);
+/* FORWARD/DEBUG only: CPU OG quick may be completed in RAM then committed
+ * at the next atomic full-world block checkpoint. NEVER use for manual PLAY. */
+ExpandedUniversalResult ExpandedUniversal_CareerExecuteNextCpuBatch(
+    int32_t target_day,ExpandedUniversalNativeMatch *match);
 #endif
 #endif

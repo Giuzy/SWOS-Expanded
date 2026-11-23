@@ -380,6 +380,44 @@ int ExpandedUniversal_CarRestore(const char *json,int size)
  * SaveChecked calls existing SaveJson_WriteCareer_Impl, not a sidecar.
  * Never claim success if the whole OG/civil/CAR prewrite rejected. */
 extern int Expanded_AutoCareer_SaveChecked(const char *reason);
+
+/* Commit a completed group of ORIGINAL OG quick scores at one atomic
+ * boundary. Until this succeeds, the whole unsaved group is speculative:
+ * on process loss CONTINUE loads the previous complete CAR and recomputes it.
+ * The caller must never invoke this while a fixture remains CLAIMED. */
+int ExpandedUniversal_CarSaveCpuBatch(uint32_t completed_count)
+{
+    ExpandedUniversalRegistry *const r=ExpandedUniversal_CarRegistry();
+    const Uint64 started_ms=Platform_NowMs();
+    Uint64 validated_ms;
+    int ok;
+    uint32_t i;
+    if(!completed_count || !r || r->recovery_required)return 0;
+    /* Structural validation is O(N) and therefore happens PER BATCH,
+     * never before every CPU quick match. */
+    if(!ExpandedUniversal_ValidateRestore(r)) {
+        r->recovery_required=1u;
+        fprintf(stderr,"[universal-perf] CPU_BATCH_REJECTED reason=registry\n");
+        return 0;
+    }
+    for(i=0;i<r->ledger.count;++i)
+        if(r->ledger.entries[i].state==EXP_FIXTURE_CLAIMED) {
+            r->recovery_required=1u;
+            fprintf(stderr,"[universal-perf] CPU_BATCH_REJECTED reason=claimed\n");
+            return 0;
+        }
+    validated_ms=Platform_NowMs();
+    ok=Expanded_AutoCareer_SaveChecked("universal-cpu-batch");
+    fprintf(stderr,"[universal-perf] CPU_BATCH_CAR count=%lu "
+        "validate_ms=%llu full_save_ms=%llu status=%s\n",
+        (unsigned long)completed_count,
+        (unsigned long long)(validated_ms-started_ms),
+        (unsigned long long)(Platform_NowMs()-validated_ms),
+        ok?"SAVED":"REJECTED");
+    if(!ok)r->recovery_required=1u;
+    return ok;
+}
+
 int ExpandedUniversal_CarSaveClaim(void *user,
     const ExpandedUniversalRegistry *r,const ExpandedUniversalFixture *f)
 {

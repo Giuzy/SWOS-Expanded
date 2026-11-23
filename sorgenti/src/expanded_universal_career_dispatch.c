@@ -6,8 +6,39 @@
 #ifdef SWOS_SDL_BUILD
 #include "expanded_universal_career_dispatch.h"
 
-ExpandedUniversalResult ExpandedUniversal_CareerExecuteNext(
-    int32_t target_day,ExpandedUniversalNativeMatch *match)
+/* CPU quick matches may complete in RAM until a whole block is committed.
+ * The standard manual dispatcher below still has a durable CLAIMED barrier.
+ * An interrupted non-durable CPU block is replayed from the preceding CAR,
+ * never from a half-written score/ledger. */
+static int exp_batch_claim(void *user,const ExpandedUniversalRegistry *r,
+                           const ExpandedUniversalFixture *f)
+{
+    ExpandedFixtureLedgerEntry *e;
+    (void)user;
+    e=ExpandedUniversal_EntryFor((ExpandedUniversalRegistry *)r,f);
+    return e && e->state==EXP_FIXTURE_CLAIMED &&
+        ExpandedFixtureKey_Equal(e->key,f->key);
+}
+static int exp_batch_completion(void *user,const ExpandedUniversalRegistry *r,
+                                const ExpandedUniversalFixture *f,
+                                const ExpandedUniversalCompletion *proposal)
+{
+    ExpandedFixtureLedgerEntry *e;
+    (void)user;
+    e=ExpandedUniversal_EntryFor((ExpandedUniversalRegistry *)r,f);
+    return e && e->state==EXP_FIXTURE_CLAIMED &&
+        proposal && proposal->witness.valid &&
+        ExpandedFixtureKey_Equal(proposal->witness.key,f->key) &&
+        ExpandedFixtureScore_Equal(proposal->witness.score,
+                                   proposal->played.score) &&
+        proposal->played.state==EXP_FIXTURE_PLAYED &&
+        proposal->completed.id==f->event_id &&
+        proposal->completed.state==EXP_EVENT_COMPLETE;
+}
+
+
+static ExpandedUniversalResult exp_execute_next(
+    int32_t target_day,ExpandedUniversalNativeMatch *match,int cpu_batch)
 {
     ExpandedUniversalRegistry *const r=ExpandedUniversal_CarRegistry();
     const ExpandedUniversalFixture *due=NULL;
@@ -27,10 +58,25 @@ ExpandedUniversalResult ExpandedUniversal_CareerExecuteNext(
      * CPU results do not prompt a lineup and never enter GameLoop. */
     if(!ExpandedUniversal_NativePrepare(match,due))
         return EXP_UNIVERSAL_BLOCKED;
-    ops.save_claim=ExpandedUniversal_CarSaveClaim;
+    /* Never batch an explicitly interactive match: its anti-save-scum
+     * CLAIMED transaction must remain on disk before the 50 Hz runner. */
+    ops.save_claim=cpu_batch && !match->interactive?
+        exp_batch_claim:ExpandedUniversal_CarSaveClaim;
     ops.run_match=ExpandedUniversal_NativeRunOriginal;
-    ops.save_completion=ExpandedUniversal_CarSaveCompletion;
+    ops.save_completion=cpu_batch && !match->interactive?
+        exp_batch_completion:ExpandedUniversal_CarSaveCompletion;
     ops.user=match;
     return ExpandedUniversal_RunDue(r,target_day,&ops);
+}
+ExpandedUniversalResult ExpandedUniversal_CareerExecuteNext(
+    int32_t target_day,ExpandedUniversalNativeMatch *match)
+{
+    return exp_execute_next(target_day,match,0);
+}
+ExpandedUniversalResult ExpandedUniversal_CareerExecuteNextCpuBatch(
+    int32_t target_day,ExpandedUniversalNativeMatch *match)
+{
+    if(!match || match->interactive)return EXP_UNIVERSAL_INVALID;
+    return exp_execute_next(target_day,match,1);
 }
 #endif

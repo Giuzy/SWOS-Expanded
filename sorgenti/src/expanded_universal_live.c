@@ -152,7 +152,7 @@ int ExpandedUniversalLive_Start(void)
     return 1;
 }
 static ExpandedUniversalResult run_match(
-    const ExpandedUniversalFixture *f,int interactive)
+    const ExpandedUniversalFixture *f,int interactive,int cpu_batch)
 {
     ExpandedUniversalNativeMatch ctx={0};
     ExpandedClubKey manager={0};
@@ -172,13 +172,33 @@ static ExpandedUniversalResult run_match(
     ctx.match_postprocess=0;
     ctx.interactive=(uint8_t)(interactive!=0);
     _gameType=GAME_TYPE_CAREER; /* unemployed CPU still uses OG match */
-    result=ExpandedUniversal_CareerExecuteNext(f->day_index,&ctx);
+    /* The original quick scorer runs identically in both modes. Only
+     * unattended CPU/debug matches may defer CAR until block commit. */
+    result=cpu_batch?
+        ExpandedUniversal_CareerExecuteNextCpuBatch(f->day_index,&ctx):
+        ExpandedUniversal_CareerExecuteNext(f->day_index,&ctx);
     _gameType=game_before;
     fprintf(stderr,"[universal-live] OG_MATCH event=%llu "
         "role=%s result=%d CAR_ONE_WITNESS=1\n",
         (unsigned long long)f->event_id,
         interactive?"MANAGER":"CPU",(int)result);
     return result;
+}
+/* One full-world atomic CAR for a set of already-completed OG quick games.
+ * Nothing in an unfinished block is durable; a process crash restarts the
+ * block from the previous CAR, without duplicating a durable result. */
+static int exp_live_flush_cpu(ExpandedUniversalRegistry *r,uint32_t *dirty)
+{
+    if(!r || !dirty)return 0;
+    if(!*dirty)return 1;
+    if(!ExpandedUniversal_CarSaveCpuBatch(*dirty)) {
+        r->recovery_required=1u;
+        fprintf(stderr,"[universal-live] CPU_BATCH_COMMIT_FAILED "
+            "recovery=1 previous-CAR-preserved=1\n");
+        return 0;
+    }
+    *dirty=0u;
+    return 1;
 }
 static int exp_universal_live_advance_impl(ExpandedWorldDate target,
                                            int debug_autosim_manager)
@@ -187,6 +207,8 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
     ExpandedLiveCalendarState state={0};
     int32_t to=0,from=0;
     uint32_t cpu_batch_count=0u;
+    uint32_t cpu_batch_dirty=0u;
+    enum { CPU_BATCH_MAX=256 }; /* bounded work since last durable CAR */
     if(!ExpandedUniversalLive_Active() || !r || r->recovery_required ||
        !ExpandedWorldLive_CalendarState(&state) ||
        !ExpandedWorld_DateToIndex(state.today,&from) ||
@@ -200,7 +222,9 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
         if(res==EXP_UNIVERSAL_EMPTY) {
             if(!ExpandedWorldLive_AdvanceToDate(target))return 0;
             r->scheduler.clock.day_index=to;
-            return 1;
+            /* Commit final completed block + exact civil clock/RNG/rosters.
+             * Do not report a successful FORWARD with an unsaved CPU block. */
+            return exp_live_flush_cpu(r,&cpu_batch_dirty);
         }
         if(res!=EXP_UNIVERSAL_DUE || !f ||
            f->day_index<r->scheduler.clock.day_index ||
@@ -218,6 +242,7 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
             (ExpandedClubKey_Equal(manager,f->home) ||
              ExpandedClubKey_Equal(manager,f->away));
         if(manager_due && !debug_autosim_manager) {
+            if(!exp_live_flush_cpu(r,&cpu_batch_dirty))return 0;
             fprintf(stderr,"[universal-live] WAIT_MANAGER event=%llu "
                 "date=%04u-%02u-%02u one-calendar=1\n",
                 (unsigned long long)f->event_id,
@@ -227,6 +252,7 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
         /* A Windows close during a long CPU batch must not start/CLAIM
          * the NEXT fixture after the quit request was already observed. */
         if(_quitToDos) {
+            if(!exp_live_flush_cpu(r,&cpu_batch_dirty))return 0;
             fprintf(stderr,"[universal-live] CPU_BATCH_EXIT_REQUESTED "
                 "before-next-claim=1 preserved-CAR=1 no-replay=1\n");
             return 0;
@@ -237,7 +263,7 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
             /* No partial civil advancement or new scorer: progress while
              * the original OG quick VIEW RESULT calculates this fixture. */
             Platform_UniversalCpuProgress(++cpu_batch_count);
-            match_result=run_match(f,0); /* OG quick for all non-PLAY */
+            match_result=run_match(f,0,1); /* original OG quick, RAM batch */
             Platform_UniversalCpuProgress(0);
             fprintf(stderr,"[universal-live] CPU_MATCH_TIMING "
                 "ordinal=%lu event=%llu role=%s elapsed_ms=%llu "
@@ -248,12 +274,17 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
                 (unsigned long long)(Platform_NowMs()-started_ms),
                 (int)match_result);
             if(match_result!=EXP_UNIVERSAL_OK) {
+                /* Do not persist an uncertain partial block; preceding
+                 * atomic CAR is still the last valid checkpoint. */
                 r->recovery_required=1u;
                 fprintf(stderr,"[universal-live] CPU_FAULT "
                     "event=%llu CAR_CLAIMED_NO_REPLAY=1\n",
                     (unsigned long long)f->event_id);
                 return 0;
             }
+            ++cpu_batch_dirty;
+            if(cpu_batch_dirty>=CPU_BATCH_MAX &&
+               !exp_live_flush_cpu(r,&cpu_batch_dirty))return 0;
         }
     }
 }
@@ -296,7 +327,7 @@ static int exp_universal_live_manager_action(int interactive)
         fprintf(stderr,"[universal-live] MANAGER_NOT_DUE code=%d\n",(int)res);
         return 1;
     }
-    res=run_match(f,interactive);
+    res=run_match(f,interactive,0);
     fprintf(stderr,"[universal-live] MANAGER_ACTION mode=%s "
         "event=%llu result=%d CAR_ONE_FIXTURE=1\n",
         interactive?"PLAY_50HZ":"VIEW_RESULT_QUICK",

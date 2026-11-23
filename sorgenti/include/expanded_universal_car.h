@@ -27,6 +27,9 @@ int ExpandedUniversal_CarRestore(const char *json,int size);
  * Claim = durable CLAIMED before original game; Complete = persist proposed
  * PLAYED+event COMPLETE+OG/RNG/state in exactly one existing AUTO*.CAR.
  * The in-memory proposal is restored until RunDue finishes its own ACK. */
+/* Atomic transaction after a full CPU quick block has completed in RAM.
+ * A crash before this call commits nothing from the current block. */
+int ExpandedUniversal_CarSaveCpuBatch(uint32_t completed_count);
 int ExpandedUniversal_CarSaveClaim(void *user,
     const ExpandedUniversalRegistry *registry,
     const ExpandedUniversalFixture *fixture);

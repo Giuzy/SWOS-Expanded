@@ -4,6 +4,8 @@
 /sorgenti/bin/SWOS_Expanded.exe
 /sorgenti/bin/SWOS.exe
 /sorgenti/build/
+# Header generato a ogni build; escluso da Git, non dal filesystem.
+/sorgenti/include/swos_build.h
 *.o
 *.obj
 *.log

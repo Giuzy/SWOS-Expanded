@@ -143,60 +143,34 @@ int ExpCarCompact_Finish(const ExpCarCompactReader *r)
     for(c=0;c<EXP_CCOL;++c)if(r->col[c]!=r->end[c])return 0;
     return 1;
 }
-static const char B64[]=
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-size_t ExpCarCompact_B64Encode(const uint8_t *in,size_t n,char *out,size_t cap)
+size_t ExpCarCompact_HexEncode(const uint8_t *in,size_t n,char *out,size_t cap)
 {
-    size_t i,o=0u,need;
+    static const char H[]="0123456789abcdef";
+    size_t i;
     if(n>((size_t)-1)/2u)return (size_t)-1;
-    need=(n+2u)/3u*4u;
-    if(!out)return need;
-    if(cap<need)return (size_t)-1;
-    for(i=0;i+2<n;i+=3) {
-        const uint32_t x=((uint32_t)in[i]<<16)|((uint32_t)in[i+1]<<8)|in[i+2];
-        out[o++]=B64[x>>18];out[o++]=B64[(x>>12)&63];
-        out[o++]=B64[(x>>6)&63];out[o++]=B64[x&63];
+    if(!out)return n*2u;
+    if(cap<n*2u)return (size_t)-1;
+    for(i=0;i<n;++i) {
+        out[2u*i]=H[in[i]>>4];
+        out[2u*i+1u]=H[in[i]&15u];
     }
-    if(n-i==1) {
-        const uint32_t x=(uint32_t)in[i]<<16;
-        out[o++]=B64[x>>18];out[o++]=B64[(x>>12)&63];
-        out[o++]='=';out[o++]='=';
-    } else if(n-i==2) {
-        const uint32_t x=((uint32_t)in[i]<<16)|((uint32_t)in[i+1]<<8);
-        out[o++]=B64[x>>18];out[o++]=B64[(x>>12)&63];
-        out[o++]=B64[(x>>6)&63];out[o++]='=';
-    }
-    return o;
+    return n*2u;
 }
-static int b64v(char c)
+size_t ExpCarCompact_HexDecode(const char *in,size_t n,uint8_t *out,size_t cap)
 {
-    if(c>='A' && c<='Z')return c-'A';
-    if(c>='a' && c<='z')return c-'a'+26;
-    if(c>='0' && c<='9')return c-'0'+52;
-    if(c=='+')return 62;
-    if(c=='/')return 63;
-    return -1;
-}
-size_t ExpCarCompact_B64Decode(const char *in,size_t n,uint8_t *out,size_t cap)
-{
-    size_t i,o=0u,pad=0u;
-    if(n%4u)return (size_t)-1;
-    if(n && in[n-1]=='=')pad=(n>=2u && in[n-2]=='=')?2u:1u;
-    if(!out)return n/4u*3u-pad;
-    if(cap<n/4u*3u-pad)return (size_t)-1;
-    for(i=0;i<n;i+=4) {
-        const int last=(i+4==n);
-        const int a=b64v(in[i]),b=b64v(in[i+1]);
-        const int c=in[i+2]=='='?-2:b64v(in[i+2]),
-                  d=in[i+3]=='='?-2:b64v(in[i+3]);
-        uint32_t x;
-        if(a<0 || b<0 || c==-1 || d==-1)return (size_t)-1;
-        if((c==-2 && d!=-2) || ((c==-2 || d==-2) && !last))return (size_t)-1;
-        x=((uint32_t)a<<18)|((uint32_t)b<<12)|((uint32_t)(c<0?0:c)<<6)|
-          (uint32_t)(d<0?0:d);
-        out[o++]=(uint8_t)(x>>16);
-        if(c!=-2)out[o++]=(uint8_t)(x>>8);
-        if(d!=-2)out[o++]=(uint8_t)x;
+    size_t i;
+    if(n&1u)return (size_t)-1;
+    if(!out)return n/2u;
+    if(cap<n/2u)return (size_t)-1;
+    for(i=0;i<n;i+=2) {
+        int v[2],k;
+        for(k=0;k<2;++k) {
+            const char ch=in[i+(size_t)k];
+            if(ch>='0' && ch<='9')v[k]=ch-'0';
+            else if(ch>='a' && ch<='f')v[k]=ch-'a'+10;
+            else return (size_t)-1;
+        }
+        out[i/2u]=(uint8_t)((v[0]<<4)|v[1]);
     }
-    return o;
+    return n/2u;
 }

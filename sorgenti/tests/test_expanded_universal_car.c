@@ -303,6 +303,81 @@ int main(void)
         assert(ExpandedUniversal_CarRestore(old,n));
         assert(!ExpandedUniversal_CarRegistry());
     }
+    /* v290: synthetic edition archive in the CAR. */
+    {
+        const uint32_t c1=(45u<<16)|1u,c3=(45u<<16)|3u;
+        ExpandedUniversalFixture a0=fixture(UINT64_C(0x2000000000000011),1u,
+            c1,(45u<<16)|2u,d);
+        ExpandedUniversalFixture a1=fixture(UINT64_C(0x2000000000000012),2u,
+            c3,(45u<<16)|4u,d);
+        ExpandedEditionKey ed=a0.key.edition;
+        char *p,*q;
+        static char live_s[65536],snap_s[65536];
+        struct mjson_fixedbuf ls={live_s,(int)sizeof live_s,0};
+        struct mjson_fixedbuf ss={snap_s,(int)sizeof snap_s,0};
+        ExpandedUniversalCarSnapshot *sn=NULL;
+        ExpandedUniversal_CarResetCurrent();
+        assert(ExpandedUniversal_CarBegin((ExpandedWorldDate){2026,7,1},4u));
+        r=ExpandedUniversal_CarRegistry();
+        assert(ExpandedUniversal_Add(r,a0)==EXP_UNIVERSAL_OK);
+        assert(ExpandedUniversal_Add(r,a1)==EXP_UNIVERSAL_OK);
+        assert(ExpandedUniversal_ArchiveCount()==0u);
+        /* nothing played: the gate refuses */
+        assert(ExpandedUniversal_ArchiveCloseEdition(ed,c1,0u,d)==EXP_ARCHIVE_OPEN);
+        s_fail_completion=0;
+        assert(ExpandedUniversal_RunDue(r,d,&ops)!=EXP_UNIVERSAL_RECOVERY);
+        assert(ExpandedUniversal_ArchiveCloseEdition(ed,c1,0u,d)==EXP_ARCHIVE_OPEN);
+        assert(ExpandedUniversal_RunDue(r,d,&ops)!=EXP_UNIVERSAL_RECOVERY);
+        /* both PLAYED: wrong champion / bad day / unknown edition refused */
+        assert(ExpandedUniversal_ArchiveCloseEdition(ed,(45u<<16)|9u,0u,d)==EXP_ARCHIVE_INVALID);
+        assert(ExpandedUniversal_ArchiveCloseEdition(ed,c1,c1,d)==EXP_ARCHIVE_INVALID);
+        assert(ExpandedUniversal_ArchiveCloseEdition(ed,c1,c3,d-1)==EXP_ARCHIVE_INVALID);
+        { ExpandedEditionKey nx=ed;nx.sequence=77u;
+          assert(ExpandedUniversal_ArchiveCloseEdition(nx,c1,0u,d)==EXP_ARCHIVE_UNKNOWN); }
+        assert(ExpandedUniversal_ArchiveCount()==0u);
+        assert(ExpandedUniversal_ArchiveCloseEdition(ed,c1,c3,d)==EXP_ARCHIVE_OK);
+        assert(ExpandedUniversal_ArchiveCloseEdition(ed,c1,c3,d)==EXP_ARCHIVE_ALREADY);
+        assert(ExpandedUniversal_ArchiveCloseEdition(ed,c3,c1,d)==EXP_ARCHIVE_CONFLICT);
+        assert(ExpandedUniversal_ArchiveCount()==1u && ExpandedUniversal_ArchiveContains(ed));
+        assert(ExpandedUniversal_ArchiveAt(0)->match_count==2u &&
+               ExpandedUniversal_ArchiveAt(0)->champion==c1 &&
+               ExpandedUniversal_ArchiveAt(0)->runner_up==c3);
+        /* persisted together with the registry, in the SAME CAR */
+        assert(Expanded_AutoCareer_SaveChecked("archive"));
+        assert(strstr(s_disk,"\"universal_archive\":\"UA01:"));
+        assert(ExpandedUniversal_CarValidate(s_disk,(int)strlen(s_disk)));
+        /* snapshot carries an owned copy and emits identical bytes */
+        assert(ExpandedUniversal_CarSnapshotCapture(&sn) && sn);
+        assert(ExpandedUniversal_CarEmit(mjson_print_fixed_buf,&ls));
+        assert(ExpandedUniversal_CarEmitSnapshot(sn,mjson_print_fixed_buf,&ss));
+        assert(ls.len==ss.len && memcmp(live_s,snap_s,(size_t)ls.len)==0);
+        ExpandedUniversal_CarSnapshotRelease(sn);
+        /* CONTINUE restores the archive */
+        ExpandedUniversal_CarResetCurrent();
+        assert(ExpandedUniversal_ArchiveCount()==0u);
+        assert(ExpandedUniversal_CarRestore(s_disk,(int)strlen(s_disk)));
+        assert(ExpandedUniversal_ArchiveCount()==1u && ExpandedUniversal_ArchiveContains(ed));
+        assert(ExpandedUniversal_ArchiveAt(0)->closed_day==d);
+        /* tampered archive text is rejected, live state untouched */
+        strcpy(corrupted,s_disk);
+        p=strstr(corrupted,"\"universal_archive\":\"UA01:");assert(p);
+        p+=strlen("\"universal_archive\":\"UA01:")+20;
+        *p=(*p=='0')?'1':'0';
+        assert(!ExpandedUniversal_CarValidate(corrupted,(int)strlen(corrupted)));
+        assert(!ExpandedUniversal_CarRestore(corrupted,(int)strlen(corrupted)));
+        assert(ExpandedUniversal_ArchiveCount()==1u);
+        /* an archive without a registry, or a non-string archive: rejected */
+        strcpy(corrupted,s_disk);
+        q=strstr(corrupted,"\"universal_archive\":\"");assert(q);
+        memcpy(q+strlen("\"universal_archive\":"),"null",4);
+        memmove(q+strlen("\"universal_archive\":")+4,
+                strchr(q+strlen("\"universal_archive\":")+1,'"')+1,
+                strlen(strchr(q+strlen("\"universal_archive\":")+1,'"')+1)+1);
+        /* null archive == an old CAR: valid, restores with an empty archive */
+        assert(ExpandedUniversal_CarValidate(corrupted,(int)strlen(corrupted)));
+        assert(ExpandedUniversal_CarRestore(corrupted,(int)strlen(corrupted)));
+        assert(ExpandedUniversal_ArchiveCount()==0u);
+    }
     printf("UNIVERSAL_CAR_CODEC_REAL_C11=PASS claims and ACK, CRC, world, rollback, legacy\n");
     printf("OG_50HZ_GAMEPLAY=NOT_TESTED LIVE_CUTOVER=NOT_IMPLEMENTED\n");
     return 0;

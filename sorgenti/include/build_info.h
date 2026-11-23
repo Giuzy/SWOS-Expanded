@@ -122,7 +122,12 @@
  * migration on next save); roster block cache on the CarWriter thread with a
  * self-check against uncached bytes. Old builds cannot read UE02 CARs.
  * Windows gameplay NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.290"
+/* v00.13.291 (SAVE/CAR): UE02 text is now lower-case hex (was base64; the
+ * 910 ms zstd figure of the v290 benchmark was a self-inflicted timing
+ * artefact, real zstd is ~7 ms); synthetic edition archive persisted as
+ * $.universal_archive ("UA01:"); closure gate refuses open editions. CARs
+ * written by the unreleased v290 base64 UE02 are NOT readable. */
+#define SWOS_EXPANDED_VERSION "00.13.291"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

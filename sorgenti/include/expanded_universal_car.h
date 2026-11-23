@@ -36,6 +36,17 @@ int ExpandedUniversal_CarRestore(const char *json,int size);
 /* v284 side-effect-free helpers for a TRANSACTIONAL CONTINUE: they parse the
  * candidate CAR into scratch memory and never touch the live registry. */
 /* 1 = CE section present; *day = its civil clock. */
+/* v290: synthetic edition archive (per world, persisted in the CAR as
+ * $.universal_archive; absent = empty). CloseEdition archives an edition ONLY
+ * if every fixture of it is PLAYED in the live registry and champion/runner-up
+ * took part (returns ExpandedArchiveResult). It never closes anything by
+ * itself. */
+#include "expanded_edition_archive.h"
+int ExpandedUniversal_ArchiveCloseEdition(ExpandedEditionKey edition,
+    uint32_t champion,uint32_t runner_up,int32_t closed_day);
+uint32_t ExpandedUniversal_ArchiveCount(void);
+const ExpandedEditionSummary *ExpandedUniversal_ArchiveAt(uint32_t index);
+int ExpandedUniversal_ArchiveContains(ExpandedEditionKey edition);
 int ExpandedUniversal_CarPeekClock(const char *json,int size,int32_t *day);
 /* v289: world passed explicitly, so a worker thread never reads World_Current(). */
 int ExpandedUniversal_CarValidateFor(const char *json,int size,uint16_t world);

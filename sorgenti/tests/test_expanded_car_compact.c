@@ -92,21 +92,20 @@ int main(void)
         assert(!ExpCarCompact_Finish(&rd)); /* one row still pending */
         assert(ExpCarCompact_Next(&rd,v)&&!ExpCarCompact_Next(&rd,v));
         free(bin);free(q.v);}
-    /* 7) base64 */
-    {   const uint8_t d[]={0,1,2,3,4,5,250,251,252,253};
+    /* 7) hex text */
+    {   const uint8_t d[]={0,1,2,3,4,5,250,251,252,253,255};
         char t[64];uint8_t o[16];size_t n,m;
         for(n=0;n<=sizeof d;++n) {
-            m=ExpCarCompact_B64Encode(d,n,t,sizeof t);
-            assert(m!=(size_t)-1 && m==(n+2)/3*4);
+            m=ExpCarCompact_HexEncode(d,n,t,sizeof t);
+            assert(m==n*2);
             t[m]=0;
-            assert(ExpCarCompact_B64Decode(t,m,o,sizeof o)==n && !memcmp(o,d,n));
+            assert(ExpCarCompact_HexDecode(t,m,o,sizeof o)==n && !memcmp(o,d,n));
         }
-        assert(ExpCarCompact_B64Decode("abc",3,o,16)==(size_t)-1);
-        assert(ExpCarCompact_B64Decode("ab!d",4,o,16)==(size_t)-1);
-        assert(ExpCarCompact_B64Decode("a=bc",4,o,16)==(size_t)-1);
-        assert(ExpCarCompact_B64Decode("ab==abcd",8,o,16)==(size_t)-1);
-        assert(ExpCarCompact_B64Encode(d,10,t,4)==(size_t)-1);
-        assert(ExpCarCompact_B64Decode("YWJj",4,o,2)==(size_t)-1);}
+        assert(ExpCarCompact_HexDecode("abc",3,o,16)==(size_t)-1);
+        assert(ExpCarCompact_HexDecode("zz",2,o,16)==(size_t)-1);
+        assert(ExpCarCompact_HexDecode("AB",2,o,16)==(size_t)-1); /* lower-case only */
+        assert(ExpCarCompact_HexEncode(d,10,t,4)==(size_t)-1);
+        assert(ExpCarCompact_HexDecode("0102",4,o,1)==(size_t)-1);}
     /* 8) size on a realistic league season (sequential ids, 2 clubs/round) */
     {   const uint32_t N=100000;uint32_t j;size_t clen,hex=(size_t)N*134u;
         Rows s;s.n=N;s.v=(uint64_t (*)[EXP_CCOL])calloc(N,sizeof s.v[0]);
@@ -121,9 +120,9 @@ int main(void)
         }
         bin=ExpCarCompact_Encode(2627,46310,N,get,&s,&clen);assert(bin);
         assert(roundtrip(&s,bin,clen));
-        printf("UE02_SIZE rows=%lu hex_UE01=%lu binary_UE02=%lu base64_json=%lu ratio_json=%.1fx\n",
+        printf("UE02_SIZE rows=%lu hex_UE01=%lu binary_UE02=%lu hex_json=%lu ratio_json=%.1fx\n",
                (unsigned long)N,(unsigned long)hex,(unsigned long)clen,
-               (unsigned long)((clen+2)/3*4),(double)hex/((clen+2)/3*4));
+               (unsigned long)(clen*2),(double)hex/(double)(clen*2));
         free(bin);free(s.v);}
     free(r.v);
     puts("EXP_CAR_COMPACT_UE02=PASS_ISOLATED_ONLY");

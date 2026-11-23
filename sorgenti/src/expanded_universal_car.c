@@ -12,6 +12,7 @@
 #include "world.h"
 #include "platform_sdl.h" /* monotonic CPU-forward CAR stage timings */
 #include "expanded_car_compact.h"
+#include "expanded_edition_archive.h"
 #include <limits.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -24,6 +25,7 @@ typedef struct ExpandedCarWorld {
     ExpandedUniversalFixture *fixtures;
     ExpandedFixtureLedgerEntry *ledger;
     ExpandedScheduledEvent *events;
+    ExpandedEditionArchive archive;   /* v290: synthetic edition archive */
     uint8_t active;
 } ExpandedCarWorld;
 static ExpandedCarWorld s_worlds[WORLD_COUNT];
@@ -32,6 +34,7 @@ static void exp_car_clear(ExpandedCarWorld *w)
 {
     if(!w)return;
     free(w->fixtures);free(w->ledger);free(w->events);
+    ExpArchive_Free(&w->archive);
     memset(w,0,sizeof *w);
 }
 static int exp_car_alloc(ExpandedCarWorld *w,uint16_t world,
@@ -163,9 +166,10 @@ static int exp_car_row_get(uint32_t i,uint64_t *v,void *user)
     return 1;
 }
 /* Emit core: reads ONLY through r (live registry or an owned snapshot copy).
- * v290: compact "UE02:" columnar binary (base64 in the same JSON field). */
+ * v290: compact "UE02:" columnar binary (hex text in the same JSON field). */
 static int exp_car_emit_registry(ExpandedUniversalRegistry *r,
                                  uint16_t expected_world,
+                                 const ExpandedEditionArchive *archive,
                                  mjson_print_fn_t output,void *user)
 {
     ExpandedCarEventIndex *events=NULL;
@@ -175,7 +179,7 @@ static int exp_car_emit_registry(ExpandedUniversalRegistry *r,
     Uint64 validated_ms;
     uint8_t *bin=NULL;
     char *text=NULL;
-    size_t binlen=0u,b64len;
+    size_t binlen=0u,hexlen;
     ExpCarRowCtx ctx;
     if(!output || !r)return 0;
     if(r->world!=expected_world ||
@@ -197,21 +201,41 @@ static int exp_car_emit_registry(ExpandedUniversalRegistry *r,
         r->fixture_count,exp_car_row_get,&ctx,&binlen);
     free(events);
     if(!bin)return 0;
-    b64len=ExpCarCompact_B64Encode(bin,binlen,NULL,0u);
-    if(b64len==(size_t)-1 || b64len>(size_t)INT_MAX-16u) {free(bin);return 0;}
-    text=(char *)malloc(5u+b64len+1u);
+    hexlen=ExpCarCompact_HexEncode(bin,binlen,NULL,0u);
+    if(hexlen==(size_t)-1 || hexlen>(size_t)INT_MAX-16u) {free(bin);return 0;}
+    text=(char *)malloc(5u+hexlen+1u);
     if(!text) {free(bin);return 0;}
     memcpy(text,"UE02:",5u);
-    if(ExpCarCompact_B64Encode(bin,binlen,text+5,b64len)!=b64len) {
+    if(ExpCarCompact_HexEncode(bin,binlen,text+5,hexlen)!=hexlen) {
         free(bin);free(text);return 0;
     }
-    text[5u+b64len]=0;
+    text[5u+hexlen]=0;
     result=mjson_printf(output,user,",\n  %Q:%Q","universal_engine",text);
+    if(result>0 && archive && archive->count) {
+        /* v290: edition archive (absent field = empty archive) */
+        size_t alen=0u,ahex;
+        uint8_t *ab=ExpArchive_Encode(archive,r->world,&alen);
+        char *at=NULL;
+        result=0;
+        if(ab) {
+            ahex=ExpCarCompact_HexEncode(ab,alen,NULL,0u);
+            at=(char *)malloc(5u+ahex+1u);
+            if(at) {
+                memcpy(at,"UA01:",5u);
+                if(ExpCarCompact_HexEncode(ab,alen,at+5,ahex)==ahex) {
+                    at[5u+ahex]=0;
+                    result=mjson_printf(output,user,",\n  %Q:%Q",
+                                        "universal_archive",at);
+                }
+            }
+        }
+        free(ab);free(at);
+    }
     fprintf(stderr,"[universal-perf] CAR_EMIT_TIMING format=UE02 "
         "fixtures=%lu binary_bytes=%lu json_bytes=%lu validate_ms=%llu "
         "encode_ms=%llu status=%s\n",
         (unsigned long)r->fixture_count,(unsigned long)binlen,
-        (unsigned long)(5u+b64len),
+        (unsigned long)(5u+hexlen),
         (unsigned long long)(validated_ms-started_ms),
         (unsigned long long)(Platform_NowMs()-validated_ms),
         result>0?"OK":"FAILED");
@@ -224,7 +248,8 @@ int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
     if(!output)return 0;
     if(!r)
         return mjson_printf(output,user,",\n  %Q:null","universal_engine")>0;
-    return exp_car_emit_registry(r,(uint16_t)World_Current(),output,user);
+    return exp_car_emit_registry(r,(uint16_t)World_Current(),
+        &s_worlds[World_Current()].archive,output,user);
 }
 /* v288: IMMUTABLE, SELF-SUFFICIENT copy of the CE registry (fixtures, ledger,
  * events, clock, flags). The emitter below reads only this copy, so it may
@@ -236,6 +261,7 @@ struct ExpandedUniversalCarSnapshot {
     ExpandedScheduledEvent *events;
     size_t bytes;
     uint16_t world;   /* captured on the main thread: the worker never asks */
+    ExpandedEditionArchive archive;   /* owned copy */
 };
 int ExpandedUniversal_CarSnapshotCapture(ExpandedUniversalCarSnapshot **out)
 {
@@ -254,8 +280,10 @@ int ExpandedUniversal_CarSnapshotCapture(ExpandedUniversalCarSnapshot **out)
     s->fixtures=(ExpandedUniversalFixture *)malloc((size_t)nf*sizeof *s->fixtures);
     s->ledger=(ExpandedFixtureLedgerEntry *)malloc((size_t)nl*sizeof *s->ledger);
     s->events=(ExpandedScheduledEvent *)malloc((size_t)ne*sizeof *s->events);
-    if(!s->fixtures || !s->ledger || !s->events) {
-        free(s->fixtures);free(s->ledger);free(s->events);free(s);
+    if(!s->fixtures || !s->ledger || !s->events ||
+       !ExpArchive_Copy(&s->archive,&s_worlds[World_Current()].archive)) {
+        free(s->fixtures);free(s->ledger);free(s->events);
+        ExpArchive_Free(&s->archive);free(s);
         return 0;
     }
     memcpy(s->fixtures,r->fixtures,(size_t)nf*sizeof *s->fixtures);
@@ -279,7 +307,7 @@ int ExpandedUniversal_CarEmitSnapshot(ExpandedUniversalCarSnapshot *s,
                                       mjson_print_fn_t output,void *user)
 {
     if(!s)return mjson_printf(output,user,",\n  %Q:null","universal_engine")>0;
-    return exp_car_emit_registry(&s->reg,s->world,output,user);
+    return exp_car_emit_registry(&s->reg,s->world,&s->archive,output,user);
 }
 uint16_t ExpandedUniversal_CarSnapshotWorld(const ExpandedUniversalCarSnapshot *s)
 {
@@ -288,7 +316,8 @@ uint16_t ExpandedUniversal_CarSnapshotWorld(const ExpandedUniversalCarSnapshot *
 void ExpandedUniversal_CarSnapshotRelease(ExpandedUniversalCarSnapshot *s)
 {
     if(!s)return;
-    free(s->fixtures);free(s->ledger);free(s->events);free(s);
+    free(s->fixtures);free(s->ledger);free(s->events);
+    ExpArchive_Free(&s->archive);free(s);
 }
 /* Parse a complete candidate in TEMPORARY heap memory. No current world
  * state changes on failed CRC, world, civil clock, event or ledger proof.
@@ -306,10 +335,10 @@ static int exp_car_parse_ue02(const char *json,int size,const char *text,
     long civil_day=0;
     uint16_t world;
     if(len<5u+4u)return 0;
-    binlen=ExpCarCompact_B64Decode(text+5,len-5u,NULL,0u);
+    binlen=ExpCarCompact_HexDecode(text+5,len-5u,NULL,0u);
     if(binlen==(size_t)-1 || !binlen)return 0;
     bin=(uint8_t *)malloc(binlen);
-    if(!bin || ExpCarCompact_B64Decode(text+5,len-5u,bin,binlen)!=binlen) {
+    if(!bin || ExpCarCompact_HexDecode(text+5,len-5u,bin,binlen)!=binlen) {
         free(bin);return 0;
     }
     if(!ExpCarCompact_Open(&rd,bin,binlen) || rd.world>=WORLD_COUNT ||
@@ -368,7 +397,7 @@ fail:
     free(bin);exp_car_clear(candidate);return 0;
 }
 
-static int exp_car_parse(const char *json,int size,
+static int exp_car_parse_registry(const char *json,int size,
                           ExpandedCarWorld *candidate,int *present,
                           uint16_t expected_world)
 {
@@ -487,6 +516,47 @@ static int exp_car_parse(const char *json,int size,
     free(text);*present=1;return 1;
 fail:
     free(text);exp_car_clear(candidate);return 0;
+}
+/* v290: registry + optional edition archive, both fail-closed. */
+static int exp_car_parse(const char *json,int size,
+                         ExpandedCarWorld *candidate,int *present,
+                         uint16_t expected_world)
+{
+    const char *tok=NULL;
+    int tlen=0,kind;
+    if(!exp_car_parse_registry(json,size,candidate,present,expected_world))
+        return 0;
+    kind=mjson_find(json,size,"$.universal_archive",&tok,&tlen);
+    if(kind==MJSON_TOK_INVALID || kind==MJSON_TOK_NULL) {
+        if(*present && !ExpArchive_AuditFixtures(&candidate->archive,
+               candidate->fixtures,candidate->ledger,0u))goto fail;
+        return 1; /* old CAR / no closed edition yet */
+    }
+    if(!*present || kind!=MJSON_TOK_STRING || tlen<5+8 || tlen>INT_MAX-1)
+        goto fail;
+    {
+        char *text=(char *)malloc((size_t)tlen+1u);
+        uint8_t *bin=NULL;
+        size_t blen,tl;
+        int ok=0;
+        if(!text)goto fail;
+        if(mjson_get_string(json,size,"$.universal_archive",text,tlen+1)>0) {
+            tl=strlen(text);
+            if(tl>5u && memcmp(text,"UA01:",5u)==0 &&
+               (blen=ExpCarCompact_HexDecode(text+5,tl-5u,NULL,0u))!=(size_t)-1 &&
+               blen>0u && (bin=(uint8_t *)malloc(blen))!=NULL &&
+               ExpCarCompact_HexDecode(text+5,tl-5u,bin,blen)==blen &&
+               ExpArchive_Decode(&candidate->archive,bin,blen,expected_world) &&
+               ExpArchive_AuditFixtures(&candidate->archive,candidate->fixtures,
+                   candidate->ledger,candidate->reg.fixture_count))ok=1;
+        }
+        free(bin);free(text);
+        if(ok)return 1;
+    }
+fail:
+    exp_car_clear(candidate);
+    *present=0;
+    return 0;
 }
 int ExpandedUniversal_CarValidateFor(const char *json,int size,uint16_t world)
 {
@@ -741,4 +811,33 @@ int ExpandedUniversal_CarSaveCompletion(void *user,
         (unsigned)proposal->played.score.away);
     return ok;
 }
+/* ---- v290 edition archive API ---- */
+int ExpandedUniversal_ArchiveCloseEdition(ExpandedEditionKey edition,
+    uint32_t champion,uint32_t runner_up,int32_t closed_day)
+{
+    ExpandedCarWorld *w;
+    if(World_Current()>=WORLD_COUNT)return EXP_ARCHIVE_INVALID;
+    w=&s_worlds[World_Current()];
+    if(!w->active || edition.competition.world!=w->reg.world)
+        return EXP_ARCHIVE_INVALID;
+    return (int)ExpArchive_CloseFromRegistry(&w->archive,w->fixtures,w->ledger,
+        w->reg.fixture_count,edition,champion,runner_up,closed_day);
+}
+uint32_t ExpandedUniversal_ArchiveCount(void)
+{
+    return World_Current()<WORLD_COUNT?s_worlds[World_Current()].archive.count:0u;
+}
+const ExpandedEditionSummary *ExpandedUniversal_ArchiveAt(uint32_t index)
+{
+    const ExpandedEditionArchive *a;
+    if(World_Current()>=WORLD_COUNT)return NULL;
+    a=&s_worlds[World_Current()].archive;
+    return index<a->count?&a->items[index]:NULL;
+}
+int ExpandedUniversal_ArchiveContains(ExpandedEditionKey edition)
+{
+    return World_Current()<WORLD_COUNT &&
+           ExpArchive_Find(&s_worlds[World_Current()].archive,edition)!=NULL;
+}
+
 #endif

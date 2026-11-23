@@ -52,7 +52,7 @@ static void bench(uint32_t n)
     ExpandedUniversalRegistry *r;
     ExpandedUniversalCarSnapshot *snap=NULL;
     Buf out={0};
-    double t0,t1,t2,t3,t4;
+    double t0,t1,t2,t3,t4,tz;
     size_t bound,cs;
     void *zbuf;
     TeamFileEx *rost;
@@ -108,6 +108,7 @@ static void bench(uint32_t n)
         printf("n=%-8u decode+validate(CONTINUE section)=%7.1f ms\n",n,d1-d0);
         free(js);
     }
+    tz=ms_now(); /* zstd is timed AFTER the decode block (v290 fix of a self-inflicted artefact) */
     bound=ZSTD_compressBound(out.len);zbuf=malloc(bound);assert(zbuf);
     cs=ZSTD_compress(zbuf,bound,out.p,out.len,3);
     t4=ms_now();
@@ -124,7 +125,7 @@ static void bench(uint32_t n)
                "%.1f MB)=%5.1f ms\n",
                n,
                (double)ExpandedUniversal_CarSnapshotBytes(snap)/1048576.0,
-               t2-t1,t3-t2,(double)out.len/1048576.0,t4-t3,
+               t2-t1,t3-t2,(double)out.len/1048576.0,t4-tz,
                (double)cs/1048576.0,t1-t0,clubs,
                (double)clubs*sizeof *dst/1048576.0,ms_now()-c0);
         free(dst);

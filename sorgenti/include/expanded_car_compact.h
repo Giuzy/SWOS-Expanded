@@ -28,8 +28,10 @@ int ExpCarCompact_Open(ExpCarCompactReader *r,const uint8_t *buf,size_t len);
 int ExpCarCompact_Next(ExpCarCompactReader *r,uint64_t *vals);
 /* 1 only if every row was read and every column consumed exactly. */
 int ExpCarCompact_Finish(const ExpCarCompactReader *r);
-/* Standard base64 (JSON-safe string). Returns length written (no NUL) or
- * (size_t)-1. out==NULL: length only. */
-size_t ExpCarCompact_B64Encode(const uint8_t *in,size_t n,char *out,size_t cap);
-size_t ExpCarCompact_B64Decode(const char *in,size_t n,uint8_t *out,size_t cap);
+/* Lower-case hex text (JSON-safe). Hex keeps byte alignment, so the
+ * container's zstd still finds the repeated byte patterns of the columns
+ * (base64 shifts them by 3-byte phase and made zstd ~9x slower). Returns
+ * length written (no NUL) or (size_t)-1. out==NULL: length only. */
+size_t ExpCarCompact_HexEncode(const uint8_t *in,size_t n,char *out,size_t cap);
+size_t ExpCarCompact_HexDecode(const char *in,size_t n,uint8_t *out,size_t cap);
 #endif

@@ -42,6 +42,9 @@ int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate date);
 typedef int (*ExpandedWorldClockProvider)(int32_t *day_index);
 void ExpandedWorldLive_SetClockProvider(ExpandedWorldClockProvider provider);
 int ExpandedWorldLive_ClockProviderActive(void);
+/* v284: mute the provider while a CAR is being restored, so a stale CE
+ * registry of the previous career cannot answer for the restored mirror. */
+void ExpandedWorldLive_ClockProviderHold(int hold);
 /* Read-only audit/status. A non-zero overdue count indicates missing processing. */
 int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *out);
 /* Return source-file IDs from leagues actually scheduled by this world.

@@ -97,6 +97,10 @@ static int cat_key(const TeamFileEx *team,ExpandedClubKey *out)
     out->stable_club=((uint32_t)country<<16)|(uint32_t)(slot+1u);
     return ExpandedClubKey_Valid(*out);
 }
+int ExpandedUniversalCatalog_KeyOf(const TeamFileEx *team,ExpandedClubKey *out)
+{
+    return cat_key(team,out);
+}
 int ExpandedUniversalCatalog_AddClub(const TeamFileEx *team)
 {
     ExpandedClubKey key={0};

@@ -430,6 +430,19 @@ static int savejson_career_civil_clock_ok(const char *json,int size,int log_reje
             "[universal-car] INVALID_LEDGER_OR_WORLD old-save-preserved=1\n");
         return 0;
     }
+    /* v284: the CE registry clock inside the CAR and the civil cursor of the
+     * same CAR are ONE clock. A divergent file is corrupt: reject it before
+     * any state is replaced. Old CAR (CE section absent) are not affected. */
+    if(is_universal) {
+        int32_t ceDay=0;
+        if(!ExpandedUniversal_CarPeekClock(json,size,&ceDay) ||
+           (long)ceDay!=now) {
+            if(log_reject)fprintf(stderr,
+                "[universal-car] CLOCK_DIVERGES_FROM_CIVIL ce=%ld civil=%ld "
+                "old-save-preserved=1\n",(long)ceDay,now);
+            return 0;
+        }
+    }
     if(is_universal &&
        mjson_find(json,size,"$.universal_rosters",
                   &rosters,&roster_len)!=MJSON_TOK_ARRAY) {
@@ -3090,6 +3103,57 @@ static void load_team_file_ex_slice(const char *buf, int buflen,
 }
 
 #ifdef SWOS_SDL_BUILD
+/* v284 DRY RUN of universal_rosters_restore: parses the same roster array
+ * into ONE scratch record and checks identity, uniqueness, count and that
+ * every fixture club of the CAR has a roster. Touches no global state, so a
+ * corrupt/incomplete CAR is rejected BEFORE the live career is replaced. */
+static int savejson_key_cmp(const void *aa,const void *bb)
+{
+    const uint32_t a=*(const uint32_t *)aa,b=*(const uint32_t *)bb;
+    return a<b?-1:a>b?1:0;
+}
+static int universal_rosters_validate(const char *json,int len)
+{
+    const char *root=NULL,*arr=NULL;
+    int root_len=0,arr_len=0,off=0,vo,vl,vt,ok=0;
+    long requested=0;
+    uint32_t i=0,n=0;
+    uint32_t *keys=NULL;
+    TeamFileEx *scratch=NULL;
+    const int token=mjson_find(json,len,"$.universal_engine",&root,&root_len);
+    if(token==MJSON_TOK_NULL || token==MJSON_TOK_INVALID)return 1; /* old CAR */
+    if(token!=MJSON_TOK_STRING || World_Current()!=WORLD_2627 ||
+       mjson_get_long(json,len,"$.universal_rosters_count",&requested)<=0 ||
+       requested<1 || requested>1000000L ||
+       mjson_find(json,len,"$.universal_rosters",&arr,&arr_len)!=MJSON_TOK_ARRAY)
+        goto done;
+    n=(uint32_t)requested;
+    keys=(uint32_t *)malloc((size_t)n*sizeof *keys);
+    scratch=(TeamFileEx *)calloc(1,sizeof *scratch);
+    if(!keys || !scratch)goto done;
+    while(i<n && (off=fast_array_next(arr,arr_len,off,&vo,&vl,&vt))!=0) {
+        const char *check=NULL;
+        int checklen=0;
+        ExpandedClubKey key={0};
+        if(vt!=MJSON_TOK_OBJECT ||
+           mjson_find(arr+vo,vl,"$.team",&check,&checklen)!=MJSON_TOK_OBJECT ||
+           mjson_find(arr+vo,vl,"$.players",&check,&checklen)!=MJSON_TOK_ARRAY)
+            goto done;
+        memset(scratch,0,sizeof *scratch);
+        load_team_file_ex_slice(arr+vo,vl,(uint8_t *)scratch);
+        if(!ExpandedUniversalCatalog_KeyOf(scratch,&key))goto done;
+        keys[i++]=key.stable_club;
+    }
+    if(i!=n || fast_array_next(arr,arr_len,off,&vo,&vl,&vt)!=0)goto done;
+    qsort(keys,(size_t)n,sizeof *keys,savejson_key_cmp);
+    for(i=1;i<n;++i)if(keys[i]==keys[i-1u])goto done;
+    ok=ExpandedUniversal_CarCoversClubs(json,len,keys,n);
+done:
+    free(keys);free(scratch);
+    if(!ok)fprintf(stderr,"[universal-car-rosters] PREFLIGHT_REJECTED "
+        "invalid-or-incomplete-rosters old-save-preserved=1\n");
+    return ok;
+}
 /* Match-roster persistence: ALL source clubs are mutable originals passed to
  * OG 50Hz; serializing just career_team would lose CPU injuries after CONTINUE.
  * Stage the restored CPU rosters off-heap before replacing the catalogue.
@@ -8316,7 +8380,9 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
      * restored/ended, and BEFORE the career's legacy fields are cleared. */
     if((!savejson_universal_owner((const char *)src,(int)src_size) &&
         !savejson_preflight_career_keycache((const char *)src,(int)src_size)) ||
-       !savejson_career_civil_clock_ok((const char *)src,(int)src_size,1)) {
+       !savejson_career_civil_clock_ok((const char *)src,(int)src_size,1) ||
+       (savejson_universal_owner((const char *)src,(int)src_size) &&
+        !universal_rosters_validate((const char *)src,(int)src_size))) {
         swos_io_free(src);
         return 1;
     }
@@ -8371,13 +8437,19 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
             return 1;
         }
     }
-    /* v283: drop any CE registry still in RAM from an earlier career BEFORE
-     * the LWE state is read. Otherwise its clock would answer for the
-     * restored mirror (and the civil check below) until ExpandedUniversal_
-     * CarRestore replaces it. CarRestore re-creates it from THIS CAR (it
-     * already clears the registry first), so no valid CAR is altered. */
-    ExpandedUniversal_CarResetCurrent();
+    /* v284 TRANSACTIONAL CONTINUE. Everything above is a side-effect-free
+     * validation of THIS file (kind, world, civil clock, CE ledger, CE clock
+     * == civil clock, roster identities, fixture clubs covered). The live
+     * career/CE registry is NOT reset here (v283 did, which destroyed a valid
+     * career when a later step failed). Instead the clock provider is muted
+     * so the registry of the previous career cannot answer for the restored
+     * mirror; CarRestore parses the candidate first and only then replaces
+     * the registry. If a step fails past this point, the live registry is
+     * locked in recovery (no play, no save) rather than used half-restored. */
+    ExpandedWorldLive_ClockProviderHold(1);
     if (!ExpandedWorldLive_ReadJson((const char *)src,(int)src_size)) {
+        /* ReadJson builds its state aside: nothing was replaced. */
+        ExpandedWorldLive_ClockProviderHold(0);
         swos_io_free(src);
         return 1;
     }
@@ -8394,6 +8466,8 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
              savedYear!=(long)(cal.today.year-(cal.today.month<7u?1u:0u))))) {
             fprintf(stderr,"[og-world-save] LOAD_REJECTED reason=OG_CIVIL_DATE_MISMATCH "
                            "file-preserved=1\n");
+            ExpandedWorldLive_ClockProviderHold(0);
+            ExpandedUniversal_CarMarkRecovery(); /* LWE already replaced */
             swos_io_free(src);
             return 1;
         }
@@ -8442,9 +8516,12 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
                            "after-preflight world=%s "
                            "reason=RESIDENT_OR_CIVIL_COORDINATOR\n",
                     World_Tag());
+            ExpandedWorldLive_ClockProviderHold(0);
+            ExpandedUniversal_CarMarkRecovery(); /* never play half-restored */
             swos_io_free(src);return 1;
         }
     }
+    ExpandedWorldLive_ClockProviderHold(0); /* the restored CE clock answers */
 #endif
     PROF_END(rebuild_ptrs, "career-load");
 

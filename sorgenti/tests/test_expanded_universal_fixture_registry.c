@@ -13,7 +13,19 @@ static int32_t day(unsigned y,unsigned m,unsigned d) {
 typedef struct MockIO {
     unsigned claims, games, commits;
     int fail_claim, fail_game, fail_commit, wrong_witness;
+    int abandon, fail_release;     /* v284 manual-abort hooks */
+    unsigned releases;
 } MockIO;
+static int is_abandoned(void *u) { return ((MockIO *)u)->abandon; }
+static int save_release(void *u,const ExpandedUniversalRegistry *r,
+                        const ExpandedUniversalFixture *f) {
+    MockIO *io=(MockIO *)u;
+    const ExpandedFixtureLedgerEntry *e=ExpandedFixtureLedger_Find(
+        (ExpandedFixtureLedger *)&r->ledger,f->key);
+    ++io->releases;
+    assert(e && e->state==EXP_FIXTURE_SCHEDULED);
+    return !io->fail_release;
+}
 static int save_claim(void *u,const ExpandedUniversalRegistry *r,
                       const ExpandedUniversalFixture *f) {
     MockIO *io=(MockIO *)u;
@@ -86,7 +98,7 @@ int main(void) {
     ExpandedUniversalFixture after=match(WORLD_2627,45u,101u,105u,802u,
         july,b,45u,0u,0u,2u);
     MockIO io={0};
-    ExpandedUniversalOps ops={save_claim,run_og,save_completion,&io};
+    ExpandedUniversalOps ops={save_claim,run_og,save_completion,&io,NULL,NULL};
     assert(ExpandedUniversal_Init(&r,storage,claims,events,WORLD_2627,8u,
            (ExpandedWorldDate){2026,7,1})==EXP_UNIVERSAL_OK);
     assert(ExpandedUniversal_Add(&r,f0)==EXP_UNIVERSAL_OK);
@@ -158,7 +170,7 @@ int main(void) {
         ExpandedFixtureLedgerEntry ls[2]={0};
         ExpandedScheduledEvent es[2]={0};
         MockIO failure={0};
-        ExpandedUniversalOps fo={save_claim,run_og,save_completion,&failure};
+        ExpandedUniversalOps fo={save_claim,run_og,save_completion,&failure,NULL,NULL};
         failure.fail_claim=1;
         assert(ExpandedUniversal_Init(&bad,fs,ls,es,WORLD_2627,2u,
             (ExpandedWorldDate){2026,7,1})==EXP_UNIVERSAL_OK);
@@ -175,7 +187,7 @@ int main(void) {
         ExpandedFixtureLedgerEntry ls[2]={0};
         ExpandedScheduledEvent es[2]={0};
         MockIO failure={0};
-        ExpandedUniversalOps fo={save_claim,run_og,save_completion,&failure};
+        ExpandedUniversalOps fo={save_claim,run_og,save_completion,&failure,NULL,NULL};
         failure.fail_commit=1;
         assert(ExpandedUniversal_Init(&bad,fs,ls,es,WORLD_2627,2u,
             (ExpandedWorldDate){2026,7,1})==EXP_UNIVERSAL_OK);
@@ -192,7 +204,7 @@ int main(void) {
         ExpandedFixtureLedgerEntry ls[2]={0};
         ExpandedScheduledEvent es[2]={0};
         MockIO failure={0};
-        ExpandedUniversalOps fo={save_claim,run_og,save_completion,&failure};
+        ExpandedUniversalOps fo={save_claim,run_og,save_completion,&failure,NULL,NULL};
         failure.wrong_witness=1;
         assert(ExpandedUniversal_Init(&bad,fs,ls,es,WORLD_2627,2u,
             (ExpandedWorldDate){2026,7,1})==EXP_UNIVERSAL_OK);
@@ -201,6 +213,64 @@ int main(void) {
         assert(failure.games==1 && failure.commits==0);
         assert(ExpandedUniversal_RunDue(&bad,a,&fo)==EXP_UNIVERSAL_RECOVERY);
         assert(failure.games==1);
+    }
+    /* v284 OG behaviour: a clean manual abort returns to the state BEFORE the
+     * match (fixture SCHEDULED, event PENDING, no recovery); the manager can
+     * run it again. A hard failure (no abandon flag) still locks. */
+    {
+        ExpandedUniversalRegistry ab={0};
+        ExpandedUniversalFixture fs[2]={0};
+        ExpandedFixtureLedgerEntry ls[2]={0};
+        ExpandedScheduledEvent es[2]={0};
+        MockIO io2={0};
+        ExpandedUniversalOps ao={save_claim,run_og,save_completion,&io2,
+                                 is_abandoned,save_release};
+        io2.fail_game=1;io2.abandon=1;
+        assert(ExpandedUniversal_Init(&ab,fs,ls,es,WORLD_2627,2u,
+            (ExpandedWorldDate){2026,7,1})==EXP_UNIVERSAL_OK);
+        assert(ExpandedUniversal_Add(&ab,f0)==EXP_UNIVERSAL_OK);
+        assert(ExpandedUniversal_RunDue(&ab,a,&ao)==EXP_UNIVERSAL_BLOCKED);
+        assert(io2.claims==1 && io2.games==1 && io2.releases==1 &&
+               io2.commits==0 && !ab.recovery_required);
+        assert(ExpandedUniversal_ValidateRestore(&ab));
+        assert(ExpandedUniversal_Peek(&ab,a,&due)==EXP_UNIVERSAL_DUE);
+        /* played again after the abort: completes normally, once */
+        io2.fail_game=0;io2.abandon=0;
+        assert(ExpandedUniversal_RunDue(&ab,a,&ao)==EXP_UNIVERSAL_OK);
+        assert(io2.claims==2 && io2.games==2 && io2.commits==1);
+        assert(ExpandedUniversal_RunDue(&ab,a,&ao)==EXP_UNIVERSAL_EMPTY);
+        /* release save fails: never silently reopen, lock */
+        {
+            ExpandedUniversalRegistry bad={0};
+            ExpandedUniversalFixture fs2[2]={0};
+            ExpandedFixtureLedgerEntry ls2[2]={0};
+            ExpandedScheduledEvent es2[2]={0};
+            MockIO io3={0};
+            ExpandedUniversalOps bo={save_claim,run_og,save_completion,&io3,
+                                     is_abandoned,save_release};
+            io3.fail_game=1;io3.abandon=1;io3.fail_release=1;
+            assert(ExpandedUniversal_Init(&bad,fs2,ls2,es2,WORLD_2627,2u,
+                (ExpandedWorldDate){2026,7,1})==EXP_UNIVERSAL_OK);
+            assert(ExpandedUniversal_Add(&bad,f0)==EXP_UNIVERSAL_OK);
+            assert(ExpandedUniversal_RunDue(&bad,a,&bo)==EXP_UNIVERSAL_RECOVERY);
+            assert(bad.recovery_required);
+        }
+        /* not an abort (crash/quit): old behaviour, recovery */
+        {
+            ExpandedUniversalRegistry bad={0};
+            ExpandedUniversalFixture fs2[2]={0};
+            ExpandedFixtureLedgerEntry ls2[2]={0};
+            ExpandedScheduledEvent es2[2]={0};
+            MockIO io4={0};
+            ExpandedUniversalOps qo={save_claim,run_og,save_completion,&io4,
+                                     is_abandoned,save_release};
+            io4.fail_game=1;io4.abandon=0;
+            assert(ExpandedUniversal_Init(&bad,fs2,ls2,es2,WORLD_2627,2u,
+                (ExpandedWorldDate){2026,7,1})==EXP_UNIVERSAL_OK);
+            assert(ExpandedUniversal_Add(&bad,f0)==EXP_UNIVERSAL_OK);
+            assert(ExpandedUniversal_RunDue(&bad,a,&qo)==EXP_UNIVERSAL_RECOVERY);
+            assert(io4.releases==0 && bad.recovery_required);
+        }
     }
     /* A fresh independent 96/97 world can use the same stable club numbers. */
     {

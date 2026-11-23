@@ -96,7 +96,7 @@ int ExpandedUniversal_NativePrepare(
     const ExpandedUniversalFixture *fixture)
 {
     if(!context)return 0;
-    context->lineup_ready=0u;
+    context->lineup_ready=0u;context->abandoned=0u;
     if(!exp_universal_native_match_valid(context,fixture))return 0;
     if(!context->interactive && s_result_prompt &&
        (context->home==&_careerTeam || context->away==&_careerTeam)) {
@@ -324,6 +324,9 @@ int ExpandedUniversal_NativeRunOriginal(
         (unsigned long long)(Platform_NowMs()-og_started_ms),
         (unsigned)SDL_AtomicGet(&s_universal_match_completed),
         (unsigned)!bad);
+    /* Manual ESC abort (not a window close/crash): a clean "not played". */
+    c->abandoned=(uint8_t)(bad && c->interactive && _gameCanceled &&
+                           !_quitToDos);
     if(bad) {
         fprintf(stderr,"[universal-native] OG_RESULT_REJECTED "
             "cpu=%u completed=%u quit=%u canceled=%u exit=%u "
@@ -336,6 +339,12 @@ int ExpandedUniversal_NativeRunOriginal(
             (int)_penaltiesState,(unsigned)_statsTeam1Goals,
             (unsigned)_statsTeam2Goals,(unsigned)_statsTeam1GoalsCopy,
             (unsigned)_statsTeam2GoalsCopy);
+        if(c->abandoned) {
+            fprintf(stderr,"[universal-native] MATCH_ABANDONED event=%llu "
+                "OG=BACK_TO_PRE_MATCH_STATE replay-allowed=1\n",
+                (unsigned long long)fixture->event_id);
+            _gameCanceled=0u; /* do not leak the abort into the menu */
+        }
         return 0;
     }
     witness->key=fixture->key;

@@ -875,17 +875,23 @@ static int live_complete_prestart(void) {
  * MIRROR of the CE day (same .CAR field as before, so old tools/CAR keep
  * working), refreshed lazily on read/save. No CE code calls LWE any more. */
 static ExpandedWorldClockProvider s_clock_provider;
+static int s_clock_hold; /* CONTINUE in progress: provider muted (v284) */
+/* The CE day, unless muted by a load in progress. */
+static int exp_live_ce_day(int32_t *day) {
+    return !s_clock_hold && s_clock_provider!=NULL && s_clock_provider(day);
+}
+void ExpandedWorldLive_ClockProviderHold(int hold) { s_clock_hold=hold!=0; }
 void ExpandedWorldLive_SetClockProvider(ExpandedWorldClockProvider provider) {
     s_clock_provider=provider;
 }
 int ExpandedWorldLive_ClockProviderActive(void) {
     int32_t day=0;
-    return s_clock_provider!=NULL && s_clock_provider(&day);
+    return exp_live_ce_day(&day);
 }
 /* Mirror the CE day into the compatibility cursor. 1 = a CE clock exists. */
 static int exp_live_sync_from_ce(void) {
     int32_t day=0;
-    if (!s_live || !s_clock_provider || !s_clock_provider(&day)) return 0;
+    if (!s_live || !exp_live_ce_day(&day)) return 0;
     /* The mirror must EQUAL the CE day (v283): both directions when the
      * LWE ledger holds no fixtures (always true in OG-only WORLD2627), so a
      * restore or a new career can never leave it ahead of the CE. With
@@ -905,7 +911,7 @@ static int exp_live_sync_from_ce(void) {
 int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate date) {
     int32_t target=0;
     /* CE owns the clock: LWE must never advance an independent civil day. */
-    if (s_clock_provider && ExpandedWorldLive_ClockProviderActive()) {
+    if (ExpandedWorldLive_ClockProviderActive()) {
         fprintf(stderr,"[lwe-clock] AdvanceToDate REFUSED: CE owns the "
                 "world clock (mirror only)\n");
         return 0;
@@ -1206,15 +1212,14 @@ int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *out) {
     int32_t next_day=0;
     int32_t ce_day=0;
     /* CE active but no LWE state at all: the date still comes from the CE. */
-    if (out && (!s_live || !s_fixtures) && s_clock_provider &&
-        s_clock_provider(&ce_day)) {
+    if (out && (!s_live || !s_fixtures) && exp_live_ce_day(&ce_day)) {
         memset(out,0,sizeof *out);
         return ExpandedWorld_IndexToDate(ce_day,&out->today);
     }
     if (!out || !s_live || !s_fixtures) return 0;
     memset(out,0,sizeof *out);
     const int ce_clock=exp_live_sync_from_ce(); /* CE day, when active */
-    if (ce_clock && s_clock_provider(&ce_day))
+    if (ce_clock && exp_live_ce_day(&ce_day))
         { if (!ExpandedWorld_IndexToDate(ce_day,&out->today)) return 0; }
     else if (!ExpandedWorld_IndexToDate(s_ledger.now,&out->today)) return 0;
     for (uint32_t i=0;i<s_ledger.count;++i) {
@@ -2412,6 +2417,7 @@ int ExpandedWorldLive_DivisionStatus(uint32_t index,
 int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate d) {(void)d;return 0;}
 void ExpandedWorldLive_SetClockProvider(ExpandedWorldClockProvider p) {(void)p;}
 int ExpandedWorldLive_ClockProviderActive(void) {return 0;}
+void ExpandedWorldLive_ClockProviderHold(int hold) {(void)hold;}
 int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *s) {(void)s;return 0;}
 int ExpandedWorldLive_AdvanceWeeks(uint32_t w) {(void)w;return 0;}
 int ExpandedWorldLive_AdvanceToSeason(uint16_t y) {(void)y;return 0;}

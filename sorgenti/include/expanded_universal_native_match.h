@@ -22,6 +22,7 @@ typedef struct ExpandedUniversalNativeMatch {
     uint16_t pitch_type, season, pitch_type_or_season;
     uint8_t interactive;    /* 1: Show original lineup BEFORE CAR claim */
     uint8_t lineup_ready;   /* set only after original SetupPlayers succeeds */
+    uint8_t abandoned;      /* set when the 50 Hz match was aborted before its end (ESC) */
 } ExpandedUniversalNativeMatch;
 
 /* Read-only legacy match UI safeguard; automatic 2627 games now use

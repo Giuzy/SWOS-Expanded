@@ -41,6 +41,8 @@ typedef struct ExpandedUniversalCatalogAudit {
 int ExpandedUniversalCatalog_Begin(void);
 void ExpandedUniversalCatalog_Reset(void);
 int ExpandedUniversalCatalog_AddClub(const TeamFileEx *team);
+/* v284: identity of a roster without touching the catalogue (CAR dry-run). */
+int ExpandedUniversalCatalog_KeyOf(const TeamFileEx *team,ExpandedClubKey *out);
 int ExpandedUniversalCatalog_AddLeague(uint8_t country, uint8_t native_comp_id,
                                        uint8_t division, uint8_t begin_phase,
                                        uint8_t end_phase, uint8_t legs);

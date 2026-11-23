@@ -16,6 +16,10 @@ void *swos_io_realloc(void *p,uint32_t n) {return realloc(p,n);}
 void *swos_io_alloc(uint32_t n) {return malloc(n);}
 void swos_io_free(void *p) {free(p);}
 
+static unsigned s_register_clock_calls;
+unsigned long long Platform_NowMs(void) {return 0;}
+void ExpandedUniversalLive_ResetCpuBatch(void) {}
+void ExpandedUniversalLive_RegisterClock(void) {++s_register_clock_calls;}
 static char s_disk[65536];
 static unsigned s_writes,s_games;
 static int s_fail_completion;
@@ -76,7 +80,7 @@ int main(void)
     const int32_t d=date(2026,7,1);
     const ExpandedUniversalOps ops={
         ExpandedUniversal_CarSaveClaim,run_original_mock,
-        ExpandedUniversal_CarSaveCompletion,NULL};
+        ExpandedUniversal_CarSaveCompletion,NULL,NULL,NULL};
     ExpandedUniversalRegistry *r;
     ExpandedUniversalFixture f0=fixture(UINT64_C(0x2000000000000001),1u,
                                         (45u<<16)|1u,(45u<<16)|2u,d);
@@ -104,6 +108,28 @@ int main(void)
     s_world=WORLD_9697;
     assert(!ExpandedUniversal_CarValidate(s_disk,(int)strlen(s_disk)));
     s_world=WORLD_2627;
+    /* v284 side-effect-free helpers used by the transactional CONTINUE. */
+    {
+        const int len=(int)strlen(s_disk);
+        int32_t peeked=-1;
+        uint32_t keys[4]={(45u<<16)|1u,(45u<<16)|2u,(45u<<16)|3u,(45u<<16)|4u};
+        uint32_t partial[3]={(45u<<16)|1u,(45u<<16)|2u,(45u<<16)|3u};
+        assert(ExpandedUniversal_CarPeekClock(s_disk,len,&peeked) && peeked==d);
+        assert(ExpandedUniversal_CarCoversClubs(s_disk,len,keys,4u));
+        assert(!ExpandedUniversal_CarCoversClubs(s_disk,len,partial,3u));
+        assert(!ExpandedUniversal_CarCoversClubs(s_disk,len,NULL,0u));
+        assert(!ExpandedUniversal_CarPeekClock(corrupted,(int)strlen(corrupted),
+                                               &peeked));
+        assert(!ExpandedUniversal_CarCoversClubs(corrupted,
+                   (int)strlen(corrupted),keys,4u));
+        s_world=WORLD_9697;
+        assert(!ExpandedUniversal_CarPeekClock(s_disk,len,&peeked));
+        s_world=WORLD_2627;
+        /* none of the helpers touched or replaced the live registry */
+        assert(ExpandedUniversal_CarRegistry()==r);
+        assert(ExpandedUniversal_ValidateRestore(r) && !r->recovery_required);
+        assert(s_register_clock_calls>=1u); /* CarBegin registered the clock */
+    }
     /* One real transaction in the test uses mock OG result, but REAL
      * production CAR Claim/Completion callbacks and codec. */
     assert(ExpandedUniversal_RunDue(r,d,&ops)==EXP_UNIVERSAL_OK);
@@ -134,6 +160,25 @@ int main(void)
     assert(r && ExpandedUniversal_ValidateRestore(r));
     assert(ExpandedUniversal_Peek(r,d,&next)==EXP_UNIVERSAL_DUE);
     assert(next && next->event_id==f1.event_id);
+    /* Failed restore past the point of no return: lock instead of playing a
+     * half-restored career; a later valid restore clears the lock. */
+    {
+        const unsigned before=s_register_clock_calls;
+        ExpandedUniversal_CarMarkRecovery();
+        assert(r->recovery_required);
+        assert(ExpandedUniversal_Peek(r,d,&next)==EXP_UNIVERSAL_RECOVERY);
+        assert(ExpandedUniversal_CarRestore(s_disk,(int)strlen(s_disk)));
+        r=ExpandedUniversal_CarRegistry();
+        assert(r && !r->recovery_required);
+        assert(s_register_clock_calls==before+1u);
+        assert(ExpandedUniversal_Peek(r,d,&next)==EXP_UNIVERSAL_DUE);
+        /* repeated CONTINUE of the same CAR: identical, no replay */
+        assert(ExpandedUniversal_CarRestore(s_disk,(int)strlen(s_disk)));
+        r=ExpandedUniversal_CarRegistry();
+        assert(r && !r->recovery_required &&
+               ExpandedUniversal_Peek(r,d,&next)==EXP_UNIVERSAL_DUE &&
+               next && next->event_id==f1.event_id);
+    }
     /* Save completion failure must leave durable CLAIMED and block retry. */
     s_fail_completion=1;
     assert(ExpandedUniversal_RunDue(r,d,&ops)==EXP_UNIVERSAL_RECOVERY);

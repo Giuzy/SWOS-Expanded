@@ -75,6 +75,15 @@ typedef struct ExpandedUniversalOps {
                            const ExpandedUniversalFixture *fixture,
                            const ExpandedUniversalCompletion *proposal);
     void *user;
+    /* v284 (OG behaviour): a manual match left BEFORE its end (ESC abort) is
+     * not a result. If run_match failed and abandoned() says it was a clean
+     * abort, the CLAIMED fixture is put back to SCHEDULED, persisted with
+     * save_release, and the manager may play/simulate it again, exactly as
+     * the original DIY career code does (`if(_gameCanceled) return 1`).
+     * Both are OPTIONAL and last, so positional initialisers stay valid. */
+    int (*abandoned)(void *user);
+    int (*save_release)(void *user, const ExpandedUniversalRegistry *registry,
+                        const ExpandedUniversalFixture *fixture);
 } ExpandedUniversalOps;
 
 /* Sorted fixtures (live batch and restored modern CAR) have an indexed
@@ -488,6 +497,17 @@ static inline ExpandedUniversalResult ExpandedUniversal_RunDue(
            !ExpandedClubKey_Equal(witness.home,f->home) ||
            !ExpandedClubKey_Equal(witness.away,f->away) ||
            witness.day_index!=f->day_index) {
+            /* Clean manual abort: back to the state BEFORE the match (OG). */
+            if(!witness.valid && ops->abandoned && ops->save_release &&
+               ops->abandoned(ops->user)) {
+                claim->state=EXP_FIXTURE_SCHEDULED;
+                if(!ops->save_release(ops->user,r,f)) {
+                    claim->state=EXP_FIXTURE_CLAIMED;
+                    r->recovery_required=1u;
+                    return EXP_UNIVERSAL_RECOVERY;
+                }
+                return EXP_UNIVERSAL_BLOCKED;
+            }
             /* OG may already have changed its RNG and match state:
              * never release and retry the same fixture automatically. */
             r->recovery_required=1u;

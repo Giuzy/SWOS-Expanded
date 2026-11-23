@@ -37,6 +37,12 @@ static int exp_batch_completion(void *user,const ExpandedUniversalRegistry *r,
 }
 
 
+static int exp_match_abandoned(void *user)
+{
+    const ExpandedUniversalNativeMatch *m=(const ExpandedUniversalNativeMatch *)user;
+    return m && m->abandoned;
+}
+
 static ExpandedUniversalResult exp_execute_next(
     int32_t target_day,ExpandedUniversalNativeMatch *match,int cpu_batch)
 {
@@ -44,6 +50,7 @@ static ExpandedUniversalResult exp_execute_next(
     const ExpandedUniversalFixture *due=NULL;
     ExpandedUniversalResult ready;
     ExpandedUniversalOps ops;
+    memset(&ops,0,sizeof ops); /* optional hooks default to NULL */
     if(!r)return EXP_UNIVERSAL_EMPTY; /* no migrated career yet */
     if(!match || r->recovery_required)return EXP_UNIVERSAL_RECOVERY;
     /* The shared civil clock must ALREADY be on the fixture's actual
@@ -70,6 +77,8 @@ static ExpandedUniversalResult exp_execute_next(
     ops.save_completion=cpu_batch && !match->interactive?
         exp_batch_completion:ExpandedUniversal_CarSaveCompletion;
     ops.user=match;
+    ops.abandoned=exp_match_abandoned;
+    ops.save_release=ExpandedUniversal_CarSaveRelease;
     return ExpandedUniversal_RunDue(r,target_day,&ops);
 }
 ExpandedUniversalResult ExpandedUniversal_CareerExecuteNext(

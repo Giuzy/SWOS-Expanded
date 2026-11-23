@@ -22,6 +22,16 @@ int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user);
 int ExpandedUniversal_CarValidate(const char *json,int size);
 /* Apply only after the preflight checks passed (no replay). */
 int ExpandedUniversal_CarRestore(const char *json,int size);
+/* v284 side-effect-free helpers for a TRANSACTIONAL CONTINUE: they parse the
+ * candidate CAR into scratch memory and never touch the live registry. */
+/* 1 = CE section present; *day = its civil clock. */
+int ExpandedUniversal_CarPeekClock(const char *json,int size,int32_t *day);
+/* 1 = every fixture club of the CE section is in sorted_keys (stable_club). */
+int ExpandedUniversal_CarCoversClubs(const char *json,int size,
+    const uint32_t *sorted_keys,uint32_t n);
+/* After a restore failed past the point of no return: lock the live
+ * registry (no play, no saves) instead of continuing half-restored. */
+void ExpandedUniversal_CarMarkRecovery(void);
 
 /* Real CAR callbacks for the generic dispatcher, not fake acknowledgements.
  * Claim = durable CLAIMED before original game; Complete = persist proposed
@@ -30,6 +40,11 @@ int ExpandedUniversal_CarRestore(const char *json,int size);
 /* Atomic transaction after a full CPU quick block has completed in RAM.
  * A crash before this call commits nothing from the current block. */
 int ExpandedUniversal_CarSaveCpuBatch(uint32_t completed_count);
+/* v284: put a CLAIMED fixture back to SCHEDULED on disk after a clean manual
+ * abort of the 50 Hz match (original OG behaviour). */
+int ExpandedUniversal_CarSaveRelease(void *user,
+    const ExpandedUniversalRegistry *registry,
+    const ExpandedUniversalFixture *fixture);
 int ExpandedUniversal_CarSaveClaim(void *user,
     const ExpandedUniversalRegistry *registry,
     const ExpandedUniversalFixture *fixture);

@@ -355,6 +355,43 @@ int ExpandedUniversal_CarValidate(const char *json,int size)
     exp_car_clear(&candidate);
     return ok;
 }
+int ExpandedUniversal_CarPeekClock(const char *json,int size,int32_t *day)
+{
+    ExpandedCarWorld candidate={0};
+    int present=0,ok;
+    ok=day && exp_car_parse(json,size,&candidate,&present) && present;
+    if(ok)*day=candidate.reg.scheduler.clock.day_index;
+    exp_car_clear(&candidate);
+    return ok;
+}
+static int exp_key_cmp(const void *aa,const void *bb)
+{
+    const uint32_t a=*(const uint32_t *)aa,b=*(const uint32_t *)bb;
+    return a<b?-1:a>b?1:0;
+}
+int ExpandedUniversal_CarCoversClubs(const char *json,int size,
+    const uint32_t *sorted_keys,uint32_t n)
+{
+    ExpandedCarWorld candidate={0};
+    int present=0,ok;
+    uint32_t i;
+    ok=sorted_keys && n && exp_car_parse(json,size,&candidate,&present) &&
+       present;
+    for(i=0;ok && i<candidate.reg.fixture_count;++i) {
+        const ExpandedUniversalFixture *f=&candidate.reg.fixtures[i];
+        if(!bsearch(&f->home.stable_club,sorted_keys,n,sizeof *sorted_keys,
+                    exp_key_cmp) ||
+           !bsearch(&f->away.stable_club,sorted_keys,n,sizeof *sorted_keys,
+                    exp_key_cmp))ok=0;
+    }
+    exp_car_clear(&candidate);
+    return ok;
+}
+void ExpandedUniversal_CarMarkRecovery(void)
+{
+    ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    if(r)r->recovery_required=1u;
+}
 int ExpandedUniversal_CarRestore(const char *json,int size)
 {
     ExpandedCarWorld candidate={0};
@@ -452,6 +489,27 @@ int ExpandedUniversal_CarSaveClaim(void *user,
             (unsigned long long)f->event_id);
         return ok;
     }
+}
+int ExpandedUniversal_CarSaveRelease(void *user,
+    const ExpandedUniversalRegistry *r,const ExpandedUniversalFixture *f)
+{
+    ExpandedFixtureLedgerEntry *entry;
+    (void)user;
+    if(!r || r!=ExpandedUniversal_CarRegistry() || !f ||
+       !ExpandedUniversal_ValidateRestore((ExpandedUniversalRegistry *)r))
+        return 0;
+    entry=ExpandedUniversal_EntryFor((ExpandedUniversalRegistry *)r,f);
+    /* The caller already restored SCHEDULED in RAM; nothing was played. */
+    if(!entry || entry->state!=EXP_FIXTURE_SCHEDULED)return 0;
+    if(!Expanded_AutoCareer_SaveChecked("universal-fixture-abandoned")) {
+        fprintf(stderr,"[universal-car] RELEASE_REJECTED event=%llu\n",
+            (unsigned long long)f->event_id);
+        return 0;
+    }
+    fprintf(stderr,"[universal-car] RELEASED_PERSISTED event=%llu "
+        "state=SCHEDULED OG-abort=BACK_TO_PRE_MATCH\n",
+        (unsigned long long)f->event_id);
+    return 1;
 }
 int ExpandedUniversal_CarSaveCompletion(void *user,
     const ExpandedUniversalRegistry *r,const ExpandedUniversalFixture *f,

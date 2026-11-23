@@ -74,7 +74,21 @@
  * state is read (save_format_json.c), so an old career clock can never leak
  * into a restored one. New isolated test run_test_expanded_world_clock_mirror.sh.
  * Windows gameplay/CONTINUE NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.283"
+/* v284: OG behaviour for a manual match left BEFORE its end (ESC): back to
+ * the state before the match, fixture SCHEDULED again (persisted), no
+ * recovery lock, manager may play or simulate it again (original DIY code:
+ * `if(_gameCanceled) return 1`). Window close/crash keeps CLAIMED+recovery.
+ * Fixes the DATE ERROR / grey NEXT MATCH / blocked saves. A CAR already
+ * saved with that fixture CLAIMED is NOT repaired. Windows NOT PROVEN. */
+/* v285: TRANSACTIONAL CONTINUE. save_format_json.c no longer resets the CE
+ * registry before the load is validated (v283 flaw). Dry-run preflight: CE
+ * clock == civil clock of the CAR, roster identities/uniqueness/count, every
+ * fixture club has a roster. The clock provider is muted during the restore
+ * (ExpandedWorldLive_ClockProviderHold); CarRestore parses the candidate
+ * first; a failure after the first mutation locks the registry in recovery
+ * (ExpandedUniversal_CarMarkRecovery). CAR isolated test now runs. Windows
+ * CONTINUE NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.285"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

@@ -55,6 +55,21 @@ int main(void){
     g_day=idx(2026,12,20);
     assert(ExpandedWorldLive_CalendarState(&st));
     assert(st.today.month==12 && st.today.day==20);
+    /* 5b. CONTINUE in progress (v284): provider muted. A STALE CE registry of
+     * the previous career must not answer for the restored LWE cursor. */
+    g_day=idx(2027,3,1);               /* stale registry, different day */
+    ExpandedWorldLive_ClockProviderHold(1);
+    assert(!ExpandedWorldLive_ClockProviderActive());
+    assert(ExpandedWorldLive_CalendarState(&st));
+    assert(st.today.month==12 && st.today.day==20); /* LWE cursor untouched */
+    ExpandedWorldLive_ClockProviderHold(0);
+    assert(ExpandedWorldLive_ClockProviderActive());
+    assert(ExpandedWorldLive_CalendarState(&st));
+    assert(st.today.year==2027 && st.today.month==3 && st.today.day==1);
+    g_day=idx(2026,12,20);             /* back, for the next steps */
+    /* the mirror also follows the CE BACKWARDS (no LWE fixtures): never ahead */
+    assert(ExpandedWorldLive_CalendarState(&st));
+    assert(st.today.year==2026 && st.today.month==12 && st.today.day==20);
     /* 6. CE clock disappears (career end / world change): back to LWE */
     g_active=0;
     assert(!ExpandedWorldLive_ClockProviderActive());

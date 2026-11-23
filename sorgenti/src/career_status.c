@@ -10488,6 +10488,27 @@ int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
     static uint8_t unavailable[]="OG WORLD: COMPETITION NOT RESIDENT";
     if(!record || _gameType!=4)return 0;
     const Competition *wanted=(const Competition *)record;
+    /* Once JSON CE is active, OG country residents are no longer league
+     * authority. Keep the ORIGINAL OG viewer chrome, but mount a READ-ONLY
+     * CE ledger table (in a restored scratch image), never old standings. */
+    if(ExpandedUniversalLive_Active()) {
+        extern uint8_t Expanded_OGPicker_LastCountry(void);
+        extern int ExpandedUniversal_OGBoardViewLeague(
+            uint8_t,const uint8_t *,uint16_t);
+        const uint8_t country=Expanded_OGPicker_LastCountry();
+        const int ok=wanted->type==0 &&
+            ExpandedUniversal_OGBoardViewLeague(country,record,division);
+        if(!ok) {
+            static uint8_t unavailable[]=
+                "CE WORLD: COMPETITION FIXTURES UNAVAILABLE";
+            fprintf(stderr,"[ce-world-view] NO_REGISTERED_LEAGUE "
+                "country=%u comp=%u division=%u type=%d read-only=1\n",
+                (unsigned)country,(unsigned)wanted->compId,
+                (unsigned)division,(int)wanted->type);
+            ShowErrorMenu(unavailable);
+        }
+        return ok;
+    }
     if(wanted->type==1)return exp_og_view_cup(record);
     if(wanted->type==2 &&
        (World_Current()==WORLD_2627 ||

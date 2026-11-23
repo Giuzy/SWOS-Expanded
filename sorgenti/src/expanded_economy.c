@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
+#include <stdlib.h> /* CE display scratch calloc/free/qsort only */
 #include "menu_system.h"
 #include "build_info.h"
 #include "world.h"
@@ -21,6 +22,9 @@
 #include "expanded_country_season_baked.h" /* country-wide manager calendar cycle */
 #include "expanded_og_cache_match.h" /* read-only native fixture dates, no score writer */
 #include "expanded_bolivia_calendar_viewport.h" /* render-only red arrows and OG focus */
+#include "expanded_universal_car.h" /* CE fixture ledger: read-only manager calendar */
+#include "expanded_universal_live.h" /* active CE world, no legacy fixture fallback */
+#include "expanded_universal_world_catalog.h" /* roster names; never reconstruct teams */
 #endif
 #include "expanded_midseason_join.h"
 #include "game_types.h"
@@ -2150,6 +2154,7 @@ static unsigned ui_fixture_count(void) {
  * expose them as a career match callback. The original menu owns scrolling
  * and the original resident OG owns EVERY fixture/result. */
 typedef struct UICompactFixture {
+    uint64_t eventId; /* CE viewport identity, not game callback */
     uint32_t dayKey;
     uint8_t day,month,cup,highlight,scoreText,expandedBolivia,seasonBreak;
     char label[80],first[80],side[24],mark[24],opponent[90];
@@ -2215,6 +2220,10 @@ static void ui_bolivia_restore_scroll_hitboxes(void)
 int Expanded_UI_BoliviaCalendarScroll(int direction)
 {
     if(!ui_country_calendar_active() || !ui_load())return 0;
+    if(ExpandedUniversalLive_Active()) {
+        (void)ExpandedBoliviaCalendar_Scroll(&s_uiCountryCalendarView,direction);
+        return 1; /* CE view never scrolls obsolete OG TSKC */
+    }
     if(ui_bolivia_calendar_active()) {
         (void)ExpandedBoliviaCalendar_Scroll(
             &s_uiBoliviaCalendarView,direction);
@@ -2457,14 +2466,25 @@ static void ui_paint_compact_fixture(const UICompactFixture *r,unsigned index)
          * CLASSIC/DIY/SEASON: no forced COPPA/DPN/date truncation. */
         ui_native_text(29,y,73,r->cup?15:2,r->label,-1);
     }
-    if(r->first[0])ui_native_ellipsis(102,y,68,2,r->first,-1);
+    /* For CE fixtures only, the user's ellipsis permission applies to
+     * COMPETITION labels, not club names. Native-font clipping is the
+     * existing fallback for the fixed-width team columns. */
+    if(r->first[0]) {
+        if(r->eventId)ui_native_text(102,y,68,2,r->first,-1);
+        else ui_native_ellipsis(102,y,68,2,r->first,-1);
+    }
     if(r->side[0])ui_native_text(178,y,18,2,r->side,0);
     if(r->mark[0])ui_native_text(196,y,r->scoreText?24:12,2,r->mark,0);
-    if(r->opponent[0])ui_native_ellipsis(210,y,100,2,r->opponent,-1);
+    if(r->opponent[0]) {
+        if(r->eventId)ui_native_text(210,y,100,2,r->opponent,-1);
+        else ui_native_ellipsis(210,y,100,2,r->opponent,-1);
+    }
 }
 int Expanded_UI_CompactFixtureRow(unsigned row,unsigned slotType)
 {
     if(!ui_load() || _currentMenuPtr!=(uintptr_t)_contestMenu)return 0;
+    if(ExpandedUniversalLive_Active() && _gameType==4u)
+        return 1; /* the CE ledger supplies ALL visible fixture rows below */
     if(row>=14u || row>=ui_fixture_count())return 1;
     UICompactFixture *r=&s_uiNativeFixtures[row];
     memset(r,0,sizeof *r);
@@ -2674,12 +2694,179 @@ static void ui_render_country_calendar(void)
             ui_paint_compact_fixture(&merged[src],row);
     }
 }
+/* CE2026/27 manager timeline, READ ONLY. Unlike the older TSKC view,
+ * every pairing/date/score is projected from the one persistent CE ledger.
+ * Sunday stops are visual gaps only; never scheduled as match events. */
+static int ui_ce_fixture_cmp(const void *aa,const void *bb)
+{
+    const UICompactFixture *a=(const UICompactFixture *)aa;
+    const UICompactFixture *b=(const UICompactFixture *)bb;
+    if(a->dayKey!=b->dayKey)return a->dayKey<b->dayKey?-1:1;
+    if(a->seasonBreak!=b->seasonBreak)return a->seasonBreak?1:-1;
+    return a->eventId<b->eventId?-1:a->eventId>b->eventId?1:0;
+}
+static void ui_render_ce_calendar(void)
+{
+    extern void *_competitionsTable[];
+    ExpandedUniversalRegistry *const reg=ExpandedUniversal_CarRegistry();
+    ExpandedLiveCalendarState civil={0};
+    ExpandedClubKey manager={0};
+    uint32_t selected=0u,capacity=0u,count=0u;
+    int32_t today=0,finalDay=0;
+    UICompactFixture *rows=NULL;
+    if(!ui_country_calendar_active() || !ExpandedUniversalLive_Active() ||
+       !reg || reg->recovery_required || !reg->fixtures ||
+       !reg->ledger.entries || reg->fixture_count!=reg->ledger.count ||
+       !ExpandedWorldLive_CalendarState(&civil) ||
+       !ExpandedWorld_DateToIndex(civil.today,&today) ||
+       today!=reg->scheduler.clock.day_index)return;
+    const uint8_t file=(uint8_t)(_selTeamNumber>>8);
+    const uint8_t country=World_FileCountry(file);
+    const uint16_t slot=World_Slot(file,(uint8_t)_selTeamNumber);
+    if(slot>=WORLD_SLOTS || World_SlotTeam(country,slot)!=_selTeamNumber)
+        return;
+    manager=(ExpandedClubKey){(uint16_t)WORLD_2627,
+        ((uint32_t)country<<16)|((uint32_t)slot+1u)};
+    for(uint32_t i=0u;i<reg->fixture_count;++i) {
+        const ExpandedUniversalFixture *f=&reg->fixtures[i];
+        if(ExpandedClubKey_Equal(f->home,manager) ||
+           ExpandedClubKey_Equal(f->away,manager)) {
+            ++selected;
+            if(f->day_index>finalDay)finalDay=f->day_index;
+        }
+    }
+    if(!selected || selected>UINT32_MAX-54u)return;
+    capacity=selected+54u;
+#if SIZE_MAX < UINT64_MAX
+    /* 32-bit allocation only. On MSYS2 x64 the check is provably
+     * false and -Werror may reject the always-false comparison. */
+    if((size_t)capacity>SIZE_MAX/sizeof *rows)return;
+#endif
+    rows=(UICompactFixture *)calloc(capacity,sizeof *rows);
+    if(!rows)return;
+    const TeamFileEx *myTeam=ExpandedUniversalCatalog_Roster(manager);
+    if(!myTeam)goto done;
+    for(uint32_t i=0u;i<reg->fixture_count;++i) {
+        const ExpandedUniversalFixture *f=&reg->fixtures[i];
+        const int home=ExpandedClubKey_Equal(f->home,manager);
+        if(!home && !ExpandedClubKey_Equal(f->away,manager))continue;
+        const ExpandedFixtureLedgerEntry *entry=&reg->ledger.entries[i];
+        const TeamFileEx *opponent=ExpandedUniversalCatalog_Roster(
+            home?f->away:f->home);
+        ExpandedWorldDate d={0};
+        if(!opponent || !ExpandedFixtureKey_Equal(f->key,entry->key) ||
+           (entry->state!=EXP_FIXTURE_PLAYED &&
+            entry->state!=EXP_FIXTURE_SCHEDULED) ||
+           f->competition_type!=0u ||
+           !ExpandedWorld_IndexToDate(f->day_index,&d) ||
+           count>=capacity)goto done;
+        UICompactFixture *r=&rows[count++];
+        r->expandedBolivia=1u; /* selects the existing dated columns */
+        r->cup=0u;r->eventId=f->event_id;
+        r->day=d.day;r->month=d.month;
+        r->dayKey=ui_fixture_date_key(d.year,d.month,d.day);
+        const unsigned compId=(unsigned)(
+            (f->key.edition.competition.stable_competition>>16)&255u);
+        const void *const *const tbl=
+            (const void *const *)_competitionsTable[f->country];
+        /* _competitionsTable entries can contain OG -1/-2 sentinels.
+         * Reuse the same pointer gate as the native OG WORLD viewer:
+         * checking >4096 alone would dereference a sentinel. */
+        const Competition *comp=tbl && tbl[0] &&
+            (uintptr_t)tbl[0]>4096u &&
+            (uintptr_t)tbl[0]!=(uintptr_t)-1 &&
+            (uintptr_t)tbl[0]!=(uintptr_t)-2?
+            (const Competition *)tbl[0]:NULL;
+        const char *name=comp && comp->type==0 &&
+            comp->compId==compId?comp_name_at((Competition *)comp,
+                 (size_t)f->slot*2u+1u):NULL;
+        snprintf(r->label,sizeof r->label,"%s",
+                 name && *name?name:"LEAGUE");
+        snprintf(r->first,sizeof r->first,"%.17s",
+                 (const char *)myTeam->team.teamName);
+        snprintf(r->side,sizeof r->side,"%s",home?"(H)":"(A)");
+        snprintf(r->opponent,sizeof r->opponent,"%.17s",
+                 (const char *)opponent->team.teamName);
+        if(entry->state==EXP_FIXTURE_PLAYED) {
+            snprintf(r->mark,sizeof r->mark,"%u-%u",
+                home?(unsigned)entry->score.home:(unsigned)entry->score.away,
+                home?(unsigned)entry->score.away:(unsigned)entry->score.home);
+            r->scoreText=1u;
+        } else snprintf(r->mark,sizeof r->mark,"V");
+    }
+    /* Only genuine weekly no-match stops between 1 July and the last
+     * registered manager fixture. A match on the same day suppresses BREAK. */
+    ExpandedWorldDate cursor={World_FirstYear(),7u,1u};
+    int32_t lastStop=0;
+    if(!ExpandedWorld_DateToIndex(cursor,&lastStop))goto done;
+    for(unsigned week=0u;week<54u && count<capacity;++week) {
+        ExpandedWorldDate stop={0};
+        int32_t idx=0;
+        if(!ExpandedWorld_NextSundayOrFixture(cursor,0,
+                (ExpandedWorldDate){0},&stop) ||
+           !ExpandedWorld_DateToIndex(stop,&idx) ||
+           idx<=lastStop || idx>finalDay)break;
+        const uint32_t key=ui_fixture_date_key(
+            stop.year,stop.month,stop.day);
+        unsigned exists=0u;
+        for(uint32_t j=0u;j<count;++j)
+            if(!rows[j].seasonBreak && rows[j].dayKey==key) {
+                exists=1u;break;
+            }
+        if(!exists) {
+            UICompactFixture *r=&rows[count++];
+            r->dayKey=key;r->day=stop.day;r->month=stop.month;
+            r->seasonBreak=1u;r->expandedBolivia=1u;
+            snprintf(r->first,sizeof r->first,"SEASON BREAK");
+        }
+        cursor=stop;lastStop=idx;
+    }
+    qsort(rows,count,sizeof *rows,ui_ce_fixture_cmp);
+    int focus=-1;
+    uint64_t key=0u;
+    for(uint32_t i=0u;i<count;++i)
+        if(!rows[i].seasonBreak && rows[i].dayKey>=
+           ui_fixture_date_key(civil.today.year,civil.today.month,
+                               civil.today.day) &&
+           rows[i].mark[0]=='V' && rows[i].mark[1]==0) {
+            focus=(int)i;key=rows[i].eventId;break;
+        }
+    if(focus<0 && count) {
+        for(uint32_t i=count;i>0u;--i)
+            if(!rows[i-1u].seasonBreak) {
+                focus=(int)(i-1u);key=rows[i-1u].eventId;break;
+            }
+    }
+    if(focus>=0)rows[focus].highlight=1u;
+    ExpandedBoliviaCalendar_Update(
+        &s_uiCountryCalendarView,count,focus,key);
+    const unsigned shown=count<14u?count:14u;
+    ui_draw_fixture_panel(shown);
+    ui_bolivia_sync_scroll_hitboxes(ui_fixture_bottom_for_count(shown));
+    ui_fixture_rows_drawn=shown;
+    for(unsigned i=0u;i<shown;++i) {
+        const int from=s_uiCountryCalendarView.page+(int)i;
+        if(from>=0 && (uint32_t)from<count)
+            ui_paint_compact_fixture(&rows[from],i);
+    }
+    fprintf(stderr,"[ce-calendar-view] club=%08lx fixtures=%lu rows=%lu "
+        "now=%04u-%02u-%02u focus=%d source=CE_LEDGER readonly=1\\n",
+        (unsigned long)manager.stable_club,(unsigned long)selected,
+        (unsigned long)count,(unsigned)civil.today.year,
+        (unsigned)civil.today.month,(unsigned)civil.today.day,focus);
+done:
+    free(rows);
+}
 /* Merge the VISUAL representation of resident DPN/Copa fixtures; actual
  * scores, dates and the PLAY MATCH target still come only from OG.
  * The native arrow callbacks now move THIS visual page, never TSKC. */
 static void ui_render_merged_calendar(void)
 {
     if(_currentMenuPtr!=(uintptr_t)_contestMenu)return;
+    if(ExpandedUniversalLive_Active() && _gameType==4u) {
+        ui_render_ce_calendar();
+        return; /* no obsolete OG TSKC or old-country season break */
+    }
     if(!ui_bolivia_calendar_active()) {
         if(ui_country_calendar_active())
             ui_render_country_calendar();

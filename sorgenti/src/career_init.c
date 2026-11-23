@@ -4363,6 +4363,26 @@ extern void Career_AutoAdvanceLeagueCompetitionFromRecord(uint8_t *record);
 __attribute__((used, externally_visible))
 void Career_ViewOrEditCompetitionSlot(uint8_t *comp, uint16_t sel)
 {
+#ifdef SWOS_SDL_BUILD
+    /* WORLD2627 uses CE, not the obsolete local OG league slot. This
+     * picker projection is read-only; never load/edit the local copy. */
+    if(_gameType==4u && ExpandedUniversalLive_Active()) {
+        extern uint8_t Expanded_OGPicker_LastCountry(void);
+        extern int ExpandedUniversal_OGBoardViewLeague(
+            uint8_t,const uint8_t *,uint16_t);
+        const uint8_t country=Expanded_OGPicker_LastCountry();
+        const int ok=ExpandedUniversal_OGBoardViewLeague(country,comp,sel);
+        if(!ok) {
+            static uint8_t unavailable[]=
+                "CE WORLD: COMPETITION FIXTURES UNAVAILABLE";
+            fprintf(stderr,"[ce-world-view] CAREER_PICKER_UNAVAILABLE "
+                 "country=%u division=%u source=CE ONLY\n",
+                 (unsigned)country,(unsigned)sel);
+            ShowErrorMenu(unavailable);
+        }
+        return;
+    }
+#endif
     /* Step 1: Map competition pointer to its career copy via the
      * typed CompetitionCareer[] — entry stride differs by bitness
      * (10 B on 32-bit, 18 B on 64-bit), so iterate as the typed

@@ -14,10 +14,12 @@
 #define BUILD_INFO_H
 
 /* Single source of truth for the user-facing release/build number. */
-/* Original OG league screen restored without the unapproved CE PAGE 1..4 UI.
- * Universal CE fixture-to-OG match bridge retained; canonical CPU macro include
- * fixes the reported v270 GCC error. Cup KO and native >22 display unproven. */
-#define SWOS_EXPANDED_VERSION "00.13.271"
+/* CE2627 calendar/VIEW WORLD use the one fixture+OG score ledger READ ONLY.
+ * Existing original OG presentation restored after every CE table viewer;
+ * fixtures with unverified civil date provenance remain flagged in the data.
+ * No new OG UI layout or pagination. Cup KO, 23+ table, Windows and CAR
+ * save/exit/continue evidence remain unproven. */
+#define SWOS_EXPANDED_VERSION "00.13.272"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

@@ -14,10 +14,10 @@
 #define BUILD_INFO_H
 
 /* Single source of truth for the user-facing release/build number. */
-/* Experimental universal CE->original OG league menu: transient standings,
- * original VIEW RESULT/PLAY actions, one CE/CAR writer; no KO projection yet.
- * OG prematch correctly assigns CPU controls to the opponent. */
-#define SWOS_EXPANDED_VERSION "00.13.270"
+/* Original OG league screen restored without the unapproved CE PAGE 1..4 UI.
+ * Universal CE fixture-to-OG match bridge retained; canonical CPU macro include
+ * fixes the reported v270 GCC error. Cup KO and native >22 display unproven. */
+#define SWOS_EXPANDED_VERSION "00.13.271"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

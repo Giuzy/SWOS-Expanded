@@ -19,6 +19,7 @@
 #include "expanded_universal_car.h"
 #include "expanded_universal_world_catalog.h"
 #include "expanded_universal_native_match.h"
+#include "play_match_menu.h" /* canonical OG TEAM_COMPUTER, no inline magic number */
 #endif
 #include "diy_competition.h"
 #include "comp_identity.h"
@@ -96,10 +97,6 @@ extern DIYCompetitionEx _diyCompetitionStart;
  * definitions are beside the league menu and its protected callbacks. */
 static int s_ceBoardActive;
 static int s_ceBoardHomeRow,s_ceBoardAwayRow;
-static unsigned s_ceBoardPageSize;
-static uint8_t s_ceBoardPageNames[4][16] = {
-    "PAGE 1", "PAGE 2", "PAGE 3", "PAGE 4"
-};
 static void ce_board_action(unsigned action);
 #endif
 /* The standalone backing buffer behind diyCompetitionStart (7136 B). The
@@ -7975,22 +7972,12 @@ extern uint16_t _highlightedLeagueTeamId;
  * (more than 22 clubs: its zones, league_split.c). */
 static uint16_t table_groups(void)
 {
-#ifdef SWOS_SDL_BUILD
-    if(s_ceBoardActive) {
-        const unsigned count=(unsigned)_diyCompetitionStart.base.numTeams;
-        return s_ceBoardPageSize?
-            (uint16_t)((count+s_ceBoardPageSize-1u)/s_ceBoardPageSize):1u;
-    }
-#endif
     uint16_t g, n;
     return LeagueSplit_Pages(&g, &n) ? g : (uint16_t)_diyCompetitionStart.base.matchPairsPerRound;
 }
 
 static uint16_t table_per_group(void)
 {
-#ifdef SWOS_SDL_BUILD
-    if(s_ceBoardActive)return (uint16_t)s_ceBoardPageSize;
-#endif
     uint16_t g, n;
     return LeagueSplit_Pages(&g, &n) ? n : (uint16_t)_diyCompetitionStart.base.totalMatchesInRound;
 }
@@ -8194,18 +8181,9 @@ void DIYLeagueTournament16BeforeDraw(MenuEntry *entry)
 
     /* Set group string if halfTeams != 1 */
     if (table_groups() != 1) {
-#ifdef SWOS_SDL_BUILD
-        if(s_ceBoardActive && d7>=0 && d7<4)
-            entry->fg=(uintptr_t)s_ceBoardPageNames[d7];
-        else
-#endif
-            entry->fg = (uintptr_t)_groupStringTable[d7];
+        entry->fg = (uintptr_t)_groupStringTable[d7];
     }
-    const int32_t lpTable =
-#ifdef SWOS_SDL_BUILD
-        s_ceBoardActive?0:
-#endif
-        LeaguePhase_Showing();     /* (a world's league phase: one table of 36) */
+    const int32_t lpTable = LeaguePhase_Showing();     /* (a world's league phase: one table of 36) */
     if (lpTable)
         entry->fg = (uintptr_t)LeaguePhase_PageHeader(d7);
 
@@ -8233,16 +8211,6 @@ void DIYLeagueTournament16BeforeDraw(MenuEntry *entry)
     uint16_t d4 = _diyLeagueTournament_fixtureRowHeight;
     int16_t rowIdx = d7;
     uint16_t teamIdx = (uint16_t)rowIdx * numTeamsPerGroup;
-#ifdef SWOS_SDL_BUILD
-    if(s_ceBoardActive) {
-        const uint16_t count=(uint16_t)_diyCompetitionStart.base.numTeams;
-        const unsigned start=(unsigned)rowIdx*s_ceBoardPageSize;
-        if(rowIdx<0 || !s_ceBoardPageSize || start>=count)return;
-        teamIdx=(uint16_t)start;
-        if(numTeamsPerGroup>count-teamIdx)
-            numTeamsPerGroup=(uint16_t)(count-teamIdx);
-    }
-#endif
     teamIdx <<= 1; /* byte offset into fixture table */
 
     MenuEntry *a5 = &_menuEntries[31];
@@ -8259,13 +8227,7 @@ void DIYLeagueTournament16BeforeDraw(MenuEntry *entry)
 
         /* Entry for team number */
         a5->y = d2;
-#ifdef SWOS_SDL_BUILD
-        a5->fgWord=s_ceBoardActive?
-            (uint16_t)(d5+(unsigned)d7*s_ceBoardPageSize):
-            (lpTable?(uint16_t)(d5+d7*numTeamsPerGroup):d5);
-#else
-        a5->fgWord = lpTable ? (uint16_t)(d5 + d7 * numTeamsPerGroup) : d5;
-#endif /* ENTRYTYPE2UNION_NUMBER */
+        a5->fgWord = lpTable ? (uint16_t)(d5 + d7 * numTeamsPerGroup) : d5; /* ENTRYTYPE2UNION_NUMBER */
         a5++;
 
         /* Entry for team name */
@@ -10998,10 +10960,6 @@ int ExpandedUniversal_OGBoardPresent(void)
         _diyCompetitionStart.matchData.league.teamEntryOffsets[j]=key;
     }
     s_ceBoardHomeRow=home;s_ceBoardAwayRow=away;
-    /* Bound the physical OG page to 16 rows; original menu visibility
-     * calculations must never produce zero visible groups at 20+ teams.
-     * Up to 64 real CE clubs form at most four scrollable pages. */
-    s_ceBoardPageSize=n>16u?16u:n;
     s_ceBoardCommitted=0;s_ceBoardActive=1;
     _careerLoadedFlag=0;
     _diyFixtureViewMode=1;

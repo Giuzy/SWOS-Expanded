@@ -2178,13 +2178,16 @@ static int exp_coordinator_check(const char *operation,
                                  ExpandedWorldDate *today)
 {
     ExpandedLiveCalendarState state;
+    if(ExpandedUniversalLive_Active()) {
+        /* v282: the CE clock is the only world clock; LWE (clubs, cursor)
+         * is NOT consulted. Old OG native career year not authoritative. */
+        ExpandedWorldDate ceToday={0};
+        if(!ExpandedUniversalLive_Today(&ceToday))return 0;
+        if(today)*today=ceToday;
+        return 1;
+    }
     const int live=ExpandedWorldLive_Clubs()!=0 &&
                    ExpandedWorldLive_CalendarState(&state);
-    if(ExpandedUniversalLive_Active()) {
-        if(!live)return 0;
-        if(today)*today=state.today;
-        return 1; /* old OG native career year no longer authoritative */
-    }
     const unsigned civilSeason=live?
         (unsigned)state.today.year-(state.today.month<7u?1u:0u):0u;
     const int valid=live && s_expOGWorldStarted &&

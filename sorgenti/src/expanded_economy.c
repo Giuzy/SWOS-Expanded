@@ -2717,9 +2717,8 @@ static void ui_render_ce_calendar(void)
     if(!ui_country_calendar_active() || !ExpandedUniversalLive_Active() ||
        !reg || reg->recovery_required || !reg->fixtures ||
        !reg->ledger.entries || reg->fixture_count!=reg->ledger.count ||
-       !ExpandedWorldLive_CalendarState(&civil) ||
-       !ExpandedWorld_DateToIndex(civil.today,&today) ||
-       today!=reg->scheduler.clock.day_index)return;
+       !ExpandedUniversalLive_Today(&civil.today) ||
+       !ExpandedWorld_DateToIndex(civil.today,&today))return;
     const uint8_t file=(uint8_t)(_selTeamNumber>>8);
     const uint8_t country=World_FileCountry(file);
     const uint16_t slot=World_Slot(file,(uint8_t)_selTeamNumber);
@@ -2735,8 +2734,8 @@ static void ui_render_ce_calendar(void)
             if(f->day_index>finalDay)finalDay=f->day_index;
         }
     }
-    if(!selected || selected>UINT32_MAX-54u)return;
-    capacity=selected+54u;
+    if(!selected || selected>UINT32_MAX-55u)return;
+    capacity=selected+55u; /* 54 weekly stops + 1 row for TODAY (v281) */
 #if SIZE_MAX < UINT64_MAX
     /* 32-bit allocation only. On MSYS2 x64 the check is provably
      * false and -Werror may reject the always-false comparison. */
@@ -2799,7 +2798,8 @@ static void ui_render_ce_calendar(void)
     ExpandedWorldDate cursor={World_FirstYear(),7u,1u};
     int32_t lastStop=0;
     if(!ExpandedWorld_DateToIndex(cursor,&lastStop))goto done;
-    for(unsigned week=0u;week<54u && count<capacity;++week) {
+    const int32_t firstStop=lastStop; /* 1 July of the first year */
+    for(unsigned week=0u;week<54u && count+1u<capacity;++week) {
         ExpandedWorldDate stop={0};
         int32_t idx=0;
         if(!ExpandedWorld_NextSundayOrFixture(cursor,0,
@@ -2821,21 +2821,49 @@ static void ui_render_ce_calendar(void)
         }
         cursor=stop;lastStop=idx;
     }
+    /* v281: the blue cursor is ALWAYS on the line of the date shown now
+     * (civil today). If neither a match nor a weekly stop falls on today
+     * (e.g. 1 July, or after a DEBUG jump) a no-match line is added for
+     * today, with the existing SEASON BREAK wording. Only inside the
+     * season span [1 July .. last manager fixture]. */
+    const uint32_t todayKey=ui_fixture_date_key(
+        civil.today.year,civil.today.month,civil.today.day);
+    {
+        unsigned hasToday=0u;
+        for(uint32_t j=0u;j<count;++j)
+            if(rows[j].dayKey==todayKey) {hasToday=1u;break;}
+        if(!hasToday && count<capacity && today>=firstStop &&
+           today<=finalDay) {
+            UICompactFixture *r=&rows[count++];
+            r->dayKey=todayKey;r->day=civil.today.day;
+            r->month=civil.today.month;
+            r->seasonBreak=1u;r->expandedBolivia=1u;
+            snprintf(r->first,sizeof r->first,"SEASON BREAK");
+        }
+    }
     qsort(rows,count,sizeof *rows,ui_ce_fixture_cmp);
     int focus=-1;
     uint64_t key=0u;
     for(uint32_t i=0u;i<count;++i)
-        if(!rows[i].seasonBreak && rows[i].dayKey>=
-           ui_fixture_date_key(civil.today.year,civil.today.month,
-                               civil.today.day) &&
-           rows[i].mark[0]=='V' && rows[i].mark[1]==0) {
-            focus=(int)i;key=rows[i].eventId;break;
+        if(rows[i].dayKey==todayKey) {
+            focus=(int)i;
+            key=rows[i].eventId?rows[i].eventId:
+                (0x8000000000000000ull|(uint64_t)todayKey);
+            break;
         }
     if(focus<0 && count) {
-        for(uint32_t i=count;i>0u;--i)
-            if(!rows[i-1u].seasonBreak) {
-                focus=(int)(i-1u);key=rows[i-1u].eventId;break;
-            }
+        /* Today outside the span (season over/not started): keep the
+         * nearest line to today so the cursor is never lost. */
+        uint32_t best=0u,bestDist=UINT32_MAX;
+        for(uint32_t i=0u;i<count;++i) {
+            const uint32_t k=(uint32_t)rows[i].dayKey;
+            const uint32_t dist=k>(uint32_t)todayKey?
+                k-(uint32_t)todayKey:(uint32_t)todayKey-k;
+            if(dist<bestDist) {bestDist=dist;best=i;}
+        }
+        focus=(int)best;
+        key=rows[best].eventId?rows[best].eventId:
+            (0x8000000000000000ull|(uint64_t)rows[best].dayKey);
     }
     if(focus>=0)rows[focus].highlight=1u;
     ExpandedBoliviaCalendar_Update(

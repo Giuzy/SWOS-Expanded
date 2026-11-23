@@ -10998,6 +10998,14 @@ static void ce_board_action(unsigned action)
         "action=%s role=%s result=%d manager-committed=%d CE_ONE_WRITER=1\n",
         action==0u?"VIEW_RESULT":"PLAY_50HZ",cpuFixture?"CPU":"MANAGER",
         result,s_ceBoardCommitted);
+    /* The fire press that started this action (or the one that closed the
+     * nested OG team/lineup screen) may still be held when the board is
+     * live again. The original menu loop ignores a held fire only while
+     * _fireResetFlag is set: without it the held press fires the entry now
+     * under the cursor (NEXT MATCH skipped, or EXIT closing the board at
+     * once, as seen in the 23/11/2026 diagnostic: OG_MENU_EXIT right after
+     * CE_RESULT_VISIBLE). Same original mechanism used by the OG menus. */
+    _fireResetFlag=1;
     if(result!=2) {
         /* Cancelled lineup / blocked: same fixture stays current. */
         DIYLeagueTournament_UpdateMenuEntryVisibilityAndFocus();
@@ -11265,7 +11273,7 @@ int ExpandedUniversal_OGBoardPresent(void)
     if(!r || r->recovery_required ||
        _gameType!=4 || !ExpandedUniversalLive_Active() ||
        ExpandedUniversalLive_ManagerNext(&due)!=2 ||
-       !ExpandedWorldLive_CalendarState(&clock) ||
+       !ExpandedUniversalLive_Today(&clock.today) ||
        !ExpandedWorld_DateToIndex(clock.today,&today) ||
        !ExpandedUniversal_NativeTeamKey(&_careerTeam,&manager) ||
        !r->scheduler.count ||

@@ -35,6 +35,13 @@ typedef struct ExpandedLiveCalendarState {
 /* Daily API also handles mid-week dates; the weekly entry point is a wrapper.
  * Neither entry point changes original 50 Hz match ticks or OG cup handlers. */
 int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate date);
+/* v282: Competition Engine clock hook. The CE registers a provider that
+ * returns its civil day (1 = valid). While it answers, LWE is a PASSIVE
+ * mirror: AdvanceToDate is refused and CalendarState().today is the CE day.
+ * Without a provider (WORLD9697, tests, legacy) nothing changes. */
+typedef int (*ExpandedWorldClockProvider)(int32_t *day_index);
+void ExpandedWorldLive_SetClockProvider(ExpandedWorldClockProvider provider);
+int ExpandedWorldLive_ClockProviderActive(void);
 /* Read-only audit/status. A non-zero overdue count indicates missing processing. */
 int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *out);
 /* Return source-file IDs from leagues actually scheduled by this world.

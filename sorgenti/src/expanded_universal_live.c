@@ -39,6 +39,32 @@ int ExpandedUniversalLive_Active(void)
     return World_Current()==WORLD_2627 && r &&
            r->world==WORLD_2627 && r->fixture_count>0u;
 }
+/* v282: THE world clock. ExpandedUniversalRegistry.scheduler.clock is the
+ * single authority for the civil day in WORLD2627; every reader and the
+ * legacy mirror (expanded_world_live.c) take the day from here. */
+int ExpandedUniversalLive_TodayIndex(int32_t *out)
+{
+    ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    if(!out || !r || !ExpandedUniversalLive_Active())return 0;
+    *out=r->scheduler.clock.day_index;
+    return 1;
+}
+int ExpandedUniversalLive_Today(ExpandedWorldDate *out)
+{
+    int32_t day=0;
+    return out && ExpandedUniversalLive_TodayIndex(&day) &&
+           ExpandedWorld_IndexToDate(day,out);
+}
+static int exp_universal_clock_provider(int32_t *day)
+{
+    return ExpandedUniversalLive_TodayIndex(day);
+}
+/* Registered before main(): the LWE mirror asks the CE for the day, the CE
+ * never calls LWE. Harmless in WORLD9697 (provider answers 0 there). */
+__attribute__((constructor)) static void exp_universal_register_clock(void)
+{
+    ExpandedWorldLive_SetClockProvider(exp_universal_clock_provider);
+}
 int ExpandedUniversalLive_CanRestoreRosters(void)
 {
     ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
@@ -262,14 +288,12 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
                                            int debug_autosim_manager)
 {
     ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
-    ExpandedLiveCalendarState state={0};
     int32_t to=0,from=0;
     uint32_t cpu_batch_count=0u;
+    /* The CE clock is the only world clock (v282): no LWE state is read. */
     if(!ExpandedUniversalLive_Active() || !r || r->recovery_required ||
-       !ExpandedWorldLive_CalendarState(&state) ||
-       !ExpandedWorld_DateToIndex(state.today,&from) ||
-       !ExpandedWorld_DateToIndex(target,&to) || to<from ||
-       from!=r->scheduler.clock.day_index)return 0;
+       !ExpandedUniversalLive_TodayIndex(&from) ||
+       !ExpandedWorld_DateToIndex(target,&to) || to<from)return 0;
     /* Next FORWARD after at least 512 completed quick results saves the
      * whole prior RAM block, possibly larger than 512. This is NOT a
      * checkpoint at the end of the previous FORWARD. */
@@ -288,8 +312,7 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
         ExpandedWorldDate day={0};
         ExpandedClubKey manager={0};
         if(res==EXP_UNIVERSAL_EMPTY) {
-            if(!ExpandedWorldLive_AdvanceToDate(target))return 0;
-            r->scheduler.clock.day_index=to;
+            r->scheduler.clock.day_index=to; /* CE clock only */
             /* A FORWARD stop is not an autosave. Quick CPU scores below the
              * batch limit stay in RAM until a later durable checkpoint. */
             return 1;
@@ -302,10 +325,7 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
                 "no-old-OG-tick=1 no-replay=1\n",(int)res);
             return 0;
         }
-        if(!ExpandedWorldLive_AdvanceToDate(day)) {
-            r->recovery_required=1u;return 0;
-        }
-        r->scheduler.clock.day_index=f->day_index;
+        r->scheduler.clock.day_index=f->day_index; /* CE clock only */
         const int manager_due=manager_key(&manager) &&
             (ExpandedClubKey_Equal(manager,f->home) ||
              ExpandedClubKey_Equal(manager,f->away));
@@ -376,7 +396,6 @@ int ExpandedUniversalLive_Advance(ExpandedWorldDate target)
 int ExpandedUniversalLive_ManagerNext(ExpandedWorldDate *due)
 {
     ExpandedUniversalRegistry *const r=ExpandedUniversal_CarRegistry();
-    ExpandedLiveCalendarState state={0};
     ExpandedClubKey manager={0};
     const ExpandedUniversalFixture *f=NULL,*world_due=NULL;
     int32_t today=0;
@@ -384,9 +403,7 @@ int ExpandedUniversalLive_ManagerNext(ExpandedWorldDate *due)
     if(due)memset(due,0,sizeof *due);
     if(!due || !ExpandedUniversalLive_Active() || !r ||
        r->recovery_required || !manager_key(&manager) ||
-       !ExpandedWorldLive_CalendarState(&state) ||
-       !ExpandedWorld_DateToIndex(state.today,&today) ||
-       today!=r->scheduler.clock.day_index ||
+       !ExpandedUniversalLive_TodayIndex(&today) ||
        !r->scheduler.count)return -1;
     /* Last chronological event bounds available source fixtures. */
     res=ExpandedUniversal_NextForClub(r,manager,
@@ -407,16 +424,13 @@ int ExpandedUniversalLive_ManagerNext(ExpandedWorldDate *due)
 static int exp_universal_live_manager_action(int interactive)
 {
     ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
-    ExpandedLiveCalendarState state={0};
     ExpandedClubKey manager={0};
     const ExpandedUniversalFixture *f=NULL;
     int32_t today=0;
     ExpandedUniversalResult res;
     if(!ExpandedUniversalLive_Active())return 0;
     if(!r || r->recovery_required ||
-       !ExpandedWorldLive_CalendarState(&state) ||
-       !ExpandedWorld_DateToIndex(state.today,&today) ||
-       today!=r->scheduler.clock.day_index ||
+       !ExpandedUniversalLive_TodayIndex(&today) ||
        !manager_key(&manager)) {
         fprintf(stderr,"[universal-live] MANAGER_BLOCKED no-OG-TSKC=1\n");
         return 1;
@@ -482,7 +496,6 @@ int ExpandedUniversalLive_ViewManagerResult(void)
 int ExpandedUniversalLive_ViewRoundCpuResult(uint64_t event_id)
 {
     ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
-    ExpandedLiveCalendarState state={0};
     ExpandedClubKey manager={0};
     const ExpandedUniversalFixture *f;
     ExpandedFixtureLedgerEntry *entry;
@@ -490,9 +503,7 @@ int ExpandedUniversalLive_ViewRoundCpuResult(uint64_t event_id)
     int rc;
     if(!ExpandedUniversalLive_Active())return 0;
     if(!r || r->recovery_required ||
-       !ExpandedWorldLive_CalendarState(&state) ||
-       !ExpandedWorld_DateToIndex(state.today,&today) ||
-       today!=r->scheduler.clock.day_index ||
+       !ExpandedUniversalLive_TodayIndex(&today) ||
        !manager_key(&manager) ||
        !(f=ExpandedUniversal_Find(r,event_id)) || f->day_index!=today ||
        ExpandedClubKey_Equal(manager,f->home) ||

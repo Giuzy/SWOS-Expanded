@@ -50,7 +50,23 @@
  * longer date CE fixtures (first-day-of-phase retired); missing/impossible
  * calendar data fails closed. Same CE clock (scheduler.clock.day_index),
  * LWE cursor only a mirror. Isolated tests PASS; Windows NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.280"
+/* v281: CE calendar screen: the blue cursor row is ALWAYS the line of the
+ * date shown now (civil today), not the next unplayed match. If no match or
+ * weekly stop falls on today, a no-match line (SEASON BREAK wording) is
+ * added for today inside the season span; viewport recentres on it daily.
+ * Render only; no clock/fixture/CAR change. User-approved 23/11/2026.
+ * Windows NOT PROVEN. */
+/* v282: LWE clock dependency removed from the CE (WORLD2627). The CE
+ * registry clock (scheduler.clock.day_index) is the ONLY world clock:
+ * ExpandedUniversalLive_Today/TodayIndex; expanded_universal_live.c no
+ * longer calls ExpandedWorldLive_CalendarState/AdvanceToDate; LWE became a
+ * passive mirror fed through ExpandedWorldLive_SetClockProvider (its
+ * AdvanceToDate is refused while the CE is active; CalendarState returns
+ * the CE day even without LWE state). Coordinator check no longer needs
+ * LWE clubs. Also: CE board fire-reset (NEXT MATCH) from the 23/11 diag.
+ * NOT removed: LWE importer still feeds the CE club/league catalogue.
+ * Windows gameplay/CONTINUE NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.282"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

@@ -1726,7 +1726,7 @@ void Expanded_CareerDebugMonthStart(MenuEntry *unused) {
         if(_gameType!=4 || _currentMenuPtr!=(uintptr_t)_contestMenu ||
            s_active || CareerAutopilot_Active() ||
            _selTeamNumber==0xffffu ||
-           !ExpandedWorldLive_CalendarState(&live)) {
+           !ExpandedUniversalLive_Today(&live.today)) {
             fprintf(stderr,"[debug-month-career] UNIVERSAL_BLOCK "
                 "reason=INVALID_MANAGER_OR_CALENDAR no-legacy=1\n");
             return;

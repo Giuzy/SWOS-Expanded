@@ -869,12 +869,41 @@ static int live_complete_prestart(void) {
      * Existing legacy snapshots are read, not backfilled with LWE scores. */
     return s_live && s_fixtures!=NULL;
 }
+/* v00.13.282: the Competition Engine (CE) owns the world clock in WORLD2627.
+ * When it is active it registers a provider that returns ITS civil day.
+ * LWE then never advances by itself: the cursor below is only a PASSIVE
+ * MIRROR of the CE day (same .CAR field as before, so old tools/CAR keep
+ * working), refreshed lazily on read/save. No CE code calls LWE any more. */
+static ExpandedWorldClockProvider s_clock_provider;
+void ExpandedWorldLive_SetClockProvider(ExpandedWorldClockProvider provider) {
+    s_clock_provider=provider;
+}
+int ExpandedWorldLive_ClockProviderActive(void) {
+    int32_t day=0;
+    return s_clock_provider!=NULL && s_clock_provider(&day);
+}
+/* Mirror the CE day into the compatibility cursor. 1 = a CE clock exists. */
+static int exp_live_sync_from_ce(void) {
+    int32_t day=0;
+    if (!s_live || !s_clock_provider || !s_clock_provider(&day)) return 0;
+    if (day>=s_initial_day && day>s_ledger.now) {
+        s_ledger.now=day;
+        s_weeks=(uint32_t)(day-s_initial_day)/7u;
+    }
+    return 1;
+}
 /* All world advances now pass through ONE exact civil-day cursor.
  * OpenSWOS weekly menus call AdvanceWeeks; native season transitions call
  * AdvanceToSeason; future in-week events can use AdvanceToDate directly.
  * The stored .CAR schema is unchanged (day-index + elapsed full weeks). */
 int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate date) {
     int32_t target=0;
+    /* CE owns the clock: LWE must never advance an independent civil day. */
+    if (s_clock_provider && ExpandedWorldLive_ClockProviderActive()) {
+        fprintf(stderr,"[lwe-clock] AdvanceToDate REFUSED: CE owns the "
+                "world clock (mirror only)\n");
+        return 0;
+    }
     if (!s_live || !ExpandedWorld_DateToIndex(date,&target) ||
         target<s_initial_day || target<s_ledger.now) return 0;
     /* Compatibility cursor ONLY for unemployed menu/legacy save.  Do not
@@ -1169,8 +1198,16 @@ int ExpandedWorldLive_HistoryChampion(uint16_t year,uint8_t country,
 int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *out) {
     uint32_t played=0;
     int32_t next_day=0;
+    int32_t ce_day=0;
+    /* CE active but no LWE state at all: the date still comes from the CE. */
+    if (out && (!s_live || !s_fixtures) && s_clock_provider &&
+        s_clock_provider(&ce_day)) {
+        memset(out,0,sizeof *out);
+        return ExpandedWorld_IndexToDate(ce_day,&out->today);
+    }
     if (!out || !s_live || !s_fixtures) return 0;
     memset(out,0,sizeof *out);
+    (void)exp_live_sync_from_ce(); /* CE day, when the CE is active */
     if (!ExpandedWorld_IndexToDate(s_ledger.now,&out->today)) return 0;
     for (uint32_t i=0;i<s_ledger.count;++i) {
         const ExpandedWorldFixture *f=&s_fixtures[i];
@@ -1750,6 +1787,7 @@ int ExpandedWorldLive_WriteJson(int (*emit)(const char*,int,void*),void *ctx) {
         mjson_printf(emit,ctx,"%s","null");
         return 1;
     }
+    (void)exp_live_sync_from_ce(); /* saved legacy cursor mirrors the CE day */
     mjson_printf(emit,ctx,
       "{%Q:6,%Q:%u,%Q:%lu,%Q:%d,%Q:%lu,%Q:[%lu,%lu,%lu,%lu],%Q:[%lu,%lu,%lu],%Q:%u,%Q:[",
       "version","first_year",(unsigned)s_first_year,
@@ -2364,6 +2402,8 @@ int ExpandedWorldLive_DivisionStatus(uint32_t index,
     return 0;
 }
 int ExpandedWorldLive_AdvanceToDate(ExpandedWorldDate d) {(void)d;return 0;}
+void ExpandedWorldLive_SetClockProvider(ExpandedWorldClockProvider p) {(void)p;}
+int ExpandedWorldLive_ClockProviderActive(void) {return 0;}
 int ExpandedWorldLive_CalendarState(ExpandedLiveCalendarState *s) {(void)s;return 0;}
 int ExpandedWorldLive_AdvanceWeeks(uint32_t w) {(void)w;return 0;}
 int ExpandedWorldLive_AdvanceToSeason(uint16_t y) {(void)y;return 0;}

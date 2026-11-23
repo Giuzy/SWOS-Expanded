@@ -3991,7 +3991,7 @@ static int exp_universal_contest_action(MenuEntry *entry)
     if(state==1) {
         extern int Expanded_CompetitionCoordinator_Advance(
             ExpandedWorldDate,const char *);
-        if(!ExpandedWorldLive_CalendarState(&live) ||
+        if(!ExpandedUniversalLive_Today(&live.today) ||
            !ExpandedWorld_DateToIndex(live.today,&now) ||
            !ExpandedWorld_DateToIndex(due,&fixture_day) ||
            fixture_day<now) {

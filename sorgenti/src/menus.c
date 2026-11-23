@@ -18,6 +18,9 @@
 #include "expanded_title_layout.h"
 #include "swos_io.h"
 #include "save_format_json.h"
+#include "expanded_universal_live.h"
+#include "expanded_world_live.h"
+#include "expanded_world_time.h"
 #endif
 #include "translations.h"
 #include "comp_identity.h"
@@ -3950,6 +3953,81 @@ extern void ShowClubBussinesMenu(void);
 void NextMatch(MenuEntry *callerEntry);
 void SeasonFinished(void);
 
+#ifdef SWOS_SDL_BUILD
+/* WORLD2627: one guarded action for both PLAY MATCH (7) and NEXT MATCH (10).
+ * All dates/fixtures come from the universal registry. NEVER let old TSKC
+ * post-match code run after a canceled/no-due manager action. */
+static int exp_universal_contest_action(MenuEntry *entry)
+{
+    ExpandedWorldDate due={0},target={0};
+    ExpandedLiveCalendarState live={0};
+    int32_t now=0,fixture_day=0;
+    int state;
+    (void)entry;
+    if(_gameType!=GAME_TYPE_CAREER ||
+       !ExpandedUniversalLive_Active())return 0;
+    state=ExpandedUniversalLive_ManagerNext(&due);
+    if(state==2) {
+        /* The real native runner stores CLAIMED before OG50Hz and the
+         * verified result+ACK in CAR before reporting success. */
+        const int result=ExpandedUniversalLive_PlayManager();
+        if(result==2) {
+            fprintf(stderr,"[universal-manager-menu] MATCH_COMMITTED "
+                "owner=CE postmatch=NO_OLD_TSKC_WITNESS=1\n");
+            /* Repaint only: the old UpdateCareerAfterMatch and other OG
+             * score writers do not own this JSON fixture. */
+            ContestMenuOnReturn();
+            SetCurrentEntry(7u);
+            DrawMenu();
+        } else
+            fprintf(stderr,"[universal-manager-menu] NO_MATCH_COMMIT "
+                "status=%d no-postmatch-autosave=1\n",result);
+        return 1;
+    }
+    if(state==1) {
+        extern int Expanded_CompetitionCoordinator_Advance(
+            ExpandedWorldDate,const char *);
+        if(!ExpandedWorldLive_CalendarState(&live) ||
+           !ExpandedWorld_DateToIndex(live.today,&now) ||
+           !ExpandedWorld_DateToIndex(due,&fixture_day) ||
+           fixture_day<now) {
+            fprintf(stderr,"[universal-manager-menu] FORWARD_BLOCKED "
+                "reason=INVALID_CIVIL_DATE\n");
+            return 1;
+        }
+        /* When earlier CPU matches remain on the SAME day, dispatch
+         * TODAY through the same CE scheduler to stop at manager fixture. */
+        if(fixture_day==now)target=due;
+        else if(!ExpandedWorld_NextSundayOrFixture(
+                    live.today,1,due,&target)) {
+            fprintf(stderr,"[universal-manager-menu] FORWARD_BLOCKED "
+                "reason=NO_VERIFIED_WEEKLY_TARGET\n");
+            return 1;
+        }
+        if(!Expanded_CompetitionCoordinator_Advance(
+                target,"CAREER_UNIVERSAL_MANAGER_FORWARD")) {
+            fprintf(stderr,"[universal-manager-menu] FORWARD_FAILED "
+                "recovery=CHECK_REQUIRED no-legacy-retry=1\n");
+            return 1;
+        }
+        fprintf(stderr,"[universal-manager-menu] FORWARD_OK "
+            "target=%04u-%02u-%02u next-manager=%04u-%02u-%02u "
+            "no-manager-auto-play=1\n",
+            (unsigned)target.year,(unsigned)target.month,
+            (unsigned)target.day,(unsigned)due.year,
+            (unsigned)due.month,(unsigned)due.day);
+        ContestMenuOnReturn();
+        SetCurrentEntry(7u);
+        DrawMenu();
+        return 1;
+    }
+    fprintf(stderr,"[universal-manager-menu] BLOCKED "
+        "state=%d reason=%s no-postmatch-autosave=1\n",
+        state,state==0?"NO_REGISTERED_NEXT_FIXTURE":"INVALID_LEDGER");
+    return 1;
+}
+#endif
+
 /* PlayMatchMenu — contest PLAY MATCH action (SWOS2.s line 59796)
  * Called as menu onSelect callback; a5 = caller's entry.
  * Asm bridge passes a5 as parameter. */
@@ -3957,6 +4035,7 @@ __attribute__((used, externally_visible))
 void PlayMatchMenu(MenuEntry *callerEntry)
 {
 #ifdef SWOS_SDL_BUILD
+    if(exp_universal_contest_action(callerEntry))return;
     /* RG-014: Copa Bolivia is a separate OG resident type2/KO; route its
      * next dated fixture before the legacy five-slot career cache. */
     if(_gameType==GAME_TYPE_CAREER) {
@@ -4106,6 +4185,9 @@ void PlayMatchMenu(MenuEntry *callerEntry)
 __attribute__((used, externally_visible))
 void NextMatch(MenuEntry *callerEntry)
 {
+#ifdef SWOS_SDL_BUILD
+    if(exp_universal_contest_action(callerEntry))return;
+#endif
     /* Original OG NEXT MATCH route, including the career's native
      * Career_NextMatch callback. Copa Bolivia is not simulated here by
      * an extra single-fixture intercept; the existing Bolivia League
@@ -4236,6 +4318,7 @@ __attribute__((used, externally_visible))
 void SeasonFinished(void)
 {
 #ifdef SWOS_SDL_BUILD
+    if(exp_universal_contest_action(NULL))return;
     /* Do not cross July and discard an unplayed Bolivia cup fixture
      * merely because the manager's domestic league keycache ended. */
     if(_gameType==GAME_TYPE_CAREER) {

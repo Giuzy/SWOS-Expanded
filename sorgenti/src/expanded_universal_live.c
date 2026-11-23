@@ -311,6 +311,38 @@ int ExpandedUniversalLive_Advance(ExpandedWorldDate target)
         ok?"ADVANCED_OR_WAIT_MANAGER":"BLOCKED");
     return ok;
 }
+/* Next manager fixture is a readonly projection of the same CE ledger.
+ * 2=ready, 1=advance (including same-day CPU events), 0=unknown, -1=error.
+ * There is no independent calendar clock and no score writer here. */
+int ExpandedUniversalLive_ManagerNext(ExpandedWorldDate *due)
+{
+    ExpandedUniversalRegistry *const r=ExpandedUniversal_CarRegistry();
+    ExpandedLiveCalendarState state={0};
+    ExpandedClubKey manager={0};
+    const ExpandedUniversalFixture *f=NULL,*world_due=NULL;
+    int32_t today=0;
+    ExpandedUniversalResult res;
+    if(due)memset(due,0,sizeof *due);
+    if(!due || !ExpandedUniversalLive_Active() || !r ||
+       r->recovery_required || !manager_key(&manager) ||
+       !ExpandedWorldLive_CalendarState(&state) ||
+       !ExpandedWorld_DateToIndex(state.today,&today) ||
+       today!=r->scheduler.clock.day_index ||
+       !r->scheduler.count)return -1;
+    /* Last chronological event bounds available source fixtures. */
+    res=ExpandedUniversal_NextForClub(r,manager,
+        r->scheduler.events[r->scheduler.count-1u].day_index,&f);
+    if(res==EXP_UNIVERSAL_EMPTY)return 0;
+    if(res!=EXP_UNIVERSAL_DUE || !f ||
+       f->day_index<today ||
+       !ExpandedWorld_IndexToDate(f->day_index,due))return -1;
+    if(f->day_index>today)return 1;
+    /* Earlier CPU events on the same day must complete before PLAY. */
+    res=ExpandedUniversal_Peek(r,today,&world_due);
+    if(res!=EXP_UNIVERSAL_DUE || !world_due)return -1;
+    return world_due->event_id==f->event_id?2:1;
+}
+
 static int exp_universal_live_manager_action(int interactive)
 {
     ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
@@ -345,7 +377,7 @@ static int exp_universal_live_manager_action(int interactive)
         (unsigned long long)f->event_id,(int)res);
     if(res!=EXP_UNIVERSAL_OK && res!=EXP_UNIVERSAL_BLOCKED)
         r->recovery_required=1u;
-    return 1; /* even cancel never routes to legacy fixture */
+    return res==EXP_UNIVERSAL_OK?2:1; /* no legacy fixture */
 }
 /* Only the explicit career DEBUG advance is permitted to quick-sim
  * a manager's fixture. Ordinary FORWARD always stops BEFORE that fixture. */

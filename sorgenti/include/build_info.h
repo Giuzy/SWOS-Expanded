@@ -14,9 +14,9 @@
 #define BUILD_INFO_H
 
 /* Single source of truth for the user-facing release/build number. */
-/* Original OG quick CPU/DEBUG, 512-fixture CAR batch;
- * no checkpoint at ordinary FORWARD stop; manual claims remain durable. */
-#define SWOS_EXPANDED_VERSION "00.13.268"
+/* CE manager match-date FORWARD/PLAY gate, no false post-match writes;
+ * original OG quick CPU batching and manual 50 Hz preclaims preserved. */
+#define SWOS_EXPANDED_VERSION "00.13.269"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

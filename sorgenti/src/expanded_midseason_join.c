@@ -1005,6 +1005,26 @@ void Expanded_CareerJulyPrepareMenu(void)
     static const char kForward[]="FORWARD TIME";
     static const char kPending[]="OG PENDING";
     extern uint8_t _aFinishSeason[];
+    /* WORLD2627 has only CE-owned fixtures; the old TSKC PLAY button may
+     * be enabled while the next JSON manager match is still in the future.
+     * Show FORWARD until the world cursor reaches the exact due fixture. */
+    if(ExpandedUniversalLive_Active()) {
+        static const char kPlay[]="PLAY MATCH";
+        static const char kForwardCe[]="FORWARD TIME";
+        static const char kNoFixture[]="NO FIXTURE";
+        static const char kInvalidCe[]="DATE ERROR";
+        ExpandedWorldDate due={0};
+        const int plan=ExpandedUniversalLive_ManagerNext(&due);
+        MenuEntry *primary=&_menuEntries[7],*next=&_menuEntries[10];
+        primary->fg=(uintptr_t)(plan==2?kPlay:
+            plan==1?kForwardCe:plan==0?kNoFixture:kInvalidCe);
+        primary->isInvisible=0;
+        primary->isDisabled=plan<=0;
+        /* NEXT MATCH in 2627 is routed by the same CE guard, not OG TSKC. */
+        next->isInvisible=0;
+        next->isDisabled=plan<=0;
+        return;
+    }
     Expanded_BoliviaManagerPrepareMenu();
     ExpandedWorldDate target;
     ExpandedLiveCalendarState live;

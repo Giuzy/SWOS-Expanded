@@ -12,13 +12,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
       "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NEUTRAL_NONCOMMERCIAL_LABEL",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -48,10 +48,10 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": "Eliteserien",
+      "officialName": "Tippeligaen",
+      "nonCommercialDisplayName": "Norwegian Premier League",
       "candidateName": null,
-      "status": "NEUTRAL_NONCOMMERCIAL_LABEL",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.aftenposten.no/sport/fotball/i/Ad77G3/dette-er-nye-eliteserien-nytt-navn-nye-farger-og-love-i-logoen",
       "nameHistory": [
         {
@@ -65,6 +65,25 @@
         }
       ],
       "historyComplete": false
+    },
+    "sportRuleEvidence83": {
+      "edition": "1996",
+      "rules": {
+        "teams": 14,
+        "gamesPerClub": 26,
+        "meetingsPerOpponent": 2,
+        "pointsWin": 3,
+        "pointsDraw": 1,
+        "directRelegated": [
+          12,
+          13,
+          14
+        ]
+      },
+      "dates": {
+        "firstObserved": "1996-04-13"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

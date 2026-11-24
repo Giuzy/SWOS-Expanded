@@ -1,0 +1,120 @@
+[
+  {
+    "index": 542,
+    "value": {
+      "competition": "IRL tier 1",
+      "firstEdition": "2002/03",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        25,
+        254
+      ],
+      "rules": {
+        "teams": 10,
+        "gamesPerClub": 27
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 543,
+    "value": {
+      "competition": "IRL tier 1",
+      "firstEdition": "2003",
+      "operation": "CHANGE_SEASON_CYCLE",
+      "rowRefs": [
+        25,
+        254
+      ],
+      "rules": {
+        "calendar": "spring to autumn",
+        "teams": 10,
+        "gamesPerClub": 36
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 544,
+    "value": {
+      "competition": "IRL tier 1",
+      "firstEdition": "2005",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        254
+      ],
+      "rules": {
+        "teams": 12,
+        "gamesPerClub": 33
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 545,
+    "value": {
+      "competition": "IRL tier 1",
+      "firstEdition": "2009",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        254
+      ],
+      "rules": {
+        "teams": 10
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "lastEdition": "2011"
+    }
+  },
+  {
+    "index": 546,
+    "value": {
+      "competition": "IRL tier 1",
+      "firstEdition": "2012",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        254
+      ],
+      "rules": {
+        "teams": 12
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "lastEdition": "2017",
+      "note": "2012 exceptional withdrawals not recurring."
+    }
+  },
+  {
+    "index": 547,
+    "value": {
+      "competition": "IRL tier 1",
+      "firstEdition": "2017",
+      "operation": "TRANSITION_MOVEMENT",
+      "rowRefs": [
+        254
+      ],
+      "rules": {
+        "directRelegated": 3,
+        "directPromotedTier2": 1,
+        "promotionRelegationPlayoff": false
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "lastEdition": "2017"
+    }
+  },
+  {
+    "index": 548,
+    "value": {
+      "competition": "IRL tier 1",
+      "firstEdition": "2018",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        254
+      ],
+      "rules": {
+        "teams": 10,
+        "tier2Teams": 10
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

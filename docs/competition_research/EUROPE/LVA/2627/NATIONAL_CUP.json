@@ -12,24 +12,466 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "LVBET Latvijas kauss",
+      "nonCommercialDisplayName": "Latvijas kauss",
       "candidateName": "Latvian Cup",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence85": {
+      "edition": "2026",
+      "rules": {
+        "Q1": {
+          "ties": 14,
+          "eligibleTiers": [
+            3,
+            4
+          ],
+          "otherFederationMembersMayApply": true,
+          "optionalTwoRounds": true,
+          "lowerTierHosts": true
+        },
+        "Q2": {
+          "ties": 12,
+          "addsTier2": 10,
+          "lowerTierHosts": true
+        },
+        "Q3": {
+          "ties": 6
+        },
+        "R16": {
+          "ties": 8,
+          "addsTier1": 10,
+          "unseeded": true,
+          "lowerTierHosts": true
+        },
+        "singleLeg": true,
+        "extraTimeMinutes": [
+          15,
+          15
+        ],
+        "penalties": true,
+        "subs": 5,
+        "substitutionWindows": 3,
+        "matchSheetPlayers": 20,
+        "extraTimeAdditionalSubstitution": 1,
+        "extraTimeAdditionalWindow": 1,
+        "semifinalVenueSwap": "If drawn visitor won QF away and drawn host played QF at home, reverse venues."
+      },
+      "dates": {
+        "Q1Original": [
+          "2026-05-01",
+          "2026-05-03"
+        ],
+        "Q1ActualWindow": [
+          "2026-05-15",
+          "2026-05-17"
+        ],
+        "Q2Nominal": [
+          "2026-05-30",
+          "2026-05-31"
+        ],
+        "Q2ActualWindow": [
+          "2026-05-27",
+          "2026-06-01"
+        ],
+        "Q3": [
+          "2026-06-20",
+          "2026-06-22"
+        ],
+        "R16": [
+          "2026-07-11",
+          "2026-07-12"
+        ],
+        "QF": [
+          "2026-08-15",
+          "2026-08-16"
+        ],
+        "SF": [
+          "2026-09-02",
+          "2026-09-03"
+        ],
+        "finalNominal": "late October"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Q1 winner/loser order (not necessarily home/away), date windows; Q2 secondary dated list, Q3 official scores. Exact individual dates and qualification exception pending."
+    },
+    "block85Research": {
+      "qualifying1Results": [
+        {
+          "round": "Q1",
+          "dateWindow": [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          "winner": "Daugava/Union",
+          "loser": "Dienvidkurzemes SS",
+          "winnerGoals": 3,
+          "loserGoals": 2
+        },
+        {
+          "round": "Q1",
+          "dateWindow": [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          "winner": "Aliance",
+          "loser": "Dinamo Rīga",
+          "winnerGoals": 2,
+          "loserGoals": 2,
+          "penaltiesWinnerLoser": [
+            7,
+            6
+          ],
+          "extraTime": true
+        },
+        {
+          "round": "Q1",
+          "dateWindow": [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          "winner": "JFC Viola",
+          "loser": "Augšdaugavas NSS",
+          "winnerGoals": 4,
+          "loserGoals": 2
+        },
+        {
+          "round": "Q1",
+          "dateWindow": [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          "winner": "Spēks VSS",
+          "loser": "Cēsis",
+          "winnerGoals": 9,
+          "loserGoals": 0
+        },
+        {
+          "round": "Q1",
+          "dateWindow": [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          "winner": "Ķekava/Auda",
+          "loser": "Līvāni",
+          "winnerGoals": 7,
+          "loserGoals": 0
+        },
+        {
+          "round": "Q1",
+          "dateWindow": [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          "winner": "Saldus NSS",
+          "loser": "Rīgas Futbola skola",
+          "winnerGoals": 3,
+          "loserGoals": 2
+        },
+        {
+          "round": "Q1",
+          "dateWindow": [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          "winner": "Upesciema Warriors",
+          "loser": "Babīte SK",
+          "winnerGoals": 1,
+          "loserGoals": 1,
+          "penaltiesWinnerLoser": [
+            4,
+            1
+          ],
+          "extraTime": true
+        },
+        {
+          "round": "Q1",
+          "dateWindow": [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          "winner": "DSVK Traktors",
+          "loser": "Karosta",
+          "winnerGoals": 1,
+          "loserGoals": 0
+        },
+        {
+          "round": "Q1",
+          "dateWindow": [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          "winner": "AFA Olaine",
+          "loser": "Lielupe",
+          "winnerGoals": 7,
+          "loserGoals": 0
+        },
+        {
+          "round": "Q1",
+          "dateWindow": [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          "winner": "Iecava",
+          "loser": "Preiļu novada BJSS",
+          "winnerGoals": 2,
+          "loserGoals": 0
+        },
+        {
+          "round": "Q1",
+          "dateWindow": [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          "winner": "Salaspils",
+          "loser": "Namejs",
+          "winnerGoals": 26,
+          "loserGoals": 0
+        },
+        {
+          "round": "Q1",
+          "dateWindow": [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          "winner": "Futbola Parks Academy",
+          "loser": "Goldingen United",
+          "winnerGoals": 4,
+          "loserGoals": 0
+        },
+        {
+          "round": "Q1",
+          "dateWindow": [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          "winner": "RFK/RFS",
+          "loser": "Limbaži",
+          "winnerGoals": 5,
+          "loserGoals": 4
+        },
+        {
+          "round": "Q1",
+          "dateWindow": [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          "winner": "Valka",
+          "loser": "JFC Dobele",
+          "winnerGoals": 10,
+          "loserGoals": 0
+        }
+      ],
+      "matches": [
+        {
+          "round": "Q2",
+          "date": "2026-05-27",
+          "home": "Iecava",
+          "away": "JDFS Alberts",
+          "homeGoals": 0,
+          "awayGoals": 5
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-29",
+          "home": "DSVK Traktors",
+          "away": "Leevon PPK",
+          "homeGoals": 3,
+          "awayGoals": 5
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-30",
+          "home": "Saldus NSS",
+          "away": "Salaspils",
+          "homeGoals": 0,
+          "awayGoals": 4
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-30",
+          "home": "JFC Viola",
+          "away": "Mārupes SC",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-30",
+          "home": "RFK/RFS",
+          "away": "Riga Mariners",
+          "homeGoals": 0,
+          "awayGoals": 11
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-30",
+          "home": "Valka",
+          "away": "Aliance",
+          "homeGoals": 1,
+          "awayGoals": 5
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-30",
+          "home": "Valmiera FC",
+          "away": "Skanstes SK",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-30",
+          "home": "Ķekava/Auda",
+          "away": "Rēzekne",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-30",
+          "home": "Futbola Parks Academy",
+          "away": "Smiltene/BJSS",
+          "homeGoals": 1,
+          "awayGoals": 5
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-31",
+          "home": "Spēks VSS",
+          "away": "Daugava/Union",
+          "homeGoals": 6,
+          "awayGoals": 0
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-31",
+          "home": "Lielupe",
+          "away": "Metta",
+          "homeGoals": 0,
+          "awayGoals": 6
+        },
+        {
+          "round": "Q2",
+          "date": "2026-06-01",
+          "home": "Upesciema Warriors",
+          "away": "JFK Ventspils",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": "Q3",
+          "date": null,
+          "dateWindow": [
+            "2026-06-20",
+            "2026-06-22"
+          ],
+          "home": "Metta",
+          "away": "Ķekava/Auda",
+          "homeGoals": 5,
+          "awayGoals": 0
+        },
+        {
+          "round": "Q3",
+          "date": null,
+          "dateWindow": [
+            "2026-06-20",
+            "2026-06-22"
+          ],
+          "home": "Riga Mariners",
+          "away": "JDFS Alberts",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": "Q3",
+          "date": null,
+          "dateWindow": [
+            "2026-06-20",
+            "2026-06-22"
+          ],
+          "home": "JFK Ventspils",
+          "away": "Leevon PPK",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": "Q3",
+          "date": null,
+          "dateWindow": [
+            "2026-06-20",
+            "2026-06-22"
+          ],
+          "home": "Mārupes SC",
+          "away": "Aliance",
+          "homeGoals": 4,
+          "awayGoals": 2,
+          "extraTime": true
+        },
+        {
+          "round": "Q3",
+          "date": "2026-06-22",
+          "home": "Smiltene/BJSS",
+          "away": "Valmiera FC",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "round": "Q3",
+          "date": null,
+          "dateWindow": [
+            "2026-06-20",
+            "2026-06-22"
+          ],
+          "home": "Salaspils",
+          "away": "Spēks VSS",
+          "homeGoals": 1,
+          "awayGoals": 3
+        }
+      ],
+      "cutoffPhase": {
+        "qualifiedForR16": [
+          "Metta",
+          "Riga Mariners",
+          "Leevon PPK",
+          "Mārupes SC",
+          "Valmiera FC",
+          "Spēks VSS"
+        ],
+        "directTier1": 10
+      },
+      "conflicts": [
+        {
+          "Q1Winner": "AFA Olaine",
+          "Q2Entrant": "Lielupe",
+          "note": "Federation reports Olaine won 7–0, later draw lists Lielupe; administrative reason not yet checked."
+        }
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "results": 32,
+        "individualDates": 13,
+        "qualified": 6
+      },
+      "missing": "Dates/venue order for Q1 and some Q3 ties, Olaine/Lielupe advancement, stable IDs."
     }
   }
 ]

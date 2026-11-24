@@ -12,25 +12,44 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "BetMcLean Cup",
+      "nonCommercialDisplayName": "Northern Ireland League Cup",
       "candidateName": "Northern Ireland League Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence82": {
+      "edition": "2026/27",
+      "rules": {
+        "observedRound1Entrants": 24,
+        "round1Ties": 12,
+        "leagueCupWinnerEntersEuropeanPlayoffFinal": true,
+        "observedPenalties": true
+      },
+      "dates": {
+        "R1Draw": "2026-09-09",
+        "observedR1": "2026-10-20",
+        "R2": [
+          "2026-11-24",
+          "2026-11-25"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "24 remaining clubs, earlier preliminary dates/entry not established; technical mapping candidate, no July exclusion."
     }
   }
 ]

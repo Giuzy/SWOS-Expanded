@@ -29,5 +29,133 @@
       "note": "14 June LFF decision: Riteriai excluded, less than half of games played, results annulled. 9 active at initial July1; no generic annual exclusion.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 570,
+    "value": {
+      "competition": "LTU tier 1",
+      "firstEdition": "1997/98",
+      "operation": "RESTRUCTURE_AND_RENAME",
+      "rowRefs": [
+        18,
+        265
+      ],
+      "rules": {
+        "name": "Federacijos Lyga",
+        "teams": 16,
+        "gamesPerClub": 30
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 571,
+    "value": {
+      "competition": "LTU tier 1",
+      "firstEdition": "1998/99",
+      "operation": "OBSERVED_TEAM_COUNT",
+      "rowRefs": [
+        18,
+        265
+      ],
+      "rules": {
+        "teams": 13
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 572,
+    "value": {
+      "competition": "LTU tier 1",
+      "firstEdition": "1999",
+      "operation": "TRANSITION_SEASON",
+      "rowRefs": [
+        18,
+        265
+      ],
+      "rules": {
+        "cycle": "short autumn season"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 573,
+    "value": {
+      "competition": "LTU tier 1",
+      "firstEdition": "2000",
+      "operation": "CHANGE_SEASON_CYCLE",
+      "rowRefs": [
+        18,
+        265
+      ],
+      "rules": {
+        "cycle": "calendar year"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 574,
+    "value": {
+      "competition": "LTU tier 1",
+      "firstEdition": "2011",
+      "operation": "OBSERVED_TEAM_COUNT",
+      "rowRefs": [
+        265
+      ],
+      "rules": {
+        "teams": 12
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 575,
+    "value": {
+      "competition": "LTU tier 1",
+      "firstEdition": "2020",
+      "operation": "OBSERVED_TEAM_COUNT",
+      "rowRefs": [
+        265
+      ],
+      "rules": {
+        "teams": 6
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 576,
+    "value": {
+      "competition": "LTU tier 1",
+      "firstEdition": "2021",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        265
+      ],
+      "rules": {
+        "teams": 10
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 577,
+    "value": {
+      "competition": "LTU national cup",
+      "firstEdition": "2026",
+      "operation": "OBSERVED_ACCESS",
+      "rowRefs": [
+        378
+      ],
+      "rules": {
+        "entrants": 56,
+        "tier1Enters": "R32",
+        "singleLeg": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

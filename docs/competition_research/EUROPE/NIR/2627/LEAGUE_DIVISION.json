@@ -12,24 +12,111 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "BOYLE Sports Premiership",
+      "nonCommercialDisplayName": "NIFL Premiership",
       "candidateName": "NIFL Premiership",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/European_Leagues",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence82": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 12,
+        "regularGames": 33,
+        "splitGroups": [
+          6,
+          6
+        ],
+        "extraGames": [
+          5,
+          5
+        ],
+        "totalGamesPerClub": 38,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "tieBreakers": [
+          "overall goal difference",
+          "overall goals",
+          "H2H points",
+          "H2H goal difference",
+          "drawing lots"
+        ],
+        "europe": {
+          "ranks": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "leagueCupWinnerEntersFinal": true,
+          "defaultBracket": [
+            [
+              "preliminary",
+              6,
+              7
+            ],
+            [
+              "Q1A",
+              3,
+              "preliminary winner"
+            ],
+            [
+              "Q1B",
+              4,
+              5
+            ],
+            [
+              "Q2",
+              "Q1A winner",
+              "Q1B winner"
+            ],
+            [
+              "final",
+              "Q2 winner",
+              "League Cup winner"
+            ]
+          ],
+          "higherRankHosts": true,
+          "irishCupWinnerRank3to7": "omit prelim and rank remaining four, 1v4 and 2v3",
+          "UEFALicenceRequired": true,
+          "outsidePremiershipCupWinnerLicenceApplicationDeadline": "04-01",
+          "otherScenarios": "committee determination; not inferred"
+        },
+        "promotion": {
+          "directRelegated": 12,
+          "directPromotedTier2": 1,
+          "playoffTier1": 11,
+          "tier2": "highest licensed rank 2–6",
+          "ifChampionUnlicensed": "no direct promotion; highest licensed rank 2–6 plays tier1 rank12",
+          "legs": 2,
+          "extraTime": true,
+          "penalties": true
+        }
+      },
+      "dates": {
+        "nominalOpening": [
+          "2026-08-07",
+          "2026-08-09"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "NIFL official current rules text; screenshots cache miss, individual dates and full player rules unknown."
     }
   }
 ]

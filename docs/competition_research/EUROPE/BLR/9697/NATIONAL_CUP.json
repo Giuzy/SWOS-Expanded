@@ -12,24 +12,51 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Belarusian Cup",
       "candidateName": "Belarusian Cup",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence85": {
+      "edition": "1996/97",
+      "rules": {
+        "reportedRounds": 5,
+        "observedDisqualification": "FC Cobrin, 1997-04-09"
+      },
+      "dates": {
+        "opening": "1996-07-20",
+        "secondRound": [
+          "1996-08-01",
+          "1996-08-04"
+        ],
+        "final": "1997-05-25"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Secondary archive excerpts; full round entry and award rules unresolved."
+    },
+    "completedEditionResearch85": {
+      "edition": "1995/96",
+      "winner": "MPKC Mozyr",
+      "runnerUp": "Dinamo Minsk",
+      "date": "1996-05-17",
+      "score": [
+        4,
+        1
+      ],
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY"
     }
   }
 ]

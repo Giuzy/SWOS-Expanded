@@ -13,7 +13,6 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -32,6 +31,20 @@
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import.",
       "note": "FAW confirms two separate cups removed in 2026/27; verify slot identity, do not generate either automatically."
+    },
+    "sportRuleEvidence82": {
+      "edition": "2026/27",
+      "rules": {
+        "namedCompetition": "Nathaniel MG Cup",
+        "calendarStatus": "REMOVED_2026_27",
+        "separateRemovedCompetition": "Welsh Blood Service League Cup",
+        "laterEditions": "UNKNOWN"
+      },
+      "dates": {
+        "decision": "2026-05-07"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Previously recorded lifecycle; generic native slot identity remains candidate, do not generate either cup in 2026/27; no permanent abolition inferred."
     }
   }
 ]

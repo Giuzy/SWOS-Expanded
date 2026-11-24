@@ -12,24 +12,48 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Latvijas kauss",
       "candidateName": "Latvian Cup",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence85": {
+      "edition": "1996",
+      "rules": {
+        "preliminaryObserved": true,
+        "topTierEntryObserved": "R16",
+        "singleLegObserved": true,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "1996 edition finished before July; exact date discrepancy 17 vs 18 June. 1997 edition start not established; do not assume July active."
+    },
+    "completedEditionResearch85": {
+      "edition": "1996",
+      "winner": "RAF Jelgava",
+      "runnerUp": "Skonto Riga",
+      "date": "1996-06-18",
+      "alternativeDate": "1996-06-17",
+      "score": [
+        2,
+        1
+      ],
+      "extraTime": true,
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY"
     }
   }
 ]

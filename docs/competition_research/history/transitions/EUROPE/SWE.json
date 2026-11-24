@@ -47,7 +47,7 @@
         307
       ],
       "source": "https://www.svenskfotboll.se/nyheter/serier/2023/03/superettanpremiar-till-helgen/",
-      "note": "Exceptional expansion transition, not recurring.",
+      "note": "Exceptional expansion transition, not recurring. No promotion/relegation playoff in 2007, federation archive confirms.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 38 official web search excerpts actually retrieved; no PDF analyzed."
     }
@@ -81,7 +81,12 @@
       "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
       "rules": {
         "finalDate": "1997-05-29",
-        "finalLegsObserved": 1
+        "finalLegsObserved": 1,
+        "reportedEntrants": 554,
+        "reportedMatches": 553,
+        "preliminaryRounds": 2,
+        "groupStage": false,
+        "goldenGoalObserved": true
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block48 HTML opened; no PDF analyzed."
@@ -151,6 +156,62 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block62 official federation HTML inspected."
+    }
+  },
+  {
+    "index": 558,
+    "value": {
+      "competition": "SWE tier 1",
+      "firstEdition": "1996",
+      "operation": "OBSERVED_PLAYOFF_FORMAT",
+      "rowRefs": [
+        31
+      ],
+      "rules": {
+        "playoffRanks": [
+          11,
+          12
+        ],
+        "legs": 2
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 559,
+    "value": {
+      "competition": "SWE tier 1",
+      "firstEdition": "2000",
+      "operation": "CHANGE_PLAYOFF_FORMAT",
+      "rowRefs": [
+        31,
+        307
+      ],
+      "rules": {
+        "playoffPairs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Official archive shows one pair from 2000 after two pairs in 1996–99; exact historic rank eligibility to reconcile."
+    }
+  },
+  {
+    "index": 560,
+    "value": {
+      "competition": "SWE tier 1",
+      "firstEdition": "2026",
+      "operation": "CHANGE_PLAYOFF_FORMAT",
+      "rowRefs": [
+        307
+      ],
+      "rules": {
+        "tier2Ranks": [
+          3,
+          4
+        ],
+        "winnerVsTier1Rank": 14,
+        "legs": 2
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

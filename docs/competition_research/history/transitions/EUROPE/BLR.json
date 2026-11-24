@@ -1,0 +1,36 @@
+[
+  {
+    "index": 568,
+    "value": {
+      "competition": "BLR national cup",
+      "firstEdition": "1996/97",
+      "operation": "OBSERVED_CYCLE",
+      "rowRefs": [
+        114
+      ],
+      "rules": {
+        "start": "1996-07-20",
+        "final": "1997-05-25"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 569,
+    "value": {
+      "competition": "BLR national cup",
+      "firstEdition": "2026/27",
+      "operation": "OBSERVED_ACCESS",
+      "rowRefs": [
+        334
+      ],
+      "rules": {
+        "prelimTies": 2,
+        "Q1Ties": 17,
+        "Q2Ties": 16,
+        "R32Ties": 16
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

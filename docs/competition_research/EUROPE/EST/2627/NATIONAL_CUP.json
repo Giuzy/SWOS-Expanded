@@ -104,6 +104,34 @@
         "walkovers": 0
       },
       "missing": "Participant IDs, independent reconciliation, exact phase/access/tiebreak details."
+    },
+    "sportRuleEvidence84": {
+      "edition": "2026/27",
+      "dates": {
+        "R128": [
+          "2026-06-10",
+          "2026-06-11"
+        ],
+        "R64": "2026-07-23",
+        "R32": [
+          "2026-08-11",
+          "2026-08-12"
+        ],
+        "R16": [
+          "2026-08-25",
+          "2026-08-26"
+        ],
+        "QF": "2027-03",
+        "SF": "2027-05",
+        "final": "2027-05"
+      },
+      "rules": {
+        "singleElimination": true,
+        "conditionalEarlyR64": "If both opponents have byes in R128, play R64 on R128 dates",
+        "scheduleConditionalOnLeague": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "EJL calendar official, exact cutoff results still partial; preserve previous samples/conflicts. No future results."
     }
   }
 ]

@@ -12,25 +12,92 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Lengjubikar karla - A deild",
+      "nonCommercialDisplayName": "Deildabikar",
       "candidateName": "Deildabikar",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence83": {
+      "edition": "2026",
+      "rules": {
+        "teams": 24,
+        "groups": 4,
+        "groupSize": 6,
+        "groupWinnerToSF": true,
+        "groupMembers": [
+          [
+            "Fram",
+            "HK",
+            "Keflavík",
+            "Stjarnan",
+            "Vestri",
+            "Ægir"
+          ],
+          [
+            "Afturelding",
+            "Grótta",
+            "ÍA",
+            "Valur",
+            "Völsungur",
+            "Þór"
+          ],
+          [
+            "Grindavík",
+            "ÍR",
+            "KA",
+            "KR",
+            "Njarðvík",
+            "Víkingur R"
+          ],
+          [
+            "Breiðablik",
+            "FH",
+            "Fylkir",
+            "ÍBV",
+            "Leiknir R",
+            "Þróttur R"
+          ]
+        ],
+        "separateLowerTierCups": true
+      },
+      "dates": {
+        "SF": [
+          "2026-03-14",
+          "2026-03-17"
+        ],
+        "final": "2026-03-21"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Official group PDF text, screenshot cache miss; fixture cancellations and full group tiebreak rules not reconciled."
+    },
+    "completedEditionResearch83": {
+      "edition": "2026",
+      "winner": "Fylkir",
+      "runnerUp": "KR",
+      "date": "2026-03-21",
+      "score": [
+        4,
+        4
+      ],
+      "penalties": [
+        4,
+        3
+      ],
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY"
     }
   }
 ]

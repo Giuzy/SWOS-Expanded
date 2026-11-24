@@ -42,6 +42,31 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Observed or published dates, not full fixture reconciliation; historical neutral labels, exact local official naming still open."
+    },
+    "sportRuleEvidence84": {
+      "edition": "1996/97",
+      "rules": {
+        "reportedEntrants": 554,
+        "reportedMatches": 553,
+        "preliminaryRounds": 2,
+        "groupStage": false,
+        "division4Entry": true,
+        "observedGoldenGoal": true,
+        "penaltiesObserved": true,
+        "R16toFinalLegs": 1
+      },
+      "dates": {
+        "observedR1": "1996-08-22",
+        "R16": [
+          "1997-04-10",
+          "1997-04-24"
+        ],
+        "QF": "1997-05-08",
+        "SF": "1997-05-15",
+        "final": "1997-05-29"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Preliminary dates unknown; July applicability unresolved. Counts secondary archive."
     }
   }
 ]

@@ -43,6 +43,21 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Observed or published dates, not full fixture reconciliation; historical neutral labels, exact local official naming still open."
+    },
+    "sportRuleEvidence83": {
+      "edition": "1996",
+      "rules": {
+        "QFLegs": 1,
+        "SFLegs": 2,
+        "finalLegs": 1,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "dates": {
+        "final": "1996-11-03"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Historical earliest round dates not established; archive 502. No assumed cutoff snapshot."
     }
   }
 ]

@@ -12,24 +12,59 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Clearer Water Irish Cup",
+      "nonCommercialDisplayName": "Irish Cup",
       "candidateName": "Irish Cup",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence82": {
+      "edition": "2026/27",
+      "rules": {
+        "enteredClubs": 126,
+        "regionalIntermediateEntry": 1,
+        "NAFLNationalConferenceEntry": 2,
+        "seniorEntry": 6
+      },
+      "dates": {
+        "round1": "2026-08-08",
+        "firstObserved": "2026-08-07",
+        "round2": "2026-09-12",
+        "round3": "2026-10-24",
+        "round4": "2026-11-21",
+        "round5": "2026-12-05",
+        "round6": [
+          "2027-01-08",
+          "2027-01-09"
+        ],
+        "round7": [
+          "2027-02-12",
+          "2027-02-13"
+        ],
+        "QF": [
+          "2027-03-12",
+          "2027-03-13"
+        ],
+        "SF": [
+          "2027-04-02",
+          "2027-04-03"
+        ],
+        "final": "2027-05-01"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Official format and dates, complete entry list and tie rules not checked."
     }
   }
 ]

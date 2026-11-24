@@ -12,8 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,13 +22,75 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "Welsh Cup",
-      "nonCommercialDisplayName": null,
+      "officialName": "FAW Welsh Cup",
+      "nonCommercialDisplayName": "Welsh Cup",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "74773c7245a34ebee48aa97ff451c707b3d41cf5",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence82": {
+      "edition": "2026/27",
+      "rules": {
+        "entrants": 284,
+        "Q1": {
+          "entrants": 232,
+          "north": 100,
+          "south": 132,
+          "regionalPots": [
+            50,
+            66
+          ]
+        },
+        "Q2": {
+          "addsTier3": 4,
+          "entrants": 120
+        },
+        "R1": {
+          "addsTier2": 28,
+          "entrants": 88
+        },
+        "R2": {
+          "addsTier2": 4,
+          "addsTier1": 16,
+          "entrants": 64
+        }
+      },
+      "dates": {
+        "Q1": [
+          "2026-07-24",
+          "2026-07-26"
+        ],
+        "Q2": [
+          "2026-08-21",
+          "2026-08-23"
+        ],
+        "R1": [
+          "2026-09-19",
+          "2026-09-20"
+        ],
+        "R2": [
+          "2026-10-17",
+          "2026-10-18"
+        ],
+        "R3": "2026-11-13",
+        "R4": [
+          "2026-12-12",
+          "2026-12-13"
+        ],
+        "QF": [
+          "2027-01-29",
+          "2027-01-31"
+        ],
+        "SF": [
+          "2027-03-05",
+          "2027-03-07"
+        ],
+        "final": "2027-04-18"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Later draw and updated calendar supersede initial Q1 July31 announcement; individual fixtures and full match rules remain open."
     }
   }
 ]

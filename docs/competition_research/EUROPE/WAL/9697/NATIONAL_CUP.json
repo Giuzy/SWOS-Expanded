@@ -12,24 +12,41 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Welsh Cup",
       "candidateName": "Welsh Cup",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence82": {
+      "edition": "1996/97",
+      "rules": {
+        "preliminaryObserved": true,
+        "R1toQFReplayOnDraw": true,
+        "R3Entrants": 32,
+        "R4Entrants": 16,
+        "QFEntrants": 8,
+        "observedSFSingleLeg": true,
+        "observedFinalSingleLeg": true
+      },
+      "dates": {
+        "final": "1997-05-18"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Early dates and precise entry counts remain open; observed rules from historical bracket."
     }
   }
 ]

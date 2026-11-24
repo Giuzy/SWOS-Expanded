@@ -10,26 +10,99 @@
     "candidateSources": [
       "c9f932c8aec04966dcfacacdbf5608a03cf2fae4"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "FONBET Russian Cup",
+      "nonCommercialDisplayName": "Russian Cup",
       "candidateName": "Russian Cup",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block86Research": {
+      "edition": "2026/27",
+      "firstMatch": "2026-07-28",
+      "RPLGroupStart": "2026-08-05",
+      "RPLGroupEnd": "2026-11-25",
+      "superfinal": "2027-06-06",
+      "format": {
+        "RPL": {
+          "teams": 16,
+          "groups": 4,
+          "groupSize": 4,
+          "legs": 2,
+          "points": {
+            "regulationWin": 3,
+            "penaltyWin": 2,
+            "penaltyLoss": 1,
+            "regulationLoss": 0
+          },
+          "tieBreakers": [
+            "head-to-head points,wins,goal difference,goals",
+            "regulation wins",
+            "regulation goal difference",
+            "regulation goals",
+            "head-to-head shootout goal difference",
+            "card coefficient yellow1 red3",
+            "draw"
+          ],
+          "knockoutLegs": 2,
+          "extraTime": false,
+          "aggregateTie": "penalties",
+          "firstLegHome": "group runner-up; later worse group points/tiebreaker"
+        },
+        "regions": {
+          "qualifyingRounds": 6,
+          "legs": 1,
+          "qualifiers": 4,
+          "playoff": "two R16 stages, two QF stages, one SF stage"
+        },
+        "finalLegs": 1,
+        "reserveTeamsEligible": false
+      },
+      "drawPots": [
+        [
+          "Zenit",
+          "Krasnodar",
+          "Lokomotiv",
+          "Spartak"
+        ],
+        [
+          "CSKA",
+          "Baltika",
+          "Dynamo Moscow",
+          "Rubin"
+        ],
+        [
+          "Akhmat",
+          "Rostov",
+          "Krylia Sovetov",
+          "Orenburg"
+        ],
+        [
+          "Akron",
+          "Dynamo Makhachkala",
+          "Rodina",
+          "Fakel"
+        ]
+      ],
+      "drawRestrictions": [
+        "Fakel and Rostov separated in 2026/27",
+        "maximum two Moscow clubs per group"
+      ],
+      "scope": "RFS regulation article 4 text, visual page fetch unavailable; not full match rules or runtime certified."
     }
   }
 ]

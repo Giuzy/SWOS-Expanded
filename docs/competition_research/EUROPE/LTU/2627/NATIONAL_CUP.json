@@ -12,24 +12,606 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "LFF Taurė",
+      "nonCommercialDisplayName": "LFF Taurė",
       "candidateName": "Lithuanian Cup",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence85": {
+      "edition": "2026",
+      "rules": {
+        "entrants": 56,
+        "preliminaryTies": 2,
+        "firstRoundTies": 22,
+        "topTierEntrants": 10,
+        "topTierEntry": "R32",
+        "automaticTiers": [
+          "TOPLYGA",
+          "I Lyga",
+          "II Lyga A",
+          "II Lyga B"
+        ],
+        "lowerTierAmateursMayApply": true,
+        "legs": 1,
+        "lowerTierHosts": true,
+        "sameTierFirstDrawnHosts": true,
+        "extraTimeMinutes": [
+          15,
+          15
+        ],
+        "additionalSubstitutionExtraTime": 1,
+        "penalties": true,
+        "drawEveryRoundExceptFinal": true
+      },
+      "dates": {
+        "preliminary": "2026-04-01",
+        "R64": [
+          "2026-04-10",
+          "2026-04-14"
+        ],
+        "R32": [
+          "2026-04-21",
+          "2026-04-29"
+        ],
+        "R16": [
+          "2026-05-19",
+          "2026-05-20"
+        ],
+        "QF": [
+          "2026-06-23",
+          "2026-06-24"
+        ],
+        "SF": [
+          "2026-09-01",
+          "2026-09-02"
+        ],
+        "final": "2026-10-11"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block85Research": {
+      "matches": [
+        {
+          "round": "P",
+          "date": "2026-04-01",
+          "home": "Futboliukas",
+          "away": "Venta",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "penalties": [
+            4,
+            5
+          ],
+          "extraTime": true
+        },
+        {
+          "round": "P",
+          "date": "2026-04-01",
+          "home": "Nemunas",
+          "away": "Babrungas",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-10",
+          "home": "Cementininkas",
+          "away": "Vilnius Football Academy",
+          "homeGoals": 0,
+          "awayGoals": 10
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-10",
+          "home": "Nevėžis",
+          "away": "Dainava",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "penalties": [
+            2,
+            4
+          ],
+          "extraTime": true
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-10",
+          "home": "EDM Statyba-Sendvaris",
+          "away": "Neptūnas",
+          "homeGoals": 0,
+          "awayGoals": 12
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-10",
+          "home": "Ukmergė",
+          "away": "Širvėna",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "penalties": [
+            2,
+            4
+          ],
+          "extraTime": true
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-10",
+          "home": "Venta",
+          "away": "Granitas",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-10",
+          "home": "VGTU Vilkai",
+          "away": "Vilniaus BFA",
+          "homeGoals": 0,
+          "awayGoals": 7
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-11",
+          "home": "Šilutė",
+          "away": "Be1",
+          "homeGoals": 0,
+          "awayGoals": 5
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-11",
+          "home": "Tauras",
+          "away": "Ekranas",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "extraTime": true
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-11",
+          "home": "Sirijus",
+          "away": "Utenis",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-11",
+          "home": "Saned",
+          "away": "Babrungas",
+          "homeGoals": 0,
+          "awayGoals": 9
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-11",
+          "home": "OG Kaišiadorys",
+          "away": "Klaipėdos FM",
+          "homeGoals": 3,
+          "awayGoals": 5
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-11",
+          "home": "Tera",
+          "away": "Pempininkai",
+          "homeGoals": 2,
+          "awayGoals": 4
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-11",
+          "home": "Ketera",
+          "away": "Atmosfera",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-11",
+          "home": "Šumskas",
+          "away": "Viltis",
+          "homeGoals": 0,
+          "awayGoals": 5
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-11",
+          "home": "Trivartis",
+          "away": "Sveikata",
+          "homeGoals": 0,
+          "awayGoals": 5
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-11",
+          "home": "Nadruvis",
+          "away": "AFK",
+          "homeGoals": 0,
+          "awayGoals": 4
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-12",
+          "home": "Švyturys",
+          "away": "Garliava",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-12",
+          "home": "Geležinis Vilkas",
+          "away": "Minija",
+          "homeGoals": 0,
+          "awayGoals": 12
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-12",
+          "home": "Jurbarko Imsrė",
+          "away": "Radviliškis",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-12",
+          "home": "Inter Nemenčinė",
+          "away": "Ataka",
+          "homeGoals": 0,
+          "awayGoals": 6
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-12",
+          "home": "Kaunas City FA",
+          "away": "Vilniaus Vytis",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "penalties": [
+            3,
+            5
+          ],
+          "extraTime": true
+        },
+        {
+          "round": "R64",
+          "date": "2026-04-14",
+          "home": "Utenos Utena",
+          "away": "Jonava",
+          "homeGoals": 0,
+          "awayGoals": 16
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-21",
+          "home": "Tauras",
+          "away": "Hegelmann",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-21",
+          "home": "Atmosfera",
+          "away": "Žalgiris Vilnius",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-21",
+          "home": "Ataka",
+          "away": "Širvėna",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-21",
+          "home": "Vilniaus Vytis",
+          "away": "Banga",
+          "homeGoals": 0,
+          "awayGoals": 4
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-21",
+          "home": "Pempininkai",
+          "away": "Sirijus",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-22",
+          "home": "Neptūnas",
+          "away": "Džiugas",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-22",
+          "home": "Venta",
+          "away": "TransINVEST",
+          "homeGoals": 1,
+          "awayGoals": 10
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-28",
+          "home": "Minija",
+          "away": "Sūduva",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "penalties": [
+            5,
+            4
+          ],
+          "extraTime": true
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-28",
+          "home": "Sveikata",
+          "away": "Kauno Žalgiris",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-28",
+          "home": "Klaipėdos FM",
+          "away": "Be1",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-28",
+          "home": "Vilnius Football Academy",
+          "away": "Riteriai",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-28",
+          "home": "Vilniaus BFA",
+          "away": "Babrungas",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-28",
+          "home": "Viltis",
+          "away": "Dainava",
+          "homeGoals": 1,
+          "awayGoals": 7
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-29",
+          "home": "Jonava",
+          "away": "FA Šiauliai",
+          "homeGoals": 0,
+          "awayGoals": 4
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-29",
+          "home": "Radviliškis",
+          "away": "Panevėžys",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": "R32",
+          "date": "2026-04-29",
+          "home": "AFK",
+          "away": "Garliava",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-19",
+          "home": "Klaipėdos FM",
+          "away": "Dainava",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-19",
+          "home": "Vilniaus BFA",
+          "away": "Garliava",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-19",
+          "home": "Riteriai",
+          "away": "Kauno Žalgiris",
+          "homeGoals": 0,
+          "awayGoals": 4
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-19",
+          "home": "Pempininkai",
+          "away": "Minija",
+          "homeGoals": 1,
+          "awayGoals": 4,
+          "extraTime": true
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-20",
+          "home": "Džiugas",
+          "away": "Banga",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "penalties": [
+            4,
+            3
+          ],
+          "extraTime": true
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-20",
+          "home": "Atmosfera",
+          "away": "Panevėžys",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-20",
+          "home": "TransINVEST",
+          "away": "Hegelmann",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-20",
+          "home": "Ataka",
+          "away": "FA Šiauliai",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": "QF",
+          "date": "2026-06-23",
+          "home": "Vilniaus BFA",
+          "away": "Kauno Žalgiris",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": "QF",
+          "date": "2026-06-23",
+          "home": "Minija",
+          "away": "Panevėžys",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "round": "QF",
+          "date": "2026-06-24",
+          "home": "FA Šiauliai",
+          "away": "Džiugas",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "round": "QF",
+          "date": "2026-06-24",
+          "home": "Dainava",
+          "away": "TransINVEST",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "penalties": [
+            2,
+            1
+          ],
+          "extraTime": true
+        }
+      ],
+      "cutoffPhase": {
+        "qualifiedForSF": [
+          "Minija",
+          "Dainava",
+          "FA Šiauliai",
+          "Kauno Žalgiris"
+        ],
+        "SFpairs": [
+          [
+            "Minija",
+            "Dainava"
+          ],
+          [
+            "FA Šiauliai",
+            "Kauno Žalgiris"
+          ]
+        ]
+      },
+      "validation": {
+        "counts": [
+          2,
+          22,
+          16,
+          8,
+          4
+        ],
+        "winnerPropagation": [
+          {
+            "from": "P",
+            "to": "R64",
+            "missing": []
+          },
+          {
+            "from": "R64",
+            "to": "R32",
+            "missing": []
+          },
+          {
+            "from": "R32",
+            "to": "R16",
+            "missing": []
+          },
+          {
+            "from": "R16",
+            "to": "QF",
+            "missing": []
+          }
+        ],
+        "scoreConflict": {
+          "home": "Švyturys",
+          "away": "Garliava",
+          "date": "2026-04-12",
+          "officialMatchTable": [
+            0,
+            3
+          ],
+          "officialRoundReport": [
+            0,
+            4
+          ],
+          "resolution": "pending final audit"
+        }
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 52,
+        "qualified": 4
+      },
+      "missing": "Native keys and score discrepancy; full rule reconciliation."
     }
   }
 ]

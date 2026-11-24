@@ -24,7 +24,7 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "Premium liiga",
+      "officialName": "A. Le Coq Premium liiga",
       "nonCommercialDisplayName": "Meistriliiga",
       "candidateName": "Meistriliiga",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
@@ -113,6 +113,20 @@
         "matches": 7
       },
       "missing": "Full cutoff list, independent exact date/score verification, stable club keys and standings reconciliation."
+    },
+    "sportRuleEvidence84": {
+      "edition": "2026",
+      "rules": {
+        "teams": 10,
+        "gamesPerClub": 36,
+        "meetingsPerOpponent": 4,
+        "directRelegated": [
+          10
+        ],
+        "playoffRank": 9
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Observed seasonal table and UEFA structural summary; EJL exact rulebook download 404, promotion details not certified. Existing cutoff retained."
     }
   }
 ]

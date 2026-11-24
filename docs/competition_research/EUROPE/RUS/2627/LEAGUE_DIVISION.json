@@ -10,23 +10,23 @@
     "candidateSources": [
       "c9f932c8aec04966dcfacacdbf5608a03cf2fae4"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Alfa-Bank Russian Premier League",
+      "nonCommercialDisplayName": "Russian Premier League",
       "candidateName": "Russian Premier League",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/European_Leagues",
       "nameHistory": [
         {
@@ -40,6 +40,58 @@
         }
       ],
       "historyComplete": false
+    },
+    "block86Research": {
+      "edition": "2026/27",
+      "firstMatch": "2026-07-24",
+      "regularTeams": 16,
+      "rounds": 30,
+      "format": "Double round robin",
+      "relegation": {
+        "direct": [
+          15,
+          16
+        ],
+        "playoff": [
+          [
+            13,
+            4
+          ],
+          [
+            14,
+            3
+          ]
+        ],
+        "legs": 2,
+        "licensingConditional": true
+      },
+      "calendar": {
+        "winterBreakFrom": "2026-12-06",
+        "endWindow": "2027-05-29/30",
+        "promotionPlayoffDates": [
+          "2027-06-02",
+          "2027-06-05"
+        ]
+      },
+      "participants": [
+        "Zenit St Petersburg",
+        "Spartak Moscow",
+        "Krasnodar",
+        "Dynamo Makhachkala",
+        "CSKA Moscow",
+        "Rostov",
+        "Baltika Kaliningrad",
+        "Rubin Kazan",
+        "Orenburg",
+        "Krylia Sovetov Samara",
+        "Lokomotiv Moscow",
+        "Akhmat Grozny",
+        "Dynamo Moscow",
+        "Fakel Voronezh",
+        "Rodina Moscow",
+        "Akron Togliatti"
+      ],
+      "scope": "Named entrants, no future results or game IDs. April federation calendar announced MIR name; actual edition Alfa-Bank."
     }
   }
 ]

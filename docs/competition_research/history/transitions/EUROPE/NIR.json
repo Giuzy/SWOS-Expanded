@@ -14,5 +14,109 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
     }
+  },
+  {
+    "index": 533,
+    "value": {
+      "competition": "NIR tier 1",
+      "firstEdition": "1997/98",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        21,
+        277
+      ],
+      "rules": {
+        "teams": 10
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 534,
+    "value": {
+      "competition": "NIR tier 1",
+      "firstEdition": "2003/04",
+      "operation": "RESTRUCTURE_AND_RENAME",
+      "rowRefs": [
+        21,
+        277
+      ],
+      "rules": {
+        "name": "Irish Premier League",
+        "seniorDivisions": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 535,
+    "value": {
+      "competition": "NIR tier 1",
+      "firstEdition": "2008/09",
+      "operation": "RESTRUCTURE_AND_RENAME",
+      "rowRefs": [
+        21,
+        277
+      ],
+      "rules": {
+        "previousName": "Irish Premier League",
+        "name": "IFA Premiership",
+        "teams": 12,
+        "previousTeams": 16,
+        "licensing": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 536,
+    "value": {
+      "competition": "NIR tier 1",
+      "firstEdition": "2013/14",
+      "operation": "CHANGE_ADMINISTRATION",
+      "rowRefs": [
+        277
+      ],
+      "rules": {
+        "administrator": "Northern Ireland Football League"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 537,
+    "value": {
+      "competition": "NIR Irish Cup",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_ENTRY_STRUCTURE",
+      "rowRefs": [
+        387
+      ],
+      "rules": {
+        "entrants": 126,
+        "regionalIntermediateEntry": 1,
+        "NAFLNationalConferenceEntry": 2,
+        "seniorEntry": 6
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 538,
+    "value": {
+      "competition": "NIR tier 1 and league cup",
+      "firstEdition": "2026/27",
+      "operation": "OBSERVED_EUROPEAN_ACCESS",
+      "rowRefs": [
+        277,
+        388,
+        469
+      ],
+      "rules": {
+        "leagueCupWinnerEntersEuropeanPlayoffFinal": true,
+        "UEFALicenceRequired": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

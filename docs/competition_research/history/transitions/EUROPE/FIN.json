@@ -135,5 +135,82 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block48 HTML opened; no PDF analyzed."
     }
+  },
+  {
+    "index": 549,
+    "value": {
+      "competition": "FIN tier 1",
+      "firstEdition": "2011",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        12,
+        238
+      ],
+      "rules": {
+        "teams": 12,
+        "regularGames": 33,
+        "meetingsPerOpponent": 3
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "lastEdition": "2018"
+    }
+  },
+  {
+    "index": 550,
+    "value": {
+      "competition": "FIN tier 1",
+      "firstEdition": "2019",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        238
+      ],
+      "rules": {
+        "teams": 12,
+        "regularGames": 22,
+        "split": [
+          6,
+          6
+        ],
+        "additionalGames": 5,
+        "totalGames": 27
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "2019 base format; later exceptional seasons and 2025 asymmetrical split separately recorded."
+    }
+  },
+  {
+    "index": 551,
+    "value": {
+      "competition": "FIN national cup",
+      "firstEdition": "1996",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        123
+      ],
+      "rules": {
+        "QFLegs": 1,
+        "SFLegs": 2,
+        "finalLegs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 552,
+    "value": {
+      "competition": "FIN national cup",
+      "firstEdition": "2026",
+      "operation": "OBSERVED_ACCESS",
+      "rowRefs": [
+        355
+      ],
+      "rules": {
+        "registeredClubs": 417,
+        "preliminaryEntrants": 242,
+        "round3NewEntrants": 52,
+        "round5NewUEFAEntrants": 4
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

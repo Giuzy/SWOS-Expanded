@@ -16,7 +16,7 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -41,13 +41,44 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Meistriliiga",
+      "nonCommercialDisplayName": "Meistriliiga",
       "candidateName": "Meistriliiga",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/resultsp99.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence84": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 8,
+        "firstStageGames": 14,
+        "topSixSecondStageGames": 10,
+        "carryFraction": 0.5,
+        "rounding": "up inferred from tables",
+        "bottomTwoTransitionGroup": {
+          "teams": 6,
+          "lowerTierEntrants": 4,
+          "gamesPerClub": 10
+        }
+      },
+      "seasonWindows": {
+        "first": "autumn 1996",
+        "second": "spring 1997"
+      },
+      "participants": [
+        "FC Lantana Tallinn",
+        "FC Flora Tallinn",
+        "FC Marlekor Tallinn",
+        "Lelle SK",
+        "Trans Narva",
+        "Tallinna Sadam",
+        "Eesti Põlevkivi Jõhvi",
+        "JK Vall Tallinn"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Exact opening date not retrieved; name changes and administrative transfer during/after edition not recurring promotion rules."
     }
   }
 ]

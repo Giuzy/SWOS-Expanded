@@ -12,8 +12,8 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -30,6 +30,223 @@
       "source": "1f9d6d0f2c0b9bace22190d2898c6a19276dabf3",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence83": {
+      "edition": "2026",
+      "rules": {
+        "registeredClubs": 417,
+        "oneLegKO": true,
+        "lowerTierHomeAdvantageThroughRound": 4,
+        "regionalDrawThroughRound": 5,
+        "prelim": {
+          "entrants": 242,
+          "drawGroups": 10
+        },
+        "round1": {
+          "entrants": 240,
+          "new": 119
+        },
+        "round2": {
+          "entrants": 120
+        },
+        "round3": {
+          "entrants": 112,
+          "adds": {
+            "tier1NonUEFA": 8,
+            "tier2": 9,
+            "tier3": 10,
+            "tier4": 25
+          }
+        },
+        "round4": {
+          "entrants": 56
+        },
+        "round5": {
+          "entrants": 32,
+          "addsTier1UEFA": 4
+        },
+        "round6": {
+          "entrants": 16
+        },
+        "QF": {
+          "entrants": 8
+        },
+        "SF": {
+          "entrants": 4
+        },
+        "final": {
+          "entrants": 2
+        },
+        "observedR5AndR6Tie": "direct penalties"
+      },
+      "dates": {
+        "prelim": [
+          "2026-02-06",
+          "2026-03-08"
+        ],
+        "R1": [
+          "2026-02-06",
+          "2026-03-19"
+        ],
+        "R2": [
+          "2026-03-09",
+          "2026-03-29"
+        ],
+        "R3": [
+          "2026-04-07",
+          "2026-04-19"
+        ],
+        "R4": [
+          "2026-04-28",
+          "2026-05-03"
+        ],
+        "R5Nominal": [
+          "2026-05-13",
+          "2026-05-14"
+        ],
+        "R6": [
+          "2026-05-26",
+          "2026-05-27"
+        ],
+        "QFNominal": "2026-06-10",
+        "SF": [
+          "2026-06-30",
+          "2026-07-01"
+        ],
+        "final": "2026-09-05"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Nominal dates and secondary entrant table, R5/R6 direct penalties confirmed by league report; full fixture and eligibility verification pending."
+    },
+    "block83Research": {
+      "matches": [
+        {
+          "round": "R16",
+          "date": "2026-05-26",
+          "home": "HJK",
+          "away": "MyPa",
+          "homeGoals": 11,
+          "awayGoals": 1
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-26",
+          "home": "Honka",
+          "away": "VJS",
+          "homeGoals": 5,
+          "awayGoals": 1
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-26",
+          "home": "Inter Turku",
+          "away": "EBK",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-26",
+          "home": "JäPS",
+          "away": "KuPS",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-26",
+          "home": "Mariehamn",
+          "away": "Lahti",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-26",
+          "home": "VPS",
+          "away": "Haka",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-26",
+          "home": "SJK Akatemia",
+          "away": "SJK",
+          "homeGoals": 0,
+          "awayGoals": 5
+        },
+        {
+          "round": "R16",
+          "date": "2026-05-27",
+          "home": "Ilves",
+          "away": "TPS",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": "QF",
+          "date": "2026-06-09",
+          "home": "Honka",
+          "away": "HJK",
+          "homeGoals": 1,
+          "awayGoals": 7
+        },
+        {
+          "round": "QF",
+          "date": "2026-06-10",
+          "home": "SJK",
+          "away": "Inter Turku",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": "QF",
+          "date": "2026-06-10",
+          "home": "Ilves",
+          "away": "Lahti",
+          "homeGoals": 5,
+          "awayGoals": 2
+        },
+        {
+          "round": "QF",
+          "date": "2026-06-10",
+          "home": "KuPS",
+          "away": "VPS",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "penalties": [
+            4,
+            5
+          ]
+        },
+        {
+          "round": "SF",
+          "date": "2026-06-30",
+          "home": "VPS",
+          "away": "Inter Turku",
+          "homeGoals": 2,
+          "awayGoals": 3
+        }
+      ],
+      "cutoffPhase": {
+        "finalist": "Inter Turku",
+        "remainingSF": [
+          "HJK",
+          "Ilves"
+        ],
+        "remainingSFDate": "2026-07-01"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 13,
+        "cutoffPhase": "SEMIFINAL_1_COMPLETED"
+      },
+      "missing": "Preliminary through round5 exact results, native keys and full rules."
     }
   }
 ]

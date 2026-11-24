@@ -147,6 +147,48 @@
         "matches": 9
       },
       "missing": "Full cutoff list, independent exact date/score verification, stable club keys and standings reconciliation."
+    },
+    "sportRuleEvidence85": {
+      "edition": "2026",
+      "rules": {
+        "maximumTeams": 10,
+        "maxTeamsPerClub": 1,
+        "regularCycles": 4,
+        "gamesPerClubAt10": 36,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "lastRoundSimultaneous": true,
+        "tiebreakers": [
+          "head-to-head points",
+          "head-to-head goal difference",
+          "head-to-head goals",
+          "head-to-head wins",
+          "overall goal difference",
+          "overall goals",
+          "overall wins",
+          "lower disciplinary points (yellow 1, red 4)",
+          "draw lots"
+        ],
+        "titleTie": {
+          "twoTeams": "neutral-site extra match",
+          "moreThanTwoTeams": "neutral-site single-round tournament with 3/1/0 points and same ordered tiebreakers",
+          "deciderExtraTime": true,
+          "deciderPenalties": true,
+          "additionalSubstitutionExtraTime": 1,
+          "disciplineCarries": true
+        },
+        "promotionPlayoff": {
+          "tier1Rank": "penultimate",
+          "legs": 2,
+          "tier1HostsSecond": true,
+          "aggregateTie": "extra time then penalties"
+        }
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Federation art9 original February text, subsequent amendments and actual expulsion consequences separate; existing cutoff preserved."
     }
   }
 ]

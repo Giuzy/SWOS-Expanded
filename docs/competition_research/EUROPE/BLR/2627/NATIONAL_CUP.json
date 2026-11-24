@@ -12,24 +12,393 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Betera-Kubak Bielarusi",
+      "nonCommercialDisplayName": "Kubak Bielarusi",
       "candidateName": "Belarusian Cup",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence85": {
+      "edition": "2026/27",
+      "rules": {
+        "preliminaryTies": 2,
+        "qualifying1Ties": 17,
+        "qualifying1Bye": "Krumkačý",
+        "qualifying2Ties": 16,
+        "R32Ties": 16,
+        "observedSingleLeg": true,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "dates": {
+        "preliminary": "2026-04-26",
+        "Q1": [
+          "2026-05-01",
+          "2026-05-13"
+        ],
+        "Q2": [
+          "2026-05-20",
+          "2026-05-28"
+        ],
+        "R32First": "2026-06-17",
+        "R32RemainingFrom": "2026-07-18"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Exact full eligibility and late rounds not certified."
+    },
+    "block85Research": {
+      "matches": [
+        {
+          "round": "P",
+          "date": "2026-04-26",
+          "home": "FC Réčyca",
+          "away": "Viertykáĺ",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": "P",
+          "date": "2026-04-26",
+          "home": "Miadzviédzi",
+          "away": "FC Íŭje",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-01",
+          "home": "Áhra-Pielíšča",
+          "away": "Kréčat",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "penalties": [
+            2,
+            3
+          ]
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-01",
+          "home": "Nóvaja Prýpiać",
+          "away": "Stánles",
+          "homeGoals": 2,
+          "awayGoals": 4
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-01",
+          "home": "Liách. Vólat",
+          "away": "Nadziéja",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-01",
+          "home": "DVLHU",
+          "away": "MNPZ",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "penalties": [
+            8,
+            7
+          ]
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-01",
+          "home": "FSC Mastý",
+          "away": "Miadzviédzi",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-01",
+          "home": "Spadaróžnik",
+          "away": "Babóŭnia",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-02",
+          "home": "Pólack-2019",
+          "away": "Pastávy",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-02",
+          "home": "Chójniki",
+          "away": "Viertykáĺ",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-02",
+          "home": "Hórki",
+          "away": "Druć",
+          "homeGoals": 0,
+          "awayGoals": 5,
+          "extraTime": true
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-03",
+          "home": "Kamunáĺnik",
+          "away": "Ivacévičy",
+          "homeGoals": 1,
+          "awayGoals": 6
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-03",
+          "home": "Hazavík",
+          "away": "Mióry",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-03",
+          "home": "Ščúčyn",
+          "away": "Nióman-BelCard",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-03",
+          "home": "Vílija",
+          "away": "Viktóryja",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-03",
+          "home": "Technolah-BDUT",
+          "away": "Čérykaŭ",
+          "homeGoals": 14,
+          "awayGoals": 0
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-06",
+          "home": "Uradžájnaja",
+          "away": "Türkspor",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-06",
+          "home": "Minsk Sea",
+          "away": "Sparták",
+          "homeGoals": 5,
+          "awayGoals": 1
+        },
+        {
+          "round": "Q1",
+          "date": "2026-05-13",
+          "home": "Enierhiétyk",
+          "away": "BDU",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "penalties": [
+            5,
+            6
+          ]
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-20",
+          "home": "Druć",
+          "away": "Órša",
+          "homeGoals": 0,
+          "awayGoals": 7
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-20",
+          "home": "Ivacévičy",
+          "away": "Sluck-2024",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-20",
+          "home": "Minsk Sea",
+          "away": "SKA-1938",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-27",
+          "home": "BDU",
+          "away": "Asipóvičy",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-27",
+          "home": "Viertykáĺ",
+          "away": "Smarhóń",
+          "homeGoals": 0,
+          "awayGoals": 7
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-27",
+          "home": "DVLHU",
+          "away": "Salihórsk",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-27",
+          "home": "Hazavík",
+          "away": "Chvália",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-27",
+          "home": "Ščúčyn",
+          "away": "Lída",
+          "homeGoals": 3,
+          "awayGoals": 4
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-27",
+          "home": "Pólack-2019",
+          "away": "Uni X Labs",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-27",
+          "home": "Babóŭnia",
+          "away": "PapierPrám",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-27",
+          "home": "Kréčat",
+          "away": "Astraviéc",
+          "homeGoals": 0,
+          "awayGoals": 8
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-27",
+          "home": "FSC Mastý",
+          "away": "Níva",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-27",
+          "home": "Uradžájnaja",
+          "away": "Maladziéčna-2018",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-28",
+          "home": "Technolah-BDUT",
+          "away": "Slónim-2017",
+          "homeGoals": 0,
+          "awayGoals": 6
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-28",
+          "home": "Stánles",
+          "away": "Krumkačý",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "round": "Q2",
+          "date": "2026-05-28",
+          "home": "Viktóryja",
+          "away": "Nadziéja",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": "R32",
+          "date": "2026-06-17",
+          "home": "SKA-1938",
+          "away": "ML Víciebsk",
+          "homeGoals": 3,
+          "awayGoals": 5,
+          "extraTime": true
+        },
+        {
+          "round": "R32",
+          "date": "2026-06-17",
+          "home": "Maladziéčna-2018",
+          "away": "BATE",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "round": "R32",
+          "date": "2026-06-17",
+          "home": "Sluck-2024",
+          "away": "Dynáma Minsk",
+          "homeGoals": 0,
+          "awayGoals": 2
+        }
+      ],
+      "cutoffPhase": {
+        "round": "R32",
+        "played": 3,
+        "qualified": [
+          "ML Víciebsk",
+          "BATE",
+          "Dynáma Minsk"
+        ],
+        "remainingTies": 13
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 38
+      },
+      "missing": "Independent date/score reconciliation, native IDs, full rulebook."
     }
   }
 ]

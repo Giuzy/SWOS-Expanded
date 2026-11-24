@@ -13,7 +13,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,8 +23,8 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": "Icelandic Cup",
+      "officialName": "Mjólkurbikarinn",
+      "nonCommercialDisplayName": "Bikarkeppni KSÍ",
       "candidateName": "Icelandic Cup",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
@@ -42,6 +42,481 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Observed or published dates, not full fixture reconciliation; historical neutral labels, exact local official naming still open."
+    },
+    "sportRuleEvidence83": {
+      "edition": "1996",
+      "rules": {
+        "R1Ties": 17,
+        "R2Ties": 16,
+        "R3Ties": 16,
+        "R4Ties": 8,
+        "QFTies": 4,
+        "SFTies": 2,
+        "finalTies": 1,
+        "observedSingleLeg": true,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true,
+        "reserveU23ParticipationObserved": true
+      },
+      "dates": {
+        "start": "1996-05-21",
+        "R1End": "1996-05-25",
+        "R2": [
+          "1996-06-01",
+          "1996-06-11"
+        ],
+        "R3": [
+          "1996-06-18",
+          "1996-06-21"
+        ],
+        "R4": [
+          "1996-07-03",
+          "1996-07-04"
+        ],
+        "final": "1996-08-25"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block83Research": {
+      "matches": [
+        {
+          "round": 1,
+          "date": "1996-05-21",
+          "home": "Bruni",
+          "away": "KR U23",
+          "homeGoals": 2,
+          "awayGoals": 6
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Sindri",
+          "away": "Huginn",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Neisti H.",
+          "away": "Tindastóll",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "KVA",
+          "away": "Leiknir F.",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Ökkli",
+          "away": "Smástund",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "TBR",
+          "away": "FH U23",
+          "homeGoals": 2,
+          "awayGoals": 4,
+          "extraTime": true
+        },
+        {
+          "round": 1,
+          "date": "1996-05-24",
+          "home": "Höttur",
+          "away": "Einherji",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "round": 1,
+          "date": "1996-05-24",
+          "home": "KSÁÁ",
+          "away": "Breiðablik U23",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": 1,
+          "date": "1996-05-24",
+          "home": "Reynir Sandgerði",
+          "away": "Njarðvík",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-24",
+          "home": "HK",
+          "away": "ÍH",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "round": 1,
+          "date": "1996-05-24",
+          "home": "Selfoss",
+          "away": "Fylkir U23",
+          "homeGoals": 7,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-24",
+          "home": "Magni Grenivík",
+          "away": "KS",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": 1,
+          "date": "1996-05-24",
+          "home": "Fram U23",
+          "away": "Haukar",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "extraTime": true
+        },
+        {
+          "round": 1,
+          "date": "1996-05-24",
+          "home": "Grótta",
+          "away": "Víðir",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "round": 1,
+          "date": "1996-05-24",
+          "home": "GG",
+          "away": "Reynir Hnífsdalur",
+          "homeGoals": 10,
+          "awayGoals": 0
+        },
+        {
+          "round": 1,
+          "date": "1996-05-24",
+          "home": "Víkingur Ó.",
+          "away": "Léttir",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": 1,
+          "date": "1996-05-25",
+          "home": "ÍA U23",
+          "away": "Fjölnir",
+          "homeGoals": 6,
+          "awayGoals": 0
+        },
+        {
+          "round": 2,
+          "date": "1996-06-01",
+          "home": "Þróttur Neskaupstað",
+          "away": "Höttur",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": 2,
+          "date": "1996-06-03",
+          "home": "FH U23",
+          "away": "Valur U23",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": 2,
+          "date": "1996-06-03",
+          "home": "Grótta",
+          "away": "Breiðablik U23",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": 2,
+          "date": "1996-06-03",
+          "home": "Leiknir Reykjavík",
+          "away": "Reynir Sandgerði",
+          "homeGoals": 7,
+          "awayGoals": 2
+        },
+        {
+          "round": 2,
+          "date": "1996-06-03",
+          "home": "Hvöt",
+          "away": "Magni Grenivík",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "round": 2,
+          "date": "1996-06-03",
+          "home": "Þór Akureyri U23",
+          "away": "Völsungur",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": 2,
+          "date": "1996-06-03",
+          "home": "HK",
+          "away": "Stjarnan U23",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": 2,
+          "date": "1996-06-03",
+          "home": "Víkingur",
+          "away": "Selfoss",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "round": 2,
+          "date": "1996-06-03",
+          "home": "GG",
+          "away": "Ægir",
+          "homeGoals": 1,
+          "awayGoals": 5
+        },
+        {
+          "round": 2,
+          "date": "1996-06-03",
+          "home": "Fram U23",
+          "away": "Ökkli",
+          "homeGoals": 5,
+          "awayGoals": 1
+        },
+        {
+          "round": 2,
+          "date": "1996-06-03",
+          "home": "Dalvík",
+          "away": "Tindastóll",
+          "homeGoals": 8,
+          "awayGoals": 0
+        },
+        {
+          "round": 2,
+          "date": "1996-06-03",
+          "home": "ÍR",
+          "away": "KR U23",
+          "homeGoals": 6,
+          "awayGoals": 4,
+          "extraTime": true
+        },
+        {
+          "round": 2,
+          "date": "1996-06-03",
+          "home": "Afturelding",
+          "away": "Víkingur Ó.",
+          "homeGoals": 2,
+          "awayGoals": 5
+        },
+        {
+          "round": 2,
+          "date": "1996-06-03",
+          "home": "ÍA U23",
+          "away": "Keflavík U23",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": 2,
+          "date": "1996-06-04",
+          "home": "Bolungarvík",
+          "away": "BÍ",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "extraTime": true,
+          "penalties": [
+            5,
+            4
+          ]
+        },
+        {
+          "round": 2,
+          "date": "1996-06-11",
+          "home": "Leiknir F.",
+          "away": "Sindri",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": 3,
+          "date": "1996-06-18",
+          "home": "Stjarnan U23",
+          "away": "Fram",
+          "homeGoals": 0,
+          "awayGoals": 4
+        },
+        {
+          "round": 3,
+          "date": "1996-06-20",
+          "home": "Höttur",
+          "away": "ÍA",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": 3,
+          "date": "1996-06-20",
+          "home": "Valur U23",
+          "away": "Valur",
+          "homeGoals": 0,
+          "awayGoals": 7
+        },
+        {
+          "round": 3,
+          "date": "1996-06-20",
+          "home": "Víkingur",
+          "away": "Skallagrímur",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": 3,
+          "date": "1996-06-20",
+          "home": "Magni Grenivík",
+          "away": "KR",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": 3,
+          "date": "1996-06-20",
+          "home": "Víkingur Ó.",
+          "away": "Fylkir",
+          "homeGoals": 1,
+          "awayGoals": 5
+        },
+        {
+          "round": 3,
+          "date": "1996-06-20",
+          "home": "Fram U23",
+          "away": "Breiðablik",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": 3,
+          "date": "1996-06-20",
+          "home": "Sindri",
+          "away": "Stjarnan",
+          "homeGoals": 2,
+          "awayGoals": 5
+        },
+        {
+          "round": 3,
+          "date": "1996-06-20",
+          "home": "Keflavík U23",
+          "away": "Keflavík",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": 3,
+          "date": "1996-06-20",
+          "home": "Dalvík",
+          "away": "Leiftur",
+          "homeGoals": 0,
+          "awayGoals": 7
+        },
+        {
+          "round": 3,
+          "date": "1996-06-20",
+          "home": "Ægir",
+          "away": "Grindavík",
+          "homeGoals": 0,
+          "awayGoals": 5
+        },
+        {
+          "round": 3,
+          "date": "1996-06-20",
+          "home": "Leiknir Reykjavík",
+          "away": "Þór Akureyri",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": 3,
+          "date": "1996-06-21",
+          "home": "ÍR",
+          "away": "Þróttur",
+          "homeGoals": 4,
+          "awayGoals": 6
+        },
+        {
+          "round": 3,
+          "date": "1996-06-21",
+          "home": "Völsungur",
+          "away": "KA",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": 3,
+          "date": "1996-06-21",
+          "home": "ÍBV",
+          "away": "Breiðablik U23",
+          "homeGoals": 6,
+          "awayGoals": 2
+        },
+        {
+          "round": 3,
+          "date": "1996-06-21",
+          "home": "Bolungarvík",
+          "away": "FH",
+          "homeGoals": 0,
+          "awayGoals": 1
+        }
+      ],
+      "qualifiedForR4": [
+        "Fram",
+        "ÍA",
+        "Valur",
+        "Skallagrímur",
+        "KR",
+        "Fylkir",
+        "Breiðablik",
+        "Stjarnan",
+        "Keflavík",
+        "Leiftur",
+        "Grindavík",
+        "Þór Akureyri",
+        "Þróttur",
+        "KA",
+        "ÍBV",
+        "FH"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "validation": {
+        "counts": [
+          17,
+          16,
+          16
+        ],
+        "missingPriorWinners": [],
+        "note": "Historical U23 entries distinct from senior teams; entry qualification mapping pending."
+      }
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 49,
+        "qualified": 16
+      },
+      "missing": "Independent verification, entry rules, stable team keys."
     }
   }
 ]

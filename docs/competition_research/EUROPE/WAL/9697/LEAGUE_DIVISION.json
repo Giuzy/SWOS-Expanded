@@ -16,7 +16,7 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -42,10 +42,10 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "League of Wales",
+      "nonCommercialDisplayName": "League of Wales",
       "candidateName": "League of Wales",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/resultsp99.html",
       "nameHistory": [
         {
@@ -68,6 +68,20 @@
         }
       ],
       "historyComplete": false
+    },
+    "sportRuleEvidence82": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 21,
+        "gamesPerClub": 40,
+        "meetingsPerOpponent": 2,
+        "pointsWin": 3,
+        "observedBottomRelegationPositions": 2,
+        "exception": "Ton Pentre voluntary withdrawal, not recurring rule"
+      },
+      "dates": {},
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Earliest fixture date not established; archive full page timed out; existing sporting evidence retained."
     }
   }
 ]

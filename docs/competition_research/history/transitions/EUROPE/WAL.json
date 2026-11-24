@@ -48,5 +48,72 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 30 actual web search excerpts; exact sporting identity and structural reform independently checked before runtime. No sponsor names."
     }
+  },
+  {
+    "index": 539,
+    "value": {
+      "competition": "WAL tier 1",
+      "firstEdition": "2010/11",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        35,
+        319
+      ],
+      "rules": {
+        "teams": 12,
+        "previousTeams": 18
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 540,
+    "value": {
+      "competition": "WAL tier 1",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        319,
+        482
+      ],
+      "rules": {
+        "teams": 16,
+        "regularGames": 30,
+        "splitGroups": [
+          6,
+          4,
+          6
+        ],
+        "extraGames": [
+          5,
+          3,
+          5
+        ],
+        "carryPoints": true,
+        "directRelegated": [
+          15,
+          16
+        ],
+        "playoffRank": 14
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 541,
+    "value": {
+      "competition": "WAL tier 1",
+      "firstEdition": "2026/27",
+      "operation": "RENAME",
+      "rowRefs": [
+        319
+      ],
+      "rules": {
+        "name": "Novira Cymru Premier",
+        "neutralName": "Cymru Premier"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Title partner announcement June30 2026."
+    }
   }
 ]

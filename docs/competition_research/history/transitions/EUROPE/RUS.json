@@ -31,5 +31,80 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block59 verified HTML or official search excerpt, no future results imported."
     }
+  },
+  {
+    "index": 586,
+    "value": {
+      "competition": "RUS tier 1",
+      "firstEdition": "2011/12",
+      "operation": "CHANGE_SEASON_CYCLE_AND_FORMAT",
+      "note": "Transitional 16 clubs double RR then two groups of eight; calendar-year to autumn/spring.",
+      "rowRefs": [
+        27,
+        291
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block86 actual federation regulation/calendar and historical archive; not a full rule history."
+    }
+  },
+  {
+    "index": 587,
+    "value": {
+      "competition": "RUS tier 1",
+      "firstEdition": "2012/13",
+      "operation": "CHANGE_SEASON_CYCLE",
+      "note": "Regular autumn/spring season begins; top division remains 16.",
+      "rowRefs": [
+        27,
+        291
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block86 actual federation regulation/calendar and historical archive; not a full rule history."
+    }
+  },
+  {
+    "index": 588,
+    "value": {
+      "competition": "RUS national cup",
+      "firstEdition": "2022/23",
+      "operation": "CHANGE_FORMAT",
+      "note": "RPL path groups and Regions knockout; dual path allows transfers from upper to lower bracket.",
+      "rowRefs": [
+        138,
+        401
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block86 actual federation regulation/calendar and historical archive; not a full rule history."
+    }
+  },
+  {
+    "index": 589,
+    "value": {
+      "competition": "RUS tier 1",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_COMMERCIAL_NAME",
+      "previousName": "MIR Russian Premier League",
+      "name": "Alfa-Bank Russian Premier League",
+      "note": "Actual 2026/27 edition naming; neutral display unchanged.",
+      "rowRefs": [
+        291
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block86 actual federation regulation/calendar and historical archive; not a full rule history."
+    }
+  },
+  {
+    "index": 590,
+    "value": {
+      "competition": "RUS national cup",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_FORMAT",
+      "note": "RPL group 6 rounds then spring two-leg playoffs including new RPL round labelled R16, Regions six qualifying rounds plus split stages; top two group teams enter RPL playoffs.",
+      "rowRefs": [
+        401
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block86 actual federation regulation/calendar and historical archive; not a full rule history."
+    }
   }
 ]

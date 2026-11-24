@@ -12,8 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -30,6 +29,67 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence82": {
+      "edition": "2026/27",
+      "rules": {
+        "parentRow": 277,
+        "europe": {
+          "ranks": [
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "leagueCupWinnerEntersFinal": true,
+          "defaultBracket": [
+            [
+              "preliminary",
+              6,
+              7
+            ],
+            [
+              "Q1A",
+              3,
+              "preliminary winner"
+            ],
+            [
+              "Q1B",
+              4,
+              5
+            ],
+            [
+              "Q2",
+              "Q1A winner",
+              "Q1B winner"
+            ],
+            [
+              "final",
+              "Q2 winner",
+              "League Cup winner"
+            ]
+          ],
+          "higherRankHosts": true,
+          "irishCupWinnerRank3to7": "omit prelim and rank remaining four, 1v4 and 2v3",
+          "UEFALicenceRequired": true,
+          "outsidePremiershipCupWinnerLicenceApplicationDeadline": "04-01",
+          "otherScenarios": "committee determination; not inferred"
+        },
+        "promotion": {
+          "directRelegated": 12,
+          "directPromotedTier2": 1,
+          "playoffTier1": 11,
+          "tier2": "highest licensed rank 2–6",
+          "ifChampionUnlicensed": "no direct promotion; highest licensed rank 2–6 plays tier1 rank12",
+          "legs": 2,
+          "extraTime": true,
+          "penalties": true
+        }
+      },
+      "dates": {},
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Dependent phase of parent league, not separate edition; exceptional committee scenarios unresolved."
     }
   }
 ]

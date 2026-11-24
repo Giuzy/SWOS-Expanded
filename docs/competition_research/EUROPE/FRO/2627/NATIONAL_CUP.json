@@ -12,13 +12,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "sportResearchStatus": "RULES_PARTIAL",
     "knownSportData": "FSF amended Feb 2026, four league levels, one team per club; extra time 2x15 then penalties for deciding matches.",
@@ -26,13 +26,221 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Løgmanssteypið",
+      "nonCommercialDisplayName": "Løgmanssteypið",
       "candidateName": "Faroe Islands Cup",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence84": {
+      "edition": "2026",
+      "rules": {
+        "eligibleTiers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "maxTeamsPerClub": 1,
+        "entrantsObserved": 16,
+        "R16Legs": 1,
+        "QFLegs": 1,
+        "SFLegs": 2,
+        "finalLegs": 1,
+        "extraTimeMinutes": [
+          15,
+          15
+        ],
+        "penalties": true,
+        "preliminaryOptional": true,
+        "seededDrawPossible": true
+      },
+      "dates": {
+        "R16": [
+          "2026-04-15",
+          "2026-04-16"
+        ],
+        "QF": [
+          "2026-04-29",
+          "2026-04-30"
+        ],
+        "SF1": [
+          "2026-05-13",
+          "2026-05-14"
+        ],
+        "SF2": [
+          "2026-06-24",
+          "2026-06-25"
+        ],
+        "final": "2026-09-05"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block84Research": {
+      "matches": [
+        {
+          "round": "R16",
+          "date": "2026-04-15",
+          "home": "FC Suðuroy",
+          "away": "B36",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": "R16",
+          "date": "2026-04-15",
+          "home": "FC Hoyvík",
+          "away": "TB",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "round": "R16",
+          "date": "2026-04-15",
+          "home": "KÍ",
+          "away": "ÍF",
+          "homeGoals": 6,
+          "awayGoals": 0
+        },
+        {
+          "round": "R16",
+          "date": "2026-04-15",
+          "home": "HB",
+          "away": "B71",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "round": "R16",
+          "date": "2026-04-15",
+          "home": "B68",
+          "away": "MB",
+          "homeGoals": 7,
+          "awayGoals": 0
+        },
+        {
+          "round": "R16",
+          "date": "2026-04-16",
+          "home": "Víkingur",
+          "away": "AB",
+          "homeGoals": 5,
+          "awayGoals": 1
+        },
+        {
+          "round": "R16",
+          "date": "2026-04-16",
+          "home": "EB/Streymur",
+          "away": "NSÍ",
+          "homeGoals": 1,
+          "awayGoals": 7
+        },
+        {
+          "round": "R16",
+          "date": "2026-04-16",
+          "home": "07 Vestur",
+          "away": "Skála",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": "QF",
+          "date": "2026-04-29",
+          "home": "HB",
+          "away": "B36",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "round": "QF",
+          "date": "2026-04-29",
+          "home": "Víkingur",
+          "away": "FC Hoyvík",
+          "homeGoals": 5,
+          "awayGoals": 0
+        },
+        {
+          "round": "QF",
+          "date": "2026-04-29",
+          "home": "B68",
+          "away": "KÍ",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": "QF",
+          "date": "2026-04-30",
+          "home": "07 Vestur",
+          "away": "NSÍ",
+          "homeGoals": 0,
+          "awayGoals": 4
+        },
+        {
+          "round": "SF1",
+          "date": "2026-05-13",
+          "home": "KÍ",
+          "away": "NSÍ",
+          "homeGoals": 4,
+          "awayGoals": 2
+        },
+        {
+          "round": "SF1",
+          "date": "2026-05-14",
+          "home": "HB",
+          "away": "Víkingur",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "round": "SF2",
+          "date": "2026-06-24",
+          "home": "NSÍ",
+          "away": "KÍ",
+          "homeGoals": 4,
+          "awayGoals": 2,
+          "extraTime": true,
+          "penalties": [
+            2,
+            3
+          ],
+          "displayedCombinedScore": [
+            6,
+            5
+          ],
+          "aggregate": [
+            6,
+            6
+          ],
+          "qualified": "KÍ"
+        },
+        {
+          "round": "SF2",
+          "date": "2026-06-25",
+          "home": "Víkingur",
+          "away": "HB",
+          "homeGoals": 4,
+          "awayGoals": 0
+        }
+      ],
+      "cutoffPhase": {
+        "finalists": [
+          "Víkingur",
+          "KÍ"
+        ],
+        "finalDate": "2026-09-05"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "validation": "FSF result table and referee report text; shootout separated from played score; no postcutoff results."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 16,
+        "finalists": 2
+      },
+      "missing": "Native keys, independent full reconciliation and eligibility details."
     }
   }
 ]

@@ -10,26 +10,394 @@
     "candidateSources": [
       "d744018d10a2aa469e3044dc364cbaa2914785fe"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Kubok Rossii",
+      "nonCommercialDisplayName": "Russian Cup",
       "candidateName": "Russian Cup",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block86Research": {
+      "edition": "1996/97",
+      "firstMatch": "1996-04-17",
+      "format": "Single-leg knockout; extra time and penalties observed; walkovers separate. Fourth round 16 ties before cutoff; round five begins 1996-08-03.",
+      "matches": [
+        {
+          "round": "R1",
+          "date": "1996-04-17",
+          "home": "Niva Slavyansk-na-Kubani",
+          "away": "Kuban Slavyansk-na-Kubani",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "Niva Slavyansk-na-Kubani"
+        },
+        {
+          "round": "R3",
+          "date": "1996-05-30",
+          "home": "Dinamo Bryansk",
+          "away": "Neftyanik Yaroslavl",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Dinamo Bryansk"
+        },
+        {
+          "round": "R3",
+          "date": "1996-05-30",
+          "home": "Kuzbass Kemerovo",
+          "away": "Torpedo Rubtsovsk",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Kuzbass Kemerovo"
+        },
+        {
+          "round": "R3",
+          "date": "1996-05-30",
+          "home": "Tom Tomsk",
+          "away": "Amkar Perm",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "winner": "Tom Tomsk"
+        },
+        {
+          "round": "R3",
+          "date": "1996-05-30",
+          "home": "Nosta Novotroitsk",
+          "away": "Zenit Penza",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "winner": "Nosta Novotroitsk"
+        },
+        {
+          "round": "R3",
+          "date": "1996-05-31",
+          "home": "Kolos Krasnodar",
+          "away": "Torpedo Taganrog",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "winner": "Kolos Krasnodar"
+        },
+        {
+          "round": "R3",
+          "date": "1996-05-31",
+          "home": "Avtozapchast Baksan",
+          "away": "Olimp Kislovodsk",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "homePenalties": 4,
+          "awayPenalties": 3,
+          "winner": "Avtozapchast Baksan"
+        },
+        {
+          "round": "R3",
+          "date": "1996-06-01",
+          "home": "FK Oryol",
+          "away": "Istochnik Rostov-na-Donu",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "FK Oryol"
+        },
+        {
+          "round": "R3",
+          "date": "1996-06-01",
+          "home": "Krasnogvardeyets Moskva",
+          "away": "MChS-Selyatino",
+          "homeGoals": 0,
+          "awayGoals": 5,
+          "winner": "MChS-Selyatino"
+        },
+        {
+          "round": "R3",
+          "date": "1996-06-01",
+          "home": "Avangard-Kortek Kolomna",
+          "away": "Avtomobilist Noginsk",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "Avtomobilist Noginsk"
+        },
+        {
+          "round": "R3",
+          "date": "1996-06-01",
+          "home": "SKA Khabarovsk",
+          "away": "Okean Nakhodka",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "SKA Khabarovsk"
+        },
+        {
+          "round": "R3",
+          "date": "1996-06-01",
+          "home": "Lokomotiv Chita",
+          "away": "Zvezda Irkutsk",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "winner": "Lokomotiv Chita"
+        },
+        {
+          "round": "R3",
+          "date": "1996-06-01",
+          "home": "Lokomotiv-Saturn St-Peterburg",
+          "away": "FK Gatchina",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Lokomotiv-Saturn St-Peterburg"
+        },
+        {
+          "round": "R3",
+          "date": "1996-06-01",
+          "home": "Kavkazkabel Prokhladny",
+          "away": "Anzhi Makhachkala",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "Anzhi Makhachkala"
+        },
+        {
+          "round": "R3",
+          "date": "1996-06-01",
+          "home": "Lada Dimitrovgrad",
+          "away": "Dinamo Mikhailovka",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "winner": "Lada Dimitrovgrad"
+        },
+        {
+          "round": "R3",
+          "date": "1996-06-01",
+          "home": "UralAZ Miass",
+          "away": "Uralets Nizhniy Tagil",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "winner": "UralAZ Miass"
+        },
+        {
+          "round": "R3",
+          "date": "1996-06-01",
+          "home": "Lokomotiv Liski",
+          "away": "Spartak Shcholkovo",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "winner": "Lokomotiv Liski"
+        },
+        {
+          "round": "R3",
+          "date": "1996-06-01",
+          "home": "Rubin Kazan",
+          "away": "Khimik Dzerzhinsk",
+          "homeGoals": 5,
+          "awayGoals": 1,
+          "winner": "Rubin Kazan"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-29",
+          "home": "Lokomotiv Liski",
+          "away": "Fakel Voronezh",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "winner": "Fakel Voronezh"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "Dinamo Bryansk",
+          "away": "Shinnik Yaroslavl",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "winner": "Shinnik Yaroslavl"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "FK Oryol",
+          "away": "Sokol-PZhD Saratov",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "FK Oryol"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "MChS-Selyatino",
+          "away": "Saturn Ramenskoye",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "homePenalties": 3,
+          "awayPenalties": 4,
+          "winner": "Saturn Ramenskoye"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "Kuzbass Kemerovo",
+          "away": "Zarya Leninsk-Kuznetskiy",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "winner": "Zarya Leninsk-Kuznetskiy"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "Avtomobilist Noginsk",
+          "away": "Torpedo Arzamas",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "aet": true,
+          "winner": "Avtomobilist Noginsk"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "Kolos Krasnodar",
+          "away": "Druzhba Maykop",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "winner": "Druzhba Maykop"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "Lokomotiv Chita",
+          "away": "SKA Khabarovsk",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "homePenalties": 4,
+          "awayPenalties": 2,
+          "winner": "Lokomotiv Chita"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "Lokomotiv-Saturn St-Peterburg",
+          "away": "Zenit Sankt-Peterburg",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "aet": true,
+          "winner": "Zenit Sankt-Peterburg"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "Anzhi Makhachkala",
+          "away": "Spartak Nalchik",
+          "homeGoals": 8,
+          "awayGoals": 0,
+          "winner": "Anzhi Makhachkala"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "Tom Tomsk",
+          "away": "Chkalovets Novosibirsk",
+          "homeGoals": 7,
+          "awayGoals": 0,
+          "winner": "Tom Tomsk"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "Lada Dimitrovgrad",
+          "away": "Torpedo Volzhskiy",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "winner": "Lada Dimitrovgrad"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "Avtozapchast Baksan",
+          "away": "Dinamo Stavropol",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "winner": "Avtozapchast Baksan"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "Nosta Novotroitsk",
+          "away": "Neftekhimik Nizhnekamsk",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "Nosta Novotroitsk"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "UralAZ Miass",
+          "away": "Gazovik-GazProm Izhevsk",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "winner": "UralAZ Miass"
+        },
+        {
+          "round": "R4",
+          "date": "1996-06-30",
+          "home": "Rubin Kazan",
+          "away": "Lada Togliatti",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "Lada Togliatti"
+        }
+      ],
+      "qualifiedForRound5": [
+        "Fakel Voronezh",
+        "Shinnik Yaroslavl",
+        "FK Oryol",
+        "Saturn Ramenskoye",
+        "Zarya Leninsk-Kuznetskiy",
+        "Avtomobilist Noginsk",
+        "Druzhba Maykop",
+        "Lokomotiv Chita",
+        "Zenit Sankt-Peterburg",
+        "Anzhi Makhachkala",
+        "Tom Tomsk",
+        "Lada Dimitrovgrad",
+        "Avtozapchast Baksan",
+        "Nosta Novotroitsk",
+        "UralAZ Miass",
+        "Lada Togliatti"
+      ],
+      "scope": "R1 sample, R3 and R4 complete in archive; R1/R2 not fully transcribed. No post-cutoff outcomes."
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 34,
+        "round3": 17,
+        "round4": 16,
+        "qualifiedForRound5": [
+          "Fakel Voronezh",
+          "Shinnik Yaroslavl",
+          "FK Oryol",
+          "Saturn Ramenskoye",
+          "Zarya Leninsk-Kuznetskiy",
+          "Avtomobilist Noginsk",
+          "Druzhba Maykop",
+          "Lokomotiv Chita",
+          "Zenit Sankt-Peterburg",
+          "Anzhi Makhachkala",
+          "Tom Tomsk",
+          "Lada Dimitrovgrad",
+          "Avtozapchast Baksan",
+          "Nosta Novotroitsk",
+          "UralAZ Miass",
+          "Lada Togliatti"
+        ]
+      },
+      "missing": "Earlier rounds R1/R2 full transcription and walkovers, participant keys, independent reconciliation."
     }
   }
 ]

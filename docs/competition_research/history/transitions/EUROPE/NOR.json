@@ -89,5 +89,41 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block48 HTML opened; no PDF analyzed."
     }
+  },
+  {
+    "index": 553,
+    "value": {
+      "competition": "NOR tier 1",
+      "firstEdition": "2009",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        22,
+        278
+      ],
+      "rules": {
+        "teams": 16,
+        "previousTeams": 14
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 554,
+    "value": {
+      "competition": "NOR national cup",
+      "firstEdition": "1996",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        134
+      ],
+      "rules": {
+        "mainRoundEntrants": 128,
+        "round1toQFLegs": 1,
+        "semifinalLegs": 2,
+        "finalLegs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Enriches existing observed final-only record; historical pre-main qualification unresolved."
+    }
   }
 ]

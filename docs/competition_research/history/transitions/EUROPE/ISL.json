@@ -58,5 +58,65 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block48 HTML opened; no PDF analyzed."
     }
+  },
+  {
+    "index": 555,
+    "value": {
+      "competition": "ISL tier 1",
+      "firstEdition": "2008",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        15,
+        256
+      ],
+      "rules": {
+        "teams": 12,
+        "previousTeams": 10,
+        "regularGames": 22
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 556,
+    "value": {
+      "competition": "ISL national cup",
+      "firstEdition": "1996",
+      "operation": "OBSERVED_ACCESS",
+      "rowRefs": [
+        126
+      ],
+      "rules": {
+        "reserveU23ParticipationObserved": true,
+        "R1Ties": 17,
+        "R2Ties": 16,
+        "R3Ties": 16
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 557,
+    "value": {
+      "competition": "ISL league cup",
+      "firstEdition": "2026",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        369
+      ],
+      "rules": {
+        "teams": 24,
+        "groups": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "groupWinnerToSF": true,
+        "finalLegs": 1,
+        "lowerTierCupsSeparate": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

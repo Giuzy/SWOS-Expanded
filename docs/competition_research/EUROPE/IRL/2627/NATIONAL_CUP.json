@@ -93,7 +93,12 @@
             0,
             0
           ],
-          "note": "Not a played score; official award to verify."
+          "note": "Federation confirms walkover and advancement; official results table displays awarded 3–0. No played goals or fixture replay.",
+          "awardConfirmed": true,
+          "administrativeScore": [
+            3,
+            0
+          ]
         },
         {
           "date": "2026-05-16",
@@ -148,7 +153,7 @@
         "penaltiesObserved": true
       },
       "start": "2026-05-10",
-      "scope": "12 first-round ties known; 11 played scores, one walkover, winner requires federation confirmation; no second round July results.",
+      "scope": "Eleven played scores and dates independently matched to official federation result table; one administrative award confirmed by federation announcement; all 12 advancement identities corroborated by June3 draw. Native keys and full match rules unresolved.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     },
     "startResearch": {
@@ -163,7 +168,128 @@
         "matches": 11,
         "walkovers": 1
       },
-      "missing": "Participant IDs, independent reconciliation, exact phase/access/tiebreak details."
+      "missing": "Participant keys and full phase/access/tie-break certification; played scores, administrative award and 12 winners corroborated."
+    },
+    "sportRuleEvidence82": {
+      "edition": "2026",
+      "rules": {
+        "firstRoundEntrants": 24,
+        "firstRoundPlayed": 11,
+        "firstRoundWalkovers": 1,
+        "firstRoundQualified": 12,
+        "secondRoundEntrants": 32,
+        "secondRoundTies": 16,
+        "entryCountConflict": "FAI draw article states 21 league + 11 non-league, but named draw contains 20 league + all 12 first-round winners; confirm classification, do not change entrants."
+      },
+      "dates": {
+        "secondRoundDraw": "2026-06-03",
+        "secondRoundScheduleAnnouncement": "2026-06-12",
+        "nominalSecondRound": [
+          "2026-07-17",
+          "2026-07-19"
+        ],
+        "nominalFinal": "2026-11-08"
+      },
+      "secondRoundNominalPairs": [
+        [
+          "2026-07-17",
+          "Athlone Town",
+          "Midleton"
+        ],
+        [
+          "2026-07-17",
+          "Drogheda United",
+          "Lucan United"
+        ],
+        [
+          "2026-07-17",
+          "Finn Harps",
+          "Bray Wanderers"
+        ],
+        [
+          "2026-07-17",
+          "Galway United",
+          "Crumlin United"
+        ],
+        [
+          "2026-07-17",
+          "Kerry",
+          "Shelbourne"
+        ],
+        [
+          "2026-07-17",
+          "St. Mochta’s",
+          "Dundalk"
+        ],
+        [
+          "2026-07-17",
+          "St. Patrick’s Athletic",
+          "Wexford"
+        ],
+        [
+          "2026-07-17",
+          "Treaty United",
+          "UCD"
+        ],
+        [
+          "2026-07-17",
+          "Waterford",
+          "Cobh Ramblers"
+        ],
+        [
+          "2026-07-17",
+          "Shamrock Rovers",
+          "Cork City"
+        ],
+        [
+          "2026-07-18",
+          "Bangor Celtic",
+          "College Corinthians"
+        ],
+        [
+          "2026-07-18",
+          "Douglas Hall",
+          "Castlebar Celtic"
+        ],
+        [
+          "2026-07-18",
+          "Baldoyle United",
+          "Longford Town"
+        ],
+        [
+          "2026-07-18",
+          "Janesboro",
+          "Sligo Rovers"
+        ],
+        [
+          "2026-07-19",
+          "Ringmahon Rangers",
+          "Bohemians"
+        ],
+        [
+          "2026-07-19",
+          "Derry City",
+          "Tolka Rovers"
+        ]
+      ],
+      "venueReversals": [
+        [
+          "St. Mochta’s",
+          "Dundalk",
+          "Oriel Park"
+        ],
+        [
+          "Baldoyle United",
+          "Longford Town",
+          "Bishopsgate"
+        ]
+      ],
+      "conditionalScheduling": [
+        "Shamrock Rovers–Cork City",
+        "Ringmahon Rangers–Bohemians"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "No future results imported; actual dates after cutoff not reconciled."
     }
   }
 ]

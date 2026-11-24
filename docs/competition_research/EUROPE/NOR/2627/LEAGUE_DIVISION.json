@@ -864,6 +864,21 @@
         "matches": 89
       },
       "missing": "Complete and independently verify pre-cutoff scores/dates, club IDs, official ranking."
+    },
+    "sportRuleEvidence83": {
+      "edition": "2026",
+      "rules": {
+        "teams": 16,
+        "gamesPerClub": 30,
+        "meetingsPerOpponent": 2,
+        "directRelegated": [
+          15,
+          16
+        ],
+        "playoffRank": 14
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Existing 89 cutoff matches retained."
     }
   }
 ]

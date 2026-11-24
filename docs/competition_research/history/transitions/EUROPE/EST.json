@@ -1,0 +1,85 @@
+[
+  {
+    "index": 563,
+    "value": {
+      "competition": "EST tier 1",
+      "firstEdition": "1998",
+      "operation": "TRANSITION_SEASON",
+      "rowRefs": [
+        10,
+        237
+      ],
+      "rules": {
+        "cycle": "short fall championship"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "lastEdition": "1998"
+    }
+  },
+  {
+    "index": 564,
+    "value": {
+      "competition": "EST tier 1",
+      "firstEdition": "1999",
+      "operation": "CHANGE_SEASON_CYCLE",
+      "rowRefs": [
+        10,
+        237
+      ],
+      "rules": {
+        "cycle": "spring–autumn"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 565,
+    "value": {
+      "competition": "EST tier 1",
+      "firstEdition": "2005",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        237
+      ],
+      "rules": {
+        "teams": 10,
+        "previousTeams": 8
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 566,
+    "value": {
+      "competition": "EST tier 1",
+      "firstEdition": "2013",
+      "operation": "RENAME",
+      "rowRefs": [
+        10,
+        237
+      ],
+      "rules": {
+        "previousName": "Meistriliiga",
+        "name": "Premium liiga"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 567,
+    "value": {
+      "competition": "EST national cup",
+      "firstEdition": "1996/97",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        121
+      ],
+      "rules": {
+        "QFLegs": 2,
+        "SFLegs": 2,
+        "finalLegs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

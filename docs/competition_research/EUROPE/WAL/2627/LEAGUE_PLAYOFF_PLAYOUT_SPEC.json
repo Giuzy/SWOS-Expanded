@@ -12,8 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -30,6 +29,69 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence82": {
+      "edition": "2026/27",
+      "rules": {
+        "parentRow": 319,
+        "europe": {
+          "eligible": "highest-ranked non-qualified Championship Conference teams and rank7",
+          "participantsRange": [
+            4,
+            6
+          ],
+          "leagueChampion": "UCL",
+          "cupWinner": "UECL",
+          "playoffWinner": "UECL",
+          "ifFourthUEFASlot": "rank2 qualifies directly",
+          "doubleWinner": "next highest eligible league finisher"
+        },
+        "relegation": {
+          "directRelegated": [
+            15,
+            16
+          ],
+          "playoffTier1Rank": 14,
+          "opponent": "winner of Cymru North rank2 vs Cymru South rank2",
+          "tier2PlayoffLegs": 2
+        }
+      },
+      "dates": {
+        "opening": [
+          "2026-07-31",
+          "2026-08-02"
+        ],
+        "winterBreak": [
+          "2027-01-08",
+          "2027-01-21"
+        ],
+        "phase1End": "2027-03-26",
+        "phase2Start": "2027-04-02",
+        "phase2End": [
+          "2027-04-23",
+          "2027-04-25"
+        ],
+        "europeQF": "2027-04-27",
+        "europeSF": "2027-04-30",
+        "europeFinal": [
+          "2027-05-07",
+          "2027-05-08"
+        ],
+        "tier2PromotionLeg1": [
+          "2027-04-23",
+          "2027-04-25"
+        ],
+        "tier2PromotionLeg2": [
+          "2027-04-30",
+          "2027-05-02"
+        ],
+        "promotionRelegationFinal": [
+          "2027-05-07",
+          "2027-05-09"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Dependent parent league phase, not standalone edition."
     }
   }
 ]

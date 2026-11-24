@@ -94,6 +94,24 @@
         "matches": 4
       },
       "missing": "Full cutoff list, independent exact date/score verification, stable club keys and standings reconciliation."
+    },
+    "sportRuleEvidence85": {
+      "edition": "2026",
+      "rules": {
+        "teams": 10,
+        "gamesPerClub": 36,
+        "meetingsPerOpponent": 4,
+        "directRelegated": [
+          10
+        ],
+        "playoffRank": 9,
+        "minimumPlayerAge": 16,
+        "exceptionAge15": "medical and parental permission",
+        "maxNonFederationTrainedInMatchSheet": 15,
+        "abandonedForceMajeure": "resume next day from minute stopped; cautions and substitutions retained"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Promotion/relegation from secondary summary; official regulation text and existing format. Full tiebreak and eligibility remaining."
     }
   }
 ]

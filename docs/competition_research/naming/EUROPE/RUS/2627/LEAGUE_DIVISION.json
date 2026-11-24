@@ -3,9 +3,12 @@
     "index": 290,
     "value": {
       "row": 291,
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "transitionRefs": [
-        227
+        227,
+        586,
+        587,
+        589
       ]
     }
   }

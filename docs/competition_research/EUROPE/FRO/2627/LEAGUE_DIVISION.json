@@ -297,6 +297,30 @@
         "matches": 5
       },
       "missing": "Full cutoff fixture list, independent date/score checks, participant keys and standings reconciliation."
+    },
+    "sportRuleEvidence84": {
+      "edition": "2026",
+      "rules": {
+        "teams": 10,
+        "gamesPerClub": 27,
+        "meetingsPerOpponent": 3,
+        "defaultRelegated": [
+          9,
+          10
+        ],
+        "promotion": {
+          "first": "highest eligible lower-tier club not already represented in top league",
+          "second": {
+            "ranks1to3": "direct if second eligible is rank2 or3",
+            "ranks4to8": "playoff vs top rank9",
+            "ranks9to10": "no second promotion"
+          },
+          "reserveCollision": "if senior relegated and reserve in tier2, move reserve to tier3; no immediate promotion of reserve to replace senior",
+          "withdrawalCountsAsRelegation": true
+        }
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "FSF art7 retrieved; exact scheduling and all ranking rules pending."
     }
   }
 ]

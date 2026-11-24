@@ -13,7 +13,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -41,6 +41,1032 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Observed or published dates, not full fixture reconciliation; historical neutral labels, exact local official naming still open."
+    },
+    "sportRuleEvidence83": {
+      "edition": "1996",
+      "rules": {
+        "mainRoundEntrants": 128,
+        "mainRoundTies": [
+          64,
+          32,
+          16,
+          8,
+          4,
+          2,
+          1
+        ],
+        "round1toQFLegs": 1,
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "dates": {
+        "R1": [
+          "1996-05-21",
+          "1996-05-24"
+        ],
+        "R2": "1996-06-12",
+        "R3": [
+          "1996-06-26",
+          "1996-06-27"
+        ],
+        "R4": "1996-07-17",
+        "QF": [
+          "1996-08-14",
+          "1996-08-15"
+        ],
+        "SFfirst": [
+          "1996-09-21",
+          "1996-09-22"
+        ],
+        "SFsecond": "1996-10-02",
+        "final": "1996-10-27"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block83Research": {
+      "matches": [
+        {
+          "round": 1,
+          "date": "1996-05-21",
+          "home": "Averøykameratene",
+          "away": "Molde",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": 1,
+          "date": "1996-05-21",
+          "home": "Hareid",
+          "away": "Hødd",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "round": 1,
+          "date": "1996-05-22",
+          "home": "Nybergsund",
+          "away": "Faaberg",
+          "homeGoals": 0,
+          "awayGoals": 5
+        },
+        {
+          "round": 1,
+          "date": "1996-05-22",
+          "home": "Vardal",
+          "away": "Hamarkameratene",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "round": 1,
+          "date": "1996-05-22",
+          "home": "Snøgg",
+          "away": "Eik-Tønsberg",
+          "homeGoals": 1,
+          "awayGoals": 7
+        },
+        {
+          "round": 1,
+          "date": "1996-05-22",
+          "home": "Eiger",
+          "away": "Klepp",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": 1,
+          "date": "1996-05-22",
+          "home": "Silsand/Omegn",
+          "away": "Mjølner-Narvik",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "round": 1,
+          "date": "1996-05-22",
+          "home": "Sortland",
+          "away": "Grovfjord",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "round": 1,
+          "date": "1996-05-22",
+          "home": "Lyngen/Karnes",
+          "away": "Skjervøy",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Fart",
+          "away": "Kongsvinger",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "extraTime": true,
+          "penalties": [
+            2,
+            5
+          ]
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Hærland",
+          "away": "Moss",
+          "homeGoals": 1,
+          "awayGoals": 5
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Råde",
+          "away": "Stabæk",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Grorud",
+          "away": "Skeid",
+          "homeGoals": 0,
+          "awayGoals": 5
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Blaker",
+          "away": "Lillestrøm",
+          "homeGoals": 0,
+          "awayGoals": 5
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Galterud",
+          "away": "Vålerenga",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Åmot",
+          "away": "Strømsgodset",
+          "homeGoals": 0,
+          "awayGoals": 7
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Langesund",
+          "away": "Start",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Stavanger IF",
+          "away": "Viking",
+          "homeGoals": 0,
+          "awayGoals": 4
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Austrheim",
+          "away": "Brann",
+          "homeGoals": 0,
+          "awayGoals": 8
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Nidelv",
+          "away": "Rosenborg",
+          "homeGoals": 0,
+          "awayGoals": 9
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Mo",
+          "away": "Bodø/Glimt",
+          "homeGoals": 1,
+          "awayGoals": 6
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Ulfstind",
+          "away": "Tromsø",
+          "homeGoals": 0,
+          "awayGoals": 8
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Sprint/Jeløy",
+          "away": "Ullern",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Rakkestad",
+          "away": "Kjelsås",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Sarpsborg",
+          "away": "Falk",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Østsiden",
+          "away": "Fredrikstad",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Aurskog/Finstadbru",
+          "away": "Jevnaker",
+          "homeGoals": 0,
+          "awayGoals": 7
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Rælingen",
+          "away": "Lyn",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Kolbotn",
+          "away": "Drøbak/Frogn",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Frigg Oslo",
+          "away": "Grei",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "extraTime": true
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Bærum",
+          "away": "Runar",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Trysil",
+          "away": "Elverum",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Raufoss",
+          "away": "Strømmen",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "extraTime": true
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Sel",
+          "away": "Åndalsnes",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Mjøndalen",
+          "away": "Drafn",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Åssiden",
+          "away": "Ski",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Flint",
+          "away": "Odd Grenland",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Sandefjord",
+          "away": "Fossum (Bærum)",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Larvik Turn",
+          "away": "Pors Grenland",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Randesund",
+          "away": "Flekkefjord",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "extraTime": true,
+          "penalties": [
+            4,
+            5
+          ]
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Vindbjart",
+          "away": "Vigør",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Ålgård",
+          "away": "Randaberg",
+          "homeGoals": 4,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Riska",
+          "away": "Vidar",
+          "homeGoals": 0,
+          "awayGoals": 11
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Ulf-Sandnes",
+          "away": "Bryne",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Vard-Haugesund",
+          "away": "Stord",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Kopervik",
+          "away": "Os",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Ny-Krohnborg",
+          "away": "Fyllingen",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Nymark",
+          "away": "Haugesund",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Hovding",
+          "away": "Fana",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Follese",
+          "away": "Åsane",
+          "homeGoals": 1,
+          "awayGoals": 8
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Stryn",
+          "away": "Sogndal",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Skarbøvik",
+          "away": "Aalesund",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Kolstad",
+          "away": "Melhus",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Nardo",
+          "away": "Orkdal",
+          "homeGoals": 7,
+          "awayGoals": 1
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Orkanger",
+          "away": "National",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "extraTime": true,
+          "penalties": [
+            5,
+            4
+          ]
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Ranheim",
+          "away": "Strindheim",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Verdal",
+          "away": "Byåsen",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Steinkjer",
+          "away": "Namsos",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Stjørdals/Blink",
+          "away": "Fauske/Sprint",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Gevir Bodø",
+          "away": "Stålkameratene",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Lofoten",
+          "away": "Harstad",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "extraTime": true,
+          "penalties": [
+            3,
+            4
+          ]
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Finnsnes",
+          "away": "Tromsdalen",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "round": 1,
+          "date": "1996-05-23",
+          "home": "Alta",
+          "away": "Porsanger",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "round": 1,
+          "date": "1996-05-24",
+          "home": "Ørsta",
+          "away": "Tornado",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Moss",
+          "away": "Sprint/Jeløy",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "extraTime": true
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Østsiden",
+          "away": "Skeid",
+          "homeGoals": 0,
+          "awayGoals": 6
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Ski",
+          "away": "Vålerenga",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Grei",
+          "away": "Kongsvinger",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Kjelsås",
+          "away": "Hamarkameratene",
+          "homeGoals": 0,
+          "awayGoals": 6
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Lyn",
+          "away": "Jevnaker",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Elverum",
+          "away": "Drøbak/Frogn",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Faaberg",
+          "away": "Stabæk",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Raufoss",
+          "away": "Lillestrøm",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Strømsgodset",
+          "away": "Sandefjord",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Falk",
+          "away": "Mjøndalen",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Runar",
+          "away": "Odd Grenland",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Pors Grenland",
+          "away": "Eik-Tønsberg",
+          "homeGoals": 0,
+          "awayGoals": 5
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Start",
+          "away": "Vindbjart",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Flekkefjord",
+          "away": "Brann",
+          "homeGoals": 0,
+          "awayGoals": 6
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Ulf-Sandnes",
+          "away": "Viking",
+          "homeGoals": 1,
+          "awayGoals": 5
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Vidar",
+          "away": "Eiger",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "extraTime": true
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Haugesund",
+          "away": "Kopervik",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Ålgård",
+          "away": "Fana",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Åsane",
+          "away": "Vard-Haugesund",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Fyllingen",
+          "away": "Skarbøvik",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Tornado",
+          "away": "Hødd",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Molde",
+          "away": "Orkanger",
+          "homeGoals": 5,
+          "awayGoals": 0
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Åndalsnes",
+          "away": "Sogndal",
+          "homeGoals": 1,
+          "awayGoals": 5
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Rosenborg",
+          "away": "Ranheim",
+          "homeGoals": 6,
+          "awayGoals": 0
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Melhus",
+          "away": "Byåsen",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Namsos",
+          "away": "Nardo",
+          "homeGoals": 1,
+          "awayGoals": 5
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Mjølner-Narvik",
+          "away": "Stålkameratene",
+          "homeGoals": 5,
+          "awayGoals": 1
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Fauske/Sprint",
+          "away": "Bodø/Glimt",
+          "homeGoals": 0,
+          "awayGoals": 10
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Harstad",
+          "away": "Sortland",
+          "homeGoals": 6,
+          "awayGoals": 0
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Tromsø",
+          "away": "Alta",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "round": 2,
+          "date": "1996-06-12",
+          "home": "Skjervøy",
+          "away": "Tromsdalen",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "round": 3,
+          "date": "1996-06-26",
+          "home": "Vålerenga",
+          "away": "Fyllingen",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "round": 3,
+          "date": "1996-06-26",
+          "home": "Lillestrøm",
+          "away": "Falk",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "round": 3,
+          "date": "1996-06-27",
+          "home": "Skeid",
+          "away": "Harstad",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "round": 3,
+          "date": "1996-06-27",
+          "home": "Kongsvinger",
+          "away": "Elverum",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "round": 3,
+          "date": "1996-06-27",
+          "home": "Eik-Tønsberg",
+          "away": "Stabæk",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "round": 3,
+          "date": "1996-06-27",
+          "home": "Odd Grenland",
+          "away": "Strømsgodset",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "round": 3,
+          "date": "1996-06-27",
+          "home": "Eiger",
+          "away": "Start",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "round": 3,
+          "date": "1996-06-27",
+          "home": "Viking",
+          "away": "Haugesund",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "round": 3,
+          "date": "1996-06-27",
+          "home": "Brann",
+          "away": "Åsane",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "round": 3,
+          "date": "1996-06-27",
+          "home": "Fana",
+          "away": "Moss",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "round": 3,
+          "date": "1996-06-27",
+          "home": "Hødd",
+          "away": "Rosenborg",
+          "homeGoals": 1,
+          "awayGoals": 7
+        },
+        {
+          "round": 3,
+          "date": "1996-06-27",
+          "home": "Byåsen",
+          "away": "Molde",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "round": 3,
+          "date": "1996-06-27",
+          "home": "Bodø/Glimt",
+          "away": "Mjølner-Narvik",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "round": 3,
+          "date": "1996-06-27",
+          "home": "Tromsdalen",
+          "away": "Tromsø",
+          "homeGoals": 3,
+          "awayGoals": 8,
+          "extraTime": true
+        },
+        {
+          "round": 3,
+          "date": "1996-06-27",
+          "home": "Hamarkameratene",
+          "away": "Nardo",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "round": 3,
+          "date": "1996-06-27",
+          "home": "Sogndal",
+          "away": "Lyn",
+          "homeGoals": 3,
+          "awayGoals": 2
+        }
+      ],
+      "qualifiedForR4": [
+        "Vålerenga",
+        "Falk",
+        "Skeid",
+        "Kongsvinger",
+        "Stabæk",
+        "Strømsgodset",
+        "Start",
+        "Viking",
+        "Brann",
+        "Moss",
+        "Rosenborg",
+        "Molde",
+        "Bodø/Glimt",
+        "Tromsø",
+        "Hamarkameratene",
+        "Sogndal"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "validation": {
+        "roundCounts": [
+          64,
+          32,
+          16
+        ],
+        "conflicts": [
+          {
+            "fromRound": 1,
+            "toRound": 2,
+            "missing": [
+              "Strindheim"
+            ],
+            "extra": [
+              "Ranheim"
+            ]
+          }
+        ],
+        "note": "Preserve archive scores and actual entrants separately; do not infer administrative award or correct score until verified.",
+        "alternativeResult": {
+          "date": "1996-05-23",
+          "home": "Ranheim",
+          "away": "Strindheim",
+          "score": [
+            2,
+            1
+          ],
+          "note": "Drafn club archive and two independent secondary listings report reversed score; consistent with next round. Preserve original archive and alternative pending final reconciliation."
+        }
+      }
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 112,
+        "qualified": 16
+      },
+      "missing": "Regional qualifying census, bracket discrepancy, independent reconciliation, native keys."
     }
   }
 ]

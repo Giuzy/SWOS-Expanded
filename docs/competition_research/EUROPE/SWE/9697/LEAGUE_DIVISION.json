@@ -60,6 +60,25 @@
       "edition": "1996",
       "teams": 14,
       "source": "https://www.svenskfotboll.se/nyheter/serier/2020/11/thylin-infor-slutspurten/"
+    },
+    "sportRuleEvidence84": {
+      "edition": "1996",
+      "rules": {
+        "teams": 14,
+        "gamesPerClub": 26,
+        "meetingsPerOpponent": 2,
+        "directRelegated": [
+          13,
+          14
+        ],
+        "playoffRanks": [
+          11,
+          12
+        ],
+        "playoffLegs": 2
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Official historical playoff archive, prior 87 matches retained."
     }
   }
 ]

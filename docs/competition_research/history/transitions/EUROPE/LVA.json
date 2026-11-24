@@ -1,0 +1,133 @@
+[
+  {
+    "index": 578,
+    "value": {
+      "competition": "LVA national cup",
+      "firstEdition": "2017",
+      "operation": "CHANGE_SEASON_CYCLE",
+      "rowRefs": [
+        129,
+        380
+      ],
+      "rules": {
+        "previousCycle": "autumn/spring",
+        "cycle": "calendar year",
+        "previousEdition": "2016/17",
+        "newEditionStarts": "June 2017"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Two distinct editions completed in 2017, no duplicate season reset."
+    }
+  },
+  {
+    "index": 579,
+    "value": {
+      "competition": "LVA tier 1",
+      "firstEdition": "2015",
+      "operation": "OBSERVED_TEAM_COUNT",
+      "rowRefs": [
+        17,
+        267
+      ],
+      "rules": {
+        "teams": 8
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "lastEdition": "2018"
+    }
+  },
+  {
+    "index": 580,
+    "value": {
+      "competition": "LVA tier 1",
+      "firstEdition": "2019",
+      "operation": "OBSERVED_TEAM_COUNT",
+      "rowRefs": [
+        267
+      ],
+      "rules": {
+        "teams": 9
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 581,
+    "value": {
+      "competition": "LVA tier 1",
+      "firstEdition": "2020",
+      "operation": "OBSERVED_TEAM_COUNT",
+      "rowRefs": [
+        267
+      ],
+      "rules": {
+        "teams": 10
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 582,
+    "value": {
+      "competition": "LVA tier 1",
+      "firstEdition": "2021",
+      "operation": "OBSERVED_TEAM_COUNT",
+      "rowRefs": [
+        267
+      ],
+      "rules": {
+        "teams": 9
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 583,
+    "value": {
+      "competition": "LVA tier 1",
+      "firstEdition": "2022",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        267
+      ],
+      "rules": {
+        "teams": 10
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 584,
+    "value": {
+      "competition": "LVA national cup",
+      "firstEdition": "2026",
+      "operation": "CHANGE_SPONSOR_NAME",
+      "rowRefs": [
+        380
+      ],
+      "rules": {
+        "name": "LVBET Latvijas kauss"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 585,
+    "value": {
+      "competition": "LVA national cup",
+      "firstEdition": "2026",
+      "operation": "OBSERVED_QUALIFICATION_FORMAT",
+      "rowRefs": [
+        380
+      ],
+      "rules": {
+        "Q1Rounds": 1,
+        "Q1Ties": 14,
+        "Q2Ties": 12,
+        "Q3Ties": 6,
+        "topTierEnters": "R16"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

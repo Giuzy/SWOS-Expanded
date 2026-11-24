@@ -16,7 +16,7 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -43,12 +43,41 @@
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "I Lyga (Group A)",
       "candidateName": "A Lyga",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/resultsp99.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence85": {
+      "edition": "1996/97",
+      "rules": {
+        "groupA": {
+          "teams": 8,
+          "gamesPerClub": 28,
+          "meetingsPerOpponent": 4
+        },
+        "groupB": {
+          "teams": 14,
+          "gamesPerClub": 26,
+          "meetingsPerOpponent": 2
+        },
+        "groupAAllAdvanceToNextTopDivision": true,
+        "nextEditionTeams": 16
+      },
+      "groupAParticipants": [
+        "Kareda Šiauliai",
+        "Žalgiris Vilnius",
+        "Inkaras Kaunas",
+        "FBK Kaunas",
+        "Ekranas Panevėžys",
+        "Panerys Vilnius",
+        "Atlantas Klaipėda",
+        "Žalgiris-Volmeta Vilnius"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Contemporary exact official title and group B admission rule not fully verified; no future standings imported; initial match date unknown."
     }
   }
 ]

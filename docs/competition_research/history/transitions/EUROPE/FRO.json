@@ -88,5 +88,52 @@
       "note": null,
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 561,
+    "value": {
+      "competition": "FRO national cup",
+      "firstEdition": "2026",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        358
+      ],
+      "rules": {
+        "eligibleTiers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "maxTeamsPerClub": 1,
+        "SFLegs": 2,
+        "otherLegs": 1,
+        "extraTime": true,
+        "penalties": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 562,
+    "value": {
+      "competition": "FRO tier 1",
+      "firstEdition": "2026",
+      "operation": "OBSERVED_PROMOTION_RULE",
+      "rowRefs": [
+        241
+      ],
+      "rules": {
+        "defaultRelegated": [
+          9,
+          10
+        ],
+        "secondEligibleRank2to3": "direct",
+        "secondEligibleRank4to8": "playoff vs rank9",
+        "secondEligibleRank9to10": "no second promotion",
+        "reserveCollisionRestricted": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

@@ -12,24 +12,51 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Irish Cup",
+      "nonCommercialDisplayName": "Irish Cup",
       "candidateName": "Irish Cup",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence82": {
+      "edition": "1996/97",
+      "rules": {
+        "observedR5Entrants": 32,
+        "R5toQFReplayOnDraw": true,
+        "observedSemifinalLegs": 1,
+        "observedFinalLegs": 1
+      },
+      "dates": {
+        "R5": "1997-01-25",
+        "R5Replays": [
+          "1997-01-29",
+          "1997-01-30"
+        ],
+        "R6": "1997-02-22",
+        "R6Replay": "1997-02-25",
+        "QF": "1997-03-15",
+        "observedQFReplay": "1997-03-19",
+        "SF": [
+          "1997-04-11",
+          "1997-04-12"
+        ],
+        "final": "1997-05-03"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Rounds 1–4 and some replay dates unknown; no July exclusion."
     }
   }
 ]

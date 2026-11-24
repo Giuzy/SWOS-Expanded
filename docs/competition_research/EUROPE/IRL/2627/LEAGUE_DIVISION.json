@@ -958,6 +958,23 @@
         "matches": 113
       },
       "missing": "Complete and independently verify pre-cutoff scores/dates, club IDs, official ranking."
+    },
+    "sportRuleEvidence82": {
+      "edition": "2026",
+      "dates": {
+        "opening": "2026-02-06",
+        "nominalEnd": "2026-10-30",
+        "tier2Start": "2026-02-13",
+        "tier2End": "2026-10-16",
+        "tier2PlayoffSF": [
+          "2026-10-24",
+          "2026-10-27"
+        ],
+        "tier2PlayoffFinal": "2026-11-01",
+        "promotionRelegationPlayoffWeekEnding": "2026-11-08"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Existing 113 pre-cutoff scores and derived standings preserved; search tables display later standings even with June query, so no independent July reconciliation asserted."
     }
   }
 ]

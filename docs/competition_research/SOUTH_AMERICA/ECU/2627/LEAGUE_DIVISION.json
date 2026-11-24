@@ -12,25 +12,212 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "LigaPro Serie A",
+      "nonCommercialDisplayName": "Serie A",
       "candidateName": "Serie A",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://mifutbolecuador.futbol/2026/02/20/resultados-primera-fecha-en-fase-uno-serie-a-de-la-liga-pro-de-ecuador-2026/",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block65Research": {
+      "matches": [
+        {
+          "date": "2026-02-20",
+          "home": "Orense",
+          "away": "LDU Quito",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "REGULAR",
+          "round": 1
+        },
+        {
+          "date": "2026-02-21",
+          "home": "Aucas",
+          "away": "Mushuc Runa",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR",
+          "round": 1
+        },
+        {
+          "date": "2026-02-21",
+          "home": "Barcelona SC",
+          "away": "Técnico Universitario",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "REGULAR",
+          "round": 1
+        },
+        {
+          "date": "2026-02-22",
+          "home": "Macará",
+          "away": "Leones del Norte",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "REGULAR",
+          "round": 1
+        },
+        {
+          "date": "2026-02-22",
+          "home": "Delfín",
+          "away": "Deportivo Cuenca",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "REGULAR",
+          "round": 1
+        },
+        {
+          "date": "2026-02-22",
+          "home": "Independiente del Valle",
+          "away": "Guayaquil City",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "REGULAR",
+          "round": 1
+        },
+        {
+          "date": "2026-02-23",
+          "home": "Libertad",
+          "away": "Manta",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "REGULAR",
+          "round": 1
+        },
+        {
+          "date": "2026-04-08",
+          "home": "Universidad Católica Quito",
+          "away": "Emelec",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR",
+          "round": 1
+        },
+        {
+          "date": "2026-02-27",
+          "home": "Técnico Universitario",
+          "away": "Orense",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR",
+          "round": 2
+        },
+        {
+          "date": "2026-02-28",
+          "home": "Leones del Norte",
+          "away": "Libertad",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR",
+          "round": 2
+        },
+        {
+          "date": "2026-02-28",
+          "home": "Guayaquil City",
+          "away": "Aucas",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR",
+          "round": 2
+        },
+        {
+          "date": "2026-02-28",
+          "home": "Emelec",
+          "away": "Delfín",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR",
+          "round": 2
+        },
+        {
+          "date": "2026-03-01",
+          "home": "LDU Quito",
+          "away": "Macará",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "REGULAR",
+          "round": 2
+        },
+        {
+          "date": "2026-03-01",
+          "home": "Mushuc Runa",
+          "away": "Universidad Católica Quito",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "REGULAR",
+          "round": 2
+        },
+        {
+          "date": "2026-03-01",
+          "home": "Deportivo Cuenca",
+          "away": "Barcelona SC",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "REGULAR",
+          "round": 2
+        },
+        {
+          "date": "2026-03-02",
+          "home": "Manta",
+          "away": "Independiente del Valle",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "REGULAR",
+          "round": 2
+        }
+      ],
+      "sources": [
+        "https://www.futbolperuano.com/futbol-internacional/ecuador/resultados",
+        "https://www.primicias.ec/deportes/ligapro/sistema-campeonato-ecuatoriano-2026-fixture-111850/",
+        "https://mifutbolecuador.futbol/2026/02/20/resultados-primera-fecha-en-fase-uno-serie-a-de-la-liga-pro-de-ecuador-2026/",
+        "https://es.wikipedia.org/wiki/Serie_A_de_Ecuador_2026"
+      ],
+      "rules": {
+        "teams": 16,
+        "regularRounds": 30,
+        "finalGroups": [
+          6,
+          4,
+          6
+        ],
+        "championshipGroup": 6,
+        "sudamericanaGroup": 4,
+        "relegationGroup": 6,
+        "previous2025Groups": [
+          6,
+          6,
+          4
+        ]
+      },
+      "scope": "First two rounds including Apr8 postponed R1 tie. Delfin–Cuenca date 22 vs 23 February differs between sources; February22 provisional. Source explicitly lists suspension for alleged security reasons of Católica–Emelec, exact official reason pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.futbolperuano.com/futbol-internacional/ecuador/resultados",
+        "https://www.primicias.ec/deportes/ligapro/sistema-campeonato-ecuatoriano-2026-fixture-111850/",
+        "https://mifutbolecuador.futbol/2026/02/20/resultados-primera-fecha-en-fase-uno-serie-a-de-la-liga-pro-de-ecuador-2026/",
+        "https://es.wikipedia.org/wiki/Serie_A_de_Ecuador_2026"
+      ],
+      "details": {
+        "matches": 16
+      },
+      "missing": "Remaining matches outside extracted rounds/regions, independent reconciliation, stable keys and full regulation."
     }
   }
 ]

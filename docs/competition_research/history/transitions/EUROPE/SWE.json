@@ -101,8 +101,8 @@
         "districtEntrants": 64,
         "topTwoTierEntrants": 32,
         "round1Window": [
-          "2026-06-02",
-          "2026-06-11"
+          "2026-05-26",
+          "2026-07-27"
         ],
         "round2Windows": [
           [
@@ -122,10 +122,35 @@
         "advance": "group winners",
         "quarterfinalHome": "four best group winners",
         "semiFinalHome": "draw",
-        "groupAndFinalYear": 2027
+        "groupAndFinalYear": 2027,
+        "round1WindowOriginal": [
+          "2026-06-02",
+          "2026-06-11"
+        ]
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "Block48 HTML opened; no PDF analyzed."
+      "verification": "Block48 HTML opened; no PDF analyzed.",
+      "additionalSources": [
+        "https://www.svenskfotboll.se/nyheter/cuper/2026/06/infor-herrarnas-forsta-cupomgang/",
+        "https://ladbrokes.touch-line.com/cup.asp?coid=-103&lang="
+      ],
+      "note": "Corrected Block48 nominal window June2–11 to actual first round May26–July27; 31 played before cutoff. Preserve original schedule evidence."
+    }
+  },
+  {
+    "index": 427,
+    "value": {
+      "competition": "SWE Svenska Cupen",
+      "firstEdition": "2026/27",
+      "lastEdition": null,
+      "operation": "CHANGE_DRAW_TIMING",
+      "source": "https://www.svenskfotboll.se/nyheter/cuper/2026/06/infor-herrarnas-forsta-cupomgang/",
+      "note": "Federation explicitly states R1 winners know R2 opponents before R1 played, new this edition; dates independently researched.",
+      "rowRefs": [
+        411
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block62 official federation HTML inspected."
     }
   }
 ]

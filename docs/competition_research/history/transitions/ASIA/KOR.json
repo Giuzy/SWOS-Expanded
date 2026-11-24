@@ -91,7 +91,16 @@
       ],
       "source": "https://www.kleague.com/news_view.do?orderBy=seq&seq=94022",
       "note": "2026 exceptional Gimcheon relegation and K1 expansion to 14 announced for 2027; separate from repeating 2026 baseline.",
-      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "additionalSources": [
+        "https://www.kleague.com/about/competition.do"
+      ],
+      "exceptionDetail": {
+        "automaticRelegation": "Gimcheon Sangmu",
+        "ifLast": "no additional relegation",
+        "otherwise": "12th plays losing K League 2 promotion final team",
+        "edition": "2026"
+      }
     }
   }
 ]

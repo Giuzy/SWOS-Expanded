@@ -62,5 +62,73 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
     }
+  },
+  {
+    "index": 428,
+    "value": {
+      "competition": "PAR División de Honor",
+      "firstEdition": "1996",
+      "lastEdition": "2007",
+      "operation": "CHANGE_FORMAT",
+      "note": "Two phases Apertura and Clausura decide one annual championship; if same club wins both it wins title automatically.",
+      "rowRefs": [
+        44,
+        283
+      ],
+      "source": "https://www.apf.org.py/torneo-apertura",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block63 APF official HTML lines74–76."
+    }
+  },
+  {
+    "index": 429,
+    "value": {
+      "competition": "PAR División de Honor",
+      "firstEdition": "2007",
+      "lastEdition": null,
+      "operation": "CHANGE_CLUB_COUNT",
+      "note": "12 clubs from 2007 except 2021.",
+      "rowRefs": [
+        44,
+        283
+      ],
+      "source": "https://www.apf.org.py/torneo-apertura",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block63 APF official HTML lines74–76."
+    }
+  },
+  {
+    "index": 430,
+    "value": {
+      "competition": "PAR División de Honor",
+      "firstEdition": "2008",
+      "lastEdition": null,
+      "operation": "CHANGE_TITLE_RULE",
+      "note": "Apertura and Clausura become independent official national titles.",
+      "rowRefs": [
+        44,
+        283
+      ],
+      "source": "https://www.apf.org.py/torneo-apertura",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block63 APF official HTML lines74–76."
+    }
+  },
+  {
+    "index": 431,
+    "value": {
+      "competition": "PAR División de Honor",
+      "firstEdition": "2021",
+      "lastEdition": "2021",
+      "operation": "EXCEPTION_CLUB_COUNT",
+      "note": "10 clubs only; do not repeat annually.",
+      "rowRefs": [
+        44,
+        283
+      ],
+      "source": "https://www.apf.org.py/torneo-apertura",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block63 APF official HTML lines74–76."
+    }
   }
 ]

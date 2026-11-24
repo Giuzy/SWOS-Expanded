@@ -12,8 +12,8 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,13 +23,586 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "Copa Argentina",
-      "nonCommercialDisplayName": null,
+      "officialName": "Copa Argentina AXION energy",
+      "nonCommercialDisplayName": "Copa Argentina",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b1e9c4d6ab11e0e665c638188abd4117403a63cd",
+      "source": "https://www.copaargentina.org/es/pwa/news/11740_Los-64-equipos-de-la-decimocuarta-edicion-de-la-Copa-Argentina-AXION-energy",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block64Research": {
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "sources": [
+        "https://www.rsssf.org/tablesa/arg2026.html",
+        "https://www.copaargentina.org/es/la-copa/39_Todos-los-detalles-de-la-decimocuarta-edicion-de-la-Copa-Argentina.html",
+        "https://www.copaargentina.org/es/pwa/news/11740_Los-64-equipos-de-la-decimocuarta-edicion-de-la-Copa-Argentina-AXION-energy",
+        "https://www.futbol24.com/national/Argentina/Copa-Argentina/2026/results"
+      ],
+      "matches": [
+        {
+          "date": "2026-01-18",
+          "phase": "R64",
+          "home": "Lanús",
+          "away": "Sarmiento (La Banda)",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Lanús"
+        },
+        {
+          "date": "2026-01-18",
+          "phase": "R64",
+          "home": "Independiente Rivadavia",
+          "away": "Estudiantes (Caseros)",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Independiente Rivadavia"
+        },
+        {
+          "date": "2026-01-19",
+          "phase": "R64",
+          "home": "Estudiantes La Plata",
+          "away": "Ituzaingó",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Estudiantes La Plata"
+        },
+        {
+          "date": "2026-01-21",
+          "phase": "R64",
+          "home": "Argentinos Juniors",
+          "away": "Ferrocarril Midland",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "penalties": [
+            5,
+            6
+          ],
+          "decider": "PENALTIES",
+          "winner": "Ferrocarril Midland"
+        },
+        {
+          "date": "2026-02-04",
+          "phase": "R64",
+          "home": "Platense",
+          "away": "Argentino de Rosario",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Platense"
+        },
+        {
+          "date": "2026-02-04",
+          "phase": "R64",
+          "home": "Talleres",
+          "away": "Argentino de Merlo",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Talleres"
+        },
+        {
+          "date": "2026-02-05",
+          "phase": "R64",
+          "home": "Barracas Central",
+          "away": "Temperley",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "penalties": [
+            4,
+            3
+          ],
+          "decider": "PENALTIES",
+          "winner": "Barracas Central"
+        },
+        {
+          "date": "2026-02-05",
+          "phase": "R64",
+          "home": "Deportivo Riestra",
+          "away": "Deportivo Maipú",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Deportivo Riestra"
+        },
+        {
+          "date": "2026-02-11",
+          "phase": "R64",
+          "home": "Central Córdoba (Santiago del Estero)",
+          "away": "Gimnasia de Jujuy",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "penalties": [
+            4,
+            5
+          ],
+          "decider": "PENALTIES",
+          "winner": "Gimnasia de Jujuy"
+        },
+        {
+          "date": "2026-02-11",
+          "phase": "R64",
+          "home": "Rosario Central",
+          "away": "Sportivo Belgrano",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Rosario Central"
+        },
+        {
+          "date": "2026-02-17",
+          "phase": "R64",
+          "home": "Aldosivi",
+          "away": "San Miguel",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Aldosivi"
+        },
+        {
+          "date": "2026-02-17",
+          "phase": "R64",
+          "home": "River Plate",
+          "away": "Ciudad de Bolívar",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "River Plate"
+        },
+        {
+          "date": "2026-02-17",
+          "phase": "R64",
+          "home": "Tigre",
+          "away": "Claypole",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Tigre"
+        },
+        {
+          "date": "2026-02-24",
+          "phase": "R64",
+          "home": "Boca Juniors",
+          "away": "Gimnasia de Chivilcoy",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Boca Juniors"
+        },
+        {
+          "date": "2026-02-25",
+          "phase": "R64",
+          "home": "San Martín (San Juan)",
+          "away": "Deportivo Madryn",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "San Martín (San Juan)"
+        },
+        {
+          "date": "2026-02-25",
+          "phase": "R64",
+          "home": "Godoy Cruz",
+          "away": "Deportivo Morón",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Deportivo Morón"
+        },
+        {
+          "date": "2026-03-20",
+          "phase": "R64",
+          "home": "San Lorenzo",
+          "away": "Deportivo Rincón",
+          "homeGoals": 5,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "San Lorenzo"
+        },
+        {
+          "date": "2026-03-25",
+          "phase": "R64",
+          "home": "Banfield",
+          "away": "Real Pilar",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Banfield"
+        },
+        {
+          "date": "2026-03-25",
+          "phase": "R64",
+          "home": "Atlético Tucumán",
+          "away": "Sportivo Barracas",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Atlético Tucumán"
+        },
+        {
+          "date": "2026-03-27",
+          "phase": "R64",
+          "home": "Belgrano",
+          "away": "Atlético de Rafaela",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Belgrano"
+        },
+        {
+          "date": "2026-03-27",
+          "phase": "R64",
+          "home": "Independiente",
+          "away": "Atenas de Río Cuarto",
+          "homeGoals": 4,
+          "awayGoals": 2,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Independiente"
+        },
+        {
+          "date": "2026-03-28",
+          "phase": "R64",
+          "home": "Racing Club",
+          "away": "San Martín de Formosa",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Racing Club"
+        },
+        {
+          "date": "2026-03-29",
+          "phase": "R64",
+          "home": "Huracán",
+          "away": "Olimpo",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Huracán"
+        },
+        {
+          "date": "2026-03-29",
+          "phase": "R64",
+          "home": "Newell's Old Boys",
+          "away": "Acassuso",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Acassuso"
+        },
+        {
+          "date": "2026-03-30",
+          "phase": "R64",
+          "home": "Unión",
+          "away": "Agropecuario Argentino",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Unión"
+        },
+        {
+          "date": "2026-04-01",
+          "phase": "R64",
+          "home": "Defensa y Justicia",
+          "away": "Chaco For Ever",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Defensa y Justicia"
+        },
+        {
+          "date": "2026-04-01",
+          "phase": "R64",
+          "home": "Instituto",
+          "away": "Atlanta",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Instituto"
+        },
+        {
+          "date": "2026-04-07",
+          "phase": "R64",
+          "home": "Estudiantes Río Cuarto",
+          "away": "San Martín (Tucumán)",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "penalties": [
+            3,
+            4
+          ],
+          "decider": "PENALTIES",
+          "winner": "San Martín (Tucumán)"
+        },
+        {
+          "date": "2026-04-07",
+          "phase": "R64",
+          "home": "Vélez Sarsfield",
+          "away": "Deportivo Armenio",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Vélez Sarsfield"
+        },
+        {
+          "date": "2026-04-08",
+          "phase": "R64",
+          "home": "Sarmiento (Junín)",
+          "away": "Tristán Suárez",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Sarmiento (Junín)"
+        },
+        {
+          "date": "2026-04-09",
+          "phase": "R64",
+          "home": "Gimnasia La Plata",
+          "away": "Camioneros",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Gimnasia La Plata"
+        },
+        {
+          "date": "2026-04-15",
+          "phase": "R64",
+          "home": "Gimnasia Mendoza",
+          "away": "Gimnasia y Tiro",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "penalties": [
+            3,
+            4
+          ],
+          "decider": "PENALTIES",
+          "winner": "Gimnasia y Tiro"
+        },
+        {
+          "date": "2026-04-22",
+          "phase": "R32",
+          "home": "Acassuso",
+          "away": "Gimnasia La Plata",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Gimnasia La Plata"
+        },
+        {
+          "date": "2026-04-22",
+          "phase": "R32",
+          "home": "Deportivo Morón",
+          "away": "Ferrocarril Midland",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Ferrocarril Midland"
+        },
+        {
+          "date": "2026-04-30",
+          "phase": "R32",
+          "home": "Vélez Sarsfield",
+          "away": "Gimnasia y Tiro",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Vélez Sarsfield"
+        },
+        {
+          "date": "2026-05-08",
+          "phase": "R32",
+          "home": "Banfield",
+          "away": "San Martín (Tucumán)",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "penalties": [
+            5,
+            4
+          ],
+          "decider": "PENALTIES",
+          "winner": "Banfield"
+        },
+        {
+          "date": "2026-05-13",
+          "phase": "R32",
+          "home": "Platense",
+          "away": "San Martín (San Juan)",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "penalties": [
+            4,
+            3
+          ],
+          "decider": "PENALTIES",
+          "winner": "Platense"
+        },
+        {
+          "date": "2026-05-20",
+          "phase": "R32",
+          "home": "Talleres",
+          "away": "Atlético Tucumán",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Atlético Tucumán"
+        },
+        {
+          "date": "2026-05-22",
+          "phase": "R32",
+          "home": "Unión",
+          "away": "Independiente",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Independiente"
+        },
+        {
+          "date": "2026-05-30",
+          "phase": "R32",
+          "home": "Gimnasia de Jujuy",
+          "away": "Belgrano",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "penalties": [
+            2,
+            4
+          ],
+          "decider": "PENALTIES",
+          "winner": "Belgrano"
+        },
+        {
+          "date": "2026-05-30",
+          "phase": "R32",
+          "home": "Instituto",
+          "away": "Lanús",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Instituto"
+        },
+        {
+          "date": "2026-05-31",
+          "phase": "R32",
+          "home": "Estudiantes La Plata",
+          "away": "Rosario Central",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Estudiantes La Plata"
+        },
+        {
+          "date": "2026-06-02",
+          "phase": "R32",
+          "home": "Barracas Central",
+          "away": "Huracán",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "neutralVenue": "VERIFY_MATCH_VENUE",
+          "winner": "Barracas Central"
+        }
+      ],
+      "advancedR16AtCutoff": [
+        "Gimnasia La Plata",
+        "Ferrocarril Midland",
+        "Vélez Sarsfield",
+        "Banfield",
+        "Platense",
+        "Atlético Tucumán",
+        "Independiente",
+        "Belgrano",
+        "Instituto",
+        "Estudiantes La Plata",
+        "Barracas Central"
+      ],
+      "pendingR32": [
+        {
+          "date": "2026-07-12",
+          "home": "Independiente Rivadavia",
+          "away": "Tigre",
+          "status": "FUTURE_PAIR_DATE_REQUIRES_AS_OF_CUTOFF_VERIFICATION"
+        },
+        {
+          "date": "2026-07-16",
+          "home": "Sarmiento (Junín)",
+          "away": "Boca Juniors",
+          "status": "FUTURE_PAIR_DATE_REQUIRES_AS_OF_CUTOFF_VERIFICATION"
+        },
+        {
+          "date": "2026-07-16",
+          "home": "Racing Club",
+          "away": "Defensa y Justicia",
+          "status": "FUTURE_PAIR_DATE_REQUIRES_AS_OF_CUTOFF_VERIFICATION"
+        },
+        {
+          "date": "2026-07-17",
+          "home": "River Plate",
+          "away": "Aldosivi",
+          "status": "FUTURE_PAIR_DATE_REQUIRES_AS_OF_CUTOFF_VERIFICATION"
+        },
+        {
+          "date": "2026-07-17",
+          "home": "San Lorenzo",
+          "away": "Deportivo Riestra",
+          "status": "FUTURE_PAIR_DATE_REQUIRES_AS_OF_CUTOFF_VERIFICATION"
+        }
+      ],
+      "rules": {
+        "entrants": 64,
+        "entryByTier": {
+          "LPF2025": 30,
+          "PrimeraNacional": 15,
+          "PrimeraB": 5,
+          "PrimeraC": 4,
+          "FederalA": 10
+        },
+        "primeraNacionalAccess": "top7 from each zone + best eighth; points, GD, GF, draw",
+        "federalAAccess": "top 10 in general table",
+        "primeraBAccess": "champion, second promoted, next three",
+        "primeraCAccess": "champion, final runner-up, second promotion playoff winner and fourth cup-slot playoff winner",
+        "rounds": [
+          64,
+          32,
+          16,
+          8,
+          4,
+          2
+        ],
+        "singleElimination": true,
+        "penaltiesObserved": true
+      },
+      "sourceConflicts": [
+        {
+          "note": "Official page has editorial errors: says five Primera C but enumerates four and confirms four total; says 26 metropolitan clubs in R64 paragraph, but listed components total 24, correct 30+10+24=64."
+        },
+        {
+          "note": "Some result aggregators show following UTC/European calendar date; RSSSF local Argentina dates retained. Independent official match-by-match reconciliation pending."
+        }
+      ],
+      "note": "All 43 games listed before July1: 32 R64 and 11 R32; 5 remaining R32 pairings known from eventual fixture list, future dates not certified known by cutoff. No future results or winners imported. Exact penalty regulation, neutral venues and continental access pending confirmation."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.rsssf.org/tablesa/arg2026.html",
+        "https://www.copaargentina.org/es/la-copa/39_Todos-los-detalles-de-la-decimocuarta-edicion-de-la-Copa-Argentina.html",
+        "https://www.copaargentina.org/es/pwa/news/11740_Los-64-equipos-de-la-decimocuarta-edicion-de-la-Copa-Argentina-AXION-energy",
+        "https://www.futbol24.com/national/Argentina/Copa-Argentina/2026/results"
+      ],
+      "details": {
+        "matches": 43
+      },
+      "missing": "Independent date and participant keys, official full regulation and future bracket dependencies."
     }
   }
 ]

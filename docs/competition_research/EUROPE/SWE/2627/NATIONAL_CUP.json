@@ -13,7 +13,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -24,10 +24,10 @@
     "competitionNaming": {
       "startEdition": "2026/27",
       "officialName": "Svenska Cupen",
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Svenska Cupen",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "524bf34b84be68487922a945e83ed44cd13b792d",
+      "source": "https://www.svenskfotboll.se/nyheter/cuper/2026/06/infor-herrarnas-forsta-cupomgang/",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -66,6 +66,335 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Observed or published dates, not full fixture reconciliation; historical neutral labels, exact local official naming still open."
+    },
+    "block62Research": {
+      "name": "Svenska Cupen",
+      "display": "Svenska Cupen",
+      "sources": [
+        "https://www.svenskfotboll.se/nyheter/cuper/2026/06/infor-herrarnas-forsta-cupomgang/",
+        "https://ladbrokes.touch-line.com/cup.asp?coid=-103&lang=",
+        "https://globalsportsarchive.com/en/soccer/competition/svenska-cupen-2026-2027/80272"
+      ],
+      "matches": [
+        {
+          "date": "2026-05-26",
+          "home": "BK Olympic",
+          "away": "Ariana FC",
+          "homeGoals": 5,
+          "awayGoals": 3,
+          "phase": "R1",
+          "winner": "BK Olympic"
+        },
+        {
+          "date": "2026-05-28",
+          "home": "Assyriska FF",
+          "away": "Vasalunds IF",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "R1",
+          "winner": "Vasalunds IF"
+        },
+        {
+          "date": "2026-06-02",
+          "home": "Hudiksvalls FF",
+          "away": "Friska Viljor FC",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "R1",
+          "winner": "Friska Viljor FC"
+        },
+        {
+          "date": "2026-06-02",
+          "home": "Västkurd BK",
+          "away": "FC Trollhättan",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "phase": "R1",
+          "winner": "FC Trollhättan"
+        },
+        {
+          "date": "2026-06-02",
+          "home": "Sävedalens IF",
+          "away": "IF Böljan",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "phase": "R1",
+          "winner": "IF Böljan"
+        },
+        {
+          "date": "2026-06-03",
+          "home": "IF Viken",
+          "away": "Utsiktens BK",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "R1",
+          "winner": "Utsiktens BK"
+        },
+        {
+          "date": "2026-06-03",
+          "home": "Viggbyholms IK FF",
+          "away": "Sollentuna FK",
+          "homeGoals": 0,
+          "awayGoals": 5,
+          "phase": "R1",
+          "winner": "Sollentuna FK"
+        },
+        {
+          "date": "2026-06-03",
+          "home": "Högaborgs BK",
+          "away": "IFK Trelleborg",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "R1",
+          "winner": "Högaborgs BK"
+        },
+        {
+          "date": "2026-06-03",
+          "home": "Östra Ersboda FC",
+          "away": "Piteå IF FF",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "phase": "R1",
+          "winner": "Piteå IF FF"
+        },
+        {
+          "date": "2026-06-03",
+          "home": "Hovshaga AIF",
+          "away": "Växjö Norra",
+          "homeGoals": 0,
+          "awayGoals": 5,
+          "phase": "R1",
+          "winner": "Växjö Norra"
+        },
+        {
+          "date": "2026-06-03",
+          "home": "Forssa BK",
+          "away": "IK Franke",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "phase": "R1",
+          "penalties": [
+            3,
+            4
+          ],
+          "winner": "IK Franke"
+        },
+        {
+          "date": "2026-06-03",
+          "home": "IFK Östersund",
+          "away": "Kubikenborgs IF",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "R1",
+          "winner": "IFK Östersund"
+        },
+        {
+          "date": "2026-06-04",
+          "home": "IFK Stocksund",
+          "away": "Stockholm Internazionale",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "R1",
+          "winner": "Stockholm Internazionale"
+        },
+        {
+          "date": "2026-06-09",
+          "home": "Vendelsö IK",
+          "away": "IFK Haninge",
+          "homeGoals": 1,
+          "awayGoals": 4,
+          "phase": "R1",
+          "winner": "IFK Haninge"
+        },
+        {
+          "date": "2026-06-09",
+          "home": "Konyaspor KIF",
+          "away": "AFC Eskilstuna",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "R1",
+          "winner": "AFC Eskilstuna"
+        },
+        {
+          "date": "2026-06-09",
+          "home": "IK Sturehov",
+          "away": "FBK Karlstad",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "phase": "R1",
+          "winner": "FBK Karlstad"
+        },
+        {
+          "date": "2026-06-10",
+          "home": "Falu BS",
+          "away": "Gefle IF",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "R1",
+          "penalties": [
+            4,
+            2
+          ],
+          "winner": "Falu BS"
+        },
+        {
+          "date": "2026-06-10",
+          "home": "FBK Balkan",
+          "away": "Eskilsminne IF",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "phase": "R1",
+          "winner": "Eskilsminne IF"
+        },
+        {
+          "date": "2026-06-10",
+          "home": "IF Eker Örebro",
+          "away": "IF Karlstad Fotboll",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "phase": "R1",
+          "winner": "IF Karlstad Fotboll"
+        },
+        {
+          "date": "2026-06-10",
+          "home": "Lidköpings FK",
+          "away": "Skövde AIK",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "phase": "R1",
+          "winner": "IFK Skövde AIK"
+        },
+        {
+          "date": "2026-06-10",
+          "home": "Malmslätts AIK",
+          "away": "Husqvarna FF",
+          "homeGoals": 1,
+          "awayGoals": 5,
+          "phase": "R1",
+          "winner": "Husqvarna FF"
+        },
+        {
+          "date": "2026-06-10",
+          "home": "Football Primetime",
+          "away": "FK Karlskrona",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "R1",
+          "winner": "Football Primetime"
+        },
+        {
+          "date": "2026-06-10",
+          "home": "Unik FK",
+          "away": "Karlbergs BK",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "R1",
+          "winner": "Karlbergs BK"
+        },
+        {
+          "date": "2026-06-11",
+          "home": "Västra Frölunda",
+          "away": "Onsala BK",
+          "homeGoals": 4,
+          "awayGoals": 2,
+          "phase": "R1",
+          "winner": "Västra Frölunda"
+        },
+        {
+          "date": "2026-06-11",
+          "home": "Lindö FF",
+          "away": "AC Studenterna",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "phase": "R1",
+          "winner": "Lindö FF"
+        },
+        {
+          "date": "2026-06-17",
+          "home": "Rågsveds IF",
+          "away": "Enköpings SK",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "R1",
+          "winner": "Enköpings SK"
+        },
+        {
+          "date": "2026-06-21",
+          "home": "Bollstanäs SK",
+          "away": "FC Gute",
+          "homeGoals": 5,
+          "awayGoals": 2,
+          "phase": "R1",
+          "winner": "Bollstanäs SK"
+        },
+        {
+          "date": "2026-06-22",
+          "home": "Räppe GoIF",
+          "away": "Hässleholms IF",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "R1",
+          "winner": "Hässleholms IF"
+        },
+        {
+          "date": "2026-06-22",
+          "home": "Landvetter IS",
+          "away": "Dalstorps IF",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "R1",
+          "winner": "Dalstorps IF"
+        },
+        {
+          "date": "2026-06-23",
+          "home": "BK Astrio",
+          "away": "Ängelholms FF",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "phase": "R1",
+          "winner": "Ängelholms FF"
+        },
+        {
+          "date": "2026-06-23",
+          "home": "FC Järfälla",
+          "away": "FC Arlanda",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "R1",
+          "winner": "FC Arlanda"
+        }
+      ],
+      "rules": {
+        "firstRoundDistrictClubs": 64,
+        "firstRoundTies": 32,
+        "secondRoundTopTwoTiersEnter": true,
+        "secondRoundTies": 32,
+        "groupStageYear": 2027,
+        "drawSecondRoundBeforeFirstRoundCompleted": true
+      },
+      "pending": [
+        {
+          "home": "IFK Skövde FK",
+          "away": "Jönköpings Södra IF",
+          "scheduledDate": "2026-07-27"
+        }
+      ],
+      "note": "31 first-round ties before July, remaining tie in July. Two shootouts corroborated GSA. Skövde AIK distinct from IFK Skövde FK; Falu FK label discrepancy resolved as Falu BS per GSA. All future scores excluded.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.svenskfotboll.se/nyheter/cuper/2026/06/infor-herrarnas-forsta-cupomgang/",
+        "https://ladbrokes.touch-line.com/cup.asp?coid=-103&lang=",
+        "https://globalsportsarchive.com/en/soccer/competition/svenska-cupen-2026-2027/80272"
+      ],
+      "details": {
+        "matches": 31,
+        "walkovers": 0
+      },
+      "missing": "Independent reconciliation, complete earlier rounds where missing, participant keys, exact regulations."
     }
   }
 ]

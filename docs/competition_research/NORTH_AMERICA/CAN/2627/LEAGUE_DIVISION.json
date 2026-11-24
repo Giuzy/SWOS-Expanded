@@ -12,8 +12,8 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -51,6 +51,447 @@
         "fallGames": 18,
         "source": "https://www.cplsoccer.com/news/faq-a-primer-on-the-cpls-format-and-season-rules"
       }
+    },
+    "block64Research": {
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "sources": [
+        "https://www.oursportscentral.com/services/schedule/canadian-premier-league/l-253",
+        "https://www.cplsoccer.com/competition-guidelines"
+      ],
+      "matches": [
+        {
+          "date": "2026-04-04",
+          "home": "Forge FC",
+          "away": "Atlético Ottawa",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-04",
+          "home": "Vancouver FC",
+          "away": "Halifax Wanderers FC",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-05",
+          "home": "Pacific FC",
+          "away": "Cavalry FC",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Inter Toronto FC",
+          "away": "Halifax Wanderers FC",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Pacific FC",
+          "away": "FC Supra du Québec",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Cavalry FC",
+          "away": "Atlético Ottawa",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Vancouver FC",
+          "away": "Forge FC",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-18",
+          "home": "Halifax Wanderers FC",
+          "away": "Pacific FC",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-18",
+          "home": "Forge FC",
+          "away": "Cavalry FC",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-19",
+          "home": "FC Supra du Québec",
+          "away": "Atlético Ottawa",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-19",
+          "home": "Inter Toronto FC",
+          "away": "Vancouver FC",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-24",
+          "home": "FC Supra du Québec",
+          "away": "Halifax Wanderers FC",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-25",
+          "home": "Cavalry FC",
+          "away": "Inter Toronto FC",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Atlético Ottawa",
+          "away": "Vancouver FC",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Pacific FC",
+          "away": "Forge FC",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Inter Toronto FC",
+          "away": "Atlético Ottawa",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-02",
+          "home": "Halifax Wanderers FC",
+          "away": "Forge FC",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-03",
+          "home": "FC Supra du Québec",
+          "away": "Cavalry FC",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-03",
+          "home": "Pacific FC",
+          "away": "Vancouver FC",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Forge FC",
+          "away": "FC Supra du Québec",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Atlético Ottawa",
+          "away": "Halifax Wanderers FC",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Pacific FC",
+          "away": "Inter Toronto FC",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Vancouver FC",
+          "away": "Cavalry FC",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Halifax Wanderers FC",
+          "away": "Inter Toronto FC",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Vancouver FC",
+          "away": "FC Supra du Québec",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Atlético Ottawa",
+          "away": "Forge FC",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Cavalry FC",
+          "away": "Pacific FC",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-29",
+          "home": "FC Supra du Québec",
+          "away": "Inter Toronto FC",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-30",
+          "home": "Halifax Wanderers FC",
+          "away": "Vancouver FC",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-30",
+          "home": "Pacific FC",
+          "away": "Atlético Ottawa",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-31",
+          "home": "Forge FC",
+          "away": "Cavalry FC",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-05",
+          "home": "Vancouver FC",
+          "away": "Atlético Ottawa",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Cavalry FC",
+          "away": "Halifax Wanderers FC",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-06",
+          "home": "FC Supra du Québec",
+          "away": "Pacific FC",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-07",
+          "home": "Inter Toronto FC",
+          "away": "Forge FC",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-06-09",
+          "home": "Atlético Ottawa",
+          "away": "FC Supra du Québec",
+          "homeGoals": 5,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-10",
+          "home": "Forge FC",
+          "away": "Halifax Wanderers FC",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-10",
+          "home": "Inter Toronto FC",
+          "away": "Cavalry FC",
+          "homeGoals": 1,
+          "awayGoals": 5
+        },
+        {
+          "date": "2026-06-14",
+          "home": "Vancouver FC",
+          "away": "Pacific FC",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-26",
+          "home": "Halifax Wanderers FC",
+          "away": "Pacific FC",
+          "homeGoals": 5,
+          "awayGoals": 2
+        }
+      ],
+      "pending": [
+        {
+          "dateOriginal": "2026-06-28",
+          "home": "Cavalry FC",
+          "away": "FC Supra du Québec",
+          "status": "POSTPONED",
+          "reason": null,
+          "dateRevised": null
+        }
+      ],
+      "derivedTable": {
+        "status": "SOURCE_DERIVED_NOT_INDEPENDENTLY_RECONCILED",
+        "rows": [
+          {
+            "team": "Forge FC",
+            "played": 10,
+            "w": 8,
+            "d": 1,
+            "l": 1,
+            "gf": 15,
+            "ga": 4,
+            "pts": 25
+          },
+          {
+            "team": "Cavalry FC",
+            "played": 10,
+            "w": 7,
+            "d": 2,
+            "l": 1,
+            "gf": 19,
+            "ga": 5,
+            "pts": 23
+          },
+          {
+            "team": "Atlético Ottawa",
+            "played": 10,
+            "w": 4,
+            "d": 2,
+            "l": 4,
+            "gf": 15,
+            "ga": 18,
+            "pts": 14
+          },
+          {
+            "team": "Halifax Wanderers FC",
+            "played": 11,
+            "w": 3,
+            "d": 3,
+            "l": 5,
+            "gf": 14,
+            "ga": 16,
+            "pts": 12
+          },
+          {
+            "team": "Inter Toronto FC",
+            "played": 9,
+            "w": 3,
+            "d": 3,
+            "l": 3,
+            "gf": 13,
+            "ga": 17,
+            "pts": 12
+          },
+          {
+            "team": "Vancouver FC",
+            "played": 10,
+            "w": 3,
+            "d": 2,
+            "l": 5,
+            "gf": 9,
+            "ga": 11,
+            "pts": 11
+          },
+          {
+            "team": "FC Supra du Québec",
+            "played": 9,
+            "w": 3,
+            "d": 2,
+            "l": 4,
+            "gf": 13,
+            "ga": 14,
+            "pts": 11
+          },
+          {
+            "team": "Pacific FC",
+            "played": 11,
+            "w": 0,
+            "d": 3,
+            "l": 8,
+            "gf": 12,
+            "ga": 25,
+            "pts": 3
+          }
+        ]
+      },
+      "rules": {
+        "teams": 8,
+        "regularMatchesPerTeam": 28,
+        "regularHome": 14,
+        "regularAway": 14,
+        "regularSeason": [
+          "2026-04-04",
+          "2026-10-25"
+        ],
+        "playoffsTop": 4,
+        "semifinalsLegs": 2,
+        "finalLegs": 1,
+        "extraTimeMinutes": 30,
+        "penalties": true,
+        "continentalAccess": [
+          "regular winner",
+          "playoff champion"
+        ],
+        "duplicateAccess": "second in regular season",
+        "tieBreak": [
+          "wins",
+          "head-to-head",
+          "goal difference",
+          "goals scored",
+          "away goal difference",
+          "away goals",
+          "home goal difference",
+          "home goals",
+          "fewest disciplinary points",
+          "most domestic U21 minutes"
+        ],
+        "discipline": {
+          "yellowThresholds": [
+            5,
+            8,
+            11
+          ],
+          "oneMatchSuspension": true,
+          "goodBehaviourMatches": 5,
+          "maxReductions": 3
+        },
+        "ruleSource": "https://www.cplsoccer.com/competition-guidelines"
+      },
+      "note": "All 40 final results listed through June30 by opened archive lines62–101; June28 postponed distinct, no future score. Club order corrected away-at-home; table not certified independently and tied ranks not assigned."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.oursportscentral.com/services/schedule/canadian-premier-league/l-253",
+        "https://www.cplsoccer.com/competition-guidelines"
+      ],
+      "details": {
+        "matches": 40,
+        "postponed": 1
+      },
+      "missing": "Independent source and team keys; exact postponed original reason/revised date"
     }
   }
 ]

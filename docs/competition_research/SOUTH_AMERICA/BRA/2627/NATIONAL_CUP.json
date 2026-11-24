@@ -12,8 +12,8 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,13 +23,1556 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "Copa do Brasil",
-      "nonCommercialDisplayName": null,
+      "officialName": "Copa Betano do Brasil",
+      "nonCommercialDisplayName": "Copa do Brasil",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "9b0eb97e8248e1a7c71846e612ebcef7241b4e2e",
+      "source": "https://www.cbf.com.br/futebol-brasileiro/noticias/sele/a/copa-do-brasil-cbf-sorteia-mandos-de-campo-da-primeira-fase-e-chaveamento-ate-a-terceira-fase",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block66Research": {
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "sources": [
+        "https://stcbfsiteprdimgbrs.blob.core.windows.net/img-site/cdn/Tabela_Detalhada_Copa_do_Brasil_2026_15_05_7dcccf26c7.pdf",
+        "https://www.cbf.com.br/futebol-brasileiro/noticias/sele/a/copa-do-brasil-cbf-sorteia-mandos-de-campo-da-primeira-fase-e-chaveamento-ate-a-terceira-fase",
+        "https://www.cbf.com.br/futebol-brasileiro/jogos/copa-do-brasil/profissional/2026/ivinhema-futebol-clube-x-volta-redonda/832879"
+      ],
+      "cutoff": "2026-06-30",
+      "matches": [
+        {
+          "date": "2026-02-17",
+          "home": "Sampaio Corrêa RJ",
+          "away": "Desportiva ES",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "008",
+          "phase": 1,
+          "penalties": [
+            1,
+            3
+          ]
+        },
+        {
+          "date": "2026-02-18",
+          "home": "Porto BA",
+          "away": "Serra Branca PB",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "sourceMatchId": "012",
+          "phase": 1
+        },
+        {
+          "date": "2026-02-18",
+          "home": "Maguary PE",
+          "away": "Laguna RN",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "013",
+          "phase": 1
+        },
+        {
+          "date": "2026-02-18",
+          "home": "Baré RR",
+          "away": "Madureira RJ",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "sourceMatchId": "003",
+          "phase": 1
+        },
+        {
+          "date": "2026-02-18",
+          "home": "Araguaína TO",
+          "away": "Primavera SP",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "sourceMatchId": "007",
+          "phase": 1
+        },
+        {
+          "date": "2026-02-18",
+          "home": "Gama DF",
+          "away": "Monte Roraima RR",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "sourceMatchId": "004",
+          "phase": 1
+        },
+        {
+          "date": "2026-02-18",
+          "home": "Betim MG",
+          "away": "Piauí PI",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "009",
+          "phase": 1
+        },
+        {
+          "date": "2026-02-18",
+          "home": "América SE",
+          "away": "Tirol CE",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "010",
+          "phase": 1,
+          "penalties": [
+            3,
+            5
+          ]
+        },
+        {
+          "date": "2026-02-18",
+          "home": "Santa Catarina SC",
+          "away": "IAPE MA",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "sourceMatchId": "011",
+          "phase": 1
+        },
+        {
+          "date": "2026-02-18",
+          "home": "Ji-Paraná RO",
+          "away": "FC Pantanal MS",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "sourceMatchId": "001",
+          "phase": 1
+        },
+        {
+          "date": "2026-02-18",
+          "home": "Ivinhema MS",
+          "away": "Independente AP",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "002",
+          "phase": 1
+        },
+        {
+          "date": "2026-02-18",
+          "home": "Galvez AC",
+          "away": "Guaporé RO",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "005",
+          "phase": 1,
+          "penalties": [
+            2,
+            3
+          ]
+        },
+        {
+          "date": "2026-02-19",
+          "home": "Primavera MT",
+          "away": "Bragantino PA",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "sourceMatchId": "014",
+          "phase": 1
+        },
+        {
+          "date": "2026-02-19",
+          "home": "Vasco AC",
+          "away": "Velo Clube SP",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "006",
+          "phase": 1,
+          "penalties": [
+            2,
+            3
+          ]
+        },
+        {
+          "date": "2026-02-24",
+          "home": "Boavista RJ",
+          "away": "Maringá PR",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "sourceMatchId": "041",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-24",
+          "home": "Joinville SC",
+          "away": "CSA AL",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "032",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-24",
+          "home": "América RN",
+          "away": "Grêmio Sampaio RR",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "sourceMatchId": "017",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-24",
+          "home": "Fortaleza CE",
+          "away": "Maguary PE",
+          "homeGoals": 4,
+          "awayGoals": 3,
+          "sourceMatchId": "023",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Castanhal PA",
+          "away": "Guarani SP",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "024",
+          "phase": 2,
+          "penalties": [
+            5,
+            3
+          ]
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Juazeirense BA",
+          "away": "Capital DF",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "050",
+          "phase": 2,
+          "penalties": [
+            1,
+            3
+          ]
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Atlético GO",
+          "away": "Primavera MT",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "039",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Novorizontino SP",
+          "away": "Nacional AM",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "sourceMatchId": "028",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Madureira RJ",
+          "away": "ABC RN",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "044",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-25",
+          "home": "São Luiz RS",
+          "away": "Maranhão MA",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "sourceMatchId": "030",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Tombense MG",
+          "away": "Oratório AP",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "036",
+          "phase": 2,
+          "penalties": [
+            4,
+            2
+          ]
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Retrô PE",
+          "away": "Uberlândia MG",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "sourceMatchId": "040",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Londrina PR",
+          "away": "Penedense AL",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "048",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Anápolis GO",
+          "away": "Cianorte PR",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "sourceMatchId": "018",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Imperatriz MA",
+          "away": "Amazonas AM",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "sourceMatchId": "052",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Ceilândia DF",
+          "away": "Jacuipense BA",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "026",
+          "phase": 2,
+          "penalties": [
+            1,
+            4
+          ]
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Gama DF",
+          "away": "Goiás GO",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "sourceMatchId": "043",
+          "phase": 2,
+          "penalties": [
+            4,
+            5
+          ]
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Ypiranga RS",
+          "away": "Ji-Paraná RO",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "sourceMatchId": "020",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-25",
+          "home": "São Bernardo FC SP",
+          "away": "Atlético BA",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "sourceMatchId": "033",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-25",
+          "home": "ASA AL",
+          "away": "Operário MS",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "sourceMatchId": "034",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Caxias RS",
+          "away": "Guarany de Bagé RS",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "sourceMatchId": "037",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Águia de Marabá PA",
+          "away": "Independência AC",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "sourceMatchId": "045",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-25",
+          "home": "Mixto MT",
+          "away": "Botafogo PB",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "029",
+          "phase": 2,
+          "penalties": [
+            4,
+            3
+          ]
+        },
+        {
+          "date": "2026-02-26",
+          "home": "Ceará CE",
+          "away": "Primavera SP",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "sourceMatchId": "031",
+          "phase": 2
+        },
+        {
+          "date": "2026-02-26",
+          "home": "Operário VG MT",
+          "away": "Gazin Porto Velho RO",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "038",
+          "phase": 2,
+          "penalties": [
+            1,
+            3
+          ]
+        },
+        {
+          "date": "2026-02-26",
+          "home": "Portuguesa SP",
+          "away": "Altos PI",
+          "homeGoals": 5,
+          "awayGoals": 1,
+          "sourceMatchId": "057",
+          "phase": 2
+        },
+        {
+          "date": "2026-03-03",
+          "home": "CRB AL",
+          "away": "Porto BA",
+          "homeGoals": 6,
+          "awayGoals": 0,
+          "sourceMatchId": "055",
+          "phase": 2
+        },
+        {
+          "date": "2026-03-03",
+          "home": "Figueirense SC",
+          "away": "Azuriz PR",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "053",
+          "phase": 2
+        },
+        {
+          "date": "2026-03-04",
+          "home": "Nova Iguaçu RJ",
+          "away": "Lagarto SE",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "025",
+          "phase": 2,
+          "penalties": [
+            4,
+            3
+          ]
+        },
+        {
+          "date": "2026-03-04",
+          "home": "Velo Clube SP",
+          "away": "Vila Nova GO",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "035",
+          "phase": 2,
+          "penalties": [
+            2,
+            4
+          ]
+        },
+        {
+          "date": "2026-03-04",
+          "home": "Tuna Luso PA",
+          "away": "Tocantinópolis TO",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "sourceMatchId": "046",
+          "phase": 2
+        },
+        {
+          "date": "2026-03-04",
+          "home": "Capital TO",
+          "away": "Manaus AM",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "049",
+          "phase": 2,
+          "penalties": [
+            4,
+            5
+          ]
+        },
+        {
+          "date": "2026-03-04",
+          "home": "Betim MG",
+          "away": "Operário PR",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "sourceMatchId": "051",
+          "phase": 2
+        },
+        {
+          "date": "2026-03-04",
+          "home": "Avaí SC",
+          "away": "Porto Vitória ES",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "sourceMatchId": "056",
+          "phase": 2
+        },
+        {
+          "date": "2026-03-04",
+          "home": "Rio Branco ES",
+          "away": "Athletic MG",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "021",
+          "phase": 2,
+          "penalties": [
+            5,
+            6
+          ]
+        },
+        {
+          "date": "2026-03-04",
+          "home": "Santa Catarina SC",
+          "away": "Cuiabá MT",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "027",
+          "phase": 2,
+          "penalties": [
+            5,
+            4
+          ]
+        },
+        {
+          "date": "2026-03-04",
+          "home": "Ivinhema MS",
+          "away": "Volta Redonda RJ",
+          "homeGoals": 2,
+          "awayGoals": 4,
+          "sourceMatchId": "016",
+          "phase": 2
+        },
+        {
+          "date": "2026-03-04",
+          "home": "Manauara AM",
+          "away": "Itabaiana SE",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "sourceMatchId": "022",
+          "phase": 2
+        },
+        {
+          "date": "2026-03-04",
+          "home": "América MG",
+          "away": "Tirol CE",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "015",
+          "phase": 2,
+          "penalties": [
+            4,
+            3
+          ]
+        },
+        {
+          "date": "2026-03-05",
+          "home": "Trem AP",
+          "away": "Fluminense PI",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "042",
+          "phase": 2,
+          "penalties": [
+            3,
+            4
+          ]
+        },
+        {
+          "date": "2026-03-05",
+          "home": "Desportiva ES",
+          "away": "Sport PE",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "019",
+          "phase": 2,
+          "penalties": [
+            3,
+            4
+          ]
+        },
+        {
+          "date": "2026-03-05",
+          "home": "Portuguesa RJ",
+          "away": "Maracanã CE",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "058",
+          "phase": 2
+        },
+        {
+          "date": "2026-03-05",
+          "home": "Juventude RS",
+          "away": "Guaporé RO",
+          "homeGoals": 5,
+          "awayGoals": 0,
+          "sourceMatchId": "047",
+          "phase": 2
+        },
+        {
+          "date": "2026-03-05",
+          "home": "Santa Cruz PE",
+          "away": "Sousa PB",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "054",
+          "phase": 2,
+          "penalties": [
+            2,
+            4
+          ]
+        },
+        {
+          "date": "2026-03-10",
+          "home": "Portuguesa SP",
+          "away": "Avaí SC",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "081",
+          "phase": 3,
+          "penalties": [
+            4,
+            1
+          ]
+        },
+        {
+          "date": "2026-03-10",
+          "home": "Joinville SC",
+          "away": "São Bernardo FC SP",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "sourceMatchId": "068",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-10",
+          "home": "Ponte Preta SP",
+          "away": "Guarany de Bagé RS",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "071",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-11",
+          "home": "Volta Redonda RJ",
+          "away": "América RN",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "060",
+          "phase": 3,
+          "penalties": [
+            5,
+            3
+          ]
+        },
+        {
+          "date": "2026-03-11",
+          "home": "Athletic MG",
+          "away": "Ypiranga RS",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "sourceMatchId": "062",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-11",
+          "home": "Manauara AM",
+          "away": "Fortaleza CE",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "sourceMatchId": "063",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-11",
+          "home": "Maringá PR",
+          "away": "Uberlândia MG",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "sourceMatchId": "073",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-11",
+          "home": "Goiás GO",
+          "away": "Fluminense PI",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "sourceMatchId": "074",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-11",
+          "home": "Castanhal PA",
+          "away": "Nova Iguaçu RJ",
+          "homeGoals": 0,
+          "awayGoals": 4,
+          "sourceMatchId": "064",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-11",
+          "home": "Santa Catarina SC",
+          "away": "Jacuipense BA",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "sourceMatchId": "065",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-11",
+          "home": "Confiança SE",
+          "away": "Tombense MG",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "sourceMatchId": "070",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-11",
+          "home": "Gazin Porto Velho RO",
+          "away": "Atlético GO",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "sourceMatchId": "072",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-11",
+          "home": "Manaus AM",
+          "away": "Londrina PR",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "077",
+          "phase": 3,
+          "penalties": [
+            4,
+            5
+          ]
+        },
+        {
+          "date": "2026-03-11",
+          "home": "Paysandu PA",
+          "away": "Portuguesa RJ",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "sourceMatchId": "082",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-12",
+          "home": "Madureira RJ",
+          "away": "Águia de Marabá PA",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "sourceMatchId": "075",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-12",
+          "home": "Vila Nova GO",
+          "away": "Operário MS",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "069",
+          "phase": 3,
+          "penalties": [
+            5,
+            4
+          ]
+        },
+        {
+          "date": "2026-03-12",
+          "home": "Maranhão MA",
+          "away": "Ceará CE",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "sourceMatchId": "067",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-12",
+          "home": "Operário PR",
+          "away": "Capital DF",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "sourceMatchId": "078",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-12",
+          "home": "Sousa PB",
+          "away": "CRB AL",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "sourceMatchId": "080",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-12",
+          "home": "Amazonas AM",
+          "away": "Figueirense SC",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "sourceMatchId": "079",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-12",
+          "home": "Mixto MT",
+          "away": "Novorizontino SP",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "sourceMatchId": "066",
+          "phase": 3
+        },
+        {
+          "date": "2026-03-12",
+          "home": "Barra SC",
+          "away": "América MG",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "059",
+          "phase": 3,
+          "penalties": [
+            4,
+            3
+          ]
+        },
+        {
+          "date": "2026-03-12",
+          "home": "Sport PE",
+          "away": "Anápolis GO",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "061",
+          "phase": 3,
+          "penalties": [
+            5,
+            3
+          ]
+        },
+        {
+          "date": "2026-03-12",
+          "home": "Tuna Luso PA",
+          "away": "Juventude RS",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "076",
+          "phase": 3,
+          "penalties": [
+            1,
+            4
+          ]
+        },
+        {
+          "date": "2026-03-17",
+          "home": "Nova Iguaçu RJ",
+          "away": "Fortaleza CE",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "sourceMatchId": "085",
+          "phase": 4
+        },
+        {
+          "date": "2026-03-17",
+          "home": "São Bernardo FC SP",
+          "away": "Ceará CE",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "087",
+          "phase": 4,
+          "penalties": [
+            2,
+            3
+          ]
+        },
+        {
+          "date": "2026-03-17",
+          "home": "Sport PE",
+          "away": "Athletic MG",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "sourceMatchId": "084",
+          "phase": 4
+        },
+        {
+          "date": "2026-03-17",
+          "home": "Londrina PR",
+          "away": "Operário PR",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "sourceMatchId": "092",
+          "phase": 4
+        },
+        {
+          "date": "2026-03-17",
+          "home": "Portuguesa SP",
+          "away": "Paysandu PA",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "sourceMatchId": "094",
+          "phase": 4
+        },
+        {
+          "date": "2026-03-18",
+          "home": "Vila Nova GO",
+          "away": "Confiança SE",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "088",
+          "phase": 4,
+          "penalties": [
+            3,
+            5
+          ]
+        },
+        {
+          "date": "2026-03-18",
+          "home": "Atlético GO",
+          "away": "Ponte Preta SP",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "089",
+          "phase": 4
+        },
+        {
+          "date": "2026-03-18",
+          "home": "CRB AL",
+          "away": "Figueirense SC",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "093",
+          "phase": 4
+        },
+        {
+          "date": "2026-03-18",
+          "home": "Jacuipense BA",
+          "away": "Novorizontino SP",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "086",
+          "phase": 4,
+          "penalties": [
+            5,
+            4
+          ]
+        },
+        {
+          "date": "2026-03-19",
+          "home": "Maringá PR",
+          "away": "Goiás GO",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "sourceMatchId": "090",
+          "phase": 4
+        },
+        {
+          "date": "2026-03-19",
+          "home": "Juventude RS",
+          "away": "Águia de Marabá PA",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "sourceMatchId": "091",
+          "phase": 4
+        },
+        {
+          "date": "2026-03-19",
+          "home": "Volta Redonda RJ",
+          "away": "Barra SC",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "083",
+          "phase": 4,
+          "penalties": [
+            1,
+            3
+          ]
+        },
+        {
+          "date": "2026-04-21",
+          "home": "Botafogo RJ",
+          "away": "Chapecoense SC",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "103",
+          "phase": 5,
+          "tieId": 103,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-21",
+          "home": "São Paulo SP",
+          "away": "Juventude RS",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "110",
+          "phase": 5,
+          "tieId": 110,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-21",
+          "home": "Grêmio RS",
+          "away": "Confiança SE",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "sourceMatchId": "099",
+          "phase": 5,
+          "tieId": 99,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-21",
+          "home": "Paysandu PA",
+          "away": "Vasco da Gama RJ",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "sourceMatchId": "100",
+          "phase": 5,
+          "tieId": 100,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-21",
+          "home": "Barra SC",
+          "away": "Corinthians SP",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "sourceMatchId": "105",
+          "phase": 5,
+          "tieId": 105,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Goiás GO",
+          "away": "Cruzeiro MG",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "sourceMatchId": "096",
+          "phase": 5,
+          "tieId": 96,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Bahia BA",
+          "away": "Remo PA",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "sourceMatchId": "102",
+          "phase": 5,
+          "tieId": 102,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Santos SP",
+          "away": "Coritiba PR",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "109",
+          "phase": 5,
+          "tieId": 109,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Fortaleza CE",
+          "away": "CRB AL",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "sourceMatchId": "101",
+          "phase": 5,
+          "tieId": 101,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Athletic MG",
+          "away": "Internacional RS",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "sourceMatchId": "108",
+          "phase": 5,
+          "tieId": 108,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Flamengo RJ",
+          "away": "Vitória BA",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "sourceMatchId": "098",
+          "phase": 5,
+          "tieId": 98,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Red Bull Bragantino SP",
+          "away": "Mirassol SP",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "sourceMatchId": "104",
+          "phase": 5,
+          "tieId": 104,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-23",
+          "home": "Atlético MG",
+          "away": "Ceará CE",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "sourceMatchId": "095",
+          "phase": 5,
+          "tieId": 95,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-23",
+          "home": "Palmeiras SP",
+          "away": "Jacuipense BA",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "sourceMatchId": "107",
+          "phase": 5,
+          "tieId": 107,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-23",
+          "home": "Athletico PR",
+          "away": "Atlético GO",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "097",
+          "phase": 5,
+          "tieId": 97,
+          "leg": 1
+        },
+        {
+          "date": "2026-04-23",
+          "home": "Operário PR",
+          "away": "Fluminense RJ",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "106",
+          "phase": 5,
+          "tieId": 106,
+          "leg": 1
+        },
+        {
+          "date": "2026-05-12",
+          "home": "Internacional RS",
+          "away": "Athletic MG",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "sourceMatchId": "124",
+          "phase": 5,
+          "tieId": 108,
+          "leg": 2
+        },
+        {
+          "date": "2026-05-12",
+          "home": "Cruzeiro MG",
+          "away": "Goiás GO",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "112",
+          "phase": 5,
+          "tieId": 96,
+          "leg": 2
+        },
+        {
+          "date": "2026-05-12",
+          "home": "Fluminense RJ",
+          "away": "Operário PR",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "sourceMatchId": "122",
+          "phase": 5,
+          "tieId": 106,
+          "leg": 2
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Vasco da Gama RJ",
+          "away": "Paysandu PA",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "sourceMatchId": "116",
+          "phase": 5,
+          "tieId": 100,
+          "leg": 2
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Juventude RS",
+          "away": "São Paulo SP",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "sourceMatchId": "126",
+          "phase": 5,
+          "tieId": 110,
+          "leg": 2
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Coritiba PR",
+          "away": "Santos SP",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "sourceMatchId": "125",
+          "phase": 5,
+          "tieId": 109,
+          "leg": 2
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Mirassol SP",
+          "away": "Red Bull Bragantino SP",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "sourceMatchId": "120",
+          "phase": 5,
+          "tieId": 104,
+          "leg": 2
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Ceará CE",
+          "away": "Atlético MG",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "sourceMatchId": "111",
+          "phase": 5,
+          "tieId": 95,
+          "leg": 2,
+          "penalties": [
+            2,
+            4
+          ]
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Remo PA",
+          "away": "Bahia BA",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "sourceMatchId": "118",
+          "phase": 5,
+          "tieId": 102,
+          "leg": 2
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Jacuipense BA",
+          "away": "Palmeiras SP",
+          "homeGoals": 1,
+          "awayGoals": 4,
+          "sourceMatchId": "123",
+          "phase": 5,
+          "tieId": 107,
+          "leg": 2
+        },
+        {
+          "date": "2026-05-14",
+          "home": "Chapecoense SC",
+          "away": "Botafogo RJ",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "sourceMatchId": "119",
+          "phase": 5,
+          "tieId": 103,
+          "leg": 2
+        },
+        {
+          "date": "2026-05-14",
+          "home": "Atlético GO",
+          "away": "Athletico PR",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "113",
+          "phase": 5,
+          "tieId": 97,
+          "leg": 2,
+          "penalties": [
+            1,
+            4
+          ]
+        },
+        {
+          "date": "2026-05-14",
+          "home": "Confiança SE",
+          "away": "Grêmio RS",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "sourceMatchId": "115",
+          "phase": 5,
+          "tieId": 99,
+          "leg": 2
+        },
+        {
+          "date": "2026-05-14",
+          "home": "Corinthians SP",
+          "away": "Barra SC",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "sourceMatchId": "121",
+          "phase": 5,
+          "tieId": 105,
+          "leg": 2
+        },
+        {
+          "date": "2026-05-14",
+          "home": "CRB AL",
+          "away": "Fortaleza CE",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "sourceMatchId": "117",
+          "phase": 5,
+          "tieId": 101,
+          "leg": 2
+        },
+        {
+          "date": "2026-05-14",
+          "home": "Vitória BA",
+          "away": "Flamengo RJ",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "sourceMatchId": "114",
+          "phase": 5,
+          "tieId": 98,
+          "leg": 2
+        }
+      ],
+      "qualifiedR16": [
+        {
+          "tieId": 95,
+          "aggregate": [
+            3,
+            3
+          ],
+          "winner": "Atlético MG",
+          "penaltiesSecondLeg": [
+            2,
+            4
+          ]
+        },
+        {
+          "tieId": 96,
+          "aggregate": [
+            2,
+            3
+          ],
+          "winner": "Cruzeiro MG"
+        },
+        {
+          "tieId": 97,
+          "aggregate": [
+            0,
+            0
+          ],
+          "winner": "Athletico PR",
+          "penaltiesSecondLeg": [
+            1,
+            4
+          ]
+        },
+        {
+          "tieId": 98,
+          "aggregate": [
+            2,
+            3
+          ],
+          "winner": "Vitória BA"
+        },
+        {
+          "tieId": 99,
+          "aggregate": [
+            5,
+            0
+          ],
+          "winner": "Grêmio RS"
+        },
+        {
+          "tieId": 100,
+          "aggregate": [
+            2,
+            4
+          ],
+          "winner": "Vasco da Gama RJ"
+        },
+        {
+          "tieId": 101,
+          "aggregate": [
+            2,
+            1
+          ],
+          "winner": "Fortaleza CE"
+        },
+        {
+          "tieId": 102,
+          "aggregate": [
+            2,
+            5
+          ],
+          "winner": "Remo PA"
+        },
+        {
+          "tieId": 103,
+          "aggregate": [
+            1,
+            2
+          ],
+          "winner": "Chapecoense SC"
+        },
+        {
+          "tieId": 104,
+          "aggregate": [
+            2,
+            3
+          ],
+          "winner": "Mirassol SP"
+        },
+        {
+          "tieId": 105,
+          "aggregate": [
+            0,
+            2
+          ],
+          "winner": "Corinthians SP"
+        },
+        {
+          "tieId": 106,
+          "aggregate": [
+            1,
+            2
+          ],
+          "winner": "Fluminense RJ"
+        },
+        {
+          "tieId": 107,
+          "aggregate": [
+            7,
+            1
+          ],
+          "winner": "Palmeiras SP"
+        },
+        {
+          "tieId": 108,
+          "aggregate": [
+            3,
+            5
+          ],
+          "winner": "Internacional RS"
+        },
+        {
+          "tieId": 109,
+          "aggregate": [
+            2,
+            0
+          ],
+          "winner": "Santos SP"
+        },
+        {
+          "tieId": 110,
+          "aggregate": [
+            2,
+            3
+          ],
+          "winner": "Juventude RS"
+        }
+      ],
+      "rules": {
+        "entrants": 126,
+        "totalMatches": 155,
+        "phases": 9,
+        "phaseCounts": [
+          14,
+          44,
+          24,
+          12,
+          32,
+          16,
+          8,
+          4,
+          1
+        ],
+        "singleLegPhases": [
+          1,
+          2,
+          3,
+          4,
+          9
+        ],
+        "twoLegPhases": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "serieAEntryPhase": 5,
+        "serieAEntrants": 20,
+        "winnerAccess": "Libertadores group stage",
+        "runnerUpAccess": "Libertadores qualifying phase"
+      },
+      "sourceCorrection": [
+        {
+          "ref": "016",
+          "originalExtractedLabel": "Inhumas MS",
+          "correctedLabel": "Ivinhema MS",
+          "evidence": "specific CBF match page confirms Ivinhema, March4, 2-4"
+        }
+      ],
+      "validation": {
+        "allRefs1To126": true,
+        "allPriorWinnersInNextPhase": true,
+        "all16TwoLegTiesResolved": true,
+        "duplicateClubDate": false,
+        "allBeforeCutoff": true,
+        "visualPdfVerification": "NOT_PROVEN: web screenshot requests for pages0–3 failed Cache miss; extracted official table inspected, independent full score reconciliation pending"
+      },
+      "scope": "Official table revision May15: all 126 matches of completed first five phases, no scores beyond June30. Next phase August per official table, future dates not imported as runtime fixtures. Full entry criteria and participant keys remain pending."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://stcbfsiteprdimgbrs.blob.core.windows.net/img-site/cdn/Tabela_Detalhada_Copa_do_Brasil_2026_15_05_7dcccf26c7.pdf",
+        "https://www.cbf.com.br/futebol-brasileiro/noticias/sele/a/copa-do-brasil-cbf-sorteia-mandos-de-campo-da-primeira-fase-e-chaveamento-ate-a-terceira-fase",
+        "https://www.cbf.com.br/futebol-brasileiro/jogos/copa-do-brasil/profissional/2026/ivinhema-futebol-clube-x-volta-redonda/832879"
+      ],
+      "details": {
+        "matches": 126,
+        "qualified": 16
+      },
+      "missing": "Independent dates and participant keys, complete official match regulations, visual PDF check failed."
     }
   }
 ]

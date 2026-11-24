@@ -12,25 +12,331 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Olimpbet QFL Qazaqstan Kubogy",
+      "nonCommercialDisplayName": "Kazakhstan Cup",
       "candidateName": "Kazakhstan Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesk/kaz2026.html",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block62Research": {
+      "name": "Olimpbet QFL Qazaqstan Kubogy",
+      "display": "Kazakhstan Cup",
+      "sources": [
+        "https://www.rsssf.org/tablesk/kaz2026.html",
+        "https://koraview.com/en/football/competition/kazakhstan/cup",
+        "https://kffleague.kz/cup"
+      ],
+      "matches": [
+        {
+          "date": "2026-04-08",
+          "home": "Ontustik A",
+          "away": "Ordabasy",
+          "homeGoals": 2,
+          "awayGoals": 4,
+          "phase": "R32",
+          "winner": "Ordabasy"
+        },
+        {
+          "date": "2026-04-08",
+          "home": "Jas Qyran",
+          "away": "Atyrau",
+          "homeGoals": 0,
+          "awayGoals": 4,
+          "phase": "R32",
+          "winner": "Atyrau"
+        },
+        {
+          "date": "2026-04-08",
+          "home": "Qarshyga",
+          "away": "Jetisu",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "R32",
+          "winner": "Jetisu"
+        },
+        {
+          "date": "2026-04-08",
+          "home": "Turan",
+          "away": "Elimai",
+          "homeGoals": 1,
+          "awayGoals": 4,
+          "phase": "R32",
+          "winner": "Elimai"
+        },
+        {
+          "date": "2026-04-08",
+          "home": "Talas",
+          "away": "Qaisar",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "R32",
+          "winner": "Qaisar"
+        },
+        {
+          "date": "2026-04-08",
+          "home": "Jaiyq",
+          "away": "Qairat",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "phase": "R32",
+          "winner": "Qairat"
+        },
+        {
+          "date": "2026-04-08",
+          "home": "BKS",
+          "away": "Astana",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "R32",
+          "winner": "Astana"
+        },
+        {
+          "date": "2026-04-08",
+          "home": "Ansat",
+          "away": "Tobyl",
+          "homeGoals": 0,
+          "awayGoals": 8,
+          "phase": "R32",
+          "winner": "Tobyl"
+        },
+        {
+          "date": "2026-04-09",
+          "home": "Batyr Ekibastuz",
+          "away": "Kaspii",
+          "homeGoals": 0,
+          "awayGoals": 4,
+          "phase": "R32",
+          "winner": "Kaspii"
+        },
+        {
+          "date": "2026-04-09",
+          "home": "Arys",
+          "away": "Aqtobe",
+          "homeGoals": 0,
+          "awayGoals": 4,
+          "phase": "R32",
+          "winner": "Aqtobe"
+        },
+        {
+          "date": "2026-04-09",
+          "home": "Jelaev Nan",
+          "away": "Altai",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "R32",
+          "winner": "Altai"
+        },
+        {
+          "date": "2026-04-09",
+          "home": "Taraz",
+          "away": "Ulytau",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "R32",
+          "extraTime": true,
+          "winner": "Ulytau"
+        },
+        {
+          "date": "2026-04-09",
+          "home": "Shahtor",
+          "away": "Oqjetpes",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "phase": "R32",
+          "winner": "Oqjetpes"
+        },
+        {
+          "date": "2026-04-09",
+          "home": "Hromtau",
+          "away": "Jenis",
+          "homeGoals": 1,
+          "awayGoals": 4,
+          "phase": "R32",
+          "winner": "Jenis"
+        },
+        {
+          "date": "2026-04-09",
+          "home": "SD Family",
+          "away": "Ertis",
+          "homeGoals": null,
+          "awayGoals": null,
+          "phase": "R32",
+          "status": "WALKOVER",
+          "winner": "Ertis"
+        },
+        {
+          "date": "2026-04-09",
+          "home": "Han Taniri",
+          "away": "Qyzyljar",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "R32",
+          "winner": "Qyzyljar"
+        },
+        {
+          "date": "2026-04-29",
+          "home": "Atyrau",
+          "away": "Jetisu",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "R16",
+          "winner": "Jetisu"
+        },
+        {
+          "date": "2026-04-29",
+          "home": "Qaisar",
+          "away": "Qairat",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "R16",
+          "winner": "Qaisar"
+        },
+        {
+          "date": "2026-04-29",
+          "home": "Astana",
+          "away": "Tobyl",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "R16",
+          "winner": "Tobyl"
+        },
+        {
+          "date": "2026-04-29",
+          "home": "Oqjetpes",
+          "away": "Jenis",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "phase": "R16",
+          "winner": "Jenis"
+        },
+        {
+          "date": "2026-04-29",
+          "home": "Ertis",
+          "away": "Qyzyljar",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "R16",
+          "winner": "Qyzyljar"
+        },
+        {
+          "date": "2026-04-30",
+          "home": "Ordabasy",
+          "away": "Kaspii",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "phase": "R16",
+          "winner": "Ordabasy"
+        },
+        {
+          "date": "2026-04-30",
+          "home": "Aqtobe",
+          "away": "Elimai",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "R16",
+          "winner": "Aqtobe"
+        },
+        {
+          "date": "2026-04-30",
+          "home": "Altai",
+          "away": "Ulytau",
+          "homeGoals": 4,
+          "awayGoals": 3,
+          "phase": "R16",
+          "extraTime": true,
+          "winner": "Altai"
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Ordabasy",
+          "away": "Jetisu",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "QF",
+          "winner": "Ordabasy"
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Aqtobe",
+          "away": "Altai",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "QF",
+          "extraTime": true,
+          "penalties": [
+            3,
+            4
+          ],
+          "winner": "Altai"
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Qaisar",
+          "away": "Tobyl",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "QF",
+          "extraTime": true,
+          "penalties": [
+            5,
+            3
+          ],
+          "winner": "Qaisar"
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Jenis",
+          "away": "Qyzyljar",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "QF",
+          "winner": "Jenis"
+        }
+      ],
+      "rules": {
+        "initialTies": 16,
+        "round16Ties": 8,
+        "quarterfinals": 4,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true,
+        "semifinalLegs": 2
+      },
+      "remaining": [
+        "Ordabasy",
+        "Altai",
+        "Qaisar",
+        "Jenis"
+      ],
+      "note": "RSSSF lines 605–681, 27 played + 1 walkover. SD Family award score unspecified. Exact match date for unplayed tie listed under Apr9; not a played date. Semifinal two legs observed in secondary results, no future scores imported.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.rsssf.org/tablesk/kaz2026.html",
+        "https://koraview.com/en/football/competition/kazakhstan/cup",
+        "https://kffleague.kz/cup"
+      ],
+      "details": {
+        "matches": 27,
+        "walkovers": 1
+      },
+      "missing": "Independent reconciliation, complete earlier rounds where missing, participant keys, exact regulations."
     }
   }
 ]

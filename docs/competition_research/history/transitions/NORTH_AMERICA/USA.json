@@ -183,5 +183,101 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block59 verified HTML or official search excerpt, no future results imported."
     }
+  },
+  {
+    "index": 424,
+    "value": {
+      "competition": "USA Open Cup",
+      "firstEdition": "2020",
+      "lastEdition": "2021",
+      "operation": "SUSPEND",
+      "source": "https://www.ussoccer.com/stories/2025/12/format-schedule-participating-teams-finalized-for-2026-lamar-hunt-us-open-cup",
+      "note": "Two editions not played due to COVID; do not create champions.",
+      "rowRefs": [
+        419
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block62 official federation HTML inspected."
+    }
+  },
+  {
+    "index": 425,
+    "value": {
+      "competition": "USA Open Cup",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "CHANGE_FORMAT",
+      "source": "https://www.ussoccer.com/stories/2025/12/format-schedule-participating-teams-finalized-for-2026-lamar-hunt-us-open-cup",
+      "note": "80 teams, seven rounds, 48 professionals and 32 amateurs; 16 MLS enter R32; reduce rounds to avoid World Cup. Do not infer later years.",
+      "rowRefs": [
+        419
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block62 official federation HTML inspected."
+    }
+  },
+  {
+    "index": 426,
+    "value": {
+      "competition": "USA Open Cup",
+      "firstEdition": "2026",
+      "lastEdition": null,
+      "operation": "CHANGE_ENTRY_RULE",
+      "source": "https://www.ussoccer.com/stories/2025/12/format-schedule-participating-teams-finalized-for-2026-lamar-hunt-us-open-cup",
+      "note": "One club one entry across divisions, highest professional team; amateur National League route removed; later validity needs confirmation.",
+      "rowRefs": [
+        419
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block62 official federation HTML inspected."
+    }
+  },
+  {
+    "index": 435,
+    "value": {
+      "competition": "MLS playoffs",
+      "firstEdition": "2023",
+      "lastEdition": null,
+      "operation": "CHANGE_FORMAT",
+      "source": "https://www.mlssoccer.com/news/major-league-soccer-announces-audi-2023-mls-cup-playoffs-format-and-schedule",
+      "note": "Top nine each conference; seeds 8/9 wild card, first round best of three, no extra time before penalties in these two stages. Confirmed again for 2026 by official competition guidelines.",
+      "rowRefs": [
+        317
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Official MLS announcements retrieved; research only, no future match results."
+    }
+  },
+  {
+    "index": 436,
+    "value": {
+      "competition": "MLS season cycle",
+      "firstEdition": "2027",
+      "lastEdition": "2027",
+      "operation": "ANNOUNCED_TRANSITION_EDITION",
+      "source": "https://www.mlssoccer.com/2027mlssprintseason/faq",
+      "note": "Announced February–May 2027 Sprint Season, 14 regular games per team, top eight per conference playoffs. Future announced format only, no runtime fixture or outcomes.",
+      "rowRefs": [
+        317
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Official MLS announcements retrieved; research only, no future match results."
+    }
+  },
+  {
+    "index": 437,
+    "value": {
+      "competition": "MLS season cycle",
+      "firstEdition": "2027/28",
+      "lastEdition": null,
+      "operation": "ANNOUNCED_CHANGE_CYCLE",
+      "source": "https://www.mlssoccer.com/news/mls-to-align-calendar-with-top-leagues-around-the-world",
+      "note": "Announced summer–spring cycle starting July 2027, playoffs through May 2028, winter break mid-December to early February. Do not generate real future dates or use 2026 cycle as factual 2027 format.",
+      "rowRefs": [
+        317
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Official MLS announcements retrieved; research only, no future match results."
+    }
   }
 ]

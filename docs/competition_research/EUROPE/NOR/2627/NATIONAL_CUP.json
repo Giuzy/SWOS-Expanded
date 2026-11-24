@@ -13,7 +13,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -67,6 +67,498 @@
         "reason": "NFF announced postponement; exceptions for European matches",
         "scope": "Not all fixture dates verified"
       }
+    },
+    "block65Research": {
+      "matches": [
+        {
+          "date": "2026-02-15",
+          "home": "Nordre Land",
+          "away": "Vest Torpa",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901011"
+        },
+        {
+          "date": "2026-02-19",
+          "home": "Vinger",
+          "away": "Kjellmyra",
+          "homeGoals": 4,
+          "awayGoals": 2,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901024"
+        },
+        {
+          "date": "2026-02-20",
+          "home": "Ringsaker",
+          "away": "Kolbu KK",
+          "homeGoals": 0,
+          "awayGoals": 6,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901012"
+        },
+        {
+          "date": "2026-02-21",
+          "home": "Vind IL",
+          "away": "Søndre Land",
+          "homeGoals": 4,
+          "awayGoals": 6,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901009"
+        },
+        {
+          "date": "2026-02-27",
+          "home": "Romedal",
+          "away": "Løten",
+          "homeGoals": 3,
+          "awayGoals": 5,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901014"
+        },
+        {
+          "date": "2026-02-28",
+          "home": "Ottestad",
+          "away": "Ridabu",
+          "homeGoals": 1,
+          "awayGoals": 6,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901013"
+        },
+        {
+          "date": "2026-02-28",
+          "home": "Eidskog",
+          "away": "Nord-Odal",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901023"
+        },
+        {
+          "date": "2026-03-01",
+          "home": "Nybygda",
+          "away": "Nybergsund IL Trysil",
+          "homeGoals": 0,
+          "awayGoals": 9,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901015"
+        },
+        {
+          "date": "2026-03-01",
+          "home": "Sørskogbygda",
+          "away": "Nordbygda",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901018"
+        },
+        {
+          "date": "2026-03-01",
+          "home": "Flisa",
+          "away": "Odal",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901022"
+        },
+        {
+          "date": "2026-03-01",
+          "home": "Nes",
+          "away": "Brumunddal",
+          "homeGoals": 0,
+          "awayGoals": 7,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901021"
+        },
+        {
+          "date": "2026-03-03",
+          "home": "Storhamar",
+          "away": "DK Leiret",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901019"
+        },
+        {
+          "date": "2026-03-04",
+          "home": "GBK Lillehammer",
+          "away": "Ringebu-Fåvang",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901002"
+        },
+        {
+          "date": "2026-03-05",
+          "home": "Fagernes",
+          "away": "Toten",
+          "homeGoals": 2,
+          "awayGoals": 4,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901010"
+        },
+        {
+          "date": "2026-03-06",
+          "home": "Vaaler",
+          "away": "Stange",
+          "homeGoals": 4,
+          "awayGoals": 2,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901016"
+        },
+        {
+          "date": "2026-03-06",
+          "home": "Jømna/Heradsbygd",
+          "away": "Trysil",
+          "homeGoals": 0,
+          "awayGoals": 12,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901020"
+        },
+        {
+          "date": "2026-03-07",
+          "home": "Vardal",
+          "away": "Brandbu",
+          "homeGoals": 4,
+          "awayGoals": 5,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901005"
+        },
+        {
+          "date": "2026-03-07",
+          "home": "Fron",
+          "away": "Faaberg",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901001"
+        },
+        {
+          "date": "2026-03-07",
+          "home": "Redalen",
+          "away": "Kloppa",
+          "homeGoals": 2,
+          "awayGoals": 4,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901007"
+        },
+        {
+          "date": "2026-03-07",
+          "home": "Vang",
+          "away": "Skreia",
+          "homeGoals": 0,
+          "awayGoals": 22,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901008"
+        },
+        {
+          "date": "2026-03-07",
+          "home": "Øyer-Tretten",
+          "away": "Otta",
+          "homeGoals": 1,
+          "awayGoals": 4,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901004"
+        },
+        {
+          "date": "2026-03-08",
+          "home": "Eina",
+          "away": "Reinsvoll",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901006"
+        },
+        {
+          "date": "2026-03-08",
+          "home": "Furnes",
+          "away": "Fart",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901017"
+        },
+        {
+          "date": "2026-03-08",
+          "home": "Lom",
+          "away": "Follebu Gausdal",
+          "homeGoals": 0,
+          "awayGoals": 5,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 1,
+          "sourceMatchId": "04120901003"
+        },
+        {
+          "date": "2026-03-18",
+          "home": "Storhamar",
+          "away": "Vaaler",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 2,
+          "sourceMatchId": "04120901035"
+        },
+        {
+          "date": "2026-03-21",
+          "home": "Otta",
+          "away": "Kolbu KK",
+          "homeGoals": 3,
+          "awayGoals": 5,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 2,
+          "sourceMatchId": "04120901027"
+        },
+        {
+          "date": "2026-03-22",
+          "home": "Nybergsund IL Trysil",
+          "away": "Brumunddal",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 2,
+          "sourceMatchId": "04120901032"
+        },
+        {
+          "date": "2026-03-24",
+          "home": "Sørskogbygda",
+          "away": "Odal",
+          "homeGoals": 1,
+          "awayGoals": 11,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 2,
+          "sourceMatchId": "04120901034"
+        },
+        {
+          "date": "2026-03-25",
+          "home": "GBK Lillehammer",
+          "away": "Kloppa",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 2,
+          "sourceMatchId": "04120901028"
+        },
+        {
+          "date": "2026-03-26",
+          "home": "Follebu Gausdal",
+          "away": "Toten",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 2,
+          "sourceMatchId": "04120901029"
+        },
+        {
+          "date": "2026-03-26",
+          "home": "Furnes",
+          "away": "Løten",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 2,
+          "sourceMatchId": "04120901033"
+        },
+        {
+          "date": "2026-03-26",
+          "home": "Eidskog",
+          "away": "Ridabu",
+          "homeGoals": 0,
+          "awayGoals": 6,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 2,
+          "sourceMatchId": "04120901031"
+        },
+        {
+          "date": "2026-03-26",
+          "home": "Vinger",
+          "away": "Trysil",
+          "homeGoals": 2,
+          "awayGoals": 6,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 2,
+          "sourceMatchId": "04120901036"
+        },
+        {
+          "date": "2026-03-28",
+          "home": "Brandbu",
+          "away": "Faaberg",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 2,
+          "sourceMatchId": "04120901026"
+        },
+        {
+          "date": "2026-03-28",
+          "home": "Nordre Land",
+          "away": "Reinsvoll",
+          "homeGoals": 2,
+          "awayGoals": 5,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 2,
+          "sourceMatchId": "04120901030"
+        },
+        {
+          "date": "2026-03-29",
+          "home": "Søndre Land",
+          "away": "Skreia",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 2,
+          "sourceMatchId": "04120901025"
+        },
+        {
+          "date": "2026-04-14",
+          "home": "Storhamar",
+          "away": "Skreia",
+          "homeGoals": 0,
+          "awayGoals": 8,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 3,
+          "sourceMatchId": "04120901038"
+        },
+        {
+          "date": "2026-04-14",
+          "home": "Furnes",
+          "away": "Ridabu",
+          "homeGoals": 0,
+          "awayGoals": 4,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 3,
+          "sourceMatchId": "04120901040"
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Faaberg",
+          "away": "Reinsvoll",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 3,
+          "sourceMatchId": "04120901041"
+        },
+        {
+          "date": "2026-05-12",
+          "home": "Odal",
+          "away": "Nybergsund IL Trysil",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 3,
+          "sourceMatchId": "04120901037"
+        },
+        {
+          "date": "2026-05-12",
+          "home": "Kolbu KK",
+          "away": "Trysil",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 3,
+          "sourceMatchId": "04120901039"
+        },
+        {
+          "date": "2026-05-12",
+          "home": "GBK Lillehammer",
+          "away": "Follebu Gausdal",
+          "homeGoals": 0,
+          "awayGoals": 4,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 3,
+          "sourceMatchId": "04120901042"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Skreia",
+          "away": "Reinsvoll",
+          "homeGoals": 5,
+          "awayGoals": 2,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 4,
+          "sourceMatchId": "04120901043"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Ridabu",
+          "away": "Odal",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 4,
+          "sourceMatchId": "04120901044"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Trysil",
+          "away": "Follebu Gausdal",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
+          "round": 4,
+          "sourceMatchId": "04120901045"
+        }
+      ],
+      "sources": [
+        "https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=206957",
+        "https://www.fotball.no/kretser/oslo/konkurranse/artikler/2026/kretsvis-kvalifisering-nm-menn-senior-2027/"
+      ],
+      "rules": {
+        "cycle": "2026/27",
+        "districtQualifying": true,
+        "oslo": {
+          "teams": 32,
+          "seedBasis": "2025 ranks",
+          "twoRoundsTo8": true,
+          "playoffWeekend": [
+            "2026-06-06",
+            "2026-06-07"
+          ],
+          "qualifiers": 4
+        }
+      },
+      "region": "Indre Østland",
+      "qualifiedRegional": [
+        "Skreia",
+        "Ridabu",
+        "Trysil"
+      ],
+      "scope": "Complete Indre Østland 45-match local qualifying bracket (24+12+6+3), official federation match IDs. Other districts not yet collected. Earliest observed date Feb15; original June scope too late. Oslo four playoff ties known but scores not extracted. No inference about number of nationwide entrants.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=206957",
+        "https://www.fotball.no/kretser/oslo/konkurranse/artikler/2026/kretsvis-kvalifisering-nm-menn-senior-2027/"
+      ],
+      "details": {
+        "matches": 45
+      },
+      "missing": "Remaining matches outside extracted rounds/regions, independent reconciliation, stable keys and full regulation."
     }
   }
 ]

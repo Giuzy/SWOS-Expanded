@@ -52,7 +52,26 @@
     354,
     242,
     374,
-    222
+    222,
+    373,
+    411,
+    391,
+    419,
+    390,
+    203,
+    216,
+    283,
+    284,
+    220,
+    327,
+    528,
+    217,
+    218,
+    229,
+    261,
+    389,
+    317,
+    336
   ],
   "archiveCandidateRows": [
     178
@@ -85,7 +104,7 @@
       423
     ]
   ],
-  "note": "41 active partial matrix rows including Libertadores alias = 40 distinct provisional research packages, 18 historical and 22 modern. 59 required working denominator, final census and reconciliation pending.",
+  "note": "60 active partial rows within fixed working census, 59 distinct (18 historic,41 modern); every known provisional package now has some material. Separate PER row392 also partially sourced outside fixed 59; do not treat this as complete census or complete historical data. Next audit all inventory for missed pre-July editions, deduplicate aliases, and measure complete vs incomplete match lists.",
   "notApplicableEvidence": {
     "46": {
       "edition": "1996/97",
@@ -279,7 +298,7 @@
         "dateEvidence": "2026 Apertura finished May 24; annual aggregate / access history required, not ongoing Apertura",
         "source": "https://www.ligaprofesional.ar/notas/primera/2026/05/24/los-numeros-del-campeon/",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK63"
       },
       {
         "row": 215,
@@ -294,10 +313,10 @@
         "row": 216,
         "world": "2627",
         "competition": "_bolivianLeague",
-        "dateEvidence": "2026-04-01 season window in archived research",
+        "dateEvidence": "2026-04-03 actual first games, TyC date list; FBF planned April5",
         "source": "https://fbf.com.bo/temporada-2026-de-la-division-profesional/",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK63"
       },
       {
         "row": 217,
@@ -306,7 +325,7 @@
         "dateEvidence": "2026-01-28",
         "source": "https://www.cbf.com.br/futebol-brasileiro/noticias/olimpica/a/cbf-divulga-tabela-detalhada-da-primeira-rodada-da-serie-a-2026",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK65"
       },
       {
         "row": 218,
@@ -315,16 +334,16 @@
         "dateEvidence": "2026-03-21",
         "source": "https://www.cbf.com.br/a-cbf/por-dentro-da-cbf/comissao-dopagem/autorizacao-de-uso-terapeutico/cbf-anuncia-novo-calendario-do-futebol-profissional-masculino",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK65"
       },
       {
         "row": 220,
         "world": "2627",
         "competition": "_worldCanLeague",
-        "dateEvidence": "2026 April-November",
+        "dateEvidence": "2026-04-04 actual first games (OurSports Central, CPL official dates)",
         "source": "https://www.cplsoccer.com/about-us",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK64"
       },
       {
         "row": 222,
@@ -342,7 +361,7 @@
         "dateEvidence": "2026-02-20",
         "source": "https://www.primicias.ec/deportes/ligapro/sistema-campeonato-ecuatoriano-2026-fixture-111850/",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK65"
       },
       {
         "row": 237,
@@ -405,7 +424,7 @@
         "dateEvidence": "2026-02-28",
         "source": "https://www.kleague.com/news_view.do?category=notice&orderBy=seq&page=1&seq=94117&viewOption=album",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK65"
       },
       {
         "row": 265,
@@ -441,7 +460,7 @@
         "dateEvidence": "2026 Apertura finished pre-cutoff; annual cumulative standings required",
         "source": "https://www.apf.org.py/noticias/olimpia-es-el-campeon-del-apertura-2026",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK63"
       },
       {
         "row": 284,
@@ -450,7 +469,7 @@
         "dateEvidence": "2026-01-30 Apertura; aggregate standings across both phases",
         "source": "https://es.wikipedia.org/wiki/Torneo_Apertura_2026_(Per%C3%BA)",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK63"
       },
       {
         "row": 307,
@@ -468,7 +487,7 @@
         "dateEvidence": "2026-02-21",
         "source": "https://www.mlssoccer.com/news/mls-announces-2026-regular-season-schedule",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK66"
       },
       {
         "row": 327,
@@ -477,16 +496,16 @@
         "dateEvidence": "2026-01-18",
         "source": "https://www.copaargentina.org/es/pwa/news/11744_Se-confirmaron-las-fechas-de-todos-los-partidos-de-32avos-de-Final",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK64"
       },
       {
         "row": 336,
         "world": "2627",
         "competition": "_worldBraCup",
-        "dateEvidence": "2026-02-18/19",
+        "dateEvidence": "2026-02-17 actual first match, CBF detailed table May15 revision; former February18–19 nominal window corrected",
         "source": "https://www.cbf.com.br/futebol-brasileiro/noticias/campeonato-brasileiro/serie-b/cbf-divulga-cotas-da-copa-do-brasil-2026-a-mais-democratica-da-historia",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK66"
       },
       {
         "row": 338,
@@ -519,10 +538,10 @@
         "row": 373,
         "world": "2627",
         "competition": "_worldKazCup",
-        "dateEvidence": "2026 April-October window; exact played dates pending",
+        "dateEvidence": "2026-04-08 earliest played date in RSSSF cup archive",
         "source": "https://kffleague.kz/storage/qfl-files/document/1368b936-a960-420b-87cb-435a73f42cfa.pdf",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK62"
       },
       {
         "row": 374,
@@ -537,19 +556,19 @@
         "row": 389,
         "world": "2627",
         "competition": "_norwegianCup",
-        "dateEvidence": "2026 June qualifying phase of 2027 edition",
+        "dateEvidence": "2026-02-15 earliest observed official district qualifying date (Indre Østland), distinct from national ordinary rounds",
         "source": "https://www.fotball.no/turneringer/nm-menn/2026/nm-2026-disse-er-kvalifisert-til-1.-runde",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK65"
       },
       {
         "row": 390,
         "world": "2627",
         "competition": "_worldNzlCup",
-        "dateEvidence": "2026-04-24/26",
+        "dateEvidence": "2026-04-24 to 27 preliminary round observed window; exact dates incomplete",
         "source": "https://www.nzfootball.co.nz/newsarticle/163170?newsfeedId=1275538",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK62"
       },
       {
         "row": 391,
@@ -558,16 +577,16 @@
         "dateEvidence": "2026-06-02",
         "source": "https://www.apf.org.py/noticias/esta-es-la-hoja-de-ruta-de-la-copa-de-todos-2026",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK62"
       },
       {
         "row": 411,
         "world": "2627",
         "competition": "_swedishCup",
-        "dateEvidence": "2026 first round through June 30",
+        "dateEvidence": "2026-05-26 first actual tie per SvFF/R1 results",
         "source": "https://www.svenskfotboll.se/serier-cuper/svenska-cupen/speldatum/",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK62"
       },
       {
         "row": 419,
@@ -576,7 +595,7 @@
         "dateEvidence": "2026-03-17/19",
         "source": "https://www.ussoccer.com/stories/2025/12/format-schedule-participating-teams-finalized-for-2026-lamar-hunt-us-open-cup",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK62"
       },
       {
         "row": 528,
@@ -585,15 +604,15 @@
         "dateEvidence": "2026-06-11 to 2026-07-19",
         "source": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
-        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK64"
       }
     ],
     "byWorld": {
       "2627": {
         "rows": 42,
         "distinctWorkingCount": 41,
-        "partialSnapshotRows": 23,
-        "additionalDateEvidenceRows": 19
+        "partialSnapshotRows": 42,
+        "additionalDateEvidenceRows": 0
       },
       "9697": {
         "rows": 18,
@@ -611,5 +630,16 @@
       "2627: ARG second division parallel groups, NZL/AUS regional slots, KAZ league, additional South American annual leagues, national cups and historical competition carryovers"
     ],
     "note": "This is applicability only, not verified sporting snapshot or final global count. Some windows are published or archived, actual individual match evidence remains pending. Prior partial counters unchanged."
-  }
+  },
+  "additionalRequiredCandidates": [
+    {
+      "row": 392,
+      "world": "2627",
+      "competition": "Copa de la Liga (Peru)",
+      "firstPlayedDate": "2026-06-11",
+      "source": "https://www.rsssf.org/tablesp/peru2026.html",
+      "snapshot": "42 group games and 16 qualified extracted",
+      "status": "OUTSIDE_FIXED_WORKING_DENOMINATOR_FINAL_CENSUS_REQUIRED"
+    }
+  ]
 }

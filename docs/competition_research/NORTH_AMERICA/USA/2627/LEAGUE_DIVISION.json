@@ -13,7 +13,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -100,6 +100,352 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verified": "2026-11-24",
       "limitations": "No per-fixture date/club key reconciliation; no runtime or match-rule certification. One-off 2026 conditions must not blindly repeat."
+    },
+    "block66Research": {
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "sources": [
+        "https://en.as.com/resultados/futbol/mls/2026/jornada/regular_a_1/",
+        "https://en.as.com/resultados/futbol/mls/2026/jornada/regular_a_2/",
+        "https://www.mlssoccer.com/news/2026-mls-competition-guidelines",
+        "https://www.mlssoccer.com/news/mls-announces-2026-regular-season-schedule"
+      ],
+      "matches": [
+        {
+          "date": "2026-02-21",
+          "home": "St. Louis CITY SC",
+          "away": "Charlotte FC",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "round": 1
+        },
+        {
+          "date": "2026-02-21",
+          "home": "FC Cincinnati",
+          "away": "Atlanta United",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "round": 1
+        },
+        {
+          "date": "2026-02-21",
+          "home": "Vancouver Whitecaps FC",
+          "away": "Real Salt Lake",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "round": 1
+        },
+        {
+          "date": "2026-02-21",
+          "home": "D.C. United",
+          "away": "Philadelphia Union",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "round": 1
+        },
+        {
+          "date": "2026-02-21",
+          "home": "Orlando City",
+          "away": "New York Red Bulls",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "round": 1
+        },
+        {
+          "date": "2026-02-21",
+          "home": "Houston Dynamo FC",
+          "away": "Chicago Fire FC",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "round": 1
+        },
+        {
+          "date": "2026-02-21",
+          "home": "FC Dallas",
+          "away": "Toronto FC",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "round": 1
+        },
+        {
+          "date": "2026-02-21",
+          "home": "Austin FC",
+          "away": "Minnesota United FC",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "round": 1
+        },
+        {
+          "date": "2026-02-21",
+          "home": "Nashville SC",
+          "away": "New England Revolution",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "round": 1
+        },
+        {
+          "date": "2026-02-21",
+          "home": "Los Angeles FC",
+          "away": "Inter Miami CF",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "round": 1
+        },
+        {
+          "date": "2026-02-21",
+          "home": "San Diego FC",
+          "away": "CF Montréal",
+          "homeGoals": 5,
+          "awayGoals": 0,
+          "round": 1
+        },
+        {
+          "date": "2026-02-21",
+          "home": "San Jose Earthquakes",
+          "away": "Sporting Kansas City",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "round": 1
+        },
+        {
+          "date": "2026-02-21",
+          "home": "Portland Timbers",
+          "away": "Columbus Crew",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "round": 1
+        },
+        {
+          "date": "2026-02-22",
+          "home": "LA Galaxy",
+          "away": "New York City FC",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "round": 1
+        },
+        {
+          "date": "2026-02-22",
+          "home": "Seattle Sounders FC",
+          "away": "Colorado Rapids",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "round": 1
+        },
+        {
+          "date": "2026-02-28",
+          "home": "Chicago Fire FC",
+          "away": "CF Montréal",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "round": 2
+        },
+        {
+          "date": "2026-02-28",
+          "home": "New York Red Bulls",
+          "away": "New England Revolution",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "round": 2
+        },
+        {
+          "date": "2026-02-28",
+          "home": "Colorado Rapids",
+          "away": "Portland Timbers",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "round": 2
+        },
+        {
+          "date": "2026-02-28",
+          "home": "Minnesota United FC",
+          "away": "FC Cincinnati",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "round": 2
+        },
+        {
+          "date": "2026-02-28",
+          "home": "Real Salt Lake",
+          "away": "Seattle Sounders FC",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "round": 2
+        },
+        {
+          "date": "2026-02-28",
+          "home": "San Jose Earthquakes",
+          "away": "Atlanta United",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "round": 2
+        },
+        {
+          "date": "2026-02-28",
+          "home": "Sporting Kansas City",
+          "away": "Columbus Crew",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "round": 2
+        },
+        {
+          "date": "2026-02-28",
+          "home": "FC Dallas",
+          "away": "Nashville SC",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "round": 2
+        },
+        {
+          "date": "2026-02-28",
+          "home": "Houston Dynamo FC",
+          "away": "Los Angeles FC",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "round": 2
+        },
+        {
+          "date": "2026-02-28",
+          "home": "Vancouver Whitecaps FC",
+          "away": "Toronto FC",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "round": 2
+        },
+        {
+          "date": "2026-02-28",
+          "home": "LA Galaxy",
+          "away": "Charlotte FC",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "round": 2
+        },
+        {
+          "date": "2026-03-01",
+          "home": "Austin FC",
+          "away": "D.C. United",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "round": 2
+        },
+        {
+          "date": "2026-03-01",
+          "home": "Philadelphia Union",
+          "away": "New York City FC",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "round": 2
+        },
+        {
+          "date": "2026-03-01",
+          "home": "Orlando City",
+          "away": "Inter Miami CF",
+          "homeGoals": 2,
+          "awayGoals": 4,
+          "round": 2
+        },
+        {
+          "date": "2026-03-01",
+          "home": "San Diego FC",
+          "away": "St. Louis CITY SC",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "round": 2
+        }
+      ],
+      "cutoff": "2026-06-30",
+      "rules": {
+        "teams": 30,
+        "conferences": 2,
+        "teamsPerConference": 15,
+        "matchesPerClub": 34,
+        "home": 17,
+        "away": 17,
+        "intraconference": 28,
+        "crossConference": 6,
+        "winPoints": 3,
+        "drawPoints": 1,
+        "lossPoints": 0,
+        "playoffDirectSeeds": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "wildCardSeeds": [
+          8,
+          9
+        ],
+        "wildCard": {
+          "legs": 1,
+          "extraTime": false,
+          "penalties": true
+        },
+        "roundOne": {
+          "bestOf": 3,
+          "winsRequired": 2,
+          "extraTime": false,
+          "penalties": true,
+          "homeOrder": [
+            "higher",
+            "lower",
+            "higher"
+          ]
+        },
+        "laterRounds": {
+          "legs": 1,
+          "extraTimeMinutes": 30,
+          "penalties": true
+        },
+        "tieBreak": [
+          "wins",
+          "goal difference",
+          "goals scored",
+          "intraconference head-to-head points",
+          "intraconference head-to-head GD",
+          "disciplinary points",
+          "away GD",
+          "away GF",
+          "home GD",
+          "home GF",
+          "draw"
+        ],
+        "squad": 20,
+        "bench": 9,
+        "substitutions": 5,
+        "windows": 3,
+        "disciplineThresholds": [
+          5,
+          8,
+          11,
+          13
+        ],
+        "goodBehaviour": {
+          "matches": 5,
+          "maxReductions": 3
+        }
+      },
+      "worldCupBreak": {
+        "after": "2026-05-24",
+        "resumeWindow": "2026-07-16",
+        "source": "https://www.mlssoccer.com/news/mls-announces-2026-regular-season-schedule"
+      },
+      "scope": "Complete first two rounds only, 30 scores. Remaining matches February-March to May24, actual cutoff standings and independent reconciliation still missing. AS dates and score lines used; no July scores. Official regulation HTML lines3–46,126–135,265–386 inspected."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://en.as.com/resultados/futbol/mls/2026/jornada/regular_a_1/",
+        "https://en.as.com/resultados/futbol/mls/2026/jornada/regular_a_2/",
+        "https://www.mlssoccer.com/news/2026-mls-competition-guidelines",
+        "https://www.mlssoccer.com/news/mls-announces-2026-regular-season-schedule"
+      ],
+      "details": {
+        "matches": 30
+      },
+      "missing": "Remaining pre-break scores, standings, team keys, full independent date and score check."
     }
   }
 ]

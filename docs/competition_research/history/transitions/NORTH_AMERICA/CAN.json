@@ -76,5 +76,21 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Official federation HTML lines 12–17 opened."
     }
+  },
+  {
+    "index": 432,
+    "value": {
+      "competition": "CAN Canadian Premier League",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        220
+      ],
+      "source": "https://www.cplsoccer.com/competition-guidelines",
+      "note": "8 clubs, 28 regular games; top 4 advance to two-leg semifinals and single final, regular and playoff winners qualify for Champions Cup; duplicate berth goes to regular runner-up. Edition-specific, start year of format change unconfirmed.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Official CPL HTML lines96–114,188–241 directly opened."
+    }
   }
 ]

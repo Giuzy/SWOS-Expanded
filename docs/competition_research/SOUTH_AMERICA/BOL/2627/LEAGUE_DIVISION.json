@@ -12,25 +12,795 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Liga de la División Profesional",
+      "nonCommercialDisplayName": "División Profesional",
       "candidateName": "División Profesional",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://fbf.com.bo/temporada-2026-de-la-division-profesional/",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block63Research": {
+      "name": "Liga de la División Profesional",
+      "sources": [
+        "https://www.tycsports.com/estadisticas/futbol-de-bolivia/fixture.html",
+        "https://fbf.com.bo/temporada-2026-de-la-division-profesional/"
+      ],
+      "matches": [
+        {
+          "date": "2026-04-03",
+          "home": "Bolívar",
+          "away": "Real Oruro",
+          "homeGoals": 5,
+          "awayGoals": 2,
+          "phase": "1"
+        },
+        {
+          "date": "2026-04-03",
+          "home": "Independiente Petrolero",
+          "away": "Nacional Potosí",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "phase": "1"
+        },
+        {
+          "date": "2026-04-03",
+          "home": "Blooming",
+          "away": "Guabirá",
+          "homeGoals": 5,
+          "awayGoals": 0,
+          "phase": "1"
+        },
+        {
+          "date": "2026-04-04",
+          "home": "Always Ready",
+          "away": "Real Tomayapo",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "phase": "1"
+        },
+        {
+          "date": "2026-04-04",
+          "home": "Real Potosí",
+          "away": "Aurora",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "1"
+        },
+        {
+          "date": "2026-04-04",
+          "home": "San Antonio Bulo Bulo",
+          "away": "Oriente Petrolero",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "1"
+        },
+        {
+          "date": "2026-04-05",
+          "home": "Gualberto Villarroel San José",
+          "away": "ABB",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "1"
+        },
+        {
+          "date": "2026-04-05",
+          "home": "Universitario de Vinto",
+          "away": "The Strongest",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "1"
+        },
+        {
+          "date": "2026-04-10",
+          "home": "Guabirá",
+          "away": "Independiente Petrolero",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "phase": "2"
+        },
+        {
+          "date": "2026-04-11",
+          "home": "ABB",
+          "away": "Bolívar",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "2"
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Nacional Potosí",
+          "away": "Universitario de Vinto",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "2"
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Aurora",
+          "away": "Always Ready",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "2"
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Real Oruro",
+          "away": "Blooming",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "phase": "2"
+        },
+        {
+          "date": "2026-04-12",
+          "home": "The Strongest",
+          "away": "San Antonio Bulo Bulo",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "phase": "2"
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Oriente Petrolero",
+          "away": "Gualberto Villarroel San José",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "2"
+        },
+        {
+          "date": "2026-04-13",
+          "home": "Real Tomayapo",
+          "away": "Real Potosí",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "2"
+        },
+        {
+          "date": "2026-04-21",
+          "home": "Universitario de Vinto",
+          "away": "ABB",
+          "homeGoals": 5,
+          "awayGoals": 2,
+          "phase": "3"
+        },
+        {
+          "date": "2026-04-21",
+          "home": "Gualberto Villarroel San José",
+          "away": "Aurora",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "3"
+        },
+        {
+          "date": "2026-04-21",
+          "home": "Bolívar",
+          "away": "Independiente Petrolero",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "3"
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Always Ready",
+          "away": "Oriente Petrolero",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "3"
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Real Potosí",
+          "away": "Guabirá",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "phase": "3"
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Blooming",
+          "away": "Nacional Potosí",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "3"
+        },
+        {
+          "date": "2026-04-23",
+          "home": "San Antonio Bulo Bulo",
+          "away": "Real Oruro",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "3"
+        },
+        {
+          "date": "2026-04-23",
+          "home": "Real Tomayapo",
+          "away": "The Strongest",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "3"
+        },
+        {
+          "date": "2026-04-24",
+          "home": "Independiente Petrolero",
+          "away": "Universitario de Vinto",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "4"
+        },
+        {
+          "date": "2026-04-25",
+          "home": "Nacional Potosí",
+          "away": "Gualberto Villarroel San José",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "4"
+        },
+        {
+          "date": "2026-04-25",
+          "home": "ABB",
+          "away": "Blooming",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "phase": "4"
+        },
+        {
+          "date": "2026-04-25",
+          "home": "Guabirá",
+          "away": "Always Ready",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "4"
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Real Oruro",
+          "away": "The Strongest",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "phase": "4"
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Bolívar",
+          "away": "Real Tomayapo",
+          "homeGoals": 6,
+          "awayGoals": 0,
+          "phase": "4"
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Oriente Petrolero",
+          "away": "Real Potosí",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "4"
+        },
+        {
+          "date": "2026-04-27",
+          "home": "Aurora",
+          "away": "San Antonio Bulo Bulo",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "phase": "4"
+        },
+        {
+          "date": "2026-05-01",
+          "home": "San Antonio Bulo Bulo",
+          "away": "Independiente Petrolero",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "phase": "5"
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Real Potosí",
+          "away": "Real Oruro",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "5"
+        },
+        {
+          "date": "2026-05-02",
+          "home": "Always Ready",
+          "away": "Nacional Potosí",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "phase": "5"
+        },
+        {
+          "date": "2026-05-02",
+          "home": "Aurora",
+          "away": "Guabirá",
+          "homeGoals": 4,
+          "awayGoals": 2,
+          "phase": "5"
+        },
+        {
+          "date": "2026-05-02",
+          "home": "Oriente Petrolero",
+          "away": "Real Tomayapo",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "phase": "5"
+        },
+        {
+          "date": "2026-05-03",
+          "home": "Gualberto Villarroel San José",
+          "away": "Bolívar",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "5"
+        },
+        {
+          "date": "2026-05-03",
+          "home": "The Strongest",
+          "away": "ABB",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "phase": "5"
+        },
+        {
+          "date": "2026-05-04",
+          "home": "Universitario de Vinto",
+          "away": "Blooming",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "5"
+        },
+        {
+          "date": "2026-05-09",
+          "home": "Guabirá",
+          "away": "Gualberto Villarroel San José",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "phase": "6"
+        },
+        {
+          "date": "2026-05-09",
+          "home": "Real Tomayapo",
+          "away": "San Antonio Bulo Bulo",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "6"
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Independiente Petrolero",
+          "away": "Always Ready",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "6"
+        },
+        {
+          "date": "2026-05-10",
+          "home": "The Strongest",
+          "away": "Real Potosí",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "6"
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Blooming",
+          "away": "Bolívar",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "6"
+        },
+        {
+          "date": "2026-05-11",
+          "home": "ABB",
+          "away": "Oriente Petrolero",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "phase": "6"
+        },
+        {
+          "date": "2026-05-12",
+          "home": "San Antonio Bulo Bulo",
+          "away": "Universitario de Vinto",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "7"
+        },
+        {
+          "date": "2026-05-12",
+          "home": "Aurora",
+          "away": "Real Oruro",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "7"
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Independiente Petrolero",
+          "away": "Blooming",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "phase": "7"
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Bolívar",
+          "away": "Nacional Potosí",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "7"
+        },
+        {
+          "date": "2026-05-14",
+          "home": "Always Ready",
+          "away": "The Strongest",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "7"
+        },
+        {
+          "date": "2026-05-14",
+          "home": "Oriente Petrolero",
+          "away": "Guabirá",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "phase": "7"
+        },
+        {
+          "date": "2026-05-15",
+          "home": "Real Tomayapo",
+          "away": "Aurora",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "8"
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Universitario de Vinto",
+          "away": "Bolívar",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "phase": "8"
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Guabirá",
+          "away": "Nacional Potosí",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "8"
+        },
+        {
+          "date": "2026-05-29",
+          "home": "San Antonio Bulo Bulo",
+          "away": "Guabirá",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "10"
+        },
+        {
+          "date": "2026-05-30",
+          "home": "ABB",
+          "away": "Always Ready",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "phase": "10"
+        },
+        {
+          "date": "2026-05-31",
+          "home": "Oriente Petrolero",
+          "away": "Blooming",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "10"
+        },
+        {
+          "date": "2026-06-01",
+          "home": "Universitario de Vinto",
+          "away": "Aurora",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "10"
+        }
+      ],
+      "rules": {
+        "teams": 16,
+        "gamesPerClub": 30,
+        "roundRobinLegs": 2,
+        "relegationDirectRank": 16,
+        "relegationPlayoffRank": 15,
+        "relegationPlayoffLegs": 2,
+        "playoffOpponentAsPublished": "winner Copa Simón Bolívar",
+        "libertadores": [
+          "league champion",
+          "league runner-up",
+          "cup winner with duplicate reallocation",
+          "next league club"
+        ],
+        "sudamericana": [
+          "cup runner-up if not Libertadores",
+          "next three unqualified league clubs"
+        ],
+        "ruleSource": "https://fbf.com.bo/temporada-2026-de-la-division-profesional/"
+      },
+      "derivedTable": {
+        "columns": [
+          "club",
+          "P",
+          "W",
+          "D",
+          "L",
+          "GF",
+          "GA",
+          "Pts"
+        ],
+        "rows": [
+          [
+            "Always Ready",
+            8,
+            5,
+            2,
+            1,
+            14,
+            5,
+            17
+          ],
+          [
+            "The Strongest",
+            7,
+            5,
+            2,
+            0,
+            12,
+            6,
+            17
+          ],
+          [
+            "Aurora",
+            8,
+            4,
+            4,
+            0,
+            14,
+            7,
+            16
+          ],
+          [
+            "Bolívar",
+            8,
+            4,
+            2,
+            2,
+            19,
+            9,
+            14
+          ],
+          [
+            "Blooming",
+            8,
+            3,
+            3,
+            2,
+            14,
+            10,
+            12
+          ],
+          [
+            "Independiente Petrolero",
+            7,
+            3,
+            3,
+            1,
+            11,
+            10,
+            12
+          ],
+          [
+            "Guabirá",
+            9,
+            3,
+            2,
+            4,
+            14,
+            20,
+            11
+          ],
+          [
+            "Universitario de Vinto",
+            8,
+            3,
+            1,
+            4,
+            14,
+            12,
+            10
+          ],
+          [
+            "Oriente Petrolero",
+            8,
+            3,
+            1,
+            4,
+            10,
+            11,
+            10
+          ],
+          [
+            "ABB",
+            7,
+            3,
+            0,
+            4,
+            12,
+            17,
+            9
+          ],
+          [
+            "Nacional Potosí",
+            7,
+            2,
+            2,
+            3,
+            9,
+            9,
+            8
+          ],
+          [
+            "San Antonio Bulo Bulo",
+            8,
+            2,
+            1,
+            5,
+            10,
+            14,
+            7
+          ],
+          [
+            "Real Potosí",
+            6,
+            1,
+            3,
+            2,
+            5,
+            5,
+            6
+          ],
+          [
+            "Real Oruro",
+            6,
+            1,
+            2,
+            3,
+            10,
+            14,
+            5
+          ],
+          [
+            "Real Tomayapo",
+            7,
+            1,
+            2,
+            4,
+            3,
+            16,
+            5
+          ],
+          [
+            "Gualberto Villarroel San José",
+            6,
+            0,
+            2,
+            4,
+            5,
+            11,
+            2
+          ]
+        ],
+        "status": "DERIVED_NOT_INDEPENDENTLY_RECONCILED"
+      },
+      "pendingInEarlyRounds": [
+        [
+          "6",
+          "Real Oruro",
+          "Universitario de Vinto",
+          "2026-07-08"
+        ],
+        [
+          "6",
+          "Nacional Potosí",
+          "Aurora",
+          "2026-07-09"
+        ],
+        [
+          "7",
+          "Gualberto Villarroel San José",
+          "Real Tomayapo",
+          "2026-07-07"
+        ],
+        [
+          "7",
+          "Real Potosí",
+          "ABB",
+          "2026-07-08"
+        ],
+        [
+          "8",
+          "Real Oruro",
+          "Always Ready",
+          "2026-07-14"
+        ],
+        [
+          "8",
+          "Blooming",
+          "Gualberto Villarroel San José",
+          "2026-07-14"
+        ],
+        [
+          "8",
+          "Real Potosí",
+          "San Antonio Bulo Bulo",
+          "2026-07-15"
+        ],
+        [
+          "8",
+          "The Strongest",
+          "Oriente Petrolero",
+          "2026-07-15"
+        ],
+        [
+          "8",
+          "ABB",
+          "Independiente Petrolero",
+          "2026-07-16"
+        ],
+        [
+          "10",
+          "Real Oruro",
+          "Gualberto Villarroel San José",
+          "2026-07-11"
+        ],
+        [
+          "10",
+          "Real Potosí",
+          "Nacional Potosí",
+          "2026-07-12"
+        ],
+        [
+          "10",
+          "The Strongest",
+          "Bolívar",
+          "2026-07-12"
+        ],
+        [
+          "10",
+          "Real Tomayapo",
+          "Independiente Petrolero",
+          "2026-07-12"
+        ]
+      ],
+      "note": "59 matches through June1 as listed by TyC lines166–195. Round9 not yet played, round10 partially played. Official March announcement planned April5; actual first April3. No July outcomes stored. Original postponement dates/reasons and independent table still pending. FBF HTML lines73–89 explicitly says Copa Simón Bolívar winner for playoff opponent; reconcile promotion rules before runtime, do not infer another entrant.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.tycsports.com/estadisticas/futbol-de-bolivia/fixture.html",
+        "https://fbf.com.bo/temporada-2026-de-la-division-profesional/"
+      ],
+      "details": {
+        "matches": 59
+      },
+      "missing": "Complete match list where incomplete, independent dates/standings, stable club keys and applicable rule versions."
     }
   }
 ]

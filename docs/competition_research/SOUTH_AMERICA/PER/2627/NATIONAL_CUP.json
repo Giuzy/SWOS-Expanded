@@ -12,13 +12,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "sportResearchStatus": "RULES_AVAILABLE_IDENTITY_PENDING",
     "knownSportData": "FPF arts 2,4,17-20: district/province/department/national; national 50 teams six zonal matches each, top32 R32 and R16 two legs, QF/SF/F single, direct penalties after points/GD ties, champion Liga2 finalist Liga3. Department June21-Aug23, national Sep-Nov. FPF lists separate Copa Caliente de la Liga 2026; must identify original cup row.",
@@ -26,13 +26,853 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Copa Caliente de la Liga",
+      "nonCommercialDisplayName": "Copa de la Liga",
       "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://liga1.pe/la-liga-de-futbol-profesional-peruana-estrena-web-institucional-con-informacion-de-sus-competencias/",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block63Research": {
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "source": "https://www.rsssf.org/tablesp/peru2026.html",
+      "sourceLines": "740–948",
+      "firstMatch": "2026-06-11",
+      "lastGroupMatch": "2026-06-29",
+      "matches": [
+        {
+          "group": "A",
+          "date": "2026-06-13",
+          "home": "Carlos A. Mannucci",
+          "away": "Alianza Atlético",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "group": "A",
+          "date": "2026-06-14",
+          "home": "Universidad César Vallejo",
+          "away": "Alianza Lima",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "group": "A",
+          "date": "2026-06-19",
+          "home": "Alianza Atlético",
+          "away": "Universidad César Vallejo",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "group": "A",
+          "date": "2026-06-20",
+          "home": "Carlos A. Mannucci",
+          "away": "Alianza Lima",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "group": "A",
+          "date": "2026-06-28",
+          "home": "Universidad César Vallejo",
+          "away": "Carlos A. Mannucci",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "group": "A",
+          "date": "2026-06-28",
+          "home": "Alianza Lima",
+          "away": "Alianza Atlético",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "group": "B",
+          "date": "2026-06-11",
+          "home": "ADA Jaén",
+          "away": "Comerciantes Unidos",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "group": "B",
+          "date": "2026-06-20",
+          "home": "Juan Pablo II",
+          "away": "ADA Jaén",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "group": "B",
+          "date": "2026-06-27",
+          "home": "Comerciantes Unidos",
+          "away": "Juan Pablo II",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "group": "C",
+          "date": "2026-06-15",
+          "home": "Deportivo Llacuabamba",
+          "away": "UTC",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "group": "C",
+          "date": "2026-06-20",
+          "home": "FC Cajamarca",
+          "away": "Deportivo Llacuabamba",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "group": "C",
+          "date": "2026-06-26",
+          "home": "UTC",
+          "away": "FC Cajamarca",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "group": "D",
+          "date": "2026-06-12",
+          "home": "Pirata FC",
+          "away": "Universitario",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "group": "D",
+          "date": "2026-06-22",
+          "home": "Atlético Grau",
+          "away": "Pirata FC",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "group": "D",
+          "date": "2026-06-26",
+          "home": "Universitario",
+          "away": "Atlético Grau",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "group": "E",
+          "date": "2026-06-12",
+          "home": "Unión Minas",
+          "away": "ADT",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "group": "E",
+          "date": "2026-06-14",
+          "home": "Alianza Universidad",
+          "away": "Sport Huancayo",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "group": "E",
+          "date": "2026-06-19",
+          "home": "ADT",
+          "away": "Alianza Universidad",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "group": "E",
+          "date": "2026-06-21",
+          "home": "Unión Minas",
+          "away": "Sport Huancayo",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "group": "E",
+          "date": "2026-06-26",
+          "home": "Alianza Universidad",
+          "away": "Unión Minas",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "group": "E",
+          "date": "2026-06-26",
+          "home": "Sport Huancayo",
+          "away": "ADT",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "group": "F",
+          "date": "2026-06-13",
+          "home": "Binacional",
+          "away": "Cienciano",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "group": "F",
+          "date": "2026-06-14",
+          "home": "Deportivo Garcilaso",
+          "away": "Cusco FC",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "group": "F",
+          "date": "2026-06-21",
+          "home": "Cienciano",
+          "away": "Deportivo Garcilaso",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "group": "F",
+          "date": "2026-06-22",
+          "home": "Binacional",
+          "away": "Cusco FC",
+          "homeGoals": 4,
+          "awayGoals": 3
+        },
+        {
+          "group": "F",
+          "date": "2026-06-28",
+          "home": "Cusco FC",
+          "away": "Cienciano",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "group": "F",
+          "date": "2026-06-29",
+          "home": "Deportivo Garcilaso",
+          "away": "Binacional",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "group": "G",
+          "date": "2026-06-14",
+          "home": "Ayacucho FC",
+          "away": "Los Chankas",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "group": "G",
+          "date": "2026-06-21",
+          "home": "Santos FC",
+          "away": "Ayacucho FC",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "group": "G",
+          "date": "2026-06-28",
+          "home": "Los Chankas",
+          "away": "Santos FC",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "group": "H",
+          "date": "2026-06-12",
+          "home": "Bentín Tacna Heroica",
+          "away": "Melgar",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "group": "H",
+          "date": "2026-06-21",
+          "home": "Deportivo Moquegua",
+          "away": "Bentín Tacna Heroica",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "group": "H",
+          "date": "2026-06-29",
+          "home": "Melgar",
+          "away": "Deportivo Moquegua",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "group": "I",
+          "date": "2026-06-13",
+          "home": "Universidad San Martín",
+          "away": "Sport Boys",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "group": "I",
+          "date": "2026-06-20",
+          "home": "Academia Cantolao",
+          "away": "Universidad San Martín",
+          "homeGoals": 4,
+          "awayGoals": 3
+        },
+        {
+          "group": "I",
+          "date": "2026-06-27",
+          "home": "Sport Boys",
+          "away": "Academia Cantolao",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "group": "J",
+          "date": "2026-06-13",
+          "home": "Comerciantes FC",
+          "away": "Sporting Cristal",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "group": "J",
+          "date": "2026-06-15",
+          "home": "Estudiantes CNI",
+          "away": "Unión Comercio",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "group": "J",
+          "date": "2026-06-20",
+          "home": "Unión Comercio",
+          "away": "Comerciantes FC",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "group": "J",
+          "date": "2026-06-21",
+          "home": "Estudiantes CNI",
+          "away": "Sporting Cristal",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "group": "J",
+          "date": "2026-06-27",
+          "home": "Comerciantes FC",
+          "away": "Estudiantes CNI",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "group": "J",
+          "date": "2026-06-27",
+          "home": "Sporting Cristal",
+          "away": "Unión Comercio",
+          "homeGoals": 2,
+          "awayGoals": 0
+        }
+      ],
+      "groups": [
+        {
+          "group": "A",
+          "rows": [
+            [
+              "Alianza Atlético",
+              3,
+              3,
+              0,
+              0,
+              5,
+              1,
+              9
+            ],
+            [
+              "Carlos A. Mannucci",
+              3,
+              2,
+              0,
+              1,
+              6,
+              4,
+              6
+            ],
+            [
+              "Alianza Lima",
+              3,
+              0,
+              1,
+              2,
+              2,
+              5,
+              1
+            ],
+            [
+              "Universidad César Vallejo",
+              3,
+              0,
+              1,
+              2,
+              2,
+              5,
+              1
+            ]
+          ],
+          "qualified": [
+            "Alianza Atlético",
+            "Carlos A. Mannucci"
+          ]
+        },
+        {
+          "group": "B",
+          "rows": [
+            [
+              "ADA Jaén",
+              2,
+              1,
+              1,
+              0,
+              2,
+              0,
+              4
+            ],
+            [
+              "Juan Pablo II",
+              2,
+              0,
+              2,
+              0,
+              0,
+              0,
+              2
+            ],
+            [
+              "Comerciantes Unidos",
+              2,
+              0,
+              1,
+              1,
+              0,
+              2,
+              1
+            ]
+          ],
+          "qualified": [
+            "ADA Jaén"
+          ]
+        },
+        {
+          "group": "C",
+          "rows": [
+            [
+              "UTC",
+              2,
+              1,
+              1,
+              0,
+              5,
+              3,
+              4
+            ],
+            [
+              "Deportivo Llacuabamba",
+              2,
+              0,
+              2,
+              0,
+              3,
+              3,
+              2
+            ],
+            [
+              "FC Cajamarca",
+              2,
+              0,
+              1,
+              1,
+              2,
+              4,
+              1
+            ]
+          ],
+          "qualified": [
+            "UTC"
+          ]
+        },
+        {
+          "group": "D",
+          "rows": [
+            [
+              "Atlético Grau",
+              2,
+              1,
+              1,
+              0,
+              4,
+              3,
+              4
+            ],
+            [
+              "Pirata FC",
+              2,
+              1,
+              0,
+              1,
+              4,
+              3,
+              3
+            ],
+            [
+              "Universitario",
+              2,
+              0,
+              1,
+              1,
+              1,
+              3,
+              1
+            ]
+          ],
+          "qualified": [
+            "Atlético Grau",
+            "Pirata FC"
+          ]
+        },
+        {
+          "group": "E",
+          "rows": [
+            [
+              "Sport Huancayo",
+              3,
+              2,
+              1,
+              0,
+              4,
+              2,
+              7
+            ],
+            [
+              "ADT",
+              3,
+              1,
+              1,
+              1,
+              3,
+              2,
+              4
+            ],
+            [
+              "Alianza Universidad",
+              3,
+              1,
+              1,
+              1,
+              5,
+              5,
+              4
+            ],
+            [
+              "Unión Minas",
+              3,
+              0,
+              1,
+              2,
+              2,
+              5,
+              1
+            ]
+          ],
+          "qualified": [
+            "Sport Huancayo",
+            "ADT"
+          ]
+        },
+        {
+          "group": "F",
+          "rows": [
+            [
+              "Cienciano",
+              3,
+              3,
+              0,
+              0,
+              6,
+              2,
+              9
+            ],
+            [
+              "Deportivo Garcilaso",
+              3,
+              1,
+              1,
+              1,
+              5,
+              3,
+              4
+            ],
+            [
+              "Binacional",
+              3,
+              1,
+              0,
+              2,
+              5,
+              9,
+              3
+            ],
+            [
+              "Cusco FC",
+              3,
+              0,
+              1,
+              2,
+              4,
+              6,
+              1
+            ]
+          ],
+          "qualified": [
+            "Cienciano",
+            "Deportivo Garcilaso"
+          ]
+        },
+        {
+          "group": "G",
+          "rows": [
+            [
+              "Los Chankas",
+              2,
+              2,
+              0,
+              0,
+              4,
+              0,
+              6
+            ],
+            [
+              "Santos FC",
+              2,
+              1,
+              0,
+              1,
+              2,
+              4,
+              3
+            ],
+            [
+              "Ayacucho FC",
+              2,
+              0,
+              0,
+              2,
+              1,
+              3,
+              0
+            ]
+          ],
+          "qualified": [
+            "Los Chankas"
+          ]
+        },
+        {
+          "group": "H",
+          "rows": [
+            [
+              "Deportivo Moquegua",
+              2,
+              1,
+              1,
+              0,
+              3,
+              2,
+              4
+            ],
+            [
+              "Bentín Tacna Heroica",
+              2,
+              1,
+              0,
+              1,
+              5,
+              5,
+              3
+            ],
+            [
+              "Melgar",
+              2,
+              0,
+              1,
+              1,
+              2,
+              3,
+              1
+            ]
+          ],
+          "qualified": [
+            "Deportivo Moquegua",
+            "Bentín Tacna Heroica"
+          ]
+        },
+        {
+          "group": "I",
+          "rows": [
+            [
+              "Sport Boys",
+              2,
+              1,
+              1,
+              0,
+              5,
+              2,
+              4
+            ],
+            [
+              "Academia Cantolao",
+              2,
+              1,
+              0,
+              1,
+              4,
+              6,
+              3
+            ],
+            [
+              "Universidad San Martín",
+              2,
+              0,
+              1,
+              1,
+              5,
+              6,
+              1
+            ]
+          ],
+          "qualified": [
+            "Sport Boys"
+          ]
+        },
+        {
+          "group": "J",
+          "rows": [
+            [
+              "Sporting Cristal",
+              3,
+              2,
+              1,
+              0,
+              5,
+              2,
+              7
+            ],
+            [
+              "Comerciantes FC",
+              3,
+              1,
+              2,
+              0,
+              2,
+              1,
+              5
+            ],
+            [
+              "Unión Comercio",
+              3,
+              1,
+              0,
+              2,
+              3,
+              4,
+              3
+            ],
+            [
+              "Estudiantes CNI",
+              3,
+              0,
+              1,
+              2,
+              2,
+              5,
+              1
+            ]
+          ],
+          "qualified": [
+            "Sporting Cristal",
+            "Comerciantes FC"
+          ]
+        }
+      ],
+      "tableColumns": [
+        "club",
+        "P",
+        "W",
+        "D",
+        "L",
+        "GF",
+        "GA",
+        "Pts"
+      ],
+      "qualified": [
+        "Alianza Atlético",
+        "Carlos A. Mannucci",
+        "ADA Jaén",
+        "UTC",
+        "Atlético Grau",
+        "Pirata FC",
+        "Sport Huancayo",
+        "ADT",
+        "Cienciano",
+        "Deportivo Garcilaso",
+        "Los Chankas",
+        "Deportivo Moquegua",
+        "Bentín Tacna Heroica",
+        "Sport Boys",
+        "Sporting Cristal",
+        "Comerciantes FC"
+      ],
+      "format": {
+        "teams": 34,
+        "groupSizes": [
+          4,
+          3,
+          3,
+          3,
+          4,
+          4,
+          3,
+          3,
+          3,
+          4
+        ],
+        "groupMatches": 42,
+        "round16": 16,
+        "groupWinners": 10,
+        "additionalRunnersUp": 6,
+        "semifinalLegs": 2,
+        "bonusNextYear": {
+          "winner": 2,
+          "runnerUp": 1,
+          "source": "https://www.rsssf.org/tablesp/peru2026.html",
+          "status": "RSSSF observed; official regulation verification pending"
+        }
+      },
+      "scopeNote": "All 42 group matches through June29 and qualified clubs from source; no July results. Qualification choice observed from source, exact best runner-up comparison rule not confirmed. Group tables derived; independent check still pending. Existing generic national cup row392 identity mapped to Copa de la Liga provisionally, competition existed before cutoff but absent from working 59 census. Track separately until final census."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.rsssf.org/tablesp/peru2026.html"
+      ],
+      "details": {
+        "matches": 42,
+        "qualified": 16
+      },
+      "missing": "Independent corroboration, exact entry and runner-up comparison regulations, participant keys."
     }
   }
 ]

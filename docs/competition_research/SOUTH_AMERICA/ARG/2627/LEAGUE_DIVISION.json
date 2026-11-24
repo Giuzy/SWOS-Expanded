@@ -13,8 +13,8 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -25,12 +25,508 @@
     "competitionNaming": {
       "startEdition": "2026/27",
       "officialName": "Liga Profesional de Fútbol",
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Liga Profesional de Fútbol",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "9b0eb97e8248e1a7c71846e612ebcef7241b4e2e",
+      "source": "https://www.rsssf.org/tablesa/arg2026.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block63Research": {
+      "name": "Liga Profesional de Fútbol",
+      "sources": [
+        "https://www.rsssf.org/tablesa/arg2026.html",
+        "https://www.ligaprofesional.ar/torneo-apertura-2026/",
+        "https://assets1.afa.com.ar/2026/BOLETINES/Boletin-Resoluciones-6818---Complementario-01---Reglamento-Torneos-LPF-Primera-2026.pdf"
+      ],
+      "matches": [
+        {
+          "date": "2026-05-09",
+          "home": "Argentinos Juniors",
+          "away": "Lanús",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "R16"
+        },
+        {
+          "date": "2026-05-09",
+          "home": "Boca Juniors",
+          "away": "Huracán",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "phase": "R16",
+          "extraTime": true
+        },
+        {
+          "date": "2026-05-09",
+          "home": "Talleres",
+          "away": "Belgrano",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "R16"
+        },
+        {
+          "date": "2026-05-09",
+          "home": "Independiente Rivadavia",
+          "away": "Unión",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "R16"
+        },
+        {
+          "date": "2026-05-10",
+          "home": "River Plate",
+          "away": "San Lorenzo",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "phase": "R16",
+          "extraTime": true,
+          "penalties": [
+            4,
+            3
+          ]
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Rosario Central",
+          "away": "Independiente",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "phase": "R16"
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Vélez Sarsfield",
+          "away": "Gimnasia La Plata",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "R16"
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Estudiantes La Plata",
+          "away": "Racing Club",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "R16"
+        },
+        {
+          "date": "2026-05-12",
+          "home": "Argentinos Juniors",
+          "away": "Huracán",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "QF",
+          "extraTime": true
+        },
+        {
+          "date": "2026-05-12",
+          "home": "Belgrano",
+          "away": "Unión",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "QF"
+        },
+        {
+          "date": "2026-05-13",
+          "home": "River Plate",
+          "away": "Gimnasia La Plata",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "QF"
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Rosario Central",
+          "away": "Racing Club",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "QF",
+          "extraTime": true
+        },
+        {
+          "date": "2026-05-16",
+          "home": "River Plate",
+          "away": "Rosario Central",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "SF"
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Argentinos Juniors",
+          "away": "Belgrano",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "SF",
+          "extraTime": true,
+          "penalties": [
+            3,
+            4
+          ]
+        },
+        {
+          "date": "2026-05-24",
+          "home": "River Plate",
+          "away": "Belgrano",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "phase": "FINAL",
+          "neutralVenue": true
+        }
+      ],
+      "rules": {
+        "teams": 30,
+        "groups": [
+          15,
+          15
+        ],
+        "groupGamesPerClub": 16,
+        "advancePerGroup": 8,
+        "knockoutSingleLeg": true,
+        "annualTable": "Only group phases of Apertura and Clausura; excludes knockout matches",
+        "annualChampion": "First in annual table",
+        "annualTieBreak": [
+          "goal difference",
+          "goals for",
+          "fair play",
+          "draw"
+        ],
+        "relegationTie": "playoff under article111"
+      },
+      "publishedTables": {
+        "columns": [
+          "club",
+          "P",
+          "W",
+          "D",
+          "L",
+          "GF",
+          "GA",
+          "Pts"
+        ],
+        "groupA": [
+          [
+            "Estudiantes La Plata",
+            16,
+            9,
+            4,
+            3,
+            19,
+            7,
+            31
+          ],
+          [
+            "Boca Juniors",
+            16,
+            8,
+            6,
+            2,
+            22,
+            9,
+            30
+          ],
+          [
+            "Vélez Sarsfield",
+            16,
+            7,
+            7,
+            2,
+            18,
+            12,
+            28
+          ],
+          [
+            "Talleres",
+            16,
+            7,
+            5,
+            4,
+            17,
+            13,
+            26
+          ],
+          [
+            "Independiente",
+            16,
+            6,
+            6,
+            4,
+            24,
+            20,
+            24
+          ],
+          [
+            "Lanús",
+            16,
+            6,
+            6,
+            4,
+            18,
+            15,
+            24
+          ],
+          [
+            "San Lorenzo",
+            16,
+            5,
+            7,
+            4,
+            14,
+            14,
+            22
+          ],
+          [
+            "Unión",
+            16,
+            5,
+            6,
+            5,
+            24,
+            20,
+            21
+          ],
+          [
+            "Instituto",
+            16,
+            6,
+            3,
+            7,
+            17,
+            17,
+            21
+          ],
+          [
+            "Defensa y Justicia",
+            16,
+            4,
+            7,
+            5,
+            18,
+            21,
+            19
+          ],
+          [
+            "Gimnasia Mendoza",
+            16,
+            5,
+            4,
+            7,
+            14,
+            22,
+            19
+          ],
+          [
+            "Platense",
+            16,
+            3,
+            7,
+            6,
+            10,
+            15,
+            16
+          ],
+          [
+            "Central Córdoba",
+            16,
+            4,
+            4,
+            8,
+            11,
+            21,
+            16
+          ],
+          [
+            "Newell's Old Boys",
+            16,
+            3,
+            6,
+            7,
+            15,
+            27,
+            15
+          ],
+          [
+            "Deportivo Riestra",
+            16,
+            1,
+            8,
+            7,
+            5,
+            12,
+            11
+          ]
+        ],
+        "groupB": [
+          [
+            "Independiente Rivadavia",
+            16,
+            10,
+            4,
+            2,
+            29,
+            15,
+            34
+          ],
+          [
+            "River Plate",
+            16,
+            9,
+            2,
+            5,
+            22,
+            12,
+            29
+          ],
+          [
+            "Argentinos Juniors",
+            16,
+            8,
+            5,
+            3,
+            17,
+            13,
+            29
+          ],
+          [
+            "Rosario Central",
+            16,
+            8,
+            4,
+            4,
+            20,
+            16,
+            28
+          ],
+          [
+            "Belgrano",
+            16,
+            7,
+            5,
+            4,
+            17,
+            13,
+            26
+          ],
+          [
+            "Gimnasia La Plata",
+            16,
+            8,
+            2,
+            6,
+            19,
+            19,
+            26
+          ],
+          [
+            "Huracán",
+            16,
+            5,
+            7,
+            4,
+            17,
+            13,
+            22
+          ],
+          [
+            "Racing Club",
+            16,
+            5,
+            6,
+            5,
+            17,
+            15,
+            21
+          ],
+          [
+            "Barracas Central",
+            16,
+            5,
+            6,
+            5,
+            15,
+            15,
+            21
+          ],
+          [
+            "Tigre",
+            16,
+            4,
+            8,
+            4,
+            18,
+            15,
+            20
+          ],
+          [
+            "Sarmiento",
+            16,
+            6,
+            1,
+            9,
+            13,
+            20,
+            19
+          ],
+          [
+            "Banfield",
+            16,
+            5,
+            3,
+            8,
+            17,
+            19,
+            18
+          ],
+          [
+            "Atlético Tucumán",
+            16,
+            3,
+            5,
+            8,
+            15,
+            20,
+            14
+          ],
+          [
+            "Aldosivi",
+            16,
+            0,
+            8,
+            8,
+            6,
+            19,
+            8
+          ],
+          [
+            "Estudiantes Río Cuarto",
+            16,
+            1,
+            2,
+            13,
+            5,
+            24,
+            5
+          ]
+        ]
+      },
+      "champion": "Belgrano",
+      "finalist": "River Plate",
+      "note": "All 15 knockout games; 240 zone games still need individual extraction. Annual table at cutoff equals combined zone tables, no KO points. AFA art24 search excerpt only, PDF not inspected; RSSSF lines389–450 actual HTML. No Clausura results.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.rsssf.org/tablesa/arg2026.html",
+        "https://www.ligaprofesional.ar/torneo-apertura-2026/",
+        "https://assets1.afa.com.ar/2026/BOLETINES/Boletin-Resoluciones-6818---Complementario-01---Reglamento-Torneos-LPF-Primera-2026.pdf"
+      ],
+      "details": {
+        "matches": 15
+      },
+      "missing": "Complete match list where incomplete, independent dates/standings, stable club keys and applicable rule versions."
     }
   },
   {

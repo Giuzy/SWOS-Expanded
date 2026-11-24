@@ -30,5 +30,21 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
     }
+  },
+  {
+    "index": 434,
+    "value": {
+      "competition": "ECU LigaPro Serie A",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "CHANGE_FORMAT",
+      "source": "https://www.primicias.ec/deportes/ligapro/sistema-campeonato-ecuatoriano-2026-fixture-111850/",
+      "note": "Council decision Dec15 2025: groups change from 6/6/4 to 6/4/6 (title/Sudamericana/relegation); 30 regular rounds unchanged.",
+      "rowRefs": [
+        229
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block65 source verified, subsequent editions not assumed."
+    }
   }
 ]

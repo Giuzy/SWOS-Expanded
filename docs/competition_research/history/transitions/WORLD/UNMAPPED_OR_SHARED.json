@@ -750,10 +750,17 @@
       "competition": "Copa do Brasil",
       "firstEdition": "2026",
       "operation": "CHANGE_FORMAT",
-      "note": "126 clubs, 155 matches, nine phases, single final, winner direct Libertadores, runner-up preliminary Libertadores; verify complete access and dates",
+      "note": "126 clubs, 155 matches, nine phases, single final, winner direct Libertadores, runner-up preliminary Libertadores; verify complete access and dates Block66 CBF confirms first four rounds single, fifth–semifinal two legs, final single. 126 matches refs1–126 through fifth round extracted, exact participant keys and PDF visual verification pending.",
       "source": "https://www.cbf.com.br/futebol-brasileiro/noticias/undefined/barcelona-de-ilheus-x-lagarto-fc/maior-copa-betano-do-brasil-da-historia-se-inicia-nesta-terca",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "2026-11-24 web excerpts; exact row identity, full access, dates and modern equivalence pending"
+      "verification": "2026-11-24 web excerpts; exact row identity, full access, dates and modern equivalence pending",
+      "rowRefs": [
+        336
+      ],
+      "additionalSources": [
+        "https://www.cbf.com.br/futebol-brasileiro/noticias/sele/a/copa-do-brasil-cbf-sorteia-mandos-de-campo-da-primeira-fase-e-chaveamento-ate-a-terceira-fase",
+        "https://stcbfsiteprdimgbrs.blob.core.windows.net/img-site/cdn/Tabela_Detalhada_Copa_do_Brasil_2026_15_05_7dcccf26c7.pdf"
+      ]
     }
   },
   {

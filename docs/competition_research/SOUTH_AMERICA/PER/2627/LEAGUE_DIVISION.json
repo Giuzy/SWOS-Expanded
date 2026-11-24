@@ -12,22 +12,22 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Liga1 Te Apuesto",
+      "nonCommercialDisplayName": "Liga 1",
       "candidateName": "Liga 1",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://liga1.pe/tabla-de-posiciones/",
       "nameHistory": [
         {
           "transition": 258,
@@ -41,6 +41,552 @@
       ],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block63Research": {
+      "name": "Liga1 Te Apuesto",
+      "sources": [
+        "https://www.rsssf.org/tablesp/peru2026.html",
+        "https://liga1.pe/tabla-de-posiciones/",
+        "https://liga1.pe/wp-content/uploads/2026/03/Reglamento-Liga1-Te-Apuesto-2026.pdf"
+      ],
+      "matches": [
+        {
+          "date": "2026-01-30",
+          "home": "Sport Huancayo",
+          "away": "Alianza Lima",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-01-30",
+          "home": "UTC",
+          "away": "Atlético Grau",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-01-31",
+          "home": "Sport Boys",
+          "away": "Los Chankas",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-01-31",
+          "home": "Juan Pablo II",
+          "away": "FC Cajamarca",
+          "homeGoals": 3,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-01-31",
+          "home": "Melgar",
+          "away": "Cienciano",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-01",
+          "home": "Deportivo Garcilaso",
+          "away": "Sporting Cristal",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-02-01",
+          "home": "Alianza Atlético",
+          "away": "Cusco FC",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-01",
+          "home": "Universitario",
+          "away": "ADT",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-02",
+          "home": "Comerciantes Unidos",
+          "away": "Deportivo Moquegua",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-06",
+          "home": "Deportivo Moquegua",
+          "away": "UTC",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-02-07",
+          "home": "ADT",
+          "away": "Sport Boys",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-07",
+          "home": "Atlético Grau",
+          "away": "Sport Huancayo",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-07",
+          "home": "Cusco FC",
+          "away": "Universitario",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-02-08",
+          "home": "Sporting Cristal",
+          "away": "Melgar",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-02-08",
+          "home": "Los Chankas",
+          "away": "Alianza Atlético",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-08",
+          "home": "Cienciano",
+          "away": "Juan Pablo II",
+          "homeGoals": 6,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-02-08",
+          "home": "Alianza Lima",
+          "away": "Comerciantes Unidos",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-02-09",
+          "home": "FC Cajamarca",
+          "away": "Deportivo Garcilaso",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-02-13",
+          "home": "UTC",
+          "away": "Cusco FC",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-13",
+          "home": "Universitario",
+          "away": "Cienciano",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-02-14",
+          "home": "Deportivo Garcilaso",
+          "away": "ADT",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-14",
+          "home": "Juan Pablo II",
+          "away": "Sporting Cristal",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-02-14",
+          "home": "Sport Boys",
+          "away": "Atlético Grau",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-14",
+          "home": "Alianza Atlético",
+          "away": "Alianza Lima",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-15",
+          "home": "Sport Huancayo",
+          "away": "FC Cajamarca",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-15",
+          "home": "Comerciantes Unidos",
+          "away": "Los Chankas",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-02-15",
+          "home": "Melgar",
+          "away": "Deportivo Moquegua",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-22",
+          "home": "Juan Pablo II",
+          "away": "Melgar",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-23",
+          "home": "UTC",
+          "away": "Sport Boys",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Deportivo Moquegua",
+          "away": "Universitario",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Cusco FC",
+          "away": "Atlético Grau",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Alianza Lima",
+          "away": "Los Chankas",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Sporting Cristal",
+          "away": "ADT",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Sport Huancayo",
+          "away": "Cienciano",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Alianza Atlético",
+          "away": "FC Cajamarca",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Comerciantes Unidos",
+          "away": "Deportivo Garcilaso",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Atlético Grau",
+          "away": "Deportivo Moquegua",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-30",
+          "home": "ADT",
+          "away": "Cusco FC",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-30",
+          "home": "Deportivo Garcilaso",
+          "away": "Juan Pablo II",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-30",
+          "home": "Sport Boys",
+          "away": "Comerciantes Unidos",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-30",
+          "home": "Universitario",
+          "away": "Sport Huancayo",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-31",
+          "home": "Melgar",
+          "away": "Alianza Atlético",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-31",
+          "home": "FC Cajamarca",
+          "away": "Alianza Lima",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-31",
+          "home": "Los Chankas",
+          "away": "UTC",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-31",
+          "home": "Cienciano",
+          "away": "Sporting Cristal",
+          "homeGoals": 3,
+          "awayGoals": 2
+        }
+      ],
+      "rules": {
+        "teams": 18,
+        "gamesPerPhase": 17,
+        "phases": [
+          "Apertura",
+          "Clausura"
+        ],
+        "aggregate": true,
+        "championshipPlayoff": true,
+        "sameWinnerBothPhases": "playoffs determine runner-up (official regulation search excerpt only)"
+      },
+      "publishedTable": {
+        "columns": [
+          "club",
+          "P",
+          "W",
+          "D",
+          "L",
+          "GF",
+          "GA",
+          "Pts"
+        ],
+        "rows": [
+          [
+            "Alianza Lima",
+            17,
+            12,
+            4,
+            1,
+            30,
+            8,
+            40
+          ],
+          [
+            "Los Chankas",
+            17,
+            10,
+            4,
+            3,
+            25,
+            21,
+            34
+          ],
+          [
+            "Cienciano",
+            17,
+            10,
+            3,
+            4,
+            34,
+            22,
+            33
+          ],
+          [
+            "Universitario",
+            17,
+            8,
+            5,
+            4,
+            24,
+            15,
+            29
+          ],
+          [
+            "Melgar",
+            17,
+            8,
+            4,
+            5,
+            29,
+            20,
+            28
+          ],
+          [
+            "Cusco FC",
+            17,
+            8,
+            3,
+            6,
+            21,
+            24,
+            27
+          ],
+          [
+            "Deportivo Garcilaso",
+            17,
+            7,
+            5,
+            5,
+            21,
+            18,
+            26
+          ],
+          [
+            "Alianza Atlético",
+            17,
+            5,
+            6,
+            6,
+            20,
+            18,
+            21
+          ],
+          [
+            "Comerciantes Unidos",
+            17,
+            5,
+            6,
+            6,
+            18,
+            20,
+            21
+          ],
+          [
+            "ADT",
+            17,
+            5,
+            5,
+            7,
+            22,
+            21,
+            20
+          ],
+          [
+            "Sport Boys",
+            17,
+            5,
+            5,
+            7,
+            15,
+            19,
+            20
+          ],
+          [
+            "Sporting Cristal",
+            17,
+            5,
+            4,
+            8,
+            28,
+            30,
+            19
+          ],
+          [
+            "UTC",
+            17,
+            4,
+            6,
+            7,
+            21,
+            26,
+            18
+          ],
+          [
+            "Deportivo Moquegua",
+            17,
+            5,
+            3,
+            9,
+            17,
+            24,
+            18
+          ],
+          [
+            "FC Cajamarca",
+            17,
+            4,
+            5,
+            8,
+            23,
+            28,
+            17
+          ],
+          [
+            "Atlético Grau",
+            17,
+            4,
+            4,
+            9,
+            12,
+            18,
+            16
+          ],
+          [
+            "Sport Huancayo",
+            17,
+            4,
+            4,
+            9,
+            21,
+            31,
+            16
+          ],
+          [
+            "Juan Pablo II",
+            17,
+            4,
+            4,
+            9,
+            22,
+            40,
+            16
+          ]
+        ]
+      },
+      "champion": "Alianza Lima",
+      "note": "45 games first3 and final2 rounds; 108 remaining. RSSSF table lines426–445 and match excerpts38–105,382–423; published last Cienciano score 3-2 conflicts with scorer list; score retained provisionally pending second source. Current league accumulated deductions not imported at July1 without effective dates. Copa de la Liga group stage June is another potential missing cutoff scope, audit separately.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.rsssf.org/tablesp/peru2026.html",
+        "https://liga1.pe/tabla-de-posiciones/",
+        "https://liga1.pe/wp-content/uploads/2026/03/Reglamento-Liga1-Te-Apuesto-2026.pdf"
+      ],
+      "details": {
+        "matches": 45
+      },
+      "missing": "Complete match list where incomplete, independent dates/standings, stable club keys and applicable rule versions."
     }
   }
 ]

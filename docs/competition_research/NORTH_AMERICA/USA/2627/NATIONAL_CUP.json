@@ -12,8 +12,8 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -24,10 +24,10 @@
     "competitionNaming": {
       "startEdition": "2026/27",
       "officialName": "Lamar Hunt U.S. Open Cup",
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "U.S. Open Cup",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "ede8038686d4653f73fc84c758c5d2f98ad06465",
+      "source": "https://www.ussoccer.com/us-open-cup/schedule?tab=quarterfinals",
       "nameHistory": [
         {
           "transition": 187,
@@ -40,6 +40,93 @@
         }
       ],
       "historyComplete": false
+    },
+    "block62Research": {
+      "name": "Lamar Hunt U.S. Open Cup",
+      "display": "U.S. Open Cup",
+      "sources": [
+        "https://www.ussoccer.com/us-open-cup/schedule?tab=quarterfinals",
+        "https://www.ussoccer.com/stories/2025/12/format-schedule-participating-teams-finalized-for-2026-lamar-hunt-us-open-cup",
+        "https://www.ussoccer.com/stories/2026/05/usoc/2026-lamar-hunt-us-open-cup-final-draw-sets-matchups-quarterfinals"
+      ],
+      "matches": [
+        {
+          "date": "2026-05-19",
+          "home": "Orlando City SC",
+          "away": "Atlanta United FC",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "phase": "QF",
+          "winner": "Orlando City SC"
+        },
+        {
+          "date": "2026-05-19",
+          "home": "St. Louis CITY SC",
+          "away": "Houston Dynamo FC",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "phase": "QF",
+          "extraTime": true,
+          "penalties": [
+            4,
+            2
+          ],
+          "winner": "St. Louis CITY SC"
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Columbus Crew",
+          "away": "New York City FC",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "QF",
+          "winner": "Columbus Crew"
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Colorado Rapids",
+          "away": "San Jose Earthquakes",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "QF",
+          "winner": "Colorado Rapids"
+        }
+      ],
+      "rules": {
+        "properEntrants": 80,
+        "rounds": 7,
+        "firstRoundAmateurs": 32,
+        "firstRoundProfessional": 32,
+        "divisionII": 17,
+        "divisionIII": 15,
+        "MLSenterR32": 16,
+        "oneClubOneEntry": true,
+        "excludeCCC": true,
+        "winnerAccess": "2027 Concacaf Champions Cup",
+        "singleElimination": true
+      },
+      "remaining": [
+        "Orlando City SC",
+        "St. Louis CITY SC",
+        "Columbus Crew",
+        "Colorado Rapids"
+      ],
+      "note": "Quarterfinals only, from official local date schedule search table. Earlier rounds and fall 2025 qualifying still missing.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.ussoccer.com/us-open-cup/schedule?tab=quarterfinals",
+        "https://www.ussoccer.com/stories/2025/12/format-schedule-participating-teams-finalized-for-2026-lamar-hunt-us-open-cup",
+        "https://www.ussoccer.com/stories/2026/05/usoc/2026-lamar-hunt-us-open-cup-final-draw-sets-matchups-quarterfinals"
+      ],
+      "details": {
+        "matches": 4,
+        "walkovers": 0
+      },
+      "missing": "Independent reconciliation, complete earlier rounds where missing, participant keys, exact regulations."
     }
   }
 ]

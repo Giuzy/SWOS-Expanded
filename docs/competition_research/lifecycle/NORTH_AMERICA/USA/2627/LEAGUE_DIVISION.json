@@ -5,13 +5,35 @@
       "row": 317,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "ACTIVE",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "2026",
+      "format_valid_until": "2026",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_SOURCE_SUPPORTED",
+      "editionCycleEvidence": {
+        "observed2026": {
+          "start": "2026-02-21",
+          "lastRegularDay": "2026-11-07",
+          "worldCupPauseAfter": "2026-05-24",
+          "resume": "2026-07-16"
+        },
+        "announcedTransition2027": {
+          "window": "February–May",
+          "regularGamesPerClub": 14
+        },
+        "announced2027_28": {
+          "window": "July–May",
+          "winterPause": "mid December–early February"
+        },
+        "sources": [
+          "https://www.mlssoccer.com/news/mls-announces-2026-regular-season-schedule",
+          "https://www.mlssoccer.com/news/mls-to-align-calendar-with-top-leagues-around-the-world",
+          "https://www.mlssoccer.com/2027mlssprintseason/faq"
+        ],
+        "status": "RESEARCH_ONLY; future announced cycle not certified for runtime"
+      }
     }
   }
 ]

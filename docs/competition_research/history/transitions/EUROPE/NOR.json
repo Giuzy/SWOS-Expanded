@@ -58,9 +58,19 @@
       ],
       "source": "https://www.fotball.no/turneringer/nm-menn/2026/nm-2026-disse-er-kvalifisert-til-1.-runde",
       "additionalSource": "https://www.fotball.no/turneringer/nm-menn/2026/slik-spilles-nm-menn-2026/",
-      "note": "Eliteserien 16 and tier2 16 directly enter round 1; more qualifiers. Actual 2027 edition underway August 2026, not 2027 future generated data.",
+      "note": "Eliteserien 16 and tier2 16 directly enter round 1; more qualifiers. Actual 2027 edition underway August 2026, not 2027 future generated data. District qualifying for 2027 edition began no later than February15 2026, not August; ordinary rounds distinct.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "Official HTML pages opened 24/11/2026. No PDF analyzed; no full fixtures or runtime certification."
+      "verification": "Official HTML pages opened 24/11/2026. No PDF analyzed; no full fixtures or runtime certification.",
+      "additionalSources": [
+        "https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=206957",
+        "https://www.fotball.no/kretser/oslo/konkurranse/artikler/2026/kretsvis-kvalifisering-nm-menn-senior-2027/"
+      ],
+      "qualifyingEvidence": {
+        "earliestObserved": "2026-02-15",
+        "district": "Indre Østland",
+        "matches": 45,
+        "qualified": 3
+      }
     }
   },
   {

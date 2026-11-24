@@ -13,7 +13,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,7 +23,7 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "FIFA World Cup 26",
       "nonCommercialDisplayName": "FIFA World Cup",
       "candidateName": "FIFA World Cup",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
@@ -48,6 +48,1568 @@
       ],
       "limitations": "official search excerpt",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block64Research": {
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "sources": [
+        "https://thedraw.live/worldcup-2026/",
+        "https://www.cbssports.com/soccer/news/world-cup-group-standings-table-results/",
+        "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/brazil-paraguay-round-32-review-highlights",
+        "https://gpcustomersupportfwc2026.tickets.fifa.com/hc/en-gb/articles/28784798873117-10-What-is-the-format-for-the-FIFA-World-Cup-2026-tournament",
+        "https://www.euronews.com/2026/06/30/germany-and-netherlands-dumped-out-on-penalties-as-brazil-seal-late-win"
+      ],
+      "cutoff": "2026-06-30",
+      "datePolicy": "host-local tournament date; Draw America/Chicago dates checked against venues where source discrepancies noted; exact independent local-date reconciliation pending",
+      "matches": [
+        {
+          "date": "2026-06-11",
+          "phase": "GROUP",
+          "group": "A",
+          "home": "MEX",
+          "away": "RSA",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-11",
+          "phase": "GROUP",
+          "group": "A",
+          "home": "KOR",
+          "away": "CZE",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-18",
+          "phase": "GROUP",
+          "group": "A",
+          "home": "CZE",
+          "away": "RSA",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-18",
+          "phase": "GROUP",
+          "group": "A",
+          "home": "MEX",
+          "away": "KOR",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-24",
+          "phase": "GROUP",
+          "group": "A",
+          "home": "CZE",
+          "away": "MEX",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-24",
+          "phase": "GROUP",
+          "group": "A",
+          "home": "RSA",
+          "away": "KOR",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-12",
+          "phase": "GROUP",
+          "group": "B",
+          "home": "CAN",
+          "away": "BIH",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-13",
+          "phase": "GROUP",
+          "group": "B",
+          "home": "QAT",
+          "away": "SUI",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-18",
+          "phase": "GROUP",
+          "group": "B",
+          "home": "SUI",
+          "away": "BIH",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-18",
+          "phase": "GROUP",
+          "group": "B",
+          "home": "CAN",
+          "away": "QAT",
+          "homeGoals": 6,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-24",
+          "phase": "GROUP",
+          "group": "B",
+          "home": "SUI",
+          "away": "CAN",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-24",
+          "phase": "GROUP",
+          "group": "B",
+          "home": "BIH",
+          "away": "QAT",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-13",
+          "phase": "GROUP",
+          "group": "C",
+          "home": "BRA",
+          "away": "MAR",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-13",
+          "phase": "GROUP",
+          "group": "C",
+          "home": "HAI",
+          "away": "SCO",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-19",
+          "phase": "GROUP",
+          "group": "C",
+          "home": "SCO",
+          "away": "MAR",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-19",
+          "phase": "GROUP",
+          "group": "C",
+          "home": "BRA",
+          "away": "HAI",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-24",
+          "phase": "GROUP",
+          "group": "C",
+          "home": "SCO",
+          "away": "BRA",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-24",
+          "phase": "GROUP",
+          "group": "C",
+          "home": "MAR",
+          "away": "HAI",
+          "homeGoals": 4,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-12",
+          "phase": "GROUP",
+          "group": "D",
+          "home": "USA",
+          "away": "PAR",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-13",
+          "phase": "GROUP",
+          "group": "D",
+          "home": "AUS",
+          "away": "TUR",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-19",
+          "phase": "GROUP",
+          "group": "D",
+          "home": "USA",
+          "away": "AUS",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-19",
+          "phase": "GROUP",
+          "group": "D",
+          "home": "TUR",
+          "away": "PAR",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-25",
+          "phase": "GROUP",
+          "group": "D",
+          "home": "TUR",
+          "away": "USA",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-25",
+          "phase": "GROUP",
+          "group": "D",
+          "home": "PAR",
+          "away": "AUS",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-14",
+          "phase": "GROUP",
+          "group": "E",
+          "home": "GER",
+          "away": "CUW",
+          "homeGoals": 7,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-14",
+          "phase": "GROUP",
+          "group": "E",
+          "home": "CIV",
+          "away": "ECU",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-20",
+          "phase": "GROUP",
+          "group": "E",
+          "home": "GER",
+          "away": "CIV",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-20",
+          "phase": "GROUP",
+          "group": "E",
+          "home": "ECU",
+          "away": "CUW",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-25",
+          "phase": "GROUP",
+          "group": "E",
+          "home": "CUW",
+          "away": "CIV",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-25",
+          "phase": "GROUP",
+          "group": "E",
+          "home": "ECU",
+          "away": "GER",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-14",
+          "phase": "GROUP",
+          "group": "F",
+          "home": "NED",
+          "away": "JPN",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-14",
+          "phase": "GROUP",
+          "group": "F",
+          "home": "SWE",
+          "away": "TUN",
+          "homeGoals": 5,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-20",
+          "phase": "GROUP",
+          "group": "F",
+          "home": "NED",
+          "away": "SWE",
+          "homeGoals": 5,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-20",
+          "phase": "GROUP",
+          "group": "F",
+          "home": "TUN",
+          "away": "JPN",
+          "homeGoals": 0,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-06-25",
+          "phase": "GROUP",
+          "group": "F",
+          "home": "JPN",
+          "away": "SWE",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-25",
+          "phase": "GROUP",
+          "group": "F",
+          "home": "TUN",
+          "away": "NED",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-15",
+          "phase": "GROUP",
+          "group": "G",
+          "home": "BEL",
+          "away": "EGY",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-15",
+          "phase": "GROUP",
+          "group": "G",
+          "home": "IRN",
+          "away": "NZL",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-21",
+          "phase": "GROUP",
+          "group": "G",
+          "home": "BEL",
+          "away": "IRN",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-21",
+          "phase": "GROUP",
+          "group": "G",
+          "home": "NZL",
+          "away": "EGY",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-26",
+          "phase": "GROUP",
+          "group": "G",
+          "home": "EGY",
+          "away": "IRN",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-26",
+          "phase": "GROUP",
+          "group": "G",
+          "home": "NZL",
+          "away": "BEL",
+          "homeGoals": 1,
+          "awayGoals": 5
+        },
+        {
+          "date": "2026-06-15",
+          "phase": "GROUP",
+          "group": "H",
+          "home": "ESP",
+          "away": "CPV",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-15",
+          "phase": "GROUP",
+          "group": "H",
+          "home": "KSA",
+          "away": "URU",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-21",
+          "phase": "GROUP",
+          "group": "H",
+          "home": "ESP",
+          "away": "KSA",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-21",
+          "phase": "GROUP",
+          "group": "H",
+          "home": "URU",
+          "away": "CPV",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-26",
+          "phase": "GROUP",
+          "group": "H",
+          "home": "CPV",
+          "away": "KSA",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-26",
+          "phase": "GROUP",
+          "group": "H",
+          "home": "URU",
+          "away": "ESP",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-16",
+          "phase": "GROUP",
+          "group": "I",
+          "home": "FRA",
+          "away": "SEN",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-16",
+          "phase": "GROUP",
+          "group": "I",
+          "home": "IRQ",
+          "away": "NOR",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-06-22",
+          "phase": "GROUP",
+          "group": "I",
+          "home": "FRA",
+          "away": "IRQ",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-22",
+          "phase": "GROUP",
+          "group": "I",
+          "home": "NOR",
+          "away": "SEN",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-26",
+          "phase": "GROUP",
+          "group": "I",
+          "home": "NOR",
+          "away": "FRA",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-06-26",
+          "phase": "GROUP",
+          "group": "I",
+          "home": "SEN",
+          "away": "IRQ",
+          "homeGoals": 5,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-16",
+          "phase": "GROUP",
+          "group": "J",
+          "home": "ARG",
+          "away": "ALG",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-16",
+          "phase": "GROUP",
+          "group": "J",
+          "home": "AUT",
+          "away": "JOR",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-22",
+          "phase": "GROUP",
+          "group": "J",
+          "home": "ARG",
+          "away": "AUT",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-22",
+          "phase": "GROUP",
+          "group": "J",
+          "home": "JOR",
+          "away": "ALG",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-27",
+          "phase": "GROUP",
+          "group": "J",
+          "home": "ALG",
+          "away": "AUT",
+          "homeGoals": 3,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-27",
+          "phase": "GROUP",
+          "group": "J",
+          "home": "JOR",
+          "away": "ARG",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-17",
+          "phase": "GROUP",
+          "group": "K",
+          "home": "POR",
+          "away": "COD",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-17",
+          "phase": "GROUP",
+          "group": "K",
+          "home": "UZB",
+          "away": "COL",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-23",
+          "phase": "GROUP",
+          "group": "K",
+          "home": "POR",
+          "away": "UZB",
+          "homeGoals": 5,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-23",
+          "phase": "GROUP",
+          "group": "K",
+          "home": "COL",
+          "away": "COD",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-27",
+          "phase": "GROUP",
+          "group": "K",
+          "home": "COL",
+          "away": "POR",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-27",
+          "phase": "GROUP",
+          "group": "K",
+          "home": "COD",
+          "away": "UZB",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-17",
+          "phase": "GROUP",
+          "group": "L",
+          "home": "ENG",
+          "away": "CRO",
+          "homeGoals": 4,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-17",
+          "phase": "GROUP",
+          "group": "L",
+          "home": "GHA",
+          "away": "PAN",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-23",
+          "phase": "GROUP",
+          "group": "L",
+          "home": "ENG",
+          "away": "GHA",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-23",
+          "phase": "GROUP",
+          "group": "L",
+          "home": "PAN",
+          "away": "CRO",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-27",
+          "phase": "GROUP",
+          "group": "L",
+          "home": "PAN",
+          "away": "ENG",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-27",
+          "phase": "GROUP",
+          "group": "L",
+          "home": "CRO",
+          "away": "GHA",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "match": 73,
+          "date": "2026-06-28",
+          "phase": "R32",
+          "home": "RSA",
+          "away": "CAN",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "winner": "CAN"
+        },
+        {
+          "match": 74,
+          "date": "2026-06-29",
+          "phase": "R32",
+          "home": "GER",
+          "away": "PAR",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "extraTime": true,
+          "penalties": [
+            3,
+            4
+          ],
+          "winner": "PAR"
+        },
+        {
+          "match": 75,
+          "date": "2026-06-29",
+          "phase": "R32",
+          "home": "NED",
+          "away": "MAR",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "extraTime": true,
+          "penalties": [
+            2,
+            3
+          ],
+          "winner": "MAR"
+        },
+        {
+          "match": 76,
+          "date": "2026-06-29",
+          "phase": "R32",
+          "home": "BRA",
+          "away": "JPN",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "BRA"
+        },
+        {
+          "match": 77,
+          "date": "2026-06-30",
+          "phase": "R32",
+          "home": "FRA",
+          "away": "SWE",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "winner": "FRA"
+        },
+        {
+          "match": 78,
+          "date": "2026-06-30",
+          "phase": "R32",
+          "home": "CIV",
+          "away": "NOR",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "winner": "NOR"
+        },
+        {
+          "match": 79,
+          "date": "2026-06-30",
+          "phase": "R32",
+          "home": "MEX",
+          "away": "ECU",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "winner": "MEX"
+        }
+      ],
+      "groupTables": [
+        {
+          "group": "A",
+          "rows": [
+            {
+              "team": "MEX",
+              "played": 3,
+              "w": 3,
+              "d": 0,
+              "l": 0,
+              "gf": 6,
+              "ga": 0,
+              "pts": 9,
+              "rank": 1,
+              "qualified": true
+            },
+            {
+              "team": "RSA",
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 2,
+              "ga": 3,
+              "pts": 4,
+              "rank": 2,
+              "qualified": true
+            },
+            {
+              "team": "KOR",
+              "played": 3,
+              "w": 1,
+              "d": 0,
+              "l": 2,
+              "gf": 2,
+              "ga": 3,
+              "pts": 3,
+              "rank": 3,
+              "qualified": false
+            },
+            {
+              "team": "CZE",
+              "played": 3,
+              "w": 0,
+              "d": 1,
+              "l": 2,
+              "gf": 2,
+              "ga": 6,
+              "pts": 1,
+              "rank": 4,
+              "qualified": false
+            }
+          ],
+          "rankSource": "https://thedraw.live/worldcup-2026/"
+        },
+        {
+          "group": "B",
+          "rows": [
+            {
+              "team": "SUI",
+              "played": 3,
+              "w": 2,
+              "d": 1,
+              "l": 0,
+              "gf": 7,
+              "ga": 3,
+              "pts": 7,
+              "rank": 1,
+              "qualified": true
+            },
+            {
+              "team": "CAN",
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 8,
+              "ga": 3,
+              "pts": 4,
+              "rank": 2,
+              "qualified": true
+            },
+            {
+              "team": "BIH",
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 5,
+              "ga": 6,
+              "pts": 4,
+              "rank": 3,
+              "qualified": true
+            },
+            {
+              "team": "QAT",
+              "played": 3,
+              "w": 0,
+              "d": 1,
+              "l": 2,
+              "gf": 2,
+              "ga": 10,
+              "pts": 1,
+              "rank": 4,
+              "qualified": false
+            }
+          ],
+          "rankSource": "https://thedraw.live/worldcup-2026/"
+        },
+        {
+          "group": "C",
+          "rows": [
+            {
+              "team": "BRA",
+              "played": 3,
+              "w": 2,
+              "d": 1,
+              "l": 0,
+              "gf": 7,
+              "ga": 1,
+              "pts": 7,
+              "rank": 1,
+              "qualified": true
+            },
+            {
+              "team": "MAR",
+              "played": 3,
+              "w": 2,
+              "d": 1,
+              "l": 0,
+              "gf": 6,
+              "ga": 3,
+              "pts": 7,
+              "rank": 2,
+              "qualified": true
+            },
+            {
+              "team": "SCO",
+              "played": 3,
+              "w": 1,
+              "d": 0,
+              "l": 2,
+              "gf": 1,
+              "ga": 4,
+              "pts": 3,
+              "rank": 3,
+              "qualified": false
+            },
+            {
+              "team": "HAI",
+              "played": 3,
+              "w": 0,
+              "d": 0,
+              "l": 3,
+              "gf": 2,
+              "ga": 8,
+              "pts": 0,
+              "rank": 4,
+              "qualified": false
+            }
+          ],
+          "rankSource": "https://thedraw.live/worldcup-2026/"
+        },
+        {
+          "group": "D",
+          "rows": [
+            {
+              "team": "USA",
+              "played": 3,
+              "w": 2,
+              "d": 0,
+              "l": 1,
+              "gf": 8,
+              "ga": 4,
+              "pts": 6,
+              "rank": 1,
+              "qualified": true
+            },
+            {
+              "team": "AUS",
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 2,
+              "ga": 2,
+              "pts": 4,
+              "rank": 2,
+              "qualified": true
+            },
+            {
+              "team": "PAR",
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 2,
+              "ga": 4,
+              "pts": 4,
+              "rank": 3,
+              "qualified": true
+            },
+            {
+              "team": "TUR",
+              "played": 3,
+              "w": 1,
+              "d": 0,
+              "l": 2,
+              "gf": 3,
+              "ga": 5,
+              "pts": 3,
+              "rank": 4,
+              "qualified": false
+            }
+          ],
+          "rankSource": "https://thedraw.live/worldcup-2026/"
+        },
+        {
+          "group": "E",
+          "rows": [
+            {
+              "team": "GER",
+              "played": 3,
+              "w": 2,
+              "d": 0,
+              "l": 1,
+              "gf": 10,
+              "ga": 4,
+              "pts": 6,
+              "rank": 1,
+              "qualified": true
+            },
+            {
+              "team": "CIV",
+              "played": 3,
+              "w": 2,
+              "d": 0,
+              "l": 1,
+              "gf": 4,
+              "ga": 2,
+              "pts": 6,
+              "rank": 2,
+              "qualified": true
+            },
+            {
+              "team": "ECU",
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 2,
+              "ga": 2,
+              "pts": 4,
+              "rank": 3,
+              "qualified": true
+            },
+            {
+              "team": "CUW",
+              "played": 3,
+              "w": 0,
+              "d": 1,
+              "l": 2,
+              "gf": 1,
+              "ga": 9,
+              "pts": 1,
+              "rank": 4,
+              "qualified": false
+            }
+          ],
+          "rankSource": "https://thedraw.live/worldcup-2026/"
+        },
+        {
+          "group": "F",
+          "rows": [
+            {
+              "team": "NED",
+              "played": 3,
+              "w": 2,
+              "d": 1,
+              "l": 0,
+              "gf": 10,
+              "ga": 4,
+              "pts": 7,
+              "rank": 1,
+              "qualified": true
+            },
+            {
+              "team": "JPN",
+              "played": 3,
+              "w": 1,
+              "d": 2,
+              "l": 0,
+              "gf": 7,
+              "ga": 3,
+              "pts": 5,
+              "rank": 2,
+              "qualified": true
+            },
+            {
+              "team": "SWE",
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 7,
+              "ga": 7,
+              "pts": 4,
+              "rank": 3,
+              "qualified": true
+            },
+            {
+              "team": "TUN",
+              "played": 3,
+              "w": 0,
+              "d": 0,
+              "l": 3,
+              "gf": 2,
+              "ga": 12,
+              "pts": 0,
+              "rank": 4,
+              "qualified": false
+            }
+          ],
+          "rankSource": "https://thedraw.live/worldcup-2026/"
+        },
+        {
+          "group": "G",
+          "rows": [
+            {
+              "team": "BEL",
+              "played": 3,
+              "w": 1,
+              "d": 2,
+              "l": 0,
+              "gf": 6,
+              "ga": 2,
+              "pts": 5,
+              "rank": 1,
+              "qualified": true
+            },
+            {
+              "team": "EGY",
+              "played": 3,
+              "w": 1,
+              "d": 2,
+              "l": 0,
+              "gf": 5,
+              "ga": 3,
+              "pts": 5,
+              "rank": 2,
+              "qualified": true
+            },
+            {
+              "team": "IRN",
+              "played": 3,
+              "w": 0,
+              "d": 3,
+              "l": 0,
+              "gf": 3,
+              "ga": 3,
+              "pts": 3,
+              "rank": 3,
+              "qualified": false
+            },
+            {
+              "team": "NZL",
+              "played": 3,
+              "w": 0,
+              "d": 1,
+              "l": 2,
+              "gf": 4,
+              "ga": 10,
+              "pts": 1,
+              "rank": 4,
+              "qualified": false
+            }
+          ],
+          "rankSource": "https://thedraw.live/worldcup-2026/"
+        },
+        {
+          "group": "H",
+          "rows": [
+            {
+              "team": "ESP",
+              "played": 3,
+              "w": 2,
+              "d": 1,
+              "l": 0,
+              "gf": 5,
+              "ga": 0,
+              "pts": 7,
+              "rank": 1,
+              "qualified": true
+            },
+            {
+              "team": "CPV",
+              "played": 3,
+              "w": 0,
+              "d": 3,
+              "l": 0,
+              "gf": 2,
+              "ga": 2,
+              "pts": 3,
+              "rank": 2,
+              "qualified": true
+            },
+            {
+              "team": "URU",
+              "played": 3,
+              "w": 0,
+              "d": 2,
+              "l": 1,
+              "gf": 3,
+              "ga": 4,
+              "pts": 2,
+              "rank": 3,
+              "qualified": false
+            },
+            {
+              "team": "KSA",
+              "played": 3,
+              "w": 0,
+              "d": 2,
+              "l": 1,
+              "gf": 1,
+              "ga": 5,
+              "pts": 2,
+              "rank": 4,
+              "qualified": false
+            }
+          ],
+          "rankSource": "https://thedraw.live/worldcup-2026/"
+        },
+        {
+          "group": "I",
+          "rows": [
+            {
+              "team": "FRA",
+              "played": 3,
+              "w": 3,
+              "d": 0,
+              "l": 0,
+              "gf": 10,
+              "ga": 2,
+              "pts": 9,
+              "rank": 1,
+              "qualified": true
+            },
+            {
+              "team": "NOR",
+              "played": 3,
+              "w": 2,
+              "d": 0,
+              "l": 1,
+              "gf": 8,
+              "ga": 7,
+              "pts": 6,
+              "rank": 2,
+              "qualified": true
+            },
+            {
+              "team": "SEN",
+              "played": 3,
+              "w": 1,
+              "d": 0,
+              "l": 2,
+              "gf": 8,
+              "ga": 6,
+              "pts": 3,
+              "rank": 3,
+              "qualified": true
+            },
+            {
+              "team": "IRQ",
+              "played": 3,
+              "w": 0,
+              "d": 0,
+              "l": 3,
+              "gf": 1,
+              "ga": 12,
+              "pts": 0,
+              "rank": 4,
+              "qualified": false
+            }
+          ],
+          "rankSource": "https://thedraw.live/worldcup-2026/"
+        },
+        {
+          "group": "J",
+          "rows": [
+            {
+              "team": "ARG",
+              "played": 3,
+              "w": 3,
+              "d": 0,
+              "l": 0,
+              "gf": 8,
+              "ga": 1,
+              "pts": 9,
+              "rank": 1,
+              "qualified": true
+            },
+            {
+              "team": "AUT",
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 6,
+              "ga": 6,
+              "pts": 4,
+              "rank": 2,
+              "qualified": true
+            },
+            {
+              "team": "ALG",
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 5,
+              "ga": 7,
+              "pts": 4,
+              "rank": 3,
+              "qualified": true
+            },
+            {
+              "team": "JOR",
+              "played": 3,
+              "w": 0,
+              "d": 0,
+              "l": 3,
+              "gf": 3,
+              "ga": 8,
+              "pts": 0,
+              "rank": 4,
+              "qualified": false
+            }
+          ],
+          "rankSource": "https://thedraw.live/worldcup-2026/"
+        },
+        {
+          "group": "K",
+          "rows": [
+            {
+              "team": "COL",
+              "played": 3,
+              "w": 2,
+              "d": 1,
+              "l": 0,
+              "gf": 4,
+              "ga": 1,
+              "pts": 7,
+              "rank": 1,
+              "qualified": true
+            },
+            {
+              "team": "POR",
+              "played": 3,
+              "w": 1,
+              "d": 2,
+              "l": 0,
+              "gf": 6,
+              "ga": 1,
+              "pts": 5,
+              "rank": 2,
+              "qualified": true
+            },
+            {
+              "team": "COD",
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 4,
+              "ga": 3,
+              "pts": 4,
+              "rank": 3,
+              "qualified": true
+            },
+            {
+              "team": "UZB",
+              "played": 3,
+              "w": 0,
+              "d": 0,
+              "l": 3,
+              "gf": 2,
+              "ga": 11,
+              "pts": 0,
+              "rank": 4,
+              "qualified": false
+            }
+          ],
+          "rankSource": "https://thedraw.live/worldcup-2026/"
+        },
+        {
+          "group": "L",
+          "rows": [
+            {
+              "team": "ENG",
+              "played": 3,
+              "w": 2,
+              "d": 1,
+              "l": 0,
+              "gf": 6,
+              "ga": 2,
+              "pts": 7,
+              "rank": 1,
+              "qualified": true
+            },
+            {
+              "team": "CRO",
+              "played": 3,
+              "w": 2,
+              "d": 0,
+              "l": 1,
+              "gf": 5,
+              "ga": 5,
+              "pts": 6,
+              "rank": 2,
+              "qualified": true
+            },
+            {
+              "team": "GHA",
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 2,
+              "ga": 2,
+              "pts": 4,
+              "rank": 3,
+              "qualified": true
+            },
+            {
+              "team": "PAN",
+              "played": 3,
+              "w": 0,
+              "d": 0,
+              "l": 3,
+              "gf": 0,
+              "ga": 4,
+              "pts": 0,
+              "rank": 4,
+              "qualified": false
+            }
+          ],
+          "rankSource": "https://thedraw.live/worldcup-2026/"
+        }
+      ],
+      "qualified32": [
+        "MEX",
+        "RSA",
+        "SUI",
+        "CAN",
+        "BIH",
+        "BRA",
+        "MAR",
+        "USA",
+        "AUS",
+        "PAR",
+        "GER",
+        "CIV",
+        "ECU",
+        "NED",
+        "JPN",
+        "SWE",
+        "BEL",
+        "EGY",
+        "ESP",
+        "CPV",
+        "FRA",
+        "NOR",
+        "SEN",
+        "ARG",
+        "AUT",
+        "ALG",
+        "COL",
+        "POR",
+        "COD",
+        "ENG",
+        "CRO",
+        "GHA"
+      ],
+      "advanced16AtCutoff": [
+        "CAN",
+        "PAR",
+        "MAR",
+        "BRA",
+        "FRA",
+        "NOR",
+        "MEX"
+      ],
+      "pendingR32": [
+        {
+          "match": 80,
+          "date": "2026-07-01",
+          "home": "ENG",
+          "away": "COD",
+          "status": "SCHEDULED_AT_CUTOFF"
+        },
+        {
+          "match": 81,
+          "date": "2026-07-01",
+          "home": "USA",
+          "away": "BIH",
+          "status": "SCHEDULED_AT_CUTOFF"
+        },
+        {
+          "match": 82,
+          "date": "2026-07-01",
+          "home": "BEL",
+          "away": "SEN",
+          "status": "SCHEDULED_AT_CUTOFF"
+        },
+        {
+          "match": 83,
+          "date": "2026-07-02",
+          "home": "POR",
+          "away": "CRO",
+          "status": "SCHEDULED_AT_CUTOFF"
+        },
+        {
+          "match": 84,
+          "date": "2026-07-02",
+          "home": "ESP",
+          "away": "AUT",
+          "status": "SCHEDULED_AT_CUTOFF"
+        },
+        {
+          "match": 85,
+          "date": "2026-07-02",
+          "home": "SUI",
+          "away": "ALG",
+          "status": "SCHEDULED_AT_CUTOFF"
+        },
+        {
+          "match": 86,
+          "date": "2026-07-03",
+          "home": "ARG",
+          "away": "CPV",
+          "status": "SCHEDULED_AT_CUTOFF"
+        },
+        {
+          "match": 87,
+          "date": "2026-07-03",
+          "home": "COL",
+          "away": "GHA",
+          "status": "SCHEDULED_AT_CUTOFF"
+        },
+        {
+          "match": 88,
+          "date": "2026-07-03",
+          "home": "AUS",
+          "away": "EGY",
+          "status": "SCHEDULED_AT_CUTOFF"
+        }
+      ],
+      "rules": {
+        "entrants": 48,
+        "groups": 12,
+        "groupSize": 4,
+        "groupMatches": 72,
+        "totalMatches": 104,
+        "topTwoEach": true,
+        "bestThirds": 8,
+        "pointsWin": 3,
+        "pointsDraw": 1,
+        "knockoutExtraTime": true,
+        "knockoutPenalties": true,
+        "groupTieBreakFirst": "head-to-head (BBC secondary source)",
+        "thirdPlaceTieBreak": [
+          "points",
+          "goal difference",
+          "goals scored",
+          "team conduct",
+          "FIFA ranking"
+        ],
+        "ruleSources": [
+          "https://gpcustomersupportfwc2026.tickets.fifa.com/hc/en-gb/articles/28784798873117-10-What-is-the-format-for-the-FIFA-World-Cup-2026-tournament",
+          "https://bbc.com.im/sport/football/articles/cz751rrqj0lo",
+          "https://www.cbssports.com/soccer/news/world-cup-group-standings-table-results/"
+        ]
+      },
+      "sourceConflicts": [
+        {
+          "field": "M74/M75 penalties",
+          "note": "Draw display reverses penalty orientation; FIFA and Euronews confirm correct winners Paraguay 4-3 and Morocco 3-2."
+        },
+        {
+          "field": "group J match results",
+          "note": "CBS standings article erroneously lists Argentina-Austria 1-0 and Jordan-Argentina 3-3; Draw gives 2-0 and 1-3, consistent with group table; independent local reports pending."
+        },
+        {
+          "field": "CBS group tables",
+          "note": "Several row inconsistencies (B,C,D,E,H,J); reconstructed numeric tables from match list, rankings from Draw; no independent certification."
+        },
+        {
+          "field": "date orientation",
+          "note": "CBS dates sometimes Eastern rather than venue-local; Draw dates provisionally used, e.g. Australia-Turkey June13, Austria-Jordan June16."
+        }
+      ],
+      "note": "All 79 fixtures through June30 local tournament date; 72 group +7 R32. No July scores. Remaining 9 R32 pairs known at cutoff. Discipline totals, exact bracket dependencies and FIFA team keys still pending."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://thedraw.live/worldcup-2026/",
+        "https://www.cbssports.com/soccer/news/world-cup-group-standings-table-results/",
+        "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/brazil-paraguay-round-32-review-highlights",
+        "https://gpcustomersupportfwc2026.tickets.fifa.com/hc/en-gb/articles/28784798873117-10-What-is-the-format-for-the-FIFA-World-Cup-2026-tournament",
+        "https://www.euronews.com/2026/06/30/germany-and-netherlands-dumped-out-on-penalties-as-brazil-seal-late-win"
+      ],
+      "details": {
+        "matches": 79,
+        "groupMatches": 72,
+        "knockoutMatches": 7
+      },
+      "missing": "Independent match/date reconciliation, FIFA team keys, disciplinary tie-break details"
     }
   },
   {

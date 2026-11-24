@@ -13,7 +13,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -101,6 +101,116 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verified": "2026-11-24",
       "limitations": "No per-fixture date/club key reconciliation; no runtime or match-rule certification. One-off 2026 conditions must not blindly repeat."
+    },
+    "block65Research": {
+      "matches": [
+        {
+          "date": "2026-02-28",
+          "home": "Gimcheon Sangmu",
+          "away": "Pohang Steelers",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR",
+          "round": 1
+        },
+        {
+          "date": "2026-02-28",
+          "home": "Incheon United",
+          "away": "FC Seoul",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "REGULAR",
+          "round": 1
+        },
+        {
+          "date": "2026-02-28",
+          "home": "Ulsan HD",
+          "away": "Gangwon",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "phase": "REGULAR",
+          "round": 1
+        },
+        {
+          "date": "2026-03-01",
+          "home": "Jeju SK",
+          "away": "Gwangju",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "REGULAR",
+          "round": 1
+        },
+        {
+          "date": "2026-03-01",
+          "home": "Jeonbuk Hyundai Motors",
+          "away": "Bucheon FC 1995",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "phase": "REGULAR",
+          "round": 1
+        },
+        {
+          "date": "2026-03-02",
+          "home": "Daejeon Hana Citizen",
+          "away": "FC Anyang",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR",
+          "round": 1
+        },
+        {
+          "date": "2026-03-28",
+          "home": "Pohang Steelers",
+          "away": "Gangwon",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "REGULAR",
+          "round": 2
+        }
+      ],
+      "sources": [
+        "https://sportalic.com/fixtures/south-korea/k-league-1",
+        "https://fbref.com/en/comps/55/2026/schedule/2026-K-League-1-Scores-and-Fixtures",
+        "https://www.kleague.com/about/competition.do"
+      ],
+      "rules": {
+        "teams": 12,
+        "regularRounds": 33,
+        "legs": 3,
+        "finalGroups": [
+          6,
+          6
+        ],
+        "finalRounds": 5,
+        "totalGamesPerTeam": 38,
+        "totalMatches": 228,
+        "finalHomeGamesRange": [
+          18,
+          20
+        ],
+        "editionException": {
+          "edition": 2026,
+          "club": "Gimcheon Sangmu",
+          "automaticRelegation": true,
+          "ifClubLast": "No additional relegation",
+          "otherwise": "12th plays losing K League 2 promotion final team"
+        }
+      },
+      "scope": "R1 and one rescheduled R2 match from retrieved search excerpts; source pages did not expose complete historical score list. Official regulation article 6/7 inspected.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://sportalic.com/fixtures/south-korea/k-league-1",
+        "https://fbref.com/en/comps/55/2026/schedule/2026-K-League-1-Scores-and-Fixtures",
+        "https://www.kleague.com/about/competition.do"
+      ],
+      "details": {
+        "matches": 7
+      },
+      "missing": "Remaining matches outside extracted rounds/regions, independent reconciliation, stable keys and full regulation."
     }
   }
 ]

@@ -13,25 +13,319 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Copa de Primera Tigo Ueno Bank",
+      "nonCommercialDisplayName": "División de Honor",
       "candidateName": "Primera División",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.apf.org.py/torneo-apertura",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block63Research": {
+      "name": "Copa de Primera",
+      "sources": [
+        "https://www.apf.org.py/torneo-apertura",
+        "https://www.apf.org.py/noticias/listo-calendario-para-la-temporada-2026",
+        "https://rsssf.github.io/tables/para2026.html",
+        "https://as.com/resultados/futbol/paraguay_apertura/",
+        "https://www.apf.org.py/noticias/olimpia-es-el-campeon-del-apertura-2026"
+      ],
+      "matches": [
+        {
+          "date": "2026-01-23",
+          "home": "Recoleta",
+          "away": "Sportivo Trinidense",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-01-23",
+          "home": "2 de Mayo",
+          "away": "Sportivo Luqueño",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-01-24",
+          "home": "Nacional",
+          "away": "Sportivo San Lorenzo",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-01-24",
+          "home": "Cerro Porteño",
+          "away": "Libertad",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-01-25",
+          "home": "Olimpia",
+          "away": "Guaraní",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-01-25",
+          "home": "Sportivo Ameliano",
+          "away": "Rubio Ñú",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-01-27",
+          "home": "Sportivo Luqueño",
+          "away": "Nacional",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-01-27",
+          "home": "Sportivo San Lorenzo",
+          "away": "Cerro Porteño",
+          "homeGoals": 2,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-01-28",
+          "home": "Libertad",
+          "away": "Sportivo Ameliano",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-01-28",
+          "home": "2 de Mayo",
+          "away": "Olimpia",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-01-29",
+          "home": "Sportivo Trinidense",
+          "away": "Guaraní",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-01-29",
+          "home": "Rubio Ñú",
+          "away": "Recoleta",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-01-31",
+          "home": "Nacional",
+          "away": "2 de Mayo",
+          "homeGoals": 5,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-01-31",
+          "home": "Sportivo Ameliano",
+          "away": "Sportivo San Lorenzo",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-01",
+          "home": "Olimpia",
+          "away": "Sportivo Trinidense",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-02-01",
+          "home": "Guaraní",
+          "away": "Rubio Ñú",
+          "homeGoals": 4,
+          "awayGoals": 0
+        }
+      ],
+      "rules": {
+        "teams": 12,
+        "phases": [
+          "Apertura",
+          "Clausura"
+        ],
+        "gamesPerPhase": 22,
+        "championsLibertadoresGroups": true,
+        "nextBestAggregateLibertadoresPhase2": true,
+        "phase1ConditionalCupSlot": true,
+        "nextFourSudamericana": true,
+        "relegation": {
+          "count": 2,
+          "method": "three-year average"
+        },
+        "promotion": 2,
+        "duplicateChampionAccess": "Best non-champion in aggregate joins group stage, next to phase2, third to phase1 only if cup slot unused"
+      },
+      "publishedTable": {
+        "columns": [
+          "club",
+          "P",
+          "W",
+          "D",
+          "L",
+          "GF",
+          "GA",
+          "Pts"
+        ],
+        "rows": [
+          [
+            "Olimpia",
+            22,
+            15,
+            4,
+            3,
+            37,
+            17,
+            49
+          ],
+          [
+            "Nacional",
+            22,
+            10,
+            9,
+            3,
+            31,
+            22,
+            39
+          ],
+          [
+            "Cerro Porteño",
+            22,
+            11,
+            5,
+            6,
+            30,
+            22,
+            38
+          ],
+          [
+            "Sportivo Ameliano",
+            22,
+            8,
+            9,
+            5,
+            27,
+            21,
+            33
+          ],
+          [
+            "Sportivo Trinidense",
+            22,
+            8,
+            8,
+            6,
+            30,
+            24,
+            32
+          ],
+          [
+            "Libertad",
+            22,
+            9,
+            4,
+            9,
+            34,
+            26,
+            31
+          ],
+          [
+            "Guaraní",
+            22,
+            7,
+            8,
+            7,
+            27,
+            23,
+            29
+          ],
+          [
+            "Recoleta",
+            22,
+            8,
+            4,
+            10,
+            35,
+            32,
+            28
+          ],
+          [
+            "Rubio Ñú",
+            22,
+            6,
+            5,
+            11,
+            15,
+            26,
+            23
+          ],
+          [
+            "2 de Mayo",
+            22,
+            5,
+            7,
+            10,
+            18,
+            35,
+            22
+          ],
+          [
+            "Sportivo Luqueño",
+            22,
+            5,
+            5,
+            12,
+            24,
+            33,
+            20
+          ],
+          [
+            "Sportivo San Lorenzo",
+            22,
+            3,
+            6,
+            13,
+            14,
+            41,
+            15
+          ]
+        ]
+      },
+      "champion": "Olimpia",
+      "note": "Complete published Apertura table (AS lines148–159), 16 early matches RSSSF; AS dates differ for several R1 matches (local RSSSF dates retained provisionally). 116 match dates/scores remain. APF official rule lines75–84; 1996–2007 two phases deciding one annual champion, not two titles; from 2008 each phase independent title.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.apf.org.py/torneo-apertura",
+        "https://www.apf.org.py/noticias/listo-calendario-para-la-temporada-2026",
+        "https://rsssf.github.io/tables/para2026.html",
+        "https://as.com/resultados/futbol/paraguay_apertura/",
+        "https://www.apf.org.py/noticias/olimpia-es-el-campeon-del-apertura-2026"
+      ],
+      "details": {
+        "matches": 16
+      },
+      "missing": "Complete match list where incomplete, independent dates/standings, stable club keys and applicable rule versions."
     }
   }
 ]

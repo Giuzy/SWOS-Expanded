@@ -11,12 +11,12 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -42,13 +42,677 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Virsliga",
+      "nonCommercialDisplayName": "Virslīga",
       "candidateName": "Virslīga",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/resultsp99.html",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesl/let96.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block58Research": {
+      "edition": "1996",
+      "name": "Virsliga",
+      "display": "Virslīga",
+      "sources": [
+        "https://www.rsssf.org/tablesl/let96.html"
+      ],
+      "rules": {
+        "teams": 10,
+        "initialRounds": 18,
+        "championshipGroup": 6,
+        "championshipAdditionalRounds": 10,
+        "lowerGroup": 4,
+        "lowerAdditionalRounds": 12,
+        "carryPoints": true,
+        "relegationDirect": 1,
+        "relegationPlayoffRank": 9,
+        "playoffLegs": 2,
+        "pointsWin": 3
+      },
+      "dates": {
+        "first": "1996-04-20"
+      },
+      "snapshot": {
+        "matches": [
+          [
+            "1996-04-20",
+            "Skonto/Metals",
+            "Skonto",
+            0,
+            5,
+            1
+          ],
+          [
+            "1996-04-20",
+            "Dinaburg",
+            "Lokomotive",
+            2,
+            0,
+            1
+          ],
+          [
+            "1996-04-20",
+            "Daugava",
+            "RAF",
+            2,
+            1,
+            1
+          ],
+          [
+            "1996-04-20",
+            "FK Liepaja",
+            "Starts",
+            1,
+            0,
+            1
+          ],
+          [
+            "1996-04-20",
+            "Vairogs",
+            "Jurnieks",
+            1,
+            0,
+            1
+          ],
+          [
+            "1996-04-27",
+            "FK Liepaja",
+            "Skonto",
+            0,
+            1,
+            2
+          ],
+          [
+            "1996-04-27",
+            "Daugava",
+            "Dinaburg",
+            2,
+            2,
+            2
+          ],
+          [
+            "1996-04-27",
+            "RAF",
+            "Vairogs",
+            0,
+            3,
+            2
+          ],
+          [
+            "1996-04-27",
+            "Lokomotive",
+            "Starts",
+            2,
+            2,
+            2
+          ],
+          [
+            "1996-04-27",
+            "Jurnieks",
+            "Skonto/Metals",
+            1,
+            0,
+            2
+          ],
+          [
+            "1996-05-04",
+            "Lokomotive",
+            "Skonto",
+            0,
+            5,
+            3
+          ],
+          [
+            "1996-05-04",
+            "Skonto/Metals",
+            "Vairogs",
+            0,
+            3,
+            3
+          ],
+          [
+            "1996-05-04",
+            "Dinaburg",
+            "RAF",
+            0,
+            0,
+            3
+          ],
+          [
+            "1996-05-04",
+            "Starts",
+            "Daugava",
+            0,
+            0,
+            3
+          ],
+          [
+            "1996-05-04",
+            "FK Liepaja",
+            "Jurnieks",
+            4,
+            0,
+            3
+          ],
+          [
+            "1996-05-11",
+            "Daugava",
+            "Skonto",
+            0,
+            1,
+            4
+          ],
+          [
+            "1996-05-11",
+            "Vairogs",
+            "FK Liepaja",
+            0,
+            0,
+            4
+          ],
+          [
+            "1996-05-11",
+            "Dinaburg",
+            "Starts",
+            5,
+            0,
+            4
+          ],
+          [
+            "1996-05-11",
+            "Jurnieks",
+            "Lokomotive",
+            1,
+            1,
+            4
+          ],
+          [
+            "1996-05-11",
+            "RAF",
+            "Skonto/Metals",
+            4,
+            0,
+            4
+          ],
+          [
+            "1996-05-18",
+            "Skonto",
+            "Dinaburg",
+            7,
+            0,
+            5
+          ],
+          [
+            "1996-05-18",
+            "Lokomotive",
+            "Vairogs",
+            1,
+            0,
+            5
+          ],
+          [
+            "1996-05-18",
+            "FK Liepaja",
+            "Skonto/Metals",
+            1,
+            0,
+            5
+          ],
+          [
+            "1996-05-18",
+            "Jurnieks",
+            "Daugava",
+            0,
+            3,
+            5
+          ],
+          [
+            "1996-05-18",
+            "Starts",
+            "RAF",
+            0,
+            2,
+            5
+          ],
+          [
+            "1996-05-25",
+            "Starts",
+            "Skonto",
+            2,
+            1,
+            6
+          ],
+          [
+            "1996-05-25",
+            "Vairogs",
+            "Daugava",
+            0,
+            2,
+            6
+          ],
+          [
+            "1996-05-25",
+            "FK Liepaja",
+            "RAF",
+            1,
+            2,
+            6
+          ],
+          [
+            "1996-05-25",
+            "Dinaburg",
+            "Jurnieks",
+            2,
+            0,
+            6
+          ],
+          [
+            "1996-05-25",
+            "Skonto/Metals",
+            "Lokomotive",
+            1,
+            0,
+            6
+          ],
+          [
+            "1996-06-01",
+            "Skonto",
+            "Vairogs",
+            6,
+            0,
+            7
+          ],
+          [
+            "1996-06-01",
+            "Lokomotive",
+            "Daugava",
+            1,
+            5,
+            7
+          ],
+          [
+            "1996-06-01",
+            "FK Liepaja",
+            "Dinaburg",
+            0,
+            3,
+            7
+          ],
+          [
+            "1996-06-01",
+            "RAF",
+            "Jurnieks",
+            2,
+            0,
+            7
+          ],
+          [
+            "1996-06-01",
+            "Starts",
+            "Skonto/Metals",
+            2,
+            1,
+            7
+          ],
+          [
+            "1996-06-05",
+            "RAF",
+            "Skonto",
+            0,
+            0,
+            8
+          ],
+          [
+            "1996-06-05",
+            "Daugava",
+            "Skonto/Metals",
+            3,
+            0,
+            8
+          ],
+          [
+            "1996-06-05",
+            "Vairogs",
+            "Dinaburg",
+            0,
+            1,
+            8
+          ],
+          [
+            "1996-06-05",
+            "Lokomotive",
+            "FK Liepaja",
+            1,
+            2,
+            8
+          ],
+          [
+            "1996-06-05",
+            "Jurnieks",
+            "Starts",
+            0,
+            0,
+            8
+          ],
+          [
+            "1996-06-08",
+            "Skonto",
+            "Jurnieks",
+            5,
+            0,
+            9
+          ],
+          [
+            "1996-06-08",
+            "Daugava",
+            "FK Liepaja",
+            1,
+            1,
+            9
+          ],
+          [
+            "1996-06-08",
+            "Dinaburg",
+            "Skonto/Metals",
+            1,
+            2,
+            9
+          ],
+          [
+            "1996-06-08",
+            "RAF",
+            "Lokomotive",
+            2,
+            1,
+            9
+          ],
+          [
+            "1996-06-08",
+            "Starts",
+            "Vairogs",
+            3,
+            6,
+            9
+          ],
+          [
+            "1996-06-15",
+            "Vairogs",
+            "Skonto",
+            0,
+            5,
+            10
+          ],
+          [
+            "1996-06-15",
+            "Daugava",
+            "Lokomotive",
+            1,
+            0,
+            10
+          ],
+          [
+            "1996-06-15",
+            "Jurnieks",
+            "RAF",
+            4,
+            4,
+            10
+          ],
+          [
+            "1996-06-15",
+            "Dinaburg",
+            "FK Liepaja",
+            1,
+            1,
+            10
+          ],
+          [
+            "1996-06-15",
+            "Skonto/Metals",
+            "Starts",
+            2,
+            2,
+            10
+          ],
+          [
+            "1996-06-23",
+            "Skonto",
+            "Skonto/Metals",
+            4,
+            1,
+            11
+          ],
+          [
+            "1996-06-23",
+            "Lokomotive",
+            "Dinaburg",
+            0,
+            1,
+            11
+          ],
+          [
+            "1996-06-23",
+            "Starts",
+            "FK Liepaja",
+            0,
+            2,
+            11
+          ],
+          [
+            "1996-06-23",
+            "Jurnieks",
+            "Vairogs",
+            0,
+            2,
+            11
+          ],
+          [
+            "1996-06-25",
+            "Dinaburg",
+            "Daugava",
+            1,
+            2,
+            12
+          ],
+          [
+            "1996-06-25",
+            "Vairogs",
+            "RAF",
+            1,
+            2,
+            12
+          ],
+          [
+            "1996-06-25",
+            "Skonto/Metals",
+            "Jurnieks",
+            1,
+            1,
+            12
+          ],
+          [
+            "1996-06-29",
+            "Skonto",
+            "Lokomotive",
+            3,
+            2,
+            13
+          ],
+          [
+            "1996-06-29",
+            "RAF",
+            "Dinaburg",
+            1,
+            1,
+            13
+          ],
+          [
+            "1996-06-29",
+            "Jurnieks",
+            "FK Liepaja",
+            2,
+            2,
+            13
+          ],
+          [
+            "1996-06-29",
+            "Vairogs",
+            "Skonto/Metals",
+            0,
+            0,
+            13
+          ]
+        ],
+        "columns": [
+          "date",
+          "home",
+          "away",
+          "homeGoals",
+          "awayGoals",
+          "round"
+        ],
+        "postponed": [
+          {
+            "round": 11,
+            "originalDate": "1996-06-23",
+            "home": "RAF",
+            "away": "Daugava",
+            "rescheduledDate": "1996-07-17",
+            "reason": null
+          }
+        ],
+        "tableDerived": {
+          "asOf": "1996-06-30",
+          "columns": [
+            "club",
+            "P",
+            "W",
+            "D",
+            "L",
+            "GF",
+            "GA",
+            "Pts"
+          ],
+          "rows": [
+            [
+              "Skonto",
+              12,
+              10,
+              1,
+              1,
+              43,
+              5,
+              31
+            ],
+            [
+              "Daugava",
+              11,
+              7,
+              3,
+              1,
+              21,
+              7,
+              24
+            ],
+            [
+              "RAF",
+              12,
+              6,
+              4,
+              2,
+              20,
+              13,
+              22
+            ],
+            [
+              "Dinaburg",
+              13,
+              6,
+              4,
+              3,
+              20,
+              15,
+              22
+            ],
+            [
+              "FK Liepaja",
+              12,
+              5,
+              4,
+              3,
+              15,
+              11,
+              19
+            ],
+            [
+              "Vairogs",
+              13,
+              5,
+              2,
+              6,
+              16,
+              20,
+              17
+            ],
+            [
+              "Starts",
+              11,
+              2,
+              4,
+              5,
+              11,
+              22,
+              10
+            ],
+            [
+              "Skonto/Metals",
+              13,
+              2,
+              3,
+              8,
+              8,
+              27,
+              9
+            ],
+            [
+              "Jurnieks",
+              13,
+              1,
+              5,
+              7,
+              9,
+              27,
+              8
+            ],
+            [
+              "Lokomotive",
+              12,
+              1,
+              2,
+              9,
+              9,
+              25,
+              5
+            ]
+          ],
+          "status": "DERIVED_FROM_61_SOURCE_MATCHES_NOT_INDEPENDENTLY_RECONCILED"
+        },
+        "note": "4 missing fixtures from rounds 11–13, 1 known original and rescheduled date; other postponements need source. No July result stored."
+      },
+      "checked": "2026-11-24",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.rsssf.org/tablesl/let96.html"
+      ],
+      "details": {
+        "matches": 61
+      },
+      "missing": "Full cutoff list, independent exact date/score verification, stable club keys and standings reconciliation."
     }
   }
 ]

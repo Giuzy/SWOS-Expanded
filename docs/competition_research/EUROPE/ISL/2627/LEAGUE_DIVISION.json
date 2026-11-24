@@ -13,21 +13,21 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Besta deild karla",
+      "nonCommercialDisplayName": "Besta deild karla",
       "candidateName": "Besta deild karla",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
-      "source": "https://en.wikipedia.org/wiki/European_Leagues",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesi/ijs2026.html",
       "nameHistory": [],
       "historyComplete": false,
       "historicalNameEvidence38": {
@@ -50,6 +50,89 @@
         "https://www.ksi.is/oll-mot/mot?id=190167"
       ],
       "scope": "Historical format only; current rule not certified"
+    },
+    "block58Research": {
+      "edition": "2026",
+      "name": "Besta deild karla",
+      "display": "Besta deild karla",
+      "sources": [
+        "https://www.rsssf.org/tablesi/ijs2026.html",
+        "https://globalsportsarchive.com/en/soccer/competition/besta-deildin-2026/78609"
+      ],
+      "rules": {
+        "teams": 12,
+        "regularRounds": 22,
+        "split": [
+          6,
+          6
+        ],
+        "additionalRounds": 5
+      },
+      "dates": {
+        "firstMatch": "2026-04-10"
+      },
+      "snapshot": {
+        "round": 7,
+        "matches": [
+          [
+            "2026-05-17",
+            "FH",
+            "KA",
+            1,
+            2
+          ],
+          [
+            "2026-05-17",
+            "ÍBV",
+            "Víkingur R.",
+            0,
+            2
+          ],
+          [
+            "2026-05-17",
+            "Keflavík",
+            "Stjarnan",
+            1,
+            1
+          ],
+          [
+            "2026-05-17",
+            "KR",
+            "Fram",
+            2,
+            2
+          ],
+          [
+            "2026-05-17",
+            "Þór A.",
+            "ÍA",
+            1,
+            2
+          ],
+          [
+            "2026-05-17",
+            "Valur",
+            "Breiðablik",
+            3,
+            2
+          ]
+        ],
+        "note": "Archive opened at incomplete May version; June dates listed but scores not yet visible there."
+      },
+      "checked": "2026-11-24",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.rsssf.org/tablesi/ijs2026.html",
+        "https://globalsportsarchive.com/en/soccer/competition/besta-deildin-2026/78609"
+      ],
+      "details": {
+        "matches": 6
+      },
+      "missing": "Full cutoff list, independent exact date/score verification, stable club keys and standings reconciliation."
     }
   }
 ]

@@ -12,24 +12,88 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Tonybet Virslīga",
+      "nonCommercialDisplayName": "Virslīga",
       "candidateName": "Virslīga",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
-      "source": "https://en.wikipedia.org/wiki/European_Leagues",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://lff.lv/sacensibas/viriesi/virsliga/",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block58Research": {
+      "edition": "2026",
+      "name": "Tonybet Virslīga",
+      "display": "Virslīga",
+      "sources": [
+        "https://lff.lv/sacensibas/viriesi/virsliga/",
+        "https://www.rsssf.org/tablesl/let2026.html",
+        "https://soccer-tainment.com/competition/latvia-higher-league/2026"
+      ],
+      "rules": {
+        "teams": 10,
+        "rounds": 36,
+        "format": "quadruple round robin"
+      },
+      "snapshot": {
+        "round": 21,
+        "matches": [
+          [
+            "2026-06-29",
+            "Auda",
+            "Riga",
+            0,
+            2
+          ],
+          [
+            "2026-06-29",
+            "Jelgava",
+            "Grobina",
+            2,
+            0
+          ],
+          [
+            "2026-06-30",
+            "RFS",
+            "Daugavpils",
+            3,
+            1
+          ],
+          [
+            "2026-06-30",
+            "Liepaja",
+            "Ogre Utd",
+            4,
+            0
+          ]
+        ],
+        "note": "Tukums–Super Nova is July 1: excluded from initial history."
+      },
+      "checked": "2026-11-24",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://lff.lv/sacensibas/viriesi/virsliga/",
+        "https://www.rsssf.org/tablesl/let2026.html",
+        "https://soccer-tainment.com/competition/latvia-higher-league/2026"
+      ],
+      "details": {
+        "matches": 4
+      },
+      "missing": "Full cutoff list, independent exact date/score verification, stable club keys and standings reconciliation."
     }
   }
 ]

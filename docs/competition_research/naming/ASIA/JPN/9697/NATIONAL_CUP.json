@@ -3,8 +3,11 @@
     "index": 162,
     "value": {
       "row": 163,
-      "status": "HISTORICAL_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        408,
+        409
+      ]
     }
   },
   {

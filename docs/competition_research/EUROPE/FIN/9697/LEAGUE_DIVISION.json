@@ -11,12 +11,12 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -73,13 +73,76 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
+      "officialName": "Veikkausliiga",
       "nonCommercialDisplayName": null,
       "candidateName": "Finnish Premier Division",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/resultsp99.html",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesf/fin96.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block59Research": {
+      "edition": "1996",
+      "source": "https://www.rsssf.org/tablesf/fin96.html",
+      "sourceType": "RSSSF HTML actual lines inspected",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "matches": [],
+      "sourceLines": "3–46",
+      "rules": {
+        "teams": 12,
+        "firstStageGames": 22,
+        "groups": [
+          6,
+          6
+        ],
+        "carryPoints": true,
+        "additionalGames": 5,
+        "relegated": 3,
+        "playoffRank": 9,
+        "playoffLegs": 2
+      },
+      "scope": "1996 format verified; no cutoff results found in this source."
+    },
+    "block60Research": {
+      "edition": "1996",
+      "sources": [
+        "https://www.elofootball.com/match.php?cluboneid=1767&clubtwoid=3347&date=2026-07-26",
+        "https://www.rsssf.org/tablesf/fin96.html"
+      ],
+      "rules": {
+        "teams": 12,
+        "regularGames": 22,
+        "split": [
+          6,
+          6
+        ],
+        "additionalGames": 5,
+        "relegated": 3,
+        "playoffRank": 9
+      },
+      "matches": [
+        {
+          "date": "1996-06-30",
+          "home": "TPS Turku",
+          "away": "HJK Helsinki",
+          "homeGoals": 1,
+          "awayGoals": 0
+        }
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Dated sample; complete cutoff fixture list still needed."
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.elofootball.com/match.php?cluboneid=1767&clubtwoid=3347&date=2026-07-26",
+        "https://www.rsssf.org/tablesf/fin96.html"
+      ],
+      "details": {
+        "matches": 1
+      },
+      "missing": "Complete and independently verify pre-cutoff scores/dates, club IDs, official ranking."
     }
   }
 ]

@@ -46,5 +46,53 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
     }
+  },
+  {
+    "index": 396,
+    "value": {
+      "competition": "Ghana Premier League",
+      "firstEdition": "2019/20",
+      "lastEdition": null,
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        246
+      ],
+      "source": "https://www.ghanafa.org/premier-league-clubs-receive-official-matchday-balls-from-gfa",
+      "note": "18 clubs confirmed, December 29 opening; first edition with 18 clubs not independently established.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block57, official web excerpts or opened article, no per-fixture certification or runtime import."
+    }
+  },
+  {
+    "index": 397,
+    "value": {
+      "competition": "Ghana Premier League",
+      "firstEdition": "2019/20",
+      "lastEdition": "2019/20",
+      "operation": "CANCEL_EDITION",
+      "rowRefs": [
+        246
+      ],
+      "source": "https://www.ghanafa.org/2019-20-football-season-cancelled",
+      "note": "Cancelled June 30 2020; CAF representatives Asante Kotoko and AshGold designated rather than synthetic league completion.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block57, official web excerpts or opened article, no per-fixture certification or runtime import."
+    }
+  },
+  {
+    "index": 398,
+    "value": {
+      "competition": "Ghana FA Cup",
+      "firstEdition": "2026/27",
+      "lastEdition": null,
+      "operation": "CHANGE_FINAL_FORMAT",
+      "rowRefs": [
+        361
+      ],
+      "source": "https://www.ghanafa.org/gfa-introduces-historic-two-legged-final-for-2026-27-mtn-fa-cup",
+      "note": "First final contested over two legs; exact individual final dates pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block57, official web excerpts or opened article, no per-fixture certification or runtime import."
+    }
   }
 ]

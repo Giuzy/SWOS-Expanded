@@ -11,12 +11,12 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -42,11 +42,11 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Supreme League (Vysshaya Liga)",
+      "nonCommercialDisplayName": "Vysshaya Liga",
       "candidateName": "Top League",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/resultsp99.html",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesr/rus96.html",
       "nameHistory": [
         {
           "transition": 227,
@@ -56,9 +56,107 @@
           "name": "Russian Premier League",
           "operation": "RENAME",
           "source": "https://en.wikipedia.org/wiki/2002_Russian_Premier_League"
+        },
+        {
+          "transition": 410,
+          "from": "1998",
+          "to": "2001",
+          "name": "Top Division",
+          "previousName": "Top League",
+          "source": "https://en.wikipedia.org/wiki/1998_Russian_Top_Division"
         }
       ],
       "historyComplete": false
+    },
+    "block59Research": {
+      "edition": "1996",
+      "source": "https://www.rsssf.org/tablesr/rus96.html",
+      "sourceType": "RSSSF HTML actual lines inspected",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "matches": [
+        {
+          "date": "1996-03-02",
+          "home": "Torpedo",
+          "away": "UralMash",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "1996-03-02",
+          "home": "RostSelMash",
+          "away": "Dinamo Moskva",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "1996-03-02",
+          "home": "Zenit",
+          "away": "KamAZ-Chally",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "1996-03-02",
+          "home": "Alania",
+          "away": "Krylya Sovetov",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "1996-03-02",
+          "home": "Baltika",
+          "away": "Lokomotiv Nizhniy Novgorod",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "1996-03-02",
+          "home": "Chernomorets",
+          "away": "Textilshchik",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "1996-03-02",
+          "home": "Rotor",
+          "away": "CSKA",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "1996-03-02",
+          "home": "Lokomotiv Moskva",
+          "away": "Lada",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "1996-05-21",
+          "home": "Zhemchuzhina",
+          "away": "Spartak Moskva",
+          "homeGoals": 1,
+          "awayGoals": 3
+        }
+      ],
+      "sourceLines": "12–65",
+      "rules": {
+        "teams": 18,
+        "rounds": 34,
+        "relegated": 3,
+        "championshipPlayoffOnPointsTieObserved": true
+      },
+      "scope": "First round only, rescheduled ninth match May21."
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.rsssf.org/tablesr/rus96.html"
+      ],
+      "details": {
+        "matches": 9
+      },
+      "missing": "Independent source, participant keys, exact completeness and standings reconciliation."
     }
   }
 ]

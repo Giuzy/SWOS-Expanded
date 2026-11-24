@@ -12,25 +12,75 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Ghana Premier League",
+      "nonCommercialDisplayName": "Ghana Premier League",
       "candidateName": "Ghana Premier League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://ghanafa.org/eighteen-clubs-confirmed-for-2026-27-ghana-premier-league-season",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block57Research": {
+      "edition": "2026/27",
+      "name": "Ghana Premier League",
+      "display": "Ghana Premier League",
+      "sources": [
+        "https://ghanafa.org/eighteen-clubs-confirmed-for-2026-27-ghana-premier-league-season",
+        "https://www.ghanafa.org/premier-league/premier-league-profile",
+        "https://www.ghanafa.org/dates-for-2026-27-premier-league-season-released?amp=1",
+        "https://www.ghanafa.org/index.php/2026-27-premier-league-fixtures-set-to-be-released-on-thursday?amp=1",
+        "https://www.ghanafa.org/premier-league-fixtures"
+      ],
+      "rules": {
+        "teams": 18,
+        "relegated": 3,
+        "promoted": 3,
+        "promotionSource": "one winner of each Division One zone",
+        "format": "home and away 34 games per club implied by 18-club double round robin; schedule release article has inconsistent season label, verify individual fixtures",
+        "midweek": "reserved for outstanding matches"
+      },
+      "dates": {
+        "firstRoundWindow": [
+          "2026-09-04",
+          "2026-09-07"
+        ],
+        "lastRoundWindow": [
+          "2027-05-28",
+          "2027-05-31"
+        ]
+      },
+      "participantEvidence": {
+        "promoted": [
+          "Port City",
+          "Ashantigold '04",
+          "Debibi United"
+        ],
+        "departed": [
+          "Nations FC",
+          "Eleven Wonders",
+          "Hohoe United"
+        ],
+        "departureReasons": [
+          "relegation",
+          "relegation",
+          "withdrawal"
+        ],
+        "previousChampion": "Medeama SC"
+      },
+      "note": "Administrative season begins July 1 but sporting fixtures start September; no cutoff sporting snapshot.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24"
     }
   }
 ]

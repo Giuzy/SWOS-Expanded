@@ -12,8 +12,8 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,13 +23,941 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "League of Ireland Premier Division",
-      "nonCommercialDisplayName": null,
+      "officialName": "SSE Airtricity Men's Premier Division",
+      "nonCommercialDisplayName": "League of Ireland Premier Division",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "4fb73a35a5e15b140d942b00f84fb8eef682915a",
+      "source": "https://www.leagueofireland.ie/news/key-dates-schedule-confirmed-2026-loi-season/",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block60Research": {
+      "edition": "2026",
+      "sources": [
+        "https://www.extratime.com/results/2132/100/league-of-ireland-premier-division/",
+        "https://www.leagueofireland.ie/news/key-dates-schedule-confirmed-2026-loi-season/",
+        "https://soccer-tainment.com/competition/republic-of-ireland-premier-division/2026"
+      ],
+      "rules": {
+        "teams": 10,
+        "games": 36,
+        "relegated": 1,
+        "playoffRank": 9,
+        "playoffLegs": 2
+      },
+      "matches": [
+        {
+          "date": "2026-02-06",
+          "home": "Derry City",
+          "away": "Sligo Rovers",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-02-06",
+          "home": "Galway United",
+          "away": "Drogheda United",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-02-06",
+          "home": "Waterford",
+          "away": "Shelbourne",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-02-08",
+          "home": "Bohemians",
+          "away": "St Patrick's Athletic",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-13",
+          "home": "Drogheda United",
+          "away": "Waterford",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-13",
+          "home": "Derry City",
+          "away": "Dundalk",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-02-14",
+          "home": "Sligo Rovers",
+          "away": "Bohemians",
+          "homeGoals": 0,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-02-20",
+          "home": "Dundalk",
+          "away": "Drogheda United",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-02-20",
+          "home": "Shamrock Rovers",
+          "away": "St Patrick's Athletic",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-20",
+          "home": "Derry City",
+          "away": "Bohemians",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-02-20",
+          "home": "Waterford",
+          "away": "Sligo Rovers",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-20",
+          "home": "Shelbourne",
+          "away": "Galway United",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-02-23",
+          "home": "Shamrock Rovers",
+          "away": "Dundalk",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-02-27",
+          "home": "Bohemians",
+          "away": "Shamrock Rovers",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-02-27",
+          "home": "St Patrick's Athletic",
+          "away": "Dundalk",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-02-27",
+          "home": "Drogheda United",
+          "away": "Shelbourne",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-02-27",
+          "home": "Derry City",
+          "away": "Waterford",
+          "homeGoals": 4,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-02-27",
+          "home": "Galway United",
+          "away": "Sligo Rovers",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-02",
+          "home": "St Patrick's Athletic",
+          "away": "Galway United",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-06",
+          "home": "Shamrock Rovers",
+          "away": "Derry City",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-06",
+          "home": "Shelbourne",
+          "away": "St Patrick's Athletic",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-03-06",
+          "home": "Waterford",
+          "away": "Bohemians",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-06",
+          "home": "Galway United",
+          "away": "Dundalk",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-07",
+          "home": "Sligo Rovers",
+          "away": "Drogheda United",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-09",
+          "home": "Shelbourne",
+          "away": "Shamrock Rovers",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-13",
+          "home": "Sligo Rovers",
+          "away": "Shamrock Rovers",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-13",
+          "home": "Bohemians",
+          "away": "Galway United",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-13",
+          "home": "Dundalk",
+          "away": "Waterford",
+          "homeGoals": 5,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-13",
+          "home": "Derry City",
+          "away": "Shelbourne",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-13",
+          "home": "St Patrick's Athletic",
+          "away": "Drogheda United",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-16",
+          "home": "Galway United",
+          "away": "Waterford",
+          "homeGoals": 4,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-03-16",
+          "home": "Drogheda United",
+          "away": "Shamrock Rovers",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-16",
+          "home": "Shelbourne",
+          "away": "Bohemians",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-16",
+          "home": "St Patrick's Athletic",
+          "away": "Derry City",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-16",
+          "home": "Dundalk",
+          "away": "Sligo Rovers",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-20",
+          "home": "Bohemians",
+          "away": "Dundalk",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-20",
+          "home": "Shamrock Rovers",
+          "away": "Galway United",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-20",
+          "home": "Derry City",
+          "away": "Drogheda United",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-20",
+          "home": "Waterford",
+          "away": "St Patrick's Athletic",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-21",
+          "home": "Sligo Rovers",
+          "away": "Shelbourne",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-03",
+          "home": "Galway United",
+          "away": "Derry City",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-03",
+          "home": "St Patrick's Athletic",
+          "away": "Sligo Rovers",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-03",
+          "home": "Waterford",
+          "away": "Shamrock Rovers",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-03",
+          "home": "Drogheda United",
+          "away": "Bohemians",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-03",
+          "home": "Shelbourne",
+          "away": "Dundalk",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-06",
+          "home": "Sligo Rovers",
+          "away": "Derry City",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-06",
+          "home": "Bohemians",
+          "away": "Waterford",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-06",
+          "home": "Drogheda United",
+          "away": "Galway United",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-06",
+          "home": "Shamrock Rovers",
+          "away": "Shelbourne",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-06",
+          "home": "Dundalk",
+          "away": "St Patrick's Athletic",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-10",
+          "home": "St Patrick's Athletic",
+          "away": "Shamrock Rovers",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-10",
+          "home": "Dundalk",
+          "away": "Derry City",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-10",
+          "home": "Bohemians",
+          "away": "Sligo Rovers",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Shamrock Rovers",
+          "away": "Bohemians",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Shelbourne",
+          "away": "Derry City",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Dundalk",
+          "away": "Galway United",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Drogheda United",
+          "away": "St Patrick's Athletic",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-18",
+          "home": "Sligo Rovers",
+          "away": "Waterford",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-24",
+          "home": "Derry City",
+          "away": "Shamrock Rovers",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-24",
+          "home": "Shelbourne",
+          "away": "Drogheda United",
+          "homeGoals": 3,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-04-24",
+          "home": "St Patrick's Athletic",
+          "away": "Bohemians",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-24",
+          "home": "Waterford",
+          "away": "Galway United",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-25",
+          "home": "Sligo Rovers",
+          "away": "Dundalk",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Shamrock Rovers",
+          "away": "Waterford",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Bohemians",
+          "away": "Derry City",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Galway United",
+          "away": "St Patrick's Athletic",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Drogheda United",
+          "away": "Sligo Rovers",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Dundalk",
+          "away": "Shelbourne",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-04",
+          "home": "Waterford",
+          "away": "Dundalk",
+          "homeGoals": 3,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-04",
+          "home": "Bohemians",
+          "away": "Shelbourne",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-04",
+          "home": "Sligo Rovers",
+          "away": "St Patrick's Athletic",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-04",
+          "home": "Derry City",
+          "away": "Galway United",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-04",
+          "home": "Shamrock Rovers",
+          "away": "Drogheda United",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-08",
+          "home": "St Patrick's Athletic",
+          "away": "Waterford",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-08",
+          "home": "Dundalk",
+          "away": "Bohemians",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-08",
+          "home": "Galway United",
+          "away": "Shamrock Rovers",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-08",
+          "home": "Drogheda United",
+          "away": "Derry City",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-08",
+          "home": "Shelbourne",
+          "away": "Sligo Rovers",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-15",
+          "home": "Dundalk",
+          "away": "Shamrock Rovers",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-15",
+          "home": "Bohemians",
+          "away": "Drogheda United",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-15",
+          "home": "Waterford",
+          "away": "Derry City",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-15",
+          "home": "St Patrick's Athletic",
+          "away": "Shelbourne",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Sligo Rovers",
+          "away": "Galway United",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-05-18",
+          "home": "Waterford",
+          "away": "Drogheda United",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-22",
+          "home": "Drogheda United",
+          "away": "Dundalk",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-22",
+          "home": "Shamrock Rovers",
+          "away": "Sligo Rovers",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-22",
+          "home": "Shelbourne",
+          "away": "Waterford",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-22",
+          "home": "Derry City",
+          "away": "St Patrick's Athletic",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-22",
+          "home": "Galway United",
+          "away": "Bohemians",
+          "homeGoals": 2,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Bohemians",
+          "away": "Shamrock Rovers",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Derry City",
+          "away": "Shelbourne",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Shamrock Rovers",
+          "away": "St Patrick's Athletic",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Sligo Rovers",
+          "away": "Bohemians",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Shelbourne",
+          "away": "Galway United",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Dundalk",
+          "away": "Derry City",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Drogheda United",
+          "away": "Waterford",
+          "homeGoals": 3,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-12",
+          "home": "Shelbourne",
+          "away": "Shamrock Rovers",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-12",
+          "home": "Waterford",
+          "away": "Sligo Rovers",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-12",
+          "home": "St Patrick's Athletic",
+          "away": "Drogheda United",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-12",
+          "home": "Derry City",
+          "away": "Bohemians",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-12",
+          "home": "Galway United",
+          "away": "Dundalk",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-19",
+          "home": "Bohemians",
+          "away": "Dundalk",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-19",
+          "home": "Drogheda United",
+          "away": "Shelbourne",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-19",
+          "home": "Waterford",
+          "away": "Shamrock Rovers",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-19",
+          "home": "St Patrick's Athletic",
+          "away": "Sligo Rovers",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-19",
+          "home": "Galway United",
+          "away": "Derry City",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-22",
+          "home": "Shamrock Rovers",
+          "away": "Derry City",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-22",
+          "home": "Shelbourne",
+          "away": "Bohemians",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-26",
+          "home": "Bohemians",
+          "away": "St Patrick's Athletic",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-26",
+          "home": "Derry City",
+          "away": "Drogheda United",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-26",
+          "home": "Dundalk",
+          "away": "Waterford",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-26",
+          "home": "Shamrock Rovers",
+          "away": "Galway United",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-27",
+          "home": "Sligo Rovers",
+          "away": "Shelbourne",
+          "homeGoals": 2,
+          "awayGoals": 2
+        }
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "All dated results visible in opened extratime archive before cutoff; archive missing some games possible. No completeness claim.",
+      "derivedTable": {
+        "status": "DERIVED_NOT_INDEPENDENTLY_RECONCILED",
+        "rows": [
+          {
+            "club": "Shamrock Rovers",
+            "played": 24,
+            "w": 14,
+            "d": 5,
+            "l": 5,
+            "gf": 38,
+            "ga": 21,
+            "pts": 47
+          },
+          {
+            "club": "Bohemians",
+            "played": 24,
+            "w": 11,
+            "d": 7,
+            "l": 6,
+            "gf": 38,
+            "ga": 27,
+            "pts": 40
+          },
+          {
+            "club": "St Patrick's Athletic",
+            "played": 22,
+            "w": 11,
+            "d": 5,
+            "l": 6,
+            "gf": 35,
+            "ga": 19,
+            "pts": 38
+          },
+          {
+            "club": "Dundalk",
+            "played": 22,
+            "w": 9,
+            "d": 8,
+            "l": 5,
+            "gf": 36,
+            "ga": 32,
+            "pts": 35
+          },
+          {
+            "club": "Shelbourne",
+            "played": 23,
+            "w": 7,
+            "d": 10,
+            "l": 6,
+            "gf": 33,
+            "ga": 34,
+            "pts": 31
+          },
+          {
+            "club": "Derry City",
+            "played": 24,
+            "w": 6,
+            "d": 11,
+            "l": 7,
+            "gf": 30,
+            "ga": 27,
+            "pts": 29
+          },
+          {
+            "club": "Galway United",
+            "played": 21,
+            "w": 6,
+            "d": 6,
+            "l": 9,
+            "gf": 29,
+            "ga": 34,
+            "pts": 24
+          },
+          {
+            "club": "Drogheda United",
+            "played": 22,
+            "w": 5,
+            "d": 7,
+            "l": 10,
+            "gf": 27,
+            "ga": 38,
+            "pts": 22
+          },
+          {
+            "club": "Sligo Rovers",
+            "played": 22,
+            "w": 5,
+            "d": 5,
+            "l": 12,
+            "gf": 17,
+            "ga": 35,
+            "pts": 20
+          },
+          {
+            "club": "Waterford",
+            "played": 22,
+            "w": 3,
+            "d": 8,
+            "l": 11,
+            "gf": 28,
+            "ga": 44,
+            "pts": 17
+          }
+        ]
+      }
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.extratime.com/results/2132/100/league-of-ireland-premier-division/",
+        "https://www.leagueofireland.ie/news/key-dates-schedule-confirmed-2026-loi-season/",
+        "https://soccer-tainment.com/competition/republic-of-ireland-premier-division/2026"
+      ],
+      "details": {
+        "matches": 113
+      },
+      "missing": "Complete and independently verify pre-cutoff scores/dates, club IDs, official ranking."
     }
   }
 ]

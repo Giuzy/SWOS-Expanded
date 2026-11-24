@@ -1,0 +1,33 @@
+[
+  {
+    "index": 406,
+    "value": {
+      "competition": "LTU top division",
+      "firstEdition": "2026",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "previousName": "A Lyga",
+      "name": "TOPLYGA",
+      "rowRefs": [
+        265
+      ],
+      "source": "https://www.lff.lt/naujasis-lietuvos-futbolo-cempionato-pavadinimas-toplyga/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 407,
+    "value": {
+      "competition": "LTU top division",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "EXCEPTION_EXPULSION_AND_ANNULMENT",
+      "rowRefs": [
+        265
+      ],
+      "source": "https://www.lff.lt/priimtas-sprendimas-del-fk-riteriai-tolimesnio-dalyvavimo-toplygos-pirmenybese/",
+      "note": "14 June LFF decision: Riteriai excluded, less than half of games played, results annulled. 9 active at initial July1; no generic annual exclusion.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

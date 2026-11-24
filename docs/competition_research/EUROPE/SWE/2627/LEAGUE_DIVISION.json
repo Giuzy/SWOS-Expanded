@@ -13,7 +13,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -41,6 +41,629 @@
         "source": "https://www.svenskfotboll.se/nyheter/serier/2023/03/superettanpremiar-till-helgen/"
       },
       "scope": "Historical evidence through 2020; 2026 current rules not certified"
+    },
+    "block59Research": {
+      "edition": "2026",
+      "source": "https://www.rsssf.org/tablesz/zwed2026.html",
+      "sourceType": "RSSSF HTML actual lines inspected",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "matches": [
+        {
+          "date": "2026-04-04",
+          "home": "Hammarby",
+          "away": "Mjällby",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-04",
+          "home": "Degerfors",
+          "away": "Sirius",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-05",
+          "home": "AIK",
+          "away": "Halmstad",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-05",
+          "home": "Kalmar",
+          "away": "Västerås",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-05",
+          "home": "Örgryte",
+          "away": "Malmö",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-06",
+          "home": "Häcken",
+          "away": "Brommapojkarna",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-06",
+          "home": "Elfsborg",
+          "away": "Göteborg",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-06",
+          "home": "GAIS",
+          "away": "Djurgården",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Göteborg",
+          "away": "Häcken",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Mjällby",
+          "away": "Örgryte",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Västerås",
+          "away": "Elfsborg",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Djurgården",
+          "away": "Kalmar",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Halmstad",
+          "away": "Degerfors",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Malmö",
+          "away": "GAIS",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-13",
+          "home": "Brommapojkarna",
+          "away": "AIK",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-13",
+          "home": "Sirius",
+          "away": "Hammarby",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Djurgården",
+          "away": "Malmö",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Degerfors",
+          "away": "Elfsborg",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-18",
+          "home": "Hammarby",
+          "away": "Örgryte",
+          "homeGoals": 8,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-18",
+          "home": "Mjällby",
+          "away": "Brommapojkarna",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-18",
+          "home": "Sirius",
+          "away": "Västerås",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-18",
+          "home": "Halmstad",
+          "away": "Göteborg",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-19",
+          "home": "AIK",
+          "away": "Kalmar",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-19",
+          "home": "Häcken",
+          "away": "GAIS",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Hammarby",
+          "away": "Halmstad",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Örgryte",
+          "away": "Brommapojkarna",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Elfsborg",
+          "away": "Djurgården",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Västerås",
+          "away": "Häcken",
+          "homeGoals": 3,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-23",
+          "home": "GAIS",
+          "away": "Mjällby",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-23",
+          "home": "Malmö",
+          "away": "Sirius",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-23",
+          "home": "Degerfors",
+          "away": "AIK",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-23",
+          "home": "Kalmar",
+          "away": "Göteborg",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Djurgården",
+          "away": "Hammarby",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Göteborg",
+          "away": "GAIS",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Brommapojkarna",
+          "away": "Västerås",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-27",
+          "home": "AIK",
+          "away": "Malmö",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-27",
+          "home": "Örgryte",
+          "away": "Degerfors",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-27",
+          "home": "Häcken",
+          "away": "Sirius",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-27",
+          "home": "Mjällby",
+          "away": "Halmstad",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-27",
+          "home": "Kalmar",
+          "away": "Elfsborg",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-02",
+          "home": "Degerfors",
+          "away": "Häcken",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-02",
+          "home": "Sirius",
+          "away": "Kalmar",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-03",
+          "home": "Hammarby",
+          "away": "Västerås",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-03",
+          "home": "Malmö",
+          "away": "Mjällby",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-03",
+          "home": "GAIS",
+          "away": "Örgryte",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-03",
+          "home": "Elfsborg",
+          "away": "AIK",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-04",
+          "home": "Djurgården",
+          "away": "Göteborg",
+          "homeGoals": 6,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-04",
+          "home": "Halmstad",
+          "away": "Brommapojkarna",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-08",
+          "home": "Elfsborg",
+          "away": "Brommapojkarna",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-09",
+          "home": "Göteborg",
+          "away": "Hammarby",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-09",
+          "home": "Degerfors",
+          "away": "Mjällby",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-05-09",
+          "home": "Västerås",
+          "away": "GAIS",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-10",
+          "home": "AIK",
+          "away": "Djurgården",
+          "homeGoals": 2,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Kalmar",
+          "away": "Halmstad",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Häcken",
+          "away": "Malmö",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-11",
+          "home": "Sirius",
+          "away": "Örgryte",
+          "homeGoals": 2,
+          "awayGoals": 0
+        }
+      ],
+      "sourceLines": "11–142",
+      "rules": {
+        "teams": 16,
+        "rounds": 30,
+        "relegated": 2,
+        "playoffRank": 14
+      },
+      "derivedTable": {
+        "status": "SOURCE_TABLE_ROUND7_MATCHED_NOT_JULY",
+        "rows": [
+          {
+            "club": "Sirius",
+            "played": 7,
+            "win": 6,
+            "draw": 1,
+            "loss": 0,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 19,
+            "ga": 7,
+            "pts": 19
+          },
+          {
+            "club": "Hammarby",
+            "played": 7,
+            "win": 4,
+            "draw": 2,
+            "loss": 1,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 17,
+            "ga": 5,
+            "pts": 14
+          },
+          {
+            "club": "Elfsborg",
+            "played": 7,
+            "win": 4,
+            "draw": 2,
+            "loss": 1,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 11,
+            "ga": 6,
+            "pts": 14
+          },
+          {
+            "club": "Djurgården",
+            "played": 7,
+            "win": 4,
+            "draw": 1,
+            "loss": 2,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 16,
+            "ga": 8,
+            "pts": 13
+          },
+          {
+            "club": "Häcken",
+            "played": 7,
+            "win": 3,
+            "draw": 4,
+            "loss": 0,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 15,
+            "ga": 11,
+            "pts": 13
+          },
+          {
+            "club": "Mjällby",
+            "played": 7,
+            "win": 4,
+            "draw": 1,
+            "loss": 2,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 12,
+            "ga": 8,
+            "pts": 13
+          },
+          {
+            "club": "Malmö",
+            "played": 7,
+            "win": 3,
+            "draw": 1,
+            "loss": 3,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 12,
+            "ga": 11,
+            "pts": 10
+          },
+          {
+            "club": "GAIS",
+            "played": 7,
+            "win": 2,
+            "draw": 2,
+            "loss": 3,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 9,
+            "ga": 8,
+            "pts": 8
+          },
+          {
+            "club": "AIK",
+            "played": 7,
+            "win": 2,
+            "draw": 2,
+            "loss": 3,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 9,
+            "ga": 11,
+            "pts": 8
+          },
+          {
+            "club": "Brommapojkarna",
+            "played": 7,
+            "win": 2,
+            "draw": 2,
+            "loss": 3,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 10,
+            "ga": 13,
+            "pts": 8
+          },
+          {
+            "club": "Degerfors",
+            "played": 7,
+            "win": 2,
+            "draw": 2,
+            "loss": 3,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 8,
+            "ga": 11,
+            "pts": 8
+          },
+          {
+            "club": "Västerås",
+            "played": 7,
+            "win": 2,
+            "draw": 2,
+            "loss": 3,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 9,
+            "ga": 14,
+            "pts": 8
+          },
+          {
+            "club": "Kalmar",
+            "played": 7,
+            "win": 2,
+            "draw": 1,
+            "loss": 4,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 9,
+            "ga": 10,
+            "pts": 7
+          },
+          {
+            "club": "Örgryte",
+            "played": 7,
+            "win": 1,
+            "draw": 2,
+            "loss": 4,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 6,
+            "ga": 18,
+            "pts": 5
+          },
+          {
+            "club": "Göteborg",
+            "played": 7,
+            "win": 0,
+            "draw": 3,
+            "loss": 4,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 4,
+            "ga": 15,
+            "pts": 3
+          },
+          {
+            "club": "Halmstad",
+            "played": 7,
+            "win": 0,
+            "draw": 2,
+            "loss": 5,
+            "shootoutWin": 0,
+            "shootoutLoss": 0,
+            "gf": 4,
+            "ga": 14,
+            "pts": 2
+          }
+        ]
+      },
+      "scope": "56 scores rounds1–7, archive only up to May11; rounds8–10 still required before July1.",
+      "validation": {
+        "goalTotalsBalanced": true,
+        "playedCountsBalanced": true,
+        "pointsFormulaChecked": true,
+        "swedishPublishedTableMatched": 16,
+        "correction": "Initial prepared derived table had wrong awayGoals tuple field; replaced before commit. Raw fixture scores unaffected."
+      }
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.rsssf.org/tablesz/zwed2026.html"
+      ],
+      "details": {
+        "matches": 56
+      },
+      "missing": "Independent source, participant keys, exact completeness and standings reconciliation."
     }
   }
 ]

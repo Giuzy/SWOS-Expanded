@@ -12,8 +12,8 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,13 +23,147 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "FAI Cup",
-      "nonCommercialDisplayName": null,
+      "officialName": "Club Orange Men's FAI Cup",
+      "nonCommercialDisplayName": "FAI Cup",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b2a8e30a591a9d2b630000a51dc8c7a306307b42",
+      "source": "https://www.extratime.com/results/2132/132/fai-cup/",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block60Research": {
+      "sources": [
+        "https://www.extratime.com/results/2132/132/fai-cup/",
+        "https://www.fai.ie/latest/fixtures-2026-mens-fai-cup-first-round-confirmed/",
+        "https://www.fai.ie/competitions/club-orange-mens-fai-cup/results/"
+      ],
+      "name": "Club Orange Men's FAI Cup",
+      "display": "FAI Cup",
+      "matches": [
+        {
+          "date": "2026-05-10",
+          "home": "Bangor Celtic",
+          "away": "River Valley Rangers",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-14",
+          "home": "Midleton",
+          "away": "Mayfield United",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-15",
+          "home": "Wayside Celtic",
+          "away": "St Mochta's",
+          "homeGoals": 3,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Liffey Wanderers",
+          "away": "Ringmahon Rangers",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "penalties": [
+            3,
+            4
+          ],
+          "winner": "Ringmahon Rangers"
+        },
+        {
+          "date": "2026-05-16",
+          "home": "St Michael's AFC",
+          "away": "Janesboro",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "extraTime": true
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Castlebar Celtic",
+          "away": "North End United",
+          "homeGoals": null,
+          "awayGoals": null,
+          "status": "WALKOVER",
+          "winner": "Castlebar Celtic",
+          "sourcePlaceholder": [
+            0,
+            0
+          ],
+          "note": "Not a played score; official award to verify."
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Fairview Rangers",
+          "away": "Tolka Rovers",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Douglas Hall",
+          "away": "Fanad United",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Baldoyle United",
+          "away": "Leicester Celtic",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-17",
+          "home": "College Corinthians",
+          "away": "Killester Donnycarney",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Lucan United",
+          "away": "UCC",
+          "homeGoals": 5,
+          "awayGoals": 2,
+          "extraTime": true
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Crumlin United",
+          "away": "Salthill Devon",
+          "homeGoals": 4,
+          "awayGoals": 0
+        }
+      ],
+      "rules": {
+        "firstRoundEntrants": 24,
+        "firstRoundTies": 12,
+        "professionalClubsEnterRound": 2,
+        "singleElimination": true,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "start": "2026-05-10",
+      "scope": "12 first-round ties known; 11 played scores, one walkover, winner requires federation confirmation; no second round July results.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.extratime.com/results/2132/132/fai-cup/",
+        "https://www.fai.ie/latest/fixtures-2026-mens-fai-cup-first-round-confirmed/",
+        "https://www.fai.ie/competitions/club-orange-mens-fai-cup/results/"
+      ],
+      "details": {
+        "matches": 11,
+        "walkovers": 1
+      },
+      "missing": "Participant IDs, independent reconciliation, exact phase/access/tiebreak details."
     }
   }
 ]

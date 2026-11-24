@@ -12,22 +12,22 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Crystalbet Erovnuli Liga",
+      "nonCommercialDisplayName": "Erovnuli Liga",
       "candidateName": "Erovnuli Liga",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesg/geor2026.html",
       "nameHistory": [
         {
           "transition": 257,
@@ -41,6 +41,817 @@
       ],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block61Research": {
+      "source": "https://www.rsssf.org/tablesg/geor2026.html",
+      "sourceLines": "32–339,367–484",
+      "matches": [
+        {
+          "date": "2026-02-28",
+          "home": "Torpedo Kutaisi",
+          "away": "Spaeri",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-02",
+          "home": "Gagra GU",
+          "away": "Samgurali",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Iberia 1999",
+          "away": "Meshaxte",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Dila Gori",
+          "away": "Rustavi",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Dinamo Tbilisi",
+          "away": "Dinamo Batumi",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-06",
+          "home": "Iberia 1999",
+          "away": "Dila Gori",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-07",
+          "home": "Spaeri",
+          "away": "Dinamo Tbilisi",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-07",
+          "home": "Dinamo Batumi",
+          "away": "Gagra GU",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-07",
+          "home": "Rustavi",
+          "away": "Torpedo Kutaisi",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-08",
+          "home": "Meshaxte",
+          "away": "Samgurali",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-11",
+          "home": "Dinamo Tbilisi",
+          "away": "Rustavi",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-11",
+          "home": "Torpedo Kutaisi",
+          "away": "Iberia 1999",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-11",
+          "home": "Gagra GU",
+          "away": "Spaeri",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-03-12",
+          "home": "Samgurali",
+          "away": "Dinamo Batumi",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-12",
+          "home": "Dila Gori",
+          "away": "Meshaxte",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-15",
+          "home": "Iberia 1999",
+          "away": "Dinamo Tbilisi",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-15",
+          "home": "Rustavi",
+          "away": "Gagra GU",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-16",
+          "home": "Spaeri",
+          "away": "Samgurali",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-16",
+          "home": "Meshaxte",
+          "away": "Dinamo Batumi",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-16",
+          "home": "Dila Gori",
+          "away": "Torpedo Kutaisi",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-03",
+          "home": "Dinamo Batumi",
+          "away": "Spaeri",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-03",
+          "home": "Dinamo Tbilisi",
+          "away": "Dila Gori",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-03",
+          "home": "Torpedo Kutaisi",
+          "away": "Meshaxte",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-03",
+          "home": "Samgurali",
+          "away": "Rustavi",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-03",
+          "home": "Gagra GU",
+          "away": "Iberia 1999",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-07",
+          "home": "Meshaxte",
+          "away": "Spaeri",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-07",
+          "home": "Iberia 1999",
+          "away": "Samgurali",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-07",
+          "home": "Rustavi",
+          "away": "Dinamo Batumi",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-07",
+          "home": "Torpedo Kutaisi",
+          "away": "Dinamo Tbilisi",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-07",
+          "home": "Dila Gori",
+          "away": "Gagra GU",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Samgurali",
+          "away": "Dila Gori",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Gagra GU",
+          "away": "Torpedo Kutaisi",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Dinamo Tbilisi",
+          "away": "Meshaxte",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-18",
+          "home": "Dinamo Batumi",
+          "away": "Iberia 1999",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-18",
+          "home": "Spaeri",
+          "away": "Rustavi",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-21",
+          "home": "Torpedo Kutaisi",
+          "away": "Samgurali",
+          "homeGoals": 6,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-21",
+          "home": "Dinamo Tbilisi",
+          "away": "Gagra GU",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Spaeri",
+          "away": "Iberia 1999",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Meshaxte",
+          "away": "Rustavi",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Dila Gori",
+          "away": "Dinamo Batumi",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-25",
+          "home": "Samgurali",
+          "away": "Dinamo Tbilisi",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Rustavi",
+          "away": "Iberia 1999",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Spaeri",
+          "away": "Dila Gori",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-27",
+          "home": "Dinamo Batumi",
+          "away": "Torpedo Kutaisi",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-27",
+          "home": "Gagra GU",
+          "away": "Meshaxte",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Rustavi",
+          "away": "Dila Gori",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Spaeri",
+          "away": "Torpedo Kutaisi",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-02",
+          "home": "Meshaxte",
+          "away": "Iberia 1999",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-05-02",
+          "home": "Dinamo Batumi",
+          "away": "Dinamo Tbilisi",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-02",
+          "home": "Samgurali",
+          "away": "Gagra GU",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-05",
+          "home": "Torpedo Kutaisi",
+          "away": "Rustavi",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-06",
+          "home": "Dila Gori",
+          "away": "Iberia 1999",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-06",
+          "home": "Samgurali",
+          "away": "Meshaxte",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-06",
+          "home": "Gagra GU",
+          "away": "Dinamo Batumi",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-07",
+          "home": "Dinamo Tbilisi",
+          "away": "Spaeri",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Iberia 1999",
+          "away": "Torpedo Kutaisi",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Meshaxte",
+          "away": "Dila Gori",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Dinamo Batumi",
+          "away": "Samgurali",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-11",
+          "home": "Rustavi",
+          "away": "Dinamo Tbilisi",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-11",
+          "home": "Spaeri",
+          "away": "Gagra GU",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-15",
+          "home": "Torpedo Kutaisi",
+          "away": "Dila Gori",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Dinamo Tbilisi",
+          "away": "Iberia 1999",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Gagra GU",
+          "away": "Rustavi",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Dinamo Batumi",
+          "away": "Meshaxte",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Samgurali",
+          "away": "Spaeri",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Iberia 1999",
+          "away": "Gagra GU",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Dila Gori",
+          "away": "Dinamo Tbilisi",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Meshaxte",
+          "away": "Torpedo Kutaisi",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-05-21",
+          "home": "Rustavi",
+          "away": "Samgurali",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-21",
+          "home": "Spaeri",
+          "away": "Dinamo Batumi",
+          "homeGoals": 3,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Dinamo Tbilisi",
+          "away": "Torpedo Kutaisi",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Gagra GU",
+          "away": "Dila Gori",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Samgurali",
+          "away": "Iberia 1999",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Dinamo Batumi",
+          "away": "Rustavi",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Spaeri",
+          "away": "Meshaxte",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-28",
+          "home": "Torpedo Kutaisi",
+          "away": "Gagra GU",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Iberia 1999",
+          "away": "Dinamo Batumi",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Rustavi",
+          "away": "Spaeri",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Dila Gori",
+          "away": "Samgurali",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-30",
+          "home": "Meshaxte",
+          "away": "Dinamo Tbilisi",
+          "homeGoals": 1,
+          "awayGoals": 6
+        },
+        {
+          "date": "2026-06-12",
+          "home": "Iberia 1999",
+          "away": "Spaeri",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-12",
+          "home": "Dinamo Batumi",
+          "away": "Dila Gori",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Rustavi",
+          "away": "Meshaxte",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-13",
+          "home": "Samgurali",
+          "away": "Torpedo Kutaisi",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-14",
+          "home": "Gagra GU",
+          "away": "Dinamo Tbilisi",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-16",
+          "home": "Dila Gori",
+          "away": "Spaeri",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-17",
+          "home": "Iberia 1999",
+          "away": "Rustavi",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-17",
+          "home": "Torpedo Kutaisi",
+          "away": "Dinamo Batumi",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-18",
+          "home": "Dinamo Tbilisi",
+          "away": "Samgurali",
+          "homeGoals": 5,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-18",
+          "home": "Meshaxte",
+          "away": "Gagra GU",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-22",
+          "home": "Dila Gori",
+          "away": "Rustavi",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-22",
+          "home": "Torpedo Kutaisi",
+          "away": "Spaeri",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-23",
+          "home": "Iberia 1999",
+          "away": "Meshaxte",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-23",
+          "home": "Dinamo Tbilisi",
+          "away": "Dinamo Batumi",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-24",
+          "home": "Gagra GU",
+          "away": "Samgurali",
+          "homeGoals": 0,
+          "awayGoals": 0
+        }
+      ],
+      "rules": {
+        "teams": 10,
+        "rounds": 36,
+        "pointsWin": 3,
+        "observedRelegationRank": 10,
+        "observedPlayoffRanks": [
+          8,
+          9
+        ],
+        "tieBreakEvidence": "head-to-head shown; exact full order pending"
+      },
+      "publishedTable": {
+        "asOf": "2026-06-24",
+        "columns": [
+          "club",
+          "P",
+          "W",
+          "D",
+          "L",
+          "GF",
+          "GA",
+          "Pts"
+        ],
+        "rows": [
+          [
+            "Iberia 1999",
+            19,
+            10,
+            4,
+            5,
+            27,
+            18,
+            34
+          ],
+          [
+            "Rustavi",
+            19,
+            9,
+            5,
+            5,
+            22,
+            18,
+            32
+          ],
+          [
+            "Dinamo Tbilisi",
+            19,
+            8,
+            7,
+            4,
+            31,
+            21,
+            31
+          ],
+          [
+            "Torpedo Kutaisi",
+            19,
+            7,
+            6,
+            6,
+            30,
+            19,
+            27
+          ],
+          [
+            "Dinamo Batumi",
+            19,
+            7,
+            6,
+            6,
+            28,
+            30,
+            27
+          ],
+          [
+            "Dila Gori",
+            19,
+            8,
+            2,
+            9,
+            21,
+            19,
+            26
+          ],
+          [
+            "Samgurali",
+            19,
+            7,
+            4,
+            8,
+            25,
+            32,
+            25
+          ],
+          [
+            "Spaeri",
+            19,
+            5,
+            7,
+            7,
+            25,
+            25,
+            22
+          ],
+          [
+            "Gagra GU",
+            19,
+            5,
+            7,
+            7,
+            18,
+            24,
+            22
+          ],
+          [
+            "Meshaxte",
+            19,
+            1,
+            8,
+            10,
+            13,
+            34,
+            11
+          ]
+        ],
+        "reconciledFromMatches": true
+      },
+      "note": "95 scores all 19 rounds match every published table field; next round listed August8. Independent source, identity and rule certification still pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.rsssf.org/tablesg/geor2026.html"
+      ],
+      "details": {
+        "matches": 95
+      },
+      "missing": "Independent corroboration, stable participant keys, complete rules."
     }
   }
 ]

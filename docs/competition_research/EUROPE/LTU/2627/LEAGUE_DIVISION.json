@@ -13,24 +13,140 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "TOPLYGA",
+      "nonCommercialDisplayName": "TOPLYGA",
       "candidateName": "A Lyga",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
-      "source": "https://en.wikipedia.org/wiki/European_Leagues",
-      "nameHistory": [],
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.lff.lt/naujasis-lietuvos-futbolo-cempionato-pavadinimas-toplyga/",
+      "nameHistory": [
+        {
+          "from": "2026",
+          "previousName": "A Lyga",
+          "name": "TOPLYGA",
+          "source": "https://www.lff.lt/naujasis-lietuvos-futbolo-cempionato-pavadinimas-toplyga/"
+        }
+      ],
       "historyComplete": false
+    },
+    "block58Research": {
+      "edition": "2026",
+      "name": "TOPLYGA",
+      "display": "TOPLYGA",
+      "sources": [
+        "https://www.lff.lt/naujasis-lietuvos-futbolo-cempionato-pavadinimas-toplyga/",
+        "https://www.lff.lt/priimtas-sprendimas-del-fk-riteriai-tolimesnio-dalyvavimo-toplygos-pirmenybese/",
+        "https://www.rsssf.org/tablesl/lito2026.html",
+        "https://toplyga.lt/naujiena/kita-sezona-toplygoje-zais-10-klubu/9524"
+      ],
+      "rules": {
+        "initialTeams": 10,
+        "activeAtCutoff": 9,
+        "normalRounds": 36,
+        "exception": "Riteriai expelled 2026-06-14, played under 50% so league results annulled; 2027 ten-team reinstatement announced August 4, not automatic recurring exclusion"
+      },
+      "snapshot": {
+        "matches": [
+          [
+            "2026-06-12",
+            "Dziugas",
+            "Siauliai",
+            4,
+            3
+          ],
+          [
+            "2026-06-12",
+            "Panevezys",
+            "TransInvest",
+            1,
+            2
+          ],
+          [
+            "2026-06-13",
+            "Suduva",
+            "Banga",
+            0,
+            0
+          ],
+          [
+            "2026-06-14",
+            "Hegelmann",
+            "Zalgiris Kn",
+            1,
+            1
+          ],
+          [
+            "2026-06-20",
+            "TransInvest",
+            "Zalgiris Kn",
+            1,
+            2
+          ],
+          [
+            "2026-06-20",
+            "Banga",
+            "Zalgiris Vl",
+            3,
+            0
+          ],
+          [
+            "2026-06-20",
+            "Panevezys",
+            "Siauliai",
+            3,
+            2
+          ],
+          [
+            "2026-06-21",
+            "Dziugas",
+            "Suduva",
+            1,
+            2
+          ],
+          [
+            "2026-06-28",
+            "Dziugas",
+            "Zalgiris Vl",
+            0,
+            0
+          ]
+        ],
+        "annulledExample": {
+          "date": "2026-06-12",
+          "home": "Zalgiris Vl",
+          "away": "Riteriai",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "countsInStandings": false
+        },
+        "note": "Played-but-annulled evidence is separate, not a valid result in cutoff standings; no later real result used."
+      },
+      "checked": "2026-11-24",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.lff.lt/naujasis-lietuvos-futbolo-cempionato-pavadinimas-toplyga/",
+        "https://www.lff.lt/priimtas-sprendimas-del-fk-riteriai-tolimesnio-dalyvavimo-toplygos-pirmenybese/",
+        "https://www.rsssf.org/tablesl/lito2026.html",
+        "https://toplyga.lt/naujiena/kita-sezona-toplygoje-zais-10-klubu/9524"
+      ],
+      "details": {
+        "matches": 9
+      },
+      "missing": "Full cutoff list, independent exact date/score verification, stable club keys and standings reconciliation."
     }
   }
 ]

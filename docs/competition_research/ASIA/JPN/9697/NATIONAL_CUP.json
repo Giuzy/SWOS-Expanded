@@ -11,12 +11,12 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "historicalSportData": {
@@ -32,13 +32,854 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "J.League Yamazaki Nabisco Cup",
+      "nonCommercialDisplayName": "J.League Cup",
       "candidateName": "J.League Cup",
-      "status": "HISTORICAL_NAME_CANDIDATE",
-      "source": null,
-      "nameHistory": [],
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesj/jap96.html",
+      "nameHistory": [
+        {
+          "transition": 408,
+          "from": "2016-06-21",
+          "to": "2026/27",
+          "name": "J.League YBC Levain Cup",
+          "source": "https://www.jleague.jp/news/article/6189/"
+        },
+        {
+          "transition": 409,
+          "from": "2026/27",
+          "to": null,
+          "name": "J.LEAGUE YAMAZAKI BISCUITS Levain CUP",
+          "source": "https://aboutj.jleague.jp/corporate/en/terminology/"
+        }
+      ],
       "historyComplete": false
+    },
+    "block59Research": {
+      "edition": "1996",
+      "source": "https://www.rsssf.org/tablesj/jap96.html",
+      "sourceType": "RSSSF HTML actual lines inspected",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "matches": [
+        {
+          "date": "1996-06-01",
+          "home": "Yokohama Marinos",
+          "away": "Gamba Osaka",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-01",
+          "home": "Sanfrecce Hiroshima",
+          "away": "Jubilo Iwata",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-01",
+          "home": "Urawa Red Diamonds",
+          "away": "Kashiwa Reysol",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-01",
+          "home": "Kyoto Purple Sanga",
+          "away": "Bellmare Hiratsuka",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-05",
+          "home": "Kashiwa Reysol",
+          "away": "Urawa Red Diamonds",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-05",
+          "home": "Bellmare Hiratsuka",
+          "away": "Kyoto Purple Sanga",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-05",
+          "home": "Jubilo Iwata",
+          "away": "Sanfrecce Hiroshima",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-05",
+          "home": "Gamba Osaka",
+          "away": "Yokohama Marinos",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-08",
+          "home": "Kashiwa Reysol",
+          "away": "Yokohama Marinos",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-08",
+          "home": "Urawa Red Diamonds",
+          "away": "Bellmare Hiratsuka",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-08",
+          "home": "Kyoto Purple Sanga",
+          "away": "Sanfrecce Hiroshima",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-08",
+          "home": "Jubilo Iwata",
+          "away": "Gamba Osaka",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-12",
+          "home": "Yokohama Marinos",
+          "away": "Kashiwa Reysol",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-12",
+          "home": "Bellmare Hiratsuka",
+          "away": "Urawa Red Diamonds",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-12",
+          "home": "Gamba Osaka",
+          "away": "Jubilo Iwata",
+          "homeGoals": 0,
+          "awayGoals": 5,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-12",
+          "home": "Sanfrecce Hiroshima",
+          "away": "Kyoto Purple Sanga",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-15",
+          "home": "Kashiwa Reysol",
+          "away": "Jubilo Iwata",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-15",
+          "home": "Bellmare Hiratsuka",
+          "away": "Yokohama Marinos",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-15",
+          "home": "Kyoto Purple Sanga",
+          "away": "Urawa Red Diamonds",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-15",
+          "home": "Sanfrecce Hiroshima",
+          "away": "Gamba Osaka",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-19",
+          "home": "Urawa Red Diamonds",
+          "away": "Kyoto Purple Sanga",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-19",
+          "home": "Yokohama Marinos",
+          "away": "Bellmare Hiratsuka",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-19",
+          "home": "Jubilo Iwata",
+          "away": "Kashiwa Reysol",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-19",
+          "home": "Gamba Osaka",
+          "away": "Sanfrecce Hiroshima",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-22",
+          "home": "Yokohama Marinos",
+          "away": "Urawa Red Diamonds",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-22",
+          "home": "Kashiwa Reysol",
+          "away": "Sanfrecce Hiroshima",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-22",
+          "home": "Bellmare Hiratsuka",
+          "away": "Jubilo Iwata",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-22",
+          "home": "Gamba Osaka",
+          "away": "Kyoto Purple Sanga",
+          "homeGoals": 4,
+          "awayGoals": 3,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-26",
+          "home": "Urawa Red Diamonds",
+          "away": "Yokohama Marinos",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-26",
+          "home": "Jubilo Iwata",
+          "away": "Bellmare Hiratsuka",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-26",
+          "home": "Kyoto Purple Sanga",
+          "away": "Gamba Osaka",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-26",
+          "home": "Sanfrecce Hiroshima",
+          "away": "Kashiwa Reysol",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-29",
+          "home": "Urawa Red Diamonds",
+          "away": "Jubilo Iwata",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-29",
+          "home": "Kyoto Purple Sanga",
+          "away": "Yokohama Marinos",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-29",
+          "home": "Sanfrecce Hiroshima",
+          "away": "Bellmare Hiratsuka",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-29",
+          "home": "Gamba Osaka",
+          "away": "Kashiwa Reysol",
+          "homeGoals": 1,
+          "awayGoals": 4,
+          "group": "A"
+        },
+        {
+          "date": "1996-06-01",
+          "home": "Shimizu S-Pulse",
+          "away": "Kashima Antlers",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-01",
+          "home": "Nagoya Grampus Eight",
+          "away": "Yokohama Flugels",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-01",
+          "home": "JEF United Ichihara",
+          "away": "Avispa Fukuoka",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-01",
+          "home": "Cerezo Osaka",
+          "away": "Verdy Kawasaki",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-05",
+          "home": "Kashima Antlers",
+          "away": "Shimizu S-Pulse",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-05",
+          "home": "Verdy Kawasaki",
+          "away": "Cerezo Osaka",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-05",
+          "home": "Yokohama Flugels",
+          "away": "Nagoya Grampus Eight",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-05",
+          "home": "Avispa Fukuoka",
+          "away": "JEF United Ichihara",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-08",
+          "home": "Cerezo Osaka",
+          "away": "JEF United Ichihara",
+          "homeGoals": 3,
+          "awayGoals": 3,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-08",
+          "home": "Yokohama Flugels",
+          "away": "Shimizu S-Pulse",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-08",
+          "home": "Avispa Fukuoka",
+          "away": "Kashima Antlers",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-08",
+          "home": "Verdy Kawasaki",
+          "away": "Nagoya Grampus Eight",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-12",
+          "home": "Kashima Antlers",
+          "away": "Avispa Fukuoka",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-12",
+          "home": "JEF United Ichihara",
+          "away": "Cerezo Osaka",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-12",
+          "home": "Shimizu S-Pulse",
+          "away": "Yokohama Flugels",
+          "homeGoals": 3,
+          "awayGoals": 3,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-12",
+          "home": "Nagoya Grampus Eight",
+          "away": "Verdy Kawasaki",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-15",
+          "home": "Shimizu S-Pulse",
+          "away": "Avispa Fukuoka",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-15",
+          "home": "Nagoya Grampus Eight",
+          "away": "JEF United Ichihara",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-15",
+          "home": "Yokohama Flugels",
+          "away": "Verdy Kawasaki",
+          "homeGoals": 5,
+          "awayGoals": 1,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-15",
+          "home": "Cerezo Osaka",
+          "away": "Kashima Antlers",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-19",
+          "home": "Kashima Antlers",
+          "away": "Cerezo Osaka",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-19",
+          "home": "JEF United Ichihara",
+          "away": "Nagoya Grampus Eight",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-19",
+          "home": "Verdy Kawasaki",
+          "away": "Yokohama Flugels",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-19",
+          "home": "Avispa Fukuoka",
+          "away": "Shimizu S-Pulse",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-22",
+          "home": "Shimizu S-Pulse",
+          "away": "Cerezo Osaka",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-22",
+          "home": "Kashima Antlers",
+          "away": "Nagoya Grampus Eight",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-22",
+          "home": "JEF United Ichihara",
+          "away": "Verdy Kawasaki",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-22",
+          "home": "Avispa Fukuoka",
+          "away": "Yokohama Flugels",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-26",
+          "home": "Verdy Kawasaki",
+          "away": "JEF United Ichihara",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-26",
+          "home": "Yokohama Flugels",
+          "away": "Avispa Fukuoka",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-26",
+          "home": "Nagoya Grampus Eight",
+          "away": "Kashima Antlers",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-26",
+          "home": "Cerezo Osaka",
+          "away": "Shimizu S-Pulse",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-29",
+          "home": "Shimizu S-Pulse",
+          "away": "Nagoya Grampus Eight",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-29",
+          "home": "Yokohama Flugels",
+          "away": "JEF United Ichihara",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-29",
+          "home": "Avispa Fukuoka",
+          "away": "Cerezo Osaka",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "group": "B"
+        },
+        {
+          "date": "1996-06-29",
+          "home": "Verdy Kawasaki",
+          "away": "Kashima Antlers",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "group": "B"
+        }
+      ],
+      "sourceLines": "946–1081,1140–1236",
+      "rules": {
+        "teams": 16,
+        "groups": 2,
+        "groupSize": 8,
+        "legsPerPair": 2,
+        "pointsPerCompletedPair": {
+          "win": 3,
+          "draw": 1,
+          "loss": 0
+        },
+        "groupExtraTime": false,
+        "groupAwayGoals": false,
+        "advanceTop": 2
+      },
+      "scope": "All 72 matches rounds1–9, next round July3. Round9 first leg remains unscored for aggregate points at cutoff.",
+      "derivedGroupTables": {
+        "status": "SOURCE_DERIVED_NOT_INDEPENDENTLY_RECONCILED",
+        "rows": [
+          {
+            "club": "Kashiwa Reysol",
+            "group": "A",
+            "played": 9,
+            "gf": 17,
+            "ga": 10,
+            "completedPairs": 4,
+            "points": 9
+          },
+          {
+            "club": "Sanfrecce Hiroshima",
+            "group": "A",
+            "played": 9,
+            "gf": 11,
+            "ga": 9,
+            "completedPairs": 4,
+            "points": 7
+          },
+          {
+            "club": "Jubilo Iwata",
+            "group": "A",
+            "played": 9,
+            "gf": 18,
+            "ga": 8,
+            "completedPairs": 4,
+            "points": 7
+          },
+          {
+            "club": "Yokohama Marinos",
+            "group": "A",
+            "played": 9,
+            "gf": 13,
+            "ga": 12,
+            "completedPairs": 4,
+            "points": 6
+          },
+          {
+            "club": "Gamba Osaka",
+            "group": "A",
+            "played": 9,
+            "gf": 13,
+            "ga": 23,
+            "completedPairs": 4,
+            "points": 6
+          },
+          {
+            "club": "Bellmare Hiratsuka",
+            "group": "A",
+            "played": 9,
+            "gf": 14,
+            "ga": 12,
+            "completedPairs": 4,
+            "points": 6
+          },
+          {
+            "club": "Urawa Red Diamonds",
+            "group": "A",
+            "played": 9,
+            "gf": 7,
+            "ga": 13,
+            "completedPairs": 4,
+            "points": 3
+          },
+          {
+            "club": "Kyoto Purple Sanga",
+            "group": "A",
+            "played": 9,
+            "gf": 9,
+            "ga": 15,
+            "completedPairs": 4,
+            "points": 3
+          },
+          {
+            "club": "Shimizu S-Pulse",
+            "group": "B",
+            "played": 9,
+            "gf": 16,
+            "ga": 7,
+            "completedPairs": 4,
+            "points": 12
+          },
+          {
+            "club": "JEF United Ichihara",
+            "group": "B",
+            "played": 9,
+            "gf": 14,
+            "ga": 10,
+            "completedPairs": 4,
+            "points": 9
+          },
+          {
+            "club": "Verdy Kawasaki",
+            "group": "B",
+            "played": 9,
+            "gf": 19,
+            "ga": 9,
+            "completedPairs": 4,
+            "points": 9
+          },
+          {
+            "club": "Yokohama Flugels",
+            "group": "B",
+            "played": 9,
+            "gf": 18,
+            "ga": 15,
+            "completedPairs": 4,
+            "points": 7
+          },
+          {
+            "club": "Kashima Antlers",
+            "group": "B",
+            "played": 9,
+            "gf": 11,
+            "ga": 7,
+            "completedPairs": 4,
+            "points": 6
+          },
+          {
+            "club": "Cerezo Osaka",
+            "group": "B",
+            "played": 9,
+            "gf": 9,
+            "ga": 16,
+            "completedPairs": 4,
+            "points": 3
+          },
+          {
+            "club": "Nagoya Grampus Eight",
+            "group": "B",
+            "played": 9,
+            "gf": 3,
+            "ga": 17,
+            "completedPairs": 4,
+            "points": 1
+          },
+          {
+            "club": "Avispa Fukuoka",
+            "group": "B",
+            "played": 9,
+            "gf": 6,
+            "ga": 15,
+            "completedPairs": 4,
+            "points": 0
+          }
+        ],
+        "pendingPairs": [
+          {
+            "date": "1996-06-29",
+            "home": "Urawa Red Diamonds",
+            "away": "Jubilo Iwata",
+            "homeGoals": 1,
+            "awayGoals": 2,
+            "group": "A"
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Kyoto Purple Sanga",
+            "away": "Yokohama Marinos",
+            "homeGoals": 1,
+            "awayGoals": 3,
+            "group": "A"
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Sanfrecce Hiroshima",
+            "away": "Bellmare Hiratsuka",
+            "homeGoals": 2,
+            "awayGoals": 3,
+            "group": "A"
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Gamba Osaka",
+            "away": "Kashiwa Reysol",
+            "homeGoals": 1,
+            "awayGoals": 4,
+            "group": "A"
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Shimizu S-Pulse",
+            "away": "Nagoya Grampus Eight",
+            "homeGoals": 2,
+            "awayGoals": 0,
+            "group": "B"
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Yokohama Flugels",
+            "away": "JEF United Ichihara",
+            "homeGoals": 2,
+            "awayGoals": 3,
+            "group": "B"
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Avispa Fukuoka",
+            "away": "Cerezo Osaka",
+            "homeGoals": 2,
+            "awayGoals": 2,
+            "group": "B"
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Verdy Kawasaki",
+            "away": "Kashima Antlers",
+            "homeGoals": 1,
+            "awayGoals": 1,
+            "group": "B"
+          }
+        ]
+      }
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.rsssf.org/tablesj/jap96.html"
+      ],
+      "details": {
+        "matches": 72
+      },
+      "missing": "Independent source, participant keys, exact completeness and standings reconciliation."
     }
   },
   {

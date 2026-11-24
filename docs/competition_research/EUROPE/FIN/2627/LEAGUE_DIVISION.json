@@ -13,21 +13,21 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Veikkausliiga",
       "nonCommercialDisplayName": null,
       "candidateName": "Veikkausliiga",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
-      "source": "https://en.wikipedia.org/wiki/European_Leagues",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.veikkausliiga.com/veikkausliiga/sarjajarjestelma",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -58,6 +58,89 @@
         "https://www.veikkausliiga.com/veikkausliiga/sarjajarjestelma",
         "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain-avauspaiva-44-aivan-taynna-otteluita"
       ]
+    },
+    "block60Research": {
+      "edition": "2026",
+      "sources": [
+        "https://sport-widgets.com/livesports/competition/78648/",
+        "https://www.veikkausliiga.com/veikkausliiga/sarjajarjestelma",
+        "https://veikkausliiga.nidos.fi/tilastot/2026/veikkausliiga/joukkueet/"
+      ],
+      "rules": {
+        "teams": 12,
+        "regularGames": 22,
+        "groups": [
+          6,
+          6
+        ],
+        "championshipAdditional": 10,
+        "relegationAdditional": 5,
+        "championshipTotal": 32,
+        "relegationTotal": 27,
+        "relegated": 1,
+        "playoffRank": 11,
+        "playoffLegs": 2
+      },
+      "matches": [
+        {
+          "date": "2026-06-27",
+          "home": "AC Oulu",
+          "away": "FC Lahti",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-27",
+          "home": "IF Gnistan",
+          "away": "VPS",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-27",
+          "home": "TPS",
+          "away": "FF Jaro",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-27",
+          "home": "HJK",
+          "away": "KuPS",
+          "homeGoals": 0,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-06-27",
+          "home": "IFK Mariehamn",
+          "away": "FC Inter Turku",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-27",
+          "home": "Ilves",
+          "away": "SJK",
+          "homeGoals": 2,
+          "awayGoals": 2
+        }
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Dated sample; complete cutoff fixture list still needed.",
+      "note": "Official league rule search excerpt confirms asymmetric split and 12th direct / 11th two-legged playoff; official 2026 stats corroborate 32/27. Secondary source claiming 27 for both is inconsistent and not used."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://sport-widgets.com/livesports/competition/78648/",
+        "https://www.veikkausliiga.com/veikkausliiga/sarjajarjestelma",
+        "https://veikkausliiga.nidos.fi/tilastot/2026/veikkausliiga/joukkueet/"
+      ],
+      "details": {
+        "matches": 6
+      },
+      "missing": "Complete and independently verify pre-cutoff scores/dates, club IDs, official ranking."
     }
   }
 ]

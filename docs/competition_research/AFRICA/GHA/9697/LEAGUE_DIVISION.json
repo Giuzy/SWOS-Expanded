@@ -50,6 +50,21 @@
       "source": "https://www.rsssf.org/tablesg/gha97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block57Research": {
+      "edition": "1996/97",
+      "sources": [
+        "https://rsssf.org/tablesg/gha97.html",
+        "https://globalsportsarchive.com/en/soccer/competition/abc-golden-lager-premier-league-1996-1997/11166",
+        "https://stattosoftware.com/football/competitions.php?comp=Ghanaian+Premier+League&yr=1996-97"
+      ],
+      "nameEvidence": [
+        "ABC Golden Lager Premier Division",
+        "ABC Golden Lager Premier League"
+      ],
+      "note": "Sponsor label verified from archive search excerpt, generic Premier Division retained; inconsistent played totals; no July 1996 start or match dates established. Actual naming variant needs primary confirmation.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24"
     }
   }
 ]

@@ -12,24 +12,118 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Betera Vyšejšaja Liha",
+      "nonCommercialDisplayName": "Vyšejšaja Liha",
       "candidateName": "Belarusian Premier League",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
-      "source": "https://en.wikipedia.org/wiki/European_Leagues",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://en.wikipedia.org/wiki/2026_Belarusian_Premier_League",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block58Research": {
+      "edition": "2026",
+      "name": "Betera Vyšejšaja Liha",
+      "display": "Vyšejšaja Liha",
+      "nameSource": "https://en.wikipedia.org/wiki/2026_Belarusian_Premier_League",
+      "sources": [
+        "https://www.rsssf.org/tablesw/witr2026.html",
+        "https://stadiro.com/leagues/belarus/vysshaya-liga/",
+        "https://scoutingstats.ai/league/199/vysshaya-liga/table"
+      ],
+      "rules": {
+        "teams": 16,
+        "rounds": 30,
+        "relegationDirect": 2,
+        "relegationPlayoffRank": 14
+      },
+      "snapshot": {
+        "round": 13,
+        "matches": [
+          [
+            "2026-06-26",
+            "Arsienal",
+            "Homiel",
+            1,
+            1
+          ],
+          [
+            "2026-06-26",
+            "Baranavicy",
+            "Slavija",
+            1,
+            1
+          ],
+          [
+            "2026-06-27",
+            "Dynama Mn",
+            "FC Viciebsk",
+            1,
+            1
+          ],
+          [
+            "2026-06-27",
+            "ML Viciebsk",
+            "Naftan",
+            2,
+            1
+          ],
+          [
+            "2026-06-27",
+            "Tarpieda",
+            "BATE",
+            3,
+            0
+          ],
+          [
+            "2026-06-27",
+            "Dynama Br",
+            "Minsk",
+            0,
+            0
+          ],
+          [
+            "2026-06-28",
+            "Islac",
+            "BielSyna",
+            4,
+            0
+          ],
+          [
+            "2026-06-28",
+            "Dniapro",
+            "Nioman",
+            2,
+            0
+          ]
+        ],
+        "note": "Round14 starts July1; no July results retained."
+      },
+      "checked": "2026-11-24",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.rsssf.org/tablesw/witr2026.html",
+        "https://stadiro.com/leagues/belarus/vysshaya-liga/",
+        "https://scoutingstats.ai/league/199/vysshaya-liga/table"
+      ],
+      "details": {
+        "matches": 8
+      },
+      "missing": "Full cutoff fixture list, independent date/score checks, participant keys and standings reconciliation."
     }
   }
 ]

@@ -70,8 +70,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -88,6 +87,35 @@
       "source": "03ab547e24a4319b11c51bb720ef20db56ff78ae",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block57Research": {
+      "edition": "2026",
+      "sources": [
+        "https://www.cafonline.com/news/ghana-egypt-senegal-morocco-and-south-africa-set-to-host-caf-events-in-2026-27/",
+        "https://www.cafonline.com/competitions/caf-competitions/",
+        "https://www.cafonline.com/en/caf-champions-league/news/sundowns-hold-off-far-rabat-to-win-second-totalenergies-caf-champions-league-title/",
+        "https://www.cafonline.com/caf-confederation-cup/news/usm-alger-crowned-totalenergies-caf-confederation-cup-champions-after-epic-penalty-victory-over-zamalek/"
+      ],
+      "rules": {
+        "teams": 2,
+        "legs": 1,
+        "access": [
+          "previous CAF Champions League winner",
+          "previous CAF Confederation Cup winner"
+        ],
+        "host": "normally Champions League winner, alternate/neutral permitted by CAF"
+      },
+      "dates": {
+        "fixture": "2026-11-08"
+      },
+      "participantEvidence": {
+        "home": "Mamelodi Sundowns",
+        "away": "USM Alger",
+        "provenance": "CAF 2025/26 champions determined before initial cutoff"
+      },
+      "note": "No November result stored; entrants verified by prior edition winners, not a July sporting snapshot.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24"
     }
   },
   {

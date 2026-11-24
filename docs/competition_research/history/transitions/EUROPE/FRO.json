@@ -1,0 +1,92 @@
+[
+  {
+    "index": 401,
+    "value": {
+      "competition": "FRO top division",
+      "firstEdition": "2005",
+      "lastEdition": "2008",
+      "operation": "RENAME_AND_CHANGE_FORMAT",
+      "previousName": "1. deild",
+      "name": "Formuladeildin",
+      "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/",
+      "rowRefs": [
+        11,
+        241
+      ],
+      "note": "18 to 27 matches per club; 2005 archive https://www.rsssf.org/tablesf/far05.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 402,
+    "value": {
+      "competition": "FRO top division",
+      "firstEdition": "2009",
+      "lastEdition": "2011",
+      "operation": "RENAME",
+      "previousName": "Formuladeildin",
+      "name": "Vodafonedeildin",
+      "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/",
+      "rowRefs": [
+        11,
+        241
+      ],
+      "note": null,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 403,
+    "value": {
+      "competition": "FRO top division",
+      "firstEdition": "2012",
+      "lastEdition": "2017",
+      "operation": "RENAME",
+      "previousName": "Vodafonedeildin",
+      "name": "Effodeildin",
+      "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/",
+      "rowRefs": [
+        11,
+        241
+      ],
+      "note": null,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 404,
+    "value": {
+      "competition": "FRO top division",
+      "firstEdition": "2018",
+      "lastEdition": "2025",
+      "operation": "RENAME",
+      "previousName": "Effodeildin",
+      "name": "Betrideildin",
+      "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/",
+      "rowRefs": [
+        11,
+        241
+      ],
+      "note": null,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 405,
+    "value": {
+      "competition": "FRO top division",
+      "firstEdition": "2026",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "previousName": "Betrideildin",
+      "name": "Meistaradeildin menn",
+      "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/",
+      "rowRefs": [
+        11,
+        241
+      ],
+      "note": null,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

@@ -12,24 +12,98 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Evald Tipneri karikavõistlused",
+      "nonCommercialDisplayName": "Estonian Cup",
       "candidateName": "Estonian Cup",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
-      "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://m.aiscore.com/tournament-estonian-cup/eg6763i9eb47ryv/matches",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block60Research": {
+      "sources": [
+        "https://m.aiscore.com/tournament-estonian-cup/eg6763i9eb47ryv/matches",
+        "https://globalsportsarchive.com/en/soccer/competition/tipneri-eesti-karikas-2026-2027/80369",
+        "https://jalgpall.ee/voistlused/karikavoistlused/137/tipneri-karikavoistlused",
+        "https://stadiro.com/leagues/estonia/estonian-cup/"
+      ],
+      "name": "Evald Tipneri karikavõistlused",
+      "display": "Estonian Cup",
+      "matches": [
+        {
+          "date": "2026-06-10",
+          "home": "JK Arsenal / Põhja-Tallinna JK Volta combined",
+          "away": "Tallinna Kalev U21",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-11",
+          "home": "Trans Narva",
+          "away": "Vana Hea Puur",
+          "homeGoals": 10,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-10",
+          "home": "Saue",
+          "away": "Viimsi",
+          "homeGoals": 6,
+          "awayGoals": 0,
+          "source": "https://soccer365.net/competitions/1209/",
+          "participantIdentity": "UNRESOLVED_SENIOR_OR_RESERVE"
+        }
+      ],
+      "rules": {
+        "singleElimination": true,
+        "initialStage": "round of 128",
+        "observedRound128Ties": 11
+      },
+      "start": "2026-06-10",
+      "scope": "Three sample scores, one club identity unresolved, full list not yet confirmed. Tartu Kalev 4–3 Paide III dated June10 vs June11 in two sources, held separately pending official date.",
+      "unresolved": [
+        {
+          "home": "Tartu Kalev",
+          "away": "Paide Linnameeskond III",
+          "homeGoals": 4,
+          "awayGoals": 3,
+          "dateCandidates": [
+            "2026-06-10",
+            "2026-06-11"
+          ],
+          "sources": [
+            "https://m.aiscore.com/tournament-estonian-cup/eg6763i9eb47ryv/matches",
+            "https://globalsportsarchive.com/en/soccer/competition/tipneri-eesti-karikas-2026-2027/80369"
+          ]
+        }
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://m.aiscore.com/tournament-estonian-cup/eg6763i9eb47ryv/matches",
+        "https://globalsportsarchive.com/en/soccer/competition/tipneri-eesti-karikas-2026-2027/80369",
+        "https://jalgpall.ee/voistlused/karikavoistlused/137/tipneri-karikavoistlused",
+        "https://stadiro.com/leagues/estonia/estonian-cup/"
+      ],
+      "details": {
+        "matches": 3,
+        "walkovers": 0
+      },
+      "missing": "Participant IDs, independent reconciliation, exact phase/access/tiebreak details."
     }
   }
 ]

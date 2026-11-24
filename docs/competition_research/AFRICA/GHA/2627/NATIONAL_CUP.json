@@ -12,25 +12,70 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "MTN FA Cup",
+      "nonCommercialDisplayName": "Ghana FA Cup",
       "candidateName": "Ghana FA Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.ghanafa.org/gfa-introduces-historic-two-legged-final-for-2026-27-mtn-fa-cup",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block57Research": {
+      "edition": "2026/27",
+      "name": "MTN FA Cup",
+      "display": "Ghana FA Cup",
+      "sources": [
+        "https://www.ghanafa.org/gfa-introduces-historic-two-legged-final-for-2026-27-mtn-fa-cup",
+        "https://www.ghanafa.org/mtn-fa-cup-2026-27-preliminary-round-results",
+        "https://www.ghanafa.org/preliminary-round-groupings-for-2026-27-mtn-fa-cup-announced-ahead-of-tuesdays-draw",
+        "https://www.ghanafa.org/mtn-fa-cup-2026-27-46-clubs-join-premier-league-giants-for-round-of-64"
+      ],
+      "rules": {
+        "preliminaryLowerTiers": true,
+        "premierLeagueByes": 18,
+        "round64LowerTierQualifiers": 46,
+        "round64Teams": 64,
+        "finalLegs": 2,
+        "firstTwoLeggedFinal": true,
+        "otherRoundLegs": "not fully certified"
+      },
+      "dates": {
+        "preliminary": [
+          "2026-10-23",
+          "2026-10-25"
+        ],
+        "round64": [
+          "2026-11-27",
+          "2026-11-30"
+        ],
+        "round32": [
+          "2027-02-12",
+          "2027-02-15"
+        ],
+        "quarterfinal": [
+          "2027-03-19",
+          "2027-03-22"
+        ],
+        "semifinal": [
+          "2027-04-23",
+          "2027-04-26"
+        ],
+        "round16": null,
+        "finalLegDates": null
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24"
     }
   }
 ]

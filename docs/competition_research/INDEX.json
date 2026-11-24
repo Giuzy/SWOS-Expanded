@@ -602,7 +602,9 @@
     "history/transitions/NORTH_AMERICA/MEX.json",
     "history/transitions/AFRICA/ALG.json",
     "history/transitions/AFRICA/MAR.json",
-    "history/transitions/AFRICA/TUN.json"
+    "history/transitions/AFRICA/TUN.json",
+    "history/transitions/EUROPE/FRO.json",
+    "history/transitions/EUROPE/LTU.json"
   ],
   "versions": [
     "history/league_versions/EUROPE/FRA.json",
@@ -1448,6 +1450,6 @@
   "metadata": "metadata.json",
   "coverage": "COVERAGE.json",
   "researchOnly": true,
-  "lastPreparedBlock": 56,
+  "lastPreparedBlock": 61,
   "cutoffScope": "CUTOFF_SCOPE.json"
 }

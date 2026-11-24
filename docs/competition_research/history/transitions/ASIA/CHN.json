@@ -61,5 +61,20 @@
       "note": "80 clubs, 79 single-leg matches, 8 rounds; format source not proof of change relative to 2025.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 422,
+    "value": {
+      "competition": "CHN Chinese Super League",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "EXCEPTION_POINTS_DEDUCTIONS",
+      "rowRefs": [
+        222
+      ],
+      "source": "https://www.thecfa.cn/cftz/20260129/37309.html",
+      "note": "9 top-tier clubs start on negative points. One edition only; no automatic repeat.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

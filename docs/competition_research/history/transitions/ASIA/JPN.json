@@ -89,5 +89,37 @@
       "note": "Calendar shifts to August–May/June; first J1 edition August 7 to June 6; J2 ends May 23.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 408,
+    "value": {
+      "competition": "JPN League Cup",
+      "firstEdition": "2016",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "source": "https://www.jleague.jp/news/article/6189/",
+      "note": "Effective June 21, 2016 within edition: J.League Yamazaki Nabisco Cup → J.League YBC Levain Cup.",
+      "rowRefs": [
+        163
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block59 verified HTML or official search excerpt, no future results imported."
+    }
+  },
+  {
+    "index": 409,
+    "value": {
+      "competition": "JPN League Cup",
+      "firstEdition": "2026/27",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "source": "https://aboutj.jleague.jp/corporate/en/terminology/",
+      "note": "J.LEAGUE YAMAZAKI BISCUITS Levain CUP; same identity, commercial title distinct from J.League Cup.",
+      "rowRefs": [
+        163
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block59 verified HTML or official search excerpt, no future results imported."
+    }
   }
 ]

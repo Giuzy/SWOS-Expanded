@@ -3,8 +3,16 @@
     "index": 240,
     "value": {
       "row": 241,
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        401,
+        402,
+        403,
+        404,
+        405
+      ],
+      "historyComplete": true,
+      "historyScope": "1996–2026"
     }
   }
 ]

@@ -11,12 +11,12 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -42,13 +42,68 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Úrvalsdeild",
+      "nonCommercialDisplayName": "Úrvalsdeild karla",
       "candidateName": "Úrvalsdeild karla",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/resultsp99.html",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://en.wikipedia.org/wiki/1996_%C3%9Arvalsdeild",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block58Research": {
+      "edition": "1996",
+      "name": "Úrvalsdeild",
+      "display": "Úrvalsdeild karla",
+      "sources": [
+        "https://en.wikipedia.org/wiki/1996_%C3%9Arvalsdeild",
+        "https://www.elofootball.com/country.php?countryiso=ISL&season=1995-1996"
+      ],
+      "rules": {
+        "teams": 10,
+        "rounds": 18,
+        "pointsWin": 3,
+        "relegated": 2
+      },
+      "snapshot": {
+        "matches": [
+          [
+            "1996-06-24",
+            "Fylkir",
+            "KR",
+            0,
+            2
+          ],
+          [
+            "1996-06-24",
+            "Valur",
+            "Keflavík",
+            2,
+            1
+          ],
+          [
+            "1996-06-24",
+            "Grindavík",
+            "ÍBV",
+            3,
+            2
+          ]
+        ],
+        "note": "Dated verified samples only; exact July table not yet reconstructed."
+      },
+      "checked": "2026-11-24",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://en.wikipedia.org/wiki/1996_%C3%9Arvalsdeild",
+        "https://www.elofootball.com/country.php?countryiso=ISL&season=1995-1996"
+      ],
+      "details": {
+        "matches": 3
+      },
+      "missing": "Full cutoff fixture list, independent date/score checks, participant keys and standings reconciliation."
     }
   }
 ]

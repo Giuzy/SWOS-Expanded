@@ -1,43 +1,73 @@
 {
   "denominator": 533,
   "namesWithEvidenceOrCandidate": 419,
-  "namesSourceSupportedPartial": 215,
-  "nameHistoryComplete": 0,
-  "rulesPartial": 214,
+  "namesSourceSupportedPartial": 233,
+  "nameHistoryComplete": 2,
+  "rulesPartial": 230,
   "lifecyclePartial": 34,
-  "cutoffPartial": 15,
+  "cutoffPartial": 41,
   "datesReconciled": 0,
   "participantKeysReconciled": 0,
   "matchRulesCertified": 0,
-  "historicalTransitions": 391,
-  "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material. July 1 coverage is scoped to necessary initial historical state only; do not compute against global denominator. Report partial active rows separately from archive candidates and do not count merely available sources or future editions.",
+  "historicalTransitions": 418,
+  "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material. July 1 coverage is scoped to necessary initial historical state only; do not compute against global denominator. Report partial active rows separately from archive candidates and do not count merely available sources or future editions. User confirmed provisional working denominator 59 on 24/11/2026; show it in every chart until final census.",
   "namingByWorld": {
     "historical": {
       "denominator": 182,
-      "sourceSupported": 73
+      "sourceSupported": 80
     },
     "modern": {
       "denominator": 351,
-      "sourceSupported": 142
+      "sourceSupported": 153
     }
   },
-  "rawTransitionRecords": 396,
+  "rawTransitionRecords": 423,
   "transitionCountNote": "Original dashboard count retains preexisting five-record discrepancy; newly appended source-backed records counted individually, not certified unique globally.",
-  "lastPreparedBlock": 56,
+  "lastPreparedBlock": 61,
   "cutoffArchivePartial": 1,
-  "cutoffDenominator": null,
+  "cutoffDenominator": 59,
   "cutoffApplicability": {
-    "knownPartialActiveRows": 15,
+    "knownPartialActiveRows": 41,
     "knownPartialArchiveCandidates": 1,
-    "explicitUnknownRows": 2,
-    "knownNotApplicableCurrentEditionRows": 10,
+    "explicitUnknownRows": 3,
+    "knownNotApplicableCurrentEditionRows": 15,
     "aliasCandidates": [
       [
         321,
         423
       ]
     ],
-    "status": "APPLICABILITY_CENSUS_PENDING",
-    "policyFile": "CUTOFF_SCOPE.json"
+    "status": "APPLICABILITY_CENSUS_PARTIAL",
+    "policyFile": "CUTOFF_SCOPE.json",
+    "dateCensus": {
+      "2627": {
+        "rows": 42,
+        "distinctWorkingCount": 41,
+        "partialSnapshotRows": 23,
+        "additionalDateEvidenceRows": 19
+      },
+      "9697": {
+        "rows": 18,
+        "distinctWorkingCount": 18,
+        "partialSnapshotRows": 18,
+        "additionalDateEvidenceRows": 0
+      }
+    },
+    "requiredRowsLowerBound": 60,
+    "distinctWorkingCountLowerBound": 59
+  },
+  "cutoffProgressWorking": {
+    "required": 59,
+    "partialDistinct": 40,
+    "historical": {
+      "required": 18,
+      "partial": 18
+    },
+    "modern": {
+      "required": 41,
+      "partial": 22
+    },
+    "status": "PROVISIONAL_USER_APPROVED_DENOMINATOR_FINAL_RECHECK_PENDING",
+    "note": "Alias Libertadores counted once. Partial includes actual extracted pre-cutoff matches or partial prior edition state, not fully certified."
   }
 }

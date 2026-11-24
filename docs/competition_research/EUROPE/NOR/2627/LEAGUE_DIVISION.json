@@ -13,7 +13,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -47,6 +47,823 @@
       "groups": 1,
       "winner": "first place",
       "source": "https://www.fotball.no/kretser/hordaland/aktivitet/seniorfotball/seriespill/bestemmelser-om-opp--og-nedrykk-sesongen-2026/"
+    },
+    "block60Research": {
+      "edition": "2026",
+      "sources": [
+        "https://www.trivela.football/leagues/norway/fixtures",
+        "https://soccer-tainment.com/competition/norway-eliteserien/2026"
+      ],
+      "rules": {
+        "teams": 16,
+        "games": 30,
+        "relegated": 2,
+        "playoffRank": 14
+      },
+      "matches": [
+        {
+          "date": "2026-03-14",
+          "home": "Molde",
+          "away": "Rosenborg",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-14",
+          "home": "Hamarkameratene",
+          "away": "Viking",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-15",
+          "home": "Tromsø",
+          "away": "Fredrikstad",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-15",
+          "home": "Aalesund",
+          "away": "Lillestrøm",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-03-15",
+          "home": "KFUM",
+          "away": "Start",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-15",
+          "home": "Vålerenga",
+          "away": "Sandefjord",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-15",
+          "home": "Kristiansund",
+          "away": "Brann",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-21",
+          "home": "Viking",
+          "away": "Molde",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-21",
+          "home": "Start",
+          "away": "Aalesund",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-22",
+          "home": "Brann",
+          "away": "Tromsø",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-22",
+          "home": "Fredrikstad",
+          "away": "KFUM",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-22",
+          "home": "Sandefjord",
+          "away": "Sarpsborg 08",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-22",
+          "home": "Rosenborg",
+          "away": "Vålerenga",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-06",
+          "home": "Tromsø",
+          "away": "Rosenborg",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-06",
+          "home": "Hamarkameratene",
+          "away": "Brann",
+          "homeGoals": 1,
+          "awayGoals": 5
+        },
+        {
+          "date": "2026-04-06",
+          "home": "Kristiansund",
+          "away": "Bodø/Glimt",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-06",
+          "home": "Molde",
+          "away": "Lillestrøm",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-06",
+          "home": "Sarpsborg 08",
+          "away": "Start",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-06",
+          "home": "Vålerenga",
+          "away": "Viking",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-07",
+          "home": "Aalesund",
+          "away": "Fredrikstad",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-07",
+          "home": "KFUM",
+          "away": "Sandefjord",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Viking",
+          "away": "Bodø/Glimt",
+          "homeGoals": 5,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Tromsø",
+          "away": "Kristiansund",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Lillestrøm",
+          "away": "Start",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Brann",
+          "away": "Sandefjord",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Aalesund",
+          "away": "KFUM",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Fredrikstad",
+          "away": "Vålerenga",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Molde",
+          "away": "Hamarkameratene",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Rosenborg",
+          "away": "Sarpsborg 08",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-15",
+          "home": "Sarpsborg 08",
+          "away": "Bodø/Glimt",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-15",
+          "home": "Tromsø",
+          "away": "Lillestrøm",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-18",
+          "home": "Viking",
+          "away": "Brann",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-18",
+          "home": "Sandefjord",
+          "away": "Rosenborg",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-18",
+          "home": "Bodø/Glimt",
+          "away": "Aalesund",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-19",
+          "home": "Start",
+          "away": "Molde",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-19",
+          "home": "Hamarkameratene",
+          "away": "KFUM",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-19",
+          "home": "Kristiansund",
+          "away": "Fredrikstad",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-19",
+          "home": "Sarpsborg 08",
+          "away": "Tromsø",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-19",
+          "home": "Vålerenga",
+          "away": "Lillestrøm",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-25",
+          "home": "Rosenborg",
+          "away": "Brann",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-25",
+          "home": "Fredrikstad",
+          "away": "Viking",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Lillestrøm",
+          "away": "Bodø/Glimt",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Aalesund",
+          "away": "Kristiansund",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Hamarkameratene",
+          "away": "Start",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-26",
+          "home": "KFUM",
+          "away": "Sarpsborg 08",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Tromsø",
+          "away": "Sandefjord",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Molde",
+          "away": "Vålerenga",
+          "homeGoals": 5,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-29",
+          "home": "Tromsø",
+          "away": "Brann",
+          "homeGoals": 0,
+          "awayGoals": 5
+        },
+        {
+          "date": "2026-04-30",
+          "home": "Bodø/Glimt",
+          "away": "Start",
+          "homeGoals": 5,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Viking",
+          "away": "Rosenborg",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-02",
+          "home": "Brann",
+          "away": "Fredrikstad",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-03",
+          "home": "Vålerenga",
+          "away": "KFUM",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-03",
+          "home": "Kristiansund",
+          "away": "Hamarkameratene",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-03",
+          "home": "Sandefjord",
+          "away": "Aalesund",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-03",
+          "home": "Start",
+          "away": "Tromsø",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-03",
+          "home": "Lillestrøm",
+          "away": "Sarpsborg 08",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-04",
+          "home": "Bodø/Glimt",
+          "away": "Molde",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-08",
+          "home": "Hamarkameratene",
+          "away": "Vålerenga",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-09",
+          "home": "Sarpsborg 08",
+          "away": "Fredrikstad",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-10",
+          "home": "KFUM",
+          "away": "Viking",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Sandefjord",
+          "away": "Kristiansund",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Tromsø",
+          "away": "Molde",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Rosenborg",
+          "away": "Lillestrøm",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Vålerenga",
+          "away": "Sarpsborg 08",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Bodø/Glimt",
+          "away": "Tromsø",
+          "homeGoals": 5,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Fredrikstad",
+          "away": "Hamarkameratene",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Lillestrøm",
+          "away": "Sandefjord",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Molde",
+          "away": "Kristiansund",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Rosenborg",
+          "away": "Aalesund",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Viking",
+          "away": "Start",
+          "homeGoals": 6,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Brann",
+          "away": "KFUM",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Aalesund",
+          "away": "Brann",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Lillestrøm",
+          "away": "Kristiansund",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Start",
+          "away": "Bodø/Glimt",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Kristiansund",
+          "away": "Viking",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Bodø/Glimt",
+          "away": "Brann",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Sandefjord",
+          "away": "Fredrikstad",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Hamarkameratene",
+          "away": "Lillestrøm",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-25",
+          "home": "KFUM",
+          "away": "Rosenborg",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Sarpsborg 08",
+          "away": "Molde",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Tromsø",
+          "away": "Aalesund",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Start",
+          "away": "Vålerenga",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Aalesund",
+          "away": "Hamarkameratene",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Brann",
+          "away": "Sarpsborg 08",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Fredrikstad",
+          "away": "Start",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-29",
+          "home": "KFUM",
+          "away": "Tromsø",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Rosenborg",
+          "away": "Bodø/Glimt",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Vålerenga",
+          "away": "Kristiansund",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-30",
+          "home": "Molde",
+          "away": "Sandefjord",
+          "homeGoals": 2,
+          "awayGoals": 1
+        }
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "All fixtures visible in Trivela before cutoff (next visible July11); independent schedule reconciliation pending. First actual date March14 corrects approximate March15.",
+      "derivedTable": {
+        "status": "DERIVED_NOT_INDEPENDENTLY_RECONCILED",
+        "rows": [
+          {
+            "club": "Viking",
+            "played": 10,
+            "w": 9,
+            "d": 0,
+            "l": 1,
+            "gf": 29,
+            "ga": 10,
+            "pts": 27
+          },
+          {
+            "club": "Tromsø",
+            "played": 13,
+            "w": 7,
+            "d": 4,
+            "l": 2,
+            "gf": 18,
+            "ga": 14,
+            "pts": 25
+          },
+          {
+            "club": "Bodø/Glimt",
+            "played": 11,
+            "w": 7,
+            "d": 2,
+            "l": 2,
+            "gf": 28,
+            "ga": 11,
+            "pts": 23
+          },
+          {
+            "club": "Lillestrøm",
+            "played": 11,
+            "w": 6,
+            "d": 1,
+            "l": 4,
+            "gf": 17,
+            "ga": 11,
+            "pts": 19
+          },
+          {
+            "club": "Molde",
+            "played": 11,
+            "w": 6,
+            "d": 1,
+            "l": 4,
+            "gf": 18,
+            "ga": 13,
+            "pts": 19
+          },
+          {
+            "club": "Hamarkameratene",
+            "played": 10,
+            "w": 5,
+            "d": 2,
+            "l": 3,
+            "gf": 17,
+            "ga": 16,
+            "pts": 17
+          },
+          {
+            "club": "Sarpsborg 08",
+            "played": 11,
+            "w": 4,
+            "d": 2,
+            "l": 5,
+            "gf": 13,
+            "ga": 16,
+            "pts": 14
+          },
+          {
+            "club": "Sandefjord",
+            "played": 11,
+            "w": 4,
+            "d": 2,
+            "l": 5,
+            "gf": 10,
+            "ga": 13,
+            "pts": 14
+          },
+          {
+            "club": "Vålerenga",
+            "played": 11,
+            "w": 4,
+            "d": 2,
+            "l": 5,
+            "gf": 13,
+            "ga": 17,
+            "pts": 14
+          },
+          {
+            "club": "Fredrikstad",
+            "played": 11,
+            "w": 4,
+            "d": 2,
+            "l": 5,
+            "gf": 15,
+            "ga": 20,
+            "pts": 14
+          },
+          {
+            "club": "Brann",
+            "played": 12,
+            "w": 4,
+            "d": 1,
+            "l": 7,
+            "gf": 24,
+            "ga": 20,
+            "pts": 13
+          },
+          {
+            "club": "KFUM",
+            "played": 11,
+            "w": 3,
+            "d": 3,
+            "l": 5,
+            "gf": 12,
+            "ga": 17,
+            "pts": 12
+          },
+          {
+            "club": "Aalesund",
+            "played": 11,
+            "w": 2,
+            "d": 5,
+            "l": 4,
+            "gf": 15,
+            "ga": 20,
+            "pts": 11
+          },
+          {
+            "club": "Kristiansund",
+            "played": 11,
+            "w": 3,
+            "d": 2,
+            "l": 6,
+            "gf": 11,
+            "ga": 18,
+            "pts": 11
+          },
+          {
+            "club": "Rosenborg",
+            "played": 11,
+            "w": 2,
+            "d": 3,
+            "l": 6,
+            "gf": 9,
+            "ga": 18,
+            "pts": 9
+          },
+          {
+            "club": "Start",
+            "played": 12,
+            "w": 1,
+            "d": 4,
+            "l": 7,
+            "gf": 13,
+            "ga": 28,
+            "pts": 7
+          }
+        ]
+      }
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.trivela.football/leagues/norway/fixtures",
+        "https://soccer-tainment.com/competition/norway-eliteserien/2026"
+      ],
+      "details": {
+        "matches": 89
+      },
+      "missing": "Complete and independently verify pre-cutoff scores/dates, club IDs, official ranking."
     }
   }
 ]

@@ -46,5 +46,35 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 36 actual official web search excerpts 24/11/2026; no PDF analyzed; no full identity/access/fixture certification."
     }
+  },
+  {
+    "index": 420,
+    "value": {
+      "competition": "CAN Canadian Championship",
+      "firstEdition": "2026",
+      "operation": "CHANGE_SEEDING",
+      "note": "Top four ranking index clubs separated until semifinals.",
+      "rowRefs": [
+        338
+      ],
+      "source": "https://news.canadasoccer.com/regulations-published-for-the-2026-telus-canadian-championship",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Official federation HTML lines 12–17 opened."
+    }
+  },
+  {
+    "index": 421,
+    "value": {
+      "competition": "CAN Canadian Championship",
+      "firstEdition": "2026",
+      "operation": "RESTORE_EXTRA_TIME",
+      "note": "Extra time before penalties for tied single-match rounds and two-leg aggregate ties.",
+      "rowRefs": [
+        338
+      ],
+      "source": "https://news.canadasoccer.com/regulations-published-for-the-2026-telus-canadian-championship",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Official federation HTML lines 12–17 opened."
+    }
   }
 ]

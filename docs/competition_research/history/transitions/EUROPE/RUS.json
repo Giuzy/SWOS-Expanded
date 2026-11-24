@@ -15,5 +15,21 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 30 actual web search excerpts; exact sporting identity and structural reform independently checked before runtime. No sponsor names."
     }
+  },
+  {
+    "index": 410,
+    "value": {
+      "competition": "RUS tier 1",
+      "firstEdition": "1998",
+      "lastEdition": "2001",
+      "operation": "RENAME_AND_CHANGE_FORMAT",
+      "source": "https://en.wikipedia.org/wiki/1998_Russian_Top_Division",
+      "note": "Top League → Top Division; 18 to 16 clubs, 34 to 30 matches. Secondary source; exact regulation and full history incomplete.",
+      "rowRefs": [
+        27
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block59 verified HTML or official search excerpt, no future results imported."
+    }
   }
 ]

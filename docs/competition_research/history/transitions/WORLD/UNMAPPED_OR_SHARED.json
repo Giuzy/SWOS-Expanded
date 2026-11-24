@@ -3328,5 +3328,38 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Web search excerpts block51"
     }
+  },
+  {
+    "index": 399,
+    "value": {
+      "competition": "CAF Champions League",
+      "firstEdition": "2004",
+      "lastEdition": null,
+      "operation": "CHANGE_ACCESS",
+      "rowRefs": [
+        430
+      ],
+      "source": "https://www.cafonline.com/competitions/caf-competitions/",
+      "note": "Top 12 ranked member associations allowed two entrants, generally domestic champion and runner-up; current season quotas require edition-specific validation.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block57, official web excerpts or opened article, no per-fixture certification or runtime import."
+    }
+  },
+  {
+    "index": 400,
+    "value": {
+      "competition": "CAF Champions League / CAF Confederation Cup",
+      "firstEdition": "2024/25",
+      "lastEdition": null,
+      "operation": "REMOVE_DROP_DOWN",
+      "rowRefs": [
+        430,
+        431
+      ],
+      "source": "https://www.cafonline.com/caf-champions-league/news/caf-announces-key-caf-interclub-202425-information-including-dates-member-associations-new-ranking/",
+      "note": "Second preliminary round Champions League losers no longer move into Confederation Cup. Older CAF overview describes superseded format; 2026/27 draw procedures independently confirm direct second-round winners into groups.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block57, official web excerpts or opened article, no per-fixture certification or runtime import."
+    }
   }
 ]

@@ -3,9 +3,10 @@
     "index": 26,
     "value": {
       "row": 27,
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "transitionRefs": [
-        227
+        227,
+        410
       ]
     }
   }

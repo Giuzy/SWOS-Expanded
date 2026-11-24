@@ -12,24 +12,291 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Meistaradeildin menn",
+      "nonCommercialDisplayName": "Meistaradeildin",
       "candidateName": "Faroe Islands Premier League",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
-      "source": "https://en.wikipedia.org/wiki/European_Leagues",
-      "nameHistory": [],
-      "historyComplete": false
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/",
+      "nameHistory": [
+        {
+          "from": "1976",
+          "to": "2004",
+          "name": "1. deild",
+          "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/"
+        },
+        {
+          "from": "2005",
+          "to": "2008",
+          "name": "Formuladeildin",
+          "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/"
+        },
+        {
+          "from": "2009",
+          "to": "2011",
+          "name": "Vodafonedeildin",
+          "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/"
+        },
+        {
+          "from": "2012",
+          "to": "2017",
+          "name": "Effodeildin",
+          "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/"
+        },
+        {
+          "from": "2018",
+          "to": "2025",
+          "name": "Betrideildin",
+          "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/"
+        },
+        {
+          "from": "2026",
+          "to": null,
+          "name": "Meistaradeildin menn",
+          "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/"
+        }
+      ],
+      "historyComplete": true,
+      "historyScope": "Official continuous naming sequence covering 1996–2026; not all sporting-rule versions."
+    },
+    "block58Research": {
+      "edition": "2026",
+      "name": "Meistaradeildin menn",
+      "display": "Meistaradeildin",
+      "sources": [
+        "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/",
+        "https://www.rsssf.org/tablesf/far2026.html",
+        "https://www.rsssf.org/tablesf/far05.html"
+      ],
+      "rules": {
+        "teams": 10,
+        "rounds": 27,
+        "format": "triple round robin from 2005; precise relegation 2026 to reconcile"
+      },
+      "nameHistory": [
+        {
+          "from": "1976",
+          "to": "2004",
+          "name": "1. deild",
+          "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/"
+        },
+        {
+          "from": "2005",
+          "to": "2008",
+          "name": "Formuladeildin",
+          "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/"
+        },
+        {
+          "from": "2009",
+          "to": "2011",
+          "name": "Vodafonedeildin",
+          "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/"
+        },
+        {
+          "from": "2012",
+          "to": "2017",
+          "name": "Effodeildin",
+          "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/"
+        },
+        {
+          "from": "2018",
+          "to": "2025",
+          "name": "Betrideildin",
+          "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/"
+        },
+        {
+          "from": "2026",
+          "to": null,
+          "name": "Meistaradeildin menn",
+          "source": "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/"
+        }
+      ],
+      "dates": {
+        "announcedFirstRound": "2026-03-08",
+        "actualFirstMatchEvidence": "2026-03-07"
+      },
+      "snapshot": {
+        "round": 11,
+        "matches": [
+          [
+            "2026-05-25",
+            "B36",
+            "07 Vestur",
+            1,
+            0
+          ],
+          [
+            "2026-05-25",
+            "EB/Streymur",
+            "NSÍ",
+            0,
+            1
+          ],
+          [
+            "2026-05-25",
+            "KÍ",
+            "AB",
+            2,
+            1
+          ],
+          [
+            "2026-05-25",
+            "Víkingur",
+            "Skála",
+            2,
+            1
+          ],
+          [
+            "2026-05-26",
+            "B68",
+            "HB",
+            0,
+            1
+          ]
+        ],
+        "earlierTable": {
+          "asOf": "2026-05-26",
+          "playedPerClub": 11,
+          "columns": [
+            "club",
+            "P",
+            "W",
+            "D",
+            "L",
+            "GF",
+            "GA",
+            "Pts"
+          ],
+          "rows": [
+            [
+              "NSÍ",
+              11,
+              8,
+              2,
+              1,
+              21,
+              10,
+              26
+            ],
+            [
+              "B36",
+              11,
+              7,
+              4,
+              0,
+              21,
+              6,
+              25
+            ],
+            [
+              "KÍ",
+              11,
+              6,
+              5,
+              0,
+              23,
+              7,
+              23
+            ],
+            [
+              "Víkingur",
+              11,
+              4,
+              5,
+              2,
+              14,
+              9,
+              17
+            ],
+            [
+              "HB",
+              11,
+              4,
+              2,
+              5,
+              16,
+              18,
+              14
+            ],
+            [
+              "AB",
+              11,
+              3,
+              2,
+              6,
+              14,
+              18,
+              11
+            ],
+            [
+              "B68",
+              11,
+              3,
+              2,
+              6,
+              13,
+              26,
+              11
+            ],
+            [
+              "EB/Streymur",
+              11,
+              2,
+              3,
+              6,
+              10,
+              17,
+              9
+            ],
+            [
+              "Skála",
+              11,
+              1,
+              4,
+              6,
+              9,
+              14,
+              7
+            ],
+            [
+              "07 Vestur",
+              11,
+              2,
+              1,
+              8,
+              5,
+              21,
+              7
+            ]
+          ]
+        },
+        "note": "This is a May snapshot, NOT cutoff standings. Source archive version incomplete June; latest June results still required."
+      },
+      "checked": "2026-11-24",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://www.fsf.fo/fremstu-deildirnar-nytt-navn/",
+        "https://www.rsssf.org/tablesf/far2026.html",
+        "https://www.rsssf.org/tablesf/far05.html"
+      ],
+      "details": {
+        "matches": 5
+      },
+      "missing": "Full cutoff fixture list, independent date/score checks, participant keys and standings reconciliation."
     }
   }
 ]

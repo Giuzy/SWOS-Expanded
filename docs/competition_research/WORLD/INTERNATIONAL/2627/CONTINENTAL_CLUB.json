@@ -301,8 +301,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -329,6 +328,123 @@
         }
       ],
       "historyComplete": false
+    },
+    "block57Research": {
+      "edition": "2026/27",
+      "sources": [
+        "https://www.cafonline.com/caf-champions-league/news/explainer-draw-procedures-for-totalenergies-caf-champions-league-202627-preliminary-rounds/",
+        "https://www.cafonline.com/news/caf-announces-match-calendar-for-totalenergies-caf-champions-league-2026-27-and-totalenergies-caf-confederation-cup-2026-27-seasons/",
+        "https://www.cafonline.com/caf-champions-league/news/16-clubs-confirmed-for-202627-group-stage-of-totalenergies-caf-champions-league-as-cairo-draw-looms/",
+        "https://www.cafonline.com/caf-champions-league/news/caf-announces-key-caf-interclub-202425-information-including-dates-member-associations-new-ranking/",
+        "https://www.cafonline.com/en/caf-champions-league/news/sundowns-hold-off-far-rabat-to-win-second-totalenergies-caf-champions-league-title/"
+      ],
+      "rules": {
+        "preliminaryRounds": 2,
+        "secondRoundTeams": 32,
+        "secondRoundWinners": 16,
+        "groups": 4,
+        "groupSize": 4,
+        "groupMatchdays": 6,
+        "advanceTop": 2,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "preliminaryLegs": 2,
+        "sameCountryPreliminaryPairing": false,
+        "championsLeagueDropDown": false,
+        "finalLegCount": "verify 2026/27 regulations separately",
+        "entered": 61,
+        "preliminary1Byes": 3,
+        "preliminary1Teams": 58,
+        "preliminary1Ties": 29,
+        "byeClubs": [
+          "Mamelodi Sundowns",
+          "Espérance de Tunis",
+          "RS Berkane"
+        ],
+        "geographicalDrawPots": 5
+      },
+      "dates": {
+        "preliminary1": [
+          [
+            "2026-09-04",
+            "2026-09-06"
+          ],
+          [
+            "2026-09-11",
+            "2026-09-13"
+          ]
+        ],
+        "preliminary2": [
+          [
+            "2026-10-16",
+            "2026-10-18"
+          ],
+          [
+            "2026-10-23",
+            "2026-10-25"
+          ]
+        ],
+        "group": [
+          [
+            "2026-11-27",
+            "2026-11-29"
+          ],
+          [
+            "2026-12-04",
+            "2026-12-06"
+          ],
+          [
+            "2026-12-18",
+            "2026-12-20"
+          ],
+          [
+            "2027-01-08",
+            "2027-01-10"
+          ],
+          [
+            "2027-01-15",
+            "2027-01-17"
+          ],
+          [
+            "2027-01-22",
+            "2027-01-24"
+          ]
+        ],
+        "quarterfinal": [
+          [
+            "2027-02-26",
+            "2027-02-28"
+          ],
+          [
+            "2027-03-05",
+            "2027-03-07"
+          ]
+        ],
+        "semifinal": [
+          [
+            "2027-04-09",
+            "2027-04-11"
+          ],
+          [
+            "2027-04-16",
+            "2027-04-18"
+          ]
+        ],
+        "finalWindow": [
+          "2027-05-09",
+          "2027-05-31"
+        ],
+        "status": "published round windows, not per-fixture reconciliation"
+      },
+      "previousEditionQualificationEvidence": {
+        "edition": "2025/26",
+        "winner": "Mamelodi Sundowns",
+        "finalist": "AS FAR",
+        "completed": "2026-05-24",
+        "purpose": "Super Cup 2026 access only"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24"
     }
   },
   {
@@ -345,8 +461,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -363,6 +478,118 @@
       "source": "03ab547e24a4319b11c51bb720ef20db56ff78ae",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block57Research": {
+      "edition": "2026/27",
+      "sources": [
+        "https://www.cafonline.com/caf-confederation-cup/news/explainer-draw-procedures-for-totalenergies-caf-confederation-cup-202627-preliminary-rounds/",
+        "https://www.cafonline.com/news/caf-announces-match-calendar-for-totalenergies-caf-champions-league-2026-27-and-totalenergies-caf-confederation-cup-2026-27-seasons/",
+        "https://www.cafonline.com/caf-confederation-cup/news/totalenergies-caf-confederation-cup-202627-group-stage-draw-produces-exciting-encounters/",
+        "https://www.cafonline.com/caf-champions-league/news/caf-announces-key-caf-interclub-202425-information-including-dates-member-associations-new-ranking/",
+        "https://www.cafonline.com/caf-confederation-cup/news/usm-alger-crowned-totalenergies-caf-confederation-cup-champions-after-epic-penalty-victory-over-zamalek/"
+      ],
+      "rules": {
+        "preliminaryRounds": 2,
+        "secondRoundTeams": 32,
+        "secondRoundWinners": 16,
+        "groups": 4,
+        "groupSize": 4,
+        "groupMatchdays": 6,
+        "advanceTop": 2,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "preliminaryLegs": 2,
+        "sameCountryPreliminaryPairing": false,
+        "championsLeagueDropDown": false,
+        "finalLegCount": "verify 2026/27 regulations separately",
+        "entered": 56,
+        "preliminary1Byes": 8,
+        "preliminary1Teams": 48,
+        "preliminary1Ties": 24,
+        "geographicalDrawPots": 3
+      },
+      "dates": {
+        "preliminary1": [
+          [
+            "2026-09-04",
+            "2026-09-06"
+          ],
+          [
+            "2026-09-11",
+            "2026-09-13"
+          ]
+        ],
+        "preliminary2": [
+          [
+            "2026-10-16",
+            "2026-10-18"
+          ],
+          [
+            "2026-10-23",
+            "2026-10-25"
+          ]
+        ],
+        "group": [
+          [
+            "2026-11-27",
+            "2026-11-29"
+          ],
+          [
+            "2026-12-04",
+            "2026-12-06"
+          ],
+          [
+            "2026-12-18",
+            "2026-12-20"
+          ],
+          [
+            "2027-01-08",
+            "2027-01-10"
+          ],
+          [
+            "2027-01-15",
+            "2027-01-17"
+          ],
+          [
+            "2027-01-22",
+            "2027-01-24"
+          ]
+        ],
+        "quarterfinal": [
+          [
+            "2027-02-26",
+            "2027-02-28"
+          ],
+          [
+            "2027-03-05",
+            "2027-03-07"
+          ]
+        ],
+        "semifinal": [
+          [
+            "2027-04-09",
+            "2027-04-11"
+          ],
+          [
+            "2027-04-16",
+            "2027-04-18"
+          ]
+        ],
+        "finalWindow": [
+          "2027-05-09",
+          "2027-05-31"
+        ],
+        "status": "published round windows, not per-fixture reconciliation"
+      },
+      "previousEditionQualificationEvidence": {
+        "edition": "2025/26",
+        "winner": "USM Alger",
+        "finalist": "Zamalek",
+        "completed": "2026-05-16",
+        "purpose": "Super Cup 2026 access only"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24"
     }
   },
   {

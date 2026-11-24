@@ -26,14 +26,41 @@
     37,
     148,
     268,
-    381
+    381,
+    3,
+    215,
+    241,
+    15,
+    256,
+    237,
+    17,
+    267,
+    265,
+    58,
+    59,
+    163,
+    49,
+    27,
+    307,
+    11,
+    12,
+    238,
+    278,
+    254,
+    338,
+    366,
+    354,
+    242,
+    374,
+    222
   ],
   "archiveCandidateRows": [
     178
   ],
   "unknownExplicitRows": [
     99,
-    171
+    171,
+    51
   ],
   "notApplicableCurrentEditionRows": [
     207,
@@ -45,7 +72,12 @@
     350,
     400,
     201,
-    310
+    310,
+    246,
+    361,
+    430,
+    431,
+    432
   ],
   "aliasCandidates": [
     [
@@ -53,7 +85,7 @@
       423
     ]
   ],
-  "note": "15 active partial rows, with Libertadores alias candidate pending mapping; 1 archive candidate. Scope screening remains incomplete, denominator null. Carryover from prior editions kept separately from new edition.",
+  "note": "41 active partial matrix rows including Libertadores alias = 40 distinct provisional research packages, 18 historical and 22 modern. 59 required working denominator, final census and reconciliation pending.",
   "notApplicableEvidence": {
     "46": {
       "edition": "1996/97",
@@ -73,6 +105,14 @@
       "edition": "2026/27",
       "start": "2026-08-21",
       "source": "https://english.ahram.org.eg/UI/Front/Inner.aspx?NewsContentID=574993"
+    },
+    "246": {
+      "edition": "2026/27",
+      "startWindow": [
+        "2026-09-04",
+        "2026-09-07"
+      ],
+      "source": "https://www.ghanafa.org/dates-for-2026-27-premier-league-season-released?amp=1"
     },
     "258": {
       "edition": "2026/27",
@@ -100,11 +140,476 @@
       "start": "2026-10-07",
       "source": "https://africasoccer.com/egypt-capital-cup-ceramica-cleopatra-match-against-al-masry-brought-forward/"
     },
+    "361": {
+      "edition": "2026/27",
+      "startWindow": [
+        "2026-10-23",
+        "2026-10-25"
+      ],
+      "source": "https://www.ghanafa.org/mtn-fa-cup-2026-27-preliminary-round-results"
+    },
     "400": {
       "edition": "2026/27",
       "start": "2026-10-24",
       "source": "https://www.psl.co.za/news/article/5615294-psl-confirms-the-202627-season-calend"
+    },
+    "430": {
+      "edition": "2026/27",
+      "startWindow": [
+        "2026-09-04",
+        "2026-09-06"
+      ],
+      "source": "https://www.cafonline.com/news/caf-announces-match-calendar-for-totalenergies-caf-champions-league-2026-27-and-totalenergies-caf-confederation-cup-2026-27-seasons/"
+    },
+    "431": {
+      "edition": "2026/27",
+      "startWindow": [
+        "2026-09-04",
+        "2026-09-06"
+      ],
+      "source": "https://www.cafonline.com/news/caf-announces-match-calendar-for-totalenergies-caf-champions-league-2026-27-and-totalenergies-caf-confederation-cup-2026-27-seasons/"
+    },
+    "432": {
+      "edition": "2026",
+      "start": "2026-11-08",
+      "source": "https://www.cafonline.com/news/ghana-egypt-senegal-morocco-and-south-africa-set-to-host-caf-events-in-2026-27/"
     }
   },
-  "sparsePolicy": "Do not store cutoff notes, empty snapshots or review.historyAtStart placeholders in rows proven not to have started. Retain normal start date in date evidence only. Applicability exclusion recorded centrally once; prior editions are distinct and only imported if strictly necessary. Unscreened legacy placeholders are not actual collected data; do not classify them as required; delete when inapplicability is verified."
+  "sparsePolicy": "Do not store cutoff notes, empty snapshots or review.historyAtStart placeholders in rows proven not to have started. Retain normal start date in date evidence only. Applicability exclusion recorded centrally once; prior editions are distinct and only imported if strictly necessary. Unscreened legacy placeholders are not actual collected data; do not classify them as required; delete when inapplicability is verified.",
+  "dateCensus": {
+    "status": "LOWER_BOUND_NOT_COMPLETE",
+    "checked": "2026-11-24",
+    "baseHead": "12f3fe33d61109ccb19d3cd5b07d9db0c84c93a0",
+    "sourceMatrix": "e7e76f2d824015bcad4dfddd25ea5a5640e60339",
+    "records": [
+      {
+        "row": 3,
+        "world": "9697",
+        "competition": "_belarussiaLleague",
+        "dateEvidence": "1996-04-16",
+        "source": "https://soccer365.net/competitions/483/1996/",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK58"
+      },
+      {
+        "row": 11,
+        "world": "9697",
+        "competition": "_faroeIslesLeague",
+        "dateEvidence": "1996-04-28",
+        "source": "https://clever-geek.imtqy.com/articles/5255501/",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK60"
+      },
+      {
+        "row": 12,
+        "world": "9697",
+        "competition": "_finnishLeague",
+        "dateEvidence": "1996-06-16 match evidence",
+        "source": "https://us.soccerway.com/finland/veikkausliiga-1996/results/",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK60"
+      },
+      {
+        "row": 15,
+        "world": "9697",
+        "competition": "_icelandicLeague",
+        "dateEvidence": "1996-06-12 match evidence",
+        "source": "https://www.elofootball.com/country.php?countryiso=ISL&season=1995-1996",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK58"
+      },
+      {
+        "row": 17,
+        "world": "9697",
+        "competition": "_latvianLeague",
+        "dateEvidence": "1996-06-29 then July 6",
+        "source": "https://www.rsssf.org/tablesl/let96.html",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK58"
+      },
+      {
+        "row": 27,
+        "world": "9697",
+        "competition": "_russianLeague",
+        "dateEvidence": "1996-03-02",
+        "source": "https://www.rsssf.org/tablesr/rus96.html",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK59"
+      },
+      {
+        "row": 49,
+        "world": "9697",
+        "competition": "_americanLeague",
+        "dateEvidence": "1996-06-09 match evidence",
+        "source": "https://fbref.com/en/comps/22/1996/schedule/1996-Major-League-Soccer-Scores-and-Fixtures",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK59"
+      },
+      {
+        "row": 58,
+        "world": "9697",
+        "competition": "_japaneseLeague",
+        "dateEvidence": "1996-03-16",
+        "source": "https://data.j-league.or.jp/SFMS01/search?competition_frame_ids=1&competition_years=1996",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK59"
+      },
+      {
+        "row": 59,
+        "world": "9697",
+        "competition": "_japaneseLeague",
+        "dateEvidence": "1996-04-21",
+        "source": "https://kisch.on.coocan.jp/football/lea/j04.html",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK59"
+      },
+      {
+        "row": 163,
+        "world": "9697",
+        "competition": "_japaneseCup",
+        "dateEvidence": "1996-06-01",
+        "source": "https://data.j-league.or.jp/SFMS01/search?competition_frame_ids=11&competition_years=1996",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK59"
+      },
+      {
+        "row": 203,
+        "world": "2627",
+        "competition": "_argentinianLeague",
+        "dateEvidence": "2026 Apertura finished May 24; annual aggregate / access history required, not ongoing Apertura",
+        "source": "https://www.ligaprofesional.ar/notas/primera/2026/05/24/los-numeros-del-campeon/",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 215,
+        "world": "2627",
+        "competition": "_belarussiaLleague",
+        "dateEvidence": "2026-03-20",
+        "source": "https://en.wikipedia.org/wiki/2026_Belarusian_Premier_League",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK58"
+      },
+      {
+        "row": 216,
+        "world": "2627",
+        "competition": "_bolivianLeague",
+        "dateEvidence": "2026-04-01 season window in archived research",
+        "source": "https://fbf.com.bo/temporada-2026-de-la-division-profesional/",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 217,
+        "world": "2627",
+        "competition": "_brasilianLeague",
+        "dateEvidence": "2026-01-28",
+        "source": "https://www.cbf.com.br/futebol-brasileiro/noticias/olimpica/a/cbf-divulga-tabela-detalhada-da-primeira-rodada-da-serie-a-2026",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 218,
+        "world": "2627",
+        "competition": "_brasilianLeague",
+        "dateEvidence": "2026-03-21",
+        "source": "https://www.cbf.com.br/a-cbf/por-dentro-da-cbf/comissao-dopagem/autorizacao-de-uso-terapeutico/cbf-anuncia-novo-calendario-do-futebol-profissional-masculino",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 220,
+        "world": "2627",
+        "competition": "_worldCanLeague",
+        "dateEvidence": "2026 April-November",
+        "source": "https://www.cplsoccer.com/about-us",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 222,
+        "world": "2627",
+        "competition": "_worldChnLeague",
+        "dateEvidence": "2026-03-06 actual first match",
+        "source": "https://fbref.com/en/comps/62/schedule/Chinese-Super-League-Scores-and-Fixtures",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK61"
+      },
+      {
+        "row": 229,
+        "world": "2627",
+        "competition": "_ecuadorLeague",
+        "dateEvidence": "2026-02-20",
+        "source": "https://www.primicias.ec/deportes/ligapro/sistema-campeonato-ecuatoriano-2026-fixture-111850/",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 237,
+        "world": "2627",
+        "competition": "_estonianLeague",
+        "dateEvidence": "2026-03-07",
+        "source": "https://en.wikipedia.org/wiki/2026_Meistriliiga",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK58"
+      },
+      {
+        "row": 238,
+        "world": "2627",
+        "competition": "_finnishLeague",
+        "dateEvidence": "2026-04-04",
+        "source": "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatykseellisen-varhain-avauspaiva-44-aivan-taynna-otteluita",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK60"
+      },
+      {
+        "row": 241,
+        "world": "2627",
+        "competition": "_faroeIslesLeague",
+        "dateEvidence": "2026-03-07",
+        "source": "https://sportalic.com/fixtures/faroe-islands/premier-league/games",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK58"
+      },
+      {
+        "row": 242,
+        "world": "2627",
+        "competition": "_worldGeoLeague",
+        "dateEvidence": "2026-02-28 actual first match",
+        "source": "https://erovnuliliga.ge/en/results",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK61"
+      },
+      {
+        "row": 254,
+        "world": "2627",
+        "competition": "_irishLeague",
+        "dateEvidence": "2026-02-06",
+        "source": "https://www.leagueofireland.ie/news/key-dates-schedule-confirmed-2026-loi-season/",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK60"
+      },
+      {
+        "row": 256,
+        "world": "2627",
+        "competition": "_icelandicLeague",
+        "dateEvidence": "2026-04-10",
+        "source": "https://ecst.se/fotboll/isl/stat/1_26.php",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK58"
+      },
+      {
+        "row": 261,
+        "world": "2627",
+        "competition": "_worldKorLeague",
+        "dateEvidence": "2026-02-28",
+        "source": "https://www.kleague.com/news_view.do?category=notice&orderBy=seq&page=1&seq=94117&viewOption=album",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 265,
+        "world": "2627",
+        "competition": "_lithuanianLeague",
+        "dateEvidence": "2026-06-17 match evidence",
+        "source": "https://lietuvosfutbolas.lt/varzybos/vyru/a-lyga/",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK58"
+      },
+      {
+        "row": 267,
+        "world": "2627",
+        "competition": "_latvianLeague",
+        "dateEvidence": "2026-03-06",
+        "source": "https://futbolazinas.com/futbola-virsliga/publicets-2026-gada-latvijas-virsligas-spelu-kalendars/",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK58"
+      },
+      {
+        "row": 278,
+        "world": "2627",
+        "competition": "_norwegianLeague",
+        "dateEvidence": "2026-03-14 actual first matches (Trivela); former March15 approximate",
+        "source": "https://www.fotball.no/tema/nff-nyheter/2025/hovedterminlister-2026/",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK60"
+      },
+      {
+        "row": 283,
+        "world": "2627",
+        "competition": "_paraguayanLeague",
+        "dateEvidence": "2026 Apertura finished pre-cutoff; annual cumulative standings required",
+        "source": "https://www.apf.org.py/noticias/olimpia-es-el-campeon-del-apertura-2026",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 284,
+        "world": "2627",
+        "competition": "_peruvianLeague",
+        "dateEvidence": "2026-01-30 Apertura; aggregate standings across both phases",
+        "source": "https://es.wikipedia.org/wiki/Torneo_Apertura_2026_(Per%C3%BA)",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 307,
+        "world": "2627",
+        "competition": "_swedishLeague",
+        "dateEvidence": "2026 first 10 rounds before World Cup break",
+        "source": "https://www.svenskfotboll.se/nyheter/serier/2025/12/spelordning-allsvenskan-2026/",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK59"
+      },
+      {
+        "row": 317,
+        "world": "2627",
+        "competition": "_americanLeague",
+        "dateEvidence": "2026-02-21",
+        "source": "https://www.mlssoccer.com/news/mls-announces-2026-regular-season-schedule",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 327,
+        "world": "2627",
+        "competition": "_worldArgCup",
+        "dateEvidence": "2026-01-18",
+        "source": "https://www.copaargentina.org/es/pwa/news/11744_Se-confirmaron-las-fechas-de-todos-los-partidos-de-32avos-de-Final",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 336,
+        "world": "2627",
+        "competition": "_worldBraCup",
+        "dateEvidence": "2026-02-18/19",
+        "source": "https://www.cbf.com.br/futebol-brasileiro/noticias/campeonato-brasileiro/serie-b/cbf-divulga-cotas-da-copa-do-brasil-2026-a-mais-democratica-da-historia",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 338,
+        "world": "2627",
+        "competition": "_worldCanCup",
+        "dateEvidence": "2026-05-05/10",
+        "source": "https://news.canadasoccer.com/regulations-published-for-the-2026-telus-canadian-championship",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK60"
+      },
+      {
+        "row": 354,
+        "world": "2627",
+        "competition": "_estonianCup",
+        "dateEvidence": "2026-06-10/11",
+        "source": "https://jalgpall.ee/voistlused/karikavoistlused/eesti-2026-27-a-karikavoistluste-mangupaevad",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK60"
+      },
+      {
+        "row": 366,
+        "world": "2627",
+        "competition": "_irishCup",
+        "dateEvidence": "2026-05-10",
+        "source": "https://www.fai.ie/latest/fixtures-2026-mens-fai-cup-first-round-confirmed/",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK60"
+      },
+      {
+        "row": 373,
+        "world": "2627",
+        "competition": "_worldKazCup",
+        "dateEvidence": "2026 April-October window; exact played dates pending",
+        "source": "https://kffleague.kz/storage/qfl-files/document/1368b936-a960-420b-87cb-435a73f42cfa.pdf",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 374,
+        "world": "2627",
+        "competition": "_worldKorCup",
+        "dateEvidence": "2026-06-20 preliminary",
+        "source": "https://www.kfa.or.kr/layer_popup/popup_live.php?act=news_tv_detail&div_code=news&idx=27989",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "PARTIAL_SCORES_EXTRACTED_BLOCK61"
+      },
+      {
+        "row": 389,
+        "world": "2627",
+        "competition": "_norwegianCup",
+        "dateEvidence": "2026 June qualifying phase of 2027 edition",
+        "source": "https://www.fotball.no/turneringer/nm-menn/2026/nm-2026-disse-er-kvalifisert-til-1.-runde",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 390,
+        "world": "2627",
+        "competition": "_worldNzlCup",
+        "dateEvidence": "2026-04-24/26",
+        "source": "https://www.nzfootball.co.nz/newsarticle/163170?newsfeedId=1275538",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 391,
+        "world": "2627",
+        "competition": "_worldParCup",
+        "dateEvidence": "2026-06-02",
+        "source": "https://www.apf.org.py/noticias/esta-es-la-hoja-de-ruta-de-la-copa-de-todos-2026",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 411,
+        "world": "2627",
+        "competition": "_swedishCup",
+        "dateEvidence": "2026 first round through June 30",
+        "source": "https://www.svenskfotboll.se/serier-cuper/svenska-cupen/speldatum/",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 419,
+        "world": "2627",
+        "competition": "_worldUsaCup",
+        "dateEvidence": "2026-03-17/19",
+        "source": "https://www.ussoccer.com/stories/2025/12/format-schedule-participating-teams-finalized-for-2026-lamar-hunt-us-open-cup",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      },
+      {
+        "row": 528,
+        "world": "2627",
+        "competition": "WORLD_CUP",
+        "dateEvidence": "2026-06-11 to 2026-07-19",
+        "source": "https://www.fifa.com/en/articles/match-schedule-fixtures-results-teams-stadiums",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "NOT_EXTRACTED_BY_THIS_CENSUS"
+      }
+    ],
+    "byWorld": {
+      "2627": {
+        "rows": 42,
+        "distinctWorkingCount": 41,
+        "partialSnapshotRows": 23,
+        "additionalDateEvidenceRows": 19
+      },
+      "9697": {
+        "rows": 18,
+        "distinctWorkingCount": 18,
+        "partialSnapshotRows": 18,
+        "additionalDateEvidenceRows": 0
+      }
+    },
+    "totalRequiredRows": 60,
+    "distinctWorkingCount": 59,
+    "aliasDeduction": "321/423 Libertadores treated as one research package pending identity reconciliation",
+    "scope": "Includes active editions, cross-cutoff preliminaries and completed phases within an annual aggregate. Does not count standalone completed editions, technical split/playoff specifications, or unverified candidate rows. Historical qualifiers UEFA: real matches pre-cutoff but 9 actual groups vs 8 OG rows; separate unresolved mapping, not included in lower bound.",
+    "unresolvedExamples": [
+      "9697: BOL CHI ECU PAR PER URU calendar-year leagues, domestic cups; UEFA WCQ and Intertoto (source available, mapping unresolved); AUS/NZL regional slots; COL prior-edition carryover",
+      "2627: ARG second division parallel groups, NZL/AUS regional slots, KAZ league, additional South American annual leagues, national cups and historical competition carryovers"
+    ],
+    "note": "This is applicability only, not verified sporting snapshot or final global count. Some windows are published or archived, actual individual match evidence remains pending. Prior partial counters unchanged."
+  }
 }

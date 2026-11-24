@@ -12,8 +12,8 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,13 +23,127 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "Canadian Championship",
-      "nonCommercialDisplayName": null,
+      "officialName": "TELUS Canadian Championship",
+      "nonCommercialDisplayName": "Canadian Championship",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "ede8038686d4653f73fc84c758c5d2f98ad06465",
+      "source": "https://canadasoccer.com/championship/canChamp/2026/",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block60Research": {
+      "sources": [
+        "https://canadasoccer.com/championship/canChamp/2026/",
+        "https://canadasoccer.com/match/6365/",
+        "https://news.canadasoccer.com/regulations-published-for-the-2026-telus-canadian-championship"
+      ],
+      "name": "TELUS Canadian Championship",
+      "display": "Canadian Championship",
+      "matches": [
+        {
+          "date": "2026-05-05",
+          "home": "Toronto FC",
+          "away": "Atlético Ottawa",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-06",
+          "home": "CF Montréal",
+          "away": "Calgary Blizzard SC",
+          "homeGoals": 5,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-08",
+          "home": "FC Supra du Québec",
+          "away": "Woodbridge SC",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-09",
+          "home": "Forge FC Hamilton",
+          "away": "Halifax Wanderers FC",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-09",
+          "home": "Pacific FC",
+          "away": "Cavalry FC",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "sourceConflict": {
+            "summary": [
+              1,
+              1
+            ],
+            "matchReport": [
+              1,
+              3
+            ],
+            "resolution": "specific official match report corroborated by official club page, summary stale"
+          }
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Inter Toronto FC",
+          "away": "CS Saint-Laurent",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Vancouver FC",
+          "away": "Langley United",
+          "homeGoals": 2,
+          "awayGoals": 0
+        }
+      ],
+      "rules": {
+        "teams": 15,
+        "preliminaryEntrants": 14,
+        "preliminaryLegs": 1,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "extraTime": true,
+        "penalties": true,
+        "winnerAccess": "CONCACAF Champions Cup",
+        "seedProtection": "top four ranking index clubs cannot meet before semifinals"
+      },
+      "start": "2026-05-05",
+      "nextRound": "2026-07-08",
+      "bye": [
+        "Vancouver Whitecaps FC"
+      ],
+      "remaining": [
+        "Vancouver Whitecaps FC",
+        "Atlético Ottawa",
+        "CF Montréal",
+        "FC Supra du Québec",
+        "Forge FC Hamilton",
+        "Cavalry FC",
+        "CS Saint-Laurent",
+        "Vancouver FC"
+      ],
+      "scope": "Seven preliminary matches from federation; exact report resolves stale summary. All pre-cutoff ties known, participant keys still pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://canadasoccer.com/championship/canChamp/2026/",
+        "https://canadasoccer.com/match/6365/",
+        "https://news.canadasoccer.com/regulations-published-for-the-2026-telus-canadian-championship"
+      ],
+      "details": {
+        "matches": 7,
+        "walkovers": 0
+      },
+      "missing": "Participant IDs, independent reconciliation, exact phase/access/tiebreak details."
     }
   }
 ]

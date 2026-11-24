@@ -13,7 +13,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -60,6 +60,1221 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limitations": "No exact fixture/club key reconciliation, match rule certification or runtime test."
+    },
+    "block61Research": {
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "sources": [
+        "https://sports-calendar.com/en/soccer/chinese-super-league/2026/",
+        "https://www.thecfa.cn/cftz/20260129/37309.html",
+        "https://finance.sina.com.cn/jjxw/2026-01-29/doc-inhixyya3217742.shtml",
+        "https://footballdata.cn/leagues/52/chinese-super-league/table"
+      ],
+      "matches": [
+        {
+          "date": "2026-03-06",
+          "home": "Chengdu Rongcheng",
+          "away": "Shenzhen Peng City",
+          "homeGoals": 5,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-07",
+          "home": "Shandong Taishan",
+          "away": "Liaoning Tieren",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-07",
+          "home": "Tianjin Jinmen Tiger",
+          "away": "Chongqing Tonglianglong",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-07",
+          "home": "Shanghai Shenhua",
+          "away": "Dalian Yingbo",
+          "homeGoals": 5,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-03-07",
+          "home": "Yunnan Yukun",
+          "away": "Qingdao Hainiu",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-07",
+          "home": "Shanghai Port",
+          "away": "Henan FC",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-08",
+          "home": "Zhejiang FC",
+          "away": "Qingdao West Coast",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-08",
+          "home": "Wuhan Three Towns",
+          "away": "Beijing Guoan",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-03-13",
+          "home": "Wuhan Three Towns",
+          "away": "Dalian Yingbo",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-14",
+          "home": "Zhejiang FC",
+          "away": "Shanghai Shenhua",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-14",
+          "home": "Shandong Taishan",
+          "away": "Beijing Guoan",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-14",
+          "home": "Chongqing Tonglianglong",
+          "away": "Liaoning Tieren",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-14",
+          "home": "Shenzhen Peng City",
+          "away": "Tianjin Jinmen Tiger",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-15",
+          "home": "Henan FC",
+          "away": "Yunnan Yukun",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-15",
+          "home": "Shanghai Port",
+          "away": "Qingdao West Coast",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-15",
+          "home": "Chengdu Rongcheng",
+          "away": "Qingdao Hainiu",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-20",
+          "home": "Dalian Yingbo",
+          "away": "Shanghai Port",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-20",
+          "home": "Qingdao Hainiu",
+          "away": "Zhejiang FC",
+          "homeGoals": 1,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-03-21",
+          "home": "Liaoning Tieren",
+          "away": "Tianjin Jinmen Tiger",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-21",
+          "home": "Beijing Guoan",
+          "away": "Shanghai Shenhua",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-21",
+          "home": "Henan FC",
+          "away": "Wuhan Three Towns",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-03-21",
+          "home": "Qingdao West Coast",
+          "away": "Shenzhen Peng City",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-03-21",
+          "home": "Chongqing Tonglianglong",
+          "away": "Chengdu Rongcheng",
+          "homeGoals": 3,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-03-21",
+          "home": "Yunnan Yukun",
+          "away": "Shandong Taishan",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-03",
+          "home": "Chengdu Rongcheng",
+          "away": "Qingdao West Coast",
+          "homeGoals": 5,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-04",
+          "home": "Liaoning Tieren",
+          "away": "Beijing Guoan",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-04",
+          "home": "Qingdao Hainiu",
+          "away": "Henan FC",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-04",
+          "home": "Shandong Taishan",
+          "away": "Dalian Yingbo",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-04",
+          "home": "Shanghai Port",
+          "away": "Yunnan Yukun",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-05",
+          "home": "Zhejiang FC",
+          "away": "Chongqing Tonglianglong",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-05",
+          "home": "Shenzhen Peng City",
+          "away": "Wuhan Three Towns",
+          "homeGoals": 5,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-05",
+          "home": "Tianjin Jinmen Tiger",
+          "away": "Shanghai Shenhua",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-10",
+          "home": "Dalian Yingbo",
+          "away": "Zhejiang FC",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Qingdao West Coast",
+          "away": "Liaoning Tieren",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Chongqing Tonglianglong",
+          "away": "Wuhan Three Towns",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Shanghai Shenhua",
+          "away": "Shanghai Port",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-11",
+          "home": "Henan FC",
+          "away": "Shandong Taishan",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Tianjin Jinmen Tiger",
+          "away": "Qingdao Hainiu",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Beijing Guoan",
+          "away": "Chengdu Rongcheng",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-12",
+          "home": "Shenzhen Peng City",
+          "away": "Yunnan Yukun",
+          "homeGoals": 3,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Qingdao Hainiu",
+          "away": "Qingdao West Coast",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Chongqing Tonglianglong",
+          "away": "Shenzhen Peng City",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Shandong Taishan",
+          "away": "Shanghai Port",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Wuhan Three Towns",
+          "away": "Chengdu Rongcheng",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Yunnan Yukun",
+          "away": "Tianjin Jinmen Tiger",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-17",
+          "home": "Zhejiang FC",
+          "away": "Beijing Guoan",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-18",
+          "home": "Dalian Yingbo",
+          "away": "Henan FC",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-18",
+          "home": "Shanghai Shenhua",
+          "away": "Liaoning Tieren",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-21",
+          "home": "Shenzhen Peng City",
+          "away": "Beijing Guoan",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-21",
+          "home": "Wuhan Three Towns",
+          "away": "Zhejiang FC",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-21",
+          "home": "Chengdu Rongcheng",
+          "away": "Yunnan Yukun",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-21",
+          "home": "Tianjin Jinmen Tiger",
+          "away": "Shandong Taishan",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-21",
+          "home": "Shanghai Port",
+          "away": "Chongqing Tonglianglong",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Qingdao West Coast",
+          "away": "Henan FC",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Liaoning Tieren",
+          "away": "Dalian Yingbo",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-22",
+          "home": "Shanghai Shenhua",
+          "away": "Qingdao Hainiu",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-25",
+          "home": "Chengdu Rongcheng",
+          "away": "Zhejiang FC",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-25",
+          "home": "Beijing Guoan",
+          "away": "Tianjin Jinmen Tiger",
+          "homeGoals": 2,
+          "awayGoals": 4
+        },
+        {
+          "date": "2026-04-25",
+          "home": "Shanghai Port",
+          "away": "Wuhan Three Towns",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Qingdao Hainiu",
+          "away": "Shandong Taishan",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Chongqing Tonglianglong",
+          "away": "Qingdao West Coast",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Shenzhen Peng City",
+          "away": "Liaoning Tieren",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Dalian Yingbo",
+          "away": "Yunnan Yukun",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-04-26",
+          "home": "Henan FC",
+          "away": "Shanghai Shenhua",
+          "homeGoals": 0,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Dalian Yingbo",
+          "away": "Chongqing Tonglianglong",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Henan FC",
+          "away": "Liaoning Tieren",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Shandong Taishan",
+          "away": "Qingdao West Coast",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Tianjin Jinmen Tiger",
+          "away": "Wuhan Three Towns",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-01",
+          "home": "Shanghai Shenhua",
+          "away": "Chengdu Rongcheng",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-02",
+          "home": "Qingdao Hainiu",
+          "away": "Shanghai Port",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-02",
+          "home": "Zhejiang FC",
+          "away": "Shenzhen Peng City",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-02",
+          "home": "Yunnan Yukun",
+          "away": "Beijing Guoan",
+          "homeGoals": 3,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-05",
+          "home": "Qingdao West Coast",
+          "away": "Tianjin Jinmen Tiger",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-05",
+          "home": "Liaoning Tieren",
+          "away": "Chengdu Rongcheng",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-05",
+          "home": "Shandong Taishan",
+          "away": "Shanghai Shenhua",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-05",
+          "home": "Chongqing Tonglianglong",
+          "away": "Henan FC",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-06",
+          "home": "Wuhan Three Towns",
+          "away": "Qingdao Hainiu",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-06",
+          "home": "Beijing Guoan",
+          "away": "Dalian Yingbo",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-06",
+          "home": "Shanghai Port",
+          "away": "Shenzhen Peng City",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-06",
+          "home": "Yunnan Yukun",
+          "away": "Zhejiang FC",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-09",
+          "home": "Shanghai Shenhua",
+          "away": "Chongqing Tonglianglong",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-09",
+          "home": "Chengdu Rongcheng",
+          "away": "Henan FC",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Qingdao West Coast",
+          "away": "Wuhan Three Towns",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Shenzhen Peng City",
+          "away": "Shandong Taishan",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Liaoning Tieren",
+          "away": "Yunnan Yukun",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Zhejiang FC",
+          "away": "Tianjin Jinmen Tiger",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Beijing Guoan",
+          "away": "Shanghai Port",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-10",
+          "home": "Qingdao Hainiu",
+          "away": "Dalian Yingbo",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-15",
+          "home": "Henan FC",
+          "away": "Shenzhen Peng City",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-15",
+          "home": "Tianjin Jinmen Tiger",
+          "away": "Chengdu Rongcheng",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-15",
+          "home": "Shanghai Port",
+          "away": "Zhejiang FC",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-15",
+          "home": "Dalian Yingbo",
+          "away": "Qingdao West Coast",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-15",
+          "home": "Beijing Guoan",
+          "away": "Qingdao Hainiu",
+          "homeGoals": 4,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Wuhan Three Towns",
+          "away": "Liaoning Tieren",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Shandong Taishan",
+          "away": "Chongqing Tonglianglong",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Yunnan Yukun",
+          "away": "Shanghai Shenhua",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-19",
+          "home": "Shenzhen Peng City",
+          "away": "Dalian Yingbo",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-19",
+          "home": "Tianjin Jinmen Tiger",
+          "away": "Henan FC",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-19",
+          "home": "Chengdu Rongcheng",
+          "away": "Shanghai Port",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-19",
+          "home": "Qingdao West Coast",
+          "away": "Beijing Guoan",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Liaoning Tieren",
+          "away": "Qingdao Hainiu",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Shanghai Shenhua",
+          "away": "Wuhan Three Towns",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Zhejiang FC",
+          "away": "Shandong Taishan",
+          "homeGoals": 4,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Chongqing Tonglianglong",
+          "away": "Yunnan Yukun",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Shanghai Port",
+          "away": "Tianjin Jinmen Tiger",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Beijing Guoan",
+          "away": "Henan FC",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Dalian Yingbo",
+          "away": "Chengdu Rongcheng",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Qingdao Hainiu",
+          "away": "Chongqing Tonglianglong",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Yunnan Yukun",
+          "away": "Qingdao West Coast",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Zhejiang FC",
+          "away": "Liaoning Tieren",
+          "homeGoals": 0,
+          "awayGoals": 5
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Shandong Taishan",
+          "away": "Wuhan Three Towns",
+          "homeGoals": 3,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Shanghai Shenhua",
+          "away": "Shenzhen Peng City",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-29",
+          "home": "Liaoning Tieren",
+          "away": "Shanghai Port",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-30",
+          "home": "Qingdao West Coast",
+          "away": "Shanghai Shenhua",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-30",
+          "home": "Henan FC",
+          "away": "Zhejiang FC",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-30",
+          "home": "Chengdu Rongcheng",
+          "away": "Shandong Taishan",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-30",
+          "home": "Chongqing Tonglianglong",
+          "away": "Beijing Guoan",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-05-30",
+          "home": "Shenzhen Peng City",
+          "away": "Qingdao Hainiu",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-05-31",
+          "home": "Tianjin Jinmen Tiger",
+          "away": "Dalian Yingbo",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-05-31",
+          "home": "Wuhan Three Towns",
+          "away": "Yunnan Yukun",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-26",
+          "home": "Qingdao Hainiu",
+          "away": "Yunnan Yukun",
+          "homeGoals": 4,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-27",
+          "home": "Liaoning Tieren",
+          "away": "Shandong Taishan",
+          "homeGoals": 1,
+          "awayGoals": 5
+        },
+        {
+          "date": "2026-06-27",
+          "home": "Shenzhen Peng City",
+          "away": "Chengdu Rongcheng",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "2026-06-27",
+          "home": "Henan FC",
+          "away": "Shanghai Port",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "2026-06-27",
+          "home": "Beijing Guoan",
+          "away": "Wuhan Three Towns",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-27",
+          "home": "Chongqing Tonglianglong",
+          "away": "Tianjin Jinmen Tiger",
+          "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-28",
+          "home": "Qingdao West Coast",
+          "away": "Zhejiang FC",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-28",
+          "home": "Dalian Yingbo",
+          "away": "Shanghai Shenhua",
+          "homeGoals": 1,
+          "awayGoals": 4
+        }
+      ],
+      "rules": {
+        "teams": 16,
+        "rounds": 30,
+        "pointsWin": 3,
+        "relegationRanks": [
+          15,
+          16
+        ]
+      },
+      "initialPointsAdjustments": [
+        {
+          "club": "Tianjin Jinmen Tiger",
+          "points": -10,
+          "effectiveEdition": "2026",
+          "date": "2026-01-29",
+          "source": "https://www.thecfa.cn/cftz/20260129/37309.html",
+          "recurring": false
+        },
+        {
+          "club": "Shanghai Shenhua",
+          "points": -10,
+          "effectiveEdition": "2026",
+          "date": "2026-01-29",
+          "source": "https://www.thecfa.cn/cftz/20260129/37309.html",
+          "recurring": false
+        },
+        {
+          "club": "Qingdao Hainiu",
+          "points": -7,
+          "effectiveEdition": "2026",
+          "date": "2026-01-29",
+          "source": "https://www.thecfa.cn/cftz/20260129/37309.html",
+          "recurring": false
+        },
+        {
+          "club": "Wuhan Three Towns",
+          "points": -5,
+          "effectiveEdition": "2026",
+          "date": "2026-01-29",
+          "source": "https://www.thecfa.cn/cftz/20260129/37309.html",
+          "recurring": false
+        },
+        {
+          "club": "Shandong Taishan",
+          "points": -6,
+          "effectiveEdition": "2026",
+          "date": "2026-01-29",
+          "source": "https://www.thecfa.cn/cftz/20260129/37309.html",
+          "recurring": false
+        },
+        {
+          "club": "Henan FC",
+          "points": -6,
+          "effectiveEdition": "2026",
+          "date": "2026-01-29",
+          "source": "https://www.thecfa.cn/cftz/20260129/37309.html",
+          "recurring": false
+        },
+        {
+          "club": "Zhejiang FC",
+          "points": -5,
+          "effectiveEdition": "2026",
+          "date": "2026-01-29",
+          "source": "https://www.thecfa.cn/cftz/20260129/37309.html",
+          "recurring": false
+        },
+        {
+          "club": "Shanghai Port",
+          "points": -5,
+          "effectiveEdition": "2026",
+          "date": "2026-01-29",
+          "source": "https://www.thecfa.cn/cftz/20260129/37309.html",
+          "recurring": false
+        },
+        {
+          "club": "Beijing Guoan",
+          "points": -5,
+          "effectiveEdition": "2026",
+          "date": "2026-01-29",
+          "source": "https://www.thecfa.cn/cftz/20260129/37309.html",
+          "recurring": false
+        }
+      ],
+      "derivedTable": {
+        "status": "NOT_INDEPENDENTLY_RECONCILED",
+        "columns": [
+          "club",
+          "P",
+          "W",
+          "D",
+          "L",
+          "GF",
+          "GA",
+          "earnedPoints",
+          "adjustment",
+          "netPoints"
+        ],
+        "rows": [
+          [
+            "Chengdu Rongcheng",
+            16,
+            13,
+            1,
+            2,
+            36,
+            15,
+            40,
+            0,
+            40
+          ],
+          [
+            "Shenzhen Peng City",
+            16,
+            5,
+            2,
+            9,
+            22,
+            28,
+            17,
+            0,
+            17
+          ],
+          [
+            "Shandong Taishan",
+            16,
+            8,
+            3,
+            5,
+            30,
+            26,
+            27,
+            -6,
+            21
+          ],
+          [
+            "Liaoning Tieren",
+            16,
+            5,
+            2,
+            9,
+            21,
+            28,
+            17,
+            0,
+            17
+          ],
+          [
+            "Tianjin Jinmen Tiger",
+            16,
+            3,
+            6,
+            7,
+            19,
+            22,
+            15,
+            -10,
+            5
+          ],
+          [
+            "Chongqing Tonglianglong",
+            16,
+            7,
+            6,
+            3,
+            20,
+            16,
+            27,
+            0,
+            27
+          ],
+          [
+            "Shanghai Shenhua",
+            16,
+            7,
+            5,
+            4,
+            33,
+            25,
+            26,
+            -10,
+            16
+          ],
+          [
+            "Dalian Yingbo",
+            16,
+            7,
+            1,
+            8,
+            22,
+            29,
+            22,
+            0,
+            22
+          ],
+          [
+            "Yunnan Yukun",
+            16,
+            6,
+            3,
+            7,
+            29,
+            28,
+            21,
+            0,
+            21
+          ],
+          [
+            "Qingdao Hainiu",
+            16,
+            6,
+            2,
+            8,
+            26,
+            27,
+            20,
+            -7,
+            13
+          ],
+          [
+            "Shanghai Port",
+            16,
+            5,
+            5,
+            6,
+            25,
+            22,
+            20,
+            -5,
+            15
+          ],
+          [
+            "Henan FC",
+            16,
+            6,
+            3,
+            7,
+            17,
+            20,
+            21,
+            -6,
+            15
+          ],
+          [
+            "Zhejiang FC",
+            16,
+            6,
+            4,
+            6,
+            21,
+            26,
+            22,
+            -5,
+            17
+          ],
+          [
+            "Qingdao West Coast",
+            16,
+            4,
+            9,
+            3,
+            20,
+            24,
+            21,
+            0,
+            21
+          ],
+          [
+            "Wuhan Three Towns",
+            16,
+            2,
+            7,
+            7,
+            22,
+            31,
+            13,
+            -5,
+            8
+          ],
+          [
+            "Beijing Guoan",
+            16,
+            6,
+            5,
+            5,
+            27,
+            23,
+            23,
+            -5,
+            18
+          ]
+        ]
+      },
+      "note": "16 rounds 128 matches, all pre-July per calendar. Nine point deductions apply once in 2026. Source chronology corrects March13 approximate to March6 actual first. No post-June results."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "https://sports-calendar.com/en/soccer/chinese-super-league/2026/",
+        "https://www.thecfa.cn/cftz/20260129/37309.html",
+        "https://finance.sina.com.cn/jjxw/2026-01-29/doc-inhixyya3217742.shtml",
+        "https://footballdata.cn/leagues/52/chinese-super-league/table"
+      ],
+      "details": {
+        "matches": 128,
+        "pointsAdjustments": 9
+      },
+      "missing": "Independent standings, stable keys and full tie-break rules."
     }
   }
 ]

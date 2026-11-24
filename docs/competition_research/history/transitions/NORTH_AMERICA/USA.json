@@ -30,5 +30,158 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
     }
+  },
+  {
+    "index": 411,
+    "value": {
+      "competition": "MLS playoffs",
+      "firstEdition": "2000",
+      "lastEdition": "2001",
+      "operation": "CHANGE_FORMAT",
+      "source": "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+      "note": "Three division winners + next five; best-of-three first to five points, 10-min sudden-death ET; draws allowed. Shootouts removed from regular season too.",
+      "rowRefs": [
+        49,
+        317
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block59 verified HTML or official search excerpt, no future results imported."
+    }
+  },
+  {
+    "index": 412,
+    "value": {
+      "competition": "MLS playoffs",
+      "firstEdition": "2002",
+      "lastEdition": "2002",
+      "operation": "CHANGE_FORMAT",
+      "source": "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+      "note": "Top eight overall; best-of-three five points.",
+      "rowRefs": [
+        49,
+        317
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block59 verified HTML or official search excerpt, no future results imported."
+    }
+  },
+  {
+    "index": 413,
+    "value": {
+      "competition": "MLS playoffs",
+      "firstEdition": "2003",
+      "lastEdition": "2006",
+      "operation": "CHANGE_FORMAT",
+      "source": "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+      "note": "Top four per conference; aggregate two legs in conference semifinals, one-leg conference finals.",
+      "rowRefs": [
+        49,
+        317
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block59 verified HTML or official search excerpt, no future results imported."
+    }
+  },
+  {
+    "index": 414,
+    "value": {
+      "competition": "MLS playoffs",
+      "firstEdition": "2007",
+      "lastEdition": "2010",
+      "operation": "CHANGE_FORMAT",
+      "source": "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+      "note": "Top two per conference + four overall points qualifiers.",
+      "rowRefs": [
+        49,
+        317
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block59 verified HTML or official search excerpt, no future results imported."
+    }
+  },
+  {
+    "index": 415,
+    "value": {
+      "competition": "MLS playoffs",
+      "firstEdition": "2011",
+      "lastEdition": "2011",
+      "operation": "CHANGE_FORMAT",
+      "source": "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+      "note": "Top three each + four wildcards with single-leg play-in.",
+      "rowRefs": [
+        49,
+        317
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block59 verified HTML or official search excerpt, no future results imported."
+    }
+  },
+  {
+    "index": 416,
+    "value": {
+      "competition": "MLS playoffs",
+      "firstEdition": "2012",
+      "lastEdition": "2014",
+      "operation": "CHANGE_FORMAT",
+      "source": "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+      "note": "Top five each, seed4 hosts seed5; two-legged conference semifinals and finals.",
+      "rowRefs": [
+        49,
+        317
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block59 verified HTML or official search excerpt, no future results imported."
+    }
+  },
+  {
+    "index": 417,
+    "value": {
+      "competition": "MLS playoffs",
+      "firstEdition": "2014",
+      "lastEdition": "2014",
+      "operation": "CHANGE_FORMAT",
+      "source": "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+      "note": "Away goals added, not extra time.",
+      "rowRefs": [
+        49,
+        317
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block59 verified HTML or official search excerpt, no future results imported."
+    }
+  },
+  {
+    "index": 418,
+    "value": {
+      "competition": "MLS playoffs",
+      "firstEdition": "2015",
+      "lastEdition": "2018",
+      "operation": "CHANGE_FORMAT",
+      "source": "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+      "note": "Top six per conference, knockout seed3–6, reseed then aggregate ties.",
+      "rowRefs": [
+        49,
+        317
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block59 verified HTML or official search excerpt, no future results imported."
+    }
+  },
+  {
+    "index": 419,
+    "value": {
+      "competition": "MLS playoffs",
+      "firstEdition": "2019",
+      "lastEdition": "2019",
+      "operation": "CHANGE_FORMAT",
+      "source": "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+      "note": "Top seven per conference; top seed bye, single elimination, no reseed. Later years not assumed identical.",
+      "rowRefs": [
+        49,
+        317
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block59 verified HTML or official search excerpt, no future results imported."
+    }
   }
 ]

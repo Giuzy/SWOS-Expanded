@@ -1,0 +1,76 @@
+[
+  {
+    "index": 251,
+    "value": {
+      "competition": "JPN tier 1",
+      "firstEdition": "1999",
+      "lastEdition": null,
+      "operation": "RENAME_AND_RESTRUCTURE",
+      "previousName": "J.League",
+      "name": "J.League Division 1",
+      "rowRefs": [
+        58,
+        258
+      ],
+      "source": "https://jref.com/dir/j-league-official-information-net.621/",
+      "note": "New two-tier structure, verify official competition records.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
+    }
+  },
+  {
+    "index": 252,
+    "value": {
+      "competition": "JPN tier 2",
+      "firstEdition": "1999",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "previousName": null,
+      "name": "J.League Division 2",
+      "rowRefs": [
+        259
+      ],
+      "source": "https://www.jleague.jp/corporate/about_competitions/tournament_history/",
+      "note": "Do not map original 1996 second division to J2 without independent identity audit.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
+    }
+  },
+  {
+    "index": 253,
+    "value": {
+      "competition": "JPN tier 1",
+      "firstEdition": "2015",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "previousName": "J.League Division 1",
+      "name": "J1 League",
+      "rowRefs": [
+        58,
+        258
+      ],
+      "source": "https://www.vissel-kobe.co.jp/news/article/8466.html",
+      "note": "Official club announcement explicitly states both renames.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
+    }
+  },
+  {
+    "index": 254,
+    "value": {
+      "competition": "JPN tier 2",
+      "firstEdition": "2015",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "previousName": "J.League Division 2",
+      "name": "J2 League",
+      "rowRefs": [
+        259
+      ],
+      "source": "https://www.vissel-kobe.co.jp/news/article/8466.html",
+      "note": "Official club announcement; no commercial labels.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
+    }
+  }
+]

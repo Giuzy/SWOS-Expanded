@@ -1,0 +1,47 @@
+[
+  {
+    "row": 213,
+    "world": "2627",
+    "id": "_belgianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "BEL",
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "Pro League",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.proleague.be/nieuws/vanaf-seizoen-26-27-met-18-clubs-in-de-jupiler-pro-league",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence40": {
+      "edition": "2026/27",
+      "teams": 18,
+      "games": 34,
+      "playoffs": false,
+      "directRelegated": 2,
+      "sources": [
+        "https://www.proleague.be/nieuws/vanaf-seizoen-26-27-met-18-clubs-in-de-jupiler-pro-league",
+        "https://www.proleague.be/nieuws/kalender-2026-2027-club-brugge-opent-tegen-kv-kortrijk-eerste-super-sunday-al-op-speeldag-4"
+      ],
+      "scope": "official format and published calendar existence; no fixture reconciliation"
+    }
+  }
+]

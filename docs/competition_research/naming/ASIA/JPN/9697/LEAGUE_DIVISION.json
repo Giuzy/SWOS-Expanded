@@ -1,0 +1,21 @@
+[
+  {
+    "index": 57,
+    "value": {
+      "row": 58,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        252,
+        254
+      ]
+    }
+  },
+  {
+    "index": 58,
+    "value": {
+      "row": 59,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": []
+    }
+  }
+]

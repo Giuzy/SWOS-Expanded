@@ -1,0 +1,25 @@
+[
+  {
+    "index": 87,
+    "value": {
+      "country": "CRO",
+      "division": "div1",
+      "from": "2013/14",
+      "to": null,
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesk/kroa2014.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF search extracts; observed season structure, end validity and access not certified; no results imported",
+      "rowRefs": [
+        6,
+        225
+      ]
+    }
+  }
+]

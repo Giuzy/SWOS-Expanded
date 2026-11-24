@@ -1,0 +1,104 @@
+[
+  {
+    "index": 302,
+    "value": {
+      "competition": "ROU tier 1",
+      "firstEdition": "2020/21",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        289
+      ],
+      "source": "https://lpf.ro/noutati/casa-liga-1-nou-sistem-competitional/1907",
+      "previousTeams": 14,
+      "teams": 16,
+      "regularGames": 30,
+      "groups": [
+        6,
+        10
+      ],
+      "groupGames": [
+        10,
+        9
+      ],
+      "note": "Top group double round, bottom single round; first five bottom clubs receive extra home match.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block42 official HTML pages/search excerpts retrieved 24/11/2026. No PDFs analyzed."
+    }
+  },
+  {
+    "index": 303,
+    "value": {
+      "competition": "ROU tier 1",
+      "firstEdition": "2020/21",
+      "lastEdition": "2022/23",
+      "operation": "PROMOTION_RELEGATION_RULE",
+      "rowRefs": [
+        289
+      ],
+      "source": "https://lpf.ro/noutati/casa-liga-1-nou-sistem-competitional/1907",
+      "directRelegatedOverallRanks": [
+        15,
+        16
+      ],
+      "playoffPairs": [
+        [
+          13,
+          4
+        ],
+        [
+          14,
+          3
+        ]
+      ],
+      "legs": 2,
+      "note": "Second number is tier2 rank; announced validity limited to three editions.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block42 official HTML pages/search excerpts retrieved 24/11/2026. No PDFs analyzed."
+    }
+  },
+  {
+    "index": 304,
+    "value": {
+      "competition": "ROU tier 1",
+      "firstEdition": "2020/21",
+      "operation": "ANNOUNCED_EUROPEAN_PLAYOFF",
+      "rowRefs": [
+        289
+      ],
+      "source": "https://lpf.ro/noutati/casa-liga-1-nou-sistem-competitional/1907",
+      "note": "Bottom group first vs second, winner faces final European qualifying place in top group. 2020 announcement, annual implementation and UEFA eligibility not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block42 official HTML pages/search excerpts retrieved 24/11/2026. No PDFs analyzed."
+    }
+  },
+  {
+    "index": 305,
+    "value": {
+      "competition": "ROU national cup",
+      "firstEdition": "2022/23",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        398
+      ],
+      "source": "https://www.frf.ro/recomandate/cum-va-arata-formatul-cupei-romaniei-betano-incepand-din-noul-sezon/",
+      "additionalSource": "https://www.frf.ro/recomandate/clasamentul-agregat-al-cupei-romaniei-betano-in-noul-format-cele-mai-bune-echipe-din-ultimele-trei-sezoane/",
+      "regionalZones": 7,
+      "regionalWinnersEnterRound": 2,
+      "groupTeams": 24,
+      "groups": 4,
+      "teamsPerGroup": 6,
+      "pots": 3,
+      "gamesPerTeam": 3,
+      "directTopTierEntrants": 8,
+      "otherEntrants": 16,
+      "knockoutStages": [
+        "QF",
+        "SF",
+        "FINAL"
+      ],
+      "legs": 1,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block42 official HTML pages/search excerpts retrieved 24/11/2026. No PDFs analyzed."
+    }
+  }
+]

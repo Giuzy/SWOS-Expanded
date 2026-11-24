@@ -1,0 +1,64 @@
+[
+  {
+    "index": 138,
+    "value": {
+      "country": "BIH",
+      "division": "div1",
+      "from": "2002/03",
+      "to": null,
+      "rules": {
+        "operation": "UNIFY_LEAGUE",
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "entryPools": [
+          {
+            "pool": "Republika Srpska",
+            "count": 6
+          },
+          {
+            "pool": "Federation",
+            "count": 14
+          }
+        ],
+        "note": "Use applicable career standings if precursor leagues available; otherwise missing participants decision, no invented clubs."
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesb/bih02.html",
+        "https://www.rsssf.org/tablesb/bih03.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF previous season lines 371–398 opened, next season search extract corroborates 38 games; exact end validity, identity mapping, dates, remaining rules and 2026 equivalence pending",
+      "rowRefs": [
+        214
+      ]
+    }
+  },
+  {
+    "index": 139,
+    "value": {
+      "country": "BIH",
+      "division": "div1",
+      "from": "2016/17",
+      "to": null,
+      "rules": {
+        "teams": 12,
+        "initialRounds": 2,
+        "split": [
+          6,
+          6
+        ],
+        "note": "Championship/relegation groups observed; second-stage details pending full retrieval."
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesb/bih2017.html",
+        "https://www.rsssf.org/tablesb/bih2016.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Search extracts only; opening 2017 Unicode decoding error; exact end validity, identity mapping, dates, remaining rules and 2026 equivalence pending",
+      "rowRefs": [
+        214
+      ]
+    }
+  }
+]

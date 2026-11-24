@@ -1,0 +1,17 @@
+[
+  {
+    "index": 298,
+    "value": {
+      "competition": "SVK tier 1",
+      "firstEdition": "2017/18",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        305
+      ],
+      "source": "https://www.nikeliga.sk/text/56-herny-model",
+      "note": "12 teams, 22+10 rounds, two groups of six.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 41 official HTML opened or search excerpt; no PDF analyzed."
+    }
+  }
+]

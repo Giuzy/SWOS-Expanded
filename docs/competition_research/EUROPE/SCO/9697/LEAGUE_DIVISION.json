@@ -1,0 +1,262 @@
+[
+  {
+    "row": 81,
+    "world": "9697",
+    "id": "_scottishLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SCO",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "SCOTLAND",
+      "teams": "10",
+      "formula": "OG rounds=4; points_win=3; begin=56; end=32",
+      "promotionRaw": "0 campo-OG + 0 playoff",
+      "relegationRaw": "1 campo-OG + 1 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "edition": "1996/97",
+      "teams": 10,
+      "regularOrInitialGamesPerClub": 36,
+      "pointsWin": 3,
+      "formatAndMovement": "Scottish League Premier Division, quadruple RR",
+      "researchSource": "https://www.rsssf.org/tabless/scothist.html",
+      "scope": "Observed structure, no future results imported; null and uncertain fields remain open."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "Scottish Football League Premier Division",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://rsssf.org/tabless/scothist.html",
+      "nameHistory": [
+        {
+          "transition": 217,
+          "from": "2013/14",
+          "to": null,
+          "previousName": "Scottish Premier League",
+          "name": "Scottish Premiership",
+          "operation": "RENAME",
+          "source": "https://spfl.co.uk/pages/rules-and-regulations"
+        },
+        {
+          "transition": 263,
+          "from": "1998/99",
+          "to": null,
+          "previousName": "Scottish Football League Premier Division",
+          "name": "Scottish Premier League",
+          "operation": "RESTRUCTURE_AND_RENAME",
+          "source": "https://rsssf.org/tabless/scothist.html"
+        }
+      ],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 82,
+    "world": "9697",
+    "id": "_scottishLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SCO",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "SCOTLAND",
+      "teams": "10",
+      "formula": "OG rounds=4; points_win=3; begin=56; end=32",
+      "promotionRaw": "1 campo-OG + 1 playoff",
+      "relegationRaw": "2 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "name": "Scottish Football League First Division",
+      "edition": "1996/97",
+      "teams": 10,
+      "regularOrInitialGamesPerClub": 36,
+      "pointsWin": 3,
+      "formatAndMovement": "first direct, bottom2 relegated; second-place playoff rule needs check independent of observed movement",
+      "researchSource": "https://www.rsssf.org/tabless/scot2hist.html",
+      "scope": "Research only: regional candidates and adjacent-year evidence are not exact first-edition certification; no future results imported."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "Scottish Football League First Division",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tabless/scot2hist.html",
+      "nameHistory": [
+        {
+          "transition": 218,
+          "from": "2013/14",
+          "to": null,
+          "previousName": "First Division",
+          "name": "Scottish Championship",
+          "operation": "RENAME",
+          "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled"
+        }
+      ],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 83,
+    "world": "9697",
+    "id": "_scottishLeague",
+    "detail": "div3",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SCO",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "SCOTLAND",
+      "teams": "10",
+      "formula": "OG rounds=4; points_win=3; begin=56; end=32",
+      "promotionRaw": "2 campo-OG + 0 playoff",
+      "relegationRaw": "2 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "name": "Scottish Football League Second Division",
+      "edition": "1996/97",
+      "teams": 10,
+      "regularOrInitialGamesPerClub": 36,
+      "pointsWin": 3,
+      "formatAndMovement": "top2 promoted, bottom2 relegated",
+      "researchSource": "https://www.rsssf.org/tabless/scot3hist.html",
+      "scope": "Research only: regional candidates and adjacent-year evidence are not exact first-edition certification; no future results imported."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "Scottish Football League Second Division",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tabless/scot3hist.html",
+      "nameHistory": [
+        {
+          "transition": 219,
+          "from": "2013/14",
+          "to": null,
+          "previousName": "Second Division",
+          "name": "Scottish League One",
+          "operation": "RENAME",
+          "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled"
+        }
+      ],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 84,
+    "world": "9697",
+    "id": "_scottishLeague",
+    "detail": "div4",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SCO",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "SCOTLAND",
+      "teams": "10",
+      "formula": "OG rounds=4; points_win=3; begin=56; end=32",
+      "promotionRaw": "2 campo-OG + 0 playoff",
+      "relegationRaw": "0 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "name": "Scottish Football League Third Division",
+      "edition": "1996/97",
+      "teams": 10,
+      "regularOrInitialGamesPerClub": 36,
+      "pointsWin": 3,
+      "formatAndMovement": "top2 promotion; no automatic relegation from national fourth level",
+      "researchSource": "https://spfl.co.uk/league/league-two/archive/253",
+      "scope": "Research only: regional candidates and adjacent-year evidence are not exact first-edition certification; no future results imported."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "Scottish Football League Third Division",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://spfl.co.uk/league/league-two/archive/253",
+      "nameHistory": [
+        {
+          "transition": 220,
+          "from": "2013/14",
+          "to": null,
+          "previousName": "Third Division",
+          "name": "Scottish League Two",
+          "operation": "RENAME",
+          "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled"
+        }
+      ],
+      "historyComplete": false
+    }
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "index": 136,
+    "value": {
+      "country": "SRB",
+      "division": "div1",
+      "from": "2006/07",
+      "to": null,
+      "rules": {
+        "operation": "SUCCESSOR_LEAGUE",
+        "teams": 12,
+        "note": "Separate Serbian top league after last shared Serbia-Montenegro season 2005/06. Actual split rounds and movement pending; UEFA June plan not proof of implemented format."
+      },
+      "sources": [
+        "https://www.uefa.com/news-media/news/0257-0de6aeaceaf4-4a3a4100d804-1000--the-last-of-serbia-and-montenegro/",
+        "https://www.rsssf.org/tablesj/joeg06.html",
+        "https://en.wikipedia.org/wiki/2006%E2%80%9307_Serbian_SuperLiga"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: UEFA announcement and secondary seasonal account; exact rules pending; exact end validity, identity mapping, dates, remaining rules and 2026 equivalence pending",
+      "rowRefs": [
+        36,
+        302
+      ]
+    }
+  }
+]

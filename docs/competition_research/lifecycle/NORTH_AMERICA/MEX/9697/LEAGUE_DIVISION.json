@@ -1,0 +1,32 @@
+[
+  {
+    "index": 61,
+    "value": {
+      "row": 62,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 62,
+    "value": {
+      "row": 63,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  }
+]

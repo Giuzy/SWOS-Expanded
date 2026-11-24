@@ -1,0 +1,19 @@
+[
+  {
+    "index": 226,
+    "value": {
+      "competition": "RUS tier 1",
+      "firstEdition": "2002",
+      "operation": "RENAME",
+      "previousName": "Top Division",
+      "name": "Russian Premier League",
+      "rowRefs": [
+        27,
+        291
+      ],
+      "source": "https://en.wikipedia.org/wiki/2002_Russian_Premier_League",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 30 actual web search excerpts; exact sporting identity and structural reform independently checked before runtime. No sponsor names."
+    }
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "index": 71,
+    "value": {
+      "row": 72,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 72,
+    "value": {
+      "row": 73,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 73,
+    "value": {
+      "row": 74,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  }
+]

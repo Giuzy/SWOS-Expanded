@@ -1,0 +1,35 @@
+[
+  {
+    "row": 391,
+    "world": "2627",
+    "id": "_worldParCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "PAR",
+    "candidateSources": [
+      "b1e9c4d6ab11e0e665c638188abd4117403a63cd"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Copa Paraguay",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "b1e9c4d6ab11e0e665c638188abd4117403a63cd",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

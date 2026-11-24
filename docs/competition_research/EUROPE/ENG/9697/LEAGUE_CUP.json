@@ -1,0 +1,68 @@
+[
+  {
+    "row": 152,
+    "world": "9697",
+    "id": "_englishLeagueCup",
+    "detail": "",
+    "technicalCategory": "LEAGUE_CUP",
+    "researchCategory": "LEAGUE_CUP",
+    "country": "ENG",
+    "candidateSources": [
+      "d744018d10a2aa469e3044dc364cbaa2914785fe"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "Football League Cup",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "d744018d10a2aa469e3044dc364cbaa2914785fe",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 154,
+    "world": "9697",
+    "id": "_englishLeagueCup_1",
+    "detail": "",
+    "technicalCategory": "LEAGUE_CUP",
+    "researchCategory": "LEAGUE_CUP",
+    "country": "ENG",
+    "candidateSources": [
+      "d744018d10a2aa469e3044dc364cbaa2914785fe"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "VARIANT_MAPPING_PENDING"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Football League Cup",
+      "status": "VARIANT_MAPPING_PENDING",
+      "source": "d744018d10a2aa469e3044dc364cbaa2914785fe",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

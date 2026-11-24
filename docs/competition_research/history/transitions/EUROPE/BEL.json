@@ -1,0 +1,43 @@
+[
+  {
+    "index": 293,
+    "value": {
+      "competition": "BEL tier 1",
+      "firstEdition": "2025/26",
+      "lastEdition": "2025/26",
+      "operation": "TRANSITION_PROMOTION_RELEGATION",
+      "safeRanks": [
+        13,
+        14,
+        15
+      ],
+      "playoffRank": 16,
+      "opponent": "tier2 promotion playoff winner",
+      "rowRefs": [
+        213
+      ],
+      "source": "https://www.proleague.be/nieuws/vanaf-seizoen-26-27-met-18-clubs-in-de-jupiler-pro-league",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 40 official league HTML search/open 24/11/2026; no full calendar/identity certification."
+    }
+  },
+  {
+    "index": 294,
+    "value": {
+      "competition": "BEL tier 1",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_FORMAT",
+      "teams": 18,
+      "games": 34,
+      "playoffs": false,
+      "directRelegated": 2,
+      "rowRefs": [
+        213
+      ],
+      "source": "https://www.proleague.be/nieuws/vanaf-seizoen-26-27-met-18-clubs-in-de-jupiler-pro-league",
+      "additionalSource": "https://www.proleague.be/nieuws/kalender-2026-2027-club-brugge-opent-tegen-kv-kortrijk-eerste-super-sunday-al-op-speeldag-4",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 40 official league HTML search/open 24/11/2026; no full calendar/identity certification."
+    }
+  }
+]

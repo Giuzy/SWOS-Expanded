@@ -1,0 +1,28 @@
+[
+  {
+    "index": 342,
+    "value": {
+      "row": 343,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [
+        {
+          "from": "2026/27",
+          "until": "2026/27",
+          "reason": "UNAFUT assembly decision 28 May 2026, corroborated independent press, original minutes pending",
+          "careerApplicability": "RESEARCH_ONLY"
+        }
+      ],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "CORROBORATED_ONE_EDITION_SUSPENSION_PRESS",
+      "sources": [
+        "https://www.nacion.com/puro-deporte/futbol/como-se-jugara-la-primera-division-con-10-o-12/YTJPN6WA7BGAXCQLORX5USBL6M/story/",
+        "https://www.repretel.com/noticia/se-jugara-con-10-o-12-equipos-unafut-confirma-los-acuerdos-para-la-proxima-temporada/"
+      ]
+    }
+  }
+]

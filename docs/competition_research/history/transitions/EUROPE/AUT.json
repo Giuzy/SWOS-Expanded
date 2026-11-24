@@ -1,0 +1,46 @@
+[
+  {
+    "index": 290,
+    "value": {
+      "competition": "AUT tier 1",
+      "firstEdition": "2017/18",
+      "lastEdition": "2017/18",
+      "operation": "TRANSITION_PROMOTION_RELEGATION",
+      "directPromoted": 2,
+      "playoffTier2Rank": 3,
+      "playoffTier1Rank": 10,
+      "rowRefs": [
+        2,
+        211
+      ],
+      "source": "https://www.bundesliga.at/de/news/artikel/kommende-liga-spielzeit-als-bergangssaison-vor-reform",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 40 official league HTML search/open 24/11/2026; no full calendar/identity certification."
+    }
+  },
+  {
+    "index": 291,
+    "value": {
+      "competition": "AUT tier 1",
+      "firstEdition": "2018/19",
+      "operation": "CHANGE_FORMAT",
+      "teams": 12,
+      "regularGames": 22,
+      "splitGames": 10,
+      "groups": [
+        6,
+        6
+      ],
+      "pointsHalved": true,
+      "rounding": "floor",
+      "tieBreakPriority": "club whose half point was rounded down ahead of club without rounding, then goal difference",
+      "rowRefs": [
+        211
+      ],
+      "source": "https://www.bundesliga.at/de/news/artikel/kommende-liga-spielzeit-als-bergangssaison-vor-reform",
+      "additionalSource": "https://www.bundesliga.at/de/news/artikel/die-details-der-ligareform-so-wird-ab-2018-19-gespielt",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 40 official league HTML search/open 24/11/2026; no full calendar/identity certification."
+    }
+  }
+]

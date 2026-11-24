@@ -1,0 +1,233 @@
+[
+  {
+    "row": 207,
+    "world": "2627",
+    "id": "_australianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "AUS",
+    "candidateSources": [
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 88,
+      "slotOrdinal": 1,
+      "name": "A-LEAGUE MEN",
+      "rawDivision": {
+        "teams": 12,
+        "promoted": 0,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 1,
+      "parallelGroup": null,
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "A-League Men",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://footballaustralia.com.au/history/aleague-men",
+      "nameHistory": [
+        {
+          "from": "2005/06",
+          "to": "2020/21",
+          "name": "A-League",
+          "source": "https://footballaustralia.com.au/history/aleague-men"
+        },
+        {
+          "from": "2021/22",
+          "to": null,
+          "name": "A-League Men",
+          "source": "https://footballaustralia.com.au/history/aleague-men"
+        }
+      ],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence37": {
+      "source": "https://footballaustralia.com.au/aleague-men-honours-board",
+      "regularSeasonWinner": "Premiership",
+      "grandFinalWinner": "Championship",
+      "scope": "Observed historical structure, not full 2026/27 regulation"
+    }
+  },
+  {
+    "row": 208,
+    "world": "2627",
+    "id": "_australianLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "AUS",
+    "candidateSources": [
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 88,
+      "slotOrdinal": 2,
+      "name": "NPL NEW SOUTH WALES",
+      "rawDivision": {
+        "teams": 16,
+        "promoted": 0,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": null,
+      "parallelGroup": "regional_NPL",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "National Premier Leagues South Australia",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  },
+  {
+    "row": 209,
+    "world": "2627",
+    "id": "_australianLeague",
+    "detail": "div3",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "AUS",
+    "candidateSources": [
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 88,
+      "slotOrdinal": 3,
+      "name": "NPL VICTORIA",
+      "rawDivision": {
+        "teams": 14,
+        "promoted": 0,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": null,
+      "parallelGroup": "regional_NPL",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "National Premier Leagues New South Wales",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  },
+  {
+    "row": 210,
+    "world": "2627",
+    "id": "_australianLeague",
+    "detail": "div4",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "AUS",
+    "candidateSources": [
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 88,
+      "slotOrdinal": 4,
+      "name": "NPL QUEENSLAND",
+      "rawDivision": {
+        "teams": 12,
+        "promoted": 0,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": null,
+      "parallelGroup": "regional_NPL",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "National Premier Leagues Queensland",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  }
+]

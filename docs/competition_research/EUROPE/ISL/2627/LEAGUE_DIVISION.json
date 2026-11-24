@@ -1,0 +1,55 @@
+[
+  {
+    "row": 256,
+    "world": "2627",
+    "id": "_icelandicLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ISL",
+    "candidateSources": [
+      "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Besta deild karla",
+      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "source": "https://en.wikipedia.org/wiki/European_Leagues",
+      "nameHistory": [],
+      "historyComplete": false,
+      "historicalNameEvidence38": {
+        "name": "Besta deild karla",
+        "edition": "2022",
+        "source": "https://www.ksi.is/um-ksi/frettir/motamal/adsokn-ad-bestu-deildum-karla-og-kvenna-2022/",
+        "commercialStatus": "NOT_RECONCILED"
+      }
+    },
+    "sportRuleEvidence38": {
+      "edition": "2022",
+      "teams": 12,
+      "regularGames": 22,
+      "splitGroups": 2,
+      "teamsPerGroup": 6,
+      "totalGames": 27,
+      "sources": [
+        "https://www.ksi.is/um-ksi/frettir/motamal/adsokn-ad-bestu-deildum-karla-og-kvenna-2022/",
+        "https://www.ksi.is/oll-mot/mot?id=190181",
+        "https://www.ksi.is/oll-mot/mot?id=190167"
+      ],
+      "scope": "Historical format only; current rule not certified"
+    }
+  }
+]

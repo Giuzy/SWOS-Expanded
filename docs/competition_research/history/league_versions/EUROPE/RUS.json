@@ -1,0 +1,45 @@
+[
+  {
+    "index": 63,
+    "value": {
+      "country": "RUS",
+      "division": "div1",
+      "from": "2011/12",
+      "to": "2011/12",
+      "rules": {
+        "teams": 16,
+        "regularRounds": 2,
+        "split": [
+          8,
+          8
+        ],
+        "splitRounds": 2,
+        "gamesPerClub": 44,
+        "pointsCarry": true,
+        "directRelegationRanks": [
+          15,
+          16
+        ],
+        "playoffRanks": [
+          13,
+          14
+        ],
+        "playoffOpponentRanks": [
+          3,
+          4
+        ],
+        "operation": "TRANSITION_TO_AUTUMN_SPRING"
+      },
+      "sources": [
+        "https://www.uefa.com/news-media/news/01e9-0e7569c623b9-fd044e96aacf-1000--russian-league-switches-to-new-calendar/",
+        "https://rsssf.org/tablesr/rus2012.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        27,
+        291
+      ]
+    }
+  }
+]

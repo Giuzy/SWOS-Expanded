@@ -1,0 +1,59 @@
+[
+  {
+    "index": 79,
+    "value": {
+      "country": "ROU",
+      "division": "div1",
+      "from": "2015/16",
+      "to": null,
+      "rules": {
+        "teams": 14,
+        "initialRounds": 2,
+        "split": [
+          6,
+          8
+        ],
+        "note": "26 regular games; exact playoff rules to reconcile"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesr/roem2016.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact end of validity, access, dates and modern equivalence pending",
+      "rowRefs": [
+        26,
+        289
+      ]
+    }
+  },
+  {
+    "index": 80,
+    "value": {
+      "country": "ROU",
+      "division": "div1",
+      "from": "2020/21",
+      "to": null,
+      "rules": {
+        "teams": 16,
+        "initialRounds": 2,
+        "split": [
+          6,
+          10
+        ],
+        "playoffRounds": 2,
+        "playoutRounds": 1,
+        "pointsCarry": "half rounded up",
+        "note": "Permanent reform; separate from emergency pandemic measures"
+      },
+      "sources": [
+        "https://www.frf.ro/comunicari/comunicate-frf/hotararea-comitetului-de-urgenta-din-6-august-2020/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact end of validity, access, dates and modern equivalence pending",
+      "rowRefs": [
+        26,
+        289
+      ]
+    }
+  }
+]

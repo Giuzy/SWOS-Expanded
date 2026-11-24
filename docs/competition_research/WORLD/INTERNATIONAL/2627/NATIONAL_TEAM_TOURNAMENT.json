@@ -1,0 +1,341 @@
+[
+  {
+    "row": 528,
+    "world": "2627",
+    "id": "WORLD_CUP",
+    "detail": "OG tournament table",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "FIFA World Cup",
+      "candidateName": "FIFA World Cup",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.fifa.com/en/articles/article-fifa-world-cup-2026-mexico-canada-usa-new-format-tournament-football-soccer",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence49": {
+      "edition": "2026",
+      "rules": {
+        "teams": 48,
+        "groups": 12,
+        "groupSize": 4,
+        "matches": 104,
+        "advanceTop2": true,
+        "bestThird": 8,
+        "firstKO": 32
+      },
+      "sources": [
+        "https://www.fifa.com/en/articles/article-fifa-world-cup-2026-mexico-canada-usa-new-format-tournament-football-soccer"
+      ],
+      "limitations": "official search excerpt",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "row": 529,
+    "world": "2627",
+    "id": "EUROPEAN_CHAMPIONSHIPS",
+    "detail": "OG tournament table",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "UEFA European Championship",
+      "candidateName": "UEFA European Championship",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.uefa.com/euro2028/news/029f-1f2f36424d97-2486810a0d57-1000--euro-2028-tournament-schedule-confirmed-when-and-where-a/",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence49": {
+      "edition": "2028",
+      "rules": {
+        "teams": 24,
+        "groups": 6,
+        "groupSize": 4,
+        "advanceTop2": true,
+        "bestThird": 4
+      },
+      "sources": [
+        "https://www.uefa.com/euro2028/news/029f-1f2f36424d97-2486810a0d57-1000--euro-2028-tournament-schedule-confirmed-when-and-where-a/"
+      ],
+      "limitations": "official search excerpt, future announced format",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "row": 530,
+    "world": "2627",
+    "id": "COPA_AMERICA",
+    "detail": "OG tournament table",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Copa América",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  },
+  {
+    "row": 531,
+    "world": "2627",
+    "id": "AFRICAN_NATIONS_CUP",
+    "detail": "OG tournament table",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "Africa Cup of Nations",
+      "candidateName": "Africa Cup of Nations",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.cafonline.com/afcon2025/news/all-you-need-to-know-about-the-totalenergies-caf-africa-cup-of-nations-morocco-2025/",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence49": {
+      "edition": "2025",
+      "rules": {
+        "teams": 24,
+        "groups": 6,
+        "groupSize": 4,
+        "advanceTop2": true,
+        "bestThird": 4,
+        "start": "2025-12-21",
+        "end": "2026-01-18"
+      },
+      "sources": [
+        "https://www.cafonline.com/afcon2025/news/all-you-need-to-know-about-the-totalenergies-caf-africa-cup-of-nations-morocco-2025/",
+        "https://www.cafonline.com/caf-africa-cup-of-nations/news/the-totalenergies-caf-africa-cup-of-nations-afcon-morroco-2025-final-draw-pots-and-procedure-revealed/"
+      ],
+      "limitations": "official search excerpts, finished before cutoff",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "row": 532,
+    "world": "2627",
+    "id": "NORTH_AMERICAN_CUP",
+    "detail": "OG tournament table",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "CONCACAF Gold Cup",
+      "candidateName": "CONCACAF Gold Cup",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.concacaf.com/competitions/gold-cup/news/concacaf-sets-stage-for-2027-gold-cup-with-exciting-new-format-and-dates",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence49": {
+      "edition": "2027",
+      "rules": {
+        "teams": 16,
+        "groups": 2,
+        "groupSize": 8,
+        "previousGroups": 4,
+        "previousGroupSize": 4,
+        "guest": "Saudi Arabia",
+        "status": "ANNOUNCED_NOT_TEMPLATE_OVERRIDE"
+      },
+      "sources": [
+        "https://www.concacaf.com/competitions/gold-cup/news/concacaf-sets-stage-for-2027-gold-cup-with-exciting-new-format-and-dates",
+        "https://www.concacaf.com/competitions/gold-cup/news/2027-concacaf-gold-cup-qualification-pathway-confirmed"
+      ],
+      "limitations": "official search excerpts; format announcement open cache miss; later format requires policy review",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "row": 533,
+    "world": "2627",
+    "id": "ASIAN_CUP",
+    "detail": "OG tournament table",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "AFC Asian Cup",
+      "candidateName": "AFC Asian Cup",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.the-afc.com/en/national/afc_asian_cup.html/news/asiancup2027-road-to-glory-paved",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence49": {
+      "edition": "2027",
+      "rules": {
+        "teams": 24,
+        "groups": 6,
+        "groupSize": 4,
+        "advanceTop2": true,
+        "bestThird": 4,
+        "roundOf16Start": "2027-01-22",
+        "quarterfinalDates": [
+          "2027-01-28",
+          "2027-01-29"
+        ],
+        "semifinalDates": [
+          "2027-02-01",
+          "2027-02-02"
+        ],
+        "finalDate": "2027-02-05",
+        "qualifiersFinal": {
+          "teams": 24,
+          "groups": 6,
+          "winnersAdvance": 6,
+          "otherQualified": 18
+        }
+      },
+      "sources": [
+        "https://www.the-afc.com/en/national/afc_asian_cup.html/news/asiancup2027-road-to-glory-paved",
+        "https://www.the-afc.com/en/national/afc_asian_cup.html/news/match-schedule-finalised-asiancup2027",
+        "https://www.the-afc.com/en/national/afc_asian_cup.html/news/saudi-arabia-2027-berths-at-stake-in-qualifiers-final-round"
+      ],
+      "limitations": "official HTML search excerpts; schedule open cache miss",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "row": 534,
+    "world": "2627",
+    "id": "OCEANIA_CUP",
+    "detail": "OG tournament table",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "OFC Nations Cup",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  }
+]

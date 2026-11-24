@@ -1,0 +1,36 @@
+[
+  {
+    "row": 521,
+    "world": "2627",
+    "id": "Italy",
+    "detail": "",
+    "technicalCategory": "LEAGUE_PARALLEL_GROUPS_SPEC",
+    "researchCategory": "LEAGUE_PARALLEL_GROUPS_SPEC",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

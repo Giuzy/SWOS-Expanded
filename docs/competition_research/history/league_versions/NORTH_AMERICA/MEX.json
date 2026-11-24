@@ -1,0 +1,149 @@
+[
+  {
+    "index": 110,
+    "value": {
+      "country": "MEX",
+      "division": "div1",
+      "from": "1996/97",
+      "to": null,
+      "rules": {
+        "phases": [
+          "Invierno",
+          "Verano"
+        ],
+        "note": "Decision 24 April 1996; two short tournaments; qualification and movement pending"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesm/mex97.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 actual web search excerpts; exact applicability, dates, full phase/movement rules and modern baseline equivalence pending; no results imported",
+      "rowRefs": [
+        62,
+        270
+      ]
+    }
+  },
+  {
+    "index": 111,
+    "value": {
+      "country": "MEX",
+      "division": "div1",
+      "from": "2023/24",
+      "to": null,
+      "rules": {
+        "operation": "REPLACE_REPECHAJE_WITH_PLAY_IN",
+        "totalQualified": 10,
+        "note": "Official decision May 2023; reconcile wording 7 qualify to Liguilla versus six directly and play-in mechanics before import; no temporary pandemic rule"
+      },
+      "sources": [
+        "https://fmf.mx/noticia/por-unanimidad-la-asamblea-de-clubes-designa-a-juan-carlos-rodriguez-nuevo-presidente-electo-de-la-fmf-para-el-periodo-2023-2026_1350"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 actual web search excerpts; exact applicability, dates, full phase/movement rules and modern baseline equivalence pending; no results imported",
+      "rowRefs": [
+        62,
+        270
+      ]
+    }
+  },
+  {
+    "index": 176,
+    "value": {
+      "country": "MEX",
+      "division": "div2",
+      "from": "2009/10",
+      "to": null,
+      "rules": {
+        "operation": "RENAME_AND_RESTRUCTURE",
+        "name": "Liga de Ascenso",
+        "previousTeams": 27,
+        "teams": 17,
+        "groups": 1,
+        "playoffRanks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "firstRankBye": true
+      },
+      "sources": [
+        "https://www.informador.mx/Deportes/Nace-la-Liga-de-Ascenso-20090617-0218.html",
+        "https://www.zocalo.com.mx/sustituye-liga-de-ascenso-a-primera-division-a/",
+        "https://es.wikipedia.org/wiki/Torneo_Apertura_2009_Liga_de_Ascenso"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Contemporary press and secondary season excerpts; playoff details require official corroboration; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        63,
+        271
+      ]
+    }
+  },
+  {
+    "index": 177,
+    "value": {
+      "country": "MEX",
+      "division": "div2",
+      "from": "2012/13",
+      "to": null,
+      "rules": {
+        "operation": "RENAME",
+        "name": "Ascenso MX"
+      },
+      "sources": [
+        "https://www.record.com.mx/historia/liga-de-ascenso-cambia-nombre-ascenso-mx-2025110223465322089"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Contemporary press search excerpt; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        63,
+        271
+      ]
+    }
+  },
+  {
+    "index": 178,
+    "value": {
+      "country": "MEX",
+      "division": "div2",
+      "from": "2020/21",
+      "to": null,
+      "rules": {
+        "operation": "RESTRUCTURE",
+        "name": "Liga de Expansión MX",
+        "teams": 16,
+        "entryPools": [
+          {
+            "pool": "Ascenso MX",
+            "count": 12
+          },
+          {
+            "pool": "Liga Premier invited",
+            "count": 2
+          },
+          {
+            "pool": "Liga MX affiliates",
+            "count": 2
+          }
+        ],
+        "note": "Structural successor documented; promotion suspension originally associated with pandemic and financial hardship, cannot automatically activate under user policy; separate decision on lasting closure required. No fixed historical club imports."
+      },
+      "sources": [
+        "https://www.tudn.com/futbol/se-definen-los-16-equipos-de-la-liga-de-expansion-mx-2020-21",
+        "https://www.noroeste.com.mx/deportes/futbol/la-liga-de-expansion-mx-oficializa-a-sus-16-equipos-DYNO1202313",
+        "https://www.reuters.com/sports/soccer/mexican-federation-confident-maintaining-closed-system-after-cas-hearing-2026-11-20/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Contemporary press excerpts; Reuters 20 Nov 2026 corroborates contested closure, post-cutoff information not runtime; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        63,
+        271
+      ]
+    }
+  }
+]

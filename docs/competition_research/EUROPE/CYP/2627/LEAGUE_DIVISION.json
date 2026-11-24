@@ -1,0 +1,82 @@
+[
+  {
+    "row": 226,
+    "world": "2627",
+    "id": "_cypriotLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "CYP",
+    "candidateSources": [
+      "3c23c128432ad7c0ef93b18159c1e8cc912ef3e3"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "Cypriot First Division",
+      "candidateName": "Cypriot First Division",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.soccer-tainment.com/competition/cyprus-first-division/2025-2026",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence45": {
+      "edition": "2025/26",
+      "rules": {
+        "teams": 14,
+        "regularGames": 26,
+        "groups": [
+          6,
+          8
+        ],
+        "extraGames": [
+          10,
+          14
+        ],
+        "carryPoints": true
+      },
+      "sources": [
+        "https://www.soccer-tainment.com/competition/cyprus-first-division/2025-2026",
+        "https://en.wikipedia.org/wiki/Cypriot_First_Division"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "TFF PDF p1 screenshot verified; Bulgarian league HTML opened; other sources search excerpts only, EPO/RSSSF open cache miss. No full calendar or player rules certification."
+    },
+    "sportRuleEvidence46": {
+      "edition": "2026/27",
+      "rules": {
+        "regularGames": 26,
+        "regularRounds": 2,
+        "startWindow": [
+          "2026-08-29",
+          "2026-08-30"
+        ],
+        "regularEndWindow": [
+          "2027-03-06",
+          "2027-03-07"
+        ],
+        "seasonEndWindow": [
+          "2027-05-22",
+          "2027-05-23"
+        ],
+        "allowedWeekdays": "all"
+      },
+      "sources": [
+        "https://www.cfa.com.cy/Gr/news/53560"
+      ],
+      "limitations": "Official CFA published planned windows, not played fixture dates.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

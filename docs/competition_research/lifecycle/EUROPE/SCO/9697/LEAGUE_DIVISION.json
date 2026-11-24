@@ -1,0 +1,62 @@
+[
+  {
+    "index": 80,
+    "value": {
+      "row": 81,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 81,
+    "value": {
+      "row": 82,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 82,
+    "value": {
+      "row": 83,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 83,
+    "value": {
+      "row": 84,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  }
+]

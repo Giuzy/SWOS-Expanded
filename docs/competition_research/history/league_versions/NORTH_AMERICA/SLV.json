@@ -1,0 +1,141 @@
+[
+  {
+    "index": 50,
+    "value": {
+      "country": "SLV",
+      "division": "div1",
+      "from": "Apertura 1998",
+      "to": "Apertura 1998",
+      "rules": {
+        "teams": 10,
+        "tournamentType": "cup title, first short tournament"
+      },
+      "sources": [
+        "https://www.laprensagrafica.com/deportes/De-formatos-y-campeonatos-20150501-0098.html"
+      ],
+      "missing": "Full rules and status reconciliation pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        64,
+        296
+      ]
+    }
+  },
+  {
+    "index": 51,
+    "value": {
+      "country": "SLV",
+      "division": "div1",
+      "from": "Clausura 1999",
+      "to": "Clausura 2015",
+      "rules": {
+        "teams": 10,
+        "tournamentsPerSeason": 2,
+        "regularRounds": 2,
+        "gamesPerClub": 18,
+        "semifinalTeams": 4,
+        "finalLegs": 1
+      },
+      "sources": [
+        "https://www.laprensagrafica.com/deportes/De-formatos-y-campeonatos-20150501-0098.html",
+        "https://www.laprensagrafica.com/deportes/Recuerdo-de-12-equipos-20150801-0037.html"
+      ],
+      "missing": "Semifinal legs, annual movement and tiebreaks pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        64,
+        296
+      ]
+    }
+  },
+  {
+    "index": 186,
+    "value": {
+      "country": "SLV",
+      "division": "div2",
+      "from": "2000",
+      "to": null,
+      "rules": {
+        "teams": 30,
+        "groups": 3,
+        "observedOnly": true
+      },
+      "sources": [
+        "https://www.elgrafico.com/futbol/Equipos-profesionales-en-descenso-20160208-0014.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Retrospective press opened lines 37–40; precise season and movement pending; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        65,
+        297
+      ]
+    }
+  },
+  {
+    "index": 187,
+    "value": {
+      "country": "SLV",
+      "division": "div2",
+      "from": "2006",
+      "to": null,
+      "rules": {
+        "teams": 24,
+        "groups": 2,
+        "observedOnly": true
+      },
+      "sources": [
+        "https://www.elgrafico.com/futbol/Equipos-profesionales-en-descenso-20160208-0014.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Retrospective press opened lines 37–40; precise season and movement pending; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        65,
+        297
+      ]
+    }
+  },
+  {
+    "index": 188,
+    "value": {
+      "country": "SLV",
+      "division": "div2",
+      "from": "2015/16",
+      "to": null,
+      "rules": {
+        "teams": 24,
+        "note": "Reported nominal size; article notes Chalatenango did not register, confirm actual entrants; no invented club."
+      },
+      "sources": [
+        "https://www.elgrafico.com/futbol/Equipos-profesionales-en-descenso-20160208-0014.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Contemporary press opened lines 39–40; actual entrant count reconciliation pending; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        65,
+        297
+      ]
+    }
+  },
+  {
+    "index": 189,
+    "value": {
+      "country": "SLV",
+      "division": "div3",
+      "from": "2015/16",
+      "to": null,
+      "rules": {
+        "teams": 40,
+        "observedOnly": true
+      },
+      "sources": [
+        "https://www.elgrafico.com/futbol/Equipos-profesionales-en-descenso-20160208-0014.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Contemporary press opened lines 39–40; groups and movement pending; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        66,
+        298
+      ]
+    }
+  }
+]

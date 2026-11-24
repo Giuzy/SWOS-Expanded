@@ -1,0 +1,147 @@
+[
+  {
+    "index": 72,
+    "value": {
+      "country": "IND",
+      "division": "div1",
+      "from": "2007/08",
+      "to": "2018/19",
+      "rules": {
+        "operation": "CREATE_I_LEAGUE",
+        "note": "Replaced National Football League; annual rules pending"
+      },
+      "sources": [
+        "https://www.transfermarkt.com/restructuring-of-indian-football-these-reformations-have-been-decided/view/news/348116"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        43,
+        252
+      ]
+    }
+  },
+  {
+    "index": 73,
+    "value": {
+      "country": "IND",
+      "division": "div1",
+      "from": "2014",
+      "to": "2016",
+      "rules": {
+        "operation": "CREATE_PARALLEL_ISL",
+        "initialTeams": 8,
+        "note": "Not yet sole top division; annual playoff and match rules pending"
+      },
+      "sources": [
+        "https://www.tandfonline.com/doi/pdf/10.1080/23750472.2022.2055625",
+        "https://en.wikipedia.org/wiki/Indian_Super_League"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        43,
+        252
+      ]
+    }
+  },
+  {
+    "index": 74,
+    "value": {
+      "country": "IND",
+      "division": "div1",
+      "from": "2017/18",
+      "to": "2018/19",
+      "rules": {
+        "competition": "ISL",
+        "teams": 10,
+        "franchiseLeague": true,
+        "promotionRelegation": false
+      },
+      "sources": [
+        "https://www.transfermarkt.com/restructuring-of-indian-football-these-reformations-have-been-decided/view/news/348116",
+        "https://en.wikipedia.org/wiki/Indian_Super_League"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        43,
+        252
+      ]
+    }
+  },
+  {
+    "index": 75,
+    "value": {
+      "country": "IND",
+      "division": "div1",
+      "from": "2019/20",
+      "to": null,
+      "rules": {
+        "operation": "ISL_RECOGNIZED_TOP_TIER",
+        "note": "I-League parallel lower-tier transition; verify exact access and modern baseline before runtime"
+      },
+      "sources": [
+        "https://www.transfermarkt.com/restructuring-of-indian-football-these-reformations-have-been-decided/view/news/348116",
+        "https://www.tandfonline.com/doi/pdf/10.1080/23750472.2022.2055625"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        43,
+        252
+      ]
+    }
+  },
+  {
+    "index": 183,
+    "value": {
+      "country": "IND",
+      "division": "div2",
+      "from": "2022/23",
+      "to": null,
+      "rules": {
+        "operation": "CONNECT_PROMOTION_PATH",
+        "name": "I-League",
+        "promotionCount": 1,
+        "relegationCount": 2,
+        "note": "Champion eligible for ISL promotion subject to licensing; two promoted from tier3 observed. No assumed ISL relegation."
+      },
+      "sources": [
+        "https://www.the-aiff.com/article/aiff-league-committee-decides-on-i-league-2023-24-format"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Official AIFF retrospective opened lines 107–109; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        253
+      ]
+    }
+  },
+  {
+    "index": 184,
+    "value": {
+      "country": "IND",
+      "division": "div2",
+      "from": "2023/24",
+      "to": null,
+      "rules": {
+        "teams": 13,
+        "rounds": 2,
+        "gamesPerClub": 24,
+        "totalMatches": 156,
+        "promotionDirect": [
+          1
+        ],
+        "promotionConditional": "club licensing"
+      },
+      "sources": [
+        "https://www.the-aiff.com/article/aiff-league-committee-decides-on-i-league-2023-24-format"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Official AIFF decision opened lines 103–109; exact relegation rules pending; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        253
+      ]
+    }
+  }
+]

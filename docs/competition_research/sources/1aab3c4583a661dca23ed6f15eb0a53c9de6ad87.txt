@@ -1,0 +1,1679 @@
+{
+  "purpose": "research snapshot only, not CE schema",
+  "source": "https://github.com/openfootball/south-america/blob/master/copa-libertadores/2026_copal.txt",
+  "sourceBlob": "0447985a34f8b5a179fb3bddd5ded8316a54e7ec",
+  "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+  "cutoff": "2026-06-30",
+  "matches": [
+    {
+      "stage": "Qualifying, Round 1",
+      "date": "2026-02-03",
+      "home": "Club The Strongest (BOL)",
+      "away": "Deportivo Táchira FC (VEN)",
+      "score": [
+        2,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Club The Strongest (BOL) v Deportivo Táchira FC (VEN)  2-1 (0-0)"
+    },
+    {
+      "stage": "Qualifying, Round 1",
+      "date": "2026-02-04",
+      "home": "2 de Mayo (PAR)",
+      "away": "Club Alianza Lima (PER)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  2 de Mayo (PAR)         v Club Alianza Lima (PER)  1-0 (0-0)"
+    },
+    {
+      "stage": "Qualifying, Round 1",
+      "date": "2026-02-05",
+      "home": "Juventud de Las Piedras (URU)",
+      "away": "Universidad Catolica (ECU)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Juventud de Las Piedras (URU) v Universidad Catolica (ECU)  0-1 (0-0)"
+    },
+    {
+      "stage": "Qualifying, Round 1",
+      "date": "2026-02-10",
+      "home": "Deportivo Táchira FC (VEN)",
+      "away": "Club The Strongest (BOL)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": [
+        5,
+        3
+      ],
+      "awarded": false,
+      "raw": "21:30  Deportivo Táchira FC (VEN) v Club The Strongest (BOL)  5-3 pen. (1-0, 1-0)"
+    },
+    {
+      "stage": "Qualifying, Round 1",
+      "date": "2026-02-11",
+      "home": "Club Alianza Lima (PER)",
+      "away": "2 de Mayo (PAR)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Club Alianza Lima (PER) v 2 de Mayo (PAR)          1-1 (0-0)"
+    },
+    {
+      "stage": "Qualifying, Round 1",
+      "date": "2026-02-12",
+      "home": "Universidad Catolica (ECU)",
+      "away": "Juventud de Las Piedras (URU)",
+      "score": [
+        3,
+        4
+      ],
+      "penalties": [
+        3,
+        4
+      ],
+      "awarded": false,
+      "raw": "21:30  Universidad Catolica (ECU) v Juventud de Las Piedras (URU)  3-4 pen. (3-4, 1-2)"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-17",
+      "home": "Carabobo FC (VEN)",
+      "away": "CD Huachipato (CHI)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  Carabobo FC (VEN)       v CD Huachipato (CHI)      1-0 (1-0)"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-17",
+      "home": "Liverpool FC (URU)",
+      "away": "CD Independiente Medellín (COL)",
+      "score": [
+        1,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Liverpool FC (URU)      v CD Independiente Medellín (COL)  1-2 (0-0)"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-17",
+      "home": "2 de Mayo (PAR)",
+      "away": "CS Cristal (PER)",
+      "score": [
+        2,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "2 de Mayo (PAR)         v CS Cristal (PER)         2-2 (0-0)"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-18",
+      "home": "O'Higgins FC (CHI)",
+      "away": "EC Bahia (BRA)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  O'Higgins FC (CHI)      v EC Bahia (BRA)           1-0 (1-0)"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-18",
+      "home": "Barcelona SC (ECU)",
+      "away": "AA Argentinos Juniors (ARG)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Barcelona SC (ECU)      v AA Argentinos Juniors (ARG)  0-1 (0-0)"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-18",
+      "home": "Club Nacional Potosí (BOL)",
+      "away": "Botafogo FR (BRA)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Club Nacional Potosí (BOL) v Botafogo FR (BRA)        1-0 (0-0)"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-19",
+      "home": "Juventud de Las Piedras (URU)",
+      "away": "Club Guaraní (PAR)",
+      "score": [
+        0,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  Juventud de Las Piedras (URU) v Club Guaraní (PAR)       0-0"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-19",
+      "home": "Deportivo Táchira FC (VEN)",
+      "away": "CD Tolima (COL)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Deportivo Táchira FC (VEN) v CD Tolima (COL)          0-1 (0-0)"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-24",
+      "home": "CD Huachipato (CHI)",
+      "away": "Carabobo FC (VEN)",
+      "score": [
+        1,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  CD Huachipato (CHI)     v Carabobo FC (VEN)        1-2 (0-2)"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-24",
+      "home": "CS Cristal (PER)",
+      "away": "2 de Mayo (PAR)",
+      "score": [
+        0,
+        0
+      ],
+      "penalties": [
+        5,
+        4
+      ],
+      "awarded": false,
+      "raw": "21:30  CS Cristal (PER)        v 2 de Mayo (PAR)          5-4 pen. (0-0)"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-24",
+      "home": "CD Independiente Medellín (COL)",
+      "away": "Liverpool FC (URU)",
+      "score": [
+        0,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CD Independiente Medellín (COL) v Liverpool FC (URU)       0-0"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-25",
+      "home": "EC Bahia (BRA)",
+      "away": "O'Higgins FC (CHI)",
+      "score": [
+        2,
+        1
+      ],
+      "penalties": [
+        3,
+        4
+      ],
+      "awarded": false,
+      "raw": "19:00  EC Bahia (BRA)          v O'Higgins FC (CHI)       3-4 pen. (2-1, 2-0)"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-25",
+      "home": "AA Argentinos Juniors (ARG)",
+      "away": "Barcelona SC (ECU)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": [
+        4,
+        5
+      ],
+      "awarded": false,
+      "raw": "21:30  AA Argentinos Juniors (ARG) v Barcelona SC (ECU)       4-5 pen. (0-1, 0-0)"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-25",
+      "home": "Botafogo FR (BRA)",
+      "away": "Club Nacional Potosí (BOL)",
+      "score": [
+        2,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Botafogo FR (BRA)       v Club Nacional Potosí (BOL)  2-0 (2-0)"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-26",
+      "home": "Club Guaraní (PAR)",
+      "away": "Juventud de Las Piedras (URU)",
+      "score": [
+        1,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  Club Guaraní (PAR)      v Juventud de Las Piedras (URU)  1-2 (0-0)"
+    },
+    {
+      "stage": "Qualifying, Round 2",
+      "date": "2026-02-26",
+      "home": "CD Tolima (COL)",
+      "away": "Deportivo Táchira FC (VEN)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": [
+        3,
+        0
+      ],
+      "awarded": false,
+      "raw": "21:30  CD Tolima (COL)         v Deportivo Táchira FC (VEN)  3-0 pen. (0-1, 0-0)"
+    },
+    {
+      "stage": "Qualifying, Round 3",
+      "date": "2026-03-03",
+      "home": "Barcelona SC (ECU)",
+      "away": "Botafogo FR (BRA)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Barcelona SC (ECU)      v Botafogo FR (BRA)        1-1 (1-0)"
+    },
+    {
+      "stage": "Qualifying, Round 3",
+      "date": "2026-03-04",
+      "home": "Carabobo FC (VEN)",
+      "away": "CS Cristal (PER)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  Carabobo FC (VEN)       v CS Cristal (PER)         0-1 (0-1)"
+    },
+    {
+      "stage": "Qualifying, Round 3",
+      "date": "2026-03-04",
+      "home": "O'Higgins FC (CHI)",
+      "away": "CD Tolima (COL)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  O'Higgins FC (CHI)      v CD Tolima (COL)          1-0 (1-0)"
+    },
+    {
+      "stage": "Qualifying, Round 3",
+      "date": "2026-03-05",
+      "home": "Juventud de Las Piedras (URU)",
+      "away": "CD Independiente Medellín (COL)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Juventud de Las Piedras (URU) v CD Independiente Medellín (COL)  1-1 (0-1)"
+    },
+    {
+      "stage": "Qualifying, Round 3",
+      "date": "2026-03-10",
+      "home": "Botafogo FR (BRA)",
+      "away": "Barcelona SC (ECU)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Botafogo FR (BRA)       v Barcelona SC (ECU)       0-1 (0-1)"
+    },
+    {
+      "stage": "Qualifying, Round 3",
+      "date": "2026-03-11",
+      "home": "CS Cristal (PER)",
+      "away": "Carabobo FC (VEN)",
+      "score": [
+        1,
+        2
+      ],
+      "penalties": [
+        3,
+        2
+      ],
+      "awarded": false,
+      "raw": "19:00  CS Cristal (PER)        v Carabobo FC (VEN)        3-2 pen. (1-2, 0-2)"
+    },
+    {
+      "stage": "Qualifying, Round 3",
+      "date": "2026-03-11",
+      "home": "CD Tolima (COL)",
+      "away": "O'Higgins FC (CHI)",
+      "score": [
+        2,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  CD Tolima (COL)         v O'Higgins FC (CHI)       2-0 (1-0)"
+    },
+    {
+      "stage": "Qualifying, Round 3",
+      "date": "2026-03-12",
+      "home": "CD Independiente Medellín (COL)",
+      "away": "Juventud de Las Piedras (URU)",
+      "score": [
+        2,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  CD Independiente Medellín (COL) v Juventud de Las Piedras (URU)  2-1 (1-1)"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-07",
+      "home": "CS Independiente Rivadavia (ARG)",
+      "away": "Club Bolívar (BOL)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  CS Independiente Rivadavia (ARG) v Club Bolívar (BOL)       1-0 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-07",
+      "home": "Deportivo La Guaira FC (VEN)",
+      "away": "Fluminense FC (BRA)",
+      "score": [
+        0,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Deportivo La Guaira FC (VEN) v Fluminense FC (BRA)      0-0"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-07",
+      "home": "Barcelona SC (ECU)",
+      "away": "Cruzeiro EC (BRA)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:00  Barcelona SC (ECU)      v Cruzeiro EC (BRA)        0-1 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-07",
+      "home": "Club Always Ready (BOL)",
+      "away": "LDU de Quito (ECU)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Club Always Ready (BOL) v LDU de Quito (ECU)       0-1 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-07",
+      "home": "CD Universidad Católica (CHI)",
+      "away": "CA Boca Juniors (ARG)",
+      "score": [
+        1,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  CD Universidad Católica (CHI) v CA Boca Juniors (ARG)    1-2 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-07",
+      "home": "CD Tolima (COL)",
+      "away": "Club Universitario de Deportes (PER)",
+      "score": [
+        0,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "23:00  CD Tolima (COL)         v Club Universitario de Deportes (PER)  0-0"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-08",
+      "home": "CD Coquimbo Unido (CHI)",
+      "away": "Club Nacional de Football (URU)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  CD Coquimbo Unido (CHI) v Club Nacional de Football (URU)  1-1 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-08",
+      "home": "Mirassol FC (BRA)",
+      "away": "CA Lanús (ARG)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Mirassol FC (BRA)       v CA Lanús (ARG)           1-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-08",
+      "home": "CD Independiente Medellín (COL)",
+      "away": "Estudiantes de La Plata (ARG)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:00  CD Independiente Medellín (COL) v Estudiantes de La Plata (ARG)  1-1 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-08",
+      "home": "Cusco FC (PER)",
+      "away": "CR Flamengo (BRA)",
+      "score": [
+        0,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Cusco FC (PER)          v CR Flamengo (BRA)        0-2 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-08",
+      "home": "CDP Junior FC (COL)",
+      "away": "SE Palmeiras (BRA)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CDP Junior FC (COL)     v SE Palmeiras (BRA)       1-1 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-08",
+      "home": "CS Cristal (PER)",
+      "away": "Club Cerro Porteño (PAR)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "23:00  CS Cristal (PER)        v Club Cerro Porteño (PAR)  1-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-09",
+      "home": "Universidad Central de Venezuela FC (VEN)",
+      "away": "Club Libertad Asuncion (PAR)",
+      "score": [
+        3,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  Universidad Central de Venezuela FC (VEN) v Club Libertad Asuncion (PAR)  3-1 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-09",
+      "home": "CA Rosario Central (ARG)",
+      "away": "CAR Independiente del Valle (ECU)",
+      "score": [
+        0,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CA Rosario Central (ARG) v CAR Independiente del Valle (ECU)  0-0"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-09",
+      "home": "CA Platense (ARG)",
+      "away": "SC Corinthians Paulista (BRA)",
+      "score": [
+        0,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:00  CA Platense (ARG)       v SC Corinthians Paulista (BRA)  0-2 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 1",
+      "date": "2026-04-09",
+      "home": "Independiente Santa Fe (COL)",
+      "away": "CA Peñarol (URU)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "23:00  Independiente Santa Fe (COL) v CA Peñarol (URU)         1-1 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-14",
+      "home": "Estudiantes de La Plata (ARG)",
+      "away": "Cusco FC (PER)",
+      "score": [
+        2,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  Estudiantes de La Plata (ARG) v Cusco FC (PER)           2-1 (1-1)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-14",
+      "home": "Club Nacional de Football (URU)",
+      "away": "CD Tolima (COL)",
+      "score": [
+        3,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Club Nacional de Football (URU) v CD Tolima (COL)          3-1 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-14",
+      "home": "Club Cerro Porteño (PAR)",
+      "away": "CDP Junior FC (COL)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Club Cerro Porteño (PAR) v CDP Junior FC (COL)      1-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-14",
+      "home": "Club Bolívar (BOL)",
+      "away": "Deportivo La Guaira FC (VEN)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:00  Club Bolívar (BOL)      v Deportivo La Guaira FC (VEN)  1-1 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-14",
+      "home": "CA Boca Juniors (ARG)",
+      "away": "Barcelona SC (ECU)",
+      "score": [
+        3,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CA Boca Juniors (ARG)   v Barcelona SC (ECU)       3-0 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-14",
+      "home": "Club Universitario de Deportes (PER)",
+      "away": "CD Coquimbo Unido (CHI)",
+      "score": [
+        0,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "23:00  Club Universitario de Deportes (PER) v CD Coquimbo Unido (CHI)  0-2 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-14",
+      "home": "LDU de Quito (ECU)",
+      "away": "Mirassol FC (BRA)",
+      "score": [
+        2,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "LDU de Quito (ECU)      v Mirassol FC (BRA)        2-0 (2-0)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-15",
+      "home": "Cruzeiro EC (BRA)",
+      "away": "CD Universidad Católica (CHI)",
+      "score": [
+        1,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  Cruzeiro EC (BRA)       v CD Universidad Católica (CHI)  1-2 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-15",
+      "home": "Club Libertad Asuncion (PAR)",
+      "away": "CA Rosario Central (ARG)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Club Libertad Asuncion (PAR) v CA Rosario Central (ARG)  0-1 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-15",
+      "home": "Fluminense FC (BRA)",
+      "away": "CS Independiente Rivadavia (ARG)",
+      "score": [
+        1,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Fluminense FC (BRA)     v CS Independiente Rivadavia (ARG)  1-2 (1-1)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-15",
+      "home": "SC Corinthians Paulista (BRA)",
+      "away": "Independiente Santa Fe (COL)",
+      "score": [
+        2,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "SC Corinthians Paulista (BRA) v Independiente Santa Fe (COL)  2-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-15",
+      "home": "CAR Independiente del Valle (ECU)",
+      "away": "Universidad Central de Venezuela FC (VEN)",
+      "score": [
+        3,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "23:00  CAR Independiente del Valle (ECU) v Universidad Central de Venezuela FC (VEN)  3-1 (2-1)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-16",
+      "home": "SE Palmeiras (BRA)",
+      "away": "CS Cristal (PER)",
+      "score": [
+        2,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  SE Palmeiras (BRA)      v CS Cristal (PER)         2-1 (1-1)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-16",
+      "home": "CA Lanús (ARG)",
+      "away": "Club Always Ready (BOL)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CA Lanús (ARG)          v Club Always Ready (BOL)  1-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-16",
+      "home": "CR Flamengo (BRA)",
+      "away": "CD Independiente Medellín (COL)",
+      "score": [
+        4,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  CR Flamengo (BRA)       v CD Independiente Medellín (COL)  4-1 (2-1)"
+    },
+    {
+      "stage": "Group, Matchday 2",
+      "date": "2026-04-16",
+      "home": "CA Peñarol (URU)",
+      "away": "CA Platense (ARG)",
+      "score": [
+        1,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CA Peñarol (URU)        v CA Platense (ARG)        1-2 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-28",
+      "home": "CA Lanús (ARG)",
+      "away": "LDU de Quito (ECU)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  CA Lanús (ARG)          v LDU de Quito (ECU)       1-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-28",
+      "home": "Club Libertad Asuncion (PAR)",
+      "away": "CAR Independiente del Valle (ECU)",
+      "score": [
+        2,
+        3
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Club Libertad Asuncion (PAR) v CAR Independiente del Valle (ECU)  2-3 (1-1)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-28",
+      "home": "Universidad Central de Venezuela FC (VEN)",
+      "away": "CA Rosario Central (ARG)",
+      "score": [
+        0,
+        3
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:00  Universidad Central de Venezuela FC (VEN) v CA Rosario Central (ARG)  0-3 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-28",
+      "home": "Cruzeiro EC (BRA)",
+      "away": "CA Boca Juniors (ARG)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Cruzeiro EC (BRA)       v CA Boca Juniors (ARG)    1-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-28",
+      "home": "CD Tolima (COL)",
+      "away": "CD Coquimbo Unido (CHI)",
+      "score": [
+        3,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "23:00  CD Tolima (COL)         v CD Coquimbo Unido (CHI)  3-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-28",
+      "home": "CS Cristal (PER)",
+      "away": "CDP Junior FC (COL)",
+      "score": [
+        2,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CS Cristal (PER)        v CDP Junior FC (COL)      2-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-29",
+      "home": "CA Platense (ARG)",
+      "away": "Independiente Santa Fe (COL)",
+      "score": [
+        2,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  CA Platense (ARG)       v Independiente Santa Fe (COL)  2-1 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-29",
+      "home": "Mirassol FC (BRA)",
+      "away": "Club Always Ready (BOL)",
+      "score": [
+        2,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Mirassol FC (BRA)       v Club Always Ready (BOL)  2-0 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-29",
+      "home": "Barcelona SC (ECU)",
+      "away": "CD Universidad Católica (CHI)",
+      "score": [
+        1,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:00  Barcelona SC (ECU)      v CD Universidad Católica (CHI)  1-2 (0-2)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-29",
+      "home": "Estudiantes de La Plata (ARG)",
+      "away": "CR Flamengo (BRA)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Estudiantes de La Plata (ARG) v CR Flamengo (BRA)        1-1 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-29",
+      "home": "Club Cerro Porteño (PAR)",
+      "away": "SE Palmeiras (BRA)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Club Cerro Porteño (PAR) v SE Palmeiras (BRA)       1-1 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-29",
+      "home": "Club Universitario de Deportes (PER)",
+      "away": "Club Nacional de Football (URU)",
+      "score": [
+        4,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "23:00  Club Universitario de Deportes (PER) v Club Nacional de Football (URU)  4-2 (1-1)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-30",
+      "home": "Club Bolívar (BOL)",
+      "away": "Fluminense FC (BRA)",
+      "score": [
+        2,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  Club Bolívar (BOL)      v Fluminense FC (BRA)      2-0 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-30",
+      "home": "CS Independiente Rivadavia (ARG)",
+      "away": "Deportivo La Guaira FC (VEN)",
+      "score": [
+        4,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CS Independiente Rivadavia (ARG) v Deportivo La Guaira FC (VEN)  4-1 (3-1)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-30",
+      "home": "SC Corinthians Paulista (BRA)",
+      "away": "CA Peñarol (URU)",
+      "score": [
+        2,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:00  SC Corinthians Paulista (BRA) v CA Peñarol (URU)         2-0 (2-0)"
+    },
+    {
+      "stage": "Group, Matchday 3",
+      "date": "2026-04-30",
+      "home": "CD Independiente Medellín (COL)",
+      "away": "Cusco FC (PER)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "23:00  CD Independiente Medellín (COL) v Cusco FC (PER)           1-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-05",
+      "home": "CS Cristal (PER)",
+      "away": "SE Palmeiras (BRA)",
+      "score": [
+        0,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  CS Cristal (PER)        v SE Palmeiras (BRA)       0-2 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-05",
+      "home": "CA Rosario Central (ARG)",
+      "away": "Club Libertad Asuncion (PAR)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CA Rosario Central (ARG) v Club Libertad Asuncion (PAR)  1-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-05",
+      "home": "Barcelona SC (ECU)",
+      "away": "CA Boca Juniors (ARG)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:00  Barcelona SC (ECU)      v CA Boca Juniors (ARG)    1-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-05",
+      "home": "Universidad Central de Venezuela FC (VEN)",
+      "away": "CAR Independiente del Valle (ECU)",
+      "score": [
+        2,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Universidad Central de Venezuela FC (VEN) v CAR Independiente del Valle (ECU)  2-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-05",
+      "home": "Club Always Ready (BOL)",
+      "away": "CA Lanús (ARG)",
+      "score": [
+        4,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Club Always Ready (BOL) v CA Lanús (ARG)           4-0 (2-0)"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-06",
+      "home": "Cusco FC (PER)",
+      "away": "Estudiantes de La Plata (ARG)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  Cusco FC (PER)          v Estudiantes de La Plata (ARG)  1-1 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-06",
+      "home": "Deportivo La Guaira FC (VEN)",
+      "away": "Club Bolívar (BOL)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Deportivo La Guaira FC (VEN) v Club Bolívar (BOL)       1-1 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-06",
+      "home": "CS Independiente Rivadavia (ARG)",
+      "away": "Fluminense FC (BRA)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  CS Independiente Rivadavia (ARG) v Fluminense FC (BRA)      1-1 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-06",
+      "home": "Independiente Santa Fe (COL)",
+      "away": "SC Corinthians Paulista (BRA)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Independiente Santa Fe (COL) v SC Corinthians Paulista (BRA)  1-1 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-06",
+      "home": "CD Tolima (COL)",
+      "away": "Club Nacional de Football (URU)",
+      "score": [
+        3,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "23:00  CD Tolima (COL)         v Club Nacional de Football (URU)  3-0 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-06",
+      "home": "CD Universidad Católica (CHI)",
+      "away": "Cruzeiro EC (BRA)",
+      "score": [
+        0,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CD Universidad Católica (CHI) v Cruzeiro EC (BRA)        0-0"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-07",
+      "home": "CA Platense (ARG)",
+      "away": "CA Peñarol (URU)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  CA Platense (ARG)       v CA Peñarol (URU)         1-1 (1-1)"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-07",
+      "home": "Mirassol FC (BRA)",
+      "away": "LDU de Quito (ECU)",
+      "score": [
+        2,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Mirassol FC (BRA)       v LDU de Quito (ECU)       2-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-07",
+      "home": "CD Coquimbo Unido (CHI)",
+      "away": "Club Universitario de Deportes (PER)",
+      "score": [
+        2,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:00  CD Coquimbo Unido (CHI) v Club Universitario de Deportes (PER)  2-1 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-07",
+      "home": "CD Independiente Medellín (COL)",
+      "away": "CR Flamengo (BRA)",
+      "score": [
+        0,
+        3
+      ],
+      "penalties": null,
+      "awarded": true,
+      "raw": "21:30  CD Independiente Medellín (COL) v CR Flamengo (BRA)        0-3    [awarded]"
+    },
+    {
+      "stage": "Group, Matchday 4",
+      "date": "2026-05-07",
+      "home": "CDP Junior FC (COL)",
+      "away": "Club Cerro Porteño (PAR)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "23:00  CDP Junior FC (COL)     v Club Cerro Porteño (PAR)  0-1 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-19",
+      "home": "CD Coquimbo Unido (CHI)",
+      "away": "CD Tolima (COL)",
+      "score": [
+        3,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  CD Coquimbo Unido (CHI) v CD Tolima (COL)          3-0 (2-0)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-19",
+      "home": "Fluminense FC (BRA)",
+      "away": "Club Bolívar (BOL)",
+      "score": [
+        2,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Fluminense FC (BRA)     v Club Bolívar (BOL)       2-1 (1-1)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-19",
+      "home": "CA Rosario Central (ARG)",
+      "away": "Universidad Central de Venezuela FC (VEN)",
+      "score": [
+        4,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CA Rosario Central (ARG) v Universidad Central de Venezuela FC (VEN)  4-0 (2-0)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-19",
+      "home": "Independiente Santa Fe (COL)",
+      "away": "CA Platense (ARG)",
+      "score": [
+        2,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:00  Independiente Santa Fe (COL) v CA Platense (ARG)        2-1 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-19",
+      "home": "Club Always Ready (BOL)",
+      "away": "Mirassol FC (BRA)",
+      "score": [
+        1,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Club Always Ready (BOL) v Mirassol FC (BRA)        1-2 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-19",
+      "home": "CA Boca Juniors (ARG)",
+      "away": "Cruzeiro EC (BRA)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  CA Boca Juniors (ARG)   v Cruzeiro EC (BRA)        1-1 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-19",
+      "home": "CAR Independiente del Valle (ECU)",
+      "away": "Club Libertad Asuncion (PAR)",
+      "score": [
+        4,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "23:00  CAR Independiente del Valle (ECU) v Club Libertad Asuncion (PAR)  4-1 (2-1)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-20",
+      "home": "Club Nacional de Football (URU)",
+      "away": "Club Universitario de Deportes (PER)",
+      "score": [
+        0,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  Club Nacional de Football (URU) v Club Universitario de Deportes (PER)  0-0"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-20",
+      "home": "CR Flamengo (BRA)",
+      "away": "Estudiantes de La Plata (ARG)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  CR Flamengo (BRA)       v Estudiantes de La Plata (ARG)  1-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-20",
+      "home": "SE Palmeiras (BRA)",
+      "away": "Club Cerro Porteño (PAR)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "SE Palmeiras (BRA)      v Club Cerro Porteño (PAR)  0-1 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-20",
+      "home": "LDU de Quito (ECU)",
+      "away": "CA Lanús (ARG)",
+      "score": [
+        2,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "LDU de Quito (ECU)      v CA Lanús (ARG)           2-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-20",
+      "home": "Cusco FC (PER)",
+      "away": "CD Independiente Medellín (COL)",
+      "score": [
+        2,
+        3
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "23:00  Cusco FC (PER)          v CD Independiente Medellín (COL)  2-3 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-20",
+      "home": "CDP Junior FC (COL)",
+      "away": "CS Cristal (PER)",
+      "score": [
+        3,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CDP Junior FC (COL)     v CS Cristal (PER)         3-2 (3-1)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-21",
+      "home": "Deportivo La Guaira FC (VEN)",
+      "away": "CS Independiente Rivadavia (ARG)",
+      "score": [
+        2,
+        4
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  Deportivo La Guaira FC (VEN) v CS Independiente Rivadavia (ARG)  2-4 (1-2)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-21",
+      "home": "CD Universidad Católica (CHI)",
+      "away": "Barcelona SC (ECU)",
+      "score": [
+        2,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  CD Universidad Católica (CHI) v Barcelona SC (ECU)       2-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 5",
+      "date": "2026-05-21",
+      "home": "CA Peñarol (URU)",
+      "away": "SC Corinthians Paulista (BRA)",
+      "score": [
+        1,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CA Peñarol (URU)        v SC Corinthians Paulista (BRA)  1-1 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-26",
+      "home": "CA Lanús (ARG)",
+      "away": "Mirassol FC (BRA)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  CA Lanús (ARG)          v Mirassol FC (BRA)        1-0 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-26",
+      "home": "LDU de Quito (ECU)",
+      "away": "Club Always Ready (BOL)",
+      "score": [
+        3,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "LDU de Quito (ECU)      v Club Always Ready (BOL)  3-2 (1-2)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-26",
+      "home": "Estudiantes de La Plata (ARG)",
+      "away": "CD Independiente Medellín (COL)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Estudiantes de La Plata (ARG) v CD Independiente Medellín (COL)  1-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-26",
+      "home": "CR Flamengo (BRA)",
+      "away": "Cusco FC (PER)",
+      "score": [
+        3,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CR Flamengo (BRA)       v Cusco FC (PER)           3-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-26",
+      "home": "Club Universitario de Deportes (PER)",
+      "away": "CD Tolima (COL)",
+      "score": [
+        0,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Club Universitario de Deportes (PER) v CD Tolima (COL)          0-0"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-26",
+      "home": "Club Nacional de Football (URU)",
+      "away": "CD Coquimbo Unido (CHI)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Club Nacional de Football (URU) v CD Coquimbo Unido (CHI)  1-0 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-27",
+      "home": "Club Libertad Asuncion (PAR)",
+      "away": "Universidad Central de Venezuela FC (VEN)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  Club Libertad Asuncion (PAR) v Universidad Central de Venezuela FC (VEN)  0-1 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-27",
+      "home": "CAR Independiente del Valle (ECU)",
+      "away": "CA Rosario Central (ARG)",
+      "score": [
+        1,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CAR Independiente del Valle (ECU) v CA Rosario Central (ARG)  1-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-27",
+      "home": "Club Bolívar (BOL)",
+      "away": "CS Independiente Rivadavia (ARG)",
+      "score": [
+        1,
+        3
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Club Bolívar (BOL)      v CS Independiente Rivadavia (ARG)  1-3 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-27",
+      "home": "Fluminense FC (BRA)",
+      "away": "Deportivo La Guaira FC (VEN)",
+      "score": [
+        3,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "Fluminense FC (BRA)     v Deportivo La Guaira FC (VEN)  3-1 (2-1)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-27",
+      "home": "SC Corinthians Paulista (BRA)",
+      "away": "CA Platense (ARG)",
+      "score": [
+        0,
+        2
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "SC Corinthians Paulista (BRA) v CA Platense (ARG)        0-2 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-27",
+      "home": "CA Peñarol (URU)",
+      "away": "Independiente Santa Fe (COL)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CA Peñarol (URU)        v Independiente Santa Fe (COL)  0-1 (0-1)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-28",
+      "home": "Club Cerro Porteño (PAR)",
+      "away": "CS Cristal (PER)",
+      "score": [
+        2,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "19:00  Club Cerro Porteño (PAR) v CS Cristal (PER)         2-0 (0-0)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-28",
+      "home": "SE Palmeiras (BRA)",
+      "away": "CDP Junior FC (COL)",
+      "score": [
+        4,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "SE Palmeiras (BRA)      v CDP Junior FC (COL)      4-1 (3-1)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-28",
+      "home": "Cruzeiro EC (BRA)",
+      "away": "Barcelona SC (ECU)",
+      "score": [
+        4,
+        0
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "21:30  Cruzeiro EC (BRA)       v Barcelona SC (ECU)       4-0 (1-0)"
+    },
+    {
+      "stage": "Group, Matchday 6",
+      "date": "2026-05-28",
+      "home": "CA Boca Juniors (ARG)",
+      "away": "CD Universidad Católica (CHI)",
+      "score": [
+        0,
+        1
+      ],
+      "penalties": null,
+      "awarded": false,
+      "raw": "CA Boca Juniors (ARG)   v CD Universidad Católica (CHI)  0-1 (0-1)"
+    }
+  ],
+  "audit": {
+    "qual": 30,
+    "group": 96,
+    "teams": 32,
+    "eachSix": true,
+    "uniqueGroupPairs": 96,
+    "preCutoff": true,
+    "awarded": 1,
+    "penaltyTies": 7
+  },
+  "limits": "Source date convention not yet verified: qualifying dates conflict with AiScore search snippets; official local date reconciliation required. Awarded 0-3 Independiente Medellin-Flamengo requires decision date/source; not an OG played game. Penalties parsed from source, verify regulation score separately. Club mapping pending. No future results imported."
+}

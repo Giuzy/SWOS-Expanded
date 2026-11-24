@@ -1,0 +1,3332 @@
+[
+  {
+    "index": 0,
+    "value": {
+      "competition": "AUS NSL Cup",
+      "lastEdition": "1996/97",
+      "operation": "DISCONTINUE",
+      "source": "https://aleagues.com.au/wp-content/uploads/sites/17/2025/10/Isuzu_UTE_A-League_2025-26_Season_Guide.pdf",
+      "additionalSource": "https://footballaustralia.com.au/nsl-honours-board"
+    }
+  },
+  {
+    "index": 1,
+    "value": {
+      "competition": "AUS NSL",
+      "lastEdition": "2003/04",
+      "operation": "DISCONTINUE",
+      "source": "https://footballaustralia.com.au/history/nsl"
+    }
+  },
+  {
+    "index": 2,
+    "value": {
+      "competition": "AUS A-League",
+      "firstEdition": "2005/06",
+      "operation": "CREATE",
+      "initialTeams": 8,
+      "source": "https://footballaustralia.com.au/history/aleague-men"
+    }
+  },
+  {
+    "index": 3,
+    "value": {
+      "competition": "AUS national cup",
+      "firstEdition": "2014",
+      "operation": "CREATE",
+      "source": "https://footballaustralia.com.au/history"
+    }
+  },
+  {
+    "index": 4,
+    "value": {
+      "competition": "UEFA Cup Winners Cup",
+      "lastEdition": "1998/99",
+      "operation": "DISCONTINUE",
+      "source": "https://www.uefa.com/uefaeuropaleague/news/0268-121578920573-b970b8f59925-1000--from-uefa-cup-to-uefa-europa-league/"
+    }
+  },
+  {
+    "index": 5,
+    "value": {
+      "competition": "UEFA Cup",
+      "firstEdition": "1999/00",
+      "operation": "CHANGE_ACCESS",
+      "rule": "Domestic cup winners enter after Cup Winners Cup discontinued",
+      "source": "https://www.uefa.com/uefaeuropaleague/news/0268-121578920573-b970b8f59925-1000--from-uefa-cup-to-uefa-europa-league/"
+    }
+  },
+  {
+    "index": 6,
+    "value": {
+      "competition": "UEFA Intertoto",
+      "lastEdition": "2008",
+      "operation": "DISCONTINUE",
+      "source": "https://www.uefa.com/uefaeuropaleague/news/01d7-0e70fb715368-819b26f1b5c9-1000--braga-claim-final-intertoto-honour/"
+    }
+  },
+  {
+    "index": 7,
+    "value": {
+      "competition": "UEFA Cup",
+      "firstEdition": "2009/10",
+      "operation": "RENAME_AND_CHANGE_FORMAT",
+      "name": "UEFA Europa League",
+      "source": "https://www.uefa.com/uefaeuropaleague/news/0268-121578920573-b970b8f59925-1000--from-uefa-cup-to-uefa-europa-league/"
+    }
+  },
+  {
+    "index": 8,
+    "value": {
+      "competition": "UEFA Europa Conference League",
+      "firstEdition": "2021/22",
+      "operation": "CREATE",
+      "source": "https://www.uefa.com/uefaconferenceleague/news/026c-131b2b24e6bd-68b0c5aba0dc-1000--europa-conference-league-fixtures/"
+    }
+  },
+  {
+    "index": 9,
+    "value": {
+      "competition": "UEFA Champions League",
+      "firstEdition": "2024/25",
+      "operation": "CHANGE_FORMAT",
+      "leagueTeams": 36,
+      "matchesPerClub": 8,
+      "source": "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-champions-league-format/"
+    }
+  },
+  {
+    "index": 10,
+    "value": {
+      "competition": "UEFA Europa League",
+      "firstEdition": "2024/25",
+      "operation": "CHANGE_FORMAT",
+      "leagueTeams": 36,
+      "matchesPerClub": 8,
+      "source": "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-champions-league-format/"
+    }
+  },
+  {
+    "index": 11,
+    "value": {
+      "competition": "UEFA Conference League",
+      "firstEdition": "2024/25",
+      "operation": "CHANGE_FORMAT",
+      "leagueTeams": 36,
+      "matchesPerClub": 6,
+      "source": "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-champions-league-format/"
+    }
+  },
+  {
+    "index": 12,
+    "value": {
+      "competition": "CONMEBOL Sudamericana",
+      "firstEdition": "2002",
+      "operation": "CREATE",
+      "source": "https://cdn.conmebol.com/wp-content/uploads/2026/04/ORG_CONMEBOL_INFORME_DE_FINANZAS-POR-FLIPBOOK.pdf"
+    }
+  },
+  {
+    "index": 13,
+    "value": {
+      "competition": "CONMEBOL Sudamericana",
+      "firstEdition": "2017",
+      "operation": "CHANGE_CALENDAR",
+      "rule": "Full-year calendar",
+      "source": "https://cdn.conmebol.com/wp-content/uploads/2022/03/Manual-de-clubes-2022-CS-actualizado.pdf"
+    }
+  },
+  {
+    "index": 14,
+    "value": {
+      "competition": "CONMEBOL Libertadores",
+      "firstEdition": "2019",
+      "operation": "CHANGE_FINAL",
+      "legs": 1,
+      "source": "https://cdn.conmebol.com/wp-content/uploads/2026/04/ORG_CONMEBOL_INFORME_DE_FINANZAS-POR-FLIPBOOK.pdf"
+    }
+  },
+  {
+    "index": 15,
+    "value": {
+      "competition": "CONMEBOL Sudamericana",
+      "firstEdition": "2019",
+      "operation": "CHANGE_FINAL",
+      "legs": 1,
+      "source": "https://cdn.conmebol.com/wp-content/uploads/2026/04/ORG_CONMEBOL_INFORME_DE_FINANZAS-POR-FLIPBOOK.pdf"
+    }
+  },
+  {
+    "index": 16,
+    "value": {
+      "competition": "UEFA Super Cup",
+      "firstEdition": "1998",
+      "operation": "CHANGE_FINAL",
+      "note": "Single leg in Monaco",
+      "source": "https://www.uefa.com/news-media/news/021b-0e9b869b0ed2-d14061c0ab62-1000--in-tune-with-a-new-football-world/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Web research 2026-11-24; exact row identity, access, phase dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 17,
+    "value": {
+      "competition": "FIFA Club World Championship",
+      "firstEdition": "2000",
+      "operation": "INTRODUCE",
+      "note": "First edition",
+      "source": "https://www.fifa.com/en/articles/intercontinental-cup-2025-everything-you-need-to-know",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Web research 2026-11-24; exact row identity, access, phase dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 18,
+    "value": {
+      "competition": "FIFA Club World Championship",
+      "firstEdition": "2001",
+      "operation": "SUSPEND",
+      "note": "No editions 2001–2004; not a pandemic exception",
+      "source": "https://www.fifa.com/en/articles/intercontinental-cup-2025-everything-you-need-to-know",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Web research 2026-11-24; exact row identity, access, phase dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 19,
+    "value": {
+      "competition": "FIFA Club World Cup",
+      "firstEdition": "2005",
+      "operation": "RESUME",
+      "note": "Annual competition resumes",
+      "source": "https://www.fifa.com/en/articles/intercontinental-cup-2025-everything-you-need-to-know",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Web research 2026-11-24; exact row identity, access, phase dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 20,
+    "value": {
+      "competition": "Copa del Rey",
+      "firstEdition": "2019/20",
+      "operation": "CHANGE_FORMAT",
+      "note": "Single-match rounds until semifinals; exact access pending",
+      "source": "https://rfef.es/es/noticias/la-nueva-copa-del-rey-saldra-con-116-equipos",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Web research 2026-11-24; exact row identity, access, phase dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 21,
+    "value": {
+      "competition": "FA Cup",
+      "firstEdition": "2024/25",
+      "operation": "CHANGE_REPLAY",
+      "note": "No replays from first round proper onward",
+      "source": "https://www.thefa.com/news/2024/apr/18/emirates-fa-cup-calendar-update-increased-premier-league-grassroots-funding-20241804",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Web research 2026-11-24; exact row identity, access, phase dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 22,
+    "value": {
+      "competition": "J.League Cup",
+      "firstEdition": "2024",
+      "operation": "CHANGE_FORMAT",
+      "note": "Knockout all 60 J1 J2 J3 clubs; 2026 baseline separately reconcile",
+      "source": "https://www.jleague.jp/corporate/en/pressrelease/article/14836",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Web research 2026-11-24; exact row identity, access, phase dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 23,
+    "value": {
+      "competition": "FIFA Intercontinental Cup",
+      "firstEdition": "2024",
+      "operation": "INTRODUCE",
+      "note": "Annual six confederation champions; UEFA champion in final",
+      "source": "https://inside.fifa.com/organisation/fifa-council/media-releases/fifa-council-confirms-key-details-for-fifa-club-world-cup-2025-tm",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Web research 2026-11-24; exact row identity, access, phase dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 24,
+    "value": {
+      "competition": "FIFA Club World Cup",
+      "firstEdition": "2025",
+      "operation": "CHANGE_FORMAT",
+      "note": "32-team expanded tournament; quadrennial cycle, access details pending",
+      "source": "https://inside.fifa.com/organisation/fifa-council/media-releases/fifa-council-confirms-key-details-for-fifa-club-world-cup-2025-tm",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Web research 2026-11-24; exact row identity, access, phase dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 25,
+    "value": {
+      "competition": "AFC Champions League",
+      "firstEdition": "2002/03",
+      "operation": "MERGE",
+      "note": "Asian Club Championship, Asian Cup Winners Cup and Asian Super Cup merged into ACL",
+      "source": "https://assets.the-afc.com/migration/a/c/acl2017-draw-press-kit-group-stage-draw-34202",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; source PDF excerpt only for AFC 2002/2004; exact mapping and access, full dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 26,
+    "value": {
+      "competition": "AFC Champions League",
+      "firstEdition": "2004",
+      "operation": "CHANGE_FORMAT",
+      "note": "Defending champion plus 28 teams from 14 countries; exact phase access pending",
+      "source": "https://assets.the-afc.com/migration/a/c/acl2017-draw-press-kit-group-stage-draw-34202",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; source PDF excerpt only for AFC 2002/2004; exact mapping and access, full dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 27,
+    "value": {
+      "competition": "AFC Champions League Elite",
+      "firstEdition": "2024/25",
+      "operation": "RESTRUCTURE",
+      "note": "New top tier; final stage QF SF F single-leg central venue; predecessor ACL ends 2023/24",
+      "source": "https://www.the-afc.com/en/club/afc_champions_league/news/xx_1.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; source PDF excerpt only for AFC 2002/2004; exact mapping and access, full dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 28,
+    "value": {
+      "competition": "AFC Champions League Two",
+      "firstEdition": "2024/25",
+      "operation": "INTRODUCE",
+      "note": "Second tier in new AFC structure; full access rules pending",
+      "source": "https://www.the-afc.com/en/more/content/afc_champions_league_2024-2023_archive.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; source PDF excerpt only for AFC 2002/2004; exact mapping and access, full dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 29,
+    "value": {
+      "competition": "CAF Confederation Cup",
+      "firstEdition": "2004",
+      "operation": "MERGE",
+      "note": "CAF Cup and African Cup Winners Cup amalgamated",
+      "source": "https://www.cafonline.com/caf-confederation-cup/news/back-to-back-weekends-of-premium-african-club-football-content-kicks-off-on-satu/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; source PDF excerpt only for AFC 2002/2004; exact mapping and access, full dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 30,
+    "value": {
+      "competition": "CAF Confederation Cup",
+      "firstEdition": "2017",
+      "operation": "CHANGE_GROUP_SIZE",
+      "note": "Group stage expands from 8 to 16 clubs",
+      "source": "https://www.cafonline.com/competitions/caf-competitions/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; source PDF excerpt only for AFC 2002/2004; exact mapping and access, full dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 31,
+    "value": {
+      "competition": "CONCACAF Champions League",
+      "firstEdition": "2008/09",
+      "operation": "CHANGE_FORMAT",
+      "note": "Champions Cup becomes Champions League; group phase introduced",
+      "source": "https://www.concacaf.com/news/the-champions-cup-history-2000-2024",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; source PDF excerpt only for AFC 2002/2004; exact mapping and access, full dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 32,
+    "value": {
+      "competition": "CONCACAF Champions League",
+      "firstEdition": "2018",
+      "operation": "CHANGE_FORMAT",
+      "note": "16 teams, knockout without group stage; secondary source, official confirmation pending",
+      "source": "https://en.wikipedia.org/wiki/CONCACAF_Champions_Cup",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; source PDF excerpt only for AFC 2002/2004; exact mapping and access, full dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 33,
+    "value": {
+      "competition": "CONCACAF Champions Cup",
+      "firstEdition": "2024",
+      "operation": "CHANGE_FORMAT",
+      "note": "27 clubs, five knockout rounds, single-leg final; regional and domestic qualification",
+      "source": "https://www.concacaf.com/competitions/champions-cup/news/concacaf-confirms-important-details-for-2024-concacaf-champions-cup",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; source PDF excerpt only for AFC 2002/2004; exact mapping and access, full dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 34,
+    "value": {
+      "competition": "CONCACAF Central American Cup",
+      "firstEdition": "2023",
+      "operation": "INTRODUCE",
+      "note": "Regional qualification tournament for expanded Champions Cup",
+      "source": "https://www.concacaf.com/competitions/champions-cup/news/concacaf-announces-qualification-criteria-for-confederation-s-expanded-champions-league-starting-in-2024",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; source PDF excerpt only for AFC 2002/2004; exact mapping and access, full dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 35,
+    "value": {
+      "competition": "CONCACAF Caribbean Cup",
+      "firstEdition": "2023",
+      "operation": "INTRODUCE",
+      "note": "Regional qualification tournament for expanded Champions Cup",
+      "source": "https://www.concacaf.com/competitions/champions-cup/news/concacaf-announces-qualification-criteria-for-confederation-s-expanded-champions-league-starting-in-2024",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; source PDF excerpt only for AFC 2002/2004; exact mapping and access, full dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 36,
+    "value": {
+      "competition": "OFC Club Championship",
+      "firstEdition": "1999",
+      "operation": "RESUME",
+      "note": "Resumed after hiatus, centralized in Fiji; secondary source",
+      "source": "https://en.wikipedia.org/wiki/OFC_Men%27s_Champions_League",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; source PDF excerpt only for AFC 2002/2004; exact mapping and access, full dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 37,
+    "value": {
+      "competition": "OFC Champions League",
+      "firstEdition": "2007",
+      "operation": "CHANGE_FORMAT",
+      "note": "Two groups of three home/away; group winners two-leg final; renamed",
+      "source": "https://www.oceaniafootball.com/ofc-mens-champions-league-2007/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; source PDF excerpt only for AFC 2002/2004; exact mapping and access, full dates and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 38,
+    "value": {
+      "competition": "FIFA World Cup",
+      "firstEdition": "1998",
+      "operation": "CHANGE_FORMAT",
+      "note": "32 teams, first edition with 32",
+      "source": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/world-cup-format-evolution-change-history-1930-2026",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending"
+    }
+  },
+  {
+    "index": 39,
+    "value": {
+      "competition": "FIFA World Cup",
+      "firstEdition": "2026",
+      "operation": "CHANGE_FORMAT",
+      "note": "48 teams, 12 groups of four, 104 matches; supersedes abandoned 16 groups of three proposal",
+      "source": "https://www.fifa.com/en/articles/article-fifa-world-cup-2026-mexico-canada-usa-new-format-tournament-football-soccer",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending"
+    }
+  },
+  {
+    "index": 40,
+    "value": {
+      "competition": "UEFA EURO",
+      "firstEdition": "2016",
+      "operation": "CHANGE_FORMAT",
+      "note": "24 finalists instead of 16",
+      "source": "https://www.uefa.com/uefaeuro/history/news/0253-0d7f0959ed60-b69efa5358f3-1000--uefa-euro-2016-competition-format/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending"
+    }
+  },
+  {
+    "index": 41,
+    "value": {
+      "competition": "Africa Cup of Nations",
+      "firstEdition": "2019",
+      "operation": "CHANGE_FORMAT",
+      "note": "24 finalists instead of 16; biennial odd-year cycle confirmed at 2017 decision, actual dates per edition",
+      "source": "https://www.cafonline.com/news/decisions-of-caf-executive-committee-20-july-2017/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending"
+    }
+  },
+  {
+    "index": 42,
+    "value": {
+      "competition": "AFC Asian Cup",
+      "firstEdition": "2019",
+      "operation": "CHANGE_FORMAT",
+      "note": "24 finalists instead of 16",
+      "source": "https://www.the-afc.com/en/about_afc/committees/news/exco_approves_expanded_afc_asian_cup_finals.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending"
+    }
+  },
+  {
+    "index": 43,
+    "value": {
+      "competition": "AFC Challenge Cup",
+      "firstEdition": "2014",
+      "operation": "LAST_EDITION",
+      "note": "Last tournament; do not generate subsequent editions",
+      "source": "https://www.the-afc.com/en/about_afc/committees/news/exco_approves_expanded_afc_asian_cup_finals.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending"
+    }
+  },
+  {
+    "index": 44,
+    "value": {
+      "competition": "CONCACAF Gold Cup",
+      "firstEdition": "2005",
+      "operation": "CHANGE_FORMAT",
+      "note": "12 teams in three groups of four through 2017",
+      "source": "https://www.concacaf.com/news/the-growth-of-the-concacaf-gold-cup-from-1991-to-2019",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending"
+    }
+  },
+  {
+    "index": 45,
+    "value": {
+      "competition": "CONCACAF Gold Cup",
+      "firstEdition": "2019",
+      "operation": "CHANGE_FORMAT",
+      "note": "16 teams in four groups of four; Nations League qualification linkage",
+      "source": "https://www.concacaf.com/news/the-growth-of-the-concacaf-gold-cup-from-1991-to-2019",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending"
+    }
+  },
+  {
+    "index": 46,
+    "value": {
+      "competition": "CONCACAF Nations League",
+      "firstEdition": "2019",
+      "operation": "INTRODUCE",
+      "note": "41 member associations, merit-based competition",
+      "source": "https://www.concacaf.com/inside-concacaf/about-concacaf/history",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending"
+    }
+  },
+  {
+    "index": 47,
+    "value": {
+      "competition": "Copa America",
+      "firstEdition": "2024",
+      "operation": "EDITION_FORMAT",
+      "note": "16 teams, four groups of four, top two advance; edition-specific, not proven permanent",
+      "source": "https://copaamerica.com/en/news/everything-you-need-to-know-about-the-conmebol-copa-america",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending"
+    }
+  },
+  {
+    "index": 48,
+    "value": {
+      "competition": "OFC Nations Cup",
+      "firstEdition": "2008",
+      "operation": "EDITION_FORMAT",
+      "note": "Round-robin champion, no final; secondary source",
+      "source": "https://en.wikipedia.org/wiki/OFC_Men%27s_Nations_Cup",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending"
+    }
+  },
+  {
+    "index": 49,
+    "value": {
+      "competition": "OFC Nations Cup",
+      "firstEdition": "2016",
+      "operation": "EDITION_FORMAT",
+      "note": "Eight teams, two groups of four and semifinals/final; secondary source",
+      "source": "https://en.wikipedia.org/wiki/OFC_Men%27s_Nations_Cup",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending"
+    }
+  },
+  {
+    "index": 50,
+    "value": {
+      "competition": "UEFA Nations League",
+      "firstEdition": "2018/19",
+      "operation": "INTRODUCE",
+      "note": "Four divisions; League A group winners advance to final four; EURO qualifying dependency",
+      "source": "https://www.uefa.com/news-media/news/0253-0d7f90efb5e7-e8e679597638-1000--uefa-nations-league-format-approved/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact match dates, historical row mappings and full access rules pending"
+    }
+  },
+  {
+    "index": 51,
+    "value": {
+      "competition": "UEFA Nations League",
+      "firstEdition": "2020/21",
+      "operation": "CHANGE_FORMAT",
+      "note": "Permanent league redistribution based on inaugural overall ranking; exact division sizes to extract",
+      "source": "https://www.uefa.com/news-media/news/0255-0e99f578e557-a64ea0ed91c9-1000/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact match dates, historical row mappings and full access rules pending"
+    }
+  },
+  {
+    "index": 52,
+    "value": {
+      "competition": "UEFA Nations League",
+      "firstEdition": "2024/25",
+      "operation": "CHANGE_FORMAT",
+      "note": "League A top two per group enter quarter-finals; four winners to finals",
+      "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Nations-League-2024/25/Article-17-Match-system-League-A-knockout-stage-Online",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact match dates, historical row mappings and full access rules pending"
+    }
+  },
+  {
+    "index": 53,
+    "value": {
+      "competition": "FIFA Confederations Cup",
+      "firstEdition": "1997",
+      "operation": "CHANGE_CYCLE",
+      "note": "FIFA takes over; biennial odd-year editions through 2003",
+      "source": "https://en.wikipedia.org/wiki/FIFA_Confederations_Cup",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact match dates, historical row mappings and full access rules pending"
+    }
+  },
+  {
+    "index": 54,
+    "value": {
+      "competition": "FIFA Confederations Cup",
+      "firstEdition": "2005",
+      "operation": "CHANGE_CYCLE",
+      "note": "Quadrennial, year preceding World Cup",
+      "source": "https://www.11v11.com/competitions/fifa-confederations-cup/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact match dates, historical row mappings and full access rules pending"
+    }
+  },
+  {
+    "index": 55,
+    "value": {
+      "competition": "FIFA Confederations Cup",
+      "firstEdition": "2017",
+      "operation": "LAST_EDITION",
+      "note": "Last edition; do not generate future editions; secondary historical source",
+      "source": "https://it.wikipedia.org/wiki/FIFA_Confederations_Cup",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact match dates, historical row mappings and full access rules pending"
+    }
+  },
+  {
+    "index": 56,
+    "value": {
+      "competition": "FIFA World Cup qualifying UEFA",
+      "firstEdition": "2026",
+      "operation": "CHANGE_FORMAT",
+      "note": "12 groups of four/five, winners directly; 12 runners-up plus four eligible Nations League group winners in four playoff paths",
+      "source": "https://www.uefa.com/european-qualifiers/news/0292-1c1a655f1be0-84538c15a736-1000/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact match dates, historical row mappings and full access rules pending"
+    }
+  },
+  {
+    "index": 57,
+    "value": {
+      "competition": "FIFA World Cup qualifying global",
+      "firstEdition": "2026",
+      "operation": "CHANGE_ACCESS",
+      "note": "48-team slot distribution AFC 8+1 playoff, CAF 9+1, CONCACAF 6+2 including three hosts in direct allocation, CONMEBOL 6+1, OFC 1+1, UEFA 16; six playoff entrants for two places. Preserve host exception per edition.",
+      "source": "https://www.fifa.com/en/articles/world-cup-2026-who-has-qualified",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact match dates, historical row mappings and full access rules pending"
+    }
+  },
+  {
+    "index": 58,
+    "value": {
+      "competition": "UEFA EURO qualifying",
+      "firstEdition": "2028",
+      "operation": "MODERN_BASELINE_CANDIDATE",
+      "note": "2026–28 regulations: 12 group winners and eight best runners-up direct; remaining access/hosts to extract; outside historical cutoff but relevant modern cycle",
+      "source": "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-14-Match-system-qualifying-group-stage-Online",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact match dates, historical row mappings and full access rules pending"
+    }
+  },
+  {
+    "index": 59,
+    "value": {
+      "competition": "Coppa Italia",
+      "firstEdition": "2021/22",
+      "operation": "CHANGE_FORMAT",
+      "note": "44 clubs, 20 Serie A, 20 Serie B, four Serie C; seeding by previous results; exact allocation by edition",
+      "source": "https://www.gazzetta.it/Calcio/Coppa-Italia/12-07-2021/coppa-italia-date-edizione-2021-2022-4102709373323.shtml",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact row identity, full access, dates and modern equivalence pending"
+    }
+  },
+  {
+    "index": 60,
+    "value": {
+      "competition": "Coupe de la Ligue France",
+      "firstEdition": "2019/20",
+      "operation": "LAST_EDITION",
+      "note": "Suspended after 2019/20 by decision September 2019; structural not COVID",
+      "source": "https://www.ogcnice.com/fr/article/34537/la-coupe-de-la-ligue-cest-bientot-fini.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact row identity, full access, dates and modern equivalence pending"
+    }
+  },
+  {
+    "index": 61,
+    "value": {
+      "competition": "Scottish League Cup",
+      "firstEdition": "2016/17",
+      "operation": "CHANGE_FORMAT",
+      "note": "Eight groups of five, round robin, bonus points; knockout afterward",
+      "source": "https://www.skysports.com/football/news/10092633/scottish-league-cup-set-to-introduce-group-stage-format",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact row identity, full access, dates and modern equivalence pending"
+    }
+  },
+  {
+    "index": 62,
+    "value": {
+      "competition": "Taca da Liga Portugal",
+      "firstEdition": "2007/08",
+      "operation": "INTRODUCE",
+      "note": "First edition; professional clubs",
+      "source": "https://www.ligaportugal.pt/pages/sobre-a-liga",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact row identity, full access, dates and modern equivalence pending"
+    }
+  },
+  {
+    "index": 63,
+    "value": {
+      "competition": "Taca da Liga Portugal",
+      "firstEdition": "2025/26",
+      "operation": "CHANGE_FORMAT",
+      "note": "Elimination round leading to Final Four; exact access pending",
+      "source": "https://www.ligaportugal.pt/pages/sobre-a-liga",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact row identity, full access, dates and modern equivalence pending"
+    }
+  },
+  {
+    "index": 64,
+    "value": {
+      "competition": "Copa Argentina",
+      "firstEdition": "2011/12",
+      "operation": "RESUME",
+      "note": "Returns after hiatus since 1970",
+      "source": "https://www.afa.com.ar/Sitio/posts/galeria-de-campeones",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact row identity, full access, dates and modern equivalence pending"
+    }
+  },
+  {
+    "index": 65,
+    "value": {
+      "competition": "Copa do Brasil",
+      "firstEdition": "2026",
+      "operation": "CHANGE_FORMAT",
+      "note": "126 clubs, 155 matches, nine phases, single final, winner direct Libertadores, runner-up preliminary Libertadores; verify complete access and dates",
+      "source": "https://www.cbf.com.br/futebol-brasileiro/noticias/undefined/barcelona-de-ilheus-x-lagarto-fc/maior-copa-betano-do-brasil-da-historia-se-inicia-nesta-terca",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact row identity, full access, dates and modern equivalence pending"
+    }
+  },
+  {
+    "index": 66,
+    "value": {
+      "competition": "URY Copa de Uruguay",
+      "firstEdition": "1996",
+      "operation": "ONE_OFF",
+      "note": "Single historical edition, August 1996; not same tournament as Copa AUF Uruguay",
+      "source": "https://www.rsssf.org/tablesu/urucuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web source retrieved; AUF primary source; exact row mapping, full edition chronology, access and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 67,
+    "value": {
+      "competition": "URY Supercopa",
+      "firstEdition": "2018",
+      "operation": "INTRODUCE",
+      "note": "League champion vs Torneo Intermedio winner in original format; later access changes pending",
+      "source": "https://www.rsssf.org/tablesu/urucuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web source retrieved; AUF primary source; exact row mapping, full edition chronology, access and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 68,
+    "value": {
+      "competition": "URY Copa AUF Uruguay",
+      "firstEdition": "2022",
+      "operation": "INTRODUCE",
+      "note": "76 entrants: 52 AUF, 24 OFI; 77 games; semifinal only two-legged, all other rounds single; first-edition dates June-November",
+      "source": "https://www.auf.org.uy/defensor-sporting-campeon-de-la-copa-auf-uruguay/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web source retrieved; AUF primary source; exact row mapping, full edition chronology, access and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 69,
+    "value": {
+      "competition": "COL Copa Colombia",
+      "firstEdition": "2008",
+      "operation": "RESUME",
+      "note": "Returns after historic intermittent editions, two-leg final in 2008; historical status of 1981/1989 disputed",
+      "source": "https://www.rsssf.org/tablesc/colcuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web source retrieved; AUF primary source; exact row mapping, full edition chronology, access and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 70,
+    "value": {
+      "competition": "COL Superliga",
+      "firstEdition": "2012",
+      "operation": "INTRODUCE",
+      "note": "Supercup begins in 2012; access and double-winner rules pending",
+      "source": "https://www.rsssf.org/miscellaneous/torre-col-best.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web source retrieved; AUF primary source; exact row mapping, full edition chronology, access and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 71,
+    "value": {
+      "competition": "PAR Copa Paraguay",
+      "firstEdition": "2018",
+      "operation": "INTRODUCE",
+      "note": "First edition, one-match final; participant access and full rounds pending",
+      "source": "https://www.rsssf.org/tablesp/paracuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web source retrieved; AUF primary source; exact row mapping, full edition chronology, access and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 72,
+    "value": {
+      "competition": "ECU Copa Ecuador",
+      "firstEdition": "2018/19",
+      "operation": "INTRODUCE",
+      "note": "First regular national knockout cup; source search excerpt only, page open cache miss; not runtime-certified",
+      "source": "https://rsssf.org/tablese/ecuacuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web source retrieved; AUF primary source; exact row mapping, full edition chronology, access and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 73,
+    "value": {
+      "competition": "PER Copa Bicentenario",
+      "firstEdition": "2019",
+      "operation": "INTRODUCE",
+      "note": "Separate cup including second-tier clubs, replacing league's former summer tournament; verify later editions and discontinuation independently",
+      "source": "https://elcomercio.pe/deporte-total/la-liga-1-un-torneo-que-aun-no-encuentra-un-formato-que-nos-haga-competitivos-l-ecpm-noticia/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web source retrieved; AUF primary source; exact row mapping, full edition chronology, access and 2026 equivalence pending"
+    }
+  },
+  {
+    "index": 74,
+    "value": {
+      "competition": "Serbia and Montenegro shared top league",
+      "firstEdition": null,
+      "lastEdition": "2005/06",
+      "operation": "DISCONTINUE",
+      "note": "Separate national leagues from 2006/07. Preserve historical edition and prior club identity; transition policy depends on mapped clubs.",
+      "source": "https://www.uefa.com/news-media/news/0257-0de6aeaceaf4-4a3a4100d804-1000--the-last-of-serbia-and-montenegro/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 UEFA primary source search; runtime identity and access pending"
+    }
+  },
+  {
+    "index": 75,
+    "value": {
+      "competition": "Kosovo UEFA membership",
+      "firstEdition": "2016",
+      "effectiveDate": "2016-05-03",
+      "operation": "CHANGE_FEDERATION_ELIGIBILITY",
+      "note": "UEFA admission, not creation of domestic league. Club access per actual competition edition and qualification rules; national eligibility distinct.",
+      "source": "https://www.uefa.com/news-media/news/022d-0f8e2b5bf9d1-4268d2e86044-1000--football-federation-of-kosovo-joins-uefa/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 UEFA primary source search; runtime identity and access pending"
+    }
+  },
+  {
+    "index": 76,
+    "value": {
+      "competition": "LVA Super Cup",
+      "firstEdition": "2013",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "First match 2013-03-09, edition labelled 2012 by RSSSF; league and cup winner access, double rule pending.",
+      "source": "https://lff.lv/zinas/17383/latvijas-futbola-superkauss-atgriezisies-ar-rigas-derbiju-2-marta/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: LFF primary opened lines 184–195; RSSSF search excerpt; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 77,
+    "value": {
+      "competition": "LVA Super Cup",
+      "firstEdition": null,
+      "lastEdition": "2013",
+      "operation": "SUSPEND",
+      "note": "No editions 2014–2023; no recurring fixtures during hiatus.",
+      "source": "https://lff.lv/zinas/17383/latvijas-futbola-superkauss-atgriezisies-ar-rigas-derbiju-2-marta/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: LFF primary opened lines 190–195; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 78,
+    "value": {
+      "competition": "LVA Super Cup",
+      "firstEdition": "2024",
+      "lastEdition": null,
+      "operation": "RESUME",
+      "note": "Restored 2024-03-02; league champion vs cup holder; same competition history retained.",
+      "source": "https://lff.lv/zinas/17383/latvijas-futbola-superkauss-atgriezisies-ar-rigas-derbiju-2-marta/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: LFF primary opened lines 184–195; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 79,
+    "value": {
+      "competition": "MDA Super Cup",
+      "firstEdition": "2003",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "League champion vs cup winner; observed no extra time, penalties; exact historical rule validity pending.",
+      "source": "https://www.rsssf.org/tablesm/moldsupcuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF opened lines 2–28; FMF official search snippet corroborates first edition; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 80,
+    "value": {
+      "competition": "MDA Super Cup",
+      "firstEdition": "2006",
+      "lastEdition": null,
+      "operation": "CONDITIONAL_NO_EDITION",
+      "note": "Observed no match when same club wins league and cup (2006, 2008–10, 2017, 2019, 2022–24); conditional on career results, not fixed historical absences. No automatic trophy award inferred.",
+      "source": "https://www.rsssf.org/tablesm/moldsupcuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF opened lines 4–28; exact initial applicability pending; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 81,
+    "value": {
+      "competition": "MDA Super Cup",
+      "firstEdition": "2018",
+      "lastEdition": null,
+      "operation": "CHANGE_EDITION_WINDOW",
+      "note": "2018 edition played March 2019 after calendar-year transition; subsequent return to autumn/spring requires separate validation.",
+      "source": "https://www.rsssf.org/tablesm/moldsupcuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF lines 19–28; alternative press labels by match year, edition identity pending; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 82,
+    "value": {
+      "competition": "SVN Super Cup",
+      "firstEdition": null,
+      "lastEdition": "1996",
+      "operation": "SUSPEND",
+      "note": "1995 and 1996 editions, no annual competition 1997–2006.",
+      "source": "https://en.wikipedia.org/wiki/Slovenian_Supercup",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: NZS official search snippet https://www.nzs.si/podrocja/novinarji/novice/superpokal-sest-bojev-stirje-zmagovalci-224281 (open cache miss); secondary chronology; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 83,
+    "value": {
+      "competition": "SVN Super Cup",
+      "firstEdition": "2007",
+      "lastEdition": null,
+      "operation": "RESUME",
+      "note": "Annual editions restored.",
+      "source": "https://en.wikipedia.org/wiki/Slovenian_Supercup",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: NZS official search snippet and secondary chronology; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 84,
+    "value": {
+      "competition": "SVN Super Cup",
+      "firstEdition": null,
+      "lastEdition": "2015",
+      "operation": "DISCONTINUE",
+      "note": "Last observed edition 2015; abolition reported by secondary source, official decision pending.",
+      "source": "https://en.wikipedia.org/wiki/Slovenian_Supercup",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Secondary search excerpt; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 85,
+    "value": {
+      "competition": "SVK Super Cup",
+      "firstEdition": null,
+      "lastEdition": "2014",
+      "operation": "DISCONTINUE",
+      "note": "Last played 2014; formal discontinuation reported in 2016; not automatically generate 2015/16.",
+      "source": "https://en.wikipedia.org/wiki/Slovak_Super_Cup",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF Slovakia search excerpt https://rsssf.org/tabless/slowsupcuphist.html (cache miss on open); secondary source; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 86,
+    "value": {
+      "competition": "CZE Super Cup",
+      "firstEdition": null,
+      "lastEdition": "2015",
+      "operation": "DISCONTINUE",
+      "note": "Replaced by cross-border super cup; separate competition identity.",
+      "source": "https://www.rsssf.org/tablest/tsjesupcuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF search excerpt, cross-border archive opened; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 87,
+    "value": {
+      "competition": "CZE-SVK Super Cup",
+      "firstEdition": "2017",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "Single match between national cup winners, direct penalties if level; played 2017 and 2019, not 2018 or 2020; formal termination and reasons pending. No assumption of annual continuation.",
+      "source": "https://www.rsssf.org/tablest/tsjslsupcuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF opened lines 4–17, Czech FA official excerpts https://www.fotbal.cz/facr/slavia-nedala-trnave-sanci-a-vyhrala-cesko-slovensky-superpohar/a10640; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 88,
+    "value": {
+      "competition": "Serbia and Montenegro shared national cup",
+      "firstEdition": null,
+      "lastEdition": "2005/06",
+      "operation": "DISCONTINUE",
+      "note": "Separate national cups from 2006/07; preserve predecessor history.",
+      "source": "https://www.rsssf.org/tablesj/joegcupdetail.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF search excerpts; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 89,
+    "value": {
+      "competition": "SRB national cup",
+      "firstEdition": "2006/07",
+      "lastEdition": null,
+      "operation": "SUCCESSOR_COMPETITION",
+      "note": "Separate Serbian cup; predecessor mapping pending.",
+      "source": "https://www.rsssf.org/tablesj/joegcupdetail.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF search excerpt; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 90,
+    "value": {
+      "competition": "MNE national cup",
+      "firstEdition": "2006/07",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "Separate Montenegrin cup; two-legged rounds observed; full bracket and access pending.",
+      "source": "https://www.rsssf.org/tablesm/montegcup07.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF opened lines 37–52; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 91,
+    "value": {
+      "competition": "LTU Super Cup",
+      "firstEdition": "2015",
+      "lastEdition": null,
+      "operation": "CHANGE_DOUBLE_HANDLING",
+      "note": "Double winners awarded trophy without match in earlier editions; 2015 onward played match observed despite doubles. Exact substitute eligibility needs regulation.",
+      "source": "https://www.rsssf.org/tablesl/litosupcuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF opened lines 2–29,54–59; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 92,
+    "value": {
+      "competition": "LTU national cup",
+      "firstEdition": "2003",
+      "lastEdition": null,
+      "operation": "CHANGE_CYCLE",
+      "note": "Cup switched from autumn/spring to calendar year after 2002/03; league already calendar year since 1999.",
+      "source": "https://www.rsssf.org/tablesl/litosupcuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF opened lines 54–59; exact transition dates pending; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 93,
+    "value": {
+      "competition": "LTU national cup",
+      "firstEdition": "2007/08",
+      "lastEdition": null,
+      "operation": "CHANGE_CYCLE",
+      "note": "Cup returns to autumn/spring while league remains calendar year.",
+      "source": "https://www.rsssf.org/tablesl/litosupcuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF opened lines 54–59; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 94,
+    "value": {
+      "competition": "LTU national cup",
+      "firstEdition": "2016",
+      "lastEdition": null,
+      "operation": "CHANGE_CYCLE",
+      "note": "Cup returns to calendar year after 2015/16.",
+      "source": "https://www.rsssf.org/tablesl/litosupcuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF opened lines 54–59; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 95,
+    "value": {
+      "competition": "EST Super Cup",
+      "firstEdition": "2008",
+      "lastEdition": null,
+      "operation": "CHANGE_EDITION_WINDOW",
+      "note": "Observed shift from autumn finals through 2007 to pre-season spring finals from 2008; edition/qualification timing must be distinct from league/cup double used for UEFA.",
+      "source": "https://www.rsssf.org/tablese/estsupcuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF opened lines 6–33,84–91; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 96,
+    "value": {
+      "competition": "MKD Super Cup",
+      "firstEdition": "2011",
+      "lastEdition": null,
+      "operation": "OBSERVED_COMPETITION",
+      "note": "Confirmed matches 2011, 2013, 2015; not held 2012, 2014, 2016–18. Earlier 1996 disputed, no automatic annual activation or cessation beyond observed evidence.",
+      "source": "https://www.rsssf.org/tablesf/fyromsupcuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF opened lines 7–14; earlier history pending; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 97,
+    "value": {
+      "competition": "BIH national cup",
+      "firstEdition": "2002/03",
+      "lastEdition": null,
+      "operation": "OBSERVED_FINAL_FORMAT",
+      "note": "Two-leg final observed, then single 2003/04, two-leg 2004/05–2018/19 and 2023/24–2025/26. 2020/21–2022/23 single finals observed, pandemic-related origin not verified; no automatic activation. Full unification and access timeline pending.",
+      "source": "https://www.rsssf.org/tablesb/bihcuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF opened lines 38–65; observed format not rule certification; exact runtime mapping, rules validity, dates and baseline equivalence pending. No future results imported."
+    }
+  },
+  {
+    "index": 98,
+    "value": {
+      "competition": "AUS national cup",
+      "firstEdition": "2021",
+      "lastEdition": null,
+      "operation": "CHANGE_DRAW_AND_ACCESS",
+      "note": "Open draw from round of 16, AFC Champions League access introduced for winner; exact subsequent AFC quotas by edition pending.",
+      "source": "https://footballaustralia.com.au/history/ffacup",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Official federation page opened lines 143–148; runtime mapping and full dates pending."
+    }
+  },
+  {
+    "index": 99,
+    "value": {
+      "competition": "AUS national cup",
+      "firstEdition": "2022",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "note": "FFA Cup renamed Australia Cup; same modern competition history from 2014, distinct from NSL Cup.",
+      "source": "https://footballaustralia.com.au/news/australia-cup-name-return-australias-largest-national-knockout-football-competition?page=164",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Official federation search excerpt; opening cache miss, ABC corroboration https://www.abc.net.au/news/2022-02-05/name-change-for-ffa-cup-get-ready-for-australia-cup-from-2022/100808056; runtime mapping and full dates pending."
+    }
+  },
+  {
+    "index": 100,
+    "value": {
+      "competition": "UEFA Champions League",
+      "firstEdition": "1997/98",
+      "lastEdition": null,
+      "operation": "CHANGE_ACCESS",
+      "note": "League runners-up from top eight associations eligible; champions from smaller associations return to qualifying. Complete access list and group stage size by edition pending.",
+      "source": "https://www.uefa.com/uefachampionsleague/news/0268-121578ca9f2b-3ebc8c09202b-1000--setting-the-standard-for-club-football/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: UEFA history opened lines 53–54; full dates, access tables, participant mapping and runtime validation pending. No future results imported.",
+      "rowRefs": [
+        165,
+        525
+      ]
+    }
+  },
+  {
+    "index": 101,
+    "value": {
+      "competition": "UEFA Champions League",
+      "firstEdition": "1999/00",
+      "lastEdition": null,
+      "operation": "CHANGE_FORMAT",
+      "note": "32 group-stage clubs, 8 groups of 4; top two advance to 4 groups of 4, top two to quarterfinals; up to four clubs from associations 1–3, three from 4–6, two from 7–15. Exact qualifying access by edition pending.",
+      "source": "https://www.uefa.com/uefachampionsleague/news/0268-121578ca9f2b-3ebc8c09202b-1000--setting-the-standard-for-club-football/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: UEFA history opened lines 56–59; full dates, access tables, participant mapping and runtime validation pending. No future results imported.",
+      "rowRefs": [
+        165,
+        525
+      ]
+    }
+  },
+  {
+    "index": 102,
+    "value": {
+      "competition": "UEFA Champions League",
+      "firstEdition": "2003/04",
+      "lastEdition": null,
+      "operation": "CHANGE_FORMAT",
+      "note": "32 clubs, eight groups of four; top two per group enter round of 16 replacing second group phase; two-legged knockout before single final.",
+      "source": "https://www.uefa.com/uefachampionsleague/news/025a-0eab034a2393-c36661944dab-1000--new-format-for-champions-league/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: UEFA original decision 11 July 2002 opened lines 9–15; full dates, access tables, participant mapping and runtime validation pending. No future results imported.",
+      "rowRefs": [
+        165,
+        525
+      ]
+    }
+  },
+  {
+    "index": 103,
+    "value": {
+      "competition": "UEFA Champions League",
+      "firstEdition": "2009/10",
+      "lastEdition": null,
+      "operation": "CHANGE_ACCESS",
+      "note": "Separate champions and non-champions qualifying paths, additional playoff round; ten qualifiers join group stage of 32.",
+      "source": "https://www.uefa.com/uefachampionsleague/news/0268-121578ca9f2b-3ebc8c09202b-1000--setting-the-standard-for-club-football/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: UEFA history opened lines 65–66; full dates, access tables, participant mapping and runtime validation pending. No future results imported.",
+      "rowRefs": [
+        165,
+        525
+      ]
+    }
+  },
+  {
+    "index": 104,
+    "value": {
+      "competition": "CAF Champions League",
+      "firstEdition": "2017",
+      "lastEdition": null,
+      "operation": "CHANGE_GROUP_SIZE",
+      "note": "Group phase increases from 8 to 16 teams in four groups of four; exact qualification and knockout rules separately pending.",
+      "source": "https://www.cafonline.com/news/16-clubs-for-group-phase-of-cc-and-cl-effective-2017/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: CAF decision dated 11 May 2016 opened lines 72–80; full dates, access tables, participant mapping and runtime validation pending. No future results imported.",
+      "rowRefs": [
+        430
+      ]
+    }
+  },
+  {
+    "index": 105,
+    "value": {
+      "competition": "AFC President's Cup",
+      "firstEdition": "2005",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "Continental competition for league champions from emerging associations. Not national-team AFC Challenge Cup.",
+      "source": "https://www.the-afc.com/en/more/news/afc_president%E2%80%99s_cup_the_end_of_a_glorious_journey.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: AFC official historical page opened lines 9–12; full dates, access tables, participant mapping and runtime validation pending. No future results imported.",
+      "rowRefs": []
+    }
+  },
+  {
+    "index": 106,
+    "value": {
+      "competition": "AFC President's Cup",
+      "firstEdition": null,
+      "lastEdition": "2014",
+      "operation": "DISCONTINUE",
+      "note": "Final edition 2014; archive retained; no new annual fixtures after cessation.",
+      "source": "https://www.the-afc.com/en/more/news/afc_president%E2%80%99s_cup_the_end_of_a_glorious_journey.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: AFC official historical page opened lines 9–12; full dates, access tables, participant mapping and runtime validation pending. No future results imported.",
+      "rowRefs": []
+    }
+  },
+  {
+    "index": 107,
+    "value": {
+      "competition": "AFC Cup",
+      "firstEdition": "2015",
+      "lastEdition": null,
+      "operation": "CHANGE_ACCESS",
+      "note": "Champions from emerging associations eligible for AFC Cup qualifying after President's Cup ends.",
+      "source": "https://www.the-afc.com/en/more/news/afc_president%E2%80%99s_cup_the_end_of_a_glorious_journey.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: AFC official historical page opened lines 9–12; full dates, access tables, participant mapping and runtime validation pending. No future results imported.",
+      "rowRefs": [
+        428
+      ]
+    }
+  },
+  {
+    "index": 108,
+    "value": {
+      "competition": "AFC Challenge League",
+      "firstEdition": "2024/25",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "Observed inaugural group phase: 18 teams, three West groups of four and two East groups of three, centralized round-robin. Do not confuse with national-team AFC Challenge Cup. Exact preliminary entrants, knockout and continuity identity pending.",
+      "source": "https://www.the-afc.com/en/club/afc_challenge_league.html/news/challengeleague-know-your-teams",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: AFC official October 2024 search excerpt; full dates, access tables, participant mapping and runtime validation pending. No future results imported.",
+      "rowRefs": [
+        429
+      ]
+    }
+  },
+  {
+    "index": 110,
+    "value": {
+      "competition": "UEFA club competitions",
+      "firstEdition": "2021/22",
+      "lastEdition": null,
+      "operation": "ABOLISH_AWAY_GOALS",
+      "note": "All UEFA club competitions from qualifying phase; tied aggregate after second leg resolved by extra time and penalties as needed; prior editions retain old rules.",
+      "source": "https://www.uefa.com/news/026a-1298aeb73a7a-5b64cb68d920-1000%E2%80%93abolition-of-the-away-goals-rule-in-all-uefa-club-competi/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: UEFA official decision 24 June 2021 search excerpt; full dates, access tables, participant mapping and runtime validation pending. No future results imported.",
+      "rowRefs": [
+        525,
+        526,
+        527
+      ]
+    }
+  },
+  {
+    "index": 111,
+    "value": {
+      "competition": "UEFA Europa League",
+      "firstEdition": "2021/22",
+      "lastEdition": null,
+      "operation": "CHANGE_FORMAT",
+      "note": "Group stage reduces 48 to 32, eight groups of four. Winners direct round of 16; runners-up vs Champions League third-placed teams in knockout playoffs; Europa League third-place teams transfer to Conference League playoffs.",
+      "source": "https://www.uefa.com/news/0265-115e8ac3bcf1-d2646a690a85-1000--2021-22-europa-league/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: UEFA official 2021 format and qualification search excerpts, https://www.uefa.com/uefaeuropaleague/news/026f-13ac707e7012-579db67e4c34-1000--who-needs-what-to-qualify/; full dates, access tables, participant mapping and runtime validation pending. No future results imported.",
+      "rowRefs": [
+        526,
+        527
+      ]
+    }
+  },
+  {
+    "index": 112,
+    "value": {
+      "competition": "CONMEBOL Libertadores",
+      "firstEdition": "2017",
+      "lastEdition": null,
+      "operation": "CHANGE_FORMAT",
+      "note": "47 entrants; 28 direct group entrants, 19 preliminary entrants; rounds with 6,16,8 participants respectively, four winners join 32-club group stage. Year-long calendar; Mexico withdrew, exact historical country quotas and future applicability separate. Do not override approved 2627 game baseline.",
+      "source": "https://colombia.as.com/colombia/2016/12/20/futbol/1482254662_600497.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Contemporary AS and Cooperativa extracts, regulation transcription cache miss; corroboration from CONMEBOL PDF search excerpt only, not full PDF inspection. Full dates, access, identity mapping and modern equivalence pending. No future results imported.",
+      "rowRefs": [
+        178,
+        321,
+        423
+      ]
+    }
+  },
+  {
+    "index": 113,
+    "value": {
+      "competition": "CONMEBOL Sudamericana",
+      "firstEdition": "2017",
+      "lastEdition": null,
+      "operation": "CHANGE_FORMAT",
+      "note": "44 initial entrants, 22 winners joined by 10 Libertadores transfers in second phase; precise transfer criteria require regulation confirmation.",
+      "source": "https://www.montevideo.com.uy/Deportes/Conmebol-anuncio-formatos-de-las-copas-Libertadores-y-Sudamericana-2017-uc328467",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Contemporary press and secondary seasonal extract https://es.wikipedia.org/wiki/Copa_Sudamericana_2017; exact access pending. Full dates, access, identity mapping and modern equivalence pending. No future results imported.",
+      "rowRefs": [
+        424
+      ]
+    }
+  },
+  {
+    "index": 114,
+    "value": {
+      "competition": "CONMEBOL Sudamericana",
+      "firstEdition": "2021",
+      "lastEdition": null,
+      "operation": "CHANGE_FORMAT",
+      "note": "56 total participants including transfers. National preliminary two legs; 16 winners plus 12 direct Argentina/Brazil and four Libertadores preliminary eliminations enter eight groups of four; group winners plus eight Libertadores group thirds enter round of 16. 157 matches in announced format.",
+      "source": "https://www.afa.com.ar/regla/posts/cambios-en-la-conmebol-sudamericana-2021",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: AFA official decision 2020-10-02 opened lines 20–28; group winner access corroborated by AFA draw excerpt. Full dates, access, identity mapping and modern equivalence pending. No future results imported.",
+      "rowRefs": [
+        424
+      ]
+    }
+  },
+  {
+    "index": 115,
+    "value": {
+      "competition": "CONMEBOL Sudamericana",
+      "firstEdition": "2023",
+      "lastEdition": null,
+      "operation": "CHANGE_KNOCKOUT_ACCESS",
+      "note": "Eight group runners-up play eight Libertadores group thirds over two legs; Libertadores thirds host first leg; eight winners meet group winners in round of 16. Same-country ties permitted. PDF text verified, page image retrieval failed; preliminary changes require further verification.",
+      "source": "https://cdn.conmebol.com/wp-content/uploads/2023/03/Manual-de-Clubes-CS-2023-Digital-ES-Actualizado-Marzo-1.pdf",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Official manual section 2.2.3.1–2.2.3.2 lines 1178–1226; screenshot pages 41 and 36 cache miss, visual verification pending. Full dates, access, identity mapping and modern equivalence pending. No future results imported.",
+      "rowRefs": [
+        424
+      ]
+    }
+  },
+  {
+    "index": 116,
+    "value": {
+      "competition": "CONMEBOL Recopa",
+      "firstEdition": "2003",
+      "lastEdition": null,
+      "operation": "RESUME",
+      "note": "Competition resumed between Libertadores and Sudamericana holders after hiatus. Distinguish edition label from actual match year; exact hiatus and subsequent single/two-leg transitions pending.",
+      "source": "https://www.rsssf.org/sacups/recopa.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF search excerpt reports revival involving 2002 holders; open cache miss, edition label provisional. Full dates, access, identity mapping and modern equivalence pending. No future results imported.",
+      "rowRefs": [
+        425
+      ]
+    }
+  },
+  {
+    "index": 125,
+    "value": {
+      "competition": "SGP Singapore Cup",
+      "firstEdition": "1998",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "note": "1997 League Cup renamed Singapore Cup; not new 2007 League Cup.",
+      "source": "https://www.rsssf.org/tabless/singcuphist.html",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 20: actual web search excerpts; exact edition dates, access and identity reconciliation pending. No future results imported."
+    }
+  },
+  {
+    "index": 126,
+    "value": {
+      "competition": "SGP League Cup",
+      "firstEdition": "2007",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "Distinct from 1997 competition; last edition and scope mapping pending.",
+      "source": "https://www.rsssf.org/tabless/singcuphist.html",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 20: actual web search excerpts; exact edition dates, access and identity reconciliation pending. No future results imported."
+    }
+  },
+  {
+    "index": 129,
+    "value": {
+      "competition": "QAT Qatar Cup",
+      "firstEdition": "1994/95",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "Golden Cup initially, renamed Heir Apparent's Cup in 1995/96 according to QSL about page. Top four and single knockout observed in QSL 2018; not proved for entire history. Distinguish Qatar Stars League Cup and Emir Cup; no row assignment until mapped.",
+      "source": "https://www.qsl.qa/index.php/en/about-qatar-cup",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 official search excerpts, not full dates/access/identity certification."
+    }
+  },
+  {
+    "index": 130,
+    "value": {
+      "competition": "QAT Qatar Cup",
+      "firstEdition": "1995/96",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "note": "QSL about page says second edition renamed Heir Apparent's Cup; 2018 page uses that name retrospectively for inaugural edition. Preserve discrepancy pending verification.",
+      "source": "https://www.qsl.qa/index.php/en/about-qatar-cup",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 official search excerpts, not full dates/access/identity certification."
+    }
+  },
+  {
+    "index": 138,
+    "value": {
+      "competition": "AFC Cup",
+      "firstEdition": "2004",
+      "lastEdition": "2023/24",
+      "operation": "LIFETIME",
+      "note": "AFC confirms first and final editions. Separate historical identity from ACL Two; no old AFC Cup fixtures beyond end.",
+      "source": "https://www.the-afc.com/en/club/afc_champions_league_two/archive/202324.html",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
+    }
+  },
+  {
+    "index": 139,
+    "value": {
+      "competition": "CAF Super Cup",
+      "firstEdition": "1993",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "Historical CAF account gives 1993; general CAF page says established 1992, distinguish establishment from first played edition.",
+      "source": "https://www.cafonline.com/caf-super-cup/news/from-1993-to-2026-how-the-totalenergies-caf-super-cup-developed-through-the-years/",
+      "rowRefs": [
+        432
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
+    }
+  },
+  {
+    "index": 140,
+    "value": {
+      "competition": "CAF Super Cup",
+      "firstEdition": "2004",
+      "lastEdition": null,
+      "operation": "CHANGE_ACCESS",
+      "note": "Transition from African Cup Winners Cup to Confederation Cup winner; exact first Super Cup edition using new qualifier pending (do not apply 2004 automatically).",
+      "source": "https://www.cafonline.com/caf-super-cup/news/from-1993-to-2026-how-the-totalenergies-caf-super-cup-developed-through-the-years/",
+      "rowRefs": [
+        432
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
+    }
+  },
+  {
+    "index": 142,
+    "value": {
+      "competition": "WAL Welsh Blood Service League Cup",
+      "firstEdition": "2026/27",
+      "lastEdition": "2026/27",
+      "operation": "REMOVE_FROM_CALENDAR",
+      "note": "Separate tier-two cup removed by same FAW announcement. No row mapping or permanent abolition inferred.",
+      "source": "https://faw.cymru/cymru-leagues/news/statement-nathaniel-mg-cup-and-welsh-blood-service-league-cup/",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
+    }
+  },
+  {
+    "index": 144,
+    "value": {
+      "competition": "CRC Recopa",
+      "firstEdition": "2027",
+      "lastEdition": "2027",
+      "operation": "CONDITIONAL_NO_EDITION",
+      "note": "No 2027 Recopa following suspension of Copa. No fabricated replacement or automatic trophy.",
+      "source": "https://www.repretel.com/noticia/se-jugara-con-10-o-12-equipos-unafut-confirma-los-acuerdos-para-la-proxima-temporada/",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 23: web search excerpts consulted, not full regulation/participant mapping. No post-cutoff results imported."
+    }
+  },
+  {
+    "index": 147,
+    "value": {
+      "competition": "IND Federation Cup",
+      "firstEdition": null,
+      "lastEdition": "2017",
+      "operation": "DISCONTINUE",
+      "note": "RSSSF says not held since 2017, successor Super Cup 2018; current historical lineage identity policy needs explicit mapping.",
+      "source": "https://www.rsssf.org/tablesi/indiacuphist.html",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 23: web search excerpts consulted, not full regulation/participant mapping. No post-cutoff results imported."
+    }
+  },
+  {
+    "index": 148,
+    "value": {
+      "competition": "PER Copa Bicentenario",
+      "firstEdition": "2019",
+      "lastEdition": "2021",
+      "operation": "OBSERVED_EDITIONS",
+      "note": "2019 and 2021 only as of 2024 report. 2020 COVID exception not imported; 2022–24 absence reported, later status and new Liga cup identity unresolved; do not treat 2021 as certified permanent end.",
+      "source": "https://www.futbolperuano.com/copa-bicentenario/habra-copa-bicentenario-en-el-2024-468574",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 23: web search excerpts consulted, not full regulation/participant mapping. No post-cutoff results imported."
+    }
+  },
+  {
+    "index": 149,
+    "value": {
+      "competition": "CONMEBOL Supercopa Libertadores",
+      "firstEdition": "1988",
+      "lastEdition": "1997",
+      "operation": "LIFETIME",
+      "note": "Distinct historical tournament, successor Mercosur; exact access and calendar pending.",
+      "source": "https://www.rsssf.org/sacups/sasup.html",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
+    }
+  },
+  {
+    "index": 150,
+    "value": {
+      "competition": "CONMEBOL Copa CONMEBOL",
+      "firstEdition": "1992",
+      "lastEdition": "1999",
+      "operation": "LIFETIME",
+      "note": "Distinct historical competition; overlaps Mercosur and Merconorte in 1998–99, no premature removal.",
+      "source": "https://rsssf.org/intclub.html",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
+    }
+  },
+  {
+    "index": 151,
+    "value": {
+      "competition": "CONMEBOL Copa Mercosur",
+      "firstEdition": "1998",
+      "lastEdition": "2001",
+      "operation": "LIFETIME",
+      "note": "Distinct competition, abolished after 2001; subsequent Sudamericana lineage not an identity alias.",
+      "source": "https://www.rsssf.org/sacups/mercosur.html",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
+    }
+  },
+  {
+    "index": 152,
+    "value": {
+      "competition": "CONMEBOL Copa Merconorte",
+      "firstEdition": "1998",
+      "lastEdition": "2001",
+      "operation": "LIFETIME",
+      "note": "Distinct historical competition; exact access changes pending.",
+      "source": "https://www.rsssf.org/sacups/allcopas-alltime.html",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
+    }
+  },
+  {
+    "index": 158,
+    "value": {
+      "competition": "PAR Supercopa",
+      "firstEdition": "2021",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "APF first edition 2021; single final. Current described access: cup winner vs league champion with greatest accumulated points; do not assume unchanged historical access.",
+      "source": "https://www.apf.org.py/noticias/la-supercopa-paraguay-tiene-fecha-confirmada",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
+    }
+  },
+  {
+    "index": 159,
+    "value": {
+      "competition": "PAR Supercopa",
+      "firstEdition": "2023",
+      "lastEdition": "2023",
+      "operation": "OBSERVED_CONDITIONAL_AWARD",
+      "note": "APF historical account automatic title when club won both league tournaments and national cup. Observed rule outcome only; reconcile exact regulation and replacement conditions before implementing.",
+      "source": "https://www.apf.org.py/supercopa-paraguay",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
+    }
+  },
+  {
+    "index": 162,
+    "value": {
+      "competition": "CAF African Cup Winners Cup",
+      "firstEdition": "1975",
+      "lastEdition": "2003",
+      "operation": "LIFETIME",
+      "note": "Distinct historical cup, merged with CAF Cup into Confederation Cup in 2004.",
+      "source": "https://www.rsssf.org/tablesa/af2.html",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 25: actual web search excerpts UEFA/CAF/CONCACAF/RSSSF, not complete format, access or calendar certification."
+    }
+  },
+  {
+    "index": 163,
+    "value": {
+      "competition": "CAF Cup",
+      "firstEdition": "1992",
+      "lastEdition": "2003",
+      "operation": "LIFETIME",
+      "note": "Distinct historical cup, merged with African Cup Winners Cup in 2004.",
+      "source": "https://rsssf.org/tablesa/af3.html",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 25: actual web search excerpts UEFA/CAF/CONCACAF/RSSSF, not complete format, access or calendar certification."
+    }
+  },
+  {
+    "index": 164,
+    "value": {
+      "competition": "UEFA Intertoto Cup",
+      "firstEdition": "1995",
+      "lastEdition": "2008",
+      "operation": "LIFETIME",
+      "note": "UEFA edition lineage, not pre-UEFA competition; expanded UEFA Cup qualifying replaces it.",
+      "source": "https://www.uefa.com/uefaeuropaleague/news/01cf-0e6f84a70b82-18a75e859f0f-1000--intertoto-eleven-join-uefa-cup/",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 25: actual web search excerpts UEFA/CAF/CONCACAF/RSSSF, not complete format, access or calendar certification."
+    }
+  },
+  {
+    "index": 165,
+    "value": {
+      "competition": "UEFA Intertoto Cup",
+      "firstEdition": "2006",
+      "lastEdition": "2008",
+      "operation": "CHANGE_TITLE_AWARD",
+      "note": "Overall winner determined by furthest UEFA Cup progression among summer qualifiers; multiple qualifying clubs still exist; tie rules pending.",
+      "source": "https://www.uefa.com/uefachampionsleague/news/0252-0d04631ba5ae-8aee0f5c1e81-1000--paris-aim-to-join-multiple-trophy-winners/",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 25: actual web search excerpts UEFA/CAF/CONCACAF/RSSSF, not complete format, access or calendar certification."
+    }
+  },
+  {
+    "index": 166,
+    "value": {
+      "competition": "CONCACAF League",
+      "firstEdition": "2017",
+      "lastEdition": "2022",
+      "operation": "LIFETIME",
+      "note": "16 entrants initially, sixth and final edition 2022, replaced by regional cups from 2023.",
+      "source": "https://www.concacaf.com/news/olimpia-s-title-conquest-headlines-top-scl-stories-of-2022",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 25: actual web search excerpts UEFA/CAF/CONCACAF/RSSSF, not complete format, access or calendar certification."
+    }
+  },
+  {
+    "index": 167,
+    "value": {
+      "competition": "CONCACAF League",
+      "firstEdition": "2019",
+      "lastEdition": "2022",
+      "operation": "CHANGE_ACCESS",
+      "note": "Expanded 16 to 22, five additional Central American clubs and one Canadian Premier League club; exact round allocations pending.",
+      "source": "https://qa-backoffice.concacaf.com/es/copa-de-campeones/historia/",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 25: actual web search excerpts UEFA/CAF/CONCACAF/RSSSF, not complete format, access or calendar certification."
+    }
+  },
+  {
+    "index": 168,
+    "value": {
+      "competition": "CONCACAF Caribbean Club Championship",
+      "firstEdition": "1997",
+      "lastEdition": "2022",
+      "operation": "LIFETIME",
+      "note": "Official historical page confirms 1997 origin; final boundary supported by 2022 edition and successor 2023 announcement; no PDF relied on.",
+      "source": "https://www.concacaf.com/news/new-era-launches-as-caribbean-club-championship-opens-wednesday",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 25: actual web search excerpts UEFA/CAF/CONCACAF/RSSSF, not complete format, access or calendar certification."
+    }
+  },
+  {
+    "index": 169,
+    "value": {
+      "competition": "CONCACAF Caribbean Club Championship",
+      "firstEdition": "1999",
+      "lastEdition": "1999",
+      "operation": "SUSPEND",
+      "note": "No tournament, reason unknown.",
+      "source": "https://www.concacaf.com/competitions/champions-cup/news/caribbean-club-championship-list-of-champions",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 25: actual web search excerpts UEFA/CAF/CONCACAF/RSSSF, not complete format, access or calendar certification."
+    }
+  },
+  {
+    "index": 170,
+    "value": {
+      "competition": "CONCACAF Caribbean Club Championship",
+      "firstEdition": "2008",
+      "lastEdition": "2008",
+      "operation": "SUSPEND",
+      "note": "No tournament, reason unknown.",
+      "source": "https://www.concacaf.com/competitions/champions-cup/news/caribbean-club-championship-list-of-champions",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 25: actual web search excerpts UEFA/CAF/CONCACAF/RSSSF, not complete format, access or calendar certification."
+    }
+  },
+  {
+    "index": 171,
+    "value": {
+      "competition": "CONCACAF Caribbean Club Championship",
+      "firstEdition": "2018",
+      "lastEdition": null,
+      "operation": "CHANGE_ACCESS",
+      "note": "Two tiers; Shield winner subject to licensing and playoff versus fourth place of top competition; precise historical changes pending.",
+      "source": "https://www.concacaf.com/news/concacaf-announces-expanded-concacaf-caribbean-club-championship-for-2018",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 25: actual web search excerpts UEFA/CAF/CONCACAF/RSSSF, not complete format, access or calendar certification."
+    }
+  },
+  {
+    "index": 172,
+    "value": {
+      "competition": "CONCACAF Caribbean Club Shield",
+      "firstEdition": "2018",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "Distinct amateur tier; inaugural access conditional on licensing and playoff.",
+      "source": "https://www.concacaf.com/news/inaugural-concacaf-caribbean-club-shield-begins-today",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 25: actual web search excerpts UEFA/CAF/CONCACAF/RSSSF, not complete format, access or calendar certification."
+    }
+  },
+  {
+    "index": 173,
+    "value": {
+      "competition": "CONCACAF Caribbean Club Shield",
+      "firstEdition": "2023",
+      "lastEdition": null,
+      "operation": "CHANGE_ACCESS",
+      "note": "Both finalists qualify to Caribbean Cup; no longer old Concacaf League pathway.",
+      "source": "https://www.concacaf.com/news/concacaf-confirms-2023-caribbean-club-competitions-draws-details",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 25: actual web search excerpts UEFA/CAF/CONCACAF/RSSSF, not complete format, access or calendar certification."
+    }
+  },
+  {
+    "index": 174,
+    "value": {
+      "competition": "UEFA Super Cup",
+      "firstEdition": "2000",
+      "lastEdition": null,
+      "operation": "CHANGE_ACCESS",
+      "note": "UEFA Cup winner replaces Cup Winners Cup winner beginning 2000.",
+      "source": "https://www.uefa.com/news-media/news/021b-0e9b869b0ed2-d14061c0ab62-1000--in-tune-with-a-new-football-world/",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 25: actual web search excerpts UEFA/CAF/CONCACAF/RSSSF, not complete format, access or calendar certification."
+    }
+  },
+  {
+    "index": 195,
+    "value": {
+      "competition": "KAZ Super Cup",
+      "firstEdition": "2008",
+      "lastEdition": null,
+      "operation": "RESUME",
+      "note": "KFF official history confirms resumption, initial edition and prior gap pending.",
+      "source": "https://kff.kz/en/history",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 27: RSSSF Armenia lines 54–89, Azerbaijan 55–68, Kazakhstan 55–101 opened; Georgia snippet only (Unicode error), KFF official search excerpt. No future results imported."
+    }
+  },
+  {
+    "index": 205,
+    "value": {
+      "competition": "GER Supercup",
+      "firstEdition": "1987",
+      "lastEdition": "1996",
+      "operation": "ACTIVE_PERIOD",
+      "note": "Official Bundesliga history. Distinct from 1997–2007 Ligapokal.",
+      "source": "https://www.bundesliga.com/en/bundesliga/news/history-of-supercup-records-goals-all-matches-bayern-dortmund-leipzig-20635",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
+    }
+  },
+  {
+    "index": 206,
+    "value": {
+      "competition": "GER Supercup",
+      "firstEdition": "1997",
+      "lastEdition": "2009",
+      "operation": "SUSPEND",
+      "note": "Official competition absent; unofficial editions not automatically equivalent. Reintroduced 2010.",
+      "source": "https://www.bundesliga.com/en/bundesliga/news/history-of-supercup-records-goals-all-matches-bayern-dortmund-leipzig-20635",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
+    }
+  },
+  {
+    "index": 207,
+    "value": {
+      "competition": "GER Ligapokal",
+      "firstEdition": "1997",
+      "lastEdition": "2007",
+      "operation": "LIFETIME",
+      "note": "Modern pre-season competition, DFB then DFL, distinct from 1972/73 historical competition; official DFB match database corroborates endpoints, secondary chronology.",
+      "source": "https://de.wikipedia.org/wiki/DFL-Ligapokal",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
+    }
+  },
+  {
+    "index": 208,
+    "value": {
+      "competition": "GER Supercup",
+      "firstEdition": "2010",
+      "lastEdition": null,
+      "operation": "RESUME",
+      "note": "Official DFL reintroduction; preserve Supercup identity, not Ligapokal history.",
+      "source": "https://www.bundesliga.com/en/bundesliga/news/history-of-supercup-records-goals-all-matches-bayern-dortmund-leipzig-20635",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
+    }
+  },
+  {
+    "index": 215,
+    "value": {
+      "competition": "SUI tier 2",
+      "firstEdition": "2003/04",
+      "operation": "RENAME",
+      "previousName": "Nationalliga B",
+      "name": "Challenge League",
+      "rowRefs": [],
+      "source": "https://sfl.ch/de/geschichte-kurz-und-bundig",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  },
+  {
+    "index": 220,
+    "value": {
+      "competition": "UEFA Conference League",
+      "firstEdition": "2024/25",
+      "operation": "RENAME",
+      "previousName": "UEFA Europa Conference League",
+      "name": "UEFA Conference League",
+      "rowRefs": [],
+      "source": "https://www.uefa.com/uefaconferenceleague/news/0282-185d6b03cbe4-4763e115dd7f-1000--uefa-europa-conference-league-to-be-renamed-uefa-conferenc/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  },
+  {
+    "index": 221,
+    "value": {
+      "competition": "CONCACAF Champions Cup",
+      "firstEdition": "2008/09",
+      "operation": "RENAME",
+      "previousName": "CONCACAF Champions Cup",
+      "name": "CONCACAF Champions League",
+      "rowRefs": [],
+      "source": "https://www.concacaf.com/competitions/champions-cup/news/2024-concacaf-champions-cup-all-you-need-to-know",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  },
+  {
+    "index": 222,
+    "value": {
+      "competition": "CONCACAF Champions Cup",
+      "firstEdition": "2024",
+      "operation": "RENAME",
+      "previousName": "CONCACAF Champions League",
+      "name": "CONCACAF Champions Cup",
+      "rowRefs": [],
+      "source": "https://www.concacaf.com/competitions/champions-cup/news/2024-concacaf-champions-cup-all-you-need-to-know",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  },
+  {
+    "index": 231,
+    "value": {
+      "competition": "KOR tier 2",
+      "firstEdition": "2018",
+      "operation": "RENAME",
+      "previousName": "K League Challenge",
+      "name": "K League 2",
+      "rowRefs": [],
+      "source": "https://en.wikipedia.org/wiki/K_League",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 30 actual web search excerpts; exact sporting identity and structural reform independently checked before runtime. No sponsor names."
+    }
+  },
+  {
+    "index": 233,
+    "value": {
+      "competition": "CAF Champions League",
+      "firstEdition": "1997",
+      "lastEdition": null,
+      "operation": "RENAME_AND_CHANGE_FORMAT",
+      "previousName": "African Cup of Champions Clubs",
+      "name": "CAF Champions League",
+      "rowRefs": [
+        430
+      ],
+      "source": "https://www.cafonline.com/competitions/caf-competitions/",
+      "note": "CAF confirms historical name and 1997 group phase; Ahram confirms rename year.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 234,
+    "value": {
+      "competition": "AFC Asian Club Championship",
+      "firstEdition": null,
+      "lastEdition": "2001/02",
+      "operation": "LAST_EDITION",
+      "previousName": null,
+      "name": null,
+      "rowRefs": [],
+      "source": "https://www.the-afc.com/en/club/afc_champions_league/news/al_ittihad_2004-2005_the_last_team_to_win_back-to-back_acl_titles.html",
+      "note": "Predecessor to ACL; separate historical identity mapping not assigned.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 235,
+    "value": {
+      "competition": "AFC Asian Cup Winners' Cup",
+      "firstEdition": null,
+      "lastEdition": "2001/02",
+      "operation": "MERGE_END",
+      "previousName": null,
+      "name": null,
+      "rowRefs": [],
+      "source": "https://www.the-afc.com/en/club/afc_champions_league/news/afc_champions_league_through_the_years_2003-06.html",
+      "note": "Merger 2002/03; last edition inferred, verify exact dates.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 236,
+    "value": {
+      "competition": "AFC Asian Super Cup",
+      "firstEdition": null,
+      "lastEdition": "2002",
+      "operation": "MERGE_END",
+      "previousName": null,
+      "name": null,
+      "rowRefs": [],
+      "source": "https://www.the-afc.com/en/club/afc_champions_league/news/afc_champions_league_the_drama_the_glory.html",
+      "note": "Three competitions merged in 2002; exact last fixture and identity pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 237,
+    "value": {
+      "competition": "CAF African Nations Championship",
+      "firstEdition": "2009",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "previousName": null,
+      "name": "African Nations Championship",
+      "rowRefs": [],
+      "source": "https://www.cafonline.com/caf-african-nations-championship/news/chan-is-an-important-platform-to-discover-new-african-stars-rabah-madjer/",
+      "note": "Players in domestic leagues of own nation only; separate from AFCON.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 238,
+    "value": {
+      "competition": "CAF African Nations Championship",
+      "firstEdition": "2011",
+      "lastEdition": null,
+      "operation": "CHANGE_FORMAT",
+      "previousName": null,
+      "name": null,
+      "rowRefs": [],
+      "source": "https://www.cafonline.com/caf-african-nations-championship/news/full-list-of-totalenergies-chan-algeria-2022-countries-confirmed/",
+      "note": "Field increases from 8 in 2009 to 16 in 2011; later 18 in edition 2022.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 239,
+    "value": {
+      "competition": "CAF African Football League",
+      "firstEdition": "2023",
+      "lastEdition": null,
+      "operation": "OBSERVED_FIRST_EDITION",
+      "previousName": null,
+      "name": "African Football League",
+      "rowRefs": [],
+      "source": "https://www.cafonline.com/news/the-inaugural-african-football-league-afl-kicks-off-in-october-2023-and-will-be-preceded-by-official-draw-on-saturday-2-september-2023/",
+      "note": "First match 20 October 2023; no assumption of recurring annual competition.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 240,
+    "value": {
+      "competition": "UEFA-CONMEBOL Finalissima",
+      "firstEdition": "1994",
+      "lastEdition": "2021",
+      "operation": "NO_OBSERVED_EDITIONS",
+      "previousName": null,
+      "name": null,
+      "rowRefs": [],
+      "source": "https://www.uefa.com/finalissima/news/02a0-1f77cae6dc71-ae12f907ba16-1000--finalissima-history-the-previous-three-editions/",
+      "note": "Historical editions 1985 and 1993 then 2022. No assumed regularity.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 241,
+    "value": {
+      "competition": "UEFA-CONMEBOL Finalissima",
+      "firstEdition": "2022",
+      "lastEdition": null,
+      "operation": "RESUME_AND_RENAME",
+      "previousName": "Artemio Franchi Cup",
+      "name": "Finalissima",
+      "rowRefs": [],
+      "source": "https://www.uefa.com/finalissima/news/02a0-1f77cae6dc71-ae12f907ba16-1000--finalissima-history-the-previous-three-editions/",
+      "note": "EURO vs Copa America champions; subsequent edition scheduling not inferred.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 242,
+    "value": {
+      "competition": "NOR Super Cup",
+      "firstEdition": "2009",
+      "lastEdition": "2010",
+      "operation": "ACTIVE_PERIOD",
+      "previousName": null,
+      "name": "Superfinalen",
+      "rowRefs": [],
+      "source": "https://en.wikipedia.org/wiki/Mesterfinalen",
+      "note": "Two editions; terminated ahead of 2011.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 243,
+    "value": {
+      "competition": "NOR Super Cup",
+      "firstEdition": "2011",
+      "lastEdition": "2016",
+      "operation": "SUSPEND",
+      "previousName": null,
+      "name": null,
+      "rowRefs": [],
+      "source": "https://en.wikipedia.org/wiki/Mesterfinalen",
+      "note": "No editions; secondary evidence.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 244,
+    "value": {
+      "competition": "NOR Super Cup",
+      "firstEdition": "2017",
+      "lastEdition": null,
+      "operation": "RESUME_AND_RENAME",
+      "previousName": "Superfinalen",
+      "name": "Mesterfinalen",
+      "rowRefs": [],
+      "source": "https://srib.no/2018/02/28/husker-du-superfinalen/",
+      "note": "2017 revival; verify last edition, 2019 cancellation and subsequent status separately.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 245,
+    "value": {
+      "competition": "SWE Super Cup",
+      "firstEdition": null,
+      "lastEdition": "2015",
+      "operation": "DISCONTINUE",
+      "previousName": null,
+      "name": "Supercupen",
+      "rowRefs": [],
+      "source": "https://rsssf.org/tablesz/zwedsupcuphist.html",
+      "note": "RSSSF search excerpt confirms termination; opening cache miss; beginning not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 246,
+    "value": {
+      "competition": "GRE Super Cup",
+      "firstEdition": "1997",
+      "lastEdition": "2006",
+      "operation": "NO_OBSERVED_EDITIONS",
+      "previousName": null,
+      "name": null,
+      "rowRefs": [],
+      "source": "https://www.uefa.com/news-media/news/01c6-0f84ba81c387-b998813e4d0f-1000--olympiacos-lift-greek-super-cup/",
+      "note": "UEFA documents seven earlier occasions 1987–1996.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 247,
+    "value": {
+      "competition": "GRE Super Cup",
+      "firstEdition": "2007",
+      "lastEdition": "2007",
+      "operation": "OBSERVED_RESUMPTION",
+      "previousName": null,
+      "name": "Greek Super Cup",
+      "rowRefs": [],
+      "source": "https://www.uefa.com/news-media/news/01c6-0f84ba81c387-b998813e4d0f-1000--olympiacos-lift-greek-super-cup/",
+      "note": "Do not infer annual revival or current status.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  },
+  {
+    "index": 250,
+    "value": {
+      "competition": "POL tier 2",
+      "firstEdition": "2008/09",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "previousName": "II Liga",
+      "name": "I Liga",
+      "rowRefs": [],
+      "source": "https://en.wikipedia.org/wiki/I_liga",
+      "note": "Secondary source; verify federation and identity separately from tier1.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
+    }
+  },
+  {
+    "index": 258,
+    "value": {
+      "competition": "TUR Super Cup",
+      "firstEdition": null,
+      "lastEdition": "1998",
+      "operation": "ACTIVE_PERIOD_END",
+      "previousName": null,
+      "name": "Cumhurbaşkanlığı Kupası",
+      "rowRefs": [],
+      "source": "https://www.tff.org/default.aspx?pageID=412",
+      "note": "Official federation history.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
+    }
+  },
+  {
+    "index": 259,
+    "value": {
+      "competition": "TUR Super Cup",
+      "firstEdition": "1999",
+      "lastEdition": "2005",
+      "operation": "SUSPEND",
+      "previousName": null,
+      "name": null,
+      "rowRefs": [],
+      "source": "https://www.tff.org/default.aspx?pageID=412",
+      "note": "Official history confirms break after 1998 and revival 2006. Distinct 2000 Ataturk Cup not treated as revival.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
+    }
+  },
+  {
+    "index": 260,
+    "value": {
+      "competition": "TUR Super Cup",
+      "firstEdition": "2006",
+      "lastEdition": null,
+      "operation": "RESUME_AND_RENAME",
+      "previousName": "Cumhurbaşkanlığı Kupası",
+      "name": "Süper Kupa",
+      "rowRefs": [],
+      "source": "https://www.tff.org/default.aspx?pageID=412",
+      "note": "Official federation history; continuity mapping candidate.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
+    }
+  },
+  {
+    "index": 261,
+    "value": {
+      "competition": "FRA Super Cup",
+      "firstEdition": "1995",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "previousName": null,
+      "name": "Trophée des Champions",
+      "rowRefs": [],
+      "source": "https://rsssf.org/tablesf/fransupcuphist.html",
+      "note": "New competition established 1995 after previous attempts; predecessor identity requires verification.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
+    }
+  },
+  {
+    "index": 266,
+    "value": {
+      "competition": "OFC Pro League",
+      "firstEdition": "2026",
+      "operation": "INTRODUCE",
+      "name": "OFC Pro League",
+      "rowRefs": [],
+      "source": "https://www.oceaniafootball.com/ofc-pro-league-2026-2/",
+      "note": "Separate regional competition; inaugural season closed at cutoff, 8 clubs, 72 matches per OFC; no new runtime ID.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 33 actual web search excerpts; not full sport rule or runtime certification."
+    }
+  },
+  {
+    "index": 267,
+    "value": {
+      "competition": "ENG Community Shield",
+      "firstEdition": "2002",
+      "operation": "RENAME",
+      "previousName": "FA Charity Shield",
+      "name": "FA Community Shield",
+      "source": "https://www.thefa.com/competitions/the-fa-community-shield/more/history",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 36 actual official web search excerpts 24/11/2026; no PDF analyzed; no full identity/access/fixture certification."
+    }
+  },
+  {
+    "index": 268,
+    "value": {
+      "competition": "JPN J3 League",
+      "firstEdition": "2014",
+      "operation": "INTRODUCE",
+      "name": "J3 League",
+      "source": "https://www.j3league.jp/news/2014-j3-league-opening-matches/",
+      "rowRefs": [],
+      "note": "Distinct professional third tier; no runtime slot assigned.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 36 actual official web search excerpts 24/11/2026; no PDF analyzed; no full identity/access/fixture certification."
+    }
+  },
+  {
+    "index": 273,
+    "value": {
+      "competition": "JPN J3 League",
+      "firstEdition": "2015",
+      "operation": "RENAME",
+      "previousName": "J.League Division 3",
+      "name": "J3 League",
+      "source": "https://www.jleague.jp/corporate/about_competitions/tournament_history/",
+      "rowRefs": [],
+      "note": "Official history supports naming convention; 2014 neutral name also J3 League; exact earlier English label requires confirmation.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 36 actual official web search excerpts 24/11/2026; no PDF analyzed; no full identity/access/fixture certification."
+    }
+  },
+  {
+    "index": 277,
+    "value": {
+      "competition": "KOR tier 2",
+      "firstEdition": "2013",
+      "operation": "INTRODUCE",
+      "name": "K League Challenge",
+      "rowRefs": [],
+      "source": "https://www.kleague.com/about/history.do",
+      "note": "Second professional tier; mapping to existing slots pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 37 official federation/league sources 24/11/2026; no complete edition rules or fixture reconciliation."
+    }
+  },
+  {
+    "index": 292,
+    "value": {
+      "competition": "AUT tier 2",
+      "firstEdition": "2018/19",
+      "operation": "RENAME_AND_CHANGE_TEAM_COUNT",
+      "previousName": "Erste Liga",
+      "name": "2. Liga",
+      "teams": 16,
+      "rowRefs": [],
+      "source": "https://www.bundesliga.at/de/news/artikel/kommende-liga-spielzeit-als-bergangssaison-vor-reform",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 40 official league HTML search/open 24/11/2026; no full calendar/identity certification."
+    }
+  },
+  {
+    "index": 295,
+    "value": {
+      "competition": "BEL tier 2",
+      "firstEdition": "2026/27",
+      "operation": "PROPOSED_UPDATED_FORMAT",
+      "teams": 15,
+      "directPromotedRank": 1,
+      "promotionPlayoffRanks": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "playoffLegs": 2,
+      "directRelegatedRanks": [
+        14,
+        15
+      ],
+      "u23ProtectedQuota": false,
+      "rowRefs": [],
+      "source": "https://www.proleague.be/nieuws/challenger-pro-league-heeft-nieuw-format-zonder-quota-voor-u23",
+      "note": "June 2 2026 league announcement explicitly conditional on High Council approval; supersedes earlier proposal as research, not certified implementation.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 40 official league HTML search/open 24/11/2026; no full calendar/identity certification."
+    }
+  },
+  {
+    "index": 300,
+    "value": {
+      "competition": "NED tier 3",
+      "firstEdition": "2016/17",
+      "operation": "INTRODUCE",
+      "name": "Tweede Divisie",
+      "rowRefs": [],
+      "source": "https://www.knvb.nl/node/5821",
+      "note": "New nationwide level between Eerste Divisie and Topklasse; original promotion plan not assumed to have remained active.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 41 official HTML opened or search excerpt; no PDF analyzed."
+    }
+  },
+  {
+    "index": 325,
+    "value": {
+      "competition": "BUL tier 2",
+      "firstEdition": "2024/25",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [],
+      "source": "https://rsssf.org/tablesb/bulg2025.html",
+      "rules": {
+        "teams": 20,
+        "games": 38
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block46 source retrieval; see evidence46 and namingResearch.block46."
+    }
+  },
+  {
+    "index": 326,
+    "value": {
+      "competition": "BUL tier 2",
+      "firstEdition": "2025/26",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [],
+      "source": "https://bulgarian-football.com/archive/2025-2026/reglament.html",
+      "rules": {
+        "teams": 18,
+        "priorTeams": 20,
+        "regularGames": 34,
+        "scheduledTotal": 306,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "directPromotedRank": 1,
+        "playoffRank": 2,
+        "playoffOpponentTopRank": 13,
+        "relegatedRanks": [
+          15,
+          16,
+          17,
+          18
+        ],
+        "reserveRestrictions": "No promotion of reserve teams to tier1; pass places to next eligible; relegated if parent relegated to tier2; replacement by highest ranked relegation-zone club",
+        "tieBreakers": [
+          "points",
+          "head-to-head points",
+          "head-to-head goal difference",
+          "head-to-head goals",
+          "head-to-head away goals only if two tied",
+          "overall goal difference",
+          "overall goals",
+          "fair play",
+          "draw"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block46 source retrieval; see evidence46 and namingResearch.block46."
+    }
+  },
+  {
+    "index": 333,
+    "value": {
+      "competition": "BUL League Cup",
+      "firstEdition": "1996/97",
+      "operation": "OBSERVED_EDITION",
+      "rowRefs": [],
+      "source": "https://www.rsssf.org/tablesb/bulg97.html",
+      "rules": {
+        "name": "League Cup",
+        "semifinalLegs": 2,
+        "finalDate": "1997-05-21",
+        "finalLegs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block47 RSSSF retrieved HTML/search excerpts; TFF history excerpt only after open timeout."
+    }
+  },
+  {
+    "index": 334,
+    "value": {
+      "competition": "TUR Prime Minister Cup",
+      "firstEdition": "1998",
+      "operation": "DISCONTINUE",
+      "rowRefs": [],
+      "source": "https://www.rsssf.org/tablest/turkvarcuphist.html",
+      "rules": {
+        "name": "Başbakanlık Kupası",
+        "lastEdition": "1998"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block47 RSSSF retrieved HTML/search excerpts; TFF history excerpt only after open timeout."
+    }
+  },
+  {
+    "index": 335,
+    "value": {
+      "competition": "TUR Atatürk Cup",
+      "firstEdition": "1998",
+      "operation": "OBSERVED_EDITION",
+      "rowRefs": [],
+      "source": "https://www.rsssf.org/tablest/turkvarcuphist.html",
+      "rules": {
+        "name": "Atatürk Cup",
+        "access": "President's Cup winner vs Prime Minister's Cup winner"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block47 RSSSF retrieved HTML/search excerpts; TFF history excerpt only after open timeout."
+    }
+  },
+  {
+    "index": 336,
+    "value": {
+      "competition": "TUR Atatürk Cup",
+      "firstEdition": "2000",
+      "operation": "OBSERVED_EDITION",
+      "rowRefs": [],
+      "source": "https://www.rsssf.org/tablest/turkvarcuphist.html",
+      "rules": {
+        "name": "Atatürk Cup",
+        "access": "champion vs cup winner; substitute for President's Cup"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block47 RSSSF retrieved HTML/search excerpts; TFF history excerpt only after open timeout."
+    }
+  },
+  {
+    "index": 347,
+    "value": {
+      "competition": "UEFA Cup Winners' Cup",
+      "firstEdition": "1996/97",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        89
+      ],
+      "source": "https://www.rsssf.org/ec/ec199697.html",
+      "rules": {
+        "qualifyingLegs": 2,
+        "qualifyingDates": [
+          "1996-08-08",
+          "1996-08-22"
+        ],
+        "semifinalDates": [
+          "1997-04-10",
+          "1997-04-24"
+        ],
+        "semifinalLegs": 2,
+        "finalDate": "1997-05-14",
+        "finalLegs": 1,
+        "awayGoalsObserved": true,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block48 HTML opened; no PDF analyzed."
+    }
+  },
+  {
+    "index": 348,
+    "value": {
+      "competition": "UEFA Cup",
+      "firstEdition": "1996/97",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        90
+      ],
+      "source": "https://www.rsssf.org/ec/ec199697.html",
+      "rules": {
+        "preliminaryDates": [
+          "1996-07-17",
+          "1996-07-24"
+        ],
+        "preliminaryLegs": 2,
+        "quarterfinalDates": [
+          "1997-03-04",
+          "1997-03-18"
+        ],
+        "semifinalDates": [
+          "1997-04-08",
+          "1997-04-22"
+        ],
+        "finalDates": [
+          "1997-05-07",
+          "1997-05-21"
+        ],
+        "finalLegs": 2,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true,
+        "accessFromChampionsQualifyingLosers": true,
+        "accessFromIntertotoFinalWinners": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block48 HTML opened; no PDF analyzed."
+    }
+  },
+  {
+    "index": 350,
+    "value": {
+      "competition": "UEFA Champions League",
+      "firstEdition": "1996/97",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [],
+      "source": "https://www.rsssf.org/ec/ec199697.html",
+      "rules": {
+        "entrants": 24,
+        "byes": 8,
+        "qualifyingEntrants": 16,
+        "qualifyingDates": [
+          "1996-08-07",
+          "1996-08-21"
+        ],
+        "qualifyingLegs": 2,
+        "losersToUEFACup": true,
+        "groups": 4,
+        "groupSize": 4,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "groupDates": [
+          "1996-09-11",
+          "1996-09-25",
+          "1996-10-16",
+          "1996-10-30",
+          "1996-11-20",
+          "1996-12-04"
+        ],
+        "advancePerGroup": 2,
+        "tieBreakers": [
+          "head-to-head aggregate including away goals",
+          "overall goal difference"
+        ],
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalDate": "1997-05-28",
+        "finalLegs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block48 HTML opened; no PDF analyzed."
+    }
+  },
+  {
+    "index": 351,
+    "value": {
+      "competition": "FIFA World Cup qualifying UEFA",
+      "firstEdition": "1998",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98
+      ],
+      "source": "https://www.rsssf.org/tables/98q.html",
+      "rules": {
+        "groups": 9,
+        "groupSizes": {
+          "5": 5,
+          "6": 4
+        },
+        "groupWinnersDirect": 9,
+        "bestRunnerUpDirect": 1,
+        "runnerUpComparisonOpponentRanks": [
+          1,
+          3,
+          4
+        ],
+        "playoffEntrants": 8,
+        "playoffLegs": 2,
+        "playoffDates": [
+          "1997-10-29",
+          "1997-11-15"
+        ],
+        "hostsExempt": "France",
+        "holdersExempt": "Brazil",
+        "cutoff": "Actual historical games before 1996-07-01 exist; extract individual results and participant keys before importing.",
+        "mapping": "Existing eight UEFA group rows 91–98 differ from historical nine; no guessed mapping."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block48 HTML opened; no PDF analyzed."
+    }
+  },
+  {
+    "index": 352,
+    "value": {
+      "competition": "OFC Nations Cup",
+      "firstEdition": "1996",
+      "operation": "OBSERVED_OR_PUBLISHED_FORMAT",
+      "rowRefs": [
+        111
+      ],
+      "source": "https://www.rsssf.org/tables/96oc.html",
+      "rules": {
+        "teams": [
+          "New Zealand",
+          "Australia",
+          "Solomon Islands",
+          "Tahiti"
+        ],
+        "firstRoundLegs": 2,
+        "finalLegs": 2,
+        "finalDates": [
+          "1996-10-26",
+          "1996-11-01"
+        ],
+        "historicalCutoff": {
+          "finalists": [
+            "Australia",
+            "Tahiti"
+          ],
+          "priorRoundsCompleted": true
+        },
+        "access": [
+          "Melanesia Cup winner",
+          "Polynesia Cup winner"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "HTML opened; cutoff finalists known, team keys not reconciled"
+    }
+  },
+  {
+    "index": 353,
+    "value": {
+      "competition": "Copa America",
+      "firstEdition": "1997",
+      "operation": "OBSERVED_OR_PUBLISHED_FORMAT",
+      "rowRefs": [
+        174
+      ],
+      "source": "https://www.rsssf.org/tables/97sa.html",
+      "rules": {
+        "start": "1997-06-11",
+        "end": "1997-06-29",
+        "groupA": [
+          "Chile",
+          "Paraguay",
+          "Argentina",
+          "Ecuador"
+        ],
+        "groupAGamesPerTeam": 3
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "HTML opened, partial group evidence"
+    }
+  },
+  {
+    "index": 354,
+    "value": {
+      "competition": "AFC Asian Cup",
+      "firstEdition": "1996",
+      "operation": "OBSERVED_OR_PUBLISHED_FORMAT",
+      "rowRefs": [
+        177
+      ],
+      "source": "https://www.rsssf.org/tables/96asch.html",
+      "rules": {
+        "host": "UAE",
+        "holder": "Japan",
+        "automaticQualifiers": [
+          "UAE",
+          "Japan"
+        ],
+        "qualifierGroup1": [
+          "Vietnam",
+          "Taiwan",
+          "South Korea",
+          "Guam"
+        ],
+        "group1Dates": [
+          "1996-08-04",
+          "1996-08-11"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "HTML opened, partial qualifying evidence"
+    }
+  },
+  {
+    "index": 355,
+    "value": {
+      "competition": "Africa Cup of Nations",
+      "firstEdition": "1996",
+      "operation": "OBSERVED_OR_PUBLISHED_FORMAT",
+      "rowRefs": [
+        175
+      ],
+      "source": "https://www.rsssf.org/tables/96a.html",
+      "rules": {
+        "start": "1996-01-13",
+        "end": "1996-02-03",
+        "host": "South Africa",
+        "finishedBeforeCutoff": true,
+        "quarterfinalObserved": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "HTML opened; past edition, not future result"
+    }
+  },
+  {
+    "index": 356,
+    "value": {
+      "competition": "FIFA World Cup",
+      "firstEdition": "2026",
+      "operation": "OBSERVED_OR_PUBLISHED_FORMAT",
+      "rowRefs": [
+        528
+      ],
+      "source": "https://www.fifa.com/en/articles/article-fifa-world-cup-2026-mexico-canada-usa-new-format-tournament-football-soccer",
+      "rules": {
+        "teams": 48,
+        "groups": 12,
+        "groupSize": 4,
+        "matches": 104,
+        "advanceTop2": true,
+        "bestThird": 8,
+        "firstKO": 32
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "official search excerpt"
+    }
+  },
+  {
+    "index": 357,
+    "value": {
+      "competition": "UEFA EURO",
+      "firstEdition": "2028",
+      "operation": "OBSERVED_OR_PUBLISHED_FORMAT",
+      "rowRefs": [
+        529
+      ],
+      "source": "https://www.uefa.com/euro2028/news/029f-1f2f36424d97-2486810a0d57-1000--euro-2028-tournament-schedule-confirmed-when-and-where-a/",
+      "rules": {
+        "teams": 24,
+        "groups": 6,
+        "groupSize": 4,
+        "advanceTop2": true,
+        "bestThird": 4
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "official search excerpt, future announced format"
+    }
+  },
+  {
+    "index": 358,
+    "value": {
+      "competition": "UEFA EURO qualifying",
+      "firstEdition": "2028",
+      "operation": "OBSERVED_OR_PUBLISHED_FORMAT",
+      "rowRefs": [
+        536
+      ],
+      "source": "https://www.uefa.com/euro2028/news/0299-1dcf3fef69a9-41405d004b47-1000--qualification-system-for-uefa-euro-2028-approved/",
+      "rules": {
+        "groups": 12,
+        "groupSizes": [
+          4,
+          5
+        ],
+        "groupWinnersDirect": 12,
+        "bestRunnersUpDirect": 8,
+        "hostReservedMax": 2,
+        "nationsLeaguePlayoffAccess": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "official search excerpts, no host allocation assumed"
+    }
+  },
+  {
+    "index": 359,
+    "value": {
+      "competition": "AFC Asian Cup",
+      "firstEdition": "2027",
+      "operation": "OBSERVED_OR_PUBLISHED_FORMAT",
+      "rowRefs": [
+        533
+      ],
+      "source": "https://www.the-afc.com/en/national/afc_asian_cup.html/news/asiancup2027-road-to-glory-paved",
+      "rules": {
+        "teams": 24,
+        "groups": 6,
+        "groupSize": 4,
+        "advanceTop2": true,
+        "bestThird": 4,
+        "roundOf16Start": "2027-01-22",
+        "quarterfinalDates": [
+          "2027-01-28",
+          "2027-01-29"
+        ],
+        "semifinalDates": [
+          "2027-02-01",
+          "2027-02-02"
+        ],
+        "finalDate": "2027-02-05",
+        "qualifiersFinal": {
+          "teams": 24,
+          "groups": 6,
+          "winnersAdvance": 6,
+          "otherQualified": 18
+        }
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "official HTML search excerpts; schedule open cache miss"
+    }
+  },
+  {
+    "index": 360,
+    "value": {
+      "competition": "Africa Cup of Nations",
+      "firstEdition": "2025",
+      "operation": "OBSERVED_OR_PUBLISHED_FORMAT",
+      "rowRefs": [
+        531
+      ],
+      "source": "https://www.cafonline.com/afcon2025/news/all-you-need-to-know-about-the-totalenergies-caf-africa-cup-of-nations-morocco-2025/",
+      "rules": {
+        "teams": 24,
+        "groups": 6,
+        "groupSize": 4,
+        "advanceTop2": true,
+        "bestThird": 4,
+        "start": "2025-12-21",
+        "end": "2026-01-18"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "official search excerpts, finished before cutoff"
+    }
+  },
+  {
+    "index": 361,
+    "value": {
+      "competition": "CONCACAF Gold Cup",
+      "firstEdition": "2027",
+      "operation": "ANNOUNCED_CHANGE_FORMAT",
+      "rowRefs": [
+        532
+      ],
+      "source": "https://www.concacaf.com/competitions/gold-cup/news/concacaf-sets-stage-for-2027-gold-cup-with-exciting-new-format-and-dates",
+      "rules": {
+        "teams": 16,
+        "groups": 2,
+        "groupSize": 8,
+        "previousGroups": 4,
+        "previousGroupSize": 4,
+        "guest": "Saudi Arabia",
+        "status": "ANNOUNCED_NOT_TEMPLATE_OVERRIDE"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "official search excerpts; format announcement open cache miss; later format requires policy review"
+    }
+  },
+  {
+    "index": 362,
+    "value": {
+      "competition": "FIFA World Cup qualifying OFC",
+      "firstEdition": "1998",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        99
+      ],
+      "source": "https://www.rsssf.org/tables/98q.html",
+      "rules": {
+        "entries": 10,
+        "byes": [
+          "Australia",
+          "Fiji",
+          "New Zealand",
+          "Tahiti"
+        ],
+        "firstStageGroups": 2,
+        "secondStageGroups": 2,
+        "secondStageSize": 3,
+        "finalWinnersTo": "AFC intercontinental playoff",
+        "firstObservedDate": "1996-09-16"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 363,
+    "value": {
+      "competition": "FIFA World Cup qualifying CONCACAF",
+      "firstEdition": "1998",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        168
+      ],
+      "source": "https://www.rsssf.org/tables/98q.html",
+      "rules": {
+        "regionalPreliminaries": true,
+        "semifinalGroups": 3,
+        "groupSize": 4,
+        "finalGroupSize": 6,
+        "finalRounds": 2,
+        "qualify": 3,
+        "finalStart": "1997-03-02",
+        "cutoff": "Regional preliminary matches through 1996-06-30"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 364,
+    "value": {
+      "competition": "FIFA World Cup qualifying CONMEBOL",
+      "firstEdition": "1998",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        169
+      ],
+      "source": "https://www.rsssf.org/tables/98q.html",
+      "rules": {
+        "teams": 9,
+        "rounds": 2,
+        "gamesPerTeam": 16,
+        "qualify": 4,
+        "holderExempt": "Brazil",
+        "cutoffMatches": [
+          [
+            "1996-04-24",
+            "Argentina",
+            "Bolivia",
+            3,
+            1
+          ],
+          [
+            "1996-04-24",
+            "Venezuela",
+            "Uruguay",
+            0,
+            2
+          ],
+          [
+            "1996-04-24",
+            "Colombia",
+            "Paraguay",
+            1,
+            0
+          ],
+          [
+            "1996-04-24",
+            "Ecuador",
+            "Peru",
+            4,
+            1
+          ],
+          [
+            "1996-06-02",
+            "Ecuador",
+            "Argentina",
+            2,
+            0
+          ],
+          [
+            "1996-06-02",
+            "Uruguay",
+            "Paraguay",
+            0,
+            2
+          ],
+          [
+            "1996-06-02",
+            "Venezuela",
+            "Chile",
+            1,
+            1
+          ],
+          [
+            "1996-06-02",
+            "Peru",
+            "Colombia",
+            1,
+            1
+          ]
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 365,
+    "value": {
+      "competition": "FIFA World Cup qualifying CAF",
+      "firstEdition": "1998",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        170
+      ],
+      "source": "https://www.rsssf.org/tables/98q.html",
+      "rules": {
+        "seededByes": [
+          "Cameroon",
+          "Egypt",
+          "Morocco",
+          "Nigeria"
+        ],
+        "firstRoundPairs": 16,
+        "firstRoundLegs": 2,
+        "finalGroups": 5,
+        "groupSize": 4,
+        "qualifyGroupWinners": true,
+        "cutoff": "First round played May–June 1996; withdrawal substitution timing requires verification"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 366,
+    "value": {
+      "competition": "FIFA World Cup qualifying AFC",
+      "firstEdition": "1998",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        171
+      ],
+      "source": "https://www.rsssf.org/tables/98q.html",
+      "rules": {
+        "firstRoundGroups": 10,
+        "secondRoundGroups": 2,
+        "secondRoundGroupSize": 5,
+        "directGroupWinners": true,
+        "runnerUpPlayoff": true,
+        "loserToOFCPlayoff": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 367,
+    "value": {
+      "competition": "FIFA World Cup qualifying global",
+      "firstEdition": "2026",
+      "operation": "OBSERVED_SLOT_ALLOCATION",
+      "rowRefs": [
+        535
+      ],
+      "source": "https://www.fifa.com/en/articles/world-cup-2026-who-has-qualified",
+      "rules": {
+        "direct": {
+          "AFC": 8,
+          "CAF": 9,
+          "CONCACAF": 6,
+          "CONMEBOL": 6,
+          "OFC": 1,
+          "UEFA": 16
+        },
+        "playoff": {
+          "entrants": 6,
+          "qualify": 2,
+          "seeded": 2
+        },
+        "UEFA": {
+          "entrants": 54,
+          "groups": 12,
+          "groupSizes": [
+            4,
+            5
+          ],
+          "direct": 12,
+          "playoffEntrants": 16,
+          "playoffQualify": 4
+        },
+        "hostsWithinQuota": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Web search excerpts block51"
+    }
+  },
+  {
+    "index": 368,
+    "value": {
+      "competition": "CONMEBOL Recopa",
+      "firstEdition": "2026",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        425
+      ],
+      "source": "https://cdn.conmebol.com/wp-content/uploads/2026/02/Reglamento-CONMEBOL-Recopa-2026.pdf",
+      "rules": {
+        "entrants": 2,
+        "access": [
+          "Libertadores winner",
+          "Sudamericana winner"
+        ],
+        "legs": 2,
+        "secondLegHome": "Libertadores winner",
+        "dates": [
+          "2026-02-19",
+          "2026-02-26"
+        ],
+        "regulationArticle": 13,
+        "matchMinutes": 90
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Web search excerpts block51"
+    }
+  },
+  {
+    "index": 369,
+    "value": {
+      "competition": "UEFA EURO qualifying",
+      "firstEdition": "1996",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110
+      ],
+      "source": "https://www.rsssf.org/tables/96e.html",
+      "rules": {
+        "groups": 8,
+        "tiebreak": [
+          "head-to-head points",
+          "head-to-head goal difference",
+          "head-to-head away goals",
+          "overall goal difference",
+          "overall goals",
+          "overall away goals",
+          "fair play"
+        ],
+        "runnerUpDirect": 6,
+        "runnerUpPlayoff": 2,
+        "finishedBeforeCutoff": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Web search excerpts block51"
+    }
+  },
+  {
+    "index": 370,
+    "value": {
+      "competition": "UEFA EURO qualifying",
+      "firstEdition": "2000",
+      "operation": "CHANGE_GROUP_COUNT",
+      "rowRefs": [
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110
+      ],
+      "source": "https://www.rsssf.org/tables/00e.html",
+      "rules": {
+        "groups": 9,
+        "firstObservedMatchDate": "1998-09-05",
+        "mapping": "Eight technical rows cannot represent nine historical groups without mapping extension."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Web search excerpts block51"
+    }
+  }
+]

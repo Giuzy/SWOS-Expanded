@@ -1,0 +1,18 @@
+[
+  {
+    "index": 145,
+    "value": {
+      "competition": "CHI Copa de la Liga",
+      "firstEdition": "2026",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "ANFP competition website: 16 top-flight clubs, four groups of four (group composition corroborated by contemporary Cooperativa report); group winners to two-legged semifinals; champion Chile 3 Libertadores 2027 and Supercopa 2027. No actual results imported, final format/dates and rule version mapping pending.",
+      "source": "https://www.campeonatochileno.cl/noticias/el-nuevo-torneo-del-futbol-chileno-la-copa-de-la-liga/",
+      "rowRefs": [
+        340
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 23: web search excerpts consulted, not full regulation/participant mapping. No post-cutoff results imported."
+    }
+  }
+]

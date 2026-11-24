@@ -1,0 +1,26 @@
+[
+  {
+    "index": 57,
+    "value": {
+      "country": "SUI",
+      "division": "div1",
+      "from": "2003/04",
+      "to": "2022/23",
+      "rules": {
+        "teams": 10,
+        "regularRounds": 4,
+        "gamesPerClub": 36,
+        "playoffIntroduced": "rank 9 vs second tier; annual exceptions pending"
+      },
+      "sources": [
+        "https://www.sfl-org.ch/fileadmin/user_upload/www.sfl.ch/Downloads/Jahresberichte/SFL_Jahresbericht_2017_18.pdf"
+      ],
+      "missing": "Barrage abolished/reintroduced within period; exact seasons pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        32,
+        303
+      ]
+    }
+  }
+]

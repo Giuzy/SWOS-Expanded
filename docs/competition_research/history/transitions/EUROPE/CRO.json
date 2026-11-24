@@ -1,0 +1,37 @@
+[
+  {
+    "index": 309,
+    "value": {
+      "competition": "CRO tier 1",
+      "firstEdition": "2013/14",
+      "operation": "CHANGE_TEAM_COUNT",
+      "teams": 10,
+      "rowRefs": [
+        225
+      ],
+      "source": "https://www.hnl.hr/supersport-hnl/o-natjecanju/",
+      "note": "Official retrospective establishes 10 clubs from this edition; 36-round format explicitly described for 2025/26, not independently verified for each earlier year.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block43 official HTML opened and search excerpts retrieved; no PDF analyzed."
+    }
+  },
+  {
+    "index": 310,
+    "value": {
+      "competition": "CRO tier 1",
+      "firstEdition": "2025/26",
+      "lastEdition": "2025/26",
+      "operation": "OBSERVED_FORMAT",
+      "teams": 10,
+      "games": 36,
+      "directRelegatedRank": 10,
+      "directPromotedTier2Rank": 1,
+      "rowRefs": [
+        225
+      ],
+      "source": "https://www.hnl.hr/supersport-hnl/o-natjecanju/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block43 official HTML opened and search excerpts retrieved; no PDF analyzed."
+    }
+  }
+]

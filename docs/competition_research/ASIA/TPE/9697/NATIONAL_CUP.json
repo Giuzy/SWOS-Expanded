@@ -1,0 +1,45 @@
+[
+  {
+    "row": 150,
+    "world": "9697",
+    "id": "_taiwaneseCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "TPE",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "historicalSportData": {
+      "name": "CTFA Cup",
+      "edition": "1996",
+      "teams": null,
+      "known": "Taipei Times quotes CTFA chairman on historical names culminating in CTFA Cup. Secondary club-history forum reports resumed in 1996 after 1992–95 hiatus; not primary confirmation of edition or team count.",
+      "missing": "1996 official edition, entrants, fixtures, format, dates",
+      "sources": [
+        "https://www.taipeitimes.com/News/sport/archives/2025/04/05/2003834653",
+        "https://www.pttweb.cc/bbs/Football/M.1146736796.A.704"
+      ],
+      "scope": "Temporary historical research only; future results excluded from START."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "CTFA Cup",
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

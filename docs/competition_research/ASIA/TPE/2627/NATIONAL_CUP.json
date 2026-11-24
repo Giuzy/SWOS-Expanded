@@ -1,0 +1,38 @@
+[
+  {
+    "row": 412,
+    "world": "2627",
+    "id": "_taiwaneseCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "TPE",
+    "candidateSources": [
+      "1db714bb54f9be6429afe2e869103ec27e890ed3"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "sportResearchStatus": "IDENTITY_UNRESOLVED",
+    "knownSportData": "CTFA calendar and 2025 President Cup statute found; not evidence of 2627 senior national cup.",
+    "remainingSportData": "identify real tournament and 2026 existence/rules, no fictitious cup",
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

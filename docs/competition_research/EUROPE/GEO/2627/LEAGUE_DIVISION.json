@@ -1,0 +1,46 @@
+[
+  {
+    "row": 242,
+    "world": "2627",
+    "id": "_worldGeoLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "GEO",
+    "candidateSources": [
+      "79dac4d9f1a2ede20a7211af2f07efd8ebf581a0"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Erovnuli Liga",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [
+        {
+          "transition": 257,
+          "from": "2017",
+          "to": null,
+          "previousName": "Umaglesi Liga",
+          "name": "Erovnuli Liga",
+          "operation": "RENAME_AND_CHANGE_FORMAT",
+          "source": "https://en.wikipedia.org/wiki/2017_Erovnuli_Liga"
+        }
+      ],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  }
+]

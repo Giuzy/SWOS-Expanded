@@ -1,0 +1,107 @@
+[
+  {
+    "index": 527,
+    "value": {
+      "row": 528,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 528,
+    "value": {
+      "row": 529,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 529,
+    "value": {
+      "row": 530,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 530,
+    "value": {
+      "row": 531,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 531,
+    "value": {
+      "row": 532,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 532,
+    "value": {
+      "row": 533,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 533,
+    "value": {
+      "row": 534,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "index": 55,
+    "value": {
+      "country": "CHN",
+      "division": "div1",
+      "from": "2004",
+      "to": "2004",
+      "rules": {
+        "operation": "REPLACE_JIA_A_WITH_CSL",
+        "teams": 12,
+        "plannedRelegation": 0
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/2004_Chinese_Super_League"
+      ],
+      "missing": "Actual movement, fixture and eligibility rules pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        222
+      ]
+    }
+  },
+  {
+    "index": 56,
+    "value": {
+      "country": "CHN",
+      "division": "div1",
+      "from": "2006",
+      "to": "2006",
+      "rules": {
+        "teams": 15,
+        "plannedTeams": 16,
+        "reason": "withdrawal before season"
+      },
+      "sources": [
+        "https://tokorozawa.w.waseda.jp/kg/doc/50_ronbun/2018/5017A008.pdf"
+      ],
+      "missing": "Planned vs actual format distinction; do not force real club dissolution in simulation",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        222
+      ]
+    }
+  }
+]

@@ -1,0 +1,85 @@
+[
+  {
+    "index": 148,
+    "value": {
+      "country": "LVA",
+      "division": "div1",
+      "from": "2019",
+      "to": null,
+      "rules": {
+        "teams": 9,
+        "rounds": 4,
+        "gamesPerClub": 32,
+        "relegationPlayoff": [
+          9
+        ],
+        "editionSpecific": true
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesl/let2019.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened final table; odd number requires byes; effective end, identity mapping, full dates and 2026 baseline equivalence pending; no future results imported",
+      "rowRefs": [
+        17,
+        267
+      ]
+    }
+  },
+  {
+    "index": 149,
+    "value": {
+      "country": "LVA",
+      "division": "div1",
+      "from": "2022",
+      "to": null,
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "relegationPlayoff": [
+          9
+        ],
+        "note": "Rank 10 retained after another club denied license; do not reproduce administrative event automatically"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesl/let2022.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened final table; structural format only, temporary pandemic variants excluded; effective end, identity mapping, full dates and 2026 baseline equivalence pending; no future results imported",
+      "rowRefs": [
+        17,
+        267
+      ]
+    }
+  },
+  {
+    "index": 154,
+    "value": {
+      "country": "LVA",
+      "division": "div1",
+      "from": "2012",
+      "to": null,
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "relegationDirect": [
+          10
+        ],
+        "relegationPlayoff": [
+          9
+        ]
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesl/let2012.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened final table lines 12–23; exact first effective season and subsequent changes pending; effective end, dates, identity mapping and modern baseline equivalence pending; no future results imported.",
+      "rowRefs": [
+        17,
+        267
+      ]
+    }
+  }
+]

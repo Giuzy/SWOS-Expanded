@@ -1,0 +1,1313 @@
+{
+  "purpose": "Research only; do not import before exact dates and independent reconciliation",
+  "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+  "source": "https://en.wikipedia.org/wiki/2026_Copa_Sudamericana",
+  "mapping": "714cf5ef125b839d2bcf8fb35f66fccd24bf7d94",
+  "supersedesScoresOf": "98e85435b5e17adf56488ec08c43cf039570398b",
+  "groups": [
+    {
+      "group": "A",
+      "matches": [
+        {
+          "home": "50:10",
+          "away": "43:9",
+          "score": [
+            2,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "50:10",
+          "away": "49:8",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "50:10",
+          "away": "65:4",
+          "score": [
+            0,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "43:9",
+          "away": "50:10",
+          "score": [
+            0,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "43:9",
+          "away": "49:8",
+          "score": [
+            2,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "43:9",
+          "away": "65:4",
+          "score": [
+            2,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "49:8",
+          "away": "50:10",
+          "score": [
+            0,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "49:8",
+          "away": "43:9",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "49:8",
+          "away": "65:4",
+          "score": [
+            2,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "65:4",
+          "away": "50:10",
+          "score": [
+            0,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "65:4",
+          "away": "43:9",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "65:4",
+          "away": "49:8",
+          "score": [
+            0,
+            2
+          ],
+          "date": null
+        }
+      ],
+      "standings": [
+        {
+          "team": "50:10",
+          "p": 6,
+          "w": 2,
+          "d": 4,
+          "l": 0,
+          "gf": 6,
+          "ga": 3,
+          "pts": 10
+        },
+        {
+          "team": "43:9",
+          "p": 6,
+          "w": 2,
+          "d": 3,
+          "l": 1,
+          "gf": 8,
+          "ga": 5,
+          "pts": 9
+        },
+        {
+          "team": "49:8",
+          "p": 6,
+          "w": 2,
+          "d": 3,
+          "l": 1,
+          "gf": 6,
+          "ga": 5,
+          "pts": 9
+        },
+        {
+          "team": "65:4",
+          "p": 6,
+          "w": 0,
+          "d": 2,
+          "l": 4,
+          "gf": 2,
+          "ga": 9,
+          "pts": 2
+        }
+      ],
+      "sourceRank": [
+        "50:10",
+        "43:9",
+        "49:8",
+        "65:4"
+      ],
+      "pointsMatch": true
+    },
+    {
+      "group": "B",
+      "matches": [
+        {
+          "home": "46:11",
+          "away": "65:10",
+          "score": [
+            2,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "46:11",
+          "away": "71:3",
+          "score": [
+            2,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "46:11",
+          "away": "77:5",
+          "score": [
+            1,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "65:10",
+          "away": "46:11",
+          "score": [
+            1,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "65:10",
+          "away": "71:3",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "65:10",
+          "away": "77:5",
+          "score": [
+            2,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "71:3",
+          "away": "46:11",
+          "score": [
+            2,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "71:3",
+          "away": "65:10",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "71:3",
+          "away": "77:5",
+          "score": [
+            4,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "77:5",
+          "away": "46:11",
+          "score": [
+            2,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "77:5",
+          "away": "65:10",
+          "score": [
+            3,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "77:5",
+          "away": "71:3",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        }
+      ],
+      "standings": [
+        {
+          "team": "46:11",
+          "p": 6,
+          "w": 3,
+          "d": 1,
+          "l": 2,
+          "gf": 8,
+          "ga": 6,
+          "pts": 10
+        },
+        {
+          "team": "65:10",
+          "p": 6,
+          "w": 2,
+          "d": 2,
+          "l": 2,
+          "gf": 5,
+          "ga": 7,
+          "pts": 8
+        },
+        {
+          "team": "71:3",
+          "p": 6,
+          "w": 1,
+          "d": 4,
+          "l": 1,
+          "gf": 10,
+          "ga": 7,
+          "pts": 7
+        },
+        {
+          "team": "77:5",
+          "p": 6,
+          "w": 2,
+          "d": 1,
+          "l": 3,
+          "gf": 6,
+          "ga": 9,
+          "pts": 7
+        }
+      ],
+      "sourceRank": [
+        "46:11",
+        "65:10",
+        "71:3",
+        "77:5"
+      ],
+      "pointsMatch": true
+    },
+    {
+      "group": "C",
+      "matches": [
+        {
+          "home": "46:8",
+          "away": "48:3",
+          "score": [
+            2,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "46:8",
+          "away": "49:12",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "46:8",
+          "away": "71:7",
+          "score": [
+            2,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "48:3",
+          "away": "46:8",
+          "score": [
+            0,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "48:3",
+          "away": "49:12",
+          "score": [
+            2,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "48:3",
+          "away": "71:7",
+          "score": [
+            2,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "49:12",
+          "away": "46:8",
+          "score": [
+            0,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "49:12",
+          "away": "48:3",
+          "score": [
+            1,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "49:12",
+          "away": "71:7",
+          "score": [
+            1,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "71:7",
+          "away": "46:8",
+          "score": [
+            0,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "71:7",
+          "away": "48:3",
+          "score": [
+            3,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "71:7",
+          "away": "49:12",
+          "score": [
+            2,
+            4
+          ],
+          "date": null
+        }
+      ],
+      "standings": [
+        {
+          "team": "46:8",
+          "p": 6,
+          "w": 3,
+          "d": 3,
+          "l": 0,
+          "gf": 6,
+          "ga": 1,
+          "pts": 12
+        },
+        {
+          "team": "48:3",
+          "p": 6,
+          "w": 3,
+          "d": 1,
+          "l": 2,
+          "gf": 8,
+          "ga": 6,
+          "pts": 10
+        },
+        {
+          "team": "49:12",
+          "p": 6,
+          "w": 2,
+          "d": 2,
+          "l": 2,
+          "gf": 7,
+          "ga": 7,
+          "pts": 8
+        },
+        {
+          "team": "71:7",
+          "p": 6,
+          "w": 1,
+          "d": 0,
+          "l": 5,
+          "gf": 5,
+          "ga": 12,
+          "pts": 3
+        }
+      ],
+      "sourceRank": [
+        "46:8",
+        "48:3",
+        "49:12",
+        "71:7"
+      ],
+      "pointsMatch": true
+    },
+    {
+      "group": "D",
+      "matches": [
+        {
+          "home": "64:7",
+          "away": "46:12",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "64:7",
+          "away": "43:8",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "64:7",
+          "away": "50:7",
+          "score": [
+            0,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "46:12",
+          "away": "64:7",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "46:12",
+          "away": "43:8",
+          "score": [
+            2,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "46:12",
+          "away": "50:7",
+          "score": [
+            3,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "43:8",
+          "away": "64:7",
+          "score": [
+            0,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "43:8",
+          "away": "46:12",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "43:8",
+          "away": "50:7",
+          "score": [
+            2,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "50:7",
+          "away": "64:7",
+          "score": [
+            2,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "50:7",
+          "away": "46:12",
+          "score": [
+            1,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "50:7",
+          "away": "43:8",
+          "score": [
+            0,
+            0
+          ],
+          "date": null
+        }
+      ],
+      "standings": [
+        {
+          "team": "64:7",
+          "p": 6,
+          "w": 1,
+          "d": 5,
+          "l": 0,
+          "gf": 6,
+          "ga": 5,
+          "pts": 8
+        },
+        {
+          "team": "46:12",
+          "p": 6,
+          "w": 1,
+          "d": 4,
+          "l": 1,
+          "gf": 8,
+          "ga": 6,
+          "pts": 7
+        },
+        {
+          "team": "43:8",
+          "p": 6,
+          "w": 1,
+          "d": 4,
+          "l": 1,
+          "gf": 6,
+          "ga": 5,
+          "pts": 7
+        },
+        {
+          "team": "50:7",
+          "p": 6,
+          "w": 1,
+          "d": 3,
+          "l": 2,
+          "gf": 3,
+          "ga": 7,
+          "pts": 6
+        }
+      ],
+      "sourceRank": [
+        "64:7",
+        "46:12",
+        "43:8",
+        "50:7"
+      ],
+      "pointsMatch": true
+    },
+    {
+      "group": "E",
+      "matches": [
+        {
+          "home": "46:6",
+          "away": "77:9",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "46:6",
+          "away": "43:5",
+          "score": [
+            2,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "46:6",
+          "away": "45:6",
+          "score": [
+            3,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "77:9",
+          "away": "46:6",
+          "score": [
+            1,
+            3
+          ],
+          "date": null
+        },
+        {
+          "home": "77:9",
+          "away": "43:5",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "77:9",
+          "away": "45:6",
+          "score": [
+            1,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "43:5",
+          "away": "46:6",
+          "score": [
+            2,
+            3
+          ],
+          "date": null
+        },
+        {
+          "home": "43:5",
+          "away": "77:9",
+          "score": [
+            2,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "43:5",
+          "away": "45:6",
+          "score": [
+            2,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "45:6",
+          "away": "46:6",
+          "score": [
+            0,
+            3
+          ],
+          "date": null
+        },
+        {
+          "home": "45:6",
+          "away": "77:9",
+          "score": [
+            2,
+            3
+          ],
+          "date": null
+        },
+        {
+          "home": "45:6",
+          "away": "43:5",
+          "score": [
+            1,
+            3
+          ],
+          "date": null
+        }
+      ],
+      "standings": [
+        {
+          "team": "46:6",
+          "p": 6,
+          "w": 5,
+          "d": 1,
+          "l": 0,
+          "gf": 15,
+          "ga": 5,
+          "pts": 16
+        },
+        {
+          "team": "77:9",
+          "p": 6,
+          "w": 2,
+          "d": 3,
+          "l": 1,
+          "gf": 9,
+          "ga": 9,
+          "pts": 9
+        },
+        {
+          "team": "43:5",
+          "p": 6,
+          "w": 2,
+          "d": 2,
+          "l": 2,
+          "gf": 11,
+          "ga": 9,
+          "pts": 8
+        },
+        {
+          "team": "45:6",
+          "p": 6,
+          "w": 0,
+          "d": 0,
+          "l": 6,
+          "gf": 3,
+          "ga": 15,
+          "pts": 0
+        }
+      ],
+      "sourceRank": [
+        "46:6",
+        "77:9",
+        "43:5",
+        "45:6"
+      ],
+      "pointsMatch": true
+    },
+    {
+      "group": "F",
+      "matches": [
+        {
+          "home": "71:9",
+          "away": "46:9",
+          "score": [
+            1,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "71:9",
+          "away": "43:10",
+          "score": [
+            4,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "71:9",
+          "away": "48:6",
+          "score": [
+            1,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "46:9",
+          "away": "71:9",
+          "score": [
+            2,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "46:9",
+          "away": "43:10",
+          "score": [
+            1,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "46:9",
+          "away": "48:6",
+          "score": [
+            2,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "43:10",
+          "away": "71:9",
+          "score": [
+            2,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "43:10",
+          "away": "46:9",
+          "score": [
+            0,
+            3
+          ],
+          "date": null
+        },
+        {
+          "home": "43:10",
+          "away": "48:6",
+          "score": [
+            0,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "48:6",
+          "away": "71:9",
+          "score": [
+            0,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "48:6",
+          "away": "46:9",
+          "score": [
+            0,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "48:6",
+          "away": "43:10",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        }
+      ],
+      "standings": [
+        {
+          "team": "71:9",
+          "p": 6,
+          "w": 4,
+          "d": 1,
+          "l": 1,
+          "gf": 11,
+          "ga": 5,
+          "pts": 13
+        },
+        {
+          "team": "46:9",
+          "p": 6,
+          "w": 3,
+          "d": 2,
+          "l": 1,
+          "gf": 8,
+          "ga": 3,
+          "pts": 11
+        },
+        {
+          "team": "43:10",
+          "p": 6,
+          "w": 1,
+          "d": 2,
+          "l": 3,
+          "gf": 4,
+          "ga": 10,
+          "pts": 5
+        },
+        {
+          "team": "48:6",
+          "p": 6,
+          "w": 0,
+          "d": 3,
+          "l": 3,
+          "gf": 1,
+          "ga": 6,
+          "pts": 3
+        }
+      ],
+      "sourceRank": [
+        "71:9",
+        "46:9",
+        "43:10",
+        "48:6"
+      ],
+      "pointsMatch": true
+    },
+    {
+      "group": "G",
+      "matches": [
+        {
+          "home": "64:5",
+          "away": "46:14",
+          "score": [
+            3,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "64:5",
+          "away": "48:5",
+          "score": [
+            3,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "64:5",
+          "away": "43:13",
+          "score": [
+            0,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "46:14",
+          "away": "64:5",
+          "score": [
+            3,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "46:14",
+          "away": "48:5",
+          "score": [
+            1,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "46:14",
+          "away": "43:13",
+          "score": [
+            3,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "48:5",
+          "away": "64:5",
+          "score": [
+            0,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "48:5",
+          "away": "46:14",
+          "score": [
+            1,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "48:5",
+          "away": "43:13",
+          "score": [
+            2,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "43:13",
+          "away": "64:5",
+          "score": [
+            1,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "43:13",
+          "away": "46:14",
+          "score": [
+            0,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "43:13",
+          "away": "48:5",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        }
+      ],
+      "standings": [
+        {
+          "team": "64:5",
+          "p": 6,
+          "w": 4,
+          "d": 1,
+          "l": 1,
+          "gf": 10,
+          "ga": 6,
+          "pts": 13
+        },
+        {
+          "team": "46:14",
+          "p": 6,
+          "w": 3,
+          "d": 1,
+          "l": 2,
+          "gf": 10,
+          "ga": 6,
+          "pts": 10
+        },
+        {
+          "team": "48:5",
+          "p": 6,
+          "w": 2,
+          "d": 1,
+          "l": 3,
+          "gf": 7,
+          "ga": 9,
+          "pts": 7
+        },
+        {
+          "team": "43:13",
+          "p": 6,
+          "w": 0,
+          "d": 3,
+          "l": 3,
+          "gf": 2,
+          "ga": 8,
+          "pts": 3
+        }
+      ],
+      "sourceRank": [
+        "64:5",
+        "46:14",
+        "48:5",
+        "43:13"
+      ],
+      "pointsMatch": true
+    },
+    {
+      "group": "H",
+      "matches": [
+        {
+          "home": "43:4",
+          "away": "46:10",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "43:4",
+          "away": "77:2",
+          "score": [
+            1,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "43:4",
+          "away": "45:5",
+          "score": [
+            3,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "46:10",
+          "away": "43:4",
+          "score": [
+            0,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "46:10",
+          "away": "77:2",
+          "score": [
+            2,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "46:10",
+          "away": "45:5",
+          "score": [
+            3,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "77:2",
+          "away": "43:4",
+          "score": [
+            1,
+            2
+          ],
+          "date": null
+        },
+        {
+          "home": "77:2",
+          "away": "46:10",
+          "score": [
+            1,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "77:2",
+          "away": "45:5",
+          "score": [
+            2,
+            0
+          ],
+          "date": null
+        },
+        {
+          "home": "45:5",
+          "away": "43:4",
+          "score": [
+            1,
+            1
+          ],
+          "date": null
+        },
+        {
+          "home": "45:5",
+          "away": "46:10",
+          "score": [
+            0,
+            6
+          ],
+          "date": null
+        },
+        {
+          "home": "45:5",
+          "away": "77:2",
+          "score": [
+            0,
+            2
+          ],
+          "date": null
+        }
+      ],
+      "standings": [
+        {
+          "team": "43:4",
+          "p": 6,
+          "w": 4,
+          "d": 2,
+          "l": 0,
+          "gf": 9,
+          "ga": 3,
+          "pts": 14
+        },
+        {
+          "team": "46:10",
+          "p": 6,
+          "w": 3,
+          "d": 1,
+          "l": 2,
+          "gf": 12,
+          "ga": 5,
+          "pts": 10
+        },
+        {
+          "team": "77:2",
+          "p": 6,
+          "w": 3,
+          "d": 0,
+          "l": 3,
+          "gf": 6,
+          "ga": 5,
+          "pts": 9
+        },
+        {
+          "team": "45:5",
+          "p": 6,
+          "w": 0,
+          "d": 1,
+          "l": 5,
+          "gf": 3,
+          "ga": 17,
+          "pts": 1
+        }
+      ],
+      "sourceRank": [
+        "43:4",
+        "46:10",
+        "77:2",
+        "45:5"
+      ],
+      "pointsMatch": true
+    }
+  ],
+  "audit": {
+    "matches": 96,
+    "teams": 32,
+    "pointsMatch": true,
+    "sixEach": true,
+    "dateVerified": 0
+  },
+  "limits": "Date null intentionally; group A previous scores/points wrong. Group G Vasco GF matrix=9 versus table 10; source seeding GF9 agrees matrix; independent verification required. Source standings order retained, not generic GD tiebreak."
+}

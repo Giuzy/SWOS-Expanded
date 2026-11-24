@@ -1,0 +1,116 @@
+[
+  {
+    "index": 18,
+    "value": {
+      "country": "BRA",
+      "division": "div1",
+      "from": "2003",
+      "to": "2003",
+      "rules": {
+        "teams": 24,
+        "rounds": 2,
+        "regularGamesPerClub": 46,
+        "relegated": 2,
+        "champion": "first in table"
+      },
+      "source": "https://rsssfbrasil.com/historical.htm",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        39,
+        217
+      ]
+    }
+  },
+  {
+    "index": 19,
+    "value": {
+      "country": "BRA",
+      "division": "div1",
+      "from": "2004",
+      "to": "2004",
+      "rules": {
+        "teams": 24,
+        "rounds": 2,
+        "regularGamesPerClub": 46,
+        "relegated": 4,
+        "promotedFromLower": 2
+      },
+      "source": "https://imagem.camara.leg.br/Imagem/d/pdf/DCD17DEZ2004.pdf",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        39,
+        217
+      ]
+    }
+  },
+  {
+    "index": 20,
+    "value": {
+      "country": "BRA",
+      "division": "div1",
+      "from": "2005",
+      "to": "2005",
+      "rules": {
+        "teams": 22,
+        "rounds": 2,
+        "regularGamesPerClub": 42,
+        "relegated": 4,
+        "promotedFromLower": 2
+      },
+      "source": "https://imagem.camara.leg.br/Imagem/d/pdf/DCD17DEZ2004.pdf",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        39,
+        217
+      ]
+    }
+  },
+  {
+    "index": 169,
+    "value": {
+      "country": "BRA",
+      "division": "div2",
+      "from": "2005",
+      "to": null,
+      "rules": {
+        "teams": 22,
+        "initialRounds": 1,
+        "initialGamesPerClub": 21,
+        "relegationCount": 6,
+        "editionSpecific": true,
+        "note": "Subsequent phase structure not yet extracted."
+      },
+      "sources": [
+        "https://www.uol.com.br/esporte/futebol/campeonatos/brasileiro/2005/serieb/regulamento.jhtm"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Contemporary UOL regulation search excerpt; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        218
+      ]
+    }
+  },
+  {
+    "index": 170,
+    "value": {
+      "country": "BRA",
+      "division": "div2",
+      "from": "2006",
+      "to": null,
+      "rules": {
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "note": "Observed standard format; exact movement quota requires full table corroboration."
+      },
+      "sources": [
+        "https://rsssfbrasil.com/tablesae/br2006l2.htm"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF search excerpt; opening Unicode decoding failure; team count and rounds derived from 38-game table and previous contraction, pending full corroboration; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        218
+      ]
+    }
+  }
+]

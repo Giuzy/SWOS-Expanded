@@ -1,0 +1,87 @@
+{
+  "base": "4f82e37deea02d51348247db6236381d4e04d2be",
+  "prior": "86ff28a14fb31b752fb556eb8244122ba04388ed",
+  "scope": "field-level research supplement only, no runtime changes; no postcutoff results imported; PDF screenshots BFU/FPF attempted cache miss, text inspected; old IFA statute only search snippet",
+  "rows": [
+    {
+      "row": 337,
+      "id": "_bulgarianCup",
+      "status": "RULES_PARTIAL",
+      "source": "https://bfunion.bg/uploads/2026-06-24/naredba-za-parvenstavata-26-27.pdf",
+      "known": "BFU June 2026: second preliminary 36=16 second league+20 regional, 18 winners, lower tier hosts; R16 16 teams single elimination; final single; cup winner Europe, double winner reallocates to league second not finalist.",
+      "missing": "full article 16 round counts and pairing, match rules, club keys and dates"
+    },
+    {
+      "row": 343,
+      "id": "_worldCrcCup",
+      "status": "NO_EDITION_2627_REPORTED",
+      "source": "https://www.nacion.com/puro-deporte/futbol/como-se-jugara-la-primera-division-con-10-o-12/YTJPN6WA7BGAXCQLORX5USBL6M/story/",
+      "known": "UNAFUT decision reported May/June: no Copa 2627, no Recopa 2027.",
+      "missing": "official assembly minute; historical prior edition snapshot; do not delete stable ID"
+    },
+    {
+      "row": 358,
+      "id": "_faroeIslesCup",
+      "status": "RULES_PARTIAL",
+      "source": "https://www.fsf.fo/fsf/logir-og-reglur-2/kappingarreglur/kappingarreglur-fyri-steypakappingar-2/",
+      "known": "FSF amended Feb 2026, four league levels, one team per club; extra time 2x15 then penalties for deciding matches.",
+      "missing": "round-by-round and semifinal legs, cutoff 2026 results and keys"
+    },
+    {
+      "row": 367,
+      "id": "_worldIrnCup",
+      "status": "CONFLICT_UNRESOLVED",
+      "source": "https://en.wikipedia.org/wiki/2026%E2%80%9327_Hazfi_Cup",
+      "known": "secondary reports initial suspension then reinstatement, 2526 abandoned before completion; no verified primary source.",
+      "missing": "official decision/date and 2627 format/entrants; no assumed champion"
+    },
+    {
+      "row": 370,
+      "id": "_israeliCup",
+      "status": "RULES_PARTIAL",
+      "source": "https://www.football.org.il/files/Rules/cup.pdf",
+      "known": "older IFA statute local knockout for lower leagues; 2627 official preliminary draw announced, https://www.football.org.il/?itemid=%7B6DD536DF-1A44-4C12-A878-A851CBB7FFF7%7D",
+      "missing": "current amended statute and round entry/legs, mapping/date"
+    },
+    {
+      "row": 392,
+      "id": "_worldPerCup",
+      "status": "RULES_AVAILABLE_IDENTITY_PENDING",
+      "source": "https://fpf.org.pe/wp-content/uploads/2026/06/REGLAMENTO-COPA-PERU-2026.pdf",
+      "known": "FPF arts 2,4,17-20: district/province/department/national; national 50 teams six zonal matches each, top32 R32 and R16 two legs, QF/SF/F single, direct penalties after points/GD ties, champion Liga2 finalist Liga3. Department June21-Aug23, national Sep-Nov. FPF lists separate Copa Caliente de la Liga 2026; must identify original cup row.",
+      "missing": "OG identity (Copa Peru vs Copa Liga), zonal mapping/eligibility, actual historic scores, player and club keys"
+    },
+    {
+      "row": 404,
+      "id": "_worldSlvCup",
+      "status": "FORMAT_AVAILABLE",
+      "source": "https://web.indes.gob.sv/?p=134266",
+      "known": "INDES 24=12 first+6 second+6 third; six groups of four single RR, top2+four best thirds R16, knockout a/r from R16, starts Feb10. https://web.indes.gob.sv/?p=134064 ; group cutoff results source https://web.indes.gob.sv/?p=137547 ; September postponement only postcutoff reference.",
+      "missing": "final legs/rules precise, full prestart matches, club mapping"
+    },
+    {
+      "row": 405,
+      "id": "_sanMarinoCup",
+      "status": "RULES_PARTIAL",
+      "source": "https://www.fsgc.sm/it/notizia/coppa-titano-2026-2027-ci-siamo-/2318",
+      "known": "official R16 first legs September postcutoff template; previous edition winner La Fiorita 23 May https://www.fsgc.sm/it/notizia/coppa-titano-olcese-guida-la-rimonta-de-la-fiorita-il-trofeo-va-a-montegiardino/2222",
+      "missing": "full applicable statute, round structure and mapping"
+    },
+    {
+      "row": 412,
+      "id": "_taiwaneseCup",
+      "status": "IDENTITY_UNRESOLVED",
+      "source": "https://www.ctfa.com.tw/20210122-1140/",
+      "known": "CTFA calendar and 2025 President Cup statute found; not evidence of 2627 senior national cup.",
+      "missing": "identify real tournament and 2026 existence/rules, no fictitious cup"
+    },
+    {
+      "row": 417,
+      "id": "_ukrainianCup",
+      "status": "RULES_PARTIAL",
+      "source": "https://kubok.uaf.ua/pages/format",
+      "known": "UAF page open shows 2526 (68,67 games, 8+28+16+8+4+2+1, single leg, direct penalties except final), indexed 2627 snippet says 68 but stale HTML; 2627 official draw confirms 28 winners+4 European clubs at R32 https://uaf.ua/news/beton-kubok-ukrayiny-20262027-rezultaty-zerebkuvannia-116-finalu ; postcutoff template.",
+      "missing": "2627 full rule confirmation incl final ET and round dates, mapping"
+    }
+  ]
+}

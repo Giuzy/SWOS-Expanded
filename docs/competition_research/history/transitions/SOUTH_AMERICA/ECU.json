@@ -1,0 +1,34 @@
+[
+  {
+    "index": 160,
+    "value": {
+      "competition": "ECU Copa Ecuador",
+      "firstEdition": "2023",
+      "lastEdition": "2023",
+      "operation": "SUSPEND",
+      "note": "Financial/broadcast debt cause reported contemporaneously, distinct from temporary pandemic cancellations; no automatic replay.",
+      "source": "https://www.eloriente.com/articulo/la-copa-ecuador-no-se-disputaraacute-este-antildeo/40020",
+      "rowRefs": [
+        348
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
+    }
+  },
+  {
+    "index": 161,
+    "value": {
+      "competition": "ECU Copa Ecuador",
+      "firstEdition": "2024",
+      "lastEdition": null,
+      "operation": "RESUME",
+      "note": "FEF return announced May 2024 reported by press; same identity.",
+      "source": "https://www.eltelegrafo.com.ec/noticias/deportes/7/fef-copa-ecuador-enero-regreso",
+      "rowRefs": [
+        348
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
+    }
+  }
+]

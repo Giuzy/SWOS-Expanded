@@ -1,0 +1,63 @@
+[
+  {
+    "row": 13,
+    "world": "9697",
+    "id": "_greekLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "GRE",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "GREECE",
+      "teams": "18",
+      "formula": "OG rounds=2; points_win=3; begin=56; end=40",
+      "promotionRaw": "0 campo-OG + 0 playoff",
+      "relegationRaw": "0 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "edition": "1996/97",
+      "teams": 18,
+      "regularOrInitialGamesPerClub": 34,
+      "pointsWin": 3,
+      "formatAndMovement": "Double RR",
+      "researchSource": "https://www.rsssf.org/tablesa/allfirst9697.html",
+      "scope": "Observed structure, no future results imported; null and uncertain fields remain open."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": "Alpha Ethniki",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.uefa.com/news-media/news/025e-0f90a010825a-27c590719be0-1000--government-support-for-greek-plan/",
+      "nameHistory": [
+        {
+          "from": "2006/07",
+          "to": null,
+          "previousName": "Alpha Ethniki",
+          "name": "Super League Greece",
+          "source": "https://en.wikipedia.org/wiki/2006%E2%80%9307_Super_League_Greece",
+          "scope": "Partial chronology, secondary source corroborated by UEFA proposal"
+        }
+      ],
+      "historyComplete": false
+    }
+  }
+]

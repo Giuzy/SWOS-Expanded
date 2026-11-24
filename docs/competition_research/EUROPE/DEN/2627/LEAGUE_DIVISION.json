@@ -1,0 +1,73 @@
+[
+  {
+    "row": 228,
+    "world": "2627",
+    "id": "_danishLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "DEN",
+    "candidateSources": [
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "Superliga",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.superliga.dk/struktur",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence39": {
+      "edition": "2026/27",
+      "teams": 12,
+      "firstRound": [
+        {
+          "home": "VFF",
+          "away": "OB",
+          "date": "2026-07-24"
+        },
+        {
+          "home": "AGF",
+          "away": "BIF",
+          "date": "2026-07-25"
+        },
+        {
+          "home": "SJF",
+          "away": "FCM",
+          "date": "2026-07-26"
+        },
+        {
+          "home": "RFC",
+          "away": "SIF",
+          "date": "2026-07-26"
+        },
+        {
+          "home": "ACH",
+          "away": "FCN",
+          "date": "2026-07-26"
+        },
+        {
+          "home": "FCK",
+          "away": "LBK",
+          "date": "2026-07-27"
+        }
+      ],
+      "source": "https://superliga.dk/nyheder/kamptidspunkter/2026-2027/kampprogrammet-for-grundspillet-2026-27-er-fastlagt",
+      "scope": "Published June 3 schedule; club keys and actual dates still to reconcile; conditional later fixtures not imported as definite."
+    }
+  }
+]

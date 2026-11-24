@@ -1,0 +1,74 @@
+[
+  {
+    "row": 43,
+    "world": "9697",
+    "id": "_indianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "IND",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "INDIA",
+      "teams": "6",
+      "formula": "OG rounds=4; points_win=3; begin=0; end=24",
+      "promotionRaw": "0 campo-OG + 0 playoff",
+      "relegationRaw": "0 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "edition": "1996/97",
+      "name": "National Football League",
+      "teams": 12,
+      "regularOrInitialGamesPerClub": 5,
+      "pointsWin": 3,
+      "formatAndMovement": "2 groups of6 single RR, top4 each to group8 double RR 14 games, first edition starts Dec17 1996; no carry from stage1",
+      "researchSource": "https://www.rsssf.org/tablesi/india97.html",
+      "scope": "Partial historical structure, no future results imported"
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "National Football League",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://indianfootballleague.in/about-us/history-of-i-league/",
+      "nameHistory": [
+        {
+          "transition": 272,
+          "from": "1996/97",
+          "to": null,
+          "previousName": null,
+          "name": "National Football League",
+          "operation": "INTRODUCE",
+          "source": "https://indianfootballleague.in/about-us/history-of-i-league/"
+        },
+        {
+          "transition": 273,
+          "from": "2007/08",
+          "to": null,
+          "previousName": "National Football League",
+          "name": "I-League",
+          "operation": "SUCCESSOR_COMPETITION",
+          "source": "https://indianfootballleague.in/about-us/history-of-i-league/"
+        }
+      ],
+      "historyComplete": false
+    }
+  }
+]

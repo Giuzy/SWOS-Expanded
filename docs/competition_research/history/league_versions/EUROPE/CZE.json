@@ -1,0 +1,34 @@
+[
+  {
+    "index": 60,
+    "value": {
+      "country": "CZE",
+      "division": "div1",
+      "from": "2018/19",
+      "to": "2018/19",
+      "rules": {
+        "teams": 16,
+        "operation": "INTRODUCE_SPLIT",
+        "directRelegationRank": 16,
+        "playoffRanks": [
+          14,
+          15
+        ],
+        "playoffOpponents": [
+          2,
+          3
+        ],
+        "europeanPlayoff": true
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Czech_First_League"
+      ],
+      "missing": "Exact split seeding and later validity pending; link modern if equivalent",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        8,
+        227
+      ]
+    }
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "index": 245,
+    "value": {
+      "row": 246,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "index": 53,
+    "value": {
+      "country": "KOR",
+      "division": "div1",
+      "from": "2012",
+      "to": "2012",
+      "rules": {
+        "teams": 16,
+        "regularRounds": 2,
+        "regularGamesPerClub": 30,
+        "split": [
+          8,
+          8
+        ],
+        "splitRounds": 2,
+        "gamesPerClub": 44,
+        "directRelegation": 2
+      },
+      "sources": [
+        "https://www.kleague.com/news_view.do?orderBy=seq&page=6&seq=82733&viewOption=album",
+        "https://www.koreatimes.co.kr/sports/20121231/two-division-structure-among-changes-for-top-football-league-in-2013"
+      ],
+      "missing": "Tie breaks and eligibility pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        261
+      ]
+    }
+  },
+  {
+    "index": 54,
+    "value": {
+      "country": "KOR",
+      "division": "div1",
+      "from": "2013",
+      "to": "2013",
+      "rules": {
+        "teams": 14,
+        "regularRounds": 2,
+        "split": [
+          7,
+          7
+        ],
+        "splitRounds": 2,
+        "gamesPerClub": 38,
+        "directRelegationRanks": [
+          13,
+          14
+        ],
+        "playoffRank": 12,
+        "playoffOpponent": "second tier champion",
+        "operation": "CREATE_SECOND_TIER"
+      },
+      "sources": [
+        "https://www.koreatimes.co.kr/sports/20121231/two-division-structure-among-changes-for-top-football-league-in-2013",
+        "https://www.kleagueunited.com/2016/01/5-year-tables.html"
+      ],
+      "missing": "Second-tier competition definition and exact match rules pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        261
+      ]
+    }
+  }
+]

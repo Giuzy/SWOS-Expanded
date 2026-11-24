@@ -1,0 +1,29 @@
+[
+  {
+    "index": 140,
+    "value": {
+      "country": "HUN",
+      "division": "div1",
+      "from": "2015/16",
+      "to": null,
+      "rules": {
+        "teams": 12,
+        "rounds": 3,
+        "gamesPerClub": 33,
+        "relegationDirect": [
+          11,
+          12
+        ]
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesh/hong2016.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened final table lines 11–25; exact end validity, identity mapping, dates, remaining rules and 2026 equivalence pending",
+      "rowRefs": [
+        14,
+        251
+      ]
+    }
+  }
+]

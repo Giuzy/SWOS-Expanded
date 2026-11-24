@@ -1,0 +1,29 @@
+[
+  {
+    "index": 86,
+    "value": {
+      "country": "GRE",
+      "division": "div1",
+      "from": "2019/20",
+      "to": null,
+      "rules": {
+        "teams": 14,
+        "initialRounds": 2,
+        "split": [
+          6,
+          8
+        ],
+        "note": "Structural split before pandemic; emergency calendar excluded; ordinary relegation rules pending"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesg/grk2020.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF search extracts; observed season structure, end validity and access not certified; no results imported",
+      "rowRefs": [
+        13,
+        248
+      ]
+    }
+  }
+]

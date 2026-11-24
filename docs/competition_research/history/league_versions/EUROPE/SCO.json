@@ -1,0 +1,125 @@
+[
+  {
+    "index": 76,
+    "value": {
+      "country": "SCO",
+      "division": "div1",
+      "from": "2000/01",
+      "to": null,
+      "rules": {
+        "teams": 12,
+        "initialRounds": 3,
+        "split": [
+          6,
+          6
+        ],
+        "splitRounds": 1,
+        "totalGamesPerClub": 38
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/2000%E2%80%9301_Scottish_Premier_League"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact end of validity, access, dates and modern equivalence pending",
+      "rowRefs": [
+        81,
+        292
+      ]
+    }
+  },
+  {
+    "index": 165,
+    "value": {
+      "country": "SCO",
+      "division": "div2",
+      "from": "2013/14",
+      "to": null,
+      "rules": {
+        "operation": "REORGANIZE_AND_RENAME",
+        "name": "Scottish Championship",
+        "fromName": "Scottish First Division"
+      },
+      "sources": [
+        "https://spfl.co.uk/news/list-of-spfl-winners"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: SPFL official archive excerpt confirms SPFL foundation summer 2013 and names; exact movement changes pending; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        82,
+        293
+      ]
+    }
+  },
+  {
+    "index": 166,
+    "value": {
+      "country": "SCO",
+      "division": "div3",
+      "from": "2013/14",
+      "to": null,
+      "rules": {
+        "operation": "REORGANIZE_AND_RENAME",
+        "name": "Scottish League One",
+        "fromName": "Scottish Second Division"
+      },
+      "sources": [
+        "https://spfl.co.uk/news/list-of-spfl-winners",
+        "https://spfl.co.uk/league/league-one/archive"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: SPFL official archive excerpt; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        83,
+        294
+      ]
+    }
+  },
+  {
+    "index": 167,
+    "value": {
+      "country": "SCO",
+      "division": "div4",
+      "from": "2013/14",
+      "to": null,
+      "rules": {
+        "operation": "REORGANIZE_AND_RENAME",
+        "name": "Scottish League Two",
+        "fromName": "Scottish Third Division"
+      },
+      "sources": [
+        "https://spfl.co.uk/news/list-of-spfl-winners"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: SPFL official archive excerpt; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        84,
+        295
+      ]
+    }
+  },
+  {
+    "index": 168,
+    "value": {
+      "country": "SCO",
+      "division": "div4",
+      "from": "2018/19",
+      "to": null,
+      "rules": {
+        "operation": "OBSERVED_PYRAMID_PLAYOFF",
+        "playoffLegs": 2,
+        "extraTime": true,
+        "penalties": true,
+        "note": "Observed pyramid playoff; introduction year and participant-selection rules pending, not inferred from 2019 schedule."
+      },
+      "sources": [
+        "https://spfl.co.uk/news/updated-play-off-schedule"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Official schedule excerpt, onset not certified; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        84,
+        295
+      ]
+    }
+  }
+]

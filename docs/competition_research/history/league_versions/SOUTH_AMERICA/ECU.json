@@ -1,0 +1,79 @@
+[
+  {
+    "index": 67,
+    "value": {
+      "country": "ECU",
+      "division": "div1",
+      "from": "2010",
+      "to": "2018",
+      "rules": {
+        "teams": 12,
+        "stages": 2,
+        "gamesPerStage": 22,
+        "finalists": "stage winners",
+        "sameWinner": "champion without final"
+      },
+      "sources": [
+        "https://www.expreso.ec/actualidad/ligapro-nuevo-formato-torneo-2020-25529.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        42,
+        229
+      ]
+    }
+  },
+  {
+    "index": 68,
+    "value": {
+      "country": "ECU",
+      "division": "div1",
+      "from": "2019",
+      "to": "2019",
+      "rules": {
+        "teams": 16,
+        "regularRounds": 2,
+        "gamesPerClub": 30,
+        "playoffTeams": 8
+      },
+      "sources": [
+        "https://www.eluniverso.com/deportes/2019/02/07/nota/7177433/como-es-sistema-juego-ligapro-serie/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        42,
+        229
+      ]
+    }
+  },
+  {
+    "index": 69,
+    "value": {
+      "country": "ECU",
+      "division": "div1",
+      "from": "2020",
+      "to": null,
+      "rules": {
+        "teams": 16,
+        "stages": 2,
+        "gamesPerStage": 15,
+        "finalists": "stage winners",
+        "sameWinner": "champion without final",
+        "adoptionDecision": "2019-10-23",
+        "note": "Pre-pandemic permanent reform; end edition and equivalence with modern baseline pending."
+      },
+      "sources": [
+        "https://www.eluniverso.com/deportes/2019/10/23/nota/7571741/campeonato-liga-pro-serie-2020-tendra-formato-similar-torneo-2018/",
+        "https://www.expreso.ec/actualidad/ligapro-nuevo-formato-torneo-2020-25529.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        42,
+        229
+      ]
+    }
+  }
+]

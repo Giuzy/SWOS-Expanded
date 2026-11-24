@@ -1,0 +1,52 @@
+[
+  {
+    "index": 424,
+    "value": {
+      "row": 425,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 431,
+    "value": {
+      "row": 432,
+      "active_from": "1993",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_OFFICIAL_LIFETIME_EXCERPT",
+      "sources": [
+        "https://www.cafonline.com/caf-super-cup/news/from-1993-to-2026-how-the-totalenergies-caf-super-cup-developed-through-the-years/",
+        "https://www.cafonline.com/en/competitions/caf-competitions/"
+      ],
+      "verification": "CAF historical article says 1993, generic CAF page says established 1992; first played edition 1993 candidate, foundation date distinct; full page cache miss."
+    }
+  },
+  {
+    "index": 433,
+    "value": {
+      "row": 434,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  }
+]

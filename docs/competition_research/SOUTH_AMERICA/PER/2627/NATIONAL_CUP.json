@@ -1,0 +1,38 @@
+[
+  {
+    "row": 392,
+    "world": "2627",
+    "id": "_worldPerCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "PER",
+    "candidateSources": [
+      "1db714bb54f9be6429afe2e869103ec27e890ed3"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "sportResearchStatus": "RULES_AVAILABLE_IDENTITY_PENDING",
+    "knownSportData": "FPF arts 2,4,17-20: district/province/department/national; national 50 teams six zonal matches each, top32 R32 and R16 two legs, QF/SF/F single, direct penalties after points/GD ties, champion Liga2 finalist Liga3. Department June21-Aug23, national Sep-Nov. FPF lists separate Copa Caliente de la Liga 2026; must identify original cup row.",
+    "remainingSportData": "OG identity (Copa Peru vs Copa Liga), zonal mapping/eligibility, actual historic scores, participant keys",
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

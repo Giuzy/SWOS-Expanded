@@ -1,0 +1,98 @@
+[
+  {
+    "row": 100,
+    "world": "9697",
+    "id": "_invitationTournament",
+    "detail": "",
+    "technicalCategory": "FRIENDLY_OR_CUSTOM",
+    "researchCategory": "FRIENDLY_OR_CUSTOM",
+    "country": null,
+    "candidateSources": [],
+    "coverage": "EXCLUDED_BY_USER",
+    "review": {
+      "sportRules": "OUT_OF_CURRENT_SCOPE",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "exclusion": "User decision 2026-11-24; preserve ID for future work.",
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "EXCLUDED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 101,
+    "world": "9697",
+    "id": "_tour",
+    "detail": "",
+    "technicalCategory": "FRIENDLY_OR_CUSTOM",
+    "researchCategory": "FRIENDLY_OR_CUSTOM",
+    "country": null,
+    "candidateSources": [],
+    "coverage": "EXCLUDED_BY_USER",
+    "review": {
+      "sportRules": "OUT_OF_CURRENT_SCOPE",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "exclusion": "User decision 2026-11-24; preserve ID for future work.",
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "EXCLUDED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 102,
+    "world": "9697",
+    "id": "_friendly",
+    "detail": "",
+    "technicalCategory": "FRIENDLY_OR_CUSTOM",
+    "researchCategory": "FRIENDLY_OR_CUSTOM",
+    "country": null,
+    "candidateSources": [],
+    "coverage": "EXCLUDED_BY_USER",
+    "review": {
+      "sportRules": "OUT_OF_CURRENT_SCOPE",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "exclusion": "User decision 2026-11-24; preserve ID for future work.",
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "EXCLUDED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

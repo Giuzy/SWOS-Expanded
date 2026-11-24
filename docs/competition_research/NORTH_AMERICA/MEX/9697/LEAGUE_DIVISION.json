@@ -1,0 +1,108 @@
+[
+  {
+    "row": 62,
+    "world": "9697",
+    "id": "_mexicanLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "MEX",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "MEXICO",
+      "teams": "20",
+      "formula": "OG rounds=2; points_win=3; begin=56; end=32",
+      "promotionRaw": "0 campo-OG + 0 playoff",
+      "relegationRaw": "2 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "edition": "1996/97",
+      "teams": 18,
+      "regularOrInitialGamesPerClub": 17,
+      "pointsWin": null,
+      "formatAndMovement": "Primera Division: Invierno/Verano, four groups for playoff qualification; group winners and top2 runners-up QF, other runners-up conditional wildcard ties, seeding by overall standings",
+      "researchSource": "https://www.rsssf.org/tablesm/mex97.html",
+      "scope": "Observed structure, no future results imported; null and uncertain fields remain open."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Primera División",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  },
+  {
+    "row": 63,
+    "world": "9697",
+    "id": "_mexicanLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "MEX",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "MEXICO",
+      "teams": "20",
+      "formula": "OG rounds=2; points_win=3; begin=56; end=32",
+      "promotionRaw": "2 campo-OG + 0 playoff",
+      "relegationRaw": "0 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "name": "Primera División A",
+      "edition": "1996/97",
+      "teams": 16,
+      "regularOrInitialGamesPerClub": 16,
+      "pointsWin": null,
+      "formatAndMovement": "Invierno four groups of4 in published table, another entrant disqualified before playing full season; 16 games per listed club; repesca and two-leg playoffs, better league record on aggregate tie observed; nominal entrants and Verano details pending",
+      "researchSource": "https://www.rsssf.org/tablesm/mex2ahist.html",
+      "scope": "Research only: regional candidates and adjacent-year evidence are not exact first-edition certification; no future results imported."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "Primera División A",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesm/mex2ahist.html",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

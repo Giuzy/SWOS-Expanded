@@ -1,0 +1,20 @@
+[
+  {
+    "index": 255,
+    "value": {
+      "competition": "MDA tier 1",
+      "firstEdition": "2022/23",
+      "lastEdition": null,
+      "operation": "RENAME_AND_CHANGE_FORMAT",
+      "previousName": "Divizia Națională",
+      "name": "Super Liga",
+      "rowRefs": [
+        269
+      ],
+      "source": "https://fmf.md/noutate/5512/super-liga-un-nou-sezon-incepe-la-final-de-saptamana-vezi-care-va-fi-formatul-campionatului",
+      "note": "Federation 2022 launch; correct source URL below.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
+    }
+  }
+]

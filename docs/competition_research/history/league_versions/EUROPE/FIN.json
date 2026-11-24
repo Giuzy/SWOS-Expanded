@@ -1,0 +1,52 @@
+[
+  {
+    "index": 84,
+    "value": {
+      "country": "FIN",
+      "division": "div1",
+      "from": "2011",
+      "to": null,
+      "rules": {
+        "teams": 12,
+        "rounds": 3,
+        "gamesPerClub": 33
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesf/fin2011.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF search extracts; observed season structure, end validity and access not certified; no results imported",
+      "rowRefs": [
+        12,
+        238
+      ]
+    }
+  },
+  {
+    "index": 85,
+    "value": {
+      "country": "FIN",
+      "division": "div1",
+      "from": "2019",
+      "to": null,
+      "rules": {
+        "teams": 12,
+        "initialRounds": 2,
+        "split": [
+          6,
+          6
+        ],
+        "note": "Championship and relegation phase; European playoff access pending"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesf/fin2019.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF search extracts; observed season structure, end validity and access not certified; no results imported",
+      "rowRefs": [
+        12,
+        238
+      ]
+    }
+  }
+]

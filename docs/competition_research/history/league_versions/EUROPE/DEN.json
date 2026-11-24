@@ -1,0 +1,56 @@
+[
+  {
+    "index": 58,
+    "value": {
+      "country": "DEN",
+      "division": "div1",
+      "from": "2016/17",
+      "to": "2018/19",
+      "rules": {
+        "teams": 14,
+        "regularRounds": 2,
+        "regularGamesPerClub": 26,
+        "championshipGroup": 6,
+        "relegationGroups": [
+          4,
+          4
+        ],
+        "championshipRounds": 2,
+        "gamesPerClubTop": 36
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Danish_Superliga",
+        "https://fbref.com/en/comps/50/2016-2017/2016-2017-Danish-Superliga-Stats"
+      ],
+      "missing": "Annual relegation and European playoff variations pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        9,
+        228
+      ]
+    }
+  },
+  {
+    "index": 59,
+    "value": {
+      "country": "DEN",
+      "division": "div1",
+      "from": "2019/20",
+      "to": "2019/20",
+      "rules": {
+        "teams": 14,
+        "operation": "CONTRACT_TO_12_NEXT_EDITION",
+        "regularGamesPerClub": 26
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Danish_Superliga"
+      ],
+      "missing": "Ordinary planned contraction only, pandemic modifications excluded; exact relegation rules pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        9,
+        228
+      ]
+    }
+  }
+]

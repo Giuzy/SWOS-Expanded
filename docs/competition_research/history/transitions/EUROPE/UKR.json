@@ -1,0 +1,19 @@
+[
+  {
+    "index": 225,
+    "value": {
+      "competition": "UKR tier 1",
+      "firstEdition": "2008/09",
+      "operation": "RENAME",
+      "previousName": "Vyshcha Liha",
+      "name": "Ukrainian Premier League",
+      "rowRefs": [
+        34,
+        314
+      ],
+      "source": "https://www.footballhistory.org/league/ukrainian-league.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 30 actual web search excerpts; exact sporting identity and structural reform independently checked before runtime. No sponsor names."
+    }
+  }
+]

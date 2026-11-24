@@ -1,0 +1,64 @@
+[
+  {
+    "row": 261,
+    "world": "2627",
+    "id": "_worldKorLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "KOR",
+    "candidateSources": [
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "K League 1",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.kleague.com/about/history.do",
+      "nameHistory": [
+        {
+          "transition": 229,
+          "from": "1998",
+          "to": null,
+          "previousName": "Professional Football League",
+          "name": "K League",
+          "operation": "RENAME",
+          "source": "https://en.wikipedia.org/wiki/List_of_South_Korean_football_champions"
+        },
+        {
+          "transition": 230,
+          "from": "2013",
+          "to": null,
+          "previousName": "K League",
+          "name": "K League Classic",
+          "operation": "RENAME",
+          "source": "https://eaff.com/column/20.html"
+        },
+        {
+          "transition": 231,
+          "from": "2018",
+          "to": null,
+          "previousName": "K League Classic",
+          "name": "K League 1",
+          "operation": "RENAME",
+          "source": "https://en.wikipedia.org/wiki/K_League"
+        }
+      ],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  }
+]

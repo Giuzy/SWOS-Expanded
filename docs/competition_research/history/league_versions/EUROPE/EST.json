@@ -1,0 +1,87 @@
+[
+  {
+    "index": 147,
+    "value": {
+      "country": "EST",
+      "division": "div1",
+      "from": "2005",
+      "to": null,
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "relegationDirect": [
+          10
+        ],
+        "relegationPlayoff": [
+          9
+        ]
+      },
+      "sources": [
+        "https://www.rsssf.org/tablese/est05.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened final table; precise preceding transition pending; effective end, identity mapping, full dates and 2026 baseline equivalence pending; no future results imported",
+      "rowRefs": [
+        10,
+        237
+      ]
+    }
+  },
+  {
+    "index": 152,
+    "value": {
+      "country": "EST",
+      "division": "div1",
+      "from": "1998",
+      "to": null,
+      "rules": {
+        "operation": "TRANSITION_TO_CALENDAR_YEAR",
+        "editionSpecific": true,
+        "teams": 8,
+        "rounds": 2,
+        "gamesPerClub": 14,
+        "relegationDirect": [
+          8
+        ],
+        "relegationPlayoff": [
+          7
+        ]
+      },
+      "sources": [
+        "https://www.rsssf.org/tablese/esthist.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened lines 1843–1877; effective end, dates, identity mapping and modern baseline equivalence pending; no future results imported.",
+      "rowRefs": [
+        10,
+        237
+      ]
+    }
+  },
+  {
+    "index": 153,
+    "value": {
+      "country": "EST",
+      "division": "div1",
+      "from": "1999",
+      "to": null,
+      "rules": {
+        "cycle": "calendar_year",
+        "teams": 8,
+        "rounds": 4,
+        "gamesPerClub": 28
+      },
+      "sources": [
+        "https://www.rsssf.org/tablese/esthist.html",
+        "https://www.rsssf.org/tablese/est99.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Cycle confirmed by opened history; 1999 games count from excerpt, full table Unicode error; team count inferred from quadruple format, pending corroboration; effective end, dates, identity mapping and modern baseline equivalence pending; no future results imported.",
+      "rowRefs": [
+        10,
+        237
+      ]
+    }
+  }
+]

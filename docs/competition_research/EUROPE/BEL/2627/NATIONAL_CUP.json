@@ -1,0 +1,35 @@
+[
+  {
+    "row": 332,
+    "world": "2627",
+    "id": "_belgianCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "BEL",
+    "candidateSources": [
+      "f9844889682d8c477574e73fd7355c4450034387"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Belgian Cup",
+      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

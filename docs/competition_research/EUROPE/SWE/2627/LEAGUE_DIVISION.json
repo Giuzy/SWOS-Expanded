@@ -1,0 +1,46 @@
+[
+  {
+    "row": 307,
+    "world": "2627",
+    "id": "_swedishLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SWE",
+    "candidateSources": [
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Allsvenskan",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.svenskfotboll.se/nyheter/serier/2020/11/thylin-infor-slutspurten/",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence38": {
+      "edition": "2008",
+      "teams": 16,
+      "source": "https://www.svenskfotboll.se/nyheter/serier/2020/11/thylin-infor-slutspurten/",
+      "transition2007": {
+        "directPromoted": 3,
+        "directRelegated": 1,
+        "source": "https://www.svenskfotboll.se/nyheter/serier/2023/03/superettanpremiar-till-helgen/"
+      },
+      "scope": "Historical evidence through 2020; 2026 current rules not certified"
+    }
+  }
+]

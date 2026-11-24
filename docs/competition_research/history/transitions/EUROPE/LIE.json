@@ -1,0 +1,18 @@
+[
+  {
+    "index": 197,
+    "value": {
+      "competition": "LIE national cup",
+      "firstEdition": "1946",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "UEFA confirms first final 1946; seven clubs field senior and reserve sides in 2015; eligibility historical variation pending, no fixed seven entrants inferred.",
+      "source": "https://www.uefa.com/nationalassociations/LIE/",
+      "rowRefs": [
+        377
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
+    }
+  }
+]

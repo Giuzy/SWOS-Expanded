@@ -1,0 +1,108 @@
+[
+  {
+    "row": 79,
+    "world": "9697",
+    "id": "_dutchLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "NED",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "HOLLAND",
+      "teams": "18",
+      "formula": "OG rounds=2; points_win=3; begin=56; end=32",
+      "promotionRaw": "0 campo-OG + 0 playoff",
+      "relegationRaw": "1 campo-OG + 2 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "edition": "1996/97",
+      "name": "Eredivisie",
+      "teams": 18,
+      "regularOrInitialGamesPerClub": 34,
+      "pointsWin": 3,
+      "formatAndMovement": "Double RR; cross-table and standings",
+      "researchSource": "https://www.rsssf.org/tablesn/ned97.html",
+      "scope": "Partial historical structure, no future results imported"
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "Eredivisie",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesn/ned97.html",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 80,
+    "world": "9697",
+    "id": "_dutchLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "NED",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "HOLLAND",
+      "teams": "18",
+      "formula": "OG rounds=2; points_win=3; begin=56; end=32",
+      "promotionRaw": "1 campo-OG + 2 playoff",
+      "relegationRaw": "0 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "edition": "1996/97",
+      "name": "Eerste Divisie",
+      "teams": 18,
+      "regularOrInitialGamesPerClub": 34,
+      "pointsWin": null,
+      "formatAndMovement": "Double RR cross-table; playoff rules pending",
+      "researchSource": "https://www.rsssf.org/tablesn/ned97.html",
+      "scope": "Partial historical structure, no future results imported"
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "Eerste Divisie",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesn/ned97.html",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

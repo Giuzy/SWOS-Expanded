@@ -1,0 +1,85 @@
+[
+  {
+    "index": 0,
+    "value": {
+      "country": "FRA",
+      "division": "div1",
+      "from": "1997/98",
+      "to": "2001/02",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34
+      },
+      "source": "https://de.wikipedia.org/wiki/Ligue_1",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        52,
+        239
+      ]
+    }
+  },
+  {
+    "index": 1,
+    "value": {
+      "country": "FRA",
+      "division": "div1",
+      "from": "2002/03",
+      "to": "2022/23",
+      "rules": {
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "subperiods": [
+          {
+            "from": "2002/03",
+            "to": "2015/16",
+            "directRelegation": 3
+          },
+          {
+            "from": "2016/17",
+            "to": "2021/22",
+            "directRelegation": 2,
+            "playoffRank": 18
+          }
+        ],
+        "exceptionalEnd": "2022/23 contraction to 18 clubs; detailed quota check pending"
+      },
+      "source": "https://de.wikipedia.org/wiki/Ligue_1",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        52,
+        239
+      ]
+    }
+  },
+  {
+    "index": 161,
+    "value": {
+      "country": "FRA",
+      "division": "div2",
+      "from": "2024/25",
+      "to": null,
+      "rules": {
+        "teams": 18,
+        "previousTeams": 20,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "transitionPreviousSeason": {
+          "relegated": 4,
+          "promoted": 2
+        }
+      },
+      "sources": [
+        "https://www.lfp.fr/article/l-ag-de-la-lfp-adopte-le-passage-a-18-clubs-de-la-ligue-2-a-partir-de-2024-2025",
+        "https://www.lfp.fr/article/publication-du-calendrier-general-des-competitions-2024-2025"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: LFP official decision opened lines 15–20, calendar announcement excerpt; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        53,
+        240
+      ]
+    }
+  }
+]

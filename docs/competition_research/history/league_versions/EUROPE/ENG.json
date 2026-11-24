@@ -1,0 +1,120 @@
+[
+  {
+    "index": 120,
+    "value": {
+      "country": "ENG",
+      "division": "div1",
+      "from": "1996/97",
+      "to": null,
+      "rules": {
+        "operation": "BASELINE_CONTINUITY",
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "note": "20 since 1995/96 through 2026/27; no team-count transition after start. Not certification of all tie-break or access rules."
+      },
+      "sources": [
+        "https://www.premierleague.com/en/news/4365156"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        75,
+        231
+      ]
+    }
+  },
+  {
+    "index": 121,
+    "value": {
+      "country": "ENG",
+      "division": "div2",
+      "from": "2004/05",
+      "to": null,
+      "rules": {
+        "operation": "RENAME",
+        "fromName": "Football League First Division",
+        "name": "Championship"
+      },
+      "sources": [
+        "https://www.efl.com/about-the-efl/history/innovation/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        76,
+        232
+      ]
+    }
+  },
+  {
+    "index": 122,
+    "value": {
+      "country": "ENG",
+      "division": "div3",
+      "from": "2004/05",
+      "to": null,
+      "rules": {
+        "operation": "RENAME",
+        "fromName": "Football League Second Division",
+        "name": "League One"
+      },
+      "sources": [
+        "https://www.efl.com/about-the-efl/history/innovation/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        77,
+        233
+      ]
+    }
+  },
+  {
+    "index": 123,
+    "value": {
+      "country": "ENG",
+      "division": "div4",
+      "from": "2004/05",
+      "to": null,
+      "rules": {
+        "operation": "RENAME",
+        "fromName": "Football League Third Division",
+        "name": "League Two"
+      },
+      "sources": [
+        "https://www.efl.com/about-the-efl/history/innovation/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        78,
+        234
+      ]
+    }
+  },
+  {
+    "index": 124,
+    "value": {
+      "country": "ENG",
+      "division": "div2",
+      "from": "2026/27",
+      "to": null,
+      "rules": {
+        "operation": "CHANGE_PLAYOFF",
+        "previousPlayoffTeams": 4,
+        "playoffTeams": 6,
+        "note": "Approved 5 March 2026, complete bracket and exact modern baseline comparison pending"
+      },
+      "sources": [
+        "https://www.efl.com/news/2026/march/05/efl-statement--sky-bet-championship-play-off-format/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        76,
+        232
+      ]
+    }
+  }
+]

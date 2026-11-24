@@ -1,0 +1,146 @@
+[
+  {
+    "row": 311,
+    "world": "2627",
+    "id": "_turkishLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "TUR",
+    "candidateSources": [
+      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Süper Lig",
+      "nonCommercialDisplayName": "Süper Lig",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.tff.org/Resources/TFF/Documents/STATULER/2026-2027/2026-2027-sezonu-super-lig-musabakalari-statusu.pdf",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence45": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "relegatedRanks": [
+          16,
+          17,
+          18
+        ],
+        "promotedFromPreviousTier2": 3
+      },
+      "sources": [
+        "https://www.tff.org/Resources/TFF/Documents/STATULER/2026-2027/2026-2027-sezonu-super-lig-musabakalari-statusu.pdf"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "TFF PDF p1 screenshot verified; Bulgarian league HTML opened; other sources search excerpts only, EPO/RSSSF open cache miss. No full calendar or player rules certification."
+    }
+  },
+  {
+    "row": 312,
+    "world": "2627",
+    "id": "_turkishLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "TUR",
+    "candidateSources": [
+      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "TFF 1. Lig",
+      "candidateName": "1. Lig",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.tff.org/Resources/TFF/Documents/STATULER/2026-2027/2026-2027-sezonu-tff-1-lig-musabakalari-statusu.pdf",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence46": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "entrants": {
+          "relegatedFromTop": 3,
+          "promotedFromThird": 4,
+          "retained": 13
+        },
+        "directPromoted": [
+          1,
+          2
+        ],
+        "relegated": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "playoff": {
+          "rank3": "final",
+          "firstRoundPairs": [
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "firstRoundLegs": 1,
+          "firstRoundHome": "higher rank",
+          "semiLegs": 2,
+          "semiFirstHome": "lower rank",
+          "finalLegs": 1,
+          "finalVenue": "neutral",
+          "extraTimeMinutes": 30,
+          "penalties": true
+        },
+        "seasonStartWindow": [
+          "2026-08-07",
+          "2026-08-10"
+        ],
+        "winterLastRoundWindow": [
+          "2026-12-18",
+          "2026-12-21"
+        ]
+      },
+      "sources": [
+        "https://www.tff.org/Resources/TFF/Documents/STATULER/2026-2027/2026-2027-sezonu-tff-1-lig-musabakalari-statusu.pdf",
+        "https://www.tff.org/Default.aspx?ftxtId=50964&pageId=200"
+      ],
+      "limitations": "Official PDF art 1/3; page 0 screenshot checked; page 1 screenshot failed, text inspected. Dates are published windows.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

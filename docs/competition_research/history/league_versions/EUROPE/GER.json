@@ -1,0 +1,121 @@
+[
+  {
+    "index": 2,
+    "value": {
+      "country": "GER",
+      "division": "div1",
+      "from": "2008/09",
+      "to": null,
+      "rules": {
+        "operation": "LINK_MODERN_IF_EQUAL",
+        "change": "Promotion/relegation playoff introduced",
+        "countryAlias": "GER"
+      },
+      "source": "https://editorial.uefa.com/resources/027e-1747424ecde1-af32c4128081-1000/ecfl_bm_report_2022_low_resolution_.pdf",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        54,
+        243
+      ]
+    }
+  },
+  {
+    "index": 162,
+    "value": {
+      "country": "GER",
+      "division": "div2",
+      "from": "2008/09",
+      "to": null,
+      "rules": {
+        "operation": "CHANGE_MOVEMENT",
+        "promotionDirect": [
+          1,
+          2
+        ],
+        "promotionPlayoff": [
+          3
+        ],
+        "relegationDirect": [
+          17,
+          18
+        ],
+        "relegationPlayoff": [
+          16
+        ],
+        "note": "Cross-tier playoff opponents ranks 16 in Bundesliga and 3 in 3. Liga respectively."
+      },
+      "sources": [
+        "https://de.wikipedia.org/wiki/2._Fu%C3%9Fball-Bundesliga",
+        "https://www.dfb.de/news/tabellenfuehrer-zum-saisonstart-von-meister-bis-absteiger-alles-dabei"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Secondary format excerpt, DFB actual inaugural tier3 playoff corroborates; exact 2. Bundesliga rules pending official regulation; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        55,
+        244
+      ]
+    }
+  },
+  {
+    "index": 163,
+    "value": {
+      "country": "GER",
+      "division": "div3",
+      "from": "2008/09",
+      "to": null,
+      "rules": {
+        "operation": "CREATE_NATIONAL_THIRD_TIER",
+        "teams": 20,
+        "promotionDirect": [
+          1,
+          2
+        ],
+        "promotionPlayoff": [
+          3
+        ],
+        "relegationCount": 3,
+        "note": "Mapping and initial eligibility from predecessor regional tiers pending; never invent clubs."
+      },
+      "sources": [
+        "https://www.dfb.de/news/ewige-tabelle-sv-wehen-wiesbaden-souveraen-an-der-spitze",
+        "https://www.dfb.de/news/noch-zwei-spiele-siebter-durchmarsch-fuer-msv",
+        "https://www.dfb.de/news/detail/aufstieg-von-regionalliga-zur-3-liga-fragen-und-antworten-208044?cHash=3c13ccd55686221479efc339c1f90c02&no_cache=1",
+        "https://www.dfb.de/news/tabellenfuehrer-zum-saisonstart-von-meister-bis-absteiger-alles-dabei"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: DFB official search excerpts confirm inaugural season, 20 clubs, third-place playoff and original three relegations; exact initial distribution pending; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        245
+      ]
+    }
+  },
+  {
+    "index": 164,
+    "value": {
+      "country": "GER",
+      "division": "div3",
+      "from": "2018/19",
+      "to": null,
+      "rules": {
+        "operation": "CHANGE_RELEGATION",
+        "previousRelegationCount": 3,
+        "relegationCount": 4,
+        "relegationDirect": [
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      "sources": [
+        "https://www.dfb.de/news/nicht-nur-osnabrueck-und-rwe-holen-auf-hochspannung-im-keller",
+        "https://www.dfb.de/news/detail/aufstieg-von-regionalliga-zur-3-liga-fragen-und-antworten-208044?cHash=3c13ccd55686221479efc339c1f90c02&no_cache=1"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: DFB official search excerpts; feeder Regionalliga quota rotation separately pending; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        245
+      ]
+    }
+  }
+]

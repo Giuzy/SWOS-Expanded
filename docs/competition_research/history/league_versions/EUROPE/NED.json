@@ -1,0 +1,92 @@
+[
+  {
+    "index": 127,
+    "value": {
+      "country": "NED",
+      "division": "div1",
+      "from": "2005/06",
+      "to": null,
+      "rules": {
+        "operation": "EUROPEAN_ACCESS_PLAYOFF",
+        "note": "Observed playoffs for Champions League qualifying access; exact bracket and subsequent abolition/change dates pending"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesn/ned06.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        79,
+        275
+      ]
+    }
+  },
+  {
+    "index": 128,
+    "value": {
+      "country": "NED",
+      "division": "div2",
+      "from": "2016/17",
+      "to": null,
+      "rules": {
+        "operation": "PYRAMID_LINK",
+        "note": "New Tweede Divisie below Eerste Divisie, promotion/relegation link planned. Do not generate extra playable tier without database and mapping; later suspension separately recorded."
+      },
+      "sources": [
+        "https://www.knvb.nl/node/1892",
+        "https://www.knvb.nl/node/18548"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        80,
+        276
+      ]
+    }
+  },
+  {
+    "index": 129,
+    "value": {
+      "country": "NED",
+      "division": "div2",
+      "from": "2017/18",
+      "to": null,
+      "rules": {
+        "operation": "SUSPEND_PYRAMID_MOVEMENT",
+        "note": "No promotion/relegation between Eerste and Tweede Divisie this season, pre-COVID. End of suspension not inferred."
+      },
+      "sources": [
+        "https://www.knvb.nl/node/39264"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        80,
+        276
+      ]
+    }
+  },
+  {
+    "index": 130,
+    "value": {
+      "country": "NED",
+      "division": "div1",
+      "from": "2019/20",
+      "to": null,
+      "rules": {
+        "operation": "CHANGE_RELEGATION_RULE",
+        "directRelegation": 2,
+        "note": "Structural rule according to KNVB; actual pandemic cancellation excluded."
+      },
+      "sources": [
+        "https://www.knvb.nl/node/81"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        79,
+        275
+      ]
+    }
+  }
+]

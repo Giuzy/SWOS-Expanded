@@ -1,0 +1,53 @@
+[
+  {
+    "row": 211,
+    "world": "2627",
+    "id": "_austrianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "AUT",
+    "candidateSources": [
+      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "Bundesliga",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.bundesliga.at/de/news/artikel/die-details-der-ligareform-so-wird-ab-2018-19-gespielt",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence40": {
+      "edition": "2018/19",
+      "teams": 12,
+      "regularGames": 22,
+      "groups": [
+        6,
+        6
+      ],
+      "splitGames": 10,
+      "pointsHalved": true,
+      "rounding": "floor",
+      "tieBreakPriority": "rounded half point then goal difference",
+      "sources": [
+        "https://www.bundesliga.at/de/news/artikel/die-details-der-ligareform-so-wird-ab-2018-19-gespielt",
+        "https://www.bundesliga.at/de/news/artikel/kommende-liga-spielzeit-als-bergangssaison-vor-reform"
+      ],
+      "scope": "historical reform; exact 2026/27 rules not fully verified"
+    }
+  }
+]

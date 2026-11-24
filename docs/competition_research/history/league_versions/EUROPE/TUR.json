@@ -1,0 +1,35 @@
+[
+  {
+    "index": 185,
+    "value": {
+      "country": "TUR",
+      "division": "div2",
+      "from": "2022/23",
+      "to": null,
+      "rules": {
+        "operation": "CHANGE_PROMOTION_PLAYOFF",
+        "playoffRanks": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "promotionDirect": [
+          1,
+          2
+        ],
+        "note": "TFF decision 21 July 2022. Do not import earthquake-related withdrawals or exceptional relegation changes; precise bracket requires full official text."
+      },
+      "sources": [
+        "https://www.tff.org/default.aspx?ftxtID=38183&pageID=687",
+        "https://www.tff.org/default.aspx?ftxtID=41288&pageID=287"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Official TFF announcement excerpts, opening 502; no PDF inspected; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        312
+      ]
+    }
+  }
+]

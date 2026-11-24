@@ -1,0 +1,51 @@
+[
+  {
+    "index": 119,
+    "value": {
+      "competition": "IND Super Cup (knockout)",
+      "firstEdition": "2018",
+      "lastEdition": null,
+      "operation": "SUCCESSOR_COMPETITION",
+      "note": "Main knockout cup involving I-League and ISL clubs succeeding Federation Cup; distinct identity from historical two-club Super Cup. Later 2023+ chronology pending.",
+      "source": "https://www.rsssf.org/tablesi/indiasupcuphist.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF search extract only; exact 2018 format and Federation Cup cessation need confirmation. Full dates, access, identity mapping and modern equivalence pending. No future results imported.",
+      "rowRefs": [
+        365
+      ]
+    }
+  },
+  {
+    "index": 271,
+    "value": {
+      "competition": "IND National Football League",
+      "firstEdition": "1996/97",
+      "operation": "INTRODUCE",
+      "name": "National Football League",
+      "source": "https://indianfootballleague.in/about-us/history-of-i-league/",
+      "rowRefs": [
+        43
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 36 actual official web search excerpts 24/11/2026; no PDF analyzed; no full identity/access/fixture certification."
+    }
+  },
+  {
+    "index": 272,
+    "value": {
+      "competition": "IND I-League",
+      "firstEdition": "2007/08",
+      "operation": "SUCCESSOR_COMPETITION",
+      "previousName": "National Football League",
+      "name": "I-League",
+      "source": "https://indianfootballleague.in/about-us/history-of-i-league/",
+      "rowRefs": [
+        43,
+        253
+      ],
+      "note": "Continuity vs replacement identity requires validation.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 36 actual official web search excerpts 24/11/2026; no PDF analyzed; no full identity/access/fixture certification."
+    }
+  }
+]

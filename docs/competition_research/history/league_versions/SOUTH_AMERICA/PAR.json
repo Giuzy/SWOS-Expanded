@@ -1,0 +1,28 @@
+[
+  {
+    "index": 92,
+    "value": {
+      "country": "PAR",
+      "division": "div1",
+      "from": "2008",
+      "to": null,
+      "rules": {
+        "teams": 12,
+        "titlesPerYear": 2,
+        "roundsPerTournament": 2,
+        "gamesPerTournament": 22,
+        "note": "Two independent titles; no annual championship playoff"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesp/parachamp.html",
+        "https://www.rsssf.org/tablesp/para08.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF and press sources retrieved; observed edition rules, not full continuity certification; no results imported; exact dates, access and modern baseline pending",
+      "rowRefs": [
+        44,
+        283
+      ]
+    }
+  }
+]

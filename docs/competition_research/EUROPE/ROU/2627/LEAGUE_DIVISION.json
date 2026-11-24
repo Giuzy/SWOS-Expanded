@@ -1,0 +1,72 @@
+[
+  {
+    "row": 289,
+    "world": "2627",
+    "id": "_romanianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ROU",
+    "candidateSources": [
+      "c79508abe598b80e9ae3ed1c7fa9e3926c3726d6"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "Liga 1",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://lpf.ro/noutati/casa-liga-1-nou-sistem-competitional/1907",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence42": {
+      "edition": "2020/21",
+      "teams": 16,
+      "regularGames": 30,
+      "groups": [
+        6,
+        10
+      ],
+      "groupGames": [
+        10,
+        9
+      ],
+      "bottomExtraHomeRanks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "relegationRulesValidThrough": "2022/23",
+      "directRelegatedOverallRanks": [
+        15,
+        16
+      ],
+      "playoffPairs": [
+        [
+          13,
+          4
+        ],
+        [
+          14,
+          3
+        ]
+      ],
+      "playoffLegs": 2,
+      "source": "https://lpf.ro/noutati/casa-liga-1-nou-sistem-competitional/1907"
+    }
+  }
+]

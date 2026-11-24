@@ -1,0 +1,30 @@
+# Sudamerica — snapshot continentali verificati al 30/06/2026 (24/11/2026)
+**Stato:** blob di ricerca indipendente, NON file committato/JSON runtime. Complemento blob raccolta fonti 06041ffbe3978c845e282952f75ad9bba4ed6978. Solo dati storici conclusi al cutoff 30/06/2026, NON risultati della carriera successiva. Fonte diretta CONMEBOL.
+
+## Libertadores 2026, 8 gruppi reali (sorteggio 19 marzo)
+Fonte https://gol.conmebol.com/libertadores/es/news/rumbo-la-gloria-eterna-asi-quedaron-los-grupos-de-la-conmebol-libertadores-2026
+A Flamengo (BRA), Estudiantes LP (ARG), Cusco (PER), Independiente Medellín (COL)
+B Nacional (URU), Universitario (PER), Coquimbo Unido (CHI), Deportes Tolima (COL)
+C Fluminense (BRA), Bolívar (BOL), Deportivo La Guaira (VEN), Independiente Rivadavia (ARG)
+D Boca Juniors (ARG), Cruzeiro (BRA), Universidad Católica (CHI), Barcelona (ECU)
+E Peñarol (URU), Corinthians (BRA), Santa Fe (COL), Platense (ARG)
+F Palmeiras (BRA), Cerro Porteño (PAR), Junior (COL), Sporting Cristal (PER)
+G Liga de Quito (ECU), Lanús (ARG), Always Ready (BOL), Mirassol (BRA)
+H Independiente del Valle (ECU), Libertad (PAR), Rosario Central (ARG), UCV FC (VEN)
+
+## Libertadores 2026: classificati al 29 maggio (conclusione gironi)
+Fonte ufficiale: https://gol.conmebol.com/libertadores/es/news/la-conmebol-libertadores-2026-ya-tiene-sus-protagonistas-para-octavos
+1°/2°: A Flamengo/Estudiantes; B Coquimbo Unido/Deportes Tolima; C Independiente Rivadavia/Fluminense; D Universidad Católica/Cruzeiro; E Corinthians/Platense; F Cerro Porteño/Palmeiras; G Liga de Quito/Mirassol; H Independiente del Valle/Rosario Central.
+Regola: prime due agli ottavi Libertadores, terze agli spareggi Sudamericana; i risultati KO a partire da agosto 2026 NON possono essere importati come storici nel mondo avviato il 1 luglio 2026. La CONMEBOL cita per gli ottavi sorteggio primo vs secondo e ritorno in casa della prima; possibile paese/gruppo già affrontato.
+
+## Sudamericana 2026: 1°/2° dei 8 gruppi e playoff a maggio
+Fonte ufficiale: https://gol.conmebol.com/sudamericana/es/news/uno-por-uno-los-clasificados-los-octavos-de-final-de-la-conmebol-sudamericana
+A Macará/Tigre; B Atlético Mineiro/Cienciano; C São Paulo/O'Higgins; D Recoleta/Santos; E Botafogo/Caracas; F Montevideo City Torque/Grêmio; G Olimpia/Vasco da Gama; H River Plate/Red Bull Bragantino.
+Prime direttamente ottavi; seconde playoff contro terze Libertadores. Pairings già definiti/sorteggiati entro fine maggio come pubblicati nella fonte CONMEBOL: Bolívar–Grêmio, Sporting Cristal–Bragantino, Independiente Medellín–Vasco da Gama, Boca Juniors–O'Higgins, Nacional–Tigre, Santa Fe–Caracas, Lanús–Cienciano, UCV FC–Santos. Conclusione sorteggio da riconciliare con pagina delle coppie ufficiali prima di inserire ID fixture. Nessun risultato playoff è precedente al 30/06 (si gioca da luglio).
+
+## Da validare per importazione
+1. Allineamento club CE keys country:slot su dati JSON 2627 e club non presenti (es. UCV) senza creare duplicati; i nomi da fonte sono solo identificatori umani.
+2. Risultati e reti di ciascuna gara reale 2026 fino al 30/06, classifica completa 4/4 di ogni gruppo, date reali e eventuali rinvii. Qui NON certificati.
+3. Edizioni iniziali CONMEBOL 2026 già in corso a START: conservare le fasi passate read-only, con stato storico; non simulare aprile/maggio né reimportare il torneo 2027 come se fosse 2026.
+4. Seed, tie-break, quote di nazioni, regole di accesso e 2027 first entrants richiedono verifiche per anno/paese, non assumere 2026 uguale a 2027.
+5. Ambito di questo blob: solo ricerca, niente test runtime/Windows, nessuna modifica alla definizione CE o al branch.

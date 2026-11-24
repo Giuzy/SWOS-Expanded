@@ -1,0 +1,108 @@
+[
+  {
+    "row": 258,
+    "world": "2627",
+    "id": "_japaneseLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "JPN",
+    "candidateSources": [
+      "9b0eb97e8248e1a7c71846e612ebcef7241b4e2e",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "J1 League",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.jleague.jp/corporate/about_competitions/tournament_history/",
+      "nameHistory": [
+        {
+          "transition": 252,
+          "from": "1999",
+          "to": null,
+          "previousName": "J.League",
+          "name": "J.League Division 1",
+          "operation": "RENAME_AND_RESTRUCTURE",
+          "source": "https://jref.com/dir/j-league-official-information-net.621/"
+        },
+        {
+          "transition": 254,
+          "from": "2015",
+          "to": null,
+          "previousName": "J.League Division 1",
+          "name": "J1 League",
+          "operation": "RENAME",
+          "source": "https://www.vissel-kobe.co.jp/news/article/8466.html"
+        }
+      ],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 259,
+    "world": "2627",
+    "id": "_japaneseLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "JPN",
+    "candidateSources": [
+      "9b0eb97e8248e1a7c71846e612ebcef7241b4e2e",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "J2 League",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.jleague.jp/corporate/about_competitions/tournament_history/",
+      "nameHistory": [
+        {
+          "transition": 253,
+          "from": "1999",
+          "to": null,
+          "previousName": null,
+          "name": "J.League Division 2",
+          "operation": "INTRODUCE",
+          "source": "https://www.jleague.jp/corporate/about_competitions/tournament_history/"
+        },
+        {
+          "transition": 255,
+          "from": "2015",
+          "to": null,
+          "previousName": "J.League Division 2",
+          "name": "J2 League",
+          "operation": "RENAME",
+          "source": "https://www.vissel-kobe.co.jp/news/article/8466.html"
+        }
+      ],
+      "historyComplete": false
+    }
+  }
+]

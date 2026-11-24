@@ -1,0 +1,38 @@
+[
+  {
+    "row": 370,
+    "world": "2627",
+    "id": "_israeliCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "ISR",
+    "candidateSources": [
+      "1db714bb54f9be6429afe2e869103ec27e890ed3"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+    },
+    "sportResearchStatus": "RULES_PARTIAL",
+    "knownSportData": "older IFA statute local knockout for lower leagues; 2627 official preliminary draw announced, https://www.football.org.il/?itemid=%7B6DD536DF-1A44-4C12-A878-A851CBB7FFF7%7D",
+    "remainingSportData": "current amended statute and round entry/legs, mapping/date",
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Israel State Cup",
+      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

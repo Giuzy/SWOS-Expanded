@@ -1,0 +1,51 @@
+[
+  {
+    "row": 302,
+    "world": "2627",
+    "id": "_yugoslavianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SRB",
+    "candidateSources": [
+      "356f4063724366c16d0070ec9caae81183c386c2"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "Super liga Srbije",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://fss.rs/io-fss-odlucio-liga-sa-12-klubova-za-novu-eru-srpskog-fudbala/?script=lat",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence43": {
+      "edition": "2026/27",
+      "teams": 14,
+      "regularGames": 26,
+      "splitGroups": [
+        6,
+        8
+      ],
+      "sources": [
+        "https://fss.rs/io-fss-odlucio-liga-sa-12-klubova-za-novu-eru-srpskog-fudbala/?script=lat",
+        "https://fss.rs/branko-radujko-generalni-sekretar-fss-o-promeni-formata-takmicenja-i-dolasku-inostranog-strucnjaka-na-celo-sudijske-komisije/?script=lat",
+        "https://www.superliga.rs/sezona/tabela-takmicenja/"
+      ],
+      "scope": "Split supported by search excerpt, full page timeout. 2027/28 adopted 12-team change recorded separately, no game policy assumed."
+    }
+  }
+]

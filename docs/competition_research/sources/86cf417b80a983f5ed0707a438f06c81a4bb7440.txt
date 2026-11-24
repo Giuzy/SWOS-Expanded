@@ -1,0 +1,1020 @@
+{
+  "kind": "RESEARCH_SNAPSHOT_NOT_CE_SCHEMA",
+  "cutoff": "1996-06-30",
+  "headLastVerified": "beb9fd3",
+  "sweden": {
+    "source": "https://www.soccerpunter.com/soccer-statistics/Sweden/Allsvenskan-1996/results",
+    "fixtures": [
+      {
+        "date": "1996-04-21",
+        "home": "AIK",
+        "away": "Degerfors",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-04-21",
+        "home": "Halmstad",
+        "away": "Djurgården",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-04-21",
+        "home": "Helsingborg",
+        "away": "Öster",
+        "hg": 2,
+        "ag": 0
+      },
+      {
+        "date": "1996-04-21",
+        "home": "IFK Göteborg",
+        "away": "Malmö FF",
+        "hg": 0,
+        "ag": 0
+      },
+      {
+        "date": "1996-04-21",
+        "home": "IFK Norrköping",
+        "away": "Umeå",
+        "hg": 0,
+        "ag": 1
+      },
+      {
+        "date": "1996-04-21",
+        "home": "Oddevold",
+        "away": "Trelleborg",
+        "hg": 3,
+        "ag": 0
+      },
+      {
+        "date": "1996-04-21",
+        "home": "Örebro",
+        "away": "Örgryte",
+        "hg": 0,
+        "ag": 1
+      },
+      {
+        "date": "1996-04-28",
+        "home": "Degerfors",
+        "away": "IFK Göteborg",
+        "hg": 2,
+        "ag": 7
+      },
+      {
+        "date": "1996-04-28",
+        "home": "Malmö FF",
+        "away": "Örebro",
+        "hg": 2,
+        "ag": 0
+      },
+      {
+        "date": "1996-04-28",
+        "home": "Umeå",
+        "away": "Helsingborg",
+        "hg": 0,
+        "ag": 2
+      },
+      {
+        "date": "1996-04-29",
+        "home": "Djurgården",
+        "away": "IFK Norrköping",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-04-29",
+        "home": "Örgryte",
+        "away": "Halmstad",
+        "hg": 0,
+        "ag": 0
+      },
+      {
+        "date": "1996-04-29",
+        "home": "Öster",
+        "away": "Oddevold",
+        "hg": 0,
+        "ag": 1
+      },
+      {
+        "date": "1996-04-29",
+        "home": "Trelleborg",
+        "away": "AIK",
+        "hg": 0,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-01",
+        "home": "Helsingborg",
+        "away": "Degerfors",
+        "hg": 4,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-01",
+        "home": "Örebro",
+        "away": "Umeå",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-02",
+        "home": "AIK",
+        "away": "Malmö FF",
+        "hg": 0,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-02",
+        "home": "Halmstad",
+        "away": "Öster",
+        "hg": 2,
+        "ag": 2
+      },
+      {
+        "date": "1996-05-02",
+        "home": "IFK Norrköping",
+        "away": "Trelleborg",
+        "hg": 3,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-02",
+        "home": "Oddevold",
+        "away": "IFK Göteborg",
+        "hg": 0,
+        "ag": 2
+      },
+      {
+        "date": "1996-05-02",
+        "home": "Örgryte",
+        "away": "Djurgården",
+        "hg": 3,
+        "ag": 0
+      },
+      {
+        "date": "1996-05-05",
+        "home": "AIK",
+        "away": "Öster",
+        "hg": 2,
+        "ag": 3
+      },
+      {
+        "date": "1996-05-05",
+        "home": "Halmstad",
+        "away": "Örebro",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-05-05",
+        "home": "Helsingborg",
+        "away": "Djurgården",
+        "hg": 2,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-05",
+        "home": "IFK Göteborg",
+        "away": "Trelleborg",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-05-05",
+        "home": "IFK Norrköping",
+        "away": "Örgryte",
+        "hg": 2,
+        "ag": 0
+      },
+      {
+        "date": "1996-05-05",
+        "home": "Oddevold",
+        "away": "Umeå",
+        "hg": 2,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-12",
+        "home": "Örgryte",
+        "away": "Helsingborg",
+        "hg": 0,
+        "ag": 2
+      },
+      {
+        "date": "1996-05-12",
+        "home": "Trelleborg",
+        "away": "Degerfors",
+        "hg": 3,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-12",
+        "home": "Umeå",
+        "away": "AIK",
+        "hg": 2,
+        "ag": 0
+      },
+      {
+        "date": "1996-05-13",
+        "home": "Djurgården",
+        "away": "Oddevold",
+        "hg": 2,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-13",
+        "home": "Malmö FF",
+        "away": "Halmstad",
+        "hg": 4,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-13",
+        "home": "Örebro",
+        "away": "IFK Norrköping",
+        "hg": 1,
+        "ag": 4
+      },
+      {
+        "date": "1996-05-13",
+        "home": "Öster",
+        "away": "IFK Göteborg",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-19",
+        "home": "Degerfors",
+        "away": "Djurgården",
+        "hg": 0,
+        "ag": 2
+      },
+      {
+        "date": "1996-05-19",
+        "home": "Oddevold",
+        "away": "Halmstad",
+        "hg": 0,
+        "ag": 3
+      },
+      {
+        "date": "1996-05-19",
+        "home": "Öster",
+        "away": "Malmö FF",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-05-19",
+        "home": "Trelleborg",
+        "away": "Umeå",
+        "hg": 3,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-20",
+        "home": "AIK",
+        "away": "Örebro",
+        "hg": 0,
+        "ag": 2
+      },
+      {
+        "date": "1996-05-20",
+        "home": "Helsingborg",
+        "away": "IFK Norrköping",
+        "hg": 2,
+        "ag": 2
+      },
+      {
+        "date": "1996-05-20",
+        "home": "IFK Göteborg",
+        "away": "Örgryte",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-05-27",
+        "home": "Djurgården",
+        "away": "Trelleborg",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-05-27",
+        "home": "Halmstad",
+        "away": "AIK",
+        "hg": 3,
+        "ag": 2
+      },
+      {
+        "date": "1996-05-27",
+        "home": "Malmö FF",
+        "away": "Helsingborg",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-27",
+        "home": "IFK Norrköping",
+        "away": "Oddevold",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-27",
+        "home": "Örebro",
+        "away": "IFK Göteborg",
+        "hg": 0,
+        "ag": 0
+      },
+      {
+        "date": "1996-05-27",
+        "home": "Örgryte",
+        "away": "Degerfors",
+        "hg": 0,
+        "ag": 0
+      },
+      {
+        "date": "1996-05-27",
+        "home": "Umeå",
+        "away": "Öster",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-05",
+        "home": "AIK",
+        "away": "Djurgården",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-05",
+        "home": "Degerfors",
+        "away": "Öster",
+        "hg": 2,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-05",
+        "home": "Helsingborg",
+        "away": "Örebro",
+        "hg": 3,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-05",
+        "home": "IFK Göteborg",
+        "away": "Umeå",
+        "hg": 4,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-05",
+        "home": "IFK Norrköping",
+        "away": "Halmstad",
+        "hg": 0,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-05",
+        "home": "Oddevold",
+        "away": "Örgryte",
+        "hg": 0,
+        "ag": 2
+      },
+      {
+        "date": "1996-06-05",
+        "home": "Trelleborg",
+        "away": "Malmö FF",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-09",
+        "home": "Örebro",
+        "away": "Oddevold",
+        "hg": 2,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-09",
+        "home": "Umeå",
+        "away": "Degerfors",
+        "hg": 2,
+        "ag": 2
+      },
+      {
+        "date": "1996-06-10",
+        "home": "Djurgården",
+        "away": "IFK Göteborg",
+        "hg": 0,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-10",
+        "home": "Örgryte",
+        "away": "AIK",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-10",
+        "home": "Öster",
+        "away": "Trelleborg",
+        "hg": 3,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-12",
+        "home": "Halmstad",
+        "away": "Helsingborg",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-12",
+        "home": "Malmö FF",
+        "away": "IFK Norrköping",
+        "hg": 0,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-13",
+        "home": "IFK Göteborg",
+        "away": "AIK",
+        "hg": 0,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-15",
+        "home": "Degerfors",
+        "away": "Örebro",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-16",
+        "home": "Öster",
+        "away": "Djurgården",
+        "hg": 2,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-16",
+        "home": "Trelleborg",
+        "away": "Örgryte",
+        "hg": 3,
+        "ag": 2
+      },
+      {
+        "date": "1996-06-16",
+        "home": "Umeå",
+        "away": "Malmö FF",
+        "hg": 0,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-17",
+        "home": "AIK",
+        "away": "IFK Norrköping",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-17",
+        "home": "IFK Göteborg",
+        "away": "Halmstad",
+        "hg": 4,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-17",
+        "home": "Oddevold",
+        "away": "Helsingborg",
+        "hg": 0,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-19",
+        "home": "Djurgården",
+        "away": "Örebro",
+        "hg": 2,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-20",
+        "home": "Degerfors",
+        "away": "Oddevold",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-20",
+        "home": "Malmö FF",
+        "away": "Örgryte",
+        "hg": 0,
+        "ag": 2
+      },
+      {
+        "date": "1996-06-20",
+        "home": "Öster",
+        "away": "IFK Norrköping",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-20",
+        "home": "Trelleborg",
+        "away": "Helsingborg",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-20",
+        "home": "Umeå",
+        "away": "Halmstad",
+        "hg": 2,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-24",
+        "home": "Halmstad",
+        "away": "Degerfors",
+        "hg": 3,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-24",
+        "home": "Helsingborg",
+        "away": "AIK",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-24",
+        "home": "Malmö FF",
+        "away": "Oddevold",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-24",
+        "home": "IFK Norrköping",
+        "away": "IFK Göteborg",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-26",
+        "home": "Djurgården",
+        "away": "Umeå",
+        "hg": 2,
+        "ag": 2
+      },
+      {
+        "date": "1996-06-26",
+        "home": "Örebro",
+        "away": "Trelleborg",
+        "hg": 3,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-27",
+        "home": "Örgryte",
+        "away": "Öster",
+        "hg": 3,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-29",
+        "home": "Degerfors",
+        "away": "IFK Norrköping",
+        "hg": 3,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-29",
+        "home": "Halmstad",
+        "away": "Trelleborg",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-29",
+        "home": "IFK Göteborg",
+        "away": "Helsingborg",
+        "hg": 4,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-29",
+        "home": "Oddevold",
+        "away": "AIK",
+        "hg": 0,
+        "ag": 0
+      }
+    ],
+    "table": [
+      {
+        "team": "IFK Göteborg",
+        "P": 13,
+        "W": 8,
+        "D": 3,
+        "L": 2,
+        "GF": 25,
+        "GA": 6,
+        "pts": 27
+      },
+      {
+        "team": "Helsingborg",
+        "P": 13,
+        "W": 8,
+        "D": 3,
+        "L": 2,
+        "GF": 22,
+        "GA": 11,
+        "pts": 27
+      },
+      {
+        "team": "Halmstad",
+        "P": 13,
+        "W": 7,
+        "D": 3,
+        "L": 3,
+        "GF": 17,
+        "GA": 14,
+        "pts": 24
+      },
+      {
+        "team": "Örgryte",
+        "P": 12,
+        "W": 5,
+        "D": 3,
+        "L": 4,
+        "GF": 14,
+        "GA": 9,
+        "pts": 18
+      },
+      {
+        "team": "Öster",
+        "P": 12,
+        "W": 5,
+        "D": 3,
+        "L": 4,
+        "GF": 15,
+        "GA": 15,
+        "pts": 18
+      },
+      {
+        "team": "Malmö FF",
+        "P": 11,
+        "W": 4,
+        "D": 5,
+        "L": 2,
+        "GF": 11,
+        "GA": 7,
+        "pts": 17
+      },
+      {
+        "team": "IFK Norrköping",
+        "P": 13,
+        "W": 4,
+        "D": 5,
+        "L": 4,
+        "GF": 15,
+        "GA": 12,
+        "pts": 17
+      },
+      {
+        "team": "AIK",
+        "P": 13,
+        "W": 4,
+        "D": 3,
+        "L": 6,
+        "GF": 10,
+        "GA": 14,
+        "pts": 15
+      },
+      {
+        "team": "Degerfors",
+        "P": 12,
+        "W": 4,
+        "D": 3,
+        "L": 5,
+        "GF": 14,
+        "GA": 24,
+        "pts": 15
+      },
+      {
+        "team": "Djurgården",
+        "P": 12,
+        "W": 4,
+        "D": 2,
+        "L": 6,
+        "GF": 11,
+        "GA": 15,
+        "pts": 14
+      },
+      {
+        "team": "Umeå",
+        "P": 12,
+        "W": 3,
+        "D": 4,
+        "L": 5,
+        "GF": 13,
+        "GA": 19,
+        "pts": 13
+      },
+      {
+        "team": "Oddevold",
+        "P": 13,
+        "W": 3,
+        "D": 3,
+        "L": 7,
+        "GF": 9,
+        "GA": 16,
+        "pts": 12
+      },
+      {
+        "team": "Örebro",
+        "P": 12,
+        "W": 3,
+        "D": 2,
+        "L": 7,
+        "GF": 10,
+        "GA": 16,
+        "pts": 11
+      },
+      {
+        "team": "Trelleborg",
+        "P": 13,
+        "W": 3,
+        "D": 2,
+        "L": 8,
+        "GF": 14,
+        "GA": 22,
+        "pts": 11
+      }
+    ],
+    "checks": {
+      "matches": 87,
+      "teams": 14,
+      "duplicates": 0,
+      "collisions": 0,
+      "goalBalance": 0,
+      "cutoff": true
+    },
+    "remaining": 95,
+    "note": "Source lines 644–1148 inspected across viewports. Only one source, independent reconciliation needed. Tie-break not certified."
+  },
+  "faroeCup": {
+    "source": "https://en.wikipedia.org/wiki/1996_Faroe_Islands_Cup",
+    "entrants": 21,
+    "format": "2 preliminary fixtures, 3 first-round fixtures, 4 groups of 4 double RR, top2 QF single, SF two-leg, final single with possible replay",
+    "preliminary": [
+      [
+        "1996-03-17",
+        "Fram",
+        4,
+        3,
+        "Æsir Vestmanna"
+      ],
+      [
+        "1996-03-17",
+        "AB",
+        2,
+        3,
+        "Skansin Tórshavn"
+      ]
+    ],
+    "firstRound": {
+      "window": "1996-03-23/24",
+      "results": [
+        [
+          "Skála",
+          3,
+          11,
+          "LÍF"
+        ],
+        [
+          "Skansin Tórshavn",
+          0,
+          4,
+          "Royn Hvalba"
+        ],
+        [
+          "SÍ Sørvágur",
+          3,
+          1,
+          "Fram"
+        ]
+      ]
+    },
+    "groups": [
+      {
+        "teams": [
+          "B36",
+          "B71",
+          "SÍ Sørvágur",
+          "TB"
+        ],
+        "scores": [
+          [
+            null,
+            "2-3",
+            "16-1",
+            "4-0"
+          ],
+          [
+            "0-1",
+            null,
+            "4-0",
+            "4-3"
+          ],
+          [
+            "1-5",
+            "0-4",
+            null,
+            "5-2"
+          ],
+          [
+            "1-4",
+            "2-5",
+            "1-2",
+            null
+          ]
+        ]
+      },
+      {
+        "teams": [
+          "GÍ",
+          "VB",
+          "FS Vágar",
+          "LÍF"
+        ],
+        "scores": [
+          [
+            null,
+            "6-0",
+            "5-1",
+            "5-1"
+          ],
+          [
+            "0-2",
+            null,
+            "6-1",
+            "7-0"
+          ],
+          [
+            "0-7",
+            "2-1",
+            null,
+            "3-1"
+          ],
+          [
+            "1-5",
+            "1-6",
+            "3-7",
+            null
+          ]
+        ]
+      },
+      {
+        "teams": [
+          "ÍF",
+          "B68",
+          "NSÍ",
+          "Royn"
+        ],
+        "scores": [
+          [
+            null,
+            "2-0",
+            "3-2",
+            "4-0"
+          ],
+          [
+            "2-1",
+            null,
+            "2-0",
+            "3-0"
+          ],
+          [
+            "2-2",
+            "1-1",
+            null,
+            "5-1"
+          ],
+          [
+            "1-2",
+            "1-4",
+            "0-9",
+            null
+          ]
+        ]
+      },
+      {
+        "teams": [
+          "KÍ",
+          "HB",
+          "SÍ Sumba",
+          "EB/Streymur"
+        ],
+        "scores": [
+          [
+            null,
+            "3-0",
+            "12-0",
+            "4-0"
+          ],
+          [
+            "1-3",
+            null,
+            "8-0",
+            "4-1"
+          ],
+          [
+            "0-6",
+            "0-5",
+            null,
+            "2-1"
+          ],
+          [
+            "1-6",
+            null,
+            "0-4",
+            null
+          ]
+        ],
+        "missing": "EB/Streymur home vs HB absent, do not invent"
+      }
+    ],
+    "groupWindow": "1996-03-30/1996-05-03",
+    "quarterFinals": [
+      [
+        "1996-05-16",
+        "KÍ",
+        8,
+        1,
+        "B71"
+      ],
+      [
+        "1996-05-16",
+        "ÍF",
+        0,
+        1,
+        "VB"
+      ],
+      [
+        "1996-05-16",
+        "GÍ",
+        4,
+        0,
+        "B68"
+      ],
+      [
+        "1996-05-16",
+        "B36",
+        1,
+        4,
+        "HB"
+      ]
+    ],
+    "semifinals": [
+      {
+        "teamA": "VB",
+        "teamB": "GÍ",
+        "firstDate": "1996-06-05",
+        "firstScoreAB": "2-1",
+        "secondWindow": "1996-06-28/29",
+        "secondScoreAB": "0-3"
+      },
+      {
+        "teamA": "KÍ",
+        "teamB": "HB",
+        "firstDate": "1996-06-05",
+        "firstScoreAB": "1-1",
+        "secondWindow": "1996-06-28/29",
+        "secondScoreAB": "5-5",
+        "extraTime": true,
+        "penaltiesAB": "2-4"
+      }
+    ],
+    "final": {
+      "date": "1996-08-04",
+      "teams": [
+        "GÍ",
+        "HB"
+      ],
+      "result": null
+    },
+    "limits": "Group matrices secondary and marked citation needed, 47 scores, no exact match dates; one unplayed or missing fixture, verify administrative reason. 60 scores before cutoff incl preliminary and KO; not certified snapshot. RSSSF encoding error. Replay date not fixed unless required by simulated result."
+  },
+  "pending": {
+    "finland": "RSSSF fin96 and BetExplorer identified, Tribuna cache miss; no new results extracted.",
+    "iceland": "RSSSF ijs96 Unicode decoding error; Wildstat club-level archives located.",
+    "faroeLeague": "RSSSF far96 Unicode decoding error; no league results extracted."
+  },
+  "limits": "No mapping, no runtime, no guide changes, no commit. Precheck RG before integration."
+}

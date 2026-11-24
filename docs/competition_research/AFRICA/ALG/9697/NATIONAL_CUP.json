@@ -1,0 +1,45 @@
+[
+  {
+    "row": 148,
+    "world": "9697",
+    "id": "_algerianCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "ALG",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "historicalSportData": {
+      "name": "Coupe d'Algérie",
+      "edition": "1995/96 and 1996/97",
+      "teams": null,
+      "known": "1996/97 at least round of 64; single ties, ET/penalties observed, QF Jun29 SF Jul2 final Jul5 1997. 1995/96 final July5 1996: still active at START; finalists MC Oran and USM Blida, no winner imported. 1996/97 archive internally inconsistent SF MC Alger after QF loss: do not certify complete bracket.",
+      "missing": "1995/96 prestart fixture history, full entrants and keys, reconcile 1997 archive contradiction",
+      "sources": [
+        "https://www.rsssf.org/tablesa/alg97.html",
+        "https://www.rsssf.org/tablesa/algcuphist.html"
+      ],
+      "scope": "Temporary historical research only; future results excluded from START."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Coupe d'Algérie",
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

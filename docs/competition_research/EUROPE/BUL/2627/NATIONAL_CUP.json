@@ -1,0 +1,71 @@
+[
+  {
+    "row": 337,
+    "world": "2627",
+    "id": "_bulgarianCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "BUL",
+    "candidateSources": [
+      "1db714bb54f9be6429afe2e869103ec27e890ed3"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "sportResearchStatus": "RULES_PARTIAL",
+    "knownSportData": "BFU June 2026: second preliminary 36=16 second league+20 regional, 18 winners, lower tier hosts; R16 16 teams single elimination; final single; cup winner Europe, double winner reallocates to league second not finalist.",
+    "remainingSportData": "full article 16 round counts and pairing, match rules, club keys and dates",
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "Kupa na Bulgaria",
+      "candidateName": "Bulgarian Cup",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://en.bulgarian-football.com/season-2025-2026/kupa-na-bulgaria.html",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence45": {
+      "edition": "2025/26",
+      "rules": {
+        "roundOf32": 32,
+        "roundOf32DrawPairs": 16,
+        "drawDate": "2025-09-26",
+        "exampleMatchDate": "2025-10-28"
+      },
+      "sources": [
+        "https://en.bulgarian-football.com/season-2025-2026/kupa-na-bulgaria.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "TFF PDF p1 screenshot verified; Bulgarian league HTML opened; other sources search excerpts only, EPO/RSSSF open cache miss. No full calendar or player rules certification."
+    },
+    "sportRuleEvidence46": {
+      "edition": "2025/26",
+      "rules": {
+        "semifinalLegs": 2,
+        "semifinalFirstHome": "first drawn",
+        "semifinalDrawDate": "2026-02-18",
+        "quarterfinalDrawDate": "2025-12-18",
+        "roundOf16DrawDate": "2025-11-05",
+        "observedRoundOf16Window": [
+          "2025-12-11",
+          "2025-12-15"
+        ]
+      },
+      "sources": [
+        "https://bulgarian-football.com/archive/2025-2026/kupa-na-bulgaria.html"
+      ],
+      "limitations": "Observed main national stage, not regional preliminaries.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "row": 239,
+    "world": "2627",
+    "id": "_frenchLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "FRA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Ligue 1",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "nameHistory": [
+        {
+          "transition": 213,
+          "from": "2002/03",
+          "to": null,
+          "previousName": "Division 1",
+          "name": "Ligue 1",
+          "operation": "RENAME",
+          "source": "https://www.fff.fr/475-palmares-ligue-1.html"
+        }
+      ],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 240,
+    "world": "2627",
+    "id": "_frenchLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "FRA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Ligue 2",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "nameHistory": [
+        {
+          "transition": 214,
+          "from": "2002/03",
+          "to": null,
+          "previousName": "Division 2",
+          "name": "Ligue 2",
+          "operation": "RENAME",
+          "source": "https://www.fff.fr/476-palmares-ligue-2.html"
+        }
+      ],
+      "historyComplete": false
+    }
+  }
+]

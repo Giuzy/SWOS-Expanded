@@ -1,0 +1,58 @@
+[
+  {
+    "index": 214,
+    "value": {
+      "competition": "SUI tier 1",
+      "firstEdition": "2003/04",
+      "operation": "RENAME",
+      "previousName": "Nationalliga A",
+      "name": "Super League",
+      "rowRefs": [
+        32,
+        303
+      ],
+      "source": "https://www.uefa.com/news-media/news/0192-0e6a636e4ee6-a4db8dcfd311-1000--structural-change-in-switzerland/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  },
+  {
+    "index": 288,
+    "value": {
+      "competition": "SUI tier 1",
+      "firstEdition": "2003/04",
+      "lastEdition": "2022/23",
+      "operation": "OBSERVED_TEAM_COUNT",
+      "teams": 10,
+      "rowRefs": [
+        32,
+        303
+      ],
+      "source": "https://sfl.ch/de/geschichte-kurz-und-bundig",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 40 official league HTML search/open 24/11/2026; no full calendar/identity certification."
+    }
+  },
+  {
+    "index": 289,
+    "value": {
+      "competition": "SUI tier 1",
+      "firstEdition": "2023/24",
+      "operation": "CHANGE_FORMAT",
+      "teams": 12,
+      "regularGames": 33,
+      "splitGames": 5,
+      "pointsHalved": false,
+      "directRelegatedRank": 12,
+      "playoffRank": 11,
+      "playoffOpponentTier2Rank": 2,
+      "playoffLegs": 2,
+      "rowRefs": [
+        303
+      ],
+      "source": "https://sfl.ch/de/modus-ab-202324-swiss-football-league",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 40 official league HTML search/open 24/11/2026; no full calendar/identity certification."
+    }
+  }
+]

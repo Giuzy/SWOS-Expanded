@@ -1,0 +1,27 @@
+[
+  {
+    "index": 330,
+    "value": {
+      "row": 331,
+      "active_from": "1992",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [
+        {
+          "from": "2002/03",
+          "until": "2002/03",
+          "reason": "RSSSF no edition; exact federation decision pending",
+          "careerApplicability": "RESEARCH_ONLY"
+        }
+      ],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_INDEPENDENT_ERA_IDENTITY_MAPPING_CANDIDATE",
+      "sources": [
+        "https://www.rsssf.org/tablesa/azercuphist.html"
+      ]
+    }
+  }
+]

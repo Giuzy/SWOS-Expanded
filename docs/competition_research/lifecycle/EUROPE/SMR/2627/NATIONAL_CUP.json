@@ -1,0 +1,23 @@
+[
+  {
+    "index": 404,
+    "value": {
+      "row": 405,
+      "active_from": "1980",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_NATIONAL_CUP_STATUS_FROM_NOT_ORIGIN",
+      "sources": [
+        "https://www.fsgc.sm/it/storia",
+        "https://rsssf.org/tabless/sanmcuphist.html"
+      ],
+      "historicalOrigin": "1965",
+      "retrospectiveHonoursFrom": "1937"
+    }
+  }
+]

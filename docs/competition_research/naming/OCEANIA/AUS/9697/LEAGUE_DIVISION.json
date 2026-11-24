@@ -1,0 +1,34 @@
+[
+  {
+    "index": 67,
+    "value": {
+      "row": 68,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": []
+    }
+  },
+  {
+    "index": 68,
+    "value": {
+      "row": 69,
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "transitionRefs": []
+    }
+  },
+  {
+    "index": 69,
+    "value": {
+      "row": 70,
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "transitionRefs": []
+    }
+  },
+  {
+    "index": 70,
+    "value": {
+      "row": 71,
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "transitionRefs": []
+    }
+  }
+]

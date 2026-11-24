@@ -1,0 +1,18 @@
+[
+  {
+    "index": 187,
+    "value": {
+      "competition": "ARM national cup",
+      "firstEdition": "1992",
+      "lastEdition": null,
+      "operation": "INDEPENDENT_COMPETITION",
+      "note": "Independent-country finals listed annually through 2026; Soviet-era predecessor not treated as same runtime ID automatically. Full edition dates/rules pending.",
+      "source": "https://www.rsssf.org/tablesa/armecuphist.html",
+      "rowRefs": [
+        328
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 27: RSSSF Armenia lines 54–89, Azerbaijan 55–68, Kazakhstan 55–101 opened; Georgia snippet only (Unicode error), KFF official search excerpt. No future results imported."
+    }
+  }
+]

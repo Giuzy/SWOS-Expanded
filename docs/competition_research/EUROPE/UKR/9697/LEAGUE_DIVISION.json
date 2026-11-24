@@ -1,0 +1,64 @@
+[
+  {
+    "row": 34,
+    "world": "9697",
+    "id": "_ukrainianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "UKR",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "UKRAINE",
+      "teams": "18",
+      "formula": "OG rounds=2; points_win=3; begin=56; end=40",
+      "promotionRaw": "0 campo-OG + 0 playoff",
+      "relegationRaw": "0 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "edition": "1996/97",
+      "teams": 16,
+      "regularOrInitialGamesPerClub": 30,
+      "pointsWin": 3,
+      "formatAndMovement": "Double RR",
+      "researchSource": "https://www.rsssf.org/tablesa/allfirst9697.html",
+      "scope": "Observed structure, no future results imported; null and uncertain fields remain open."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Vyshcha Liha",
+      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "source": "https://www.rsssf.org/resultsp99.html",
+      "nameHistory": [
+        {
+          "transition": 226,
+          "from": "2008/09",
+          "to": null,
+          "previousName": "Vyshcha Liha",
+          "name": "Ukrainian Premier League",
+          "operation": "RENAME",
+          "source": "https://www.footballhistory.org/league/ukrainian-league.html"
+        }
+      ],
+      "historyComplete": false
+    }
+  }
+]

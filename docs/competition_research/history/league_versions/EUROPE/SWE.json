@@ -1,0 +1,25 @@
+[
+  {
+    "index": 77,
+    "value": {
+      "country": "SWE",
+      "division": "div1",
+      "from": "2008",
+      "to": null,
+      "rules": {
+        "teams": 16,
+        "previousTeams": 14,
+        "note": "Contemporary report confirms decision; actual edition table still to corroborate"
+      },
+      "sources": [
+        "https://www.aftenposten.no/sport/fotball/i/g7zPe9/16-lag-i-eliteserien"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact end of validity, access, dates and modern equivalence pending",
+      "rowRefs": [
+        31,
+        307
+      ]
+    }
+  }
+]

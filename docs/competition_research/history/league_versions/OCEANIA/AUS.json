@@ -1,0 +1,121 @@
+[
+  {
+    "index": 21,
+    "value": {
+      "country": "AUS",
+      "division": "div1",
+      "from": "2005/06",
+      "to": "2008/09",
+      "rules": {
+        "competition": "A-League",
+        "teams": 8,
+        "finalsTeams": 4,
+        "finals": "Modified Page: first-round ties two legs; higher seeds have second chance; final single",
+        "regularRounds": "verify each edition",
+        "promotionRelegation": "franchise admission, no sporting movement"
+      },
+      "source": "https://en.wikipedia.org/wiki/A-League_Men_finals_series",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        68,
+        207
+      ]
+    }
+  },
+  {
+    "index": 22,
+    "value": {
+      "country": "AUS",
+      "division": "div1",
+      "from": "2009/10",
+      "to": "2011/12",
+      "rules": {
+        "competition": "A-League",
+        "finalsTeams": 6,
+        "finals": "four weeks; top two double chance; lower four elimination ties",
+        "regularTeamCounts": "verify by edition; expansion in 2009 and 2010"
+      },
+      "source": "https://en.wikipedia.org/wiki/A-League_Men_finals_series",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        68,
+        207
+      ]
+    }
+  },
+  {
+    "index": 23,
+    "value": {
+      "country": "AUS",
+      "division": "div1",
+      "from": "2012/13",
+      "to": "2020/21",
+      "rules": {
+        "competition": "A-League",
+        "finalsTeams": 6,
+        "finals": "single elimination; top two bye; 3 vs 6, 4 vs 5 then semis and final",
+        "excludePandemicExceptions": true
+      },
+      "source": "https://en.wikipedia.org/wiki/A-League_Men_finals_series",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        68,
+        207
+      ]
+    }
+  },
+  {
+    "index": 190,
+    "value": {
+      "country": "AUS",
+      "division": "regional_NPL",
+      "from": "2013",
+      "to": null,
+      "rules": {
+        "operation": "REGIONAL_REORGANIZATION",
+        "nationalFinals": true,
+        "initialFederations": 5,
+        "note": "Regional state leagues, not a single national round robin. National finals separate; map to actual existing regional rows, not arbitrary div2."
+      },
+      "sources": [
+        "https://nationalpremierleagues.com.au/news/ps4-npl-finals-series-lowdown",
+        "https://footballaustralia.com.au/history"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Official competition and federation excerpts; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": []
+    }
+  },
+  {
+    "index": 191,
+    "value": {
+      "country": "AUS",
+      "division": "national_second_tier",
+      "from": "2025",
+      "to": null,
+      "rules": {
+        "operation": "CREATE_NATIONAL_CHAMPIONSHIP",
+        "teams": 16,
+        "foundationClubs": 8,
+        "nplQualifiers": 8,
+        "groups": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "groupRounds": 2,
+        "groupGamesPerClub": 6,
+        "qualifiersPerGroup": 2,
+        "knockoutTeams": 8,
+        "note": "NPL premier eligible subject to compliance; if foundation club or noncompliant, next highest non-foundation club. No direct promotion to A-League inferred; separate competition mapping pending."
+      },
+      "sources": [
+        "https://australianchampionship.com.au/news/beginners-guide-australian-championship"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Official competition page opened lines 45–52 and 236–244; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": []
+    }
+  }
+]

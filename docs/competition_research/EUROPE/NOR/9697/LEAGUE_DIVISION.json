@@ -1,0 +1,70 @@
+[
+  {
+    "row": 22,
+    "world": "9697",
+    "id": "_norwegianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "NOR",
+    "candidateSources": [
+      "46ac89a6160e4ac70d19230844c32ef2ad580c57"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NEUTRAL_NONCOMMERCIAL_LABEL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "NORWAY",
+      "teams": "14",
+      "formula": "OG rounds=2; points_win=3; begin=24; end=72",
+      "promotionRaw": "0 campo-OG + 0 playoff",
+      "relegationRaw": "0 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS",
+      "sources": [
+        "46ac89a6160e4ac70d19230844c32ef2ad580c57"
+      ],
+      "details": {
+        "matches": 89,
+        "teams": 14,
+        "remaining": 93
+      },
+      "missing": "Club keys; independent exact dates and standings reconciliation."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": "Eliteserien",
+      "candidateName": null,
+      "status": "NEUTRAL_NONCOMMERCIAL_LABEL",
+      "source": "https://www.aftenposten.no/sport/fotball/i/Ad77G3/dette-er-nye-eliteserien-nytt-navn-nye-farger-og-love-i-logoen",
+      "nameHistory": [
+        {
+          "transition": 266,
+          "from": "2017",
+          "to": null,
+          "previousName": null,
+          "name": "Eliteserien",
+          "operation": "NONCOMMERCIAL_NAME_CONFIRMED",
+          "source": "https://www.fotball.no/tema/nff-nyheter/2016/eliteserien---lidenskap-og-fellesskap/"
+        }
+      ],
+      "historyComplete": false
+    }
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "row": 398,
+    "world": "2627",
+    "id": "_romanianCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "ROU",
+    "candidateSources": [
+      "524bf34b84be68487922a945e83ed44cd13b792d"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Cupa României",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "524bf34b84be68487922a945e83ed44cd13b792d",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence42": {
+      "edition": "2022/23",
+      "regionalZones": 7,
+      "regionalWinnersEnterRound": 2,
+      "groupTeams": 24,
+      "groups": 4,
+      "teamsPerGroup": 6,
+      "pots": 3,
+      "gamesPerTeam": 3,
+      "directTopTierEntrants": 8,
+      "otherEntrants": 16,
+      "knockoutStages": [
+        "QF",
+        "SF",
+        "FINAL"
+      ],
+      "legs": 1,
+      "sources": [
+        "https://www.frf.ro/recomandate/cum-va-arata-formatul-cupei-romaniei-betano-incepand-din-noul-sezon/",
+        "https://www.frf.ro/recomandate/clasamentul-agregat-al-cupei-romaniei-betano-in-noul-format-cele-mai-bune-echipe-din-ultimele-trei-sezoane/"
+      ],
+      "scope": "Format corroborated through 2024/25; 2026/27 details pending."
+    }
+  }
+]

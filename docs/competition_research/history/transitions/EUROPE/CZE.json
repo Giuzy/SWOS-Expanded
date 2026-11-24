@@ -1,0 +1,32 @@
+[
+  {
+    "index": 296,
+    "value": {
+      "competition": "CZE tier 1",
+      "firstEdition": "2018/19",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        227
+      ],
+      "source": "https://www.lfafotbal.cz/clanek/34-herni-format-i-ligy-od-sezony-2018-19",
+      "note": "16 clubs, 30 games, split 6/4/6; top and bottom single round with retained points; middle two-leg knockout for European access; 16th relegated, 14th/15th two-leg playoffs vs tier2 ranks 2/3. Historical regulation, not current equivalence.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 41 official HTML opened or search excerpt; no PDF analyzed."
+    }
+  },
+  {
+    "index": 297,
+    "value": {
+      "competition": "CZE tier 1",
+      "firstEdition": "2021/22",
+      "operation": "RESUME_AND_CHANGE_FORMAT",
+      "rowRefs": [
+        227
+      ],
+      "source": "https://www.lfafotbal.cz/clanek/422-ligove-gremium-lfa-schvalilo-herni-format-s-nadstavbou",
+      "note": "Post-pandemic split and relegation playoffs restored, middle winner no Europa League playoff; third-round national cup entry and financial reward. Five substitutions voted subject to FA approval.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 41 official HTML opened or search excerpt; no PDF analyzed."
+    }
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "index": 81,
+    "value": {
+      "country": "ISR",
+      "division": "div1",
+      "from": "1999/00",
+      "to": null,
+      "rules": {
+        "teams": 14,
+        "note": "New Premier League; secondary source needs corroboration"
+      },
+      "sources": [
+        "https://israelpedia.org/article/israeli-football-league-system"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact end of validity, access, dates and modern equivalence pending",
+      "rowRefs": [
+        16,
+        257
+      ]
+    }
+  },
+  {
+    "index": 82,
+    "value": {
+      "country": "ISR",
+      "division": "div1",
+      "from": "2000/01",
+      "to": null,
+      "rules": {
+        "teams": 12,
+        "note": "Secondary source needs corroboration"
+      },
+      "sources": [
+        "https://israelpedia.org/article/israeli-football-league-system"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact end of validity, access, dates and modern equivalence pending",
+      "rowRefs": [
+        16,
+        257
+      ]
+    }
+  }
+]

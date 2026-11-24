@@ -1,0 +1,46 @@
+[
+  {
+    "row": 284,
+    "world": "2627",
+    "id": "_peruvianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "PER",
+    "candidateSources": [
+      "8fd63ed2645ca1b0f9efd797a115cf024b3db48e"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Liga 1",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [
+        {
+          "transition": 258,
+          "from": "2019",
+          "to": null,
+          "previousName": "Primera División",
+          "name": "Liga 1",
+          "operation": "RENAME",
+          "source": "https://es.wikipedia.org/wiki/Liga1_2019_%28Per%C3%BA%29"
+        }
+      ],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  }
+]

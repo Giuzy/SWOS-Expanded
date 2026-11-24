@@ -1,0 +1,108 @@
+[
+  {
+    "row": 308,
+    "world": "2627",
+    "id": "_taiwaneseLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "TPE",
+    "candidateSources": [
+      "79dac4d9f1a2ede20a7211af2f07efd8ebf581a0"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 103,
+      "slotOrdinal": 1,
+      "name": "TAIWAN FOOTBALL PREMIER LEAGUE",
+      "rawDivision": {
+        "teams": 8,
+        "promoted": 0,
+        "promoted_po": 0,
+        "relegated": 1,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 1,
+      "parallelGroup": null,
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Taiwan Football Premier League",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  },
+  {
+    "row": 309,
+    "world": "2627",
+    "id": "_taiwaneseLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "TPE",
+    "candidateSources": [
+      "79dac4d9f1a2ede20a7211af2f07efd8ebf581a0"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 103,
+      "slotOrdinal": 2,
+      "name": "TAIWAN FOOTBALL LEAGUE DIV. 2",
+      "rawDivision": {
+        "teams": 7,
+        "promoted": 1,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 2,
+      "parallelGroup": null,
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Taiwan Second Division Football League",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  }
+]

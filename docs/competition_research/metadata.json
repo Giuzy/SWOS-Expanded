@@ -1,0 +1,963 @@
+{
+  "scope": "Temporary research matrix exclusively competitions. Source references only in research, never final runtime data. No player, roster, transfer or club master records; participant references only. Existing CE schema unchanged.",
+  "base": "b847c5683abe695cfe3c6e4ae238fd52784994c2",
+  "supplements": [
+    "86ff28a14fb31b752fb556eb8244122ba04388ed",
+    "1db714bb54f9be6429afe2e869103ec27e890ed3"
+  ],
+  "audit": {
+    "total": 536,
+    "linked": 446,
+    "unlinked": 0,
+    "splitsLinked": 38,
+    "historicalTechnicalAuditMatched": 88,
+    "historicalNewSportRows": 74,
+    "linkedOrSportExtracted": 533,
+    "historicalUnlinked": 0,
+    "historicalResearchAttempted": 88,
+    "historicalCupNewRows": 6,
+    "historicalPlayoffNewRows": 7,
+    "excluded": 3,
+    "inScope": 533,
+    "withResearch": 533,
+    "coverageByStatus": {
+      "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL": 87,
+      "SOURCE_LINKED_NOT_FIELD_CERTIFIED": 408,
+      "PARENT_LEAGUE_RESEARCH_LINKED": 38,
+      "EXCLUDED_BY_USER": 3
+    },
+    "sourceBlobsEmbedded": 47,
+    "sourceBlobsMissing": 0
+  },
+  "consolidation": {
+    "previousMatrix": "59c869ce4a2e1f5bedb5fea0a42106b8f727eeb6",
+    "scope": "Research matrix; sourceArchive stores exact UTF-8 source text keyed by original Git SHA, once per source; not runtime. Post-START results are research only.",
+    "sourceBlobIndex": [
+      "46ac89a6160e4ac70d19230844c32ef2ad580c57",
+      "86cf417b80a983f5ed0707a438f06c81a4bb7440",
+      "d0c28701f00971753c406e687e5d157a7a136fd6",
+      "03ab547e24a4319b11c51bb720ef20db56ff78ae",
+      "d744018d10a2aa469e3044dc364cbaa2914785fe",
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981",
+      "54ef1a5715a673e2b3e3e2e263cb629b994fa202",
+      "ffd563a774e1c1865eb513e6ab0ffb427d370a78",
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a",
+      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815",
+      "356f4063724366c16d0070ec9caae81183c386c2",
+      "b8d82a0f153a43105e7da56ffb42bed34ebe76b5",
+      "9b0eb97e8248e1a7c71846e612ebcef7241b4e2e",
+      "8fd63ed2645ca1b0f9efd797a115cf024b3db48e",
+      "79dac4d9f1a2ede20a7211af2f07efd8ebf581a0",
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8",
+      "c9f932c8aec04966dcfacacdbf5608a03cf2fae4",
+      "c79508abe598b80e9ae3ed1c7fa9e3926c3726d6",
+      "3c23c128432ad7c0ef93b18159c1e8cc912ef3e3",
+      "2c450b7ca4ca3d0f9ea799da0d107cf8380a7fe9",
+      "f64171c228a3d468480f68b8346d532f07efcbb7",
+      "0787432080c2f80d12f7b10215b1cb37336c5c2f",
+      "72720c02ec770acc82e52e013924605ab87085fa",
+      "ffb0a15287e89dbeabcd70a149f0211134695e08",
+      "1aab3c4583a661dca23ed6f15eb0a53c9de6ad87",
+      "4e86b149b4f97b5a3310930191dbe834b99db47d",
+      "74773c7245a34ebee48aa97ff451c707b3d41cf5",
+      "629e7b0148b7b203984458bfb8a5e2ad9ff8d914",
+      "0e6407581e3d3a794597ca5dcb5becd00458ee68",
+      "b1e9c4d6ab11e0e665c638188abd4117403a63cd",
+      "4896377b7a30906670e83d07b889dbd0f62fec60",
+      "b2a8e30a591a9d2b630000a51dc8c7a306307b42",
+      "1f9d6d0f2c0b9bace22190d2898c6a19276dabf3",
+      "f9844889682d8c477574e73fd7355c4450034387",
+      "17f72bdee9494ea60d78c51bc2d0634b9fb65206",
+      "1db714bb54f9be6429afe2e869103ec27e890ed3",
+      "ede8038686d4653f73fc84c758c5d2f98ad06465",
+      "ce2d56b24b7595be6d28d9c9ff1bc9fd656befa6",
+      "524bf34b84be68487922a945e83ed44cd13b792d",
+      "42b2787bccdaacaf2942439678f4c2859e508412",
+      "714cf5ef125b839d2bcf8fb35f66fccd24bf7d94",
+      "9c643ed23644ebd02b6d7a4087f0da87566ba817",
+      "53b6fa2db881456a950ea7eb1618f7d5b05d8f50",
+      "34953cefc843981e572031e9575a17d4753e56bc",
+      "b847c5683abe695cfe3c6e4ae238fd52784994c2",
+      "86ff28a14fb31b752fb556eb8244122ba04388ed"
+    ],
+    "embedded": 47,
+    "missing": [],
+    "failures": [],
+    "latestHistoricalResearch": {
+      "block": 11,
+      "previousMatrix": "85fb9612ac82c0573e8b0ee0503222c4f21cabf7",
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "regressionBlob": "3bebb9010f46ee5ed5101d7dc3c21d19d29bb07d",
+      "notes": "Observed Montenegro 33 rounds supersedes proposed UEFA 22+split for that league. RSSSF opens Albania, Slovakia, Moldova failed Unicode/cache; no unsupported rules added. Bosnia 2017 only search extracts. Kosovo membership separate from league foundation. No runtime change."
+    }
+  },
+  "startAudit": {
+    "scope": "Explicit row-level links to already embedded research; do not infer applicability of broad candidateSources. No complete runtime certification.",
+    "unresolvedEuroQualifierRows": [
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110
+    ],
+    "worldCupEurope": {
+      "0": "9",
+      "1": " ",
+      "2": "r",
+      "3": "e",
+      "4": "a",
+      "5": "l",
+      "6": " ",
+      "7": "g",
+      "8": "r",
+      "9": "o",
+      "10": "u",
+      "11": "p",
+      "12": "s",
+      "13": " ",
+      "14": "v",
+      "15": "e",
+      "16": "r",
+      "17": "s",
+      "18": "u",
+      "19": "s",
+      "20": " ",
+      "21": "8",
+      "22": " ",
+      "23": "O",
+      "24": "G",
+      "25": " ",
+      "26": "i",
+      "27": "d",
+      "28": "e",
+      "29": "n",
+      "30": "t",
+      "31": "i",
+      "32": "f",
+      "33": "i",
+      "34": "e",
+      "35": "r",
+      "36": "s",
+      "37": ";",
+      "38": " ",
+      "39": "m",
+      "40": "a",
+      "41": "p",
+      "42": " ",
+      "43": "b",
+      "44": "e",
+      "45": "f",
+      "46": "o",
+      "47": "r",
+      "48": "e",
+      "49": " ",
+      "50": "a",
+      "51": "s",
+      "52": "s",
+      "53": "i",
+      "54": "g",
+      "55": "n",
+      "56": "i",
+      "57": "n",
+      "58": "g",
+      "59": " ",
+      "60": "i",
+      "61": "n",
+      "62": "d",
+      "63": "i",
+      "64": "v",
+      "65": "i",
+      "66": "d",
+      "67": "u",
+      "68": "a",
+      "69": "l",
+      "70": " ",
+      "71": "g",
+      "72": "r",
+      "73": "o",
+      "74": "u",
+      "75": "p",
+      "76": "s",
+      "77": ".",
+      "block48": {
+        "rules": {
+          "groups": 9,
+          "groupSizes": {
+            "5": 5,
+            "6": 4
+          },
+          "groupWinnersDirect": 9,
+          "bestRunnerUpDirect": 1,
+          "runnerUpComparisonOpponentRanks": [
+            1,
+            3,
+            4
+          ],
+          "playoffEntrants": 8,
+          "playoffLegs": 2,
+          "playoffDates": [
+            "1997-10-29",
+            "1997-11-15"
+          ],
+          "hostsExempt": "France",
+          "holdersExempt": "Brazil",
+          "cutoff": "Actual historical games before 1996-07-01 exist; extract individual results and participant keys before importing.",
+          "mapping": "Existing eight UEFA group rows 91–98 differ from historical nine; no guessed mapping."
+        },
+        "source": "https://www.rsssf.org/tables/98q.html",
+        "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+      }
+    },
+    "intertoto": "12 groups in source 54ef1a...; exact row/edition identity needs reconciliation.",
+    "failedRetrieval": [
+      {
+        "url": "https://www.rsssf.org/tablesi/ijs96.html",
+        "reason": "Unicode decoding"
+      },
+      {
+        "url": "https://www.rsssf.org/tablesf/far96.html",
+        "reason": "Unicode decoding"
+      },
+      {
+        "url": "https://www.betexplorer.com/it/football/finland/veikkausliiga-1996/results/",
+        "reason": "cache miss"
+      }
+    ]
+  },
+  "historicalTransitionsPolicy": "Research-only timeline; no auto activation or results imported; new competition IDs and migration sport rules require validation. Incomplete worldwide coverage. User decision 2026-11-24: exclude all temporary COVID-19 pandemic sporting rules, cancellations, emergency formats and suspension of promotion/relegation from historical career; retain permanent structural reforms even if introduced during 2020–2022. Historical snapshots remain factual; do not simulate the pandemic. User decision 2026-11-24 09:46 CET: historical 9697 career converges to initial 2627 definition at corresponding 2026/27 edition unless already equivalent; preserve played career participants, results, roster and history, pin rules for open editions, never switch world or import real 2026 entrants into evolved career. After convergence GAME_TEMPLATE_2026. Guide blob 6fc1bcfef7a70ea34aa0561b1ef9fbb498e4fd1b. User decision 2026-11-24: swapped-out, suspended, discontinued and replaced competitions remain consultable in-game in compact read-only results archive, separate from current competition page; no fixtures during inactivity, same identity/history on reactivation, distinct identity for replacement. UI details pending approval. Prepared GAME_DESIGN c104659aabff41c9742a50de8b9772bc85b51454; CE guide 2a24db3e4ba5e65819afd28396e7cfa92371dc6b; RG d548bdc30171755eba11c5c42b797581a3a32537. Block 20 user requests explicit competition lifetime fields in matrix; distinguish lifetime, rule intervals, inactivity, and identity. Research only, no runtime changes.",
+  "regionalSlotAudit": {
+    "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+    "sourceFile": "data_json/worlds/2627/competitions/leagues.json",
+    "sourceSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+    "guideSha": "f86b610e66e491d045888996c2b4a704da1fb704",
+    "rowsAudited": 23,
+    "notes": [
+      "ITA 14 slots = 4 sporting levels; 3 C and 9 D parallel; raw mod uses 3 B promotions and 3 C promotions, not complete certified real-world rules. Preserve until decision; do not silently substitute historical regulations.",
+      "AUS 4 slots = A-League + NSW, Victoria, Queensland NPL, not serial divisions; old 9697 regional labels differ; participant mapping pending.",
+      "NZL 3 slots = Northern 12, Central 10, Southern 10 in mod; federation 2021 research had 30 clubs total; do not conflate editions. National final phase not proven by league JSON.",
+      "TPE current mod 8+7, 1 direct up/down, zero playoff; AFC 2020 8 second-tier entrants and playoff. Exact historical cessation/change of playoff and current sport equivalence pending.",
+      "Fase3 guide verifies simple-chain limitation and unapproved geographical distribution; raw area decoding hypothesis remains open. No change to runtime, no automatic club or region assignment."
+    ]
+  },
+  "cupCoverageAudit": {
+    "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+    "scope": "Inventory row counts, not certified sport coverage; variants may be same competition. No full fixture/date/access certification.",
+    "categories": {
+      "LEAGUE_DIVISION": 222,
+      "CONTINENTAL_CLUB": 17,
+      "NATIONAL_TEAM_QUALIFIER_GROUP": 19,
+      "FRIENDLY_OR_CUSTOM": 3,
+      "NATIONAL_TEAM_TOURNAMENT": 20,
+      "NATIONAL_CUP": 139,
+      "LEAGUE_CUP": 16,
+      "PROMOTION_PLAYOFF": 7,
+      "SUPERCUP_OR_INTERCONTINENTAL": 3,
+      "REGIONAL_STATE_LEAGUE": 13,
+      "LEAGUE_PLAYOFF_PLAYOUT_SPEC": 35,
+      "LEAGUE_SPLIT_SPEC": 38,
+      "LEAGUE_PARALLEL_GROUPS_SPEC": 4
+    },
+    "next": [
+      "CONMEBOL Libertadores 2017, Sudamericana 2021 and 2023: search surfaced official PDF manuals; exact passages not yet inspected; verify PDF pages before extracting.",
+      "Domestic cup histories still incomplete across Africa, Asia, Central America and remaining Europe; no assumption of unchanged format.",
+      "Map historic competition names to actual IDs, deduplicate alternate rows, check exact cutoff state and complete qualification/access calendar."
+    ],
+    "block23": {
+      "baseline": "matrix original technical inventory, not current runtime generation proof",
+      "rows": [
+        {
+          "row": 343,
+          "status": "SUSPENDED_2627_REPORTED",
+          "sources": [
+            "https://www.nacion.com/puro-deporte/futbol/como-se-jugara-la-primera-division-con-10-o-12/YTJPN6WA7BGAXCQLORX5USBL6M/story/",
+            "https://www.repretel.com/noticia/se-jugara-con-10-o-12-equipos-unafut-confirma-los-acuerdos-para-la-proxima-temporada/"
+          ]
+        },
+        {
+          "row": 422,
+          "status": "REMOVED_2627_OFFICIAL_MAPPING_CANDIDATE"
+        },
+        {
+          "row": 412,
+          "status": "IDENTITY_UNRESOLVED"
+        },
+        {
+          "row": 392,
+          "status": "IDENTITY_UNRESOLVED"
+        },
+        {
+          "row": 340,
+          "status": "NEW_2026_CANDIDATE"
+        },
+        {
+          "row": 365,
+          "status": "SUCCESSOR_MAPPING_CANDIDATE"
+        }
+      ],
+      "note": "Presence in matrix does not prove CE generated fixtures. No live runtime modification."
+    }
+  },
+  "lifecycleResearch": {
+    "schema": {
+      "active_from": "First eligible edition, inclusive; null unknown, never inferred from first observed rule change",
+      "active_until": "Last eligible edition inclusive; null requires separate endStatus to distinguish ongoing from unknown",
+      "endStatus": "ENDED | ONGOING_AT_CUTOFF | UNKNOWN",
+      "inactivePeriods": "Explicit periods; reason and applicability separately verified; COVID exceptions excluded from career",
+      "format_valid_from": "Effective first edition of a rule version",
+      "format_valid_until": "Effective final edition of rule version; null unknown or open distinguished by status",
+      "predecessor_id": "Only verified distinct identities; not sponsor rename",
+      "successor_id": "Only verified distinct identities",
+      "verification_status": "Research provenance, not runtime authorization"
+    },
+    "notes": [
+      "All 536 original rows retained; null is not authorization to generate or suppress. NSL Cup first edition not independently reverified in block 20, leave null. Row 329 modern Australian cup must not inherit NSL Cup end date without identity reconciliation.",
+      "Transitions may contain firstEdition/lastEdition for a format or sponsorship interval, not competition lifespan. Existing events preserved, no automatic reinterpretation.",
+      "Block 21: row329 Australia Cup mapping candidate, not NSL Cup; null end remains UNKNOWN rather than claiming verified continuing through 2026. Qatar Cup left unmapped because generic Qatar cup IDs do not establish equivalence. QSL historical naming discrepancy noted.",
+      "Block 22: AFC Cup historical lifetime is event without mapped row; modern ACL Two is distinct. FIN structural suspension ranges entered, WAL one season removal only, no definitive cessation. CAF 1992 establishment vs 1993 first edition discrepancy preserved.",
+      "Block 23: CRC343 one-edition suspension corroborated, not permanent. CHI340 new 2026 cup and IND365 successor mapping candidates; PER392 identity unresolved: Copa Peru, Bicentenario and Copa Liga are distinct hypotheses, no lifetime assigned. ISL369 1996 archive. No changes to technical baseline.",
+      "Block 24: unmapped extinct continental tournaments recorded with explicit lifetime events, not fake new technical IDs. Colombia pre-1996 irregular activity not fully reconciled; Paraguay APF counts are observed editions, not recurring templates. Ecuador 2020–21 cause mixed reports pandemic/finances, not encoded as career inactivity; 2023 economic suspension recorded separately.",
+      "Block 25: 6 historical continental identities have explicit lifetime events (including Shield open end), not fabricated technical slots. African merger 2004, UEFA Intertoto UEFA-only lineage, Caribbean Championship absence 1999/2008 not COVID. No new mapped original-row lifetime limit. Existing CAF Confederation Cup row431 remains 2004; new source corroboration. Regional cups since 2023 existing events retained. No future scores imported.",
+      "Block 26: Ghana final-year absence 2002–2010 does not exclude opening games of 2010/11; Saudi 1990 boundary discrepant; China 1956 origin not assigned as exact active_from due historical lineage. USA COVID 2020–21 excluded. Research only.",
+      "Block 27: Kazakhstan 1997/98–2000/01 cross-year editions, two finals 2001 distinct identities; 1997 no separate edition is not inactivity for all calendar days. 1996 final replay in 1997 following exceptional dispute observed but not scripted. Azerbaijan abandoned final 2001/02 distinct from absent edition 2002/03. COVID exceptions excluded. Georgia exact lifetime unknown.",
+      "Block 28: distinguish predecessor origins, retrospective honours and first official national cup status; San Marino 1980 is status boundary not earliest historical edition. Germany separate Ligapokal and Supercup archive. AND first edition remains unconfirmed. No PDF analysis."
+    ]
+  },
+  "namingResearch": {
+    "scope": "User decision 24/11/2026: all competitions 1996/97–2026/27, official non-commercial sporting names only. Exclude sponsor names entirely from collection, runtime names and sporting transition counts. Preserve identity on genuine renaming. Explicit user reaffirmation 24/11: every historical competition too, including discontinued, replaced, suspended, revived, intermediate-only and post-1996 newly founded competitions, all tiers, cups, supercups, regional, continental, national-team competitions and qualifying competitions. Record dated noncommercial name intervals from first relevant edition through last active edition or 2026/27, not merely endpoints; preserve past names in historical archive, identity stable for genuine renames. Distinct successor identity only with evidence. No invented names or sponsor aliases.",
+    "block29": {
+      "added": 14,
+      "coverage": "PARTIAL",
+      "priorNamesInTransitions": true,
+      "remaining": "Audit every competition family, deduplicate world rows, verify initial names, effective editions, and source; do not treat missing rename as unchanged. Prioritize 1996 fixture collection in parallel."
+    },
+    "excludedExisting": [
+      [
+        "RSA League Cup",
+        "1997"
+      ],
+      [
+        "RSA League Cup",
+        "2001"
+      ],
+      [
+        "RSA League Cup",
+        "2006"
+      ],
+      [
+        "RSA League Cup",
+        "2023"
+      ],
+      [
+        "RSA National Cup",
+        "2008"
+      ]
+    ],
+    "policy": "Retain prior source evidence for audit only; sponsor-only aliases not eligible for runtime or further research. Genuine suspension/reactivation evidence remains independently relevant. Distinguish honorary names from commercial sponsorship.",
+    "block30": {
+      "added": 10,
+      "coverage": "PARTIAL",
+      "scope": "All non-commercial official names including unchanged competitions; row-level coverage ledger required.",
+      "norway": {
+        "rowRefs": [
+          22,
+          278
+        ],
+        "name": "Eliteserien",
+        "from": "2017",
+        "source": "https://www.fotball.no/tema/nff-nyheter/2016/eliteserien---lidenskap-og-fellesskap/",
+        "note": "Earlier commercial alias excluded; historical neutral label pending verification."
+      },
+      "next": "Verify missing initial and current official names for every family; do not infer unchanged from absence of known rename."
+    },
+    "block31": {
+      "added": 16,
+      "scope": "Historical missing competitions and non-commercial names",
+      "sourcesAdditional": [
+        "https://english.ahram.org.eg/NewsContentP/6/316038/Sports/Factbox-List-of-African-Champions-League-winners.aspx",
+        "https://ligasargentinas.com.ar/2019-20?club=mandiyu",
+        "https://rsssf.org/tablesn/noosupcuphist.html"
+      ],
+      "pending": "Domestic supercup dates, remaining name intervals, complete family coverage ledger. No new runtime IDs."
+    },
+    "block32": {
+      "added": 13,
+      "coverageCounts": {
+        "NAME_HISTORY_NOT_CERTIFIED": 385,
+        "HAS_PARTIAL_NAME_EVIDENCE": 45,
+        "PARENT_OR_PHASE_MAPPING_REQUIRED": 103,
+        "EXCLUDED": 3
+      },
+      "notes": "Coverage conservatively counts only explicit row refs; not number of distinct competitions, no assumption unchanged. Historical row 59 JPN div2 not automatically equivalent to J2. Sponsor names excluded."
+    },
+    "block33": {
+      "scope": "User explicitly requires starting names 9697 and 2627 inside each competition record, not external name table. Inline competitionNaming officialName, neutral label, candidate, source, nameHistory. No runtime schema changes or automatic activation.",
+      "inlineRows": 536,
+      "rowsWithNameEvidence": 159,
+      "coverageCounts": {
+        "NAME_HISTORY_NOT_CERTIFIED": 278,
+        "NEUTRAL_NONCOMMERCIAL_LABEL": 1,
+        "SOURCE_SUPPORTED_NAME_PARTIAL": 134,
+        "HISTORICAL_NAME_CANDIDATE": 19,
+        "PARENT_OR_PHASE_MAPPING_REQUIRED": 96,
+        "EXCLUDED": 3,
+        "VARIANT_MAPPING_PENDING": 2,
+        "SECONDARY_CANDIDATE": 1,
+        "IDENTITY_CANDIDATE": 2
+      },
+      "addedEvents": 5,
+      "sourcePolicy": "Archived source notes recovered directly; new web excerpts for Scotland Portugal Norway OFC. Some name evidence secondary, incomplete history; no sponsor labels used; calendar year edition naming still needs separate validation."
+    },
+    "block34": {
+      "addedInlineCandidates": 117,
+      "coverageCounts": {
+        "HISTORICAL_NEUTRAL_NAME_CANDIDATE": 68,
+        "NAME_HISTORY_NOT_CERTIFIED": 161,
+        "NEUTRAL_NONCOMMERCIAL_LABEL": 1,
+        "SOURCE_SUPPORTED_NAME_PARTIAL": 134,
+        "HISTORICAL_NAME_CANDIDATE": 19,
+        "PARENT_OR_PHASE_MAPPING_REQUIRED": 96,
+        "EXCLUDED": 3,
+        "VARIANT_MAPPING_PENDING": 2,
+        "MODERN_NONCOMMERCIAL_NAME_CANDIDATE": 49,
+        "SECONDARY_CANDIDATE": 1,
+        "IDENTITY_CANDIDATE": 2
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesd/domcupeur97.html",
+        "https://www.rsssf.org/resultsp99.html",
+        "https://en.wikipedia.org/wiki/Geography_of_association_football",
+        "https://en.wikipedia.org/wiki/European_Leagues"
+      ],
+      "limitations": "Broad historical indexes establish competition existence, not exact native title or uninterrupted naming. All newly populated labels remain candidates; Veikkausliiga/Besta naming commercial status must be reviewed before promotion to officialName; no runtime usage. No new transitions asserted."
+    },
+    "block35": {
+      "addedUnverifiedCandidates": 143,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 134,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 125,
+        "lifecyclePartial": 31,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 262
+      },
+      "limitation": "Candidates only; no new web verification claimed. No sponsor names intentionally included. Dashboard counts row-level partial evidence, not progress estimates or complete worldwide transition coverage."
+    },
+    "block36": {
+      "addedEvents": 7,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 136,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 125,
+        "lifecyclePartial": 32,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 269,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material."
+      },
+      "source": "Official FA/JLeague/Canada Soccer/CPL/I-League/FAW web excerpts",
+      "limitations": "No fixture reconciliation; historical 2019 CPL format not counted as starting-edition rules; I-League 2026/27 name requires current-season confirmation; J3 earlier naming uncertain."
+    },
+    "block37": {
+      "addedEvents": 4,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 139,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 126,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 273,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material."
+      },
+      "sources": [
+        "https://footballaustralia.com.au/history/aleague-men",
+        "https://www.kleague.com/about/history.do",
+        "https://footballaustralia.com.au/nsl-honours-board",
+        "https://footballaustralia.com.au/aleague-men-honours-board"
+      ],
+      "limits": "Partial source evidence only, no exact season calendar, identities or full rules certified. Existing transitions corroborated, no duplicates. RG precheck from preceding continuous turn, HEAD beb9fd3e unchanged."
+    },
+    "block38": {
+      "addedEvents": 6,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 141,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 130,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 279,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material."
+      },
+      "sources": [
+        "https://www.svenskfotboll.se/nyheter/serier/2020/11/thylin-infor-slutspurten/",
+        "https://www.svenskfotboll.se/nyheter/serier/2023/03/superettanpremiar-till-helgen/",
+        "https://www.svenskfotboll.se/serier-cuper/elitfotboll/historik-herr/kval-till-allsvenskan/",
+        "https://www.veikkausliiga.com/veikkausliiga/sarjajarjestelma",
+        "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain-avauspaiva-44-aivan-taynna-otteluita",
+        "https://www.ksi.is/um-ksi/frettir/motamal/adsokn-ad-bestu-deildum-karla-og-kvenna-2022/",
+        "https://www.ksi.is/oll-mot/mot?id=190181",
+        "https://www.ksi.is/oll-mot/mot?id=190167"
+      ],
+      "limits": "Search excerpts, no PDF analyzed. Historical format evidence is not current-season certification. RG precheck continuous research from prior block; no runtime edits."
+    },
+    "block39": {
+      "addedEvents": 4,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 142,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 133,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 283,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material."
+      },
+      "sources": [
+        "https://www.superliga.dk/struktur",
+        "https://superliga.dk/nyheder/kamptidspunkter/2026-2027/kampprogrammet-for-grundspillet-2026-27-er-fastlagt",
+        "https://www.fotball.no/turneringer/nm-menn/2026/slik-spilles-nm-menn-2026/",
+        "https://www.fotball.no/turneringer/nm-menn/2026/nm-2026-disse-er-kvalifisert-til-1.-runde",
+        "https://www.fotball.no/kretser/hordaland/aktivitet/seniorfotball/seriespill/bestemmelser-om-opp--og-nedrykk-sesongen-2026/",
+        "https://www.fotball.no/turneringer/nm-menn",
+        "https://www.fotball.no/tema/nff-nyheter/2026/nm-runder-utsettes/"
+      ],
+      "limits": "Official HTML evidence; no full fixture/key reconciliation, no runtime. Prior continuous RG precheck applies; Norwegian cycle and access evidence must be consumed by single CE lifecycle, no July reset, no duplicate editions."
+    },
+    "block40": {
+      "addedEvents": 8,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 145,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 136,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 291,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material."
+      },
+      "sources": [
+        "https://sfl.ch/de/modus-ab-202324-swiss-football-league",
+        "https://sfl.ch/de/geschichte-kurz-und-bundig",
+        "https://www.bundesliga.at/de/news/artikel/die-details-der-ligareform-so-wird-ab-2018-19-gespielt",
+        "https://www.bundesliga.at/de/news/artikel/kommende-liga-spielzeit-als-bergangssaison-vor-reform",
+        "https://www.proleague.be/nieuws/vanaf-seizoen-26-27-met-18-clubs-in-de-jupiler-pro-league",
+        "https://www.proleague.be/nieuws/kalender-2026-2027-club-brugge-opent-tegen-kv-kortrijk-eerste-super-sunday-al-op-speeldag-4",
+        "https://www.proleague.be/nieuws/challenger-pro-league-heeft-nieuw-format-zonder-quota-voor-u23"
+      ],
+      "limits": "Official HTML, no PDF analyzed. Tier2 unmapped events not assigned invented IDs; Belgium tier2 conditional approval. No runtime or full reconciliation. Continuous RG precheck applies; points halving, tie break, split, promotions and home balance are CE versioned rules, not OG scorer changes."
+    },
+    "block41": {
+      "addedEvents": 6,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 148,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 139,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 297,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material."
+      },
+      "sources": [
+        "https://www.lfafotbal.cz/clanek/34-herni-format-i-ligy-od-sezony-2018-19",
+        "https://www.lfafotbal.cz/clanek/422-ligove-gremium-lfa-schvalilo-herni-format-s-nadstavbou",
+        "https://www.lfafotbal.cz/clanek/924-vyjadreni-ligoveho-vyboru-lfa-k-diskuzim-o-zmene-formatu-profesionalnich-soutezi",
+        "https://www.nikeliga.sk/text/56-herny-model",
+        "https://www.knvb.nl/competities/competitiezaken/competitiemodel/periodetitels-in-de-eerste-divisie",
+        "https://www.knvb.nl/node/82",
+        "https://www.knvb.nl/node/5821",
+        "https://eredivisie.nl/nieuws/definitief-programma-2026-27/"
+      ],
+      "limits": "Historical versions separated, current 2026/27 detailed rules not certified. No PDF, no full fixture/participant reconciliation. Continuous RG precheck previous turn applies."
+    },
+    "block42": {
+      "addedEvents": 7,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 151,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 143,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 304,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material."
+      },
+      "sources": [
+        "https://lpf.ro/noutati/casa-liga-1-nou-sistem-competitional/1907",
+        "https://www.frf.ro/recomandate/cum-va-arata-formatul-cupei-romaniei-betano-incepand-din-noul-sezon/",
+        "https://www.frf.ro/recomandate/clasamentul-agregat-al-cupei-romaniei-betano-in-noul-format-cele-mai-bune-echipe-din-ultimele-trei-sezoane/",
+        "https://www.mlsz.hu/hir/elkeszult-a-megujult-otp-bank-liga-sorsolasa",
+        "https://www.mlsz.hu/hir/elso-osztalyu-izgalom-most-is-jut-oromunnep-es-drama-az-utolso-fordulora",
+        "https://ekstraklasa.org/en/standings/2026-2027/",
+        "https://ekstraklasa.org/tabela/2020-2021/",
+        "https://ekstraklasa.org/tabela/2025-2026/"
+      ],
+      "limits": "Official HTML and excerpts; no PDFs analyzed. Historical regulation validity separated from current editions. No runtime or full reconciliation. Continuous research RG precheck from prior blocks."
+    },
+    "block43": {
+      "addedEvents": 4,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 154,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 145,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 308,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material."
+      },
+      "sources": [
+        "https://www.hnl.hr/supersport-hnl/o-natjecanju/",
+        "https://hnl.hr/news/31555/nova-sezona-supersport-hnl-a-rast-natjecanja-na-svim-razinama/",
+        "https://fss.rs/io-fss-odlucio-liga-sa-12-klubova-za-novu-eru-srpskog-fudbala/?script=lat",
+        "https://fss.rs/branko-radujko-generalni-sekretar-fss-o-promeni-formata-takmicenja-i-dolasku-inostranog-strucnjaka-na-celo-sudijske-komisije/?script=lat",
+        "https://www.superliga.rs/sezona/tabela-takmicenja/",
+        "https://www.nzs.si/klubi/moski/prva-liga-telemach/tekme/nk-celje-fc-koper-1snl2627-2026-09-06-201500/vsebina"
+      ],
+      "limits": "Official HTML evidence and search excerpts; no PDF analyzed. Serbia split full page timeout. Future adopted reform separate from gameplay template. Continuous RG precheck, no runtime changes."
+    },
+    "block44": {
+      "addedEvents": 4,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 156,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 147,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 312,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material."
+      },
+      "sources": [
+        "https://www.uefa.com/news-media/news/0183-0f8fabda42b7-d8c4b3d3e16b-1000--bulgaria-round-up-levski-win-in-style/",
+        "https://editorial.uefa.com/resources/0230-0f842bc1b736-0cd37d37a157-1000/first_division_clubs_in_europe_2016_17.pdf",
+        "https://www.prvaliga.si/Doc/Info/2025/Navodila%20za%20organizacijo%20tekem%20v%201.%20SNL_V5.1_julij2025.pdf",
+        "https://www.uefa.com/news-media/news/025e-0f90a010825a-27c590719be0-1000--government-support-for-greek-plan/",
+        "https://en.wikipedia.org/wiki/2006%E2%80%9307_Super_League_Greece"
+      ],
+      "limits": "Actual web retrieval; Slovenia PDF page 8 screenshot verified, page 9 text only after cache miss; UEFA Bulgaria PDF text only after screenshot failure. No current complete rules/fixture reconciliation. Continuous RG precheck applies."
+    },
+    "block45": {
+      "addedEvents": 8,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 160,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 152,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 320,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material."
+      },
+      "sources": [
+        "https://bulgarian-football.com/archive/2025-2026/reglament.html",
+        "https://europeanleagues.com/infocus-bpfl/",
+        "https://en.bulgarian-football.com/season-2025-2026/kupa-na-bulgaria.html",
+        "https://www.epo.gr/en/node/33281",
+        "https://www.epo.gr/en/node/33424",
+        "https://www.tff.org/Resources/TFF/Documents/STATULER/2026-2027/2026-2027-sezonu-super-lig-musabakalari-statusu.pdf",
+        "https://www.soccer-tainment.com/competition/cyprus-first-division/2025-2026",
+        "https://en.wikipedia.org/wiki/Cypriot_First_Division",
+        "https://link.springer.com/article/10.1007/s00181-026-02994-3",
+        "https://www.rsssf.org/tablesi/isra2026.html"
+      ],
+      "limits": "Previous unsaved claims rechecked: Bulgarian tier2 20→18 and cup semifinal legs not yet corroborated sufficiently in this pass; retained as open leads, not certified. No runtime, no future results, no full fixture reconciliation."
+    },
+    "block46": {
+      "addedEvents": 7,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 163,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 155,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 327,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material."
+      },
+      "sources": [
+        "https://www.tff.org/Resources/TFF/Documents/STATULER/2026-2027/2026-2027-sezonu-tff-1-lig-musabakalari-statusu.pdf",
+        "https://www.tff.org/Default.aspx?ftxtId=50964&pageId=200",
+        "https://www.cfa.com.cy/Gr/news/53531",
+        "https://www.cfa.com.cy/Gr/news/51359",
+        "https://www.sportal.gr/podosfairo/article/stoiximan-super-league-ti-isxyei-se-playoffs-1-4-5-8-kai-ta-playouts-2026040200020092788",
+        "https://www.in.gr/2026/03/22/sports/football/teliki-vathmologia-tis-super-league-ta-playoffs-1-4-5-8-kai-ta-playouts-pic/",
+        "https://www.cfa.com.cy/Gr/news/53560",
+        "https://bulgarian-football.com/archive/2025-2026/kupa-na-bulgaria.html",
+        "https://www.epo.gr/el/arthra/i-agonistiki-anaptyxi-toy-superbet-kypelloy-elladas",
+        "https://www.tff.org/default.aspx?ftxtID=51078&pageID=687",
+        "https://www.tff.org/default.aspx?ftxtID=51214&pageID=687",
+        "https://bulgarian-football.com/archive/2025-2026/reglament.html",
+        "https://rsssf.org/tablesb/bulg2025.html",
+        "https://footballsoccerapi.com/our-football-api-data/bulgaria/second-league/2024"
+      ],
+      "limits": "No runtime; 536 rows preserved; Turkey cup approval dates only, no format credit. Bulgaria second tier planned 18 vs observed final withdrawals unresolved, no matrix tier2 row. TFF PDF p0 screenshot verified p1 failure; EPO and TFF cup open failures, search snippets only. Dates windows not reconciled fixture dates."
+    },
+    "completionGate": "Every in-scope competition identity, including historical-only identities absent from modern catalog, must have a sourced noncommercial name and dated name intervals with no unresolved gaps during its relevant lifetime; parent/phase mappings documented separately. Historical-only identities outside the 533 row baseline require inventory extension before a global 100% claim. Track historical naming separately from modern naming in future dashboards; no change to current verified counts.",
+    "historicalOnlyInventory": [
+      {
+        "identity": "BUL League Cup",
+        "name": "League Cup",
+        "observedEdition": "1996/97",
+        "source": "https://www.rsssf.org/tablesb/bulg97.html",
+        "scope": "catalog mapping/lifetime pending"
+      },
+      {
+        "identity": "TUR Prime Minister Cup",
+        "name": "Başbakanlık Kupası",
+        "lastEdition": "1998",
+        "source": "https://www.rsssf.org/tablest/turkvarcuphist.html",
+        "scope": "catalog mapping pending"
+      },
+      {
+        "identity": "TUR Atatürk Cup",
+        "name": "Atatürk Cup",
+        "observedEditions": [
+          "1998",
+          "2000"
+        ],
+        "source": "https://www.rsssf.org/tablest/turkvarcuphist.html",
+        "scope": "identity and catalog mapping pending"
+      }
+    ],
+    "block47": {
+      "addedEvents": 10,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 172,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 160,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 337,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material.",
+        "namingByWorld": {
+          "historical": {
+            "denominator": 182,
+            "sourceSupported": 56
+          },
+          "modern": {
+            "denominator": 351,
+            "sourceSupported": 116
+          }
+        }
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesb/bulg97.html",
+        "https://en.wikipedia.org/wiki/1996%E2%80%9397_A_Group",
+        "https://www.rsssf.org/tablesc/cyp97.html",
+        "https://www.rsssf.org/tablesi/isra97.html",
+        "https://www.rsssf.org/tablest/turkhist.html",
+        "https://www.rsssf.org/tablesg/grk97.html",
+        "https://www.rsssf.org/tablest/turkcup97.html",
+        "https://www.tff.org/Default.aspx?pageId=545",
+        "https://www.rsssf.org/tablest/turkvarcuphist.html"
+      ],
+      "limits": "Historical-only inventory separate, not denominator expansion until identity mapping. No full naming timeline certified. No PDF analyzed. No scores imported."
+    },
+    "block48": {
+      "addedEvents": 10,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 177,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 168,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 347,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material.",
+        "namingByWorld": {
+          "historical": {
+            "denominator": 182,
+            "sourceSupported": 61
+          },
+          "modern": {
+            "denominator": 351,
+            "sourceSupported": 116
+          }
+        }
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesd/domcupeur97.html",
+        "https://www.rsssf.org/ec/ec199697.html",
+        "https://www.rsssf.org/tables/98q.html",
+        "https://www.svenskfotboll.se/serier-cuper/svenska-cupen/tavlingsinformation/",
+        "https://www.svenskfotboll.se/serier-cuper/svenska-cupen/speldatum/",
+        "https://www.uefa.com/news-media/news/0268-121578ca9f2b-3ebc8c09202b-1000--setting-the-standard-for-club-football/"
+      ],
+      "limits": "Historical neutral names corroborated as competition identity, exact local naming intervals remain open. UEFA WC nine real groups vs eight technical rows: mapping open, no row rule credit. Swedish cup round 1 predates cutoff, no results imported. Champions historical matrix row not found; evidence in timeline only. No complete fixture, cutoff or participant reconciliation."
+    },
+    "block49": {
+      "addedEvents": 10,
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 187,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 178,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 357,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material.",
+        "namingByWorld": {
+          "historical": {
+            "denominator": 182,
+            "sourceSupported": 65
+          },
+          "modern": {
+            "denominator": 351,
+            "sourceSupported": 122
+          }
+        }
+      },
+      "sources": [
+        "https://www.rsssf.org/tables/96oc.html",
+        "https://www.rsssf.org/tables/97sa.html",
+        "https://www.rsssf.org/tables/96asch.html",
+        "https://www.rsssf.org/tables/96a.html",
+        "https://www.fifa.com/en/articles/article-fifa-world-cup-2026-mexico-canada-usa-new-format-tournament-football-soccer",
+        "https://www.uefa.com/euro2028/news/029f-1f2f36424d97-2486810a0d57-1000--euro-2028-tournament-schedule-confirmed-when-and-where-a/",
+        "https://www.uefa.com/euro2028/news/0299-1dcf3fef69a9-41405d004b47-1000--qualification-system-for-uefa-euro-2028-approved/",
+        "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-14-Match-system-qualifying-group-stage-Online",
+        "https://www.the-afc.com/en/national/afc_asian_cup.html/news/asiancup2027-road-to-glory-paved",
+        "https://www.the-afc.com/en/national/afc_asian_cup.html/news/match-schedule-finalised-asiancup2027",
+        "https://www.the-afc.com/en/national/afc_asian_cup.html/news/saudi-arabia-2027-berths-at-stake-in-qualifiers-final-round",
+        "https://www.cafonline.com/afcon2025/news/all-you-need-to-know-about-the-totalenergies-caf-africa-cup-of-nations-morocco-2025/",
+        "https://www.cafonline.com/caf-africa-cup-of-nations/news/the-totalenergies-caf-africa-cup-of-nations-afcon-morroco-2025-final-draw-pots-and-procedure-revealed/",
+        "https://www.concacaf.com/competitions/gold-cup/news/concacaf-sets-stage-for-2027-gold-cup-with-exciting-new-format-and-dates",
+        "https://www.concacaf.com/competitions/gold-cup/news/2027-concacaf-gold-cup-qualification-pathway-confirmed"
+      ],
+      "limits": "Search snippets vs opened HTML identified individually. No PDF used. No fixture/participant key reconciliation or cutoff completion; names of historical finals only, variants not assumed. 2027/28 announcements not applied to template. New records include edition-specific evidence for already-known structural changes; event count is research records not count of unique reforms."
+    },
+    "block50": {
+      "sources": [
+        "https://www.rsssf.org/tables/98q.html"
+      ],
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 192,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 183,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 362,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material.",
+        "namingByWorld": {
+          "historical": {
+            "denominator": 182,
+            "sourceSupported": 70
+          },
+          "modern": {
+            "denominator": 351,
+            "sourceSupported": 122
+          }
+        }
+      },
+      "limits": "Eight CONMEBOL historical cutoff results extracted, not mapped to OG keys; no new certified cutoff, no future results imported."
+    },
+    "block51": {
+      "sources": [
+        "https://www.fifa.com/en/articles/world-cup-2026-who-has-qualified",
+        "https://www.fifa.com/en/articles/uefa-qualifying-teams-schedule-dates-places",
+        "https://inside.fifa.com/news/wc2026-qualifiers-331w",
+        "https://cdn.conmebol.com/wp-content/uploads/2026/02/Reglamento-CONMEBOL-Recopa-2026.pdf",
+        "https://www.rsssf.org/tables/96e.html",
+        "https://www.rsssf.org/tables/00e.html"
+      ],
+      "metrics": {
+        "denominator": 533,
+        "namesWithEvidenceOrCandidate": 419,
+        "namesSourceSupportedPartial": 193,
+        "nameHistoryComplete": 0,
+        "rulesPartial": 185,
+        "lifecyclePartial": 33,
+        "cutoffPartial": 12,
+        "datesReconciled": 0,
+        "participantKeysReconciled": 0,
+        "matchRulesCertified": 0,
+        "historicalTransitions": 366,
+        "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material.",
+        "namingByWorld": {
+          "historical": {
+            "denominator": 182,
+            "sourceSupported": 70
+          },
+          "modern": {
+            "denominator": 351,
+            "sourceSupported": 123
+          }
+        }
+      },
+      "limits": "No full fixture or key reconciliation; EURO technical mapping unresolved, no row credit; PDF excerpt only; no runtime changes."
+    }
+  }
+}

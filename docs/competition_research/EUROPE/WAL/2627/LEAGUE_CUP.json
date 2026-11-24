@@ -1,0 +1,37 @@
+[
+  {
+    "row": 422,
+    "world": "2627",
+    "id": "_worldWalLeagueCup",
+    "detail": "",
+    "technicalCategory": "LEAGUE_CUP",
+    "researchCategory": "LEAGUE_CUP",
+    "country": "WAL",
+    "candidateSources": [
+      "74773c7245a34ebee48aa97ff451c707b3d41cf5"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "IDENTITY_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Welsh League Cup",
+      "status": "IDENTITY_CANDIDATE",
+      "source": "https://faw.cymru/cymru-leagues/news/statement-nathaniel-mg-cup-and-welsh-blood-service-league-cup/",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import.",
+      "note": "FAW confirms two separate cups removed in 2026/27; verify slot identity, do not generate either automatically."
+    }
+  }
+]

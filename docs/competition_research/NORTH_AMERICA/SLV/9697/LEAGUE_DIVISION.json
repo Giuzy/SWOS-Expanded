@@ -1,0 +1,252 @@
+[
+  {
+    "row": 64,
+    "world": "9697",
+    "id": "_elSalvadorLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SLV",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "EL_SALVADOR",
+      "teams": "10",
+      "formula": "OG rounds=2; points_win=3; begin=56; end=32",
+      "promotionRaw": "0 campo-OG + 0 playoff",
+      "relegationRaw": "1 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "name": "Primera División",
+      "edition": "1996/97",
+      "teams": 10,
+      "regularOrInitialGamesPerClub": 36,
+      "pointsWin": 3,
+      "formatAndMovement": "Quadruple RR, top6 KO, ninth relegation playoff, tenth direct; actual promotion involving similar club names requires identity check",
+      "researchSource": "https://www.rsssf.org/tablesa/allfirst9697.html",
+      "scope": "Research only: regional candidates and adjacent-year evidence are not exact first-edition certification; no future results imported."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "Primera División",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesa/allfirst9697.html",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 65,
+    "world": "9697",
+    "id": "_elSalvadorLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SLV",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NAME_CANDIDATE",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "EL_SALVADOR",
+      "teams": "12",
+      "formula": "OG rounds=2; points_win=3; begin=56; end=32",
+      "promotionRaw": "1 campo-OG + 0 playoff",
+      "relegationRaw": "1 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "edition": "1996/97",
+      "name": "Segunda División de Fútbol Profesional",
+      "known": "1995/96 champion Once Lobos promoted to Primera for 1996/97; Tiburones relegated from Primera at end 1995/96. 1996/97 champion Atlético Árabe Marte (subsequently Sonsonate) corroborated by RSSSF and Spanish historical list; final reportedly three games vs Real Independiente. Future outcome research only, not imported at START. El Gráfico retrospective reports 36 clubs in 1996 (year-level count; edition boundary and participant list not certified).",
+      "missing": "participants, groups, dates, points, relegations and exact final rule",
+      "status": "PARTIAL",
+      "sources": [
+        "https://rsssf.org/tablese/elsal2champ.html",
+        "https://www.rsssf.org/tablese/elsalall.html",
+        "https://es.wikipedia.org/wiki/Liga_de_Ascenso_de_El_Salvador",
+        "https://www.elgrafico.com/futbol/Equipos-profesionales-en-descenso-20160208-0014.html"
+      ],
+      "teams": 36,
+      "regularOrInitialGamesPerClub": null,
+      "pointsWin": null
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Segunda División de Fútbol Profesional",
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 66,
+    "world": "9697",
+    "id": "_elSalvadorLeague",
+    "detail": "div3",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SLV",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NAME_CANDIDATE",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "EL_SALVADOR",
+      "teams": "12",
+      "formula": "OG rounds=2; points_win=3; begin=56; end=32",
+      "promotionRaw": "1 campo-OG + 0 playoff",
+      "relegationRaw": "1 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "edition": "1996/97",
+      "name": "Tercera División (Liga B)",
+      "known": "Historical champions list reports A.D.O. 1995/96 and Atlético Morazán 1996/97; local club history search excerpt reports Talleres Junior qualified for Liga B in 1996. Future championship outcome not imported. El Gráfico retrospective reports 60 clubs in 1996 (year-level count; edition boundary and participant list not certified).",
+      "missing": "complete participants, format, dates, rules, actual promotion and relegation",
+      "status": "PARTIAL",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Tercera_Divisi%C3%B3n_de_El_Salvador",
+        "https://williamramirez.com.sv/archivos/470",
+        "https://www.elgrafico.com/futbol/Equipos-profesionales-en-descenso-20160208-0014.html"
+      ],
+      "teams": 60,
+      "regularOrInitialGamesPerClub": null,
+      "pointsWin": null
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Tercera División (Liga B)",
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 67,
+    "world": "9697",
+    "id": "_elSalvadorLeague",
+    "detail": "div4",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SLV",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NAME_CANDIDATE",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "EL_SALVADOR",
+      "teams": "12",
+      "formula": "OG rounds=2; points_win=3; begin=56; end=32",
+      "promotionRaw": "1 campo-OG + 0 playoff",
+      "relegationRaw": "0 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalResearchGap": {
+      "name": null,
+      "known": "OG has 12 teams and two rounds; no independent 1996/97 fourth-tier identity or rules found. Modern ADFA structure does not certify 1996/97.",
+      "missing": "historical identity, participants, all rules and dates",
+      "status": "MISSING_HISTORICAL_EVIDENCE",
+      "sources": [],
+      "followup": "RSSSF El Salvador 1996/97 and divisional moves only cover upper tiers; El Gráfico 2016 confirms later departmental ADFA structure, not 1996/97 fourth tier. No additional historical evidence.",
+      "followupSources": [
+        "https://www.rsssf.org/tablese/elsal97.html",
+        "https://www.elgrafico.com/futbol/Equipos-profesionales-en-descenso-20160208-0014.html"
+      ]
+    },
+    "additionalResearch": {
+      "date": "2026-11-24",
+      "status": "UNRESOLVED",
+      "known": "2016 local reporting identifies three professional divisions and ADFA feeder leagues; club history says Talleres qualified for Liga B in 1996, but does not establish a nationally unified fourth division in 1996/97. No verified fourth-level participants or format.",
+      "sources": [
+        "https://www.elgrafico.com/futbol/Equipos-profesionales-en-descenso-20160208-0014.html",
+        "https://williamramirez.com.sv/archivos/470"
+      ],
+      "missing": "1996/97 identity, participants, division structure, calendar and promotion rules."
+    },
+    "historicalSportData": {
+      "edition": "1996/97",
+      "name": "Liga Aficionada (historically attested terminology; exact official title unverified)",
+      "teams": null,
+      "regularOrInitialGamesPerClub": null,
+      "pointsWin": null,
+      "known": "El Gráfico interview 2020: referee Ramón Migdonio Argueta began in Liga Aficionada in 1991 before moving to Liga Mayor B, Liga de Ascenso and Primera in 1996/97. El Gráfico historical survey 2016 records 1996 professional tiers as 10, 36 and 60 clubs respectively; ADFA restructuring later. Diario El Salvador 2021 dates creation of ADFA to legislative decree 529 of 2001-08-30. Amateur tier below professional third is historically supported; specific OG fourth division mapping remains provisional. Do not backdate ADFA modern rules.",
+      "missing": "Exact 1996/97 official title, federation structure, participating clubs and groups, points, dates, promotion quotas and OG ID mapping.",
+      "status": "PARTIAL",
+      "sources": [
+        "https://www.elgrafico.com/futbol/Ramon-Migdonio-Argueta-Me-empujaron-a-retirarme-del-arbitraje-20200602-0008.html",
+        "https://www.elgrafico.com/futbol/Equipos-profesionales-en-descenso-20160208-0014.html",
+        "https://www.diarioelsalvador.com/dedeportes/opinion-urgente-el-futbol-aficionado-necesita-una-revolucion/33802"
+      ]
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Liga Aficionada (historically attested terminology; exact official title unverified)",
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

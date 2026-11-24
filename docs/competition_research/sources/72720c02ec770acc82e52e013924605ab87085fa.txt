@@ -1,0 +1,35 @@
+# SWOS Expanded — schede aggiuntive OFC/AFC/CAF/UEFA/FIFA (24/11/2026)
+
+**PREPARATO DATI ONLY, NO COMMIT, NO MODIFICA RUNTIME.** Complemento all'inventario mondiale Git blob `5f33a30e369bc0e649648512fdc9b3b71a441fcf` e ai due blob Sudamerica in Issue #1. Tutti i fatti sotto da pagine di enti organizzatori, i valori possono riferirsi a una specifica edizione e non valere per tutte. NESSUN mapping club_key CE convalidato.
+
+## Oceania (OFC) — scoperta utile: Pro League 2026 ≠ Champions League
+
+OFC Pro League **2026**: primo campionato professionistico regionale, **8 club di 7 paesi**, avviato **17 gennaio 2026** e terminato **24 maggio 2026**. Formato circuit-series con 6 round territoriali, successiva fase Leaders/Challengers, spareggio per semifinale e finale; NON una normale lega nazionale neozelandese e NON una fase della Champions OFC. Al cutoff 30/06/2026 questa edizione è già CHIUSA: eventuale importazione deve conservarne **risultati veri** readonly senza simulare il passato. Fonti OFC: https://www.oceaniafootball.com/ofc-pro-league-2026-2/ , https://www.oceaniafootball.com/ofc-pro-league-teams-confirmed/ , https://www.oceaniafootball.com/ofc-pro-league-round-5-review/ .
+
+OFC Pro League **2027**: gli otto club inaugurali hanno licenze confermate, MA il formato finali cambia: play-off **25/05/2027**, quarti **29/05**, semifinali **02/06**, finale **06/06** (Solomon Islands). Queste sono fonti di ricerca 2027, **NON fixture ufficiali da inserire nel mondo di gioco post-cutoff**; usare GAME_TEMPLATE e decidere se/come il CE modella edizioni future. Fonti: https://www.oceaniafootball.com/ofc-pro-league-set-for-season-2-as-all-eight-clubs-approved-for-2027-licensing/ e https://www.oceaniafootball.com/match-schedule-announced-for-2027-ofc-pro-league/ .
+
+OFC Champions League (competizione distinta): qui NON certificati partecipanti, regolamento edizione 2026, quote e calendario; scheda resta UNAVAILABLE e non si riusa il Pro League come sostituto.
+
+## AFC — tre livelli di club da censire separatamente
+
+ACL Elite 2026/27: l'AFC annuncia passaggio **da 24 a 32 partecipanti**, due zone East/West; 8 migliori per zona agli ottavi, quarter-final onwards centrale in Arabia Saudita. ATTENZIONE: un PDF regolamentare **datato febbraio 2026** in indicizzazione riporta ANCORA 24 squadre, mentre successivi comunicati AFC annunciano l'ampliamento; è una **discordanza di versione di fonte**: ottenere regolamento finale/autorizzazione prima di certificare parametri di torneo e non presentare come errore del CE. Fonti https://www.the-afc.com/en/club/afc_champions_league_elite.html/news/aclelite-all-you-need-to-know e https://www.the-afc.com/en/club/afc_champions_league_elite.html/news/expanded-aclelite-set-league-stage-draw .
+
+ACL Two 2026/27: **32 club, 8 gironi, andata/ritorno, prime due agli ottavi**; fonte https://www.the-afc.com/en/club/afc_champions_league_two.html/news/quest-glory-ignite-acltwo .
+
+AFC Challenge League 2026/27: **5 gironi** con **3 West e 2 East**, singolo round-robin centralizzato dal 17 al 24 ottobre 2026; quote qualificazione ai KO devono provenire dal regolamento e non da una selezione uniforme `top2` (regole regionali). Fonti https://www.the-afc.com/en/club/afc_challenge_league.html/news/challengeleague-set-group-stage-thrillers e https://www.the-afc.com/en/club/afc_challenge_league.html/news/challengeleague-road-to-glory-paved .
+
+## CAF — club, quote e Supercoppa
+
+CAF Champions League e CAF Confederation Cup 2026/27: entrambe **16 squadre nei gironi (4×4, prime due ai quarti)** dopo eliminatorie. Fonti https://www.cafonline.com/caf-champions-league/news/traore-eltaieb-darragi-and-emana-confirmed-as-draw-assistants-for-totalenergies-caf-interclub-group-stage-draws/ e https://www.cafonline.com/caf-champions-league/news/zamalek-mc-alger-and-tunisian-rivals-collide-as-totalenergies-caf-champions-league-group-stage-draw-delivers-blockbuster-clashes .
+
+CAF Super Cup: **gara singola tra vincitori Champions League e Confederation Cup** (due vincitori OG/CE dell'edizione corretta, non due club fissi). Edizione 2026 **8 novembre**: data ufficiale reale POST-cutoff, solo riferimento di ricerca, non calendario obbligatorio di gioco. Fonti https://www.cafonline.com/competitions/caf-competitions/ , https://www.cafonline.com/caf-super-cup/news/media-accreditation-window-officially-open-for-totalenergies-caf-super-cup-2026/ .
+
+## UEFA / nazionali
+
+Supercoppa UEFA: confronto annuale tra campioni UCL e UEL, fonte https://www.uefa.com/running-competitions/our-competitions/clubs/ . Nel 2026 svolgimento previsto 12 agosto a Salisburgo (post cutoff, non importare automaticamente come fixture ufficiale del mondo). Fonte calendario UEFA https://www.uefa.com/news-media/news/02a0-1f71bdf70a9a-b6067bd647f2-1000--2026-european-football-calendar-dates-for-all-uefa-competiti/ .
+
+Nazionali: fonte FIFA calendario maschile 2025–2030: marzo 9 giorni/2 gare, giugno 9 giorni/2 gare, fine settembre/inizio ottobre 16 giorni/4 gare dal 2026, novembre 9 giorni/2 gare. Si tratta di **vincoli finestre convocazioni**, NON calendario di competizione già generato. FIFA World Cup 2026: 48 squadre, 12 gruppi da 4, 2 migliori + 8 migliori terze ai sedicesimi (32 squadre); al cutoff 30/06 la competizione È già in corso. Fonte https://inside.fifa.com/en/organisation/fifa-council/media-releases/fifa-council-approves-international-match-calendars .
+
+## Stato e prossima raccolta
+
+Fonte V=organizzatore su struttura evento; data reale post-cutoff SOLO reference; ID club, fixture/risultati importati, premi, classifiche, documenti regolamenti definitivi non ancora V; rischio rilevante: OFC Pro League 2026 è tutto storico PRIMA di START, mentre AFC/CAF 2026/27 in parte iniziano DOPO START. Per ogni scheda aggiungere `historical_status_at_start` e `source_as_of` così il CE non riavvia competizioni terminate.

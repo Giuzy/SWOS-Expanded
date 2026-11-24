@@ -1,0 +1,1334 @@
+[
+  {
+    "row": 483,
+    "world": "2627",
+    "id": "country0",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 200,
+    "parentLeagueId": "_albanianLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 484,
+    "world": "2627",
+    "id": "country43",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "9b0eb97e8248e1a7c71846e612ebcef7241b4e2e",
+      "8fd63ed2645ca1b0f9efd797a115cf024b3db48e"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 203,
+    "parentLeagueId": "_argentinianLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 485,
+    "world": "2627",
+    "id": "country1",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 211,
+    "parentLeagueId": "_austrianLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 486,
+    "world": "2627",
+    "id": "country3",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "356f4063724366c16d0070ec9caae81183c386c2"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 219,
+    "parentLeagueId": "_bulgarianLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 487,
+    "world": "2627",
+    "id": "country49",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "8fd63ed2645ca1b0f9efd797a115cf024b3db48e"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 223,
+    "parentLeagueId": "_colombianLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 488,
+    "world": "2627",
+    "id": "country58",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 224,
+    "parentLeagueId": "_worldCrcLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 489,
+    "world": "2627",
+    "id": "country5",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "3c23c128432ad7c0ef93b18159c1e8cc912ef3e3"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 226,
+    "parentLeagueId": "_cypriotLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 490,
+    "world": "2627",
+    "id": "country6",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "c79508abe598b80e9ae3ed1c7fa9e3926c3726d6"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 227,
+    "parentLeagueId": "_czechLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 491,
+    "world": "2627",
+    "id": "country7",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 228,
+    "parentLeagueId": "_danishLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 492,
+    "world": "2627",
+    "id": "country50",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "8fd63ed2645ca1b0f9efd797a115cf024b3db48e"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 229,
+    "parentLeagueId": "_ecuadorLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 493,
+    "world": "2627",
+    "id": "country12",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "c79508abe598b80e9ae3ed1c7fa9e3926c3726d6"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 238,
+    "parentLeagueId": "_finnishLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 494,
+    "world": "2627",
+    "id": "country63",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "79dac4d9f1a2ede20a7211af2f07efd8ebf581a0"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 247,
+    "parentLeagueId": "_worldGibLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 495,
+    "world": "2627",
+    "id": "country15",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 248,
+    "parentLeagueId": "_greekLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 496,
+    "world": "2627",
+    "id": "country68",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "3c23c128432ad7c0ef93b18159c1e8cc912ef3e3"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 249,
+    "parentLeagueId": "_worldGuaLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 497,
+    "world": "2627",
+    "id": "country70",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 250,
+    "parentLeagueId": "_worldHonLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 498,
+    "world": "2627",
+    "id": "country17",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 256,
+    "parentLeagueId": "_icelandicLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 499,
+    "world": "2627",
+    "id": "country19",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "79dac4d9f1a2ede20a7211af2f07efd8ebf581a0"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 257,
+    "parentLeagueId": "_israeliLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 500,
+    "world": "2627",
+    "id": "country87",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 261,
+    "parentLeagueId": "_worldKorLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 501,
+    "world": "2627",
+    "id": "country92",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 269,
+    "parentLeagueId": "_worldMdaLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 502,
+    "world": "2627",
+    "id": "country60",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 270,
+    "parentLeagueId": "_mexicanLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 503,
+    "world": "2627",
+    "id": "country60",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 271,
+    "parentLeagueId": "_mexicanLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 504,
+    "world": "2627",
+    "id": "country24",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "79dac4d9f1a2ede20a7211af2f07efd8ebf581a0"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 273,
+    "parentLeagueId": "_malteseLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 505,
+    "world": "2627",
+    "id": "country26",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "c9f932c8aec04966dcfacacdbf5608a03cf2fae4"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 277,
+    "parentLeagueId": "_northernIrishLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 506,
+    "world": "2627",
+    "id": "country95",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 282,
+    "parentLeagueId": "_worldPanLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 507,
+    "world": "2627",
+    "id": "country64",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "9b0eb97e8248e1a7c71846e612ebcef7241b4e2e",
+      "8fd63ed2645ca1b0f9efd797a115cf024b3db48e"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 283,
+    "parentLeagueId": "_paraguayanLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 508,
+    "world": "2627",
+    "id": "country65",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "8fd63ed2645ca1b0f9efd797a115cf024b3db48e"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 284,
+    "parentLeagueId": "_peruvianLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 509,
+    "world": "2627",
+    "id": "country30",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "c79508abe598b80e9ae3ed1c7fa9e3926c3726d6"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 289,
+    "parentLeagueId": "_romanianLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 510,
+    "world": "2627",
+    "id": "country33",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 292,
+    "parentLeagueId": "_scottishLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 511,
+    "world": "2627",
+    "id": "country33",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 293,
+    "parentLeagueId": "_scottishLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 512,
+    "world": "2627",
+    "id": "country33",
+    "detail": "div3",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 294,
+    "parentLeagueId": "_scottishLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 513,
+    "world": "2627",
+    "id": "country33",
+    "detail": "div4",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 295,
+    "parentLeagueId": "_scottishLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 514,
+    "world": "2627",
+    "id": "country51",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 296,
+    "parentLeagueId": "_elSalvadorLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 515,
+    "world": "2627",
+    "id": "country41",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "356f4063724366c16d0070ec9caae81183c386c2"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 302,
+    "parentLeagueId": "_yugoslavianLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 516,
+    "world": "2627",
+    "id": "country37",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 303,
+    "parentLeagueId": "_swissLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 517,
+    "world": "2627",
+    "id": "country78",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "356f4063724366c16d0070ec9caae81183c386c2"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 305,
+    "parentLeagueId": "_slovakianLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 518,
+    "world": "2627",
+    "id": "country71",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "8fd63ed2645ca1b0f9efd797a115cf024b3db48e"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 315,
+    "parentLeagueId": "_uruguayanLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 519,
+    "world": "2627",
+    "id": "country73",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 317,
+    "parentLeagueId": "_americanLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 520,
+    "world": "2627",
+    "id": "country40",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_SPLIT_SPEC",
+    "researchCategory": "LEAGUE_SPLIT_SPEC",
+    "country": null,
+    "candidateSources": [
+      "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
+    ],
+    "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
+    "review": {
+      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "parentLeagueRow": 319,
+    "parentLeagueId": "_welshLeague",
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

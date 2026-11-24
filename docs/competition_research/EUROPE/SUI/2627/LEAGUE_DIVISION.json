@@ -1,0 +1,62 @@
+[
+  {
+    "row": 303,
+    "world": "2627",
+    "id": "_swissLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SUI",
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Super League",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "4fb73a35a5e15b140d942b00f84fb8eef682915a",
+      "nameHistory": [
+        {
+          "transition": 215,
+          "from": "2003/04",
+          "to": null,
+          "previousName": "Nationalliga A",
+          "name": "Super League",
+          "operation": "RENAME",
+          "source": "https://www.uefa.com/news-media/news/0192-0e6a636e4ee6-a4db8dcfd311-1000--structural-change-in-switzerland/"
+        }
+      ],
+      "historyComplete": false
+    },
+    "sportRuleEvidence40": {
+      "edition": "2023/24 onwards",
+      "teams": 12,
+      "regularGames": 33,
+      "groups": [
+        6,
+        6
+      ],
+      "splitGames": 5,
+      "pointsHalved": false,
+      "directRelegatedRank": 12,
+      "playoffRank": 11,
+      "playoffOpponentTier2Rank": 2,
+      "playoffLegs": 2,
+      "homeBalance": "swap third-round home rights following edition",
+      "source": "https://sfl.ch/de/modus-ab-202324-swiss-football-league"
+    }
+  }
+]

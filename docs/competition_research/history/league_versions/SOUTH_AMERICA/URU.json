@@ -1,0 +1,154 @@
+[
+  {
+    "index": 94,
+    "value": {
+      "country": "URU",
+      "division": "div1",
+      "from": "2016",
+      "to": null,
+      "rules": {
+        "editionSpecific": true,
+        "transition": true,
+        "gamesPerClub": 15,
+        "note": "Special transitional edition returning to calendar year; no recurring annual template"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesu/uru2016a.html",
+        "https://rsssf.org/tablesu/uruchamp.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF and press sources retrieved; observed edition rules, not full continuity certification; no results imported; exact dates, access and modern baseline pending",
+      "rowRefs": [
+        87,
+        315
+      ]
+    }
+  },
+  {
+    "index": 95,
+    "value": {
+      "country": "URU",
+      "division": "div1",
+      "from": "2017",
+      "to": null,
+      "rules": {
+        "phases": [
+          "Apertura",
+          "Intermedio",
+          "Clausura",
+          "Championship playoff"
+        ],
+        "note": "Calendar-year structure; aggregate and access details to extract"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesu/uru2017.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF and press sources retrieved; observed edition rules, not full continuity certification; no results imported; exact dates, access and modern baseline pending",
+      "rowRefs": [
+        87,
+        315
+      ]
+    }
+  },
+  {
+    "index": 179,
+    "value": {
+      "country": "URU",
+      "division": "div2",
+      "from": "2016",
+      "to": null,
+      "rules": {
+        "operation": "TRANSITION_TO_CALENDAR_YEAR",
+        "editionSpecific": true,
+        "note": "Special second-semester edition; nonparticipation did not automatically lose 2017 berth; complete rules pending."
+      },
+      "sources": [
+        "https://es.wikipedia.org/wiki/Campeonato_Uruguayo_de_Segunda_Divisi%C3%B3n_2016",
+        "https://www.elpais.com.uy/ovacion/futbol/en-la-auf-se-aprobo-nueva-temporada"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Secondary excerpts, transition decision corroborated; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        88,
+        316
+      ]
+    }
+  },
+  {
+    "index": 180,
+    "value": {
+      "country": "URU",
+      "division": "div2",
+      "from": "2017",
+      "to": null,
+      "rules": {
+        "teams": 15,
+        "promotionCount": 3,
+        "relegationCount": 2,
+        "relegationBasis": "average points 2015/16 and 2017",
+        "cycle": "calendar_year",
+        "note": "Exact formula and new entrant divisor pending."
+      },
+      "sources": [
+        "https://www.montevideo.com.uy/Deportes/Se-sorteo-en-la-AUF-el-fixture-de-la-Segunda-Division-Profesional-uc337752?plantilla=1735&proceso=amp",
+        "https://www.auf.org.uy/nueva-temporada-de-segunda-divisi-oacute-n/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Contemporary press and AUF excerpts; opening cache miss/timeout; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        88,
+        316
+      ]
+    }
+  },
+  {
+    "index": 181,
+    "value": {
+      "country": "URU",
+      "division": "div2",
+      "from": "2019",
+      "to": null,
+      "rules": {
+        "operation": "OBSERVED_PROMOTION_PLAYOFF",
+        "note": "AUF archive confirms 2019 playoffs; exact 2019 bracket not extracted. Do not infer from 2020 emergency season."
+      },
+      "sources": [
+        "https://www.auf.org.uy/historico-temporadas/7/3/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Official archive search excerpt; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        88,
+        316
+      ]
+    }
+  },
+  {
+    "index": 182,
+    "value": {
+      "country": "URU",
+      "division": "div2",
+      "from": "2022",
+      "to": null,
+      "rules": {
+        "teams": 12,
+        "initialGroups": [
+          6,
+          6
+        ],
+        "phaseName": "Torneo Competencia",
+        "note": "Exact points carryover and full movement pending; structural format observed, not pandemic emergency measures."
+      },
+      "sources": [
+        "https://www.elobservador.com.uy/nota/segunda-division-profesional-vuelve-al-formato-tradicional-cada-equipo-en-su-cancha-con-publico-y-menos-tv-202221013230/amp"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Contemporary press excerpt; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        88,
+        316
+      ]
+    }
+  }
+]

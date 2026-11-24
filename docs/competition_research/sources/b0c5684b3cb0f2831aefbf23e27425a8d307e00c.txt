@@ -1,0 +1,29 @@
+# SWOS Expanded — FASE 3 schede-paese lotto B: Europa (24/11/2026)
+
+**PREPARATO DATI ONLY; NO COMMIT / NO CODICE / NO CAR / NO UI**. Complemento lotto A blob `9b0eb97e8248e1a7c71846e612ebcef7241b4e2e`, inventario 91 leghe blob `5f33a30e369bc0e649648512fdc9b3b71a441fcf`. Usare con cutoff 30/06/2026: dati reali successivi sono SOLO reference per formati e finestre GAME_TEMPLATE, mai risultati da importare. Fonte progetto `leagues.json` blob `f15bf28c247b9cc305cb30858fbe4b0b03e970b3`.
+
+## ITALIA
+- _italianLeague, comp_id=61, 14 divisioni JSON (NON equivalenti a 14 livelli reali della piramide; i gruppi possono essere paralleli). `rounds=2` generico.
+- Serie A 2026/27: 20 club, 38 giornate, 380 gare, calendario reale ufficiale inizia 22–23 agosto 2026 e chiude 29–30 maggio 2027: fonti https://www.legaseriea.it/serie-a/news/aspettando-il-calendario-della-serie-a-enilive-2026-27 e https://en.legaseriea.it/serie-a/news/looking-forward-to-the-2026-27-serie-a-fixture-list . Date post-cutoff NON sono fixture da importare; solo finestra/provenienza per GAME_TEMPLATE CE.
+- Serie B: 20 club/38 gare + playoff e playout (fonti attuali Lega B https://www.legab.it/seriebkt , https://www.legab.it/news/ecco-le-date-della-serie-bkt-2026-2027 ); regole specifiche per 2026/27, soglie, pairing e quote da verificare su regolamento datato (non riusare pagina 2017). Serie C/D gruppi paralleli: mancano quote sportive approvate per assegnare promosse/retrocessioni; DATA_MISSING genuino, non hardcode.
+- Coppa Italia e Supercoppa Italiana: fonti calendari Lega Serie A https://www.legaseriea.it/serie-a/news/le-date-della-stagione-2026-2027 ; archivio e verifiche partecipanti, incontri storici al cutoff, regole del tabellone da certificare; i dati CE non sono automaticamente pronti.
+
+## INGHILTERRA
+- _englishLeague, comp_id=46, 4 divisioni JSON (da separare Premier League, Championship, League One, League Two; coppe nazionali e coppa lega separate).
+- Premier League 2026/27: 20 partecipanti confermati dall'organizzatore https://www.premierleague.com/en/news/4673099/the-202627-premier-league-season-officially-starts/ ; matchday dettagli, retrocessioni e qualifiche europee da certificare sul regolamento stagione.
+- **NEW FORMAT 2026/27 Championship playoff**: EFL approva da quattro a **sei club** nei playoff promozione; le due vincitrici degli eliminatori affrontano 3a/4a in semifinale, finale a Wembley. Fonte 05/03/2026 https://www.efl.com/news/2026/march/05/efl-statement--sky-bet-championship-play-off-format/ . NON usare automaticamente il vecchio playoff posizioni 3–6; è un cambio significativo nel 2627, non del 9697. League One/Two mantengono regole diverse, fonte quadro https://www.efl.com/competitions/sky-bet-play-offs/about-the-play-offs/ ma verificare regole esatte 2026/27.
+- FA Cup, EFL Cup, Community Shield, National League e retrocessioni fra livelli: censiti; regolamenti, quote, club IDs e calendario storico da completare.
+
+## GERMANIA
+- _germanLeague, comp_id=54, 3 divisioni JSON (nome OG non certifica formato 2026).
+- Bundesliga e 2. Bundesliga: 16a Bundesliga vs 3a 2.Bundesliga nello spareggio di promozione/retrocessione **andata/ritorno**; non tre promozioni e tre retrocessioni automatiche. Fonte organizzatore https://www.bundesliga.com/en/bundesliga/news/how-does-promotion-and-relegation-work-in-the-bundesliga-10645 . Prime due 2.Bundesliga promosse, ultime due Bundesliga retrocesse direttamente; definire accoppiamento tie-break KO tramite regolamento 2026/27.
+- DFB-Pokal, Supercup, 3. Liga playoff/accessi, partecipanti verificati e formati specifici non ancora pronti. Importare solo storico prima del cutoff.
+
+## FRANCIA
+- _frenchLeague, comp_id=53, **solo 2 divisioni nel JSON**, mentre nuovo terzo livello professionistico **Ligue 3 2026/27 con 18 club e 34 giornate**. La fonte ufficiale della lega https://ligue1.com/en/articles/l1_article_5112-ligue-3-explained-france-s-new-professional-third-tier documenta top2 promossi in Ligue 2, dal 3° al 6° playoff e vincitore contro il 16° Ligue 2 su due gare. Serve aggiornare il CATALOGO/adapter solo dopo dati dei 18 club con ID stabili; non inventare club o simulare la 3a divisione.
+- Ligue 1/Ligue 2 e Coupe de France/Trophée des Champions: inventariati ma ancora DA_VERIFICARE in dettaglio; quote UEFA e regolamento promozione 2026/27 separati. NON confondere la nuova Ligue 3 con una vecchia regione 9697.
+
+## ALTRI VINCOLI
+- 9697 non usa per default i formati 2627; si deve ricostruire la fonte OG per quella stagione, e non retrodatare cambi 2026.
+- Non passare dati sportivi verificati al runtime senza mappare stable club keys e stato storico pre-cutoff, validare numeri di partecipanti, draw/tie-break/quote, guardare collisioni e test RG-T.
+- Stato: V per definizioni JSON e fonti ufficiali specificate; UE/OG runtime integration NO; 9697 storico da verificare; Windows/manager/CAR NON PROVATO.

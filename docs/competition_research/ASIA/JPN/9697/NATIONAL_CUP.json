@@ -1,0 +1,88 @@
+[
+  {
+    "row": 163,
+    "world": "9697",
+    "id": "_japaneseCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "JPN",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "historicalSportData": {
+      "name": "J.League Cup",
+      "edition": "1996",
+      "teams": 16,
+      "known": "2x8 groups double RR, points assigned by aggregate of each pair of legs (3 win/1 draw), no away goals or ET in groups. 112 group matches; SF Sep4 and final Sep25; first group matches June1, preSTART snapshot required. Do not substitute standard per-match points.",
+      "missing": "extract exact preSTART results/standings, participant keys, knockout rules and schema support for aggregate points",
+      "sources": [
+        "https://www.rsssf.org/tablesj/jap96.html"
+      ],
+      "scope": "Temporary historical research only; future results excluded from START."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "J.League Cup",
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 164,
+    "world": "9697",
+    "id": "_japaneseEmperorsCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "JPN",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "historicalSportData": {
+      "name": "Emperor's Cup",
+      "edition": "1996",
+      "teams": 80,
+      "known": "Single elimination; 7 rounds; first two Nov3/10, J.League 16 enter R3 Nov17 (32 teams); R4 Dec23 QF Dec26 SF Dec29 final Jan1 1997; 47 prefectures represented from 1996 per JFA. No future scores imported.",
+      "missing": "entrant keys, exact preliminary eligibility, match rules",
+      "sources": [
+        "https://www.rsssf.org/tablesj/jap96.html",
+        "https://www.jfa.jp/eng/match/emperorscup_2017/history02.html",
+        "https://en.wikipedia.org/wiki/1996_Emperor%27s_Cup"
+      ],
+      "scope": "Temporary historical research only; future results excluded from START."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Emperor's Cup",
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

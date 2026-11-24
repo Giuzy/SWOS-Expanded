@@ -1,0 +1,43 @@
+[
+  {
+    "index": 80,
+    "value": {
+      "row": 81,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        217,
+        263
+      ]
+    }
+  },
+  {
+    "index": 81,
+    "value": {
+      "row": 82,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        218
+      ]
+    }
+  },
+  {
+    "index": 82,
+    "value": {
+      "row": 83,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        219
+      ]
+    }
+  },
+  {
+    "index": 83,
+    "value": {
+      "row": 84,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        220
+      ]
+    }
+  }
+]

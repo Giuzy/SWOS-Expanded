@@ -1,0 +1,309 @@
+[
+  {
+    "index": 114,
+    "value": {
+      "country": "ITA",
+      "division": "div1",
+      "from": "2004/05",
+      "to": null,
+      "rules": {
+        "teams": 20,
+        "previousTeams": 18,
+        "rounds": 2,
+        "gamesPerClub": 38
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesi/ital04.html",
+        "https://www.rsssf.org/tablesi/ital05.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        56,
+        186
+      ]
+    }
+  },
+  {
+    "index": 115,
+    "value": {
+      "country": "ITA",
+      "division": "div2",
+      "from": "2003/04",
+      "to": null,
+      "rules": {
+        "teams": 24,
+        "editionSpecific": true,
+        "note": "Exceptional enlargement following legal proceedings; actual season structure, not recurring rule; treatment of administrative exceptions in career not decided"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesi/ital03.html",
+        "https://www.rsssf.org/tablesi/ital04.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        57,
+        187
+      ]
+    }
+  },
+  {
+    "index": 116,
+    "value": {
+      "country": "ITA",
+      "division": "div2",
+      "from": "2004/05",
+      "to": null,
+      "rules": {
+        "teams": 22,
+        "rounds": 2,
+        "gamesPerClub": 42,
+        "note": "Promotion and relegation playoff rules need independent verification"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesi/ital2-05.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        57,
+        187
+      ]
+    }
+  },
+  {
+    "index": 117,
+    "value": {
+      "country": "ITA",
+      "division": "div2",
+      "from": "2018/19",
+      "to": null,
+      "rules": {
+        "teams": 19,
+        "editionSpecific": true,
+        "note": "One-year actual structure; administrative cause and application in simulated career need decision"
+      },
+      "sources": [
+        "https://www.legab.it/seriebkt/playout-curiosita-e-precedenti",
+        "https://www.rsssf.org/tablesi/ital2019.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        57,
+        187
+      ]
+    }
+  },
+  {
+    "index": 118,
+    "value": {
+      "country": "ITA",
+      "division": "div2",
+      "from": "2019/20",
+      "to": null,
+      "rules": {
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "note": "Permanent 20-team structure; exclude temporary pandemic scheduling measures"
+      },
+      "sources": [
+        "https://www.legab.it/seriebkt/playout-curiosita-e-precedenti",
+        "https://rsssf.org/tablesi/ital2020.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        57,
+        187
+      ]
+    }
+  },
+  {
+    "index": 119,
+    "value": {
+      "country": "ITA",
+      "division": "tier3_and_tier4",
+      "from": "2014/15",
+      "to": null,
+      "rules": {
+        "operation": "MERGE_LEVELS",
+        "previousStructure": "Lega Pro Prima and Seconda Divisione",
+        "newTier": 3,
+        "parallelGroups": 3,
+        "teamsPerGroup": 20,
+        "totalTeams": 60,
+        "note": "Approved structural target, not guaranteed actual entries; transition 2013/14 movement and Serie D tier shift require reconciliation. Do not map native division ordinals to pyramid tiers automatically."
+      },
+      "sources": [
+        "https://www.figc.it/it/federazione/news/approvata-la-riforma-dei-campionati-di-lega-pro-60-squadre-dal-2014-15-gsyu5dl5"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": []
+    }
+  },
+  {
+    "index": 195,
+    "value": {
+      "country": "ITA",
+      "division": "tier5_CND",
+      "from": "1996/97",
+      "to": null,
+      "rules": {
+        "operation": "BASELINE_HISTORICAL_STRUCTURE",
+        "name": "Campionato Nazionale Dilettanti",
+        "nominalTeams": 162,
+        "nominalGroups": 9,
+        "sportLevel": 5,
+        "note": "Nominal framework inherited from earlier reform; exact 1996/97 group sizes and movement need season tables. No new playable slot without mapped clubs."
+      },
+      "sources": [
+        "https://oldseried.lnd.it/it/seried-organizzazione/la-storia",
+        "https://oldseried.lnd.it/it/seried",
+        "https://it.wikipedia.org/wiki/Albo_d%27oro_del_campionato_di_Serie_D"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: LND historical page opened, 9-group base and seasonal archive extracts; exact end, mapping, dates, remaining sport rules and modern equivalence pending. No future results imported.",
+      "rowRefs": []
+    }
+  },
+  {
+    "index": 196,
+    "value": {
+      "country": "ITA",
+      "division": "tier3_C1",
+      "from": "1996/97",
+      "to": null,
+      "rules": {
+        "operation": "BASELINE_HISTORICAL_STRUCTURE",
+        "name": "Serie C1",
+        "parallelGroups": 2,
+        "sportLevel": 3,
+        "note": "Historical research; absent from original 9697 playable Italian rows. No invented entrants."
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesi/ital97.html",
+        "https://www.rsssf.org/tablesi/ital3champ.html",
+        "https://it.wikipedia.org/wiki/Serie_C1_1996-1997"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF and secondary extracts; exact end, mapping, dates, remaining sport rules and modern equivalence pending. No future results imported.",
+      "rowRefs": []
+    }
+  },
+  {
+    "index": 197,
+    "value": {
+      "country": "ITA",
+      "division": "tier4_C2",
+      "from": "1996/97",
+      "to": null,
+      "rules": {
+        "operation": "BASELINE_HISTORICAL_STRUCTURE",
+        "name": "Serie C2",
+        "parallelGroups": 3,
+        "sportLevel": 4,
+        "note": "Historical research; absent from original 9697 playable Italian rows. No invented entrants."
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesi/ital97.html",
+        "https://it.wikipedia.org/wiki/Serie_C2_1996-1997"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF and secondary extracts; exact end, mapping, dates, remaining sport rules and modern equivalence pending. No future results imported.",
+      "rowRefs": []
+    }
+  },
+  {
+    "index": 198,
+    "value": {
+      "country": "ITA",
+      "division": "tier5_CND",
+      "from": "1999/2000",
+      "to": null,
+      "rules": {
+        "operation": "RENAME",
+        "name": "Serie D",
+        "previousName": "Campionato Nazionale Dilettanti",
+        "note": "LND chronology specifies 1999; seasonal naming boundary pending corroboration."
+      },
+      "sources": [
+        "https://oldseried.lnd.it/it/seried-organizzazione/la-storia",
+        "https://lnd.it/storia/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: LND official history opened, 1999 change; exact end, mapping, dates, remaining sport rules and modern equivalence pending. No future results imported.",
+      "rowRefs": []
+    }
+  },
+  {
+    "index": 199,
+    "value": {
+      "country": "ITA",
+      "division": "tier3_C1",
+      "from": "2008/09",
+      "to": null,
+      "rules": {
+        "operation": "RENAME",
+        "name": "Lega Pro Prima Divisione",
+        "previousName": "Serie C1"
+      },
+      "sources": [
+        "https://www.figc.it/it/federazione/news/consiglio-federale-per-la-lega-pro-decisi-i-primi-ripescaggi-m4i7j7l7",
+        "https://www.lega-calcio-serie-c.it/come-nasce-la-serie-c-in-italia-origini-storia-e-riforme/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: FIGC July 2008 announcement opened, secondary chronology corroborates; exact end, mapping, dates, remaining sport rules and modern equivalence pending. No future results imported.",
+      "rowRefs": []
+    }
+  },
+  {
+    "index": 200,
+    "value": {
+      "country": "ITA",
+      "division": "tier4_C2",
+      "from": "2008/09",
+      "to": null,
+      "rules": {
+        "operation": "RENAME",
+        "name": "Lega Pro Seconda Divisione",
+        "previousName": "Serie C2"
+      },
+      "sources": [
+        "https://www.figc.it/it/federazione/news/consiglio-federale-per-la-lega-pro-decisi-i-primi-ripescaggi-m4i7j7l7",
+        "https://www.lega-calcio-serie-c.it/come-nasce-la-serie-c-in-italia-origini-storia-e-riforme/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: FIGC July 2008 announcement opened; exact end, mapping, dates, remaining sport rules and modern equivalence pending. No future results imported.",
+      "rowRefs": []
+    }
+  },
+  {
+    "index": 201,
+    "value": {
+      "country": "ITA",
+      "division": "tier3_parallel",
+      "from": "2017/18",
+      "to": null,
+      "rules": {
+        "operation": "RENAME",
+        "name": "Serie C",
+        "previousName": "Lega Pro",
+        "parallelGroups": 3
+      },
+      "sources": [
+        "https://www.lega-calcio-serie-c.it/come-nasce-la-serie-c-in-italia-origini-storia-e-riforme/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Secondary history opened; official naming decision pending; exact end, mapping, dates, remaining sport rules and modern equivalence pending. No future results imported.",
+      "rowRefs": [
+        188,
+        189,
+        190
+      ]
+    }
+  }
+]

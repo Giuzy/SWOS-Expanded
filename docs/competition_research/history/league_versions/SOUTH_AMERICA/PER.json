@@ -1,0 +1,30 @@
+[
+  {
+    "index": 93,
+    "value": {
+      "country": "PER",
+      "division": "div1",
+      "from": "2019",
+      "to": null,
+      "rules": {
+        "teams": 18,
+        "phases": [
+          "Apertura",
+          "Clausura",
+          "Playoffs"
+        ],
+        "note": "17 games per club each short tournament; aggregate decides access and relegation; Copa Bicentenario separate; exact playoff access and table tiebreaks pending"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesp/peru2019.html",
+        "https://elcomercio.pe/deporte-total/la-liga-1-un-torneo-que-aun-no-encuentra-un-formato-que-nos-haga-competitivos-l-ecpm-noticia/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF and press sources retrieved; observed edition rules, not full continuity certification; no results imported; exact dates, access and modern baseline pending",
+      "rowRefs": [
+        45,
+        284
+      ]
+    }
+  }
+]

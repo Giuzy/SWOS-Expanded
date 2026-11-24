@@ -1,0 +1,53 @@
+[
+  {
+    "row": 345,
+    "world": "2627",
+    "id": "_cypriotCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "CYP",
+    "candidateSources": [
+      "4896377b7a30906670e83d07b889dbd0f62fec60"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "Cypriot Cup",
+      "candidateName": "Cypriot Cup",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.cfa.com.cy/Gr/news/53531",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence46": {
+      "edition": "2026/27",
+      "rules": {
+        "firstRoundByes": "previous finalists and European group-stage qualifiers",
+        "knownFinalistByes": [
+          "Pafos FC",
+          "Apollon Limassol"
+        ],
+        "semifinalLegs": 2,
+        "otherRoundsLegs": 1
+      },
+      "sources": [
+        "https://www.cfa.com.cy/Gr/news/53531",
+        "https://www.cfa.com.cy/Gr/news/51359"
+      ],
+      "limitations": "Official CFA 10 July 2026 announcement opened; previous edition announcement excerpt; complete entrants not reconciled.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

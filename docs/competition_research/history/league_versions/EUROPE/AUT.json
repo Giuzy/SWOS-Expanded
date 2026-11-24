@@ -1,0 +1,25 @@
+[
+  {
+    "index": 64,
+    "value": {
+      "country": "AUT",
+      "division": "div1",
+      "from": "2017/18",
+      "to": "2017/18",
+      "rules": {
+        "operation": "EXPAND_10_TO_12",
+        "relegationPlayoffRank": 10,
+        "secondTierOpponentRank": 3
+      },
+      "sources": [
+        "https://www.oefbl.at/de/medienbereich/mediainfos/2016/die-details-der-ligareform-so-wird-ab-2018-19-gespielt"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        2,
+        211
+      ]
+    }
+  }
+]

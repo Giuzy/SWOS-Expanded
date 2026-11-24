@@ -1,0 +1,96 @@
+[
+  {
+    "row": 219,
+    "world": "2627",
+    "id": "_bulgarianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "BUL",
+    "candidateSources": [
+      "356f4063724366c16d0070ec9caae81183c386c2"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "First League",
+      "candidateName": "First Professional Football League",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://bulgarian-football.com/archive/2025-2026/reglament.html",
+      "nameHistory": [
+        {
+          "transition": 228,
+          "from": "2016/17",
+          "to": null,
+          "previousName": "A Group",
+          "name": "First Professional Football League",
+          "operation": "RENAME",
+          "source": "https://en.wikipedia.org/wiki/2016%E2%80%9317_First_Professional_Football_League_%28Bulgaria%29"
+        }
+      ],
+      "historyComplete": false
+    },
+    "sportRuleEvidence44": {
+      "edition": "2001/02",
+      "teams": 14,
+      "regularGames": 26,
+      "groups": [
+        6,
+        8
+      ],
+      "pointsHalved": true,
+      "directRelegated": 3,
+      "directPromoted": 3,
+      "source": "https://www.uefa.com/news-media/news/0183-0f8fabda42b7-d8c4b3d3e16b-1000--bulgaria-round-up-levski-win-in-style/",
+      "scope": "Historical only; no rounding or number of group rounds assumed."
+    },
+    "sportRuleEvidence45": {
+      "edition": "2025/26",
+      "rules": {
+        "teams": 16,
+        "regularGames": 30,
+        "groups": [
+          4,
+          4,
+          8
+        ],
+        "extraGames": [
+          6,
+          6,
+          7
+        ],
+        "carryPoints": true,
+        "relegatedRanks": [
+          14,
+          15,
+          16
+        ],
+        "playoffRank": 13,
+        "playoffOpponentTier2Rank": 2,
+        "playoffLegs": 1,
+        "extraTime": true,
+        "penalties": true,
+        "directPromoted": 1,
+        "conferencePlayoff": "rank 3/4 vs 5/6 conditional on cup winner; home higher group",
+        "nextEditionTeams": 14
+      },
+      "sources": [
+        "https://bulgarian-football.com/archive/2025-2026/reglament.html",
+        "https://europeanleagues.com/infocus-bpfl/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "TFF PDF p1 screenshot verified; Bulgarian league HTML opened; other sources search excerpts only, EPO/RSSSF open cache miss. No full calendar or player rules certification."
+    }
+  }
+]

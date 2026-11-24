@@ -1,0 +1,34 @@
+[
+  {
+    "index": 198,
+    "value": {
+      "competition": "GIB Merchants Cup",
+      "firstEdition": "1894/95",
+      "lastEdition": null,
+      "operation": "HISTORICAL_ORIGIN",
+      "note": "RSSSF initially league basis, later separate Senior Cup and Rock Cup records; UEFA notes Merchants Cup early official competition. Do not merge identities solely on retrospective honours.",
+      "source": "https://www.rsssf.org/tablesg/gibcuphist.html",
+      "rowRefs": [
+        362
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
+    }
+  },
+  {
+    "index": 199,
+    "value": {
+      "competition": "GIB Rock Cup",
+      "firstEdition": "1935/36",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "RSSSF records distinct trophy presented in 1935 for military and civilian sides; older competitions coexisted. Modern slot identity candidate, historical federation UEFA access separate.",
+      "source": "https://www.rsssf.org/tablesg/gibcuphist.html",
+      "rowRefs": [
+        362
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
+    }
+  }
+]

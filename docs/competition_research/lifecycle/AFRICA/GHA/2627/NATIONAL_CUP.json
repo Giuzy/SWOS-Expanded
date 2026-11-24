@@ -1,0 +1,29 @@
+[
+  {
+    "index": 360,
+    "value": {
+      "row": 361,
+      "active_from": "1957/58",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [
+        {
+          "from": "2002",
+          "until": "2010",
+          "reason": "GFA no editions by final year; resume 2010/11",
+          "careerApplicability": "RESEARCH_ONLY"
+        }
+      ],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_LIFETIME_IDENTITY_MAPPING_CANDIDATE",
+      "sources": [
+        "https://www.ghanafa.org/fa-cup-profile",
+        "https://www.ghanafa.org/chance-for-fa-cup-glory-begins-for-clubs",
+        "https://www.ghanafa.org/winners-list-of-fa-cup-competition-ahead-of-sundays-final"
+      ]
+    }
+  }
+]

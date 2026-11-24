@@ -1,0 +1,53 @@
+[
+  {
+    "index": 209,
+    "value": {
+      "competition": "ENG tier 2",
+      "firstEdition": "2004/05",
+      "operation": "RENAME",
+      "previousName": "Division One",
+      "name": "Championship",
+      "rowRefs": [
+        76,
+        232
+      ],
+      "source": "https://www.efl.com/about-the-efl/history/innovation/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  },
+  {
+    "index": 210,
+    "value": {
+      "competition": "ENG tier 3",
+      "firstEdition": "2004/05",
+      "operation": "RENAME",
+      "previousName": "Division Two",
+      "name": "League One",
+      "rowRefs": [
+        77,
+        233
+      ],
+      "source": "https://www.efl.com/about-the-efl/history/innovation/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  },
+  {
+    "index": 211,
+    "value": {
+      "competition": "ENG tier 4",
+      "firstEdition": "2004/05",
+      "operation": "RENAME",
+      "previousName": "Division Three",
+      "name": "League Two",
+      "rowRefs": [
+        78,
+        234
+      ],
+      "source": "https://www.efl.com/about-the-efl/history/innovation/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  }
+]

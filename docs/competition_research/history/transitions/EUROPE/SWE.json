@@ -1,0 +1,131 @@
+[
+  {
+    "index": 117,
+    "value": {
+      "competition": "SWE Svenska Cupen",
+      "firstEdition": "2012/13",
+      "lastEdition": null,
+      "operation": "CHANGE_FORMAT_AND_CYCLE",
+      "note": "Autumn qualifying, spring group stage 32 clubs in eight groups of four, group winners advance to quarterfinals, semifinal and final. No champion in calendar 2012; do not generate extra edition.",
+      "source": "https://www.svenskfotboll.se/nyheter/cuper/2025/02/svc-sakert-vartecken/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Swedish FA official history opened lines 52–81. Full dates, access, identity mapping and modern equivalence pending. No future results imported.",
+      "rowRefs": [
+        142,
+        411
+      ]
+    }
+  },
+  {
+    "index": 278,
+    "value": {
+      "competition": "SWE tier 1",
+      "firstEdition": "1973",
+      "lastEdition": "2007",
+      "operation": "OBSERVED_TEAM_COUNT",
+      "teams": 14,
+      "rowRefs": [
+        31,
+        307
+      ],
+      "source": "https://www.svenskfotboll.se/nyheter/serier/2020/11/thylin-infor-slutspurten/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 38 official web search excerpts actually retrieved; no PDF analyzed."
+    }
+  },
+  {
+    "index": 279,
+    "value": {
+      "competition": "SWE tier 1",
+      "firstEdition": "2007",
+      "lastEdition": "2007",
+      "operation": "TRANSITION_PROMOTION_RELEGATION",
+      "directPromoted": 3,
+      "directRelegated": 1,
+      "rowRefs": [
+        31,
+        307
+      ],
+      "source": "https://www.svenskfotboll.se/nyheter/serier/2023/03/superettanpremiar-till-helgen/",
+      "note": "Exceptional expansion transition, not recurring.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 38 official web search excerpts actually retrieved; no PDF analyzed."
+    }
+  },
+  {
+    "index": 280,
+    "value": {
+      "competition": "SWE tier 1",
+      "firstEdition": "2008",
+      "operation": "CHANGE_TEAM_COUNT",
+      "previousTeams": 14,
+      "teams": 16,
+      "rowRefs": [
+        31,
+        307
+      ],
+      "source": "https://www.svenskfotboll.se/nyheter/serier/2020/11/thylin-infor-slutspurten/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 38 official web search excerpts actually retrieved; no PDF analyzed."
+    }
+  },
+  {
+    "index": 346,
+    "value": {
+      "competition": "SWE Svenska Cupen",
+      "firstEdition": "1996/97",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        142
+      ],
+      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "rules": {
+        "finalDate": "1997-05-29",
+        "finalLegsObserved": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block48 HTML opened; no PDF analyzed."
+    }
+  },
+  {
+    "index": 349,
+    "value": {
+      "competition": "SWE Svenska Cupen",
+      "firstEdition": "2026/27",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        411
+      ],
+      "source": "https://www.svenskfotboll.se/serier-cuper/svenska-cupen/tavlingsinformation/",
+      "rules": {
+        "districtEntrants": 64,
+        "topTwoTierEntrants": 32,
+        "round1Window": [
+          "2026-06-02",
+          "2026-06-11"
+        ],
+        "round2Windows": [
+          [
+            "2026-08-18",
+            "2026-08-20"
+          ],
+          [
+            "2026-08-25",
+            "2026-08-27"
+          ]
+        ],
+        "round2Home": "district clubs",
+        "round2Draw": "north/south",
+        "groupTeams": 32,
+        "groups": 8,
+        "seededTeams": 16,
+        "advance": "group winners",
+        "quarterfinalHome": "four best group winners",
+        "semiFinalHome": "draw",
+        "groupAndFinalYear": 2027
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block48 HTML opened; no PDF analyzed."
+    }
+  }
+]

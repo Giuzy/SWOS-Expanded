@@ -1,0 +1,21 @@
+[
+  {
+    "index": 358,
+    "value": {
+      "row": 359,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "FIRST_OBSERVED_EDITION_SNIPPET_ONLY",
+      "historicalOrigin": "1990",
+      "sources": [
+        "https://www.rsssf.org/tablesg/georcuphistfin.html"
+      ]
+    }
+  }
+]

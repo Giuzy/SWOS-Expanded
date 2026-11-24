@@ -1,0 +1,24 @@
+[
+  {
+    "index": 316,
+    "value": {
+      "competition": "SVN tier 1",
+      "firstEdition": "2025/26",
+      "lastEdition": "2025/26",
+      "operation": "OBSERVED_FORMAT",
+      "teams": 10,
+      "games": 36,
+      "directRelegatedRank": 10,
+      "playoffRank": 9,
+      "playoffOpponentTier2Rank": 2,
+      "playoffLegs": 2,
+      "rowRefs": [
+        306
+      ],
+      "source": "https://www.prvaliga.si/Doc/Info/2025/Navodila%20za%20organizacijo%20tekem%20v%201.%20SNL_V5.1_julij2025.pdf",
+      "note": "NZS V5.1 July 2025, printed pp.8–9; screenshot p8 verified, p9 cache miss; extracted text available.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block44 actual web retrieval, 24/11/2026; source-specific limitations noted."
+    }
+  }
+]

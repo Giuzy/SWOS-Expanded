@@ -1,0 +1,54 @@
+[
+  {
+    "row": 118,
+    "world": "9697",
+    "id": "_cypriotCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "CYP",
+    "candidateSources": [
+      "d744018d10a2aa469e3044dc364cbaa2914785fe"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": "Cyprus Cup",
+      "candidateName": "Cypriot Cup",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesc/cyp97.html",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence47": {
+      "edition": "1996/97",
+      "rules": {
+        "entrants": 50,
+        "preliminaryEntrants": 36,
+        "preliminaryDate": "1996-11-09",
+        "firstRoundAdds": 14,
+        "topTierSeparateDraw": true,
+        "preliminaryAndFirstRound": "single match, extra time, replay away venue, extra time and penalties if still tied",
+        "semifinalLegs": 2,
+        "finalDate": "1997-05-17",
+        "finalLegs": 1
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesc/cyp97.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Observed historical season; neutral English labels not necessarily exact official local-language names. No complete fixture/participant mapping, no result import."
+    }
+  }
+]

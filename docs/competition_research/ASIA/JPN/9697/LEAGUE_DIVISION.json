@@ -1,0 +1,127 @@
+[
+  {
+    "row": 58,
+    "world": "9697",
+    "id": "_japaneseLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "JPN",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "JAPAN",
+      "teams": "14",
+      "formula": "OG rounds=2; points_win=3; begin=16; end=80",
+      "promotionRaw": "0 campo-OG + 0 playoff",
+      "relegationRaw": "0 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "name": "J.League",
+      "edition": "1996",
+      "teams": 16,
+      "regularOrInitialGamesPerClub": 30,
+      "pointsWin": null,
+      "formatAndMovement": "Single season double RR; ET and penalties used; precise points allocation to confirm, do not copy JFL system",
+      "researchSource": "https://www.rsssf.org/tablesj/jap96.html",
+      "scope": "Research only: regional candidates and adjacent-year evidence are not exact first-edition certification; no future results imported."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "J.League",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesj/jap96.html",
+      "nameHistory": [
+        {
+          "transition": 252,
+          "from": "1999",
+          "to": null,
+          "previousName": "J.League",
+          "name": "J.League Division 1",
+          "operation": "RENAME_AND_RESTRUCTURE",
+          "source": "https://jref.com/dir/j-league-official-information-net.621/"
+        },
+        {
+          "transition": 254,
+          "from": "2015",
+          "to": null,
+          "previousName": "J.League Division 1",
+          "name": "J1 League",
+          "operation": "RENAME",
+          "source": "https://www.vissel-kobe.co.jp/news/article/8466.html"
+        }
+      ],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 59,
+    "world": "9697",
+    "id": "_japaneseLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "JPN",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "JAPAN",
+      "teams": "14",
+      "formula": "OG rounds=2; points_win=3; begin=16; end=80",
+      "promotionRaw": "0 campo-OG + 0 playoff",
+      "relegationRaw": "0 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "edition": "1996",
+      "name": "Japan Football League",
+      "teams": 16,
+      "regularOrInitialGamesPerClub": 30,
+      "pointsWin": 3,
+      "formatAndMovement": "Double RR; no draw, ET then penalties, 1 point penalty loss; promotion subject to associate membership, Vissel Kobe historical example; full eligibility pending",
+      "researchSource": "https://www.rsssf.org/tablesj/jap96.html",
+      "scope": "Partial historical structure, no future results imported"
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "Japan Football League",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesj/jap96.html",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

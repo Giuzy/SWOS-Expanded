@@ -1,0 +1,66 @@
+[
+  {
+    "index": 137,
+    "value": {
+      "country": "MNE",
+      "division": "div1",
+      "from": "2006/07",
+      "to": null,
+      "rules": {
+        "operation": "CREATE_INDEPENDENT_LEAGUE",
+        "teams": 12,
+        "rounds": 3,
+        "gamesPerClub": 33,
+        "relegationDirect": [
+          12
+        ],
+        "relegationPlayoff": [
+          10,
+          11
+        ],
+        "note": "Actual played format differs from UEFA June proposed split; initial club selection from predecessor leagues pending mapping."
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesm/monteg07.html",
+        "https://www.uefa.com/news-media/news/0257-0de6aeaceaf4-4a3a4100d804-1000--the-last-of-serbia-and-montenegro/"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF final table opened lines 2–18; format observed; exact end validity, identity mapping, dates, remaining rules and 2026 equivalence pending",
+      "rowRefs": [
+        274
+      ]
+    }
+  },
+  {
+    "index": 159,
+    "value": {
+      "country": "MNE",
+      "division": "div1",
+      "from": "2017/18",
+      "to": null,
+      "rules": {
+        "previousTeams": 12,
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "relegationDirect": [
+          10
+        ],
+        "relegationPlayoff": [
+          8,
+          9
+        ],
+        "playoffLegs": 2
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesm/monteg2018.html",
+        "https://rsssf.org/tablesm/monteg2017.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: 2017/18 full table and playoff opened lines 12–24, 310–320; reduction announced in preceding season excerpt (cache miss); effective end, dates, identity mapping and modern baseline equivalence pending; no future results imported.",
+      "rowRefs": [
+        274
+      ]
+    }
+  }
+]

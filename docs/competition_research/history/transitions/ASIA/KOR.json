@@ -1,0 +1,82 @@
+[
+  {
+    "index": 118,
+    "value": {
+      "competition": "KOR FA Cup",
+      "firstEdition": "2024",
+      "lastEdition": null,
+      "operation": "RENAME_AND_CHANGE_FORMAT",
+      "note": "Korea Cup; same competition founded 1996. Semifinals two legs, final single at neutral venue; prior typical format opposite. Exact earlier exceptions pending.",
+      "source": "https://www.kfa.or.kr/layer_popup/popup_live.php?act=news_tv_detail&div_code=news&idx=26861",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: KFA official retrospective opened lines 36–41. Full dates, access, identity mapping and modern equivalence pending. No future results imported.",
+      "rowRefs": [
+        374
+      ]
+    }
+  },
+  {
+    "index": 228,
+    "value": {
+      "competition": "KOR tier 1",
+      "firstEdition": "1998",
+      "operation": "RENAME",
+      "previousName": "Professional Football League",
+      "name": "K League",
+      "rowRefs": [
+        261
+      ],
+      "source": "https://en.wikipedia.org/wiki/List_of_South_Korean_football_champions",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 30 actual web search excerpts; exact sporting identity and structural reform independently checked before runtime. No sponsor names."
+    }
+  },
+  {
+    "index": 229,
+    "value": {
+      "competition": "KOR tier 1",
+      "firstEdition": "2013",
+      "operation": "RENAME",
+      "previousName": "K League",
+      "name": "K League Classic",
+      "rowRefs": [
+        261
+      ],
+      "source": "https://eaff.com/column/20.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 30 actual web search excerpts; exact sporting identity and structural reform independently checked before runtime. No sponsor names.",
+      "additionalSource": "https://www.kleague.com/about/history.do"
+    }
+  },
+  {
+    "index": 230,
+    "value": {
+      "competition": "KOR tier 1",
+      "firstEdition": "2018",
+      "operation": "RENAME",
+      "previousName": "K League Classic",
+      "name": "K League 1",
+      "rowRefs": [
+        261
+      ],
+      "source": "https://en.wikipedia.org/wiki/K_League",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 30 actual web search excerpts; exact sporting identity and structural reform independently checked before runtime. No sponsor names."
+    }
+  },
+  {
+    "index": 276,
+    "value": {
+      "competition": "KOR tier 1",
+      "firstEdition": "2012",
+      "operation": "INTRODUCE_PROMOTION_RELEGATION",
+      "rowRefs": [
+        261
+      ],
+      "source": "https://www.kleague.com/about/history.do",
+      "note": "Official history records Sangju and Gwangju relegated in 2012; subsequent annual quotas not inferred.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 37 official federation/league sources 24/11/2026; no complete edition rules or fixture reconciliation."
+    }
+  }
+]

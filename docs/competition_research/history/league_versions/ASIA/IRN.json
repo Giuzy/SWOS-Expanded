@@ -1,0 +1,72 @@
+[
+  {
+    "index": 104,
+    "value": {
+      "country": "IRN",
+      "division": "div1",
+      "from": "2001/02",
+      "to": null,
+      "rules": {
+        "operation": "PRO_LEAGUE_INTRODUCTION",
+        "teams": 14,
+        "rounds": 2,
+        "gamesPerClub": 26
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesi/iran02.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 actual web search excerpts; exact applicability, dates, full phase/movement rules and modern baseline equivalence pending; no results imported",
+      "rowRefs": [
+        255
+      ]
+    }
+  },
+  {
+    "index": 105,
+    "value": {
+      "country": "IRN",
+      "division": "div1",
+      "from": "2007/08",
+      "to": null,
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "note": "Team count corroboration by seasonal archive pending full table extraction"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesi/iran08.html",
+        "https://wiki.arcsnet.dev/content/wikipedia_en_all_maxi_2026-02/Persian_Gulf_Pro_League"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 actual web search excerpts; exact applicability, dates, full phase/movement rules and modern baseline equivalence pending; no results imported",
+      "rowRefs": [
+        255
+      ]
+    }
+  },
+  {
+    "index": 106,
+    "value": {
+      "country": "IRN",
+      "division": "div1",
+      "from": "2013/14",
+      "to": null,
+      "rules": {
+        "teams": 16,
+        "rounds": 2,
+        "gamesPerClub": 30
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesi/iran2014.html",
+        "https://wiki.arcsnet.dev/content/wikipedia_en_all_maxi_2026-02/Persian_Gulf_Pro_League"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 actual web search excerpts; exact applicability, dates, full phase/movement rules and modern baseline equivalence pending; no results imported",
+      "rowRefs": [
+        255
+      ]
+    }
+  }
+]

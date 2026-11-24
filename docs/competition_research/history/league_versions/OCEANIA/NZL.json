@@ -1,0 +1,108 @@
+[
+  {
+    "index": 24,
+    "value": {
+      "country": "NZL",
+      "division": "div1",
+      "from": "2004/05",
+      "to": "2008/09",
+      "rules": {
+        "competition": "New Zealand Football Championship",
+        "operation": "CREATE",
+        "initialFranchises": 8,
+        "finals": "verify season-specific top-three/top-five format",
+        "qualification": "regular-season winner and grand-final winner OFC, duplicate winner rule pending"
+      },
+      "source": "https://en.wikipedia.org/wiki/New_Zealand_Football_Championship",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        72,
+        279
+      ]
+    }
+  },
+  {
+    "index": 25,
+    "value": {
+      "country": "NZL",
+      "division": "div1",
+      "from": "2009/10",
+      "to": "2020/21",
+      "rules": {
+        "competition": "New Zealand Football Championship",
+        "finalsTeams": 4,
+        "teamCounts": "verify expansion/contraction by year",
+        "qualification": "regular-season winner and grand-final winner OFC; duplicate rule pending",
+        "excludePandemicExceptions": true
+      },
+      "source": "https://en.wikipedia.org/wiki/New_Zealand_Football_Championship",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        72,
+        279
+      ]
+    }
+  },
+  {
+    "index": 26,
+    "value": {
+      "country": "NZL",
+      "division": "div1",
+      "from": "2021",
+      "to": null,
+      "rules": {
+        "operation": "REPLACE_WITH_MODERN_REFERENCE",
+        "competition": "New Zealand National League",
+        "regionalQualification": true,
+        "modernRulesRef": "existing 2627 data; verify equivalence"
+      },
+      "source": "https://www.nzfootball.co.nz/competitions/football/introducing-the-national-league-1",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        72,
+        279
+      ]
+    }
+  },
+  {
+    "index": 192,
+    "value": {
+      "country": "NZL",
+      "division": "regional_top_tier",
+      "from": "2021",
+      "to": null,
+      "rules": {
+        "operation": "REORGANIZE_REGIONAL_PATHWAY",
+        "regionalConferences": 3,
+        "regionalTeamsTotal": 30,
+        "nationalChampionshipTeams": 10,
+        "entryPools": [
+          {
+            "pool": "Northern",
+            "count": 4
+          },
+          {
+            "pool": "Central",
+            "count": 3
+          },
+          {
+            "pool": "Southern",
+            "count": 2
+          },
+          {
+            "pool": "Wellington Phoenix development",
+            "count": 1
+          }
+        ],
+        "note": "Permanent structural reform approved Dec 2020; these are parallel regional top-tier conferences, not div2/div3 serial levels. No emergency cancellations imported; mapping pending."
+      },
+      "sources": [
+        "https://www.nzfootball.co.nz/newsarticle/98116",
+        "https://www.nzfootball.co.nz/newsarticle/100552"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Official NZF opened lines 13–19 and 38–44, second official source excerpt; effective end, full dates, identity mapping and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": []
+    }
+  }
+]

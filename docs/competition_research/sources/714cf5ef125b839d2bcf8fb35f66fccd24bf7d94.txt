@@ -1,0 +1,34 @@
+# Fase 3 — Sudamericana 2026, audit identità e snapshot al cutoff
+Base dev/0.10 55526c00bfc8de05f83159d80832f0de5756acbe v00.13.299. Ricerca soltanto; nessun runtime/commit. Fonte mapping World_Slot e cat_key: precedente blob 0787432080c2f80d12f7b10215b1cb37336c5c2f. Chiavi CE country:ordinal+1 per file primari.
+Fonti ufficiali:
+https://gol.conmebol.com/sudamericana/es/news/por-la-gran-conquista-estos-son-los-grupos-de-la-conmebol-sudamericana-2026 (19/03)
+https://gol.conmebol.com/sudamericana/en/news/asi-se-jugara-la-fase-preliminar-2026 (18/12/2025)
+https://gol.conmebol.com/sudamericana/es/news/uno-por-uno-los-clasificados-los-octavos-de-final-de-la-conmebol-sudamericana (29/05)
+https://gol.conmebol.com/sudamericana/es/news/calendario-conmebol-sudamericana-2026-dias-horarios-y-sedes-de-la-fase-de-grupos
+https://fbf.com.bo/temporada-2026-de-la-division-profesional/
+## Gironi 32/32 identità DB
+A América Cali 49:8; Tigre 43:9; Macará 50:10; Alianza Atlético 65:4.
+B Atlético Mineiro 46:11; Cienciano 65:10; Puerto Cabello 77:5; Juventud 71:3.
+C São Paulo 46:8; Millonarios 49:12; Boston River 71:7; O'Higgins 48:3.
+D Santos 46:12; San Lorenzo 43:8; Deportivo Cuenca 50:7; Recoleta 64:7.
+E Racing 43:5; Caracas 77:9; Independiente Petrolero 45:6; Botafogo 46:6.
+F Grêmio 46:9; Palestino 48:6; MVD City Torque 71:9; Deportivo Riestra 43:10.
+G Olimpia 64:5; Vasco 46:14; Audax Italiano 48:5; Barracas Central 43:13.
+H River Plate 43:4; RB Bragantino 46:10; Blooming 45:5; Carabobo 77:2.
+## Preliminari 16 coppie (32/32 identità DB), 3–5 marzo 2026, gara unica
+BOL 45:6 vs 45:8; 45:5 vs 45:4.
+CHI 48:4 vs 48:6; 48:7 vs 48:5.
+COL 49:3 vs 49:12; 49:8 vs 49:4.
+ECU 50:7 vs 50:6; 50:5 vs 50:10.
+PAR 64:8 vs 64:7; 64:4 vs 64:5.
+PER 65:4 vs 65:8; 65:10 vs 65:6.
+URU 71:9 vs 71:5; 71:7 vs 71:6.
+VEN 77:5 vs 77:10; 77:9 vs 77:8.
+## Stato sportivo preSTART 29/05 (non risultati futuri)
+Dirette agli ottavi in ordine gruppo A-H: 50:10,46:11,46:8,64:7,46:6,71:9,64:5,43:4.
+Playoff, coppie Libertadores vs Sudamericana (sorteggio/qualifica preSTART): Bolivar 45:2 vs Gremio 46:9; Sporting Cristal 65:5 vs RB Bragantino 46:10; Indep Medellin 49:1 vs Vasco 46:14; Boca 43:3 vs O'Higgins 48:3; Nacional URU 71:2 vs Tigre 43:9; Santa Fe 49:7 vs Caracas 77:9; Lanus 43:14 vs Cienciano 65:10; UCV 77:3 vs Santos 46:12.
+Finestra template 2026: prelim marzo, gruppi aprile-maggio (6 giornate), playoff luglio, ottavi agosto, quarti settembre, semi ottobre, finale novembre. Non importare date puntuali o risultati dopo 30/06/26; per le edizioni future generare con CE. Totale 157 gare: 16+96+16+16+8+4+1.
+## Fonti DB SHA
+ARG 530dd3b14c7daaddbb6b23d407a7fc360f1b5ea3; BRA c038fe33f693dcc42c15517ac67ea91d9411970c (fetch_blob integrale); BOL f1302dc1effbd48b227d2693afd818638f690be6; CHI 3c1fd7e5315fc73b83c6ea7d9ad6cb33864d1ef0; COL 6a646c774387b91b4b3675a3790da06dff31ff82; ECU 2f60dac73222db384d5ca6d194da0e9a6a5cff07; PAR bbe30529b38a1e9c2daedb0fac84271f56369ba4; PER 6de7794d726f9af1920ff3135c5e43de398b3f50; URU 9ea73a7a5c4226de36debc31ca28acc7f5492cd5; VEN 78e3692aee20dbf9f9c469d45c2d3c9dcb3555f2.
+## Limiti
+Mapping identità per confronto nome/paese/ordinal verificato; runtime mapping non eseguito. Ancora da acquisire risultati/date individuali dei preliminari e 96 gruppi fino al cutoff, standings complete, regolamenti specifici match, seeding e dipendenze qualificazioni CE. Nessun campo JSON nuovo. Vedere RG/FASE3 prima di importare. Nessuna modifica alla carriera CT di Claude.

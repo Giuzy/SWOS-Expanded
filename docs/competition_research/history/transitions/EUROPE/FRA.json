@@ -1,0 +1,36 @@
+[
+  {
+    "index": 212,
+    "value": {
+      "competition": "FRA tier 1",
+      "firstEdition": "2002/03",
+      "operation": "RENAME",
+      "previousName": "Division 1",
+      "name": "Ligue 1",
+      "rowRefs": [
+        52,
+        239
+      ],
+      "source": "https://www.fff.fr/475-palmares-ligue-1.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  },
+  {
+    "index": 213,
+    "value": {
+      "competition": "FRA tier 2",
+      "firstEdition": "2002/03",
+      "operation": "RENAME",
+      "previousName": "Division 2",
+      "name": "Ligue 2",
+      "rowRefs": [
+        53,
+        240
+      ],
+      "source": "https://www.fff.fr/476-palmares-ligue-2.html",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  }
+]

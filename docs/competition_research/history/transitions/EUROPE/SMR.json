@@ -1,0 +1,70 @@
+[
+  {
+    "index": 200,
+    "value": {
+      "competition": "SMR Coppa Titano",
+      "firstEdition": "1965",
+      "lastEdition": null,
+      "operation": "HISTORICAL_ORIGIN",
+      "note": "RSSSF 1965 and FSGC second half of 1960s; 1937 retrospective honours are distinct from start of national cup.",
+      "source": "https://rsssf.org/tabless/sanmcuphist.html",
+      "rowRefs": [
+        139,
+        405
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
+    }
+  },
+  {
+    "index": 201,
+    "value": {
+      "competition": "SMR Coppa Titano",
+      "firstEdition": "1980",
+      "lastEdition": null,
+      "operation": "CHANGE_STATUS",
+      "note": "FSGC states officially national cup from 1980, prior summer competitions retrospectively recognized since 1937.",
+      "source": "https://www.fsgc.sm/it/storia",
+      "rowRefs": [
+        139,
+        405
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
+    }
+  },
+  {
+    "index": 202,
+    "value": {
+      "competition": "SMR Coppa Titano",
+      "firstEdition": "2007/08",
+      "lastEdition": null,
+      "operation": "CHANGE_ACCESS",
+      "note": "Cup winner eligible for UEFA Cup preliminary round, later Europa League. Exact edition versus qualifying year separately reconcile.",
+      "source": "https://www.fsgc.sm/it/storia",
+      "rowRefs": [
+        139,
+        405
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
+    }
+  },
+  {
+    "index": 203,
+    "value": {
+      "competition": "SMR Coppa Titano",
+      "firstEdition": "2018/19",
+      "lastEdition": null,
+      "operation": "CHANGE_FORMAT",
+      "note": "Group phase removed, defending champion enters QF, others R16. Full legs and tie rules pending; COVID cancellation 2019/20 not scripted.",
+      "source": "https://www.fsgc.sm/it/storia",
+      "rowRefs": [
+        139,
+        405
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
+    }
+  }
+]

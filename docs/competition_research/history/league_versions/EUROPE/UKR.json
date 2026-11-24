@@ -1,0 +1,29 @@
+[
+  {
+    "index": 78,
+    "value": {
+      "country": "UKR",
+      "division": "div1",
+      "from": "2016/17",
+      "to": null,
+      "rules": {
+        "teams": 12,
+        "initialRounds": 2,
+        "split": [
+          6,
+          6
+        ],
+        "note": "Observed format; exact second-stage rules and subsequent expansion pending"
+      },
+      "sources": [
+        "https://www.rsssf.org/tableso/oekr2017.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web excerpts; exact end of validity, access, dates and modern equivalence pending",
+      "rowRefs": [
+        34,
+        314
+      ]
+    }
+  }
+]

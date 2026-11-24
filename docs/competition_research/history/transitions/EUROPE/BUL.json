@@ -1,0 +1,166 @@
+[
+  {
+    "index": 227,
+    "value": {
+      "competition": "BUL tier 1",
+      "firstEdition": "2016/17",
+      "operation": "RENAME",
+      "previousName": "A Group",
+      "name": "First Professional Football League",
+      "rowRefs": [
+        5,
+        219
+      ],
+      "source": "https://en.wikipedia.org/wiki/2016%E2%80%9317_First_Professional_Football_League_%28Bulgaria%29",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 30 actual web search excerpts; exact sporting identity and structural reform independently checked before runtime. No sponsor names."
+    }
+  },
+  {
+    "index": 313,
+    "value": {
+      "competition": "BUL tier 1",
+      "firstEdition": "2001/02",
+      "lastEdition": "2001/02",
+      "operation": "OBSERVED_FORMAT",
+      "teams": 14,
+      "regularGames": 26,
+      "groups": [
+        6,
+        8
+      ],
+      "pointsHalved": true,
+      "directRelegated": 3,
+      "directPromoted": 3,
+      "rowRefs": [
+        219
+      ],
+      "source": "https://www.uefa.com/news-media/news/0183-0f8fabda42b7-d8c4b3d3e16b-1000--bulgaria-round-up-levski-win-in-style/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block44 actual web retrieval, 24/11/2026; source-specific limitations noted."
+    }
+  },
+  {
+    "index": 314,
+    "value": {
+      "competition": "BUL tier 1",
+      "firstEdition": "2016/17",
+      "operation": "CHANGE_TEAM_COUNT",
+      "teams": 14,
+      "rowRefs": [
+        219
+      ],
+      "source": "https://editorial.uefa.com/resources/0230-0f842bc1b736-0cd37d37a157-1000/first_division_clubs_in_europe_2016_17.pdf",
+      "note": "UEFA PDF text Bulgaria section lines 1217–1225; screenshot cache miss.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block44 actual web retrieval, 24/11/2026; source-specific limitations noted."
+    }
+  },
+  {
+    "index": 317,
+    "value": {
+      "competition": "BUL tier 1",
+      "firstEdition": "2025/26",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        219
+      ],
+      "source": "https://bulgarian-football.com/archive/2025-2026/reglament.html",
+      "rules": {
+        "teams": 16,
+        "regularGames": 30,
+        "groups": [
+          4,
+          4,
+          8
+        ],
+        "extraGames": [
+          6,
+          6,
+          7
+        ],
+        "carryPoints": true,
+        "relegatedRanks": [
+          14,
+          15,
+          16
+        ],
+        "playoffRank": 13,
+        "playoffOpponentTier2Rank": 2,
+        "playoffLegs": 1,
+        "extraTime": true,
+        "penalties": true,
+        "directPromoted": 1,
+        "conferencePlayoff": "rank 3/4 vs 5/6 conditional on cup winner; home higher group",
+        "nextEditionTeams": 14
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block45 verified source text or search excerpt; TFF p1 screenshot."
+    }
+  },
+  {
+    "index": 318,
+    "value": {
+      "competition": "BUL tier 1",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        219
+      ],
+      "source": "https://europeanleagues.com/infocus-bpfl/",
+      "rules": {
+        "teams": 14
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block45 verified source text or search excerpt; TFF p1 screenshot."
+    }
+  },
+  {
+    "index": 319,
+    "value": {
+      "competition": "BUL cup",
+      "firstEdition": "2025/26",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        337
+      ],
+      "source": "https://en.bulgarian-football.com/season-2025-2026/kupa-na-bulgaria.html",
+      "rules": {
+        "roundOf32": 32,
+        "roundOf32DrawPairs": 16,
+        "drawDate": "2025-09-26",
+        "exampleMatchDate": "2025-10-28"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block45 verified source text or search excerpt; TFF p1 screenshot."
+    }
+  },
+  {
+    "index": 337,
+    "value": {
+      "competition": "BUL cup",
+      "firstEdition": "1996/97",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        116
+      ],
+      "source": "https://www.rsssf.org/tablesb/bulg97.html",
+      "rules": {
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "quarterfinalDates": [
+          "1997-03-05",
+          "1997-03-19"
+        ],
+        "semifinalDates": [
+          "1997-04-09",
+          "1997-04-23"
+        ],
+        "finalDate": "1997-05-28",
+        "finalLegs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block47 RSSSF retrieved HTML/search excerpts; TFF history excerpt only after open timeout."
+    }
+  }
+]

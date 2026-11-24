@@ -1,0 +1,127 @@
+[
+  {
+    "row": 425,
+    "world": "2627",
+    "id": "RECOPA SUDAMERICANA",
+    "detail": "kWorld2627ContiCups",
+    "technicalCategory": "SUPERCUP_OR_INTERCONTINENTAL",
+    "researchCategory": "SUPERCUP_OR_INTERCONTINENTAL",
+    "country": null,
+    "candidateSources": [
+      "03ab547e24a4319b11c51bb720ef20db56ff78ae",
+      "72720c02ec770acc82e52e013924605ab87085fa"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Recopa Sudamericana",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "ffb0a15287e89dbeabcd70a149f0211134695e08",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence51": {
+      "edition": "2026",
+      "rules": {
+        "entrants": 2,
+        "access": [
+          "Libertadores winner",
+          "Sudamericana winner"
+        ],
+        "legs": 2,
+        "secondLegHome": "Libertadores winner",
+        "dates": [
+          "2026-02-19",
+          "2026-02-26"
+        ],
+        "regulationArticle": 13,
+        "matchMinutes": 90
+      },
+      "sources": [
+        "https://cdn.conmebol.com/wp-content/uploads/2026/02/Reglamento-CONMEBOL-Recopa-2026.pdf"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Search excerpts only; PDF art 11–15 extracted by search, not full document; 2020 FIFA obsolete final format excluded."
+    }
+  },
+  {
+    "row": 432,
+    "world": "2627",
+    "id": "CAF SUPER CUP",
+    "detail": "kWorld2627ContiCups",
+    "technicalCategory": "SUPERCUP_OR_INTERCONTINENTAL",
+    "researchCategory": "SUPERCUP_OR_INTERCONTINENTAL",
+    "country": null,
+    "candidateSources": [
+      "03ab547e24a4319b11c51bb720ef20db56ff78ae",
+      "72720c02ec770acc82e52e013924605ab87085fa"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "CAF Super Cup",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "03ab547e24a4319b11c51bb720ef20db56ff78ae",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 434,
+    "world": "2627",
+    "id": "INTERCONTINENTAL CUP",
+    "detail": "kWorld2627ContiCups",
+    "technicalCategory": "SUPERCUP_OR_INTERCONTINENTAL",
+    "researchCategory": "SUPERCUP_OR_INTERCONTINENTAL",
+    "country": null,
+    "candidateSources": [
+      "03ab547e24a4319b11c51bb720ef20db56ff78ae",
+      "72720c02ec770acc82e52e013924605ab87085fa"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "IDENTITY_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "FIFA Intercontinental Cup",
+      "status": "IDENTITY_CANDIDATE",
+      "source": "72720c02ec770acc82e52e013924605ab87085fa",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

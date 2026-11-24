@@ -1,0 +1,55 @@
+[
+  {
+    "index": 125,
+    "value": {
+      "country": "ESP",
+      "division": "div1",
+      "from": "1997/98",
+      "to": null,
+      "rules": {
+        "teams": 20,
+        "previousTeams": 22,
+        "rounds": 2,
+        "gamesPerClub": 38
+      },
+      "sources": [
+        "https://www.rsssf.org/tabless/spanhist8999.html",
+        "https://www.rsssf.org/tabless/span98.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        85,
+        235
+      ]
+    }
+  },
+  {
+    "index": 126,
+    "value": {
+      "country": "ESP",
+      "division": "div2",
+      "from": "2010/11",
+      "to": null,
+      "rules": {
+        "operation": "INTRODUCE_PROMOTION_PLAYOFF",
+        "playoffRanks": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "note": "Eligible clubs only; reserve-team substitutions and exact tie resolution pending"
+      },
+      "sources": [
+        "https://www.laliga.com/en-NG/news/laliga-and-laliga2-to-be-official-names-for-top-two-divisions"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        86,
+        236
+      ]
+    }
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "row": 414,
+    "world": "2627",
+    "id": "_turkishCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "TUR",
+    "candidateSources": [
+      "4896377b7a30906670e83d07b889dbd0f62fec60"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "Türkiye Kupası",
+      "candidateName": "Türkiye Kupası",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.tff.org/default.aspx?ftxtID=51078&pageID=687",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence46": {
+      "edition": "2026/27",
+      "rules": {
+        "regulationApproved": "2026-07-30",
+        "regulationAmended": "2026-08-26"
+      },
+      "sources": [
+        "https://www.tff.org/default.aspx?ftxtID=51078&pageID=687",
+        "https://www.tff.org/default.aspx?ftxtID=51214&pageID=687"
+      ],
+      "limitations": "Official announcement excerpts only; full format not extracted. No sporting rule credit.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

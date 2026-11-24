@@ -1,0 +1,126 @@
+[
+  {
+    "index": 131,
+    "value": {
+      "country": "POR",
+      "division": "div1",
+      "from": "2006/07",
+      "to": null,
+      "rules": {
+        "teams": 16,
+        "previousTeams": 18,
+        "rounds": 2,
+        "gamesPerClub": 30,
+        "transitionPreviousSeason": {
+          "relegated": 4,
+          "promoted": 2
+        }
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesp/port06.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        24,
+        286
+      ]
+    }
+  },
+  {
+    "index": 132,
+    "value": {
+      "country": "POR",
+      "division": "div1",
+      "from": "2014/15",
+      "to": null,
+      "rules": {
+        "teams": 18,
+        "previousTeams": 16,
+        "rounds": 2,
+        "gamesPerClub": 34
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesp/port2015.html",
+        "https://en.wikipedia.org/wiki/Primeira_Liga"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        24,
+        286
+      ]
+    }
+  },
+  {
+    "index": 133,
+    "value": {
+      "country": "POR",
+      "division": "div2",
+      "from": "2012/13",
+      "to": null,
+      "rules": {
+        "teams": 22,
+        "rounds": 2,
+        "gamesPerClub": 42,
+        "note": "Reserve teams reintroduced; parent/reserve promotion constraints not yet extracted"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesp/port2013.html",
+        "https://rsssf.org/tablesp/port2012.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        287
+      ]
+    }
+  },
+  {
+    "index": 134,
+    "value": {
+      "country": "POR",
+      "division": "div2",
+      "from": "2014/15",
+      "to": null,
+      "rules": {
+        "teams": 24,
+        "previousTeams": 22,
+        "rounds": 2,
+        "gamesPerClub": 46
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesp/port2014.html",
+        "https://www.rsssf.org/tablesp/port2015.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        287
+      ]
+    }
+  },
+  {
+    "index": 135,
+    "value": {
+      "country": "POR",
+      "division": "div2",
+      "from": "2016/17",
+      "to": null,
+      "rules": {
+        "teams": 22,
+        "previousTeams": 24,
+        "rounds": 2,
+        "gamesPerClub": 42
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesp/port2016.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; Spain 1997/98 and Portugal 2014/15 seasonal archive opened, Italy alternate RSSSF URL cache miss; EFL March decision confirmed by search excerpt (opened page lacked body). Full movement rules, effective end, dates, mapping and baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        287
+      ]
+    }
+  }
+]

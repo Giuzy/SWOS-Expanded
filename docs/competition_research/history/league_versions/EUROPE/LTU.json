@@ -1,0 +1,83 @@
+[
+  {
+    "index": 155,
+    "value": {
+      "country": "LTU",
+      "division": "div1",
+      "from": "2021",
+      "to": null,
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesl/lito2021.html",
+        "https://www.rsssf.org/tablesl/lito2022.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: 2021 search excerpts only (timeout); 2022 opened final table corroborates continuation; movement in 2021 not inferred; effective end, dates, identity mapping and modern baseline equivalence pending; no future results imported.",
+      "rowRefs": [
+        18,
+        265
+      ]
+    }
+  },
+  {
+    "index": 156,
+    "value": {
+      "country": "LTU",
+      "division": "div1",
+      "from": "2022",
+      "to": null,
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "relegationDirect": [
+          10
+        ],
+        "relegationPlayoff": [
+          9
+        ],
+        "playoffLegs": 2
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesl/lito2022.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened lines 14–27, 636–646; observed movement, not independently certified regulation; effective end, dates, identity mapping and modern baseline equivalence pending; no future results imported.",
+      "rowRefs": [
+        18,
+        265
+      ]
+    }
+  },
+  {
+    "index": 157,
+    "value": {
+      "country": "LTU",
+      "division": "div2",
+      "from": "2022",
+      "to": null,
+      "rules": {
+        "teams": 16,
+        "rounds": 2,
+        "gamesPerClub": 30,
+        "promotionDirect": [
+          1
+        ],
+        "promotionPlayoff": [
+          2
+        ],
+        "note": "Reserve sides present; parent/reserve eligibility restrictions pending; no new playable division automatically created."
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesl/lito2022.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened lines 648–665, first two ranks and 30 games; size derived from double round robin pending full table confirmation; effective end, dates, identity mapping and modern baseline equivalence pending; no future results imported.",
+      "rowRefs": []
+    }
+  }
+]

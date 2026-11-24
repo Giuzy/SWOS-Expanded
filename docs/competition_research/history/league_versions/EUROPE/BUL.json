@@ -1,0 +1,79 @@
+[
+  {
+    "index": 88,
+    "value": {
+      "country": "BUL",
+      "division": "div1",
+      "from": "2016/17",
+      "to": null,
+      "rules": {
+        "teams": 14,
+        "initialRounds": 2,
+        "split": [
+          6,
+          4,
+          4
+        ],
+        "note": "Championship and two relegation groups, additional playoffs; exact bracket pending"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesb/bulg2017.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF search extracts; observed season structure, end validity and access not certified; no results imported",
+      "rowRefs": [
+        5,
+        219
+      ]
+    }
+  },
+  {
+    "index": 202,
+    "value": {
+      "country": "BUL",
+      "division": "tier2",
+      "from": "2025/26",
+      "to": "2025/26",
+      "rules": {
+        "teams": 18,
+        "priorTeams": 20,
+        "regularGames": 34,
+        "scheduledTotal": 306,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "directPromotedRank": 1,
+        "playoffRank": 2,
+        "playoffOpponentTopRank": 13,
+        "relegatedRanks": [
+          15,
+          16,
+          17,
+          18
+        ],
+        "reserveRestrictions": "No promotion of reserve teams to tier1; pass places to next eligible; relegated if parent relegated to tier2; replacement by highest ranked relegation-zone club",
+        "tieBreakers": [
+          "points",
+          "head-to-head points",
+          "head-to-head goal difference",
+          "head-to-head goals",
+          "head-to-head away goals only if two tied",
+          "overall goal difference",
+          "overall goals",
+          "fair play",
+          "draw"
+        ]
+      },
+      "sources": [
+        "https://bulgarian-football.com/archive/2025-2026/reglament.html",
+        "https://rsssf.org/tablesb/bulg2025.html",
+        "https://footballsoccerapi.com/our-football-api-data/bulgaria/second-league/2024"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [],
+      "verification": "No tier2 catalog row in matrix; evidence preserved without creating runtime ID. 18 planned, actual withdrawal reconciliation open."
+    }
+  }
+]

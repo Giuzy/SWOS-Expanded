@@ -1,0 +1,71 @@
+[
+  {
+    "index": 47,
+    "value": {
+      "country": "HON",
+      "division": "div1",
+      "from": "1997/98",
+      "to": "1997/98",
+      "rules": {
+        "teams": 11,
+        "tournamentsPerSeason": 2,
+        "regularRounds": 2,
+        "postseason": true
+      },
+      "sources": [
+        "https://clubolimpia.com/2016/01/11/el-siglo-xxi-y-el-campeonato-de-la-liga-nacional-de-futbol-de-honduras/",
+        "https://www.laprensa.hn/deportes/viene-el-gol-16000-MQLP487830",
+        "https://academia-lab.com/enciclopedia/199798-liga-nacional-de-honduras/"
+      ],
+      "missing": "Exact playoff stages and exceptional extended calendar pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        250
+      ]
+    }
+  },
+  {
+    "index": 48,
+    "value": {
+      "country": "HON",
+      "division": "div1",
+      "from": "1998/99",
+      "to": "1998/99",
+      "rules": {
+        "tournamentsPerSeason": 1,
+        "regularRounds": 2,
+        "postseason": true
+      },
+      "sources": [
+        "https://www.laprensa.hn/deportes/viene-el-gol-16000-MQLP487830"
+      ],
+      "missing": "Team count, postseason and relegation pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        250
+      ]
+    }
+  },
+  {
+    "index": 49,
+    "value": {
+      "country": "HON",
+      "division": "div1",
+      "from": "1999/00",
+      "to": "2009/10",
+      "rules": {
+        "tournamentsPerSeason": 2,
+        "regularRounds": 2,
+        "postseason": true
+      },
+      "sources": [
+        "https://www.laprensa.hn/deportes/viene-el-gol-16000-MQLP487830"
+      ],
+      "missing": "Annual variation in postseason and access pending; compare modern before use",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        250
+      ]
+    }
+  }
+]

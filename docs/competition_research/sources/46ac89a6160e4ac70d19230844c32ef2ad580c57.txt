@@ -1,0 +1,794 @@
+{
+  "kind": "RESEARCH_SNAPSHOT_NOT_CE_SCHEMA",
+  "cutoff": "1996-06-30",
+  "headLastVerified": "beb9fd3",
+  "country": "NOR",
+  "competition": "Tippeligaen 1996",
+  "sources": [
+    "https://www.betexplorer.com/football/norway/tippeligaen-1996/results/",
+    "https://www.fotball.no/fotballdata/turnering/hjem/?fiksId=82974"
+  ],
+  "format": "14 clubs double RR, 182 matches",
+  "fixtures": [
+    {
+      "date": "1996-04-13",
+      "home": "Skeid",
+      "away": "Strømsgodset",
+      "hg": 2,
+      "ag": 3
+    },
+    {
+      "date": "1996-04-14",
+      "home": "Lillestrøm",
+      "away": "Vålerenga",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "date": "1996-04-14",
+      "home": "Moss",
+      "away": "Bodø/Glimt",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "date": "1996-04-14",
+      "home": "Rosenborg",
+      "away": "Molde",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "date": "1996-04-14",
+      "home": "Viking",
+      "away": "Tromsø",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "date": "1996-04-21",
+      "home": "Bodø/Glimt",
+      "away": "Start",
+      "hg": 3,
+      "ag": 3
+    },
+    {
+      "date": "1996-04-21",
+      "home": "Kongsvinger",
+      "away": "Skeid",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "date": "1996-04-21",
+      "home": "Molde",
+      "away": "Moss",
+      "hg": 8,
+      "ag": 0
+    },
+    {
+      "date": "1996-04-21",
+      "home": "Stabæk",
+      "away": "Viking",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "date": "1996-04-21",
+      "home": "Strømsgodset",
+      "away": "Lillestrøm",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "date": "1996-04-21",
+      "home": "Vålerenga",
+      "away": "Brann",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "date": "1996-04-27",
+      "home": "Start",
+      "away": "Molde",
+      "hg": 4,
+      "ag": 2
+    },
+    {
+      "date": "1996-04-28",
+      "home": "Lillestrøm",
+      "away": "Brann",
+      "hg": 3,
+      "ag": 3
+    },
+    {
+      "date": "1996-04-28",
+      "home": "Moss",
+      "away": "Tromsø",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "date": "1996-04-28",
+      "home": "Rosenborg",
+      "away": "Stabæk",
+      "hg": 4,
+      "ag": 2
+    },
+    {
+      "date": "1996-04-28",
+      "home": "Skeid",
+      "away": "Bodø/Glimt",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "date": "1996-04-28",
+      "home": "Strømsgodset",
+      "away": "Kongsvinger",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "date": "1996-04-28",
+      "home": "Viking",
+      "away": "Vålerenga",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-01",
+      "home": "Bodø/Glimt",
+      "away": "Strømsgodset",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-01",
+      "home": "Brann",
+      "away": "Viking",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-01",
+      "home": "Kongsvinger",
+      "away": "Lillestrøm",
+      "hg": 1,
+      "ag": 5
+    },
+    {
+      "date": "1996-05-01",
+      "home": "Molde",
+      "away": "Skeid",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-01",
+      "home": "Stabæk",
+      "away": "Moss",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "date": "1996-05-01",
+      "home": "Tromsø",
+      "away": "Start",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-01",
+      "home": "Vålerenga",
+      "away": "Rosenborg",
+      "hg": 0,
+      "ag": 4
+    },
+    {
+      "date": "1996-05-05",
+      "home": "Kongsvinger",
+      "away": "Bodø/Glimt",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-05",
+      "home": "Lillestrøm",
+      "away": "Viking",
+      "hg": 0,
+      "ag": 4
+    },
+    {
+      "date": "1996-05-05",
+      "home": "Moss",
+      "away": "Vålerenga",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "date": "1996-05-05",
+      "home": "Rosenborg",
+      "away": "Brann",
+      "hg": 10,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-05",
+      "home": "Skeid",
+      "away": "Tromsø",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-05",
+      "home": "Start",
+      "away": "Stabæk",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "date": "1996-05-05",
+      "home": "Strømsgodset",
+      "away": "Molde",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "date": "1996-05-09",
+      "home": "Bodø/Glimt",
+      "away": "Lillestrøm",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "date": "1996-05-09",
+      "home": "Brann",
+      "away": "Moss",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-09",
+      "home": "Molde",
+      "away": "Kongsvinger",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-09",
+      "home": "Stabæk",
+      "away": "Skeid",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-09",
+      "home": "Tromsø",
+      "away": "Strømsgodset",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-09",
+      "home": "Vålerenga",
+      "away": "Start",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-09",
+      "home": "Viking",
+      "away": "Rosenborg",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-12",
+      "home": "Bodø/Glimt",
+      "away": "Molde",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "date": "1996-05-12",
+      "home": "Kongsvinger",
+      "away": "Tromsø",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "date": "1996-05-12",
+      "home": "Lillestrøm",
+      "away": "Rosenborg",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-12",
+      "home": "Moss",
+      "away": "Viking",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-12",
+      "home": "Start",
+      "away": "Brann",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "date": "1996-05-12",
+      "home": "Strømsgodset",
+      "away": "Stabæk",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "date": "1996-05-13",
+      "home": "Skeid",
+      "away": "Vålerenga",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-16",
+      "home": "Brann",
+      "away": "Skeid",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "date": "1996-05-16",
+      "home": "Molde",
+      "away": "Lillestrøm",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-16",
+      "home": "Rosenborg",
+      "away": "Moss",
+      "hg": 0,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-16",
+      "home": "Stabæk",
+      "away": "Kongsvinger",
+      "hg": 5,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-16",
+      "home": "Tromsø",
+      "away": "Bodø/Glimt",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-16",
+      "home": "Vålerenga",
+      "away": "Strømsgodset",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-16",
+      "home": "Viking",
+      "away": "Start",
+      "hg": 4,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-19",
+      "home": "Bodø/Glimt",
+      "away": "Stabæk",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-19",
+      "home": "Kongsvinger",
+      "away": "Vålerenga",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-19",
+      "home": "Lillestrøm",
+      "away": "Moss",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-19",
+      "home": "Molde",
+      "away": "Tromsø",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-19",
+      "home": "Skeid",
+      "away": "Viking",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "date": "1996-05-19",
+      "home": "Start",
+      "away": "Rosenborg",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-19",
+      "home": "Strømsgodset",
+      "away": "Brann",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "date": "1996-05-27",
+      "home": "Brann",
+      "away": "Kongsvinger",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-27",
+      "home": "Moss",
+      "away": "Start",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-27",
+      "home": "Rosenborg",
+      "away": "Skeid",
+      "hg": 6,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-27",
+      "home": "Stabæk",
+      "away": "Molde",
+      "hg": 3,
+      "ag": 3
+    },
+    {
+      "date": "1996-05-27",
+      "home": "Tromsø",
+      "away": "Lillestrøm",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "date": "1996-05-27",
+      "home": "Vålerenga",
+      "away": "Bodø/Glimt",
+      "hg": 1,
+      "ag": 1
+    },
+    {
+      "date": "1996-05-27",
+      "home": "Viking",
+      "away": "Strømsgodset",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "date": "1996-06-05",
+      "home": "Bodø/Glimt",
+      "away": "Brann",
+      "hg": 1,
+      "ag": 3
+    },
+    {
+      "date": "1996-06-05",
+      "home": "Kongsvinger",
+      "away": "Viking",
+      "hg": 3,
+      "ag": 1
+    },
+    {
+      "date": "1996-06-05",
+      "home": "Molde",
+      "away": "Vålerenga",
+      "hg": 2,
+      "ag": 0
+    },
+    {
+      "date": "1996-06-05",
+      "home": "Skeid",
+      "away": "Moss",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "date": "1996-06-05",
+      "home": "Strømsgodset",
+      "away": "Rosenborg",
+      "hg": 0,
+      "ag": 1
+    },
+    {
+      "date": "1996-06-05",
+      "home": "Tromsø",
+      "away": "Stabæk",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "date": "1996-06-06",
+      "home": "Lillestrøm",
+      "away": "Start",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "date": "1996-06-09",
+      "home": "Brann",
+      "away": "Molde",
+      "hg": 4,
+      "ag": 0
+    },
+    {
+      "date": "1996-06-09",
+      "home": "Lillestrøm",
+      "away": "Stabæk",
+      "hg": 2,
+      "ag": 1
+    },
+    {
+      "date": "1996-06-09",
+      "home": "Moss",
+      "away": "Strømsgodset",
+      "hg": 5,
+      "ag": 2
+    },
+    {
+      "date": "1996-06-09",
+      "home": "Rosenborg",
+      "away": "Kongsvinger",
+      "hg": 3,
+      "ag": 0
+    },
+    {
+      "date": "1996-06-09",
+      "home": "Start",
+      "away": "Skeid",
+      "hg": 1,
+      "ag": 2
+    },
+    {
+      "date": "1996-06-09",
+      "home": "Vålerenga",
+      "away": "Tromsø",
+      "hg": 2,
+      "ag": 2
+    },
+    {
+      "date": "1996-06-09",
+      "home": "Viking",
+      "away": "Bodø/Glimt",
+      "hg": 4,
+      "ag": 0
+    },
+    {
+      "date": "1996-06-17",
+      "home": "Brann",
+      "away": "Stabæk",
+      "hg": 4,
+      "ag": 0
+    },
+    {
+      "date": "1996-06-17",
+      "home": "Start",
+      "away": "Kongsvinger",
+      "hg": 4,
+      "ag": 5
+    },
+    {
+      "date": "1996-06-30",
+      "home": "Bodø/Glimt",
+      "away": "Moss",
+      "hg": 4,
+      "ag": 1
+    },
+    {
+      "date": "1996-06-30",
+      "home": "Kongsvinger",
+      "away": "Start",
+      "hg": 0,
+      "ag": 2
+    },
+    {
+      "date": "1996-06-30",
+      "home": "Molde",
+      "away": "Rosenborg",
+      "hg": 0,
+      "ag": 3
+    },
+    {
+      "date": "1996-06-30",
+      "home": "Stabæk",
+      "away": "Brann",
+      "hg": 4,
+      "ag": 1
+    },
+    {
+      "date": "1996-06-30",
+      "home": "Strømsgodset",
+      "away": "Skeid",
+      "hg": 1,
+      "ag": 0
+    },
+    {
+      "date": "1996-06-30",
+      "home": "Tromsø",
+      "away": "Viking",
+      "hg": 2,
+      "ag": 2
+    }
+  ],
+  "table": [
+    {
+      "team": "Rosenborg",
+      "P": 12,
+      "W": 8,
+      "D": 2,
+      "L": 2,
+      "GF": 35,
+      "GA": 9,
+      "pts": 26
+    },
+    {
+      "team": "Lillestrøm",
+      "P": 12,
+      "W": 8,
+      "D": 2,
+      "L": 2,
+      "GF": 26,
+      "GA": 12,
+      "pts": 26
+    },
+    {
+      "team": "Brann",
+      "P": 13,
+      "W": 7,
+      "D": 3,
+      "L": 3,
+      "GF": 26,
+      "GA": 22,
+      "pts": 24
+    },
+    {
+      "team": "Skeid",
+      "P": 13,
+      "W": 7,
+      "D": 1,
+      "L": 5,
+      "GF": 18,
+      "GA": 21,
+      "pts": 22
+    },
+    {
+      "team": "Viking",
+      "P": 13,
+      "W": 5,
+      "D": 5,
+      "L": 3,
+      "GF": 24,
+      "GA": 14,
+      "pts": 20
+    },
+    {
+      "team": "Molde",
+      "P": 13,
+      "W": 6,
+      "D": 2,
+      "L": 5,
+      "GF": 26,
+      "GA": 19,
+      "pts": 20
+    },
+    {
+      "team": "Tromsø",
+      "P": 12,
+      "W": 5,
+      "D": 4,
+      "L": 3,
+      "GF": 16,
+      "GA": 14,
+      "pts": 19
+    },
+    {
+      "team": "Stabæk",
+      "P": 13,
+      "W": 4,
+      "D": 5,
+      "L": 4,
+      "GF": 24,
+      "GA": 22,
+      "pts": 17
+    },
+    {
+      "team": "Strømsgodset",
+      "P": 13,
+      "W": 4,
+      "D": 3,
+      "L": 6,
+      "GF": 14,
+      "GA": 23,
+      "pts": 15
+    },
+    {
+      "team": "Kongsvinger",
+      "P": 13,
+      "W": 4,
+      "D": 2,
+      "L": 7,
+      "GF": 16,
+      "GA": 30,
+      "pts": 14
+    },
+    {
+      "team": "Moss",
+      "P": 13,
+      "W": 3,
+      "D": 4,
+      "L": 6,
+      "GF": 14,
+      "GA": 25,
+      "pts": 13
+    },
+    {
+      "team": "Bodø/Glimt",
+      "P": 13,
+      "W": 3,
+      "D": 3,
+      "L": 7,
+      "GF": 18,
+      "GA": 25,
+      "pts": 12
+    },
+    {
+      "team": "Start",
+      "P": 13,
+      "W": 3,
+      "D": 1,
+      "L": 9,
+      "GF": 17,
+      "GA": 29,
+      "pts": 10
+    },
+    {
+      "team": "Vålerenga",
+      "P": 12,
+      "W": 2,
+      "D": 3,
+      "L": 7,
+      "GF": 11,
+      "GA": 20,
+      "pts": 9
+    }
+  ],
+  "checks": {
+    "matches": 89,
+    "teams": 14,
+    "duplicateHomeAway": 0,
+    "sameDayCollisions": 0,
+    "goalBalance": 0,
+    "allPrecutoff": true
+  },
+  "remaining": 93,
+  "notes": [
+    "Federation page full open cache miss; search snippets confirm dates and two first-round games 17 June. Main list BetExplorer lines156-244 fully inspected. Need independent full reconciliation before certifying snapshot; table derived from scores, tie-break not verified. Later administrative change Vålerenga–Kongsvinger reported by secondary sources, exact decision and date unresolved; no post-cutoff result imported.",
+    "Finland 1996 12 teams, 22 preliminary rounds then two groups six and five more rounds, source https://www.rsssf.org/tablesf/fin96.html ; 1996 League Cup finished 16 May HJK 3-2 RoPS source https://www.rsssf.org/tablesf/finleagcuphist.html . Finnish dated league scores not yet extracted.",
+    "Sweden 1996 14 teams 26 games source https://www.rsssf.org/tablesz/zwedhist.html ; Iceland 1996 archive https://www.rsssf.org/tablesi/ijs96.html . Final tables not usable as initial snapshot."
+  ],
+  "limits": "No mapping, no runtime, no guide changes, no commit. Precheck RG before modifications."
+}

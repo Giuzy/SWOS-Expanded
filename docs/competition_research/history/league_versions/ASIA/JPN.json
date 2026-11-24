@@ -1,0 +1,234 @@
+[
+  {
+    "index": 11,
+    "value": {
+      "country": "JPN",
+      "division": "div1",
+      "from": "1997",
+      "to": "1997",
+      "rules": {
+        "teams": 17,
+        "regularGamesPerClub": 32,
+        "stages": 2,
+        "roundsPerStage": 1,
+        "titlePlayoff": true
+      },
+      "source": "https://ddb.j-league.or.jp/other/j1/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        58,
+        258
+      ]
+    }
+  },
+  {
+    "index": 12,
+    "value": {
+      "country": "JPN",
+      "division": "div1",
+      "from": "1998",
+      "to": "1998",
+      "rules": {
+        "teams": 18,
+        "regularGamesPerClub": 34,
+        "stages": 2,
+        "roundsPerStage": 1,
+        "titlePlayoff": true
+      },
+      "source": "https://ddb.j-league.or.jp/other/j1/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        58,
+        258
+      ]
+    }
+  },
+  {
+    "index": 13,
+    "value": {
+      "country": "JPN",
+      "division": "div1",
+      "from": "1999",
+      "to": "2004",
+      "rules": {
+        "teams": 16,
+        "regularGamesPerClub": 30,
+        "stages": 2,
+        "roundsPerStage": 1,
+        "titlePlayoff": true
+      },
+      "source": "https://ddb.j-league.or.jp/other/j1/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        58,
+        258
+      ]
+    }
+  },
+  {
+    "index": 14,
+    "value": {
+      "country": "JPN",
+      "division": "div1",
+      "from": "2005",
+      "to": "2014",
+      "rules": {
+        "teams": 18,
+        "regularGamesPerClub": 34,
+        "rounds": 2
+      },
+      "source": "https://ddb.j-league.or.jp/other/j1/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        58,
+        258
+      ]
+    }
+  },
+  {
+    "index": 15,
+    "value": {
+      "country": "JPN",
+      "division": "div1",
+      "from": "2015",
+      "to": "2016",
+      "rules": {
+        "teams": 18,
+        "regularGamesPerClub": 34,
+        "stages": 2,
+        "roundsPerStage": 1,
+        "championshipPlayoff": true,
+        "playoffSeeding": "verify exact annual rules"
+      },
+      "source": "https://ddb.j-league.or.jp/other/j1/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        58,
+        258
+      ]
+    }
+  },
+  {
+    "index": 16,
+    "value": {
+      "country": "JPN",
+      "division": "div1",
+      "from": "2017",
+      "to": "2023",
+      "rules": {
+        "teams": 18,
+        "regularGamesPerClub": 34,
+        "rounds": 2,
+        "excludePandemicExceptions": true
+      },
+      "source": "https://ddb.j-league.or.jp/other/j1/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        58,
+        258
+      ]
+    }
+  },
+  {
+    "index": 17,
+    "value": {
+      "country": "JPN",
+      "division": "div2",
+      "from": "1999",
+      "to": "1999",
+      "rules": {
+        "operation": "CREATE_J2",
+        "teams": 10,
+        "rounds": 4,
+        "regularGamesPerClub": 36,
+        "otherRules": "verify"
+      },
+      "source": "https://www.jleague.jp/corporate/about_competitions/tournament_history/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        59,
+        259
+      ]
+    }
+  },
+  {
+    "index": 173,
+    "value": {
+      "country": "JPN",
+      "division": "div2",
+      "from": "2012",
+      "to": null,
+      "rules": {
+        "operation": "INTRODUCE_PROMOTION_PLAYOFF",
+        "playoffRanks": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "note": "2012–2017 documented secondary-source range, subsequent rules separate."
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/J2_League"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Secondary search excerpt, official confirmation pending; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        59,
+        259
+      ]
+    }
+  },
+  {
+    "index": 174,
+    "value": {
+      "country": "JPN",
+      "division": "div2",
+      "from": "2023",
+      "to": null,
+      "rules": {
+        "operation": "RESUME_PROMOTION_PLAYOFF",
+        "playoffRanks": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/J2_League"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Secondary search excerpt, exact bracket pending; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        59,
+        259
+      ]
+    }
+  },
+  {
+    "index": 175,
+    "value": {
+      "country": "JPN",
+      "division": "div2",
+      "from": "2024",
+      "to": null,
+      "rules": {
+        "teams": 20,
+        "previousTeams": 22,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "note": "Reduction confirmed by secondary seasonal record; promotion playoff retained, movement rules pending."
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/2024_J2_League"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Secondary search excerpt; official regulation pending; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        59,
+        259
+      ]
+    }
+  }
+]

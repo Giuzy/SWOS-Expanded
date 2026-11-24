@@ -1,0 +1,72 @@
+[
+  {
+    "index": 61,
+    "value": {
+      "country": "POL",
+      "division": "div1",
+      "from": "2013/14",
+      "to": "2016/17",
+      "rules": {
+        "teams": 16,
+        "regularRounds": 2,
+        "split": [
+          8,
+          8
+        ],
+        "splitRounds": 1,
+        "gamesPerClub": 37,
+        "pointsHalved": true,
+        "homeAdvantageRanks": [
+          1,
+          2,
+          3,
+          4,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      "sources": [
+        "https://www.rmf24.pl/fakty/sport/news-pzpn-zatwierdzil-reforme-ekstraklasy%2CnId%2C971860",
+        "https://sportowefakty.wp.pl/pilka-nozna/891349/pko-ekstraklasa-legia-warszawa-mistrzem-polski-z-najnizsza-srednia-punktow-w-his"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        23,
+        285
+      ]
+    }
+  },
+  {
+    "index": 62,
+    "value": {
+      "country": "POL",
+      "division": "div1",
+      "from": "2017/18",
+      "to": "2019/20",
+      "rules": {
+        "teams": 16,
+        "regularRounds": 2,
+        "split": [
+          8,
+          8
+        ],
+        "splitRounds": 1,
+        "gamesPerClub": 37,
+        "pointsHalved": false
+      },
+      "sources": [
+        "https://www.sport.pl/pilka/7%2C65039%2C21847043%2Cekstraklasa-nie-bedzie-podzialu-punktow-w-nastepnym-sezonie.html",
+        "https://www.pap.pl/aktualnosci/news%2C591257%2Cekstraklasa-pilkarska-osiemnascie-druzyn-od-sezonu-202122.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        23,
+        285
+      ]
+    }
+  }
+]

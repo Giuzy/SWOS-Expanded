@@ -1,0 +1,37 @@
+[
+  {
+    "index": 263,
+    "value": {
+      "competition": "POR tier 1",
+      "firstEdition": "1999/00",
+      "operation": "RENAME",
+      "previousName": "Primeira Divisão",
+      "name": "Primeira Liga",
+      "rowRefs": [
+        24,
+        286
+      ],
+      "source": "https://en.wikipedia.org/wiki/1999%E2%80%932000_Primeira_Liga",
+      "note": "Secondary evidence; official source corroboration pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 33 actual web search excerpts; not full sport rule or runtime certification."
+    }
+  },
+  {
+    "index": 264,
+    "value": {
+      "competition": "POR tier 2",
+      "firstEdition": "1999/00",
+      "operation": "RENAME",
+      "previousName": "Segunda Divisão de Honra",
+      "name": "Segunda Liga",
+      "rowRefs": [
+        287
+      ],
+      "source": "https://en.wikipedia.org/wiki/1999%E2%80%932000_Segunda_Liga",
+      "note": "Secondary evidence; later Liga de Honra and Liga Portugal 2 intervals pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 33 actual web search excerpts; not full sport rule or runtime certification."
+    }
+  }
+]

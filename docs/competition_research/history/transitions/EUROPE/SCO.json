@@ -1,0 +1,105 @@
+[
+  {
+    "index": 109,
+    "value": {
+      "competition": "Scottish Cup",
+      "firstEdition": "2022/23",
+      "lastEdition": null,
+      "operation": "CHANGE_REPLAY",
+      "note": "No replays beyond preliminary round; rounds one to three now use extra time and penalties if needed, as later rounds already do. Preliminary replay goes directly to penalties if tied after 90 minutes. Effective duration after 2022/23 pending.",
+      "source": "https://www.scottishfa.co.uk/en/news/scottish-cup-replays-removed-for-202223-season",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Scottish FA decision 12 August 2022 opened lines 26–43; structural vote, not imported COVID emergency format; full dates, access tables, participant mapping and runtime validation pending. No future results imported.",
+      "rowRefs": [
+        158,
+        402
+      ]
+    }
+  },
+  {
+    "index": 216,
+    "value": {
+      "competition": "SCO tier 1",
+      "firstEdition": "2013/14",
+      "operation": "RENAME",
+      "previousName": "Scottish Premier League",
+      "name": "Scottish Premiership",
+      "rowRefs": [
+        81,
+        292
+      ],
+      "source": "https://spfl.co.uk/pages/rules-and-regulations",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  },
+  {
+    "index": 217,
+    "value": {
+      "competition": "SCO tier 2",
+      "firstEdition": "2013/14",
+      "operation": "RENAME",
+      "previousName": "First Division",
+      "name": "Scottish Championship",
+      "rowRefs": [
+        82,
+        293
+      ],
+      "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  },
+  {
+    "index": 218,
+    "value": {
+      "competition": "SCO tier 3",
+      "firstEdition": "2013/14",
+      "operation": "RENAME",
+      "previousName": "Second Division",
+      "name": "Scottish League One",
+      "rowRefs": [
+        83,
+        294
+      ],
+      "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  },
+  {
+    "index": 219,
+    "value": {
+      "competition": "SCO tier 4",
+      "firstEdition": "2013/14",
+      "operation": "RENAME",
+      "previousName": "Third Division",
+      "name": "Scottish League Two",
+      "rowRefs": [
+        84,
+        295
+      ],
+      "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  },
+  {
+    "index": 262,
+    "value": {
+      "competition": "SCO tier 1",
+      "firstEdition": "1998/99",
+      "operation": "RESTRUCTURE_AND_RENAME",
+      "previousName": "Scottish Football League Premier Division",
+      "name": "Scottish Premier League",
+      "rowRefs": [
+        81,
+        292
+      ],
+      "source": "https://rsssf.org/tabless/scothist.html",
+      "note": "SPL separated from SFL in 1998; do not assign SPL name to 1996; governance continuity mapping pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 33 actual web search excerpts; not full sport rule or runtime certification."
+    }
+  }
+]

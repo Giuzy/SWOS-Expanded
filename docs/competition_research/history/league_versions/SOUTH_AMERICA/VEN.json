@@ -1,0 +1,30 @@
+[
+  {
+    "index": 99,
+    "value": {
+      "country": "VEN",
+      "division": "div1",
+      "from": "2024",
+      "to": null,
+      "rules": {
+        "teams": 14,
+        "editionSpecific": true,
+        "phases": [
+          "Apertura",
+          "Clausura",
+          "Final Absoluta"
+        ],
+        "note": "13-match initial phase; liguilla, annual final; search excerpt only, open cache miss; exact bracket and rules pending"
+      },
+      "sources": [
+        "https://rsssf.org/tablesv/venez2024.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF and press sources retrieved; observed edition rules, not full continuity certification; no results imported; exact dates, access and modern baseline pending",
+      "rowRefs": [
+        50,
+        318
+      ]
+    }
+  }
+]

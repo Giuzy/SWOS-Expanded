@@ -1,0 +1,139 @@
+[
+  {
+    "index": 131,
+    "value": {
+      "competition": "FIN Liigacup",
+      "firstEdition": "1994",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "Official history; distinct from Finnish Cup.",
+      "source": "https://www.veikkausliiga.com/uutiset/2021/11/28/liigacup-edessa-21-kerran-hjklla-eniten-mestaruuksia",
+      "rowRefs": [
+        356
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
+    }
+  },
+  {
+    "index": 132,
+    "value": {
+      "competition": "FIN Liigacup",
+      "firstEdition": "2001",
+      "lastEdition": "2003",
+      "operation": "SUSPEND",
+      "note": "No editions in official honours list; reason not yet established.",
+      "source": "https://www.veikkausliiga.com/veikkausliiga/palkinnot",
+      "rowRefs": [
+        356
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
+    }
+  },
+  {
+    "index": 133,
+    "value": {
+      "competition": "FIN Liigacup",
+      "firstEdition": "2004",
+      "lastEdition": null,
+      "operation": "RESUME",
+      "note": "Official honours list.",
+      "source": "https://www.veikkausliiga.com/veikkausliiga/palkinnot",
+      "rowRefs": [
+        356
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
+    }
+  },
+  {
+    "index": 134,
+    "value": {
+      "competition": "FIN Liigacup",
+      "firstEdition": "2017",
+      "lastEdition": "2021",
+      "operation": "SUSPEND",
+      "note": "Structural Finnish Cup reform after 2016, not COVID-origin suspension.",
+      "source": "https://www.veikkausliiga.com/uutiset/2021/11/28/liigacup-edessa-21-kerran-hjklla-eniten-mestaruuksia",
+      "rowRefs": [
+        356
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
+    }
+  },
+  {
+    "index": 135,
+    "value": {
+      "competition": "FIN Liigacup",
+      "firstEdition": "2022",
+      "lastEdition": null,
+      "operation": "RESUME",
+      "note": "Finnish Cup reform reinstates early-season League Cup.",
+      "source": "https://www.veikkausliiga.com/uutiset/2021/11/27/liigacup-palaa-kilpailukalenteriin-edellisen-kerran-pelattiin-vuonna-2016",
+      "rowRefs": [
+        356
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
+    }
+  },
+  {
+    "index": 282,
+    "value": {
+      "competition": "FIN tier 1",
+      "firstEdition": "2025",
+      "operation": "CHANGE_FORMAT",
+      "teams": 12,
+      "regularGames": 22,
+      "championshipGroupGames": 10,
+      "relegationGroupGames": 5,
+      "rowRefs": [
+        238
+      ],
+      "source": "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain-avauspaiva-44-aivan-taynna-otteluita",
+      "note": "Official 2026 announcement explicitly says same system as completed 2025 season; no earlier inference.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 38 official web search excerpts actually retrieved; no PDF analyzed."
+    }
+  },
+  {
+    "index": 283,
+    "value": {
+      "competition": "FIN tier 1",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "OBSERVED_PROMOTION_RELEGATION",
+      "directRelegated": 1,
+      "relegationPlayoffRank": 11,
+      "opponentTier2Rank": 2,
+      "playoffLegs": 2,
+      "rowRefs": [
+        238
+      ],
+      "source": "https://www.veikkausliiga.com/veikkausliiga/sarjajarjestelma",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 38 official web search excerpts actually retrieved; no PDF analyzed."
+    }
+  },
+  {
+    "index": 343,
+    "value": {
+      "competition": "FIN cup",
+      "firstEdition": "1996",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        123
+      ],
+      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "rules": {
+        "finalLegsObserved": 1,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block48 HTML opened; no PDF analyzed."
+    }
+  }
+]

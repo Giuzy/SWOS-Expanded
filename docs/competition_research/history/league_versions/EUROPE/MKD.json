@@ -1,0 +1,53 @@
+[
+  {
+    "index": 150,
+    "value": {
+      "country": "MKD",
+      "division": "div1",
+      "from": "2014/15",
+      "to": null,
+      "rules": {
+        "teams": 10,
+        "initialRounds": 3,
+        "initialGamesPerClub": 27,
+        "split": [
+          6,
+          4
+        ]
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesf/fyrom2015.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened regular stage table; second stage rules pending; effective end, identity mapping, full dates and 2026 baseline equivalence pending; no future results imported",
+      "rowRefs": [
+        272
+      ]
+    }
+  },
+  {
+    "index": 160,
+    "value": {
+      "country": "MKD",
+      "division": "div1",
+      "from": "2020/21",
+      "to": null,
+      "rules": {
+        "teams": 12,
+        "rounds": 3,
+        "gamesPerClub": 33,
+        "note": "12-team format observed again in 2021/22; historical onset and whether expansion was emergency-driven remain unverified. Do not activate this transition automatically.",
+        "observedOnly": true
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesn/nmkd2021.html",
+        "https://www.rsssf.org/tablesn/nmkd2022.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened 2020/21 lines 11–26; 2021/22 excerpt only, Unicode error; pandemic-related origin not excluded; no movement rules imported; effective end, dates, identity mapping and modern baseline equivalence pending; no future results imported.",
+      "rowRefs": [
+        272
+      ]
+    }
+  }
+]

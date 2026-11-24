@@ -1,0 +1,234 @@
+[
+  {
+    "index": 27,
+    "value": {
+      "country": "USA",
+      "division": "div1",
+      "from": "2000",
+      "to": "2001",
+      "rules": {
+        "playoffTeams": 8,
+        "access": "3 division winners + 5 best remaining",
+        "series": "first to 5 points, max 3 games, QF and SF",
+        "matchOvertime": "10-minute golden goal; draws allowed",
+        "seriesTie": "extra sudden death after third game",
+        "finalLegs": 1
+      },
+      "sources": [
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-tracing-evolution-postseason-format"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        49,
+        317
+      ]
+    }
+  },
+  {
+    "index": 28,
+    "value": {
+      "country": "USA",
+      "division": "div1",
+      "from": "2002",
+      "to": "2002",
+      "rules": {
+        "playoffTeams": 8,
+        "access": "top eight overall, regardless of conference",
+        "series": "first to 5 points, max 3 games, QF and SF",
+        "finalLegs": 1
+      },
+      "sources": [
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-tracing-evolution-postseason-format"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        49,
+        317
+      ]
+    }
+  },
+  {
+    "index": 29,
+    "value": {
+      "country": "USA",
+      "division": "div1",
+      "from": "2003",
+      "to": "2006",
+      "rules": {
+        "playoffTeams": 8,
+        "access": "top four per conference",
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 1,
+        "finalLegs": 1,
+        "tieRules": "2003 golden goal; from 2004 standard 30-minute extra time and penalties"
+      },
+      "sources": [
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-tracing-evolution-postseason-format"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        49,
+        317
+      ]
+    }
+  },
+  {
+    "index": 30,
+    "value": {
+      "country": "USA",
+      "division": "div1",
+      "from": "2007",
+      "to": "2010",
+      "rules": {
+        "playoffTeams": 8,
+        "access": "top two per conference + four best remaining overall; cross-conference bracket possible",
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 1,
+        "finalLegs": 1
+      },
+      "sources": [
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-tracing-evolution-postseason-format"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        49,
+        317
+      ]
+    }
+  },
+  {
+    "index": 31,
+    "value": {
+      "country": "USA",
+      "division": "div1",
+      "from": "2011",
+      "to": "2011",
+      "rules": {
+        "playoffTeams": 10,
+        "access": "top three per conference + four overall wild cards",
+        "wildCardLegs": 1,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 1,
+        "finalLegs": 1
+      },
+      "sources": [
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-tracing-evolution-postseason-format"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        49,
+        317
+      ]
+    }
+  },
+  {
+    "index": 32,
+    "value": {
+      "country": "USA",
+      "division": "div1",
+      "from": "2012",
+      "to": "2013",
+      "rules": {
+        "playoffTeams": 10,
+        "access": "top five per conference; 4 hosts 5",
+        "wildCardLegs": 1,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "finalVenue": "higher regular-season points finalist hosts"
+      },
+      "sources": [
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-tracing-evolution-postseason-format"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        49,
+        317
+      ]
+    }
+  },
+  {
+    "index": 33,
+    "value": {
+      "country": "USA",
+      "division": "div1",
+      "from": "2014",
+      "to": "2014",
+      "rules": {
+        "playoffTeams": 10,
+        "access": "top five per conference; 4 hosts 5",
+        "wildCardLegs": 1,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "awayGoals": true,
+        "awayGoalsInExtraTime": false
+      },
+      "sources": [
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-tracing-evolution-postseason-format"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        49,
+        317
+      ]
+    }
+  },
+  {
+    "index": 34,
+    "value": {
+      "country": "USA",
+      "division": "div1",
+      "from": "2015",
+      "to": "2018",
+      "rules": {
+        "playoffTeams": 12,
+        "access": "six per conference; 3 hosts 6 and 4 hosts 5, top two bye",
+        "wildCardLegs": 1,
+        "reseed": true,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 1
+      },
+      "sources": [
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996",
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-tracing-evolution-postseason-format"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        49,
+        317
+      ]
+    }
+  },
+  {
+    "index": 35,
+    "value": {
+      "country": "USA",
+      "division": "div1",
+      "from": "2019",
+      "to": "2019",
+      "rules": {
+        "playoffTeams": 14,
+        "access": "seven per conference; first bye",
+        "allRoundsSingleLeg": true,
+        "reseed": false
+      },
+      "sources": [
+        "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        49,
+        317
+      ]
+    }
+  }
+]

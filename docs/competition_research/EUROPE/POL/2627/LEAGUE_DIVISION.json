@@ -1,0 +1,57 @@
+[
+  {
+    "row": 285,
+    "world": "2627",
+    "id": "_polishLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "POL",
+    "candidateSources": [
+      "c9f932c8aec04966dcfacacdbf5608a03cf2fae4"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "Ekstraklasa",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://ekstraklasa.org/en/standings/2026-2027/",
+      "nameHistory": [
+        {
+          "transition": 250,
+          "from": "2008/09",
+          "to": null,
+          "previousName": "I Liga",
+          "name": "Ekstraklasa",
+          "operation": "RENAME",
+          "source": "https://ekstraklasa.org/en/company/history/"
+        }
+      ],
+      "historyComplete": false
+    },
+    "sportRuleEvidence42": {
+      "edition": "2025/26",
+      "teams": 18,
+      "games": 34,
+      "modernEdition": "2026/27",
+      "modernTeams": 18,
+      "sources": [
+        "https://ekstraklasa.org/tabela/2025-2026/",
+        "https://ekstraklasa.org/en/standings/2026-2027/"
+      ],
+      "scope": "Official standings support observed structure; no complete fixture or relegation rules certified."
+    }
+  }
+]

@@ -1,0 +1,183 @@
+[
+  {
+    "row": 292,
+    "world": "2627",
+    "id": "_scottishLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SCO",
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Scottish Premiership",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "4fb73a35a5e15b140d942b00f84fb8eef682915a",
+      "nameHistory": [
+        {
+          "transition": 217,
+          "from": "2013/14",
+          "to": null,
+          "previousName": "Scottish Premier League",
+          "name": "Scottish Premiership",
+          "operation": "RENAME",
+          "source": "https://spfl.co.uk/pages/rules-and-regulations"
+        },
+        {
+          "transition": 263,
+          "from": "1998/99",
+          "to": null,
+          "previousName": "Scottish Football League Premier Division",
+          "name": "Scottish Premier League",
+          "operation": "RESTRUCTURE_AND_RENAME",
+          "source": "https://rsssf.org/tabless/scothist.html"
+        }
+      ],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 293,
+    "world": "2627",
+    "id": "_scottishLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SCO",
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Scottish Championship",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled",
+      "nameHistory": [
+        {
+          "transition": 218,
+          "from": "2013/14",
+          "to": null,
+          "previousName": "First Division",
+          "name": "Scottish Championship",
+          "operation": "RENAME",
+          "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled"
+        }
+      ],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 294,
+    "world": "2627",
+    "id": "_scottishLeague",
+    "detail": "div3",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SCO",
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Scottish League One",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled",
+      "nameHistory": [
+        {
+          "transition": 219,
+          "from": "2013/14",
+          "to": null,
+          "previousName": "Second Division",
+          "name": "Scottish League One",
+          "operation": "RENAME",
+          "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled"
+        }
+      ],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 295,
+    "world": "2627",
+    "id": "_scottishLeague",
+    "detail": "div4",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SCO",
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Scottish League Two",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled",
+      "nameHistory": [
+        {
+          "transition": 220,
+          "from": "2013/14",
+          "to": null,
+          "previousName": "Third Division",
+          "name": "Scottish League Two",
+          "operation": "RENAME",
+          "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled"
+        }
+      ],
+      "historyComplete": false
+    }
+  }
+]

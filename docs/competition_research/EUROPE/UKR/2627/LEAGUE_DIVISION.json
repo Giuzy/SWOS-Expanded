@@ -1,0 +1,45 @@
+[
+  {
+    "row": 314,
+    "world": "2627",
+    "id": "_ukrainianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "UKR",
+    "candidateSources": [
+      "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Ukrainian Premier League",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://upl.ua/ua/news/view/11646",
+      "nameHistory": [
+        {
+          "transition": 226,
+          "from": "2008/09",
+          "to": null,
+          "previousName": "Vyshcha Liha",
+          "name": "Ukrainian Premier League",
+          "operation": "RENAME",
+          "source": "https://www.footballhistory.org/league/ukrainian-league.html"
+        }
+      ],
+      "historyComplete": false
+    }
+  }
+]

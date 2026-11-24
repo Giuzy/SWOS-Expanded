@@ -1,0 +1,28 @@
+[
+  {
+    "index": 36,
+    "value": {
+      "country": "RSA",
+      "division": "div1",
+      "from": "1997/98",
+      "to": "2001/02",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "observedFinalEdition": "2001/02",
+        "transition": "16 clubs in 2002/03; compare modern baseline",
+        "missing": "annual movement and expansion transition details"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesz/zaf02.html",
+        "https://en.wikipedia.org/wiki/2002%E2%80%9303_South_African_Premiership"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        46,
+        290
+      ]
+    }
+  }
+]

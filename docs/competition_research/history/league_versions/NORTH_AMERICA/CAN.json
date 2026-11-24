@@ -1,0 +1,52 @@
+[
+  {
+    "index": 112,
+    "value": {
+      "country": "CAN",
+      "division": "div1",
+      "from": "2019",
+      "to": null,
+      "rules": {
+        "operation": "CREATE",
+        "teams": 7,
+        "phases": [
+          "Spring",
+          "Fall",
+          "Championship"
+        ],
+        "springGames": 10,
+        "note": "Spring/Fall winners qualify, if same winner second aggregate earns berth; exact fall fixtures pending"
+      },
+      "sources": [
+        "https://www.cplsoccer.com/news/faq-a-primer-on-the-cpls-format-and-season-rules",
+        "https://www.cplsoccer.com/article/canadian-premier-league-announces-2019-championship-format"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 actual web search excerpts; exact applicability, dates, full phase/movement rules and modern baseline equivalence pending; no results imported",
+      "rowRefs": [
+        220
+      ]
+    }
+  },
+  {
+    "index": 113,
+    "value": {
+      "country": "CAN",
+      "division": "div1",
+      "from": "2023",
+      "to": null,
+      "rules": {
+        "playoffTeams": 5,
+        "note": "Page-style bracket; 2026 baseline separate; not assume perpetuity"
+      },
+      "sources": [
+        "https://www.cplsoccer.com/article/canadian-premier-league-announces-new-playoff-format"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 actual web search excerpts; exact applicability, dates, full phase/movement rules and modern baseline equivalence pending; no results imported",
+      "rowRefs": [
+        220
+      ]
+    }
+  }
+]

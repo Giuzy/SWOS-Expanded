@@ -1,0 +1,38 @@
+[
+  {
+    "row": 417,
+    "world": "2627",
+    "id": "_ukrainianCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "UKR",
+    "candidateSources": [
+      "1db714bb54f9be6429afe2e869103ec27e890ed3"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+    },
+    "sportResearchStatus": "RULES_PARTIAL",
+    "knownSportData": "UAF page open shows 2526 (68,67 games, 8+28+16+8+4+2+1, single leg, direct penalties except final), indexed 2627 snippet says 68 but stale HTML; 2627 official draw confirms 28 winners+4 European clubs at R32 https://uaf.ua/news/beton-kubok-ukrayiny-20262027-rezultaty-zerebkuvannia-116-finalu ; postcutoff template.",
+    "remainingSportData": "2627 full rule confirmation incl final ET and round dates, mapping",
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Ukrainian Cup",
+      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

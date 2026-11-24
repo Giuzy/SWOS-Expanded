@@ -1,0 +1,76 @@
+[
+  {
+    "row": 227,
+    "world": "2627",
+    "id": "_czechLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "CZE",
+    "candidateSources": [
+      "c79508abe598b80e9ae3ed1c7fa9e3926c3726d6"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "I. liga",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.lfafotbal.cz/clanek/34-herni-format-i-ligy-od-sezony-2018-19",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence41": {
+      "historicalEdition": "2018/19",
+      "teams": 16,
+      "regularGames": 30,
+      "groups": [
+        6,
+        4,
+        6
+      ],
+      "topBottomGames": 5,
+      "retainPoints": true,
+      "middleKO": {
+        "pairs": [
+          [
+            7,
+            10
+          ],
+          [
+            8,
+            9
+          ]
+        ],
+        "legs": 2
+      },
+      "directRelegatedRank": 16,
+      "playoffRanks": [
+        14,
+        15
+      ],
+      "opponentTier2Ranks": [
+        2,
+        3
+      ],
+      "playoffLegs": 2,
+      "sources": [
+        "https://www.lfafotbal.cz/clanek/34-herni-format-i-ligy-od-sezony-2018-19",
+        "https://www.lfafotbal.cz/clanek/422-ligove-gremium-lfa-schvalilo-herni-format-s-nadstavbou",
+        "https://www.lfafotbal.cz/clanek/924-vyjadreni-ligoveho-vyboru-lfa-k-diskuzim-o-zmene-formatu-profesionalnich-soutezi"
+      ],
+      "scope": "2018/19 detailed rules; 2021/22 changed middle prize; 2026 announcement retains current model until at least summer 2029, not evidence every 2018 rule unchanged"
+    }
+  }
+]

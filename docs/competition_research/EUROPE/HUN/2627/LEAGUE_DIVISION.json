@@ -1,0 +1,50 @@
+[
+  {
+    "row": 251,
+    "world": "2627",
+    "id": "_hungarianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "HUN",
+    "candidateSources": [
+      "c9f932c8aec04966dcfacacdbf5608a03cf2fae4"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "NB I",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.mlsz.hu/hir/elso-osztalyu-izgalom-most-is-jut-oromunnep-es-drama-az-utolso-fordulora",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence42": {
+      "edition": "2015/16",
+      "teams": 12,
+      "games": 33,
+      "meetingsPerOpponent": 3,
+      "thirdCycleHomeAllocation": {
+        "priorTopSix": 6,
+        "others": 5
+      },
+      "sources": [
+        "https://www.mlsz.hu/hir/elkeszult-a-megujult-otp-bank-liga-sorsolasa",
+        "https://www.mlsz.hu/hir/elso-osztalyu-izgalom-most-is-jut-oromunnep-es-drama-az-utolso-fordulora"
+      ],
+      "scope": "Historical rule; 2026 retrospective corroborates continued 12/33 format, not all current rules."
+    }
+  }
+]

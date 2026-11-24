@@ -1,0 +1,33 @@
+[
+  {
+    "index": 274,
+    "value": {
+      "competition": "AUS A-League",
+      "firstEdition": "2021/22",
+      "operation": "RENAME",
+      "previousName": "A-League",
+      "name": "A-League Men",
+      "rowRefs": [
+        207
+      ],
+      "source": "https://footballaustralia.com.au/history/aleague-men",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 37 official federation/league sources 24/11/2026; no complete edition rules or fixture reconciliation."
+    }
+  },
+  {
+    "index": 275,
+    "value": {
+      "competition": "AUS A-League",
+      "firstEdition": "2005/06",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        207
+      ],
+      "source": "https://footballaustralia.com.au/aleague-men-honours-board",
+      "note": "Regular-season first place earns Premiership; Grand Final winner earns Championship; complete playoff structure by edition still pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 37 official federation/league sources 24/11/2026; no complete edition rules or fixture reconciliation."
+    }
+  }
+]

@@ -1,0 +1,55 @@
+[
+  {
+    "index": 38,
+    "value": {
+      "country": "EGY",
+      "division": "div1",
+      "from": "2013/14",
+      "to": "2013/14",
+      "rules": {
+        "teams": 22,
+        "groups": [
+          11,
+          11
+        ],
+        "rounds": 2,
+        "regularGamesPerClub": 20,
+        "championshipGroup": "top two per group, single round robin",
+        "relegationPlayoff": "ninth of each group",
+        "relegated": 5,
+        "promoted": 3
+      },
+      "sources": [
+        "https://www.rsssf.org/tablese/egy2014.html",
+        "https://english.ahram.org.eg/NewsContent/6/51/86670/Sports/Egyptian-Football/Egyptian-football-league-to-continue-with-twogroup.aspx",
+        "https://english.ahram.org.eg/NewsContent/6/51/110248/Sports/Egyptian-Football/Egyptian-League-to-start-on--September-without-fan.aspx"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        230
+      ]
+    }
+  },
+  {
+    "index": 39,
+    "value": {
+      "country": "EGY",
+      "division": "div1",
+      "from": "2014/15",
+      "to": "2014/15",
+      "rules": {
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "transition": "single group restored"
+      },
+      "sources": [
+        "https://rsssf.org/tablese/egy2015.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        230
+      ]
+    }
+  }
+]

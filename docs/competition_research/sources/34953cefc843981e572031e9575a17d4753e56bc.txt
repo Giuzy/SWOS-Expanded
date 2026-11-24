@@ -1,0 +1,1073 @@
+{
+  "purpose": "research only, schedule version 7 April 2026; dates are scheduled not independently verified actual",
+  "source": "https://static.fferj.com.br/media/upload/transparencia/95ada130ae58469db3bf0a119f115a40.pdf",
+  "sourceVersion": "2026-04-07",
+  "scoreSourceBlob": "53b6fa2db881456a950ea7eb1618f7d5b05d8f50",
+  "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+  "matches": [
+    {
+      "officialMatchNo": 17,
+      "group": "A",
+      "home": "65:4",
+      "away": "43:9",
+      "scheduledDate": "2026-04-07",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 18,
+      "group": "A",
+      "home": "50:10",
+      "away": "49:8",
+      "scheduledDate": "2026-04-09",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 33,
+      "group": "A",
+      "home": "43:9",
+      "away": "50:10",
+      "scheduledDate": "2026-04-16",
+      "score": [
+        0,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 34,
+      "group": "A",
+      "home": "49:8",
+      "away": "65:4",
+      "scheduledDate": "2026-04-15",
+      "score": [
+        2,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 49,
+      "group": "A",
+      "home": "43:9",
+      "away": "49:8",
+      "scheduledDate": "2026-04-30",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 50,
+      "group": "A",
+      "home": "65:4",
+      "away": "50:10",
+      "scheduledDate": "2026-04-30",
+      "score": [
+        0,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 65,
+      "group": "A",
+      "home": "50:10",
+      "away": "43:9",
+      "scheduledDate": "2026-05-06",
+      "score": [
+        2,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 66,
+      "group": "A",
+      "home": "65:4",
+      "away": "49:8",
+      "scheduledDate": "2026-05-06",
+      "score": [
+        0,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 81,
+      "group": "A",
+      "home": "49:8",
+      "away": "43:9",
+      "scheduledDate": "2026-05-19",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 82,
+      "group": "A",
+      "home": "50:10",
+      "away": "65:4",
+      "scheduledDate": "2026-05-21",
+      "score": [
+        0,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 97,
+      "group": "A",
+      "home": "49:8",
+      "away": "50:10",
+      "scheduledDate": "2026-05-28",
+      "score": [
+        0,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 98,
+      "group": "A",
+      "home": "43:9",
+      "away": "65:4",
+      "scheduledDate": "2026-05-28",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 19,
+      "group": "B",
+      "home": "71:3",
+      "away": "65:10",
+      "scheduledDate": "2026-04-09",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 20,
+      "group": "B",
+      "home": "77:5",
+      "away": "46:11",
+      "scheduledDate": "2026-04-08",
+      "score": [
+        2,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 35,
+      "group": "B",
+      "home": "65:10",
+      "away": "77:5",
+      "scheduledDate": "2026-04-16",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 36,
+      "group": "B",
+      "home": "46:11",
+      "away": "71:3",
+      "scheduledDate": "2026-04-16",
+      "score": [
+        2,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 51,
+      "group": "B",
+      "home": "65:10",
+      "away": "46:11",
+      "scheduledDate": "2026-04-29",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 52,
+      "group": "B",
+      "home": "71:3",
+      "away": "77:5",
+      "scheduledDate": "2026-04-29",
+      "score": [
+        4,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 67,
+      "group": "B",
+      "home": "77:5",
+      "away": "65:10",
+      "scheduledDate": "2026-05-05",
+      "score": [
+        3,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 68,
+      "group": "B",
+      "home": "71:3",
+      "away": "46:11",
+      "scheduledDate": "2026-05-05",
+      "score": [
+        2,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 83,
+      "group": "B",
+      "home": "46:11",
+      "away": "65:10",
+      "scheduledDate": "2026-05-21",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 84,
+      "group": "B",
+      "home": "77:5",
+      "away": "71:3",
+      "scheduledDate": "2026-05-21",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 99,
+      "group": "B",
+      "home": "46:11",
+      "away": "77:5",
+      "scheduledDate": "2026-05-27",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 100,
+      "group": "B",
+      "home": "65:10",
+      "away": "71:3",
+      "scheduledDate": "2026-05-27",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 21,
+      "group": "C",
+      "home": "48:3",
+      "away": "49:12",
+      "scheduledDate": "2026-04-07",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 22,
+      "group": "C",
+      "home": "71:7",
+      "away": "46:8",
+      "scheduledDate": "2026-04-07",
+      "score": [
+        0,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 37,
+      "group": "C",
+      "home": "49:12",
+      "away": "71:7",
+      "scheduledDate": "2026-04-15",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 38,
+      "group": "C",
+      "home": "46:8",
+      "away": "48:3",
+      "scheduledDate": "2026-04-14",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 53,
+      "group": "C",
+      "home": "49:12",
+      "away": "46:8",
+      "scheduledDate": "2026-04-28",
+      "score": [
+        0,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 54,
+      "group": "C",
+      "home": "48:3",
+      "away": "71:7",
+      "scheduledDate": "2026-04-28",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 69,
+      "group": "C",
+      "home": "71:7",
+      "away": "49:12",
+      "scheduledDate": "2026-05-07",
+      "score": [
+        2,
+        4
+      ]
+    },
+    {
+      "officialMatchNo": 70,
+      "group": "C",
+      "home": "48:3",
+      "away": "46:8",
+      "scheduledDate": "2026-05-07",
+      "score": [
+        0,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 85,
+      "group": "C",
+      "home": "46:8",
+      "away": "49:12",
+      "scheduledDate": "2026-05-19",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 86,
+      "group": "C",
+      "home": "71:7",
+      "away": "48:3",
+      "scheduledDate": "2026-05-20",
+      "score": [
+        3,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 101,
+      "group": "C",
+      "home": "46:8",
+      "away": "71:7",
+      "scheduledDate": "2026-05-26",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 102,
+      "group": "C",
+      "home": "49:12",
+      "away": "48:3",
+      "scheduledDate": "2026-05-26",
+      "score": [
+        1,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 23,
+      "group": "D",
+      "home": "64:7",
+      "away": "43:8",
+      "scheduledDate": "2026-04-08",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 24,
+      "group": "D",
+      "home": "50:7",
+      "away": "46:12",
+      "scheduledDate": "2026-04-08",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 39,
+      "group": "D",
+      "home": "43:8",
+      "away": "50:7",
+      "scheduledDate": "2026-04-16",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 40,
+      "group": "D",
+      "home": "46:12",
+      "away": "64:7",
+      "scheduledDate": "2026-04-14",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 55,
+      "group": "D",
+      "home": "43:8",
+      "away": "46:12",
+      "scheduledDate": "2026-04-28",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 56,
+      "group": "D",
+      "home": "64:7",
+      "away": "50:7",
+      "scheduledDate": "2026-04-28",
+      "score": [
+        0,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 71,
+      "group": "D",
+      "home": "50:7",
+      "away": "43:8",
+      "scheduledDate": "2026-05-05",
+      "score": [
+        0,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 72,
+      "group": "D",
+      "home": "64:7",
+      "away": "46:12",
+      "scheduledDate": "2026-05-05",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 87,
+      "group": "D",
+      "home": "46:12",
+      "away": "43:8",
+      "scheduledDate": "2026-05-20",
+      "score": [
+        2,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 88,
+      "group": "D",
+      "home": "50:7",
+      "away": "64:7",
+      "scheduledDate": "2026-05-19",
+      "score": [
+        2,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 103,
+      "group": "D",
+      "home": "46:12",
+      "away": "50:7",
+      "scheduledDate": "2026-05-26",
+      "score": [
+        3,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 104,
+      "group": "D",
+      "home": "43:8",
+      "away": "64:7",
+      "scheduledDate": "2026-05-26",
+      "score": [
+        0,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 25,
+      "group": "E",
+      "home": "46:6",
+      "away": "77:9",
+      "scheduledDate": "2026-04-09",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 26,
+      "group": "E",
+      "home": "45:6",
+      "away": "43:5",
+      "scheduledDate": "2026-04-07",
+      "score": [
+        1,
+        3
+      ]
+    },
+    {
+      "officialMatchNo": 41,
+      "group": "E",
+      "home": "77:9",
+      "away": "45:6",
+      "scheduledDate": "2026-04-15",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 42,
+      "group": "E",
+      "home": "43:5",
+      "away": "46:6",
+      "scheduledDate": "2026-04-15",
+      "score": [
+        2,
+        3
+      ]
+    },
+    {
+      "officialMatchNo": 57,
+      "group": "E",
+      "home": "77:9",
+      "away": "43:5",
+      "scheduledDate": "2026-04-29",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 58,
+      "group": "E",
+      "home": "46:6",
+      "away": "45:6",
+      "scheduledDate": "2026-04-28",
+      "score": [
+        3,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 73,
+      "group": "E",
+      "home": "45:6",
+      "away": "77:9",
+      "scheduledDate": "2026-05-05",
+      "score": [
+        2,
+        3
+      ]
+    },
+    {
+      "officialMatchNo": 74,
+      "group": "E",
+      "home": "46:6",
+      "away": "43:5",
+      "scheduledDate": "2026-05-06",
+      "score": [
+        2,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 89,
+      "group": "E",
+      "home": "43:5",
+      "away": "77:9",
+      "scheduledDate": "2026-05-21",
+      "score": [
+        2,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 90,
+      "group": "E",
+      "home": "45:6",
+      "away": "46:6",
+      "scheduledDate": "2026-05-20",
+      "score": [
+        0,
+        3
+      ]
+    },
+    {
+      "officialMatchNo": 105,
+      "group": "E",
+      "home": "43:5",
+      "away": "45:6",
+      "scheduledDate": "2026-05-27",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 106,
+      "group": "E",
+      "home": "77:9",
+      "away": "46:6",
+      "scheduledDate": "2026-05-27",
+      "score": [
+        1,
+        3
+      ]
+    },
+    {
+      "officialMatchNo": 27,
+      "group": "F",
+      "home": "43:10",
+      "away": "48:6",
+      "scheduledDate": "2026-04-08",
+      "score": [
+        0,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 28,
+      "group": "F",
+      "home": "71:9",
+      "away": "46:9",
+      "scheduledDate": "2026-04-08",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 43,
+      "group": "F",
+      "home": "48:6",
+      "away": "71:9",
+      "scheduledDate": "2026-04-14",
+      "score": [
+        0,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 44,
+      "group": "F",
+      "home": "46:9",
+      "away": "43:10",
+      "scheduledDate": "2026-04-14",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 59,
+      "group": "F",
+      "home": "48:6",
+      "away": "46:9",
+      "scheduledDate": "2026-04-29",
+      "score": [
+        0,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 60,
+      "group": "F",
+      "home": "43:10",
+      "away": "71:9",
+      "scheduledDate": "2026-04-29",
+      "score": [
+        2,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 75,
+      "group": "F",
+      "home": "71:9",
+      "away": "48:6",
+      "scheduledDate": "2026-05-06",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 76,
+      "group": "F",
+      "home": "43:10",
+      "away": "46:9",
+      "scheduledDate": "2026-05-05",
+      "score": [
+        0,
+        3
+      ]
+    },
+    {
+      "officialMatchNo": 91,
+      "group": "F",
+      "home": "46:9",
+      "away": "48:6",
+      "scheduledDate": "2026-05-20",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 92,
+      "group": "F",
+      "home": "71:9",
+      "away": "43:10",
+      "scheduledDate": "2026-05-19",
+      "score": [
+        4,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 107,
+      "group": "F",
+      "home": "46:9",
+      "away": "71:9",
+      "scheduledDate": "2026-05-26",
+      "score": [
+        2,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 108,
+      "group": "F",
+      "home": "48:6",
+      "away": "43:10",
+      "scheduledDate": "2026-05-26",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 29,
+      "group": "G",
+      "home": "43:13",
+      "away": "46:14",
+      "scheduledDate": "2026-04-07",
+      "score": [
+        0,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 30,
+      "group": "G",
+      "home": "48:5",
+      "away": "64:5",
+      "scheduledDate": "2026-04-08",
+      "score": [
+        0,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 45,
+      "group": "G",
+      "home": "46:14",
+      "away": "48:5",
+      "scheduledDate": "2026-04-14",
+      "score": [
+        1,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 46,
+      "group": "G",
+      "home": "64:5",
+      "away": "43:13",
+      "scheduledDate": "2026-04-15",
+      "score": [
+        0,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 61,
+      "group": "G",
+      "home": "46:14",
+      "away": "64:5",
+      "scheduledDate": "2026-04-30",
+      "score": [
+        3,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 62,
+      "group": "G",
+      "home": "43:13",
+      "away": "48:5",
+      "scheduledDate": "2026-04-28",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 77,
+      "group": "G",
+      "home": "48:5",
+      "away": "46:14",
+      "scheduledDate": "2026-05-06",
+      "score": [
+        1,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 78,
+      "group": "G",
+      "home": "43:13",
+      "away": "64:5",
+      "scheduledDate": "2026-05-06",
+      "score": [
+        1,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 93,
+      "group": "G",
+      "home": "64:5",
+      "away": "46:14",
+      "scheduledDate": "2026-05-20",
+      "score": [
+        3,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 94,
+      "group": "G",
+      "home": "48:5",
+      "away": "43:13",
+      "scheduledDate": "2026-05-19",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 109,
+      "group": "G",
+      "home": "64:5",
+      "away": "48:5",
+      "scheduledDate": "2026-05-27",
+      "score": [
+        3,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 110,
+      "group": "G",
+      "home": "46:14",
+      "away": "43:13",
+      "scheduledDate": "2026-05-27",
+      "score": [
+        3,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 31,
+      "group": "H",
+      "home": "77:2",
+      "away": "46:10",
+      "scheduledDate": "2026-04-09",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 32,
+      "group": "H",
+      "home": "45:5",
+      "away": "43:4",
+      "scheduledDate": "2026-04-08",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 47,
+      "group": "H",
+      "home": "46:10",
+      "away": "45:5",
+      "scheduledDate": "2026-04-16",
+      "score": [
+        3,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 48,
+      "group": "H",
+      "home": "43:4",
+      "away": "77:2",
+      "scheduledDate": "2026-04-15",
+      "score": [
+        1,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 63,
+      "group": "H",
+      "home": "46:10",
+      "away": "43:4",
+      "scheduledDate": "2026-04-30",
+      "score": [
+        0,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 64,
+      "group": "H",
+      "home": "77:2",
+      "away": "45:5",
+      "scheduledDate": "2026-04-30",
+      "score": [
+        2,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 79,
+      "group": "H",
+      "home": "45:5",
+      "away": "46:10",
+      "scheduledDate": "2026-05-07",
+      "score": [
+        0,
+        6
+      ]
+    },
+    {
+      "officialMatchNo": 80,
+      "group": "H",
+      "home": "77:2",
+      "away": "43:4",
+      "scheduledDate": "2026-05-07",
+      "score": [
+        1,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 95,
+      "group": "H",
+      "home": "43:4",
+      "away": "46:10",
+      "scheduledDate": "2026-05-20",
+      "score": [
+        1,
+        1
+      ]
+    },
+    {
+      "officialMatchNo": 96,
+      "group": "H",
+      "home": "45:5",
+      "away": "77:2",
+      "scheduledDate": "2026-05-21",
+      "score": [
+        0,
+        2
+      ]
+    },
+    {
+      "officialMatchNo": 111,
+      "group": "H",
+      "home": "43:4",
+      "away": "45:5",
+      "scheduledDate": "2026-05-27",
+      "score": [
+        3,
+        0
+      ]
+    },
+    {
+      "officialMatchNo": 112,
+      "group": "H",
+      "home": "46:10",
+      "away": "77:2",
+      "scheduledDate": "2026-05-27",
+      "score": [
+        2,
+        0
+      ]
+    }
+  ],
+  "audit": {
+    "matches": 96,
+    "uniquePairs": 96,
+    "uniqueNumbers": 96,
+    "allScores": true,
+    "noSameDayClub": true
+  },
+  "limitations": "PDF text consulted, screenshot cache miss. Official match number sequence based on source pair order; actual date deviations need cross-check against match reports; score matrix Vasco GF discrepancy remains."
+}

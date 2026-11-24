@@ -1,0 +1,218 @@
+[
+  {
+    "index": 320,
+    "value": {
+      "row": 321,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 422,
+    "value": {
+      "row": 423,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 423,
+    "value": {
+      "row": 424,
+      "active_from": "2002",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_OFFICIAL_LIFETIME_EXCERPT",
+      "sources": [
+        "https://gol.conmebol.com/sudamericana/es/news/por-la-segunda-los-campeones-que-jugaran-la-conmebol-sudamericana-en-2026"
+      ],
+      "verification": "Block 21 official web search excerpts; dates of activity only, not complete runtime rules."
+    }
+  },
+  {
+    "index": 425,
+    "value": {
+      "row": 426,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 426,
+    "value": {
+      "row": 427,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 427,
+    "value": {
+      "row": 428,
+      "active_from": "2024/25",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_OFFICIAL_LIFETIME_EXCERPT",
+      "sources": [
+        "https://www.the-afc.com/en/club/afc_champions_league_two/archive/202324.html",
+        "https://www.the-afc.com/en/club/afc_champions_league_two/news/entries_confirmed_for_afc_champions_league_two_2024-25.html"
+      ],
+      "verification": "Block 22: official search excerpts; identity mapping of generic national cup rows remains candidate; full dates and access not certified."
+    }
+  },
+  {
+    "index": 428,
+    "value": {
+      "row": 429,
+      "active_from": "2024/25",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_OFFICIAL_LIFETIME_EXCERPT",
+      "sources": [
+        "https://www.the-afc.com/en/club/afc_champions_league_two/archive/202324.html"
+      ],
+      "verification": "Block 22: official search excerpts; identity mapping of generic national cup rows remains candidate; full dates and access not certified."
+    }
+  },
+  {
+    "index": 429,
+    "value": {
+      "row": 430,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 430,
+    "value": {
+      "row": 431,
+      "active_from": "2004",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_OFFICIAL_LIFETIME_EXCERPT",
+      "sources": [
+        "https://www.cafonline.com/caf-confederation-cup/news/stat-attack-totalenergies-caf-confederation-cup/"
+      ],
+      "verification": "Block 22: official search excerpts; identity mapping of generic national cup rows remains candidate; full dates and access not certified."
+    }
+  },
+  {
+    "index": 432,
+    "value": {
+      "row": 433,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 524,
+    "value": {
+      "row": 525,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 525,
+    "value": {
+      "row": 526,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 526,
+    "value": {
+      "row": 527,
+      "active_from": "2021/22",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_OFFICIAL_LIFETIME_EXCERPT",
+      "sources": [
+        "https://www.uefa.com/uefaconferenceleague/news/026c-131b2b24e6bd-68b0c5aba0dc-1000--all-the-2021-22-results/"
+      ],
+      "verification": "Block 21 official web search excerpts; dates of activity only, not complete runtime rules."
+    }
+  }
+]

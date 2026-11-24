@@ -1,0 +1,33 @@
+[
+  {
+    "index": 299,
+    "value": {
+      "competition": "NED tier 2",
+      "firstEdition": "2013/14",
+      "operation": "CHANGE_ACCESS",
+      "rowRefs": [
+        276
+      ],
+      "source": "https://www.knvb.nl/node/82",
+      "note": "Reserve teams enter professional pyramid; exact annual membership not inferred.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 41 official HTML opened or search excerpt; no PDF analyzed."
+    }
+  },
+  {
+    "index": 301,
+    "value": {
+      "competition": "NED tier 2",
+      "firstEdition": "2025/26",
+      "lastEdition": "2025/26",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        276
+      ],
+      "source": "https://www.knvb.nl/competities/competitiezaken/competitiemodel/periodetitels-in-de-eerste-divisie",
+      "note": "20 teams, four period titles rounds 1–10,11–20,21–29,30–38; reserves excluded from promotion playoffs; replacement first period runner-up, if already qualified or reserve, best eligible final standing without period title.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 41 official HTML opened or search excerpt; no PDF analyzed."
+    }
+  }
+]

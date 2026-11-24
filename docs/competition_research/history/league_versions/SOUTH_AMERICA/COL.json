@@ -1,0 +1,48 @@
+[
+  {
+    "index": 90,
+    "value": {
+      "country": "COL",
+      "division": "div1",
+      "from": "2002",
+      "to": null,
+      "rules": {
+        "titlesPerYear": 2,
+        "note": "Apertura and Finalizacion independent titles; phase and relegation rules not yet extracted"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesc/colchamp.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF and press sources retrieved; observed edition rules, not full continuity certification; no results imported; exact dates, access and modern baseline pending",
+      "rowRefs": [
+        41,
+        223
+      ]
+    }
+  },
+  {
+    "index": 91,
+    "value": {
+      "country": "COL",
+      "division": "div1",
+      "from": "2015",
+      "to": null,
+      "rules": {
+        "teams": 20,
+        "previousTeams": 18,
+        "note": "Two short tournaments; extra promotion tournament in January 2015; each regular phase 20 games including extra fixture; full seeding pending"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesc/col2015.html",
+        "https://rsssf.org/tablesc/col2014.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF and press sources retrieved; observed edition rules, not full continuity certification; no results imported; exact dates, access and modern baseline pending",
+      "rowRefs": [
+        41,
+        223
+      ]
+    }
+  }
+]

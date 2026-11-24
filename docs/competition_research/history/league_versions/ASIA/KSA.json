@@ -1,0 +1,46 @@
+[
+  {
+    "index": 100,
+    "value": {
+      "country": "KSA",
+      "division": "div1",
+      "from": "2008/09",
+      "to": null,
+      "rules": {
+        "operation": "PROFESSIONAL_REORGANIZATION",
+        "note": "Administrative professionalisation verified; sporting rules not inferred"
+      },
+      "sources": [
+        "https://www.spl.com.sa/en/news/about-the-spl"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 actual web search excerpts; exact applicability, dates, full phase/movement rules and modern baseline equivalence pending; no results imported",
+      "rowRefs": [
+        263
+      ]
+    }
+  },
+  {
+    "index": 101,
+    "value": {
+      "country": "KSA",
+      "division": "div1",
+      "from": "2023/24",
+      "to": null,
+      "rules": {
+        "teams": 18,
+        "previousTeams": 16,
+        "rounds": 2,
+        "gamesPerClub": 34
+      },
+      "sources": [
+        "https://www.spl.com.sa/en/news/rsl-101-get-to-know-the-saudi-top-flight"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 actual web search excerpts; exact applicability, dates, full phase/movement rules and modern baseline equivalence pending; no results imported",
+      "rowRefs": [
+        263
+      ]
+    }
+  }
+]

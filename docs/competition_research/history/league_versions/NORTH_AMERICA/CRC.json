@@ -1,0 +1,29 @@
+[
+  {
+    "index": 52,
+    "value": {
+      "country": "CRC",
+      "division": "div1",
+      "from": "Invierno 2007",
+      "to": "Invierno 2007",
+      "rules": {
+        "teams": 12,
+        "groups": [
+          6,
+          6
+        ],
+        "regularGamesPerClub": 16,
+        "playoffTeams": 6,
+        "access": "top three per group"
+      },
+      "sources": [
+        "https://es.wikipedia.org/wiki/Campeonato_de_Invierno_2007_%28Costa_Rica%29"
+      ],
+      "missing": "Full playoff seeding and subsequent validity pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        224
+      ]
+    }
+  }
+]

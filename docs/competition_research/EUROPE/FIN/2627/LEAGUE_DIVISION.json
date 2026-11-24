@@ -1,0 +1,63 @@
+[
+  {
+    "row": 238,
+    "world": "2627",
+    "id": "_finnishLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "FIN",
+    "candidateSources": [
+      "c79508abe598b80e9ae3ed1c7fa9e3926c3726d6"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Veikkausliiga",
+      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "source": "https://en.wikipedia.org/wiki/European_Leagues",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence38": {
+      "edition": "2026",
+      "teams": 12,
+      "regularGames": 22,
+      "championshipGroup": {
+        "teams": 6,
+        "rounds": 2,
+        "games": 10
+      },
+      "relegationGroup": {
+        "teams": 6,
+        "rounds": 1,
+        "games": 5
+      },
+      "totalGamesPerClub": [
+        32,
+        27
+      ],
+      "directRelegatedRank": 12,
+      "playoffRank": 11,
+      "opponentTier2Rank": 2,
+      "playoffLegs": 2,
+      "seasonOpening": "2026-04-04",
+      "sources": [
+        "https://www.veikkausliiga.com/veikkausliiga/sarjajarjestelma",
+        "https://www.veikkausliiga.com/uutiset/2025/12/19/veikkausliigan-runkosarjan-2026-otteluohjelma-julkaistaan-ennatysellisen-varhain-avauspaiva-44-aivan-taynna-otteluita"
+      ]
+    }
+  }
+]

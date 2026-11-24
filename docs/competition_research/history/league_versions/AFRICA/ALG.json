@@ -1,0 +1,63 @@
+[
+  {
+    "index": 70,
+    "value": {
+      "country": "ALG",
+      "division": "div1",
+      "from": "1997/98",
+      "to": "1997/98",
+      "rules": {
+        "teams": 16,
+        "groups": [
+          8,
+          8
+        ],
+        "rounds": 2,
+        "gamesPerClub": 14,
+        "championshipFinal": true,
+        "followingExpansion": {
+          "groups": [
+            14,
+            14
+          ]
+        }
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesa/alg98.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        37,
+        201
+      ]
+    }
+  },
+  {
+    "index": 71,
+    "value": {
+      "country": "ALG",
+      "division": "div1",
+      "from": "2018/19",
+      "to": "2018/19",
+      "rules": {
+        "teams": 16,
+        "directRelegationRanks": [
+          14,
+          15,
+          16
+        ],
+        "promotionCount": 3
+      },
+      "sources": [
+        "https://www.faf.dz/wp-content/uploads/2018/06/Modalit%C3%A9s-daccession-et-de-r%C3%A9trogradation-2018-19.pdf"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        37,
+        201
+      ]
+    }
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "index": 136,
+    "value": {
+      "competition": "UAE Pro League Cup",
+      "firstEdition": "2008/09",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "41 total matches observed first edition, 63 in 2010/11 and 2011/12; full format pending.",
+      "source": "https://www.uaeproleague.ae/en/news-and-gallery/47-matches-in-league-cup",
+      "rowRefs": [
+        416
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
+    }
+  }
+]

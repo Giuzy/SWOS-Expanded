@@ -1,0 +1,18 @@
+[
+  {
+    "index": 137,
+    "value": {
+      "competition": "NIR League Cup",
+      "firstEdition": "1986/87",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "First winner in 1987 per NIFL, season label inferred pending corroboration.",
+      "source": "https://www.nifootballleague.com/news/2025/march/nifl-statzone-15-march-2025/",
+      "rowRefs": [
+        388
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
+    }
+  }
+]

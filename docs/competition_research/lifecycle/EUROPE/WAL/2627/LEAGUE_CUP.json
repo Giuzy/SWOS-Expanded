@@ -1,0 +1,28 @@
+[
+  {
+    "index": 421,
+    "value": {
+      "row": 422,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [
+        {
+          "from": "2026/27",
+          "until": "2026/27",
+          "reason": "FAW statement 7 May 2026 removes competition because 16-team league calendar expansion; later seasons unknown",
+          "careerApplicability": "RESEARCH_ONLY"
+        }
+      ],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "OFFICIAL_ONE_SEASON_REMOVAL_MAPPING_CANDIDATE",
+      "sources": [
+        "https://faw.cymru/cymru-leagues/news/statement-nathaniel-mg-cup-and-welsh-blood-service-league-cup/"
+      ],
+      "lastObservedEdition": "2025/26"
+    }
+  }
+]

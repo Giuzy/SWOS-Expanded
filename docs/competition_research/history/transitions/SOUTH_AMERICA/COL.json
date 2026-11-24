@@ -1,0 +1,18 @@
+[
+  {
+    "index": 153,
+    "value": {
+      "competition": "COL Copa Colombia",
+      "firstEdition": "1990",
+      "lastEdition": "2007",
+      "operation": "SUSPEND",
+      "note": "Observed gap between 1989 and 2008 editions, earlier history irregular; do not infer prior continuous calendar.",
+      "source": "https://www.rsssf.org/tablesc/colcuphist.html",
+      "rowRefs": [
+        342
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
+    }
+  }
+]

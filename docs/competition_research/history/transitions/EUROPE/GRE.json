@@ -1,0 +1,123 @@
+[
+  {
+    "index": 315,
+    "value": {
+      "competition": "GRE tier 1",
+      "firstEdition": "2006/07",
+      "operation": "RESTRUCTURE_AND_RENAME",
+      "previousName": "Alpha Ethniki",
+      "name": "Super League Greece",
+      "rowRefs": [
+        13,
+        248
+      ],
+      "source": "https://en.wikipedia.org/wiki/2006%E2%80%9307_Super_League_Greece",
+      "additionalSource": "https://www.uefa.com/news-media/news/025e-0f90a010825a-27c590719be0-1000--government-support-for-greek-plan/",
+      "note": "UEFA 2005 proposal corroborates governance transition, exact name change edition from secondary source.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block44 actual web retrieval, 24/11/2026; source-specific limitations noted."
+    }
+  },
+  {
+    "index": 320,
+    "value": {
+      "competition": "GRE cup",
+      "firstEdition": "2025/26",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        363
+      ],
+      "source": "https://www.epo.gr/en/node/33281",
+      "rules": {
+        "leaguePhaseTeams": 20,
+        "matchdays": 4
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block45 verified source text or search excerpt; TFF p1 screenshot."
+    }
+  },
+  {
+    "index": 321,
+    "value": {
+      "competition": "GRE cup",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        363
+      ],
+      "source": "https://www.epo.gr/en/node/33281",
+      "rules": {
+        "previousEditionLeaguePhaseTeams": 20,
+        "leaguePhaseTeams": 16,
+        "matchdays": 4,
+        "playoffRanks": [
+          5,
+          12
+        ],
+        "playoffLegs": 1,
+        "preliminaryQualifiers": 11,
+        "directEuropeanEntrants": 5
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block45 verified source text or search excerpt; TFF p1 screenshot."
+    }
+  },
+  {
+    "index": 330,
+    "value": {
+      "competition": "GRE tier 1",
+      "firstEdition": "2025/26",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        248
+      ],
+      "source": "https://www.sportal.gr/podosfairo/article/stoiximan-super-league-ti-isxyei-se-playoffs-1-4-5-8-kai-ta-playouts-2026040200020092788",
+      "rules": {
+        "teams": 14,
+        "regularGames": 26,
+        "splitRanks": [
+          [
+            1,
+            4
+          ],
+          [
+            5,
+            8
+          ],
+          [
+            9,
+            14
+          ]
+        ],
+        "splitDrawDate": "2026-03-24"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block46 source retrieval; see evidence46 and namingResearch.block46."
+    }
+  },
+  {
+    "index": 339,
+    "value": {
+      "competition": "GRE cup",
+      "firstEdition": "1996/97",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        124
+      ],
+      "source": "https://www.rsssf.org/tablesg/grk97.html",
+      "rules": {
+        "firstRoundLegs": 2,
+        "semifinalLegs": 2,
+        "semifinalDates": [
+          "1997-02-12",
+          "1997-02-26"
+        ],
+        "finalDate": "1997-04-16",
+        "finalLegs": 1,
+        "extraTimeAndPenaltiesObserved": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block47 RSSSF retrieved HTML/search excerpts; TFF history excerpt only after open timeout."
+    }
+  }
+]

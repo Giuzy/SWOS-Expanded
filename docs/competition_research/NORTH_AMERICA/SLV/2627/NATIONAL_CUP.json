@@ -1,0 +1,39 @@
+[
+  {
+    "row": 404,
+    "world": "2627",
+    "id": "_worldSlvCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "SLV",
+    "candidateSources": [
+      "1db714bb54f9be6429afe2e869103ec27e890ed3"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "sportResearchStatus": "FORMAT_AVAILABLE",
+    "knownSportData": "INDES 24=12 first+6 second+6 third; six groups of four single RR, top2+four best thirds R16, knockout a/r from R16, starts Feb10. https://web.indes.gob.sv/?p=134064 ; group cutoff results source https://web.indes.gob.sv/?p=137547 ; September postponement only postcutoff reference.",
+    "remainingSportData": "final legs/rules precise, full prestart matches, participant key mapping",
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Copa El Salvador",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  }
+]

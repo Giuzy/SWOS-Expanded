@@ -1,0 +1,177 @@
+[
+  {
+    "index": 5,
+    "value": {
+      "country": "ARG",
+      "division": "div1",
+      "from": "2014",
+      "to": "2014",
+      "rules": {
+        "operation": "TRANSITION_TOURNAMENT",
+        "missing": "Exact movement and title qualification rules"
+      },
+      "source": "https://www.a24.com/futbol/torneo-argentino-dificil-entender-mundo-nueve-cambios-formato-ultimos-diez-anos-05112020_DXD3xuboi",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        60,
+        203
+      ]
+    }
+  },
+  {
+    "index": 6,
+    "value": {
+      "country": "ARG",
+      "division": "div1",
+      "from": "2015",
+      "to": "2015",
+      "rules": {
+        "teams": 30,
+        "calendar": "calendar year",
+        "format": "Single league plus extra derby; detailed match pairing pending"
+      },
+      "source": "https://es.wikipedia.org/wiki/Primera_Divisi%C3%B3n_de_Argentina",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        60,
+        203
+      ]
+    }
+  },
+  {
+    "index": 7,
+    "value": {
+      "country": "ARG",
+      "division": "div1",
+      "from": "2016/17",
+      "to": "2016/17",
+      "rules": {
+        "teams": 30,
+        "gamesPerClub": 30,
+        "relegated": 4,
+        "promoted": 2,
+        "calendar": "European season"
+      },
+      "source": "https://www.sportingnews.com/ar/futbol/news/etapa-insolita-futbol-argentino-formato-distinto-primera/a60944ae337198ea3ddccfa9",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        60,
+        203
+      ]
+    }
+  },
+  {
+    "index": 8,
+    "value": {
+      "country": "ARG",
+      "division": "div1",
+      "from": "2017/18",
+      "to": "2017/18",
+      "rules": {
+        "teams": 28,
+        "rounds": 1,
+        "gamesPerClub": 27,
+        "relegated": 4,
+        "promoted": 2
+      },
+      "source": "https://es.wikipedia.org/wiki/Primera_Divisi%C3%B3n_de_Argentina",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        60,
+        203
+      ]
+    }
+  },
+  {
+    "index": 9,
+    "value": {
+      "country": "ARG",
+      "division": "div1",
+      "from": "2019/20",
+      "to": "2019/20",
+      "rules": {
+        "teams": 24,
+        "rounds": 1,
+        "gamesPerClub": 23,
+        "relegation": "Ordinary non-pandemic rule to verify; temporary suspension excluded by user."
+      },
+      "source": "https://www.sportingnews.com/ar/futbol/news/etapa-insolita-futbol-argentino-formato-distinto-primera/a60944ae337198ea3ddccfa9",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        60,
+        203
+      ]
+    }
+  },
+  {
+    "index": 10,
+    "value": {
+      "country": "ARG",
+      "division": "div1",
+      "from": "2022",
+      "to": "2022",
+      "rules": {
+        "teams": 28,
+        "rounds": 1,
+        "gamesPerClub": 27,
+        "relegated": 2,
+        "relegationBasis": "averages"
+      },
+      "source": "https://www.sportingnews.com/ar/futbol/news/etapa-insolita-futbol-argentino-formato-distinto-primera/a60944ae337198ea3ddccfa9",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        60,
+        203
+      ]
+    }
+  },
+  {
+    "index": 171,
+    "value": {
+      "country": "ARG",
+      "division": "div2",
+      "from": "2013/14",
+      "to": null,
+      "rules": {
+        "teams": 22,
+        "rounds": 2,
+        "gamesPerClub": 42,
+        "observedOnly": true
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesa/arg2014.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF search excerpt, 42 games observed; size derived under double round robin assumption, full movement pending; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        61,
+        204
+      ]
+    }
+  },
+  {
+    "index": 172,
+    "value": {
+      "country": "ARG",
+      "division": "div2",
+      "from": "2014",
+      "to": null,
+      "rules": {
+        "operation": "TRANSITION_EDITION",
+        "groups": 2,
+        "editionSpecific": true,
+        "note": "Two group winners documented, group fixtures and promotion playoff observed; exact quotas, group sizes and tie rules pending."
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesa/arg2015.html",
+        "https://rsssf.org/tablesa/arg2champ.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: RSSSF search excerpts; no invented promotion count; effective end, participant identity, full dates and modern baseline equivalence pending. No future results imported.",
+      "rowRefs": [
+        61,
+        204
+      ]
+    }
+  }
+]

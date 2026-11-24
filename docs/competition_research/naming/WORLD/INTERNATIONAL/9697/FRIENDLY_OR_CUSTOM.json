@@ -1,0 +1,26 @@
+[
+  {
+    "index": 99,
+    "value": {
+      "row": 100,
+      "status": "EXCLUDED",
+      "transitionRefs": []
+    }
+  },
+  {
+    "index": 100,
+    "value": {
+      "row": 101,
+      "status": "EXCLUDED",
+      "transitionRefs": []
+    }
+  },
+  {
+    "index": 101,
+    "value": {
+      "row": 102,
+      "status": "EXCLUDED",
+      "transitionRefs": []
+    }
+  }
+]

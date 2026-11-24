@@ -1,0 +1,52 @@
+[
+  {
+    "row": 278,
+    "world": "2627",
+    "id": "_norwegianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "NOR",
+    "candidateSources": [
+      "c79508abe598b80e9ae3ed1c7fa9e3926c3726d6"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Eliteserien",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.fotball.no/tema/nff-nyheter/2016/eliteserien---lidenskap-og-fellesskap/",
+      "nameHistory": [
+        {
+          "transition": 266,
+          "from": "2017",
+          "to": null,
+          "previousName": null,
+          "name": "Eliteserien",
+          "operation": "NONCOMMERCIAL_NAME_CONFIRMED",
+          "source": "https://www.fotball.no/tema/nff-nyheter/2016/eliteserien---lidenskap-og-fellesskap/"
+        }
+      ],
+      "historyComplete": false
+    },
+    "sportRuleEvidence39": {
+      "edition": "2026",
+      "teams": 16,
+      "groups": 1,
+      "winner": "first place",
+      "source": "https://www.fotball.no/kretser/hordaland/aktivitet/seniorfotball/seriespill/bestemmelser-om-opp--og-nedrykk-sesongen-2026/"
+    }
+  }
+]

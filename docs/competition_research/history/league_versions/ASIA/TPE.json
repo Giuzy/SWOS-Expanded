@@ -1,0 +1,57 @@
+[
+  {
+    "index": 193,
+    "value": {
+      "country": "TPE",
+      "division": "div1",
+      "from": "2017",
+      "to": null,
+      "rules": {
+        "operation": "REPLACE_LEAGUE",
+        "name": "Taiwan Football Premier League",
+        "predecessor": "Intercity Football League",
+        "note": "First season observed; exact identity migration and structure pending."
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/2017_Taiwan_Football_Premier_League",
+        "https://www.rsssf.org/tablest/taiwan2017.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Secondary and RSSSF search extracts; exact end, mapping, dates, remaining sport rules and modern equivalence pending. No future results imported.",
+      "rowRefs": [
+        48,
+        308
+      ]
+    }
+  },
+  {
+    "index": 194,
+    "value": {
+      "country": "TPE",
+      "division": "div2",
+      "from": "2020",
+      "to": null,
+      "rules": {
+        "operation": "CREATE_SECOND_TIER",
+        "teams": 8,
+        "promotionDirect": [
+          1
+        ],
+        "promotionPlayoff": [
+          2
+        ],
+        "opponentTopTierRank": 7,
+        "playoffLegs": 2
+      },
+      "sources": [
+        "https://www.the-afc.com/en/about_afc/cfed/news/new_milestone_for_chinese_taipei_football.html",
+        "https://en.wikipedia.org/wiki/2020_Taiwan_Football_Challenge_League"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: AFC official search extract, open cache miss; inaugural season secondary corroboration; exact end, mapping, dates, remaining sport rules and modern equivalence pending. No future results imported.",
+      "rowRefs": [
+        309
+      ]
+    }
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "index": 158,
+    "value": {
+      "country": "KOS",
+      "division": "div1",
+      "from": "2020/21",
+      "to": null,
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "relegationDirect": [
+          9,
+          10
+        ],
+        "relegationPlayoff": [
+          8
+        ],
+        "note": "Observed format continued 2021/22; do not reproduce temporary COVID modifications."
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesk/kosovo2021.html",
+        "https://www.rsssf.org/tablesk/kosovo2022.html",
+        "https://en.wikipedia.org/wiki/2021%E2%80%9322_Football_Superleague_of_Kosovo"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Search excerpts only; RSSSF opening Unicode error; exact movement and reason for contraction require independent full source; effective end, dates, identity mapping and modern baseline equivalence pending; no future results imported.",
+      "rowRefs": [
+        262
+      ]
+    }
+  }
+]

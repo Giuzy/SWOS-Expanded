@@ -1,0 +1,21 @@
+[
+  {
+    "index": 368,
+    "value": {
+      "row": 369,
+      "active_from": "1996",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_HISTORICAL_ARCHIVE_FIRST_EDITION",
+      "sources": [
+        "https://www.rsssf.org/tablesi/ijsleagcuphistfull.html"
+      ],
+      "verification": "Block 23 web snippets; generic technical slot requires identity verification before runtime."
+    }
+  }
+]

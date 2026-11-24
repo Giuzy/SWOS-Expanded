@@ -1,0 +1,21 @@
+[
+  {
+    "index": 248,
+    "value": {
+      "competition": "ARG tier 2",
+      "firstEdition": "2019/20",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "previousName": "Primera B Nacional",
+      "name": "Primera Nacional",
+      "rowRefs": [
+        61,
+        204
+      ],
+      "source": "https://www.afa.com.ar/ima/posts/se-sortea-el-torneo-de-primera-nacional",
+      "note": "AFA official 1 August 2019 confirms name; historical archive corroborates previous name.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
+    }
+  }
+]

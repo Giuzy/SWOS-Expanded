@@ -1,0 +1,21 @@
+[
+  {
+    "index": 418,
+    "value": {
+      "row": 419,
+      "active_from": "1913/14",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_LIFETIME_IDENTITY_MAPPING_CANDIDATE",
+      "sources": [
+        "https://www.ussoccer.com/stories/2023/01/get-to-know-your-cup",
+        "https://www.ussoccer.com/stories/2025/01/format-and-96-team-field-finalized-for-2025-lamar-hunt-us-open-cup"
+      ]
+    }
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "index": 102,
+    "value": {
+      "country": "UAE",
+      "division": "div1",
+      "from": "2008/09",
+      "to": null,
+      "rules": {
+        "operation": "PROFESSIONAL_REORGANIZATION",
+        "note": "Professional era begins, not a separate predecessor tournament without identity audit"
+      },
+      "sources": [
+        "https://www.uaeproleague.ae/en/news-and-gallery/adnoc-pro-league-563"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 actual web search excerpts; exact applicability, dates, full phase/movement rules and modern baseline equivalence pending; no results imported",
+      "rowRefs": [
+        313
+      ]
+    }
+  },
+  {
+    "index": 103,
+    "value": {
+      "country": "UAE",
+      "division": "div1",
+      "from": "2012/13",
+      "to": null,
+      "rules": {
+        "teams": 14,
+        "note": "Extension confirmed; special promotion playoff in 2011/12, exact movement pending"
+      },
+      "sources": [
+        "https://rsssf.org/tablesu/uae2012.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 actual web search excerpts; exact applicability, dates, full phase/movement rules and modern baseline equivalence pending; no results imported",
+      "rowRefs": [
+        313
+      ]
+    }
+  }
+]

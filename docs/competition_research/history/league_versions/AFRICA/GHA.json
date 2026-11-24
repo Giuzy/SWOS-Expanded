@@ -1,0 +1,26 @@
+[
+  {
+    "index": 37,
+    "value": {
+      "country": "GHA",
+      "division": "div1",
+      "from": "1997/98",
+      "to": "2018/19",
+      "rules": {
+        "teams": 16,
+        "format": "verify annual deviations and calendar",
+        "transition": "GFA congress 2019 approved expansion to 18; link modern if equivalent"
+      },
+      "sources": [
+        "https://gpl.com.gh/about/history",
+        "https://ghanasportspage.com/statistics/gpl-history/",
+        "https://www.ghanafa.org/premier-league-profile"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        51,
+        246
+      ]
+    }
+  }
+]

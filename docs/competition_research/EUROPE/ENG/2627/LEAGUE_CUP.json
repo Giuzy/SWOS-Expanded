@@ -1,0 +1,35 @@
+[
+  {
+    "row": 352,
+    "world": "2627",
+    "id": "_englishLeagueCup",
+    "detail": "",
+    "technicalCategory": "LEAGUE_CUP",
+    "researchCategory": "LEAGUE_CUP",
+    "country": "ENG",
+    "candidateSources": [
+      "f9844889682d8c477574e73fd7355c4450034387"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "EFL Cup",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "f9844889682d8c477574e73fd7355c4450034387",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

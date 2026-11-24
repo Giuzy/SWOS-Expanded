@@ -1,0 +1,36 @@
+[
+  {
+    "index": 355,
+    "value": {
+      "row": 356,
+      "active_from": "1994",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [
+        {
+          "from": "2001",
+          "until": "2003",
+          "reason": "No editions per official honours list; cause unknown, structural period predates COVID",
+          "careerApplicability": "RESEARCH_ONLY"
+        },
+        {
+          "from": "2017",
+          "until": "2021",
+          "reason": "Cup reorganization in 2017; returned 2022 following another reform; absence not created by pandemic",
+          "careerApplicability": "RESEARCH_ONLY"
+        }
+      ],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_OFFICIAL_LIFETIME_EXCERPT",
+      "sources": [
+        "https://www.veikkausliiga.com/veikkausliiga/palkinnot",
+        "https://www.veikkausliiga.com/uutiset/2021/11/28/liigacup-edessa-21-kerran-hjklla-eniten-mestaruuksia",
+        "https://www.veikkausliiga.com/uutiset/2021/11/27/liigacup-palaa-kilpailukalenteriin-edellisen-kerran-pelattiin-vuonna-2016"
+      ],
+      "verification": "Block 22: official search excerpts; identity mapping of generic national cup rows remains candidate; full dates and access not certified."
+    }
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "index": 361,
+    "value": {
+      "row": 362,
+      "active_from": "1935/36",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_ROCK_CUP_IDENTITY_MAPPING_CANDIDATE",
+      "sources": [
+        "https://www.rsssf.org/tablesg/gibcuphist.html",
+        "https://www.uefa.com/news-media/news/0252-0ce4356c7b19-8b005bc5cd85-1000--promoting-growth-in-gibraltar/"
+      ],
+      "historicalOrigin": "1894/95"
+    }
+  }
+]

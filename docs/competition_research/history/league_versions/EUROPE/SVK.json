@@ -1,0 +1,61 @@
+[
+  {
+    "index": 143,
+    "value": {
+      "country": "SVK",
+      "division": "div1",
+      "from": "2006/07",
+      "to": null,
+      "rules": {
+        "teams": 12,
+        "initialRounds": 2,
+        "split": [
+          8,
+          4
+        ],
+        "crossDivisionPlayoff": {
+          "topTier": 4,
+          "secondTier": 4
+        },
+        "editionSpecific": true
+      },
+      "sources": [
+        "https://www.rsssf.org/tabless/slow07.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Search excerpts only; open Unicode failure; subsequent format not inferred; effective end, identity mapping, full dates and 2026 baseline equivalence pending; no future results imported",
+      "rowRefs": [
+        29,
+        305
+      ]
+    }
+  },
+  {
+    "index": 144,
+    "value": {
+      "country": "SVK",
+      "division": "div1",
+      "from": "2017/18",
+      "to": null,
+      "rules": {
+        "teams": 12,
+        "initialRounds": 2,
+        "split": [
+          6,
+          6
+        ],
+        "splitRounds": 2,
+        "gamesPerClub": 32
+      },
+      "sources": [
+        "https://www.rsssf.org/tabless/slow2018.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened regular and final group tables; effective end, identity mapping, full dates and 2026 baseline equivalence pending; no future results imported",
+      "rowRefs": [
+        29,
+        305
+      ]
+    }
+  }
+]

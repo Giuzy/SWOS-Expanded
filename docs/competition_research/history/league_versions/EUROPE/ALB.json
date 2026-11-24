@@ -1,0 +1,38 @@
+[
+  {
+    "index": 151,
+    "value": {
+      "country": "ALB",
+      "division": "div1",
+      "from": "2023/24",
+      "to": null,
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "championshipPlayoffRanks": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "relegationDirect": [
+          9,
+          10
+        ],
+        "relegationPlayoff": [
+          8
+        ]
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesa/alba2024.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened regular stage table; exact playoff tie rules pending; effective end, identity mapping, full dates and 2026 baseline equivalence pending; no future results imported",
+      "rowRefs": [
+        1,
+        200
+      ]
+    }
+  }
+]

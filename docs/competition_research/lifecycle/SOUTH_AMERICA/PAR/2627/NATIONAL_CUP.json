@@ -1,0 +1,20 @@
+[
+  {
+    "index": 390,
+    "value": {
+      "row": 391,
+      "active_from": "2018",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_LIFETIME_IDENTITY_MAPPING_CANDIDATE",
+      "sources": [
+        "https://www.apf.org.py/copa-paraguay"
+      ]
+    }
+  }
+]

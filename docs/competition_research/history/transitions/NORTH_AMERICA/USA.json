@@ -1,0 +1,34 @@
+[
+  {
+    "index": 185,
+    "value": {
+      "competition": "USA Open Cup",
+      "firstEdition": "1913/14",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "US Soccer confirms Nov 1913–May 1914 inaugural edition.",
+      "source": "https://www.ussoccer.com/stories/2023/01/get-to-know-your-cup",
+      "rowRefs": [
+        419
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
+    }
+  },
+  {
+    "index": 186,
+    "value": {
+      "competition": "USA Open Cup",
+      "firstEdition": "1999",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "note": "Lamar Hunt name introduced, same identity.",
+      "source": "https://www.ussoccer.com/stories/2025/01/format-and-96-team-field-finalized-for-2025-lamar-hunt-us-open-cup",
+      "rowRefs": [
+        419
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
+    }
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "index": 154,
+    "value": {
+      "competition": "PAR Copa Paraguay",
+      "firstEdition": "2018",
+      "lastEdition": "2018",
+      "operation": "OBSERVED_FORMAT",
+      "note": "48 teams, 52 matches per official APF history.",
+      "source": "https://www.apf.org.py/copa-paraguay",
+      "rowRefs": [
+        391
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
+    }
+  },
+  {
+    "index": 155,
+    "value": {
+      "competition": "PAR Copa Paraguay",
+      "firstEdition": "2019",
+      "lastEdition": "2019",
+      "operation": "OBSERVED_FORMAT",
+      "note": "64 teams, 64 matches; 2021 same size; COVID pause excluded from career.",
+      "source": "https://www.apf.org.py/copa-paraguay",
+      "rowRefs": [
+        391
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
+    }
+  },
+  {
+    "index": 156,
+    "value": {
+      "competition": "PAR Copa Paraguay",
+      "firstEdition": "2022",
+      "lastEdition": "2022",
+      "operation": "OBSERVED_FORMAT",
+      "note": "74 clubs, 78 games, winner qualifies for 2023 Sudamericana.",
+      "source": "https://www.apf.org.py/copa-paraguay",
+      "rowRefs": [
+        391
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
+    }
+  },
+  {
+    "index": 157,
+    "value": {
+      "competition": "PAR Copa Paraguay",
+      "firstEdition": "2023",
+      "lastEdition": null,
+      "operation": "CHANGE_ACCESS",
+      "note": "APF states Libertadores berth from 2023 onward.",
+      "source": "https://www.apf.org.py/copa-paraguay",
+      "rowRefs": [
+        391
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
+    }
+  }
+]

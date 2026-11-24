@@ -1,0 +1,27 @@
+[
+  {
+    "index": 341,
+    "value": {
+      "row": 342,
+      "active_from": "1950/51",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [
+        {
+          "from": "1990",
+          "until": "2007",
+          "reason": "Observed absence from historical list",
+          "careerApplicability": "RESEARCH_ONLY"
+        }
+      ],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_LIFETIME_IDENTITY_MAPPING_CANDIDATE",
+      "sources": [
+        "https://caracol.com.co/radio/2016/11/16/deportes/1479312258_768526.html"
+      ]
+    }
+  }
+]

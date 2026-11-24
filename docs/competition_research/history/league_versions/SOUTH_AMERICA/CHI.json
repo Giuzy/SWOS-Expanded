@@ -1,0 +1,65 @@
+[
+  {
+    "index": 65,
+    "value": {
+      "country": "CHI",
+      "division": "div1",
+      "from": "1997",
+      "to": "1997",
+      "rules": {
+        "tournaments": [
+          "Apertura",
+          "Clausura"
+        ],
+        "titlePlayoffs": false
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesc/chile97.html",
+        "https://es.wikipedia.org/wiki/Torneo_Apertura_%28Chile%29"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        40,
+        221
+      ]
+    }
+  },
+  {
+    "index": 66,
+    "value": {
+      "country": "CHI",
+      "division": "div1",
+      "from": "2002",
+      "to": "2012",
+      "rules": {
+        "tournaments": [
+          "Apertura",
+          "Clausura"
+        ],
+        "titlePlayoffs": true,
+        "exceptions": [
+          {
+            "edition": "Apertura 2007",
+            "titlePlayoffs": false
+          },
+          {
+            "edition": "2010",
+            "tournamentsPerYear": 1
+          }
+        ],
+        "note": "Team counts and group access vary; not a uniform executable rule."
+      },
+      "sources": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-95696.html",
+        "https://es.wikipedia.org/wiki/Torneo_Apertura_%28Chile%29"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 web search excerpts; PDF references excerpt only; complete annual rules, row identity and modern equivalence pending",
+      "rowRefs": [
+        40,
+        221
+      ]
+    }
+  }
+]

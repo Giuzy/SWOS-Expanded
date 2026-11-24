@@ -1,0 +1,31 @@
+[
+  {
+    "index": 145,
+    "value": {
+      "country": "SVN",
+      "division": "div1",
+      "from": "2005/06",
+      "to": null,
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "relegationDirect": [
+          10
+        ],
+        "relegationPlayoff": [
+          9
+        ]
+      },
+      "sources": [
+        "https://www.rsssf.org/tabless/slov06.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened final table; previous season archive unavailable; transition mechanism pending; effective end, identity mapping, full dates and 2026 baseline equivalence pending; no future results imported",
+      "rowRefs": [
+        30,
+        306
+      ]
+    }
+  }
+]

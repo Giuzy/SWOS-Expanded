@@ -1,0 +1,67 @@
+[
+  {
+    "index": 88,
+    "value": {
+      "row": 89,
+      "active_from": "1960/61",
+      "active_until": "1998/99",
+      "endStatus": "ENDED",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_OFFICIAL_LIFETIME_EXCERPT",
+      "sources": [
+        "https://www.uefa.com/uefaconferenceleague/news/0281-18229e922c32-92fc7e8bba20-1000--fiorentina-vs-west-ham-final-facts/",
+        "https://www.uefa.com/uefasupercup/news/0250-0c50f14137c9-6f76019cc486-1000--the-uefa-super-cup/"
+      ],
+      "verification": "Block 21 official web search excerpts; dates of activity only, not complete runtime rules."
+    }
+  },
+  {
+    "index": 89,
+    "value": {
+      "row": 90,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 164,
+    "value": {
+      "row": 165,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  },
+  {
+    "index": 177,
+    "value": {
+      "row": 178,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "NOT_RECONCILED"
+    }
+  }
+]

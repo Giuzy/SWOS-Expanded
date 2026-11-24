@@ -1,0 +1,90 @@
+[
+  {
+    "row": 286,
+    "world": "2627",
+    "id": "_portugeseLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "POR",
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a",
+      "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Primeira Liga",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://en.wikipedia.org/wiki/1999%E2%80%932000_Primeira_Liga",
+      "nameHistory": [
+        {
+          "transition": 264,
+          "from": "1999/00",
+          "to": null,
+          "previousName": "Primeira Divisão",
+          "name": "Primeira Liga",
+          "operation": "RENAME",
+          "source": "https://en.wikipedia.org/wiki/1999%E2%80%932000_Primeira_Liga"
+        }
+      ],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 287,
+    "world": "2627",
+    "id": "_portugeseLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "POR",
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a",
+      "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Liga Portugal 2",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://en.wikipedia.org/wiki/Liga_Portugal_2",
+      "nameHistory": [
+        {
+          "transition": 265,
+          "from": "1999/00",
+          "to": null,
+          "previousName": "Segunda Divisão de Honra",
+          "name": "Segunda Liga",
+          "operation": "RENAME",
+          "source": "https://en.wikipedia.org/wiki/1999%E2%80%932000_Segunda_Liga"
+        }
+      ],
+      "historyComplete": false
+    }
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "index": 204,
+    "value": {
+      "competition": "AND Copa Constitucio",
+      "firstEdition": "1990/91",
+      "lastEdition": null,
+      "operation": "OBSERVED_FIRST_EDITION",
+      "note": "Zerozero first listed edition; UEFA federation founded 1994, historical predecessor identity needs verification. RSSSF open Unicode error.",
+      "source": "https://www.zerozero.pt/edicao/copa-constitucio-2016/93459/vencedores",
+      "rowRefs": [
+        326
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
+    }
+  }
+]

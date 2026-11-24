@@ -1,0 +1,36 @@
+[
+  {
+    "index": 196,
+    "value": {
+      "competition": "GEO national cup",
+      "firstEdition": "1990",
+      "lastEdition": null,
+      "operation": "OBSERVED_FIRST_POST_SOVIET_LEAGUE_ERA_EDITION",
+      "note": "RSSSF search excerpt begins 1990; full page Unicode error. Do not certify exact lineage or lifetime.",
+      "source": "https://www.rsssf.org/tablesg/georcuphistfin.html",
+      "rowRefs": [
+        359
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 27: RSSSF Armenia lines 54–89, Azerbaijan 55–68, Kazakhstan 55–101 opened; Georgia snippet only (Unicode error), KFF official search excerpt. No future results imported."
+    }
+  },
+  {
+    "index": 256,
+    "value": {
+      "competition": "GEO tier 1",
+      "firstEdition": "2017",
+      "lastEdition": null,
+      "operation": "RENAME_AND_CHANGE_FORMAT",
+      "previousName": "Umaglesi Liga",
+      "name": "Erovnuli Liga",
+      "rowRefs": [
+        242
+      ],
+      "source": "https://en.wikipedia.org/wiki/2017_Erovnuli_Liga",
+      "note": "Secondary source; federation PDF search excerpt corroborates reform, PDF not analyzed.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
+    }
+  }
+]

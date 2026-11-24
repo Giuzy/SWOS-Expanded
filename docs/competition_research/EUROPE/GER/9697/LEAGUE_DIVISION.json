@@ -1,0 +1,107 @@
+[
+  {
+    "row": 54,
+    "world": "9697",
+    "id": "_germanLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "GER",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "GERMANY",
+      "teams": "18",
+      "formula": "OG rounds=2; points_win=3; begin=56; end=40",
+      "promotionRaw": "0 campo-OG + 0 playoff",
+      "relegationRaw": "3 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "edition": "1996/97",
+      "name": "Bundesliga",
+      "teams": 18,
+      "regularOrInitialGamesPerClub": 34,
+      "pointsWin": 3,
+      "formatAndMovement": "Double RR",
+      "researchSource": "https://www.rsssf.org/tablesd/duit97.html",
+      "scope": "Partial historical structure, no future results imported"
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "Bundesliga",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesd/duit97.html",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 55,
+    "world": "9697",
+    "id": "_germanLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "GER",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "GERMANY",
+      "teams": "18",
+      "formula": "OG rounds=2; points_win=3; begin=56; end=40",
+      "promotionRaw": "3 campo-OG + 0 playoff",
+      "relegationRaw": "0 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "edition": "1996/97",
+      "teams": 18,
+      "regularOrInitialGamesPerClub": 34,
+      "pointsWin": null,
+      "formatAndMovement": "2. Bundesliga double RR, points deduction exceptional; precise promotion/relegation count to extract",
+      "researchSource": "https://www.rsssf.org/tablesd/duit97.html",
+      "scope": "Observed structure, no future results imported; null and uncertain fields remain open."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "2. Bundesliga",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesd/duit97.html",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

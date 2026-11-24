@@ -1,0 +1,744 @@
+[
+  {
+    "row": 186,
+    "world": "2627",
+    "id": "_italianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 61,
+      "slotOrdinal": 1,
+      "name": "_aSerieA",
+      "rawDivision": {
+        "teams": 20,
+        "promoted": 0,
+        "promoted_po": 0,
+        "relegated": 3,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 1,
+      "parallelGroup": null,
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Serie A",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 187,
+    "world": "2627",
+    "id": "_italianLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 61,
+      "slotOrdinal": 2,
+      "name": "_aSerieB",
+      "rawDivision": {
+        "teams": 20,
+        "promoted": 3,
+        "promoted_po": 0,
+        "relegated": 3,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 2,
+      "parallelGroup": null,
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Serie B",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 188,
+    "world": "2627",
+    "id": "_italianLeague",
+    "detail": "div3",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 61,
+      "slotOrdinal": 3,
+      "name": "SERIE C GIRONE A",
+      "rawDivision": {
+        "teams": 20,
+        "promoted": 1,
+        "promoted_po": 0,
+        "relegated": 3,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 3,
+      "parallelGroup": "C",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 189,
+    "world": "2627",
+    "id": "_italianLeague",
+    "detail": "div4",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 61,
+      "slotOrdinal": 4,
+      "name": "SERIE C GIRONE B",
+      "rawDivision": {
+        "teams": 20,
+        "promoted": 1,
+        "promoted_po": 0,
+        "relegated": 3,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 3,
+      "parallelGroup": "C",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 190,
+    "world": "2627",
+    "id": "_italianLeague",
+    "detail": "div5",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 61,
+      "slotOrdinal": 5,
+      "name": "SERIE C GIRONE C",
+      "rawDivision": {
+        "teams": 20,
+        "promoted": 1,
+        "promoted_po": 0,
+        "relegated": 3,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 3,
+      "parallelGroup": "C",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 191,
+    "world": "2627",
+    "id": "_italianLeague",
+    "detail": "div6",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 61,
+      "slotOrdinal": 6,
+      "name": "SERIE D GIRONE A",
+      "rawDivision": {
+        "teams": 17,
+        "promoted": 1,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 4,
+      "parallelGroup": "D",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 192,
+    "world": "2627",
+    "id": "_italianLeague",
+    "detail": "div7",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 61,
+      "slotOrdinal": 7,
+      "name": "SERIE D GIRONE B",
+      "rawDivision": {
+        "teams": 17,
+        "promoted": 1,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 4,
+      "parallelGroup": "D",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 193,
+    "world": "2627",
+    "id": "_italianLeague",
+    "detail": "div8",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 61,
+      "slotOrdinal": 8,
+      "name": "SERIE D GIRONE C",
+      "rawDivision": {
+        "teams": 17,
+        "promoted": 1,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 4,
+      "parallelGroup": "D",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 194,
+    "world": "2627",
+    "id": "_italianLeague",
+    "detail": "div9",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 61,
+      "slotOrdinal": 9,
+      "name": "SERIE D GIRONE D",
+      "rawDivision": {
+        "teams": 18,
+        "promoted": 1,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 4,
+      "parallelGroup": "D",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 195,
+    "world": "2627",
+    "id": "_italianLeague",
+    "detail": "div10",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 61,
+      "slotOrdinal": 10,
+      "name": "SERIE D GIRONE E",
+      "rawDivision": {
+        "teams": 17,
+        "promoted": 1,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 4,
+      "parallelGroup": "D",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 196,
+    "world": "2627",
+    "id": "_italianLeague",
+    "detail": "div11",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 61,
+      "slotOrdinal": 11,
+      "name": "SERIE D GIRONE F",
+      "rawDivision": {
+        "teams": 18,
+        "promoted": 1,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 4,
+      "parallelGroup": "D",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 197,
+    "world": "2627",
+    "id": "_italianLeague",
+    "detail": "div12",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 61,
+      "slotOrdinal": 12,
+      "name": "SERIE D GIRONE G",
+      "rawDivision": {
+        "teams": 17,
+        "promoted": 1,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 4,
+      "parallelGroup": "D",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 198,
+    "world": "2627",
+    "id": "_italianLeague",
+    "detail": "div13",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 61,
+      "slotOrdinal": 13,
+      "name": "SERIE D GIRONE H",
+      "rawDivision": {
+        "teams": 17,
+        "promoted": 1,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 4,
+      "parallelGroup": "D",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 199,
+    "world": "2627",
+    "id": "_italianLeague",
+    "detail": "div14",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ITA",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 61,
+      "slotOrdinal": 14,
+      "name": "SERIE D GIRONE I",
+      "rawDivision": {
+        "teams": 18,
+        "promoted": 1,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 4,
+      "parallelGroup": "D",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

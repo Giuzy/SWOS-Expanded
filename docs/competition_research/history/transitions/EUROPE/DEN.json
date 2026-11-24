@@ -1,0 +1,36 @@
+[
+  {
+    "index": 284,
+    "value": {
+      "competition": "DEN tier 1",
+      "firstEdition": "2016/17",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        9,
+        228
+      ],
+      "source": "https://www.superliga.dk/struktur",
+      "note": "Regular stage, playoff stage and qualification matches introduced after 20 years of previous format; exact historic group sizes to verify.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Official HTML pages opened 24/11/2026. No PDF analyzed; no full fixtures or runtime certification."
+    }
+  },
+  {
+    "index": 342,
+    "value": {
+      "competition": "DEN cup",
+      "firstEdition": "1996/97",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        120
+      ],
+      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "rules": {
+        "finalDate": "1997-05-08",
+        "finalLegsObserved": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block48 HTML opened; no PDF analyzed."
+    }
+  }
+]

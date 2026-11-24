@@ -1,0 +1,168 @@
+[
+  {
+    "row": 231,
+    "world": "2627",
+    "id": "_englishLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ENG",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Premier League",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 232,
+    "world": "2627",
+    "id": "_englishLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ENG",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Championship",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "nameHistory": [
+        {
+          "transition": 210,
+          "from": "2004/05",
+          "to": null,
+          "previousName": "Division One",
+          "name": "Championship",
+          "operation": "RENAME",
+          "source": "https://www.efl.com/about-the-efl/history/innovation/"
+        }
+      ],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 233,
+    "world": "2627",
+    "id": "_englishLeague",
+    "detail": "div3",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ENG",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "League One",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "nameHistory": [
+        {
+          "transition": 211,
+          "from": "2004/05",
+          "to": null,
+          "previousName": "Division Two",
+          "name": "League One",
+          "operation": "RENAME",
+          "source": "https://www.efl.com/about-the-efl/history/innovation/"
+        }
+      ],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 234,
+    "world": "2627",
+    "id": "_englishLeague",
+    "detail": "div4",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "ENG",
+    "candidateSources": [
+      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "League Two",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
+      "nameHistory": [
+        {
+          "transition": 212,
+          "from": "2004/05",
+          "to": null,
+          "previousName": "Division Three",
+          "name": "League Two",
+          "operation": "RENAME",
+          "source": "https://www.efl.com/about-the-efl/history/innovation/"
+        }
+      ],
+      "historyComplete": false
+    }
+  }
+]

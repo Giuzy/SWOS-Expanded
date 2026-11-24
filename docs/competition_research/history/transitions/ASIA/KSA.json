@@ -1,0 +1,66 @@
+[
+  {
+    "index": 178,
+    "value": {
+      "competition": "KSA King's Cup",
+      "firstEdition": "1957",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "Saudi history gives 1957, RSSSF edition labels require reconciliation; generic slot candidate.",
+      "source": "https://saudipedia.com/en/the-custodian-of-the-two-holy-mosques%22-cup",
+      "rowRefs": [
+        376
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
+    }
+  },
+  {
+    "index": 179,
+    "value": {
+      "competition": "KSA King's Cup",
+      "firstEdition": "1991",
+      "lastEdition": "2007",
+      "operation": "SUSPEND",
+      "note": "RSSSF last pre-hiatus final 1990; Saudipedia describes 17-year hiatus between 1990 and 2008. Arab News wording 1990–2007 conflicts at boundary; use provisional 1991–2007 final-year labels pending reconciliation.",
+      "source": "https://www.rsssf.org/tabless/saucuphist.html",
+      "rowRefs": [
+        376
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
+    }
+  },
+  {
+    "index": 180,
+    "value": {
+      "competition": "KSA King's Cup",
+      "firstEdition": "2008",
+      "lastEdition": null,
+      "operation": "RESUME",
+      "note": "Restricted field on return; precise entrants and qualification rules pending, do not assume only six total.",
+      "source": "https://www.arabnews.com/saudi-arabia/kings-cup-history-dreams-and-drama-in-ksas-oldest-tournament-2572329",
+      "rowRefs": [
+        376
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
+    }
+  },
+  {
+    "index": 181,
+    "value": {
+      "competition": "KSA King's Cup",
+      "firstEdition": "2014",
+      "lastEdition": null,
+      "operation": "CHANGE_ACCESS",
+      "note": "Return to broader original format reported; exact participant count/rules pending.",
+      "source": "https://www.arabnews.com/saudi-arabia/kings-cup-history-dreams-and-drama-in-ksas-oldest-tournament-2572329",
+      "rowRefs": [
+        376
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
+    }
+  }
+]

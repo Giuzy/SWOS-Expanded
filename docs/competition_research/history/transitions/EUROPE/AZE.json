@@ -1,0 +1,66 @@
+[
+  {
+    "index": 188,
+    "value": {
+      "competition": "AZE national cup",
+      "firstEdition": "1992",
+      "lastEdition": null,
+      "operation": "INDEPENDENT_COMPETITION",
+      "note": "First independent edition, followed by 1992/93; earlier Soviet-era cup separate historical origin.",
+      "source": "https://www.rsssf.org/tablesa/azercuphist.html",
+      "rowRefs": [
+        331
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 27: RSSSF Armenia lines 54–89, Azerbaijan 55–68, Kazakhstan 55–101 opened; Georgia snippet only (Unicode error), KFF official search excerpt. No future results imported."
+    }
+  },
+  {
+    "index": 189,
+    "value": {
+      "competition": "AZE national cup",
+      "firstEdition": "2001/02",
+      "lastEdition": "2001/02",
+      "operation": "OBSERVED_ABANDONED_FINAL",
+      "note": "Final interrupted by withdrawal; archive lists winner but precise adjudication requires season record. Do not script historical withdrawal or result in career.",
+      "source": "https://www.rsssf.org/tablesa/azercuphist.html",
+      "rowRefs": [
+        331
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 27: RSSSF Armenia lines 54–89, Azerbaijan 55–68, Kazakhstan 55–101 opened; Georgia snippet only (Unicode error), KFF official search excerpt. No future results imported."
+    }
+  },
+  {
+    "index": 190,
+    "value": {
+      "competition": "AZE national cup",
+      "firstEdition": "2002/03",
+      "lastEdition": "2002/03",
+      "operation": "SUSPEND",
+      "note": "No edition according to RSSSF; federation-club dispute reported in secondary sources; exact legal decision pending.",
+      "source": "https://www.rsssf.org/tablesa/azercuphist.html",
+      "rowRefs": [
+        331
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 27: RSSSF Armenia lines 54–89, Azerbaijan 55–68, Kazakhstan 55–101 opened; Georgia snippet only (Unicode error), KFF official search excerpt. No future results imported."
+    }
+  },
+  {
+    "index": 191,
+    "value": {
+      "competition": "AZE national cup",
+      "firstEdition": "2003/04",
+      "lastEdition": null,
+      "operation": "RESUME",
+      "note": "Next completed edition after 2002/03 absence.",
+      "source": "https://www.rsssf.org/tablesa/azercuphist.html",
+      "rowRefs": [
+        331
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 27: RSSSF Armenia lines 54–89, Azerbaijan 55–68, Kazakhstan 55–101 opened; Georgia snippet only (Unicode error), KFF official search excerpt. No future results imported."
+    }
+  }
+]

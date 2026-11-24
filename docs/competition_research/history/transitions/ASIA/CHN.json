@@ -1,0 +1,50 @@
+[
+  {
+    "index": 182,
+    "value": {
+      "competition": "CHN FA Cup",
+      "firstEdition": "1956",
+      "lastEdition": null,
+      "operation": "HISTORICAL_ORIGIN",
+      "note": "Early predecessor, not proof continuous identical competition from 1956; professional-era lineage requires reconciliation.",
+      "source": "https://rsssf.org/tablesc/chinacuphist.html",
+      "rowRefs": [
+        341
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
+    }
+  },
+  {
+    "index": 183,
+    "value": {
+      "competition": "CHN FA Cup",
+      "firstEdition": "2007",
+      "lastEdition": "2010",
+      "operation": "SUSPEND",
+      "note": "Secondary source reports Olympic preparation reason; verify against full official history. 2011 edition confirmed RSSSF and AFC.",
+      "source": "https://en.wikipedia.org/wiki/Chinese_FA_Cup",
+      "rowRefs": [
+        341
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
+    }
+  },
+  {
+    "index": 184,
+    "value": {
+      "competition": "CHN FA Cup",
+      "firstEdition": "2011",
+      "lastEdition": null,
+      "operation": "RESUME",
+      "note": "2011 edition observed in RSSSF and AFC club account.",
+      "source": "https://www.rsssf.org/tablesc/china2011.html",
+      "rowRefs": [
+        341
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
+    }
+  }
+]

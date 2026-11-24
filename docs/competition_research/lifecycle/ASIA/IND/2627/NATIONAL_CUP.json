@@ -1,0 +1,21 @@
+[
+  {
+    "index": 364,
+    "value": {
+      "row": 365,
+      "active_from": "2018",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_SUCCESSOR_IDENTITY_MAPPING_CANDIDATE",
+      "sources": [
+        "https://www.rsssf.org/tablesi/indiacuphist.html"
+      ],
+      "verification": "Block 23 web snippets; generic technical slot requires identity verification before runtime."
+    }
+  }
+]

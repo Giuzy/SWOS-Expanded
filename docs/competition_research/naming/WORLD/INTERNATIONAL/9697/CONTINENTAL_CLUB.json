@@ -1,0 +1,34 @@
+[
+  {
+    "index": 88,
+    "value": {
+      "row": 89,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": []
+    }
+  },
+  {
+    "index": 89,
+    "value": {
+      "row": 90,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": []
+    }
+  },
+  {
+    "index": 164,
+    "value": {
+      "row": 165,
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "transitionRefs": []
+    }
+  },
+  {
+    "index": 177,
+    "value": {
+      "row": 178,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": []
+    }
+  }
+]

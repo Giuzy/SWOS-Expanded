@@ -1,0 +1,321 @@
+[
+  {
+    "row": 179,
+    "world": "9697",
+    "id": "_div1Playoffs",
+    "detail": "",
+    "technicalCategory": "PROMOTION_PLAYOFF",
+    "researchCategory": "PROMOTION_PLAYOFF",
+    "country": null,
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "historicalSportData": {
+      "edition": "1996/97",
+      "country": "ENG",
+      "name": "Football League First Division promotion playoff",
+      "teams": 4,
+      "matches": 5,
+      "known": "Ranks 3–6; 3 vs 6 and 4 vs 5; two-leg semifinals, single Wembley final; one promotion. Away goals after extra time observed in semifinal.",
+      "dates": "May 1997; exact individual dates not reconciled",
+      "sources": [
+        "https://www.rsssf.org/tablese/eng97.html",
+        "https://en.wikipedia.org/wiki/1997_Football_League_play-offs"
+      ],
+      "missing": "Native ID mapping and complete tie-break/match parameters, exact historical fixture keys and per-fixture dates where unresolved. Do not import post-START outcomes.",
+      "status": "PARTIAL"
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Football League First Division promotion playoff",
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 180,
+    "world": "9697",
+    "id": "_div2Playoffs",
+    "detail": "",
+    "technicalCategory": "PROMOTION_PLAYOFF",
+    "researchCategory": "PROMOTION_PLAYOFF",
+    "country": null,
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "historicalSportData": {
+      "edition": "1996/97",
+      "country": "ENG",
+      "name": "Football League Second Division promotion playoff",
+      "teams": 4,
+      "matches": 5,
+      "known": "Ranks 3–6; 3 vs 6 and 4 vs 5; two-leg semifinals, single Wembley final; one promotion.",
+      "dates": "May 1997; final 1997-05-25; exact semifinal dates not reconciled",
+      "sources": [
+        "https://www.rsssf.org/tablese/eng97.html",
+        "https://en.wikipedia.org/wiki/1997_Football_League_play-offs"
+      ],
+      "missing": "Native ID mapping and complete tie-break/match parameters, exact historical fixture keys and per-fixture dates where unresolved. Do not import post-START outcomes.",
+      "status": "PARTIAL"
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Football League Second Division promotion playoff",
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 181,
+    "world": "9697",
+    "id": "_div3Playoffs",
+    "detail": "",
+    "technicalCategory": "PROMOTION_PLAYOFF",
+    "researchCategory": "PROMOTION_PLAYOFF",
+    "country": null,
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "historicalSportData": {
+      "edition": "1996/97",
+      "country": "ENG",
+      "name": "Football League Third Division promotion playoff",
+      "teams": 4,
+      "matches": 5,
+      "known": "Ranks 4–7; 4 vs 7 and 5 vs 6; two-leg semifinals, single Wembley final; one promotion.",
+      "dates": "May 1997; first legs 1997-05-11, final 1997-05-24; exact second leg dates not reconciled",
+      "sources": [
+        "https://www.rsssf.org/tablese/eng97.html",
+        "https://en.wikipedia.org/wiki/1997_Football_League_play-offs"
+      ],
+      "missing": "Native ID mapping and complete tie-break/match parameters, exact historical fixture keys and per-fixture dates where unresolved. Do not import post-START outcomes.",
+      "status": "PARTIAL"
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Football League Third Division promotion playoff",
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 182,
+    "world": "9697",
+    "id": "_dutchPlayoffs",
+    "detail": "",
+    "technicalCategory": "PROMOTION_PLAYOFF",
+    "researchCategory": "PROMOTION_PLAYOFF",
+    "country": null,
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "historicalSportData": {
+      "edition": "1996/97",
+      "country": "NED",
+      "name": "Nacompetitie",
+      "teams": 8,
+      "matches": 24,
+      "known": "Eredivisie ranks 16–17 and six Eerste Divisie qualifiers; period winners participate, precise allocation/substitution rules unresolved. Two groups of four, double round robin, 3 points for win; group winners earn top tier slots.",
+      "dates": "1997-06-04; 07/08; 11; 14/15; 18; 22 (round windows, not every fixture date)",
+      "sources": [
+        "https://www.rsssf.org/tablesn/ned97ext.html",
+        "https://www.rsssf.org/tablesn/ned97.html"
+      ],
+      "missing": "Native ID mapping and complete tie-break/match parameters, exact historical fixture keys and per-fixture dates where unresolved. Do not import post-START outcomes.",
+      "status": "PARTIAL"
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Nacompetitie",
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 183,
+    "world": "9697",
+    "id": "_scottishPlayoffs",
+    "detail": "",
+    "technicalCategory": "PROMOTION_PLAYOFF",
+    "researchCategory": "PROMOTION_PLAYOFF",
+    "country": null,
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "historicalSportData": {
+      "edition": "1996/97",
+      "country": "SCO",
+      "name": "Premier/First Division promotion relegation playoff",
+      "teams": 2,
+      "matches": 2,
+      "known": "Premier rank 9 vs First Division rank 2, two legs; winner top division, loser second.",
+      "dates": "1997-05-17, 1997-05-22",
+      "sources": [
+        "https://www.rsssf.org/tabless/scot97.html"
+      ],
+      "missing": "Native ID mapping and complete tie-break/match parameters, exact historical fixture keys and per-fixture dates where unresolved. Do not import post-START outcomes.",
+      "status": "PARTIAL"
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Premier/First Division promotion relegation playoff",
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 184,
+    "world": "9697",
+    "id": "_spanishPlayoffs",
+    "detail": "",
+    "technicalCategory": "PROMOTION_PLAYOFF",
+    "researchCategory": "PROMOTION_PLAYOFF",
+    "country": null,
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "historicalSportData": {
+      "edition": "1996/97",
+      "country": "ESP",
+      "name": "Primera/Segunda A promotion relegation playoff",
+      "teams": 2,
+      "matches": 2,
+      "known": "Primera rank 18 vs Segunda A rank 3; two legs; away goals observed; winner top division, loser second. Exceptional league contraction 22 to 20 teams; not recurring template.",
+      "dates": "1997-06-25, 1997-06-29",
+      "sources": [
+        "https://www.rsssf.org/tabless/span97.html"
+      ],
+      "missing": "Native ID mapping and complete tie-break/match parameters, exact historical fixture keys and per-fixture dates where unresolved. Do not import post-START outcomes.",
+      "status": "PARTIAL"
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Primera/Segunda A promotion relegation playoff",
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  },
+  {
+    "row": 185,
+    "world": "9697",
+    "id": "_uruguayanPlayoffs",
+    "detail": "",
+    "technicalCategory": "PROMOTION_PLAYOFF",
+    "researchCategory": "PROMOTION_PLAYOFF",
+    "country": null,
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "historicalSportData": {
+      "edition": "1996",
+      "country": "URU",
+      "name": "Primera/Segunda promotion relegation playoff",
+      "teams": 2,
+      "matches": 2,
+      "known": "Primera relegation-table rank 10 of 12 vs Segunda rank 3; two legs; winner top division, loser second. Relegation table distinct from annual table; exact averaging formula unresolved. Do not conflate championship playoff.",
+      "dates": "1996-11-03, 1996-11-06",
+      "sources": [
+        "https://www.rsssf.org/tablesu/uru96.html"
+      ],
+      "missing": "Native ID mapping and complete tie-break/match parameters, exact historical fixture keys and per-fixture dates where unresolved. Do not import post-START outcomes.",
+      "status": "PARTIAL"
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Primera/Segunda promotion relegation playoff",
+      "status": "HISTORICAL_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

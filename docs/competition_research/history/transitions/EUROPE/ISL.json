@@ -1,0 +1,62 @@
+[
+  {
+    "index": 146,
+    "value": {
+      "competition": "ISL League Cup",
+      "firstEdition": "1996",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "RSSSF detailed archive begins 1996; identity of top tier vs lower league cups to reconcile.",
+      "source": "https://www.rsssf.org/tablesi/ijsleagcuphistfull.html",
+      "rowRefs": [
+        369
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 23: web search excerpts consulted, not full regulation/participant mapping. No post-cutoff results imported."
+    }
+  },
+  {
+    "index": 281,
+    "value": {
+      "competition": "ISL tier 1",
+      "firstEdition": "2022",
+      "operation": "CHANGE_FORMAT",
+      "teams": 12,
+      "initialGamesPerClub": 22,
+      "groups": [
+        6,
+        6
+      ],
+      "finalGamesPerClub": 27,
+      "rowRefs": [
+        256
+      ],
+      "source": "https://www.ksi.is/um-ksi/frettir/motamal/adsokn-ad-bestu-deildum-karla-og-kvenna-2022/",
+      "additionalSources": [
+        "https://www.ksi.is/oll-mot/mot?id=190181",
+        "https://www.ksi.is/oll-mot/mot?id=190167"
+      ],
+      "note": "2022 observed format only; persistence to 2026 separately verify.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 38 official web search excerpts actually retrieved; no PDF analyzed."
+    }
+  },
+  {
+    "index": 344,
+    "value": {
+      "competition": "ISL cup",
+      "firstEdition": "1996",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        126
+      ],
+      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "rules": {
+        "finalLegsObserved": 1,
+        "continentalAccessObserved": "runner-up when winner also league champion"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block48 HTML opened; no PDF analyzed."
+    }
+  }
+]

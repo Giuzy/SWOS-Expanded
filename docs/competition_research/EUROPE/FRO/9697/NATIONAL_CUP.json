@@ -1,0 +1,47 @@
+[
+  {
+    "row": 122,
+    "world": "9697",
+    "id": "_faroeIslesCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "FRO",
+    "candidateSources": [
+      "86cf417b80a983f5ed0707a438f06c81a4bb7440",
+      "d744018d10a2aa469e3044dc364cbaa2914785fe"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "86cf417b80a983f5ed0707a438f06c81a4bb7440"
+      ],
+      "details": {
+        "scores": 60
+      },
+      "missing": "Group match dates and missing or unplayed fixture, mapping."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Faroe Islands Cup",
+      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

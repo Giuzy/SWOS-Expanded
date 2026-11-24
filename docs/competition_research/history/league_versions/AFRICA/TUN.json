@@ -1,0 +1,50 @@
+[
+  {
+    "index": 40,
+    "value": {
+      "country": "TUN",
+      "division": "div1",
+      "from": "1999/00",
+      "to": "1999/00",
+      "rules": {
+        "teams": 12,
+        "transition": "reduction from 16; no second-tier promotion after 1998/99",
+        "missing": "exact format, quotas and subsequent validity"
+      },
+      "sources": [
+        "https://rsssf.org/tablest/tun2champ.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        310
+      ]
+    }
+  },
+  {
+    "index": 41,
+    "value": {
+      "country": "TUN",
+      "division": "div1",
+      "from": "2012/13",
+      "to": "2012/13",
+      "rules": {
+        "teams": 16,
+        "groups": [
+          8,
+          8
+        ],
+        "rounds": 2,
+        "gamesPerClub": 14,
+        "championshipGroup": "top two from each group; details to reconcile",
+        "missing": "relegation phase exact rules"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablest/tun2013.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        310
+      ]
+    }
+  }
+]

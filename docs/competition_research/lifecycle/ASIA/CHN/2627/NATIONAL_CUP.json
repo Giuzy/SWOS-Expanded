@@ -1,0 +1,30 @@
+[
+  {
+    "index": 340,
+    "value": {
+      "row": 341,
+      "active_from": null,
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [
+        {
+          "from": "2007",
+          "until": "2010",
+          "reason": "Reported suspension, secondary source",
+          "careerApplicability": "RESEARCH_ONLY"
+        }
+      ],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "HISTORICAL_ORIGIN_NOT_CERTIFIED_IDENTITY",
+      "historicalOrigin": "1956",
+      "sources": [
+        "https://rsssf.org/tablesc/chinacuphist.html",
+        "https://en.wikipedia.org/wiki/Chinese_FA_Cup",
+        "https://www.rsssf.org/tablesc/china2011.html"
+      ]
+    }
+  }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "row": 374,
+    "world": "2627",
+    "id": "_worldKorCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "KOR",
+    "candidateSources": [
+      "ede8038686d4653f73fc84c758c5d2f98ad06465"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Korea Cup",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.kfa.or.kr/layer_popup/popup_live.php?act=news_tv_detail&div_code=news&idx=26861",
+      "nameHistory": [
+        {
+          "transition": 119,
+          "from": "2024",
+          "to": null,
+          "previousName": null,
+          "name": null,
+          "operation": "RENAME_AND_CHANGE_FORMAT",
+          "source": "https://www.kfa.or.kr/layer_popup/popup_live.php?act=news_tv_detail&div_code=news&idx=26861"
+        }
+      ],
+      "historyComplete": false
+    }
+  }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "row": 162,
+    "world": "9697",
+    "id": "_australianCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "AUS",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "historicalSportData": {
+      "name": "NSL Cup",
+      "edition": "1996/97",
+      "teams": 16,
+      "known": "R16 two legs, QF/SF/final single; 23 matches calculated; final Oct6 1996; sudden-death extra time and penalties observed. Football Australia confirms final edition 1997; no automatic later editions without historical policy decision.",
+      "missing": "precise all round dates, participant keys, tie-break regulation",
+      "sources": [
+        "https://www.rsssf.org/tablesa/aus97.html",
+        "https://footballaustralia.com.au/nsl-honours-board"
+      ],
+      "scope": "Temporary historical research only; future results excluded from START."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "NSL Cup",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://footballaustralia.com.au/nsl-honours-board",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

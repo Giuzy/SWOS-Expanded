@@ -1,0 +1,35 @@
+[
+  {
+    "row": 113,
+    "world": "9697",
+    "id": "_austrianCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "AUT",
+    "candidateSources": [
+      "d744018d10a2aa469e3044dc364cbaa2914785fe"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Austrian Cup",
+      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

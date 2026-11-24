@@ -1,0 +1,56 @@
+[
+  {
+    "index": 3,
+    "value": {
+      "country": "BEL",
+      "division": "div1",
+      "from": "2009/10",
+      "to": "2015/16",
+      "rules": {
+        "championshipPlayoffIntroduced": true,
+        "europeanPlayoff": {
+          "regularRanks": [
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "groups": 2
+        },
+        "missing": "Reconcile season-specific relegation and championship playoff details"
+      },
+      "source": "https://en.wikipedia.org/wiki/Playoffs",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        4,
+        213
+      ]
+    }
+  },
+  {
+    "index": 4,
+    "value": {
+      "country": "BEL",
+      "division": "div1",
+      "from": "2016/17",
+      "to": null,
+      "rules": {
+        "europeanPlayoff": {
+          "teams": 12,
+          "groups": 2
+        },
+        "missing": "End edition and participant mix to verify"
+      },
+      "source": "https://en.wikipedia.org/wiki/Playoffs",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rowRefs": [
+        4,
+        213
+      ]
+    }
+  }
+]

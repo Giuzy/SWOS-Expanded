@@ -1,0 +1,29 @@
+[
+  {
+    "index": 375,
+    "value": {
+      "row": 376,
+      "active_from": "1957",
+      "active_until": null,
+      "endStatus": "UNKNOWN",
+      "inactivePeriods": [
+        {
+          "from": "1991",
+          "until": "2007",
+          "reason": "Provisional final-year interval; source wording differs at 1990 boundary",
+          "careerApplicability": "RESEARCH_ONLY"
+        }
+      ],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_LIFETIME_IDENTITY_MAPPING_CANDIDATE",
+      "sources": [
+        "https://www.rsssf.org/tabless/saucuphist.html",
+        "https://saudipedia.com/en/the-custodian-of-the-two-holy-mosques%22-cup",
+        "https://www.arabnews.com/saudi-arabia/kings-cup-history-dreams-and-drama-in-ksas-oldest-tournament-2572329"
+      ]
+    }
+  }
+]

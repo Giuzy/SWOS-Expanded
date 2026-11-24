@@ -1,0 +1,125 @@
+[
+  {
+    "index": 323,
+    "value": {
+      "competition": "CYP tier 1",
+      "firstEdition": "2025/26",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        226
+      ],
+      "source": "https://www.soccer-tainment.com/competition/cyprus-first-division/2025-2026",
+      "rules": {
+        "teams": 14,
+        "regularGames": 26,
+        "groups": [
+          6,
+          8
+        ],
+        "extraGames": [
+          10,
+          14
+        ],
+        "carryPoints": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block45 verified source text or search excerpt; TFF p1 screenshot."
+    }
+  },
+  {
+    "index": 328,
+    "value": {
+      "competition": "CYP cup",
+      "firstEdition": "2025/26",
+      "operation": "OBSERVED_ACCESS_RULE",
+      "rowRefs": [
+        345
+      ],
+      "source": "https://www.cfa.com.cy/Gr/news/51359",
+      "rules": {
+        "firstRoundByes": "previous finalists and European group-stage qualifiers"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block46 source retrieval; see evidence46 and namingResearch.block46."
+    }
+  },
+  {
+    "index": 329,
+    "value": {
+      "competition": "CYP cup",
+      "firstEdition": "2026/27",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        345
+      ],
+      "source": "https://www.cfa.com.cy/Gr/news/53531",
+      "rules": {
+        "firstRoundByes": "previous finalists and European group-stage qualifiers",
+        "knownFinalistByes": [
+          "Pafos FC",
+          "Apollon Limassol"
+        ],
+        "semifinalLegs": 2,
+        "otherRoundsLegs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block46 source retrieval; see evidence46 and namingResearch.block46."
+    }
+  },
+  {
+    "index": 331,
+    "value": {
+      "competition": "CYP tier 1",
+      "firstEdition": "2026/27",
+      "operation": "OBSERVED_SCHEDULE_WINDOWS",
+      "rowRefs": [
+        226
+      ],
+      "source": "https://www.cfa.com.cy/Gr/news/53560",
+      "rules": {
+        "regularGames": 26,
+        "regularRounds": 2,
+        "startWindow": [
+          "2026-08-29",
+          "2026-08-30"
+        ],
+        "regularEndWindow": [
+          "2027-03-06",
+          "2027-03-07"
+        ],
+        "seasonEndWindow": [
+          "2027-05-22",
+          "2027-05-23"
+        ],
+        "allowedWeekdays": "all"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block46 source retrieval; see evidence46 and namingResearch.block46."
+    }
+  },
+  {
+    "index": 338,
+    "value": {
+      "competition": "CYP cup",
+      "firstEdition": "1996/97",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        118
+      ],
+      "source": "https://www.rsssf.org/tablesc/cyp97.html",
+      "rules": {
+        "entrants": 50,
+        "preliminaryEntrants": 36,
+        "preliminaryDate": "1996-11-09",
+        "firstRoundAdds": 14,
+        "topTierSeparateDraw": true,
+        "preliminaryAndFirstRound": "single match, extra time, replay away venue, extra time and penalties if still tied",
+        "semifinalLegs": 2,
+        "finalDate": "1997-05-17",
+        "finalLegs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block47 RSSSF retrieved HTML/search excerpts; TFF history excerpt only after open timeout."
+    }
+  }
+]

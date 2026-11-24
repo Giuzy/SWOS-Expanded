@@ -1,0 +1,36 @@
+[
+  {
+    "row": 393,
+    "world": "2627",
+    "id": "_polishCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "POL",
+    "candidateSources": [
+      "524bf34b84be68487922a945e83ed44cd13b792d",
+      "4896377b7a30906670e83d07b889dbd0f62fec60"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Puchar Polski",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "4896377b7a30906670e83d07b889dbd0f62fec60",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

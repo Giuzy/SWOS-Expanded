@@ -1,0 +1,118 @@
+[
+  {
+    "row": 275,
+    "world": "2627",
+    "id": "_dutchLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "NED",
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "Eredivisie",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://eredivisie.nl/nieuws/definitief-programma-2026-27/",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence41": {
+      "edition": "2026/27",
+      "calendarPublication": "2026-06-16",
+      "publishedDateChanges": [
+        {
+          "round": 7,
+          "home": "FC Groningen",
+          "away": "PEC Zwolle",
+          "original": "2026-09-19",
+          "revised": "2026-09-18"
+        },
+        {
+          "round": 7,
+          "home": "Sparta Rotterdam",
+          "away": "sc Heerenveen",
+          "original": "2026-09-18",
+          "revised": "2026-09-19"
+        }
+      ],
+      "source": "https://eredivisie.nl/nieuws/definitief-programma-2026-27/",
+      "scope": "published changes, not actual played dates; full calendar not reconciled"
+    }
+  },
+  {
+    "row": 276,
+    "world": "2627",
+    "id": "_dutchLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "NED",
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "Eerste Divisie",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.knvb.nl/competities/competitiezaken/competitiemodel/periodetitels-in-de-eerste-divisie",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence41": {
+      "edition": "2025/26",
+      "teams": 20,
+      "periodRounds": [
+        [
+          1,
+          10
+        ],
+        [
+          11,
+          20
+        ],
+        [
+          21,
+          29
+        ],
+        [
+          30,
+          38
+        ]
+      ],
+      "reservePromotionPlayoffEligible": false,
+      "replacement": "period runner-up unless reserve or already holding period title, then highest eligible final-table team without title",
+      "source": "https://www.knvb.nl/competities/competitiezaken/competitiemodel/periodetitels-in-de-eerste-divisie",
+      "scope": "2025/26 only"
+    }
+  }
+]

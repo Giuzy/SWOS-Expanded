@@ -1,0 +1,52 @@
+[
+  {
+    "index": 141,
+    "value": {
+      "competition": "WAL Nathaniel MG Cup",
+      "firstEdition": "2026/27",
+      "lastEdition": "2026/27",
+      "operation": "REMOVE_FROM_CALENDAR",
+      "note": "FAW 7 May 2026: removed from calendar as top league expands to 16. No inference of permanent abolition. Generic WAL league cup row mapping candidate.",
+      "source": "https://faw.cymru/cymru-leagues/news/statement-nathaniel-mg-cup-and-welsh-blood-service-league-cup/",
+      "rowRefs": [
+        422
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
+    }
+  },
+  {
+    "index": 223,
+    "value": {
+      "competition": "WAL tier 1",
+      "firstEdition": "2002/03",
+      "operation": "RENAME",
+      "previousName": "League of Wales",
+      "name": "Welsh Premier League",
+      "rowRefs": [
+        35,
+        319
+      ],
+      "source": "https://clwbpeldroed.org/2019/07/24/jd-cymru-leagues-football-association-wales/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 30 actual web search excerpts; exact sporting identity and structural reform independently checked before runtime. No sponsor names."
+    }
+  },
+  {
+    "index": 224,
+    "value": {
+      "competition": "WAL tier 1",
+      "firstEdition": "2019/20",
+      "operation": "RENAME",
+      "previousName": "Welsh Premier League",
+      "name": "Cymru Premier",
+      "rowRefs": [
+        35,
+        319
+      ],
+      "source": "https://welshprem.com/league-history/",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 30 actual web search excerpts; exact sporting identity and structural reform independently checked before runtime. No sponsor names."
+    }
+  }
+]

@@ -1,0 +1,1262 @@
+{
+  "kind": "RESEARCH_SNAPSHOT_NOT_CE_SCHEMA",
+  "cutoff": "1996-06-30",
+  "source": "https://www.rsssf.org/tables/98q.html",
+  "caf": {
+    "fixtures": [
+      {
+        "date": "1996-06-02",
+        "home": "Sudan",
+        "away": "Zambia",
+        "hg": 2,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-16",
+        "home": "Zambia",
+        "away": "Sudan",
+        "hg": 3,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-01",
+        "home": "Namibia",
+        "away": "Mozambique",
+        "hg": 2,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-16",
+        "home": "Mozambique",
+        "away": "Namibia",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-08",
+        "home": "Tanzania",
+        "away": "Ghana",
+        "hg": 0,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-17",
+        "home": "Ghana",
+        "away": "Tanzania",
+        "hg": 2,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-02",
+        "home": "Swaziland",
+        "away": "Gabon",
+        "hg": 0,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-16",
+        "home": "Gabon",
+        "away": "Swaziland",
+        "hg": 2,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-01",
+        "home": "Uganda",
+        "away": "Angola",
+        "hg": 0,
+        "ag": 2
+      },
+      {
+        "date": "1996-06-16",
+        "home": "Angola",
+        "away": "Uganda",
+        "hg": 3,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-02",
+        "home": "Mauritius",
+        "away": "Zaire",
+        "hg": 1,
+        "ag": 5
+      },
+      {
+        "date": "1996-06-16",
+        "home": "Zaire",
+        "away": "Mauritius",
+        "hg": 2,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-01",
+        "home": "Malawi",
+        "away": "South Africa",
+        "hg": 0,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-15",
+        "home": "South Africa",
+        "away": "Malawi",
+        "hg": 3,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-02",
+        "home": "Madagascar",
+        "away": "Zimbabwe",
+        "hg": 1,
+        "ag": 2
+      },
+      {
+        "date": "1996-06-16",
+        "home": "Zimbabwe",
+        "away": "Madagascar",
+        "hg": 2,
+        "ag": 2
+      },
+      {
+        "date": "1996-06-01",
+        "home": "Guinea-Bissau",
+        "away": "Guinea",
+        "hg": 3,
+        "ag": 2
+      },
+      {
+        "date": "1996-06-16",
+        "home": "Guinea",
+        "away": "Guinea-Bissau",
+        "hg": 3,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-02",
+        "home": "Rwanda",
+        "away": "Tunisia",
+        "hg": 1,
+        "ag": 3
+      },
+      {
+        "date": "1996-06-16",
+        "home": "Tunisia",
+        "away": "Rwanda",
+        "hg": 2,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-02",
+        "home": "Congo-Brazzaville",
+        "away": "Ivory Coast",
+        "hg": 2,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-16",
+        "home": "Ivory Coast",
+        "away": "Congo-Brazzaville",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-02",
+        "home": "Kenya",
+        "away": "Algeria",
+        "hg": 3,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-14",
+        "home": "Algeria",
+        "away": "Kenya",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-02",
+        "home": "Burundi",
+        "away": "Sierra Leone",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-15",
+        "home": "Sierra Leone",
+        "away": "Burundi",
+        "hg": 0,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-31",
+        "home": "Mauritania",
+        "away": "Burkina Faso",
+        "hg": 0,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-16",
+        "home": "Burkina Faso",
+        "away": "Mauritania",
+        "hg": 2,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-02",
+        "home": "Togo",
+        "away": "Senegal",
+        "hg": 2,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-15",
+        "home": "Senegal",
+        "away": "Togo",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-01",
+        "home": "Gambia",
+        "away": "Liberia",
+        "hg": 2,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-23",
+        "home": "Liberia",
+        "away": "Gambia",
+        "hg": 4,
+        "ag": 0
+      }
+    ],
+    "seeds": [
+      "Cameroon",
+      "Egypt",
+      "Morocco",
+      "Nigeria"
+    ],
+    "sportingWinners": [
+      "Zambia",
+      "Namibia",
+      "Ghana",
+      "Gabon",
+      "Angola",
+      "Zaire",
+      "South Africa",
+      "Zimbabwe",
+      "Guinea",
+      "Tunisia",
+      "Congo-Brazzaville",
+      "Kenya",
+      "Burundi",
+      "Burkina Faso",
+      "Togo",
+      "Liberia"
+    ],
+    "administrativePending": "Burundi withdrew after first round, replaced by Sierra Leone; exact decision date not certified, do not assume cutoff status",
+    "format": "16 KO ties two legs, 4 seeds, 5 groups of 4 double RR, 5 winners"
+  },
+  "concacaf": {
+    "caribbeanRounds": [
+      [
+        {
+          "date": "1996-03-24",
+          "home": "Dominican Republic",
+          "away": "Aruba",
+          "hg": 3,
+          "ag": 2
+        },
+        {
+          "date": "1996-03-31",
+          "home": "Aruba",
+          "away": "Dominican Republic",
+          "hg": 1,
+          "ag": 3
+        },
+        {
+          "date": "1996-03-29",
+          "home": "Guyana",
+          "away": "Grenada",
+          "hg": 1,
+          "ag": 2
+        },
+        {
+          "date": "1996-04-07",
+          "home": "Grenada",
+          "away": "Guyana",
+          "hg": 6,
+          "ag": 0
+        },
+        {
+          "date": "1996-03-10",
+          "home": "Dominica",
+          "away": "Antigua",
+          "hg": 3,
+          "ag": 3
+        },
+        {
+          "date": "1996-03-31",
+          "home": "Antigua",
+          "away": "Dominica",
+          "hg": 1,
+          "ag": 3
+        }
+      ],
+      [
+        {
+          "date": "1996-05-04",
+          "home": "Puerto Rico",
+          "away": "Saint Vincent",
+          "hg": 1,
+          "ag": 2
+        },
+        {
+          "date": "1996-05-12",
+          "home": "Saint Vincent",
+          "away": "Puerto Rico",
+          "hg": 7,
+          "ag": 0
+        },
+        {
+          "date": "1996-05-12",
+          "home": "Cayman Islands",
+          "away": "Cuba",
+          "hg": 0,
+          "ag": 1
+        },
+        {
+          "date": "1996-05-14",
+          "home": "Cayman Islands",
+          "away": "Cuba",
+          "hg": 0,
+          "ag": 5
+        },
+        {
+          "date": "1996-05-05",
+          "home": "Saint Kitts-Nevis",
+          "away": "Saint Lucia",
+          "hg": 5,
+          "ag": 1
+        },
+        {
+          "date": "1996-05-19",
+          "home": "Saint Lucia",
+          "away": "Saint Kitts-Nevis",
+          "hg": 0,
+          "ag": 1
+        },
+        {
+          "date": "1996-05-12",
+          "home": "Haiti",
+          "away": "Grenada",
+          "hg": 6,
+          "ag": 1
+        },
+        {
+          "date": "1996-05-18",
+          "home": "Grenada",
+          "away": "Haiti",
+          "hg": 0,
+          "ag": 1
+        },
+        {
+          "date": "1996-03-31",
+          "home": "Surinam",
+          "away": "Jamaica",
+          "hg": 0,
+          "ag": 1
+        },
+        {
+          "date": "1996-04-21",
+          "home": "Jamaica",
+          "away": "Surinam",
+          "hg": 1,
+          "ag": 0
+        },
+        {
+          "date": "1996-05-14",
+          "home": "Dominica",
+          "away": "Barbados",
+          "hg": 0,
+          "ag": 1
+        },
+        {
+          "date": "1996-05-19",
+          "home": "Barbados",
+          "away": "Dominica",
+          "hg": 1,
+          "ag": 0
+        },
+        {
+          "date": "1996-05-04",
+          "home": "Dominican Republic",
+          "away": "Dutch Antilles",
+          "hg": 2,
+          "ag": 1
+        },
+        {
+          "date": "1996-05-11",
+          "home": "Dutch Antilles",
+          "away": "Dominican Republic",
+          "hg": 0,
+          "ag": 0
+        }
+      ],
+      [
+        {
+          "date": "1996-06-15",
+          "home": "Dominican Republic",
+          "away": "Trinidad-Tobago",
+          "hg": 1,
+          "ag": 4
+        },
+        {
+          "date": "1996-06-23",
+          "home": "Trinidad-Tobago",
+          "away": "Dominican Republic",
+          "hg": 8,
+          "ag": 0
+        },
+        {
+          "date": "1996-06-23",
+          "home": "Barbados",
+          "away": "Jamaica",
+          "hg": 0,
+          "ag": 1
+        },
+        {
+          "date": "1996-06-30",
+          "home": "Jamaica",
+          "away": "Barbados",
+          "hg": 2,
+          "ag": 0
+        },
+        {
+          "date": "1996-06-10",
+          "home": "Cuba",
+          "away": "Haiti",
+          "hg": 6,
+          "ag": 1
+        },
+        {
+          "date": "1996-06-30",
+          "home": "Haiti",
+          "away": "Cuba",
+          "hg": 1,
+          "ag": 1
+        },
+        {
+          "date": "1996-06-23",
+          "home": "Saint Kitts-Nevis",
+          "away": "Saint Vincent",
+          "hg": 2,
+          "ag": 2
+        },
+        {
+          "date": "1996-06-30",
+          "home": "Saint Vincent",
+          "away": "Saint Kitts-Nevis",
+          "hg": 0,
+          "ag": 0
+        }
+      ]
+    ],
+    "central": [
+      {
+        "date": "1996-05-05",
+        "home": "Nicaragua",
+        "away": "Guatemala",
+        "hg": 0,
+        "ag": 1
+      },
+      {
+        "date": "1996-05-10",
+        "home": "Guatemala",
+        "away": "Nicaragua",
+        "hg": 2,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-02",
+        "home": "Belize",
+        "away": "Panama",
+        "hg": 1,
+        "ag": 2
+      },
+      {
+        "date": "1996-06-09",
+        "home": "Panama",
+        "away": "Belize",
+        "hg": 4,
+        "ag": 1
+      }
+    ],
+    "walkovers": [
+      {
+        "withdrawn": "Bahamas",
+        "advanced": "Saint Kitts-Nevis"
+      },
+      {
+        "withdrawn": "Bermuda",
+        "advanced": "Trinidad-Tobago"
+      }
+    ],
+    "advanced": [
+      "Trinidad-Tobago",
+      "Jamaica",
+      "Cuba",
+      "Saint Vincent",
+      "Guatemala",
+      "Panama"
+    ],
+    "seeds": [
+      "USA",
+      "Mexico",
+      "Canada",
+      "El Salvador",
+      "Honduras",
+      "Costa Rica"
+    ],
+    "groups": [
+      [
+        "USA",
+        "Costa Rica",
+        "Guatemala",
+        "Trinidad-Tobago"
+      ],
+      [
+        "Canada",
+        "El Salvador",
+        "Panama",
+        "Cuba"
+      ],
+      [
+        "Jamaica",
+        "Mexico",
+        "Honduras",
+        "Saint Vincent"
+      ]
+    ],
+    "format": "3x4 double RR, top2 each to 6-team double RR, top3 qualify",
+    "note": "Saint Vincent advances away goals; confirm rule primary source. Cayman both legs nominal home as RSSSF reports; verify second leg designation and neutral venues. Group draw date not certified."
+  },
+  "uefa": {
+    "groups": [
+      {
+        "group": 1,
+        "teams": [
+          "Greece",
+          "Slovenia",
+          "Denmark",
+          "Croatia",
+          "Bosnia-Herzegovina"
+        ],
+        "fixtures": [
+          {
+            "date": "1996-04-24",
+            "home": "Greece",
+            "away": "Slovenia",
+            "hg": 2,
+            "ag": 0
+          }
+        ],
+        "table": [
+          {
+            "team": "Greece",
+            "P": 1,
+            "W": 1,
+            "D": 0,
+            "L": 0,
+            "GF": 2,
+            "GA": 0,
+            "pts": 3
+          },
+          {
+            "team": "Slovenia",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 0,
+            "GA": 2,
+            "pts": 0
+          },
+          {
+            "team": "Denmark",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Croatia",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Bosnia-Herzegovina",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 2,
+        "teams": [
+          "England",
+          "Italy",
+          "Poland",
+          "Georgia",
+          "Moldova"
+        ],
+        "fixtures": [],
+        "table": [
+          {
+            "team": "England",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Italy",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Poland",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Georgia",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Moldova",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 3,
+        "teams": [
+          "Norway",
+          "Azerbaijan",
+          "Hungary",
+          "Finland",
+          "Switzerland"
+        ],
+        "fixtures": [
+          {
+            "date": "1996-06-02",
+            "home": "Norway",
+            "away": "Azerbaijan",
+            "hg": 5,
+            "ag": 0
+          }
+        ],
+        "table": [
+          {
+            "team": "Norway",
+            "P": 1,
+            "W": 1,
+            "D": 0,
+            "L": 0,
+            "GF": 5,
+            "GA": 0,
+            "pts": 3
+          },
+          {
+            "team": "Azerbaijan",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 0,
+            "GA": 5,
+            "pts": 0
+          },
+          {
+            "team": "Hungary",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Finland",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Switzerland",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 4,
+        "teams": [
+          "Sweden",
+          "Belarus",
+          "Austria",
+          "Scotland",
+          "Latvia",
+          "Estonia"
+        ],
+        "fixtures": [
+          {
+            "date": "1996-06-01",
+            "home": "Sweden",
+            "away": "Belarus",
+            "hg": 5,
+            "ag": 1
+          }
+        ],
+        "table": [
+          {
+            "team": "Sweden",
+            "P": 1,
+            "W": 1,
+            "D": 0,
+            "L": 0,
+            "GF": 5,
+            "GA": 1,
+            "pts": 3
+          },
+          {
+            "team": "Belarus",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 1,
+            "GA": 5,
+            "pts": 0
+          },
+          {
+            "team": "Austria",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Scotland",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Latvia",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Estonia",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 5,
+        "teams": [
+          "Bulgaria",
+          "Russia",
+          "Israel",
+          "Cyprus",
+          "Luxembourg"
+        ],
+        "fixtures": [],
+        "table": [
+          {
+            "team": "Bulgaria",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Russia",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Israel",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Cyprus",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Luxembourg",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 6,
+        "teams": [
+          "Yugoslavia",
+          "Faroe Islands",
+          "Malta",
+          "Spain",
+          "Slovakia",
+          "Czech Republic"
+        ],
+        "fixtures": [
+          {
+            "date": "1996-04-24",
+            "home": "Yugoslavia",
+            "away": "Faroe Islands",
+            "hg": 3,
+            "ag": 1
+          },
+          {
+            "date": "1996-06-02",
+            "home": "Yugoslavia",
+            "away": "Malta",
+            "hg": 6,
+            "ag": 0
+          }
+        ],
+        "table": [
+          {
+            "team": "Yugoslavia",
+            "P": 2,
+            "W": 2,
+            "D": 0,
+            "L": 0,
+            "GF": 9,
+            "GA": 1,
+            "pts": 6
+          },
+          {
+            "team": "Faroe Islands",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 1,
+            "GA": 3,
+            "pts": 0
+          },
+          {
+            "team": "Malta",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 0,
+            "GA": 6,
+            "pts": 0
+          },
+          {
+            "team": "Spain",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Slovakia",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Czech Republic",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 7,
+        "teams": [
+          "San Marino",
+          "Wales",
+          "Netherlands",
+          "Belgium",
+          "Turkey"
+        ],
+        "fixtures": [
+          {
+            "date": "1996-06-02",
+            "home": "San Marino",
+            "away": "Wales",
+            "hg": 0,
+            "ag": 5
+          }
+        ],
+        "table": [
+          {
+            "team": "San Marino",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 0,
+            "GA": 5,
+            "pts": 0
+          },
+          {
+            "team": "Wales",
+            "P": 1,
+            "W": 1,
+            "D": 0,
+            "L": 0,
+            "GF": 5,
+            "GA": 0,
+            "pts": 3
+          },
+          {
+            "team": "Netherlands",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Belgium",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Turkey",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 8,
+        "teams": [
+          "FYR Macedonia",
+          "Liechtenstein",
+          "Iceland",
+          "Romania",
+          "Ireland",
+          "Lithuania"
+        ],
+        "fixtures": [
+          {
+            "date": "1996-04-24",
+            "home": "FYR Macedonia",
+            "away": "Liechtenstein",
+            "hg": 3,
+            "ag": 0
+          },
+          {
+            "date": "1996-06-01",
+            "home": "Iceland",
+            "away": "FYR Macedonia",
+            "hg": 1,
+            "ag": 1
+          }
+        ],
+        "table": [
+          {
+            "team": "FYR Macedonia",
+            "P": 2,
+            "W": 1,
+            "D": 1,
+            "L": 0,
+            "GF": 4,
+            "GA": 1,
+            "pts": 4
+          },
+          {
+            "team": "Liechtenstein",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 0,
+            "GA": 3,
+            "pts": 0
+          },
+          {
+            "team": "Iceland",
+            "P": 1,
+            "W": 0,
+            "D": 1,
+            "L": 0,
+            "GF": 1,
+            "GA": 1,
+            "pts": 1
+          },
+          {
+            "team": "Romania",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Ireland",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Lithuania",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 9,
+        "teams": [
+          "Germany",
+          "Ukraine",
+          "Portugal",
+          "Armenia",
+          "Northern Ireland",
+          "Albania"
+        ],
+        "fixtures": [],
+        "table": [
+          {
+            "team": "Germany",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Ukraine",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Portugal",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Armenia",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Northern Ireland",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          },
+          {
+            "team": "Albania",
+            "P": 0,
+            "W": 0,
+            "D": 0,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 0
+          }
+        ]
+      }
+    ],
+    "format": "9 group winners + best runner-up based only on games vs 1st,3rd,4th; 8 other runners-up in 4 two-leg playoffs",
+    "host": "France"
+  },
+  "afc": {
+    "prestartFixtures": 0,
+    "firstWindow": "1996-09-20",
+    "format": "10 groups, 10 winners to 2x5 double RR; group winners qualify, runners-up one playoff, loser vs OFC winner"
+  },
+  "ofc": {
+    "prestartFixtures": 0,
+    "firstWindow": "1996-09-16",
+    "seeds": [
+      "Australia",
+      "Fiji",
+      "New Zealand",
+      "Tahiti"
+    ],
+    "firstGroups": [
+      [
+        "Papua New Guinea",
+        "Solomon Islands",
+        "Vanuatu"
+      ],
+      [
+        "Tonga",
+        "Cook Islands",
+        "Western Samoa"
+      ]
+    ],
+    "format": "single RR first groups; Melanesia winner direct, runner-up vs Polynesia winner two legs; 2x3 double RR, winners two-leg final, winner vs AFC4 two legs"
+  },
+  "checks": {
+    "counts": {
+      "caf": 32,
+      "concacaf": 32,
+      "uefa": 8
+    },
+    "noDuplicateFixtures": true,
+    "noSameDayTeam": true,
+    "allBeforeCutoff": true,
+    "uefaTeams": 49
+  },
+  "limits": "No mapping or runtime changes. Source secondary, no future results, exact date of CAF withdrawal and group draws unresolved. HEAD last verified beb9fd3. Precheck RG before integration."
+}

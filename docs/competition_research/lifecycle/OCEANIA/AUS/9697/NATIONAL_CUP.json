@@ -1,0 +1,21 @@
+[
+  {
+    "index": 161,
+    "value": {
+      "row": 162,
+      "active_from": "1977",
+      "active_until": "1996/97",
+      "endStatus": "ENDED",
+      "inactivePeriods": [],
+      "format_valid_from": null,
+      "format_valid_until": null,
+      "predecessor_id": null,
+      "successor_id": null,
+      "verification_status": "PARTIAL_OFFICIAL_LIFETIME_EXCERPT",
+      "sources": [
+        "https://footballaustralia.com.au/nsl-honours-board"
+      ],
+      "verification": "Block 21 official web search excerpts; dates of activity only, not complete runtime rules."
+    }
+  }
+]

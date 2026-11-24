@@ -1,0 +1,88 @@
+[
+  {
+    "index": 120,
+    "value": {
+      "competition": "RSA League Cup",
+      "firstEdition": "1997",
+      "lastEdition": "2000",
+      "operation": "RENAME",
+      "note": "Rothmans Cup; sponsorship interval, not lifetime; season mapping pending.",
+      "source": "https://www.central.bet.co.za/soccer/part-1-the-history-of-the-league-cup-carling-cup/",
+      "rowRefs": [
+        400
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 20: actual web search excerpts; exact edition dates, access and identity reconciliation pending. No future results imported.",
+      "namingEligibility": "EXCLUDED_SPONSOR_NAME"
+    }
+  },
+  {
+    "index": 121,
+    "value": {
+      "competition": "RSA League Cup",
+      "firstEdition": "2001",
+      "lastEdition": "2005",
+      "operation": "RENAME",
+      "note": "Coca-Cola Cup; sponsorship interval only.",
+      "source": "https://www.central.bet.co.za/soccer/part-1-the-history-of-the-league-cup-carling-cup/",
+      "rowRefs": [
+        400
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 20: actual web search excerpts; exact edition dates, access and identity reconciliation pending. No future results imported.",
+      "namingEligibility": "EXCLUDED_SPONSOR_NAME"
+    }
+  },
+  {
+    "index": 122,
+    "value": {
+      "competition": "RSA League Cup",
+      "firstEdition": "2006",
+      "lastEdition": "2019",
+      "operation": "RENAME",
+      "note": "Telkom Knockout; last observed edition under this name, not proof permanent cessation.",
+      "source": "https://www.central.bet.co.za/soccer/part-1-the-history-of-the-league-cup-carling-cup/",
+      "rowRefs": [
+        400
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 20: actual web search excerpts; exact edition dates, access and identity reconciliation pending. No future results imported.",
+      "namingEligibility": "EXCLUDED_SPONSOR_NAME"
+    }
+  },
+  {
+    "index": 123,
+    "value": {
+      "competition": "RSA League Cup",
+      "firstEdition": "2023",
+      "lastEdition": null,
+      "operation": "RENAME_OR_REACTIVATE",
+      "note": "Carling Knockout annual tournament announced by PSL; PSL treats League Cup historical record as continuous. 2020–22 observed hiatus, cause and non-COVID career policy unresolved; do not automatically disable. Distinguish Black Label Cup all-star event.",
+      "source": "https://psl.co.za/news/article/5289894-carling-black-label-and-the-psl-annou",
+      "rowRefs": [
+        400
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 20: actual web search excerpts; exact edition dates, access and identity reconciliation pending. No future results imported.",
+      "namingEligibility": "EXCLUDED_SPONSOR_NAME"
+    }
+  },
+  {
+    "index": 124,
+    "value": {
+      "competition": "RSA National Cup",
+      "firstEdition": "2008",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "note": "Nedbank sponsorship begins; same national cup, not League Cup.",
+      "source": "https://www.nedbankcup.co.za/news/guide-to-every-nedbank-cup-final-since-2008/",
+      "rowRefs": [
+        149,
+        399
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 block 20: actual web search excerpts; exact edition dates, access and identity reconciliation pending. No future results imported.",
+      "namingEligibility": "EXCLUDED_SPONSOR_NAME"
+    }
+  }
+]

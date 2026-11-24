@@ -1,0 +1,50 @@
+[
+  {
+    "index": 128,
+    "value": {
+      "competition": "CAN Canadian Championship",
+      "firstEdition": "2008",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "Three clubs, round robin inaugural edition; continental access. Do not extrapolate inaugural format.",
+      "source": "https://www.canadasoccer.com/championship/canChamp/2008/",
+      "rowRefs": [
+        338
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 official search excerpts, not full dates/access/identity certification."
+    }
+  },
+  {
+    "index": 269,
+    "value": {
+      "competition": "CAN Canadian Premier League",
+      "firstEdition": "2019",
+      "operation": "INTRODUCE",
+      "name": "Canadian Premier League",
+      "source": "https://news.canadasoccer.com/canada-soccer-welcomes-canadian-premier-league-to-canadas-sporting-landscape",
+      "rowRefs": [
+        220
+      ],
+      "note": "Seven founding clubs.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 36 actual official web search excerpts 24/11/2026; no PDF analyzed; no full identity/access/fixture certification."
+    }
+  },
+  {
+    "index": 270,
+    "value": {
+      "competition": "CAN Canadian Premier League",
+      "firstEdition": "2019",
+      "lastEdition": "2019",
+      "operation": "OBSERVED_FORMAT",
+      "source": "https://www.cplsoccer.com/news/faq-a-primer-on-the-cpls-format-and-season-rules",
+      "rowRefs": [
+        220
+      ],
+      "note": "28 regular matches per club; spring 10, fall 18; winners advance to championship. Edition-specific, not recurring by default.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 36 actual official web search excerpts 24/11/2026; no PDF analyzed; no full identity/access/fixture certification."
+    }
+  }
+]

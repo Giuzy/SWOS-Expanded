@@ -1,0 +1,1215 @@
+{
+  "kind": "RESEARCH_SNAPSHOT_NOT_CE_SCHEMA",
+  "cutoff": "1996-06-30",
+  "source_intertoto": "https://de.wikipedia.org/wiki/UEFA_Intertoto_Cup_1996",
+  "source_wc": "https://www.11v11.com/competitions/fifa-world-cup/1998/qualifying/south-america/",
+  "libertadores": {
+    "source": "https://rsssf.org/sacups/copa96.html",
+    "status": "completed",
+    "winner": "River Plate",
+    "runner_up": "America de Cali",
+    "finals": [
+      [
+        "1996-06-19",
+        "America de Cali",
+        1,
+        0,
+        "River Plate"
+      ],
+      [
+        "1996-06-26",
+        "River Plate",
+        2,
+        0,
+        "America de Cali"
+      ]
+    ]
+  },
+  "intertoto": {
+    "format": "12x5 single RR, top1 advances, 6 semifinals and 3 finals each two legs, 3 UEFA Cup qualifiers",
+    "groups": [
+      {
+        "group": 1,
+        "fixtures": [
+          {
+            "date": "1996-06-22",
+            "home": "Cliftonville",
+            "away": "Standard Liege",
+            "hg": 0,
+            "ag": 3
+          },
+          {
+            "date": "1996-06-23",
+            "home": "Aalborg",
+            "away": "Hapoel Haifa",
+            "hg": 5,
+            "ag": 4
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Stuttgart",
+            "away": "Aalborg",
+            "hg": 0,
+            "ag": 1
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Hapoel Haifa",
+            "away": "Cliftonville",
+            "hg": 1,
+            "ag": 1
+          }
+        ],
+        "table": [
+          {
+            "team": "Aalborg",
+            "P": 2,
+            "W": 2,
+            "D": 0,
+            "L": 0,
+            "GF": 6,
+            "GA": 4,
+            "pts": 6
+          },
+          {
+            "team": "Standard Liege",
+            "P": 1,
+            "W": 1,
+            "D": 0,
+            "L": 0,
+            "GF": 3,
+            "GA": 0,
+            "pts": 3
+          },
+          {
+            "team": "Hapoel Haifa",
+            "P": 2,
+            "W": 0,
+            "D": 1,
+            "L": 1,
+            "GF": 5,
+            "GA": 6,
+            "pts": 1
+          },
+          {
+            "team": "Cliftonville",
+            "P": 2,
+            "W": 0,
+            "D": 1,
+            "L": 1,
+            "GF": 1,
+            "GA": 4,
+            "pts": 1
+          },
+          {
+            "team": "Stuttgart",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 0,
+            "GA": 1,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 2,
+        "fixtures": [
+          {
+            "date": "1996-06-22",
+            "home": "Apollon Limassol",
+            "away": "Werder Bremen",
+            "hg": 0,
+            "ag": 2
+          },
+          {
+            "date": "1996-06-22",
+            "home": "LASK Linz",
+            "away": "Djurgarden",
+            "hg": 2,
+            "ag": 0
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Djurgarden",
+            "away": "Apollon Limassol",
+            "hg": 8,
+            "ag": 0
+          },
+          {
+            "date": "1996-06-30",
+            "home": "B68 Toftir",
+            "away": "LASK Linz",
+            "hg": 0,
+            "ag": 4
+          }
+        ],
+        "table": [
+          {
+            "team": "LASK Linz",
+            "P": 2,
+            "W": 2,
+            "D": 0,
+            "L": 0,
+            "GF": 6,
+            "GA": 0,
+            "pts": 6
+          },
+          {
+            "team": "Djurgarden",
+            "P": 2,
+            "W": 1,
+            "D": 0,
+            "L": 1,
+            "GF": 8,
+            "GA": 2,
+            "pts": 3
+          },
+          {
+            "team": "Werder Bremen",
+            "P": 1,
+            "W": 1,
+            "D": 0,
+            "L": 0,
+            "GF": 2,
+            "GA": 0,
+            "pts": 3
+          },
+          {
+            "team": "B68 Toftir",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 0,
+            "GA": 4,
+            "pts": 0
+          },
+          {
+            "team": "Apollon Limassol",
+            "P": 2,
+            "W": 0,
+            "D": 0,
+            "L": 2,
+            "GF": 0,
+            "GA": 10,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 3,
+        "fixtures": [
+          {
+            "date": "1996-06-22",
+            "home": "Maribor",
+            "away": "Austria Wien",
+            "hg": 3,
+            "ag": 0
+          },
+          {
+            "date": "1996-06-23",
+            "home": "Orebro",
+            "away": "Keflavik",
+            "hg": 3,
+            "ag": 1
+          },
+          {
+            "date": "1996-06-29",
+            "home": "FC Copenhagen",
+            "away": "Orebro",
+            "hg": 2,
+            "ag": 2
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Keflavik",
+            "away": "Maribor",
+            "hg": 0,
+            "ag": 0
+          }
+        ],
+        "table": [
+          {
+            "team": "Maribor",
+            "P": 2,
+            "W": 1,
+            "D": 1,
+            "L": 0,
+            "GF": 3,
+            "GA": 0,
+            "pts": 4
+          },
+          {
+            "team": "Orebro",
+            "P": 2,
+            "W": 1,
+            "D": 1,
+            "L": 0,
+            "GF": 5,
+            "GA": 3,
+            "pts": 4
+          },
+          {
+            "team": "FC Copenhagen",
+            "P": 1,
+            "W": 0,
+            "D": 1,
+            "L": 0,
+            "GF": 2,
+            "GA": 2,
+            "pts": 1
+          },
+          {
+            "team": "Keflavik",
+            "P": 2,
+            "W": 0,
+            "D": 1,
+            "L": 1,
+            "GF": 1,
+            "GA": 3,
+            "pts": 1
+          },
+          {
+            "team": "Austria Wien",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 0,
+            "GA": 3,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 4,
+        "fixtures": [
+          {
+            "date": "1996-06-22",
+            "home": "Charleroi",
+            "away": "Silkeborg",
+            "hg": 2,
+            "ag": 4
+          },
+          {
+            "date": "1996-06-23",
+            "home": "Zaglebie Lubin",
+            "away": "SV Ried",
+            "hg": 2,
+            "ag": 1
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Conwy United",
+            "away": "Charleroi",
+            "hg": 0,
+            "ag": 0
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Silkeborg",
+            "away": "Zaglebie Lubin",
+            "hg": 0,
+            "ag": 0
+          }
+        ],
+        "table": [
+          {
+            "team": "Silkeborg",
+            "P": 2,
+            "W": 1,
+            "D": 1,
+            "L": 0,
+            "GF": 4,
+            "GA": 2,
+            "pts": 4
+          },
+          {
+            "team": "Zaglebie Lubin",
+            "P": 2,
+            "W": 1,
+            "D": 1,
+            "L": 0,
+            "GF": 2,
+            "GA": 1,
+            "pts": 4
+          },
+          {
+            "team": "Conwy United",
+            "P": 1,
+            "W": 0,
+            "D": 1,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 1
+          },
+          {
+            "team": "Charleroi",
+            "P": 2,
+            "W": 0,
+            "D": 1,
+            "L": 1,
+            "GF": 2,
+            "GA": 4,
+            "pts": 1
+          },
+          {
+            "team": "SV Ried",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 1,
+            "GA": 2,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 5,
+        "fixtures": [
+          {
+            "date": "1996-06-22",
+            "home": "Sligo Rovers",
+            "away": "Heerenveen",
+            "hg": 0,
+            "ag": 0
+          },
+          {
+            "date": "1996-06-22",
+            "home": "FBK Kaunas",
+            "away": "Lillestrom",
+            "hg": 1,
+            "ag": 4
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Lillestrom",
+            "away": "Sligo Rovers",
+            "hg": 4,
+            "ag": 0
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Nantes",
+            "away": "FBK Kaunas",
+            "hg": 3,
+            "ag": 1
+          }
+        ],
+        "table": [
+          {
+            "team": "Lillestrom",
+            "P": 2,
+            "W": 2,
+            "D": 0,
+            "L": 0,
+            "GF": 8,
+            "GA": 1,
+            "pts": 6
+          },
+          {
+            "team": "Nantes",
+            "P": 1,
+            "W": 1,
+            "D": 0,
+            "L": 0,
+            "GF": 3,
+            "GA": 1,
+            "pts": 3
+          },
+          {
+            "team": "Heerenveen",
+            "P": 1,
+            "W": 0,
+            "D": 1,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 1
+          },
+          {
+            "team": "Sligo Rovers",
+            "P": 2,
+            "W": 0,
+            "D": 1,
+            "L": 1,
+            "GF": 0,
+            "GA": 4,
+            "pts": 1
+          },
+          {
+            "team": "FBK Kaunas",
+            "P": 2,
+            "W": 0,
+            "D": 0,
+            "L": 2,
+            "GF": 2,
+            "GA": 7,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 6,
+        "fixtures": [
+          {
+            "date": "1996-06-22",
+            "home": "Hapoel Tel Aviv",
+            "away": "Rennes",
+            "hg": 0,
+            "ag": 2
+          },
+          {
+            "date": "1996-06-23",
+            "home": "Orgryte",
+            "away": "Luzern",
+            "hg": 3,
+            "ag": 0
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Luzern",
+            "away": "Hapoel Tel Aviv",
+            "hg": 2,
+            "ag": 0
+          },
+          {
+            "date": "1996-06-30",
+            "home": "Segesta Sisak",
+            "away": "Orgryte",
+            "hg": 1,
+            "ag": 1
+          }
+        ],
+        "table": [
+          {
+            "team": "Orgryte",
+            "P": 2,
+            "W": 1,
+            "D": 1,
+            "L": 0,
+            "GF": 4,
+            "GA": 1,
+            "pts": 4
+          },
+          {
+            "team": "Rennes",
+            "P": 1,
+            "W": 1,
+            "D": 0,
+            "L": 0,
+            "GF": 2,
+            "GA": 0,
+            "pts": 3
+          },
+          {
+            "team": "Luzern",
+            "P": 2,
+            "W": 1,
+            "D": 0,
+            "L": 1,
+            "GF": 2,
+            "GA": 3,
+            "pts": 3
+          },
+          {
+            "team": "Segesta Sisak",
+            "P": 1,
+            "W": 0,
+            "D": 1,
+            "L": 0,
+            "GF": 1,
+            "GA": 1,
+            "pts": 1
+          },
+          {
+            "team": "Hapoel Tel Aviv",
+            "P": 2,
+            "W": 0,
+            "D": 0,
+            "L": 2,
+            "GF": 0,
+            "GA": 4,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 7,
+        "fixtures": [
+          {
+            "date": "1996-06-22",
+            "home": "Ataka-Aura Minsk",
+            "away": "Rotor Volgograd",
+            "hg": 0,
+            "ag": 4
+          },
+          {
+            "date": "1996-06-23",
+            "home": "Basel",
+            "away": "Shakhtar Donetsk",
+            "hg": 2,
+            "ag": 2
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Antalyaspor",
+            "away": "Basel",
+            "hg": 2,
+            "ag": 5
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Shakhtar Donetsk",
+            "away": "Ataka-Aura Minsk",
+            "hg": 1,
+            "ag": 2
+          }
+        ],
+        "table": [
+          {
+            "team": "Basel",
+            "P": 2,
+            "W": 1,
+            "D": 1,
+            "L": 0,
+            "GF": 7,
+            "GA": 4,
+            "pts": 4
+          },
+          {
+            "team": "Rotor Volgograd",
+            "P": 1,
+            "W": 1,
+            "D": 0,
+            "L": 0,
+            "GF": 4,
+            "GA": 0,
+            "pts": 3
+          },
+          {
+            "team": "Ataka-Aura Minsk",
+            "P": 2,
+            "W": 1,
+            "D": 0,
+            "L": 1,
+            "GF": 2,
+            "GA": 5,
+            "pts": 3
+          },
+          {
+            "team": "Shakhtar Donetsk",
+            "P": 2,
+            "W": 0,
+            "D": 1,
+            "L": 1,
+            "GF": 3,
+            "GA": 4,
+            "pts": 1
+          },
+          {
+            "team": "Antalyaspor",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 2,
+            "GA": 5,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 8,
+        "fixtures": [
+          {
+            "date": "1996-06-22",
+            "home": "Spartak Varna",
+            "away": "1860 Munich",
+            "hg": 2,
+            "ag": 1
+          },
+          {
+            "date": "1996-06-22",
+            "home": "KAMAZ",
+            "away": "LKS Lodz",
+            "hg": 3,
+            "ag": 0
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Opava",
+            "away": "KAMAZ",
+            "hg": 1,
+            "ag": 2
+          },
+          {
+            "date": "1996-06-29",
+            "home": "LKS Lodz",
+            "away": "Spartak Varna",
+            "hg": 1,
+            "ag": 1
+          }
+        ],
+        "table": [
+          {
+            "team": "KAMAZ",
+            "P": 2,
+            "W": 2,
+            "D": 0,
+            "L": 0,
+            "GF": 5,
+            "GA": 1,
+            "pts": 6
+          },
+          {
+            "team": "Spartak Varna",
+            "P": 2,
+            "W": 1,
+            "D": 1,
+            "L": 0,
+            "GF": 3,
+            "GA": 2,
+            "pts": 4
+          },
+          {
+            "team": "LKS Lodz",
+            "P": 2,
+            "W": 0,
+            "D": 1,
+            "L": 1,
+            "GF": 1,
+            "GA": 4,
+            "pts": 1
+          },
+          {
+            "team": "1860 Munich",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 1,
+            "GA": 2,
+            "pts": 0
+          },
+          {
+            "team": "Opava",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 1,
+            "GA": 2,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 9,
+        "fixtures": [
+          {
+            "date": "1996-06-22",
+            "home": "Universitatea Craiova",
+            "away": "Daugava Riga",
+            "hg": 3,
+            "ag": 0
+          },
+          {
+            "date": "1996-06-23",
+            "home": "Spartak Trnava",
+            "away": "Cukaricki",
+            "hg": 3,
+            "ag": 0
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Daugava Riga",
+            "away": "Spartak Trnava",
+            "hg": 0,
+            "ag": 6
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Karlsruhe",
+            "away": "Universitatea Craiova",
+            "hg": 1,
+            "ag": 0
+          }
+        ],
+        "table": [
+          {
+            "team": "Spartak Trnava",
+            "P": 2,
+            "W": 2,
+            "D": 0,
+            "L": 0,
+            "GF": 9,
+            "GA": 0,
+            "pts": 6
+          },
+          {
+            "team": "Universitatea Craiova",
+            "P": 2,
+            "W": 1,
+            "D": 0,
+            "L": 1,
+            "GF": 3,
+            "GA": 1,
+            "pts": 3
+          },
+          {
+            "team": "Karlsruhe",
+            "P": 1,
+            "W": 1,
+            "D": 0,
+            "L": 0,
+            "GF": 1,
+            "GA": 0,
+            "pts": 3
+          },
+          {
+            "team": "Cukaricki",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 0,
+            "GA": 3,
+            "pts": 0
+          },
+          {
+            "team": "Daugava Riga",
+            "P": 2,
+            "W": 0,
+            "D": 0,
+            "L": 2,
+            "GF": 0,
+            "GA": 9,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 10,
+        "fixtures": [
+          {
+            "date": "1996-06-22",
+            "home": "Groningen",
+            "away": "Gaziantepspor",
+            "hg": 1,
+            "ag": 1
+          },
+          {
+            "date": "1996-06-22",
+            "home": "Vasas",
+            "away": "Lierse",
+            "hg": 2,
+            "ag": 0
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Trans Narva",
+            "away": "Groningen",
+            "hg": 1,
+            "ag": 4
+          },
+          {
+            "date": "1996-06-30",
+            "home": "Gaziantepspor",
+            "away": "Vasas",
+            "hg": 3,
+            "ag": 2
+          }
+        ],
+        "table": [
+          {
+            "team": "Groningen",
+            "P": 2,
+            "W": 1,
+            "D": 1,
+            "L": 0,
+            "GF": 5,
+            "GA": 2,
+            "pts": 4
+          },
+          {
+            "team": "Gaziantepspor",
+            "P": 2,
+            "W": 1,
+            "D": 1,
+            "L": 0,
+            "GF": 4,
+            "GA": 3,
+            "pts": 4
+          },
+          {
+            "team": "Vasas",
+            "P": 2,
+            "W": 1,
+            "D": 0,
+            "L": 1,
+            "GF": 4,
+            "GA": 3,
+            "pts": 3
+          },
+          {
+            "team": "Lierse",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 0,
+            "GA": 2,
+            "pts": 0
+          },
+          {
+            "team": "Trans Narva",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 1,
+            "GA": 4,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 11,
+        "fixtures": [
+          {
+            "date": "1996-06-23",
+            "home": "Hibernians",
+            "away": "Uralmash",
+            "hg": 1,
+            "ag": 2
+          },
+          {
+            "date": "1996-06-23",
+            "home": "Kocaelispor",
+            "away": "CSKA Sofia",
+            "hg": 1,
+            "ag": 3
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Strasbourg",
+            "away": "Kocaelispor",
+            "hg": 1,
+            "ag": 1
+          },
+          {
+            "date": "1996-06-29",
+            "home": "CSKA Sofia",
+            "away": "Hibernians",
+            "hg": 4,
+            "ag": 1
+          }
+        ],
+        "table": [
+          {
+            "team": "CSKA Sofia",
+            "P": 2,
+            "W": 2,
+            "D": 0,
+            "L": 0,
+            "GF": 7,
+            "GA": 2,
+            "pts": 6
+          },
+          {
+            "team": "Uralmash",
+            "P": 1,
+            "W": 1,
+            "D": 0,
+            "L": 0,
+            "GF": 2,
+            "GA": 1,
+            "pts": 3
+          },
+          {
+            "team": "Strasbourg",
+            "P": 1,
+            "W": 0,
+            "D": 1,
+            "L": 0,
+            "GF": 1,
+            "GA": 1,
+            "pts": 1
+          },
+          {
+            "team": "Kocaelispor",
+            "P": 2,
+            "W": 0,
+            "D": 1,
+            "L": 1,
+            "GF": 2,
+            "GA": 4,
+            "pts": 1
+          },
+          {
+            "team": "Hibernians",
+            "P": 2,
+            "W": 0,
+            "D": 0,
+            "L": 2,
+            "GF": 2,
+            "GA": 6,
+            "pts": 0
+          }
+        ]
+      },
+      {
+        "group": 12,
+        "fixtures": [
+          {
+            "date": "1996-06-22",
+            "home": "Zemun",
+            "away": "Dinamo Bucuresti",
+            "hg": 2,
+            "ag": 1
+          },
+          {
+            "date": "1996-06-23",
+            "home": "FF Jaro",
+            "away": "Guingamp",
+            "hg": 0,
+            "ag": 0
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Kolkheti Poti",
+            "away": "Zemun",
+            "hg": 2,
+            "ag": 3
+          },
+          {
+            "date": "1996-06-29",
+            "home": "Dinamo Bucuresti",
+            "away": "FF Jaro",
+            "hg": 0,
+            "ag": 2
+          }
+        ],
+        "table": [
+          {
+            "team": "Zemun",
+            "P": 2,
+            "W": 2,
+            "D": 0,
+            "L": 0,
+            "GF": 5,
+            "GA": 3,
+            "pts": 6
+          },
+          {
+            "team": "FF Jaro",
+            "P": 2,
+            "W": 1,
+            "D": 1,
+            "L": 0,
+            "GF": 2,
+            "GA": 0,
+            "pts": 4
+          },
+          {
+            "team": "Guingamp",
+            "P": 1,
+            "W": 0,
+            "D": 1,
+            "L": 0,
+            "GF": 0,
+            "GA": 0,
+            "pts": 1
+          },
+          {
+            "team": "Kolkheti Poti",
+            "P": 1,
+            "W": 0,
+            "D": 0,
+            "L": 1,
+            "GF": 2,
+            "GA": 3,
+            "pts": 0
+          },
+          {
+            "team": "Dinamo Bucuresti",
+            "P": 2,
+            "W": 0,
+            "D": 0,
+            "L": 2,
+            "GF": 1,
+            "GA": 4,
+            "pts": 0
+          }
+        ]
+      }
+    ],
+    "validation": {
+      "valid": true,
+      "fixtures": 48,
+      "uniqueTeams": 60,
+      "remainingGroup": 72,
+      "remainingKO": 18
+    }
+  },
+  "wc_conmebol": {
+    "fixtures": [
+      {
+        "date": "1996-04-24",
+        "home": "Argentina",
+        "away": "Bolivia",
+        "hg": 3,
+        "ag": 1
+      },
+      {
+        "date": "1996-04-24",
+        "home": "Colombia",
+        "away": "Paraguay",
+        "hg": 1,
+        "ag": 0
+      },
+      {
+        "date": "1996-04-24",
+        "home": "Ecuador",
+        "away": "Peru",
+        "hg": 4,
+        "ag": 1
+      },
+      {
+        "date": "1996-04-24",
+        "home": "Venezuela",
+        "away": "Uruguay",
+        "hg": 0,
+        "ag": 2
+      },
+      {
+        "date": "1996-06-02",
+        "home": "Ecuador",
+        "away": "Argentina",
+        "hg": 2,
+        "ag": 0
+      },
+      {
+        "date": "1996-06-02",
+        "home": "Peru",
+        "away": "Colombia",
+        "hg": 1,
+        "ag": 1
+      },
+      {
+        "date": "1996-06-02",
+        "home": "Uruguay",
+        "away": "Paraguay",
+        "hg": 0,
+        "ag": 2
+      },
+      {
+        "date": "1996-06-02",
+        "home": "Venezuela",
+        "away": "Chile",
+        "hg": 1,
+        "ag": 1
+      }
+    ],
+    "table": [
+      {
+        "team": "Ecuador",
+        "P": 2,
+        "W": 2,
+        "D": 0,
+        "L": 0,
+        "GF": 6,
+        "GA": 1,
+        "pts": 6
+      },
+      {
+        "team": "Colombia",
+        "P": 2,
+        "W": 1,
+        "D": 1,
+        "L": 0,
+        "GF": 2,
+        "GA": 1,
+        "pts": 4
+      },
+      {
+        "team": "Paraguay",
+        "P": 2,
+        "W": 1,
+        "D": 0,
+        "L": 1,
+        "GF": 2,
+        "GA": 1,
+        "pts": 3
+      },
+      {
+        "team": "Argentina",
+        "P": 2,
+        "W": 1,
+        "D": 0,
+        "L": 1,
+        "GF": 3,
+        "GA": 3,
+        "pts": 3
+      },
+      {
+        "team": "Uruguay",
+        "P": 2,
+        "W": 1,
+        "D": 0,
+        "L": 1,
+        "GF": 2,
+        "GA": 2,
+        "pts": 3
+      },
+      {
+        "team": "Chile",
+        "P": 1,
+        "W": 0,
+        "D": 1,
+        "L": 0,
+        "GF": 1,
+        "GA": 1,
+        "pts": 1
+      },
+      {
+        "team": "Venezuela",
+        "P": 2,
+        "W": 0,
+        "D": 1,
+        "L": 1,
+        "GF": 1,
+        "GA": 3,
+        "pts": 1
+      },
+      {
+        "team": "Peru",
+        "P": 2,
+        "W": 0,
+        "D": 1,
+        "L": 1,
+        "GF": 2,
+        "GA": 5,
+        "pts": 1
+      },
+      {
+        "team": "Bolivia",
+        "P": 1,
+        "W": 0,
+        "D": 0,
+        "L": 1,
+        "GF": 1,
+        "GA": 3,
+        "pts": 0
+      }
+    ],
+    "format": "9 teams double RR, top4, Brazil defending champion exempt",
+    "remaining": 64
+  },
+  "limits": "Secondary sources; names not mapped, table sort display only GD/GF not certified tie break. No post-cutoff results. RSSSF Intertoto cache miss and South America encoding error; no code changes, HEAD last checked beb9fd3; precheck RG before import."
+}

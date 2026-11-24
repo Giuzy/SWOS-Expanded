@@ -1,0 +1,65 @@
+[
+  {
+    "row": 31,
+    "world": "9697",
+    "id": "_swedishLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SWE",
+    "candidateSources": [
+      "86cf417b80a983f5ed0707a438f06c81a4bb7440"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "SWEDEN",
+      "teams": "14",
+      "formula": "OG rounds=2; points_win=3; begin=24; end=72",
+      "promotionRaw": "0 campo-OG + 0 playoff",
+      "relegationRaw": "0 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS",
+      "sources": [
+        "86cf417b80a983f5ed0707a438f06c81a4bb7440"
+      ],
+      "details": {
+        "matches": 87,
+        "teams": 14,
+        "remaining": 95
+      },
+      "missing": "Club keys; independent exact dates and standings reconciliation."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "Allsvenskan",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.svenskfotboll.se/nyheter/serier/2020/11/thylin-infor-slutspurten/",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence38": {
+      "edition": "1996",
+      "teams": 14,
+      "source": "https://www.svenskfotboll.se/nyheter/serier/2020/11/thylin-infor-slutspurten/"
+    }
+  }
+]

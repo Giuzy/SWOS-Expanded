@@ -1,0 +1,77 @@
+[
+  {
+    "index": 96,
+    "value": {
+      "country": "BOL",
+      "division": "div1",
+      "from": "2003",
+      "to": null,
+      "rules": {
+        "titlesPerYear": 2,
+        "note": "Two separately awarded championships starting 2003; actual annual exceptions and format versions pending"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesb/bolchamp.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF and press sources retrieved; observed edition rules, not full continuity certification; no results imported; exact dates, access and modern baseline pending",
+      "rowRefs": [
+        38,
+        216
+      ]
+    }
+  },
+  {
+    "index": 97,
+    "value": {
+      "country": "BOL",
+      "division": "div1",
+      "from": "2018",
+      "to": null,
+      "rules": {
+        "editionSpecific": true,
+        "phases": [
+          "Apertura group phase",
+          "Apertura playoffs",
+          "Clausura"
+        ],
+        "note": "Apertura two series, two-leg KO decided by match points rather than aggregate goals; Clausura different format; exact access pending"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesb/bol2018.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF and press sources retrieved; observed edition rules, not full continuity certification; no results imported; exact dates, access and modern baseline pending",
+      "rowRefs": [
+        38,
+        216
+      ]
+    }
+  },
+  {
+    "index": 98,
+    "value": {
+      "country": "BOL",
+      "division": "div1",
+      "from": "2023",
+      "to": null,
+      "rules": {
+        "editionSpecific": true,
+        "phases": [
+          "League",
+          "League Cup"
+        ],
+        "note": "Relegation average includes league and cup; no assumption that this rule persists in 2026"
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesb/bol2023.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF and press sources retrieved; observed edition rules, not full continuity certification; no results imported; exact dates, access and modern baseline pending",
+      "rowRefs": [
+        38,
+        216
+      ]
+    }
+  }
+]

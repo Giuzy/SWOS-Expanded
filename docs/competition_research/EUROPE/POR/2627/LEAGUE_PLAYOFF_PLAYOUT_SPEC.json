@@ -1,0 +1,36 @@
+[
+  {
+    "row": 474,
+    "world": "2627",
+    "id": "Portugal",
+    "detail": "",
+    "technicalCategory": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+    "researchCategory": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+    "country": "POR",
+    "candidateSources": [
+      "4fb73a35a5e15b140d942b00f84fb8eef682915a",
+      "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

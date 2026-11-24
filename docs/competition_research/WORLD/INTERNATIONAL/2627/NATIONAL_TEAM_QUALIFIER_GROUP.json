@@ -1,0 +1,125 @@
+[
+  {
+    "row": 535,
+    "world": "2627",
+    "id": "WORLD_CUP_QUALIFIERS",
+    "detail": "OG qualifying groups",
+    "technicalCategory": "NATIONAL_TEAM_QUALIFIER_GROUP",
+    "researchCategory": "NATIONAL_TEAM_QUALIFIER_GROUP",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "FIFA World Cup qualifying",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.fifa.com/en/articles/world-cup-2026-who-has-qualified",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence51": {
+      "edition": "2026",
+      "rules": {
+        "direct": {
+          "AFC": 8,
+          "CAF": 9,
+          "CONCACAF": 6,
+          "CONMEBOL": 6,
+          "OFC": 1,
+          "UEFA": 16
+        },
+        "playoff": {
+          "entrants": 6,
+          "qualify": 2,
+          "seeded": 2
+        },
+        "UEFA": {
+          "entrants": 54,
+          "groups": 12,
+          "groupSizes": [
+            4,
+            5
+          ],
+          "direct": 12,
+          "playoffEntrants": 16,
+          "playoffQualify": 4
+        },
+        "hostsWithinQuota": true
+      },
+      "sources": [
+        "https://www.fifa.com/en/articles/world-cup-2026-who-has-qualified",
+        "https://www.fifa.com/en/articles/uefa-qualifying-teams-schedule-dates-places",
+        "https://inside.fifa.com/news/wc2026-qualifiers-331w"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Search excerpts only; PDF art 11–15 extracted by search, not full document; 2020 FIFA obsolete final format excluded."
+    }
+  },
+  {
+    "row": 536,
+    "world": "2627",
+    "id": "EURO_QUALIFIERS",
+    "detail": "OG qualifying groups",
+    "technicalCategory": "NATIONAL_TEAM_QUALIFIER_GROUP",
+    "researchCategory": "NATIONAL_TEAM_QUALIFIER_GROUP",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "UEFA European Championship qualifying",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.uefa.com/euro2028/news/0299-1dcf3fef69a9-41405d004b47-1000--qualification-system-for-uefa-euro-2028-approved/",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence49": {
+      "edition": "2028",
+      "rules": {
+        "groups": 12,
+        "groupSizes": [
+          4,
+          5
+        ],
+        "groupWinnersDirect": 12,
+        "bestRunnersUpDirect": 8,
+        "hostReservedMax": 2,
+        "nationsLeaguePlayoffAccess": true
+      },
+      "sources": [
+        "https://www.uefa.com/euro2028/news/0299-1dcf3fef69a9-41405d004b47-1000--qualification-system-for-uefa-euro-2028-approved/",
+        "https://documents.uefa.com/r/Regulations-of-the-UEFA-European-Football-Championship-2026-28/Article-14-Match-system-qualifying-group-stage-Online"
+      ],
+      "limitations": "official search excerpts, no host allocation assumed",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

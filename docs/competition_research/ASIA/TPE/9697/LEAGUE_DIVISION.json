@@ -1,0 +1,55 @@
+[
+  {
+    "row": 48,
+    "world": "9697",
+    "id": "_taiwaneseLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "TPE",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "TAIWAN",
+      "teams": "12",
+      "formula": "OG rounds=4; points_win=3; begin=64; end=32",
+      "promotionRaw": "0 campo-OG + 0 playoff",
+      "relegationRaw": "0 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "name": "National Football League",
+      "edition": "1997",
+      "teams": 8,
+      "regularOrInitialGamesPerClub": 14,
+      "pointsWin": 3,
+      "formatAndMovement": "1997 table, not proof 1996 composition; 1996 champion archive available; exact cutoff and 1996 format remain unknown",
+      "researchSource": "https://en.wikipedia.org/wiki/1997_Chinese_Taipei_National_Football_League",
+      "scope": "Research only: regional candidates and adjacent-year evidence are not exact first-edition certification; no future results imported."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": "National Football League",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://en.wikipedia.org/wiki/1997_Chinese_Taipei_National_Football_League",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

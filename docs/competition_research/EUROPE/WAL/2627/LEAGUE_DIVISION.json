@@ -1,0 +1,54 @@
+[
+  {
+    "row": 319,
+    "world": "2627",
+    "id": "_welshLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "WAL",
+    "candidateSources": [
+      "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Cymru Premier",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://faw.cymru/cymru-leagues/news/jd-cymru-premier-format-confirmed-for-2026-27/",
+      "nameHistory": [
+        {
+          "transition": 224,
+          "from": "2002/03",
+          "to": null,
+          "previousName": "League of Wales",
+          "name": "Welsh Premier League",
+          "operation": "RENAME",
+          "source": "https://clwbpeldroed.org/2019/07/24/jd-cymru-leagues-football-association-wales/"
+        },
+        {
+          "transition": 225,
+          "from": "2019/20",
+          "to": null,
+          "previousName": "Welsh Premier League",
+          "name": "Cymru Premier",
+          "operation": "RENAME",
+          "source": "https://welshprem.com/league-history/"
+        }
+      ],
+      "historyComplete": false
+    }
+  }
+]

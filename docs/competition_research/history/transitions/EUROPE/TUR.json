@@ -1,0 +1,135 @@
+[
+  {
+    "index": 322,
+    "value": {
+      "competition": "TUR tier 1",
+      "firstEdition": "2026/27",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        311
+      ],
+      "source": "https://www.tff.org/Resources/TFF/Documents/STATULER/2026-2027/2026-2027-sezonu-super-lig-musabakalari-statusu.pdf",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "relegatedRanks": [
+          16,
+          17,
+          18
+        ],
+        "promotedFromPreviousTier2": 3
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block45 verified source text or search excerpt; TFF p1 screenshot."
+    }
+  },
+  {
+    "index": 327,
+    "value": {
+      "competition": "TUR tier 2",
+      "firstEdition": "2026/27",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        312
+      ],
+      "source": "https://www.tff.org/Resources/TFF/Documents/STATULER/2026-2027/2026-2027-sezonu-tff-1-lig-musabakalari-statusu.pdf",
+      "rules": {
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "entrants": {
+          "relegatedFromTop": 3,
+          "promotedFromThird": 4,
+          "retained": 13
+        },
+        "directPromoted": [
+          1,
+          2
+        ],
+        "relegated": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "playoff": {
+          "rank3": "final",
+          "firstRoundPairs": [
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "firstRoundLegs": 1,
+          "firstRoundHome": "higher rank",
+          "semiLegs": 2,
+          "semiFirstHome": "lower rank",
+          "finalLegs": 1,
+          "finalVenue": "neutral",
+          "extraTimeMinutes": 30,
+          "penalties": true
+        },
+        "seasonStartWindow": [
+          "2026-08-07",
+          "2026-08-10"
+        ],
+        "winterLastRoundWindow": [
+          "2026-12-18",
+          "2026-12-21"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block46 source retrieval; see evidence46 and namingResearch.block46."
+    }
+  },
+  {
+    "index": 332,
+    "value": {
+      "competition": "TUR tier 1",
+      "firstEdition": "2002/03",
+      "operation": "RENAME",
+      "rowRefs": [
+        33,
+        311
+      ],
+      "source": "https://www.tff.org/Default.aspx?pageId=545",
+      "rules": {
+        "name": "Türkiye Süper Ligi",
+        "previousName": "1. Lig",
+        "note": "TFF history search excerpt says 2002/03; open timed out; intervening 2001/02 identity unresolved."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block47 RSSSF retrieved HTML/search excerpts; TFF history excerpt only after open timeout."
+    }
+  },
+  {
+    "index": 341,
+    "value": {
+      "competition": "TUR cup",
+      "firstEdition": "1996/97",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        144
+      ],
+      "source": "https://www.rsssf.org/tablest/turkhist.html",
+      "rules": {
+        "round5Legs": 1,
+        "round6Legs": 1,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 2,
+        "finalDates": [
+          "1997-03-19",
+          "1997-04-16"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block47 RSSSF retrieved HTML/search excerpts; TFF history excerpt only after open timeout."
+    }
+  }
+]

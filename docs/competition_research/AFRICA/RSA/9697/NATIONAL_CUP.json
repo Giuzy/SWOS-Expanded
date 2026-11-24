@@ -1,0 +1,47 @@
+[
+  {
+    "row": 149,
+    "world": "9697",
+    "id": "_southAfricanCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "RSA",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "historicalSportData": {
+      "name": "Bob Save Superbowl",
+      "edition": "1996/97",
+      "teams": null,
+      "known": "1995 cup named Bob Save Superbowl; 1996/97 championship transition to August-May. RSSSF 1997 worldwide palmares lists Kaizer Chiefs cup winner, postSTART research only; no winner imported. Exact 1996/97 bracket not recovered.",
+      "missing": "precise 1996/97 name and tournament identity, dates, entrants, format, match rules",
+      "sources": [
+        "https://www.rsssf.org/tablesz/zaf95.html",
+        "https://rsssf.org/tablesp/palmaresworld97.html",
+        "https://www.rsssf.org/tablesz/zaf97.html"
+      ],
+      "scope": "Temporary historical research only; future results excluded from START."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "South African National Cup",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  }
+]

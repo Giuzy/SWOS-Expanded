@@ -1,0 +1,56 @@
+[
+  {
+    "row": 220,
+    "world": "2627",
+    "id": "_worldCanLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "CAN",
+    "candidateSources": [
+      "c79508abe598b80e9ae3ed1c7fa9e3926c3726d6"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Canadian Premier League",
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://news.canadasoccer.com/canada-soccer-welcomes-canadian-premier-league-to-canadas-sporting-landscape",
+      "nameHistory": [
+        {
+          "transition": 270,
+          "from": "2019",
+          "to": null,
+          "previousName": null,
+          "name": "Canadian Premier League",
+          "operation": "INTRODUCE",
+          "source": "https://news.canadasoccer.com/canada-soccer-welcomes-canadian-premier-league-to-canadas-sporting-landscape"
+        }
+      ],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "historicalSportData": {
+      "priorEditionResearch": {
+        "edition": "2019",
+        "teams": 7,
+        "regularGamesPerClub": 28,
+        "springGames": 10,
+        "fallGames": 18,
+        "source": "https://www.cplsoccer.com/news/faq-a-primer-on-the-cpls-format-and-season-rules"
+      }
+    }
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "row": 305,
+    "world": "2627",
+    "id": "_slovakianLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "SVK",
+    "candidateSources": [
+      "356f4063724366c16d0070ec9caae81183c386c2"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Slovak First Football League",
+      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "source": "https://en.wikipedia.org/wiki/European_Leagues",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence41": {
+      "formatSince": "2017/18",
+      "teams": 12,
+      "regularGames": 22,
+      "groups": [
+        6,
+        6
+      ],
+      "splitGames": 10,
+      "tiebreak": [
+        "H2H points",
+        "H2H goal difference",
+        "overall goal difference",
+        "overall goals",
+        "wins",
+        "away wins",
+        "draws",
+        "away draws"
+      ],
+      "directRelegatedRank": 12,
+      "playoffRank": 11,
+      "opponentTier2Rank": 2,
+      "playoffLegs": 2,
+      "awayGoals": false,
+      "extraTimeMinutes": 30,
+      "penalties": true,
+      "source": "https://www.nikeliga.sk/text/56-herny-model",
+      "qualificationExample": {
+        "edition": "2025/26",
+        "cupWinnerInTop3": true,
+        "conditionalEuropeanPlayoff": [
+          [
+            4,
+            7
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        "finalHome": "higher final rank",
+        "scope": "UEFA allocation edition-specific, no permanent fixed quotas"
+      }
+    }
+  }
+]

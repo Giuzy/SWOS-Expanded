@@ -1,0 +1,72 @@
+[
+  {
+    "row": 248,
+    "world": "2627",
+    "id": "_greekLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "GRE",
+    "candidateSources": [
+      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": "Super League Greece",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.sportal.gr/podosfairo/article/stoiximan-super-league-ti-isxyei-se-playoffs-1-4-5-8-kai-ta-playouts-2026040200020092788",
+      "nameHistory": [
+        {
+          "from": "2006/07",
+          "to": null,
+          "previousName": "Alpha Ethniki",
+          "name": "Super League Greece",
+          "source": "https://en.wikipedia.org/wiki/2006%E2%80%9307_Super_League_Greece",
+          "scope": "Partial chronology, secondary source corroborated by UEFA proposal"
+        }
+      ],
+      "historyComplete": false
+    },
+    "sportRuleEvidence46": {
+      "edition": "2025/26",
+      "rules": {
+        "teams": 14,
+        "regularGames": 26,
+        "splitRanks": [
+          [
+            1,
+            4
+          ],
+          [
+            5,
+            8
+          ],
+          [
+            9,
+            14
+          ]
+        ],
+        "splitDrawDate": "2026-03-24"
+      },
+      "sources": [
+        "https://www.sportal.gr/podosfairo/article/stoiximan-super-league-ti-isxyei-se-playoffs-1-4-5-8-kai-ta-playouts-2026040200020092788",
+        "https://www.in.gr/2026/03/22/sports/football/teliki-vathmologia-tis-super-league-ta-playoffs-1-4-5-8-kai-ta-playouts-pic/"
+      ],
+      "limitations": "Secondary reporting reproduces league announcement; current 2026/27 not inferred.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

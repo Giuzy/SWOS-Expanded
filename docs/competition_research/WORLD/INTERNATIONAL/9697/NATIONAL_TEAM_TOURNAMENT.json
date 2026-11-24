@@ -1,0 +1,718 @@
+[
+  {
+    "row": 111,
+    "world": "9697",
+    "id": "_oceaniaCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": "Oceania Nations Cup",
+      "candidateName": "OFC Nations Cup",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tables/96oc.html",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence49": {
+      "edition": "1996",
+      "rules": {
+        "teams": [
+          "New Zealand",
+          "Australia",
+          "Solomon Islands",
+          "Tahiti"
+        ],
+        "firstRoundLegs": 2,
+        "finalLegs": 2,
+        "finalDates": [
+          "1996-10-26",
+          "1996-11-01"
+        ],
+        "historicalCutoff": {
+          "finalists": [
+            "Australia",
+            "Tahiti"
+          ],
+          "priorRoundsCompleted": true
+        },
+        "access": [
+          "Melanesia Cup winner",
+          "Polynesia Cup winner"
+        ]
+      },
+      "sources": [
+        "https://www.rsssf.org/tables/96oc.html"
+      ],
+      "limitations": "HTML opened; cutoff finalists known, team keys not reconciled",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "row": 166,
+    "world": "9697",
+    "id": "_worldCup2",
+    "detail": "",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "FIFA World Cup",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  },
+  {
+    "row": 167,
+    "world": "9697",
+    "id": "_worldCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "FIFA World Cup",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  },
+  {
+    "row": 168,
+    "world": "9697",
+    "id": "_northAmericaWorldCupQualification",
+    "detail": "",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981",
+      "54ef1a5715a673e2b3e3e2e263cb629b994fa202",
+      "ffd563a774e1c1865eb513e6ab0ffb427d370a78"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "ffd563a774e1c1865eb513e6ab0ffb427d370a78"
+      ],
+      "details": {
+        "matches": 32
+      },
+      "missing": "Walkovers and group mapping."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": "FIFA World Cup CONCACAF qualifying",
+      "candidateName": "FIFA World Cup CONCACAF qualifying",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tables/98q.html",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence50": {
+      "edition": "1998",
+      "rules": {
+        "regionalPreliminaries": true,
+        "semifinalGroups": 3,
+        "groupSize": 4,
+        "finalGroupSize": 6,
+        "finalRounds": 2,
+        "qualify": 3,
+        "finalStart": "1997-03-02",
+        "cutoff": "Regional preliminary matches through 1996-06-30"
+      },
+      "sources": [
+        "https://www.rsssf.org/tables/98q.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "RSSSF retrieved excerpt; neutral labels, not official name history; no OG key mapping or runtime import."
+    }
+  },
+  {
+    "row": 169,
+    "world": "9697",
+    "id": "_southAmericaWorldCupQualification",
+    "detail": "",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981",
+      "54ef1a5715a673e2b3e3e2e263cb629b994fa202",
+      "ffd563a774e1c1865eb513e6ab0ffb427d370a78"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS",
+      "sources": [
+        "54ef1a5715a673e2b3e3e2e263cb629b994fa202"
+      ],
+      "details": {
+        "matches": 8,
+        "teams": 9,
+        "remaining": 64
+      },
+      "missing": "Mapping and tiebreaks."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": "FIFA World Cup CONMEBOL qualifying",
+      "candidateName": "FIFA World Cup CONMEBOL qualifying",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tables/98q.html",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence50": {
+      "edition": "1998",
+      "rules": {
+        "teams": 9,
+        "rounds": 2,
+        "gamesPerTeam": 16,
+        "qualify": 4,
+        "holderExempt": "Brazil",
+        "cutoffMatches": [
+          [
+            "1996-04-24",
+            "Argentina",
+            "Bolivia",
+            3,
+            1
+          ],
+          [
+            "1996-04-24",
+            "Venezuela",
+            "Uruguay",
+            0,
+            2
+          ],
+          [
+            "1996-04-24",
+            "Colombia",
+            "Paraguay",
+            1,
+            0
+          ],
+          [
+            "1996-04-24",
+            "Ecuador",
+            "Peru",
+            4,
+            1
+          ],
+          [
+            "1996-06-02",
+            "Ecuador",
+            "Argentina",
+            2,
+            0
+          ],
+          [
+            "1996-06-02",
+            "Uruguay",
+            "Paraguay",
+            0,
+            2
+          ],
+          [
+            "1996-06-02",
+            "Venezuela",
+            "Chile",
+            1,
+            1
+          ],
+          [
+            "1996-06-02",
+            "Peru",
+            "Colombia",
+            1,
+            1
+          ]
+        ]
+      },
+      "sources": [
+        "https://www.rsssf.org/tables/98q.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "RSSSF retrieved excerpt; neutral labels, not official name history; no OG key mapping or runtime import."
+    }
+  },
+  {
+    "row": 170,
+    "world": "9697",
+    "id": "_africaWorldCupQualification",
+    "detail": "",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981",
+      "54ef1a5715a673e2b3e3e2e263cb629b994fa202",
+      "ffd563a774e1c1865eb513e6ab0ffb427d370a78"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "sources": [
+        "ffd563a774e1c1865eb513e6ab0ffb427d370a78"
+      ],
+      "details": {
+        "matches": 32
+      },
+      "missing": "Administrative withdrawal timing; mapping."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": "FIFA World Cup CAF qualifying",
+      "candidateName": "FIFA World Cup CAF qualifying",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tables/98q.html",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence50": {
+      "edition": "1998",
+      "rules": {
+        "seededByes": [
+          "Cameroon",
+          "Egypt",
+          "Morocco",
+          "Nigeria"
+        ],
+        "firstRoundPairs": 16,
+        "firstRoundLegs": 2,
+        "finalGroups": 5,
+        "groupSize": 4,
+        "qualifyGroupWinners": true,
+        "cutoff": "First round played May–June 1996; withdrawal substitution timing requires verification"
+      },
+      "sources": [
+        "https://www.rsssf.org/tables/98q.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "RSSSF retrieved excerpt; neutral labels, not official name history; no OG key mapping or runtime import."
+    }
+  },
+  {
+    "row": 171,
+    "world": "9697",
+    "id": "_asiaWorldCupQualification",
+    "detail": "",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981",
+      "54ef1a5715a673e2b3e3e2e263cb629b994fa202",
+      "ffd563a774e1c1865eb513e6ab0ffb427d370a78"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "RESEARCH_AVAILABLE",
+      "sources": [
+        "ffd563a774e1c1865eb513e6ab0ffb427d370a78"
+      ],
+      "details": {},
+      "missing": "Group assignment and cutoff state."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": "FIFA World Cup AFC qualifying",
+      "candidateName": "FIFA World Cup AFC qualifying",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tables/98q.html",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence50": {
+      "edition": "1998",
+      "rules": {
+        "firstRoundGroups": 10,
+        "secondRoundGroups": 2,
+        "secondRoundGroupSize": 5,
+        "directGroupWinners": true,
+        "runnerUpPlayoff": true,
+        "loserToOFCPlayoff": true
+      },
+      "sources": [
+        "https://www.rsssf.org/tables/98q.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "RSSSF retrieved excerpt; neutral labels, not official name history; no OG key mapping or runtime import."
+    }
+  },
+  {
+    "row": 172,
+    "world": "9697",
+    "id": "_europeanChampionships2",
+    "detail": "",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "UEFA European Championship",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  },
+  {
+    "row": 173,
+    "world": "9697",
+    "id": "_europeanChampionships",
+    "detail": "",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "UEFA European Championship",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  },
+  {
+    "row": 174,
+    "world": "9697",
+    "id": "_copaAmerica",
+    "detail": "",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": "Copa América",
+      "candidateName": "Copa América",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tables/97sa.html",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence49": {
+      "edition": "1997",
+      "rules": {
+        "start": "1997-06-11",
+        "end": "1997-06-29",
+        "groupA": [
+          "Chile",
+          "Paraguay",
+          "Argentina",
+          "Ecuador"
+        ],
+        "groupAGamesPerTeam": 3
+      },
+      "sources": [
+        "https://www.rsssf.org/tables/97sa.html"
+      ],
+      "limitations": "HTML opened, partial group evidence",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "row": 175,
+    "world": "9697",
+    "id": "_africanNationsCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": "African Nations Cup",
+      "candidateName": "Africa Cup of Nations",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tables/96a.html",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence49": {
+      "edition": "1996",
+      "rules": {
+        "start": "1996-01-13",
+        "end": "1996-02-03",
+        "host": "South Africa",
+        "finishedBeforeCutoff": true,
+        "quarterfinalObserved": true
+      },
+      "sources": [
+        "https://www.rsssf.org/tables/96a.html"
+      ],
+      "limitations": "HTML opened; past edition, not future result",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "row": 176,
+    "world": "9697",
+    "id": "_northAmericanCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "CONCACAF Gold Cup",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  },
+  {
+    "row": 177,
+    "world": "9697",
+    "id": "_asianCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "researchCategory": "NATIONAL_TEAM_TOURNAMENT",
+    "country": null,
+    "candidateSources": [
+      "f5bc7b9d4772ad0247fed63d6d319f956ffc2981"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": "Asian Nations Cup",
+      "candidateName": "AFC Asian Cup",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tables/96asch.html",
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence49": {
+      "edition": "1996",
+      "rules": {
+        "host": "UAE",
+        "holder": "Japan",
+        "automaticQualifiers": [
+          "UAE",
+          "Japan"
+        ],
+        "qualifierGroup1": [
+          "Vietnam",
+          "Taiwan",
+          "South Korea",
+          "Guam"
+        ],
+        "group1Dates": [
+          "1996-08-04",
+          "1996-08-11"
+        ]
+      },
+      "sources": [
+        "https://www.rsssf.org/tables/96asch.html"
+      ],
+      "limitations": "HTML opened, partial qualifying evidence",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

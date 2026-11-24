@@ -1,0 +1,21 @@
+[
+  {
+    "index": 257,
+    "value": {
+      "competition": "PER tier 1",
+      "firstEdition": "2019",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "previousName": "Primera División",
+      "name": "Liga 1",
+      "rowRefs": [
+        45,
+        284
+      ],
+      "source": "https://es.wikipedia.org/wiki/Liga1_2019_%28Per%C3%BA%29",
+      "note": "Secondary source; federation corroboration pending; RSSSF season archive supports Liga 1 usage.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
+    }
+  }
+]

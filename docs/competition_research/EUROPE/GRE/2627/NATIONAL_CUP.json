@@ -1,0 +1,88 @@
+[
+  {
+    "row": 363,
+    "world": "2627",
+    "id": "_greekCup",
+    "detail": "",
+    "technicalCategory": "NATIONAL_CUP",
+    "researchCategory": "NATIONAL_CUP",
+    "country": "GRE",
+    "candidateSources": [
+      "ce2d56b24b7595be6d28d9c9ff1bc9fd656befa6"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "PARTIAL",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": "Kypello Elladas",
+      "nonCommercialDisplayName": "Kypello Elladas",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.epo.gr/en/node/33281",
+      "nameHistory": [],
+      "historyComplete": false
+    },
+    "sportRuleEvidence45": {
+      "edition": "2026/27",
+      "rules": {
+        "previousEditionLeaguePhaseTeams": 20,
+        "leaguePhaseTeams": 16,
+        "matchdays": 4,
+        "playoffRanks": [
+          5,
+          12
+        ],
+        "playoffLegs": 1,
+        "preliminaryQualifiers": 11,
+        "directEuropeanEntrants": 5
+      },
+      "sources": [
+        "https://www.epo.gr/en/node/33281",
+        "https://www.epo.gr/en/node/33424"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "TFF PDF p1 screenshot verified; Bulgarian league HTML opened; other sources search excerpts only, EPO/RSSSF open cache miss. No full calendar or player rules certification."
+    },
+    "sportRuleEvidence46": {
+      "edition": "2026/27",
+      "rules": {
+        "directQuarterfinalRanks": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "playoffRanks": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "examplePair": [
+          6,
+          11
+        ],
+        "finalMonth": "2027-05",
+        "finalVenue": "Olympic Stadium"
+      },
+      "sources": [
+        "https://www.epo.gr/el/arthra/i-agonistiki-anaptyxi-toy-superbet-kypelloy-elladas"
+      ],
+      "limitations": "Official EPO search excerpt, open cache miss.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

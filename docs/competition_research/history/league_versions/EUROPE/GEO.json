@@ -1,0 +1,55 @@
+[
+  {
+    "index": 141,
+    "value": {
+      "country": "GEO",
+      "division": "div1",
+      "from": "2016",
+      "to": null,
+      "rules": {
+        "operation": "TRANSITION_TO_CALENDAR_YEAR",
+        "editionSpecific": true,
+        "note": "Transitional season following 2015/16; no promotion from second tier at end 2015/16 per observed decision. Exact transitional groups pending."
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesg/geor2016.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened lines 518–519; transition confirmed, full 2016 edition not extracted; exact end validity, identity mapping, dates, remaining rules and 2026 equivalence pending",
+      "rowRefs": [
+        242
+      ]
+    }
+  },
+  {
+    "index": 142,
+    "value": {
+      "country": "GEO",
+      "division": "div1",
+      "from": "2017",
+      "to": null,
+      "rules": {
+        "name": "Erovnuli Liga",
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "cycle": "calendar_year",
+        "relegationDirect": [
+          10
+        ],
+        "relegationPlayoff": [
+          8,
+          9
+        ]
+      },
+      "sources": [
+        "https://www.rsssf.org/tablesg/geor2017.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24: Opened final table lines 12–23; exact end validity, identity mapping, dates, remaining rules and 2026 equivalence pending",
+      "rowRefs": [
+        242
+      ]
+    }
+  }
+]

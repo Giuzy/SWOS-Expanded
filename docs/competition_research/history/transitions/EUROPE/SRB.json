@@ -1,0 +1,41 @@
+[
+  {
+    "index": 311,
+    "value": {
+      "competition": "SRB tier 1",
+      "firstEdition": "2026/27",
+      "lastEdition": "2026/27",
+      "operation": "TRANSITION_FORMAT",
+      "teams": 14,
+      "regularGames": 26,
+      "groups": [
+        6,
+        8
+      ],
+      "rowRefs": [
+        302
+      ],
+      "source": "https://fss.rs/io-fss-odlucio-liga-sa-12-klubova-za-novu-eru-srpskog-fudbala/?script=lat",
+      "additionalSource": "https://fss.rs/branko-radujko-generalni-sekretar-fss-o-promeni-formata-takmicenja-i-dolasku-inostranog-strucnjaka-na-celo-sudijske-komisije/?script=lat",
+      "note": "14 confirmed official decision and current table; split from official search excerpt only, full article timeout.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block43 official HTML opened and search excerpts retrieved; no PDF analyzed."
+    }
+  },
+  {
+    "index": 312,
+    "value": {
+      "competition": "SRB tier 1",
+      "firstEdition": "2027/28",
+      "operation": "ANNOUNCED_CHANGE_TEAM_COUNT",
+      "teams": 12,
+      "rowRefs": [
+        302
+      ],
+      "source": "https://fss.rs/io-fss-odlucio-liga-sa-12-klubova-za-novu-eru-srpskog-fudbala/?script=lat",
+      "note": "Adopted decision 29 May 2025; future format announcement, not actual played edition or authorized game template override.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block43 official HTML opened and search excerpts retrieved; no PDF analyzed."
+    }
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "index": 175,
+    "value": {
+      "competition": "GHA FA Cup",
+      "firstEdition": "1957/58",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "note": "GFA confirms first season; all league tiers eligible in tradition.",
+      "source": "https://www.ghanafa.org/fa-cup-profile",
+      "rowRefs": [
+        361
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
+    }
+  },
+  {
+    "index": 176,
+    "value": {
+      "competition": "GHA FA Cup",
+      "firstEdition": "2002",
+      "lastEdition": "2010",
+      "operation": "SUSPEND",
+      "note": "GFA list 2002–2010 no winner, resumed 2010/11; year labels are final years, not civil-day exclusion.",
+      "source": "https://www.ghanafa.org/winners-list-of-fa-cup-competition-ahead-of-sundays-final",
+      "rowRefs": [
+        361
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
+    }
+  },
+  {
+    "index": 177,
+    "value": {
+      "competition": "GHA FA Cup",
+      "firstEdition": "2010/11",
+      "lastEdition": null,
+      "operation": "RESUME",
+      "note": "GFA confirms competition restarted after last 2001 edition.",
+      "source": "https://www.ghanafa.org/chance-for-fa-cup-glory-begins-for-clubs",
+      "rowRefs": [
+        361
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
+    }
+  }
+]

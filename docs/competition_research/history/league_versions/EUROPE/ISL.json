@@ -1,0 +1,29 @@
+[
+  {
+    "index": 89,
+    "value": {
+      "country": "ISL",
+      "division": "div1",
+      "from": "2022",
+      "to": null,
+      "rules": {
+        "teams": 12,
+        "initialRounds": 2,
+        "split": [
+          6,
+          6
+        ],
+        "note": "Observed championship/relegation split, movement and phase dates pending"
+      },
+      "sources": [
+        "https://rsssf.org/tablesi/ijs2022.html"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "2026-11-24 RSSSF search extracts; observed season structure, end validity and access not certified; no results imported",
+      "rowRefs": [
+        15,
+        256
+      ]
+    }
+  }
+]

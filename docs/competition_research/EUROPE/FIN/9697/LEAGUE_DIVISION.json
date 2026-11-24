@@ -1,0 +1,85 @@
+[
+  {
+    "row": 12,
+    "world": "9697",
+    "id": "_finnishLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "FIN",
+    "candidateSources": [],
+    "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
+    "review": {
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
+    },
+    "knownNativeMissing": null,
+    "priorTechnicalAudit": {
+      "commit": "930fcb53e02d260ae4e87b2e8f7f1abeb285556c",
+      "fileSha": "068c6c83bde7603807cce30da3cd93cd856e9067",
+      "country": "FINLAND",
+      "teams": "12",
+      "formula": "OG rounds=2; points_win=3; begin=24; end=72",
+      "promotionRaw": "0 campo-OG + 0 playoff",
+      "relegationRaw": "0 campo-OG + 0 playout",
+      "comparison": "IDENTICO JSON base bin/data_json/competitions/leagues.json (SHA dd3290f6... entrambi); CAREER/PRESET UI NON PROVATI",
+      "scope": "Original game/OpenSWOS static records, NOT independent historical football verification"
+    },
+    "historicalSportData": {
+      "edition": "1996",
+      "teams": 12,
+      "regularOrInitialGamesPerClub": 27,
+      "pointsWin": 3,
+      "formatAndMovement": "Final split six/six, 27 games total; first stage 22 inferred, bottom three relegation positions and ninth playoff; verify exact transition rules",
+      "researchSource": "https://www.rsssf.org/tablesa/allfirst96.html",
+      "scope": "Observed structure, no future results imported; null and uncertain fields remain open."
+    },
+    "regulationSupplement": {
+      "edition": "1996",
+      "teams": 12,
+      "firstPhase": {
+        "rounds": 2,
+        "gamesPerClub": 22
+      },
+      "split": {
+        "groups": [
+          6,
+          6
+        ],
+        "rounds": 1,
+        "carryPoints": true,
+        "gamesPerClub": 5
+      },
+      "totalPerClub": 27,
+      "pointsWin": 3,
+      "relegation": {
+        "direct": [
+          10,
+          11,
+          12
+        ],
+        "playoff": [
+          9
+        ]
+      },
+      "source": "https://www.rsssf.org/tablesf/fin96.html",
+      "scope": "Full-season structure observed; not cutoff standings. No future results imported."
+    },
+    "competitionNaming": {
+      "startEdition": "1996/97",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Finnish Premier Division",
+      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "source": "https://www.rsssf.org/resultsp99.html",
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

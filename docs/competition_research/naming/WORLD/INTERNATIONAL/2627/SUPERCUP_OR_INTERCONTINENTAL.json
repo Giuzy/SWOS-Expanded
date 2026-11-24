@@ -1,0 +1,26 @@
+[
+  {
+    "index": 424,
+    "value": {
+      "row": 425,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": []
+    }
+  },
+  {
+    "index": 431,
+    "value": {
+      "row": 432,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": []
+    }
+  },
+  {
+    "index": 433,
+    "value": {
+      "row": 434,
+      "status": "IDENTITY_CANDIDATE",
+      "transitionRefs": []
+    }
+  }
+]

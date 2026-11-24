@@ -1,0 +1,18 @@
+[
+  {
+    "index": 61,
+    "value": {
+      "row": 62,
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "transitionRefs": []
+    }
+  },
+  {
+    "index": 62,
+    "value": {
+      "row": 63,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": []
+    }
+  }
+]

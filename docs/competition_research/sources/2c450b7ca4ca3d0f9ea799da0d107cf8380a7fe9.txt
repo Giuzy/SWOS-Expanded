@@ -1,0 +1,30 @@
+# SWOS Expanded — lotto sblocco CE coppe + nazionali, 24/11/2026
+
+**PREPARATO DATI ONLY, NON REFERENZIATO, NO COMMIT/RUNTIME.** Fonte ufficiale verificata 24/11. Branch ultimo confermato durante sessione: Claude ha pubblicato v00.13.298, SHA 137fd4c3fc4f0f2408a5fa7c4090e09e1e2caa9d (Issue #1); NON presupporre definitivi gli SHA dei file v297. Obiettivo priorità user: completare dati che sbloccano coppe bloccate, in parallelo catalogo nazionali.
+
+## BOLIVIA — prima struttura + quote certificate FBF
+Fonte diretta https://fbf.com.bo/temporada-2026-de-la-division-profesional/ ; corpo HTML verificato, righe 50-90. **Lega** 2026 16 squadre, 30 giornate all'italiana andata/ritorno, 5 aprile START; **Coppa 2026** secondo semestre: 16 club, 4 gruppi di 4, poi quarti, semifinali, finale. **CONMEBOL Libertadores 2027** 4 quote, ordine: (1) campione nazionale 2026, (2) vicecampione lega, (3) vincitore coppa, se già qualificato posto riassegnato alla migliore non qualificata in lega, (4) seguente migliore lega. **Sudamericana 2027** 4 quote: (1) finalista coppa salvo già qualificato Libertadores, (2–4) le successive migliori di lega non qualificate. **Retrocessioni** ultimo lega diretto; penultimo disputa spareggio andata/ritorno con vincitore Copa Simón Bolívar. Premi lega riportati generici, NON importo importi arbitrari.
+**IMPORTANTE CONFLITTO / incompletezza**: attuale JSON CE v297 `COPA BOLIVIA` dichiara `16 interseries (clasico) fixtures not authenticated/dated` e fase gruppi + KO; il comunicato ufficiale FBF appena verificato dice SOLO gruppo 4x4 e KO, non conferma interseries. Non cancellare né simulare interseries; trovare regolamento FBF completo e verificare se c'è successivo emendamento al calendario. Per i risultati 2026 dopo 30/06 non importare, la futura Coppa deve giocarla CE/OG. Mancano 16 stable club keys, appartenenze gruppi, calendario ufficiale prima del cutoff (Coppa inizia secondo semestre), regole accoppiamento KO, regole match/bench/subs e fonti versione.
+
+## CONCACAF Champions Cup 2026 — snapshot già chiuso prima del cutoff
+Fonte ufficiale https://www.concacaf.com/news/detalles-clave-y-equipos-clasificados-a-la-copa-de-campeones-de-la-concacaf-2026 (pubblicato 8/12/2025, pagina aggiornata elenco qualificati). **27 club**, 22 al primo turno, cinque bye agli ottavi, cinque round KO: Round One, R16, QF, SF e finale. Prime quattro fasi doppia gara, finale gara unica. Calendario ufficiale primo turno 03–26 febbraio, ottavi 10–19 marzo, QF 07–16 aprile, SF 28 aprile–07 maggio, finale **30/05/2026**. Edizione TUTTA precedente START 01/07: non resimularla. Fonte fornisce elenco integrale 27 partecipanti per criterio di accesso:
+- Canada Cup: Vancouver FC (runner-up perché posto Vancouver Whitecaps riallocato) [1].
+- Caribbean Cup: Mount Pleasant, O&M, Defence Force [3].
+- Central American Cup: LD Alajuelense, Real España, Xelajú, Olimpia, CS Cartaginés, Sporting San Miguelito [6].
+- Canadian PL: Forge FC, Atlético Ottawa [2].
+- Leagues Cup: Seattle Sounders, LA Galaxy [2]; Inter Miami già qualificato con titolo MLS -> posizione riallocata.
+- Liga MX: Club América, CF Monterrey, Toluca, Cruz Azul, Tigres UANL, Pumas UNAM [6].
+- MLS: Inter Miami, Philadelphia Union, San Diego FC, FC Cincinnati, Vancouver Whitecaps, Los Angeles FC [6].
+- US Open Cup: Nashville SC [1]. Totale 1+3+6+2+2+6+6+1=27.
+**Bye R16**: campioni Caribbean, Central American, Leagues Cup, MLS Cup e Liga MX campione qualificato privilegiato: Mount Pleasant, Alajuelense, Seattle Sounders, Inter Miami, Toluca. Verificare nell'elenco ufficiale e contro sorteggio (non usare una regola prioritaria basata su ranking senza fonte). Fonte ufficiale ha pure riallocazioni chiare. **Mancano** al CE: mappatura 27 club nelle squadre DB, risultati effettivi storico 2026 e classifiche finale, definizione CE e regole su tie-break, away-goals, sostituzioni e panchina specifiche. Per successivo anno 2027+: CE qualificazioni dai mondi correnti, NON importare partecipanti ufficiali futuri nelle edizioni generate.
+
+## NAZIONALI — FIFA World Cup 2026, dataset originale da acquisire
+Fonte https://inside.fifa.com/organisation/media-releases/world-cup-2026-48-squads-confirmed (02/06/2026): 48 selezioni e **1248 giocatori** su liste ufficiali (26 per paese); 104 partite; 48 roster ufficiali resi disponibili con collegamento diretto a https://fdp.fifa.org/ e pagina squadre FIFA. Il torneo è già iniziato l'11 giugno 2026; al 30/06 deve essere ricostruito stato storico reale dei gironi e partite già disputate senza simularle. Questo è materiale fonte per la PRIMA edizione, non prova che il database SWOS 2627 contenga correttamente i 1248 giocatori/chiavi. L'ID della selezione NON deve essere un club_key `country:slot` arbitrario: verificare modello nazionali OG, convocazione/eligibility e ABI, CAR, scheduler CE. I roster reali 2026 sono una fonte ma non aggiungere automaticamente 1248 giocatori se modello DB non li contiene. Non confondere calendario nazionale FIFA con gare di club.
+
+## Barriere implementazione
+1. Fonte V = formato, quote e liste ufficiali verificati; **NON** equivalgono a fixture CE, squadra CE stable key, runtime, CAR, GP.
+2. Copa Bolivia: contraddizione fra `missing` interseries nel CE e sintesi ufficiale FBF che non le menziona; necessaria verifica regolamento completo, non deduzione che siano assenti.
+3. Concacaf 2026 chiusa prima START, quindi snapshot archivistico già concluso; risultato finale da confermare fonte ufficiale in successivo lotto e non simulare.
+4. Nazionali: elenchi FIFA presenti, ma mapping 1996/97 e 2026/27 sul modello squadre OG / convocazioni ancora non verificato.
+5. Tutti i campi di regole match limitati allo schema già presente (match.legs, knockout, extra_time, penalties, away_goals, bench, subs, windows, halftime_free, et_extra_subs, et_extra_windows, discipline, provenance); non inventarne.
+6. Test: fonti HTML YES; mapping SWOS, save, Windows, gameplay NOT PROVEN.

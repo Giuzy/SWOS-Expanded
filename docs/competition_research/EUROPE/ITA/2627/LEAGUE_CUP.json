@@ -1,0 +1,35 @@
+[
+  {
+    "row": 323,
+    "world": "2627",
+    "id": "_italianLeagueCup",
+    "detail": "",
+    "technicalCategory": "LEAGUE_CUP",
+    "researchCategory": "LEAGUE_CUP",
+    "country": "ITA",
+    "candidateSources": [
+      "4e86b149b4f97b5a3310930191dbe834b99db47d"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "NOT_RECONCILED"
+    },
+    "knownNativeMissing": null,
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": null,
+      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false
+    }
+  }
+]

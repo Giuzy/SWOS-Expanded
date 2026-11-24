@@ -1,0 +1,83 @@
+[
+  {
+    "index": 265,
+    "value": {
+      "competition": "NOR tier 1",
+      "firstEdition": "2017",
+      "operation": "NONCOMMERCIAL_NAME_CONFIRMED",
+      "name": "Eliteserien",
+      "rowRefs": [
+        22,
+        278
+      ],
+      "source": "https://www.fotball.no/tema/nff-nyheter/2016/eliteserien---lidenskap-og-fellesskap/",
+      "note": "Earlier sponsored name excluded; Eliteserien used as neutral generic label in 1996.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block 33 actual web search excerpts; not full sport rule or runtime certification."
+    }
+  },
+  {
+    "index": 285,
+    "value": {
+      "competition": "NOR national cup",
+      "firstEdition": "2026",
+      "operation": "CHANGE_CYCLE",
+      "rowRefs": [
+        389
+      ],
+      "source": "https://www.fotball.no/turneringer/nm-menn/2026/slik-spilles-nm-menn-2026/",
+      "note": "Edition 2026 starts in 2025, qualification May–June, first three rounds summer/autumn, remaining rounds spring; 2025 cup overlaps. No reset 1 July.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Official HTML pages opened 24/11/2026. No PDF analyzed; no full fixtures or runtime certification."
+    }
+  },
+  {
+    "index": 286,
+    "value": {
+      "competition": "NOR national cup",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "TRANSITION_ACCESS",
+      "rowRefs": [
+        389
+      ],
+      "source": "https://www.fotball.no/turneringer/nm-menn/2026/slik-spilles-nm-menn-2026/",
+      "note": "64 clubs in round 1; Eliteserien clubs enter round 3 exceptionally.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Official HTML pages opened 24/11/2026. No PDF analyzed; no full fixtures or runtime certification."
+    }
+  },
+  {
+    "index": 287,
+    "value": {
+      "competition": "NOR national cup",
+      "firstEdition": "2027",
+      "operation": "CHANGE_ACCESS",
+      "rowRefs": [
+        389
+      ],
+      "source": "https://www.fotball.no/turneringer/nm-menn/2026/nm-2026-disse-er-kvalifisert-til-1.-runde",
+      "additionalSource": "https://www.fotball.no/turneringer/nm-menn/2026/slik-spilles-nm-menn-2026/",
+      "note": "Eliteserien 16 and tier2 16 directly enter round 1; more qualifiers. Actual 2027 edition underway August 2026, not 2027 future generated data.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Official HTML pages opened 24/11/2026. No PDF analyzed; no full fixtures or runtime certification."
+    }
+  },
+  {
+    "index": 345,
+    "value": {
+      "competition": "NOR cup",
+      "firstEdition": "1996",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        134
+      ],
+      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "rules": {
+        "finalLegsObserved": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block48 HTML opened; no PDF analyzed."
+    }
+  }
+]

@@ -1,0 +1,161 @@
+[
+  {
+    "row": 279,
+    "world": "2627",
+    "id": "_newZealandLeague",
+    "detail": "div1",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "NZL",
+    "candidateSources": [
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 98,
+      "slotOrdinal": 1,
+      "name": "NORTHERN LEAGUE",
+      "rawDivision": {
+        "teams": 12,
+        "promoted": 0,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 1,
+      "parallelGroup": "regional_top_tier",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Northern League",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  },
+  {
+    "row": 280,
+    "world": "2627",
+    "id": "_newZealandLeague",
+    "detail": "div2",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "NZL",
+    "candidateSources": [
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 98,
+      "slotOrdinal": 2,
+      "name": "CENTRAL LEAGUE",
+      "rawDivision": {
+        "teams": 10,
+        "promoted": 0,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 1,
+      "parallelGroup": "regional_top_tier",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Central League",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  },
+  {
+    "row": 281,
+    "world": "2627",
+    "id": "_newZealandLeague",
+    "detail": "div3",
+    "technicalCategory": "LEAGUE_DIVISION",
+    "researchCategory": "LEAGUE_DIVISION",
+    "country": "NZL",
+    "candidateSources": [
+      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
+    ],
+    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "review": {
+      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "historyAtStart": "NOT_RECONCILED",
+      "actualDates": "NOT_RECONCILED",
+      "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "runtime": "NOT_TESTED",
+      "participantKeys": "NOT_RECONCILED",
+      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+    },
+    "knownNativeMissing": null,
+    "modernSlotAudit": {
+      "head": "beb9fd3e0c535829b052fc2c43dc263bc13cabb6",
+      "fileSha": "f15bf28c247b9cc305cb30858fbe4b0b03e970b3",
+      "competitionId": 98,
+      "slotOrdinal": 3,
+      "name": "SOUTHERN LEAGUE",
+      "rawDivision": {
+        "teams": 10,
+        "promoted": 0,
+        "promoted_po": 0,
+        "relegated": 0,
+        "relegated_po": 0,
+        "qualifier_link_offset": 0
+      },
+      "rawRounds": 2,
+      "sportLevel": 1,
+      "parallelGroup": "regional_top_tier",
+      "scope": "VERIFIED repository configuration, NOT independently certified sport rules or runtime. Regional classification provisional; do not interpret slot ordinal as sports tier."
+    },
+    "competitionNaming": {
+      "startEdition": "2026/27",
+      "officialName": null,
+      "nonCommercialDisplayName": null,
+      "candidateName": "Southern League",
+      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "source": null,
+      "nameHistory": [],
+      "historyComplete": false,
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    }
+  }
+]

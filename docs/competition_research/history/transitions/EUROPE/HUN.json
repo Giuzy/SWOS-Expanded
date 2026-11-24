@@ -1,0 +1,21 @@
+[
+  {
+    "index": 306,
+    "value": {
+      "competition": "HUN tier 1",
+      "firstEdition": "2015/16",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        251
+      ],
+      "source": "https://www.mlsz.hu/hir/elkeszult-a-megujult-otp-bank-liga-sorsolasa",
+      "additionalSource": "https://www.mlsz.hu/hir/elso-osztalyu-izgalom-most-is-jut-oromunnep-es-drama-az-utolso-fordulora",
+      "teams": 12,
+      "rounds": 33,
+      "meetingsPerOpponent": 3,
+      "note": "Third cycle 2015/16: prior season top six assigned six home games, others five; annual rule not assumed.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block42 official HTML pages/search excerpts retrieved 24/11/2026. No PDFs analyzed."
+    }
+  }
+]

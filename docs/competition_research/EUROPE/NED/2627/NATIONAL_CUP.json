@@ -34,7 +34,27 @@
         "firstQualificationByes": 8,
         "secondQualificationGames": 20,
         "europeanEntrantsExemptFirstMainRound": true,
-        "finalVenue": "De Kuip, Rotterdam"
+        "finalVenue": "De Kuip, Rotterdam",
+        "qualification1MaxEntrants": 64,
+        "qualification1MaxTier3": 4,
+        "qualification1MaxTier4": 36,
+        "qualification1MaxDistrictCupQualifiers": 24,
+        "qualification2MaxEntrants": 40,
+        "qualification2MaxTier3Byes": 8,
+        "qualificationDrawRegional": false,
+        "qualificationHost": "draw",
+        "mainRound1MaxEntrants": 52,
+        "mainRound1MaxQualifiers": 20,
+        "mainRound1DirectTier3": "previous season champion and three period champions or replacements",
+        "mainRound1MaxNonEuropeanProfessional": 28,
+        "mainRound1AmateurHostAgainstProfessional": true,
+        "mainRound2Entrants": 32,
+        "professionalNonparticipation": "draw additional professional byes if fewer than 34 enter",
+        "tieResolution": "all rounds 90 minutes then 2x15 extra time then penalties",
+        "finalNominalHome": "winner of first drawn semifinal",
+        "europeanAccess": "cup winner; if also UCL or cup stopped early, highest league club not in UCL subject to UEFA rules",
+        "supercupAccess": "cup winner vs champion; if same club league runner-up replaces cup winner",
+        "ineligiblePlayer": "exclude club; if found before next cup match invalidate previous match and advance opponent, otherwise last opponent advances; no replay"
       },
       "roundWindows": [
         [
@@ -58,7 +78,7 @@
           "2027-04-18"
         ]
       ],
-      "limitations": "Official qualification draw excerpts, current full handbook and individual fixtures not reconciled.",
+      "limitations": "2026/27 specific access and tie resolution confirmed, qualification quotas are maxima; individual fixtures, player eligibility details and club keys not fully reconciled.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

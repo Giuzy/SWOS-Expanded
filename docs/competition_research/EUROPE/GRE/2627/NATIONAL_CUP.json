@@ -104,11 +104,69 @@
         "quarterfinalLegs": 1,
         "quarterfinalHost": "higher league-phase rank",
         "semifinalLegs": 2,
-        "finalLegs": 1
+        "finalLegs": 1,
+        "firstQualifying": {
+          "entrants": 14,
+          "tier2Entrants": 13,
+          "priorAmateurCupWinner": 1,
+          "matches": 1,
+          "byes": 12,
+          "host": "first drawn",
+          "tie": "direct penalties"
+        },
+        "secondQualifying": {
+          "entrants": 22,
+          "firstQualifyingAdvancers": 13,
+          "nonUEFATopTier": 9,
+          "matches": 11,
+          "host": "first drawn",
+          "tie": "direct penalties"
+        },
+        "leaguePhasePots": 4,
+        "potSize": 4,
+        "opponentsPerPot": 1,
+        "homeGamesPerClub": 2,
+        "awayGamesPerClub": 2,
+        "leaguePhaseMatches": 32,
+        "leaguePhaseTieBreaks": [
+          "goal difference",
+          "goals scored",
+          "away goals scored",
+          "wins",
+          "away wins",
+          "prior season ranking-table points"
+        ],
+        "playoffPairs": [
+          [
+            5,
+            12
+          ],
+          [
+            6,
+            11
+          ],
+          [
+            7,
+            10
+          ],
+          [
+            8,
+            9
+          ]
+        ],
+        "playoffHost": "higher league-phase rank",
+        "youngStartingPlayersMinimum": 2,
+        "youngEligibility": "eligible for Greek national teams and born in 2004 or later for 2026/27",
+        "yellowSuspensionAfterSemifinalDoesNotExcludeFinal": true
       },
       "roundWindows": [
         [
-          "preliminary",
+          "first qualifying",
+          "2026-08-11",
+          "2026-08-11"
+        ],
+        [
+          "second qualifying",
           "2026-08-17",
           "2026-08-19"
         ],
@@ -134,8 +192,8 @@
         ],
         [
           "LP5",
-          "2026-12-01",
-          "2026-12-03"
+          "2026-12-02",
+          "2026-12-02"
         ],
         [
           "playoff",
@@ -161,8 +219,52 @@
       "finalDate": "2027-05-27",
       "previousNominalFinalDate": "2027-05-22",
       "finalVenue": "OAKA",
-      "limitations": "July calendar windows provisional; preliminary round nomenclature/earlier August fixtures need separate reconciliation. EPO later final date supersedes July plan; full federation page not accessible, excerpt only.",
-      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+      "limitations": "Federation July29, June30 and August19/September1 notices; qualification and league-phase names are observed actual edition, not predetermined winners in the career. Final date discrepancy retained from prior research. Full individual dates and stable keys pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "leaguePhaseFinalMatchdaySimultaneous": true,
+      "rescheduling": [
+        {
+          "round": "second qualifying",
+          "home": "Hellas Syrou",
+          "away": "Marko",
+          "newDate": "2026-08-24",
+          "originalDate": null
+        }
+      ],
+      "leaguePhaseEntrantsObserved": [
+        "AEK",
+        "Olympiacos",
+        "PAOK",
+        "Panathinaikos",
+        "OFI",
+        "Aris",
+        "Levadiakos",
+        "Volos",
+        "Atromitos",
+        "Kifisia",
+        "AEL",
+        "Panserraikos",
+        "Kalamata",
+        "Niki Volou",
+        "Nestos Chrysoupolis",
+        "Marko"
+      ],
+      "firstQualifyingEntrantsObserved": [
+        "Anagennisi Karditsas",
+        "Athens Kallithea",
+        "Apollon Kalamarias",
+        "Hellas Syrou",
+        "Zakynthos",
+        "AEL",
+        "Niki Volou",
+        "Marko",
+        "Nestos Chrysoupolis",
+        "Panthrakikos",
+        "Panionios",
+        "Panserraikos",
+        "PAS Pyrgos",
+        "AO Trikala"
+      ]
     }
   }
 ]

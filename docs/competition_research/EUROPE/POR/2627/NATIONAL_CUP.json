@@ -38,7 +38,33 @@
           "district": 42
         },
         "firstRoundEntrants": "tiers3–5",
-        "firstTierEntryRound": 3
+        "firstTierEntryRound": 3,
+        "round1Entrants": 94,
+        "round1Matches": 47,
+        "round1Byes": 19,
+        "round1GeographicGroups": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          8,
+          8,
+          8
+        ],
+        "round1Host": "first drawn",
+        "round2Entrants": 81,
+        "round2Note": "47 winners +19 byes +15 tier2; odd count requires actual draw/byes reconciliation, do not generate bracket from raw sum",
+        "tier2EntryRound": 2,
+        "tier2AwayOnEntry": true,
+        "firstTierNonUEFAEntrants": 13,
+        "firstTierAwayOnEntry": true,
+        "uefaEntrants": 5,
+        "uefaEntryRound": 4,
+        "semifinalLegs": 1,
+        "semifinalNeutral": true
       },
       "firstRoundWindow": [
         "2026-08-29",
@@ -81,7 +107,7 @@
           "2027-05-30"
         ]
       ],
-      "limitations": "Calendar June15 visually verified, Aug draw corroborates dates and 146 entrants; older preliminary calendar June6 final superseded. Exact round quotas and semifinal legs not assumed. Round5 special alternate dates omitted here pending per-match audit.",
+      "limitations": "2026/27 actual format supersedes January proposal of all tier1 entering R4. Round2 raw access count odd (81); published draw and any byes/adjustments not fully reconciled. Exact tie resolution, all per-match dates and club keys pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

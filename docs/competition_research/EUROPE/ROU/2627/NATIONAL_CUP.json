@@ -77,9 +77,91 @@
           "minimumHomeGames": 1,
           "oneOpponentEachPot": true,
           "pot1Pot2HomeAwayBalance": true,
-          "atLeastOnePot1PairPerGroupPerRound": true
+          "atLeastOnePot1VsPot1MatchAcrossGroupsEachRound": true,
+          "pot3Pairing": "geographic pairs before group draw",
+          "rankSlotSchedule": {
+            "A": [
+              [
+                "3B-1A",
+                "3A-1B",
+                "2B-2A"
+              ],
+              [
+                "2A-1A",
+                "1B-2B",
+                "3A-3B"
+              ],
+              [
+                "1A-1B",
+                "3B-2A",
+                "3A-2B"
+              ]
+            ],
+            "B": [
+              [
+                "2A-1A",
+                "1B-2B",
+                "3A-3B"
+              ],
+              [
+                "1A-1B",
+                "3B-2A",
+                "3A-2B"
+              ],
+              [
+                "3B-1A",
+                "3A-1B",
+                "2B-2A"
+              ]
+            ],
+            "C": [
+              [
+                "1A-1B",
+                "3B-2A",
+                "3A-2B"
+              ],
+              [
+                "3B-1A",
+                "3A-1B",
+                "2B-2A"
+              ],
+              [
+                "2A-1A",
+                "1B-2B",
+                "3A-3B"
+              ]
+            ],
+            "D": [
+              [
+                "3B-1A",
+                "3A-1B",
+                "2B-2A"
+              ],
+              [
+                "2A-1A",
+                "1B-2B",
+                "3A-3B"
+              ],
+              [
+                "1A-1B",
+                "3B-2A",
+                "3A-2B"
+              ]
+            ]
+          },
+          "rankSlotEncoding": "first slot is host; pot3-involved matches use lower tier or worse previous rank hosting per article 4.8"
         },
-        "knockoutLegs": 1
+        "knockoutLegs": 1,
+        "nationalRound2ObservedWinners": 25,
+        "nationalRound3ObservedWinners": 24,
+        "playoff": {
+          "entrants": 32,
+          "fromRound3": 24,
+          "newCurrentTier1": 8,
+          "winners": 16
+        },
+        "preGroupHost": "lower tier; if equal tier worse previous league ranking",
+        "knockoutTieResolutionObserved": "extra time then penalties"
       },
       "roundWindows": [
         [
@@ -129,13 +211,13 @@
         ],
         [
           "group2",
-          "2026-10-28",
+          "2026-10-27",
           "2026-10-28"
         ],
         [
           "group3",
-          "2026-12-02",
-          "2026-12-02"
+          "2026-12-01",
+          "2026-12-03"
         ],
         [
           "QF",
@@ -153,7 +235,7 @@
           "2027-05-12"
         ]
       ],
-      "limitations": "June regional draw not played fixtures; county-level qualification dates not verified as part of current edition. Later national round quotas and actual dates pending.",
+      "limitations": "2026 April amendment and draw confirm rank schedule. Correct earlier per-group-per-round pot1 assertion: one pot1-vs-pot1 match per group in entire group stage, at least one such match across four groups each round. Intermediate entrant quotas and complete rulebook/keys pending; county access not treated as already-played current national fixtures.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

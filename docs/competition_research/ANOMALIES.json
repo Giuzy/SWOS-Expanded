@@ -1,9 +1,9 @@
 {
-  "lastPreparedBlock": 112,
-  "baseHead": "53c7a2ae9f6eaa443f4c7c7bc775a2f60e2c6ce9",
+  "lastPreparedBlock": 119,
+  "baseHead": "8a0f442c648368e6b711a135ff769796dcb4a105",
   "status": "INITIAL_EXPLICIT_REGISTER_LOWER_BOUND_NOT_EXHAUSTIVE",
   "policy": "Unique concrete conflicts, identity/slot mismatches or metric inconsistency only. Do not count ordinary missing fields or unresolved applicability as anomalies. Do not resolve conflicts by guessing; merge duplicates in final review. Increment when a distinct case is identified.",
-  "openCount": 32,
+  "openCount": 33,
   "cases": [
     {
       "id": "A001",
@@ -406,6 +406,15 @@
         76,
         77,
         78
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A033",
+      "type": "HISTORICAL_VENUE_CONFLICT",
+      "description": "UCL qualifying IFK Göteborg–Ferencváros 7 August 1996: Norrköpings Idrottsparken versus Ullevi in second match archive; date/pair agreed, venue not certified",
+      "rows": [
+        165
       ],
       "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
     }

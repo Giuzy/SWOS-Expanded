@@ -45,7 +45,19 @@
         "quarterfinalLegs": 1,
         "semifinalLegs": 2,
         "finalLegs": 1,
-        "qualifyingLegs": 1
+        "qualifyingLegs": 1,
+        "firstQualifyingEntrants": 40,
+        "firstQualifyingWinners": 20,
+        "firstQualifyingRegional": true,
+        "firstQualifyingHost": "lower draw number",
+        "eligibilityAmendment20260826": {
+          "scope": "tier1 and tier2 clubs, players under continuing contract and already in squad on 26 August 2026",
+          "eligibleUnlistedPlayers": "Turkey national-team-eligible and/or foreign players omitted from league A list, subject to tier restrictions",
+          "tier1ForeignMatchSheetMax": 14,
+          "tier1ForeignAgeRule10Plus4Waived": true,
+          "postAmendmentNewSigningsNotEligibleForException": true,
+          "status": "EDITION_SPECIFIC_TRANSITIONAL_RULE_NOT_RECURRING_DEFAULT"
+        }
       },
       "roundWindows": [
         [
@@ -104,7 +116,7 @@
           "2027-05-29"
         ]
       ],
-      "limitations": "August 5 announced windows, August26 regulation amendment text inaccessible; exact access quotas and revised dates pending.",
+      "limitations": "First qualifying draw and amended roster exception confirmed by federation publication excerpts. Exact access for later rounds, tier2 conditions and current complete regulation still unavailable. Temporary amendment must not be applied automatically every later edition.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

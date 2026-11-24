@@ -84,7 +84,30 @@
         "limitations": "2022/23 instructions only, not certified for 2026/27. PDF screenshot failed, text retrieved."
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "limitations": "Current 181 registrations not equivalent to 181 completed entrants; 2022/23 exact rules must not be assumed unchanged. Earliest August report states season just began."
+      "limitations": "2026/27 181 registrations confirmed; current instruction PDF inaccessible. 2025/26 observed rules stored separately, not assumed current.",
+      "historicalFormat2025_26": {
+        "edition": "2025/26",
+        "rules": {
+          "earlyRoundsReference": "2022/23 format above corroborated for 2025/26",
+          "lowerTierHomeThroughRoundOf32": true,
+          "lowerTierDeclineDeadlineHours": 72,
+          "lateDeclineAwardedLoss": [
+            0,
+            3
+          ],
+          "foreignNonEUQuotaByTier": [
+            4,
+            2,
+            1,
+            1
+          ],
+          "lowerTierMayUseHigherOpponentQuota": true,
+          "matchday": "Wednesday, exceptional Tuesday or Thursday",
+          "drawPublicationMinimumDays": 15
+        },
+        "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+        "limitations": "2025/26 federation instructions only. Exact first adoption of lower-tier priority between 2022/23 and 2025/26 and continuity into 2026/27 not verified."
+      }
     }
   }
 ]

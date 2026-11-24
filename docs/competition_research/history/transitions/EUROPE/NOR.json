@@ -69,8 +69,30 @@
         "earliestObserved": "2026-02-15",
         "district": "Indre Østland",
         "matches": 45,
-        "qualified": 3
-      }
+        "qualified": 3,
+        "playoffDates": [
+          "2026-06-04",
+          "2026-06-07"
+        ],
+        "playoffTies": 44,
+        "playoffTiesNew": 41,
+        "mainDrawDate": "2026-06-11",
+        "mainDrawPairs": 64
+      },
+      "mainRoundEntrants": 128,
+      "directByTier": [
+        16,
+        16,
+        28,
+        24
+      ],
+      "districtPlayoffEntrants": 88,
+      "districtPlayoffQualifiers": 44,
+      "round1TopTierParticipates": true,
+      "ordinaryRounds": 7,
+      "rounds1And2GeographicPairings": true,
+      "round3OnwardDraw": true,
+      "extraTimeThenPenaltiesAllRounds": true
     }
   },
   {

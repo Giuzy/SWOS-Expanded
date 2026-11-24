@@ -84,5 +84,30 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Ordinary format for ten-team league, transitional 2022/23 and exceptional seasons require separate check; rank changes to 11 after expansion."
     }
+  },
+  {
+    "index": 801,
+    "value": {
+      "competition": "Swiss Cup",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_QUALIFICATION_FORMAT",
+      "rowRefs": [
+        407
+      ],
+      "rules": {
+        "professionalEntrants": 21,
+        "firstLeagueEntrants": 17,
+        "amateurEntrants": 25,
+        "fairPlayEntrants": 1,
+        "classicEligible": 42,
+        "classicPreliminaryEntrants": 4,
+        "classicRound1Entrants": 40,
+        "classicRound2Entrants": 20,
+        "classicQualified": 10,
+        "promotionLeagueQualified": 7
+      },
+      "note": "Extra preliminary phase during 2025/26 due to 42 eligible Classic teams; edition-specific qualification adjustment, do not generalize without eligibility checks.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

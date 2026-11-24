@@ -66,6 +66,63 @@
         "secondRoundMainRevised": "2026-09-16",
         "reason": "NFF announced postponement; exceptions for European matches",
         "scope": "Not all fixture dates verified"
+      },
+      "directTier3": 28,
+      "directTier4": 24,
+      "regionalPlayoffEntrants": 88,
+      "regionalPlayoffWinners": 44,
+      "mainRound1Entrants": 128,
+      "mainRound1Matches": 64,
+      "mainRound1Scheduled": [
+        "2026-08-22",
+        "2026-08-23"
+      ],
+      "rules": {
+        "format": "single knockout",
+        "extraTimeMinutes": 30,
+        "penaltiesAfterExtraTime": true,
+        "secondOrCombinedTeamsExcluded": true,
+        "topTierAwayRounds": [
+          1,
+          2
+        ],
+        "secondTierAwayRounds": [
+          1
+        ],
+        "earlyVenueExceptions": "strong geographic, economic or technical reasons",
+        "rounds1And2Pairing": "NFF sets pairs with geography, economics and sporting factors",
+        "fromRound3": "draw, lower division hosts except top two tiers against each other; same tier first drawn hosts",
+        "finalVenue": "Ullevaal Stadion, Oslo",
+        "substitutions": 5,
+        "substitutionWindows": 3,
+        "extraTimeAdditionalSubstitution": 1,
+        "extraTimeAdditionalWindow": 1,
+        "yellowSuspension": "after two, then every additional yellow; clear local qualification yellows before playoff and playoff yellows before main R1; no yellow suspension in final",
+        "cupTied": false,
+        "mandatoryConsecutiveDaysProhibited": true,
+        "redCardSuspension": "separate disciplinary regulations",
+        "noAutomaticFollowingEditionEntry": true,
+        "uefaAccess": "cup winner subject to NFF/UEFA licence"
+      },
+      "regionalPlayoffQuotas": {
+        "Agder": 6,
+        "Akershus": 4,
+        "Buskerud": 4,
+        "Finnmark": 2,
+        "Hordaland": 8,
+        "Hålogaland": 2,
+        "Indre Østland": 6,
+        "Nordland": 4,
+        "Nordmøre og Romsdal": 2,
+        "Oslo": 8,
+        "Rogaland": 8,
+        "Sogn og Fjordane": 4,
+        "Sunnmøre": 4,
+        "Telemark": 4,
+        "Troms": 4,
+        "Trøndelag": 8,
+        "Vestfold": 4,
+        "Østfold": 6
       }
     },
     "block65Research": {
@@ -496,9 +553,9 @@
           "away": "Reinsvoll",
           "homeGoals": 5,
           "awayGoals": 2,
-          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
-          "round": 4,
-          "sourceMatchId": "04120901043"
+          "phase": "DISTRICT_PLAYOFF",
+          "sourceMatchId": "04120901043",
+          "region": "Indre Østland"
         },
         {
           "date": "2026-06-06",
@@ -506,9 +563,9 @@
           "away": "Odal",
           "homeGoals": 2,
           "awayGoals": 1,
-          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
-          "round": 4,
-          "sourceMatchId": "04120901044"
+          "phase": "DISTRICT_PLAYOFF",
+          "sourceMatchId": "04120901044",
+          "region": "Indre Østland"
         },
         {
           "date": "2026-06-06",
@@ -516,9 +573,390 @@
           "away": "Follebu Gausdal",
           "homeGoals": 2,
           "awayGoals": 0,
-          "phase": "DISTRICT_QUALIFYING_INDRE_OSTLAND",
-          "round": 4,
-          "sourceMatchId": "04120901045"
+          "phase": "DISTRICT_PLAYOFF",
+          "sourceMatchId": "04120901045",
+          "region": "Indre Østland"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Drøbak-Frogn",
+          "away": "Rakkestad",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Østfold"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Østsiden",
+          "away": "Råde",
+          "homeGoals": 0,
+          "awayGoals": 4,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Østfold"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Idd",
+          "away": "Sparta Sarpsborg",
+          "homeGoals": 0,
+          "awayGoals": 8,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Østfold"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Åssiden",
+          "away": "Drammens BK",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Buskerud"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Modum",
+          "away": "Stoppen",
+          "homeGoals": 6,
+          "awayGoals": 2,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Buskerud"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Fet",
+          "away": "Eidsvold IF",
+          "homeGoals": 2,
+          "awayGoals": 7,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Akershus"
+        },
+        {
+          "date": "2026-06-07",
+          "home": "Aurskog/Finstadbru",
+          "away": "Fjellhamar",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Akershus"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Flaktveit",
+          "away": "Askøy",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Hordaland"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Fyllingen",
+          "away": "Stord",
+          "homeGoals": null,
+          "awayGoals": null,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Hordaland",
+          "penalties": [
+            6,
+            4
+          ]
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Arna-Bjørnar",
+          "away": "Varegg",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Hordaland"
+        },
+        {
+          "date": "2026-06-07",
+          "home": "Frøya",
+          "away": "Gneist",
+          "homeGoals": 4,
+          "awayGoals": 2,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Hordaland"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Fauske/Sprint",
+          "away": "Innstranda",
+          "homeGoals": 4,
+          "awayGoals": 2,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Nordland"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Stålkameratene",
+          "away": "Mosjøen",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Nordland"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Skidar",
+          "away": "Eidanger",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Telemark"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Tollnes",
+          "away": "Urædd",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Telemark"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Nationalkameratene",
+          "away": "Byåsen",
+          "homeGoals": 4,
+          "awayGoals": 3,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Trøndelag"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Steinkjer",
+          "away": "Kvik",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Trøndelag"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Tynset",
+          "away": "Nardo",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Trøndelag"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Orkla",
+          "away": "Trønder-Lyn",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Trøndelag"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Teie",
+          "away": "Larvik Turn",
+          "homeGoals": 4,
+          "awayGoals": 3,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Vestfold"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Flint",
+          "away": "Halsen",
+          "homeGoals": 6,
+          "awayGoals": 2,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Vestfold"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Tverelvdalen",
+          "away": "Bossekop",
+          "homeGoals": 1,
+          "awayGoals": 9,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Finnmark"
+        },
+        {
+          "date": "2026-06-05",
+          "home": "Varhaug",
+          "away": "Hinna",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Rogaland",
+          "penalties": [
+            10,
+            9
+          ]
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Brodd",
+          "away": "Frøyland",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Rogaland"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Kopervik",
+          "away": "Nord",
+          "homeGoals": 3,
+          "awayGoals": 5,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Rogaland"
+        },
+        {
+          "date": "2026-06-07",
+          "home": "Rosseland",
+          "away": "Staal Jørpeland",
+          "homeGoals": 5,
+          "awayGoals": 3,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Rogaland"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Eide og Omegn",
+          "away": "Midsund",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Nordmøre og Romsdal"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Årdal",
+          "away": "Fjøra",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Sogn og Fjordane"
+        },
+        {
+          "date": "2026-06-07",
+          "home": "Stryn",
+          "away": "Florø",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Sogn og Fjordane"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Rollon",
+          "away": "Hareid",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Sunnmøre"
+        },
+        {
+          "date": "2026-06-07",
+          "home": "Stordal",
+          "away": "Langevåg",
+          "homeGoals": 2,
+          "awayGoals": 4,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Sunnmøre"
+        },
+        {
+          "date": "2026-06-05",
+          "home": "Salangen",
+          "away": "Ulfstind",
+          "homeGoals": 3,
+          "awayGoals": 7,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Troms"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Hamna",
+          "away": "Fløya",
+          "homeGoals": 0,
+          "awayGoals": 6,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Troms"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Harstad",
+          "away": "Sortland",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Hålogaland"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Grei",
+          "away": "Holmlia",
+          "homeGoals": 8,
+          "awayGoals": 4,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Oslo"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Ullern",
+          "away": "Christiania BK",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Oslo"
+        },
+        {
+          "date": "2026-06-07",
+          "home": "Lommedalen",
+          "away": "Heming",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Oslo"
+        },
+        {
+          "date": "2026-06-07",
+          "home": "Ready",
+          "away": "Union Carl Berner",
+          "homeGoals": null,
+          "awayGoals": null,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Oslo",
+          "penalties": [
+            6,
+            5
+          ]
+        },
+        {
+          "date": "2026-06-04",
+          "home": "Froland",
+          "away": "Vigør",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Agder"
+        },
+        {
+          "date": "2026-06-04",
+          "home": "Flekkefjord",
+          "away": "Mandalskameratene",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Agder"
+        },
+        {
+          "date": "2026-06-06",
+          "home": "Trauma",
+          "away": "Våg",
+          "homeGoals": 1,
+          "awayGoals": 5,
+          "phase": "DISTRICT_PLAYOFF",
+          "region": "Agder"
         }
       ],
       "sources": [
@@ -545,8 +983,419 @@
         "Ridabu",
         "Trysil"
       ],
-      "scope": "Complete Indre Østland 45-match local qualifying bracket (24+12+6+3), official federation match IDs. Other districts not yet collected. Earliest observed date Feb15; original June scope too late. Oslo four playoff ties known but scores not extracted. No inference about number of nationwide entrants.",
-      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+      "scope": "Indre Østland 42 local qualification matches plus all 44 national district playoff ties (3 previously recorded); playoff results 42 scorelines and 2 penalty totals with regular/extra-time score unknown. Remaining local district rounds not yet collected.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "directEntrantsByTier": [
+        [
+          "Viking",
+          "Bodø/Glimt",
+          "Tromsø",
+          "Brann",
+          "Sandefjord",
+          "Vålerenga",
+          "Rosenborg",
+          "Fredrikstad",
+          "Sarpsborg 08",
+          "Molde",
+          "HamKam",
+          "KFUM",
+          "Kristiansund",
+          "Lillestrøm",
+          "Start",
+          "Aalesund"
+        ],
+        [
+          "Bryne",
+          "Strømsgodset",
+          "Haugesund",
+          "Kongsvinger",
+          "Egersund",
+          "Ranheim",
+          "Lyn",
+          "Sogndal",
+          "Odd",
+          "Hødd",
+          "Stabæk",
+          "Åsane",
+          "Raufoss",
+          "Moss",
+          "Strømmen",
+          "Sandnes Ulf"
+        ],
+        [
+          "Mjøndalen",
+          "Skeid",
+          "Brattvåg",
+          "Sotra",
+          "Jerv",
+          "Arendal",
+          "Eik Tønsberg",
+          "Lysekloster",
+          "Pors",
+          "Sandviken",
+          "Træff",
+          "Notodden",
+          "Grorud",
+          "Kjelsås",
+          "Tromsdalen",
+          "Ullensaker/Kisa",
+          "Eidsvold Turn",
+          "Hønefoss",
+          "Stjørdals-Blink",
+          "Rana",
+          "Levanger",
+          "Follo",
+          "Junkeren",
+          "Trygg/Lade",
+          "Lørenskog",
+          "Bjarg",
+          "Vidar",
+          "Kvik Halden"
+        ],
+        [
+          "Vard Haugesund",
+          "Fløy-Flekkerøy",
+          "Strindheim",
+          "Alta",
+          "Asker",
+          "Frigg",
+          "Bærum",
+          "Gamle Oslo",
+          "Melhus",
+          "Volda",
+          "Spjelkavik",
+          "Elverum",
+          "Gjøvik-Lyn",
+          "Lillehammer",
+          "Nordstrand",
+          "Førde",
+          "Fana",
+          "Os",
+          "Vindbjart",
+          "Djerv 1919",
+          "Madla",
+          "Fram Larvik",
+          "Ørn Horten",
+          "Lokomotiv Oslo"
+        ]
+      ],
+      "qualifiedViaPlayoff": [
+        "Drøbak-Frogn",
+        "Råde",
+        "Sparta Sarpsborg",
+        "Åssiden",
+        "Modum",
+        "Eidsvold IF",
+        "Aurskog/Finstadbru",
+        "Askøy",
+        "Fyllingen",
+        "Arna-Bjørnar",
+        "Frøya",
+        "Fauske/Sprint",
+        "Stålkameratene",
+        "Eidanger",
+        "Urædd",
+        "Nationalkameratene",
+        "Steinkjer",
+        "Tynset",
+        "Trønder-Lyn",
+        "Teie",
+        "Flint",
+        "Skreia",
+        "Ridabu",
+        "Trysil",
+        "Bossekop",
+        "Varhaug",
+        "Brodd",
+        "Nord",
+        "Rosseland",
+        "Midsund",
+        "Fjøra",
+        "Florø",
+        "Rollon",
+        "Langevåg",
+        "Ulfstind",
+        "Fløya",
+        "Harstad",
+        "Grei",
+        "Christiania BK",
+        "Heming",
+        "Ready",
+        "Froland",
+        "Flekkefjord",
+        "Våg"
+      ],
+      "mainRound1Draw": [
+        [
+          "Bossekop",
+          "Alta"
+        ],
+        [
+          "Ulfstind",
+          "Tromsø"
+        ],
+        [
+          "Fløya",
+          "Junkeren"
+        ],
+        [
+          "Fauske/Sprint",
+          "Bodø/Glimt"
+        ],
+        [
+          "Harstad",
+          "Tromsdalen"
+        ],
+        [
+          "Stålkameratene",
+          "Rana FK"
+        ],
+        [
+          "Nationalkameratene",
+          "Rosenborg"
+        ],
+        [
+          "Tynset",
+          "Trygg/Lade"
+        ],
+        [
+          "Steinkjer",
+          "Ranheim"
+        ],
+        [
+          "Strindheim",
+          "Levanger"
+        ],
+        [
+          "Melhus",
+          "Stjørdals-Blink"
+        ],
+        [
+          "Trønder-Lyn",
+          "Kristiansund"
+        ],
+        [
+          "Midsund",
+          "Molde"
+        ],
+        [
+          "Spjelkavik",
+          "Hødd"
+        ],
+        [
+          "Volda",
+          "Brattvåg"
+        ],
+        [
+          "Rollon",
+          "Træff"
+        ],
+        [
+          "Langevåg",
+          "Aalesund"
+        ],
+        [
+          "Fjøra",
+          "Sogndal"
+        ],
+        [
+          "Florø",
+          "Førde"
+        ],
+        [
+          "Fyllingen",
+          "Brann"
+        ],
+        [
+          "Arna-Bjørnar",
+          "Åsane"
+        ],
+        [
+          "Askøy",
+          "Sandviken"
+        ],
+        [
+          "Os",
+          "Lysekloster"
+        ],
+        [
+          "Fana",
+          "Bjarg"
+        ],
+        [
+          "Frøya",
+          "Sotra"
+        ],
+        [
+          "Vard Haugesund",
+          "Haugesund"
+        ],
+        [
+          "Nord",
+          "Djerv 1919"
+        ],
+        [
+          "Brodd",
+          "Viking"
+        ],
+        [
+          "Rosseland",
+          "Bryne"
+        ],
+        [
+          "Varhaug",
+          "Sandnes Ulf"
+        ],
+        [
+          "Madla",
+          "Vidar"
+        ],
+        [
+          "Våg",
+          "Egersund"
+        ],
+        [
+          "Vindbjart",
+          "Fløy Flekkerøy"
+        ],
+        [
+          "Froland",
+          "Arendal"
+        ],
+        [
+          "Flekkefjord",
+          "Start"
+        ],
+        [
+          "Eidanger",
+          "Sandefjord"
+        ],
+        [
+          "Urædd",
+          "Pors"
+        ],
+        [
+          "Fram",
+          "Jerv"
+        ],
+        [
+          "Teie",
+          "Odd"
+        ],
+        [
+          "Flint",
+          "Ørn Horten"
+        ],
+        [
+          "Eik Tønsberg",
+          "Hønefoss"
+        ],
+        [
+          "Modum",
+          "Strømsgodset"
+        ],
+        [
+          "Åssiden",
+          "Notodden"
+        ],
+        [
+          "Skreia",
+          "Kongsvinger"
+        ],
+        [
+          "Trysil",
+          "HamKam"
+        ],
+        [
+          "Ridabu",
+          "Raufoss"
+        ],
+        [
+          "Gjøvik/Lyn",
+          "Eidsvold Turn"
+        ],
+        [
+          "Lillehammer",
+          "Strømmen"
+        ],
+        [
+          "Elverum",
+          "Ull/Kisa"
+        ],
+        [
+          "Aurskog/Finstadbru",
+          "Lillestrøm"
+        ],
+        [
+          "Eidsvold IF",
+          "Fredrikstad"
+        ],
+        [
+          "Lørenskog",
+          "Moss"
+        ],
+        [
+          "Christiania BK",
+          "Vålerenga"
+        ],
+        [
+          "Grei",
+          "Lyn"
+        ],
+        [
+          "Ready",
+          "KFUM"
+        ],
+        [
+          "Heming",
+          "Stabæk"
+        ],
+        [
+          "Lokomotiv Oslo",
+          "Grorud"
+        ],
+        [
+          "Frigg",
+          "Kjelsås"
+        ],
+        [
+          "Asker",
+          "Kvik Halden"
+        ],
+        [
+          "Bærum",
+          "Mjøndalen"
+        ],
+        [
+          "Nordstrand",
+          "Skeid"
+        ],
+        [
+          "Sparta Sarpsborg",
+          "Sarpsborg 08"
+        ],
+        [
+          "Gamle Oslo",
+          "Drøbak-Frogn"
+        ],
+        [
+          "Råde",
+          "Follo"
+        ]
+      ],
+      "mainRound1DrawDate": "2026-06-11",
+      "mainRound1DrawExceptions": [
+        [
+          "Rosseland",
+          "Bryne",
+          "2026-08-26"
+        ],
+        [
+          "Varhaug",
+          "Sandnes Ulf",
+          "2026-08-26"
+        ]
+      ]
     },
     "startResearch": {
       "cutoff": "2026-06-30",
@@ -556,9 +1405,9 @@
         "https://www.fotball.no/kretser/oslo/konkurranse/artikler/2026/kretsvis-kvalifisering-nm-menn-senior-2027/"
       ],
       "details": {
-        "matches": 45
+        "matches": 86
       },
-      "missing": "Remaining matches outside extracted rounds/regions, independent reconciliation, stable keys and full regulation."
+      "missing": "Earlier local qualifiers outside Indre Østland, two missing regular/ET scores, exact later fixtures and stable club keys. 128 drawn entrant names verified, not game IDs."
     }
   }
 ]

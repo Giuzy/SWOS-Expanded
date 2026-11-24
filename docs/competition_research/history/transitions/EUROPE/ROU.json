@@ -108,10 +108,12 @@
       "rules": {
         "minimumHomeGames": 1,
         "pot1Pot2HomeAwayBalance": true,
-        "atLeastOnePot1PairPerGroupPerRound": true
+        "atLeastOnePot1VsPot1MatchAcrossGroupsEachRound": true,
+        "rankSlotScheduleRowRef": 398
       },
       "decisionDate": "2026-04-16",
-      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Correction block117: exactly one pot1-vs-pot1 match in each group over three rounds, distributed across groups; not one per group in every round. Actual schedule in parent row398; no duplicate array."
     }
   }
 ]

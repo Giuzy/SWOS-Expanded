@@ -14,7 +14,6 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -49,13 +48,148 @@
         "finalLegs": 1,
         "awayGoalsObserved": true,
         "extraTimeObserved": true,
-        "penaltiesObserved": true
+        "penaltiesObserved": true,
+        "totalEntrants": 49,
+        "qualifyingEntrants": 34,
+        "qualifyingWinners": 17,
+        "directRoundOf32": 15,
+        "roundOf32Entrants": 32,
+        "allBeforeFinalLegs": 2,
+        "expectedMatches": 95
       },
       "sources": [
         "https://www.rsssf.org/ec/ec199697.html"
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "limitations": "Observed or published dates, not full fixture reconciliation; historical neutral labels, exact local official naming still open."
+      "limitations": "All 49 entrant names and phase windows; ordinary stage second archive checked in part, full per-match reconciliation remains pending; native keys and complete regulations not certified. No future scores.",
+      "qualifyingPairs": [
+        [
+          "Chemlon Humenné",
+          "Flamurtari Vlorë"
+        ],
+        [
+          "FC Sion",
+          "Kareda-Sakalas Šiauliai"
+        ],
+        [
+          "Olimpija Ljubljana",
+          "Levski Sofia"
+        ],
+        [
+          "Crvena zvezda",
+          "Heart of Midlothian"
+        ],
+        [
+          "Qarabağ",
+          "MyPa"
+        ],
+        [
+          "Kotayk Abovyan",
+          "AEK Larnaca"
+        ],
+        [
+          "Constructorul Chișinău",
+          "Hapoel Ironi Rishon LeZion"
+        ],
+        [
+          "Valletta",
+          "Gloria Bistrița"
+        ],
+        [
+          "MPKC Mozyr",
+          "KR Reykjavík"
+        ],
+        [
+          "Shelbourne",
+          "SK Brann"
+        ],
+        [
+          "Llansantffraid",
+          "Ruch Chorzów"
+        ],
+        [
+          "Kispest Honvéd",
+          "Sloga Jugomagnat Skopje"
+        ],
+        [
+          "Varteks Varaždin",
+          "US Luxembourg"
+        ],
+        [
+          "Universitate Riga",
+          "FC Vaduz"
+        ],
+        [
+          "Glentoran",
+          "Sparta Praha"
+        ],
+        [
+          "Dinamo Batumi",
+          "HB Tórshavn"
+        ],
+        [
+          "Tallinna Sadam",
+          "Nyva Vinnytsia"
+        ]
+      ],
+      "directEntrants": [
+        "Fiorentina",
+        "Paris Saint-Germain",
+        "Nîmes Olympique",
+        "Barcelona",
+        "Kaiserslautern",
+        "PSV Eindhoven",
+        "Benfica",
+        "Liverpool",
+        "Cercle Brugge",
+        "AEK Athens",
+        "Lokomotiv Moscow",
+        "Galatasaray",
+        "AGF Aarhus",
+        "Sturm Graz",
+        "AIK Stockholm"
+      ],
+      "roundDates": [
+        [
+          "Q",
+          "1996-08-08",
+          "1996-08-22"
+        ],
+        [
+          "R32",
+          "1996-09-12",
+          "1996-09-26"
+        ],
+        [
+          "R16",
+          "1996-10-17",
+          "1996-10-31"
+        ],
+        [
+          "QF",
+          "1997-03-06",
+          "1997-03-20"
+        ],
+        [
+          "SF",
+          "1997-04-10",
+          "1997-04-24"
+        ],
+        [
+          "F",
+          "1997-05-14"
+        ]
+      ],
+      "dateExceptions": [
+        {
+          "phase": "Q",
+          "home": "KR Reykjavík",
+          "away": "MPKC Mozyr",
+          "date": "1996-08-21",
+          "nominalDate": "1996-08-22",
+          "reason": null
+        }
+      ]
     }
   },
   {
@@ -73,7 +207,6 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -115,13 +248,94 @@
         "extraTimeObserved": true,
         "penaltiesObserved": true,
         "accessFromChampionsQualifyingLosers": true,
-        "accessFromIntertotoFinalWinners": true
+        "accessFromIntertotoFinalWinners": true,
+        "preliminaryEntrants": 54,
+        "preliminaryWinners": 27,
+        "qualifyingEntrants": 52,
+        "qualifyingWinners": 26,
+        "qualifyingDirectEntrants": 25,
+        "roundOf64Access": {
+          "qualifyingWinners": 26,
+          "intertotoFinalWinners": 3,
+          "championsLeagueQualifyingLosers": 8,
+          "direct": 27
+        },
+        "allRoundsLegs": 2,
+        "expectedUEFACupMatches": 232
       },
       "sources": [
         "https://www.rsssf.org/ec/ec199697.html"
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "limitations": "Observed or published dates, not full fixture reconciliation; historical neutral labels, exact local official naming still open."
+      "limitations": "The combined archive lists six Intertoto semifinals and three Intertoto finals under UEFA Cup headings; exclude them from UEFA Cup own fixtures and use winners for access. All round windows and three documented exceptions; individual date audit incomplete. No future scores or actual later qualifiers fixed.",
+      "roundDates": [
+        [
+          "PRE",
+          "1996-07-17",
+          "1996-07-24"
+        ],
+        [
+          "Q",
+          "1996-08-06",
+          "1996-08-20"
+        ],
+        [
+          "R64",
+          "1996-09-10",
+          "1996-09-24"
+        ],
+        [
+          "R32",
+          "1996-10-15",
+          "1996-10-29"
+        ],
+        [
+          "R16",
+          "1996-11-19",
+          "1996-12-03"
+        ],
+        [
+          "QF",
+          "1997-03-04",
+          "1997-03-18"
+        ],
+        [
+          "SF",
+          "1997-04-08",
+          "1997-04-22"
+        ],
+        [
+          "F",
+          "1997-05-07",
+          "1997-05-21"
+        ]
+      ],
+      "dateExceptions": [
+        {
+          "phase": "R64",
+          "home": "Maccabi Tel Aviv",
+          "away": "Tenerife",
+          "date": "1996-09-25",
+          "nominalDate": "1996-09-24",
+          "reason": null
+        },
+        {
+          "phase": "R64",
+          "home": "Borussia Mönchengladbach",
+          "away": "Arsenal",
+          "date": "1996-09-25",
+          "nominalDate": "1996-09-24",
+          "reason": null
+        },
+        {
+          "phase": "R32",
+          "home": "Hamburger SV",
+          "away": "Spartak Moscow",
+          "date": "1996-10-16",
+          "nominalDate": "1996-10-15",
+          "reason": null
+        }
+      ]
     }
   },
   {
@@ -139,8 +353,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
-      "actualDates": "NOT_RECONCILED",
+      "actualDates": "FULL_HISTORICAL_FIXTURE_DATES_VERIFIED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
@@ -183,10 +396,512 @@
         "finalExtraTimeRuleCandidate": "Golden goal, announced for finals; verify original 1996/97 regulations, not inferred for two-leg ties",
         "laterFinalRuleRef": {
           "historyIndex": 795
-        }
+        },
+        "access": "title holder + champions of seven highest eligible associations direct; champions ranked 8–23 qualify",
+        "qualifyingSeeding": "eight seeded and eight unseeded by association ranking",
+        "groupPoints": [
+          3,
+          1,
+          0
+        ],
+        "groupTieBreak": "head-to-head aggregate including away goals; then overall goal difference"
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "scope": "Official UEFA season archive confirms name and first observed two-leg extra time; exact 1996/97 tiebreak and extra-time regulations remain partial. Existing historical group rules referenced once."
+      "scope": "Full historical dates and pairings checked; exact original eligibility, match regulations, native keys and one venue discrepancy remain. No future scores or runtime import.",
+      "drawDates": {
+        "qualifying": "1996-07-06",
+        "groupStage": "1996-08-23"
+      },
+      "directEntrants": [
+        "Juventus",
+        "Milan",
+        "Auxerre",
+        "Borussia Dortmund",
+        "Atlético Madrid",
+        "Ajax",
+        "Manchester United",
+        "Porto"
+      ],
+      "historicalCalendar": {
+        "status": "FULL_HISTORICAL_FIXTURE_DATES_AND_PAIRINGS_RECONCILED",
+        "expectedMatches": 77,
+        "fixtures": [
+          {
+            "phase": "Q",
+            "date": "1996-08-07",
+            "home": "Maccabi Tel Aviv",
+            "away": "Fenerbahçe"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-21",
+            "home": "Fenerbahçe",
+            "away": "Maccabi Tel Aviv"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-07",
+            "home": "Rangers",
+            "away": "Alania Vladikavkaz"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-21",
+            "home": "Alania Vladikavkaz",
+            "away": "Rangers"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-07",
+            "home": "Panathinaikos",
+            "away": "Rosenborg"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-21",
+            "home": "Rosenborg",
+            "away": "Panathinaikos"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-07",
+            "home": "IFK Göteborg",
+            "away": "Ferencváros"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-21",
+            "home": "Ferencváros",
+            "away": "IFK Göteborg"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-07",
+            "home": "Widzew Łódź",
+            "away": "Brøndby"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-21",
+            "home": "Brøndby",
+            "away": "Widzew Łódź"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-07",
+            "home": "Grasshopper Zürich",
+            "away": "Slavia Praha"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-21",
+            "home": "Slavia Praha",
+            "away": "Grasshopper Zürich"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-07",
+            "home": "Club Brugge",
+            "away": "Steaua București"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-21",
+            "home": "Steaua București",
+            "away": "Club Brugge"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-07",
+            "home": "Rapid Wien",
+            "away": "Dynamo Kyiv"
+          },
+          {
+            "phase": "Q",
+            "date": "1996-08-21",
+            "home": "Dynamo Kyiv",
+            "away": "Rapid Wien"
+          },
+          {
+            "phase": "GROUP_A",
+            "date": "1996-09-11",
+            "home": "Auxerre",
+            "away": "Ajax"
+          },
+          {
+            "phase": "GROUP_A",
+            "date": "1996-09-11",
+            "home": "Grasshopper Zürich",
+            "away": "Rangers"
+          },
+          {
+            "phase": "GROUP_A",
+            "date": "1996-09-25",
+            "home": "Rangers",
+            "away": "Auxerre"
+          },
+          {
+            "phase": "GROUP_A",
+            "date": "1996-09-25",
+            "home": "Ajax",
+            "away": "Grasshopper Zürich"
+          },
+          {
+            "phase": "GROUP_A",
+            "date": "1996-10-16",
+            "home": "Auxerre",
+            "away": "Grasshopper Zürich"
+          },
+          {
+            "phase": "GROUP_A",
+            "date": "1996-10-16",
+            "home": "Ajax",
+            "away": "Rangers"
+          },
+          {
+            "phase": "GROUP_A",
+            "date": "1996-10-30",
+            "home": "Rangers",
+            "away": "Ajax"
+          },
+          {
+            "phase": "GROUP_A",
+            "date": "1996-10-30",
+            "home": "Grasshopper Zürich",
+            "away": "Auxerre"
+          },
+          {
+            "phase": "GROUP_A",
+            "date": "1996-11-20",
+            "home": "Rangers",
+            "away": "Grasshopper Zürich"
+          },
+          {
+            "phase": "GROUP_A",
+            "date": "1996-11-20",
+            "home": "Ajax",
+            "away": "Auxerre"
+          },
+          {
+            "phase": "GROUP_A",
+            "date": "1996-12-04",
+            "home": "Auxerre",
+            "away": "Rangers"
+          },
+          {
+            "phase": "GROUP_A",
+            "date": "1996-12-04",
+            "home": "Grasshopper Zürich",
+            "away": "Ajax"
+          },
+          {
+            "phase": "GROUP_B",
+            "date": "1996-09-11",
+            "home": "Atlético Madrid",
+            "away": "Steaua București"
+          },
+          {
+            "phase": "GROUP_B",
+            "date": "1996-09-11",
+            "home": "Borussia Dortmund",
+            "away": "Widzew Łódź"
+          },
+          {
+            "phase": "GROUP_B",
+            "date": "1996-09-25",
+            "home": "Widzew Łódź",
+            "away": "Atlético Madrid"
+          },
+          {
+            "phase": "GROUP_B",
+            "date": "1996-09-25",
+            "home": "Steaua București",
+            "away": "Borussia Dortmund"
+          },
+          {
+            "phase": "GROUP_B",
+            "date": "1996-10-16",
+            "home": "Atlético Madrid",
+            "away": "Borussia Dortmund"
+          },
+          {
+            "phase": "GROUP_B",
+            "date": "1996-10-16",
+            "home": "Steaua București",
+            "away": "Widzew Łódź"
+          },
+          {
+            "phase": "GROUP_B",
+            "date": "1996-10-30",
+            "home": "Widzew Łódź",
+            "away": "Steaua București"
+          },
+          {
+            "phase": "GROUP_B",
+            "date": "1996-10-30",
+            "home": "Borussia Dortmund",
+            "away": "Atlético Madrid"
+          },
+          {
+            "phase": "GROUP_B",
+            "date": "1996-11-20",
+            "home": "Widzew Łódź",
+            "away": "Borussia Dortmund"
+          },
+          {
+            "phase": "GROUP_B",
+            "date": "1996-11-20",
+            "home": "Steaua București",
+            "away": "Atlético Madrid"
+          },
+          {
+            "phase": "GROUP_B",
+            "date": "1996-12-04",
+            "home": "Atlético Madrid",
+            "away": "Widzew Łódź"
+          },
+          {
+            "phase": "GROUP_B",
+            "date": "1996-12-04",
+            "home": "Borussia Dortmund",
+            "away": "Steaua București"
+          },
+          {
+            "phase": "GROUP_C",
+            "date": "1996-09-11",
+            "home": "Rapid Wien",
+            "away": "Fenerbahçe"
+          },
+          {
+            "phase": "GROUP_C",
+            "date": "1996-09-11",
+            "home": "Juventus",
+            "away": "Manchester United"
+          },
+          {
+            "phase": "GROUP_C",
+            "date": "1996-09-25",
+            "home": "Manchester United",
+            "away": "Rapid Wien"
+          },
+          {
+            "phase": "GROUP_C",
+            "date": "1996-09-25",
+            "home": "Fenerbahçe",
+            "away": "Juventus"
+          },
+          {
+            "phase": "GROUP_C",
+            "date": "1996-10-16",
+            "home": "Rapid Wien",
+            "away": "Juventus"
+          },
+          {
+            "phase": "GROUP_C",
+            "date": "1996-10-16",
+            "home": "Fenerbahçe",
+            "away": "Manchester United"
+          },
+          {
+            "phase": "GROUP_C",
+            "date": "1996-10-30",
+            "home": "Manchester United",
+            "away": "Fenerbahçe"
+          },
+          {
+            "phase": "GROUP_C",
+            "date": "1996-10-30",
+            "home": "Juventus",
+            "away": "Rapid Wien"
+          },
+          {
+            "phase": "GROUP_C",
+            "date": "1996-11-20",
+            "home": "Manchester United",
+            "away": "Juventus"
+          },
+          {
+            "phase": "GROUP_C",
+            "date": "1996-11-20",
+            "home": "Fenerbahçe",
+            "away": "Rapid Wien"
+          },
+          {
+            "phase": "GROUP_C",
+            "date": "1996-12-04",
+            "home": "Rapid Wien",
+            "away": "Manchester United"
+          },
+          {
+            "phase": "GROUP_C",
+            "date": "1996-12-04",
+            "home": "Juventus",
+            "away": "Fenerbahçe"
+          },
+          {
+            "phase": "GROUP_D",
+            "date": "1996-09-11",
+            "home": "IFK Göteborg",
+            "away": "Rosenborg"
+          },
+          {
+            "phase": "GROUP_D",
+            "date": "1996-09-11",
+            "home": "Milan",
+            "away": "Porto"
+          },
+          {
+            "phase": "GROUP_D",
+            "date": "1996-09-25",
+            "home": "Porto",
+            "away": "IFK Göteborg"
+          },
+          {
+            "phase": "GROUP_D",
+            "date": "1996-09-25",
+            "home": "Rosenborg",
+            "away": "Milan"
+          },
+          {
+            "phase": "GROUP_D",
+            "date": "1996-10-16",
+            "home": "IFK Göteborg",
+            "away": "Milan"
+          },
+          {
+            "phase": "GROUP_D",
+            "date": "1996-10-16",
+            "home": "Rosenborg",
+            "away": "Porto"
+          },
+          {
+            "phase": "GROUP_D",
+            "date": "1996-10-30",
+            "home": "Porto",
+            "away": "Rosenborg"
+          },
+          {
+            "phase": "GROUP_D",
+            "date": "1996-10-30",
+            "home": "Milan",
+            "away": "IFK Göteborg"
+          },
+          {
+            "phase": "GROUP_D",
+            "date": "1996-11-20",
+            "home": "Porto",
+            "away": "Milan"
+          },
+          {
+            "phase": "GROUP_D",
+            "date": "1996-11-20",
+            "home": "Rosenborg",
+            "away": "IFK Göteborg"
+          },
+          {
+            "phase": "GROUP_D",
+            "date": "1996-12-04",
+            "home": "IFK Göteborg",
+            "away": "Porto"
+          },
+          {
+            "phase": "GROUP_D",
+            "date": "1996-12-04",
+            "home": "Milan",
+            "away": "Rosenborg"
+          },
+          {
+            "phase": "QF",
+            "date": "1997-03-05",
+            "home": "Borussia Dortmund",
+            "away": "Auxerre"
+          },
+          {
+            "phase": "QF",
+            "date": "1997-03-19",
+            "home": "Auxerre",
+            "away": "Borussia Dortmund"
+          },
+          {
+            "phase": "QF",
+            "date": "1997-03-05",
+            "home": "Ajax",
+            "away": "Atlético Madrid"
+          },
+          {
+            "phase": "QF",
+            "date": "1997-03-19",
+            "home": "Atlético Madrid",
+            "away": "Ajax"
+          },
+          {
+            "phase": "QF",
+            "date": "1997-03-05",
+            "home": "Rosenborg",
+            "away": "Juventus"
+          },
+          {
+            "phase": "QF",
+            "date": "1997-03-19",
+            "home": "Juventus",
+            "away": "Rosenborg"
+          },
+          {
+            "phase": "QF",
+            "date": "1997-03-05",
+            "home": "Manchester United",
+            "away": "Porto"
+          },
+          {
+            "phase": "QF",
+            "date": "1997-03-19",
+            "home": "Porto",
+            "away": "Manchester United"
+          },
+          {
+            "phase": "SF",
+            "date": "1997-04-09",
+            "home": "Borussia Dortmund",
+            "away": "Manchester United"
+          },
+          {
+            "phase": "SF",
+            "date": "1997-04-23",
+            "home": "Manchester United",
+            "away": "Borussia Dortmund"
+          },
+          {
+            "phase": "SF",
+            "date": "1997-04-09",
+            "home": "Ajax",
+            "away": "Juventus"
+          },
+          {
+            "phase": "SF",
+            "date": "1997-04-23",
+            "home": "Juventus",
+            "away": "Ajax"
+          },
+          {
+            "phase": "FINAL",
+            "date": "1997-05-28",
+            "home": "Borussia Dortmund",
+            "away": "Juventus"
+          }
+        ],
+        "venueExceptions": [
+          {
+            "phase": "Q",
+            "date": "1996-08-07",
+            "home": "IFK Göteborg",
+            "away": "Ferencváros",
+            "venue": "Norrköpings Idrottsparken",
+            "status": "VENUE_CONFLICT_OTHER_ARCHIVE_REPORTS_ULLEVI_NOT_CERTIFIED"
+          }
+        ],
+        "finalVenue": "Olympiastadion München",
+        "scope": "Historical pairings for date audit only. All dates and oriented pairings crosschecked in two match archives. No scores stored. Initial entrants are 8 direct and 16 qualifiers (see Q fixtures); later group draws and KO participants must be generated from actual simulated outcomes, never frozen to historical names. Venue and native keys not certified."
+      }
     }
   },
   {

@@ -75,5 +75,18 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block109 edition-level sporting observation; not complete regulation or runtime certification."
     }
+  },
+  {
+    "index": 800,
+    "value": {
+      "competition": "POR Taça de Portugal",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        394
+      ],
+      "note": "Non-UEFA top-tier clubs enter round3 away; five UEFA entrants enter round4. Semifinals change from two legs to single matches on neutral grounds after league ends.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

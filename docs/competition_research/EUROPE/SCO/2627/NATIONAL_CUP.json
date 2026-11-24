@@ -43,7 +43,18 @@
         "topTierEntryRound": 4,
         "replays": false,
         "extraTimeMinutes": 30,
-        "penalties": true
+        "penalties": true,
+        "benchMax": 9,
+        "normalSubstitutions": 5,
+        "normalSubstitutionWindows": 3,
+        "extraTimeAdditionalSubstitution": 1,
+        "extraTimeAdditionalWindow": 1,
+        "concussionSubstitution": 1,
+        "opponentAdditionalSubstitutionOnConcussion": true,
+        "minimumPlayerAge": 16,
+        "minGoalkeepersOnTeamSheet": 2,
+        "cupTied": "may not play for two clubs in same edition",
+        "finalEligibility": "outfield players must have been eligible for same club in semifinal; goalkeeper exception subject to approval"
       },
       "roundDates": [
         [
@@ -95,7 +106,7 @@
           "2027-05-22"
         ]
       ],
-      "limitations": "SFA date page has 2025 typo for R3, corrected from actual 2026 draw notice. Preliminary draw June29, no matches before July1. Full club keys and exact tie rules pending.",
+      "limitations": "Rule 21 confirms extra time then penalties in every round including preliminaries and final. Specific substitution and eligibility rules extracted; full entry and fixture/key reconciliation pending. R3 date remains 28 Nov 2026.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

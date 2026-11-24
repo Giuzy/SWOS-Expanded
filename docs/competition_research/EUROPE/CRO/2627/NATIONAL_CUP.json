@@ -57,7 +57,22 @@
         "roundOf32Pairing": "1-32,2-31 etc; weaker seed hosts; upset winner inherits higher seed",
         "roundOf16Pairing": "1-16,2-15 etc; weaker seed hosts",
         "quarterfinalAndSemifinalPairing": "open draw first drawn hosts",
-        "legs": 1
+        "legs": 1,
+        "tieResolution": "extra time 2x15 then penalties",
+        "benchMax": 12,
+        "normalSubstitutions": 5,
+        "normalSubstitutionWindows": 3,
+        "extraTimeTotalSubstitutions": 6,
+        "foreignPlayersAppearingMax": 5,
+        "foreignExemptions": [
+          "Croatian dual nationality",
+          "EU/EEA citizenship"
+        ],
+        "cupTiedScope": "a player can appear for only one club in the same phase of the national stage, not necessarily the whole edition",
+        "yellowSuspensionThreshold": 4,
+        "yellowSuspensionMatches": 1,
+        "hostVenue": "licensed league home ground; exceptional change approved for force majeure/safety or justified grounds with both clubs consenting",
+        "finalVenueLicense": "top-tier licensed stadium"
       },
       "dates": {
         "nominalPreliminary": "2026-08-26",
@@ -70,7 +85,7 @@
         "nominalFinal": "2027-05-29"
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "limitations": "County cup qualifiers may belong to preceding season; distinguish access from current national-stage results. HNS 2025/26 onward instruction text retrieved but screenshots failed. 2027/28 eligibility change announced. Individual dates and club IDs not reconciled."
+      "limitations": "2026/27 national-stage regulation arts 1–3 and 10–14 read. Earlier access coefficient instructions already recorded. Full dates, player nationality mapping, disciplinary reset and stable club keys pending; prior county results supply access only."
     }
   }
 ]

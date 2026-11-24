@@ -10,7 +10,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -37,12 +37,28 @@
         "secondRoundNoSuperLeaguePair": true,
         "lowerTierHomeThroughSemifinal": true,
         "entryAllocation": {
-          "professionalLeaguePublished": 22,
-          "firstLeague": 16,
+          "professionalLeague": 21,
+          "firstLeague": 17,
           "amateurLeague": 25,
           "fairPlay": 1
         },
-        "vaduzExcluded": true
+        "vaduzExcluded": true,
+        "firstLeagueQualification": {
+          "promotionLeagueDirectBestEligible": 7,
+          "classicQualified": 10,
+          "classicEligible": 42,
+          "classicExclusions": {
+            "reserveYouth": 5,
+            "liechtenstein": 1
+          },
+          "preliminaryEntrants": 4,
+          "round1Entrants": 40,
+          "round2Entrants": 20,
+          "firstRoundRegionalGroups": 2,
+          "extraTimeMinutes": 30,
+          "penaltiesAfterExtraTime": true,
+          "fairPlayDuplicate": "draw among unqualified eligible Erste Liga clubs excluding incoming promotion and outgoing relegation clubs"
+        }
       },
       "roundWindows": [
         [
@@ -76,8 +92,36 @@
           "2027-06-06"
         ]
       ],
-      "limitations": "Federation page states 22 professional teams excluding Vaduz but league has 22 including Vaduz; actual quota requires checking; final June6 listed by SFL but federation TBD. Earlier regional qualification eligibility not treated as main cup fixture.",
-      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+      "limitations": "21 SFL clubs confirmed by 1 July 2026 draw announcement; Erste Liga directive gives 17 instead of 16 with Liechtenstein club in SFL. Generic allocation 22/16 corrected for this edition. Regional earlier rounds and actual scores remain incomplete; final date provisional.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "qualificationWindows": [
+        [
+          "Classic preliminary",
+          "2025-09-10",
+          "2025-09-10"
+        ],
+        [
+          "Classic R1",
+          "2025-10-18",
+          "2025-10-19"
+        ],
+        [
+          "Classic R2",
+          "2026-03-14",
+          "2026-03-15"
+        ]
+      ]
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "phase": "QUALIFICATION_BEFORE_MAIN_DRAW",
+        "qualificationEntrants": 42,
+        "classicPlaces": 10,
+        "promotionLeaguePlaces": 7
+      },
+      "missing": "Individual qualifying results and qualified club identities; scheduled windows verified, scores unavailable; main draw July 1 not imported as played fixture."
     }
   }
 ]

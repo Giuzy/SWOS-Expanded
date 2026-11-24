@@ -78,13 +78,19 @@
           "regional": 20,
           "winners": 18,
           "legs": 1,
-          "regionalHosts": true
+          "regionalHosts": true,
+          "crossPotPairs": 16,
+          "regionalOnlyPairs": 2,
+          "samePotHost": "first drawn"
         },
         "roundOf32": {
           "tier1": 14,
           "preliminaryWinners": 18,
           "legs": 1,
-          "preliminaryHosts": true
+          "preliminaryHosts": true,
+          "crossPotPairs": 14,
+          "preliminaryOnlyPairs": 2,
+          "samePotHost": "first drawn"
         },
         "roundOf16Legs": 1,
         "quarterfinalLegs": 1,
@@ -92,14 +98,25 @@
         "finalLegs": 1,
         "roundOf16QuarterfinalDraw": "open draw first drawn hosts",
         "semifinalFirstHome": "first drawn",
-        "europeanAccess": "cup winner; league champion double reallocates Europa to league rank 2, Conference playoff rank 4 instead of cup finalist"
+        "europeanAccess": "cup winner; league champion double reallocates Europa to league rank 2, Conference playoff rank 4 instead of cup finalist",
+        "nationalStageTieResolution": "extra time 2x15 then penalties",
+        "semifinalAggregateTieResolution": "extra time 2x15 in second leg then penalties",
+        "semifinalVenue": "top-tier licensed stadium",
+        "finalVenueSelection": "before semifinal draw",
+        "finalNominalHome": "organizer determines",
+        "unexcusedWithdrawal": "excluded from following edition; administrative sanction",
+        "forfeit": "elimination; both legs awarded as losses if two-leg tie",
+        "playerEligibility": "top-tier match sheet and starting XI conditions apply",
+        "supercupDoubleWinnerReplacement": "league runner-up",
+        "drawDeadlineHoursBeforeRound": 72,
+        "shootoutImpossibleExceptionalOutcome": "draw after inability to restore conditions, witnessed by officials and club representatives"
       },
       "dates": {
         "observedRegionalOpening": "2026-08-12",
         "roundOf32Draw": "2026-09-23"
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "limitations": "Earliest full regional census and individual dates not verified; official article text available but cup-page screenshots failed. No pre-cutoff state asserted."
+      "limitations": "BFU arts16/19 text; ordinary substitution count not inferred from art19 reference to additional fourth substitution (requires art23 reconciliation). Exceptional draw is an administrative result, not an OG simulated score. Full dates and club keys pending."
     }
   }
 ]

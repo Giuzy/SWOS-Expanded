@@ -128,7 +128,33 @@
           "newUEFAEntrants": 5
         },
         "lowerTierHomeThroughSemifinals": true,
-        "equalTierHome": "first drawn"
+        "equalTierHome": "first drawn",
+        "firstRoundDrawPots": [
+          "16 regional cup winners",
+          "remaining entrants"
+        ],
+        "firstRoundRegionalOpponentsFromOtherPot": true,
+        "fromR32DrawPots": 1,
+        "tieResolution": {
+          "extraTimeMinutes": 30,
+          "penalties": true
+        },
+        "substitutions": 5,
+        "extraTimeSubstitutions": 6,
+        "substitutionWindows": 3,
+        "finalVenue": "PGE Narodowy, Warsaw (federation alternate if unavailable)",
+        "finalNominalHome": "winner of first drawn semifinal",
+        "hostChangeAllowedForWeatherOrExternalCircumstances": true,
+        "discipline": {
+          "secondYellowSuspensionMatches": 1,
+          "fourthAndEachSubsequentEvenYellowSuspensionMatches": 2,
+          "regionalYellowResetAtCentralStage": true,
+          "regionalUnservedSuspensionsCarry": true,
+          "yellowResetAfterQF": true,
+          "unservedQFSuspensionsCarry": true,
+          "yellowSuspensionResetAtEditionEnd": true,
+          "unservedDirectRedSuspensionsCarryNextEdition": true
+        }
       },
       "roundWindows": [
         [
@@ -167,7 +193,7 @@
           "2027-05-02"
         ]
       ],
-      "limitations": "Official regulations and nominal calendar; previous season regional winners are access evidence, not current central cup played results. Actual dates, exact tie rule details and club keys pending.",
+      "limitations": "Central stage arts 10–12; regional stage different, full player eligibility/individual dates and stable club keys pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

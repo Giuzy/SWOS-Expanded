@@ -53,10 +53,16 @@
         "preliminaryQualifiers": 11,
         "directEuropeanEntrants": 5,
         "gamesPerClub": 4,
-        "calendarMatchdays": 5
+        "calendarMatchdays": 5,
+        "leaguePhasePots": 4,
+        "opponentsPerPot": 1,
+        "minimumYoungStartingPlayers": 2,
+        "previousMinimumYoungStartingPlayers": 1,
+        "yellowSuspensionAfterSemifinalDoesNotExcludeFinal": true
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "Block45 verified source text or search excerpt; TFF p1 screenshot."
+      "verification": "Block45 verified source text or search excerpt; TFF p1 screenshot.",
+      "note": "2026/27 qualification, tiebreak and match rules in row363; do not duplicate arrays."
     }
   },
   {

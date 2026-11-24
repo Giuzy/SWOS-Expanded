@@ -39,7 +39,60 @@
         "topTwoTiersEntryRound": 3,
         "legs": 1,
         "extraTimeMinutes": 30,
-        "penalties": true
+        "penalties": true,
+        "plannedRound1Access": {
+          "priorTier2Bottom": 2,
+          "priorTier3PromotionPlayoffLosers": 2,
+          "priorTier3OtherEligible": 46,
+          "priorCountyCupQualifiers": 94
+        },
+        "plannedRoundEntrants": [
+          144,
+          72,
+          64,
+          32,
+          16,
+          8,
+          4,
+          2
+        ],
+        "actualRound1Entrants": 143,
+        "earlyDrawRegions": [
+          "NE",
+          "SE",
+          "NW",
+          "SW"
+        ],
+        "regionalDrawRounds": [
+          1,
+          2
+        ],
+        "round3TopTierProtected": true,
+        "round4OnwardOpenDraw": true,
+        "hostPriority": [
+          "lower current tier",
+          "fewer prior home cup games in rounds1–7",
+          "first drawn"
+        ],
+        "nominalFinalHome": "first drawn SF winner",
+        "countyAccessPlayoffs": {
+          "tieResolution": "direct penalties",
+          "singleLeg": true,
+          "hostPriority": [
+            "lower tier",
+            "first drawn"
+          ]
+        },
+        "benchMax": 12,
+        "normalSubstitutions": 5,
+        "normalSubstitutionWindows": 3,
+        "extraTimeAdditionalSubstitution": 1,
+        "extraTimeAdditionalWindow": 1,
+        "yellowResetAfterQF": true,
+        "thirdYellowInQFStillSuspendsForSF": true,
+        "adultEligibility": "valid license for club highest division side",
+        "cooperationLicenseNotValid": true,
+        "uefaAccess": "cup winner subject to following UEFA season rules"
       },
       "roundWindows": [
         [
@@ -79,7 +132,7 @@
         ]
       ],
       "finalVenue": "Puskás Aréna",
-      "limitations": "R4 exact window and full early entrant keys pending; central main competition start August, distinct regional qualification dates unresolved.",
+      "limitations": "Official planned144 differs from actual143 after Martfű nonentry; exact bye disposition unverified. County access from 2025/26 territorial cup results, not new central-stage pre-July fixtures. Full date and ID reconciliation pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

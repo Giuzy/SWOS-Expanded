@@ -204,5 +204,22 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 802,
+    "value": {
+      "competition": "SVN national cup",
+      "firstEdition": "2025/26",
+      "operation": "OBSERVED_CHANGED_HOST_RULE",
+      "rowRefs": [
+        410
+      ],
+      "rules": {
+        "lowerTierHomeThroughRoundOf32": true,
+        "declineDeadlineHours": 72
+      },
+      "note": "Earlier observed 2022/23 rules did not grant automatic lower-tier hosting. New rule verified in 2025/26; exact introduction date between editions and continuation into 2026/27 unresolved.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

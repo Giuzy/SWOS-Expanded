@@ -44,7 +44,22 @@
           "legs": 2,
           "aggregateTie": "30 minutes extra time then penalties"
         },
-        "finalLegs": 1
+        "finalLegs": 1,
+        "actualStartingTeams": 307,
+        "preliminaryMatches": 77,
+        "preliminaryEntrants": 154,
+        "round1NewEntrants": 127,
+        "round1TotalEntrants": 204,
+        "round2NewEntrants": 26,
+        "round2TotalEntrants": 128,
+        "round2ExcludedReserveTeams": [
+          "ŠK Slovan Bratislava B",
+          "MŠK Žilina B"
+        ],
+        "regionalDrawThroughRound": 3,
+        "topTierExemptEastWestGeographicRestriction": true,
+        "finalTieResolution": "extra time then penalties",
+        "extraTimeAdditionalSubstitution": 1
       },
       "roundWindows": [
         [
@@ -68,14 +83,44 @@
           "2026-09-02"
         ],
         [
+          "R4 nominal",
+          "2026-10-14",
+          "2026-10-14"
+        ],
+        [
+          "R5 nominal",
+          "2026-11-04",
+          "2026-11-04"
+        ],
+        [
+          "QF nominal",
+          "2027-03-10",
+          "2027-03-10"
+        ],
+        [
+          "SF1 nominal",
+          "2027-04-07",
+          "2027-04-07"
+        ],
+        [
+          "SF2 nominal",
+          "2027-04-21",
+          "2027-04-21"
+        ],
+        [
           "final",
           "2027-05-01",
           "2027-05-01"
         ]
       ],
       "finalVenue": "Košická futbalová aréna",
-      "limitations": "308 registrations not proof all played; no invented full entrants, byes or R4–SF date calendar. Tie rules from corroborating secondary reporting.",
-      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+      "limitations": "307 actual at start per federation, 308 earlier registered retained distinctly; arithmetic 154+127+26=307. July14 scheduled exception earlier than official preliminary window; actual played date not independently reconciled. Individual fixtures and game keys pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "firstEarlierScheduledMatch": {
+        "date": "2026-07-14",
+        "home": "TJ Kopčany",
+        "away": "ŠFK Štefanov"
+      }
     }
   }
 ]

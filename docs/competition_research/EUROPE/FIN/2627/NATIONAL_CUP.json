@@ -77,7 +77,11 @@
         "final": {
           "entrants": 2
         },
-        "observedR5AndR6Tie": "direct penalties"
+        "observedR5AndR6Tie": "direct penalties",
+        "extraTimeFromSemifinal": true,
+        "extraTimeMinutes": 30,
+        "penaltiesAfterExtraTime": true,
+        "qfDirectPenaltiesObserved": true
       },
       "dates": {
         "prelim": [
@@ -116,7 +120,7 @@
         "final": "2026-09-05"
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "limitations": "Nominal dates and secondary entrant table, R5/R6 direct penalties confirmed by league report; full fixture and eligibility verification pending."
+      "limitations": "Semifinals onward extra time then penalties; earlier direct penalties observed R5, R6, QF, full competition rulebook pending. No future results imported."
     },
     "block83Research": {
       "matches": [

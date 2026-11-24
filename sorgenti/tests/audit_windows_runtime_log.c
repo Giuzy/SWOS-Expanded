@@ -166,7 +166,52 @@ int main(int argc,char **argv)
         puts("OVERALL=INCOMPLETE");
         return 2;
     }
+    /* Fase 2/3: Competition Engine (WORLD2627) evidence, kept SEPARATE from
+     * the native OG world checks above (which do not apply to a CE career). */
+    long ce_start=0,ce_defs=0,ce_blocked=0,ce_block_kind[12]={0},ce_faults=0;
+    long ce_completed=0,ce_archived=0,ce_phases=0,ce_participants=0;
+    long ce_restored=0,ce_insert_rejected=0,ce_prune_invalid=0;
+    long ce_claim_not_releasable=0,ce_car_failed=0,ce_forward_ok=0;
+    char ce_first_fault[512]={0};
     while(fgets(line,sizeof line,in)) {
+        if(strstr(line,"[competition-coordinator] START_READY") &&
+           strstr(line,"owner=UNIVERSAL_JSON"))++ce_start;
+        if(tag(line,"[ce-engine] DEFINITIONS"))++ce_defs;
+        if(tag(line,"[ce-engine] EDITION_BLOCKED")) {
+            static const char *const kinds[12]={"NONE","DATA_MISSING",
+                "RULES_INVALID","RULES_CHANGED","DATE_PLAN","COLLISION",
+                "DEPENDENCY","TIE_UNRESOLVED","ROSTER","ENTRANTS",
+                "MATCH_REFUSED","CAPACITY"};
+            int k;
+            ++ce_blocked;
+            for(k=1;k<12;++k) {
+                char needle[40];
+                snprintf(needle,sizeof needle,"block=%s ",kinds[k]);
+                if(strstr(line,needle)){++ce_block_kind[k];break;}
+            }
+        }
+        if(tag(line,"[ce-engine] EDITION_COMPLETED"))++ce_completed;
+        if(tag(line,"[ce-engine] EDITION_ARCHIVED"))++ce_archived;
+        if(tag(line,"[ce-engine] PHASE_GENERATED"))++ce_phases;
+        if(tag(line,"[ce-engine] EDITION_PARTICIPANTS"))++ce_participants;
+        if(tag(line,"[ce-engine] RESTORED"))++ce_restored;
+        if(tag(line,"[universal-car] INSERT_REJECTED"))++ce_insert_rejected;
+        if(tag(line,"[universal-car] PRUNE_INVALID"))++ce_prune_invalid;
+        if(tag(line,"[universal-car] CLAIMED_NOT_RELEASABLE"))++ce_claim_not_releasable;
+        if(tag(line,"[universal-manager-menu] FORWARD_OK"))++ce_forward_ok;
+        if(tag(line,"[car-writer]") && strstr(line,"status=") &&
+           !strstr(line,"status=DURABLE_AND_BYTE_VERIFIED"))++ce_car_failed;
+        if(tag(line,"[universal-fault]") || tag(line,"[universal-live] CPU_FAULT") ||
+           tag(line,"[universal-live] ADVANCE_BLOCKED") ||
+           tag(line,"[universal-live] ROUND_CPU_FAULT")) {
+            /* a fault that only blocked one edition locally is reported in
+             * the block counters, not as a world fault */
+            if(!strstr(line,"EDITION_BLOCKED_LOCAL")) {
+                ++ce_faults;
+                if(!ce_first_fault[0])snprintf(ce_first_fault,sizeof ce_first_fault,
+                                               "%.500s",line);
+            }
+        }
         ++rows;
         /* Lifetime informational/coverage inventory: these are NOT
          * automatically faults and are not erased by a new career. */
@@ -1063,6 +1108,34 @@ int main(int argc,char **argv)
            "scope=ALL_CAREERS\n",
            all_faults,all_regressions,all_season_failures,all_offer_failures,
            all_title_save_failures,all_unsupported);
+    if(ce_start) {
+        printf("CE_RUNTIME starts=%ld definitions_logs=%ld participants=%ld "
+               "phases_generated=%ld completed=%ld archived=%ld restored=%ld "
+               "manager_forward_ok=%ld scope=LOG_OBSERVATION_NOT_GAMEPLAY_VALIDATION\n",
+               ce_start,ce_defs,ce_participants,ce_phases,ce_completed,
+               ce_archived,ce_restored,ce_forward_ok);
+        printf("CE_BLOCKS total=%ld DATA_MISSING=%ld RULES_INVALID=%ld "
+               "RULES_CHANGED=%ld DATE_PLAN=%ld COLLISION=%ld DEPENDENCY=%ld "
+               "TIE_UNRESOLVED=%ld ROSTER=%ld ENTRANTS=%ld MATCH_REFUSED=%ld "
+               "CAPACITY=%ld note=DATA_MISSING/DEPENDENCY=data-or-decision,"
+               "others=engine-or-data-error\n",ce_blocked,ce_block_kind[1],
+               ce_block_kind[2],ce_block_kind[3],ce_block_kind[4],ce_block_kind[5],
+               ce_block_kind[6],ce_block_kind[7],ce_block_kind[8],ce_block_kind[9],
+               ce_block_kind[10],ce_block_kind[11]);
+        printf("CE_INTEGRITY world_faults=%ld insert_rejected=%ld prune_invalid=%ld "
+               "claimed_not_releasable=%ld car_writer_not_verified=%ld\n",
+               ce_faults,ce_insert_rejected,ce_prune_invalid,
+               ce_claim_not_releasable,ce_car_failed);
+        if(ce_first_fault[0])printf("CE_FIRST_WORLD_FAULT: %s",ce_first_fault);
+        printf("CE_VERDICT=%s\n",
+               (ce_faults||ce_prune_invalid||ce_car_failed||ce_claim_not_releasable)?
+                   "FAIL":
+               (ce_block_kind[4]||ce_block_kind[5]||ce_block_kind[7]||
+                ce_block_kind[2]||ce_block_kind[11])?"ENGINE_OR_DATA_BLOCKS_PRESENT":
+               "NO_WORLD_FAULT_OBSERVED (gameplay not validated by this audit)");
+        puts("OG_NATIVE_WORLD_CHECKS=NOT_APPLICABLE_CE_WORLD (2627 career owned "
+             "by the Competition Engine; OG start/resident counters stay 0 by design)");
+    }
     if(historical_first[0])printf("FIRST_RUNTIME_FAILURE: %s\n",historical_first);
     else if(first[0])printf("FIRST_RUNTIME_FAILURE: %s\n",first);
     if(!correct_build) {
@@ -1075,6 +1148,13 @@ int main(int argc,char **argv)
         puts("WINDOWS_OG_INTEGRATION=FAIL");
         puts("OVERALL=FAIL");
         return 1;
+    }
+    if(ce_start && (!start_ready||!start_audit||!have_audit||leagues<=0)) {
+        /* CE career: the OG-native START evidence does not exist by design */
+        puts("WINDOWS_OG_INTEGRATION=NOT_APPLICABLE reason=CE_WORLD");
+        puts(ce_faults||ce_prune_invalid||ce_car_failed||ce_claim_not_releasable?
+             "OVERALL=FAIL":"OVERALL=INCOMPLETE reason=GAMEPLAY_AND_CE_COVERAGE_NOT_CERTIFIED_BY_LOG");
+        return ce_faults||ce_prune_invalid||ce_car_failed||ce_claim_not_releasable?1:2;
     }
     if(!start_ready||!start_audit||!have_audit||leagues<=0) {
         puts("WINDOWS_OG_INTEGRATION=INCOMPLETE reason=NO_OG_START_EVIDENCE");

@@ -236,6 +236,8 @@ uint32_t ExpCe_LeagueCompetitionId(uint8_t country,uint8_t comp_id,
  * JSON file exists but is malformed (leagues still added). */
 int ExpCe_BuildWorldDefinitions(uint16_t world);
 int ExpCe_LeagueFamilyChainOk(uint8_t country,uint8_t comp_id);
+int ExpCe_PlanPhaseDays(const ExpCeDef *d,uint16_t year,uint32_t phase,
+                        int32_t earliest,uint32_t rounds,int32_t *days);
 
 /* START: register the first editions. League editions already present in
  * the registry (catalog fixtures) become ACTIVE/SCHEDULED; leagues without

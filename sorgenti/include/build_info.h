@@ -166,7 +166,15 @@
  * a league whose whole first season ended before START starts the next
  * season with the START division clubs; CONTINUE re-evaluates CREATED
  * editions blocked for data/entrants under the current rules. */
-#define SWOS_EXPANDED_VERSION "00.13.297"
+/* v00.13.298 (Fase 3, partial): a league edition confirmed only after its
+ * window opened (00.13.297 RUN1: CAR v296 repaired at CONTINUE on 2027-02-07,
+ * 4 editions blocked DATE_PLAN) moves as a WHOLE family to the next legal
+ * window with the same clubs (never shortened, rest days untouched, no
+ * catch-up matches); CONTINUE releases such DATE_PLAN blocks that never
+ * generated a fixture. Runtime audit: separate CE section, OG-native world
+ * checks NOT_APPLICABLE for a CE career, never a forced PASS. Competition
+ * inventory generator (tools/competition_inventory.py). Windows NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.298"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

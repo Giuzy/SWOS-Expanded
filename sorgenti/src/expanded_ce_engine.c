@@ -1098,6 +1098,50 @@ static int league_family_rollover(ExpandedUniversalRegistry *r,
     return 1;
 }
 static int ed_index(const ExpCeEdition *e){return (int)(e-s_ce.eds);}
+/* Defer every division of a league family, all still PARTICIPANTS with no
+ * fixtures, from `year` to `year+1` when `year`'s window has already opened.
+ * Fail-closed (0) when any division already has a schedule, when the
+ * successor year already exists, or when the window has not opened yet
+ * (then the plan is impossible for a data reason and must stay blocked). */
+static int league_family_defer(const ExpCeDef *d,uint16_t year,int32_t today)
+{
+    uint32_t i,n=0u;
+    int32_t start=0;
+    ExpCeEdition *fam[256];
+    if(!d || d->origin!=EXP_CE_ORIGIN_LEAGUE || year>=0xFFFFu)return 0;
+    for(i=0;i<s_ce.neds;++i) {
+        ExpCeEdition *o=&s_ce.eds[i];
+        const ExpCeDef *od=def_find(o->def_id);
+        if(!od || od->origin!=EXP_CE_ORIGIN_LEAGUE || od->country!=d->country ||
+           od->comp_id!=d->comp_id)continue;
+        if(o->year==(uint16_t)(year+1u))return 0;      /* successor exists */
+        if(o->year!=year)continue;
+        if(o->state!=EXP_CE_ED_PARTICIPANTS || o->block || n>=256u)return 0;
+        if(today<o->key.start_day)return 0;            /* not late: real gap */
+        fam[n++]=o;
+    }
+    if(!n)return 0;
+    for(i=0;i<n;++i) {
+        const ExpCeDef *od=def_find(fam[i]->def_id);
+        if(!od || !edition_start_day(od,(uint16_t)(year+1u),&start) ||
+           start<=today)return 0;
+    }
+    for(i=0;i<n;++i) {
+        const ExpCeDef *od=def_find(fam[i]->def_id);
+        char why[96];
+        ExpandedWorldDate was={0};
+        (void)ExpandedWorld_IndexToDate(fam[i]->key.start_day,&was);
+        (void)edition_start_day(od,(uint16_t)(year+1u),&start);
+        fam[i]->year=(uint16_t)(year+1u);
+        fam[i]->key.start_day=start;
+        snprintf(why,sizeof why,"window %04u-%02u-%02u already open when "
+                 "confirmed: same clubs, next legal window",(unsigned)was.year,
+                 (unsigned)was.month,(unsigned)was.day);
+        ed_log("EDITION_DEFERRED_TO_NEXT_WINDOW",fam[i],why);
+    }
+    return 1;
+}
+
 int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,int32_t today)
 {
     int changes=0,pass;
@@ -1129,7 +1173,17 @@ int ExpCe_Tick(ExpandedUniversalRegistry *r,const ExpCeHost *host,int32_t today)
             }
             case EXP_CE_ED_PARTICIPANTS:
                 if(!generate_phase(r,host,d,e,0u,today,&block,why,sizeof why)) {
-                    e=&s_ce.eds[i];ed_block(r,host,e,block,why);
+                    e=&s_ce.eds[i];
+                    /* v298: a league edition confirmed only AFTER its window
+                     * opened (e.g. a pre-v297 CAR repaired at CONTINUE) cannot
+                     * fit its rounds any more: never shorten it, never squeeze
+                     * the rest days, never invent catch-up matches -> move the
+                     * whole family to its next legal window, same clubs. */
+                    if(block==EXP_CE_BLOCK_DATE_PLAN &&
+                       league_family_defer(d,e->year,today)) {
+                        ++moved;break;
+                    }
+                    ed_block(r,host,e,block,why);
                 } else {
                     e=&s_ce.eds[i];
                     e->state=EXP_CE_ED_SCHEDULED;e->phase=0u;e->phase_ready=1u;
@@ -1380,6 +1434,19 @@ int ExpCe_RulesForFixture(const ExpandedUniversalFixture *f,
     if(match)*match=d->phases[phase].match;
     if(table)*table=d->phases[phase].table;
     return 1;
+}
+/* Validator/diagnostics: plan the round days of (definition, year, phase)
+ * exactly as generate_phase does (no registry change). */
+int ExpCe_PlanPhaseDays(const ExpCeDef *d,uint16_t year,uint32_t phase,
+                        int32_t earliest,uint32_t rounds,int32_t *days)
+{
+    ExpCeEdition e;
+    int32_t start=0;
+    if(!d || phase>=d->nphases || !days || !edition_start_day(d,year,&start))
+        return 0;
+    memset(&e,0,sizeof e);
+    e.key.start_day=start;e.year=year;
+    return plan_phase_days_ex(d,&e,&d->phases[phase],earliest,rounds,days);
 }
 int ExpCe_FixturePhase(const ExpandedUniversalFixture *f,uint8_t *kind,
                        uint8_t *meetings)
@@ -1929,6 +1996,25 @@ int ExpCe_ValidateAfterRestore(ExpandedUniversalRegistry *r,const ExpCeHost *hos
             "old-block=%s\n",(unsigned long)e->def_id,(unsigned)e->year,
             ExpCe_BlockName(e->block));
         ed_remove(i);
+        ++changed;
+    }
+    /* v298: a league edition saved blocked DATE_PLAN before generating any
+     * fixture (diagnostic 00.13.297) is released so the next tick can move
+     * its family to the next legal window; nothing was played or scheduled */
+    for(i=0;i<s_ce.neds;++i) {
+        ExpCeEdition *e=&s_ce.eds[i];
+        const ExpCeDef *d=def_find(e->def_id);
+        uint32_t k,nf=0u;
+        if(!d || d->origin!=EXP_CE_ORIGIN_LEAGUE || e->state!=EXP_CE_ED_PARTICIPANTS ||
+           e->block!=EXP_CE_BLOCK_DATE_PLAN)continue;
+        for(k=0;k<r->fixture_count;++k)
+            if(ExpandedEditionKey_Equal(r->fixtures[k].key.edition,e->key))++nf;
+        if(nf)continue;
+        if(host && host->hold)(void)host->hold(host->user,e->key,0);
+        fprintf(stderr,"[ce-engine] EDITION_REEVALUATED competition=%lu year=%u "
+            "old-block=%s\n",(unsigned long)e->def_id,(unsigned)e->year,
+            ExpCe_BlockName(e->block));
+        e->block=0u;e->why[0]=0;
         ++changed;
     }
     for(i=0;i<s_ce.ndefs;++i) {

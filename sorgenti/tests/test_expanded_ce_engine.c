@@ -56,10 +56,16 @@ static int h_res(void *u,uint64_t id,int32_t d){(void)u;return ExpandedUniversal
 static int h_arch(void *u,ExpandedEditionKey e,uint32_t c,uint32_t r,int32_t d)
 {(void)u;return ExpandedUniversal_ArchiveCloseEdition(e,c,r,d);}
 static int h_club(void *u,ExpandedClubKey k){(void)u;return k.stable_club!=0u;}
+static ExpandedClubKey C(uint32_t country,uint32_t slot);
+static int s_div21; /* v298 late-window scenario */
 static uint32_t h_div(void *u,uint8_t country,uint8_t division,ExpandedClubKey *out,uint32_t cap)
 {
     uint32_t k;
     (void)u;
+    if(country==21u && s_div21 && division<2u && cap>=4u) {
+        for(k=0;k<4u;++k)out[k]=C(21u,1u+4u*division+k);
+        return 4u;
+    }
     if(country!=19u || division!=0u || cap<4u)return 0u;
     for(k=0;k<4u;++k)out[k]=(ExpandedClubKey){WORLD_2627,(19u<<16)|(k+1u)};
     return 4u;
@@ -556,6 +562,102 @@ int main(void)
         assert(e && !e->block);
     }
     puts("RULES_VERSION_CHANGE_BLOCKS_ONLY_THAT_EDITION=PASS");
+
+    /* ===== v298 DATE_PLAN: league edition confirmed after its window opened
+     * (pre-v297 CAR repaired at CONTINUE, diagnostic 00.13.297 RUN1) ===== */
+    {
+        /* Jan 10 - Feb 28, Sundays + Wednesdays, rest 3: 6 rounds fit only
+         * when the plan starts near Jan 10 */
+        static const ExpCeWindow TW={1,10,2,28,0, 1u<<0,1u<<3,3,0,{{0}}};
+        ExpCeDef *dd=(ExpCeDef *)calloc(1u,sizeof *dd);
+        const uint32_t T0=ExpCe_LeagueCompetitionId(21,1,0),T1=ExpCe_LeagueCompetitionId(21,1,1);
+        int32_t days[8];
+        ExpCeEdition *late;
+        assert(dd);
+        ExpandedUniversal_CarResetCurrent();ExpCe_Reset();
+        assert(ExpandedUniversal_CarBegin((ExpandedWorldDate){2026,7,1},64u));
+        assert(ExpCe_LeagueDefinition(WORLD_2627,21,1u,0u,2u,4u,2u,3u,3u,5u,0u,1u,0u,0u,&TW,dd));
+        assert(ExpCe_AddDefinition(dd));
+        assert(ExpCe_LeagueDefinition(WORLD_2627,21,1u,1u,2u,4u,2u,3u,3u,5u,1u,0u,0u,0u,&TW,dd));
+        assert(ExpCe_AddDefinition(dd));
+        free(dd);dd=NULL;
+        /* positive control: planned from the window start the 6 rounds fit */
+        assert(ExpCe_PlanPhaseDays(ExpCe_Definition(T0),2027,0u,D(2027,1,10),6u,days)==1);
+        /* negative control: from Feb 14 they do not (no shortening) */
+        assert(!ExpCe_PlanPhaseDays(ExpCe_Definition(T0),2027,0u,D(2027,2,14),6u,days));
+        {
+            int pass_;
+            for(pass_=0;pass_<2;++pass_) {
+                /* pass 0: repaired at CONTINUE on 2027-02-14 (window open)
+                 * pass 1: repaired on 2026-12-01 (window not open yet) */
+                const int32_t when=pass_?D(2026,12,1):D(2027,2,14);
+                const ExpCeEdition *a,*b;
+                uint32_t k;
+                if(pass_) {
+                    ExpandedUniversal_CarResetCurrent();ExpCe_Reset();
+                    assert(ExpandedUniversal_CarBegin((ExpandedWorldDate){2026,7,1},64u));
+                    dd=(ExpCeDef *)calloc(1u,sizeof *dd);assert(dd);
+                    assert(ExpCe_LeagueDefinition(WORLD_2627,21,1u,0u,2u,4u,2u,3u,3u,5u,0u,1u,0u,0u,&TW,dd));
+                    assert(ExpCe_AddDefinition(dd));
+                    assert(ExpCe_LeagueDefinition(WORLD_2627,21,1u,1u,2u,4u,2u,3u,3u,5u,1u,0u,0u,0u,&TW,dd));
+                    assert(ExpCe_AddDefinition(dd));free(dd);
+                }
+                s_div21=0;
+                assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
+                /* the pre-v297 state: 2026 editions blocked DATA_MISSING */
+                a=edition_of(T0,2026);
+                assert(a && a->block==EXP_CE_BLOCK_DATA_MISSING);
+                s_div21=1;
+                R()->scheduler.clock.day_index=when;
+                (void)ExpCe_ValidateAfterRestore(R(),&H);
+                if(!pass_) {
+                    /* reproduce a 00.13.297 CAR: 2027 confirmed + blocked
+                     * DATE_PLAN with no fixture; v298 restore releases it */
+                    ExpCeEdition *x=(ExpCeEdition *)edition_of(T0,2027),
+                                 *y=(ExpCeEdition *)edition_of(T1,2027);
+                    if(!x || x->state!=EXP_CE_ED_PARTICIPANTS) {
+                        (void)ExpCe_Tick(R(),&H,when); /* engine path only */
+                    } else {
+                        x->block=y->block=EXP_CE_BLOCK_DATE_PLAN;
+                        assert(ExpCe_ValidateAfterRestore(R(),&H)>=2);
+                        assert(!x->block && !y->block);
+                        puts("CAR297_DATE_PLAN_BLOCK_RELEASED_AT_CONTINUE=PASS");
+                    }
+                }
+                (void)ExpCe_Tick(R(),&H,when);
+                if(!pass_) {
+                    /* first, the 00.13.297 behaviour is reproduced by
+                     * blocking; v298 restore releases it and defers */
+                    /* deferred as a whole family, same clubs, never shortened */
+                    assert(!edition_of(T0,2027) && !edition_of(T1,2027));
+                    a=edition_of(T0,2028);b=edition_of(T1,2028);
+                    assert(a && b && !a->block && !b->block);
+                    assert(a->state>=EXP_CE_ED_SCHEDULED && b->state>=EXP_CE_ED_SCHEDULED);
+                    assert(a->key.start_day==D(2028,1,10) && a->nentrants==4u && b->nentrants==4u);
+                } else {
+                    a=edition_of(T0,2027);b=edition_of(T1,2027);
+                    assert(a && b && !a->block && !b->block && a->state>=EXP_CE_ED_SCHEDULED);
+                    assert(!edition_of(T0,2028));
+                }
+                /* every generated fixture: inside its window, 6 per division */
+                {
+                    uint32_t n0=0u;
+                    for(k=0;k<R()->fixture_count;++k) {
+                        const ExpandedUniversalFixture *f=&R()->fixtures[k];
+                        if(f->key.edition.competition.stable_competition!=T0)continue;
+                        ++n0;
+                        assert(f->day_index>when && f->day_index>=a->key.start_day &&
+                               f->day_index<=a->key.start_day+49);
+                    }
+                    assert(n0==12u);
+                }
+                check_no_club_twice_a_day();
+            }
+        }
+        late=NULL;(void)late;
+    }
+    puts("DATE_PLAN_LATE_CONFIRMED_FAMILY_DEFERRED_SAME_CLUBS_NO_SHORTENING=PASS");
+    puts("DATE_PLAN_REPAIRED_BEFORE_WINDOW_PLANS_SAME_YEAR=PASS");
 
     /* ===== table rules: points and head-to-head differ by competition ===== */
     {

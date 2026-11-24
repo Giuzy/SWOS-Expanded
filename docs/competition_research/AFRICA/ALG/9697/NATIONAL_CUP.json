@@ -11,12 +11,12 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_CUTOFF_SOURCE_SUPPORTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "historicalSportData": {
@@ -33,13 +33,61 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Coupe d'Algérie",
+      "nonCommercialDisplayName": "Coupe d'Algérie",
       "candidateName": "Coupe d'Algérie",
-      "status": "HISTORICAL_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesa/alg96.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block56Research": {
+      "name": "Coupe d'Algérie",
+      "display": "Coupe d'Algérie",
+      "sources": [
+        "https://www.rsssf.org/tablesa/alg96.html",
+        "https://www.rsssf.org/tablesa/algcuphist.html",
+        "https://www.rsssf.org/tablesa/alg97.html"
+      ],
+      "edition": "1996/97",
+      "initialCarryOver": {
+        "edition": "1995/96",
+        "asOf": "1996-07-01",
+        "stage": "final pending",
+        "finalists": [
+          "MC Oran",
+          "USM Blida"
+        ],
+        "finalDate": "1996-07-05",
+        "semifinals": [
+          {
+            "date": "1996-06-28",
+            "a": "MC Oran",
+            "b": "ES Setif",
+            "score": [
+              0,
+              0
+            ],
+            "penalties": [
+              4,
+              3
+            ]
+          },
+          {
+            "date": "1996-06-28",
+            "a": "USM Blida",
+            "b": "HB Chelghoum Laid",
+            "score": [
+              2,
+              1
+            ],
+            "extraTime": true
+          }
+        ],
+        "note": "No final result imported."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24"
     }
   }
 ]

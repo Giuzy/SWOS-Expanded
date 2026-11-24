@@ -29,5 +29,50 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 37 official federation/league sources 24/11/2026; no complete edition rules or fixture reconciliation."
     }
+  },
+  {
+    "index": 376,
+    "value": {
+      "competition": "AUS FFA Cup",
+      "firstEdition": "2014",
+      "operation": "INTRODUCE",
+      "rowRefs": [
+        329
+      ],
+      "source": "https://footballaustralia.com.au/news/australia-cup-name-return-australias-largest-national-knockout-football-competition?page=158",
+      "note": "New national knockout distinct from NSL Cup.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "name": "FFA Cup"
+    }
+  },
+  {
+    "index": 377,
+    "value": {
+      "competition": "AUS Australia Cup",
+      "firstEdition": "2022",
+      "operation": "RENAME",
+      "rowRefs": [
+        329
+      ],
+      "source": "https://footballaustralia.com.au/news/australia-cup-name-return-australias-largest-national-knockout-football-competition?page=158",
+      "note": "Noncommercial name restored, not revival of same 1962 identity.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "previousName": "FFA Cup",
+      "name": "Australia Cup"
+    }
+  },
+  {
+    "index": 378,
+    "value": {
+      "competition": "AUS Australia Cup",
+      "firstEdition": "2026",
+      "operation": "CHANGE_QUALIFICATION",
+      "rowRefs": [
+        329
+      ],
+      "source": "https://footballaustralia.com.au/news/football-australia-announces-refined-competitions-structure-2026?page=11&trk=article-ssr-frontend-pulse_little-text-block",
+      "note": "Removed A-League qualification round; NZ clubs excluded; Australian Championship champion direct entry.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

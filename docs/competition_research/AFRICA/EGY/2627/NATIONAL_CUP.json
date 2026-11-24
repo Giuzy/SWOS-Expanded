@@ -12,7 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -30,6 +30,27 @@
       "source": "ede8038686d4653f73fc84c758c5d2f98ad06465",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block55Research": {
+      "edition": "2026/27",
+      "sources": [
+        "https://africasoccer.com/egypt-cup-draw-al-ahly-and-zamalek-placed-on-same-side-as-al-ittihad-face-ghazl-el-mahalla/",
+        "https://www.soccerzz.com/competition/taca-do-egipto",
+        "https://en.wikipedia.org/wiki/2025%E2%80%9326_Egypt_Cup"
+      ],
+      "rules": {
+        "mainDrawTeams": 32,
+        "knockoutBracketObserved": true,
+        "preliminaryRoundsExist": true,
+        "entryRules": "previous edition top-tier entered round of 32; confirm 2026/27"
+      },
+      "dates": {
+        "mainDraw": "2026-10-22"
+      },
+      "note": "Earlier qualifying dates not reconciled; do not exclude July cutoff based solely on main draw date.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limitations": "Exact club keys, fixture dates, full match rules and runtime not certified."
     }
   }
 ]

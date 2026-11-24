@@ -12,25 +12,50 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Carling Knockout",
+      "nonCommercialDisplayName": "South African League Cup",
       "candidateName": "South African League Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.psl.co.za/news/article/5615294-psl-confirms-the-202627-season-calend",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block55Research": {
+      "edition": "2026/27",
+      "name": "Carling Knockout",
+      "display": "South African League Cup",
+      "sources": [
+        "https://www.psl.co.za/news/article/5615294-psl-confirms-the-202627-season-calend",
+        "https://www.psl.co.za/news/article/5616364-carling-knockout-cup-last-16-fixture",
+        "https://www.psl.co.za/news/article/5616404-carling-knockout-cup-quarterfinals-dr",
+        "https://psl.co.za/news/article/5289894-carling-black-label-and-the-psl-annou"
+      ],
+      "rules": {
+        "entrants": 16,
+        "quarterfinalDraw": {
+          "seeded": true,
+          "seedBasis": "4 highest finishers in previous league season among remaining eight"
+        }
+      },
+      "dates": {
+        "start": "2026-10-24",
+        "firstRoundEnd": "2026-10-28",
+        "end": "2026-12-09"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limitations": "Exact club keys, fixture dates, full match rules and runtime not certified."
     }
   }
 ]

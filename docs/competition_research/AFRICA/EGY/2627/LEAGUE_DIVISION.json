@@ -12,25 +12,66 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Egyptian Premier League",
+      "nonCommercialDisplayName": "Egyptian Premier League",
       "candidateName": "Egyptian Premier League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.alahlyegypt.com/en/news/article/al-ahlys-202627-egyptian-premier-league-first-stage-fixtures-revealed",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block55Research": {
+      "edition": "2026/27",
+      "name": "Egyptian Premier League",
+      "display": "Egyptian Premier League",
+      "sources": [
+        "https://www.alahlyegypt.com/en/news/article/al-ahlys-202627-egyptian-premier-league-first-stage-fixtures-revealed",
+        "https://english.ahram.org.eg/UI/Front/Inner.aspx?NewsContentID=574993",
+        "https://english.ahram.org.eg/UI/Front/Inner.aspx?NewsContentID=573720",
+        "https://www.rsssf.org/tablese/egy2026.html"
+      ],
+      "rules": {
+        "teams": 20,
+        "firstPhaseGamesPerClub": 19,
+        "groupsAfterPhase1": [
+          6,
+          14
+        ],
+        "relegated": 4,
+        "planned2027_28": {
+          "teams": 18,
+          "doubleRoundRobin": true,
+          "status": "announced, not override of 2026 game template"
+        }
+      },
+      "dates": {
+        "start": "2026-08-21",
+        "endMonth": "2027-05"
+      },
+      "previousEdition": {
+        "edition": "2025/26",
+        "teams": 21,
+        "groupsAfterPhase1": [
+          7,
+          14
+        ],
+        "relegated": 4,
+        "firstPhaseGamesPerClub": 20
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limitations": "Exact club keys, fixture dates, full match rules and runtime not certified."
     }
   }
 ]

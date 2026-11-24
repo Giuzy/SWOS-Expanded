@@ -406,7 +406,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
+      "historyAtStart": "APPLICABILITY_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -414,15 +414,6 @@
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
-    "startResearch": {
-      "cutoff": "1996-06-30",
-      "status": "RESEARCH_AVAILABLE",
-      "sources": [
-        "ffd563a774e1c1865eb513e6ab0ffb427d370a78"
-      ],
-      "details": {},
-      "missing": "Group assignment and cutoff state."
-    },
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
@@ -449,7 +440,11 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "RSSSF retrieved excerpt; neutral labels, not official name history; no OG key mapping or runtime import."
-    }
+    },
+    "cutoffApplicability": "UNDETERMINED",
+    "cutoffCandidateSources": [
+      "ffd563a774e1c1865eb513e6ab0ffb427d370a78"
+    ]
   },
   {
     "row": 172,

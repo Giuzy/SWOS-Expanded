@@ -46,5 +46,20 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
     }
+  },
+  {
+    "index": 373,
+    "value": {
+      "competition": "CFA Cup",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "FORMAT_BASELINE",
+      "rowRefs": [
+        341
+      ],
+      "source": "https://www.thecfa.cn/zuxiebei/20260305/37378.html",
+      "note": "80 clubs, 79 single-leg matches, 8 rounds; format source not proof of change relative to 2025.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

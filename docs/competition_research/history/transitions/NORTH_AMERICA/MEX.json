@@ -1,0 +1,34 @@
+[
+  {
+    "index": 374,
+    "value": {
+      "competition": "MEX top division playoff",
+      "firstEdition": "2026/27",
+      "lastEdition": "2026/27",
+      "operation": "REMOVE_PLAY_IN",
+      "rowRefs": [
+        270,
+        466
+      ],
+      "source": "https://www.scoretable.live/es/blog/como-funciona-la-liga-mx",
+      "note": "Eight direct qualifiers; secondary rule summary, exact first effective edition needs verification.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 375,
+    "value": {
+      "competition": "MEX promotion/relegation",
+      "firstEdition": "2026/27",
+      "lastEdition": "2026/27",
+      "operation": "SUSPENSION_CONTINUES",
+      "rowRefs": [
+        270,
+        271
+      ],
+      "source": "https://www.reuters.com/sports/soccer/promotion-battle-mexico-becomes-test-governance-beyond-pitch-2026-11-18/",
+      "note": "Contested continued suspension; no permanent design decision.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

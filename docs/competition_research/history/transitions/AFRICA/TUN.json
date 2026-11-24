@@ -1,0 +1,31 @@
+[
+  {
+    "index": 394,
+    "value": {
+      "competition": "Ligue Professionnelle 1",
+      "firstEdition": "2022/23",
+      "lastEdition": "2022/23",
+      "operation": "OBSERVED_SPLIT_FORMAT",
+      "rowRefs": [
+        310
+      ],
+      "source": "https://www.rsssf.org/tablest/tun2023.html",
+      "note": "Two groups of seven; championship playoff observed, full rules pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 395,
+    "value": {
+      "competition": "Ligue Professionnelle 1",
+      "firstEdition": "2024/25",
+      "operation": "RETURN_SINGLE_GROUP",
+      "rowRefs": [
+        310
+      ],
+      "source": "https://www.lequotidien.com.tn/fr/sport/4185-ftf-le-calendrier-general-de-la-saison-2024-2025-etabli",
+      "note": "16 clubs, 30 home-away rounds; title to first.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

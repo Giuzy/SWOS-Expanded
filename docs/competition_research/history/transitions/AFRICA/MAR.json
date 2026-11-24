@@ -1,0 +1,46 @@
+[
+  {
+    "index": 391,
+    "value": {
+      "competition": "Botola Pro",
+      "firstEdition": "2011/12",
+      "operation": "OBSERVED_PROFESSIONAL_FORMAT",
+      "rowRefs": [
+        268
+      ],
+      "source": "https://en.wikipedia.org/wiki/2011%E2%80%9312_Botola_Pro",
+      "note": "Secondary source identifies first new professional format; exact legal continuity and name intervals pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 392,
+    "value": {
+      "competition": "Botola Pro",
+      "firstEdition": "2025/26",
+      "lastEdition": "2025/26",
+      "operation": "CARRYOVER_AT_CAREER_START",
+      "rowRefs": [
+        268
+      ],
+      "source": "https://snrtnews.com/article/entre-coupe-du-trone-et-treve-internationale-le-coup-denvoi-de-la-botola-pro-repousse-a",
+      "note": "Prior league edition extended into July 2026; do not initialize future scores.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 393,
+    "value": {
+      "competition": "Coupe du Trône",
+      "firstEdition": "2024/25",
+      "lastEdition": "2024/25",
+      "operation": "CARRYOVER_AT_CAREER_START",
+      "rowRefs": [
+        381
+      ],
+      "source": "https://frmf.ma/fr/articles/coupe-du-trone-2024-2025-programme-des-seiziemes-de-finales",
+      "note": "May 2026 round of 32 program; remaining final phases reported by SNRT. Exact dates and bracket pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

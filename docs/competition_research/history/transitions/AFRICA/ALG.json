@@ -1,0 +1,32 @@
+[
+  {
+    "index": 389,
+    "value": {
+      "competition": "Algerian National Division 1",
+      "firstEdition": "1995/96",
+      "lastEdition": "1995/96",
+      "operation": "CARRYOVER_AT_CAREER_START",
+      "rowRefs": [
+        37
+      ],
+      "source": "https://www.rsssf.org/tablesa/alg96.html",
+      "note": "Round 23 June 27; rounds 24–30 July–August 1996. No post-cutoff result import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 390,
+    "value": {
+      "competition": "Coupe d'Algérie",
+      "firstEdition": "1995/96",
+      "lastEdition": "1995/96",
+      "operation": "CARRYOVER_AT_CAREER_START",
+      "rowRefs": [
+        148
+      ],
+      "source": "https://www.rsssf.org/tablesa/alg96.html",
+      "note": "June 28 semifinals; July 5 final pending at start.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

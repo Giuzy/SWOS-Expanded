@@ -13,8 +13,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -50,6 +49,38 @@
         }
       ],
       "historyComplete": false
+    },
+    "block52Research": {
+      "edition": "2026/27",
+      "sources": [
+        "https://www.jleague.jp/en/outline/j1/",
+        "https://www.jleague.jp/corporate//about_competitions/season/"
+      ],
+      "rules": {
+        "promotionRelegation": {
+          "directRanks": [
+            1,
+            2
+          ],
+          "playoffRanks": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "normalRelegations": 3,
+          "licenseRequired": true,
+          "noReplacementBelowRank6": true,
+          "relegationCount": "number of eligible promoted clubs; special no eligible playoff entrants conditions"
+        }
+      },
+      "dates": {
+        "start": "2026-08-07",
+        "end": "2027-06-06"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verified": "2026-11-24",
+      "limitations": "No per-fixture date/club key reconciliation; no runtime or match-rule certification. One-off 2026 conditions must not blindly repeat."
     }
   },
   {
@@ -66,8 +97,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -103,6 +133,54 @@
         }
       ],
       "historyComplete": false
+    },
+    "block52Research": {
+      "edition": "2026/27",
+      "sources": [
+        "https://www.jleague.jp/en/outline/j2/",
+        "https://www.jleague.jp/corporate//about_competitions/season/"
+      ],
+      "rules": {
+        "promotionToJ1": {
+          "directRanks": [
+            1,
+            2
+          ],
+          "playoffRanks": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "normalRelegations": 3,
+          "licenseRequired": true,
+          "noReplacementBelowRank6": true,
+          "relegationCount": "number of eligible promoted clubs; special no eligible playoff entrants conditions"
+        },
+        "relegationToJ3": {
+          "directRanks": [
+            1,
+            2
+          ],
+          "playoffRanks": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "normalRelegations": 3,
+          "licenseRequired": true,
+          "noReplacementBelowRank6": true,
+          "relegationCount": "number of eligible promoted clubs; special no eligible playoff entrants conditions"
+        }
+      },
+      "dates": {
+        "start": "2026-08-08",
+        "end": "2027-05-23"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verified": "2026-11-24",
+      "limitations": "No per-fixture date/club key reconciliation; no runtime or match-rule certification. One-off 2026 conditions must not blindly repeat."
     }
   }
 ]

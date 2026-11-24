@@ -40,6 +40,17 @@
       "source": "https://footballaustralia.com.au/nsl-honours-board",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block54Research": {
+      "sources": [
+        "https://www.rsssf.org/tablesa/aus97.html",
+        "https://www.rsssf.org/tablesa/auscuphist.html"
+      ],
+      "edition": "1996/97",
+      "note": "Last NSL cup edition, not the same identity as Australia Cup 1962–68 or FFA Cup 2014 onward.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
     }
   }
 ]

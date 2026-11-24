@@ -11,7 +11,7 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_CUTOFF_SOURCE_SUPPORTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -50,6 +50,27 @@
       "source": "https://www.rsssf.org/tablesa/alg97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block56Research": {
+      "sources": [
+        "https://www.rsssf.org/tablesa/alg96.html",
+        "https://www.rsssf.org/tablesa/alg97.html"
+      ],
+      "edition": "1996/97",
+      "initialCarryOver": {
+        "edition": "1995/96",
+        "asOf": "1996-07-01",
+        "roundsCompleted": 23,
+        "expectedPlayed": 184,
+        "expectedRemaining": 56,
+        "teams": 16,
+        "lastRound": "1996-06-27",
+        "nextRound": "1996-07-09",
+        "lastScheduledRound": "1996-08-08",
+        "note": "Round listings support counts; individual dates/keys and corrected scores not reconciled. No future results imported."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24"
     }
   }
 ]

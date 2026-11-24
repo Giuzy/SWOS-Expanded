@@ -12,8 +12,8 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_CUTOFF_SOURCE_SUPPORTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -30,6 +30,36 @@
       "source": "86ff28a14fb31b752fb556eb8244122ba04388ed",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block54Research": {
+      "sources": [
+        "https://footballaustralia.com.au/news/football-australia-announces-refined-competitions-structure-2026",
+        "https://footballaustralia.com.au/news/hahn-australia-cup-2026-round-32-entrants-and-draw-details-confirmed?page=62",
+        "https://footballaustralia.com.au/news/hahn-australia-cup-2026-round-32-match-schedule-finalised?page=843",
+        "https://footballaustralia.com.au/news/australia-cup-name-return-australias-largest-national-knockout-football-competition?page=158"
+      ],
+      "edition": "2026",
+      "rules": {
+        "round32Teams": 32,
+        "qualificationRoundALeagueRemoved": true,
+        "excluded": [
+          "Auckland FC",
+          "Wellington Phoenix FC"
+        ],
+        "directEntry": "2025 Australian Championship winner South Melbourne FC",
+        "winnerAccess": "ACL Two 2027/28 direct"
+      },
+      "cutoff": {
+        "date": "2026-07-01",
+        "preliminaryRoundsCompleted": true,
+        "round32Draw": "2026-06-22",
+        "schedulePublished": "2026-06-25",
+        "round32NotStarted": true
+      },
+      "note": "FFA Cup introduced 2014, renamed Australia Cup 2022, distinct from NSL Cup.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
     }
   }
 ]

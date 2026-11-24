@@ -78,5 +78,20 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 37 official federation/league sources 24/11/2026; no complete edition rules or fixture reconciliation."
     }
+  },
+  {
+    "index": 372,
+    "value": {
+      "competition": "K League promotion and expansion",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "SPECIAL_PROMOTION_RELEGATION",
+      "rowRefs": [
+        261
+      ],
+      "source": "https://www.kleague.com/news_view.do?orderBy=seq&seq=94022",
+      "note": "2026 exceptional Gimcheon relegation and K1 expansion to 14 announced for 2027; separate from repeating 2026 baseline.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

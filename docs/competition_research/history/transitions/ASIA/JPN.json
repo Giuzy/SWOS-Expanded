@@ -72,5 +72,22 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
     }
+  },
+  {
+    "index": 371,
+    "value": {
+      "competition": "J1/J2/J3 season cycle",
+      "firstEdition": "2026/27",
+      "lastEdition": null,
+      "operation": "CHANGE_SEASON_CYCLE",
+      "rowRefs": [
+        258,
+        259,
+        465
+      ],
+      "source": "https://www.jleague.jp/corporate//about_competitions/season/",
+      "note": "Calendar shifts to August–May/June; first J1 edition August 7 to June 6; J2 ends May 23.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

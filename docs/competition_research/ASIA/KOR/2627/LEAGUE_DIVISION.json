@@ -12,7 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -59,6 +59,48 @@
       ],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block52Research": {
+      "edition": "2026",
+      "sources": [
+        "https://www.kleague.com/about/competition.do",
+        "https://www.kleague.com/news_view.do?orderBy=seq&seq=94022",
+        "https://www.kleague.com/news_view.do?category=notice&orderBy=seq&page=1&seq=94117"
+      ],
+      "rules": {
+        "teams": 12,
+        "regularRounds": 33,
+        "finalRounds": 5,
+        "gamesPerClub": 38,
+        "finalGroups": [
+          6,
+          6
+        ],
+        "specialRelegation": "Gimcheon Sangmu relegated at end of affiliation; if last no additional relegation playoff, otherwise last-place club plays losing K2 promotion playoff finalist",
+        "k2": {
+          "teams": 17,
+          "gamesPerClub": 32,
+          "automaticPromotionRanks": [
+            1,
+            2
+          ],
+          "promotionPlayoffRanks": [
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        "announced2027Teams": 14
+      },
+      "dates": {
+        "start": "2026-02-28",
+        "end": "2026-12-06"
+      },
+      "cutoffNote": "In progress July 1; actual scores/club keys not yet reconciled.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verified": "2026-11-24",
+      "limitations": "No per-fixture date/club key reconciliation; no runtime or match-rule certification. One-off 2026 conditions must not blindly repeat."
     }
   }
 ]

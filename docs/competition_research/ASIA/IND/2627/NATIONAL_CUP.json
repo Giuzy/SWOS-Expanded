@@ -30,6 +30,32 @@
       "source": "629e7b0148b7b203984458bfb8a5e2ad9ff8d914",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block54Research": {
+      "sources": [
+        "https://www.the-aiff.com/article/aiff-super-cup-2025-26-to-begin-on-october-25",
+        "https://www.the-aiff.com/article/fc-goa-drawn-with-qadsia-fortis-regar-tadaz-in-afc-challenge-league-group-stage",
+        "https://www.the-aiff.com/competitions/super-cup",
+        "https://www.the-aiff.com/index.php/article/from-the-history-book-roll-of-honour-3"
+      ],
+      "edition": "2025/26",
+      "observedName": "AIFF Super Cup",
+      "rules": {
+        "teams": 16,
+        "groups": 4,
+        "groupMatches": 24,
+        "groupWinnersToSemifinals": true,
+        "champion": "FC Goa",
+        "actualContinentalAccess": "AFC Challenge League 2026/27 group stage"
+      },
+      "dates": {
+        "groupStart": "2025-10-25",
+        "groupEnd": "2025-11-06"
+      },
+      "note": "2026/27 format unavailable; historical Federation Cup invited KO 1996–2007, distinct historical two-team Super Cup. Candidate parent mapping still open; actual continental placement differs from published ACL Two preliminary entitlement, resolve allocation.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
     }
   }
 ]

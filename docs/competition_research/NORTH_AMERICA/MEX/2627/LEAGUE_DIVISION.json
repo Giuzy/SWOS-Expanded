@@ -12,25 +12,55 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Liga MX",
+      "nonCommercialDisplayName": "Liga MX",
       "candidateName": "Liga MX",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://fmf.mx/justicia-deportiva/reglamentos",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block53Research": {
+      "name": "Liga MX",
+      "nameSource": "https://fmf.mx/justicia-deportiva/reglamentos",
+      "sources": [
+        "https://fmf.mx/justicia-deportiva/reglamentos",
+        "https://www.scoretable.live/es/blog/como-funciona-la-liga-mx",
+        "https://www.reuters.com/sports/soccer/promotion-battle-mexico-becomes-test-governance-beyond-pitch-2026-11-18/"
+      ],
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "gamesPerShortTournament": 17,
+        "phases": [
+          "Apertura",
+          "Clausura"
+        ],
+        "playoffs": {
+          "qualified": 8,
+          "direct": true,
+          "playIn": false,
+          "legs": 2,
+          "aggregateTieBeforeFinal": "higher regular-season rank"
+        },
+        "promotionRelegation": "suspended per secondary sources; legal challenge pending; not permanent design"
+      },
+      "sourceStrength": "official name, secondary rules",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limitations": "No exact fixture/club key reconciliation, match rule certification or runtime test."
     }
   },
   {
@@ -46,25 +76,57 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Liga Expansión MX",
+      "nonCommercialDisplayName": "Liga Expansión MX",
       "candidateName": "Liga de Expansión MX",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://fmf.mx/justicia-deportiva/reglamentos",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block53Research": {
+      "name": "Liga Expansión MX",
+      "nameSource": "https://fmf.mx/justicia-deportiva/reglamentos",
+      "sources": [
+        "https://fmf.mx/justicia-deportiva/reglamentos",
+        "https://expansion.br.tips/tabla-general",
+        "https://www.reuters.com/sports/soccer/promotion-battle-mexico-becomes-test-governance-beyond-pitch-2026-11-18/"
+      ],
+      "edition": "2026/27",
+      "rules": {
+        "teams": 16,
+        "regularGames": 15,
+        "playoffs": {
+          "qualified": 8,
+          "legs": 2,
+          "aggregateTieBeforeFinal": "higher regular-season rank"
+        },
+        "rankingTie": [
+          "goal difference",
+          "goals scored",
+          "away goals",
+          "fair play",
+          "quotient table rank",
+          "draw"
+        ],
+        "promotion": "suspended, contested"
+      },
+      "sourceStrength": "official name, secondary rules",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limitations": "No exact fixture/club key reconciliation, match rule certification or runtime test."
     }
   }
 ]

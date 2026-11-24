@@ -12,25 +12,48 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Ligue 1 Mobilis",
+      "nonCommercialDisplayName": "Ligue Professionnelle 1",
       "candidateName": "Ligue 1",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://algerie.football/2026/08/ligue-1-mobilis-saison-2026-2027-le-calendrier-officiel-devoile-des-chocs-a-couper-le-souffle-des-lentame/",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block56Research": {
+      "name": "Ligue 1 Mobilis",
+      "display": "Ligue Professionnelle 1",
+      "edition": "2026/27",
+      "sources": [
+        "https://algerie.football/2026/08/ligue-1-mobilis-saison-2026-2027-le-calendrier-officiel-devoile-des-chocs-a-couper-le-souffle-des-lentame/",
+        "https://competition.dz/chrono/ligue-1-mobilis-la-lfp-devoile-le-calendrier-de-la-saison-2026-2027.html"
+      ],
+      "rules": {
+        "teams": 16,
+        "firstLegRounds": 15,
+        "returnLeg": true
+      },
+      "dates": {
+        "announcedFirstRound": [
+          "2026-08-27",
+          "2026-08-28",
+          "2026-08-29"
+        ],
+        "status": "published schedule; actual first match requires reconciliation"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24"
     }
   }
 ]

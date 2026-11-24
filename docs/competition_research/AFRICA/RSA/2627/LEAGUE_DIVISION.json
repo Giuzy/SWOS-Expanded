@@ -12,25 +12,57 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Betway Premiership",
+      "nonCommercialDisplayName": "Premier Division",
       "candidateName": "Premier Division",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.psl.co.za/news/article/5615294-psl-confirms-the-202627-season-calend",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block55Research": {
+      "edition": "2026/27",
+      "name": "Betway Premiership",
+      "display": "Premier Division",
+      "sources": [
+        "https://www.psl.co.za/news/article/5615294-psl-confirms-the-202627-season-calend",
+        "https://soccer-tainment.com/competition/south-africa-premier-league/2026-2027",
+        "https://africasports.co.za/psl"
+      ],
+      "rules": {
+        "teams": 16,
+        "rounds": 30,
+        "directRelegationRank": 16,
+        "playoff": {
+          "topTierRank": 15,
+          "secondTierRanks": [
+            2,
+            3
+          ]
+        },
+        "directPromotionSecondTierRank": 1,
+        "sourceStrength": "league dates official; format secondary corroboration"
+      },
+      "dates": {
+        "start": "2026-08-01",
+        "end": "2027-05-22",
+        "promotionPlayoffStart": "2027-05-23",
+        "promotionPlayoffEnd": "2027-06-09"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limitations": "Exact club keys, fixture dates, full match rules and runtime not certified."
     }
   }
 ]

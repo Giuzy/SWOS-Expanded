@@ -13,9 +13,14 @@
       "successor_id": null,
       "verification_status": "PARTIAL_IDENTITY_MAPPING_CANDIDATE",
       "sources": [
-        "https://footballaustralia.com.au/history/ffacup"
+        "https://footballaustralia.com.au/history/ffacup",
+        "https://footballaustralia.com.au/news/australia-cup-name-return-australias-largest-national-knockout-football-competition?page=158",
+        "https://footballaustralia.com.au/news/football-australia-announces-refined-competitions-structure-2026?page=11&trk=article-ssr-frontend-pulse_little-text-block"
       ],
-      "verification": "Block 21 official web search excerpts; dates of activity only, not complete runtime rules."
+      "verification": "Block 21 official web search excerpts; dates of activity only, not complete runtime rules.",
+      "observedActiveEdition": "2026",
+      "observedIntroduced": "2014",
+      "observedRenamed": "2022"
     }
   }
 ]

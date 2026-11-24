@@ -13,25 +13,48 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Ligue Professionnelle 1",
+      "nonCommercialDisplayName": "Ligue Professionnelle 1",
       "candidateName": "Ligue Professionnelle 1",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.lapresse.tn/2026/07/30/ligue-1-calendrier-2026-2027-est-ess-premiere-affiche-de-la-saison/",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block56Research": {
+      "name": "Ligue Professionnelle 1",
+      "display": "Ligue Professionnelle 1",
+      "edition": "2026/27",
+      "sources": [
+        "https://www.lapresse.tn/2026/07/30/ligue-1-calendrier-2026-2027-est-ess-premiere-affiche-de-la-saison/",
+        "https://www.lequotidien.com.tn/fr/sport/4185-ftf-le-calendrier-general-de-la-saison-2024-2025-etabli",
+        "https://www.footlink.tn/competitions"
+      ],
+      "rules": {
+        "teams": 16,
+        "rounds": 30,
+        "format": "double round robin",
+        "basis": "2024/25 return to single group; 2026/27 calendar supports 16 clubs"
+      },
+      "dates": {
+        "startWindow": [
+          "2026-08-22",
+          "2026-08-23"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24"
     }
   }
 ]

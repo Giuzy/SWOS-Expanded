@@ -12,7 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -30,6 +30,31 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block53Research": {
+      "sources": [
+        "https://fmf.mx/justicia-deportiva/reglamentos",
+        "https://www.scoretable.live/es/blog/como-funciona-la-liga-mx",
+        "https://expansion.br.tips/tabla-general"
+      ],
+      "edition": "2026/27",
+      "rules": {
+        "topTier": {
+          "qualified": 8,
+          "direct": true,
+          "playIn": false,
+          "legs": 2,
+          "aggregateTieBeforeFinal": "higher regular-season rank"
+        },
+        "secondTier": {
+          "qualified": 8,
+          "legs": 2
+        },
+        "note": "parent mapping and exact final rules pending"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limitations": "No exact fixture/club key reconciliation, match rule certification or runtime test."
     }
   }
 ]

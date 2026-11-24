@@ -12,25 +12,53 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Coupe d'Algérie",
+      "nonCommercialDisplayName": "Coupe d'Algérie",
       "candidateName": "Coupe d'Algérie",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://competition.dz/chrono/ligue-1-mobilis-la-lfp-devoile-le-calendrier-de-la-saison-2026-2027.html",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block56Research": {
+      "name": "Coupe d'Algérie",
+      "display": "Coupe d'Algérie",
+      "edition": "2026/27",
+      "sources": [
+        "https://competition.dz/chrono/ligue-1-mobilis-la-lfp-devoile-le-calendrier-de-la-saison-2026-2027.html"
+      ],
+      "rules": {
+        "observedStages": [
+          64,
+          32
+        ]
+      },
+      "dates": {
+        "round64": [
+          "2026-12-04",
+          "2026-12-05",
+          "2026-12-06"
+        ],
+        "round32": [
+          "2026-12-18",
+          "2026-12-19"
+        ]
+      },
+      "note": "Earlier regional qualification not screened.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24"
     }
   }
 ]

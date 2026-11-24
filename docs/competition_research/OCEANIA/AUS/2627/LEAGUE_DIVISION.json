@@ -13,7 +13,6 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -69,6 +68,54 @@
       "regularSeasonWinner": "Premiership",
       "grandFinalWinner": "Championship",
       "scope": "Observed historical structure, not full 2026/27 regulation"
+    },
+    "block54Research": {
+      "sources": [
+        "https://aleagues.com.au/more/official-documents/",
+        "https://aleagues.com.au/news/aleague-men-2026-2027-fixture-list-revealed-key-dates-fixture-information/"
+      ],
+      "edition": "2026/27",
+      "rules": {
+        "teams": 12,
+        "gamesPerClub": 26,
+        "matchweeks": 28,
+        "baseHomeAway": 22,
+        "extraGames": 4,
+        "totalRegularGames": 156,
+        "finals": {
+          "teams": 6,
+          "legsByRound": [
+            1,
+            2,
+            1
+          ],
+          "games": 7,
+          "eliminationPairs": [
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "semifinals": "1 vs lowest surviving rank, 2 vs highest",
+          "awayGoals": false,
+          "tied": "30 minutes extra time then penalties",
+          "editionCaveat": "detailed rules from 2025/26 full page; 2026/27 search snippet confirms six teams and seven games; exact bracket reconfirm pending"
+        }
+      },
+      "dates": {
+        "start": "2026-10-16",
+        "grandFinalWindow": [
+          "2027-06-03",
+          "2027-06-06"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
     }
   },
   {
@@ -84,13 +131,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -114,14 +161,47 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "National Premier League South Australia",
+      "nonCommercialDisplayName": "National Premier League South Australia",
       "candidateName": "National Premier Leagues South Australia",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://footballsa.com.au/news/2026-football-sa-senior-elite-competition-structures",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block54Research": {
+      "sources": [
+        "https://footballsa.com.au/news/2026-football-sa-senior-elite-competition-structures",
+        "https://footballsa.com.au/news/football-south-australia-2026-raa-npl-squad-lists"
+      ],
+      "edition": "2026",
+      "name": "National Premier League South Australia",
+      "rules": {
+        "teams": 12,
+        "regional": true
+      },
+      "dates": {
+        "start": "2026-02-27"
+      },
+      "participants": [
+        "Adelaide City",
+        "Adelaide Comets",
+        "Adelaide United",
+        "Campbelltown City",
+        "Croydon FC",
+        "FK Beograd",
+        "MetroStars",
+        "Para Hills Knights",
+        "Playford City",
+        "Sturt Lions",
+        "West Adelaide",
+        "WT Birkalla"
+      ],
+      "note": "Regional identity consistent with candidate; exact game club-key mapping not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
     }
   },
   {
@@ -137,13 +217,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -167,14 +247,31 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "NPL Men's NSW",
+      "nonCommercialDisplayName": "NPL Men's NSW",
       "candidateName": "National Premier Leagues New South Wales",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://footballnsw.com.au/2026/09/01/npl-mens-nsw-place-on-the-line-as-tigers-host-st-george/",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block54Research": {
+      "sources": [
+        "https://footballnsw.com.au/2026/09/01/npl-mens-nsw-place-on-the-line-as-tigers-host-st-george/",
+        "https://footballnsw.com.au/competitions/2026-npl-nsw-grand-finals/"
+      ],
+      "edition": "2026",
+      "name": "NPL Men's NSW",
+      "rules": {
+        "regularRounds": 30,
+        "regional": true,
+        "relegationPlayoffLegs": 2
+      },
+      "note": "Exact eligible ranks and club keys pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
     }
   },
   {
@@ -190,13 +287,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -220,14 +317,31 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "NPL Queensland",
+      "nonCommercialDisplayName": "NPL Queensland",
       "candidateName": "National Premier Leagues Queensland",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://footballqueensland.com.au/2025/10/02/2026-fq-provisional-declaration-of-npl-fqpl-1-2-and-metro-men-leagues/",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block54Research": {
+      "sources": [
+        "https://footballqueensland.com.au/2025/10/02/2026-fq-provisional-declaration-of-npl-fqpl-1-2-and-metro-men-leagues/",
+        "https://footballqueensland.com.au/event/2026-npl-fqpl-grand-finals/"
+      ],
+      "edition": "2026",
+      "name": "NPL Queensland",
+      "rules": {
+        "regional": true,
+        "movement": "sporting merit subject to licence",
+        "grandFinalDate": "2026-09-12"
+      },
+      "note": "Provisional league declaration not final participants.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
     }
   }
 ]

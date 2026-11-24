@@ -3,7 +3,7 @@
     "index": 251,
     "value": {
       "row": 252,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "transitionRefs": []
     }
   },
@@ -14,7 +14,8 @@
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "transitionRefs": [
         273
-      ]
+      ],
+      "observedName": "Indian Football League"
     }
   }
 ]

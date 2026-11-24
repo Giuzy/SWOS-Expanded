@@ -12,7 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -30,6 +30,39 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block54Research": {
+      "sources": [
+        "https://aleagues.com.au/more/official-documents/",
+        "https://aleagues.com.au/news/aleague-men-2026-2027-fixture-list-revealed-key-dates-fixture-information/"
+      ],
+      "edition": "2026/27",
+      "rules": {
+        "teams": 6,
+        "legsByRound": [
+          1,
+          2,
+          1
+        ],
+        "games": 7,
+        "eliminationPairs": [
+          [
+            3,
+            6
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "semifinals": "1 vs lowest surviving rank, 2 vs highest",
+        "awayGoals": false,
+        "tied": "30 minutes extra time then penalties",
+        "editionCaveat": "detailed rules from 2025/26 full page; 2026/27 search snippet confirms six teams and seven games; exact bracket reconfirm pending"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
     }
   }
 ]

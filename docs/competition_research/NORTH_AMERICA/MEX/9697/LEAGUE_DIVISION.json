@@ -16,7 +16,7 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -42,14 +42,44 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Primera División",
+      "nonCommercialDisplayName": "Primera División",
       "candidateName": "Primera División",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesm/mex97.html",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block53Research": {
+      "name": "Primera División",
+      "nameSource": "https://www.rsssf.org/tablesm/mex97.html",
+      "sources": [
+        "https://www.rsssf.org/tablesm/mex97.html"
+      ],
+      "edition": "1996/97",
+      "rules": {
+        "phases": [
+          "Invierno 1996",
+          "Verano 1997"
+        ],
+        "gamesPerPhase": 17,
+        "groups": 4,
+        "groupWinnersDirect": 4,
+        "topGroupRunnersUpDirect": 2,
+        "otherRunnersUp": "possible repesca against wildcards only if higher overall rank",
+        "legs": 2,
+        "tieBreakBeforeFinal": [
+          "aggregate",
+          "away goals",
+          "overall rank"
+        ],
+        "extraTimeBeforeFinal": false,
+        "finalTie": "extra time then penalties"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limitations": "No exact fixture/club key reconciliation, match rule certification or runtime test."
     }
   },
   {
@@ -103,6 +133,25 @@
       "source": "https://www.rsssf.org/tablesm/mex2ahist.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block53Research": {
+      "sources": [
+        "https://www.rsssf.org/tablesm/mex97.html"
+      ],
+      "edition": "1996/97",
+      "rules": {
+        "phases": [
+          "Invierno 1996",
+          "Verano 1997"
+        ],
+        "observedGamesPerPhase": 16,
+        "groups": 4,
+        "access": "direct playoffs and repesca observed; exact criteria pending",
+        "note": "generic 17-game introduction differs from actual 16-game second-tier table; do not copy tier1."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limitations": "No exact fixture/club key reconciliation, match rule certification or runtime test."
     }
   }
 ]

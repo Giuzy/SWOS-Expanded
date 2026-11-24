@@ -12,7 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -30,6 +30,76 @@
       "source": "4fb73a35a5e15b140d942b00f84fb8eef682915a",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block52Research": {
+      "edition": "2026",
+      "sources": [
+        "https://www.mlssoccer.com/news/2026-mls-competition-guidelines"
+      ],
+      "rules": {
+        "teams": 30,
+        "conferences": 2,
+        "gamesPerClub": 34,
+        "home": 17,
+        "away": 17,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "playoffs": {
+          "entrants": 18,
+          "perConference": 9,
+          "directSeeds": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "wildCardSeeds": [
+            8,
+            9
+          ],
+          "wildCard": {
+            "legs": 1,
+            "extraTime": false,
+            "penalties": true
+          },
+          "roundOne": {
+            "winsRequired": 2,
+            "maxGames": 3,
+            "homeOrder": "higher-lower-higher",
+            "extraTime": false,
+            "penalties": true
+          },
+          "laterRounds": {
+            "legs": 1,
+            "extraTimeMinutes": 30,
+            "penalties": true
+          },
+          "finalHost": "higher Supporters Shield rank",
+          "tieBreakers": [
+            "wins",
+            "goal difference",
+            "goals scored",
+            "intraconference head-to-head points then goal difference",
+            "fewest disciplinary points",
+            "away goal difference",
+            "away goals",
+            "home goal difference",
+            "home goals",
+            "coin toss or draw"
+          ],
+          "cancellation": "points per game if full 34-match schedule cannot be completed"
+        }
+      },
+      "cutoffNote": "In progress July 1; actual results pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verified": "2026-11-24",
+      "limitations": "No per-fixture date/club key reconciliation; no runtime or match-rule certification. One-off 2026 conditions must not blindly repeat."
     }
   }
 ]

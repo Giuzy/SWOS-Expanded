@@ -12,25 +12,115 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_CUTOFF_SOURCE_SUPPORTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Chinese Football Association Cup",
+      "nonCommercialDisplayName": "Chinese Football Association Cup",
       "candidateName": "Chinese FA Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.thecfa.cn/qttz/20250825/36842.html",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block53Research": {
+      "name": "Chinese Football Association Cup",
+      "nameSource": "https://www.thecfa.cn/qttz/20250825/36842.html",
+      "sources": [
+        "https://www.thecfa.cn/zuxiebei/20260305/37378.html",
+        "https://www.thecfa.cn/lstz/20251120/37089.html",
+        "https://www.thecfa.cn/zuxiebei/20260622/37795.html",
+        "https://www.thecfa.cn/qttz/20250825/36842.html"
+      ],
+      "edition": "2026",
+      "rules": {
+        "entrants": 80,
+        "tierCounts": [
+          16,
+          16,
+          19,
+          29
+        ],
+        "clubBTeamsExcluded": true,
+        "singleLeg": true,
+        "totalGames": 79,
+        "roundMatches": [
+          16,
+          16,
+          16,
+          16,
+          8,
+          4,
+          2,
+          1
+        ],
+        "entryByRound": [
+          "3 tier3 +29 amateur",
+          "16 tier3",
+          "16 tier2",
+          "16 tier1"
+        ],
+        "redrawAfterRound": 4,
+        "plannedRoundWindows": [
+          [
+            "2026-03-13",
+            "2026-03-15"
+          ],
+          [
+            "2026-04-18",
+            "2026-04-20"
+          ],
+          [
+            "2026-05-15",
+            "2026-05-17"
+          ],
+          [
+            "2026-06-19",
+            "2026-06-21"
+          ],
+          [
+            "2026-07-21",
+            "2026-07-22"
+          ],
+          [
+            "2026-09-01",
+            "2026-09-02"
+          ],
+          [
+            "2026-11-21",
+            "2026-11-22"
+          ],
+          [
+            "2026-12-06",
+            "2026-12-06"
+          ]
+        ]
+      },
+      "cutoff": {
+        "date": "2026-07-01",
+        "roundsCompleted": 4,
+        "remainingTeams": 16,
+        "remainingByTier": [
+          13,
+          1,
+          2,
+          0
+        ],
+        "expectedPlayed": 64,
+        "source": "https://www.thecfa.cn/zuxiebei/20260622/37795.html"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limitations": "No exact fixture/club key reconciliation, match rule certification or runtime test."
     }
   }
 ]

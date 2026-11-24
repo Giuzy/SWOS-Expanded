@@ -42,6 +42,45 @@
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block55Research": {
+      "edition": "1996/97",
+      "sources": [
+        "https://psl.co.za/content/124854",
+        "https://www.rsssf.org/tablesz/zaf97.html"
+      ],
+      "observedNames": [
+        {
+          "year": 1996,
+          "name": "BobSave SuperBowl"
+        }
+      ],
+      "historicalEvidence": {
+        "notPlayedYears": [
+          1997,
+          2002
+        ],
+        "observedNamePeriods": [
+          {
+            "from": 1998,
+            "to": 2001,
+            "name": "BobSave SuperBowl"
+          },
+          {
+            "from": 2003,
+            "to": 2007,
+            "name": "Absa Cup"
+          },
+          {
+            "from": 2008,
+            "name": "Nedbank Cup"
+          }
+        ]
+      },
+      "note": "Official PSL archive lists calendar year 1997 not played; 1996 edition exists, exact mapping to game slot and dates unknown. No assumed abolition or synthetic cup.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limitations": "Exact club keys, fixture dates, full match rules and runtime not certified."
     }
   }
 ]

@@ -84,5 +84,69 @@
       "verification": "2026-11-24 block 20: actual web search excerpts; exact edition dates, access and identity reconciliation pending. No future results imported.",
       "namingEligibility": "EXCLUDED_SPONSOR_NAME"
     }
+  },
+  {
+    "index": 383,
+    "value": {
+      "competition": "RSA top division",
+      "firstEdition": "1996/97",
+      "operation": "INTRODUCE",
+      "rowRefs": [
+        46,
+        290
+      ],
+      "source": "https://www.rsssf.org/tablesz/zaf97.html",
+      "note": "First NSL Premiership / PSL season; 18 clubs, 34 matches per club; exact successor identity of previous NSL pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 384,
+    "value": {
+      "competition": "RSA National Cup",
+      "firstEdition": "1997",
+      "operation": "EDITION_NOT_PLAYED",
+      "rowRefs": [
+        149,
+        399
+      ],
+      "source": "https://psl.co.za/content/124854",
+      "note": "Official archive: no edition played in calendar year 1997; mapping to game season 1996/97 unresolved.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "lastEdition": "1997"
+    }
+  },
+  {
+    "index": 385,
+    "value": {
+      "competition": "RSA National Cup",
+      "firstEdition": "2002",
+      "operation": "EDITION_NOT_PLAYED",
+      "rowRefs": [
+        149,
+        399
+      ],
+      "source": "https://psl.co.za/content/124854",
+      "note": "Official archive: no edition played in 2002; not evidence of permanent abolition.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "lastEdition": "2002"
+    }
+  },
+  {
+    "index": 386,
+    "value": {
+      "competition": "RSA National Cup",
+      "firstEdition": "2003",
+      "operation": "RENAME",
+      "rowRefs": [
+        149,
+        399
+      ],
+      "source": "https://psl.co.za/content/124854",
+      "note": "Absa Cup sponsorship 2003–2007; not a separate competition.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "lastEdition": "2007",
+      "namingEligibility": "EXCLUDED_SPONSOR_NAME"
+    }
   }
 ]

@@ -1,26 +1,43 @@
 {
   "denominator": 533,
   "namesWithEvidenceOrCandidate": 419,
-  "namesSourceSupportedPartial": 193,
+  "namesSourceSupportedPartial": 215,
   "nameHistoryComplete": 0,
-  "rulesPartial": 185,
-  "lifecyclePartial": 33,
-  "cutoffPartial": 12,
+  "rulesPartial": 214,
+  "lifecyclePartial": 34,
+  "cutoffPartial": 15,
   "datesReconciled": 0,
   "participantKeysReconciled": 0,
   "matchRulesCertified": 0,
-  "historicalTransitions": 366,
-  "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material.",
+  "historicalTransitions": 391,
+  "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material. July 1 coverage is scoped to necessary initial historical state only; do not compute against global denominator. Report partial active rows separately from archive candidates and do not count merely available sources or future editions.",
   "namingByWorld": {
     "historical": {
       "denominator": 182,
-      "sourceSupported": 70
+      "sourceSupported": 73
     },
     "modern": {
       "denominator": 351,
-      "sourceSupported": 123
+      "sourceSupported": 142
     }
   },
-  "rawTransitionRecords": 371,
-  "transitionCountNote": "Original dashboard count retained; raw array includes 371 records versus 366 reported. Not certified as distinct events."
+  "rawTransitionRecords": 396,
+  "transitionCountNote": "Original dashboard count retains preexisting five-record discrepancy; newly appended source-backed records counted individually, not certified unique globally.",
+  "lastPreparedBlock": 56,
+  "cutoffArchivePartial": 1,
+  "cutoffDenominator": null,
+  "cutoffApplicability": {
+    "knownPartialActiveRows": 15,
+    "knownPartialArchiveCandidates": 1,
+    "explicitUnknownRows": 2,
+    "knownNotApplicableCurrentEditionRows": 10,
+    "aliasCandidates": [
+      [
+        321,
+        423
+      ]
+    ],
+    "status": "APPLICABILITY_CENSUS_PENDING",
+    "policyFile": "CUTOFF_SCOPE.json"
+  }
 }

@@ -3,15 +3,20 @@
     "index": 251,
     "value": {
       "row": 252,
-      "active_from": null,
+      "active_from": "2014",
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "ACTIVE_OBSERVED",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_SOURCE_SUPPORTED",
+      "observedIntroduced": "2014",
+      "observedTopTierFrom": "2019",
+      "sources": [
+        "https://www.the-aiff.com/competitions/isl"
+      ]
     }
   },
   {
@@ -26,7 +31,12 @@
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "NOT_RECONCILED",
+      "observedRename": {
+        "from": "2025/26",
+        "name": "Indian Football League",
+        "source": "https://www.the-aiff.com/index.php/article/indian-football-league-to-begin-on-february-27"
+      }
     }
   }
 ]

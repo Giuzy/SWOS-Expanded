@@ -12,25 +12,54 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Chinese Super League",
+      "nonCommercialDisplayName": "Chinese Super League",
       "candidateName": "Chinese Super League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.the-afc.com/en/livescores/asian_leagues/association/MA12",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block53Research": {
+      "name": "Chinese Super League",
+      "nameSource": "https://www.the-afc.com/en/livescores/asian_leagues/association/MA12",
+      "sources": [
+        "https://www.the-afc.com/en/livescores/asian_leagues/association/MA12",
+        "https://www.thecfa.cn/lstz/20251120/37089.html",
+        "https://www.thecfa.cn/qttz/20260519/37691.html"
+      ],
+      "edition": "2026",
+      "rules": {
+        "teams": 16,
+        "rounds": 30,
+        "continentalAccess2026_27": {
+          "sourceSeason": 2025,
+          "leagueChampion": "ACLE direct",
+          "cupChampion": "ACLE direct",
+          "leagueRunnerUp": "ACL Two direct",
+          "additionalConditions": "pending"
+        }
+      },
+      "plannedDates": [
+        "2026-03-06",
+        "2026-11-08"
+      ],
+      "note": "League continues during World Cup; July cutoff results pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limitations": "No exact fixture/club key reconciliation, match rule certification or runtime test."
     }
   }
 ]

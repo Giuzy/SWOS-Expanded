@@ -13,7 +13,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -31,6 +31,30 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block52Research": {
+      "edition": "2026/27",
+      "sources": [
+        "https://www.jleague.jp/en/outline/j1/",
+        "https://www.jleague.jp/en/outline/j2/",
+        "https://aboutj.jleague.jp/corporate/en/terminology/"
+      ],
+      "rules": {
+        "name": "J1 Promotion Play-Offs",
+        "format": "single-match knockout",
+        "entrantsRanks": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "licenseRequired": true,
+        "noReplacementBelow6": true,
+        "relatedJ2PromotionPlayoffs": "separate phase; mapping not confirmed"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verified": "2026-11-24",
+      "limitations": "No per-fixture date/club key reconciliation; no runtime or match-rule certification. One-off 2026 conditions must not blindly repeat."
     }
   }
 ]

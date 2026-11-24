@@ -12,25 +12,50 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Indian Super League",
+      "nonCommercialDisplayName": "Indian Super League",
       "candidateName": "Indian Super League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.the-aiff.com/article/update-on-isl-2025-26",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block54Research": {
+      "sources": [
+        "https://www.the-aiff.com/article/update-on-isl-2025-26",
+        "https://www.the-aiff.com/index.php/article/aiff-isl-clubs-outline-club-led-commercial-model-for-indian-super-league",
+        "https://www.the-aiff.com/competitions/isl"
+      ],
+      "edition": "2026/27",
+      "name": "Indian Super League",
+      "rules": {
+        "plannedTeams": 14,
+        "homeAway": true,
+        "participationConfirmationRequired": true
+      },
+      "previousEdition": {
+        "edition": "2025/26",
+        "teams": 14,
+        "gamesPerClub": 13,
+        "start": "2026-02-14",
+        "format": "single round robin"
+      },
+      "note": "July 8 announcement post-cutoff; 2025/26 exceptional shortened season not repeating baseline.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
     }
   },
   {
@@ -57,11 +82,11 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "I-League",
-      "nonCommercialDisplayName": null,
+      "officialName": "Indian Football League",
+      "nonCommercialDisplayName": "Indian Football League",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://indianfootballleague.in/about-us/history-of-i-league/",
+      "source": "https://www.the-aiff.com/index.php/article/indian-football-league-to-begin-on-february-27",
       "nameHistory": [
         {
           "transition": 273,
@@ -71,10 +96,47 @@
           "name": "I-League",
           "operation": "SUCCESSOR_COMPETITION",
           "source": "https://indianfootballleague.in/about-us/history-of-i-league/"
+        },
+        {
+          "from": "2025/26",
+          "previousName": "I-League",
+          "name": "Indian Football League",
+          "operation": "RENAME",
+          "source": "https://www.the-aiff.com/index.php/article/indian-football-league-to-begin-on-february-27"
         }
       ],
       "historyComplete": false,
-      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import.",
+      "previousObservedName": "I-League"
+    },
+    "block54Research": {
+      "sources": [
+        "https://www.the-aiff.com/index.php/article/indian-football-league-to-begin-on-february-27",
+        "https://www.the-aiff.com/article/indian-football-league-2026-27-to-begin-on-october-30"
+      ],
+      "edition": "2026/27",
+      "name": "Indian Football League",
+      "dates": {
+        "announcedStart": "2026-10-30"
+      },
+      "previousEdition": {
+        "edition": "2025/26",
+        "start": "2026-02-27",
+        "teams": 10,
+        "stage1": "single round robin",
+        "stage2Groups": [
+          5,
+          5
+        ],
+        "championship": "home and away",
+        "relegation": "centralised",
+        "carryPoints": true,
+        "championPromoted": true
+      },
+      "note": "2026/27 exact format not confirmed by these sources; retain previous edition separately; new name explicit.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
     }
   }
 ]

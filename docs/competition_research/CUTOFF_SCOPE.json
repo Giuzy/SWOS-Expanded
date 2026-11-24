@@ -1,0 +1,110 @@
+{
+  "decision": "2026-11-24 user: July 1 state only where needed, eliminate useless data",
+  "cutoffByWorld": {
+    "2627": "2026-07-01",
+    "9697": "1996-07-01"
+  },
+  "scope": "Only actual pre-start fixtures/results/standings/bracket/qualified participants of an edition overlapping the initial date, or minimum prior-edition archive/qualification evidence when needed by viewer or access. No redundant zero-match snapshots; no future results; no annual July reset. Normal date and name evidence retained.",
+  "states": {
+    "REQUIRED": "Actual ongoing or pre-cutoff played fixtures need import",
+    "ARCHIVE_IF_REQUIRED": "Completed edition: minimal archive only when viewer or access needs it",
+    "NOT_APPLICABLE": "No pre-cutoff sporting state to import for this edition; start date belongs to calendar",
+    "UNDETERMINED": "Applicability not checked; not counted as missing or covered until screened"
+  },
+  "knownPartialActiveRows": [
+    22,
+    31,
+    122,
+    168,
+    169,
+    170,
+    321,
+    423,
+    424,
+    329,
+    341,
+    37,
+    148,
+    268,
+    381
+  ],
+  "archiveCandidateRows": [
+    178
+  ],
+  "unknownExplicitRows": [
+    99,
+    171
+  ],
+  "notApplicableCurrentEditionRows": [
+    207,
+    258,
+    259,
+    46,
+    230,
+    290,
+    350,
+    400,
+    201,
+    310
+  ],
+  "aliasCandidates": [
+    [
+      321,
+      423
+    ]
+  ],
+  "note": "15 active partial rows, with Libertadores alias candidate pending mapping; 1 archive candidate. Scope screening remains incomplete, denominator null. Carryover from prior editions kept separately from new edition.",
+  "notApplicableEvidence": {
+    "46": {
+      "edition": "1996/97",
+      "startMonth": "1996-08",
+      "source": "https://iol.co.za/sport/soccer/psl/2026-02-23-only-four-remain-what-happened-to-the-psls-founding-clubs/"
+    },
+    "201": {
+      "edition": "2026/27",
+      "announcedStart": "2026-08-27",
+      "source": "https://algerie.football/2026/08/ligue-1-mobilis-saison-2026-2027-le-calendrier-officiel-devoile-des-chocs-a-couper-le-souffle-des-lentame/"
+    },
+    "207": {
+      "edition": "2026/27",
+      "start": "2026-10-16"
+    },
+    "230": {
+      "edition": "2026/27",
+      "start": "2026-08-21",
+      "source": "https://english.ahram.org.eg/UI/Front/Inner.aspx?NewsContentID=574993"
+    },
+    "258": {
+      "edition": "2026/27",
+      "start": "2026-08-07"
+    },
+    "259": {
+      "edition": "2026/27",
+      "start": "2026-08-08"
+    },
+    "290": {
+      "edition": "2026/27",
+      "start": "2026-08-01",
+      "source": "https://www.psl.co.za/news/article/5615294-psl-confirms-the-202627-season-calend"
+    },
+    "310": {
+      "edition": "2026/27",
+      "startWindow": [
+        "2026-08-22",
+        "2026-08-23"
+      ],
+      "source": "https://www.lapresse.tn/2026/07/30/ligue-1-calendrier-2026-2027-est-ess-premiere-affiche-de-la-saison/"
+    },
+    "350": {
+      "edition": "2026/27",
+      "start": "2026-10-07",
+      "source": "https://africasoccer.com/egypt-capital-cup-ceramica-cleopatra-match-against-al-masry-brought-forward/"
+    },
+    "400": {
+      "edition": "2026/27",
+      "start": "2026-10-24",
+      "source": "https://www.psl.co.za/news/article/5615294-psl-confirms-the-202627-season-calend"
+    }
+  },
+  "sparsePolicy": "Do not store cutoff notes, empty snapshots or review.historyAtStart placeholders in rows proven not to have started. Retain normal start date in date evidence only. Applicability exclusion recorded centrally once; prior editions are distinct and only imported if strictly necessary. Unscreened legacy placeholders are not actual collected data; do not classify them as required; delete when inapplicability is verified."
+}

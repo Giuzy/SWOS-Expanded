@@ -11,12 +11,11 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -41,14 +40,35 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "NSL Premiership",
+      "nonCommercialDisplayName": "NSL Premiership",
       "candidateName": "Premier Soccer League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.rsssf.org/tablesz/zaf97.html",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block55Research": {
+      "edition": "1996/97",
+      "name": "NSL Premiership",
+      "display": "NSL Premiership",
+      "sources": [
+        "https://www.rsssf.org/tablesz/zaf97.html",
+        "https://iol.co.za/sport/soccer/psl/2026-02-23-only-four-remain-what-happened-to-the-psls-founding-clubs/"
+      ],
+      "rules": {
+        "teams": 18,
+        "rounds": 34,
+        "relegated": 2,
+        "promoted": 2
+      },
+      "dates": {
+        "startMonth": "1996-08"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limitations": "Exact club keys, fixture dates, full match rules and runtime not certified."
     }
   }
 ]

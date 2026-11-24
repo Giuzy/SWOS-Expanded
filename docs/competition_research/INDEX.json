@@ -598,7 +598,11 @@
     "history/transitions/EUROPE/GRE.json",
     "history/transitions/EUROPE/SVN.json",
     "history/transitions/EUROPE/TUR.json",
-    "history/transitions/EUROPE/CYP.json"
+    "history/transitions/EUROPE/CYP.json",
+    "history/transitions/NORTH_AMERICA/MEX.json",
+    "history/transitions/AFRICA/ALG.json",
+    "history/transitions/AFRICA/MAR.json",
+    "history/transitions/AFRICA/TUN.json"
   ],
   "versions": [
     "history/league_versions/EUROPE/FRA.json",
@@ -1443,5 +1447,7 @@
   ],
   "metadata": "metadata.json",
   "coverage": "COVERAGE.json",
-  "researchOnly": true
+  "researchOnly": true,
+  "lastPreparedBlock": 56,
+  "cutoffScope": "CUTOFF_SCOPE.json"
 }

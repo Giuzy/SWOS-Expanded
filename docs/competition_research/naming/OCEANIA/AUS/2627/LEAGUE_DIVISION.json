@@ -11,7 +11,7 @@
     "index": 207,
     "value": {
       "row": 208,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "transitionRefs": []
     }
   },
@@ -19,7 +19,7 @@
     "index": 208,
     "value": {
       "row": 209,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "transitionRefs": []
     }
   },
@@ -27,7 +27,7 @@
     "index": 209,
     "value": {
       "row": 210,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "transitionRefs": []
     }
   }

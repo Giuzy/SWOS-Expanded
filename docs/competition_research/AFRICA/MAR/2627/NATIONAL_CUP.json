@@ -12,25 +12,48 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_CUTOFF_SOURCE_SUPPORTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Coupe du Trône",
+      "nonCommercialDisplayName": "Coupe du Trône",
       "candidateName": "Coupe du Trône",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://frmf.ma/fr/articles/coupe-du-trone-2024-2025-programme-des-seiziemes-de-finales",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block56Research": {
+      "name": "Coupe du Trône",
+      "display": "Coupe du Trône",
+      "edition": "2026/27",
+      "sources": [
+        "https://frmf.ma/fr/articles/coupe-du-trone-2024-2025-programme-des-seiziemes-de-finales",
+        "https://snrtnews.com/article/entre-coupe-du-trone-et-treve-internationale-le-coup-denvoi-de-la-botola-pro-repousse-a"
+      ],
+      "rules": {
+        "observedStages": [
+          32
+        ],
+        "edition": "2024/25"
+      },
+      "initialCarryOver": {
+        "edition": "2024/25",
+        "asOf": "2026-07-01",
+        "status": "ongoing",
+        "note": "May 2026 round of 32 program, remaining final phases reported for start of following season. Full bracket and exact actual dates pending."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24"
     }
   }
 ]

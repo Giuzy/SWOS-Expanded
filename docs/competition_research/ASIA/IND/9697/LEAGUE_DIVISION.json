@@ -69,6 +69,17 @@
         }
       ],
       "historyComplete": false
+    },
+    "block54Research": {
+      "sources": [
+        "https://www.the-aiff.com/history",
+        "https://www.rsssf.org/tablesi/india97.html"
+      ],
+      "edition": "1996/97",
+      "notes": "NFL first edition; rebranded I-League in 2007 according to AIFF; historical Federation Cup June 29–August 11 1996 invited knockout, separate one-match Super Cup champion vs cup winner. Do not conflate these identities with modern AIFF Super Cup.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
     }
   }
 ]

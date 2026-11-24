@@ -14,5 +14,33 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "2026-11-24 block 20: actual web search excerpts; exact edition dates, access and identity reconciliation pending. No future results imported."
     }
+  },
+  {
+    "index": 387,
+    "value": {
+      "competition": "EGY Premier League",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        230
+      ],
+      "source": "https://english.ahram.org.eg/UI/Front/Inner.aspx?NewsContentID=573720",
+      "note": "20 clubs, top 6 and bottom 14 split; 2027/28 return to 18-team double RR is announced, not a 2026 template override.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 388,
+    "value": {
+      "competition": "EGY League Cup",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        350
+      ],
+      "source": "https://www.alahlyegypt.com/en/news/article/al-ahlys-202627-egypt-capital-cup-fixtures-confirmed",
+      "note": "20 clubs, four groups of five, top two qualify; 2025/26 had 21 clubs in three groups.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

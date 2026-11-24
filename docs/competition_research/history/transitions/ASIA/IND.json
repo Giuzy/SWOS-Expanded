@@ -47,5 +47,63 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 36 actual official web search excerpts 24/11/2026; no PDF analyzed; no full identity/access/fixture certification."
     }
+  },
+  {
+    "index": 379,
+    "value": {
+      "competition": "IND Indian Super League",
+      "firstEdition": "2014",
+      "operation": "INTRODUCE",
+      "rowRefs": [
+        252
+      ],
+      "source": "https://www.the-aiff.com/competitions/isl",
+      "note": "Inaugural season October 12 2014.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 380,
+    "value": {
+      "competition": "IND Indian Super League",
+      "firstEdition": "2019",
+      "operation": "TOP_TIER_RECOGNITION",
+      "rowRefs": [
+        252
+      ],
+      "source": "https://www.the-aiff.com/competitions/isl",
+      "note": "FIFA/AFC recognized top tier October 2019.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 381,
+    "value": {
+      "competition": "IND Indian Football League",
+      "firstEdition": "2025/26",
+      "operation": "RENAME",
+      "rowRefs": [
+        253
+      ],
+      "source": "https://www.the-aiff.com/index.php/article/indian-football-league-to-begin-on-february-27",
+      "note": "Federation explicitly describes former I-League.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "previousName": "I-League",
+      "name": "Indian Football League"
+    }
+  },
+  {
+    "index": 382,
+    "value": {
+      "competition": "IND Indian Super League",
+      "firstEdition": "2026/27",
+      "operation": "RETURN_FULL_HOME_AWAY",
+      "rowRefs": [
+        252
+      ],
+      "source": "https://www.the-aiff.com/index.php/article/aiff-isl-clubs-outline-club-led-commercial-model-for-indian-super-league",
+      "note": "Announced July 8 2026, after initial cutoff; previous 2025/26 shortened format not reusable automatically.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

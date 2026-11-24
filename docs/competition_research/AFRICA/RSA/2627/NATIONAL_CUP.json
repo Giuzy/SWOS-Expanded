@@ -12,25 +12,61 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Nedbank Cup",
+      "nonCommercialDisplayName": "South African National Cup",
       "candidateName": "South African National Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "source": "https://www.psl.co.za/news/article/5615294-psl-confirms-the-202627-season-calend",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block55Research": {
+      "edition": "2026/27",
+      "name": "Nedbank Cup",
+      "display": "South African National Cup",
+      "sources": [
+        "https://www.psl.co.za/news/article/5615294-psl-confirms-the-202627-season-calend",
+        "https://psl.co.za/content/124854",
+        "https://psl.co.za/news/article/5613244-nedbank-cup-2026-participating-clubs"
+      ],
+      "rules": {
+        "mainDrawTeams": 32,
+        "entryPools": [
+          16,
+          8,
+          8
+        ],
+        "entryPoolNames": [
+          "Premier Division",
+          "National First Division",
+          "SAFA regional leagues"
+        ],
+        "regionalQualifying": true,
+        "previousEditionDraw": {
+          "seeded": false,
+          "firstDrawnHome": true
+        }
+      },
+      "dates": {
+        "mainCompetitionStart": "2027-01-27",
+        "final": "2027-05-01"
+      },
+      "note": "Do not exclude cutoff until regional qualification dates checked; 2026/27 format exact regulations pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "checked": "2026-11-24",
+      "limitations": "Exact club keys, fixture dates, full match rules and runtime not certified."
     }
   }
 ]

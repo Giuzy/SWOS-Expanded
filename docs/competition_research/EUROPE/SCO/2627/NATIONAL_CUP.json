@@ -7,14 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "SCO",
-    "candidateSources": [
-      "f9844889682d8c477574e73fd7355c4450034387",
-      "b2a8e30a591a9d2b630000a51dc8c7a306307b42"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -28,9 +23,80 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b2a8e30a591a9d2b630000a51dc8c7a306307b42",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block71Research": {
+      "edition": "2026/27",
+      "rules": {
+        "preliminaryRounds": 3,
+        "preliminary1": {
+          "matches": 5,
+          "byes": 35
+        },
+        "preliminary2": {
+          "matches": 20
+        },
+        "preliminary3": {
+          "matches": 10
+        },
+        "topTierEntryRound": 4,
+        "replays": false,
+        "extraTimeMinutes": 30,
+        "penalties": true
+      },
+      "roundDates": [
+        [
+          "preliminary1",
+          "2026-08-01"
+        ],
+        [
+          "preliminary2",
+          "2026-08-22"
+        ],
+        [
+          "preliminary3",
+          "2026-09-12"
+        ],
+        [
+          "R1",
+          "2026-10-03"
+        ],
+        [
+          "R2",
+          "2026-10-24"
+        ],
+        [
+          "R3",
+          "2026-11-28"
+        ],
+        [
+          "R4",
+          "2027-01-16"
+        ],
+        [
+          "R5",
+          "2027-02-06"
+        ],
+        [
+          "QF",
+          "2027-03-06"
+        ],
+        [
+          "SF1",
+          "2027-04-17"
+        ],
+        [
+          "SF2",
+          "2027-04-18"
+        ],
+        [
+          "final",
+          "2027-05-22"
+        ]
+      ],
+      "limitations": "SFA date page has 2025 typo for R3, corrected from actual 2026 draw notice. Preliminary draw June29, no matches before July1. Full club keys and exact tie rules pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

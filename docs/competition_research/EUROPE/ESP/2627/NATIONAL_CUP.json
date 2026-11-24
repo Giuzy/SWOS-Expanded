@@ -7,13 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "ESP",
-    "candidateSources": [
-      "4e86b149b4f97b5a3310930191dbe834b99db47d"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,9 +23,117 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "4e86b149b4f97b5a3310930191dbe834b99db47d",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block69Research": {
+      "edition": "2026/27",
+      "rules": {
+        "mainEntrants": 116,
+        "territorialPreliminary": {
+          "entrants": 20,
+          "winners": 10,
+          "legs": 2
+        },
+        "stages": [
+          {
+            "name": "first national round",
+            "entrants": 112,
+            "legs": 1
+          },
+          {
+            "name": "second national round",
+            "entrants": 56,
+            "legs": 1
+          },
+          {
+            "name": "R32",
+            "entrants": 32,
+            "newEntrants": 4,
+            "legs": 1
+          },
+          {
+            "name": "R16",
+            "entrants": 16,
+            "legs": 1
+          },
+          {
+            "name": "QF",
+            "entrants": 8,
+            "legs": 1
+          },
+          {
+            "name": "SF",
+            "entrants": 4,
+            "legs": 2
+          },
+          {
+            "name": "final",
+            "entrants": 2,
+            "legs": 1
+          }
+        ],
+        "supercupExemptUntilR32": [
+          "FC Barcelona",
+          "Real Sociedad",
+          "Real Madrid CF",
+          "Atlético de Madrid"
+        ]
+      },
+      "roundDates": [
+        [
+          "territorial leg1",
+          "2026-09-26"
+        ],
+        [
+          "territorial leg2",
+          "2026-10-03"
+        ],
+        [
+          "first",
+          "2026-10-28"
+        ],
+        [
+          "second",
+          "2026-12-02"
+        ],
+        [
+          "R32",
+          "2026-12-16"
+        ],
+        [
+          "R16",
+          "2027-01-06"
+        ],
+        [
+          "QF",
+          "2027-01-13"
+        ],
+        [
+          "SF leg1",
+          "2027-02-10"
+        ],
+        [
+          "SF leg2",
+          "2027-03-03"
+        ],
+        [
+          "final",
+          "2027-04-24"
+        ]
+      ],
+      "firstRoundPostponement": {
+        "originalDates": [
+          "2026-11-03",
+          "2026-11-04",
+          "2026-11-05"
+        ],
+        "reason": "death of CD Tenerife player; RFEF suspension",
+        "actualRescheduledLastDate": "2026-11-18",
+        "scope": "affected individual matches, not whole round; pairs and dates pending"
+      },
+      "limitations": "Round dates are nominal; revised individual dates and full access by tier not certified; no future scores.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

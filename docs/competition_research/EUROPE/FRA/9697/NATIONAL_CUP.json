@@ -7,29 +7,70 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "FRA",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
+      "officialName": "Coupe de France",
       "nonCommercialDisplayName": null,
-      "candidateName": "Coupe de France",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block69Research": {
+      "edition": "1996/97",
+      "rules": {
+        "format": "single elimination",
+        "properRounds": 6,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true,
+        "finalLegs": 1,
+        "finalVenue": "Parc des Princes, Paris"
+      },
+      "roundWindows": [
+        [
+          "R64",
+          "1997-01-17",
+          "1997-01-19"
+        ],
+        [
+          "R32",
+          "1997-02-08",
+          "1997-02-09"
+        ],
+        [
+          "R16",
+          "1997-02-28",
+          "1997-03-02"
+        ],
+        [
+          "QF",
+          "1997-03-29",
+          "1997-03-30"
+        ],
+        [
+          "SF",
+          "1997-04-19",
+          "1997-04-20"
+        ],
+        [
+          "Final",
+          "1997-05-10",
+          "1997-05-10"
+        ]
+      ],
+      "limitations": "Dates for final phase as observed, early qualification phases and entrant quotas still unknown; R32 observed date range, not exhaustive.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

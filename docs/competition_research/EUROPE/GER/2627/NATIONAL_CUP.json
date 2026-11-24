@@ -7,13 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "GER",
-    "candidateSources": [
-      "4e86b149b4f97b5a3310930191dbe834b99db47d"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,9 +23,74 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 64,
+        "rounds": 6,
+        "legs": 1,
+        "entry": {
+          "priorSeasonBundesligaAnd2Bundesliga": 36,
+          "priorSeason3LigaTopEligible": 4,
+          "regionalCupWinners": 21,
+          "additionalRegionalPlaces": 3,
+          "reserveTeamsAllowed": false
+        },
+        "extraTimeMinutes": 30,
+        "penalties": true,
+        "finalVenue": "Berlin Olympiastadion",
+        "firstRoundDraw": "two pots; amateur pot home including specified promoted and low-ranked second-tier clubs",
+        "secondRoundDraw": "two pots until exhausted; first drawn home",
+        "laterDraw": "one pot; amateur host against licensed team",
+        "yellowSuspensionThreshold": 5
+      },
+      "roundWindows": [
+        [
+          "R64",
+          "2026-08-21",
+          "2026-08-24"
+        ],
+        [
+          "R64 Supercup participants",
+          "2026-09-01",
+          "2026-09-02"
+        ],
+        [
+          "R32",
+          "2026-10-27",
+          "2026-10-28"
+        ],
+        [
+          "R16",
+          "2026-12-01",
+          "2026-12-02"
+        ],
+        [
+          "QF",
+          "2027-02-02",
+          "2027-02-03"
+        ],
+        [
+          "QF",
+          "2027-02-09",
+          "2027-02-10"
+        ],
+        [
+          "SF",
+          "2027-04-20",
+          "2027-04-21"
+        ],
+        [
+          "Final",
+          "2027-05-29",
+          "2027-05-29"
+        ]
+      ],
+      "limitations": "Round windows only; exact fixture dates and eligible replacement identities pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

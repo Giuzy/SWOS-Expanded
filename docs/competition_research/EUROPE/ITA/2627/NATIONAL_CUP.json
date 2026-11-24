@@ -7,13 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "ITA",
-    "candidateSources": [
-      "4e86b149b4f97b5a3310930191dbe834b99db47d"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,9 +23,65 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 44,
+        "entry": {
+          "serieA": 20,
+          "serieB": 20,
+          "serieC": 4
+        },
+        "stages": [
+          {
+            "name": "preliminary",
+            "entrants": 8,
+            "legs": 1
+          },
+          {
+            "name": "roundOf32",
+            "entrants": 32,
+            "newEntrants": 28,
+            "legs": 1
+          },
+          {
+            "name": "roundOf16 qualification",
+            "entrants": 16,
+            "legs": 1
+          },
+          {
+            "name": "roundOf16",
+            "entrants": 16,
+            "newEntrants": 8,
+            "legs": 1
+          },
+          {
+            "name": "quarterfinal",
+            "entrants": 8,
+            "legs": 1
+          },
+          {
+            "name": "semifinal",
+            "entrants": 4,
+            "legs": 2
+          },
+          {
+            "name": "final",
+            "entrants": 2,
+            "legs": 1
+          }
+        ],
+        "seeding": "previous edition cup winner and European qualification/league ranking; exact full ranking to reconcile",
+        "semifinalExtraTimeMinutes": 30,
+        "semifinalPenalties": true
+      },
+      "nominalFirstRound": "2026-08-09",
+      "finalDate": "2027-05-19",
+      "limitations": "Official PDF text retrieved, screenshot failed; complete ranking, match-specific dates and tie rules pending. Not native 16-club approximation.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

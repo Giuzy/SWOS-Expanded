@@ -7,13 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "POR",
-    "candidateSources": [
-      "f9844889682d8c477574e73fd7355c4450034387"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,9 +23,66 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "f9844889682d8c477574e73fd7355c4450034387",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block70Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 146,
+        "entry": {
+          "tier1": 18,
+          "tier2": 15,
+          "tier3": 19,
+          "tier4": 52,
+          "district": 42
+        },
+        "firstRoundEntrants": "tiers3–5",
+        "firstTierEntryRound": 3
+      },
+      "firstRoundWindow": [
+        "2026-08-29",
+        "2026-09-06"
+      ],
+      "roundWindows": [
+        [
+          "2",
+          "2026-09-20",
+          "2026-09-20"
+        ],
+        [
+          "3",
+          "2026-10-18",
+          "2026-10-18"
+        ],
+        [
+          "4",
+          "2026-11-22",
+          "2026-11-22"
+        ],
+        [
+          "5",
+          "2026-12-15",
+          "2026-12-17"
+        ],
+        [
+          "6",
+          "2027-02-02",
+          "2027-02-04"
+        ],
+        [
+          "7",
+          "2027-05-22",
+          "2027-05-23"
+        ],
+        [
+          "final",
+          "2027-05-30",
+          "2027-05-30"
+        ]
+      ],
+      "limitations": "Calendar June15 visually verified, Aug draw corroborates dates and 146 entrants; older preliminary calendar June6 final superseded. Exact round quotas and semifinal legs not assumed. Round5 special alternate dates omitted here pending per-match audit.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

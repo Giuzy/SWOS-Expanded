@@ -8,7 +8,6 @@
       "rowRefs": [
         276
       ],
-      "source": "https://www.knvb.nl/node/82",
       "note": "Reserve teams enter professional pyramid; exact annual membership not inferred.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 41 official HTML opened or search excerpt; no PDF analyzed."
@@ -24,10 +23,65 @@
       "rowRefs": [
         276
       ],
-      "source": "https://www.knvb.nl/competities/competitiezaken/competitiemodel/periodetitels-in-de-eerste-divisie",
       "note": "20 teams, four period titles rounds 1–10,11–20,21–29,30–38; reserves excluded from promotion playoffs; replacement first period runner-up, if already qualified or reserve, best eligible final standing without period title.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 41 official HTML opened or search excerpt; no PDF analyzed."
+    }
+  },
+  {
+    "index": 450,
+    "value": {
+      "competition": "NED KNVB Beker",
+      "firstEdition": "2003/04",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        161,
+        386
+      ],
+      "previousFormat": "group stage then knockout",
+      "format": "knockout from first main round",
+      "europeanEntrantsExemptUntilR16": true,
+      "firstRoundAmateurHome": true,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 451,
+    "value": {
+      "competition": "NED KNVB Beker",
+      "firstEdition": "2004/05",
+      "operation": "CHANGE_DRAW_RULE",
+      "rowRefs": [
+        161,
+        386
+      ],
+      "firstRoundGuaranteedAmateurHomeRemoved": true,
+      "limitations": "Announced in May 2003; implementation in 2004/05 still to corroborate.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 452,
+    "value": {
+      "competition": "NED Eerste Divisie",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_PERIOD_LENGTHS",
+      "rowRefs": [
+        276
+      ],
+      "previousPeriodLengths": [
+        10,
+        10,
+        9,
+        9
+      ],
+      "periodLengths": [
+        10,
+        9,
+        9,
+        10
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

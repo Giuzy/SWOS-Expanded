@@ -11,7 +11,6 @@
         76,
         232
       ],
-      "source": "https://www.efl.com/about-the-efl/history/innovation/",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
     }
@@ -28,7 +27,6 @@
         77,
         233
       ],
-      "source": "https://www.efl.com/about-the-efl/history/innovation/",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
     }
@@ -45,9 +43,59 @@
         78,
         234
       ],
-      "source": "https://www.efl.com/about-the-efl/history/innovation/",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  },
+  {
+    "index": 438,
+    "value": {
+      "competition": "ENG tier 2",
+      "firstEdition": "2026/27",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        76,
+        232
+      ],
+      "previousPlayoffTeams": 4,
+      "playoffTeams": 6,
+      "playoffRanks": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "firstRound": [
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "firstRoundLegs": 1,
+      "semifinalLegs": 2,
+      "finalLegs": 1,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 439,
+    "value": {
+      "competition": "ENG FA Cup",
+      "firstEdition": "2024/25",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        151,
+        351
+      ],
+      "replaysFromProper1": false,
+      "qualifyingReplaysRetained": true,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

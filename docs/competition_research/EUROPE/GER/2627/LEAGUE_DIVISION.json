@@ -7,14 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "GER",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -28,9 +23,45 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          17,
+          18
+        ],
+        "relegationPlayoff": {
+          "rank": 16,
+          "opponentTier": 2,
+          "opponentRank": 3,
+          "legs": 2
+        }
+      },
+      "firstMatch": "2026-08-28",
+      "lastRegularDate": "2027-05-22",
+      "relegationPlayoffWindows": [
+        [
+          "2027-05-27",
+          "2027-05-28"
+        ],
+        [
+          "2027-05-31",
+          "2027-06-01"
+        ]
+      ],
+      "limitations": "Individual dates/club IDs and complete tie-breakers pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -41,14 +72,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "GER",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -62,9 +88,55 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotedDirect": [
+          1,
+          2
+        ],
+        "promotionPlayoff": {
+          "rank": 3,
+          "opponentTier": 1,
+          "opponentRank": 16,
+          "legs": 2
+        },
+        "relegatedDirect": [
+          17,
+          18
+        ],
+        "relegationPlayoff": {
+          "rank": 16,
+          "opponentTier": 3,
+          "opponentRank": 3,
+          "legs": 2
+        }
+      },
+      "firstMatch": "2026-08-07",
+      "lastRegularDate": "2027-05-23",
+      "relegationPlayoffWindows": [
+        [
+          "2027-05-27",
+          "2027-05-28"
+        ],
+        [
+          "2027-05-31",
+          "2027-06-01"
+        ]
+      ],
+      "limitations": "Individual dates/club IDs and complete tie-breakers pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -75,14 +147,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "GER",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -96,9 +163,57 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotedDirectCount": 2,
+        "promotionPlayoffRank": 3,
+        "promotionEligibilityRequired": true,
+        "relegatedDirect": [
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      "firstMatch": "2026-08-07",
+      "lastRegularDate": "2027-05-22",
+      "winterResume": "2027-01-15",
+      "participants": [
+        "Fortuna Düsseldorf",
+        "SC Preußen Münster",
+        "Rot-Weiss Essen",
+        "MSV Duisburg",
+        "Hansa Rostock",
+        "SC Verl",
+        "Alemannia Aachen",
+        "SV Wehen Wiesbaden",
+        "SV Waldhof Mannheim",
+        "FC Viktoria Köln",
+        "FC Ingolstadt",
+        "SSV Jahn Regensburg",
+        "VfB Stuttgart II",
+        "1. FC Saarbrücken",
+        "TSG Hoffenheim II",
+        "TSV Havelse",
+        "SV Meppen",
+        "SC Fortuna Köln",
+        "SG Sonnenhof Großaspach",
+        "FC Würzburger Kickers"
+      ],
+      "limitations": "Individual dates/club IDs and complete tie-breakers pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

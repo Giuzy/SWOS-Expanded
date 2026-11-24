@@ -7,13 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "POR",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,9 +23,21 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "d744018d10a2aa469e3044dc364cbaa2914785fe",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block70Research": {
+      "edition": "1996/97",
+      "rules": {
+        "format": "knockout",
+        "replaysObserved": true,
+        "finalLegs": 1,
+        "finalVenue": "Estádio Nacional, Lisbon"
+      },
+      "startMonth": "1996-09",
+      "finalDate": "1997-06-10",
+      "limitations": "Early-round fixture dates and entry quotas incomplete; replay observed in round of 64. No post-start scores imported.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

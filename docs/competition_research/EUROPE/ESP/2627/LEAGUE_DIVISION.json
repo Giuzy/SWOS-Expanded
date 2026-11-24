@@ -7,30 +7,62 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ESP",
-    "candidateSources": [
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Primera División",
       "nonCommercialDisplayName": null,
-      "candidateName": "Primera División",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block69Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          18,
+          19,
+          20
+        ]
+      },
+      "firstRoundWindow": [
+        "2026-08-14",
+        "2026-08-16"
+      ],
+      "firstAnnouncedMatch": "2026-08-15",
+      "lastRegularDate": "2027-05-30",
+      "openingRoundExceptions": {
+        "eligible": "clubs with significant number of players in World Cup semifinal/final",
+        "alternativeDates": [
+          "2026-08-18",
+          "2026-08-19",
+          "2026-08-20",
+          "2026-08-25",
+          "2026-08-26",
+          "2026-08-27"
+        ]
+      },
+      "limitations": "First round announcement and latest kickoff schedule differ; no result import. Movement baseline, full eligibility and tie-break regulations still to certify.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -41,30 +73,65 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ESP",
-    "candidateSources": [
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Segunda División",
       "nonCommercialDisplayName": null,
-      "candidateName": "Segunda División",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "source": null,
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block69Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 22,
+        "rounds": 2,
+        "gamesPerClub": 42,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotedDirect": [
+          1,
+          2
+        ],
+        "promotionPlayoffRanks": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "relegatedDirect": [
+          19,
+          20,
+          21,
+          22
+        ]
+      },
+      "firstRoundWindow": [
+        "2026-08-15",
+        "2026-08-16"
+      ],
+      "lastRegularDate": "2027-06-06",
+      "promotionPlayoffWindow": [
+        "2027-06-09",
+        "2027-06-20"
+      ],
+      "limitations": "Promotion ranks are baseline plus current table zone evidence, reserve eligibility and exact playoff tie-resolution/legs not certified by 2026/27 rule text.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

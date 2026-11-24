@@ -7,13 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "ESP",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,9 +23,68 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "d744018d10a2aa469e3044dc364cbaa2914785fe",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block69Research": {
+      "edition": "1996/97",
+      "rules": {
+        "firstRoundNominalEntrants": 50,
+        "firstRoundNominalWinners": 25,
+        "secondRoundEntrants": 42,
+        "newTopTierSecondRoundEntrants": 17,
+        "firstRoundWalkover": "Sestao dissolved after entry",
+        "europeanExemptions": "clubs in European competition enter after elimination or by round of 16",
+        "legsBeforeFinal": 2,
+        "finalLegs": 1,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true,
+        "finalVenue": "Santiago Bernabéu"
+      },
+      "roundWindows": [
+        [
+          "first observed",
+          "1996-09-04",
+          "1996-09-19"
+        ],
+        [
+          "second leg1",
+          "1996-11-06",
+          "1996-11-06"
+        ],
+        [
+          "second leg2",
+          "1996-11-27",
+          "1996-11-27"
+        ],
+        [
+          "third",
+          "1997-01-08",
+          "1997-01-22"
+        ],
+        [
+          "R16",
+          "1997-01-28",
+          "1997-02-06"
+        ],
+        [
+          "QF",
+          "1997-02-26",
+          "1997-03-13"
+        ],
+        [
+          "SF",
+          "1997-03-25",
+          "1997-04-03"
+        ],
+        [
+          "final",
+          "1997-06-28",
+          "1997-06-28"
+        ]
+      ],
+      "limitations": "Observed nominal access and special dissolution, actual team identifiers and all dates remain open; no replay of post-start historic outcomes.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

@@ -7,11 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "GER",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -38,8 +36,8 @@
       "regularOrInitialGamesPerClub": 34,
       "pointsWin": 3,
       "formatAndMovement": "Double RR",
-      "researchSource": "https://www.rsssf.org/tablesd/duit97.html",
-      "scope": "Partial historical structure, no future results imported"
+      "scope": "Partial historical structure, no future results imported",
+      "firstMatch": "1996-08-16"
     },
     "competitionNaming": {
       "startEdition": "1996/97",
@@ -47,7 +45,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.rsssf.org/tablesd/duit97.html",
       "nameHistory": [],
       "historyComplete": false
     }
@@ -60,11 +57,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "GER",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -88,10 +83,10 @@
       "edition": "1996/97",
       "teams": 18,
       "regularOrInitialGamesPerClub": 34,
-      "pointsWin": null,
+      "pointsWin": 3,
       "formatAndMovement": "2. Bundesliga double RR, points deduction exceptional; precise promotion/relegation count to extract",
-      "researchSource": "https://www.rsssf.org/tablesd/duit97.html",
-      "scope": "Observed structure, no future results imported; null and uncertain fields remain open."
+      "scope": "Observed structure, no future results imported; null and uncertain fields remain open.",
+      "firstMatch": "1996-08-02"
     },
     "competitionNaming": {
       "startEdition": "1996/97",
@@ -99,7 +94,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.rsssf.org/tablesd/duit97.html",
       "nameHistory": [],
       "historyComplete": false
     }

@@ -7,14 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ENG",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -28,9 +23,29 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block67Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 20,
+        "gamesPerClub": 38,
+        "rounds": 2,
+        "relegated": 3,
+        "firstMatch": "2026-08-21",
+        "lastRegularMatch": "2027-05-30",
+        "weekendRounds": 33,
+        "midweekRounds": 5,
+        "holidayMinimumHoursBetweenRounds": 60,
+        "points": [
+          3,
+          1,
+          0
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Individual fixture dates not imported."
     }
   },
   {
@@ -41,14 +56,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ENG",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -62,7 +72,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [
         {
           "transition": 210,
@@ -70,11 +79,57 @@
           "to": null,
           "previousName": "Division One",
           "name": "Championship",
-          "operation": "RENAME",
-          "source": "https://www.efl.com/about-the-efl/history/innovation/"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block67Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 24,
+        "gamesPerClub": 46,
+        "rounds": 2,
+        "directPromotion": 2,
+        "playoffRanks": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "firstPlayoffRound": [
+          [
+            5,
+            8
+          ],
+          [
+            6,
+            7
+          ]
+        ],
+        "firstPlayoffLegs": 1,
+        "firstPlayoffHost": "higher rank",
+        "semifinalByes": [
+          3,
+          4
+        ],
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "finalVenue": "Wembley",
+        "playoffMatches": 7,
+        "relegated": 3,
+        "firstMatch": "2026-08-14",
+        "lastRegularMatch": "2027-05-01",
+        "points": [
+          3,
+          1,
+          0
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Semi-final allocation and full 2026/27 regulations still to verify."
     }
   },
   {
@@ -85,14 +140,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ENG",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -106,7 +156,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [
         {
           "transition": 211,
@@ -114,11 +163,38 @@
           "to": null,
           "previousName": "Division Two",
           "name": "League One",
-          "operation": "RENAME",
-          "source": "https://www.efl.com/about-the-efl/history/innovation/"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block67Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 24,
+        "gamesPerClub": 46,
+        "rounds": 2,
+        "directPromotion": 2,
+        "playoffRanks": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "relegated": 4,
+        "startWindow": [
+          "2026-08-14",
+          "2026-08-16"
+        ],
+        "lastRegularMatch": "2027-05-08",
+        "points": [
+          3,
+          1,
+          0
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Movement baseline and opening window; exact 2026/27 rule text and fixtures pending."
     }
   },
   {
@@ -129,14 +205,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ENG",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -150,7 +221,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [
         {
           "transition": 212,
@@ -158,11 +228,38 @@
           "to": null,
           "previousName": "Division Three",
           "name": "League Two",
-          "operation": "RENAME",
-          "source": "https://www.efl.com/about-the-efl/history/innovation/"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block67Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 24,
+        "gamesPerClub": 46,
+        "rounds": 2,
+        "directPromotion": 3,
+        "playoffRanks": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "relegated": 2,
+        "startWindow": [
+          "2026-08-14",
+          "2026-08-16"
+        ],
+        "lastRegularMatch": "2027-05-08",
+        "points": [
+          3,
+          1,
+          0
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Movement baseline and opening window; exact 2026/27 rule text and fixtures pending."
     }
   }
 ]

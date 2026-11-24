@@ -7,13 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "BEL",
-    "candidateSources": [
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,7 +23,6 @@
       "nonCommercialDisplayName": "Pro League",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.proleague.be/nieuws/vanaf-seizoen-26-27-met-18-clubs-in-de-jupiler-pro-league",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -37,11 +32,101 @@
       "games": 34,
       "playoffs": false,
       "directRelegated": 2,
-      "sources": [
-        "https://www.proleague.be/nieuws/vanaf-seizoen-26-27-met-18-clubs-in-de-jupiler-pro-league",
-        "https://www.proleague.be/nieuws/kalender-2026-2027-club-brugge-opent-tegen-kv-kortrijk-eerste-super-sunday-al-op-speeldag-4"
-      ],
       "scope": "official format and published calendar existence; no fixture reconciliation"
+    },
+    "block71Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "playoffs": false,
+        "relegatedDirect": [
+          17,
+          18
+        ],
+        "leagueEuropeanPlaces": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "participants": [
+        "Cercle Brugge",
+        "Club Brugge",
+        "KAA Gent",
+        "KRC Genk",
+        "KV Kortrijk",
+        "KV Mechelen",
+        "KVC Westerlo",
+        "Lommel SK",
+        "OH Leuven",
+        "RAAL La Louvière",
+        "RSC Anderlecht",
+        "Royal Antwerp FC",
+        "Royale Union Saint-Gilloise",
+        "SK Beveren",
+        "STVV",
+        "SV Zulte Waregem",
+        "Sporting Charleroi",
+        "Standard de Liège"
+      ],
+      "firstMatch": "2026-08-07",
+      "lastRoundWindow": [
+        "2027-05-21",
+        "2027-05-23"
+      ],
+      "openingPairs": [
+        [
+          "Club Brugge",
+          "KV Kortrijk"
+        ],
+        [
+          "STVV",
+          "Lommel SK"
+        ],
+        [
+          "Royal Antwerp FC",
+          "SK Beveren"
+        ],
+        [
+          "KVC Westerlo",
+          "Royale Union Saint-Gilloise"
+        ],
+        [
+          "Standard de Liège",
+          "Cercle Brugge"
+        ],
+        [
+          "SV Zulte Waregem",
+          "KRC Genk"
+        ],
+        [
+          "RSC Anderlecht",
+          "RAAL La Louvière"
+        ],
+        [
+          "Sporting Charleroi",
+          "OH Leuven"
+        ],
+        [
+          "KAA Gent",
+          "KV Mechelen"
+        ]
+      ],
+      "postponements": [
+        {
+          "round": 3,
+          "home": "STVV",
+          "away": "Royale Union Saint-Gilloise",
+          "newDate": "2026-09-02",
+          "reason": "European qualifying playoffs",
+          "originalDate": null
+        }
+      ],
+      "limitations": "Actual individual fixtures, original postponed date and conditional European adjustments not fully reconciled.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

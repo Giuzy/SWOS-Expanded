@@ -7,13 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "NED",
-    "candidateSources": [
-      "f9844889682d8c477574e73fd7355c4450034387"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,9 +23,43 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "f9844889682d8c477574e73fd7355c4450034387",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block70Research": {
+      "edition": "2026/27",
+      "rules": {
+        "qualificationRounds": 2,
+        "firstQualificationGames": 32,
+        "firstQualificationByes": 8,
+        "secondQualificationGames": 20,
+        "europeanEntrantsExemptFirstMainRound": true,
+        "finalVenue": "De Kuip, Rotterdam"
+      },
+      "roundWindows": [
+        [
+          "qualification1",
+          "2026-09-01",
+          "2026-09-02"
+        ],
+        [
+          "qualification2",
+          "2026-09-22",
+          "2026-09-23"
+        ],
+        [
+          "first main",
+          "2026-10-27",
+          "2026-10-29"
+        ],
+        [
+          "final",
+          "2027-04-18",
+          "2027-04-18"
+        ]
+      ],
+      "limitations": "Official qualification draw excerpts, current full handbook and individual fixtures not reconciled.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

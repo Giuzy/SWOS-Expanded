@@ -7,29 +7,78 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "BEL",
-    "candidateSources": [
-      "f9844889682d8c477574e73fd7355c4450034387"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Belgian Cup",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
-      "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
+      "nonCommercialDisplayName": "Beker van België / Coupe de Belgique",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block71Research": {
+      "edition": "2026/27",
+      "rules": {
+        "firstRoundEntrants": 116,
+        "firstRoundTeamsFrom": "provincial leagues",
+        "firstRoundExtraTime": false,
+        "firstRoundPenalties": true,
+        "secondTierEntry": "R64",
+        "topTierEntry": "R32",
+        "topTierProtectedDraw": true,
+        "semifinalLegs": 2
+      },
+      "roundWindows": [
+        [
+          "first",
+          "2026-07-25",
+          "2026-07-26"
+        ],
+        [
+          "R64",
+          "2026-09-26",
+          "2026-09-28"
+        ],
+        [
+          "R32",
+          "2026-10-16",
+          "2026-10-18"
+        ],
+        [
+          "R16",
+          "2026-12-04",
+          "2026-12-06"
+        ],
+        [
+          "QF",
+          "2027-02-02",
+          "2027-02-04"
+        ],
+        [
+          "SF1",
+          "2027-03-02",
+          "2027-03-04"
+        ],
+        [
+          "SF2",
+          "2027-04-20",
+          "2027-04-22"
+        ]
+      ],
+      "finalDate": null,
+      "finalTiming": "after top-tier league and tier2 promotion playoffs",
+      "limitations": "Exact final date and all amateur round access quotas pending; June24 draw is not a played fixture.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

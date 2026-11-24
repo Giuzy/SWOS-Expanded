@@ -7,14 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "FRA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -28,7 +23,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [
         {
           "transition": 213,
@@ -36,11 +30,62 @@
           "to": null,
           "previousName": "Division 1",
           "name": "Ligue 1",
-          "operation": "RENAME",
-          "source": "https://www.fff.fr/475-palmares-ligue-1.html"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block69Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          17,
+          18
+        ],
+        "relegationPlayoff": {
+          "rank": 16,
+          "opponent": "Ligue 2 playoff winner",
+          "legs": 2,
+          "dates": [
+            "2027-06-03",
+            "2027-06-06"
+          ]
+        }
+      },
+      "participants": [
+        "Angers SCO",
+        "LOSC",
+        "Havre AC",
+        "AS Monaco",
+        "Le Mans FC",
+        "Stade Brestois 29",
+        "RC Lens",
+        "AJ Auxerre",
+        "Olympique de Marseille",
+        "RC Strasbourg Alsace",
+        "OGC Nice",
+        "FC Lorient",
+        "Paris Saint-Germain",
+        "Stade Rennais FC",
+        "Toulouse FC",
+        "Olympique Lyonnais",
+        "ESTAC Troyes",
+        "Paris FC"
+      ],
+      "firstMatch": "2026-08-21",
+      "lastRegularDate": "2027-05-29",
+      "winterBreakAfterRound": 14,
+      "winterResumeWindow": "2027-01-02",
+      "limitations": "Participant names from official opening pairings; keys and complete individual dates not reconciled.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -51,14 +96,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "FRA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -72,7 +112,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [
         {
           "transition": 214,
@@ -80,11 +119,91 @@
           "to": null,
           "previousName": "Division 2",
           "name": "Ligue 2",
-          "operation": "RENAME",
-          "source": "https://www.fff.fr/476-palmares-ligue-2.html"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block69Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotedDirect": [
+          1,
+          2
+        ],
+        "promotionPlayoff": {
+          "first": {
+            "ranks": [
+              4,
+              5
+            ],
+            "legs": 1,
+            "date": "2027-05-25"
+          },
+          "second": {
+            "rank": 3,
+            "opponent": "first winner",
+            "legs": 1,
+            "date": "2027-05-28"
+          },
+          "interTier": {
+            "opponentRank": 16,
+            "opponentTier": 1,
+            "legs": 2,
+            "dates": [
+              "2027-06-03",
+              "2027-06-06"
+            ]
+          }
+        },
+        "relegatedDirect": [
+          17,
+          18
+        ],
+        "relegationPlayoff": {
+          "rank": 16,
+          "opponent": "Ligue 3 playoff winner",
+          "legs": 2,
+          "dates": [
+            "2027-06-01",
+            "2027-06-06"
+          ]
+        }
+      },
+      "participants": [
+        "FC Sochaux-Montbéliard",
+        "AS Saint-Étienne",
+        "US Boulogne CO",
+        "AS Nancy Lorraine",
+        "Clermont Foot 63",
+        "Stade de Reims",
+        "USL Dunkerque",
+        "Grenoble Foot 38",
+        "FC Metz",
+        "En Avant Guingamp",
+        "Montpellier Hérault SC",
+        "Dijon FCO",
+        "FC Nantes",
+        "Red Star FC",
+        "Pau FC",
+        "FC Annecy",
+        "Rodez Aveyron Football",
+        "Stade Lavallois MFC"
+      ],
+      "firstMatch": "2026-08-08",
+      "lastRegularDate": "2027-05-22",
+      "winterBreakAfterRound": 15,
+      "winterResume": "2027-01-02",
+      "limitations": "LFP June 10 calendar calls Ligue 3 opponent third place, but FFF professional format and July calendar specify winner of ranks 3–6 playoff. Numeric June 1 and June 6 dates agree; FFF weekday labels are inconsistent with civil dates. No assumed club IDs or runtime slot for Ligue 3.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

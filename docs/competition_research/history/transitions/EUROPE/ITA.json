@@ -1,0 +1,32 @@
+[
+  {
+    "index": 443,
+    "value": {
+      "competition": "ITA Serie A",
+      "firstEdition": "2022/23",
+      "operation": "CHANGE_MATCH_RULE",
+      "rowRefs": [
+        56,
+        186
+      ],
+      "decisionDate": "2022-06-28",
+      "titlePlayoffReintroduced": true,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 444,
+    "value": {
+      "competition": "ITA Coppa Italia",
+      "firstEdition": "2007/08",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        157,
+        322
+      ],
+      "finalLegs": 1,
+      "finalVenue": "Rome",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

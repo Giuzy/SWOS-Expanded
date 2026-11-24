@@ -11,7 +11,6 @@
         52,
         239
       ],
-      "source": "https://www.fff.fr/475-palmares-ligue-1.html",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
     }
@@ -28,9 +27,130 @@
         53,
         240
       ],
-      "source": "https://www.fff.fr/476-palmares-ligue-2.html",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
+    }
+  },
+  {
+    "index": 445,
+    "value": {
+      "competition": "FRA Ligue 1",
+      "firstEdition": "2023/24",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        52,
+        239
+      ],
+      "previousTeams": 20,
+      "teams": 18,
+      "gamesPerClub": 34,
+      "transitionPreviousEdition": {
+        "edition": "2022/23",
+        "relegated": 4,
+        "promoted": 2
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 446,
+    "value": {
+      "competition": "FRA tier 3",
+      "firstEdition": "2026/27",
+      "operation": "RENAME_AND_CHANGE_FORMAT",
+      "previousName": "National",
+      "name": "Ligue 3",
+      "rowRefs": [],
+      "relatedRows": [
+        240
+      ],
+      "teams": 18,
+      "rounds": 2,
+      "gamesPerClub": 34,
+      "promotedDirect": [
+        1,
+        2
+      ],
+      "playoffRanks": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "playoffPairs": [
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "playoffLegs": 1,
+      "relegatedDirect": [
+        16,
+        17,
+        18
+      ],
+      "firstRound": "2026-08-07",
+      "lastRegularRound": "2027-05-21",
+      "playoffSemifinals": "2027-05-25",
+      "playoffFinal": "2027-05-28",
+      "interTierPlayoff": {
+        "opponent": "Ligue 2 rank 16",
+        "legs": 2,
+        "dates": [
+          "2027-06-01",
+          "2027-06-06"
+        ]
+      },
+      "participants": [
+        "Amiens SC",
+        "SC Aubagne Air Bel",
+        "SC Bastia",
+        "Football Bourg-en-Bresse Péronnas 01",
+        "SM Caen",
+        "AS Cannes",
+        "US Concarneau",
+        "FC Fleury 91",
+        "VFC La-Roche-sur-Yon",
+        "Le Puy-en-Velay FC",
+        "US Orléans LF",
+        "Paris 13 Atletico",
+        "Quevilly Rouen Métropole",
+        "FC Rouen 1899",
+        "US Thionville Lusitanos",
+        "Valenciennes FC",
+        "FC Versailles",
+        "FC Villefranche-Beaujolais"
+      ],
+      "limitations": "No existing playable France tier3 row; supplement only, not an extra counted slot. FFF current format overrides contradictory opponent description in earlier LFP calendar; exact dates per fixture and club IDs pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 447,
+    "value": {
+      "competition": "FRA tier 4",
+      "firstEdition": "2026/27",
+      "operation": "RENAME",
+      "previousName": "National 2",
+      "name": "National 1",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 448,
+    "value": {
+      "competition": "FRA tier 5",
+      "firstEdition": "2026/27",
+      "operation": "RENAME",
+      "previousName": "National 3",
+      "name": "National 2",
+      "rowRefs": [],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

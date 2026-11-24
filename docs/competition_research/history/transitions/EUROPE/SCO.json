@@ -4,10 +4,9 @@
     "value": {
       "competition": "Scottish Cup",
       "firstEdition": "2022/23",
-      "lastEdition": null,
+      "lastEdition": "2022/23",
       "operation": "CHANGE_REPLAY",
       "note": "No replays beyond preliminary round; rounds one to three now use extra time and penalties if needed, as later rounds already do. Preliminary replay goes directly to penalties if tied after 90 minutes. Effective duration after 2022/23 pending.",
-      "source": "https://www.scottishfa.co.uk/en/news/scottish-cup-replays-removed-for-202223-season",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "2026-11-24: Scottish FA decision 12 August 2022 opened lines 26–43; structural vote, not imported COVID emergency format; full dates, access tables, participant mapping and runtime validation pending. No future results imported.",
       "rowRefs": [
@@ -28,7 +27,6 @@
         81,
         292
       ],
-      "source": "https://spfl.co.uk/pages/rules-and-regulations",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
     }
@@ -45,7 +43,6 @@
         82,
         293
       ],
-      "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
     }
@@ -62,7 +59,6 @@
         83,
         294
       ],
-      "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
     }
@@ -79,7 +75,6 @@
         84,
         295
       ],
-      "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
     }
@@ -96,10 +91,53 @@
         81,
         292
       ],
-      "source": "https://rsssf.org/tabless/scothist.html",
       "note": "SPL separated from SFL in 1998; do not assign SPL name to 1996; governance continuity mapping pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 33 actual web search excerpts; not full sport rule or runtime certification."
+    }
+  },
+  {
+    "index": 453,
+    "value": {
+      "competition": "Scottish Cup",
+      "firstEdition": "2023/24",
+      "operation": "CHANGE_REPLAY",
+      "rowRefs": [
+        158,
+        402
+      ],
+      "replays": false,
+      "includesPreliminaries": true,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 454,
+    "value": {
+      "competition": "SCO tier 4",
+      "firstEdition": "2014/15",
+      "operation": "INTRODUCE_PYRAMID_PLAYOFF",
+      "rowRefs": [
+        84,
+        295
+      ],
+      "leagueRank": 10,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 455,
+    "value": {
+      "competition": "Scottish Cup",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        402
+      ],
+      "preliminaryRounds": 3,
+      "previousPreliminaryRounds": 2,
+      "reason": "increase in licensed clubs",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

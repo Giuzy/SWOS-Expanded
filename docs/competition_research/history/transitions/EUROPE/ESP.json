@@ -1,0 +1,20 @@
+[
+  {
+    "index": 449,
+    "value": {
+      "competition": "ESP Copa del Rey",
+      "firstEdition": "2025/26",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        160,
+        353
+      ],
+      "territorialPreliminaryLegs": 2,
+      "previousTerritorialPreliminaryLegs": 1,
+      "firstTwoNationalRoundsGeographicalDraw": true,
+      "supercupEntrantsSeparateDrawPotThroughR16": true,
+      "supercupEntrantsAwayAgainstLowerTierThroughR16": true,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

@@ -7,11 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "SCO",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -37,7 +35,6 @@
       "regularOrInitialGamesPerClub": 36,
       "pointsWin": 3,
       "formatAndMovement": "Scottish League Premier Division, quadruple RR",
-      "researchSource": "https://www.rsssf.org/tabless/scothist.html",
       "scope": "Observed structure, no future results imported; null and uncertain fields remain open."
     },
     "competitionNaming": {
@@ -46,7 +43,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://rsssf.org/tabless/scothist.html",
       "nameHistory": [
         {
           "transition": 217,
@@ -54,8 +50,7 @@
           "to": null,
           "previousName": "Scottish Premier League",
           "name": "Scottish Premiership",
-          "operation": "RENAME",
-          "source": "https://spfl.co.uk/pages/rules-and-regulations"
+          "operation": "RENAME"
         },
         {
           "transition": 263,
@@ -63,11 +58,51 @@
           "to": null,
           "previousName": "Scottish Football League Premier Division",
           "name": "Scottish Premier League",
-          "operation": "RESTRUCTURE_AND_RENAME",
-          "source": "https://rsssf.org/tabless/scothist.html"
+          "operation": "RESTRUCTURE_AND_RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block71Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          10
+        ],
+        "relegationPlayoff": {
+          "rank": 9,
+          "opponentTier": 2,
+          "opponentRank": 2,
+          "legs": 2,
+          "dates": [
+            "1997-05-17",
+            "1997-05-22"
+          ]
+        }
+      },
+      "participants": [
+        "Aberdeen",
+        "Celtic",
+        "Dundee United",
+        "Dunfermline Athletic",
+        "Heart of Midlothian",
+        "Hibernian",
+        "Kilmarnock",
+        "Motherwell",
+        "Raith Rovers",
+        "Rangers"
+      ],
+      "firstMatch": "1996-08-10",
+      "limitations": "Historical club names and movement observed; individual dates and ID mapping pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -78,11 +113,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "SCO",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -109,7 +142,6 @@
       "regularOrInitialGamesPerClub": 36,
       "pointsWin": 3,
       "formatAndMovement": "first direct, bottom2 relegated; second-place playoff rule needs check independent of observed movement",
-      "researchSource": "https://www.rsssf.org/tabless/scot2hist.html",
       "scope": "Research only: regional candidates and adjacent-year evidence are not exact first-edition certification; no future results imported."
     },
     "competitionNaming": {
@@ -118,7 +150,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.rsssf.org/tabless/scot2hist.html",
       "nameHistory": [
         {
           "transition": 218,
@@ -126,11 +157,46 @@
           "to": null,
           "previousName": "First Division",
           "name": "Scottish Championship",
-          "operation": "RENAME",
-          "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block71Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotedDirect": [
+          1
+        ],
+        "promotionPlayoffRank": 2,
+        "relegatedDirect": [
+          9,
+          10
+        ]
+      },
+      "participants": [
+        "Airdrieonians",
+        "Clydebank",
+        "Dundee",
+        "East Fife",
+        "Falkirk",
+        "Greenock Morton",
+        "Partick Thistle",
+        "St Johnstone",
+        "St Mirren",
+        "Stirling Albion"
+      ],
+      "openingMonthEvidence": "1996-08",
+      "limitations": "Historical club names and movement observed; individual dates and ID mapping pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -141,7 +207,6 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "SCO",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
@@ -172,7 +237,6 @@
       "regularOrInitialGamesPerClub": 36,
       "pointsWin": 3,
       "formatAndMovement": "top2 promoted, bottom2 relegated",
-      "researchSource": "https://www.rsssf.org/tabless/scot3hist.html",
       "scope": "Research only: regional candidates and adjacent-year evidence are not exact first-edition certification; no future results imported."
     },
     "competitionNaming": {
@@ -181,7 +245,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.rsssf.org/tabless/scot3hist.html",
       "nameHistory": [
         {
           "transition": 219,
@@ -189,11 +252,45 @@
           "to": null,
           "previousName": "Second Division",
           "name": "Scottish League One",
-          "operation": "RENAME",
-          "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block71Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotedDirect": [
+          1,
+          2
+        ],
+        "relegatedDirect": [
+          9,
+          10
+        ]
+      },
+      "participants": [
+        "Ayr United",
+        "Berwick Rangers",
+        "Brechin City",
+        "Clyde",
+        "Dumbarton",
+        "Hamilton Academical",
+        "Livingston",
+        "Queen of the South",
+        "Stenhousemuir",
+        "Stranraer"
+      ],
+      "limitations": "Historical club names and movement observed; individual dates and ID mapping pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -204,7 +301,6 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "SCO",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
@@ -235,7 +331,6 @@
       "regularOrInitialGamesPerClub": 36,
       "pointsWin": 3,
       "formatAndMovement": "top2 promotion; no automatic relegation from national fourth level",
-      "researchSource": "https://spfl.co.uk/league/league-two/archive/253",
       "scope": "Research only: regional candidates and adjacent-year evidence are not exact first-edition certification; no future results imported."
     },
     "competitionNaming": {
@@ -244,7 +339,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://spfl.co.uk/league/league-two/archive/253",
       "nameHistory": [
         {
           "transition": 220,
@@ -252,11 +346,42 @@
           "to": null,
           "previousName": "Third Division",
           "name": "Scottish League Two",
-          "operation": "RENAME",
-          "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block71Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotedDirect": [
+          1,
+          2
+        ],
+        "relegationDirectCount": 0
+      },
+      "participants": [
+        "Albion Rovers",
+        "Alloa",
+        "Arbroath",
+        "Caledonian Thistle",
+        "Cowdenbeath",
+        "East Stirlingshire",
+        "Forfar Athletic",
+        "Montrose",
+        "Queen's Park",
+        "Ross County"
+      ],
+      "limitations": "Historical club names and movement observed; individual dates and ID mapping pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

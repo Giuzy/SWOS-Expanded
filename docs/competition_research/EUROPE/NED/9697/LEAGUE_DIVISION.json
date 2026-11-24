@@ -7,11 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "NED",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -38,7 +36,6 @@
       "regularOrInitialGamesPerClub": 34,
       "pointsWin": 3,
       "formatAndMovement": "Double RR; cross-table and standings",
-      "researchSource": "https://www.rsssf.org/tablesn/ned97.html",
       "scope": "Partial historical structure, no future results imported"
     },
     "competitionNaming": {
@@ -47,9 +44,73 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.rsssf.org/tablesn/ned97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block70Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          18
+        ],
+        "relegationPlayoff": {
+          "entrants": 8,
+          "firstTierRanks": [
+            16,
+            17
+          ],
+          "secondTierEntrants": 6,
+          "groups": 2,
+          "teamsPerGroup": 4,
+          "rounds": 2,
+          "gamesPerTeam": 6,
+          "promotedOrRetainedPerGroup": 1,
+          "dates": [
+            "1997-06-04",
+            "1997-06-07",
+            "1997-06-08",
+            "1997-06-11",
+            "1997-06-14",
+            "1997-06-15",
+            "1997-06-18",
+            "1997-06-22"
+          ]
+        }
+      },
+      "participants": [
+        "PSV",
+        "Feyenoord",
+        "FC Twente",
+        "Ajax",
+        "Vitesse",
+        "Roda JC",
+        "SC Heerenveen",
+        "De Graafschap",
+        "NAC",
+        "FC Groningen",
+        "Fortuna Sittard",
+        "FC Utrecht",
+        "Sparta",
+        "FC Volendam",
+        "Willem II",
+        "RKC Waalwijk",
+        "NEC",
+        "AZ"
+      ],
+      "openingWindow": [
+        "1996-08-20",
+        "1996-08-22"
+      ],
+      "limitations": "Historical entrant names only, no key reconciliation. No playoff results imported.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -60,11 +121,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "NED",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -91,7 +150,6 @@
       "regularOrInitialGamesPerClub": 34,
       "pointsWin": null,
       "formatAndMovement": "Double RR cross-table; playoff rules pending",
-      "researchSource": "https://www.rsssf.org/tablesn/ned97.html",
       "scope": "Partial historical structure, no future results imported"
     },
     "competitionNaming": {
@@ -100,9 +158,73 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.rsssf.org/tablesn/ned97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block70Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotedDirectCount": 1,
+        "periodTitles": 4,
+        "promotionPlayoff": {
+          "entrants": 8,
+          "firstTierRanks": [
+            16,
+            17
+          ],
+          "secondTierEntrants": 6,
+          "groups": 2,
+          "teamsPerGroup": 4,
+          "rounds": 2,
+          "gamesPerTeam": 6,
+          "promotedOrRetainedPerGroup": 1,
+          "dates": [
+            "1997-06-04",
+            "1997-06-07",
+            "1997-06-08",
+            "1997-06-11",
+            "1997-06-14",
+            "1997-06-15",
+            "1997-06-18",
+            "1997-06-22"
+          ]
+        },
+        "periodWinnerEligibility": true
+      },
+      "participants": [
+        "MVV",
+        "Cambuur Leeuwarden",
+        "SC Emmen",
+        "VVV",
+        "FC Zwolle",
+        "Go Ahead Eagles",
+        "FC Den Bosch",
+        "ADO Den Haag",
+        "Eindhoven",
+        "SC Veendam",
+        "TOP/Oss",
+        "Dordrecht '90",
+        "SC Heracles",
+        "Helmond Sport",
+        "RBC",
+        "SC Telstar",
+        "Excelsior",
+        "Haarlem"
+      ],
+      "openingWindow": [
+        "1996-08-20",
+        "1996-08-21"
+      ],
+      "limitations": "One opening-round match rescheduled Sep10; exact period lengths and replacement algorithm pending. No future results.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

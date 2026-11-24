@@ -7,13 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "ITA",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,9 +23,26 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "d744018d10a2aa469e3044dc364cbaa2914785fe",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 48,
+        "firstRoundTeams": 32,
+        "secondRoundTeams": 32,
+        "roundOf16Teams": 16,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 2,
+        "replaysObserved": true,
+        "penaltiesObserved": true
+      },
+      "startMonth": "1996-08",
+      "finalSecondLeg": "1997-05-29",
+      "limitations": "Conflicting nominal vs actual historical dates and incomplete second-round archive; exact dates and historical access not certified. No post-start scores imported.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

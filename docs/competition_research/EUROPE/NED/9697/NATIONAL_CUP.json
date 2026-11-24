@@ -7,29 +7,297 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "NED",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "KNVB Beker",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "officialName": "KNVB Beker",
+      "nonCommercialDisplayName": "KNVB Beker",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block70Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 78,
+        "preliminaryRounds": 2,
+        "groups": 14,
+        "teamsPerGroup": 4,
+        "groupGamesPerClub": 3,
+        "groupQualifiers": 2,
+        "knockoutEntrants": 32,
+        "knockoutNewEntrants": 4,
+        "knockoutLegs": 1,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "firstDate": "1996-06-01",
+      "roundWindows": [
+        [
+          "preliminary",
+          "1996-06-01",
+          "1996-06-15"
+        ],
+        [
+          "group",
+          "1996-08-15",
+          "1996-10-01"
+        ],
+        [
+          "R32",
+          "1996-11-27",
+          "1996-12-01"
+        ],
+        [
+          "R16",
+          "1997-02-07",
+          "1997-02-19"
+        ],
+        [
+          "QF",
+          "1997-03-11",
+          "1997-03-12"
+        ],
+        [
+          "SF",
+          "1997-04-16",
+          "1997-04-17"
+        ],
+        [
+          "final",
+          "1997-05-08",
+          "1997-05-08"
+        ]
+      ],
+      "limitations": "June preliminary status required at cutoff; reserve/amateur club keys, exact individual dates and exceptional access still unresolved.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": [
+          {
+            "date": "1996-06-01",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "Sparta 2",
+            "away": "DVC '26",
+            "homeGoals": 4,
+            "awayGoals": 1,
+            "winner": "Sparta 2",
+            "note": "Played at DVC; listed nominal home differs from venue."
+          },
+          {
+            "date": "1996-06-01",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "AFC '34",
+            "away": "GVVV",
+            "homeGoals": 3,
+            "awayGoals": 3,
+            "winner": "GVVV",
+            "note": "penalties; another archive reports 0-0, score reconciliation required"
+          },
+          {
+            "date": "1996-06-01",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "Katwijk",
+            "away": "ACV",
+            "homeGoals": 2,
+            "awayGoals": 0,
+            "winner": "Katwijk"
+          },
+          {
+            "date": "1996-06-01",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "Gemert",
+            "away": "De Treffers",
+            "homeGoals": 2,
+            "awayGoals": 4,
+            "winner": "De Treffers"
+          },
+          {
+            "date": "1996-06-01",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "Achilles Veen",
+            "away": "AFC",
+            "homeGoals": 1,
+            "awayGoals": 1,
+            "winner": "AFC",
+            "note": "penalties; alternate archive 0-0"
+          },
+          {
+            "date": "1996-06-01",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "Bennekom",
+            "away": "DOS Kampen",
+            "homeGoals": 3,
+            "awayGoals": 1,
+            "winner": "Bennekom"
+          },
+          {
+            "date": "1996-06-02",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "Halsteren",
+            "away": "FVC",
+            "homeGoals": 8,
+            "awayGoals": 1,
+            "winner": "Halsteren"
+          },
+          {
+            "date": null,
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "HSC '21",
+            "away": "Hollandia",
+            "homeGoals": 2,
+            "awayGoals": 1,
+            "winner": "HSC '21"
+          },
+          {
+            "date": "1996-06-02",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "DCV",
+            "away": "BVV/Verachtert",
+            "homeGoals": 2,
+            "awayGoals": 6,
+            "winner": "BVV/Verachtert",
+            "note": "Do not equate DCV with DVC; alternative archive calls opponent FC Den Bosch; identity unresolved."
+          },
+          {
+            "date": "1996-06-02",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "Geldrop/AEK",
+            "away": "Holland",
+            "homeGoals": 2,
+            "awayGoals": 2,
+            "winner": "Geldrop/AEK",
+            "note": "penalties; alternative archive 0-0"
+          },
+          {
+            "date": "1996-06-02",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "RIOS '31",
+            "away": "Sittard",
+            "homeGoals": 3,
+            "awayGoals": 0,
+            "winner": "RIOS '31"
+          },
+          {
+            "date": "1996-06-08",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "Heerenveen 2",
+            "away": "Quick Boys",
+            "homeGoals": 1,
+            "awayGoals": 5,
+            "winner": "Quick Boys"
+          },
+          {
+            "date": "1996-06-08",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "DOVO",
+            "away": "FC Lisse",
+            "homeGoals": 2,
+            "awayGoals": 1,
+            "winner": "DOVO"
+          },
+          {
+            "date": "1996-06-08",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "IJsselmeervogels",
+            "away": "Panningen",
+            "homeGoals": 1,
+            "awayGoals": 0,
+            "winner": "IJsselmeervogels",
+            "note": "after extra time; alternative archive 2-0"
+          },
+          {
+            "date": "1996-06-09",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "Sneek Hovis",
+            "away": "Wittenhorst",
+            "homeGoals": 2,
+            "awayGoals": 2,
+            "winner": "Sneek Hovis",
+            "note": "penalties; alternative archive 0-0"
+          },
+          {
+            "date": "1996-06-09",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "Hoogezand",
+            "away": "FC Lindenheuvel",
+            "homeGoals": 5,
+            "awayGoals": 2,
+            "winner": "Hoogezand"
+          },
+          {
+            "date": "1996-06-15",
+            "month": "1996-06",
+            "round": "preliminary",
+            "home": "Quick '20",
+            "away": "Kozakken Boys",
+            "homeGoals": 2,
+            "awayGoals": 3,
+            "winner": "Kozakken Boys"
+          },
+          {
+            "date": "1996-06-08",
+            "month": "1996-06",
+            "round": "intermediate",
+            "home": "SC Genemuiden",
+            "away": "De Treffers",
+            "homeGoals": 3,
+            "awayGoals": 4,
+            "winner": "De Treffers",
+            "note": "intermediate round; after extra time"
+          }
+        ],
+        "qualifiedForGroup": [
+          "Sparta 2",
+          "GVVV",
+          "Katwijk",
+          "De Treffers",
+          "AFC",
+          "Bennekom",
+          "Halsteren",
+          "HSC '21",
+          "BVV/Verachtert",
+          "Geldrop/AEK",
+          "RIOS '31",
+          "Quick Boys",
+          "DOVO",
+          "IJsselmeervogels",
+          "Sneek Hovis",
+          "Hoogezand",
+          "Kozakken Boys"
+        ]
+      },
+      "missing": "Dates provisional from secondary archive (June8 vs June6 disagreement), HSC exact date unknown, score conflicts and exceptional double qualification/club identities require reconciliation. No group stage results before cutoff."
     }
   }
 ]

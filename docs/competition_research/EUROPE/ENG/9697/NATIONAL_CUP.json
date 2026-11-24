@@ -7,13 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "ENG",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,9 +23,77 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "d744018d10a2aa469e3044dc364cbaa2914785fe",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block67Research": {
+      "edition": "1996/97",
+      "roundDates": [
+        [
+          "preliminary",
+          "1996-08-31"
+        ],
+        [
+          "qualifying1",
+          "1996-09-14"
+        ],
+        [
+          "qualifying2",
+          "1996-09-28"
+        ],
+        [
+          "qualifying3",
+          "1996-10-12"
+        ],
+        [
+          "qualifying4",
+          "1996-10-26"
+        ],
+        [
+          "proper1",
+          "1996-11-16"
+        ],
+        [
+          "proper2",
+          "1996-12-07"
+        ],
+        [
+          "proper3",
+          "1997-01-04"
+        ],
+        [
+          "proper4",
+          "1997-01-25"
+        ],
+        [
+          "proper5",
+          "1997-02-15"
+        ],
+        [
+          "quarterfinal",
+          "1997-03-08"
+        ],
+        [
+          "semifinal",
+          "1997-04-13"
+        ],
+        [
+          "final",
+          "1997-05-17"
+        ]
+      ],
+      "rules": {
+        "format": "single elimination with replays",
+        "qualifyingRounds": 5,
+        "qualifiersToProper": 28,
+        "proper1Entrants": 80,
+        "proper3Entrants": 64,
+        "proper3NewEntrants": 44,
+        "semifinalReplayObserved": true,
+        "neutralSemifinal": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Nominal round dates only; historical entrants and exemptions and exact replay rules require reconciliation; no future results imported."
     }
   },
   {
@@ -40,9 +104,6 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "ENG",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -60,7 +121,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": "FA Cup",
       "status": "VARIANT_MAPPING_PENDING",
-      "source": "d744018d10a2aa469e3044dc364cbaa2914785fe",
       "nameHistory": [],
       "historyComplete": false
     }

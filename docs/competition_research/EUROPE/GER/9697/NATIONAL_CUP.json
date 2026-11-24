@@ -7,13 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "GER",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,9 +23,52 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "d744018d10a2aa469e3044dc364cbaa2914785fe",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 64,
+        "rounds": 6,
+        "legs": 1,
+        "penaltiesObserved": true,
+        "reserveTeamsObserved": true
+      },
+      "roundWindows": [
+        [
+          "R64",
+          "1996-08-09",
+          "1996-08-11"
+        ],
+        [
+          "R32",
+          "1996-08-31",
+          "1996-10-02"
+        ],
+        [
+          "R16",
+          "1996-10-22",
+          "1996-11-12"
+        ],
+        [
+          "QF",
+          "1996-11-12",
+          "1997-02-19"
+        ],
+        [
+          "SF",
+          "1997-04-15",
+          "1997-04-16"
+        ],
+        [
+          "Final",
+          "1997-06-14",
+          "1997-06-14"
+        ]
+      ],
+      "limitations": "DFB actual round ranges; historical access and per-match calendar pending. Not modern reserve-team rules.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

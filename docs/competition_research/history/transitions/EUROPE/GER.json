@@ -1,0 +1,62 @@
+[
+  {
+    "index": 440,
+    "value": {
+      "competition": "GER Bundesliga and 2. Bundesliga promotion/relegation playoffs",
+      "firstEdition": "2021/22",
+      "operation": "CHANGE_MATCH_RULE",
+      "rowRefs": [
+        243,
+        244,
+        245
+      ],
+      "awayGoals": false,
+      "extraTimeMinutes": 30,
+      "penalties": true,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 441,
+    "value": {
+      "competition": "GER Regionalliga qualification for 3. Liga",
+      "firstEdition": "2012/13",
+      "lastEdition": "2017/18",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        245
+      ],
+      "parallelGroups": 5,
+      "playoffEntrants": 6,
+      "entrants": "five group winners and Südwest runner-up",
+      "playoffTies": 3,
+      "legs": 2,
+      "promoted": 3,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 442,
+    "value": {
+      "competition": "GER Regionalliga qualification for 3. Liga",
+      "firstEdition": "2020/21",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        245
+      ],
+      "parallelGroups": 5,
+      "directGroupWinners": [
+        "West",
+        "Südwest"
+      ],
+      "rotatingDirectGroup": [
+        "Nord",
+        "Nordost",
+        "Bayern"
+      ],
+      "remainingGroupWinnersPlayoffLegs": 2,
+      "promoted": 4,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

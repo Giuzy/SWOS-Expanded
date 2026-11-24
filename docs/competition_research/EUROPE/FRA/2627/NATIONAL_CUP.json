@@ -7,12 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "FRA",
-    "candidateSources": [
-      "4e86b149b4f97b5a3310930191dbe834b99db47d"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -27,9 +24,56 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block69Research": {
+      "edition": "2026/27",
+      "rules": {
+        "format": "single elimination",
+        "qualifyingRounds": 8,
+        "properRounds": 6,
+        "ligue2EntryRound": 7,
+        "ligue1EntryRound": "R64",
+        "extraTimeRegionalRounds": false,
+        "penaltiesRegionalRounds": true
+      },
+      "roundDates": [
+        [
+          "regional first round",
+          "2026-08-23"
+        ],
+        [
+          "regional third round",
+          "2026-09-12"
+        ],
+        [
+          "regional fourth round",
+          "2026-09-26"
+        ],
+        [
+          "7",
+          "2026-11-14"
+        ],
+        [
+          "8",
+          "2026-11-28"
+        ],
+        [
+          "R64",
+          "2026-12-20"
+        ],
+        [
+          "R32",
+          "2027-01-09"
+        ],
+        [
+          "QF",
+          "2027-03-03"
+        ]
+      ],
+      "limitations": "Regional start varies by region; overseas qualifiers and earliest national applicability not established. Later-round extra time and full access quotas need 2026/27 regulation confirmation.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

@@ -7,13 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "NED",
-    "candidateSources": [
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,7 +23,6 @@
       "nonCommercialDisplayName": "Eredivisie",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://eredivisie.nl/nieuws/definitief-programma-2026-27/",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
@@ -51,8 +46,33 @@
           "revised": "2026-09-19"
         }
       ],
-      "source": "https://eredivisie.nl/nieuws/definitief-programma-2026-27/",
       "scope": "published changes, not actual played dates; full calendar not reconciled"
+    },
+    "block70Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "gamesPerClub": 34,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ]
+      },
+      "openingWindow": [
+        "2026-08-07",
+        "2026-08-09"
+      ],
+      "lastRegularDate": "2027-05-23",
+      "winterBreakAfter": "2026-12-20",
+      "resume": "2027-01-08",
+      "internationalBreakWeekends": [
+        "2026-09-26",
+        "2026-10-03"
+      ],
+      "limitations": "Current league movement regulation not retrieved; prior edition rules not automatically extrapolated; individual fixture calendar pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -63,13 +83,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "NED",
-    "candidateSources": [
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -83,7 +99,6 @@
       "nonCommercialDisplayName": "Eerste Divisie",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.knvb.nl/competities/competitiezaken/competitiemodel/periodetitels-in-de-eerste-divisie",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
@@ -111,8 +126,47 @@
       ],
       "reservePromotionPlayoffEligible": false,
       "replacement": "period runner-up unless reserve or already holding period title, then highest eligible final-table team without title",
-      "source": "https://www.knvb.nl/competities/competitiezaken/competitiemodel/periodetitels-in-de-eerste-divisie",
       "scope": "2025/26 only"
+    },
+    "block70Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 20,
+        "gamesPerClub": 38,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "periodRounds": [
+          [
+            1,
+            10
+          ],
+          [
+            11,
+            19
+          ],
+          [
+            20,
+            28
+          ],
+          [
+            29,
+            38
+          ]
+        ]
+      },
+      "openingWindow": [
+        "2026-08-07",
+        "2026-08-09"
+      ],
+      "lastRegularDate": "2027-05-14",
+      "winterBreakAfter": "2026-12-21",
+      "resume": "2027-01-08",
+      "limitations": "Period lengths official 2026/27; reserve eligibility and replacements from 2025/26 not certified for 2026/27; current detailed movement regulation unavailable.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

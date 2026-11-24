@@ -7,14 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "POR",
-    "candidateSources": [
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a",
-      "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -28,7 +23,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://en.wikipedia.org/wiki/1999%E2%80%932000_Primeira_Liga",
       "nameHistory": [
         {
           "transition": 264,
@@ -36,11 +30,82 @@
           "to": null,
           "previousName": "Primeira Divisão",
           "name": "Primeira Liga",
-          "operation": "RENAME",
-          "source": "https://en.wikipedia.org/wiki/1999%E2%80%932000_Primeira_Liga"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block70Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          17,
+          18
+        ],
+        "relegationPlayoff": {
+          "rank": 16,
+          "opponentRank": 3,
+          "legs": 2,
+          "baseDates": [
+            "2027-05-29",
+            "2027-06-06"
+          ],
+          "alternativeDates": [
+            "2027-05-26",
+            "2027-05-27",
+            "2027-06-02"
+          ],
+          "condition": "cup semifinal/final participation; conditional calendar, individual date confirmation required",
+          "opponentTier": 2
+        }
+      },
+      "nominalRoundDates": [
+        "2026-08-09",
+        "2026-08-16",
+        "2026-08-23",
+        "2026-08-30",
+        "2026-09-06",
+        "2026-09-13",
+        "2026-09-20",
+        "2026-10-11",
+        "2026-10-25",
+        "2026-11-01",
+        "2026-11-08",
+        "2026-11-29",
+        "2026-12-06",
+        "2026-12-13",
+        "2026-12-20",
+        "2026-12-27",
+        "2027-01-10",
+        "2027-01-17",
+        "2027-01-24",
+        "2027-01-31",
+        "2027-02-07",
+        "2027-02-14",
+        "2027-02-21",
+        "2027-02-28",
+        "2027-03-07",
+        "2027-03-14",
+        "2027-03-21",
+        "2027-04-04",
+        "2027-04-11",
+        "2027-04-18",
+        "2027-04-25",
+        "2027-05-02",
+        "2027-05-09",
+        "2027-05-16"
+      ],
+      "alternativeRound17": "2027-02-10",
+      "limitations": "Nominal round dates visually checked on June15 official calendar; exact fixture dates and conditional European postponements not yet reconciled.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -51,14 +116,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "POR",
-    "candidateSources": [
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a",
-      "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -72,7 +132,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://en.wikipedia.org/wiki/Liga_Portugal_2",
       "nameHistory": [
         {
           "transition": 265,
@@ -80,11 +139,75 @@
           "to": null,
           "previousName": "Segunda Divisão de Honra",
           "name": "Segunda Liga",
-          "operation": "RENAME",
-          "source": "https://en.wikipedia.org/wiki/1999%E2%80%932000_Segunda_Liga"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block70Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotionDirectCount": 2,
+        "promotionPlayoffEligibleRank": 3,
+        "reserveTeamsCanPromote": false,
+        "relegatedDirect": [
+          17,
+          18
+        ],
+        "relegationPlayoff": {
+          "rank": 16,
+          "opponent": "Liga 3 championship phase third place",
+          "legs": 2,
+          "firstLegAway": true,
+          "secondLegHome": true
+        }
+      },
+      "nominalRoundDates": [
+        "2026-08-09",
+        "2026-08-16",
+        "2026-08-23",
+        "2026-08-30",
+        "2026-09-06",
+        "2026-09-13",
+        "2026-10-11",
+        "2026-10-25",
+        "2026-11-01",
+        "2026-11-08",
+        "2026-11-15",
+        "2026-11-29",
+        "2026-12-06",
+        "2026-12-13",
+        "2026-12-20",
+        "2026-12-27",
+        "2027-01-10",
+        "2027-01-17",
+        "2027-01-24",
+        "2027-01-31",
+        "2027-02-07",
+        "2027-02-14",
+        "2027-02-21",
+        "2027-02-28",
+        "2027-03-07",
+        "2027-03-14",
+        "2027-03-21",
+        "2027-04-04",
+        "2027-04-11",
+        "2027-04-18",
+        "2027-04-25",
+        "2027-05-02",
+        "2027-05-09",
+        "2027-05-16"
+      ],
+      "limitations": "Nominal round dates, current playoff opponent in July draw differs from generic old website wording; full reserve replacement and fixture dates pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

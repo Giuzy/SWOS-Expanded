@@ -7,11 +7,11 @@
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
+      "format_valid_from": "2014/15",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -22,11 +22,11 @@
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
+      "format_valid_from": "2026/27",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

@@ -7,13 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "ENG",
-    "candidateSources": [
-      "f9844889682d8c477574e73fd7355c4450034387"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,9 +23,83 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block67Research": {
+      "edition": "2026/27",
+      "roundDates": [
+        [
+          "extraPreliminary",
+          "2026-08-08"
+        ],
+        [
+          "preliminary",
+          "2026-08-22"
+        ],
+        [
+          "qualifying1",
+          "2026-09-05"
+        ],
+        [
+          "qualifying2",
+          "2026-09-19"
+        ],
+        [
+          "qualifying3",
+          "2026-10-03"
+        ],
+        [
+          "qualifying4",
+          "2026-10-17"
+        ],
+        [
+          "proper1",
+          "2026-11-07"
+        ],
+        [
+          "proper2",
+          "2026-12-05"
+        ],
+        [
+          "proper3",
+          "2027-01-09"
+        ],
+        [
+          "proper4",
+          "2027-02-13"
+        ],
+        [
+          "proper5",
+          "2027-03-06"
+        ],
+        [
+          "quarterfinal",
+          "2027-04-03"
+        ],
+        [
+          "semifinal",
+          "2027-04-24"
+        ],
+        [
+          "final",
+          "2027-05-22"
+        ]
+      ],
+      "rules": {
+        "acceptedClubs": 743,
+        "qualifyingRounds": 6,
+        "qualifiersToProper": 32,
+        "proper1Entrants": 80,
+        "proper3Entrants": 64,
+        "proper3NewEntrants": 44,
+        "replaysInQualifying": true,
+        "replaysFromProper1": false,
+        "extraTimeMinutes": 30,
+        "penalties": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Individual match dates, full entrant IDs and qualification rules still pending."
     }
   }
 ]

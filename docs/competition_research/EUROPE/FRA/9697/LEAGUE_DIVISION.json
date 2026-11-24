@@ -7,11 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "FRA",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -38,8 +36,8 @@
       "regularOrInitialGamesPerClub": 38,
       "pointsWin": 3,
       "formatAndMovement": "Double RR; 4 relegated, reduction to 18 next season",
-      "researchSource": "https://www.rsssf.org/tablesf/fran97.html",
-      "scope": "Partial historical structure, no future results imported"
+      "scope": "Partial historical structure, no future results imported",
+      "firstObservedMatch": "1996-08-09"
     },
     "competitionNaming": {
       "startEdition": "1996/97",
@@ -47,7 +45,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.rsssf.org/tablesf/fran97.html",
       "nameHistory": [
         {
           "transition": 213,
@@ -55,8 +52,7 @@
           "to": null,
           "previousName": "Division 1",
           "name": "Ligue 1",
-          "operation": "RENAME",
-          "source": "https://www.fff.fr/475-palmares-ligue-1.html"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
@@ -70,7 +66,6 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "FRA",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
@@ -101,7 +96,6 @@
       "regularOrInitialGamesPerClub": 42,
       "pointsWin": 3,
       "formatAndMovement": "Double RR; 2 promoted, 4 relegated including excluded Saint-Brieuc, exceptional exclusion not recurring",
-      "researchSource": "https://www.rsssf.org/tablesf/fran97.html",
       "scope": "Partial historical structure, no future results imported"
     },
     "competitionNaming": {
@@ -110,7 +104,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.rsssf.org/tablesf/fran97.html",
       "nameHistory": [
         {
           "transition": 214,
@@ -118,8 +111,7 @@
           "to": null,
           "previousName": "Division 2",
           "name": "Ligue 2",
-          "operation": "RENAME",
-          "source": "https://www.fff.fr/476-palmares-ligue-2.html"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false

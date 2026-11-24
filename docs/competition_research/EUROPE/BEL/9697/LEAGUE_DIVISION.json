@@ -7,16 +7,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "BEL",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -42,12 +40,51 @@
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Belgian First Division",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/resultsp99.html",
+      "nonCommercialDisplayName": "Eerste Klasse / Division 1",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block71Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 18,
+        "gamesPerClub": 34,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          17,
+          18
+        ]
+      },
+      "participants": [
+        "AA Gent",
+        "Anderlecht",
+        "Antwerp",
+        "Cercle Brugge",
+        "Club Brugge",
+        "Eendracht Aalst",
+        "Excelsior Mouscron",
+        "Germinal Ekeren",
+        "Harelbeke",
+        "KV Mechelen",
+        "Lierse SK",
+        "Lokeren",
+        "Lommel",
+        "RWDM",
+        "Racing Genk",
+        "Sint-Truiden",
+        "Sporting Charleroi",
+        "Standard"
+      ],
+      "openingMonthEvidence": "1996-08",
+      "limitations": "Exact opening day not established; participants unordered by standings.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

@@ -7,13 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "SCO",
-    "candidateSources": [
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,7 +23,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "4fb73a35a5e15b140d942b00f84fb8eef682915a",
       "nameHistory": [
         {
           "transition": 217,
@@ -35,8 +30,7 @@
           "to": null,
           "previousName": "Scottish Premier League",
           "name": "Scottish Premiership",
-          "operation": "RENAME",
-          "source": "https://spfl.co.uk/pages/rules-and-regulations"
+          "operation": "RENAME"
         },
         {
           "transition": 263,
@@ -44,11 +38,61 @@
           "to": null,
           "previousName": "Scottish Football League Premier Division",
           "name": "Scottish Premier League",
-          "operation": "RESTRUCTURE_AND_RENAME",
-          "source": "https://rsssf.org/tabless/scothist.html"
+          "operation": "RESTRUCTURE_AND_RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block71Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 12,
+        "initialRounds": 3,
+        "initialGamesPerClub": 33,
+        "split": [
+          6,
+          6
+        ],
+        "splitRounds": 1,
+        "gamesPerClub": 38,
+        "points": [
+          3,
+          1,
+          0
+        ]
+      },
+      "participants": [
+        "Aberdeen",
+        "Celtic",
+        "Dundee",
+        "Dundee United",
+        "Falkirk",
+        "Heart of Midlothian",
+        "Hibernian",
+        "Kilmarnock",
+        "Motherwell",
+        "Rangers",
+        "St Johnstone",
+        "St Mirren"
+      ],
+      "openingWindow": [
+        "2026-07-31",
+        "2026-08-03"
+      ],
+      "lastRoundWindow": [
+        "2027-05-15",
+        "2027-05-16"
+      ],
+      "round33Window": [
+        "2027-04-10",
+        "2027-04-11"
+      ],
+      "playoffFinalDates": [
+        "2027-05-20",
+        "2027-05-23"
+      ],
+      "limitations": "Official opening participants and phase windows; detailed current movement, tie-break and individual dates pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -59,13 +103,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "SCO",
-    "candidateSources": [
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -79,7 +119,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled",
       "nameHistory": [
         {
           "transition": 218,
@@ -87,11 +126,46 @@
           "to": null,
           "previousName": "First Division",
           "name": "Scottish Championship",
-          "operation": "RENAME",
-          "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block71Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "points": [
+          3,
+          1,
+          0
+        ]
+      },
+      "participants": [
+        "Arbroath",
+        "Ayr United",
+        "Dunfermline Athletic",
+        "Greenock Morton",
+        "Inverness Caledonian Thistle",
+        "Livingston",
+        "Partick Thistle",
+        "Queen's Park",
+        "Raith Rovers",
+        "Stenhousemuir"
+      ],
+      "openingWindow": [
+        "2026-08-01",
+        "2026-08-01"
+      ],
+      "lastRoundWindow": [
+        "2027-04-30",
+        "2027-04-30"
+      ],
+      "playoffStart": "2027-05-04",
+      "limitations": "Official opening participants and phase windows; detailed current movement, tie-break and individual dates pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -102,13 +176,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "SCO",
-    "candidateSources": [
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -122,7 +192,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled",
       "nameHistory": [
         {
           "transition": 219,
@@ -130,11 +199,46 @@
           "to": null,
           "previousName": "Second Division",
           "name": "Scottish League One",
-          "operation": "RENAME",
-          "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block71Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "points": [
+          3,
+          1,
+          0
+        ]
+      },
+      "participants": [
+        "Airdrieonians",
+        "Alloa Athletic",
+        "Cove Rangers",
+        "East Fife",
+        "East Kilbride",
+        "Hamilton Academical",
+        "Montrose",
+        "Peterhead",
+        "Queen of the South",
+        "Ross County"
+      ],
+      "openingWindow": [
+        "2026-08-01",
+        "2026-08-01"
+      ],
+      "lastRoundWindow": [
+        "2027-05-01",
+        "2027-05-01"
+      ],
+      "playoffStart": "2027-05-04",
+      "limitations": "Official opening participants and phase windows; detailed current movement, tie-break and individual dates pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -145,13 +249,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "SCO",
-    "candidateSources": [
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -165,7 +265,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled",
       "nameHistory": [
         {
           "transition": 220,
@@ -173,11 +272,46 @@
           "to": null,
           "previousName": "Third Division",
           "name": "Scottish League Two",
-          "operation": "RENAME",
-          "source": "https://www.skysports.com/football/news/8838339/new-spfl-branding-is-unveiled"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block71Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "points": [
+          3,
+          1,
+          0
+        ]
+      },
+      "participants": [
+        "Annan Athletic",
+        "Clyde",
+        "Dumbarton",
+        "Edinburgh City",
+        "Elgin City",
+        "Forfar Athletic",
+        "Kelty Hearts",
+        "Stirling Albion",
+        "Stranraer",
+        "The Spartans"
+      ],
+      "openingWindow": [
+        "2026-08-01",
+        "2026-08-01"
+      ],
+      "lastRoundWindow": [
+        "2027-05-01",
+        "2027-05-01"
+      ],
+      "playoffStart": "2027-05-04",
+      "limitations": "Official opening participants and phase windows; detailed current movement, tie-break and individual dates pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

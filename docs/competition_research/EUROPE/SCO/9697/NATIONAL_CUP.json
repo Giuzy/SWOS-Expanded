@@ -7,12 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "SCO",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -27,9 +24,86 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "d744018d10a2aa469e3044dc364cbaa2914785fe",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block71Research": {
+      "edition": "1996/97",
+      "rules": {
+        "firstRoundMatches": 4,
+        "secondRoundMatches": 12,
+        "thirdRoundMatches": 16,
+        "fourthRoundMatches": 8,
+        "quarterfinalMatches": 4,
+        "semifinalMatches": 2,
+        "finalLegs": 1,
+        "replaysObserved": true,
+        "semifinalReplaysObserved": true
+      },
+      "roundWindows": [
+        [
+          "R1",
+          "1996-12-07",
+          "1996-12-14"
+        ],
+        [
+          "R1 replay",
+          "1996-12-16",
+          "1996-12-16"
+        ],
+        [
+          "R2",
+          "1997-01-04",
+          "1997-01-13"
+        ],
+        [
+          "R2 replay",
+          "1997-01-13",
+          "1997-01-15"
+        ],
+        [
+          "R3",
+          "1997-01-23",
+          "1997-02-04"
+        ],
+        [
+          "R3 replay",
+          "1997-01-28",
+          "1997-02-04"
+        ],
+        [
+          "R4",
+          "1997-02-15",
+          "1997-02-17"
+        ],
+        [
+          "R4 replay",
+          "1997-02-18",
+          "1997-02-26"
+        ],
+        [
+          "QF",
+          "1997-03-06",
+          "1997-03-08"
+        ],
+        [
+          "SF",
+          "1997-04-12",
+          "1997-04-14"
+        ],
+        [
+          "SF replay",
+          "1997-04-22",
+          "1997-04-23"
+        ],
+        [
+          "Final",
+          "1997-05-24",
+          "1997-05-24"
+        ]
+      ],
+      "limitations": "Historical main competition dates; separate qualifying cup eligibility and dates not reconciled.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

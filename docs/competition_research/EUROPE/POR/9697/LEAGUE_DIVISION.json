@@ -7,11 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "POR",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -37,7 +35,6 @@
       "regularOrInitialGamesPerClub": 34,
       "pointsWin": 3,
       "formatAndMovement": "I Divisao; double RR",
-      "researchSource": "https://www.rsssf.org/tablesa/allfirst9697.html",
       "scope": "Observed structure, no future results imported; null and uncertain fields remain open."
     },
     "competitionNaming": {
@@ -46,7 +43,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://en.wikipedia.org/wiki/1999%E2%80%932000_Primeira_Liga",
       "nameHistory": [
         {
           "transition": 264,
@@ -54,11 +50,51 @@
           "to": null,
           "previousName": "Primeira Divisão",
           "name": "Primeira Liga",
-          "operation": "RENAME",
-          "source": "https://en.wikipedia.org/wiki/1999%E2%80%932000_Primeira_Liga"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block70Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          16,
+          17,
+          18
+        ]
+      },
+      "participants": [
+        "FC Porto",
+        "Sporting CP",
+        "SL Benfica",
+        "Sp. Braga",
+        "Vit. Guimarães",
+        "Salgueiros",
+        "Boavista FC",
+        "Marítimo",
+        "Estrela Amadora",
+        "Desp. Chaves",
+        "Sp. Farense",
+        "Vit. Setúbal",
+        "Belenenses",
+        "Leça",
+        "Rio Ave",
+        "Espinho",
+        "U. Leiria",
+        "Gil Vicente"
+      ],
+      "openingRoundEvidence": "1996-08-25",
+      "limitations": "Actual first match and full calendar not established; no post-cutoff results.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

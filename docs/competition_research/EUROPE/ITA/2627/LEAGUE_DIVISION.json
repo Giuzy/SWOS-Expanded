@@ -7,14 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ITA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -47,9 +42,57 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegationCount": 3,
+        "titleTie": {
+          "legs": 1,
+          "home": "higher head-to-head rank",
+          "extraTime": false,
+          "penalties": true
+        },
+        "survivalTie": {
+          "ranks": [
+            17,
+            18
+          ],
+          "legs": 2,
+          "secondLegHome": "higher head-to-head rank",
+          "extraTime": false,
+          "penalties": true
+        },
+        "tieBreakers": [
+          "head-to-head points",
+          "head-to-head goal difference",
+          "overall goal difference",
+          "overall goals scored",
+          "draw"
+        ],
+        "uefaFinalistException": "head-to-head classification replaces playoff if a UEFA finalist is involved"
+      },
+      "startWindow": [
+        "2026-08-22",
+        "2026-08-23"
+      ],
+      "lastRegularDate": "2027-05-30",
+      "midweekDates": [
+        "2026-10-28",
+        "2027-01-06"
+      ],
+      "limitations": "Official regulation text retrieved; PDF page screenshots unavailable; individual dates and club IDs pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -60,14 +103,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ITA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -100,9 +138,37 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "points": [
+          3,
+          1,
+          0
+        ]
+      },
+      "startWindow": [
+        "2026-08-21",
+        "2026-08-22"
+      ],
+      "endWindow": [
+        "2027-05-14",
+        "2027-05-16"
+      ],
+      "midweekDates": [
+        "2026-10-27",
+        "2026-11-24",
+        "2026-12-08",
+        "2027-03-02"
+      ],
+      "limitations": "2026/27 movement regulation not independently established; prior edition playoff thresholds not copied.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -113,19 +179,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ITA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -149,13 +210,32 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Serie C Girone A",
       "nonCommercialDisplayName": null,
       "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 20,
+        "parallelGroups": 3,
+        "gamesPerClub": 38,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotionDirectPerGroup": 1,
+        "additionalPromotionAcrossGroups": 1
+      },
+      "nominalFirstRound": "2026-08-23",
+      "lastRegularDate": "2027-04-25",
+      "limitations": "Group name and format confirmed; exact playoff/playout regulations, individual dates and IDs pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -166,19 +246,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ITA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -202,13 +277,32 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Serie C Girone B",
       "nonCommercialDisplayName": null,
       "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 20,
+        "parallelGroups": 3,
+        "gamesPerClub": 38,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotionDirectPerGroup": 1,
+        "additionalPromotionAcrossGroups": 1
+      },
+      "nominalFirstRound": "2026-08-23",
+      "lastRegularDate": "2027-04-25",
+      "limitations": "Group name and format confirmed; exact playoff/playout regulations, individual dates and IDs pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -219,19 +313,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ITA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -255,13 +344,32 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Serie C Girone C",
       "nonCommercialDisplayName": null,
       "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 20,
+        "parallelGroups": 3,
+        "gamesPerClub": 38,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotionDirectPerGroup": 1,
+        "additionalPromotionAcrossGroups": 1
+      },
+      "nominalFirstRound": "2026-08-23",
+      "lastRegularDate": "2027-04-25",
+      "limitations": "Group name and format confirmed; exact playoff/playout regulations, individual dates and IDs pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -272,19 +380,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ITA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -308,13 +411,34 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Serie D Girone A",
       "nonCommercialDisplayName": null,
       "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "parallelGroups": 9,
+        "gamesPerClub": 34,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotionDirectPerGroup": 1,
+        "relegationCount": 4,
+        "relegationDirectCount": 2,
+        "relegationPlayoutLosers": 2
+      },
+      "nominalFirstRound": "2026-09-06",
+      "lastRegularDate": "2027-05-02",
+      "limitations": "Official 18 teams each; native configuration differs in six groups. Exact playout pairings, thresholds, club mapping and calendar pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -325,19 +449,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ITA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -361,13 +480,34 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Serie D Girone B",
       "nonCommercialDisplayName": null,
       "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "parallelGroups": 9,
+        "gamesPerClub": 34,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotionDirectPerGroup": 1,
+        "relegationCount": 4,
+        "relegationDirectCount": 2,
+        "relegationPlayoutLosers": 2
+      },
+      "nominalFirstRound": "2026-09-06",
+      "lastRegularDate": "2027-05-02",
+      "limitations": "Official 18 teams each; native configuration differs in six groups. Exact playout pairings, thresholds, club mapping and calendar pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -378,19 +518,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ITA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -414,13 +549,34 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Serie D Girone C",
       "nonCommercialDisplayName": null,
       "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "parallelGroups": 9,
+        "gamesPerClub": 34,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotionDirectPerGroup": 1,
+        "relegationCount": 4,
+        "relegationDirectCount": 2,
+        "relegationPlayoutLosers": 2
+      },
+      "nominalFirstRound": "2026-09-06",
+      "lastRegularDate": "2027-05-02",
+      "limitations": "Official 18 teams each; native configuration differs in six groups. Exact playout pairings, thresholds, club mapping and calendar pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -431,19 +587,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ITA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -467,13 +618,34 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Serie D Girone D",
       "nonCommercialDisplayName": null,
       "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "parallelGroups": 9,
+        "gamesPerClub": 34,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotionDirectPerGroup": 1,
+        "relegationCount": 4,
+        "relegationDirectCount": 2,
+        "relegationPlayoutLosers": 2
+      },
+      "nominalFirstRound": "2026-09-06",
+      "lastRegularDate": "2027-05-02",
+      "limitations": "Official 18 teams each; native configuration differs in six groups. Exact playout pairings, thresholds, club mapping and calendar pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -484,19 +656,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ITA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -520,13 +687,34 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Serie D Girone E",
       "nonCommercialDisplayName": null,
       "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "parallelGroups": 9,
+        "gamesPerClub": 34,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotionDirectPerGroup": 1,
+        "relegationCount": 4,
+        "relegationDirectCount": 2,
+        "relegationPlayoutLosers": 2
+      },
+      "nominalFirstRound": "2026-09-06",
+      "lastRegularDate": "2027-05-02",
+      "limitations": "Official 18 teams each; native configuration differs in six groups. Exact playout pairings, thresholds, club mapping and calendar pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -537,19 +725,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ITA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -573,13 +756,34 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Serie D Girone F",
       "nonCommercialDisplayName": null,
       "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "parallelGroups": 9,
+        "gamesPerClub": 34,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotionDirectPerGroup": 1,
+        "relegationCount": 4,
+        "relegationDirectCount": 2,
+        "relegationPlayoutLosers": 2
+      },
+      "nominalFirstRound": "2026-09-06",
+      "lastRegularDate": "2027-05-02",
+      "limitations": "Official 18 teams each; native configuration differs in six groups. Exact playout pairings, thresholds, club mapping and calendar pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -590,19 +794,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ITA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -626,13 +825,34 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Serie D Girone G",
       "nonCommercialDisplayName": null,
       "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "parallelGroups": 9,
+        "gamesPerClub": 34,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotionDirectPerGroup": 1,
+        "relegationCount": 4,
+        "relegationDirectCount": 2,
+        "relegationPlayoutLosers": 2
+      },
+      "nominalFirstRound": "2026-09-06",
+      "lastRegularDate": "2027-05-02",
+      "limitations": "Official 18 teams each; native configuration differs in six groups. Exact playout pairings, thresholds, club mapping and calendar pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -643,19 +863,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ITA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -679,13 +894,34 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Serie D Girone H",
       "nonCommercialDisplayName": null,
       "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "parallelGroups": 9,
+        "gamesPerClub": 34,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotionDirectPerGroup": 1,
+        "relegationCount": 4,
+        "relegationDirectCount": 2,
+        "relegationPlayoutLosers": 2
+      },
+      "nominalFirstRound": "2026-09-06",
+      "lastRegularDate": "2027-05-02",
+      "limitations": "Official 18 teams each; native configuration differs in six groups. Exact playout pairings, thresholds, club mapping and calendar pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -696,19 +932,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ITA",
-    "candidateSources": [
-      "b0c5684b3cb0f2831aefbf23e27425a8d307e00c",
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -732,13 +963,34 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Serie D Girone I",
       "nonCommercialDisplayName": null,
       "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
-      "source": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block68Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "parallelGroups": 9,
+        "gamesPerClub": 34,
+        "rounds": 2,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "promotionDirectPerGroup": 1,
+        "relegationCount": 4,
+        "relegationDirectCount": 2,
+        "relegationPlayoutLosers": 2
+      },
+      "nominalFirstRound": "2026-09-06",
+      "lastRegularDate": "2027-05-02",
+      "limitations": "Official 18 teams each; native configuration differs in six groups. Exact playout pairings, thresholds, club mapping and calendar pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

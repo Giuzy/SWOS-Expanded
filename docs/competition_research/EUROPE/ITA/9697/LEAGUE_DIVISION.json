@@ -49,6 +49,21 @@
       "source": "https://www.rsssf.org/tablesi/ital97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block132DateAudit": {
+      "edition": "1996/97",
+      "status": "COMPLETE_REGULAR_SEASON_PAIR_STRUCTURE_PARTIAL_CALENDAR_EVIDENCE",
+      "observedRecords": 306,
+      "distinctClubLabels": 18,
+      "firstObservedDate": "1996-09-08",
+      "lastObservedDate": "1997-06-01",
+      "distinctMatchDays": 36,
+      "orderedPairMultiplicity": 1,
+      "completeBalancedOrderedPairSet": true,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "preJulyRecords": 0,
+      "scope": "Derived historical workbook audit only, no raw date list, participant labels or scores copied. Full regular-season round-robin structure observed; playoffs, independent archive provenance and native keys not certified."
     }
   },
   {

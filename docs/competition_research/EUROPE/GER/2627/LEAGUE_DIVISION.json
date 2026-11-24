@@ -2088,6 +2088,26 @@
         ]
       ],
       "scope": "All initial regular-league entrants mapped by reviewed explicit aliases; native JSON full division set and unique UUID/ordinal; CE key computed from current primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. No runtime or later qualification certification."
+    },
+    "block131DateAudit": {
+      "edition": "2026/27",
+      "status": "PARTIAL_DATE_AGGREGATE_AUDIT",
+      "completedRecords": 90,
+      "distinctClubLabels": 18,
+      "firstObservedDate": "2026-08-28",
+      "lastObservedDate": "2026-11-22",
+      "distinctMatchDays": 30,
+      "preJulyRecords": 0,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "scope": "Aggregate observations through last played date only. No match rows or scores copied; not a full calendar or identity certification.",
+      "existingCalendarComparison": {
+        "referenceDateCount": 90,
+        "matchedDateMultiplicity": 90,
+        "differentDays": 0,
+        "exactDailyCounts": true,
+        "scope": "Date multiplicities only, no participant pairing verification; scheduled versus played observations."
+      }
     }
   },
   {
@@ -2174,6 +2194,19 @@
       ],
       "limitations": "Shared DFL classification and two-leg playoff rules verified by reference to row243; full dates, keys, and administration pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block131DateAudit": {
+      "edition": "2026/27",
+      "status": "PARTIAL_DATE_AGGREGATE_AUDIT",
+      "completedRecords": 108,
+      "distinctClubLabels": 18,
+      "firstObservedDate": "2026-08-07",
+      "lastObservedDate": "2026-11-22",
+      "distinctMatchDays": 36,
+      "preJulyRecords": 0,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "scope": "Aggregate observations through last played date only. No match rows or scores copied; not a full calendar or identity certification."
     }
   },
   {

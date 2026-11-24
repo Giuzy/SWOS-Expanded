@@ -406,6 +406,19 @@
         ]
       ],
       "scope": "All initial regular-league entrants mapped by reviewed explicit aliases; native JSON full division set and unique UUID/ordinal; CE key computed from current primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. No runtime or later qualification certification."
+    },
+    "block131DateAudit": {
+      "edition": "2026/27",
+      "status": "PARTIAL_DATE_AGGREGATE_AUDIT",
+      "completedRecords": 76,
+      "distinctClubLabels": 14,
+      "firstObservedDate": "2026-08-22",
+      "lastObservedDate": "2026-11-23",
+      "distinctMatchDays": 28,
+      "preJulyRecords": 0,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "scope": "Aggregate observations through last played date only. No match rows or scores copied; not a full calendar or identity certification."
     }
   }
 ]

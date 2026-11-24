@@ -527,6 +527,190 @@
         "matches": 15
       },
       "missing": "Complete match list where incomplete, independent dates/standings, stable club keys and applicable rule versions."
+    },
+    "block133DateAudit": {
+      "status": "PARTIAL_ARCHIVE_AGGREGATE_AUDIT",
+      "edition": "2026",
+      "observedSeasonColumns": [
+        "archiveSeasonLabel",
+        "observedRecords",
+        "distinctClubLabels",
+        "firstRecordedDate",
+        "lastRecordedDate",
+        "distinctRecordedDays"
+      ],
+      "observedSeasons": [
+        [
+          "2012/2013",
+          381,
+          20,
+          "2012-08-03",
+          "2013-06-29",
+          154
+        ],
+        [
+          "2013/2014",
+          383,
+          20,
+          "2013-08-02",
+          "2015-01-29",
+          164
+        ],
+        [
+          "2014",
+          190,
+          20,
+          "2014-08-08",
+          "2014-12-14",
+          85
+        ],
+        [
+          "2015",
+          468,
+          30,
+          "2015-02-13",
+          "2015-12-07",
+          151
+        ],
+        [
+          "2016",
+          242,
+          30,
+          "2016-02-05",
+          "2016-05-29",
+          82
+        ],
+        [
+          "2016/2017",
+          450,
+          30,
+          "2016-08-26",
+          "2017-06-28",
+          141
+        ],
+        [
+          "2017/2018",
+          378,
+          28,
+          "2017-08-25",
+          "2018-05-15",
+          144
+        ],
+        [
+          "2018/2019",
+          324,
+          26,
+          "2018-08-10",
+          "2019-04-07",
+          131
+        ],
+        [
+          "2019/2020",
+          276,
+          24,
+          "2019-07-27",
+          "2020-03-10",
+          105
+        ],
+        [
+          "2020",
+          134,
+          24,
+          "2020-10-30",
+          "2021-01-18",
+          52
+        ],
+        [
+          "2021",
+          501,
+          26,
+          "2021-02-12",
+          "2021-12-13",
+          176
+        ],
+        [
+          "2022",
+          581,
+          29,
+          "2022-02-10",
+          "2022-10-26",
+          192
+        ],
+        [
+          "2023",
+          582,
+          28,
+          "2023-01-27",
+          "2023-12-17",
+          200
+        ],
+        [
+          "2024",
+          581,
+          28,
+          "2024-01-25",
+          "2024-12-17",
+          206
+        ],
+        [
+          "2025",
+          510,
+          30,
+          "2025-01-23",
+          "2025-12-14",
+          179
+        ],
+        [
+          "2026",
+          501,
+          30,
+          "2026-01-22",
+          "2026-11-23",
+          166
+        ]
+      ],
+      "invalidDates": 0,
+      "duplicateSeasonDateOrientedPairs": 0,
+      "withinArchiveSameClubRecordedDayClashes": 0,
+      "scope": "Archive season labels aggregate multiple possible phases; counts are observations, not certified entrant counts, changes of rules, or complete editions. Archive time zone not established. No raw dates/pair list, results or odds redistributed. Does not cover 1996/97.",
+      "cutoffAudit": {
+        "cutoff": "2026-06-30",
+        "observedRecords": 254,
+        "groupStageCandidateRecords": 239,
+        "expectedGroupStageRecords": 240,
+        "knockoutRecords": 15,
+        "expectedKnockoutRecords": 15,
+        "distinctClubLabels": 30,
+        "firstRecordedDate": "2026-01-22",
+        "lastRecordedDate": "2026-05-24",
+        "distinctRecordedDays": 84,
+        "monthlyRecordCounts": [
+          32,
+          72,
+          60,
+          60,
+          30,
+          0
+        ],
+        "deficitClubLabels": [
+          "Estudiantes La Plata",
+          "Lanús"
+        ],
+        "matchesPerDeficitClub": 15,
+        "expectedPerClub": 16,
+        "missingPairCandidateOnly": true,
+        "review": "A042",
+        "knockoutComparison": {
+          "matchedOrientedPairs": 15,
+          "exactRecordedDates": 10,
+          "nextDayBefore0300": 5,
+          "otherDateDiscrepancies": 0,
+          "scope": "All 15 previously stored KO pairings recognized; five next-day early-morning times suggest timezone conversion, not proven. Preserve local dates already in matrix.",
+          "review": "A043"
+        },
+        "postCutoffObservedRecords": 247,
+        "postCutoffScope": "count only; no future-from-career scores or winners retained"
+      }
     }
   },
   {

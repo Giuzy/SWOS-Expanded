@@ -1,9 +1,9 @@
 {
-  "lastPreparedBlock": 127,
-  "baseHead": "02edfa7cfee2b3afb351d366b40811ba290ab4c4",
+  "lastPreparedBlock": 134,
+  "baseHead": "ff89cc128ee927cf2c47a4a0011e037facddaf4b",
   "status": "INITIAL_EXPLICIT_REGISTER_LOWER_BOUND_NOT_EXHAUSTIVE",
   "policy": "Unique concrete conflicts, identity/slot mismatches or metric inconsistency only. Do not count ordinary missing fields or unresolved applicability as anomalies. Do not resolve conflicts by guessing; merge duplicates in final review. Increment when a distinct case is identified.",
-  "openCount": 37,
+  "openCount": 42,
   "cases": [
     {
       "id": "A001",
@@ -471,6 +471,55 @@
       "id": "A039",
       "type": "SCORE_CONFLICT",
       "description": "Brazil Serie A 2026 row217, Internacional–Palmeiras 12 February: previously recorded 1–2, bulk archive 1–3. Existing snapshot preserved, independently reconcile before historical import. Seven other archive dates before July lack a score and are unresolved candidates, not completed matches.",
+      "rows": [
+        217
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A040",
+      "type": "NATIVE_ENTRANT_MISMATCH",
+      "description": "Czech first tier 2026/27 row227: prior published draw list includes MFK Karviná after appeal; repository native division contains ARTIS BRNO instead. 15 other participants match. Do not substitute or alter runtime until chronology and sporting entitlement reconciled.",
+      "rows": [
+        227
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A041",
+      "type": "CALENDAR_DATE_MULTIPLICITY_DISCREPANCY",
+      "description": "Grouped date-count differences between scheduled reference calendars and completed observations in 5 European 2026/27 leagues (England1, Italy1, Spain1, France1, Portugal1). 917/955 date-count overlap over eight comparisons; five nonidentical daily distributions. Possible postponements or schedule updates; individual fixtures not yet reconciled. Do not infer match IDs or replace dates until checked.",
+      "rows": [
+        186,
+        231,
+        235,
+        239,
+        286
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A042",
+      "type": "CUTOFF_ARCHIVE_COVERAGE_DISCREPANCY",
+      "description": "ARG row203: 239 group-stage candidate records before July1 2026 vs expected 240; Estudiantes La Plata and Lanús each appear 15 times vs expected16. Missing pair candidate only; verify official match/administrative disposition, no invented result.",
+      "rows": [
+        203
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A043",
+      "type": "POSSIBLE_TIMEZONE_DATE_DISCREPANCY",
+      "description": "ARG row203: five of 15 matched Apertura KO oriented pairs are dated next day in CSV with recorded times 01:30–02:15; ten agree exactly. Possible time zone conversion, not established. Preserve existing local dates until verified.",
+      "rows": [
+        203
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A044",
+      "type": "POSSIBLE_TIMEZONE_DATE_DISCREPANCY",
+      "description": "Brazil Serie A 2026 row217: CSV recorded dates for 43 of 170 existing scored pre-cutoff oriented pairs and five of seven formerly unscored candidates are one day later than existing date. Archive timezone not established; do not overwrite local calendar. Existing A039 score conflict reproduced, not counted twice.",
       "rows": [
         217
       ],

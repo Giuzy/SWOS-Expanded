@@ -141,6 +141,169 @@
         "matches": 6
       },
       "missing": "Complete and independently verify pre-cutoff scores/dates, club IDs, official ranking."
+    },
+    "block134DateAudit": {
+      "status": "PARTIAL_ARCHIVE_AGGREGATE_AUDIT",
+      "observedSeasonColumns": [
+        "archiveSeasonLabel",
+        "observedRecords",
+        "distinctClubLabels",
+        "firstRecordedDate",
+        "lastRecordedDate",
+        "distinctRecordedDays"
+      ],
+      "observedSeasons": [
+        [
+          "2012",
+          198,
+          12,
+          "2012-04-15",
+          "2012-10-27",
+          68
+        ],
+        [
+          "2013",
+          198,
+          12,
+          "2013-04-13",
+          "2013-10-26",
+          68
+        ],
+        [
+          "2014",
+          198,
+          12,
+          "2014-04-06",
+          "2014-10-26",
+          60
+        ],
+        [
+          "2015",
+          200,
+          13,
+          "2015-04-12",
+          "2015-10-31",
+          67
+        ],
+        [
+          "2016",
+          200,
+          13,
+          "2016-04-02",
+          "2016-10-29",
+          76
+        ],
+        [
+          "2017",
+          200,
+          13,
+          "2017-04-05",
+          "2017-11-04",
+          77
+        ],
+        [
+          "2018",
+          200,
+          13,
+          "2018-04-07",
+          "2018-11-03",
+          71
+        ],
+        [
+          "2019",
+          169,
+          13,
+          "2019-04-03",
+          "2019-11-03",
+          82
+        ],
+        [
+          "2020",
+          134,
+          13,
+          "2020-07-01",
+          "2020-11-14",
+          55
+        ],
+        [
+          "2021",
+          164,
+          13,
+          "2021-04-24",
+          "2021-11-07",
+          69
+        ],
+        [
+          "2022",
+          170,
+          14,
+          "2022-04-02",
+          "2022-10-30",
+          81
+        ],
+        [
+          "2023",
+          167,
+          12,
+          "2023-04-05",
+          "2023-11-05",
+          69
+        ],
+        [
+          "2024",
+          169,
+          13,
+          "2024-04-06",
+          "2024-11-02",
+          77
+        ],
+        [
+          "2025",
+          177,
+          12,
+          "2025-04-05",
+          "2025-11-09",
+          86
+        ],
+        [
+          "2026",
+          179,
+          13,
+          "2026-04-04",
+          "2026-11-08",
+          73
+        ]
+      ],
+      "totalRecords": 2723,
+      "invalidDates": 0,
+      "duplicateSeasonDateOrientedPairs": 0,
+      "withinArchiveSameClubRecordedDayClashes": 0,
+      "unscoredRows": 0,
+      "scope": "Observed archive labels may combine group, regular, split and playoff matches. Not proof of exact league membership, rules or complete edition. No raw fixture lists, club labels, scores or odds redistributed; no data for 1996/97. Archive time zone not certified.",
+      "latestEdition": {
+        "label": "2026",
+        "postCutoffObservedRecords": 97,
+        "scope": "Aggregate count only; not career results."
+      },
+      "cutoffAudit": {
+        "cutoff": "2026-06-30",
+        "observedRecords": 82,
+        "existingRecords": 6,
+        "matchedPairs": 6,
+        "exactDates": 6,
+        "sameScores": 6,
+        "unmatchedExisting": 0,
+        "additionalArchivePairs": 76,
+        "monthlyCounts": [
+          0,
+          0,
+          0,
+          26,
+          32,
+          24
+        ],
+        "scope": "Comparison by reviewed club aliases and oriented pairing within two days. Same-date/score counts only; no result imports, existing snapshot preserved, no independent completeness or native identity certification."
+      }
     }
   }
 ]

@@ -57,6 +57,19 @@
       "nominalStart": "2026-08-14",
       "limitations": "Federation announcement excerpt corroborates start, full page timeout. Exact fixture dates and participants not yet extracted.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block131DateAudit": {
+      "edition": "2026/27",
+      "status": "PARTIAL_DATE_AGGREGATE_AUDIT",
+      "completedRecords": 108,
+      "distinctClubLabels": 18,
+      "firstObservedDate": "2026-08-14",
+      "lastObservedDate": "2026-11-23",
+      "distinctMatchDays": 45,
+      "preJulyRecords": 0,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "scope": "Aggregate observations through last played date only. No match rows or scores copied; not a full calendar or identity certification."
     }
   },
   {

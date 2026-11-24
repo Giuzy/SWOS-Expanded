@@ -205,6 +205,19 @@
         ]
       ],
       "scope": "All initial regular-league entrants mapped by reviewed explicit aliases; native JSON full division set and unique UUID/ordinal; CE key computed from current primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. No runtime or later qualification certification."
+    },
+    "block131DateAudit": {
+      "edition": "2026/27",
+      "status": "PARTIAL_DATE_AGGREGATE_AUDIT",
+      "completedRecords": 81,
+      "distinctClubLabels": 12,
+      "firstObservedDate": "2026-07-31",
+      "lastObservedDate": "2026-11-21",
+      "distinctMatchDays": 29,
+      "preJulyRecords": 0,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "scope": "Aggregate observations through last played date only. No match rows or scores copied; not a full calendar or identity certification."
     }
   },
   {
@@ -374,6 +387,19 @@
         ]
       ],
       "scope": "All initial regular-league entrants mapped by reviewed explicit aliases; native JSON full division set and unique UUID/ordinal; CE key computed from current primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. No runtime or later qualification certification."
+    },
+    "block131DateAudit": {
+      "edition": "2026/27",
+      "status": "PARTIAL_DATE_AGGREGATE_AUDIT",
+      "completedRecords": 77,
+      "distinctClubLabels": 10,
+      "firstObservedDate": "2026-08-01",
+      "lastObservedDate": "2026-11-21",
+      "distinctMatchDays": 30,
+      "preJulyRecords": 0,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "scope": "Aggregate observations through last played date only. No match rows or scores copied; not a full calendar or identity certification."
     }
   },
   {
@@ -543,6 +569,19 @@
         ]
       ],
       "scope": "All initial regular-league entrants mapped by reviewed explicit aliases; native JSON full division set and unique UUID/ordinal; CE key computed from current primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. No runtime or later qualification certification."
+    },
+    "block131DateAudit": {
+      "edition": "2026/27",
+      "status": "PARTIAL_DATE_AGGREGATE_AUDIT",
+      "completedRecords": 79,
+      "distinctClubLabels": 10,
+      "firstObservedDate": "2026-08-01",
+      "lastObservedDate": "2026-11-21",
+      "distinctMatchDays": 18,
+      "preJulyRecords": 0,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "scope": "Aggregate observations through last played date only. No match rows or scores copied; not a full calendar or identity certification."
     }
   },
   {
@@ -712,6 +751,19 @@
         ]
       ],
       "scope": "All initial regular-league entrants mapped by reviewed explicit aliases; native JSON full division set and unique UUID/ordinal; CE key computed from current primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. No runtime or later qualification certification."
+    },
+    "block131DateAudit": {
+      "edition": "2026/27",
+      "status": "PARTIAL_DATE_AGGREGATE_AUDIT",
+      "completedRecords": 74,
+      "distinctClubLabels": 10,
+      "firstObservedDate": "2026-08-01",
+      "lastObservedDate": "2026-11-21",
+      "distinctMatchDays": 16,
+      "preJulyRecords": 0,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "scope": "Aggregate observations through last played date only. No match rows or scores copied; not a full calendar or identity certification."
     }
   }
 ]

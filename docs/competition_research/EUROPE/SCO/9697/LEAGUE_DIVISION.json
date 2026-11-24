@@ -103,6 +103,21 @@
       "firstMatch": "1996-08-10",
       "limitations": "Historical club names and movement observed; individual dates and ID mapping pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block132DateAudit": {
+      "edition": "1996/97",
+      "status": "COMPLETE_REGULAR_SEASON_PAIR_STRUCTURE_PARTIAL_CALENDAR_EVIDENCE",
+      "observedRecords": 180,
+      "distinctClubLabels": 10,
+      "firstObservedDate": "1996-08-10",
+      "lastObservedDate": "1997-05-10",
+      "distinctMatchDays": 65,
+      "orderedPairMultiplicity": 2,
+      "completeBalancedOrderedPairSet": true,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "preJulyRecords": 0,
+      "scope": "Derived historical workbook audit only, no raw date list, participant labels or scores copied. Full regular-season round-robin structure observed; playoffs, independent archive provenance and native keys not certified."
     }
   },
   {
@@ -197,6 +212,21 @@
       "openingMonthEvidence": "1996-08",
       "limitations": "Historical club names and movement observed; individual dates and ID mapping pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block132DateAudit": {
+      "edition": "1996/97",
+      "status": "COMPLETE_REGULAR_SEASON_PAIR_STRUCTURE_PARTIAL_CALENDAR_EVIDENCE",
+      "observedRecords": 180,
+      "distinctClubLabels": 10,
+      "firstObservedDate": "1996-08-17",
+      "lastObservedDate": "1997-05-10",
+      "distinctMatchDays": 59,
+      "orderedPairMultiplicity": 2,
+      "completeBalancedOrderedPairSet": true,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "preJulyRecords": 0,
+      "scope": "Derived historical workbook audit only, no raw date list, participant labels or scores copied. Full regular-season round-robin structure observed; playoffs, independent archive provenance and native keys not certified."
     }
   },
   {

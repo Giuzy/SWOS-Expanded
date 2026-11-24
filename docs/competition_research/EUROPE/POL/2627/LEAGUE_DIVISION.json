@@ -13,7 +13,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -115,6 +115,166 @@
       ],
       "limitations": "No planned midweek league round; individual postponed dates and current movement rule text pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "participantKeyAudit": {
+      "edition": "2026/27",
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "division": 0,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "Cracovia",
+          "CRACOVIA",
+          "a12bbf4b-483f-5eee-813b-55582cc13ae4",
+          28,
+          12,
+          1835021
+        ],
+        [
+          "GKS Katowice",
+          "KATOWICE",
+          "f230ef07-463f-51f7-a69b-c338b7332c0c",
+          28,
+          4,
+          1835013
+        ],
+        [
+          "Górnik Zabrze",
+          "GORNIK ZABRZE",
+          "38014f57-f7ea-5d60-9464-1ddc3ee6a269",
+          28,
+          1,
+          1835010
+        ],
+        [
+          "Jagiellonia Białystok",
+          "JAGIELLONIA",
+          "e23d6bc3-5a4e-5b43-8c3f-60e91a28fd1b",
+          28,
+          2,
+          1835011
+        ],
+        [
+          "Korona Kielce",
+          "KORONA KIELCE",
+          "66f89ecf-c1d4-50d9-afb8-318dd2ba00bc",
+          28,
+          10,
+          1835019
+        ],
+        [
+          "Lech Poznań",
+          "LECH POZNAN",
+          "e9e259bb-23ed-5ea5-a553-9be5e97a2804",
+          28,
+          0,
+          1835009
+        ],
+        [
+          "Legia Warszawa",
+          "LEGIA WARSZAWA",
+          "29651125-4af8-507f-9c69-a1e9b10eb9a3",
+          28,
+          5,
+          1835014
+        ],
+        [
+          "Motor Lublin",
+          "MOTOR LUBLIN",
+          "7bb8aa3c-3f32-5927-90ec-5fd1918ccdd8",
+          28,
+          11,
+          1835020
+        ],
+        [
+          "Piast Gliwice",
+          "PIAST GLIWICE",
+          "6a8a44a8-77a2-5eca-9ece-9e2bf35bb0f1",
+          28,
+          14,
+          1835023
+        ],
+        [
+          "Pogoń Szczecin",
+          "POGON SZCZECIN",
+          "10509654-7201-5307-bbd1-70b939fcf2fa",
+          28,
+          8,
+          1835017
+        ],
+        [
+          "Radomiak Radom",
+          "RADOMIAK RADOM",
+          "ee1a7e1a-ff46-5bd5-a010-7f0dc9b5d5f3",
+          28,
+          9,
+          1835018
+        ],
+        [
+          "Raków Częstochowa",
+          "RAKOW",
+          "cd5c9745-78ed-582a-8d77-62d14952d370",
+          28,
+          3,
+          1835012
+        ],
+        [
+          "Widzew Łódź",
+          "WIDZEW LODZ",
+          "6b36a467-cad0-5855-8fca-a3c67ae3397e",
+          28,
+          13,
+          1835022
+        ],
+        [
+          "Wieczysta Kraków",
+          "WIECZYSTA KRAKOW",
+          "12fee92c-9846-5ecf-a90f-fe7f6929367c",
+          28,
+          17,
+          1835026
+        ],
+        [
+          "Wisła Kraków",
+          "WISLA KRAKOW",
+          "67a87c0a-f5b9-5718-a7f6-0b6a9432c34b",
+          28,
+          15,
+          1835024
+        ],
+        [
+          "Wisła Płock",
+          "WISLA PLOCK",
+          "8625a54e-a973-5193-a506-9c747b2844aa",
+          28,
+          7,
+          1835016
+        ],
+        [
+          "Zagłębie Lubin",
+          "ZAGLEBIE LUBIN",
+          "95ce121f-2402-53c1-8d28-70bddd085b92",
+          28,
+          6,
+          1835015
+        ],
+        [
+          "Śląsk Wrocław",
+          "SLASK WROCLAW",
+          "0a79cd8f-85bb-5ed2-b06d-89ab52f576ad",
+          28,
+          16,
+          1835025
+        ]
+      ],
+      "scope": "Reviewed explicit aliases to native JSON. Primary-file CE keys; static initial entrant mapping only, not runtime or future qualification proof."
     }
   }
 ]

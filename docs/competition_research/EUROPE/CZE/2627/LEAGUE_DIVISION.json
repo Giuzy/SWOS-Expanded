@@ -13,7 +13,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "PARTIAL_NATIVE_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -330,6 +330,151 @@
       ],
       "limitations": "Published draw retains Karviná after appeal; current exact fixture dates and club keys still to reconcile; split rank templates not invented actual future fixtures.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "participantKeyAudit": {
+      "edition": "2026/27",
+      "status": "PARTIAL_NATIVE_ENTRANT_MAPPING",
+      "division": 0,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "1. FC Slovácko",
+          "1.FC SLOVACKO",
+          "ec211b4a-4627-5e9c-9ed1-d6aa7a0c41d9",
+          6,
+          12,
+          393229
+        ],
+        [
+          "AC Sparta Praha",
+          "SPARTA PRAHA",
+          "03265207-94a8-5e67-a431-15cf90bb237d",
+          6,
+          1,
+          393218
+        ],
+        [
+          "Bohemians Praha 1905",
+          "BOHEMIANS PRAGUE",
+          "029e8c37-a3ee-59e8-8f20-835052d82aa9",
+          6,
+          8,
+          393225
+        ],
+        [
+          "FC Baník Ostrava",
+          "BANIK OSTRAVA",
+          "6b4a046b-ca4c-5a88-950a-c6436f56c451",
+          6,
+          13,
+          393230
+        ],
+        [
+          "FC Hradec Králové",
+          "HRADEC KRALOVE",
+          "87bb2985-e80a-5a9c-8cdb-65d9376e1944",
+          6,
+          4,
+          393221
+        ],
+        [
+          "FC Slovan Liberec",
+          "SLOVAN LIBEREC",
+          "c63d2917-d9f3-51ef-9c5c-e095c0908553",
+          6,
+          5,
+          393222
+        ],
+        [
+          "FC Viktoria Plzeň",
+          "VIKTORIA PLZEN",
+          "ab705de3-70f4-5504-a0ba-972641cc977f",
+          6,
+          2,
+          393219
+        ],
+        [
+          "FC Zbrojovka Brno",
+          "ZBROJOVKA BRNO",
+          "d1cb564a-cfca-56bc-bbc3-746ca2b08db6",
+          6,
+          14,
+          393231
+        ],
+        [
+          "FC Zlín",
+          "ZLIN",
+          "e2adfcd7-0fa4-59f8-9caf-9ea64ba7708a",
+          6,
+          10,
+          393227
+        ],
+        [
+          "FK Jablonec",
+          "JABLONEC",
+          "7eeb8028-ac19-5f73-ab3f-17dff89939ab",
+          6,
+          3,
+          393220
+        ],
+        [
+          "FK Mladá Boleslav",
+          "MLADA BOLESLAV",
+          "1119b271-3e06-5f6f-8f99-69fb7e228600",
+          6,
+          9,
+          393226
+        ],
+        [
+          "FK Pardubice",
+          "PARDUBICE",
+          "c6a1b02b-2c3a-5406-8a79-28c2ae02f253",
+          6,
+          7,
+          393224
+        ],
+        [
+          "FK Teplice",
+          "TEPLICE",
+          "9b98f00a-e34b-53bf-9abf-21014a567d34",
+          6,
+          11,
+          393228
+        ],
+        [
+          "SK Sigma Olomouc",
+          "SIGMA OLOMOUC",
+          "4bad8188-30e4-55eb-97db-113c8c12de23",
+          6,
+          6,
+          393223
+        ],
+        [
+          "SK Slavia Praha",
+          "SLAVIA PRAGUE",
+          "bf773b5b-e10e-566d-9665-6156071c8509",
+          6,
+          0,
+          393217
+        ]
+      ],
+      "scope": "Reviewed explicit aliases to native JSON. Primary-file CE keys; static initial entrant mapping only, not runtime or future qualification proof.",
+      "unmatched": {
+        "sport": [
+          "MFK Karviná"
+        ],
+        "native": [
+          "ARTIS BRNO"
+        ],
+        "anomaly": "A040"
+      }
     }
   }
 ]

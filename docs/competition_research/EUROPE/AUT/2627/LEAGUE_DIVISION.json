@@ -297,6 +297,152 @@
         ]
       ],
       "scope": "All initial regular-league entrants mapped by reviewed explicit aliases; native JSON full division set and unique UUID/ordinal; CE key computed from current primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. No runtime or later qualification certification."
+    },
+    "block134DateAudit": {
+      "status": "PARTIAL_ARCHIVE_AGGREGATE_AUDIT",
+      "observedSeasonColumns": [
+        "archiveSeasonLabel",
+        "observedRecords",
+        "distinctClubLabels",
+        "firstRecordedDate",
+        "lastRecordedDate",
+        "distinctRecordedDays"
+      ],
+      "observedSeasons": [
+        [
+          "2012/2013",
+          180,
+          10,
+          "2012-07-21",
+          "2013-05-26",
+          74
+        ],
+        [
+          "2013/2014",
+          180,
+          10,
+          "2013-07-20",
+          "2014-05-12",
+          74
+        ],
+        [
+          "2014/2015",
+          180,
+          10,
+          "2014-07-19",
+          "2015-05-31",
+          77
+        ],
+        [
+          "2015/2016",
+          180,
+          10,
+          "2015-07-25",
+          "2016-05-15",
+          70
+        ],
+        [
+          "2016/2017",
+          180,
+          10,
+          "2016-07-23",
+          "2017-05-28",
+          71
+        ],
+        [
+          "2017/2018",
+          182,
+          11,
+          "2017-07-22",
+          "2018-06-03",
+          73
+        ],
+        [
+          "2018/2019",
+          195,
+          12,
+          "2018-07-27",
+          "2019-06-02",
+          67
+        ],
+        [
+          "2019/2020",
+          195,
+          12,
+          "2019-07-26",
+          "2020-07-15",
+          70
+        ],
+        [
+          "2020/2021",
+          197,
+          13,
+          "2020-09-11",
+          "2021-05-30",
+          73
+        ],
+        [
+          "2021/2022",
+          195,
+          12,
+          "2021-07-23",
+          "2022-05-29",
+          71
+        ],
+        [
+          "2022/2023",
+          195,
+          12,
+          "2022-07-22",
+          "2023-06-11",
+          78
+        ],
+        [
+          "2023/2024",
+          195,
+          12,
+          "2023-07-28",
+          "2024-05-28",
+          77
+        ],
+        [
+          "2024/2025",
+          192,
+          12,
+          "2024-08-02",
+          "2025-05-24",
+          75
+        ],
+        [
+          "2025/2026",
+          192,
+          12,
+          "2025-08-01",
+          "2026-05-17",
+          72
+        ],
+        [
+          "2026/2027",
+          78,
+          12,
+          "2026-07-31",
+          "2026-11-22",
+          38
+        ]
+      ],
+      "totalRecords": 2716,
+      "invalidDates": 0,
+      "duplicateSeasonDateOrientedPairs": 0,
+      "withinArchiveSameClubRecordedDayClashes": 0,
+      "unscoredRows": 0,
+      "scope": "Observed archive labels may combine group, regular, split and playoff matches. Not proof of exact league membership, rules or complete edition. No raw fixture lists, club labels, scores or odds redistributed; no data for 1996/97. Archive time zone not certified.",
+      "latestEdition": {
+        "label": "2026/2027",
+        "postCutoffObservedRecords": 78,
+        "scope": "Aggregate count only; not career results.",
+        "startsAfterJuly1": true,
+        "cutoffSnapshotApplicable": false
+      }
     }
   }
 ]

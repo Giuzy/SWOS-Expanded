@@ -2386,6 +2386,27 @@
         ]
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block131DateAudit": {
+      "edition": "2026/27",
+      "status": "PARTIAL_DATE_AGGREGATE_AUDIT",
+      "completedRecords": 120,
+      "distinctClubLabels": 20,
+      "firstObservedDate": "2026-08-22",
+      "lastObservedDate": "2026-11-23",
+      "distinctMatchDays": 40,
+      "preJulyRecords": 0,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "scope": "Aggregate observations through last played date only. No match rows or scores copied; not a full calendar or identity certification.",
+      "existingCalendarComparison": {
+        "referenceDateCount": 120,
+        "matchedDateMultiplicity": 119,
+        "differentDays": 2,
+        "exactDailyCounts": false,
+        "scope": "Date multiplicities only, no participant pairing verification; scheduled versus played observations.",
+        "review": "A041"
+      }
     }
   },
   {
@@ -2462,6 +2483,19 @@
       ],
       "limitations": "2026/27 movement regulation not independently established; prior edition playoff thresholds not copied.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block131DateAudit": {
+      "edition": "2026/27",
+      "status": "PARTIAL_DATE_AGGREGATE_AUDIT",
+      "completedRecords": 120,
+      "distinctClubLabels": 20,
+      "firstObservedDate": "2026-08-21",
+      "lastObservedDate": "2026-11-22",
+      "distinctMatchDays": 34,
+      "preJulyRecords": 0,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "scope": "Aggregate observations through last played date only. No match rows or scores copied; not a full calendar or identity certification."
     }
   },
   {

@@ -13,7 +13,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -202,6 +202,264 @@
       ],
       "limitations": "June3 original announcement; alternatives not claimed final; round3 rescheduled matches separate; full individual calendar and current movement rules pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "participantKeyAudit": {
+      "edition": "2026/27",
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "division": 0,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "AC Horsens",
+          "HORSENS",
+          "d78cec8a-f92c-5c20-8b93-1339d2f00485",
+          7,
+          11,
+          458764
+        ],
+        [
+          "AGF",
+          "AARHUS GF",
+          "38726652-bd0e-5fd1-bbf4-94dd4bbae02a",
+          7,
+          0,
+          458753
+        ],
+        [
+          "Brøndby IF",
+          "BRONDBY",
+          "d01c6228-668c-586d-9aa1-12d07fac7897",
+          7,
+          3,
+          458756
+        ],
+        [
+          "FC København",
+          "COPENHAGEN",
+          "a05d62f4-b5c2-5ca2-9905-7688e972950e",
+          7,
+          6,
+          458759
+        ],
+        [
+          "FC Midtjylland",
+          "MIDTJYLLAND",
+          "c6ba511d-8386-54dd-8ba6-645f1d8cb257",
+          7,
+          1,
+          458754
+        ],
+        [
+          "FC Nordsjælland",
+          "NORDSJAELLAND",
+          "b8753928-e66a-5cf4-98b4-2aa01c157070",
+          7,
+          5,
+          458758
+        ],
+        [
+          "Lyngby BK",
+          "LYNGBY BOLDKLUB",
+          "96f7878a-e472-5abe-8c54-c643b49c18f5",
+          7,
+          10,
+          458763
+        ],
+        [
+          "OB",
+          "ODENSE BOLDKLUB",
+          "98b6957f-fa61-5a10-8e1d-601f6ed1919a",
+          7,
+          7,
+          458760
+        ],
+        [
+          "Randers FC",
+          "RANDERS",
+          "111d1ecd-df31-576c-aa91-d54cbbf33664",
+          7,
+          8,
+          458761
+        ],
+        [
+          "Silkeborg IF",
+          "SILKEBORG",
+          "d75c6288-efac-5d18-96e1-6b6ab9845524",
+          7,
+          9,
+          458762
+        ],
+        [
+          "Sønderjyske",
+          "SONDERJYSKE",
+          "f7187d02-a767-5af2-9620-249c8a8e7456",
+          7,
+          2,
+          458755
+        ],
+        [
+          "Viborg FF",
+          "VIBORG",
+          "d237e14d-9072-502d-ac19-721dd0ae178e",
+          7,
+          4,
+          458757
+        ]
+      ],
+      "scope": "Reviewed explicit aliases to native JSON. Primary-file CE keys; static initial entrant mapping only, not runtime or future qualification proof."
+    },
+    "block134DateAudit": {
+      "status": "PARTIAL_ARCHIVE_AGGREGATE_AUDIT",
+      "observedSeasonColumns": [
+        "archiveSeasonLabel",
+        "observedRecords",
+        "distinctClubLabels",
+        "firstRecordedDate",
+        "lastRecordedDate",
+        "distinctRecordedDays"
+      ],
+      "observedSeasons": [
+        [
+          "2012/2013",
+          198,
+          12,
+          "2012-07-13",
+          "2013-05-20",
+          120
+        ],
+        [
+          "2013/2014",
+          198,
+          12,
+          "2013-07-19",
+          "2014-05-18",
+          117
+        ],
+        [
+          "2014/2015",
+          198,
+          12,
+          "2014-07-17",
+          "2015-06-07",
+          116
+        ],
+        [
+          "2015/2016",
+          198,
+          12,
+          "2015-07-17",
+          "2016-05-29",
+          118
+        ],
+        [
+          "2016/2017",
+          255,
+          16,
+          "2016-07-15",
+          "2017-06-04",
+          130
+        ],
+        [
+          "2017/2018",
+          255,
+          16,
+          "2017-07-14",
+          "2018-05-27",
+          131
+        ],
+        [
+          "2018/2019",
+          251,
+          16,
+          "2018-07-13",
+          "2019-06-02",
+          129
+        ],
+        [
+          "2019/2020",
+          243,
+          14,
+          "2019-07-12",
+          "2020-07-29",
+          111
+        ],
+        [
+          "2020/2021",
+          193,
+          12,
+          "2020-09-11",
+          "2021-05-28",
+          87
+        ],
+        [
+          "2021/2022",
+          193,
+          12,
+          "2021-07-16",
+          "2022-05-29",
+          88
+        ],
+        [
+          "2022/2023",
+          193,
+          12,
+          "2022-07-15",
+          "2023-06-09",
+          97
+        ],
+        [
+          "2023/2024",
+          193,
+          12,
+          "2023-07-21",
+          "2024-05-31",
+          97
+        ],
+        [
+          "2024/2025",
+          192,
+          12,
+          "2024-07-19",
+          "2025-05-25",
+          95
+        ],
+        [
+          "2025/2026",
+          192,
+          12,
+          "2025-07-18",
+          "2026-05-17",
+          89
+        ],
+        [
+          "2026/2027",
+          90,
+          12,
+          "2026-07-24",
+          "2026-11-23",
+          48
+        ]
+      ],
+      "totalRecords": 3042,
+      "invalidDates": 0,
+      "duplicateSeasonDateOrientedPairs": 0,
+      "withinArchiveSameClubRecordedDayClashes": 0,
+      "unscoredRows": 0,
+      "scope": "Observed archive labels may combine group, regular, split and playoff matches. Not proof of exact league membership, rules or complete edition. No raw fixture lists, club labels, scores or odds redistributed; no data for 1996/97. Archive time zone not certified.",
+      "latestEdition": {
+        "label": "2026/2027",
+        "postCutoffObservedRecords": 90,
+        "scope": "Aggregate count only; not career results.",
+        "startsAfterJuly1": true,
+        "cutoffSnapshotApplicable": false
+      }
     }
   }
 ]

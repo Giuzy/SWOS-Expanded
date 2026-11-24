@@ -13,7 +13,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -127,6 +127,179 @@
       ],
       "limitations": "Actual individual fixtures, original postponed date and conditional European adjustments not fully reconciled.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "participantKeyAudit": {
+      "edition": "2026/27",
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "division": 0,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "Cercle Brugge",
+          "CERCLE BRUGGE",
+          "612ce2b8-b559-5895-91c4-7aecc0be993c",
+          2,
+          13,
+          131086
+        ],
+        [
+          "Club Brugge",
+          "BRUGGE",
+          "917ca5e8-ae58-511d-bd00-1635ba504d40",
+          2,
+          1,
+          131074
+        ],
+        [
+          "KAA Gent",
+          "GENT",
+          "2d69cb0e-d947-5fe4-ad72-10b99bbde8ae",
+          2,
+          3,
+          131076
+        ],
+        [
+          "KRC Genk",
+          "GENK",
+          "0ec56706-13da-52e2-ae1f-692c437d393f",
+          2,
+          6,
+          131079
+        ],
+        [
+          "KV Kortrijk",
+          "KORTRIJK",
+          "23865bfa-838d-57cd-9ad6-cb44f6a350c0",
+          2,
+          16,
+          131089
+        ],
+        [
+          "KV Mechelen",
+          "MECHELEN",
+          "e4392b7c-b068-5f54-becf-7457d472e602",
+          2,
+          4,
+          131077
+        ],
+        [
+          "KVC Westerlo",
+          "KVC WESTERLO",
+          "56288303-133f-5b57-b027-139c01835564",
+          2,
+          8,
+          131081
+        ],
+        [
+          "Lommel SK",
+          "LOMMEL",
+          "88917242-737b-5e00-8398-6f5c9af509c2",
+          2,
+          17,
+          131090
+        ],
+        [
+          "OH Leuven",
+          "OH LEUVEN",
+          "5e92fe09-0f0b-5edc-8b32-f562fb27aca5",
+          2,
+          11,
+          131084
+        ],
+        [
+          "RAAL La Louvière",
+          "RAAL LOUVIERE",
+          "406b0f81-fa14-5cb2-89c6-419102749262",
+          2,
+          14,
+          131087
+        ],
+        [
+          "RSC Anderlecht",
+          "ANDERLECHT",
+          "b803a548-53a1-5dc5-8b65-bc4ac66c09db",
+          2,
+          5,
+          131078
+        ],
+        [
+          "Royal Antwerp FC",
+          "ROYAL ANTWERP",
+          "59d32009-1c91-5d49-ab87-1b29a0f02721",
+          2,
+          9,
+          131082
+        ],
+        [
+          "Royale Union Saint-Gilloise",
+          "UNION SG",
+          "c0fdf41f-f8c0-5280-a97d-6a41cdf62949",
+          2,
+          0,
+          131073
+        ],
+        [
+          "SK Beveren",
+          "BEVEREN",
+          "694088d5-7128-5a55-9e37-92233d3a111e",
+          2,
+          15,
+          131088
+        ],
+        [
+          "STVV",
+          "SINT-TRUIDENSE",
+          "b7303140-82e0-56c7-8568-bdff7f092c37",
+          2,
+          2,
+          131075
+        ],
+        [
+          "SV Zulte Waregem",
+          "ZULTE WAREGEM",
+          "f7b84157-11b2-5f1c-9433-083fdc5acc75",
+          2,
+          12,
+          131085
+        ],
+        [
+          "Sporting Charleroi",
+          "ROYAL CHARLEROI",
+          "19867dd0-207d-5269-bc7e-8f14f00938f4",
+          2,
+          10,
+          131083
+        ],
+        [
+          "Standard de Liège",
+          "STANDARD LIEGE",
+          "197a524a-00ea-5b1c-bcf1-723daf21deda",
+          2,
+          7,
+          131080
+        ]
+      ],
+      "scope": "Reviewed explicit aliases to native JSON. Primary-file CE keys; static initial entrant mapping only, not runtime or future qualification proof."
+    },
+    "block131DateAudit": {
+      "edition": "2026/27",
+      "status": "PARTIAL_DATE_AGGREGATE_AUDIT",
+      "completedRecords": 108,
+      "distinctClubLabels": 18,
+      "firstObservedDate": "2026-08-07",
+      "lastObservedDate": "2026-11-22",
+      "distinctMatchDays": 38,
+      "preJulyRecords": 0,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "scope": "Aggregate observations through last played date only. No match rows or scores copied; not a full calendar or identity certification."
     }
   }
 ]

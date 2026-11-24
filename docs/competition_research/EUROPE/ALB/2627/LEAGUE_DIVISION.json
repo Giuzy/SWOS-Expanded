@@ -12,24 +12,553 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Abissnet Superiore",
+      "nonCommercialDisplayName": "Kategoria Superiore",
       "candidateName": "Kategoria Superiore",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/European_Leagues",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence80": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 10,
+        "regularGames": 27,
+        "regularMeetingsPerOpponent": 3,
+        "splitGroups": [
+          6,
+          4
+        ],
+        "pointsCarryFraction": 0.5,
+        "extraGames": [
+          10,
+          9
+        ],
+        "directRelegated": [
+          10
+        ],
+        "directPromotedTier2": [
+          1,
+          2
+        ],
+        "tier2PlayoffPairs": [
+          [
+            3,
+            6
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "tier2PlayoffWinnerPromoted": true,
+        "tier2PlayoffFinalLoserVsTier1Rank": 9,
+        "nextEditionTeams": 12
+      },
+      "dates": {
+        "nominalStart": "2026-08-22",
+        "nominalEnd": "2027-05-09",
+        "regularRoundSchedule": {
+          "participantOrdinals": [
+            "Partizani",
+            "Teuta",
+            "KF Laçi",
+            "AF Elbasani",
+            "Vllaznia",
+            "Skënderbeu",
+            "Dinamo City",
+            "FK Vora",
+            "Egnatia",
+            "Tirana"
+          ],
+          "ordinalBase": 1,
+          "pairOrder": "home-away",
+          "rounds": [
+            {
+              "round": 1,
+              "date": "2026-08-22",
+              "pairs": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  3,
+                  4
+                ],
+                [
+                  5,
+                  6
+                ],
+                [
+                  7,
+                  8
+                ],
+                [
+                  9,
+                  10
+                ]
+              ]
+            },
+            {
+              "round": 2,
+              "date": "2026-08-29",
+              "pairs": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  8,
+                  9
+                ],
+                [
+                  6,
+                  7
+                ],
+                [
+                  4,
+                  5
+                ],
+                [
+                  2,
+                  10
+                ]
+              ]
+            },
+            {
+              "round": 3,
+              "date": "2026-09-05",
+              "pairs": [
+                [
+                  3,
+                  2
+                ],
+                [
+                  5,
+                  1
+                ],
+                [
+                  7,
+                  4
+                ],
+                [
+                  9,
+                  6
+                ],
+                [
+                  10,
+                  8
+                ]
+              ]
+            },
+            {
+              "round": 4,
+              "date": "2026-09-12",
+              "pairs": [
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  5
+                ],
+                [
+                  6,
+                  10
+                ],
+                [
+                  4,
+                  9
+                ],
+                [
+                  2,
+                  8
+                ]
+              ]
+            },
+            {
+              "round": 5,
+              "date": "2026-09-19",
+              "pairs": [
+                [
+                  5,
+                  2
+                ],
+                [
+                  7,
+                  3
+                ],
+                [
+                  9,
+                  1
+                ],
+                [
+                  10,
+                  4
+                ],
+                [
+                  8,
+                  6
+                ]
+              ]
+            },
+            {
+              "round": 6,
+              "date": "2026-10-11",
+              "pairs": [
+                [
+                  1,
+                  10
+                ],
+                [
+                  3,
+                  9
+                ],
+                [
+                  5,
+                  7
+                ],
+                [
+                  4,
+                  8
+                ],
+                [
+                  2,
+                  6
+                ]
+              ]
+            },
+            {
+              "round": 7,
+              "date": "2026-10-17",
+              "pairs": [
+                [
+                  7,
+                  2
+                ],
+                [
+                  9,
+                  5
+                ],
+                [
+                  10,
+                  3
+                ],
+                [
+                  8,
+                  1
+                ],
+                [
+                  6,
+                  4
+                ]
+              ]
+            },
+            {
+              "round": 8,
+              "date": "2026-10-24",
+              "pairs": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  3,
+                  8
+                ],
+                [
+                  5,
+                  10
+                ],
+                [
+                  7,
+                  9
+                ],
+                [
+                  2,
+                  4
+                ]
+              ]
+            },
+            {
+              "round": 9,
+              "date": "2026-10-28",
+              "pairs": [
+                [
+                  9,
+                  2
+                ],
+                [
+                  10,
+                  7
+                ],
+                [
+                  8,
+                  5
+                ],
+                [
+                  6,
+                  3
+                ],
+                [
+                  4,
+                  1
+                ]
+              ]
+            },
+            {
+              "round": 10,
+              "date": "2026-11-01",
+              "pairs": [
+                [
+                  2,
+                  1
+                ],
+                [
+                  4,
+                  3
+                ],
+                [
+                  6,
+                  5
+                ],
+                [
+                  8,
+                  7
+                ],
+                [
+                  10,
+                  9
+                ]
+              ]
+            },
+            {
+              "round": 11,
+              "date": "2026-11-07",
+              "pairs": [
+                [
+                  3,
+                  1
+                ],
+                [
+                  9,
+                  8
+                ],
+                [
+                  7,
+                  6
+                ],
+                [
+                  5,
+                  4
+                ],
+                [
+                  10,
+                  2
+                ]
+              ]
+            },
+            {
+              "round": 12,
+              "date": "2026-11-22",
+              "pairs": [
+                [
+                  2,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  4,
+                  7
+                ],
+                [
+                  6,
+                  9
+                ],
+                [
+                  8,
+                  10
+                ]
+              ]
+            },
+            {
+              "round": 13,
+              "date": "2026-11-28",
+              "pairs": [
+                [
+                  7,
+                  1
+                ],
+                [
+                  5,
+                  3
+                ],
+                [
+                  10,
+                  6
+                ],
+                [
+                  9,
+                  4
+                ],
+                [
+                  8,
+                  2
+                ]
+              ]
+            },
+            {
+              "round": 14,
+              "date": "2026-12-02",
+              "pairs": [
+                [
+                  2,
+                  5
+                ],
+                [
+                  3,
+                  7
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  4,
+                  10
+                ],
+                [
+                  6,
+                  8
+                ]
+              ]
+            },
+            {
+              "round": 15,
+              "date": "2026-12-06",
+              "pairs": [
+                [
+                  10,
+                  1
+                ],
+                [
+                  9,
+                  3
+                ],
+                [
+                  7,
+                  5
+                ],
+                [
+                  8,
+                  4
+                ],
+                [
+                  6,
+                  2
+                ]
+              ]
+            },
+            {
+              "round": 16,
+              "date": "2026-12-12",
+              "pairs": [
+                [
+                  2,
+                  7
+                ],
+                [
+                  5,
+                  9
+                ],
+                [
+                  3,
+                  10
+                ],
+                [
+                  1,
+                  8
+                ],
+                [
+                  4,
+                  6
+                ]
+              ]
+            },
+            {
+              "round": 17,
+              "date": "2026-12-19",
+              "pairs": [
+                [
+                  6,
+                  1
+                ],
+                [
+                  8,
+                  3
+                ],
+                [
+                  10,
+                  5
+                ],
+                [
+                  9,
+                  7
+                ],
+                [
+                  4,
+                  2
+                ]
+              ]
+            },
+            {
+              "round": 18,
+              "date": "2026-12-23",
+              "pairs": [
+                [
+                  2,
+                  9
+                ],
+                [
+                  7,
+                  10
+                ],
+                [
+                  5,
+                  8
+                ],
+                [
+                  3,
+                  6
+                ],
+                [
+                  1,
+                  4
+                ]
+              ]
+            }
+          ],
+          "status": "NOMINAL_90_OF_135_REGULAR_FIXTURES"
+        }
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "All three PDF pages checked; schedule ends round18, despite article saying all three phases. Third cycle and split dates, rounding half points, tiebreak and match eligibility unknown. Pair uniqueness and round collisions checked for 90 pairs only."
     }
   }
 ]

@@ -33,5 +33,175 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block43 official HTML opened and search excerpts retrieved; no PDF analyzed."
     }
+  },
+  {
+    "index": 474,
+    "value": {
+      "competition": "CRO tier 1",
+      "firstEdition": "1997/98",
+      "lastEdition": "1998/99",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        6,
+        225
+      ],
+      "rules": {
+        "teams": 12,
+        "splitGroups": [
+          6,
+          6
+        ],
+        "carryFraction": 0.5,
+        "bottomDirectRelegated": 1,
+        "secondBottomPlayoffVsTier2Rank": 2,
+        "playoffLegs": 2
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 475,
+    "value": {
+      "competition": "CRO tier 1",
+      "firstEdition": "1999/00",
+      "lastEdition": "1999/00",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        6,
+        225
+      ],
+      "rules": {
+        "teams": 12,
+        "rounds": 33,
+        "meetingsPerOpponent": 3
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 476,
+    "value": {
+      "competition": "CRO tier 1",
+      "firstEdition": "2000/01",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        6,
+        225
+      ],
+      "rules": {
+        "splitGroups": true,
+        "fullPointsCarry": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 477,
+    "value": {
+      "competition": "CRO tier 1",
+      "firstEdition": "2001/02",
+      "lastEdition": "2001/02",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        6,
+        225
+      ],
+      "rules": {
+        "teams": 16
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 478,
+    "value": {
+      "competition": "CRO tier 1",
+      "firstEdition": "2006/07",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        6,
+        225
+      ],
+      "rules": {
+        "rounds": 33,
+        "meetingsPerOpponent": 3
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 479,
+    "value": {
+      "competition": "CRO tier 1",
+      "firstEdition": "2009/10",
+      "lastEdition": "2011/12",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        6,
+        225
+      ],
+      "rules": {
+        "teams": 16
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 480,
+    "value": {
+      "competition": "CRO tier 1",
+      "firstEdition": "2012/13",
+      "lastEdition": "2012/13",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        6,
+        225
+      ],
+      "rules": {
+        "teams": 12,
+        "rounds": 33
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 481,
+    "value": {
+      "competition": "CRO national cup",
+      "firstEdition": "2025/26",
+      "operation": "OBSERVED_ACCESS_AND_SEEDING",
+      "rowRefs": [
+        344
+      ],
+      "rules": {
+        "nationalEntrants": 48,
+        "countyPreliminaryEntrants": 32,
+        "countyWinners": 21,
+        "countyFinalists": 11,
+        "topCoefficientDirect": 16,
+        "coefficientYears": 5,
+        "directEntryLeadYears": 2,
+        "preliminaryLegs": 1,
+        "roundOf32And16Pairing": "opposite seeds, weaker hosts; upset winner takes higher seed",
+        "quarterfinalAndSemifinal": "draw, first drawn hosts",
+        "legs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 482,
+    "value": {
+      "competition": "CRO national cup",
+      "firstEdition": "2027/28",
+      "operation": "ANNOUNCED_CHANGE_ACCESS",
+      "rowRefs": [
+        344
+      ],
+      "rules": {
+        "countyAdditionalEntrantsCriterion": "county associations with most clubs in top three tiers; detailed quota not yet confirmed"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

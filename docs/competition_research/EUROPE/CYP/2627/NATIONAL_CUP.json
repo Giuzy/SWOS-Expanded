@@ -13,7 +13,6 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,7 +22,7 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Κύπελλο Coca Cola Α’ & Β’ Κατηγορίας",
       "nonCommercialDisplayName": "Cypriot Cup",
       "candidateName": "Cypriot Cup",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
@@ -48,6 +47,47 @@
       ],
       "limitations": "Official CFA 10 July 2026 announcement opened; previous edition announcement excerpt; complete entrants not reconciled.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "sportRuleEvidence80": {
+      "edition": "2026/27",
+      "rules": {
+        "eligibleTiers": [
+          1,
+          2
+        ],
+        "eligibleClubsMax": 30,
+        "registrationVoluntary": true,
+        "firstRoundByes": "prior finalists and UEFA league/group stage entrants; additional draw byes as needed",
+        "knownFinalistByes": [
+          "Pafos FC",
+          "Apollon Limassol"
+        ],
+        "observedAdditionalDrawByes": [
+          "Anorthosis",
+          "ASIL Lysi",
+          "EN Paralimniou"
+        ],
+        "observedFirstRoundMatches": 10,
+        "firstRoundDraw": "tier1 against tier2 where possible, venue draw; remaining clubs drawn together",
+        "R16Entrants": 16,
+        "R16QFDraw": "open, first drawn hosts",
+        "SF": {
+          "legs": 2,
+          "firstDrawnHostsFirst": true,
+          "awayGoals": false
+        },
+        "otherRoundsLegs": 1,
+        "extraTime": true,
+        "penalties": true,
+        "finalVenue": "GSP",
+        "minimumDaysBetweenSFAndFinal": 5,
+        "lowerTierCupSeparate": true
+      },
+      "dates": {
+        "firstRoundOpening": "2026-10-14"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Current cup regulation p10–12 text available; screenshots failed. Full entered clubs and exact round dates not reconciled."
     }
   }
 ]

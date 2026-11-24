@@ -20,5 +20,189 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block44 actual web retrieval, 24/11/2026; source-specific limitations noted."
     }
+  },
+  {
+    "index": 483,
+    "value": {
+      "competition": "SVN tier 1",
+      "firstEdition": "1999/00",
+      "lastEdition": "2003/04",
+      "operation": "RENAME",
+      "previousName": "1. SNL",
+      "name": "Liga Si.mobil",
+      "rowRefs": [
+        30,
+        306
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Sponsor period chronology from secondary retrospective; exact contract dates not certified."
+    }
+  },
+  {
+    "index": 484,
+    "value": {
+      "competition": "SVN tier 1",
+      "firstEdition": "2004/05",
+      "lastEdition": "2005/06",
+      "operation": "RENAME",
+      "previousName": "Liga Si.mobil",
+      "name": "Liga Si.mobil Vodafone",
+      "rowRefs": [
+        30,
+        306
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Sponsor period chronology from secondary retrospective; exact contract dates not certified."
+    }
+  },
+  {
+    "index": 485,
+    "value": {
+      "competition": "SVN tier 1",
+      "firstEdition": "2006/07",
+      "lastEdition": "2008/09",
+      "operation": "RENAME",
+      "previousName": "Liga Si.mobil Vodafone",
+      "name": "Prva liga Telekom Slovenije",
+      "rowRefs": [
+        30,
+        306
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Sponsor period chronology from secondary retrospective; exact contract dates not certified."
+    }
+  },
+  {
+    "index": 486,
+    "value": {
+      "competition": "SVN tier 1",
+      "firstEdition": "2009/10",
+      "lastEdition": "2012/13",
+      "operation": "RENAME",
+      "previousName": "Prva liga Telekom Slovenije",
+      "name": "Prva liga",
+      "rowRefs": [
+        30,
+        306
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Sponsor period chronology from secondary retrospective; exact contract dates not certified."
+    }
+  },
+  {
+    "index": 487,
+    "value": {
+      "competition": "SVN tier 1",
+      "firstEdition": "2013/14",
+      "lastEdition": "2020/21",
+      "operation": "RENAME",
+      "previousName": "Prva liga",
+      "name": "Prva liga Telekom Slovenije",
+      "rowRefs": [
+        30,
+        306
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Sponsor period chronology from secondary retrospective; exact contract dates not certified."
+    }
+  },
+  {
+    "index": 488,
+    "value": {
+      "competition": "SVN tier 1",
+      "firstEdition": "2021/22",
+      "operation": "RENAME",
+      "previousName": "Prva liga Telekom Slovenije",
+      "name": "Prva liga Telemach",
+      "rowRefs": [
+        30,
+        306
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Sponsor period chronology from secondary retrospective; exact contract dates not certified."
+    }
+  },
+  {
+    "index": 489,
+    "value": {
+      "competition": "SVN tier 1",
+      "firstEdition": "1998/99",
+      "lastEdition": "2002/03",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        30,
+        306
+      ],
+      "rules": {
+        "teams": 12,
+        "meetingsPerOpponent": 3,
+        "gamesPerClub": 33,
+        "directRelegated": 2
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 490,
+    "value": {
+      "competition": "SVN tier 1",
+      "firstEdition": "2003/04",
+      "lastEdition": "2004/05",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        30,
+        306
+      ],
+      "rules": {
+        "splitGroups": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 491,
+    "value": {
+      "competition": "SVN tier 1",
+      "firstEdition": "2005/06",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        30,
+        306
+      ],
+      "rules": {
+        "teams": 10,
+        "meetingsPerOpponent": 4,
+        "gamesPerClub": 36
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 492,
+    "value": {
+      "competition": "SVN national cup",
+      "firstEdition": "2022/23",
+      "operation": "OBSERVED_ACCESS_FORMAT",
+      "rowRefs": [
+        141,
+        410
+      ],
+      "rules": {
+        "round1": 120,
+        "round2": 64,
+        "nationalRoundOf32": 32,
+        "legs": 1,
+        "regionalTie": "direct penalties",
+        "nationalTie": "extra time then penalties",
+        "regionalRounds": [
+          "preliminary",
+          "R1",
+          "R2"
+        ],
+        "UEFAEntrantsRound": 2,
+        "UEFAEntrants": 4
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

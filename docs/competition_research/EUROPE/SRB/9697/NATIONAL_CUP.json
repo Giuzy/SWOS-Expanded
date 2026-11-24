@@ -12,7 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -31,6 +31,38 @@
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence78": {
+      "edition": "1996/97",
+      "historicalJurisdiction": "FR Yugoslavia",
+      "rules": {
+        "roundOf16Legs": 2,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 2,
+        "penaltiesObserved": true
+      },
+      "dates": {
+        "roundOf16": [
+          "1996-10-09",
+          "1996-10-23"
+        ],
+        "quarterfinalFirst": "1996-11-13",
+        "quarterfinalSecond": [
+          "1996-11-26",
+          "1996-11-27"
+        ],
+        "semifinal": [
+          "1997-03-19",
+          "1997-04-09"
+        ],
+        "final": [
+          "1997-05-07",
+          "1997-05-21"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Earliest rounds undated; local official name remains candidate."
     }
   }
 ]

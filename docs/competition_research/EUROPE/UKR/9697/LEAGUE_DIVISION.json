@@ -11,12 +11,11 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -42,10 +41,10 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Вища ліга",
+      "nonCommercialDisplayName": "Vyshcha Liha",
       "candidateName": "Vyshcha Liha",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/resultsp99.html",
       "nameHistory": [
         {
@@ -59,6 +58,38 @@
         }
       ],
       "historyComplete": false
+    },
+    "sportRuleEvidence79": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 16,
+        "gamesPerClub": 30,
+        "meetingsPerOpponent": 2,
+        "pointsWin": 3,
+        "directRelegated": [
+          15,
+          16
+        ],
+        "promotionEligiblePlaces": 2,
+        "observedReserveIneligible": true,
+        "observedPromotionRanks": [
+          1,
+          3
+        ],
+        "ineligibleExample": "Dynamo-2 Kyiv"
+      },
+      "dates": {
+        "firstRound": "1996-07-20",
+        "round1Postponed": {
+          "home": "Tavria Simferopol",
+          "away": "Shakhtar Donetsk",
+          "nominal": "1996-07-20",
+          "played": "1996-08-17",
+          "reason": "unknown"
+        }
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Observed promotion ranks describe eligibility mechanism, not predetermined future results. Full calendar and IDs remain unreconciled."
     }
   }
 ]

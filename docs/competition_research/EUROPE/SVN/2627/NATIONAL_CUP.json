@@ -12,24 +12,79 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Pokal Pivovarna Union",
+      "nonCommercialDisplayName": "Pokal Slovenije",
       "candidateName": "Slovenian Cup",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence78": {
+      "edition": "2026/27",
+      "rules": {
+        "registeredClubs": 181,
+        "regionalPreliminaries": true,
+        "regionalWinnersJoinHigherTiers": true
+      },
+      "dates": {
+        "regionalOpeningReportedBy": "2026-08-11",
+        "observedRegionalPreliminary": "2026-08-16",
+        "observedRound1": "2026-08-26"
+      },
+      "historicalFormat": {
+        "edition": "2022/23",
+        "rules": {
+          "allLeagueClubsMandatory": true,
+          "othersMayApply": true,
+          "regionalRounds": [
+            "preliminary",
+            "R1",
+            "R2"
+          ],
+          "nationalRounds": [
+            "R32",
+            "R16",
+            "QF",
+            "SF",
+            "final"
+          ],
+          "round1": {
+            "teams": 120,
+            "topTierNonUEFA": 6
+          },
+          "round2": {
+            "teams": 64,
+            "UEFAEntrants": 4
+          },
+          "additionalPreliminaryIfRegistrationsAbove": 228,
+          "legs": 1,
+          "unseededDraw": true,
+          "lowerTierNotAutomaticHome": true,
+          "earlyTie": "penalties directly",
+          "nationalTie": "extra time 2x15 then penalties",
+          "neutralFinalNormally": true,
+          "foreignPlayerLimit": "lower-tier club may use same quota as higher-tier opponent",
+          "yellowSuspensions": [
+            3,
+            6
+          ]
+        },
+        "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+        "limitations": "2022/23 instructions only, not certified for 2026/27. PDF screenshot failed, text retrieved."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Current 181 registrations not equivalent to 181 completed entrants; 2022/23 exact rules must not be assumed unchanged. Earliest August report states season just began."
     }
   }
 ]

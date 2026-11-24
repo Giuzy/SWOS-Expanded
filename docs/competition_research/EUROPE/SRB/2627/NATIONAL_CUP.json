@@ -12,7 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -23,13 +23,72 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "Kup Srbije",
-      "nonCommercialDisplayName": null,
+      "officialName": "Mozzart Bet Kup Srbije",
+      "nonCommercialDisplayName": "Kup Srbije",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "17f72bdee9494ea60d78c51bc2d0634b9fb65206",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence78": {
+      "edition": "2026/27",
+      "rules": {
+        "roundOf32Teams": 32,
+        "pots": [
+          16,
+          16
+        ],
+        "pot1": "all 16 prior season top-tier clubs",
+        "pot2": "prior second-tier clubs and preliminary winners",
+        "preliminaryDraw": "semi-directed",
+        "preliminaryBye": "Teleoptik"
+      },
+      "dates": {
+        "preliminary": "2026-09-02",
+        "roundOf32Draw": "2026-10-12",
+        "observedRoundOf32Date": "2026-10-28"
+      },
+      "participantsByPot": [
+        [
+          "Crvena zvezda",
+          "Vojvodina",
+          "Partizan",
+          "Železničar Pančevo",
+          "Novi Pazar",
+          "OFK Beograd",
+          "Radnik Surdulica",
+          "Čukarički",
+          "IMT",
+          "Radnički Niš",
+          "Mladost Lučani",
+          "Radnički 1923",
+          "TSC",
+          "Javor Matis",
+          "Spartak ŽK",
+          "Napredak"
+        ],
+        [
+          "Zemun",
+          "Mačva",
+          "Voždovac",
+          "Dubočica",
+          "Loznica",
+          "Vršac",
+          "Jedinstvo Ub",
+          "Smederevo 1924",
+          "Borac 1926 Čačak",
+          "Grafičar",
+          "Tekstilac",
+          "Teleoptik",
+          "Sloven Ruma",
+          "Jedinstvo 1936 Kruševac",
+          "Budućnost Krušik 2014 Valjevo",
+          "FAP Priboj"
+        ]
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Official federation search extracts; regional access dates, complete preliminary rules, legs and keys unresolved."
     }
   }
 ]

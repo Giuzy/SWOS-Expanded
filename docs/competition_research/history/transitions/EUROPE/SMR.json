@@ -57,14 +57,89 @@
       "firstEdition": "2018/19",
       "lastEdition": null,
       "operation": "CHANGE_FORMAT",
-      "note": "Group phase removed, defending champion enters QF, others R16. Full legs and tie rules pending; COVID cancellation 2019/20 not scripted.",
+      "note": "Group phase removed, defending champion enters QF, others R16. Full legs and tie rules pending; COVID cancellation 2019/20 not scripted. Current art51 confirms legs and tie rules for 2026/27; no blanket historic equivalence assumed.",
       "source": "https://www.fsgc.sm/it/storia",
       "rowRefs": [
         139,
         405
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
+      "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported.",
+      "rules": {
+        "defendingWinnerByeToQF": true,
+        "R16QFSFLegs": 2,
+        "finalLegs": 1,
+        "aggregateTie": "extra time then penalties"
+      }
+    }
+  },
+  {
+    "index": 529,
+    "value": {
+      "competition": "SMR tier 1",
+      "firstEdition": "1996/97",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        28,
+        301
+      ],
+      "rules": {
+        "secondTierAbolished": true,
+        "groups": [
+          8,
+          8
+        ],
+        "topPerGroup": 3
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 530,
+    "value": {
+      "competition": "SMR tier 1",
+      "firstEdition": "2021/22",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        301
+      ],
+      "rules": {
+        "singleGroup": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "First completed single-group edition, not necessarily first planned edition."
+    }
+  },
+  {
+    "index": 531,
+    "value": {
+      "competition": "SMR tier 1",
+      "firstEdition": "2022/23",
+      "operation": "CHANGE_TITLE_RULE",
+      "rowRefs": [
+        301,
+        478
+      ],
+      "rules": {
+        "champion": "regular-season rank1",
+        "playoffPurpose": "European access and final placement"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 532,
+    "value": {
+      "competition": "SMR tier 1",
+      "firstEdition": "2023/24",
+      "operation": "CHANGE_PARTICIPATION",
+      "rowRefs": [
+        301
+      ],
+      "rules": {
+        "newParticipant": "San Marino Academy U22"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

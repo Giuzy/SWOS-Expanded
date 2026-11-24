@@ -12,13 +12,12 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "sportResearchStatus": "RULES_PARTIAL",
     "knownSportData": "UAF page open shows 2526 (68,67 games, 8+28+16+8+4+2+1, single leg, direct penalties except final), indexed 2627 snippet says 68 but stale HTML; 2627 official draw confirms 28 winners+4 European clubs at R32 https://uaf.ua/news/beton-kubok-ukrayiny-20262027-rezultaty-zerebkuvannia-116-finalu ; postcutoff template.",
@@ -26,13 +25,51 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Beton Кубок України",
+      "nonCommercialDisplayName": "Кубок України",
       "candidateName": "Ukrainian Cup",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence79": {
+      "edition": "2026/27",
+      "rules": {
+        "qualificationScheduledPairs": 9,
+        "R64ScheduledPairs": 28,
+        "UEFAClubsEnterR32": [
+          "Shakhtar Donetsk",
+          "Dynamo Kyiv",
+          "Polissya Zhytomyr",
+          "LNZ Cherkasy"
+        ],
+        "R32QualifyingWinners": 28
+      },
+      "dates": {
+        "qualificationDraw": "2026-07-31",
+        "qualificationWindow": [
+          "2026-08-08",
+          "2026-08-12"
+        ],
+        "R64Window": [
+          "2026-08-21",
+          "2026-08-23"
+        ],
+        "postponement": {
+          "home": "Chaika Vyshhorod",
+          "away": "Kalynivka",
+          "nominal": "2026-08-08",
+          "rescheduled": "2026-08-11",
+          "reason": "unknown"
+        }
+      },
+      "conflicts": [
+        "Official 2026/27 qualifying schedule lists nine pairs, while stale 2025/26 format lists eight and current indexed total 68; cannot reconcile total entrants yet.",
+        "Published R64 bracket repeats winner B2 in two pairings; must resolve before generating fixtures."
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "No exact total or full bracket certified, 2025/26 direct-penalty rule not assumed current."
     }
   }
 ]

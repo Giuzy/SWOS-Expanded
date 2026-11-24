@@ -11,7 +11,6 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -60,6 +59,52 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Observed historical season; neutral English labels not necessarily exact official local-language names. No complete fixture/participant mapping, no result import."
+    },
+    "sportRuleEvidence80": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 14,
+        "gamesPerClub": 26,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "tieBreakers": [
+          "goal difference",
+          "goals scored"
+        ],
+        "directRelegated": [
+          12,
+          13,
+          14
+        ],
+        "intertotoAccess": "highest placed declared applicant not qualified for another UEFA competition"
+      },
+      "dates": {
+        "firstRound": [
+          "1996-09-20",
+          "1996-09-22"
+        ]
+      },
+      "participants": [
+        "AEK Larnaca",
+        "Alki Larnaca",
+        "Anagennisi Deryneia",
+        "Anorthosis Famagusta",
+        "APEP Pitsilia",
+        "APOEL Nicosia",
+        "Apollon Limassol",
+        "APOP Paphos",
+        "Aris Limassol",
+        "Ethnikos Achna",
+        "Enosi Neon Paralimniou",
+        "Nea Salamina Famagusta",
+        "Olympiakos Nicosia",
+        "Omonia Nicosia"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Names not native keys; no future scores imported."
     }
   }
 ]

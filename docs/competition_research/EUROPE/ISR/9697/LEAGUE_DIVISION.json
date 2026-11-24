@@ -11,7 +11,6 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -41,7 +40,7 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
+      "officialName": "Liga Leumit",
       "nonCommercialDisplayName": "Liga Leumit",
       "candidateName": "Liga Leumit",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
@@ -72,6 +71,28 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Observed historical season; neutral English labels not necessarily exact official local-language names. No complete fixture/participant mapping, no result import."
+    },
+    "sportRuleEvidence79": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 16,
+        "gamesPerClub": 30,
+        "meetingsPerOpponent": 2,
+        "pointsWin": 3,
+        "directRelegated": [
+          15,
+          16
+        ],
+        "directPromotedTier2": [
+          1,
+          2
+        ]
+      },
+      "dates": {
+        "firstRound": "1996-08-24"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Dated opening and tier movement established; keys and full dates not reconciled."
     }
   }
 ]

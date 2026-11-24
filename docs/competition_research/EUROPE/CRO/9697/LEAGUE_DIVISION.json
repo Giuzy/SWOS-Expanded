@@ -11,12 +11,11 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -41,13 +40,47 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Prva A liga",
+      "nonCommercialDisplayName": "Prva HNL",
       "candidateName": "Prva HNL",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/resultsp99.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence77": {
+      "edition": "1996/97",
+      "rules": {
+        "edition": "1996/97",
+        "teams": 16,
+        "regularOrInitialGamesPerClub": 30,
+        "pointsWin": 3,
+        "formatAndMovement": "Double RR; bottom 3 direct, ranks 11–13 playoff with three tier 1/B clubs for two places, two groups of three single RR; transition to 12 in 97/98.",
+        "scope": "Observed structure; exceptional events and future results not imported. Participant keys, exact calendar, prestart state and match rules still open."
+      },
+      "dates": {
+        "firstRound": "1996-08-18"
+      },
+      "participants": [
+        "Varteks",
+        "Hrvatski dragovoljac",
+        "Marsonia",
+        "Osijek",
+        "Croatia Zagreb",
+        "Šibenik",
+        "Hajduk",
+        "Orijent",
+        "Rijeka",
+        "Istra",
+        "Mladost 127",
+        "Zagreb",
+        "Cibalia",
+        "Inker",
+        "Segesta",
+        "Zadarkomerc"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "16 actual vs 12 native; reconciliation required; no later results imported."
     }
   }
 ]

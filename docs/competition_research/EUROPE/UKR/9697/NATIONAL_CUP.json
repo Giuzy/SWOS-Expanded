@@ -12,24 +12,51 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Кубок України",
       "candidateName": "Ukrainian Cup",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence79": {
+      "edition": "1996/97",
+      "rules": {
+        "R32Legs": 1,
+        "R16Legs": 1,
+        "QFLegs": 2,
+        "SFLegs": 2,
+        "finalLegs": 1,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "dates": {
+        "reportedStart": "1996-08-14",
+        "R32": "1996-10-09",
+        "R16": "1996-10-17",
+        "QF": [
+          "1996-10-30",
+          "1996-11-13"
+        ],
+        "SF": [
+          "1997-03-06",
+          "1997-03-10"
+        ],
+        "final": "1997-05-25"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Earliest date secondary search excerpt only; individual dates and exact early entrant counts open."
     }
   }
 ]

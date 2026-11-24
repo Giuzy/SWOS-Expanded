@@ -13,7 +13,6 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,7 +22,7 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Mozzart Bet Super liga Srbije",
       "nonCommercialDisplayName": "Super liga Srbije",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
@@ -46,6 +45,43 @@
         "https://www.superliga.rs/sezona/tabela-takmicenja/"
       ],
       "scope": "Split supported by search excerpt, full page timeout. 2027/28 adopted 12-team change recorded separately, no game policy assumed."
+    },
+    "sportRuleEvidence78": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 14,
+        "regularGames": 26,
+        "groups": [
+          6,
+          8
+        ],
+        "extraGames": [
+          5,
+          7
+        ],
+        "totalGamesPerClub": [
+          31,
+          33
+        ],
+        "directRelegated": [
+          11,
+          12,
+          13,
+          14
+        ],
+        "expectedDirectPromotedTier2": 2,
+        "nextEditionTeams": 12
+      },
+      "dates": {
+        "nominalStart": "2026-07-18",
+        "actualOpening": "2026-07-17",
+        "winterBreakAfter": "2026-12-06",
+        "winterRestart": "2027-02-06",
+        "nominalEnd": "2027-05-16",
+        "autumnRounds": 18
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "2027/28 reduction announced; no template decision assumed. Full regulation page blocked; carry points, tie-break, match eligibility and individual dates not certified."
     }
   }
 ]

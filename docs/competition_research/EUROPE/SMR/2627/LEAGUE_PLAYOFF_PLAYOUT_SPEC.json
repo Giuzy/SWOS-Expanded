@@ -12,8 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -30,6 +29,50 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence81": {
+      "edition": "2026/27",
+      "rules": {
+        "parentRow": 301,
+        "directRanks": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "preliminaryPairs": [
+          [
+            8,
+            11
+          ],
+          [
+            9,
+            10
+          ]
+        ],
+        "preliminaryLegs": 1,
+        "preliminaryTie": "higher regular-season rank advances after 90 minutes",
+        "QFandSFLegs": 2,
+        "QFandSFTie": "higher regular-season rank advances if tied on points and aggregate GD",
+        "placementFinals": [
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "finalLegs": 1,
+        "finalExtraTime": true,
+        "finalPenalties": true
+      },
+      "dates": {},
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Placement playoff, not title or separate edition."
     }
   }
 ]

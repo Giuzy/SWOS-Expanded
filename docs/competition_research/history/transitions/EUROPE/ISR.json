@@ -58,5 +58,60 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block47 RSSSF retrieved HTML/search excerpts; TFF history excerpt only after open timeout."
     }
+  },
+  {
+    "index": 502,
+    "value": {
+      "competition": "ISR tier 1",
+      "firstEdition": "2009/10",
+      "lastEdition": "2010/11",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        16,
+        257
+      ],
+      "rules": {
+        "teams": 16,
+        "pointsHalvedAfterDoubleRR": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "2009/10–2010/11 experiment; exact rounding and splits unresolved."
+    }
+  },
+  {
+    "index": 503,
+    "value": {
+      "competition": "ISR tier 1",
+      "firstEdition": "2011/12",
+      "lastEdition": "2011/12",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        257
+      ],
+      "rules": {
+        "teams": 16,
+        "pointsHalved": false,
+        "directRelegated": 3,
+        "directPromotedTier2": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Transition to fourteen; contemporaneous decision, actual exceptional movement not audited."
+    }
+  },
+  {
+    "index": 504,
+    "value": {
+      "competition": "ISR tier 1",
+      "firstEdition": "2012/13",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        257
+      ],
+      "rules": {
+        "teams": 14
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Later split and access rules not assumed constant."
+    }
   }
 ]

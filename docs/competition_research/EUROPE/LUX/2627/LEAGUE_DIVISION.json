@@ -12,24 +12,54 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "BGL Ligue",
+      "nonCommercialDisplayName": "Division Nationale",
       "candidateName": "National Division",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/European_Leagues",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence81": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 16,
+        "gamesPerClub": 30,
+        "meetingsPerOpponent": 2,
+        "directRelegated": [
+          15,
+          16
+        ],
+        "playoffPairs": [
+          [
+            13,
+            4
+          ],
+          [
+            14,
+            3
+          ]
+        ],
+        "nationalLicenseRequired": true
+      },
+      "dates": {
+        "nominalStart": "2026-08-02",
+        "observedOpening": "2026-08-01",
+        "nominalWinterRestart": "2027-02-07",
+        "nominalEnd": "2027-05-23"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Playoff pairs secondary; PDF screenshot failed; exact match dates unresolved."
     }
   }
 ]

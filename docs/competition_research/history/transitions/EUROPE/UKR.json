@@ -15,5 +15,132 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 30 actual web search excerpts; exact sporting identity and structural reform independently checked before runtime. No sponsor names."
     }
+  },
+  {
+    "index": 495,
+    "value": {
+      "competition": "UKR tier 1",
+      "firstEdition": "2000/01",
+      "lastEdition": "2001/02",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        34,
+        314
+      ],
+      "rules": {
+        "teams": 14
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Retrospective season-size table; no full format or movement assumed."
+    }
+  },
+  {
+    "index": 496,
+    "value": {
+      "competition": "UKR tier 1",
+      "firstEdition": "2002/03",
+      "lastEdition": "2013/14",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        34,
+        314
+      ],
+      "rules": {
+        "teams": 16
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Retrospective season-size table; no full format or movement assumed."
+    }
+  },
+  {
+    "index": 497,
+    "value": {
+      "competition": "UKR tier 1",
+      "firstEdition": "2014/15",
+      "lastEdition": "2015/16",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        34,
+        314
+      ],
+      "rules": {
+        "teams": 14
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Retrospective season-size table; no full format or movement assumed."
+    }
+  },
+  {
+    "index": 498,
+    "value": {
+      "competition": "UKR tier 1",
+      "firstEdition": "2016/17",
+      "lastEdition": "2019/20",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        34,
+        314
+      ],
+      "rules": {
+        "teams": 12
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Retrospective season-size table; no full format or movement assumed."
+    }
+  },
+  {
+    "index": 499,
+    "value": {
+      "competition": "UKR tier 1",
+      "firstEdition": "2020/21",
+      "lastEdition": "2020/21",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        34,
+        314
+      ],
+      "rules": {
+        "teams": 14
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Retrospective season-size table; no full format or movement assumed."
+    }
+  },
+  {
+    "index": 500,
+    "value": {
+      "competition": "UKR tier 1",
+      "firstEdition": "2021/22",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        34,
+        314
+      ],
+      "rules": {
+        "teams": 16
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Retrospective season-size table; no full format or movement assumed."
+    }
+  },
+  {
+    "index": 501,
+    "value": {
+      "competition": "UKR national cup",
+      "firstEdition": "1996/97",
+      "lastEdition": "1996/97",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        145
+      ],
+      "rules": {
+        "R32Legs": 1,
+        "R16Legs": 1,
+        "QFLegs": 2,
+        "SFLegs": 2,
+        "finalLegs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

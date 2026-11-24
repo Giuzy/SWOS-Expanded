@@ -12,24 +12,48 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Kupa e Shqipërisë",
       "candidateName": "Albanian Cup",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence80": {
+      "edition": "1996/97",
+      "rules": {
+        "observedFirstRoundEntrants": 32,
+        "R32Legs": 2,
+        "R16Legs": 2,
+        "QFLegs": 2,
+        "SFLegs": 1,
+        "finalLegs": 1,
+        "awayGoals": true,
+        "extraTime": true,
+        "penalties": true
+      },
+      "dates": {
+        "openingMonth": "1996-08",
+        "R32Months": [
+          "1996-08",
+          "1996-09"
+        ],
+        "R16Month": "1997-01",
+        "final": "1997-05-03"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Secondary round table only; first exact date unknown. Contrary textual claim of entrants joining second round not supported by listed bracket. European access not certified."
     }
   }
 ]

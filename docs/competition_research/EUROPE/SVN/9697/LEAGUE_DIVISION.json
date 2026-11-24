@@ -11,12 +11,11 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -41,13 +40,43 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "1. SNL",
+      "nonCommercialDisplayName": "Slovenska nogometna liga",
       "candidateName": "PrvaLiga",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/resultsp99.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence78": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 10,
+        "gamesPerClub": 36,
+        "meetingsPerOpponent": 4,
+        "directRelegatedRank": 10,
+        "playoffRank": 9,
+        "playoffLegs": 2,
+        "pointsWin": 3
+      },
+      "dates": {
+        "reportedStart": "1996-08-04",
+        "reportedEnd": "1997-06-01"
+      },
+      "participants": [
+        "Maribor Branik",
+        "Primorje Ajdovščina",
+        "HIT Nova Gorica",
+        "Publikum Celje",
+        "Olimpija Ljubljana",
+        "Korotan Prevalje (Nova Oprema KS)",
+        "Mura Murska Sobota",
+        "Rudar Velenje",
+        "NK Beltinci",
+        "NK Koper"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Start date from secondary seasonal article; full calendar and keys unresolved."
     }
   }
 ]

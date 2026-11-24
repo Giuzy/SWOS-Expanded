@@ -12,24 +12,96 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Campionato Sammarinese Girone Unico",
+      "nonCommercialDisplayName": "Campionato Sammarinese",
       "candidateName": "Campionato Sammarinese di Calcio",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/European_Leagues",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence81": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 16,
+        "regularGamesPerClub": 30,
+        "meetingsPerOpponent": 2,
+        "champion": "rank1 regular season",
+        "playoffs": {
+          "directRanks": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "preliminaryPairs": [
+            [
+              8,
+              11
+            ],
+            [
+              9,
+              10
+            ]
+          ],
+          "preliminaryLegs": 1,
+          "preliminaryTie": "higher regular-season rank advances after 90 minutes",
+          "QFandSFLegs": 2,
+          "QFandSFTie": "higher regular-season rank advances if tied on points and aggregate GD",
+          "placementFinals": [
+            [
+              2,
+              3
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "finalLegs": 1,
+          "finalExtraTime": true,
+          "finalPenalties": true
+        },
+        "relegation": false,
+        "participants": [
+          "Virtus",
+          "La Fiorita",
+          "Tre Fiori",
+          "Pennarossa",
+          "Tre Penne",
+          "San Giovanni",
+          "Folgore",
+          "Murata",
+          "Cailungo",
+          "Domagnano",
+          "San Marino Academy U22",
+          "Fiorentino",
+          "Juvenes Dogana",
+          "Faetano",
+          "Cosmos",
+          "Libertas"
+        ]
+      },
+      "dates": {
+        "firstRound": [
+          "2026-08-28",
+          "2026-08-30"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Art51 text; screenshots failed. Individual dates, playoff draw and European eligibility unresolved."
     }
   }
 ]

@@ -60,7 +60,16 @@
           "Apollon Limassol"
         ],
         "semifinalLegs": 2,
-        "otherRoundsLegs": 1
+        "otherRoundsLegs": 1,
+        "eligibleTiers": [
+          1,
+          2
+        ],
+        "R16Entrants": 16,
+        "awayGoals": false,
+        "extraTime": true,
+        "penalties": true,
+        "lowerTierCupSeparate": true
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block46 source retrieval; see evidence46 and namingResearch.block46."
@@ -116,10 +125,71 @@
         "preliminaryAndFirstRound": "single match, extra time, replay away venue, extra time and penalties if still tied",
         "semifinalLegs": 2,
         "finalDate": "1997-05-17",
-        "finalLegs": 1
+        "finalLegs": 1,
+        "R16Legs": 2,
+        "QFLegs": 2,
+        "awayGoals": true,
+        "awayGoalsInExtraTime": true
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block47 RSSSF retrieved HTML/search excerpts; TFF history excerpt only after open timeout."
+    }
+  },
+  {
+    "index": 519,
+    "value": {
+      "competition": "CYP tier 1",
+      "firstEdition": "2007/08",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        7,
+        226
+      ],
+      "rules": {
+        "teams": 14,
+        "regularGames": 26,
+        "split": [
+          4,
+          4,
+          4
+        ],
+        "extraGames": 6,
+        "bottomTwoDirectBeforeSplit": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Contemporaneous announcement; end validity not independently determined."
+    }
+  },
+  {
+    "index": 520,
+    "value": {
+      "competition": "CYP tier 1",
+      "firstEdition": "2026/27",
+      "lastEdition": "2026/27",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        226
+      ],
+      "rules": {
+        "teams": 14,
+        "regularGames": 26,
+        "split": [
+          6,
+          8
+        ],
+        "extraGames": [
+          10,
+          7
+        ],
+        "carryPoints": true,
+        "directRelegated": [
+          12,
+          13,
+          14
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Federation regulation p9 visually checked; bottom eight now one round, not two."
     }
   }
 ]

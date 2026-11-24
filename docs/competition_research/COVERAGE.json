@@ -1,36 +1,36 @@
 {
   "denominator": 533,
   "namesWithEvidenceOrCandidate": 432,
-  "namesSourceSupportedPartial": 277,
+  "namesSourceSupportedPartial": 301,
   "nameHistoryComplete": 2,
-  "rulesPartial": 310,
-  "lifecyclePartial": 63,
+  "rulesPartial": 335,
+  "lifecyclePartial": 76,
   "cutoffPartial": 62,
   "datesReconciled": 0,
   "participantKeysReconciled": 0,
   "matchRulesCertified": 0,
-  "historicalTransitions": 468,
+  "historicalTransitions": 528,
   "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material. July 1 coverage is scoped to necessary initial historical state only; do not compute against global denominator. Report partial active rows separately from archive candidates and do not count merely available sources or future editions. User confirmed provisional working denominator 59 on 24/11/2026; expanded to 60 at block70 after discovering KNVB Beker preliminary matches in June 1996; expanded again to 61 at block74 (Polish Cup preliminary in June 1996); display as provisional until final census. No source-link coverage dimension; prioritize sporting fields. Global source-link cleanup suspended by user; no new link fields in subsequent research.",
   "namingByWorld": {
     "historical": {
       "denominator": 182,
-      "sourceSupported": 98
+      "sourceSupported": 112
     },
     "modern": {
       "denominator": 351,
-      "sourceSupported": 179
+      "sourceSupported": 189
     }
   },
-  "rawTransitionRecords": 473,
+  "rawTransitionRecords": 533,
   "transitionCountNote": "Original dashboard count retains preexisting five-record discrepancy; newly appended source-backed records counted individually, not certified unique globally.",
-  "lastPreparedBlock": 76,
+  "lastPreparedBlock": 81,
   "cutoffArchivePartial": 1,
   "cutoffDenominator": 61,
   "cutoffApplicability": {
     "knownPartialActiveRows": 62,
     "knownPartialArchiveCandidates": 1,
-    "explicitUnknownRows": 18,
-    "knownNotApplicableCurrentEditionRows": 102,
+    "explicitUnknownRows": 34,
+    "knownNotApplicableCurrentEditionRows": 130,
     "aliasCandidates": [
       [
         321,

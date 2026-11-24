@@ -41,7 +41,7 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
+      "officialName": "A PFG (А ПФГ)",
       "nonCommercialDisplayName": "A Group",
       "candidateName": "A Group",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
@@ -72,6 +72,22 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Observed historical season; neutral English labels not necessarily exact official local-language names. No complete fixture/participant mapping, no result import."
+    },
+    "sportRuleEvidence77": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 16,
+        "gamesPerClub": 30,
+        "pointsWin": 3,
+        "directRelegated": [
+          14,
+          15,
+          16
+        ],
+        "observedHeadToHeadAwayGoals": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Earliest actual match date not established."
     }
   }
 ]

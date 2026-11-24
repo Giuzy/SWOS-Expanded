@@ -1,0 +1,84 @@
+[
+  {
+    "index": 521,
+    "value": {
+      "competition": "LUX tier 1",
+      "firstEdition": "2006/07",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        19,
+        266
+      ],
+      "rules": {
+        "teams": 14
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 522,
+    "value": {
+      "competition": "LUX tier 1",
+      "firstEdition": "2007/08",
+      "operation": "RENAME",
+      "rowRefs": [
+        19,
+        266
+      ],
+      "rules": {
+        "previousName": "Division Nationale",
+        "name": "Fortis Ligue"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Sponsor change; secondary chronology."
+    }
+  },
+  {
+    "index": 523,
+    "value": {
+      "competition": "LUX tier 1",
+      "firstEdition": "2008/09",
+      "operation": "RENAME",
+      "rowRefs": [
+        266
+      ],
+      "rules": {
+        "previousName": "Fortis Ligue",
+        "name": "BGL Ligue"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Change during season after Fortis crisis; exact effective date not certified."
+    }
+  },
+  {
+    "index": 524,
+    "value": {
+      "competition": "LUX tier 1",
+      "firstEdition": "2020/21",
+      "operation": "CHANGE_TEAM_COUNT",
+      "rowRefs": [
+        266
+      ],
+      "rules": {
+        "teams": 16
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "After previous season interruption; not a recurring automatic expansion."
+    }
+  },
+  {
+    "index": 525,
+    "value": {
+      "competition": "LUX tier 1",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_ELIGIBILITY",
+      "rowRefs": [
+        266
+      ],
+      "rules": {
+        "nationalLicenseRequired": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  }
+]

@@ -105,11 +105,40 @@
       "firstEdition": "2026/27",
       "operation": "CHANGE_TEAM_COUNT",
       "rowRefs": [
-        219
+        219,
+        453
       ],
       "source": "https://europeanleagues.com/infocus-bpfl/",
       "rules": {
-        "teams": 14
+        "teams": 14,
+        "regularGames": 26,
+        "groups": [
+          4,
+          4,
+          6
+        ],
+        "extraGames": [
+          6,
+          6,
+          5
+        ],
+        "carryPoints": true,
+        "playoffPairs": [
+          [
+            12,
+            3
+          ],
+          [
+            13,
+            2
+          ]
+        ],
+        "directRelegated": [
+          14
+        ],
+        "directPromotedTier2": [
+          1
+        ]
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block45 verified source text or search excerpt; TFF p1 screenshot."
@@ -161,6 +190,26 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block47 RSSSF retrieved HTML/search excerpts; TFF history excerpt only after open timeout."
+    }
+  },
+  {
+    "index": 473,
+    "value": {
+      "competition": "BUL national cup",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_ACCESS",
+      "rowRefs": [
+        337
+      ],
+      "rules": {
+        "tier1Direct": 14,
+        "tier2": 16,
+        "regional": 20,
+        "secondPreliminaryWinners": 18,
+        "mainEntrants": 32,
+        "semifinalLegs": 2
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

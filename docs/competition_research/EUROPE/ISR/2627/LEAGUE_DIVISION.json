@@ -13,7 +13,6 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,7 +22,7 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Ligat TOTO Winner",
       "nonCommercialDisplayName": "Ligat ha'Al",
       "candidateName": "Ligat ha'Al",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
@@ -58,6 +57,38 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "TFF PDF p1 screenshot verified; Bulgarian league HTML opened; other sources search excerpts only, EPO/RSSSF open cache miss. No full calendar or player rules certification."
+    },
+    "sportRuleEvidence79": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 14,
+        "regularGames": 26,
+        "splitGroups": [
+          6,
+          8
+        ],
+        "additionalGames": [
+          10,
+          7
+        ],
+        "totalGames": [
+          36,
+          33
+        ],
+        "directRelegated": [
+          13,
+          14
+        ]
+      },
+      "dates": {
+        "nominalStart": "2026-08-22",
+        "regularRound26": "2027-03-06",
+        "reportedEnd": "2027-05-22",
+        "separateSuperCup": "2026-07-16",
+        "separateTotoCupStart": "2026-07-25"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Modern split/last date from secondary excerpts; federation July championship rules unavailable, tiebreak/carry/eligibility not independently certified."
     }
   }
 ]

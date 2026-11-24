@@ -26,7 +26,7 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Sesame Купа на България",
       "nonCommercialDisplayName": "Kupa na Bulgaria",
       "candidateName": "Bulgarian Cup",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
@@ -66,6 +66,40 @@
       ],
       "limitations": "Observed main national stage, not regional preliminaries.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "sportRuleEvidence77": {
+      "edition": "2026/27",
+      "rules": {
+        "regionalQualifiers": 20,
+        "regionalQualificationLegs": 1,
+        "regionalTie": "direct penalties after 90 minutes",
+        "secondPreliminary": {
+          "tier2": 16,
+          "regional": 20,
+          "winners": 18,
+          "legs": 1,
+          "regionalHosts": true
+        },
+        "roundOf32": {
+          "tier1": 14,
+          "preliminaryWinners": 18,
+          "legs": 1,
+          "preliminaryHosts": true
+        },
+        "roundOf16Legs": 1,
+        "quarterfinalLegs": 1,
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "roundOf16QuarterfinalDraw": "open draw first drawn hosts",
+        "semifinalFirstHome": "first drawn",
+        "europeanAccess": "cup winner; league champion double reallocates Europa to league rank 2, Conference playoff rank 4 instead of cup finalist"
+      },
+      "dates": {
+        "observedRegionalOpening": "2026-08-12",
+        "roundOf32Draw": "2026-09-23"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Earliest full regional census and individual dates not verified; official article text available but cup-page screenshots failed. No pre-cutoff state asserted."
     }
   }
 ]

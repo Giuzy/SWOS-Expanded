@@ -12,8 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -40,6 +39,98 @@
         }
       ],
       "historyComplete": false
+    },
+    "sportRuleEvidence79": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 16,
+        "gamesPerClub": 30,
+        "meetingsPerOpponent": 2,
+        "directRelegated": [
+          15,
+          16
+        ],
+        "directPromotedTier2": [
+          1,
+          2
+        ],
+        "playoffPairs": [
+          [
+            13,
+            4
+          ],
+          [
+            14,
+            3
+          ]
+        ],
+        "playoffLegs": 2,
+        "playoffHomeOrder": "draw",
+        "tier2LicenseRequired": true,
+        "tier2Refusal": "next eligible licensed rank",
+        "excludedTier1Rank1to13": {
+          "directRelegated": [
+            16
+          ],
+          "playoffRanks": [
+            14,
+            15
+          ]
+        },
+        "excludedTier1Rank14": {
+          "directRelegated": [
+            16
+          ],
+          "playoffRanks": [
+            13,
+            15
+          ]
+        }
+      },
+      "dates": {
+        "nominalRoundDates": [
+          "2026-08-01",
+          "2026-08-08",
+          "2026-08-15",
+          "2026-08-29",
+          "2026-09-05",
+          "2026-09-12",
+          "2026-09-19",
+          "2026-10-10",
+          "2026-10-17",
+          "2026-10-24",
+          "2026-10-31",
+          "2026-11-07",
+          "2026-11-21",
+          "2026-11-28",
+          "2026-12-05",
+          "2026-12-12",
+          "2027-02-27",
+          "2027-03-06",
+          "2027-03-13",
+          "2027-03-20",
+          "2027-04-03",
+          "2027-04-10",
+          "2027-04-17",
+          "2027-04-24",
+          "2027-05-01",
+          "2027-05-08",
+          "2027-05-15",
+          "2027-05-22",
+          "2027-05-29",
+          "2027-06-04"
+        ],
+        "firstActualRoundOpening": "2026-07-31",
+        "observedRescheduling": {
+          "home": "Dynamo Kyiv",
+          "away": "Livyi Bereh",
+          "nominal": "2026-08-01",
+          "rescheduled": "2026-12-02",
+          "reason": "unknown"
+        }
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Nominal dates not individual actual fixtures; regulation text p25/26 and quoted article available, screenshots failed; no full match eligibility certification."
     }
   }
 ]

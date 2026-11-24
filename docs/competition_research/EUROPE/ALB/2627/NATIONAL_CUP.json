@@ -12,8 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -30,6 +29,33 @@
       "source": "74773c7245a34ebee48aa97ff451c707b3d41cf5",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence80": {
+      "edition": "2026/27",
+      "rules": {
+        "preliminaryEntrants": 4,
+        "preliminaryWinners": 2,
+        "R32StageEntrants": 32,
+        "R32Entry": {
+          "previousTier1Ranks": [
+            9,
+            10
+          ],
+          "previousTier2": 12,
+          "previousTier3GroupA": 8,
+          "previousTier3GroupB": 8,
+          "preliminaryWinners": 2
+        },
+        "remainingTopTierEntrants": 8,
+        "remainingEntryStage": "R16 reported, not full regulation verified"
+      },
+      "dates": {
+        "preliminary": "2026-09-16",
+        "firstMainRound": "2026-10-06",
+        "nominalFinal": "2027-05-12"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Federation opening and final, contemporary press confirms access. Full amended rules and remaining phase dates not obtained."
     }
   }
 ]

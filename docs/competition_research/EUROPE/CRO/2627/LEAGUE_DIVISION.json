@@ -13,7 +13,6 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,7 +22,7 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "SuperSport HNL",
       "nonCommercialDisplayName": "Hrvatska nogometna liga",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
@@ -45,6 +44,48 @@
         "source": "https://hnl.hr/news/31555/nova-sezona-supersport-hnl-a-rast-natjecanja-na-svim-razinama/"
       },
       "scope": "No full annual rules or dates certified."
+    },
+    "sportRuleEvidence77": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 10,
+        "gamesPerClub": 36,
+        "meetingsPerOpponent": 4,
+        "directRelegatedRank": 10,
+        "directPromotedTier2Rank": 1,
+        "matchDays": "Fri/Sat/Sun usually; Thursday UEFA participant plays Sunday or requested Monday subject to agreement if away",
+        "lastRoundSimultaneous": true
+      },
+      "dates": {
+        "start": "2026-07-31",
+        "end": "2027-05-23"
+      },
+      "participants": [
+        "GNK Dinamo",
+        "HNK Gorica",
+        "HNK Hajduk",
+        "HNK Rijeka",
+        "NK Istra 1961",
+        "NK Lokomotiva",
+        "NK Osijek",
+        "NK Rudeš",
+        "NK Slaven Belupo",
+        "NK Varaždin"
+      ],
+      "matchRules": {
+        "minimumAge": 17,
+        "exceptionAge": 16,
+        "exceptionRequiresConsent": true,
+        "minimumNationallyTrainedMatchSheet": 6,
+        "nationallyTrainedDefinition": "four seasons registered at HNS clubs between seasons of ages 12 and 19; current season excluded",
+        "maxForeignPlayersUsed": 5,
+        "foreignExemptions": "Croatian dual nationals and EU/EEA citizens",
+        "bench": 12,
+        "substitutions": 5,
+        "substitutionWindows": 3
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Relegation from 2025/26 format; 2026/27 direct promotion/relegation article not independently reread. Exact fixture dates and IDs still unreconciled."
     }
   }
 ]

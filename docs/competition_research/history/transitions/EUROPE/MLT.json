@@ -1,0 +1,67 @@
+[
+  {
+    "index": 526,
+    "value": {
+      "competition": "MLT tier 1",
+      "firstEdition": "2024/25",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        20,
+        273,
+        467
+      ],
+      "rules": {
+        "teams": 12,
+        "previousTeams": 14,
+        "rounds": [
+          "Opening",
+          "Closing"
+        ],
+        "leagueGamesPerRound": 11,
+        "split": [
+          6,
+          6
+        ],
+        "splitGamesPerRound": 5,
+        "carryBetweenRounds": false
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 527,
+    "value": {
+      "competition": "MLT tier 1",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_PLAYOFF_RULES",
+      "rowRefs": [
+        273,
+        467
+      ],
+      "rules": {
+        "sameRunnerUpBoth": "direct placement",
+        "threeDistinctRepeatedWinnerRunnerUp": "bye to final",
+        "threeDistinctRepeatedRunnerUp": "third, winners play final"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 528,
+    "value": {
+      "competition": "MLT tier 1",
+      "firstEdition": "2027/28",
+      "operation": "ANNOUNCED_EXTENSION",
+      "rowRefs": [
+        273,
+        467
+      ],
+      "rules": {
+        "formatRetained": true,
+        "announcedDurationSeasons": 5
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "November 2026 club vote; future rules not automatically a game override."
+    }
+  }
+]

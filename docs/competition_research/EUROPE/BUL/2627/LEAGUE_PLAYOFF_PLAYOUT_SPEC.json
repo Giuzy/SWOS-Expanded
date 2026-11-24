@@ -12,7 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -30,6 +30,29 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence77": {
+      "edition": "2026/27",
+      "parentRow": 219,
+      "rules": {
+        "playoffPairs": [
+          [
+            12,
+            3
+          ],
+          [
+            13,
+            2
+          ]
+        ],
+        "legCount": 1,
+        "home": "tier1 team",
+        "extraTime": true,
+        "penalties": true,
+        "conferencePlayoff": "rank 3/4 versus 5/6 depending on cup winner; one match home higher group"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Phase of parent league, not independent competition; dates and keys not reconciled."
     }
   }
 ]

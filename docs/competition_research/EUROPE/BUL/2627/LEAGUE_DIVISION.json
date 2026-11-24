@@ -13,7 +13,6 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,8 +22,8 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": "First League",
+      "officialName": "efbet Лига",
+      "nonCommercialDisplayName": "Първа професионална лига",
       "candidateName": "First Professional Football League",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://bulgarian-football.com/archive/2025-2026/reglament.html",
@@ -91,6 +90,81 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "TFF PDF p1 screenshot verified; Bulgarian league HTML opened; other sources search excerpts only, EPO/RSSSF open cache miss. No full calendar or player rules certification."
+    },
+    "sportRuleEvidence77": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 14,
+        "regularGames": 26,
+        "groups": [
+          4,
+          4,
+          6
+        ],
+        "extraGames": [
+          6,
+          6,
+          5
+        ],
+        "carryPoints": true,
+        "bottomGroupHomeGamesByInitialRank": {
+          "9-11": 3,
+          "12-14": 2
+        },
+        "directRelegated": [
+          14
+        ],
+        "directPromotedTier2": [
+          1
+        ],
+        "playoffPairs": [
+          [
+            12,
+            3
+          ],
+          [
+            13,
+            2
+          ]
+        ],
+        "playoffLegs": 1,
+        "playoffHome": "tier1 club",
+        "extraTime": true,
+        "penalties": true,
+        "conferencePlayoff": "rank 3/4 versus 5/6 depending on cup winner; one match home higher group",
+        "tieBreakers": [
+          "points",
+          "H2H points",
+          "H2H goal difference",
+          "H2H goals",
+          "H2H away goals only exactly two clubs",
+          "overall goal difference",
+          "overall goals",
+          "fair play",
+          "champion decider if needed",
+          "draw"
+        ],
+        "bottomGroupTieBreakScope": "marked criteria use first-phase records only"
+      },
+      "dates": {
+        "openingWindow": [
+          "2026-07-17",
+          "2026-07-20"
+        ],
+        "nominalEnd": "2027-05-29"
+      },
+      "matchRules": {
+        "minimumLocalMatchSheet": 5,
+        "minimumLocalStarters": 4,
+        "under23Starter": true,
+        "under23BirthAfter": "2003-01-01",
+        "minimumUnder23Minutes": 45,
+        "localQuotaOptOutFeeEUR": 300000,
+        "under23StillMandatory": true,
+        "localDefinition": "registered with BFU for at least 3 years between ages 15 and 21 and eligible for Bulgaria"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Article on match eligibility and league rules checked; full calendar, club keys, all disciplinary and exceptional match rules not certified."
     }
   }
 ]

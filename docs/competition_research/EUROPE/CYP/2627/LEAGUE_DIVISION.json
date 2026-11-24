@@ -13,7 +13,6 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,7 +22,7 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Cyprus League by Stoiximan",
       "nonCommercialDisplayName": "Cypriot First Division",
       "candidateName": "Cypriot First Division",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
@@ -77,6 +76,344 @@
       ],
       "limitations": "Official CFA published planned windows, not played fixture dates.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "sportRuleEvidence80": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 14,
+        "regularGames": 26,
+        "splitGroups": [
+          6,
+          8
+        ],
+        "extraGames": [
+          10,
+          7
+        ],
+        "carryPoints": true,
+        "bottomHomeGamesByInitialRank": {
+          "7-10": 4,
+          "11-14": 3
+        },
+        "directRelegated": [
+          12,
+          13,
+          14
+        ],
+        "relegationReductionIfMissingEntrants": true,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "tieBreakers": [
+          "H2H points",
+          "H2H goal difference",
+          "H2H away goals",
+          "overall goal difference",
+          "overall goals"
+        ],
+        "tieBreakScope": "all championship matches between tied clubs, ranking separately within split groups",
+        "decider": {
+          "neutralVenue": true,
+          "legs": 1,
+          "extraTime": true,
+          "penalties": true
+        },
+        "splitRoundTemplates": {
+          "ordinalBase": 1,
+          "topRankOffset": 0,
+          "bottomRankOffset": 6,
+          "pairOrder": "home-away",
+          "top": [
+            [
+              [
+                6,
+                1
+              ],
+              [
+                2,
+                5
+              ],
+              [
+                4,
+                3
+              ]
+            ],
+            [
+              [
+                5,
+                6
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                3,
+                2
+              ]
+            ],
+            [
+              [
+                6,
+                4
+              ],
+              [
+                2,
+                1
+              ],
+              [
+                5,
+                3
+              ]
+            ],
+            [
+              [
+                1,
+                5
+              ],
+              [
+                4,
+                2
+              ],
+              [
+                6,
+                3
+              ]
+            ],
+            [
+              [
+                3,
+                1
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                5,
+                4
+              ]
+            ],
+            [
+              [
+                1,
+                6
+              ],
+              [
+                5,
+                2
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            [
+              [
+                6,
+                5
+              ],
+              [
+                4,
+                1
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            [
+              [
+                4,
+                6
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            [
+              [
+                5,
+                1
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                6
+              ]
+            ],
+            [
+              [
+                1,
+                3
+              ],
+              [
+                6,
+                2
+              ],
+              [
+                4,
+                5
+              ]
+            ]
+          ],
+          "bottom": [
+            [
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                7
+              ],
+              [
+                3,
+                6
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            [
+              [
+                8,
+                5
+              ],
+              [
+                6,
+                4
+              ],
+              [
+                7,
+                3
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            [
+              [
+                2,
+                8
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                4,
+                7
+              ],
+              [
+                5,
+                6
+              ]
+            ],
+            [
+              [
+                8,
+                6
+              ],
+              [
+                7,
+                5
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            [
+              [
+                3,
+                8
+              ],
+              [
+                4,
+                2
+              ],
+              [
+                5,
+                1
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            [
+              [
+                8,
+                7
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                2,
+                5
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            [
+              [
+                4,
+                8
+              ],
+              [
+                5,
+                3
+              ],
+              [
+                6,
+                2
+              ],
+              [
+                7,
+                1
+              ]
+            ]
+          ]
+        },
+        "licensePointPenaltyCarry": true
+      },
+      "dates": {
+        "nominalStartWindow": [
+          "2026-08-29",
+          "2026-08-30"
+        ],
+        "nominalRegularEndWindow": [
+          "2027-03-06",
+          "2027-03-07"
+        ],
+        "nominalEndWindow": [
+          "2027-05-22",
+          "2027-05-23"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Official league p9 screenshot confirmed; p10 text retrieved. Actual dates and keys not reconciled; full match eligibility not certified."
     }
   }
 ]

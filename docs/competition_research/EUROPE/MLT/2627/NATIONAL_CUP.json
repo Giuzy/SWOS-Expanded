@@ -12,24 +12,42 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Meridianbet FA Trophy",
+      "nonCommercialDisplayName": "FA Trophy",
       "candidateName": "FA Trophy",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence81": {
+      "edition": "2026/27",
+      "rules": {
+        "registeredTeams": 39,
+        "roundOf32Entrants": 32,
+        "premierEntry": "R32",
+        "knockout": true
+      },
+      "dates": {
+        "draw": "2026-11-19",
+        "roundOf32Window": [
+          "2026-12-18",
+          "2026-12-20"
+        ],
+        "nominalFinal": "2027-05-23"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Official draw extract; preliminary dates, entries and match rules unresolved."
     }
   }
 ]

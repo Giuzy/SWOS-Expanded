@@ -19,7 +19,21 @@
       "additionalSource": "https://fss.rs/branko-radujko-generalni-sekretar-fss-o-promeni-formata-takmicenja-i-dolasku-inostranog-strucnjaka-na-celo-sudijske-komisije/?script=lat",
       "note": "14 confirmed official decision and current table; split from official search excerpt only, full article timeout.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "Block43 official HTML opened and search excerpts retrieved; no PDF analyzed."
+      "verification": "Block43 official HTML opened and search excerpts retrieved; no PDF analyzed.",
+      "extraGames": [
+        5,
+        7
+      ],
+      "totalGames": [
+        31,
+        33
+      ],
+      "directRelegated": [
+        11,
+        12,
+        13,
+        14
+      ]
     }
   },
   {
@@ -36,6 +50,44 @@
       "note": "Adopted decision 29 May 2025; future format announcement, not actual played edition or authorized game template override.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block43 official HTML opened and search excerpts retrieved; no PDF analyzed."
+    }
+  },
+  {
+    "index": 493,
+    "value": {
+      "competition": "SRB tier 1",
+      "firstEdition": "2009/10",
+      "lastEdition": "2014/15",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        302
+      ],
+      "rules": {
+        "teams": 16,
+        "meetingsPerOpponent": 2,
+        "gamesPerClub": 30
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 494,
+    "value": {
+      "competition": "SRB tier 1",
+      "firstEdition": "2015/16",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        302
+      ],
+      "rules": {
+        "teams": 16,
+        "splitGroups": [
+          8,
+          8
+        ],
+        "extraGames": 7
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

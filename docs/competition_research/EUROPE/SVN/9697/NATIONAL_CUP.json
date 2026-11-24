@@ -12,7 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -30,6 +30,26 @@
       "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence78": {
+      "edition": "1996/97",
+      "rules": {
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 2
+      },
+      "dates": {
+        "semifinal": [
+          "1997-03-26",
+          "1997-04-09"
+        ],
+        "final": [
+          "1997-06-04",
+          "1997-06-11"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Earliest rounds and date not established; neutral local name not independently established for 1996/97."
     }
   }
 ]

@@ -12,8 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,13 +22,30 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "Coupe de Luxembourg",
-      "nonCommercialDisplayName": null,
+      "officialName": "Loterie Nationale Coupe de Luxembourg",
+      "nonCommercialDisplayName": "Coupe de Luxembourg",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "0e6407581e3d3a794597ca5dcb5becd00458ee68",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence81": {
+      "edition": "2026/27",
+      "rules": {
+        "observedPreliminaryPairs": 4,
+        "observedPreliminaryLegs": 1,
+        "observedFirstRoundLegs": 1
+      },
+      "dates": {
+        "openingDraw": "2026-08-17",
+        "observedPreliminary": "2026-09-02",
+        "nominalFirstRound": "2026-09-06",
+        "nominalSecondRound": "2026-09-20",
+        "nominalC3": "2026-11-08"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Full entry and later dates unresolved."
     }
   }
 ]

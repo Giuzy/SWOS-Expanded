@@ -16,7 +16,7 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -41,13 +41,46 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Kategoria e Parë",
+      "nonCommercialDisplayName": "Kategoria e Parë",
       "candidateName": "Kategoria e Parë",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/resultsp99.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence80": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 18,
+        "firstStageGamesPerClub": 17,
+        "pointsWin": 3,
+        "ordinaryFullSeasonLength": null
+      },
+      "participants": [
+        "Flamurtari Vlorë",
+        "SK Tirana",
+        "Vllaznia Shkodër",
+        "Apolonia Fier",
+        "Partizani Tiranë",
+        "Shkumbini Peqin",
+        "KS Laçi",
+        "KS Lushnja",
+        "Bylis Ballshi",
+        "Besa Kavajë",
+        "Teuta Durrës",
+        "Albania Tabak Librazhd",
+        "Tomori Berat",
+        "KS Elbasani",
+        "Shqiponja Gjirokastër",
+        "Olimpik Tiranë",
+        "Albpetrol Patos",
+        "Skënderbeu Korçë"
+      ],
+      "identityNote": "Sopoti Librazhd renamed Albania Tabak Librazhd, reverted during season per secondary account",
+      "exceptionalSeason": "Civil unrest interrupted season after 17 matches; subsequent three groups of six, Bylis/Tomori group assignment not explained. Not a recurring format or predetermined future event.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Exact opening day unknown; no July exclusion. Historical exceptional format needs user decision before simulation."
     }
   }
 ]

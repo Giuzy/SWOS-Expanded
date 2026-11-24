@@ -16,7 +16,7 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -42,12 +42,30 @@
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Division Nationale",
       "candidateName": "National Division",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/resultsp99.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence81": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 12,
+        "gamesPerClub": 22,
+        "directRelegated": [
+          11,
+          12
+        ],
+        "directPromotedTier2": [
+          1,
+          2
+        ]
+      },
+      "dates": {},
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Seasonal round dates unavailable."
     }
   }
 ]

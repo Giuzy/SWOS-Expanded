@@ -12,24 +12,70 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "VBET Malta Premier",
+      "nonCommercialDisplayName": "Malta Premier League",
       "candidateName": "Maltese Premier League",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/European_Leagues",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence81": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 12,
+        "rounds": [
+          "Opening",
+          "Closing"
+        ],
+        "leagueGamesPerRound": 11,
+        "splitGroups": [
+          6,
+          6
+        ],
+        "splitGamesPerRound": 5,
+        "carryBetweenRounds": false,
+        "regularGamesPerClub": 32,
+        "titleScenarios": {
+          "sameWinnerBoth": "champion directly",
+          "sameWinnerAndSameRunnerUp": "runner-up directly; repeated third/fourth directly ranked if prior positions settled",
+          "swappedWinnersAndRunnersUp": "single Finalissima",
+          "fourDistinctTopTwo": "Final Four",
+          "threeDistinctRepeatedWinnerRunnerUp": "that club bye to final; other two play semifinal",
+          "threeDistinctRepeatedRunnerUp": "repeated runner-up third; winners play Finalissima"
+        },
+        "relegationScenarios": {
+          "bothBottomTwoIdentical": "both relegated",
+          "oneRepeated": "one direct; other two play single decider",
+          "fourDistinct": "Opening bottom-group rank5 vs Closing rank6, and Opening rank6 vs Closing rank5; losers relegated",
+          "exception": "bottom-two club also top-two in either round exempt from one-overlap playoff; opponent relegated"
+        },
+        "aggregateScope": "include Top6 for comparison if both clubs played Top6 in both rounds, otherwise only 11-match league phases",
+        "aggregateTieBreak": [
+          "head-to-head points",
+          "head-to-head goal difference",
+          "head-to-head goals",
+          "overall goal difference"
+        ]
+      },
+      "dates": {
+        "openingWindow": [
+          "2026-08-14",
+          "2026-08-16"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Official base format; 2026/27 amendments from contemporary report, full amended statute not retrieved."
     }
   }
 ]

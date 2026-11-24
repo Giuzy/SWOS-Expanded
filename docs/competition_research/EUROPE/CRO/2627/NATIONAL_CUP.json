@@ -12,24 +12,65 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "SuperSport Hrvatski nogometni kup",
+      "nonCommercialDisplayName": "Hrvatski nogometni kup",
       "candidateName": "Croatian Cup",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence77": {
+      "edition": "2026/27",
+      "rules": {
+        "nationalStageEntrants": 48,
+        "preliminaryEntrants": 32,
+        "preliminaryWinners": 16,
+        "directRoundOf32": 16,
+        "countyWinners": 21,
+        "countyFinalists": 11,
+        "countyFinalistQuotaCriterion": "number of registered senior clubs June15; tie higher-tier club count then draw",
+        "nominationDeadline": "June 30",
+        "preliminaryPairing": "draw excluding same county association",
+        "coefficientYears": 5,
+        "coefficientPointsByRound": {
+          "R32": 1,
+          "R16": 2,
+          "QF": 4,
+          "SF": 8,
+          "finalist": 16,
+          "winner": 32
+        },
+        "directEntryLeadYears": 2,
+        "seedTieBreak": "prior league tier then rank then draw",
+        "roundOf32Pairing": "1-32,2-31 etc; weaker seed hosts; upset winner inherits higher seed",
+        "roundOf16Pairing": "1-16,2-15 etc; weaker seed hosts",
+        "quarterfinalAndSemifinalPairing": "open draw first drawn hosts",
+        "legs": 1
+      },
+      "dates": {
+        "nominalPreliminary": "2026-08-26",
+        "earliestReported": "2026-08-22",
+        "roundOf32": [
+          "2026-09-09",
+          "2026-09-16"
+        ],
+        "nominalSemifinal": "2027-04-21",
+        "nominalFinal": "2027-05-29"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "County cup qualifiers may belong to preceding season; distinguish access from current national-stage results. HNS 2025/26 onward instruction text retrieved but screenshots failed. 2027/28 eligibility change announced. Individual dates and club IDs not reconciled."
     }
   }
 ]

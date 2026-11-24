@@ -609,7 +609,10 @@
     "history/transitions/SOUTH_AMERICA/BRA.json",
     "history/transitions/EUROPE/GER.json",
     "history/transitions/EUROPE/ITA.json",
-    "history/transitions/EUROPE/ESP.json"
+    "history/transitions/EUROPE/ESP.json",
+    "history/transitions/EUROPE/ALB.json",
+    "history/transitions/EUROPE/LUX.json",
+    "history/transitions/EUROPE/MLT.json"
   ],
   "versions": [
     "history/league_versions/EUROPE/FRA.json",
@@ -1406,6 +1409,6 @@
   "metadata": "metadata.json",
   "coverage": "COVERAGE.json",
   "researchOnly": true,
-  "lastPreparedBlock": 76,
+  "lastPreparedBlock": 81,
   "cutoffScope": "CUTOFF_SCOPE.json"
 }

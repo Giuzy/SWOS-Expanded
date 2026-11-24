@@ -1,0 +1,298 @@
+[
+  {
+    "index": 505,
+    "value": {
+      "competition": "ALB tier 1",
+      "firstEdition": "1998/99",
+      "lastEdition": "1998/99",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        1,
+        200
+      ],
+      "rules": {
+        "teams": 16,
+        "regularCycles": 2,
+        "directRelegated": 3
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Secondary retrospective; field-specific partial validity, not full rules."
+    }
+  },
+  {
+    "index": 506,
+    "value": {
+      "competition": "ALB tier 1",
+      "firstEdition": "1999/00",
+      "lastEdition": "2002/03",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        1,
+        200
+      ],
+      "rules": {
+        "teams": 14,
+        "directRelegated": 2
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Secondary retrospective; field-specific partial validity, not full rules."
+    }
+  },
+  {
+    "index": 507,
+    "value": {
+      "competition": "ALB tier 1",
+      "firstEdition": "2003/04",
+      "lastEdition": "2005/06",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        1,
+        200
+      ],
+      "rules": {
+        "teams": 10,
+        "regularCycles": 4
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Secondary retrospective; field-specific partial validity, not full rules."
+    }
+  },
+  {
+    "index": 508,
+    "value": {
+      "competition": "ALB tier 1",
+      "firstEdition": "2006/07",
+      "lastEdition": "2010/11",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        1,
+        200
+      ],
+      "rules": {
+        "teams": 12
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Secondary retrospective; field-specific partial validity, not full rules."
+    }
+  },
+  {
+    "index": 509,
+    "value": {
+      "competition": "ALB tier 1",
+      "firstEdition": "2007/08",
+      "lastEdition": "2010/11",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        1,
+        200
+      ],
+      "rules": {
+        "directRelegated": 2,
+        "playoutPlaces": 2
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Secondary retrospective; field-specific partial validity, not full rules."
+    }
+  },
+  {
+    "index": 510,
+    "value": {
+      "competition": "ALB tier 1",
+      "firstEdition": "2011/12",
+      "lastEdition": "2011/12",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        1,
+        200
+      ],
+      "rules": {
+        "teams": 14,
+        "directRelegated": 2,
+        "playoutPlaces": 3
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Secondary retrospective; field-specific partial validity, not full rules."
+    }
+  },
+  {
+    "index": 511,
+    "value": {
+      "competition": "ALB tier 1",
+      "firstEdition": "2012/13",
+      "lastEdition": "2012/13",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        1,
+        200
+      ],
+      "rules": {
+        "directRelegated": 4
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Secondary retrospective; field-specific partial validity, not full rules."
+    }
+  },
+  {
+    "index": 512,
+    "value": {
+      "competition": "ALB tier 1",
+      "firstEdition": "2013/14",
+      "lastEdition": "2013/14",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        1,
+        200
+      ],
+      "rules": {
+        "teams": 12,
+        "regularCycles": 3,
+        "directRelegated": 4
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Secondary retrospective; field-specific partial validity, not full rules."
+    }
+  },
+  {
+    "index": 513,
+    "value": {
+      "competition": "ALB tier 1",
+      "firstEdition": "2014/15",
+      "lastEdition": "2018/19",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        1,
+        200
+      ],
+      "rules": {
+        "teams": 10,
+        "regularCycles": 4,
+        "directRelegated": 2
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Secondary retrospective; field-specific partial validity, not full rules."
+    }
+  },
+  {
+    "index": 514,
+    "value": {
+      "competition": "ALB tier 1",
+      "firstEdition": "2019/20",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        1,
+        200
+      ],
+      "rules": {
+        "directRelegated": 2,
+        "playoutPlaces": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Secondary retrospective; field-specific partial validity, not full rules."
+    }
+  },
+  {
+    "index": 515,
+    "value": {
+      "competition": "ALB tier 1",
+      "firstEdition": "2023/24",
+      "lastEdition": "2025/26",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        1,
+        200
+      ],
+      "rules": {
+        "teams": 10,
+        "regularGames": 36,
+        "finalFour": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Secondary retrospective; field-specific partial validity, not full rules."
+    }
+  },
+  {
+    "index": 516,
+    "value": {
+      "competition": "ALB tier 1",
+      "firstEdition": "2025/26",
+      "lastEdition": "2025/26",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        1,
+        200
+      ],
+      "rules": {
+        "finalFourMatches": 6
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Secondary retrospective; field-specific partial validity, not full rules."
+    }
+  },
+  {
+    "index": 517,
+    "value": {
+      "competition": "ALB tier 1",
+      "firstEdition": "2026/27",
+      "lastEdition": "2026/27",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        200
+      ],
+      "rules": {
+        "teams": 10,
+        "regularGames": 27,
+        "split": [
+          6,
+          4
+        ],
+        "pointsCarryFraction": 0.5,
+        "extraGames": [
+          10,
+          9
+        ],
+        "directRelegated": [
+          10
+        ],
+        "directPromotedTier2": [
+          1,
+          2
+        ],
+        "tier2PlayoffWinnerPromoted": true,
+        "tier2PlayoffFinalLoserVsTier1Rank": 9
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 518,
+    "value": {
+      "competition": "ALB tier 1",
+      "firstEdition": "2027/28",
+      "lastEdition": "2028/29",
+      "operation": "ANNOUNCED_CHANGE_FORMAT",
+      "rowRefs": [
+        200
+      ],
+      "rules": {
+        "teams": 12,
+        "regularGames": 22,
+        "split": [
+          6,
+          6
+        ],
+        "pointsCarryFraction": 0.5,
+        "extraGames": [
+          10,
+          10
+        ],
+        "directRelegated": [
+          11,
+          12
+        ],
+        "tier1Rank10VsTier2PlayoffWinner": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "note": "Adopted federation future format; not automatic override of approved 2026 game template."
+    }
+  }
+]

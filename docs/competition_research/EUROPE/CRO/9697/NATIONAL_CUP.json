@@ -12,24 +12,59 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Hrvatski nogometni kup",
       "candidateName": "Croatian Cup",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence77": {
+      "edition": "1996/97",
+      "rules": {
+        "mainEntrants": 32,
+        "roundOf32Legs": 1,
+        "roundOf16Legs": 1,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "dates": {
+        "roundOf32": [
+          "1996-08-13",
+          "1996-08-26"
+        ],
+        "roundOf16": [
+          "1996-09-04",
+          "1996-09-10"
+        ],
+        "quarterfinalFirst": "1996-10-16",
+        "quarterfinalSecond": [
+          "1996-10-22",
+          "1996-10-23"
+        ],
+        "semifinal": [
+          "1997-04-09",
+          "1997-04-16"
+        ],
+        "final": "1997-05-29"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Earlier qualification dates not established."
     }
   }
 ]

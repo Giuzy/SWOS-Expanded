@@ -16,7 +16,7 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -42,13 +42,72 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Campionato Sammarinese",
+      "nonCommercialDisplayName": "Campionato Sammarinese",
       "candidateName": "Campionato Sammarinese di Calcio",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/resultsp99.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence81": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 16,
+        "groups": [
+          8,
+          8
+        ],
+        "gamesPerClub": 22,
+        "withinGroupMeetings": 2,
+        "crossGroupMeetings": 1,
+        "pointsWin": 3,
+        "topPerGroup": 3,
+        "playoff": {
+          "entrants": 6,
+          "round1": "A2 vs B3; B2 vs A3",
+          "round2": "group winners vs round1 winners",
+          "round3": "round1 losers vs round2 losers",
+          "round4": "round2 winners; winner to final",
+          "round5": "round3 winners",
+          "round6": "round5 winner vs round4 loser",
+          "final": "round4 winner vs round6 winner",
+          "eliminationBeforeFinal": "two losses",
+          "finalLegs": 1,
+          "extraTimeObserved": true,
+          "penaltiesObserved": true
+        },
+        "groupMembers": {
+          "A": [
+            "Folgore",
+            "Fiorita",
+            "Cailungo",
+            "Tre Penne",
+            "Tre Fiori",
+            "Cosmos",
+            "Juvenes",
+            "Dogana"
+          ],
+          "B": [
+            "Virtus",
+            "Faetano",
+            "Libertas",
+            "Murata",
+            "Domagnano",
+            "Pennarossa",
+            "Montevito",
+            "San Giovanni"
+          ]
+        }
+      },
+      "dates": {
+        "lastRegularRound": [
+          "1997-04-26",
+          "1997-04-27"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "First match undated; historical foreign-player quota not fully verified."
     }
   }
 ]

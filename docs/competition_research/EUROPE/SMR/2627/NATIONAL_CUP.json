@@ -12,13 +12,12 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "sportResearchStatus": "RULES_PARTIAL",
     "knownSportData": "official R16 first legs September postcutoff template; previous edition winner La Fiorita 23 May https://www.fsgc.sm/it/notizia/coppa-titano-olcese-guida-la-rimonta-de-la-fiorita-il-trofeo-va-a-montegiardino/2222",
@@ -26,13 +25,66 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Coppa Titano",
+      "nonCommercialDisplayName": "Coppa Titano",
       "candidateName": "Coppa Titano",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "sportRuleEvidence81": {
+      "edition": "2026/27",
+      "rules": {
+        "entrants": 15,
+        "defendingWinnerByeToQF": true,
+        "seeded": "defending cup winner and top3 ranking",
+        "R16QFSFLegs": 2,
+        "aggregateTie": "extra time then penalties",
+        "finalLegs": 1,
+        "finalExtraTime": true,
+        "finalPenalties": true,
+        "bracket": [
+          [
+            "La Fiorita",
+            null
+          ],
+          [
+            "San Giovanni",
+            "Cosmos"
+          ],
+          [
+            "Domagnano",
+            "Faetano"
+          ],
+          [
+            "Fiorentino",
+            "Tre Fiori"
+          ],
+          [
+            "Tre Penne",
+            "Juvenes Dogana"
+          ],
+          [
+            "Pennarossa",
+            "Cailungo"
+          ],
+          [
+            "Libertas",
+            "Folgore"
+          ],
+          [
+            "Murata",
+            "Virtus"
+          ]
+        ]
+      },
+      "dates": {
+        "R16First": "2026-09-09",
+        "R16Second": "2026-10-28"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Official draw and art51; remaining dates and keys open. Academy absent from draw."
     }
   }
 ]

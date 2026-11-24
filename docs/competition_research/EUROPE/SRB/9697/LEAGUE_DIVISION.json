@@ -11,12 +11,11 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -41,14 +40,56 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Prva savezna liga",
+      "nonCommercialDisplayName": "Prva liga SR Jugoslavije",
       "candidateName": "Prva savezna liga",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "sportRuleEvidence78": {
+      "edition": "1996/97",
+      "historicalJurisdiction": "FR Yugoslavia (Serbia and Montenegro)",
+      "rules": {
+        "teams": 12,
+        "gamesPerClub": 33,
+        "meetingsPerOpponent": 3,
+        "directRelegated": [
+          11,
+          12
+        ],
+        "playoffRank": 10,
+        "playoffLegs": 2,
+        "pointsWin": 3
+      },
+      "dates": {
+        "round1": [
+          "1996-08-10",
+          "1996-08-11"
+        ],
+        "round2": [
+          "1996-08-16",
+          "1996-08-18"
+        ]
+      },
+      "participants": [
+        "Bečej",
+        "Budućnost Podgorica",
+        "Čukarički",
+        "Borac Čačak",
+        "Mladost Lučani",
+        "Proleter Zrenjanin",
+        "Vojvodina",
+        "Zemun",
+        "Partizan",
+        "Hajduk Kula",
+        "Rad",
+        "Crvena zvezda"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Group A of historical shared federation; modern Serbian identity not interchangeable. PDF text available, screenshot cache miss."
     }
   }
 ]

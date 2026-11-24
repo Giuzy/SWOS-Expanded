@@ -880,6 +880,23 @@
         "matches": 72
       },
       "missing": "Independent source, participant keys, exact completeness and standings reconciliation."
+    },
+    "block92Research": {
+      "edition": "1996",
+      "format": {
+        "teams": 16,
+        "groups": 2,
+        "teamsPerGroup": 8,
+        "homeAwaySeries": true,
+        "pointsPerSeries": {
+          "aggregateWin": 3,
+          "aggregateDraw": 1,
+          "aggregateLoss": 0
+        },
+        "awayGoals": false,
+        "groupMatchEndsAt90": true
+      },
+      "scope": "Historical archive describes consecutive home/away fixtures as one points-bearing series, not ordinary league match points. Earlier 72 score records preserved. Do not infer future winner."
     }
   },
   {
@@ -899,7 +916,7 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "historicalSportData": {
@@ -917,13 +934,31 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Emperor's Cup",
+      "nonCommercialDisplayName": "Emperor's Cup",
       "candidateName": "Emperor's Cup",
-      "status": "HISTORICAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block92Research": {
+      "edition": "1996",
+      "nationalMainRoundDates": {
+        "R1": "1996-11-03",
+        "R2": "1996-11-10",
+        "R3": "1996-11-17",
+        "R16": "1996-12-23",
+        "QF": "1996-12-26",
+        "SF": "1996-12-29",
+        "F": "1997-01-01"
+      },
+      "format": {
+        "knockout": true,
+        "JLeagueClubsEnter": "R3",
+        "R3Ties": 16
+      },
+      "scope": "RSSSF archive, national opening November3. Earlier regional qualifiers not dated; do not mark definitively excluded before final audit."
     }
   }
 ]

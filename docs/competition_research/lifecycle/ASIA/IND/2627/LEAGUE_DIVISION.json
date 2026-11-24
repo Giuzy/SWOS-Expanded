@@ -7,16 +7,17 @@
       "active_until": null,
       "endStatus": "ACTIVE_OBSERVED",
       "inactivePeriods": [],
-      "format_valid_from": null,
+      "format_valid_from": "2026/27",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "PARTIAL_SOURCE_SUPPORTED",
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "observedIntroduced": "2014",
       "observedTopTierFrom": "2019",
       "sources": [
         "https://www.the-aiff.com/competitions/isl"
-      ]
+      ],
+      "annualException": "13 playing clubs and administrative last club"
     }
   },
   {
@@ -27,16 +28,21 @@
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
+      "format_valid_from": "2026/27",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED",
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "observedRename": {
         "from": "2025/26",
         "name": "Indian Football League",
         "source": "https://www.the-aiff.com/index.php/article/indian-football-league-to-begin-on-february-27"
-      }
+      },
+      "observedFormatChanges": [
+        "2007/08",
+        "2025/26",
+        "2026/27"
+      ]
     }
   }
 ]

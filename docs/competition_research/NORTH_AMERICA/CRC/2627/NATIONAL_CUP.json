@@ -18,7 +18,7 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "sportResearchStatus": "NO_EDITION_2627_REPORTED",
     "knownSportData": "UNAFUT decision reported May/June: no Copa 2627, no Recopa 2027.",
@@ -26,14 +26,19 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Torneo de Copa",
       "nonCommercialDisplayName": null,
-      "candidateName": "Torneo de Copa",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block95Research": {
+      "edition": "2026/27",
+      "status": "SUSPENDED",
+      "researchStatus": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

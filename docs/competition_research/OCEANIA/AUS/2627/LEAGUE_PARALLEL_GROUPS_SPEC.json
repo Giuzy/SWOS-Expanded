@@ -12,7 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -30,6 +30,22 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block96Research": {
+      "edition": "2026",
+      "parentRows": [
+        208,
+        209,
+        210
+      ],
+      "format": "Independent state leagues, not serial promotion divisions",
+      "clubsByState": {
+        "SA": 12,
+        "NSW": 16,
+        "QLD": 12
+      },
+      "scope": "Technical parent mapping and nationwide access not yet certified; no artificial inter-state fixtures",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

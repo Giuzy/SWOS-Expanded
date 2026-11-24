@@ -50,6 +50,28 @@
       "source": "https://en.wikipedia.org/wiki/1997_Chinese_Taipei_National_Football_League",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block93Research": {
+      "observedEditions": [
+        "1996",
+        "1997"
+      ],
+      "calendarCycle": "calendar-year edition labels observed in champions archive; exact match dates unverified",
+      "observedClubs": [
+        "Taipower",
+        "Ta Tung",
+        "Taipei City Bank",
+        "Flying Camel",
+        "Taiwan PE College",
+        "Lu Kuang"
+      ],
+      "format1997": {
+        "observedPlayedPerClub": 14,
+        "impliedTeams": 8,
+        "impliedCycles": 2,
+        "scope": "Secondary table excerpt, full table unavailable; do not apply to1996 without verification"
+      },
+      "scope": "RSSSF historical champions chronology accessible; both 1996/1997 individual season pages cache miss. No historical pre-July results or future winners imported."
     }
   }
 ]

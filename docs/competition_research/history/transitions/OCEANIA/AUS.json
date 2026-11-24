@@ -74,5 +74,50 @@
       "note": "Removed A-League qualification round; NZ clubs excluded; Australian Championship champion direct entry.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 689,
+    "value": {
+      "competition": "SA Premier League",
+      "firstEdition": "1996",
+      "lastEdition": "1996",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        69
+      ],
+      "note": "8 clubs, 21 rounds, top4 finals",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Provisional mapping to OG state slots; not a direct successor identity."
+    }
+  },
+  {
+    "index": 690,
+    "value": {
+      "competition": "NSW Super League",
+      "firstEdition": "1996",
+      "lastEdition": "1996",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        70
+      ],
+      "note": "14 clubs, two 13-round stages, winners Grand Final",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Provisional mapping to OG state slots; not a direct successor identity."
+    }
+  },
+  {
+    "index": 691,
+    "value": {
+      "competition": "Brisbane Premier League",
+      "firstEdition": "1996",
+      "lastEdition": "1996",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        71
+      ],
+      "note": "12 clubs, 22 rounds, top5 finals",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Provisional mapping to OG state slots; not a direct successor identity."
+    }
   }
 ]

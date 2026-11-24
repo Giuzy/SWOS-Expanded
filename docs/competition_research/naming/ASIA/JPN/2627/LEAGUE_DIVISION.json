@@ -6,7 +6,14 @@
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "transitionRefs": [
         252,
-        254
+        254,
+        614,
+        617,
+        618,
+        621,
+        622,
+        623,
+        624
       ]
     }
   },
@@ -17,7 +24,11 @@
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "transitionRefs": [
         253,
-        255
+        255,
+        616,
+        619,
+        620,
+        624
       ]
     }
   }

@@ -10,27 +10,80 @@
     "candidateSources": [
       "356f4063724366c16d0070ec9caae81183c386c2"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "ADNOC Pro League",
+      "nonCommercialDisplayName": "UAE Pro League",
       "candidateName": "UAE Pro League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block94Research": {
+      "edition": "2026/27",
+      "firstRoundWindow": [
+        "2026-08-14",
+        "2026-08-16"
+      ],
+      "drawDate": "2026-07-02",
+      "format": {
+        "teams": 14,
+        "cycles": 2,
+        "rounds": 26,
+        "matches": 182,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "directRelegation": [
+          13,
+          14
+        ],
+        "promotion": [
+          1,
+          2
+        ],
+        "licenseReplacementOrder": "tier2 ranks3/4, then retain prior top-tier ranks13/14 if eligible",
+        "tiebreak": [
+          "H2H points",
+          "H2H GD",
+          "H2H goals",
+          "overall GD",
+          "overall goals",
+          "fair play (yellow1, direct red3, no extra points for second-yellow red)",
+          "lots"
+        ],
+        "possibleInitialDeduction": 3
+      },
+      "matchRules": {
+        "substitutions": 5,
+        "windows": 3,
+        "halfTimeExcluded": true,
+        "minPlayers": 7,
+        "registeredSquad": 25,
+        "localCategory": 15,
+        "maxResidents": 5,
+        "maxForeign": 5,
+        "residentNewRegistrationBornFrom": 2006,
+        "goalkeeper": "eligible local category; foreign/resident outfield player may replace only if no substitutions remain"
+      },
+      "cancellation": "all edition results cancelled, disciplinary sanctions and fines retained; if cancellation before end first cycle use prior standings for external competition representation",
+      "scheduling": "last three rounds simultaneous if needed and possible",
+      "scope": "Official 2026/27 Arabic regulations arts5/6/8/13–18; PDF text reviewed, visual page8 cache miss."
     }
   }
 ]

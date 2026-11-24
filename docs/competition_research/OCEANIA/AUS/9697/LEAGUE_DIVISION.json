@@ -117,6 +117,15 @@
       "source": "https://www.rsssf.org/tablesa/aus97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block96Research": {
+      "edition": "1996",
+      "name": "South Australia Premier League",
+      "clubs": 8,
+      "rounds": 21,
+      "finalsQualifiers": 4,
+      "scope": "Regional tier candidate; dates at cutoff and exact OG membership unresolved. No future final tables imported as initial state.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -170,6 +179,16 @@
       "source": "https://www.rsssf.org/tablesa/aus97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block96Research": {
+      "edition": "1996",
+      "name": "New South Wales Super League",
+      "clubs": 14,
+      "stages": 2,
+      "roundsPerStage": 13,
+      "format": "Each stage winner qualifies to Grand Final; four withdrawals after season",
+      "scope": "Regional tier candidate; dates at cutoff and exact OG membership unresolved. No future final tables imported as initial state.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -223,6 +242,16 @@
       "source": "https://www.rsssf.org/tablesa/aus97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block96Research": {
+      "edition": "1996",
+      "name": "Brisbane Premier League",
+      "clubs": 12,
+      "rounds": 22,
+      "finalsQualifiers": 5,
+      "finalSeriesFirst": "1996-08-11",
+      "scope": "Regional tier candidate; dates at cutoff and exact OG membership unresolved. No future final tables imported as initial state.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

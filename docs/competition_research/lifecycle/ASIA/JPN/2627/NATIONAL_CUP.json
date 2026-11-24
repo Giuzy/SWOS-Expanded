@@ -3,15 +3,21 @@
     "index": 370,
     "value": {
       "row": 371,
-      "active_from": null,
+      "active_from": "1992",
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
+      "format_valid_from": "2026/27",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "observedFormatChanges": [
+        "2023",
+        "2024",
+        "2025",
+        "2026/27"
+      ]
     }
   },
   {
@@ -22,11 +28,12 @@
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
+      "format_valid_from": "2026/27",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "observedEdition": "106th (2026/27)"
     }
   }
 ]

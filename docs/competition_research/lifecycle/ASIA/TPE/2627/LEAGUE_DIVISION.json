@@ -3,30 +3,42 @@
     "index": 307,
     "value": {
       "row": 308,
-      "active_from": null,
+      "active_from": "2017",
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
+      "format_valid_from": "2026/27",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "observedFormatChanges": [
+        "2006",
+        "2009",
+        "2017",
+        "2025/26",
+        "2026/27"
+      ]
     }
   },
   {
     "index": 308,
     "value": {
       "row": 309,
-      "active_from": null,
+      "active_from": "2020",
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
+      "format_valid_from": "2026/27",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "observedFormatChanges": [
+        "2020",
+        "2025/26",
+        "2026/27"
+      ]
     }
   }
 ]

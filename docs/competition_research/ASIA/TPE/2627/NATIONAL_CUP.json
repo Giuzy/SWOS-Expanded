@@ -10,15 +10,15 @@
     "candidateSources": [
       "1db714bb54f9be6429afe2e869103ec27e890ed3"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "sportResearchStatus": "IDENTITY_UNRESOLVED",
     "knownSportData": "CTFA calendar and 2025 President Cup statute found; not evidence of 2627 senior national cup.",
@@ -26,13 +26,39 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "全國總統盃足球錦標賽",
+      "nonCommercialDisplayName": "Taiwan President FA Cup",
       "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
-      "historyComplete": false
+      "historyComplete": false,
+      "officialNameEdition": "2025"
+    },
+    "block93Research": {
+      "observedEdition": "2025",
+      "identity": "Relaunched senior national cup following long hiatus of CTFA Cup and Zhongzheng Cup; same historical tradition, exact slot continuity not certified",
+      "priorEditionFormat": {
+        "men": 20,
+        "groups": 4,
+        "teamsPerGroup": 5,
+        "groupCycles": 1,
+        "qualifiersPerGroup": 2,
+        "knockout": [
+          "QF",
+          "SF",
+          "F"
+        ],
+        "matches": 47,
+        "firstMatch": "2025-04-12",
+        "final": "2025-05-31",
+        "nonLeagueTeamsCanQualifyToTier2": true
+      },
+      "currentEdition": {
+        "status": "UNCONFIRMED_2026_EDITION",
+        "nominalCalendarEvidence": "President Cup appears in early calendar draft, no actual 2026 fixtures confirmed; October 2026 regulation makes cup winner access conditional on edition being held."
+      },
+      "scope": "2025 official CTFA report and secondary format. Do not create annual edition automatically or import 2025 score/winner as July2026 active state."
     }
   }
 ]

@@ -6,7 +6,10 @@
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "transitionRefs": [
         252,
-        254
+        254,
+        614,
+        617,
+        618
       ]
     }
   },
@@ -15,7 +18,9 @@
     "value": {
       "row": 59,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "transitionRefs": []
+      "transitionRefs": [
+        615
+      ]
     }
   }
 ]

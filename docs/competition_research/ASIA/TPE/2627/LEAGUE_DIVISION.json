@@ -10,15 +10,15 @@
     "candidateSources": [
       "79dac4d9f1a2ede20a7211af2f07efd8ebf581a0"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -42,14 +42,91 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "台灣企業甲級足球聯賽",
+      "nonCommercialDisplayName": "Taiwan Football Premier League",
       "candidateName": "Taiwan Football Premier League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block93Research": {
+      "edition": "2026/27",
+      "participants": [
+        "新北航源",
+        "南市台鋼",
+        "台中FUTURO",
+        "大同石虎",
+        "高雄先鋒",
+        "台中磐石",
+        "台灣電力",
+        "陽信北競"
+      ],
+      "format": {
+        "teams": 8,
+        "cycles": 3,
+        "rounds": 21,
+        "totalMatches": 84,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "tiebreak": [
+          "H2H points",
+          "H2H GD",
+          "H2H GF",
+          "overall GD",
+          "overall GF",
+          "fair play",
+          "lot"
+        ]
+      },
+      "dates": {
+        "start": "2026-09-13",
+        "nominalEnd": "2027-05-02",
+        "scheduleEdition": "2026-10-16",
+        "postponements": [
+          {
+            "fixture": 13,
+            "date": "2026-11-25"
+          },
+          {
+            "fixture": 17,
+            "date": "2026-12-09"
+          }
+        ],
+        "unconfirmedDates": [
+          15,
+          19
+        ]
+      },
+      "access": {
+        "previousTop6": true,
+        "licensedSecondDivisionChampion": true,
+        "previousPromotionPlayoffWinner": true,
+        "annualPromotionPlayoff": "NOT_APPLICABLE_2026_27; ordinary rank7 vs licensed tier2 runnerup retained in regulation but expressly inactive this edition"
+      },
+      "continentalOrder": [
+        "league champion",
+        "league runner-up",
+        "President FA Cup winner IF held",
+        "league third"
+      ],
+      "withdrawal": "all withdrawn club matches administratively 0-3 and excluded from ranking tiebreak calculation, federation may amend format",
+      "abandonment": {
+        "thresholdMinutes": 75,
+        "atOrAfter": "score stands",
+        "before": "replay from 0-0 with same starters and substitutes; prior discipline retained",
+        "temporarySuspension": "resume same minute"
+      },
+      "reserves": {
+        "promotionAllowed": false,
+        "replacement": "next eligible club per CTFA",
+        "parentRelegated": "reserve exits second division next season"
+      },
+      "scope": "CTFA 2026/27 articles4/5/7/9/10/26/27 and schedule; only published dates, no scores. Two TBC fixture dates explicitly unresolved."
     }
   },
   {
@@ -63,15 +140,15 @@
     "candidateSources": [
       "79dac4d9f1a2ede20a7211af2f07efd8ebf581a0"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -95,14 +172,53 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "台灣乙級足球聯賽",
+      "nonCommercialDisplayName": "Taiwan Second Division Football League",
       "candidateName": "Taiwan Second Division Football League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block93Research": {
+      "edition": "2026/27",
+      "qualification": {
+        "drawDate": "2026-07-17",
+        "firstMatch": "2026-08-16",
+        "secondDate": "2026-08-22",
+        "applicants": [
+          "半線蒼鷹足球俱樂部",
+          "新竹科學城男足",
+          "高雄ATTACKERS先鋒足球俱樂部預備隊",
+          "MFA TAIPEI",
+          "高大NUK",
+          "台中市足球俱樂部",
+          "山海屯臺體俱樂部",
+          "台中FUTURO預備隊"
+        ],
+        "withdrawn": "巴卡隆",
+        "firstDayFourWinnersQualify": true,
+        "losersPlayTwoMoreTies": true,
+        "secondDayTwoWinnersQualify": true,
+        "regularQualifiers": 6
+      },
+      "regular": {
+        "secondaryReportedTeams": 10,
+        "knownRetained": [
+          "國際",
+          "銘傳大學",
+          "新北航源預備隊",
+          "陽信北競預備隊"
+        ],
+        "scope": "CTFA qualifying mode official; secondary source inconsistent older 8-team/14-game text, do not certify current regular cycle count."
+      },
+      "reserveRules": {
+        "promotionAllowed": false,
+        "replacement": "next eligible club per CTFA",
+        "parentRelegated": "reserve exits second division next season"
+      },
+      "scope": "No July state; registrations in June are administrative not played fixtures."
     }
   }
 ]

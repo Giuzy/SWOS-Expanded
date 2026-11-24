@@ -11,7 +11,9 @@
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "historicalIdentityCandidate": "CTFA Cup; exact 1996 edition unresolved",
+      "observedRelaunch": "2025"
     }
   }
 ]

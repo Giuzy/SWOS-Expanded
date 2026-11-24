@@ -3,15 +3,21 @@
     "index": 162,
     "value": {
       "row": 163,
-      "active_from": null,
+      "active_from": "1992",
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1996",
+      "format_valid_until": "1996",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "observedFormatChanges": [
+        "1997",
+        "1998",
+        "1999",
+        "2002"
+      ]
     }
   },
   {
@@ -22,11 +28,12 @@
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1996",
+      "format_valid_until": "1996",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "observedEdition": "1996"
     }
   }
 ]

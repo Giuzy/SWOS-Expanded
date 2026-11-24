@@ -12,13 +12,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -42,14 +42,238 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Northern League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Dettol Northern League",
+      "nonCommercialDisplayName": "Northern League",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block96Research": {
+      "edition": "2026",
+      "clubs": 12,
+      "regularRounds": 22,
+      "announcedOpening": "2026-03-21",
+      "format": "Regional parallel league; national phase access is not promotion to another region",
+      "championship2026": {
+        "regionalQualifiers": 4,
+        "reserveAutomatic": "Auckland FC Reserves",
+        "totalNational": 11
+      },
+      "replacement2027": {
+        "nationalTeams": 12,
+        "regularRounds": 22,
+        "finals": true,
+        "regionalPromotionRelegation": true,
+        "regionalRankingWeights": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "rankingYears": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "directRegionalPlaces": 4,
+        "extraPlayoffRanking": 5,
+        "qualificationBasis": "Weighted multi-season ranking; July 29 detail; no future results"
+      },
+      "cutoff": {
+        "initialDate": "2026-07-01",
+        "tableDate": "2026-06-27",
+        "tableColumns": [
+          "club",
+          "played",
+          "wins",
+          "draws",
+          "losses",
+          "goalsFor",
+          "goalsAgainst",
+          "points"
+        ],
+        "table": [
+          [
+            "Birkenhead United",
+            15,
+            13,
+            2,
+            0,
+            37,
+            8,
+            41
+          ],
+          [
+            "East Coast Bays",
+            15,
+            9,
+            3,
+            3,
+            25,
+            18,
+            30
+          ],
+          [
+            "Auckland United",
+            15,
+            8,
+            4,
+            3,
+            30,
+            12,
+            28
+          ],
+          [
+            "Fencibles United",
+            15,
+            9,
+            1,
+            5,
+            42,
+            24,
+            28
+          ],
+          [
+            "Eastern Suburbs",
+            15,
+            8,
+            4,
+            3,
+            19,
+            6,
+            28
+          ],
+          [
+            "Auckland City",
+            15,
+            8,
+            3,
+            4,
+            29,
+            12,
+            27
+          ],
+          [
+            "Western Springs",
+            15,
+            6,
+            2,
+            7,
+            26,
+            31,
+            20
+          ],
+          [
+            "Auckland FC Reserves",
+            14,
+            4,
+            3,
+            7,
+            21,
+            26,
+            15
+          ],
+          [
+            "Tauranga City",
+            15,
+            3,
+            3,
+            9,
+            19,
+            34,
+            12
+          ],
+          [
+            "Bay Olympic",
+            14,
+            3,
+            1,
+            10,
+            10,
+            31,
+            10
+          ],
+          [
+            "Melville United",
+            15,
+            3,
+            1,
+            11,
+            16,
+            37,
+            10
+          ],
+          [
+            "Manukau United",
+            15,
+            1,
+            1,
+            13,
+            11,
+            46,
+            4
+          ]
+        ],
+        "scoreColumns": [
+          "date",
+          "home",
+          "away",
+          "homeGoals",
+          "awayGoals"
+        ],
+        "matches": [
+          [
+            "2026-06-27",
+            "Auckland City",
+            "Western Springs",
+            3,
+            0
+          ],
+          [
+            "2026-06-27",
+            "Auckland United",
+            "Melville United",
+            3,
+            0
+          ],
+          [
+            "2026-06-27",
+            "Bay Olympic",
+            "Fencibles United",
+            1,
+            2
+          ],
+          [
+            "2026-06-27",
+            "East Coast Bays",
+            "Tauranga City",
+            2,
+            1
+          ],
+          [
+            "2026-06-27",
+            "Eastern Suburbs",
+            "Birkenhead United",
+            1,
+            1
+          ],
+          [
+            "2026-06-27",
+            "Auckland FC Reserves",
+            "Manukau United",
+            3,
+            2
+          ]
+        ],
+        "scope": "Contemporary published table; earlier scores incomplete and June29–30 not independently screened. Central table inconsistent played counts for Phoenix; retain as published, not certified."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -65,13 +289,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -95,14 +319,211 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Central League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Dettol Central League",
+      "nonCommercialDisplayName": "Central League",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block96Research": {
+      "edition": "2026",
+      "clubs": 10,
+      "regularRounds": 18,
+      "announcedOpening": "2026-03-28",
+      "format": "Regional parallel league; national phase access is not promotion to another region",
+      "championship2026": {
+        "regionalQualifiers": 3,
+        "reserveAutomatic": "Wellington Phoenix Reserves",
+        "totalNational": 11
+      },
+      "replacement2027": {
+        "nationalTeams": 12,
+        "regularRounds": 22,
+        "finals": true,
+        "regionalPromotionRelegation": true,
+        "regionalRankingWeights": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "rankingYears": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "directRegionalPlaces": 3,
+        "extraPlayoffRanking": 4,
+        "qualificationBasis": "Weighted multi-season ranking; July 29 detail; no future results"
+      },
+      "cutoff": {
+        "initialDate": "2026-07-01",
+        "tableDate": "2026-06-28",
+        "tableColumns": [
+          "club",
+          "played",
+          "wins",
+          "draws",
+          "losses",
+          "goalsFor",
+          "goalsAgainst",
+          "points"
+        ],
+        "table": [
+          [
+            "Napier City Rovers",
+            12,
+            9,
+            2,
+            1,
+            30,
+            9,
+            29
+          ],
+          [
+            "Miramar Rangers",
+            12,
+            9,
+            2,
+            1,
+            29,
+            10,
+            29
+          ],
+          [
+            "Wellington Olympic",
+            12,
+            8,
+            2,
+            2,
+            33,
+            13,
+            26
+          ],
+          [
+            "Western Suburbs",
+            12,
+            6,
+            4,
+            2,
+            21,
+            10,
+            22
+          ],
+          [
+            "Upper Hutt City",
+            12,
+            6,
+            0,
+            6,
+            22,
+            21,
+            18
+          ],
+          [
+            "Island Bay United",
+            12,
+            4,
+            0,
+            8,
+            19,
+            29,
+            12
+          ],
+          [
+            "Petone",
+            12,
+            3,
+            2,
+            7,
+            13,
+            21,
+            11
+          ],
+          [
+            "Wellington Phoenix Reserves",
+            11,
+            2,
+            3,
+            6,
+            11,
+            14,
+            9
+          ],
+          [
+            "Waterside Karori",
+            12,
+            2,
+            2,
+            8,
+            10,
+            33,
+            8
+          ],
+          [
+            "FC Western",
+            11,
+            1,
+            1,
+            9,
+            7,
+            35,
+            4
+          ]
+        ],
+        "scoreColumns": [
+          "date",
+          "home",
+          "away",
+          "homeGoals",
+          "awayGoals"
+        ],
+        "matches": [
+          [
+            "2026-06-27",
+            "Miramar Rangers",
+            "Island Bay United",
+            4,
+            2
+          ],
+          [
+            "2026-06-27",
+            "Petone",
+            "Wellington Phoenix Reserves",
+            1,
+            1
+          ],
+          [
+            "2026-06-27",
+            "Upper Hutt City",
+            "Waterside Karori",
+            6,
+            0
+          ],
+          [
+            "2026-06-28",
+            "FC Western",
+            "Western Suburbs",
+            1,
+            1
+          ],
+          [
+            "2026-06-28",
+            "Napier City Rovers",
+            "Wellington Olympic",
+            3,
+            2
+          ]
+        ],
+        "scope": "Contemporary published table; earlier scores incomplete and June29–30 not independently screened. Central table inconsistent played counts for Phoenix; retain as published, not certified."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -118,13 +539,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "modernSlotAudit": {
@@ -148,14 +569,211 @@
     },
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Southern League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Dettol Southern League",
+      "nonCommercialDisplayName": "Southern League",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block96Research": {
+      "edition": "2026",
+      "clubs": 10,
+      "regularRounds": 18,
+      "announcedOpening": "2026-03-21",
+      "format": "Regional parallel league; national phase access is not promotion to another region",
+      "championship2026": {
+        "regionalQualifiers": 2,
+        "reserveAutomatic": null,
+        "totalNational": 11
+      },
+      "replacement2027": {
+        "nationalTeams": 12,
+        "regularRounds": 22,
+        "finals": true,
+        "regionalPromotionRelegation": true,
+        "regionalRankingWeights": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "rankingYears": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "directRegionalPlaces": 2,
+        "extraPlayoffRanking": 3,
+        "qualificationBasis": "Weighted multi-season ranking; July 29 detail; no future results"
+      },
+      "cutoff": {
+        "initialDate": "2026-07-01",
+        "tableDate": "2026-06-28",
+        "tableColumns": [
+          "club",
+          "played",
+          "wins",
+          "draws",
+          "losses",
+          "goalsFor",
+          "goalsAgainst",
+          "points"
+        ],
+        "table": [
+          [
+            "Cashmere Technical",
+            12,
+            11,
+            1,
+            0,
+            58,
+            6,
+            34
+          ],
+          [
+            "Ferrymead Bays",
+            12,
+            8,
+            1,
+            3,
+            23,
+            16,
+            25
+          ],
+          [
+            "Coastal Spirit",
+            12,
+            7,
+            1,
+            4,
+            28,
+            22,
+            22
+          ],
+          [
+            "Nomads United",
+            12,
+            6,
+            3,
+            3,
+            22,
+            19,
+            21
+          ],
+          [
+            "Nelson Suburbs",
+            12,
+            6,
+            0,
+            6,
+            33,
+            25,
+            18
+          ],
+          [
+            "Northern AFC",
+            12,
+            5,
+            2,
+            5,
+            15,
+            16,
+            17
+          ],
+          [
+            "Christchurch United",
+            12,
+            3,
+            3,
+            6,
+            14,
+            16,
+            12
+          ],
+          [
+            "Dunedin City Royals",
+            12,
+            3,
+            1,
+            8,
+            10,
+            28,
+            10
+          ],
+          [
+            "Selwyn United",
+            12,
+            2,
+            1,
+            9,
+            13,
+            39,
+            7
+          ],
+          [
+            "Wanaka",
+            12,
+            2,
+            1,
+            9,
+            12,
+            41,
+            7
+          ]
+        ],
+        "scoreColumns": [
+          "date",
+          "home",
+          "away",
+          "homeGoals",
+          "awayGoals"
+        ],
+        "matches": [
+          [
+            "2026-06-27",
+            "Cashmere Technical",
+            "Ferrymead Bays",
+            4,
+            0
+          ],
+          [
+            "2026-06-27",
+            "Nomads United",
+            "Christchurch United",
+            0,
+            0
+          ],
+          [
+            "2026-06-27",
+            "Selwyn United",
+            "Coastal Spirit",
+            0,
+            5
+          ],
+          [
+            "2026-06-27",
+            "Wanaka",
+            "Northern AFC",
+            1,
+            1
+          ],
+          [
+            "2026-06-28",
+            "Dunedin City Royals",
+            "Nelson Suburbs",
+            1,
+            4
+          ]
+        ],
+        "scope": "Contemporary published table; earlier scores incomplete and June29–30 not independently screened. Central table inconsistent played counts for Phoenix; retain as published, not certified."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

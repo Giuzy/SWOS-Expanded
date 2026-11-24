@@ -10,9 +10,9 @@
     "candidateSources": [
       "629e7b0148b7b203984458bfb8a5e2ad9ff8d914"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -24,12 +24,41 @@
     "competitionNaming": {
       "startEdition": "2026/27",
       "officialName": "Amir Cup",
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Amir Cup",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "629e7b0148b7b203984458bfb8a5e2ad9ff8d914",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block94Research": {
+      "observedEdition": "2026 (54th)",
+      "format": {
+        "teams": 20,
+        "entryPools": [
+          12,
+          8
+        ],
+        "preliminary": {
+          "secondTierOnly": true,
+          "ties": 4,
+          "singleKnockout": true,
+          "seededOnPreviousStandings": true
+        },
+        "R16": {
+          "teams": 16,
+          "pot1": "prior top8 of tier1",
+          "pot2": "prior ranks9–12 plus four second tier winners"
+        },
+        "subsequentRounds": [
+          "QF",
+          "SF",
+          "F"
+        ]
+      },
+      "drawDate": "2026-01-20",
+      "currentEdition": "2027 dates and access not established; 2026 completed edition not imported as ongoing without evidence",
+      "scope": "QFA 2026 draw explains full access and seeding; third consecutive 20-club edition. New second-division structure means no automatic 2027 assumption."
     }
   }
 ]

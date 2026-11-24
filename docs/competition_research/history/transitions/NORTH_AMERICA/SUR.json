@@ -1,0 +1,62 @@
+[
+  {
+    "index": 680,
+    "value": {
+      "competition": "SUR row 47",
+      "firstEdition": "1997",
+      "lastEdition": null,
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        47
+      ],
+      "note": "Hoofdklasse 10 clubs, 27 games",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block95 sporting observations, exact dates and keys not reconciled."
+    }
+  },
+  {
+    "index": 681,
+    "value": {
+      "competition": "SUR row 304",
+      "firstEdition": "2024",
+      "lastEdition": null,
+      "operation": "PROFESSIONAL_SUCCESSOR",
+      "rowRefs": [
+        304
+      ],
+      "note": "Suriname Major League professional launch",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block95 sporting observations, exact dates and keys not reconciled."
+    }
+  },
+  {
+    "index": 682,
+    "value": {
+      "competition": "SUR row 304",
+      "firstEdition": "2025/26",
+      "lastEdition": null,
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        304
+      ],
+      "note": "Nine clubs, three periods and playoffs",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block95 sporting observations, exact dates and keys not reconciled."
+    }
+  },
+  {
+    "index": 683,
+    "value": {
+      "competition": "SUR row 304",
+      "firstEdition": "2026/27",
+      "lastEdition": null,
+      "operation": "SCHEDULE_CHANGE",
+      "rowRefs": [
+        304
+      ],
+      "note": "Opening delayed September to October, secondary evidence",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block95 sporting observations, exact dates and keys not reconciled."
+    }
+  }
+]

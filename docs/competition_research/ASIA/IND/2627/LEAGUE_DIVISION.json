@@ -23,7 +23,7 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "Indian Super League",
+      "officialName": "MG India Indian Super League",
       "nonCommercialDisplayName": "Indian Super League",
       "candidateName": "Indian Super League",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
@@ -56,6 +56,50 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
+    },
+    "block94Research": {
+      "edition": "2026/27",
+      "firstMatchDate": "2026-10-10",
+      "endMonth": "2027-05",
+      "participants": [
+        "Bengaluru FC",
+        "Chennaiyin FC",
+        "Churchill Brothers FC",
+        "East Bengal FC",
+        "FC Goa",
+        "Inter Kashi FC",
+        "Kerala Blasters FC",
+        "Mohun Bagan Super Giant",
+        "Mumbai City FC",
+        "NorthEast United FC",
+        "Odisha FC",
+        "Punjab FC",
+        "Sporting Club Delhi"
+      ],
+      "format": {
+        "playingTeams": 13,
+        "cycles": 2,
+        "leagueMatchesPerClub": 24,
+        "shield": "league first",
+        "playoffRanks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "playoffWinner": "ISL Cup champion"
+      },
+      "exception": {
+        "club": "Diamond Harbour FC",
+        "status": "ADMINISTRATIVE_BOTTOM_NO_PLAYING_FIXTURES",
+        "pointsEligible": false,
+        "relegatedTo": "IFL 2027/28",
+        "reason": "Participation fee not met; promoted slot not taken",
+        "churchillApproval": "conditional at Sep5 announcement"
+      },
+      "scope": "AIFF Sep5 statement reproduced in Indian Express, sponsor Oct1 confirmation. Overrides July preliminary plan of14 playing clubs; one-off exception, no invented replacement or automatic future repeat."
     }
   },
   {
@@ -69,9 +113,9 @@
     "candidateSources": [
       "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -137,6 +181,17 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
+    },
+    "block94Research": {
+      "edition": "2026/27",
+      "teams": 11,
+      "firstMatchDate": "2026-10-30",
+      "format": {
+        "cycles": 2,
+        "gamesPerClub": 20,
+        "scope": "Secondary contemporary schedule reporting full home-away; AIFF confirms 11 and start, full regulations not independently reviewed."
+      },
+      "scope": "Current format distinct from 2025/26 split, current promotion/relegation conditions pending."
     }
   }
 ]

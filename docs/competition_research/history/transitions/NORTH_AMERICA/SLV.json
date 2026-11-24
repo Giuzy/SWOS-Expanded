@@ -1,0 +1,62 @@
+[
+  {
+    "index": 676,
+    "value": {
+      "competition": "SLV row 64",
+      "firstEdition": "1998/99",
+      "lastEdition": null,
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        64
+      ],
+      "note": "Annual league replaced by short seasons",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block95 sporting observations, exact dates and keys not reconciled."
+    }
+  },
+  {
+    "index": 677,
+    "value": {
+      "competition": "SLV row 296",
+      "firstEdition": "2026/27",
+      "lastEdition": null,
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        296
+      ],
+      "note": "Six playoff clubs, top two semifinal",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block95 sporting observations, exact dates and keys not reconciled."
+    }
+  },
+  {
+    "index": 678,
+    "value": {
+      "competition": "SLV row 404",
+      "firstEdition": "2026",
+      "lastEdition": null,
+      "operation": "REVIVAL",
+      "rowRefs": [
+        404
+      ],
+      "note": "Copa Presidente 24 clubs, six groups",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block95 sporting observations, exact dates and keys not reconciled."
+    }
+  },
+  {
+    "index": 679,
+    "value": {
+      "competition": "SLV row 404",
+      "firstEdition": "2026/27",
+      "lastEdition": null,
+      "operation": "SCHEDULE_CHANGE",
+      "rowRefs": [
+        404
+      ],
+      "note": "Quarterfinals postponed to Q1 2027",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block95 sporting observations, exact dates and keys not reconciled."
+    }
+  }
+]

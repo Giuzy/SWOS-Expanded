@@ -10,15 +10,15 @@
     "candidateSources": [
       "1db714bb54f9be6429afe2e869103ec27e890ed3"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "sportResearchStatus": "CONFLICT_UNRESOLVED",
     "knownSportData": "secondary reports initial suspension then reinstatement, 2526 abandoned before completion; no verified primary source.",
@@ -26,14 +26,43 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Hazfi Cup",
+      "nonCommercialDisplayName": "Hazfi Cup",
       "candidateName": "Hazfi Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block94Research": {
+      "edition": "2026/27",
+      "status": "ANNOUNCED_REINSTATED",
+      "nominalStart": "2026-11-29",
+      "format": {
+        "knockout": true,
+        "preliminaries": true
+      },
+      "timeline": {
+        "initialDecision": "not held due to calendar congestion",
+        "laterDecision": "reinstated after continental tournament reschedule",
+        "scope": "Secondary reporting; primary decision dates and format still pending; no actual game as of Nov24."
+      },
+      "previousEdition": {
+        "edition": "2025/26",
+        "status": "ABANDONED_AT_QUARTERFINAL",
+        "qualifiedForUnplayedQF": [
+          "Esteghlal Tehran",
+          "Saipa",
+          "Gol Gohar",
+          "Malavan",
+          "Peykan",
+          "Foolad Khuzestan",
+          "Shamsazar",
+          "Kheybar"
+        ],
+        "scope": "RSSSF historical archive; exact cancellation decision date relative to July1 unresolved, no cutoff snapshot or future winner."
+      }
     }
   }
 ]

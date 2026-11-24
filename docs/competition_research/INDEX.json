@@ -618,7 +618,15 @@
     "history/transitions/EUROPE/BLR.json",
     "history/transitions/EUROPE/LVA.json",
     "history/transitions/EUROPE/MKD.json",
-    "history/transitions/EUROPE/MNE.json"
+    "history/transitions/EUROPE/MNE.json",
+    "history/transitions/ASIA/TPE.json",
+    "history/transitions/ASIA/IRN.json",
+    "history/transitions/ASIA/QAT.json",
+    "history/transitions/NORTH_AMERICA/GUA.json",
+    "history/transitions/NORTH_AMERICA/HON.json",
+    "history/transitions/NORTH_AMERICA/PAN.json",
+    "history/transitions/NORTH_AMERICA/SLV.json",
+    "history/transitions/NORTH_AMERICA/SUR.json"
   ],
   "versions": [
     "history/league_versions/EUROPE/FRA.json",
@@ -1415,6 +1423,6 @@
   "metadata": "metadata.json",
   "coverage": "COVERAGE.json",
   "researchOnly": true,
-  "lastPreparedBlock": 91,
+  "lastPreparedBlock": 96,
   "cutoffScope": "CUTOFF_SCOPE.json"
 }

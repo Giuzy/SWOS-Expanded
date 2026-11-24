@@ -132,7 +132,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -202,6 +202,47 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
+    },
+    "block96Research": {
+      "edition": "2026",
+      "clubs": 12,
+      "opening": "2026-02-27",
+      "regularRounds": 22,
+      "cutoff": {
+        "initialDate": "2026-07-01",
+        "scoreColumns": [
+          "date",
+          "home",
+          "away",
+          "homeGoals",
+          "awayGoals"
+        ],
+        "scores": [
+          [
+            "2026-06-20",
+            "Sturt Lions",
+            "Para Hills",
+            6,
+            0
+          ],
+          [
+            "2026-06-26",
+            "West Torrens Birkalla",
+            "Sturt Lions",
+            4,
+            1
+          ],
+          [
+            "2026-06-26",
+            "Adelaide Comets",
+            "Adelaide City",
+            0,
+            1
+          ]
+        ],
+        "scope": "Three June result excerpts; full table and results not retrieved."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -218,7 +259,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -272,6 +313,75 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
+    },
+    "block96Research": {
+      "edition": "2026",
+      "clubs": 16,
+      "regularRounds": 30,
+      "finalsQualifiers": 6,
+      "cutoff": {
+        "initialDate": "2026-07-01",
+        "round": 21,
+        "reportedBy": "2026-06-28",
+        "scoreColumns": [
+          "home",
+          "away",
+          "homeGoals",
+          "awayGoals"
+        ],
+        "scores": [
+          [
+            "Sydney FC",
+            "Sydney United 58",
+            1,
+            0
+          ],
+          [
+            "UNSW",
+            "Sutherland Sharks",
+            1,
+            3
+          ],
+          [
+            "Western Sydney Wanderers",
+            "Manly United",
+            3,
+            3
+          ],
+          [
+            "SD Raiders",
+            "St George City",
+            3,
+            1
+          ],
+          [
+            "NWS Spirit",
+            "Wollongong Wolves",
+            2,
+            0
+          ],
+          [
+            "St George FC",
+            "Sydney Olympic",
+            1,
+            2
+          ],
+          [
+            "Marconi Stallions",
+            "Blacktown City",
+            2,
+            0
+          ],
+          [
+            "APIA Leichhardt",
+            "Rockdale Ilinden",
+            0,
+            2
+          ]
+        ],
+        "scope": "All eight round21 scores reported by league June28; individual match dates not certified. No full cutoff table."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -288,7 +398,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -342,6 +452,95 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
+    },
+    "block96Research": {
+      "edition": "2026",
+      "clubs": 12,
+      "announcedOpening": "2026-02-20",
+      "cutoff": {
+        "initialDate": "2026-07-01",
+        "scoreColumns": [
+          "date",
+          "home",
+          "away",
+          "homeGoals",
+          "awayGoals"
+        ],
+        "scores": [
+          [
+            "2026-06-02",
+            "Wynnum Wolves",
+            "Brisbane Roar B",
+            2,
+            1
+          ],
+          [
+            "2026-06-03",
+            "Rochedale",
+            "Magic United",
+            4,
+            0
+          ],
+          [
+            "2026-06-05",
+            "Eastern Suburbs",
+            "Moreton City Excelsior",
+            0,
+            0
+          ],
+          [
+            "2026-06-05",
+            "Gold Coast Knights",
+            "Olympic FC",
+            5,
+            2
+          ],
+          [
+            "2026-06-06",
+            "Magic United",
+            "Brisbane Roar B",
+            2,
+            1
+          ],
+          [
+            "2026-06-06",
+            "Brisbane City",
+            "Queensland Lions",
+            0,
+            4
+          ],
+          [
+            "2026-06-06",
+            "Rochedale",
+            "Peninsula",
+            0,
+            2
+          ],
+          [
+            "2026-06-07",
+            "Gold Coast United",
+            "Wynnum Wolves",
+            1,
+            2
+          ],
+          [
+            "2026-06-13",
+            "Gold Coast United",
+            "Brisbane City",
+            0,
+            2
+          ],
+          [
+            "2026-06-27",
+            "Magic United",
+            "Brisbane City",
+            3,
+            5
+          ]
+        ],
+        "scope": "Ten observed June results, early June archive and June27 corroborating snippets; postponed games excluded; full table not retrieved."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

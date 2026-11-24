@@ -1,0 +1,107 @@
+[
+  {
+    "index": 660,
+    "value": {
+      "competition": "QAT tier1",
+      "firstEdition": "2017/18",
+      "lastEdition": "2022/23",
+      "operation": "RENAME",
+      "rowRefs": [
+        288
+      ],
+      "note": "QNB Stars League, QFA overview (older comparison column conflicts at 2022 boundary).",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 661,
+    "value": {
+      "competition": "QAT tier1",
+      "firstEdition": "2023/24",
+      "lastEdition": "2023/24",
+      "operation": "RENAME",
+      "rowRefs": [
+        288
+      ],
+      "note": "EXPO Stars League.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 662,
+    "value": {
+      "competition": "QAT tier1",
+      "firstEdition": "2024/25",
+      "lastEdition": "2024/25",
+      "operation": "RENAME",
+      "rowRefs": [
+        288
+      ],
+      "note": "Ooredoo Stars League.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 663,
+    "value": {
+      "competition": "QAT tier1",
+      "firstEdition": "2025/26",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "rowRefs": [
+        288
+      ],
+      "note": "Doha Bank Stars League, three-season sponsorship signed May2025 and extension reported July2026 to2030.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 664,
+    "value": {
+      "competition": "QAT Amir Cup",
+      "firstEdition": "2024",
+      "lastEdition": null,
+      "operation": "EXPAND_TO_20",
+      "rowRefs": [
+        396
+      ],
+      "note": "QFA 2026 draw says third consecutive20-club edition, previously17. 2027 not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 665,
+    "value": {
+      "competition": "QAT QSL Cup",
+      "firstEdition": "2025/26",
+      "lastEdition": "2025/26",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        397
+      ],
+      "note": "20 clubs from two tiers, ten league-stage matches each, top2 QF, ranks3–14 play-in.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 666,
+    "value": {
+      "competition": "QAT QSL Cup",
+      "firstEdition": "2026/27",
+      "lastEdition": "2026/27",
+      "operation": "CHANGE_ACCESS",
+      "rowRefs": [
+        397
+      ],
+      "note": "19 entrants, Al Sadd withdrawal and five-level stage; precise current play-in rules pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  }
+]

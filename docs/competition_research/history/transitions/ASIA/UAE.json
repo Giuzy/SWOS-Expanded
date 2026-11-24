@@ -14,5 +14,65 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
     }
+  },
+  {
+    "index": 667,
+    "value": {
+      "competition": "UAE tier1",
+      "firstEdition": "2008/09",
+      "lastEdition": null,
+      "operation": "PROFESSIONALIZATION",
+      "rowRefs": [
+        313
+      ],
+      "note": "Professional era begins 2008/09.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 668,
+    "value": {
+      "competition": "UAE tier1",
+      "firstEdition": "2013/14",
+      "lastEdition": "2020/21",
+      "operation": "RENAME",
+      "rowRefs": [
+        313
+      ],
+      "note": "Arabian Gulf League (WAM historical review).",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 669,
+    "value": {
+      "competition": "UAE tier1",
+      "firstEdition": "2021/22",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "rowRefs": [
+        313
+      ],
+      "note": "ADNOC Pro League, sponsor extended through2029.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 670,
+    "value": {
+      "competition": "UAE League Cup",
+      "firstEdition": "2026/27",
+      "lastEdition": null,
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        416
+      ],
+      "note": "League-stage replaces elimination-only format, 14 clubs/6 games/top8 secondary corroboration.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
   }
 ]

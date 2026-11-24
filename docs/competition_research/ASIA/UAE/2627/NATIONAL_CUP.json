@@ -10,27 +10,63 @@
     "candidateSources": [
       "629e7b0148b7b203984458bfb8a5e2ad9ff8d914"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "President's Cup",
+      "nonCommercialDisplayName": "UAE President's Cup",
       "candidateName": "UAE President's Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block94Research": {
+      "edition": "2026/27",
+      "format": {
+        "preliminaryRounds": 3,
+        "observedPreliminaryTies": [
+          8,
+          4,
+          2
+        ],
+        "mainRound16": {
+          "topTierEntrants": 14,
+          "preliminaryQualifiers": 2
+        },
+        "knockout": true
+      },
+      "dates": {
+        "firstPreliminaryWindow": [
+          "2026-09-22",
+          "2026-09-23"
+        ],
+        "secondPreliminary": [
+          "2026-09-28",
+          "2026-09-29"
+        ],
+        "thirdPreliminary": "2026-10-04",
+        "R16": [
+          "2026-10-22",
+          "2026-10-24"
+        ],
+        "QFWindow": [
+          "2027-02-25",
+          "2027-02-27"
+        ]
+      },
+      "scope": "Federation competition identity and multiple secondary schedules corroborate phase progression. First preliminary count inferred from bracket structure (seven observed first-round ties plus one unresolved listing), exact access/leg rules pending; no results."
     }
   }
 ]

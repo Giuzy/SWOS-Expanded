@@ -7,26 +7,31 @@
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1996",
+      "format_valid_until": "1996",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "observedFormatChanges": [
+        "1997",
+        "2003",
+        "2005"
+      ]
     }
   },
   {
     "index": 58,
     "value": {
       "row": 59,
-      "active_from": null,
-      "active_until": null,
-      "endStatus": "UNKNOWN",
+      "active_from": "1992",
+      "active_until": "1998",
+      "endStatus": "OLD_STRUCTURE_ENDED_NEW_JFL_AND_J2_DISTINCT",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1996",
+      "format_valid_until": "1996",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

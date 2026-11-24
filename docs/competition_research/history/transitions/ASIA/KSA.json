@@ -62,5 +62,110 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 26 actual web search excerpts; full regulations, exact dates and identity mapping pending."
     }
+  },
+  {
+    "index": 653,
+    "value": {
+      "competition": "KSA tier1",
+      "firstEdition": "2007/08",
+      "lastEdition": null,
+      "operation": "RETURN_POINTS_SYSTEM",
+      "rowRefs": [
+        263
+      ],
+      "note": "End of Golden Square 1991–2007, title by accumulated points.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 654,
+    "value": {
+      "competition": "KSA tier1",
+      "firstEdition": "2010/11",
+      "lastEdition": "2012/13",
+      "operation": "EXPAND_AND_RENAME",
+      "rowRefs": [
+        263
+      ],
+      "note": "14 clubs, Zain Pro League observed.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 655,
+    "value": {
+      "competition": "KSA tier1",
+      "firstEdition": "2013/14",
+      "lastEdition": "2016/17",
+      "operation": "RENAME",
+      "rowRefs": [
+        263
+      ],
+      "note": "Abdullatif Jameel League commercial name.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 656,
+    "value": {
+      "competition": "KSA tier1",
+      "firstEdition": "2017/18",
+      "lastEdition": "2017/18",
+      "operation": "RENAME",
+      "rowRefs": [
+        263
+      ],
+      "note": "Saudi Pro League.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 657,
+    "value": {
+      "competition": "KSA tier1",
+      "firstEdition": "2018/19",
+      "lastEdition": "2021/22",
+      "operation": "EXPAND_AND_RENAME",
+      "rowRefs": [
+        263
+      ],
+      "note": "16 clubs, Prince Mohammed Bin Salman Professional League.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 658,
+    "value": {
+      "competition": "KSA tier1",
+      "firstEdition": "2022/23",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "rowRefs": [
+        263
+      ],
+      "note": "Roshn Saudi League.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 659,
+    "value": {
+      "competition": "KSA tier1",
+      "firstEdition": "2023/24",
+      "lastEdition": null,
+      "operation": "EXPAND_TO_18",
+      "rowRefs": [
+        263
+      ],
+      "note": "SAFF approved 18-club structure.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
   }
 ]

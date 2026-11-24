@@ -1,0 +1,122 @@
+[
+  {
+    "index": 645,
+    "value": {
+      "competition": "IRN tier1",
+      "firstEdition": "2001/02",
+      "lastEdition": null,
+      "operation": "PROFESSIONAL_SUCCESSOR",
+      "rowRefs": [
+        255
+      ],
+      "note": "Azadegan top-tier era ends 2000/01; Iran Premier League from 2001/02.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 646,
+    "value": {
+      "competition": "IRN tier1",
+      "firstEdition": "2006/07",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "rowRefs": [
+        255
+      ],
+      "note": "Persian Gulf Pro League name reported since 2006; official title interval needs audit.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 647,
+    "value": {
+      "competition": "IRN tier1",
+      "firstEdition": "2007/08",
+      "lastEdition": "2012/13",
+      "operation": "EXPAND_TO_18",
+      "rowRefs": [
+        255
+      ],
+      "note": "Historical league sizes 18 in this interval.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 648,
+    "value": {
+      "competition": "IRN tier1",
+      "firstEdition": "2013/14",
+      "lastEdition": "2025/26",
+      "operation": "REDUCE_TO_16",
+      "rowRefs": [
+        255
+      ],
+      "note": "16 clubs observed; later promotion rules vary.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 649,
+    "value": {
+      "competition": "IRN tier1",
+      "firstEdition": "2025/26",
+      "lastEdition": "2025/26",
+      "operation": "ABANDON_REGULAR_SEASON",
+      "rowRefs": [
+        255
+      ],
+      "note": "Table frozen, no title in archive, June continental playoffs and July promotion playoff separate. Decision timing to verify.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 650,
+    "value": {
+      "competition": "IRN tier1",
+      "firstEdition": "2026/27",
+      "lastEdition": null,
+      "operation": "EXPAND_TO_18",
+      "rowRefs": [
+        255
+      ],
+      "note": "AFC confirms 16 to18 expansion.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 651,
+    "value": {
+      "competition": "IRN Hazfi Cup",
+      "firstEdition": "2025/26",
+      "lastEdition": "2025/26",
+      "operation": "ABANDON_EDITION",
+      "rowRefs": [
+        367
+      ],
+      "note": "Abandoned before QF, no winner; decision date unresolved.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 652,
+    "value": {
+      "competition": "IRN Hazfi Cup",
+      "firstEdition": "2026/27",
+      "lastEdition": "2026/27",
+      "operation": "REINSTATE_ANNOUNCED",
+      "rowRefs": [
+        367
+      ],
+      "note": "Initial non-holding decision reversed, Nov29 preliminary planned; secondary reporting.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  }
+]

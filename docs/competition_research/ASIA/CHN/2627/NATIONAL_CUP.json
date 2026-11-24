@@ -13,7 +13,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
-      "historyAtStart": "PARTIAL_CUTOFF_SOURCE_SUPPORTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -121,6 +121,403 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limitations": "No exact fixture/club key reconciliation, match rule certification or runtime test."
+    },
+    "block93Research": {
+      "edition": "2026",
+      "matches": [
+        {
+          "round": 3,
+          "date": "2026-05-15",
+          "home": "Shenzhen 2028",
+          "away": "Shaanxi Union",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "Shaanxi Union"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-15",
+          "home": "Dalian Kewei",
+          "away": "Nantong Zhiyun",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "Dalian Kewei"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-15",
+          "home": "Hangzhou Linping Wuyue",
+          "away": "Foshan Nanshi",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Hangzhou Linping Wuyue"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-15",
+          "home": "Qingdao Red Lions",
+          "away": "Nanjing City",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Qingdao Red Lions"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-16",
+          "home": "Beijing Pengrui",
+          "away": "Shenzhen Juniors",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "winner": "Shenzhen Juniors"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-16",
+          "home": "Liaocheng Legend",
+          "away": "Ningbo",
+          "homeGoals": 1,
+          "awayGoals": 4,
+          "winner": "Ningbo"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-16",
+          "home": "Shanghai Second",
+          "away": "Yanbian Longding",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Shanghai Second"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-16",
+          "home": "Lanzhou Longyuan Athletic",
+          "away": "Meizhou Hakka",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "Lanzhou Longyuan Athletic"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-16",
+          "home": "Shanxi Chongde Ronghai",
+          "away": "Changchun Yatai",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "penalties": [
+            4,
+            3
+          ],
+          "winner": "Shanxi Chongde Ronghai"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-16",
+          "home": "Guangzhou Dandelion",
+          "away": "Wuxi Wugo",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "Wuxi Wugo"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-16",
+          "home": "Yulin Mobei Miners",
+          "away": "Suzhou Dongwu",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "Suzhou Dongwu"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-17",
+          "home": "Shanghai Imair",
+          "away": "Jiangxi Dingnan United",
+          "homeGoals": 4,
+          "awayGoals": 2,
+          "winner": "Shanghai Imair"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-17",
+          "home": "Wuhan Lianzhen",
+          "away": "Guangdong GZ-Power",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "winner": "Guangdong GZ-Power"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-17",
+          "home": "Guizhou Xufengtang",
+          "away": "Shijiazhuang Gongfu",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "penalties": [
+            2,
+            4
+          ],
+          "winner": "Shijiazhuang Gongfu"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-17",
+          "home": "Hubei Istar",
+          "away": "Guangxi Hengchen",
+          "homeGoals": 0,
+          "awayGoals": 4,
+          "winner": "Guangxi Hengchen"
+        },
+        {
+          "round": 3,
+          "date": "2026-05-17",
+          "home": "Jiangxi Lushan",
+          "away": "Dalian K'un City",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "winner": "Jiangxi Lushan"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-19",
+          "home": "Shanghai Second",
+          "away": "Shanghai Port",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "winner": "Shanghai Port"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-19",
+          "home": "Dalian Kewei",
+          "away": "Liaoning Tieren",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Dalian Kewei"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-19",
+          "home": "Shanxi Chongde Ronghai",
+          "away": "Qingdao West Coast",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "penalties": [
+            4,
+            5
+          ],
+          "winner": "Qingdao West Coast"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-19",
+          "home": "Shaanxi Union",
+          "away": "Zhejiang",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "penalties": [
+            5,
+            4
+          ],
+          "winner": "Shaanxi Union"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-19",
+          "home": "Shenzhen Juniors",
+          "away": "Shenzhen Peng City",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "winner": "Shenzhen Peng City"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-19",
+          "home": "Hangzhou Linping Wuyue",
+          "away": "Dalian Yingbo",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "penalties": [
+            4,
+            5
+          ],
+          "winner": "Dalian Yingbo"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-19",
+          "home": "Lanzhou Longyuan Athletic",
+          "away": "Tianjin Jinmen Tiger",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "penalties": [
+            5,
+            3
+          ],
+          "winner": "Lanzhou Longyuan Athletic"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-19",
+          "home": "Guangdong GZ-Power",
+          "away": "Beijing Guoan",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "winner": "Beijing Guoan"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-19",
+          "home": "Jiangxi Lushan",
+          "away": "Henan",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "Henan"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-20",
+          "home": "Qingdao Red Lions",
+          "away": "Wuhan Three Towns",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "penalties": [
+            3,
+            4
+          ],
+          "winner": "Wuhan Three Towns"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-20",
+          "home": "Ningbo",
+          "away": "Chongqing Tonglianglong",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "Chongqing Tonglianglong"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-20",
+          "home": "Wuxi Wugo",
+          "away": "Qingdao Hainiu",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "penalties": [
+            3,
+            5
+          ],
+          "winner": "Qingdao Hainiu"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-20",
+          "home": "Shijiazhuang Gongfu",
+          "away": "Shanghai Shenhua",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "Shanghai Shenhua"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-20",
+          "home": "Shanghai Imair",
+          "away": "Chengdu Rongcheng",
+          "homeGoals": 0,
+          "awayGoals": 4,
+          "winner": "Chengdu Rongcheng"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-20",
+          "home": "Guangxi Hengchen",
+          "away": "Shandong Taishan",
+          "homeGoals": 0,
+          "awayGoals": 5,
+          "winner": "Shandong Taishan"
+        },
+        {
+          "round": 4,
+          "date": "2026-06-21",
+          "home": "Suzhou Dongwu",
+          "away": "Yunnan Yukun",
+          "homeGoals": 2,
+          "awayGoals": 4,
+          "winner": "Yunnan Yukun"
+        }
+      ],
+      "qualifiedForR16": [
+        "Shanghai Port",
+        "Dalian Kewei",
+        "Qingdao West Coast",
+        "Shaanxi Union",
+        "Shenzhen Peng City",
+        "Dalian Yingbo",
+        "Lanzhou Longyuan Athletic",
+        "Beijing Guoan",
+        "Henan",
+        "Wuhan Three Towns",
+        "Chongqing Tonglianglong",
+        "Qingdao Hainiu",
+        "Shanghai Shenhua",
+        "Chengdu Rongcheng",
+        "Shandong Taishan",
+        "Yunnan Yukun"
+      ],
+      "drawDate": "2026-06-25",
+      "nextRound": [
+        {
+          "date": "2026-07-21",
+          "home": "Dalian Kewei",
+          "away": "Beijing Guoan"
+        },
+        {
+          "date": "2026-07-21",
+          "home": "Shanghai Port",
+          "away": "Shenzhen Peng City"
+        },
+        {
+          "date": "2026-07-21",
+          "home": "Shanghai Shenhua",
+          "away": "Qingdao Hainiu"
+        },
+        {
+          "date": "2026-07-21",
+          "home": "Chongqing Tonglianglong",
+          "away": "Qingdao West Coast"
+        },
+        {
+          "date": "2026-07-21",
+          "home": "Wuhan Three Towns",
+          "away": "Shandong Taishan"
+        },
+        {
+          "date": "2026-07-21",
+          "home": "Henan",
+          "away": "Dalian Yingbo"
+        },
+        {
+          "date": "2026-07-21",
+          "home": "Yunnan Yukun",
+          "away": "Chengdu Rongcheng"
+        },
+        {
+          "date": "2026-07-22",
+          "home": "Lanzhou Longyuan Athletic",
+          "away": "Shaanxi Union"
+        }
+      ],
+      "scope": "All 32 scored ties R3/R4, all 16 advancing clubs and draw known at cutoff. First two rounds still missing individual scores; Shanghai Imair aka Shanghai Zetian archive label. No future score."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 32,
+        "qualified": 16,
+        "drawKnown": true
+      },
+      "missing": "First two rounds, participant keys, independent reconciliation."
     }
   }
 ]

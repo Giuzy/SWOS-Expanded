@@ -7,11 +7,16 @@
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "2021",
+      "format_valid_until": "2026",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "observedFormatChanges": [
+        "2021 regional-national format",
+        "2026 last edition of format",
+        "2027 regional feeder structure"
+      ]
     }
   },
   {
@@ -22,11 +27,16 @@
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "2021",
+      "format_valid_until": "2026",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "observedFormatChanges": [
+        "2021 regional-national format",
+        "2026 last edition of format",
+        "2027 regional feeder structure"
+      ]
     }
   },
   {
@@ -37,11 +47,16 @@
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "2021",
+      "format_valid_until": "2026",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "observedFormatChanges": [
+        "2021 regional-national format",
+        "2026 last edition of format",
+        "2027 regional feeder structure"
+      ]
     }
   }
 ]

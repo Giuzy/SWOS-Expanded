@@ -10,27 +10,45 @@
     "candidateSources": [
       "c79508abe598b80e9ae3ed1c7fa9e3926c3726d6"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Roshn Saudi League",
+      "nonCommercialDisplayName": "Saudi Pro League",
       "candidateName": "Saudi Pro League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block94Research": {
+      "edition": "2026/27",
+      "firstMatch": "2026-08-13",
+      "initialEnd": "2027-05-29",
+      "format": {
+        "teams": 18,
+        "cycles": 2,
+        "rounds": 34,
+        "games": 306
+      },
+      "scheduling": {
+        "maxConsecutiveHomeOrAway": 2,
+        "noFIFAMatchWindowOverlap": true,
+        "noKingsCupOrAFCMatchdayOverlap": true,
+        "revision": "November2026 updated calendar after Asian Cup rescheduled; original end date not necessarily final"
+      },
+      "scope": "League announcement official, general format and scheduling constraints corroborated by secondary overview; revised per-fixture calendar, tiebreak and exact relegation not fully extracted."
     }
   }
 ]

@@ -121,5 +121,298 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block59 verified HTML or official search excerpt, no future results imported."
     }
+  },
+  {
+    "index": 614,
+    "value": {
+      "competition": "JPN tier 1",
+      "firstEdition": "1997",
+      "lastEdition": "2004",
+      "operation": "RETURN_TWO_STAGE_FORMAT",
+      "rowRefs": [
+        58,
+        258
+      ],
+      "note": "Two stages and championship where required, after single-stage 1996. 17 clubs in 1997,18 in 1998,16 in 1999. Exact championship conditions vary by edition.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 615,
+    "value": {
+      "competition": "JPN old JFL",
+      "firstEdition": "1998",
+      "lastEdition": "1998",
+      "operation": "END_OLD_STRUCTURE",
+      "rowRefs": [
+        59
+      ],
+      "note": "Old Japan Football League 1992–98; J2 formed 1999, new JFL began 1999 with nine entrants, separate third-level competition. Historical continuity does not imply same runtime slot.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 616,
+    "value": {
+      "competition": "JPN tier 2",
+      "firstEdition": "1999",
+      "lastEdition": "2007",
+      "operation": "FOUR_ROUND_ROBIN",
+      "rowRefs": [
+        259
+      ],
+      "note": "10 teams in inaugural 1999 season, 36 games per club; 11 in 2000,12 in 2001–05,13 in 2006–07. Four cycles.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 617,
+    "value": {
+      "competition": "JPN tier 1",
+      "firstEdition": "2003",
+      "lastEdition": null,
+      "operation": "ABOLISH_EXTRA_TIME_IN_LEAGUE",
+      "rowRefs": [
+        58,
+        258
+      ],
+      "note": "J.League board approved normal-time draws from 2003. Do not use 1996 ET/PK points rule after this change.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 618,
+    "value": {
+      "competition": "JPN tier 1",
+      "firstEdition": "2005",
+      "lastEdition": "2014",
+      "operation": "RETURN_SINGLE_STAGE",
+      "rowRefs": [
+        58,
+        258
+      ],
+      "note": "18 clubs, double round robin 34 matches, no separate championship phase.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 619,
+    "value": {
+      "competition": "JPN tier 2",
+      "firstEdition": "2008",
+      "lastEdition": "2009",
+      "operation": "CHANGE_TO_TRIPLE_ROUND_ROBIN",
+      "rowRefs": [
+        259
+      ],
+      "note": "15 clubs and42 games per team in2008;18 clubs and51 games in2009.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 620,
+    "value": {
+      "competition": "JPN tier 2",
+      "firstEdition": "2010",
+      "lastEdition": null,
+      "operation": "CHANGE_TO_DOUBLE_ROUND_ROBIN",
+      "rowRefs": [
+        259
+      ],
+      "note": "19 clubs in2010,20 in2011,22 in2012; number of teams later changes.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 621,
+    "value": {
+      "competition": "JPN tier 1",
+      "firstEdition": "2015",
+      "lastEdition": "2016",
+      "operation": "RETURN_TWO_STAGE_FORMAT",
+      "rowRefs": [
+        258
+      ],
+      "note": "Two-stage league and championship. Distinct rules from 1997–2004.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 622,
+    "value": {
+      "competition": "JPN tier 1",
+      "firstEdition": "2017",
+      "lastEdition": null,
+      "operation": "RETURN_SINGLE_STAGE",
+      "rowRefs": [
+        258
+      ],
+      "note": "Single-stage 34-round league restored, later number of clubs varies.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 623,
+    "value": {
+      "competition": "JPN tier 1",
+      "firstEdition": "2024",
+      "lastEdition": null,
+      "operation": "EXPAND_TO_20_CLUBS",
+      "rowRefs": [
+        258
+      ],
+      "note": "20 clubs and38 matches per club.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 624,
+    "value": {
+      "competition": "JPN J1/J2/J3",
+      "firstEdition": "2026 special",
+      "lastEdition": "2026 special",
+      "operation": "TRANSITIONAL_SEASON",
+      "rowRefs": [
+        258,
+        259
+      ],
+      "note": "Feb6–June7 2026 transition only. J1 two regional groups of10 home/away plus same-rank placement ties, 20 matches per club. Not an August 2026 edition, do not repeat.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 625,
+    "value": {
+      "competition": "JPN League Cup",
+      "firstEdition": "1997",
+      "lastEdition": "1997",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        163,
+        371
+      ],
+      "note": "20 entrants:17 J.League and3 associates; five groups of4 double RR; five firsts and three best seconds reach knockout.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 626,
+    "value": {
+      "competition": "JPN League Cup",
+      "firstEdition": "1998",
+      "lastEdition": "1998",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        163,
+        371
+      ],
+      "note": "20 entrants:18 J.League and2 associates; four groups of5 single RR; group winners SF.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 627,
+    "value": {
+      "competition": "JPN League Cup",
+      "firstEdition": "1999",
+      "lastEdition": "2001",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        163,
+        371
+      ],
+      "note": "All J1/J2, two-leg knockout except single final;26,27,28 entrants in successive years.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 628,
+    "value": {
+      "competition": "JPN League Cup",
+      "firstEdition": "2002",
+      "lastEdition": null,
+      "operation": "RETURN_GROUPS",
+      "rowRefs": [
+        163,
+        371
+      ],
+      "note": "J1 only; group phase returns. Official history has inconsistent 2002 group arithmetic; exact 2002 counts pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 629,
+    "value": {
+      "competition": "JPN League Cup",
+      "firstEdition": "2023",
+      "lastEdition": "2023",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        371
+      ],
+      "note": "20 entrants:18 J1 and2 J2; five groups of4 home/away, eight qualify for two-leg KO except single final.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 630,
+    "value": {
+      "competition": "JPN League Cup",
+      "firstEdition": "2024",
+      "lastEdition": "2024",
+      "operation": "EXPAND_TO_ALL_60_CLUBS",
+      "rowRefs": [
+        371
+      ],
+      "note": "57 in ten first-stage knockout groups,10 winners enter two-leg playoff,5 winners join3 continental seeds in QF.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 631,
+    "value": {
+      "competition": "JPN League Cup",
+      "firstEdition": "2025",
+      "lastEdition": "2025",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        371
+      ],
+      "note": "55 in seven first-stage groups,7 winners plus1 AFC seed in playoff,4 winners join4 seeds in QF. Official table total column typo20 vs tier sum60; verify in audit.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
+  },
+  {
+    "index": 632,
+    "value": {
+      "competition": "JPN League Cup",
+      "firstEdition": "2026/27",
+      "lastEdition": null,
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        371
+      ],
+      "note": "58 in six knockout paths,6 winners plus2 seeded QF. Four other continental clubs enter round4. Season-specific AFC ranking criteria.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block92 official league tournament history, competition overview or JFL history; no new URL fields. Historical format intervals partial."
+    }
   }
 ]

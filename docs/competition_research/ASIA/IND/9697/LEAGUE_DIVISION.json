@@ -80,6 +80,53 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limits": "Club keys, complete per-match schedule and runtime not reconciled. No future real scores imported."
+    },
+    "block94Research": {
+      "edition": "1996/97",
+      "commercialName": "Philips National League",
+      "firstRoundWindow": [
+        "1996-12-17",
+        "1996-12-20"
+      ],
+      "format": {
+        "entrants": 12,
+        "firstPhase": {
+          "groups": 2,
+          "teamsPerGroup": 6,
+          "cycles": 1,
+          "qualifiersPerGroup": 4
+        },
+        "secondPhase": {
+          "teams": 8,
+          "cycles": 2,
+          "gamesPerClub": 14,
+          "pointsReset": true
+        },
+        "points": [
+          3,
+          1,
+          0
+        ]
+      },
+      "groupEntrants": [
+        [
+          "JCT Mills",
+          "East Bengal",
+          "Salgaocar",
+          "Indian Bank",
+          "Mohammedan Sporting",
+          "Indian Telephone Industries"
+        ],
+        [
+          "Dempo SC",
+          "Air India",
+          "Churchill Brothers",
+          "Mahindra & Mahindra",
+          "Mohun Bagan",
+          "Kerala Police"
+        ]
+      ],
+      "scope": "Historical RSSSF format and participants; no future scores imported. Separate Federation Cup began June29, already known from block54; no dated individual pre-cutoff ties found and no mapped historical cup row."
     }
   }
 ]

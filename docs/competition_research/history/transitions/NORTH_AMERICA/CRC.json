@@ -14,5 +14,35 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "2026-11-24 block 23: web search excerpts consulted, not full regulation/participant mapping. No post-cutoff results imported."
     }
+  },
+  {
+    "index": 671,
+    "value": {
+      "competition": "CRC row 224",
+      "firstEdition": "2026/27",
+      "lastEdition": null,
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        224
+      ],
+      "note": "10 clubs, 18 rounds, top four",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block95 sporting observations, exact dates and keys not reconciled."
+    }
+  },
+  {
+    "index": 672,
+    "value": {
+      "competition": "CRC row 224",
+      "firstEdition": "2027/28",
+      "lastEdition": null,
+      "operation": "PLANNED_EXPANSION",
+      "rowRefs": [
+        224
+      ],
+      "note": "12 clubs planned, not confirmed implementation",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block95 sporting observations, exact dates and keys not reconciled."
+    }
   }
 ]

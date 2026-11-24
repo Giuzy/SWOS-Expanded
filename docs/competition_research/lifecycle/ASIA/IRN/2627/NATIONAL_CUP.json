@@ -11,7 +11,9 @@
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "observedAbandonment": "2025/26",
+      "observedReinstatement": "2026/27 announced"
     }
   }
 ]

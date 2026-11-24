@@ -3,8 +3,10 @@
     "index": 411,
     "value": {
       "row": 412,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        640
+      ]
     }
   }
 ]

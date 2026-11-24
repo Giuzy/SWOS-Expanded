@@ -12,13 +12,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_HISTORICAL_STATE_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "sportResearchStatus": "FORMAT_AVAILABLE",
     "knownSportData": "INDES 24=12 first+6 second+6 third; six groups of four single RR, top2+four best thirds R16, knockout a/r from R16, starts Feb10. https://web.indes.gob.sv/?p=134064 ; group cutoff results source https://web.indes.gob.sv/?p=137547 ; September postponement only postcutoff reference.",
@@ -26,14 +26,807 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Copa El Salvador",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Copa Presidente GanaPlay",
+      "nonCommercialDisplayName": "Copa Presidente",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block95Research": {
+      "edition": "2026",
+      "opening": "2026-02-10",
+      "clubs": 24,
+      "tiers": [
+        12,
+        6,
+        6
+      ],
+      "groups": 6,
+      "qualification": "Top two each group and four best thirds; R16 two legs",
+      "cutoff": {
+        "date": "2026-07-01",
+        "status": "ACTIVE_QUARTERFINALS_PENDING",
+        "matches": [
+          {
+            "stage": "A",
+            "date": "2026-02-11",
+            "home": "Cruzeiro",
+            "away": "Municipal Limeño",
+            "score": [
+              1,
+              1
+            ]
+          },
+          {
+            "stage": "A",
+            "date": "2026-02-11",
+            "home": "Tenancingo",
+            "away": "Platense",
+            "score": [
+              1,
+              3
+            ]
+          },
+          {
+            "stage": "A",
+            "date": "2026-02-25",
+            "home": "Cruzeiro",
+            "away": "Platense",
+            "score": [
+              0,
+              0
+            ]
+          },
+          {
+            "stage": "A",
+            "date": "2026-02-25",
+            "home": "Tenancingo",
+            "away": "Municipal Limeño",
+            "score": [
+              1,
+              1
+            ]
+          },
+          {
+            "stage": "A",
+            "date": "2026-03-10",
+            "home": "Tenancingo",
+            "away": "Cruzeiro",
+            "score": [
+              0,
+              0
+            ]
+          },
+          {
+            "stage": "A",
+            "date": "2026-03-11",
+            "home": "Platense",
+            "away": "Municipal Limeño",
+            "score": [
+              1,
+              2
+            ]
+          },
+          {
+            "stage": "B",
+            "date": "2026-02-11",
+            "home": "Dragón",
+            "away": "Águila",
+            "score": [
+              1,
+              4
+            ]
+          },
+          {
+            "stage": "B",
+            "date": "2026-02-12",
+            "home": "Racing de Gualaca",
+            "away": "Fuerte San Francisco",
+            "score": [
+              0,
+              3
+            ],
+            "note": "played 1–2, award"
+          },
+          {
+            "stage": "B",
+            "date": "2026-02-26",
+            "home": "Racing de Gualaca",
+            "away": "Dragón",
+            "score": [
+              0,
+              1
+            ]
+          },
+          {
+            "stage": "B",
+            "date": "2026-02-26",
+            "home": "Fuerte San Francisco",
+            "away": "Águila",
+            "score": [
+              0,
+              1
+            ]
+          },
+          {
+            "stage": "B",
+            "date": "2026-03-11",
+            "home": "Dragón",
+            "away": "Fuerte San Francisco",
+            "score": [
+              3,
+              3
+            ]
+          },
+          {
+            "stage": "B",
+            "date": "2026-03-12",
+            "home": "Racing de Gualaca",
+            "away": "Águila",
+            "score": [
+              0,
+              2
+            ]
+          },
+          {
+            "stage": "C",
+            "date": "2026-02-10",
+            "home": "Sensunte Cabañas",
+            "away": "Luis Ángel Firpo",
+            "score": [
+              3,
+              0
+            ],
+            "note": "played 0–1, award"
+          },
+          {
+            "stage": "C",
+            "date": "2026-02-11",
+            "home": "El Roble",
+            "away": "Cacahuatique",
+            "score": [
+              1,
+              4
+            ]
+          },
+          {
+            "stage": "C",
+            "date": "2026-02-24",
+            "home": "El Roble",
+            "away": "Sensunte Cabañas",
+            "score": [
+              3,
+              0
+            ]
+          },
+          {
+            "stage": "C",
+            "date": "2026-02-25",
+            "home": "Cacahuatique",
+            "away": "Luis Ángel Firpo",
+            "score": [
+              0,
+              1
+            ]
+          },
+          {
+            "stage": "C",
+            "date": "2026-03-10",
+            "home": "El Roble",
+            "away": "Luis Ángel Firpo",
+            "score": [
+              1,
+              1
+            ]
+          },
+          {
+            "stage": "C",
+            "date": "2026-03-11",
+            "home": "Sensunte Cabañas",
+            "away": "Cacahuatique",
+            "score": [
+              0,
+              3
+            ]
+          },
+          {
+            "stage": "D",
+            "date": "2026-02-12",
+            "home": "Batanecos",
+            "away": "Zacatecoluca",
+            "score": [
+              3,
+              0
+            ],
+            "note": "played 0–0, award"
+          },
+          {
+            "stage": "D",
+            "date": "2026-02-12",
+            "home": "Vendaval",
+            "away": "Alianza",
+            "score": [
+              2,
+              2
+            ]
+          },
+          {
+            "stage": "D",
+            "date": "2026-02-24",
+            "home": "Batanecos",
+            "away": "Alianza",
+            "score": [
+              0,
+              1
+            ]
+          },
+          {
+            "stage": "D",
+            "date": "2026-02-25",
+            "home": "Vendaval",
+            "away": "Zacatecoluca",
+            "score": [
+              0,
+              1
+            ]
+          },
+          {
+            "stage": "D",
+            "date": "2026-03-12",
+            "home": "Vendaval",
+            "away": "Batanecos",
+            "score": [
+              0,
+              1
+            ]
+          },
+          {
+            "stage": "D",
+            "date": "2026-03-12",
+            "home": "Zacatecoluca",
+            "away": "Alianza",
+            "score": [
+              3,
+              3
+            ]
+          },
+          {
+            "stage": "E",
+            "date": "2026-02-10",
+            "home": "Izalco",
+            "away": "Fuerte Aguilares",
+            "score": [
+              2,
+              0
+            ]
+          },
+          {
+            "stage": "E",
+            "date": "2026-02-10",
+            "home": "Hércules",
+            "away": "FAS",
+            "score": [
+              1,
+              1
+            ]
+          },
+          {
+            "stage": "E",
+            "date": "2026-02-24",
+            "home": "Izalco",
+            "away": "FAS",
+            "score": [
+              2,
+              3
+            ]
+          },
+          {
+            "stage": "E",
+            "date": "2026-02-26",
+            "home": "Fuerte Aguilares",
+            "away": "Hércules",
+            "score": [
+              1,
+              3
+            ]
+          },
+          {
+            "stage": "E",
+            "date": "2026-03-10",
+            "home": "Fuerte Aguilares",
+            "away": "FAS",
+            "score": [
+              0,
+              2
+            ]
+          },
+          {
+            "stage": "E",
+            "date": "2026-03-11",
+            "home": "Izalco",
+            "away": "Hércules",
+            "score": [
+              2,
+              2
+            ]
+          },
+          {
+            "stage": "F",
+            "date": "2026-02-10",
+            "home": "11 Municipal",
+            "away": "Inter FA",
+            "score": [
+              1,
+              4
+            ]
+          },
+          {
+            "stage": "F",
+            "date": "2026-02-12",
+            "home": "Talleres Juniors",
+            "away": "Isidro Metapán",
+            "score": [
+              0,
+              2
+            ]
+          },
+          {
+            "stage": "F",
+            "date": "2026-02-24",
+            "home": "11 Municipal",
+            "away": "Talleres Juniors",
+            "score": [
+              0,
+              2
+            ]
+          },
+          {
+            "stage": "F",
+            "date": "2026-02-26",
+            "home": "Inter FA",
+            "away": "Isidro Metapán",
+            "score": [
+              1,
+              1
+            ]
+          },
+          {
+            "stage": "F",
+            "date": "2026-03-10",
+            "home": "11 Municipal",
+            "away": "Isidro Metapán",
+            "score": [
+              0,
+              1
+            ]
+          },
+          {
+            "stage": "F",
+            "date": "2026-03-11",
+            "home": "Talleres Juniors",
+            "away": "Inter FA",
+            "score": [
+              1,
+              3
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-08",
+            "home": "Batanecos",
+            "away": "Luis Ángel Firpo",
+            "score": [
+              0,
+              2
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-22",
+            "home": "Luis Ángel Firpo",
+            "away": "Batanecos",
+            "score": [
+              3,
+              0
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-07",
+            "home": "Alianza",
+            "away": "Isidro Metapán",
+            "score": [
+              3,
+              1
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-21",
+            "home": "Isidro Metapán",
+            "away": "Alianza",
+            "score": [
+              1,
+              1
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-09",
+            "home": "El Roble",
+            "away": "Municipal Limeño",
+            "score": [
+              0,
+              0
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-23",
+            "home": "Municipal Limeño",
+            "away": "El Roble",
+            "score": [
+              2,
+              1
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-08",
+            "home": "Izalco",
+            "away": "Águila",
+            "score": [
+              2,
+              4
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-22",
+            "home": "Águila",
+            "away": "Izalco",
+            "score": [
+              4,
+              1
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-07",
+            "home": "Dragón",
+            "away": "FAS",
+            "score": [
+              1,
+              5
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-21",
+            "home": "FAS",
+            "away": "Dragón",
+            "score": [
+              4,
+              1
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-09",
+            "home": "Platense",
+            "away": "Fuerte San Francisco",
+            "score": [
+              1,
+              1
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-21",
+            "home": "Fuerte San Francisco",
+            "away": "Platense",
+            "score": [
+              1,
+              0
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-08",
+            "home": "Hércules",
+            "away": "Cacahuatique",
+            "score": [
+              0,
+              2
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-23",
+            "home": "Cacahuatique",
+            "away": "Hércules",
+            "score": [
+              0,
+              2
+            ],
+            "note": "pens 4–2"
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-07",
+            "home": "Zacatecoluca",
+            "away": "Inter FA",
+            "score": [
+              0,
+              4
+            ]
+          },
+          {
+            "stage": "R16",
+            "date": "2026-04-22",
+            "home": "Inter FA",
+            "away": "Zacatecoluca",
+            "score": [
+              2,
+              1
+            ]
+          }
+        ],
+        "tablesDerived": {
+          "A": {
+            "Cruzeiro": {
+              "played": 3,
+              "w": 0,
+              "d": 3,
+              "l": 0,
+              "gf": 1,
+              "ga": 1,
+              "points": 3
+            },
+            "Municipal Limeño": {
+              "played": 3,
+              "w": 1,
+              "d": 2,
+              "l": 0,
+              "gf": 4,
+              "ga": 3,
+              "points": 5
+            },
+            "Tenancingo": {
+              "played": 3,
+              "w": 0,
+              "d": 2,
+              "l": 1,
+              "gf": 2,
+              "ga": 4,
+              "points": 2
+            },
+            "Platense": {
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 4,
+              "ga": 3,
+              "points": 4
+            }
+          },
+          "B": {
+            "Dragón": {
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 5,
+              "ga": 7,
+              "points": 4
+            },
+            "Águila": {
+              "played": 3,
+              "w": 3,
+              "d": 0,
+              "l": 0,
+              "gf": 7,
+              "ga": 1,
+              "points": 9
+            },
+            "Racing de Gualaca": {
+              "played": 3,
+              "w": 0,
+              "d": 0,
+              "l": 3,
+              "gf": 0,
+              "ga": 6,
+              "points": 0
+            },
+            "Fuerte San Francisco": {
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 6,
+              "ga": 4,
+              "points": 4
+            }
+          },
+          "C": {
+            "Sensunte Cabañas": {
+              "played": 3,
+              "w": 1,
+              "d": 0,
+              "l": 2,
+              "gf": 3,
+              "ga": 6,
+              "points": 3
+            },
+            "Luis Ángel Firpo": {
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 2,
+              "ga": 4,
+              "points": 4
+            },
+            "El Roble": {
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 5,
+              "ga": 5,
+              "points": 4
+            },
+            "Cacahuatique": {
+              "played": 3,
+              "w": 2,
+              "d": 0,
+              "l": 1,
+              "gf": 7,
+              "ga": 2,
+              "points": 6
+            }
+          },
+          "D": {
+            "Batanecos": {
+              "played": 3,
+              "w": 2,
+              "d": 0,
+              "l": 1,
+              "gf": 4,
+              "ga": 1,
+              "points": 6
+            },
+            "Zacatecoluca": {
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 4,
+              "ga": 6,
+              "points": 4
+            },
+            "Vendaval": {
+              "played": 3,
+              "w": 0,
+              "d": 1,
+              "l": 2,
+              "gf": 2,
+              "ga": 4,
+              "points": 1
+            },
+            "Alianza": {
+              "played": 3,
+              "w": 1,
+              "d": 2,
+              "l": 0,
+              "gf": 6,
+              "ga": 5,
+              "points": 5
+            }
+          },
+          "E": {
+            "Izalco": {
+              "played": 3,
+              "w": 1,
+              "d": 1,
+              "l": 1,
+              "gf": 6,
+              "ga": 5,
+              "points": 4
+            },
+            "Fuerte Aguilares": {
+              "played": 3,
+              "w": 0,
+              "d": 0,
+              "l": 3,
+              "gf": 1,
+              "ga": 7,
+              "points": 0
+            },
+            "Hércules": {
+              "played": 3,
+              "w": 1,
+              "d": 2,
+              "l": 0,
+              "gf": 6,
+              "ga": 4,
+              "points": 5
+            },
+            "FAS": {
+              "played": 3,
+              "w": 2,
+              "d": 1,
+              "l": 0,
+              "gf": 6,
+              "ga": 3,
+              "points": 7
+            }
+          },
+          "F": {
+            "11 Municipal": {
+              "played": 3,
+              "w": 0,
+              "d": 0,
+              "l": 3,
+              "gf": 1,
+              "ga": 7,
+              "points": 0
+            },
+            "Inter FA": {
+              "played": 3,
+              "w": 2,
+              "d": 1,
+              "l": 0,
+              "gf": 8,
+              "ga": 3,
+              "points": 7
+            },
+            "Talleres Juniors": {
+              "played": 3,
+              "w": 1,
+              "d": 0,
+              "l": 2,
+              "gf": 3,
+              "ga": 5,
+              "points": 3
+            },
+            "Isidro Metapán": {
+              "played": 3,
+              "w": 2,
+              "d": 1,
+              "l": 0,
+              "gf": 4,
+              "ga": 1,
+              "points": 7
+            }
+          }
+        },
+        "quarterfinalPairs": [
+          [
+            "Luis Ángel Firpo",
+            "Alianza"
+          ],
+          [
+            "Municipal Limeño",
+            "Águila"
+          ],
+          [
+            "Fuerte San Francisco",
+            "FAS"
+          ],
+          [
+            "Cacahuatique",
+            "Inter FA"
+          ]
+        ],
+        "scope": "52 reported matches; three awarded scores, award decision dates unknown; derived standings from awarded scores, group F published totals conflict; native keys not reconciled"
+      },
+      "laterSchedule": "Quarterfinals postponed from September 2026 to Q1 2027; no future results",
+      "researchStatus": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

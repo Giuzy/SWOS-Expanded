@@ -10,27 +10,59 @@
     "candidateSources": [
       "629e7b0148b7b203984458bfb8a5e2ad9ff8d914"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "ADIB Cup",
+      "nonCommercialDisplayName": "UAE League Cup",
       "candidateName": "UAE League Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block94Research": {
+      "edition": "2026/27",
+      "drawDate": "2026-07-02",
+      "firstRoundWindow": [
+        "2026-09-19",
+        "2026-09-20"
+      ],
+      "format": {
+        "teams": 14,
+        "phase1": "single league table",
+        "matchesPerClub": 6,
+        "homeAway": [
+          3,
+          3
+        ],
+        "phase1TotalMatches": 42,
+        "quarterfinalQualifiers": 8,
+        "seeding": "first vs eighth etc",
+        "scope": "League officially confirms revised league phase and seven matches per gameweek; detailed six-game/top8 secondary evidence."
+      },
+      "dates": {
+        "GW2": [
+          "2026-10-01",
+          "2026-10-02"
+        ],
+        "GW3": [
+          "2026-10-08",
+          "2026-10-09"
+        ]
+      },
+      "scope": "New phase replaces preceding elimination-only structure; knockout leg lengths and final date still pending."
     }
   }
 ]

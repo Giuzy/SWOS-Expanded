@@ -10,9 +10,9 @@
     "candidateSources": [
       "42b2787bccdaacaf2942439678f4c2859e508412"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -23,13 +23,42 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "King's Cup",
-      "nonCommercialDisplayName": null,
+      "officialName": "Custodian of the Two Holy Mosques Cup",
+      "nonCommercialDisplayName": "King's Cup",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "42b2787bccdaacaf2942439678f4c2859e508412",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block94Research": {
+      "edition": "2026/27",
+      "format": {
+        "teams": 32,
+        "entryPools": [
+          {
+            "division": 1,
+            "teams": 18
+          },
+          {
+            "division": 2,
+            "teams": 14
+          }
+        ],
+        "knockout": true
+      },
+      "dates": {
+        "R32": [
+          "2026-08-16",
+          "2026-08-19"
+        ],
+        "R16": [
+          "2027-01-11",
+          "2027-01-12"
+        ],
+        "finalMonth": "2027-05"
+      },
+      "scope": "Official federation confirms R32 start Aug16; secondary entry counts and nominal later windows, exact tie rules pending. No outcomes."
     }
   }
 ]

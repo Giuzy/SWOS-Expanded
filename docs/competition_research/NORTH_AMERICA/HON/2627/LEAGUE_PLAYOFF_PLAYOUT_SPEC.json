@@ -12,7 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -30,6 +30,14 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block95Research": {
+      "edition": "2026/27",
+      "qualifiers": 6,
+      "byes": 2,
+      "repechageLegs": 2,
+      "finalLegs": 2,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

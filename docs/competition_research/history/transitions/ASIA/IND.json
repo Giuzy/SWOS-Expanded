@@ -105,5 +105,35 @@
       "note": "Announced July 8 2026, after initial cutoff; previous 2025/26 shortened format not reusable automatically.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 643,
+    "value": {
+      "competition": "IND ISL",
+      "firstEdition": "2026/27",
+      "lastEdition": "2026/27",
+      "operation": "ANNUAL_ADMINISTRATIVE_EXCEPTION",
+      "rowRefs": [
+        252
+      ],
+      "note": "13 playing clubs, Diamond Harbour administrative bottom without fixtures, top6 playoff restored; October10 start. MG title sponsor observed.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
+  },
+  {
+    "index": 644,
+    "value": {
+      "competition": "IND IFL",
+      "firstEdition": "2026/27",
+      "lastEdition": "2026/27",
+      "operation": "RETURN_FULL_HOME_AWAY",
+      "rowRefs": [
+        253
+      ],
+      "note": "11 entrants, current full double round robin reported; previous season split not automatically repeated.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block94 official federation/league announcements, contemporary reports or archive. Historical intervals partial; commercial names not new competition identities. No new URL fields."
+    }
   }
 ]

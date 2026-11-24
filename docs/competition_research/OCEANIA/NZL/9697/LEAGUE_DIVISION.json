@@ -60,6 +60,16 @@
       "source": "https://www.rsssf.org/tablesn/nz96.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block96Research": {
+      "edition": "1996",
+      "name": "Northern League — Superclub",
+      "clubs": 12,
+      "regularRounds": 22,
+      "notes": "Bottom two relegated; North Shore withdrew",
+      "nextEditionName": "Northern League — Premier Division",
+      "scope": "1996 archive regional names and format; no dated pre-cutoff fixtures established; tier identity pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -113,6 +123,16 @@
       "source": "https://www.rsssf.org/tablesn/nz97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block96Research": {
+      "edition": "1996",
+      "name": "Central League — Superclub",
+      "clubs": 12,
+      "regularRounds": 22,
+      "notes": "Nelson Suburbs and New Plymouth withdrew",
+      "nextEditionName": "Central League — Premier Division",
+      "scope": "1996 archive regional names and format; no dated pre-cutoff fixtures established; tier identity pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -166,6 +186,16 @@
       "source": "https://www.rsssf.org/tablesn/nz97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block96Research": {
+      "edition": "1996",
+      "name": "Southern League — Superclub",
+      "clubs": 10,
+      "regularRounds": 18,
+      "notes": "Exact movement rules pending",
+      "nextEditionName": "Southern League — Premier Division",
+      "scope": "1996 archive regional names and format; no dated pre-cutoff fixtures established; tier identity pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

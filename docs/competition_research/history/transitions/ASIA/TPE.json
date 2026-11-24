@@ -1,0 +1,158 @@
+[
+  {
+    "index": 633,
+    "value": {
+      "competition": "National Football League",
+      "firstEdition": "2000/01",
+      "lastEdition": "2002/03",
+      "operation": "OBSERVED_CROSS_YEAR_CYCLE",
+      "rowRefs": [
+        48,
+        308
+      ],
+      "note": "RSSSF edition labels 2000/01–2002/03, followed by calendar-year 2004. Exact date change unverified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block93 actual RSSSF champions chronology, CTFA contemporary reports and 2026/27 regulations; historical dates/identities partial. No new URL fields."
+    }
+  },
+  {
+    "index": 634,
+    "value": {
+      "competition": "Taiwan tier 1",
+      "firstEdition": "2006",
+      "lastEdition": "2008",
+      "operation": "OBSERVED_COMMERCIAL_NAME",
+      "rowRefs": [
+        48,
+        308
+      ],
+      "note": "Fubon Enterprise Football League documented from 2006 to 2008. Intercity tournament coexisted in 2007–08; do not treat 2007 start as immediate top-tier replacement.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block93 actual RSSSF champions chronology, CTFA contemporary reports and 2026/27 regulations; historical dates/identities partial. No new URL fields."
+    }
+  },
+  {
+    "index": 635,
+    "value": {
+      "competition": "Taiwan tier 1",
+      "firstEdition": "2009",
+      "lastEdition": "2009",
+      "operation": "CHANGE_TOP_LEVEL_COMPETITION",
+      "rowRefs": [
+        48,
+        308
+      ],
+      "note": "Intercity Football League first top-tier edition 2009, after prior parallel Intercity editions in 2007/08.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block93 actual RSSSF champions chronology, CTFA contemporary reports and 2026/27 regulations; historical dates/identities partial. No new URL fields."
+    }
+  },
+  {
+    "index": 636,
+    "value": {
+      "competition": "Taiwan tier 1",
+      "firstEdition": "2010",
+      "lastEdition": "2013",
+      "operation": "OBSERVED_NAME",
+      "rowRefs": [
+        308
+      ],
+      "note": "City A-League label in RSSSF historical chronology; official original-language title interval pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block93 actual RSSSF champions chronology, CTFA contemporary reports and 2026/27 regulations; historical dates/identities partial. No new URL fields."
+    }
+  },
+  {
+    "index": 637,
+    "value": {
+      "competition": "Taiwan tier 1",
+      "firstEdition": "2014",
+      "lastEdition": "2015/16",
+      "operation": "OBSERVED_NAME",
+      "rowRefs": [
+        308
+      ],
+      "note": "National Urban League label in RSSSF historical chronology.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block93 actual RSSSF champions chronology, CTFA contemporary reports and 2026/27 regulations; historical dates/identities partial. No new URL fields."
+    }
+  },
+  {
+    "index": 638,
+    "value": {
+      "competition": "Taiwan tier 1",
+      "firstEdition": "2017",
+      "lastEdition": null,
+      "operation": "INTRODUCE_SUCCESSOR_FORMAT",
+      "rowRefs": [
+        308
+      ],
+      "note": "Taiwan Football Premier League replaces previous top league, first 2017 edition; legal identity mapping pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block93 actual RSSSF champions chronology, CTFA contemporary reports and 2026/27 regulations; historical dates/identities partial. No new URL fields."
+    }
+  },
+  {
+    "index": 639,
+    "value": {
+      "competition": "Taiwan tier 2",
+      "firstEdition": "2020",
+      "lastEdition": null,
+      "operation": "INTRODUCE",
+      "rowRefs": [
+        309
+      ],
+      "note": "AFC announcement confirms new nationwide Division 2 kicked off July18 2020 with eight teams. Do not conflate with earlier second-level structures.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block93 actual RSSSF champions chronology, CTFA contemporary reports and 2026/27 regulations; historical dates/identities partial. No new URL fields."
+    }
+  },
+  {
+    "index": 640,
+    "value": {
+      "competition": "Taiwan senior cup",
+      "firstEdition": "2025",
+      "lastEdition": null,
+      "operation": "RELAUNCH",
+      "rowRefs": [
+        150,
+        412
+      ],
+      "note": "President FA Cup launched in 2025 after long hiatus of traditional senior cups, as confirmed by CTFA. Exact predecessor hiatus years and 2026 edition unresolved.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block93 actual RSSSF champions chronology, CTFA contemporary reports and 2026/27 regulations; historical dates/identities partial. No new URL fields."
+    }
+  },
+  {
+    "index": 641,
+    "value": {
+      "competition": "Taiwan tier 1/2",
+      "firstEdition": "2025/26",
+      "lastEdition": null,
+      "operation": "OBSERVED_CROSS_YEAR_CYCLE",
+      "rowRefs": [
+        308,
+        309
+      ],
+      "note": "Both leagues documented as 2025/26 and 2026/27; top division 2026/27 runs September13–May2 nominal. No cutoff sporting state for September start.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block93 actual RSSSF champions chronology, CTFA contemporary reports and 2026/27 regulations; historical dates/identities partial. No new URL fields."
+    }
+  },
+  {
+    "index": 642,
+    "value": {
+      "competition": "Taiwan tier 1/2",
+      "firstEdition": "2026/27",
+      "lastEdition": "2026/27",
+      "operation": "ANNUAL_PLAYOFF_EXCEPTION",
+      "rowRefs": [
+        308,
+        309
+      ],
+      "note": "CTFA regulations explicitly suspend ordinary seventh-vs-second playoff for 2026/27; do not automatically repeat exception in future.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block93 actual RSSSF champions chronology, CTFA contemporary reports and 2026/27 regulations; historical dates/identities partial. No new URL fields."
+    }
+  }
+]

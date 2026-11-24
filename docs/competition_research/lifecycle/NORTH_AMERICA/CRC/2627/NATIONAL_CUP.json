@@ -18,10 +18,13 @@
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "CORROBORATED_ONE_EDITION_SUSPENSION_PRESS",
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "sources": [
         "https://www.nacion.com/puro-deporte/futbol/como-se-jugara-la-primera-division-con-10-o-12/YTJPN6WA7BGAXCQLORX5USBL6M/story/",
         "https://www.repretel.com/noticia/se-jugara-con-10-o-12-equipos-unafut-confirma-los-acuerdos-para-la-proxima-temporada/"
+      ],
+      "observedFormatChanges": [
+        "2026/27 suspension"
       ]
     }
   }

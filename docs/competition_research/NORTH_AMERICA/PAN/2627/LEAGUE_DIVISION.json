@@ -12,25 +12,35 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Liga Panameña de Fútbol",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "LPF Tigo",
+      "nonCommercialDisplayName": "Liga Panameña de Fútbol",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block95Research": {
+      "edition": "2026/27",
+      "clubs": 12,
+      "rounds": 16,
+      "conferences": 2,
+      "playoffs": "Conference winners semifinal, ranks 2–3 playoff",
+      "opening": "2026-07-24",
+      "change": "From 2026 January–May Clausura, July–December Apertura",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

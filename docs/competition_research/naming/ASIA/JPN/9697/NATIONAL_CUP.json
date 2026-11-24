@@ -6,7 +6,11 @@
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "transitionRefs": [
         408,
-        409
+        409,
+        625,
+        626,
+        627,
+        628
       ]
     }
   },
@@ -14,7 +18,7 @@
     "index": 163,
     "value": {
       "row": 164,
-      "status": "HISTORICAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "transitionRefs": []
     }
   }

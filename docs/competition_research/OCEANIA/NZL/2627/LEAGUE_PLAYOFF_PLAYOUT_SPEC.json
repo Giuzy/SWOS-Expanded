@@ -12,7 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -30,6 +30,53 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block96Research": {
+      "edition": "2026",
+      "parentRows": [
+        279,
+        280,
+        281
+      ],
+      "nationalFinalPhase": {
+        "qualifiers": 11,
+        "regionalPlaces": [
+          4,
+          3,
+          2
+        ],
+        "reserveSides": [
+          "Auckland FC Reserves",
+          "Wellington Phoenix Reserves"
+        ]
+      },
+      "future2027EntryPlayoff": {
+        "rankingWeights": [
+          10,
+          15,
+          20,
+          25,
+          30
+        ],
+        "rankingYears": [
+          2022,
+          2023,
+          2024,
+          2025,
+          2026
+        ],
+        "regionalCandidates": [
+          5,
+          4,
+          3
+        ],
+        "miniLeagueGames": 3,
+        "winnerPlaces": 1,
+        "scheduledMonth": "2026-09",
+        "drawDate": "2026-07-28",
+        "scope": "Later-announced date/format, not initial cutoff outcome"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

@@ -1,0 +1,17 @@
+[
+  {
+    "index": 675,
+    "value": {
+      "competition": "PAN row 282",
+      "firstEdition": "2026",
+      "lastEdition": null,
+      "operation": "RENAME_SEASON_PHASES",
+      "rowRefs": [
+        282
+      ],
+      "note": "January Clausura, July Apertura",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block95 sporting observations, exact dates and keys not reconciled."
+    }
+  }
+]

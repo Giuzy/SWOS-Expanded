@@ -10,9 +10,9 @@
     "candidateSources": [
       "42b2787bccdaacaf2942439678f4c2859e508412"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -23,13 +23,97 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "J.League Cup",
-      "nonCommercialDisplayName": null,
+      "officialName": "J.LEAGUE YAMAZAKI BISCUITS Levain CUP",
+      "nonCommercialDisplayName": "J.League Cup",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "9b0eb97e8248e1a7c71846e612ebcef7241b4e2e",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block92Research": {
+      "edition": "2026/27",
+      "format": {
+        "entrants": 60,
+        "tiers": [
+          20,
+          20,
+          20
+        ],
+        "firstStage": {
+          "entrants": 58,
+          "groups": 6,
+          "singleKnockout": true,
+          "matches": 52,
+          "qualifiers": 6
+        },
+        "primeRound": {
+          "entrants": 8,
+          "seededByes": 2,
+          "QFlegs": 2,
+          "SFlegs": 2,
+          "Flegs": 1,
+          "matches": 13
+        },
+        "afcException": {
+          "continentalClubs": 6,
+          "rankingBasis": "sum of ranks in 2025 league and 2026 J1 100 Year Vision League",
+          "top2DirectPrimeRound": [
+            "Kashima Antlers",
+            "Vissel Kobe"
+          ],
+          "other4EnterR4": [
+            "FC Machida Zelvia",
+            "Kashiwa Reysol",
+            "Gamba Osaka",
+            "Kyoto Sanga FC"
+          ],
+          "pairing": "3 vs6,4 vs5; better ranked hosts"
+        },
+        "home": "lower division hosts, same tier lower 2025 rank hosts, AFC exception",
+        "tieSingle": "ET then penalties",
+        "tieTwoLeg": [
+          "number of wins",
+          "aggregate goal difference",
+          "ET after second leg",
+          "penalties"
+        ],
+        "neutralFinal": true
+      },
+      "dates": {
+        "R1": [
+          "2026-09-02",
+          "2026-09-09"
+        ],
+        "R2": "2026-09-29",
+        "R3": "2026-10-14",
+        "R4": [
+          "2026-10-03",
+          "2026-10-04",
+          "2026-10-28"
+        ],
+        "QF": [
+          "2026-11-11",
+          "2026-11-15"
+        ],
+        "SF": [
+          "2027-03-24",
+          "2027-03-28"
+        ],
+        "F": null
+      },
+      "matchRules": {
+        "squad": 20,
+        "maxForeign": 5,
+        "partnerNationException": true,
+        "subs": 5,
+        "subWindows": 3,
+        "extraTimeSubs": 6,
+        "extraTimeWindows": 4,
+        "concussionSub": 1,
+        "opponentAdditionalSub": 1
+      },
+      "scope": "Official 2026/27 tournament overview; seed clubs and exceptional 100-year transition ranking not automatically repeated in future seasons."
     }
   },
   {
@@ -43,10 +127,10 @@
     "candidateSources": [
       "42b2787bccdaacaf2942439678f4c2859e508412"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -56,13 +140,339 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "Emperor's Cup",
-      "nonCommercialDisplayName": null,
+      "officialName": "天皇杯 JFA 第106回全日本サッカー選手権大会",
+      "nonCommercialDisplayName": "Emperor's Cup",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "42b2787bccdaacaf2942439678f4c2859e508412",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block92Research": {
+      "edition": "106th (2026/27)",
+      "format": {
+        "entrants": 88,
+        "J1": 20,
+        "J2": 20,
+        "amateurSeed": 1,
+        "prefecturalRepresentatives": 47,
+        "knockout": true,
+        "R1Entrants": 48,
+        "R2Direct": 40
+      },
+      "dates": {
+        "R1": "2026-08-19",
+        "R2": "2026-08-26",
+        "R3": [
+          "2026-09-23",
+          "2026-10-07"
+        ],
+        "R16": "2026-12-09",
+        "QF": "2026-12-23",
+        "SF": "2026-12-27",
+        "F": "2027-01-01"
+      },
+      "initialQualification": {
+        "cutoff": "2026-06-30",
+        "qualified": [
+          {
+            "prefecture": "Hokkaido",
+            "decisionDate": "2026-05-10",
+            "team": "札幌大学",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Aomori",
+            "decisionDate": "2026-04-26",
+            "team": "ラインメール青森",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Iwate",
+            "decisionDate": "2026-05-10",
+            "team": "いわてグルージャ盛岡",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Miyagi",
+            "decisionDate": "2026-05-10",
+            "team": "東北学院大学",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Akita",
+            "decisionDate": "2026-04-19",
+            "team": "秋田大学",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Yamagata",
+            "decisionDate": "2026-04-26",
+            "team": "大山サッカークラブ",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Ibaraki",
+            "decisionDate": "2026-05-10",
+            "team": "流通経済大学",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Saitama",
+            "decisionDate": "2026-04-26",
+            "team": "東京国際大学FC",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Chiba",
+            "decisionDate": "2026-05-09",
+            "team": "ブリオベッカ浦安・市川",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Tokyo",
+            "decisionDate": "2026-05-09",
+            "team": "クリアソン新宿",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Yamanashi",
+            "decisionDate": "2026-05-10",
+            "team": "山梨学院大学",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Niigata",
+            "decisionDate": "2026-05-10",
+            "team": "JAPANサッカーカレッジ",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Toyama",
+            "decisionDate": "2026-05-10",
+            "team": "富山新庄クラブ",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Fukui",
+            "decisionDate": "2026-05-10",
+            "team": "福井ユナイテッドFC",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Shizuoka",
+            "decisionDate": "2026-05-10",
+            "team": "アスルクラロ沼津",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Aichi",
+            "decisionDate": "2026-05-09",
+            "team": "FCマルヤス岡崎",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Mie",
+            "decisionDate": "2026-05-10",
+            "team": "アトレチコ鈴鹿",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Kyoto",
+            "decisionDate": "2026-05-09",
+            "team": "京都産業大学",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Hyogo",
+            "decisionDate": "2026-05-09",
+            "team": "FC BASARA HYOGO",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Wakayama",
+            "decisionDate": "2026-05-10",
+            "team": "アルテリーヴォ和歌山",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Shimane",
+            "decisionDate": "2026-04-19",
+            "team": "ベルガロッソいわみ",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Okayama",
+            "decisionDate": "2026-04-19",
+            "team": "環太平洋大学",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Hiroshima",
+            "decisionDate": "2026-04-19",
+            "team": "SRC広島",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Tokushima",
+            "decisionDate": "2026-05-10",
+            "team": "FC徳島",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Saga",
+            "decisionDate": "2026-05-10",
+            "team": "川副クラブ",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Nagasaki",
+            "decisionDate": "2026-05-10",
+            "team": "長崎国際大学",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Oita",
+            "decisionDate": "2026-05-10",
+            "team": "ヴェルスパ大分",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          },
+          {
+            "prefecture": "Miyazaki",
+            "decisionDate": "2026-05-10",
+            "team": "ヴェロスクロノス都農",
+            "status": "QUALIFIED_PREFECTURAL_REPRESENTATIVE"
+          }
+        ],
+        "pending": [
+          {
+            "prefecture": "Fukushima",
+            "startDate": "2026-04-19",
+            "finalDate": "2026-07-25",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Tochigi",
+            "startDate": "2026-04-26",
+            "finalDate": "2026-08-01",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Gunma",
+            "startDate": "2026-04-26",
+            "finalDate": "2026-08-01",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Kanagawa",
+            "startDate": "2026-03-07",
+            "finalDate": "2026-08-01",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Nagano",
+            "startDate": "2025-09-21",
+            "finalDate": "2026-08-02",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Ishikawa",
+            "startDate": "2026-03-29",
+            "finalDate": "2026-07-29",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Gifu",
+            "startDate": "2026-05-09",
+            "finalDate": "2026-08-01",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Shiga",
+            "startDate": "2026-04-26",
+            "finalDate": "2026-08-01",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Osaka",
+            "startDate": "2026-04-26",
+            "finalDate": "2026-08-02",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Nara",
+            "startDate": "2026-03-29",
+            "finalDate": "2026-08-01",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Tottori",
+            "startDate": "2026-03-22",
+            "finalDate": "2026-07-26",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Yamaguchi",
+            "startDate": "2026-04-05",
+            "finalDate": "2026-08-01",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Kagawa",
+            "startDate": "2026-02-22",
+            "finalDate": "2026-07-26",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Ehime",
+            "startDate": "2026-02-15",
+            "finalDate": "2026-08-01",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Kochi",
+            "startDate": "2026-03-08",
+            "finalDate": "2026-07-26",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Fukuoka",
+            "startDate": "2026-04-25",
+            "finalDate": "2026-08-01",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Kagoshima",
+            "startDate": "2026-04-26",
+            "finalDate": "2026-07-25",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          },
+          {
+            "prefecture": "Okinawa",
+            "startDate": "2026-02-22",
+            "finalDate": "2026-08-02",
+            "status": "QUALIFICATION_PENDING_AT_CUTOFF"
+          }
+        ],
+        "unresolved": [
+          {
+            "prefecture": "Kumamoto",
+            "status": "CANCELLATION_DECISION_DATE_UNVERIFIED",
+            "note": "Earthquake-related cancellation and designated representative reported; exact decision date not established, no winner imported."
+          }
+        ]
+      },
+      "scope": "JFA official 47 prefectural competition records; 28 confirmed representatives before cutoff and 18 pending, 1 unresolved. Dates listed for regional finals, not scores; no post-cutoff winner imported. National bracket itself starts August19."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "qualifiedRegionalRepresentatives": 28,
+        "pendingRegions": 18,
+        "unresolvedRegions": 1
+      },
+      "missing": "Regional match scores, native club keys, Kumamoto decision date; independent reconciliation."
     }
   }
 ]

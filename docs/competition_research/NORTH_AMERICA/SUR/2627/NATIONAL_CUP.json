@@ -18,19 +18,33 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Surinamese Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Beker van Suriname",
+      "nonCommercialDisplayName": "SVB Bekercompetitie",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block95Research": {
+      "priorEdition": "2025/26",
+      "finalDate": "2026-06-14",
+      "final": [
+        "Voorwaarts",
+        "Transvaal",
+        0,
+        0,
+        4,
+        3
+      ],
+      "scope": "New edition dates unknown",
+      "researchStatus": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

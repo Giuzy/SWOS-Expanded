@@ -7,15 +7,16 @@
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
+      "format_valid_from": "2026/27",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "PARTIAL_OFFICIAL_LIFETIME_EXCERPT",
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "sources": [
         "https://www.uaeproleague.ae/en/news-and-gallery/47-matches-in-league-cup"
       ],
-      "verification": "Block 22: official search excerpts; identity mapping of generic national cup rows remains candidate; full dates and access not certified."
+      "verification": "Block 22: official search excerpts; identity mapping of generic national cup rows remains candidate; full dates and access not certified.",
+      "observedFormatChange": "2026/27"
     }
   }
 ]

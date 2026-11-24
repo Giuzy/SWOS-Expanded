@@ -18,19 +18,31 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
+      "officialName": "Suriname Major League",
       "nonCommercialDisplayName": null,
-      "candidateName": "Suriname Major League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block95Research": {
+      "edition": "2026/27",
+      "opening": "2026-10-10 reported; delayed from September 11",
+      "priorEdition": {
+        "clubs": 9,
+        "regularGamesPerClub": 24,
+        "end": "2026-05-24",
+        "champion": "Broki"
+      },
+      "scope": "Current format not confirmed",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

@@ -14,5 +14,89 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block62 official federation HTML inspected."
     }
+  },
+  {
+    "index": 684,
+    "value": {
+      "competition": "NZL regional leagues",
+      "firstEdition": "1997",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "rowRefs": [
+        72,
+        73,
+        74
+      ],
+      "note": "1996 Superclub top divisions renamed Premier Division in 1997; mapping provisional",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 685,
+    "value": {
+      "competition": "NZL National League",
+      "firstEdition": "2021",
+      "lastEdition": null,
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        279,
+        280,
+        281,
+        470
+      ],
+      "note": "Regional then national club-based structure with open pathway",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 686,
+    "value": {
+      "competition": "NZL National League",
+      "firstEdition": "2026",
+      "lastEdition": null,
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        279,
+        280,
+        281,
+        470
+      ],
+      "note": "Three regions 12/10/10; national access 4+3+2 plus two reserve sides, 11 total",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 687,
+    "value": {
+      "competition": "NZL National League",
+      "firstEdition": "2027",
+      "lastEdition": null,
+      "operation": "REPLACE_FORMAT",
+      "rowRefs": [
+        279,
+        280,
+        281,
+        470
+      ],
+      "note": "12-club national double round robin, finals, regional promotion/relegation, late March start announced",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 688,
+    "value": {
+      "competition": "NZL National League",
+      "firstEdition": "2027",
+      "lastEdition": null,
+      "operation": "ONE_OFF_ACCESS",
+      "rowRefs": [
+        279,
+        280,
+        281,
+        470
+      ],
+      "note": "2022–26 weighted ranks 10/15/20/25/30 percent; 4+3+2 direct plus 2 reserve sides and three-team playoff winner",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

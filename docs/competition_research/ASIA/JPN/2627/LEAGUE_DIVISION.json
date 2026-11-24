@@ -81,6 +81,40 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verified": "2026-11-24",
       "limitations": "No per-fixture date/club key reconciliation; no runtime or match-rule certification. One-off 2026 conditions must not blindly repeat."
+    },
+    "block92Research": {
+      "edition": "2026/27",
+      "format": {
+        "teams": 20,
+        "rounds": 38,
+        "cycles": 2,
+        "matches": 380,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "drawAt90": true
+      },
+      "tiebreak": [
+        "overall GD",
+        "overall GF",
+        "H2H points",
+        "H2H GD",
+        "H2H GF",
+        "lot if necessary"
+      ],
+      "matchRules": {
+        "squad": 20,
+        "maxForeign": 5,
+        "partnerNationExemption": true,
+        "subs": 5,
+        "subWindows": 3,
+        "concussionSub": 1,
+        "opponentAdditionalSub": 1
+      },
+      "licenseRule": "No replacements from ranks7+ for playoff; relegations depend on actual eligible promoted teams; zero if no eligible promotion.",
+      "scope": "Official J.League J1/J2 overview. No runtime import."
     }
   },
   {
@@ -181,6 +215,40 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verified": "2026-11-24",
       "limitations": "No per-fixture date/club key reconciliation; no runtime or match-rule certification. One-off 2026 conditions must not blindly repeat."
+    },
+    "block92Research": {
+      "edition": "2026/27",
+      "format": {
+        "teams": 20,
+        "rounds": 38,
+        "cycles": 2,
+        "matches": 380,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "drawAt90": true
+      },
+      "tiebreak": [
+        "overall GD",
+        "overall GF",
+        "H2H points",
+        "H2H GD",
+        "H2H GF",
+        "lot if necessary"
+      ],
+      "matchRules": {
+        "squad": 20,
+        "maxForeign": 4,
+        "partnerNationExemption": true,
+        "subs": 5,
+        "subWindows": 3,
+        "concussionSub": 1,
+        "opponentAdditionalSub": 1
+      },
+      "licenseRule": "No replacements from ranks7+ for playoff; relegations depend on actual eligible promoted teams; zero if no eligible promotion.",
+      "scope": "Official J.League J1/J2 overview. No runtime import."
     }
   }
 ]

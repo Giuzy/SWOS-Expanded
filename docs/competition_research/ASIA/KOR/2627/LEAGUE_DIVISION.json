@@ -208,9 +208,885 @@
         "https://www.kleague.com/about/competition.do"
       ],
       "details": {
-        "matches": 7
+        "matches": 90
       },
-      "missing": "Remaining matches outside extracted rounds/regions, independent reconciliation, stable keys and full regulation."
+      "missing": "Independent standings, club keys and exact ranking/sanctions reconciliation."
+    },
+    "block93Research": {
+      "edition": "2026",
+      "additionalMatches": [
+        {
+          "round": 2,
+          "date": "2026-03-07",
+          "home": "Bucheon FC 1995",
+          "away": "Daejeon Hana Citizen",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 2,
+          "date": "2026-03-07",
+          "home": "Gwangju",
+          "away": "Incheon United",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 2,
+          "date": "2026-03-08",
+          "home": "Gimcheon Sangmu",
+          "away": "Jeonbuk Hyundai Motors",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 2,
+          "date": "2026-03-08",
+          "home": "FC Anyang",
+          "away": "Jeju SK",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 3,
+          "date": "2026-03-14",
+          "home": "Gwangju",
+          "away": "Jeonbuk Hyundai Motors",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 3,
+          "date": "2026-03-14",
+          "home": "Daejeon Hana Citizen",
+          "away": "Gimcheon Sangmu",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 3,
+          "date": "2026-03-15",
+          "home": "Bucheon FC 1995",
+          "away": "Ulsan HD",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 3,
+          "date": "2026-03-15",
+          "home": "Jeju SK",
+          "away": "FC Seoul",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 3,
+          "date": "2026-03-15",
+          "home": "Gangwon",
+          "away": "FC Anyang",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 3,
+          "date": "2026-03-15",
+          "home": "Pohang Steelers",
+          "away": "Incheon United",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 4,
+          "date": "2026-03-17",
+          "home": "Gimcheon Sangmu",
+          "away": "Gwangju",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 4,
+          "date": "2026-03-18",
+          "home": "Bucheon FC 1995",
+          "away": "Gangwon",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 4,
+          "date": "2026-03-18",
+          "home": "Incheon United",
+          "away": "Daejeon Hana Citizen",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 4,
+          "date": "2026-03-18",
+          "home": "Jeju SK",
+          "away": "Ulsan HD",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 4,
+          "date": "2026-03-18",
+          "home": "Jeonbuk Hyundai Motors",
+          "away": "FC Anyang",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 4,
+          "date": "2026-03-18",
+          "home": "Pohang Steelers",
+          "away": "FC Seoul",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 5,
+          "date": "2026-03-21",
+          "home": "Daejeon Hana Citizen",
+          "away": "Jeonbuk Hyundai Motors",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 5,
+          "date": "2026-03-22",
+          "home": "FC Seoul",
+          "away": "Gwangju",
+          "homeGoals": 5,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 5,
+          "date": "2026-03-22",
+          "home": "Ulsan HD",
+          "away": "Gimcheon Sangmu",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 5,
+          "date": "2026-03-22",
+          "home": "FC Anyang",
+          "away": "Incheon United",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 5,
+          "date": "2026-03-22",
+          "home": "Gangwon",
+          "away": "Jeju SK",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 5,
+          "date": "2026-03-22",
+          "home": "Pohang Steelers",
+          "away": "Bucheon FC 1995",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 6,
+          "date": "2026-04-04",
+          "home": "Jeju SK",
+          "away": "Bucheon FC 1995",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 6,
+          "date": "2026-04-04",
+          "home": "Jeonbuk Hyundai Motors",
+          "away": "Ulsan HD",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 6,
+          "date": "2026-04-04",
+          "home": "Gangwon",
+          "away": "Gwangju",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 6,
+          "date": "2026-04-04",
+          "home": "Pohang Steelers",
+          "away": "Daejeon Hana Citizen",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 6,
+          "date": "2026-04-05",
+          "home": "FC Anyang",
+          "away": "FC Seoul",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 6,
+          "date": "2026-04-05",
+          "home": "Incheon United",
+          "away": "Gimcheon Sangmu",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 7,
+          "date": "2026-04-11",
+          "home": "Pohang Steelers",
+          "away": "Jeju SK",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 7,
+          "date": "2026-04-11",
+          "home": "FC Seoul",
+          "away": "Jeonbuk Hyundai Motors",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 7,
+          "date": "2026-04-11",
+          "home": "Gwangju",
+          "away": "Bucheon FC 1995",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 7,
+          "date": "2026-04-11",
+          "home": "Incheon United",
+          "away": "Ulsan HD",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 7,
+          "date": "2026-04-12",
+          "home": "Daejeon Hana Citizen",
+          "away": "Gangwon",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 7,
+          "date": "2026-04-12",
+          "home": "Gimcheon Sangmu",
+          "away": "FC Anyang",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 2,
+          "date": "2026-04-15",
+          "home": "Ulsan HD",
+          "away": "FC Seoul",
+          "homeGoals": 1,
+          "awayGoals": 4,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 8,
+          "date": "2026-04-18",
+          "home": "Gangwon",
+          "away": "Jeonbuk Hyundai Motors",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 8,
+          "date": "2026-04-18",
+          "home": "FC Seoul",
+          "away": "Daejeon Hana Citizen",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 8,
+          "date": "2026-04-18",
+          "home": "Bucheon FC 1995",
+          "away": "Incheon United",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 8,
+          "date": "2026-04-18",
+          "home": "Jeju SK",
+          "away": "Gimcheon Sangmu",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 8,
+          "date": "2026-04-19",
+          "home": "Ulsan HD",
+          "away": "Gwangju",
+          "homeGoals": 5,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 8,
+          "date": "2026-04-19",
+          "home": "Pohang Steelers",
+          "away": "FC Anyang",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 9,
+          "date": "2026-04-21",
+          "home": "Gimcheon Sangmu",
+          "away": "Gangwon",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 9,
+          "date": "2026-04-21",
+          "home": "Jeonbuk Hyundai Motors",
+          "away": "Incheon United",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 9,
+          "date": "2026-04-21",
+          "home": "FC Seoul",
+          "away": "Bucheon FC 1995",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 9,
+          "date": "2026-04-22",
+          "home": "FC Anyang",
+          "away": "Ulsan HD",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 9,
+          "date": "2026-04-22",
+          "home": "Daejeon Hana Citizen",
+          "away": "Jeju SK",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 9,
+          "date": "2026-04-22",
+          "home": "Pohang Steelers",
+          "away": "Gwangju",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 10,
+          "date": "2026-04-25",
+          "home": "Gangwon",
+          "away": "FC Seoul",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 10,
+          "date": "2026-04-25",
+          "home": "Bucheon FC 1995",
+          "away": "Gimcheon Sangmu",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 10,
+          "date": "2026-04-25",
+          "home": "Incheon United",
+          "away": "Jeju SK",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 10,
+          "date": "2026-04-26",
+          "home": "Jeonbuk Hyundai Motors",
+          "away": "Pohang Steelers",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 10,
+          "date": "2026-04-26",
+          "home": "Gwangju",
+          "away": "FC Anyang",
+          "homeGoals": 2,
+          "awayGoals": 5,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 10,
+          "date": "2026-04-26",
+          "home": "Ulsan HD",
+          "away": "Daejeon Hana Citizen",
+          "homeGoals": 1,
+          "awayGoals": 4,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 11,
+          "date": "2026-05-02",
+          "home": "FC Seoul",
+          "away": "Gimcheon Sangmu",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 11,
+          "date": "2026-05-02",
+          "home": "Ulsan HD",
+          "away": "Pohang Steelers",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 11,
+          "date": "2026-05-02",
+          "home": "Incheon United",
+          "away": "Gangwon",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 11,
+          "date": "2026-05-02",
+          "home": "Jeju SK",
+          "away": "Jeonbuk Hyundai Motors",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 11,
+          "date": "2026-05-02",
+          "home": "FC Anyang",
+          "away": "Bucheon FC 1995",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 11,
+          "date": "2026-05-02",
+          "home": "Gwangju",
+          "away": "Daejeon Hana Citizen",
+          "homeGoals": 0,
+          "awayGoals": 5,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 12,
+          "date": "2026-05-05",
+          "home": "Bucheon FC 1995",
+          "away": "Jeju SK",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 12,
+          "date": "2026-05-05",
+          "home": "Jeonbuk Hyundai Motors",
+          "away": "Gwangju",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 12,
+          "date": "2026-05-05",
+          "home": "Daejeon Hana Citizen",
+          "away": "Incheon United",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 12,
+          "date": "2026-05-05",
+          "home": "Gangwon",
+          "away": "Pohang Steelers",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 12,
+          "date": "2026-05-05",
+          "home": "Gimcheon Sangmu",
+          "away": "Ulsan HD",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 12,
+          "date": "2026-05-05",
+          "home": "FC Seoul",
+          "away": "FC Anyang",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 13,
+          "date": "2026-05-09",
+          "home": "Jeju SK",
+          "away": "FC Seoul",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 13,
+          "date": "2026-05-09",
+          "home": "Gimcheon Sangmu",
+          "away": "Incheon United",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 13,
+          "date": "2026-05-09",
+          "home": "Gwangju",
+          "away": "Gangwon",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 13,
+          "date": "2026-05-09",
+          "home": "Daejeon Hana Citizen",
+          "away": "Pohang Steelers",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 13,
+          "date": "2026-05-10",
+          "home": "Ulsan HD",
+          "away": "Bucheon FC 1995",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 13,
+          "date": "2026-05-10",
+          "home": "FC Anyang",
+          "away": "Jeonbuk Hyundai Motors",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 14,
+          "date": "2026-05-12",
+          "home": "Gangwon",
+          "away": "Daejeon Hana Citizen",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 14,
+          "date": "2026-05-12",
+          "home": "Gwangju",
+          "away": "FC Seoul",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 14,
+          "date": "2026-05-12",
+          "home": "Incheon United",
+          "away": "Pohang Steelers",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 14,
+          "date": "2026-05-13",
+          "home": "FC Anyang",
+          "away": "Gimcheon Sangmu",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 14,
+          "date": "2026-05-13",
+          "home": "Bucheon FC 1995",
+          "away": "Jeonbuk Hyundai Motors",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 14,
+          "date": "2026-05-13",
+          "home": "Ulsan HD",
+          "away": "Jeju SK",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 15,
+          "date": "2026-05-16",
+          "home": "Daejeon Hana Citizen",
+          "away": "FC Seoul",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 15,
+          "date": "2026-05-16",
+          "home": "Incheon United",
+          "away": "Gwangju",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 15,
+          "date": "2026-05-17",
+          "home": "Jeju SK",
+          "away": "FC Anyang",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 15,
+          "date": "2026-05-17",
+          "home": "Jeonbuk Hyundai Motors",
+          "away": "Gimcheon Sangmu",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 15,
+          "date": "2026-05-17",
+          "home": "Bucheon FC 1995",
+          "away": "Pohang Steelers",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        },
+        {
+          "round": 15,
+          "date": "2026-05-17",
+          "home": "Gangwon",
+          "away": "Ulsan HD",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "phase": "REGULAR"
+        }
+      ],
+      "computedTotals": [
+        {
+          "club": "FC Seoul",
+          "played": 15,
+          "wins": 10,
+          "draws": 2,
+          "losses": 3,
+          "GF": 27,
+          "GA": 12,
+          "points": 32
+        },
+        {
+          "club": "Ulsan HD",
+          "played": 15,
+          "wins": 8,
+          "draws": 2,
+          "losses": 5,
+          "GF": 22,
+          "GA": 20,
+          "points": 26
+        },
+        {
+          "club": "Jeonbuk Hyundai Motors",
+          "played": 15,
+          "wins": 7,
+          "draws": 5,
+          "losses": 3,
+          "GF": 21,
+          "GA": 12,
+          "points": 26
+        },
+        {
+          "club": "Incheon United",
+          "played": 15,
+          "wins": 7,
+          "draws": 3,
+          "losses": 5,
+          "GF": 22,
+          "GA": 16,
+          "points": 24
+        },
+        {
+          "club": "Gangwon",
+          "played": 15,
+          "wins": 6,
+          "draws": 6,
+          "losses": 3,
+          "GF": 19,
+          "GA": 10,
+          "points": 24
+        },
+        {
+          "club": "Pohang Steelers",
+          "played": 15,
+          "wins": 6,
+          "draws": 4,
+          "losses": 5,
+          "GF": 12,
+          "GA": 12,
+          "points": 22
+        },
+        {
+          "club": "FC Anyang",
+          "played": 15,
+          "wins": 4,
+          "draws": 8,
+          "losses": 3,
+          "GF": 19,
+          "GA": 16,
+          "points": 20
+        },
+        {
+          "club": "Jeju SK",
+          "played": 15,
+          "wins": 5,
+          "draws": 3,
+          "losses": 7,
+          "GF": 13,
+          "GA": 16,
+          "points": 18
+        },
+        {
+          "club": "Bucheon FC 1995",
+          "played": 15,
+          "wins": 4,
+          "draws": 5,
+          "losses": 6,
+          "GF": 11,
+          "GA": 15,
+          "points": 17
+        },
+        {
+          "club": "Daejeon Hana Citizen",
+          "played": 15,
+          "wins": 4,
+          "draws": 4,
+          "losses": 7,
+          "GF": 17,
+          "GA": 16,
+          "points": 16
+        },
+        {
+          "club": "Gimcheon Sangmu",
+          "played": 15,
+          "wins": 2,
+          "draws": 8,
+          "losses": 5,
+          "GF": 15,
+          "GA": 21,
+          "points": 14
+        },
+        {
+          "club": "Gwangju",
+          "played": 15,
+          "wins": 0,
+          "draws": 4,
+          "losses": 11,
+          "GF": 6,
+          "GA": 38,
+          "points": 4
+        }
+      ],
+      "scope": "All 90 archive results through May17; July4 restart. Totals derived 3/1/0, rank ties and sanctions not independently reconciled.",
+      "nextRound": "2026-07-04"
     }
   }
 ]

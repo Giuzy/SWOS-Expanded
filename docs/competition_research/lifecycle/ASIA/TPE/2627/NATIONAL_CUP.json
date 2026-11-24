@@ -3,15 +3,16 @@
     "index": 411,
     "value": {
       "row": 412,
-      "active_from": null,
+      "active_from": "2025",
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "UNKNOWN_2026_EDITION_NOT_CONFIRMED",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "observedFormatEdition": "2025"
     }
   }
 ]

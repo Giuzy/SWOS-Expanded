@@ -54,8 +54,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SUCCESSOR_STRUCTURE_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -73,6 +72,16 @@
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block102Research": {
+      "edition": "2026/27",
+      "successorEvidence": {
+        "path": "NORTH_AMERICA/SLV/2627/LEAGUE_PARALLEL_GROUPS_SPEC.json",
+        "row": 524,
+        "field": "block102Research"
+      },
+      "status": "FORMER_STRUCTURE_REPLACED_SLOT_MAPPING_PENDING",
+      "scope": "Do not instantiate old parallel/serial tiers as separate 2026/27 competitions; merge identity requires native roster reconciliation. No actual successor assignment guessed."
     }
   },
   {
@@ -88,8 +97,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SUCCESSOR_STRUCTURE_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -107,6 +115,16 @@
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block102Research": {
+      "edition": "2026/27",
+      "successorEvidence": {
+        "path": "NORTH_AMERICA/SLV/2627/LEAGUE_PARALLEL_GROUPS_SPEC.json",
+        "row": 524,
+        "field": "block102Research"
+      },
+      "status": "FORMER_STRUCTURE_REPLACED_SLOT_MAPPING_PENDING",
+      "scope": "Do not instantiate old parallel/serial tiers as separate 2026/27 competitions; merge identity requires native roster reconciliation. No actual successor assignment guessed."
     }
   },
   {
@@ -122,8 +140,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SUCCESSOR_STRUCTURE_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -140,6 +157,16 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block102Research": {
+      "edition": "2026/27",
+      "successorEvidence": {
+        "path": "NORTH_AMERICA/SLV/2627/LEAGUE_PARALLEL_GROUPS_SPEC.json",
+        "row": 524,
+        "field": "block102Research"
+      },
+      "status": "FORMER_STRUCTURE_REPLACED_SLOT_MAPPING_PENDING",
+      "scope": "Do not instantiate old parallel/serial tiers as separate 2026/27 competitions; merge identity requires native roster reconciliation. No actual successor assignment guessed."
     }
   },
   {
@@ -155,8 +182,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SUCCESSOR_STRUCTURE_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -173,6 +199,16 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block102Research": {
+      "edition": "2026/27",
+      "successorEvidence": {
+        "path": "NORTH_AMERICA/SLV/2627/LEAGUE_PARALLEL_GROUPS_SPEC.json",
+        "row": 524,
+        "field": "block102Research"
+      },
+      "status": "FORMER_STRUCTURE_REPLACED_SLOT_MAPPING_PENDING",
+      "scope": "Do not instantiate old parallel/serial tiers as separate 2026/27 competitions; merge identity requires native roster reconciliation. No actual successor assignment guessed."
     }
   }
 ]

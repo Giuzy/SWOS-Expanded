@@ -12,13 +12,12 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -35,14 +34,38 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Campeonato Brasileiro Série A",
+      "nonCommercialDisplayName": "Campeonato Brasileiro Série A",
       "candidateName": "Campeonato Brasileiro Série A",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block103Research": {
+      "edition": "1996",
+      "rules": {
+        "teams": 24,
+        "regularRounds": 23,
+        "advanceTop": 8,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 2,
+        "finalAggregateTie": "higher regular-phase rank",
+        "sportingRelegationRanks": [
+          23,
+          24
+        ]
+      },
+      "opening": "1996-08-10",
+      "laterException": {
+        "decisionDate": "1997-06-20",
+        "nextTeams": 26,
+        "relegationsCancelled": true,
+        "scope": "Real administrative decision only; do not predetermine future relegated club identities from historical outcomes."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

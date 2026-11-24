@@ -12,13 +12,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_HISTORICAL_SNAPSHOT_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -35,10 +35,10 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Campeonato Descentralizado",
+      "nonCommercialDisplayName": "Campeonato Descentralizado",
       "candidateName": "Primera División",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [
         {
@@ -53,6 +53,423 @@
       ],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block102Research": {
+      "edition": "1996",
+      "rules": {
+        "editionName": "Torneo Héroes del Cenepa",
+        "teams": 16,
+        "rounds": 2,
+        "gamesPerClub": 30,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "title": "highest regular-season points",
+        "relegationCount": 4,
+        "continentalAccess": "pre-Liguilla and Liguilla for additional continental places; exact seed/access rules pending"
+      },
+      "dates": {
+        "reportedOpening": "1996-03-04"
+      },
+      "scope": "Historical edition only. No future scores imported as cutoff data; full dates, match rules and native keys pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "cutoffApplicability": {
+      "status": "REQUIRED_PARTIAL_SNAPSHOT",
+      "reportedOpening": "1996-03-04",
+      "firstObservedLeagueGames": "1996-03-16"
+    },
+    "block104Research": {
+      "edition": "1996",
+      "rulesRef": "block102Research.rules",
+      "additionalRules": {
+        "continentalAccess": "regular-season rank 2 directly enters four-club Liguilla with one bonus point; ranks 3–8 enter three two-leg pre-Liguilla ties (3v8,4v7,5v6); three winners join rank2, single round robin for remaining continental berth(s); exact tie/eligibility rules pending"
+      },
+      "cutoff": {
+        "asOf": "1996-07-01",
+        "status": "PARTIAL_NOT_IMPORT_READY",
+        "roster": [
+          "Alianza Lima",
+          "Alianza Atlético",
+          "Atlético Torino",
+          "Aurich-Cañaña",
+          "Ciclista Lima",
+          "Cienciano",
+          "Deportivo Municipal",
+          "Deportivo Pesquero",
+          "Guardia Republicana",
+          "La Loretana",
+          "FBC Melgar",
+          "San Agustín",
+          "Sport Boys",
+          "Sporting Cristal",
+          "Unión Minas",
+          "Universitario"
+        ],
+        "datedResults": [
+          {
+            "date": "1996-03-16",
+            "round": 1,
+            "home": "Deportivo Pesquero",
+            "away": "Alianza Lima",
+            "homeGoals": 0,
+            "awayGoals": 2,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-03-23",
+            "round": 2,
+            "home": "Alianza Lima",
+            "away": "Aurich-Cañaña",
+            "homeGoals": 5,
+            "awayGoals": 2,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-03-30",
+            "round": 3,
+            "home": "Guardia Republicana",
+            "away": "Alianza Lima",
+            "homeGoals": 0,
+            "awayGoals": 5,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-04-13",
+            "round": 4,
+            "home": "Alianza Lima",
+            "away": "San Agustín",
+            "homeGoals": 6,
+            "awayGoals": 0,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-04-21",
+            "round": 5,
+            "home": "Unión Minas",
+            "away": "Alianza Lima",
+            "homeGoals": 2,
+            "awayGoals": 1,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-04-28",
+            "round": 6,
+            "home": "Alianza Lima",
+            "away": "Cienciano",
+            "homeGoals": 3,
+            "awayGoals": 1,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-05-12",
+            "round": 7,
+            "home": "Sport Boys",
+            "away": "Alianza Lima",
+            "homeGoals": 0,
+            "awayGoals": 0,
+            "status": "DATE_CONFLICT_NOT_CERTIFIED",
+            "alternativeDates": [
+              "1996-05-11",
+              "1996-05-12"
+            ]
+          },
+          {
+            "date": "1996-05-18",
+            "round": 8,
+            "home": "Alianza Lima",
+            "away": "Ciclista Lima",
+            "homeGoals": 2,
+            "awayGoals": 0,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-05-26",
+            "round": 9,
+            "home": "Alianza Atlético",
+            "away": "Alianza Lima",
+            "homeGoals": 2,
+            "awayGoals": 3,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-06-06",
+            "round": 10,
+            "home": "Alianza Lima",
+            "away": "FBC Melgar",
+            "homeGoals": 1,
+            "awayGoals": 1,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-06-14",
+            "round": 11,
+            "home": "Atlético Torino",
+            "away": "Alianza Lima",
+            "homeGoals": 1,
+            "awayGoals": 1,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-06-22",
+            "round": 12,
+            "home": "Alianza Lima",
+            "away": "La Loretana",
+            "homeGoals": 5,
+            "awayGoals": 0,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-06-29",
+            "round": 13,
+            "home": "Universitario",
+            "away": "Alianza Lima",
+            "homeGoals": 1,
+            "awayGoals": 1,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-03-17",
+            "round": 1,
+            "home": "Sport Boys",
+            "away": "Atlético Torino",
+            "homeGoals": 4,
+            "awayGoals": 1,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-03-24",
+            "round": 2,
+            "home": "Deportivo Municipal",
+            "away": "Sport Boys",
+            "homeGoals": 2,
+            "awayGoals": 2,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-03-29",
+            "round": 3,
+            "home": "Sport Boys",
+            "away": "Sporting Cristal",
+            "homeGoals": 3,
+            "awayGoals": 1,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-04-14",
+            "round": 4,
+            "home": "FBC Melgar",
+            "away": "Sport Boys",
+            "homeGoals": 0,
+            "awayGoals": 0,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-04-28",
+            "round": 5,
+            "home": "Sport Boys",
+            "away": "Alianza Atlético",
+            "homeGoals": 2,
+            "awayGoals": 0,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-05-05",
+            "round": 6,
+            "home": "Universitario",
+            "away": "Sport Boys",
+            "homeGoals": 1,
+            "awayGoals": 2,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-05-19",
+            "round": 8,
+            "home": "La Loretana",
+            "away": "Sport Boys",
+            "homeGoals": 2,
+            "awayGoals": 1,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-05-25",
+            "round": 9,
+            "home": "Sport Boys",
+            "away": "Unión Minas",
+            "homeGoals": 5,
+            "awayGoals": 0,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-06-09",
+            "round": 10,
+            "home": "Aurich-Cañaña",
+            "away": "Sport Boys",
+            "homeGoals": 2,
+            "awayGoals": 2,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-06-16",
+            "round": 11,
+            "home": "Sport Boys",
+            "away": "Deportivo Pesquero",
+            "homeGoals": 3,
+            "awayGoals": 1,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-06-22",
+            "round": 12,
+            "home": "Cienciano",
+            "away": "Sport Boys",
+            "homeGoals": 1,
+            "awayGoals": 0,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-06-30",
+            "round": 13,
+            "home": "Ciclista Lima",
+            "away": "Sport Boys",
+            "homeGoals": 2,
+            "awayGoals": 2,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-03-23",
+            "round": 2,
+            "home": "Sporting Cristal",
+            "away": "Cienciano",
+            "homeGoals": 6,
+            "awayGoals": 0,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-06-30",
+            "round": 13,
+            "home": "Deportivo Municipal",
+            "away": "Sporting Cristal",
+            "homeGoals": 0,
+            "awayGoals": 2,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-03-31",
+            "round": null,
+            "home": "Ciclista Lima",
+            "away": "Deportivo Municipal",
+            "homeGoals": 2,
+            "awayGoals": 1,
+            "status": "OBSERVED_PARTIAL"
+          },
+          {
+            "date": "1996-05-12",
+            "round": null,
+            "home": "San Agustín",
+            "away": "Deportivo Municipal",
+            "homeGoals": 1,
+            "awayGoals": 2,
+            "status": "OBSERVED_PARTIAL"
+          }
+        ],
+        "orderedRoundWindowCandidates": [
+          {
+            "date": null,
+            "roundSequence": 1,
+            "home": "Unión Minas",
+            "away": "Sporting Cristal",
+            "homeGoals": 0,
+            "awayGoals": 1,
+            "status": "ORDERED_ROUND_WINDOW_ONLY_PRE_CUTOFF_CANDIDATE"
+          },
+          {
+            "date": null,
+            "roundSequence": 4,
+            "home": "Sporting Cristal",
+            "away": "Ciclista Lima",
+            "homeGoals": 6,
+            "awayGoals": 2,
+            "status": "ORDERED_ROUND_WINDOW_ONLY_PRE_CUTOFF_CANDIDATE"
+          },
+          {
+            "date": null,
+            "roundSequence": 5,
+            "home": "Deportivo Pesquero",
+            "away": "Sporting Cristal",
+            "homeGoals": 3,
+            "awayGoals": 0,
+            "status": "ORDERED_ROUND_WINDOW_ONLY_PRE_CUTOFF_CANDIDATE"
+          },
+          {
+            "date": null,
+            "roundSequence": 6,
+            "home": "Sporting Cristal",
+            "away": "Aurich-Cañaña",
+            "homeGoals": 2,
+            "awayGoals": 0,
+            "status": "ORDERED_ROUND_WINDOW_ONLY_PRE_CUTOFF_CANDIDATE"
+          },
+          {
+            "date": null,
+            "roundSequence": 7,
+            "home": "Guardia Republicana",
+            "away": "Sporting Cristal",
+            "homeGoals": 0,
+            "awayGoals": 2,
+            "status": "ORDERED_ROUND_WINDOW_ONLY_PRE_CUTOFF_CANDIDATE"
+          },
+          {
+            "date": null,
+            "roundSequence": 8,
+            "home": "Sporting Cristal",
+            "away": "San Agustín",
+            "homeGoals": 3,
+            "awayGoals": 1,
+            "status": "ORDERED_ROUND_WINDOW_ONLY_PRE_CUTOFF_CANDIDATE"
+          },
+          {
+            "date": null,
+            "roundSequence": 9,
+            "home": "Atlético Torino",
+            "away": "Sporting Cristal",
+            "homeGoals": 0,
+            "awayGoals": 2,
+            "status": "ORDERED_ROUND_WINDOW_ONLY_PRE_CUTOFF_CANDIDATE"
+          },
+          {
+            "date": null,
+            "roundSequence": 10,
+            "home": "Sporting Cristal",
+            "away": "La Loretana",
+            "homeGoals": 2,
+            "awayGoals": 0,
+            "status": "ORDERED_ROUND_WINDOW_ONLY_PRE_CUTOFF_CANDIDATE"
+          },
+          {
+            "date": null,
+            "roundSequence": 11,
+            "home": "Alianza Atlético",
+            "away": "Sporting Cristal",
+            "homeGoals": 1,
+            "awayGoals": 2,
+            "status": "ORDERED_ROUND_WINDOW_ONLY_PRE_CUTOFF_CANDIDATE"
+          },
+          {
+            "date": null,
+            "roundSequence": 12,
+            "home": "Sporting Cristal",
+            "away": "FBC Melgar",
+            "homeGoals": 3,
+            "awayGoals": 0,
+            "status": "ORDERED_ROUND_WINDOW_ONLY_PRE_CUTOFF_CANDIDATE"
+          }
+        ],
+        "notes": "29 individually dated records, including one disputed date stored once; 10 additional ordered Cristal score records without independently confirmed exact dates, retained separately. No post-cutoff results. No complete standings inferred. Reported March4 opening vs first observed March16 club fixtures remains unverified, not a proven contradiction."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

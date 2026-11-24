@@ -97,7 +97,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_HISTORICAL_SNAPSHOT_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -144,6 +144,95 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "scope": "Full season table supports structure, date of commencement and cutoff results not yet established."
+    },
+    "block105Research": {
+      "edition": "1996",
+      "rulesRef": "block99Research.rules",
+      "additionalRules": {
+        "nameObserved": "Segunda División Profesional (formerly Primera B)",
+        "withdrawalsBeforeStart": [
+          "La Luz",
+          "Uruguay Montevideo"
+        ],
+        "racingEntry": "Participation initially reported unavailable, subsequently confirmed before first round."
+      },
+      "cutoff": {
+        "asOf": "1996-07-01",
+        "status": "PARTIAL_NOT_IMPORT_READY",
+        "roster": [
+          "Miramar Misiones",
+          "Colón",
+          "Basáñez",
+          "Juventud de Las Piedras",
+          "Bella Vista",
+          "Platense Wanderers",
+          "Fénix",
+          "Racing",
+          "Deportivo Maldonado",
+          "Rentistas",
+          "Sportivo Cerrito",
+          "Progreso"
+        ],
+        "roundResults": [
+          {
+            "round": 1,
+            "date": null,
+            "observedBy": "1996-06-04",
+            "home": "Miramar Misiones",
+            "away": "Colón",
+            "homeGoals": 3,
+            "awayGoals": 1
+          },
+          {
+            "round": 1,
+            "date": null,
+            "observedBy": "1996-06-04",
+            "home": "Basáñez",
+            "away": "Juventud de Las Piedras",
+            "homeGoals": 1,
+            "awayGoals": 2
+          },
+          {
+            "round": 1,
+            "date": null,
+            "observedBy": "1996-06-04",
+            "home": "Bella Vista",
+            "away": "Platense Wanderers",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "round": 1,
+            "date": null,
+            "observedBy": "1996-06-04",
+            "home": "Fénix",
+            "away": "Racing",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "round": 1,
+            "date": null,
+            "observedBy": "1996-06-04",
+            "home": "Deportivo Maldonado",
+            "away": "Rentistas",
+            "homeGoals": 0,
+            "awayGoals": 1
+          }
+        ],
+        "postponements": [
+          {
+            "round": 1,
+            "home": "Sportivo Cerrito",
+            "away": "Progreso",
+            "originalDate": null,
+            "reportedBy": "1996-06-04",
+            "status": "POSTPONED_AT_REPORT_DATE_FINAL_DATE_UNKNOWN"
+          }
+        ],
+        "notes": "Contemporary report June4 proves round1 already played; exact match days and further pre-July scores not established. No later results or table imported."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

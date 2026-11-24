@@ -23,13 +23,21 @@
       "row": 65,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "MERGER_SUCCESSOR_2026_ID_MAPPING_PENDING",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1996",
+      "format_valid_until": "1996",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "transitionRefs": [
+        772,
+        773,
+        774,
+        775,
+        776,
+        738
+      ]
     }
   },
   {
@@ -38,13 +46,19 @@
       "row": 66,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "MERGER_SUCCESSOR_2026_ID_MAPPING_PENDING",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1996",
+      "format_valid_until": "1996",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "transitionRefs": [
+        772,
+        775,
+        776,
+        738
+      ]
     }
   },
   {

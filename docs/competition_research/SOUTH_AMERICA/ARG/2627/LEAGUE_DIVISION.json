@@ -839,25 +839,418 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Primera División B",
+      "nonCommercialDisplayName": "Primera División B",
       "candidateName": "Primera B Metropolitana",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block103Research": {
+      "edition": "2026",
+      "rules": {
+        "teams": 22,
+        "rounds": 2,
+        "gamesPerClub": 42,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "directPromotionRank": 1,
+        "relegationRanks": [
+          21,
+          22
+        ],
+        "secondPromotion": {
+          "ranks": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "quarterfinalSeedPairs": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "semifinalReseedPairs": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "allLegs": 2,
+          "secondLegHome": "better table seed",
+          "tie": "points then aggregate goal difference then penalties",
+          "championTie": "decider under AFA art111"
+        }
+      },
+      "opening": "2026-02-13",
+      "nominalRoundDates": [
+        "2026-02-14",
+        "2026-02-21",
+        "2026-02-28",
+        "2026-03-03",
+        "2026-03-07",
+        "2026-03-14",
+        "2026-03-21",
+        "2026-03-28",
+        "2026-04-04",
+        "2026-04-11",
+        "2026-04-14",
+        "2026-04-18",
+        "2026-04-25",
+        "2026-05-02",
+        "2026-05-09",
+        "2026-05-16",
+        "2026-05-23",
+        "2026-05-30",
+        "2026-06-06",
+        "2026-06-13",
+        "2026-06-20",
+        "2026-06-27",
+        "2026-07-04",
+        "2026-07-11",
+        "2026-07-14",
+        "2026-07-18",
+        "2026-07-25",
+        "2026-08-01",
+        "2026-08-08",
+        "2026-08-15",
+        "2026-08-22",
+        "2026-08-25",
+        "2026-08-29",
+        "2026-09-05",
+        "2026-09-12",
+        "2026-09-19",
+        "2026-09-26",
+        "2026-10-03",
+        "2026-10-10",
+        "2026-10-17",
+        "2026-10-24",
+        "2026-10-31"
+      ],
+      "scope": "AFA bulletin6824 arts1–7; first page visual checked, page2 text only. Nominal dates are not individual match dates.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "edition": "2026",
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "scoreRecords": 33,
+        "rounds": 3
+      },
+      "scoreSchema": [
+        "round",
+        "date",
+        "home",
+        "away",
+        "HG",
+        "AG"
+      ],
+      "observedMatches": [
+        [
+          1,
+          "2026-02-13",
+          "Ituzaingó",
+          "Deportivo Armenio",
+          0,
+          1
+        ],
+        [
+          1,
+          "2026-02-14",
+          "Flandria",
+          "Brown (Adrogué)",
+          3,
+          1
+        ],
+        [
+          1,
+          "2026-02-14",
+          "Camioneros",
+          "Villa Dálmine",
+          0,
+          2
+        ],
+        [
+          1,
+          "2026-02-14",
+          "San Martín (Burzaco)",
+          "Real Pilar",
+          1,
+          2
+        ],
+        [
+          1,
+          "2026-02-14",
+          "Villa San Carlos",
+          "Liniers",
+          0,
+          1
+        ],
+        [
+          1,
+          "2026-02-15",
+          "Argentino de Quilmes",
+          "Deportivo Laferrere",
+          1,
+          1
+        ],
+        [
+          1,
+          "2026-02-15",
+          "Defensores Unidos",
+          "Talleres (Remedios de Escalada)",
+          0,
+          0
+        ],
+        [
+          1,
+          "2026-02-15",
+          "Dock Sud",
+          "Arsenal",
+          1,
+          1
+        ],
+        [
+          1,
+          "2026-02-15",
+          "Sportivo Italiano",
+          "UAI Urquiza",
+          0,
+          0
+        ],
+        [
+          1,
+          "2026-02-15",
+          "Deportivo Merlo",
+          "Excursionistas",
+          1,
+          2
+        ],
+        [
+          1,
+          "2026-02-16",
+          "Comunicaciones",
+          "Argentino de Merlo",
+          1,
+          0
+        ],
+        [
+          2,
+          "2026-02-20",
+          "Excursionistas",
+          "Dock Sud",
+          1,
+          0
+        ],
+        [
+          2,
+          "2026-02-21",
+          "Arsenal",
+          "Comunicaciones",
+          2,
+          0
+        ],
+        [
+          2,
+          "2026-02-21",
+          "Argentino de Merlo",
+          "Defensores Unidos",
+          1,
+          0
+        ],
+        [
+          2,
+          "2026-02-21",
+          "Deportivo Laferrere",
+          "Flandria",
+          3,
+          2
+        ],
+        [
+          2,
+          "2026-02-21",
+          "Real Pilar",
+          "Sportivo Italiano",
+          1,
+          2
+        ],
+        [
+          2,
+          "2026-02-22",
+          "Villa San Carlos",
+          "Ituzaingó",
+          3,
+          1
+        ],
+        [
+          2,
+          "2026-02-22",
+          "Liniers",
+          "San Martín (Burzaco)",
+          0,
+          0
+        ],
+        [
+          2,
+          "2026-02-22",
+          "Villa Dálmine",
+          "Deportivo Merlo",
+          0,
+          1
+        ],
+        [
+          2,
+          "2026-02-22",
+          "Talleres (Remedios de Escalada)",
+          "Argentino de Quilmes",
+          1,
+          0
+        ],
+        [
+          2,
+          "2026-02-22",
+          "Brown (Adrogué)",
+          "Deportivo Armenio",
+          0,
+          0
+        ],
+        [
+          2,
+          "2026-02-23",
+          "UAI Urquiza",
+          "Camioneros",
+          0,
+          0
+        ],
+        [
+          22,
+          "2026-06-27",
+          "Villa Dálmine",
+          "Camioneros",
+          0,
+          1
+        ],
+        [
+          22,
+          "2026-06-27",
+          "Real Pilar",
+          "San Martín (Burzaco)",
+          0,
+          0
+        ],
+        [
+          22,
+          "2026-06-27",
+          "Brown (Adrogué)",
+          "Flandria",
+          2,
+          0
+        ],
+        [
+          22,
+          "2026-06-27",
+          "Talleres (Remedios de Escalada)",
+          "Defensores Unidos",
+          1,
+          0
+        ],
+        [
+          22,
+          "2026-06-27",
+          "Excursionistas",
+          "Deportivo Merlo",
+          5,
+          0
+        ],
+        [
+          22,
+          "2026-06-27",
+          "Deportivo Armenio",
+          "Ituzaingó",
+          2,
+          1
+        ],
+        [
+          22,
+          "2026-06-28",
+          "Deportivo Laferrere",
+          "Argentino de Quilmes",
+          1,
+          1
+        ],
+        [
+          22,
+          "2026-06-28",
+          "UAI Urquiza",
+          "Sportivo Italiano",
+          0,
+          0
+        ],
+        [
+          22,
+          "2026-06-28",
+          "Liniers",
+          "Villa San Carlos",
+          1,
+          1
+        ],
+        [
+          22,
+          "2026-06-28",
+          "Argentino de Merlo",
+          "Comunicaciones",
+          3,
+          2
+        ],
+        [
+          22,
+          "2026-06-28",
+          "Arsenal",
+          "Dock Sud",
+          0,
+          0
+        ]
+      ],
+      "scope": "Rounds1/2/22, 22 distinct names per round; other regular fixtures and cutoff table not reconciled."
     }
   }
 ]

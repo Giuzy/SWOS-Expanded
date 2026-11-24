@@ -434,5 +434,50 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
     }
+  },
+  {
+    "index": 739,
+    "value": {
+      "competition": "BRA Série A",
+      "firstEdition": "1996",
+      "lastEdition": "1997",
+      "operation": "ADMINISTRATIVE_EXCEPTION",
+      "rowRefs": [
+        39
+      ],
+      "note": "1996: 24 clubs, single round robin and top-eight two-leg knockout; sporting bottom two. June 20 1997 administrative cancellation of relegation, expansion to 26; historical exception, not generic game rule.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 740,
+    "value": {
+      "competition": "BRA Série A",
+      "firstEdition": "2003",
+      "lastEdition": "2005",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        39
+      ],
+      "note": "Double round robin introduced in 2003: 24 teams (46 rounds); 24 in 2004 and 22 in 2005.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 741,
+    "value": {
+      "competition": "BRA Série A",
+      "firstEdition": "2006",
+      "lastEdition": null,
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        39
+      ],
+      "note": "20 clubs, double round robin (38 matches per club); four relegations.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
   }
 ]

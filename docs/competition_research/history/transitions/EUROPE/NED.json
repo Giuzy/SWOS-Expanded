@@ -83,5 +83,23 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 757,
+    "value": {
+      "competition": "NED Nacompetitie",
+      "firstEdition": "2005/06",
+      "lastEdition": null,
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        79,
+        80,
+        182,
+        468
+      ],
+      "note": "Group phase replaced by three knockout rounds; eight second-tier qualifiers plus two Eredivisie clubs. In 2005/06 third decisive leg if neither club has more wins from the first two, irrespective of aggregate goal difference; venue by goal difference or away goals; extra time/penalties on decisive match. Later knockout rules not assumed identical.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block105 contemporary and historical sporting evidence; exact all-season boundaries and full regulations not certified."
+    }
   }
 ]

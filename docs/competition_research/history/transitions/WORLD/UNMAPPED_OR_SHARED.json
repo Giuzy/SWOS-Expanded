@@ -3461,5 +3461,125 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block100: official federation announcements or historical archives; later report separated from 2026 template."
     }
+  },
+  {
+    "index": 764,
+    "value": {
+      "competition": "FIFA World Cup qualifying OFC",
+      "firstEdition": "2002",
+      "lastEdition": null,
+      "operation": "FORMAT_OBSERVED",
+      "rowRefs": [
+        99
+      ],
+      "note": "10 teams, two single round robin groups of five; winners meet over two legs; OFC winner faces fifth CONMEBOL. PNG did not participate.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block106 historical/federation evidence; edition-specific scope; no runtime import."
+    }
+  },
+  {
+    "index": 765,
+    "value": {
+      "competition": "FIFA World Cup qualifying OFC",
+      "firstEdition": "2006",
+      "lastEdition": null,
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        99
+      ],
+      "note": "12 participants, Australia/New Zealand byes, two groups of five, top two each advance to single round robin six-team group. Top two play OFC WC playoff over two legs in 2005; separate 2004 Nations Cup final also held between same clubs, do not merge fixtures. Winner faces fifth CONMEBOL. March2003 proposed double round robin was superseded by actual format.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block106 historical/federation evidence; edition-specific scope; no runtime import."
+    }
+  },
+  {
+    "index": 766,
+    "value": {
+      "competition": "FIFA World Cup qualifying OFC",
+      "firstEdition": "2010",
+      "lastEdition": null,
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        99
+      ],
+      "note": "2007 Pacific Games men's tournament doubles as first phase; medalists join seeded New Zealand in four-team double round robin 2008 Nations Cup. Group winner to two-leg AFC playoff. Earlier announcement of Asian group entry not implemented.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block106 historical/federation evidence; edition-specific scope; no runtime import."
+    }
+  },
+  {
+    "index": 767,
+    "value": {
+      "competition": "FIFA World Cup qualifying OFC",
+      "firstEdition": "2014",
+      "lastEdition": null,
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        99
+      ],
+      "note": "Four lowest-ranked nations single RR in Nov2011; winner joins seven seeded teams in 2012 Nations Cup, two groups of four. Top two per group advance to separate four-team double RR; winner to CONCACAF intercontinental playoff. Nations Cup winner need not equal WCQ winner.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block106 historical/federation evidence; edition-specific scope; no runtime import."
+    }
+  },
+  {
+    "index": 768,
+    "value": {
+      "competition": "FIFA World Cup qualifying OFC",
+      "firstEdition": "2018",
+      "lastEdition": null,
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        99
+      ],
+      "note": "Four lowest-ranked nations preliminary single RR, winner joins seven others in 2016 Nations Cup two groups four. Top three each advance to two groups of three double RR; group winners play two legs for intercontinental playoff against CONMEBOL fifth.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block106 historical/federation evidence; edition-specific scope; no runtime import."
+    }
+  },
+  {
+    "index": 769,
+    "value": {
+      "competition": "FIFA World Cup qualifying OFC",
+      "firstEdition": "2022",
+      "lastEdition": null,
+      "operation": "EXCEPTIONAL_FORMAT",
+      "rowRefs": [
+        99
+      ],
+      "note": "Centralized Qatar mini-tournament March2022; nine initially entered after American Samoa and Samoa withdrew, planned bottom-two preliminary single match; Tonga withdrew before preliminary. Two groups of four planned, top two each to single semifinals/final, winner to single intercontinental playoff.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block106 historical/federation evidence; edition-specific scope; no runtime import."
+    }
+  },
+  {
+    "index": 770,
+    "value": {
+      "competition": "FIFA World Cup qualifying OFC",
+      "firstEdition": "2022",
+      "lastEdition": null,
+      "operation": "ADMINISTRATIVE_EXCEPTION",
+      "rowRefs": [
+        99
+      ],
+      "note": "Cook Islands/Vanuatu withdrew during group A; their fixtures annulled for standings. Solomon Islands–Tahiti on March24 single placement match, ET and penalties if needed. Played Solomon–Cook Islands fixture retained for FIFA ranking only, not qualifying points.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block106 historical/federation evidence; edition-specific scope; no runtime import."
+    }
+  },
+  {
+    "index": 771,
+    "value": {
+      "competition": "FIFA World Cup qualifying OFC",
+      "firstEdition": "2026",
+      "lastEdition": null,
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        99
+      ],
+      "note": "11 entrants; bottom four single KO preliminary September2024, winner joins seven seeds. Two groups four single RR October–November2024; top two each advance to single semifinals and final March2025; winner direct, runner-up intercontinental playoff. Access allocation already tracked global records57/367, referenced rather than repeated as new allocation record.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block106 historical/federation evidence; edition-specific scope; no runtime import."
+    }
   }
 ]

@@ -13,16 +13,28 @@
     "index": 64,
     "value": {
       "row": 65,
-      "status": "HISTORICAL_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        772,
+        773,
+        774,
+        775,
+        776,
+        738
+      ]
     }
   },
   {
     "index": 65,
     "value": {
       "row": 66,
-      "status": "HISTORICAL_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        772,
+        775,
+        776,
+        738
+      ]
     }
   },
   {

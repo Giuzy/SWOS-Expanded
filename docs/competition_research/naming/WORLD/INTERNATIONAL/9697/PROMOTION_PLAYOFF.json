@@ -4,7 +4,16 @@
     "value": {
       "row": 179,
       "status": "HISTORICAL_NAME_CANDIDATE",
-      "transitionRefs": []
+      "transitionRefs": [
+        209,
+        438
+      ],
+      "phaseDisplayName": "Football League First Division play-offs",
+      "parentRows": [
+        75,
+        76
+      ],
+      "phaseReferenceStatus": "SUPPORTED_DESCRIPTIVE_PHASE_LABEL_NOT_INDEPENDENT_NAME"
     }
   },
   {
@@ -12,7 +21,15 @@
     "value": {
       "row": 180,
       "status": "HISTORICAL_NAME_CANDIDATE",
-      "transitionRefs": []
+      "transitionRefs": [
+        210
+      ],
+      "phaseDisplayName": "Football League Second Division play-offs",
+      "parentRows": [
+        76,
+        77
+      ],
+      "phaseReferenceStatus": "SUPPORTED_DESCRIPTIVE_PHASE_LABEL_NOT_INDEPENDENT_NAME"
     }
   },
   {
@@ -20,7 +37,15 @@
     "value": {
       "row": 181,
       "status": "HISTORICAL_NAME_CANDIDATE",
-      "transitionRefs": []
+      "transitionRefs": [
+        211
+      ],
+      "phaseDisplayName": "Football League Third Division play-offs",
+      "parentRows": [
+        77,
+        78
+      ],
+      "phaseReferenceStatus": "SUPPORTED_DESCRIPTIVE_PHASE_LABEL_NOT_INDEPENDENT_NAME"
     }
   },
   {
@@ -28,7 +53,15 @@
     "value": {
       "row": 182,
       "status": "HISTORICAL_NAME_CANDIDATE",
-      "transitionRefs": []
+      "transitionRefs": [
+        757
+      ],
+      "phaseDisplayName": "Nacompetitie",
+      "parentRows": [
+        79,
+        80
+      ],
+      "phaseReferenceStatus": "SUPPORTED_DESCRIPTIVE_PHASE_LABEL_NOT_INDEPENDENT_NAME"
     }
   },
   {
@@ -36,7 +69,16 @@
     "value": {
       "row": 183,
       "status": "HISTORICAL_NAME_CANDIDATE",
-      "transitionRefs": []
+      "transitionRefs": [
+        758,
+        759
+      ],
+      "phaseDisplayName": "Scottish Premier Division promotion/relegation play-off",
+      "parentRows": [
+        81,
+        82
+      ],
+      "phaseReferenceStatus": "SUPPORTED_DESCRIPTIVE_PHASE_LABEL_NOT_INDEPENDENT_NAME"
     }
   },
   {
@@ -44,7 +86,16 @@
     "value": {
       "row": 184,
       "status": "HISTORICAL_NAME_CANDIDATE",
-      "transitionRefs": []
+      "transitionRefs": [
+        760,
+        761
+      ],
+      "phaseDisplayName": "Promoción de ascenso y descenso",
+      "parentRows": [
+        85,
+        86
+      ],
+      "phaseReferenceStatus": "SUPPORTED_DESCRIPTIVE_PHASE_LABEL_NOT_INDEPENDENT_NAME"
     }
   },
   {
@@ -52,7 +103,17 @@
     "value": {
       "row": 185,
       "status": "HISTORICAL_NAME_CANDIDATE",
-      "transitionRefs": []
+      "transitionRefs": [
+        723,
+        762,
+        763
+      ],
+      "phaseDisplayName": "Promoción de ascenso y descenso",
+      "parentRows": [
+        87,
+        88
+      ],
+      "phaseReferenceStatus": "SUPPORTED_DESCRIPTIVE_PHASE_LABEL_NOT_INDEPENDENT_NAME"
     }
   }
 ]

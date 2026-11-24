@@ -3,8 +3,16 @@
     "index": 523,
     "value": {
       "row": 524,
-      "status": "PARENT_OR_PHASE_MAPPING_REQUIRED",
-      "transitionRefs": []
+      "status": "SUCCESSOR_IDENTITY_MAPPING_PENDING",
+      "transitionRefs": [
+        738
+      ],
+      "parentLeagueRows": [
+        297,
+        298,
+        299,
+        300
+      ]
     }
   }
 ]

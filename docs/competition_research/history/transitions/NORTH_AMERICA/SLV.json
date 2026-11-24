@@ -58,5 +58,102 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block95 sporting observations, exact dates and keys not reconciled."
     }
+  },
+  {
+    "index": 738,
+    "value": {
+      "competition": "SLV Liga de Ascenso",
+      "firstEdition": "2026/27",
+      "lastEdition": null,
+      "operation": "MERGE_COMPETITIONS",
+      "note": "Second and Third Division replaced by one new league, two groups twelve, 22 games per club, eight qualify for knockout. Promotion suspended for 2026/27 and 2027/28; later promotion route announced, not assumed permanent. First game scheduled Aug28. Old native slots not mapped.",
+      "rowRefs": [
+        297,
+        298,
+        299,
+        300,
+        524
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block102 historical archive, secondary reporting or federation announcement; not a complete rule-version timeline."
+    }
+  },
+  {
+    "index": 772,
+    "value": {
+      "competition": "SLV second and third divisions",
+      "firstEdition": "1996",
+      "lastEdition": null,
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        65,
+        66
+      ],
+      "note": "Retrospective year-level counts: Liga de Ascenso 36, Liga Mayor B 60. 1986 geographical structure not assumed unchanged; exact 1996/97 season roster/grouping and initial date unknown.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block106 historical/federation evidence; edition-specific scope; no runtime import."
+    }
+  },
+  {
+    "index": 773,
+    "value": {
+      "competition": "SLV second and third divisions",
+      "firstEdition": "2000",
+      "lastEdition": null,
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        65
+      ],
+      "note": "Second tier 30 teams in three groups.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block106 historical/federation evidence; edition-specific scope; no runtime import."
+    }
+  },
+  {
+    "index": 774,
+    "value": {
+      "competition": "SLV second and third divisions",
+      "firstEdition": "2002",
+      "lastEdition": null,
+      "operation": "REGULATION_OBSERVED",
+      "rowRefs": [
+        65
+      ],
+      "note": "Legal regulation of Segunda División del Fútbol Profesional: cap 24 affiliated clubs; champion direct promotion, second vs penultimate top-tier up to two playoff games; membership/license condition; relegation and lower-tier playoff governed by competition bases. Text-only PDF retrieval, screenshot failed; formal rule not proof every season implemented.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block106 historical/federation evidence; edition-specific scope; no runtime import."
+    }
+  },
+  {
+    "index": 775,
+    "value": {
+      "competition": "SLV second and third divisions",
+      "firstEdition": "2006",
+      "lastEdition": null,
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        65,
+        66
+      ],
+      "note": "Second tier 24 clubs in two non-geographical groups; third tier 34.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block106 historical/federation evidence; edition-specific scope; no runtime import."
+    }
+  },
+  {
+    "index": 776,
+    "value": {
+      "competition": "SLV second and third divisions",
+      "firstEdition": "2015/16",
+      "lastEdition": null,
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        65,
+        66
+      ],
+      "note": "Second tier 24 and third tier 40, following first-tier expansion to 12. No inferred missing year-by-year values.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block106 historical/federation evidence; edition-specific scope; no runtime import."
+    }
   }
 ]

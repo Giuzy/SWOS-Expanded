@@ -17,8 +17,11 @@
       "row": 88,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "transitionRefs": [
-        723
-      ]
+        723,
+        762,
+        763
+      ],
+      "observedDisplayName": "Segunda División Profesional"
     }
   }
 ]

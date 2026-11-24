@@ -46,5 +46,20 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block65 source verified, subsequent editions not assumed."
     }
+  },
+  {
+    "index": 735,
+    "value": {
+      "competition": "ECU Campeonato Nacional Serie A",
+      "firstEdition": "1996",
+      "lastEdition": "1996",
+      "operation": "OBSERVED_FORMAT",
+      "note": "12 teams, Apertura double round robin, Clausura three groups four and two final groups six; final between phase winners; two relegated.",
+      "rowRefs": [
+        42
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block102 historical archive, secondary reporting or federation announcement; not a complete rule-version timeline."
+    }
   }
 ]

@@ -12,13 +12,12 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "SUCCESSOR_IDENTITY_MAPPING_PENDING"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
@@ -30,6 +29,71 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block102Research": {
+      "edition": "2026/27",
+      "officialName": "Liga de Ascenso",
+      "commercialName": "Liga de Ascenso Copa FOX",
+      "predecessors": [
+        "Segunda División",
+        "Tercera División"
+      ],
+      "announcedMerger": "2026-05",
+      "entrantListAnnouncement": "2026-07-16",
+      "opening": "2026-08-28",
+      "teams": 24,
+      "groups": [
+        12,
+        12
+      ],
+      "regularGamesPerClub": 22,
+      "cycles": 2,
+      "top4PerGroupAdvance": true,
+      "knockout": [
+        "quarterfinals",
+        "semifinals",
+        "final"
+      ],
+      "groupMembers": {
+        "centroOccidente": [
+          "Once Lobos",
+          "11 Municipal",
+          "Izalco",
+          "Nacional FC",
+          "CSD Vendaval",
+          "Adet Aruba",
+          "AD Forfut",
+          "El Roble",
+          "CD Pumas",
+          "Academia BP",
+          "Fuerte Aguilares",
+          "Marte Soyapango"
+        ],
+        "centroOriente": [
+          "El Vencedor",
+          "Orión",
+          "CD Sal y Mar",
+          "Independiente San Vicente",
+          "Olímpico Litoral",
+          "Audaz",
+          "AD San Rafael",
+          "Neo Pipil",
+          "San Marcos",
+          "Dragón",
+          "SESA",
+          "Tenancingo"
+        ]
+      },
+      "promotionFreeze": {
+        "seasons": [
+          "2026/27",
+          "2027/28"
+        ],
+        "announcedAccessAfterFreeze": "four short-tournament champions contest promotion; exact later regulation not confirmed"
+      },
+      "mapping": "UNRESOLVED_OLD_NATIVE_SLOTS_297_300",
+      "scope": "Actual merger, not four independent serial leagues; names and initial group rosters reported at opening, differ from July approved candidate list; no arbitrary mapping or duplicate fixtures. No snapshot because inaugural games after July1.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

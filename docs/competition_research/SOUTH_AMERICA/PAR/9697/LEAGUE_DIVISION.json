@@ -12,13 +12,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -35,14 +35,74 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Campeonato Paraguayo de Fútbol (Primera División)",
+      "nonCommercialDisplayName": "Campeonato Paraguayo de Fútbol (Primera División)",
       "candidateName": "Primera División",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block102Research": {
+      "edition": "1996",
+      "rules": {
+        "teams": 13,
+        "phases": [
+          "Apertura",
+          "Clausura"
+        ],
+        "regularGamesPerPhase": 12,
+        "points": {
+          "win": 3,
+          "drawShootoutWin": 2,
+          "drawShootoutLoss": 1,
+          "loss": 0
+        },
+        "top8Advance": true,
+        "secondPhase": {
+          "groups": [
+            4,
+            4
+          ],
+          "gamesPerClub": 3,
+          "bonusByRegularRank": [
+            3,
+            2.5,
+            2,
+            1.5,
+            1,
+            0.5,
+            0,
+            0
+          ],
+          "top2PerGroupAdvance": true,
+          "semifinalLegs": 2,
+          "finalLegs": 2
+        },
+        "annualTitle": "two phase winners decide one championship; same winner directly champion",
+        "relegationCountObserved": 1
+      },
+      "dates": {},
+      "scope": "Historical edition only. No future scores imported as cutoff data; full dates, match rules and native keys pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "datedMatches": 1
+      },
+      "observedMatches": [
+        [
+          "1996-05-04",
+          "Cerro Porteño",
+          "Olimpia",
+          1,
+          2
+        ]
+      ],
+      "missing": "Regular phase and group-stage dates, scores and table; July14 semifinal matches excluded."
     }
   }
 ]

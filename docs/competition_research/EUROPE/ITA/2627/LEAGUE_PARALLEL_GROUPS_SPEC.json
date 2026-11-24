@@ -13,13 +13,12 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
@@ -31,6 +30,42 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block102Research": {
+      "edition": "2026/27",
+      "parentEvidence": [
+        {
+          "rows": [
+            188,
+            189,
+            190
+          ],
+          "path": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+          "field": "block68Research"
+        },
+        {
+          "rows": [
+            191,
+            192,
+            193,
+            194,
+            195,
+            196,
+            197,
+            198,
+            199
+          ],
+          "path": "EUROPE/ITA/2627/LEAGUE_DIVISION.json",
+          "field": "block68Research"
+        },
+        {
+          "row": 448,
+          "path": "EUROPE/ITA/2627/LEAGUE_PLAYOFF_PLAYOUT_SPEC.json",
+          "field": "block101Research"
+        }
+      ],
+      "identity": "Three parallel Serie C groups and nine parallel Serie D groups; not twelve successive divisions. Shared promotion access and unique fixtures; do not reproduce parent data.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

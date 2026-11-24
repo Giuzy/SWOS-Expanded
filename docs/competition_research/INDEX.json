@@ -627,7 +627,9 @@
     "history/transitions/NORTH_AMERICA/PAN.json",
     "history/transitions/NORTH_AMERICA/SLV.json",
     "history/transitions/NORTH_AMERICA/SUR.json",
-    "history/transitions/SOUTH_AMERICA/URU.json"
+    "history/transitions/SOUTH_AMERICA/URU.json",
+    "history/transitions/SOUTH_AMERICA/BOL.json",
+    "history/transitions/SOUTH_AMERICA/VEN.json"
   ],
   "versions": [
     "history/league_versions/EUROPE/FRA.json",
@@ -1424,6 +1426,7 @@
   "metadata": "metadata.json",
   "coverage": "COVERAGE.json",
   "researchOnly": true,
-  "lastPreparedBlock": 101,
-  "cutoffScope": "CUTOFF_SCOPE.json"
+  "lastPreparedBlock": 106,
+  "cutoffScope": "CUTOFF_SCOPE.json",
+  "anomalies": "ANOMALIES.json"
 }

@@ -34,5 +34,173 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block101 AFA 2026 arts2/6/7 reviewed; exact complete dates and club keys pending."
     }
+  },
+  {
+    "index": 743,
+    "value": {
+      "competition": "ARG Primera División",
+      "firstEdition": "1996/97",
+      "lastEdition": "1996/97",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        60
+      ],
+      "note": "20 clubs; separate Apertura and Clausura championships, each 19 games per club.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 744,
+    "value": {
+      "competition": "ARG Primera B Nacional",
+      "firstEdition": "1996/97",
+      "lastEdition": "1996/97",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        61
+      ],
+      "note": "Expansion from 22 to 32, four groups of eight, then 14-club championship and two nine-club permanence groups; full playoff access pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 745,
+    "value": {
+      "competition": "ARG Primera División",
+      "firstEdition": "2012/13",
+      "lastEdition": "2013/14",
+      "operation": "RENAME_FORMAT_CHANGE",
+      "rowRefs": [
+        60
+      ],
+      "note": "Torneo Inicial and Final replace Apertura and Clausura names; additional Copa Campeonato between winners. Separate competition identity and exact edition rules pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 746,
+    "value": {
+      "competition": "ARG Primera División",
+      "firstEdition": "2014",
+      "lastEdition": "2014",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        60
+      ],
+      "note": "Second-half transition tournament ends previous short-tournament cycle; no relegation in transition.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 747,
+    "value": {
+      "competition": "ARG Primera División",
+      "firstEdition": "2015",
+      "lastEdition": "2015",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        60
+      ],
+      "note": "30 clubs, single round robin plus additional derby, two relegations.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 748,
+    "value": {
+      "competition": "ARG Primera División",
+      "firstEdition": "2016",
+      "lastEdition": "2016",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        60
+      ],
+      "note": "First-half transition: two groups of 15, inter-group derby and group winners final. Relegation descriptions conflict; defer exact rule.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 749,
+    "value": {
+      "competition": "ARG Primera División",
+      "firstEdition": "2016/17",
+      "lastEdition": "2016/17",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        60
+      ],
+      "note": "30 clubs, single round robin plus derby; four relegations and two promotions.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 750,
+    "value": {
+      "competition": "ARG Superliga",
+      "firstEdition": "2017/18",
+      "lastEdition": "2019/20",
+      "operation": "RENAME_FORMAT_CHANGE",
+      "rowRefs": [
+        60,
+        203
+      ],
+      "note": "Superliga era: 28 clubs in 2017/18, 26 in 2018/19, 24 in 2019/20.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 751,
+    "value": {
+      "competition": "ARG Primera División",
+      "firstEdition": "2020",
+      "lastEdition": "2020",
+      "operation": "ADMINISTRATIVE_EXCEPTION",
+      "rowRefs": [
+        60,
+        203
+      ],
+      "note": "Pandemic interruption of Copa Superliga and suspension of relegation; subsequent Liga Profesional organization. Do not treat emergency rules as permanent.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 752,
+    "value": {
+      "competition": "ARG Liga Profesional",
+      "firstEdition": "2021",
+      "lastEdition": "2022",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        60,
+        203
+      ],
+      "note": "Annual single round robin, 26 clubs in 2021 then 28 in 2022; distinct Copa de la Liga Profesional.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 753,
+    "value": {
+      "competition": "ARG Primera B",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        205
+      ],
+      "note": "22 clubs, 42 league games; ranks 2–9 play two-leg promotion playoff, two relegations.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
   }
 ]

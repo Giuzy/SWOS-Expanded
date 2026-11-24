@@ -12,13 +12,12 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -35,14 +34,44 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Primera División",
+      "nonCommercialDisplayName": "Primera División",
       "candidateName": "Primera División",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block103Research": {
+      "edition": "1996/97",
+      "rules": {
+        "aperturaTeams": 12,
+        "aperturaGames": 22,
+        "aperturaTopTwoTiedOnPoints": "two-leg title decider observed, penalties if aggregate tied; full general tie rules unknown",
+        "aperturaBottomTwo": "move to Torneo de Promoción instead of Clausura",
+        "clausuraTeams": 10,
+        "clausuraGames": 18,
+        "annualFinalLegs": 2,
+        "annualFinalEntrants": "Apertura and Clausura winners"
+      },
+      "opening": "1996-08-11",
+      "finalDates": [
+        "1997-05-21",
+        "1997-05-26"
+      ],
+      "clubIdentityChanges": [
+        [
+          "UNICOL FC",
+          "Atlético Zulia"
+        ],
+        [
+          "Unión Deportiva Lara",
+          "Nacional Táchira"
+        ]
+      ],
+      "scope": "Observed archive and secondary cross-check; exact prior edition close and promotion criteria not reconciled.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

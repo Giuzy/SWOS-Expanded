@@ -14,5 +14,20 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "2026-11-24 block 23: web search excerpts consulted, not full regulation/participant mapping. No post-cutoff results imported."
     }
+  },
+  {
+    "index": 734,
+    "value": {
+      "competition": "CHI Campeonato Nacional",
+      "firstEdition": "1997",
+      "lastEdition": "1997",
+      "operation": "CHANGE_FORMAT",
+      "note": "1996 30-match annual league replaced in 1997 by Apertura and Clausura, each 15-match round robin with separate titles.",
+      "rowRefs": [
+        40
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block102 historical archive, secondary reporting or federation announcement; not a complete rule-version timeline."
+    }
   }
 ]

@@ -45,5 +45,52 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block99: historical match archives and contemporary regulation/reporting; exact regulation/version and participant identities not fully reconciled."
     }
+  },
+  {
+    "index": 754,
+    "value": {
+      "competition": "URU Segunda División Profesional",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        316
+      ],
+      "note": "Two groups of seven in Competencia, six matches carried forward; 26 league matches, top two direct promotion and playoffs ranks 3–6; Competencia winner access condition, exact replacement scenarios pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 762,
+    "value": {
+      "competition": "URU Segunda promotion route",
+      "firstEdition": "1998",
+      "lastEdition": "1998",
+      "operation": "FORMAT_OBSERVED",
+      "rowRefs": [
+        88,
+        185
+      ],
+      "note": "Four-club Liguilla single round robin; winner promoted, second contested cross-tier playoff. Two opening legs and a third decisive match observed Nov21, followed by penalties; Deportivo Maldonado later admitted by administrative license despite losing playoff, with Tacuarembó and Atlético Bella Vista (Paysandú). Do not treat administrative license as sporting victory or infer all later years.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block105 contemporary and historical sporting evidence; exact all-season boundaries and full regulations not certified."
+    }
+  },
+  {
+    "index": 763,
+    "value": {
+      "competition": "URU Segunda División Profesional",
+      "firstEdition": "1996",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "rowRefs": [
+        88,
+        316
+      ],
+      "note": "Former Primera B renamed Segunda División Profesional; contemporary June 1996 report calls it Segunda División and August report explicitly identifies former Primera B. Historical naming chronology corroborated by retrospective category history.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block105 contemporary and historical sporting evidence; exact all-season boundaries and full regulations not certified."
+    }
   }
 ]

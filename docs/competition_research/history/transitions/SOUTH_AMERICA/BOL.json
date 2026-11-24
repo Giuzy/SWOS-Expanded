@@ -1,0 +1,47 @@
+[
+  {
+    "index": 731,
+    "value": {
+      "competition": "BOL Liga del Fútbol Profesional Boliviano",
+      "firstEdition": "1996",
+      "lastEdition": "1996",
+      "operation": "OBSERVED_FORMAT",
+      "note": "12 clubs; Apertura two six-team groups and knockout, finalists also enter final hexagonal with four Clausura qualifiers; relegation two-season average.",
+      "rowRefs": [
+        38
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block102 historical archive, secondary reporting or federation announcement; not a complete rule-version timeline."
+    }
+  },
+  {
+    "index": 732,
+    "value": {
+      "competition": "BOL Liga del Fútbol Profesional Boliviano",
+      "firstEdition": "1997",
+      "lastEdition": "1997",
+      "operation": "CHANGE_FORMAT",
+      "note": "Clausura top three from each six-team group enter hexagonal; Apertura still group and knockout. Full access and title definition pending.",
+      "rowRefs": [
+        38
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block102 historical archive, secondary reporting or federation announcement; not a complete rule-version timeline."
+    }
+  },
+  {
+    "index": 733,
+    "value": {
+      "competition": "BOL Liga del Fútbol Profesional Boliviano",
+      "firstEdition": "1998",
+      "lastEdition": "1998",
+      "operation": "CHANGE_FORMAT",
+      "note": "Apertura one 12-team double round robin (22 matches per club); Clausura two groups six, top three each enter final hexagonal.",
+      "rowRefs": [
+        38
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block102 historical archive, secondary reporting or federation announcement; not a complete rule-version timeline."
+    }
+  }
+]

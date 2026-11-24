@@ -12,13 +12,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -35,14 +35,264 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Liga del Fútbol Profesional Boliviano",
+      "nonCommercialDisplayName": "Liga del Fútbol Profesional Boliviano",
       "candidateName": "Liga de Fútbol Profesional Boliviano",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block102Research": {
+      "edition": "1996",
+      "rules": {
+        "teams": 12,
+        "apertura": {
+          "groups": [
+            6,
+            6
+          ],
+          "gamesPerClub": 14,
+          "top2Advance": true,
+          "semifinalLegs": 2,
+          "finalObservedWindow": [
+            "1996-07-10",
+            "1996-07-16"
+          ],
+          "finalistsQualifyHexagonal": true
+        },
+        "clausura": {
+          "groups": [
+            6,
+            6
+          ],
+          "gamesPerClub": 12,
+          "top2Advance": true
+        },
+        "hexagonal": {
+          "teams": 6,
+          "gamesPerClub": 10,
+          "titleTie": "neutral extra match"
+        },
+        "relegation": {
+          "averageYears": [
+            1995,
+            1996
+          ],
+          "direct": 1,
+          "playoff": 1
+        }
+      },
+      "dates": {
+        "observedOpening": "1996-03-02"
+      },
+      "scope": "Historical edition only. No future scores imported as cutoff data; full dates, match rules and native keys pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "datedMatches": 5,
+        "tableRows": 12
+      },
+      "observedMatches": [
+        [
+          "1996-03-02",
+          "Destroyers",
+          "Oriente Petrolero",
+          1,
+          4
+        ],
+        [
+          "1996-03-03",
+          "Deportivo Municipal",
+          "Real Santa Cruz",
+          2,
+          0
+        ],
+        [
+          "1996-03-03",
+          "San José",
+          "Chaco Petrolero",
+          5,
+          2
+        ],
+        [
+          "1996-06-20",
+          "Bolívar",
+          "The Strongest",
+          0,
+          3
+        ],
+        [
+          "1996-06-23",
+          "The Strongest",
+          "Bolívar",
+          1,
+          1
+        ]
+      ],
+      "groupTableSchema": [
+        "club",
+        "played",
+        "wins",
+        "draws",
+        "losses",
+        "GF",
+        "GA",
+        "points"
+      ],
+      "groupTables": [
+        [
+          [
+            "The Strongest",
+            14,
+            7,
+            4,
+            3,
+            31,
+            15,
+            25
+          ],
+          [
+            "Real Santa Cruz",
+            14,
+            7,
+            3,
+            4,
+            17,
+            14,
+            24
+          ],
+          [
+            "Deportivo Municipal",
+            14,
+            6,
+            2,
+            6,
+            20,
+            20,
+            20
+          ],
+          [
+            "Wilstermann",
+            14,
+            4,
+            6,
+            4,
+            21,
+            20,
+            18
+          ],
+          [
+            "Guabirá",
+            14,
+            3,
+            4,
+            7,
+            16,
+            24,
+            13
+          ],
+          [
+            "Independiente Petrolero",
+            14,
+            2,
+            4,
+            8,
+            15,
+            29,
+            10
+          ]
+        ],
+        [
+          [
+            "Oriente Petrolero",
+            14,
+            9,
+            2,
+            3,
+            36,
+            15,
+            29
+          ],
+          [
+            "Bolívar",
+            14,
+            7,
+            4,
+            3,
+            31,
+            19,
+            25
+          ],
+          [
+            "San José",
+            14,
+            6,
+            5,
+            3,
+            24,
+            18,
+            23
+          ],
+          [
+            "Chaco Petrolero",
+            14,
+            6,
+            2,
+            6,
+            22,
+            29,
+            20
+          ],
+          [
+            "Stormers",
+            14,
+            3,
+            5,
+            6,
+            21,
+            30,
+            14
+          ],
+          [
+            "Destroyers",
+            14,
+            2,
+            3,
+            9,
+            10,
+            31,
+            9
+          ]
+        ]
+      ],
+      "aperturaFinalists": [
+        "The Strongest",
+        "Real Santa Cruz"
+      ],
+      "otherSemifinal": {
+        "teams": [
+          "Oriente Petrolero",
+          "Real Santa Cruz"
+        ],
+        "firstLeg": [
+          1,
+          1
+        ],
+        "secondLeg": [
+          0,
+          3
+        ],
+        "datesWindow": [
+          "1996-06-19",
+          "1996-06-23"
+        ]
+      },
+      "missing": "Remaining individual dates and scores; group table published, not independently reconciled; no July final results."
     }
   }
 ]

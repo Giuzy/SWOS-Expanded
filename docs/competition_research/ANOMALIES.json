@@ -1,0 +1,235 @@
+{
+  "lastPreparedBlock": 106,
+  "baseHead": "7fe0e919f4b167b79b04645493a808b643ab09b2",
+  "status": "INITIAL_EXPLICIT_REGISTER_LOWER_BOUND_NOT_EXHAUSTIVE",
+  "policy": "Unique concrete conflicts, identity/slot mismatches or metric inconsistency only. Do not count ordinary missing fields or unresolved applicability as anomalies. Do not resolve conflicts by guessing; merge duplicates in final review. Increment when a distinct case is identified.",
+  "openCount": 23,
+  "cases": [
+    {
+      "id": "A001",
+      "type": "NATIVE_MAPPING",
+      "description": "WC1998 UEFA: nine actual groups vs eight native slots",
+      "rows": [
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        167
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A002",
+      "type": "NATIVE_MAPPING",
+      "description": "EURO2000: nine actual groups vs eight native slots",
+      "rows": [
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        173
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A003",
+      "type": "IDENTITY",
+      "description": "Libertadores rows 321/423 alias reconciliation pending; one cutoff package only",
+      "rows": [
+        321,
+        423
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A004",
+      "type": "DATE_CONFLICT",
+      "description": "OFC1996 Tahiti–Solomon Islands: summary May11 1995 vs detailed May11 1996",
+      "rows": [
+        111
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A005",
+      "type": "ACCESS_CONFLICT",
+      "description": "France promotion playoff Ligue3 winner vs earlier rank3 wording",
+      "rows": [
+        461
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A006",
+      "type": "TABLE_CONFLICT",
+      "description": "NZL Central League: Phoenix published played count inconsistent with reported game",
+      "rows": [
+        280
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A007",
+      "type": "SCORE_CONFLICT",
+      "description": "PER2026 Cienciano final-round published 3–2 conflicts with scorer list",
+      "rows": [
+        284
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A008",
+      "type": "FIXTURE_CONFLICT",
+      "description": "Gibraltar Challenge GW3/GW4 repeat pairs 9–11 and 7–10",
+      "rows": [
+        247
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A009",
+      "type": "ACCESS_CONFLICT",
+      "description": "Gibraltar published playoff bracket follows 3-slot scenario; actual four-slot route conditional",
+      "rows": [
+        247
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A010",
+      "type": "DATE_CONFLICT",
+      "description": "Costa Rica opening July23 vs July26",
+      "rows": [
+        224
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A011",
+      "type": "RULE_CONFLICT",
+      "description": "PAR1996 prose says eleven first-phase matchdays but 13 clubs have twelve matches each; use twelve per club provisionally, distinguish games from calendar rounds",
+      "rows": [
+        44
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A012",
+      "type": "NATIVE_MAPPING",
+      "description": "SLV former native divisions 297–300 vs merged 2026 Liga de Ascenso; no successor slot assigned",
+      "rows": [
+        297,
+        298,
+        299,
+        300,
+        524
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A013",
+      "type": "ROSTER_IDENTITY",
+      "description": "SLV July approved roster and August opening roster differ (e.g. Cruzeiro versus Independiente San Vicente); resolve changes/aliases rather than add both",
+      "rows": [
+        524
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A014",
+      "type": "METADATA",
+      "description": "Historical observation dashboard and raw transition count differ by five; global unique-event count not yet reconciled",
+      "rows": [],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A015",
+      "type": "RULE_CONFLICT",
+      "description": "BOL1996 Italian secondary summary says three Clausura qualifiers per group; detailed Spanish edition says two from each plus two Apertura finalists. Observed hexagonal supports latter provisionally; official regulation pending.",
+      "rows": [
+        38
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A016",
+      "type": "DATE_CONFLICT",
+      "description": "ARG 1995/96 Clausura River–Newell's: June 28 or June 29 in observed archives.",
+      "rows": [
+        60
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A017",
+      "type": "DATE_CONFLICT",
+      "description": "ARG 1995/96 Clausura Rosario Central–Boca: June 29 or June 30 in observed archives.",
+      "rows": [
+        60
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A018",
+      "type": "RESULT_STATUS",
+      "description": "ARG 1995/96 Newell's–Rosario Central June23 interrupted; official final disposition unverified. Do not import as final.",
+      "rows": [
+        60
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A019",
+      "type": "IDENTITY_CONFLICT",
+      "description": "ARG 1995/96 second-tier relegation table repeats Los Andes; no arbitrary identity substitution.",
+      "rows": [
+        61
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A020",
+      "type": "ROSTER_CONFLICT",
+      "description": "URU 2026 Segunda Competencia published draw text omits Fénix despite observed roster/matches including Fénix.",
+      "rows": [
+        316
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A021",
+      "type": "RULE_CONFLICT",
+      "description": "ARG first-half 2016 transition: secondary accounts conflict on relegation; official edition rule pending.",
+      "rows": [
+        60
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A022",
+      "type": "DATE_CONFLICT",
+      "description": "PER1996 Sport Boys–Alianza Lima round7 0–0 dated May11 or May12 in two club histories; retain one result with alternative dates.",
+      "rows": [
+        45
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A023",
+      "type": "NATIVE_FORMAT_MISMATCH",
+      "description": "URU1996 Segunda row88: original technical audit 14 clubs vs 12 real participating clubs confirmed by first-round report (La Luz and Uruguay Montevideo withdrew before start). Native participant mapping and promotion/relegation counts need reconciliation; not a runtime fix.",
+      "rows": [
+        88
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    }
+  ]
+}

@@ -139,5 +139,40 @@
       "reason": "increase in licensed clubs",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 758,
+    "value": {
+      "competition": "SCO top-tier promotion/relegation playoff",
+      "firstEdition": "1997/98",
+      "lastEdition": "2012/13",
+      "operation": "SUSPEND",
+      "rowRefs": [
+        81,
+        82,
+        183
+      ],
+      "note": "1996/97 was last played before 2013/14; no top-tier playoff in 1997/98–2012/13. Lower-tier phases not implied.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block105 contemporary and historical sporting evidence; exact all-season boundaries and full regulations not certified."
+    }
+  },
+  {
+    "index": 759,
+    "value": {
+      "competition": "SCO Premiership promotion/relegation playoff",
+      "firstEdition": "2013/14",
+      "lastEdition": null,
+      "operation": "REINTRODUCE_CHANGED_FORMAT",
+      "rowRefs": [
+        81,
+        82,
+        183,
+        476
+      ],
+      "note": "Top-tier rank11 against survivor of second-tier ranks2–4; lower ranks3 and4 play first, winner plays rank2, winner faces tier1 rank11. Two-leg rounds; modern parent phase already recorded separately.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block105 contemporary and historical sporting evidence; exact all-season boundaries and full regulations not certified."
+    }
   }
 ]

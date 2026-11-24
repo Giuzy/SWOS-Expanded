@@ -16,5 +16,39 @@
       "supercupEntrantsAwayAgainstLowerTierThroughR16": true,
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 760,
+    "value": {
+      "competition": "ESP top-tier promotion/relegation playoff",
+      "firstEdition": "1999/00",
+      "lastEdition": null,
+      "operation": "ABOLISH",
+      "rowRefs": [
+        85,
+        86,
+        184
+      ],
+      "note": "July 1999 league decision abolished cross-tier playoffs and substituted three direct up/down places.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block105 contemporary and historical sporting evidence; exact all-season boundaries and full regulations not certified."
+    }
+  },
+  {
+    "index": 761,
+    "value": {
+      "competition": "ESP Segunda promotion playoff",
+      "firstEdition": "2010/11",
+      "lastEdition": null,
+      "operation": "INTRODUCE_NEW_FORMAT",
+      "rowRefs": [
+        86,
+        184,
+        460
+      ],
+      "note": "Two direct promotion places plus third via second-tier-only ranks3–6, semifinal 3v6 and 4v5, two-legged semifinals and final. Reserve teams ineligible; exact historical replacement/tiebreak rules pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block105 contemporary and historical sporting evidence; exact all-season boundaries and full regulations not certified."
+    }
   }
 ]

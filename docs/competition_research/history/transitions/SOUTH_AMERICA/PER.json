@@ -17,5 +17,35 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
     }
+  },
+  {
+    "index": 736,
+    "value": {
+      "competition": "PER Campeonato Descentralizado",
+      "firstEdition": "1996",
+      "lastEdition": "1996",
+      "operation": "OBSERVED_FORMAT",
+      "note": "16 clubs and 30 matches per club, regular table title, separate pre-Liguilla and Liguilla for continental access; four relegated.",
+      "rowRefs": [
+        45
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block102 historical archive, secondary reporting or federation announcement; not a complete rule-version timeline."
+    }
+  },
+  {
+    "index": 737,
+    "value": {
+      "competition": "PER Campeonato Descentralizado",
+      "firstEdition": "1997",
+      "lastEdition": "1997",
+      "operation": "CHANGE_FORMAT",
+      "note": "14 clubs, 13-match Apertura and Clausura; phase winners qualify for national final (same winner scenario to confirm).",
+      "rowRefs": [
+        45
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block102 historical archive, secondary reporting or federation announcement; not a complete rule-version timeline."
+    }
   }
 ]

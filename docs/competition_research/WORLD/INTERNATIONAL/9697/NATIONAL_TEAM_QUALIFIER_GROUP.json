@@ -343,7 +343,6 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "APPLICABILITY_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -383,10 +382,82 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "RSSSF retrieved excerpt; neutral labels, not official name history; no OG key mapping or runtime import."
     },
-    "cutoffApplicability": "UNDETERMINED",
-    "cutoffCandidateSources": [
-      "ffd563a774e1c1865eb513e6ab0ffb427d370a78"
-    ]
+    "block106Research": {
+      "edition": "1998",
+      "rules": {
+        "preliminaryGroups": [
+          {
+            "name": "Melanesian",
+            "teams": [
+              "Papua New Guinea",
+              "Solomon Islands",
+              "Vanuatu"
+            ],
+            "dates": [
+              "1996-09-16",
+              "1996-09-18",
+              "1996-09-20"
+            ]
+          },
+          {
+            "name": "Polynesian",
+            "teams": [
+              "Tonga",
+              "Cook Islands",
+              "Western Samoa"
+            ],
+            "dates": [
+              "1996-11-11",
+              "1996-11-13",
+              "1996-11-15"
+            ]
+          }
+        ],
+        "qualification": "Melanesian winner plus winner of two-leg playoff between Melanesian runner-up and Polynesian winner; join four seeded byes in two groups of three double RR; group winners two-leg final; OFC winner AFC playoff.",
+        "playoffDates": [
+          "1997-02-15",
+          "1997-03-01"
+        ],
+        "group1Dates": [
+          "1997-06-11",
+          "1997-06-13",
+          "1997-06-15",
+          "1997-06-17",
+          "1997-06-19",
+          "1997-06-21"
+        ],
+        "group2Dates": [
+          "1997-05-31",
+          "1997-06-07",
+          "1997-06-11",
+          "1997-06-15",
+          "1997-06-18",
+          "1997-06-21"
+        ],
+        "finalDates": [
+          "1997-06-28",
+          "1997-07-05"
+        ],
+        "intercontinentalDates": [
+          "1997-11-22",
+          "1997-11-29"
+        ],
+        "firstObservedDate": "1996-09-16"
+      },
+      "historicalTransitionRefs": [
+        362,
+        764,
+        765,
+        766,
+        767,
+        768,
+        769,
+        770,
+        771
+      ],
+      "scope": "No initial sporting snapshot: first actual qualifying game after cutoff. Dates not future outcomes; separate Nations Cup fixtures.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   },
   {
     "row": 103,

@@ -12,13 +12,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -35,14 +35,71 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Campeonato Nacional de Fútbol (Serie A)",
+      "nonCommercialDisplayName": "Campeonato Nacional de Fútbol (Serie A)",
       "candidateName": "Serie A",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block102Research": {
+      "edition": "1996",
+      "rules": {
+        "teams": 12,
+        "apertura": {
+          "rounds": 2,
+          "gamesPerClub": 22,
+          "winnerLibertadores": true
+        },
+        "clausura": {
+          "groups": [
+            4,
+            4,
+            4
+          ],
+          "gamesPerClub": 6,
+          "top2PerGroupAdvance": true,
+          "remainingToRelegationGroup": true,
+          "titleGroup": 6,
+          "relegationGroup": 6,
+          "gamesPerClubInFinalGroups": 10,
+          "relegated": 2
+        },
+        "title": {
+          "phaseWinnersFinalLegs": 2,
+          "sameWinnerChampion": true
+        },
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "bonusPoints": "Observed in final groups; full allocation rule not verified"
+      },
+      "dates": {
+        "observedOpening": "1996-03-09"
+      },
+      "scope": "Historical edition only. No future scores imported as cutoff data; full dates, match rules and native keys pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "datedMatches": 1
+      },
+      "observedMatches": [
+        [
+          "1996-03-09",
+          "LDU Quito",
+          "Barcelona",
+          0,
+          1
+        ]
+      ],
+      "missing": "Round-level Apertura results available but exact dates and July1 boundary not established; no final Apertura table imported as cutoff."
     }
   }
 ]

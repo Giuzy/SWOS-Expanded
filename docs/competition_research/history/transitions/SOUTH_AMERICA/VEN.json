@@ -1,0 +1,47 @@
+[
+  {
+    "index": 742,
+    "value": {
+      "competition": "VEN Primera División",
+      "firstEdition": "1996/97",
+      "lastEdition": "1996/97",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        50
+      ],
+      "note": "Apertura 12 teams and 22 games each; bottom two enter promotion tournament; Clausura 10 teams and 18 games; title final.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 755,
+    "value": {
+      "competition": "VEN Liga FUTVE",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        318
+      ],
+      "note": "14 clubs; 13 games per short tournament, top eight in two quadrangular groups, six games and single final; annual aggregate, one relegation.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  },
+  {
+    "index": 756,
+    "value": {
+      "competition": "VEN Liga FUTVE",
+      "firstEdition": "2027",
+      "lastEdition": null,
+      "operation": "FORMAT_CHANGE_ANNOUNCED",
+      "rowRefs": [
+        318
+      ],
+      "note": "Announced knockout replaces quadrangular, two-leg final. Later announcement separate from GAME_TEMPLATE_2026.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
+    }
+  }
+]

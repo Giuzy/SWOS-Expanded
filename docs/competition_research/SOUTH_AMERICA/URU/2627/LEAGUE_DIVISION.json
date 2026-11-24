@@ -745,25 +745,341 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Segunda División Profesional",
+      "nonCommercialDisplayName": "Segunda División Profesional",
       "candidateName": "Segunda División",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block103Research": {
+      "edition": "2026",
+      "editionName": "Campeonato Uruguayo Elías Zumar",
+      "rules": {
+        "teams": 14,
+        "competencia": {
+          "name": "Mario Sanseverino",
+          "groups": [
+            7,
+            7
+          ],
+          "gamesPerClub": 6,
+          "groupWinnersFinal": true,
+          "finalLegs": 1,
+          "winnerGuaranteedPromotionPlayoff": true
+        },
+        "regularRounds": 26,
+        "carryCompetenciaGroupPoints": true,
+        "totalLeagueGames": 32,
+        "directPromotionRanks": [
+          1,
+          2
+        ],
+        "promotionPlayoffRanks": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "directRelegations": 2,
+        "scope": "Competencia winner replacement scenario, precise relegation calculation and playoff regulation pending."
+      },
+      "opening": "2026-03-13",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "edition": "2026",
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "scoreRecords": 13,
+        "tableRows": 14
+      },
+      "scoreSchema": [
+        "round",
+        "date",
+        "home",
+        "away",
+        "HG",
+        "AG"
+      ],
+      "observedMatches": [
+        [
+          "1",
+          "2026-03-13",
+          "Paysandú",
+          "Colón",
+          0,
+          2
+        ],
+        [
+          "1",
+          "2026-03-14",
+          "River Plate",
+          "Oriental",
+          1,
+          3
+        ],
+        [
+          "1",
+          "2026-03-14",
+          "Rentistas",
+          "Plaza Colonia",
+          0,
+          0
+        ],
+        [
+          "1",
+          "2026-03-15",
+          "Uruguay Montevideo",
+          "Fénix",
+          1,
+          1
+        ],
+        [
+          "1",
+          "2026-03-15",
+          "Huracán FC",
+          "Atenas",
+          1,
+          1
+        ],
+        [
+          "1",
+          "2026-03-17",
+          "Tacuarembó",
+          "La Luz",
+          1,
+          1
+        ],
+        [
+          "2",
+          "2026-03-21",
+          "Cerrito",
+          "Atenas",
+          3,
+          1
+        ],
+        [
+          "2",
+          "2026-03-22",
+          "Uruguay Montevideo",
+          "Huracán FC",
+          1,
+          1
+        ],
+        [
+          "2",
+          "2026-03-22",
+          "Fénix",
+          "La Luz",
+          0,
+          0
+        ],
+        [
+          "2",
+          "2026-03-22",
+          "Miramar Misiones",
+          "Plaza Colonia",
+          0,
+          2
+        ],
+        [
+          "2",
+          "2026-03-22",
+          "Oriental",
+          "Colón",
+          0,
+          0
+        ],
+        [
+          "2",
+          "2026-03-23",
+          "River Plate",
+          "Rentistas",
+          1,
+          1
+        ],
+        [
+          "FINAL",
+          "2026-05-02",
+          "Fénix",
+          "Oriental",
+          1,
+          0
+        ]
+      ],
+      "tableSchema": [
+        "club",
+        "played",
+        "wins",
+        "draws",
+        "losses",
+        "GF",
+        "GA",
+        "points"
+      ],
+      "competenciaGroupTables": [
+        [
+          [
+            "Fénix",
+            6,
+            3,
+            2,
+            1,
+            13,
+            7,
+            11
+          ],
+          [
+            "Huracán FC",
+            6,
+            2,
+            4,
+            0,
+            9,
+            6,
+            10
+          ],
+          [
+            "Uruguay Montevideo",
+            6,
+            2,
+            3,
+            1,
+            7,
+            5,
+            9
+          ],
+          [
+            "Cerrito",
+            6,
+            2,
+            3,
+            1,
+            8,
+            8,
+            9
+          ],
+          [
+            "La Luz",
+            6,
+            1,
+            4,
+            1,
+            5,
+            6,
+            7
+          ],
+          [
+            "Atenas",
+            6,
+            1,
+            1,
+            4,
+            5,
+            11,
+            4
+          ],
+          [
+            "Tacuarembó",
+            6,
+            0,
+            3,
+            3,
+            5,
+            9,
+            3
+          ]
+        ],
+        [
+          [
+            "Oriental",
+            6,
+            4,
+            1,
+            1,
+            8,
+            5,
+            13
+          ],
+          [
+            "Plaza Colonia",
+            6,
+            3,
+            3,
+            0,
+            9,
+            2,
+            12
+          ],
+          [
+            "Colón",
+            6,
+            2,
+            3,
+            1,
+            8,
+            5,
+            9
+          ],
+          [
+            "Rentistas",
+            6,
+            2,
+            3,
+            1,
+            6,
+            5,
+            9
+          ],
+          [
+            "Miramar Misiones",
+            6,
+            1,
+            2,
+            3,
+            3,
+            7,
+            5
+          ],
+          [
+            "Paysandú",
+            6,
+            1,
+            1,
+            4,
+            4,
+            7,
+            4
+          ],
+          [
+            "River Plate",
+            6,
+            1,
+            1,
+            4,
+            6,
+            13,
+            4
+          ]
+        ]
+      ],
+      "competenciaWinner": "Fénix",
+      "scope": "Competencia rounds1/2 and final, complete final group tables; remaining 30 Competencia scores and regular stage to June30 missing. AUF draw text omitted Fénix, actual tables show 7."
     }
   }
 ]

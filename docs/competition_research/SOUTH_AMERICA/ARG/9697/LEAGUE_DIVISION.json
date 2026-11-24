@@ -12,13 +12,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -35,14 +35,377 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Primera División",
+      "nonCommercialDisplayName": "Primera División",
       "candidateName": "Primera División",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block103Research": {
+      "edition": "1996/97",
+      "opening": "1996-08-23",
+      "rules": {
+        "teams": 20,
+        "phases": [
+          "Apertura",
+          "Clausura"
+        ],
+        "gamesPerPhase": 19,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "separateTitles": true,
+        "relegation": "two lowest three-season averages; exact points conversion baseline pending"
+      },
+      "scope": "New edition starts after cutoff; preceding 1995/96 Clausura remains active.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "edition": "1995/96",
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "scoreRecords": 38,
+        "confirmedDatesExcludingConflicts": 36
+      },
+      "scoreSchema": [
+        "round",
+        "date",
+        "home",
+        "away",
+        "HG",
+        "AG",
+        "optionalStatus"
+      ],
+      "observedMatches": [
+        [
+          12,
+          "1996-06-07",
+          "Independiente",
+          "Deportivo Español",
+          1,
+          1
+        ],
+        [
+          12,
+          "1996-06-08",
+          "Newell's Old Boys",
+          "Vélez Sarsfield",
+          0,
+          1
+        ],
+        [
+          12,
+          "1996-06-09",
+          "Ferro Carril Oeste",
+          "Rosario Central",
+          0,
+          5
+        ],
+        [
+          12,
+          "1996-06-09",
+          "Huracán (BA)",
+          "Racing Club",
+          2,
+          2
+        ],
+        [
+          12,
+          "1996-06-09",
+          "Gimnasia (Jujuy)",
+          "Estudiantes LP",
+          1,
+          0
+        ],
+        [
+          12,
+          "1996-06-09",
+          "Gimnasia LP",
+          "San Lorenzo",
+          1,
+          2
+        ],
+        [
+          12,
+          "1996-06-09",
+          "Colón",
+          "Argentinos Juniors",
+          1,
+          2
+        ],
+        [
+          12,
+          "1996-06-09",
+          "Boca Juniors",
+          "Belgrano (Córdoba)",
+          2,
+          0
+        ],
+        [
+          12,
+          "1996-06-09",
+          "Platense",
+          "River Plate",
+          2,
+          1
+        ],
+        [
+          12,
+          "1996-06-10",
+          "Lanús",
+          "Banfield",
+          4,
+          0
+        ],
+        [
+          13,
+          "1996-06-14",
+          "San Lorenzo",
+          "Colón",
+          0,
+          0
+        ],
+        [
+          13,
+          "1996-06-15",
+          "Estudiantes LP",
+          "Huracán (BA)",
+          5,
+          2
+        ],
+        [
+          13,
+          "1996-06-16",
+          "Belgrano (Córdoba)",
+          "Gimnasia LP",
+          2,
+          1
+        ],
+        [
+          13,
+          "1996-06-16",
+          "Argentinos Juniors",
+          "Independiente",
+          0,
+          0
+        ],
+        [
+          13,
+          "1996-06-16",
+          "Vélez Sarsfield",
+          "Boca Juniors",
+          5,
+          1
+        ],
+        [
+          13,
+          "1996-06-16",
+          "Banfield",
+          "Newell's Old Boys",
+          1,
+          1
+        ],
+        [
+          13,
+          "1996-06-16",
+          "Rosario Central",
+          "Lanús",
+          3,
+          1
+        ],
+        [
+          13,
+          "1996-06-16",
+          "River Plate",
+          "Ferro Carril Oeste",
+          2,
+          3
+        ],
+        [
+          13,
+          "1996-06-16",
+          "Racing Club",
+          "Platense",
+          1,
+          0
+        ],
+        [
+          13,
+          "1996-06-17",
+          "Deportivo Español",
+          "Gimnasia (Jujuy)",
+          2,
+          2
+        ],
+        [
+          14,
+          "1996-06-21",
+          "Independiente",
+          "Gimnasia (Jujuy)",
+          3,
+          2
+        ],
+        [
+          14,
+          "1996-06-22",
+          "Argentinos Juniors",
+          "San Lorenzo",
+          2,
+          0
+        ],
+        [
+          14,
+          "1996-06-23",
+          "Boca Juniors",
+          "Banfield",
+          3,
+          2
+        ],
+        [
+          14,
+          "1996-06-23",
+          "Ferro Carril Oeste",
+          "Racing Club",
+          0,
+          3
+        ],
+        [
+          14,
+          "1996-06-23",
+          "Gimnasia LP",
+          "Vélez Sarsfield",
+          1,
+          1
+        ],
+        [
+          14,
+          "1996-06-23",
+          "Colón",
+          "Belgrano (Córdoba)",
+          2,
+          1
+        ],
+        [
+          14,
+          "1996-06-23",
+          "Newell's Old Boys",
+          "Rosario Central",
+          2,
+          0,
+          "SUSPENDED_AT_64_MIN_FINAL_ADMIN_STATUS_PENDING"
+        ],
+        [
+          14,
+          "1996-06-23",
+          "Huracán (BA)",
+          "Deportivo Español",
+          2,
+          0
+        ],
+        [
+          14,
+          "1996-06-24",
+          "Platense",
+          "Estudiantes LP",
+          2,
+          2
+        ],
+        [
+          15,
+          "1996-06-28",
+          "San Lorenzo",
+          "Independiente",
+          0,
+          2
+        ],
+        [
+          15,
+          "1996-06-29",
+          "Rosario Central",
+          "Boca Juniors",
+          0,
+          1,
+          "ALT_DATE_1996-06-30"
+        ],
+        [
+          15,
+          "1996-06-29",
+          "River Plate",
+          "Newell's Old Boys",
+          0,
+          0,
+          "ALT_DATE_1996-06-28"
+        ],
+        [
+          15,
+          "1996-06-29",
+          "Vélez Sarsfield",
+          "Colón",
+          2,
+          0
+        ],
+        [
+          15,
+          "1996-06-30",
+          "Racing Club",
+          "Lanús",
+          0,
+          1
+        ],
+        [
+          15,
+          "1996-06-30",
+          "Gimnasia (Jujuy)",
+          "Huracán (BA)",
+          2,
+          4
+        ],
+        [
+          15,
+          "1996-06-30",
+          "Belgrano (Córdoba)",
+          "Argentinos Juniors",
+          1,
+          0
+        ],
+        [
+          15,
+          "1996-06-30",
+          "Estudiantes LP",
+          "Ferro Carril Oeste",
+          0,
+          0
+        ],
+        [
+          15,
+          "1996-06-30",
+          "Banfield",
+          "Gimnasia LP",
+          1,
+          2
+        ]
+      ],
+      "knownPending": [
+        {
+          "round": 15,
+          "home": "Deportivo Español",
+          "away": "Platense",
+          "date": "1996-07-01"
+        },
+        {
+          "round": 14,
+          "home": "Lanús",
+          "away": "River Plate",
+          "date": "1996-07-06"
+        }
+      ],
+      "missing": "Rounds1–11, other deferred fixtures, official cutoff standings/relegation averages, final administrative disposition of suspended derby and conflicting dates; do not treat as fully reconciled."
     }
   },
   {
@@ -58,13 +421,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -81,10 +444,10 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Primera B Nacional",
+      "nonCommercialDisplayName": "Primera B Nacional",
       "candidateName": "Primera B Nacional",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [
         {
@@ -99,6 +462,473 @@
       ],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block103Research": {
+      "edition": "1996/97",
+      "opening": "1996-08-24",
+      "rules": {
+        "teams": 32,
+        "firstGroups": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "directAffiliatedTeams": 16,
+        "indirectAffiliatedTeams": 16,
+        "firstGroupTop3Advance": true,
+        "fourthPlaceDeciderPerAffiliation": true,
+        "championshipGroup": 14,
+        "remainingGroups": [
+          9,
+          9
+        ],
+        "directPromotion": 1,
+        "reducedPlayoff": "Championship ranks2–5 plus top two from each permanence group (eight entrants); verify full bracket",
+        "relegation": "two from each affiliation by three-season averages of permanence participants"
+      },
+      "scope": "Prior 1995/96 phase carryover separate from new edition.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "edition": "1995/96",
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "scoreRecords": 21,
+        "tableRows": 22
+      },
+      "priorRules": {
+        "teams": 22,
+        "phases": [
+          "Apertura",
+          "Clausura"
+        ],
+        "gamesPerPhase": 21,
+        "promotionFinalLegs": 2,
+        "secondPromotionEntrants": 8,
+        "secondPromotionLegs": 2
+      },
+      "scoreSchema": [
+        "phase",
+        "date",
+        "home",
+        "away",
+        "HG",
+        "AG"
+      ],
+      "observedMatches": [
+        [
+          "TITLE",
+          "1996-05-25",
+          "Huracán (Corrientes)",
+          "Talleres (Córdoba)",
+          2,
+          2
+        ],
+        [
+          "TITLE",
+          "1996-06-01",
+          "Talleres (Córdoba)",
+          "Huracán (Corrientes)",
+          1,
+          4
+        ],
+        [
+          "QF",
+          "1996-06-08",
+          "Unión (Santa Fe)",
+          "Godoy Cruz",
+          3,
+          0
+        ],
+        [
+          "QF",
+          "1996-06-08",
+          "Instituto",
+          "Douglas Haig",
+          1,
+          1
+        ],
+        [
+          "QF",
+          "1996-06-09",
+          "Deportivo Italiano",
+          "Talleres (Córdoba)",
+          1,
+          1
+        ],
+        [
+          "QF",
+          "1996-06-09",
+          "San Martín (San Juan)",
+          "Atlético Tucumán",
+          1,
+          1
+        ],
+        [
+          "QF",
+          "1996-06-15",
+          "Godoy Cruz",
+          "Unión (Santa Fe)",
+          1,
+          3
+        ],
+        [
+          "QF",
+          "1996-06-15",
+          "Talleres (Córdoba)",
+          "Deportivo Italiano",
+          1,
+          0
+        ],
+        [
+          "QF",
+          "1996-06-16",
+          "Douglas Haig",
+          "Instituto",
+          0,
+          1
+        ],
+        [
+          "QF",
+          "1996-06-16",
+          "Atlético Tucumán",
+          "San Martín (San Juan)",
+          2,
+          1
+        ],
+        [
+          "SF",
+          "1996-06-22",
+          "Unión (Santa Fe)",
+          "Talleres (Córdoba)",
+          3,
+          1
+        ],
+        [
+          "SF",
+          "1996-06-23",
+          "Instituto",
+          "Atlético Tucumán",
+          1,
+          1
+        ],
+        [
+          "SF",
+          "1996-06-29",
+          "Talleres (Córdoba)",
+          "Unión (Santa Fe)",
+          1,
+          3
+        ],
+        [
+          "SF",
+          "1996-06-30",
+          "Atlético Tucumán",
+          "Instituto",
+          1,
+          3
+        ],
+        [
+          "RECLASSIFICATION_R1",
+          "1996-06-29",
+          "Temperley",
+          "Sportivo Dock Sud",
+          1,
+          1
+        ],
+        [
+          "RECLASSIFICATION_R1",
+          "1996-06-29",
+          "Deportivo Armenio",
+          "Sarmiento (Junín)",
+          0,
+          2
+        ],
+        [
+          "RECLASSIFICATION_R1",
+          "1996-06-29",
+          "Defensores de Belgrano",
+          "San Miguel",
+          0,
+          0
+        ],
+        [
+          "RECLASSIFICATION_R1",
+          "1996-06-29",
+          "Defensores Unidos",
+          "Talleres (Remedios de Escalada)",
+          1,
+          0
+        ],
+        [
+          "RECLASSIFICATION_R1",
+          "1996-06-29",
+          "El Porvenir",
+          "Tristán Suárez",
+          0,
+          1
+        ],
+        [
+          "RECLASSIFICATION_R1",
+          "1996-06-29",
+          "Argentino (Rosario)",
+          "Deportivo Laferrere",
+          3,
+          0
+        ],
+        [
+          "RECLASSIFICATION_R1",
+          "1996-06-29",
+          "Defensa y Justicia",
+          "Argentino de Quilmes",
+          1,
+          1
+        ]
+      ],
+      "aggregateTableSchema": [
+        "club",
+        "played",
+        "wins",
+        "draws",
+        "losses",
+        "GF",
+        "GA",
+        "points"
+      ],
+      "aggregateTable": [
+        [
+          "Talleres (Córdoba)",
+          42,
+          23,
+          8,
+          11,
+          62,
+          38,
+          77
+        ],
+        [
+          "Huracán (Corrientes)",
+          42,
+          21,
+          12,
+          9,
+          68,
+          47,
+          75
+        ],
+        [
+          "Atlético Tucumán",
+          42,
+          20,
+          11,
+          11,
+          58,
+          43,
+          68
+        ],
+        [
+          "Godoy Cruz",
+          42,
+          18,
+          12,
+          12,
+          59,
+          49,
+          66
+        ],
+        [
+          "Douglas Haig",
+          42,
+          17,
+          14,
+          11,
+          61,
+          49,
+          65
+        ],
+        [
+          "Instituto",
+          42,
+          16,
+          16,
+          10,
+          71,
+          58,
+          64
+        ],
+        [
+          "Unión (Santa Fe)",
+          42,
+          18,
+          10,
+          14,
+          65,
+          52,
+          64
+        ],
+        [
+          "San Martín (San Juan)",
+          42,
+          18,
+          10,
+          14,
+          69,
+          58,
+          64
+        ],
+        [
+          "Atlético Rafaela",
+          42,
+          18,
+          10,
+          14,
+          61,
+          56,
+          64
+        ],
+        [
+          "Central Córdoba (Rosario)",
+          42,
+          16,
+          11,
+          15,
+          62,
+          51,
+          59
+        ],
+        [
+          "Quilmes",
+          42,
+          16,
+          11,
+          15,
+          54,
+          48,
+          59
+        ],
+        [
+          "Gimnasia y Tiro",
+          42,
+          16,
+          8,
+          18,
+          62,
+          64,
+          56
+        ],
+        [
+          "Atlanta",
+          42,
+          14,
+          13,
+          15,
+          48,
+          54,
+          55
+        ],
+        [
+          "Los Andes",
+          42,
+          13,
+          15,
+          14,
+          67,
+          64,
+          54
+        ],
+        [
+          "Nueva Chicago",
+          42,
+          13,
+          13,
+          16,
+          61,
+          63,
+          52
+        ],
+        [
+          "Chacarita Juniors",
+          42,
+          13,
+          13,
+          16,
+          45,
+          51,
+          52
+        ],
+        [
+          "Almirante Brown",
+          42,
+          12,
+          14,
+          16,
+          46,
+          67,
+          50
+        ],
+        [
+          "Deportivo Morón",
+          42,
+          10,
+          13,
+          19,
+          50,
+          65,
+          43
+        ],
+        [
+          "San Martín (Tucumán)",
+          42,
+          10,
+          13,
+          19,
+          45,
+          74,
+          43
+        ],
+        [
+          "Arsenal",
+          42,
+          7,
+          20,
+          15,
+          40,
+          54,
+          41
+        ],
+        [
+          "All Boys",
+          42,
+          9,
+          14,
+          19,
+          39,
+          60,
+          41
+        ],
+        [
+          "Tigre",
+          42,
+          8,
+          11,
+          23,
+          42,
+          70,
+          35
+        ]
+      ],
+      "firstPromoted": "Huracán (Corrientes)",
+      "secondPromotionFinalists": [
+        "Unión (Santa Fe)",
+        "Instituto"
+      ],
+      "pendingFinalDates": [
+        "1996-07-06",
+        "1996-07-13"
+      ],
+      "note": "Reclassification first round 7 ties before cutoff; July2 second legs pending. Atlético Tucumán three-point deduction reflected in published table, exact decision date pending. Archive relegation table repeats Los Andes; do not fabricate label. Prior regular match lists missing."
     }
   }
 ]

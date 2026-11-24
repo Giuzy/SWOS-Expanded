@@ -5,13 +5,22 @@
       "row": 524,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "PREDECESSOR_SLOTS_REQUIRE_RECONCILIATION",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "SUCCESSOR_IDENTITY_MAPPING_PENDING",
+      "parentLeagueRows": [
+        297,
+        298,
+        299,
+        300
+      ],
+      "transitionRefs": [
+        738
+      ]
     }
   }
 ]

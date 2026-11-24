@@ -12,13 +12,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -35,14 +35,140 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Campeonato Nacional de Primera División",
+      "nonCommercialDisplayName": "Campeonato Nacional de Primera División",
       "candidateName": "Primera División",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block102Research": {
+      "edition": "1996",
+      "rules": {
+        "teams": 16,
+        "rounds": 2,
+        "gamesPerClub": 30,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "championDirectLibertadores": true,
+        "liguillaRanks": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "continentalWinterAccess": "winter champions of Primera A and B contest Copa CONMEBOL place"
+      },
+      "dates": {},
+      "scope": "Historical edition only. No future scores imported as cutoff data; full dates, match rules and native keys pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 8,
+        "individualDatesKnown": 0
+      },
+      "observedRound": 13,
+      "dateWindow": [
+        "1996-06-29",
+        "1996-06-30"
+      ],
+      "scoreSchema": [
+        "home",
+        "away",
+        "HG",
+        "AG"
+      ],
+      "observedMatches": [
+        [
+          "Osorno",
+          "Temuco",
+          2,
+          2
+        ],
+        [
+          "Antofagasta",
+          "Santiago Wanderers",
+          6,
+          0
+        ],
+        [
+          "Unión Española",
+          "Huachipato",
+          1,
+          1
+        ],
+        [
+          "Universidad Católica",
+          "Universidad de Chile",
+          0,
+          3
+        ],
+        [
+          "Atacama",
+          "O'Higgins",
+          3,
+          1
+        ],
+        [
+          "Colo-Colo",
+          "Coquimbo Unido",
+          3,
+          0
+        ],
+        [
+          "Concepción",
+          "Audax Italiano",
+          2,
+          0
+        ],
+        [
+          "Palestino",
+          "Cobreloa",
+          1,
+          0
+        ]
+      ],
+      "observedTableTop": [
+        [
+          "Colo-Colo",
+          12,
+          9,
+          2,
+          1,
+          32,
+          5,
+          29
+        ],
+        [
+          "Universidad Católica",
+          13,
+          6,
+          4,
+          3,
+          26,
+          14,
+          22
+        ],
+        [
+          "Universidad de Chile",
+          12,
+          7,
+          1,
+          4,
+          23,
+          16,
+          22
+        ]
+      ],
+      "missing": "Exact individual match dates and all preceding rounds; contemporaneous July1 posting; one postponed match reflected by two clubs with 12 played."
     }
   }
 ]

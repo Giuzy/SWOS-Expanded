@@ -76,7 +76,7 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -110,12 +110,27 @@
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Liga de Ascenso",
       "candidateName": "Segunda División de Fútbol Profesional",
-      "status": "HISTORICAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block106Research": {
+      "edition": "1996",
+      "observedHistoricalName": "Liga de Ascenso",
+      "yearLevelClubCount": 36,
+      "scope": "Retrospective historically attested labels and year-level count, not exact official 1996/97 identity or grouping. No July state until first date known.",
+      "historicalTransitionRefs": [
+        772,
+        773,
+        774,
+        775,
+        776,
+        738
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -135,7 +150,7 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -168,12 +183,25 @@
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Liga Mayor B",
       "candidateName": "Tercera División (Liga B)",
-      "status": "HISTORICAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block106Research": {
+      "edition": "1996",
+      "observedHistoricalName": "Liga Mayor B",
+      "yearLevelClubCount": 60,
+      "scope": "Retrospective historically attested labels and year-level count, not exact official 1996/97 identity or grouping. No July state until first date known.",
+      "historicalTransitionRefs": [
+        772,
+        775,
+        776,
+        738
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -254,6 +282,10 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block106Research": {
+      "scope": "Existing amateur-tier evidence retained. ADFA formation later than 1996; no exact fourth-tier identity or date inferred. No separate name/lifecycle count.",
+      "status": "CANDIDATE_ONLY"
     }
   }
 ]

@@ -11,7 +11,6 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -43,6 +42,29 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block105Research": {
+      "display": "Football League First Division play-offs",
+      "parent": [
+        75,
+        76
+      ],
+      "modern": 459,
+      "transitionRefs": [
+        209,
+        438
+      ],
+      "additionalDates": {
+        "semifinals": [
+          "1997-05-10",
+          "1997-05-14"
+        ],
+        "final": "1997-05-26"
+      },
+      "later": "2004/05 Championship rename; 2026/27 six-team change already recorded in 438, do not duplicate.",
+      "identity": "TECHNICAL_PHASE_REFERENCE_TO_PARENT_NO_INDEPENDENT_COMPETITION_OR_SNAPSHOT",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Historical dates are calendar evidence only; no later results loaded at initial cutoff. Display label is descriptive, not a separately certified official competition title."
     }
   },
   {
@@ -57,7 +79,6 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -89,6 +110,28 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block105Research": {
+      "display": "Football League Second Division play-offs",
+      "parent": [
+        76,
+        77
+      ],
+      "modern": 459,
+      "transitionRefs": [
+        210
+      ],
+      "additionalDates": {
+        "semifinals": [
+          "1997-05-11",
+          "1997-05-14"
+        ],
+        "final": "1997-05-25"
+      },
+      "later": "2004/05 League One rename; 2026/27 phase reference 459 retains four.",
+      "identity": "TECHNICAL_PHASE_REFERENCE_TO_PARENT_NO_INDEPENDENT_COMPETITION_OR_SNAPSHOT",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Historical dates are calendar evidence only; no later results loaded at initial cutoff. Display label is descriptive, not a separately certified official competition title."
     }
   },
   {
@@ -103,7 +146,6 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -135,6 +177,28 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block105Research": {
+      "display": "Football League Third Division play-offs",
+      "parent": [
+        77,
+        78
+      ],
+      "modern": 459,
+      "transitionRefs": [
+        211
+      ],
+      "additionalDates": {
+        "semifinals": [
+          "1997-05-11",
+          "1997-05-14"
+        ],
+        "final": "1997-05-24"
+      },
+      "later": "2004/05 League Two rename; 2026/27 phase reference 459 retains four.",
+      "identity": "TECHNICAL_PHASE_REFERENCE_TO_PARENT_NO_INDEPENDENT_COMPETITION_OR_SNAPSHOT",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Historical dates are calendar evidence only; no later results loaded at initial cutoff. Display label is descriptive, not a separately certified official competition title."
     }
   },
   {
@@ -149,7 +213,6 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -181,6 +244,25 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block105Research": {
+      "display": "Nacompetitie",
+      "parent": [
+        79,
+        80
+      ],
+      "modern": 468,
+      "transitionRefs": [
+        757
+      ],
+      "additionalRules": {
+        "qualification": "Six period winners or replacements from Eerste Divisie; exact 1996/97 substitution not established.",
+        "groupTieExample": "1996/97 both NEC and Go Ahead Eagles had 15 points; NEC ahead on observed goal difference. Complete tie hierarchy pending."
+      },
+      "later": "2005/06 knockout replaced group format; third decisive leg if neither won more of opening two, regardless of aggregate goal difference; modern format separate.",
+      "identity": "TECHNICAL_PHASE_REFERENCE_TO_PARENT_NO_INDEPENDENT_COMPETITION_OR_SNAPSHOT",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Historical dates are calendar evidence only; no later results loaded at initial cutoff. Display label is descriptive, not a separately certified official competition title."
     }
   },
   {
@@ -195,7 +277,6 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -226,6 +307,22 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block105Research": {
+      "display": "Scottish Premier Division promotion/relegation play-off",
+      "parent": [
+        81,
+        82
+      ],
+      "modern": 476,
+      "transitionRefs": [
+        758,
+        759
+      ],
+      "later": "No top-tier playoff 1997/98–2012/13; reintroduced 2013/14 with tier2 ranks 2–4 and top-tier 11.",
+      "identity": "TECHNICAL_PHASE_REFERENCE_TO_PARENT_NO_INDEPENDENT_COMPETITION_OR_SNAPSHOT",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Historical dates are calendar evidence only; no later results loaded at initial cutoff. Display label is descriptive, not a separately certified official competition title."
     }
   },
   {
@@ -240,7 +337,6 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -271,6 +367,22 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block105Research": {
+      "display": "Promoción de ascenso y descenso",
+      "parent": [
+        85,
+        86
+      ],
+      "modern": 460,
+      "transitionRefs": [
+        760,
+        761
+      ],
+      "later": "1999/00 abolished cross-tier playoff; 2010/11 introduced second-tier-only semifinal/final between eligible ranks 3–6.",
+      "identity": "TECHNICAL_PHASE_REFERENCE_TO_PARENT_NO_INDEPENDENT_COMPETITION_OR_SNAPSHOT",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Historical dates are calendar evidence only; no later results loaded at initial cutoff. Display label is descriptive, not a separately certified official competition title."
     }
   },
   {
@@ -285,7 +397,6 @@
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -316,6 +427,22 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block105Research": {
+      "display": "Promoción de ascenso y descenso",
+      "parent": [
+        87,
+        88
+      ],
+      "transitionRefs": [
+        723,
+        762,
+        763
+      ],
+      "later": "1997 observed same two-leg route; 1998 second-tier four-team Liguilla first promoted, second enters promotion playoff; exact continuing format pending.",
+      "identity": "TECHNICAL_PHASE_REFERENCE_TO_PARENT_NO_INDEPENDENT_COMPETITION_OR_SNAPSHOT",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Historical dates are calendar evidence only; no later results loaded at initial cutoff. Display label is descriptive, not a separately certified official competition title."
     }
   }
 ]

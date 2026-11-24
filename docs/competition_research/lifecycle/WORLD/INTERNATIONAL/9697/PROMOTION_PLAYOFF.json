@@ -5,13 +5,21 @@
       "row": 179,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "PARENT_PHASE_HISTORY_PARTIAL",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1996/97",
+      "format_valid_until": "1996/97",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_PHASE_REFERENCE_NOT_INDEPENDENT_LIFECYCLE",
+      "parentRows": [
+        75,
+        76
+      ],
+      "transitionRefs": [
+        209,
+        438
+      ]
     }
   },
   {
@@ -20,13 +28,20 @@
       "row": 180,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "PARENT_PHASE_HISTORY_PARTIAL",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1996/97",
+      "format_valid_until": "1996/97",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_PHASE_REFERENCE_NOT_INDEPENDENT_LIFECYCLE",
+      "parentRows": [
+        76,
+        77
+      ],
+      "transitionRefs": [
+        210
+      ]
     }
   },
   {
@@ -35,13 +50,20 @@
       "row": 181,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "PARENT_PHASE_HISTORY_PARTIAL",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1996/97",
+      "format_valid_until": "1996/97",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_PHASE_REFERENCE_NOT_INDEPENDENT_LIFECYCLE",
+      "parentRows": [
+        77,
+        78
+      ],
+      "transitionRefs": [
+        211
+      ]
     }
   },
   {
@@ -50,13 +72,20 @@
       "row": 182,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "PARENT_PHASE_HISTORY_PARTIAL",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1996/97",
+      "format_valid_until": "1996/97",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_PHASE_REFERENCE_NOT_INDEPENDENT_LIFECYCLE",
+      "parentRows": [
+        79,
+        80
+      ],
+      "transitionRefs": [
+        757
+      ]
     }
   },
   {
@@ -65,13 +94,27 @@
       "row": 183,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
-      "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "endStatus": "PARENT_PHASE_HISTORY_PARTIAL",
+      "inactivePeriods": [
+        {
+          "from": "1997/98",
+          "to": "2012/13",
+          "scope": "top-tier promotion/relegation playoff only"
+        }
+      ],
+      "format_valid_from": "1996/97",
+      "format_valid_until": "1996/97",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_PHASE_REFERENCE_NOT_INDEPENDENT_LIFECYCLE",
+      "parentRows": [
+        81,
+        82
+      ],
+      "transitionRefs": [
+        758,
+        759
+      ]
     }
   },
   {
@@ -80,13 +123,27 @@
       "row": 184,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
-      "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "endStatus": "PARENT_PHASE_HISTORY_PARTIAL",
+      "inactivePeriods": [
+        {
+          "from": "1999/00",
+          "to": "2009/10",
+          "scope": "tier1/tier2 playoff; subsequent tier2-only phase distinct"
+        }
+      ],
+      "format_valid_from": "1996/97",
+      "format_valid_until": "1996/97",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_PHASE_REFERENCE_NOT_INDEPENDENT_LIFECYCLE",
+      "parentRows": [
+        85,
+        86
+      ],
+      "transitionRefs": [
+        760,
+        761
+      ]
     }
   },
   {
@@ -95,13 +152,22 @@
       "row": 185,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "PARENT_PHASE_HISTORY_PARTIAL",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1996",
+      "format_valid_until": "1996",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_PHASE_REFERENCE_NOT_INDEPENDENT_LIFECYCLE",
+      "parentRows": [
+        87,
+        88
+      ],
+      "transitionRefs": [
+        723,
+        762,
+        763
+      ]
     }
   }
 ]

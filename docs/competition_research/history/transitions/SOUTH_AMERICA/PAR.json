@@ -77,7 +77,12 @@
       ],
       "source": "https://www.apf.org.py/torneo-apertura",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "Block63 APF official HTML lines74–76."
+      "verification": "Block63 APF official HTML lines74–76.",
+      "block102EvidenceRef": {
+        "row": 44,
+        "path": "SOUTH_AMERICA/PAR/9697/LEAGUE_DIVISION.json",
+        "field": "block102Research"
+      }
     }
   },
   {

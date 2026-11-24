@@ -12,25 +12,497 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Liga FUTVE",
+      "nonCommercialDisplayName": "Liga FUTVE",
       "candidateName": "Liga FUTVE",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block103Research": {
+      "edition": "2026",
+      "commercialName": "Liga FUTVE TriunfoBet",
+      "rules": {
+        "teams": 14,
+        "phases": [
+          "Apertura",
+          "Clausura"
+        ],
+        "regularGamesPerPhase": 13,
+        "advanceTop": 8,
+        "quadrangularGroups": [
+          4,
+          4
+        ],
+        "quadrangularGames": 6,
+        "groupWinnersFinal": true,
+        "shortTournamentFinalLegs": 1,
+        "finalHost": "better regular-season rank",
+        "annualTable": "only regular phases",
+        "annualFinalLegs": 1,
+        "sameWinnerDirectChampion": true,
+        "relegationAnnualLast": 1,
+        "libertadores": "absolute champion/runner-up and two best remaining annual ranks",
+        "sudamericana": "short tournament runners-up and next two annual ranks not in Libertadores"
+      },
+      "opening": "2026-01-29",
+      "announced2027": {
+        "decision": "2026-11-17",
+        "opening": "2027-01-21",
+        "regularRounds": 13,
+        "replaceQuadrangularWith": "two-leg knockout",
+        "annualFinalLegs": 2,
+        "secondLegHost": "better annual rank",
+        "scope": "Later announced format; not automatic GAME_TEMPLATE_2026 override."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "edition": "2026",
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "datedScores": 1,
+        "undatedScores": 24,
+        "tableRows": 22
+      },
+      "tableSchema": [
+        "club",
+        "played",
+        "wins",
+        "draws",
+        "losses",
+        "GF",
+        "GA",
+        "points"
+      ],
+      "regularTable": [
+        [
+          "Deportivo La Guaira",
+          13,
+          7,
+          6,
+          0,
+          15,
+          6,
+          27
+        ],
+        [
+          "Metropolitanos",
+          13,
+          7,
+          4,
+          2,
+          17,
+          10,
+          25
+        ],
+        [
+          "Deportivo Táchira",
+          13,
+          7,
+          3,
+          3,
+          17,
+          12,
+          24
+        ],
+        [
+          "Universidad Central",
+          13,
+          7,
+          2,
+          4,
+          24,
+          20,
+          23
+        ],
+        [
+          "Portuguesa",
+          13,
+          5,
+          5,
+          3,
+          20,
+          12,
+          20
+        ],
+        [
+          "Estudiantes de Mérida",
+          13,
+          6,
+          2,
+          5,
+          21,
+          18,
+          20
+        ],
+        [
+          "Carabobo",
+          13,
+          4,
+          7,
+          2,
+          23,
+          14,
+          19
+        ],
+        [
+          "Academia Puerto Cabello",
+          13,
+          4,
+          5,
+          4,
+          16,
+          14,
+          17
+        ],
+        [
+          "Zamora",
+          13,
+          4,
+          5,
+          4,
+          14,
+          14,
+          17
+        ],
+        [
+          "Caracas",
+          13,
+          3,
+          6,
+          4,
+          15,
+          17,
+          15
+        ],
+        [
+          "Rayo Zuliano",
+          13,
+          4,
+          2,
+          7,
+          13,
+          23,
+          14
+        ],
+        [
+          "Monagas",
+          13,
+          3,
+          2,
+          8,
+          14,
+          22,
+          11
+        ],
+        [
+          "Anzoátegui",
+          13,
+          2,
+          3,
+          8,
+          15,
+          25,
+          9
+        ],
+        [
+          "Trujillanos",
+          13,
+          0,
+          4,
+          9,
+          9,
+          26,
+          4
+        ]
+      ],
+      "quadrangularTables": [
+        [
+          [
+            "Academia Puerto Cabello",
+            6,
+            3,
+            1,
+            2,
+            8,
+            7,
+            10
+          ],
+          [
+            "Portuguesa",
+            6,
+            2,
+            2,
+            2,
+            7,
+            8,
+            8
+          ],
+          [
+            "Deportivo La Guaira",
+            6,
+            1,
+            4,
+            1,
+            5,
+            5,
+            7
+          ],
+          [
+            "Universidad Central",
+            6,
+            1,
+            3,
+            2,
+            8,
+            8,
+            6
+          ]
+        ],
+        [
+          [
+            "Carabobo",
+            6,
+            3,
+            2,
+            1,
+            10,
+            5,
+            11
+          ],
+          [
+            "Deportivo Táchira",
+            6,
+            3,
+            2,
+            1,
+            8,
+            5,
+            11
+          ],
+          [
+            "Metropolitanos",
+            6,
+            2,
+            2,
+            2,
+            5,
+            7,
+            8
+          ],
+          [
+            "Estudiantes de Mérida",
+            6,
+            1,
+            0,
+            5,
+            2,
+            8,
+            3
+          ]
+        ]
+      ],
+      "quadrangularScoreSchema": [
+        "group",
+        "home",
+        "away",
+        "HG",
+        "AG"
+      ],
+      "quadrangularScores": [
+        [
+          "A",
+          "Academia Puerto Cabello",
+          "Portuguesa",
+          2,
+          1
+        ],
+        [
+          "A",
+          "Academia Puerto Cabello",
+          "Deportivo La Guaira",
+          1,
+          1
+        ],
+        [
+          "A",
+          "Academia Puerto Cabello",
+          "Universidad Central",
+          2,
+          1
+        ],
+        [
+          "A",
+          "Portuguesa",
+          "Academia Puerto Cabello",
+          1,
+          0
+        ],
+        [
+          "A",
+          "Portuguesa",
+          "Deportivo La Guaira",
+          0,
+          2
+        ],
+        [
+          "A",
+          "Portuguesa",
+          "Universidad Central",
+          1,
+          1
+        ],
+        [
+          "A",
+          "Deportivo La Guaira",
+          "Academia Puerto Cabello",
+          0,
+          2
+        ],
+        [
+          "A",
+          "Deportivo La Guaira",
+          "Portuguesa",
+          1,
+          1
+        ],
+        [
+          "A",
+          "Deportivo La Guaira",
+          "Universidad Central",
+          0,
+          0
+        ],
+        [
+          "A",
+          "Universidad Central",
+          "Academia Puerto Cabello",
+          3,
+          1
+        ],
+        [
+          "A",
+          "Universidad Central",
+          "Portuguesa",
+          2,
+          3
+        ],
+        [
+          "A",
+          "Universidad Central",
+          "Deportivo La Guaira",
+          1,
+          1
+        ],
+        [
+          "B",
+          "Carabobo",
+          "Deportivo Táchira",
+          1,
+          1
+        ],
+        [
+          "B",
+          "Carabobo",
+          "Metropolitanos",
+          0,
+          0
+        ],
+        [
+          "B",
+          "Carabobo",
+          "Estudiantes de Mérida",
+          1,
+          0
+        ],
+        [
+          "B",
+          "Deportivo Táchira",
+          "Carabobo",
+          3,
+          1
+        ],
+        [
+          "B",
+          "Deportivo Táchira",
+          "Metropolitanos",
+          1,
+          1
+        ],
+        [
+          "B",
+          "Deportivo Táchira",
+          "Estudiantes de Mérida",
+          1,
+          0
+        ],
+        [
+          "B",
+          "Metropolitanos",
+          "Carabobo",
+          1,
+          5
+        ],
+        [
+          "B",
+          "Metropolitanos",
+          "Deportivo Táchira",
+          0,
+          1
+        ],
+        [
+          "B",
+          "Metropolitanos",
+          "Estudiantes de Mérida",
+          2,
+          0
+        ],
+        [
+          "B",
+          "Estudiantes de Mérida",
+          "Carabobo",
+          0,
+          2
+        ],
+        [
+          "B",
+          "Estudiantes de Mérida",
+          "Deportivo Táchira",
+          2,
+          1
+        ],
+        [
+          "B",
+          "Estudiantes de Mérida",
+          "Metropolitanos",
+          0,
+          1
+        ]
+      ],
+      "final": [
+        "2026-06-07",
+        "Carabobo",
+        "Academia Puerto Cabello",
+        2,
+        1
+      ],
+      "aperturaWinner": "Carabobo",
+      "scope": "All 24 group score pairs observed; individual dates not extracted; all 91 regular matches still missing. No Clausura outcomes."
     }
   }
 ]

@@ -5,13 +5,15 @@
       "row": 483,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 200,
+      "parentEvidenceField": "sportRuleEvidence80"
     }
   },
   {
@@ -20,13 +22,15 @@
       "row": 484,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 203,
+      "parentEvidenceField": "block63Research"
     }
   },
   {
@@ -35,13 +39,15 @@
       "row": 485,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 211,
+      "parentEvidenceField": "block72Research"
     }
   },
   {
@@ -50,13 +56,15 @@
       "row": 486,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 219,
+      "parentEvidenceField": "sportRuleEvidence77"
     }
   },
   {
@@ -65,13 +73,15 @@
       "row": 487,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 223,
+      "parentEvidenceField": "block99Research"
     }
   },
   {
@@ -80,13 +90,15 @@
       "row": 488,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 224,
+      "parentEvidenceField": "block95Research"
     }
   },
   {
@@ -95,13 +107,15 @@
       "row": 489,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 226,
+      "parentEvidenceField": "sportRuleEvidence80"
     }
   },
   {
@@ -110,13 +124,15 @@
       "row": 490,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 227,
+      "parentEvidenceField": "block75Research"
     }
   },
   {
@@ -125,13 +141,15 @@
       "row": 491,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 228,
+      "parentEvidenceField": "block74Research"
     }
   },
   {
@@ -140,13 +158,15 @@
       "row": 492,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 229,
+      "parentEvidenceField": "block65Research"
     }
   },
   {
@@ -155,13 +175,15 @@
       "row": 493,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 238,
+      "parentEvidenceField": "block60Research"
     }
   },
   {
@@ -170,13 +192,15 @@
       "row": 494,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 247,
+      "parentEvidenceField": "block89Research"
     }
   },
   {
@@ -185,13 +209,15 @@
       "row": 495,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 248,
+      "parentEvidenceField": "block73Research"
     }
   },
   {
@@ -200,13 +226,15 @@
       "row": 496,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 249,
+      "parentEvidenceField": "block95Research"
     }
   },
   {
@@ -215,13 +243,15 @@
       "row": 497,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 250,
+      "parentEvidenceField": "block95Research"
     }
   },
   {
@@ -230,13 +260,15 @@
       "row": 498,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 256,
+      "parentEvidenceField": "sportRuleEvidence83"
     }
   },
   {
@@ -245,13 +277,15 @@
       "row": 499,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 257,
+      "parentEvidenceField": "sportRuleEvidence79"
     }
   },
   {
@@ -260,13 +294,15 @@
       "row": 500,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 261,
+      "parentEvidenceField": "block65Research"
     }
   },
   {
@@ -275,13 +311,15 @@
       "row": 501,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 269,
+      "parentEvidenceField": "block88Research"
     }
   },
   {
@@ -290,13 +328,15 @@
       "row": 502,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 270,
+      "parentEvidenceField": "block53Research"
     }
   },
   {
@@ -305,13 +345,15 @@
       "row": 503,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 271,
+      "parentEvidenceField": "block53Research"
     }
   },
   {
@@ -320,13 +362,15 @@
       "row": 504,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 273,
+      "parentEvidenceField": "sportRuleEvidence81"
     }
   },
   {
@@ -335,13 +379,15 @@
       "row": 505,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 277,
+      "parentEvidenceField": "sportRuleEvidence82"
     }
   },
   {
@@ -350,13 +396,15 @@
       "row": 506,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 282,
+      "parentEvidenceField": "block95Research"
     }
   },
   {
@@ -365,13 +413,15 @@
       "row": 507,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 283,
+      "parentEvidenceField": "block63Research"
     }
   },
   {
@@ -380,13 +430,15 @@
       "row": 508,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 284,
+      "parentEvidenceField": "block63Research"
     }
   },
   {
@@ -395,13 +447,15 @@
       "row": 509,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 289,
+      "parentEvidenceField": "block76Research"
     }
   },
   {
@@ -410,13 +464,15 @@
       "row": 510,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 292,
+      "parentEvidenceField": "block71Research"
     }
   },
   {
@@ -425,13 +481,15 @@
       "row": 511,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "NOT_APPLICABLE_NO_SPLIT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_NO_SPLIT_CONFIRMED",
+      "parentLeagueRow": 293,
+      "parentEvidenceField": "block71Research"
     }
   },
   {
@@ -440,13 +498,15 @@
       "row": 512,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "NOT_APPLICABLE_NO_SPLIT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_NO_SPLIT_CONFIRMED",
+      "parentLeagueRow": 294,
+      "parentEvidenceField": "block71Research"
     }
   },
   {
@@ -455,13 +515,15 @@
       "row": 513,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "NOT_APPLICABLE_NO_SPLIT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_NO_SPLIT_CONFIRMED",
+      "parentLeagueRow": 295,
+      "parentEvidenceField": "block71Research"
     }
   },
   {
@@ -470,13 +532,15 @@
       "row": 514,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 296,
+      "parentEvidenceField": "block95Research"
     }
   },
   {
@@ -485,13 +549,15 @@
       "row": 515,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 302,
+      "parentEvidenceField": "sportRuleEvidence78"
     }
   },
   {
@@ -500,13 +566,15 @@
       "row": 516,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 303,
+      "parentEvidenceField": "block72Research"
     }
   },
   {
@@ -515,13 +583,15 @@
       "row": 517,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 305,
+      "parentEvidenceField": "block75Research"
     }
   },
   {
@@ -530,13 +600,15 @@
       "row": 518,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 315,
+      "parentEvidenceField": "block99Research"
     }
   },
   {
@@ -545,13 +617,15 @@
       "row": 519,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 317,
+      "parentEvidenceField": "block66Research"
     }
   },
   {
@@ -560,13 +634,15 @@
       "row": 520,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRow": 319,
+      "parentEvidenceField": "sportRuleEvidence82"
     }
   }
 ]

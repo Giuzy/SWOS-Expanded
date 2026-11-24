@@ -5,13 +5,17 @@
       "row": 468,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_EDITION_AS_PARENT",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_PHASE_LINK_PARTIAL",
+      "parentLeagueRows": [
+        275,
+        276
+      ]
     }
   }
 ]

@@ -14,7 +14,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -32,6 +32,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 167,
+      "field": "block100Research.europeQualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
     }
   },
   {
@@ -49,7 +55,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -67,6 +73,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 167,
+      "field": "block100Research.europeQualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
     }
   },
   {
@@ -84,7 +96,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -102,6 +114,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 167,
+      "field": "block100Research.europeQualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
     }
   },
   {
@@ -119,7 +137,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -137,6 +155,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 167,
+      "field": "block100Research.europeQualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
     }
   },
   {
@@ -154,7 +178,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -172,6 +196,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 167,
+      "field": "block100Research.europeQualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
     }
   },
   {
@@ -189,7 +219,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -207,6 +237,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 167,
+      "field": "block100Research.europeQualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
     }
   },
   {
@@ -224,7 +260,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -242,6 +278,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 167,
+      "field": "block100Research.europeQualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
     }
   },
   {
@@ -259,7 +301,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -277,6 +319,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 167,
+      "field": "block100Research.europeQualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
     }
   },
   {
@@ -355,8 +403,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -373,6 +420,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 173,
+      "field": "block100Research.qualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; no slot assignment."
     }
   },
   {
@@ -390,8 +443,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -408,6 +460,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 173,
+      "field": "block100Research.qualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; no slot assignment."
     }
   },
   {
@@ -425,8 +483,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -443,6 +500,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 173,
+      "field": "block100Research.qualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; no slot assignment."
     }
   },
   {
@@ -460,8 +523,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -478,6 +540,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 173,
+      "field": "block100Research.qualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; no slot assignment."
     }
   },
   {
@@ -495,8 +563,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -513,6 +580,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 173,
+      "field": "block100Research.qualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; no slot assignment."
     }
   },
   {
@@ -530,8 +603,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -548,6 +620,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 173,
+      "field": "block100Research.qualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; no slot assignment."
     }
   },
   {
@@ -565,8 +643,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -583,6 +660,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 173,
+      "field": "block100Research.qualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; no slot assignment."
     }
   },
   {
@@ -600,8 +683,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -618,6 +700,12 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block100Research": {
+      "parentRow": 173,
+      "field": "block100Research.qualifying",
+      "status": "UNMAPPED_GROUP_SLOT",
+      "scope": "Nine real groups, eight technical rows; no slot assignment."
     }
   }
 ]

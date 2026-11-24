@@ -5,13 +5,17 @@
       "row": 41,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "FORMAT_EDITION_OBSERVED_COMPETITION_CONTINUES",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1996/97",
+      "format_valid_until": "1996/97",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "transitionRefs": [
+        720,
+        721
+      ]
     }
   }
 ]

@@ -429,7 +429,12 @@
       "note": "32 teams, first edition with 32",
       "source": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/world-cup-format-evolution-change-history-1930-2026",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending"
+      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending",
+      "block100EvidenceRef": {
+        "parentRow": 167,
+        "field": "block100Research",
+        "note": "32 teams; eight groups of four, 10 June–12 July 1998; France and Brazil automatic."
+      }
     }
   },
   {
@@ -537,7 +542,12 @@
       "note": "16 teams, four groups of four, top two advance; edition-specific, not proven permanent",
       "source": "https://copaamerica.com/en/news/everything-you-need-to-know-about-the-conmebol-copa-america",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending"
+      "verification": "2026-11-24 web excerpts; edition identity, qualification details, match dates and modern baseline equivalence pending",
+      "block100EvidenceRef": {
+        "parentRow": 530,
+        "field": "block100Research",
+        "note": "2024 16-team edition, 10 CONMEBOL plus six CONCACAF; later 2028 announcement separate."
+      }
     }
   },
   {
@@ -2756,7 +2766,12 @@
         "mapping": "Existing eight UEFA group rows 91–98 differ from historical nine; no guessed mapping."
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "Block48 HTML opened; no PDF analyzed."
+      "verification": "Block48 HTML opened; no PDF analyzed.",
+      "block100EvidenceRef": {
+        "parentRow": 167,
+        "field": "block100Research.europeQualifying",
+        "note": "Eight actual pre-cutoff results stored once; no forced nine-to-eight mapping."
+      }
     }
   },
   {
@@ -2795,7 +2810,12 @@
         ]
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "HTML opened; cutoff finalists known, team keys not reconciled"
+      "verification": "HTML opened; cutoff finalists known, team keys not reconciled",
+      "block100EvidenceRef": {
+        "parentRow": 111,
+        "field": "startResearch",
+        "note": "Four semifinal results; summary vs detailed Tahiti date discrepancy retained."
+      }
     }
   },
   {
@@ -2852,7 +2872,12 @@
         ]
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "HTML opened, partial qualifying evidence"
+      "verification": "HTML opened, partial qualifying evidence",
+      "block100EvidenceRef": {
+        "parentRow": 177,
+        "field": "startResearch",
+        "note": "42 dated qualifying scores and six completed qualifying groups, finals not yet played."
+      }
     }
   },
   {
@@ -3025,7 +3050,12 @@
         "status": "ANNOUNCED_NOT_TEMPLATE_OVERRIDE"
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "official search excerpts; format announcement open cache miss; later format requires policy review"
+      "verification": "official search excerpts; format announcement open cache miss; later format requires policy review",
+      "block100EvidenceRef": {
+        "parentRow": 532,
+        "field": "block100Research.announced2027",
+        "note": "Each plays four opponents, not seven; 8 direct and 7 prelim qualifiers plus one guest; June17–July11."
+      }
     }
   },
   {
@@ -3329,11 +3359,17 @@
       "source": "https://www.rsssf.org/tables/00e.html",
       "rules": {
         "groups": 9,
-        "firstObservedMatchDate": "1998-09-05",
-        "mapping": "Eight technical rows cannot represent nine historical groups without mapping extension."
+        "firstObservedMatchDate": "1998-09-02",
+        "mapping": "Eight technical rows cannot represent nine historical groups without mapping extension.",
+        "previousDateRecorded": "1998-09-05"
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "Web search excerpts block51"
+      "verification": "Web search excerpts block51",
+      "block100EvidenceRef": {
+        "parentRow": 173,
+        "field": "block100Research.qualifying",
+        "note": "Earliest observed Sep2 1998 Romania–Liechtenstein, correct earlier Sep5 claim; no cutoff snapshot."
+      }
     }
   },
   {
@@ -3367,6 +3403,63 @@
       "note": "Second preliminary round Champions League losers no longer move into Confederation Cup. Older CAF overview describes superseded format; 2026/27 draw procedures independently confirm direct second-round winners into groups.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block57, official web excerpts or opened article, no per-fixture certification or runtime import."
+    }
+  },
+  {
+    "index": 726,
+    "value": {
+      "competition": "CONCACAF Gold Cup",
+      "firstEdition": "1998",
+      "operation": "CHANGE_FORMAT",
+      "note": "10 teams; groups 4/3/3, semifinals; Canada replaced by Jamaica, not enduring eligibility rule.",
+      "rowRefs": [
+        176
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block100: official federation announcements or historical archives; later report separated from 2026 template."
+    }
+  },
+  {
+    "index": 727,
+    "value": {
+      "competition": "CONCACAF Gold Cup",
+      "firstEdition": "2000",
+      "operation": "CHANGE_FORMAT",
+      "note": "12 teams, four groups of three; same structure in 2002 and 2003.",
+      "rowRefs": [
+        176,
+        532
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block100: official federation announcements or historical archives; later report separated from 2026 template."
+    }
+  },
+  {
+    "index": 728,
+    "value": {
+      "competition": "OFC Men's Nations Cup",
+      "firstEdition": "2024",
+      "operation": "EDITION_EXCEPTION",
+      "note": "Eight planned; New Caledonia withdrawal reduced one group to three, seven actual entrants; no permanent format change.",
+      "rowRefs": [
+        534
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block100: official federation announcements or historical archives; later report separated from 2026 template."
+    }
+  },
+  {
+    "index": 729,
+    "value": {
+      "competition": "CONMEBOL Copa América",
+      "firstEdition": "2028",
+      "operation": "ANNOUNCED_FORMAT",
+      "note": "Secondary reporting November24 indicates joint confirmation US host, 16 teams including six CONCACAF; exact dates and access pending.",
+      "rowRefs": [
+        530
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block100: official federation announcements or historical archives; later report separated from 2026 template."
     }
   }
 ]

@@ -543,8 +543,8 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -571,6 +571,258 @@
         }
       ],
       "historyComplete": false
+    },
+    "block101Research": {
+      "edition": "2026",
+      "rules": {
+        "teams": 36,
+        "groups": [
+          18,
+          18
+        ],
+        "roundsWithinGroup": 2,
+        "gamesWithinGroupPerTeam": 34,
+        "interGroupGamesPerTeam": 2,
+        "gamesPerTeam": 36,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "firstPromotion": {
+          "groupWinners": true,
+          "legs": 1,
+          "venue": "neutral",
+          "extraTimeMinutes": 30,
+          "penalties": true
+        },
+        "secondPromotion": {
+          "entrants": 15,
+          "firstRound": "each group's ranks2–8; seven cross-group ties; group-final loser joins second round",
+          "firstRoundPairs": [
+            [
+              "A2",
+              "B8"
+            ],
+            [
+              "B2",
+              "A8"
+            ],
+            [
+              "A3",
+              "B7"
+            ],
+            [
+              "B3",
+              "A7"
+            ],
+            [
+              "A4",
+              "B6"
+            ],
+            [
+              "B4",
+              "A6"
+            ],
+            [
+              "A5",
+              "B5"
+            ]
+          ],
+          "firstRoundLegs": 1,
+          "firstRoundHome": "better rank; rank5 comparison points/GD/GF/draw",
+          "firstRoundTie": "better seed",
+          "secondRoundSeeds": 8,
+          "secondRoundPairs": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "semifinalPairs": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "reseed": "group position, points, GD, GF, draw; first-promotion final loser seeded1",
+          "secondRoundLegs": 2,
+          "semifinalLegs": 2,
+          "finalLegs": 2,
+          "secondLegHome": "higher seed",
+          "preFinalTie": "match points, aggregate goal difference, higher seed",
+          "finalTie": "match points, aggregate goal difference, penalties"
+        },
+        "directRelegationPerGroup": 2,
+        "relegationBoundaryTie": "extra match(es) under art111"
+      },
+      "dates": {
+        "nominalStart": "2026-02-14",
+        "observedOpening": "2026-02-13"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "AFA 2026 rule arts2/6/7; actual groups and club keys not reconciled; one parent competition for both parallel groups, one second-promotion bracket."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 18,
+        "rounds": 1
+      },
+      "scoreSchema": [
+        "date",
+        "home",
+        "away",
+        "homeGoals",
+        "awayGoals"
+      ],
+      "observedMatches": [
+        [
+          "2026-02-13",
+          "San Miguel",
+          "Central Norte",
+          1,
+          0
+        ],
+        [
+          "2026-02-13",
+          "Atlético de Rafaela",
+          "Almagro",
+          0,
+          0
+        ],
+        [
+          "2026-02-13",
+          "Godoy Cruz",
+          "Ciudad de Bolívar",
+          1,
+          1
+        ],
+        [
+          "2026-02-13",
+          "Gimnasia y Tiro",
+          "Colegiales",
+          2,
+          1
+        ],
+        [
+          "2026-02-14",
+          "Acassuso",
+          "Chaco For Ever",
+          2,
+          0
+        ],
+        [
+          "2026-02-14",
+          "All Boys",
+          "Mitre (Santiago del Estero)",
+          2,
+          1
+        ],
+        [
+          "2026-02-14",
+          "Deportivo Morón",
+          "Defensores de Belgrano",
+          1,
+          1
+        ],
+        [
+          "2026-02-14",
+          "San Telmo",
+          "Ferro Carril Oeste",
+          0,
+          2
+        ],
+        [
+          "2026-02-14",
+          "Agropecuario",
+          "Deportivo Maipú",
+          2,
+          1
+        ],
+        [
+          "2026-02-14",
+          "Tristán Suárez",
+          "Temperley",
+          0,
+          0
+        ],
+        [
+          "2026-02-14",
+          "Colón",
+          "Deportivo Madryn",
+          2,
+          1
+        ],
+        [
+          "2026-02-15",
+          "Chacarita Juniors",
+          "San Martín (San Juan)",
+          1,
+          1
+        ],
+        [
+          "2026-02-15",
+          "Güemes",
+          "Nueva Chicago",
+          0,
+          1
+        ],
+        [
+          "2026-02-15",
+          "Los Andes",
+          "Almirante Brown",
+          0,
+          0
+        ],
+        [
+          "2026-02-15",
+          "Racing de Córdoba",
+          "Estudiantes de Caseros",
+          1,
+          0
+        ],
+        [
+          "2026-02-15",
+          "San Martín (Tucumán)",
+          "Patronato",
+          0,
+          0
+        ],
+        [
+          "2026-02-16",
+          "Atlanta",
+          "Quilmes",
+          1,
+          0
+        ],
+        [
+          "2026-02-16",
+          "Gimnasia (Jujuy)",
+          "Midland",
+          2,
+          1
+        ]
+      ],
+      "observedRound": 1,
+      "scope": "All 18 opening-round scores, all 36 clubs appear once. Group A/B identities, further pre-cutoff results, full standings and sanctions remain unverified."
     }
   },
   {

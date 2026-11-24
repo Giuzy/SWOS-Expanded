@@ -1,0 +1,49 @@
+[
+  {
+    "index": 723,
+    "value": {
+      "competition": "URU Primera and Segunda División",
+      "firstEdition": "1996",
+      "lastEdition": "1996",
+      "operation": "FORMAT_OBSERVED",
+      "note": "First tier 12 clubs, two single round robins; phase winners two-legged championship final; two direct relegations and promotion playoff rank10 vs second-tier rank3. Segunda 12 clubs, 22 rounds, two direct promoted. Liguilla Pre-Libertadores fed by phase winners and Torneo Nacional.",
+      "rowRefs": [
+        87,
+        88
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block99: historical match archives and contemporary regulation/reporting; exact regulation/version and participant identities not fully reconciled."
+    }
+  },
+  {
+    "index": 724,
+    "value": {
+      "competition": "URU Primera División",
+      "firstEdition": "2017",
+      "lastEdition": "2026",
+      "operation": "FORMAT_CHANGE",
+      "note": "Introduced Torneo Intermedio between Apertura and Clausura, with two groups of eight and group winners final; group points count toward annual standings. 2026 has 37 ordinary games per club.",
+      "rowRefs": [
+        87,
+        315
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block99: historical match archives and contemporary regulation/reporting; exact regulation/version and participant identities not fully reconciled."
+    }
+  },
+  {
+    "index": 725,
+    "value": {
+      "competition": "URU Primera División",
+      "firstEdition": "2027",
+      "lastEdition": null,
+      "operation": "FORMAT_CHANGE_ANNOUNCED",
+      "note": "November 2026 announced Torneo Inicial replaces Intermedio, before Apertura from Jan29. Two groups seeded by 2026 annual positions. Group points count toward annual table. This is later real format evidence, not automatic GAME_TEMPLATE_2026 replacement.",
+      "rowRefs": [
+        315
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block99: historical match archives and contemporary regulation/reporting; exact regulation/version and participant identities not fully reconciled."
+    }
+  }
+]

@@ -12,13 +12,12 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -35,14 +34,56 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Campeonato colombiano de Primera A",
+      "nonCommercialDisplayName": "Campeonato colombiano de Primera A",
       "candidateName": "Categoría Primera A",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
-      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import.",
+      "commercialName": "Copa Mustang"
+    },
+    "block99Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 16,
+        "firstStage": {
+          "rounds": 32,
+          "derbies": 2,
+          "bonusPoints": [
+            2,
+            1,
+            0.5,
+            0.25
+          ]
+        },
+        "secondStage": {
+          "groups": [
+            8,
+            8
+          ],
+          "selection": "odd/even first-stage ranks",
+          "rounds": 14
+        },
+        "reclasificacionRounds": 46,
+        "finalGroup": {
+          "teams": 4,
+          "rounds": 6,
+          "leaderBonus": 1
+        },
+        "exception": "Torneo Adecuación added during edition, winner plays original stage winner for championship",
+        "relegation": "one after original stage and further movement after Adecuación; exact qualification policy pending"
+      },
+      "dates": {
+        "opening": "1996-09-08",
+        "firstStageEnd": "1997-02-23",
+        "secondStageStart": "1997-02-26",
+        "secondStageEnd": "1997-04-20",
+        "finalGroupLast": "1997-06-01"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Historic edition-specific extension, not recurring template."
     }
   }
 ]

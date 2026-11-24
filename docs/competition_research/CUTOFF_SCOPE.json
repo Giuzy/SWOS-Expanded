@@ -94,7 +94,13 @@
     210,
     279,
     280,
-    281
+    281,
+    87,
+    223,
+    315,
+    111,
+    177,
+    204
   ],
   "archiveCandidateRows": [
     178
@@ -162,7 +168,8 @@
     365,
     367,
     396,
-    408
+    408,
+    88
   ],
   "notApplicableCurrentEditionRows": [
     207,
@@ -338,7 +345,54 @@
     282,
     296,
     304,
-    343
+    343,
+    435,
+    436,
+    437,
+    438,
+    439,
+    440,
+    441,
+    442,
+    443,
+    444,
+    445,
+    446,
+    447,
+    485,
+    486,
+    489,
+    490,
+    491,
+    494,
+    495,
+    499,
+    504,
+    505,
+    509,
+    510,
+    515,
+    516,
+    517,
+    520,
+    483,
+    488,
+    496,
+    497,
+    502,
+    503,
+    506,
+    511,
+    512,
+    513,
+    514,
+    41,
+    167,
+    173,
+    176,
+    530,
+    532,
+    534
   ],
   "aliasCandidates": [
     [
@@ -346,7 +400,7 @@
       423
     ]
   ],
-  "note": "Block70 expands previous 59 distinct working packages to 60 (19 historical, 41 modern), after independently identifying pre-cutoff KNVB Beker 1996/97 row161. Alias 321/423 still counted once, separate PER row392 outside prior working denominator remains pending final census. Every working package partial only; no completion claim. France cup rows155/357 earliest regional/overseas start remains unknown. Block71: earliest 1996/97 Belgian qualifying rounds and Scottish separate qualifying cup applicability unresolved; June 2026 draws do not equal already played games. Block72: Swiss cup 1996/97 and 2026/27 principal rounds start August; earlier separate regional qualification status not established, no July snapshot or exclusion asserted. Block73: first-round dates of GRE/TUR 1996/97 cups not established; no July snapshot or exclusion asserted. Block74 expands working packages from60 to61 (20 historic,41 modern) due to Polish Cup row135 preliminary in June 1996. Danish early cup regional/first-round dates unresolved; modern Polish prior regional winners are access evidence, not current central cup scores. Block75: Czech historical cup first-round date unresolved; second round Aug4 established, no unsupported July exclusion. Block76: HUN historical cup early rounds undated, current main cup August; ROU historical central cup October, modern regional phase July8; earlier county/regional qualification membership and dates unresolved. No unsupported cutoff exclusion for four cup rows. Block77: league rows 6,219,225 first fixture after cutoff; no redundant initial-state placeholder. Bulgaria historical league first date, both historical cups and both modern regional/county qualification boundaries remain unresolved. Row453 is a phase of row219, not another July package. Croatian county nominations by June30 concern access, not automatically played current national-stage fixtures. Block78: five additional league/cup exclusions (30,36,302,306,410); 1996/97 Slovenian league opening from secondary season account, Serbian opening from dated match archive. 2026/27 Slovenian cup federation announcement confirms regional opening in August; Serbian cup national preliminary September2, earlier regional access still unscreened. Historical cup earliest phases unresolved (141,147). Block79: leagues16/34/257/314 and cups145/417 excluded from initial state; historical Ukraine cup earliest date based on secondary archive excerpt only. Israeli cup rows128/370 early lower-tier phases still unresolved. Do not infer played matches from a draw. Block80: seven further post-cutoff exclusions (7,112,118,200,226,324,345); Albanian 1996/97 cup month is secondary evidence; Albanian historical league exact opening remains unknown. Separate Cypriot lower-tier cup is not a preliminary phase of the senior cup. Block81: seven post-cutoff exclusions (20,266,273,301,379,384,405); historical LUX/SMR league and LUX/MLT/SMR cup earliest phase dates unresolved. SMR cup final July3 1997 is after administrative year end, not evidence of a match before initial July1 1996. Parent phase specs 467/478 not separate editions. Block82: five additional exclusions (277,387,319,421 postcutoff; 422 removed from 2026/27 calendar, exact technical slot candidate). Historical NIR/WAL/IRL earliest league and cup dates and NIR 2026/27 league cup preliminary dates unresolved. IRL 2026 cup row366 all 11 played scores and 1 walkover corroborated; administrative awarded3–0 separate from played goals, all 12 qualifiers named in June3 draw. No extra cutoff package or premature completeness claim. IRL league row254 113 matches preserved; independent standings at cutoff unavailable. Phase rows469/482 depend on parent leagues. Block83: 4 additional required partial packages rows126,134,355,368, 179 dated results total. 356/369 completed before cutoff (archive only, no active July state). 123 historical FIN Cup first match unknown. NOR cup R1 Ranheim score conflict retained with alternative; final check deferred. Block84: active FRO cup row358 expands working denominator65→66; Swedish 2026 league 79 observed pre-cutoff matches, round10 one rescheduled September. Historical EST cup/league and SWE cup earliest dates unresolved, deferred final check. Block85: BLR/LTU/LVA cups rows334/378/380 active before July; 122 result records (38+52+32), scope69. BLR historical cup starts July20; previous edition archive only. LVA previous cup final June17/18 archive only, next edition opening unresolved. LTU historical league/cup exact opening unresolved; no invented snapshots. Block86: row138 required, rows291/401 post-cutoff; no new source fields. Block87: rows359/260 active; rows206/328/212/331 post-cutoff. No new source fields. Block88: row269 active; rows382/272/214/274/262 post-cutoff; rows333/383/385/375 preliminary boundaries unresolved. Block89: rows202/247/362/377 published openings after cutoff, row326 earliest cup date unresolved; row264 existing no-domestic-league fact not new, unchanged. No new initial snapshots. Block90: enriched existing active rows37,148,381; no new required package. ALG league 184 pre-cutoff results and computed totals, cup 26 additional scores and two awards; MAR cup15 scores and pending FAR–Stade Marocain tie. No double count. Block91: Egypt Cup first prelim Aug24–25 excludes row349. RSA 1996 separate transition cup is active historical unmapped candidate, no snapshot or counted row; Ghana historical first date unresolved. RSA cup dates uncertain. Block92: Japan historic league rows58/59 enriched 168 scores; row372 added for prefectural qualifying state only; row371 postcutoff. Historical Emperor regional start not established. Block93: two existing packages261/341 enriched, no new active rows. Taiwan leagues308/309 after cutoff, 1996 league/cup dates and 2026 cup actual edition unresolved. Block94: IRN row255 adds carryover; 10 post-cutoff starts; three cup rows unresolved. Indian Federation Cup June29 1996 already-known unmapped candidate documented separately, no duplicate count. Block95: El Salvador cup active, 52 pre-cutoff scores and QF pairs. Six league starts after cutoff, CRC cup suspended. SUR prior cup ended before cutoff, current cup opening unknown. Parent playoff specs not separate packages. Block96: six modern regional league partial packages added; NZL June27–28 standings, AUS June results. Historical regional identity/date applicability remains unresolved, no unsupported initial snapshots.",
+  "note": "Block70 expands previous 59 distinct working packages to 60 (19 historical, 41 modern), after independently identifying pre-cutoff KNVB Beker 1996/97 row161. Alias 321/423 still counted once, separate PER row392 outside prior working denominator remains pending final census. Every working package partial only; no completion claim. France cup rows155/357 earliest regional/overseas start remains unknown. Block71: earliest 1996/97 Belgian qualifying rounds and Scottish separate qualifying cup applicability unresolved; June 2026 draws do not equal already played games. Block72: Swiss cup 1996/97 and 2026/27 principal rounds start August; earlier separate regional qualification status not established, no July snapshot or exclusion asserted. Block73: first-round dates of GRE/TUR 1996/97 cups not established; no July snapshot or exclusion asserted. Block74 expands working packages from60 to61 (20 historic,41 modern) due to Polish Cup row135 preliminary in June 1996. Danish early cup regional/first-round dates unresolved; modern Polish prior regional winners are access evidence, not current central cup scores. Block75: Czech historical cup first-round date unresolved; second round Aug4 established, no unsupported July exclusion. Block76: HUN historical cup early rounds undated, current main cup August; ROU historical central cup October, modern regional phase July8; earlier county/regional qualification membership and dates unresolved. No unsupported cutoff exclusion for four cup rows. Block77: league rows 6,219,225 first fixture after cutoff; no redundant initial-state placeholder. Bulgaria historical league first date, both historical cups and both modern regional/county qualification boundaries remain unresolved. Row453 is a phase of row219, not another July package. Croatian county nominations by June30 concern access, not automatically played current national-stage fixtures. Block78: five additional league/cup exclusions (30,36,302,306,410); 1996/97 Slovenian league opening from secondary season account, Serbian opening from dated match archive. 2026/27 Slovenian cup federation announcement confirms regional opening in August; Serbian cup national preliminary September2, earlier regional access still unscreened. Historical cup earliest phases unresolved (141,147). Block79: leagues16/34/257/314 and cups145/417 excluded from initial state; historical Ukraine cup earliest date based on secondary archive excerpt only. Israeli cup rows128/370 early lower-tier phases still unresolved. Do not infer played matches from a draw. Block80: seven further post-cutoff exclusions (7,112,118,200,226,324,345); Albanian 1996/97 cup month is secondary evidence; Albanian historical league exact opening remains unknown. Separate Cypriot lower-tier cup is not a preliminary phase of the senior cup. Block81: seven post-cutoff exclusions (20,266,273,301,379,384,405); historical LUX/SMR league and LUX/MLT/SMR cup earliest phase dates unresolved. SMR cup final July3 1997 is after administrative year end, not evidence of a match before initial July1 1996. Parent phase specs 467/478 not separate editions. Block82: five additional exclusions (277,387,319,421 postcutoff; 422 removed from 2026/27 calendar, exact technical slot candidate). Historical NIR/WAL/IRL earliest league and cup dates and NIR 2026/27 league cup preliminary dates unresolved. IRL 2026 cup row366 all 11 played scores and 1 walkover corroborated; administrative awarded3–0 separate from played goals, all 12 qualifiers named in June3 draw. No extra cutoff package or premature completeness claim. IRL league row254 113 matches preserved; independent standings at cutoff unavailable. Phase rows469/482 depend on parent leagues. Block83: 4 additional required partial packages rows126,134,355,368, 179 dated results total. 356/369 completed before cutoff (archive only, no active July state). 123 historical FIN Cup first match unknown. NOR cup R1 Ranheim score conflict retained with alternative; final check deferred. Block84: active FRO cup row358 expands working denominator65→66; Swedish 2026 league 79 observed pre-cutoff matches, round10 one rescheduled September. Historical EST cup/league and SWE cup earliest dates unresolved, deferred final check. Block85: BLR/LTU/LVA cups rows334/378/380 active before July; 122 result records (38+52+32), scope69. BLR historical cup starts July20; previous edition archive only. LVA previous cup final June17/18 archive only, next edition opening unresolved. LTU historical league/cup exact opening unresolved; no invented snapshots. Block86: row138 required, rows291/401 post-cutoff; no new source fields. Block87: rows359/260 active; rows206/328/212/331 post-cutoff. No new source fields. Block88: row269 active; rows382/272/214/274/262 post-cutoff; rows333/383/385/375 preliminary boundaries unresolved. Block89: rows202/247/362/377 published openings after cutoff, row326 earliest cup date unresolved; row264 existing no-domestic-league fact not new, unchanged. No new initial snapshots. Block90: enriched existing active rows37,148,381; no new required package. ALG league 184 pre-cutoff results and computed totals, cup 26 additional scores and two awards; MAR cup15 scores and pending FAR–Stade Marocain tie. No double count. Block91: Egypt Cup first prelim Aug24–25 excludes row349. RSA 1996 separate transition cup is active historical unmapped candidate, no snapshot or counted row; Ghana historical first date unresolved. RSA cup dates uncertain. Block92: Japan historic league rows58/59 enriched 168 scores; row372 added for prefectural qualifying state only; row371 postcutoff. Historical Emperor regional start not established. Block93: two existing packages261/341 enriched, no new active rows. Taiwan leagues308/309 after cutoff, 1996 league/cup dates and 2026 cup actual edition unresolved. Block94: IRN row255 adds carryover; 10 post-cutoff starts; three cup rows unresolved. Indian Federation Cup June29 1996 already-known unmapped candidate documented separately, no duplicate count. Block95: El Salvador cup active, 52 pre-cutoff scores and QF pairs. Six league starts after cutoff, CRC cup suspended. SUR prior cup ended before cutoff, current cup opening unknown. Parent playoff specs not separate packages. Block96: six modern regional league partial packages added; NZL June27–28 standings, AUS June results. Historical regional identity/date applicability remains unresolved, no unsupported initial snapshots. Block97: 13 senior Brazilian state editions completed in March, no new active modern cutoff packages; 1996 Alagoano observed active and unmapped, separate pending inventory candidate. Pernambuco next edition first turn announcement not a played June match.",
   "notApplicableEvidence": {
     "2": {
       "edition": "1996/97",
@@ -445,6 +499,12 @@
         "1996-08-10",
         "1996-08-11"
       ]
+    },
+    "41": {
+      "edition": "1996/97",
+      "status": "CURRENT_EDITION_STARTS_AFTER_CUTOFF",
+      "opening": "1996-09-08",
+      "scope": "Previous edition not automatically imported."
     },
     "43": {
       "edition": "1996/97",
@@ -552,6 +612,24 @@
     "160": {
       "edition": "1996/97",
       "firstObservedMatch": "1996-09-04"
+    },
+    "167": {
+      "edition": "1998",
+      "start": "1998-06-10",
+      "scope": "Finals only; UEFA qualifying stored separately as unmapped research.",
+      "status": "FINAL_TOURNAMENT_NOT_ACTIVE_AT_CUTOFF"
+    },
+    "173": {
+      "edition": "2000",
+      "start": "2000-06-10",
+      "scope": "Finals; Euro96 completed June30 1996.",
+      "status": "FINAL_TOURNAMENT_NOT_ACTIVE_AT_CUTOFF"
+    },
+    "176": {
+      "edition": "1998",
+      "start": "1998-02-01",
+      "scope": "Finals only; qualifying access pending final census.",
+      "status": "FINAL_TOURNAMENT_NOT_ACTIVE_AT_CUTOFF"
     },
     "186": {
       "edition": "2026/27",
@@ -1232,6 +1310,277 @@
     "432": {
       "edition": "2026",
       "start": "2026-11-08"
+    },
+    "435": {
+      "edition": "2026",
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY",
+      "completedBy": "2026-03-08",
+      "champion": "Palmeiras",
+      "scope": "Senior state edition only; minimal previous-edition history, no active July snapshot."
+    },
+    "436": {
+      "edition": "2026",
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY",
+      "completedBy": "2026-03-08",
+      "champion": "Flamengo",
+      "scope": "Senior state edition only; minimal previous-edition history, no active July snapshot."
+    },
+    "437": {
+      "edition": "2026",
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY",
+      "completedBy": "2026-03-08",
+      "champion": "Cruzeiro",
+      "scope": "Senior state edition only; minimal previous-edition history, no active July snapshot."
+    },
+    "438": {
+      "edition": "2026",
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY",
+      "completedBy": "2026-03-08",
+      "champion": "Grêmio",
+      "scope": "Senior state edition only; minimal previous-edition history, no active July snapshot."
+    },
+    "439": {
+      "edition": "2026",
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY",
+      "completedBy": "2026-03-08",
+      "champion": "CRB",
+      "scope": "Senior state edition only; minimal previous-edition history, no active July snapshot."
+    },
+    "440": {
+      "edition": "2026",
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY",
+      "completedBy": "2026-03-08",
+      "champion": "Bahia",
+      "scope": "Senior state edition only; minimal previous-edition history, no active July snapshot."
+    },
+    "441": {
+      "edition": "2026",
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY",
+      "completedBy": "2026-03-08",
+      "champion": "Fortaleza",
+      "scope": "Senior state edition only; minimal previous-edition history, no active July snapshot."
+    },
+    "442": {
+      "edition": "2026",
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY",
+      "completedBy": "2026-03-15",
+      "champion": "Goiás",
+      "scope": "Senior state edition only; minimal previous-edition history, no active July snapshot."
+    },
+    "443": {
+      "edition": "2026",
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY",
+      "completedBy": "2026-03-08",
+      "champion": "Mixto",
+      "scope": "Senior state edition only; minimal previous-edition history, no active July snapshot."
+    },
+    "444": {
+      "edition": "2026",
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY",
+      "completedBy": "2026-03-08",
+      "champion": "Paysandu",
+      "scope": "Senior state edition only; minimal previous-edition history, no active July snapshot."
+    },
+    "445": {
+      "edition": "2026",
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY",
+      "completedBy": "2026-03-08",
+      "champion": "Sport",
+      "scope": "Senior state edition only; minimal previous-edition history, no active July snapshot."
+    },
+    "446": {
+      "edition": "2026",
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY",
+      "completedBy": "2026-03-08",
+      "champion": "Operário Ferroviário",
+      "scope": "Senior state edition only; minimal previous-edition history, no active July snapshot."
+    },
+    "447": {
+      "edition": "2026",
+      "status": "COMPLETED_BEFORE_CUTOFF_ARCHIVE_ONLY",
+      "completedBy": "2026-03-08",
+      "champion": "Barra",
+      "scope": "Senior state edition only; minimal previous-edition history, no active July snapshot."
+    },
+    "483": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 200,
+      "scope": "No independent phase snapshot."
+    },
+    "485": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 211,
+      "scope": "Phase only; no independent July state."
+    },
+    "486": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 219,
+      "scope": "Phase only; no independent July state."
+    },
+    "488": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 224,
+      "scope": "No independent phase snapshot."
+    },
+    "489": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 226,
+      "scope": "Phase only; no independent July state."
+    },
+    "490": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 227,
+      "scope": "Phase only; no independent July state."
+    },
+    "491": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 228,
+      "scope": "Phase only; no independent July state."
+    },
+    "494": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 247,
+      "scope": "Phase only; no independent July state."
+    },
+    "495": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 248,
+      "scope": "Phase only; no independent July state."
+    },
+    "496": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 249,
+      "scope": "No independent phase snapshot."
+    },
+    "497": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 250,
+      "scope": "No independent phase snapshot."
+    },
+    "499": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 257,
+      "scope": "Phase only; no independent July state."
+    },
+    "502": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 270,
+      "scope": "No independent phase snapshot."
+    },
+    "503": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 271,
+      "scope": "No independent phase snapshot."
+    },
+    "504": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 273,
+      "scope": "Phase only; no independent July state."
+    },
+    "505": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 277,
+      "scope": "Phase only; no independent July state."
+    },
+    "506": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 282,
+      "scope": "No independent phase snapshot."
+    },
+    "509": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 289,
+      "scope": "Phase only; no independent July state."
+    },
+    "510": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 292,
+      "scope": "Phase only; no independent July state."
+    },
+    "511": {
+      "edition": "2026/27",
+      "status": "NOT_APPLICABLE_NO_SPLIT",
+      "parentLeagueRow": 293,
+      "scope": "No independent phase snapshot."
+    },
+    "512": {
+      "edition": "2026/27",
+      "status": "NOT_APPLICABLE_NO_SPLIT",
+      "parentLeagueRow": 294,
+      "scope": "No independent phase snapshot."
+    },
+    "513": {
+      "edition": "2026/27",
+      "status": "NOT_APPLICABLE_NO_SPLIT",
+      "parentLeagueRow": 295,
+      "scope": "No independent phase snapshot."
+    },
+    "514": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 296,
+      "scope": "No independent phase snapshot."
+    },
+    "515": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 302,
+      "scope": "Phase only; no independent July state."
+    },
+    "516": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 303,
+      "scope": "Phase only; no independent July state."
+    },
+    "517": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 305,
+      "scope": "Phase only; no independent July state."
+    },
+    "520": {
+      "edition": "2026/27",
+      "status": "PARENT_EDITION_STARTS_AFTER_CUTOFF",
+      "parentLeagueRow": 319,
+      "scope": "Phase only; no independent July state."
+    },
+    "530": {
+      "edition": "2024",
+      "completedBy": "2024-07-14",
+      "scope": "Completed prior edition; next edition 2028.",
+      "status": "FINAL_TOURNAMENT_NOT_ACTIVE_AT_CUTOFF"
+    },
+    "532": {
+      "edition": "2027",
+      "start": "2027-06-17",
+      "scope": "Finals only; earlier 2025 edition completed.",
+      "status": "FINAL_TOURNAMENT_NOT_ACTIVE_AT_CUTOFF"
+    },
+    "534": {
+      "edition": "2024",
+      "completedBy": "2024-06-30",
+      "scope": "Prior edition completed; next edition 2028.",
+      "status": "FINAL_TOURNAMENT_NOT_ACTIVE_AT_CUTOFF"
     }
   },
   "sparsePolicy": "Do not store cutoff notes, empty snapshots or review.historyAtStart placeholders in rows proven not to have started. Retain normal start date in date evidence only. Applicability exclusion recorded centrally once; prior editions are distinct and only imported if strictly necessary. Unscreened legacy placeholders are not actual collected data; do not classify them as required; delete when inapplicability is verified.",
@@ -1816,31 +2165,79 @@
         "dateEvidence": "2026-03-21 announced opening; June27/28 scores",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
         "snapshot": "10-row June28 table and five scores"
+      },
+      {
+        "row": 87,
+        "world": "9697",
+        "competition": "Campeonato Uruguayo de Primera División",
+        "dateEvidence": "1996-05-12 Peñarol–Nacional 2–0",
+        "snapshot": "One dated result; phase rules recorded; full historic cutoff not reconciled.",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL"
+      },
+      {
+        "row": 223,
+        "world": "2627",
+        "competition": "Categoría Primera A",
+        "dateEvidence": "2026-05-09 to 2026-06-08 observed playoff matches; annual qualification/relegation state continues",
+        "snapshot": "20-row regular phase table, 14 KO scores, Apertura winner Junior; regular fixture scores and annual/relegation baseline pending.",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL"
+      },
+      {
+        "row": 315,
+        "world": "2627",
+        "competition": "Primera División Profesional",
+        "dateEvidence": "2026-02-06 and 2026-05-15 to 2026-06-08",
+        "snapshot": "16-row Apertura table, eight Apertura scores, 31 Intermedio scores, computed group totals; July5 rescheduled match excluded from results.",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL"
+      },
+      {
+        "row": 111,
+        "world": "9697",
+        "competition": "Oceania Nations Cup 1996",
+        "dateEvidence": "1995-11-10 to 1996-05-11 detailed match dates; final October/November",
+        "snapshot": "Four semifinal scores and two finalists. Summary date conflicts with detailed May11 1996, retained provisionally.",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL"
+      },
+      {
+        "row": 177,
+        "world": "9697",
+        "competition": "AFC Asian Cup 1996",
+        "dateEvidence": "1996-01-24 to 1996-06-29 qualifying; final tournament begins Dec4",
+        "snapshot": "42 dated qualifying scores, six completed groups, eight qualified including host and holder; no final tournament score.",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL"
+      },
+      {
+        "row": 204,
+        "world": "2627",
+        "competition": "Primera Nacional",
+        "dateEvidence": "2026-02-13 to 2026-02-16 opening round",
+        "snapshot": "18 dated results, 36 distinct club names, two parallel groups; group identities, subsequent pre-cutoff results and annual standings pending.",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL"
       }
     ],
     "byWorld": {
       "2627": {
-        "rows": 60,
-        "distinctWorkingCount": 59,
-        "partialSnapshotRows": 60,
+        "rows": 63,
+        "distinctWorkingCount": 62,
+        "partialSnapshotRows": 63,
         "additionalDateEvidenceRows": 0
       },
       "9697": {
-        "rows": 23,
-        "distinctWorkingCount": 23,
-        "partialSnapshotRows": 23,
+        "rows": 26,
+        "distinctWorkingCount": 26,
+        "partialSnapshotRows": 26,
         "additionalDateEvidenceRows": 0
       }
     },
-    "totalRequiredRows": 83,
-    "distinctWorkingCount": 82,
+    "totalRequiredRows": 89,
+    "distinctWorkingCount": 88,
     "aliasDeduction": "321/423 Libertadores treated as one research package pending identity reconciliation",
     "scope": "Includes active editions, cross-cutoff preliminaries and completed phases within an annual aggregate. Does not count standalone completed editions, technical split/playoff specifications, or unverified candidate rows. Historical qualifiers UEFA: real matches pre-cutoff but 9 actual groups vs 8 OG rows; separate unresolved mapping, not included in lower bound.",
     "unresolvedExamples": [
       "9697: BOL CHI ECU PAR PER URU calendar-year leagues, domestic cups; UEFA WCQ and Intertoto (source available, mapping unresolved); AUS/NZL regional slots; COL prior-edition carryover",
       "2627: ARG second division parallel groups, NZL/AUS regional slots, KAZ league, additional South American annual leagues, national cups and historical competition carryovers"
     ],
-    "note": "This is applicability only, not verified sporting snapshot or final global count. Some windows are published or archived, actual individual match evidence remains pending. Prior partial counters unchanged. Block83: four previously uncensused active cups, two each world; all partial. Completed standalone league cups are archive only. Block84: FRO national cup active at initial cutoff; 16 matches and finalists. SWE 23 additional matches, no new package. Block85: three modern national cups expand cutoff scope; 122 results, some date windows and administrative conflicts retained. Block86: Russian Cup 1996/97 already active April17; 34 scores and 16 round5 qualifiers. Modern RPL and cup start after cutoff. Block87: GEO cup and KAZ league add two partial packages; 106 observed score records, including unresolved GEO preliminary count. Block88: Moldova league active June27–28, four corroborated scores; five post-cutoff exclusions. Four national cup earliest preliminary boundaries not verified. Block89 no new required package; four exclusions and one explicit unknown. Block90: enriched three already counted packages, 73 distinct unchanged. Block91: no additional mapped active package; unmapped RSA 1996 transition cup candidate kept separate. Block92: 74 distinct provisional packages, Japan Emperor's Cup regional qualifying state adds one; 224 total historic J.League/JFL scores across blocks59/92. Block93: 115 new pre-cutoff scores in existing packages, working denominator74 unchanged. Block94: 75 distinct provisional mapped packages; Iran previous league table and pending promotion playoff. Block95: 76 distinct provisional packages. Block96: 82 distinct provisional mapped packages, six additional modern regional leagues."
+    "note": "This is applicability only, not verified sporting snapshot or final global count. Some windows are published or archived, actual individual match evidence remains pending. Prior partial counters unchanged. Block83: four previously uncensused active cups, two each world; all partial. Completed standalone league cups are archive only. Block84: FRO national cup active at initial cutoff; 16 matches and finalists. SWE 23 additional matches, no new package. Block85: three modern national cups expand cutoff scope; 122 results, some date windows and administrative conflicts retained. Block86: Russian Cup 1996/97 already active April17; 34 scores and 16 round5 qualifiers. Modern RPL and cup start after cutoff. Block87: GEO cup and KAZ league add two partial packages; 106 observed score records, including unresolved GEO preliminary count. Block88: Moldova league active June27–28, four corroborated scores; five post-cutoff exclusions. Four national cup earliest preliminary boundaries not verified. Block89 no new required package; four exclusions and one explicit unknown. Block90: enriched three already counted packages, 73 distinct unchanged. Block91: no additional mapped active package; unmapped RSA 1996 transition cup candidate kept separate. Block92: 74 distinct provisional packages, Japan Emperor's Cup regional qualifying state adds one; 224 total historic J.League/JFL scores across blocks59/92. Block93: 115 new pre-cutoff scores in existing packages, working denominator74 unchanged. Block94: 75 distinct provisional mapped packages; Iran previous league table and pending promotion playoff. Block95: 76 distinct provisional packages. Block96: 82 distinct provisional mapped packages, six additional modern regional leagues. Block97: 82 provisional mapped packages unchanged; historical Alagoano unmapped. Block99: three newly mapped annual-league partial packages; historical URU tier2 cutoff unresolved; no independent phase snapshots. Working distinct denominator 85. Block100: two new mapped national-team cutoff packages, OFC1996 and Asian Cup1996 qualifying; eight UEFA WC qualification results preserved once as unmapped dataset; 87 mapped distinct partial packages. Block101: Primera Nacional parent204 new mapped active annual competition, 18 dated opening-round results; 88 distinct partial packages. No separate playoff or group snapshot."
   },
   "additionalRequiredCandidates": [
     {
@@ -1868,6 +2265,280 @@
       "cutoff": "1996-06-30",
       "status": "ALREADY_KNOWN_START_DATE_UNMAPPED_HISTORICAL_SLOT",
       "details": "Block54 had June29–August11 dates. No individual June29–30 matches dated in archive. Separate competition identity, no automatic mapping to modern Super Cup; not counted as new sporting discovery."
+    },
+    {
+      "world": "9697",
+      "competition": "Campeonato Alagoano 1996",
+      "relatedModernRow": 439,
+      "cutoff": "1996-07-01",
+      "status": "ACTIVE_BEFORE_CUTOFF_UNMAPPED_SLOT",
+      "details": "Started March10; championship decision July28/Aug1. 12 clubs, 22 aggregate regular games, four relegated. No historic state row mapped; no July results or new runtime slot fabricated."
+    },
+    {
+      "world": "9697",
+      "competition": "FIFA World Cup 1998 UEFA qualifying",
+      "relatedRows": [
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98
+      ],
+      "cutoff": "1996-06-30",
+      "status": "ACTIVE_BEFORE_CUTOFF_UNMAPPED_SLOT",
+      "details": "Eight actual dated matches, nine real group rosters, stored once in row167 block100Research.europeQualifying. Nine real groups vs eight OG slots; no mapping or duplicate snapshot."
     }
-  ]
+  ],
+  "phaseParentCutoffReference": {
+    "166": {
+      "parentLeagueRow": 167,
+      "status": "TECHNICAL_TEMPLATE_ALIAS_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "172": {
+      "parentLeagueRow": 173,
+      "status": "TECHNICAL_TEMPLATE_ALIAS_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "448": {
+      "parentLeagueRows": [
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "449": {
+      "parentLeagueRows": [
+        203,
+        204
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "451": {
+      "parentLeagueRows": [
+        211
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "452": {
+      "parentLeagueRows": [
+        218
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "454": {
+      "parentLeagueRows": [
+        220
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "455": {
+      "parentLeagueRows": [
+        223
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "457": {
+      "parentLeagueRows": [
+        227
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "458": {
+      "parentLeagueRows": [
+        228
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "459": {
+      "parentLeagueRows": [
+        232,
+        233,
+        234
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "460": {
+      "parentLeagueRows": [
+        236
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "461": {
+      "parentLeagueRows": [
+        239,
+        240
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "462": {
+      "parentLeagueRows": [
+        243,
+        244,
+        245
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "468": {
+      "parentLeagueRows": [
+        275,
+        276
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "472": {
+      "parentLeagueRows": [
+        283
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "473": {
+      "parentLeagueRows": [
+        284
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "474": {
+      "parentLeagueRows": [
+        286,
+        287
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "475": {
+      "parentLeagueRows": [
+        289
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "476": {
+      "parentLeagueRows": [
+        292,
+        293,
+        294,
+        295
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "479": {
+      "parentLeagueRows": [
+        312
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "480": {
+      "parentLeagueRows": [
+        315
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "483": {
+      "parentLeagueRow": 200,
+      "status": "PARENT_STARTS_AFTER_CUTOFF"
+    },
+    "484": {
+      "parentLeagueRow": 203,
+      "status": "REFER_EXISTING_PARENT_CUTOFF_ONLY"
+    },
+    "487": {
+      "parentLeagueRow": 223,
+      "status": "REFER_EXISTING_PARENT_CUTOFF_ONLY"
+    },
+    "488": {
+      "parentLeagueRow": 224,
+      "status": "PARENT_STARTS_AFTER_CUTOFF"
+    },
+    "492": {
+      "parentLeagueRow": 229,
+      "status": "REFER_EXISTING_PARENT_CUTOFF_ONLY"
+    },
+    "493": {
+      "parentLeagueRow": 238,
+      "status": "REFER_EXISTING_PARENT_CUTOFF_ONLY"
+    },
+    "496": {
+      "parentLeagueRow": 249,
+      "status": "PARENT_STARTS_AFTER_CUTOFF"
+    },
+    "497": {
+      "parentLeagueRow": 250,
+      "status": "PARENT_STARTS_AFTER_CUTOFF"
+    },
+    "498": {
+      "parentLeagueRow": 256,
+      "status": "REFER_EXISTING_PARENT_CUTOFF_ONLY"
+    },
+    "500": {
+      "parentLeagueRow": 261,
+      "status": "REFER_EXISTING_PARENT_CUTOFF_ONLY"
+    },
+    "501": {
+      "parentLeagueRow": 269,
+      "status": "REFER_EXISTING_PARENT_CUTOFF_ONLY"
+    },
+    "502": {
+      "parentLeagueRow": 270,
+      "status": "PARENT_STARTS_AFTER_CUTOFF"
+    },
+    "503": {
+      "parentLeagueRow": 271,
+      "status": "PARENT_STARTS_AFTER_CUTOFF"
+    },
+    "506": {
+      "parentLeagueRow": 282,
+      "status": "PARENT_STARTS_AFTER_CUTOFF"
+    },
+    "507": {
+      "parentLeagueRow": 283,
+      "status": "REFER_EXISTING_PARENT_CUTOFF_ONLY"
+    },
+    "508": {
+      "parentLeagueRow": 284,
+      "status": "REFER_EXISTING_PARENT_CUTOFF_ONLY"
+    },
+    "511": {
+      "parentLeagueRow": 293,
+      "status": "NOT_APPLICABLE_NO_SPLIT"
+    },
+    "512": {
+      "parentLeagueRow": 294,
+      "status": "NOT_APPLICABLE_NO_SPLIT"
+    },
+    "513": {
+      "parentLeagueRow": 295,
+      "status": "NOT_APPLICABLE_NO_SPLIT"
+    },
+    "514": {
+      "parentLeagueRow": 296,
+      "status": "PARENT_STARTS_AFTER_CUTOFF"
+    },
+    "518": {
+      "parentLeagueRow": 315,
+      "status": "REFER_EXISTING_PARENT_CUTOFF_ONLY"
+    },
+    "519": {
+      "parentLeagueRow": 317,
+      "status": "REFER_EXISTING_PARENT_CUTOFF_ONLY"
+    },
+    "522": {
+      "parentLeagueRows": [
+        203,
+        204
+      ],
+      "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    }
+  }
 }

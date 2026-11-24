@@ -19,8 +19,11 @@
     "index": 529,
     "value": {
       "row": 530,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        47,
+        729
+      ]
     }
   },
   {
@@ -35,8 +38,14 @@
     "index": 531,
     "value": {
       "row": 532,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        44,
+        45,
+        361,
+        726,
+        727
+      ]
     }
   },
   {
@@ -51,8 +60,11 @@
     "index": 533,
     "value": {
       "row": 534,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        49,
+        728
+      ]
     }
   }
 ]

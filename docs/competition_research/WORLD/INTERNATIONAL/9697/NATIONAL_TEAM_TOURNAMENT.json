@@ -13,7 +13,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -64,6 +64,63 @@
       ],
       "limitations": "HTML opened; cutoff finalists known, team keys not reconciled",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block100Research": {
+      "edition": "1996",
+      "rules": {
+        "firstRoundLegs": 2,
+        "finalLegs": 2
+      },
+      "scope": "1995 semifinals carry into 1996 edition; no future final scores.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "matches": [
+        [
+          "1995-11-10",
+          "New Zealand",
+          "Australia",
+          0,
+          0
+        ],
+        [
+          "1995-11-15",
+          "Australia",
+          "New Zealand",
+          3,
+          0
+        ],
+        [
+          "1995-11-17",
+          "Solomon Islands",
+          "Tahiti",
+          0,
+          1
+        ],
+        [
+          "1996-05-11",
+          "Tahiti",
+          "Solomon Islands",
+          2,
+          1
+        ]
+      ],
+      "finalists": [
+        "Australia",
+        "Tahiti"
+      ],
+      "finalDates": [
+        "1996-10-26",
+        "1996-11-01"
+      ],
+      "dateConflict": {
+        "match": "Tahiti–Solomon Islands",
+        "summary": "1995-05-11",
+        "detailedMatch": "1996-05-11",
+        "provisional": "1996-05-11"
+      }
     }
   },
   {
@@ -79,13 +136,12 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARENT_TEMPLATE_REFERENCE_NOT_INDEPENDENT",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "PARENT_TEMPLATE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
@@ -98,6 +154,11 @@
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block100Research": {
+      "parentRow": 167,
+      "identity": "Viewer substitute template per career_init.c lines4537–4543; same sporting competition, no second edition/snapshot",
+      "status": "TECHNICAL_ALIAS_NOT_RUNTIME"
     }
   },
   {
@@ -113,25 +174,226 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "FIFA World Cup",
+      "nonCommercialDisplayName": "FIFA World Cup",
       "candidateName": "FIFA World Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block100Research": {
+      "edition": "1998",
+      "rules": {
+        "teams": 32,
+        "groups": 8,
+        "groupSize": 4,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "top2Advance": true,
+        "knockout": "round of 16, quarterfinals, semifinals, third-place and final",
+        "hostsAndHoldersExempt": [
+          "France",
+          "Brazil"
+        ]
+      },
+      "dates": {
+        "start": "1998-06-10",
+        "end": "1998-07-12"
+      },
+      "europeQualifying": {
+        "edition": "1998",
+        "groupMembers": [
+          {
+            "group": 1,
+            "teams": [
+              "Denmark",
+              "Croatia",
+              "Greece",
+              "Bosnia-Herzegovina",
+              "Slovenia"
+            ]
+          },
+          {
+            "group": 2,
+            "teams": [
+              "England",
+              "Italy",
+              "Poland",
+              "Georgia",
+              "Moldova"
+            ]
+          },
+          {
+            "group": 3,
+            "teams": [
+              "Norway",
+              "Hungary",
+              "Finland",
+              "Switzerland",
+              "Azerbaijan"
+            ]
+          },
+          {
+            "group": 4,
+            "teams": [
+              "Austria",
+              "Scotland",
+              "Sweden",
+              "Latvia",
+              "Estonia",
+              "Belarus"
+            ]
+          },
+          {
+            "group": 5,
+            "teams": [
+              "Bulgaria",
+              "Russia",
+              "Israel",
+              "Cyprus",
+              "Luxembourg"
+            ]
+          },
+          {
+            "group": 6,
+            "teams": [
+              "Spain",
+              "Yugoslavia",
+              "Czech Republic",
+              "Slovakia",
+              "Faroe Islands",
+              "Malta"
+            ]
+          },
+          {
+            "group": 7,
+            "teams": [
+              "Netherlands",
+              "Belgium",
+              "Turkey",
+              "Wales",
+              "San Marino"
+            ]
+          },
+          {
+            "group": 8,
+            "teams": [
+              "Romania",
+              "Ireland",
+              "Lithuania",
+              "FYR Macedonia",
+              "Iceland",
+              "Liechtenstein"
+            ]
+          },
+          {
+            "group": 9,
+            "teams": [
+              "Germany",
+              "Ukraine",
+              "Portugal",
+              "Armenia",
+              "Northern Ireland",
+              "Albania"
+            ]
+          }
+        ],
+        "groupWinnersDirect": 9,
+        "bestRunnerUpDirect": 1,
+        "runnerUpComparisonRanks": [
+          1,
+          3,
+          4
+        ],
+        "otherRunnersUp": 8,
+        "playoffLegs": 2,
+        "playoffPlaces": 4,
+        "cutoff": "1996-06-30",
+        "preCutoffMatches": [
+          [
+            1,
+            "1996-04-24",
+            "Greece",
+            "Slovenia",
+            2,
+            0
+          ],
+          [
+            3,
+            "1996-06-02",
+            "Norway",
+            "Azerbaijan",
+            5,
+            0
+          ],
+          [
+            4,
+            "1996-06-01",
+            "Sweden",
+            "Belarus",
+            5,
+            1
+          ],
+          [
+            6,
+            "1996-04-24",
+            "Yugoslavia",
+            "Faroe Islands",
+            3,
+            1
+          ],
+          [
+            6,
+            "1996-06-02",
+            "Yugoslavia",
+            "Malta",
+            6,
+            0
+          ],
+          [
+            7,
+            "1996-06-02",
+            "San Marino",
+            "Wales",
+            0,
+            5
+          ],
+          [
+            8,
+            "1996-04-24",
+            "FYR Macedonia",
+            "Liechtenstein",
+            3,
+            0
+          ],
+          [
+            8,
+            "1996-06-01",
+            "Iceland",
+            "FYR Macedonia",
+            1,
+            1
+          ]
+        ],
+        "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_OG_ROWS",
+        "scope": "Qualification stage data only, not finals results. Group membership listed without final ranks. No assignment to technical slot."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -459,13 +721,12 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARENT_TEMPLATE_REFERENCE_NOT_INDEPENDENT",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "PARENT_TEMPLATE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
@@ -478,6 +739,11 @@
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block100Research": {
+      "parentRow": 173,
+      "identity": "Viewer substitute template per career_init.c lines4537–4543; same sporting competition, no second edition/snapshot",
+      "status": "TECHNICAL_ALIAS_NOT_RUNTIME"
     }
   },
   {
@@ -493,25 +759,84 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "UEFA European Championship",
+      "nonCommercialDisplayName": "UEFA European Championship",
       "candidateName": "UEFA European Championship",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block100Research": {
+      "edition": "2000",
+      "rules": {
+        "teams": 16,
+        "groups": 4,
+        "groupSize": 4,
+        "top2Advance": true,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "knockout": [
+          "quarterfinals",
+          "semifinals",
+          "final"
+        ],
+        "automaticHosts": [
+          "Belgium",
+          "Netherlands"
+        ]
+      },
+      "dates": {
+        "start": "2000-06-10",
+        "end": "2000-07-02"
+      },
+      "previousEdition": {
+        "edition": "1996",
+        "teams": 16,
+        "opening": "1996-06-08",
+        "final": "1996-06-30",
+        "champion": "Germany",
+        "runnerUp": "Czech Republic"
+      },
+      "qualifying": {
+        "teams": 49,
+        "groups": 9,
+        "groupSizes": [
+          5,
+          6
+        ],
+        "groupWinnersDirect": 9,
+        "bestRunnerUpDirect": 1,
+        "runnerUpComparisonRanks": [
+          1,
+          3,
+          4
+        ],
+        "otherRunnersUp": 8,
+        "playoffLegs": 2,
+        "playoffPlaces": 4,
+        "firstObservedDate": "1998-09-02",
+        "playoffDates": [
+          "1999-11-13",
+          "1999-11-17"
+        ],
+        "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_OG_ROWS"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -629,25 +954,59 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "CONCACAF Gold Cup",
+      "nonCommercialDisplayName": "CONCACAF Gold Cup",
       "candidateName": "CONCACAF Gold Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block100Research": {
+      "edition": "1998",
+      "rules": {
+        "teams": 10,
+        "groups": [
+          4,
+          3,
+          3
+        ],
+        "advance": "Group A top two; B/C winners",
+        "semifinals": 2,
+        "thirdPlace": true,
+        "finalLegs": 1,
+        "guest": "Brazil",
+        "withdrawalReplacement": {
+          "withdrawn": "Canada",
+          "replacement": "Jamaica"
+        }
+      },
+      "dates": {
+        "firstObserved": "1998-02-01",
+        "final": "1998-02-14"
+      },
+      "previousEdition": {
+        "edition": "1996",
+        "teams": 9,
+        "groups": [
+          3,
+          3,
+          3
+        ]
+      },
+      "scope": "1998 finals format observed; qualification access dates not fully reconciled.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -664,7 +1023,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -708,6 +1067,404 @@
       ],
       "limitations": "HTML opened, partial qualifying evidence",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block100Research": {
+      "edition": "1996",
+      "rules": {
+        "teams": 12,
+        "groups": 3,
+        "groupSize": 4,
+        "top2Advance": true,
+        "bestThird": 2,
+        "qualifyingGroups": 10,
+        "qualifyingGroupWinners": 10,
+        "automatic": [
+          "UAE",
+          "Japan"
+        ]
+      },
+      "dates": {
+        "finalStart": "1996-12-04",
+        "finalEnd": "1996-12-21"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "QUALIFICATION_IN_PROGRESS_PARTIAL",
+      "scoreSchema": [
+        "group",
+        "date",
+        "home",
+        "away",
+        "homeGoals",
+        "awayGoals"
+      ],
+      "qualificationMatches": [
+        [
+          2,
+          "1996-01-30",
+          "Hongkong",
+          "Philippines",
+          8,
+          0
+        ],
+        [
+          2,
+          "1996-01-30",
+          "China",
+          "Macao",
+          7,
+          1
+        ],
+        [
+          2,
+          "1996-02-01",
+          "Philippines",
+          "China",
+          0,
+          7
+        ],
+        [
+          2,
+          "1996-02-01",
+          "Hongkong",
+          "Macao",
+          4,
+          1
+        ],
+        [
+          2,
+          "1996-02-04",
+          "Macao",
+          "Philippines",
+          5,
+          1
+        ],
+        [
+          2,
+          "1996-02-04",
+          "Hongkong",
+          "China",
+          0,
+          2
+        ],
+        [
+          3,
+          "1996-06-27",
+          "Thailand",
+          "Maldives",
+          8,
+          0
+        ],
+        [
+          3,
+          "1996-06-27",
+          "Myanmar",
+          "Singapore",
+          0,
+          4
+        ],
+        [
+          3,
+          "1996-06-29",
+          "Thailand",
+          "Myanmar",
+          5,
+          1
+        ],
+        [
+          3,
+          "1996-06-29",
+          "Maldives",
+          "Singapore",
+          0,
+          2
+        ],
+        [
+          4,
+          "1996-03-02",
+          "Malaysia",
+          "Indonesia",
+          0,
+          0
+        ],
+        [
+          4,
+          "1996-03-04",
+          "Indonesia",
+          "India",
+          7,
+          1
+        ],
+        [
+          4,
+          "1996-03-06",
+          "India",
+          "Malaysia",
+          2,
+          5
+        ],
+        [
+          5,
+          "1996-06-10",
+          "Oman",
+          "Sri Lanka",
+          3,
+          0
+        ],
+        [
+          5,
+          "1996-06-10",
+          "Iran",
+          "Nepal",
+          8,
+          0
+        ],
+        [
+          5,
+          "1996-06-12",
+          "Oman",
+          "Nepal",
+          7,
+          0
+        ],
+        [
+          5,
+          "1996-06-12",
+          "Iran",
+          "Sri Lanka",
+          7,
+          0
+        ],
+        [
+          5,
+          "1996-06-14",
+          "Sri Lanka",
+          "Nepal",
+          3,
+          1
+        ],
+        [
+          5,
+          "1996-06-14",
+          "Iran",
+          "Oman",
+          2,
+          0
+        ],
+        [
+          5,
+          "1996-06-17",
+          "Iran",
+          "Sri Lanka",
+          4,
+          0
+        ],
+        [
+          5,
+          "1996-06-17",
+          "Oman",
+          "Nepal",
+          2,
+          1
+        ],
+        [
+          5,
+          "1996-06-19",
+          "Iran",
+          "Nepal",
+          4,
+          0
+        ],
+        [
+          5,
+          "1996-06-19",
+          "Oman",
+          "Sri Lanka",
+          10,
+          0
+        ],
+        [
+          5,
+          "1996-06-21",
+          "Nepal",
+          "Sri Lanka",
+          0,
+          2
+        ],
+        [
+          5,
+          "1996-06-21",
+          "Oman",
+          "Iran",
+          1,
+          2
+        ],
+        [
+          7,
+          "1996-06-14",
+          "Kazakhstan",
+          "Qatar",
+          1,
+          0
+        ],
+        [
+          7,
+          "1996-06-21",
+          "Syria",
+          "Kazakhstan",
+          2,
+          0
+        ],
+        [
+          7,
+          "1996-06-28",
+          "Qatar",
+          "Syria",
+          1,
+          0
+        ],
+        [
+          8,
+          "1996-05-08",
+          "Tajikistan",
+          "Uzbekistan",
+          4,
+          0
+        ],
+        [
+          8,
+          "1996-06-19",
+          "Uzbekistan",
+          "Tajikistan",
+          5,
+          0
+        ],
+        [
+          9,
+          "1996-01-24",
+          "Saudi Arabia",
+          "Kyrgyzstan",
+          3,
+          0
+        ],
+        [
+          9,
+          "1996-01-26",
+          "Yemen",
+          "Kyrgyzstan",
+          1,
+          0
+        ],
+        [
+          9,
+          "1996-01-28",
+          "Saudi Arabia",
+          "Yemen",
+          4,
+          0
+        ],
+        [
+          9,
+          "1996-01-31",
+          "Kyrgyzstan",
+          "Saudi Arabia",
+          0,
+          2
+        ],
+        [
+          9,
+          "1996-02-02",
+          "Kyrgyzstan",
+          "Yemen",
+          3,
+          1
+        ],
+        [
+          9,
+          "1996-02-04",
+          "Yemen",
+          "Saudi Arabia",
+          0,
+          1
+        ],
+        [
+          10,
+          "1996-03-10",
+          "Turkmenistan",
+          "Kuwait",
+          2,
+          2
+        ],
+        [
+          10,
+          "1996-03-22",
+          "Kuwait",
+          "Turkmenistan",
+          2,
+          0
+        ],
+        [
+          10,
+          "1996-05-12",
+          "Lebanon",
+          "Turkmenistan",
+          3,
+          1
+        ],
+        [
+          10,
+          "1996-05-26",
+          "Turkmenistan",
+          "Lebanon",
+          0,
+          1
+        ],
+        [
+          10,
+          "1996-06-09",
+          "Lebanon",
+          "Kuwait",
+          3,
+          5
+        ],
+        [
+          10,
+          "1996-06-20",
+          "Kuwait",
+          "Lebanon",
+          0,
+          0
+        ]
+      ],
+      "qualifiedAtCutoff": [
+        "UAE",
+        "Japan",
+        "China",
+        "Indonesia",
+        "Iran",
+        "Uzbekistan",
+        "Saudi Arabia",
+        "Kuwait"
+      ],
+      "completedGroups": [
+        2,
+        4,
+        5,
+        8,
+        9,
+        10
+      ],
+      "inProgressGroups": [
+        3,
+        7
+      ],
+      "notStartedGroups": [
+        1,
+        6
+      ],
+      "scope": "Only qualifying games before July1; final tournament has no played fixtures. Ranking and IDs remain unverified."
     }
   }
 ]

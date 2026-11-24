@@ -1674,25 +1674,49 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "CONMEBOL Copa América",
+      "nonCommercialDisplayName": "CONMEBOL Copa América",
       "candidateName": "Copa América",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block100Research": {
+      "edition": "2024",
+      "rules": {
+        "teams": 16,
+        "conmebol": 10,
+        "concacaf": 6,
+        "groups": 4,
+        "groupSize": 4,
+        "top2Advance": true,
+        "thirdPlace": true,
+        "matches": 32
+      },
+      "dates": {
+        "start": "2024-06-20",
+        "end": "2024-07-14"
+      },
+      "announced2028": {
+        "host": "United States",
+        "teams": 16,
+        "concacaf": 6,
+        "announcement": "2026-11-24 secondary report of joint confirmation; exact dates/access format pending"
+      },
+      "scope": "2024 real format; 2028 separate later evidence.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -1761,7 +1785,6 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -1797,6 +1820,30 @@
       ],
       "limitations": "official search excerpts; format announcement open cache miss; later format requires policy review",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block100Research": {
+      "edition": "2025",
+      "rules": {
+        "teams": 16,
+        "groups": 4,
+        "groupSize": 4,
+        "top2Advance": true
+      },
+      "announced2027": {
+        "dates": [
+          "2027-06-17",
+          "2027-07-11"
+        ],
+        "groups": 2,
+        "groupSize": 8,
+        "gamesPerTeam": 4,
+        "directFromNationsLeague": 8,
+        "prelimEntrants": 14,
+        "prelimPlaces": 7,
+        "guest": "Saudi Arabia"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Later announced format not full round robin and not template override."
     }
   },
   {
@@ -1879,25 +1926,64 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "OFC Men's Nations Cup",
+      "nonCommercialDisplayName": "OFC Men's Nations Cup",
       "candidateName": "OFC Nations Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block100Research": {
+      "edition": "2024",
+      "rules": {
+        "plannedTeams": 8,
+        "qualifierTeams": [
+          "Tonga",
+          "Samoa",
+          "Cook Islands"
+        ],
+        "qualifierWinnerPlaces": 1,
+        "plannedGroups": [
+          4,
+          4
+        ],
+        "withdrawal": "New Caledonia",
+        "actualGroups": [
+          3,
+          4
+        ],
+        "top2Advance": true,
+        "semifinals": 2,
+        "finalLegs": 1
+      },
+      "dates": {
+        "qualifyingWindow": [
+          "2024-03-20",
+          "2024-03-26"
+        ],
+        "finalsWindow": [
+          "2024-06-15",
+          "2024-06-30"
+        ]
+      },
+      "announced2028": {
+        "qualificationYear": 2027,
+        "format": null
+      },
+      "scope": "Withdrawal edition-specific; not permanent seven-team template.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

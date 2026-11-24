@@ -5,13 +5,16 @@
       "row": 111,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "FORMAT_EDITION_OBSERVED_COMPETITION_CONTINUES",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1996",
+      "format_valid_until": "1996",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "transitionRefs": [
+        352
+      ]
     }
   },
   {
@@ -20,13 +23,14 @@
       "row": 166,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_SPORTING_COMPETITION",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_TEMPLATE_REFERENCE_NOT_INDEPENDENT",
+      "parentRow": 167
     }
   },
   {
@@ -35,13 +39,17 @@
       "row": 167,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "FORMAT_EDITION_OBSERVED_COMPETITION_CONTINUES",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1998",
+      "format_valid_until": "1998",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "transitionRefs": [
+        38,
+        351
+      ]
     }
   },
   {
@@ -110,13 +118,14 @@
       "row": 172,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "SAME_SPORTING_COMPETITION",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARENT_TEMPLATE_REFERENCE_NOT_INDEPENDENT",
+      "parentRow": 173
     }
   },
   {
@@ -125,13 +134,18 @@
       "row": 173,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "FORMAT_EDITION_OBSERVED_COMPETITION_CONTINUES",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "2000",
+      "format_valid_until": "2000",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "transitionRefs": [
+        369,
+        370,
+        40
+      ]
     }
   },
   {
@@ -170,13 +184,19 @@
       "row": 176,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "FORMAT_EDITION_OBSERVED_COMPETITION_CONTINUES",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1998",
+      "format_valid_until": "1998",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "transitionRefs": [
+        726,
+        727,
+        44,
+        45
+      ]
     }
   },
   {
@@ -185,13 +205,17 @@
       "row": 177,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "FORMAT_EDITION_OBSERVED_COMPETITION_CONTINUES",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "1996",
+      "format_valid_until": "1996",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "transitionRefs": [
+        354,
+        42
+      ]
     }
   }
 ]

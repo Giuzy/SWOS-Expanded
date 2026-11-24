@@ -3,104 +3,145 @@
     "index": 434,
     "value": {
       "row": 435,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        692,
+        693,
+        694
+      ]
     }
   },
   {
     "index": 435,
     "value": {
       "row": 436,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        695
+      ]
     }
   },
   {
     "index": 436,
     "value": {
       "row": 437,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        696,
+        697
+      ]
     }
   },
   {
     "index": 437,
     "value": {
       "row": 438,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        698,
+        699
+      ]
     }
   },
   {
     "index": 438,
     "value": {
       "row": 439,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        700,
+        701
+      ]
     }
   },
   {
     "index": 439,
     "value": {
       "row": 440,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        702,
+        703
+      ]
     }
   },
   {
     "index": 440,
     "value": {
       "row": 441,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        704,
+        705,
+        706
+      ]
     }
   },
   {
     "index": 441,
     "value": {
       "row": 442,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        707,
+        708
+      ]
     }
   },
   {
     "index": 442,
     "value": {
       "row": 443,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        709,
+        710
+      ]
     }
   },
   {
     "index": 443,
     "value": {
       "row": 444,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        711,
+        712,
+        713
+      ]
     }
   },
   {
     "index": 444,
     "value": {
       "row": 445,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        714,
+        715
+      ]
     }
   },
   {
     "index": 445,
     "value": {
       "row": 446,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        716,
+        717
+      ]
     }
   },
   {
     "index": 446,
     "value": {
       "row": 447,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        718,
+        719
+      ]
     }
   }
 ]

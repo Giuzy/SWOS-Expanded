@@ -17,5 +17,22 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 31 actual web search excerpts; no PDF analyzed. Exact rules, identity mapping, dates and 2026 equivalence not certified."
     }
+  },
+  {
+    "index": 730,
+    "value": {
+      "competition": "ARG Primera Nacional",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "OBSERVED_FORMAT",
+      "note": "Two groups of 18, 34 group games plus two inter-group games per club. Group-winner final determines first promotion; 14 ranked group entrants and losing finalist play Reducido for second promotion. Four direct relegations (two per group).",
+      "rowRefs": [
+        204,
+        449,
+        522
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block101 AFA 2026 arts2/6/7 reviewed; exact complete dates and club keys pending."
+    }
   }
 ]

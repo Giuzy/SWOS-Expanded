@@ -14,5 +14,425 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block65 source verified, subsequent editions not assumed."
     }
+  },
+  {
+    "index": 692,
+    "value": {
+      "competition": "BRA state row 435",
+      "firstEdition": "2017",
+      "lastEdition": "2025",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        435
+      ],
+      "note": "Four groups before 2026 league-table model",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 693,
+    "value": {
+      "competition": "BRA state row 435",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        435
+      ],
+      "note": "16 clubs, four pots, eight games, single table, top8 KO; final two legs",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 694,
+    "value": {
+      "competition": "BRA state row 435",
+      "firstEdition": "2027",
+      "lastEdition": null,
+      "operation": "ANNOUNCED_FORMAT",
+      "rowRefs": [
+        435
+      ],
+      "note": "16/8 retained; Paulistão Sil sponsor; final legs unsettled",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 695,
+    "value": {
+      "competition": "BRA state row 436",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        436
+      ],
+      "note": "Two cross-groups, same-group QF, one-match final and retention quadrangular",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 696,
+    "value": {
+      "competition": "BRA state row 437",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        437
+      ],
+      "note": "Three groups of four, cross-group eight games, semifinal two legs, final single",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 697,
+    "value": {
+      "competition": "BRA state row 437",
+      "firstEdition": "2027",
+      "lastEdition": null,
+      "operation": "ANNOUNCED_FORMAT_CHANGE",
+      "rowRefs": [
+        437
+      ],
+      "note": "Two groups of six; six cross-group matches; new quarterfinal stage announced",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 698,
+    "value": {
+      "competition": "BRA state row 438",
+      "firstEdition": "2025",
+      "lastEdition": "2025",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        438
+      ],
+      "note": "Three groups of four",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 699,
+    "value": {
+      "competition": "BRA state row 438",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        438
+      ],
+      "note": "Two groups of six, QF restored, retention quadrangular and Taça Farroupilha",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 700,
+    "value": {
+      "competition": "BRA state row 439",
+      "firstEdition": "1996",
+      "lastEdition": "1996",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        439
+      ],
+      "note": "12 clubs, aggregate 22 regular games, four down, stage winners decide title in July/August; no mapped historic state slot",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 701,
+    "value": {
+      "competition": "BRA state row 439",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        439
+      ],
+      "note": "Eight clubs single RR, top4 two-leg SF and final, last relegated",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 702,
+    "value": {
+      "competition": "BRA state row 440",
+      "firstEdition": "1996",
+      "lastEdition": "1996",
+      "operation": "OBSERVED_EDITION",
+      "rowRefs": [
+        440
+      ],
+      "note": "Vitória listed champion, detailed timeline not reconciled",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 703,
+    "value": {
+      "competition": "BRA state row 440",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        440
+      ],
+      "note": "Ten clubs, nine games, one-leg semifinal and final",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 704,
+    "value": {
+      "competition": "BRA state row 441",
+      "firstEdition": "2025",
+      "lastEdition": "2025",
+      "operation": "ADD_PLACEMENT_MATCH",
+      "rowRefs": [
+        441
+      ],
+      "note": "Third-place dispute introduced",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 705,
+    "value": {
+      "competition": "BRA state row 441",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        441
+      ],
+      "note": "Two initial groups five then two groups three, third/fifth placement matches and retention",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 706,
+    "value": {
+      "competition": "BRA state row 441",
+      "firstEdition": "2027",
+      "lastEdition": null,
+      "operation": "ANNOUNCED_FORMAT_CHANGE",
+      "rowRefs": [
+        441
+      ],
+      "note": "New format approved Oct16; precise details pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 707,
+    "value": {
+      "competition": "BRA state row 442",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        442
+      ],
+      "note": "Three groups four, eight cross-group games, all KO two legs, retention playoff, placement playoff",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 708,
+    "value": {
+      "competition": "BRA state row 442",
+      "firstEdition": "2027",
+      "lastEdition": null,
+      "operation": "ANNOUNCED_EDITION",
+      "rowRefs": [
+        442
+      ],
+      "note": "Jan6–Mar7 plan, groups announced, details pending",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 709,
+    "value": {
+      "competition": "BRA state row 443",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        443
+      ],
+      "note": "Ten clubs, two semifinal byes, single QF",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 710,
+    "value": {
+      "competition": "BRA state row 443",
+      "firstEdition": "2027",
+      "lastEdition": null,
+      "operation": "ANNOUNCED_ACCESS",
+      "rowRefs": [
+        443
+      ],
+      "note": "Jan9 planned start, two finalists Série D2028, top3 Copa do Brasil2028",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 711,
+    "value": {
+      "competition": "BRA state row 444",
+      "firstEdition": "2025",
+      "lastEdition": "2025",
+      "operation": "OBSERVED_FORMAT",
+      "rowRefs": [
+        444
+      ],
+      "note": "56 matches over 12 dates",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 712,
+    "value": {
+      "competition": "BRA state row 444",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        444
+      ],
+      "note": "44 matches over 10 dates, two cross-groups, top8 overall, single QF/SF, two-leg final",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 713,
+    "value": {
+      "competition": "BRA state row 444",
+      "firstEdition": "2027",
+      "lastEdition": null,
+      "operation": "ANNOUNCED_FORMAT",
+      "rowRefs": [
+        444
+      ],
+      "note": "Jan9 start, 12 clubs, top8 and bottom2 retained",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 714,
+    "value": {
+      "competition": "BRA state row 445",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        445
+      ],
+      "note": "Eight clubs, top6 KO, two SF byes, eighth assigned to new first turn not direct relegation",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 715,
+    "value": {
+      "competition": "BRA state row 445",
+      "firstEdition": "2027",
+      "lastEdition": null,
+      "operation": "ANNOUNCED_PHASE_STRUCTURE",
+      "rowRefs": [
+        445
+      ],
+      "note": "First-turn plan changed or unclear, three qualifiers originally announced, Jan2 opening later reported",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 716,
+    "value": {
+      "competition": "BRA state row 446",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        446
+      ],
+      "note": "Two cross-groups, all KO two legs, separate retention pairings",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 717,
+    "value": {
+      "competition": "BRA state row 446",
+      "firstEdition": "2027",
+      "lastEdition": null,
+      "operation": "ANNOUNCED_CALENDAR",
+      "rowRefs": [
+        446
+      ],
+      "note": "Jan6 nominal first date, potential Copa do Brasil adjustment",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 718,
+    "value": {
+      "competition": "BRA state row 447",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "FORMAT_CHANGE",
+      "rowRefs": [
+        447
+      ],
+      "note": "Two groups six, QF same group, quadrangular with three relegated",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
+  },
+  {
+    "index": 719,
+    "value": {
+      "competition": "BRA state row 447",
+      "firstEdition": "2027",
+      "lastEdition": null,
+      "operation": "ANNOUNCED_FORMAT_CHANGE",
+      "rowRefs": [
+        447
+      ],
+      "note": "Ten clubs, single RR nine games, direct bottom2, no retention quadrangular; final legs conditional",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block97 contemporary competition research; no source URL fields. Historical and future observations separate from approved game template."
+    }
   }
 ]

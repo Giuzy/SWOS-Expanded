@@ -13,13 +13,12 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
@@ -31,6 +30,30 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block101Research": {
+      "edition": "2026/27",
+      "parentRows": [
+        286,
+        287
+      ],
+      "parentEvidence": [
+        {
+          "path": "EUROPE/POR/2627/LEAGUE_DIVISION.json",
+          "rows": [
+            286,
+            287
+          ],
+          "field": "block70Research"
+        }
+      ],
+      "additionalRules": {
+        "tier2vs3FirstLegHome": "Liga3 third; second leg Liga2 rank16",
+        "scope": "July2 announcement excerpt, exact dates remain conditional"
+      },
+      "identity": "Parent phase, not independent sporting competition; derive entrants from completed parent standings and retain one fixture identity.",
+      "scope": "Partial phase rules; no duplicate parent scores or July snapshot, no runtime import; exact individual fixtures and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

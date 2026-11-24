@@ -14,5 +14,51 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 24: APF history pages opened, other sources search excerpts; exact dates, participant IDs and full rule versions pending. No historical future results imported."
     }
+  },
+  {
+    "index": 720,
+    "value": {
+      "competition": "COL Primera A",
+      "firstEdition": "1996/97",
+      "lastEdition": "1997",
+      "operation": "FORMAT_CHANGE",
+      "note": "16 clubs: Copa Mustang I 32 rounds with derbies and bonus points, II two groups8, combined ranking 46 rounds, four-club final group. During this edition Torneo Adecuación added to return to calendar year; winners meet original stage winner for title.",
+      "rowRefs": [
+        41
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block99: historical match archives and contemporary regulation/reporting; exact regulation/version and participant identities not fully reconciled."
+    }
+  },
+  {
+    "index": 721,
+    "value": {
+      "competition": "COL Primera A",
+      "firstEdition": "2002",
+      "lastEdition": null,
+      "operation": "FORMAT_CHANGE",
+      "note": "Apertura and Finalización become separately awarded championship titles, unlike 1996/97 single championship.",
+      "rowRefs": [
+        41,
+        223
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block99: historical match archives and contemporary regulation/reporting; exact regulation/version and participant identities not fully reconciled."
+    }
+  },
+  {
+    "index": 722,
+    "value": {
+      "competition": "COL Primera A",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "FORMAT_CHANGE",
+      "note": "World Cup calendar exception: both short tournaments 19 regular rounds without extra derby; first half top8 two-leg KO, second half top8 two four-team double round-robin groups then two-leg final.",
+      "rowRefs": [
+        223
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block99: historical match archives and contemporary regulation/reporting; exact regulation/version and participant identities not fully reconciled."
+    }
   }
 ]

@@ -12,25 +12,370 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Categoría Primera A",
+      "nonCommercialDisplayName": "Categoría Primera A",
       "candidateName": "Categoría Primera A",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
-      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import.",
+      "commercialName": "Liga BetPlay DIMAYOR"
+    },
+    "block99Research": {
+      "edition": "2026",
+      "rules": {
+        "teams": 20,
+        "shortTournaments": [
+          "Apertura",
+          "Finalización"
+        ],
+        "regularGames": 19,
+        "derbyExtraRound": false,
+        "apertura": {
+          "qualifiers": 8,
+          "quarterfinalLegs": 2,
+          "semifinalLegs": 2,
+          "finalLegs": 2
+        },
+        "finalizacion": {
+          "qualifiers": 8,
+          "groups": [
+            4,
+            4
+          ],
+          "groupGames": 6,
+          "groupWinnersFinal": true,
+          "finalLegs": 2
+        },
+        "relegated": 2,
+        "relegationBasis": "average points"
+      },
+      "dates": {
+        "aperturaFinal": "2026-06-08",
+        "finalizacionStart": "2026-07-24"
+      },
+      "championApertura": "Junior",
+      "runnerUp": "Atlético Nacional",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "January regulation and later August confirmation; 2026 World Cup-specific first-half format not assumed permanent. Full ranking rules and regular match scores pending."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 14,
+        "tableRows": 20
+      },
+      "tableSchema": [
+        "club",
+        "wins",
+        "draws",
+        "losses",
+        "GF",
+        "GA",
+        "points"
+      ],
+      "aperturaRegularTable": [
+        [
+          "Atlético Nacional",
+          13,
+          1,
+          5,
+          35,
+          15,
+          40
+        ],
+        [
+          "Junior",
+          11,
+          2,
+          6,
+          31,
+          24,
+          35
+        ],
+        [
+          "Deportivo Pasto",
+          10,
+          4,
+          5,
+          29,
+          25,
+          34
+        ],
+        [
+          "América de Cali",
+          10,
+          3,
+          6,
+          25,
+          15,
+          33
+        ],
+        [
+          "Once Caldas",
+          8,
+          9,
+          2,
+          31,
+          22,
+          33
+        ],
+        [
+          "Deportes Tolima",
+          8,
+          7,
+          4,
+          27,
+          17,
+          31
+        ],
+        [
+          "Santa Fe",
+          7,
+          8,
+          4,
+          29,
+          22,
+          29
+        ],
+        [
+          "Internacional de Bogotá",
+          7,
+          7,
+          5,
+          26,
+          26,
+          28
+        ],
+        [
+          "Deportivo Cali",
+          7,
+          6,
+          6,
+          20,
+          16,
+          27
+        ],
+        [
+          "Millonarios",
+          7,
+          5,
+          7,
+          31,
+          23,
+          26
+        ],
+        [
+          "Independiente Medellín",
+          7,
+          5,
+          7,
+          26,
+          24,
+          26
+        ],
+        [
+          "Águilas Doradas",
+          7,
+          5,
+          7,
+          20,
+          25,
+          26
+        ],
+        [
+          "Atlético Bucaramanga",
+          5,
+          8,
+          6,
+          26,
+          20,
+          23
+        ],
+        [
+          "Llaneros",
+          4,
+          10,
+          5,
+          17,
+          20,
+          22
+        ],
+        [
+          "Fortaleza",
+          5,
+          7,
+          7,
+          22,
+          27,
+          22
+        ],
+        [
+          "Jaguares",
+          5,
+          3,
+          11,
+          20,
+          33,
+          18
+        ],
+        [
+          "Alianza",
+          3,
+          8,
+          8,
+          13,
+          27,
+          17
+        ],
+        [
+          "Boyacá Chicó",
+          5,
+          2,
+          12,
+          15,
+          32,
+          17
+        ],
+        [
+          "Cúcuta",
+          3,
+          7,
+          9,
+          22,
+          35,
+          16
+        ],
+        [
+          "Deportivo Pereira",
+          1,
+          7,
+          11,
+          15,
+          32,
+          10
+        ]
+      ],
+      "aperturaPlayoffMatches": [
+        [
+          "2026-05-09",
+          "Internacional de Bogotá",
+          "Atlético Nacional",
+          1,
+          2
+        ],
+        [
+          "2026-05-09",
+          "Deportes Tolima",
+          "Deportivo Pasto",
+          1,
+          0
+        ],
+        [
+          "2026-05-09",
+          "América de Cali",
+          "Santa Fe",
+          1,
+          1
+        ],
+        [
+          "2026-05-10",
+          "Once Caldas",
+          "Junior",
+          0,
+          1
+        ],
+        [
+          "2026-05-12",
+          "Atlético Nacional",
+          "Internacional de Bogotá",
+          7,
+          1
+        ],
+        [
+          "2026-05-12",
+          "Santa Fe",
+          "América de Cali",
+          4,
+          0
+        ],
+        [
+          "2026-05-13",
+          "Deportivo Pasto",
+          "Deportes Tolima",
+          0,
+          2
+        ],
+        [
+          "2026-05-13",
+          "Junior",
+          "Once Caldas",
+          2,
+          2
+        ],
+        [
+          "2026-05-16",
+          "Deportes Tolima",
+          "Atlético Nacional",
+          0,
+          1
+        ],
+        [
+          "2026-05-16",
+          "Santa Fe",
+          "Junior",
+          1,
+          1
+        ],
+        [
+          "2026-05-23",
+          "Atlético Nacional",
+          "Deportes Tolima",
+          3,
+          1
+        ],
+        [
+          "2026-05-23",
+          "Junior",
+          "Santa Fe",
+          0,
+          0,
+          {
+            "penalties": [
+              5,
+              4
+            ]
+          }
+        ],
+        [
+          "2026-06-02",
+          "Junior",
+          "Atlético Nacional",
+          3,
+          0
+        ],
+        [
+          "2026-06-08",
+          "Atlético Nacional",
+          "Junior",
+          1,
+          0
+        ]
+      ],
+      "missing": "190 regular scores, annual reclassification and historical average baseline, sanctions and stable keys."
     }
   }
 ]

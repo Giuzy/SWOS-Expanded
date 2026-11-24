@@ -12,13 +12,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 200,
@@ -32,6 +31,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "EUROPE/ALB/2627/LEAGUE_DIVISION.json",
+        "row": 200,
+        "field": "sportRuleEvidence80"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -48,13 +58,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 203,
@@ -68,6 +77,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "SOUTH_AMERICA/ARG/2627/LEAGUE_DIVISION.json",
+        "row": 203,
+        "field": "block63Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -83,13 +103,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 211,
@@ -103,6 +122,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/AUT/2627/LEAGUE_DIVISION.json",
+        "row": 211,
+        "field": "block72Research"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -118,13 +148,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 219,
@@ -138,6 +167,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/BUL/2627/LEAGUE_DIVISION.json",
+        "row": 219,
+        "field": "sportRuleEvidence77"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -153,13 +193,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 223,
@@ -173,6 +212,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "SOUTH_AMERICA/COL/2627/LEAGUE_DIVISION.json",
+        "row": 223,
+        "field": "block99Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -188,13 +238,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 224,
@@ -208,6 +257,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "NORTH_AMERICA/CRC/2627/LEAGUE_DIVISION.json",
+        "row": 224,
+        "field": "block95Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -223,13 +283,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 226,
@@ -243,6 +302,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/CYP/2627/LEAGUE_DIVISION.json",
+        "row": 226,
+        "field": "sportRuleEvidence80"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -258,13 +328,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 227,
@@ -278,6 +347,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/CZE/2627/LEAGUE_DIVISION.json",
+        "row": 227,
+        "field": "block75Research"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -293,13 +373,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 228,
@@ -313,6 +392,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/DEN/2627/LEAGUE_DIVISION.json",
+        "row": 228,
+        "field": "block74Research"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -328,13 +418,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 229,
@@ -348,6 +437,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "SOUTH_AMERICA/ECU/2627/LEAGUE_DIVISION.json",
+        "row": 229,
+        "field": "block65Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -363,13 +463,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 238,
@@ -383,6 +482,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "EUROPE/FIN/2627/LEAGUE_DIVISION.json",
+        "row": 238,
+        "field": "block60Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -398,13 +508,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 247,
@@ -418,6 +527,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/GIB/2627/LEAGUE_DIVISION.json",
+        "row": 247,
+        "field": "block89Research"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -433,13 +553,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 248,
@@ -453,6 +572,25 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/GRE/2627/LEAGUE_DIVISION.json",
+        "row": 248,
+        "field": "block73Research"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "additionalFindings": {
+        "pointsCarryByRank": {
+          "1-4": "full",
+          "5-8": "half rounded up",
+          "9-14": "full"
+        },
+        "certainty": "secondary contemporary reports; federation statute not retrieved"
+      }
     }
   },
   {
@@ -468,13 +606,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 249,
@@ -488,6 +625,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "NORTH_AMERICA/GUA/2627/LEAGUE_DIVISION.json",
+        "row": 249,
+        "field": "block95Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -503,13 +651,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 250,
@@ -523,6 +670,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "NORTH_AMERICA/HON/2627/LEAGUE_DIVISION.json",
+        "row": 250,
+        "field": "block95Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -538,13 +696,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 256,
@@ -558,6 +715,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "EUROPE/ISL/2627/LEAGUE_DIVISION.json",
+        "row": 256,
+        "field": "sportRuleEvidence83"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -573,13 +741,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 257,
@@ -593,6 +760,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/ISR/2627/LEAGUE_DIVISION.json",
+        "row": 257,
+        "field": "sportRuleEvidence79"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -608,13 +786,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 261,
@@ -628,6 +805,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "ASIA/KOR/2627/LEAGUE_DIVISION.json",
+        "row": 261,
+        "field": "block65Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -643,13 +831,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 269,
@@ -663,6 +850,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "EUROPE/MDA/2627/LEAGUE_DIVISION.json",
+        "row": 269,
+        "field": "block88Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -678,13 +876,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 270,
@@ -698,6 +895,33 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "NORTH_AMERICA/MEX/2627/LEAGUE_DIVISION.json",
+        "row": 270,
+        "field": "block53Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "additionalFindings": {
+        "opening": "2026-07-16",
+        "quarterFinalDates": [
+          "2026-11-25",
+          "2026-11-26",
+          "2026-11-28",
+          "2026-11-29"
+        ],
+        "semiFinalDates": [
+          "2026-12-02",
+          "2026-12-03",
+          "2026-12-05",
+          "2026-12-06"
+        ],
+        "scope": "Published Apertura calendar; actual individual KO dates and club keys not certified."
+      }
     }
   },
   {
@@ -713,13 +937,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 271,
@@ -733,6 +956,24 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "NORTH_AMERICA/MEX/2627/LEAGUE_DIVISION.json",
+        "row": 271,
+        "field": "block53Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "additionalFindings": {
+        "openingWindow": [
+          "2026-07-24",
+          "2026-07-26"
+        ],
+        "scope": "Published round1 window."
+      }
     }
   },
   {
@@ -748,13 +989,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 273,
@@ -768,6 +1008,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/MLT/2627/LEAGUE_DIVISION.json",
+        "row": 273,
+        "field": "sportRuleEvidence81"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -783,13 +1034,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 277,
@@ -803,6 +1053,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/NIR/2627/LEAGUE_DIVISION.json",
+        "row": 277,
+        "field": "sportRuleEvidence82"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -818,13 +1079,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 282,
@@ -838,6 +1098,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "NORTH_AMERICA/PAN/2627/LEAGUE_DIVISION.json",
+        "row": 282,
+        "field": "block95Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -854,13 +1125,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 283,
@@ -874,6 +1144,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "SOUTH_AMERICA/PAR/2627/LEAGUE_DIVISION.json",
+        "row": 283,
+        "field": "block63Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -889,13 +1170,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 284,
@@ -909,6 +1189,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "SOUTH_AMERICA/PER/2627/LEAGUE_DIVISION.json",
+        "row": 284,
+        "field": "block63Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -924,13 +1215,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 289,
@@ -944,6 +1234,46 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/ROU/2627/LEAGUE_DIVISION.json",
+        "row": 289,
+        "field": "block76Research"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "additionalFindings": {
+        "playoutDirectRelegationRanks": [
+          9,
+          10
+        ],
+        "promotionPlayoffPairs": [
+          [
+            "tier2 rank3",
+            "playout rank8"
+          ],
+          [
+            "tier2 rank4",
+            "playout rank7"
+          ]
+        ],
+        "nominalSplitStart": [
+          "2027-03-20",
+          "2027-03-21"
+        ],
+        "nominalChampionshipRound10": [
+          "2027-05-29",
+          "2027-05-30"
+        ],
+        "winterResume": [
+          "2027-01-16",
+          "2027-01-17"
+        ],
+        "certainty": "FRF 2026/27 scheduling and tier2 official announcement confirm pairings, dates; direct bottom two corroborated by contemporary secondary reporting; legs and detailed tiebreak not independently confirmed"
+      }
     }
   },
   {
@@ -959,13 +1289,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 292,
@@ -979,6 +1308,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/SCO/2627/LEAGUE_DIVISION.json",
+        "row": 292,
+        "field": "block71Research"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -994,13 +1334,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "NOT_APPLICABLE_NO_LEAGUE_SPLIT",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 293,
@@ -1014,6 +1353,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "EUROPE/SCO/2627/LEAGUE_DIVISION.json",
+        "row": 293,
+        "field": "block71Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Four round robins (36 matches); no split. Promotion/relegation playoffs are separate phase specifications. Do not instantiate a split.",
+      "status": "TECHNICAL_SPEC_NOT_APPLICABLE"
     }
   },
   {
@@ -1029,13 +1379,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "NOT_APPLICABLE_NO_LEAGUE_SPLIT",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 294,
@@ -1049,6 +1398,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "EUROPE/SCO/2627/LEAGUE_DIVISION.json",
+        "row": 294,
+        "field": "block71Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Four round robins (36 matches); no split. Promotion/relegation playoffs are separate phase specifications. Do not instantiate a split.",
+      "status": "TECHNICAL_SPEC_NOT_APPLICABLE"
     }
   },
   {
@@ -1064,13 +1424,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "NOT_APPLICABLE_NO_LEAGUE_SPLIT",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 295,
@@ -1084,6 +1443,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "EUROPE/SCO/2627/LEAGUE_DIVISION.json",
+        "row": 295,
+        "field": "block71Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Four round robins (36 matches); no split. Promotion/relegation playoffs are separate phase specifications. Do not instantiate a split.",
+      "status": "TECHNICAL_SPEC_NOT_APPLICABLE"
     }
   },
   {
@@ -1099,13 +1469,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 296,
@@ -1119,6 +1488,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "NORTH_AMERICA/SLV/2627/LEAGUE_DIVISION.json",
+        "row": 296,
+        "field": "block95Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -1134,13 +1514,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 302,
@@ -1154,6 +1533,21 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/SRB/2627/LEAGUE_DIVISION.json",
+        "row": 302,
+        "field": "sportRuleEvidence78"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "additionalFindings": {
+        "pointsCarry": "full",
+        "certainty": "contemporary secondary sporting format reporting, not full federation statute"
+      }
     }
   },
   {
@@ -1169,13 +1563,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 303,
@@ -1189,6 +1582,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/SUI/2627/LEAGUE_DIVISION.json",
+        "row": 303,
+        "field": "block72Research"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -1204,13 +1608,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 305,
@@ -1224,6 +1627,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/SVK/2627/LEAGUE_DIVISION.json",
+        "row": 305,
+        "field": "block75Research"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -1239,13 +1653,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 315,
@@ -1259,6 +1672,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "SOUTH_AMERICA/URU/2627/LEAGUE_DIVISION.json",
+        "row": 315,
+        "field": "block99Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -1274,13 +1698,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 317,
@@ -1294,6 +1717,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block99Research": {
+      "edition": "2026 reference edition",
+      "parentEvidence": {
+        "path": "NORTH_AMERICA/USA/2627/LEAGUE_DIVISION.json",
+        "row": 317,
+        "field": "block66Research"
+      },
+      "identity": "Same parent league and edition; no duplicate entrants, results or independent snapshot.",
+      "scope": "Existing parent phase evidence referenced rather than copied. Phase labels, format and regulation partial; no runtime import.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -1309,13 +1743,12 @@
     ],
     "coverage": "PARENT_LEAGUE_RESEARCH_LINKED",
     "review": {
-      "sportRules": "PARENT_RESEARCH_AVAILABLE_SPLIT_FIELDS_NOT_ALL_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME"
     },
     "knownNativeMissing": null,
     "parentLeagueRow": 319,
@@ -1329,6 +1762,17 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block98Research": {
+      "edition": "2026/27",
+      "parentEvidence": {
+        "path": "EUROPE/WAL/2627/LEAGUE_DIVISION.json",
+        "row": 319,
+        "field": "sportRuleEvidence82"
+      },
+      "identity": "Phase of the parent league, not independent competition; use same participants and edition, rank partition only.",
+      "scope": "Existing phase rules referenced, not copied; individual match dates, keys and full match rules not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

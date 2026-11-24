@@ -12,13 +12,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -35,14 +35,52 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Campeonato Uruguayo de Primera División",
+      "nonCommercialDisplayName": "Campeonato Uruguayo de Primera División",
       "candidateName": "Primera División",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block99Research": {
+      "edition": "1996",
+      "rules": {
+        "teams": 12,
+        "aperturaGames": 11,
+        "clausuraGames": 11,
+        "titlePlayoffLegs": 2,
+        "participants": "Apertura and Clausura winners",
+        "directRelegated": 2,
+        "promotionPlayoffRank": 10,
+        "opponentTier2Rank": 3,
+        "playoffLegs": 2,
+        "liguillaAccess": "phase winners plus six from Torneo Nacional (7 AUF and 9 OFI entrants)"
+      },
+      "dates": {
+        "nominalOpening": "1996-03-24",
+        "nominalClausuraStart": "1996-08-11"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "1996 single annual title; 1997 rule differs. Exact effective date of Cerro five-point deduction not known."
+    },
+    "startResearch": {
+      "cutoff": "1996-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 1
+      },
+      "observedMatches": [
+        [
+          "1996-05-12",
+          "Peñarol",
+          "Nacional",
+          2,
+          0
+        ]
+      ],
+      "missing": "Full date-level results and effective sanction date. Final Apertura table not used as cutoff until exact completion date verified."
     }
   },
   {
@@ -58,13 +96,13 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -81,14 +119,31 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Segunda División",
+      "nonCommercialDisplayName": "Segunda División",
       "candidateName": "Segunda División",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block99Research": {
+      "edition": "1996",
+      "rules": {
+        "teams": 12,
+        "gamesPerClub": 22,
+        "directPromotionRanks": [
+          1,
+          2
+        ],
+        "promotionPlayoffRank": 3,
+        "opponentTier1Rank": 10,
+        "playoffLegs": 2,
+        "directRelegated": 2
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Full season table supports structure, date of commencement and cutoff results not yet established."
     }
   }
 ]

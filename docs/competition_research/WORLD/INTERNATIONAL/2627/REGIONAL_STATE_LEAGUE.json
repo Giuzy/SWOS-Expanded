@@ -12,25 +12,67 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Campeonato Paulista",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Campeonato Paulista",
+      "nonCommercialDisplayName": "Campeonato Paulista",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block97Research": {
+      "edition": "2026",
+      "clubs": 16,
+      "openingDateObservedOrAnnounced": "2026-01-10",
+      "completedDateOrWindow": "2026-03-08",
+      "previousEditionArchive": {
+        "edition": "2026",
+        "champion": "Palmeiras",
+        "runnerUp": "Novorizontino",
+        "purpose": "Minimal prior-edition viewer and qualification history; no active July snapshot."
+      },
+      "initial": {
+        "pots": 4,
+        "clubsPerPot": 4,
+        "rounds": 8,
+        "table": "single",
+        "matches": 64
+      },
+      "knockout": {
+        "qualifiers": 8,
+        "quarterfinalLegs": 1,
+        "semifinalLegs": 1,
+        "finalLegs": 2
+      },
+      "relegation": 2,
+      "access": {
+        "copaDoBrasil2027": "top5 final table",
+        "serieD2027": "top3 eligible clubs not already in A/B/C"
+      },
+      "previous": "2017–2025 four-group format replaced in 2026",
+      "announced2027": {
+        "commercialName": "Paulistão Sil",
+        "start": "2027-01-10",
+        "endPlanned": "2027-03-07",
+        "clubs": 16,
+        "rounds": 8,
+        "finalLegs": "not settled at Nov10 launch; two legs requested",
+        "halfTimeMinutes": 18
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "2026 state competition sporting format; actual club IDs, all match dates, full tiebreak and access rules not reconciled. 2027 announced exceptions research only, no change to game template.",
+      "commercialName": "Paulistão Casas Bahia"
     }
   },
   {
@@ -46,25 +88,58 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Campeonato Carioca",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Campeonato Carioca",
+      "nonCommercialDisplayName": "Campeonato Carioca",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block97Research": {
+      "edition": "2026",
+      "clubs": 12,
+      "openingDateObservedOrAnnounced": "2026-01-11",
+      "completedDateOrWindow": "2026-03-08",
+      "previousEditionArchive": {
+        "edition": "2026",
+        "champion": "Flamengo",
+        "runnerUp": "Fluminense",
+        "purpose": "Minimal prior-edition viewer and qualification history; no active July snapshot."
+      },
+      "initial": {
+        "groups": 2,
+        "clubsPerGroup": 6,
+        "opponents": "other group",
+        "rounds": 6,
+        "qualifiersPerGroup": 4,
+        "firstMatch": "advanced round5 fixture Flamengo v Portuguesa"
+      },
+      "knockout": {
+        "quarterfinalLegs": 1,
+        "quarterfinalPairs": "same group 1v4,2v3",
+        "semifinalLegs": 2,
+        "finalLegs": 1
+      },
+      "relegation": {
+        "clubs": 4,
+        "rounds": 6,
+        "down": 1
+      },
+      "secondaryTrophy": "Taça Rio for QF losers",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "2026 state competition sporting format; actual club IDs, all match dates, full tiebreak and access rules not reconciled. 2027 announced exceptions research only, no change to game template."
     }
   },
   {
@@ -80,25 +155,63 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Campeonato Mineiro",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Campeonato Mineiro",
+      "nonCommercialDisplayName": "Campeonato Mineiro",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block97Research": {
+      "edition": "2026",
+      "clubs": 12,
+      "openingDateObservedOrAnnounced": "2026-01-10",
+      "completedDateOrWindow": "2026-03-08",
+      "previousEditionArchive": {
+        "edition": "2026",
+        "champion": "Cruzeiro",
+        "runnerUp": "Atlético-MG",
+        "purpose": "Minimal prior-edition viewer and qualification history; no active July snapshot."
+      },
+      "initial": {
+        "groups": 3,
+        "clubsPerGroup": 4,
+        "rounds": 8,
+        "opponents": "other groups",
+        "qualifiers": "three leaders and best second"
+      },
+      "knockout": {
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "tiebreak": "penalties on aggregate tie"
+      },
+      "relegation": "two worst group-bottom clubs",
+      "secondaryTrophy": "Troféu Inconfidência ranks5–8",
+      "announced2027": {
+        "groups": 2,
+        "clubsPerGroup": 6,
+        "opponents": "other group",
+        "rounds": 6,
+        "quarterfinalWindow": [
+          "2027-01-31",
+          "2027-02-06"
+        ],
+        "scope": "later announced format; not adopted automatically as game template"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "2026 state competition sporting format; actual club IDs, all match dates, full tiebreak and access rules not reconciled. 2027 announced exceptions research only, no change to game template."
     }
   },
   {
@@ -114,25 +227,60 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Campeonato Gaucho",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Campeonato Gaúcho",
+      "nonCommercialDisplayName": "Campeonato Gaúcho",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block97Research": {
+      "edition": "2026",
+      "clubs": 12,
+      "openingDateObservedOrAnnounced": "2026-01-10",
+      "completedDateOrWindow": "2026-03-08",
+      "previousEditionArchive": {
+        "edition": "2026",
+        "champion": "Grêmio",
+        "runnerUp": "Internacional",
+        "purpose": "Minimal prior-edition viewer and qualification history; no active July snapshot."
+      },
+      "initial": {
+        "groups": 2,
+        "clubsPerGroup": 6,
+        "rounds": 6,
+        "opponents": "other group",
+        "qualifiersPerGroup": 4
+      },
+      "knockout": {
+        "quarterfinalLegs": 1,
+        "quarterfinalPairs": "same group 1v4,2v3",
+        "semifinalLegs": 2,
+        "finalLegs": 2
+      },
+      "relegation": {
+        "clubs": 4,
+        "rounds": 6,
+        "down": 2
+      },
+      "secondaryTrophy": "Taça Farroupilha QF losers, two-leg semifinals and final, Copa do Brasil2027 place",
+      "previous": "2025 three groups of four; 2026 two groups of six",
+      "startCertainty": "announced Jan10/11 window; individual first game not certified",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "2026 state competition sporting format; actual club IDs, all match dates, full tiebreak and access rules not reconciled. 2027 announced exceptions research only, no change to game template.",
+      "commercialName": "Gauchão Superbet"
     }
   },
   {
@@ -148,25 +296,73 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Campeonato Alagoano",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Campeonato Alagoano Série A",
+      "nonCommercialDisplayName": "Campeonato Alagoano Série A",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block97Research": {
+      "edition": "2026",
+      "clubs": 8,
+      "openingDateObservedOrAnnounced": "2026-01-10",
+      "completedDateOrWindow": [
+        "2026-03-07",
+        "2026-03-08"
+      ],
+      "previousEditionArchive": {
+        "edition": "2026",
+        "champion": "CRB",
+        "runnerUp": "ASA",
+        "purpose": "Minimal prior-edition viewer and qualification history; no active July snapshot."
+      },
+      "initial": {
+        "rounds": 7,
+        "cycles": 1,
+        "qualifiers": 4
+      },
+      "knockout": {
+        "semifinalLegs": 2,
+        "finalLegs": 2,
+        "tiebreak": "penalties on aggregate tie"
+      },
+      "relegation": 1,
+      "participants": [
+        "CRB",
+        "ASA",
+        "CSA",
+        "Coruripe",
+        "CSE",
+        "Penedense",
+        "Cruzeiro",
+        "Guarany Alagoano"
+      ],
+      "historical1996": {
+        "clubs": 12,
+        "aggregateRegularGames": 22,
+        "down": 4,
+        "firstMatch": "1996-03-10",
+        "titleDecision": [
+          "1996-07-28",
+          "1996-08-01"
+        ],
+        "scope": "historical observation only; no corresponding 9697 state row, no winner imported at July1"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "2026 state competition sporting format; actual club IDs, all match dates, full tiebreak and access rules not reconciled. 2027 announced exceptions research only, no change to game template."
     }
   },
   {
@@ -182,25 +378,58 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Campeonato Baiano",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Campeonato Baiano",
+      "nonCommercialDisplayName": "Campeonato Baiano",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block97Research": {
+      "edition": "2026",
+      "clubs": 10,
+      "openingDateObservedOrAnnounced": "2026-01-10",
+      "completedDateOrWindow": [
+        "2026-03-07",
+        "2026-03-08"
+      ],
+      "previousEditionArchive": {
+        "edition": "2026",
+        "champion": "Bahia",
+        "runnerUp": "Vitória",
+        "purpose": "Minimal prior-edition viewer and qualification history; no active July snapshot."
+      },
+      "initial": {
+        "cycles": 1,
+        "rounds": 9,
+        "qualifiers": 4
+      },
+      "knockout": {
+        "semifinalLegs": 1,
+        "finalLegs": 1,
+        "tiebreak": "penalties"
+      },
+      "access": {
+        "copaDoNordeste2027": "champion and runner-up"
+      },
+      "historical1996": {
+        "champion": "Vitória",
+        "scope": "historical edition archive only; no mapped 9697 state row, exact cutoff not evaluated"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "2026 state competition sporting format; actual club IDs, all match dates, full tiebreak and access rules not reconciled. 2027 announced exceptions research only, no change to game template."
     }
   },
   {
@@ -216,25 +445,67 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Campeonato Cearense",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Campeonato Cearense Série A",
+      "nonCommercialDisplayName": "Campeonato Cearense Série A",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block97Research": {
+      "edition": "2026",
+      "clubs": 10,
+      "openingDateObservedOrAnnounced": "2026-01-06",
+      "completedDateOrWindow": [
+        "2026-03-07",
+        "2026-03-08"
+      ],
+      "previousEditionArchive": {
+        "edition": "2026",
+        "champion": "Fortaleza",
+        "purpose": "Minimal prior-edition viewer and qualification history; no active July snapshot."
+      },
+      "initial": {
+        "groups": 2,
+        "clubsPerGroup": 5,
+        "rounds": 5,
+        "gamesPerClub": 4,
+        "opponents": "same group",
+        "qualifiersPerGroup": 3
+      },
+      "second": {
+        "groups": 2,
+        "clubsPerGroup": 3,
+        "gamesPerClub": 3,
+        "opponents": "other group",
+        "qualifiersPerGroup": 2
+      },
+      "knockout": {
+        "semifinalLegs": 2,
+        "semifinalPairs": "same group 1v2",
+        "finalLegs": 2,
+        "thirdPlace": true,
+        "fifthPlace": "two last teams of stage2, Série D2027 place"
+      },
+      "relegation": "bottom two per initial group to permanence quadrangular",
+      "previous": "third-place match introduced 2025; 2026 new formula after three seasons",
+      "announced2027": {
+        "status": "new format approved Oct16; precise full format not extracted"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "2026 state competition sporting format; actual club IDs, all match dates, full tiebreak and access rules not reconciled. 2027 announced exceptions research only, no change to game template."
     }
   },
   {
@@ -250,25 +521,60 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Campeonato Goiano",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Campeonato Goiano de Profissionais da 1ª Divisão",
+      "nonCommercialDisplayName": "Campeonato Goiano de Profissionais da 1ª Divisão",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block97Research": {
+      "edition": "2026",
+      "clubs": 12,
+      "openingDateObservedOrAnnounced": "2026-01-11",
+      "completedDateOrWindow": "2026-03-15",
+      "previousEditionArchive": {
+        "edition": "2026",
+        "champion": "Goiás",
+        "runnerUp": "Atlético-GO",
+        "purpose": "Minimal prior-edition viewer and qualification history; no active July snapshot."
+      },
+      "initial": {
+        "groups": 3,
+        "clubsPerGroup": 4,
+        "rounds": 8,
+        "opponents": "other groups",
+        "qualifiers": 8,
+        "table": "single overall"
+      },
+      "knockout": {
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 2
+      },
+      "relegation": "rank12 direct, ranks10 and11 two-leg retention playoff",
+      "placement": "separate rank5–8 playoff, exact pairing rules pending",
+      "startCertainty": "Jan11 conditional announced start; exact first fixture pending",
+      "announced2027": {
+        "startPlanned": "2027-01-06",
+        "endPlanned": "2027-03-07",
+        "status": "new groups and format announced Nov12; exact details pending"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "2026 state competition sporting format; actual club IDs, all match dates, full tiebreak and access rules not reconciled. 2027 announced exceptions research only, no change to game template.",
+      "commercialName": "Goianão Novo Mundo"
     }
   },
   {
@@ -284,25 +590,62 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Campeonato Mato-Grossense",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Campeonato Mato-grossense",
+      "nonCommercialDisplayName": "Campeonato Mato-grossense",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block97Research": {
+      "edition": "2026",
+      "clubs": 10,
+      "openingDateObservedOrAnnounced": "2026-01-10",
+      "completedDateOrWindow": [
+        "2026-03-07",
+        "2026-03-08"
+      ],
+      "previousEditionArchive": {
+        "edition": "2026",
+        "champion": "Mixto",
+        "runnerUp": "Luverdense",
+        "purpose": "Minimal prior-edition viewer and qualification history; no active July snapshot."
+      },
+      "initial": {
+        "cycles": 1,
+        "rounds": 9,
+        "qualifiers": 6,
+        "semifinalByes": 2
+      },
+      "knockout": {
+        "quarterfinalLegs": 1,
+        "quarterfinalPairs": "3v6,4v5",
+        "semifinalLegs": 2,
+        "finalLegs": 2
+      },
+      "relegation": 2,
+      "announced2027": {
+        "start": "2027-01-09",
+        "access": {
+          "serieD2028": "two finalists",
+          "copaDoBrasil2028": "top3"
+        },
+        "scope": "later announcement, detailed format pending"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "2026 state competition sporting format; actual club IDs, all match dates, full tiebreak and access rules not reconciled. 2027 announced exceptions research only, no change to game template."
     }
   },
   {
@@ -318,25 +661,67 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Campeonato Paraense",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Campeonato Paraense Série A1",
+      "nonCommercialDisplayName": "Campeonato Paraense Série A1",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block97Research": {
+      "edition": "2026",
+      "clubs": 12,
+      "openingDateObservedOrAnnounced": "2026-01-24",
+      "completedDateOrWindow": [
+        "2026-03-07",
+        "2026-03-08"
+      ],
+      "previousEditionArchive": {
+        "edition": "2026",
+        "champion": "Paysandu",
+        "runnerUp": "Remo",
+        "purpose": "Minimal prior-edition viewer and qualification history; no active July snapshot."
+      },
+      "initial": {
+        "groups": 2,
+        "clubsPerGroup": 6,
+        "rounds": 6,
+        "opponents": "other group",
+        "table": "single overall",
+        "qualifiers": 8
+      },
+      "knockout": {
+        "quarterfinalLegs": 1,
+        "semifinalLegs": 1,
+        "finalLegs": 2,
+        "quarterfinalPairs": "1v8,2v7,3v6,4v5"
+      },
+      "relegation": 2,
+      "totalMatches": 44,
+      "startCertainty": "late January opening following guide Jan22; date Jan24 provisional",
+      "previous": "2025 56 matches/12 dates reduced to 44/10",
+      "announced2027": {
+        "start": "2027-01-09",
+        "clubs": 12,
+        "qualifiers": 8,
+        "relegation": 2,
+        "quarterfinalLegs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "2026 state competition sporting format; actual club IDs, all match dates, full tiebreak and access rules not reconciled. 2027 announced exceptions research only, no change to game template.",
+      "commercialName": "Parazão Banpará"
     }
   },
   {
@@ -352,25 +737,62 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Campeonato Pernambucano",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Campeonato Pernambucano Série A1",
+      "nonCommercialDisplayName": "Campeonato Pernambucano Série A1",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block97Research": {
+      "edition": "2026",
+      "clubs": 8,
+      "openingDateObservedOrAnnounced": "2026-01-09",
+      "completedDateOrWindow": [
+        "2026-03-07",
+        "2026-03-08"
+      ],
+      "previousEditionArchive": {
+        "edition": "2026",
+        "champion": "Sport",
+        "runnerUp": "Náutico",
+        "purpose": "Minimal prior-edition viewer and qualification history; no active July snapshot."
+      },
+      "initial": {
+        "rounds": 7,
+        "cycles": 1,
+        "qualifiers": 6,
+        "semifinalByes": 2
+      },
+      "knockout": {
+        "quarterfinalLegs": 2,
+        "quarterfinalPairs": "3v6,4v5",
+        "semifinalLegs": 2,
+        "finalLegs": 2
+      },
+      "movement": "7th remains for 2027 second turn; 8th assigned to preliminary first turn originally planned H2 2026; do not treat as direct relegation",
+      "access": {
+        "copaDoBrasil2027": 4,
+        "serieD2027": 2,
+        "copaDoNordeste2027": "champion and runner-up"
+      },
+      "announced2027": {
+        "status": "May5 first-turn October plan with 3 qualifying; Nov24 report second-stage? opening Jan2; edition phase schedule unresolved, do not mark pre-July started"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "2026 state competition sporting format; actual club IDs, all match dates, full tiebreak and access rules not reconciled. 2027 announced exceptions research only, no change to game template."
     }
   },
   {
@@ -386,25 +808,62 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Campeonato Paranaense",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Campeonato Paranaense",
+      "nonCommercialDisplayName": "Campeonato Paranaense",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block97Research": {
+      "edition": "2026",
+      "clubs": 12,
+      "openingDateObservedOrAnnounced": "2026-01-06",
+      "completedDateOrWindow": [
+        "2026-03-07",
+        "2026-03-08"
+      ],
+      "previousEditionArchive": {
+        "edition": "2026",
+        "champion": "Operário Ferroviário",
+        "purpose": "Minimal prior-edition viewer and qualification history; no active July snapshot."
+      },
+      "initial": {
+        "groups": 2,
+        "clubsPerGroup": 6,
+        "rounds": 6,
+        "opponents": "other group",
+        "qualifiersPerGroup": 4
+      },
+      "knockout": {
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 2
+      },
+      "relegation": {
+        "clubs": 4,
+        "pairs": "1v4,2v3 by initial performance",
+        "legs": 2,
+        "down": 2
+      },
+      "announced2027": {
+        "startPlanned": "2027-01-06",
+        "scope": "table released Nov23; possible Copa do Brasil clash adjustment"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "2026 state competition sporting format; actual club IDs, all match dates, full tiebreak and access rules not reconciled. 2027 announced exceptions research only, no change to game template."
     }
   },
   {
@@ -420,25 +879,63 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Campeonato Catarinense",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "officialName": "Campeonato Catarinense",
+      "nonCommercialDisplayName": "Campeonato Catarinense",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block97Research": {
+      "edition": "2026",
+      "clubs": 12,
+      "openingDateObservedOrAnnounced": "2026-01-06",
+      "completedDateOrWindow": "2026-03-08",
+      "previousEditionArchive": {
+        "edition": "2026",
+        "champion": "Barra",
+        "runnerUp": "Chapecoense",
+        "purpose": "Minimal prior-edition viewer and qualification history; no active July snapshot."
+      },
+      "initial": {
+        "groups": 2,
+        "clubsPerGroup": 6,
+        "qualifiersPerGroup": 4
+      },
+      "knockout": {
+        "quarterfinalPairs": "same group 1v4,2v3",
+        "finalLegs": 2
+      },
+      "relegation": {
+        "clubs": 4,
+        "down": 3
+      },
+      "announced2027": {
+        "clubs": 10,
+        "cycles": 1,
+        "rounds": 9,
+        "relegation": 2,
+        "quadrangular": false,
+        "start": "2027-01-09",
+        "endPlanned": "2027-03-07",
+        "finalLegs": "conditional/unresolved depending on Criciúma calendar",
+        "scope": "official Nov23 announcement; future real edition distinct from game template"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "2026 state competition sporting format; actual club IDs, all match dates, full tiebreak and access rules not reconciled. 2027 announced exceptions research only, no change to game template.",
+      "commercialName": "Catarinense Fort Atacadista"
     }
   }
 ]

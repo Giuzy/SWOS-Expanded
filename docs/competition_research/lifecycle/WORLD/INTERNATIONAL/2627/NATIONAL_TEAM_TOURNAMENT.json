@@ -35,13 +35,17 @@
       "row": 530,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "FORMAT_EDITION_OBSERVED_COMPETITION_CONTINUES",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "2024",
+      "format_valid_until": "2024",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "transitionRefs": [
+        47,
+        729
+      ]
     }
   },
   {
@@ -65,13 +69,20 @@
       "row": 532,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "FORMAT_EDITION_OBSERVED_COMPETITION_CONTINUES",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "2025",
+      "format_valid_until": "2025",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "transitionRefs": [
+        44,
+        45,
+        361,
+        726,
+        727
+      ]
     }
   },
   {
@@ -95,13 +106,17 @@
       "row": 534,
       "active_from": null,
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "FORMAT_EDITION_OBSERVED_COMPETITION_CONTINUES",
       "inactivePeriods": [],
-      "format_valid_from": null,
-      "format_valid_until": null,
+      "format_valid_from": "2024",
+      "format_valid_until": "2024",
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "transitionRefs": [
+        49,
+        728
+      ]
     }
   }
 ]

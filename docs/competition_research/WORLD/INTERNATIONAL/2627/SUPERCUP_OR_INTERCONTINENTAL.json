@@ -47,13 +47,53 @@
           "2026-02-26"
         ],
         "regulationArticle": 13,
-        "matchMinutes": 90
+        "matchMinutes": 90,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "tieBreakOrder": [
+          "goal difference",
+          "30 minutes extra time in return leg",
+          "penalties"
+        ],
+        "awayGoals": false,
+        "substitutions": 5,
+        "extraTimeAdditionalSubstitution": 1,
+        "concussionSubstitution": 1,
+        "opponentAdditionalSubstitutionOnConcussion": true,
+        "benchMax": 12,
+        "rosterMax": 50,
+        "provisionalRosterPlayersMax": 5,
+        "clubLicenseRequired": true,
+        "nationalRegistrationRequiredToPlay": true
       },
       "sources": [
         "https://cdn.conmebol.com/wp-content/uploads/2026/02/Reglamento-CONMEBOL-Recopa-2026.pdf"
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "limitations": "Search excerpts only; PDF art 11–15 extracted by search, not full document; 2020 FIFA obsolete final format excluded."
+      "limitations": "Articles 11–17,25–27,64,67 and registration calendar checked in regulation text; screenshot unavailable. Actual two fixtures confirmed by club and AFA. 2026 is completed reference edition, not a pre-start active state; 2027 calendar not certified. Complete disciplinary code and native club keys pending.",
+      "referenceCalendar": {
+        "edition": "2026",
+        "status": "FULL_REFERENCE_EDITION_DATES_AND_PAIRINGS_VERIFIED",
+        "fixtures": [
+          {
+            "date": "2026-02-19",
+            "home": "Lanús",
+            "away": "Flamengo",
+            "venue": "Estadio Ciudad de Lanús"
+          },
+          {
+            "date": "2026-02-26",
+            "home": "Flamengo",
+            "away": "Lanús",
+            "venue": "Maracanã"
+          }
+        ],
+        "dateConvention": "venue local dates; UTC following day",
+        "futurePolicy": "GAME_TEMPLATE_2026; 2027 official dates not established; entrants derived from previous Libertadores and Sudamericana winners"
+      }
     }
   },
   {
@@ -71,7 +111,7 @@
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
-      "actualDates": "NOT_RECONCILED",
+      "actualDates": "FULL_HISTORICAL_FIXTURE_DATES_VERIFIED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
@@ -103,10 +143,17 @@
           "previous CAF Champions League winner",
           "previous CAF Confederation Cup winner"
         ],
-        "host": "normally Champions League winner, alternate/neutral permitted by CAF"
+        "host": "normally Champions League winner, alternate/neutral permitted by CAF",
+        "normalMinutes": 90,
+        "drawResolution": "direct penalties after 90 minutes, no extra time",
+        "venueFallback": "CAF may authorize neutral site or Confederation Cup holder's capital if normal host cannot stage",
+        "annual": true
       },
       "dates": {
-        "fixture": "2026-11-08"
+        "fixture": "2026-11-08",
+        "venue": "Loftus Versfeld Stadium, Pretoria",
+        "localKickoff": "15:00",
+        "verification": "ACTUAL_MATCH_CONFIRMED_PREVIEW_AND_POSTMATCH_REPORT"
       },
       "participantEvidence": {
         "home": "Mamelodi Sundowns",
@@ -115,7 +162,24 @@
       },
       "note": "No November result stored; entrants verified by prior edition winners, not a July sporting snapshot.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "checked": "2026-11-24"
+      "checked": "2026-11-24",
+      "regulationEvidence2019": {
+        "chapter": "XXV",
+        "approvalDate": "2019-07-17",
+        "playerEligibility": "players qualified for the club at match date and included on its new CAF competition list",
+        "listSubmission": {
+          "players": 18,
+          "minimumDaysBeforeMatch": 15
+        },
+        "refusal": "cannot defend title; excluded from three editions for which otherwise qualified; fine imposed on association",
+        "scope": "Historical published regulation, full applicability of administrative and roster provisions in 2026 not independently verified; do not infer current substitution count."
+      },
+      "calendarVerification": {
+        "status": "FULL_HISTORICAL_FIXTURE_DATES_AND_PAIRINGS_RECONCILED",
+        "expectedMatches": 1,
+        "fixtureRef": "dates.fixture + participantEvidence",
+        "scope": "Single actual match verified. Participants are historical names, native keys not certified. No result imported."
+      }
     }
   },
   {
@@ -163,42 +227,76 @@
             "teams": [
               "AFC",
               "OFC"
-            ]
+            ],
+            "date": "2026-08-26",
+            "venue": "King Abdullah Sports City, Jeddah",
+            "dateStatus": "ACTUAL_MATCH_CONFIRMED"
           },
           {
             "name": "Africa-Asia-Pacific Cup",
             "teams": [
               "playoff winner",
               "CAF"
-            ]
+            ],
+            "date": "2026-09-19",
+            "venue": "Loftus Versfeld Stadium, Pretoria",
+            "dateStatus": "ACTUAL_MATCH_CONFIRMED"
           },
           {
             "name": "Derby of the Americas",
             "teams": [
               "CONCACAF",
               "CONMEBOL"
-            ]
+            ],
+            "date": "2026-12-09",
+            "venue": "Jassim Bin Hamad Stadium, Doha",
+            "dateStatus": "OFFICIALLY_SCHEDULED_AS_OF_2026-11-24"
           },
           {
             "name": "Challenger Cup",
             "teams": [
               "Africa-Asia-Pacific winner",
               "Americas winner"
-            ]
+            ],
+            "date": "2026-12-12",
+            "venue": "Jassim Bin Hamad Stadium, Doha",
+            "dateStatus": "OFFICIALLY_SCHEDULED_AS_OF_2026-11-24"
           },
           {
             "name": "Intercontinental Cup final",
             "teams": [
               "Challenger winner",
               "UEFA"
-            ]
+            ],
+            "date": "2026-12-16",
+            "venue": "Ahmad Bin Ali Stadium, Al Rayyan",
+            "dateStatus": "OFFICIALLY_SCHEDULED_AS_OF_2026-11-24"
           }
         ],
         "legsEach": 1,
-        "editionRotation": "African/Asian/Pacific route and hosts vary by edition, do not assume 2026 ordering is perpetual"
+        "editionRotation": "African/Asian/Pacific route and hosts vary by edition, do not assume 2026 ordering is perpetual",
+        "ofcEligibleClub": "Highest-placed OFC member-association territory club if Australian participant wins the OFC Professional League",
+        "ofcRuleVersion": "OFC Pro League regulations edition 2026, art.7.1–7.3, for 2027 competition; 2026 Australian club ineligibility confirmed separately by OFC before final."
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "scope": "FIFA announced route; OFC access specifically changed. No initial snapshot before kickoff."
+      "scope": "2026 official stage schedule and five known entry routes; OFC Pro League champion is eligible, not OFC Champions League holder. FIFA summary mislabels Auckland FC's route; specific FIFA qualification announcement and OFC rule clarify. Mapping of native slot and game keys remains unverified. No July playing state before August start.",
+      "observedHistoricalEntrantNamesByRoute": {
+        "AFC": "Al Ahli FC",
+        "OFC": "Auckland FC",
+        "CAF": "Mamelodi Sundowns FC",
+        "CONCACAF": "Toluca FC",
+        "UEFA": "Paris Saint-Germain",
+        "CONMEBOL": null
+      },
+      "remainingEntrant": "CONMEBOL Libertadores 2026 winner; final scheduled 2026-11-28, unknown at research date",
+      "officialNameObserved": "FIFA Intercontinental Cup",
+      "scheduleVerification": {
+        "scheduledDatesVerified": 5,
+        "playedDatesVerified": 2,
+        "totalMatches": 5,
+        "status": "FULL_OFFICIAL_STAGE_SCHEDULE_ACTUAL_EDITION_INCOMPLETE",
+        "scope": "No final actual-date certification yet; three matches future. Later round competitors use winner slots, no actual scores or winners of post-cutoff games imported. Future editions use approved template, not official predicted dates."
+      }
     }
   }
 ]

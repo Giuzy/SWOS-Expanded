@@ -1,6 +1,6 @@
 {
-  "lastPreparedBlock": 119,
-  "baseHead": "8a0f442c648368e6b711a135ff769796dcb4a105",
+  "lastPreparedBlock": 123,
+  "baseHead": "48055a51d5e40e8b293f7cd1c04fa9c567a405bc",
   "status": "INITIAL_EXPLICIT_REGISTER_LOWER_BOUND_NOT_EXHAUSTIVE",
   "policy": "Unique concrete conflicts, identity/slot mismatches or metric inconsistency only. Do not count ordinary missing fields or unresolved applicability as anomalies. Do not resolve conflicts by guessing; merge duplicates in final review. Increment when a distinct case is identified.",
   "openCount": 33,
@@ -415,6 +415,17 @@
       "description": "UCL qualifying IFK Göteborg–Ferencváros 7 August 1996: Norrköpings Idrottsparken versus Ullevi in second match archive; date/pair agreed, venue not certified",
       "rows": [
         165
+      ],
+      "status": "RESOLVED_RESEARCH_VERIFIED",
+      "resolution": "Norrköpings Idrottspark, 7 Aug 1996; disciplinary relocation after crowd trouble in previous season qualifier against Legia Warszawa. Contemporary match report corroborates club historical archive and competition round archive. Date unchanged.",
+      "resolvedBlock": 120
+    },
+    {
+      "id": "A034",
+      "type": "DATE_CONFLICT",
+      "description": "Libertadores 1997 Deportivo Cali–Millonarios 26/27 February discrepancy; actual civil date not established.",
+      "rows": [
+        178
       ],
       "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
     }

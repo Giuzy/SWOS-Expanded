@@ -1558,16 +1558,17 @@
     "index": 140,
     "value": {
       "competition": "CAF Super Cup",
-      "firstEdition": "2004",
+      "firstEdition": "2005",
       "lastEdition": null,
       "operation": "CHANGE_ACCESS",
-      "note": "Transition from African Cup Winners Cup to Confederation Cup winner; exact first Super Cup edition using new qualifier pending (do not apply 2004 automatically).",
+      "note": "First actual Super Cup between Champions League and Confederation Cup holders in 2005 (Enyimba–Hearts of Oak); qualifying competition changed in 2004, distinguish year of reform from Super Cup edition.",
       "source": "https://www.cafonline.com/caf-super-cup/news/from-1993-to-2026-how-the-totalenergies-caf-super-cup-developed-through-the-years/",
       "rowRefs": [
         432
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending."
+      "verification": "2026-11-24 block 22: official search excerpts; FAW removal statement full text opened lines 25–36; FIN history open 502, CAF retrospective cache miss; full dates/access/mapping/runtime pending.",
+      "qualificationCompetitionChangeYear": 2004
     }
   },
   {
@@ -3623,7 +3624,90 @@
       "operation": "FORMAT_CHANGE_ANNOUNCED",
       "rowRefs": [],
       "note": "All eight clubs enter finals; playoffs May25, quarterfinals May29, semifinals June2, final June6. Actual 2027 outcomes not known; do not replace 2026 game template.",
-      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "rules": {
+        "edition": "2027",
+        "clubs": 8,
+        "firstPhase": {
+          "roundRobinLegs": 2,
+          "gamesPerClub": 14,
+          "totalMatches": 56,
+          "circuitSeries": 5,
+          "points": [
+            3,
+            1,
+            0
+          ],
+          "tiebreak": [
+            "points",
+            "goal difference",
+            "goals scored",
+            "head-to-head points",
+            "head-to-head goal difference",
+            "head-to-head goals scored",
+            "lowest conduct score",
+            "coin toss or draw"
+          ],
+          "conductPoints": {
+            "yellow": 1,
+            "secondYellowRed": 3,
+            "directRed": 4,
+            "yellowPlusDirectRed": 5
+          }
+        },
+        "knockout": {
+          "playoffRanks": [
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "quarterfinals": [
+            [
+              4,
+              "PO1 winner"
+            ],
+            [
+              3,
+              "PO2 winner"
+            ]
+          ],
+          "semifinals": [
+            [
+              1,
+              "QF1 winner"
+            ],
+            [
+              2,
+              "QF2 winner"
+            ]
+          ],
+          "final": [
+            "SF1 winner",
+            "SF2 winner"
+          ],
+          "legs": 1,
+          "tieResolution": "extra time then penalties",
+          "matches": 7
+        },
+        "totalMatches": 63,
+        "qualification": "Highest-placed OFC member-association territory club qualifies for Intercontinental Cup if Australian club wins.",
+        "approvedEntrantNames": [
+          "Auckland FC",
+          "Bula FC",
+          "PNG Hekari FC",
+          "Solomon Kings FC",
+          "South Island United",
+          "South Melbourne FC",
+          "Tahiti United",
+          "Vanuatu United FC"
+        ],
+        "scope": "Official regulation labelled edition 2026 expressly lists clubs for 2027; not replacement of historical 2026 reference or certification of future actual dates. No mapped competition row created."
+      }
     }
   },
   {

@@ -59,6 +59,18 @@ int ExpandedUniversal_CarCoversClubs(const char *json,int size,
 /* After a restore failed past the point of no return: lock the live
  * registry (no play, no saves) instead of continuing half-restored. */
 void ExpandedUniversal_CarMarkRecovery(void);
+/* Fase 2 — Competition Engine services (registry of the current world).
+ * Lifecycle text ("UL01" hex, without prefix) read from the restored CAR,
+ * ownership to the caller; NULL = absent (pre-v296 CAR). */
+char *ExpandedUniversal_CarTakeLifecycle(void);
+/* Atomic insert (all or none) with the full registry proof. */
+int ExpandedUniversal_CarInsertFixtures(const ExpandedUniversalFixture *f,
+                                        uint32_t n);
+/* Remove the (all PLAYED) fixtures of an archived edition. */
+int ExpandedUniversal_CarPruneEdition(ExpandedEditionKey edition);
+/* HELD (1) / PENDING (0) for the SCHEDULED fixtures of an edition. */
+int ExpandedUniversal_CarHoldEdition(ExpandedEditionKey edition,int hold);
+int ExpandedUniversal_CarRescheduleEvent(uint64_t event_id,int32_t new_day);
 
 /* Real CAR callbacks for the generic dispatcher, not fake acknowledgements.
  * Claim = durable CLAIMED before original game; Complete = persist proposed

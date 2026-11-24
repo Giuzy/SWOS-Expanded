@@ -28,6 +28,12 @@ uint32_t ExpandedUniversalJsonLeagues_Count(void)
 {
     return s_json.ready?s_json.count:0u;
 }
+int ExpandedUniversalJsonLeagues_At(uint32_t i, ExpandedUniversalJsonLeague *out)
+{
+    if(!out || !s_json.ready || i>=s_json.count)return 0;
+    *out=s_json.rows[i];
+    return 1;
+}
 int ExpandedUniversalJsonLeagues_Find(uint8_t country, uint8_t comp_id,
     uint8_t division, ExpandedUniversalJsonLeague *out)
 {
@@ -247,6 +253,8 @@ int ExpandedUniversalJsonLeagues_Load(void)
         const char *divisions=NULL;
         int div_len=0,divoff=0,dk,dl,dv,dlen,dt;
         long country=0,comp=0,type=0,begin=0,end=0,cycles=0,count=0;
+        long pts=0,subs=0,bench=0;
+        int has_rules;
         uint32_t d=0;
         if(vt!=MJSON_TOK_OBJECT ||
            !json_long(entry,vl,"$.comp.team_number",0,255,&country) ||
@@ -258,9 +266,13 @@ int ExpandedUniversalJsonLeagues_Load(void)
            !json_long(entry,vl,"$.divisions_count",1,16,&count) ||
            mjson_find(entry,vl,"$.divisions",&divisions,&div_len)
                 !=MJSON_TOK_ARRAY)goto failure;
+        /* Optional rule fields: absent -> has_rules=0 (fail closed later). */
+        has_rules=json_long(entry,vl,"$.points_for_win",1,9,&pts) &&
+                  json_long(entry,vl,"$.substitutes",0,15,&subs) &&
+                  json_long(entry,vl,"$.max_subs",0,15,&bench);
         while((divoff=mjson_next(divisions,div_len,divoff,
                                   &dk,&dl,&dv,&dlen,&dt))>0) {
-            long teams=0;
+            long teams=0,pro=0,rel=0,pro_po=0,rel_po=0;
             ExpandedUniversalJsonLeague row;
             memset(&row,0,sizeof row);
             if(dt!=MJSON_TOK_OBJECT || d>=(uint32_t)count ||
@@ -271,6 +283,18 @@ int ExpandedUniversalJsonLeagues_Load(void)
             row.begin_phase=(uint8_t)begin;row.end_phase=(uint8_t)end;
             row.meetings=(uint8_t)cycles;
             row.declared_clubs=(uint16_t)teams;
+            row.divisions=(uint8_t)count;
+            if(has_rules &&
+               json_long(divisions+dv,dlen,"$.promoted",0,255,&pro) &&
+               json_long(divisions+dv,dlen,"$.relegated",0,255,&rel) &&
+               json_long(divisions+dv,dlen,"$.promoted_po",0,255,&pro_po) &&
+               json_long(divisions+dv,dlen,"$.relegated_po",0,255,&rel_po)) {
+                row.has_rules=1u;
+                row.points_for_win=(uint8_t)pts;
+                row.subs=(uint8_t)subs;row.bench=(uint8_t)bench;
+                row.promoted=(uint8_t)pro;row.relegated=(uint8_t)rel;
+                row.promoted_po=(uint8_t)pro_po;row.relegated_po=(uint8_t)rel_po;
+            }
             if(!json_append(row))goto failure;
         }
         if(divoff<0 || d!=(uint32_t)count)goto failure;

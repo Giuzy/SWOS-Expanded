@@ -22,7 +22,12 @@ typedef enum ExpandedEventKind {
 } ExpandedEventKind;
 typedef enum ExpandedEventState {
     EXP_EVENT_PENDING = 0,
-    EXP_EVENT_COMPLETE = 1
+    EXP_EVENT_COMPLETE = 1,
+    /* Fase 2: event of a BLOCKED competition edition (local fault). It is
+     * skipped by Next/Peek (the rest of the world goes on), never played,
+     * never completed; released back to PENDING (and rescheduled if its day
+     * passed) only by the Competition Engine when the edition unblocks. */
+    EXP_EVENT_HELD = 2
 } ExpandedEventState;
 typedef struct ExpandedScheduledEvent {
     uint64_t id, requires_id; /* 0 requires_id means no prerequisite */
@@ -126,7 +131,7 @@ static inline ExpandedEventResult ExpandedEventScheduler_Next(
     if(i>s->count)i=0u;
     for(;i<s->count;++i) {
         const ExpandedScheduledEvent *e=&s->events[i];
-        if(e->state==EXP_EVENT_COMPLETE)continue;
+        if(e->state==EXP_EVENT_COMPLETE || e->state==EXP_EVENT_HELD)continue;
         s->pending_hint=i;
         if(e->state!=EXP_EVENT_PENDING)return EXP_EVENT_INVALID;
         if(e->day_index>target_day)break;
@@ -212,7 +217,8 @@ static inline int ExpandedEventScheduler_ValidateRestore(const ExpandedEventSche
         if(!e->id || e->requires_id==e->id ||
            !ExpandedWorld_IndexToDate(e->day_index,&date) ||
            e->kind<EXP_EVENT_QUALIFICATION || e->kind>EXP_EVENT_NATIVE_TICK ||
-           (e->state!=EXP_EVENT_PENDING && e->state!=EXP_EVENT_COMPLETE) ||
+           (e->state!=EXP_EVENT_PENDING && e->state!=EXP_EVENT_COMPLETE &&
+            e->state!=EXP_EVENT_HELD) ||
            (e->state==EXP_EVENT_COMPLETE && e->day_index>s->clock.day_index) ||
            (i && !ExpandedEvent_Before(&s->events[i-1u],e))) {
             free(ids);return 0;

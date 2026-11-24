@@ -20,6 +20,7 @@
 #include "expanded_universal_world_catalog.h"
 #include "expanded_universal_native_match.h"
 #include "expanded_universal_standings.h" /* canonical CE ledger table, no duplicate score calculation */
+#include "expanded_ce_engine.h" /* Fase 2: competition rules for every CE table */
 #include "play_match_menu.h" /* canonical OG TEAM_COMPUTER, no inline magic number */
 #endif
 #include "diy_competition.h"
@@ -10813,14 +10814,31 @@ static int ce_board_add(ExpandedClubKey *clubs,unsigned *n,
     clubs[*n]=key;
     return (int)(*n)++;
 }
-static int ce_board_row_before(const DIYTeamStats *a,
-                               const DIYTeamStats *b)
+/* Fase 2: ONE table calculator for every CE view, under the competition's
+ * own rules (points, tie-breakers) from the CE engine. Rows come back in
+ * CE rank order; the OG table renderer is fed that order unchanged (no
+ * layout/row-count/UI change). Missing rules = fail closed. */
+static int ce_board_standings(ExpandedUniversalRegistry *r,
+    ExpandedEditionKey edition,uint32_t stage,
+    ExpandedUniversalStanding *out,uint32_t cap,uint32_t *used)
 {
-    const int ga=(int)a->goalsFor-(int)a->goalsAgainst;
-    const int gb=(int)b->goalsFor-(int)b->goalsAgainst;
-    if(a->points!=b->points)return a->points>b->points;
-    if(ga!=gb)return ga>gb;
-    return a->goalsFor>b->goalsFor;
+    ExpCeTableRules rules;
+    ExpCeTableRow rows[64];
+    uint32_t i,n=0u;
+    *used=0u;
+    if(cap>64u)cap=64u;
+    if(!ExpCe_TableRules(edition,stage,&rules) ||
+       !ExpCeTable_Compute(r,edition,stage,&rules,
+            ExpandedUniversalLive_ClubNameCompare,NULL,rows,cap,&n))
+        return 0;
+    for(i=0u;i<n;++i) {
+        out[i].club=rows[i].club;out[i].played=rows[i].played;
+        out[i].wins=rows[i].wins;out[i].draws=rows[i].draws;
+        out[i].losses=rows[i].losses;out[i].goals_for=rows[i].goals_for;
+        out[i].goals_against=rows[i].goals_against;out[i].points=rows[i].points;
+    }
+    *used=n;
+    return 1;
 }
 /* Rebuild ONLY the disposable native OG table from the POST-COMMIT CE ledger.
  * Original OG match + CAR were already completed; there is no second result
@@ -10845,8 +10863,8 @@ static int ce_board_refresh_completed(void)
     f=ExpandedUniversal_Find(r,s_ceBoardEventId);
     played=f?ExpandedUniversal_EntryFor(r,f):NULL;
     if(!played || played->state!=EXP_FIXTURE_PLAYED ||
-       !ExpandedUniversal_Standings(r,f->key.edition,f->key.stage,
-                                   3u,values,64u,&count) || count!=n)
+       !ce_board_standings(r,f->key.edition,f->key.stage,
+                           values,64u,&count) || count!=n)
         return 0;
     for(i=0u;i<n;++i)
         if(!ExpandedUniversal_NativeTeamKey(&_selectedTeams[i],&clubs[i]))
@@ -10881,24 +10899,12 @@ static int ce_board_refresh_completed(void)
         row->points=(uint16_t)v->points;
     }
     _diyCompetitionStart.matchesPlayedCount=(uint16_t)(total/2u);
-    for(i=0u;i<n;++i)
+    /* rows in CE rank order (competition tie-break rules) */
+    for(i=0u;i<n;++i) {
+        for(j=0u;j<n;++j)
+            if(ExpandedClubKey_Equal(clubs[j],values[i].club))break;
         _diyCompetitionStart.matchData.league.teamEntryOffsets[i]=
-            (uint16_t)(i*sizeof(DIYTeamStats));
-    for(i=1u;i<n;++i) {
-        const uint16_t key=
-            _diyCompetitionStart.matchData.league.teamEntryOffsets[i];
-        j=i;
-        while(j>0u && ce_board_row_before(
-            diy_standings_row(&_diyCompetitionStart,
-                              (int)(key/sizeof(DIYTeamStats))),
-            diy_standings_row(&_diyCompetitionStart,
-                (int)(_diyCompetitionStart.matchData.league.teamEntryOffsets[j-1u]/
-                      sizeof(DIYTeamStats))))) {
-            _diyCompetitionStart.matchData.league.teamEntryOffsets[j]=
-                _diyCompetitionStart.matchData.league.teamEntryOffsets[j-1u];
-            --j;
-        }
-        _diyCompetitionStart.matchData.league.teamEntryOffsets[j]=key;
+            (uint16_t)(j*sizeof(DIYTeamStats));
     }
     _diyLeftTeamPtr=&_selectedTeams[s_ceBoardHomeRow];
     _diyRightTeamPtr=&_selectedTeams[s_ceBoardAwayRow];
@@ -11171,8 +11177,8 @@ static int ce_board_project(const ExpandedUniversalFixture *f,
     if(!viewOnly && !hasManager)goto restore;
     /* One table calculator for all CE views; never duplicate the points
      * formula or read mutable OG legacy league rankings. */
-    if(!ExpandedUniversal_Standings(r,f->key.edition,f->key.stage,
-            3u,standings,64u,&usedStandings) || usedStandings!=n)
+    if(!ce_board_standings(r,f->key.edition,f->key.stage,
+            standings,64u,&usedStandings) || usedStandings!=n)
         goto restore;
     for(i=0u;i<usedStandings;++i) {
         const ExpandedUniversalStanding *st=&standings[i];
@@ -11195,23 +11201,13 @@ static int ce_board_project(const ExpandedUniversalFixture *f,
     }
     if((totalGames&1u) || totalGames/2u>UINT16_MAX)goto restore;
     _diyCompetitionStart.matchesPlayedCount=(uint16_t)(totalGames/2u);
-    /* Original table renderer consumes offset rows in rank order. The
-     * projection sorts a COPY, never the CE standings or OG resident. */
-    for(i=1u;i<n;++i) {
-        uint16_t key=_diyCompetitionStart.matchData.league.teamEntryOffsets[i];
-        j=i;
-        while(j>0u &&
-              ce_board_row_before(
-                diy_standings_row(&_diyCompetitionStart,
-                    (int)(key/sizeof(DIYTeamStats))),
-                diy_standings_row(&_diyCompetitionStart,
-                    (int)(_diyCompetitionStart.matchData.league.teamEntryOffsets[j-1u]/
-                         sizeof(DIYTeamStats))))) {
-            _diyCompetitionStart.matchData.league.teamEntryOffsets[j]=
-                _diyCompetitionStart.matchData.league.teamEntryOffsets[j-1u];
-            --j;
-        }
-        _diyCompetitionStart.matchData.league.teamEntryOffsets[j]=key;
+    /* Original table renderer consumes offset rows in rank order: the CE
+     * rank order (competition rules), into a COPY, never the CE ledger. */
+    for(i=0u;i<n;++i) {
+        const int index=ce_board_slot(clubs,n,standings[i].club);
+        if(index<0)goto restore;
+        _diyCompetitionStart.matchData.league.teamEntryOffsets[i]=
+            (uint16_t)((unsigned)index*sizeof(DIYTeamStats));
     }
     s_ceBoardHomeRow=home;s_ceBoardAwayRow=away;
     s_ceBoardEventId=f->event_id;

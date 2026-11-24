@@ -13,6 +13,7 @@
 #include "platform_sdl.h" /* monotonic CPU-forward CAR stage timings */
 #include "expanded_car_compact.h"
 #include "expanded_edition_archive.h"
+#include "expanded_ce_engine.h"
 #include <limits.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -26,6 +27,10 @@ typedef struct ExpandedCarWorld {
     ExpandedFixtureLedgerEntry *ledger;
     ExpandedScheduledEvent *events;
     ExpandedEditionArchive archive;   /* v290: synthetic edition archive */
+    /* Fase 2: "UL01:" lifecycle text read from the CAR, consumed by the
+     * engine once the definitions exist (ExpandedUniversal_CarTakeLifecycle).
+     * NULL = absent (pre-v296 CAR: the engine rebuilds from the registry). */
+    char *lifecycle;
     uint8_t active;
 } ExpandedCarWorld;
 static ExpandedCarWorld s_worlds[WORLD_COUNT];
@@ -35,6 +40,7 @@ static void exp_car_clear(ExpandedCarWorld *w)
     if(!w)return;
     free(w->fixtures);free(w->ledger);free(w->events);
     ExpArchive_Free(&w->archive);
+    free(w->lifecycle);
     memset(w,0,sizeof *w);
 }
 static int exp_car_alloc(ExpandedCarWorld *w,uint16_t world,
@@ -170,6 +176,7 @@ static int exp_car_row_get(uint32_t i,uint64_t *v,void *user)
 static int exp_car_emit_registry(ExpandedUniversalRegistry *r,
                                  uint16_t expected_world,
                                  const ExpandedEditionArchive *archive,
+                                 const char *lifecycle_hex,
                                  mjson_print_fn_t output,void *user)
 {
     ExpandedCarEventIndex *events=NULL;
@@ -231,6 +238,17 @@ static int exp_car_emit_registry(ExpandedUniversalRegistry *r,
         }
         free(ab);free(at);
     }
+    if(result>0 && lifecycle_hex) {
+        /* Fase 2: competition editions/lifecycle (absent = rebuilt) */
+        const size_t ll=strlen(lifecycle_hex);
+        char *lt=(char *)malloc(5u+ll+1u);
+        result=0;
+        if(lt) {
+            memcpy(lt,"UL01:",5u);memcpy(lt+5,lifecycle_hex,ll+1u);
+            result=mjson_printf(output,user,",\n  %Q:%Q","universal_lifecycle",lt);
+            free(lt);
+        }
+    }
     fprintf(stderr,"[universal-perf] CAR_EMIT_TIMING format=UE02 "
         "fixtures=%lu binary_bytes=%lu json_bytes=%lu validate_ms=%llu "
         "encode_ms=%llu status=%s\n",
@@ -248,8 +266,16 @@ int ExpandedUniversal_CarEmit(mjson_print_fn_t output,void *user)
     if(!output)return 0;
     if(!r)
         return mjson_printf(output,user,",\n  %Q:null","universal_engine")>0;
-    return exp_car_emit_registry(r,(uint16_t)World_Current(),
-        &s_worlds[World_Current()].archive,output,user);
+    {
+        size_t ll=0u;
+        char *hex=ExpCe_EditionCount()?ExpCe_EncodeHex((uint16_t)World_Current(),&ll):NULL;
+        int ok;
+        if(ExpCe_EditionCount() && !hex)return 0; /* never drop the lifecycle */
+        ok=exp_car_emit_registry(r,(uint16_t)World_Current(),
+            &s_worlds[World_Current()].archive,hex,output,user);
+        free(hex);
+        return ok;
+    }
 }
 /* v288: IMMUTABLE, SELF-SUFFICIENT copy of the CE registry (fixtures, ledger,
  * events, clock, flags). The emitter below reads only this copy, so it may
@@ -262,6 +288,7 @@ struct ExpandedUniversalCarSnapshot {
     size_t bytes;
     uint16_t world;   /* captured on the main thread: the worker never asks */
     ExpandedEditionArchive archive;   /* owned copy */
+    ExpCeSnapshot *lifecycle;         /* Fase 2: owned copy, NULL = none */
 };
 int ExpandedUniversal_CarSnapshotCapture(ExpandedUniversalCarSnapshot **out)
 {
@@ -282,6 +309,11 @@ int ExpandedUniversal_CarSnapshotCapture(ExpandedUniversalCarSnapshot **out)
     s->events=(ExpandedScheduledEvent *)malloc((size_t)ne*sizeof *s->events);
     if(!s->fixtures || !s->ledger || !s->events ||
        !ExpArchive_Copy(&s->archive,&s_worlds[World_Current()].archive)) {
+        free(s->fixtures);free(s->ledger);free(s->events);
+        ExpArchive_Free(&s->archive);free(s);
+        return 0;
+    }
+    if(ExpCe_EditionCount() && !(s->lifecycle=ExpCe_SnapshotCapture())) {
         free(s->fixtures);free(s->ledger);free(s->events);
         ExpArchive_Free(&s->archive);free(s);
         return 0;
@@ -307,7 +339,15 @@ int ExpandedUniversal_CarEmitSnapshot(ExpandedUniversalCarSnapshot *s,
                                       mjson_print_fn_t output,void *user)
 {
     if(!s)return mjson_printf(output,user,",\n  %Q:null","universal_engine")>0;
-    return exp_car_emit_registry(&s->reg,s->world,&s->archive,output,user);
+    {
+        size_t ll=0u;
+        char *hex=s->lifecycle?ExpCe_SnapshotEncodeHex(s->lifecycle,s->world,&ll):NULL;
+        int ok;
+        if(s->lifecycle && !hex)return 0;
+        ok=exp_car_emit_registry(&s->reg,s->world,&s->archive,hex,output,user);
+        free(hex);
+        return ok;
+    }
 }
 uint16_t ExpandedUniversal_CarSnapshotWorld(const ExpandedUniversalCarSnapshot *s)
 {
@@ -317,7 +357,7 @@ void ExpandedUniversal_CarSnapshotRelease(ExpandedUniversalCarSnapshot *s)
 {
     if(!s)return;
     free(s->fixtures);free(s->ledger);free(s->events);
-    ExpArchive_Free(&s->archive);free(s);
+    ExpArchive_Free(&s->archive);ExpCe_SnapshotRelease(s->lifecycle);free(s);
 }
 /* Parse a complete candidate in TEMPORARY heap memory. No current world
  * state changes on failed CRC, world, civil clock, event or ledger proof.
@@ -518,6 +558,29 @@ fail:
     free(text);exp_car_clear(candidate);return 0;
 }
 /* v290: registry + optional edition archive, both fail-closed. */
+/* Fase 2: "UL01:" section, decoded and validated in scratch (no engine
+ * state changes); the text is kept for the engine after the restore. */
+static int exp_car_parse_lifecycle(const char *json,int size,
+    ExpandedCarWorld *candidate,int present,uint16_t world)
+{
+    const char *tok=NULL;
+    int tlen=0;
+    const int kind=mjson_find(json,size,"$.universal_lifecycle",&tok,&tlen);
+    char *text;
+    size_t tl;
+    if(kind==MJSON_TOK_INVALID || kind==MJSON_TOK_NULL)return 1;
+    if(!present || kind!=MJSON_TOK_STRING || tlen<5 || tlen>INT_MAX-1)return 0;
+    text=(char *)malloc((size_t)tlen+1u);
+    if(!text)return 0;
+    if(mjson_get_string(json,size,"$.universal_lifecycle",text,tlen+1)<=0 ||
+       (tl=strlen(text))<6u || memcmp(text,"UL01:",5u)!=0 ||
+       !ExpCe_ValidateHex(text+5,tl-5u,world)) {
+        free(text);return 0;
+    }
+    memmove(text,text+5,tl-5u+1u);
+    candidate->lifecycle=text;
+    return 1;
+}
 static int exp_car_parse(const char *json,int size,
                          ExpandedCarWorld *candidate,int *present,
                          uint16_t expected_world)
@@ -526,6 +589,8 @@ static int exp_car_parse(const char *json,int size,
     int tlen=0,kind;
     if(!exp_car_parse_registry(json,size,candidate,present,expected_world))
         return 0;
+    if(!exp_car_parse_lifecycle(json,size,candidate,*present,expected_world))
+        goto fail;
     kind=mjson_find(json,size,"$.universal_archive",&tok,&tlen);
     if(kind==MJSON_TOK_INVALID || kind==MJSON_TOK_NULL) {
         if(*present && !ExpArchive_AuditFixtures(&candidate->archive,
@@ -903,4 +968,234 @@ int ExpandedUniversal_ArchiveContains(ExpandedEditionKey edition)
            ExpArchive_Find(&s_worlds[World_Current()].archive,edition)!=NULL;
 }
 
+
+/* ---- Fase 2: lifecycle text and registry mutations for the engine ---- */
+char *ExpandedUniversal_CarTakeLifecycle(void)
+{
+    char *t;
+    if(World_Current()>=WORLD_COUNT)return NULL;
+    t=s_worlds[World_Current()].lifecycle;
+    s_worlds[World_Current()].lifecycle=NULL;
+    return t;
+}
+static int exp_car_reserve(ExpandedCarWorld *w,uint32_t need)
+{
+    uint32_t cap=w->reg.fixture_capacity;
+    ExpandedUniversalFixture *f;
+    ExpandedFixtureLedgerEntry *l;
+    ExpandedScheduledEvent *e;
+    if(need<=cap)return 1;
+    while(cap<need){if(cap>0x7fffffffu)return 0;cap=cap?cap*2u:64u;}
+    f=(ExpandedUniversalFixture *)realloc(w->fixtures,(size_t)cap*sizeof *f);
+    if(!f)return 0;
+    w->fixtures=f;
+    l=(ExpandedFixtureLedgerEntry *)realloc(w->ledger,(size_t)cap*sizeof *l);
+    if(!l)return 0;
+    w->ledger=l;
+    e=(ExpandedScheduledEvent *)realloc(w->events,(size_t)cap*sizeof *e);
+    if(!e)return 0;
+    w->events=e;
+    w->reg.fixtures=w->fixtures;w->reg.fixture_capacity=cap;
+    w->reg.ledger.entries=w->ledger;w->reg.ledger.capacity=cap;
+    w->reg.scheduler.events=w->events;w->reg.scheduler.capacity=cap;
+    return 1;
+}
+typedef struct ExpCarPair {ExpandedUniversalFixture f;ExpandedFixtureLedgerEntry l;} ExpCarPair;
+static int exp_car_pair_cmp(const void *aa,const void *bb)
+{
+    const ExpCarPair *a=(const ExpCarPair *)aa,*b=(const ExpCarPair *)bb;
+    return a->f.event_id<b->f.event_id?-1:a->f.event_id>b->f.event_id?1:0;
+}
+/* Re-establish the registry layout: fixtures+ledger paired and sorted by
+ * event id, events in chronological order, hints reset. */
+static int exp_car_resort(ExpandedCarWorld *w)
+{
+    ExpandedUniversalRegistry *r=&w->reg;
+    const uint32_t n=r->fixture_count;
+    ExpCarPair *p;
+    uint32_t i;
+    if(!n)return 1;
+    p=(ExpCarPair *)malloc((size_t)n*sizeof *p);
+    if(!p)return 0;
+    for(i=0;i<n;++i){p[i].f=r->fixtures[i];p[i].l=r->ledger.entries[i];}
+    qsort(p,(size_t)n,sizeof *p,exp_car_pair_cmp);
+    for(i=0;i<n;++i){r->fixtures[i]=p[i].f;r->ledger.entries[i]=p[i].l;}
+    free(p);
+    qsort(r->scheduler.events,(size_t)r->scheduler.count,
+          sizeof *r->scheduler.events,exp_car_chrono_cmp);
+    r->fixtures_sorted_by_event=1u;
+    for(i=1u;i<n;++i)
+        if(r->fixtures[i-1u].event_id>=r->fixtures[i].event_id)
+            r->fixtures_sorted_by_event=0u;
+    r->pending_hint=0u;r->scheduler.pending_hint=0u;
+    return 1;
+}
+typedef struct ExpCarBackup {
+    ExpandedUniversalFixture *f;ExpandedFixtureLedgerEntry *l;
+    ExpandedScheduledEvent *e;uint32_t n;
+} ExpCarBackup;
+static int exp_car_backup(const ExpandedCarWorld *w,ExpCarBackup *b)
+{
+    const uint32_t n=w->reg.fixture_count;
+    memset(b,0,sizeof *b);
+    b->n=n;
+    if(!n)return 1;
+    b->f=(ExpandedUniversalFixture *)malloc((size_t)n*sizeof *b->f);
+    b->l=(ExpandedFixtureLedgerEntry *)malloc((size_t)n*sizeof *b->l);
+    b->e=(ExpandedScheduledEvent *)malloc((size_t)n*sizeof *b->e);
+    if(!b->f || !b->l || !b->e){free(b->f);free(b->l);free(b->e);return 0;}
+    memcpy(b->f,w->reg.fixtures,(size_t)n*sizeof *b->f);
+    memcpy(b->l,w->reg.ledger.entries,(size_t)n*sizeof *b->l);
+    memcpy(b->e,w->reg.scheduler.events,(size_t)n*sizeof *b->e);
+    return 1;
+}
+static void exp_car_restore_backup(ExpandedCarWorld *w,ExpCarBackup *b)
+{
+    ExpandedUniversalRegistry *r=&w->reg;
+    if(b->n) {
+        memcpy(r->fixtures,b->f,(size_t)b->n*sizeof *b->f);
+        memcpy(r->ledger.entries,b->l,(size_t)b->n*sizeof *b->l);
+        memcpy(r->scheduler.events,b->e,(size_t)b->n*sizeof *b->e);
+    }
+    r->fixture_count=r->ledger.count=r->scheduler.count=b->n;
+    (void)exp_car_resort(w);
+}
+static void exp_car_free_backup(ExpCarBackup *b)
+{
+    free(b->f);free(b->l);free(b->e);memset(b,0,sizeof *b);
+}
+int ExpandedUniversal_CarInsertFixtures(const ExpandedUniversalFixture *f,
+                                        uint32_t n)
+{
+    const WorldId world=World_Current();
+    ExpandedCarWorld *w;
+    ExpandedUniversalRegistry *r;
+    ExpCarBackup b;
+    uint32_t i,base;
+    if(world>=WORLD_COUNT || !s_worlds[world].active || !f || !n)return 0;
+    w=&s_worlds[world];r=&w->reg;
+    if(r->recovery_required || r->fixture_count>UINT32_MAX-n)return 0;
+    for(i=0;i<n;++i)
+        if(!ExpandedUniversal_FixtureValid(&f[i]) ||
+           f[i].key.edition.competition.world!=r->world ||
+           f[i].day_index<r->scheduler.clock.day_index)return 0;
+    if(!exp_car_reserve(w,r->fixture_count+n) || !exp_car_backup(w,&b))return 0;
+    base=r->fixture_count;
+    for(i=0;i<n;++i) {
+        r->fixtures[base+i]=f[i];
+        memset(&r->ledger.entries[base+i],0,sizeof r->ledger.entries[0]);
+        r->ledger.entries[base+i].key=f[i].key;
+        r->ledger.entries[base+i].state=EXP_FIXTURE_SCHEDULED;
+        r->scheduler.events[base+i]=(ExpandedScheduledEvent){
+            f[i].event_id,0u,f[i].day_index,10u,EXP_EVENT_FIXTURE,EXP_EVENT_PENDING};
+    }
+    r->fixture_count=r->ledger.count=r->scheduler.count=base+n;
+    /* full proof: unique ids/keys, ledger pairing, no club twice a day */
+    if(!exp_car_resort(w) || !r->fixtures_sorted_by_event ||
+       !ExpandedUniversal_ValidateRestore(r)) {
+        exp_car_restore_backup(w,&b);exp_car_free_backup(&b);
+        fprintf(stderr,"[universal-car] INSERT_REJECTED fixtures=%lu "
+            "reason=collision-or-duplicate registry-unchanged=1\n",(unsigned long)n);
+        return 0;
+    }
+    exp_car_free_backup(&b);
+    return 1;
+}
+int ExpandedUniversal_CarPruneEdition(ExpandedEditionKey edition)
+{
+    const WorldId world=World_Current();
+    ExpandedCarWorld *w;
+    ExpandedUniversalRegistry *r;
+    uint32_t i,k=0u,removed=0u;
+    if(world>=WORLD_COUNT || !s_worlds[world].active)return 0;
+    w=&s_worlds[world];r=&w->reg;
+    for(i=0;i<r->fixture_count;++i)
+        if(ExpandedEditionKey_Equal(r->fixtures[i].key.edition,edition) &&
+           r->ledger.entries[i].state!=EXP_FIXTURE_PLAYED)return 0;
+    for(i=0;i<r->fixture_count;++i) {
+        if(ExpandedEditionKey_Equal(r->fixtures[i].key.edition,edition)){++removed;continue;}
+        r->fixtures[k]=r->fixtures[i];r->ledger.entries[k]=r->ledger.entries[i];++k;
+    }
+    r->fixture_count=r->ledger.count=r->fixture_count-removed;
+    /* keep only the events whose fixture is kept (fixtures still sorted) */
+    r->fixtures_sorted_by_event=1u;
+    for(i=1u;i<r->fixture_count;++i)
+        if(r->fixtures[i-1u].event_id>=r->fixtures[i].event_id)return 0;
+    {
+        ExpandedScheduledEvent *ev=r->scheduler.events;
+        uint32_t m=0u;
+        for(i=0;i<r->scheduler.count;++i) {
+            const uint64_t id=ev[i].id;
+            uint32_t lo=0u,hi=r->fixture_count;
+            while(lo<hi){const uint32_t mid=lo+(hi-lo)/2u;
+                if(r->fixtures[mid].event_id<id)lo=mid+1u;else hi=mid;}
+            if(lo<r->fixture_count && r->fixtures[lo].event_id==id)ev[m++]=ev[i];
+        }
+        r->scheduler.count=m;
+    }
+    if(!exp_car_resort(w) || !ExpandedUniversal_ValidateRestore(r)) {
+        r->recovery_required=1u;
+        fprintf(stderr,"[universal-car] PRUNE_INVALID recovery=1\n");
+        return 0;
+    }
+    fprintf(stderr,"[universal-car] EDITION_PRUNED competition=%lu removed=%lu "
+        "kept=%lu archive-holds-summary=1\n",
+        (unsigned long)edition.competition.stable_competition,
+        (unsigned long)removed,(unsigned long)r->fixture_count);
+    return 1;
+}
+int ExpandedUniversal_CarHoldEdition(ExpandedEditionKey edition,int hold)
+{
+    const WorldId world=World_Current();
+    ExpandedUniversalRegistry *r;
+    uint32_t i,n=0u;
+    if(world>=WORLD_COUNT || !s_worlds[world].active)return 0;
+    r=&s_worlds[world].reg;
+    for(i=0;i<r->fixture_count;++i) {
+        const ExpandedUniversalFixture *f=&r->fixtures[i];
+        uint32_t j;
+        if(!ExpandedEditionKey_Equal(f->key.edition,edition) ||
+           r->ledger.entries[i].state!=EXP_FIXTURE_SCHEDULED)continue;
+        for(j=0;j<r->scheduler.count;++j)
+            if(r->scheduler.events[j].id==f->event_id) {
+                ExpandedScheduledEvent *e=&r->scheduler.events[j];
+                if(hold && e->state==EXP_EVENT_PENDING){e->state=EXP_EVENT_HELD;++n;}
+                else if(!hold && e->state==EXP_EVENT_HELD) {
+                    if(f->day_index<r->scheduler.clock.day_index)return 0;
+                    e->state=EXP_EVENT_PENDING;++n;
+                }
+                break;
+            }
+    }
+    r->pending_hint=0u;r->scheduler.pending_hint=0u;
+    fprintf(stderr,"[universal-car] EDITION_%s competition=%lu events=%lu\n",
+        hold?"HELD":"RELEASED",
+        (unsigned long)edition.competition.stable_competition,(unsigned long)n);
+    return 1;
+}
+int ExpandedUniversal_CarRescheduleEvent(uint64_t event_id,int32_t new_day)
+{
+    const WorldId world=World_Current();
+    ExpandedCarWorld *w;
+    ExpandedUniversalRegistry *r;
+    ExpandedUniversalFixture *f;
+    ExpCarBackup b;
+    uint32_t j;
+    if(world>=WORLD_COUNT || !s_worlds[world].active)return 0;
+    w=&s_worlds[world];r=&w->reg;
+    f=ExpandedUniversal_Find(r,event_id);
+    if(!f || new_day<r->scheduler.clock.day_index ||
+       new_day<f->key.edition.start_day || !exp_car_backup(w,&b))return 0;
+    if(ExpandedUniversal_EntryFor(r,f)->state!=EXP_FIXTURE_SCHEDULED) {
+        exp_car_free_backup(&b);return 0;
+    }
+    f->day_index=new_day;
+    for(j=0;j<r->scheduler.count;++j)
+        if(r->scheduler.events[j].id==event_id)r->scheduler.events[j].day_index=new_day;
+    if(!exp_car_resort(w) || !ExpandedUniversal_ValidateRestore(r)) {
+        exp_car_restore_backup(w,&b);exp_car_free_backup(&b);return 0;
+    }
+    exp_car_free_backup(&b);
+    return 1;
+}
 #endif

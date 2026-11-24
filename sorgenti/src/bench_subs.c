@@ -21,6 +21,9 @@
  * BenchCheckControls is called from GameLoop each frame.
  */
 
+#ifdef SWOS_SDL_BUILD
+#include "expanded_universal_native_match.h" /* Fase 2 CE substitution windows */
+#endif
 #include "bench_subs.h"
 #include "dos_sound.h"
 #include "game_types.h"
@@ -490,6 +493,9 @@ activate_bench:
         _bench1Called = 0;
         _bench2Called = 0;
         _benchTeam = (uintptr_t)a6;
+#ifdef SWOS_SDL_BUILD
+        ExpandedUniversal_SubWindowSessionBegin((int)a6->teamNumber);
+#endif
         a0 = _topTeamPtr;
         if ((uint16_t)a6->teamNumber == 2)
             a0 = _bottomTeamPtr;
@@ -822,6 +828,13 @@ static int16_t isThisPlayerOkToSelect(void)
 
     if (d0 == _maxSubsPerTeam)
         return -1;
+#ifdef SWOS_SDL_BUILD
+    /* Fase 2: CE substitution windows (inert outside a CE 50 Hz match
+     * whose competition rules set a window limit). Same refusal as the OG
+     * max-substitutions check: no UI change. */
+    if (!ExpandedUniversal_SubWindowAllows((int)a0->teamNumber))
+        return -1;
+#endif
     /* dead code block at 10D1DE-10D1FC skipped (unreachable after bra.s) */
 
     /* check player status */
@@ -941,6 +954,9 @@ static void selectPlayerToSubstituteMenuHandler(void)
         (*numSubsPtr)++;
         if (_plToEnterGameIndex == 11)
             (*gkReplacedPtr)++;
+#ifdef SWOS_SDL_BUILD
+        ExpandedUniversal_SubWindowCommitted((int)a1->teamNumber);
+#endif
     }
 
     _subsBlockFire = 1;
@@ -2704,6 +2720,10 @@ int16_t IsThisPlayerOkToSelect(void)
     /* Max substitutions reached? */
     if (numSubs == _maxSubsPerTeam)
         return -1;
+#ifdef SWOS_SDL_BUILD
+    if (!ExpandedUniversal_SubWindowAllows((int)team->teamNumber))
+        return -1;
+#endif
 
     /* Compute player data pointer: (benchPlayerIndex + 10) * 61 */
     uint16_t playerIdx = _benchPlayerIndex + 10;
@@ -2944,6 +2964,9 @@ void SelectPlayerToSubstituteMenuHandler(void)
         if (_plToEnterGameIndex == 11)
             _team2GoalkeeperReplaced++;
     }
+#ifdef SWOS_SDL_BUILD
+    ExpandedUniversal_SubWindowCommitted((int)team->teamNumber);
+#endif
 
     _subsBlockFire = 1;
     _subsState = 0;

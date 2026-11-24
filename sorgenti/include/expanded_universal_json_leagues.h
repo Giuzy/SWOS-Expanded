@@ -19,7 +19,15 @@ typedef struct ExpandedUniversalJsonLeague {
     uint8_t first_month, first_day, last_month, last_day, last_year_offset;
     uint8_t match_weekdays, extra_weekdays, min_rest_days, break_count;
     ExpandedUniversalJsonLeagueBreak breaks[EXP_JSON_LEAGUE_MAX_BREAKS];
+    /* Fase 2: OG native rules of the league record (leagues.json, exported
+     * from the native CompetitionLeague): points for a win, substitutions
+     * allowed (hi nibble of subsAndMaxSubs), bench (lo nibble), and the
+     * division's promotion/relegation counts. has_rules==0 = not declared. */
+    uint8_t has_rules, points_for_win, subs, bench;
+    uint8_t divisions, promoted, relegated, promoted_po, relegated_po;
 } ExpandedUniversalJsonLeague;
+/* i-th division row (Fase 2 definitions builder). */
+int ExpandedUniversalJsonLeagues_At(uint32_t i, ExpandedUniversalJsonLeague *out);
 int ExpandedUniversalJsonLeagues_Load(void);
 void ExpandedUniversalJsonLeagues_Reset(void);
 int ExpandedUniversalJsonLeagues_Find(uint8_t country, uint8_t comp_id,

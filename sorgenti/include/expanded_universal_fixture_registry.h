@@ -249,7 +249,8 @@ static inline ExpandedUniversalResult ExpandedUniversal_Peek(
         const ExpandedScheduledEvent *e=&r->scheduler.events[i];
         const ExpandedUniversalFixture *f;
         ExpandedFixtureLedgerEntry *claim;
-        if(e->state==EXP_EVENT_COMPLETE)continue;
+        /* HELD = blocked edition (Fase 2): skipped, the world goes on */
+        if(e->state==EXP_EVENT_COMPLETE || e->state==EXP_EVENT_HELD)continue;
         r->pending_hint=i;
         if(e->state!=EXP_EVENT_PENDING || e->day_index<r->scheduler.clock.day_index)
             return EXP_UNIVERSAL_RECOVERY;
@@ -309,6 +310,8 @@ static inline ExpandedUniversalResult ExpandedUniversal_NextForClub(
            event->day_index!=f->day_index)return EXP_UNIVERSAL_RECOVERY;
         if(event->state==EXP_EVENT_COMPLETE &&
            claim->state==EXP_FIXTURE_PLAYED)continue;
+        if(event->state==EXP_EVENT_HELD &&
+           claim->state==EXP_FIXTURE_SCHEDULED)continue; /* blocked edition */
         if(f->day_index < r->scheduler.clock.day_index)
             return EXP_UNIVERSAL_RECOVERY;
         if(event->state!=EXP_EVENT_PENDING ||
@@ -439,11 +442,14 @@ static inline int ExpandedUniversal_ValidateRestore(ExpandedUniversalRegistry *r
            (claim->state==EXP_FIXTURE_PLAYED &&
              e->state!=EXP_EVENT_COMPLETE) ||
            (claim->state!=EXP_FIXTURE_PLAYED &&
-             e->state!=EXP_EVENT_PENDING) ||
+             e->state!=EXP_EVENT_PENDING && e->state!=EXP_EVENT_HELD) ||
+           (e->state==EXP_EVENT_HELD &&
+             claim->state!=EXP_FIXTURE_SCHEDULED) ||
            (claim->state!=EXP_FIXTURE_SCHEDULED &&
             claim->state!=EXP_FIXTURE_CLAIMED &&
             claim->state!=EXP_FIXTURE_PLAYED) ||
            (claim->state==EXP_FIXTURE_SCHEDULED &&
+            e->state!=EXP_EVENT_HELD &&
             f->day_index<r->scheduler.clock.day_index))goto done;
     }
     for(i=1;i<n*2u;++i)

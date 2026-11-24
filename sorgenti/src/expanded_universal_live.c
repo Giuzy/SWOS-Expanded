@@ -9,6 +9,9 @@
 #include "expanded_universal_career_dispatch.h"
 #include "expanded_universal_car.h"
 #include "expanded_universal_native_match.h"
+#include "expanded_universal_json_leagues.h"
+#include "expanded_ce_engine.h" /* Fase 2: rules, lifecycle, editions */
+#include "swos_io.h"
 #include "car_writer.h"
 #include "expanded_world_live.h"
 #include "platform_sdl.h" /* CPU batch progress + monotonic diagnostics only */
@@ -163,6 +166,98 @@ int ExpandedUniversalLive_CanRestoreRosters(void)
             return 0;
     return 1;
 }
+
+/* ===================== Fase 2: Competition Engine glue ===================== */
+int ExpandedUniversalLive_ClubNameCompare(void *user,ExpandedClubKey a,
+                                          ExpandedClubKey b)
+{
+    /* OG native tie-break: alphabetical club name (DIY_SortLeagueTable) */
+    const TeamFileEx *ta=ExpandedUniversalCatalog_Roster(a);
+    const TeamFileEx *tb=ExpandedUniversalCatalog_Roster(b);
+    (void)user;
+    if(ta && tb) {
+        const int c=strncmp((const char *)ta->team.teamName,
+                            (const char *)tb->team.teamName,
+                            sizeof ta->team.teamName);
+        if(c)return c;
+    }
+    return a.stable_club<b.stable_club?-1:a.stable_club>b.stable_club?1:0;
+}
+static int ce_host_insert(void *u,const ExpandedUniversalFixture *f,uint32_t n)
+{(void)u;return ExpandedUniversal_CarInsertFixtures(f,n);}
+static int ce_host_prune(void *u,ExpandedEditionKey e)
+{(void)u;return ExpandedUniversal_CarPruneEdition(e);}
+static int ce_host_hold(void *u,ExpandedEditionKey e,int h)
+{(void)u;return ExpandedUniversal_CarHoldEdition(e,h);}
+static int ce_host_resched(void *u,uint64_t id,int32_t day)
+{(void)u;return ExpandedUniversal_CarRescheduleEvent(id,day);}
+static int ce_host_archive(void *u,ExpandedEditionKey e,uint32_t c,uint32_t r,
+                           int32_t day)
+{(void)u;return ExpandedUniversal_ArchiveCloseEdition(e,c,r,day);}
+static int ce_host_club_ok(void *u,ExpandedClubKey k)
+{(void)u;return ExpandedUniversalCatalog_Roster(k)!=NULL;}
+static const ExpCeHost s_ce_host={ce_host_insert,ce_host_prune,ce_host_hold,
+    ce_host_resched,ce_host_archive,ce_host_club_ok,
+    ExpandedUniversalLive_ClubNameCompare,NULL};
+const ExpCeHost *ExpandedUniversalLive_EngineHost(void){return &s_ce_host;}
+
+/* Definitions: shared builder (expanded_ce_definitions.c), same at START
+ * and CONTINUE, also used by the data validator test. */
+static int exp_live_engine_definitions(void)
+{
+    /* a malformed ce_competitions.json is logged by the builder and leaves
+     * only the league definitions: leagues keep their lifecycle */
+    (void)ExpCe_BuildWorldDefinitions((uint16_t)World_Current());
+    return 1;
+}
+/* START: editions of the first season + JSON first editions. */
+static void exp_live_engine_start(ExpandedUniversalRegistry *r)
+{
+    if(!exp_live_engine_definitions() ||
+       !ExpCe_BeginWorld(r,&s_ce_host,(uint16_t)World_Current(),World_FirstYear())) {
+        fprintf(stderr,"[ce-engine] BEGIN_FAILED world=%s (leagues still "
+            "play their first edition; lifecycle disabled)\n",World_Tag());
+        return;
+    }
+    (void)ExpCe_Tick(r,&s_ce_host,r->scheduler.clock.day_index);
+}
+/* CONTINUE: called by the loader once rosters/catalog are back. */
+int ExpandedUniversalLive_EngineRestore(void)
+{
+    ExpandedUniversalRegistry *r=ExpandedUniversal_CarRegistry();
+    char *hex;
+    if(World_Current()!=WORLD_2627 || !r)return 1;
+    if(!exp_live_engine_definitions())return 0;
+    hex=ExpandedUniversal_CarTakeLifecycle();
+    if(hex) {
+        const int ok=ExpCe_DecodeHex(hex,strlen(hex),(uint16_t)World_Current());
+        free(hex);
+        if(!ok)return 0; /* already validated in the preflight */
+    } else if(!ExpCe_BeginWorld(r,&s_ce_host,(uint16_t)World_Current(),
+                                World_FirstYear()))
+        return 0; /* pre-v296 CAR: rebuilt from the registry */
+    fprintf(stderr,"[ce-engine] RESTORED editions=%lu source=%s changed=%d\n",
+        (unsigned long)ExpCe_EditionCount(),hex?"UL01":"REGISTRY_REBUILD",
+        ExpCe_ValidateAfterRestore(r,&s_ce_host));
+    return 1;
+}
+/* A refusal BEFORE any claim (rules/roster/tie context/lineup data): block
+ * only that edition and its dependents; the rest of the world goes on. */
+static int exp_live_local_fault(ExpandedUniversalRegistry *r,
+                                const ExpandedUniversalFixture *f,
+                                ExpandedUniversalResult res)
+{
+    const ExpandedFixtureLedgerEntry *e=ExpandedUniversal_EntryFor(r,f);
+    if((res!=EXP_UNIVERSAL_INVALID && res!=EXP_UNIVERSAL_BLOCKED) || !e ||
+       e->state!=EXP_FIXTURE_SCHEDULED || r->recovery_required)return 0;
+    if(!ExpCe_BlockEdition(r,&s_ce_host,f->key.edition,
+                           EXP_CE_BLOCK_MATCH_REFUSED,
+                           "fixture refused before claim (rules/roster/tie)"))
+        return 0;
+    exp_live_fault("EDITION_BLOCKED_LOCAL",r,f,"SCHEDULED",(int)res,
+        "V:pre-claim-refusal world-continues=1 no-score=1");
+    return 1;
+}
 /* Source fixtures may be grouped by country/league. Install once with
  * indexed validation instead of O(N²) per-fixture Add/Schedule scans. */
 static int exp_catalog_event_cmp(const void *aa,const void *bb)
@@ -266,6 +361,7 @@ int ExpandedUniversalLive_Start(void)
         (unsigned)a.source_complete,(unsigned long)a.missing_cup_fixtures,
         (unsigned long)a.prestart_unresolved,
         (unsigned long)a.day_collisions);
+    exp_live_engine_start(r);
     return 1;
 }
 static ExpandedUniversalResult run_match(
@@ -277,16 +373,37 @@ static ExpandedUniversalResult run_match(
     const uint16_t game_before=_gameType;
     ExpandedUniversalResult result;
     if(!f)return EXP_UNIVERSAL_INVALID;
-    /* Fase 1 dispatcher scope: only type0 league fixtures (draw is a
-     * valid final score). A type1/type2 tie needs the competition's real
-     * extra-time/penalty/aggregate rules; no KO handler is installed, so
-     * refuse BEFORE any claim instead of recording a winnerless draw.
-     * (V: the catalog emits only competition_type=0 today.) */
-    if(f->competition_type!=0u) {
-        exp_live_fault("UNSUPPORTED_KO_HANDLER",ExpandedUniversal_CarRegistry(),
-            f,"SCHEDULED",(int)EXP_UNIVERSAL_INVALID,
-            "V:no-type1/2-tie-rules-in-dispatcher");
-        return EXP_UNIVERSAL_INVALID;
+    {
+        /* Fase 2: the rules of THIS fixture (competition + phase) from the
+         * CE engine: bench, substitutions, OG discipline mode, knockout
+         * extra time / penalties / aggregate / away goals, windows. No
+         * rules = refused BEFORE any claim (local block, never a guess). */
+        ExpandedUniversalRegistry *const rr=ExpandedUniversal_CarRegistry();
+        ExpCeMatchRules mr;
+        uint8_t kind=0u,meetings=0u,decides=0u;
+        uint16_t h1=0u,a1=0u;
+        if(!ExpCe_RulesForFixture(f,&mr,NULL) ||
+           !ExpCe_FixturePhase(f,&kind,&meetings)) {
+            exp_live_fault("RULES_MISSING",rr,f,"SCHEDULED",
+                (int)EXP_UNIVERSAL_INVALID,"V:no-valid-rules-for-competition-phase");
+            return EXP_UNIVERSAL_INVALID;
+        }
+        if(!ExpCeTie_MatchContext(rr,f,&mr,&decides,&h1,&a1)) {
+            exp_live_fault("TIE_CONTEXT_INVALID",rr,f,"SCHEDULED",
+                (int)EXP_UNIVERSAL_INVALID,"V:first-leg-missing-or-not-played");
+            return EXP_UNIVERSAL_INVALID;
+        }
+        ctx.minimum_substitutes=(int16_t)mr.subs;    /* OG minSubs = allowed */
+        ctx.maximum_substitutes=(int16_t)mr.bench;   /* OG maxSubs = bench */
+        ctx.match_parameters=(int16_t)mr.discipline; /* OG 0x3C / paramD3 */
+        ctx.decides_tie=decides;ctx.extra_time=mr.extra_time;
+        ctx.penalties=mr.penalties;ctx.away_goals=mr.away_goals;
+        ctx.second_leg=(uint8_t)(mr.legs==2u && f->key.leg==1u);
+        ctx.first_leg_home=h1;ctx.first_leg_away=a1;
+        ctx.sub_windows=mr.windows;ctx.halftime_free=mr.halftime_free;
+        ctx.et_extra_subs=mr.et_extra_subs;ctx.et_extra_windows=mr.et_extra_windows;
+        /* OG: a single-meeting league is scored without home advantage */
+        ctx.og_mode_flag=(uint8_t)((kind==EXP_CE_PHASE_TABLE && meetings==1u)?0xffu:0u);
     }
     ctx.home=human && ExpandedClubKey_Equal(manager,f->home)?
         &_careerTeam:ExpandedUniversalCatalog_Roster(f->home);
@@ -294,15 +411,13 @@ static ExpandedUniversalResult run_match(
         &_careerTeam:ExpandedUniversalCatalog_Roster(f->away);
     if(!ctx.home || !ctx.away) {
         exp_live_fault("ROSTER_MISSING",ExpandedUniversal_CarRegistry(),f,
-            "SCHEDULED",(int)EXP_UNIVERSAL_RECOVERY,
+            "SCHEDULED",(int)EXP_UNIVERSAL_INVALID,
             ctx.home?"V:away-roster-not-in-catalog":
                      "V:home-roster-not-in-catalog");
-        return EXP_UNIVERSAL_RECOVERY;
+        return EXP_UNIVERSAL_INVALID; /* pre-claim: local block */
     }
-    ctx.competition_name="LEAGUE";
-    ctx.minimum_substitutes=0;
-    ctx.maximum_substitutes=5;
-    ctx.match_parameters=3;
+    /* existing type0 presentation keeps the OG "LEAGUE" game name */
+    ctx.competition_name=f->competition_type==0u?"LEAGUE":"CUP";
     ctx.match_postprocess=0;
     ctx.interactive=(uint8_t)(interactive!=0);
     _gameType=GAME_TYPE_CAREER; /* unemployed CPU still uses OG match */
@@ -397,6 +512,7 @@ static int exp_live_drain_today(ExpandedUniversalRegistry *r,int32_t today,
            ExpandedClubKey_Equal(manager,g->away))return 1;
         if(_quitToDos)return 1;
         res=run_match(g,0,1);
+        if(res!=EXP_UNIVERSAL_OK && exp_live_local_fault(r,g,res))continue;
         if(res!=EXP_UNIVERSAL_OK) {
             r->recovery_required=1u;
             fprintf(stderr,"[universal-live] ROUND_CPU_FAULT event=%llu "
@@ -434,6 +550,10 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
     /* The manager fixture is never executed by ordinary FORWARD, so its
      * round anchor cannot change inside this call. DEBUG keeps old path. */
     const ExpandedUniversalFixture *round_anchor=NULL;
+    int32_t ticked_day=r->scheduler.clock.day_index;
+    /* Fase 2 lifecycle (phases, closures, new editions) at each civil day
+     * the FORWARD reaches; never plays a match. */
+    (void)ExpCe_Tick(r,&s_ce_host,ticked_day);
     {
         ExpandedClubKey round_manager={0};
         if(!debug_autosim_manager && manager_key(&round_manager))
@@ -444,8 +564,19 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
         ExpandedUniversalResult res=ExpandedUniversal_Peek(r,to,&f);
         ExpandedWorldDate day={0};
         ExpandedClubKey manager={0};
+        if(res==EXP_UNIVERSAL_DUE && f && f->day_index!=ticked_day) {
+            /* new civil day: lifecycle first (may add fixtures), then peek
+             * again so newly generated earlier events keep CE order */
+            ticked_day=f->day_index;
+            r->scheduler.clock.day_index=f->day_index;
+            if(ExpCe_Tick(r,&s_ce_host,ticked_day)>0)continue;
+        }
         if(res==EXP_UNIVERSAL_EMPTY) {
             r->scheduler.clock.day_index=to; /* CE clock only */
+            if(ticked_day!=to) {
+                ticked_day=to;
+                if(ExpCe_Tick(r,&s_ce_host,to)>0)continue;
+            }
             /* A FORWARD stop is not an autosave. Quick CPU scores below the
              * batch limit stay in RAM until a later durable checkpoint. */
             return 1;
@@ -499,6 +630,8 @@ static int exp_universal_live_advance_impl(ExpandedWorldDate target,
                 manager_due?"DEBUG_MANAGER":"CPU",
                 (unsigned long long)(Platform_NowMs()-started_ms),
                 (int)match_result);
+            if(match_result!=EXP_UNIVERSAL_OK &&
+               exp_live_local_fault(r,f,match_result))continue;
             if(match_result!=EXP_UNIVERSAL_OK) {
                 /* Do not persist an uncertain partial block; preceding
                  * atomic CAR is still the last valid checkpoint. */

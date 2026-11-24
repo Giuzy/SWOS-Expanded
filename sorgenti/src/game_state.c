@@ -3,6 +3,9 @@
  * SWOS Amiga C/68000 Reversed by Ben Baker (https://github.com/benbaker76)
  * SWOS DOS Reversed by Zlatko Karakaš (https://github.com/zlatkok)
  */
+#ifdef SWOS_SDL_BUILD
+#include "expanded_universal_native_match.h" /* Fase 2 CE extra-time allowance */
+#endif
 #include "game_state.h"
 #include "game_types.h"
 #include "endian_helpers.h"
@@ -902,6 +905,9 @@ check_game_end:
         if (_extraTimeState)
         {
             _extraTimeState = (int16_t)0xFFFF;
+#ifdef SWOS_SDL_BUILD
+            ExpandedUniversal_SubWindowExtraTime(); /* Fase 2: CE ET allowance */
+#endif
             StartFirstExtraTime();
             goto not_end_of_second_extra;
         }

@@ -24,6 +24,14 @@ int ExpandedUniversalLive_ManagerNext(ExpandedWorldDate *due);
 /* Fase 1: 1 = WORLD2627 CE active and the bound (not sacked) manager club
  * is a CE catalog club. Club change = manager rebinding only. */
 int ExpandedUniversalLive_ManagerBound(void);
+/* Fase 2: Competition Engine. CONTINUE hook (after rosters restore): build
+ * the definitions, decode the CAR lifecycle (or rebuild it for a pre-v296
+ * CAR) and check every edition against the current rules. 1 ok. */
+int ExpandedUniversalLive_EngineRestore(void);
+/* OG native NAME tie-break (catalog club names). */
+#include "expanded_competition_identity.h"
+int ExpandedUniversalLive_ClubNameCompare(void *user,ExpandedClubKey a,
+                                          ExpandedClubKey b);
 /* 0 not owned, 1 handled/blocked, 2 actual OG + CAR completed. */
 int ExpandedUniversalLive_PlayManager(void); /* only manual real OG 50 Hz */
 int ExpandedUniversalLive_ViewManagerResult(void); /* OG fast, same CAR */

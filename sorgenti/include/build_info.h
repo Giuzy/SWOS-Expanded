@@ -148,7 +148,18 @@
 /* v00.13.295: Windows standalone CE live-cycle test uses SDL_MAIN_HANDLED
  * to keep test main(void) from SDL2 SDL_main macro substitution.
  * Production engine unchanged. Windows harness rerun not yet proven. */
-#define SWOS_EXPANDED_VERSION "00.13.295"
+/* v00.13.296 (FASE 2, universal Competition Engine): versioned rules per
+ * competition/phase (points, ordered tie-breakers incl. head-to-head, legs,
+ * knockout, extra time, penalties, away goals, bench, substitutions,
+ * windows, OG discipline mode) consumed by the CE match path (subs/bench
+ * from the OG league record: 3 from 5 instead of 0 substitutions; OG
+ * discipline 1 instead of 3) and by the CE board table; knockout via the
+ * ORIGINAL OG quick resolvers / 50 Hz KO globals; type0/type1/type2
+ * lifecycle CREATED..ARCHIVED, phases, promotion/relegation chains,
+ * qualification with provenance, archive+prune, local blocks (HELD events)
+ * instead of a global stop, CAR section universal_lifecycle (UL01),
+ * ce_competitions.json + real-data validator/matrix. Windows NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.296"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

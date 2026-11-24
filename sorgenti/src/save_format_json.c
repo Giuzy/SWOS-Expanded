@@ -9103,7 +9103,9 @@ int16_t SaveJson_LoadCareer(uint8_t *filename, const uint8_t *src_unused,
            !ExpandedUniversal_CarRestore((const char *)src,(int)src_size) ||
            !universal_rosters_restore((const char *)src,(int)src_size) ||
            !Expanded_CompetitionCoordinator_ValidateRestore() ||
-           !ExpandedUniversalLive_CanRestoreRosters()) {
+           !ExpandedUniversalLive_CanRestoreRosters() ||
+           /* Fase 2: competition editions/lifecycle (UL01 or rebuilt) */
+           !ExpandedUniversalLive_EngineRestore()) {
             fprintf(stderr,"[og-world-save] LOAD_RESTORE_FAILED "
                            "after-preflight world=%s "
                            "reason=RESIDENT_OR_CIVIL_COORDINATOR\n",

@@ -23,7 +23,23 @@ typedef struct ExpandedUniversalNativeMatch {
     uint8_t interactive;    /* 1: Show original lineup BEFORE CAR claim */
     uint8_t lineup_ready;   /* set only after original SetupPlayers succeeds */
     uint8_t abandoned;      /* set when the 50 Hz match was aborted before its end (ESC) */
+    /* Fase 2: competition rules of THIS fixture (CE engine), applied with
+     * the original OG mechanisms only: ET/penalties/aggregate/away goals
+     * through the OG knockout globals (50 Hz) or the OG quick resolvers
+     * (ExtraTimeSecondPhaseScoring / PenaltyShootoutScorerPair). */
+    uint8_t decides_tie;    /* a level result is not final (KO deciding match) */
+    uint8_t extra_time, penalties, away_goals, second_leg;
+    uint16_t first_leg_home, first_leg_away; /* goals of THIS home/away side */
+    /* substitution windows (CE adapter, 0 = OG behaviour, no limit) */
+    uint8_t sub_windows, halftime_free, et_extra_subs, et_extra_windows;
+    uint8_t og_mode_flag;   /* OG quick modeFlag: 0xFF single-meeting table */
 } ExpandedUniversalNativeMatch;
+/* Fase 2 substitution-window adapter, active ONLY inside a CE 50 Hz match
+ * whose rules set a window limit (bench_subs.c / game_state.c hooks). */
+int ExpandedUniversal_SubWindowAllows(int team_number);
+void ExpandedUniversal_SubWindowSessionBegin(int team_number);
+void ExpandedUniversal_SubWindowCommitted(int team_number);
+void ExpandedUniversal_SubWindowExtraTime(void);
 
 /* Read-only legacy match UI safeguard; automatic 2627 games now use
  * OG quick result and never enter GameLoop. */

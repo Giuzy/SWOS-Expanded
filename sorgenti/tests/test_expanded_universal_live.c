@@ -31,6 +31,8 @@
 #include "expanded_world_live.h"
 #include "platform_sdl.h"
 #include "play_match_menu.h"
+#include "expanded_universal_json_leagues.h"
+#include "expanded_ce_engine.h"
 
 /* ---- game globals read by the live layer -------------------------------- */
 uint16_t _quitToDos,_gameType,_selTeamNumber=0xffffu,_youreSacked;
@@ -48,6 +50,24 @@ void Platform_UniversalCpuProgress(uint32_t count){(void)count;}
 int CarWriter_TakeFailure(void){return 0;}
 static ExpandedWorldClockProvider s_provider;
 void ExpandedWorldLive_SetClockProvider(ExpandedWorldClockProvider p){s_provider=p;}
+const char *World_Tag(void){return "2627";}
+const char *swos_data_path(const char *rel,char *buf,uint32_t n)
+{ (void)rel; snprintf(buf,n,"%s","/nonexistent/ce_competitions.json"); return buf; }
+/* Fase 2: the two test leagues as one 2-division OG league family
+ * (country 16, comp 1), OG native rules 3 points, 3 subs from 5,
+ * no promotion/relegation (closed chain), CE calendar window. */
+int ExpandedUniversalJsonLeagues_At(uint32_t i,ExpandedUniversalJsonLeague *o)
+{
+    if(i>=2u || !o)return 0;
+    memset(o,0,sizeof *o);
+    o->country=16u;o->comp_id=1u;o->division=(uint8_t)i;o->meetings=2u;
+    o->declared_clubs=4u;o->divisions=2u;
+    o->has_rules=1u;o->points_for_win=3u;o->subs=3u;o->bench=5u;
+    o->has_calendar=1u;o->first_month=8u;o->first_day=1u;
+    o->last_month=5u;o->last_day=31u;o->last_year_offset=1u;
+    o->match_weekdays=1u<<6;o->extra_weekdays=1u<<2;o->min_rest_days=3u;
+    return 1;
+}
 
 /* ---- catalog: two leagues of 4 clubs, double round robin ---------------- */
 #define CLUBS 8u
@@ -105,7 +125,8 @@ static void build_catalog(uint8_t first_type)
          * FORWARD must run those CPU events, then stop at the manager's
          * round (OG board). */
         f->event_id=(uint64_t)f->day_index*100u+(lg==0u?50u:10u)+m;
-        f->key.edition.competition=(ExpandedCompetitionKey){WORLD_2627,1000u+lg};
+        f->key.edition.competition=(ExpandedCompetitionKey){WORLD_2627,
+            ExpCe_LeagueCompetitionId(16u,1u,(uint8_t)lg)};
         f->key.edition.start_day=s_round_day[0];
         f->key.edition.sequence=1u;
         f->key.stage=1u;f->key.tie=rd*2u+m+1u;
@@ -209,7 +230,8 @@ int Expanded_AutoCareer_SaveChecked(const char *reason)
 static int continue_from_disk(void)
 {
     if(!ExpandedUniversal_CarValidate(s_disk,s_disk_len))return 0;
-    return ExpandedUniversal_CarRestore(s_disk,s_disk_len);
+    return ExpandedUniversal_CarRestore(s_disk,s_disk_len) &&
+           ExpandedUniversalLive_EngineRestore();
 }
 
 /* ---- helpers ------------------------------------------------------------ */
@@ -287,7 +309,7 @@ static void check_standings(uint32_t league)
     uint32_t used=0u,i,k,pts[CLUBS+1u]={0},pl[CLUBS+1u]={0};
     ExpandedUniversalRegistry *r=R();
     ExpandedEditionKey ed=s_cat[league==0u?0:2].fixture.key.edition;
-    assert(ed.competition.stable_competition==1000u+league);
+    assert(ed.competition.stable_competition==ExpCe_LeagueCompetitionId(16u,1u,(uint8_t)league));
     for(k=0;k<s_cat_count;++k) {
         const ExpandedUniversalFixture *f=ExpandedUniversal_Find(r,s_cat[k].fixture.event_id);
         const ExpandedFixtureLedgerEntry *e=ExpandedUniversal_EntryFor(r,f);
@@ -558,14 +580,20 @@ int main(void)
     assert(state_of((uint32_t)mk)==EXP_FIXTURE_CLAIMED);
     puts("NEG_COMPLETION_SAVE_FAILED_NOT_COMPLETED=PASS");
 
-    /* ===== KO guard: a type1 fixture is refused, never a winnerless draw ===== */
+    /* ===== type mismatch (fixture type1 in a type0 definition): refused
+     * before claim, ONLY that edition is blocked (Fase 2 local fault) ===== */
     ExpandedUniversal_CarResetCurrent();
     build_catalog(1u);
     unemploy();
     start_world();
-    assert(ExpandedUniversalLive_Advance(END())==0);
+    assert(ExpandedUniversalLive_Advance(END())==1);
     assert(s_runs[0]==0u && state_of(0u)==EXP_FIXTURE_SCHEDULED);
-    puts("NEG_TYPE1_WITHOUT_KO_HANDLER_REFUSED_BEFORE_CLAIM=PASS");
+    assert(R()->recovery_required==0u);
+    assert(ExpCe_EditionBlocked(s_cat[0].fixture.key.edition));
+    for(k=0;k<NFIX;++k) /* league B played everything, league A nothing */
+        assert(s_cat[k].fixture.slot==1u?state_of(k)==EXP_FIXTURE_PLAYED:
+                                         state_of(k)==EXP_FIXTURE_SCHEDULED);
+    puts("NEG_TYPE_MISMATCH_LOCAL_BLOCK_WORLD_CONTINUES=PASS");
 
     /* ===== missing roster: explicit fault, nothing played ===== */
     ExpandedUniversal_CarResetCurrent();
@@ -573,13 +601,20 @@ int main(void)
     unemploy();
     start_world();
     s_missing_roster=(int)s_cat[0].fixture.home.stable_club;
-    assert(ExpandedUniversalLive_Advance(END())==0);
-    /* league B ran first that day; the broken fixture is NOT played and
-     * nothing after it either (global recovery: documented limit). */
-    assert(count_state(EXP_FIXTURE_PLAYED)==2u && s_runs[0]==0u);
-    assert(state_of(0u)==EXP_FIXTURE_SCHEDULED && R()->recovery_required==1u);
+    assert(ExpandedUniversalLive_Advance(END())==1);
+    /* Fase 2: the broken edition (league A) is blocked and held, league B
+     * keeps going; no score, no global recovery. */
+    assert(s_runs[0]==0u && state_of(0u)==EXP_FIXTURE_SCHEDULED);
+    assert(R()->recovery_required==0u);
+    assert(count_state(EXP_FIXTURE_PLAYED)==NFIX/2u);
+    /* the block is durable: SAVE -> CONTINUE keeps it */
+    assert(Expanded_AutoCareer_SaveChecked("test-menu-exit"));
+    assert(continue_from_disk());
+    assert(ExpCe_EditionBlocked(s_cat[0].fixture.key.edition));
+    assert(ExpandedUniversalLive_Advance(D(s_round_day[ROUNDS-1u]+20))==1);
+    assert(state_of(0u)==EXP_FIXTURE_SCHEDULED);
     s_missing_roster=0;
-    puts("NEG_MISSING_ROSTER_FAILS_CLOSED=PASS");
+    puts("NEG_MISSING_ROSTER_LOCAL_BLOCK_DURABLE=PASS");
 
     /* ===== WORLD9697: CE inactive, nothing started ===== */
     ExpandedUniversal_CarResetCurrent();

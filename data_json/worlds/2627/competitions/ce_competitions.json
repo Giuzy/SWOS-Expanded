@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "kind": "SWOS_EXPANDED_CE_COMPETITIONS",
+  "world": "2627",
+  "owner": "COMPETITION_ENGINE (expanded_ce_engine.c)",
+  "notes": [
+    "Cups (type 1) and multi-phase competitions (type 2) of the Competition Engine. Leagues (type 0) come from leagues.json + league_calendar.json.",
+    "id: stable CE competition id; the low byte MUST be 2 (league ids end in 1).",
+    "A definition with a non-empty 'missing' is loaded, shown in the capability matrix and BLOCKED locally: it never runs and never blocks other competitions.",
+    "Club keys are 'country:slot' (CE stable club key, slot = World_Slot+1), NOT TEAM ordinals.",
+    "match.bench = players on the bench (OG maxSubs), match.subs = substitutions allowed (OG minSubs), match.discipline = OG 0x3C mode (1 domestic, 0 continental).",
+    "Dates: 'first_edition_days' = verified real round days of the first edition; 'window' = game template for later editions (not official)."
+  ],
+  "competitions": [
+    {
+      "id": 2949378,
+      "name": "COPA BOLIVIA",
+      "country": 45,
+      "type": 2,
+      "source": "copa_bolivia_2026_groups.json (fbf.com.bo, erbol.com.bo, vision360.bo)",
+      "missing": "16 interseries (clasico) fixtures not authenticated/dated; group->knockout pairing rule not verified; first-edition entrant slots not mapped to CE keys",
+      "match": { "bench": 5, "subs": 3, "discipline": 1, "provenance": "OG_NATIVE" },
+      "table": { "points": [3, 1, 0], "tiebreak": ["POINTS", "GOAL_DIFF", "GOALS_FOR", "NAME"], "provenance": "OG_NATIVE" },
+      "expiry": { "date": "01-14", "year_offset": 1 },
+      "phases": [
+        { "kind": "TABLE", "groups": 4, "meetings": 2, "qualify": 2, "pairing": "LISTED",
+          "missing": "interseries fixtures" },
+        { "kind": "KNOCKOUT", "pairing": "CROSS_GROUPS", "higher_home": 2,
+          "match": { "legs": 2, "penalties": 1 }, "missing": "pairing rule and dates" },
+        { "kind": "KNOCKOUT", "pairing": "BRACKET", "higher_home": 2,
+          "match": { "legs": 2, "penalties": 1 }, "missing": "dates" },
+        { "kind": "KNOCKOUT", "pairing": "BRACKET", "higher_home": 2,
+          "match": { "legs": 2, "penalties": 1 }, "missing": "dates" }
+      ],
+      "first_edition": { "year": 2026, "entrants": [] }
+    },
+    {
+      "id": 13107458,
+      "name": "COPA LIBERTADORES",
+      "country": 200,
+      "type": 2,
+      "source": "libertadores_2027_first.json; calendar https://www.afa.com.ar/es/posts/calendario-de-la-copa-libertadores-copa-sudamericana-y-recopa-2027",
+      "missing": "2027 entrants provisional (Q1/Q2 allocation not approved per club); draw/pairing rules of every phase and extra-time/away-goals rules not verified",
+      "match": { "bench": 5, "subs": 3, "discipline": 0, "provenance": "GAME_TEMPLATE" },
+      "table": { "points": [3, 1, 0], "tiebreak": ["POINTS", "GOAL_DIFF", "GOALS_FOR", "LOT"], "provenance": "GAME_TEMPLATE" },
+      "phases": [
+        { "kind": "KNOCKOUT", "pairing": "LISTED", "match": { "legs": 2, "penalties": 1 },
+          "first_edition_days": ["2027-02-03", "2027-02-10"] },
+        { "kind": "KNOCKOUT", "pairing": "LISTED", "match": { "legs": 2, "penalties": 1 },
+          "first_edition_days": ["2027-02-17", "2027-02-24"] },
+        { "kind": "KNOCKOUT", "pairing": "LISTED", "match": { "legs": 2, "penalties": 1 },
+          "first_edition_days": ["2027-03-03", "2027-03-10"] },
+        { "kind": "TABLE", "groups": 8, "meetings": 2, "qualify": 2, "pairing": "POTS",
+          "first_edition_days": ["2027-04-07", "2027-04-14", "2027-04-28", "2027-05-05", "2027-05-19", "2027-05-26"] },
+        { "kind": "KNOCKOUT", "pairing": "DRAW", "higher_home": 2, "match": { "legs": 2, "penalties": 1 },
+          "first_edition_days": ["2027-08-11", "2027-08-18"], "missing": "round of 16 draw rule" },
+        { "kind": "KNOCKOUT", "pairing": "BRACKET", "higher_home": 2, "match": { "legs": 2, "penalties": 1 },
+          "first_edition_days": ["2027-09-08", "2027-09-15"] },
+        { "kind": "KNOCKOUT", "pairing": "BRACKET", "higher_home": 2, "match": { "legs": 2, "penalties": 1 },
+          "first_edition_days": ["2027-10-13", "2027-10-20"] },
+        { "kind": "KNOCKOUT", "pairing": "BRACKET", "higher_home": 1, "match": { "legs": 1, "extra_time": 1, "penalties": 1 },
+          "first_edition_days": ["2027-11-27"] }
+      ],
+      "first_edition": { "year": 2027, "entrants": [] }
+    }
+  ]
+}

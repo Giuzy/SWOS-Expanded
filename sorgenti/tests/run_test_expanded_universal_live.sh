@@ -20,6 +20,9 @@ done
   src/expanded_world_time.c src/expanded_car_compact.c \
   src/expanded_edition_archive.c src/expanded_universal_car.c \
   src/expanded_universal_career_dispatch.c src/expanded_universal_live.c \
+  src/expanded_ce_rules.c src/expanded_ce_table.c src/expanded_ce_engine.c \
+  src/expanded_ce_definitions.c \
+  src/expanded_universal_date_planner.c \
   tests/test_expanded_universal_live.c "$DIR/mjson.o" -lm \
   -o "$DIR/universal_live"
 "$DIR/universal_live"

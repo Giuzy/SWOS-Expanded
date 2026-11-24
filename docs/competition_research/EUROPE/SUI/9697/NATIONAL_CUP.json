@@ -7,29 +7,86 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "SUI",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Swiss Cup",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "nonCommercialDisplayName": "Schweizer Cup / Coupe de Suisse",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block72Research": {
+      "edition": "1996/97",
+      "rules": {
+        "principalRounds": 2,
+        "mainRounds": 6,
+        "format": "single elimination",
+        "europeanByesAtR64": [
+          "Grasshopper Club Zürich",
+          "Neuchâtel Xamax",
+          "FC Sion",
+          "FC Aarau"
+        ],
+        "extraTimeObserved": true,
+        "penaltiesObserved": true,
+        "finalVenue": "Wankdorf, Bern"
+      },
+      "roundWindows": [
+        [
+          "principal1",
+          "1996-08-10",
+          "1996-08-11"
+        ],
+        [
+          "principal2",
+          "1996-08-30",
+          "1996-08-31"
+        ],
+        [
+          "R64",
+          "1996-09-21",
+          "1996-09-24"
+        ],
+        [
+          "R32",
+          "1997-03-15",
+          "1997-03-16"
+        ],
+        [
+          "R16",
+          "1997-03-29",
+          "1997-03-29"
+        ],
+        [
+          "QF",
+          "1997-05-06",
+          "1997-05-06"
+        ],
+        [
+          "SF",
+          "1997-05-19",
+          "1997-05-19"
+        ],
+        [
+          "final",
+          "1997-06-08",
+          "1997-06-08"
+        ]
+      ],
+      "limitations": "Earliest principal round established, any separate regional prequalification and actual earliest eligibility dates not verified. Individual fixtures and club keys pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

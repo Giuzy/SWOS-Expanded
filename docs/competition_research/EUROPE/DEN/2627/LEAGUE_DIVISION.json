@@ -7,13 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "DEN",
-    "candidateSources": [
-      "9028b066d638b6edc4f4bd5f4d60ac4d1032d9e8"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,7 +23,6 @@
       "nonCommercialDisplayName": "Superliga",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.superliga.dk/struktur",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -66,8 +61,147 @@
           "date": "2026-07-27"
         }
       ],
-      "source": "https://superliga.dk/nyheder/kamptidspunkter/2026-2027/kampprogrammet-for-grundspillet-2026-27-er-fastlagt",
       "scope": "Published June 3 schedule; club keys and actual dates still to reconcile; conditional later fixtures not imported as definite."
+    },
+    "block74Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 12,
+        "regularRounds": 2,
+        "regularGamesPerClub": 22,
+        "split": [
+          6,
+          6
+        ],
+        "splitRounds": 2,
+        "gamesPerClub": 32,
+        "pointsCarried": "full"
+      },
+      "participants": [
+        "AC Horsens",
+        "AGF",
+        "Brøndby IF",
+        "FC København",
+        "FC Midtjylland",
+        "FC Nordsjælland",
+        "Lyngby BK",
+        "OB",
+        "Randers FC",
+        "Silkeborg IF",
+        "Sønderjyske",
+        "Viborg FF"
+      ],
+      "openingFixtures": [
+        {
+          "home": "Viborg FF",
+          "away": "OB",
+          "date": "2026-07-24"
+        },
+        {
+          "home": "AGF",
+          "away": "Brøndby IF",
+          "date": "2026-07-25"
+        },
+        {
+          "home": "Sønderjyske",
+          "away": "FC Midtjylland",
+          "date": "2026-07-26"
+        },
+        {
+          "home": "Randers FC",
+          "away": "Silkeborg IF",
+          "date": "2026-07-26"
+        },
+        {
+          "home": "AC Horsens",
+          "away": "FC Nordsjælland",
+          "date": "2026-07-26"
+        },
+        {
+          "home": "FC København",
+          "away": "Lyngby BK",
+          "date": "2026-07-27"
+        }
+      ],
+      "conditionalRescheduling": [
+        {
+          "round": 2,
+          "home": "Lyngby BK",
+          "away": "AGF",
+          "alternativeDates": [
+            "2026-07-31",
+            "2026-08-01"
+          ],
+          "reason": "UEFA draw"
+        },
+        {
+          "round": 3,
+          "home": "AGF",
+          "away": "FC Midtjylland",
+          "date": "2026-09-02",
+          "reason": "European calendar"
+        },
+        {
+          "round": 3,
+          "home": "FC København",
+          "away": "FC Nordsjælland",
+          "date": "2026-09-03",
+          "reason": "European calendar"
+        },
+        {
+          "round": 4,
+          "home": "Viborg FF",
+          "away": "AGF",
+          "alternativeDates": [
+            "2026-08-14",
+            "2026-08-16"
+          ],
+          "reason": "European calendar"
+        },
+        {
+          "round": 5,
+          "home": "AGF",
+          "away": "OB",
+          "alternativeDates": [
+            "2026-08-21",
+            "2026-08-22",
+            "2026-08-23"
+          ],
+          "reason": "European calendar"
+        }
+      ],
+      "openingRoundWindows": [
+        [
+          "2026-07-24",
+          "2026-07-27"
+        ],
+        [
+          "2026-07-31",
+          "2026-08-03"
+        ],
+        [
+          "2026-08-07",
+          "2026-08-10"
+        ],
+        [
+          "2026-08-14",
+          "2026-08-17"
+        ],
+        [
+          "2026-08-21",
+          "2026-08-24"
+        ],
+        [
+          "2026-08-28",
+          "2026-08-31"
+        ],
+        [
+          "2026-09-04",
+          "2026-09-07"
+        ]
+      ],
+      "limitations": "June3 original announcement; alternatives not claimed final; round3 rescheduled matches separate; full individual calendar and current movement rules pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

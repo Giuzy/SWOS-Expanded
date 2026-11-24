@@ -7,9 +7,6 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "TUR",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
@@ -27,7 +24,6 @@
       "nonCommercialDisplayName": "Türkiye Kupası",
       "candidateName": "Türkiye Kupası",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.rsssf.org/tablest/turkhist.html",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -44,12 +40,62 @@
           "1997-04-16"
         ]
       },
-      "sources": [
-        "https://www.rsssf.org/tablest/turkhist.html",
-        "https://www.rsssf.org/tablest/turkcup97.html"
-      ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Observed historical season; neutral English labels not necessarily exact official local-language names. No complete fixture/participant mapping, no result import."
+    },
+    "block73Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 87,
+        "roundsBeforeQuarterfinal": 6,
+        "firstRoundMatches": 10,
+        "round5Matches": 8,
+        "round6Matches": 8,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 2,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "roundWindows": [
+        [
+          "R6",
+          "1996-11-26",
+          "1996-11-28"
+        ],
+        [
+          "QF1",
+          "1997-01-22",
+          "1997-01-23"
+        ],
+        [
+          "QF2",
+          "1997-02-05",
+          "1997-02-05"
+        ],
+        [
+          "SF1",
+          "1997-02-19",
+          "1997-02-19"
+        ],
+        [
+          "SF2",
+          "1997-03-04",
+          "1997-03-05"
+        ],
+        [
+          "final1",
+          "1997-03-19",
+          "1997-03-19"
+        ],
+        [
+          "final2",
+          "1997-04-16",
+          "1997-04-16"
+        ]
+      ],
+      "limitations": "Earlier four rounds dates missing; 87 total reported by secondary archive; no July exclusion asserted.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

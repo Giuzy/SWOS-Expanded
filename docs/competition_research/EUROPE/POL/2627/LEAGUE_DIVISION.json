@@ -7,13 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "POL",
-    "candidateSources": [
-      "c9f932c8aec04966dcfacacdbf5608a03cf2fae4"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,7 +23,6 @@
       "nonCommercialDisplayName": "Ekstraklasa",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://ekstraklasa.org/en/standings/2026-2027/",
       "nameHistory": [
         {
           "transition": 250,
@@ -35,8 +30,7 @@
           "to": null,
           "previousName": "I Liga",
           "name": "Ekstraklasa",
-          "operation": "RENAME",
-          "source": "https://ekstraklasa.org/en/company/history/"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
@@ -47,11 +41,80 @@
       "games": 34,
       "modernEdition": "2026/27",
       "modernTeams": 18,
-      "sources": [
-        "https://ekstraklasa.org/tabela/2025-2026/",
-        "https://ekstraklasa.org/en/standings/2026-2027/"
-      ],
       "scope": "Official standings support observed structure; no complete fixture or relegation rules certified."
+    },
+    "block74Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34
+      },
+      "participants": [
+        "Cracovia",
+        "GKS Katowice",
+        "Górnik Zabrze",
+        "Jagiellonia Białystok",
+        "Korona Kielce",
+        "Lech Poznań",
+        "Legia Warszawa",
+        "Motor Lublin",
+        "Piast Gliwice",
+        "Pogoń Szczecin",
+        "Radomiak Radom",
+        "Raków Częstochowa",
+        "Widzew Łódź",
+        "Wieczysta Kraków",
+        "Wisła Kraków",
+        "Wisła Płock",
+        "Zagłębie Lubin",
+        "Śląsk Wrocław"
+      ],
+      "firstDate": "2026-07-24",
+      "lastDate": "2027-05-22",
+      "autumnRounds": 18,
+      "springRounds": 16,
+      "winterLastWindow": [
+        "2026-12-11",
+        "2026-12-14"
+      ],
+      "winterResume": "2027-01-29",
+      "reserveWindows": [
+        [
+          "2026-09-01",
+          "2026-09-02"
+        ],
+        [
+          "2026-09-15",
+          "2026-09-16"
+        ],
+        [
+          "2026-12-15",
+          "2026-12-16"
+        ],
+        [
+          "2026-12-19",
+          "2026-12-20"
+        ],
+        [
+          "2027-02-02",
+          "2027-02-03"
+        ],
+        [
+          "2027-02-09",
+          "2027-02-10"
+        ],
+        [
+          "2027-04-20",
+          "2027-04-21"
+        ],
+        [
+          "2027-05-11",
+          "2027-05-12"
+        ]
+      ],
+      "limitations": "No planned midweek league round; individual postponed dates and current movement rule text pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

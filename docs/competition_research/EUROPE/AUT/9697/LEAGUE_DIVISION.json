@@ -7,16 +7,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "AUT",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -42,12 +40,44 @@
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Bundesliga",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/resultsp99.html",
+      "nonCommercialDisplayName": "1. Bundesliga",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block72Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "observedRelegationPlayoff": {
+          "firstTierRank": 10,
+          "secondTierRank": 2,
+          "editionSpecific": true
+        }
+      },
+      "participants": [
+        "FC Linz",
+        "FC Tirol Innsbruck",
+        "FK Austria Wien",
+        "Grazer AK",
+        "LASK Linz",
+        "SC Niederösterreich FC Admira/Wacker",
+        "SK Rapid Wien",
+        "SK Sturm Graz",
+        "SV Austria Salzburg",
+        "SV Ried"
+      ],
+      "firstMatch": "1996-07-24",
+      "limitations": "Merger of LASK and FC Linz and Admira/Wacker and Mödling changed movement; actual exception not a recurring rule; no future outcomes imported.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

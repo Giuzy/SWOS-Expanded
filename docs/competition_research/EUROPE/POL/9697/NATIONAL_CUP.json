@@ -7,29 +7,117 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "POL",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Polish Cup",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "nonCommercialDisplayName": "Puchar Polski",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block74Research": {
+      "edition": "1996/97",
+      "rules": {
+        "preliminary": {
+          "regionalEntrants": 49,
+          "playing": 18,
+          "byes": 31
+        },
+        "round1Matches": 20,
+        "round2Entry": "prior second tier",
+        "knockoutLegs": 1,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "roundWindows": [
+        [
+          "preliminary",
+          "1996-06-26",
+          "1996-07-15"
+        ],
+        [
+          "R1",
+          "1996-07-24",
+          "1996-07-28"
+        ],
+        [
+          "R2",
+          "1996-08-06",
+          "1996-08-28"
+        ],
+        [
+          "R32",
+          "1996-09-28",
+          "1996-09-29"
+        ],
+        [
+          "R16",
+          "1996-11-09",
+          "1996-11-13"
+        ],
+        [
+          "QF",
+          "1997-04-16",
+          "1997-04-16"
+        ],
+        [
+          "SF",
+          "1997-05-15",
+          "1997-05-15"
+        ],
+        [
+          "final",
+          "1997-06-29",
+          "1997-06-29"
+        ]
+      ],
+      "limitations": "Exact preliminary dates from secondary archive, other archive lacks dates; prior tier identities and match-level audit remain open.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "startResearch": {
+      "cutoff": "1996-07-01",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": [
+          {
+            "date": "1996-06-26",
+            "round": "preliminary",
+            "home": "Orkan Sochaczew",
+            "away": "Okęcie Warszawa",
+            "homeGoals": 1,
+            "awayGoals": 3,
+            "winner": "Okęcie Warszawa"
+          },
+          {
+            "date": "1996-06-30",
+            "round": "preliminary",
+            "home": "Hetman Orchowo",
+            "away": "Pogoń Zduńska Wola",
+            "homeGoals": 0,
+            "awayGoals": 5,
+            "winner": "Pogoń Zduńska Wola"
+          }
+        ],
+        "qualifiedFromPlayedMatches": [
+          "Okęcie Warszawa",
+          "Pogoń Zduńska Wola"
+        ],
+        "preliminaryMatchesScheduled": 9,
+        "remainingAtCutoff": 7
+      },
+      "missing": "Exact dates need independent corroboration; regional byes and keys pending; no July results."
     }
   }
 ]

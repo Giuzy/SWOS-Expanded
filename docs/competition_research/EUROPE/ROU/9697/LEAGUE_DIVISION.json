@@ -7,16 +7,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ROU",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -37,18 +35,56 @@
       "regularOrInitialGamesPerClub": 34,
       "pointsWin": 3,
       "formatAndMovement": "Divizia Nationala; double RR",
-      "researchSource": "https://www.rsssf.org/tablesa/allfirst9697.html",
       "scope": "Observed structure, no future results imported; null and uncertain fields remain open."
     },
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Divizia A",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/resultsp99.html",
+      "nonCommercialDisplayName": "Divizia A / Divizia Națională",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block76Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          17,
+          18
+        ]
+      },
+      "participants": [
+        "Ceahlăul Piatra Neamț",
+        "Chindia Târgoviște",
+        "Dinamo București",
+        "FC Argeș Dacia Pitești",
+        "FC Brașov",
+        "FC Național București",
+        "FCM Bacău",
+        "Farul Constanța",
+        "Gloria Bistrița",
+        "Jiul Petroșani",
+        "Oțelul Galați",
+        "Petrolul Ploiești",
+        "Politehnica Timișoara",
+        "Rapid București",
+        "Sportul Studențesc",
+        "Steaua București",
+        "Universitatea Cluj",
+        "Universitatea Craiova"
+      ],
+      "firstMatchDate": "1996-07-31",
+      "limitations": "Archive uses both Divizia Nationala and Divizia A; exact legal naming unresolved, neutral display supported. No historical future standings imported.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

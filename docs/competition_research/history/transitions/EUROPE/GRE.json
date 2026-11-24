@@ -11,8 +11,6 @@
         13,
         248
       ],
-      "source": "https://en.wikipedia.org/wiki/2006%E2%80%9307_Super_League_Greece",
-      "additionalSource": "https://www.uefa.com/news-media/news/025e-0f90a010825a-27c590719be0-1000--government-support-for-greek-plan/",
       "note": "UEFA 2005 proposal corroborates governance transition, exact name change edition from secondary source.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block44 actual web retrieval, 24/11/2026; source-specific limitations noted."
@@ -27,7 +25,6 @@
       "rowRefs": [
         363
       ],
-      "source": "https://www.epo.gr/en/node/33281",
       "rules": {
         "leaguePhaseTeams": 20,
         "matchdays": 4
@@ -45,18 +42,18 @@
       "rowRefs": [
         363
       ],
-      "source": "https://www.epo.gr/en/node/33281",
       "rules": {
         "previousEditionLeaguePhaseTeams": 20,
         "leaguePhaseTeams": 16,
-        "matchdays": 4,
         "playoffRanks": [
           5,
           12
         ],
         "playoffLegs": 1,
         "preliminaryQualifiers": 11,
-        "directEuropeanEntrants": 5
+        "directEuropeanEntrants": 5,
+        "gamesPerClub": 4,
+        "calendarMatchdays": 5
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block45 verified source text or search excerpt; TFF p1 screenshot."
@@ -71,7 +68,6 @@
       "rowRefs": [
         248
       ],
-      "source": "https://www.sportal.gr/podosfairo/article/stoiximan-super-league-ti-isxyei-se-playoffs-1-4-5-8-kai-ta-playouts-2026040200020092788",
       "rules": {
         "teams": 14,
         "regularGames": 26,
@@ -104,7 +100,6 @@
       "rowRefs": [
         124
       ],
-      "source": "https://www.rsssf.org/tablesg/grk97.html",
       "rules": {
         "firstRoundLegs": 2,
         "semifinalLegs": 2,

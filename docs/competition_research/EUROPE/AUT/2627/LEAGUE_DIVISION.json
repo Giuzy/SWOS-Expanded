@@ -7,13 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "AUT",
-    "candidateSources": [
-      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,7 +23,6 @@
       "nonCommercialDisplayName": "Bundesliga",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.bundesliga.at/de/news/artikel/die-details-der-ligareform-so-wird-ab-2018-19-gespielt",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -43,11 +38,153 @@
       "pointsHalved": true,
       "rounding": "floor",
       "tieBreakPriority": "rounded half point then goal difference",
-      "sources": [
-        "https://www.bundesliga.at/de/news/artikel/die-details-der-ligareform-so-wird-ab-2018-19-gespielt",
-        "https://www.bundesliga.at/de/news/artikel/kommende-liga-spielzeit-als-bergangssaison-vor-reform"
-      ],
       "scope": "historical reform; exact 2026/27 rules not fully verified"
+    },
+    "block72Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 12,
+        "initialRounds": 2,
+        "initialGamesPerClub": 22,
+        "split": [
+          6,
+          6
+        ],
+        "splitRounds": 2,
+        "gamesPerClub": 32,
+        "pointsCarried": "full",
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "tieBreakers": [
+          "head-to-head points",
+          "head-to-head goal difference",
+          "head-to-head goals scored",
+          "overall goal difference",
+          "overall goals",
+          "wins",
+          "away wins",
+          "away goals"
+        ],
+        "relegation": {
+          "bottomRank": 12,
+          "licensedSecondTierChampion": "direct exchange",
+          "ifFirstLicensedRank2to4": "two-leg playoff",
+          "ifNoLicensedTop4": "bottom club remains"
+        },
+        "europeanPlayoffTeams": 3,
+        "matchSquadMax": 20,
+        "substitutions": 5,
+        "substitutionWindows": 3
+      },
+      "participants": [
+        "FC Red Bull Salzburg",
+        "FK Austria Wien",
+        "Grazer AK",
+        "LASK",
+        "SC Austria Lustenau",
+        "SCR Altach",
+        "SK Rapid Wien",
+        "SK Sturm Graz",
+        "SV Ried",
+        "TSV Hartberg",
+        "WSG Tirol",
+        "Wolfsberger AC"
+      ],
+      "nominalRoundWindows": [
+        [
+          "2026-07-31",
+          "2026-08-02"
+        ],
+        [
+          "2026-08-07",
+          "2026-08-09"
+        ],
+        [
+          "2026-08-14",
+          "2026-08-16"
+        ],
+        [
+          "2026-08-21",
+          "2026-08-23"
+        ],
+        [
+          "2026-08-28",
+          "2026-08-30"
+        ],
+        [
+          "2026-09-11",
+          "2026-09-13"
+        ],
+        [
+          "2026-09-18",
+          "2026-09-20"
+        ],
+        [
+          "2026-10-10",
+          "2026-10-11"
+        ],
+        [
+          "2026-10-16",
+          "2026-10-18"
+        ],
+        [
+          "2026-10-23",
+          "2026-10-25"
+        ],
+        [
+          "2026-10-30",
+          "2026-11-01"
+        ],
+        [
+          "2026-11-06",
+          "2026-11-08"
+        ],
+        [
+          "2026-11-21",
+          "2026-11-22"
+        ],
+        [
+          "2026-11-27",
+          "2026-11-29"
+        ],
+        [
+          "2026-12-04",
+          "2026-12-06"
+        ],
+        [
+          "2026-12-11",
+          "2026-12-13"
+        ],
+        [
+          "2027-01-22",
+          "2027-01-24"
+        ],
+        [
+          "2027-01-29",
+          "2027-01-31"
+        ],
+        [
+          "2027-02-05",
+          "2027-02-07"
+        ],
+        [
+          "2027-02-12",
+          "2027-02-14"
+        ],
+        [
+          "2027-02-20",
+          "2027-02-21"
+        ],
+        [
+          "2027-02-27",
+          "2027-02-28"
+        ]
+      ],
+      "limitations": "Round windows provisional; current July announcement supersedes older winter resumption February plan. Individual match dates, exact European playoff scenarios and IDs pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

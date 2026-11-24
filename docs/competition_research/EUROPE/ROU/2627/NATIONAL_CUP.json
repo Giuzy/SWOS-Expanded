@@ -7,9 +7,6 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "ROU",
-    "candidateSources": [
-      "524bf34b84be68487922a945e83ed44cd13b792d"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
@@ -27,7 +24,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "524bf34b84be68487922a945e83ed44cd13b792d",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -48,11 +44,117 @@
         "FINAL"
       ],
       "legs": 1,
-      "sources": [
-        "https://www.frf.ro/recomandate/cum-va-arata-formatul-cupei-romaniei-betano-incepand-din-noul-sezon/",
-        "https://www.frf.ro/recomandate/clasamentul-agregat-al-cupei-romaniei-betano-in-noul-format-cele-mai-bune-echipe-din-ultimele-trei-sezoane/"
-      ],
       "scope": "Format corroborated through 2024/25; 2026/27 details pending."
+    },
+    "block76Research": {
+      "edition": "2026/27",
+      "rules": {
+        "regional": {
+          "zones": 7,
+          "groupsPerZone": 2,
+          "teamsPerGroup": 3,
+          "gamesPerClub": 2,
+          "zoneFinalLegs": 1,
+          "qualifiers": 7
+        },
+        "nationalRound1": {
+          "entrants": 72,
+          "priorTier3": 65,
+          "regionalWinners": 7,
+          "matches": 36
+        },
+        "groupStage": {
+          "teams": 24,
+          "groups": 4,
+          "teamsPerGroup": 6,
+          "pots": 3,
+          "gamesPerClub": 3,
+          "directTopTierPreviousRanks": [
+            1,
+            8
+          ],
+          "playoffWinners": 16,
+          "minimumHomeGames": 1,
+          "oneOpponentEachPot": true,
+          "pot1Pot2HomeAwayBalance": true,
+          "atLeastOnePot1PairPerGroupPerRound": true
+        },
+        "knockoutLegs": 1
+      },
+      "roundWindows": [
+        [
+          "regional group1",
+          "2026-07-08",
+          "2026-07-08"
+        ],
+        [
+          "regional group2",
+          "2026-07-11",
+          "2026-07-11"
+        ],
+        [
+          "regional group3",
+          "2026-07-15",
+          "2026-07-15"
+        ],
+        [
+          "regional finals",
+          "2026-07-18",
+          "2026-07-18"
+        ],
+        [
+          "R1",
+          "2026-07-29",
+          "2026-07-29"
+        ],
+        [
+          "R2",
+          "2026-08-05",
+          "2026-08-05"
+        ],
+        [
+          "R3",
+          "2026-08-12",
+          "2026-08-12"
+        ],
+        [
+          "playoff",
+          "2026-08-19",
+          "2026-08-19"
+        ],
+        [
+          "group1",
+          "2026-09-01",
+          "2026-09-03"
+        ],
+        [
+          "group2",
+          "2026-10-28",
+          "2026-10-28"
+        ],
+        [
+          "group3",
+          "2026-12-02",
+          "2026-12-02"
+        ],
+        [
+          "QF",
+          "2027-03-03",
+          "2027-03-03"
+        ],
+        [
+          "SF",
+          "2027-04-21",
+          "2027-04-21"
+        ],
+        [
+          "final",
+          "2027-05-12",
+          "2027-05-12"
+        ]
+      ],
+      "limitations": "June regional draw not played fixtures; county-level qualification dates not verified as part of current edition. Later national round quotas and actual dates pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

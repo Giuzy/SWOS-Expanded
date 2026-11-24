@@ -13,7 +13,6 @@
         2,
         211
       ],
-      "source": "https://www.bundesliga.at/de/news/artikel/kommende-liga-spielzeit-als-bergangssaison-vor-reform",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 40 official league HTML search/open 24/11/2026; no full calendar/identity certification."
     }
@@ -37,10 +36,27 @@
       "rowRefs": [
         211
       ],
-      "source": "https://www.bundesliga.at/de/news/artikel/kommende-liga-spielzeit-als-bergangssaison-vor-reform",
-      "additionalSource": "https://www.bundesliga.at/de/news/artikel/die-details-der-ligareform-so-wird-ab-2018-19-gespielt",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "verification": "Block 40 official league HTML search/open 24/11/2026; no full calendar/identity certification."
+      "verification": "Block 40 official league HTML search/open 24/11/2026; no full calendar/identity certification.",
+      "lastEdition": "2025/26"
+    }
+  },
+  {
+    "index": 456,
+    "value": {
+      "competition": "AUT tier 1",
+      "firstEdition": "2026/27",
+      "lastEdition": "2029/30",
+      "operation": "CHANGE_POINTS_CARRY",
+      "rowRefs": [
+        2,
+        211
+      ],
+      "pointsHalved": false,
+      "splitRetained": true,
+      "decisionDate": "2025-10-15",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Decision explicitly limited to four seasons; later actual rules not known. For fictional future template retain approved game policy separately."
     }
   }
 ]

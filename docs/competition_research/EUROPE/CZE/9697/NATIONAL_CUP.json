@@ -7,29 +7,72 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "CZE",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Czech Cup",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "officialName": "Raab Karcher Cup",
+      "nonCommercialDisplayName": "Pohár ČMFS",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block75Research": {
+      "edition": "1996/97",
+      "rules": {
+        "format": "knockout",
+        "thirdRoundMatches": 16,
+        "fourthRoundMatches": 8,
+        "quarterfinalMatches": 4,
+        "semifinalMatches": 2,
+        "finalLegs": 1,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "roundWindows": [
+        [
+          "R2 observed",
+          "1996-08-04",
+          "1996-08-04"
+        ],
+        [
+          "R3 observed and nominal",
+          "1996-08-14",
+          "1996-08-28"
+        ],
+        [
+          "R4",
+          "1997-04-15",
+          "1997-04-16"
+        ],
+        [
+          "QF",
+          "1997-04-29",
+          "1997-05-07"
+        ],
+        [
+          "SF",
+          "1997-05-13",
+          "1997-05-14"
+        ],
+        [
+          "final",
+          "1997-06-15",
+          "1997-06-15"
+        ]
+      ],
+      "limitations": "R3 nominal Aug28 differs from Teplice club match Aug14; first-round date unknown, so cutoff applicability unresolved. No historic future results imported.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

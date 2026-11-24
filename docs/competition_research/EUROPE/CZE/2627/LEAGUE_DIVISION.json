@@ -7,13 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "CZE",
-    "candidateSources": [
-      "c79508abe598b80e9ae3ed1c7fa9e3926c3726d6"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,7 +23,6 @@
       "nonCommercialDisplayName": "I. liga",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.lfafotbal.cz/clanek/34-herni-format-i-ligy-od-sezony-2018-19",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -65,12 +60,276 @@
         3
       ],
       "playoffLegs": 2,
-      "sources": [
-        "https://www.lfafotbal.cz/clanek/34-herni-format-i-ligy-od-sezony-2018-19",
-        "https://www.lfafotbal.cz/clanek/422-ligove-gremium-lfa-schvalilo-herni-format-s-nadstavbou",
-        "https://www.lfafotbal.cz/clanek/924-vyjadreni-ligoveho-vyboru-lfa-k-diskuzim-o-zmene-formatu-profesionalnich-soutezi"
-      ],
       "scope": "2018/19 detailed rules; 2021/22 changed middle prize; 2026 announcement retains current model until at least summer 2029, not evidence every 2018 rule unchanged"
+    },
+    "block75Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 16,
+        "regularRounds": 2,
+        "regularGamesPerClub": 30,
+        "split": {
+          "championshipRanks": [
+            1,
+            6
+          ],
+          "placementRanks": [
+            7,
+            10
+          ],
+          "relegationRanks": [
+            11,
+            16
+          ]
+        },
+        "pointsCarried": "full in championship and relegation groups",
+        "championshipGamesPerClub": 5,
+        "relegationGamesPerClub": 5,
+        "placement": {
+          "semifinalPairs": [
+            [
+              10,
+              7
+            ],
+            [
+              9,
+              8
+            ]
+          ],
+          "legs": 2,
+          "finalLegs": 2,
+          "firstHome": "lower regular rank",
+          "reward": "next cup round2 bye"
+        },
+        "relegatedDirect": [
+          16
+        ],
+        "relegationPlayoff": {
+          "pairs": [
+            [
+              "tier1 rank15",
+              "tier2 rank2"
+            ],
+            [
+              "tier2 rank3",
+              "tier1 rank14"
+            ]
+          ],
+          "legs": 2,
+          "firstHome": [
+            "tier1 rank15",
+            "tier2 rank3"
+          ],
+          "extraTimeMinutes": 30,
+          "penalties": true
+        }
+      },
+      "participants": [
+        "1. FC Slovácko",
+        "AC Sparta Praha",
+        "Bohemians Praha 1905",
+        "FC Baník Ostrava",
+        "FC Hradec Králové",
+        "FC Slovan Liberec",
+        "FC Viktoria Plzeň",
+        "FC Zbrojovka Brno",
+        "FC Zlín",
+        "FK Jablonec",
+        "FK Mladá Boleslav",
+        "FK Pardubice",
+        "FK Teplice",
+        "MFK Karviná",
+        "SK Sigma Olomouc",
+        "SK Slavia Praha"
+      ],
+      "openingWindow": [
+        "2026-07-25",
+        "2026-07-26"
+      ],
+      "winterLastRound": [
+        "2026-12-12",
+        "2026-12-13"
+      ],
+      "winterResume": [
+        "2027-01-30",
+        "2027-01-31"
+      ],
+      "regularLastRound": [
+        "2027-04-24",
+        "2027-04-25"
+      ],
+      "splitWindows": [
+        [
+          "2027-05-01",
+          "2027-05-02"
+        ],
+        [
+          "2027-05-08",
+          "2027-05-09"
+        ],
+        [
+          "2027-05-15",
+          "2027-05-16"
+        ],
+        [
+          "2027-05-22",
+          "2027-05-23"
+        ],
+        [
+          "2027-05-29",
+          "2027-05-30"
+        ]
+      ],
+      "championshipFixturesByRank": [
+        [
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            6,
+            1
+          ]
+        ],
+        [
+          [
+            4,
+            5
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            5,
+            6
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            5,
+            1
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            4,
+            6
+          ]
+        ]
+      ],
+      "relegationFixturesByRank": [
+        [
+          [
+            16,
+            11
+          ],
+          [
+            12,
+            14
+          ],
+          [
+            13,
+            15
+          ]
+        ],
+        [
+          [
+            11,
+            12
+          ],
+          [
+            13,
+            16
+          ],
+          [
+            14,
+            15
+          ]
+        ],
+        [
+          [
+            11,
+            14
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            15,
+            16
+          ]
+        ],
+        [
+          [
+            15,
+            11
+          ],
+          [
+            16,
+            12
+          ],
+          [
+            13,
+            14
+          ]
+        ],
+        [
+          [
+            11,
+            13
+          ],
+          [
+            12,
+            15
+          ],
+          [
+            14,
+            16
+          ]
+        ]
+      ],
+      "relegationPlayoffDates": [
+        "2027-06-03",
+        "2027-06-06"
+      ],
+      "limitations": "Published draw retains Karviná after appeal; current exact fixture dates and club keys still to reconcile; split rank templates not invented actual future fixtures.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

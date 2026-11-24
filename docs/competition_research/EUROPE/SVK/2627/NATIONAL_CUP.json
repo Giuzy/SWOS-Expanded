@@ -7,29 +7,75 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "SVK",
-    "candidateSources": [
-      "ce2d56b24b7595be6d28d9c9ff1bc9fd656befa6"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Slovak Cup",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
-      "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
+      "officialName": "Slovnaft Cup",
+      "nonCommercialDisplayName": "Slovenský pohár",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block75Research": {
+      "edition": "2026/27",
+      "rules": {
+        "registeredTeams": 308,
+        "preliminary": true,
+        "numberedRounds": 8,
+        "topTwoTierEntryRound": 2,
+        "preliminaryThroughR3": "predetermined bracket",
+        "R4ThroughSF": "draw",
+        "lowerTierHomeEarly": true,
+        "preliminaryThroughQF": {
+          "legs": 1,
+          "drawResolution": "direct penalties"
+        },
+        "semifinal": {
+          "legs": 2,
+          "aggregateTie": "30 minutes extra time then penalties"
+        },
+        "finalLegs": 1
+      },
+      "roundWindows": [
+        [
+          "preliminary",
+          "2026-07-25",
+          "2026-07-26"
+        ],
+        [
+          "R1",
+          "2026-08-01",
+          "2026-08-02"
+        ],
+        [
+          "R2 nominal",
+          "2026-08-19",
+          "2026-08-19"
+        ],
+        [
+          "R3 nominal",
+          "2026-09-02",
+          "2026-09-02"
+        ],
+        [
+          "final",
+          "2027-05-01",
+          "2027-05-01"
+        ]
+      ],
+      "finalVenue": "Košická futbalová aréna",
+      "limitations": "308 registrations not proof all played; no invented full entrants, byes or R4–SF date calendar. Tie rules from corroborating secondary reporting.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

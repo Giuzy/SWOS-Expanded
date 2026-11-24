@@ -7,16 +7,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "DEN",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -42,12 +40,49 @@
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Superliga",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/resultsp99.html",
+      "nonCommercialDisplayName": "Superligaen",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block74Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 12,
+        "rounds": 3,
+        "gamesPerClub": 33,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegationCount": 2
+      },
+      "participants": [
+        "AB",
+        "AGF",
+        "AaB",
+        "Brøndby IF",
+        "FC København",
+        "Herfølge BK",
+        "Hvidovre IF",
+        "Lyngby BK",
+        "OB",
+        "Silkeborg IF",
+        "Vejle BK",
+        "Viborg FF"
+      ],
+      "firstMatch": "1996-07-28",
+      "lastDate": "1997-06-15",
+      "round1Postponement": {
+        "home": "AaB",
+        "away": "Silkeborg IF",
+        "playedDate": "1996-10-02",
+        "originalDate": null
+      },
+      "limitations": "Historical fixtures and identities not fully reconciled.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

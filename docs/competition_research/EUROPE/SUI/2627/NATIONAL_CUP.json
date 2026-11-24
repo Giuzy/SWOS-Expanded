@@ -7,12 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "SUI",
-    "candidateSources": [
-      "ce2d56b24b7595be6d28d9c9ff1bc9fd656befa6"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -27,9 +24,60 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "ce2d56b24b7595be6d28d9c9ff1bc9fd656befa6",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block72Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 64,
+        "rounds": 6,
+        "firstRoundRegionalDraw": true,
+        "firstRoundNoProfessionalLeaguePair": true,
+        "secondRoundNoSuperLeaguePair": true,
+        "lowerTierHomeThroughSemifinal": true,
+        "entryAllocation": {
+          "professionalLeaguePublished": 22,
+          "firstLeague": 16,
+          "amateurLeague": 25,
+          "fairPlay": 1
+        },
+        "vaduzExcluded": true
+      },
+      "roundWindows": [
+        [
+          "R64",
+          "2026-08-14",
+          "2026-08-16"
+        ],
+        [
+          "R32",
+          "2026-10-16",
+          "2026-10-18"
+        ],
+        [
+          "R16",
+          "2026-12-01",
+          "2026-12-03"
+        ],
+        [
+          "QF",
+          "2027-02-02",
+          "2027-02-04"
+        ],
+        [
+          "SF",
+          "2027-05-01",
+          "2027-05-02"
+        ],
+        [
+          "final",
+          "2027-06-06",
+          "2027-06-06"
+        ]
+      ],
+      "limitations": "Federation page states 22 professional teams excluding Vaduz but league has 22 including Vaduz; actual quota requires checking; final June6 listed by SFL but federation TBD. Earlier regional qualification eligibility not treated as main cup fixture.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

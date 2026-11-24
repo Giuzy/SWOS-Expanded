@@ -7,11 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "GRE",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -37,7 +35,6 @@
       "regularOrInitialGamesPerClub": 34,
       "pointsWin": 3,
       "formatAndMovement": "Double RR",
-      "researchSource": "https://www.rsssf.org/tablesa/allfirst9697.html",
       "scope": "Observed structure, no future results imported; null and uncertain fields remain open."
     },
     "competitionNaming": {
@@ -46,18 +43,56 @@
       "nonCommercialDisplayName": "Alpha Ethniki",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.uefa.com/news-media/news/025e-0f90a010825a-27c590719be0-1000--government-support-for-greek-plan/",
       "nameHistory": [
         {
           "from": "2006/07",
           "to": null,
           "previousName": "Alpha Ethniki",
           "name": "Super League Greece",
-          "source": "https://en.wikipedia.org/wiki/2006%E2%80%9307_Super_League_Greece",
           "scope": "Partial chronology, secondary source corroborated by UEFA proposal"
         }
       ],
       "historyComplete": false
+    },
+    "block73Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegationCount": 3
+      },
+      "participants": [
+        "AEK Athens",
+        "Apollon Athens",
+        "Aris",
+        "Athinaikos",
+        "Edessaikos",
+        "Ionikos",
+        "Iraklis",
+        "Kalamata",
+        "Kastoria",
+        "Kavala",
+        "OFI",
+        "Olympiakos",
+        "PAOK",
+        "Panachaiki",
+        "Panathinaikos",
+        "Paniliakos",
+        "Veria",
+        "Xanthi"
+      ],
+      "openingWindow": [
+        "1996-09-06",
+        "1996-09-08"
+      ],
+      "limitations": "Archive final table erroneously lists Ethnikos instead of Kastoria; first-round pairings and cross-table establish Kastoria. No final positions imported.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

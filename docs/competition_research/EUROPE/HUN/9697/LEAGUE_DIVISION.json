@@ -7,16 +7,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "HUN",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -42,12 +40,63 @@
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Nemzeti Bajnokság I",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/resultsp99.html",
+      "nonCommercialDisplayName": "Nemzeti Bajnokság I (NB I/A)",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block76Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          17,
+          18
+        ],
+        "playoffRanks": [
+          15,
+          16
+        ],
+        "playoffLegs": 2
+      },
+      "participants": [
+        "BVSC",
+        "Békéscsaba",
+        "Csepel",
+        "Debrecen",
+        "Ferencváros",
+        "Győr",
+        "Haladás",
+        "III. ker. TVE",
+        "Kispest-Honvéd",
+        "MTK",
+        "Pécs",
+        "Siófok",
+        "Stadler",
+        "UTE",
+        "Vasas",
+        "Videoton",
+        "Vác",
+        "Zalaegerszeg"
+      ],
+      "openingWindow": [
+        "1996-08-10",
+        "1996-08-11"
+      ],
+      "playoffDates": [
+        "1997-06-04",
+        "1997-06-07"
+      ],
+      "limitations": "Historic NB I/A designation confirmed by archive playoff heading; no final positions or scores imported. Tier2 exact access ranking/keys pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

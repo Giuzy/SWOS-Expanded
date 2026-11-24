@@ -7,13 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "ROU",
-    "candidateSources": [
-      "c79508abe598b80e9ae3ed1c7fa9e3926c3726d6"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,11 +19,10 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": "Liga 1",
+      "officialName": "SuperLiga",
+      "nonCommercialDisplayName": "Liga I",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://lpf.ro/noutati/casa-liga-1-nou-sistem-competitional/1907",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -65,8 +60,59 @@
           3
         ]
       ],
-      "playoffLegs": 2,
-      "source": "https://lpf.ro/noutati/casa-liga-1-nou-sistem-competitional/1907"
+      "playoffLegs": 2
+    },
+    "block76Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 16,
+        "rounds": 2,
+        "regularGamesPerClub": 30,
+        "split": [
+          6,
+          10
+        ],
+        "splitGamesPerClub": [
+          10,
+          9
+        ],
+        "pointsCarry": "half rounded up (existing 2020/21 format evidence)",
+        "relegationRulesCurrentEdition": null
+      },
+      "participants": [
+        "CFR Cluj",
+        "Corvinul Hunedoara",
+        "Csikszereda",
+        "Dinamo București",
+        "FC Argeș",
+        "FC Botoșani",
+        "FC Voluntari",
+        "FCSB",
+        "Farul Constanța",
+        "Oțelul Galați",
+        "Petrolul Ploiești",
+        "Rapid București",
+        "Sepsi OSK",
+        "UTA Arad",
+        "Universitatea Cluj",
+        "Universitatea Craiova"
+      ],
+      "openingWindow": [
+        "2026-07-18",
+        "2026-07-19"
+      ],
+      "previousOpeningWindow": [
+        "2026-07-11",
+        "2026-07-12"
+      ],
+      "rescheduleDecision": "2026-05-08",
+      "winterLastRound": 21,
+      "winterLastWindow": [
+        "2026-12-19",
+        "2026-12-20"
+      ],
+      "limitations": "Existing format from 2020/21; current relegation and European playoffs not assumed from expired three-edition rule. Nominal start updated, exact individual fixture dates pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

@@ -7,29 +7,71 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "SVK",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Slovak Cup",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "nonCommercialDisplayName": "Slovenský pohár",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block75Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 32,
+        "firstRoundMatches": 16,
+        "secondRoundMatches": 8,
+        "quarterfinalLegs": 1,
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "penaltiesObserved": true,
+        "extraTimeObserved": true
+      },
+      "roundWindows": [
+        [
+          "R1",
+          "1996-09-03",
+          "1996-09-04"
+        ],
+        [
+          "R2",
+          "1996-10-01",
+          "1996-10-02"
+        ],
+        [
+          "QF",
+          "1996-11-20",
+          "1996-11-20"
+        ],
+        [
+          "SF1",
+          "1997-03-18",
+          "1997-03-18"
+        ],
+        [
+          "SF2",
+          "1997-04-15",
+          "1997-04-15"
+        ],
+        [
+          "final",
+          "1997-06-01",
+          "1997-06-01"
+        ]
+      ],
+      "limitations": "Historical archive corroborates two-leg semifinals but reverses leg order compared with dated archive; no scores imported. Individual key/date reconciliation pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

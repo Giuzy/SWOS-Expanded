@@ -7,16 +7,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "CZE",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -42,12 +40,49 @@
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Czech First League",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/resultsp99.html",
+      "nonCommercialDisplayName": "I. liga",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block75Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 16,
+        "rounds": 2,
+        "gamesPerClub": 30,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          15,
+          16
+        ]
+      },
+      "participants": [
+        "AC Sparta Praha",
+        "FC Baník Ostrava",
+        "FC Boby Brno",
+        "FC Karviná",
+        "FC Kaučuk Opava",
+        "FC Petra Drnovice",
+        "FC Sigma Olomouc MZ",
+        "FC Slovan WSK Liberec",
+        "FC Viktoria Plzeň",
+        "FK Jablonec nad Nisou",
+        "FK Teplice",
+        "FK Viktoria Žižkov",
+        "SK Bohemians Praha",
+        "SK Hradec Králové",
+        "SK Slavia Praha",
+        "SK České Budějovice"
+      ],
+      "firstRoundObserved": "1996-08-11",
+      "limitations": "Club archive confirms first round in August; exact earliest individual match and full fixture dates pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

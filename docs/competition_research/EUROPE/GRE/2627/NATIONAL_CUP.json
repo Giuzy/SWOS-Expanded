@@ -7,13 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "GRE",
-    "candidateSources": [
-      "ce2d56b24b7595be6d28d9c9ff1bc9fd656befa6"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,7 +23,6 @@
       "nonCommercialDisplayName": "Kypello Elladas",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.epo.gr/en/node/33281",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -45,10 +40,6 @@
         "preliminaryQualifiers": 11,
         "directEuropeanEntrants": 5
       },
-      "sources": [
-        "https://www.epo.gr/en/node/33281",
-        "https://www.epo.gr/en/node/33424"
-      ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "TFF PDF p1 screenshot verified; Bulgarian league HTML opened; other sources search excerpts only, EPO/RSSSF open cache miss. No full calendar or player rules certification."
     },
@@ -78,10 +69,99 @@
         "finalMonth": "2027-05",
         "finalVenue": "Olympic Stadium"
       },
-      "sources": [
-        "https://www.epo.gr/el/arthra/i-agonistiki-anaptyxi-toy-superbet-kypelloy-elladas"
-      ],
       "limitations": "Official EPO search excerpt, open cache miss.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block73Research": {
+      "edition": "2026/27",
+      "rules": {
+        "leaguePhaseTeams": 16,
+        "gamesPerClub": 4,
+        "calendarMatchdays": 5,
+        "directQuarterfinalRanks": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "playoffRanks": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "eliminatedRanks": [
+          13,
+          14,
+          15,
+          16
+        ],
+        "playoffLegs": 1,
+        "quarterfinalLegs": 1,
+        "quarterfinalHost": "higher league-phase rank",
+        "semifinalLegs": 2,
+        "finalLegs": 1
+      },
+      "roundWindows": [
+        [
+          "preliminary",
+          "2026-08-17",
+          "2026-08-19"
+        ],
+        [
+          "LP1",
+          "2026-09-01",
+          "2026-09-03"
+        ],
+        [
+          "LP2",
+          "2026-09-08",
+          "2026-09-10"
+        ],
+        [
+          "LP3",
+          "2026-09-15",
+          "2026-09-17"
+        ],
+        [
+          "LP4",
+          "2026-10-27",
+          "2026-10-29"
+        ],
+        [
+          "LP5",
+          "2026-12-01",
+          "2026-12-03"
+        ],
+        [
+          "playoff",
+          "2026-12-22",
+          "2026-12-23"
+        ],
+        [
+          "QF",
+          "2027-01-12",
+          "2027-01-14"
+        ],
+        [
+          "SF1",
+          "2027-02-02",
+          "2027-02-04"
+        ],
+        [
+          "SF2",
+          "2027-02-09",
+          "2027-02-11"
+        ]
+      ],
+      "finalDate": "2027-05-27",
+      "previousNominalFinalDate": "2027-05-22",
+      "finalVenue": "OAKA",
+      "limitations": "July calendar windows provisional; preliminary round nomenclature/earlier August fixtures need separate reconciliation. EPO later final date supersedes July plan; full federation page not accessible, excerpt only.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

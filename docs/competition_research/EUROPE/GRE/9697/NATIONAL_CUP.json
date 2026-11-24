@@ -7,9 +7,6 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "GRE",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
@@ -27,7 +24,6 @@
       "nonCommercialDisplayName": "Greek Cup",
       "candidateName": "Greek Cup",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.rsssf.org/tablesg/grk97.html",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -44,11 +40,33 @@
         "finalLegs": 1,
         "extraTimeAndPenaltiesObserved": true
       },
-      "sources": [
-        "https://www.rsssf.org/tablesg/grk97.html"
-      ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Observed historical season; neutral English labels not necessarily exact official local-language names. No complete fixture/participant mapping, no result import."
+    },
+    "block73Research": {
+      "edition": "1996/97",
+      "rules": {
+        "firstRoundLegs": 2,
+        "roundOf16Legs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 1
+      },
+      "roundDates": [
+        [
+          "SF1",
+          "1997-02-12"
+        ],
+        [
+          "SF2",
+          "1997-02-26"
+        ],
+        [
+          "final",
+          "1997-04-16"
+        ]
+      ],
+      "limitations": "First round dates not established, no July snapshot or exclusion asserted.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

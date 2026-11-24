@@ -7,30 +7,104 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "CZE",
-    "candidateSources": [
-      "524bf34b84be68487922a945e83ed44cd13b792d",
-      "4896377b7a30906670e83d07b889dbd0f62fec60"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Czech Cup",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
-      "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
+      "officialName": "MOL Cup",
+      "nonCommercialDisplayName": "Pohár FAČR",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block75Research": {
+      "edition": "2026/27",
+      "rules": {
+        "format": "knockout",
+        "round1Matches": 42,
+        "round1Regions": {
+          "Bohemia": {
+            "groups": 3,
+            "teamsPerGroup": 16
+          },
+          "Moravia": {
+            "groups": 2,
+            "teamsPerGroup": 18
+          }
+        },
+        "round1NoTier2Pair": true,
+        "round1Home": "lower tier or first drawn if same tier",
+        "placementPlayoffWinnerEntry": "round2",
+        "round1DefendingCupWinnerEntry": true
+      },
+      "firstActualMatch": "2026-07-24",
+      "roundWindows": [
+        [
+          "preliminary observed",
+          "2026-07-24",
+          "2026-08-02"
+        ],
+        [
+          "R1 nominal",
+          "2026-08-12",
+          "2026-08-12"
+        ],
+        [
+          "R2 nominal",
+          "2026-08-26",
+          "2026-08-26"
+        ],
+        [
+          "R3 nominal",
+          "2026-09-09",
+          "2026-09-09"
+        ],
+        [
+          "R3 UEFA alternative",
+          "2026-09-16",
+          "2026-09-16"
+        ],
+        [
+          "R4 nominal",
+          "2026-10-28",
+          "2026-10-28"
+        ],
+        [
+          "QF nominal",
+          "2027-03-03",
+          "2027-03-03"
+        ],
+        [
+          "SF nominal",
+          "2027-04-21",
+          "2027-04-21"
+        ],
+        [
+          "final nominal",
+          "2027-05-12",
+          "2027-05-12"
+        ]
+      ],
+      "rescheduling": [
+        {
+          "round": 4,
+          "home": "FC Zlín",
+          "away": "FC Viktoria Plzeň",
+          "newDate": "2026-12-02",
+          "originalDate": null
+        }
+      ],
+      "limitations": "Official nominal dates versus individual rearrangements; total initial entrants and complete access/tie rules not yet established.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

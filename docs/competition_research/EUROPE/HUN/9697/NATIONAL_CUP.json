@@ -7,29 +7,51 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "HUN",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Hungarian Cup",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "nonCommercialDisplayName": "Magyar Kupa",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block76Research": {
+      "edition": "1996/97",
+      "rules": {
+        "secondRound": {
+          "teams": 64,
+          "groups": 16,
+          "teamsPerGroup": 4,
+          "gamesPerClub": 3,
+          "qualifyingRanks": [
+            1,
+            2
+          ]
+        },
+        "R32Legs": 2,
+        "R16Legs": 2,
+        "QFLegs": 2,
+        "SFLegs": 2,
+        "finalLegs": 2
+      },
+      "finalDates": [
+        "1997-05-21",
+        "1997-06-11"
+      ],
+      "limitations": "First-round and group match dates absent in consulted archive. No July1 exclusion or scores; historical disqualification not recurring rule.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

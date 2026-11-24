@@ -12,7 +12,6 @@
         23,
         285
       ],
-      "source": "https://ekstraklasa.org/en/company/history/",
       "note": "Official operator history confirms I liga in 2005/06; 2008 official naming from report search excerpt, not PDF inspected. Exact first edition corroboration pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
@@ -28,7 +27,6 @@
       "rowRefs": [
         285
       ],
-      "source": "https://ekstraklasa.org/tabela/2020-2021/",
       "games": 30,
       "note": "Official table corroborates 30 matches; no assumption of other editions.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
@@ -45,11 +43,30 @@
       "rowRefs": [
         285
       ],
-      "source": "https://ekstraklasa.org/tabela/2025-2026/",
       "teams": 18,
       "games": 34,
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block42 official HTML pages/search excerpts retrieved 24/11/2026. No PDFs analyzed."
+    }
+  },
+  {
+    "index": 463,
+    "value": {
+      "competition": "POL tier 1",
+      "firstEdition": "2021/22",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        23,
+        285
+      ],
+      "rules": {
+        "teams": 18,
+        "regularRounds": 2,
+        "gamesPerClub": 34,
+        "split": false
+      },
+      "decisionDate": "2020-02-21",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

@@ -7,13 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "GRE",
-    "candidateSources": [
-      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,14 +23,12 @@
       "nonCommercialDisplayName": "Super League Greece",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.sportal.gr/podosfairo/article/stoiximan-super-league-ti-isxyei-se-playoffs-1-4-5-8-kai-ta-playouts-2026040200020092788",
       "nameHistory": [
         {
           "from": "2006/07",
           "to": null,
           "previousName": "Alpha Ethniki",
           "name": "Super League Greece",
-          "source": "https://en.wikipedia.org/wiki/2006%E2%80%9307_Super_League_Greece",
           "scope": "Partial chronology, secondary source corroborated by UEFA proposal"
         }
       ],
@@ -61,11 +55,228 @@
         ],
         "splitDrawDate": "2026-03-24"
       },
-      "sources": [
-        "https://www.sportal.gr/podosfairo/article/stoiximan-super-league-ti-isxyei-se-playoffs-1-4-5-8-kai-ta-playouts-2026040200020092788",
-        "https://www.in.gr/2026/03/22/sports/football/teliki-vathmologia-tis-super-league-ta-playoffs-1-4-5-8-kai-ta-playouts-pic/"
-      ],
       "limitations": "Secondary reporting reproduces league announcement; current 2026/27 not inferred.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block73Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 14,
+        "rounds": 2,
+        "gamesPerClub": 26,
+        "splitRanks": [
+          [
+            1,
+            4
+          ],
+          [
+            5,
+            8
+          ],
+          [
+            9,
+            14
+          ]
+        ],
+        "splitRounds": 2,
+        "splitGamesPerClub": [
+          6,
+          6,
+          10
+        ],
+        "relegatedDirectCount": 2
+      },
+      "participants": [
+        "AEK",
+        "Aris",
+        "Asteras Tripolis",
+        "Atromitos",
+        "Iraklis",
+        "Kalamata",
+        "Kifisia",
+        "Levadiakos",
+        "OFI",
+        "Olympiakos",
+        "PAOK",
+        "Panaitolikos",
+        "Panathinaikos",
+        "Volos"
+      ],
+      "regularRoundWindows": [
+        [
+          "2026-08-22",
+          "2026-08-23"
+        ],
+        [
+          "2026-08-29",
+          "2026-08-30"
+        ],
+        [
+          "2026-09-05",
+          "2026-09-06"
+        ],
+        [
+          "2026-09-12",
+          "2026-09-13"
+        ],
+        [
+          "2026-09-19",
+          "2026-09-20"
+        ],
+        [
+          "2026-10-10",
+          "2026-10-11"
+        ],
+        [
+          "2026-10-17",
+          "2026-10-18"
+        ],
+        [
+          "2026-10-24",
+          "2026-10-25"
+        ],
+        [
+          "2026-10-31",
+          "2026-11-01"
+        ],
+        [
+          "2026-11-07",
+          "2026-11-08"
+        ],
+        [
+          "2026-11-21",
+          "2026-11-22"
+        ],
+        [
+          "2026-11-28",
+          "2026-11-29"
+        ],
+        [
+          "2026-12-05",
+          "2026-12-06"
+        ],
+        [
+          "2026-12-12",
+          "2026-12-13"
+        ],
+        [
+          "2026-12-19",
+          "2026-12-20"
+        ],
+        [
+          "2027-01-09",
+          "2027-01-10"
+        ],
+        [
+          "2027-01-16",
+          "2027-01-17"
+        ],
+        [
+          "2027-01-23",
+          "2027-01-24"
+        ],
+        [
+          "2027-01-30",
+          "2027-01-31"
+        ],
+        [
+          "2027-02-06",
+          "2027-02-07"
+        ],
+        [
+          "2027-02-13",
+          "2027-02-14"
+        ],
+        [
+          "2027-02-20",
+          "2027-02-21"
+        ],
+        [
+          "2027-02-27",
+          "2027-02-28"
+        ],
+        [
+          "2027-03-06",
+          "2027-03-07"
+        ],
+        [
+          "2027-03-13",
+          "2027-03-14"
+        ],
+        [
+          "2027-03-20",
+          "2027-03-21"
+        ]
+      ],
+      "playoffWindows": [
+        [
+          "2027-04-03",
+          "2027-04-04"
+        ],
+        [
+          "2027-04-10",
+          "2027-04-11"
+        ],
+        [
+          "2027-04-17",
+          "2027-04-18"
+        ],
+        [
+          "2027-04-24",
+          "2027-04-25"
+        ],
+        [
+          "2027-05-08",
+          "2027-05-09"
+        ],
+        [
+          "2027-05-15",
+          "2027-05-16"
+        ]
+      ],
+      "playoutWindows": [
+        [
+          "2027-04-03",
+          "2027-04-04"
+        ],
+        [
+          "2027-04-10",
+          "2027-04-11"
+        ],
+        [
+          "2027-04-17",
+          "2027-04-18"
+        ],
+        [
+          "2027-04-20",
+          "2027-04-22"
+        ],
+        [
+          "2027-04-24",
+          "2027-04-25"
+        ],
+        [
+          "2027-05-04",
+          "2027-05-06"
+        ],
+        [
+          "2027-05-08",
+          "2027-05-09"
+        ],
+        [
+          "2027-05-15",
+          "2027-05-16"
+        ],
+        [
+          "2027-05-18",
+          "2027-05-20"
+        ],
+        [
+          "2027-05-23",
+          "2027-05-23"
+        ]
+      ],
+      "limitations": "Published nominal windows; points carry and exact fixtures/club keys pending. No future scores.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

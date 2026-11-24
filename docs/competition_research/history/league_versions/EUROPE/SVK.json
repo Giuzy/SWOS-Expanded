@@ -5,7 +5,7 @@
       "country": "SVK",
       "division": "div1",
       "from": "2006/07",
-      "to": null,
+      "to": "2006/07",
       "rules": {
         "teams": 12,
         "initialRounds": 2,
@@ -15,13 +15,14 @@
         ],
         "crossDivisionPlayoff": {
           "topTier": 4,
-          "secondTier": 4
+          "secondTier": 4,
+          "rounds": 2,
+          "gamesPerClub": 14,
+          "topFourAdvance": true
         },
-        "editionSpecific": true
+        "editionSpecific": true,
+        "championshipCarry": "only points and goals from matches among top eight"
       },
-      "sources": [
-        "https://www.rsssf.org/tabless/slow07.html"
-      ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "2026-11-24: Search excerpts only; open Unicode failure; subsequent format not inferred; effective end, identity mapping, full dates and 2026 baseline equivalence pending; no future results imported",
       "rowRefs": [
@@ -47,9 +48,6 @@
         "splitRounds": 2,
         "gamesPerClub": 32
       },
-      "sources": [
-        "https://www.rsssf.org/tabless/slow2018.html"
-      ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "2026-11-24: Opened regular and final group tables; effective end, identity mapping, full dates and 2026 baseline equivalence pending; no future results imported",
       "rowRefs": [

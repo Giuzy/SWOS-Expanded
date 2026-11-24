@@ -7,9 +7,6 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "DEN",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
@@ -27,7 +24,6 @@
       "nonCommercialDisplayName": "Danish Cup",
       "candidateName": "Danish Cup",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -37,11 +33,59 @@
         "finalDate": "1997-05-08",
         "finalLegsObserved": 1
       },
-      "sources": [
-        "https://www.rsssf.org/tablesd/domcupeur97.html"
-      ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Observed or published dates, not full fixture reconciliation; historical neutral labels, exact local official naming still open."
+    },
+    "block74Research": {
+      "edition": "1996/97",
+      "rules": {
+        "rounds": 8,
+        "observedMatchCount": 93,
+        "round1Matches": 32,
+        "round2Matches": 20,
+        "round3Matches": 14,
+        "round4Matches": 10,
+        "round5Matches": 8,
+        "quarterfinalMatches": 4,
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "roundWindows": [
+        [
+          "R4",
+          "1996-09-25",
+          "1996-09-25"
+        ],
+        [
+          "R5",
+          "1996-10-22",
+          "1996-11-27"
+        ],
+        [
+          "QF",
+          "1996-11-13",
+          "1997-03-09"
+        ],
+        [
+          "SF1",
+          "1997-04-08",
+          "1997-04-09"
+        ],
+        [
+          "SF2",
+          "1997-04-16",
+          "1997-04-17"
+        ],
+        [
+          "final",
+          "1997-05-08",
+          "1997-05-08"
+        ]
+      ],
+      "limitations": "R4 date mostly, not exhaustive; SuperStats early round dates blank, no July applicability claim.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

@@ -7,13 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "SUI",
-    "candidateSources": [
-      "4fb73a35a5e15b140d942b00f84fb8eef682915a"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,7 +23,6 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "4fb73a35a5e15b140d942b00f84fb8eef682915a",
       "nameHistory": [
         {
           "transition": 215,
@@ -35,8 +30,7 @@
           "to": null,
           "previousName": "Nationalliga A",
           "name": "Super League",
-          "operation": "RENAME",
-          "source": "https://www.uefa.com/news-media/news/0192-0e6a636e4ee6-a4db8dcfd311-1000--structural-change-in-switzerland/"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
@@ -55,8 +49,73 @@
       "playoffRank": 11,
       "playoffOpponentTier2Rank": 2,
       "playoffLegs": 2,
-      "homeBalance": "swap third-round home rights following edition",
-      "source": "https://sfl.ch/de/modus-ab-202324-swiss-football-league"
+      "homeBalance": "swap third-round home rights following edition"
+    },
+    "block72Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 12,
+        "initialRounds": 3,
+        "initialGamesPerClub": 33,
+        "split": [
+          6,
+          6
+        ],
+        "splitRounds": 1,
+        "gamesPerClub": 38,
+        "pointsCarried": "full",
+        "relegatedDirect": [
+          12
+        ],
+        "relegationPlayoff": {
+          "rank": 11,
+          "opponentTier": 2,
+          "opponentRank": 2,
+          "legs": 2
+        }
+      },
+      "participants": [
+        "BSC Young Boys",
+        "FC Basel",
+        "FC Lausanne-Sport",
+        "FC Lugano",
+        "FC Luzern",
+        "FC Sion",
+        "FC St. Gallen",
+        "FC Thun",
+        "FC Vaduz",
+        "FC Zürich",
+        "Grasshopper Club Zürich",
+        "Servette FC"
+      ],
+      "openingWindow": [
+        "2026-07-25",
+        "2026-07-26"
+      ],
+      "winterBreak": [
+        "2026-12-20",
+        "2027-01-16"
+      ],
+      "round33": "2027-04-25",
+      "round38Relegation": "2027-05-27",
+      "round38Championship": [
+        "2027-05-29",
+        "2027-05-30"
+      ],
+      "playoffProvisionalDates": [
+        "2027-06-01",
+        "2027-06-04"
+      ],
+      "postponement": {
+        "round": 4,
+        "home": "FC Thun",
+        "away": "Servette FC",
+        "reason": "European qualifying playoff",
+        "originalDate": null,
+        "newDate": null
+      },
+      "limitations": "Conditional European postponements and individual pairings beyond round22 not reconciled; no future results.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

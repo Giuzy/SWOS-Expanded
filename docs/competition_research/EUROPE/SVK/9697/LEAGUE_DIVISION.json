@@ -7,16 +7,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "SVK",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -41,13 +39,51 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Slovak Super Liga",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/resultsp99.html",
+      "officialName": "I. liga",
+      "nonCommercialDisplayName": "I. liga",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block75Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 16,
+        "rounds": 2,
+        "gamesPerClub": 30,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          15,
+          16
+        ]
+      },
+      "participants": [
+        "1. FC Košice",
+        "Artmedia Petržalka",
+        "AŠK Inter Slovnaft Bratislava",
+        "BSC JAS Bardejov",
+        "FC Chemlon Humenné",
+        "FC DAC Dunajská Streda",
+        "FC Dukla Banská Bystrica",
+        "FC Nitra",
+        "FC Spartak Trnava",
+        "FC Tatran Prešov",
+        "FC Tauris Rimavská Sobota",
+        "FK Lokomotíva Košice",
+        "MFK Petrimex Prievidza",
+        "MŠK Žilina",
+        "ZTS Kerametal Dubnica",
+        "ŠK Slovan Bratislava"
+      ],
+      "firstMatch": "1996-08-03",
+      "lastDate": "1997-06-11",
+      "limitations": "SFZ history confirms I. liga name and Mars sponsor from 1997/98; secondary timeline overlaps 1996/97, not accepted over federation. Keys and full dates pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

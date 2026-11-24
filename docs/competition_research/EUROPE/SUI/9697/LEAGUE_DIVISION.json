@@ -7,11 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "SUI",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -45,7 +43,6 @@
       "nonCommercialDisplayName": "National-Liga A",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://sfl.ch/de/geschichte-kurz-und-bundig",
       "nameHistory": [
         {
           "transition": 215,
@@ -53,11 +50,48 @@
           "to": null,
           "previousName": "Nationalliga A",
           "name": "Super League",
-          "operation": "RENAME",
-          "source": "https://www.uefa.com/news-media/news/0192-0e6a636e4ee6-a4db8dcfd311-1000--structural-change-in-switzerland/"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block72Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 12,
+        "initialRounds": 2,
+        "initialGamesPerClub": 22,
+        "championship": {
+          "entrants": 8,
+          "rounds": 2,
+          "gamesPerClub": 14,
+          "carry": "half points; rounding inferred in previous matrix"
+        },
+        "crossDivisionGroup": {
+          "entrants": 8,
+          "fromTopTier": 4,
+          "fromSecondTier": 4,
+          "gamesPerClub": 14,
+          "topFourInNextTopTier": true
+        }
+      },
+      "participants": [
+        "BSC Young Boys",
+        "FC Aarau",
+        "FC Basel",
+        "FC Lugano",
+        "FC Luzern",
+        "FC Sion",
+        "FC St. Gallen",
+        "FC Zürich",
+        "Grasshopper Club Zürich",
+        "Lausanne-Sports",
+        "Neuchâtel Xamax",
+        "Servette FC"
+      ],
+      "firstMatch": "1996-07-10",
+      "limitations": "Exact movement rule, rounding, individual dates and second-tier IDs need corroboration.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

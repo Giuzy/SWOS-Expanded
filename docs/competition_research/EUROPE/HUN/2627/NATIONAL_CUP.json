@@ -7,12 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "HUN",
-    "candidateSources": [
-      "ce2d56b24b7595be6d28d9c9ff1bc9fd656befa6"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -27,9 +24,63 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "ce2d56b24b7595be6d28d9c9ff1bc9fd656befa6",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block76Research": {
+      "edition": "2026/27",
+      "rules": {
+        "plannedEntrants": 172,
+        "actualRegistered": 171,
+        "withdrawnBeforeDraw": "Martfű",
+        "earlyEntrants": 143,
+        "topTierEntrants": 12,
+        "secondTierEntrants": 16,
+        "topTwoTiersEntryRound": 3,
+        "legs": 1,
+        "extraTimeMinutes": 30,
+        "penalties": true
+      },
+      "roundWindows": [
+        [
+          "R1",
+          "2026-08-01",
+          "2026-08-02"
+        ],
+        [
+          "R2",
+          "2026-08-22",
+          "2026-08-23"
+        ],
+        [
+          "R3",
+          "2026-09-12",
+          "2026-09-13"
+        ],
+        [
+          "R16",
+          "2027-02-10",
+          "2027-02-10"
+        ],
+        [
+          "QF",
+          "2027-03-03",
+          "2027-03-03"
+        ],
+        [
+          "SF",
+          "2027-04-21",
+          "2027-04-21"
+        ],
+        [
+          "final",
+          "2027-05-08",
+          "2027-05-08"
+        ]
+      ],
+      "finalVenue": "Puskás Aréna",
+      "limitations": "R4 exact window and full early entrant keys pending; central main competition start August, distinct regional qualification dates unresolved.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

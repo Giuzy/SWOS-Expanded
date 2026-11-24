@@ -8,7 +8,6 @@
       "rowRefs": [
         311
       ],
-      "source": "https://www.tff.org/Resources/TFF/Documents/STATULER/2026-2027/2026-2027-sezonu-super-lig-musabakalari-statusu.pdf",
       "rules": {
         "teams": 18,
         "rounds": 2,
@@ -33,7 +32,6 @@
       "rowRefs": [
         312
       ],
-      "source": "https://www.tff.org/Resources/TFF/Documents/STATULER/2026-2027/2026-2027-sezonu-tff-1-lig-musabakalari-statusu.pdf",
       "rules": {
         "teams": 20,
         "rounds": 2,
@@ -97,7 +95,6 @@
         33,
         311
       ],
-      "source": "https://www.tff.org/Default.aspx?pageId=545",
       "rules": {
         "name": "Türkiye Süper Ligi",
         "previousName": "1. Lig",
@@ -116,7 +113,6 @@
       "rowRefs": [
         144
       ],
-      "source": "https://www.rsssf.org/tablest/turkhist.html",
       "rules": {
         "round5Legs": 1,
         "round6Legs": 1,
@@ -130,6 +126,61 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block47 RSSSF retrieved HTML/search excerpts; TFF history excerpt only after open timeout."
+    }
+  },
+  {
+    "index": 459,
+    "value": {
+      "competition": "TUR cup",
+      "firstEdition": "2024/25",
+      "lastEdition": "2024/25",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        414
+      ],
+      "rules": {
+        "groupTeams": 24,
+        "groups": 4,
+        "teamsPerGroup": 6
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 460,
+    "value": {
+      "competition": "TUR cup",
+      "firstEdition": "2025/26",
+      "lastEdition": "2025/26",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        414
+      ],
+      "rules": {
+        "groupTeams": 24,
+        "groups": 3,
+        "teamsPerGroup": 8,
+        "groupMatchdays": 4
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 461,
+    "value": {
+      "competition": "TUR cup",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        414
+      ],
+      "rules": {
+        "groupPhase": false,
+        "knockout": true,
+        "semifinalLegs": 2,
+        "otherRoundsLegs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

@@ -7,29 +7,98 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "DEN",
-    "candidateSources": [
-      "b2a8e30a591a9d2b630000a51dc8c7a306307b42"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Danish Cup",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
-      "source": "https://en.wikipedia.org/wiki/Geography_of_association_football",
+      "nonCommercialDisplayName": "DBU Pokalen / Landspokalturneringen",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block74Research": {
+      "edition": "2026/27",
+      "rules": {
+        "format": "knockout",
+        "topTierEntry": {
+          "round2": [
+            "Sønderjyske",
+            "OB",
+            "Randers FC",
+            "Silkeborg IF",
+            "Lyngby BK",
+            "AC Horsens"
+          ],
+          "round3": [
+            "FC Midtjylland",
+            "FC København",
+            "AGF",
+            "Viborg FF",
+            "FC Nordsjælland",
+            "Brøndby IF"
+          ]
+        },
+        "round1to4Legs": 1,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 1
+      },
+      "firstObservedMatch": "2026-08-01",
+      "roundWindows": [
+        [
+          "R2",
+          "2026-08-25",
+          "2026-08-27"
+        ],
+        [
+          "R3",
+          "2026-09-15",
+          "2026-09-17"
+        ],
+        [
+          "R4",
+          "2026-10-27",
+          "2026-10-29"
+        ],
+        [
+          "QF1",
+          "2026-12-01",
+          "2026-12-03"
+        ],
+        [
+          "QF2",
+          "2026-12-12",
+          "2026-12-13"
+        ],
+        [
+          "SF1",
+          "2027-02-13",
+          "2027-02-14"
+        ],
+        [
+          "SF2",
+          "2027-03-02",
+          "2027-03-04"
+        ],
+        [
+          "final",
+          "2027-05-04",
+          "2027-05-04"
+        ]
+      ],
+      "limitations": "July3 announced calendar; later aggregator differs on final day (May6); keep nominal May4 until confirmed. Regional qualification dates outside main draw not established.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

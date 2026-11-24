@@ -3,8 +3,14 @@
     "index": 28,
     "value": {
       "row": 29,
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        465,
+        466,
+        467,
+        468,
+        469
+      ]
     }
   }
 ]

@@ -3,8 +3,14 @@
     "index": 304,
     "value": {
       "row": 305,
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        465,
+        466,
+        467,
+        468,
+        469
+      ]
     }
   }
 ]

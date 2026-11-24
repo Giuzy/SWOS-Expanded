@@ -7,14 +7,9 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "POL",
-    "candidateSources": [
-      "524bf34b84be68487922a945e83ed44cd13b792d",
-      "4896377b7a30906670e83d07b889dbd0f62fec60"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -28,9 +23,152 @@
       "nonCommercialDisplayName": null,
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "4896377b7a30906670e83d07b889dbd0f62fec60",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block74Research": {
+      "edition": "2026/27",
+      "rules": {
+        "totalCentralEntrants": 70,
+        "allRoundsLegs": 1,
+        "preliminary": {
+          "entrants": 22,
+          "priorTier3": 18,
+          "priorTier2Ranks": [
+            15,
+            16,
+            17,
+            18
+          ],
+          "pairs": [
+            [
+              2,
+              15,
+              3,
+              18
+            ],
+            [
+              2,
+              16,
+              3,
+              17
+            ],
+            [
+              2,
+              17,
+              3,
+              16
+            ],
+            [
+              2,
+              18,
+              3,
+              15
+            ],
+            [
+              3,
+              1,
+              3,
+              14
+            ],
+            [
+              3,
+              2,
+              3,
+              13
+            ],
+            [
+              3,
+              3,
+              3,
+              12
+            ],
+            [
+              3,
+              4,
+              3,
+              11
+            ],
+            [
+              3,
+              5,
+              3,
+              10
+            ],
+            [
+              3,
+              6,
+              3,
+              9
+            ],
+            [
+              3,
+              7,
+              3,
+              8
+            ]
+          ],
+          "pairEncoding": "home tier/rank, away tier/rank from 2025/26",
+          "winners": 11
+        },
+        "round1": {
+          "entrants": 54,
+          "preliminaryWinners": 11,
+          "priorRegionalWinners": 16,
+          "priorTier2Ranks": [
+            1,
+            14
+          ],
+          "priorTopTier": 18,
+          "excludedUEFA": 5,
+          "regionalWinnersHome": true
+        },
+        "roundOf32": {
+          "entrants": 32,
+          "newUEFAEntrants": 5
+        },
+        "lowerTierHomeThroughSemifinals": true,
+        "equalTierHome": "first drawn"
+      },
+      "roundWindows": [
+        [
+          "preliminary",
+          "2026-08-04",
+          "2026-08-06"
+        ],
+        [
+          "R1",
+          "2026-09-01",
+          "2026-09-03"
+        ],
+        [
+          "R32",
+          "2026-10-27",
+          "2026-10-29"
+        ],
+        [
+          "R16",
+          "2026-12-01",
+          "2026-12-03"
+        ],
+        [
+          "QF",
+          "2027-03-02",
+          "2027-03-04"
+        ],
+        [
+          "SF",
+          "2027-04-07",
+          "2027-04-09"
+        ],
+        [
+          "final",
+          "2027-05-02",
+          "2027-05-02"
+        ]
+      ],
+      "limitations": "Official regulations and nominal calendar; previous season regional winners are access evidence, not current central cup played results. Actual dates, exact tie rule details and club keys pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

@@ -7,11 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "TUR",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -37,7 +35,6 @@
       "regularOrInitialGamesPerClub": 34,
       "pointsWin": 3,
       "formatAndMovement": "Double RR",
-      "researchSource": "https://www.rsssf.org/tablesa/allfirst9697.html",
       "scope": "Observed structure, no future results imported; null and uncertain fields remain open."
     },
     "competitionNaming": {
@@ -46,7 +43,6 @@
       "nonCommercialDisplayName": "1. Lig",
       "candidateName": "1. Lig",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.rsssf.org/tablest/turkhist.html",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -58,11 +54,52 @@
         "relegated": 3,
         "promoted": 3
       },
-      "sources": [
-        "https://www.rsssf.org/tablest/turkhist.html"
-      ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Observed historical season; neutral English labels not necessarily exact official local-language names. No complete fixture/participant mapping, no result import."
+    },
+    "block73Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegatedDirect": [
+          16,
+          17,
+          18
+        ]
+      },
+      "participants": [
+        "Altay",
+        "Ankaragücü",
+        "Antalyaspor",
+        "Beşiktaş",
+        "Bursaspor",
+        "Denizlispor",
+        "Fenerbahçe",
+        "Galatasaray",
+        "Gaziantepspor",
+        "Gençlerbirliği",
+        "Kocaelispor",
+        "Samsunspor",
+        "Sarıyer",
+        "Trabzonspor",
+        "Vanspor",
+        "Zeytinburnuspor",
+        "Çanakkale Dardanelspor",
+        "İstanbulspor"
+      ],
+      "openingWindow": [
+        "1996-08-09",
+        "1996-08-11"
+      ],
+      "limitations": "No full fixture date or club ID reconciliation.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

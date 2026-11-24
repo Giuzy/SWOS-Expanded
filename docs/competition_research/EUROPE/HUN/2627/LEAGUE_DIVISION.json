@@ -7,13 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "HUN",
-    "candidateSources": [
-      "c9f932c8aec04966dcfacacdbf5608a03cf2fae4"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,7 +23,6 @@
       "nonCommercialDisplayName": "NB I",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.mlsz.hu/hir/elso-osztalyu-izgalom-most-is-jut-oromunnep-es-drama-az-utolso-fordulora",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -40,11 +35,145 @@
         "priorTopSix": 6,
         "others": 5
       },
-      "sources": [
-        "https://www.mlsz.hu/hir/elkeszult-a-megujult-otp-bank-liga-sorsolasa",
-        "https://www.mlsz.hu/hir/elso-osztalyu-izgalom-most-is-jut-oromunnep-es-drama-az-utolso-fordulora"
-      ],
       "scope": "Historical rule; 2026 retrospective corroborates continued 12/33 format, not all current rules."
+    },
+    "block76Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 12,
+        "rounds": 3,
+        "gamesPerClub": 33,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "tieBreakers": [
+          "wins",
+          "goal difference",
+          "goals scored",
+          "head-to-head points difference",
+          "head-to-head goal difference",
+          "fair play",
+          "draw"
+        ],
+        "relegatedDirect": [
+          12
+        ],
+        "promotedDirectTier2": [
+          1
+        ],
+        "relegationPlayoff": {
+          "rank": 11,
+          "opponentTier": 2,
+          "opponentRank": 2,
+          "legs": 1,
+          "venue": "neutral",
+          "nominalHome": "tier2",
+          "date": "2027-05-29"
+        }
+      },
+      "participants": [
+        "DVSC",
+        "ETO FC",
+        "Ferencváros",
+        "Kispest-Honvéd",
+        "Kisvárda",
+        "MTK Budapest",
+        "Nyíregyháza Spartacus",
+        "Paks",
+        "Puskás Akadémia",
+        "Vasas",
+        "ZTE",
+        "Újpest"
+      ],
+      "openingFixtures": [
+        {
+          "home": "Nyíregyháza Spartacus",
+          "away": "Újpest",
+          "date": "2026-07-24"
+        },
+        {
+          "home": "Kisvárda",
+          "away": "Kispest-Honvéd",
+          "date": "2026-07-25"
+        },
+        {
+          "home": "Vasas",
+          "away": "ETO FC",
+          "date": "2026-07-26"
+        },
+        {
+          "home": "DVSC",
+          "away": "Puskás Akadémia",
+          "date": "2026-07-26"
+        },
+        {
+          "home": "Paks",
+          "away": "Ferencváros",
+          "date": "2026-07-26"
+        },
+        {
+          "home": "MTK Budapest",
+          "away": "ZTE",
+          "date": "2026-07-27"
+        }
+      ],
+      "secondRoundFixtures": [
+        {
+          "home": "Puskás Akadémia",
+          "away": "Kisvárda",
+          "date": "2026-07-31"
+        },
+        {
+          "home": "Kispest-Honvéd",
+          "away": "MTK Budapest",
+          "date": "2026-08-01"
+        },
+        {
+          "home": "Újpest",
+          "away": "DVSC",
+          "date": "2026-08-02"
+        },
+        {
+          "home": "ETO FC",
+          "away": "Nyíregyháza Spartacus",
+          "date": "2026-08-02"
+        },
+        {
+          "home": "Ferencváros",
+          "away": "Vasas",
+          "date": "2026-08-02"
+        },
+        {
+          "home": "ZTE",
+          "away": "Paks",
+          "date": "2026-08-03"
+        }
+      ],
+      "lastDate": "2027-05-23",
+      "autumnRounds": 18,
+      "springRounds": 15,
+      "winterBreak": [
+        "2026-12-19",
+        "2027-01-30"
+      ],
+      "internationalBreaks": [
+        [
+          "2026-09-21",
+          "2026-10-06"
+        ],
+        [
+          "2026-11-09",
+          "2026-11-17"
+        ],
+        [
+          "2027-03-22",
+          "2027-03-30"
+        ]
+      ],
+      "limitations": "Official regulation PDF page 6 visually checked; page 7 screenshot timed out, neutral venue and single match supported by text. Opening published fixtures not full per-match reconciliation.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

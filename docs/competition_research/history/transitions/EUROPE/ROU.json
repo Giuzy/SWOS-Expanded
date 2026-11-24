@@ -8,7 +8,6 @@
       "rowRefs": [
         289
       ],
-      "source": "https://lpf.ro/noutati/casa-liga-1-nou-sistem-competitional/1907",
       "previousTeams": 14,
       "teams": 16,
       "regularGames": 30,
@@ -35,7 +34,6 @@
       "rowRefs": [
         289
       ],
-      "source": "https://lpf.ro/noutati/casa-liga-1-nou-sistem-competitional/1907",
       "directRelegatedOverallRanks": [
         15,
         16
@@ -65,7 +63,6 @@
       "rowRefs": [
         289
       ],
-      "source": "https://lpf.ro/noutati/casa-liga-1-nou-sistem-competitional/1907",
       "note": "Bottom group first vs second, winner faces final European qualifying place in top group. 2020 announcement, annual implementation and UEFA eligibility not certified.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block42 official HTML pages/search excerpts retrieved 24/11/2026. No PDFs analyzed."
@@ -80,8 +77,6 @@
       "rowRefs": [
         398
       ],
-      "source": "https://www.frf.ro/recomandate/cum-va-arata-formatul-cupei-romaniei-betano-incepand-din-noul-sezon/",
-      "additionalSource": "https://www.frf.ro/recomandate/clasamentul-agregat-al-cupei-romaniei-betano-in-noul-format-cele-mai-bune-echipe-din-ultimele-trei-sezoane/",
       "regionalZones": 7,
       "regionalWinnersEnterRound": 2,
       "groupTeams": 24,
@@ -99,6 +94,24 @@
       "legs": 1,
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block42 official HTML pages/search excerpts retrieved 24/11/2026. No PDFs analyzed."
+    }
+  },
+  {
+    "index": 472,
+    "value": {
+      "competition": "ROU national cup",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_GROUP_SCHEDULING",
+      "rowRefs": [
+        398
+      ],
+      "rules": {
+        "minimumHomeGames": 1,
+        "pot1Pot2HomeAwayBalance": true,
+        "atLeastOnePot1PairPerGroupPerRound": true
+      },
+      "decisionDate": "2026-04-16",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

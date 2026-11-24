@@ -11,7 +11,6 @@
         32,
         303
       ],
-      "source": "https://www.uefa.com/news-media/news/0192-0e6a636e4ee6-a4db8dcfd311-1000--structural-change-in-switzerland/",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 29 web search excerpts; naming evidence, not full sporting equivalence; row mapping candidate. Scottish governance merger, Swiss and CONCACAF format changes tracked separately; no identity reset inferred."
     }
@@ -28,7 +27,6 @@
         32,
         303
       ],
-      "source": "https://sfl.ch/de/geschichte-kurz-und-bundig",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 40 official league HTML search/open 24/11/2026; no full calendar/identity certification."
     }
@@ -50,9 +48,41 @@
       "rowRefs": [
         303
       ],
-      "source": "https://sfl.ch/de/modus-ab-202324-swiss-football-league",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 40 official league HTML search/open 24/11/2026; no full calendar/identity certification."
+    }
+  },
+  {
+    "index": 457,
+    "value": {
+      "competition": "SUI tier 1",
+      "firstEdition": "2012/13",
+      "lastEdition": "2017/18",
+      "operation": "SUSPEND_RELEGATION_PLAYOFF",
+      "rowRefs": [
+        32,
+        303
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Last actual tie June 2012, next June 2019; annual direct relegation details not fully established."
+    }
+  },
+  {
+    "index": 458,
+    "value": {
+      "competition": "SUI tier 1",
+      "firstEdition": "2018/19",
+      "operation": "RESUME_RELEGATION_PLAYOFF",
+      "rowRefs": [
+        32,
+        303
+      ],
+      "tier1Rank": 9,
+      "tier2Rank": 2,
+      "decisionDate": "2018-05-25",
+      "lastEdition": "2022/23",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Ordinary format for ten-team league, transitional 2022/23 and exceptional seasons require separate check; rank changes to 11 after expansion."
     }
   }
 ]

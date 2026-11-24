@@ -72,7 +72,8 @@
     389,
     317,
     336,
-    161
+    161,
+    135
   ],
   "archiveCandidateRows": [
     178
@@ -84,7 +85,18 @@
     155,
     357,
     115,
-    158
+    158,
+    143,
+    407,
+    124,
+    144,
+    120,
+    347,
+    119,
+    125,
+    137,
+    364,
+    398
   ],
   "notApplicableCurrentEditionRows": [
     207,
@@ -159,7 +171,36 @@
     294,
     295,
     332,
-    402
+    402,
+    2,
+    32,
+    113,
+    211,
+    303,
+    330,
+    13,
+    33,
+    248,
+    311,
+    312,
+    363,
+    414,
+    9,
+    23,
+    228,
+    285,
+    393,
+    8,
+    29,
+    140,
+    227,
+    305,
+    346,
+    409,
+    14,
+    26,
+    251,
+    289
   ],
   "aliasCandidates": [
     [
@@ -167,15 +208,67 @@
       423
     ]
   ],
-  "note": "Block70 expands previous 59 distinct working packages to 60 (19 historical, 41 modern), after independently identifying pre-cutoff KNVB Beker 1996/97 row161. Alias 321/423 still counted once, separate PER row392 outside prior working denominator remains pending final census. Every working package partial only; no completion claim. France cup rows155/357 earliest regional/overseas start remains unknown. Block71: earliest 1996/97 Belgian qualifying rounds and Scottish separate qualifying cup applicability unresolved; June 2026 draws do not equal already played games.",
+  "note": "Block70 expands previous 59 distinct working packages to 60 (19 historical, 41 modern), after independently identifying pre-cutoff KNVB Beker 1996/97 row161. Alias 321/423 still counted once, separate PER row392 outside prior working denominator remains pending final census. Every working package partial only; no completion claim. France cup rows155/357 earliest regional/overseas start remains unknown. Block71: earliest 1996/97 Belgian qualifying rounds and Scottish separate qualifying cup applicability unresolved; June 2026 draws do not equal already played games. Block72: Swiss cup 1996/97 and 2026/27 principal rounds start August; earlier separate regional qualification status not established, no July snapshot or exclusion asserted. Block73: first-round dates of GRE/TUR 1996/97 cups not established; no July snapshot or exclusion asserted. Block74 expands working packages from60 to61 (20 historic,41 modern) due to Polish Cup row135 preliminary in June 1996. Danish early cup regional/first-round dates unresolved; modern Polish prior regional winners are access evidence, not current central cup scores. Block75: Czech historical cup first-round date unresolved; second round Aug4 established, no unsupported July exclusion. Block76: HUN historical cup early rounds undated, current main cup August; ROU historical central cup October, modern regional phase July8; earlier county/regional qualification membership and dates unresolved. No unsupported cutoff exclusion for four cup rows.",
   "notApplicableEvidence": {
+    "2": {
+      "edition": "1996/97",
+      "firstMatch": "1996-07-24"
+    },
     "4": {
       "edition": "1996/97",
       "openingMonthEvidence": "1996-08"
     },
+    "8": {
+      "edition": "1996/97",
+      "firstRoundObserved": "1996-08-11"
+    },
+    "9": {
+      "edition": "1996/97",
+      "firstMatch": "1996-07-28"
+    },
+    "13": {
+      "edition": "1996/97",
+      "startWindow": [
+        "1996-09-06",
+        "1996-09-08"
+      ]
+    },
+    "14": {
+      "edition": "1996/97",
+      "openingWindow": [
+        "1996-08-10",
+        "1996-08-11"
+      ]
+    },
+    "23": {
+      "edition": "1996/97",
+      "openingWindow": [
+        "1996-07-27",
+        "1996-07-28"
+      ]
+    },
     "24": {
       "edition": "1996/97",
       "openingRoundEvidence": "1996-08-25"
+    },
+    "26": {
+      "edition": "1996/97",
+      "firstMatchDate": "1996-07-31"
+    },
+    "29": {
+      "edition": "1996/97",
+      "firstMatch": "1996-08-03"
+    },
+    "32": {
+      "edition": "1996/97",
+      "firstMatch": "1996-07-10"
+    },
+    "33": {
+      "edition": "1996/97",
+      "startWindow": [
+        "1996-08-09",
+        "1996-08-11"
+      ]
     },
     "46": {
       "edition": "1996/97",
@@ -223,9 +316,23 @@
       "edition": "1996/97",
       "nominalFirstRound": "1996-09-01"
     },
+    "113": {
+      "edition": "1996/97",
+      "preliminaryWindow": [
+        "1996-07-26",
+        "1996-08-04"
+      ]
+    },
     "136": {
       "edition": "1996/97",
       "startMonth": "1996-09"
+    },
+    "140": {
+      "edition": "1996/97",
+      "firstRoundWindow": [
+        "1996-09-03",
+        "1996-09-04"
+      ]
     },
     "151": {
       "edition": "1996/97",
@@ -313,9 +420,24 @@
       "edition": "2026/27",
       "start": "2026-10-16"
     },
+    "211": {
+      "edition": "2026/27",
+      "firstMatch": "2026-07-31"
+    },
     "213": {
       "edition": "2026/27",
       "firstMatch": "2026-08-07"
+    },
+    "227": {
+      "edition": "2026/27",
+      "openingWindow": [
+        "2026-07-25",
+        "2026-07-26"
+      ]
+    },
+    "228": {
+      "edition": "2026/27",
+      "firstMatch": "2026-07-24"
     },
     "230": {
       "edition": "2026/27",
@@ -384,6 +506,17 @@
         "2026-09-07"
       ]
     },
+    "248": {
+      "edition": "2026/27",
+      "startWindow": [
+        "2026-08-22",
+        "2026-08-23"
+      ]
+    },
+    "251": {
+      "edition": "2026/27",
+      "firstMatchDate": "2026-07-24"
+    },
     "258": {
       "edition": "2026/27",
       "start": "2026-08-07"
@@ -406,6 +539,10 @@
         "2026-08-09"
       ]
     },
+    "285": {
+      "edition": "2026/27",
+      "firstMatch": "2026-07-24"
+    },
     "286": {
       "edition": "2026/27",
       "nominalStart": "2026-08-09"
@@ -413,6 +550,13 @@
     "287": {
       "edition": "2026/27",
       "nominalStart": "2026-08-09"
+    },
+    "289": {
+      "edition": "2026/27",
+      "openingWindow": [
+        "2026-07-18",
+        "2026-07-19"
+      ]
     },
     "290": {
       "edition": "2026/27",
@@ -434,6 +578,20 @@
       "edition": "2026/27",
       "openingDate": "2026-08-01"
     },
+    "303": {
+      "edition": "2026/27",
+      "openingWindow": [
+        "2026-07-25",
+        "2026-07-26"
+      ]
+    },
+    "305": {
+      "edition": "2026/27",
+      "openingWindow": [
+        "2026-07-25",
+        "2026-07-26"
+      ]
+    },
     "310": {
       "edition": "2026/27",
       "startWindow": [
@@ -441,9 +599,27 @@
         "2026-08-23"
       ]
     },
+    "311": {
+      "edition": "2026/27",
+      "nominalStart": "2026-08-14"
+    },
+    "312": {
+      "edition": "2026/27",
+      "startWindow": [
+        "2026-08-07",
+        "2026-08-10"
+      ]
+    },
     "322": {
       "edition": "2026/27",
       "nominalStart": "2026-08-09"
+    },
+    "330": {
+      "edition": "2026/27",
+      "startWindow": [
+        "2026-07-24",
+        "2026-07-26"
+      ]
     },
     "332": {
       "edition": "2026/27",
@@ -451,6 +627,10 @@
         "2026-07-25",
         "2026-07-26"
       ]
+    },
+    "346": {
+      "edition": "2026/27",
+      "firstActualMatch": "2026-07-24"
     },
     "350": {
       "edition": "2026/27",
@@ -475,12 +655,24 @@
         "2026-10-25"
       ]
     },
+    "363": {
+      "edition": "2026/27",
+      "preliminaryMonth": "2026-08"
+    },
     "386": {
       "edition": "2026/27",
       "startWindow": [
         "2026-09-01",
         "2026-09-02"
       ]
+    },
+    "393": {
+      "edition": "2026/27",
+      "centralPreliminaryWindow": [
+        "2026-08-04",
+        "2026-08-06"
+      ],
+      "priorRegionalWinners": "2025/26 access evidence, not current central cup fixtures"
     },
     "394": {
       "edition": "2026/27",
@@ -496,6 +688,17 @@
     "402": {
       "edition": "2026/27",
       "firstMatchDate": "2026-08-01"
+    },
+    "409": {
+      "edition": "2026/27",
+      "preliminaryWindow": [
+        "2026-07-25",
+        "2026-07-26"
+      ]
+    },
+    "414": {
+      "edition": "2026/27",
+      "nominalStart": "2026-09-15"
     },
     "430": {
       "edition": "2026/27",
@@ -890,6 +1093,14 @@
         "dateEvidence": "1996-06-01 first preliminary matches; June qualifiers before August group stage",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
         "snapshot": "18 results extracted, dates and score conflicts remain"
+      },
+      {
+        "row": 135,
+        "world": "9697",
+        "competition": "Puchar Polski",
+        "dateEvidence": "1996-06-26 and 1996-06-30 actual preliminary ties; seven other prelim ties after cutoff",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "Two results and two qualified teams extracted; independent corroboration and full access pending"
       }
     ],
     "byWorld": {
@@ -900,14 +1111,14 @@
         "additionalDateEvidenceRows": 0
       },
       "9697": {
-        "rows": 19,
-        "distinctWorkingCount": 19,
-        "partialSnapshotRows": 19,
+        "rows": 20,
+        "distinctWorkingCount": 20,
+        "partialSnapshotRows": 20,
         "additionalDateEvidenceRows": 0
       }
     },
-    "totalRequiredRows": 61,
-    "distinctWorkingCount": 60,
+    "totalRequiredRows": 62,
+    "distinctWorkingCount": 61,
     "aliasDeduction": "321/423 Libertadores treated as one research package pending identity reconciliation",
     "scope": "Includes active editions, cross-cutoff preliminaries and completed phases within an annual aggregate. Does not count standalone completed editions, technical split/playoff specifications, or unverified candidate rows. Historical qualifiers UEFA: real matches pre-cutoff but 9 actual groups vs 8 OG rows; separate unresolved mapping, not included in lower bound.",
     "unresolvedExamples": [

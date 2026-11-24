@@ -7,13 +7,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "TUR",
-    "candidateSources": [
-      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -27,7 +23,6 @@
       "nonCommercialDisplayName": "Süper Lig",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.tff.org/Resources/TFF/Documents/STATULER/2026-2027/2026-2027-sezonu-super-lig-musabakalari-statusu.pdf",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -44,11 +39,24 @@
         ],
         "promotedFromPreviousTier2": 3
       },
-      "sources": [
-        "https://www.tff.org/Resources/TFF/Documents/STATULER/2026-2027/2026-2027-sezonu-super-lig-musabakalari-statusu.pdf"
-      ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "TFF PDF p1 screenshot verified; Bulgarian league HTML opened; other sources search excerpts only, EPO/RSSSF open cache miss. No full calendar or player rules certification."
+    },
+    "block73Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "relegatedDirect": [
+          16,
+          17,
+          18
+        ]
+      },
+      "nominalStart": "2026-08-14",
+      "limitations": "Federation announcement excerpt corroborates start, full page timeout. Exact fixture dates and participants not yet extracted.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -59,13 +67,9 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "TUR",
-    "candidateSources": [
-      "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -79,7 +83,6 @@
       "nonCommercialDisplayName": "TFF 1. Lig",
       "candidateName": "1. Lig",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "source": "https://www.tff.org/Resources/TFF/Documents/STATULER/2026-2027/2026-2027-sezonu-tff-1-lig-musabakalari-statusu.pdf",
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
@@ -135,11 +138,51 @@
           "2026-12-21"
         ]
       },
-      "sources": [
-        "https://www.tff.org/Resources/TFF/Documents/STATULER/2026-2027/2026-2027-sezonu-tff-1-lig-musabakalari-statusu.pdf",
-        "https://www.tff.org/Default.aspx?ftxtId=50964&pageId=200"
-      ],
       "limitations": "Official PDF art 1/3; page 0 screenshot checked; page 1 screenshot failed, text inspected. Dates are published windows.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block73Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 20,
+        "rounds": 2,
+        "gamesPerClub": 38,
+        "promotedDirect": [
+          1,
+          2
+        ],
+        "relegatedDirect": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "promotionPlayoff": {
+          "rank3": "final",
+          "firstRoundPairs": [
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "firstRoundLegs": 1,
+          "semifinalLegs": 2,
+          "finalLegs": 1
+        }
+      },
+      "openingWindow": [
+        "2026-08-07",
+        "2026-08-10"
+      ],
+      "winterLastRoundWindow": [
+        "2026-12-18",
+        "2026-12-21"
+      ],
+      "limitations": "Rules already in previous matrix, calendar confirmed by new TFF excerpt; no full fixture audit.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

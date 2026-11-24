@@ -7,29 +7,80 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "ROU",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Cupa României",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "nonCommercialDisplayName": "Cupa României",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block76Research": {
+      "edition": "1996/97",
+      "rules": {
+        "preliminary": {
+          "matches": 16,
+          "byes": 1
+        },
+        "intermediateMatches": 3,
+        "R32TopTierEntrants": 18,
+        "R32OtherEntrants": 14,
+        "knockoutLegs": 1,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true,
+        "neutralVenuesObserved": true
+      },
+      "roundWindows": [
+        [
+          "preliminary",
+          "1996-10-23",
+          "1996-10-23"
+        ],
+        [
+          "intermediate",
+          "1996-11-13",
+          "1996-11-13"
+        ],
+        [
+          "R32",
+          "1996-11-29",
+          "1996-11-30"
+        ],
+        [
+          "R16",
+          "1997-05-07",
+          "1997-05-07"
+        ],
+        [
+          "QF",
+          "1997-05-14",
+          "1997-05-14"
+        ],
+        [
+          "SF",
+          "1997-05-21",
+          "1997-05-21"
+        ],
+        [
+          "final",
+          "1997-06-04",
+          "1997-06-04"
+        ]
+      ],
+      "limitations": "Central archive begins October; earlier county qualification not screened. No assumption of July applicability for full cup.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

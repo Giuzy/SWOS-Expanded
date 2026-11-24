@@ -7,16 +7,14 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "POL",
-    "candidateSources": [],
     "coverage": "HISTORICAL_SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
       "sportRules": "PARTIAL_HISTORICAL_FIELDS_EXTRACTED",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -37,16 +35,14 @@
       "regularOrInitialGamesPerClub": 34,
       "pointsWin": 3,
       "formatAndMovement": "Double RR; H2H recorded in table",
-      "researchSource": "https://www.rsssf.org/tablesa/allfirst9697.html",
       "scope": "Observed structure, no future results imported; null and uncertain fields remain open."
     },
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "I Liga",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/resultsp99.html",
+      "nonCommercialDisplayName": "I Liga",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [
         {
           "transition": 250,
@@ -54,11 +50,55 @@
           "to": null,
           "previousName": "I Liga",
           "name": "Ekstraklasa",
-          "operation": "RENAME",
-          "source": "https://ekstraklasa.org/en/company/history/"
+          "operation": "RENAME"
         }
       ],
       "historyComplete": false
+    },
+    "block74Research": {
+      "edition": "1996/97",
+      "rules": {
+        "teams": 18,
+        "rounds": 2,
+        "gamesPerClub": 34,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "relegationPositions": [
+          15,
+          16,
+          17,
+          18
+        ]
+      },
+      "participants": [
+        "Amica Wronki",
+        "GKS Bełchatów",
+        "GKS Katowice",
+        "Górnik Zabrze",
+        "Hutnik Kraków",
+        "Lech Poznań",
+        "Legia Warszawa",
+        "Odra Wodzisław",
+        "Polonia Warszawa",
+        "Raków Częstochowa",
+        "Ruch Chorzów",
+        "Sokół Tychy",
+        "Stomil Olsztyn",
+        "Widzew Łódź",
+        "Wisła Kraków",
+        "Zagłębie Lubin",
+        "ŁKS Łódź",
+        "Śląsk Wrocław"
+      ],
+      "openingWindow": [
+        "1996-07-27",
+        "1996-07-28"
+      ],
+      "limitations": "Observed bottom four, two withdrawals not recurring rules; individual calendar and keys pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

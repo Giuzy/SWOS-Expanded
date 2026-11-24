@@ -7,29 +7,80 @@
     "technicalCategory": "NATIONAL_CUP",
     "researchCategory": "NATIONAL_CUP",
     "country": "AUT",
-    "candidateSources": [
-      "d744018d10a2aa469e3044dc364cbaa2914785fe"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NEUTRAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Austrian Cup",
-      "status": "HISTORICAL_NEUTRAL_NAME_CANDIDATE",
-      "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
+      "nonCommercialDisplayName": "ÖFB Cup",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block72Research": {
+      "edition": "1996/97",
+      "rules": {
+        "preliminary": true,
+        "secondTierEntry": "R1",
+        "topTierEntry": "R3 (32 teams)",
+        "format": "single elimination",
+        "extraTimeObserved": true,
+        "penaltiesObserved": true,
+        "finalVenue": "Ernst-Happel-Stadion, Wien"
+      },
+      "roundWindows": [
+        [
+          "preliminary",
+          "1996-07-26",
+          "1996-08-04"
+        ],
+        [
+          "R1",
+          "1996-08-11",
+          "1996-08-21"
+        ],
+        [
+          "R2",
+          "1996-09-03",
+          "1996-09-08"
+        ],
+        [
+          "R3",
+          "1996-09-27",
+          "1996-09-29"
+        ],
+        [
+          "R4",
+          "1996-11-01",
+          "1996-11-02"
+        ],
+        [
+          "QF",
+          "1997-04-08",
+          "1997-04-08"
+        ],
+        [
+          "SF",
+          "1997-05-06",
+          "1997-05-06"
+        ],
+        [
+          "final",
+          "1997-05-27",
+          "1997-05-27"
+        ]
+      ],
+      "limitations": "Individual match dates, entrant quotas and administrative abandoned/replayed match rules pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

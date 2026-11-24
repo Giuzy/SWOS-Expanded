@@ -8,10 +8,143 @@
       "rowRefs": [
         305
       ],
-      "source": "https://www.nikeliga.sk/text/56-herny-model",
       "note": "12 teams, 22+10 rounds, two groups of six.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 41 official HTML opened or search excerpt; no PDF analyzed."
+    }
+  },
+  {
+    "index": 464,
+    "value": {
+      "competition": "SVK tier 1",
+      "firstEdition": "1997/98",
+      "lastEdition": "2001/02",
+      "operation": "RENAME",
+      "previousName": "I. liga",
+      "name": "Mars superliga",
+      "rowRefs": [
+        29,
+        305
+      ],
+      "commercialName": true,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Federation confirms Mars starts 1997/98, Corgoň and Fortuna periods; 2002/03 and 2003/04 boundaries secondary chronology; neutral identity I. liga."
+    }
+  },
+  {
+    "index": 465,
+    "value": {
+      "competition": "SVK tier 1",
+      "firstEdition": "2002/03",
+      "lastEdition": "2002/03",
+      "operation": "RENAME",
+      "previousName": "Mars superliga",
+      "name": "I. liga",
+      "rowRefs": [
+        29,
+        305
+      ],
+      "commercialName": false,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Federation confirms Mars starts 1997/98, Corgoň and Fortuna periods; 2002/03 and 2003/04 boundaries secondary chronology; neutral identity I. liga."
+    }
+  },
+  {
+    "index": 466,
+    "value": {
+      "competition": "SVK tier 1",
+      "firstEdition": "2003/04",
+      "lastEdition": "2013/14",
+      "operation": "RENAME",
+      "previousName": "I. liga",
+      "name": "Corgoň liga",
+      "rowRefs": [
+        29,
+        305
+      ],
+      "commercialName": true,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Federation confirms Mars starts 1997/98, Corgoň and Fortuna periods; 2002/03 and 2003/04 boundaries secondary chronology; neutral identity I. liga."
+    }
+  },
+  {
+    "index": 467,
+    "value": {
+      "competition": "SVK tier 1",
+      "firstEdition": "2014/15",
+      "lastEdition": "2022/23",
+      "operation": "RENAME",
+      "previousName": "Corgoň liga",
+      "name": "Fortuna liga",
+      "rowRefs": [
+        29,
+        305
+      ],
+      "commercialName": true,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Federation confirms Mars starts 1997/98, Corgoň and Fortuna periods; 2002/03 and 2003/04 boundaries secondary chronology; neutral identity I. liga."
+    }
+  },
+  {
+    "index": 468,
+    "value": {
+      "competition": "SVK tier 1",
+      "firstEdition": "2023/24",
+      "lastEdition": null,
+      "operation": "RENAME",
+      "previousName": "Fortuna liga",
+      "name": "Niké liga",
+      "rowRefs": [
+        29,
+        305
+      ],
+      "commercialName": true,
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Federation confirms Mars starts 1997/98, Corgoň and Fortuna periods; 2002/03 and 2003/04 boundaries secondary chronology; neutral identity I. liga."
+    }
+  },
+  {
+    "index": 469,
+    "value": {
+      "competition": "SVK tier 1",
+      "firstEdition": "2000/01",
+      "lastEdition": "2005/06",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        29,
+        305
+      ],
+      "rules": {
+        "teams": 10,
+        "rounds": 4,
+        "gamesPerClub": 36,
+        "previousTeams": 16,
+        "transitionRelegated": 7,
+        "transitionPromoted": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 470,
+    "value": {
+      "competition": "SVK tier 1",
+      "firstEdition": "2007/08",
+      "lastEdition": "2016/17",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        29,
+        305
+      ],
+      "rules": {
+        "teams": 12,
+        "rounds": 3,
+        "gamesPerClub": 33,
+        "homeGamesTopSixPreviousEdition": 17,
+        "homeGamesOtherFiveAndPromoted": 16
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "limitations": "Normal format; 2016/17 exceptional 11-team edition not recurring."
     }
   }
 ]

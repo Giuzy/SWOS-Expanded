@@ -1,36 +1,36 @@
 {
   "denominator": 533,
   "namesWithEvidenceOrCandidate": 432,
-  "namesSourceSupportedPartial": 258,
+  "namesSourceSupportedPartial": 277,
   "nameHistoryComplete": 2,
-  "rulesPartial": 295,
-  "lifecyclePartial": 53,
-  "cutoffPartial": 61,
+  "rulesPartial": 310,
+  "lifecyclePartial": 63,
+  "cutoffPartial": 62,
   "datesReconciled": 0,
   "participantKeysReconciled": 0,
   "matchRulesCertified": 0,
-  "historicalTransitions": 451,
-  "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material. July 1 coverage is scoped to necessary initial historical state only; do not compute against global denominator. Report partial active rows separately from archive candidates and do not count merely available sources or future editions. User confirmed provisional working denominator 59 on 24/11/2026; expanded to 60 at block70 after discovering KNVB Beker preliminary matches in June 1996; display as provisional until final census. No source-link coverage dimension; prioritize sporting fields. Global source-link cleanup suspended by user; no new link fields in subsequent research.",
+  "historicalTransitions": 468,
+  "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material. July 1 coverage is scoped to necessary initial historical state only; do not compute against global denominator. Report partial active rows separately from archive candidates and do not count merely available sources or future editions. User confirmed provisional working denominator 59 on 24/11/2026; expanded to 60 at block70 after discovering KNVB Beker preliminary matches in June 1996; expanded again to 61 at block74 (Polish Cup preliminary in June 1996); display as provisional until final census. No source-link coverage dimension; prioritize sporting fields. Global source-link cleanup suspended by user; no new link fields in subsequent research.",
   "namingByWorld": {
     "historical": {
       "denominator": 182,
-      "sourceSupported": 84
+      "sourceSupported": 98
     },
     "modern": {
       "denominator": 351,
-      "sourceSupported": 174
+      "sourceSupported": 179
     }
   },
-  "rawTransitionRecords": 456,
+  "rawTransitionRecords": 473,
   "transitionCountNote": "Original dashboard count retains preexisting five-record discrepancy; newly appended source-backed records counted individually, not certified unique globally.",
-  "lastPreparedBlock": 71,
+  "lastPreparedBlock": 76,
   "cutoffArchivePartial": 1,
-  "cutoffDenominator": 60,
+  "cutoffDenominator": 61,
   "cutoffApplicability": {
-    "knownPartialActiveRows": 61,
+    "knownPartialActiveRows": 62,
     "knownPartialArchiveCandidates": 1,
-    "explicitUnknownRows": 7,
-    "knownNotApplicableCurrentEditionRows": 73,
+    "explicitUnknownRows": 18,
+    "knownNotApplicableCurrentEditionRows": 102,
     "aliasCandidates": [
       [
         321,
@@ -47,31 +47,31 @@
         "additionalDateEvidenceRows": 0
       },
       "9697": {
-        "rows": 19,
-        "distinctWorkingCount": 19,
-        "partialSnapshotRows": 19,
+        "rows": 20,
+        "distinctWorkingCount": 20,
+        "partialSnapshotRows": 20,
         "additionalDateEvidenceRows": 0
       }
     },
-    "requiredRowsLowerBound": 61,
-    "distinctWorkingCountLowerBound": 60,
+    "requiredRowsLowerBound": 62,
+    "distinctWorkingCountLowerBound": 61,
     "extraCandidateRowsOutsideWorkingDenominator": [
       392
     ]
   },
   "cutoffProgressWorking": {
-    "required": 60,
-    "partialDistinct": 60,
+    "required": 61,
+    "partialDistinct": 61,
     "historical": {
-      "required": 19,
-      "partial": 19
+      "required": 20,
+      "partial": 20
     },
     "modern": {
       "required": 41,
       "partial": 41
     },
-    "status": "PROVISIONAL_CENSUS_EXPANDED_BLOCK70",
-    "note": "Previous user-approved working denominator59 expanded by one observed historic June preliminary (KNVB Beker row161). Alias Libertadores counted once. Partial material is not certified. Additional PER row392 remains outside prior working scope until complete census.",
+    "status": "PROVISIONAL_CENSUS_EXPANDED_BLOCK74",
+    "note": "Previous working denominator60 expanded by one observed June preliminary (Puchar Polski 1996/97 row135). Alias Libertadores counted once; all working packages partial only. Separate PER row392 outside prior working scope pending final census.",
     "additionalPartialOutsideWorkingDenominator": 1
   }
 }

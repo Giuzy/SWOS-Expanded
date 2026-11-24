@@ -7,27 +7,22 @@
     "technicalCategory": "LEAGUE_DIVISION",
     "researchCategory": "LEAGUE_DIVISION",
     "country": "SVK",
-    "candidateSources": [
-      "356f4063724366c16d0070ec9caae81183c386c2"
-    ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
       "sportRules": "PARTIAL",
-      "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
-      "candidateName": "Slovak First Football League",
-      "status": "MODERN_NONCOMMERCIAL_NAME_CANDIDATE",
-      "source": "https://en.wikipedia.org/wiki/European_Leagues",
+      "officialName": "Niké liga",
+      "nonCommercialDisplayName": "I. liga",
+      "candidateName": null,
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
     },
@@ -57,7 +52,6 @@
       "awayGoals": false,
       "extraTimeMinutes": 30,
       "penalties": true,
-      "source": "https://www.nikeliga.sk/text/56-herny-model",
       "qualificationExample": {
         "edition": "2025/26",
         "cupWinnerInTop3": true,
@@ -74,6 +68,81 @@
         "finalHome": "higher final rank",
         "scope": "UEFA allocation edition-specific, no permanent fixed quotas"
       }
+    },
+    "block75Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 12,
+        "regularRounds": 2,
+        "regularGamesPerClub": 22,
+        "split": [
+          6,
+          6
+        ],
+        "splitRounds": 2,
+        "gamesPerClub": 32,
+        "pointsCarried": "full",
+        "relegatedDirect": [
+          12
+        ],
+        "relegationPlayoff": {
+          "rank": 11,
+          "opponentTier": 2,
+          "opponentRank": 2,
+          "legs": 2,
+          "firstHome": "tier2"
+        }
+      },
+      "participants": [
+        "AS Trenčín",
+        "DAC 1904 Dunajská Streda",
+        "FC Košice",
+        "FC Spartak Trnava",
+        "FK Železiarne Podbrezová",
+        "KFC Komárno",
+        "MFK Dukla Banská Bystrica",
+        "MFK Ružomberok",
+        "MFK Skalica",
+        "MFK Zemplín Michalovce",
+        "MŠK Žilina",
+        "ŠK Slovan Bratislava"
+      ],
+      "openingWindow": [
+        "2026-07-25",
+        "2026-07-26"
+      ],
+      "winterLastRound": [
+        "2026-12-12",
+        "2026-12-13"
+      ],
+      "winterResume": [
+        "2027-02-06",
+        "2027-02-07"
+      ],
+      "regularLastRound": [
+        "2027-02-27",
+        "2027-02-28"
+      ],
+      "splitStart": [
+        "2027-03-06",
+        "2027-03-07"
+      ],
+      "splitRound8Start": "2027-04-30",
+      "lastNominalDate": "2027-05-15",
+      "previousLastWindow": [
+        "2027-05-15",
+        "2027-05-16"
+      ],
+      "relegationPlayoffDates": [
+        "2027-05-18",
+        "2027-05-22"
+      ],
+      "conditionalEuropeanPlayoffDates": [
+        "2027-05-18",
+        "2027-05-21"
+      ],
+      "limitations": "Current league model unchanged per 13 Nov 2025 announcement. Exact conditional European access pairings for 2026/27 require season-specific rules; official web model still references 2025/26 access.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

@@ -13,7 +13,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -278,6 +278,134 @@
       ],
       "limitations": "Published nominal windows; points carry and exact fixtures/club keys pending. No future scores.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "participantKeyAudit": {
+      "edition": "2026/27",
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "division": 0,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "AEK",
+          "AEK ATHENS",
+          "a47c019b-d758-5c77-a065-bbc047877fc5",
+          15,
+          0,
+          983041
+        ],
+        [
+          "Aris",
+          "ARIS SALONIKI",
+          "1a022e6b-b6ca-51c4-9ad0-a61bd70e65f2",
+          15,
+          7,
+          983048
+        ],
+        [
+          "Asteras Tripolis",
+          "ASTERAS AKTOR",
+          "aa040fd0-e4f5-570e-bf15-9c33b2dac1df",
+          15,
+          11,
+          983052
+        ],
+        [
+          "Atromitos",
+          "ATROMITOS ATHENS",
+          "43b807fb-8ac5-5870-a759-46f46f6349f7",
+          15,
+          8,
+          983049
+        ],
+        [
+          "Iraklis",
+          "IRAKLIS",
+          "d207963b-ea6b-5a3f-a90e-217439d8ae1e",
+          15,
+          12,
+          983053
+        ],
+        [
+          "Kalamata",
+          "KALAMATA",
+          "c07e52cb-7d59-5dad-8b07-0d561e4ce8a1",
+          15,
+          13,
+          983054
+        ],
+        [
+          "Kifisia",
+          "KIFISIA",
+          "3537f9a9-5888-5813-a208-813e44bdae72",
+          15,
+          9,
+          983050
+        ],
+        [
+          "Levadiakos",
+          "LEVADIAKOS",
+          "0a5c6afc-c6fd-5c20-8cf9-7a5af38a765a",
+          15,
+          4,
+          983045
+        ],
+        [
+          "OFI",
+          "OFI CRETE",
+          "354262b1-68ad-55e1-8e4b-ae825f339026",
+          15,
+          5,
+          983046
+        ],
+        [
+          "Olympiakos",
+          "OLYMPIACOS",
+          "b291a3d9-225c-5def-863b-80d558b3f68f",
+          15,
+          1,
+          983042
+        ],
+        [
+          "PAOK",
+          "PAOK",
+          "07a63c6e-01ec-5e76-a41e-3b40fb8077c1",
+          15,
+          2,
+          983043
+        ],
+        [
+          "Panaitolikos",
+          "PANETOLIKOS",
+          "afa7d3d4-fc34-5967-abd9-66bf083282ea",
+          15,
+          10,
+          983051
+        ],
+        [
+          "Panathinaikos",
+          "PANATHINAIKOS",
+          "5b9fbe20-421f-56a9-a054-9389c0f1c9c1",
+          15,
+          3,
+          983044
+        ],
+        [
+          "Volos",
+          "VOLOS",
+          "83a523d9-2ee8-5319-9ed0-ebc63436ac7c",
+          15,
+          6,
+          983047
+        ]
+      ],
+      "scope": "All initial regular-league entrants mapped by reviewed explicit aliases; native JSON full division set and unique UUID/ordinal; CE key computed from current primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. No runtime or later qualification certification."
     }
   }
 ]

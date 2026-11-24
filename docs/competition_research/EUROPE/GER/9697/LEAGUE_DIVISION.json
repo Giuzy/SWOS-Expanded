@@ -47,6 +47,1861 @@
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block127Research": {
+      "edition": "1996/97",
+      "scope": "Historical reference calendar, no post-cutoff scores imported; no July snapshot needed for this league. Single archive, independently unreconciled; names not native IDs.",
+      "fixtureColumns": [
+        "round",
+        "date",
+        "home",
+        "away"
+      ],
+      "fixtures": [
+        [
+          1,
+          "1996-08-16",
+          "Bor. Mönchengladbach",
+          "Arminia Bielefeld"
+        ],
+        [
+          1,
+          "1996-08-16",
+          "FC St. Pauli",
+          "Bayern München"
+        ],
+        [
+          1,
+          "1996-08-17",
+          "SC Freiburg",
+          "Werder Bremen"
+        ],
+        [
+          1,
+          "1996-08-17",
+          "VfL Bochum",
+          "MSV Duisburg"
+        ],
+        [
+          1,
+          "1996-08-17",
+          "Hansa Rostock",
+          "Karlsruher SC"
+        ],
+        [
+          1,
+          "1996-08-17",
+          "Bayer 04 Leverkusen",
+          "Borussia Dortmund"
+        ],
+        [
+          1,
+          "1996-08-17",
+          "VfB Stuttgart",
+          "FC Schalke 04"
+        ],
+        [
+          1,
+          "1996-08-17",
+          "TSV 1860 München",
+          "Hamburger SV"
+        ],
+        [
+          1,
+          "1996-08-18",
+          "Fortuna Düsseldorf",
+          "1. FC Köln"
+        ],
+        [
+          2,
+          "1996-08-20",
+          "Hamburger SV",
+          "SC Freiburg"
+        ],
+        [
+          2,
+          "1996-08-20",
+          "Arminia Bielefeld",
+          "FC St. Pauli"
+        ],
+        [
+          2,
+          "1996-08-20",
+          "FC Schalke 04",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          2,
+          "1996-08-20",
+          "Werder Bremen",
+          "Hansa Rostock"
+        ],
+        [
+          2,
+          "1996-08-21",
+          "Bayern München",
+          "VfL Bochum"
+        ],
+        [
+          2,
+          "1996-08-21",
+          "Borussia Dortmund",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          2,
+          "1996-08-21",
+          "1. FC Köln",
+          "TSV 1860 München"
+        ],
+        [
+          2,
+          "1996-08-21",
+          "MSV Duisburg",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          3,
+          "1996-08-23",
+          "FC St. Pauli",
+          "FC Schalke 04"
+        ],
+        [
+          3,
+          "1996-08-23",
+          "Hansa Rostock",
+          "Hamburger SV"
+        ],
+        [
+          3,
+          "1996-08-24",
+          "VfB Stuttgart",
+          "Werder Bremen"
+        ],
+        [
+          3,
+          "1996-08-24",
+          "VfL Bochum",
+          "Arminia Bielefeld"
+        ],
+        [
+          3,
+          "1996-08-24",
+          "TSV 1860 München",
+          "Borussia Dortmund"
+        ],
+        [
+          3,
+          "1996-08-24",
+          "Bayer 04 Leverkusen",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          3,
+          "1996-08-24",
+          "Bor. Mönchengladbach",
+          "Karlsruher SC"
+        ],
+        [
+          3,
+          "1996-08-24",
+          "SC Freiburg",
+          "1. FC Köln"
+        ],
+        [
+          3,
+          "1996-08-25",
+          "MSV Duisburg",
+          "Bayern München"
+        ],
+        [
+          4,
+          "1996-08-27",
+          "Borussia Dortmund",
+          "SC Freiburg"
+        ],
+        [
+          4,
+          "1996-08-27",
+          "FC Schalke 04",
+          "VfL Bochum"
+        ],
+        [
+          4,
+          "1996-08-27",
+          "Hamburger SV",
+          "VfB Stuttgart"
+        ],
+        [
+          4,
+          "1996-08-27",
+          "Werder Bremen",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          4,
+          "1996-08-28",
+          "Fortuna Düsseldorf",
+          "TSV 1860 München"
+        ],
+        [
+          4,
+          "1996-08-28",
+          "1. FC Köln",
+          "Hansa Rostock"
+        ],
+        [
+          4,
+          "1996-08-28",
+          "Arminia Bielefeld",
+          "MSV Duisburg"
+        ],
+        [
+          4,
+          "1996-08-28",
+          "Karlsruher SC",
+          "FC St. Pauli"
+        ],
+        [
+          4,
+          "1996-08-28",
+          "Bayern München",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          5,
+          "1996-09-06",
+          "Bor. Mönchengladbach",
+          "Hamburger SV"
+        ],
+        [
+          5,
+          "1996-09-06",
+          "SC Freiburg",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          5,
+          "1996-09-07",
+          "FC St. Pauli",
+          "Werder Bremen"
+        ],
+        [
+          5,
+          "1996-09-07",
+          "Bayern München",
+          "Arminia Bielefeld"
+        ],
+        [
+          5,
+          "1996-09-07",
+          "VfL Bochum",
+          "Karlsruher SC"
+        ],
+        [
+          5,
+          "1996-09-07",
+          "Bayer 04 Leverkusen",
+          "TSV 1860 München"
+        ],
+        [
+          5,
+          "1996-09-07",
+          "Hansa Rostock",
+          "Borussia Dortmund"
+        ],
+        [
+          5,
+          "1996-09-07",
+          "MSV Duisburg",
+          "FC Schalke 04"
+        ],
+        [
+          5,
+          "1996-09-08",
+          "VfB Stuttgart",
+          "1. FC Köln"
+        ],
+        [
+          6,
+          "1996-09-13",
+          "Werder Bremen",
+          "VfL Bochum"
+        ],
+        [
+          6,
+          "1996-09-13",
+          "Fortuna Düsseldorf",
+          "Hansa Rostock"
+        ],
+        [
+          6,
+          "1996-09-14",
+          "Arminia Bielefeld",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          6,
+          "1996-09-14",
+          "FC Schalke 04",
+          "Bayern München"
+        ],
+        [
+          6,
+          "1996-09-14",
+          "TSV 1860 München",
+          "SC Freiburg"
+        ],
+        [
+          6,
+          "1996-09-14",
+          "1. FC Köln",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          6,
+          "1996-09-14",
+          "Karlsruher SC",
+          "MSV Duisburg"
+        ],
+        [
+          6,
+          "1996-09-14",
+          "Borussia Dortmund",
+          "VfB Stuttgart"
+        ],
+        [
+          6,
+          "1996-09-15",
+          "Hamburger SV",
+          "FC St. Pauli"
+        ],
+        [
+          2,
+          "1996-09-17",
+          "Karlsruher SC",
+          "VfB Stuttgart"
+        ],
+        [
+          7,
+          "1996-09-20",
+          "MSV Duisburg",
+          "Werder Bremen"
+        ],
+        [
+          7,
+          "1996-09-20",
+          "Hansa Rostock",
+          "TSV 1860 München"
+        ],
+        [
+          7,
+          "1996-09-21",
+          "Arminia Bielefeld",
+          "FC Schalke 04"
+        ],
+        [
+          7,
+          "1996-09-21",
+          "Bayern München",
+          "Karlsruher SC"
+        ],
+        [
+          7,
+          "1996-09-21",
+          "VfL Bochum",
+          "Hamburger SV"
+        ],
+        [
+          7,
+          "1996-09-21",
+          "Bor. Mönchengladbach",
+          "Borussia Dortmund"
+        ],
+        [
+          7,
+          "1996-09-21",
+          "FC St. Pauli",
+          "1. FC Köln"
+        ],
+        [
+          7,
+          "1996-09-21",
+          "VfB Stuttgart",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          7,
+          "1996-09-22",
+          "Bayer 04 Leverkusen",
+          "SC Freiburg"
+        ],
+        [
+          8,
+          "1996-09-27",
+          "1. FC Köln",
+          "VfL Bochum"
+        ],
+        [
+          8,
+          "1996-09-27",
+          "Karlsruher SC",
+          "Arminia Bielefeld"
+        ],
+        [
+          8,
+          "1996-09-28",
+          "SC Freiburg",
+          "Hansa Rostock"
+        ],
+        [
+          8,
+          "1996-09-28",
+          "Fortuna Düsseldorf",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          8,
+          "1996-09-28",
+          "Hamburger SV",
+          "MSV Duisburg"
+        ],
+        [
+          8,
+          "1996-09-28",
+          "TSV 1860 München",
+          "VfB Stuttgart"
+        ],
+        [
+          8,
+          "1996-09-28",
+          "FC Schalke 04",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          8,
+          "1996-09-28",
+          "Werder Bremen",
+          "Bayern München"
+        ],
+        [
+          8,
+          "1996-09-29",
+          "Borussia Dortmund",
+          "FC St. Pauli"
+        ],
+        [
+          9,
+          "1996-10-04",
+          "VfL Bochum",
+          "Borussia Dortmund"
+        ],
+        [
+          9,
+          "1996-10-04",
+          "Bayer 04 Leverkusen",
+          "Hansa Rostock"
+        ],
+        [
+          9,
+          "1996-10-04",
+          "VfB Stuttgart",
+          "SC Freiburg"
+        ],
+        [
+          9,
+          "1996-10-05",
+          "FC St. Pauli",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          9,
+          "1996-10-05",
+          "Bayern München",
+          "Hamburger SV"
+        ],
+        [
+          9,
+          "1996-10-05",
+          "MSV Duisburg",
+          "1. FC Köln"
+        ],
+        [
+          9,
+          "1996-10-05",
+          "Bor. Mönchengladbach",
+          "TSV 1860 München"
+        ],
+        [
+          9,
+          "1996-10-05",
+          "FC Schalke 04",
+          "Karlsruher SC"
+        ],
+        [
+          9,
+          "1996-10-05",
+          "Arminia Bielefeld",
+          "Werder Bremen"
+        ],
+        [
+          10,
+          "1996-10-11",
+          "SC Freiburg",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          10,
+          "1996-10-11",
+          "TSV 1860 München",
+          "FC St. Pauli"
+        ],
+        [
+          10,
+          "1996-10-12",
+          "1. FC Köln",
+          "Bayern München"
+        ],
+        [
+          10,
+          "1996-10-12",
+          "Borussia Dortmund",
+          "MSV Duisburg"
+        ],
+        [
+          10,
+          "1996-10-12",
+          "Hamburger SV",
+          "Arminia Bielefeld"
+        ],
+        [
+          10,
+          "1996-10-12",
+          "Werder Bremen",
+          "FC Schalke 04"
+        ],
+        [
+          10,
+          "1996-10-12",
+          "Karlsruher SC",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          10,
+          "1996-10-12",
+          "Hansa Rostock",
+          "VfB Stuttgart"
+        ],
+        [
+          10,
+          "1996-10-13",
+          "Fortuna Düsseldorf",
+          "VfL Bochum"
+        ],
+        [
+          11,
+          "1996-10-18",
+          "Bayer 04 Leverkusen",
+          "VfB Stuttgart"
+        ],
+        [
+          11,
+          "1996-10-18",
+          "VfL Bochum",
+          "TSV 1860 München"
+        ],
+        [
+          11,
+          "1996-10-19",
+          "Arminia Bielefeld",
+          "1. FC Köln"
+        ],
+        [
+          11,
+          "1996-10-19",
+          "MSV Duisburg",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          11,
+          "1996-10-19",
+          "Karlsruher SC",
+          "Werder Bremen"
+        ],
+        [
+          11,
+          "1996-10-19",
+          "Bor. Mönchengladbach",
+          "Hansa Rostock"
+        ],
+        [
+          11,
+          "1996-10-19",
+          "FC St. Pauli",
+          "SC Freiburg"
+        ],
+        [
+          11,
+          "1996-10-19",
+          "FC Schalke 04",
+          "Hamburger SV"
+        ],
+        [
+          11,
+          "1996-10-20",
+          "Bayern München",
+          "Borussia Dortmund"
+        ],
+        [
+          12,
+          "1996-10-25",
+          "Werder Bremen",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          12,
+          "1996-10-25",
+          "Hansa Rostock",
+          "FC St. Pauli"
+        ],
+        [
+          12,
+          "1996-10-26",
+          "Borussia Dortmund",
+          "Arminia Bielefeld"
+        ],
+        [
+          12,
+          "1996-10-26",
+          "Fortuna Düsseldorf",
+          "Bayern München"
+        ],
+        [
+          12,
+          "1996-10-26",
+          "1. FC Köln",
+          "FC Schalke 04"
+        ],
+        [
+          12,
+          "1996-10-26",
+          "Hamburger SV",
+          "Karlsruher SC"
+        ],
+        [
+          12,
+          "1996-10-26",
+          "VfB Stuttgart",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          12,
+          "1996-10-26",
+          "TSV 1860 München",
+          "MSV Duisburg"
+        ],
+        [
+          12,
+          "1996-10-27",
+          "SC Freiburg",
+          "VfL Bochum"
+        ],
+        [
+          13,
+          "1996-11-01",
+          "Bayern München",
+          "TSV 1860 München"
+        ],
+        [
+          13,
+          "1996-11-01",
+          "VfL Bochum",
+          "Hansa Rostock"
+        ],
+        [
+          13,
+          "1996-11-02",
+          "Arminia Bielefeld",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          13,
+          "1996-11-02",
+          "MSV Duisburg",
+          "SC Freiburg"
+        ],
+        [
+          13,
+          "1996-11-02",
+          "Bayer 04 Leverkusen",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          13,
+          "1996-11-02",
+          "FC Schalke 04",
+          "Borussia Dortmund"
+        ],
+        [
+          13,
+          "1996-11-02",
+          "Werder Bremen",
+          "Hamburger SV"
+        ],
+        [
+          13,
+          "1996-11-02",
+          "FC St. Pauli",
+          "VfB Stuttgart"
+        ],
+        [
+          13,
+          "1996-11-03",
+          "Karlsruher SC",
+          "1. FC Köln"
+        ],
+        [
+          14,
+          "1996-11-15",
+          "Bor. Mönchengladbach",
+          "FC St. Pauli"
+        ],
+        [
+          14,
+          "1996-11-15",
+          "1. FC Köln",
+          "Werder Bremen"
+        ],
+        [
+          14,
+          "1996-11-16",
+          "Borussia Dortmund",
+          "Karlsruher SC"
+        ],
+        [
+          14,
+          "1996-11-16",
+          "Fortuna Düsseldorf",
+          "FC Schalke 04"
+        ],
+        [
+          14,
+          "1996-11-16",
+          "SC Freiburg",
+          "Bayern München"
+        ],
+        [
+          14,
+          "1996-11-16",
+          "Hamburger SV",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          14,
+          "1996-11-16",
+          "VfB Stuttgart",
+          "VfL Bochum"
+        ],
+        [
+          14,
+          "1996-11-16",
+          "TSV 1860 München",
+          "Arminia Bielefeld"
+        ],
+        [
+          14,
+          "1996-11-17",
+          "Hansa Rostock",
+          "MSV Duisburg"
+        ],
+        [
+          15,
+          "1996-11-22",
+          "Karlsruher SC",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          15,
+          "1996-11-22",
+          "VfL Bochum",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          15,
+          "1996-11-23",
+          "Bayern München",
+          "Hansa Rostock"
+        ],
+        [
+          15,
+          "1996-11-23",
+          "Arminia Bielefeld",
+          "SC Freiburg"
+        ],
+        [
+          15,
+          "1996-11-23",
+          "Werder Bremen",
+          "Borussia Dortmund"
+        ],
+        [
+          15,
+          "1996-11-23",
+          "FC Schalke 04",
+          "TSV 1860 München"
+        ],
+        [
+          15,
+          "1996-11-23",
+          "FC St. Pauli",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          15,
+          "1996-11-23",
+          "1. FC Köln",
+          "Hamburger SV"
+        ],
+        [
+          15,
+          "1996-11-24",
+          "MSV Duisburg",
+          "VfB Stuttgart"
+        ],
+        [
+          16,
+          "1996-11-29",
+          "Borussia Dortmund",
+          "Hamburger SV"
+        ],
+        [
+          16,
+          "1996-11-30",
+          "SC Freiburg",
+          "FC Schalke 04"
+        ],
+        [
+          16,
+          "1996-11-30",
+          "TSV 1860 München",
+          "Karlsruher SC"
+        ],
+        [
+          16,
+          "1996-11-30",
+          "Hansa Rostock",
+          "Arminia Bielefeld"
+        ],
+        [
+          16,
+          "1996-11-30",
+          "Bayer 04 Leverkusen",
+          "1. FC Köln"
+        ],
+        [
+          16,
+          "1996-11-30",
+          "Bor. Mönchengladbach",
+          "MSV Duisburg"
+        ],
+        [
+          16,
+          "1996-11-30",
+          "Fortuna Düsseldorf",
+          "Werder Bremen"
+        ],
+        [
+          16,
+          "1996-12-01",
+          "VfB Stuttgart",
+          "Bayern München"
+        ],
+        [
+          17,
+          "1996-12-06",
+          "FC Schalke 04",
+          "Hansa Rostock"
+        ],
+        [
+          17,
+          "1996-12-06",
+          "VfL Bochum",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          17,
+          "1996-12-06",
+          "Karlsruher SC",
+          "SC Freiburg"
+        ],
+        [
+          17,
+          "1996-12-06",
+          "Werder Bremen",
+          "TSV 1860 München"
+        ],
+        [
+          17,
+          "1996-12-07",
+          "Hamburger SV",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          17,
+          "1996-12-07",
+          "Bayern München",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          17,
+          "1996-12-07",
+          "Arminia Bielefeld",
+          "VfB Stuttgart"
+        ],
+        [
+          17,
+          "1996-12-07",
+          "1. FC Köln",
+          "Borussia Dortmund"
+        ],
+        [
+          17,
+          "1996-12-07",
+          "MSV Duisburg",
+          "FC St. Pauli"
+        ],
+        [
+          18,
+          "1997-02-14",
+          "1. FC Köln",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          18,
+          "1997-02-14",
+          "Borussia Dortmund",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          18,
+          "1997-02-15",
+          "Karlsruher SC",
+          "Hansa Rostock"
+        ],
+        [
+          18,
+          "1997-02-15",
+          "Bayern München",
+          "FC St. Pauli"
+        ],
+        [
+          18,
+          "1997-02-15",
+          "MSV Duisburg",
+          "VfL Bochum"
+        ],
+        [
+          18,
+          "1997-02-15",
+          "FC Schalke 04",
+          "VfB Stuttgart"
+        ],
+        [
+          18,
+          "1997-02-15",
+          "Werder Bremen",
+          "SC Freiburg"
+        ],
+        [
+          18,
+          "1997-02-15",
+          "Hamburger SV",
+          "TSV 1860 München"
+        ],
+        [
+          18,
+          "1997-02-16",
+          "Arminia Bielefeld",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          19,
+          "1997-02-21",
+          "SC Freiburg",
+          "Hamburger SV"
+        ],
+        [
+          19,
+          "1997-02-21",
+          "FC St. Pauli",
+          "Arminia Bielefeld"
+        ],
+        [
+          19,
+          "1997-02-21",
+          "Fortuna Düsseldorf",
+          "Borussia Dortmund"
+        ],
+        [
+          19,
+          "1997-02-22",
+          "VfB Stuttgart",
+          "Karlsruher SC"
+        ],
+        [
+          19,
+          "1997-02-22",
+          "VfL Bochum",
+          "Bayern München"
+        ],
+        [
+          19,
+          "1997-02-22",
+          "Hansa Rostock",
+          "Werder Bremen"
+        ],
+        [
+          19,
+          "1997-02-22",
+          "Bayer 04 Leverkusen",
+          "MSV Duisburg"
+        ],
+        [
+          19,
+          "1997-02-22",
+          "Bor. Mönchengladbach",
+          "FC Schalke 04"
+        ],
+        [
+          19,
+          "1997-02-22",
+          "TSV 1860 München",
+          "1. FC Köln"
+        ],
+        [
+          20,
+          "1997-02-28",
+          "Arminia Bielefeld",
+          "VfL Bochum"
+        ],
+        [
+          20,
+          "1997-02-28",
+          "FC Schalke 04",
+          "FC St. Pauli"
+        ],
+        [
+          20,
+          "1997-03-01",
+          "Bayern München",
+          "MSV Duisburg"
+        ],
+        [
+          20,
+          "1997-03-01",
+          "Werder Bremen",
+          "VfB Stuttgart"
+        ],
+        [
+          20,
+          "1997-03-01",
+          "Borussia Dortmund",
+          "TSV 1860 München"
+        ],
+        [
+          20,
+          "1997-03-01",
+          "Fortuna Düsseldorf",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          20,
+          "1997-03-01",
+          "Karlsruher SC",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          20,
+          "1997-03-01",
+          "1. FC Köln",
+          "SC Freiburg"
+        ],
+        [
+          20,
+          "1997-03-02",
+          "Hamburger SV",
+          "Hansa Rostock"
+        ],
+        [
+          21,
+          "1997-03-07",
+          "VfL Bochum",
+          "FC Schalke 04"
+        ],
+        [
+          21,
+          "1997-03-07",
+          "Hansa Rostock",
+          "1. FC Köln"
+        ],
+        [
+          21,
+          "1997-03-08",
+          "SC Freiburg",
+          "Borussia Dortmund"
+        ],
+        [
+          21,
+          "1997-03-08",
+          "MSV Duisburg",
+          "Arminia Bielefeld"
+        ],
+        [
+          21,
+          "1997-03-08",
+          "FC St. Pauli",
+          "Karlsruher SC"
+        ],
+        [
+          21,
+          "1997-03-08",
+          "Bor. Mönchengladbach",
+          "Werder Bremen"
+        ],
+        [
+          21,
+          "1997-03-08",
+          "TSV 1860 München",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          21,
+          "1997-03-08",
+          "VfB Stuttgart",
+          "Hamburger SV"
+        ],
+        [
+          21,
+          "1997-03-09",
+          "Bayer 04 Leverkusen",
+          "Bayern München"
+        ],
+        [
+          22,
+          "1997-03-11",
+          "Werder Bremen",
+          "FC St. Pauli"
+        ],
+        [
+          22,
+          "1997-03-11",
+          "1. FC Köln",
+          "VfB Stuttgart"
+        ],
+        [
+          22,
+          "1997-03-11",
+          "FC Schalke 04",
+          "MSV Duisburg"
+        ],
+        [
+          22,
+          "1997-03-11",
+          "Karlsruher SC",
+          "VfL Bochum"
+        ],
+        [
+          22,
+          "1997-03-11",
+          "Hamburger SV",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          22,
+          "1997-03-12",
+          "Fortuna Düsseldorf",
+          "SC Freiburg"
+        ],
+        [
+          22,
+          "1997-03-12",
+          "Arminia Bielefeld",
+          "Bayern München"
+        ],
+        [
+          22,
+          "1997-03-12",
+          "Borussia Dortmund",
+          "Hansa Rostock"
+        ],
+        [
+          22,
+          "1997-03-12",
+          "TSV 1860 München",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          23,
+          "1997-03-14",
+          "FC St. Pauli",
+          "Hamburger SV"
+        ],
+        [
+          23,
+          "1997-03-14",
+          "MSV Duisburg",
+          "Karlsruher SC"
+        ],
+        [
+          23,
+          "1997-03-15",
+          "Bayern München",
+          "FC Schalke 04"
+        ],
+        [
+          23,
+          "1997-03-15",
+          "VfB Stuttgart",
+          "Borussia Dortmund"
+        ],
+        [
+          23,
+          "1997-03-15",
+          "SC Freiburg",
+          "TSV 1860 München"
+        ],
+        [
+          23,
+          "1997-03-15",
+          "Hansa Rostock",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          23,
+          "1997-03-15",
+          "Bor. Mönchengladbach",
+          "1. FC Köln"
+        ],
+        [
+          23,
+          "1997-03-15",
+          "Bayer 04 Leverkusen",
+          "Arminia Bielefeld"
+        ],
+        [
+          23,
+          "1997-03-16",
+          "VfL Bochum",
+          "Werder Bremen"
+        ],
+        [
+          24,
+          "1997-03-21",
+          "Werder Bremen",
+          "MSV Duisburg"
+        ],
+        [
+          24,
+          "1997-03-21",
+          "Fortuna Düsseldorf",
+          "VfB Stuttgart"
+        ],
+        [
+          24,
+          "1997-03-22",
+          "Borussia Dortmund",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          24,
+          "1997-03-22",
+          "FC Schalke 04",
+          "Arminia Bielefeld"
+        ],
+        [
+          24,
+          "1997-03-22",
+          "1. FC Köln",
+          "FC St. Pauli"
+        ],
+        [
+          24,
+          "1997-03-22",
+          "SC Freiburg",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          24,
+          "1997-03-22",
+          "TSV 1860 München",
+          "Hansa Rostock"
+        ],
+        [
+          24,
+          "1997-03-22",
+          "Hamburger SV",
+          "VfL Bochum"
+        ],
+        [
+          24,
+          "1997-03-23",
+          "Karlsruher SC",
+          "Bayern München"
+        ],
+        [
+          25,
+          "1997-03-28",
+          "VfL Bochum",
+          "1. FC Köln"
+        ],
+        [
+          25,
+          "1997-03-28",
+          "VfB Stuttgart",
+          "TSV 1860 München"
+        ],
+        [
+          25,
+          "1997-03-28",
+          "MSV Duisburg",
+          "Hamburger SV"
+        ],
+        [
+          25,
+          "1997-03-28",
+          "FC St. Pauli",
+          "Borussia Dortmund"
+        ],
+        [
+          25,
+          "1997-03-29",
+          "Bor. Mönchengladbach",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          25,
+          "1997-03-29",
+          "Bayern München",
+          "Werder Bremen"
+        ],
+        [
+          25,
+          "1997-03-29",
+          "Arminia Bielefeld",
+          "Karlsruher SC"
+        ],
+        [
+          25,
+          "1997-03-29",
+          "Hansa Rostock",
+          "SC Freiburg"
+        ],
+        [
+          25,
+          "1997-03-29",
+          "Bayer 04 Leverkusen",
+          "FC Schalke 04"
+        ],
+        [
+          26,
+          "1997-04-04",
+          "TSV 1860 München",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          26,
+          "1997-04-04",
+          "1. FC Köln",
+          "MSV Duisburg"
+        ],
+        [
+          26,
+          "1997-04-05",
+          "Hansa Rostock",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          26,
+          "1997-04-05",
+          "Borussia Dortmund",
+          "VfL Bochum"
+        ],
+        [
+          26,
+          "1997-04-05",
+          "Fortuna Düsseldorf",
+          "FC St. Pauli"
+        ],
+        [
+          26,
+          "1997-04-05",
+          "Hamburger SV",
+          "Bayern München"
+        ],
+        [
+          26,
+          "1997-04-05",
+          "Karlsruher SC",
+          "FC Schalke 04"
+        ],
+        [
+          26,
+          "1997-04-05",
+          "Werder Bremen",
+          "Arminia Bielefeld"
+        ],
+        [
+          26,
+          "1997-04-06",
+          "SC Freiburg",
+          "VfB Stuttgart"
+        ],
+        [
+          16,
+          "1997-04-08",
+          "FC St. Pauli",
+          "VfL Bochum"
+        ],
+        [
+          27,
+          "1997-04-12",
+          "Bayern München",
+          "1. FC Köln"
+        ],
+        [
+          27,
+          "1997-04-12",
+          "Arminia Bielefeld",
+          "Hamburger SV"
+        ],
+        [
+          27,
+          "1997-04-12",
+          "VfL Bochum",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          27,
+          "1997-04-12",
+          "MSV Duisburg",
+          "Borussia Dortmund"
+        ],
+        [
+          27,
+          "1997-04-12",
+          "Bayer 04 Leverkusen",
+          "Karlsruher SC"
+        ],
+        [
+          27,
+          "1997-04-12",
+          "VfB Stuttgart",
+          "Hansa Rostock"
+        ],
+        [
+          27,
+          "1997-04-12",
+          "FC Schalke 04",
+          "Werder Bremen"
+        ],
+        [
+          27,
+          "1997-04-12",
+          "FC St. Pauli",
+          "TSV 1860 München"
+        ],
+        [
+          27,
+          "1997-04-12",
+          "Bor. Mönchengladbach",
+          "SC Freiburg"
+        ],
+        [
+          28,
+          "1997-04-18",
+          "Hansa Rostock",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          28,
+          "1997-04-18",
+          "Fortuna Düsseldorf",
+          "MSV Duisburg"
+        ],
+        [
+          28,
+          "1997-04-19",
+          "Borussia Dortmund",
+          "Bayern München"
+        ],
+        [
+          28,
+          "1997-04-19",
+          "1. FC Köln",
+          "Arminia Bielefeld"
+        ],
+        [
+          28,
+          "1997-04-19",
+          "SC Freiburg",
+          "FC St. Pauli"
+        ],
+        [
+          28,
+          "1997-04-19",
+          "Werder Bremen",
+          "Karlsruher SC"
+        ],
+        [
+          28,
+          "1997-04-19",
+          "TSV 1860 München",
+          "VfL Bochum"
+        ],
+        [
+          28,
+          "1997-04-19",
+          "Hamburger SV",
+          "FC Schalke 04"
+        ],
+        [
+          28,
+          "1997-04-20",
+          "VfB Stuttgart",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          29,
+          "1997-04-24",
+          "FC St. Pauli",
+          "Hansa Rostock"
+        ],
+        [
+          29,
+          "1997-04-25",
+          "MSV Duisburg",
+          "TSV 1860 München"
+        ],
+        [
+          29,
+          "1997-04-25",
+          "Bayer 04 Leverkusen",
+          "Werder Bremen"
+        ],
+        [
+          29,
+          "1997-04-26",
+          "Arminia Bielefeld",
+          "Borussia Dortmund"
+        ],
+        [
+          29,
+          "1997-04-26",
+          "Bayern München",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          29,
+          "1997-04-26",
+          "FC Schalke 04",
+          "1. FC Köln"
+        ],
+        [
+          29,
+          "1997-04-26",
+          "Karlsruher SC",
+          "Hamburger SV"
+        ],
+        [
+          29,
+          "1997-04-26",
+          "Bor. Mönchengladbach",
+          "VfB Stuttgart"
+        ],
+        [
+          29,
+          "1997-04-26",
+          "VfL Bochum",
+          "SC Freiburg"
+        ],
+        [
+          30,
+          "1997-05-02",
+          "Borussia Dortmund",
+          "FC Schalke 04"
+        ],
+        [
+          30,
+          "1997-05-02",
+          "Hansa Rostock",
+          "VfL Bochum"
+        ],
+        [
+          30,
+          "1997-05-03",
+          "Fortuna Düsseldorf",
+          "Arminia Bielefeld"
+        ],
+        [
+          30,
+          "1997-05-03",
+          "1. FC Köln",
+          "Karlsruher SC"
+        ],
+        [
+          30,
+          "1997-05-03",
+          "SC Freiburg",
+          "MSV Duisburg"
+        ],
+        [
+          30,
+          "1997-05-03",
+          "Hamburger SV",
+          "Werder Bremen"
+        ],
+        [
+          30,
+          "1997-05-03",
+          "VfB Stuttgart",
+          "FC St. Pauli"
+        ],
+        [
+          30,
+          "1997-05-03",
+          "TSV 1860 München",
+          "Bayern München"
+        ],
+        [
+          30,
+          "1997-05-03",
+          "Bor. Mönchengladbach",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          31,
+          "1997-05-09",
+          "Werder Bremen",
+          "1. FC Köln"
+        ],
+        [
+          31,
+          "1997-05-09",
+          "MSV Duisburg",
+          "Hansa Rostock"
+        ],
+        [
+          31,
+          "1997-05-10",
+          "Bayern München",
+          "SC Freiburg"
+        ],
+        [
+          31,
+          "1997-05-10",
+          "Arminia Bielefeld",
+          "TSV 1860 München"
+        ],
+        [
+          31,
+          "1997-05-10",
+          "VfL Bochum",
+          "VfB Stuttgart"
+        ],
+        [
+          31,
+          "1997-05-10",
+          "Karlsruher SC",
+          "Borussia Dortmund"
+        ],
+        [
+          31,
+          "1997-05-10",
+          "FC St. Pauli",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          31,
+          "1997-05-10",
+          "FC Schalke 04",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          31,
+          "1997-05-11",
+          "Bayer 04 Leverkusen",
+          "Hamburger SV"
+        ],
+        [
+          32,
+          "1997-05-16",
+          "Hansa Rostock",
+          "Bayern München"
+        ],
+        [
+          32,
+          "1997-05-16",
+          "Fortuna Düsseldorf",
+          "Karlsruher SC"
+        ],
+        [
+          32,
+          "1997-05-17",
+          "Borussia Dortmund",
+          "Werder Bremen"
+        ],
+        [
+          32,
+          "1997-05-17",
+          "Hamburger SV",
+          "1. FC Köln"
+        ],
+        [
+          32,
+          "1997-05-17",
+          "Bayer 04 Leverkusen",
+          "FC St. Pauli"
+        ],
+        [
+          32,
+          "1997-05-17",
+          "VfB Stuttgart",
+          "MSV Duisburg"
+        ],
+        [
+          32,
+          "1997-05-17",
+          "TSV 1860 München",
+          "FC Schalke 04"
+        ],
+        [
+          32,
+          "1997-05-17",
+          "Bor. Mönchengladbach",
+          "VfL Bochum"
+        ],
+        [
+          32,
+          "1997-05-18",
+          "SC Freiburg",
+          "Arminia Bielefeld"
+        ],
+        [
+          33,
+          "1997-05-24",
+          "MSV Duisburg",
+          "Bor. Mönchengladbach"
+        ],
+        [
+          33,
+          "1997-05-24",
+          "Werder Bremen",
+          "Fortuna Düsseldorf"
+        ],
+        [
+          33,
+          "1997-05-24",
+          "VfL Bochum",
+          "FC St. Pauli"
+        ],
+        [
+          33,
+          "1997-05-24",
+          "Bayern München",
+          "VfB Stuttgart"
+        ],
+        [
+          33,
+          "1997-05-24",
+          "1. FC Köln",
+          "Bayer 04 Leverkusen"
+        ],
+        [
+          33,
+          "1997-05-24",
+          "Hamburger SV",
+          "Borussia Dortmund"
+        ],
+        [
+          33,
+          "1997-05-24",
+          "Karlsruher SC",
+          "TSV 1860 München"
+        ],
+        [
+          33,
+          "1997-05-24",
+          "FC Schalke 04",
+          "SC Freiburg"
+        ],
+        [
+          33,
+          "1997-05-24",
+          "Arminia Bielefeld",
+          "Hansa Rostock"
+        ],
+        [
+          34,
+          "1997-05-31",
+          "Borussia Dortmund",
+          "1. FC Köln"
+        ],
+        [
+          34,
+          "1997-05-31",
+          "Fortuna Düsseldorf",
+          "Hamburger SV"
+        ],
+        [
+          34,
+          "1997-05-31",
+          "SC Freiburg",
+          "Karlsruher SC"
+        ],
+        [
+          34,
+          "1997-05-31",
+          "Hansa Rostock",
+          "FC Schalke 04"
+        ],
+        [
+          34,
+          "1997-05-31",
+          "Bayer 04 Leverkusen",
+          "VfL Bochum"
+        ],
+        [
+          34,
+          "1997-05-31",
+          "Bor. Mönchengladbach",
+          "Bayern München"
+        ],
+        [
+          34,
+          "1997-05-31",
+          "TSV 1860 München",
+          "Werder Bremen"
+        ],
+        [
+          34,
+          "1997-05-31",
+          "FC St. Pauli",
+          "MSV Duisburg"
+        ],
+        [
+          34,
+          "1997-05-31",
+          "VfB Stuttgart",
+          "Arminia Bielefeld"
+        ]
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "archiveComparison": {
+        "compared": 306,
+        "matchedDateAndOrientedPair": 306,
+        "uniqueNameCorrespondences": 18,
+        "scope": "Unique home/away date signatures; independent archive provenance not established; no native key mapping or strict certification."
+      }
     }
   },
   {

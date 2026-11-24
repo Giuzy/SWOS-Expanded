@@ -13,7 +13,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -116,6 +116,118 @@
       },
       "limitations": "Conditional European postponements and individual pairings beyond round22 not reconciled; no future results.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "participantKeyAudit": {
+      "edition": "2026/27",
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "division": 0,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "BSC Young Boys",
+          "YOUNG BOYS",
+          "5efa7f4d-2811-5a6e-9ee5-872bec5b96a0",
+          37,
+          5,
+          2424838
+        ],
+        [
+          "FC Basel",
+          "BASEL",
+          "ffad0eb5-c32a-54c9-ade2-aaaceb2fa623",
+          37,
+          4,
+          2424837
+        ],
+        [
+          "FC Lausanne-Sport",
+          "LAUSANNE-SPORT",
+          "2d6e4714-541a-5b1a-8d9d-634e5bf52bed",
+          37,
+          8,
+          2424841
+        ],
+        [
+          "FC Lugano",
+          "LUGANO",
+          "85de9971-622c-5001-9d23-276b8b05afcc",
+          37,
+          2,
+          2424835
+        ],
+        [
+          "FC Luzern",
+          "LUZERN",
+          "d803aee0-33b7-5664-9467-c828b262b098",
+          37,
+          6,
+          2424839
+        ],
+        [
+          "FC Sion",
+          "SION",
+          "1b5fc5f9-2a09-5cf8-958d-ee06433c1f30",
+          37,
+          3,
+          2424836
+        ],
+        [
+          "FC St. Gallen",
+          "ST. GALLEN",
+          "98c20cc3-922d-5c2a-aaed-9d2d0b194829",
+          37,
+          1,
+          2424834
+        ],
+        [
+          "FC Thun",
+          "THUN",
+          "0574d1da-dbe5-5119-802a-d86e05086c69",
+          37,
+          0,
+          2424833
+        ],
+        [
+          "FC Vaduz",
+          "VADUZ",
+          "ed6e8274-7286-5824-93cb-29e6c64c5ecf",
+          37,
+          11,
+          2424844
+        ],
+        [
+          "FC Zürich",
+          "ZURICH",
+          "3d808c33-b8fd-5f2a-bfbf-31d86beb8bc9",
+          37,
+          9,
+          2424842
+        ],
+        [
+          "Grasshopper Club Zürich",
+          "GRASSHOPPERS",
+          "3c1b7edf-043f-5763-b79a-1baaeb235b51",
+          37,
+          10,
+          2424843
+        ],
+        [
+          "Servette FC",
+          "SERVETTE",
+          "44c31172-8909-5045-a0bd-d262f4ed4c62",
+          37,
+          7,
+          2424840
+        ]
+      ],
+      "scope": "All initial regular-league entrants mapped by reviewed explicit aliases; native JSON full division set and unique UUID/ordinal; CE key computed from current primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. No runtime or later qualification certification."
     }
   }
 ]

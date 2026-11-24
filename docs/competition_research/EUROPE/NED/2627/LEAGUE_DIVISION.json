@@ -13,7 +13,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -73,6 +73,2015 @@
       ],
       "limitations": "Current league movement regulation not retrieved; prior edition rules not automatically extrapolated; individual fixture calendar pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block126Research": {
+      "edition": "2026/27",
+      "scope": "Calendar reference only; CE generates post-cutoff fixtures. No scores imported; no July snapshot needed for these regular seasons. Dates after 2026-11-24 are scheduled, not played. Single archive, no independent full reconciliation; names not native IDs; playoffs not included.",
+      "fixtureColumns": [
+        "round",
+        "date",
+        "home",
+        "away"
+      ],
+      "fixtures": [
+        [
+          1,
+          "2026-08-07",
+          "SC Cambuur-Leeuwarden",
+          "SBV Excelsior"
+        ],
+        [
+          1,
+          "2026-08-08",
+          "NEC",
+          "Telstar 1963"
+        ],
+        [
+          1,
+          "2026-08-08",
+          "Go Ahead Eagles",
+          "Willem II Tilburg"
+        ],
+        [
+          1,
+          "2026-08-08",
+          "PSV",
+          "Fortuna Sittard"
+        ],
+        [
+          1,
+          "2026-08-08",
+          "AZ",
+          "ADO Den Haag"
+        ],
+        [
+          1,
+          "2026-08-09",
+          "Sparta Rotterdam",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          1,
+          "2026-08-09",
+          "FC Groningen",
+          "FC Utrecht"
+        ],
+        [
+          1,
+          "2026-08-09",
+          "PEC Zwolle",
+          "AFC Ajax"
+        ],
+        [
+          1,
+          "2026-08-09",
+          "SC Heerenveen",
+          "FC Twente '65"
+        ],
+        [
+          2,
+          "2026-08-14",
+          "Telstar 1963",
+          "Sparta Rotterdam"
+        ],
+        [
+          2,
+          "2026-08-15",
+          "Willem II Tilburg",
+          "NEC"
+        ],
+        [
+          2,
+          "2026-08-15",
+          "FC Utrecht",
+          "AZ"
+        ],
+        [
+          2,
+          "2026-08-15",
+          "SBV Excelsior",
+          "PSV"
+        ],
+        [
+          2,
+          "2026-08-15",
+          "Fortuna Sittard",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          2,
+          "2026-08-16",
+          "ADO Den Haag",
+          "FC Groningen"
+        ],
+        [
+          2,
+          "2026-08-16",
+          "Feyenoord Rotterdam",
+          "Go Ahead Eagles"
+        ],
+        [
+          2,
+          "2026-08-16",
+          "FC Twente '65",
+          "PEC Zwolle"
+        ],
+        [
+          2,
+          "2026-08-16",
+          "AFC Ajax",
+          "SC Heerenveen"
+        ],
+        [
+          3,
+          "2026-08-22",
+          "Fortuna Sittard",
+          "AZ"
+        ],
+        [
+          3,
+          "2026-08-22",
+          "Sparta Rotterdam",
+          "FC Utrecht"
+        ],
+        [
+          3,
+          "2026-08-22",
+          "SC Heerenveen",
+          "PEC Zwolle"
+        ],
+        [
+          3,
+          "2026-08-23",
+          "Go Ahead Eagles",
+          "ADO Den Haag"
+        ],
+        [
+          3,
+          "2026-08-23",
+          "PSV",
+          "FC Groningen"
+        ],
+        [
+          3,
+          "2026-08-23",
+          "SC Cambuur-Leeuwarden",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          4,
+          "2026-08-28",
+          "FC Groningen",
+          "Fortuna Sittard"
+        ],
+        [
+          4,
+          "2026-08-29",
+          "SBV Excelsior",
+          "Sparta Rotterdam"
+        ],
+        [
+          4,
+          "2026-08-29",
+          "AZ",
+          "Go Ahead Eagles"
+        ],
+        [
+          4,
+          "2026-08-29",
+          "PEC Zwolle",
+          "NEC"
+        ],
+        [
+          4,
+          "2026-08-30",
+          "FC Utrecht",
+          "PSV"
+        ],
+        [
+          4,
+          "2026-08-30",
+          "Willem II Tilburg",
+          "SC Heerenveen"
+        ],
+        [
+          4,
+          "2026-08-30",
+          "Feyenoord Rotterdam",
+          "ADO Den Haag"
+        ],
+        [
+          4,
+          "2026-08-30",
+          "Telstar 1963",
+          "AFC Ajax"
+        ],
+        [
+          4,
+          "2026-08-30",
+          "SC Cambuur-Leeuwarden",
+          "FC Twente '65"
+        ],
+        [
+          5,
+          "2026-09-04",
+          "Sparta Rotterdam",
+          "PEC Zwolle"
+        ],
+        [
+          5,
+          "2026-09-05",
+          "NEC",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          5,
+          "2026-09-05",
+          "AFC Ajax",
+          "PSV"
+        ],
+        [
+          5,
+          "2026-09-05",
+          "Willem II Tilburg",
+          "SBV Excelsior"
+        ],
+        [
+          5,
+          "2026-09-06",
+          "FC Groningen",
+          "FC Twente '65"
+        ],
+        [
+          5,
+          "2026-09-06",
+          "SC Heerenveen",
+          "AZ"
+        ],
+        [
+          5,
+          "2026-09-06",
+          "Telstar 1963",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          5,
+          "2026-09-06",
+          "ADO Den Haag",
+          "Fortuna Sittard"
+        ],
+        [
+          5,
+          "2026-09-08",
+          "FC Utrecht",
+          "Go Ahead Eagles"
+        ],
+        [
+          3,
+          "2026-09-08",
+          "NEC",
+          "SBV Excelsior"
+        ],
+        [
+          3,
+          "2026-09-09",
+          "FC Twente '65",
+          "Telstar 1963"
+        ],
+        [
+          6,
+          "2026-09-11",
+          "AZ",
+          "Willem II Tilburg"
+        ],
+        [
+          6,
+          "2026-09-12",
+          "FC Twente '65",
+          "ADO Den Haag"
+        ],
+        [
+          6,
+          "2026-09-12",
+          "Go Ahead Eagles",
+          "FC Groningen"
+        ],
+        [
+          6,
+          "2026-09-12",
+          "Fortuna Sittard",
+          "AFC Ajax"
+        ],
+        [
+          6,
+          "2026-09-12",
+          "SC Cambuur-Leeuwarden",
+          "NEC"
+        ],
+        [
+          6,
+          "2026-09-13",
+          "SBV Excelsior",
+          "FC Utrecht"
+        ],
+        [
+          6,
+          "2026-09-13",
+          "SC Heerenveen",
+          "Telstar 1963"
+        ],
+        [
+          6,
+          "2026-09-13",
+          "PEC Zwolle",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          6,
+          "2026-09-13",
+          "PSV",
+          "Sparta Rotterdam"
+        ],
+        [
+          3,
+          "2026-09-15",
+          "AFC Ajax",
+          "Willem II Tilburg"
+        ],
+        [
+          7,
+          "2026-09-18",
+          "FC Groningen",
+          "PEC Zwolle"
+        ],
+        [
+          7,
+          "2026-09-19",
+          "ADO Den Haag",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          7,
+          "2026-09-19",
+          "Sparta Rotterdam",
+          "SC Heerenveen"
+        ],
+        [
+          7,
+          "2026-09-19",
+          "AFC Ajax",
+          "SBV Excelsior"
+        ],
+        [
+          7,
+          "2026-09-19",
+          "Willem II Tilburg",
+          "Fortuna Sittard"
+        ],
+        [
+          7,
+          "2026-09-20",
+          "Feyenoord Rotterdam",
+          "FC Utrecht"
+        ],
+        [
+          7,
+          "2026-09-20",
+          "FC Twente '65",
+          "PSV"
+        ],
+        [
+          7,
+          "2026-09-20",
+          "AZ",
+          "Telstar 1963"
+        ],
+        [
+          7,
+          "2026-09-20",
+          "NEC",
+          "Go Ahead Eagles"
+        ],
+        [
+          8,
+          "2026-10-09",
+          "PSV",
+          "SC Heerenveen"
+        ],
+        [
+          8,
+          "2026-10-10",
+          "Go Ahead Eagles",
+          "Sparta Rotterdam"
+        ],
+        [
+          8,
+          "2026-10-10",
+          "Feyenoord Rotterdam",
+          "AZ"
+        ],
+        [
+          8,
+          "2026-10-10",
+          "Fortuna Sittard",
+          "FC Twente '65"
+        ],
+        [
+          8,
+          "2026-10-10",
+          "AFC Ajax",
+          "NEC"
+        ],
+        [
+          8,
+          "2026-10-11",
+          "FC Utrecht",
+          "Willem II Tilburg"
+        ],
+        [
+          8,
+          "2026-10-11",
+          "PEC Zwolle",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          8,
+          "2026-10-11",
+          "Telstar 1963",
+          "ADO Den Haag"
+        ],
+        [
+          8,
+          "2026-10-11",
+          "SBV Excelsior",
+          "FC Groningen"
+        ],
+        [
+          9,
+          "2026-10-16",
+          "SC Heerenveen",
+          "SBV Excelsior"
+        ],
+        [
+          9,
+          "2026-10-17",
+          "ADO Den Haag",
+          "PSV"
+        ],
+        [
+          9,
+          "2026-10-17",
+          "Telstar 1963",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          9,
+          "2026-10-17",
+          "Sparta Rotterdam",
+          "Willem II Tilburg"
+        ],
+        [
+          9,
+          "2026-10-18",
+          "PEC Zwolle",
+          "Go Ahead Eagles"
+        ],
+        [
+          9,
+          "2026-10-18",
+          "SC Cambuur-Leeuwarden",
+          "AZ"
+        ],
+        [
+          9,
+          "2026-10-18",
+          "FC Groningen",
+          "AFC Ajax"
+        ],
+        [
+          9,
+          "2026-10-18",
+          "FC Twente '65",
+          "FC Utrecht"
+        ],
+        [
+          9,
+          "2026-10-18",
+          "NEC",
+          "Fortuna Sittard"
+        ],
+        [
+          10,
+          "2026-10-23",
+          "Go Ahead Eagles",
+          "Telstar 1963"
+        ],
+        [
+          10,
+          "2026-10-24",
+          "FC Utrecht",
+          "PEC Zwolle"
+        ],
+        [
+          10,
+          "2026-10-24",
+          "Willem II Tilburg",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          10,
+          "2026-10-24",
+          "ADO Den Haag",
+          "SC Heerenveen"
+        ],
+        [
+          10,
+          "2026-10-25",
+          "Fortuna Sittard",
+          "SBV Excelsior"
+        ],
+        [
+          10,
+          "2026-10-25",
+          "NEC",
+          "FC Groningen"
+        ],
+        [
+          10,
+          "2026-10-25",
+          "PSV",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          10,
+          "2026-10-25",
+          "Sparta Rotterdam",
+          "AFC Ajax"
+        ],
+        [
+          10,
+          "2026-10-25",
+          "AZ",
+          "FC Twente '65"
+        ],
+        [
+          11,
+          "2026-10-31",
+          "Feyenoord Rotterdam",
+          "Fortuna Sittard"
+        ],
+        [
+          11,
+          "2026-10-31",
+          "SC Heerenveen",
+          "NEC"
+        ],
+        [
+          11,
+          "2026-10-31",
+          "PSV",
+          "Willem II Tilburg"
+        ],
+        [
+          11,
+          "2026-10-31",
+          "SC Cambuur-Leeuwarden",
+          "Go Ahead Eagles"
+        ],
+        [
+          11,
+          "2026-10-31",
+          "AFC Ajax",
+          "AZ"
+        ],
+        [
+          11,
+          "2026-11-01",
+          "PEC Zwolle",
+          "ADO Den Haag"
+        ],
+        [
+          11,
+          "2026-11-01",
+          "Telstar 1963",
+          "FC Utrecht"
+        ],
+        [
+          11,
+          "2026-11-01",
+          "SBV Excelsior",
+          "FC Twente '65"
+        ],
+        [
+          11,
+          "2026-11-01",
+          "FC Groningen",
+          "Sparta Rotterdam"
+        ],
+        [
+          12,
+          "2026-11-06",
+          "Willem II Tilburg",
+          "PEC Zwolle"
+        ],
+        [
+          12,
+          "2026-11-07",
+          "Fortuna Sittard",
+          "Telstar 1963"
+        ],
+        [
+          12,
+          "2026-11-07",
+          "ADO Den Haag",
+          "Sparta Rotterdam"
+        ],
+        [
+          12,
+          "2026-11-07",
+          "SBV Excelsior",
+          "Go Ahead Eagles"
+        ],
+        [
+          12,
+          "2026-11-08",
+          "SC Heerenveen",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          12,
+          "2026-11-08",
+          "FC Twente '65",
+          "AFC Ajax"
+        ],
+        [
+          12,
+          "2026-11-08",
+          "AZ",
+          "FC Groningen"
+        ],
+        [
+          12,
+          "2026-11-08",
+          "SC Cambuur-Leeuwarden",
+          "PSV"
+        ],
+        [
+          12,
+          "2026-11-08",
+          "FC Utrecht",
+          "NEC"
+        ],
+        [
+          13,
+          "2026-11-21",
+          "NEC",
+          "PSV"
+        ],
+        [
+          13,
+          "2026-11-21",
+          "Feyenoord Rotterdam",
+          "SBV Excelsior"
+        ],
+        [
+          13,
+          "2026-11-21",
+          "FC Utrecht",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          13,
+          "2026-11-21",
+          "Telstar 1963",
+          "PEC Zwolle"
+        ],
+        [
+          13,
+          "2026-11-21",
+          "FC Groningen",
+          "SC Heerenveen"
+        ],
+        [
+          13,
+          "2026-11-22",
+          "FC Twente '65",
+          "Willem II Tilburg"
+        ],
+        [
+          13,
+          "2026-11-22",
+          "Sparta Rotterdam",
+          "AZ"
+        ],
+        [
+          13,
+          "2026-11-22",
+          "AFC Ajax",
+          "ADO Den Haag"
+        ],
+        [
+          13,
+          "2026-11-22",
+          "Go Ahead Eagles",
+          "Fortuna Sittard"
+        ],
+        [
+          14,
+          "2026-11-27",
+          "FC Groningen",
+          "Willem II Tilburg"
+        ],
+        [
+          14,
+          "2026-11-28",
+          "SBV Excelsior",
+          "Telstar 1963"
+        ],
+        [
+          14,
+          "2026-11-28",
+          "PSV",
+          "Go Ahead Eagles"
+        ],
+        [
+          14,
+          "2026-11-28",
+          "SC Cambuur-Leeuwarden",
+          "Sparta Rotterdam"
+        ],
+        [
+          14,
+          "2026-11-29",
+          "ADO Den Haag",
+          "FC Utrecht"
+        ],
+        [
+          14,
+          "2026-11-29",
+          "Fortuna Sittard",
+          "SC Heerenveen"
+        ],
+        [
+          14,
+          "2026-11-29",
+          "Feyenoord Rotterdam",
+          "AFC Ajax"
+        ],
+        [
+          14,
+          "2026-11-29",
+          "PEC Zwolle",
+          "AZ"
+        ],
+        [
+          14,
+          "2026-11-29",
+          "NEC",
+          "FC Twente '65"
+        ],
+        [
+          15,
+          "2026-12-04",
+          "Telstar 1963",
+          "FC Groningen"
+        ],
+        [
+          15,
+          "2026-12-05",
+          "Willem II Tilburg",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          15,
+          "2026-12-05",
+          "Sparta Rotterdam",
+          "NEC"
+        ],
+        [
+          15,
+          "2026-12-05",
+          "AZ",
+          "PSV"
+        ],
+        [
+          15,
+          "2026-12-05",
+          "Fortuna Sittard",
+          "PEC Zwolle"
+        ],
+        [
+          15,
+          "2026-12-06",
+          "SC Heerenveen",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          15,
+          "2026-12-06",
+          "AFC Ajax",
+          "FC Utrecht"
+        ],
+        [
+          15,
+          "2026-12-06",
+          "Go Ahead Eagles",
+          "FC Twente '65"
+        ],
+        [
+          15,
+          "2026-12-06",
+          "ADO Den Haag",
+          "SBV Excelsior"
+        ],
+        [
+          16,
+          "2026-12-12",
+          "FC Utrecht",
+          "Fortuna Sittard"
+        ],
+        [
+          16,
+          "2026-12-12",
+          "SC Heerenveen",
+          "Go Ahead Eagles"
+        ],
+        [
+          16,
+          "2026-12-12",
+          "PEC Zwolle",
+          "SBV Excelsior"
+        ],
+        [
+          16,
+          "2026-12-13",
+          "PSV",
+          "Telstar 1963"
+        ],
+        [
+          16,
+          "2026-12-13",
+          "FC Groningen",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          16,
+          "2026-12-13",
+          "Willem II Tilburg",
+          "ADO Den Haag"
+        ],
+        [
+          16,
+          "2026-12-13",
+          "AZ",
+          "NEC"
+        ],
+        [
+          16,
+          "2026-12-13",
+          "AFC Ajax",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          17,
+          "2026-12-18",
+          "Telstar 1963",
+          "Willem II Tilburg"
+        ],
+        [
+          17,
+          "2026-12-19",
+          "SBV Excelsior",
+          "AZ"
+        ],
+        [
+          17,
+          "2026-12-19",
+          "Fortuna Sittard",
+          "Sparta Rotterdam"
+        ],
+        [
+          17,
+          "2026-12-19",
+          "FC Utrecht",
+          "SC Heerenveen"
+        ],
+        [
+          17,
+          "2026-12-20",
+          "NEC",
+          "ADO Den Haag"
+        ],
+        [
+          17,
+          "2026-12-20",
+          "SC Cambuur-Leeuwarden",
+          "FC Groningen"
+        ],
+        [
+          17,
+          "2026-12-20",
+          "Feyenoord Rotterdam",
+          "FC Twente '65"
+        ],
+        [
+          17,
+          "2026-12-20",
+          "Go Ahead Eagles",
+          "AFC Ajax"
+        ],
+        [
+          17,
+          "2026-12-20",
+          "PSV",
+          "PEC Zwolle"
+        ],
+        [
+          18,
+          "2027-01-08",
+          "FC Twente '65",
+          "Fortuna Sittard"
+        ],
+        [
+          18,
+          "2027-01-09",
+          "Sparta Rotterdam",
+          "SBV Excelsior"
+        ],
+        [
+          18,
+          "2027-01-09",
+          "PEC Zwolle",
+          "FC Utrecht"
+        ],
+        [
+          18,
+          "2027-01-09",
+          "Willem II Tilburg",
+          "AFC Ajax"
+        ],
+        [
+          18,
+          "2027-01-09",
+          "AZ",
+          "SC Heerenveen"
+        ],
+        [
+          18,
+          "2027-01-10",
+          "NEC",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          18,
+          "2027-01-10",
+          "Feyenoord Rotterdam",
+          "PSV"
+        ],
+        [
+          18,
+          "2027-01-10",
+          "ADO Den Haag",
+          "Telstar 1963"
+        ],
+        [
+          18,
+          "2027-01-10",
+          "FC Groningen",
+          "Go Ahead Eagles"
+        ],
+        [
+          19,
+          "2027-01-15",
+          "SC Heerenveen",
+          "Sparta Rotterdam"
+        ],
+        [
+          19,
+          "2027-01-16",
+          "Telstar 1963",
+          "NEC"
+        ],
+        [
+          19,
+          "2027-01-16",
+          "SBV Excelsior",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          19,
+          "2027-01-16",
+          "ADO Den Haag",
+          "PEC Zwolle"
+        ],
+        [
+          19,
+          "2027-01-16",
+          "Fortuna Sittard",
+          "PSV"
+        ],
+        [
+          19,
+          "2027-01-17",
+          "FC Utrecht",
+          "FC Twente '65"
+        ],
+        [
+          19,
+          "2027-01-17",
+          "Go Ahead Eagles",
+          "AZ"
+        ],
+        [
+          19,
+          "2027-01-17",
+          "AFC Ajax",
+          "FC Groningen"
+        ],
+        [
+          19,
+          "2027-01-17",
+          "SC Cambuur-Leeuwarden",
+          "Willem II Tilburg"
+        ],
+        [
+          20,
+          "2027-01-22",
+          "SBV Excelsior",
+          "Fortuna Sittard"
+        ],
+        [
+          20,
+          "2027-01-23",
+          "AFC Ajax",
+          "Telstar 1963"
+        ],
+        [
+          20,
+          "2027-01-23",
+          "Feyenoord Rotterdam",
+          "PEC Zwolle"
+        ],
+        [
+          20,
+          "2027-01-23",
+          "FC Twente '65",
+          "SC Heerenveen"
+        ],
+        [
+          20,
+          "2027-01-23",
+          "PSV",
+          "ADO Den Haag"
+        ],
+        [
+          20,
+          "2027-01-24",
+          "Go Ahead Eagles",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          20,
+          "2027-01-24",
+          "NEC",
+          "Willem II Tilburg"
+        ],
+        [
+          20,
+          "2027-01-24",
+          "Sparta Rotterdam",
+          "FC Groningen"
+        ],
+        [
+          20,
+          "2027-01-24",
+          "AZ",
+          "FC Utrecht"
+        ],
+        [
+          21,
+          "2027-01-29",
+          "FC Utrecht",
+          "SBV Excelsior"
+        ],
+        [
+          21,
+          "2027-01-30",
+          "Sparta Rotterdam",
+          "Telstar 1963"
+        ],
+        [
+          21,
+          "2027-01-30",
+          "ADO Den Haag",
+          "Go Ahead Eagles"
+        ],
+        [
+          21,
+          "2027-01-30",
+          "Willem II Tilburg",
+          "PSV"
+        ],
+        [
+          21,
+          "2027-01-30",
+          "PEC Zwolle",
+          "Fortuna Sittard"
+        ],
+        [
+          21,
+          "2027-01-31",
+          "SC Heerenveen",
+          "AFC Ajax"
+        ],
+        [
+          21,
+          "2027-01-31",
+          "FC Twente '65",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          21,
+          "2027-01-31",
+          "AZ",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          21,
+          "2027-01-31",
+          "FC Groningen",
+          "NEC"
+        ],
+        [
+          16,
+          "2027-02-06",
+          "FC Twente '65",
+          "Sparta Rotterdam"
+        ],
+        [
+          22,
+          "2027-02-13",
+          "Telstar 1963",
+          "SC Heerenveen"
+        ],
+        [
+          22,
+          "2027-02-13",
+          "Fortuna Sittard",
+          "ADO Den Haag"
+        ],
+        [
+          22,
+          "2027-02-13",
+          "Feyenoord Rotterdam",
+          "NEC"
+        ],
+        [
+          22,
+          "2027-02-13",
+          "SC Cambuur-Leeuwarden",
+          "FC Utrecht"
+        ],
+        [
+          22,
+          "2027-02-13",
+          "PSV",
+          "FC Twente '65"
+        ],
+        [
+          22,
+          "2027-02-13",
+          "FC Groningen",
+          "AZ"
+        ],
+        [
+          22,
+          "2027-02-13",
+          "Go Ahead Eagles",
+          "PEC Zwolle"
+        ],
+        [
+          22,
+          "2027-02-13",
+          "SBV Excelsior",
+          "AFC Ajax"
+        ],
+        [
+          22,
+          "2027-02-13",
+          "Willem II Tilburg",
+          "Sparta Rotterdam"
+        ],
+        [
+          23,
+          "2027-02-20",
+          "NEC",
+          "Sparta Rotterdam"
+        ],
+        [
+          23,
+          "2027-02-20",
+          "Feyenoord Rotterdam",
+          "Telstar 1963"
+        ],
+        [
+          23,
+          "2027-02-20",
+          "FC Utrecht",
+          "ADO Den Haag"
+        ],
+        [
+          23,
+          "2027-02-20",
+          "AZ",
+          "Fortuna Sittard"
+        ],
+        [
+          23,
+          "2027-02-20",
+          "SC Heerenveen",
+          "Willem II Tilburg"
+        ],
+        [
+          23,
+          "2027-02-20",
+          "PEC Zwolle",
+          "FC Groningen"
+        ],
+        [
+          23,
+          "2027-02-20",
+          "AFC Ajax",
+          "Go Ahead Eagles"
+        ],
+        [
+          23,
+          "2027-02-20",
+          "PSV",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          23,
+          "2027-02-20",
+          "FC Twente '65",
+          "SBV Excelsior"
+        ],
+        [
+          24,
+          "2027-02-27",
+          "Sparta Rotterdam",
+          "PSV"
+        ],
+        [
+          24,
+          "2027-02-27",
+          "NEC",
+          "AZ"
+        ],
+        [
+          24,
+          "2027-02-27",
+          "SC Cambuur-Leeuwarden",
+          "PEC Zwolle"
+        ],
+        [
+          24,
+          "2027-02-27",
+          "SBV Excelsior",
+          "SC Heerenveen"
+        ],
+        [
+          24,
+          "2027-02-27",
+          "ADO Den Haag",
+          "FC Twente '65"
+        ],
+        [
+          24,
+          "2027-02-27",
+          "AFC Ajax",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          24,
+          "2027-02-27",
+          "Willem II Tilburg",
+          "FC Groningen"
+        ],
+        [
+          24,
+          "2027-02-27",
+          "Fortuna Sittard",
+          "FC Utrecht"
+        ],
+        [
+          24,
+          "2027-02-27",
+          "Telstar 1963",
+          "Go Ahead Eagles"
+        ],
+        [
+          25,
+          "2027-03-06",
+          "FC Twente '65",
+          "AZ"
+        ],
+        [
+          25,
+          "2027-03-06",
+          "Feyenoord Rotterdam",
+          "SC Heerenveen"
+        ],
+        [
+          25,
+          "2027-03-06",
+          "Go Ahead Eagles",
+          "SBV Excelsior"
+        ],
+        [
+          25,
+          "2027-03-06",
+          "PSV",
+          "FC Utrecht"
+        ],
+        [
+          25,
+          "2027-03-06",
+          "ADO Den Haag",
+          "AFC Ajax"
+        ],
+        [
+          25,
+          "2027-03-06",
+          "FC Groningen",
+          "Telstar 1963"
+        ],
+        [
+          25,
+          "2027-03-06",
+          "PEC Zwolle",
+          "Willem II Tilburg"
+        ],
+        [
+          25,
+          "2027-03-06",
+          "Fortuna Sittard",
+          "NEC"
+        ],
+        [
+          25,
+          "2027-03-06",
+          "Sparta Rotterdam",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          26,
+          "2027-03-13",
+          "AFC Ajax",
+          "PEC Zwolle"
+        ],
+        [
+          26,
+          "2027-03-13",
+          "SC Cambuur-Leeuwarden",
+          "ADO Den Haag"
+        ],
+        [
+          26,
+          "2027-03-13",
+          "SBV Excelsior",
+          "NEC"
+        ],
+        [
+          26,
+          "2027-03-13",
+          "Go Ahead Eagles",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          26,
+          "2027-03-13",
+          "Telstar 1963",
+          "PSV"
+        ],
+        [
+          26,
+          "2027-03-13",
+          "AZ",
+          "Sparta Rotterdam"
+        ],
+        [
+          26,
+          "2027-03-13",
+          "Willem II Tilburg",
+          "FC Twente '65"
+        ],
+        [
+          26,
+          "2027-03-13",
+          "FC Utrecht",
+          "FC Groningen"
+        ],
+        [
+          26,
+          "2027-03-13",
+          "SC Heerenveen",
+          "Fortuna Sittard"
+        ],
+        [
+          27,
+          "2027-03-20",
+          "FC Utrecht",
+          "Sparta Rotterdam"
+        ],
+        [
+          27,
+          "2027-03-20",
+          "Feyenoord Rotterdam",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          27,
+          "2027-03-20",
+          "AZ",
+          "SBV Excelsior"
+        ],
+        [
+          27,
+          "2027-03-20",
+          "PEC Zwolle",
+          "SC Heerenveen"
+        ],
+        [
+          27,
+          "2027-03-20",
+          "Telstar 1963",
+          "Fortuna Sittard"
+        ],
+        [
+          27,
+          "2027-03-20",
+          "NEC",
+          "AFC Ajax"
+        ],
+        [
+          27,
+          "2027-03-20",
+          "FC Groningen",
+          "PSV"
+        ],
+        [
+          27,
+          "2027-03-20",
+          "ADO Den Haag",
+          "Willem II Tilburg"
+        ],
+        [
+          27,
+          "2027-03-20",
+          "FC Twente '65",
+          "Go Ahead Eagles"
+        ],
+        [
+          28,
+          "2027-04-03",
+          "PSV",
+          "AZ"
+        ],
+        [
+          28,
+          "2027-04-03",
+          "Fortuna Sittard",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          28,
+          "2027-04-03",
+          "SC Heerenveen",
+          "FC Groningen"
+        ],
+        [
+          28,
+          "2027-04-03",
+          "AFC Ajax",
+          "FC Twente '65"
+        ],
+        [
+          28,
+          "2027-04-03",
+          "SC Cambuur-Leeuwarden",
+          "Telstar 1963"
+        ],
+        [
+          28,
+          "2027-04-03",
+          "SBV Excelsior",
+          "PEC Zwolle"
+        ],
+        [
+          28,
+          "2027-04-03",
+          "Sparta Rotterdam",
+          "ADO Den Haag"
+        ],
+        [
+          28,
+          "2027-04-03",
+          "Go Ahead Eagles",
+          "NEC"
+        ],
+        [
+          28,
+          "2027-04-03",
+          "Willem II Tilburg",
+          "FC Utrecht"
+        ],
+        [
+          29,
+          "2027-04-10",
+          "ADO Den Haag",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          29,
+          "2027-04-10",
+          "SC Cambuur-Leeuwarden",
+          "Fortuna Sittard"
+        ],
+        [
+          29,
+          "2027-04-10",
+          "NEC",
+          "SC Heerenveen"
+        ],
+        [
+          29,
+          "2027-04-10",
+          "FC Groningen",
+          "SBV Excelsior"
+        ],
+        [
+          29,
+          "2027-04-10",
+          "Willem II Tilburg",
+          "AZ"
+        ],
+        [
+          29,
+          "2027-04-10",
+          "FC Utrecht",
+          "AFC Ajax"
+        ],
+        [
+          29,
+          "2027-04-10",
+          "Telstar 1963",
+          "FC Twente '65"
+        ],
+        [
+          29,
+          "2027-04-10",
+          "PEC Zwolle",
+          "PSV"
+        ],
+        [
+          29,
+          "2027-04-10",
+          "Sparta Rotterdam",
+          "Go Ahead Eagles"
+        ],
+        [
+          30,
+          "2027-04-24",
+          "FC Twente '65",
+          "NEC"
+        ],
+        [
+          30,
+          "2027-04-24",
+          "SC Heerenveen",
+          "ADO Den Haag"
+        ],
+        [
+          30,
+          "2027-04-24",
+          "SBV Excelsior",
+          "Willem II Tilburg"
+        ],
+        [
+          30,
+          "2027-04-24",
+          "Go Ahead Eagles",
+          "FC Utrecht"
+        ],
+        [
+          30,
+          "2027-04-24",
+          "AZ",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          30,
+          "2027-04-24",
+          "PEC Zwolle",
+          "Telstar 1963"
+        ],
+        [
+          30,
+          "2027-04-24",
+          "Fortuna Sittard",
+          "FC Groningen"
+        ],
+        [
+          30,
+          "2027-04-24",
+          "Feyenoord Rotterdam",
+          "Sparta Rotterdam"
+        ],
+        [
+          30,
+          "2027-04-24",
+          "PSV",
+          "AFC Ajax"
+        ],
+        [
+          31,
+          "2027-05-01",
+          "Go Ahead Eagles",
+          "PSV"
+        ],
+        [
+          31,
+          "2027-05-01",
+          "SC Heerenveen",
+          "FC Utrecht"
+        ],
+        [
+          31,
+          "2027-05-01",
+          "Sparta Rotterdam",
+          "FC Twente '65"
+        ],
+        [
+          31,
+          "2027-05-01",
+          "FC Groningen",
+          "ADO Den Haag"
+        ],
+        [
+          31,
+          "2027-05-01",
+          "NEC",
+          "PEC Zwolle"
+        ],
+        [
+          31,
+          "2027-05-01",
+          "AFC Ajax",
+          "Fortuna Sittard"
+        ],
+        [
+          31,
+          "2027-05-01",
+          "SBV Excelsior",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          31,
+          "2027-05-01",
+          "Telstar 1963",
+          "AZ"
+        ],
+        [
+          31,
+          "2027-05-01",
+          "Feyenoord Rotterdam",
+          "Willem II Tilburg"
+        ],
+        [
+          32,
+          "2027-05-08",
+          "PSV",
+          "SBV Excelsior"
+        ],
+        [
+          32,
+          "2027-05-08",
+          "FC Utrecht",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          32,
+          "2027-05-08",
+          "FC Twente '65",
+          "FC Groningen"
+        ],
+        [
+          32,
+          "2027-05-08",
+          "PEC Zwolle",
+          "Sparta Rotterdam"
+        ],
+        [
+          32,
+          "2027-05-08",
+          "Fortuna Sittard",
+          "Go Ahead Eagles"
+        ],
+        [
+          32,
+          "2027-05-08",
+          "SC Cambuur-Leeuwarden",
+          "SC Heerenveen"
+        ],
+        [
+          32,
+          "2027-05-08",
+          "AZ",
+          "AFC Ajax"
+        ],
+        [
+          32,
+          "2027-05-08",
+          "ADO Den Haag",
+          "NEC"
+        ],
+        [
+          32,
+          "2027-05-08",
+          "Willem II Tilburg",
+          "Telstar 1963"
+        ],
+        [
+          33,
+          "2027-05-16",
+          "AZ",
+          "PEC Zwolle"
+        ],
+        [
+          33,
+          "2027-05-16",
+          "Go Ahead Eagles",
+          "SC Heerenveen"
+        ],
+        [
+          33,
+          "2027-05-16",
+          "FC Twente '65",
+          "Feyenoord Rotterdam"
+        ],
+        [
+          33,
+          "2027-05-16",
+          "AFC Ajax",
+          "Sparta Rotterdam"
+        ],
+        [
+          33,
+          "2027-05-16",
+          "SBV Excelsior",
+          "ADO Den Haag"
+        ],
+        [
+          33,
+          "2027-05-16",
+          "PSV",
+          "NEC"
+        ],
+        [
+          33,
+          "2027-05-16",
+          "Fortuna Sittard",
+          "Willem II Tilburg"
+        ],
+        [
+          33,
+          "2027-05-16",
+          "FC Utrecht",
+          "Telstar 1963"
+        ],
+        [
+          33,
+          "2027-05-16",
+          "FC Groningen",
+          "SC Cambuur-Leeuwarden"
+        ],
+        [
+          34,
+          "2027-05-23",
+          "NEC",
+          "FC Utrecht"
+        ],
+        [
+          34,
+          "2027-05-23",
+          "SC Heerenveen",
+          "PSV"
+        ],
+        [
+          34,
+          "2027-05-23",
+          "Sparta Rotterdam",
+          "Fortuna Sittard"
+        ],
+        [
+          34,
+          "2027-05-23",
+          "SC Cambuur-Leeuwarden",
+          "AFC Ajax"
+        ],
+        [
+          34,
+          "2027-05-23",
+          "PEC Zwolle",
+          "FC Twente '65"
+        ],
+        [
+          34,
+          "2027-05-23",
+          "Feyenoord Rotterdam",
+          "FC Groningen"
+        ],
+        [
+          34,
+          "2027-05-23",
+          "ADO Den Haag",
+          "AZ"
+        ],
+        [
+          34,
+          "2027-05-23",
+          "Telstar 1963",
+          "SBV Excelsior"
+        ],
+        [
+          34,
+          "2027-05-23",
+          "Willem II Tilburg",
+          "Go Ahead Eagles"
+        ]
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "participantKeyAudit": {
+      "edition": "2026/27",
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "division": 0,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "ADO Den Haag",
+          "ADO DEN HAAG",
+          "b48ad177-342a-5b13-bc91-1e4dc2ee111a",
+          25,
+          15,
+          1638416
+        ],
+        [
+          "AFC Ajax",
+          "AJAX AMSTERDAM",
+          "76cd68ec-6c61-5db6-ae0d-c8c5ff31e35c",
+          25,
+          4,
+          1638405
+        ],
+        [
+          "AZ",
+          "AZ ALKMAAR",
+          "dbc81d19-98d7-5127-8c28-6bbec57ac53a",
+          25,
+          6,
+          1638407
+        ],
+        [
+          "FC Groningen",
+          "GRONINGEN",
+          "65f5971c-ffab-50d2-b486-5315c9e5fa0d",
+          25,
+          8,
+          1638409
+        ],
+        [
+          "FC Twente '65",
+          "TWENTE ENSCHEDE",
+          "df41c2b5-1c91-548b-b59d-1d7db7118e67",
+          25,
+          3,
+          1638404
+        ],
+        [
+          "FC Utrecht",
+          "UTRECHT",
+          "921cca2a-f100-5bb9-b1cb-36a9236e7f0d",
+          25,
+          5,
+          1638406
+        ],
+        [
+          "Feyenoord Rotterdam",
+          "FEYENOORD",
+          "7e9adb63-aba4-5eef-bd86-a180c75e101a",
+          25,
+          1,
+          1638402
+        ],
+        [
+          "Fortuna Sittard",
+          "FORTUNA SITTARD",
+          "0649e6ca-f9e8-58fb-a8d2-e4caf0bec7c6",
+          25,
+          10,
+          1638411
+        ],
+        [
+          "Go Ahead Eagles",
+          "GO AHEAD EAGLES",
+          "d1e9b538-d958-542e-a9d2-12c472d442b6",
+          25,
+          11,
+          1638412
+        ],
+        [
+          "NEC",
+          "NEC NIJMEGEN",
+          "b9dd867d-2d5b-5331-894a-5cd117c36a7e",
+          25,
+          2,
+          1638403
+        ],
+        [
+          "PEC Zwolle",
+          "PEC ZWOLLE",
+          "e7a2539c-fd23-505b-86d2-a51b9de7daca",
+          25,
+          14,
+          1638415
+        ],
+        [
+          "PSV",
+          "PSV EINDHOVEN",
+          "8b5150ed-7d0c-595c-9b60-1c18132d67c5",
+          25,
+          0,
+          1638401
+        ],
+        [
+          "SBV Excelsior",
+          "EXCELSIOR",
+          "7ddc0020-116b-5136-b83f-2b62971f909c",
+          25,
+          12,
+          1638413
+        ],
+        [
+          "SC Cambuur-Leeuwarden",
+          "CAMBUUR",
+          "26b12ad9-9299-5b27-b792-7a4df5b0d491",
+          25,
+          16,
+          1638417
+        ],
+        [
+          "SC Heerenveen",
+          "HEERENVEEN",
+          "d6f006e8-014d-52b8-8f2c-2eb2348efe27",
+          25,
+          7,
+          1638408
+        ],
+        [
+          "Sparta Rotterdam",
+          "SPARTA ROTTERDAM",
+          "0bcdadd5-ba91-5526-a78f-72576924abab",
+          25,
+          9,
+          1638410
+        ],
+        [
+          "Telstar 1963",
+          "TELSTAR",
+          "14343f64-6b2d-5c2a-9f8d-ac5bc3571f24",
+          25,
+          13,
+          1638414
+        ],
+        [
+          "Willem II Tilburg",
+          "WILLEM II",
+          "8344929e-e780-57e1-8fed-5592344cd5c4",
+          25,
+          17,
+          1638418
+        ]
+      ],
+      "scope": "All initial regular-league entrants mapped by reviewed explicit aliases; native JSON full division set and unique UUID/ordinal; CE key computed from current primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. No runtime or later qualification certification."
     }
   },
   {

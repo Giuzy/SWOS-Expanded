@@ -1610,6 +1610,218 @@
         "knockoutMatches": 7
       },
       "missing": "Independent match/date reconciliation, FIFA team keys, disciplinary tie-break details"
+    },
+    "block125Bulk": {
+      "postCutoffCalendar": {
+        "edition": "2026",
+        "status": "BULK_EXTRACTED_SINGLE_ARCHIVE_NOT_INDEPENDENTLY_CERTIFIED",
+        "matchCount": 25,
+        "participantNames": 25,
+        "distinctDates": 14,
+        "first": "2026-07-01",
+        "last": "2026-07-19",
+        "fixtureSchema": [
+          "date",
+          "home",
+          "away"
+        ],
+        "fixtures": [
+          [
+            "2026-07-01",
+            "ENG",
+            "COD"
+          ],
+          [
+            "2026-07-01",
+            "BEL",
+            "SEN"
+          ],
+          [
+            "2026-07-01",
+            "USA",
+            "BIH"
+          ],
+          [
+            "2026-07-02",
+            "ESP",
+            "AUT"
+          ],
+          [
+            "2026-07-02",
+            "POR",
+            "CRO"
+          ],
+          [
+            "2026-07-02",
+            "SUI",
+            "ALG"
+          ],
+          [
+            "2026-07-03",
+            "AUS",
+            "EGY"
+          ],
+          [
+            "2026-07-03",
+            "ARG",
+            "CPV"
+          ],
+          [
+            "2026-07-03",
+            "COL",
+            "GHA"
+          ],
+          [
+            "2026-07-04",
+            "CAN",
+            "MAR"
+          ],
+          [
+            "2026-07-04",
+            "PAR",
+            "FRA"
+          ],
+          [
+            "2026-07-05",
+            "BRA",
+            "NOR"
+          ],
+          [
+            "2026-07-05",
+            "MEX",
+            "ENG"
+          ],
+          [
+            "2026-07-06",
+            "POR",
+            "ESP"
+          ],
+          [
+            "2026-07-06",
+            "USA",
+            "BEL"
+          ],
+          [
+            "2026-07-07",
+            "ARG",
+            "EGY"
+          ],
+          [
+            "2026-07-07",
+            "SUI",
+            "COL"
+          ],
+          [
+            "2026-07-09",
+            "FRA",
+            "MAR"
+          ],
+          [
+            "2026-07-10",
+            "ESP",
+            "BEL"
+          ],
+          [
+            "2026-07-11",
+            "NOR",
+            "ENG"
+          ],
+          [
+            "2026-07-11",
+            "ARG",
+            "SUI"
+          ],
+          [
+            "2026-07-14",
+            "FRA",
+            "ESP"
+          ],
+          [
+            "2026-07-15",
+            "ENG",
+            "ARG"
+          ],
+          [
+            "2026-07-18",
+            "FRA",
+            "ENG"
+          ],
+          [
+            "2026-07-19",
+            "ESP",
+            "ARG"
+          ]
+        ],
+        "scope": "Only date/pair evidence for 25 later matches; no scores/winners imported, opponents are historical reference and not future career fixed slots. First 79 fixtures retained in block64Research."
+      },
+      "fullArchiveCount": 104,
+      "preCutoffComparison": {
+        "compared": 79,
+        "matched": 76,
+        "conflicts": [
+          {
+            "existingMatch": null,
+            "existing": [
+              "2026-06-24",
+              "CZE",
+              "MEX",
+              0,
+              3
+            ],
+            "archive": [
+              "2026-06-24",
+              "MEX",
+              "CZE",
+              3,
+              0
+            ],
+            "scope": "Comparison only; existing snapshot unchanged.",
+            "status": "SAME_DATE_AND_TEAM_ASSOCIATED_SCORE_REVERSED_HOME_AWAY"
+          },
+          {
+            "existingMatch": null,
+            "existing": [
+              "2026-06-24",
+              "SUI",
+              "CAN",
+              2,
+              1
+            ],
+            "archive": [
+              "2026-06-24",
+              "CAN",
+              "SUI",
+              1,
+              2
+            ],
+            "scope": "Comparison only; existing snapshot unchanged.",
+            "status": "SAME_DATE_AND_TEAM_ASSOCIATED_SCORE_REVERSED_HOME_AWAY"
+          },
+          {
+            "existingMatch": null,
+            "existing": [
+              "2026-06-25",
+              "TUR",
+              "USA",
+              3,
+              2
+            ],
+            "archive": [
+              "2026-06-25",
+              "USA",
+              "TUR",
+              2,
+              3
+            ],
+            "scope": "Comparison only; existing snapshot unchanged.",
+            "status": "SAME_DATE_AND_TEAM_ASSOCIATED_SCORE_REVERSED_HOME_AWAY"
+          }
+        ],
+        "reversedOrientationMatches": 3,
+        "dateAndTeamAssociatedScoreMatched": 79,
+        "scope": "Existing pre-cutoff fixture records unchanged. Nominal home/away requires independent verification; comparison entries refer to same matches, not additional fixtures."
+      },
+      "identityScope": "Explicit international labels mapped to existing FIFA-style matrix labels only, not OG native team keys."
     }
   },
   {
@@ -1717,6 +1929,185 @@
       },
       "scope": "2024 real format; 2028 separate later evidence.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block125Bulk": {
+      "referenceCalendar": {
+        "edition": "2024",
+        "status": "BULK_EXTRACTED_SINGLE_ARCHIVE_NOT_INDEPENDENTLY_CERTIFIED",
+        "matchCount": 32,
+        "participantNames": 16,
+        "distinctDates": 20,
+        "first": "2024-06-20",
+        "last": "2024-07-14",
+        "fixtureSchema": [
+          "date",
+          "home",
+          "away"
+        ],
+        "fixtures": [
+          [
+            "2024-06-20",
+            "Argentina",
+            "Canada"
+          ],
+          [
+            "2024-06-21",
+            "Peru",
+            "Chile"
+          ],
+          [
+            "2024-06-22",
+            "Ecuador",
+            "Venezuela"
+          ],
+          [
+            "2024-06-22",
+            "Mexico",
+            "Jamaica"
+          ],
+          [
+            "2024-06-23",
+            "United States",
+            "Bolivia"
+          ],
+          [
+            "2024-06-23",
+            "Uruguay",
+            "Panama"
+          ],
+          [
+            "2024-06-24",
+            "Colombia",
+            "Paraguay"
+          ],
+          [
+            "2024-06-24",
+            "Brazil",
+            "Costa Rica"
+          ],
+          [
+            "2024-06-25",
+            "Peru",
+            "Canada"
+          ],
+          [
+            "2024-06-25",
+            "Chile",
+            "Argentina"
+          ],
+          [
+            "2024-06-26",
+            "Ecuador",
+            "Jamaica"
+          ],
+          [
+            "2024-06-26",
+            "Venezuela",
+            "Mexico"
+          ],
+          [
+            "2024-06-27",
+            "United States",
+            "Panama"
+          ],
+          [
+            "2024-06-27",
+            "Uruguay",
+            "Bolivia"
+          ],
+          [
+            "2024-06-28",
+            "Colombia",
+            "Costa Rica"
+          ],
+          [
+            "2024-06-28",
+            "Paraguay",
+            "Brazil"
+          ],
+          [
+            "2024-06-29",
+            "Argentina",
+            "Peru"
+          ],
+          [
+            "2024-06-29",
+            "Canada",
+            "Chile"
+          ],
+          [
+            "2024-06-30",
+            "Mexico",
+            "Ecuador"
+          ],
+          [
+            "2024-06-30",
+            "Jamaica",
+            "Venezuela"
+          ],
+          [
+            "2024-07-01",
+            "United States",
+            "Uruguay"
+          ],
+          [
+            "2024-07-01",
+            "Bolivia",
+            "Panama"
+          ],
+          [
+            "2024-07-02",
+            "Brazil",
+            "Colombia"
+          ],
+          [
+            "2024-07-02",
+            "Costa Rica",
+            "Paraguay"
+          ],
+          [
+            "2024-07-04",
+            "Argentina",
+            "Ecuador"
+          ],
+          [
+            "2024-07-05",
+            "Venezuela",
+            "Canada"
+          ],
+          [
+            "2024-07-06",
+            "Uruguay",
+            "Brazil"
+          ],
+          [
+            "2024-07-06",
+            "Colombia",
+            "Panama"
+          ],
+          [
+            "2024-07-09",
+            "Argentina",
+            "Canada"
+          ],
+          [
+            "2024-07-10",
+            "Uruguay",
+            "Colombia"
+          ],
+          [
+            "2024-07-13",
+            "Canada",
+            "Uruguay"
+          ],
+          [
+            "2024-07-14",
+            "Argentina",
+            "Colombia"
+          ]
+        ],
+        "scope": "Completed prior edition reference only, no active July1 snapshot, no scores, future participants/dates not fixed. Actual date cross-check pending."
+      }
     }
   },
   {
@@ -1769,6 +2160,285 @@
       ],
       "limitations": "official search excerpts, finished before cutoff",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block125Bulk": {
+      "referenceCalendar": {
+        "edition": "2025",
+        "status": "BULK_EXTRACTED_SINGLE_ARCHIVE_NOT_INDEPENDENTLY_CERTIFIED",
+        "matchCount": 52,
+        "participantNames": 24,
+        "distinctDates": 19,
+        "first": "2025-12-21",
+        "last": "2026-01-18",
+        "fixtureSchema": [
+          "date",
+          "home",
+          "away"
+        ],
+        "fixtures": [
+          [
+            "2025-12-21",
+            "Morocco",
+            "Comoros"
+          ],
+          [
+            "2025-12-22",
+            "Mali",
+            "Zambia"
+          ],
+          [
+            "2025-12-22",
+            "South Africa",
+            "Angola"
+          ],
+          [
+            "2025-12-22",
+            "Egypt",
+            "Zimbabwe"
+          ],
+          [
+            "2025-12-23",
+            "Nigeria",
+            "Tanzania"
+          ],
+          [
+            "2025-12-23",
+            "Tunisia",
+            "Uganda"
+          ],
+          [
+            "2025-12-23",
+            "DR Congo",
+            "Benin"
+          ],
+          [
+            "2025-12-23",
+            "Senegal",
+            "Botswana"
+          ],
+          [
+            "2025-12-24",
+            "Burkina Faso",
+            "Equatorial Guinea"
+          ],
+          [
+            "2025-12-24",
+            "Algeria",
+            "Sudan"
+          ],
+          [
+            "2025-12-24",
+            "Ivory Coast",
+            "Mozambique"
+          ],
+          [
+            "2025-12-24",
+            "Cameroon",
+            "Gabon"
+          ],
+          [
+            "2025-12-26",
+            "Zambia",
+            "Comoros"
+          ],
+          [
+            "2025-12-26",
+            "Morocco",
+            "Mali"
+          ],
+          [
+            "2025-12-26",
+            "Angola",
+            "Zimbabwe"
+          ],
+          [
+            "2025-12-26",
+            "Egypt",
+            "South Africa"
+          ],
+          [
+            "2025-12-27",
+            "Uganda",
+            "Tanzania"
+          ],
+          [
+            "2025-12-27",
+            "Nigeria",
+            "Tunisia"
+          ],
+          [
+            "2025-12-27",
+            "Benin",
+            "Botswana"
+          ],
+          [
+            "2025-12-27",
+            "Senegal",
+            "DR Congo"
+          ],
+          [
+            "2025-12-28",
+            "Equatorial Guinea",
+            "Sudan"
+          ],
+          [
+            "2025-12-28",
+            "Algeria",
+            "Burkina Faso"
+          ],
+          [
+            "2025-12-28",
+            "Gabon",
+            "Mozambique"
+          ],
+          [
+            "2025-12-28",
+            "Ivory Coast",
+            "Cameroon"
+          ],
+          [
+            "2025-12-29",
+            "Morocco",
+            "Zambia"
+          ],
+          [
+            "2025-12-29",
+            "Comoros",
+            "Mali"
+          ],
+          [
+            "2025-12-29",
+            "Angola",
+            "Egypt"
+          ],
+          [
+            "2025-12-29",
+            "Zimbabwe",
+            "South Africa"
+          ],
+          [
+            "2025-12-30",
+            "Uganda",
+            "Nigeria"
+          ],
+          [
+            "2025-12-30",
+            "Tanzania",
+            "Tunisia"
+          ],
+          [
+            "2025-12-30",
+            "Benin",
+            "Senegal"
+          ],
+          [
+            "2025-12-30",
+            "Botswana",
+            "DR Congo"
+          ],
+          [
+            "2025-12-31",
+            "Equatorial Guinea",
+            "Algeria"
+          ],
+          [
+            "2025-12-31",
+            "Sudan",
+            "Burkina Faso"
+          ],
+          [
+            "2025-12-31",
+            "Gabon",
+            "Ivory Coast"
+          ],
+          [
+            "2025-12-31",
+            "Mozambique",
+            "Cameroon"
+          ],
+          [
+            "2026-01-03",
+            "Senegal",
+            "Sudan"
+          ],
+          [
+            "2026-01-03",
+            "Mali",
+            "Tunisia"
+          ],
+          [
+            "2026-01-04",
+            "Morocco",
+            "Tanzania"
+          ],
+          [
+            "2026-01-04",
+            "South Africa",
+            "Cameroon"
+          ],
+          [
+            "2026-01-05",
+            "Egypt",
+            "Benin"
+          ],
+          [
+            "2026-01-05",
+            "Nigeria",
+            "Mozambique"
+          ],
+          [
+            "2026-01-06",
+            "Algeria",
+            "DR Congo"
+          ],
+          [
+            "2026-01-06",
+            "Ivory Coast",
+            "Burkina Faso"
+          ],
+          [
+            "2026-01-09",
+            "Mali",
+            "Senegal"
+          ],
+          [
+            "2026-01-09",
+            "Morocco",
+            "Cameroon"
+          ],
+          [
+            "2026-01-10",
+            "Algeria",
+            "Nigeria"
+          ],
+          [
+            "2026-01-10",
+            "Egypt",
+            "Ivory Coast"
+          ],
+          [
+            "2026-01-14",
+            "Senegal",
+            "Egypt"
+          ],
+          [
+            "2026-01-14",
+            "Morocco",
+            "Nigeria"
+          ],
+          [
+            "2026-01-17",
+            "Egypt",
+            "Nigeria"
+          ],
+          [
+            "2026-01-18",
+            "Morocco",
+            "Senegal"
+          ]
+        ],
+        "scope": "Completed prior edition reference only, no active July1 snapshot, no scores, future participants/dates not fixed. Actual date cross-check pending."
+      }
     }
   },
   {
@@ -1844,6 +2514,180 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "scope": "Later announced format not full round robin and not template override."
+    },
+    "block125Bulk": {
+      "referenceCalendar": {
+        "edition": "2025",
+        "status": "BULK_EXTRACTED_SINGLE_ARCHIVE_NOT_INDEPENDENTLY_CERTIFIED",
+        "matchCount": 31,
+        "participantNames": 16,
+        "distinctDates": 14,
+        "first": "2025-06-14",
+        "last": "2025-07-06",
+        "fixtureSchema": [
+          "date",
+          "home",
+          "away"
+        ],
+        "fixtures": [
+          [
+            "2025-06-14",
+            "Mexico",
+            "Dominican Republic"
+          ],
+          [
+            "2025-06-15",
+            "Costa Rica",
+            "Suriname"
+          ],
+          [
+            "2025-06-15",
+            "United States",
+            "Trinidad and Tobago"
+          ],
+          [
+            "2025-06-15",
+            "Haiti",
+            "Saudi Arabia"
+          ],
+          [
+            "2025-06-16",
+            "Panama",
+            "Guadeloupe"
+          ],
+          [
+            "2025-06-16",
+            "Jamaica",
+            "Guatemala"
+          ],
+          [
+            "2025-06-17",
+            "Curaçao",
+            "El Salvador"
+          ],
+          [
+            "2025-06-17",
+            "Canada",
+            "Honduras"
+          ],
+          [
+            "2025-06-18",
+            "Costa Rica",
+            "Dominican Republic"
+          ],
+          [
+            "2025-06-18",
+            "Suriname",
+            "Mexico"
+          ],
+          [
+            "2025-06-19",
+            "Trinidad and Tobago",
+            "Haiti"
+          ],
+          [
+            "2025-06-19",
+            "United States",
+            "Saudi Arabia"
+          ],
+          [
+            "2025-06-20",
+            "Jamaica",
+            "Guadeloupe"
+          ],
+          [
+            "2025-06-20",
+            "Guatemala",
+            "Panama"
+          ],
+          [
+            "2025-06-21",
+            "Curaçao",
+            "Canada"
+          ],
+          [
+            "2025-06-21",
+            "Honduras",
+            "El Salvador"
+          ],
+          [
+            "2025-06-22",
+            "Mexico",
+            "Costa Rica"
+          ],
+          [
+            "2025-06-22",
+            "Dominican Republic",
+            "Suriname"
+          ],
+          [
+            "2025-06-22",
+            "Saudi Arabia",
+            "Trinidad and Tobago"
+          ],
+          [
+            "2025-06-22",
+            "United States",
+            "Haiti"
+          ],
+          [
+            "2025-06-24",
+            "Honduras",
+            "Curaçao"
+          ],
+          [
+            "2025-06-24",
+            "Canada",
+            "El Salvador"
+          ],
+          [
+            "2025-06-24",
+            "Panama",
+            "Jamaica"
+          ],
+          [
+            "2025-06-24",
+            "Guadeloupe",
+            "Guatemala"
+          ],
+          [
+            "2025-06-28",
+            "Panama",
+            "Honduras"
+          ],
+          [
+            "2025-06-28",
+            "Mexico",
+            "Saudi Arabia"
+          ],
+          [
+            "2025-06-29",
+            "Canada",
+            "Guatemala"
+          ],
+          [
+            "2025-06-29",
+            "United States",
+            "Costa Rica"
+          ],
+          [
+            "2025-07-02",
+            "United States",
+            "Guatemala"
+          ],
+          [
+            "2025-07-02",
+            "Mexico",
+            "Honduras"
+          ],
+          [
+            "2025-07-06",
+            "United States",
+            "Mexico"
+          ]
+        ],
+        "scope": "Completed prior edition reference only, no active July1 snapshot, no scores, future participants/dates not fixed. Actual date cross-check pending."
+      }
     }
   },
   {
@@ -1984,6 +2828,90 @@
       },
       "scope": "Withdrawal edition-specific; not permanent seven-team template.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block125Bulk": {
+      "referenceCalendar": {
+        "edition": "2024",
+        "status": "BULK_EXTRACTED_SINGLE_ARCHIVE_NOT_INDEPENDENTLY_CERTIFIED",
+        "matchCount": 13,
+        "participantNames": 7,
+        "distinctDates": 8,
+        "first": "2024-06-15",
+        "last": "2024-06-30",
+        "fixtureSchema": [
+          "date",
+          "home",
+          "away"
+        ],
+        "fixtures": [
+          [
+            "2024-06-15",
+            "Vanuatu",
+            "Solomon Islands"
+          ],
+          [
+            "2024-06-16",
+            "Tahiti",
+            "Samoa"
+          ],
+          [
+            "2024-06-16",
+            "Fiji",
+            "Papua New Guinea"
+          ],
+          [
+            "2024-06-18",
+            "New Zealand",
+            "Solomon Islands"
+          ],
+          [
+            "2024-06-19",
+            "Papua New Guinea",
+            "Tahiti"
+          ],
+          [
+            "2024-06-19",
+            "Fiji",
+            "Samoa"
+          ],
+          [
+            "2024-06-21",
+            "Vanuatu",
+            "New Zealand"
+          ],
+          [
+            "2024-06-22",
+            "Samoa",
+            "Papua New Guinea"
+          ],
+          [
+            "2024-06-22",
+            "Fiji",
+            "Tahiti"
+          ],
+          [
+            "2024-06-27",
+            "Vanuatu",
+            "Fiji"
+          ],
+          [
+            "2024-06-27",
+            "New Zealand",
+            "Tahiti"
+          ],
+          [
+            "2024-06-30",
+            "Tahiti",
+            "Fiji"
+          ],
+          [
+            "2024-06-30",
+            "Vanuatu",
+            "New Zealand"
+          ]
+        ],
+        "scope": "Completed prior edition reference only, no active July1 snapshot, no scores, future participants/dates not fixed. Actual date cross-check pending."
+      }
     }
   }
 ]

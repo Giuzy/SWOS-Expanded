@@ -50,6 +50,2305 @@
       "source": "https://www.rsssf.org/tablese/eng97.html",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block127Research": {
+      "edition": "1996/97",
+      "scope": "Historical reference calendar, no post-cutoff scores imported; no July snapshot needed for this league. Single archive, independently unreconciled; names not native IDs. Additional aggregate archive agrees on match count, entrant count and first/last dates; no duplicate fixture list.",
+      "fixtureColumns": [
+        "round",
+        "date",
+        "home",
+        "away"
+      ],
+      "fixtures": [
+        [
+          1,
+          "1996-08-17",
+          "Derby County FC",
+          "Leeds United FC"
+        ],
+        [
+          1,
+          "1996-08-17",
+          "Wimbledon FC",
+          "Manchester United FC"
+        ],
+        [
+          1,
+          "1996-08-17",
+          "Sheffield Wednesday FC",
+          "Aston Villa FC"
+        ],
+        [
+          1,
+          "1996-08-17",
+          "Blackburn Rovers FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          1,
+          "1996-08-17",
+          "Sunderland AFC",
+          "Leicester City FC"
+        ],
+        [
+          1,
+          "1996-08-17",
+          "Coventry City FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          1,
+          "1996-08-17",
+          "Arsenal FC",
+          "West Ham United FC"
+        ],
+        [
+          1,
+          "1996-08-17",
+          "Middlesbrough FC",
+          "Liverpool FC"
+        ],
+        [
+          1,
+          "1996-08-17",
+          "Everton FC",
+          "Newcastle United FC"
+        ],
+        [
+          1,
+          "1996-08-18",
+          "Southampton FC",
+          "Chelsea FC"
+        ],
+        [
+          2,
+          "1996-08-19",
+          "Liverpool FC",
+          "Arsenal FC"
+        ],
+        [
+          2,
+          "1996-08-20",
+          "Leeds United FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          2,
+          "1996-08-21",
+          "Aston Villa FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          2,
+          "1996-08-21",
+          "Newcastle United FC",
+          "Wimbledon FC"
+        ],
+        [
+          2,
+          "1996-08-21",
+          "Nottingham Forest FC",
+          "Sunderland AFC"
+        ],
+        [
+          2,
+          "1996-08-21",
+          "Chelsea FC",
+          "Middlesbrough FC"
+        ],
+        [
+          2,
+          "1996-08-21",
+          "Manchester United FC",
+          "Everton FC"
+        ],
+        [
+          2,
+          "1996-08-21",
+          "Tottenham Hotspur FC",
+          "Derby County FC"
+        ],
+        [
+          2,
+          "1996-08-21",
+          "West Ham United FC",
+          "Coventry City FC"
+        ],
+        [
+          2,
+          "1996-08-21",
+          "Leicester City FC",
+          "Southampton FC"
+        ],
+        [
+          3,
+          "1996-08-24",
+          "Liverpool FC",
+          "Sunderland AFC"
+        ],
+        [
+          3,
+          "1996-08-24",
+          "Tottenham Hotspur FC",
+          "Everton FC"
+        ],
+        [
+          3,
+          "1996-08-24",
+          "Chelsea FC",
+          "Coventry City FC"
+        ],
+        [
+          3,
+          "1996-08-24",
+          "Leicester City FC",
+          "Arsenal FC"
+        ],
+        [
+          3,
+          "1996-08-24",
+          "Newcastle United FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          3,
+          "1996-08-24",
+          "Nottingham Forest FC",
+          "Middlesbrough FC"
+        ],
+        [
+          3,
+          "1996-08-24",
+          "West Ham United FC",
+          "Southampton FC"
+        ],
+        [
+          3,
+          "1996-08-24",
+          "Aston Villa FC",
+          "Derby County FC"
+        ],
+        [
+          3,
+          "1996-08-25",
+          "Manchester United FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          3,
+          "1996-08-26",
+          "Leeds United FC",
+          "Wimbledon FC"
+        ],
+        [
+          4,
+          "1996-09-02",
+          "Sheffield Wednesday FC",
+          "Leicester City FC"
+        ],
+        [
+          4,
+          "1996-09-04",
+          "Arsenal FC",
+          "Chelsea FC"
+        ],
+        [
+          4,
+          "1996-09-04",
+          "Sunderland AFC",
+          "Newcastle United FC"
+        ],
+        [
+          4,
+          "1996-09-04",
+          "Everton FC",
+          "Aston Villa FC"
+        ],
+        [
+          4,
+          "1996-09-04",
+          "Middlesbrough FC",
+          "West Ham United FC"
+        ],
+        [
+          4,
+          "1996-09-04",
+          "Blackburn Rovers FC",
+          "Leeds United FC"
+        ],
+        [
+          4,
+          "1996-09-04",
+          "Derby County FC",
+          "Manchester United FC"
+        ],
+        [
+          4,
+          "1996-09-04",
+          "Southampton FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          4,
+          "1996-09-04",
+          "Coventry City FC",
+          "Liverpool FC"
+        ],
+        [
+          4,
+          "1996-09-04",
+          "Wimbledon FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          5,
+          "1996-09-07",
+          "Leeds United FC",
+          "Manchester United FC"
+        ],
+        [
+          5,
+          "1996-09-07",
+          "Middlesbrough FC",
+          "Coventry City FC"
+        ],
+        [
+          5,
+          "1996-09-07",
+          "Wimbledon FC",
+          "Everton FC"
+        ],
+        [
+          5,
+          "1996-09-07",
+          "Liverpool FC",
+          "Southampton FC"
+        ],
+        [
+          5,
+          "1996-09-07",
+          "Nottingham Forest FC",
+          "Leicester City FC"
+        ],
+        [
+          5,
+          "1996-09-07",
+          "Tottenham Hotspur FC",
+          "Newcastle United FC"
+        ],
+        [
+          5,
+          "1996-09-07",
+          "Sheffield Wednesday FC",
+          "Chelsea FC"
+        ],
+        [
+          5,
+          "1996-09-07",
+          "Aston Villa FC",
+          "Arsenal FC"
+        ],
+        [
+          5,
+          "1996-09-08",
+          "Sunderland AFC",
+          "West Ham United FC"
+        ],
+        [
+          5,
+          "1996-09-09",
+          "Blackburn Rovers FC",
+          "Derby County FC"
+        ],
+        [
+          6,
+          "1996-09-14",
+          "Manchester United FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          6,
+          "1996-09-14",
+          "Coventry City FC",
+          "Leeds United FC"
+        ],
+        [
+          6,
+          "1996-09-14",
+          "Everton FC",
+          "Middlesbrough FC"
+        ],
+        [
+          6,
+          "1996-09-14",
+          "Newcastle United FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          6,
+          "1996-09-14",
+          "West Ham United FC",
+          "Wimbledon FC"
+        ],
+        [
+          6,
+          "1996-09-14",
+          "Southampton FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          6,
+          "1996-09-14",
+          "Derby County FC",
+          "Sunderland AFC"
+        ],
+        [
+          6,
+          "1996-09-15",
+          "Chelsea FC",
+          "Aston Villa FC"
+        ],
+        [
+          6,
+          "1996-09-15",
+          "Leicester City FC",
+          "Liverpool FC"
+        ],
+        [
+          6,
+          "1996-09-16",
+          "Arsenal FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          7,
+          "1996-09-21",
+          "Sheffield Wednesday FC",
+          "Derby County FC"
+        ],
+        [
+          7,
+          "1996-09-21",
+          "Nottingham Forest FC",
+          "West Ham United FC"
+        ],
+        [
+          7,
+          "1996-09-21",
+          "Aston Villa FC",
+          "Manchester United FC"
+        ],
+        [
+          7,
+          "1996-09-21",
+          "Middlesbrough FC",
+          "Arsenal FC"
+        ],
+        [
+          7,
+          "1996-09-21",
+          "Leeds United FC",
+          "Newcastle United FC"
+        ],
+        [
+          7,
+          "1996-09-21",
+          "Liverpool FC",
+          "Chelsea FC"
+        ],
+        [
+          7,
+          "1996-09-21",
+          "Blackburn Rovers FC",
+          "Everton FC"
+        ],
+        [
+          7,
+          "1996-09-21",
+          "Sunderland AFC",
+          "Coventry City FC"
+        ],
+        [
+          7,
+          "1996-09-22",
+          "Tottenham Hotspur FC",
+          "Leicester City FC"
+        ],
+        [
+          7,
+          "1996-09-23",
+          "Wimbledon FC",
+          "Southampton FC"
+        ],
+        [
+          8,
+          "1996-09-28",
+          "Arsenal FC",
+          "Sunderland AFC"
+        ],
+        [
+          8,
+          "1996-09-28",
+          "Leicester City FC",
+          "Leeds United FC"
+        ],
+        [
+          8,
+          "1996-09-28",
+          "Southampton FC",
+          "Middlesbrough FC"
+        ],
+        [
+          8,
+          "1996-09-28",
+          "Chelsea FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          8,
+          "1996-09-28",
+          "Derby County FC",
+          "Wimbledon FC"
+        ],
+        [
+          8,
+          "1996-09-28",
+          "Coventry City FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          8,
+          "1996-09-28",
+          "Everton FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          8,
+          "1996-09-29",
+          "Manchester United FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          8,
+          "1996-09-29",
+          "West Ham United FC",
+          "Liverpool FC"
+        ],
+        [
+          8,
+          "1996-09-30",
+          "Newcastle United FC",
+          "Aston Villa FC"
+        ],
+        [
+          9,
+          "1996-10-12",
+          "Leicester City FC",
+          "Chelsea FC"
+        ],
+        [
+          9,
+          "1996-10-12",
+          "Tottenham Hotspur FC",
+          "Aston Villa FC"
+        ],
+        [
+          9,
+          "1996-10-12",
+          "Wimbledon FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          9,
+          "1996-10-12",
+          "Manchester United FC",
+          "Liverpool FC"
+        ],
+        [
+          9,
+          "1996-10-12",
+          "Blackburn Rovers FC",
+          "Arsenal FC"
+        ],
+        [
+          9,
+          "1996-10-12",
+          "Leeds United FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          9,
+          "1996-10-12",
+          "Derby County FC",
+          "Newcastle United FC"
+        ],
+        [
+          9,
+          "1996-10-12",
+          "Everton FC",
+          "West Ham United FC"
+        ],
+        [
+          9,
+          "1996-10-13",
+          "Coventry City FC",
+          "Southampton FC"
+        ],
+        [
+          9,
+          "1996-10-14",
+          "Sunderland AFC",
+          "Middlesbrough FC"
+        ],
+        [
+          10,
+          "1996-10-19",
+          "Arsenal FC",
+          "Coventry City FC"
+        ],
+        [
+          10,
+          "1996-10-19",
+          "Nottingham Forest FC",
+          "Derby County FC"
+        ],
+        [
+          10,
+          "1996-10-19",
+          "Chelsea FC",
+          "Wimbledon FC"
+        ],
+        [
+          10,
+          "1996-10-19",
+          "Middlesbrough FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          10,
+          "1996-10-19",
+          "Southampton FC",
+          "Sunderland AFC"
+        ],
+        [
+          10,
+          "1996-10-19",
+          "Aston Villa FC",
+          "Leeds United FC"
+        ],
+        [
+          10,
+          "1996-10-19",
+          "West Ham United FC",
+          "Leicester City FC"
+        ],
+        [
+          10,
+          "1996-10-19",
+          "Sheffield Wednesday FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          10,
+          "1996-10-20",
+          "Newcastle United FC",
+          "Manchester United FC"
+        ],
+        [
+          11,
+          "1996-10-26",
+          "Southampton FC",
+          "Manchester United FC"
+        ],
+        [
+          11,
+          "1996-10-26",
+          "Middlesbrough FC",
+          "Wimbledon FC"
+        ],
+        [
+          11,
+          "1996-10-26",
+          "Leicester City FC",
+          "Newcastle United FC"
+        ],
+        [
+          11,
+          "1996-10-26",
+          "Arsenal FC",
+          "Leeds United FC"
+        ],
+        [
+          11,
+          "1996-10-26",
+          "Sunderland AFC",
+          "Aston Villa FC"
+        ],
+        [
+          11,
+          "1996-10-26",
+          "Coventry City FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          11,
+          "1996-10-26",
+          "West Ham United FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          11,
+          "1996-10-26",
+          "Chelsea FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          11,
+          "1996-10-27",
+          "Liverpool FC",
+          "Derby County FC"
+        ],
+        [
+          11,
+          "1996-10-28",
+          "Nottingham Forest FC",
+          "Everton FC"
+        ],
+        [
+          12,
+          "1996-11-02",
+          "Wimbledon FC",
+          "Arsenal FC"
+        ],
+        [
+          12,
+          "1996-11-02",
+          "Derby County FC",
+          "Leicester City FC"
+        ],
+        [
+          12,
+          "1996-11-02",
+          "Sheffield Wednesday FC",
+          "Southampton FC"
+        ],
+        [
+          12,
+          "1996-11-02",
+          "Aston Villa FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          12,
+          "1996-11-02",
+          "Manchester United FC",
+          "Chelsea FC"
+        ],
+        [
+          12,
+          "1996-11-02",
+          "Leeds United FC",
+          "Sunderland AFC"
+        ],
+        [
+          12,
+          "1996-11-02",
+          "Tottenham Hotspur FC",
+          "West Ham United FC"
+        ],
+        [
+          12,
+          "1996-11-03",
+          "Blackburn Rovers FC",
+          "Liverpool FC"
+        ],
+        [
+          12,
+          "1996-11-03",
+          "Newcastle United FC",
+          "Middlesbrough FC"
+        ],
+        [
+          12,
+          "1996-11-04",
+          "Everton FC",
+          "Coventry City FC"
+        ],
+        [
+          13,
+          "1996-11-16",
+          "Newcastle United FC",
+          "West Ham United FC"
+        ],
+        [
+          13,
+          "1996-11-16",
+          "Leeds United FC",
+          "Liverpool FC"
+        ],
+        [
+          13,
+          "1996-11-16",
+          "Wimbledon FC",
+          "Coventry City FC"
+        ],
+        [
+          13,
+          "1996-11-16",
+          "Blackburn Rovers FC",
+          "Chelsea FC"
+        ],
+        [
+          13,
+          "1996-11-16",
+          "Tottenham Hotspur FC",
+          "Sunderland AFC"
+        ],
+        [
+          13,
+          "1996-11-16",
+          "Aston Villa FC",
+          "Leicester City FC"
+        ],
+        [
+          13,
+          "1996-11-16",
+          "Everton FC",
+          "Southampton FC"
+        ],
+        [
+          13,
+          "1996-11-16",
+          "Manchester United FC",
+          "Arsenal FC"
+        ],
+        [
+          13,
+          "1996-11-17",
+          "Derby County FC",
+          "Middlesbrough FC"
+        ],
+        [
+          13,
+          "1996-11-18",
+          "Sheffield Wednesday FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          10,
+          "1996-11-20",
+          "Liverpool FC",
+          "Everton FC"
+        ],
+        [
+          14,
+          "1996-11-23",
+          "Middlesbrough FC",
+          "Manchester United FC"
+        ],
+        [
+          14,
+          "1996-11-23",
+          "Sunderland AFC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          14,
+          "1996-11-23",
+          "West Ham United FC",
+          "Derby County FC"
+        ],
+        [
+          14,
+          "1996-11-23",
+          "Leicester City FC",
+          "Everton FC"
+        ],
+        [
+          14,
+          "1996-11-23",
+          "Liverpool FC",
+          "Wimbledon FC"
+        ],
+        [
+          14,
+          "1996-11-23",
+          "Southampton FC",
+          "Leeds United FC"
+        ],
+        [
+          14,
+          "1996-11-23",
+          "Chelsea FC",
+          "Newcastle United FC"
+        ],
+        [
+          14,
+          "1996-11-23",
+          "Coventry City FC",
+          "Aston Villa FC"
+        ],
+        [
+          14,
+          "1996-11-24",
+          "Arsenal FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          14,
+          "1996-11-25",
+          "Nottingham Forest FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          15,
+          "1996-11-30",
+          "Wimbledon FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          15,
+          "1996-11-30",
+          "Sheffield Wednesday FC",
+          "West Ham United FC"
+        ],
+        [
+          15,
+          "1996-11-30",
+          "Aston Villa FC",
+          "Middlesbrough FC"
+        ],
+        [
+          15,
+          "1996-11-30",
+          "Newcastle United FC",
+          "Arsenal FC"
+        ],
+        [
+          15,
+          "1996-11-30",
+          "Everton FC",
+          "Sunderland AFC"
+        ],
+        [
+          15,
+          "1996-11-30",
+          "Derby County FC",
+          "Coventry City FC"
+        ],
+        [
+          15,
+          "1996-11-30",
+          "Blackburn Rovers FC",
+          "Southampton FC"
+        ],
+        [
+          15,
+          "1996-11-30",
+          "Manchester United FC",
+          "Leicester City FC"
+        ],
+        [
+          15,
+          "1996-12-01",
+          "Leeds United FC",
+          "Chelsea FC"
+        ],
+        [
+          15,
+          "1996-12-02",
+          "Tottenham Hotspur FC",
+          "Liverpool FC"
+        ],
+        [
+          17,
+          "1996-12-03",
+          "Middlesbrough FC",
+          "Leicester City FC"
+        ],
+        [
+          17,
+          "1996-12-04",
+          "West Ham United FC",
+          "Aston Villa FC"
+        ],
+        [
+          17,
+          "1996-12-04",
+          "Arsenal FC",
+          "Southampton FC"
+        ],
+        [
+          16,
+          "1996-12-07",
+          "Southampton FC",
+          "Aston Villa FC"
+        ],
+        [
+          16,
+          "1996-12-07",
+          "Leicester City FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          16,
+          "1996-12-07",
+          "Arsenal FC",
+          "Derby County FC"
+        ],
+        [
+          16,
+          "1996-12-07",
+          "Liverpool FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          16,
+          "1996-12-07",
+          "Chelsea FC",
+          "Everton FC"
+        ],
+        [
+          16,
+          "1996-12-07",
+          "Sunderland AFC",
+          "Wimbledon FC"
+        ],
+        [
+          16,
+          "1996-12-07",
+          "Middlesbrough FC",
+          "Leeds United FC"
+        ],
+        [
+          16,
+          "1996-12-07",
+          "Coventry City FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          16,
+          "1996-12-08",
+          "West Ham United FC",
+          "Manchester United FC"
+        ],
+        [
+          16,
+          "1996-12-09",
+          "Nottingham Forest FC",
+          "Newcastle United FC"
+        ],
+        [
+          17,
+          "1996-12-14",
+          "Wimbledon FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          17,
+          "1996-12-14",
+          "Leeds United FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          24,
+          "1996-12-14",
+          "Liverpool FC",
+          "Middlesbrough FC"
+        ],
+        [
+          17,
+          "1996-12-15",
+          "Sunderland AFC",
+          "Chelsea FC"
+        ],
+        [
+          17,
+          "1996-12-16",
+          "Derby County FC",
+          "Everton FC"
+        ],
+        [
+          17,
+          "1996-12-17",
+          "Liverpool FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          17,
+          "1996-12-17",
+          "Coventry City FC",
+          "Newcastle United FC"
+        ],
+        [
+          17,
+          "1996-12-18",
+          "Sheffield Wednesday FC",
+          "Manchester United FC"
+        ],
+        [
+          18,
+          "1996-12-21",
+          "Manchester United FC",
+          "Sunderland AFC"
+        ],
+        [
+          18,
+          "1996-12-21",
+          "Chelsea FC",
+          "West Ham United FC"
+        ],
+        [
+          18,
+          "1996-12-21",
+          "Southampton FC",
+          "Derby County FC"
+        ],
+        [
+          18,
+          "1996-12-21",
+          "Nottingham Forest FC",
+          "Arsenal FC"
+        ],
+        [
+          18,
+          "1996-12-21",
+          "Tottenham Hotspur FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          18,
+          "1996-12-21",
+          "Leicester City FC",
+          "Coventry City FC"
+        ],
+        [
+          18,
+          "1996-12-21",
+          "Everton FC",
+          "Leeds United FC"
+        ],
+        [
+          18,
+          "1996-12-22",
+          "Aston Villa FC",
+          "Wimbledon FC"
+        ],
+        [
+          18,
+          "1996-12-23",
+          "Newcastle United FC",
+          "Liverpool FC"
+        ],
+        [
+          19,
+          "1996-12-26",
+          "Aston Villa FC",
+          "Chelsea FC"
+        ],
+        [
+          19,
+          "1996-12-26",
+          "Liverpool FC",
+          "Leicester City FC"
+        ],
+        [
+          19,
+          "1996-12-26",
+          "Tottenham Hotspur FC",
+          "Southampton FC"
+        ],
+        [
+          19,
+          "1996-12-26",
+          "Sheffield Wednesday FC",
+          "Arsenal FC"
+        ],
+        [
+          19,
+          "1996-12-26",
+          "Blackburn Rovers FC",
+          "Newcastle United FC"
+        ],
+        [
+          19,
+          "1996-12-26",
+          "Nottingham Forest FC",
+          "Manchester United FC"
+        ],
+        [
+          19,
+          "1996-12-26",
+          "Sunderland AFC",
+          "Derby County FC"
+        ],
+        [
+          19,
+          "1996-12-26",
+          "Leeds United FC",
+          "Coventry City FC"
+        ],
+        [
+          19,
+          "1996-12-26",
+          "Middlesbrough FC",
+          "Everton FC"
+        ],
+        [
+          20,
+          "1996-12-28",
+          "Newcastle United FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          20,
+          "1996-12-28",
+          "Coventry City FC",
+          "Middlesbrough FC"
+        ],
+        [
+          20,
+          "1996-12-28",
+          "Derby County FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          20,
+          "1996-12-28",
+          "Leicester City FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          20,
+          "1996-12-28",
+          "Arsenal FC",
+          "Aston Villa FC"
+        ],
+        [
+          20,
+          "1996-12-28",
+          "Everton FC",
+          "Wimbledon FC"
+        ],
+        [
+          20,
+          "1996-12-28",
+          "West Ham United FC",
+          "Sunderland AFC"
+        ],
+        [
+          20,
+          "1996-12-28",
+          "Manchester United FC",
+          "Leeds United FC"
+        ],
+        [
+          20,
+          "1996-12-28",
+          "Chelsea FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          20,
+          "1996-12-29",
+          "Southampton FC",
+          "Liverpool FC"
+        ],
+        [
+          21,
+          "1997-01-01",
+          "Arsenal FC",
+          "Middlesbrough FC"
+        ],
+        [
+          21,
+          "1997-01-01",
+          "Coventry City FC",
+          "Sunderland AFC"
+        ],
+        [
+          21,
+          "1997-01-01",
+          "Newcastle United FC",
+          "Leeds United FC"
+        ],
+        [
+          21,
+          "1997-01-01",
+          "Chelsea FC",
+          "Liverpool FC"
+        ],
+        [
+          21,
+          "1997-01-01",
+          "West Ham United FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          21,
+          "1997-01-01",
+          "Manchester United FC",
+          "Aston Villa FC"
+        ],
+        [
+          21,
+          "1997-01-01",
+          "Everton FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          22,
+          "1997-01-11",
+          "Nottingham Forest FC",
+          "Chelsea FC"
+        ],
+        [
+          22,
+          "1997-01-11",
+          "Sheffield Wednesday FC",
+          "Everton FC"
+        ],
+        [
+          22,
+          "1997-01-11",
+          "Liverpool FC",
+          "West Ham United FC"
+        ],
+        [
+          22,
+          "1997-01-11",
+          "Middlesbrough FC",
+          "Southampton FC"
+        ],
+        [
+          22,
+          "1997-01-11",
+          "Aston Villa FC",
+          "Newcastle United FC"
+        ],
+        [
+          22,
+          "1997-01-11",
+          "Wimbledon FC",
+          "Derby County FC"
+        ],
+        [
+          22,
+          "1997-01-11",
+          "Leeds United FC",
+          "Leicester City FC"
+        ],
+        [
+          22,
+          "1997-01-11",
+          "Sunderland AFC",
+          "Arsenal FC"
+        ],
+        [
+          22,
+          "1997-01-11",
+          "Blackburn Rovers FC",
+          "Coventry City FC"
+        ],
+        [
+          22,
+          "1997-01-12",
+          "Tottenham Hotspur FC",
+          "Manchester United FC"
+        ],
+        [
+          23,
+          "1997-01-18",
+          "Middlesbrough FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          23,
+          "1997-01-18",
+          "Chelsea FC",
+          "Derby County FC"
+        ],
+        [
+          23,
+          "1997-01-18",
+          "Leicester City FC",
+          "Wimbledon FC"
+        ],
+        [
+          23,
+          "1997-01-18",
+          "Southampton FC",
+          "Newcastle United FC"
+        ],
+        [
+          23,
+          "1997-01-18",
+          "Liverpool FC",
+          "Aston Villa FC"
+        ],
+        [
+          23,
+          "1997-01-18",
+          "Sunderland AFC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          23,
+          "1997-01-18",
+          "Coventry City FC",
+          "Manchester United FC"
+        ],
+        [
+          23,
+          "1997-01-19",
+          "Arsenal FC",
+          "Everton FC"
+        ],
+        [
+          23,
+          "1997-01-19",
+          "Nottingham Forest FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          23,
+          "1997-01-20",
+          "West Ham United FC",
+          "Leeds United FC"
+        ],
+        [
+          24,
+          "1997-01-29",
+          "Manchester United FC",
+          "Wimbledon FC"
+        ],
+        [
+          24,
+          "1997-01-29",
+          "Newcastle United FC",
+          "Everton FC"
+        ],
+        [
+          24,
+          "1997-01-29",
+          "Nottingham Forest FC",
+          "Coventry City FC"
+        ],
+        [
+          24,
+          "1997-01-29",
+          "Leeds United FC",
+          "Derby County FC"
+        ],
+        [
+          24,
+          "1997-01-29",
+          "Leicester City FC",
+          "Sunderland AFC"
+        ],
+        [
+          24,
+          "1997-01-29",
+          "West Ham United FC",
+          "Arsenal FC"
+        ],
+        [
+          24,
+          "1997-01-29",
+          "Aston Villa FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          24,
+          "1997-01-29",
+          "Tottenham Hotspur FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          25,
+          "1997-02-01",
+          "Everton FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          25,
+          "1997-02-01",
+          "Derby County FC",
+          "Liverpool FC"
+        ],
+        [
+          25,
+          "1997-02-01",
+          "Aston Villa FC",
+          "Sunderland AFC"
+        ],
+        [
+          25,
+          "1997-02-01",
+          "Sheffield Wednesday FC",
+          "Coventry City FC"
+        ],
+        [
+          25,
+          "1997-02-01",
+          "Tottenham Hotspur FC",
+          "Chelsea FC"
+        ],
+        [
+          25,
+          "1997-02-01",
+          "Manchester United FC",
+          "Southampton FC"
+        ],
+        [
+          25,
+          "1997-02-01",
+          "Blackburn Rovers FC",
+          "West Ham United FC"
+        ],
+        [
+          25,
+          "1997-02-01",
+          "Wimbledon FC",
+          "Middlesbrough FC"
+        ],
+        [
+          25,
+          "1997-02-01",
+          "Leeds United FC",
+          "Arsenal FC"
+        ],
+        [
+          25,
+          "1997-02-02",
+          "Newcastle United FC",
+          "Leicester City FC"
+        ],
+        [
+          26,
+          "1997-02-15",
+          "Derby County FC",
+          "West Ham United FC"
+        ],
+        [
+          26,
+          "1997-02-15",
+          "Tottenham Hotspur FC",
+          "Arsenal FC"
+        ],
+        [
+          21,
+          "1997-02-19",
+          "Derby County FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          26,
+          "1997-02-19",
+          "Aston Villa FC",
+          "Coventry City FC"
+        ],
+        [
+          29,
+          "1997-02-19",
+          "Arsenal FC",
+          "Manchester United FC"
+        ],
+        [
+          29,
+          "1997-02-19",
+          "Liverpool FC",
+          "Leeds United FC"
+        ],
+        [
+          27,
+          "1997-02-22",
+          "Nottingham Forest FC",
+          "Aston Villa FC"
+        ],
+        [
+          27,
+          "1997-02-22",
+          "Sunderland AFC",
+          "Leeds United FC"
+        ],
+        [
+          27,
+          "1997-02-22",
+          "Chelsea FC",
+          "Manchester United FC"
+        ],
+        [
+          27,
+          "1997-02-22",
+          "Southampton FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          27,
+          "1997-02-22",
+          "Middlesbrough FC",
+          "Newcastle United FC"
+        ],
+        [
+          27,
+          "1997-02-22",
+          "Leicester City FC",
+          "Derby County FC"
+        ],
+        [
+          27,
+          "1997-02-22",
+          "Coventry City FC",
+          "Everton FC"
+        ],
+        [
+          27,
+          "1997-02-22",
+          "Liverpool FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          27,
+          "1997-02-23",
+          "Arsenal FC",
+          "Wimbledon FC"
+        ],
+        [
+          27,
+          "1997-02-24",
+          "West Ham United FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          21,
+          "1997-02-26",
+          "Southampton FC",
+          "Wimbledon FC"
+        ],
+        [
+          28,
+          "1997-03-01",
+          "Everton FC",
+          "Arsenal FC"
+        ],
+        [
+          28,
+          "1997-03-01",
+          "Sheffield Wednesday FC",
+          "Middlesbrough FC"
+        ],
+        [
+          28,
+          "1997-03-01",
+          "Newcastle United FC",
+          "Southampton FC"
+        ],
+        [
+          28,
+          "1997-03-01",
+          "Manchester United FC",
+          "Coventry City FC"
+        ],
+        [
+          28,
+          "1997-03-01",
+          "Tottenham Hotspur FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          28,
+          "1997-03-01",
+          "Leeds United FC",
+          "West Ham United FC"
+        ],
+        [
+          28,
+          "1997-03-01",
+          "Derby County FC",
+          "Chelsea FC"
+        ],
+        [
+          28,
+          "1997-03-01",
+          "Wimbledon FC",
+          "Leicester City FC"
+        ],
+        [
+          28,
+          "1997-03-01",
+          "Blackburn Rovers FC",
+          "Sunderland AFC"
+        ],
+        [
+          28,
+          "1997-03-02",
+          "Aston Villa FC",
+          "Liverpool FC"
+        ],
+        [
+          29,
+          "1997-03-03",
+          "Coventry City FC",
+          "Wimbledon FC"
+        ],
+        [
+          29,
+          "1997-03-04",
+          "Sunderland AFC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          29,
+          "1997-03-05",
+          "Middlesbrough FC",
+          "Derby County FC"
+        ],
+        [
+          29,
+          "1997-03-05",
+          "Leicester City FC",
+          "Aston Villa FC"
+        ],
+        [
+          29,
+          "1997-03-05",
+          "Southampton FC",
+          "Everton FC"
+        ],
+        [
+          29,
+          "1997-03-05",
+          "Nottingham Forest FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          29,
+          "1997-03-05",
+          "Chelsea FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          30,
+          "1997-03-08",
+          "Sunderland AFC",
+          "Manchester United FC"
+        ],
+        [
+          30,
+          "1997-03-08",
+          "Leeds United FC",
+          "Everton FC"
+        ],
+        [
+          30,
+          "1997-03-08",
+          "Arsenal FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          30,
+          "1997-03-08",
+          "Coventry City FC",
+          "Leicester City FC"
+        ],
+        [
+          30,
+          "1997-03-10",
+          "Liverpool FC",
+          "Newcastle United FC"
+        ],
+        [
+          26,
+          "1997-03-11",
+          "Blackburn Rovers FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          26,
+          "1997-03-12",
+          "Sheffield Wednesday FC",
+          "Sunderland AFC"
+        ],
+        [
+          26,
+          "1997-03-12",
+          "Leeds United FC",
+          "Southampton FC"
+        ],
+        [
+          30,
+          "1997-03-12",
+          "West Ham United FC",
+          "Chelsea FC"
+        ],
+        [
+          31,
+          "1997-03-15",
+          "Newcastle United FC",
+          "Coventry City FC"
+        ],
+        [
+          31,
+          "1997-03-15",
+          "Blackburn Rovers FC",
+          "Wimbledon FC"
+        ],
+        [
+          31,
+          "1997-03-15",
+          "Tottenham Hotspur FC",
+          "Leeds United FC"
+        ],
+        [
+          31,
+          "1997-03-15",
+          "Aston Villa FC",
+          "West Ham United FC"
+        ],
+        [
+          31,
+          "1997-03-15",
+          "Leicester City FC",
+          "Middlesbrough FC"
+        ],
+        [
+          31,
+          "1997-03-15",
+          "Everton FC",
+          "Derby County FC"
+        ],
+        [
+          31,
+          "1997-03-15",
+          "Manchester United FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          31,
+          "1997-03-15",
+          "Southampton FC",
+          "Arsenal FC"
+        ],
+        [
+          31,
+          "1997-03-15",
+          "Nottingham Forest FC",
+          "Liverpool FC"
+        ],
+        [
+          31,
+          "1997-03-16",
+          "Chelsea FC",
+          "Sunderland AFC"
+        ],
+        [
+          19,
+          "1997-03-18",
+          "Wimbledon FC",
+          "West Ham United FC"
+        ],
+        [
+          21,
+          "1997-03-19",
+          "Leicester City FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          24,
+          "1997-03-19",
+          "Chelsea FC",
+          "Southampton FC"
+        ],
+        [
+          30,
+          "1997-03-19",
+          "Middlesbrough FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          32,
+          "1997-03-22",
+          "Southampton FC",
+          "Leicester City FC"
+        ],
+        [
+          32,
+          "1997-03-22",
+          "Blackburn Rovers FC",
+          "Aston Villa FC"
+        ],
+        [
+          32,
+          "1997-03-22",
+          "Coventry City FC",
+          "West Ham United FC"
+        ],
+        [
+          32,
+          "1997-03-22",
+          "Sunderland AFC",
+          "Nottingham Forest FC"
+        ],
+        [
+          32,
+          "1997-03-22",
+          "Everton FC",
+          "Manchester United FC"
+        ],
+        [
+          32,
+          "1997-03-22",
+          "Sheffield Wednesday FC",
+          "Leeds United FC"
+        ],
+        [
+          32,
+          "1997-03-22",
+          "Derby County FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          32,
+          "1997-03-22",
+          "Middlesbrough FC",
+          "Chelsea FC"
+        ],
+        [
+          32,
+          "1997-03-23",
+          "Wimbledon FC",
+          "Newcastle United FC"
+        ],
+        [
+          32,
+          "1997-03-24",
+          "Arsenal FC",
+          "Liverpool FC"
+        ],
+        [
+          34,
+          "1997-03-24",
+          "Middlesbrough FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          33,
+          "1997-04-05",
+          "Tottenham Hotspur FC",
+          "Wimbledon FC"
+        ],
+        [
+          33,
+          "1997-04-05",
+          "Chelsea FC",
+          "Arsenal FC"
+        ],
+        [
+          33,
+          "1997-04-05",
+          "Manchester United FC",
+          "Derby County FC"
+        ],
+        [
+          33,
+          "1997-04-05",
+          "Newcastle United FC",
+          "Sunderland AFC"
+        ],
+        [
+          33,
+          "1997-04-05",
+          "Aston Villa FC",
+          "Everton FC"
+        ],
+        [
+          33,
+          "1997-04-05",
+          "Nottingham Forest FC",
+          "Southampton FC"
+        ],
+        [
+          33,
+          "1997-04-06",
+          "Liverpool FC",
+          "Coventry City FC"
+        ],
+        [
+          33,
+          "1997-04-07",
+          "Leeds United FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          26,
+          "1997-04-09",
+          "Everton FC",
+          "Leicester City FC"
+        ],
+        [
+          30,
+          "1997-04-09",
+          "Derby County FC",
+          "Southampton FC"
+        ],
+        [
+          30,
+          "1997-04-09",
+          "Wimbledon FC",
+          "Aston Villa FC"
+        ],
+        [
+          30,
+          "1997-04-09",
+          "Sheffield Wednesday FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          33,
+          "1997-04-09",
+          "West Ham United FC",
+          "Middlesbrough FC"
+        ],
+        [
+          34,
+          "1997-04-09",
+          "Coventry City FC",
+          "Chelsea FC"
+        ],
+        [
+          34,
+          "1997-04-12",
+          "Everton FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          34,
+          "1997-04-12",
+          "Blackburn Rovers FC",
+          "Manchester United FC"
+        ],
+        [
+          34,
+          "1997-04-12",
+          "Southampton FC",
+          "West Ham United FC"
+        ],
+        [
+          34,
+          "1997-04-12",
+          "Arsenal FC",
+          "Leicester City FC"
+        ],
+        [
+          34,
+          "1997-04-12",
+          "Derby County FC",
+          "Aston Villa FC"
+        ],
+        [
+          34,
+          "1997-04-13",
+          "Sheffield Wednesday FC",
+          "Newcastle United FC"
+        ],
+        [
+          34,
+          "1997-04-13",
+          "Sunderland AFC",
+          "Liverpool FC"
+        ],
+        [
+          26,
+          "1997-04-16",
+          "Newcastle United FC",
+          "Chelsea FC"
+        ],
+        [
+          34,
+          "1997-04-16",
+          "Wimbledon FC",
+          "Leeds United FC"
+        ],
+        [
+          36,
+          "1997-04-16",
+          "Everton FC",
+          "Liverpool FC"
+        ],
+        [
+          35,
+          "1997-04-19",
+          "Aston Villa FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          35,
+          "1997-04-19",
+          "Newcastle United FC",
+          "Derby County FC"
+        ],
+        [
+          35,
+          "1997-04-19",
+          "Liverpool FC",
+          "Manchester United FC"
+        ],
+        [
+          35,
+          "1997-04-19",
+          "Nottingham Forest FC",
+          "Leeds United FC"
+        ],
+        [
+          35,
+          "1997-04-19",
+          "Sheffield Wednesday FC",
+          "Wimbledon FC"
+        ],
+        [
+          35,
+          "1997-04-19",
+          "Southampton FC",
+          "Coventry City FC"
+        ],
+        [
+          35,
+          "1997-04-19",
+          "West Ham United FC",
+          "Everton FC"
+        ],
+        [
+          35,
+          "1997-04-19",
+          "Middlesbrough FC",
+          "Sunderland AFC"
+        ],
+        [
+          35,
+          "1997-04-19",
+          "Chelsea FC",
+          "Leicester City FC"
+        ],
+        [
+          35,
+          "1997-04-19",
+          "Arsenal FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          36,
+          "1997-04-21",
+          "Coventry City FC",
+          "Arsenal FC"
+        ],
+        [
+          36,
+          "1997-04-22",
+          "Blackburn Rovers FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          36,
+          "1997-04-22",
+          "Leeds United FC",
+          "Aston Villa FC"
+        ],
+        [
+          36,
+          "1997-04-22",
+          "Wimbledon FC",
+          "Chelsea FC"
+        ],
+        [
+          36,
+          "1997-04-22",
+          "Sunderland AFC",
+          "Southampton FC"
+        ],
+        [
+          36,
+          "1997-04-23",
+          "Leicester City FC",
+          "West Ham United FC"
+        ],
+        [
+          36,
+          "1997-04-23",
+          "Derby County FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          36,
+          "1997-04-24",
+          "Tottenham Hotspur FC",
+          "Middlesbrough FC"
+        ],
+        [
+          37,
+          "1997-05-03",
+          "Nottingham Forest FC",
+          "Wimbledon FC"
+        ],
+        [
+          37,
+          "1997-05-03",
+          "West Ham United FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          37,
+          "1997-05-03",
+          "Chelsea FC",
+          "Leeds United FC"
+        ],
+        [
+          37,
+          "1997-05-03",
+          "Liverpool FC",
+          "Tottenham Hotspur FC"
+        ],
+        [
+          37,
+          "1997-05-03",
+          "Arsenal FC",
+          "Newcastle United FC"
+        ],
+        [
+          37,
+          "1997-05-03",
+          "Middlesbrough FC",
+          "Aston Villa FC"
+        ],
+        [
+          37,
+          "1997-05-03",
+          "Sunderland AFC",
+          "Everton FC"
+        ],
+        [
+          37,
+          "1997-05-03",
+          "Leicester City FC",
+          "Manchester United FC"
+        ],
+        [
+          37,
+          "1997-05-03",
+          "Southampton FC",
+          "Blackburn Rovers FC"
+        ],
+        [
+          37,
+          "1997-05-03",
+          "Coventry City FC",
+          "Derby County FC"
+        ],
+        [
+          26,
+          "1997-05-05",
+          "Manchester United FC",
+          "Middlesbrough FC"
+        ],
+        [
+          26,
+          "1997-05-06",
+          "Wimbledon FC",
+          "Liverpool FC"
+        ],
+        [
+          29,
+          "1997-05-06",
+          "West Ham United FC",
+          "Newcastle United FC"
+        ],
+        [
+          33,
+          "1997-05-07",
+          "Leicester City FC",
+          "Sheffield Wednesday FC"
+        ],
+        [
+          18,
+          "1997-05-08",
+          "Blackburn Rovers FC",
+          "Middlesbrough FC"
+        ],
+        [
+          36,
+          "1997-05-08",
+          "Manchester United FC",
+          "Newcastle United FC"
+        ],
+        [
+          38,
+          "1997-05-11",
+          "Tottenham Hotspur FC",
+          "Coventry City FC"
+        ],
+        [
+          38,
+          "1997-05-11",
+          "Sheffield Wednesday FC",
+          "Liverpool FC"
+        ],
+        [
+          38,
+          "1997-05-11",
+          "Wimbledon FC",
+          "Sunderland AFC"
+        ],
+        [
+          38,
+          "1997-05-11",
+          "Aston Villa FC",
+          "Southampton FC"
+        ],
+        [
+          38,
+          "1997-05-11",
+          "Derby County FC",
+          "Arsenal FC"
+        ],
+        [
+          38,
+          "1997-05-11",
+          "Everton FC",
+          "Chelsea FC"
+        ],
+        [
+          38,
+          "1997-05-11",
+          "Manchester United FC",
+          "West Ham United FC"
+        ],
+        [
+          38,
+          "1997-05-11",
+          "Blackburn Rovers FC",
+          "Leicester City FC"
+        ],
+        [
+          38,
+          "1997-05-11",
+          "Newcastle United FC",
+          "Nottingham Forest FC"
+        ],
+        [
+          38,
+          "1997-05-11",
+          "Leeds United FC",
+          "Middlesbrough FC"
+        ]
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "archiveComparison": {
+        "compared": 380,
+        "matchedDateAndOrientedPair": 380,
+        "uniqueNameCorrespondences": 20,
+        "scope": "Unique home/away date signatures; independent archive provenance not established; no native key mapping or strict certification."
+      }
     }
   },
   {
@@ -123,6 +2422,17 @@
         }
       ],
       "historyComplete": false
+    },
+    "block127Research": {
+      "edition": "1996/97",
+      "regularSeasonMatchCount": 552,
+      "firstObservedDate": "1996-08-16",
+      "lastObservedDate": "1997-05-04",
+      "entrantCount": 24,
+      "orderedPairCount": 552,
+      "withinLeagueSameDayClashes": 0,
+      "scope": "Aggregate check of historical league archive only; no redistributed match rows because underlying third-party rights not established. All four start after July1. No playoff dates or native participant keys certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -190,6 +2500,17 @@
         }
       ],
       "historyComplete": false
+    },
+    "block127Research": {
+      "edition": "1996/97",
+      "regularSeasonMatchCount": 552,
+      "firstObservedDate": "1996-08-17",
+      "lastObservedDate": "1997-05-03",
+      "entrantCount": 24,
+      "orderedPairCount": 552,
+      "withinLeagueSameDayClashes": 0,
+      "scope": "Aggregate check of historical league archive only; no redistributed match rows because underlying third-party rights not established. All four start after July1. No playoff dates or native participant keys certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -261,6 +2582,17 @@
         }
       ],
       "historyComplete": false
+    },
+    "block127Research": {
+      "edition": "1996/97",
+      "regularSeasonMatchCount": 552,
+      "firstObservedDate": "1996-08-17",
+      "lastObservedDate": "1997-05-03",
+      "entrantCount": 24,
+      "orderedPairCount": 552,
+      "withinLeagueSameDayClashes": 0,
+      "scope": "Aggregate check of historical league archive only; no redistributed match rows because underlying third-party rights not established. All four start after July1. No playoff dates or native participant keys certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

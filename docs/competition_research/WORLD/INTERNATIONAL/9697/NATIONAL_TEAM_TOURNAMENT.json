@@ -121,6 +121,21 @@
         "detailedMatch": "1996-05-11",
         "provisional": "1996-05-11"
       }
+    },
+    "block125Bulk": {
+      "edition": "1996",
+      "status": "PARTIAL_ARCHIVE_COVERAGE",
+      "archiveCount": 4,
+      "expectedMatches": 6,
+      "preCutoffTahitiSolomonDateCorroborated": "1996-05-11",
+      "missingFromArchive": "Australia–New Zealand semifinal pair; may have been classified under another tournament",
+      "finalDateDiscrepancy": {
+        "existing": "1996-10-26",
+        "archive": "1996-10-27",
+        "scope": "Tahiti home leg; unresolved, do not overwrite"
+      },
+      "note": "No duplicate fixture records added; previous startResearch remains authority candidate.",
+      "preCutoffDateConflictResolution": "1996-05-11 corroborated against existing detailed match record and bulk archive; 1995 summary date rejected."
     }
   },
   {
@@ -412,6 +427,3196 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "scope": "Historic group qualification and playoffs; no individual slot assignment."
+    },
+    "block125Bulk": {
+      "finalTournament": {
+        "edition": "1998",
+        "status": "BULK_EXTRACTED_SINGLE_ARCHIVE_NOT_INDEPENDENTLY_CERTIFIED",
+        "matchCount": 64,
+        "participantNames": 32,
+        "distinctDates": 27,
+        "first": "1998-06-10",
+        "last": "1998-07-12",
+        "fixtureSchema": [
+          "date",
+          "home",
+          "away"
+        ],
+        "fixtures": [
+          [
+            "1998-06-10",
+            "Brazil",
+            "Scotland"
+          ],
+          [
+            "1998-06-10",
+            "Morocco",
+            "Norway"
+          ],
+          [
+            "1998-06-11",
+            "Cameroon",
+            "Austria"
+          ],
+          [
+            "1998-06-11",
+            "Italy",
+            "Chile"
+          ],
+          [
+            "1998-06-12",
+            "France",
+            "South Africa"
+          ],
+          [
+            "1998-06-12",
+            "Paraguay",
+            "Bulgaria"
+          ],
+          [
+            "1998-06-12",
+            "Saudi Arabia",
+            "Denmark"
+          ],
+          [
+            "1998-06-13",
+            "South Korea",
+            "Mexico"
+          ],
+          [
+            "1998-06-13",
+            "Netherlands",
+            "Belgium"
+          ],
+          [
+            "1998-06-13",
+            "Spain",
+            "Nigeria"
+          ],
+          [
+            "1998-06-14",
+            "Argentina",
+            "Japan"
+          ],
+          [
+            "1998-06-14",
+            "Jamaica",
+            "Croatia"
+          ],
+          [
+            "1998-06-14",
+            "Serbia",
+            "Iran"
+          ],
+          [
+            "1998-06-15",
+            "England",
+            "Tunisia"
+          ],
+          [
+            "1998-06-15",
+            "Germany",
+            "United States"
+          ],
+          [
+            "1998-06-15",
+            "Romania",
+            "Colombia"
+          ],
+          [
+            "1998-06-16",
+            "Brazil",
+            "Morocco"
+          ],
+          [
+            "1998-06-16",
+            "Scotland",
+            "Norway"
+          ],
+          [
+            "1998-06-17",
+            "Chile",
+            "Austria"
+          ],
+          [
+            "1998-06-17",
+            "Italy",
+            "Cameroon"
+          ],
+          [
+            "1998-06-18",
+            "France",
+            "Saudi Arabia"
+          ],
+          [
+            "1998-06-18",
+            "South Africa",
+            "Denmark"
+          ],
+          [
+            "1998-06-19",
+            "Nigeria",
+            "Bulgaria"
+          ],
+          [
+            "1998-06-19",
+            "Spain",
+            "Paraguay"
+          ],
+          [
+            "1998-06-20",
+            "Belgium",
+            "Mexico"
+          ],
+          [
+            "1998-06-20",
+            "Japan",
+            "Croatia"
+          ],
+          [
+            "1998-06-20",
+            "Netherlands",
+            "South Korea"
+          ],
+          [
+            "1998-06-21",
+            "Argentina",
+            "Jamaica"
+          ],
+          [
+            "1998-06-21",
+            "Germany",
+            "Serbia"
+          ],
+          [
+            "1998-06-21",
+            "United States",
+            "Iran"
+          ],
+          [
+            "1998-06-22",
+            "Colombia",
+            "Tunisia"
+          ],
+          [
+            "1998-06-22",
+            "Romania",
+            "England"
+          ],
+          [
+            "1998-06-23",
+            "Brazil",
+            "Norway"
+          ],
+          [
+            "1998-06-23",
+            "Chile",
+            "Cameroon"
+          ],
+          [
+            "1998-06-23",
+            "Italy",
+            "Austria"
+          ],
+          [
+            "1998-06-23",
+            "Scotland",
+            "Morocco"
+          ],
+          [
+            "1998-06-24",
+            "France",
+            "Denmark"
+          ],
+          [
+            "1998-06-24",
+            "Nigeria",
+            "Paraguay"
+          ],
+          [
+            "1998-06-24",
+            "South Africa",
+            "Saudi Arabia"
+          ],
+          [
+            "1998-06-24",
+            "Spain",
+            "Bulgaria"
+          ],
+          [
+            "1998-06-25",
+            "Belgium",
+            "South Korea"
+          ],
+          [
+            "1998-06-25",
+            "Germany",
+            "Iran"
+          ],
+          [
+            "1998-06-25",
+            "Netherlands",
+            "Mexico"
+          ],
+          [
+            "1998-06-25",
+            "United States",
+            "Serbia"
+          ],
+          [
+            "1998-06-26",
+            "Argentina",
+            "Croatia"
+          ],
+          [
+            "1998-06-26",
+            "Colombia",
+            "England"
+          ],
+          [
+            "1998-06-26",
+            "Japan",
+            "Jamaica"
+          ],
+          [
+            "1998-06-26",
+            "Romania",
+            "Tunisia"
+          ],
+          [
+            "1998-06-27",
+            "Brazil",
+            "Chile"
+          ],
+          [
+            "1998-06-27",
+            "Italy",
+            "Norway"
+          ],
+          [
+            "1998-06-28",
+            "France",
+            "Paraguay"
+          ],
+          [
+            "1998-06-28",
+            "Nigeria",
+            "Denmark"
+          ],
+          [
+            "1998-06-29",
+            "Germany",
+            "Mexico"
+          ],
+          [
+            "1998-06-29",
+            "Netherlands",
+            "Serbia"
+          ],
+          [
+            "1998-06-30",
+            "Argentina",
+            "England"
+          ],
+          [
+            "1998-06-30",
+            "Romania",
+            "Croatia"
+          ],
+          [
+            "1998-07-03",
+            "Brazil",
+            "Denmark"
+          ],
+          [
+            "1998-07-03",
+            "France",
+            "Italy"
+          ],
+          [
+            "1998-07-04",
+            "Germany",
+            "Croatia"
+          ],
+          [
+            "1998-07-04",
+            "Netherlands",
+            "Argentina"
+          ],
+          [
+            "1998-07-07",
+            "Brazil",
+            "Netherlands"
+          ],
+          [
+            "1998-07-08",
+            "France",
+            "Croatia"
+          ],
+          [
+            "1998-07-11",
+            "Netherlands",
+            "Croatia"
+          ],
+          [
+            "1998-07-12",
+            "France",
+            "Brazil"
+          ]
+        ],
+        "scope": "Historical actual dates and pairings; later career participants/results not predetermined. Archive names are not native keys. Phase labels not yet independently mapped."
+      },
+      "qualifying": {
+        "edition": "1998",
+        "status": "BULK_EXTRACTED_SINGLE_ARCHIVE_NOT_INDEPENDENTLY_CERTIFIED",
+        "matchCount": 562,
+        "participantNames": 136,
+        "distinctDates": 157,
+        "first": "1996-07-06",
+        "last": "1997-11-29",
+        "fixtureSchema": [
+          "date",
+          "home",
+          "away"
+        ],
+        "fixtures": [
+          [
+            "1996-07-06",
+            "Chile",
+            "Ecuador"
+          ],
+          [
+            "1996-07-07",
+            "Bolivia",
+            "Venezuela"
+          ],
+          [
+            "1996-07-07",
+            "Colombia",
+            "Uruguay"
+          ],
+          [
+            "1996-07-07",
+            "Peru",
+            "Argentina"
+          ],
+          [
+            "1996-08-30",
+            "Canada",
+            "Panama"
+          ],
+          [
+            "1996-08-31",
+            "Armenia",
+            "Portugal"
+          ],
+          [
+            "1996-08-31",
+            "Austria",
+            "Scotland"
+          ],
+          [
+            "1996-08-31",
+            "Azerbaijan",
+            "Switzerland"
+          ],
+          [
+            "1996-08-31",
+            "Belarus",
+            "Estonia"
+          ],
+          [
+            "1996-08-31",
+            "Belgium",
+            "Turkey"
+          ],
+          [
+            "1996-08-31",
+            "Faroe Islands",
+            "Slovakia"
+          ],
+          [
+            "1996-08-31",
+            "Liechtenstein",
+            "Republic of Ireland"
+          ],
+          [
+            "1996-08-31",
+            "Northern Ireland",
+            "Ukraine"
+          ],
+          [
+            "1996-08-31",
+            "Romania",
+            "Lithuania"
+          ],
+          [
+            "1996-08-31",
+            "Wales",
+            "San Marino"
+          ],
+          [
+            "1996-09-01",
+            "Argentina",
+            "Paraguay"
+          ],
+          [
+            "1996-09-01",
+            "Bolivia",
+            "Peru"
+          ],
+          [
+            "1996-09-01",
+            "Colombia",
+            "Chile"
+          ],
+          [
+            "1996-09-01",
+            "Ecuador",
+            "Venezuela"
+          ],
+          [
+            "1996-09-01",
+            "Greece",
+            "Bosnia and Herzegovina"
+          ],
+          [
+            "1996-09-01",
+            "Hungary",
+            "Finland"
+          ],
+          [
+            "1996-09-01",
+            "Israel",
+            "Bulgaria"
+          ],
+          [
+            "1996-09-01",
+            "Latvia",
+            "Sweden"
+          ],
+          [
+            "1996-09-01",
+            "Moldova",
+            "England"
+          ],
+          [
+            "1996-09-01",
+            "Russia",
+            "Cyprus"
+          ],
+          [
+            "1996-09-01",
+            "Slovenia",
+            "Denmark"
+          ],
+          [
+            "1996-09-01",
+            "Trinidad and Tobago",
+            "Costa Rica"
+          ],
+          [
+            "1996-09-04",
+            "Faroe Islands",
+            "Spain"
+          ],
+          [
+            "1996-09-08",
+            "El Salvador",
+            "Cuba"
+          ],
+          [
+            "1996-09-15",
+            "Saint Vincent and the Grenadines",
+            "Mexico"
+          ],
+          [
+            "1996-09-15",
+            "Jamaica",
+            "Honduras"
+          ],
+          [
+            "1996-09-16",
+            "Papua New Guinea",
+            "Solomon Islands"
+          ],
+          [
+            "1996-09-18",
+            "Czech Republic",
+            "Malta"
+          ],
+          [
+            "1996-09-18",
+            "Solomon Islands",
+            "Vanuatu"
+          ],
+          [
+            "1996-09-20",
+            "Papua New Guinea",
+            "Vanuatu"
+          ],
+          [
+            "1996-09-20",
+            "Qatar",
+            "Sri Lanka"
+          ],
+          [
+            "1996-09-21",
+            "Honduras",
+            "Mexico"
+          ],
+          [
+            "1996-09-21",
+            "India",
+            "Philippines"
+          ],
+          [
+            "1996-09-22",
+            "Panama",
+            "Cuba"
+          ],
+          [
+            "1996-09-22",
+            "Slovakia",
+            "Malta"
+          ],
+          [
+            "1996-09-23",
+            "Saint Vincent and the Grenadines",
+            "Jamaica"
+          ],
+          [
+            "1996-09-23",
+            "Qatar",
+            "Philippines"
+          ],
+          [
+            "1996-09-24",
+            "Sri Lanka",
+            "India"
+          ],
+          [
+            "1996-09-26",
+            "Philippines",
+            "Sri Lanka"
+          ],
+          [
+            "1996-09-27",
+            "Qatar",
+            "India"
+          ],
+          [
+            "1996-10-05",
+            "Estonia",
+            "Belarus"
+          ],
+          [
+            "1996-10-05",
+            "Latvia",
+            "Scotland"
+          ],
+          [
+            "1996-10-05",
+            "Lithuania",
+            "Iceland"
+          ],
+          [
+            "1996-10-05",
+            "Moldova",
+            "Italy"
+          ],
+          [
+            "1996-10-05",
+            "Northern Ireland",
+            "Armenia"
+          ],
+          [
+            "1996-10-05",
+            "Ukraine",
+            "Portugal"
+          ],
+          [
+            "1996-10-05",
+            "Wales",
+            "Netherlands"
+          ],
+          [
+            "1996-10-06",
+            "Faroe Islands",
+            "Serbia"
+          ],
+          [
+            "1996-10-06",
+            "Finland",
+            "Switzerland"
+          ],
+          [
+            "1996-10-06",
+            "Panama",
+            "El Salvador"
+          ],
+          [
+            "1996-10-06",
+            "Trinidad and Tobago",
+            "Guatemala"
+          ],
+          [
+            "1996-10-08",
+            "Bosnia and Herzegovina",
+            "Croatia"
+          ],
+          [
+            "1996-10-08",
+            "Luxembourg",
+            "Bulgaria"
+          ],
+          [
+            "1996-10-08",
+            "Uruguay",
+            "Bolivia"
+          ],
+          [
+            "1996-10-09",
+            "Albania",
+            "Portugal"
+          ],
+          [
+            "1996-10-09",
+            "Armenia",
+            "Germany"
+          ],
+          [
+            "1996-10-09",
+            "Belarus",
+            "Latvia"
+          ],
+          [
+            "1996-10-09",
+            "Czech Republic",
+            "Spain"
+          ],
+          [
+            "1996-10-09",
+            "Denmark",
+            "Greece"
+          ],
+          [
+            "1996-10-09",
+            "Ecuador",
+            "Colombia"
+          ],
+          [
+            "1996-10-09",
+            "England",
+            "Poland"
+          ],
+          [
+            "1996-10-09",
+            "Iceland",
+            "Romania"
+          ],
+          [
+            "1996-10-09",
+            "Republic of Ireland",
+            "North Macedonia"
+          ],
+          [
+            "1996-10-09",
+            "Israel",
+            "Russia"
+          ],
+          [
+            "1996-10-09",
+            "Italy",
+            "Georgia"
+          ],
+          [
+            "1996-10-09",
+            "Lithuania",
+            "Liechtenstein"
+          ],
+          [
+            "1996-10-09",
+            "Norway",
+            "Hungary"
+          ],
+          [
+            "1996-10-09",
+            "Paraguay",
+            "Chile"
+          ],
+          [
+            "1996-10-09",
+            "San Marino",
+            "Belgium"
+          ],
+          [
+            "1996-10-09",
+            "Sweden",
+            "Austria"
+          ],
+          [
+            "1996-10-09",
+            "Venezuela",
+            "Argentina"
+          ],
+          [
+            "1996-10-10",
+            "Canada",
+            "Cuba"
+          ],
+          [
+            "1996-10-13",
+            "Saint Vincent and the Grenadines",
+            "Honduras"
+          ],
+          [
+            "1996-10-13",
+            "Canada",
+            "Cuba"
+          ],
+          [
+            "1996-10-16",
+            "Mexico",
+            "Jamaica"
+          ],
+          [
+            "1996-10-23",
+            "Slovakia",
+            "Faroe Islands"
+          ],
+          [
+            "1996-10-26",
+            "Honduras",
+            "Jamaica"
+          ],
+          [
+            "1996-10-27",
+            "Panama",
+            "Canada"
+          ],
+          [
+            "1996-10-30",
+            "Mexico",
+            "Saint Vincent and the Grenadines"
+          ],
+          [
+            "1996-11-03",
+            "Canada",
+            "El Salvador"
+          ],
+          [
+            "1996-11-03",
+            "United States",
+            "Guatemala"
+          ],
+          [
+            "1996-11-06",
+            "Mexico",
+            "Honduras"
+          ],
+          [
+            "1996-11-08",
+            "Egypt",
+            "Namibia"
+          ],
+          [
+            "1996-11-09",
+            "Albania",
+            "Armenia"
+          ],
+          [
+            "1996-11-09",
+            "Austria",
+            "Latvia"
+          ],
+          [
+            "1996-11-09",
+            "Georgia",
+            "England"
+          ],
+          [
+            "1996-11-09",
+            "Germany",
+            "Northern Ireland"
+          ],
+          [
+            "1996-11-09",
+            "Liechtenstein",
+            "North Macedonia"
+          ],
+          [
+            "1996-11-09",
+            "Morocco",
+            "Sierra Leone"
+          ],
+          [
+            "1996-11-09",
+            "Netherlands",
+            "Wales"
+          ],
+          [
+            "1996-11-09",
+            "Nigeria",
+            "Burkina Faso"
+          ],
+          [
+            "1996-11-09",
+            "Portugal",
+            "Ukraine"
+          ],
+          [
+            "1996-11-09",
+            "South Africa",
+            "DR Congo"
+          ],
+          [
+            "1996-11-10",
+            "Costa Rica",
+            "Guatemala"
+          ],
+          [
+            "1996-11-10",
+            "Jamaica",
+            "Saint Vincent and the Grenadines"
+          ],
+          [
+            "1996-11-10",
+            "Angola",
+            "Zimbabwe"
+          ],
+          [
+            "1996-11-10",
+            "Azerbaijan",
+            "Hungary"
+          ],
+          [
+            "1996-11-10",
+            "Bolivia",
+            "Colombia"
+          ],
+          [
+            "1996-11-10",
+            "Congo",
+            "Zambia"
+          ],
+          [
+            "1996-11-10",
+            "Croatia",
+            "Greece"
+          ],
+          [
+            "1996-11-10",
+            "Cyprus",
+            "Israel"
+          ],
+          [
+            "1996-11-10",
+            "El Salvador",
+            "Panama"
+          ],
+          [
+            "1996-11-10",
+            "Gabon",
+            "Ghana"
+          ],
+          [
+            "1996-11-10",
+            "Guinea",
+            "Kenya"
+          ],
+          [
+            "1996-11-10",
+            "Republic of Ireland",
+            "Iceland"
+          ],
+          [
+            "1996-11-10",
+            "Liberia",
+            "Tunisia"
+          ],
+          [
+            "1996-11-10",
+            "Luxembourg",
+            "Russia"
+          ],
+          [
+            "1996-11-10",
+            "Paraguay",
+            "Ecuador"
+          ],
+          [
+            "1996-11-10",
+            "Peru",
+            "Venezuela"
+          ],
+          [
+            "1996-11-10",
+            "Poland",
+            "Moldova"
+          ],
+          [
+            "1996-11-10",
+            "Scotland",
+            "Sweden"
+          ],
+          [
+            "1996-11-10",
+            "Serbia",
+            "Czech Republic"
+          ],
+          [
+            "1996-11-10",
+            "Slovenia",
+            "Bosnia and Herzegovina"
+          ],
+          [
+            "1996-11-10",
+            "Switzerland",
+            "Norway"
+          ],
+          [
+            "1996-11-10",
+            "Togo",
+            "Cameroon"
+          ],
+          [
+            "1996-11-10",
+            "Turkey",
+            "San Marino"
+          ],
+          [
+            "1996-11-10",
+            "United States",
+            "Trinidad and Tobago"
+          ],
+          [
+            "1996-11-11",
+            "Tonga",
+            "Cook Islands"
+          ],
+          [
+            "1996-11-12",
+            "Chile",
+            "Uruguay"
+          ],
+          [
+            "1996-11-13",
+            "Samoa",
+            "Cook Islands"
+          ],
+          [
+            "1996-11-13",
+            "Spain",
+            "Slovakia"
+          ],
+          [
+            "1996-11-15",
+            "Tonga",
+            "Samoa"
+          ],
+          [
+            "1996-11-17",
+            "Honduras",
+            "Saint Vincent and the Grenadines"
+          ],
+          [
+            "1996-11-17",
+            "Jamaica",
+            "Mexico"
+          ],
+          [
+            "1996-11-24",
+            "Guatemala",
+            "Costa Rica"
+          ],
+          [
+            "1996-11-24",
+            "Trinidad and Tobago",
+            "United States"
+          ],
+          [
+            "1996-12-01",
+            "Costa Rica",
+            "United States"
+          ],
+          [
+            "1996-12-01",
+            "El Salvador",
+            "Cuba"
+          ],
+          [
+            "1996-12-08",
+            "Guatemala",
+            "Trinidad and Tobago"
+          ],
+          [
+            "1996-12-14",
+            "Belgium",
+            "Netherlands"
+          ],
+          [
+            "1996-12-14",
+            "Cyprus",
+            "Bulgaria"
+          ],
+          [
+            "1996-12-14",
+            "North Macedonia",
+            "Romania"
+          ],
+          [
+            "1996-12-14",
+            "Northern Ireland",
+            "Albania"
+          ],
+          [
+            "1996-12-14",
+            "Portugal",
+            "Germany"
+          ],
+          [
+            "1996-12-14",
+            "Spain",
+            "Serbia"
+          ],
+          [
+            "1996-12-14",
+            "United States",
+            "Costa Rica"
+          ],
+          [
+            "1996-12-14",
+            "Wales",
+            "Turkey"
+          ],
+          [
+            "1996-12-15",
+            "Argentina",
+            "Chile"
+          ],
+          [
+            "1996-12-15",
+            "Bolivia",
+            "Paraguay"
+          ],
+          [
+            "1996-12-15",
+            "El Salvador",
+            "Canada"
+          ],
+          [
+            "1996-12-15",
+            "Israel",
+            "Luxembourg"
+          ],
+          [
+            "1996-12-15",
+            "Panama",
+            "Cuba"
+          ],
+          [
+            "1996-12-15",
+            "Uruguay",
+            "Peru"
+          ],
+          [
+            "1996-12-15",
+            "Venezuela",
+            "Colombia"
+          ],
+          [
+            "1996-12-18",
+            "Malta",
+            "Spain"
+          ],
+          [
+            "1996-12-21",
+            "Costa Rica",
+            "Trinidad and Tobago"
+          ],
+          [
+            "1996-12-21",
+            "Guatemala",
+            "United States"
+          ],
+          [
+            "1997-01-11",
+            "Namibia",
+            "Liberia"
+          ],
+          [
+            "1997-01-11",
+            "Sierra Leone",
+            "Gabon"
+          ],
+          [
+            "1997-01-11",
+            "Zambia",
+            "South Africa"
+          ],
+          [
+            "1997-01-12",
+            "Bolivia",
+            "Ecuador"
+          ],
+          [
+            "1997-01-12",
+            "Burkina Faso",
+            "Guinea"
+          ],
+          [
+            "1997-01-12",
+            "Cameroon",
+            "Angola"
+          ],
+          [
+            "1997-01-12",
+            "DR Congo",
+            "Congo"
+          ],
+          [
+            "1997-01-12",
+            "Ghana",
+            "Morocco"
+          ],
+          [
+            "1997-01-12",
+            "Kenya",
+            "Nigeria"
+          ],
+          [
+            "1997-01-12",
+            "Peru",
+            "Chile"
+          ],
+          [
+            "1997-01-12",
+            "Tunisia",
+            "Egypt"
+          ],
+          [
+            "1997-01-12",
+            "Uruguay",
+            "Argentina"
+          ],
+          [
+            "1997-01-12",
+            "Venezuela",
+            "Paraguay"
+          ],
+          [
+            "1997-01-12",
+            "Zimbabwe",
+            "Togo"
+          ],
+          [
+            "1997-02-11",
+            "Ecuador",
+            "Uruguay"
+          ],
+          [
+            "1997-02-11",
+            "Estonia",
+            "Scotland"
+          ],
+          [
+            "1997-02-12",
+            "Bolivia",
+            "Chile"
+          ],
+          [
+            "1997-02-12",
+            "Colombia",
+            "Argentina"
+          ],
+          [
+            "1997-02-12",
+            "England",
+            "Italy"
+          ],
+          [
+            "1997-02-12",
+            "Paraguay",
+            "Peru"
+          ],
+          [
+            "1997-02-12",
+            "Spain",
+            "Malta"
+          ],
+          [
+            "1997-02-15",
+            "Tonga",
+            "Solomon Islands"
+          ],
+          [
+            "1997-02-22",
+            "Hong Kong",
+            "South Korea"
+          ],
+          [
+            "1997-03-01",
+            "Solomon Islands",
+            "Tonga"
+          ],
+          [
+            "1997-03-02",
+            "Jamaica",
+            "United States"
+          ],
+          [
+            "1997-03-02",
+            "Mexico",
+            "Canada"
+          ],
+          [
+            "1997-03-02",
+            "Thailand",
+            "South Korea"
+          ],
+          [
+            "1997-03-09",
+            "Thailand",
+            "Hong Kong"
+          ],
+          [
+            "1997-03-16",
+            "Taiwan",
+            "Saudi Arabia"
+          ],
+          [
+            "1997-03-16",
+            "Costa Rica",
+            "Mexico"
+          ],
+          [
+            "1997-03-16",
+            "Malaysia",
+            "Bangladesh"
+          ],
+          [
+            "1997-03-16",
+            "United States",
+            "Canada"
+          ],
+          [
+            "1997-03-18",
+            "Bangladesh",
+            "Taiwan"
+          ],
+          [
+            "1997-03-18",
+            "Malaysia",
+            "Saudi Arabia"
+          ],
+          [
+            "1997-03-20",
+            "Bangladesh",
+            "Saudi Arabia"
+          ],
+          [
+            "1997-03-20",
+            "Malaysia",
+            "Taiwan"
+          ],
+          [
+            "1997-03-23",
+            "Costa Rica",
+            "United States"
+          ],
+          [
+            "1997-03-23",
+            "Nepal",
+            "Macau"
+          ],
+          [
+            "1997-03-23",
+            "Oman",
+            "Japan"
+          ],
+          [
+            "1997-03-25",
+            "Macau",
+            "Japan"
+          ],
+          [
+            "1997-03-25",
+            "Oman",
+            "Nepal"
+          ],
+          [
+            "1997-03-27",
+            "Nepal",
+            "Japan"
+          ],
+          [
+            "1997-03-27",
+            "Oman",
+            "Macau"
+          ],
+          [
+            "1997-03-27",
+            "Saudi Arabia",
+            "Bangladesh"
+          ],
+          [
+            "1997-03-29",
+            "Taiwan",
+            "Bangladesh"
+          ],
+          [
+            "1997-03-29",
+            "Albania",
+            "Ukraine"
+          ],
+          [
+            "1997-03-29",
+            "Croatia",
+            "Denmark"
+          ],
+          [
+            "1997-03-29",
+            "Cyprus",
+            "Russia"
+          ],
+          [
+            "1997-03-29",
+            "Italy",
+            "Moldova"
+          ],
+          [
+            "1997-03-29",
+            "Netherlands",
+            "San Marino"
+          ],
+          [
+            "1997-03-29",
+            "Northern Ireland",
+            "Portugal"
+          ],
+          [
+            "1997-03-29",
+            "Romania",
+            "Liechtenstein"
+          ],
+          [
+            "1997-03-29",
+            "Saudi Arabia",
+            "Malaysia"
+          ],
+          [
+            "1997-03-29",
+            "Scotland",
+            "Estonia"
+          ],
+          [
+            "1997-03-29",
+            "Wales",
+            "Belgium"
+          ],
+          [
+            "1997-03-30",
+            "Hong Kong",
+            "Thailand"
+          ],
+          [
+            "1997-03-31",
+            "Bangladesh",
+            "Malaysia"
+          ],
+          [
+            "1997-03-31",
+            "Luxembourg",
+            "Israel"
+          ],
+          [
+            "1997-03-31",
+            "Malta",
+            "Slovakia"
+          ],
+          [
+            "1997-03-31",
+            "Saudi Arabia",
+            "Taiwan"
+          ],
+          [
+            "1997-04-02",
+            "Albania",
+            "Germany"
+          ],
+          [
+            "1997-04-02",
+            "Azerbaijan",
+            "Finland"
+          ],
+          [
+            "1997-04-02",
+            "Bolivia",
+            "Argentina"
+          ],
+          [
+            "1997-04-02",
+            "Bosnia and Herzegovina",
+            "Greece"
+          ],
+          [
+            "1997-04-02",
+            "Bulgaria",
+            "Cyprus"
+          ],
+          [
+            "1997-04-02",
+            "Croatia",
+            "Slovenia"
+          ],
+          [
+            "1997-04-02",
+            "Czech Republic",
+            "Serbia"
+          ],
+          [
+            "1997-04-02",
+            "Lithuania",
+            "Romania"
+          ],
+          [
+            "1997-04-02",
+            "North Macedonia",
+            "Republic of Ireland"
+          ],
+          [
+            "1997-04-02",
+            "Paraguay",
+            "Colombia"
+          ],
+          [
+            "1997-04-02",
+            "Peru",
+            "Ecuador"
+          ],
+          [
+            "1997-04-02",
+            "Poland",
+            "Italy"
+          ],
+          [
+            "1997-04-02",
+            "Scotland",
+            "Austria"
+          ],
+          [
+            "1997-04-02",
+            "Turkey",
+            "Netherlands"
+          ],
+          [
+            "1997-04-02",
+            "Ukraine",
+            "Northern Ireland"
+          ],
+          [
+            "1997-04-02",
+            "Uruguay",
+            "Venezuela"
+          ],
+          [
+            "1997-04-05",
+            "Nigeria",
+            "Guinea"
+          ],
+          [
+            "1997-04-05",
+            "Sierra Leone",
+            "Ghana"
+          ],
+          [
+            "1997-04-06",
+            "Angola",
+            "Togo"
+          ],
+          [
+            "1997-04-06",
+            "Cameroon",
+            "Zimbabwe"
+          ],
+          [
+            "1997-04-06",
+            "Canada",
+            "El Salvador"
+          ],
+          [
+            "1997-04-06",
+            "Congo",
+            "South Africa"
+          ],
+          [
+            "1997-04-06",
+            "Gabon",
+            "Morocco"
+          ],
+          [
+            "1997-04-06",
+            "Indonesia",
+            "Cambodia"
+          ],
+          [
+            "1997-04-06",
+            "Kenya",
+            "Burkina Faso"
+          ],
+          [
+            "1997-04-06",
+            "Liberia",
+            "Egypt"
+          ],
+          [
+            "1997-04-06",
+            "Namibia",
+            "Tunisia"
+          ],
+          [
+            "1997-04-08",
+            "Jordan",
+            "United Arab Emirates"
+          ],
+          [
+            "1997-04-09",
+            "DR Congo",
+            "Zambia"
+          ],
+          [
+            "1997-04-11",
+            "Bahrain",
+            "United Arab Emirates"
+          ],
+          [
+            "1997-04-13",
+            "Indonesia",
+            "Yemen"
+          ],
+          [
+            "1997-04-13",
+            "Lebanon",
+            "Singapore"
+          ],
+          [
+            "1997-04-13",
+            "Mexico",
+            "Jamaica"
+          ],
+          [
+            "1997-04-14",
+            "Bahrain",
+            "Jordan"
+          ],
+          [
+            "1997-04-19",
+            "Jordan",
+            "Bahrain"
+          ],
+          [
+            "1997-04-20",
+            "Cambodia",
+            "Yemen"
+          ],
+          [
+            "1997-04-20",
+            "United States",
+            "Mexico"
+          ],
+          [
+            "1997-04-22",
+            "United Arab Emirates",
+            "Bahrain"
+          ],
+          [
+            "1997-04-26",
+            "Namibia",
+            "Egypt"
+          ],
+          [
+            "1997-04-26",
+            "Sierra Leone",
+            "Morocco"
+          ],
+          [
+            "1997-04-26",
+            "Singapore",
+            "Kuwait"
+          ],
+          [
+            "1997-04-26",
+            "United Arab Emirates",
+            "Jordan"
+          ],
+          [
+            "1997-04-27",
+            "Burkina Faso",
+            "Nigeria"
+          ],
+          [
+            "1997-04-27",
+            "Cambodia",
+            "Indonesia"
+          ],
+          [
+            "1997-04-27",
+            "Cameroon",
+            "Togo"
+          ],
+          [
+            "1997-04-27",
+            "Canada",
+            "Jamaica"
+          ],
+          [
+            "1997-04-27",
+            "DR Congo",
+            "South Africa"
+          ],
+          [
+            "1997-04-27",
+            "Ghana",
+            "Gabon"
+          ],
+          [
+            "1997-04-27",
+            "Kenya",
+            "Guinea"
+          ],
+          [
+            "1997-04-27",
+            "Tunisia",
+            "Liberia"
+          ],
+          [
+            "1997-04-27",
+            "Zambia",
+            "Congo"
+          ],
+          [
+            "1997-04-27",
+            "Zimbabwe",
+            "Angola"
+          ],
+          [
+            "1997-04-29",
+            "Chile",
+            "Venezuela"
+          ],
+          [
+            "1997-04-30",
+            "Argentina",
+            "Ecuador"
+          ],
+          [
+            "1997-04-30",
+            "Armenia",
+            "Northern Ireland"
+          ],
+          [
+            "1997-04-30",
+            "Austria",
+            "Estonia"
+          ],
+          [
+            "1997-04-30",
+            "Colombia",
+            "Peru"
+          ],
+          [
+            "1997-04-30",
+            "Denmark",
+            "Slovenia"
+          ],
+          [
+            "1997-04-30",
+            "England",
+            "Georgia"
+          ],
+          [
+            "1997-04-30",
+            "Germany",
+            "Ukraine"
+          ],
+          [
+            "1997-04-30",
+            "Greece",
+            "Croatia"
+          ],
+          [
+            "1997-04-30",
+            "Israel",
+            "Cyprus"
+          ],
+          [
+            "1997-04-30",
+            "Italy",
+            "Poland"
+          ],
+          [
+            "1997-04-30",
+            "Latvia",
+            "Belarus"
+          ],
+          [
+            "1997-04-30",
+            "Liechtenstein",
+            "Lithuania"
+          ],
+          [
+            "1997-04-30",
+            "Malta",
+            "Faroe Islands"
+          ],
+          [
+            "1997-04-30",
+            "Norway",
+            "Finland"
+          ],
+          [
+            "1997-04-30",
+            "Paraguay",
+            "Uruguay"
+          ],
+          [
+            "1997-04-30",
+            "Romania",
+            "Republic of Ireland"
+          ],
+          [
+            "1997-04-30",
+            "Russia",
+            "Luxembourg"
+          ],
+          [
+            "1997-04-30",
+            "San Marino",
+            "Netherlands"
+          ],
+          [
+            "1997-04-30",
+            "Serbia",
+            "Spain"
+          ],
+          [
+            "1997-04-30",
+            "Sweden",
+            "Scotland"
+          ],
+          [
+            "1997-04-30",
+            "Switzerland",
+            "Hungary"
+          ],
+          [
+            "1997-04-30",
+            "Turkey",
+            "Belgium"
+          ],
+          [
+            "1997-05-04",
+            "El Salvador",
+            "Costa Rica"
+          ],
+          [
+            "1997-05-04",
+            "Tajikistan",
+            "Vietnam"
+          ],
+          [
+            "1997-05-04",
+            "Turkmenistan",
+            "China"
+          ],
+          [
+            "1997-05-07",
+            "Ukraine",
+            "Armenia"
+          ],
+          [
+            "1997-05-08",
+            "Kuwait",
+            "Lebanon"
+          ],
+          [
+            "1997-05-09",
+            "Yemen",
+            "Uzbekistan"
+          ],
+          [
+            "1997-05-11",
+            "Costa Rica",
+            "Jamaica"
+          ],
+          [
+            "1997-05-11",
+            "Kazakhstan",
+            "Pakistan"
+          ],
+          [
+            "1997-05-11",
+            "Tajikistan",
+            "China"
+          ],
+          [
+            "1997-05-11",
+            "Turkmenistan",
+            "Vietnam"
+          ],
+          [
+            "1997-05-16",
+            "Yemen",
+            "Cambodia"
+          ],
+          [
+            "1997-05-18",
+            "Estonia",
+            "Latvia"
+          ],
+          [
+            "1997-05-18",
+            "Jamaica",
+            "El Salvador"
+          ],
+          [
+            "1997-05-21",
+            "Republic of Ireland",
+            "Liechtenstein"
+          ],
+          [
+            "1997-05-23",
+            "Pakistan",
+            "Iraq"
+          ],
+          [
+            "1997-05-24",
+            "Singapore",
+            "Lebanon"
+          ],
+          [
+            "1997-05-25",
+            "Turkmenistan",
+            "Tajikistan"
+          ],
+          [
+            "1997-05-25",
+            "Uzbekistan",
+            "Cambodia"
+          ],
+          [
+            "1997-05-25",
+            "Vietnam",
+            "China"
+          ],
+          [
+            "1997-05-28",
+            "South Korea",
+            "Hong Kong"
+          ],
+          [
+            "1997-05-31",
+            "Papua New Guinea",
+            "New Zealand"
+          ],
+          [
+            "1997-05-31",
+            "Poland",
+            "England"
+          ],
+          [
+            "1997-06-01",
+            "Canada",
+            "Costa Rica"
+          ],
+          [
+            "1997-06-01",
+            "China",
+            "Turkmenistan"
+          ],
+          [
+            "1997-06-01",
+            "Indonesia",
+            "Uzbekistan"
+          ],
+          [
+            "1997-06-01",
+            "South Korea",
+            "Thailand"
+          ],
+          [
+            "1997-06-01",
+            "Vietnam",
+            "Tajikistan"
+          ],
+          [
+            "1997-06-02",
+            "Maldives",
+            "Iran"
+          ],
+          [
+            "1997-06-04",
+            "Kyrgyzstan",
+            "Iran"
+          ],
+          [
+            "1997-06-04",
+            "Syria",
+            "Maldives"
+          ],
+          [
+            "1997-06-05",
+            "Kuwait",
+            "Singapore"
+          ],
+          [
+            "1997-06-06",
+            "Iraq",
+            "Kazakhstan"
+          ],
+          [
+            "1997-06-06",
+            "Kyrgyzstan",
+            "Maldives"
+          ],
+          [
+            "1997-06-06",
+            "Syria",
+            "Iran"
+          ],
+          [
+            "1997-06-07",
+            "Belgium",
+            "San Marino"
+          ],
+          [
+            "1997-06-07",
+            "Fiji",
+            "New Zealand"
+          ],
+          [
+            "1997-06-07",
+            "Georgia",
+            "Moldova"
+          ],
+          [
+            "1997-06-07",
+            "North Macedonia",
+            "Iceland"
+          ],
+          [
+            "1997-06-07",
+            "Nigeria",
+            "Kenya"
+          ],
+          [
+            "1997-06-07",
+            "Portugal",
+            "Albania"
+          ],
+          [
+            "1997-06-07",
+            "Ukraine",
+            "Germany"
+          ],
+          [
+            "1997-06-08",
+            "Morocco",
+            "Ghana"
+          ],
+          [
+            "1997-06-08",
+            "Angola",
+            "Cameroon"
+          ],
+          [
+            "1997-06-08",
+            "Argentina",
+            "Peru"
+          ],
+          [
+            "1997-06-08",
+            "Belarus",
+            "Scotland"
+          ],
+          [
+            "1997-06-08",
+            "Bulgaria",
+            "Luxembourg"
+          ],
+          [
+            "1997-06-08",
+            "China",
+            "Tajikistan"
+          ],
+          [
+            "1997-06-08",
+            "Congo",
+            "DR Congo"
+          ],
+          [
+            "1997-06-08",
+            "Denmark",
+            "Bosnia and Herzegovina"
+          ],
+          [
+            "1997-06-08",
+            "Ecuador",
+            "Chile"
+          ],
+          [
+            "1997-06-08",
+            "Egypt",
+            "Tunisia"
+          ],
+          [
+            "1997-06-08",
+            "El Salvador",
+            "Mexico"
+          ],
+          [
+            "1997-06-08",
+            "Estonia",
+            "Sweden"
+          ],
+          [
+            "1997-06-08",
+            "Faroe Islands",
+            "Malta"
+          ],
+          [
+            "1997-06-08",
+            "Finland",
+            "Azerbaijan"
+          ],
+          [
+            "1997-06-08",
+            "Guinea",
+            "Burkina Faso"
+          ],
+          [
+            "1997-06-08",
+            "Hungary",
+            "Norway"
+          ],
+          [
+            "1997-06-08",
+            "Latvia",
+            "Austria"
+          ],
+          [
+            "1997-06-08",
+            "Liberia",
+            "Namibia"
+          ],
+          [
+            "1997-06-08",
+            "Russia",
+            "Israel"
+          ],
+          [
+            "1997-06-08",
+            "Serbia",
+            "Slovakia"
+          ],
+          [
+            "1997-06-08",
+            "South Africa",
+            "Zambia"
+          ],
+          [
+            "1997-06-08",
+            "Spain",
+            "Czech Republic"
+          ],
+          [
+            "1997-06-08",
+            "Togo",
+            "Zimbabwe"
+          ],
+          [
+            "1997-06-08",
+            "Uruguay",
+            "Colombia"
+          ],
+          [
+            "1997-06-08",
+            "Venezuela",
+            "Bolivia"
+          ],
+          [
+            "1997-06-08",
+            "Vietnam",
+            "Turkmenistan"
+          ],
+          [
+            "1997-06-09",
+            "Iran",
+            "Kyrgyzstan"
+          ],
+          [
+            "1997-06-09",
+            "Maldives",
+            "Syria"
+          ],
+          [
+            "1997-06-11",
+            "Australia",
+            "Solomon Islands"
+          ],
+          [
+            "1997-06-11",
+            "Iceland",
+            "Lithuania"
+          ],
+          [
+            "1997-06-11",
+            "Iran",
+            "Maldives"
+          ],
+          [
+            "1997-06-11",
+            "Kyrgyzstan",
+            "Syria"
+          ],
+          [
+            "1997-06-11",
+            "New Zealand",
+            "Papua New Guinea"
+          ],
+          [
+            "1997-06-11",
+            "Pakistan",
+            "Kazakhstan"
+          ],
+          [
+            "1997-06-13",
+            "Australia",
+            "Tahiti"
+          ],
+          [
+            "1997-06-13",
+            "Iran",
+            "Syria"
+          ],
+          [
+            "1997-06-13",
+            "Maldives",
+            "Kyrgyzstan"
+          ],
+          [
+            "1997-06-13",
+            "Yemen",
+            "Indonesia"
+          ],
+          [
+            "1997-06-14",
+            "Poland",
+            "Georgia"
+          ],
+          [
+            "1997-06-15",
+            "Fiji",
+            "Papua New Guinea"
+          ],
+          [
+            "1997-06-15",
+            "Solomon Islands",
+            "Tahiti"
+          ],
+          [
+            "1997-06-17",
+            "Australia",
+            "Solomon Islands"
+          ],
+          [
+            "1997-06-18",
+            "New Zealand",
+            "Fiji"
+          ],
+          [
+            "1997-06-19",
+            "Australia",
+            "Tahiti"
+          ],
+          [
+            "1997-06-20",
+            "Iraq",
+            "Pakistan"
+          ],
+          [
+            "1997-06-20",
+            "Uzbekistan",
+            "Indonesia"
+          ],
+          [
+            "1997-06-21",
+            "Papua New Guinea",
+            "Fiji"
+          ],
+          [
+            "1997-06-21",
+            "Tahiti",
+            "Solomon Islands"
+          ],
+          [
+            "1997-06-22",
+            "China",
+            "Vietnam"
+          ],
+          [
+            "1997-06-22",
+            "Japan",
+            "Macau"
+          ],
+          [
+            "1997-06-22",
+            "Lebanon",
+            "Kuwait"
+          ],
+          [
+            "1997-06-22",
+            "Nepal",
+            "Oman"
+          ],
+          [
+            "1997-06-22",
+            "Tajikistan",
+            "Turkmenistan"
+          ],
+          [
+            "1997-06-25",
+            "Japan",
+            "Nepal"
+          ],
+          [
+            "1997-06-25",
+            "Macau",
+            "Oman"
+          ],
+          [
+            "1997-06-28",
+            "Japan",
+            "Oman"
+          ],
+          [
+            "1997-06-28",
+            "Macau",
+            "Nepal"
+          ],
+          [
+            "1997-06-28",
+            "New Zealand",
+            "Australia"
+          ],
+          [
+            "1997-06-29",
+            "Cambodia",
+            "Uzbekistan"
+          ],
+          [
+            "1997-06-29",
+            "El Salvador",
+            "United States"
+          ],
+          [
+            "1997-06-29",
+            "Kazakhstan",
+            "Iraq"
+          ],
+          [
+            "1997-07-05",
+            "Chile",
+            "Colombia"
+          ],
+          [
+            "1997-07-06",
+            "Australia",
+            "New Zealand"
+          ],
+          [
+            "1997-07-06",
+            "Paraguay",
+            "Argentina"
+          ],
+          [
+            "1997-07-06",
+            "Peru",
+            "Bolivia"
+          ],
+          [
+            "1997-07-06",
+            "Venezuela",
+            "Ecuador"
+          ],
+          [
+            "1997-07-20",
+            "Argentina",
+            "Venezuela"
+          ],
+          [
+            "1997-07-20",
+            "Bolivia",
+            "Uruguay"
+          ],
+          [
+            "1997-07-20",
+            "Chile",
+            "Paraguay"
+          ],
+          [
+            "1997-07-20",
+            "Colombia",
+            "Ecuador"
+          ],
+          [
+            "1997-08-10",
+            "Costa Rica",
+            "El Salvador"
+          ],
+          [
+            "1997-08-16",
+            "Guinea",
+            "Nigeria"
+          ],
+          [
+            "1997-08-16",
+            "Burkina Faso",
+            "Kenya"
+          ],
+          [
+            "1997-08-16",
+            "Morocco",
+            "Gabon"
+          ],
+          [
+            "1997-08-16",
+            "South Africa",
+            "Congo"
+          ],
+          [
+            "1997-08-16",
+            "Zambia",
+            "DR Congo"
+          ],
+          [
+            "1997-08-17",
+            "Egypt",
+            "Liberia"
+          ],
+          [
+            "1997-08-17",
+            "Ghana",
+            "Sierra Leone"
+          ],
+          [
+            "1997-08-17",
+            "Togo",
+            "Angola"
+          ],
+          [
+            "1997-08-17",
+            "Tunisia",
+            "Namibia"
+          ],
+          [
+            "1997-08-17",
+            "Zimbabwe",
+            "Cameroon"
+          ],
+          [
+            "1997-08-20",
+            "Belarus",
+            "Sweden"
+          ],
+          [
+            "1997-08-20",
+            "Bosnia and Herzegovina",
+            "Denmark"
+          ],
+          [
+            "1997-08-20",
+            "Bulgaria",
+            "Israel"
+          ],
+          [
+            "1997-08-20",
+            "Colombia",
+            "Bolivia"
+          ],
+          [
+            "1997-08-20",
+            "Czech Republic",
+            "Faroe Islands"
+          ],
+          [
+            "1997-08-20",
+            "Ecuador",
+            "Paraguay"
+          ],
+          [
+            "1997-08-20",
+            "Estonia",
+            "Austria"
+          ],
+          [
+            "1997-08-20",
+            "Finland",
+            "Norway"
+          ],
+          [
+            "1997-08-20",
+            "Hungary",
+            "Switzerland"
+          ],
+          [
+            "1997-08-20",
+            "Republic of Ireland",
+            "Lithuania"
+          ],
+          [
+            "1997-08-20",
+            "Liechtenstein",
+            "Iceland"
+          ],
+          [
+            "1997-08-20",
+            "Northern Ireland",
+            "Germany"
+          ],
+          [
+            "1997-08-20",
+            "Portugal",
+            "Armenia"
+          ],
+          [
+            "1997-08-20",
+            "Romania",
+            "North Macedonia"
+          ],
+          [
+            "1997-08-20",
+            "Turkey",
+            "Wales"
+          ],
+          [
+            "1997-08-20",
+            "Ukraine",
+            "Albania"
+          ],
+          [
+            "1997-08-20",
+            "Uruguay",
+            "Chile"
+          ],
+          [
+            "1997-08-20",
+            "Venezuela",
+            "Peru"
+          ],
+          [
+            "1997-08-24",
+            "Slovakia",
+            "Czech Republic"
+          ],
+          [
+            "1997-08-24",
+            "Uzbekistan",
+            "Yemen"
+          ],
+          [
+            "1997-09-06",
+            "Armenia",
+            "Albania"
+          ],
+          [
+            "1997-09-06",
+            "Austria",
+            "Sweden"
+          ],
+          [
+            "1997-09-06",
+            "Azerbaijan",
+            "Norway"
+          ],
+          [
+            "1997-09-06",
+            "Croatia",
+            "Bosnia and Herzegovina"
+          ],
+          [
+            "1997-09-06",
+            "Faroe Islands",
+            "Czech Republic"
+          ],
+          [
+            "1997-09-06",
+            "Germany",
+            "Portugal"
+          ],
+          [
+            "1997-09-06",
+            "Iceland",
+            "Republic of Ireland"
+          ],
+          [
+            "1997-09-06",
+            "South Korea",
+            "Kazakhstan"
+          ],
+          [
+            "1997-09-06",
+            "Latvia",
+            "Estonia"
+          ],
+          [
+            "1997-09-06",
+            "Liechtenstein",
+            "Romania"
+          ],
+          [
+            "1997-09-06",
+            "Lithuania",
+            "North Macedonia"
+          ],
+          [
+            "1997-09-06",
+            "Netherlands",
+            "Belgium"
+          ],
+          [
+            "1997-09-06",
+            "Slovenia",
+            "Greece"
+          ],
+          [
+            "1997-09-06",
+            "Switzerland",
+            "Finland"
+          ],
+          [
+            "1997-09-07",
+            "Jamaica",
+            "Canada"
+          ],
+          [
+            "1997-09-07",
+            "Japan",
+            "Uzbekistan"
+          ],
+          [
+            "1997-09-07",
+            "Luxembourg",
+            "Cyprus"
+          ],
+          [
+            "1997-09-07",
+            "Scotland",
+            "Belarus"
+          ],
+          [
+            "1997-09-07",
+            "United States",
+            "Costa Rica"
+          ],
+          [
+            "1997-09-10",
+            "Albania",
+            "Northern Ireland"
+          ],
+          [
+            "1997-09-10",
+            "Belarus",
+            "Austria"
+          ],
+          [
+            "1997-09-10",
+            "Bosnia and Herzegovina",
+            "Slovenia"
+          ],
+          [
+            "1997-09-10",
+            "Bulgaria",
+            "Russia"
+          ],
+          [
+            "1997-09-10",
+            "Chile",
+            "Argentina"
+          ],
+          [
+            "1997-09-10",
+            "Colombia",
+            "Venezuela"
+          ],
+          [
+            "1997-09-10",
+            "Denmark",
+            "Croatia"
+          ],
+          [
+            "1997-09-10",
+            "England",
+            "Moldova"
+          ],
+          [
+            "1997-09-10",
+            "Georgia",
+            "Italy"
+          ],
+          [
+            "1997-09-10",
+            "Germany",
+            "Armenia"
+          ],
+          [
+            "1997-09-10",
+            "Hungary",
+            "Azerbaijan"
+          ],
+          [
+            "1997-09-10",
+            "Lithuania",
+            "Republic of Ireland"
+          ],
+          [
+            "1997-09-10",
+            "Norway",
+            "Switzerland"
+          ],
+          [
+            "1997-09-10",
+            "Paraguay",
+            "Bolivia"
+          ],
+          [
+            "1997-09-10",
+            "Peru",
+            "Uruguay"
+          ],
+          [
+            "1997-09-10",
+            "Romania",
+            "Iceland"
+          ],
+          [
+            "1997-09-10",
+            "San Marino",
+            "Turkey"
+          ],
+          [
+            "1997-09-10",
+            "Slovakia",
+            "Serbia"
+          ],
+          [
+            "1997-09-10",
+            "Sweden",
+            "Latvia"
+          ],
+          [
+            "1997-09-12",
+            "South Korea",
+            "Uzbekistan"
+          ],
+          [
+            "1997-09-12",
+            "United Arab Emirates",
+            "Kazakhstan"
+          ],
+          [
+            "1997-09-13",
+            "China",
+            "Iran"
+          ],
+          [
+            "1997-09-14",
+            "El Salvador",
+            "Canada"
+          ],
+          [
+            "1997-09-14",
+            "Jamaica",
+            "Costa Rica"
+          ],
+          [
+            "1997-09-14",
+            "Saudi Arabia",
+            "Kuwait"
+          ],
+          [
+            "1997-09-19",
+            "Iran",
+            "Saudi Arabia"
+          ],
+          [
+            "1997-09-19",
+            "Qatar",
+            "Kuwait"
+          ],
+          [
+            "1997-09-19",
+            "United Arab Emirates",
+            "Japan"
+          ],
+          [
+            "1997-09-20",
+            "Kazakhstan",
+            "Uzbekistan"
+          ],
+          [
+            "1997-09-24",
+            "Malta",
+            "Czech Republic"
+          ],
+          [
+            "1997-09-24",
+            "Moldova",
+            "Georgia"
+          ],
+          [
+            "1997-09-24",
+            "Slovakia",
+            "Spain"
+          ],
+          [
+            "1997-09-26",
+            "Kuwait",
+            "Iran"
+          ],
+          [
+            "1997-09-26",
+            "Qatar",
+            "China"
+          ],
+          [
+            "1997-09-27",
+            "Uzbekistan",
+            "United Arab Emirates"
+          ],
+          [
+            "1997-09-28",
+            "Japan",
+            "South Korea"
+          ],
+          [
+            "1997-10-03",
+            "China",
+            "Saudi Arabia"
+          ],
+          [
+            "1997-10-03",
+            "Iran",
+            "Qatar"
+          ],
+          [
+            "1997-10-03",
+            "United States",
+            "Jamaica"
+          ],
+          [
+            "1997-10-04",
+            "Kazakhstan",
+            "Japan"
+          ],
+          [
+            "1997-10-04",
+            "South Korea",
+            "United Arab Emirates"
+          ],
+          [
+            "1997-10-05",
+            "Mexico",
+            "El Salvador"
+          ],
+          [
+            "1997-10-07",
+            "Moldova",
+            "Poland"
+          ],
+          [
+            "1997-10-10",
+            "Kuwait",
+            "China"
+          ],
+          [
+            "1997-10-11",
+            "Armenia",
+            "Ukraine"
+          ],
+          [
+            "1997-10-11",
+            "Austria",
+            "Belarus"
+          ],
+          [
+            "1997-10-11",
+            "Belgium",
+            "Wales"
+          ],
+          [
+            "1997-10-11",
+            "Cyprus",
+            "Luxembourg"
+          ],
+          [
+            "1997-10-11",
+            "Czech Republic",
+            "Slovakia"
+          ],
+          [
+            "1997-10-11",
+            "Finland",
+            "Hungary"
+          ],
+          [
+            "1997-10-11",
+            "Georgia",
+            "Poland"
+          ],
+          [
+            "1997-10-11",
+            "Germany",
+            "Albania"
+          ],
+          [
+            "1997-10-11",
+            "Greece",
+            "Denmark"
+          ],
+          [
+            "1997-10-11",
+            "Iceland",
+            "Liechtenstein"
+          ],
+          [
+            "1997-10-11",
+            "Republic of Ireland",
+            "Romania"
+          ],
+          [
+            "1997-10-11",
+            "Italy",
+            "England"
+          ],
+          [
+            "1997-10-11",
+            "Kazakhstan",
+            "South Korea"
+          ],
+          [
+            "1997-10-11",
+            "North Macedonia",
+            "Lithuania"
+          ],
+          [
+            "1997-10-11",
+            "Malta",
+            "Serbia"
+          ],
+          [
+            "1997-10-11",
+            "Netherlands",
+            "Turkey"
+          ],
+          [
+            "1997-10-11",
+            "Portugal",
+            "Northern Ireland"
+          ],
+          [
+            "1997-10-11",
+            "Russia",
+            "Bulgaria"
+          ],
+          [
+            "1997-10-11",
+            "Saudi Arabia",
+            "Qatar"
+          ],
+          [
+            "1997-10-11",
+            "Scotland",
+            "Latvia"
+          ],
+          [
+            "1997-10-11",
+            "Slovenia",
+            "Croatia"
+          ],
+          [
+            "1997-10-11",
+            "Spain",
+            "Faroe Islands"
+          ],
+          [
+            "1997-10-11",
+            "Sweden",
+            "Estonia"
+          ],
+          [
+            "1997-10-11",
+            "Switzerland",
+            "Azerbaijan"
+          ],
+          [
+            "1997-10-11",
+            "Uzbekistan",
+            "Japan"
+          ],
+          [
+            "1997-10-12",
+            "Argentina",
+            "Uruguay"
+          ],
+          [
+            "1997-10-12",
+            "Canada",
+            "Mexico"
+          ],
+          [
+            "1997-10-12",
+            "Ecuador",
+            "Bolivia"
+          ],
+          [
+            "1997-10-12",
+            "Paraguay",
+            "Venezuela"
+          ],
+          [
+            "1997-10-12",
+            "Peru",
+            "Chile"
+          ],
+          [
+            "1997-10-17",
+            "Iran",
+            "China"
+          ],
+          [
+            "1997-10-17",
+            "Kuwait",
+            "Saudi Arabia"
+          ],
+          [
+            "1997-10-18",
+            "Kazakhstan",
+            "United Arab Emirates"
+          ],
+          [
+            "1997-10-18",
+            "Uzbekistan",
+            "South Korea"
+          ],
+          [
+            "1997-10-24",
+            "Kuwait",
+            "Qatar"
+          ],
+          [
+            "1997-10-24",
+            "Saudi Arabia",
+            "Iran"
+          ],
+          [
+            "1997-10-25",
+            "Uzbekistan",
+            "Kazakhstan"
+          ],
+          [
+            "1997-10-26",
+            "Japan",
+            "United Arab Emirates"
+          ],
+          [
+            "1997-10-29",
+            "Croatia",
+            "Ukraine"
+          ],
+          [
+            "1997-10-29",
+            "Hungary",
+            "Serbia"
+          ],
+          [
+            "1997-10-29",
+            "Republic of Ireland",
+            "Belgium"
+          ],
+          [
+            "1997-10-29",
+            "Russia",
+            "Italy"
+          ],
+          [
+            "1997-10-31",
+            "China",
+            "Qatar"
+          ],
+          [
+            "1997-10-31",
+            "Iran",
+            "Kuwait"
+          ],
+          [
+            "1997-11-01",
+            "South Korea",
+            "Japan"
+          ],
+          [
+            "1997-11-02",
+            "Mexico",
+            "United States"
+          ],
+          [
+            "1997-11-02",
+            "United Arab Emirates",
+            "Uzbekistan"
+          ],
+          [
+            "1997-11-06",
+            "Saudi Arabia",
+            "China"
+          ],
+          [
+            "1997-11-07",
+            "Qatar",
+            "Iran"
+          ],
+          [
+            "1997-11-08",
+            "Japan",
+            "Kazakhstan"
+          ],
+          [
+            "1997-11-09",
+            "Canada",
+            "United States"
+          ],
+          [
+            "1997-11-09",
+            "El Salvador",
+            "Jamaica"
+          ],
+          [
+            "1997-11-09",
+            "Mexico",
+            "Costa Rica"
+          ],
+          [
+            "1997-11-09",
+            "United Arab Emirates",
+            "South Korea"
+          ],
+          [
+            "1997-11-12",
+            "China",
+            "Kuwait"
+          ],
+          [
+            "1997-11-12",
+            "Qatar",
+            "Saudi Arabia"
+          ],
+          [
+            "1997-11-15",
+            "Belgium",
+            "Republic of Ireland"
+          ],
+          [
+            "1997-11-15",
+            "Italy",
+            "Russia"
+          ],
+          [
+            "1997-11-15",
+            "Serbia",
+            "Hungary"
+          ],
+          [
+            "1997-11-15",
+            "Ukraine",
+            "Croatia"
+          ],
+          [
+            "1997-11-16",
+            "Argentina",
+            "Colombia"
+          ],
+          [
+            "1997-11-16",
+            "Chile",
+            "Bolivia"
+          ],
+          [
+            "1997-11-16",
+            "Costa Rica",
+            "Canada"
+          ],
+          [
+            "1997-11-16",
+            "Jamaica",
+            "Mexico"
+          ],
+          [
+            "1997-11-16",
+            "Japan",
+            "Iran"
+          ],
+          [
+            "1997-11-16",
+            "Peru",
+            "Paraguay"
+          ],
+          [
+            "1997-11-16",
+            "Uruguay",
+            "Ecuador"
+          ],
+          [
+            "1997-11-16",
+            "United States",
+            "El Salvador"
+          ],
+          [
+            "1997-11-22",
+            "Iran",
+            "Australia"
+          ],
+          [
+            "1997-11-29",
+            "Australia",
+            "Iran"
+          ]
+        ],
+        "scope": "World qualification post-cutoff fixtures stored once on parent row167; regional assignment by explicit team membership is research only, native slots unresolved. All pre-cutoff games remain in their existing regional records.",
+        "wholeArchiveMatches": 642,
+        "wholeArchiveParticipants": 168,
+        "preCutoffCount": 80,
+        "preCutoffExistingComparison": {
+          "UEFA": {
+            "compared": 8,
+            "matched": 8,
+            "conflicts": []
+          },
+          "CONMEBOL": {
+            "compared": 8,
+            "matched": 8,
+            "conflicts": []
+          }
+        },
+        "regionalPostCutoffCounts": {
+          "CONMEBOL": 64,
+          "CONCACAF": 66,
+          "UEFA": 220,
+          "OFC": 22,
+          "AFC_CANDIDATE": 129,
+          "CAF": 59,
+          "INTERCONFEDERATION_OR_UNMAPPED": 2
+        }
+      }
     }
   },
   {
@@ -447,7 +3652,240 @@
       "details": {
         "matches": 32
       },
-      "missing": "Walkovers and group mapping."
+      "missing": "Walkovers and group mapping. Single bulk archive extraction; administrative walkovers/withdrawals and native keys not certified.",
+      "matches": [
+        [
+          "1996-03-10",
+          "Dominica",
+          "Antigua and Barbuda",
+          3,
+          3
+        ],
+        [
+          "1996-03-24",
+          "Dominican Republic",
+          "Aruba",
+          3,
+          2
+        ],
+        [
+          "1996-03-29",
+          "Guyana",
+          "Grenada",
+          1,
+          2
+        ],
+        [
+          "1996-03-31",
+          "Antigua and Barbuda",
+          "Dominica",
+          1,
+          3
+        ],
+        [
+          "1996-03-31",
+          "Aruba",
+          "Dominican Republic",
+          1,
+          3
+        ],
+        [
+          "1996-03-31",
+          "Suriname",
+          "Jamaica",
+          0,
+          1
+        ],
+        [
+          "1996-04-07",
+          "Grenada",
+          "Guyana",
+          6,
+          0
+        ],
+        [
+          "1996-04-21",
+          "Jamaica",
+          "Suriname",
+          1,
+          0
+        ],
+        [
+          "1996-05-04",
+          "Puerto Rico",
+          "Saint Vincent and the Grenadines",
+          1,
+          2
+        ],
+        [
+          "1996-05-04",
+          "Dominican Republic",
+          "Curaçao",
+          2,
+          1
+        ],
+        [
+          "1996-05-05",
+          "Nicaragua",
+          "Guatemala",
+          0,
+          1
+        ],
+        [
+          "1996-05-05",
+          "Saint Kitts and Nevis",
+          "Saint Lucia",
+          5,
+          1
+        ],
+        [
+          "1996-05-10",
+          "Guatemala",
+          "Nicaragua",
+          2,
+          1
+        ],
+        [
+          "1996-05-11",
+          "Curaçao",
+          "Dominican Republic",
+          0,
+          0
+        ],
+        [
+          "1996-05-12",
+          "Saint Vincent and the Grenadines",
+          "Puerto Rico",
+          7,
+          0
+        ],
+        [
+          "1996-05-12",
+          "Cayman Islands",
+          "Cuba",
+          0,
+          1
+        ],
+        [
+          "1996-05-12",
+          "Haiti",
+          "Grenada",
+          6,
+          1
+        ],
+        [
+          "1996-05-14",
+          "Cayman Islands",
+          "Cuba",
+          0,
+          5
+        ],
+        [
+          "1996-05-14",
+          "Dominica",
+          "Barbados",
+          0,
+          1
+        ],
+        [
+          "1996-05-18",
+          "Grenada",
+          "Haiti",
+          0,
+          1
+        ],
+        [
+          "1996-05-19",
+          "Barbados",
+          "Dominica",
+          1,
+          0
+        ],
+        [
+          "1996-05-19",
+          "Saint Lucia",
+          "Saint Kitts and Nevis",
+          0,
+          1
+        ],
+        [
+          "1996-06-02",
+          "Belize",
+          "Panama",
+          1,
+          2
+        ],
+        [
+          "1996-06-09",
+          "Panama",
+          "Belize",
+          4,
+          1
+        ],
+        [
+          "1996-06-15",
+          "Dominican Republic",
+          "Trinidad and Tobago",
+          1,
+          4
+        ],
+        [
+          "1996-06-23",
+          "Cuba",
+          "Haiti",
+          6,
+          1
+        ],
+        [
+          "1996-06-23",
+          "Barbados",
+          "Jamaica",
+          0,
+          1
+        ],
+        [
+          "1996-06-23",
+          "Saint Kitts and Nevis",
+          "Saint Vincent and the Grenadines",
+          2,
+          2
+        ],
+        [
+          "1996-06-23",
+          "Trinidad and Tobago",
+          "Dominican Republic",
+          8,
+          0
+        ],
+        [
+          "1996-06-30",
+          "Haiti",
+          "Cuba",
+          1,
+          1
+        ],
+        [
+          "1996-06-30",
+          "Jamaica",
+          "Barbados",
+          2,
+          0
+        ],
+        [
+          "1996-06-30",
+          "Saint Vincent and the Grenadines",
+          "Saint Kitts and Nevis",
+          0,
+          0
+        ]
+      ],
+      "matchSchema": [
+        "date",
+        "home",
+        "away",
+        "homeGoals",
+        "awayGoals"
+      ]
     },
     "competitionNaming": {
       "startEdition": "1996/97",
@@ -477,6 +3915,11 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "RSSSF retrieved excerpt; neutral labels, not official name history; no OG key mapping or runtime import."
+    },
+    "block125Bulk": {
+      "qualifyingCalendarParentRow": 167,
+      "region": "CONCACAF",
+      "preCutoffCount": 32
     }
   },
   {
@@ -599,6 +4042,10 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "RSSSF retrieved excerpt; neutral labels, not official name history; no OG key mapping or runtime import."
+    },
+    "block125Bulk": {
+      "qualifyingCalendarParentRow": 167,
+      "region": "CONMEBOL"
     }
   },
   {
@@ -634,7 +4081,240 @@
       "details": {
         "matches": 32
       },
-      "missing": "Administrative withdrawal timing; mapping."
+      "missing": "Administrative withdrawal timing; mapping. Single bulk archive extraction; administrative walkovers/withdrawals and native keys not certified.",
+      "matches": [
+        [
+          "1996-05-31",
+          "Mauritania",
+          "Burkina Faso",
+          0,
+          0
+        ],
+        [
+          "1996-06-01",
+          "Gambia",
+          "Liberia",
+          2,
+          1
+        ],
+        [
+          "1996-06-01",
+          "Guinea-Bissau",
+          "Guinea",
+          3,
+          2
+        ],
+        [
+          "1996-06-01",
+          "Malawi",
+          "South Africa",
+          0,
+          1
+        ],
+        [
+          "1996-06-01",
+          "Namibia",
+          "Mozambique",
+          2,
+          0
+        ],
+        [
+          "1996-06-01",
+          "Sudan",
+          "Zambia",
+          2,
+          0
+        ],
+        [
+          "1996-06-01",
+          "Uganda",
+          "Angola",
+          0,
+          2
+        ],
+        [
+          "1996-06-02",
+          "Burundi",
+          "Sierra Leone",
+          1,
+          0
+        ],
+        [
+          "1996-06-02",
+          "Congo",
+          "Ivory Coast",
+          2,
+          0
+        ],
+        [
+          "1996-06-02",
+          "Kenya",
+          "Algeria",
+          3,
+          1
+        ],
+        [
+          "1996-06-02",
+          "Madagascar",
+          "Zimbabwe",
+          1,
+          2
+        ],
+        [
+          "1996-06-02",
+          "Mauritius",
+          "DR Congo",
+          1,
+          5
+        ],
+        [
+          "1996-06-02",
+          "Rwanda",
+          "Tunisia",
+          1,
+          3
+        ],
+        [
+          "1996-06-02",
+          "Eswatini",
+          "Gabon",
+          0,
+          1
+        ],
+        [
+          "1996-06-02",
+          "Togo",
+          "Senegal",
+          2,
+          1
+        ],
+        [
+          "1996-06-08",
+          "Tanzania",
+          "Ghana",
+          0,
+          0
+        ],
+        [
+          "1996-06-14",
+          "Algeria",
+          "Kenya",
+          1,
+          0
+        ],
+        [
+          "1996-06-15",
+          "South Africa",
+          "Malawi",
+          3,
+          0
+        ],
+        [
+          "1996-06-16",
+          "Senegal",
+          "Togo",
+          1,
+          1
+        ],
+        [
+          "1996-06-16",
+          "Angola",
+          "Uganda",
+          3,
+          1
+        ],
+        [
+          "1996-06-16",
+          "Burkina Faso",
+          "Mauritania",
+          2,
+          0
+        ],
+        [
+          "1996-06-16",
+          "DR Congo",
+          "Mauritius",
+          2,
+          0
+        ],
+        [
+          "1996-06-16",
+          "Gabon",
+          "Eswatini",
+          2,
+          0
+        ],
+        [
+          "1996-06-16",
+          "Guinea",
+          "Guinea-Bissau",
+          3,
+          1
+        ],
+        [
+          "1996-06-16",
+          "Ivory Coast",
+          "Congo",
+          1,
+          1
+        ],
+        [
+          "1996-06-16",
+          "Mozambique",
+          "Namibia",
+          1,
+          1
+        ],
+        [
+          "1996-06-16",
+          "Sierra Leone",
+          "Burundi",
+          0,
+          1
+        ],
+        [
+          "1996-06-16",
+          "Tunisia",
+          "Rwanda",
+          2,
+          0
+        ],
+        [
+          "1996-06-16",
+          "Zambia",
+          "Sudan",
+          3,
+          0
+        ],
+        [
+          "1996-06-16",
+          "Zimbabwe",
+          "Madagascar",
+          2,
+          2
+        ],
+        [
+          "1996-06-17",
+          "Ghana",
+          "Tanzania",
+          2,
+          1
+        ],
+        [
+          "1996-06-23",
+          "Liberia",
+          "Gambia",
+          4,
+          0
+        ]
+      ],
+      "matchSchema": [
+        "date",
+        "home",
+        "away",
+        "homeGoals",
+        "awayGoals"
+      ]
     },
     "competitionNaming": {
       "startEdition": "1996/97",
@@ -668,6 +4348,11 @@
       ],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "RSSSF retrieved excerpt; neutral labels, not official name history; no OG key mapping or runtime import."
+    },
+    "block125Bulk": {
+      "qualifyingCalendarParentRow": 167,
+      "region": "CAF",
+      "preCutoffCount": 32
     }
   },
   {
@@ -724,7 +4409,11 @@
     "cutoffApplicability": "UNDETERMINED",
     "cutoffCandidateSources": [
       "ffd563a774e1c1865eb513e6ab0ffb427d370a78"
-    ]
+    ],
+    "block125Bulk": {
+      "qualifyingCalendarParentRow": 167,
+      "region": "AFC_CANDIDATE"
+    }
   },
   {
     "row": 172,
@@ -885,6 +4574,1338 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "scope": "Contemporary 1999 account, no arbitrary extra criterion after fair play. Parent existing qualification rules and fixtures referenced."
+    },
+    "block125Bulk": {
+      "finalTournament": {
+        "edition": "2000",
+        "status": "BULK_EXTRACTED_SINGLE_ARCHIVE_NOT_INDEPENDENTLY_CERTIFIED",
+        "matchCount": 31,
+        "participantNames": 16,
+        "distinctDates": 17,
+        "first": "2000-06-10",
+        "last": "2000-07-02",
+        "fixtureSchema": [
+          "date",
+          "home",
+          "away"
+        ],
+        "fixtures": [
+          [
+            "2000-06-10",
+            "Belgium",
+            "Sweden"
+          ],
+          [
+            "2000-06-11",
+            "France",
+            "Denmark"
+          ],
+          [
+            "2000-06-11",
+            "Netherlands",
+            "Czech Republic"
+          ],
+          [
+            "2000-06-11",
+            "Turkey",
+            "Italy"
+          ],
+          [
+            "2000-06-12",
+            "Germany",
+            "Romania"
+          ],
+          [
+            "2000-06-12",
+            "Portugal",
+            "England"
+          ],
+          [
+            "2000-06-13",
+            "Serbia",
+            "Slovenia"
+          ],
+          [
+            "2000-06-13",
+            "Spain",
+            "Norway"
+          ],
+          [
+            "2000-06-14",
+            "Belgium",
+            "Italy"
+          ],
+          [
+            "2000-06-15",
+            "Sweden",
+            "Turkey"
+          ],
+          [
+            "2000-06-16",
+            "Czech Republic",
+            "France"
+          ],
+          [
+            "2000-06-16",
+            "Netherlands",
+            "Denmark"
+          ],
+          [
+            "2000-06-17",
+            "England",
+            "Germany"
+          ],
+          [
+            "2000-06-17",
+            "Romania",
+            "Portugal"
+          ],
+          [
+            "2000-06-18",
+            "Norway",
+            "Serbia"
+          ],
+          [
+            "2000-06-18",
+            "Slovenia",
+            "Spain"
+          ],
+          [
+            "2000-06-19",
+            "Belgium",
+            "Turkey"
+          ],
+          [
+            "2000-06-19",
+            "Italy",
+            "Sweden"
+          ],
+          [
+            "2000-06-20",
+            "England",
+            "Romania"
+          ],
+          [
+            "2000-06-20",
+            "Portugal",
+            "Germany"
+          ],
+          [
+            "2000-06-21",
+            "Denmark",
+            "Czech Republic"
+          ],
+          [
+            "2000-06-21",
+            "Netherlands",
+            "France"
+          ],
+          [
+            "2000-06-21",
+            "Serbia",
+            "Spain"
+          ],
+          [
+            "2000-06-21",
+            "Slovenia",
+            "Norway"
+          ],
+          [
+            "2000-06-24",
+            "Italy",
+            "Romania"
+          ],
+          [
+            "2000-06-24",
+            "Turkey",
+            "Portugal"
+          ],
+          [
+            "2000-06-25",
+            "Netherlands",
+            "Serbia"
+          ],
+          [
+            "2000-06-25",
+            "Spain",
+            "France"
+          ],
+          [
+            "2000-06-28",
+            "France",
+            "Portugal"
+          ],
+          [
+            "2000-06-29",
+            "Netherlands",
+            "Italy"
+          ],
+          [
+            "2000-07-02",
+            "France",
+            "Italy"
+          ]
+        ],
+        "scope": "Historical actual dates and pairings; later career participants/results not predetermined. Archive names are not native keys. Phase labels not yet independently mapped."
+      },
+      "qualifying": {
+        "edition": "2000",
+        "status": "BULK_EXTRACTED_SINGLE_ARCHIVE_NOT_INDEPENDENTLY_CERTIFIED",
+        "matchCount": 228,
+        "participantNames": 49,
+        "distinctDates": 32,
+        "first": "1998-06-04",
+        "last": "1999-11-17",
+        "fixtureSchema": [
+          "date",
+          "home",
+          "away"
+        ],
+        "fixtures": [
+          [
+            "1998-06-04",
+            "Estonia",
+            "Faroe Islands"
+          ],
+          [
+            "1998-08-19",
+            "Bosnia and Herzegovina",
+            "Faroe Islands"
+          ],
+          [
+            "1998-09-02",
+            "Romania",
+            "Liechtenstein"
+          ],
+          [
+            "1998-09-05",
+            "Armenia",
+            "Andorra"
+          ],
+          [
+            "1998-09-05",
+            "Austria",
+            "Israel"
+          ],
+          [
+            "1998-09-05",
+            "Belarus",
+            "Denmark"
+          ],
+          [
+            "1998-09-05",
+            "Bosnia and Herzegovina",
+            "Estonia"
+          ],
+          [
+            "1998-09-05",
+            "Cyprus",
+            "Spain"
+          ],
+          [
+            "1998-09-05",
+            "Finland",
+            "Moldova"
+          ],
+          [
+            "1998-09-05",
+            "Georgia",
+            "Albania"
+          ],
+          [
+            "1998-09-05",
+            "Iceland",
+            "France"
+          ],
+          [
+            "1998-09-05",
+            "Republic of Ireland",
+            "Croatia"
+          ],
+          [
+            "1998-09-05",
+            "Lithuania",
+            "Scotland"
+          ],
+          [
+            "1998-09-05",
+            "Slovakia",
+            "Azerbaijan"
+          ],
+          [
+            "1998-09-05",
+            "Sweden",
+            "England"
+          ],
+          [
+            "1998-09-05",
+            "Turkey",
+            "Northern Ireland"
+          ],
+          [
+            "1998-09-05",
+            "Ukraine",
+            "Russia"
+          ],
+          [
+            "1998-09-05",
+            "Wales",
+            "Italy"
+          ],
+          [
+            "1998-09-06",
+            "Bulgaria",
+            "Poland"
+          ],
+          [
+            "1998-09-06",
+            "Faroe Islands",
+            "Czech Republic"
+          ],
+          [
+            "1998-09-06",
+            "Greece",
+            "Slovenia"
+          ],
+          [
+            "1998-09-06",
+            "Hungary",
+            "Portugal"
+          ],
+          [
+            "1998-09-06",
+            "North Macedonia",
+            "Malta"
+          ],
+          [
+            "1998-09-06",
+            "Norway",
+            "Latvia"
+          ],
+          [
+            "1998-10-10",
+            "Andorra",
+            "Ukraine"
+          ],
+          [
+            "1998-10-10",
+            "Armenia",
+            "Iceland"
+          ],
+          [
+            "1998-10-10",
+            "Azerbaijan",
+            "Hungary"
+          ],
+          [
+            "1998-10-10",
+            "Bosnia and Herzegovina",
+            "Czech Republic"
+          ],
+          [
+            "1998-10-10",
+            "Cyprus",
+            "Austria"
+          ],
+          [
+            "1998-10-10",
+            "Denmark",
+            "Wales"
+          ],
+          [
+            "1998-10-10",
+            "England",
+            "Bulgaria"
+          ],
+          [
+            "1998-10-10",
+            "Italy",
+            "Switzerland"
+          ],
+          [
+            "1998-10-10",
+            "Latvia",
+            "Georgia"
+          ],
+          [
+            "1998-10-10",
+            "Liechtenstein",
+            "Slovakia"
+          ],
+          [
+            "1998-10-10",
+            "Lithuania",
+            "Faroe Islands"
+          ],
+          [
+            "1998-10-10",
+            "Malta",
+            "Croatia"
+          ],
+          [
+            "1998-10-10",
+            "Northern Ireland",
+            "Finland"
+          ],
+          [
+            "1998-10-10",
+            "Poland",
+            "Luxembourg"
+          ],
+          [
+            "1998-10-10",
+            "Portugal",
+            "Romania"
+          ],
+          [
+            "1998-10-10",
+            "Russia",
+            "France"
+          ],
+          [
+            "1998-10-10",
+            "San Marino",
+            "Israel"
+          ],
+          [
+            "1998-10-10",
+            "Scotland",
+            "Estonia"
+          ],
+          [
+            "1998-10-10",
+            "Slovenia",
+            "Norway"
+          ],
+          [
+            "1998-10-10",
+            "Turkey",
+            "Germany"
+          ],
+          [
+            "1998-10-14",
+            "Bulgaria",
+            "Sweden"
+          ],
+          [
+            "1998-10-14",
+            "Croatia",
+            "North Macedonia"
+          ],
+          [
+            "1998-10-14",
+            "Czech Republic",
+            "Estonia"
+          ],
+          [
+            "1998-10-14",
+            "France",
+            "Andorra"
+          ],
+          [
+            "1998-10-14",
+            "Greece",
+            "Georgia"
+          ],
+          [
+            "1998-10-14",
+            "Hungary",
+            "Romania"
+          ],
+          [
+            "1998-10-14",
+            "Iceland",
+            "Russia"
+          ],
+          [
+            "1998-10-14",
+            "Republic of Ireland",
+            "Malta"
+          ],
+          [
+            "1998-10-14",
+            "Israel",
+            "Spain"
+          ],
+          [
+            "1998-10-14",
+            "Liechtenstein",
+            "Azerbaijan"
+          ],
+          [
+            "1998-10-14",
+            "Lithuania",
+            "Bosnia and Herzegovina"
+          ],
+          [
+            "1998-10-14",
+            "Luxembourg",
+            "England"
+          ],
+          [
+            "1998-10-14",
+            "Moldova",
+            "Germany"
+          ],
+          [
+            "1998-10-14",
+            "Norway",
+            "Albania"
+          ],
+          [
+            "1998-10-14",
+            "San Marino",
+            "Austria"
+          ],
+          [
+            "1998-10-14",
+            "Scotland",
+            "Faroe Islands"
+          ],
+          [
+            "1998-10-14",
+            "Slovakia",
+            "Portugal"
+          ],
+          [
+            "1998-10-14",
+            "Slovenia",
+            "Latvia"
+          ],
+          [
+            "1998-10-14",
+            "Switzerland",
+            "Denmark"
+          ],
+          [
+            "1998-10-14",
+            "Turkey",
+            "Finland"
+          ],
+          [
+            "1998-10-14",
+            "Ukraine",
+            "Armenia"
+          ],
+          [
+            "1998-10-14",
+            "Wales",
+            "Belarus"
+          ],
+          [
+            "1998-11-18",
+            "Albania",
+            "Greece"
+          ],
+          [
+            "1998-11-18",
+            "Malta",
+            "North Macedonia"
+          ],
+          [
+            "1998-11-18",
+            "Northern Ireland",
+            "Moldova"
+          ],
+          [
+            "1998-11-18",
+            "San Marino",
+            "Cyprus"
+          ],
+          [
+            "1998-11-18",
+            "Serbia",
+            "Republic of Ireland"
+          ],
+          [
+            "1999-02-10",
+            "Cyprus",
+            "San Marino"
+          ],
+          [
+            "1999-02-10",
+            "Malta",
+            "Serbia"
+          ],
+          [
+            "1999-03-26",
+            "Portugal",
+            "Azerbaijan"
+          ],
+          [
+            "1999-03-27",
+            "Andorra",
+            "Iceland"
+          ],
+          [
+            "1999-03-27",
+            "Armenia",
+            "Russia"
+          ],
+          [
+            "1999-03-27",
+            "Belarus",
+            "Switzerland"
+          ],
+          [
+            "1999-03-27",
+            "Czech Republic",
+            "Lithuania"
+          ],
+          [
+            "1999-03-27",
+            "Denmark",
+            "Italy"
+          ],
+          [
+            "1999-03-27",
+            "England",
+            "Poland"
+          ],
+          [
+            "1999-03-27",
+            "France",
+            "Ukraine"
+          ],
+          [
+            "1999-03-27",
+            "Georgia",
+            "Slovenia"
+          ],
+          [
+            "1999-03-27",
+            "Greece",
+            "Norway"
+          ],
+          [
+            "1999-03-27",
+            "Hungary",
+            "Liechtenstein"
+          ],
+          [
+            "1999-03-27",
+            "Northern Ireland",
+            "Germany"
+          ],
+          [
+            "1999-03-27",
+            "Romania",
+            "Slovakia"
+          ],
+          [
+            "1999-03-27",
+            "Spain",
+            "Austria"
+          ],
+          [
+            "1999-03-27",
+            "Sweden",
+            "Luxembourg"
+          ],
+          [
+            "1999-03-27",
+            "Turkey",
+            "Moldova"
+          ],
+          [
+            "1999-03-28",
+            "Israel",
+            "Cyprus"
+          ],
+          [
+            "1999-03-31",
+            "Azerbaijan",
+            "Romania"
+          ],
+          [
+            "1999-03-31",
+            "France",
+            "Armenia"
+          ],
+          [
+            "1999-03-31",
+            "Germany",
+            "Finland"
+          ],
+          [
+            "1999-03-31",
+            "Italy",
+            "Belarus"
+          ],
+          [
+            "1999-03-31",
+            "Latvia",
+            "Greece"
+          ],
+          [
+            "1999-03-31",
+            "Liechtenstein",
+            "Portugal"
+          ],
+          [
+            "1999-03-31",
+            "Lithuania",
+            "Estonia"
+          ],
+          [
+            "1999-03-31",
+            "Luxembourg",
+            "Bulgaria"
+          ],
+          [
+            "1999-03-31",
+            "Moldova",
+            "Northern Ireland"
+          ],
+          [
+            "1999-03-31",
+            "Poland",
+            "Sweden"
+          ],
+          [
+            "1999-03-31",
+            "Russia",
+            "Andorra"
+          ],
+          [
+            "1999-03-31",
+            "San Marino",
+            "Spain"
+          ],
+          [
+            "1999-03-31",
+            "Scotland",
+            "Czech Republic"
+          ],
+          [
+            "1999-03-31",
+            "Slovakia",
+            "Hungary"
+          ],
+          [
+            "1999-03-31",
+            "Switzerland",
+            "Wales"
+          ],
+          [
+            "1999-03-31",
+            "Ukraine",
+            "Iceland"
+          ],
+          [
+            "1999-04-28",
+            "Austria",
+            "San Marino"
+          ],
+          [
+            "1999-04-28",
+            "Georgia",
+            "Norway"
+          ],
+          [
+            "1999-04-28",
+            "Latvia",
+            "Albania"
+          ],
+          [
+            "1999-05-30",
+            "Norway",
+            "Georgia"
+          ],
+          [
+            "1999-06-04",
+            "Germany",
+            "Moldova"
+          ],
+          [
+            "1999-06-04",
+            "Poland",
+            "Bulgaria"
+          ],
+          [
+            "1999-06-05",
+            "Albania",
+            "Norway"
+          ],
+          [
+            "1999-06-05",
+            "Azerbaijan",
+            "Liechtenstein"
+          ],
+          [
+            "1999-06-05",
+            "Bosnia and Herzegovina",
+            "Lithuania"
+          ],
+          [
+            "1999-06-05",
+            "Denmark",
+            "Belarus"
+          ],
+          [
+            "1999-06-05",
+            "England",
+            "Sweden"
+          ],
+          [
+            "1999-06-05",
+            "Estonia",
+            "Czech Republic"
+          ],
+          [
+            "1999-06-05",
+            "Faroe Islands",
+            "Scotland"
+          ],
+          [
+            "1999-06-05",
+            "Finland",
+            "Turkey"
+          ],
+          [
+            "1999-06-05",
+            "France",
+            "Russia"
+          ],
+          [
+            "1999-06-05",
+            "Georgia",
+            "Greece"
+          ],
+          [
+            "1999-06-05",
+            "Iceland",
+            "Armenia"
+          ],
+          [
+            "1999-06-05",
+            "Italy",
+            "Wales"
+          ],
+          [
+            "1999-06-05",
+            "Latvia",
+            "Slovenia"
+          ],
+          [
+            "1999-06-05",
+            "North Macedonia",
+            "Croatia"
+          ],
+          [
+            "1999-06-05",
+            "Portugal",
+            "Slovakia"
+          ],
+          [
+            "1999-06-05",
+            "Romania",
+            "Hungary"
+          ],
+          [
+            "1999-06-05",
+            "Spain",
+            "San Marino"
+          ],
+          [
+            "1999-06-05",
+            "Ukraine",
+            "Andorra"
+          ],
+          [
+            "1999-06-06",
+            "Israel",
+            "Austria"
+          ],
+          [
+            "1999-06-08",
+            "Serbia",
+            "Malta"
+          ],
+          [
+            "1999-06-09",
+            "Albania",
+            "Slovenia"
+          ],
+          [
+            "1999-06-09",
+            "Andorra",
+            "France"
+          ],
+          [
+            "1999-06-09",
+            "Armenia",
+            "Ukraine"
+          ],
+          [
+            "1999-06-09",
+            "Bulgaria",
+            "England"
+          ],
+          [
+            "1999-06-09",
+            "Czech Republic",
+            "Scotland"
+          ],
+          [
+            "1999-06-09",
+            "Estonia",
+            "Lithuania"
+          ],
+          [
+            "1999-06-09",
+            "Faroe Islands",
+            "Bosnia and Herzegovina"
+          ],
+          [
+            "1999-06-09",
+            "Greece",
+            "Latvia"
+          ],
+          [
+            "1999-06-09",
+            "Hungary",
+            "Slovakia"
+          ],
+          [
+            "1999-06-09",
+            "Republic of Ireland",
+            "North Macedonia"
+          ],
+          [
+            "1999-06-09",
+            "Luxembourg",
+            "Poland"
+          ],
+          [
+            "1999-06-09",
+            "Moldova",
+            "Finland"
+          ],
+          [
+            "1999-06-09",
+            "Portugal",
+            "Liechtenstein"
+          ],
+          [
+            "1999-06-09",
+            "Romania",
+            "Azerbaijan"
+          ],
+          [
+            "1999-06-09",
+            "Russia",
+            "Iceland"
+          ],
+          [
+            "1999-06-09",
+            "Switzerland",
+            "Italy"
+          ],
+          [
+            "1999-06-09",
+            "Wales",
+            "Denmark"
+          ],
+          [
+            "1999-08-18",
+            "Serbia",
+            "Croatia"
+          ],
+          [
+            "1999-08-18",
+            "Slovenia",
+            "Albania"
+          ],
+          [
+            "1999-08-21",
+            "Croatia",
+            "Malta"
+          ],
+          [
+            "1999-09-01",
+            "Republic of Ireland",
+            "Serbia"
+          ],
+          [
+            "1999-09-04",
+            "Albania",
+            "Latvia"
+          ],
+          [
+            "1999-09-04",
+            "Austria",
+            "Spain"
+          ],
+          [
+            "1999-09-04",
+            "Azerbaijan",
+            "Portugal"
+          ],
+          [
+            "1999-09-04",
+            "Belarus",
+            "Wales"
+          ],
+          [
+            "1999-09-04",
+            "Bosnia and Herzegovina",
+            "Scotland"
+          ],
+          [
+            "1999-09-04",
+            "Croatia",
+            "Republic of Ireland"
+          ],
+          [
+            "1999-09-04",
+            "Denmark",
+            "Switzerland"
+          ],
+          [
+            "1999-09-04",
+            "England",
+            "Luxembourg"
+          ],
+          [
+            "1999-09-04",
+            "Faroe Islands",
+            "Estonia"
+          ],
+          [
+            "1999-09-04",
+            "Finland",
+            "Germany"
+          ],
+          [
+            "1999-09-04",
+            "Iceland",
+            "Andorra"
+          ],
+          [
+            "1999-09-04",
+            "Liechtenstein",
+            "Hungary"
+          ],
+          [
+            "1999-09-04",
+            "Lithuania",
+            "Czech Republic"
+          ],
+          [
+            "1999-09-04",
+            "Northern Ireland",
+            "Turkey"
+          ],
+          [
+            "1999-09-04",
+            "Norway",
+            "Greece"
+          ],
+          [
+            "1999-09-04",
+            "Russia",
+            "Armenia"
+          ],
+          [
+            "1999-09-04",
+            "Slovakia",
+            "Romania"
+          ],
+          [
+            "1999-09-04",
+            "Slovenia",
+            "Georgia"
+          ],
+          [
+            "1999-09-04",
+            "Sweden",
+            "Bulgaria"
+          ],
+          [
+            "1999-09-04",
+            "Ukraine",
+            "France"
+          ],
+          [
+            "1999-09-05",
+            "Cyprus",
+            "Israel"
+          ],
+          [
+            "1999-09-05",
+            "Serbia",
+            "North Macedonia"
+          ],
+          [
+            "1999-09-08",
+            "Andorra",
+            "Russia"
+          ],
+          [
+            "1999-09-08",
+            "Armenia",
+            "France"
+          ],
+          [
+            "1999-09-08",
+            "Czech Republic",
+            "Bosnia and Herzegovina"
+          ],
+          [
+            "1999-09-08",
+            "Estonia",
+            "Scotland"
+          ],
+          [
+            "1999-09-08",
+            "Faroe Islands",
+            "Lithuania"
+          ],
+          [
+            "1999-09-08",
+            "Georgia",
+            "Latvia"
+          ],
+          [
+            "1999-09-08",
+            "Germany",
+            "Northern Ireland"
+          ],
+          [
+            "1999-09-08",
+            "Hungary",
+            "Azerbaijan"
+          ],
+          [
+            "1999-09-08",
+            "Iceland",
+            "Ukraine"
+          ],
+          [
+            "1999-09-08",
+            "Israel",
+            "San Marino"
+          ],
+          [
+            "1999-09-08",
+            "Italy",
+            "Denmark"
+          ],
+          [
+            "1999-09-08",
+            "Luxembourg",
+            "Sweden"
+          ],
+          [
+            "1999-09-08",
+            "North Macedonia",
+            "Serbia"
+          ],
+          [
+            "1999-09-08",
+            "Malta",
+            "Republic of Ireland"
+          ],
+          [
+            "1999-09-08",
+            "Moldova",
+            "Turkey"
+          ],
+          [
+            "1999-09-08",
+            "Norway",
+            "Slovenia"
+          ],
+          [
+            "1999-09-08",
+            "Poland",
+            "England"
+          ],
+          [
+            "1999-09-08",
+            "Romania",
+            "Portugal"
+          ],
+          [
+            "1999-09-08",
+            "Slovakia",
+            "Liechtenstein"
+          ],
+          [
+            "1999-09-08",
+            "Spain",
+            "Cyprus"
+          ],
+          [
+            "1999-09-08",
+            "Switzerland",
+            "Belarus"
+          ],
+          [
+            "1999-10-05",
+            "Scotland",
+            "Bosnia and Herzegovina"
+          ],
+          [
+            "1999-10-06",
+            "Greece",
+            "Albania"
+          ],
+          [
+            "1999-10-09",
+            "Albania",
+            "Georgia"
+          ],
+          [
+            "1999-10-09",
+            "Andorra",
+            "Armenia"
+          ],
+          [
+            "1999-10-09",
+            "Azerbaijan",
+            "Slovakia"
+          ],
+          [
+            "1999-10-09",
+            "Belarus",
+            "Italy"
+          ],
+          [
+            "1999-10-09",
+            "Croatia",
+            "Serbia"
+          ],
+          [
+            "1999-10-09",
+            "Czech Republic",
+            "Faroe Islands"
+          ],
+          [
+            "1999-10-09",
+            "Estonia",
+            "Bosnia and Herzegovina"
+          ],
+          [
+            "1999-10-09",
+            "Finland",
+            "Northern Ireland"
+          ],
+          [
+            "1999-10-09",
+            "France",
+            "Iceland"
+          ],
+          [
+            "1999-10-09",
+            "Germany",
+            "Turkey"
+          ],
+          [
+            "1999-10-09",
+            "Latvia",
+            "Norway"
+          ],
+          [
+            "1999-10-09",
+            "Liechtenstein",
+            "Romania"
+          ],
+          [
+            "1999-10-09",
+            "North Macedonia",
+            "Republic of Ireland"
+          ],
+          [
+            "1999-10-09",
+            "Portugal",
+            "Hungary"
+          ],
+          [
+            "1999-10-09",
+            "Russia",
+            "Ukraine"
+          ],
+          [
+            "1999-10-09",
+            "Scotland",
+            "Lithuania"
+          ],
+          [
+            "1999-10-09",
+            "Slovenia",
+            "Greece"
+          ],
+          [
+            "1999-10-09",
+            "Sweden",
+            "Poland"
+          ],
+          [
+            "1999-10-09",
+            "Wales",
+            "Switzerland"
+          ],
+          [
+            "1999-10-09",
+            "Austria",
+            "Cyprus"
+          ],
+          [
+            "1999-10-09",
+            "Bulgaria",
+            "Luxembourg"
+          ],
+          [
+            "1999-10-10",
+            "Spain",
+            "Israel"
+          ],
+          [
+            "1999-11-13",
+            "Republic of Ireland",
+            "Turkey"
+          ],
+          [
+            "1999-11-13",
+            "Israel",
+            "Denmark"
+          ],
+          [
+            "1999-11-13",
+            "Scotland",
+            "England"
+          ],
+          [
+            "1999-11-13",
+            "Slovenia",
+            "Ukraine"
+          ],
+          [
+            "1999-11-17",
+            "Denmark",
+            "Israel"
+          ],
+          [
+            "1999-11-17",
+            "England",
+            "Scotland"
+          ],
+          [
+            "1999-11-17",
+            "Turkey",
+            "Republic of Ireland"
+          ],
+          [
+            "1999-11-17",
+            "Ukraine",
+            "Slovenia"
+          ]
+        ],
+        "scope": "Parent row only; nine real groups versus eight native slots remain unresolved; no duplicate technical group data.",
+        "earlierObservedDateNote": "Archive includes Estonia–Faroe Islands 1998-06-04, earlier than prior firstObservedDate 1998-09-02; verify whether official qualifier (not assumed erroneous)."
+      }
     }
   },
   {
@@ -938,6 +5959,155 @@
       ],
       "limitations": "HTML opened, partial group evidence",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block125Bulk": {
+      "finalTournament": {
+        "edition": "1997",
+        "status": "BULK_EXTRACTED_SINGLE_ARCHIVE_NOT_INDEPENDENTLY_CERTIFIED",
+        "matchCount": 26,
+        "participantNames": 12,
+        "distinctDates": 15,
+        "first": "1997-06-11",
+        "last": "1997-06-29",
+        "fixtureSchema": [
+          "date",
+          "home",
+          "away"
+        ],
+        "fixtures": [
+          [
+            "1997-06-11",
+            "Argentina",
+            "Ecuador"
+          ],
+          [
+            "1997-06-11",
+            "Chile",
+            "Paraguay"
+          ],
+          [
+            "1997-06-12",
+            "Bolivia",
+            "Venezuela"
+          ],
+          [
+            "1997-06-12",
+            "Peru",
+            "Uruguay"
+          ],
+          [
+            "1997-06-13",
+            "Brazil",
+            "Costa Rica"
+          ],
+          [
+            "1997-06-13",
+            "Mexico",
+            "Colombia"
+          ],
+          [
+            "1997-06-14",
+            "Argentina",
+            "Chile"
+          ],
+          [
+            "1997-06-14",
+            "Paraguay",
+            "Ecuador"
+          ],
+          [
+            "1997-06-15",
+            "Bolivia",
+            "Peru"
+          ],
+          [
+            "1997-06-15",
+            "Uruguay",
+            "Venezuela"
+          ],
+          [
+            "1997-06-16",
+            "Brazil",
+            "Mexico"
+          ],
+          [
+            "1997-06-16",
+            "Colombia",
+            "Costa Rica"
+          ],
+          [
+            "1997-06-17",
+            "Argentina",
+            "Paraguay"
+          ],
+          [
+            "1997-06-17",
+            "Chile",
+            "Ecuador"
+          ],
+          [
+            "1997-06-18",
+            "Bolivia",
+            "Uruguay"
+          ],
+          [
+            "1997-06-18",
+            "Peru",
+            "Venezuela"
+          ],
+          [
+            "1997-06-19",
+            "Brazil",
+            "Colombia"
+          ],
+          [
+            "1997-06-19",
+            "Mexico",
+            "Costa Rica"
+          ],
+          [
+            "1997-06-21",
+            "Bolivia",
+            "Colombia"
+          ],
+          [
+            "1997-06-21",
+            "Peru",
+            "Argentina"
+          ],
+          [
+            "1997-06-22",
+            "Brazil",
+            "Paraguay"
+          ],
+          [
+            "1997-06-22",
+            "Ecuador",
+            "Mexico"
+          ],
+          [
+            "1997-06-25",
+            "Bolivia",
+            "Mexico"
+          ],
+          [
+            "1997-06-26",
+            "Brazil",
+            "Peru"
+          ],
+          [
+            "1997-06-28",
+            "Mexico",
+            "Peru"
+          ],
+          [
+            "1997-06-29",
+            "Bolivia",
+            "Brazil"
+          ]
+        ],
+        "scope": "Historical actual dates and pairings; later career participants/results not predetermined. Archive names are not native keys. Phase labels not yet independently mapped."
+      }
     }
   },
   {
@@ -987,6 +6157,185 @@
       ],
       "limitations": "HTML opened; past edition, not future result",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block125Bulk": {
+      "finalTournament": {
+        "edition": "1998",
+        "status": "BULK_EXTRACTED_SINGLE_ARCHIVE_NOT_INDEPENDENTLY_CERTIFIED",
+        "matchCount": 32,
+        "participantNames": 16,
+        "distinctDates": 16,
+        "first": "1998-02-07",
+        "last": "1998-02-28",
+        "fixtureSchema": [
+          "date",
+          "home",
+          "away"
+        ],
+        "fixtures": [
+          [
+            "1998-02-07",
+            "Burkina Faso",
+            "Cameroon"
+          ],
+          [
+            "1998-02-08",
+            "Algeria",
+            "Guinea"
+          ],
+          [
+            "1998-02-08",
+            "Ivory Coast",
+            "Namibia"
+          ],
+          [
+            "1998-02-08",
+            "South Africa",
+            "Angola"
+          ],
+          [
+            "1998-02-09",
+            "DR Congo",
+            "Togo"
+          ],
+          [
+            "1998-02-09",
+            "Ghana",
+            "Tunisia"
+          ],
+          [
+            "1998-02-09",
+            "Zambia",
+            "Morocco"
+          ],
+          [
+            "1998-02-10",
+            "Egypt",
+            "Mozambique"
+          ],
+          [
+            "1998-02-11",
+            "Burkina Faso",
+            "Algeria"
+          ],
+          [
+            "1998-02-11",
+            "Cameroon",
+            "Guinea"
+          ],
+          [
+            "1998-02-11",
+            "South Africa",
+            "Ivory Coast"
+          ],
+          [
+            "1998-02-12",
+            "Angola",
+            "Namibia"
+          ],
+          [
+            "1998-02-12",
+            "Ghana",
+            "Togo"
+          ],
+          [
+            "1998-02-12",
+            "Tunisia",
+            "DR Congo"
+          ],
+          [
+            "1998-02-13",
+            "Morocco",
+            "Mozambique"
+          ],
+          [
+            "1998-02-13",
+            "Zambia",
+            "Egypt"
+          ],
+          [
+            "1998-02-15",
+            "Burkina Faso",
+            "Guinea"
+          ],
+          [
+            "1998-02-15",
+            "Cameroon",
+            "Algeria"
+          ],
+          [
+            "1998-02-16",
+            "Ghana",
+            "DR Congo"
+          ],
+          [
+            "1998-02-16",
+            "Ivory Coast",
+            "Angola"
+          ],
+          [
+            "1998-02-16",
+            "South Africa",
+            "Namibia"
+          ],
+          [
+            "1998-02-16",
+            "Tunisia",
+            "Togo"
+          ],
+          [
+            "1998-02-17",
+            "Egypt",
+            "Morocco"
+          ],
+          [
+            "1998-02-17",
+            "Zambia",
+            "Mozambique"
+          ],
+          [
+            "1998-02-20",
+            "Cameroon",
+            "DR Congo"
+          ],
+          [
+            "1998-02-21",
+            "Burkina Faso",
+            "Tunisia"
+          ],
+          [
+            "1998-02-21",
+            "Ivory Coast",
+            "Egypt"
+          ],
+          [
+            "1998-02-22",
+            "Morocco",
+            "South Africa"
+          ],
+          [
+            "1998-02-25",
+            "Burkina Faso",
+            "Egypt"
+          ],
+          [
+            "1998-02-25",
+            "DR Congo",
+            "South Africa"
+          ],
+          [
+            "1998-02-27",
+            "Burkina Faso",
+            "DR Congo"
+          ],
+          [
+            "1998-02-28",
+            "South Africa",
+            "Egypt"
+          ]
+        ],
+        "scope": "Historical actual dates and pairings; later career participants/results not predetermined. Archive names are not native keys. Phase labels not yet independently mapped."
+      }
     }
   },
   {
@@ -1055,6 +6404,110 @@
       },
       "scope": "1998 finals format observed; qualification access dates not fully reconciled.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block125Bulk": {
+      "finalTournament": {
+        "edition": "1998",
+        "status": "BULK_EXTRACTED_SINGLE_ARCHIVE_NOT_INDEPENDENTLY_CERTIFIED",
+        "matchCount": 16,
+        "participantNames": 10,
+        "distinctDates": 10,
+        "first": "1998-02-01",
+        "last": "1998-02-15",
+        "fixtureSchema": [
+          "date",
+          "home",
+          "away"
+        ],
+        "fixtures": [
+          [
+            "1998-02-01",
+            "Guatemala",
+            "El Salvador"
+          ],
+          [
+            "1998-02-01",
+            "Honduras",
+            "Trinidad and Tobago"
+          ],
+          [
+            "1998-02-01",
+            "United States",
+            "Cuba"
+          ],
+          [
+            "1998-02-03",
+            "Brazil",
+            "Jamaica"
+          ],
+          [
+            "1998-02-04",
+            "Cuba",
+            "Costa Rica"
+          ],
+          [
+            "1998-02-04",
+            "Trinidad and Tobago",
+            "Mexico"
+          ],
+          [
+            "1998-02-05",
+            "Brazil",
+            "Guatemala"
+          ],
+          [
+            "1998-02-07",
+            "Mexico",
+            "Honduras"
+          ],
+          [
+            "1998-02-07",
+            "United States",
+            "Costa Rica"
+          ],
+          [
+            "1998-02-08",
+            "El Salvador",
+            "Brazil"
+          ],
+          [
+            "1998-02-08",
+            "Guatemala",
+            "Jamaica"
+          ],
+          [
+            "1998-02-09",
+            "Jamaica",
+            "El Salvador"
+          ],
+          [
+            "1998-02-10",
+            "United States",
+            "Brazil"
+          ],
+          [
+            "1998-02-12",
+            "Jamaica",
+            "Mexico"
+          ],
+          [
+            "1998-02-15",
+            "Brazil",
+            "Jamaica"
+          ],
+          [
+            "1998-02-15",
+            "United States",
+            "Mexico"
+          ]
+        ],
+        "scope": "Historical actual dates and pairings; later career participants/results not predetermined. Archive names are not native keys. Phase labels not yet independently mapped.",
+        "dateConflict": {
+          "existingFinalDate": "1998-02-14",
+          "archiveFinalDate": "1998-02-15",
+          "status": "REVIEW_REQUIRED"
+        }
+      }
     }
   },
   {
@@ -1513,6 +6966,403 @@
         6
       ],
       "scope": "Only qualifying games before July1; final tournament has no played fixtures. Ranking and IDs remain unverified."
+    },
+    "block125Bulk": {
+      "finalTournament": {
+        "edition": "1996",
+        "status": "BULK_EXTRACTED_SINGLE_ARCHIVE_NOT_INDEPENDENTLY_CERTIFIED",
+        "matchCount": 26,
+        "participantNames": 12,
+        "distinctDates": 13,
+        "first": "1996-12-04",
+        "last": "1996-12-21",
+        "fixtureSchema": [
+          "date",
+          "home",
+          "away"
+        ],
+        "fixtures": [
+          [
+            "1996-12-04",
+            "Indonesia",
+            "Kuwait"
+          ],
+          [
+            "1996-12-04",
+            "United Arab Emirates",
+            "South Korea"
+          ],
+          [
+            "1996-12-05",
+            "Iran",
+            "Iraq"
+          ],
+          [
+            "1996-12-05",
+            "Saudi Arabia",
+            "Thailand"
+          ],
+          [
+            "1996-12-06",
+            "China",
+            "Uzbekistan"
+          ],
+          [
+            "1996-12-06",
+            "Japan",
+            "Syria"
+          ],
+          [
+            "1996-12-07",
+            "South Korea",
+            "Indonesia"
+          ],
+          [
+            "1996-12-07",
+            "United Arab Emirates",
+            "Kuwait"
+          ],
+          [
+            "1996-12-08",
+            "Saudi Arabia",
+            "Iraq"
+          ],
+          [
+            "1996-12-08",
+            "Thailand",
+            "Iran"
+          ],
+          [
+            "1996-12-09",
+            "Japan",
+            "Uzbekistan"
+          ],
+          [
+            "1996-12-09",
+            "Syria",
+            "China"
+          ],
+          [
+            "1996-12-10",
+            "Kuwait",
+            "South Korea"
+          ],
+          [
+            "1996-12-10",
+            "United Arab Emirates",
+            "Indonesia"
+          ],
+          [
+            "1996-12-11",
+            "Iraq",
+            "Thailand"
+          ],
+          [
+            "1996-12-11",
+            "Saudi Arabia",
+            "Iran"
+          ],
+          [
+            "1996-12-12",
+            "Japan",
+            "China"
+          ],
+          [
+            "1996-12-12",
+            "Uzbekistan",
+            "Syria"
+          ],
+          [
+            "1996-12-15",
+            "Kuwait",
+            "Japan"
+          ],
+          [
+            "1996-12-15",
+            "United Arab Emirates",
+            "Iraq"
+          ],
+          [
+            "1996-12-16",
+            "South Korea",
+            "Iran"
+          ],
+          [
+            "1996-12-16",
+            "Saudi Arabia",
+            "China"
+          ],
+          [
+            "1996-12-19",
+            "Iran",
+            "Saudi Arabia"
+          ],
+          [
+            "1996-12-19",
+            "United Arab Emirates",
+            "Kuwait"
+          ],
+          [
+            "1996-12-21",
+            "Iran",
+            "Kuwait"
+          ],
+          [
+            "1996-12-21",
+            "United Arab Emirates",
+            "Saudi Arabia"
+          ]
+        ],
+        "scope": "Historical actual dates and pairings; later career participants/results not predetermined. Archive names are not native keys. Phase labels not yet independently mapped."
+      },
+      "qualifying": {
+        "edition": "1996",
+        "status": "BULK_EXTRACTED_SINGLE_ARCHIVE_NOT_INDEPENDENTLY_CERTIFIED",
+        "matchCount": 19,
+        "participantNames": 14,
+        "distinctDates": 14,
+        "first": "1996-07-01",
+        "last": "1996-08-13",
+        "fixtureSchema": [
+          "date",
+          "home",
+          "away"
+        ],
+        "fixtures": [
+          [
+            "1996-07-01",
+            "Myanmar",
+            "Maldives"
+          ],
+          [
+            "1996-07-01",
+            "Thailand",
+            "Singapore"
+          ],
+          [
+            "1996-07-04",
+            "Maldives",
+            "Thailand"
+          ],
+          [
+            "1996-07-04",
+            "Singapore",
+            "Myanmar"
+          ],
+          [
+            "1996-07-05",
+            "Qatar",
+            "Kazakhstan"
+          ],
+          [
+            "1996-07-07",
+            "Myanmar",
+            "Thailand"
+          ],
+          [
+            "1996-07-07",
+            "Singapore",
+            "Maldives"
+          ],
+          [
+            "1996-07-09",
+            "Myanmar",
+            "Maldives"
+          ],
+          [
+            "1996-07-09",
+            "Singapore",
+            "Thailand"
+          ],
+          [
+            "1996-07-12",
+            "Kazakhstan",
+            "Syria"
+          ],
+          [
+            "1996-07-19",
+            "Syria",
+            "Qatar"
+          ],
+          [
+            "1996-08-04",
+            "Vietnam",
+            "Taiwan"
+          ],
+          [
+            "1996-08-05",
+            "South Korea",
+            "Guam"
+          ],
+          [
+            "1996-08-07",
+            "Vietnam",
+            "Guam"
+          ],
+          [
+            "1996-08-08",
+            "South Korea",
+            "Taiwan"
+          ],
+          [
+            "1996-08-09",
+            "Jordan",
+            "Pakistan"
+          ],
+          [
+            "1996-08-11",
+            "Iraq",
+            "Pakistan"
+          ],
+          [
+            "1996-08-11",
+            "Vietnam",
+            "South Korea"
+          ],
+          [
+            "1996-08-13",
+            "Jordan",
+            "Iraq"
+          ]
+        ],
+        "scope": "Post-cutoff qualifying dates only; 42 earlier match records retained in startResearch, not duplicated.",
+        "wholeArchiveMatches": 61,
+        "preCutoffComparison": {
+          "compared": 42,
+          "matched": 35,
+          "conflicts": [
+            {
+              "existing": [
+                4,
+                "1996-03-06",
+                "India",
+                "Malaysia",
+                2,
+                5
+              ],
+              "archive": [
+                "1996-03-06",
+                "Malaysia",
+                "India",
+                5,
+                2
+              ],
+              "status": "SAME_DATE_AND_TEAM_ASSOCIATED_SCORE_REVERSED_HOME_AWAY"
+            },
+            {
+              "existing": [
+                5,
+                "1996-06-10",
+                "Oman",
+                "Sri Lanka",
+                3,
+                0
+              ],
+              "archive": [
+                "1996-06-10",
+                "Sri Lanka",
+                "Oman",
+                0,
+                3
+              ],
+              "status": "SAME_DATE_AND_TEAM_ASSOCIATED_SCORE_REVERSED_HOME_AWAY"
+            },
+            {
+              "existing": [
+                5,
+                "1996-06-12",
+                "Oman",
+                "Nepal",
+                7,
+                0
+              ],
+              "archive": [
+                "1996-06-12",
+                "Nepal",
+                "Oman",
+                0,
+                7
+              ],
+              "status": "SAME_DATE_AND_TEAM_ASSOCIATED_SCORE_REVERSED_HOME_AWAY"
+            },
+            {
+              "existing": [
+                5,
+                "1996-06-17",
+                "Iran",
+                "Sri Lanka",
+                4,
+                0
+              ],
+              "archive": [
+                "1996-06-17",
+                "Sri Lanka",
+                "Iran",
+                0,
+                4
+              ],
+              "status": "SAME_DATE_AND_TEAM_ASSOCIATED_SCORE_REVERSED_HOME_AWAY"
+            },
+            {
+              "existing": [
+                5,
+                "1996-06-19",
+                "Iran",
+                "Nepal",
+                4,
+                0
+              ],
+              "archive": [
+                "1996-06-19",
+                "Nepal",
+                "Iran",
+                0,
+                4
+              ],
+              "status": "SAME_DATE_AND_TEAM_ASSOCIATED_SCORE_REVERSED_HOME_AWAY"
+            },
+            {
+              "existing": [
+                9,
+                "1996-01-31",
+                "Kyrgyzstan",
+                "Saudi Arabia",
+                0,
+                2
+              ],
+              "archive": [
+                "1996-01-31",
+                "Saudi Arabia",
+                "Kyrgyzstan",
+                2,
+                0
+              ],
+              "status": "SAME_DATE_AND_TEAM_ASSOCIATED_SCORE_REVERSED_HOME_AWAY"
+            },
+            {
+              "existing": [
+                9,
+                "1996-02-04",
+                "Yemen",
+                "Saudi Arabia",
+                0,
+                1
+              ],
+              "archive": [
+                "1996-02-04",
+                "Saudi Arabia",
+                "Yemen",
+                1,
+                0
+              ],
+              "status": "SAME_DATE_AND_TEAM_ASSOCIATED_SCORE_REVERSED_HOME_AWAY"
+            }
+          ],
+          "reversedOrientationMatches": 7,
+          "dateAndTeamAssociatedScoreMatched": 42,
+          "scope": "Existing pre-cutoff fixture records unchanged. Nominal home/away requires independent verification; comparison entries refer to same matches, not additional fixtures."
+        }
+      }
     }
   }
 ]

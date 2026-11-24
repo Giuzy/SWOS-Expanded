@@ -13,7 +13,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -93,6 +93,118 @@
       ],
       "limitations": "Official opening participants and phase windows; detailed current movement, tie-break and individual dates pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "participantKeyAudit": {
+      "edition": "2026/27",
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "division": 0,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "Aberdeen",
+          "ABERDEEN",
+          "8602962a-3130-5ac5-8afe-2a2762f13e72",
+          33,
+          7,
+          2162696
+        ],
+        [
+          "Celtic",
+          "CELTIC",
+          "de242166-871d-5b3c-a5bb-03381022f077",
+          33,
+          2,
+          2162691
+        ],
+        [
+          "Dundee",
+          "DUNDEE",
+          "72c44c52-da0f-5fa6-ae7a-a1b3ca5ca6a3",
+          33,
+          8,
+          2162697
+        ],
+        [
+          "Dundee United",
+          "DUNDEE UNITED",
+          "2d57abb1-f319-512f-a292-bcda32e1a774",
+          33,
+          6,
+          2162695
+        ],
+        [
+          "Falkirk",
+          "FALKIRK",
+          "d1082edd-e9fd-51d5-bcf4-0b07a96eeafa",
+          33,
+          5,
+          2162694
+        ],
+        [
+          "Heart of Midlothian",
+          "HEARTS",
+          "aa6e67e0-8258-5312-bc13-1968fa05a3aa",
+          33,
+          0,
+          2162689
+        ],
+        [
+          "Hibernian",
+          "HIBERNIAN",
+          "c2fe5c18-43b7-5cc9-824e-570463c968d5",
+          33,
+          4,
+          2162693
+        ],
+        [
+          "Kilmarnock",
+          "KILMARNOCK",
+          "63b0400b-8627-56dc-8139-6cbab7198157",
+          33,
+          10,
+          2162699
+        ],
+        [
+          "Motherwell",
+          "MOTHERWELL",
+          "20e27333-bb88-5490-9f9a-683606ff8b29",
+          33,
+          3,
+          2162692
+        ],
+        [
+          "Rangers",
+          "RANGERS",
+          "1d615c5d-2880-5e10-99d7-dd0459843573",
+          33,
+          1,
+          2162690
+        ],
+        [
+          "St Johnstone",
+          "ST. JOHNSTONE",
+          "52ca5325-f3e8-5cfc-b3c6-d6adcdddd434",
+          33,
+          11,
+          2162700
+        ],
+        [
+          "St Mirren",
+          "ST. MIRREN",
+          "3677beb3-b5f7-5e0f-b089-ec3ade595f43",
+          33,
+          9,
+          2162698
+        ]
+      ],
+      "scope": "All initial regular-league entrants mapped by reviewed explicit aliases; native JSON full division set and unique UUID/ordinal; CE key computed from current primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. No runtime or later qualification certification."
     }
   },
   {
@@ -109,7 +221,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -166,6 +278,102 @@
       "playoffStart": "2027-05-04",
       "limitations": "Official opening participants and phase windows; detailed current movement, tie-break and individual dates pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "participantKeyAudit": {
+      "edition": "2026/27",
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "division": 1,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "Arbroath",
+          "ARBROATH",
+          "b33dbd34-2743-54b1-af01-f8f5184c5458",
+          33,
+          13,
+          2162702
+        ],
+        [
+          "Ayr United",
+          "AYR UNITED",
+          "e5aff9dc-a15f-5e6f-832c-dda6ff78124d",
+          33,
+          17,
+          2162706
+        ],
+        [
+          "Dunfermline Athletic",
+          "DUNFERMLINE",
+          "194cdf1f-05fe-5b02-a197-b843823df9eb",
+          33,
+          14,
+          2162703
+        ],
+        [
+          "Greenock Morton",
+          "GREENOCK MORTON",
+          "1c933057-c6f9-557c-8415-fc97ac01eac7",
+          33,
+          18,
+          2162707
+        ],
+        [
+          "Inverness Caledonian Thistle",
+          "INVERNESS CT",
+          "dd9137db-51cc-5bdf-ba23-6b5ec15898a4",
+          33,
+          20,
+          2162709
+        ],
+        [
+          "Livingston",
+          "LIVINGSTON",
+          "be9f5330-ccab-51b6-bce6-49a6621d0a04",
+          33,
+          19,
+          2162708
+        ],
+        [
+          "Partick Thistle",
+          "PARTICK THISTLE",
+          "c9544496-4dbe-5dd6-811f-7a9fb553c4e7",
+          33,
+          12,
+          2162701
+        ],
+        [
+          "Queen's Park",
+          "QUEEN'S PARK",
+          "1bee6bb5-875f-57cc-aa15-2e0c8f3b1795",
+          33,
+          16,
+          2162705
+        ],
+        [
+          "Raith Rovers",
+          "RAITH ROVERS",
+          "d558041d-f24d-509d-9b5a-72b75441b0d6",
+          33,
+          15,
+          2162704
+        ],
+        [
+          "Stenhousemuir",
+          "STENHOUSEMUIR",
+          "df1f9028-9845-5cc1-989a-0f52c937cc9a",
+          33,
+          21,
+          2162710
+        ]
+      ],
+      "scope": "All initial regular-league entrants mapped by reviewed explicit aliases; native JSON full division set and unique UUID/ordinal; CE key computed from current primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. No runtime or later qualification certification."
     }
   },
   {
@@ -182,7 +390,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -239,6 +447,102 @@
       "playoffStart": "2027-05-04",
       "limitations": "Official opening participants and phase windows; detailed current movement, tie-break and individual dates pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "participantKeyAudit": {
+      "edition": "2026/27",
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "division": 2,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "Airdrieonians",
+          "AIRDRIEONIANS",
+          "9af0eae7-0dc9-52b9-b9f0-efc2d0659caa",
+          33,
+          29,
+          2162718
+        ],
+        [
+          "Alloa Athletic",
+          "ALLOA",
+          "06c95b72-8dc5-5214-81a5-c18c8286781a",
+          33,
+          23,
+          2162712
+        ],
+        [
+          "Cove Rangers",
+          "COVE RANGERS",
+          "94efebde-7627-54ff-a6b6-920fb93f3b84",
+          33,
+          26,
+          2162715
+        ],
+        [
+          "East Fife",
+          "EAST FIFE",
+          "eb075729-0464-5547-b470-d2c2b66bf056",
+          33,
+          27,
+          2162716
+        ],
+        [
+          "East Kilbride",
+          "EAST KILBRIDE",
+          "a1b0d611-58de-5afe-bf15-b24d8786fdc2",
+          33,
+          31,
+          2162720
+        ],
+        [
+          "Hamilton Academical",
+          "HAMILTON ACAD.",
+          "009ee5f9-0409-51a5-9b78-c07881bf1cc9",
+          33,
+          28,
+          2162717
+        ],
+        [
+          "Montrose",
+          "MONTROSE",
+          "bf519889-a960-5fb0-bff1-9720c5f227c9",
+          33,
+          25,
+          2162714
+        ],
+        [
+          "Peterhead",
+          "PETERHEAD",
+          "d8cb924e-cdda-5154-96f7-3dada7c1072e",
+          33,
+          24,
+          2162713
+        ],
+        [
+          "Queen of the South",
+          "QUEEN OF SOUTH",
+          "c00080ae-e685-56bb-94ef-8130e8a10cc6",
+          33,
+          22,
+          2162711
+        ],
+        [
+          "Ross County",
+          "ROSS COUNTY",
+          "6e624742-396b-5b96-8974-790138b2eafa",
+          33,
+          30,
+          2162719
+        ]
+      ],
+      "scope": "All initial regular-league entrants mapped by reviewed explicit aliases; native JSON full division set and unique UUID/ordinal; CE key computed from current primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. No runtime or later qualification certification."
     }
   },
   {
@@ -255,7 +559,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -312,6 +616,102 @@
       "playoffStart": "2027-05-04",
       "limitations": "Official opening participants and phase windows; detailed current movement, tie-break and individual dates pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "participantKeyAudit": {
+      "edition": "2026/27",
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "division": 3,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "Annan Athletic",
+          "ANNAN",
+          "66259389-6894-5c54-a55b-e607d610689c",
+          33,
+          37,
+          2162726
+        ],
+        [
+          "Clyde",
+          "CLYDE",
+          "dbd44506-72df-5762-b280-97bea6304705",
+          33,
+          33,
+          2162722
+        ],
+        [
+          "Dumbarton",
+          "DUMBARTON",
+          "8330d96a-b78a-55fa-bcd2-6e9e2042ae07",
+          33,
+          39,
+          2162728
+        ],
+        [
+          "Edinburgh City",
+          "EDINBURGH CITY",
+          "91402aa7-5178-5596-a0df-a4801bed0856",
+          33,
+          40,
+          2162729
+        ],
+        [
+          "Elgin City",
+          "ELGIN CITY",
+          "223f7134-2795-5d84-bcc5-85b214d81731",
+          33,
+          36,
+          2162725
+        ],
+        [
+          "Forfar Athletic",
+          "FORFAR",
+          "ce5787ea-a500-5820-b988-5250e2751558",
+          33,
+          34,
+          2162723
+        ],
+        [
+          "Kelty Hearts",
+          "KELTY HEARTS",
+          "7a1a4fdb-6187-5816-8580-325d30268ef9",
+          33,
+          41,
+          2162730
+        ],
+        [
+          "Stirling Albion",
+          "STIRLING ALBION",
+          "6d56f223-29cf-5630-bd7f-75330cdd4313",
+          33,
+          38,
+          2162727
+        ],
+        [
+          "Stranraer",
+          "STRANRAER",
+          "4c570d77-279e-5489-a145-5d26674d66c0",
+          33,
+          35,
+          2162724
+        ],
+        [
+          "The Spartans",
+          "THE SPARTANS",
+          "67cb6c2f-8b81-5448-96df-f9e2f0574066",
+          33,
+          32,
+          2162721
+        ]
+      ],
+      "scope": "All initial regular-league entrants mapped by reviewed explicit aliases; native JSON full division set and unique UUID/ordinal; CE key computed from current primary-file World_FileCountry/World_Slot/World_SlotTeam and cat_key. No runtime or later qualification certification."
     }
   }
 ]

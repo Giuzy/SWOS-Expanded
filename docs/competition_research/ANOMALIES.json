@@ -1,9 +1,9 @@
 {
-  "lastPreparedBlock": 123,
-  "baseHead": "48055a51d5e40e8b293f7cd1c04fa9c567a405bc",
+  "lastPreparedBlock": 127,
+  "baseHead": "02edfa7cfee2b3afb351d366b40811ba290ab4c4",
   "status": "INITIAL_EXPLICIT_REGISTER_LOWER_BOUND_NOT_EXHAUSTIVE",
   "policy": "Unique concrete conflicts, identity/slot mismatches or metric inconsistency only. Do not count ordinary missing fields or unresolved applicability as anomalies. Do not resolve conflicts by guessing; merge duplicates in final review. Increment when a distinct case is identified.",
-  "openCount": 33,
+  "openCount": 37,
   "cases": [
     {
       "id": "A001",
@@ -56,7 +56,9 @@
       "rows": [
         111
       ],
-      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+      "status": "RESOLVED_RESEARCH_VERIFIED",
+      "resolvedBlock": 125,
+      "resolution": "Detailed existing match record and bulk archive agree on 1996-05-11; summary 1995 date rejected. Separate final-leg date discrepancy retained as A035."
     },
     {
       "id": "A005",
@@ -426,6 +428,51 @@
       "description": "Libertadores 1997 Deportivo Cali–Millonarios 26/27 February discrepancy; actual civil date not established.",
       "rows": [
         178
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A035",
+      "type": "DATE_CONFLICT",
+      "description": "OFC Nations Cup 1996 first final leg Tahiti–Australia: prior 26 October, bulk archive 27 October; local civil date requires independent check.",
+      "rows": [
+        111
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A036",
+      "type": "FIXTURE_ORIENTATION_CONFLICT",
+      "description": "Asian Cup 1996 qualification: seven pre-cutoff games have reversed home/away labels across archive and existing snapshot; dates and team-associated scores agree. See row177 comparison, no duplicate fixtures.",
+      "rows": [
+        177
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A037",
+      "type": "FIXTURE_ORIENTATION_CONFLICT",
+      "description": "World Cup 2026: three pre-cutoff group matches have reversed nominal home/away labels; dates and team-associated scores agree. See row528 comparison, existing snapshot retained.",
+      "rows": [
+        528
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A038",
+      "type": "DATE_CONFLICT",
+      "description": "Gold Cup 1998 final date 14 February in prior matrix versus 15 February in bulk match archive; verify actual civil date.",
+      "rows": [
+        176
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A039",
+      "type": "SCORE_CONFLICT",
+      "description": "Brazil Serie A 2026 row217, Internacional–Palmeiras 12 February: previously recorded 1–2, bulk archive 1–3. Existing snapshot preserved, independently reconcile before historical import. Seven other archive dates before July lack a score and are unresolved candidates, not completed matches.",
+      "rows": [
+        217
       ],
       "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
     }

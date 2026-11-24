@@ -310,6 +310,15 @@ extern uint16_t _selectedTeamCountryNumber;
 extern TeamFileEx *_selectedTeamPtr;
 void SelectTeamToManage(void);
 
+/* v00.13.300: an OG national team lives in the region files 80..85
+ * (CN_EUROPE..CN_OCEANIA), exactly the test InitCareerClub uses to set
+ * _isNationalSelector. It has no club league resident to bind. */
+static int career_is_national_team(uint16_t team)
+{
+    const uint16_t file=(uint16_t)(team>>8);
+    return team!=0xffffu && file>=80u && file<=85u;
+}
+
 /* ChooseTeamAndStartCareer: let user pick a team, then start career.
  * Called as menu onSelect callback. */
 __attribute__((used, externally_visible))
@@ -358,6 +367,39 @@ void ChooseTeamAndStartCareer(void)
      * leak into fixtures or transfer processing. */
     extern uint8_t _expandedManagerFame;
 #ifdef SWOS_SDL_BUILD
+    /* v00.13.300 PROVISIONAL "START AS NATIONAL TEAM COACH" (both worlds):
+     * the national team of the manager's chosen nationality, through the
+     * SAME OG national selector routines an accepted international offer
+     * uses (InitCareer -> InitCareerClub sets _isNationalSelector for the
+     * region files 80..85). No new call-up, squad or match code. */
+    if (Expanded_NewCareer_NationalCoach()) {
+        extern uint8_t _plNationality;
+        extern int16_t GetNationalTeamNumber(uint16_t nationality);
+        /* IsTeamCodeOkForNationalSelector is the OG OFFER timing gate
+         * (season >= 3), not a validity check: not used for a direct start. */
+        const int16_t national=GetNationalTeamNumber((uint16_t)_plNationality);
+        if (national<0 || !career_is_national_team((uint16_t)national)) {
+            static uint8_t err[]="NO NATIONAL TEAM FOR THIS NATIONALITY";
+            fprintf(stderr,"[new-career] NATIONAL_COACH_START_REFUSED world=%s "
+                    "nationality=%u team=%d reason=NO_OG_NATIONAL_TEAM\n",
+                    World_Tag(),(unsigned)_plNationality,(int)national);
+            Expanded_CareerDiscardAbortedStart("national-team-unavailable");
+            ShowErrorMenu(err);
+            extern uint16_t _fireResetFlag;
+            _fireResetFlag=1;
+            return;
+        }
+        fprintf(stderr,"[new-career] NATIONAL_COACH_START world=%s nationality=%u "
+                "team=%04x og-national-selector=1 provisional-ui=1\n",
+                World_Tag(),(unsigned)_plNationality,(unsigned)(uint16_t)national);
+        Expanded_OGWorld_DebugHireCheckpoint(0u);
+        InitCareer((uint16_t)national);
+        Expanded_OGWorld_DebugHireCheckpoint(1u);
+        { extern void Expanded_AutoCareer_Save(const char *);
+          Expanded_AutoCareer_Save("first-contract"); }
+        ActivateMenu(_contestMenu);
+        return;
+    }
     /* Setup choice is independent from fame; never overwrite the manager scalar. */
     if (Expanded_NewCareer_Unemployed()) {
 #else
@@ -585,9 +627,12 @@ void ContinueCareer(void)
              * is never started, so Expanded_OGWorld_ClubBound() stays 0
              * and every employed club change failed here (I, source).
              * The CE binding check replaces it; no CE state is rebuilt. */
+            /* v00.13.300: a national team has no club resident; in 2627
+             * the CE still checks the national manager binding. */
             (ExpandedUniversalLive_Active()?
                 ExpandedUniversalLive_ManagerBound():
-                Expanded_OGWorld_ClubBound()) &&
+                (career_is_national_team(offeredTeam) ||
+                 Expanded_OGWorld_ClubBound())) &&
             after.today.year==before.today.year &&
             after.today.month==before.today.month &&
             after.today.day==before.today.day;
@@ -2869,7 +2914,8 @@ void InitCareerClub(uint16_t teamNo)
      * Replace its NEW league state with the already-running world league. */
     {
         ExpandedLiveCalendarState state;
-        if(ExpandedWorldLive_CalendarState(&state)) {
+        if(!career_is_national_team(teamNo) &&
+           ExpandedWorldLive_CalendarState(&state)) {
             const uint16_t actual=(uint16_t)(state.today.year-
                                                   (state.today.month<7u?1u:0u));
             const uint16_t local=Expanded_OGWorld_CurrentCountryEdition(
@@ -3098,7 +3144,8 @@ void ContinueCareerNextSeason(void)
             }
             const Uint64 t2=SDL_GetPerformanceCounter();
             int bindOk=1;
-            if(clockOk && _selTeamNumber!=0xffffu && !_youreSacked) {
+            if(clockOk && _selTeamNumber!=0xffffu && !_youreSacked &&
+               !career_is_national_team(_selTeamNumber)) {
                 const uint16_t local=Expanded_OGWorld_CurrentCountryEdition(
                     World_FileCountry((uint8_t)(_selTeamNumber>>8)));
                 bindOk=local && Expanded_OGWorld_BindClub(

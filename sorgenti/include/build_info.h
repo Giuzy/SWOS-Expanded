@@ -185,7 +185,17 @@
  * key maps an OG national selector to its NATIONAL key. NOT done: national
  * rosters for CPU matches, OG call-up UI changes, international windows,
  * real 2627 national competition data (UNAVAILABLE). Windows NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.299"
+/* v00.13.300 (user strategy change 24/11): the national team career is the
+ * ORIGINAL OG national selector in BOTH worlds (offers, job, call-ups,
+ * squad, tactics, sacking, menus), each world with its own database. The
+ * v299 CE call-up module was removed (it duplicated OG); UL02 still decodes
+ * and discards its records. Kept: explicit CE participant kind + UE03/UL02
+ * (CE link for national fixtures). Fixed shared bind checks for national
+ * teams (job handoff in both worlds, manual-season bind, 2627
+ * ManagerBound). NEW CAREER: PROVISIONAL third state of the existing
+ * toggle "START AS NATIONAL TEAM COACH" -> national team of the manager's
+ * nationality through the same InitCareer. Windows NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.300"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

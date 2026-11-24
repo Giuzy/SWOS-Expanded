@@ -55,7 +55,11 @@ int Expanded_NewCareer_InputActive(void){
 }
 void Expanded_NewCareer_Back(void){SDL_AtomicSet(&s_back,1);}
 int Expanded_NewCareer_TakeBack(void){return SDL_AtomicSet(&s_back,0);}
-int Expanded_NewCareer_Unemployed(void){return s_unemployed;}
+/* s_unemployed: 0 club picker, 1 START UNEMPLOYED, 2 START AS NATIONAL TEAM
+ * COACH (v00.13.300 PROVISIONAL: the existing toggle cycles; definitive UI
+ * to be approved). */
+int Expanded_NewCareer_Unemployed(void){return s_unemployed==1;}
+int Expanded_NewCareer_NationalCoach(void){return s_unemployed==2;}
 void Expanded_NewCareer_Reset(void){
  s_selected=0;s_unemployed=0;s_previous_fire=1;s_press=0;s_action=-1;
  s_nav_cooldown=0;s_arrow_cooldown=0;s_focus_field_y=202.f;SDL_AtomicSet(&s_back,0);
@@ -402,9 +406,9 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
  }
  int sink=s_press>0?3:0;
  /* Bring both lower controls slightly upwards, and center their captions. */
- copy(r,s_toggle[s_unemployed],390+(s_action==7?sink:0),676+(s_action==7?sink:0),895,107,sx,sy);
+ copy(r,s_toggle[s_unemployed!=0],390+(s_action==7?sink:0),676+(s_action==7?sink:0),895,107,sx,sy);
  copy(r,s_start[ready()],532+(s_action==8?sink:0),785+(s_action==8?sink:0),606,89,sx,sy);
- copy(r,s_check[s_unemployed],1179+(s_action==7?sink:0),700+(s_action==7?sink:0),62,58,sx,sy);
+ copy(r,s_check[s_unemployed!=0],1179+(s_action==7?sink:0),700+(s_action==7?sink:0),62,58,sx,sy);
  pixel_text(r,"NEW CAREER",2,835,68.5f,1,sx,sy);
  /* Compact in-place current-era switch, not a full-width debug banner.
   * Hitbox and focus use precisely these career-local coordinates. */
@@ -429,7 +433,7 @@ void Expanded_NewCareer_Draw(SDL_Renderer*r,float w,float h){
   }else pixel_text_tint_fit(r,value(i),0,i==4?1066.f:1070.f,217.5f+66*i,1,sx,sy,
     i==s_selected?1:-1,i==4?248.f:(i==6?265.f:0.f));
  }
- pixel_text_tint_fit(r,"START UNEMPLOYED",1,802+(s_action==7?sink:0),707+(s_action==7?sink:0),1,sx,sy,-1,455.f);
+ pixel_text_tint_fit(r,s_unemployed==2?"START AS NATIONAL TEAM COACH":"START UNEMPLOYED",1,802+(s_action==7?sink:0),707+(s_action==7?sink:0),1,sx,sy,-1,455.f);
  pixel_text(r,"START",1,835+(s_action==8?sink:0),812.87f+(s_action==8?sink:0),1,sx,sy);
  if(s_selected<7){
   const float target=202.f+66.f*(float)s_selected;
@@ -493,7 +497,7 @@ static void action(int row,int direction){
  case 6:
   if(direction){_controlMask=direction<0?0x40:0x80;Expanded_ChangeManagerFame(e);}
   break;
- case 7:if(!direction)s_unemployed=!s_unemployed;break;
+ case 7:if(!direction)s_unemployed=(s_unemployed+1)%3;break;
  case 8:
   if(!direction&&ready()) {
    /* START opens another (unemployed/club) menu synchronously. Consume

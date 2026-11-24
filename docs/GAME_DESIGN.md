@@ -1,3 +1,6 @@
+## 24/11/2026 — v00.13.300 CAMBIO DI STRATEGIA UTENTE: CT = ROUTINE OG
+Per ora la carriera CT è quella OG originale del 1996/97 in entrambi i mondi (UI e comportamento OG), con avvio diretto provvisorio «START AS NATIONAL TEAM COACH». Le decisioni sotto restano **espansioni concordate da implementare successivamente** (non attive). Stato: FASE3_INVENTARIO_SCHEDE_E_DIAGNOSTICA.md «v00.13.300».
+
 ## 24/11/2026 — CARRIERA CT / NAZIONALI: DECISIONI UTENTE CONSOLIDATE (SOLO DESIGN)
 
 **Fonte:** decisioni esplicite dell'utente nella conversazione 24/11/2026, depositate in Issue #1 (commenti 7118989627, 7119080740, 7119108083). **HEAD verificato:** `137fd4c3fc4f0f2408a5fa7c4090e09e1e2caa9d`, versione `00.13.298`. **Stato:** DESIGN APPROVATO, **NON IMPLEMENTATO**. Il punto 5 della Fase 3 non è concluso; nessuna nuova struttura dati/JSON, UI, convocazione, CAR, modifica OG o runtime viene autorizzata da questo aggiornamento documentale.

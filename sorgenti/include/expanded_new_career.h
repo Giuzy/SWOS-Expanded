@@ -7,6 +7,7 @@ int Expanded_NewCareer_InputActive(void);
 int Expanded_NewCareer_Proc(void);
 void Expanded_NewCareer_Reset(void);
 int Expanded_NewCareer_Unemployed(void);
+int Expanded_NewCareer_NationalCoach(void); /* v00.13.300 provisional */
 void Expanded_NewCareer_Back(void);
 int Expanded_NewCareer_TakeBack(void);
 void Expanded_NewCareer_Draw(SDL_Renderer *,float,float);

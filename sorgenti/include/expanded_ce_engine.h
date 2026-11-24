@@ -278,59 +278,6 @@ int ExpCe_ValidateHex(const char *hex,size_t len,uint16_t world);
 typedef struct ExpCeSnapshot ExpCeSnapshot;
 ExpCeSnapshot *ExpCe_SnapshotCapture(void);
 
-/* ------------------------------------------------------------------ */
-/* v00.13.299 national-team call-ups (CE state, persisted in UL02)      */
-/* ------------------------------------------------------------------ */
-/* Storage capacity of one call-up list. It is NOT a sporting rule: the
- * list size of an edition is the caller's `limit` (competition rule when
- * known, else the OG native national squad capacity, 20). */
-#define EXP_CE_CALLUP_CAP 64u
-#define EXP_CE_OG_NATIONAL_SQUAD 20u
-typedef struct ExpCeCalledPlayer {
-    ExpandedClubKey club;        /* club of origin (kind CLUB) at call-up */
-    uint8_t index;               /* player index in that club's roster */
-    int8_t nationality;          /* OG PlayerFile.nationality */
-    uint8_t position;            /* OG position 0=GK..7=ST */
-    uint32_t name_hash;          /* FNV-1a of the OG name: identity check */
-} ExpCeCalledPlayer;
-typedef struct ExpCeCallup {
-    ExpandedClubKey national;    /* kind NATIONAL */
-    int8_t nationality;
-    uint8_t limit, automatic, n;
-    int32_t day;                 /* civil day of the call-up */
-    ExpCeCalledPlayer p[EXP_CE_CALLUP_CAP];
-} ExpCeCallup;
-/* One player the host offers (club rosters of the CURRENT world). */
-typedef struct ExpCeCandidate {
-    ExpandedClubKey club;
-    uint8_t index;
-    int8_t nationality;
-    uint8_t position;
-    uint8_t price;               /* OG PlayerFile.price (value id) */
-    uint8_t skill;               /* sum of the 7 OG attributes */
-    uint8_t available;           /* 0: injured/suspended/not released */
-    uint32_t name_hash;
-} ExpCeCandidate;
-typedef enum ExpCeCallupResult {
-    EXP_CALLUP_OK=0, EXP_CALLUP_BAD_ARGS, EXP_CALLUP_WRONG_NATIONALITY,
-    EXP_CALLUP_UNAVAILABLE, EXP_CALLUP_DUPLICATE, EXP_CALLUP_FULL,
-    EXP_CALLUP_NOT_FOUND, EXP_CALLUP_CALLED_ELSEWHERE, EXP_CALLUP_NO_MEMORY
-} ExpCeCallupResult;
-uint32_t ExpCe_NameHash(const char *name,size_t max);
-/* Automatic call-up (also "restore"): the best `limit` eligible and
- * available candidates, ordered by OG price, then attribute sum, then
- * stable identity. No minimum quality threshold. Replaces the list. */
-ExpCeCallupResult ExpCe_CallupAuto(ExpandedClubKey national,int8_t nationality,
-    const ExpCeCandidate *c,uint32_t n,uint8_t limit,int32_t day);
-ExpCeCallupResult ExpCe_CallupAdd(ExpandedClubKey national,const ExpCeCandidate *c);
-ExpCeCallupResult ExpCe_CallupRemove(ExpandedClubKey national,ExpandedClubKey club,
-                                     uint8_t index);
-/* Empty the list (kept, n=0, automatic=0). */
-ExpCeCallupResult ExpCe_CallupClear(ExpandedClubKey national,int8_t nationality,
-                                    uint8_t limit,int32_t day);
-const ExpCeCallup *ExpCe_CallupFor(ExpandedClubKey national);
-uint32_t ExpCe_CallupCount(void);
-const char *ExpCe_CallupResultName(ExpCeCallupResult r);
 char *ExpCe_SnapshotEncodeHex(const ExpCeSnapshot *s,uint16_t world,size_t *len);
 void ExpCe_SnapshotRelease(ExpCeSnapshot *s);
 

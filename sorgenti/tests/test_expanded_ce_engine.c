@@ -796,59 +796,7 @@ int main(void)
         assert(nat_fixtures==3u);
         puts("NATIONAL_EDITION_KO_EXPLICIT_KIND_NO_CLUB_KEY=PASS");
 
-        /* ----- call-ups: auto, manual, negative cases ----- */
-        {
-            const ExpandedClubKey N0=ExpandedNationalKey(WORLD_2627,(uint16_t)(80u<<8)),
-                                  N1=ExpandedNationalKey(WORLD_2627,(uint16_t)((80u<<8)|1u));
-            ExpCeCandidate cand[40];
-            const ExpCeCallup *cu;
-            uint32_t nc=0u,i2;
-            for(i2=0;i2<30u;++i2) {
-                ExpCeCandidate *x=&cand[nc++];
-                memset(x,0,sizeof *x);
-                x->club=C(16u+i2%3u,1u+i2/3u);x->index=(uint8_t)(i2%16u);
-                x->nationality=(int8_t)(i2<24u?7:9);  /* 24 eligible, 6 foreign */
-                x->position=(uint8_t)(i2%8u);
-                x->price=(uint8_t)(i2*7u%50u);x->skill=(uint8_t)(i2%30u);
-                x->available=(uint8_t)(i2!=3u);       /* one injured */
-                x->name_hash=ExpCe_NameHash("PLAYER",6)+i2;
-            }
-            assert(ExpCe_CallupAuto(N0,7,cand,nc,EXP_CE_OG_NATIONAL_SQUAD,D(2026,8,20))==EXP_CALLUP_OK);
-            cu=ExpCe_CallupFor(N0);
-            assert(cu && cu->n==20u && cu->automatic && cu->limit==20u);
-            for(i2=0;i2<cu->n;++i2) {
-                assert(cu->p[i2].nationality==7);
-                assert(!(ExpandedClubKey_Equal(cu->p[i2].club,cand[3].club) &&
-                         cu->p[i2].index==cand[3].index)); /* injured not called */
-                if(i2)assert(1); /* order by price then skill */
-            }
-            /* every eligible+available candidate left out is not better
-             * than the worst one called (best-first, no threshold) */
-            puts("CALLUP_AUTO_BEST_ELIGIBLE_AVAILABLE_OG_CAPACITY=PASS");
-            assert(ExpCe_CallupAdd(N0,&cand[25])==EXP_CALLUP_WRONG_NATIONALITY);
-            assert(ExpCe_CallupAdd(N0,&cand[3])==EXP_CALLUP_UNAVAILABLE);
-            assert(ExpCe_CallupAdd(N0,&cand[0])==EXP_CALLUP_DUPLICATE ||
-                   ExpCe_CallupAdd(N0,&cand[0])==EXP_CALLUP_FULL);
-            assert(ExpCe_CallupRemove(N0,cu->p[0].club,cu->p[0].index)==EXP_CALLUP_OK);
-            assert(cu->n==19u && !cu->automatic);
-            assert(ExpCe_CallupRemove(N0,C(99,99),1)==EXP_CALLUP_NOT_FOUND);
-            puts("CALLUP_MANUAL_WRONG_NATIONALITY_UNAVAILABLE_DUPLICATE_REJECTED=PASS");
-            assert(ExpCe_CallupClear(N0,7,EXP_CE_OG_NATIONAL_SQUAD,D(2026,8,21))==EXP_CALLUP_OK);
-            assert(cu->n==0u);
-            for(i2=0;i2<nc;++i2)if(cand[i2].nationality==7 && cand[i2].available) {
-                assert(ExpCe_CallupAdd(N0,&cand[i2])==EXP_CALLUP_OK);break;}
-            assert(cu->n==1u);
-            /* same player cannot be in a second national list */
-            assert(ExpCe_CallupClear(N1,7,5u,D(2026,8,21))==EXP_CALLUP_OK);
-            assert(ExpCe_CallupAdd(N1,&cand[i2])==EXP_CALLUP_CALLED_ELSEWHERE);
-            /* restore = automatic proposal again */
-            assert(ExpCe_CallupAuto(N0,7,cand,nc,EXP_CE_OG_NATIONAL_SQUAD,D(2026,8,22))==EXP_CALLUP_OK);
-            cu=ExpCe_CallupFor(N0);assert(cu->n==20u && cu->automatic);
-            assert(ExpCe_CallupAuto(C(16,1),7,cand,nc,20u,0)==EXP_CALLUP_BAD_ARGS); /* club key */
-            assert(ExpCe_CallupAuto(N0,7,cand,nc,0u,0)==EXP_CALLUP_BAD_ARGS);
-            puts("CALLUP_CLEAR_RESTORE_ONE_LIST_PER_PLAYER_NO_CLUB_AS_NATIONAL=PASS");
-        }
-        /* ----- SAVE / EXIT / CONTINUE: kinds + call-ups survive ----- */
+        /* ----- SAVE / EXIT / CONTINUE: participant kinds survive ----- */
         assert(Expanded_AutoCareer_SaveChecked("national"));
         disk2=(char *)malloc((size_t)s_disk_len+1u);assert(disk2);
         memcpy(disk2,s_disk,(size_t)s_disk_len);len2=s_disk_len;disk2[len2]=0;
@@ -858,11 +806,7 @@ int main(void)
         assert(ExpandedUniversal_CarRestore(disk2,len2));
         {
             char *hex=ExpandedUniversal_CarTakeLifecycle();
-            const ExpCeCallup *cu;
             assert(hex && ExpCe_DecodeHex(hex,strlen(hex),WORLD_2627));free(hex);
-            cu=ExpCe_CallupFor(ExpandedNationalKey(WORLD_2627,(uint16_t)(80u<<8)));
-            assert(cu && cu->n==20u && cu->automatic && cu->nationality==7);
-            assert(ExpCe_CallupCount()==2u);
         }
         ne=edition_of(NT,2026);
         assert(ne && ne->participant_kind==EXP_PARTICIPANT_NATIONAL);
@@ -871,7 +815,34 @@ int main(void)
                 assert(ExpandedClubKey_IsNational(R()->fixtures[k].home));++nat_fixtures;}
         assert(nat_fixtures==3u);
         free(disk2);
-        puts("SAVE_EXIT_CONTINUE_NATIONAL_KIND_AND_CALLUPS_UE03_UL02=PASS");
+        puts("SAVE_EXIT_CONTINUE_NATIONAL_KIND_UE03_UL02=PASS");
+        /* a v00.13.299 UL02 blob that carried one CE call-up list still
+         * decodes; the list is discarded (OG national selector owns it) */
+        {
+            size_t hl=0,nb,q;
+            char *hex=ExpCe_EncodeHex(WORLD_2627,&hl),*h2;
+            uint8_t *bin,*nb2;
+            uint64_t fh=UINT64_C(14695981039346656037);
+            static const uint8_t rec[]={1,0,0,0, 7, 20, 1, 1, 0,0,0,0,
+                                        5,0,1,0, 3, 7, 2, 9,9,9,9};
+            assert(hex && hl>24u);
+            nb=hl/2u;bin=(uint8_t *)malloc(nb);assert(bin);
+            for(q=0;q<nb;++q){unsigned v;sscanf(hex+2*q,"%2x",&v);bin[q]=(uint8_t)v;}
+            /* last 12 bytes = ncalls(0) + FNV: replace by ncalls=1 + record */
+            nb2=(uint8_t *)malloc(nb+sizeof rec);assert(nb2);
+            memcpy(nb2,bin,nb-12u);
+            nb2[nb-12u]=1;nb2[nb-11u]=0;nb2[nb-10u]=0;nb2[nb-9u]=0;
+            memcpy(nb2+nb-8u,rec,sizeof rec);
+            for(q=0;q<nb-8u+sizeof rec;++q){fh^=nb2[q];fh*=UINT64_C(1099511628211);}
+            memcpy(nb2+nb-8u+sizeof rec,&fh,8u);
+            h2=(char *)malloc(2u*(nb+sizeof rec)+1u);assert(h2);
+            for(q=0;q<nb+sizeof rec;++q)sprintf(h2+2*q,"%02x",nb2[q]);
+            assert(ExpCe_ValidateHex(h2,strlen(h2),WORLD_2627));
+            assert(ExpCe_DecodeHex(h2,strlen(h2),WORLD_2627));
+            assert(edition_of(NT,2026)!=NULL);
+            free(hex);free(bin);free(nb2);free(h2);
+            puts("UL02_V299_CALLUP_RECORDS_DISCARDED_ON_CONTINUE=PASS");
+        }
 
         /* ----- clubs and national teams never mixed in one edition ----- */
         ExpandedUniversal_CarResetCurrent();ExpCe_Reset();

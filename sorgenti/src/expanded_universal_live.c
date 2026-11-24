@@ -710,8 +710,11 @@ int ExpandedUniversalLive_ManagerNext(ExpandedWorldDate *due)
 int ExpandedUniversalLive_ManagerBound(void)
 {
     ExpandedClubKey manager={0};
+    /* v00.13.300: the OG national selector is bound to its NATIONAL key;
+     * a national team has no club roster in the catalog. */
     return ExpandedUniversalLive_Active() && manager_key(&manager) &&
-           ExpandedUniversalCatalog_Roster(manager)!=NULL;
+           (ExpandedClubKey_IsNational(manager) ||
+            ExpandedUniversalCatalog_Roster(manager)!=NULL);
 }
 static int exp_universal_live_manager_action(int interactive)
 {

@@ -1,3 +1,13 @@
+## 24/11/2026 — Estensione documentale Fase 3 punto 5: CT e nazionali (DECISIONI, NON CODICE)
+
+**Fonte utente:** chat 24/11/2026 e Issue #1 commenti 7118989627, 7119080740, 7119108083; testo completo nella sezione iniziale di `docs/GAME_DESIGN.md` preparata come blob `bc295228d4d810d25e24c2559c3431fa66f733aa`. È un aggiornamento del **design**, non cambia lo stato v298 di §5/§7: **nazionali/CT ancora solo inventario, FASE 3 NON chiusa**.
+
+**Vincolante:** incarico unico CT **oppure** club; partenza CT e offerte federali per fama; contratto federale nello stesso flusso dei club; federazione esonera soprattutto per risultati con fans/federazione; sponsor federali; allenamento analogo al club quando i convocati sono disponibili; CPU convoca in automatico; identità/eleggibilità della nazionalità corretta. Per la lista convocabili mostrare sempre **club di provenienza**, nome, ruolo e gli stati presenti. Il gioco propone la rosa iniziale automaticamente tra i migliori eleggibili; il CT può modificare, **svuotare completamente**, **ripristinare proposta automatica**. **Niente ricerca con testo da digitare**. Numero convocati da regolamenti reali delle singole competizioni. Date di notifica e termine liste da fonti applicabili (FIFA 15 giorni per notifica, NON per forza pubblicazione lista). Tornei mondiali/continentali/nazionali validi per epoca; nessuna Nations League inventata nel 9697.
+
+**NON approvato / non definito:** UI definitiva (filtri ruolo, ordinamento e paginazione proposte soltanto), schema/adapter nazionale, numeri contratto, stipendio e durata, budget/finanze/sponsor, formula quantitativa per esonero, limiti giocatori per specifico torneo, integrazione eleggibilità beyond nazionalità database. **Non aggiungere campi JSON CE**, non fare passare selezioni nazionali come club key, non alterare UI OG senza consenso; verificare OG Season/roster, writer/reader, CAR e due mondi.
+
+**RG-T non ancora eseguiti:** START CT, offerte cambio impiego senza doppio incarico, elenco nazionalità corretta positivo/negativo, auto-pick/svuota/ripristina, scadenze, CPU, gare, ranking, esonero, SAVE/EXIT/CONTINUE, 9697 e CLASSIC/DIY/SEASON. Nessuna prova Windows/gioco. **Punto 5 = NON IMPLEMENTATO** anche dopo questo documento.
+
 # FASE 3 — Correzioni diagnostica 00.13.297, inventario competizioni, schede nello schema CE esistente (v00.13.298)
 
 **Stato:** source + test isolati Linux + compilazione Linux (tutti i `.c`; falliscono solo i noti `netplay*.c` per il sottomodulo GGPO assente). **Windows, gameplay, SAVE/EXIT/CONTINUE reali: NON PROVATI.** Fase 3 **NON completata**: vedi §7.

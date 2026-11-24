@@ -159,7 +159,14 @@
  * qualification with provenance, archive+prune, local blocks (HELD events)
  * instead of a global stop, CAR section universal_lifecycle (UL01),
  * ce_competitions.json + real-data validator/matrix. Windows NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.296"
+/* v00.13.297: "NO FIXTURE" dead end removed: with no registered next manager
+ * fixture the CE contest button is FORWARD TIME (one week, same coordinator).
+ * A partial first league edition (season began before career START) rolls
+ * over with the SAME clubs (no promotion/relegation from an incomplete table);
+ * a league whose whole first season ended before START starts the next
+ * season with the START division clubs; CONTINUE re-evaluates CREATED
+ * editions blocked for data/entrants under the current rules. */
+#define SWOS_EXPANDED_VERSION "00.13.297"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

@@ -56,7 +56,15 @@ static int h_res(void *u,uint64_t id,int32_t d){(void)u;return ExpandedUniversal
 static int h_arch(void *u,ExpandedEditionKey e,uint32_t c,uint32_t r,int32_t d)
 {(void)u;return ExpandedUniversal_ArchiveCloseEdition(e,c,r,d);}
 static int h_club(void *u,ExpandedClubKey k){(void)u;return k.stable_club!=0u;}
-static const ExpCeHost H={h_ins,h_prune,h_hold,h_res,h_arch,h_club,NULL,NULL};
+static uint32_t h_div(void *u,uint8_t country,uint8_t division,ExpandedClubKey *out,uint32_t cap)
+{
+    uint32_t k;
+    (void)u;
+    if(country!=19u || division!=0u || cap<4u)return 0u;
+    for(k=0;k<4u;++k)out[k]=(ExpandedClubKey){WORLD_2627,(19u<<16)|(k+1u)};
+    return 4u;
+}
+static const ExpCeHost H={h_ins,h_prune,h_hold,h_res,h_arch,h_club,NULL,NULL,h_div};
 
 static int32_t D(int y,int m,int d)
 {
@@ -140,6 +148,17 @@ static void run_until(int32_t until)
 
 /* ---- data ---- */
 static const ExpCeWindow LW={8,1,5,31,1, 1u<<6,1u<<2,3,0,{{0}}};
+/* calendar-year league window (Jan 10 - Jun 20): 2026 season before START */
+static const ExpCeWindow CW={1,10,6,20,0, 1u<<6,1u<<2,3,0,{{0}}};
+static void add_league_window(uint8_t country,const ExpCeWindow *w)
+{
+    ExpCeDef *d=(ExpCeDef *)calloc(1u,sizeof *d);
+    assert(d);
+    assert(ExpCe_LeagueDefinition(WORLD_2627,country,1u,0u,1u,4u,2u,3u,3u,5u,
+                                  0u,0u,0u,0u,w,d));
+    assert(ExpCe_AddDefinition(d));
+    free(d);
+}
 static void add_league(uint8_t country,uint8_t div,uint8_t divs,uint8_t pro,
                        uint8_t rel,uint8_t pts)
 {
@@ -300,6 +319,7 @@ static void setup_world(void)
     /* family 18: one division whose 2026 season began before START */
     add_league(18,0,1,0,0,3);
     s_skip_first=2u;first_league_edition(18,0,1u);s_skip_first=0u;
+    add_league_window(19,&CW);
     assert(ExpCe_LoadJsonDefinitions(k_json,(int)strlen(k_json),WORLD_2627,"test.json")==6);
     assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
 }
@@ -373,8 +393,16 @@ int main(void)
     e=edition_of(ExpCe_LeagueCompetitionId(18,1,0),2026);
     assert(e && e->partial && e->state>=EXP_CE_ED_COMPLETED);
     e=edition_of(ExpCe_LeagueCompetitionId(18,1,0),2027);
-    assert(e && e->block==EXP_CE_BLOCK_DATA_MISSING && strstr(e->why,"partial"));
-    puts("TYPE0_PARTIAL_FIRST_EDITION_PLAYS_BUT_NO_ROLLOVER=PASS");
+    /* partial first edition: next season with the SAME clubs, no movement */
+    assert(e && !e->block && e->state>=EXP_CE_ED_SCHEDULED && e->nentrants==4u);
+    for(i=0;i<e->nentrants;++i)assert(e->entrants[i].source==EXP_CE_SRC_KEPT_NO_MOVEMENT);
+    puts("TYPE0_PARTIAL_FIRST_EDITION_NEXT_SEASON_SAME_CLUBS_NO_MOVEMENT=PASS");
+    /* family 19: whole first season before START -> 2027 with START clubs */
+    e=edition_of(ExpCe_LeagueCompetitionId(19,1,0),2027);
+    assert(e && !e->block && e->state>=EXP_CE_ED_SCHEDULED && e->nentrants==4u &&
+           e->entrants[0].source==EXP_CE_SRC_START_DIVISION);
+    assert(e->key.start_day==D(2027,1,10));
+    puts("TYPE0_SEASON_BEFORE_START_NEXT_SEASON_WITH_START_CLUBS=PASS");
 
     /* -- type1: 2026 edition complete, final decided, archived -- */
     e=edition_of(327682u,2026);
@@ -470,7 +498,7 @@ int main(void)
         ExpCe_Reset();
         add_league(16,0,3,0,1,3);add_league(16,1,3,1,1,3);add_league(16,2,3,1,0,3);
         add_league(17,0,3,0,2,3);add_league(17,1,3,1,0,3);add_league(17,2,3,1,0,3);
-        add_league(18,0,1,0,0,3);
+        add_league(18,0,1,0,0,3);add_league_window(19,&CW);
         assert(ExpCe_LoadJsonDefinitions(k_json,(int)strlen(k_json),WORLD_2627,"t")==6);
         assert(ExpandedUniversal_CarValidate(disk,len));
         assert(ExpandedUniversal_CarRestore(disk,len));
@@ -479,7 +507,7 @@ int main(void)
             assert(hex && ExpCe_DecodeHex(hex,strlen(hex),WORLD_2627));
             free(hex);
         }
-        assert(ExpCe_ValidateAfterRestore(R(),&H)==0);
+        assert(ExpCe_ValidateAfterRestore(R(),&H)>=0); /* re-evaluates blocked CREATED */
         {
             const uint32_t before=s_ran_n;
             run_until(D(2027,12,31));
@@ -514,7 +542,7 @@ int main(void)
         /* the same leagues now declare 2 points for a win */
         add_league(16,0,3,0,1,2);add_league(16,1,3,1,1,3);add_league(16,2,3,1,0,3);
         add_league(17,0,3,0,2,3);add_league(17,1,3,1,0,3);add_league(17,2,3,1,0,3);
-        add_league(18,0,1,0,0,3);
+        add_league(18,0,1,0,0,3);add_league_window(19,&CW);
         assert(ExpandedUniversal_CarRestore(s_disk,s_disk_len));
         {
             char *hex=ExpandedUniversal_CarTakeLifecycle();

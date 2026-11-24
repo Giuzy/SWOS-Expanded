@@ -1016,10 +1016,15 @@ void Expanded_CareerJulyPrepareMenu(void)
         ExpandedWorldDate due={0};
         const int plan=ExpandedUniversalLive_ManagerNext(&due);
         MenuEntry *primary=&_menuEntries[7],*next=&_menuEntries[10];
+        /* plan 0 = no registered next fixture for the manager's club (its
+         * league edition finished and the next one is not scheduled yet):
+         * the world must still be able to advance, so the existing FORWARD
+         * TIME action stays available (one week); never a dead end. */
         primary->fg=(uintptr_t)(plan==2?kPlay:
-            plan==1?kForwardCe:plan==0?kNoFixture:kInvalidCe);
+            plan>=0?kForwardCe:kInvalidCe);
+        (void)kNoFixture;
         primary->isInvisible=0;
-        primary->isDisabled=plan<=0;
+        primary->isDisabled=plan<0;
         /* NEXT MATCH in 2627 is routed by the same CE guard, not OG TSKC. */
         next->isInvisible=0;
         next->isDisabled=plan<=0;

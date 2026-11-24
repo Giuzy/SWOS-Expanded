@@ -53,6 +53,8 @@ int ExpandedUniversalCatalog_Audit(ExpandedUniversalCatalogAudit *out);
 const ExpandedUniversalCatalogFixture *ExpandedUniversalCatalog_Fixture(uint32_t i);
 TeamFileEx *ExpandedUniversalCatalog_Roster(ExpandedClubKey key);
 uint32_t ExpandedUniversalCatalog_RosterCount(void);
+uint32_t ExpandedUniversalCatalog_DivisionClubs(uint8_t country,uint8_t division,
+                                                ExpandedClubKey *out,uint32_t cap);
 const TeamFileEx *ExpandedUniversalCatalog_RosterAt(uint32_t i);
 /* This is deliberately not a CAR activation API: old OG CAREER/TSKC is still
  * resident. Moving these fixtures into CAR requires a single-owner cutover,

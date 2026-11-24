@@ -196,9 +196,12 @@ static int ce_host_archive(void *u,ExpandedEditionKey e,uint32_t c,uint32_t r,
 {(void)u;return ExpandedUniversal_ArchiveCloseEdition(e,c,r,day);}
 static int ce_host_club_ok(void *u,ExpandedClubKey k)
 {(void)u;return ExpandedUniversalCatalog_Roster(k)!=NULL;}
+static uint32_t ce_host_division_clubs(void *u,uint8_t country,uint8_t division,
+                                       ExpandedClubKey *out,uint32_t cap)
+{(void)u;return ExpandedUniversalCatalog_DivisionClubs(country,division,out,cap);}
 static const ExpCeHost s_ce_host={ce_host_insert,ce_host_prune,ce_host_hold,
     ce_host_resched,ce_host_archive,ce_host_club_ok,
-    ExpandedUniversalLive_ClubNameCompare,NULL};
+    ExpandedUniversalLive_ClubNameCompare,NULL,ce_host_division_clubs};
 const ExpCeHost *ExpandedUniversalLive_EngineHost(void){return &s_ce_host;}
 
 /* Definitions: shared builder (expanded_ce_definitions.c), same at START

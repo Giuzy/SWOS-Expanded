@@ -4025,9 +4025,32 @@ static int exp_universal_contest_action(MenuEntry *entry)
         DrawMenu();
         return 1;
     }
+    if(state==0) {
+        /* No registered next fixture for the manager's club (edition over,
+         * next one not generated yet): advance the WORLD one week through
+         * the same CE coordinator, as an unemployed FORWARD does. The CE
+         * lifecycle creates the next edition when its rules allow it. */
+        extern int Expanded_CompetitionCoordinator_Advance(
+            ExpandedWorldDate,const char *);
+        if(!ExpandedUniversalLive_Today(&live.today) ||
+           !ExpandedWorld_NextSundayOrFixture(live.today,0,live.today,&target) ||
+           !Expanded_CompetitionCoordinator_Advance(
+                target,"CAREER_UNIVERSAL_NO_FIXTURE_FORWARD")) {
+            fprintf(stderr,"[universal-manager-menu] FORWARD_FAILED "
+                "state=0 recovery=CHECK_REQUIRED\n");
+            return 1;
+        }
+        fprintf(stderr,"[universal-manager-menu] FORWARD_OK state=0 "
+            "target=%04u-%02u-%02u reason=NO_REGISTERED_NEXT_FIXTURE "
+            "world-advances=1\n",(unsigned)target.year,
+            (unsigned)target.month,(unsigned)target.day);
+        ContestMenuOnReturn();
+        SetCurrentEntry(7u);
+        DrawMenu();
+        return 1;
+    }
     fprintf(stderr,"[universal-manager-menu] BLOCKED "
-        "state=%d reason=%s no-postmatch-autosave=1\n",
-        state,state==0?"NO_REGISTERED_NEXT_FIXTURE":"INVALID_LEDGER");
+        "state=%d reason=INVALID_LEDGER no-postmatch-autosave=1\n",state);
     return 1;
 }
 #endif

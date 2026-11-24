@@ -80,7 +80,10 @@ typedef enum ExpCeSource {
     EXP_CE_SRC_PHASE_WINNER = 10, /* knockout winner of the previous phase */
     EXP_CE_SRC_BYE = 11,
     EXP_CE_SRC_REALLOCATED = 12,  /* next rank after a duplicate */
-    EXP_CE_SRC_JOIN = 13          /* enters directly at a later phase */
+    EXP_CE_SRC_JOIN = 13,         /* enters directly at a later phase */
+    EXP_CE_SRC_KEPT_NO_MOVEMENT = 14 /* previous edition was partial (began
+                                        before START): same clubs, no
+                                        promotion/relegation applied */
 } ExpCeSource;
 
 typedef struct ExpCeEntrant {
@@ -195,6 +198,11 @@ typedef struct ExpCeHost {
     int (*club_ok)(void *user,ExpandedClubKey club); /* roster present */
     ExpCeNameCompare name_cmp;
     void *user;
+    /* clubs of a division at career START (catalog/TEAM), for a league
+     * whose first season ended before START. Returns the count (0 none).
+     * Optional (NULL = such leagues stay blocked). */
+    uint32_t (*division_clubs)(void *user,uint8_t country,uint8_t division,
+                               ExpandedClubKey *out,uint32_t cap);
 } ExpCeHost;
 
 /* ---- engine state (one per process; world-tagged) ---- */

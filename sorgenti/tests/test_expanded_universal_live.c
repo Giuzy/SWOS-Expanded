@@ -103,6 +103,9 @@ TeamFileEx *ExpandedUniversalCatalog_Roster(ExpandedClubKey key)
        (int)key.stable_club==s_missing_roster)return NULL;
     return &s_teams[key.stable_club];
 }
+uint32_t ExpandedUniversalCatalog_DivisionClubs(uint8_t country,uint8_t division,
+                                                ExpandedClubKey *out,uint32_t cap)
+{(void)country;(void)division;(void)out;(void)cap;return 0u;}
 static ExpandedClubKey club(uint32_t k){return (ExpandedClubKey){WORLD_2627,k};}
 static void build_catalog(uint8_t first_type)
 {

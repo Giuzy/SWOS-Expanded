@@ -127,6 +127,26 @@ reject:
     ++s_catalog.audit.failed_clubs;
     return 0;
 }
+/* Fase 2: clubs of (country, division) as loaded from TEAM (state at
+ * career START / CONTINUE), sorted by stable key. */
+uint32_t ExpandedUniversalCatalog_DivisionClubs(uint8_t country,uint8_t division,
+                                                ExpandedClubKey *out,uint32_t cap)
+{
+    uint32_t i,n=0u;
+    if(!s_catalog.active || !out)return 0u;
+    for(i=0;i<s_catalog.nclubs;++i)
+        if(s_catalog.clubs[i].country==country &&
+           s_catalog.clubs[i].division==division) {
+            uint32_t j;
+            if(n>=cap)return 0u;
+            j=n++;
+            while(j>0u && out[j-1u].stable_club>s_catalog.clubs[i].key.stable_club) {
+                out[j]=out[j-1u];--j;
+            }
+            out[j]=s_catalog.clubs[i].key;
+        }
+    return n;
+}
 uint32_t ExpandedUniversalCatalog_RosterCount(void)
 {
     return s_catalog.active?s_catalog.nclubs:0u;

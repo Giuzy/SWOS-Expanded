@@ -43,8 +43,8 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": "Premier Division",
-      "nonCommercialDisplayName": null,
+      "officialName": "ABC Golden Lager Premier Division",
+      "nonCommercialDisplayName": "Premier Division",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/tablesg/gha97.html",
@@ -65,6 +65,33 @@
       "note": "Sponsor label verified from archive search excerpt, generic Premier Division retained; inconsistent played totals; no July 1996 start or match dates established. Actual naming variant needs primary confirmation.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24"
+    },
+    "block91Research": {
+      "edition": "1996/97",
+      "officialName": "ABC Golden Lager Premier Division",
+      "display": "Premier Division",
+      "participants": [
+        "Goldfields",
+        "Hearts",
+        "Real Tamale United",
+        "Asante Kotoko",
+        "Great Olympics",
+        "Ghapoha",
+        "Hasaacas",
+        "Dawu",
+        "Dwarfs",
+        "Afienya",
+        "Okwawu",
+        "King Faisal",
+        "Bofoakwa",
+        "Yeji Stars"
+      ],
+      "format": {
+        "observedTeams": 14,
+        "nominalDoubleRoundRobinMatches": 26,
+        "observedRelegationCount": 2
+      },
+      "scope": "RSSSF archive explicitly gives name; June/July dates in 1997 not July1996. Incomplete/inconsistent tables; first match date unresolved, no historical snapshot fabricated."
     }
   }
 ]

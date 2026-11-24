@@ -16,5 +16,22 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 32 actual web search excerpts, source strength varies; no full PDF analysis; dates, access and identity mapping not certified."
     }
+  },
+  {
+    "index": 595,
+    "value": {
+      "competition": "MDA tier 1",
+      "firstEdition": "2025/26",
+      "lastEdition": "2027/28",
+      "operation": "CHANGE_COMMERCIAL_NAME",
+      "previousName": "Super Liga",
+      "name": "Liga 7777.md",
+      "rowRefs": [
+        269
+      ],
+      "note": "FMF May28 2025 decision covers three editions; neutral name retained.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block88 federation decisions/regulation and archive or contemporary report; no new URL fields."
+    }
   }
 ]

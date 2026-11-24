@@ -10,27 +10,62 @@
     "candidateSources": [
       "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Lliga Multisegur Assegurances",
+      "nonCommercialDisplayName": "Primera Divisió",
       "candidateName": "Primera Divisió",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block89Research": {
+      "official": "Lliga Multisegur Assegurances",
+      "display": "Primera Divisió",
+      "edition": "2026/27",
+      "firstMatch": "2026-09-05",
+      "participants": [
+        "Atlètic Club d'Escaldes",
+        "Carroi",
+        "Casa de Portugal",
+        "FC Santa Coloma",
+        "Esperança d'Andorra",
+        "Inter Club d'Escaldes",
+        "Ordino",
+        "Penya Encarnada",
+        "Ranger's",
+        "Sporting Escaldes"
+      ],
+      "format": {
+        "teams": 10,
+        "rounds": 27,
+        "cycles": 3,
+        "relegation": {
+          "direct": 10,
+          "playoff": {
+            "upper": 9,
+            "lower": 2,
+            "legs": 2
+          }
+        }
+      },
+      "matchRules": {
+        "footballVideoSupportIntroduced": "2026/27"
+      },
+      "scope": "FAF opening announcement and contemporary fixture/format listings; complete tiebreak, exact fixtures and playoff dates pending."
     }
   }
 ]

@@ -852,6 +852,22 @@
         "matches": 95
       },
       "missing": "Independent corroboration, stable participant keys, complete rules."
+    },
+    "block87Research": {
+      "format": {
+        "teams": 10,
+        "rounds": 36,
+        "legs": 4,
+        "relegation": {
+          "playoffRanks": [
+            8,
+            9
+          ],
+          "directRank": 10
+        }
+      },
+      "history": "2017 change from 14 to 10 clubs, calendar year",
+      "scope": "Prior 95 scores preserved."
     }
   }
 ]

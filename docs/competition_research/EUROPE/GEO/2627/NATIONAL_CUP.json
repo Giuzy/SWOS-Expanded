@@ -10,27 +10,537 @@
     "candidateSources": [
       "17f72bdee9494ea60d78c51bc2d0634b9fb65206"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Davit Kipiani Cup",
+      "nonCommercialDisplayName": "Georgian Cup",
       "candidateName": "Georgian Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block87Research": {
+      "edition": "2026",
+      "firstMatch": "2026-04-11",
+      "format": {
+        "preliminary": {
+          "reportedEntrants": 32,
+          "reportedQualifiers": 16,
+          "observedRows": 17
+        },
+        "R1": {
+          "newEntrants": 16,
+          "qualifiers": 16
+        },
+        "R2": {
+          "newEntrants": 16,
+          "qualifiers": 16
+        },
+        "R32": {
+          "newEntrants": 16,
+          "qualifiers": 16
+        },
+        "knockout": true,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "matches": [
+        {
+          "round": "P",
+          "date": "2026-04-11",
+          "home": "Gardabani-2",
+          "away": "Qareli",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "winner": "Gardabani-2"
+        },
+        {
+          "round": "P",
+          "date": "2026-04-16",
+          "home": "Liakhvi Achabeti",
+          "away": "Zooveti",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "winner": "Zooveti"
+        },
+        {
+          "round": "P",
+          "date": "2026-04-16",
+          "home": "Gori-2",
+          "away": "Dmanisi",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "aet": true,
+          "winner": "Dmanisi"
+        },
+        {
+          "round": "P",
+          "date": "2026-04-16",
+          "home": "Rustavi-2",
+          "away": "Machakhela (tier5 label)",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "Rustavi-2",
+          "identityUnresolved": true
+        },
+        {
+          "round": "P",
+          "date": "2026-04-17",
+          "home": "Meshakhte-2",
+          "away": "Tskhumi",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "Meshakhte-2"
+        },
+        {
+          "round": "P",
+          "date": "2026-04-17",
+          "home": "Orbi-2",
+          "away": "Zestaponi",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "winner": "Orbi-2"
+        },
+        {
+          "round": "P",
+          "date": "2026-04-23",
+          "home": "Imereti",
+          "away": "Magharoeli",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "winner": "Imereti"
+        },
+        {
+          "round": "P",
+          "date": "2026-04-23",
+          "home": "Dinamo Sokhumi",
+          "away": "Merani Tbilisi-2",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "winner": "Dinamo Sokhumi"
+        },
+        {
+          "round": "P",
+          "date": "2026-04-25",
+          "home": "Abuli",
+          "away": "Tbilisi 2025-2",
+          "homeGoals": 5,
+          "awayGoals": 1,
+          "winner": "Abuli"
+        },
+        {
+          "round": "P",
+          "date": "2026-04-25",
+          "home": "Odishi-2",
+          "away": "Sapovnela",
+          "homeGoals": 7,
+          "awayGoals": 0,
+          "winner": "Odishi-2"
+        },
+        {
+          "round": "P",
+          "date": "2026-04-25",
+          "home": "Mertskhali",
+          "away": "Machakhela (tier4 label)",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "Mertskhali",
+          "identityUnresolved": true
+        },
+        {
+          "round": "P",
+          "date": "2026-04-26",
+          "home": "UG 35",
+          "away": "Aragvi-2",
+          "homeGoals": 3,
+          "awayGoals": 4,
+          "aet": true,
+          "winner": "Aragvi-2"
+        },
+        {
+          "round": "P",
+          "date": "2026-04-26",
+          "home": "Norchi Dinamo",
+          "away": "Samtskhe",
+          "homeGoals": 1,
+          "awayGoals": 7,
+          "winner": "Samtskhe"
+        },
+        {
+          "round": "P",
+          "date": "2026-04-26",
+          "home": "Jvari",
+          "away": "Zana",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "winner": "Jvari"
+        },
+        {
+          "round": "P",
+          "date": "2026-04-26",
+          "home": "Dinamo Batumi-2",
+          "away": "West Georgia",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "winner": "West Georgia"
+        },
+        {
+          "round": "P",
+          "date": "2026-04-26",
+          "home": "Sulori",
+          "away": "Torpedo-2",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "winner": "Torpedo-2"
+        },
+        {
+          "round": "P",
+          "date": "2026-04-26",
+          "home": "Basa",
+          "away": "Spaeri-2",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "Basa"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Orbi-2",
+          "away": "Iveria",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "Iveria"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Locomotive-2",
+          "away": "Samtskhe",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "winner": "Samtskhe"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Rustavi-2",
+          "away": "Borjomi",
+          "homeGoals": 4,
+          "awayGoals": 0,
+          "winner": "Rustavi-2"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Abuli",
+          "away": "Aragvelebi",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "winner": "Aragvelebi"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Dmanisi",
+          "away": "Bakhmaro",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "aet": true,
+          "winner": "Dmanisi"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Samgurali-2",
+          "away": "West Georgia",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "winner": "West Georgia"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Odishi-2",
+          "away": "Mertskhali",
+          "homeGoals": 1,
+          "awayGoals": 5,
+          "aet": true,
+          "winner": "Mertskhali"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Gardabani-2",
+          "away": "Guria",
+          "homeGoals": 1,
+          "awayGoals": 4,
+          "winner": "Guria"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Imereti",
+          "away": "Gagra-2",
+          "homeGoals": 3,
+          "awayGoals": 7,
+          "winner": "Gagra-2"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Zooveti",
+          "away": "WIT Georgia-2",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Zooveti"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Torpedo-2",
+          "away": "Kolkheti Khobi",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "winner": "Torpedo-2"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Aragvi-2",
+          "away": "Iberia 2010",
+          "homeGoals": 3,
+          "awayGoals": 4,
+          "winner": "Iberia 2010"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Jvari",
+          "away": "Skuri",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "winner": "Skuri"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Meshakhte-2",
+          "away": "Merani Martvili-2",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "aet": true,
+          "homePenalties": 6,
+          "awayPenalties": 7,
+          "winner": "Merani Martvili-2"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-24",
+          "home": "Dinamo Sokhumi",
+          "away": "Algeti",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "winner": "Dinamo Sokhumi"
+        },
+        {
+          "round": "R1",
+          "date": "2026-05-25",
+          "home": "Basa",
+          "away": "Kolkheti 1913 B",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "aet": true,
+          "winner": "Basa"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-24",
+          "home": "Rustavi-2",
+          "away": "Irao",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "winner": "Irao",
+          "identityAlternative": "Orbi"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-25",
+          "home": "Zooveti",
+          "away": "Aragvi",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "Aragvi"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-26",
+          "home": "Skuri",
+          "away": "Dinamo Tbilisi-2",
+          "homeGoals": 3,
+          "awayGoals": 4,
+          "winner": "Dinamo Tbilisi-2"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-26",
+          "home": "Merani Martvili-2",
+          "away": "Iberia 1999 B",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "winner": "Iberia 1999 B"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-26",
+          "home": "Torpedo-2",
+          "away": "Margveti 2006",
+          "homeGoals": 0,
+          "awayGoals": 4,
+          "winner": "Margveti 2006"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-26",
+          "home": "Gardabani",
+          "away": "Iberia 2010",
+          "homeGoals": 1,
+          "awayGoals": 5,
+          "winner": "Iberia 2010"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-26",
+          "home": "Gagra-2",
+          "away": "Odishi 1919",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "winner": "Odishi 1919"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-26",
+          "home": "Guria",
+          "away": "Merani Tbilisi",
+          "homeGoals": 6,
+          "awayGoals": 1,
+          "winner": "Guria"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-26",
+          "home": "Mertskhali",
+          "away": "Gori",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "winner": "Gori"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-26",
+          "home": "Samtskhe",
+          "away": "Didube",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "winner": "Samtskhe"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-26",
+          "home": "West Georgia",
+          "away": "Shturmi",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "Shturmi"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-26",
+          "home": "Dmanisi",
+          "away": "WIT Georgia",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "winner": "WIT Georgia"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-26",
+          "home": "Aragvelebi",
+          "away": "Varketili",
+          "homeGoals": 0,
+          "awayGoals": 4,
+          "winner": "Varketili",
+          "identityAlternative": "Tbilisi 2025"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-26",
+          "home": "Basa",
+          "away": "Locomotive",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "Basa"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-26",
+          "home": "Iveria",
+          "away": "Betlemi",
+          "homeGoals": 5,
+          "awayGoals": 4,
+          "aet": true,
+          "winner": "Iveria"
+        },
+        {
+          "round": "R2",
+          "date": "2026-06-26",
+          "home": "Dinamo Sokhumi",
+          "away": "Gonio",
+          "homeGoals": 0,
+          "awayGoals": 3,
+          "winner": "Gonio"
+        }
+      ],
+      "qualifiedForR32": [
+        "Irao",
+        "Aragvi",
+        "Dinamo Tbilisi-2",
+        "Iberia 1999 B",
+        "Margveti 2006",
+        "Iberia 2010",
+        "Odishi 1919",
+        "Guria",
+        "Gori",
+        "Samtskhe",
+        "Shturmi",
+        "WIT Georgia",
+        "Varketili",
+        "Basa",
+        "Iveria",
+        "Gonio"
+      ],
+      "scope": "49 observed records (17+16+16), archive says 16 preliminary; exact count unresolved. Source conflicts: two Machakhela labels, Orbi/Irao, Varketili/Tbilisi 2025, Gardabani appears after Gardabani-2 elimination (different squads or administrative identity unresolved). June25/26 year typo corrected using second match archive. No native keys or certified access."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 49,
+        "qualifiers": 16
+      },
+      "missing": "Independent reconciliation, preliminary count and club identity conflicts, keys."
     }
   }
 ]

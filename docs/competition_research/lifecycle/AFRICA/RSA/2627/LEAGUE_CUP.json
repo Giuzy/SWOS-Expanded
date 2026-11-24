@@ -11,7 +11,8 @@
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "historicalPredecessorCandidate": "1996 transitional Coca-Cola Challenge Cup; separate 9697 slot not reconciled"
     }
   }
 ]

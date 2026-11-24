@@ -71,6 +71,23 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24"
+    },
+    "block90Research": {
+      "ruleEdition": "2025",
+      "tiebreakTwo": [
+        "H2H goal difference",
+        "wins",
+        "goals scored",
+        "neutral decider with ET/penalties"
+      ],
+      "tiebreakMoreThanTwo": [
+        "overall goal difference",
+        "wins",
+        "goals scored",
+        "neutral decider with ET/penalties"
+      ],
+      "licensing": "30 June licensing condition; decision by FRMF and eligible replacement, no automatic substitution",
+      "scope": "FRMF September 2025 regulation, annual promotion/relegation published before season; not retrospective."
     }
   }
 ]

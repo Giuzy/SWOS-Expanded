@@ -616,7 +616,9 @@
     "history/transitions/EUROPE/IRL.json",
     "history/transitions/EUROPE/EST.json",
     "history/transitions/EUROPE/BLR.json",
-    "history/transitions/EUROPE/LVA.json"
+    "history/transitions/EUROPE/LVA.json",
+    "history/transitions/EUROPE/MKD.json",
+    "history/transitions/EUROPE/MNE.json"
   ],
   "versions": [
     "history/league_versions/EUROPE/FRA.json",
@@ -1413,6 +1415,6 @@
   "metadata": "metadata.json",
   "coverage": "COVERAGE.json",
   "researchOnly": true,
-  "lastPreparedBlock": 86,
+  "lastPreparedBlock": 91,
   "cutoffScope": "CUTOFF_SCOPE.json"
 }

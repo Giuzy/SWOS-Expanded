@@ -11,12 +11,17 @@
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "FIRST_OBSERVED_EDITION_SECONDARY_IDENTITY_PENDING",
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "historicalOrigin": "1990/91",
       "sources": [
         "https://www.zerozero.pt/edicao/copa-constitucio-2016/93459/vencedores",
         "https://www.uefa.com/nationalassociations/and/"
-      ]
+      ],
+      "observedCommercialNameInterval": {
+        "from": "2023/24",
+        "to": "2025/26",
+        "name": "Copa Constitució Valira Seguretat"
+      }
     }
   }
 ]

@@ -56,6 +56,25 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limitations": "Exact club keys, fixture dates, full match rules and runtime not certified."
+    },
+    "block91Research": {
+      "historicalPredecessorCandidate": {
+        "edition": "1996 transitional Coca-Cola Challenge Cup",
+        "format": {
+          "teams": 18,
+          "leagueCycles": 1,
+          "leagueMatchesPerClub": 17,
+          "top16Knockout": true,
+          "seedPairing": "1 vs16 etc",
+          "finalReplayObserved": true
+        },
+        "leaguePhaseEnd": "late July 1996 (contemporary 2 August report says preceding weekend)",
+        "firstKO": "1996-08-02",
+        "cutoff": "1996-06-30",
+        "status": "ACTIVE_HISTORICAL_COMPETITION_UNMAPPED_9697_SLOT",
+        "note": "Pre-July matches occurred, but no exact scores/dates recoverable in reviewed archive. Final league table is post-cutoff and not imported. Do not merge into new Premiership or national cup; separate slot decision pending final inventory audit."
+      },
+      "scope": "Contemporary report and RSSSF corroborate transitional league/cup distinction."
     }
   }
 ]

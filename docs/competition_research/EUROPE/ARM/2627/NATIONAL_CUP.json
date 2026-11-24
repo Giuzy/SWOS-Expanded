@@ -10,27 +10,43 @@
     "candidateSources": [
       "0e6407581e3d3a794597ca5dcb5becd00458ee68"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Hayastani Gavat",
+      "nonCommercialDisplayName": "Armenian Cup",
       "candidateName": "Armenian Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block87Research": {
+      "edition": "2026/27",
+      "drawDate": "2026-07-02",
+      "firstObserved": "2026-08-24",
+      "entrants": 22,
+      "preliminaryEntrants": 12,
+      "round16Direct": 10,
+      "preliminaryQualifiers": 6,
+      "format": "Knockout bracket; later leg rules unverified",
+      "administrativeException": "Hayk expelled Aug22; Olympia bye, not played match",
+      "nominalCalendar": {
+        "quarterfinal": "2027-03-16/17",
+        "final": "2027-05-11/12"
+      },
+      "scope": "Secondary archive excerpts; partial."
     }
   }
 ]

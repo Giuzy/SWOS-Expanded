@@ -7,11 +7,11 @@
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
+      "format_valid_from": "2026",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "FIRST_OBSERVED_EDITION_SNIPPET_ONLY",
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "historicalOrigin": "1990",
       "sources": [
         "https://www.rsssf.org/tablesg/georcuphistfin.html"

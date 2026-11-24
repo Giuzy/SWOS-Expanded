@@ -71,6 +71,1681 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24"
+    },
+    "block90Research": {
+      "initialCarryOver": {
+        "edition": "1995/96",
+        "cutoff": "1996-06-30",
+        "roundsCompleted": 23,
+        "matches": [
+          {
+            "date": "1995-09-14",
+            "round": 1,
+            "home": "USM Ain Beida",
+            "away": "MC Oran",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-09-14",
+            "round": 1,
+            "home": "MC Alger",
+            "away": "WA Boufarik",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-09-14",
+            "round": 1,
+            "home": "WA Tlemcen",
+            "away": "USM El Harrach",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-09-14",
+            "round": 1,
+            "home": "JS Kabylie",
+            "away": "CA Batna",
+            "homeGoals": 3,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-09-14",
+            "round": 1,
+            "home": "CR Belouizdad",
+            "away": "AS Ain M'lila",
+            "homeGoals": 4,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-09-14",
+            "round": 1,
+            "home": "CS Constantine",
+            "away": "JS Bordj Menaiel",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-09-14",
+            "round": 1,
+            "home": "USM Blida",
+            "away": "USM Alger",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-09-14",
+            "round": 1,
+            "home": "ASM Oran",
+            "away": "US Chaouia",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-09-21",
+            "round": 2,
+            "home": "USM Ain Beida",
+            "away": "CR Belouizdad",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-09-21",
+            "round": 2,
+            "home": "USM Alger",
+            "away": "US Chaouia",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-09-21",
+            "round": 2,
+            "home": "JS Bordj Menaiel",
+            "away": "USM Blida",
+            "homeGoals": 0,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-09-21",
+            "round": 2,
+            "home": "AS Ain M'lila",
+            "away": "ASM Oran",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-09-21",
+            "round": 2,
+            "home": "CA Batna",
+            "away": "CS Constantine",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-09-21",
+            "round": 2,
+            "home": "USM El Harrach",
+            "away": "JS Kabylie",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-09-21",
+            "round": 2,
+            "home": "WA Boufarik",
+            "away": "WA Tlemcen",
+            "homeGoals": 0,
+            "awayGoals": 2
+          },
+          {
+            "date": "1995-09-21",
+            "round": 2,
+            "home": "MC Oran",
+            "away": "MC Alger",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-09-28",
+            "round": 3,
+            "home": "US Chaouia",
+            "away": "JS Bordj Menaiel",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-09-28",
+            "round": 3,
+            "home": "MC Alger",
+            "away": "USM Ain Beida",
+            "homeGoals": 1,
+            "awayGoals": 3
+          },
+          {
+            "date": "1995-09-28",
+            "round": 3,
+            "home": "WA Tlemcen",
+            "away": "MC Oran",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-09-28",
+            "round": 3,
+            "home": "JS Kabylie",
+            "away": "WA Boufarik",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-09-28",
+            "round": 3,
+            "home": "CR Belouizdad",
+            "away": "CA Batna",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-09-28",
+            "round": 3,
+            "home": "CS Constantine",
+            "away": "USM El Harrach",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-09-28",
+            "round": 3,
+            "home": "USM Blida",
+            "away": "AS Ain M'lila",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-09-28",
+            "round": 3,
+            "home": "ASM Oran",
+            "away": "USM Alger",
+            "homeGoals": 0,
+            "awayGoals": 2
+          },
+          {
+            "date": "1995-10-05",
+            "round": 4,
+            "home": "USM Ain Beida",
+            "away": "WA Tlemcen",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-10-05",
+            "round": 4,
+            "home": "MC Alger",
+            "away": "CR Belouizdad",
+            "homeGoals": 1,
+            "awayGoals": 2
+          },
+          {
+            "date": "1995-10-05",
+            "round": 4,
+            "home": "JS Bordj Menaiel",
+            "away": "USM Alger",
+            "homeGoals": 0,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-10-05",
+            "round": 4,
+            "home": "AS Ain M'lila",
+            "away": "US Chaouia",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-05",
+            "round": 4,
+            "home": "CA Batna",
+            "away": "USM Blida",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-10-05",
+            "round": 4,
+            "home": "USM El Harrach",
+            "away": "ASM Oran",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-05",
+            "round": 4,
+            "home": "WA Boufarik",
+            "away": "CS Constantine",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-05",
+            "round": 4,
+            "home": "MC Oran",
+            "away": "JS Kabylie",
+            "homeGoals": 3,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-16",
+            "round": 5,
+            "home": "US Chaouia",
+            "away": "CA Batna",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-16",
+            "round": 5,
+            "home": "USM Alger",
+            "away": "AS Ain M'lila",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-16",
+            "round": 5,
+            "home": "WA Tlemcen",
+            "away": "MC Alger",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-16",
+            "round": 5,
+            "home": "JS Kabylie",
+            "away": "USM Ain Beida",
+            "homeGoals": 4,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-10-16",
+            "round": 5,
+            "home": "CR Belouizdad",
+            "away": "WA Boufarik",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-16",
+            "round": 5,
+            "home": "CS Constantine",
+            "away": "MC Oran",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-10-16",
+            "round": 5,
+            "home": "USM Blida",
+            "away": "USM El Harrach",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-10-16",
+            "round": 5,
+            "home": "ASM Oran",
+            "away": "JS Bordj Menaiel",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-26",
+            "round": 6,
+            "home": "USM Ain Beida",
+            "away": "CS Constantine",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-26",
+            "round": 6,
+            "home": "MC Alger",
+            "away": "JS Kabylie",
+            "homeGoals": 3,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-26",
+            "round": 6,
+            "home": "WA Tlemcen",
+            "away": "USM Blida",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-26",
+            "round": 6,
+            "home": "AS Ain M'lila",
+            "away": "JS Bordj Menaiel",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1995-10-26",
+            "round": 6,
+            "home": "CA Batna",
+            "away": "USM Alger",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-26",
+            "round": 6,
+            "home": "USM El Harrach",
+            "away": "US Chaouia",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-26",
+            "round": 6,
+            "home": "WA Boufarik",
+            "away": "ASM Oran",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1995-10-26",
+            "round": 6,
+            "home": "MC Oran",
+            "away": "CR Belouizdad",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-08",
+            "round": 7,
+            "home": "US Chaouia",
+            "away": "USM Ain Beida",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-08",
+            "round": 7,
+            "home": "USM Alger",
+            "away": "MC Alger",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-08",
+            "round": 7,
+            "home": "JS Bordj Menaiel",
+            "away": "CA Batna",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-02-08",
+            "round": 7,
+            "home": "JS Kabylie",
+            "away": "WA Tlemcen",
+            "homeGoals": 3,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-08",
+            "round": 7,
+            "home": "CR Belouizdad",
+            "away": "USM El Harrach",
+            "homeGoals": 0,
+            "awayGoals": 2
+          },
+          {
+            "date": "1996-02-08",
+            "round": 7,
+            "home": "CS Constantine",
+            "away": "AS Ain M'lila",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-08",
+            "round": 7,
+            "home": "USM Blida",
+            "away": "WA Boufarik",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-02-08",
+            "round": 7,
+            "home": "ASM Oran",
+            "away": "MC Oran",
+            "homeGoals": 1,
+            "awayGoals": 3
+          },
+          {
+            "date": "1996-02-15",
+            "round": 8,
+            "home": "USM Ain Beida",
+            "away": "ASM Oran",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-15",
+            "round": 8,
+            "home": "MC Alger",
+            "away": "CS Constantine",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-02-15",
+            "round": 8,
+            "home": "WA Tlemcen",
+            "away": "CR Belouizdad",
+            "homeGoals": 3,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-15",
+            "round": 8,
+            "home": "JS Kabylie",
+            "away": "USM Blida",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-15",
+            "round": 8,
+            "home": "CA Batna",
+            "away": "AS Ain M'lila",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-02-15",
+            "round": 8,
+            "home": "USM El Harrach",
+            "away": "JS Bordj Menaiel",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-02-15",
+            "round": 8,
+            "home": "WA Boufarik",
+            "away": "USM Alger",
+            "homeGoals": 1,
+            "awayGoals": 4
+          },
+          {
+            "date": "1996-02-15",
+            "round": 8,
+            "home": "MC Oran",
+            "away": "US Chaouia",
+            "homeGoals": 4,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-02-22",
+            "round": 9,
+            "home": "US Chaouia",
+            "away": "WA Boufarik",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-22",
+            "round": 9,
+            "home": "USM Alger",
+            "away": "MC Oran",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-22",
+            "round": 9,
+            "home": "JS Bordj Menaiel",
+            "away": "USM Ain Beida",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-02-22",
+            "round": 9,
+            "home": "AS Ain M'lila",
+            "away": "USM El Harrach",
+            "homeGoals": 3,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-22",
+            "round": 9,
+            "home": "CR Belouizdad",
+            "away": "JS Kabylie",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-02-22",
+            "round": 9,
+            "home": "CS Constantine",
+            "away": "WA Tlemcen",
+            "homeGoals": 0,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-02-22",
+            "round": 9,
+            "home": "USM Blida",
+            "away": "MC Alger",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-22",
+            "round": 9,
+            "home": "ASM Oran",
+            "away": "CA Batna",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-26",
+            "round": 10,
+            "home": "USM Ain Beida",
+            "away": "USM Alger",
+            "homeGoals": 4,
+            "awayGoals": 2
+          },
+          {
+            "date": "1996-02-26",
+            "round": 10,
+            "home": "MC Alger",
+            "away": "US Chaouia",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-02-26",
+            "round": 10,
+            "home": "WA Tlemcen",
+            "away": "ASM Oran",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-26",
+            "round": 10,
+            "home": "JS Kabylie",
+            "away": "CS Constantine",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-02-26",
+            "round": 10,
+            "home": "CR Belouizdad",
+            "away": "USM Blida",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-26",
+            "round": 10,
+            "home": "USM El Harrach",
+            "away": "CA Batna",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-26",
+            "round": 10,
+            "home": "WA Boufarik",
+            "away": "AS Ain M'lila",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-02-26",
+            "round": 10,
+            "home": "MC Oran",
+            "away": "JS Bordj Menaiel",
+            "homeGoals": 3,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-01",
+            "round": 11,
+            "home": "US Chaouia",
+            "away": "WA Tlemcen",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-01",
+            "round": 11,
+            "home": "USM Alger",
+            "away": "USM El Harrach",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-01",
+            "round": 11,
+            "home": "JS Bordj Menaiel",
+            "away": "WA Boufarik",
+            "homeGoals": 4,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-01",
+            "round": 11,
+            "home": "AS Ain M'lila",
+            "away": "JS Kabylie",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-01",
+            "round": 11,
+            "home": "CA Batna",
+            "away": "USM Ain Beida",
+            "homeGoals": 4,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-01",
+            "round": 11,
+            "home": "CS Constantine",
+            "away": "CR Belouizdad",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-01",
+            "round": 11,
+            "home": "USM Blida",
+            "away": "MC Oran",
+            "homeGoals": 3,
+            "awayGoals": 5
+          },
+          {
+            "date": "1996-03-01",
+            "round": 11,
+            "home": "ASM Oran",
+            "away": "MC Alger",
+            "homeGoals": 4,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-14",
+            "round": 12,
+            "home": "USM Ain Beida",
+            "away": "AS Ain M'lila",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-14",
+            "round": 12,
+            "home": "MC Alger",
+            "away": "JS Bordj Menaiel",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-14",
+            "round": 12,
+            "home": "WA Tlemcen",
+            "away": "USM Alger",
+            "homeGoals": 3,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-14",
+            "round": 12,
+            "home": "JS Kabylie",
+            "away": "US Chaouia",
+            "homeGoals": 3,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-14",
+            "round": 12,
+            "home": "CR Belouizdad",
+            "away": "ASM Oran",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-14",
+            "round": 12,
+            "home": "CS Constantine",
+            "away": "USM Blida",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-14",
+            "round": 12,
+            "home": "WA Boufarik",
+            "away": "USM El Harrach",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-14",
+            "round": 12,
+            "home": "MC Oran",
+            "away": "CA Batna",
+            "homeGoals": 3,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-21",
+            "round": 13,
+            "home": "US Chaouia",
+            "away": "CR Belouizdad",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-21",
+            "round": 13,
+            "home": "USM Alger",
+            "away": "JS Kabylie",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-21",
+            "round": 13,
+            "home": "JS Bordj Menaiel",
+            "away": "WA Tlemcen",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-21",
+            "round": 13,
+            "home": "AS Ain M'lila",
+            "away": "MC Alger",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-21",
+            "round": 13,
+            "home": "CA Batna",
+            "away": "WA Boufarik",
+            "homeGoals": 4,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-21",
+            "round": 13,
+            "home": "USM El Harrach",
+            "away": "MC Oran",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-21",
+            "round": 13,
+            "home": "USM Blida",
+            "away": "USM Ain Beida",
+            "homeGoals": 0,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-21",
+            "round": 13,
+            "home": "ASM Oran",
+            "away": "CS Constantine",
+            "homeGoals": 4,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-28",
+            "round": 14,
+            "home": "USM Ain Beida",
+            "away": "USM El Harrach",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-28",
+            "round": 14,
+            "home": "MC Alger",
+            "away": "CA Batna",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-28",
+            "round": 14,
+            "home": "WA Tlemcen",
+            "away": "AS Ain M'lila",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-28",
+            "round": 14,
+            "home": "JS Kabylie",
+            "away": "JS Bordj Menaiel",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-28",
+            "round": 14,
+            "home": "CR Belouizdad",
+            "away": "USM Alger",
+            "homeGoals": 3,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-28",
+            "round": 14,
+            "home": "CS Constantine",
+            "away": "US Chaouia",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-03-28",
+            "round": 14,
+            "home": "USM Blida",
+            "away": "ASM Oran",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-03-28",
+            "round": 14,
+            "home": "MC Oran",
+            "away": "WA Boufarik",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-04",
+            "round": 15,
+            "home": "US Chaouia",
+            "away": "USM Blida",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-04",
+            "round": 15,
+            "home": "USM Alger",
+            "away": "CS Constantine",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-04",
+            "round": 15,
+            "home": "JS Bordj Menaiel",
+            "away": "CR Belouizdad",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-04-04",
+            "round": 15,
+            "home": "AS Ain M'lila",
+            "away": "MC Oran",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-04",
+            "round": 15,
+            "home": "CA Batna",
+            "away": "WA Tlemcen",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-04",
+            "round": 15,
+            "home": "USM El Harrach",
+            "away": "MC Alger",
+            "homeGoals": 3,
+            "awayGoals": 2
+          },
+          {
+            "date": "1996-04-04",
+            "round": 15,
+            "home": "WA Boufarik",
+            "away": "USM Ain Beida",
+            "homeGoals": 0,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-04-04",
+            "round": 15,
+            "home": "ASM Oran",
+            "away": "JS Kabylie",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-11",
+            "round": 16,
+            "home": "MC Oran",
+            "away": "USM Ain Beida",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-11",
+            "round": 16,
+            "home": "WA Boufarik",
+            "away": "MC Alger",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-11",
+            "round": 16,
+            "home": "USM El Harrach",
+            "away": "WA Tlemcen",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-11",
+            "round": 16,
+            "home": "CA Batna",
+            "away": "JS Kabylie",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-11",
+            "round": 16,
+            "home": "AS Ain M'lila",
+            "away": "CR Belouizdad",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-11",
+            "round": 16,
+            "home": "JS Bordj Menaiel",
+            "away": "CS Constantine",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-11",
+            "round": 16,
+            "home": "USM Alger",
+            "away": "USM Blida",
+            "homeGoals": 4,
+            "awayGoals": 2
+          },
+          {
+            "date": "1996-04-11",
+            "round": 16,
+            "home": "US Chaouia",
+            "away": "ASM Oran",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-18",
+            "round": 17,
+            "home": "CR Belouizdad",
+            "away": "USM Ain Beida",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-18",
+            "round": 17,
+            "home": "US Chaouia",
+            "away": "USM Alger",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-18",
+            "round": 17,
+            "home": "USM Blida",
+            "away": "JS Bordj Menaiel",
+            "homeGoals": 2,
+            "awayGoals": 2
+          },
+          {
+            "date": "1996-04-18",
+            "round": 17,
+            "home": "ASM Oran",
+            "away": "AS Ain M'lila",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-18",
+            "round": 17,
+            "home": "CS Constantine",
+            "away": "CA Batna",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-18",
+            "round": 17,
+            "home": "JS Kabylie",
+            "away": "USM El Harrach",
+            "homeGoals": 0,
+            "awayGoals": 2
+          },
+          {
+            "date": "1996-04-18",
+            "round": 17,
+            "home": "WA Tlemcen",
+            "away": "WA Boufarik",
+            "homeGoals": 4,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-04-18",
+            "round": 17,
+            "home": "MC Alger",
+            "away": "MC Oran",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-02",
+            "round": 18,
+            "home": "JS Bordj Menaiel",
+            "away": "US Chaouia",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-05-02",
+            "round": 18,
+            "home": "USM Ain Beida",
+            "away": "MC Alger",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-02",
+            "round": 18,
+            "home": "MC Oran",
+            "away": "WA Tlemcen",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-02",
+            "round": 18,
+            "home": "WA Boufarik",
+            "away": "JS Kabylie",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-02",
+            "round": 18,
+            "home": "CA Batna",
+            "away": "CR Belouizdad",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-05-02",
+            "round": 18,
+            "home": "USM El Harrach",
+            "away": "CS Constantine",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-02",
+            "round": 18,
+            "home": "AS Ain M'lila",
+            "away": "USM Blida",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-02",
+            "round": 18,
+            "home": "USM Alger",
+            "away": "ASM Oran",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-05-06",
+            "round": 19,
+            "home": "WA Tlemcen",
+            "away": "USM Ain Beida",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-06",
+            "round": 19,
+            "home": "CR Belouizdad",
+            "away": "MC Alger",
+            "homeGoals": 0,
+            "awayGoals": 3
+          },
+          {
+            "date": "1996-05-06",
+            "round": 19,
+            "home": "USM Alger",
+            "away": "JS Bordj Menaiel",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-06",
+            "round": 19,
+            "home": "US Chaouia",
+            "away": "AS Ain M'lila",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-06",
+            "round": 19,
+            "home": "USM Blida",
+            "away": "CA Batna",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-06",
+            "round": 19,
+            "home": "ASM Oran",
+            "away": "USM El Harrach",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-05-06",
+            "round": 19,
+            "home": "CS Constantine",
+            "away": "WA Boufarik",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-06",
+            "round": 19,
+            "home": "JS Kabylie",
+            "away": "MC Oran",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-16",
+            "round": 20,
+            "home": "CA Batna",
+            "away": "US Chaouia",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-05-16",
+            "round": 20,
+            "home": "AS Ain M'lila",
+            "away": "USM Alger",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-16",
+            "round": 20,
+            "home": "MC Alger",
+            "away": "WA Tlemcen",
+            "homeGoals": 0,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-05-16",
+            "round": 20,
+            "home": "USM Ain Beida",
+            "away": "JS Kabylie",
+            "homeGoals": 3,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-05-16",
+            "round": 20,
+            "home": "WA Boufarik",
+            "away": "CR Belouizdad",
+            "homeGoals": 2,
+            "awayGoals": 2
+          },
+          {
+            "date": "1996-05-16",
+            "round": 20,
+            "home": "MC Oran",
+            "away": "CS Constantine",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-16",
+            "round": 20,
+            "home": "USM El Harrach",
+            "away": "USM Blida",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-05-16",
+            "round": 20,
+            "home": "JS Bordj Menaiel",
+            "away": "ASM Oran",
+            "homeGoals": 2,
+            "awayGoals": 2
+          },
+          {
+            "date": "1996-05-20",
+            "round": 21,
+            "home": "CS Constantine",
+            "away": "USM Ain Beida",
+            "homeGoals": 3,
+            "awayGoals": 2
+          },
+          {
+            "date": "1996-05-20",
+            "round": 21,
+            "home": "JS Kabylie",
+            "away": "MC Alger",
+            "homeGoals": 0,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-05-20",
+            "round": 21,
+            "home": "USM Blida",
+            "away": "WA Tlemcen",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-05-20",
+            "round": 21,
+            "home": "JS Bordj Menaiel",
+            "away": "AS Ain M'lila",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-20",
+            "round": 21,
+            "home": "USM Alger",
+            "away": "CA Batna",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-05-20",
+            "round": 21,
+            "home": "US Chaouia",
+            "away": "USM El Harrach",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-05-20",
+            "round": 21,
+            "home": "ASM Oran",
+            "away": "WA Boufarik",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-05-20",
+            "round": 21,
+            "home": "CR Belouizdad",
+            "away": "MC Oran",
+            "homeGoals": 2,
+            "awayGoals": 2
+          },
+          {
+            "date": "1996-06-20",
+            "round": 22,
+            "home": "USM Ain Beida",
+            "away": "US Chaouia",
+            "homeGoals": 0,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-06-20",
+            "round": 22,
+            "home": "MC Alger",
+            "away": "USM Alger",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-06-20",
+            "round": 22,
+            "home": "CA Batna",
+            "away": "JS Bordj Menaiel",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-06-20",
+            "round": 22,
+            "home": "WA Tlemcen",
+            "away": "JS Kabylie",
+            "homeGoals": 1,
+            "awayGoals": 2
+          },
+          {
+            "date": "1996-06-20",
+            "round": 22,
+            "home": "USM El Harrach",
+            "away": "CR Belouizdad",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-06-20",
+            "round": 22,
+            "home": "AS Ain M'lila",
+            "away": "CS Constantine",
+            "homeGoals": 2,
+            "awayGoals": 2
+          },
+          {
+            "date": "1996-06-20",
+            "round": 22,
+            "home": "WA Boufarik",
+            "away": "USM Blida",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-06-20",
+            "round": 22,
+            "home": "MC Oran",
+            "away": "ASM Oran",
+            "homeGoals": 2,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-06-27",
+            "round": 23,
+            "home": "ASM Oran",
+            "away": "USM Ain Beida",
+            "homeGoals": 0,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-06-27",
+            "round": 23,
+            "home": "CS Constantine",
+            "away": "MC Alger",
+            "homeGoals": 1,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-06-27",
+            "round": 23,
+            "home": "CR Belouizdad",
+            "away": "WA Tlemcen",
+            "homeGoals": 1,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-06-27",
+            "round": 23,
+            "home": "USM Blida",
+            "away": "JS Kabylie",
+            "homeGoals": 0,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-06-27",
+            "round": 23,
+            "home": "AS Ain M'lila",
+            "away": "CA Batna",
+            "homeGoals": 2,
+            "awayGoals": 0
+          },
+          {
+            "date": "1996-06-27",
+            "round": 23,
+            "home": "JS Bordj Menaiel",
+            "away": "USM El Harrach",
+            "homeGoals": 0,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-06-27",
+            "round": 23,
+            "home": "USM Alger",
+            "away": "WA Boufarik",
+            "homeGoals": 4,
+            "awayGoals": 1
+          },
+          {
+            "date": "1996-06-27",
+            "round": 23,
+            "home": "US Chaouia",
+            "away": "MC Oran",
+            "homeGoals": 2,
+            "awayGoals": 0
+          }
+        ],
+        "computedTotals": [
+          {
+            "club": "MC Oran",
+            "played": 23,
+            "won": 13,
+            "drawn": 5,
+            "lost": 5,
+            "GF": 38,
+            "GA": 19,
+            "points": 44
+          },
+          {
+            "club": "USM Alger",
+            "played": 23,
+            "won": 14,
+            "drawn": 2,
+            "lost": 7,
+            "GF": 30,
+            "GA": 20,
+            "points": 44
+          },
+          {
+            "club": "WA Tlemcen",
+            "played": 23,
+            "won": 11,
+            "drawn": 6,
+            "lost": 6,
+            "GF": 28,
+            "GA": 16,
+            "points": 39
+          },
+          {
+            "club": "USM Ain Beida",
+            "played": 23,
+            "won": 11,
+            "drawn": 6,
+            "lost": 6,
+            "GF": 26,
+            "GA": 23,
+            "points": 39
+          },
+          {
+            "club": "CS Constantine",
+            "played": 23,
+            "won": 10,
+            "drawn": 8,
+            "lost": 5,
+            "GF": 23,
+            "GA": 17,
+            "points": 38
+          },
+          {
+            "club": "USM El Harrach",
+            "played": 23,
+            "won": 10,
+            "drawn": 6,
+            "lost": 7,
+            "GF": 21,
+            "GA": 18,
+            "points": 36
+          },
+          {
+            "club": "JS Kabylie",
+            "played": 23,
+            "won": 10,
+            "drawn": 4,
+            "lost": 9,
+            "GF": 25,
+            "GA": 22,
+            "points": 34
+          },
+          {
+            "club": "CA Batna",
+            "played": 23,
+            "won": 10,
+            "drawn": 3,
+            "lost": 10,
+            "GF": 25,
+            "GA": 24,
+            "points": 33
+          },
+          {
+            "club": "US Chaouia",
+            "played": 23,
+            "won": 9,
+            "drawn": 5,
+            "lost": 9,
+            "GF": 23,
+            "GA": 22,
+            "points": 32
+          },
+          {
+            "club": "CR Belouizdad",
+            "played": 23,
+            "won": 7,
+            "drawn": 9,
+            "lost": 7,
+            "GF": 24,
+            "GA": 26,
+            "points": 30
+          },
+          {
+            "club": "AS Ain M'lila",
+            "played": 23,
+            "won": 7,
+            "drawn": 8,
+            "lost": 8,
+            "GF": 15,
+            "GA": 18,
+            "points": 29
+          },
+          {
+            "club": "MC Alger",
+            "played": 23,
+            "won": 8,
+            "drawn": 3,
+            "lost": 12,
+            "GF": 20,
+            "GA": 25,
+            "points": 27
+          },
+          {
+            "club": "USM Blida",
+            "played": 23,
+            "won": 6,
+            "drawn": 5,
+            "lost": 12,
+            "GF": 21,
+            "GA": 31,
+            "points": 23
+          },
+          {
+            "club": "ASM Oran",
+            "played": 23,
+            "won": 5,
+            "drawn": 7,
+            "lost": 11,
+            "GF": 20,
+            "GA": 23,
+            "points": 22
+          },
+          {
+            "club": "WA Boufarik",
+            "played": 23,
+            "won": 5,
+            "drawn": 4,
+            "lost": 14,
+            "GF": 14,
+            "GA": 39,
+            "points": 19
+          },
+          {
+            "club": "JS Bordj Menaiel",
+            "played": 23,
+            "won": 2,
+            "drawn": 11,
+            "lost": 10,
+            "GF": 18,
+            "GA": 28,
+            "points": 17
+          }
+        ],
+        "tableScope": "Calculated from historical scores using 3/1/0; order among equal points is provisional, official disciplinary adjustments/tiebreak and participant keys not independently reconciled.",
+        "remainingMatches": 56,
+        "correctedArchiveScores": [
+          {
+            "round": 13,
+            "home": "JS Bordj Menaiel",
+            "away": "WA Tlemcen",
+            "score": [
+              1,
+              1
+            ]
+          },
+          {
+            "round": 13,
+            "home": "USM Blida",
+            "away": "USM Ain Beida",
+            "score": [
+              0,
+              1
+            ]
+          },
+          {
+            "round": 15,
+            "home": "USM El Harrach",
+            "away": "MC Alger",
+            "score": [
+              3,
+              2
+            ]
+          }
+        ]
+      },
+      "scope": "Archive round listing 1–23; no post-cutoff results. Pair uniqueness and 16 teams per round checked."
     }
   }
 ]

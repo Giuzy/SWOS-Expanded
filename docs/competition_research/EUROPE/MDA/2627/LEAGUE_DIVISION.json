@@ -10,10 +10,10 @@
     "candidateSources": [
       "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -23,8 +23,8 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "Super Liga",
-      "nonCommercialDisplayName": null,
+      "officialName": "Liga 7777.md",
+      "nonCommercialDisplayName": "Super Liga",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://fmf.md/noutate/5512/super-liga-un-nou-sezon-incepe-la-final-de-saptamana-vezi-care-va-fi-formatul-campionatului",
@@ -40,6 +40,81 @@
         }
       ],
       "historyComplete": false
+    },
+    "block88Research": {
+      "official": "Liga 7777.md",
+      "display": "Super Liga",
+      "firstMatch": "2026-06-27",
+      "participants": [
+        "Milsami",
+        "Zimbru",
+        "CSF Bălți",
+        "Politehnica UTM",
+        "Petrocub",
+        "Dacia Buiucani",
+        "Sheriff",
+        "Real Sireți"
+      ],
+      "format": {
+        "phase1": {
+          "teams": 8,
+          "rounds": 21,
+          "legs": 3
+        },
+        "phase2": {
+          "teams": 6,
+          "rounds": 10,
+          "legs": 2,
+          "carry": "floor(points earned in phase1 ONLY against other five qualifiers / 2)",
+          "equalRoundedPoints": "higher pre-rounding points",
+          "resetYellowCards": true
+        },
+        "bottom2": "join four Liga 1 teams competing for a top-tier place next season"
+      },
+      "matches": [
+        {
+          "date": "2026-06-27",
+          "round": 1,
+          "home": "Milsami",
+          "away": "Zimbru",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-27",
+          "round": 1,
+          "home": "CSF Bălți",
+          "away": "Politehnica UTM",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "2026-06-28",
+          "round": 1,
+          "home": "Petrocub",
+          "away": "Dacia Buiucani",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "2026-06-28",
+          "round": 1,
+          "home": "Sheriff",
+          "away": "Real Sireți",
+          "homeGoals": 3,
+          "awayGoals": 0
+        }
+      ],
+      "scope": "FMF annex5 and draw; RSSSF first round, no later scores. Name approved for 2025/26–2027/28. FMF round1 report dated June29 confirms scores and corrects RSSSF June27 date label for Sheriff–Real and Petrocub–Dacia to June28."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 4,
+        "rounds": 1
+      },
+      "missing": "Independent native participant keys and cutoff reconciliation."
     }
   }
 ]

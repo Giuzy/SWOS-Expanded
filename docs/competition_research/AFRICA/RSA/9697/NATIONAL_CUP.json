@@ -41,7 +41,9 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
-      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+      "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import.",
+      "observed1996Name": "BobSave SuperBowl",
+      "observed1996FinalDate": "1996-11-23"
     },
     "block55Research": {
       "edition": "1996/97",
@@ -81,6 +83,17 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limitations": "Exact club keys, fixture dates, full match rules and runtime not certified."
+    },
+    "block91Research": {
+      "calendarEdition": "1996",
+      "officialObservedName": "BobSave SuperBowl",
+      "finalDate": "1996-11-23",
+      "format": {
+        "observedSemifinals": true,
+        "observedThirdPlaceMatch": true,
+        "observedFinal": true
+      },
+      "scope": "Final occurs after cutoff; semifinal actual dates and earliest qualifying round unknown. 1997 edition absent, 1996 identity mapping remains pending. No result or qualified future winner imported."
     }
   }
 ]

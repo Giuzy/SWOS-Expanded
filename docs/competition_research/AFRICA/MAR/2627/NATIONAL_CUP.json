@@ -54,6 +54,193 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24"
+    },
+    "block90Research": {
+      "initialCarryOver": {
+        "edition": "2024/25",
+        "cutoff": "2026-06-30",
+        "matches": [
+          {
+            "phase": "R32",
+            "date": "2026-05-15",
+            "home": "Moghreb Tetouan",
+            "away": "Chabab Fath Casablanca",
+            "homeGoals": 0,
+            "awayGoals": 0,
+            "aet": true,
+            "penalties": [
+              4,
+              3
+            ],
+            "winner": "Moghreb Tetouan"
+          },
+          {
+            "phase": "R32",
+            "date": "2026-05-15",
+            "home": "Chabab Mohammedia",
+            "away": "CJ Ben Guerir",
+            "homeGoals": 0,
+            "awayGoals": 3,
+            "winner": "CJ Ben Guerir"
+          },
+          {
+            "phase": "R32",
+            "date": "2026-05-15",
+            "home": "Kawkab Marrakech",
+            "away": "JS Soualem",
+            "homeGoals": 3,
+            "awayGoals": 1,
+            "winner": "Kawkab Marrakech"
+          },
+          {
+            "phase": "R32",
+            "date": "2026-05-16",
+            "home": "Rachad Bernoussi",
+            "away": "FUS Rabat",
+            "homeGoals": 0,
+            "awayGoals": 4,
+            "winner": "FUS Rabat"
+          },
+          {
+            "phase": "R32",
+            "date": "2026-05-16",
+            "home": "HUS Agadir",
+            "away": "Mostakbal El Marsa",
+            "homeGoals": 3,
+            "awayGoals": 2,
+            "aet": true,
+            "winner": "HUS Agadir"
+          },
+          {
+            "phase": "R32",
+            "date": "2026-05-16",
+            "home": "Union Touarga",
+            "away": "Fath Nador",
+            "homeGoals": 1,
+            "awayGoals": 0,
+            "winner": "Union Touarga"
+          },
+          {
+            "phase": "R32",
+            "date": "2026-05-16",
+            "home": "RS Berkane",
+            "away": "Wydad Fes",
+            "homeGoals": 3,
+            "awayGoals": 1,
+            "winner": "RS Berkane"
+          },
+          {
+            "phase": "R32",
+            "date": "2026-05-16",
+            "home": "OC Safi",
+            "away": "Olympic Dcheira",
+            "homeGoals": 3,
+            "awayGoals": 0,
+            "winner": "OC Safi"
+          },
+          {
+            "phase": "R32",
+            "date": "2026-05-16",
+            "home": "Raja Casablanca",
+            "away": "JS El Massira",
+            "homeGoals": 2,
+            "awayGoals": 0,
+            "winner": "Raja Casablanca"
+          },
+          {
+            "phase": "R32",
+            "date": "2026-05-17",
+            "home": "Kenitra AC",
+            "away": "IR Tanger",
+            "homeGoals": 1,
+            "awayGoals": 2,
+            "aet": true,
+            "winner": "IR Tanger"
+          },
+          {
+            "phase": "R32",
+            "date": "2026-05-17",
+            "home": "US Amal Tiznit",
+            "away": "DH El Jadida",
+            "homeGoals": 0,
+            "awayGoals": 3,
+            "winner": "DH El Jadida"
+          },
+          {
+            "phase": "R32",
+            "date": "2026-05-17",
+            "home": "Raja Beni Mellal",
+            "away": "Wydad Casablanca",
+            "homeGoals": 0,
+            "awayGoals": 2,
+            "winner": "Wydad Casablanca"
+          },
+          {
+            "phase": "R32",
+            "date": "2026-05-17",
+            "home": "Wydad Serghini",
+            "away": "RCA Zemamra",
+            "homeGoals": 1,
+            "awayGoals": 2,
+            "aet": true,
+            "winner": "RCA Zemamra"
+          },
+          {
+            "phase": "R32",
+            "date": "2026-05-17",
+            "home": "Chabab Atlas Khenifra",
+            "away": "COD Meknes",
+            "homeGoals": 0,
+            "awayGoals": 2,
+            "winner": "COD Meknes"
+          },
+          {
+            "phase": "R32",
+            "date": "2026-05-17",
+            "home": "US Yacoub El Mansour",
+            "away": "MAS Fes",
+            "homeGoals": 1,
+            "awayGoals": 0,
+            "winner": "US Yacoub El Mansour"
+          }
+        ],
+        "qualified": [
+          "Moghreb Tetouan",
+          "CJ Ben Guerir",
+          "Kawkab Marrakech",
+          "FUS Rabat",
+          "HUS Agadir",
+          "Union Touarga",
+          "RS Berkane",
+          "OC Safi",
+          "Raja Casablanca",
+          "IR Tanger",
+          "DH El Jadida",
+          "Wydad Casablanca",
+          "RCA Zemamra",
+          "COD Meknes",
+          "US Yacoub El Mansour"
+        ],
+        "pendingTie": {
+          "home": "AS FAR",
+          "away": "Stade Marocain",
+          "reason": "CAF Champions League final participation",
+          "status": "POSTPONED_AT_CUTOFF",
+          "laterActualDate": "2026-07-08"
+        },
+        "scope": "15 corroborated ties; archive date label 2025/26 for some aggregators conflicts with official 2024/25 edition; use official edition."
+      },
+      "generalRules": {
+        "edition": "2025",
+        "regionalPreliminaries": true,
+        "geographicAmateurRounds": 3,
+        "tier2Enters": 4,
+        "tier1Enters": "R32",
+        "R32ToFinal": "single knockout",
+        "firstDrawnHosts": true,
+        "venueFinalAndSF": "FRMF determines"
+      },
+      "scope": "2025 rules not retrospective proof for earlier editions."
     }
   }
 ]

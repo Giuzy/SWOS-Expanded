@@ -10,27 +10,40 @@
     "candidateSources": [
       "74773c7245a34ebee48aa97ff451c707b3d41cf5"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Kup Crne Gore",
+      "nonCommercialDisplayName": "Kup Crne Gore",
       "candidateName": "Kup Crne Gore",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block88Research": {
+      "official": "Kup Crne Gore",
+      "display": "Kup Crne Gore",
+      "firstObserved": "2026-10-14",
+      "nominalAutumnDates": [
+        "2026-10-14",
+        "2026-11-25"
+      ],
+      "format": {
+        "observedInitialEntrants": 16
+      },
+      "scope": "FSCG calendar reported June11, central draw; exact access and phase leg rules unverified."
     }
   }
 ]

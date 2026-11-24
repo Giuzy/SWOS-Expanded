@@ -49,6 +49,41 @@
       "note": "Earlier qualifying dates and definitive federation dates pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24"
+    },
+    "block90Research": {
+      "rulesEdition": "2025",
+      "tie": "extra time 2x15 then penalties",
+      "sixthSubstitution": "extra time only, fourth stoppage permitted",
+      "nationalDuty": "no postponement through QF for senior national team call-ups; SF/final with internationals; Olympic call-ups no postponement",
+      "annualPyramid": {
+        "edition": "2025/26",
+        "regionalQualifiers": 12,
+        "amateurC1Qualifiers": 28,
+        "amateurC2Qualifiers": 31,
+        "T1": {
+          "tier2": 28,
+          "tier2Qualifiers": 14,
+          "otherEntrants": 71,
+          "otherQualifiers": 36,
+          "otherByes": 1
+        },
+        "T2": {
+          "entrants": 36,
+          "qualifiers": 18
+        },
+        "R64": {
+          "entrants": 32,
+          "fromTier2": 14,
+          "fromT2": 18,
+          "qualifiers": 16
+        },
+        "R32": {
+          "entrants": 32,
+          "tier1": 16,
+          "fromR64": 16
+        }
+      },
+      "scope": "FTF art44–54, annual pyramid expressly 2025/26, not presumed 2026/27. Earlier current-edition dates still unverified."
     }
   }
 ]

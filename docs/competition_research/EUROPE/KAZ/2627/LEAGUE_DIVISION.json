@@ -10,27 +10,564 @@
     "candidateSources": [
       "c6ff89cec180d0cf1d60f4cac5c84885fdd13815"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "QFL Olimpbet Premier League",
+      "nonCommercialDisplayName": "Kazakhstan Premier League",
       "candidateName": "Kazakhstan Premier League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block87Research": {
+      "edition": "2026",
+      "firstMatch": "2026-03-07",
+      "format": {
+        "teams": 16,
+        "rounds": 30,
+        "legs": 2,
+        "directRelegationRanks": [
+          15,
+          16
+        ]
+      },
+      "participants": [
+        "Altai",
+        "Qairat",
+        "Aqtobe",
+        "Tobyl",
+        "Oqjetpes",
+        "Elimai",
+        "Ordabasy",
+        "Ertis",
+        "Astana",
+        "Jetisu",
+        "Qaisar",
+        "Jenis",
+        "Qyzyljar",
+        "Kaspii",
+        "Atyrau",
+        "Ulytau"
+      ],
+      "matches": [
+        {
+          "round": "1",
+          "date": "2026-03-07",
+          "home": "Altai",
+          "away": "Qairat",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "winner": "Qairat"
+        },
+        {
+          "round": "1",
+          "date": "2026-03-07",
+          "home": "Aqtobe",
+          "away": "Tobyl",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "winner": "Aqtobe"
+        },
+        {
+          "round": "1",
+          "date": "2026-03-07",
+          "home": "Oqjetpes",
+          "away": "Elimai",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "round": "1",
+          "date": "2026-03-07",
+          "home": "Ordabasy",
+          "away": "Ertis",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "round": "1",
+          "date": "2026-03-08",
+          "home": "Astana",
+          "away": "Jetisu",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "winner": "Astana"
+        },
+        {
+          "round": "1",
+          "date": "2026-03-08",
+          "home": "Qaisar",
+          "away": "Jenis",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "round": "1",
+          "date": "2026-03-08",
+          "home": "Qyzyljar",
+          "away": "Kaspii",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "Qyzyljar"
+        },
+        {
+          "round": "1",
+          "date": "2026-03-08",
+          "home": "Atyrau",
+          "away": "Ulytau",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "round": "2",
+          "date": "2026-03-16",
+          "home": "Qaisar",
+          "away": "Astana",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "round": "2",
+          "date": "2026-03-16",
+          "home": "Qairat",
+          "away": "Aqtobe",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Qairat"
+        },
+        {
+          "round": "2",
+          "date": "2026-03-16",
+          "home": "Ulytau",
+          "away": "Qyzyljar",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Ulytau"
+        },
+        {
+          "round": "2",
+          "date": "2026-03-16",
+          "home": "Jenis",
+          "away": "Ordabasy",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "Ordabasy"
+        },
+        {
+          "round": "2",
+          "date": "2026-03-16",
+          "home": "Ertis",
+          "away": "Atyrau",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "round": "2",
+          "date": "2026-03-16",
+          "home": "Elimai",
+          "away": "Altai",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "round": "2",
+          "date": "2026-03-16",
+          "home": "Tobyl",
+          "away": "Jetisu",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "round": "2",
+          "date": "2026-03-17",
+          "home": "Kaspii",
+          "away": "Oqjetpes",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "winner": "Oqjetpes"
+        },
+        {
+          "round": "8",
+          "date": "2026-05-02",
+          "home": "Ertis",
+          "away": "Qairat",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "winner": "Qairat"
+        },
+        {
+          "round": "8",
+          "date": "2026-05-02",
+          "home": "Qyzyljar",
+          "away": "Oqjetpes",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "winner": "Oqjetpes"
+        },
+        {
+          "round": "8",
+          "date": "2026-05-02",
+          "home": "Qaisar",
+          "away": "Jetisu",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "round": "8",
+          "date": "2026-05-03",
+          "home": "Ordabasy",
+          "away": "Aqtobe",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "winner": "Ordabasy"
+        },
+        {
+          "round": "8",
+          "date": "2026-05-03",
+          "home": "Ulytau",
+          "away": "Elimai",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Ulytau"
+        },
+        {
+          "round": "8",
+          "date": "2026-05-03",
+          "home": "Kaspii",
+          "away": "Astana",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Kaspii"
+        },
+        {
+          "round": "8",
+          "date": "2026-05-03",
+          "home": "Atyrau",
+          "away": "Altai",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Atyrau"
+        },
+        {
+          "round": "8",
+          "date": "2026-05-03",
+          "home": "Jenis",
+          "away": "Tobyl",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Jenis"
+        },
+        {
+          "round": "9",
+          "date": "2026-05-09",
+          "home": "Oqjetpes",
+          "away": "Atyrau",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "round": "9",
+          "date": "2026-05-09",
+          "home": "Elimai",
+          "away": "Kaspii",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "winner": "Kaspii"
+        },
+        {
+          "round": "9",
+          "date": "2026-05-09",
+          "home": "Astana",
+          "away": "Qyzyljar",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "Astana"
+        },
+        {
+          "round": "9",
+          "date": "2026-05-09",
+          "home": "Jetisu",
+          "away": "Jenis",
+          "homeGoals": 2,
+          "awayGoals": 3,
+          "winner": "Jenis"
+        },
+        {
+          "round": "9",
+          "date": "2026-05-09",
+          "home": "Tobyl",
+          "away": "Ertis",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Tobyl"
+        },
+        {
+          "round": "9",
+          "date": "2026-05-10",
+          "home": "Ulytau",
+          "away": "Qairat",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "round": "9",
+          "date": "2026-05-10",
+          "home": "Altai",
+          "away": "Ordabasy",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "round": "9",
+          "date": "2026-05-10",
+          "home": "Aqtobe",
+          "away": "Qaisar",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "winner": "Aqtobe"
+        },
+        {
+          "round": "10",
+          "date": "2026-05-16",
+          "home": "Oqjetpes",
+          "away": "Astana",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Oqjetpes"
+        },
+        {
+          "round": "10",
+          "date": "2026-05-16",
+          "home": "Ulytau",
+          "away": "Kaspii",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Ulytau"
+        },
+        {
+          "round": "10",
+          "date": "2026-05-16",
+          "home": "Ertis",
+          "away": "Elimai",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "round": "10",
+          "date": "2026-05-17",
+          "home": "Jenis",
+          "away": "Qairat",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "winner": "Qairat"
+        },
+        {
+          "round": "10",
+          "date": "2026-05-17",
+          "home": "Ordabasy",
+          "away": "Jetisu",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "Ordabasy"
+        },
+        {
+          "round": "10",
+          "date": "2026-05-17",
+          "home": "Aqtobe",
+          "away": "Atyrau",
+          "homeGoals": 1,
+          "awayGoals": 1
+        },
+        {
+          "round": "10",
+          "date": "2026-05-17",
+          "home": "Qyzyljar",
+          "away": "Altai",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "winner": "Altai"
+        },
+        {
+          "round": "10",
+          "date": "2026-05-17",
+          "home": "Qaisar",
+          "away": "Tobyl",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "Qaisar"
+        },
+        {
+          "round": "14",
+          "date": "2026-06-20",
+          "home": "Ordabasy",
+          "away": "Kaspii",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "winner": "Ordabasy"
+        },
+        {
+          "round": "14",
+          "date": "2026-06-20",
+          "home": "Qaisar",
+          "away": "Ulytau",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "round": "14",
+          "date": "2026-06-20",
+          "home": "Jenis",
+          "away": "Ertis",
+          "homeGoals": 0,
+          "awayGoals": 0
+        },
+        {
+          "round": "14",
+          "date": "2026-06-20",
+          "home": "Altai",
+          "away": "Jetisu",
+          "homeGoals": 3,
+          "awayGoals": 3
+        },
+        {
+          "round": "14",
+          "date": "2026-06-21",
+          "home": "Qyzyljar",
+          "away": "Qairat",
+          "homeGoals": 2,
+          "awayGoals": 4,
+          "winner": "Qairat"
+        },
+        {
+          "round": "14",
+          "date": "2026-06-21",
+          "home": "Oqjetpes",
+          "away": "Tobyl",
+          "homeGoals": 2,
+          "awayGoals": 1,
+          "winner": "Oqjetpes"
+        },
+        {
+          "round": "14",
+          "date": "2026-06-21",
+          "home": "Aqtobe",
+          "away": "Astana",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "winner": "Aqtobe"
+        },
+        {
+          "round": "14",
+          "date": "2026-06-21",
+          "home": "Elimai",
+          "away": "Atyrau",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "winner": "Atyrau"
+        },
+        {
+          "round": "15",
+          "date": "2026-06-27",
+          "home": "Oqjetpes",
+          "away": "Qairat",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "winner": "Qairat"
+        },
+        {
+          "round": "15",
+          "date": "2026-06-27",
+          "home": "Jetisu",
+          "away": "Aqtobe",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "Jetisu"
+        },
+        {
+          "round": "15",
+          "date": "2026-06-27",
+          "home": "Elimai",
+          "away": "Qyzyljar",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "winner": "Elimai"
+        },
+        {
+          "round": "15",
+          "date": "2026-06-27",
+          "home": "Kaspii",
+          "away": "Atyrau",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "winner": "Kaspii"
+        },
+        {
+          "round": "15",
+          "date": "2026-06-28",
+          "home": "Ulytau",
+          "away": "Ordabasy",
+          "homeGoals": 0,
+          "awayGoals": 1,
+          "winner": "Ordabasy"
+        },
+        {
+          "round": "15",
+          "date": "2026-06-28",
+          "home": "Jenis",
+          "away": "Astana",
+          "homeGoals": 2,
+          "awayGoals": 2
+        },
+        {
+          "round": "15",
+          "date": "2026-06-28",
+          "home": "Ertis",
+          "away": "Qaisar",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "winner": "Qaisar"
+        },
+        {
+          "round": "15",
+          "date": "2026-06-28",
+          "home": "Tobyl",
+          "away": "Altai",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "winner": "Tobyl"
+        },
+        {
+          "round": "17",
+          "date": "2026-06-17",
+          "home": "Qairat",
+          "away": "Qyzyljar",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "winner": "Qairat"
+        }
+      ],
+      "scope": "Sampled rounds 1,2,8,9,10,14,15 and early R17 Jun17; not complete table."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "details": {
+        "matches": 57
+      },
+      "missing": "Remaining pre-cutoff games, standings, keys."
     }
   }
 ]

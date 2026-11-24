@@ -51,6 +51,31 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limitations": "Exact club keys, fixture dates, full match rules and runtime not certified."
+    },
+    "block91Research": {
+      "edition": "2026/27",
+      "drawDate": "2026-08-18",
+      "firstRoundWindow": [
+        "2026-08-24",
+        "2026-08-25"
+      ],
+      "secondRoundDraw": "2026-08-30",
+      "secondRoundStart": "2026-09-12",
+      "format": {
+        "firstPreliminaryAccess": [
+          "Division Two B",
+          "Division Three",
+          "Division Four"
+        ],
+        "firstRoundEntrantsReported": 64,
+        "alternativeSecondaryCount": 72,
+        "preliminaryRounds": 4,
+        "preliminaryTie": "direct penalties",
+        "firstDrawnHosts": true,
+        "mainRound32": "top tier entry",
+        "mainTieCandidate": "ET from R32"
+      },
+      "scope": "Contemporary Aug reports confirm dates and 64 entrants; secondary archive reports72, not reconciled. Main-round rule source secondary; 2026/27 entire access bracket still incomplete. No July snapshot."
     }
   }
 ]

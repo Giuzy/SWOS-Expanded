@@ -14,5 +14,19 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
     }
+  },
+  {
+    "index": 602,
+    "value": {
+      "competition": "LIE national cup",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        377
+      ],
+      "note": "18 teams, four top-ranked direct QF; remaining14 play two preliminaries with two byes in first round. New annual mode, not fixed forever.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block89 federation history, published annual mode or UEFA official announcement; no URL fields added."
+    }
   }
 ]

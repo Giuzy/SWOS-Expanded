@@ -63,6 +63,39 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limitations": "Exact club keys, fixture dates, full match rules and runtime not certified."
+    },
+    "block91Research": {
+      "regulationDate": "2025-12-02",
+      "format": {
+        "teams": 16,
+        "rounds": 30,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "tiebreak": [
+          "points",
+          "overall goal difference",
+          "overall goals scored",
+          "H2H points",
+          "H2H goal difference",
+          "H2H goals scored",
+          "repeat H2H subset until no further separation",
+          "neutral playoff between two remaining clubs"
+        ],
+        "promotionPlayoff": {
+          "participants": [
+            "PD15",
+            "NFD2",
+            "NFD3"
+          ],
+          "observedPreviousEdition": "2025/26",
+          "observedFormat": "double round robin six matches; PD15 assigned club1, draw for other two",
+          "winner": "Premier Division next season"
+        }
+      },
+      "scope": "NSL handbook rules7–8; 2026/27 playoff announced dates already stored, specific pairing draw not known."
     }
   }
 ]

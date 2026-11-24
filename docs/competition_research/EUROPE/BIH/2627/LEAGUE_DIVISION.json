@@ -10,27 +10,65 @@
     "candidateSources": [
       "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "WWIN Liga Bosne i Hercegovine",
+      "nonCommercialDisplayName": "Premijer Liga BiH",
       "candidateName": "Premier League of Bosnia and Herzegovina",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block88Research": {
+      "official": "WWIN Liga Bosne i Hercegovine",
+      "display": "Premijer Liga BiH",
+      "firstRoundWindow": [
+        "2026-08-08",
+        "2026-08-09"
+      ],
+      "participants": [
+        "Željezničar",
+        "BSK",
+        "Sarajevo",
+        "Radnik",
+        "Zrinjski",
+        "Čelik",
+        "Široki Brijeg",
+        "Sloga Doboj",
+        "Borac",
+        "Velež"
+      ],
+      "format": {
+        "teams": 10,
+        "rounds": 36,
+        "legs": 4,
+        "tiebreakOrdinary": [
+          "points",
+          "goal difference",
+          "goals scored"
+        ],
+        "tiebreakFinalCritical": [
+          "head-to-head points",
+          "head-to-head goal difference",
+          "head-to-head away goals if two teams or goals scored if three or more",
+          "overall goal difference",
+          "neutral decider: two teams knockout, three or more round robin"
+        ]
+      },
+      "scope": "Federation regulations and draw."
     }
   }
 ]

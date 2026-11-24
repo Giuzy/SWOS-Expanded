@@ -10,27 +10,55 @@
     "candidateSources": [
       "17f72bdee9494ea60d78c51bc2d0634b9fb65206"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Kup Bosne i Hercegovine",
+      "nonCommercialDisplayName": "Kup BiH",
       "candidateName": "Kup Bosne i Hercegovine",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block88Research": {
+      "official": "Kup Bosne i Hercegovine",
+      "display": "Kup BiH",
+      "centralRound32Nominal": "2026-10-28",
+      "format": {
+        "entrants": 32,
+        "quotas": {
+          "topTier": 10,
+          "FederationBiH": 13,
+          "RepublikaSrpska": 9
+        },
+        "legs": {
+          "R32": 1,
+          "R16": 1,
+          "QF": 2,
+          "SF": 2,
+          "F": 2
+        },
+        "R32Draw": "lower tier hosts; top tier clubs cannot meet",
+        "singleLegTie": "direct penalties",
+        "finalFirstLegHome": "draw",
+        "QFdates": [
+          "2027-02-24",
+          "2027-03-17"
+        ]
+      },
+      "scope": "Federation regulations articles4/5/9; separate entity qualifiers earliest dates unknown, no July exclusion."
     }
   }
 ]

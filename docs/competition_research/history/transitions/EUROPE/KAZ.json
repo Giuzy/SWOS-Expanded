@@ -46,5 +46,19 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "2026-11-24 block 27: RSSSF Armenia lines 54–89, Azerbaijan 55–68, Kazakhstan 55–101 opened; Georgia snippet only (Unicode error), KFF official search excerpt. No future results imported."
     }
+  },
+  {
+    "index": 594,
+    "value": {
+      "competition": "KAZ tier 1",
+      "firstEdition": "2026",
+      "operation": "CHANGE_FORMAT",
+      "note": "14 to 16 teams, double RR 30 rounds; 15/16 direct relegation.",
+      "rowRefs": [
+        260
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block87 archived results and contemporary federation decision/news; partial."
+    }
   }
 ]

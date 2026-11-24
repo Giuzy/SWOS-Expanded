@@ -10,9 +10,9 @@
     "candidateSources": [
       "74773c7245a34ebee48aa97ff451c707b3d41cf5"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -23,13 +23,36 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": "Cupa Moldovei",
-      "nonCommercialDisplayName": null,
+      "officialName": "Cupa Orange",
+      "nonCommercialDisplayName": "Cupa Moldovei",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "74773c7245a34ebee48aa97ff451c707b3d41cf5",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block88Research": {
+      "official": "Cupa Orange",
+      "display": "Cupa Moldovei",
+      "firstMatch": "2026-08-05",
+      "format": {
+        "preliminary1": {
+          "ties": 5,
+          "entry": "Liga 2"
+        },
+        "preliminary2": {
+          "date": "2026-08-19",
+          "ties": 4,
+          "oneByeToPreliminary3": true
+        },
+        "preliminary3": {
+          "entry": "Liga 1",
+          "lastDate": "2026-09-02"
+        },
+        "final": "2027-05-29",
+        "winnerAccess": "UEFA Conference League"
+      },
+      "scope": "FMF announcement; later leg rules not extracted."
     }
   }
 ]

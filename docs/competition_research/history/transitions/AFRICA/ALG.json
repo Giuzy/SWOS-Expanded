@@ -28,5 +28,98 @@
       "note": "June 28 semifinals; July 5 final pending at start.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 603,
+    "value": {
+      "competition": "Algeria tier 1",
+      "firstEdition": "1997/98",
+      "lastEdition": "1997/98",
+      "operation": "CHANGE_FORMAT",
+      "note": "Two groups of eight, 14 group matches per club and championship final.",
+      "rowRefs": [
+        37,
+        201
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block90 RSSSF season tables/secondary history, LFP annual regulation report. No runtime import."
+    }
+  },
+  {
+    "index": 604,
+    "value": {
+      "competition": "Algeria tier 1",
+      "firstEdition": "1998/99",
+      "lastEdition": "1998/99",
+      "operation": "CHANGE_FORMAT",
+      "note": "Two groups of 14, 26 group matches per club, championship final on July 1 1999.",
+      "rowRefs": [
+        37,
+        201
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block90 RSSSF season tables/secondary history, LFP annual regulation report. No runtime import."
+    }
+  },
+  {
+    "index": 605,
+    "value": {
+      "competition": "Algeria tier 1",
+      "firstEdition": "1999/00",
+      "lastEdition": "1999/00",
+      "operation": "RETURN_SINGLE_GROUP",
+      "note": "Super Division, 12 clubs, 22 matches per club.",
+      "rowRefs": [
+        37,
+        201
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block90 RSSSF season tables/secondary history, LFP annual regulation report. No runtime import."
+    }
+  },
+  {
+    "index": 606,
+    "value": {
+      "competition": "Algeria tier 1",
+      "firstEdition": "2000/01",
+      "operation": "CHANGE_FORMAT",
+      "note": "Super Division expanded to 16 clubs, 30 matches per club.",
+      "rowRefs": [
+        37,
+        201
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block90 RSSSF season tables/secondary history, LFP annual regulation report. No runtime import."
+    }
+  },
+  {
+    "index": 607,
+    "value": {
+      "competition": "Algeria tier 1",
+      "firstEdition": "2010/11",
+      "operation": "PROFESSIONALIZATION",
+      "note": "Two highest tiers professionalized, top tier Ligue Professionnelle 1; secondary historical evidence, exact sponsor intervals incomplete.",
+      "rowRefs": [
+        37,
+        201
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block90 RSSSF season tables/secondary history, LFP annual regulation report. No runtime import."
+    }
+  },
+  {
+    "index": 608,
+    "value": {
+      "competition": "Algeria tier 1",
+      "firstEdition": "2025/26",
+      "lastEdition": "2025/26",
+      "operation": "CHANGE_RELEGATION_COUNT",
+      "note": "Annual rule three direct relegations (14–16), previously two; future annual rule not established.",
+      "rowRefs": [
+        201
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block90 RSSSF season tables/secondary history, LFP annual regulation report. No runtime import."
+    }
   }
 ]

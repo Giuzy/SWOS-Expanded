@@ -4,7 +4,13 @@
     "value": {
       "row": 37,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
-      "transitionRefs": []
+      "transitionRefs": [
+        603,
+        604,
+        605,
+        606,
+        607
+      ]
     }
   }
 ]

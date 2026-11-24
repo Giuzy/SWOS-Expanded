@@ -55,6 +55,28 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24"
+    },
+    "block90Research": {
+      "ruleEdition": "2025/26",
+      "annualRelegation": [
+        14,
+        15,
+        16
+      ],
+      "tier2Promotion": {
+        "twoGroupWinners": true,
+        "playoff": "each group second vs third, second hosts (cross-group pairing not specified); winners neutral final for third promotion"
+      },
+      "tiebreak": [
+        "H2H points",
+        "H2H goal difference (no away-goal weighting)",
+        "first-half overall goal difference",
+        "first-half overall goals",
+        "H2H goals",
+        "season fair play",
+        "draw lots"
+      ],
+      "scope": "FTF 2025 general regulation annual 2025/26 relegation, contemporary May2026 tiebreak report; 2026/27 continuation pending official annual text."
     }
   }
 ]

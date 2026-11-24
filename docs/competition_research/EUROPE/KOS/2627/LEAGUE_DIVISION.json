@@ -10,27 +10,59 @@
     "candidateSources": [
       "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "ALBI MALL Superliga e Kosovës",
+      "nonCommercialDisplayName": "Superliga e Kosovës",
       "candidateName": "Football Superleague of Kosovo",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block88Research": {
+      "official": "ALBI MALL Superliga e Kosovës",
+      "display": "Superliga e Kosovës",
+      "nominalStart": "2026-08-15",
+      "observedOpeningWindow": [
+        "2026-08-14",
+        "2026-08-16"
+      ],
+      "participants": [
+        "Prishtina",
+        "Vushtrria",
+        "Drita",
+        "Drenica",
+        "Llapi",
+        "Dukagjini",
+        "Ballkani",
+        "Feronikeli",
+        "Malisheva",
+        "Gjilani"
+      ],
+      "format": {
+        "teams": 10,
+        "secondaryTiebreakCandidate": [
+          "head-to-head points",
+          "head-to-head goal difference",
+          "goal difference",
+          "goals scored",
+          "decider for critical places"
+        ]
+      },
+      "scope": "FFK name and match listings; secondary regulation evidence only."
     }
   }
 ]

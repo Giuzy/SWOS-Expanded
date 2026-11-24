@@ -10,27 +10,58 @@
     "candidateSources": [
       "0e6407581e3d3a794597ca5dcb5becd00458ee68"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
       "officialName": null,
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Copa Constitució",
       "candidateName": "Copa Constitució",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block89Research": {
+      "official": null,
+      "display": "Copa Constitució",
+      "edition": "2026/27",
+      "firstMatch": null,
+      "priorEdition": {
+        "edition": "2025/26",
+        "officialName": "Copa Constitució Valira Seguretat",
+        "format": "Knockout",
+        "access": "Senior Primera and Segona competition entries"
+      },
+      "nameObservations": [
+        {
+          "edition": "2022/23",
+          "name": "Copa Constitució Protecvall"
+        },
+        {
+          "edition": "2023/24",
+          "name": "Copa Constitució Valira Seguretat"
+        },
+        {
+          "edition": "2024/25",
+          "name": "Copa Constitució Valira Seguretat"
+        },
+        {
+          "edition": "2025/26",
+          "name": "Copa Constitució Valira Seguretat"
+        }
+      ],
+      "scope": "FAF team competition histories; current sponsor, draw, earliest match and leg rules unknown. Historical labels not automatically applied to 2026/27."
     }
   }
 ]

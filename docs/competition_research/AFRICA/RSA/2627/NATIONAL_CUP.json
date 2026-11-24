@@ -67,6 +67,24 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limitations": "Exact club keys, fixture dates, full match rules and runtime not certified."
+    },
+    "block91Research": {
+      "regulationEdition": "2021",
+      "format": {
+        "mainDraw": 32,
+        "legs": 1,
+        "tie": "ET 2x15 then penalties",
+        "drawEachRoundExceptFinal": true,
+        "firstDrawnHosts": true,
+        "finalVenue": "organising committee",
+        "withdrawalBeforeStart": "no replacement"
+      },
+      "playerEligibility": {
+        "cupTied": "player on main cup team sheet cannot represent another club that edition",
+        "qualifiersSeparate": true,
+        "secondTierU23StartingRuleNotApplied": true
+      },
+      "scope": "Rules linked by PSL in 2026; document dated 2021, later amendments not certified. Regional earliest dates unresolved."
     }
   }
 ]

@@ -10,27 +10,62 @@
     "candidateSources": [
       "79dac4d9f1a2ede20a7211af2f07efd8ebf581a0"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Misli Premyer Liqası",
+      "nonCommercialDisplayName": "Azerbaijan Premier League",
       "candidateName": "Azerbaijan Premier League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block87Research": {
+      "edition": "2026/27",
+      "nominalStart": "2026-08-14",
+      "teams": 12,
+      "rounds": 33,
+      "format": "Triple round robin",
+      "participants": [
+        "Turan Tovuz",
+        "Qəbələ",
+        "Qarabağ",
+        "Şamaxı",
+        "Kəpəz",
+        "Sabah",
+        "Sumqayıt",
+        "Neftçi",
+        "Araz-Naxçıvan",
+        "İmişli",
+        "Zirə",
+        "Şəfa"
+      ],
+      "relegation": {
+        "directRank": 12,
+        "playoff": {
+          "topRank": 11,
+          "lowerRank": 2,
+          "legs": 1,
+          "neutralVenue": true
+        }
+      },
+      "qualification": {
+        "cupWinnerAlsoTop3": "next eligible rank4"
+      },
+      "firstRoundWindow": "2026-08-14/17",
+      "scope": "PFL regulation search excerpt and published league calendar."
     }
   }
 ]

@@ -10,27 +10,131 @@
     "candidateSources": [
       "79dac4d9f1a2ede20a7211af2f07efd8ebf581a0"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Gibraltar Football League",
+      "nonCommercialDisplayName": "Gibraltar Football League",
       "candidateName": "Gibraltar Football League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block89Research": {
+      "official": "Gibraltar Football League",
+      "display": "Gibraltar Football League",
+      "edition": "2026/27",
+      "firstMatch": "2026-08-21",
+      "participants": [
+        "Lincoln Red Imps",
+        "St Joseph's",
+        "Europa",
+        "Lynx",
+        "Europa Point",
+        "FC Hound Dogs",
+        "College 1975",
+        "FC Magpies",
+        "Lions Gibraltar",
+        "Glacis United",
+        "Mons Calpe"
+      ],
+      "format": {
+        "regular": {
+          "teams": 11,
+          "cycles": 2,
+          "teamMatches": 20,
+          "matchweeks": 22
+        },
+        "split": {
+          "championship": 6,
+          "challenge": 5,
+          "cycles": 1,
+          "carryAllPointsAndStats": true
+        },
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "tiebreakPartial": [
+          "head-to-head points",
+          "head-to-head goal difference with recalculation for tied subset"
+        ],
+        "expelledTeam": "remove points and goals earned against expelled team"
+      },
+      "europe": {
+        "threePlaces": {
+          "champion": "UCL",
+          "second": "UECL",
+          "cupWinnerOutsideTop2": "UECL direct, no playoff",
+          "cupWinnerTop2": {
+            "playIn": [
+              6,
+              7
+            ],
+            "semis": [
+              [
+                3,
+                "play-in winner"
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            "winner": "UECL"
+          }
+        },
+        "fourPlaces": {
+          "champion": "UCL",
+          "second": "UECL",
+          "cupWinnerOutsideTop3": "UECL direct",
+          "cupWinnerTop3": "rank3 direct UECL",
+          "playoff": {
+            "defaultSemis": [
+              [
+                4,
+                7
+              ],
+              [
+                5,
+                6
+              ]
+            ],
+            "overlap": "remove cup winner and use highest remaining eligible ranks plus challenge winner; e.g. cup winner rank5 => 3,4,6,7",
+            "winner": "UECL"
+          }
+        },
+        "tie": "extra time then penalties",
+        "standingsUnaffected": true
+      },
+      "nominalDates": {
+        "regularEnd": "2027-03-14",
+        "championshipStart": "2027-03-19",
+        "challengeStart": "2027-03-21",
+        "championshipEnd": "2027-04-24",
+        "challengeEnd": "2027-04-25",
+        "publishedPlayIn": "2027-05-04",
+        "semis": "2027-05-09",
+        "final": "2027-05-15"
+      },
+      "scheduleConflicts": [
+        "Published playoff bracket rank6 vs7 then rank3 vs winner and 4 vs5 matches 3-place scenario, not default 4-place rules; resolve actual access first.",
+        "Challenge GW3 and GW4 repeat 9–11 and 7–10; do not manufacture replacement pairings."
+      ],
+      "scope": "GFA regulations arts7–8 and separate competition regulations arts3–5, published dated calendar. Future qualifications not imported."
     }
   }
 ]

@@ -72,6 +72,36 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limitations": "Exact club keys, fixture dates, full match rules and runtime not certified."
+    },
+    "block91Research": {
+      "edition": "2026/27",
+      "participants": [
+        "Pyramids",
+        "Zamalek",
+        "Al Ahly",
+        "Ceramica Cleopatra",
+        "Al Ittihad Alexandria",
+        "Modern Sport",
+        "Al Mokawloon",
+        "ZED",
+        "National Bank",
+        "Smouha",
+        "Petrojet",
+        "Al Masry",
+        "Olympic El Qanah",
+        "Tala'ea El Gaish",
+        "Wadi Degla",
+        "ENPPI",
+        "Ghazl El Mahalla",
+        "Asyut Petroleum",
+        "Abu Qir Semad",
+        "El Gouna"
+      ],
+      "nominalPhaseDates": {
+        "phase1End": "2027-02-20",
+        "championshipStart": "2027-03-08"
+      },
+      "scope": "Secondary roster and nominal phase dates; retain existing 6+14 split, promotion/relegation source conflict 3 vs4 (official contemporary reported4 retained, secondary aggregator reports3). Full carryover/tiebreak not certified."
     }
   }
 ]

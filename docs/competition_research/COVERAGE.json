@@ -1,16 +1,16 @@
 {
   "denominator": 533,
   "namesWithEvidenceOrCandidate": 432,
-  "namesSourceSupportedPartial": 327,
+  "namesSourceSupportedPartial": 344,
   "nameHistoryComplete": 2,
-  "rulesPartial": 362,
-  "lifecyclePartial": 92,
-  "cutoffPartial": 71,
+  "rulesPartial": 382,
+  "lifecyclePartial": 111,
+  "cutoffPartial": 74,
   "datesReconciled": 0,
   "participantKeysReconciled": 0,
   "matchRulesCertified": 0,
-  "historicalTransitions": 586,
-  "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material. July 1 coverage is scoped to necessary initial historical state only; do not compute against global denominator. Report partial active rows separately from archive candidates and do not count merely available sources or future editions. User confirmed provisional working denominator 59 on 24/11/2026; expanded to 60 at block70 after discovering KNVB Beker preliminary matches in June 1996; expanded again to 61 at block74 (Polish Cup preliminary in June 1996); display as provisional until final census. No source-link coverage dimension; prioritize sporting fields. Global source-link cleanup suspended by user; no new link fields in subsequent research. Block83: expanded July working denominator 61→65 from four active cups. User requests defer detailed gap reconciliation to final check. Block84: July denominator66, 39 additional pre-cutoff scores; unresolved earliest dates deferred. Block85: July denominator69, 122 additional result records; detailed gap audit deferred. Block86: July denominator70; 34 new pre-cutoff cup scores, no new links.",
+  "historicalTransitions": 609,
+  "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material. July 1 coverage is scoped to necessary initial historical state only; do not compute against global denominator. Report partial active rows separately from archive candidates and do not count merely available sources or future editions. User confirmed provisional working denominator 59 on 24/11/2026; expanded to 60 at block70 after discovering KNVB Beker preliminary matches in June 1996; expanded again to 61 at block74 (Polish Cup preliminary in June 1996); display as provisional until final census. No source-link coverage dimension; prioritize sporting fields. Global source-link cleanup suspended by user; no new link fields in subsequent research. Block83: expanded July working denominator 61→65 from four active cups. User requests defer detailed gap reconciliation to final check. Block84: July denominator66, 39 additional pre-cutoff scores; unresolved earliest dates deferred. Block85: July denominator69, 122 additional result records; detailed gap audit deferred. Block86: July denominator70; 34 new pre-cutoff cup scores, no new links. Block87: 106 observed score records, two new partial cutoff packages; no source URLs. Lifecycle conservative +3 formerly unreconciled rows. Block88: four independently corroborated scores, nine partial rules, seven names, three transitions; no new source URL fields. Block89: four supported names, five partial sporting rows, two newly partial lifecycle rows, five transitions. No new source URLs. Existing LIE no-domestic-league fact not counted. Block90: 225 additional observed scores on existing July packages (184 ALG league,26 ALG cup,15 MAR cup), two awards separately, three newly partial lifecycle rows, seven transition records. No new source URL fields; unchanged partial row counts. Block91: existing partial rows enriched, five newly partial lifecycle rows and four historical transitions; no new supported-name/rule count. Historical RSA transitional cup active but 9697 identity unmapped; outside provisional denominator pending inventory audit. No new URL fields.",
   "namingByWorld": {
     "historical": {
       "denominator": 182,
@@ -18,19 +18,19 @@
     },
     "modern": {
       "denominator": 351,
-      "sourceSupported": 200
+      "sourceSupported": 217
     }
   },
-  "rawTransitionRecords": 591,
+  "rawTransitionRecords": 614,
   "transitionCountNote": "Original dashboard count retains preexisting five-record discrepancy; newly appended source-backed records counted individually, not certified unique globally.",
-  "lastPreparedBlock": 86,
+  "lastPreparedBlock": 91,
   "cutoffArchivePartial": 1,
-  "cutoffDenominator": 70,
+  "cutoffDenominator": 73,
   "cutoffApplicability": {
-    "knownPartialActiveRows": 71,
+    "knownPartialActiveRows": 74,
     "knownPartialArchiveCandidates": 1,
-    "explicitUnknownRows": 48,
-    "knownNotApplicableCurrentEditionRows": 140,
+    "explicitUnknownRows": 55,
+    "knownNotApplicableCurrentEditionRows": 154,
     "aliasCandidates": [
       [
         321,
@@ -41,9 +41,9 @@
     "policyFile": "CUTOFF_SCOPE.json",
     "dateCensus": {
       "2627": {
-        "rows": 48,
-        "distinctWorkingCount": 47,
-        "partialSnapshotRows": 48,
+        "rows": 51,
+        "distinctWorkingCount": 50,
+        "partialSnapshotRows": 51,
         "additionalDateEvidenceRows": 0
       },
       "9697": {
@@ -53,25 +53,26 @@
         "additionalDateEvidenceRows": 0
       }
     },
-    "requiredRowsLowerBound": 71,
-    "distinctWorkingCountLowerBound": 70,
+    "requiredRowsLowerBound": 74,
+    "distinctWorkingCountLowerBound": 73,
     "extraCandidateRowsOutsideWorkingDenominator": [
       392
-    ]
+    ],
+    "unmappedHistoricalCandidates": 1
   },
   "cutoffProgressWorking": {
-    "required": 70,
-    "partialDistinct": 70,
+    "required": 73,
+    "partialDistinct": 73,
     "historical": {
       "required": 23,
       "partial": 23
     },
     "modern": {
-      "required": 47,
-      "partial": 47
+      "required": 50,
+      "partial": 50
     },
-    "status": "PROVISIONAL_CENSUS_EXPANDED_BLOCK86",
-    "note": "Previous working denominator60 expanded by one observed June preliminary (Puchar Polski 1996/97 row135). Alias Libertadores counted once; all working packages partial only. Separate PER row392 outside prior working scope pending final census. Block83: expanded 61→65 by NOR/ISL 1996 and FIN/ISL 2026 national cups. Completed league cups archive only; no claim of completeness. Block84: FRO cup adds one modern distinct partial package, 66 total. Block85: BLR/LTU/LVA cup adds three modern distinct partial packages,69 total. Block86: Russian Cup 1996/97 adds one historic package, 70 total.",
+    "status": "PROVISIONAL_CENSUS_EXPANDED_BLOCK88",
+    "note": "Previous working denominator60 expanded by one observed June preliminary (Puchar Polski 1996/97 row135). Alias Libertadores counted once; all working packages partial only. Separate PER row392 outside prior working scope pending final census. Block83: expanded 61→65 by NOR/ISL 1996 and FIN/ISL 2026 national cups. Completed league cups archive only; no claim of completeness. Block84: FRO cup adds one modern distinct partial package, 66 total. Block85: BLR/LTU/LVA cup adds three modern distinct partial packages,69 total. Block86: Russian Cup 1996/97 adds one historic package, 70 total. Block87: GEO cup/KAZ league add two modern partial packages,72 total. Block88: Moldovan top league adds one partial package, 73 total. Block89: no additional active packages established; 73 unchanged. Block90: three existing active packages enriched with225 scores, total73 unchanged. Block91: mapped active packages73 unchanged; RSA transition cup 1996 separately noted, slot and cutoff results unresolved.",
     "additionalPartialOutsideWorkingDenominator": 1
   }
 }

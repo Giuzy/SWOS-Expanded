@@ -148,5 +148,35 @@
       "lastEdition": "2007",
       "namingEligibility": "EXCLUDED_SPONSOR_NAME"
     }
+  },
+  {
+    "index": 610,
+    "value": {
+      "competition": "RSA transitional Coca-Cola Challenge Cup",
+      "firstEdition": "1996",
+      "lastEdition": "1996",
+      "operation": "TRANSITIONAL_COMPETITION",
+      "rowRefs": [
+        400
+      ],
+      "note": "Single-round 18-club league during change of cycle, ended late July; top16 KO starts August2. Historical carryover lacks 9697 slot; not Premiership or national cup. No future results imported.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block91 contemporary report, RSSSF historical table or league official history, no new URLs."
+    }
+  },
+  {
+    "index": 611,
+    "value": {
+      "competition": "RSA top division",
+      "firstEdition": "2002/03",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        46,
+        290
+      ],
+      "note": "18 to16 clubs, 30 matches per club; Castle Premiership label documented for 2002/03.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block91 contemporary report, RSSSF historical table or league official history, no new URLs."
+    }
   }
 ]

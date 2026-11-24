@@ -14,11 +14,11 @@
           "careerApplicability": "RESEARCH_ONLY"
         }
       ],
-      "format_valid_from": null,
+      "format_valid_from": "2026/27",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "PARTIAL_INDEPENDENT_ERA_IDENTITY_MAPPING_CANDIDATE",
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "sources": [
         "https://www.rsssf.org/tablesa/azercuphist.html"
       ]

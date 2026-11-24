@@ -27,5 +27,20 @@
       "note": "16 clubs, 30 home-away rounds; title to first.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 609,
+    "value": {
+      "competition": "Ligue Professionnelle 1",
+      "firstEdition": "2023/24",
+      "lastEdition": "2023/24",
+      "operation": "OBSERVED_SPLIT_FORMAT",
+      "rowRefs": [
+        310
+      ],
+      "note": "Two groups of seven; top three each to championship group six; 3/2/1 bonus points by group rank, 10 matches each; remaining eight playout. 2024/25 expansion to16 recorded separately.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block90 RSSSF group and final stage tables."
+    }
   }
 ]

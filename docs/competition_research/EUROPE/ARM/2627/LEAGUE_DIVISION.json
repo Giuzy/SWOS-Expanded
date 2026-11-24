@@ -11,27 +11,92 @@
       "c6ff89cec180d0cf1d60f4cac5c84885fdd13815",
       "79dac4d9f1a2ede20a7211af2f07efd8ebf581a0"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Armenian Premier League",
+      "nonCommercialDisplayName": "Armenian Premier League",
       "candidateName": "Armenian Premier League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block87Research": {
+      "edition": "2026/27",
+      "firstMatch": "2026-07-31",
+      "teams": 12,
+      "rounds": 33,
+      "format": "Triple round robin",
+      "participants": [
+        "Sardarapat",
+        "Noah",
+        "Alashkert",
+        "Ararat-Armenia",
+        "Pyunik",
+        "Urartu",
+        "BKMA",
+        "Shirak",
+        "Gandzasar",
+        "Van",
+        "Ararat",
+        "Syunik"
+      ],
+      "relegation": {
+        "protected": [
+          "BKMA"
+        ],
+        "directCandidateRank": 12,
+        "playoffCandidateRank": 11,
+        "scope": "Archive table markings, full promotion regulation not verified"
+      },
+      "roundWindows": [
+        "07-31/08-03",
+        "08-07/09",
+        "08-14/16",
+        "08-21/23",
+        "08-28/30",
+        "09-04/06",
+        "09-11/13",
+        "09-18/20",
+        "10-10/12",
+        "10-16/18",
+        "10-23/25",
+        "10-30/11-01",
+        "11-06/08",
+        "11-20/22",
+        "11-27/29",
+        "12-04/06",
+        "12-11/14",
+        "02-20/22",
+        "02-27/03-01",
+        "03-05/07",
+        "03-11/14",
+        "03-19/21",
+        "04-02/04",
+        "04-08/11",
+        "04-16/18",
+        "04-21/23",
+        "04-26/28",
+        "05-01/03",
+        "05-06/08",
+        "05-13/16",
+        "05-18/21",
+        "05-23/26",
+        "05-28/30"
+      ],
+      "windowScope": "Nominal round1–17 2026; round18–33 2027. R1 actual includes Aug3."
     }
   }
 ]

@@ -88,6 +88,284 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24"
+    },
+    "block90Research": {
+      "edition": "1995/96",
+      "cutoff": "1996-06-30",
+      "additionalMatches": [
+        {
+          "phase": "R32",
+          "date": "1996-04-01",
+          "home": "JJ Azzaba",
+          "away": "MC Alger",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "JJ Azzaba"
+        },
+        {
+          "phase": "R32",
+          "date": "1996-04-01",
+          "home": "ES Mostaganem",
+          "away": "USM Blida",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "USM Blida"
+        },
+        {
+          "phase": "R32",
+          "date": "1996-04-01",
+          "home": "MC Oran",
+          "away": "CRE Constantine",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "aet": true,
+          "penalties": [
+            4,
+            2
+          ],
+          "winner": "MC Oran"
+        },
+        {
+          "phase": "R32",
+          "date": "1996-04-01",
+          "home": "ES Setif",
+          "away": "ASO Chlef",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "ES Setif"
+        },
+        {
+          "phase": "R32",
+          "date": "1996-04-01",
+          "home": "CS Constantine",
+          "away": "IRM Bechar",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "winner": "CS Constantine"
+        },
+        {
+          "phase": "R32",
+          "date": "1996-04-01",
+          "home": "MO Constantine",
+          "away": "JS Kabylie",
+          "homeGoals": 1,
+          "awayGoals": 2,
+          "winner": "JS Kabylie"
+        },
+        {
+          "phase": "R32",
+          "date": "1996-04-01",
+          "home": "E Collo",
+          "away": "CRB Mazouna",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "E Collo"
+        },
+        {
+          "phase": "R32",
+          "date": "1996-04-01",
+          "home": "CRB Froha",
+          "away": "IRB Laghouat",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "aet": true,
+          "penalties": [
+            11,
+            10
+          ],
+          "winner": "CRB Froha"
+        },
+        {
+          "phase": "R32",
+          "date": "1996-04-01",
+          "home": "HB Chelghoum Laid",
+          "away": "USM Khenchela",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "aet": true,
+          "penalties": [
+            4,
+            2
+          ],
+          "winner": "HB Chelghoum Laid"
+        },
+        {
+          "phase": "R32",
+          "date": "1996-04-01",
+          "home": "ASM Oran",
+          "away": "AS Ain M'lila",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "ASM Oran"
+        },
+        {
+          "phase": "R32",
+          "date": "1996-04-01",
+          "home": "WA Tlemcen",
+          "away": "USM Ain Beida",
+          "homeGoals": 3,
+          "awayGoals": 0,
+          "winner": "WA Tlemcen"
+        },
+        {
+          "phase": "R32",
+          "date": "1996-04-01",
+          "home": "US Chaouia",
+          "away": "OMR El Annasser",
+          "homeGoals": 3,
+          "awayGoals": 2,
+          "aet": true,
+          "winner": "US Chaouia"
+        },
+        {
+          "phase": "R32",
+          "date": "1996-04-01",
+          "home": "USM Bel Abbes",
+          "away": "JS Bordj Menaiel",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "winner": "USM Bel Abbes"
+        },
+        {
+          "phase": "R32",
+          "date": "1996-04-08",
+          "home": "MC Saida",
+          "away": "USM Alger",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "MC Saida"
+        },
+        {
+          "phase": "R16",
+          "date": "1996-06-06",
+          "home": "ES Setif",
+          "away": "FCM Blida",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "winner": "ES Setif"
+        },
+        {
+          "phase": "R16",
+          "date": "1996-06-06",
+          "home": "CRB Froha",
+          "away": "US Chaouia",
+          "homeGoals": 0,
+          "awayGoals": 6,
+          "winner": "US Chaouia"
+        },
+        {
+          "phase": "R16",
+          "date": "1996-06-07",
+          "home": "CS Constantine",
+          "away": "MC Oran",
+          "homeGoals": 3,
+          "awayGoals": 4,
+          "aet": true,
+          "winner": "MC Oran"
+        },
+        {
+          "phase": "R16",
+          "date": "1996-06-07",
+          "home": "USM Blida",
+          "away": "WA Tlemcen",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "USM Blida"
+        },
+        {
+          "phase": "R16",
+          "date": "1996-06-07",
+          "home": "MC Saida",
+          "away": "E Collo",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "MC Saida"
+        },
+        {
+          "phase": "R16",
+          "date": "1996-06-07",
+          "home": "ASPC Tlemcen",
+          "away": "JS Kabylie",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "ASPC Tlemcen"
+        },
+        {
+          "phase": "R16",
+          "date": "1996-06-07",
+          "home": "JJ Azzaba",
+          "away": "USM Bel Abbes",
+          "homeGoals": 1,
+          "awayGoals": 3,
+          "winner": "USM Bel Abbes"
+        },
+        {
+          "phase": "R16",
+          "date": "1996-06-07",
+          "home": "HB Chelghoum Laid",
+          "away": "ASM Oran",
+          "homeGoals": 2,
+          "awayGoals": 0,
+          "winner": "HB Chelghoum Laid"
+        },
+        {
+          "phase": "QF",
+          "date": "1996-06-17",
+          "home": "MC Oran",
+          "away": "ASPC Tlemcen",
+          "homeGoals": 4,
+          "awayGoals": 1,
+          "winner": "MC Oran"
+        },
+        {
+          "phase": "QF",
+          "date": "1996-06-17",
+          "home": "USM Blida",
+          "away": "USM Bel Abbes",
+          "homeGoals": 3,
+          "awayGoals": 1,
+          "aet": true,
+          "winner": "USM Blida"
+        },
+        {
+          "phase": "QF",
+          "date": "1996-06-17",
+          "home": "MC Saida",
+          "away": "HB Chelghoum Laid",
+          "homeGoals": 0,
+          "awayGoals": 2,
+          "winner": "HB Chelghoum Laid"
+        },
+        {
+          "phase": "QF",
+          "date": "1996-06-21",
+          "home": "ES Setif",
+          "away": "US Chaouia",
+          "homeGoals": 1,
+          "awayGoals": 0,
+          "winner": "ES Setif"
+        }
+      ],
+      "administrativeAdvancements": [
+        {
+          "phase": "R32",
+          "date": "1996-03-29",
+          "home": "ASPC Tlemcen",
+          "away": "MB Tlidjen",
+          "winner": "ASPC Tlemcen",
+          "status": "AWARDED_SCORE_UNSPECIFIED"
+        },
+        {
+          "phase": "R32",
+          "date": "1996-04-01",
+          "home": "FCM Blida",
+          "away": "ESB Debdaba",
+          "winner": "FCM Blida",
+          "status": "AWARDED_SCORE_UNSPECIFIED"
+        }
+      ],
+      "priorSemifinals": "Retain block56 two semifinal records; no duplication.",
+      "scope": "26 new scores from R32 to QF; two administrative advancements separately; earlier regional and R64 rounds not imported in this pass."
     }
   }
 ]

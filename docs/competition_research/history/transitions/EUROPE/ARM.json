@@ -14,5 +14,33 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "2026-11-24 block 27: RSSSF Armenia lines 54–89, Azerbaijan 55–68, Kazakhstan 55–101 opened; Georgia snippet only (Unicode error), KFF official search excerpt. No future results imported."
     }
+  },
+  {
+    "index": 591,
+    "value": {
+      "competition": "ARM tier 1",
+      "firstEdition": "2012/13",
+      "operation": "CHANGE_SEASON_CYCLE",
+      "note": "Fall-spring championship replaces calendar year; contemporary 2025 federation proposal reports this history.",
+      "rowRefs": [
+        206
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block87 archived results and contemporary federation decision/news; partial."
+    }
+  },
+  {
+    "index": 592,
+    "value": {
+      "competition": "ARM tier 1",
+      "firstEdition": "2026/27",
+      "operation": "CHANGE_FORMAT",
+      "note": "12 teams, triple round robin 33 rounds, expansion with no relegation from preceding edition. Earlier proposal of 10 not enacted.",
+      "rowRefs": [
+        206
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block87 archived results and contemporary federation decision/news; partial."
+    }
   }
 ]

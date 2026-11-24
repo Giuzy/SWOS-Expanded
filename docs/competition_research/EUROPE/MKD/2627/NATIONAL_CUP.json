@@ -10,9 +10,9 @@
     "candidateSources": [
       "0e6407581e3d3a794597ca5dcb5becd00458ee68"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -24,12 +24,40 @@
     "competitionNaming": {
       "startEdition": "2026/27",
       "officialName": "Kup na Makedonija",
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Kup na Makedonija",
       "candidateName": null,
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "0e6407581e3d3a794597ca5dcb5becd00458ee68",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block88Research": {
+      "official": "Kup na Makedonija",
+      "display": "Kup na Makedonija",
+      "firstRoundWindow": [
+        "2026-09-01",
+        "2026-09-02"
+      ],
+      "postponed": [
+        {
+          "date": "2026-09-24",
+          "pairs": [
+            [
+              "Kroschu Sport",
+              "Tikvesh"
+            ],
+            [
+              "Mogila",
+              "Arsimi"
+            ]
+          ],
+          "reason": "UEFA Regions Cup participation reported"
+        }
+      ],
+      "format": {
+        "legsPerTie": 1
+      },
+      "scope": "FFM and contemporary cup draw excerpts; earlier preliminary applicability unknown."
     }
   }
 ]

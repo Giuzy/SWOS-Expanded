@@ -54,6 +54,38 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24"
+    },
+    "block90Research": {
+      "ruleEdition": "2025",
+      "points": [
+        3,
+        1,
+        0
+      ],
+      "finalTiebreak": [
+        "H2H points",
+        "H2H goal difference",
+        "first-half season overall goal difference",
+        "first-half season overall goals",
+        "first-half season overall away goals",
+        "neutral decider with extra time and penalties"
+      ],
+      "disqualification": {
+        "firstHalf": "cancel all results",
+        "secondHalf": "retain first-half results, cancel second-half results"
+      },
+      "administrativePenalty": "opponent awarded 3 points and at least 3 goals, penalized team zero goals and points; separate sanction losing points without awarding opponent win",
+      "annualRelegation": {
+        "edition": "2025/26",
+        "ranks": [
+          14,
+          15,
+          16
+        ],
+        "previousCount": 2,
+        "scope": "annual rule; 2026/27 continuation not independently verified"
+      },
+      "scope": "LFP regulation arts76–81; PDF text available, screenshot failed."
     }
   }
 ]

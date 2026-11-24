@@ -3,8 +3,12 @@
     "index": 246,
     "value": {
       "row": 247,
-      "status": "UNVERIFIED_NAME_CANDIDATE",
-      "transitionRefs": []
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
+      "transitionRefs": [
+        599,
+        600,
+        601
+      ]
     }
   }
 ]

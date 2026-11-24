@@ -30,5 +30,51 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 28: FSGC history opened lines 124–137, RSSSF Gibraltar opened lines 2–56, UEFA/DFB/Bundesliga official search excerpts, Andorra secondary and RSSSF Unicode error. No results imported."
     }
+  },
+  {
+    "index": 599,
+    "value": {
+      "competition": "GIB tier 1",
+      "firstEdition": "2019/20",
+      "operation": "MERGE_DIVISIONS",
+      "previousName": "Gibraltar Premier Division and Second Division",
+      "name": "Gibraltar National League",
+      "rowRefs": [
+        247
+      ],
+      "note": "GFA 2019 restructuring, one senior division replacing two; initial reported entrant counts vary, do not assert fixed number.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block89 federation history, published annual mode or UEFA official announcement; no URL fields added."
+    }
+  },
+  {
+    "index": 600,
+    "value": {
+      "competition": "GIB tier 1",
+      "firstEdition": "2022/23",
+      "operation": "RENAME",
+      "previousName": "Gibraltar National League",
+      "name": "Gibraltar Football League",
+      "rowRefs": [
+        247
+      ],
+      "note": "UEFA announcement November 2 2022 confirms rebranding already in 2022, not 2023.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block89 federation history, published annual mode or UEFA official announcement; no URL fields added."
+    }
+  },
+  {
+    "index": 601,
+    "value": {
+      "competition": "GIB tier 1",
+      "firstEdition": "2026/27",
+      "operation": "INTRODUCE_EUROPEAN_PLAYOFF",
+      "rowRefs": [
+        247
+      ],
+      "note": "Separate eligibility/play-in rules for three vs four UEFA places; no change to final league table; published dates not equivalent to confirmed bracket.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block89 federation history, published annual mode or UEFA official announcement; no URL fields added."
+    }
   }
 ]

@@ -94,5 +94,35 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block57, official web excerpts or opened article, no per-fixture certification or runtime import."
     }
+  },
+  {
+    "index": 612,
+    "value": {
+      "competition": "Ghana Premier Division",
+      "firstEdition": "1999",
+      "operation": "OBSERVED_CALENDAR_YEAR_FORMAT",
+      "rowRefs": [
+        51,
+        246
+      ],
+      "note": "1999 table 16 clubs, 30 matches, calendar-year label after 1997/98; exact transition season rule pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block91 contemporary report, RSSSF historical table or league official history, no new URLs."
+    }
+  },
+  {
+    "index": 613,
+    "value": {
+      "competition": "Ghana Premier League",
+      "firstEdition": "2017/18",
+      "lastEdition": "2017/18",
+      "operation": "ANNUL_EDITION",
+      "rowRefs": [
+        246
+      ],
+      "note": "League official history records annulled 2017/18; exact operative dates and career treatment pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block91 contemporary report, RSSSF historical table or league official history, no new URLs."
+    }
   }
 ]

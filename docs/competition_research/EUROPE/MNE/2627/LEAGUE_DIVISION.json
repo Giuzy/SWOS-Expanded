@@ -10,27 +10,70 @@
     "candidateSources": [
       "b8d82a0f153a43105e7da56ffb42bed34ebe76b5"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Meridianbet 1. CFL",
+      "nonCommercialDisplayName": "Prva Crnogorska Fudbalska Liga",
       "candidateName": "Prva Crnogorska Fudbalska Liga",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block88Research": {
+      "official": "Meridianbet 1. CFL",
+      "display": "Prva Crnogorska Fudbalska Liga",
+      "nominalStart": "2026-08-02",
+      "participants": [
+        "Bokelj",
+        "Dečić",
+        "Jezero",
+        "OFK Mladost",
+        "Budućnost",
+        "Arsenal",
+        "Mornar",
+        "Otrant-Olympic",
+        "Petrovac",
+        "Sutjeska"
+      ],
+      "format": {
+        "teams": 10,
+        "rounds": 36,
+        "legs": 4,
+        "directRelegation": [
+          10
+        ],
+        "playoffRanks": [
+          8,
+          9
+        ],
+        "tiebreakOrdinary": [
+          "points",
+          "goal difference",
+          "goals scored"
+        ],
+        "tiebreakCritical": [
+          "head-to-head points",
+          "head-to-head goal difference",
+          "away goals if two clubs or goals scored if three or more",
+          "overall goal difference",
+          "neutral decider (2 clubs single match direct penalties; 3 clubs round robin; 4+ knockout), draw if clubs agree"
+        ],
+        "lastThreeRoundsSimultaneousUnlessNonDecisive": true
+      },
+      "scope": "FSCG articles5/6/40/41."
     }
   }
 ]

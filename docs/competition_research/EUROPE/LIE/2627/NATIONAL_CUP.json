@@ -10,27 +10,84 @@
     "candidateSources": [
       "74773c7245a34ebee48aa97ff451c707b3d41cf5"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Interum FL-Cup",
+      "nonCommercialDisplayName": "Liechtensteiner Cup",
       "candidateName": "Liechtenstein Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block89Research": {
+      "official": "Interum FL-Cup",
+      "display": "Liechtensteiner Cup",
+      "edition": "2026/27",
+      "drawDate": "2026-07-20",
+      "firstRoundWindow": [
+        "2026-08-07",
+        "2026-08-09"
+      ],
+      "format": {
+        "clubs": 7,
+        "teams": 18,
+        "directQuarterfinal": [
+          "FC Vaduz 1",
+          "USV Eschen/Mauren 1",
+          "FC Balzers 1",
+          "FC Ruggell 1"
+        ],
+        "preliminary1": {
+          "teamsPlaying": 12,
+          "ties": 6,
+          "byes": 2
+        },
+        "preliminary2": {
+          "teams": 8,
+          "ties": 4
+        },
+        "quarterfinal": {
+          "teams": 8,
+          "ties": 4,
+          "nominal": "2026-10 late"
+        },
+        "semi": {
+          "nominal": "2027-04"
+        },
+        "finalVenue": "Rheinpark Stadion Vaduz"
+      },
+      "generalRules": {
+        "editionEffective": "2022/23",
+        "firstSquadMandatory": true,
+        "otherRegisteredSeniorTeamsEligible": true,
+        "lowerTierHostsThroughSemi": true,
+        "sameClubDraw": "avoid through QF, mandatory pairing in SF if two same-club squads qualify",
+        "playerEligibility": "max two non-youth players may play in max two squads of same club during cup season; after cup appearance cannot play for lower squad; intra-LFV club transfer eligible",
+        "tie": "extra time then penalties",
+        "matchListMax": 18,
+        "substitutions": "rules of highest participating league",
+        "discipline": {
+          "yellowSuspensionEvery": 2,
+          "scope": "cup only, player across squads and clubs",
+          "yellowResetAtEditionEnd": true,
+          "unservedRedCarryNextEdition": true
+        },
+        "winnerAccess": "UEFA Conference League"
+      },
+      "scope": "2026/27 format explicitly supersedes general 2022/23 annex where inconsistent. July20 draw after cutoff; no initial state. Existing no-domestic-league fact NOT new and row264 untouched."
     }
   }
 ]

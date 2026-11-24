@@ -69,6 +69,44 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limitations": "Exact club keys, fixture dates, full match rules and runtime not certified."
+    },
+    "block91Research": {
+      "edition": "1996/97",
+      "participants": [
+        "Manning Rangers",
+        "Kaizer Chiefs",
+        "Orlando Pirates",
+        "Umtata Bucks",
+        "Hellenic",
+        "Mamelodi Sundowns",
+        "Jomo Cosmos",
+        "Cape Town Spurs",
+        "SuperSport United",
+        "Bloemfontein Celtic",
+        "Moroka Swallows",
+        "Wits University",
+        "Qwa Qwa Stars",
+        "AmaZulu",
+        "Vaal Professionals",
+        "Real Rovers",
+        "Michau Warriors",
+        "Witbank Aces"
+      ],
+      "format": {
+        "teams": 18,
+        "rounds": 34,
+        "points": [
+          3,
+          1,
+          0
+        ]
+      },
+      "identityNotes": [
+        "Pretoria City renamed SuperSport United in 1996",
+        "Crystal Brains replaced by or renamed to Warriors, archive uncertainty"
+      ],
+      "opening": "August 1996; exact round1 dates unresolved",
+      "scope": "Roster only from RSSSF; no post-cutoff scores imported. Contemporary Aug2 report confirms preceding transitional competition separate."
     }
   }
 ]

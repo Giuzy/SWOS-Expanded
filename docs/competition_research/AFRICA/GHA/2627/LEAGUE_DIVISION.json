@@ -81,6 +81,44 @@
       "note": "Administrative season begins July 1 but sporting fixtures start September; no cutoff sporting snapshot.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24"
+    },
+    "block91Research": {
+      "regulationDate": "2025-07-01",
+      "format": {
+        "maxTeams": 18,
+        "cycles": 2,
+        "relegation": 3,
+        "promotion": "winner of each of three Division One zones",
+        "interimTiebreak": [
+          "points",
+          "overall goal difference"
+        ],
+        "finalTiebreak": [
+          "H2H points",
+          "H2H goal difference",
+          "H2H goals scored",
+          "H2H away goals",
+          "greater H2H goals conceded (literal unusual rule)",
+          "greater H2H goals conceded at home (literal unusual rule)",
+          "neutral playoff"
+        ],
+        "scope": "all positions, including CAF qualification and relegation"
+      },
+      "squad": {
+        "maxRegistered": 40,
+        "minRegisteredAge17OrUnder": 10,
+        "matchSheetUnder19": 4,
+        "atLeastUnder19Play": 2
+      },
+      "postponement": {
+        "forceMajeureResume": "same minute, score, players, available substitutes, remaining substitutions, reds and sanctions preserved",
+        "normalWeather": "within 24h unless GFA decides otherwise",
+        "internationalAwayReturn": "24–72 hours after return unless GFA decides another date",
+        "nationalCallup": "3 senior A or 5 across specified national squads may request"
+      },
+      "withdrawal": "remaining scheduled ties forfeited, opponent awarded 3 goals and 3 points",
+      "forfeit": "art33 specified breaches 3-0/3 points unless innocent club leading by >3 goals, applicable additional deduction of 3 accumulated points for art33(1)(a–f)",
+      "scope": "GFA art7/12/13/33, literal anomalous conceded-goals criteria retained for final review; do not implement restart policy now."
     }
   }
 ]

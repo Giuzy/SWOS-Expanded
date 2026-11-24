@@ -7,7 +7,7 @@
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
+      "format_valid_from": "2026/27",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
@@ -16,6 +16,12 @@
         "2024",
         "2025/26",
         "2026/27"
+      ],
+      "transitionRefs": [
+        681,
+        682,
+        683,
+        790
       ]
     }
   }

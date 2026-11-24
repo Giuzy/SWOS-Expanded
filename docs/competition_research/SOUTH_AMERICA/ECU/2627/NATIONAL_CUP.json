@@ -10,10 +10,10 @@
     "candidateSources": [
       "b1e9c4d6ab11e0e665c638188abd4117403a63cd"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_PRE_CUTOFF_EVIDENCE",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -30,6 +30,341 @@
       "source": "b1e9c4d6ab11e0e665c638188abd4117403a63cd",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block110Research": {
+      "edition": "2026",
+      "observedName": "Copa Ecuador",
+      "rules": {
+        "preliminary1": {
+          "teams": 4,
+          "ties": 2,
+          "access": "two lowest 2025 provincial performance + amateur runner-up and third"
+        },
+        "preliminary2": {
+          "teams": 2,
+          "ties": 1
+        },
+        "preliminary3": {
+          "teams": 32,
+          "ties": 16,
+          "access": {
+            "provincialChampions": 18,
+            "tier2": 12,
+            "amateurChampion": 1,
+            "prelimWinner": 1
+          },
+          "noTier2VsTier2": true
+        },
+        "round32": {
+          "teams": 32,
+          "fromPrelim": 16,
+          "tier1": 16
+        },
+        "round16Legs": 1,
+        "quarterFinalLegs": 1,
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "home": "lower-tier club subject to venue requirements; same-tier ranking detail requires corroboration"
+      },
+      "dateEvidence": {
+        "firstPlayed": "2026-03-28",
+        "prelim2": "2026-03-31",
+        "prelim3": [
+          "2026-04-07",
+          "2026-04-24"
+        ],
+        "round32": [
+          "2026-05-12",
+          "2026-07-08"
+        ],
+        "round16": [
+          "2026-07-29",
+          "2026-08-20"
+        ],
+        "quarterFinal": [
+          "2026-08-25",
+          "2026-09-10"
+        ],
+        "semifinal": [
+          "2026-10-06",
+          "2026-10-29"
+        ],
+        "finalScheduled": "2026-12-02"
+      },
+      "cutoff": {
+        "date": "2026-06-30",
+        "status": "PARTIAL",
+        "scoreSchema": [
+          "date",
+          "home",
+          "away",
+          "goalsHome",
+          "goalsAway",
+          "optionalPenaltiesHome",
+          "optionalPenaltiesAway"
+        ],
+        "scores": [
+          [
+            "2026-03-28",
+            "Bejucal Sport",
+            "Primero de Mayo",
+            2,
+            3
+          ],
+          [
+            "2026-03-28",
+            "7 de Febrero",
+            "Loja City",
+            1,
+            0
+          ],
+          [
+            "2026-03-31",
+            "7 de Febrero",
+            "Primero de Mayo",
+            0,
+            1
+          ],
+          [
+            "2026-04-07",
+            "Guaranda",
+            "San Antonio",
+            0,
+            0,
+            3,
+            4
+          ],
+          [
+            "2026-04-08",
+            "UDJ de Quinindé",
+            "Daquilema",
+            0,
+            2
+          ],
+          [
+            "2026-04-11",
+            "Insutec",
+            "Deportivo Ibarra",
+            3,
+            3,
+            8,
+            7
+          ],
+          [
+            "2026-04-11",
+            "Huaquillas",
+            "Río Aguarico",
+            1,
+            0
+          ],
+          [
+            "2026-04-12",
+            "Quito",
+            "Cuenca Juniors",
+            2,
+            3
+          ],
+          [
+            "2026-04-12",
+            "Juventud Italiana",
+            "Atlético Rojiblanco",
+            2,
+            1
+          ],
+          [
+            "2026-04-12",
+            "La Unión",
+            "Cumbayá",
+            0,
+            0,
+            5,
+            3
+          ],
+          [
+            "2026-04-13",
+            "Primero de Mayo",
+            "Santo Domingo",
+            0,
+            2
+          ],
+          [
+            "2026-04-14",
+            "Nazareno",
+            "9 de Octubre",
+            0,
+            4
+          ],
+          [
+            "2026-04-19",
+            "Africando",
+            "Independiente Juniors",
+            1,
+            2
+          ],
+          [
+            "2026-04-20",
+            "Astillero",
+            "22 de Julio",
+            2,
+            1
+          ],
+          [
+            "2026-04-21",
+            "Dunamis 04",
+            "El Nacional",
+            1,
+            5
+          ],
+          [
+            "2026-04-22",
+            "Deportivo Santo Domingo",
+            "Vinotinto Ecuador",
+            1,
+            2
+          ],
+          [
+            "2026-04-22",
+            "Baños Ciudad de Fuego",
+            "Anaconda",
+            2,
+            1
+          ],
+          [
+            "2026-04-23",
+            "Deportivo Quito",
+            "Gualaceo",
+            0,
+            1
+          ],
+          [
+            "2026-04-24",
+            "Independiente Azogues",
+            "Liga de Portoviejo",
+            0,
+            5
+          ],
+          [
+            "2026-05-12",
+            "Insutec",
+            "Barcelona",
+            2,
+            4
+          ],
+          [
+            "2026-05-12",
+            "Baños Ciudad de Fuego",
+            "Delfín",
+            0,
+            2
+          ],
+          [
+            "2026-05-14",
+            "Astillero",
+            "Guayaquil City",
+            2,
+            1
+          ],
+          [
+            "2026-05-19",
+            "Liga de Portoviejo",
+            "Libertad",
+            1,
+            1,
+            4,
+            2
+          ],
+          [
+            "2026-05-20",
+            "Daquilema",
+            "Emelec",
+            0,
+            0,
+            10,
+            9
+          ],
+          [
+            "2026-05-21",
+            "San Antonio",
+            "Aucas",
+            0,
+            3
+          ],
+          [
+            "2026-05-22",
+            "9 de Octubre",
+            "Manta",
+            0,
+            0,
+            3,
+            5
+          ],
+          [
+            "2026-05-27",
+            "Vinotinto Ecuador",
+            "Orense",
+            2,
+            1
+          ],
+          [
+            "2026-05-28",
+            "El Nacional",
+            "Universidad Católica",
+            1,
+            4
+          ],
+          [
+            "2026-05-29",
+            "Juventud Italiana",
+            "Técnico Universitario",
+            2,
+            0
+          ],
+          [
+            "2026-05-29",
+            "Huaquillas",
+            "Leones",
+            0,
+            1
+          ],
+          [
+            "2026-06-02",
+            "La Unión",
+            "Deportivo Cuenca",
+            0,
+            0,
+            8,
+            7
+          ],
+          [
+            "2026-06-03",
+            "Gualaceo",
+            "Mushuc Runa",
+            1,
+            0
+          ],
+          [
+            "2026-06-04",
+            "Cuenca Juniors",
+            "Macará",
+            0,
+            1
+          ]
+        ],
+        "round32Played": 14,
+        "round32Pending": [
+          [
+            "Santo Domingo",
+            "Independiente del Valle"
+          ],
+          [
+            "Independiente Juniors",
+            "Liga de Quito"
+          ]
+        ],
+        "limits": "33 observed pre-cutoff results; no July results imported; all club keys pending."
+      },
+      "limits": "Preliminary access and single-leg rules supported; remaining match rules and venue ranking require full regulation.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

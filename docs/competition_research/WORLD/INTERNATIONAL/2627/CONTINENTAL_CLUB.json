@@ -16,7 +16,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -46,6 +46,41 @@
       "source": "03ab547e24a4319b11c51bb720ef20db56ff78ae",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block107Research": {
+      "edition": "2026",
+      "rules": {
+        "totalEntrants": 47,
+        "groupDirect": 28,
+        "preliminaryDistinctEntrants": 19,
+        "phase1": {
+          "teams": 6,
+          "legs": 2,
+          "advance": 3
+        },
+        "phase2": {
+          "teams": 16,
+          "newEntrants": 13,
+          "legs": 2,
+          "advance": 8
+        },
+        "phase3": {
+          "teams": 8,
+          "legs": 2,
+          "advance": 4,
+          "losersToSudamericana": 4
+        },
+        "groups": 8,
+        "groupSize": 4,
+        "groupGamesPerClub": 6,
+        "top2RoundOf16": true,
+        "thirdToSudamericanaPlayoff": true,
+        "groupDraw": "4 pots of 8, defending Libertadores champion Group A top seed, defending Sudamericana winner pot2 unless higher ranking",
+        "knockoutLegs": 2,
+        "finalLegs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Real 2026 edition; not automatic endorsement of older proposed 45-team template. Existing results retained, no second July state."
     }
   },
   {
@@ -65,7 +100,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -95,6 +130,13 @@
       "source": "03ab547e24a4319b11c51bb720ef20db56ff78ae",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block107Research": {
+      "parentRow": 321,
+      "identity": "ALIAS_CANDIDATE_PENDING_NATIVE_MAPPING",
+      "rulesRef": "row321.block107Research",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "Retain distinct native slot until mapping verified; no new sporting tournament or duplicate rules."
     }
   },
   {
@@ -115,7 +157,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -148,6 +190,30 @@
       "source": "03ab547e24a4319b11c51bb720ef20db56ff78ae",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block107Research": {
+      "edition": "2026",
+      "rules": {
+        "prelim": {
+          "teams": 32,
+          "singleMatchPairs": 16,
+          "advance": 16,
+          "sameCountry": true
+        },
+        "groupDirectDomestic": 12,
+        "groupFromLibertadoresPhase3": 4,
+        "groups": 8,
+        "groupSize": 4,
+        "groupGamesPerClub": 6,
+        "groupWinnersDirectRoundOf16": true,
+        "groupRunnersUpPlayoffAgainstLibertadoresThird": true,
+        "playoffTeams": 16,
+        "playoffLegs": 2,
+        "knockoutLegs": 2,
+        "finalLegs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Group draw and stage rules; exact eligibility, seeding exceptions and ties pending. No duplicate cutoff data."
     }
   },
   {
@@ -165,7 +231,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -183,6 +249,44 @@
       "source": "03ab547e24a4319b11c51bb720ef20db56ff78ae",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block107Research": {
+      "edition": "2026",
+      "rules": {
+        "teams": 27,
+        "roundOneTeams": 22,
+        "byeRoundOf16": 5,
+        "rounds": [
+          "round1",
+          "round16",
+          "quarterfinal",
+          "semifinal",
+          "final"
+        ],
+        "legs": [
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        "access": [
+          "Liga MX",
+          "MLS",
+          "Canadian Premier League",
+          "Canadian Championship",
+          "US Open Cup",
+          "Leagues Cup",
+          "Central American Cup",
+          "Caribbean Cup"
+        ],
+        "winnerAccess": [
+          "2026 Intercontinental Cup",
+          "2029 Club World Cup"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Official format and qualification pathways; exact allocations and tiebreak details pending."
     }
   },
   {
@@ -199,7 +303,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -217,6 +321,95 @@
       "source": "03ab547e24a4319b11c51bb720ef20db56ff78ae",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block107Research": {
+      "edition": "2026/27",
+      "rules": {
+        "leagueTeams": 32,
+        "zones": 2,
+        "teamsPerZone": 16,
+        "roundOf16PerZone": 8,
+        "roundOf16Teams": 16,
+        "finalsFrom": "quarterfinal",
+        "finalsCentralized": true,
+        "priorLeagueTeams": 24,
+        "qualifyingEntry": "preliminary stage; slot and league-match count not yet fully verified",
+        "note": "February 2026 document excerpt described 24; later federation draw and actual league start confirm expanded 32. Treat 24 as superseded proposal/version, not parallel format."
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Official Aug/Sept format announcements. Some AFC full pages cache-missed; no claim complete regulation."
+    },
+    "block108Research": {
+      "edition": "2026/27",
+      "rules": {
+        "preliminary": {
+          "actualEntrants": 8,
+          "directLeagueEntrants": 28,
+          "legs": 1,
+          "winners": 4,
+          "losersToACLTwo": 4,
+          "date": "2026-08-11",
+          "maximumRegulationRounds": 3,
+          "higherSeedHostsNormally": true,
+          "countryProtectionUnlessUnavoidable": true
+        },
+        "league": {
+          "matchesPerClub": 8,
+          "home": 4,
+          "away": 4,
+          "distinctOpponents": true,
+          "sameAssociationProhibited": true,
+          "ranking": [
+            "points",
+            "goal difference",
+            "goals scored",
+            "wins",
+            "penalties if exactly two remain tied and meet on final matchday",
+            "discipline lower score",
+            "lots"
+          ],
+          "unequalGamesRanking": [
+            "points per game",
+            "goal difference per game",
+            "goals per game",
+            "win rate",
+            "discipline per game",
+            "lots"
+          ],
+          "roundingDecimals": 3
+        },
+        "round16": {
+          "pairs": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "withinRegion": true,
+          "legs": 2,
+          "higherRankHomeSecond": true
+        },
+        "quarterfinal": {
+          "crossRegionDraw": true,
+          "legs": 1
+        },
+        "semifinalLegs": 1,
+        "finalLegs": 1
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "April28 amended regulation arts7–9 text plus official actual line-up and preliminary announcement. PDF screenshot attempts failed; no claim complete visual/regulatory audit."
     }
   },
   {
@@ -233,7 +426,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -251,6 +444,43 @@
       "source": "03ab547e24a4319b11c51bb720ef20db56ff78ae",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block107Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 32,
+        "zones": 2,
+        "groupsPerZone": 4,
+        "groupSize": 4,
+        "gamesPerClub": 6,
+        "topTwoAdvance": true,
+        "roundOf16": 16,
+        "quarterfinal": 8,
+        "semifinal": 4,
+        "final": 2,
+        "access": "includes specified Elite preliminary losers; Challenge League runner-up new preliminary berth in 2026/27"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Official group-stage announcement; exact leg rules and access tables pending."
+    },
+    "block108Research": {
+      "edition": "2026/27",
+      "rules": {
+        "groupDirect": 25,
+        "directByRegion": {
+          "west": 12,
+          "east": 13
+        },
+        "fromElitePreliminaryLosers": 4,
+        "ownPreliminaryEntrants": 6,
+        "ownPreliminaryWinners": 3,
+        "legs": 1,
+        "losersToChallenge": 3,
+        "westPreliminaryDate": "2026-08-12",
+        "eastRescheduledDate": "2026-08-31"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Actual announced entry pathways; group stage and standings rules elsewhere."
     }
   },
   {
@@ -267,7 +497,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -285,6 +515,61 @@
       "source": "03ab547e24a4319b11c51bb720ef20db56ff78ae",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block107Research": {
+      "edition": "2026/27",
+      "rules": {
+        "groups": 5,
+        "groupSize": 4,
+        "westGroups": 3,
+        "eastGroups": 2,
+        "centralizedSingleRoundRobin": true,
+        "westQuarterfinalAccess": "3 winners + best runner-up",
+        "eastQuarterfinalAccess": "top2 of each group",
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "access": "direct entries, preliminary winners, ACL Two West preliminary losers"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "AFC published 5x4 structure and quarterfinal confirmation; reconcile actual preliminary withdrawals/number of clubs in announced list before complete certification."
+    },
+    "block108Research": {
+      "edition": "2026/27",
+      "rules": {
+        "groupDirect": 8,
+        "directByRegion": {
+          "west": 5,
+          "east": 3
+        },
+        "ownPreliminaryWinners": 9,
+        "ownPreliminaryWinnersByRegion": {
+          "west": 5,
+          "east": 4
+        },
+        "fromACLTwoPreliminaryLosers": 3,
+        "fromACLTwoByRegion": {
+          "west": 2,
+          "east": 1
+        },
+        "countryProtectionDraw": true,
+        "potsPerRegion": 4,
+        "groupWindow": [
+          "2026-10-17",
+          "2026-10-24"
+        ],
+        "quarterfinalWindow": [
+          "2027-03-03",
+          "2027-03-18"
+        ],
+        "semifinalWindow": [
+          "2027-04-07",
+          "2027-04-15"
+        ],
+        "finalNominal": "2027-05-08"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Initial official entry counts and subsequent draw; individual reschedules pending. No future results."
     }
   },
   {
@@ -606,8 +891,8 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
+      "historyAtStart": "PARTIAL_HISTORICAL_SNAPSHOT_EXTRACTED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -624,6 +909,168 @@
       "source": "72720c02ec770acc82e52e013924605ab87085fa",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block107Research": {
+      "edition": "2026",
+      "rules": {
+        "qualifying": {
+          "teams": 4,
+          "groups": 1,
+          "singleRoundRobin": true,
+          "advance": 1
+        },
+        "mainTeams": 8,
+        "groups": 2,
+        "groupSize": 4,
+        "groupGamesPerClub": 3,
+        "topTwoSemifinals": true,
+        "semifinalLegs": 1,
+        "finalLegs": 1,
+        "mainCentralized": true,
+        "worldAccess": false,
+        "worldAccessSuccessor": "OFC Pro League (distinct competition, no native mapping assumed)"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "OFC confirms separate competitions and new world access route; qualifying stage began January, existing July census must be extended when score extraction done."
+    },
+    "startResearch": {
+      "cutoff": "2026-06-30",
+      "status": "IN_PROGRESS_PARTIAL",
+      "qualifying": {
+        "host": "Apia, Samoa",
+        "matches": [
+          [
+            "2026-01-31",
+            "Vaivase-tai FC",
+            "Pago Youth",
+            1,
+            1
+          ],
+          [
+            "2026-01-31",
+            "Tupapa Maraerenga FC",
+            "Nukuhetulu FC",
+            3,
+            0
+          ],
+          [
+            "2026-02-03",
+            "Pago Youth",
+            "Nukuhetulu FC",
+            2,
+            2
+          ],
+          [
+            "2026-02-03",
+            "Tupapa Maraerenga FC",
+            "Vaivase-tai FC",
+            1,
+            1
+          ],
+          [
+            "2026-02-06",
+            "Nukuhetulu FC",
+            "Vaivase-tai FC",
+            3,
+            5
+          ],
+          [
+            "2026-02-06",
+            "Pago Youth",
+            "Tupapa Maraerenga FC",
+            0,
+            3
+          ]
+        ],
+        "tableColumns": [
+          "club",
+          "P",
+          "W",
+          "D",
+          "L",
+          "GF",
+          "GA",
+          "GD",
+          "Pts"
+        ],
+        "table": [
+          [
+            "Tupapa Maraerenga FC",
+            3,
+            2,
+            1,
+            0,
+            7,
+            1,
+            6,
+            7
+          ],
+          [
+            "Vaivase-tai FC",
+            3,
+            1,
+            2,
+            0,
+            7,
+            5,
+            2,
+            5
+          ],
+          [
+            "Pago Youth",
+            3,
+            0,
+            2,
+            1,
+            3,
+            6,
+            -3,
+            2
+          ],
+          [
+            "Nukuhetulu FC",
+            3,
+            0,
+            1,
+            2,
+            5,
+            10,
+            -5,
+            1
+          ]
+        ],
+        "qualified": "Tupapa Maraerenga FC"
+      },
+      "drawDate": "2026-02-24",
+      "groups": {
+        "A": [
+          "Auckland City FC",
+          "Central Coast FC",
+          "AS Venus",
+          "AS Tiga Sport"
+        ],
+        "B": [
+          "Rewa FC",
+          "Lae City FC",
+          "Galaxy FC",
+          "Tupapa Maraerenga FC"
+        ]
+      },
+      "mainStageDates": {
+        "A": [
+          "2026-08-10",
+          "2026-08-13",
+          "2026-08-16"
+        ],
+        "B": [
+          "2026-08-09",
+          "2026-08-12",
+          "2026-08-15"
+        ],
+        "semifinals": "2026-08-19",
+        "final": "2026-08-22"
+      },
+      "missing": "Participant keys and full individual main-stage dates reconciliation; no post-cutoff scores."
     }
   },
   {
@@ -640,7 +1087,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -658,6 +1105,69 @@
       "source": "03ab547e24a4319b11c51bb720ef20db56ff78ae",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block107Research": {
+      "edition": "2026/27",
+      "rules": {
+        "leagueTeams": 36,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "directRoundOf16": [
+          1,
+          8
+        ],
+        "knockoutPlayoffRanks": [
+          9,
+          24
+        ],
+        "eliminatedRanks": [
+          25,
+          36
+        ],
+        "knockoutPlayoffLegs": 2,
+        "roundOf16Legs": 2,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "awayGoals": false,
+        "aggregateTie": "extra time then penalties",
+        "qualifyingLegs": 2,
+        "seededPlayoffRanks": [
+          9,
+          16
+        ],
+        "seededRoundOf16Ranks": [
+          1,
+          8
+        ],
+        "bracketHomeAdvantage": {
+          "quarterfinal": [
+            1,
+            4
+          ],
+          "semifinal": [
+            1,
+            2
+          ]
+        },
+        "note": "Seeded positions and inherited bracket apply, not a fresh unrestricted draw; exact access list and all association/cup dependency slots pending.",
+        "gamesPerClub": 8,
+        "home": 4,
+        "away": 4,
+        "pots": 4,
+        "potSize": 9,
+        "opponentsPerPot": 2,
+        "oneHomeOneAwayPerPot": true,
+        "qualifyingPaths": [
+          "champions",
+          "league"
+        ]
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "UEFA official regulations and league phase briefing; per-association access table not fully transcribed."
     }
   },
   {
@@ -674,7 +1184,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -692,6 +1202,65 @@
       "source": "03ab547e24a4319b11c51bb720ef20db56ff78ae",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block107Research": {
+      "edition": "2026/27",
+      "rules": {
+        "leagueTeams": 36,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "directRoundOf16": [
+          1,
+          8
+        ],
+        "knockoutPlayoffRanks": [
+          9,
+          24
+        ],
+        "eliminatedRanks": [
+          25,
+          36
+        ],
+        "knockoutPlayoffLegs": 2,
+        "roundOf16Legs": 2,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "awayGoals": false,
+        "aggregateTie": "extra time then penalties",
+        "qualifyingLegs": 2,
+        "seededPlayoffRanks": [
+          9,
+          16
+        ],
+        "seededRoundOf16Ranks": [
+          1,
+          8
+        ],
+        "bracketHomeAdvantage": {
+          "quarterfinal": [
+            1,
+            4
+          ],
+          "semifinal": [
+            1,
+            2
+          ]
+        },
+        "note": "Seeded positions and inherited bracket apply, not a fresh unrestricted draw; exact access list and all association/cup dependency slots pending.",
+        "gamesPerClub": 8,
+        "home": 4,
+        "away": 4,
+        "pots": 4,
+        "potSize": 9,
+        "opponentsPerPot": 2,
+        "access": "domestic access and specified eliminated UCL qualifying clubs; no transfer after league phase"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Official format; exact qualifying path distribution and tie hierarchy not fully transcribed."
     }
   },
   {
@@ -708,7 +1277,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -726,6 +1295,83 @@
       "source": "03ab547e24a4319b11c51bb720ef20db56ff78ae",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block107Research": {
+      "edition": "2026/27",
+      "rules": {
+        "leagueTeams": 36,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "directRoundOf16": [
+          1,
+          8
+        ],
+        "knockoutPlayoffRanks": [
+          9,
+          24
+        ],
+        "eliminatedRanks": [
+          25,
+          36
+        ],
+        "knockoutPlayoffLegs": 2,
+        "roundOf16Legs": 2,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "awayGoals": false,
+        "aggregateTie": "extra time then penalties",
+        "qualifyingLegs": 2,
+        "seededPlayoffRanks": [
+          9,
+          16
+        ],
+        "seededRoundOf16Ranks": [
+          1,
+          8
+        ],
+        "bracketHomeAdvantage": {
+          "quarterfinal": [
+            1,
+            4
+          ],
+          "semifinal": [
+            1,
+            2
+          ]
+        },
+        "note": "Seeded positions and inherited bracket apply, not a fresh unrestricted draw; exact access list and all association/cup dependency slots pending.",
+        "gamesPerClub": 6,
+        "home": 3,
+        "away": 3,
+        "pots": 6,
+        "potSize": 6,
+        "opponentsPerPot": 1,
+        "potPairHomeAway": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            5,
+            6
+          ]
+        ],
+        "qualifyingPaths": [
+          "champions",
+          "main"
+        ],
+        "access": "domestic access and specified eliminated UEL qualifying clubs; no transfer after league phase"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Official format; exact association access and complete tie hierarchy pending."
     }
   }
 ]

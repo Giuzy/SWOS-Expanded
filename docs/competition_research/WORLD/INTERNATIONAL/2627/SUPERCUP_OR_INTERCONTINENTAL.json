@@ -132,7 +132,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -150,6 +150,55 @@
       "source": "72720c02ec770acc82e52e013924605ab87085fa",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block107Research": {
+      "edition": "2026",
+      "rules": {
+        "teams": 6,
+        "entry": "continental champion from AFC, CAF, CONCACAF, CONMEBOL, UEFA; OFC Pro League champion (not OFC Champions League winner)",
+        "matches": 5,
+        "stages": [
+          {
+            "name": "Africa-Asia-Pacific playoff",
+            "teams": [
+              "AFC",
+              "OFC"
+            ]
+          },
+          {
+            "name": "Africa-Asia-Pacific Cup",
+            "teams": [
+              "playoff winner",
+              "CAF"
+            ]
+          },
+          {
+            "name": "Derby of the Americas",
+            "teams": [
+              "CONCACAF",
+              "CONMEBOL"
+            ]
+          },
+          {
+            "name": "Challenger Cup",
+            "teams": [
+              "Africa-Asia-Pacific winner",
+              "Americas winner"
+            ]
+          },
+          {
+            "name": "Intercontinental Cup final",
+            "teams": [
+              "Challenger winner",
+              "UEFA"
+            ]
+          }
+        ],
+        "legsEach": 1,
+        "editionRotation": "African/Asian/Pacific route and hosts vary by edition, do not assume 2026 ordering is perpetual"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "FIFA announced route; OFC access specifically changed. No initial snapshot before kickoff."
     }
   }
 ]

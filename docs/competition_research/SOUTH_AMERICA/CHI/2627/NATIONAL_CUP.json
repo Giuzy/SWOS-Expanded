@@ -10,10 +10,10 @@
     "candidateSources": [
       "b1e9c4d6ab11e0e665c638188abd4117403a63cd"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_PRE_CUTOFF_EVIDENCE",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -30,6 +30,47 @@
       "source": "b1e9c4d6ab11e0e665c638188abd4117403a63cd",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block110Research": {
+      "edition": "2026",
+      "observedName": "Copa Chile",
+      "commercialName": "Copa Chile Coca-Cola Zero Azúcar",
+      "rules": {
+        "teams": 32,
+        "entry": "Primera División + Primera B",
+        "zones": 2,
+        "groups": 8,
+        "clubsPerGroup": 4,
+        "groupRounds": 6,
+        "groupDoubleRoundRobin": true,
+        "knockoutStages": [
+          "R16",
+          "QF",
+          "SF",
+          "Final"
+        ],
+        "finalLegs": 1,
+        "continentalAccess": "winner plays league rank3 for Libertadores Chile4; loser Sudamericana Chile4"
+      },
+      "dateEvidence": {
+        "firstPlayed": "2026-01-30"
+      },
+      "cutoff": {
+        "date": "2026-06-30",
+        "status": "PARTIAL",
+        "scores": [
+          [
+            "2026-01-30",
+            "Deportes Antofagasta",
+            "Cobreloa",
+            2,
+            1
+          ]
+        ],
+        "limits": "Group stage in progress; full pre-cutoff match list not yet extracted. Do not use August final tables."
+      },
+      "limits": "Intermediate KO legs and exact tie-break not asserted.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

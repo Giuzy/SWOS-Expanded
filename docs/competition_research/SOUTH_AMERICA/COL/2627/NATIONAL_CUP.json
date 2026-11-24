@@ -10,27 +10,310 @@
     "candidateSources": [
       "8fd63ed2645ca1b0f9efd797a115cf024b3db48e"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_PRE_CUTOFF_EVIDENCE",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Copa Colombia",
+      "nonCommercialDisplayName": "Copa Colombia",
       "candidateName": "Copa Colombia",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block110Research": {
+      "edition": "2026",
+      "observedName": "Copa Colombia",
+      "commercialName": "Copa BetPlay DIMAYOR",
+      "rules": {
+        "teams": 36,
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "phase1A": {
+          "teams": 20,
+          "access": {
+            "tier1Ranks": [
+              9,
+              20
+            ],
+            "tier2Ranks": [
+              9,
+              16
+            ]
+          },
+          "groups": 4,
+          "groupSize": 5,
+          "roundRobin": 1,
+          "gamesPerClub": 4,
+          "home": 2,
+          "away": 2,
+          "groupSlotRanks": [
+            [
+              "L9",
+              "L13",
+              "L17",
+              "T12",
+              "T16"
+            ],
+            [
+              "L10",
+              "L14",
+              "L18",
+              "T11",
+              "T15"
+            ],
+            [
+              "L11",
+              "L15",
+              "L19",
+              "T10",
+              "T14"
+            ],
+            [
+              "L12",
+              "L16",
+              "L20",
+              "T9",
+              "T13"
+            ]
+          ],
+          "pairingBySlot": [
+            [
+              [
+                2,
+                5
+              ],
+              [
+                4,
+                3
+              ]
+            ],
+            [
+              [
+                1,
+                2
+              ],
+              [
+                5,
+                4
+              ]
+            ],
+            [
+              [
+                4,
+                1
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            [
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                4
+              ]
+            ],
+            [
+              [
+                5,
+                1
+              ],
+              [
+                3,
+                2
+              ]
+            ]
+          ],
+          "tieBreak": [
+            "GD",
+            "GF",
+            "away GF",
+            "fewest GA",
+            "fewest away GA",
+            "draw"
+          ],
+          "lastQualificationTie": "playoff if equal after first five",
+          "qualifiers": 8
+        },
+        "phase1B": {
+          "teams": 16,
+          "ties": 8,
+          "legs": 2,
+          "secondLegHome": "tier2 club",
+          "rankPairs": [
+            [
+              8,
+              1
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              5,
+              4
+            ],
+            [
+              7,
+              2
+            ]
+          ],
+          "tieBreak": "points then aggregate goal difference then penalties"
+        },
+        "knockout": {
+          "r16Pairs": [
+            [
+              "A",
+              "D2"
+            ],
+            [
+              "B",
+              "B2"
+            ],
+            [
+              "C",
+              "D1"
+            ],
+            [
+              "D",
+              "B1"
+            ],
+            [
+              "E",
+              "A1"
+            ],
+            [
+              "F",
+              "C1"
+            ],
+            [
+              "G",
+              "A2"
+            ],
+            [
+              "H",
+              "C2"
+            ]
+          ],
+          "initialLegs": 2,
+          "secondLegHome": "tier2 if different tiers; better annual rank if same",
+          "tieBreak": "points then goal difference then penalties",
+          "editionAmendment": {
+            "decision": "2026-08-19",
+            "round16Legs": 1,
+            "quarterFinalLegs": 1,
+            "home": "original return-leg host",
+            "scope": "2026 only unless further rules establish recurrence"
+          }
+        },
+        "continentalAccess": "winner Sudamericana Colombia1 if tier1 in 2027; otherwise next eligible overall league rank",
+        "playerEligibility": "same player cannot appear for two clubs in same phase; transfer allows subsequent phase"
+      },
+      "dateEvidence": {
+        "firstScheduled": "2026-05-07",
+        "phase1AMayJune": true
+      },
+      "cutoff": {
+        "date": "2026-06-30",
+        "status": "PARTIAL",
+        "scores": [
+          [
+            "2026-05-24",
+            "Alianza FC",
+            "Atlético Bucaramanga",
+            2,
+            1
+          ],
+          [
+            "2026-05-24",
+            "Real Santander",
+            "Deportivo Cali",
+            1,
+            2
+          ],
+          [
+            "2026-05-26",
+            "Deportivo Pereira",
+            "Jaguares",
+            1,
+            0
+          ],
+          [
+            "2026-05-26",
+            "Real Cundinamarca",
+            "Águilas Doradas",
+            2,
+            2
+          ],
+          [
+            "2026-05-27",
+            "Boyacá Chicó",
+            "Llaneros",
+            0,
+            1
+          ],
+          [
+            "2026-05-29",
+            "Cúcuta",
+            "Fortaleza",
+            0,
+            0
+          ],
+          [
+            "2026-05-29",
+            "Leones",
+            "Medellín",
+            1,
+            1
+          ],
+          [
+            "2026-05-29",
+            "Atlético FC",
+            "Millonarios",
+            1,
+            8
+          ]
+        ],
+        "stage": "phase1A complete by June; eight round5 scores only",
+        "limits": "No standings reconstructed from incomplete scores. Other rounds/actual qualifiers pending."
+      },
+      "limits": "PDF text read; screenshot pages unavailable. August amendment not general future template.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

@@ -10,9 +10,9 @@
     "candidateSources": [
       "79dac4d9f1a2ede20a7211af2f07efd8ebf581a0"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -45,6 +45,36 @@
       ],
       "scope": "New edition dates unknown",
       "researchStatus": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block111Research": {
+      "edition": "2025/26",
+      "rules": {
+        "observedQuarterFinalEntrants": 8,
+        "quarterFinalLegs": 1,
+        "semiFinalLegs": 1,
+        "finalLegs": 1,
+        "penaltiesObserved": true,
+        "participants": [
+          "Broki",
+          "Flora",
+          "Transvaal",
+          "Inter Moengotapoe",
+          "Robinhood",
+          "Voorwaarts",
+          "Sea Boys",
+          "Leo Victor"
+        ]
+      },
+      "dateEvidence": {
+        "quarterFinal": [
+          "2026-06-05",
+          "2026-06-06"
+        ],
+        "semiFinal": "2026-06-10",
+        "final": "2026-06-14"
+      },
+      "limits": "Previous completed cup only, no July snapshot or duplicate final score. Earlier stages and 2026/27 rules/opening unknown.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

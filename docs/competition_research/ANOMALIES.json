@@ -1,9 +1,9 @@
 {
-  "lastPreparedBlock": 106,
+  "lastPreparedBlock": 111,
   "baseHead": "7fe0e919f4b167b79b04645493a808b643ab09b2",
   "status": "INITIAL_EXPLICIT_REGISTER_LOWER_BOUND_NOT_EXHAUSTIVE",
   "policy": "Unique concrete conflicts, identity/slot mismatches or metric inconsistency only. Do not count ordinary missing fields or unresolved applicability as anomalies. Do not resolve conflicts by guessing; merge duplicates in final review. Increment when a distinct case is identified.",
-  "openCount": 23,
+  "openCount": 30,
   "cases": [
     {
       "id": "A001",
@@ -148,7 +148,8 @@
       "type": "METADATA",
       "description": "Historical observation dashboard and raw transition count differ by five; global unique-event count not yet reconciled",
       "rows": [],
-      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT",
+      "audit108": "Raw count reconstructed: 780 records (371 initial +406 committed +3 pending). Old dashboard775 corrected. Global uniqueness remains unchecked."
     },
     {
       "id": "A015",
@@ -228,6 +229,163 @@
       "description": "URU1996 Segunda row88: original technical audit 14 clubs vs 12 real participating clubs confirmed by first-round report (La Luz and Uruguay Montevideo withdrew before start). Native participant mapping and promotion/relegation counts need reconciliation; not a runtime fix.",
       "rows": [
         88
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A024",
+      "type": "METADATA",
+      "description": "Rules dashboard 508/533 is not yet reproducible from row-level statuses: at least 13 continental independent rows had NOT_CERTIFIED and lacked explicit rules while 19 technical alias/qualifier slots plus three no-split rows and LIE row were not ordinary independent rules. Existing embedded evidence may already be counted. Rebuild the numerator from deduplicated applicable row identities and evidence, do not simply add 13.",
+      "rows": [
+        165,
+        178,
+        321,
+        424,
+        426,
+        427,
+        428,
+        429,
+        433,
+        434,
+        525,
+        526,
+        527,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        166,
+        172,
+        423,
+        264,
+        511,
+        512,
+        513
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT",
+      "audit108": "All 1068 parent/naming/lifecycle shards SHA verified. 483 partial rule statuses, 23 NOT_CERTIFIED, 27 special rows; legacy508 replaced. 81 phase references among partial rows; final independent identity and field-level rules certification pending."
+    },
+    {
+      "id": "A025",
+      "type": "NATIVE_MAPPING",
+      "description": "OFC Pro League 2026 is distinct from OFC Champions League and now supplies Oceania's FIFA Intercontinental Cup/Club World Cup entry. Existing rows433 and434 must not use Champions League winner as automatic world entrant. New Pro League identity/slot and access rules pending; no runtime modification.",
+      "rows": [
+        433,
+        434
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A026",
+      "type": "METADATA",
+      "description": "53 supported competition-name rows in parent matrix have stale non-supported status in naming index. Parent values all contain actual official or neutral name. Parent count405; index count352. Synchronize without duplicating sporting entries.",
+      "rows": [
+        5,
+        7,
+        13,
+        16,
+        31,
+        32,
+        33,
+        99,
+        168,
+        169,
+        170,
+        171,
+        174,
+        175,
+        116,
+        118,
+        120,
+        123,
+        124,
+        126,
+        128,
+        134,
+        142,
+        144,
+        162,
+        207,
+        211,
+        213,
+        219,
+        225,
+        226,
+        227,
+        228,
+        248,
+        251,
+        257,
+        261,
+        275,
+        276,
+        285,
+        289,
+        302,
+        307,
+        312,
+        337,
+        345,
+        414,
+        528,
+        529,
+        531,
+        533,
+        535,
+        536
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A027",
+      "type": "SPORTING_RULE_CONFLICT",
+      "description": "Chile4 continental playoff: ANFP December 2025 decision and official league legend indicate single match; secondary later Copa Chile account states two legs. Verify final effective rule before runtime; no guessed tiebreak.",
+      "rows": [
+        221,
+        339
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A028",
+      "type": "IDENTITY_MAPPING",
+      "description": "Bolivia national cup rows320/335 potentially same Copa de la División Profesional 2026. Canonical research stored only in320, 335 candidate reference not automatic alias or separate edition. Resolve native identities before import.",
+      "rows": [
+        320,
+        335
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A029",
+      "type": "IDENTITY_MAPPING",
+      "description": "ENG historical cup variants153/154 differ from parent151/152 native descriptors in teams, round_string_base and round_rule_flags. Not safe to merge or create a duplicate competition; establish actual slot semantics.",
+      "rows": [
+        151,
+        152,
+        153,
+        154
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A030",
+      "type": "IDENTITY_MAPPING",
+      "description": "ITA native league cup row323 uses a 17-team bracket while candidate real Coppa Italia Serie C 2026/27 uses 60 clubs. Mod description suggests candidate mapping to a truncated bracket, not proof of actual Expanded slot identity; retain full real rules separately from runtime mapping.",
+      "rows": [
+        323
       ],
       "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
     }

@@ -10,27 +10,134 @@
     "candidateSources": [
       "8fd63ed2645ca1b0f9efd797a115cf024b3db48e"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_PRE_CUTOFF_EVIDENCE",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Liga de Primera",
+      "nonCommercialDisplayName": "Liga de Primera",
       "candidateName": "Primera División",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block110Research": {
+      "edition": "2026",
+      "observedName": "Liga de Primera",
+      "commercialName": "Liga de Primera Mercado Libre",
+      "rules": {
+        "teams": 16,
+        "rounds": 30,
+        "format": "double round robin",
+        "continentalAccess": {
+          "libertadores": [
+            "rank1",
+            "rank2",
+            "leagueCupWinner",
+            "winner of rank3 vs Copa Chile champion playoff"
+          ],
+          "sudamericana": [
+            "rank4",
+            "rank5",
+            "rank6",
+            "loser of rank3 vs Copa Chile champion playoff"
+          ]
+        }
+      },
+      "dateEvidence": {
+        "firstPlayed": "2026-01-30",
+        "firstHalfLastObserved": "2026-06-18"
+      },
+      "cutoff": {
+        "date": "2026-06-30",
+        "status": "PARTIAL",
+        "scores": [
+          [
+            "2026-01-30",
+            "Universidad de Chile",
+            "Audax Italiano",
+            0,
+            0
+          ],
+          [
+            "2026-06-12",
+            "Audax Italiano",
+            "La Serena",
+            1,
+            1
+          ],
+          [
+            "2026-06-13",
+            "Coquimbo Unido",
+            "O'Higgins",
+            0,
+            0
+          ],
+          [
+            "2026-06-13",
+            "Everton",
+            "Palestino",
+            1,
+            2
+          ],
+          [
+            "2026-06-13",
+            "Colo-Colo",
+            "Cobresal",
+            3,
+            0
+          ],
+          [
+            "2026-06-13",
+            "Ñublense",
+            "Huachipato",
+            2,
+            2
+          ],
+          [
+            "2026-06-14",
+            "Deportes Concepción",
+            "Limache",
+            3,
+            2
+          ],
+          [
+            "2026-06-14",
+            "Unión La Calera",
+            "Universidad de Chile",
+            2,
+            2
+          ],
+          [
+            "2026-06-14",
+            "Universidad Católica",
+            "Universidad de Concepción",
+            5,
+            1
+          ],
+          [
+            "2026-06-18",
+            "Universidad de Chile",
+            "O'Higgins",
+            2,
+            0
+          ]
+        ],
+        "limits": "Selected results only, not full cutoff table."
+      },
+      "limits": "Reallocation, relegation and full tie-break rules pending. ANFP December decision describes one-match playoff; secondary later account claims two legs; retain conflict.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

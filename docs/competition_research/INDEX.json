@@ -1426,7 +1426,8 @@
   "metadata": "metadata.json",
   "coverage": "COVERAGE.json",
   "researchOnly": true,
-  "lastPreparedBlock": 106,
+  "lastPreparedBlock": 111,
   "cutoffScope": "CUTOFF_SCOPE.json",
-  "anomalies": "ANOMALIES.json"
+  "anomalies": "ANOMALIES.json",
+  "matrixAudit": "MATRIX_AUDIT.json"
 }

@@ -3,15 +3,26 @@
     "index": 322,
     "value": {
       "row": 323,
-      "active_from": null,
+      "active_from": "1972/73",
       "active_until": null,
       "endStatus": "UNKNOWN",
-      "inactivePeriods": [],
-      "format_valid_from": null,
+      "inactivePeriods": [
+        {
+          "from": "2020/21",
+          "until": "2020/21",
+          "reason": "Edition not played",
+          "careerApplicability": "RESEARCH_ONLY"
+        }
+      ],
+      "format_valid_from": "2026/27",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_LIFETIME_IDENTITY_MAPPING_CANDIDATE",
+      "transitionRefs": [
+        791,
+        792
+      ]
     }
   }
 ]

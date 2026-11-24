@@ -28,5 +28,35 @@
       "finalVenue": "Rome",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 791,
+    "value": {
+      "competition": "ITA Coppa Italia Serie C (slot candidate)",
+      "firstEdition": "2020/21",
+      "lastEdition": "2020/21",
+      "operation": "SUSPEND",
+      "rowRefs": [
+        323
+      ],
+      "note": "No edition played. Candidate row mapping still open.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block111 sporting evidence, no complete timeline or slot/participant certification."
+    }
+  },
+  {
+    "index": 792,
+    "value": {
+      "competition": "ITA Coppa Italia Serie C (slot candidate)",
+      "firstEdition": "2021/22",
+      "lastEdition": null,
+      "operation": "RESUME",
+      "rowRefs": [
+        323
+      ],
+      "note": "Tournament resumed following 2020/21 interruption; not a new cup.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block111 sporting evidence, no complete timeline or slot/participant certification."
+    }
   }
 ]

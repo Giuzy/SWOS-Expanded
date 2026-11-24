@@ -29,5 +29,22 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block102 historical archive, secondary reporting or federation announcement; not a complete rule-version timeline."
     }
+  },
+  {
+    "index": 786,
+    "value": {
+      "competition": "CHI Primera División / domestic cups",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "CHANGE_CONTINENTAL_ACCESS",
+      "rowRefs": [
+        221,
+        339,
+        340
+      ],
+      "note": "New distribution gives Libertadores Chile3 to League Cup champion, Chile4 to league rank3 versus Copa Chile champion playoff; loser Sudamericana Chile4. December 2025 ANFP decision says single match; later secondary description two legs, unresolved.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block110 actual edition-level research; not full chronology or runtime certification."
+    }
   }
 ]

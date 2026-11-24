@@ -12,27 +12,54 @@
       "f64171c228a3d468480f68b8346d532f07efcbb7",
       "0787432080c2f80d12f7b10215b1cb37336c5c2f"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": "16 interseries (clasico) fixtures not authenticated/dated; group->knockout pairing rule not verified; first-edition entrant slots not mapped to CE keys",
     "competitionNaming": {
       "startEdition": "2026/27",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "Copa de la División Profesional",
+      "nonCommercialDisplayName": "Copa de la División Profesional",
       "candidateName": "Copa Bolivia",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block110Research": {
+      "edition": "2026",
+      "observedName": "Copa de la División Profesional",
+      "commercialName": "Copa Paceña",
+      "rules": {
+        "teams": 16,
+        "groups": 4,
+        "clubsPerGroup": 4,
+        "qualifiersPerGroup": 2,
+        "knockout": [
+          "QF",
+          "SF",
+          "Final"
+        ],
+        "continentalAccess": {
+          "winner": "Libertadores Bolivia3 unless already Bolivia1/2; then best unqualified league club",
+          "runnerUp": "Sudamericana Bolivia1 unless Libertadores qualified"
+        }
+      },
+      "dateEvidence": {
+        "firstPlayedReported": "2026-08-18",
+        "announcedStart": "2026-08-19",
+        "reportedFinal": "2026-11-25",
+        "announcedEnd": "2026-12-02"
+      },
+      "limits": "FBF confirms groups, access and phases; existing native 64+14 template and interseries dates not recertified. Announced vs observed dates retained separately. Technical row335 is possible alias, do not duplicate matches or qualification.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -50,8 +77,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -69,6 +95,16 @@
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block110Research": {
+      "status": "PARENT_IDENTITY_MAPPING_PENDING",
+      "candidateParentRow": 320,
+      "scope": "Possible same senior professional cup, no duplicate data or automatic mapping."
+    },
+    "block111Research": {
+      "parentCandidateRow": 320,
+      "status": "IDENTITY_MAPPING_PENDING",
+      "scope": "Reference existing research in row320; no second sporting dataset."
     }
   }
 ]

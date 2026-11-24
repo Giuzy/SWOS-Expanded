@@ -138,7 +138,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -157,6 +157,28 @@
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import."
+    },
+    "block107Research": {
+      "edition": "1996/97",
+      "rules": {
+        "totalEntrants": 24,
+        "automaticGroupEntrants": 8,
+        "qualifyingTeams": 16,
+        "qualifyingLegs": 2,
+        "qualifyingWinners": 8,
+        "qualifyingLosersToUEFACup": true,
+        "groupTeams": 16,
+        "groups": 4,
+        "groupSize": 4,
+        "gamesPerClub": 6,
+        "top2Advance": true,
+        "quarterfinalLegs": 2,
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "awayGoals": true
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "UEFA historical group archive and edition summaries; exact tie hierarchy and association access list pending."
     }
   },
   {
@@ -175,7 +197,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARTIAL_SPORT_FIELDS_EXTRACTED",
       "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -206,6 +228,23 @@
       "source": "d0c28701f00971753c406e687e5d157a7a136fd6",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block107Research": {
+      "edition": "1996",
+      "rules": {
+        "teams": 21,
+        "groupTeams": 20,
+        "groups": 5,
+        "groupSize": 4,
+        "gamesPerClub": 6,
+        "top3Advance": true,
+        "defendingChampionByeRoundOf16": true,
+        "roundOf16Teams": 16,
+        "knockoutLegs": 2,
+        "finalLegs": 2
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Historical edition evidence; no future outcomes or redundant cutoff; earlier archive state retained."
     }
   }
 ]

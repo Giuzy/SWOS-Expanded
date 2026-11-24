@@ -174,5 +174,20 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block105 contemporary and historical sporting evidence; exact all-season boundaries and full regulations not certified."
     }
+  },
+  {
+    "index": 782,
+    "value": {
+      "competition": "SCO League Cup",
+      "firstEdition": "2016/17",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        159,
+        403
+      ],
+      "note": "Reintroduced summer group stage, eight five-team groups, bonus point for shootout winner of drawn match, followed by four knockout rounds.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block109 edition-level sporting observation; not complete regulation or runtime certification."
+    }
   }
 ]

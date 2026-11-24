@@ -43,5 +43,20 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block103 observed historical archive and contemporary regulation/reporting; full version timeline, dates, eligibility and identities not certified."
     }
+  },
+  {
+    "index": 789,
+    "value": {
+      "competition": "VEN Copa Venezuela",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "RESUME_OBSERVED_FORMAT",
+      "rowRefs": [
+        420
+      ],
+      "note": "FVF announces return on June24, 20 clubs in group phase and 8 top-flight direct entrants at R16, two-leg knockout. Exact previous inactive interval not inferred.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block110 actual edition-level research; not full chronology or runtime certification."
+    }
   }
 ]

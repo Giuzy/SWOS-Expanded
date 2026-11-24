@@ -10,26 +10,103 @@
     "candidateSources": [
       "4e86b149b4f97b5a3310930191dbe834b99db47d"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "NOT_RECONCILED"
+      "competitionName": "IDENTITY_CANDIDATE"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "2026/27",
       "officialName": null,
       "nonCommercialDisplayName": null,
-      "candidateName": null,
-      "status": "NAME_HISTORY_NOT_CERTIFIED",
+      "candidateName": "Coppa Italia Serie C",
+      "status": "IDENTITY_CANDIDATE",
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block111Research": {
+      "edition": "2026/27",
+      "candidateIdentity": "Coppa Italia Serie C",
+      "officialCommercialName": "Coppa Italia Serie C Regionale Trenitalia",
+      "mapping": "World of SWOS describes this competition in league cup slot; Expanded slot mapping remains candidate, native 17 teams is truncated bracket, not full real competition.",
+      "rules": {
+        "participants": 60,
+        "round1": {
+          "entrants": 56,
+          "geographicalGroups": 4,
+          "groupSize": 14,
+          "ties": 28,
+          "legs": 1
+        },
+        "round2": {
+          "entrants": 32,
+          "fromR1": 28,
+          "seededCoppaItaliaEntrants": 4,
+          "geographicalGroups": 4,
+          "groupSize": 8,
+          "ties": 16,
+          "legs": 1
+        },
+        "round16": {
+          "ties": 8,
+          "legs": 1
+        },
+        "quarterFinal": {
+          "ties": 4,
+          "legs": 1
+        },
+        "semiFinal": {
+          "ties": 2,
+          "legs": 2
+        },
+        "final": {
+          "ties": 1,
+          "legs": 2
+        },
+        "tieAfter90ThroughQF": "direct penalties",
+        "championAccess": "first national phase of Serie C promotion playoffs",
+        "totalMatches": 62,
+        "twoLegTieBreak": [
+          "match points",
+          "aggregate goal difference",
+          "two 15-minute extra-time periods",
+          "penalties"
+        ],
+        "substitutions": {
+          "normal": 5,
+          "normalWindows": 3,
+          "extraTimeAdditional": 1,
+          "extraTimeAdditionalWindow": 1
+        },
+        "matchSquadMax": 26
+      },
+      "dateEvidence": {
+        "firstRound": "2026-08-16",
+        "secondRound": "2026-09-02",
+        "round16": "2026-10-28",
+        "quarterFinal": "2026-12-08",
+        "semiFinal": [
+          "2027-01-13",
+          "2027-01-26"
+        ],
+        "final": [
+          "2027-03-17",
+          "2027-03-31"
+        ]
+      },
+      "limits": "Regulation text and published round dates, not individual fixtures; actual Expanded native ID not certified.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "historyRefs": [
+        791,
+        792
+      ],
+      "originObserved": "1972/73"
     }
   }
 ]

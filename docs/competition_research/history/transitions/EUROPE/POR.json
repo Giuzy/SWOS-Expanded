@@ -33,5 +33,47 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block 33 actual web search excerpts; not full sport rule or runtime certification."
     }
+  },
+  {
+    "index": 783,
+    "value": {
+      "competition": "POR Taça da Liga",
+      "firstEdition": "2016/17",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        395
+      ],
+      "note": "Final Four introduced for tenth edition; 2007/08 origin already recorded in lifecycle, not duplicated.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block109 edition-level sporting observation; not complete regulation or runtime certification."
+    }
+  },
+  {
+    "index": 784,
+    "value": {
+      "competition": "POR Taça da Liga",
+      "firstEdition": "2024/25",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        395
+      ],
+      "note": "Eight-team knockout: top six first tier plus top two second tier; quarterfinals followed by Final Four.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block109 edition-level sporting observation; not complete regulation or runtime certification."
+    }
+  },
+  {
+    "index": 785,
+    "value": {
+      "competition": "POR Taça da Liga",
+      "firstEdition": "2027/28",
+      "operation": "APPROVED_FUTURE_FORMAT_CHANGE",
+      "rowRefs": [
+        395
+      ],
+      "note": "League general assembly approved expanded professional-club format on 2026-06-30, effective 2027/28; qualification league phase and playoff supply two quarterfinalists alongside UEFA entrants. Full access regulation pending. Not 2026 template and not automatically adopted in runtime.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block109 edition-level sporting observation; not complete regulation or runtime certification."
+    }
   }
 ]

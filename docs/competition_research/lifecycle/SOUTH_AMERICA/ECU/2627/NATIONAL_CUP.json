@@ -14,13 +14,17 @@
           "careerApplicability": "RESEARCH_ONLY"
         }
       ],
-      "format_valid_from": null,
+      "format_valid_from": "2026",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "PARTIAL_LIFETIME_IDENTITY_MAPPING_CANDIDATE",
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "sources": [
         "https://www.eluniverso.com/deportes/futbol/federacion-ecuatoriana-de-futbol-establecio-el-sistema-de-competencia-para-la-copa-ecuador-2022-nota/"
+      ],
+      "transitionRefs": [
+        160,
+        161
       ]
     }
   }

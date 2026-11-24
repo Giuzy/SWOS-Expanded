@@ -57,6 +57,7 @@
     217,
     218,
     220,
+    221,
     222,
     223,
     229,
@@ -90,7 +91,11 @@
     334,
     336,
     338,
+    339,
+    340,
     341,
+    342,
+    348,
     354,
     355,
     358,
@@ -109,8 +114,10 @@
     404,
     411,
     419,
+    420,
     423,
     424,
+    433,
     528
   ],
   "archiveCandidateRows": [
@@ -223,6 +230,7 @@
     140,
     145,
     151,
+    152,
     156,
     157,
     160,
@@ -283,6 +291,7 @@
     259,
     262,
     263,
+    264,
     266,
     272,
     273,
@@ -321,6 +330,7 @@
     313,
     314,
     319,
+    320,
     322,
     324,
     328,
@@ -333,6 +343,7 @@
     349,
     350,
     351,
+    352,
     353,
     356,
     360,
@@ -350,10 +361,12 @@
     387,
     393,
     394,
+    395,
     397,
     400,
     401,
     402,
+    403,
     405,
     409,
     410,
@@ -361,6 +374,7 @@
     415,
     416,
     417,
+    418,
     421,
     422,
     430,
@@ -417,7 +431,7 @@
       423
     ]
   ],
-  "note": "Block70 expands previous 59 distinct working packages to 60 (19 historical, 41 modern), after independently identifying pre-cutoff KNVB Beker 1996/97 row161. Alias 321/423 still counted once, separate PER row392 outside prior working denominator remains pending final census. Every working package partial only; no completion claim. France cup rows155/357 earliest regional/overseas start remains unknown. Block71: earliest 1996/97 Belgian qualifying rounds and Scottish separate qualifying cup applicability unresolved; June 2026 draws do not equal already played games. Block72: Swiss cup 1996/97 and 2026/27 principal rounds start August; earlier separate regional qualification status not established, no July snapshot or exclusion asserted. Block73: first-round dates of GRE/TUR 1996/97 cups not established; no July snapshot or exclusion asserted. Block74 expands working packages from60 to61 (20 historic,41 modern) due to Polish Cup row135 preliminary in June 1996. Danish early cup regional/first-round dates unresolved; modern Polish prior regional winners are access evidence, not current central cup scores. Block75: Czech historical cup first-round date unresolved; second round Aug4 established, no unsupported July exclusion. Block76: HUN historical cup early rounds undated, current main cup August; ROU historical central cup October, modern regional phase July8; earlier county/regional qualification membership and dates unresolved. No unsupported cutoff exclusion for four cup rows. Block77: league rows 6,219,225 first fixture after cutoff; no redundant initial-state placeholder. Bulgaria historical league first date, both historical cups and both modern regional/county qualification boundaries remain unresolved. Row453 is a phase of row219, not another July package. Croatian county nominations by June30 concern access, not automatically played current national-stage fixtures. Block78: five additional league/cup exclusions (30,36,302,306,410); 1996/97 Slovenian league opening from secondary season account, Serbian opening from dated match archive. 2026/27 Slovenian cup federation announcement confirms regional opening in August; Serbian cup national preliminary September2, earlier regional access still unscreened. Historical cup earliest phases unresolved (141,147). Block79: leagues16/34/257/314 and cups145/417 excluded from initial state; historical Ukraine cup earliest date based on secondary archive excerpt only. Israeli cup rows128/370 early lower-tier phases still unresolved. Do not infer played matches from a draw. Block80: seven further post-cutoff exclusions (7,112,118,200,226,324,345); Albanian 1996/97 cup month is secondary evidence; Albanian historical league exact opening remains unknown. Separate Cypriot lower-tier cup is not a preliminary phase of the senior cup. Block81: seven post-cutoff exclusions (20,266,273,301,379,384,405); historical LUX/SMR league and LUX/MLT/SMR cup earliest phase dates unresolved. SMR cup final July3 1997 is after administrative year end, not evidence of a match before initial July1 1996. Parent phase specs 467/478 not separate editions. Block82: five additional exclusions (277,387,319,421 postcutoff; 422 removed from 2026/27 calendar, exact technical slot candidate). Historical NIR/WAL/IRL earliest league and cup dates and NIR 2026/27 league cup preliminary dates unresolved. IRL 2026 cup row366 all 11 played scores and 1 walkover corroborated; administrative awarded3–0 separate from played goals, all 12 qualifiers named in June3 draw. No extra cutoff package or premature completeness claim. IRL league row254 113 matches preserved; independent standings at cutoff unavailable. Phase rows469/482 depend on parent leagues. Block83: 4 additional required partial packages rows126,134,355,368, 179 dated results total. 356/369 completed before cutoff (archive only, no active July state). 123 historical FIN Cup first match unknown. NOR cup R1 Ranheim score conflict retained with alternative; final check deferred. Block84: active FRO cup row358 expands working denominator65→66; Swedish 2026 league 79 observed pre-cutoff matches, round10 one rescheduled September. Historical EST cup/league and SWE cup earliest dates unresolved, deferred final check. Block85: BLR/LTU/LVA cups rows334/378/380 active before July; 122 result records (38+52+32), scope69. BLR historical cup starts July20; previous edition archive only. LVA previous cup final June17/18 archive only, next edition opening unresolved. LTU historical league/cup exact opening unresolved; no invented snapshots. Block86: row138 required, rows291/401 post-cutoff; no new source fields. Block87: rows359/260 active; rows206/328/212/331 post-cutoff. No new source fields. Block88: row269 active; rows382/272/214/274/262 post-cutoff; rows333/383/385/375 preliminary boundaries unresolved. Block89: rows202/247/362/377 published openings after cutoff, row326 earliest cup date unresolved; row264 existing no-domestic-league fact not new, unchanged. No new initial snapshots. Block90: enriched existing active rows37,148,381; no new required package. ALG league 184 pre-cutoff results and computed totals, cup 26 additional scores and two awards; MAR cup15 scores and pending FAR–Stade Marocain tie. No double count. Block91: Egypt Cup first prelim Aug24–25 excludes row349. RSA 1996 separate transition cup is active historical unmapped candidate, no snapshot or counted row; Ghana historical first date unresolved. RSA cup dates uncertain. Block92: Japan historic league rows58/59 enriched 168 scores; row372 added for prefectural qualifying state only; row371 postcutoff. Historical Emperor regional start not established. Block93: two existing packages261/341 enriched, no new active rows. Taiwan leagues308/309 after cutoff, 1996 league/cup dates and 2026 cup actual edition unresolved. Block94: IRN row255 adds carryover; 10 post-cutoff starts; three cup rows unresolved. Indian Federation Cup June29 1996 already-known unmapped candidate documented separately, no duplicate count. Block95: El Salvador cup active, 52 pre-cutoff scores and QF pairs. Six league starts after cutoff, CRC cup suspended. SUR prior cup ended before cutoff, current cup opening unknown. Parent playoff specs not separate packages. Block96: six modern regional league partial packages added; NZL June27–28 standings, AUS June results. Historical regional identity/date applicability remains unresolved, no unsupported initial snapshots. Block97: 13 senior Brazilian state editions completed in March, no new active modern cutoff packages; 1996 Alagoano observed active and unmapped, separate pending inventory candidate. Pernambuco next edition first turn announcement not a played June match. Block104: row45 partial snapshot added; 98/98 mapped distinct packages now contain partial evidence. No new applicability or closure claim. Block105: row88 URU1996 tier2 active by June4, adds one distinct partial package; seven playoff technical phases reference parents, no duplicate July state. Block106: OFC WCQ row99 starts 1996-09-16; not applicable at initial cutoff. Separate Nations Cup not duplicated. SLV lower tiers remain undetermined. No new snapshot.",
+  "note": "Block70 expands previous 59 distinct working packages to 60 (19 historical, 41 modern), after independently identifying pre-cutoff KNVB Beker 1996/97 row161. Alias 321/423 still counted once, separate PER row392 outside prior working denominator remains pending final census. Every working package partial only; no completion claim. France cup rows155/357 earliest regional/overseas start remains unknown. Block71: earliest 1996/97 Belgian qualifying rounds and Scottish separate qualifying cup applicability unresolved; June 2026 draws do not equal already played games. Block72: Swiss cup 1996/97 and 2026/27 principal rounds start August; earlier separate regional qualification status not established, no July snapshot or exclusion asserted. Block73: first-round dates of GRE/TUR 1996/97 cups not established; no July snapshot or exclusion asserted. Block74 expands working packages from60 to61 (20 historic,41 modern) due to Polish Cup row135 preliminary in June 1996. Danish early cup regional/first-round dates unresolved; modern Polish prior regional winners are access evidence, not current central cup scores. Block75: Czech historical cup first-round date unresolved; second round Aug4 established, no unsupported July exclusion. Block76: HUN historical cup early rounds undated, current main cup August; ROU historical central cup October, modern regional phase July8; earlier county/regional qualification membership and dates unresolved. No unsupported cutoff exclusion for four cup rows. Block77: league rows 6,219,225 first fixture after cutoff; no redundant initial-state placeholder. Bulgaria historical league first date, both historical cups and both modern regional/county qualification boundaries remain unresolved. Row453 is a phase of row219, not another July package. Croatian county nominations by June30 concern access, not automatically played current national-stage fixtures. Block78: five additional league/cup exclusions (30,36,302,306,410); 1996/97 Slovenian league opening from secondary season account, Serbian opening from dated match archive. 2026/27 Slovenian cup federation announcement confirms regional opening in August; Serbian cup national preliminary September2, earlier regional access still unscreened. Historical cup earliest phases unresolved (141,147). Block79: leagues16/34/257/314 and cups145/417 excluded from initial state; historical Ukraine cup earliest date based on secondary archive excerpt only. Israeli cup rows128/370 early lower-tier phases still unresolved. Do not infer played matches from a draw. Block80: seven further post-cutoff exclusions (7,112,118,200,226,324,345); Albanian 1996/97 cup month is secondary evidence; Albanian historical league exact opening remains unknown. Separate Cypriot lower-tier cup is not a preliminary phase of the senior cup. Block81: seven post-cutoff exclusions (20,266,273,301,379,384,405); historical LUX/SMR league and LUX/MLT/SMR cup earliest phase dates unresolved. SMR cup final July3 1997 is after administrative year end, not evidence of a match before initial July1 1996. Parent phase specs 467/478 not separate editions. Block82: five additional exclusions (277,387,319,421 postcutoff; 422 removed from 2026/27 calendar, exact technical slot candidate). Historical NIR/WAL/IRL earliest league and cup dates and NIR 2026/27 league cup preliminary dates unresolved. IRL 2026 cup row366 all 11 played scores and 1 walkover corroborated; administrative awarded3–0 separate from played goals, all 12 qualifiers named in June3 draw. No extra cutoff package or premature completeness claim. IRL league row254 113 matches preserved; independent standings at cutoff unavailable. Phase rows469/482 depend on parent leagues. Block83: 4 additional required partial packages rows126,134,355,368, 179 dated results total. 356/369 completed before cutoff (archive only, no active July state). 123 historical FIN Cup first match unknown. NOR cup R1 Ranheim score conflict retained with alternative; final check deferred. Block84: active FRO cup row358 expands working denominator65→66; Swedish 2026 league 79 observed pre-cutoff matches, round10 one rescheduled September. Historical EST cup/league and SWE cup earliest dates unresolved, deferred final check. Block85: BLR/LTU/LVA cups rows334/378/380 active before July; 122 result records (38+52+32), scope69. BLR historical cup starts July20; previous edition archive only. LVA previous cup final June17/18 archive only, next edition opening unresolved. LTU historical league/cup exact opening unresolved; no invented snapshots. Block86: row138 required, rows291/401 post-cutoff; no new source fields. Block87: rows359/260 active; rows206/328/212/331 post-cutoff. No new source fields. Block88: row269 active; rows382/272/214/274/262 post-cutoff; rows333/383/385/375 preliminary boundaries unresolved. Block89: rows202/247/362/377 published openings after cutoff, row326 earliest cup date unresolved; row264 existing no-domestic-league fact not new, unchanged. No new initial snapshots. Block90: enriched existing active rows37,148,381; no new required package. ALG league 184 pre-cutoff results and computed totals, cup 26 additional scores and two awards; MAR cup15 scores and pending FAR–Stade Marocain tie. No double count. Block91: Egypt Cup first prelim Aug24–25 excludes row349. RSA 1996 separate transition cup is active historical unmapped candidate, no snapshot or counted row; Ghana historical first date unresolved. RSA cup dates uncertain. Block92: Japan historic league rows58/59 enriched 168 scores; row372 added for prefectural qualifying state only; row371 postcutoff. Historical Emperor regional start not established. Block93: two existing packages261/341 enriched, no new active rows. Taiwan leagues308/309 after cutoff, 1996 league/cup dates and 2026 cup actual edition unresolved. Block94: IRN row255 adds carryover; 10 post-cutoff starts; three cup rows unresolved. Indian Federation Cup June29 1996 already-known unmapped candidate documented separately, no duplicate count. Block95: El Salvador cup active, 52 pre-cutoff scores and QF pairs. Six league starts after cutoff, CRC cup suspended. SUR prior cup ended before cutoff, current cup opening unknown. Parent playoff specs not separate packages. Block96: six modern regional league partial packages added; NZL June27–28 standings, AUS June results. Historical regional identity/date applicability remains unresolved, no unsupported initial snapshots. Block97: 13 senior Brazilian state editions completed in March, no new active modern cutoff packages; 1996 Alagoano observed active and unmapped, separate pending inventory candidate. Pernambuco next edition first turn announcement not a played June match. Block104: row45 partial snapshot added; 98/98 mapped distinct packages now contain partial evidence. No new applicability or closure claim. Block105: row88 URU1996 tier2 active by June4, adds one distinct partial package; seven playoff technical phases reference parents, no duplicate July state. Block106: OFC WCQ row99 starts 1996-09-16; not applicable at initial cutoff. Separate Nations Cup not duplicated. SLV lower tiers remain undetermined. No new snapshot. Block107: OFC Champions League row433 qualifying stage already played Jan31–Feb6, 100th distinct mapped required package; 99 remain partial, one pending extraction. Liechtenstein row264 not applicable. OFC Pro League separate candidate not mapped; do not attach its results to row433. Block108: row433 qualifying results/table/draw extracted; 100/100 mapped distinct partial. Block109: rows152/352/395/403 start after initial July1; central exclusion only. Historical Scottish row159 R1 exact date not established; no empty or invented snapshot. Block110: six required and partial rows221/339/340/342/348/420 (109 dated scores), mapped provisional 106/106, modern72/72. Bolivia320 and Uruguay418 start after cutoff; 335 possible Bolivia alias kept unresolved, no duplicate snapshot. Block111: no new active July state; SUR304/CRC343/WAL422 exclusions already recorded. ITA323 candidate real Serie C Cup starts August, native mapping pending, not an independent July state. IND365 tentative April 2027 Federation Cup only; Kosovo375 and SUR408 previous editions completed, new edition earliest date unresolved. ENG153/154 and BOL335 reference candidates only.",
   "notApplicableEvidence": {
     "2": {
       "edition": "1996/97",
@@ -635,6 +649,7 @@
       "edition": "1996/97",
       "start": "1996-08-31"
     },
+    "152": "First played 1996-08-20",
     "156": {
       "edition": "1996/97",
       "start": "1996-08-09"
@@ -921,6 +936,10 @@
       "edition": "2026/27",
       "firstMatch": "2026-08-13"
     },
+    "264": {
+      "scope": "No domestic league exists; clubs play in Swiss pyramid. No sporting snapshot for this technical row.",
+      "status": "NOT_APPLICABLE_NO_DOMESTIC_LEAGUE"
+    },
     "266": {
       "edition": "2026/27",
       "observedOpening": "2026-08-01"
@@ -1119,6 +1138,7 @@
         "2026-08-02"
       ]
     },
+    "320": "Reported first match Aug18; announced Aug19, both after July1",
     "322": {
       "edition": "2026/27",
       "nominalStart": "2026-08-09"
@@ -1181,6 +1201,7 @@
       "edition": "2026/27",
       "start": "2026-08-08"
     },
+    "352": "First preliminary played 2026-08-01; June draw is not a match",
     "353": {
       "edition": "2026/27",
       "start": "2026-09-26"
@@ -1281,6 +1302,7 @@
         "2026-09-06"
       ]
     },
+    "395": "First scheduled QF 2026-10-27",
     "397": {
       "edition": "2026/27",
       "firstMatch": "2026-09-20"
@@ -1297,6 +1319,7 @@
       "edition": "2026/27",
       "firstMatchDate": "2026-08-01"
     },
+    "403": "Group stage starts 2026-07-11",
     "405": {
       "edition": "2026/27",
       "firstLeg": "2026-09-09"
@@ -1338,6 +1361,7 @@
         "2026-08-12"
       ]
     },
+    "418": "AUF announced first preliminary Aug4, professional stage Aug26",
     "421": {
       "edition": "2026/27",
       "firstQualifyingRound": [
@@ -2365,13 +2389,69 @@
         "dateEvidence": "First round results published 1996-06-04",
         "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
         "snapshot": "5 first-round scores with report-date bound, 1 postponed, 12 roster names; exact dates/remaining rounds pending."
+      },
+      {
+        "row": 433,
+        "world": "2627",
+        "competition": "OFC Men's Champions League",
+        "dateEvidence": "2026-01-31 to 2026-02-06 qualifying tournament; main stage August9–22",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "Six dated preliminary results, four published table rows, winner and eight main entrants drawn Feb24; club keys and full per-match date reconciliation pending."
+      },
+      {
+        "row": 221,
+        "world": "2627",
+        "competition": "Liga de Primera",
+        "dateEvidence": "2026-01-30",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "10 dated league scores, partial"
+      },
+      {
+        "row": 339,
+        "world": "2627",
+        "competition": "Copa Chile",
+        "dateEvidence": "2026-01-30",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "1 dated group score, partial"
+      },
+      {
+        "row": 340,
+        "world": "2627",
+        "competition": "Copa de la Liga",
+        "dateEvidence": "2026-03-20",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "48 dated group results,16 computed rows,4 qualifiers; KO dates only"
+      },
+      {
+        "row": 342,
+        "world": "2627",
+        "competition": "Copa BetPlay DIMAYOR",
+        "dateEvidence": "May 2026",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "8 dated phase1A R5 scores, partial"
+      },
+      {
+        "row": 348,
+        "world": "2627",
+        "competition": "Copa Ecuador",
+        "dateEvidence": "2026-03-28",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "33 dated scores, 14 of 16 R32 ties completed"
+      },
+      {
+        "row": 420,
+        "world": "2627",
+        "competition": "Copa Venezuela",
+        "dateEvidence": "2026-06-24",
+        "status": "REQUIRED_BY_DATE_OR_SEASON_STRUCTURE_PARTIAL",
+        "snapshot": "9 dated group-opening scores; one postponed not a result"
       }
     ],
     "byWorld": {
       "2627": {
-        "rows": 66,
-        "distinctWorkingCount": 65,
-        "partialSnapshotRows": 66,
+        "rows": 73,
+        "distinctWorkingCount": 72,
+        "partialSnapshotRows": 73,
         "additionalDateEvidenceRows": 0
       },
       "9697": {
@@ -2381,15 +2461,15 @@
         "additionalDateEvidenceRows": 0
       }
     },
-    "totalRequiredRows": 100,
-    "distinctWorkingCount": 99,
+    "totalRequiredRows": 107,
+    "distinctWorkingCount": 106,
     "aliasDeduction": "321/423 Libertadores treated as one research package pending identity reconciliation",
     "scope": "Includes active editions, cross-cutoff preliminaries and completed phases within an annual aggregate. Does not count standalone completed editions, technical split/playoff specifications, or unverified candidate rows. Historical qualifiers UEFA: real matches pre-cutoff but 9 actual groups vs 8 OG rows; separate unresolved mapping, not included in lower bound.",
     "unresolvedExamples": [
       "9697: BOL CHI ECU PAR PER URU calendar-year leagues, domestic cups; UEFA WCQ and Intertoto (source available, mapping unresolved); AUS/NZL regional slots; COL prior-edition carryover",
       "2627: ARG second division parallel groups, NZL/AUS regional slots, KAZ league, additional South American annual leagues, national cups and historical competition carryovers"
     ],
-    "note": "This is applicability only, not verified sporting snapshot or final global count. Some windows are published or archived, actual individual match evidence remains pending. Prior partial counters unchanged. Block83: four previously uncensused active cups, two each world; all partial. Completed standalone league cups are archive only. Block84: FRO national cup active at initial cutoff; 16 matches and finalists. SWE 23 additional matches, no new package. Block85: three modern national cups expand cutoff scope; 122 results, some date windows and administrative conflicts retained. Block86: Russian Cup 1996/97 already active April17; 34 scores and 16 round5 qualifiers. Modern RPL and cup start after cutoff. Block87: GEO cup and KAZ league add two partial packages; 106 observed score records, including unresolved GEO preliminary count. Block88: Moldova league active June27–28, four corroborated scores; five post-cutoff exclusions. Four national cup earliest preliminary boundaries not verified. Block89 no new required package; four exclusions and one explicit unknown. Block90: enriched three already counted packages, 73 distinct unchanged. Block91: no additional mapped active package; unmapped RSA 1996 transition cup candidate kept separate. Block92: 74 distinct provisional packages, Japan Emperor's Cup regional qualifying state adds one; 224 total historic J.League/JFL scores across blocks59/92. Block93: 115 new pre-cutoff scores in existing packages, working denominator74 unchanged. Block94: 75 distinct provisional mapped packages; Iran previous league table and pending promotion playoff. Block95: 76 distinct provisional packages. Block96: 82 distinct provisional mapped packages, six additional modern regional leagues. Block97: 82 provisional mapped packages unchanged; historical Alagoano unmapped. Block99: three newly mapped annual-league partial packages; historical URU tier2 cutoff unresolved; no independent phase snapshots. Working distinct denominator 85. Block100: two new mapped national-team cutoff packages, OFC1996 and Asian Cup1996 qualifying; eight UEFA WC qualification results preserved once as unmapped dataset; 87 mapped distinct partial packages. Block101: Primera Nacional parent204 new mapped active annual competition, 18 dated opening-round results; 88 distinct partial packages. No separate playoff or group snapshot. Block102: BOL/CHI/ECU/PAR 1996 add four partial snapshots; PER1996 confirmed before cutoff but scores not extracted. 93 mapped distinct required, 92 partial. No El Salvador successor snapshot, starts Aug28. Block103: ARG prior-edition carryover rows60/61, ARG Primera B205, URU Segunda316 and VEN318; five distinct partial packages. BRA1996 and VEN1996/97 current edition starts after cutoff; prior carryover not certified. Block104: PER1996 partial scores now extracted; all 98 mapped distinct packages have partial evidence. Census remains provisional. Block105: 99 distinct mapped partial packages, 34 historic, 65 modern."
+    "note": "This is applicability only, not verified sporting snapshot or final global count. Some windows are published or archived, actual individual match evidence remains pending. Prior partial counters unchanged. Block83: four previously uncensused active cups, two each world; all partial. Completed standalone league cups are archive only. Block84: FRO national cup active at initial cutoff; 16 matches and finalists. SWE 23 additional matches, no new package. Block85: three modern national cups expand cutoff scope; 122 results, some date windows and administrative conflicts retained. Block86: Russian Cup 1996/97 already active April17; 34 scores and 16 round5 qualifiers. Modern RPL and cup start after cutoff. Block87: GEO cup and KAZ league add two partial packages; 106 observed score records, including unresolved GEO preliminary count. Block88: Moldova league active June27–28, four corroborated scores; five post-cutoff exclusions. Four national cup earliest preliminary boundaries not verified. Block89 no new required package; four exclusions and one explicit unknown. Block90: enriched three already counted packages, 73 distinct unchanged. Block91: no additional mapped active package; unmapped RSA 1996 transition cup candidate kept separate. Block92: 74 distinct provisional packages, Japan Emperor's Cup regional qualifying state adds one; 224 total historic J.League/JFL scores across blocks59/92. Block93: 115 new pre-cutoff scores in existing packages, working denominator74 unchanged. Block94: 75 distinct provisional mapped packages; Iran previous league table and pending promotion playoff. Block95: 76 distinct provisional packages. Block96: 82 distinct provisional mapped packages, six additional modern regional leagues. Block97: 82 provisional mapped packages unchanged; historical Alagoano unmapped. Block99: three newly mapped annual-league partial packages; historical URU tier2 cutoff unresolved; no independent phase snapshots. Working distinct denominator 85. Block100: two new mapped national-team cutoff packages, OFC1996 and Asian Cup1996 qualifying; eight UEFA WC qualification results preserved once as unmapped dataset; 87 mapped distinct partial packages. Block101: Primera Nacional parent204 new mapped active annual competition, 18 dated opening-round results; 88 distinct partial packages. No separate playoff or group snapshot. Block102: BOL/CHI/ECU/PAR 1996 add four partial snapshots; PER1996 confirmed before cutoff but scores not extracted. 93 mapped distinct required, 92 partial. No El Salvador successor snapshot, starts Aug28. Block103: ARG prior-edition carryover rows60/61, ARG Primera B205, URU Segunda316 and VEN318; five distinct partial packages. BRA1996 and VEN1996/97 current edition starts after cutoff; prior carryover not certified. Block104: PER1996 partial scores now extracted; all 98 mapped distinct packages have partial evidence. Census remains provisional. Block105: 99 distinct mapped partial packages, 34 historic, 65 modern. Block107: 100 distinct required, 99 partial; 433 date-only evidence. Block108: 100/100 distinct partial, modern66/66, historical34/34. Block110: six new distinct South American 2026 packages, 109 dated scores, all partial; two postcutoff exclusions. Bolivia duplicate slot candidate not counted."
   },
   "additionalRequiredCandidates": [
     {
@@ -2501,6 +2581,10 @@
         88
       ],
       "status": "REFER_PARENT_EDITION_ONLY_NO_INDEPENDENT_SNAPSHOT"
+    },
+    "423": {
+      "parentLeagueRow": 321,
+      "status": "ALIAS_CANDIDATE_NO_DUPLICATE_SNAPSHOT"
     },
     "448": {
       "parentLeagueRows": [
@@ -2767,5 +2851,9 @@
       ],
       "status": "SUCCESSOR_STARTS_AFTER_CUTOFF_IDENTITY_MAPPING_PENDING"
     }
+  },
+  "conditionalExclusions": {
+    "323": "If mapping to Coppa Italia Serie C is verified, first round in August 2026; no July snapshot.",
+    "365": "Tentative Federation Cup 20 April 2027; identity and official calendar unresolved."
   }
 }

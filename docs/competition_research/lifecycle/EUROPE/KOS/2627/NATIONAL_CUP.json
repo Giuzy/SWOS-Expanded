@@ -11,7 +11,9 @@
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "observedEdition": "2025/26",
+      "note": "Previous edition completed; 2026/27 R32 draw announced. First edition date and continuity of detailed rules unknown."
     }
   }
 ]

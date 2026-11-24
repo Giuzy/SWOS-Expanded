@@ -12,8 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "NOT_APPLICABLE_NO_DOMESTIC_LEAGUE",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -30,6 +29,16 @@
       "source": null,
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block107Research": {
+      "status": "NOT_APPLICABLE_NO_DOMESTIC_LEAGUE",
+      "rules": {
+        "domesticLeague": false,
+        "seniorClubs": 7,
+        "leagueSystem": "Switzerland",
+        "nationalCompetitionRef": 377
+      },
+      "scope": "UEFA confirms no domestic league; not a sporting competition to generate. Existing technical row retained, no runtime change."
     }
   }
 ]

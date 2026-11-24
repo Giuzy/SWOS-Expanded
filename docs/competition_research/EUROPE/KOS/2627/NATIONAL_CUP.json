@@ -10,9 +10,9 @@
     "candidateSources": [
       "0e6407581e3d3a794597ca5dcb5becd00458ee68"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -41,6 +41,28 @@
         "priorEditionPreliminary": "lower tiers knockout until two remain; 2026/27 continuation NOT verified"
       },
       "scope": "FFK announcement reported November21; actual first match and current preliminary access unresolved."
+    },
+    "block111Research": {
+      "edition": "2025/26",
+      "rules": {
+        "preliminary": "Second and Third League clubs play knockout until two qualify",
+        "round32": {
+          "tier1": 10,
+          "tier2": 20,
+          "preliminary": 2
+        },
+        "round32ThroughQF": "single match",
+        "semiFinalLegs": 2,
+        "finalLegs": 1
+      },
+      "dateEvidence": {
+        "semiFinalLegs": [
+          "2026-04-08",
+          "2026-04-22"
+        ]
+      },
+      "limits": "Prior edition only. 2026/27 R32 draw already recorded in block88; access and preliminary dates still not confirmed.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

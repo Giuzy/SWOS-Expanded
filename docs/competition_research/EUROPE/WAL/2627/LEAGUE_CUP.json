@@ -12,7 +12,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "NOT_APPLICABLE_EDITION_REMOVED_MAPPING_PENDING",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -45,6 +45,11 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Previously recorded lifecycle; generic native slot identity remains candidate, do not generate either cup in 2026/27; no permanent abolition inferred."
+    },
+    "block111Research": {
+      "ref": "sportRuleEvidence82 and lifecycle",
+      "status": "NOT_APPLICABLE_EDITION_REMOVED_MAPPING_PENDING",
+      "scope": "Both candidate Welsh cups removed in 2026/27; no new sporting finding, future editions and slot identity unresolved."
     }
   }
 ]

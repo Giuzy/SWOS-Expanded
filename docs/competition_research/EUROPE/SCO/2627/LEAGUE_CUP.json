@@ -11,10 +11,9 @@
       "f9844889682d8c477574e73fd7355c4450034387",
       "b2a8e30a591a9d2b630000a51dc8c7a306307b42"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -31,6 +30,106 @@
       "source": "f9844889682d8c477574e73fd7355c4450034387",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block109Research": {
+      "edition": "2026/27",
+      "sponsoredName": "Premier Sports Cup",
+      "rules": {
+        "participants": 45,
+        "groupStage": {
+          "entrants": 40,
+          "domesticNonEurope": 37,
+          "nonLeagueInvites": 3,
+          "groups": 8,
+          "clubsPerGroup": 5,
+          "gamesPerClub": 4,
+          "home": 2,
+          "away": 2,
+          "totalMatches": 80,
+          "regionalised": false,
+          "points": {
+            "win": 3,
+            "shootoutWin": 2,
+            "shootoutLoss": 1,
+            "loss": 0
+          },
+          "drawAfter90": "penalties",
+          "ranking": [
+            "goal difference",
+            "goals scored",
+            "away goals scored",
+            "wins",
+            "away wins",
+            "head-to-head",
+            "drawing of lots"
+          ],
+          "groupWinners": 8,
+          "bestRunnersUp": 3
+        },
+        "last16": {
+          "groupQualifiers": 11,
+          "europeanDirect": 5,
+          "seededEuropean": 5,
+          "seededBestGroupWinners": 3
+        },
+        "knockout": {
+          "singleLeg": true,
+          "drawAfter90": "extra time then penalties"
+        }
+      },
+      "editionSpecificEntrants": {
+        "nonLeague": [
+          "Linlithgow Rose",
+          "Brora Rangers",
+          "Brechin City"
+        ],
+        "europeanByes": [
+          "Celtic",
+          "Heart of Midlothian",
+          "Rangers",
+          "Motherwell",
+          "Hibernian"
+        ]
+      },
+      "dateEvidence": {
+        "groupMatchdayWindows": [
+          [
+            "2026-07-11",
+            "2026-07-12"
+          ],
+          [
+            "2026-07-14",
+            "2026-07-15"
+          ],
+          [
+            "2026-07-18",
+            "2026-07-19"
+          ],
+          [
+            "2026-07-21",
+            "2026-07-22"
+          ],
+          [
+            "2026-07-25",
+            "2026-07-26"
+          ]
+        ],
+        "last16": [
+          "2026-08-15",
+          "2026-08-16"
+        ],
+        "quarterFinal": [
+          "2026-09-12",
+          "2026-09-13"
+        ],
+        "semiFinal": [
+          "2026-10-31",
+          "2026-11-01"
+        ],
+        "final": "2026-12-13"
+      },
+      "limits": "Exact fixtures and team keys not reconciled. Dynamic access.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

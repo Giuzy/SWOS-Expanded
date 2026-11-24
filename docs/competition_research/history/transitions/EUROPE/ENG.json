@@ -97,5 +97,35 @@
       "qualifyingReplaysRetained": true,
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 780,
+    "value": {
+      "competition": "ENG League Cup",
+      "firstEdition": "1997/98",
+      "operation": "CHANGE_REPLAY",
+      "rowRefs": [
+        152,
+        352
+      ],
+      "note": "1996/97 last single-leg replay and last final replay; subsequent single-leg ties no replay. Exact transition rulebook pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block109 edition-level sporting observation; not complete regulation or runtime certification."
+    }
+  },
+  {
+    "index": 781,
+    "value": {
+      "competition": "ENG League Cup",
+      "firstEdition": "2018/19",
+      "operation": "CHANGE_TIE_BREAK",
+      "rowRefs": [
+        152,
+        352
+      ],
+      "note": "Extra time removed from rounds other than final at introduction; away-goal rule removed for semifinal. Later semifinal extra-time rules must be dated separately.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block109 edition-level sporting observation; not complete regulation or runtime certification."
+    }
   }
 ]

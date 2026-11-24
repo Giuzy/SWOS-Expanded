@@ -10,10 +10,10 @@
     "candidateSources": [
       "8fd63ed2645ca1b0f9efd797a115cf024b3db48e"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
+      "historyAtStart": "PARTIAL_PRE_CUTOFF_EVIDENCE",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -30,6 +30,121 @@
       "source": "86ff28a14fb31b752fb556eb8244122ba04388ed",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block110Research": {
+      "edition": "2026",
+      "observedName": "Copa Venezuela",
+      "rules": {
+        "teams": 28,
+        "groups": {
+          "entrants": 20,
+          "groups": 5,
+          "clubsPerGroup": 4,
+          "access": {
+            "tier2": 14,
+            "tier1NonQuadrangular": 6
+          },
+          "doubleRoundRobin": true,
+          "gamesPerClub": 6,
+          "qualifiers": {
+            "winners": 5,
+            "bestRunnersUp": 3
+          }
+        },
+        "knockout": {
+          "round16": 16,
+          "groupQualifiers": 8,
+          "tier1Quadrangular": 8,
+          "legs": 2,
+          "stages": [
+            "R16",
+            "QF",
+            "SF",
+            "Final"
+          ]
+        }
+      },
+      "dateEvidence": {
+        "firstPlayed": "2026-06-24"
+      },
+      "cutoff": {
+        "date": "2026-06-30",
+        "status": "PARTIAL",
+        "scores": [
+          [
+            "2026-06-24",
+            "Mineros de Guayana",
+            "Bolívar SC",
+            1,
+            1
+          ],
+          [
+            "2026-06-24",
+            "Real Frontera",
+            "Atlético Barinas",
+            0,
+            1
+          ],
+          [
+            "2026-06-24",
+            "Rayo Zuliano",
+            "Trujillanos",
+            0,
+            0
+          ],
+          [
+            "2026-06-24",
+            "Caracas",
+            "Aragua",
+            1,
+            1
+          ],
+          [
+            "2026-06-24",
+            "Ureña",
+            "Deportivo Lara",
+            1,
+            0
+          ],
+          [
+            "2026-06-24",
+            "Fundación Lara Deportiva",
+            "Yaracuyanos",
+            0,
+            4
+          ],
+          [
+            "2026-06-24",
+            "Anzoátegui",
+            "Atlético Ávila",
+            3,
+            1
+          ],
+          [
+            "2026-06-24",
+            "Zamora",
+            "Atlético El Vigía",
+            6,
+            1
+          ],
+          [
+            "2026-06-24",
+            "Dynamo Puerto",
+            "Monagas",
+            0,
+            4
+          ]
+        ],
+        "pendingOrPostponed": [
+          [
+            "Petare",
+            "Marítimo"
+          ]
+        ],
+        "limits": "Nine opening-round scores, Dynamo date crosschecked with local-day report; postponed match not a 0-0. Later scores excluded; full group state pending."
+      },
+      "limits": "Actual later calendar differs from announced format; no assumed future schedule.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

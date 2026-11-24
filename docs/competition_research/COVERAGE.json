@@ -1,16 +1,16 @@
 {
   "denominator": 533,
   "namesWithEvidenceOrCandidate": 433,
-  "namesSourceSupportedPartial": 405,
+  "namesSourceSupportedPartial": 409,
   "nameHistoryComplete": 2,
-  "rulesPartial": 508,
-  "lifecyclePartial": 191,
-  "cutoffPartial": 100,
+  "rulesPartial": 499,
+  "lifecyclePartial": 207,
+  "cutoffPartial": 107,
   "datesReconciled": 0,
   "participantKeysReconciled": 0,
   "matchRulesCertified": 0,
-  "historicalTransitions": 772,
-  "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material. July 1 coverage is scoped to necessary initial historical state only; do not compute against global denominator. Report partial active rows separately from archive candidates and do not count merely available sources or future editions. User confirmed provisional working denominator 59 on 24/11/2026; expanded to 60 at block70 after discovering KNVB Beker preliminary matches in June 1996; expanded again to 61 at block74 (Polish Cup preliminary in June 1996); display as provisional until final census. No source-link coverage dimension; prioritize sporting fields. Global source-link cleanup suspended by user; no new link fields in subsequent research. Block83: expanded July working denominator 61→65 from four active cups. User requests defer detailed gap reconciliation to final check. Block84: July denominator66, 39 additional pre-cutoff scores; unresolved earliest dates deferred. Block85: July denominator69, 122 additional result records; detailed gap audit deferred. Block86: July denominator70; 34 new pre-cutoff cup scores, no new links. Block87: 106 observed score records, two new partial cutoff packages; no source URLs. Lifecycle conservative +3 formerly unreconciled rows. Block88: four independently corroborated scores, nine partial rules, seven names, three transitions; no new source URL fields. Block89: four supported names, five partial sporting rows, two newly partial lifecycle rows, five transitions. No new source URLs. Existing LIE no-domestic-league fact not counted. Block90: 225 additional observed scores on existing July packages (184 ALG league,26 ALG cup,15 MAR cup), two awards separately, three newly partial lifecycle rows, seven transition records. No new source URL fields; unchanged partial row counts. Block91: existing partial rows enriched, five newly partial lifecycle rows and four historical transitions; no new supported-name/rule count. Historical RSA transitional cup active but 9697 identity unmapped; outside provisional denominator pending inventory audit. No new URL fields. Block92: 168 additional historic scores, one new name, two partial rules, eight lifecycle rows, 19 transitions; one new partial qualification-only cutoff package. No new URL fields. Block93: 115 new scores, 3 supported names incl Taiwan cup observed2025 (2026 edition unknown), one previously unnamed row, 3 partial rules, 5 lifecycle rows,10 historical transitions. No new URL fields. Block94: 8 newly supported names,11 partial rules,10 newly partial lifecycle rows,28 transitions,2 dated results and16-row table, one additional mapped cutoff package. No new URL fields. Block95: nine supported names, eleven partial rules, ten new lifecycle rows, thirteen transition observations, 52 pre-cutoff scores and 8 QF qualifiers; no new URLs. Block96: three supported names, five new partial rules and lifecycle rows, eight transition observations, 37 pre-cutoff scores (29 date-level, eight round-level) and 32 published table rows; no new URL fields. Block97: 13 newly supported names, 13 partial rules, 13 newly partial lifecycle rows, 28 transition observations, 13 completed state editions; no new active cutoff package, no new URL fields. Block98: 16 technical split rows linked to existing sporting evidence; three additional phase rule/date findings (GRE ROU SRB). No new independent names, lifecycle events, historical transition records, or July packages. Phase reference coverage tracked separately; not independent competitions. Block99: 5 parent names/rules/lifecycle rows, 19 additional partial phase rows, 3 Scottish false-positive split specs classified not applicable, six historical transitions, 54 new dated scores, 36 published table rows and 16 computed group rows; 3 distinct cutoff packages. No new URL fields. Existing 533 working denominator retained; not-applicable technical rows separate, final denominator review deferred. Block100: five new parent names/rule rows, eight lifecycle rows, four new historical/later-edition observations (seven existing history records enriched), 54 dated pre-cutoff scores, two mapped July packages and one unmapped UEFA qualifying dataset. Two technical viewer aliases and 16 unmapped group slots not counted as new independent rules or names. No new URL fields; working denominator retained. Full dates, keys and match rules not certified. Block101: all 35 playoff/playout specs screened, 20 newly partial; Primera Nacional parent204 and parallel522 add two additional partial rule rows. One new parent lifecycle row, one new historical observation, 18 dated scores, one mapped active July package. Existing names unchanged. No new URL fields; 40 phase index shards synchronized without independent naming/lifecycle counts. Existing 533 working denominator retained. Full dates/keys/match rules not certified. Block102: five historical names/rules/lifecycle rows, two parallel specs, eight new historical observations (five change/merge, three format observations), four new partial cutoff states and one additional known-required state lacking scores. 17 observed scores (7 individually dated, 10 windows), 15 published table rows. All four parallel specs screened. SLV merger mapped only as candidate, no duplicate parent slots. Initial explicit anomaly register15, not comprehensive. Closure defined strictly, zero certified. No new URL fields or runtime. Block103: seven newly supported names, rules and lifecycle rows; 18 transition observations (13 changes/exceptions, five observed formats), 130 observed pre-cutoff score records (106 dated, including disputed and interrupted records, 24 without individual dates), 58 table rows. Five additional partial July packages, six newly registered anomalies. No new URL fields, no runtime. Block104: existing PER historical row enriched, 29 dated score records (one disputed date) and 10 ordered-window candidates, roster16 and pre-Liguilla access detail. One new partial mapped cutoff package, no new names/rule/lifecycle count or historical transitions; one new date anomaly. No new URLs. Block105: 7 historical playoff rows enriched with parent refs/descriptive labels/calendar and history; not independently counted as names/rules/lifecycle. Seven new historical observations/transitions; URU1996 tier2 five round-window scores, one postponed, roster12, one newly mapped required partial cutoff. One existing technical vs sporting discrepancy explicitly registered. No new URLs. Block106: two previously candidate historical SLV labels supported; three partial lifecycle rows; 13 edition/transition observations for OFC World Cup qualification 2002–2026 and SLV 1996–2015/16; existing access/merger references reused. Detailed 1998 OFC stage/calendar evidence, no cutoff needed. No new independent rule rows, source URLs or July packages. Screenshot of SLV 2002 regulation unavailable; extracted text not proof of season implementation.",
+  "historicalTransitions": 793,
+  "policy": "User 24/11: after every block show concise horizontal bars for all research dimensions incl 1996–2026 transitions, no long report. Unknown total historical events/fixtures means no percentage. Zero reconciliation does not mean zero source material. July 1 coverage is scoped to necessary initial historical state only; do not compute against global denominator. Report partial active rows separately from archive candidates and do not count merely available sources or future editions. User confirmed provisional working denominator 59 on 24/11/2026; expanded to 60 at block70 after discovering KNVB Beker preliminary matches in June 1996; expanded again to 61 at block74 (Polish Cup preliminary in June 1996); display as provisional until final census. No source-link coverage dimension; prioritize sporting fields. Global source-link cleanup suspended by user; no new link fields in subsequent research. Block83: expanded July working denominator 61→65 from four active cups. User requests defer detailed gap reconciliation to final check. Block84: July denominator66, 39 additional pre-cutoff scores; unresolved earliest dates deferred. Block85: July denominator69, 122 additional result records; detailed gap audit deferred. Block86: July denominator70; 34 new pre-cutoff cup scores, no new links. Block87: 106 observed score records, two new partial cutoff packages; no source URLs. Lifecycle conservative +3 formerly unreconciled rows. Block88: four independently corroborated scores, nine partial rules, seven names, three transitions; no new source URL fields. Block89: four supported names, five partial sporting rows, two newly partial lifecycle rows, five transitions. No new source URLs. Existing LIE no-domestic-league fact not counted. Block90: 225 additional observed scores on existing July packages (184 ALG league,26 ALG cup,15 MAR cup), two awards separately, three newly partial lifecycle rows, seven transition records. No new source URL fields; unchanged partial row counts. Block91: existing partial rows enriched, five newly partial lifecycle rows and four historical transitions; no new supported-name/rule count. Historical RSA transitional cup active but 9697 identity unmapped; outside provisional denominator pending inventory audit. No new URL fields. Block92: 168 additional historic scores, one new name, two partial rules, eight lifecycle rows, 19 transitions; one new partial qualification-only cutoff package. No new URL fields. Block93: 115 new scores, 3 supported names incl Taiwan cup observed2025 (2026 edition unknown), one previously unnamed row, 3 partial rules, 5 lifecycle rows,10 historical transitions. No new URL fields. Block94: 8 newly supported names,11 partial rules,10 newly partial lifecycle rows,28 transitions,2 dated results and16-row table, one additional mapped cutoff package. No new URL fields. Block95: nine supported names, eleven partial rules, ten new lifecycle rows, thirteen transition observations, 52 pre-cutoff scores and 8 QF qualifiers; no new URLs. Block96: three supported names, five new partial rules and lifecycle rows, eight transition observations, 37 pre-cutoff scores (29 date-level, eight round-level) and 32 published table rows; no new URL fields. Block97: 13 newly supported names, 13 partial rules, 13 newly partial lifecycle rows, 28 transition observations, 13 completed state editions; no new active cutoff package, no new URL fields. Block98: 16 technical split rows linked to existing sporting evidence; three additional phase rule/date findings (GRE ROU SRB). No new independent names, lifecycle events, historical transition records, or July packages. Phase reference coverage tracked separately; not independent competitions. Block99: 5 parent names/rules/lifecycle rows, 19 additional partial phase rows, 3 Scottish false-positive split specs classified not applicable, six historical transitions, 54 new dated scores, 36 published table rows and 16 computed group rows; 3 distinct cutoff packages. No new URL fields. Existing 533 working denominator retained; not-applicable technical rows separate, final denominator review deferred. Block100: five new parent names/rule rows, eight lifecycle rows, four new historical/later-edition observations (seven existing history records enriched), 54 dated pre-cutoff scores, two mapped July packages and one unmapped UEFA qualifying dataset. Two technical viewer aliases and 16 unmapped group slots not counted as new independent rules or names. No new URL fields; working denominator retained. Full dates, keys and match rules not certified. Block101: all 35 playoff/playout specs screened, 20 newly partial; Primera Nacional parent204 and parallel522 add two additional partial rule rows. One new parent lifecycle row, one new historical observation, 18 dated scores, one mapped active July package. Existing names unchanged. No new URL fields; 40 phase index shards synchronized without independent naming/lifecycle counts. Existing 533 working denominator retained. Full dates/keys/match rules not certified. Block102: five historical names/rules/lifecycle rows, two parallel specs, eight new historical observations (five change/merge, three format observations), four new partial cutoff states and one additional known-required state lacking scores. 17 observed scores (7 individually dated, 10 windows), 15 published table rows. All four parallel specs screened. SLV merger mapped only as candidate, no duplicate parent slots. Initial explicit anomaly register15, not comprehensive. Closure defined strictly, zero certified. No new URL fields or runtime. Block103: seven newly supported names, rules and lifecycle rows; 18 transition observations (13 changes/exceptions, five observed formats), 130 observed pre-cutoff score records (106 dated, including disputed and interrupted records, 24 without individual dates), 58 table rows. Five additional partial July packages, six newly registered anomalies. No new URL fields, no runtime. Block104: existing PER historical row enriched, 29 dated score records (one disputed date) and 10 ordered-window candidates, roster16 and pre-Liguilla access detail. One new partial mapped cutoff package, no new names/rule/lifecycle count or historical transitions; one new date anomaly. No new URLs. Block105: 7 historical playoff rows enriched with parent refs/descriptive labels/calendar and history; not independently counted as names/rules/lifecycle. Seven new historical observations/transitions; URU1996 tier2 five round-window scores, one postponed, roster12, one newly mapped required partial cutoff. One existing technical vs sporting discrepancy explicitly registered. No new URLs. Block106: two previously candidate historical SLV labels supported; three partial lifecycle rows; 13 edition/transition observations for OFC World Cup qualification 2002–2026 and SLV 1996–2015/16; existing access/merger references reused. Detailed 1998 OFC stage/calendar evidence, no cutoff needed. No new independent rule rows, source URLs or July packages. Screenshot of SLV 2002 regulation unavailable; extracted text not proof of season implementation. Block107 user priority: one category at a time starting with general sporting rules. 13 independent continental rows have new explicit rules, two existing national parents enriched and references retained without duplication. Prior rules dashboard 508 is not yet reconciled to status evidence, no unverified increment. OFC Pro League identity separate, one new cutoff-required date-only package, two explicit anomalies. No new URLs, no runtime. Block108: AFC Elite/Two/Challenge access and Elite ranking/KO regulations enriched, OFC433 six pre-cutoff scores/four table rows/eight group entrants, new historical observations777–779, two new lifecycle rows. Existing Pro League history266 enriched without new row. No new URLs, no full regulatory certification, no runtime. Audit after block108: exact SHA-verified all 536 rows and 1068 parent/name/lifecycle files; revised rules483, lifecycle196 and raw history780. 23 NOT_CERTIFIED (17 no dedicated evidence, 6 incomplete), 27 technical/mapping/N/A; name405 parent and352 index, 53 stale index rows; 62 name refs, 66 remaining. Cutoff100 mapped partial, one extra Peru identity pending, four unmapped candidates, 158 other scope classifications pending. 26 registered anomalies. No sporting facts altered, no new URLs, no commit/block advance. Block109: five formerly NOT_CERTIFIED league-cup rows152/159/352/395/403 now have explicit partial rules; four new partial lifecycle rows; six new transition records780–785. Four post-July exclusions; SCO historical R1 date remains unresolved. No extra snapshots, new source URL fields or duplicate variant rules. Data only, no runtime. Block108 audit remains baseline; these are exact touched-row deltas, not new global audit. Block110: eight formerly NOT_CERTIFIED parents221/320/339/340/342/348/418/420, four supported names synchronized, five newly partial lifecycle rows, four transition observations, 109 dated pre-cutoff results (CHI league10, Copa Chile1, League Cup48; COL8, ECU33, VEN9), 16 computed group rows and four qualifiers, six new distinct active packages. Two exclusions, two new anomalies, no duplicate Bolivia sporting dataset, no new URLs or postcutoff scores. Remaining NOT_CERTIFIED rows10: national cups6, league cups3, league1. The earlier MATRIX_AUDIT is baseline108 only; counts now verified touched-row deltas. No full match-rule/date/key certification, no runtime tests. PDF screenshot retrieval unavailable for Colombia; text and amendment read. Block111: all ten previously NOT_CERTIFIED rows examined; three partial sporting rule rows304/375/408 (+3; Kosovo and Suriname cup prior edition only), six technical/candidate or edition-not-applicable rows153/154/323/335/343/422 (+6 special), India365 remains NOT_CERTIFIED (tentative Federation Cup April–May2027, no current rulebook). Italian candidate Coppa Italia Serie C full 60-club regulation, round dates and tiebreaks stored separately from native mapping. Four existing name statuses unchanged; no new supported names. +2 partial lifecycle, +3 history, no new required July state; 2 added mapping anomalies. Explicit verified dates/match rules/full calendars/participant keys remain zero strictly certified rows, not missing all raw evidence. No URLs added; no runtime testing. Next: continue field collection starting with missing specific rules, dated fixtures and team keys; final unresolved gaps/identity review later.",
   "namingByWorld": {
     "historical": {
       "denominator": 182,
@@ -18,19 +18,19 @@
     },
     "modern": {
       "denominator": 351,
-      "sourceSupported": 260
+      "sourceSupported": 264
     }
   },
-  "rawTransitionRecords": 777,
-  "transitionCountNote": "Original dashboard count retains preexisting five-record discrepancy; newly appended source-backed records counted individually, not certified unique globally.",
-  "lastPreparedBlock": 106,
+  "rawTransitionRecords": 793,
+  "transitionCountNote": "Raw historical records reconstructed by original count371 + committed index-line delta406 + pending3 =780; prior dashboard775 discrepancy corrected, global unique events not certified. Block109 adds six unique indexed observations, 786 raw; still not global deduplicated count. Block110 adds four indexed observations786–789, 790 raw; no global deduplication claim. Block111 adds three indexed observations790–792,793 raw; chronology completeness unknown.",
+  "lastPreparedBlock": 111,
   "cutoffArchivePartial": 1,
-  "cutoffDenominator": 99,
+  "cutoffDenominator": 106,
   "cutoffApplicability": {
-    "knownPartialActiveRows": 100,
+    "knownPartialActiveRows": 107,
     "knownPartialArchiveCandidates": 1,
     "explicitUnknownRows": 62,
-    "knownNotApplicableCurrentEditionRows": 229,
+    "knownNotApplicableCurrentEditionRows": 236,
     "aliasCandidates": [
       [
         321,
@@ -41,9 +41,9 @@
     "policyFile": "CUTOFF_SCOPE.json",
     "dateCensus": {
       "2627": {
-        "rows": 66,
-        "distinctWorkingCount": 65,
-        "partialSnapshotRows": 66,
+        "rows": 73,
+        "distinctWorkingCount": 72,
+        "partialSnapshotRows": 73,
         "additionalDateEvidenceRows": 0
       },
       "9697": {
@@ -53,26 +53,28 @@
         "additionalDateEvidenceRows": 0
       }
     },
-    "requiredRowsLowerBound": 100,
-    "distinctWorkingCountLowerBound": 99,
+    "requiredRowsLowerBound": 107,
+    "distinctWorkingCountLowerBound": 106,
     "extraCandidateRowsOutsideWorkingDenominator": [
       392
     ],
-    "unmappedHistoricalCandidates": 4
+    "unmappedHistoricalCandidates": 4,
+    "unclassifiedInScopeRows": 85,
+    "otherUnresolvedScopeRowsExcludingKnownPeru": 146
   },
   "cutoffProgressWorking": {
-    "required": 99,
-    "partialDistinct": 99,
+    "required": 106,
+    "partialDistinct": 106,
     "historical": {
       "required": 34,
       "partial": 34
     },
     "modern": {
-      "required": 65,
-      "partial": 65
+      "required": 72,
+      "partial": 72
     },
-    "status": "PROVISIONAL_CENSUS_BLOCK105_ALL_MAPPED_PARTIAL",
-    "note": "Previous working denominator60 expanded by one observed June preliminary (Puchar Polski 1996/97 row135). Alias Libertadores counted once; all working packages partial only. Separate PER row392 outside prior working scope pending final census. Block83: expanded 61→65 by NOR/ISL 1996 and FIN/ISL 2026 national cups. Completed league cups archive only; no claim of completeness. Block84: FRO cup adds one modern distinct partial package, 66 total. Block85: BLR/LTU/LVA cup adds three modern distinct partial packages,69 total. Block86: Russian Cup 1996/97 adds one historic package, 70 total. Block87: GEO cup/KAZ league add two modern partial packages,72 total. Block88: Moldovan top league adds one partial package, 73 total. Block89: no additional active packages established; 73 unchanged. Block90: three existing active packages enriched with225 scores, total73 unchanged. Block91: mapped active packages73 unchanged; RSA transition cup 1996 separately noted, slot and cutoff results unresolved. Block92: Japan Emperor regional qualifying state adds one distinct modern package,74 total; historical J1/JFL already counted. Block93: KOR90 total and CHN cup32 new scores, already counted; 74 mapped partial packages unchanged. Block94: Iran carryover row255 adds one mapped partial package; 75 total. Existing Indian Federation Cup historical candidate unmapped and excluded from provisional count. Block95: SLV cup row404 adds one mapped partial package; 76 total. Block96: AUS and NZL regional leagues six mapped partial packages added; 82 total. Block97: thirteen completed senior state editions not active July1, mapped 82 unchanged; Alagoano1996 unmapped separately. Block98: 16 European split phase rows linked to parent leagues starting after July1; no additional active package. Block99: COL2026, URU2026 and URU1996 top-level annual competition carryover; 85 mapped partial packages. No duplicated split snapshots. Block100: OFC1996 and AFC Asian Cup1996 qualifying, two mapped partial packages; UEFA1998 qualifiers unmapped, not added to mapped denominator. Block101: Primera Nacional parent204, one new mapped partial package. Playoff and parallel group technical rows reference parent state; no duplicates. Block102: 1996 BOL/CHI/ECU/PAR partial, PER required but scores not extracted. 92/93 mapped distinct partial; scope not exhaustive. Block103: five additional distinct packages; 97/98 partial, PER1996 still pending scores. Block104: row45 partial, 98/98 distinct partial, historic33/33. Not complete; applicability census and individual fixtures unresolved. Block105: row88 newly required and partial; 99/99 distinct mapped, 34/34 historic and 65/65 modern. Parent playoff rows not additional snapshots.",
+    "status": "PROVISIONAL_CENSUS_BLOCK110_ALL_MAPPED_PARTIAL",
+    "note": "Previous working denominator60 expanded by one observed June preliminary (Puchar Polski 1996/97 row135). Alias Libertadores counted once; all working packages partial only. Separate PER row392 outside prior working scope pending final census. Block83: expanded 61→65 by NOR/ISL 1996 and FIN/ISL 2026 national cups. Completed league cups archive only; no claim of completeness. Block84: FRO cup adds one modern distinct partial package, 66 total. Block85: BLR/LTU/LVA cup adds three modern distinct partial packages,69 total. Block86: Russian Cup 1996/97 adds one historic package, 70 total. Block87: GEO cup/KAZ league add two modern partial packages,72 total. Block88: Moldovan top league adds one partial package, 73 total. Block89: no additional active packages established; 73 unchanged. Block90: three existing active packages enriched with225 scores, total73 unchanged. Block91: mapped active packages73 unchanged; RSA transition cup 1996 separately noted, slot and cutoff results unresolved. Block92: Japan Emperor regional qualifying state adds one distinct modern package,74 total; historical J1/JFL already counted. Block93: KOR90 total and CHN cup32 new scores, already counted; 74 mapped partial packages unchanged. Block94: Iran carryover row255 adds one mapped partial package; 75 total. Existing Indian Federation Cup historical candidate unmapped and excluded from provisional count. Block95: SLV cup row404 adds one mapped partial package; 76 total. Block96: AUS and NZL regional leagues six mapped partial packages added; 82 total. Block97: thirteen completed senior state editions not active July1, mapped 82 unchanged; Alagoano1996 unmapped separately. Block98: 16 European split phase rows linked to parent leagues starting after July1; no additional active package. Block99: COL2026, URU2026 and URU1996 top-level annual competition carryover; 85 mapped partial packages. No duplicated split snapshots. Block100: OFC1996 and AFC Asian Cup1996 qualifying, two mapped partial packages; UEFA1998 qualifiers unmapped, not added to mapped denominator. Block101: Primera Nacional parent204, one new mapped partial package. Playoff and parallel group technical rows reference parent state; no duplicates. Block102: 1996 BOL/CHI/ECU/PAR partial, PER required but scores not extracted. 92/93 mapped distinct partial; scope not exhaustive. Block103: five additional distinct packages; 97/98 partial, PER1996 still pending scores. Block104: row45 partial, 98/98 distinct partial, historic33/33. Not complete; applicability census and individual fixtures unresolved. Block105: row88 newly required and partial; 99/99 distinct mapped, 34/34 historic and 65/65 modern. Parent playoff rows not additional snapshots. Block107: OFC row433 additional required, 99/100 distinct partial, modern65/66; qualifying matches before cutoff, score extraction deferred. Block108: six scores and draw row433 extracted,100/100 distinct partial. No complete census claim. Block110: six South American 2026 packages (221,339,340,342,348,420) mapped and partial; 106/106. Two new postcutoff exclusions320,418. Possible alias335 unresolved.",
     "additionalPartialOutsideWorkingDenominator": 1
   },
   "phaseReferenceCoverage": {
@@ -113,16 +115,69 @@
     "status": "STRICT_VERIFIED_LOWER_BOUND"
   },
   "anomalies": {
-    "open": 23,
+    "open": 30,
     "register": "ANOMALIES.json",
     "status": "INITIAL_LOWER_BOUND_NOT_EXHAUSTIVE",
-    "sportingOrIdentity": 22,
-    "metadata": 1
+    "sportingOrIdentity": 27,
+    "metadata": 3
   },
   "historicalPlayoffReferenceCoverage": {
     "totalSpecs": 7,
     "partialReferenceRows": 7,
     "descriptivePhaseLabels": 7,
     "countsAsIndependentCompetition": false
+  },
+  "rulesAudit": {
+    "block": 108,
+    "legacyPartial": 508,
+    "denominator": 533,
+    "partialRows": 499,
+    "partialPhaseRows": 81,
+    "partialNonPhaseRows": 418,
+    "notCertifiedRows": 1,
+    "missingNoDedicatedSportFieldRows": 0,
+    "incompletePriorEvidenceRows": 1,
+    "specialRows": 33,
+    "status": "BLOCK108_EXACT_CENSUS_PLUS_BLOCK109_111_VERIFIED_ROW_DELTAS",
+    "auditFile": "MATRIX_AUDIT.json",
+    "remainingUncertifiedRows": [
+      365
+    ],
+    "priorEditionOnlyNewPartialRows": [
+      375,
+      408
+    ],
+    "specialNewRows": [
+      153,
+      154,
+      323,
+      335,
+      343,
+      422
+    ]
+  },
+  "namingIndexAudit": {
+    "parentSupported": 409,
+    "indexSupported": 356,
+    "unsynced": 53,
+    "technicalNameRefs": 62,
+    "remainingOther": 62
+  },
+  "lifecycleAudit": {
+    "partial": 207,
+    "technicalRefs": 69,
+    "remainingOther": 257
+  },
+  "matrixAudit": "MATRIX_AUDIT.json",
+  "namelifeNote": "Parent names409; naming index356, existing53 mismatch remains; all four new names synchronized.",
+  "calendarsReconciled": 0,
+  "verificationMetrics": {
+    "denominator": 533,
+    "dateRowsFullyVerified": 0,
+    "specificMatchRuleRowsCertified": 0,
+    "fullCalendarRowsVerified": 0,
+    "participantKeyRowsVerified": 0,
+    "strictClosedRows": 0,
+    "scope": "Strict full-edition field reconciliation, not counts of collected match dates, round windows, participant names or rules. Calendar metric explicitly added at user's request: no full calendar has yet been certified in coverage; zero is lower bound, not proof no date evidence exists."
   }
 }

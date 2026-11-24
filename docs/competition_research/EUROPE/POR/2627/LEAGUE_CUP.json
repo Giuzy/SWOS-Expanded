@@ -10,10 +10,9 @@
     "candidateSources": [
       "f9844889682d8c477574e73fd7355c4450034387"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -30,6 +29,36 @@
       "source": "f9844889682d8c477574e73fd7355c4450034387",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block109Research": {
+      "edition": "2026/27",
+      "sponsoredName": "Allianz Cup",
+      "rules": {
+        "participants": 8,
+        "previousTopTierRanks": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "previousSecondTierRanks": [
+          1,
+          2
+        ],
+        "quarterFinalTies": 4,
+        "semiFinalTies": 2,
+        "finalTies": 1,
+        "singleLeg": true,
+        "finalFour": true,
+        "totalMatches": 7
+      },
+      "dateEvidence": {
+        "firstScheduled": "2026-10-27"
+      },
+      "limits": "Full match rules pending. Approved 2027/28 change distinct from 2026 template.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

@@ -92,5 +92,20 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block105 contemporary and historical sporting evidence; exact all-season boundaries and full regulations not certified."
     }
+  },
+  {
+    "index": 788,
+    "value": {
+      "competition": "URU Copa AUF Uruguay",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        418
+      ],
+      "note": "Fifth edition, 40 entrants, new professional qualifying groups six x4 plus separate amateur qualification; eligible champion can gain Libertadores Uruguay4. Detailed format in parent.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block110 actual edition-level research; not full chronology or runtime certification."
+    }
   }
 ]

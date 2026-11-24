@@ -10,10 +10,9 @@
     "candidateSources": [
       "f9844889682d8c477574e73fd7355c4450034387"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -30,6 +29,60 @@
       "source": "f9844889682d8c477574e73fd7355c4450034387",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block109Research": {
+      "edition": "2026/27",
+      "sponsoredName": "Carabao Cup",
+      "rules": {
+        "participants": 92,
+        "preliminary": {
+          "entrants": 4,
+          "ties": 2,
+          "qualifiers": 2
+        },
+        "round1": {
+          "entrants": 70,
+          "eflDirect": 68,
+          "preliminaryWinners": 2,
+          "ties": 35,
+          "regionalised": true
+        },
+        "round2": {
+          "entrants": 46,
+          "fromR1": 35,
+          "premierNonEurope": 11
+        },
+        "round3": {
+          "entrants": 32,
+          "fromR2": 23,
+          "europeanDirect": 9
+        },
+        "singleLegExceptSemiFinal": true,
+        "semiFinal": {
+          "legs": 2,
+          "aggregate": true,
+          "awayGoals": false
+        },
+        "levelAfter90BeforeSemiFinal": "penalties",
+        "semiFinalAggregateLevelAtSecondLegEnd": "extra time then penalties (secondary current rule summary)",
+        "finalLevelAfter90": "extra time then penalties",
+        "loanEligibility": "Eligible unless parent club expressly refuses"
+      },
+      "dateEvidence": {
+        "preliminary": [
+          "2026-08-01",
+          "2026-08-03"
+        ],
+        "round1Window": [
+          "2026-08-07",
+          "2026-08-09"
+        ],
+        "round2Week": "2026-08-24",
+        "semiFinalLeg1Week": "2027-01-11",
+        "semiFinalLeg2Week": "2027-02-01"
+      },
+      "limits": "Edition-specific access counts; full rulebook and exact dates pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

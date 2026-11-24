@@ -38,6 +38,13 @@
       "field": "block100Research.europeQualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
+    },
+    "block107Research": {
+      "parentRow": 167,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -79,6 +86,13 @@
       "field": "block100Research.europeQualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
+    },
+    "block107Research": {
+      "parentRow": 167,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -120,6 +134,13 @@
       "field": "block100Research.europeQualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
+    },
+    "block107Research": {
+      "parentRow": 167,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -161,6 +182,13 @@
       "field": "block100Research.europeQualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
+    },
+    "block107Research": {
+      "parentRow": 167,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -202,6 +230,13 @@
       "field": "block100Research.europeQualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
+    },
+    "block107Research": {
+      "parentRow": 167,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -243,6 +278,13 @@
       "field": "block100Research.europeQualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
+    },
+    "block107Research": {
+      "parentRow": 167,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -284,6 +326,13 @@
       "field": "block100Research.europeQualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
+    },
+    "block107Research": {
+      "parentRow": 167,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -325,6 +374,13 @@
       "field": "block100Research.europeQualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; shared dataset stored once, no assignment or duplicate snapshots."
+    },
+    "block107Research": {
+      "parentRow": 167,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -497,6 +553,13 @@
       "field": "block100Research.qualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; no slot assignment."
+    },
+    "block107Research": {
+      "parentRow": 173,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -537,6 +600,13 @@
       "field": "block100Research.qualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; no slot assignment."
+    },
+    "block107Research": {
+      "parentRow": 173,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -577,6 +647,13 @@
       "field": "block100Research.qualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; no slot assignment."
+    },
+    "block107Research": {
+      "parentRow": 173,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -617,6 +694,13 @@
       "field": "block100Research.qualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; no slot assignment."
+    },
+    "block107Research": {
+      "parentRow": 173,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -657,6 +741,13 @@
       "field": "block100Research.qualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; no slot assignment."
+    },
+    "block107Research": {
+      "parentRow": 173,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -697,6 +788,13 @@
       "field": "block100Research.qualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; no slot assignment."
+    },
+    "block107Research": {
+      "parentRow": 173,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -737,6 +835,13 @@
       "field": "block100Research.qualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; no slot assignment."
+    },
+    "block107Research": {
+      "parentRow": 173,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   },
   {
@@ -777,6 +882,13 @@
       "field": "block100Research.qualifying",
       "status": "UNMAPPED_GROUP_SLOT",
       "scope": "Nine real groups, eight technical rows; no slot assignment."
+    },
+    "block107Research": {
+      "parentRow": 173,
+      "rulesRef": "block100Research + block107Research",
+      "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_NATIVE_ROWS",
+      "status": "PARENT_RULE_REFERENCE_NOT_INDEPENDENT",
+      "scope": "No independent group assignment, scores or rules duplicated."
     }
   }
 ]

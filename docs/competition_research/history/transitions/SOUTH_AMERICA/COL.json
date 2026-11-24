@@ -60,5 +60,20 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block99: historical match archives and contemporary regulation/reporting; exact regulation/version and participant identities not fully reconciled."
     }
+  },
+  {
+    "index": 787,
+    "value": {
+      "competition": "COL Copa Colombia",
+      "firstEdition": "2026",
+      "lastEdition": "2026",
+      "operation": "IN_EDITION_FORMAT_AMENDMENT",
+      "rowRefs": [
+        342
+      ],
+      "note": "August19 2026 assembly reduced octavos and quarterfinals from two legs to single match hosted by original return-leg host; do not repeat exceptional amendment automatically.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block110 actual edition-level research; not full chronology or runtime certification."
+    }
   }
 ]

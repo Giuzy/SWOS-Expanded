@@ -394,6 +394,24 @@
         "scope": "Qualification stage data only, not finals results. Group membership listed without final ranks. No assignment to technical slot."
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block107Research": {
+      "edition": "1998 qualifying",
+      "rules": {
+        "groups": 9,
+        "runnerUpComparisonOpponentRanks": [
+          1,
+          3,
+          4
+        ],
+        "playoffAggregate": true,
+        "awayGoals": true,
+        "extraTime": true,
+        "penalties": true,
+        "openPlayoffDraw": "1997-10-13"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Historic group qualification and playoffs; no individual slot assignment."
     }
   },
   {
@@ -837,6 +855,36 @@
         "slotMapping": "UNMAPPED_NINE_REAL_GROUPS_VS_EIGHT_OG_ROWS"
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block107Research": {
+      "edition": "2000 qualifying",
+      "rules": {
+        "groupRankTie": [
+          "head-to-head points",
+          "head-to-head goal difference",
+          "head-to-head away goals",
+          "overall goal difference",
+          "overall goals",
+          "overall away goals",
+          "fair play",
+          "lot"
+        ],
+        "runnerUpComparisonOpponentRanks": [
+          1,
+          3,
+          4
+        ],
+        "runnerUpTie": [
+          "points",
+          "goal difference",
+          "goals",
+          "away goals",
+          "fair play"
+        ],
+        "playoffs": "two legs, first legs Nov13 or14, second Nov17"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "Contemporary 1999 account, no arbitrary extra criterion after fair play. Parent existing qualification rules and fixtures referenced."
     }
   },
   {

@@ -58,5 +58,20 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block95 sporting observations, exact dates and keys not reconciled."
     }
+  },
+  {
+    "index": 790,
+    "value": {
+      "competition": "SUR Suriname Major League",
+      "firstEdition": "2026/27",
+      "lastEdition": "2026/27",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        304
+      ],
+      "note": "Two opening round robins; championship group six and lower group four with points carried; prior championship playoffs removed. Exact lower-stage movement and match count pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "verification": "Block111 sporting evidence, no complete timeline or slot/participant certification."
+    }
   }
 ]

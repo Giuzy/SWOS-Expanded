@@ -10,10 +10,9 @@
     "candidateSources": [
       "d744018d10a2aa469e3044dc364cbaa2914785fe"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -30,6 +29,70 @@
       "source": "d744018d10a2aa469e3044dc364cbaa2914785fe",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block109Research": {
+      "edition": "1996/97",
+      "sponsoredName": "Coca-Cola Cup",
+      "rules": {
+        "participants": 92,
+        "round1": {
+          "entrants": 66,
+          "ties": 33,
+          "legs": 2,
+          "seededByPreviousLeagueRank": true
+        },
+        "round2": {
+          "entrants": 54,
+          "fromR1": 33,
+          "premierNonEurope": 15,
+          "previousSecondTierNonPromotedPlayoffTeams": 3,
+          "previousPremierRelegated": 3,
+          "legs": 2
+        },
+        "round3": {
+          "entrants": 32,
+          "fromR2": 27,
+          "europeanDirect": 5,
+          "legs": 1
+        },
+        "round4Legs": 1,
+        "quarterFinalLegs": 1,
+        "semiFinalLegs": 2,
+        "finalLegs": 1,
+        "observedReplays": [
+          "R3",
+          "R4",
+          "QF",
+          "Final"
+        ]
+      },
+      "dateEvidence": {
+        "firstPlayed": "1996-08-20",
+        "round2Leg1": [
+          "1996-09-17",
+          "1996-09-18"
+        ],
+        "round2Leg2": [
+          "1996-09-24",
+          "1996-09-25"
+        ],
+        "round3": [
+          "1996-10-22",
+          "1996-10-23"
+        ],
+        "semiFinalLeg1": [
+          "1997-02-18",
+          "1997-02-26"
+        ],
+        "semiFinalLeg2": [
+          "1997-03-11",
+          "1997-03-12"
+        ],
+        "final": "1997-04-06",
+        "finalReplay": "1997-04-16"
+      },
+      "limits": "Full two-leg tie-break and technical variant mapping pending.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
   {
@@ -45,7 +108,7 @@
     ],
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -63,6 +126,20 @@
       "source": "d744018d10a2aa469e3044dc364cbaa2914785fe",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block111Research": {
+      "parentCandidateRow": 152,
+      "technicalCompIds": [
+        119,
+        121
+      ],
+      "differentDescriptorFields": [
+        "teams",
+        "round_string_base",
+        "round_rule_flags"
+      ],
+      "status": "VARIANT_MAPPING_PENDING",
+      "scope": "Do not duplicate real competition or treat technical variants as identical. Sporting rules researched once in parent; explicit slot semantics need separate mapping."
     }
   }
 ]

@@ -106,7 +106,7 @@
     "country": "ENG",
     "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -123,6 +123,20 @@
       "status": "VARIANT_MAPPING_PENDING",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block111Research": {
+      "parentCandidateRow": 151,
+      "technicalCompIds": [
+        118,
+        120
+      ],
+      "differentDescriptorFields": [
+        "teams",
+        "round_string_base",
+        "round_rule_flags"
+      ],
+      "status": "VARIANT_MAPPING_PENDING",
+      "scope": "Do not duplicate real competition or treat technical variants as identical. Sporting rules researched once in parent; explicit slot semantics need separate mapping."
     }
   }
 ]

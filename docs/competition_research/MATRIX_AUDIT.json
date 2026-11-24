@@ -1,0 +1,917 @@
+{
+  "head": "13c0ec86ebb7bbf012772832b43b0ef768d2bc03",
+  "verifiedShards": 1068,
+  "total": 536,
+  "inScope": 533,
+  "excluded": 3,
+  "rule": {
+    "partial": 483,
+    "missing": 23,
+    "special": 27,
+    "phasesPartial": 81,
+    "counts": {
+      "PARTIAL_HISTORICAL_FIELDS_EXTRACTED": 104,
+      "PARTIAL": 95,
+      "PARTIAL_SPORT_FIELDS_EXTRACTED": 123,
+      "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING": 17,
+      "PARENT_TEMPLATE_REFERENCE_NOT_INDEPENDENT": 2,
+      "SOURCE_SUPPORTED_RULES_PARTIAL": 161,
+      "NOT_CERTIFIED_BY_THIS_AUDIT": 23,
+      "NOT_APPLICABLE_NO_DOMESTIC_LEAGUE": 1,
+      "SUCCESSOR_STRUCTURE_MAPPING_PENDING": 4,
+      "NOT_APPLICABLE_NO_LEAGUE_SPLIT": 3
+    },
+    "missingRows": [
+      {
+        "row": 153,
+        "country": "ENG",
+        "id": "_englishCup_1",
+        "category": "NATIONAL_CUP",
+        "detail": "",
+        "name": "FA Cup",
+        "evidence": [],
+        "nameStatus": "VARIANT_MAPPING_PENDING"
+      },
+      {
+        "row": 152,
+        "country": "ENG",
+        "id": "_englishLeagueCup",
+        "category": "LEAGUE_CUP",
+        "detail": "",
+        "name": "Football League Cup",
+        "evidence": [],
+        "nameStatus": "SOURCE_SUPPORTED_NAME_PARTIAL"
+      },
+      {
+        "row": 154,
+        "country": "ENG",
+        "id": "_englishLeagueCup_1",
+        "category": "LEAGUE_CUP",
+        "detail": "",
+        "name": "Football League Cup",
+        "evidence": [],
+        "nameStatus": "VARIANT_MAPPING_PENDING"
+      },
+      {
+        "row": 159,
+        "country": "SCO",
+        "id": "_scottishLeagueCup",
+        "category": "LEAGUE_CUP",
+        "detail": "",
+        "name": "Scottish League Cup",
+        "evidence": [],
+        "nameStatus": "SOURCE_SUPPORTED_NAME_PARTIAL"
+      },
+      {
+        "row": 221,
+        "country": "CHI",
+        "id": "_chileanLeague",
+        "category": "LEAGUE_DIVISION",
+        "detail": "div1",
+        "name": "Primera División",
+        "evidence": [],
+        "nameStatus": "UNVERIFIED_NAME_CANDIDATE"
+      },
+      {
+        "row": 304,
+        "country": "SUR",
+        "id": "_surinamLeague",
+        "category": "LEAGUE_DIVISION",
+        "detail": "div1",
+        "name": "Suriname Major League",
+        "evidence": [
+          "block95Research"
+        ],
+        "nameStatus": "SOURCE_SUPPORTED_NAME_PARTIAL"
+      },
+      {
+        "row": 320,
+        "country": "BOL",
+        "id": "COPA BOLIVIA",
+        "category": "NATIONAL_CUP",
+        "detail": "id=2949378",
+        "name": "Copa Bolivia",
+        "evidence": [],
+        "nameStatus": "UNVERIFIED_NAME_CANDIDATE"
+      },
+      {
+        "row": 335,
+        "country": "BOL",
+        "id": "_worldBolCup",
+        "category": "NATIONAL_CUP",
+        "detail": "",
+        "name": "Copa Bolivia",
+        "evidence": [],
+        "nameStatus": "UNVERIFIED_NAME_CANDIDATE"
+      },
+      {
+        "row": 323,
+        "country": "ITA",
+        "id": "_italianLeagueCup",
+        "category": "LEAGUE_CUP",
+        "detail": "",
+        "name": null,
+        "evidence": [],
+        "nameStatus": "NOT_RECONCILED"
+      },
+      {
+        "row": 339,
+        "country": "CHI",
+        "id": "_worldChiCup",
+        "category": "NATIONAL_CUP",
+        "detail": "",
+        "name": "Copa Chile",
+        "evidence": [],
+        "nameStatus": "SOURCE_SUPPORTED_NAME_PARTIAL"
+      },
+      {
+        "row": 340,
+        "country": "CHI",
+        "id": "_worldChiLeagueCup",
+        "category": "LEAGUE_CUP",
+        "detail": "",
+        "name": "Copa de la Liga",
+        "evidence": [],
+        "nameStatus": "UNVERIFIED_NAME_CANDIDATE"
+      },
+      {
+        "row": 342,
+        "country": "COL",
+        "id": "_worldColCup",
+        "category": "NATIONAL_CUP",
+        "detail": "",
+        "name": "Copa Colombia",
+        "evidence": [],
+        "nameStatus": "UNVERIFIED_NAME_CANDIDATE"
+      },
+      {
+        "row": 343,
+        "country": "CRC",
+        "id": "_worldCrcCup",
+        "category": "NATIONAL_CUP",
+        "detail": "",
+        "name": "Torneo de Copa",
+        "evidence": [
+          "sportResearchStatus",
+          "knownSportData",
+          "remainingSportData",
+          "block95Research"
+        ],
+        "nameStatus": "SOURCE_SUPPORTED_NAME_PARTIAL"
+      },
+      {
+        "row": 348,
+        "country": "ECU",
+        "id": "_worldEcuCup",
+        "category": "NATIONAL_CUP",
+        "detail": "",
+        "name": "Copa Ecuador",
+        "evidence": [],
+        "nameStatus": "SOURCE_SUPPORTED_NAME_PARTIAL"
+      },
+      {
+        "row": 352,
+        "country": "ENG",
+        "id": "_englishLeagueCup",
+        "category": "LEAGUE_CUP",
+        "detail": "",
+        "name": "EFL Cup",
+        "evidence": [],
+        "nameStatus": "SOURCE_SUPPORTED_NAME_PARTIAL"
+      },
+      {
+        "row": 365,
+        "country": "IND",
+        "id": "_worldIndCup",
+        "category": "NATIONAL_CUP",
+        "detail": "",
+        "name": "Super Cup",
+        "evidence": [
+          "block54Research",
+          "block94Research"
+        ],
+        "nameStatus": "IDENTITY_CANDIDATE"
+      },
+      {
+        "row": 375,
+        "country": "KOS",
+        "id": "_worldKosCup",
+        "category": "NATIONAL_CUP",
+        "detail": "",
+        "name": "Kupa e Kosovës",
+        "evidence": [
+          "block88Research"
+        ],
+        "nameStatus": "SOURCE_SUPPORTED_NAME_PARTIAL"
+      },
+      {
+        "row": 395,
+        "country": "POR",
+        "id": "_worldPorLeagueCup",
+        "category": "LEAGUE_CUP",
+        "detail": "",
+        "name": "Taça da Liga",
+        "evidence": [],
+        "nameStatus": "SOURCE_SUPPORTED_NAME_PARTIAL"
+      },
+      {
+        "row": 403,
+        "country": "SCO",
+        "id": "_scottishLeagueCup",
+        "category": "LEAGUE_CUP",
+        "detail": "",
+        "name": "Scottish League Cup",
+        "evidence": [],
+        "nameStatus": "SOURCE_SUPPORTED_NAME_PARTIAL"
+      },
+      {
+        "row": 408,
+        "country": "SUR",
+        "id": "_worldSurCup",
+        "category": "NATIONAL_CUP",
+        "detail": "",
+        "name": "Beker van Suriname",
+        "evidence": [
+          "block95Research"
+        ],
+        "nameStatus": "SOURCE_SUPPORTED_NAME_PARTIAL"
+      },
+      {
+        "row": 418,
+        "country": "URU",
+        "id": "_worldUruCup",
+        "category": "NATIONAL_CUP",
+        "detail": "",
+        "name": "Copa AUF Uruguay",
+        "evidence": [],
+        "nameStatus": "SOURCE_SUPPORTED_NAME_PARTIAL"
+      },
+      {
+        "row": 420,
+        "country": "VEN",
+        "id": "_worldVenCup",
+        "category": "NATIONAL_CUP",
+        "detail": "",
+        "name": "Copa Venezuela",
+        "evidence": [],
+        "nameStatus": "SOURCE_SUPPORTED_NAME_PARTIAL"
+      },
+      {
+        "row": 422,
+        "country": "WAL",
+        "id": "_worldWalLeagueCup",
+        "category": "LEAGUE_CUP",
+        "detail": "",
+        "name": "Welsh League Cup",
+        "evidence": [
+          "sportRuleEvidence82"
+        ],
+        "nameStatus": "IDENTITY_CANDIDATE"
+      }
+    ],
+    "specialRows": [
+      {
+        "row": 91,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 92,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 93,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 94,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 95,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 96,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 97,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 98,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 103,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 104,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 105,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 106,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 107,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 108,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 109,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 110,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 166,
+        "status": "PARENT_TEMPLATE_REFERENCE_NOT_INDEPENDENT"
+      },
+      {
+        "row": 172,
+        "status": "PARENT_TEMPLATE_REFERENCE_NOT_INDEPENDENT"
+      },
+      {
+        "row": 264,
+        "status": "NOT_APPLICABLE_NO_DOMESTIC_LEAGUE"
+      },
+      {
+        "row": 297,
+        "status": "SUCCESSOR_STRUCTURE_MAPPING_PENDING"
+      },
+      {
+        "row": 298,
+        "status": "SUCCESSOR_STRUCTURE_MAPPING_PENDING"
+      },
+      {
+        "row": 299,
+        "status": "SUCCESSOR_STRUCTURE_MAPPING_PENDING"
+      },
+      {
+        "row": 300,
+        "status": "SUCCESSOR_STRUCTURE_MAPPING_PENDING"
+      },
+      {
+        "row": 423,
+        "status": "PARENT_RULE_EVIDENCE_SLOT_MAPPING_PENDING"
+      },
+      {
+        "row": 511,
+        "status": "NOT_APPLICABLE_NO_LEAGUE_SPLIT"
+      },
+      {
+        "row": 512,
+        "status": "NOT_APPLICABLE_NO_LEAGUE_SPLIT"
+      },
+      {
+        "row": 513,
+        "status": "NOT_APPLICABLE_NO_LEAGUE_SPLIT"
+      }
+    ],
+    "missingNoDedicatedSportFieldRows": [
+      153,
+      152,
+      154,
+      159,
+      221,
+      320,
+      335,
+      323,
+      339,
+      340,
+      342,
+      348,
+      352,
+      395,
+      403,
+      418,
+      420
+    ],
+    "missingWithIncompleteExistingEvidenceRows": [
+      304,
+      343,
+      365,
+      375,
+      408,
+      422
+    ],
+    "partialNonPhaseRows": 402
+  },
+  "name": {
+    "parentSupported": 405,
+    "indexSupported": 352,
+    "parentOnly": [
+      5,
+      7,
+      13,
+      16,
+      31,
+      32,
+      33,
+      99,
+      168,
+      169,
+      170,
+      171,
+      174,
+      175,
+      116,
+      118,
+      120,
+      123,
+      124,
+      126,
+      128,
+      134,
+      142,
+      144,
+      162,
+      207,
+      211,
+      213,
+      219,
+      225,
+      226,
+      227,
+      228,
+      248,
+      251,
+      257,
+      261,
+      275,
+      276,
+      285,
+      289,
+      302,
+      307,
+      312,
+      337,
+      345,
+      414,
+      528,
+      529,
+      531,
+      533,
+      535,
+      536
+    ],
+    "indexOnly": [],
+    "parentStates": {
+      "SOURCE_SUPPORTED_NAME_PARTIAL": 405,
+      "HISTORICAL_NAME_CANDIDATE": 13,
+      "UNVERIFIED_NAME_CANDIDATE": 10,
+      "NOT_RECONCILED": 36,
+      "PARENT_TEMPLATE_REFERENCE_NOT_SEPARATE_NAME": 2,
+      "HISTORICAL_NEUTRAL_NAME_CANDIDATE": 1,
+      "VARIANT_MAPPING_PENDING": 2,
+      "IDENTITY_CANDIDATE": 3,
+      "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME": 60,
+      "SUCCESSOR_IDENTITY_MAPPING_PENDING": 1
+    },
+    "indexStates": {
+      "SOURCE_SUPPORTED_NAME_PARTIAL": 352,
+      "HISTORICAL_NEUTRAL_NAME_CANDIDATE": 17,
+      "UNVERIFIED_NAME_CANDIDATE": 27,
+      "HISTORICAL_NAME_CANDIDATE": 14,
+      "PARENT_OR_PHASE_MAPPING_REQUIRED": 35,
+      "PARENT_TEMPLATE_REFERENCE_NOT_SEPARATE_NAME": 2,
+      "VARIANT_MAPPING_PENDING": 2,
+      "MODERN_NONCOMMERCIAL_NAME_CANDIDATE": 15,
+      "SECONDARY_CANDIDATE": 1,
+      "NAME_HISTORY_NOT_CERTIFIED": 4,
+      "IDENTITY_CANDIDATE": 3,
+      "PARENT_PHASE_REFERENCE_NOT_SEPARATE_NAME": 60,
+      "SUCCESSOR_IDENTITY_MAPPING_PENDING": 1
+    },
+    "parentReferences": 62,
+    "remainingOtherRows": 66
+  },
+  "lifecycle": {
+    "partialIndependent": 196,
+    "technicalReferences": 69,
+    "other": 268,
+    "states": {
+      "NOT_RECONCILED": 265,
+      "PARTIAL_RESEARCH_NOT_RUNTIME": 170,
+      "PARTIAL_OFFICIAL_LIFETIME_EXCERPT": 11,
+      "PARENT_TEMPLATE_REFERENCE_NOT_INDEPENDENT": 2,
+      "PARTIAL_NATIONAL_CUP_STATUS_FROM_NOT_ORIGIN": 2,
+      "PARTIAL_PHASE_REFERENCE_NOT_INDEPENDENT_LIFECYCLE": 7,
+      "PARTIAL_SOURCE_SUPPORTED": 1,
+      "PARTIAL_IDENTITY_MAPPING_CANDIDATE": 1,
+      "PARTIAL_OFFICIAL_LIFETIME_EXCERPT_MAPPING_CANDIDATE": 1,
+      "HISTORICAL_ORIGIN_NOT_CERTIFIED_IDENTITY": 1,
+      "PARTIAL_LIFETIME_IDENTITY_MAPPING_CANDIDATE": 5,
+      "PARTIAL_FIRST_EDITION_SEARCH_EXCERPT": 1,
+      "PARTIAL_SUCCESSOR_IDENTITY_MAPPING_CANDIDATE": 1,
+      "PARTIAL_HISTORICAL_ARCHIVE_FIRST_EDITION": 1,
+      "PARTIAL_INDEPENDENT_ERA_IDENTITY_MAPPING_CANDIDATE": 1,
+      "PARTIAL_FIRST_FINAL_1987_EDITION_LABEL_INFERRED": 1,
+      "OFFICIAL_ONE_SEASON_REMOVAL_MAPPING_CANDIDATE": 1,
+      "PARENT_PHASE_LINK_PARTIAL": 57,
+      "PARENT_NO_SPLIT_CONFIRMED": 3,
+      "SUCCESSOR_IDENTITY_MAPPING_PENDING": 1
+    }
+  },
+  "cutoff": {
+    "distinctMappedPartial": 100,
+    "distinctMappedRequired": 100,
+    "rawKnown": 101,
+    "explicitUnknown": 62,
+    "notApplicable": 230,
+    "archive": [
+      178
+    ],
+    "phase": 55,
+    "unclassified": 97,
+    "unclassifiedRows": [
+      47,
+      53,
+      56,
+      57,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      83,
+      84,
+      89,
+      90,
+      165,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      174,
+      175,
+      153,
+      152,
+      154,
+      159,
+      162,
+      221,
+      270,
+      271,
+      320,
+      335,
+      426,
+      427,
+      428,
+      429,
+      525,
+      526,
+      527,
+      323,
+      325,
+      339,
+      340,
+      342,
+      348,
+      352,
+      392,
+      395,
+      403,
+      413,
+      418,
+      420,
+      425,
+      434,
+      450,
+      453,
+      456,
+      463,
+      464,
+      465,
+      466,
+      467,
+      469,
+      470,
+      471,
+      477,
+      478,
+      481,
+      482,
+      523,
+      529,
+      531,
+      533,
+      535,
+      536
+    ],
+    "overlaps": [
+      [
+        "423",
+        [
+          "active",
+          "phase"
+        ]
+      ],
+      [
+        "483",
+        [
+          "notApplicable",
+          "phase"
+        ]
+      ],
+      [
+        "488",
+        [
+          "notApplicable",
+          "phase"
+        ]
+      ],
+      [
+        "496",
+        [
+          "notApplicable",
+          "phase"
+        ]
+      ],
+      [
+        "497",
+        [
+          "notApplicable",
+          "phase"
+        ]
+      ],
+      [
+        "502",
+        [
+          "notApplicable",
+          "phase"
+        ]
+      ],
+      [
+        "503",
+        [
+          "notApplicable",
+          "phase"
+        ]
+      ],
+      [
+        "506",
+        [
+          "notApplicable",
+          "phase"
+        ]
+      ],
+      [
+        "511",
+        [
+          "notApplicable",
+          "phase"
+        ]
+      ],
+      [
+        "512",
+        [
+          "notApplicable",
+          "phase"
+        ]
+      ],
+      [
+        "513",
+        [
+          "notApplicable",
+          "phase"
+        ]
+      ],
+      [
+        "514",
+        [
+          "notApplicable",
+          "phase"
+        ]
+      ],
+      [
+        "524",
+        [
+          "notApplicable",
+          "phase"
+        ]
+      ]
+    ],
+    "extra": [
+      {
+        "row": 392,
+        "world": "2627",
+        "competition": "Copa de la Liga (Peru)",
+        "firstPlayedDate": "2026-06-11",
+        "snapshot": "42 group games and 16 qualified extracted",
+        "status": "OUTSIDE_FIXED_WORKING_DENOMINATOR_FINAL_CENSUS_REQUIRED"
+      }
+    ],
+    "unmapped": [
+      {
+        "world": "9697",
+        "competition": "1996 transitional Coca-Cola Challenge Cup",
+        "relatedModernRow": 400,
+        "cutoff": "1996-06-30",
+        "status": "ACTIVE_BEFORE_CUTOFF_UNMAPPED_SLOT",
+        "details": "18-club single RR completed late July 1996; KO Aug2. No dated pre-cutoff individual scores in reviewed archive; preserve separately from league and national cup."
+      },
+      {
+        "world": "9697",
+        "competition": "1996 Indian Federation Cup",
+        "relatedModernRow": 365,
+        "cutoff": "1996-06-30",
+        "status": "ALREADY_KNOWN_START_DATE_UNMAPPED_HISTORICAL_SLOT",
+        "details": "Block54 had June29–August11 dates. No individual June29–30 matches dated in archive. Separate competition identity, no automatic mapping to modern Super Cup; not counted as new sporting discovery."
+      },
+      {
+        "world": "9697",
+        "competition": "Campeonato Alagoano 1996",
+        "relatedModernRow": 439,
+        "cutoff": "1996-07-01",
+        "status": "ACTIVE_BEFORE_CUTOFF_UNMAPPED_SLOT",
+        "details": "Started March10; championship decision July28/Aug1. 12 clubs, 22 aggregate regular games, four relegated. No historic state row mapped; no July results or new runtime slot fabricated."
+      },
+      {
+        "world": "9697",
+        "competition": "FIFA World Cup 1998 UEFA qualifying",
+        "relatedRows": [
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98
+        ],
+        "cutoff": "1996-06-30",
+        "status": "ACTIVE_BEFORE_CUTOFF_UNMAPPED_SLOT",
+        "details": "Eight actual dated matches, nine real group rosters, stored once in row167 block100Research.europeQualifying. Nine real groups vs eight OG slots; no mapping or duplicate snapshot."
+      }
+    ],
+    "otherUnresolvedScopeRowsExcludingKnownPeru": 158,
+    "peruIdentityPending": true
+  },
+  "history": {
+    "rawCountByCommitDelta": 780,
+    "oldDashboard": 775,
+    "baseline": 371,
+    "deltaCommitted": 406,
+    "deltaPending": 3
+  },
+  "categories": [
+    {
+      "cat": "LEAGUE_DIVISION",
+      "total": 222,
+      "partial": 215,
+      "missing": 2,
+      "special": 5,
+      "names": 211,
+      "life": 104
+    },
+    {
+      "cat": "CONTINENTAL_CLUB",
+      "total": 17,
+      "partial": 16,
+      "missing": 0,
+      "special": 1,
+      "names": 16,
+      "life": 8
+    },
+    {
+      "cat": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "total": 19,
+      "partial": 3,
+      "missing": 0,
+      "special": 16,
+      "names": 3,
+      "life": 1
+    },
+    {
+      "cat": "NATIONAL_TEAM_TOURNAMENT",
+      "total": 20,
+      "partial": 18,
+      "missing": 0,
+      "special": 2,
+      "names": 18,
+      "life": 8
+    },
+    {
+      "cat": "NATIONAL_CUP",
+      "total": 139,
+      "partial": 127,
+      "missing": 12,
+      "special": 0,
+      "names": 130,
+      "life": 50
+    },
+    {
+      "cat": "LEAGUE_CUP",
+      "total": 16,
+      "partial": 7,
+      "missing": 9,
+      "special": 0,
+      "names": 12,
+      "life": 9
+    },
+    {
+      "cat": "PROMOTION_PLAYOFF",
+      "total": 7,
+      "partial": 7,
+      "missing": 0,
+      "special": 0,
+      "names": 0,
+      "life": 0
+    },
+    {
+      "cat": "SUPERCUP_OR_INTERCONTINENTAL",
+      "total": 3,
+      "partial": 3,
+      "missing": 0,
+      "special": 0,
+      "names": 2,
+      "life": 1
+    },
+    {
+      "cat": "REGIONAL_STATE_LEAGUE",
+      "total": 13,
+      "partial": 13,
+      "missing": 0,
+      "special": 0,
+      "names": 13,
+      "life": 13
+    },
+    {
+      "cat": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "total": 35,
+      "partial": 35,
+      "missing": 0,
+      "special": 0,
+      "names": 0,
+      "life": 1
+    },
+    {
+      "cat": "LEAGUE_SPLIT_SPEC",
+      "total": 38,
+      "partial": 35,
+      "missing": 0,
+      "special": 3,
+      "names": 0,
+      "life": 0
+    },
+    {
+      "cat": "LEAGUE_PARALLEL_GROUPS_SPEC",
+      "total": 4,
+      "partial": 4,
+      "missing": 0,
+      "special": 0,
+      "names": 0,
+      "life": 1
+    }
+  ],
+  "certified": {
+    "dates": 0,
+    "participantKeys": 0,
+    "matchRules": 0,
+    "closed": 0
+  },
+  "anomalies": 26,
+  "status": "EXACT_SHA_VERIFIED_ROW_STATUS_CENSUS_NOT_SPORTING_CERTIFICATION",
+  "limitations": [
+    "All 1068 current parent/naming/lifecycle files verified byte-for-byte against Git SHA after replaying eleven committed diffs and overlaying seven pending blobs. Historical count from actual index-line patch delta plus three pending records, not a deduplicated event count.",
+    "Partial status does not certify every rule, actual date, participant key or applicability; 81 phase rows are not independent competitions.",
+    "Peru row392 contains separate Copa de la Liga results but native Copa Peru/Copa Liga identity remains pending; keep outside mapped denominator. Four unmapped candidates and 158 remaining scope classifications require review, not necessarily 158 active competitions.",
+    "No new sporting research, no sources added, no runtime or Windows tests. Audit does not advance block count."
+  ]
+}

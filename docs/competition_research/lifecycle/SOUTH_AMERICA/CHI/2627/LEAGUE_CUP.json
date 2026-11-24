@@ -7,15 +7,18 @@
       "active_until": null,
       "endStatus": "UNKNOWN",
       "inactivePeriods": [],
-      "format_valid_from": null,
+      "format_valid_from": "2026",
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "PARTIAL_OFFICIAL_LIFETIME_EXCERPT_MAPPING_CANDIDATE",
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "sources": [
         "https://www.campeonatochileno.cl/noticias/el-nuevo-torneo-del-futbol-chileno-la-copa-de-la-liga/"
       ],
-      "verification": "Block 23 web snippets; generic technical slot requires identity verification before runtime."
+      "verification": "Block 23 web snippets; generic technical slot requires identity verification before runtime.",
+      "transitionRefs": [
+        145
+      ]
     }
   }
 ]

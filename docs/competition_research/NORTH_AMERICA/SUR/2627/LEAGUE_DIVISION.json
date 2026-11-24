@@ -10,10 +10,9 @@
     "candidateSources": [
       "79dac4d9f1a2ede20a7211af2f07efd8ebf581a0"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
-      "historyAtStart": "NOT_RECONCILED",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
@@ -42,6 +41,25 @@
         "champion": "Broki"
       },
       "scope": "Current format not confirmed",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block111Research": {
+      "edition": "2026/27",
+      "rules": {
+        "teams": 10,
+        "initialDoubleRoundRobin": true,
+        "initialGamesPerClub": 18,
+        "split": {
+          "championship": 6,
+          "lower": 4,
+          "pointsCarried": true
+        },
+        "previousPlayoffRemoved": true
+      },
+      "dateEvidence": {
+        "openingReported": "2026-10-10"
+      },
+      "limits": "Exact split leg count, lower-tier movement and tie-break unresolved. Prior 2025/26 period winners and six-team playoffs not repeated automatically.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

@@ -10,9 +10,9 @@
     "candidateSources": [
       "d744018d10a2aa469e3044dc364cbaa2914785fe"
     ],
-    "coverage": "SOURCE_LINKED_NOT_FIELD_CERTIFIED",
+    "coverage": "SPORT_FIELDS_EXTRACTED_PARTIAL",
     "review": {
-      "sportRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
+      "sportRules": "SOURCE_SUPPORTED_RULES_PARTIAL",
       "historyAtStart": "NOT_RECONCILED",
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
@@ -30,6 +30,39 @@
       "source": "d744018d10a2aa469e3044dc364cbaa2914785fe",
       "nameHistory": [],
       "historyComplete": false
+    },
+    "block109Research": {
+      "edition": "1996/97",
+      "sponsoredName": "Coca-Cola Cup",
+      "rules": {
+        "participantsDerivedFromBracket": 40,
+        "roundTies": [
+          8,
+          16,
+          8,
+          4,
+          2,
+          1
+        ],
+        "round1Entrants": 16,
+        "round2Direct": 24,
+        "singleLeg": true,
+        "extraTimeObserved": true,
+        "penaltiesAfterExtraTimeObserved": true
+      },
+      "dateEvidence": {
+        "round2": [
+          "1996-08-13",
+          "1996-08-14"
+        ],
+        "quarterFinal": [
+          "1996-09-17",
+          "1996-09-18"
+        ],
+        "final": "1996-11-24"
+      },
+      "limits": "R1 exact dates, eligibility and seeding not established. No cutoff exclusion inferred.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

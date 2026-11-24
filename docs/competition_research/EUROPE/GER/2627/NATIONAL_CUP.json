@@ -37,15 +37,30 @@
           "priorSeason3LigaTopEligible": 4,
           "regionalCupWinners": 21,
           "additionalRegionalPlaces": 3,
-          "reserveTeamsAllowed": false
+          "reserveTeamsAllowed": false,
+          "regionalReplacement": "Next eligible regional cup finisher if winner is excluded or already represented",
+          "thirdTierReplacement": "Next eligible league finisher or regional cup finisher according to qualifying path",
+          "additionalRegionalAllocation": "Three associations with most active men's teams; at most one additional participant per association",
+          "oneTeamPerClub": true,
+          "disallowJointTeams": true
         },
         "extraTimeMinutes": 30,
         "penalties": true,
         "finalVenue": "Berlin Olympiastadion",
-        "firstRoundDraw": "two pots; amateur pot home including specified promoted and low-ranked second-tier clubs",
-        "secondRoundDraw": "two pots until exhausted; first drawn home",
+        "firstRoundDraw": "Amateur pot drawn first, always home; newly promoted second-tier clubs and previous second-tier rank15 plus rank16 if relegation playoff survived also placed in amateur pot; status during cup season",
+        "secondRoundDraw": "Two pots by current professional/amateur status; amateur drawn first until pot exhausted; first drawn hosts remaining same-pot ties",
         "laterDraw": "one pot; amateur host against licensed team",
-        "yellowSuspensionThreshold": 5
+        "yellowSuspensionThreshold": 5,
+        "discipline": {
+          "yellowThresholdRef": "yellowSuspensionThreshold",
+          "yellowSuspensionMatches": 1,
+          "secondYellowRedSuspensionMatches": 1,
+          "directRedSuspensionCarriesToNextEdition": true
+        },
+        "historicalAccessRuleRefs": [
+          797,
+          798
+        ]
       },
       "roundWindows": [
         [
@@ -89,7 +104,7 @@
           "2027-05-29"
         ]
       ],
-      "limitations": "Round windows only; exact fixture dates and eligible replacement identities pending.",
+      "limitations": "DFB current official rules specify access replacement, host, match resolution and sanctions; individual dates/eligible keys and full federation disciplinary administration pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

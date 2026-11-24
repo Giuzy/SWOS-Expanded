@@ -58,5 +58,25 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block111 sporting evidence, no complete timeline or slot/participant certification."
     }
+  },
+  {
+    "index": 796,
+    "value": {
+      "competition": "ITA Coppa Italia",
+      "firstEdition": "2024/25",
+      "lastEdition": "2026/27",
+      "operation": "CHANGE_MATCH_RULE",
+      "rowRefs": [
+        157,
+        322
+      ],
+      "rules": {
+        "preliminaryThroughQuarterfinal": "If tied after regulation, direct penalties without extra time",
+        "semifinal": "Two legs, aggregate, then extra time 2x15 and penalties",
+        "final": "Single match, extra time 2x15 then penalties"
+      },
+      "scope": "Official three-year rule period, not presumed beyond 2026/27",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

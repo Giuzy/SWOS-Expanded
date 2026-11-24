@@ -16,7 +16,7 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "HISTORICAL_NAME_CANDIDATE",
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "technicalBaseline": "RECOVERED_FROM_17_NOV_AUDIT"
     },
     "knownNativeMissing": null,
@@ -54,12 +54,13 @@
     "competitionNaming": {
       "startEdition": "1996/97",
       "officialName": null,
-      "nonCommercialDisplayName": null,
+      "nonCommercialDisplayName": "Northern League — Superclub",
       "candidateName": "Northern League — Superclub",
-      "status": "HISTORICAL_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/tablesn/nz96.html",
       "nameHistory": [],
-      "historyComplete": false
+      "historyComplete": false,
+      "officialNameEdition": "1996"
     },
     "block96Research": {
       "edition": "1996",
@@ -68,8 +69,21 @@
       "regularRounds": 22,
       "notes": "Bottom two relegated; North Shore withdrew",
       "nextEditionName": "Northern League — Premier Division",
-      "scope": "1996 archive regional names and format; no dated pre-cutoff fixtures established; tier identity pending",
-      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+      "scope": "Regional division label independently rechecked in 1996 archive, not nationwide Superclub Championship (ended1995); exact original native membership and dates remain open.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "promotionRelegation": {
+        "relegatedRanks": [
+          11,
+          12
+        ],
+        "additionalWithdrawalRank": 9,
+        "lowerDivisionPromotedRanks": [
+          1,
+          2,
+          3
+        ],
+        "scope": "Observed 1996 regional movement, not general annual rule"
+      }
     }
   },
   {
@@ -131,7 +145,7 @@
       "regularRounds": 22,
       "notes": "Nelson Suburbs and New Plymouth withdrew",
       "nextEditionName": "Central League — Premier Division",
-      "scope": "1996 archive regional names and format; no dated pre-cutoff fixtures established; tier identity pending",
+      "scope": "Regional league identity separate from national Summer Soccer League, which replaced nationwide Superclub in 1996; actual 1996 cutoff dates remain unknown.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
@@ -194,7 +208,7 @@
       "regularRounds": 18,
       "notes": "Exact movement rules pending",
       "nextEditionName": "Southern League — Premier Division",
-      "scope": "1996 archive regional names and format; no dated pre-cutoff fixtures established; tier identity pending",
+      "scope": "Regional league identity separate from national Summer Soccer League, which replaced nationwide Superclub in 1996; actual 1996 cutoff dates remain unknown.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

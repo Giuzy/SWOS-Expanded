@@ -1,3 +1,9 @@
+## 24/11/2026 — COMPETIZIONI SWAPPED OUT: CONSULTAZIONE STORICA SEPARATA (APPROVATO, NON IMPLEMENTATO)
+
+Decisione utente: «le competizioni swapped out dovrebbero restare consultabili in game in forma compatta (dall'archivio risultati) solo non nella stessa pagina dell'attuale».
+
+Quando una competizione viene sospesa, abolita o sostituita nel corso della carriera, rimane consultabile in gioco in sola lettura tramite l'archivio risultati, separatamente dalla pagina della competizione attiva. Conservare l'identità storica, le edizioni e i dati sintetici già previsti dall'archivio (vincitore, eventuale finalista, data di conclusione, numero gare, identità anti-replay); non richiedere la conservazione permanente del dettaglio delle singole gare. Nessun nuovo incontro, risultato o qualificazione deve essere generato dalla consultazione. Un eventuale ritorno della stessa competizione conserva il suo storico, mentre una competizione sostitutiva distinta ha identità distinta. Mai chiudere o cancellare un'edizione ancora aperta solo per effetto dello swap; rispettare le dipendenze sportive e CAR. Non importare risultati reali successivi al cutoff nella carriera evoluta. La disposizione grafica, il percorso di navigazione, le etichette e i controlli saranno concordati prima di implementare qualsiasi modifica OG. Stato: requisito di design approvato, nessuna UI o logica runtime implementata/testata.
+
 ## 24/11/2026 — v00.13.300 CAMBIO DI STRATEGIA UTENTE: CT = ROUTINE OG
 Per ora la carriera CT è quella OG originale del 1996/97 in entrambi i mondi (UI e comportamento OG), con avvio diretto provvisorio «START AS NATIONAL TEAM COACH». Le decisioni sotto restano **espansioni concordate da implementare successivamente** (non attive). Stato: FASE3_INVENTARIO_SCHEDE_E_DIAGNOSTICA.md «v00.13.300».
 

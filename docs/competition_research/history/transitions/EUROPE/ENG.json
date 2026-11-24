@@ -80,7 +80,8 @@
       "firstRoundLegs": 1,
       "semifinalLegs": 2,
       "finalLegs": 1,
-      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "semifinalAllocation": "Third faces lowest-ranked remaining eliminator winner; fourth faces other winner"
     }
   },
   {
@@ -126,6 +127,27 @@
       "note": "Extra time removed from rounds other than final at introduction; away-goal rule removed for semifinal. Later semifinal extra-time rules must be dated separately.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block109 edition-level sporting observation; not complete regulation or runtime certification."
+    }
+  },
+  {
+    "index": 793,
+    "value": {
+      "competition": "ENG Premier League",
+      "firstEdition": "2019/20",
+      "operation": "CHANGE_TIE_BREAK",
+      "rowRefs": [
+        75,
+        231
+      ],
+      "orderAfterPoints": [
+        "GOAL_DIFFERENCE",
+        "GOALS_SCORED",
+        "HEAD_TO_HEAD_POINTS",
+        "HEAD_TO_HEAD_AWAY_GOALS",
+        "NEUTRAL_PLAYOFF"
+      ],
+      "scope": "Additional head-to-head criteria apply to final standings affecting title, European qualification or relegation; before change neutral playoff followed goals scored directly.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

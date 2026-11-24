@@ -45,8 +45,25 @@
           "rank": 16,
           "opponentTier": 2,
           "opponentRank": 3,
-          "legs": 2
-        }
+          "legs": 2,
+          "secondLegHost": "Club with fewer rest days before first leg under final regular-season schedule; draw lots if equal",
+          "tieResolutionRef": {
+            "historyIndex": 440
+          }
+        },
+        "rankingTieBreakers": {
+          "order": [
+            "GOAL_DIFFERENCE",
+            "GOALS_SCORED",
+            "HEAD_TO_HEAD_AGGREGATE",
+            "HEAD_TO_HEAD_AWAY_GOALS",
+            "TOTAL_AWAY_GOALS",
+            "NEUTRAL_DECIDING_MATCH"
+          ],
+          "beforeBothHeadToHeadLegsPlayed": "first two criteria only; shared position if tied",
+          "afterBothLegsDuringSeason": "first five criteria; no deciding match during season"
+        },
+        "administrativeResult": "2–0 awarded win in specified post-match reclassification or suspension cases; not an automatic simulation rule"
       },
       "firstMatch": "2026-08-28",
       "lastRegularDate": "2027-05-22",
@@ -60,7 +77,7 @@
           "2027-06-01"
         ]
       ],
-      "limitations": "Individual dates/club IDs and complete tie-breakers pending.",
+      "limitations": "Ranking criteria and playoff host verified in DFL rules dated 2026-03-06; individual dates, keys, complete match administration and full effective rulebook reconciliation pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
@@ -110,7 +127,11 @@
           "rank": 3,
           "opponentTier": 1,
           "opponentRank": 16,
-          "legs": 2
+          "legs": 2,
+          "ruleRef": {
+            "row": 243,
+            "field": "relegationPlayoff"
+          }
         },
         "relegatedDirect": [
           17,
@@ -120,7 +141,14 @@
           "rank": 16,
           "opponentTier": 3,
           "opponentRank": 3,
-          "legs": 2
+          "legs": 2,
+          "ruleRef": {
+            "row": 243,
+            "field": "relegationPlayoff"
+          }
+        },
+        "rankingTieBreakersRef": {
+          "row": 243
         }
       },
       "firstMatch": "2026-08-07",
@@ -135,7 +163,7 @@
           "2027-06-01"
         ]
       ],
-      "limitations": "Individual dates/club IDs and complete tie-breakers pending.",
+      "limitations": "Shared DFL classification and two-leg playoff rules verified by reference to row243; full dates, keys, and administration pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   },
@@ -185,7 +213,11 @@
           18,
           19,
           20
-        ]
+        ],
+        "promotionPlayoffRuleRef": {
+          "row": 244,
+          "field": "relegationPlayoff"
+        }
       },
       "firstMatch": "2026-08-07",
       "lastRegularDate": "2027-05-22",

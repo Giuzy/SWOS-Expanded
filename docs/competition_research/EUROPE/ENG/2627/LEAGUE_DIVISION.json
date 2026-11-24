@@ -42,7 +42,10 @@
           3,
           1,
           0
-        ]
+        ],
+        "rankingTieBreakersRef": {
+          "historyIndex": 793
+        }
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Individual fixture dates not imported."
@@ -126,10 +129,13 @@
           3,
           1,
           0
-        ]
+        ],
+        "semifinalAllocationRef": {
+          "historyIndex": 438
+        }
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "limitations": "Semi-final allocation and full 2026/27 regulations still to verify."
+      "limitations": "Semi-final reseeding verified in current competition explanation; full effective 2026/27 rulebook and dates pending."
     }
   },
   {
@@ -191,7 +197,24 @@
           3,
           1,
           0
-        ]
+        ],
+        "playoffs": {
+          "semifinalPairings": [
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "semifinalLegs": 2,
+          "secondLegHost": "higher rank",
+          "awayGoals": false,
+          "finalLegs": 1,
+          "finalVenue": "Wembley"
+        }
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Movement baseline and opening window; exact 2026/27 rule text and fixtures pending."
@@ -256,7 +279,24 @@
           3,
           1,
           0
-        ]
+        ],
+        "playoffs": {
+          "semifinalPairings": [
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "sharedRulesRef": {
+            "row": 233,
+            "field": "playoffs",
+            "except": "semifinalPairings"
+          }
+        }
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Movement baseline and opening window; exact 2026/27 rule text and fixtures pending."

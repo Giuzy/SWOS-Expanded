@@ -2713,7 +2713,9 @@
       "competition": "UEFA Champions League",
       "firstEdition": "1996/97",
       "operation": "OBSERVED_FORMAT",
-      "rowRefs": [],
+      "rowRefs": [
+        165
+      ],
       "source": "https://www.rsssf.org/ec/ec199697.html",
       "rules": {
         "entrants": 24,
@@ -3648,6 +3650,28 @@
         434
       ],
       "note": "World entry via Pro League instead; separate sporting identities. Existing Pro League introduction266 retained.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 795,
+    "value": {
+      "competition": "UEFA Champions League and UEFA Cup finals",
+      "firstEdition": "2002/03",
+      "lastEdition": "2002/03",
+      "operation": "CHANGE_MATCH_RULE_TRIAL",
+      "rowRefs": [
+        165,
+        525,
+        526
+      ],
+      "rules": {
+        "extraTimeFirstPeriodMinutes": 15,
+        "leaderAtEndFirstPeriodWins": true,
+        "secondPeriodMinutesIfLevel": 15,
+        "penaltiesIfStillLevel": true
+      },
+      "scope": "Silver-goal trial specifically in the two 2003 finals; not blanket evidence for every knockout tie. Exact extension beyond trial to reconcile separately.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

@@ -144,15 +144,15 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "UEFA Champions League",
+      "nonCommercialDisplayName": "UEFA Champions League",
       "candidateName": "UEFA Champions League",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
@@ -175,10 +175,18 @@
         "quarterfinalLegs": 2,
         "semifinalLegs": 2,
         "finalLegs": 1,
-        "awayGoals": true
+        "awayGoals": true,
+        "historicalGroupTieBreakRef": {
+          "historyIndex": 350
+        },
+        "extraTimeObservedInTwoLeggedTie": true,
+        "finalExtraTimeRuleCandidate": "Golden goal, announced for finals; verify original 1996/97 regulations, not inferred for two-leg ties",
+        "laterFinalRuleRef": {
+          "historyIndex": 795
+        }
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
-      "scope": "UEFA historical group archive and edition summaries; exact tie hierarchy and association access list pending."
+      "scope": "Official UEFA season archive confirms name and first observed two-leg extra time; exact 1996/97 tiebreak and extra-time regulations remain partial. Existing historical group rules referenced once."
     }
   },
   {

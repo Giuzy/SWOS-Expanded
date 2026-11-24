@@ -42,18 +42,18 @@
             "legs": 1
           },
           {
-            "name": "roundOf32",
+            "name": "trentaduesimi (round of 32 teams)",
             "entrants": 32,
             "newEntrants": 28,
             "legs": 1
           },
           {
-            "name": "roundOf16 qualification",
+            "name": "sedicesimi (round of 16 teams)",
             "entrants": 16,
             "legs": 1
           },
           {
-            "name": "roundOf16",
+            "name": "ottavi (round of 16 teams, including 8 seeds)",
             "entrants": 16,
             "newEntrants": 8,
             "legs": 1
@@ -74,13 +74,64 @@
             "legs": 1
           }
         ],
-        "seeding": "previous edition cup winner and European qualification/league ranking; exact full ranking to reconcile",
+        "seeding": {
+          "bracket": "Fixed seeded 1–44",
+          "positions1to8": "Previous cup champion #1; previous Serie A champion #2 or league runner-up if same club; UEFA qualifiers by league order and eighth-ranked club when applicable",
+          "positions9to24": "Remaining 12 current Serie A clubs, three previous Serie A relegated clubs, losing Serie B promotion playoff finalist",
+          "positions25to36": "Remaining retained Serie B clubs",
+          "positions37to39": "Three Serie C group winners promoted to Serie B",
+          "position40": "Serie C national promotion playoff winner",
+          "positions41to43": "Serie C group runners-up",
+          "position44": "Serie C cup winner",
+          "groupRankingOrder": [
+            "points",
+            "wins",
+            "goals scored",
+            "lot"
+          ],
+          "serieCReplacement": "Best eligible club(s) from second national playoff round under art.49 NOIF when group runner-up promoted or cup winner overlaps, relegated, or cup not held",
+          "sameOwnership": "League may adjust bracket to prevent meeting before final"
+        },
         "semifinalExtraTimeMinutes": 30,
-        "semifinalPenalties": true
+        "semifinalPenalties": true,
+        "singleLegTieBreakRef": {
+          "historyIndex": 796
+        },
+        "semifinalAwayGoals": false,
+        "finalExtraTimeMinutes": 30,
+        "finalPenalties": true,
+        "finalVenue": "Normally Stadio Olimpico, Rome; alternative venue by league decision",
+        "homeAllocation": {
+          "singleLegExceptFinal": "Lower bracket seed number",
+          "semifinalSecondLeg": "Lower bracket seed number",
+          "sharedGroundPriority": {
+            "preliminaryThroughSedicesimi": "Lower seed number retains home, other venue inverted",
+            "ottaviAndQuarterfinal": "Previous cup winner, then better previous league ranking; other venue inverted",
+            "semifinal": "Previous cup winner, then better previous league ranking hosts return leg; other hosts first leg"
+          },
+          "finalNominalHost": "Draw",
+          "otherInversionConditions": [
+            "Joint written club request at least three days before match",
+            "Unavailable stadium",
+            "Inadequate floodlights",
+            "Unsuitable ground"
+          ]
+        },
+        "matchSquad": {
+          "maxNamedPlayers": 26,
+          "starters": 11,
+          "substitutions": 5,
+          "substitutionStoppages": 3,
+          "extraTimeAdditionalSubstitutions": 1,
+          "extraTimeAdditionalStoppages": 1
+        },
+        "discipline": {
+          "yellowCardResetAfterSedicesimi": "Regulation requests federal authorization; actual federal decision to confirm"
+        }
       },
       "nominalFirstRound": "2026-08-09",
       "finalDate": "2027-05-19",
-      "limitations": "Official PDF text retrieved, screenshot failed; complete ranking, match-specific dates and tie rules pending. Not native 16-club approximation.",
+      "limitations": "Official 2026/27 rules text independently rechecked. Screenshot retrieval failed. Actual calendar, team keys, applicable federation disciplinary decisions and historical changes not fully reconciled.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

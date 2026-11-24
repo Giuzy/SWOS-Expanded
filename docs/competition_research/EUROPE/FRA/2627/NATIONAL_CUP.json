@@ -36,7 +36,45 @@
         "ligue2EntryRound": 7,
         "ligue1EntryRound": "R64",
         "extraTimeRegionalRounds": false,
-        "penaltiesRegionalRounds": true
+        "penaltiesRegionalRounds": true,
+        "tieResolutionRef": {
+          "historyIndex": 799
+        },
+        "round7Access": {
+          "metropolitanRegionalQualifiers": {
+            "Auvergne-Rhône-Alpes": 20,
+            "Bourgogne-Franche-Comté": 9,
+            "Bretagne": 15,
+            "Centre-Val de Loire": 6,
+            "Corse": 2,
+            "Grand Est": 20,
+            "Hauts-de-France": 21,
+            "Méditerranée": 5,
+            "Normandie": 9,
+            "Nouvelle-Aquitaine": 15,
+            "Occitanie": 11,
+            "Pays de la Loire": 11,
+            "Paris Île-de-France": 11
+          },
+          "metropolitanTotal": 155,
+          "overseas": {
+            "Guyane": 2,
+            "Martinique": 2,
+            "Guadeloupe": 2,
+            "Réunion": 2,
+            "Nouvelle-Calédonie": 1,
+            "Tahiti": 1,
+            "Mayotte": 1
+          },
+          "overseasTotal": 11,
+          "ligue2": 18,
+          "total": 184,
+          "ties": 92,
+          "conditionalException": "If UEFA Europa League cup-holder is in a division below Ligue1, exempt it from first eight rounds; reduce metropolitan allocation as determined by FFF"
+        },
+        "round8Entrants": 92,
+        "round8Ties": 46,
+        "roundOf64NewEntrants": 18
       },
       "roundDates": [
         [
@@ -72,7 +110,7 @@
           "2027-03-03"
         ]
       ],
-      "limitations": "Regional start varies by region; overseas qualifiers and earliest national applicability not established. Later-round extra time and full access quotas need 2026/27 regulation confirmation.",
+      "limitations": "February2026 federal allocation verified in PDF text and screenshot. Round7 counts baseline subject to stated exception; overseas earliest matches, full dates and exact 2026/27 national regulation text still pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }

@@ -58,5 +58,39 @@
       "promoted": 4,
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 797,
+    "value": {
+      "competition": "GER DFB-Pokal",
+      "firstEdition": "2008/09",
+      "operation": "CHANGE_ACCESS",
+      "rowRefs": [
+        156,
+        360
+      ],
+      "rules": {
+        "licensedClubReserveTeamsEligible": false,
+        "eligibilityStatusSeason": "Competition season"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 798,
+    "value": {
+      "competition": "GER DFB-Pokal",
+      "firstEdition": "2009/10",
+      "operation": "CHANGE_ACCESS",
+      "rowRefs": [
+        156,
+        360
+      ],
+      "rules": {
+        "maxTeamsPerClubOrCompany": 1,
+        "regionalReplacement": "Next eligible regional cup finisher"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

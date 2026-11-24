@@ -92,7 +92,17 @@
       "pointsWin": 3,
       "formatAndMovement": "Double RR; top2 direct, ranks3–6 playoff",
       "researchSource": "https://www.rsssf.org/tablese/eng97.html",
-      "scope": "Partial historical structure, no future results imported"
+      "scope": "Partial historical structure, no future results imported",
+      "relegatedObservedRanks": [
+        22,
+        23,
+        24
+      ],
+      "playoffs": {
+        "semifinalLegs": 2,
+        "finalLegs": 1,
+        "awayGoalsAfterExtraTimeObserved": true
+      }
     },
     "competitionNaming": {
       "startEdition": "1996/97",
@@ -153,9 +163,13 @@
       "teams": 24,
       "regularOrInitialGamesPerClub": 46,
       "pointsWin": 3,
-      "formatAndMovement": "top2 direct, ranks3–6 playoff; bottom4 relegation positions",
+      "formatAndMovement": "Top two direct, ranks3–6 playoffs, bottom four relegation positions",
       "researchSource": "https://www.rsssf.org/tablese/eng97.html",
-      "scope": "Research only: regional candidates and adjacent-year evidence are not exact first-edition certification; no future results imported."
+      "scope": "Research only: regional candidates and adjacent-year evidence are not exact first-edition certification; no future results imported.",
+      "playoffs": {
+        "semifinalLegs": 2,
+        "finalLegs": 1
+      }
     },
     "competitionNaming": {
       "startEdition": "1996/97",
@@ -218,7 +232,15 @@
       "pointsWin": 3,
       "formatAndMovement": "Double RR; top3 direct, ranks4–7 playoff",
       "researchSource": "https://www.rsssf.org/tablese/eng97.html",
-      "scope": "Partial historical structure, no future results imported"
+      "scope": "Partial historical structure, no future results imported",
+      "relegatedObservedRanks": [
+        24
+      ],
+      "playoffs": {
+        "semifinalLegs": 2,
+        "finalLegs": 1
+      },
+      "tieBreakerObservation": "Goals scored ahead of goal difference in the Brighton–Hereford survival tie; full criteria sequence pending"
     },
     "competitionNaming": {
       "startEdition": "1996/97",

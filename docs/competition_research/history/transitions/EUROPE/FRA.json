@@ -152,5 +152,23 @@
       "rowRefs": [],
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 799,
+    "value": {
+      "competition": "FRA Coupe de France",
+      "firstEdition": "2020/21",
+      "operation": "CHANGE_MATCH_RULE",
+      "rowRefs": [
+        155,
+        357
+      ],
+      "rules": {
+        "throughSemifinal": "Direct penalties after regulation draw",
+        "final": "Extra time 2x15 then penalties"
+      },
+      "scope": "Introduced 2020/21, confirmed in 2025/26 regulation and 2026/27 regional phase; exact current national rulebook retrieval incomplete",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

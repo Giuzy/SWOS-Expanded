@@ -1,9 +1,9 @@
 {
-  "lastPreparedBlock": 111,
-  "baseHead": "7fe0e919f4b167b79b04645493a808b643ab09b2",
+  "lastPreparedBlock": 112,
+  "baseHead": "53c7a2ae9f6eaa443f4c7c7bc775a2f60e2c6ce9",
   "status": "INITIAL_EXPLICIT_REGISTER_LOWER_BOUND_NOT_EXHAUSTIVE",
   "policy": "Unique concrete conflicts, identity/slot mismatches or metric inconsistency only. Do not count ordinary missing fields or unresolved applicability as anomalies. Do not resolve conflicts by guessing; merge duplicates in final review. Increment when a distinct case is identified.",
-  "openCount": 30,
+  "openCount": 32,
   "cases": [
     {
       "id": "A001",
@@ -386,6 +386,26 @@
       "description": "ITA native league cup row323 uses a 17-team bracket while candidate real Coppa Italia Serie C 2026/27 uses 60 clubs. Mod description suggests candidate mapping to a truncated bracket, not proof of actual Expanded slot identity; retain full real rules separately from runtime mapping.",
       "rows": [
         323
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A031",
+      "type": "NATIVE_FORMAT_MISMATCH",
+      "description": "GER historical second tier row55: prior technical relegation count0 vs observed four relegations, ranks15–18. Missing lower-tier access or runtime policy must be reviewed, not silently populated.",
+      "rows": [
+        55
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A032",
+      "type": "NATIVE_FORMAT_MISMATCH",
+      "description": "ENG historical tier2–4 native movement fields differ from observed 1996/97 (tier2 three relegated vs four; tier3 two direct promotions vs three; tier4 one relegated vs zero). Distinguish missing lower-tier data and native encoding from verified sporting rules.",
+      "rows": [
+        76,
+        77,
+        78
       ],
       "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
     }

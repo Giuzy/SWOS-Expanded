@@ -16,7 +16,7 @@
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
-      "competitionName": "UNVERIFIED_NAME_CANDIDATE"
+      "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
     "historicalSportData": {
@@ -24,7 +24,7 @@
       "edition": "1996/97",
       "teams": null,
       "known": "1995 cup named Bob Save Superbowl; 1996/97 championship transition to August-May. RSSSF 1997 worldwide palmares lists Kaizer Chiefs cup winner, postSTART research only; no winner imported. Exact 1996/97 bracket not recovered.",
-      "missing": "precise 1996/97 name and tournament identity, dates, entrants, format, match rules",
+      "missing": "Exact first-round dates, entrants, bracket, match rules and native edition mapping",
       "sources": [
         "https://www.rsssf.org/tablesz/zaf95.html",
         "https://rsssf.org/tablesp/palmaresworld97.html",
@@ -34,16 +34,17 @@
     },
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": null,
+      "officialName": "BobSave SuperBowl",
+      "nonCommercialDisplayName": "South African National Cup",
       "candidateName": "South African National Cup",
-      "status": "UNVERIFIED_NAME_CANDIDATE",
+      "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": null,
       "nameHistory": [],
       "historyComplete": false,
       "candidateProvenance": "Block35 working nomenclature hypothesis from existing inventory, archived research and known generic labels; not independently sourced; exact historical identity and official name unverified. No runtime import.",
       "observed1996Name": "BobSave SuperBowl",
-      "observed1996FinalDate": "1996-11-23"
+      "observed1996FinalDate": "1996-11-23",
+      "officialNameEdition": "1996"
     },
     "block55Research": {
       "edition": "1996/97",
@@ -93,7 +94,10 @@
         "observedThirdPlaceMatch": true,
         "observedFinal": true
       },
-      "scope": "Final occurs after cutoff; semifinal actual dates and earliest qualifying round unknown. 1997 edition absent, 1996 identity mapping remains pending. No result or qualified future winner imported."
+      "scope": "Official name independently confirmed for calendar edition1996; 1997 not played. Native season mapping and earliest round dates remain open; no future result imported.",
+      "subsequentFinalRuleRef": {
+        "historyIndex": 794
+      }
     }
   }
 ]

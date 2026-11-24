@@ -178,5 +178,25 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "verification": "Block91 contemporary report, RSSSF historical table or league official history, no new URLs."
     }
+  },
+  {
+    "index": 794,
+    "value": {
+      "competition": "RSA National Cup",
+      "firstEdition": "1997/98",
+      "lastEdition": "1997/98",
+      "operation": "OBSERVED_MATCH_RULE",
+      "rowRefs": [
+        149,
+        399
+      ],
+      "rules": {
+        "finalLegs": 1,
+        "drawAfterExtraTime": "REPLAY",
+        "replayDrawResolutionObserved": "PENALTIES"
+      },
+      "scope": "Observed 1998 final had a replay, not an aggregate two-legged final. Contemporary report confirms extra time and delay to replay; official PSL confirms penalties in replay. Do not infer universal rule duration or apply to 1996 without regulations.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

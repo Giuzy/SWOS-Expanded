@@ -84,9 +84,20 @@
       "teams": 18,
       "regularOrInitialGamesPerClub": 34,
       "pointsWin": 3,
-      "formatAndMovement": "2. Bundesliga double RR, points deduction exceptional; precise promotion/relegation count to extract",
-      "scope": "Observed structure, no future results imported; null and uncertain fields remain open.",
-      "firstMatch": "1996-08-02"
+      "formatAndMovement": "Double round robin; observed top three direct promotions and bottom four relegations; exceptional three-point deduction for Gütersloh not a recurring rule.",
+      "scope": "Historical edition movement observed; exact licensing/administrative provisions and participant keys pending. No post-cutoff scores or table imported.",
+      "firstMatch": "1996-08-02",
+      "promotedDirectRanks": [
+        1,
+        2,
+        3
+      ],
+      "relegatedObservedRanks": [
+        15,
+        16,
+        17,
+        18
+      ]
     },
     "competitionNaming": {
       "startEdition": "1996/97",

@@ -174,7 +174,18 @@
  * generated a fixture. Runtime audit: separate CE section, OG-native world
  * checks NOT_APPLICABLE for a CE career, never a forced PASS. Competition
  * inventory generator (tools/competition_inventory.py). Windows NOT PROVEN. */
-#define SWOS_EXPANDED_VERSION "00.13.298"
+/* v00.13.299 (CT/national teams, PARTIAL): explicit CE participant kind
+ * (ExpandedClubKey.kind CLUB/NATIONAL; national = real OG team number of
+ * region files 80..85, never a club slot); one kind per edition (mixed ->
+ * local ENTRANTS block); CAR fixtures UE03 (+2 kind columns, UE02 still
+ * read), lifecycle UL02 (+kinds, + national call-ups; UL01 still read);
+ * CE national call-ups: automatic best eligible+available (OG price, then
+ * attributes, no threshold), manual add/remove with nationality /
+ * availability / duplicate / one-list checks, clear, restore; 2627 manager
+ * key maps an OG national selector to its NATIONAL key. NOT done: national
+ * rosters for CPU matches, OG call-up UI changes, international windows,
+ * real 2627 national competition data (UNAVAILABLE). Windows NOT PROVEN. */
+#define SWOS_EXPANDED_VERSION "00.13.299"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

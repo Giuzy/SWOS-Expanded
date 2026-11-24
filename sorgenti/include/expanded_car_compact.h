@@ -7,21 +7,26 @@
 #define EXPANDED_CAR_COMPACT_H
 #include <stddef.h>
 #include <stdint.h>
-#define EXP_CCOL 23
+/* v00.13.299 "UE03": 25 columns = the 23 UE02 columns + home_kind,
+ * away_kind (ExpandedParticipantKind, 8 bits). The reader still accepts
+ * UE02 rows (23 columns): the two kind columns then read as 0 = CLUB. */
+#define EXP_CCOL 25
+#define EXP_CCOL_UE02 23
 typedef struct ExpCarCompactReader {
     const uint8_t *col[EXP_CCOL],*end[EXP_CCOL];
     uint64_t prev[EXP_CCOL];
     uint32_t n,next;
+    uint32_t ncol;               /* 23 (UE02) or 25 (UE03) */
     uint16_t world;
     int32_t day;
 } ExpCarCompactReader;
 /* Column widths in bits (exported for tests). */
 extern const uint8_t ExpCarCompact_Bits[EXP_CCOL];
-/* Encode n rows; row(i,vals,user) fills the 23 values (returns 0 = abort).
+/* Encode n rows (UE03); row(i,vals,user) fills the 25 values (returns 0 = abort).
  * Returns a malloc'd buffer (free()) and its length, or NULL on failure. */
 uint8_t *ExpCarCompact_Encode(uint16_t world,int32_t day,uint32_t n,
     int (*row)(uint32_t i,uint64_t *vals,void *user),void *user,size_t *len);
-/* Validates magic, bounds, column lengths and trailer hash; no allocation. */
+/* Validates magic (UE02 or UE03), bounds, column lengths and trailer hash; no allocation. */
 int ExpCarCompact_Open(ExpCarCompactReader *r,const uint8_t *buf,size_t len);
 /* 1 = row produced; 0 = corrupt or exhausted (value out of width, bad
  * varint, truncated column). */

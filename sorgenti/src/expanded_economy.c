@@ -2725,7 +2725,7 @@ static void ui_render_ce_calendar(void)
     if(slot>=WORLD_SLOTS || World_SlotTeam(country,slot)!=_selTeamNumber)
         return;
     manager=(ExpandedClubKey){(uint16_t)WORLD_2627,
-        ((uint32_t)country<<16)|((uint32_t)slot+1u)};
+        ((uint32_t)country<<16)|((uint32_t)slot+1u),EXP_PARTICIPANT_CLUB};
     for(uint32_t i=0u;i<reg->fixture_count;++i) {
         const ExpandedUniversalFixture *f=&reg->fixtures[i];
         if(ExpandedClubKey_Equal(f->home,manager) ||

@@ -106,7 +106,7 @@ TeamFileEx *ExpandedUniversalCatalog_Roster(ExpandedClubKey key)
 uint32_t ExpandedUniversalCatalog_DivisionClubs(uint8_t country,uint8_t division,
                                                 ExpandedClubKey *out,uint32_t cap)
 {(void)country;(void)division;(void)out;(void)cap;return 0u;}
-static ExpandedClubKey club(uint32_t k){return (ExpandedClubKey){WORLD_2627,k};}
+static ExpandedClubKey club(uint32_t k){return (ExpandedClubKey){WORLD_2627,k,EXP_PARTICIPANT_CLUB};}
 static void build_catalog(uint8_t first_type)
 {
     /* rr pairs for 4 clubs (a,b,c,d) -> rounds 0..2, mirrored 3..5 */

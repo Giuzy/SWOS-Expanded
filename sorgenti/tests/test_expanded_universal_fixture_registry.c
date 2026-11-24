@@ -77,8 +77,8 @@ static ExpandedUniversalFixture match(uint16_t world,uint32_t competition,
     f.key.edition.start_day=start;
     f.key.edition.sequence=0u;
     f.key.stage=1u;f.key.tie=tie;
-    f.home=(ExpandedClubKey){world,home};
-    f.away=(ExpandedClubKey){world,away};
+    f.home=(ExpandedClubKey){world,home,EXP_PARTICIPANT_CLUB};
+    f.away=(ExpandedClubKey){world,away,EXP_PARTICIPANT_CLUB};
     f.event_id=event;f.day_index=date;
     f.country=country;f.slot=slot;f.competition_type=type;
     return f;
@@ -124,13 +124,13 @@ int main(void) {
     {
         const ExpandedUniversalFixture *club_due=0;
         const int32_t before=r.scheduler.clock.day_index;
-        assert(ExpandedUniversal_NextForClub(&r,(ExpandedClubKey){WORLD_2627,103u},
+        assert(ExpandedUniversal_NextForClub(&r,(ExpandedClubKey){WORLD_2627,103u,EXP_PARTICIPANT_CLUB},
                a,&club_due)==EXP_UNIVERSAL_DUE);
         assert(club_due && club_due->event_id==801u);
         assert(r.scheduler.clock.day_index==before);
-        assert(ExpandedUniversal_NextForClub(&r,(ExpandedClubKey){WORLD_2627,999u},
+        assert(ExpandedUniversal_NextForClub(&r,(ExpandedClubKey){WORLD_2627,999u,EXP_PARTICIPANT_CLUB},
                b,&club_due)==EXP_UNIVERSAL_EMPTY);
-        assert(ExpandedUniversal_NextForClub(&r,(ExpandedClubKey){WORLD_9697,103u},
+        assert(ExpandedUniversal_NextForClub(&r,(ExpandedClubKey){WORLD_9697,103u,EXP_PARTICIPANT_CLUB},
                b,&club_due)==EXP_UNIVERSAL_INVALID);
     }
     assert(ExpandedUniversal_Peek(&r,day(2026,8,17),&due)==EXP_UNIVERSAL_EMPTY);
@@ -149,7 +149,7 @@ int main(void) {
     {
         const ExpandedUniversalFixture *club_due=0;
         /* Completed historical match must not poison later club calendar. */
-        assert(ExpandedUniversal_NextForClub(&r,(ExpandedClubKey){WORLD_2627,101u},
+        assert(ExpandedUniversal_NextForClub(&r,(ExpandedClubKey){WORLD_2627,101u,EXP_PARTICIPANT_CLUB},
                b,&club_due)==EXP_UNIVERSAL_EMPTY);
         assert(!club_due);
     }
@@ -328,7 +328,7 @@ int main(void) {
         ls[17].key=fs[17].key;
         fs[17].away=fs[16].home;
         assert(!ExpandedUniversal_ValidateRestore(&bulk));
-        fs[17].away=(ExpandedClubKey){WORLD_2627,36u};
+        fs[17].away=(ExpandedClubKey){WORLD_2627,36u,EXP_PARTICIPANT_CLUB};
         assert(ExpandedUniversal_ValidateRestore(&bulk));
         /* Full matchday snapshot: prior played, next still pending. */
         bulk.scheduler.clock.day_index=a;

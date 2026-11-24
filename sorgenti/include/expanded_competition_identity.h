@@ -7,9 +7,19 @@
 
 /* IDs come from a stable world-pack registry, never from a mutable squad
  * checksum, a naked country ordinal, or the native 8-bit compId alone. */
+/* v00.13.299: a CE participant is a CLUB (stable_club = country<<16 | slot+1)
+ * or a NATIONAL team (stable_club = OG national team number + 1, i.e. its
+ * real team-file identity file<<8|ordinal, plus 1 so it is never 0). The
+ * kind is explicit: a national team is never encoded as a club key.
+ * `kind` is last so existing {world,stable_club} initialisers stay CLUB. */
+typedef enum ExpandedParticipantKind {
+    EXP_PARTICIPANT_CLUB=0,
+    EXP_PARTICIPANT_NATIONAL=1
+} ExpandedParticipantKind;
 typedef struct ExpandedClubKey {
     uint16_t world;
     uint32_t stable_club;
+    uint8_t kind;                /* ExpandedParticipantKind */
 } ExpandedClubKey;
 typedef struct ExpandedCompetitionKey {
     uint16_t world;
@@ -56,11 +66,27 @@ typedef struct ExpandedFixtureLedger {
 
 static inline int ExpandedClubKey_Valid(ExpandedClubKey a)
 {
-    return a.world < (uint16_t)WORLD_COUNT && a.stable_club != 0u;
+    return a.world < (uint16_t)WORLD_COUNT && a.stable_club != 0u &&
+           (a.kind == EXP_PARTICIPANT_CLUB ||
+            (a.kind == EXP_PARTICIPANT_NATIONAL && a.stable_club <= 0x10000u));
 }
 static inline int ExpandedClubKey_Equal(ExpandedClubKey a, ExpandedClubKey b)
 {
-    return a.world == b.world && a.stable_club == b.stable_club;
+    return a.world == b.world && a.stable_club == b.stable_club &&
+           a.kind == b.kind;
+}
+static inline ExpandedClubKey ExpandedNationalKey(uint16_t world,
+                                                  uint16_t og_team_number)
+{
+    ExpandedClubKey k;
+    k.world = world;
+    k.stable_club = (uint32_t)og_team_number + 1u;
+    k.kind = EXP_PARTICIPANT_NATIONAL;
+    return k;
+}
+static inline int ExpandedClubKey_IsNational(ExpandedClubKey a)
+{
+    return a.kind == EXP_PARTICIPANT_NATIONAL;
 }
 static inline int ExpandedCompetitionKey_Equal(ExpandedCompetitionKey a,
                                                 ExpandedCompetitionKey b)

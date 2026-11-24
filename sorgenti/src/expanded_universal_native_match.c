@@ -106,6 +106,14 @@ int ExpandedUniversal_NativeTeamKey(const TeamFileEx *team,
     if(!team || !club || World_Current()>=WORLD_COUNT)return 0;
     file=team->team.countryNumber;
     ordinal=team->team.teamOrdinal;
+    /* v299: OG national teams live in the region files 80..85 (CN_EUROPE..
+     * CN_OCEANIA, career_init.c): their real team number is the identity,
+     * with an explicit NATIONAL kind (never a club slot). */
+    if(file>=80u && file<=85u) {
+        *club=ExpandedNationalKey((uint16_t)World_Current(),
+                                  (uint16_t)(((uint16_t)file<<8)|ordinal));
+        return ExpandedClubKey_Valid(*club);
+    }
     country=World_FileCountry(file);
     slot=World_Slot(file,ordinal);
     packed=(uint16_t)(((uint16_t)file<<8)|ordinal);

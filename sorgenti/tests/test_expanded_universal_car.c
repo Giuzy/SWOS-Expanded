@@ -54,8 +54,8 @@ static ExpandedUniversalFixture fixture(uint64_t id,uint32_t tie,
     ExpandedUniversalFixture f={0};
     f.event_id=id;
     f.day_index=day;
-    f.home=(ExpandedClubKey){WORLD_2627,home};
-    f.away=(ExpandedClubKey){WORLD_2627,away};
+    f.home=(ExpandedClubKey){WORLD_2627,home,EXP_PARTICIPANT_CLUB};
+    f.away=(ExpandedClubKey){WORLD_2627,away,EXP_PARTICIPANT_CLUB};
     f.key.edition.competition=(ExpandedCompetitionKey){WORLD_2627,450001u};
     f.key.edition.start_day=day;
     f.key.edition.sequence=1u;
@@ -155,7 +155,7 @@ int main(void)
     /* Field checksum must reject any tampering, without mutating runtime. */
     strcpy(corrupted,s_disk);
     {
-        char *p=strstr(corrupted,"UE02:");
+        char *p=strstr(corrupted,"UE03:");
         assert(p);
         p[5+40]=(p[5+40]=='A')?'B':'A';
     }
@@ -217,7 +217,7 @@ int main(void)
         assert(ExpandedUniversal_CarRestore(legacy,(int)strlen(legacy)));
         r=ExpandedUniversal_CarRegistry();
         assert(ExpandedUniversal_CarEmit(mjson_print_fixed_buf,&dst2));
-        {   const char *a0=strstr(again,"UE02:");
+        {   const char *a0=strstr(again,"UE03:");
             assert(a0 && (size_t)(strchr(a0,'"')-a0)==(size_t)(k1-k0) &&
                    !memcmp(a0,k0,(size_t)(k1-k0)));   /* lossless migration */
         }

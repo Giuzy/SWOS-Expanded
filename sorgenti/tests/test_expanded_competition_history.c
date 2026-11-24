@@ -23,7 +23,7 @@ int main(void)
     };
     ExpandedFixtureKey second;
     ExpandedFixtureKey open;
-    ExpandedClubKey home = {WORLD_2627, 1001u}, away = {WORLD_2627, 1002u};
+    ExpandedClubKey home = {WORLD_2627, 1001u, EXP_PARTICIPANT_CLUB}, away = {WORLD_2627, 1002u, EXP_PARTICIPANT_CLUB};
     ExpandedFixtureScore score = {2u, 1u, 0u, 0u, 0u};
     uint16_t season = 0u;
     uint32_t removed = 99u;

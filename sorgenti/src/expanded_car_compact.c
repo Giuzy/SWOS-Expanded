@@ -3,7 +3,7 @@
 #include <string.h>
 
 const uint8_t ExpCarCompact_Bits[EXP_CCOL]={
-    64,64,32,32,16,32,32,16,16,32,32,32,16,8,8,8,16,16,16,16,8,8,16};
+    64,64,32,32,16,32,32,16,16,32,32,32,16,8,8,8,16,16,16,16,8,8,16,8,8};
 typedef struct Buf {uint8_t *p;size_t n,cap;} Buf;
 static int buf_put(Buf *b,uint64_t v)
 {
@@ -43,6 +43,7 @@ static void put32(uint8_t *p,uint32_t v)
 {p[0]=(uint8_t)v;p[1]=(uint8_t)(v>>8);p[2]=(uint8_t)(v>>16);p[3]=(uint8_t)(v>>24);}
 static uint32_t get32(const uint8_t *p)
 {return (uint32_t)p[0]|((uint32_t)p[1]<<8)|((uint32_t)p[2]<<16)|((uint32_t)p[3]<<24);}
+static size_t head_of(size_t ncol){return 4u+2u+4u+4u+4u*ncol;}
 enum { HEAD=4+2+4+4+4*EXP_CCOL };
 
 uint8_t *ExpCarCompact_Encode(uint16_t world,int32_t day,uint32_t n,
@@ -70,7 +71,7 @@ uint8_t *ExpCarCompact_Encode(uint16_t world,int32_t day,uint32_t n,
     }
     out=(uint8_t *)malloc(total);
     if(!out)goto fail;
-    memcpy(out,"UE02",4u);
+    memcpy(out,"UE03",4u);
     out[4]=(uint8_t)world;out[5]=(uint8_t)(world>>8);
     put32(out+6,(uint32_t)day);put32(out+10,n);
     for(c=0;c<EXP_CCOL;++c)put32(out+14+4*c,(uint32_t)col[c].n);
@@ -94,18 +95,24 @@ fail:
 }
 int ExpCarCompact_Open(ExpCarCompactReader *r,const uint8_t *b,size_t len)
 {
-    size_t at,c,k;
+    size_t at,c,k,ncol,head;
     uint64_t h=0u;
     if(!r || !b)return 0;
     memset(r,0,sizeof *r);
-    if(len<HEAD+8u || memcmp(b,"UE02",4u))return 0;
+    if(len<4u)return 0;
+    if(!memcmp(b,"UE03",4u))ncol=EXP_CCOL;
+    else if(!memcmp(b,"UE02",4u))ncol=EXP_CCOL_UE02;
+    else return 0;
+    head=head_of(ncol);
+    if(len<head+8u)return 0;
     for(k=0;k<8;++k)h|=(uint64_t)b[len-8u+k]<<(8*k);
     if(h!=fnv64(b,len-8u))return 0;
+    r->ncol=(uint32_t)ncol;
     r->world=(uint16_t)(b[4]|(b[5]<<8));
     r->day=(int32_t)get32(b+6);
     r->n=get32(b+10);
-    at=HEAD;
-    for(c=0;c<EXP_CCOL;++c) {
+    at=head;
+    for(c=0;c<ncol;++c) {
         const uint32_t l=get32(b+14+4*c);
         if(l>len-8u-at)return 0;
         r->col[c]=b+at;r->end[c]=b+at+l;at+=l;
@@ -116,7 +123,8 @@ int ExpCarCompact_Next(ExpCarCompactReader *r,uint64_t *vals)
 {
     size_t c;
     if(!r || !vals || r->next>=r->n)return 0;
-    for(c=0;c<EXP_CCOL;++c) {
+    for(c=r->ncol;c<EXP_CCOL;++c)vals[c]=0u; /* UE02: kinds = CLUB */
+    for(c=0;c<r->ncol;++c) {
         const unsigned bits=ExpCarCompact_Bits[c];
         uint64_t z=0u;
         unsigned sh=0u;
@@ -140,7 +148,7 @@ int ExpCarCompact_Finish(const ExpCarCompactReader *r)
 {
     size_t c;
     if(!r || r->next!=r->n)return 0;
-    for(c=0;c<EXP_CCOL;++c)if(r->col[c]!=r->end[c])return 0;
+    for(c=0;c<r->ncol;++c)if(r->col[c]!=r->end[c])return 0;
     return 1;
 }
 size_t ExpCarCompact_HexEncode(const uint8_t *in,size_t n,char *out,size_t cap)

@@ -169,6 +169,7 @@ static int exp_car_row_get(uint32_t i,uint64_t *v,void *user)
     v[16]=claim->score.home;v[17]=claim->score.away;
     v[18]=claim->score.penalties_home;v[19]=claim->score.penalties_away;
     v[20]=claim->score.flags;v[21]=e->state;v[22]=e->priority;
+    v[23]=f->home.kind;v[24]=f->away.kind;
     return 1;
 }
 /* Emit core: reads ONLY through r (live registry or an owned snapshot copy).
@@ -212,7 +213,7 @@ static int exp_car_emit_registry(ExpandedUniversalRegistry *r,
     if(hexlen==(size_t)-1 || hexlen>(size_t)INT_MAX-16u) {free(bin);return 0;}
     text=(char *)malloc(5u+hexlen+1u);
     if(!text) {free(bin);return 0;}
-    memcpy(text,"UE02:",5u);
+    memcpy(text,"UE03:",5u); /* v299: + participant kinds */
     if(ExpCarCompact_HexEncode(bin,binlen,text+5,hexlen)!=hexlen) {
         free(bin);free(text);return 0;
     }
@@ -388,7 +389,7 @@ static int exp_car_parse_ue02(const char *json,int size,const char *text,
        civil_day!=rd.day) {free(bin);return 0;}
     world=rd.world;n=rd.n;
     /* each row needs >= EXP_CCOL bytes: bounds n against the payload */
-    if((uint64_t)n*EXP_CCOL>binlen || !exp_car_alloc(candidate,world,n,date)) {
+    if((uint64_t)n*rd.ncol>binlen || !exp_car_alloc(candidate,world,n,date)) {
         free(bin);return 0;
     }
     candidate->reg.fixture_count=n;
@@ -406,6 +407,7 @@ static int exp_car_parse_ue02(const char *json,int size,const char *text,
         f->key.stage=(uint32_t)v[5];f->key.tie=(uint32_t)v[6];
         f->key.leg=(uint16_t)v[7];f->key.replay=(uint16_t)v[8];
         f->home.stable_club=(uint32_t)v[9];f->away.stable_club=(uint32_t)v[10];
+        f->home.kind=(uint8_t)v[23];f->away.kind=(uint8_t)v[24];
         f->day_index=(int32_t)(uint32_t)v[11];
         f->country=(uint16_t)v[12];f->slot=(uint8_t)v[13];
         f->competition_type=(uint8_t)v[14];
@@ -463,7 +465,7 @@ static int exp_car_parse_registry(const char *json,int size,
         free(text);return 0;
     }
     len=strlen(text);
-    if(len>=5u && memcmp(text,"UE02:",5u)==0) {
+    if(len>=5u && (memcmp(text,"UE02:",5u)==0 || memcmp(text,"UE03:",5u)==0)) {
         const int ok=exp_car_parse_ue02(json,size,text,len,candidate,
                                         present,expected_world);
         free(text);
@@ -664,6 +666,10 @@ int ExpandedUniversal_CarCoversClubs(const char *json,int size,
        present;
     for(i=0;ok && i<candidate.reg.fixture_count;++i) {
         const ExpandedUniversalFixture *f=&candidate.reg.fixtures[i];
+        /* v299: national teams have no club roster entry; their squads
+         * are the national call-up state, checked by its own section */
+        if(ExpandedClubKey_IsNational(f->home) || ExpandedClubKey_IsNational(f->away))
+            continue;
         if(!bsearch(&f->home.stable_club,sorted_keys,n,sizeof *sorted_keys,
                     exp_key_cmp) ||
            !bsearch(&f->away.stable_club,sorted_keys,n,sizeof *sorted_keys,

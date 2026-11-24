@@ -15,8 +15,8 @@ int main(void)
     ExpandedFixtureKey next;
     ExpandedFixtureScore score = {2u, 1u, 0u, 0u, 0u};
     ExpandedFixtureScore changed = {9u, 1u, 0u, 0u, 0u};
-    ExpandedClubKey club96 = {WORLD_9697, 123u};
-    ExpandedClubKey club26 = {WORLD_2627, 123u};
+    ExpandedClubKey club96 = {WORLD_9697, 123u, EXP_PARTICIPANT_CLUB};
+    ExpandedClubKey club26 = {WORLD_2627, 123u, EXP_PARTICIPANT_CLUB};
     unsigned i;
     const unsigned files[4] = {12u,13u,38u,73u};
     const char *names[4] = {

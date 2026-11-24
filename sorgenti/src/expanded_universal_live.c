@@ -71,6 +71,9 @@ static int s_async_failed; /* last async CAR write failed: next flush is SYNC */
  * disoccupato / partita manager assente). */
 static int manager_key(ExpandedClubKey *out)
 {
+    /* v299: a national team manager (OG _isNationalSelector, one job at a
+     * time) is the NATIONAL participant of its real OG team number. Same
+     * gates as a club manager; NativeTeamKey maps region files 80..85. */
     const uint16_t word=(uint16_t)(
         ((uint16_t)_careerTeam.team.countryNumber<<8) |
         (uint16_t)_careerTeam.team.teamOrdinal);

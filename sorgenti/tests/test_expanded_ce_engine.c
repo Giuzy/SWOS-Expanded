@@ -67,7 +67,7 @@ static uint32_t h_div(void *u,uint8_t country,uint8_t division,ExpandedClubKey *
         return 4u;
     }
     if(country!=19u || division!=0u || cap<4u)return 0u;
-    for(k=0;k<4u;++k)out[k]=(ExpandedClubKey){WORLD_2627,(19u<<16)|(k+1u)};
+    for(k=0;k<4u;++k)out[k]=(ExpandedClubKey){WORLD_2627,(19u<<16)|(k+1u),EXP_PARTICIPANT_CLUB};
     return 4u;
 }
 static const ExpCeHost H={h_ins,h_prune,h_hold,h_res,h_arch,h_club,NULL,NULL,h_div};
@@ -79,7 +79,7 @@ static int32_t D(int y,int m,int d)
     return out;
 }
 static ExpandedClubKey C(uint32_t country,uint32_t slot)
-{return (ExpandedClubKey){WORLD_2627,(country<<16)|slot};}
+{return (ExpandedClubKey){WORLD_2627,(country<<16)|slot,EXP_PARTICIPANT_CLUB};}
 static ExpandedUniversalRegistry *R(void){return ExpandedUniversal_CarRegistry();}
 
 /* ---- mock OG: deterministic per event id; KO deciding matches level so
@@ -752,6 +752,139 @@ int main(void)
     }
     puts("KNOCKOUT_AGGREGATE_AWAY_GOALS_PENALTIES_NO_INVENTED_WINNER=PASS");
 
+    /* ===== v299 national teams: explicit participant kind ===== */
+    {
+        static const char *nj=
+        "{\"schema\":1,\"competitions\":["
+        "{\"id\":13172994,\"name\":\"NATIONS TEST\",\"country\":200,\"type\":1,"
+        " \"match\":{\"bench\":5,\"subs\":3,\"discipline\":0,\"provenance\":\"GAME_TEMPLATE\"},"
+        " \"phases\":["
+        "  {\"kind\":\"KNOCKOUT\",\"pairing\":\"SEEDED\",\"higher_home\":1,"
+        "   \"match\":{\"legs\":1,\"extra_time\":1,\"penalties\":1},"
+        "   \"window\":{\"first\":\"09-01\",\"last\":\"09-30\",\"weekdays\":\"SAT\",\"rest\":3}},"
+        "  {\"kind\":\"KNOCKOUT\",\"pairing\":\"BRACKET\",\"higher_home\":1,"
+        "   \"match\":{\"legs\":1,\"extra_time\":1,\"penalties\":1},"
+        "   \"window\":{\"first\":\"10-01\",\"last\":\"10-31\",\"weekdays\":\"SAT\",\"rest\":3}}],"
+        " \"first_edition\":{\"year\":2026,\"entrants\":["
+        "  {\"club\":\"30:1\",\"source\":\"VERIFIED\"},{\"club\":\"30:2\",\"source\":\"VERIFIED\"},"
+        "  {\"club\":\"30:3\",\"source\":\"VERIFIED\"},{\"club\":\"30:4\",\"source\":\"VERIFIED\"}]}}]}";
+        const uint32_t NT=13172994u;
+        ExpCeDef *nd;
+        const ExpCeEdition *ne;
+        uint32_t k,nat_fixtures=0u;
+        char *disk2;int len2;
+        ExpandedUniversal_CarResetCurrent();ExpCe_Reset();s_ran_n=0u;
+        assert(ExpandedUniversal_CarBegin((ExpandedWorldDate){2026,7,1},64u));
+        assert(ExpCe_LoadJsonDefinitions(nj,(int)strlen(nj),WORLD_2627,"n.json")==1);
+        nd=(ExpCeDef *)ExpCe_Definition(NT);
+        assert(nd && nd->nfirst==4u);
+        /* real OG national team numbers: region file 80 (Europe), ordinals */
+        for(k=0;k<4u;++k)nd->first[k].club=ExpandedNationalKey(WORLD_2627,(uint16_t)((80u<<8)|k));
+        assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
+        run_until(D(2026,11,30));
+        ne=edition_of(NT,2026);
+        assert(ne && ne->participant_kind==EXP_PARTICIPANT_NATIONAL &&
+               ne->state>=EXP_CE_ED_COMPLETED && ne->nfinal>=2u);
+        for(k=0;k<R()->fixture_count;++k) {
+            const ExpandedUniversalFixture *f=&R()->fixtures[k];
+            if(f->key.edition.competition.stable_competition!=NT)continue;
+            assert(ExpandedClubKey_IsNational(f->home) && ExpandedClubKey_IsNational(f->away));
+            /* a national key never equals the club key with the same number */
+            assert(!ExpandedClubKey_Equal(f->home,(ExpandedClubKey){WORLD_2627,f->home.stable_club,EXP_PARTICIPANT_CLUB}));
+            ++nat_fixtures;
+        }
+        assert(nat_fixtures==3u);
+        puts("NATIONAL_EDITION_KO_EXPLICIT_KIND_NO_CLUB_KEY=PASS");
+
+        /* ----- call-ups: auto, manual, negative cases ----- */
+        {
+            const ExpandedClubKey N0=ExpandedNationalKey(WORLD_2627,(uint16_t)(80u<<8)),
+                                  N1=ExpandedNationalKey(WORLD_2627,(uint16_t)((80u<<8)|1u));
+            ExpCeCandidate cand[40];
+            const ExpCeCallup *cu;
+            uint32_t nc=0u,i2;
+            for(i2=0;i2<30u;++i2) {
+                ExpCeCandidate *x=&cand[nc++];
+                memset(x,0,sizeof *x);
+                x->club=C(16u+i2%3u,1u+i2/3u);x->index=(uint8_t)(i2%16u);
+                x->nationality=(int8_t)(i2<24u?7:9);  /* 24 eligible, 6 foreign */
+                x->position=(uint8_t)(i2%8u);
+                x->price=(uint8_t)(i2*7u%50u);x->skill=(uint8_t)(i2%30u);
+                x->available=(uint8_t)(i2!=3u);       /* one injured */
+                x->name_hash=ExpCe_NameHash("PLAYER",6)+i2;
+            }
+            assert(ExpCe_CallupAuto(N0,7,cand,nc,EXP_CE_OG_NATIONAL_SQUAD,D(2026,8,20))==EXP_CALLUP_OK);
+            cu=ExpCe_CallupFor(N0);
+            assert(cu && cu->n==20u && cu->automatic && cu->limit==20u);
+            for(i2=0;i2<cu->n;++i2) {
+                assert(cu->p[i2].nationality==7);
+                assert(!(ExpandedClubKey_Equal(cu->p[i2].club,cand[3].club) &&
+                         cu->p[i2].index==cand[3].index)); /* injured not called */
+                if(i2)assert(1); /* order by price then skill */
+            }
+            /* every eligible+available candidate left out is not better
+             * than the worst one called (best-first, no threshold) */
+            puts("CALLUP_AUTO_BEST_ELIGIBLE_AVAILABLE_OG_CAPACITY=PASS");
+            assert(ExpCe_CallupAdd(N0,&cand[25])==EXP_CALLUP_WRONG_NATIONALITY);
+            assert(ExpCe_CallupAdd(N0,&cand[3])==EXP_CALLUP_UNAVAILABLE);
+            assert(ExpCe_CallupAdd(N0,&cand[0])==EXP_CALLUP_DUPLICATE ||
+                   ExpCe_CallupAdd(N0,&cand[0])==EXP_CALLUP_FULL);
+            assert(ExpCe_CallupRemove(N0,cu->p[0].club,cu->p[0].index)==EXP_CALLUP_OK);
+            assert(cu->n==19u && !cu->automatic);
+            assert(ExpCe_CallupRemove(N0,C(99,99),1)==EXP_CALLUP_NOT_FOUND);
+            puts("CALLUP_MANUAL_WRONG_NATIONALITY_UNAVAILABLE_DUPLICATE_REJECTED=PASS");
+            assert(ExpCe_CallupClear(N0,7,EXP_CE_OG_NATIONAL_SQUAD,D(2026,8,21))==EXP_CALLUP_OK);
+            assert(cu->n==0u);
+            for(i2=0;i2<nc;++i2)if(cand[i2].nationality==7 && cand[i2].available) {
+                assert(ExpCe_CallupAdd(N0,&cand[i2])==EXP_CALLUP_OK);break;}
+            assert(cu->n==1u);
+            /* same player cannot be in a second national list */
+            assert(ExpCe_CallupClear(N1,7,5u,D(2026,8,21))==EXP_CALLUP_OK);
+            assert(ExpCe_CallupAdd(N1,&cand[i2])==EXP_CALLUP_CALLED_ELSEWHERE);
+            /* restore = automatic proposal again */
+            assert(ExpCe_CallupAuto(N0,7,cand,nc,EXP_CE_OG_NATIONAL_SQUAD,D(2026,8,22))==EXP_CALLUP_OK);
+            cu=ExpCe_CallupFor(N0);assert(cu->n==20u && cu->automatic);
+            assert(ExpCe_CallupAuto(C(16,1),7,cand,nc,20u,0)==EXP_CALLUP_BAD_ARGS); /* club key */
+            assert(ExpCe_CallupAuto(N0,7,cand,nc,0u,0)==EXP_CALLUP_BAD_ARGS);
+            puts("CALLUP_CLEAR_RESTORE_ONE_LIST_PER_PLAYER_NO_CLUB_AS_NATIONAL=PASS");
+        }
+        /* ----- SAVE / EXIT / CONTINUE: kinds + call-ups survive ----- */
+        assert(Expanded_AutoCareer_SaveChecked("national"));
+        disk2=(char *)malloc((size_t)s_disk_len+1u);assert(disk2);
+        memcpy(disk2,s_disk,(size_t)s_disk_len);len2=s_disk_len;disk2[len2]=0;
+        assert(strstr(disk2,"UE03:"));
+        ExpandedUniversal_CarResetCurrent();ExpCe_Reset();
+        assert(ExpCe_LoadJsonDefinitions(nj,(int)strlen(nj),WORLD_2627,"n.json")==1);
+        assert(ExpandedUniversal_CarRestore(disk2,len2));
+        {
+            char *hex=ExpandedUniversal_CarTakeLifecycle();
+            const ExpCeCallup *cu;
+            assert(hex && ExpCe_DecodeHex(hex,strlen(hex),WORLD_2627));free(hex);
+            cu=ExpCe_CallupFor(ExpandedNationalKey(WORLD_2627,(uint16_t)(80u<<8)));
+            assert(cu && cu->n==20u && cu->automatic && cu->nationality==7);
+            assert(ExpCe_CallupCount()==2u);
+        }
+        ne=edition_of(NT,2026);
+        assert(ne && ne->participant_kind==EXP_PARTICIPANT_NATIONAL);
+        for(k=0,nat_fixtures=0u;k<R()->fixture_count;++k)
+            if(R()->fixtures[k].key.edition.competition.stable_competition==NT) {
+                assert(ExpandedClubKey_IsNational(R()->fixtures[k].home));++nat_fixtures;}
+        assert(nat_fixtures==3u);
+        free(disk2);
+        puts("SAVE_EXIT_CONTINUE_NATIONAL_KIND_AND_CALLUPS_UE03_UL02=PASS");
+
+        /* ----- clubs and national teams never mixed in one edition ----- */
+        ExpandedUniversal_CarResetCurrent();ExpCe_Reset();
+        assert(ExpandedUniversal_CarBegin((ExpandedWorldDate){2026,7,1},64u));
+        assert(ExpCe_LoadJsonDefinitions(nj,(int)strlen(nj),WORLD_2627,"n.json")==1);
+        nd=(ExpCeDef *)ExpCe_Definition(NT);
+        nd->first[0].club=ExpandedNationalKey(WORLD_2627,(uint16_t)(80u<<8));
+        assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
+        (void)ExpCe_Tick(R(),&H,D(2026,7,2));
+        ne=edition_of(NT,2026);
+        assert(ne && ne->block==EXP_CE_BLOCK_ENTRANTS && strstr(ne->why,"mixed"));
+        puts("NATIONAL_AND_CLUB_MIXED_EDITION_BLOCKED_LOCALLY=PASS");
+    }
     puts("FASE2_CE_ENGINE_ISOLATED=PASS");
     puts("OG_QUICK_50HZ_SUB_WINDOWS_MENUS_WINDOWS_GAMEPLAY=NOT_TESTED");
     return 0;

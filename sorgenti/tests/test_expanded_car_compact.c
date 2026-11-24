@@ -70,6 +70,34 @@ int main(void)
     {   ExpCarCompactReader rd;uint8_t *ext=(uint8_t *)malloc(len+1);
         memcpy(ext,bin,len);ext[len]=0;
         assert(!ExpCarCompact_Open(&rd,ext,len+1));free(ext);}
+    /* 3b) v299 legacy UE02 (23 columns): built from the UE03 buffer by
+     * dropping the two kind columns; it must still read, kinds = 0 (CLUB) */
+    {
+        uint8_t *old2=(uint8_t *)malloc(len);
+        size_t at=4+2+4+4+4*EXP_CCOL,o=4+2+4+4+4*EXP_CCOL_UE02,c,payload=0;
+        uint64_t h=1469598103934665603ull,v[EXP_CCOL];
+        ExpCarCompactReader rd;
+        uint32_t i;
+        assert(old2);
+        memcpy(old2,"UE02",4);memcpy(old2+4,bin+4,10);
+        for(c=0;c<EXP_CCOL_UE02;++c)memcpy(old2+14+4*c,bin+14+4*c,4);
+        for(c=0;c<EXP_CCOL_UE02;++c) {
+            const uint32_t l=(uint32_t)bin[14+4*c]|((uint32_t)bin[15+4*c]<<8)|
+                             ((uint32_t)bin[16+4*c]<<16)|((uint32_t)bin[17+4*c]<<24);
+            memcpy(old2+o,bin+at+payload,l);o+=l;payload+=l;
+        }
+        for(c=0;c<o;++c){h^=old2[c];h*=1099511628211ull;}
+        for(c=0;c<8;++c)old2[o+c]=(uint8_t)(h>>(8*c));
+        assert(ExpCarCompact_Open(&rd,old2,o+8) && rd.ncol==EXP_CCOL_UE02);
+        for(i=0;i<r.n;++i) {
+            assert(ExpCarCompact_Next(&rd,v));
+            for(c=0;c<EXP_CCOL_UE02;++c)assert(v[c]==r.v[i][c]);
+            assert(v[23]==0u && v[24]==0u);
+        }
+        assert(ExpCarCompact_Finish(&rd));
+        free(old2);
+        puts("UE02_LEGACY_READ_KINDS_CLUB=PASS");
+    }
     free(mut);free(bin);
     /* 4) empty registry */
     {   Rows e={0,NULL};ExpCarCompactReader rd;uint64_t v[EXP_CCOL];
@@ -125,7 +153,7 @@ int main(void)
                (unsigned long)(clen*2),(double)hex/(double)(clen*2));
         free(bin);free(s.v);}
     free(r.v);
-    puts("EXP_CAR_COMPACT_UE02=PASS_ISOLATED_ONLY");
+    puts("EXP_CAR_COMPACT_UE03=PASS_ISOLATED_ONLY");
     puts("GAME_CAR_INTEGRATION_AND_WINDOWS=NOT_TESTED_HERE");
     return 0;
 }

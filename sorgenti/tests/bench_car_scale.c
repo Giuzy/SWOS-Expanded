@@ -71,8 +71,8 @@ static void bench(uint32_t n)
         memset(f,0,sizeof *f);
         f->event_id=UINT64_C(0x2000000000000000)+i+1u;
         f->day_index=base+(int32_t)(day*3u);   /* 3-day rounds */
-        f->home=(ExpandedClubKey){WORLD_2627,(45u<<16)|(2u*k+1u)};
-        f->away=(ExpandedClubKey){WORLD_2627,(45u<<16)|(2u*k+2u)};
+        f->home=(ExpandedClubKey){WORLD_2627,(45u<<16)|(2u*k+1u),EXP_PARTICIPANT_CLUB};
+        f->away=(ExpandedClubKey){WORLD_2627,(45u<<16)|(2u*k+2u),EXP_PARTICIPANT_CLUB};
         f->key.edition.competition=(ExpandedCompetitionKey){WORLD_2627,450001u};
         f->key.edition.start_day=base;
         f->key.edition.sequence=1u;

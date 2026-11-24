@@ -177,7 +177,7 @@ int main(void)
 {
     ExpandedUniversalCatalogAudit audit={0};
     const ExpandedUniversalCatalogFixture *f=NULL;
-    ExpandedClubKey first={WORLD_2627,(45u<<16)|1u};
+    ExpandedClubKey first={WORLD_2627,(45u<<16)|1u,EXP_PARTICIPANT_CLUB};
     ExpandedWorldDate date={0};
     int32_t expected=0;
     test_pairings_all(); /* 188 n/meeting configurations, actual C11 */

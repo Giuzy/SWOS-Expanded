@@ -20,6 +20,8 @@ static struct {
     uint32_t nposts, cposts;
     uint16_t world;
     uint32_t last_def; /* lookup cache */
+    ExpCeCallup *calls;            /* v299 national call-ups */
+    uint32_t ncalls, ccalls;
 } s_ce;
 
 static int ce_grow(void **arr,uint32_t *cap,uint32_t need,size_t size)
@@ -36,7 +38,7 @@ static int ce_grow(void **arr,uint32_t *cap,uint32_t need,size_t size)
 }
 void ExpCe_Reset(void)
 {
-    free(s_ce.defs);free(s_ce.eds);free(s_ce.posts);
+    free(s_ce.defs);free(s_ce.eds);free(s_ce.posts);free(s_ce.calls);
     memset(&s_ce,0,sizeof s_ce);
 }
 uint32_t ExpCe_DefinitionCount(void){return s_ce.ndefs;}
@@ -659,6 +661,16 @@ static int generate_phase(ExpandedUniversalRegistry *r,const ExpCeHost *host,
         *block=EXP_CE_BLOCK_ENTRANTS;
         return 0;
     }
+    /* v299: one participant kind per edition (clubs OR national teams) */
+    for(i=0;i<n;++i)
+        if(ent[i].club.kind!=ent[0].club.kind ||
+           (phase>0u && ent[i].club.kind!=e->participant_kind)) {
+            snprintf(why,whylen,"phase %u: clubs and national teams mixed",
+                     (unsigned)phase);
+            *block=EXP_CE_BLOCK_ENTRANTS;
+            return 0;
+        }
+    if(phase==0u)e->participant_kind=ent[0].club.kind;
     for(i=0;i<n;++i)
         if(host && host->club_ok && !host->club_ok(host->user,ent[i].club)) {
             snprintf(why,whylen,"phase %u: club %lu has no roster",
@@ -944,7 +956,8 @@ static int resolve_sources(const ExpCeDef *d,ExpCeEdition *e,char *why,size_t wl
                          (unsigned long)sp->competition,(unsigned long)rank);
                 return -1;
             }
-            c=(ExpandedClubKey){e->key.competition.world,src->final_order[rank-1u]};
+            c=(ExpandedClubKey){e->key.competition.world,src->final_order[rank-1u],
+              src->participant_kind};
             if(entrant_has(e->entrants,k,c)) {
                 if(!sp->reallocate) {
                     snprintf(why,wl,"club %lu qualified twice, no reallocation rule",
@@ -1069,20 +1082,20 @@ static int league_family_rollover(ExpandedUniversalRegistry *r,
         for(j=div[i]->promoted;j+div[i]->relegated<cur[i]->nfinal;++j) {
             const uint32_t rank=j+1u;
             n->entrants[k++]=(ExpCeEntrant){
-                (ExpandedClubKey){d0->world,cur[i]->final_order[j]},
+                (ExpandedClubKey){d0->world,cur[i]->final_order[j],EXP_PARTICIPANT_CLUB},
                 EXP_CE_SRC_RETAINED,(uint8_t)rank,0u,(uint8_t)(k+1u),0u,
                 div[i]->id,cur[i]->key.start_day};
         }
         if(i>0u) /* relegated from the division above */
             for(j=cur[i-1u]->nfinal-div[i-1u]->relegated;j<cur[i-1u]->nfinal;++j)
                 n->entrants[k++]=(ExpCeEntrant){
-                    (ExpandedClubKey){d0->world,cur[i-1u]->final_order[j]},
+                    (ExpandedClubKey){d0->world,cur[i-1u]->final_order[j],EXP_PARTICIPANT_CLUB},
                     EXP_CE_SRC_RELEGATED,(uint8_t)(j+1u),0u,(uint8_t)(k+1u),0u,
                     div[i-1u]->id,cur[i-1u]->key.start_day};
         if(i+1u<nd) /* promoted from the division below */
             for(j=0;j<div[i+1u]->promoted;++j)
                 n->entrants[k++]=(ExpCeEntrant){
-                    (ExpandedClubKey){d0->world,cur[i+1u]->final_order[j]},
+                    (ExpandedClubKey){d0->world,cur[i+1u]->final_order[j],EXP_PARTICIPANT_CLUB},
                     EXP_CE_SRC_PROMOTED,(uint8_t)(j+1u),0u,(uint8_t)(k+1u),0u,
                     div[i+1u]->id,cur[i+1u]->key.start_day};
         n->nentrants=k;
@@ -1802,9 +1815,11 @@ static void rd_get(Rd *r,void *p,size_t n)
 struct ExpCeSnapshot {
     ExpCeEdition *eds; uint32_t neds;
     ExpCePostponement *posts; uint32_t nposts;
+    ExpCeCallup *calls; uint32_t ncalls;
 };
 static char *encode_hex(const ExpCeEdition *eds,uint32_t neds,
                         const ExpCePostponement *posts,uint32_t nposts,
+                        const ExpCeCallup *calls,uint32_t ncalls,
                         uint16_t world,size_t *len)
 {
     Wr w={0};
@@ -1813,7 +1828,7 @@ static char *encode_hex(const ExpCeEdition *eds,uint32_t neds,
     char *hex;
     static const char dig[]="0123456789abcdef";
     w.ok=1;
-    wr_put(&w,"UL01",4u);
+    wr_put(&w,"UL02",4u); /* v299: + participant kinds (UL01 still read) */
     WR(&w,(uint16_t)world);WR(&w,(uint32_t)neds);
     for(i=0;i<neds;++i) {
         const ExpCeEdition *e=&eds[i];
@@ -1822,12 +1837,14 @@ static char *encode_hex(const ExpCeEdition *eds,uint32_t neds,
         WR(&w,e->key.competition.stable_competition);WR(&w,e->key.start_day);
         WR(&w,e->key.sequence);WR(&w,e->def_id);WR(&w,e->year);
         WR(&w,e->state);WR(&w,e->phase);WR(&w,e->block);WR(&w,e->phase_ready);
-        WR(&w,e->successor);WR(&w,e->partial);WR(&w,e->rules_hash);
+        WR(&w,e->successor);WR(&w,e->partial);WR(&w,e->participant_kind);
+        WR(&w,e->rules_hash);
         WR(&w,e->expiry_day);
         WR(&w,(uint16_t)e->nentrants);
         for(k=0;k<e->nentrants;++k) {
             const ExpCeEntrant *x=&e->entrants[k];
-            WR(&w,x->club.stable_club);WR(&w,x->source);WR(&w,x->rank);
+            WR(&w,x->club.stable_club);WR(&w,x->club.kind);
+            WR(&w,x->source);WR(&w,x->rank);
             WR(&w,x->group);WR(&w,x->seed);WR(&w,x->join_phase);
             WR(&w,x->from_competition);WR(&w,x->from_start_day);
         }
@@ -1839,6 +1856,18 @@ static char *encode_hex(const ExpCeEdition *eds,uint32_t neds,
     for(i=0;i<nposts;++i) {
         WR(&w,posts[i].event_id);WR(&w,posts[i].original_day);
         WR(&w,posts[i].new_day);WR(&w,posts[i].reason);
+    }
+    /* UL02: national call-ups */
+    WR(&w,(uint32_t)ncalls);
+    for(i=0;i<ncalls;++i) {
+        const ExpCeCallup *c=&calls[i];
+        WR(&w,c->national.stable_club);WR(&w,c->nationality);WR(&w,c->limit);
+        WR(&w,c->automatic);WR(&w,c->n);WR(&w,c->day);
+        for(k=0;k<c->n;++k) {
+            const ExpCeCalledPlayer *q=&c->p[k];
+            WR(&w,q->club.stable_club);WR(&w,q->index);WR(&w,q->nationality);
+            WR(&w,q->position);WR(&w,q->name_hash);
+        }
     }
     for(i=0;i<(uint32_t)w.n;++i){h^=w.b[i];h*=UINT64_C(1099511628211);}
     WR(&w,h);
@@ -1853,7 +1882,8 @@ static char *encode_hex(const ExpCeEdition *eds,uint32_t neds,
 }
 char *ExpCe_EncodeHex(uint16_t world,size_t *len)
 {
-    return encode_hex(s_ce.eds,s_ce.neds,s_ce.posts,s_ce.nposts,world,len);
+    return encode_hex(s_ce.eds,s_ce.neds,s_ce.posts,s_ce.nposts,
+                      s_ce.calls,s_ce.ncalls,world,len);
 }
 ExpCeSnapshot *ExpCe_SnapshotCapture(void)
 {
@@ -1869,17 +1899,23 @@ ExpCeSnapshot *ExpCe_SnapshotCapture(void)
         if(!s->posts){free(s->eds);free(s);return NULL;}
         memcpy(s->posts,s_ce.posts,(size_t)s_ce.nposts*sizeof *s->posts);
     }
-    s->neds=s_ce.neds;s->nposts=s_ce.nposts;
+    if(s_ce.ncalls) {
+        s->calls=(ExpCeCallup *)malloc((size_t)s_ce.ncalls*sizeof *s->calls);
+        if(!s->calls){free(s->eds);free(s->posts);free(s);return NULL;}
+        memcpy(s->calls,s_ce.calls,(size_t)s_ce.ncalls*sizeof *s->calls);
+    }
+    s->neds=s_ce.neds;s->nposts=s_ce.nposts;s->ncalls=s_ce.ncalls;
     return s;
 }
 char *ExpCe_SnapshotEncodeHex(const ExpCeSnapshot *s,uint16_t world,size_t *len)
 {
-    return s?encode_hex(s->eds,s->neds,s->posts,s->nposts,world,len):NULL;
+    return s?encode_hex(s->eds,s->neds,s->posts,s->nposts,s->calls,s->ncalls,
+                        world,len):NULL;
 }
 void ExpCe_SnapshotRelease(ExpCeSnapshot *s)
 {
     if(!s)return;
-    free(s->eds);free(s->posts);free(s);
+    free(s->eds);free(s->posts);free(s->calls);free(s);
 }
 static int hexval(char c)
 {
@@ -1900,7 +1936,10 @@ static int decode_hex(const char *hex,size_t len,uint16_t world,int commit)
     uint64_t h=UINT64_C(14695981039346656037),stored=0;
     ExpCeEdition *eds=NULL;
     ExpCePostponement *posts=NULL;
+    ExpCeCallup *calls=NULL;
+    uint32_t ncalls=0;
     char magic[4];
+    int v2=0;
     if(!hex || (len&1u) || len<8u)return 0;
     n=len/2u;
     b=(uint8_t *)malloc(n);
@@ -1916,7 +1955,9 @@ static int decode_hex(const char *hex,size_t len,uint16_t world,int commit)
     if(stored!=h){free(b);return 0;}
     r.b=b;r.n=n-8u;r.pos=0;r.ok=1;
     rd_get(&r,magic,4u);rd_get(&r,&w16,2u);rd_get(&r,&neds,4u);
-    if(!r.ok || memcmp(magic,"UL01",4u) || w16!=world || neds>1000000u){free(b);return 0;}
+    if(!r.ok || (memcmp(magic,"UL01",4u) && memcmp(magic,"UL02",4u)) ||
+       w16!=world || neds>1000000u){free(b);return 0;}
+    v2=memcmp(magic,"UL02",4u)==0;
     if(neds && !(eds=(ExpCeEdition *)calloc(neds,sizeof *eds))){free(b);return 0;}
     for(i=0;i<neds && r.ok;++i) {
         ExpCeEdition *e=&eds[i];
@@ -1929,6 +1970,8 @@ static int decode_hex(const char *hex,size_t len,uint16_t world,int commit)
         rd_get(&r,&e->state,1u);rd_get(&r,&e->phase,1u);rd_get(&r,&e->block,1u);
         rd_get(&r,&e->phase_ready,1u);rd_get(&r,&e->successor,1u);
         rd_get(&r,&e->partial,1u);
+        if(v2)rd_get(&r,&e->participant_kind,1u);
+        if(e->participant_kind>EXP_PARTICIPANT_NATIONAL)r.ok=0;
         rd_get(&r,&e->rules_hash,8u);rd_get(&r,&e->expiry_day,4u);
         rd_get(&r,&ne,2u);
         if(ne>EXP_CE_MAX_ENTRANTS){r.ok=0;break;}
@@ -1936,7 +1979,10 @@ static int decode_hex(const char *hex,size_t len,uint16_t world,int commit)
         for(k=0;k<ne;++k) {
             ExpCeEntrant *x=&e->entrants[k];
             x->club.world=world;
-            rd_get(&r,&x->club.stable_club,4u);rd_get(&r,&x->source,1u);
+            rd_get(&r,&x->club.stable_club,4u);
+            if(v2)rd_get(&r,&x->club.kind,1u);
+            if(x->club.kind!=e->participant_kind)r.ok=0; /* never mixed */
+            rd_get(&r,&x->source,1u);
             rd_get(&r,&x->rank,1u);rd_get(&r,&x->group,1u);rd_get(&r,&x->seed,1u);
             rd_get(&r,&x->join_phase,1u);rd_get(&r,&x->from_competition,4u);
             rd_get(&r,&x->from_start_day,4u);
@@ -1958,12 +2004,35 @@ static int decode_hex(const char *hex,size_t len,uint16_t world,int commit)
         rd_get(&r,&posts[i].event_id,8u);rd_get(&r,&posts[i].original_day,4u);
         rd_get(&r,&posts[i].new_day,4u);rd_get(&r,&posts[i].reason,1u);
     }
-    if(!r.ok || r.pos!=r.n){free(b);free(eds);free(posts);return 0;}
+    if(v2) {
+        rd_get(&r,&ncalls,4u);
+        if(r.ok && ncalls>65536u)r.ok=0;
+        if(r.ok && ncalls && !(calls=(ExpCeCallup *)calloc(ncalls,sizeof *calls)))r.ok=0;
+        for(i=0;r.ok && i<ncalls;++i) {
+            ExpCeCallup *c=&calls[i];
+            c->national.world=world;c->national.kind=EXP_PARTICIPANT_NATIONAL;
+            rd_get(&r,&c->national.stable_club,4u);rd_get(&r,&c->nationality,1u);
+            rd_get(&r,&c->limit,1u);rd_get(&r,&c->automatic,1u);
+            rd_get(&r,&c->n,1u);rd_get(&r,&c->day,4u);
+            if(!ExpandedClubKey_Valid(c->national) || c->n>EXP_CE_CALLUP_CAP ||
+               c->n>c->limit){r.ok=0;break;}
+            for(k=0;k<c->n;++k) {
+                ExpCeCalledPlayer *q=&c->p[k];
+                q->club.world=world;q->club.kind=EXP_PARTICIPANT_CLUB;
+                rd_get(&r,&q->club.stable_club,4u);rd_get(&r,&q->index,1u);
+                rd_get(&r,&q->nationality,1u);rd_get(&r,&q->position,1u);
+                rd_get(&r,&q->name_hash,4u);
+                if(q->nationality!=c->nationality)r.ok=0;
+            }
+        }
+    }
+    if(!r.ok || r.pos!=r.n){free(b);free(eds);free(posts);free(calls);return 0;}
     free(b);
-    if(!commit){free(eds);free(posts);return 1;}
-    free(s_ce.eds);free(s_ce.posts);
+    if(!commit){free(eds);free(posts);free(calls);return 1;}
+    free(s_ce.eds);free(s_ce.posts);free(s_ce.calls);
     s_ce.eds=eds;s_ce.neds=s_ce.ceds=neds;
     s_ce.posts=posts;s_ce.nposts=s_ce.cposts=nposts;
+    s_ce.calls=calls;s_ce.ncalls=s_ce.ccalls=ncalls;
     s_ce.world=world;
     return 1;
 }
@@ -2049,4 +2118,141 @@ int ExpCe_ValidateAfterRestore(ExpandedUniversalRegistry *r,const ExpCeHost *hos
         }
     }
     return changed;
+}
+
+/* ------------------------------------------------------------------ */
+/* v00.13.299 national-team call-ups                                    */
+/* ------------------------------------------------------------------ */
+uint32_t ExpCe_NameHash(const char *name,size_t max)
+{
+    uint32_t h=2166136261u;
+    size_t i;
+    for(i=0;name && i<max && name[i];++i){h^=(uint8_t)name[i];h*=16777619u;}
+    return h?h:1u;
+}
+const char *ExpCe_CallupResultName(ExpCeCallupResult r)
+{
+    static const char *const n[]={"OK","BAD_ARGS","WRONG_NATIONALITY",
+        "UNAVAILABLE","DUPLICATE","FULL","NOT_FOUND","CALLED_ELSEWHERE",
+        "NO_MEMORY"};
+    return (unsigned)r<sizeof n/sizeof n[0]?n[r]:"?";
+}
+uint32_t ExpCe_CallupCount(void){return s_ce.ncalls;}
+static ExpCeCallup *callup_find(ExpandedClubKey national)
+{
+    uint32_t i;
+    for(i=0;i<s_ce.ncalls;++i)
+        if(ExpandedClubKey_Equal(s_ce.calls[i].national,national))return &s_ce.calls[i];
+    return NULL;
+}
+const ExpCeCallup *ExpCe_CallupFor(ExpandedClubKey national){return callup_find(national);}
+static ExpCeCallup *callup_slot(ExpandedClubKey national)
+{
+    ExpCeCallup *c=callup_find(national);
+    if(c)return c;
+    if(!ce_grow((void **)&s_ce.calls,&s_ce.ccalls,s_ce.ncalls+1u,sizeof *s_ce.calls))
+        return NULL;
+    c=&s_ce.calls[s_ce.ncalls++];
+    memset(c,0,sizeof *c);
+    c->national=national;
+    return c;
+}
+static int same_player(const ExpCeCalledPlayer *p,ExpandedClubKey club,uint8_t index)
+{return ExpandedClubKey_Equal(p->club,club) && p->index==index;}
+/* a player can be in ONE national list at a time */
+static int called_elsewhere(ExpandedClubKey national,ExpandedClubKey club,uint8_t index)
+{
+    uint32_t i,k;
+    for(i=0;i<s_ce.ncalls;++i) {
+        if(ExpandedClubKey_Equal(s_ce.calls[i].national,national))continue;
+        for(k=0;k<s_ce.calls[i].n;++k)
+            if(same_player(&s_ce.calls[i].p[k],club,index))return 1;
+    }
+    return 0;
+}
+static int cand_better(const ExpCeCandidate *a,const ExpCeCandidate *b)
+{
+    if(a->price!=b->price)return a->price>b->price;
+    if(a->skill!=b->skill)return a->skill>b->skill;
+    if(a->club.stable_club!=b->club.stable_club)return a->club.stable_club<b->club.stable_club;
+    return a->index<b->index;
+}
+static int callup_args_ok(ExpandedClubKey national,uint8_t limit)
+{
+    return ExpandedClubKey_Valid(national) && ExpandedClubKey_IsNational(national) &&
+           limit>0u && limit<=EXP_CE_CALLUP_CAP;
+}
+ExpCeCallupResult ExpCe_CallupClear(ExpandedClubKey national,int8_t nationality,
+                                    uint8_t limit,int32_t day)
+{
+    ExpCeCallup *c;
+    if(!callup_args_ok(national,limit))return EXP_CALLUP_BAD_ARGS;
+    if(!(c=callup_slot(national)))return EXP_CALLUP_NO_MEMORY;
+    c->nationality=nationality;c->limit=limit;c->day=day;
+    c->automatic=0u;c->n=0u;
+    return EXP_CALLUP_OK;
+}
+ExpCeCallupResult ExpCe_CallupAuto(ExpandedClubKey national,int8_t nationality,
+    const ExpCeCandidate *cand,uint32_t n,uint8_t limit,int32_t day)
+{
+    ExpCeCallup *c;
+    uint32_t i,k;
+    ExpCeCallupResult r=ExpCe_CallupClear(national,nationality,limit,day);
+    if(r!=EXP_CALLUP_OK)return r;
+    if(n && !cand)return EXP_CALLUP_BAD_ARGS;
+    c=callup_find(national);
+    /* selection by repeated best pick: n candidates, limit <= 64 */
+    for(k=0;k<limit;++k) {
+        const ExpCeCandidate *best=NULL;
+        for(i=0;i<n;++i) {
+            const ExpCeCandidate *x=&cand[i];
+            uint32_t j;
+            int taken=0;
+            if(x->nationality!=nationality || !x->available ||
+               !ExpandedClubKey_Valid(x->club) || ExpandedClubKey_IsNational(x->club) ||
+               called_elsewhere(national,x->club,x->index))continue;
+            for(j=0;j<c->n && !taken;++j)taken=same_player(&c->p[j],x->club,x->index);
+            if(taken)continue;
+            if(!best || cand_better(x,best))best=x;
+        }
+        if(!best)break;
+        c->p[c->n++]=(ExpCeCalledPlayer){best->club,best->index,best->nationality,
+                                         best->position,best->name_hash};
+    }
+    c->automatic=1u;
+    fprintf(stderr,"[ce-callup] AUTO national=%lu nationality=%d limit=%u "
+        "called=%u candidates=%lu no-quality-threshold=1\n",
+        (unsigned long)national.stable_club,(int)nationality,(unsigned)limit,
+        (unsigned)c->n,(unsigned long)n);
+    return EXP_CALLUP_OK;
+}
+ExpCeCallupResult ExpCe_CallupAdd(ExpandedClubKey national,const ExpCeCandidate *x)
+{
+    ExpCeCallup *c=callup_find(national);
+    uint32_t j;
+    if(!c || !x || !ExpandedClubKey_Valid(x->club) || ExpandedClubKey_IsNational(x->club))
+        return EXP_CALLUP_BAD_ARGS;
+    if(x->nationality!=c->nationality)return EXP_CALLUP_WRONG_NATIONALITY;
+    if(!x->available)return EXP_CALLUP_UNAVAILABLE;
+    for(j=0;j<c->n;++j)if(same_player(&c->p[j],x->club,x->index))return EXP_CALLUP_DUPLICATE;
+    if(called_elsewhere(national,x->club,x->index))return EXP_CALLUP_CALLED_ELSEWHERE;
+    if(c->n>=c->limit)return EXP_CALLUP_FULL;
+    c->p[c->n++]=(ExpCeCalledPlayer){x->club,x->index,x->nationality,x->position,
+                                     x->name_hash};
+    c->automatic=0u;
+    return EXP_CALLUP_OK;
+}
+ExpCeCallupResult ExpCe_CallupRemove(ExpandedClubKey national,ExpandedClubKey club,
+                                     uint8_t index)
+{
+    ExpCeCallup *c=callup_find(national);
+    uint32_t j;
+    if(!c)return EXP_CALLUP_BAD_ARGS;
+    for(j=0;j<c->n;++j)
+        if(same_player(&c->p[j],club,index)) {
+            memmove(&c->p[j],&c->p[j+1u],(size_t)(c->n-j-1u)*sizeof c->p[0]);
+            --c->n;c->automatic=0u;
+            return EXP_CALLUP_OK;
+        }
+    return EXP_CALLUP_NOT_FOUND;
 }

@@ -909,6 +909,7 @@ def run_consolidation(source,outbase,stamp):
     result["input_name"]=source.name
     result["research_index_sha256"]=hashfile(ROOT/"docs/competition_research/INDEX.json")
     result["consolidator_sha256"]=hashfile(HERE/"consolidate.py")
+    result["closure_pass_sha256"]=hashfile(HERE/"closure_pass.py")
     dump(out/"consolidation_summary.json",result)
     archives=pack_results(out,outbase)
     print(json.dumps(result,ensure_ascii=False,indent=2),flush=True)

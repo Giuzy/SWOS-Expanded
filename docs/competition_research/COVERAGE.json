@@ -23,7 +23,7 @@
   },
   "rawTransitionRecords": 806,
   "transitionCountNote": "Raw historical records reconstructed by original count371 + committed index-line delta406 + pending3 =780; prior dashboard775 discrepancy corrected, global unique events not certified. Block109 adds six unique indexed observations, 786 raw; still not global deduplicated count. Block110 adds four indexed observations786–789, 790 raw; no global deduplication claim. Block111 adds three indexed observations790–792,793 raw; chronology completeness unknown. Block112 adds one indexed observation793, 794 raw; existing438 enriched, no global deduplication claim. Block113 adds two indexed observations794–795, 796 raw; existing350 linked, no global deduplication claim. Block114 adds four indexed observations796–799; 800 raw; global deduplication not yet certified. Block115 adds indexed observation800, total801 raw; global deduplication not certified. Block116 enriches existing287 and adds indexed observation801, total802 raw; unique global count not certified. Block117 enriches/corrects existing472; raw802 unchanged. Block118 enriches GRE321/TUR461 and adds indexed SVN802; raw803, no global deduplication claim. Block137 adds indices803–805 (two sporting format transitions and one name transition); raw806; not deduplicated global count.",
-  "lastPreparedBlock": 165,
+  "lastPreparedBlock": 169,
   "cutoffArchivePartial": 1,
   "cutoffDenominator": 107,
   "cutoffApplicability": {
@@ -1176,6 +1176,341 @@
       "newVerifiedClosures": 0,
       "newProvisionalClosures": 0,
       "scope": "Candidate routing and compact sheets only; verified counts unchanged."
+    },
+    "block166": {
+      "path": "closure/RSSSF_SECTION_ROUTING_166.json",
+      "residualGroups": 24983,
+      "documentsExamined": 8416,
+      "fullCandidateRouted": 532,
+      "fullCandidateExcluded": 1459,
+      "fullMixed": 19,
+      "partiallyClassified": 582,
+      "unresolvedCorpus": 22074,
+      "unresolvedNonCorpus": 317,
+      "classifiedGroups": 2010,
+      "remainingGroups": 22973,
+      "newRoutedOccurrences": 66945,
+      "excludedOccurrences": 101636,
+      "unknownCorpusOccurrences": 1545978,
+      "sectionRowAssociations": 1050,
+      "rowsWithSectionReferences": 89,
+      "linkedRows": 328,
+      "newLinkedRows": 0,
+      "newProvisionalClosures": 0,
+      "newVerifiedClosures": 0,
+      "scope": "Candidate evidence only; previous certified counts unchanged."
+    },
+    "block167": {
+      "path": "closure/FIELD_STATUS_MATRIX_167.json",
+      "conmebolFamily": "closure/CONMEBOL_FAMILY_167.json",
+      "newProvisionalClosures": [
+        425
+      ],
+      "newVerifiedClosures": 0,
+      "fields": {
+        "name": {
+          "V": 15,
+          "P": 0,
+          "I": 518,
+          "NA": 0,
+          "?": 0
+        },
+        "identity": {
+          "V": 15,
+          "P": 0,
+          "I": 518,
+          "NA": 0,
+          "?": 0
+        },
+        "participants": {
+          "V": 28,
+          "P": 1,
+          "I": 504,
+          "NA": 0,
+          "?": 0
+        },
+        "format": {
+          "V": 5,
+          "P": 11,
+          "I": 517,
+          "NA": 0,
+          "?": 0
+        },
+        "calendar": {
+          "V": 7,
+          "P": 9,
+          "I": 517,
+          "NA": 0,
+          "?": 0
+        },
+        "regulation": {
+          "V": 0,
+          "P": 14,
+          "I": 519,
+          "NA": 0,
+          "?": 0
+        },
+        "movement": {
+          "V": 0,
+          "P": 9,
+          "I": 517,
+          "NA": 7,
+          "?": 0
+        },
+        "qualification": {
+          "V": 0,
+          "P": 10,
+          "I": 523,
+          "NA": 0,
+          "?": 0
+        },
+        "july1": {
+          "V": 0,
+          "P": 0,
+          "I": 108,
+          "NA": 241,
+          "?": 184
+        },
+        "evolution": {
+          "V": 0,
+          "P": 2,
+          "I": 531,
+          "NA": 0,
+          "?": 0
+        }
+      },
+      "deltaCompleteFields": {
+        "name": 0,
+        "identity": 0,
+        "participants": 1,
+        "format": 1,
+        "calendar": 1,
+        "regulation": 3,
+        "movement": 0,
+        "qualification": 1,
+        "july1": 0,
+        "evolution": 1
+      }
+    },
+    "block168": {
+      "path": "closure/FAMILY_CLOSURE_168.json",
+      "aliasAudit": {
+        "rows": [
+          [
+            187,
+            1,
+            20,
+            120,
+            380
+          ],
+          [
+            213,
+            8,
+            18,
+            108,
+            306
+          ],
+          [
+            233,
+            14,
+            24,
+            175,
+            552
+          ],
+          [
+            234,
+            13,
+            24,
+            186,
+            552
+          ],
+          [
+            236,
+            5,
+            22,
+            162,
+            462
+          ],
+          [
+            240,
+            11,
+            18,
+            117,
+            306
+          ],
+          [
+            244,
+            11,
+            18,
+            108,
+            306
+          ],
+          [
+            248,
+            2,
+            14,
+            76,
+            182
+          ],
+          [
+            292,
+            0,
+            12,
+            81,
+            132
+          ],
+          [
+            293,
+            5,
+            10,
+            77,
+            90
+          ],
+          [
+            294,
+            3,
+            10,
+            79,
+            90
+          ],
+          [
+            295,
+            3,
+            10,
+            74,
+            90
+          ],
+          [
+            311,
+            4,
+            18,
+            108,
+            306
+          ]
+        ],
+        "columns": [
+          "row",
+          "newAliases",
+          "teams",
+          "observedPairs",
+          "expectedRegularPairs"
+        ],
+        "totalAliases": 80,
+        "totalTeams": 218,
+        "totalObservedPairs": 1471,
+        "archive": "SWOS_ALIAS_168.zip",
+        "fileId": "file_000000002e70820aa148d354c945eaee",
+        "sha256": "48dbeed3c333f21fc98a132d9220edb651ae2e5005c78abf62f74423d1c78bdc",
+        "scriptSha256": "ff642db32048704fe974a2b5fe5176a7efa109f5b4f6700a40b543fd1c298363",
+        "jsonSha256": "5818785db8f8517233c79af1b8674c01a547da9524f9fa51eaaac50b6f6707da",
+        "limits": "Explicit aliases scoped by country, world and tier; observed workbook entrants biject archived native membership, not current native file certification. Current England blob content empty from connector; no upgrade to V. No alias guessed from fuzzy similarity."
+      },
+      "newProvisionalClosures": [
+        287
+      ],
+      "newVerifiedClosures": 0,
+      "fields": {
+        "name": {
+          "V": 17,
+          "P": 0,
+          "I": 516,
+          "NA": 0,
+          "?": 0
+        },
+        "identity": {
+          "V": 17,
+          "P": 0,
+          "I": 516,
+          "NA": 0,
+          "?": 0
+        },
+        "participants": {
+          "V": 28,
+          "P": 7,
+          "I": 498,
+          "NA": 0,
+          "?": 0
+        },
+        "format": {
+          "V": 7,
+          "P": 11,
+          "I": 515,
+          "NA": 0,
+          "?": 0
+        },
+        "calendar": {
+          "V": 7,
+          "P": 10,
+          "I": 516,
+          "NA": 0,
+          "?": 0
+        },
+        "regulation": {
+          "V": 0,
+          "P": 16,
+          "I": 517,
+          "NA": 0,
+          "?": 0
+        },
+        "movement": {
+          "V": 3,
+          "P": 8,
+          "I": 515,
+          "NA": 7,
+          "?": 0
+        },
+        "qualification": {
+          "V": 0,
+          "P": 11,
+          "I": 522,
+          "NA": 0,
+          "?": 0
+        },
+        "july1": {
+          "V": 0,
+          "P": 0,
+          "I": 108,
+          "NA": 241,
+          "?": 184
+        },
+        "evolution": {
+          "V": 0,
+          "P": 3,
+          "I": 530,
+          "NA": 0,
+          "?": 0
+        }
+      },
+      "deltaCompleteFields": {
+        "name": 2,
+        "identity": 2,
+        "participants": 6,
+        "format": 2,
+        "calendar": 1,
+        "regulation": 2,
+        "movement": 2,
+        "qualification": 1,
+        "july1": 0,
+        "evolution": 1
+      }
+    },
+    "block169": {
+      "path": "closure/AUTOMATION_AUDIT_169.json",
+      "rawGroups": 38054,
+      "rowsLinked": 304,
+      "rowGroupAssociations": 11227,
+      "recoveredAssociationsComparedWithDeclared": 6755,
+      "ambiguities": 43,
+      "nativeArchiveAliasMappings": 80,
+      "fullArchivedRosterCandidates": 13,
+      "observedHistoricalChanges": 12,
+      "rowsWithObservedHistoricalChanges": 6,
+      "completeObservedEditionOccurrences": 629,
+      "rowsInScope": 533,
+      "scope": "Research-only exact closure_pass module real archive audit, not full current-repository integration",
+      "newVerifiedClosures": 0,
+      "newProvisionalClosures": 0,
+      "phasePlans": 35
     }
   },
   "nineCategoryDashboard": {
@@ -1234,11 +1569,11 @@
     },
     "closedCompetitions": {
       "verified": 0,
-      "operationallyClosed": 9,
+      "operationallyClosed": 11,
       "userDelegatedConvention": 1,
       "workingRows": 533,
-      "provisional": 9,
-      "scope": "Nine provisional game models; latest specific Spain rule template and current Dutch rules, historical completeness not certified."
+      "provisional": 11,
+      "scope": "11 provisional sporting templates, not runnable runtime or fully historical."
     },
     "namedComponentAudit": {
       "rows": 16,
@@ -1262,7 +1597,7 @@
         165
       ],
       "paths": [
-        "closure/NAMED_CLOSURE_162.json"
+        "closure/NAMED_CLOSURE_168.json"
       ],
       "previousPaths": [
         "closure/NAMED_CLOSURE_145_A.json",
@@ -1280,9 +1615,11 @@
         "closure/NAMED_CLOSURE_157.json",
         "closure/NAMED_CLOSURE_158.json",
         "closure/NAMED_CLOSURE_159.json",
-        "closure/NAMED_CLOSURE_161.json"
+        "closure/NAMED_CLOSURE_161.json",
+        "closure/NAMED_CLOSURE_162.json",
+        "closure/NAMED_CLOSURE_167.json"
       ],
-      "completeComponents": 85,
+      "completeComponents": 92,
       "applicableComponents": 122,
       "categoryCounts": {
         "identity": {
@@ -1291,22 +1628,22 @@
           "notApplicable": 0
         },
         "participants": {
-          "complete": 12,
-          "applicable": 16,
-          "notApplicable": 0
-        },
-        "format": {
-          "complete": 15,
-          "applicable": 16,
-          "notApplicable": 0
-        },
-        "calendar": {
           "complete": 13,
           "applicable": 16,
           "notApplicable": 0
         },
+        "format": {
+          "complete": 16,
+          "applicable": 16,
+          "notApplicable": 0
+        },
+        "calendar": {
+          "complete": 15,
+          "applicable": 16,
+          "notApplicable": 0
+        },
         "regulation": {
-          "complete": 11,
+          "complete": 12,
           "applicable": 16,
           "notApplicable": 0
         },
@@ -1316,7 +1653,7 @@
           "notApplicable": 7
         },
         "qualification": {
-          "complete": 9,
+          "complete": 11,
           "applicable": 16,
           "notApplicable": 0
         },
@@ -1345,11 +1682,12 @@
         {
           "row": 425,
           "name": "Recopa Sudamericana",
-          "complete": 1,
+          "complete": 6,
           "applicable": 7,
-          "percent": 14.285714285714286,
-          "closed": false,
-          "closureStatus": "INCOMPLETE"
+          "percent": 85.71428571428571,
+          "closed": true,
+          "closureStatus": "COMPLETE_PROVISIONAL",
+          "closureBasis": "Conditional entrants and 2026 rule/calendar template; parent alias binding and historical rules remain separate. Not runtime."
         },
         {
           "row": 358,
@@ -1442,11 +1780,12 @@
         {
           "row": 287,
           "name": "Liga Portugal 2",
-          "complete": 5,
+          "complete": 7,
           "applicable": 8,
-          "percent": 62.5,
-          "closed": false,
-          "closureStatus": "INCOMPLETE"
+          "percent": 87.5,
+          "closed": true,
+          "closureStatus": "COMPLETE_PROVISIONAL",
+          "closureBasis": "Official nominal draw and shared playoff dates, template rules and conditional slots, minor history and individual date updates remain."
         },
         {
           "row": 395,
@@ -1857,6 +2196,198 @@
       ],
       "independentVerification": false,
       "explicitPhasePlans": 33
+    },
+    "fieldStatusMatrix167": {
+      "path": "closure/FIELD_STATUS_MATRIX_167.json",
+      "counts": {
+        "name": {
+          "V": 15,
+          "P": 0,
+          "I": 518,
+          "NA": 0,
+          "?": 0
+        },
+        "identity": {
+          "V": 15,
+          "P": 0,
+          "I": 518,
+          "NA": 0,
+          "?": 0
+        },
+        "participants": {
+          "V": 28,
+          "P": 1,
+          "I": 504,
+          "NA": 0,
+          "?": 0
+        },
+        "format": {
+          "V": 5,
+          "P": 11,
+          "I": 517,
+          "NA": 0,
+          "?": 0
+        },
+        "calendar": {
+          "V": 7,
+          "P": 9,
+          "I": 517,
+          "NA": 0,
+          "?": 0
+        },
+        "regulation": {
+          "V": 0,
+          "P": 14,
+          "I": 519,
+          "NA": 0,
+          "?": 0
+        },
+        "movement": {
+          "V": 0,
+          "P": 9,
+          "I": 517,
+          "NA": 7,
+          "?": 0
+        },
+        "qualification": {
+          "V": 0,
+          "P": 10,
+          "I": 523,
+          "NA": 0,
+          "?": 0
+        },
+        "july1": {
+          "V": 0,
+          "P": 0,
+          "I": 108,
+          "NA": 241,
+          "?": 184
+        },
+        "evolution": {
+          "V": 0,
+          "P": 2,
+          "I": 531,
+          "NA": 0,
+          "?": 0
+        }
+      },
+      "deltaCompleteFields": {
+        "name": 0,
+        "identity": 0,
+        "participants": 1,
+        "format": 1,
+        "calendar": 1,
+        "regulation": 3,
+        "movement": 0,
+        "qualification": 1,
+        "july1": 0,
+        "evolution": 1
+      },
+      "scope": "New conservative status baseline, not a loss of older certified evidence; July NA/undetermined separate."
+    },
+    "fieldStatusMatrix168": {
+      "path": "closure/FIELD_STATUS_MATRIX_168.json",
+      "counts": {
+        "name": {
+          "V": 17,
+          "P": 0,
+          "I": 516,
+          "NA": 0,
+          "?": 0
+        },
+        "identity": {
+          "V": 17,
+          "P": 0,
+          "I": 516,
+          "NA": 0,
+          "?": 0
+        },
+        "participants": {
+          "V": 28,
+          "P": 7,
+          "I": 498,
+          "NA": 0,
+          "?": 0
+        },
+        "format": {
+          "V": 7,
+          "P": 11,
+          "I": 515,
+          "NA": 0,
+          "?": 0
+        },
+        "calendar": {
+          "V": 7,
+          "P": 10,
+          "I": 516,
+          "NA": 0,
+          "?": 0
+        },
+        "regulation": {
+          "V": 0,
+          "P": 16,
+          "I": 517,
+          "NA": 0,
+          "?": 0
+        },
+        "movement": {
+          "V": 3,
+          "P": 8,
+          "I": 515,
+          "NA": 7,
+          "?": 0
+        },
+        "qualification": {
+          "V": 0,
+          "P": 11,
+          "I": 522,
+          "NA": 0,
+          "?": 0
+        },
+        "july1": {
+          "V": 0,
+          "P": 0,
+          "I": 108,
+          "NA": 241,
+          "?": 184
+        },
+        "evolution": {
+          "V": 0,
+          "P": 3,
+          "I": 530,
+          "NA": 0,
+          "?": 0
+        }
+      },
+      "deltaCompleteFields": {
+        "name": 2,
+        "identity": 2,
+        "participants": 6,
+        "format": 2,
+        "calendar": 1,
+        "regulation": 2,
+        "movement": 2,
+        "qualification": 1,
+        "july1": 0,
+        "evolution": 1
+      }
+    },
+    "automation169": {
+      "path": "closure/AUTOMATION_AUDIT_169.json",
+      "partialEvidence": {
+        "namesPartial": 412,
+        "regulationPartial": 499,
+        "evolutionPartial": 210,
+        "actualDateVerified": 7,
+        "cumulativeLinkedRows": 328
+      },
+      "fieldStatusBaseline": "closure/FIELD_STATUS_MATRIX_168.json",
+      "confirmedClosureCounts": {
+        "provisional": 11,
+        "verified": 0,
+        "incomplete": 522
+      },
+      "currentCheckoutRun": "NOT_PROVEN"
     }
   }
 }

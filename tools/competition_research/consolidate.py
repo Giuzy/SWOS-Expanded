@@ -11,6 +11,7 @@ import sqlite3
 import tempfile
 import unicodedata
 import zipfile
+import closure_pass as mass
 
 FIELDS = ('identity','participants','format','calendar','regulation','movement','qualification','july1','evolution')
 FILES = ('evidence.sqlite','matrix_candidates.csv','source_groups.csv','native_join_candidates.csv')
@@ -112,6 +113,8 @@ def aliases_from_repo(root, matrix, native):
     except (OSError,ValueError) as e:return aliases,states,[str(e)],expected,routes,plans
     routes,plans=phase_catalogue(root,index,matrix)
     cache={}
+    slot_index=C.defaultdict(set)
+    for k in native:slot_index[k[0],k[2],k[3],k[4]].add(k)
     def load(p):
         if p not in cache:cache[p]=read(docs/p)
         return cache[p]
@@ -119,6 +122,9 @@ def aliases_from_repo(root, matrix, native):
         if rid not in matrix or not isinstance(label,str):return
         m=matrix[rid];k=(m['world'],m['country'],str(uid),int(file),int(ordinal))
         if k in native:aliases[rid,norm(label)].add(k)
+        elif not m['country'] and routes.get(rid,{}).get('category') in ('CONTINENTAL_CLUB','SUPERCUP_OR_INTERCONTINENTAL'):
+            hits=slot_index[m['world'],str(uid),int(file),int(ordinal)]
+            if len(hits)==1:aliases[rid,norm(label)].update(hits)
     for rid,m in matrix.items():
         try:
             p=index.get('namedClosureRowPath',{}).get(str(rid))
@@ -181,11 +187,17 @@ def consolidate(source,out,root=None):
         title=YEAR.sub('',g['competition']);country=g['country']
         declared={int(x) for x in g['candidate_matrix_rows'].split(';') if x.isdigit() and int(x) in matrix}
         for w in ('9697','2627'):
-            hits={i for i in declared if matrix[i]['world']==w and (not country or matrix[i]['country']==country)}
+            hits={i for i in declared if matrix[i]['world']==w and (not country or matrix[i]['country']==country or (country=='INTERNATIONAL' and not matrix[i]['country']))}
             if g['source']=='github/openfootball/football.json' and title in OPEN:
                 c,t=OPEN[title]
                 if not country or c==country:hits.update(tiers[w,c,t])
             if country:hits.update(names[w,country,norm(title)])
+            extra=mass.route(g,w,matrix,tiers)
+            if extra is not None:
+                # Known codebook jurisdictions; any conflict stays unresolved.
+                if hits and extra and hits!=extra:ambiguous+=1;continue
+                if not extra:continue
+                hits=extra
             if len(hits)>1:ambiguous+=1;continue
             if hits:
                 rid=next(iter(hits));byrow[rid].append(g)
@@ -200,26 +212,43 @@ def consolidate(source,out,root=None):
         for k in ambiguous_keys:native.pop(k,None)
         uuid_counts=C.Counter((k[0],k[2]) for k in native);slot_counts=C.Counter((k[0],k[3],k[4]) for k in native)
         native={k:v for k,v in native.items() if uuid_counts[k[0],k[2]]==slot_counts[k[0],k[3],k[4]]==1}
+        archived_tier_sizes=C.Counter((k[0],k[1],v['league']) for k,v in native.items())
         native,stale_native=current_native_filter(root,native)
-        for k,v in native.items():native_names[k[0],k[1],norm(v['name'])].add(k)
+        native_tiers=C.defaultdict(set)
+        for k,v in native.items():native_tiers[k[0],k[1],v['league']].add(k)
+        world_names=C.defaultdict(set);world_slots=C.defaultdict(set)
+        for k,v in native.items():
+            native_names[k[0],k[1],norm(v['name'])].add(k)
+            world_names[k[0],norm(v['name'])].add(k)
+            world_slots[k[0],k[2],k[3],k[4]].add(k)
+        reviewed,states,warnings,expected,routes,plans=aliases_from_repo(root,matrix,native)
+        international={rid for rid,m in matrix.items() if not m['country'] and routes.get(rid,{}).get('category') in ('CONTINENTAL_CLUB','SUPERCUP_OR_INTERCONTINENTAL')}
         for j in records(source/FILES[3]):
             if j['status']!='UNIQUE_CANDIDATE' or not j['file'] or not j['ordinal']:continue
             rid=int(j['row']);m=matrix.get(rid)
             if not m or j['world']!=m['world']:continue
             k=(m['world'],m['country'],j['uuid'],int(j['file']),int(j['ordinal']))
             if k in native:archive_alias[rid,key(j),norm(j['label'])].add(k)
-        reviewed,states,warnings,expected,routes,plans=aliases_from_repo(root,matrix,native)
-        packets=[];queue=[];collisions=C.defaultdict(list);all_count=0;families=C.defaultdict(list)
+            elif rid in international:
+                hits=world_slots[m['world'],j['uuid'],int(j['file']),int(j['ordinal'])]
+                if len(hits)==1:archive_alias[rid,key(j),norm(j['label'])].update(hits)
+        alias_count=mass.reviewed_aliases(root,matrix,native,reviewed)
+        packets=[];queue=[];collisions=C.defaultdict(list);all_count=0;families=C.defaultdict(list);merged_count=0
         for rid,m in sorted(matrix.items()):
             w=m['world'];year=1996 if w=='9697' else 2026;cut=f'{year}-07-01';end=f'{year+1}-07-01'
             history=byrow[rid];target=[g for g in history if initial(g,w)];all_count+=len(target)
-            league=bool(re.fullmatch(r'div\d+',m['detail']));options=[]
+            league=bool(re.fullmatch(r'div\d+',m['detail']));options=[];rosters=[]
+            tierkey=(w,m['country'],int(m['detail'][3:])-1) if league else None
+            native_tier=native_tiers.get(tierkey,set())
+            roster_complete=bool(native_tier) and len(native_tier)==archived_tier_sizes.get(tierkey)
             for g in target:
                 k=key(g)
                 fs=db.execute('SELECT date,date_basis,home,away,hg,ag,locator,stage FROM fixture WHERE source=? AND competition=? AND country=? AND season=? AND season_basis=? ORDER BY date,home,away,locator',k).fetchall()
                 labels,stats=audit_fixtures(fs,league);mapping={};missing=[]
                 for label in sorted(labels):
                     choices=reviewed[rid,norm(label)]|archive_alias[rid,k,norm(label)]|native_names[w,m['country'],norm(label)]
+                    if rid in international:choices=choices | world_names[w,norm(label)]
+                    if w=='2627' and league:choices=choices & native_tier
                     if len(choices)==1:mapping[label]=next(iter(choices))
                     else:missing.append({'label':label,'candidateCount':len(choices)})
                 distinct=len(set(mapping.values()))==len(mapping);full=bool(labels) and not missing and distinct
@@ -227,12 +256,21 @@ def consolidate(source,out,root=None):
                 complete=complete_regular(stats,expected.get(rid,set()),g['max_date'],end)
                 rank=(int(complete and full),int(complete),int(full),len(mapping),-stats['inferredDates'],len(fs))
                 options.append((rank,g,fs,stats,mapping,missing,full,complete))
-            # Prefer coherent complete candidates, never union incompatible calendars.
+                if roster_complete and w=='2627' and league and g['source'].startswith('euro2627/') and mass.exact_edition(g,w) and full and set(mapping.values())==native_tier and not stats['invalid'] and not stats['clubDayClashes'] and not stats['inferredDates'] and stats['orientedPairs']==stats['fixtures']:
+                    rosters.append({'sourceGroup':dict(zip(('source','competition','country','season','season_basis'),key(g))),'identityCandidates':{l:native[k] for l,k in mapping.items()}})
+            # A union can only fill missing pairs from the same explicit edition; any date conflict blocks it.
+            if league and options and not any(o[6] and o[7] for o in options):
+                merged=mass.merge_regular(options,m,native,expected.get(rid,set()),cut,end,audit_fixtures,complete_regular)
+                if merged:options.append(merged);merged_count+=1
+            # Prefer coherent complete candidates.
             options.sort(key=lambda x:x[0],reverse=True)
             current=states.get(rid,{});status={f:current.get('fields',{}).get(f,{}).get('status',m[f]) for f in FIELDS}
             gaps=[f for f in FIELDS if status[f] not in ('COMPLETE','NA')]
             closed=current.get('closed',m['previously_closed'].lower()=='true')
-            packet={'row':rid,'world':w,'country':m['country'],'id':m['id'],'detail':m['detail'],'name':m['name'],'existingFields':status,'existingClosed':closed,'sourceGroupCount':len(history),'initialGroupCount':len(target),'historyObservations':[{x:g[x] for x in ('source','competition','season','season_basis','teams','rows','unique_oriented_pairs','double_round_robin_candidate')} for g in history],'reviewGaps':gaps,'status':'REVIEW_REQUIRED'}
+            packet={'row':rid,'world':w,'country':m['country'],'id':m['id'],'detail':m['detail'],'name':m['name'],'existingFields':status,'existingClosed':closed,'sourceGroupCount':len(history),'initialGroupCount':len(target),'historyObservations':[{x:g[x] for x in ('source','competition','season','season_basis','teams','rows','unique_oriented_pairs','double_round_robin_candidate','inferred_dates','duplicate_pair_occurrences','min_date','max_date')} for g in history],'reviewGaps':gaps,'status':'REVIEW_REQUIRED'}
+            packet['fullNativeRosterCandidate']=bool(rosters)
+            if rosters:packet['nativeRosterCandidate']=rosters[0]
+            packet['phaseCategory']=routes.get(rid,{}).get('category')
             packet['phaseQueue']=routes.get(rid,{}).get('queue','UNCLASSIFIED')
             packet['phaseModel']=routes.get(rid,{}).get('model')
             packet['phasePlan']=plans.get(str(rid))
@@ -261,7 +299,7 @@ def consolidate(source,out,root=None):
         p['candidateReviewFields']=sorted(available & set(p['reviewGaps']))
         p['manualGaps']=sorted(set(p['reviewGaps'])-available)
     queue=[(x[0],x[1],x[2],x[3],p['status'],x[5],len(p['manualGaps']),';'.join(p['manualGaps']),x[8],x[9],x[10]) for x,p in zip(queue,packets)]
-    # Existing verified status is never upgraded automatically. Queue ready packets and smallest gaps first.
+    # Preserve prior verified status. The separate mass closure pass applies documented gates only.
     queue.sort(key=lambda x:(routes.get(x[0],{}).get('queue')=='OUT_OF_SCOPE',x[5],x[4]!='REGULAR_PACKET_READY_FOR_REVIEW',x[6],routes.get(x[0],{}).get('queue','UNCLASSIFIED'),-x[8],x[0]))
     queue=[(*x,routes.get(x[0],{}).get('queue','UNCLASSIFIED'),routes.get(x[0],{}).get('model')) for x in queue]
     with (out/'consolidation_queue.csv').open('w',encoding='utf-8-sig',newline='') as f:
@@ -271,9 +309,17 @@ def consolidate(source,out,root=None):
     summary['phaseRouting']=dict(C.Counter(p['phaseQueue'] for p in packets))
     summary['phasePlans']=sum(p['phasePlan'] is not None for p in packets)
     summary['regularSizeGate']='expected same-edition sport count required; unknown/conflict/inferred dates not ready'
+    result=mass.assess(packets,native,root,out)
+    summary['massClosure']=result
+    summary['newProvisionalClosures']=len(result['newProvisionalClosureRows'])
+    summary['reviewedAliasMappingsAccepted']=alias_count
+    summary['mergedRegularCandidates']=merged_count
+    summary['closurePass']='Whole matrix; candidate evidence distinct from provisional and verified completion'
     write(out/'consolidation_summary.json',summary);return summary
 
 def selftest():
+    mass.selftest()
+    mass.gate_selftest(audit_fixtures,complete_regular)
     f=[('1996-08-01','EXPLICIT','A','B',1,0,'1',''),('1996-08-02','EXPLICIT','B','A',0,0,'2','')]
     assert audit_fixtures(f,True)[1]['family']=='DOUBLE_ROUND_ROBIN'
     assert audit_fixtures(f[:1],True)[1]['family']=='SINGLE_ROUND_ROBIN'

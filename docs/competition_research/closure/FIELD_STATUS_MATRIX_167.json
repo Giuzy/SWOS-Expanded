@@ -1,0 +1,9251 @@
+{
+  "block": 167,
+  "head": "0d3e3068ef228a98c4bdfd36f4aac20046a9bc0a",
+  "scope": "Conservative row-level closure census, previous explicit field assessments retained; unknown/not audited are not claims of missing raw data. No source-completeness field.",
+  "columns": [
+    "name",
+    "identity",
+    "participants",
+    "format",
+    "calendar",
+    "regulation",
+    "movement",
+    "qualification",
+    "july1",
+    "evolution"
+  ],
+  "legend": {
+    "V": "COMPLETA VERIFICATA",
+    "P": "COMPLETA PROVVISORIA",
+    "I": "INCOMPLETA",
+    "NA": "NOT APPLICABLE (excluded from applicable count)",
+    "?": "Applicability undetermined, not counted as a missing July snapshot"
+  },
+  "policy": "V exact prior row-level identity/calendar/participant/format checks only, P operational prior named COMPLETE assessments not necessarily fully certified; all other unassessed fields fail closed as I pending review. Old global broad partial evidence metrics retained separately. Existing 9 provisional closures carried forward; some evolution fields still I, as operational 2026 template closure does not certify historical evolution. July scope provisional 107 distinct required from existing census (108 inventory rows incl alias), 0 complete. No blanket upgrade of historical names.",
+  "before": {
+    "name": {
+      "V": 15,
+      "P": 0,
+      "I": 518,
+      "NA": 0,
+      "?": 0
+    },
+    "identity": {
+      "V": 15,
+      "P": 0,
+      "I": 518,
+      "NA": 0,
+      "?": 0
+    },
+    "participants": {
+      "V": 28,
+      "P": 0,
+      "I": 505,
+      "NA": 0,
+      "?": 0
+    },
+    "format": {
+      "V": 5,
+      "P": 10,
+      "I": 518,
+      "NA": 0,
+      "?": 0
+    },
+    "calendar": {
+      "V": 7,
+      "P": 8,
+      "I": 518,
+      "NA": 0,
+      "?": 0
+    },
+    "regulation": {
+      "V": 0,
+      "P": 11,
+      "I": 522,
+      "NA": 0,
+      "?": 0
+    },
+    "movement": {
+      "V": 0,
+      "P": 9,
+      "I": 517,
+      "NA": 7,
+      "?": 0
+    },
+    "qualification": {
+      "V": 0,
+      "P": 9,
+      "I": 524,
+      "NA": 0,
+      "?": 0
+    },
+    "july1": {
+      "V": 0,
+      "P": 0,
+      "I": 108,
+      "NA": 241,
+      "?": 184
+    },
+    "evolution": {
+      "V": 0,
+      "P": 1,
+      "I": 532,
+      "NA": 0,
+      "?": 0
+    }
+  },
+  "after": {
+    "name": {
+      "V": 15,
+      "P": 0,
+      "I": 518,
+      "NA": 0,
+      "?": 0
+    },
+    "identity": {
+      "V": 15,
+      "P": 0,
+      "I": 518,
+      "NA": 0,
+      "?": 0
+    },
+    "participants": {
+      "V": 28,
+      "P": 1,
+      "I": 504,
+      "NA": 0,
+      "?": 0
+    },
+    "format": {
+      "V": 5,
+      "P": 11,
+      "I": 517,
+      "NA": 0,
+      "?": 0
+    },
+    "calendar": {
+      "V": 7,
+      "P": 9,
+      "I": 517,
+      "NA": 0,
+      "?": 0
+    },
+    "regulation": {
+      "V": 0,
+      "P": 14,
+      "I": 519,
+      "NA": 0,
+      "?": 0
+    },
+    "movement": {
+      "V": 0,
+      "P": 9,
+      "I": 517,
+      "NA": 7,
+      "?": 0
+    },
+    "qualification": {
+      "V": 0,
+      "P": 10,
+      "I": 523,
+      "NA": 0,
+      "?": 0
+    },
+    "july1": {
+      "V": 0,
+      "P": 0,
+      "I": 108,
+      "NA": 241,
+      "?": 184
+    },
+    "evolution": {
+      "V": 0,
+      "P": 2,
+      "I": 531,
+      "NA": 0,
+      "?": 0
+    }
+  },
+  "deltaCompleteFields": {
+    "name": 0,
+    "identity": 0,
+    "participants": 1,
+    "format": 1,
+    "calendar": 1,
+    "regulation": 3,
+    "movement": 0,
+    "qualification": 1,
+    "july1": 0,
+    "evolution": 1
+  },
+  "rows": [
+    {
+      "row": 1,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 2,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 3,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 4,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 5,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 6,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 7,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 8,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 9,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 10,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 11,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 12,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 13,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 14,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 15,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 16,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 17,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 18,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 19,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 20,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 21,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 22,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 23,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 24,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 25,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 26,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 27,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 28,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 29,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 30,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 31,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 32,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 33,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 34,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 35,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 36,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 37,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 38,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 39,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 40,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 41,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 42,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 43,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 44,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 45,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 46,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 47,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 48,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 49,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 50,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 51,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 52,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 53,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 54,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 55,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 56,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 57,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 58,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 59,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 60,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 61,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 62,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 63,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 64,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 65,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 66,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 67,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 68,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 69,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 70,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 71,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 72,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 73,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 74,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 75,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 76,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 77,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 78,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 79,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 80,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 81,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 82,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 83,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 84,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 85,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 86,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 87,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 88,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 89,
+      "status": "I",
+      "fields": [
+        "V",
+        "V",
+        "I",
+        "V",
+        "V",
+        "I",
+        "NA",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 90,
+      "status": "I",
+      "fields": [
+        "V",
+        "V",
+        "I",
+        "V",
+        "V",
+        "I",
+        "NA",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 91,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 92,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 93,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 94,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 95,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 96,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 97,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 98,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 99,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 103,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 104,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 105,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 106,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 107,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 108,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 109,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 110,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 111,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 112,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 113,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 114,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 115,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 116,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 117,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 118,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 119,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 120,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 121,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 122,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 123,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 124,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 125,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 126,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 127,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 128,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 129,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 130,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 131,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 132,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 133,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 134,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 135,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 136,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 137,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 138,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 139,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 140,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 141,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 142,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 143,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 144,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 145,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 146,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 147,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 148,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 149,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 150,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 151,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 152,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 153,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 154,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 155,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 156,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 157,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 158,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 159,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 160,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 161,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 162,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 163,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 164,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 165,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "V",
+        "V",
+        "I",
+        "NA",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 166,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 167,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 168,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 169,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 170,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 171,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 172,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 173,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 174,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 175,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 176,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 177,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 178,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 179,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 180,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 181,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 182,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 183,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 184,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 185,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 186,
+      "status": "P",
+      "fields": [
+        "V",
+        "V",
+        "V",
+        "P",
+        "P",
+        "P",
+        "P",
+        "P",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 187,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 188,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 189,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 190,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 191,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 192,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 193,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 194,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 195,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 196,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 197,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 198,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 199,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 200,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 201,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 202,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 203,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 204,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 205,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 206,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 207,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 208,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 209,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 210,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 211,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 212,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 213,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 214,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 215,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 216,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 217,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 218,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 219,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 220,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 221,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 222,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 223,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 224,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 225,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 226,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 227,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 228,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 229,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 230,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 231,
+      "status": "P",
+      "fields": [
+        "V",
+        "V",
+        "V",
+        "P",
+        "P",
+        "P",
+        "P",
+        "P",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 232,
+      "status": "I",
+      "fields": [
+        "V",
+        "V",
+        "V",
+        "P",
+        "I",
+        "I",
+        "P",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 233,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 234,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 235,
+      "status": "P",
+      "fields": [
+        "V",
+        "V",
+        "V",
+        "P",
+        "P",
+        "P",
+        "P",
+        "P",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 236,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 237,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 238,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 239,
+      "status": "P",
+      "fields": [
+        "V",
+        "V",
+        "V",
+        "P",
+        "P",
+        "P",
+        "P",
+        "P",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 240,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 241,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 242,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 243,
+      "status": "P",
+      "fields": [
+        "V",
+        "V",
+        "V",
+        "P",
+        "P",
+        "P",
+        "P",
+        "P",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 244,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 245,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 246,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 247,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 248,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 249,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 250,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 251,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 252,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 253,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 254,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 255,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 256,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 257,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 258,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 259,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 260,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 261,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 262,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 263,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 264,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 265,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 266,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 267,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 268,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 269,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 270,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 271,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 272,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 273,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 274,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 275,
+      "status": "P",
+      "fields": [
+        "V",
+        "V",
+        "V",
+        "P",
+        "P",
+        "P",
+        "P",
+        "P",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 276,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 277,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 278,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 279,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 280,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 281,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 282,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 283,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 284,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 285,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 286,
+      "status": "P",
+      "fields": [
+        "V",
+        "V",
+        "V",
+        "P",
+        "P",
+        "P",
+        "P",
+        "P",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 287,
+      "status": "I",
+      "fields": [
+        "V",
+        "V",
+        "V",
+        "P",
+        "I",
+        "P",
+        "P",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 288,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 289,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 290,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 291,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 292,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 293,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 294,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 295,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 296,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 297,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 298,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 299,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 300,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 301,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 302,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 303,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 304,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 305,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 306,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 307,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "V",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 308,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 309,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 310,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 311,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 312,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 313,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 314,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 315,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 316,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 317,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 318,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 319,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 320,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 321,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "P",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 322,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 323,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 324,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 325,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 326,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 327,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 328,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 329,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 330,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 331,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 332,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 333,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 334,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 335,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 336,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 337,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 338,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 339,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 340,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 341,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 342,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 343,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 344,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 345,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 346,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 347,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 348,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 349,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 350,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 351,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 352,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 353,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 354,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 355,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 356,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 357,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 358,
+      "status": "I",
+      "fields": [
+        "V",
+        "V",
+        "I",
+        "V",
+        "V",
+        "P",
+        "NA",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 359,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 360,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 361,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 362,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 363,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 364,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 365,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 366,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 367,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 368,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 369,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 370,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 371,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 372,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 373,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 374,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 375,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 376,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 377,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 378,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 379,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 380,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 381,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 382,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 383,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 384,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 385,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 386,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 387,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 388,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 389,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 390,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 391,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 392,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 393,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 394,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 395,
+      "status": "P",
+      "fields": [
+        "V",
+        "V",
+        "V",
+        "P",
+        "P",
+        "P",
+        "NA",
+        "P",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 396,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 397,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 398,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 399,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 400,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 401,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 402,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 403,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 404,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 405,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 406,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 407,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 408,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 409,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 410,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 411,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 412,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 413,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 414,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 415,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 416,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 417,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 418,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 419,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 420,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 421,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 422,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 423,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 424,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "P",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 425,
+      "status": "P",
+      "fields": [
+        "V",
+        "V",
+        "P",
+        "P",
+        "P",
+        "P",
+        "NA",
+        "P",
+        "NA",
+        "P"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 426,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 427,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 428,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 429,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 430,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 431,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 432,
+      "status": "P",
+      "fields": [
+        "V",
+        "V",
+        "V",
+        "V",
+        "V",
+        "P",
+        "NA",
+        "P",
+        "NA",
+        "P"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 433,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 434,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 435,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 436,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 437,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 438,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 439,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 440,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 441,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 442,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 443,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 444,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 445,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 446,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 447,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 448,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 449,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 450,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 451,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 452,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 453,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 454,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 455,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 456,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 457,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 458,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 459,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 460,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 461,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 462,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 463,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 464,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 465,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 466,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 467,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 468,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 469,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 470,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 471,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 472,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 473,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 474,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 475,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 476,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 477,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 478,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 479,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 480,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 481,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 482,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 483,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 484,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 485,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 486,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 487,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 488,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 489,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 490,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 491,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 492,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 493,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 494,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 495,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 496,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 497,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 498,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 499,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 500,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 501,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 502,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 503,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 504,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 505,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 506,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 507,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 508,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 509,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 510,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 511,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 512,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 513,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 514,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 515,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 516,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 517,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 518,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 519,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 520,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 521,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 522,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 523,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 524,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 525,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 526,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 527,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 528,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I"
+      ],
+      "july1Applicability": "REQUIRED"
+    },
+    {
+      "row": 529,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 530,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 531,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 532,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 533,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 534,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "NA",
+        "I"
+      ],
+      "july1Applicability": "NA"
+    },
+    {
+      "row": 535,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    },
+    {
+      "row": 536,
+      "status": "I",
+      "fields": [
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "I",
+        "?",
+        "I"
+      ],
+      "july1Applicability": "UNDETERMINED"
+    }
+  ],
+  "closed": {
+    "before": 9,
+    "after": 10,
+    "verified": 0,
+    "incomplete": 523
+  },
+  "newClosureReference": "closure/CONMEBOL_FAMILY_167.json"
+}

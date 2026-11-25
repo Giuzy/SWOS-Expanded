@@ -1,0 +1,110 @@
+{
+  "block": 169,
+  "scope": "Reviewed block168 alias names; only resolve unique current native world/country/tier/name after UUID/file/ordinal current-check. Not a new certified roster.",
+  "aliases": {
+    "187": {
+      "Verona": "HELLAS VERONA"
+    },
+    "213": {
+      "Antwerp": "ROYAL ANTWERP",
+      "Charleroi": "ROYAL CHARLEROI",
+      "Oud-Heverlee Leuven": "OH LEUVEN",
+      "St Truiden": "SINT-TRUIDENSE",
+      "St. Gilloise": "UNION SG",
+      "Standard": "STANDARD LIEGE",
+      "Waregem": "ZULTE WAREGEM",
+      "Westerlo": "KVC WESTERLO"
+    },
+    "233": {
+      "AFC Wimbledon": "WIMBLEDON",
+      "Bradford": "BRADFORD CITY",
+      "Burton": "BURTON ALBION",
+      "Cambridge": "CAMBRIDGE UNITED",
+      "Doncaster": "DONCASTER ROVERS",
+      "Leicester": "LEICESTER CITY",
+      "Luton": "LUTON TOWN",
+      "Mansfield": "MANSFIELD TOWN",
+      "Milton Keynes Dons": "MK DONS",
+      "Oxford": "OXFORD UNITED",
+      "Peterboro": "PETERBOROUGH",
+      "Plymouth": "PLYMOUTH ARGYLE",
+      "Sheffield Weds": "SHEFF WED",
+      "Stockport": "STOCKPORT COUNTY"
+    },
+    "234": {
+      "Bristol Rvs": "BRISTOL ROVERS",
+      "Cheltenham": "CHELTENHAM TOWN",
+      "Colchester": "COLCHESTER UTD.",
+      "Crewe": "CREWE ALEXANDRA",
+      "Exeter": "EXETER CITY",
+      "Grimsby": "GRIMSBY TOWN",
+      "Northampton": "NORTHAMPTON TOWN",
+      "Rotherham": "ROTHERHAM UNITED",
+      "Salford": "SALFORD CITY",
+      "Shrewsbury": "SHREWSBURY TOWN",
+      "Swindon": "SWINDON TOWN",
+      "Tranmere": "TRANMERE ROVERS",
+      "York": "YORK CITY"
+    },
+    "236": {
+      "Celta B": "CELTA FORTUNA",
+      "Oviedo": "REAL OVIEDO",
+      "Sociedad B": "REAL SOCIEDAD B",
+      "Sp Gijon": "SPORTING GIJON",
+      "Valladolid": "REAL VALLADOLID"
+    },
+    "240": {
+      "Clermont": "CLERMONT FOOT 63",
+      "Dijon": "DIJON FCO",
+      "Dunkerque": "USL DUNKERQUE",
+      "Grenoble": "GRENOBLE FOOT 38",
+      "Guingamp": "EA GUINGAMP",
+      "Laval": "STADE LAVALLOIS",
+      "Montpellier": "MONTPELLIER HSC",
+      "Nancy": "NANCY-LORRAINE",
+      "Reims": "STADE REIMS",
+      "Rodez": "RODEZ AF",
+      "St Etienne": "SAINT-ETIENNE"
+    },
+    "244": {
+      "Bielefeld": "ARM. BIELEFELD",
+      "Braunschweig": "E. BRAUNSCHWEIG",
+      "Cottbus": "ENERGIE COTTBUS",
+      "Darmstadt": "DARMSTADT 98",
+      "Dresden": "DYNAMO DRESDEN",
+      "Hannover": "HANNOVER 96",
+      "Heidenheim": "1.FC HEIDENHEIM",
+      "Kaiserslautern": "1.FC K'LAUTERN",
+      "Karlsruhe": "KARLSRUHER",
+      "Magdeburg": "1.FC MAGDEBURG",
+      "Nurnberg": "1.FC NUREMBERG"
+    },
+    "248": {
+      "Levadeiakos": "LEVADIAKOS",
+      "Volos NFC": "VOLOS"
+    },
+    "293": {
+      "Ayr": "AYR UNITED",
+      "Inverness C": "INVERNESS CT",
+      "Morton": "GREENOCK MORTON",
+      "Partick": "PARTICK THISTLE",
+      "Raith Rvs": "RAITH ROVERS"
+    },
+    "294": {
+      "Airdrie Utd": "AIRDRIEONIANS",
+      "Hamilton": "HAMILTON ACAD.",
+      "Queen of Sth": "QUEEN OF SOUTH"
+    },
+    "295": {
+      "Elgin": "ELGIN CITY",
+      "Spartans": "THE SPARTANS",
+      "Stirling": "STIRLING ALBION"
+    },
+    "311": {
+      "Amedspor": "AMED",
+      "Buyuksehyr": "BASAKSEHIR",
+      "Goztep": "GOZTEPE",
+      "Rizespor": "CAYKUR RIZESPOR"
+    }
+  }
+}

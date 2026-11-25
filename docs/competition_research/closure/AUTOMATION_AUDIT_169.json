@@ -1,0 +1,49 @@
+{
+  "block": 169,
+  "head": "0d3e3068ef228a98c4bdfd36f4aac20046a9bc0a",
+  "scope": "Research-only exact closure_pass module real archive audit, not full current-repository integration",
+  "moduleBlob": "c06b38cb31cfef22a19b81295376a88afe595ed7",
+  "moduleSha256": "9d54e045be37e235a2a25ac3c9ba71d711edc22e659ac0a915de92e8de66a330",
+  "coreBlob": "c5a86c8fce00922e0cdafb7d28ea3419dc1f599b",
+  "collectorBlob": "daac069aae60ae3786de9afd30deef68c8442a84",
+  "baseline": "closure/FIELD_STATUS_MATRIX_168.json",
+  "metrics": {
+    "rawGroups": 38054,
+    "rowsLinked": 304,
+    "rowGroupAssociations": 11227,
+    "recoveredAssociationsComparedWithDeclared": 6755,
+    "ambiguities": 43,
+    "nativeArchiveAliasMappings": 80,
+    "fullArchivedRosterCandidates": 13,
+    "observedHistoricalChanges": 12,
+    "rowsWithObservedHistoricalChanges": 6,
+    "completeObservedEditionOccurrences": 629,
+    "rowsInScope": 533
+  },
+  "tests": {
+    "exactModuleGitHash": "PASS",
+    "moduleSyntax": "PASS",
+    "moduleSelftest": "PASS",
+    "positiveNegativeMergeAndClosure": "PASS",
+    "rawGroupsRoutingHistoryAndAliasAudit": "PASS",
+    "fullCurrentRepoExecution": "NOT_PROVEN",
+    "windows": "NOT_PROVEN",
+    "gameplay": "NOT_APPLICABLE_RESEARCH_ONLY",
+    "CAR": "NOT_APPLICABLE_RESEARCH_ONLY"
+  },
+  "existingEvidence": {
+    "namesPartial": 412,
+    "regulationPartial": 499,
+    "evolutionPartial": 210,
+    "actualDateVerified": 7,
+    "cumulativeLinkedRows": 328
+  },
+  "newClosuresConfirmed": 0,
+  "limits": [
+    "304 rows linked from raw archive only; previous cumulative 328 includes RDS and RSSSF split context, not a regression or comparable metric.",
+    "629 complete observed group-edition occurrences, 12 observed team-count transitions across six rows, not necessarily distinct actual editions or permanent regulation changes.",
+    "Actual archive alias test 80/80 and 13 native roster candidates using archived native, not live checkout validation.",
+    "Auto provisional closures emitted only when indexed field gates pass. Full current checkout run and additional closure counts remain unmeasured. No future scores, no gameplay data.",
+    "Initial merge restricted to exact split-year edition, explicit dates and full mapped double-RR pair sets; calendar-year and multi-phase gaps not forced. Scoped family registry carries only reviewed EFL/Portugal rules. No automatic promotion of unseen rule evidence."
+  ]
+}

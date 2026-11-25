@@ -1,0 +1,165 @@
+{
+  "block": 167,
+  "head": "0d3e3068ef228a98c4bdfd36f4aac20046a9bc0a",
+  "scope": "SPORTING_PARAMETERS_RESEARCH_ONLY",
+  "recopa": {
+    "row": 425,
+    "world": "2627",
+    "name": "Recopa Sudamericana",
+    "status": "COMPLETA PROVVISORIA",
+    "referenceEdition": 2026,
+    "initialEdition": 2027,
+    "phase": {
+      "type": "KNOCKOUT",
+      "teams": 2,
+      "legs": 2,
+      "points": [
+        3,
+        1,
+        0
+      ],
+      "tieOrder": [
+        "POINTS",
+        "AGGREGATE_GOAL_DIFFERENCE",
+        "EXTRA_TIME_2X15_RETURN_LEG",
+        "PENALTIES"
+      ],
+      "awayGoals": false
+    },
+    "entrants": [
+      {
+        "slot": "S",
+        "from": "CE_COMPLETED_COPA_SUDAMERICANA",
+        "edition": 2026
+      },
+      {
+        "slot": "L",
+        "from": "CE_COMPLETED_COPA_LIBERTADORES",
+        "edition": 2026
+      }
+    ],
+    "replacementOrder": [
+      "champion",
+      "runner-up if champion withdraws",
+      "next best in same edition overall ranking"
+    ],
+    "fixtures": [
+      {
+        "leg": 1,
+        "date": "2027-02-19",
+        "home": "S",
+        "away": "L",
+        "dateBasis": "GAME_TEMPLATE_2026"
+      },
+      {
+        "leg": 2,
+        "date": "2027-02-26",
+        "home": "L",
+        "away": "S",
+        "dateBasis": "GAME_TEMPLATE_2026"
+      }
+    ],
+    "referenceDates": [
+      "2026-02-19",
+      "2026-02-26"
+    ],
+    "july1Applicable": false,
+    "qualification": {
+      "incoming": "winners of both CE 2026 competitions, replacement rule as above",
+      "outgoing": "no additional entry route in documented 2026 Libertadores/Sudamericana access tables; trophy only in provisional template"
+    },
+    "history": {
+      "origin1996": "single match played 1997",
+      "origin1997": "two matches played 1999",
+      "origin1998Through2001": "not played",
+      "origin2002Through2003": "single match",
+      "origin2004Through2025": "two legs",
+      "remaining": "exact minor rule amendments and 2027 official date not certified"
+    },
+    "limits": [
+      "No actual 2026 post-cutoff winners or future results stored. 2027 dates are day/month from verified 2026 template, not official 2027 schedule.",
+      "Resolve parent alias row321/423 before runtime binding. Do not create two Libertadores winner routes.",
+      "Closure means sufficient sporting definition for provisional implementation, not runnable CE/OG or complete historic regulation. Recheck actual official schedule if available."
+    ]
+  },
+  "commonConmebol2026": {
+    "rows": [
+      321,
+      424
+    ],
+    "aliasRow423": "inherits candidate rule reference only; not an independent competition",
+    "groupRanking": [
+      "points",
+      "mini-table points",
+      "mini-table goal difference",
+      "mini-table goals",
+      "overall goal difference",
+      "overall goals",
+      "fewer red cards",
+      "fewer yellow cards",
+      "lots"
+    ],
+    "restartEarlierCriteria": false,
+    "points": [
+      3,
+      1,
+      0
+    ],
+    "twoLegResolution": [
+      "points",
+      "aggregate goal difference",
+      "penalties"
+    ],
+    "awayGoals": false,
+    "extraTimeTwoLeg": false,
+    "final": {
+      "legs": 1,
+      "extraTime": [
+        15,
+        15
+      ],
+      "penalties": true
+    },
+    "sudamericanaFirstPhase": {
+      "legs": 1,
+      "drawResolution": "PENALTIES"
+    },
+    "libertadoresCountrySlots": {
+      "ARG": 6,
+      "BRA": 7,
+      "BOL": 4,
+      "CHI": 4,
+      "COL": 4,
+      "ECU": 4,
+      "PAR": 4,
+      "PER": 4,
+      "URU": 4,
+      "VEN": 4
+    },
+    "libertadoresTitleholderSlots": [
+      "prior Libertadores champion",
+      "prior Sudamericana champion"
+    ],
+    "sudamericanaCountrySlots": {
+      "ARG": 6,
+      "BRA": 6,
+      "BOL": 4,
+      "CHI": 4,
+      "COL": 4,
+      "ECU": 4,
+      "PAR": 4,
+      "PER": 4,
+      "URU": 4,
+      "VEN": 4
+    },
+    "sudamericanaTransfers": {
+      "libertadoresPhase3Losers": 4,
+      "libertadoresGroupThirds": 8
+    },
+    "limits": "2026 core ranking and tie rules; full country-specific access, participants, calendar, evolution and July state not closed. Manual text inspected; visual screenshots unavailable."
+  },
+  "pending": {
+    "championship232": "552/552 reference regular fixtures and 24 mapped; seven conditional playoff dates and full 2026/27 rule PDF still not obtained.",
+    "portugal287": "18/18 mapped, 34 nominal rounds; supplied sources cover P1, not P2. Full official 34-round calendar downloadable from federation announcement but linked schedule not exposed in accessible page. Need archive with all pairings/date updates."
+  }
+}

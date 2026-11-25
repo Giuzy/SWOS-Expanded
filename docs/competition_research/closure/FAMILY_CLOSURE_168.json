@@ -1,0 +1,185 @@
+{
+  "block": 168,
+  "head": "0d3e3068ef228a98c4bdfd36f4aac20046a9bc0a",
+  "scope": "Archive roster joins and provisional sporting templates; no runtime",
+  "archiveAudit": {
+    "raw1": "cf938784ef74cc60f21621c27ca740843cf478e94504993e8d9b0cb3ab563222",
+    "raw2": "ee5c415dc2fbd94f7e0640563d3e75d20c6e1a0e39afa01eae8ad84cf307c582",
+    "compact": "62cab97500dd492a632b724f1153493bd369cedaefdffacae38eb2d84ade6620",
+    "sameCRCAndSize": 12,
+    "memberCount": 13,
+    "different": "source_manifest.json",
+    "packets": 536,
+    "inScope": 533
+  },
+  "aliasAudit": {
+    "rows": [
+      [
+        187,
+        1,
+        20,
+        120,
+        380
+      ],
+      [
+        213,
+        8,
+        18,
+        108,
+        306
+      ],
+      [
+        233,
+        14,
+        24,
+        175,
+        552
+      ],
+      [
+        234,
+        13,
+        24,
+        186,
+        552
+      ],
+      [
+        236,
+        5,
+        22,
+        162,
+        462
+      ],
+      [
+        240,
+        11,
+        18,
+        117,
+        306
+      ],
+      [
+        244,
+        11,
+        18,
+        108,
+        306
+      ],
+      [
+        248,
+        2,
+        14,
+        76,
+        182
+      ],
+      [
+        292,
+        0,
+        12,
+        81,
+        132
+      ],
+      [
+        293,
+        5,
+        10,
+        77,
+        90
+      ],
+      [
+        294,
+        3,
+        10,
+        79,
+        90
+      ],
+      [
+        295,
+        3,
+        10,
+        74,
+        90
+      ],
+      [
+        311,
+        4,
+        18,
+        108,
+        306
+      ]
+    ],
+    "columns": [
+      "row",
+      "newAliases",
+      "teams",
+      "observedPairs",
+      "expectedRegularPairs"
+    ],
+    "totalAliases": 80,
+    "totalTeams": 218,
+    "totalObservedPairs": 1471,
+    "archive": "SWOS_ALIAS_168.zip",
+    "fileId": "file_000000002e70820aa148d354c945eaee",
+    "sha256": "48dbeed3c333f21fc98a132d9220edb651ae2e5005c78abf62f74423d1c78bdc",
+    "scriptSha256": "ff642db32048704fe974a2b5fe5176a7efa109f5b4f6700a40b543fd1c298363",
+    "jsonSha256": "5818785db8f8517233c79af1b8674c01a547da9524f9fa51eaaac50b6f6707da",
+    "limits": "Explicit aliases scoped by country, world and tier; observed workbook entrants biject archived native membership, not current native file certification. Current England blob content empty from connector; no upgrade to V. No alias guessed from fuzzy similarity."
+  },
+  "portugal2": {
+    "row": 287,
+    "status": "COMPLETA PROVVISORIA",
+    "regularCalendarRef": "closure/USER_PDF_SCHEDULES_168.json",
+    "sharedPlayoffs": [
+      {
+        "id": "POR_2627_TIER1_TIER2_ACCESS",
+        "owner": "shared phase with row286",
+        "entrants": [
+          "tier2 next eligible non-B after two direct promotions",
+          "tier1 rank16"
+        ],
+        "dates": [
+          "2027-05-29",
+          "2027-06-06"
+        ],
+        "firstLegHome": "tier2",
+        "secondLegHome": "tier1",
+        "alternate": "May26/27 if cup finalist, June2 and June6 by agreement; optional May22/23 printed 2026, do not use automatically"
+      },
+      {
+        "id": "POR_2627_TIER2_TIER3_ACCESS",
+        "owner": "shared phase, lower-tier participant from eligible Liga3 access",
+        "entrants": [
+          "Liga3 third eligible per existing rules",
+          "tier2 rank16"
+        ],
+        "dates": [
+          "2027-05-29",
+          "2027-06-06"
+        ],
+        "firstLegHome": "Liga3",
+        "secondLegHome": "tier2",
+        "alternate": "June2 first leg automatically if cup finalist"
+      }
+    ],
+    "tieResolution": [
+      "aggregate",
+      "extra time 2x15",
+      "penalties"
+    ],
+    "awayGoals": false,
+    "qualification": {
+      "domesticCup": "15 eligible non-B second-tier clubs enter round2 away, no automatic continental berth from league position",
+      "leagueCup": "two eligible highest-ranked non-B clubs per prior 2026 rule; future template subject to approved changes"
+    },
+    "limits": "Provisional date template uses official nominal 34-round draw and conditional playoff dates. Do not replace actual individual dates already verified. No duplicate shared playoff fixture, no lower-tier entrants invented; runtime access binding and exact historical timeline separate. 2027/28 league cup announced format not applied to 2026/27."
+  },
+  "efl": {
+    "reference": "closure/USER_PDF_SCHEDULES_168.json",
+    "rows": [
+      232,
+      233,
+      234
+    ],
+    "leagueOneTwoTieTemplate": "2026 EFL official explanation: aggregate, no away goals, extra time 30 minutes then penalties; final ET and penalties if level; apply provisional unchanged-format template only",
+    "championship": "new QF specific tie rule not established; dates not confirmed; still incomplete",
+    "remaining": "Full 2026/27 regular calendars L1/L2; EFL Play-Off Rules 2026/27; final dates all divisions; complete outgoing access and history."
+  }
+}

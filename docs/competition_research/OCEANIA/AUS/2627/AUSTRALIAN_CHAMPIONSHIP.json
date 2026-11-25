@@ -73,12 +73,53 @@
       "limits": "Tie/capacity/role conflicts unresolved"
     },
     "missingFederations": {
-      "clubs": "REAL_VERIFIED_NAMES",
+      "clubs": "ONLY_VERIFIED_CHAMPIONSHIP_ENTRANTS_FOR_NOW",
       "rosterTemplate": "EXISTING_TEST_ZERO",
-      "newPlayerSourceRecords": 0
+      "newPlayerSourceRecords": 0,
+      "scope": "NNSW, SA, WA, ACT, TAS: register only actual Championship entrants, not all regional clubs; no regional leagues added now. Preserve 57-name research. Reuse existing identities; check administrative placeholder mapping before conversion. Future qualifying/selection and first-edition timing for non-playable regions unresolved; no invented future results."
+    },
+    "discipline": {
+      "status": "USER_APPROVED_GAME_TEMPLATE_NOT_RUNTIME",
+      "source": "authentic.regulation.discipline2025",
+      "world": "2627",
+      "limits": "Use verified 2025 discipline in game; not certified authentic 2026 regulation. Full substitutions and tie-break still pending. No runtime activation."
+    },
+    "matchRules": {
+      "status": "USER_APPROVED_GAME_TEMPLATE_NOT_RUNTIME",
+      "ordinarySubstitutions": 5,
+      "ordinaryWindows": 3,
+      "halfTimeFree": true,
+      "extraTimeAdditionalSubstitution": 1,
+      "extraTimeAdditionalWindow": 1,
+      "tieBreak": [
+        "POINTS",
+        "GOAL_DIFFERENCE",
+        "GOALS_FOR",
+        "HEAD_TO_HEAD",
+        "DRAW_LOTS"
+      ],
+      "tieBreakLimit": "User approved sequence; multiway head-to-head exact evaluation still needs common CE semantics.",
+      "bench": {
+        "named": 7,
+        "status": "USER_APPROVED_GAME_TEMPLATE_NOT_RUNTIME",
+        "includesGoalkeeper": true
+      },
+      "calendar": {
+        "semifinals": "12-05",
+        "final": "12-12",
+        "kind": "USER_APPROVED_GAME_TEMPLATE_2026",
+        "scope": "Game dates, not confirmed official fixture dates."
+      }
+    },
+    "viewer": {
+      "status": "USER_APPROVED_UI_SCOPE_NOT_IMPLEMENTED",
+      "button": "CHAMPIONSHIP",
+      "location": "Australian competitions existing list",
+      "destination": "Existing OG cups screen, populated from CE read-only data",
+      "limits": "No other UI/layout/input/focus/flow change without separate approval. Do not fabricate participants/results; preserve navigation."
     }
   },
-  "limits": "57 regional names verified; existing DB identities/reserve eligibility, 5 regional qualification paths, full tie-break/subs, exact SF/final dates and CE lifecycle unresolved. 2:2 design not runtime.",
+  "limits": "Approved game templates close design choices on bench, ordinary/ET substitutions, tie-break order and last-round dates; exact official rules/dates not certified. Five actual entrant identities (4 missing, 1 admin placeholder), first-edition/future qualifying path for non-playable regions, common multiway tie semantics, pool ties/capacity, net ±2, CE ID and lifecycle unresolved. No runtime activation. UI authorization only CHAMPIONSHIP button to existing OG cup screen.",
   "authentic": {
     "identity": "Australian national second-tier tournament, inaugural October 2025, no official promotion to A-League",
     "format": {
@@ -162,9 +203,105 @@
       },
       "missing": [
         "full tie-break sequence after goal difference",
-        "2026 bench/substitutions/discipline rules"
+        "competition-specific bench/substitution/extra-time substitution limits"
       ],
-      "source": "https://footballaustralia.com.au/news/penalty-shootout-bonus-point-model-2026-australian-championship?page=2"
+      "source": "https://footballaustralia.com.au/news/penalty-shootout-bonus-point-model-2026-australian-championship?page=2",
+      "discipline2025": {
+        "status": "V_2025_P_2026",
+        "source": "https://footballaustralia.com.au/sites/default/files/2025-10/25-1008%20-%20Australian%20Championship%20Disciplinary%20Regulations%202025%20%28FINAL%29.pdf",
+        "scope": "clauses 5.2–5.8, 6.3–6.5, Schedule 1; governance page links 2025 version; screenshot/linked variant cache miss",
+        "regularYellowThreshold": 3,
+        "additionalYellowThreshold": 2,
+        "finalsYellowThreshold": 3,
+        "yellowSuspensionMatches": 1,
+        "resetAtEndOfRegularAndFinals": true,
+        "unservedYellowSuspensionCarries": true,
+        "yellowSuspensionScope": "CHAMPIONSHIP_ONLY",
+        "doubleYellowDoesNotAccumulate": true,
+        "indirectRedSuspension": 1,
+        "indirectRedScope": "NEXT_CHAMPIONSHIP_OR_DOMESTIC_MATCH",
+        "directRedMandatoryByCount": [
+          1,
+          1,
+          2,
+          3
+        ],
+        "directRedAdditionalSanctions": "Schedule 2; not encoded",
+        "current2026Confirmed": false
+      },
+      "bonusSource2026": "https://australianchampionship.com.au/news/penalty-shootout-bonus-point-model-2026-australian-championship",
+      "substitutionEvidence": {
+        "status": "P",
+        "generalIFAB": "https://www.theifab.com/laws/latest/the-players/",
+        "ordinaryMaxPermitted": 5,
+        "opportunitiesWhenFivePermitted": 3,
+        "halfTimeOutsideOpportunities": true,
+        "extraTimeAdditional": "Competition decision",
+        "namedBench": "Competition decision",
+        "scope": "General law only, not proof of Championship-specific adopted limits. Match sheet sources cache miss/403; no verified bench count.",
+        "matchSheetSources": [
+          "https://www.soccerpunter.com/match/19883963/Preston-Lions-vs-South-Hobart",
+          "https://www.transfermarkt.com/spielbericht/index/spielbericht/4743206"
+        ]
+      },
+      "tieBreakEvidence": {
+        "status": "P",
+        "confirmed": [
+          "POINTS",
+          "GOAL_DIFFERENCE"
+        ],
+        "sources": [
+          "https://www.adelaidecityfc.com.au/post/what-you-need-to-know-about-the-australian-championship",
+          "https://australianchampionship.com.au/news/preview-quarter-finals"
+        ],
+        "limits": "Further order not certified; table display does not establish tie-break sequence."
+      },
+      "benchComparison20261125": {
+        "status": "COMPARATOR_ONLY_NOT_CHAMPIONSHIP_RULE",
+        "sources": [
+          {
+            "competition": "A-League",
+            "bench": "5–7 conditional on youth",
+            "source": "OCEANIA/AUS/2627/LEAGUE_DIVISION.json#row207"
+          },
+          {
+            "competition": "NPL NSW",
+            "bench": 7,
+            "source": "https://footballnsw.com.au/wp-content/uploads/sites/33/2026/05/20260504-LEG-2026-Competition-Regulations-Official-v5.pdf",
+            "limit": "PDF text inspected, screenshot cache miss"
+          },
+          {
+            "competition": "NPL Northern NSW",
+            "bench": 7,
+            "maxUsed": 5,
+            "source": "https://northernnswfootball.com.au/sites/nnswf/files/2026-03/2026_national_premier_leagues_mens_nnsw_-_competition_rules.pdf",
+            "clause": "14.1, page 11",
+            "screenshotVerified": true
+          },
+          {
+            "competition": "NPL Victoria",
+            "bench": 6,
+            "source": "OCEANIA/AUS/2627/LEAGUE_DIVISION.json#row209"
+          },
+          {
+            "competition": "NPL South Australia",
+            "bench": 6,
+            "benchPossibleET": 7,
+            "source": "https://footballsa.com.au/sites/ffsa/files/2026-04/2026%20Football%20SA%20Competition%20Operating%20Regulations%20-%20CLEAN%20v2.pdf",
+            "limit": "Indexed text only"
+          },
+          {
+            "competition": "Australia Cup NSW preliminary",
+            "bench": 7,
+            "withoutReserveGK": 6,
+            "maxUsed": 5,
+            "extraTimeAdditionalSub": 1,
+            "source": "https://footballnsw.com.au/wp-content/uploads/sites/33/2026/02/Australia-Cup-2026-Supplementary-Regulations-Football-NSW-Preliminary-Rounds.pdf",
+            "limit": "PDF text inspected, screenshot cache miss"
+          }
+        ],
+        "conclusion": "7 accepted by user as game template, not official Championship proof; requires match-sheet ABI-safe extension."
+      }
     },
     "qualification": {
       "foundationClubs": 8,
@@ -255,7 +392,7 @@
         "TAS"
       ],
       "actual2026ResearchOnly": {
-        "scope": "Post-START historical evidence only. Never seed START qualifiers or future results; names illustrate mapping and access paths, not a runnable entrant list.",
+        "scope": "Actual 2026 entrants are post-START evidence. User limits new club registration to actual Championship entrants from non-playable regions; do not infer qualification mechanism or START fixture seed from this identity authorization.",
         "examples": [
           {
             "federation": "NSW",
@@ -416,7 +553,13 @@
             "notes": "18 rounds; top five finals; bottom two relegated; corrected first date from earlier March7"
           }
         ],
-        "identityMapping": "P_DB_POOL_ADMIN_RESERVE_DEDUP_PENDING"
+        "identityMapping": "P_ONLY_CHAMPIONSHIP_ENTRANTS_REQUIRE_MAPPING_NOW"
+      },
+      "officialRuleEvidence20261125": {
+        "source": "https://australianchampionship.com.au/news/beginners-guide-australian-championship",
+        "scope": "Regular NPL premier, next highest eligible non-foundation if premier foundation or noncompliant; FA reserves final determination. Confirmed 2026 national guide and participating club guide; no league results copied.",
+        "additionalSource": "https://australianchampionship.com.au/news/ultimate-guide-2026-australian-championship",
+        "gameLimit": "Non-playable region cannot produce CE ranking; user approved only actual entrant registrations, future access policy unresolved."
       }
     },
     "calendar": {
@@ -467,7 +610,52 @@
         "SUN"
       ],
       "seasonChangeCandidate": "10-14",
-      "seasonChangeStatus": "P_USER_GENERAL_DAY_BEFORE_OPENING_TEMPLATE; not a new approved runtime policy, annual rollover requires expiry and completed edition"
+      "seasonChangeStatus": "P_USER_GENERAL_DAY_BEFORE_OPENING_TEMPLATE; not a new approved runtime policy, annual rollover requires expiry and completed edition",
+      "historical2025": {
+        "opening": "2025-10-10",
+        "lastGroup": "2025-11-16",
+        "quarterfinals": [
+          "2025-11-21",
+          "2025-11-22",
+          "2025-11-22",
+          "2025-11-23"
+        ],
+        "semifinals": [
+          "2025-11-29",
+          "2025-11-29"
+        ],
+        "final": "2025-12-06",
+        "announcedNeutralSemifinals": true,
+        "actualSemifinalsHomeVenues": true,
+        "scope": "Historical template only, announcement neutral venues superseded by actual 2025 semifinal schedule in two cities. 2026 hosting rule not inferred.",
+        "sources": [
+          "https://australianchampionship.com.au/news/2025-australian-championship-fixtures-announced",
+          "https://australianchampionship.com.au/news/australian-championship-semi-final-match-schedule-confirmed",
+          "https://australianchampionship.com.au/news/australian-championship-quarter-final-match-schedule-confirmed"
+        ],
+        "correction": "Final fixture announcement supersedes earlier Nov22–23: actual scheduled QF Nov21–23, 1/2/1 distribution. Group winners hosted, regardless of foundation status."
+      },
+      "latestCheck20261125": {
+        "quarterfinalWindow": [
+          "2026-11-26",
+          "2026-11-28"
+        ],
+        "semifinals": "TBC as of Nov23 secondary publication",
+        "finalWindows": [
+          "2026-12-10/12",
+          "2026-12-12/13"
+        ],
+        "sources": [
+          "https://football360.com.au/australian-championship-2026-quarter-finals-fixtures-how-to-watch/",
+          "https://footballaustralia.com.au/news/thursday-night-free-air-coverage-headlines-australian-championship-2026?page=0",
+          "https://footballaustralia.com.au/news/football-australia-releases-domestic-match-calendar-202627?page=17",
+          "https://australianchampionship.com.au/news/2026-australian-championship-quarterfinals-preview",
+          "https://australianchampionship.com.au/news/melbourne-derby-headlines-australian-championship-quarter-finals",
+          "https://australianchampionship.com.au/news/match-officials-appointments-australian-championship-2026-quarter-finals"
+        ],
+        "noExactFutureDateCertified": true,
+        "scope": "Latest official 25 Nov preview confirms QF only; exact SF/F not found; Sep fixture announcement 10–12 Dec supersedes older DMC window 12–13 as planned window, exact date unconfirmed."
+      }
     },
     "july1": {
       "status": "NA",
@@ -577,5 +765,13 @@
     "NA": 1,
     "applicable": 11,
     "closed": false
+  },
+  "fieldAudit20261125Additional": {
+    "V": 4,
+    "P": 7,
+    "NA": 1,
+    "applicable": 11,
+    "closed": false,
+    "reason": "User approves five substitutions/three windows, additional ET substitution, seven named reserves including GK, points/GD/GF/H2H/lots and SF Dec5/final Dec12 game templates; authentic gaps remain. Non-playable regional eligibility, stable mapping and lifecycle still incomplete. Only existing OG cup viewer button authorized."
   }
 }

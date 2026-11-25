@@ -84394,6 +84394,1039 @@
           }
         }
       }
+    },
+    "roundTemplateAudit": {
+      "head": "eacac4d6fad045360be2bf71c023dfc8281a9686",
+      "date": "2026-11-25",
+      "status": "COMPLETA_VERIFICATA",
+      "fields": {
+        "name": "V",
+        "identity": "V",
+        "participants": "V",
+        "format": "V",
+        "regulation": "V",
+        "movement": "V",
+        "qualification": "V",
+        "july1": "NA",
+        "roundDates": "V",
+        "competitionDays": "V",
+        "evolution": "NA",
+        "seasonChange": "V"
+      },
+      "sources": {
+        "calendar": "https://uscremonese.it/wp-content/uploads/2026/07/Calendari-1.pdf",
+        "criteria": "https://www.legab.it/news/i-criteri-della-serie-bkt-2026-2027",
+        "dates": "https://www.legab.it/news/ecco-le-date-della-serie-bkt-2026-2027",
+        "rules": "https://www.seriec.com/storage/app/media/comunicati/2026-2027/Lega/2627-26L.pdf",
+        "participants": "https://sport.sky.it/calcio/serie-b/2026/07/22/calendario-serie-b-2026-2027-giornate-partite",
+        "cup": "https://www.legaseriea.it/coppa-italia/news/la-coppa-italia-frecciarossa-entra-nel-vivo-con-i-trentaduesimi",
+        "previousPostseason": "https://www.legab.it/news/elezione-figc-mandato-esplorativo-a-bedin-focus-su-contenuti-da-presentare-ai-candidati",
+        "substitutions": "https://www.figc.it/media/173069/299-cinque-sostituzioni-gare-competizioni-lnpa-lnpb-e-lega-pro.pdf",
+        "bench": "https://www.aia-figc.it/download/regolamenti/reg_2025.pdf",
+        "circular2627": "https://www.aia-figc.it/private/download/settoretecnico/circolari_1/circolare_n1_2026.pdf?v=1",
+        "discipline": "https://www.figc.it/media/274910/codice-di-giustizia-sportiva-figc_modifica_-aggiornato-al-24-06-2025-in-base-acu326-def-003.pdf",
+        "sample": "https://www.sportnotizie24.com/serie-b-2026-2027-anticipi-posticipi-prime-5-giornate/",
+        "schedulePolicy": "https://www.legab.it/lega-b/faq"
+      },
+      "identity": {
+        "country": 20,
+        "compId": 61,
+        "divisionZeroBased": 1,
+        "slotOrdinal": 2,
+        "ceCompetitionId": 356319745,
+        "nativeLeague": "_italianLeague",
+        "type": 0
+      },
+      "name": {
+        "official": "Serie BKT",
+        "display": "Serie B",
+        "edition": "2026/27",
+        "number": 95
+      },
+      "participants": {
+        "count": 20,
+        "verifiedNative": 20,
+        "entries": [
+          {
+            "name": "PALERMO",
+            "uuid": "b5e4f29f-5cb0-59af-87a0-89385f384ece",
+            "ceClubKey": "20:21",
+            "nativeOrdinal": 20
+          },
+          {
+            "name": "CATANZARO",
+            "uuid": "c4d2c9fa-80fd-51da-acd8-225754e1d32e",
+            "ceClubKey": "20:22",
+            "nativeOrdinal": 21
+          },
+          {
+            "name": "MODENA",
+            "uuid": "e0d80974-50a0-55d5-8afb-a356c8ad2acb",
+            "ceClubKey": "20:23",
+            "nativeOrdinal": 22
+          },
+          {
+            "name": "JUVE STABIA",
+            "uuid": "b46c264c-faf4-5976-ad82-78dcf51d1c6b",
+            "ceClubKey": "20:24",
+            "nativeOrdinal": 23
+          },
+          {
+            "name": "AVELLINO",
+            "uuid": "080b1b93-068c-5cc2-bc74-764d2f411694",
+            "ceClubKey": "20:25",
+            "nativeOrdinal": 24
+          },
+          {
+            "name": "PADOVA",
+            "uuid": "b0c6f0ec-6ea2-52c4-abcf-2e7bd2081f83",
+            "ceClubKey": "20:26",
+            "nativeOrdinal": 25
+          },
+          {
+            "name": "CESENA",
+            "uuid": "3ab97d03-3479-5a1c-8f39-fbd6286359fc",
+            "ceClubKey": "20:27",
+            "nativeOrdinal": 26
+          },
+          {
+            "name": "MANTOVA",
+            "uuid": "9442ca4f-29f1-5856-a883-aedaee7a3ac7",
+            "ceClubKey": "20:28",
+            "nativeOrdinal": 27
+          },
+          {
+            "name": "CARRARESE",
+            "uuid": "320ca4e4-dc81-5658-b63d-05bf2cab95e3",
+            "ceClubKey": "20:29",
+            "nativeOrdinal": 28
+          },
+          {
+            "name": "SAMPDORIA",
+            "uuid": "5b7f72a5-44a7-5738-aa6e-468b9b189f62",
+            "ceClubKey": "20:30",
+            "nativeOrdinal": 29
+          },
+          {
+            "name": "VIRTUS ENTELLA",
+            "uuid": "8ce1ed54-235c-58f6-a097-6fb74fa4d416",
+            "ceClubKey": "20:31",
+            "nativeOrdinal": 30
+          },
+          {
+            "name": "EMPOLI",
+            "uuid": "e87914da-7cc1-5f30-a181-2625a12fd892",
+            "ceClubKey": "20:32",
+            "nativeOrdinal": 31
+          },
+          {
+            "name": "SUDTIROL",
+            "uuid": "b237a800-ee37-5c59-b0f0-ae92c209b6d7",
+            "ceClubKey": "20:33",
+            "nativeOrdinal": 32
+          },
+          {
+            "name": "CREMONESE",
+            "uuid": "4df3a062-d609-518d-959f-41f0ff2b39fc",
+            "ceClubKey": "20:34",
+            "nativeOrdinal": 33
+          },
+          {
+            "name": "HELLAS VERONA",
+            "uuid": "d2c95290-e06e-5b08-beec-95b910fe2ad2",
+            "ceClubKey": "20:35",
+            "nativeOrdinal": 34
+          },
+          {
+            "name": "PISA",
+            "uuid": "762d2f2e-d821-5399-95af-509499681927",
+            "ceClubKey": "20:36",
+            "nativeOrdinal": 35
+          },
+          {
+            "name": "VICENZA",
+            "uuid": "325e48e3-bfad-591d-8f7b-a877135402e4",
+            "ceClubKey": "20:37",
+            "nativeOrdinal": 36
+          },
+          {
+            "name": "AREZZO",
+            "uuid": "a76f50b2-0597-5e4e-a993-022129f4f403",
+            "ceClubKey": "20:38",
+            "nativeOrdinal": 37
+          },
+          {
+            "name": "BENEVENTO",
+            "uuid": "c2016de0-6738-5b0f-8d77-879e08b7e01e",
+            "ceClubKey": "20:39",
+            "nativeOrdinal": 38
+          },
+          {
+            "name": "ASCOLI",
+            "uuid": "42a13fc8-1d6b-5e84-8836-2fbf72769dd9",
+            "ceClubKey": "20:40",
+            "nativeOrdinal": 39
+          }
+        ],
+        "dbBlob": "d03139fce63f52249222186845fd6e5943aa4bf8"
+      },
+      "format": {
+        "teams": 20,
+        "regularRounds": 38,
+        "regularGames": 380,
+        "gamesPerClub": 38,
+        "meetings": 2,
+        "asymmetric": true,
+        "playoffGamesIfHeld": 8,
+        "playoutGamesIfHeld": 2
+      },
+      "regulation": {
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "tiebreak": [
+          "H2H_POINTS",
+          "H2H_GD",
+          "GD",
+          "GF",
+          "LOT"
+        ],
+        "substitutions": {
+          "max": 5,
+          "windows": 3,
+          "etExtraSubs": 1,
+          "etExtraWindows": 1,
+          "source": "FIGC CU299/A permanent rule 2022; bench and discipline in matchRulesAudit; preserve original rules separately from runtime limits."
+        },
+        "calendarConstraints": {
+          "minInterveningMatches": 8,
+          "maxDoubletsEachHalf": 3,
+          "threeDoubletsNotSameHomeAway": true,
+          "lastFourAlternate": true,
+          "previousSeasonFirstLastPairRestrictions": true,
+          "firstRoundNoPairAmongSamePromotedOrRelegatedCategory": true,
+          "stadiumSharingAndPoliceConstraints": true
+        },
+        "matchRulesAudit": {
+          "benchMax": 12,
+          "matchListMax": 23,
+          "benchReference": "AIA Regolamento 01/07/2025, Regola 3, decisioni FIGC punto 8, p.31; immagine verificata. Circolare 1 2026/27 Regola 3: modifiche amichevoli nazionali e procedure, nessun nuovo limite LNPB individuato.",
+          "discipline": {
+            "regularYellowIntervals": [
+              5,
+              5,
+              4,
+              3,
+              2,
+              1
+            ],
+            "regularYellowCumulative": [
+              5,
+              10,
+              14,
+              17,
+              19
+            ],
+            "repeatLastInterval": true,
+            "redMinimumSuspension": 1,
+            "postseasonResetRegularYellow": true,
+            "postseasonYellowInterval": 2,
+            "carryOutstandingSuspensions": true,
+            "cupSeparate": true
+          },
+          "disciplineReference": "FIGC CGS aggiornato 24/06/2025, art.9 commi 5–7 e art.19 commi 4–9; pp.16,23 immagini verificate. Nessuna deroga specifica 2627 individuata.",
+          "runtime": "Regola reale, nessuna modifica OG. Policy utente: quando incompatibile usare competizione analoga dello stesso paese già compatibile, senza inventare regole; riferimento operativo da verificare, non attivato."
+        }
+      },
+      "movement": {
+        "up": 3,
+        "down": 4,
+        "nativeMismatch": "native relegated=3/promoted_po=0/relegated_po=0; do not overwrite before integration",
+        "promotion": {
+          "direct": [
+            1,
+            2
+          ],
+          "thirdDirectIfGapToFourthGreaterThan": 14,
+          "elsePlayoffRanks": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "preliminary": [
+            {
+              "home": 5,
+              "away": 8
+            },
+            {
+              "home": 6,
+              "away": 7
+            }
+          ],
+          "prelimTie": "ET then better regular rank, no penalties",
+          "semi": [
+            {
+              "higher": 3,
+              "from": "6v7"
+            },
+            {
+              "higher": 4,
+              "from": "5v8"
+            }
+          ],
+          "semiLegs": 2,
+          "semiTie": [
+            "points",
+            "goal difference",
+            "better regular rank"
+          ],
+          "semiNoExtraTime": true,
+          "finalLegs": 2,
+          "finalReturnAtBetterRank": true,
+          "finalTie": "points, GD, better regular rank; if equal regular-season points then ET and penalties if needed"
+        },
+        "relegation": {
+          "direct": [
+            18,
+            19,
+            20
+          ],
+          "seventeenthDirectIfGapToSixteenthGreaterThan": 4,
+          "elsePlayout": [
+            16,
+            17
+          ],
+          "legs": 2,
+          "firstHome": 17,
+          "tie": "points, GD, better regular rank; if equal regular-season points then ET and penalties if needed"
+        },
+        "dependency": "four Serie C promotions including cross-group playoff; CE league family parallel group gap; no invented promoted teams"
+      },
+      "qualification": {
+        "coppaItalia": "all 20 clubs, 2026/27 official entry; UEFA only via Coppa Italia winner if eligible, not a direct Serie B league berth"
+      },
+      "july1": {
+        "status": "NA",
+        "reason": "regular season not started"
+      },
+      "roundDates": {
+        "regularTemplate": [
+          "2026-08-22",
+          "2026-08-29",
+          "2026-09-05",
+          "2026-09-12",
+          "2026-09-19",
+          "2026-10-10",
+          "2026-10-17",
+          "2026-10-24",
+          "2026-10-27",
+          "2026-10-31",
+          "2026-11-07",
+          "2026-11-21",
+          "2026-11-24",
+          "2026-11-28",
+          "2026-12-05",
+          "2026-12-08",
+          "2026-12-12",
+          "2026-12-19",
+          "2026-12-27",
+          "2027-01-09",
+          "2027-01-16",
+          "2027-01-23",
+          "2027-01-30",
+          "2027-02-06",
+          "2027-02-13",
+          "2027-02-20",
+          "2027-02-27",
+          "2027-03-02",
+          "2027-03-06",
+          "2027-03-13",
+          "2027-03-20",
+          "2027-04-03",
+          "2027-04-10",
+          "2027-04-17",
+          "2027-04-24",
+          "2027-05-01",
+          "2027-05-08",
+          "2027-05-14"
+        ],
+        "openDay": "2026-08-21",
+        "midweekRounds": [
+          9,
+          13,
+          16,
+          28
+        ],
+        "pauses": [
+          [
+            "2026-09-21",
+            "2026-10-06"
+          ],
+          [
+            "2026-11-09",
+            "2026-11-17"
+          ],
+          [
+            "2026-12-28",
+            "2027-01-08"
+          ],
+          [
+            "2027-03-22",
+            "2027-03-30"
+          ]
+        ],
+        "postseason2627": "Official dates not located; use user-approved relative GAME_TEMPLATE_2026 offsets. No runtime integration performed.",
+        "previousPostseasonReference": {
+          "edition": "2025/26",
+          "preliminary": "2026-05-12",
+          "semifinalAndata": [
+            "2026-05-16",
+            "2026-05-17"
+          ],
+          "semifinalRitorno": [
+            "2026-05-19",
+            "2026-05-20"
+          ],
+          "final": [
+            "2026-05-24",
+            "2026-05-29"
+          ],
+          "playout": [
+            "2026-05-15",
+            "2026-05-22"
+          ]
+        },
+        "limits": "38 nominal regular turns verified; dates are template, not imported future fixtures; prior postseason only reference, no derived 2027 dates fixed",
+        "lastRoundOfficialWindow": [
+          "2027-05-14",
+          "2027-05-16"
+        ],
+        "postseasonReferenceVerified": {
+          "edition": "2025/26",
+          "regularLastActual": "2026-05-08",
+          "source": "LNPB CU173 07/05/2026 p1 screenshot verified; Sky 08/05/2026 last regular round",
+          "offsetDaysFromLastActual": {
+            "preliminary": 4,
+            "semiFirstLeg": [
+              8,
+              9
+            ],
+            "semiSecondLeg": [
+              11,
+              12
+            ],
+            "final": [
+              16,
+              21
+            ],
+            "playout": [
+              7,
+              14
+            ]
+          },
+          "referenceDates": {
+            "edition": "2025/26",
+            "preliminary": "2026-05-12",
+            "semifinalAndata": [
+              "2026-05-16",
+              "2026-05-17"
+            ],
+            "semifinalRitorno": [
+              "2026-05-19",
+              "2026-05-20"
+            ],
+            "final": [
+              "2026-05-24",
+              "2026-05-29"
+            ],
+            "playout": [
+              "2026-05-15",
+              "2026-05-22"
+            ]
+          },
+          "limit": "Historical evidence; relative offsets explicitly approved as GAME_TEMPLATE_2026, not official 2027 dates."
+        },
+        "approvedTemplate": {
+          "kind": "GAME_TEMPLATE_2026",
+          "sourceEdition": "2025/26",
+          "approvedByUser": true,
+          "approvedDate": "2026-11-25",
+          "anchor": "last actual regular-season match date in the CE edition, after regular phase completion",
+          "offsetDaysFromLastActual": {
+            "preliminary": 4,
+            "semiFirstLeg": [
+              8,
+              9
+            ],
+            "semiSecondLeg": [
+              11,
+              12
+            ],
+            "final": [
+              16,
+              21
+            ],
+            "playout": [
+              7,
+              14
+            ]
+          },
+          "condition": "only phases required by sporting rules; schedule through common CE collision/date validation, not an independent clock",
+          "officialFutureDates": false
+        }
+      },
+      "competitionDays": {
+        "observedArchiveProfile": {
+          "SUN": 38,
+          "MON": 1,
+          "TUE": 7,
+          "WED": 3,
+          "THU": 0,
+          "FRI": 11,
+          "SAT": 60
+        },
+        "observedMatches": 120,
+        "uniqueOrientedPairs": 120,
+        "clubDayClashes": 0,
+        "limits": "source archive I2 12 rounds through Nov22; not independently reconciled match by match against official schedules, postponed games not individually identified; no claim of normative distribution",
+        "publishedSample": {
+          "rounds": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "order": [
+            "FRI",
+            "SAT",
+            "SUN",
+            "MON"
+          ],
+          "roundCounts": [
+            [
+              1,
+              5,
+              4,
+              0
+            ],
+            [
+              1,
+              5,
+              4,
+              0
+            ],
+            [
+              0,
+              3,
+              6,
+              1
+            ],
+            [
+              3,
+              5,
+              2,
+              0
+            ],
+            [
+              1,
+              5,
+              4,
+              0
+            ]
+          ],
+          "total": {
+            "FRI": 6,
+            "SAT": 23,
+            "SUN": 20,
+            "MON": 1
+          },
+          "matches": 50,
+          "kind": "PUBLISHED_SCHEDULE_NOT_ACTUAL_RESULTS",
+          "limits": "CU8 reproduced in press; not matched to individual archive pairs or verified subsequent rescheduling. Further releases through round 23 located, full text unavailable in this pass. No rigid distribution inferred."
+        },
+        "roundProfileAudit": {
+          "status": "VERIFIED_OBSERVED_PROFILE_NOT_FIXED_RULE",
+          "actualRounds": 12,
+          "actualMatches": 120,
+          "publishedRounds": 23,
+          "publishedMatches": 230,
+          "actualWeekdays": {
+            "SUN": 38,
+            "MON": 1,
+            "TUE": 7,
+            "WED": 3,
+            "THU": 0,
+            "FRI": 11,
+            "SAT": 60
+          },
+          "publishedWeekdays": {
+            "SUN": 68,
+            "MON": 2,
+            "TUE": 18,
+            "WED": 12,
+            "THU": 0,
+            "FRI": 16,
+            "SAT": 114
+          },
+          "rounds": [
+            {
+              "round": 1,
+              "days": [
+                {
+                  "date": "2026-08-21",
+                  "weekday": "FRI",
+                  "count": 1
+                },
+                {
+                  "date": "2026-08-22",
+                  "weekday": "SAT",
+                  "count": 5
+                },
+                {
+                  "date": "2026-08-23",
+                  "weekday": "SUN",
+                  "count": 4
+                }
+              ]
+            },
+            {
+              "round": 2,
+              "days": [
+                {
+                  "date": "2026-08-28",
+                  "weekday": "FRI",
+                  "count": 1
+                },
+                {
+                  "date": "2026-08-29",
+                  "weekday": "SAT",
+                  "count": 5
+                },
+                {
+                  "date": "2026-08-30",
+                  "weekday": "SUN",
+                  "count": 4
+                }
+              ]
+            },
+            {
+              "round": 3,
+              "days": [
+                {
+                  "date": "2026-09-05",
+                  "weekday": "SAT",
+                  "count": 3
+                },
+                {
+                  "date": "2026-09-06",
+                  "weekday": "SUN",
+                  "count": 6
+                },
+                {
+                  "date": "2026-09-07",
+                  "weekday": "MON",
+                  "count": 1
+                }
+              ]
+            },
+            {
+              "round": 4,
+              "days": [
+                {
+                  "date": "2026-09-11",
+                  "weekday": "FRI",
+                  "count": 3
+                },
+                {
+                  "date": "2026-09-12",
+                  "weekday": "SAT",
+                  "count": 5
+                },
+                {
+                  "date": "2026-09-13",
+                  "weekday": "SUN",
+                  "count": 2
+                }
+              ]
+            },
+            {
+              "round": 5,
+              "days": [
+                {
+                  "date": "2026-09-18",
+                  "weekday": "FRI",
+                  "count": 1
+                },
+                {
+                  "date": "2026-09-19",
+                  "weekday": "SAT",
+                  "count": 5
+                },
+                {
+                  "date": "2026-09-20",
+                  "weekday": "SUN",
+                  "count": 4
+                }
+              ]
+            },
+            {
+              "round": 6,
+              "days": [
+                {
+                  "date": "2026-10-09",
+                  "weekday": "FRI",
+                  "count": 1
+                },
+                {
+                  "date": "2026-10-10",
+                  "weekday": "SAT",
+                  "count": 6
+                },
+                {
+                  "date": "2026-10-11",
+                  "weekday": "SUN",
+                  "count": 3
+                }
+              ]
+            },
+            {
+              "round": 7,
+              "days": [
+                {
+                  "date": "2026-10-16",
+                  "weekday": "FRI",
+                  "count": 1
+                },
+                {
+                  "date": "2026-10-17",
+                  "weekday": "SAT",
+                  "count": 6
+                },
+                {
+                  "date": "2026-10-18",
+                  "weekday": "SUN",
+                  "count": 3
+                }
+              ]
+            },
+            {
+              "round": 8,
+              "days": [
+                {
+                  "date": "2026-10-23",
+                  "weekday": "FRI",
+                  "count": 1
+                },
+                {
+                  "date": "2026-10-24",
+                  "weekday": "SAT",
+                  "count": 7
+                },
+                {
+                  "date": "2026-10-25",
+                  "weekday": "SUN",
+                  "count": 2
+                }
+              ]
+            },
+            {
+              "round": 9,
+              "days": [
+                {
+                  "date": "2026-10-27",
+                  "weekday": "TUE",
+                  "count": 7
+                },
+                {
+                  "date": "2026-10-28",
+                  "weekday": "WED",
+                  "count": 3
+                }
+              ]
+            },
+            {
+              "round": 10,
+              "days": [
+                {
+                  "date": "2026-10-31",
+                  "weekday": "SAT",
+                  "count": 5
+                },
+                {
+                  "date": "2026-11-01",
+                  "weekday": "SUN",
+                  "count": 5
+                }
+              ]
+            },
+            {
+              "round": 11,
+              "days": [
+                {
+                  "date": "2026-11-06",
+                  "weekday": "FRI",
+                  "count": 1
+                },
+                {
+                  "date": "2026-11-07",
+                  "weekday": "SAT",
+                  "count": 6
+                },
+                {
+                  "date": "2026-11-08",
+                  "weekday": "SUN",
+                  "count": 3
+                }
+              ]
+            },
+            {
+              "round": 12,
+              "days": [
+                {
+                  "date": "2026-11-20",
+                  "weekday": "FRI",
+                  "count": 1
+                },
+                {
+                  "date": "2026-11-21",
+                  "weekday": "SAT",
+                  "count": 7
+                },
+                {
+                  "date": "2026-11-22",
+                  "weekday": "SUN",
+                  "count": 2
+                }
+              ]
+            },
+            {
+              "round": 13,
+              "days": [
+                {
+                  "date": "2026-11-24",
+                  "weekday": "TUE",
+                  "count": 6
+                },
+                {
+                  "date": "2026-11-25",
+                  "weekday": "WED",
+                  "count": 4
+                }
+              ]
+            },
+            {
+              "round": 14,
+              "days": [
+                {
+                  "date": "2026-11-28",
+                  "weekday": "SAT",
+                  "count": 5
+                },
+                {
+                  "date": "2026-11-29",
+                  "weekday": "SUN",
+                  "count": 4
+                },
+                {
+                  "date": "2026-11-30",
+                  "weekday": "MON",
+                  "count": 1
+                }
+              ]
+            },
+            {
+              "round": 15,
+              "days": [
+                {
+                  "date": "2026-12-04",
+                  "weekday": "FRI",
+                  "count": 1
+                },
+                {
+                  "date": "2026-12-05",
+                  "weekday": "SAT",
+                  "count": 5
+                },
+                {
+                  "date": "2026-12-06",
+                  "weekday": "SUN",
+                  "count": 4
+                }
+              ]
+            },
+            {
+              "round": 16,
+              "days": [
+                {
+                  "date": "2026-12-08",
+                  "weekday": "TUE",
+                  "count": 5
+                },
+                {
+                  "date": "2026-12-09",
+                  "weekday": "WED",
+                  "count": 5
+                }
+              ]
+            },
+            {
+              "round": 17,
+              "days": [
+                {
+                  "date": "2026-12-12",
+                  "weekday": "SAT",
+                  "count": 5
+                },
+                {
+                  "date": "2026-12-13",
+                  "weekday": "SUN",
+                  "count": 5
+                }
+              ]
+            },
+            {
+              "round": 18,
+              "days": [
+                {
+                  "date": "2026-12-18",
+                  "weekday": "FRI",
+                  "count": 1
+                },
+                {
+                  "date": "2026-12-19",
+                  "weekday": "SAT",
+                  "count": 7
+                },
+                {
+                  "date": "2026-12-20",
+                  "weekday": "SUN",
+                  "count": 2
+                }
+              ]
+            },
+            {
+              "round": 19,
+              "days": [
+                {
+                  "date": "2026-12-26",
+                  "weekday": "SAT",
+                  "count": 1
+                },
+                {
+                  "date": "2026-12-27",
+                  "weekday": "SUN",
+                  "count": 9
+                }
+              ]
+            },
+            {
+              "round": 20,
+              "days": [
+                {
+                  "date": "2027-01-09",
+                  "weekday": "SAT",
+                  "count": 8
+                },
+                {
+                  "date": "2027-01-10",
+                  "weekday": "SUN",
+                  "count": 2
+                }
+              ]
+            },
+            {
+              "round": 21,
+              "days": [
+                {
+                  "date": "2027-01-15",
+                  "weekday": "FRI",
+                  "count": 1
+                },
+                {
+                  "date": "2027-01-16",
+                  "weekday": "SAT",
+                  "count": 7
+                },
+                {
+                  "date": "2027-01-17",
+                  "weekday": "SUN",
+                  "count": 2
+                }
+              ]
+            },
+            {
+              "round": 22,
+              "days": [
+                {
+                  "date": "2027-01-22",
+                  "weekday": "FRI",
+                  "count": 1
+                },
+                {
+                  "date": "2027-01-23",
+                  "weekday": "SAT",
+                  "count": 7
+                },
+                {
+                  "date": "2027-01-24",
+                  "weekday": "SUN",
+                  "count": 2
+                }
+              ]
+            },
+            {
+              "round": 23,
+              "days": [
+                {
+                  "date": "2027-01-29",
+                  "weekday": "FRI",
+                  "count": 1
+                },
+                {
+                  "date": "2027-01-30",
+                  "weekday": "SAT",
+                  "count": 9
+                }
+              ]
+            }
+          ],
+          "actualSource": "https://www.calcioportale.it/Campionati-Calcio/Calendario-Campionato-Calcio/Italia/Serie%20B.htm",
+          "publishedSources": [
+            "https://sport.sky.it/calcio/serie-b/calendario-risultati",
+            "https://www.corrieredellosport.it/news/calcio/serie-b/2026/09/07-151090345/calendario_serie_b_anticipi_e_posticipi_dalla_6_all_11_giornata_date_e_orari_delle_partite",
+            "https://www.tuttomercatoweb.com/serie-b/serie-2026-2027-programma-gare-12-20-giornata-2280494",
+            "https://www.azzurranews.it/2026/11/18/serie-bkt-2026-2027-anticipi-e-posticipi-dalla-21a-alla-23a-giornata/",
+            "https://www.legab.it/news/il-programma-gare-dalla-12a-alla20a-giornata-di-serie-bkt",
+            "https://www.legab.it/news/serie-bkt-il-programma-gare-dalla-21a-alla-23a-giornata"
+          ],
+          "limits": "Actual first 12 round dates from dated results agree with published round/day counts and previously archived aggregate, not raw archive pair-by-pair reconciliation. No mismatch observed at this granularity; no proof of absence of postponements. R13-23 published only, do not import scores. R24-38 day allocations and 2027 postseason not yet verified. Not a rigid weekday rule."
+        }
+      },
+      "evolution": {
+        "status": "NA for current 2627 operational scope; retrospective reserved for 9697; retain existing evidence",
+        "known2027Edition": "2026/27 published; 2027/28 not located"
+      },
+      "seasonChange": {
+        "template": "2026-08-20",
+        "rule": "day before first game (Open Day Aug21), previous edition complete"
+      },
+      "limits": [
+        "Research only. Wrong competition women quarantine retained; do not use for men's regulation.",
+        "PDF text read; screenshot cache miss.",
+        "No future results, no runtime mutation, no CE validation run."
+      ],
+      "approval": {
+        "date": "2026-11-25",
+        "status": "COMPLETA_VERIFICATA",
+        "scope": "Operational data research closure, 10V/2NA; historical evolution deferred, not certified; runtime not verified",
+        "runtimeVerified": false
+      }
     }
   },
   {

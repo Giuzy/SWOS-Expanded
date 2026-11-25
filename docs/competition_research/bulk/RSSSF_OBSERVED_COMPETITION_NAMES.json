@@ -1,0 +1,2026 @@
+{
+  "block": 138,
+  "status": "UNRECONCILED_ARCHIVE_SECTION_LABELS",
+  "scope": "Observed headings associated with the initial parseable table in the annual corpus, normalized by removing edition digits. Year indexes are archive end-year or calendar-year; consult companion edition table for year type. Not official sponsorship chronology; may include another tier, regional competition, phase, generic translation, or stale archive title. Do not treat a label change as rename or replacement without later reconciliation. No runtime naming changes.",
+  "columns": [
+    "firstObservedEndYear",
+    "lastConsecutiveObservedEndYear",
+    "observedHeading"
+  ],
+  "countryCount": 90,
+  "observedHeadingRanges": 232,
+  "editionObservations": 1418,
+  "countries": [
+    {
+      "country": "ALB",
+      "leagueFamilyRowRefs": [
+        1,
+        200
+      ],
+      "observations": [
+        [
+          2010,
+          2018,
+          "Kategoria Superiore"
+        ],
+        [
+          2020,
+          2023,
+          "Kategoria Superiore"
+        ],
+        [
+          2025,
+          2026,
+          "Kategoria Superiore"
+        ]
+      ]
+    },
+    {
+      "country": "ALG",
+      "leagueFamilyRowRefs": [
+        37,
+        201
+      ],
+      "observations": [
+        [
+          1996,
+          1998,
+          "Championnat National Division 1"
+        ],
+        [
+          1999,
+          2002,
+          "Super Division"
+        ],
+        [
+          2003,
+          2003,
+          "1ère Division"
+        ],
+        [
+          2004,
+          2004,
+          "Division 1"
+        ],
+        [
+          2005,
+          2005,
+          "1ère Division"
+        ],
+        [
+          2006,
+          2006,
+          "2ème Division"
+        ],
+        [
+          2007,
+          2007,
+          "1ère Division"
+        ],
+        [
+          2008,
+          2009,
+          "Championnat National Division 1"
+        ],
+        [
+          2011,
+          2012,
+          "Championnat National de 1ère Division"
+        ],
+        [
+          2013,
+          2013,
+          "Championnat National Ligue 1"
+        ],
+        [
+          2014,
+          2014,
+          "Championnat National de 1ère Division"
+        ],
+        [
+          2015,
+          2015,
+          "Ligue Professionelle 1"
+        ],
+        [
+          2016,
+          2019,
+          "Championnat National de 1ère Division"
+        ],
+        [
+          2020,
+          2020,
+          "Ligue 1"
+        ],
+        [
+          2022,
+          2026,
+          "Ligue 1"
+        ]
+      ]
+    },
+    {
+      "country": "AND",
+      "leagueFamilyRowRefs": [
+        202
+      ],
+      "observations": [
+        [
+          2010,
+          2024,
+          "Primera Divisió"
+        ],
+        [
+          2026,
+          2026,
+          "Primera Divisió"
+        ]
+      ]
+    },
+    {
+      "country": "ARG",
+      "leagueFamilyRowRefs": [
+        60,
+        61,
+        203,
+        204,
+        205
+      ],
+      "observations": [
+        [
+          2011,
+          2011,
+          "Primera División"
+        ],
+        [
+          2013,
+          2013,
+          "Torneo Inicial"
+        ],
+        [
+          2017,
+          2017,
+          "Campeonato de Primera División"
+        ],
+        [
+          2018,
+          2019,
+          "Campeonato de Primera División \"Superliga \""
+        ]
+      ]
+    },
+    {
+      "country": "ARM",
+      "leagueFamilyRowRefs": [
+        206
+      ],
+      "observations": [
+        [
+          2010,
+          2011,
+          "Premier League"
+        ],
+        [
+          2013,
+          2020,
+          "Premier League"
+        ],
+        [
+          2022,
+          2022,
+          "Premier League"
+        ],
+        [
+          2023,
+          2023,
+          "Fastex Premier League"
+        ],
+        [
+          2024,
+          2024,
+          "Idbank Premier League"
+        ],
+        [
+          2025,
+          2026,
+          "Armenian Premier League"
+        ]
+      ]
+    },
+    {
+      "country": "AUS",
+      "leagueFamilyRowRefs": [
+        68,
+        69,
+        70,
+        71,
+        207,
+        208,
+        209,
+        210
+      ],
+      "observations": [
+        [
+          1996,
+          2000,
+          "National Soccer League"
+        ],
+        [
+          2002,
+          2004,
+          "National Soccer League"
+        ],
+        [
+          2005,
+          2005,
+          "State Leagues"
+        ],
+        [
+          2006,
+          2021,
+          "Hyundai A-League"
+        ],
+        [
+          2022,
+          2026,
+          "A-League"
+        ]
+      ]
+    },
+    {
+      "country": "AUT",
+      "leagueFamilyRowRefs": [
+        2,
+        211
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "Bundesliga"
+        ]
+      ]
+    },
+    {
+      "country": "AZE",
+      "leagueFamilyRowRefs": [
+        212
+      ],
+      "observations": [
+        [
+          2010,
+          2025,
+          "Azərbaycan Premyer Liqası"
+        ],
+        [
+          2026,
+          2026,
+          "Misli Premyer Liqası"
+        ]
+      ]
+    },
+    {
+      "country": "BEL",
+      "leagueFamilyRowRefs": [
+        4,
+        213
+      ],
+      "observations": [
+        [
+          2010,
+          2016,
+          "Pro League"
+        ],
+        [
+          2017,
+          2022,
+          "First Division A"
+        ],
+        [
+          2023,
+          2026,
+          "Pro League"
+        ]
+      ]
+    },
+    {
+      "country": "BIH",
+      "leagueFamilyRowRefs": [
+        214
+      ],
+      "observations": [
+        [
+          2010,
+          2020,
+          "Premijer Liga"
+        ],
+        [
+          2022,
+          2024,
+          "Premijer Liga"
+        ],
+        [
+          2026,
+          2026,
+          "Premijer Liga"
+        ]
+      ]
+    },
+    {
+      "country": "BLR",
+      "leagueFamilyRowRefs": [
+        3,
+        215
+      ],
+      "observations": [
+        [
+          2009,
+          2019,
+          "Premier League"
+        ],
+        [
+          2020,
+          2021,
+          "Supreme League"
+        ],
+        [
+          2023,
+          2026,
+          "Vyšejšaja Liha"
+        ]
+      ]
+    },
+    {
+      "country": "BOL",
+      "leagueFamilyRowRefs": [
+        38,
+        216
+      ],
+      "observations": [
+        [
+          2007,
+          2007,
+          "First Level"
+        ],
+        [
+          2012,
+          2017,
+          "Primera División"
+        ],
+        [
+          2019,
+          2021,
+          "División Profesional"
+        ],
+        [
+          2023,
+          2025,
+          "División Profesional"
+        ]
+      ]
+    },
+    {
+      "country": "BRA",
+      "leagueFamilyRowRefs": [
+        39,
+        217,
+        218
+      ],
+      "observations": [
+        [
+          2010,
+          2018,
+          "Série A"
+        ],
+        [
+          2021,
+          2025,
+          "Série A"
+        ]
+      ]
+    },
+    {
+      "country": "BUL",
+      "leagueFamilyRowRefs": [
+        5,
+        219
+      ],
+      "observations": [
+        [
+          2011,
+          2016,
+          "A grupa"
+        ],
+        [
+          2017,
+          2026,
+          "Prva profesionalna Liga"
+        ]
+      ]
+    },
+    {
+      "country": "CAN",
+      "leagueFamilyRowRefs": [
+        220
+      ],
+      "observations": [
+        [
+          2010,
+          2013,
+          "Canadian Soccer League"
+        ],
+        [
+          2014,
+          2017,
+          "Quebec Province"
+        ],
+        [
+          2019,
+          2025,
+          "Canadian Premier League"
+        ]
+      ]
+    },
+    {
+      "country": "CHI",
+      "leagueFamilyRowRefs": [
+        40,
+        221
+      ],
+      "observations": [
+        [
+          2009,
+          2009,
+          "Primera División"
+        ],
+        [
+          2010,
+          2011,
+          "Primera División (Campeonato Nacional \"Petrobras\" )"
+        ],
+        [
+          2012,
+          2013,
+          "Primera División"
+        ],
+        [
+          2015,
+          2019,
+          "Primera División"
+        ],
+        [
+          2021,
+          2025,
+          "Primera División"
+        ]
+      ]
+    },
+    {
+      "country": "CHN",
+      "leagueFamilyRowRefs": [
+        222
+      ],
+      "observations": [
+        [
+          2010,
+          2020,
+          "China Super League"
+        ],
+        [
+          2022,
+          2025,
+          "China Super League"
+        ]
+      ]
+    },
+    {
+      "country": "COL",
+      "leagueFamilyRowRefs": [
+        41,
+        223
+      ],
+      "observations": [
+        [
+          2010,
+          2010,
+          "Copa Mustang"
+        ],
+        [
+          2011,
+          2026,
+          "Primera División A"
+        ]
+      ]
+    },
+    {
+      "country": "CRC",
+      "leagueFamilyRowRefs": [
+        224
+      ],
+      "observations": [
+        [
+          2012,
+          2020,
+          "Primera División"
+        ],
+        [
+          2022,
+          2022,
+          "Primera División"
+        ],
+        [
+          2024,
+          2025,
+          "Primera División"
+        ]
+      ]
+    },
+    {
+      "country": "CRO",
+      "leagueFamilyRowRefs": [
+        6,
+        225
+      ],
+      "observations": [
+        [
+          2010,
+          2010,
+          "1. HNL"
+        ],
+        [
+          2011,
+          2011,
+          "Fifth Level"
+        ],
+        [
+          2013,
+          2022,
+          "1. HNL"
+        ],
+        [
+          2023,
+          2026,
+          "Croatian League"
+        ]
+      ]
+    },
+    {
+      "country": "CYP",
+      "leagueFamilyRowRefs": [
+        7,
+        226
+      ],
+      "observations": [
+        [
+          2023,
+          2026,
+          "Cypriot First Division"
+        ]
+      ]
+    },
+    {
+      "country": "CZE",
+      "leagueFamilyRowRefs": [
+        8,
+        227
+      ],
+      "observations": [
+        [
+          2010,
+          2013,
+          "1. Gambrinus liga"
+        ],
+        [
+          2015,
+          2017,
+          "Synot liga"
+        ],
+        [
+          2018,
+          2024,
+          "HET liga"
+        ],
+        [
+          2025,
+          2026,
+          "Chance liga"
+        ]
+      ]
+    },
+    {
+      "country": "DEN",
+      "leagueFamilyRowRefs": [
+        9,
+        228
+      ],
+      "observations": [
+        [
+          2010,
+          2011,
+          "Ligaen"
+        ],
+        [
+          2014,
+          2014,
+          "Ligaen"
+        ],
+        [
+          2015,
+          2026,
+          "Superligaen"
+        ]
+      ]
+    },
+    {
+      "country": "ECU",
+      "leagueFamilyRowRefs": [
+        42,
+        229
+      ],
+      "observations": [
+        [
+          2010,
+          2025,
+          "Serie A"
+        ]
+      ]
+    },
+    {
+      "country": "EGY",
+      "leagueFamilyRowRefs": [
+        230
+      ],
+      "observations": [
+        [
+          2010,
+          2020,
+          "First Level"
+        ],
+        [
+          2022,
+          2026,
+          "First Level"
+        ]
+      ]
+    },
+    {
+      "country": "ENG",
+      "leagueFamilyRowRefs": [
+        75,
+        76,
+        77,
+        78,
+        231,
+        232,
+        233,
+        234
+      ],
+      "observations": [
+        [
+          2010,
+          2013,
+          "Premiership"
+        ],
+        [
+          2014,
+          2026,
+          "Premier League"
+        ]
+      ]
+    },
+    {
+      "country": "ESP",
+      "leagueFamilyRowRefs": [
+        85,
+        86,
+        235,
+        236
+      ],
+      "observations": [
+        [
+          2010,
+          2016,
+          "Primera División (Liga BBVA)"
+        ],
+        [
+          2017,
+          2026,
+          "Primera División"
+        ]
+      ]
+    },
+    {
+      "country": "EST",
+      "leagueFamilyRowRefs": [
+        10,
+        237
+      ],
+      "observations": [
+        [
+          2010,
+          2012,
+          "Meistriliiga"
+        ],
+        [
+          2013,
+          2026,
+          "Premium liiga"
+        ]
+      ]
+    },
+    {
+      "country": "FIN",
+      "leagueFamilyRowRefs": [
+        12,
+        238
+      ],
+      "observations": [
+        [
+          2006,
+          2006,
+          "Premier Division (Veikkausliiga)"
+        ],
+        [
+          2009,
+          2025,
+          "Premier Division (Veikkausliiga)"
+        ]
+      ]
+    },
+    {
+      "country": "FRO",
+      "leagueFamilyRowRefs": [
+        11,
+        241
+      ],
+      "observations": [
+        [
+          2010,
+          2011,
+          "Vodafonedeildin"
+        ],
+        [
+          2012,
+          2017,
+          "Effodeildin"
+        ],
+        [
+          2018,
+          2026,
+          "Betrideildin"
+        ]
+      ]
+    },
+    {
+      "country": "FRA",
+      "leagueFamilyRowRefs": [
+        52,
+        53,
+        239,
+        240
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "Ligue 1"
+        ]
+      ]
+    },
+    {
+      "country": "GEO",
+      "leagueFamilyRowRefs": [
+        242
+      ],
+      "observations": [
+        [
+          2011,
+          2014,
+          "Premier League (Umaglesi Liga)"
+        ],
+        [
+          2016,
+          2016,
+          "Premier League (Umaglesi Liga)"
+        ],
+        [
+          2017,
+          2022,
+          "Erovnuli Liga"
+        ],
+        [
+          2023,
+          2026,
+          "Crystalbet Erovnuli Liga"
+        ]
+      ]
+    },
+    {
+      "country": "GER",
+      "leagueFamilyRowRefs": [
+        54,
+        55,
+        243,
+        244,
+        245
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "1. Bundesliga"
+        ]
+      ]
+    },
+    {
+      "country": "GHA",
+      "leagueFamilyRowRefs": [
+        51,
+        246
+      ],
+      "observations": [
+        [
+          2010,
+          2018,
+          "Ghana Premier League"
+        ],
+        [
+          2019,
+          2019,
+          "Normalization Committee Special Competition"
+        ],
+        [
+          2020,
+          2024,
+          "Ghana Premier League"
+        ],
+        [
+          2026,
+          2026,
+          "Ghana Premier League"
+        ]
+      ]
+    },
+    {
+      "country": "GIB",
+      "leagueFamilyRowRefs": [
+        247
+      ],
+      "observations": [
+        [
+          2010,
+          2012,
+          "First Division"
+        ],
+        [
+          2013,
+          2014,
+          "Premier Division"
+        ],
+        [
+          2016,
+          2019,
+          "First Division"
+        ],
+        [
+          2020,
+          2026,
+          "National League"
+        ]
+      ]
+    },
+    {
+      "country": "GRE",
+      "leagueFamilyRowRefs": [
+        13,
+        248
+      ],
+      "observations": [
+        [
+          2010,
+          2010,
+          "A Ethniki Kategoria"
+        ],
+        [
+          2011,
+          2012,
+          "Super League"
+        ],
+        [
+          2016,
+          2026,
+          "Super League"
+        ]
+      ]
+    },
+    {
+      "country": "GUA",
+      "leagueFamilyRowRefs": [
+        249
+      ],
+      "observations": [
+        [
+          2010,
+          2020,
+          "Liga Nacional"
+        ],
+        [
+          2022,
+          2026,
+          "Liga Nacional"
+        ]
+      ]
+    },
+    {
+      "country": "HON",
+      "leagueFamilyRowRefs": [
+        250
+      ],
+      "observations": [
+        [
+          2010,
+          2020,
+          "Primera División"
+        ],
+        [
+          2022,
+          2026,
+          "Primera División"
+        ]
+      ]
+    },
+    {
+      "country": "HUN",
+      "leagueFamilyRowRefs": [
+        14,
+        251
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "NB I"
+        ]
+      ]
+    },
+    {
+      "country": "IND",
+      "leagueFamilyRowRefs": [
+        43,
+        252,
+        253
+      ],
+      "observations": [
+        [
+          2010,
+          2020,
+          "I League"
+        ],
+        [
+          2021,
+          2026,
+          "ISL"
+        ]
+      ]
+    },
+    {
+      "country": "IRN",
+      "leagueFamilyRowRefs": [
+        255
+      ],
+      "observations": [
+        [
+          2009,
+          2026,
+          "Iran Pro League"
+        ]
+      ]
+    },
+    {
+      "country": "IRL",
+      "leagueFamilyRowRefs": [
+        25,
+        254
+      ],
+      "observations": [
+        [
+          2009,
+          2016,
+          "Premier Division"
+        ],
+        [
+          2017,
+          2025,
+          "SSE Airtricity League"
+        ]
+      ]
+    },
+    {
+      "country": "ISL",
+      "leagueFamilyRowRefs": [
+        15,
+        256
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "Urvalsdeild"
+        ]
+      ]
+    },
+    {
+      "country": "ISR",
+      "leagueFamilyRowRefs": [
+        16,
+        257
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "Ligat Ha'Al"
+        ]
+      ]
+    },
+    {
+      "country": "ITA",
+      "leagueFamilyRowRefs": [
+        56,
+        57,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "Serie A"
+        ]
+      ]
+    },
+    {
+      "country": "JPN",
+      "leagueFamilyRowRefs": [
+        58,
+        59,
+        258,
+        259
+      ],
+      "observations": [
+        [
+          2010,
+          2016,
+          "J.League Division 1"
+        ],
+        [
+          2017,
+          2023,
+          "J1 League"
+        ],
+        [
+          2025,
+          2025,
+          "J1 League"
+        ]
+      ]
+    },
+    {
+      "country": "KAZ",
+      "leagueFamilyRowRefs": [
+        260
+      ],
+      "observations": [
+        [
+          2009,
+          2021,
+          "Premier Liga"
+        ],
+        [
+          2022,
+          2022,
+          "Olimpbet Premier Liga"
+        ],
+        [
+          2023,
+          2023,
+          "Olimpbet Çempïonati (Premier League)"
+        ],
+        [
+          2024,
+          2024,
+          "Premier League"
+        ],
+        [
+          2025,
+          2026,
+          "QFL Olimpbet Premier League"
+        ]
+      ]
+    },
+    {
+      "country": "KOR",
+      "leagueFamilyRowRefs": [
+        261
+      ],
+      "observations": [
+        [
+          2009,
+          2016,
+          "K-League"
+        ],
+        [
+          2018,
+          2025,
+          "K League 1"
+        ]
+      ]
+    },
+    {
+      "country": "KOS",
+      "leagueFamilyRowRefs": [
+        262
+      ],
+      "observations": [
+        [
+          2010,
+          2013,
+          "Superliga"
+        ],
+        [
+          2015,
+          2021,
+          "Superliga"
+        ],
+        [
+          2023,
+          2026,
+          "Superliga"
+        ]
+      ]
+    },
+    {
+      "country": "KSA",
+      "leagueFamilyRowRefs": [
+        263
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "Saudi League"
+        ]
+      ]
+    },
+    {
+      "country": "LVA",
+      "leagueFamilyRowRefs": [
+        17,
+        267
+      ],
+      "observations": [
+        [
+          2010,
+          2021,
+          "Virslīga"
+        ],
+        [
+          2022,
+          2022,
+          "Optibet Virslīga (Supreme League)"
+        ],
+        [
+          2023,
+          2026,
+          "Virslīga"
+        ]
+      ]
+    },
+    {
+      "country": "LTU",
+      "leagueFamilyRowRefs": [
+        18,
+        265
+      ],
+      "observations": [
+        [
+          2009,
+          2011,
+          "NFKA A LYGA"
+        ],
+        [
+          2012,
+          2014,
+          "A LYGA"
+        ],
+        [
+          2016,
+          2018,
+          "A LYGA"
+        ],
+        [
+          2020,
+          2021,
+          "A LYGA"
+        ],
+        [
+          2022,
+          2022,
+          "Optibet A LYGA"
+        ],
+        [
+          2023,
+          2025,
+          "A LYGA"
+        ]
+      ]
+    },
+    {
+      "country": "LUX",
+      "leagueFamilyRowRefs": [
+        19,
+        266
+      ],
+      "observations": [
+        [
+          2010,
+          2011,
+          "Nationaldivision (BGL Ligue)"
+        ],
+        [
+          2013,
+          2013,
+          "Ehrenpromotion"
+        ],
+        [
+          2014,
+          2026,
+          "Nationaldivision (BGL Ligue)"
+        ]
+      ]
+    },
+    {
+      "country": "MLT",
+      "leagueFamilyRowRefs": [
+        20,
+        273
+      ],
+      "observations": [
+        [
+          2010,
+          2018,
+          "Premier League"
+        ],
+        [
+          2020,
+          2026,
+          "Premier League"
+        ]
+      ]
+    },
+    {
+      "country": "MAR",
+      "leagueFamilyRowRefs": [
+        268
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "GNF I"
+        ]
+      ]
+    },
+    {
+      "country": "MDA",
+      "leagueFamilyRowRefs": [
+        269
+      ],
+      "observations": [
+        [
+          2010,
+          2013,
+          "Divizia Națională"
+        ],
+        [
+          2015,
+          2016,
+          "Divizia Națională"
+        ],
+        [
+          2018,
+          2019,
+          "Divizia Națională"
+        ],
+        [
+          2023,
+          2026,
+          "Superliga"
+        ]
+      ]
+    },
+    {
+      "country": "MEX",
+      "leagueFamilyRowRefs": [
+        62,
+        63,
+        270,
+        271
+      ],
+      "observations": [
+        [
+          2012,
+          2012,
+          "Primera División Nacional"
+        ],
+        [
+          2013,
+          2026,
+          "Liga MX"
+        ]
+      ]
+    },
+    {
+      "country": "MKD",
+      "leagueFamilyRowRefs": [
+        272
+      ],
+      "observations": [
+        [
+          2011,
+          2024,
+          "Prva Liga"
+        ],
+        [
+          2026,
+          2026,
+          "Prva Liga"
+        ]
+      ]
+    },
+    {
+      "country": "MNE",
+      "leagueFamilyRowRefs": [
+        274
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "Prva Crnogorska Fudbal Liga"
+        ]
+      ]
+    },
+    {
+      "country": "NED",
+      "leagueFamilyRowRefs": [
+        79,
+        80,
+        275,
+        276
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "Eredivisie"
+        ]
+      ]
+    },
+    {
+      "country": "NIR",
+      "leagueFamilyRowRefs": [
+        21,
+        277
+      ],
+      "observations": [
+        [
+          2010,
+          2014,
+          "IFA Premiership"
+        ],
+        [
+          2016,
+          2026,
+          "IFA Premiership"
+        ]
+      ]
+    },
+    {
+      "country": "NOR",
+      "leagueFamilyRowRefs": [
+        22,
+        278
+      ],
+      "observations": [
+        [
+          2009,
+          2009,
+          "Premier Division"
+        ],
+        [
+          2010,
+          2017,
+          "Tippeligaen"
+        ],
+        [
+          2018,
+          2025,
+          "Eliteserien"
+        ]
+      ]
+    },
+    {
+      "country": "NZL",
+      "leagueFamilyRowRefs": [
+        72,
+        73,
+        74,
+        279,
+        280,
+        281
+      ],
+      "observations": [
+        [
+          2010,
+          2016,
+          "New Zealand Football Championship"
+        ],
+        [
+          2017,
+          2021,
+          "Premiership"
+        ],
+        [
+          2022,
+          2025,
+          "National League"
+        ]
+      ]
+    },
+    {
+      "country": "PAN",
+      "leagueFamilyRowRefs": [
+        282
+      ],
+      "observations": [
+        [
+          2012,
+          2020,
+          "Liga Panameña de Fútbol"
+        ],
+        [
+          2025,
+          2025,
+          "Liga Panameña de Fútbol"
+        ]
+      ]
+    },
+    {
+      "country": "PAR",
+      "leagueFamilyRowRefs": [
+        44,
+        283
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "Primera División"
+        ]
+      ]
+    },
+    {
+      "country": "PER",
+      "leagueFamilyRowRefs": [
+        45,
+        284
+      ],
+      "observations": [
+        [
+          2009,
+          2010,
+          "Primera División"
+        ],
+        [
+          2012,
+          2016,
+          "Primera División"
+        ],
+        [
+          2018,
+          2018,
+          "Primera División"
+        ],
+        [
+          2022,
+          2022,
+          "Copa Perú"
+        ]
+      ]
+    },
+    {
+      "country": "POL",
+      "leagueFamilyRowRefs": [
+        23,
+        285
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "Ekstraklasa"
+        ]
+      ]
+    },
+    {
+      "country": "POR",
+      "leagueFamilyRowRefs": [
+        24,
+        286,
+        287
+      ],
+      "observations": [
+        [
+          2010,
+          2010,
+          "Liga Sagres"
+        ],
+        [
+          2011,
+          2015,
+          "Liga ZON Sagres"
+        ],
+        [
+          2016,
+          2021,
+          "Liga NOS"
+        ],
+        [
+          2022,
+          2026,
+          "Liga Portugal"
+        ]
+      ]
+    },
+    {
+      "country": "QAT",
+      "leagueFamilyRowRefs": [
+        288
+      ],
+      "observations": [
+        [
+          2010,
+          2010,
+          "Qatar Stars League"
+        ],
+        [
+          2012,
+          2026,
+          "Qatar Stars League"
+        ]
+      ]
+    },
+    {
+      "country": "ROU",
+      "leagueFamilyRowRefs": [
+        26,
+        289
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "Liga 1"
+        ]
+      ]
+    },
+    {
+      "country": "RSA",
+      "leagueFamilyRowRefs": [
+        46,
+        290
+      ],
+      "observations": [
+        [
+          2010,
+          2021,
+          "ABSA Premiership"
+        ],
+        [
+          2022,
+          2026,
+          "Premiership"
+        ]
+      ]
+    },
+    {
+      "country": "RUS",
+      "leagueFamilyRowRefs": [
+        27,
+        291
+      ],
+      "observations": [
+        [
+          2002,
+          2005,
+          "Russian Football Premier League"
+        ],
+        [
+          2010,
+          2010,
+          "Russian Football Premier League"
+        ],
+        [
+          2012,
+          2015,
+          "SOGAZ Championship of Russia"
+        ],
+        [
+          2016,
+          2018,
+          "Russian Football Premier League"
+        ],
+        [
+          2019,
+          2026,
+          "Russian Premier League"
+        ]
+      ]
+    },
+    {
+      "country": "SCO",
+      "leagueFamilyRowRefs": [
+        81,
+        82,
+        83,
+        84,
+        292,
+        293,
+        294,
+        295
+      ],
+      "observations": [
+        [
+          2010,
+          2013,
+          "Premier Division"
+        ],
+        [
+          2014,
+          2026,
+          "Premiership"
+        ]
+      ]
+    },
+    {
+      "country": "SLV",
+      "leagueFamilyRowRefs": [
+        64,
+        65,
+        66,
+        67,
+        296,
+        297,
+        298,
+        299,
+        300
+      ],
+      "observations": [
+        [
+          2011,
+          2011,
+          "Primera División"
+        ],
+        [
+          2013,
+          2026,
+          "Primera División"
+        ]
+      ]
+    },
+    {
+      "country": "SMR",
+      "leagueFamilyRowRefs": [
+        28,
+        301
+      ],
+      "observations": [
+        [
+          2011,
+          2011,
+          "Campionato Dilettanti"
+        ],
+        [
+          2019,
+          2026,
+          "Campionato Dilettanti"
+        ]
+      ]
+    },
+    {
+      "country": "SRB",
+      "leagueFamilyRowRefs": [
+        36,
+        302
+      ],
+      "observations": [
+        [
+          2010,
+          2010,
+          "Superliga"
+        ],
+        [
+          2011,
+          2017,
+          "Jelen Superliga"
+        ],
+        [
+          2018,
+          2026,
+          "Superliga"
+        ]
+      ]
+    },
+    {
+      "country": "SUI",
+      "leagueFamilyRowRefs": [
+        32,
+        303
+      ],
+      "observations": [
+        [
+          2010,
+          2011,
+          "Super League"
+        ],
+        [
+          2013,
+          2026,
+          "Super League"
+        ]
+      ]
+    },
+    {
+      "country": "SUR",
+      "leagueFamilyRowRefs": [
+        47,
+        304
+      ],
+      "observations": [
+        [
+          2010,
+          2016,
+          "First Level (Hoofdklasse)"
+        ],
+        [
+          2018,
+          2020,
+          "First Level (SVB Eerste Divisie)"
+        ],
+        [
+          2022,
+          2023,
+          "SVB Eerste Divisie"
+        ],
+        [
+          2024,
+          2025,
+          "Suriname Major League"
+        ]
+      ]
+    },
+    {
+      "country": "SVK",
+      "leagueFamilyRowRefs": [
+        29,
+        305
+      ],
+      "observations": [
+        [
+          2010,
+          2014,
+          "Corgoň liga"
+        ],
+        [
+          2015,
+          2026,
+          "Fortuna liga"
+        ]
+      ]
+    },
+    {
+      "country": "SVN",
+      "leagueFamilyRowRefs": [
+        30,
+        306
+      ],
+      "observations": [
+        [
+          2010,
+          2025,
+          "1. SNL"
+        ]
+      ]
+    },
+    {
+      "country": "SWE",
+      "leagueFamilyRowRefs": [
+        31,
+        307
+      ],
+      "observations": [
+        [
+          2009,
+          2023,
+          "Allsvenskan"
+        ],
+        [
+          2025,
+          2026,
+          "Allsvenskan"
+        ]
+      ]
+    },
+    {
+      "country": "TPE",
+      "leagueFamilyRowRefs": [
+        48,
+        308,
+        309
+      ],
+      "observations": [
+        [
+          2010,
+          2013,
+          "City A-League"
+        ],
+        [
+          2018,
+          2024,
+          "Taiwan Football Premier League (Jiaji Liansai)"
+        ],
+        [
+          2026,
+          2026,
+          "Taiwan Football Premier League (Jiaji Liansai)"
+        ]
+      ]
+    },
+    {
+      "country": "TUN",
+      "leagueFamilyRowRefs": [
+        310
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "Ligue Professionnelle 1"
+        ]
+      ]
+    },
+    {
+      "country": "TUR",
+      "leagueFamilyRowRefs": [
+        33,
+        311,
+        312
+      ],
+      "observations": [
+        [
+          2011,
+          2022,
+          "Süper Lig"
+        ],
+        [
+          2024,
+          2026,
+          "Süper Lig"
+        ]
+      ]
+    },
+    {
+      "country": "UAE",
+      "leagueFamilyRowRefs": [
+        313
+      ],
+      "observations": [
+        [
+          2010,
+          2026,
+          "Professional League"
+        ]
+      ]
+    },
+    {
+      "country": "UKR",
+      "leagueFamilyRowRefs": [
+        34,
+        314
+      ],
+      "observations": [
+        [
+          2010,
+          2024,
+          "Ukrainian Premier League"
+        ],
+        [
+          2025,
+          2026,
+          "VBet Premier League"
+        ]
+      ]
+    },
+    {
+      "country": "URU",
+      "leagueFamilyRowRefs": [
+        87,
+        88,
+        315,
+        316
+      ],
+      "observations": [
+        [
+          2010,
+          2017,
+          "Primera División Profesional"
+        ],
+        [
+          2019,
+          2019,
+          "Primera División Profesional"
+        ],
+        [
+          2021,
+          2026,
+          "Primera División Profesional"
+        ]
+      ]
+    },
+    {
+      "country": "USA",
+      "leagueFamilyRowRefs": [
+        49,
+        317
+      ],
+      "observations": [
+        [
+          2022,
+          2022,
+          "Major League Soccer"
+        ]
+      ]
+    },
+    {
+      "country": "VEN",
+      "leagueFamilyRowRefs": [
+        50,
+        318
+      ],
+      "observations": [
+        [
+          2010,
+          2025,
+          "Primera División"
+        ]
+      ]
+    },
+    {
+      "country": "WAL",
+      "leagueFamilyRowRefs": [
+        35,
+        319
+      ],
+      "observations": [
+        [
+          2010,
+          2013,
+          "League of Wales"
+        ],
+        [
+          2014,
+          2019,
+          "Welsh Premier League"
+        ],
+        [
+          2020,
+          2026,
+          "Uwch Gynghrair Cymru (Cymru Premier)"
+        ]
+      ]
+    }
+  ]
+}

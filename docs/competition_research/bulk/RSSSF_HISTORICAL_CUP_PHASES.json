@@ -1,0 +1,1078 @@
+{
+  "block": 138,
+  "status": "UNRECONCILED_RESEARCH_COLLECTION",
+  "scope": "Directly observed phase headings and date tokens in uploaded historical national cup corpus. Some archives start late, omit rounds, duplicate entries or give contradictory dates; no complete calendars or regulation certification. Date labels kept as archive month/day, not assigned to exact fixtures. No historical/future results or participants copied. Prior data retained pending final reconciliation. MLT final date discrepancy A049 already registered.",
+  "rowCount": 29,
+  "phaseObservations": 161,
+  "datedPhaseObservations": 78,
+  "rows": [
+    {
+      "country": "ALB",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        112
+      ],
+      "observedPhases": [
+        {
+          "phase": "R16",
+          "dateText": null
+        },
+        {
+          "phase": "QF",
+          "dateText": null
+        },
+        {
+          "phase": "SF",
+          "dateText": null
+        },
+        {
+          "phase": "F",
+          "dateText": null
+        }
+      ],
+      "specificObservations": null
+    },
+    {
+      "country": "AUT",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        113
+      ],
+      "observedPhases": [
+        {
+          "phase": "Preliminary",
+          "dateText": null
+        },
+        {
+          "phase": "R1",
+          "dateText": "Aug 11-21"
+        },
+        {
+          "phase": "R2",
+          "dateText": "Sep 4-7"
+        },
+        {
+          "phase": "R3",
+          "dateText": "Sep 27-29"
+        },
+        {
+          "phase": "R4",
+          "dateText": "Nov 1,2"
+        },
+        {
+          "phase": "QF",
+          "dateText": "Apr 8"
+        },
+        {
+          "phase": "SF",
+          "dateText": "May 6"
+        },
+        {
+          "phase": "F",
+          "dateText": "May 27"
+        }
+      ],
+      "specificObservations": {
+        "observedDesignation": "OeFB Magnofit Cup",
+        "extraTimeObserved": true,
+        "penaltiesObserved": true,
+        "unscoredAdministrativeResultsObserved": true
+      }
+    },
+    {
+      "country": "BLR",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        114
+      ],
+      "observedPhases": [
+        {
+          "phase": "R32",
+          "dateText": null
+        },
+        {
+          "phase": "R16",
+          "dateText": null
+        },
+        {
+          "phase": "QF",
+          "dateText": null
+        },
+        {
+          "phase": "SF",
+          "dateText": null
+        }
+      ],
+      "specificObservations": null
+    },
+    {
+      "country": "BUL",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        116
+      ],
+      "observedPhases": [
+        {
+          "phase": "QF",
+          "dateText": "Mar 5,19"
+        },
+        {
+          "phase": "SF",
+          "dateText": "Apr 9,23"
+        },
+        {
+          "phase": "F",
+          "dateText": "May 28"
+        }
+      ],
+      "specificObservations": {
+        "observedLegCounts": {
+          "QF": 2,
+          "SF": 2,
+          "F": 1
+        },
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      }
+    },
+    {
+      "country": "CRO",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        117
+      ],
+      "observedPhases": [
+        {
+          "phase": "QF",
+          "dateText": "Oct 16,23"
+        },
+        {
+          "phase": "SF",
+          "dateText": "Apr 9,16"
+        },
+        {
+          "phase": "F",
+          "dateText": "May 29"
+        }
+      ],
+      "specificObservations": {
+        "observedLegCounts": {
+          "QF": 2,
+          "SF": 2,
+          "F": 1
+        }
+      }
+    },
+    {
+      "country": "CYP",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        118
+      ],
+      "observedPhases": [
+        {
+          "phase": "Qualifying R1",
+          "dateText": "Nov 26,27"
+        },
+        {
+          "phase": "R2 first leg",
+          "dateText": "Jan 11,12,15"
+        },
+        {
+          "phase": "R2 second leg",
+          "dateText": "Jan 25,26"
+        },
+        {
+          "phase": "QF first leg",
+          "dateText": "Feb 12"
+        },
+        {
+          "phase": "QF second leg",
+          "dateText": "Mar 1,2"
+        },
+        {
+          "phase": "SF first leg",
+          "dateText": "Apr 16"
+        },
+        {
+          "phase": "SF second leg",
+          "dateText": "Apr 23"
+        },
+        {
+          "phase": "F",
+          "dateText": "May 17"
+        }
+      ],
+      "specificObservations": {
+        "observedLegCounts": {
+          "R2": 2,
+          "QF": 2,
+          "SF": 2,
+          "F": 1
+        }
+      }
+    },
+    {
+      "country": "EST",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        121
+      ],
+      "observedPhases": [
+        {
+          "phase": "SF",
+          "dateText": "Apr 14"
+        },
+        {
+          "phase": "F",
+          "dateText": "Jun 25"
+        }
+      ],
+      "specificObservations": null
+    },
+    {
+      "country": "FRO",
+      "edition": "1996",
+      "leagueFamilyRowRefs": [
+        122
+      ],
+      "observedPhases": [
+        {
+          "phase": "Preliminary",
+          "dateText": "Mar 17"
+        },
+        {
+          "phase": "R1",
+          "dateText": null
+        },
+        {
+          "phase": "Group stage",
+          "dateText": null
+        },
+        {
+          "phase": "Group 1",
+          "dateText": null
+        },
+        {
+          "phase": "Group 2",
+          "dateText": null
+        },
+        {
+          "phase": "Group 3",
+          "dateText": null
+        },
+        {
+          "phase": "Group 4",
+          "dateText": null
+        },
+        {
+          "phase": "QF",
+          "dateText": "May 16"
+        },
+        {
+          "phase": "SF",
+          "dateText": null
+        },
+        {
+          "phase": "F",
+          "dateText": "Aug 4"
+        },
+        {
+          "phase": "F replay",
+          "dateText": "Aug 8"
+        }
+      ],
+      "specificObservations": {
+        "finalReplayObserved": true,
+        "groupCount": 4
+      }
+    },
+    {
+      "country": "FIN",
+      "edition": "1996",
+      "leagueFamilyRowRefs": [
+        123
+      ],
+      "observedPhases": [
+        {
+          "phase": "QF",
+          "dateText": null
+        },
+        {
+          "phase": "SF",
+          "dateText": null
+        }
+      ],
+      "specificObservations": null
+    },
+    {
+      "country": "GRE",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        124
+      ],
+      "observedPhases": [
+        {
+          "phase": "R1",
+          "dateText": null
+        },
+        {
+          "phase": "R3 (R32)",
+          "dateText": null
+        },
+        {
+          "phase": "R16",
+          "dateText": "Nov 27,28 and Dec 11,12"
+        },
+        {
+          "phase": "QF",
+          "dateText": "Jan 8,29"
+        },
+        {
+          "phase": "SF",
+          "dateText": "Feb 12,26"
+        },
+        {
+          "phase": "F",
+          "dateText": "Apr 16"
+        }
+      ],
+      "specificObservations": {
+        "observedLegCounts": {
+          "R1": 2,
+          "R16": 2,
+          "QF": 2,
+          "SF": 2,
+          "F": 1
+        }
+      }
+    },
+    {
+      "country": "HUN",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        125
+      ],
+      "observedPhases": [
+        {
+          "phase": "R2 (64 teams)",
+          "dateText": null
+        },
+        {
+          "phase": "Group stage",
+          "dateText": null
+        },
+        {
+          "phase": "R32",
+          "dateText": null
+        },
+        {
+          "phase": "R16",
+          "dateText": null
+        },
+        {
+          "phase": "QF",
+          "dateText": null
+        },
+        {
+          "phase": "SF",
+          "dateText": null
+        },
+        {
+          "phase": "F",
+          "dateText": "May 21 and Jun 11"
+        }
+      ],
+      "specificObservations": {
+        "secondRoundParticipants": 64,
+        "groupsObserved": 16,
+        "groupSizeObserved": 4,
+        "gamesPerClubInGroup": 3,
+        "groupPointsObserved": [
+          3,
+          1,
+          0
+        ],
+        "laterR32Observed": true,
+        "finalLegs": 2,
+        "administrativeDisqualificationObserved": true
+      }
+    },
+    {
+      "country": "ISL",
+      "edition": "1996",
+      "leagueFamilyRowRefs": [
+        126
+      ],
+      "observedPhases": [
+        {
+          "phase": "QF",
+          "dateText": null
+        },
+        {
+          "phase": "SF",
+          "dateText": null
+        }
+      ],
+      "specificObservations": null
+    },
+    {
+      "country": "LVA",
+      "edition": "1997",
+      "leagueFamilyRowRefs": [
+        129
+      ],
+      "observedPhases": [
+        {
+          "phase": "Qualifying",
+          "dateText": "Apr 22"
+        },
+        {
+          "phase": "R1",
+          "dateText": "Apr 26,27"
+        },
+        {
+          "phase": "R2",
+          "dateText": "May 7"
+        },
+        {
+          "phase": "QF",
+          "dateText": "May 29"
+        },
+        {
+          "phase": "SF",
+          "dateText": "Jun 11"
+        },
+        {
+          "phase": "F",
+          "dateText": "Jun 17"
+        }
+      ],
+      "specificObservations": null
+    },
+    {
+      "country": "LTU",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        130
+      ],
+      "observedPhases": [
+        {
+          "phase": "R16",
+          "dateText": "Nov 5-7"
+        },
+        {
+          "phase": "QF",
+          "dateText": "Nov 10-12 and 16"
+        },
+        {
+          "phase": "SF",
+          "dateText": null
+        }
+      ],
+      "specificObservations": {
+        "observedLegCounts": {
+          "R16": 1,
+          "QF": 2
+        }
+      }
+    },
+    {
+      "country": "LUX",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        131
+      ],
+      "observedPhases": [
+        {
+          "phase": "SF",
+          "dateText": "May 20"
+        },
+        {
+          "phase": "F",
+          "dateText": "May 31"
+        }
+      ],
+      "specificObservations": null
+    },
+    {
+      "country": "MLT",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        132
+      ],
+      "observedPhases": [
+        {
+          "phase": "R1",
+          "dateText": null
+        },
+        {
+          "phase": "R2",
+          "dateText": null
+        },
+        {
+          "phase": "QF",
+          "dateText": null
+        },
+        {
+          "phase": "SF",
+          "dateText": null
+        },
+        {
+          "phase": "F",
+          "dateText": "May 22"
+        }
+      ],
+      "specificObservations": {
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      }
+    },
+    {
+      "country": "NIR",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        133
+      ],
+      "observedPhases": [
+        {
+          "phase": "R5",
+          "dateText": "Jan 25"
+        },
+        {
+          "phase": "R5 replays",
+          "dateText": "Jan 29"
+        },
+        {
+          "phase": "R6",
+          "dateText": "Feb 22"
+        },
+        {
+          "phase": "R6 replay",
+          "dateText": "Feb 25"
+        },
+        {
+          "phase": "QF",
+          "dateText": "Mar 15"
+        },
+        {
+          "phase": "QF replay",
+          "dateText": "Mar 19"
+        },
+        {
+          "phase": "SF",
+          "dateText": "Apr 11,12"
+        },
+        {
+          "phase": "F",
+          "dateText": "May 3"
+        }
+      ],
+      "specificObservations": {
+        "replayRoundsObserved": [
+          "R5",
+          "R6",
+          "QF"
+        ]
+      }
+    },
+    {
+      "country": "POL",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        135
+      ],
+      "observedPhases": [
+        {
+          "phase": "Qualifying",
+          "dateText": null
+        },
+        {
+          "phase": "R1",
+          "dateText": null
+        },
+        {
+          "phase": "R2",
+          "dateText": null
+        },
+        {
+          "phase": "R3",
+          "dateText": null
+        },
+        {
+          "phase": "R32",
+          "dateText": null
+        },
+        {
+          "phase": "R16",
+          "dateText": null
+        },
+        {
+          "phase": "QF",
+          "dateText": "Apr 16"
+        },
+        {
+          "phase": "SF",
+          "dateText": "May 15"
+        },
+        {
+          "phase": "F",
+          "dateText": "Jun 29"
+        }
+      ],
+      "specificObservations": null
+    },
+    {
+      "country": "ROU",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        137
+      ],
+      "observedPhases": [
+        {
+          "phase": "Preliminary",
+          "dateText": "Oct 23"
+        },
+        {
+          "phase": "R32",
+          "dateText": "Nov 30"
+        },
+        {
+          "phase": "R16",
+          "dateText": "May 7"
+        },
+        {
+          "phase": "QF",
+          "dateText": "May 14"
+        },
+        {
+          "phase": "SF",
+          "dateText": "May 21"
+        },
+        {
+          "phase": "F",
+          "dateText": "Jun 4"
+        }
+      ],
+      "specificObservations": null
+    },
+    {
+      "country": "RUS",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        138
+      ],
+      "observedPhases": [
+        {
+          "phase": "R512",
+          "dateText": null
+        },
+        {
+          "phase": "R256",
+          "dateText": null
+        },
+        {
+          "phase": "R128",
+          "dateText": null
+        },
+        {
+          "phase": "R64",
+          "dateText": null
+        },
+        {
+          "phase": "R32",
+          "dateText": null
+        },
+        {
+          "phase": "R16",
+          "dateText": null
+        },
+        {
+          "phase": "QF",
+          "dateText": null
+        },
+        {
+          "phase": "SF",
+          "dateText": null
+        },
+        {
+          "phase": "F",
+          "dateText": null
+        }
+      ],
+      "specificObservations": null
+    },
+    {
+      "country": "SVK",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        140
+      ],
+      "observedPhases": [
+        {
+          "phase": "QF",
+          "dateText": null
+        },
+        {
+          "phase": "SF",
+          "dateText": null
+        },
+        {
+          "phase": "F",
+          "dateText": "Jun 1"
+        }
+      ],
+      "specificObservations": {
+        "observedLegCounts": {
+          "QF": 1,
+          "SF": 2,
+          "F": 1
+        },
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      }
+    },
+    {
+      "country": "SVN",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        141
+      ],
+      "observedPhases": [
+        {
+          "phase": "QF (two legs)",
+          "dateText": null
+        },
+        {
+          "phase": "SF",
+          "dateText": "Mar 26 and Apr 9"
+        },
+        {
+          "phase": "F",
+          "dateText": "Jun 4,11"
+        }
+      ],
+      "specificObservations": {
+        "observedLegCounts": {
+          "QF": 2,
+          "SF": 2,
+          "F": 2
+        }
+      }
+    },
+    {
+      "country": "TUR",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        144
+      ],
+      "observedPhases": [
+        {
+          "phase": "R5",
+          "dateText": null
+        },
+        {
+          "phase": "R6",
+          "dateText": "Nov 26-28"
+        },
+        {
+          "phase": "QF",
+          "dateText": "Jan 22,23 and Feb 5"
+        },
+        {
+          "phase": "SF",
+          "dateText": "Feb 19 and Mar 4,5"
+        },
+        {
+          "phase": "F",
+          "dateText": "Mar 19 and Apr 16"
+        }
+      ],
+      "specificObservations": {
+        "observedLegCounts": {
+          "R5": 1,
+          "R6": 1,
+          "QF": 2,
+          "SF": 2,
+          "F": 2
+        },
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      }
+    },
+    {
+      "country": "UKR",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        145
+      ],
+      "observedPhases": [
+        {
+          "phase": "R32",
+          "dateText": "Oct 9"
+        },
+        {
+          "phase": "R16",
+          "dateText": null
+        },
+        {
+          "phase": "SF",
+          "dateText": "Mar 6,10"
+        },
+        {
+          "phase": "F",
+          "dateText": "May 25"
+        }
+      ],
+      "specificObservations": null
+    },
+    {
+      "country": "SRB",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        147
+      ],
+      "observedPhases": [
+        {
+          "phase": "R16",
+          "dateText": "Oct 9,23"
+        },
+        {
+          "phase": "QF",
+          "dateText": "Nov 13,26/27"
+        },
+        {
+          "phase": "SF",
+          "dateText": "Mar 19 and Apr 9"
+        },
+        {
+          "phase": "F",
+          "dateText": "May 7,21"
+        }
+      ],
+      "specificObservations": {
+        "observedLegCounts": {
+          "R16": 2,
+          "QF": 2,
+          "SF": 2,
+          "F": 2
+        },
+        "penaltiesObserved": true
+      }
+    },
+    {
+      "country": "ENG",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        151,
+        153
+      ],
+      "observedPhases": [
+        {
+          "phase": "R1",
+          "dateText": null
+        },
+        {
+          "phase": "R1 replays",
+          "dateText": null
+        },
+        {
+          "phase": "R2",
+          "dateText": null
+        },
+        {
+          "phase": "R2 replays",
+          "dateText": null
+        },
+        {
+          "phase": "R3",
+          "dateText": null
+        },
+        {
+          "phase": "R3 replays",
+          "dateText": null
+        },
+        {
+          "phase": "R4",
+          "dateText": null
+        },
+        {
+          "phase": "R4 replays",
+          "dateText": null
+        },
+        {
+          "phase": "R5",
+          "dateText": null
+        },
+        {
+          "phase": "R5 replays",
+          "dateText": null
+        },
+        {
+          "phase": "QF",
+          "dateText": null
+        },
+        {
+          "phase": "SF",
+          "dateText": null
+        },
+        {
+          "phase": "SF replay",
+          "dateText": null
+        },
+        {
+          "phase": "F",
+          "dateText": null
+        }
+      ],
+      "specificObservations": {
+        "replayRoundsObserved": [
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "R5",
+          "SF"
+        ]
+      }
+    },
+    {
+      "country": "ITA",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        157
+      ],
+      "observedPhases": [
+        {
+          "phase": "R1",
+          "dateText": null
+        },
+        {
+          "phase": "R2",
+          "dateText": null
+        },
+        {
+          "phase": "R3",
+          "dateText": null
+        },
+        {
+          "phase": "QF",
+          "dateText": null
+        },
+        {
+          "phase": "SF",
+          "dateText": null
+        },
+        {
+          "phase": "F",
+          "dateText": null
+        }
+      ],
+      "specificObservations": {
+        "replayObservedInRound2": true,
+        "firstRoundSingleMatchObserved": true,
+        "penaltiesObserved": true,
+        "administrativeResultObserved": true
+      }
+    },
+    {
+      "country": "ESP",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        160
+      ],
+      "observedPhases": [
+        {
+          "phase": "R1",
+          "dateText": null
+        },
+        {
+          "phase": "R2",
+          "dateText": null
+        },
+        {
+          "phase": "R3",
+          "dateText": "Jan 8,9 and 15,16"
+        },
+        {
+          "phase": "R4",
+          "dateText": "Jan 28,29,30 and Feb 4,5,6"
+        },
+        {
+          "phase": "QF",
+          "dateText": "Feb 26,27 and Mar 12,13"
+        },
+        {
+          "phase": "SF",
+          "dateText": "Mar 25,26 and Apr 2,3"
+        }
+      ],
+      "specificObservations": {
+        "reportedEntries": 72,
+        "reportedTier1Entries": 22,
+        "reportedTier2Entries": 17,
+        "reportedTier3Entries": 32,
+        "reportedTier4Entries": 0,
+        "reserveTeamsExcluded": true,
+        "withdrawnAdditionalEntry": true,
+        "europeanClubByesUntilEliminationOrRoundOf16": true,
+        "firstRoundNominalTeams": 50,
+        "firstRoundNominalAdvancing": 25,
+        "twoLegRound1Observed": true,
+        "scope": "Archive reported totals include a disbanded entry; do not force arithmetic or reuse future entrants."
+      }
+    },
+    {
+      "country": "NED",
+      "edition": "1996/97",
+      "leagueFamilyRowRefs": [
+        161
+      ],
+      "observedPhases": [
+        {
+          "phase": "Preliminary",
+          "dateText": null
+        },
+        {
+          "phase": "Intermediate",
+          "dateText": null
+        },
+        {
+          "phase": "R1 (14 listed groups)",
+          "dateText": null
+        },
+        {
+          "phase": "R32",
+          "dateText": null
+        },
+        {
+          "phase": "R16",
+          "dateText": null
+        },
+        {
+          "phase": "QF",
+          "dateText": null
+        },
+        {
+          "phase": "SF",
+          "dateText": null
+        },
+        {
+          "phase": "F",
+          "dateText": null
+        }
+      ],
+      "specificObservations": {
+        "professionalTeamsPreliminaryBye": true,
+        "highestAmateurLeagueWinnersPreliminaryBye": true,
+        "extraReserveByeReasonUnknown": true,
+        "previousTopFourByeToR32": true,
+        "listedGroups": 14,
+        "observedGroupSize": 4,
+        "observedGroupMatchesPerClub": 3,
+        "observedGroupTopTwoAdvance": true,
+        "preliminaryExtraTimeAndPenaltiesObserved": true
+      }
+    }
+  ]
+}

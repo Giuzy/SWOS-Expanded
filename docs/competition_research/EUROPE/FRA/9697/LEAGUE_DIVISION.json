@@ -71,6 +71,71 @@
       "withinLeagueSameDayClashes": 0,
       "preJulyRecords": 0,
       "scope": "Derived historical workbook audit only, no raw date list, participant labels or scores copied. Full regular-season round-robin structure observed; playoffs, independent archive provenance and native keys not certified."
+    },
+    "block136DateAudit": {
+      "edition": "1996/97",
+      "status": "COMPLETE_REGULAR_SEASON_PAIR_STRUCTURE_PARTIAL_CALENDAR_EVIDENCE",
+      "observedRecords": 380,
+      "distinctClubLabels": 20,
+      "firstObservedDate": "1996-08-09",
+      "lastObservedDate": "1997-05-24",
+      "distinctMatchDays": 77,
+      "orderedPairMultiplicity": 1,
+      "completeBalancedOrderedPairSet": true,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "preJulyRecords": 0,
+      "seasonRangeColumns": [
+        "firstSeasonEndYear",
+        "lastSeasonEndYearInclusive",
+        "observedRecordsPerSeason",
+        "distinctClubLabelsPerSeason"
+      ],
+      "observedSeasonRanges": [
+        [
+          1996,
+          1997,
+          380,
+          20
+        ],
+        [
+          1998,
+          2002,
+          306,
+          18
+        ],
+        [
+          2003,
+          2016,
+          380,
+          20
+        ],
+        [
+          2017,
+          2019,
+          382,
+          21
+        ],
+        [
+          2020,
+          2020,
+          380,
+          20
+        ],
+        [
+          2021,
+          2022,
+          382,
+          21
+        ],
+        [
+          2023,
+          2023,
+          380,
+          20
+        ]
+      ],
+      "scope": "User-supplied worldfootballR archive; derived aggregates only, not raw fixtures or scores. Observed labels may include promotion/relegation playoff clubs and do not prove official entrant count or regulation changes. No independent date reconciliation, no native keys, no future result import. Existing calendar/snapshot evidence retained."
     }
   },
   {

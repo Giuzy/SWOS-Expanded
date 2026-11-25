@@ -1,0 +1,1491 @@
+{
+  "block": 139,
+  "status": "UNRECONCILED_RANK_MOVEMENT_CLAUSES",
+  "scope": "165 textual pattern hits across 1996–2026 annual corpus, reduced to 141 distinct country/year/section/direction/count/action tuples. Unsectioned files mix tiers; phrases can describe observed outcomes or one-off exceptions. No permanent application or current rules inferred. Some apparently anomalous candidates require contextual review.",
+  "columns": [
+    "archiveEndYear",
+    "rankDirection",
+    "numberMentioned",
+    "action"
+  ],
+  "directions": {
+    "T": "top/first",
+    "B": "bottom/last"
+  },
+  "actions": {
+    "Q": "qualify",
+    "A": "advance",
+    "R": "relegation",
+    "P": "promotion",
+    "L": "play in next phase",
+    "E": "enter"
+  },
+  "countries": [
+    {
+      "country": "ARM",
+      "leagueFamilyRowRefs": [
+        206
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              2005,
+              "B",
+              3,
+              "L"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "AUT",
+      "leagueFamilyRowRefs": [
+        2,
+        211
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1996,
+              "B",
+              3,
+              "R"
+            ],
+            [
+              1996,
+              "B",
+              4,
+              "R"
+            ],
+            [
+              1996,
+              "T",
+              3,
+              "L"
+            ],
+            [
+              1996,
+              "T",
+              3,
+              "P"
+            ],
+            [
+              2001,
+              "B",
+              4,
+              "R"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "BIH",
+      "leagueFamilyRowRefs": [
+        214
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              2000,
+              "T",
+              11,
+              "Q"
+            ],
+            [
+              2000,
+              "T",
+              9,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "BRA",
+      "leagueFamilyRowRefs": [
+        39,
+        217,
+        218
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1996,
+              "T",
+              8,
+              "Q"
+            ],
+            [
+              1997,
+              "B",
+              4,
+              "R"
+            ],
+            [
+              2004,
+              "T",
+              4,
+              "Q"
+            ],
+            [
+              2005,
+              "B",
+              4,
+              "R"
+            ]
+          ]
+        },
+        {
+          "heading": "Série A",
+          "observations": [
+            [
+              2011,
+              "T",
+              4,
+              "Q"
+            ],
+            [
+              2012,
+              "T",
+              4,
+              "Q"
+            ]
+          ]
+        },
+        {
+          "heading": "Série B",
+          "observations": [
+            [
+              2015,
+              "B",
+              4,
+              "R"
+            ],
+            [
+              2015,
+              "T",
+              4,
+              "P"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "CHN",
+      "leagueFamilyRowRefs": [
+        222
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              2003,
+              "T",
+              12,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "COL",
+      "leagueFamilyRowRefs": [
+        41,
+        223
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1996,
+              "T",
+              2,
+              "L"
+            ],
+            [
+              1996,
+              "T",
+              2,
+              "Q"
+            ],
+            [
+              1999,
+              "T",
+              8,
+              "Q"
+            ],
+            [
+              2000,
+              "T",
+              2,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "CRO",
+      "leagueFamilyRowRefs": [
+        6,
+        225
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              2004,
+              "T",
+              3,
+              "L"
+            ],
+            [
+              2005,
+              "B",
+              6,
+              "L"
+            ],
+            [
+              2005,
+              "T",
+              6,
+              "L"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "CYP",
+      "leagueFamilyRowRefs": [
+        7,
+        226
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              2010,
+              "T",
+              4,
+              "Q"
+            ],
+            [
+              2011,
+              "T",
+              4,
+              "Q"
+            ],
+            [
+              2012,
+              "T",
+              4,
+              "Q"
+            ],
+            [
+              2013,
+              "T",
+              4,
+              "Q"
+            ],
+            [
+              2015,
+              "T",
+              3,
+              "P"
+            ],
+            [
+              2016,
+              "T",
+              3,
+              "P"
+            ],
+            [
+              2017,
+              "T",
+              3,
+              "P"
+            ],
+            [
+              2018,
+              "T",
+              3,
+              "P"
+            ],
+            [
+              2019,
+              "T",
+              4,
+              "P"
+            ],
+            [
+              2020,
+              "B",
+              4,
+              "R"
+            ],
+            [
+              2020,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2020,
+              "T",
+              4,
+              "P"
+            ],
+            [
+              2021,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2022,
+              "T",
+              3,
+              "P"
+            ],
+            [
+              2022,
+              "T",
+              4,
+              "P"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "ECU",
+      "leagueFamilyRowRefs": [
+        42,
+        229
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1998,
+              "B",
+              4,
+              "L"
+            ],
+            [
+              1998,
+              "T",
+              4,
+              "L"
+            ],
+            [
+              2002,
+              "T",
+              1,
+              "R"
+            ],
+            [
+              2002,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2003,
+              "T",
+              3,
+              "Q"
+            ],
+            [
+              2004,
+              "B",
+              2,
+              "Q"
+            ],
+            [
+              2004,
+              "B",
+              2,
+              "R"
+            ],
+            [
+              2004,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2004,
+              "T",
+              2,
+              "Q"
+            ],
+            [
+              2004,
+              "T",
+              3,
+              "Q"
+            ],
+            [
+              2005,
+              "B",
+              2,
+              "R"
+            ],
+            [
+              2005,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2005,
+              "T",
+              4,
+              "Q"
+            ],
+            [
+              2006,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2007,
+              "T",
+              3,
+              "P"
+            ],
+            [
+              2007,
+              "T",
+              3,
+              "Q"
+            ],
+            [
+              2008,
+              "T",
+              2,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "ENG",
+      "leagueFamilyRowRefs": [
+        75,
+        76,
+        77,
+        78,
+        231,
+        232,
+        233,
+        234
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              2002,
+              "B",
+              4,
+              "R"
+            ],
+            [
+              2002,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2003,
+              "B",
+              2,
+              "R"
+            ],
+            [
+              2003,
+              "B",
+              3,
+              "R"
+            ],
+            [
+              2003,
+              "B",
+              4,
+              "R"
+            ],
+            [
+              2003,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2003,
+              "T",
+              3,
+              "P"
+            ],
+            [
+              2004,
+              "B",
+              3,
+              "R"
+            ],
+            [
+              2004,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2005,
+              "B",
+              3,
+              "R"
+            ],
+            [
+              2005,
+              "T",
+              2,
+              "P"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "ESP",
+      "leagueFamilyRowRefs": [
+        85,
+        86,
+        235,
+        236
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              2002,
+              "T",
+              4,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "EST",
+      "leagueFamilyRowRefs": [
+        10,
+        237
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1996,
+              "B",
+              2,
+              "E"
+            ],
+            [
+              1996,
+              "T",
+              6,
+              "L"
+            ],
+            [
+              1997,
+              "B",
+              2,
+              "R"
+            ],
+            [
+              1997,
+              "T",
+              6,
+              "P"
+            ],
+            [
+              1998,
+              "T",
+              6,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "FIN",
+      "leagueFamilyRowRefs": [
+        12,
+        238
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1997,
+              "T",
+              5,
+              "P"
+            ],
+            [
+              1998,
+              "T",
+              5,
+              "P"
+            ],
+            [
+              1999,
+              "T",
+              5,
+              "P"
+            ],
+            [
+              2002,
+              "B",
+              4,
+              "P"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "FRA",
+      "leagueFamilyRowRefs": [
+        52,
+        53,
+        239,
+        240
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              2006,
+              "B",
+              3,
+              "R"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "JPN",
+      "leagueFamilyRowRefs": [
+        58,
+        59,
+        258,
+        259
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              2007,
+              "B",
+              2,
+              "R"
+            ],
+            [
+              2009,
+              "B",
+              2,
+              "R"
+            ]
+          ]
+        },
+        {
+          "heading": "JFL promotion play-off",
+          "observations": [
+            [
+              2010,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2012,
+              "T",
+              2,
+              "P"
+            ]
+          ]
+        },
+        {
+          "heading": "Prefectoral Leagues",
+          "observations": [
+            [
+              2010,
+              "B",
+              2,
+              "R"
+            ],
+            [
+              2010,
+              "B",
+              3,
+              "R"
+            ],
+            [
+              2010,
+              "T",
+              2,
+              "Q"
+            ],
+            [
+              2010,
+              "T",
+              4,
+              "Q"
+            ]
+          ]
+        },
+        {
+          "heading": "Regional Leagues",
+          "observations": [
+            [
+              2010,
+              "B",
+              2,
+              "R"
+            ],
+            [
+              2010,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2011,
+              "B",
+              2,
+              "R"
+            ],
+            [
+              2011,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2013,
+              "T",
+              3,
+              "P"
+            ],
+            [
+              2013,
+              "T",
+              3,
+              "Q"
+            ],
+            [
+              2014,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2014,
+              "T",
+              3,
+              "Q"
+            ],
+            [
+              2015,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2015,
+              "T",
+              3,
+              "Q"
+            ],
+            [
+              2016,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2016,
+              "T",
+              3,
+              "Q"
+            ],
+            [
+              2017,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2017,
+              "T",
+              4,
+              "Q"
+            ],
+            [
+              2018,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2019,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2020,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2021,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2022,
+              "T",
+              2,
+              "P"
+            ]
+          ]
+        },
+        {
+          "heading": "48th All-Syakaijin Cup",
+          "observations": [
+            [
+              2012,
+              "T",
+              3,
+              "Q"
+            ]
+          ]
+        },
+        {
+          "heading": "J.League Division 2",
+          "observations": [
+            [
+              2012,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2013,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2014,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2015,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2016,
+              "T",
+              2,
+              "P"
+            ]
+          ]
+        },
+        {
+          "heading": "J2 League",
+          "observations": [
+            [
+              2017,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2018,
+              "T",
+              2,
+              "P"
+            ],
+            [
+              2019,
+              "T",
+              2,
+              "P"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "KOR",
+      "leagueFamilyRowRefs": [
+        261
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1997,
+              "T",
+              2,
+              "L"
+            ],
+            [
+              1998,
+              "T",
+              2,
+              "Q"
+            ],
+            [
+              1999,
+              "T",
+              2,
+              "Q"
+            ],
+            [
+              2000,
+              "T",
+              2,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "KSA",
+      "leagueFamilyRowRefs": [
+        263
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1997,
+              "T",
+              4,
+              "Q"
+            ],
+            [
+              2004,
+              "T",
+              2,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "LUX",
+      "leagueFamilyRowRefs": [
+        19,
+        266
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              2000,
+              "B",
+              8,
+              "L"
+            ],
+            [
+              2000,
+              "T",
+              4,
+              "L"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "MDA",
+      "leagueFamilyRowRefs": [
+        269
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1999,
+              "T",
+              5,
+              "L"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "NZL",
+      "leagueFamilyRowRefs": [
+        72,
+        73,
+        74,
+        279,
+        280,
+        281
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1996,
+              "T",
+              4,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "PAN",
+      "leagueFamilyRowRefs": [
+        282
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1997,
+              "T",
+              4,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "PAR",
+      "leagueFamilyRowRefs": [
+        44,
+        283
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1996,
+              "T",
+              8,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "POR",
+      "leagueFamilyRowRefs": [
+        24,
+        286,
+        287
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              2005,
+              "B",
+              5,
+              "Q"
+            ],
+            [
+              2005,
+              "T",
+              5,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "ROU",
+      "leagueFamilyRowRefs": [
+        26,
+        289
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              2008,
+              "T",
+              14,
+              "R"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "RSA",
+      "leagueFamilyRowRefs": [
+        46,
+        290
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1996,
+              "T",
+              16,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "RUS",
+      "leagueFamilyRowRefs": [
+        27,
+        291
+      ],
+      "sections": [
+        {
+          "heading": "Russia 2002 Fifth Level",
+          "observations": [
+            [
+              2002,
+              "T",
+              4,
+              "Q"
+            ]
+          ]
+        },
+        {
+          "heading": "Fifth Level",
+          "observations": [
+            [
+              2010,
+              "T",
+              2,
+              "L"
+            ],
+            [
+              2010,
+              "T",
+              2,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "SLV",
+      "leagueFamilyRowRefs": [
+        64,
+        65,
+        66,
+        67,
+        296,
+        297,
+        298,
+        299,
+        300
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1997,
+              "T",
+              6,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "SUR",
+      "leagueFamilyRowRefs": [
+        47,
+        304
+      ],
+      "sections": [
+        {
+          "heading": "Regional Competitions",
+          "observations": [
+            [
+              2007,
+              "T",
+              8,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "SWE",
+      "leagueFamilyRowRefs": [
+        31,
+        307
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              2005,
+              "T",
+              4,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "TUN",
+      "leagueFamilyRowRefs": [
+        310
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1999,
+              "T",
+              4,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "TUR",
+      "leagueFamilyRowRefs": [
+        33,
+        311,
+        312
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1999,
+              "T",
+              4,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "country": "URU",
+      "leagueFamilyRowRefs": [
+        87,
+        88,
+        315,
+        316
+      ],
+      "sections": [
+        {
+          "heading": "unsectioned",
+          "observations": [
+            [
+              1996,
+              "T",
+              4,
+              "Q"
+            ],
+            [
+              1997,
+              "T",
+              4,
+              "Q"
+            ],
+            [
+              1998,
+              "T",
+              4,
+              "Q"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "explicitCorpusRuleEvidence": [
+    {
+      "country": "COL",
+      "rowRefs": [
+        41
+      ],
+      "edition": "1996/97",
+      "rules": {
+        "firstStageWinnerCopaConmebol": true,
+        "firstStageBonus": [
+          2,
+          1,
+          0.5,
+          0.25
+        ],
+        "secondStageBonus": false,
+        "aggregateRankIncludesBothStages": true,
+        "top4AdvanceToFinalGroup": true,
+        "finalGroupStartsAtZeroExceptAggregateLeaderBonus1": true
+      },
+      "scope": "Existing block99 supplemented; edition-specific."
+    },
+    {
+      "country": "JPN",
+      "rowRefs": [
+        163
+      ],
+      "edition": "1996",
+      "rules": {
+        "leagueCupEntrantsOnlyRegularJLeagueTeams": true,
+        "priorAssociateJFLMembersPreviouslyEligible": true,
+        "cupSkipped1995": true,
+        "consecutiveHomeAwayPair": true,
+        "groupSeriesWin3Draw1Loss0": true,
+        "groupAwayGoals": false,
+        "groupExtraTime": false,
+        "emperorCupWinnerAccessAsianCupWinnersCup": true
+      },
+      "scope": "Existing aggregate series rule corroborated; no later applicability inferred."
+    },
+    {
+      "country": "CHN",
+      "rowRefs": [
+        222
+      ],
+      "edition": "1996",
+      "rules": {
+        "firstTieBreak": "head-to-head"
+      },
+      "scope": "Historical reference; not modern rule."
+    },
+    {
+      "country": "MEX",
+      "rowRefs": [
+        62
+      ],
+      "edition": "1996/97",
+      "rules": {
+        "groupWinnersDirectQF": 4,
+        "bestRunnersUpDirectQF": 2,
+        "wildcardMaximum": 2,
+        "preFinalTieBreak": [
+          "aggregate",
+          "away goals",
+          "overall standing"
+        ],
+        "preFinalExtraTime": false,
+        "finalAwayGoals": false,
+        "finalOverallStandingTieBreak": false,
+        "finalExtraTimeAndPenalties": true
+      },
+      "scope": "Existing block53 corroborated."
+    },
+    {
+      "country": "URU",
+      "rowRefs": [
+        315
+      ],
+      "edition": "2026",
+      "rules": {
+        "intermedioGroupsByAperturaRank": [
+          [
+            1,
+            4,
+            5,
+            8,
+            9,
+            12,
+            13,
+            16
+          ],
+          [
+            2,
+            3,
+            6,
+            7,
+            10,
+            11,
+            14,
+            15
+          ]
+        ],
+        "groupSingleRoundRobin": true
+      },
+      "scope": "Existing block99 corroborated."
+    }
+  ]
+}

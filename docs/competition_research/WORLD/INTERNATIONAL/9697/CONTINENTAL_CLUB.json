@@ -2358,6 +2358,90 @@
           "alternateArchiveDateConflictsResolved": 2
         }
       }
+    },
+    "block136DateAudit": {
+      "edition": "1996/97",
+      "status": "MAIN_PHASE_PARTIAL_ARCHIVE_EVIDENCE",
+      "observedRecords": 126,
+      "firstObservedDate": "1996-09-10",
+      "lastObservedDate": "1997-05-21",
+      "observedPhaseCounts": {
+        "First round": 64,
+        "Second round": 32,
+        "Third round": 16,
+        "Quarter-finals": 8,
+        "Semi-finals": 4,
+        "Final": 2
+      },
+      "observedHomeLabels": 64,
+      "seasonRangeColumns": [
+        "firstSeasonEndYear",
+        "lastSeasonEndYearInclusive",
+        "observedRecordsPerSeason"
+      ],
+      "observedSeasonRanges": [
+        [
+          1997,
+          1997,
+          126
+        ],
+        [
+          1998,
+          1999,
+          125
+        ],
+        [
+          2000,
+          2001,
+          205
+        ],
+        [
+          2002,
+          2002,
+          204
+        ],
+        [
+          2003,
+          2004,
+          205
+        ],
+        [
+          2005,
+          2005,
+          220
+        ],
+        [
+          2006,
+          2006,
+          221
+        ],
+        [
+          2007,
+          2007,
+          219
+        ],
+        [
+          2008,
+          2009,
+          221
+        ],
+        [
+          2010,
+          2019,
+          205
+        ],
+        [
+          2020,
+          2020,
+          199
+        ],
+        [
+          2021,
+          2021,
+          205
+        ]
+      ],
+      "scope": "Aggregate main competition observations; archive omits preliminary qualifiers. Federation abbreviations suffix home labels and prefix away labels (e.g. Ajax nl versus nl Ajax), so combined raw labels cannot be counted as distinct clubs. Later season count changes are research candidates, not automatically permanent rule changes. Recent 2022/23 archive duplicates or unscored entries excluded from these historical aggregates. No new raw match records, scores, links or strict certifications."
     }
   },
   {
@@ -2925,6 +3009,58 @@
         "finalVenue": "Olympiastadion München",
         "scope": "Historical pairings for date audit only. All dates and oriented pairings crosschecked in two match archives. No scores stored. Initial entrants are 8 direct and 16 qualifiers (see Q fixtures); later group draws and KO participants must be generated from actual simulated outcomes, never frozen to historical names. All venues not fully audited; A033 resolved. Native keys not certified."
       }
+    },
+    "block136DateAudit": {
+      "edition": "1996/97",
+      "status": "MAIN_PHASE_PARTIAL_ARCHIVE_EVIDENCE",
+      "observedRecords": 61,
+      "firstObservedDate": "1996-09-11",
+      "lastObservedDate": "1997-05-28",
+      "observedPhaseCounts": {
+        "Group stage": 48,
+        "Quarter-finals": 8,
+        "Semi-finals": 4,
+        "Final": 1
+      },
+      "observedHomeLabels": 16,
+      "seasonRangeColumns": [
+        "firstSeasonEndYear",
+        "lastSeasonEndYearInclusive",
+        "observedRecordsPerSeason"
+      ],
+      "observedSeasonRanges": [
+        [
+          1997,
+          1997,
+          61
+        ],
+        [
+          1998,
+          1999,
+          85
+        ],
+        [
+          2000,
+          2003,
+          157
+        ],
+        [
+          2004,
+          2019,
+          125
+        ],
+        [
+          2020,
+          2020,
+          119
+        ],
+        [
+          2021,
+          2021,
+          125
+        ]
+      ],
+      "scope": "Aggregate main competition observations; archive omits preliminary qualifiers. Federation abbreviations suffix home labels and prefix away labels (e.g. Ajax nl versus nl Ajax), so combined raw labels cannot be counted as distinct clubs. Later season count changes are research candidates, not automatically permanent rule changes. Recent 2022/23 archive duplicates or unscored entries excluded from these historical aggregates. No new raw match records, scores, links or strict certifications."
     }
   },
   {

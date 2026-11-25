@@ -69,6 +69,47 @@
       "withinLeagueSameDayClashes": 0,
       "preJulyRecords": 0,
       "scope": "Derived historical workbook audit only, no raw date list, participant labels or scores copied. Full regular-season round-robin structure observed; playoffs, independent archive provenance and native keys not certified."
+    },
+    "block136DateAudit": {
+      "edition": "1996/97",
+      "status": "COMPLETE_REGULAR_SEASON_PAIR_STRUCTURE_PARTIAL_CALENDAR_EVIDENCE",
+      "observedRecords": 462,
+      "distinctClubLabels": 22,
+      "firstObservedDate": "1996-08-31",
+      "lastObservedDate": "1997-06-23",
+      "distinctMatchDays": 126,
+      "orderedPairMultiplicity": 1,
+      "completeBalancedOrderedPairSet": true,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "preJulyRecords": 0,
+      "seasonRangeColumns": [
+        "firstSeasonEndYear",
+        "lastSeasonEndYearInclusive",
+        "observedRecordsPerSeason",
+        "distinctClubLabelsPerSeason"
+      ],
+      "observedSeasonRanges": [
+        [
+          1989,
+          1995,
+          380,
+          20
+        ],
+        [
+          1996,
+          1997,
+          462,
+          22
+        ],
+        [
+          1998,
+          2023,
+          380,
+          20
+        ]
+      ],
+      "scope": "User-supplied worldfootballR archive; derived aggregates only, not raw fixtures or scores. Observed labels may include promotion/relegation playoff clubs and do not prove official entrant count or regulation changes. No independent date reconciliation, no native keys, no future result import. Existing calendar/snapshot evidence retained."
     }
   },
   {

@@ -61,6 +61,152 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "checked": "2026-11-24",
       "limitations": "No exact fixture/club key reconciliation, match rule certification or runtime test."
+    },
+    "block135DateAudit": {
+      "status": "PARTIAL_ARCHIVE_AGGREGATE_AUDIT",
+      "observedSeasonColumns": [
+        "archiveSeasonLabel",
+        "observedRecords",
+        "distinctClubLabels",
+        "firstRecordedDate",
+        "lastRecordedDate",
+        "distinctRecordedDays"
+      ],
+      "observedSeasons": [
+        [
+          "2012/2013",
+          334,
+          18,
+          "2012-07-21",
+          "2013-05-27",
+          111
+        ],
+        [
+          "2013/2014",
+          334,
+          18,
+          "2013-07-20",
+          "2014-05-19",
+          93
+        ],
+        [
+          "2014/2015",
+          334,
+          18,
+          "2014-07-19",
+          "2015-06-01",
+          92
+        ],
+        [
+          "2015/2016",
+          334,
+          18,
+          "2015-07-25",
+          "2016-05-30",
+          97
+        ],
+        [
+          "2016/2017",
+          334,
+          18,
+          "2016-07-16",
+          "2017-05-29",
+          117
+        ],
+        [
+          "2017/2018",
+          334,
+          18,
+          "2017-07-22",
+          "2018-05-21",
+          118
+        ],
+        [
+          "2018/2019",
+          334,
+          18,
+          "2018-07-21",
+          "2019-05-27",
+          116
+        ],
+        [
+          "2019/2020",
+          275,
+          19,
+          "2019-07-20",
+          "2020-03-16",
+          98
+        ],
+        [
+          "2020/2021",
+          342,
+          18,
+          "2020-07-25",
+          "2021-05-31",
+          168
+        ],
+        [
+          "2021/2022",
+          342,
+          18,
+          "2021-07-23",
+          "2022-05-30",
+          155
+        ],
+        [
+          "2022/2023",
+          342,
+          18,
+          "2022-07-02",
+          "2023-05-29",
+          148
+        ],
+        [
+          "2023/2024",
+          340,
+          18,
+          "2023-07-01",
+          "2024-05-27",
+          138
+        ],
+        [
+          "2024/2025",
+          340,
+          18,
+          "2024-07-05",
+          "2025-05-26",
+          122
+        ],
+        [
+          "2025/2026",
+          336,
+          18,
+          "2025-07-12",
+          "2026-05-25",
+          114
+        ],
+        [
+          "2026/2027",
+          153,
+          18,
+          "2026-07-17",
+          "2026-11-23",
+          56
+        ]
+      ],
+      "totalRecords": 4808,
+      "invalidDates": 0,
+      "duplicateSeasonDateOrientedPairs": 0,
+      "withinArchiveSameClubRecordedDayClashes": 0,
+      "unscoredRows": 0,
+      "scope": "Archive labels may combine regular, split and playoff matches. Not proof of exact league membership, regulations or full calendar. No raw date lists, scores, club labels or odds copied; no 1996/97 coverage.",
+      "latestEdition": {
+        "label": "2026/2027",
+        "postCutoffObservedRecords": 153,
+        "scope": "Aggregate count only, not career results.",
+        "startsAfterJuly1": true,
+        "cutoffSnapshotApplicable": false
+      }
     }
   },
   {

@@ -275,6 +275,152 @@
         ]
       ],
       "scope": "Reviewed explicit aliases to native JSON. Primary-file CE keys; static initial entrant mapping only, not runtime or future qualification proof."
+    },
+    "block135DateAudit": {
+      "status": "PARTIAL_ARCHIVE_AGGREGATE_AUDIT",
+      "observedSeasonColumns": [
+        "archiveSeasonLabel",
+        "observedRecords",
+        "distinctClubLabels",
+        "firstRecordedDate",
+        "lastRecordedDate",
+        "distinctRecordedDays"
+      ],
+      "observedSeasons": [
+        [
+          "2012/2013",
+          240,
+          16,
+          "2012-08-17",
+          "2013-06-02",
+          114
+        ],
+        [
+          "2013/2014",
+          296,
+          16,
+          "2013-07-19",
+          "2014-06-01",
+          141
+        ],
+        [
+          "2014/2015",
+          296,
+          16,
+          "2014-07-18",
+          "2015-06-07",
+          130
+        ],
+        [
+          "2015/2016",
+          296,
+          16,
+          "2015-07-17",
+          "2016-05-15",
+          128
+        ],
+        [
+          "2016/2017",
+          296,
+          16,
+          "2016-07-15",
+          "2017-06-04",
+          133
+        ],
+        [
+          "2017/2018",
+          296,
+          16,
+          "2017-07-14",
+          "2018-05-20",
+          127
+        ],
+        [
+          "2018/2019",
+          296,
+          16,
+          "2018-07-20",
+          "2019-05-19",
+          130
+        ],
+        [
+          "2019/2020",
+          296,
+          16,
+          "2019-07-19",
+          "2020-07-19",
+          119
+        ],
+        [
+          "2020/2021",
+          240,
+          16,
+          "2020-08-21",
+          "2021-05-16",
+          112
+        ],
+        [
+          "2021/2022",
+          306,
+          18,
+          "2021-07-23",
+          "2022-05-21",
+          121
+        ],
+        [
+          "2022/2023",
+          306,
+          19,
+          "2022-07-15",
+          "2023-05-27",
+          130
+        ],
+        [
+          "2023/2024",
+          306,
+          18,
+          "2023-07-21",
+          "2024-05-25",
+          133
+        ],
+        [
+          "2024/2025",
+          306,
+          18,
+          "2024-07-19",
+          "2025-05-24",
+          128
+        ],
+        [
+          "2025/2026",
+          306,
+          18,
+          "2025-07-18",
+          "2026-05-23",
+          130
+        ],
+        [
+          "2026/2027",
+          133,
+          18,
+          "2026-07-24",
+          "2026-11-23",
+          54
+        ]
+      ],
+      "totalRecords": 4215,
+      "invalidDates": 0,
+      "duplicateSeasonDateOrientedPairs": 0,
+      "withinArchiveSameClubRecordedDayClashes": 0,
+      "unscoredRows": 0,
+      "scope": "Archive labels may combine regular, split and playoff matches. Not proof of exact league membership, regulations or full calendar. No raw date lists, scores, club labels or odds copied; no 1996/97 coverage.",
+      "latestEdition": {
+        "label": "2026/2027",
+        "postCutoffObservedRecords": 133,
+        "scope": "Aggregate count only, not career results.",
+        "startsAfterJuly1": true,
+        "cutoffSnapshotApplicable": false
+      }
     }
   }
 ]

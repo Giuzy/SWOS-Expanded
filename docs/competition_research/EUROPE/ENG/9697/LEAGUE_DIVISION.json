@@ -2370,6 +2370,41 @@
         "canonicalOrientedPairChecksumAndLengthMatch": true,
         "scope": "Anonymous sorted home/away date signatures, FNV32 checksums and canonical lengths agree. Corroboration, not proof of archive independence or cryptographic equality."
       }
+    },
+    "block136DateAudit": {
+      "edition": "1996/97",
+      "status": "COMPLETE_REGULAR_SEASON_PAIR_STRUCTURE_PARTIAL_CALENDAR_EVIDENCE",
+      "observedRecords": 380,
+      "distinctClubLabels": 20,
+      "firstObservedDate": "1996-08-17",
+      "lastObservedDate": "1997-05-11",
+      "distinctMatchDays": 108,
+      "orderedPairMultiplicity": 1,
+      "completeBalancedOrderedPairSet": true,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "preJulyRecords": 0,
+      "seasonRangeColumns": [
+        "firstSeasonEndYear",
+        "lastSeasonEndYearInclusive",
+        "observedRecordsPerSeason",
+        "distinctClubLabelsPerSeason"
+      ],
+      "observedSeasonRanges": [
+        [
+          1993,
+          1995,
+          462,
+          22
+        ],
+        [
+          1996,
+          2023,
+          380,
+          20
+        ]
+      ],
+      "scope": "User-supplied worldfootballR archive; derived aggregates only, not raw fixtures or scores. Observed labels may include promotion/relegation playoff clubs and do not prove official entrant count or regulation changes. No independent date reconciliation, no native keys, no future result import. Existing calendar/snapshot evidence retained."
     }
   },
   {

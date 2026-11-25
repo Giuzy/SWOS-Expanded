@@ -1,9 +1,9 @@
 {
-  "lastPreparedBlock": 134,
-  "baseHead": "ff89cc128ee927cf2c47a4a0011e037facddaf4b",
+  "lastPreparedBlock": 137,
+  "baseHead": "32fb2255832bda06f1cd96539eaa9dd0e3bca1ef",
   "status": "INITIAL_EXPLICIT_REGISTER_LOWER_BOUND_NOT_EXHAUSTIVE",
   "policy": "Unique concrete conflicts, identity/slot mismatches or metric inconsistency only. Do not count ordinary missing fields or unresolved applicability as anomalies. Do not resolve conflicts by guessing; merge duplicates in final review. Increment when a distinct case is identified.",
-  "openCount": 42,
+  "openCount": 47,
   "cases": [
     {
       "id": "A001",
@@ -522,6 +522,63 @@
       "description": "Brazil Serie A 2026 row217: CSV recorded dates for 43 of 170 existing scored pre-cutoff oriented pairs and five of seven formerly unscored candidates are one day later than existing date. Archive timezone not established; do not overwrite local calendar. Existing A039 score conflict reproduced, not counted twice.",
       "rows": [
         217
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A045",
+      "type": "CALENDAR_DATE_DISCREPANCY",
+      "description": "Sweden row307: Örgryte–Göteborg recorded May19 2026 14:00 in uploaded archive versus May18 in existing matrix, same pair and score. Verify actual civil date or postponement; no overwrite.",
+      "rows": [
+        307
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A046",
+      "type": "POSSIBLE_TIMEZONE_DATE_DISCREPANCY",
+      "description": "MLS row317: all59 existing pre-cutoff oriented pairs and scores corroborated; 21 recorded dates identical, 38 one day later in CSV. Initial comparison failed to match next-day records; repeated integer day-of-year comparison confirmed all59. Verify archive timezone and preserve local dates.",
+      "rows": [
+        317
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A047",
+      "type": "SYSTEMATIC_HOME_AWAY_COLUMN_INVERSION",
+      "description": "MLS row49, 1996 cutoff: all74 prior fixtures have reversed nominal host relative to archive explicit Home/Away columns; all74 dates and team-associated regulation scores agree.",
+      "rows": [
+        49
+      ],
+      "status": "RESOLVED_RESEARCH_VERIFIED",
+      "resolution": "Corrected the 74 existing records by permuting home/away names, goals and 18 shootout pairs together. Team-associated score/shootout signatures and existing derived table unchanged; official MLS inaugural match at San Jose corroborates column direction. Independent full venue certification still pending.",
+      "resolvedBlock": 136
+    },
+    {
+      "id": "A048",
+      "type": "CUTOFF_DATE_AND_ORIENTATION_CONFLICT",
+      "description": "CONCACAF WCQ row168: all32 pairs/team-associated scores matched. Jamaica–Suriname Apr21 versus Apr12, Dominican Republic–Curaçao May4 versus May5, Cuba–Haiti Jun23 versus Jun10, and May14 Cayman Islands–Cuba reversed nominal host. Existing records retained pending independent verification.",
+      "rows": [
+        168
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A049",
+      "type": "DATE_CONFLICT",
+      "description": "Malta FA Trophy 1996/97 row132: corpus maltcup97 final May22 versus existing May23 (also corroborated by Times of Malta retrospective). Prior May23 retained. Round dates not certified.",
+      "rows": [
+        132
+      ],
+      "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
+    },
+    {
+      "id": "A050",
+      "type": "HISTORICAL_REFERENCE_DATE_ORDER",
+      "description": "FRO cup 1998 corpus farcup98 lists semifinal first leg May21 and second leg May8, impossible order as labeled. Do not adopt these dates; format transition 1998 supported independently by round structure and 1999 edition.",
+      "rows": [
+        122,
+        358
       ],
       "status": "OPEN_REVIEW_AT_FINAL_AUDIT"
     }

@@ -17,7 +17,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -911,6 +911,306 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "scope": "23 additional dated results, combined with 56 existing =79 observed; possible other advanced fixtures not reconciled."
+    },
+    "block135DateAudit": {
+      "status": "PARTIAL_ARCHIVE_AGGREGATE_AUDIT",
+      "observedSeasonColumns": [
+        "archiveSeasonLabel",
+        "observedRecords",
+        "distinctClubLabels",
+        "firstRecordedDate",
+        "lastRecordedDate",
+        "distinctRecordedDays"
+      ],
+      "observedSeasons": [
+        [
+          "2012",
+          242,
+          17,
+          "2012-03-31",
+          "2012-11-17",
+          100
+        ],
+        [
+          "2013",
+          242,
+          17,
+          "2013-03-31",
+          "2013-11-10",
+          98
+        ],
+        [
+          "2014",
+          242,
+          17,
+          "2014-03-30",
+          "2014-11-09",
+          92
+        ],
+        [
+          "2015",
+          242,
+          17,
+          "2015-04-04",
+          "2015-11-08",
+          92
+        ],
+        [
+          "2016",
+          242,
+          17,
+          "2016-04-02",
+          "2016-11-20",
+          92
+        ],
+        [
+          "2017",
+          242,
+          17,
+          "2017-04-01",
+          "2017-11-19",
+          98
+        ],
+        [
+          "2018",
+          242,
+          17,
+          "2018-04-01",
+          "2018-11-25",
+          100
+        ],
+        [
+          "2019",
+          242,
+          17,
+          "2019-03-31",
+          "2019-11-10",
+          94
+        ],
+        [
+          "2020",
+          242,
+          17,
+          "2020-06-14",
+          "2020-12-13",
+          73
+        ],
+        [
+          "2021",
+          242,
+          17,
+          "2021-04-10",
+          "2021-12-14",
+          85
+        ],
+        [
+          "2022",
+          242,
+          17,
+          "2022-04-02",
+          "2022-11-13",
+          87
+        ],
+        [
+          "2023",
+          240,
+          16,
+          "2023-04-01",
+          "2023-11-12",
+          87
+        ],
+        [
+          "2024",
+          242,
+          17,
+          "2024-03-30",
+          "2024-11-24",
+          87
+        ],
+        [
+          "2025",
+          240,
+          16,
+          "2025-03-29",
+          "2025-11-09",
+          84
+        ],
+        [
+          "2026",
+          232,
+          16,
+          "2026-04-04",
+          "2026-11-23",
+          99
+        ]
+      ],
+      "totalRecords": 3616,
+      "invalidDates": 0,
+      "duplicateSeasonDateOrientedPairs": 0,
+      "withinArchiveSameClubRecordedDayClashes": 0,
+      "unscoredRows": 0,
+      "scope": "Archive labels may combine regular, split and playoff matches. Not proof of exact league membership, regulations or full calendar. No raw date lists, scores, club labels or odds copied; no 1996/97 coverage.",
+      "latestEdition": {
+        "label": "2026",
+        "postCutoffObservedRecords": 151,
+        "scope": "Aggregate count only, not career results."
+      },
+      "cutoffAudit": {
+        "cutoff": "2026-06-30",
+        "observedRecords": 81,
+        "existingRecords": 79,
+        "matchedPairs": 79,
+        "exactDates": 78,
+        "nextDay": 1,
+        "sameScores": 79,
+        "additionalArchivePairs": 2,
+        "review": "A045",
+        "scope": "Existing local dates and cutoff snapshot preserved. No independent completeness or native identity certification."
+      }
+    },
+    "participantKeyAudit": {
+      "edition": "2026",
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "division": 0,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "AIK",
+          "AIK",
+          "0fa515b8-b2f2-5693-97b0-d2886279fd49",
+          36,
+          6,
+          2359303
+        ],
+        [
+          "Brommapojkarna",
+          "BROMMAPOJKARNA",
+          "134b3a4c-7135-5c7f-9a4e-4a3dffc984fa",
+          36,
+          11,
+          2359308
+        ],
+        [
+          "Degerfors",
+          "DEGERFORS",
+          "7bd23d2c-10cb-5378-aa84-2093ce72a008",
+          36,
+          12,
+          2359309
+        ],
+        [
+          "Djurgården",
+          "DJURGARDENS",
+          "34e766b7-fadc-5a22-b7cb-6d2e409de8ac",
+          36,
+          4,
+          2359301
+        ],
+        [
+          "Elfsborg",
+          "ELFSBORG",
+          "103aa704-ecb4-588d-80ff-49ee72530eed",
+          36,
+          7,
+          2359304
+        ],
+        [
+          "GAIS",
+          "GAIS",
+          "31013521-9f5f-51d9-abc1-ac0d2daa8921",
+          36,
+          2,
+          2359299
+        ],
+        [
+          "Göteborg",
+          "IFK GOTEBORG",
+          "d682e350-b2ad-51b4-907d-52709d9b684a",
+          36,
+          3,
+          2359300
+        ],
+        [
+          "Halmstad",
+          "HALMSTADS",
+          "d7acad49-b055-589b-94a8-115d1b7074e5",
+          36,
+          10,
+          2359307
+        ],
+        [
+          "Hammarby",
+          "HAMMARBY",
+          "78baaebf-67d7-5bcc-8845-2df19e2bd642",
+          36,
+          1,
+          2359298
+        ],
+        [
+          "Häcken",
+          "HACKEN",
+          "5a2c7b4f-a8b0-55ed-afae-091e1d200916",
+          36,
+          9,
+          2359306
+        ],
+        [
+          "Kalmar",
+          "KALMAR",
+          "e3640086-f717-59bb-9c47-d847b2b55372",
+          36,
+          14,
+          2359311
+        ],
+        [
+          "Malmö",
+          "MALMO",
+          "22d0cd56-5083-535b-aa1c-a186a84ecd47",
+          36,
+          5,
+          2359302
+        ],
+        [
+          "Mjällby",
+          "MJALLBY AIF",
+          "e00ba950-a92d-512b-bb96-5c5edc8502ac",
+          36,
+          0,
+          2359297
+        ],
+        [
+          "Sirius",
+          "SIRIUS",
+          "5b495402-b6d0-5c4b-ba40-3a4b2674a989",
+          36,
+          8,
+          2359305
+        ],
+        [
+          "Västerås",
+          "VASTERAS",
+          "1da54ef4-86fa-5227-a703-9065fa356e31",
+          36,
+          13,
+          2359310
+        ],
+        [
+          "Örgryte",
+          "ORGRYTE IS",
+          "90691695-e639-5290-a387-c7809da4d8e7",
+          36,
+          15,
+          2359312
+        ]
+      ],
+      "scope": "Reviewed pre-existing sporting labels and full native primary-file division set, corroborated by uploaded archive club sets; unique UUID, ordinal and CE key. No runtime or later qualification certification."
     }
   }
 ]

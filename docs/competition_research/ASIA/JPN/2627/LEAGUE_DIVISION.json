@@ -115,6 +115,153 @@
       },
       "licenseRule": "No replacements from ranks7+ for playoff; relegations depend on actual eligible promoted teams; zero if no eligible promotion.",
       "scope": "Official J.League J1/J2 overview. No runtime import."
+    },
+    "block135DateAudit": {
+      "status": "PARTIAL_ARCHIVE_AGGREGATE_AUDIT",
+      "observedSeasonColumns": [
+        "archiveSeasonLabel",
+        "observedRecords",
+        "distinctClubLabels",
+        "firstRecordedDate",
+        "lastRecordedDate",
+        "distinctRecordedDays"
+      ],
+      "observedSeasons": [
+        [
+          "2012",
+          306,
+          18,
+          "2012-03-10",
+          "2012-12-01",
+          41
+        ],
+        [
+          "2013",
+          306,
+          18,
+          "2013-03-02",
+          "2013-12-07",
+          45
+        ],
+        [
+          "2014",
+          306,
+          18,
+          "2014-03-01",
+          "2014-12-06",
+          42
+        ],
+        [
+          "2015",
+          309,
+          18,
+          "2015-03-07",
+          "2015-12-05",
+          53
+        ],
+        [
+          "2016",
+          309,
+          18,
+          "2016-02-27",
+          "2016-12-03",
+          50
+        ],
+        [
+          "2017",
+          306,
+          18,
+          "2017-02-25",
+          "2017-12-02",
+          61
+        ],
+        [
+          "2018",
+          309,
+          21,
+          "2018-02-23",
+          "2018-12-08",
+          75
+        ],
+        [
+          "2019",
+          310,
+          22,
+          "2019-02-22",
+          "2019-12-14",
+          75
+        ],
+        [
+          "2020",
+          306,
+          18,
+          "2020-02-21",
+          "2020-12-19",
+          63
+        ],
+        [
+          "2021",
+          380,
+          20,
+          "2021-02-26",
+          "2021-12-04",
+          92
+        ],
+        [
+          "2022",
+          310,
+          22,
+          "2022-02-18",
+          "2022-11-13",
+          78
+        ],
+        [
+          "2023",
+          306,
+          18,
+          "2023-02-17",
+          "2023-12-03",
+          75
+        ],
+        [
+          "2024",
+          380,
+          20,
+          "2024-02-23",
+          "2024-12-08",
+          87
+        ],
+        [
+          "2025",
+          380,
+          20,
+          "2025-02-14",
+          "2025-12-06",
+          85
+        ],
+        [
+          "2026/2027",
+          150,
+          20,
+          "2026-08-07",
+          "2026-11-21",
+          31
+        ]
+      ],
+      "totalRecords": 4673,
+      "invalidDates": 0,
+      "duplicateSeasonDateOrientedPairs": 0,
+      "withinArchiveSameClubRecordedDayClashes": 0,
+      "unscoredRows": 0,
+      "scope": "Archive labels may combine regular, split and playoff matches. Not proof of exact league membership, regulations or full calendar. No raw date lists, scores, club labels or odds copied; no 1996/97 coverage.",
+      "latestEdition": {
+        "label": "2026/2027",
+        "postCutoffObservedRecords": 150,
+        "scope": "Aggregate count only, not career results.",
+        "startsAfterJuly1": true,
+        "cutoffSnapshotApplicable": false,
+        "coverageGap": "Archive omits the first-half 2026 transition tournament; do not infer that it did not exist."
+      }
     }
   },
   {

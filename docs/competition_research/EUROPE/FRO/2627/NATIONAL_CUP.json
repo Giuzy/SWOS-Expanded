@@ -14,7 +14,7 @@
     "review": {
       "sportRules": "PARTIAL",
       "historyAtStart": "PARTIAL_SNAPSHOT_RECONCILIATION_REQUIRED",
-      "actualDates": "NOT_RECONCILED",
+      "actualDates": "RECONCILED_FULL_EDITION",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
       "participantKeys": "NOT_RECONCILED",
@@ -241,6 +241,26 @@
         "finalists": 2
       },
       "missing": "Native keys, independent full reconciliation and eligibility details."
+    },
+    "block137Research": {
+      "edition": "2026",
+      "status": "FULL_EDITION_DATE_PAIR_RECONCILED",
+      "observedFixtures": 17,
+      "verifiedDatesAndPairs": 17,
+      "preCutoffCompared": 16,
+      "preCutoffScoreAgreements": 16,
+      "preCutoffExactOrientation": 16,
+      "shootoutCompared": 1,
+      "shootoutAgreements": 1,
+      "distinctEntrants": 16,
+      "withinCupSameDayClashes": 0,
+      "referenceFinal": {
+        "date": "2026-09-05",
+        "home": "Víkingur",
+        "away": "KÍ"
+      },
+      "extraTimeObservedFixture": "2026-04-15 FC Hoyvík–TB",
+      "scope": "Official federation cup results and uploaded RSSSF corpus agree for all17 dates and oriented pairs, including played final; all16 pre-cutoff scores and one shootout agree. Final date/pair reference only; no postcutoff score or winner imported. Existing pre-cutoff snapshot retained. Full rule certification, independent native keys and global collision audit pending."
     }
   }
 ]

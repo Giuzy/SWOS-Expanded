@@ -135,5 +135,58 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
+  },
+  {
+    "index": 803,
+    "value": {
+      "competition": "FRO national cup",
+      "firstEdition": "1998",
+      "lastEdition": "2004",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        122,
+        358
+      ],
+      "rules": {
+        "previousGroups": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "groups": [
+          4,
+          4,
+          4
+        ],
+        "topPerGroup": 2,
+        "bestThirdPlaced": 2,
+        "quarterfinalEntrants": 8,
+        "semifinalLegs": 2
+      },
+      "note": "Uploaded RSSSF 1997,1998,1999 and 2004 cup archives show four groups replaced by three; dated 1999 archive explicitly states advancement. Exact 1998 SF return date unreliable (May8 before May21 first leg).",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
+  },
+  {
+    "index": 804,
+    "value": {
+      "competition": "FRO national cup",
+      "firstEdition": "2005",
+      "operation": "CHANGE_FORMAT",
+      "rowRefs": [
+        122,
+        358
+      ],
+      "rules": {
+        "previousGroupStage": true,
+        "groupStage": false,
+        "knockout": true,
+        "semifinalLegs": 2,
+        "otherLegsObserved": 1
+      },
+      "note": "Uploaded RSSSF 2004/2005 consecutive editions show group stage removed; subsequent observed 2006–2009 and 2026 retain KO. No automatic claim about every intervening edition.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

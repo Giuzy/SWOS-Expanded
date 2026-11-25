@@ -1342,7 +1342,10 @@
     null,
     "history/transitions/EUROPE/POR.json",
     "history/transitions/EUROPE/SUI.json",
-    "history/transitions/EUROPE/SVN.json"
+    "history/transitions/EUROPE/SVN.json",
+    "history/transitions/EUROPE/FRO.json",
+    "history/transitions/EUROPE/FRO.json",
+    "history/transitions/EUROPE/MLT.json"
   ],
   "versions": [
     "history/league_versions/EUROPE/FRA.json",
@@ -2139,8 +2142,18 @@
   "metadata": "metadata.json",
   "coverage": "COVERAGE.json",
   "researchOnly": true,
-  "lastPreparedBlock": 134,
+  "lastPreparedBlock": 139,
   "cutoffScope": "CUTOFF_SCOPE.json",
   "anomalies": "ANOMALIES.json",
-  "matrixAudit": "MATRIX_AUDIT.json"
+  "matrixAudit": "MATRIX_AUDIT.json",
+  "bulkArchiveEvidence": [
+    "bulk/RSSSF_LEAGUE_EDITION_TABLES_A.json",
+    "bulk/RSSSF_LEAGUE_EDITION_TABLES_B.json",
+    "bulk/RSSSF_OBSERVED_COMPETITION_NAMES.json",
+    "bulk/RSSSF_HISTORICAL_CUP_PHASES.json",
+    "bulk/RSSSF_OBSERVED_RULE_CLAUSES.json",
+    "bulk/OPENFOOTBALL_REFERENCE_CALENDARS.json",
+    "bulk/RSSSF_DATE_OBSERVATIONS_139.json",
+    "bulk/RSSSF_RANK_MOVEMENT_CLAUSES_139.json"
+  ]
 }

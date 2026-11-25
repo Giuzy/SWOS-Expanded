@@ -63,5 +63,21 @@
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "note": "November 2026 club vote; future rules not automatically a game override."
     }
+  },
+  {
+    "index": 805,
+    "value": {
+      "competition": "MLT national cup",
+      "firstEdition": "2002/03",
+      "operation": "RENAME",
+      "previousName": "Rothmans FA Trophy",
+      "name": "FA Trophy",
+      "rowRefs": [
+        132,
+        384
+      ],
+      "note": "RSSSF uploaded corpus, Cup Finals chronology, headings of 2001/02 and 2002/03 edition archives. Rothmans name observed final years 1995–2002. Generic FA Trophy does not establish later sponsor chronology.",
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    }
   }
 ]

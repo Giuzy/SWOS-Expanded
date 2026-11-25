@@ -59,151 +59,231 @@
       "matches": [
         {
           "date": "1996-04-06",
-          "home": "DC United",
-          "away": "San Jose Clash",
-          "homeGoals": 0,
-          "awayGoals": 1
-        },
-        {
-          "date": "1996-04-13",
-          "home": "New England Revolution",
-          "away": "Tampa Bay Mutiny",
-          "homeGoals": 2,
-          "awayGoals": 3
-        },
-        {
-          "date": "1996-04-13",
-          "home": "DC United",
-          "away": "Columbus Crew",
-          "homeGoals": 0,
-          "awayGoals": 4
-        },
-        {
-          "date": "1996-04-13",
-          "home": "Colorado Rapids",
-          "away": "Kansas City Wiz",
-          "homeGoals": 0,
-          "awayGoals": 3
-        },
-        {
-          "date": "1996-04-13",
-          "home": "NY/NJ MetroStars",
-          "away": "Los Angeles Galaxy",
+          "home": "San Jose Clash",
+          "away": "DC United",
           "homeGoals": 1,
+          "awayGoals": 0
+        },
+        {
+          "date": "1996-04-13",
+          "home": "Tampa Bay Mutiny",
+          "away": "New England Revolution",
+          "homeGoals": 3,
           "awayGoals": 2
         },
         {
+          "date": "1996-04-13",
+          "home": "Columbus Crew",
+          "away": "DC United",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "1996-04-13",
+          "home": "Kansas City Wiz",
+          "away": "Colorado Rapids",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "1996-04-13",
+          "home": "Los Angeles Galaxy",
+          "away": "NY/NJ MetroStars",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
           "date": "1996-04-14",
-          "home": "San Jose Clash",
-          "away": "Dallas Burn",
+          "home": "Dallas Burn",
+          "away": "San Jose Clash",
           "homeGoals": 0,
           "awayGoals": 0,
           "decider": "SO",
           "shootout": [
-            1,
-            2
+            2,
+            1
           ]
         },
         {
           "date": "1996-04-18",
-          "home": "Kansas City Wiz",
-          "away": "Dallas Burn",
-          "homeGoals": 0,
-          "awayGoals": 3
-        },
-        {
-          "date": "1996-04-20",
-          "home": "New England Revolution",
-          "away": "NY/NJ MetroStars",
-          "homeGoals": 1,
-          "awayGoals": 0
-        },
-        {
-          "date": "1996-04-20",
-          "home": "Los Angeles Galaxy",
-          "away": "DC United",
-          "homeGoals": 2,
-          "awayGoals": 1
-        },
-        {
-          "date": "1996-04-20",
-          "home": "Tampa Bay Mutiny",
-          "away": "Columbus Crew",
-          "homeGoals": 2,
-          "awayGoals": 1
-        },
-        {
-          "date": "1996-04-21",
           "home": "Dallas Burn",
-          "away": "Colorado Rapids",
-          "homeGoals": 1,
-          "awayGoals": 3
-        },
-        {
-          "date": "1996-04-21",
-          "home": "Kansas City Wiz",
-          "away": "San Jose Clash",
-          "homeGoals": 2,
-          "awayGoals": 2,
-          "decider": "SO",
-          "shootout": [
-            8,
-            7
-          ]
-        },
-        {
-          "date": "1996-04-27",
-          "home": "Columbus Crew",
-          "away": "NY/NJ MetroStars",
-          "homeGoals": 2,
+          "away": "Kansas City Wiz",
+          "homeGoals": 3,
           "awayGoals": 0
         },
         {
-          "date": "1996-04-27",
-          "home": "DC United",
+          "date": "1996-04-20",
+          "home": "NY/NJ MetroStars",
           "away": "New England Revolution",
-          "homeGoals": 1,
-          "awayGoals": 1,
-          "decider": "SO",
-          "shootout": [
-            2,
-            3
-          ]
-        },
-        {
-          "date": "1996-04-28",
-          "home": "Dallas Burn",
-          "away": "Tampa Bay Mutiny",
-          "homeGoals": 2,
+          "homeGoals": 0,
           "awayGoals": 1
         },
         {
-          "date": "1996-04-28",
-          "home": "San Jose Clash",
+          "date": "1996-04-20",
+          "home": "DC United",
           "away": "Los Angeles Galaxy",
           "homeGoals": 1,
           "awayGoals": 2
         },
         {
-          "date": "1996-05-01",
-          "home": "Dallas Burn",
+          "date": "1996-04-20",
+          "home": "Columbus Crew",
+          "away": "Tampa Bay Mutiny",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "1996-04-21",
+          "home": "Colorado Rapids",
+          "away": "Dallas Burn",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "1996-04-21",
+          "home": "San Jose Clash",
+          "away": "Kansas City Wiz",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "decider": "SO",
+          "shootout": [
+            7,
+            8
+          ]
+        },
+        {
+          "date": "1996-04-27",
+          "home": "NY/NJ MetroStars",
+          "away": "Columbus Crew",
+          "homeGoals": 0,
+          "awayGoals": 2
+        },
+        {
+          "date": "1996-04-27",
+          "home": "New England Revolution",
           "away": "DC United",
           "homeGoals": 1,
-          "awayGoals": 3
+          "awayGoals": 1,
+          "decider": "SO",
+          "shootout": [
+            3,
+            2
+          ]
+        },
+        {
+          "date": "1996-04-28",
+          "home": "Tampa Bay Mutiny",
+          "away": "Dallas Burn",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "1996-04-28",
+          "home": "Los Angeles Galaxy",
+          "away": "San Jose Clash",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "1996-05-01",
+          "home": "DC United",
+          "away": "Dallas Burn",
+          "homeGoals": 3,
+          "awayGoals": 1
         },
         {
           "date": "1996-05-02",
-          "home": "Columbus Crew",
-          "away": "Kansas City Wiz",
-          "homeGoals": 4,
-          "awayGoals": 6
+          "home": "Kansas City Wiz",
+          "away": "Columbus Crew",
+          "homeGoals": 6,
+          "awayGoals": 4
         },
         {
           "date": "1996-05-04",
-          "home": "Tampa Bay Mutiny",
-          "away": "NY/NJ MetroStars",
+          "home": "NY/NJ MetroStars",
+          "away": "Tampa Bay Mutiny",
           "homeGoals": 3,
           "awayGoals": 3,
+          "decider": "SO",
+          "shootout": [
+            2,
+            1
+          ]
+        },
+        {
+          "date": "1996-05-04",
+          "home": "New England Revolution",
+          "away": "San Jose Clash",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "1996-05-05",
+          "home": "Dallas Burn",
+          "away": "Columbus Crew",
+          "homeGoals": 0,
+          "awayGoals": 0,
+          "decider": "SO",
+          "shootout": [
+            3,
+            1
+          ]
+        },
+        {
+          "date": "1996-05-05",
+          "home": "Colorado Rapids",
+          "away": "Kansas City Wiz",
+          "homeGoals": 4,
+          "awayGoals": 0
+        },
+        {
+          "date": "1996-05-05",
+          "home": "Los Angeles Galaxy",
+          "away": "DC United",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "1996-05-08",
+          "home": "Tampa Bay Mutiny",
+          "away": "Kansas City Wiz",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "1996-05-08",
+          "home": "San Jose Clash",
+          "away": "Colorado Rapids",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "1996-05-11",
+          "home": "Columbus Crew",
+          "away": "New England Revolution",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "1996-05-11",
+          "home": "Kansas City Wiz",
+          "away": "Dallas Burn",
+          "homeGoals": 2,
+          "awayGoals": 3
+        },
+        {
+          "date": "1996-05-11",
+          "home": "Colorado Rapids",
+          "away": "Tampa Bay Mutiny",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "1996-05-12",
+          "home": "DC United",
+          "away": "NY/NJ MetroStars",
+          "homeGoals": 1,
+          "awayGoals": 1,
           "decider": "SO",
           "shootout": [
             1,
@@ -211,459 +291,379 @@
           ]
         },
         {
-          "date": "1996-05-04",
+          "date": "1996-05-12",
           "home": "San Jose Clash",
-          "away": "New England Revolution",
-          "homeGoals": 2,
-          "awayGoals": 1
-        },
-        {
-          "date": "1996-05-05",
-          "home": "Columbus Crew",
-          "away": "Dallas Burn",
-          "homeGoals": 0,
-          "awayGoals": 0,
-          "decider": "SO",
-          "shootout": [
-            1,
-            3
-          ]
-        },
-        {
-          "date": "1996-05-05",
-          "home": "Kansas City Wiz",
-          "away": "Colorado Rapids",
-          "homeGoals": 0,
-          "awayGoals": 4
-        },
-        {
-          "date": "1996-05-05",
-          "home": "DC United",
           "away": "Los Angeles Galaxy",
           "homeGoals": 1,
-          "awayGoals": 3
-        },
-        {
-          "date": "1996-05-08",
-          "home": "Kansas City Wiz",
-          "away": "Tampa Bay Mutiny",
-          "homeGoals": 0,
           "awayGoals": 2
         },
         {
-          "date": "1996-05-08",
-          "home": "Colorado Rapids",
-          "away": "San Jose Clash",
-          "homeGoals": 1,
-          "awayGoals": 3
-        },
-        {
-          "date": "1996-05-11",
-          "home": "New England Revolution",
+          "date": "1996-05-15",
+          "home": "DC United",
           "away": "Columbus Crew",
-          "homeGoals": 2,
-          "awayGoals": 3
+          "homeGoals": 5,
+          "awayGoals": 2
         },
         {
-          "date": "1996-05-11",
-          "home": "Dallas Burn",
-          "away": "Kansas City Wiz",
+          "date": "1996-05-16",
+          "home": "NY/NJ MetroStars",
+          "away": "Colorado Rapids",
+          "homeGoals": 3,
+          "awayGoals": 0
+        },
+        {
+          "date": "1996-05-18",
+          "home": "Tampa Bay Mutiny",
+          "away": "San Jose Clash",
           "homeGoals": 3,
           "awayGoals": 2
         },
         {
-          "date": "1996-05-11",
-          "home": "Tampa Bay Mutiny",
-          "away": "Colorado Rapids",
-          "homeGoals": 2,
-          "awayGoals": 1
-        },
-        {
-          "date": "1996-05-12",
-          "home": "NY/NJ MetroStars",
+          "date": "1996-05-18",
+          "home": "Dallas Burn",
           "away": "DC United",
-          "homeGoals": 1,
-          "awayGoals": 1,
-          "decider": "SO",
-          "shootout": [
-            2,
-            1
-          ]
+          "homeGoals": 3,
+          "awayGoals": 2
         },
         {
-          "date": "1996-05-12",
-          "home": "Los Angeles Galaxy",
-          "away": "San Jose Clash",
-          "homeGoals": 2,
-          "awayGoals": 1
-        },
-        {
-          "date": "1996-05-15",
-          "home": "Columbus Crew",
-          "away": "DC United",
-          "homeGoals": 2,
-          "awayGoals": 5
-        },
-        {
-          "date": "1996-05-16",
-          "home": "Colorado Rapids",
+          "date": "1996-05-19",
+          "home": "New England Revolution",
           "away": "NY/NJ MetroStars",
-          "homeGoals": 0,
-          "awayGoals": 3
-        },
-        {
-          "date": "1996-05-18",
-          "home": "San Jose Clash",
-          "away": "Tampa Bay Mutiny",
           "homeGoals": 2,
-          "awayGoals": 3
-        },
-        {
-          "date": "1996-05-18",
-          "home": "DC United",
-          "away": "Dallas Burn",
-          "homeGoals": 2,
-          "awayGoals": 3
-        },
-        {
-          "date": "1996-05-19",
-          "home": "NY/NJ MetroStars",
-          "away": "New England Revolution",
-          "homeGoals": 0,
-          "awayGoals": 2
-        },
-        {
-          "date": "1996-05-19",
-          "home": "Colorado Rapids",
-          "away": "Columbus Crew",
-          "homeGoals": 4,
-          "awayGoals": 2
-        },
-        {
-          "date": "1996-05-19",
-          "home": "Kansas City Wiz",
-          "away": "Los Angeles Galaxy",
-          "homeGoals": 0,
-          "awayGoals": 2
-        },
-        {
-          "date": "1996-05-22",
-          "home": "NY/NJ MetroStars",
-          "away": "Kansas City Wiz",
-          "homeGoals": 1,
-          "awayGoals": 2
-        },
-        {
-          "date": "1996-05-23",
-          "home": "Tampa Bay Mutiny",
-          "away": "Dallas Burn",
-          "homeGoals": 1,
           "awayGoals": 0
         },
         {
+          "date": "1996-05-19",
+          "home": "Columbus Crew",
+          "away": "Colorado Rapids",
+          "homeGoals": 2,
+          "awayGoals": 4
+        },
+        {
+          "date": "1996-05-19",
+          "home": "Los Angeles Galaxy",
+          "away": "Kansas City Wiz",
+          "homeGoals": 2,
+          "awayGoals": 0
+        },
+        {
+          "date": "1996-05-22",
+          "home": "Kansas City Wiz",
+          "away": "NY/NJ MetroStars",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "1996-05-23",
+          "home": "Dallas Burn",
+          "away": "Tampa Bay Mutiny",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
           "date": "1996-05-25",
-          "home": "Colorado Rapids",
-          "away": "New England Revolution",
+          "home": "New England Revolution",
+          "away": "Colorado Rapids",
           "homeGoals": 2,
           "awayGoals": 2,
           "decider": "SO",
           "shootout": [
-            0,
-            1
+            1,
+            0
           ]
         },
         {
           "date": "1996-05-26",
-          "home": "Columbus Crew",
-          "away": "Los Angeles Galaxy",
+          "home": "Los Angeles Galaxy",
+          "away": "Columbus Crew",
+          "homeGoals": 3,
+          "awayGoals": 2
+        },
+        {
+          "date": "1996-05-29",
+          "home": "Colorado Rapids",
+          "away": "Dallas Burn",
           "homeGoals": 2,
-          "awayGoals": 3
+          "awayGoals": 0
         },
         {
           "date": "1996-05-29",
-          "home": "Dallas Burn",
-          "away": "Colorado Rapids",
-          "homeGoals": 0,
-          "awayGoals": 2
-        },
-        {
-          "date": "1996-05-29",
-          "home": "Kansas City Wiz",
-          "away": "San Jose Clash",
-          "homeGoals": 1,
-          "awayGoals": 2
+          "home": "San Jose Clash",
+          "away": "Kansas City Wiz",
+          "homeGoals": 2,
+          "awayGoals": 1
         },
         {
           "date": "1996-05-30",
-          "home": "DC United",
-          "away": "NY/NJ MetroStars",
-          "homeGoals": 2,
-          "awayGoals": 1
-        },
-        {
-          "date": "1996-06-01",
-          "home": "Los Angeles Galaxy",
-          "away": "Tampa Bay Mutiny",
-          "homeGoals": 2,
-          "awayGoals": 1
-        },
-        {
-          "date": "1996-06-01",
-          "home": "New England Revolution",
-          "away": "Kansas City Wiz",
+          "home": "NY/NJ MetroStars",
+          "away": "DC United",
           "homeGoals": 1,
           "awayGoals": 2
         },
         {
           "date": "1996-06-01",
-          "home": "Columbus Crew",
-          "away": "San Jose Clash",
+          "home": "Tampa Bay Mutiny",
+          "away": "Los Angeles Galaxy",
+          "homeGoals": 1,
+          "awayGoals": 2
+        },
+        {
+          "date": "1996-06-01",
+          "home": "Kansas City Wiz",
+          "away": "New England Revolution",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "1996-06-01",
+          "home": "San Jose Clash",
+          "away": "Columbus Crew",
+          "homeGoals": 2,
+          "awayGoals": 2,
+          "decider": "SO",
+          "shootout": [
+            2,
+            1
+          ]
+        },
+        {
+          "date": "1996-06-02",
+          "home": "Dallas Burn",
+          "away": "NY/NJ MetroStars",
+          "homeGoals": 0,
+          "awayGoals": 1
+        },
+        {
+          "date": "1996-06-02",
+          "home": "Colorado Rapids",
+          "away": "DC United",
           "homeGoals": 2,
           "awayGoals": 2,
           "decider": "SO",
           "shootout": [
             1,
-            2
+            3
           ]
         },
         {
-          "date": "1996-06-02",
-          "home": "NY/NJ MetroStars",
-          "away": "Dallas Burn",
-          "homeGoals": 1,
-          "awayGoals": 0
-        },
-        {
-          "date": "1996-06-02",
+          "date": "1996-06-05",
           "home": "DC United",
-          "away": "Colorado Rapids",
-          "homeGoals": 2,
-          "awayGoals": 2,
-          "decider": "SO",
-          "shootout": [
-            3,
-            1
-          ]
-        },
-        {
-          "date": "1996-06-05",
-          "home": "San Jose Clash",
-          "away": "DC United",
-          "homeGoals": 1,
-          "awayGoals": 3
-        },
-        {
-          "date": "1996-06-05",
-          "home": "Tampa Bay Mutiny",
-          "away": "Kansas City Wiz",
+          "away": "San Jose Clash",
           "homeGoals": 3,
           "awayGoals": 1
         },
         {
+          "date": "1996-06-05",
+          "home": "Kansas City Wiz",
+          "away": "Tampa Bay Mutiny",
+          "homeGoals": 1,
+          "awayGoals": 3
+        },
+        {
           "date": "1996-06-06",
-          "home": "Los Angeles Galaxy",
-          "away": "New England Revolution",
+          "home": "New England Revolution",
+          "away": "Los Angeles Galaxy",
           "homeGoals": 2,
           "awayGoals": 2,
           "decider": "SO",
           "shootout": [
-            3,
-            2
+            2,
+            3
           ]
         },
         {
           "date": "1996-06-08",
-          "home": "Colorado Rapids",
-          "away": "Tampa Bay Mutiny",
-          "homeGoals": 1,
-          "awayGoals": 2
+          "home": "Tampa Bay Mutiny",
+          "away": "Colorado Rapids",
+          "homeGoals": 2,
+          "awayGoals": 1
         },
         {
           "date": "1996-06-08",
-          "home": "Kansas City Wiz",
-          "away": "Columbus Crew",
+          "home": "Columbus Crew",
+          "away": "Kansas City Wiz",
           "homeGoals": 3,
           "awayGoals": 3,
           "decider": "SO",
           "shootout": [
-            4,
-            1
+            1,
+            4
           ]
         },
         {
           "date": "1996-06-08",
-          "home": "San Jose Clash",
-          "away": "Dallas Burn",
-          "homeGoals": 1,
-          "awayGoals": 4
+          "home": "Dallas Burn",
+          "away": "San Jose Clash",
+          "homeGoals": 4,
+          "awayGoals": 1
         },
         {
           "date": "1996-06-09",
-          "home": "Los Angeles Galaxy",
-          "away": "NY/NJ MetroStars",
-          "homeGoals": 4,
-          "awayGoals": 0
+          "home": "NY/NJ MetroStars",
+          "away": "Los Angeles Galaxy",
+          "homeGoals": 0,
+          "awayGoals": 4
         },
         {
           "date": "1996-06-15",
-          "home": "Kansas City Wiz",
-          "away": "New England Revolution",
+          "home": "New England Revolution",
+          "away": "Kansas City Wiz",
           "homeGoals": 1,
           "awayGoals": 1,
           "decider": "SO",
           "shootout": [
-            1,
+            2,
+            1
+          ]
+        },
+        {
+          "date": "1996-06-15",
+          "home": "Dallas Burn",
+          "away": "Colorado Rapids",
+          "homeGoals": 1,
+          "awayGoals": 1,
+          "decider": "SO",
+          "shootout": [
+            4,
             2
           ]
         },
         {
-          "date": "1996-06-15",
-          "home": "Colorado Rapids",
-          "away": "Dallas Burn",
-          "homeGoals": 1,
-          "awayGoals": 1,
-          "decider": "SO",
-          "shootout": [
-            2,
-            4
-          ]
+          "date": "1996-06-16",
+          "home": "NY/NJ MetroStars",
+          "away": "San Jose Clash",
+          "homeGoals": 0,
+          "awayGoals": 1
         },
         {
           "date": "1996-06-16",
-          "home": "San Jose Clash",
-          "away": "NY/NJ MetroStars",
-          "homeGoals": 1,
-          "awayGoals": 0
-        },
-        {
-          "date": "1996-06-16",
-          "home": "Tampa Bay Mutiny",
-          "away": "Los Angeles Galaxy",
+          "home": "Los Angeles Galaxy",
+          "away": "Tampa Bay Mutiny",
           "homeGoals": 2,
           "awayGoals": 2,
           "decider": "SO",
           "shootout": [
-            2,
-            4
+            4,
+            2
           ]
         },
         {
           "date": "1996-06-19",
-          "home": "Dallas Burn",
-          "away": "NY/NJ MetroStars",
+          "home": "NY/NJ MetroStars",
+          "away": "Dallas Burn",
           "homeGoals": 0,
           "awayGoals": 0,
           "decider": "SO",
           "shootout": [
-            0,
-            2
+            2,
+            0
           ]
         },
         {
           "date": "1996-06-19",
-          "home": "Colorado Rapids",
-          "away": "Columbus Crew",
+          "home": "Columbus Crew",
+          "away": "Colorado Rapids",
           "homeGoals": 2,
           "awayGoals": 2,
           "decider": "SO",
           "shootout": [
-            4,
-            1
+            1,
+            4
           ]
         },
         {
           "date": "1996-06-20",
-          "home": "DC United",
-          "away": "Kansas City Wiz",
-          "homeGoals": 1,
-          "awayGoals": 5
+          "home": "Kansas City Wiz",
+          "away": "DC United",
+          "homeGoals": 5,
+          "awayGoals": 1
         },
         {
           "date": "1996-06-22",
-          "home": "Columbus Crew",
-          "away": "Tampa Bay Mutiny",
+          "home": "Tampa Bay Mutiny",
+          "away": "Columbus Crew",
           "homeGoals": 3,
           "awayGoals": 3,
           "decider": "SO",
           "shootout": [
-            3,
-            2
+            2,
+            3
           ]
         },
         {
           "date": "1996-06-23",
-          "home": "Dallas Burn",
-          "away": "New England Revolution",
-          "homeGoals": 4,
-          "awayGoals": 1
+          "home": "New England Revolution",
+          "away": "Dallas Burn",
+          "homeGoals": 1,
+          "awayGoals": 4
         },
         {
           "date": "1996-06-23",
-          "home": "DC United",
-          "away": "San Jose Clash",
-          "homeGoals": 1,
-          "awayGoals": 2
+          "home": "San Jose Clash",
+          "away": "DC United",
+          "homeGoals": 2,
+          "awayGoals": 1
         },
         {
           "date": "1996-06-26",
-          "home": "Kansas City Wiz",
-          "away": "NY/NJ MetroStars",
-          "homeGoals": 0,
-          "awayGoals": 2
+          "home": "NY/NJ MetroStars",
+          "away": "Kansas City Wiz",
+          "homeGoals": 2,
+          "awayGoals": 0
         },
         {
           "date": "1996-06-26",
-          "home": "Colorado Rapids",
-          "away": "Los Angeles Galaxy",
-          "homeGoals": 1,
-          "awayGoals": 3
+          "home": "Los Angeles Galaxy",
+          "away": "Colorado Rapids",
+          "homeGoals": 3,
+          "awayGoals": 1
         },
         {
           "date": "1996-06-27",
-          "home": "Columbus Crew",
-          "away": "New England Revolution",
+          "home": "New England Revolution",
+          "away": "Columbus Crew",
           "homeGoals": 1,
           "awayGoals": 1,
           "decider": "SO",
           "shootout": [
-            2,
-            1
+            1,
+            2
           ]
         },
         {
           "date": "1996-06-29",
-          "home": "Kansas City Wiz",
-          "away": "Dallas Burn",
-          "homeGoals": 1,
-          "awayGoals": 0
+          "home": "Dallas Burn",
+          "away": "Kansas City Wiz",
+          "homeGoals": 0,
+          "awayGoals": 1
         },
         {
           "date": "1996-06-30",
-          "home": "NY/NJ MetroStars",
-          "away": "Columbus Crew",
-          "homeGoals": 4,
-          "awayGoals": 0
-        },
-        {
-          "date": "1996-06-30",
-          "home": "New England Revolution",
-          "away": "DC United",
-          "homeGoals": 1,
-          "awayGoals": 3
-        },
-        {
-          "date": "1996-06-30",
-          "home": "Los Angeles Galaxy",
-          "away": "Colorado Rapids",
-          "homeGoals": 1,
-          "awayGoals": 2
-        },
-        {
-          "date": "1996-06-30",
-          "home": "Tampa Bay Mutiny",
-          "away": "San Jose Clash",
+          "home": "Columbus Crew",
+          "away": "NY/NJ MetroStars",
           "homeGoals": 0,
           "awayGoals": 4
+        },
+        {
+          "date": "1996-06-30",
+          "home": "DC United",
+          "away": "New England Revolution",
+          "homeGoals": 3,
+          "awayGoals": 1
+        },
+        {
+          "date": "1996-06-30",
+          "home": "Colorado Rapids",
+          "away": "Los Angeles Galaxy",
+          "homeGoals": 2,
+          "awayGoals": 1
+        },
+        {
+          "date": "1996-06-30",
+          "home": "San Jose Clash",
+          "away": "Tampa Bay Mutiny",
+          "homeGoals": 4,
+          "awayGoals": 0
         }
       ],
       "sourceLines": "23–275; next fixture July4",
@@ -819,7 +819,8 @@
         "playedCountsBalanced": true,
         "pointsFormulaChecked": true,
         "swedishPublishedTableMatched": null,
-        "correction": "Initial prepared derived table had wrong awayGoals tuple field; replaced before commit. Raw fixture scores unaffected."
+        "correction": "Initial prepared derived table had wrong awayGoals tuple field; replaced before commit. Raw fixture scores unaffected.",
+        "orientationCorrection": "Block136: prior parser treated RSSSF visitor-first lines as home-first. All 74 date/unordered-team/score matches corroborated in user archive with explicit home/away fields; MLS official inaugural match at San Jose Spartan Stadium confirms the direction. Reversed both team fields, goal fields and 18 shootout pairs together; 74 team-associated score signatures and stored table unchanged. Independent full venue certification still pending."
       },
       "rulesSource": "https://www.mlssoccer.com/news/where-does-crews-streak-rank",
       "playoffFormatSource": "https://www.mlssoccer.com/news/audi-mls-cup-playoffs-how-format-has-evolved-1996"
@@ -834,6 +835,174 @@
         "matches": 74
       },
       "missing": "Independent source, participant keys, exact completeness and standings reconciliation."
+    },
+    "block136DateAudit": {
+      "edition": "1996",
+      "status": "PARTIAL_ARCHIVE_CORROBORATION",
+      "observedRecords": 177,
+      "distinctClubLabels": 10,
+      "firstObservedDate": "1996-04-06",
+      "lastObservedDate": "1996-10-20",
+      "preJulyRecords": 74,
+      "scoredRecords": 177,
+      "duplicateDatePairs": 0,
+      "withinLeagueSameDayClashes": 0,
+      "seasonColumns": [
+        "seasonEndYear",
+        "observedRecords",
+        "distinctClubLabels"
+      ],
+      "observedSeasons": [
+        [
+          1996,
+          177,
+          10
+        ],
+        [
+          1997,
+          173,
+          10
+        ],
+        [
+          1998,
+          206,
+          12
+        ],
+        [
+          1999,
+          208,
+          12
+        ],
+        [
+          2000,
+          209,
+          12
+        ],
+        [
+          2001,
+          176,
+          12
+        ],
+        [
+          2002,
+          157,
+          10
+        ],
+        [
+          2003,
+          161,
+          10
+        ],
+        [
+          2004,
+          161,
+          10
+        ],
+        [
+          2005,
+          203,
+          12
+        ],
+        [
+          2006,
+          203,
+          12
+        ],
+        [
+          2007,
+          206,
+          13
+        ],
+        [
+          2008,
+          221,
+          14
+        ],
+        [
+          2009,
+          236,
+          15
+        ],
+        [
+          2010,
+          251,
+          16
+        ],
+        [
+          2011,
+          319,
+          18
+        ],
+        [
+          2012,
+          338,
+          19
+        ],
+        [
+          2013,
+          338,
+          19
+        ],
+        [
+          2014,
+          338,
+          19
+        ],
+        [
+          2015,
+          357,
+          20
+        ],
+        [
+          2016,
+          357,
+          20
+        ],
+        [
+          2017,
+          391,
+          22
+        ],
+        [
+          2018,
+          408,
+          23
+        ],
+        [
+          2019,
+          421,
+          24
+        ],
+        [
+          2020,
+          325,
+          26
+        ],
+        [
+          2021,
+          472,
+          27
+        ],
+        [
+          2022,
+          486,
+          28
+        ]
+      ],
+      "scope": "Observed regular and playoff aggregates, not certified entrant sets or full rules. Corrected systematically reversed home/away in existing pre-cutoff record set (A047), no new results or duplicate match rows. Full independent venue and shootout verification pending; 2020 exceptional season is not permanent rule change.",
+      "cutoffComparison": {
+        "existingRecords": 74,
+        "archiveRecords": 74,
+        "exactDateAndPair": 74,
+        "teamScoreAgreements": 74,
+        "priorReversedOrientation": 74,
+        "correctedOrientationRecords": 74,
+        "shootoutPairsPermuted": 18,
+        "teamScoreAndShootoutInvariant": true,
+        "storedTableUnchanged": true,
+        "newResults": 0,
+        "fullIndependentVenueCertification": false
+      }
     }
   }
 ]

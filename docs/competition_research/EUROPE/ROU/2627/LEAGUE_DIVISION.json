@@ -13,7 +13,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -113,6 +113,296 @@
       ],
       "limitations": "Existing format from 2020/21; current relegation and European playoffs not assumed from expired three-edition rule. Nominal start updated, exact individual fixture dates pending.",
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+    },
+    "block135DateAudit": {
+      "status": "PARTIAL_ARCHIVE_AGGREGATE_AUDIT",
+      "observedSeasonColumns": [
+        "archiveSeasonLabel",
+        "observedRecords",
+        "distinctClubLabels",
+        "firstRecordedDate",
+        "lastRecordedDate",
+        "distinctRecordedDays"
+      ],
+      "observedSeasons": [
+        [
+          "2012/2013",
+          307,
+          18,
+          "2012-07-20",
+          "2013-07-13",
+          135
+        ],
+        [
+          "2013/2014",
+          306,
+          18,
+          "2013-07-19",
+          "2014-05-21",
+          136
+        ],
+        [
+          "2014/2015",
+          306,
+          18,
+          "2014-07-25",
+          "2015-05-30",
+          132
+        ],
+        [
+          "2015/2016",
+          272,
+          16,
+          "2015-07-10",
+          "2016-06-12",
+          153
+        ],
+        [
+          "2016/2017",
+          270,
+          15,
+          "2016-07-22",
+          "2017-06-15",
+          156
+        ],
+        [
+          "2017/2018",
+          270,
+          15,
+          "2017-07-14",
+          "2018-06-13",
+          158
+        ],
+        [
+          "2018/2019",
+          270,
+          15,
+          "2018-07-20",
+          "2019-06-12",
+          153
+        ],
+        [
+          "2019/2020",
+          262,
+          15,
+          "2019-07-12",
+          "2020-08-12",
+          152
+        ],
+        [
+          "2020/2021",
+          321,
+          19,
+          "2020-08-21",
+          "2021-06-03",
+          160
+        ],
+        [
+          "2021/2022",
+          320,
+          18,
+          "2021-07-15",
+          "2022-05-29",
+          160
+        ],
+        [
+          "2022/2023",
+          321,
+          18,
+          "2022-07-15",
+          "2023-06-04",
+          166
+        ],
+        [
+          "2023/2024",
+          321,
+          18,
+          "2023-07-14",
+          "2024-05-27",
+          166
+        ],
+        [
+          "2024/2025",
+          315,
+          16,
+          "2024-07-12",
+          "2025-05-24",
+          157
+        ],
+        [
+          "2025/2026",
+          321,
+          19,
+          "2025-07-11",
+          "2026-06-01",
+          163
+        ],
+        [
+          "2026/2027",
+          128,
+          16,
+          "2026-07-17",
+          "2026-11-23",
+          65
+        ]
+      ],
+      "totalRecords": 4310,
+      "invalidDates": 0,
+      "duplicateSeasonDateOrientedPairs": 0,
+      "withinArchiveSameClubRecordedDayClashes": 0,
+      "unscoredRows": 0,
+      "scope": "Archive labels may combine regular, split and playoff matches. Not proof of exact league membership, regulations or full calendar. No raw date lists, scores, club labels or odds copied; no 1996/97 coverage.",
+      "latestEdition": {
+        "label": "2026/2027",
+        "postCutoffObservedRecords": 128,
+        "scope": "Aggregate count only, not career results.",
+        "startsAfterJuly1": true,
+        "cutoffSnapshotApplicable": false
+      }
+    },
+    "participantKeyAudit": {
+      "edition": "2026/27",
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "division": 0,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "CFR Cluj",
+          "CFR CLUJ",
+          "c60ab34f-6b3a-507b-a374-9e8be1562079",
+          30,
+          3,
+          1966084
+        ],
+        [
+          "Corvinul Hunedoara",
+          "CORVINUL",
+          "865be443-99e3-53e9-8de0-26fcd35573e9",
+          30,
+          13,
+          1966094
+        ],
+        [
+          "Csikszereda",
+          "CSIKSZEREDA",
+          "21a04c4a-5941-5213-ab52-2fdfe7f79136",
+          30,
+          12,
+          1966093
+        ],
+        [
+          "Dinamo București",
+          "DINAMO",
+          "1d6277ce-e7fd-56c0-a942-9b964c40033b",
+          30,
+          4,
+          1966085
+        ],
+        [
+          "FC Argeș",
+          "ACSC ARGES",
+          "c6b3ece5-8c6c-51e4-b675-fe63aa545a95",
+          30,
+          5,
+          1966086
+        ],
+        [
+          "FC Botoșani",
+          "BOTOSANI",
+          "8d729373-b06c-5495-98fb-c8be24f58144",
+          30,
+          8,
+          1966089
+        ],
+        [
+          "FC Voluntari",
+          "VOLUNTARI",
+          "87a0d95d-0e09-5a27-bfd6-216271dede6a",
+          30,
+          15,
+          1966096
+        ],
+        [
+          "FCSB",
+          "FCSB",
+          "49544653-9e4a-5e7d-acda-46e2763b3fa9",
+          30,
+          6,
+          1966087
+        ],
+        [
+          "Farul Constanța",
+          "FARUL CONSTANTA",
+          "fb5de800-7c63-5777-b898-38c28ceeb939",
+          30,
+          10,
+          1966091
+        ],
+        [
+          "Oțelul Galați",
+          "OTELUL GALATI",
+          "e56753cd-fbf8-5f3a-8fd0-eba8a0fdd81e",
+          30,
+          9,
+          1966090
+        ],
+        [
+          "Petrolul Ploiești",
+          "PETROLUL",
+          "02e45745-b488-5ef2-a8e1-0dddd8bf7af9",
+          30,
+          11,
+          1966092
+        ],
+        [
+          "Rapid București",
+          "RAPID",
+          "13a46f8e-c0d6-5a79-a86f-d3e6d76cf89b",
+          30,
+          1,
+          1966082
+        ],
+        [
+          "Sepsi OSK",
+          "SEPSI OSK",
+          "b5df862c-0783-5a85-aa0d-153e4d4ffcd6",
+          30,
+          14,
+          1966095
+        ],
+        [
+          "UTA Arad",
+          "UTA ARAD",
+          "5d4d5f06-2f24-56c1-a550-2cc42b0abdd8",
+          30,
+          7,
+          1966088
+        ],
+        [
+          "Universitatea Cluj",
+          "U CLUJ",
+          "d87db517-d3da-5276-8717-78ad07f8e065",
+          30,
+          2,
+          1966083
+        ],
+        [
+          "Universitatea Craiova",
+          "UNIV. CRAIOVA",
+          "69a6afc8-2350-56bf-a276-920e4a9e5dbb",
+          30,
+          0,
+          1966081
+        ]
+      ],
+      "scope": "Reviewed pre-existing sporting labels and full native primary-file division set, corroborated by uploaded archive club sets; unique UUID, ordinal and CE key. No runtime or later qualification certification."
     }
   }
 ]

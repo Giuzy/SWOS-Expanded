@@ -23,12 +23,24 @@
     "knownNativeMissing": null,
     "competitionNaming": {
       "startEdition": "1996/97",
-      "officialName": null,
-      "nonCommercialDisplayName": "Malta Cup (FA Trophy)",
+      "officialName": "Rothmans FA Trophy",
+      "nonCommercialDisplayName": "FA Trophy",
       "candidateName": "FA Trophy",
       "status": "SOURCE_SUPPORTED_NAME_PARTIAL",
       "source": "https://www.rsssf.org/tablesd/domcupeur97.html",
-      "nameHistory": [],
+      "nameHistory": [
+        {
+          "firstEdition": "1994/95",
+          "lastEdition": "2001/02",
+          "name": "Rothmans FA Trophy"
+        },
+        {
+          "firstEdition": "2002/03",
+          "lastEdition": null,
+          "name": "FA Trophy",
+          "scope": "generic designation; later sponsors not complete"
+        }
+      ],
       "historyComplete": false
     },
     "sportRuleEvidence81": {
@@ -42,6 +54,28 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Only excerpts; early dates, entry, legs, official historic name unresolved."
+    },
+    "block137Research": {
+      "edition": "1996/97",
+      "rules": {
+        "observedEntrants": 20,
+        "round1Matches": 8,
+        "round2Matches": 4,
+        "quarterfinalMatches": 4,
+        "semifinalMatches": 2,
+        "finalMatches": 1,
+        "quarterfinalNewEntrants": 4,
+        "observedSingleLegs": true,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "observedMatches": 19,
+      "finalDateConflict": [
+        "1997-05-22",
+        "1997-05-23"
+      ],
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "RSSSF cup archive and name history; 19 matches and four entrants joining QF, complete observed bracket structure, early round dates missing. Retain prior May23 date corroborated by retrospective Times of Malta; May22 conflicting corpus. No future score imported."
     }
   }
 ]

@@ -3617,6 +3617,19 @@
           "INTERCONFEDERATION_OR_UNMAPPED": 2
         }
       }
+    },
+    "block136DateAudit": {
+      "edition": "1998 qualifying",
+      "region": "UEFA",
+      "observedRecords": 228,
+      "firstObservedDate": "1996-04-24",
+      "lastObservedDate": "1997-11-11",
+      "preCutoffObservedRecords": 8,
+      "preCutoffMatched": 8,
+      "preCutoffExactDates": 8,
+      "preCutoffExactOrientation": 8,
+      "preCutoffScoreAgreements": 8,
+      "scope": "Compared all eight existing pre-cutoff observations, using explicit FYR Macedonia / North Macedonia alias; no new results, no group-slot assignment (nine real groups versus eight OG), no fixture certification."
     }
   },
   {
@@ -3920,6 +3933,25 @@
       "qualifyingCalendarParentRow": 167,
       "region": "CONCACAF",
       "preCutoffCount": 32
+    },
+    "block136DateAudit": {
+      "edition": "1998 qualifying",
+      "region": "CONCACAF",
+      "observedRecords": 98,
+      "firstObservedDate": "1996-03-10",
+      "lastObservedDate": "1997-11-16",
+      "preCutoffObservedRecords": 32,
+      "preCutoffMatched": 32,
+      "preCutoffExactDates": 29,
+      "preCutoffExactOrientation": 31,
+      "preCutoffScoreAgreements": 32,
+      "observedPreCutoffPhaseCounts": {
+        "Preliminary round": 6,
+        "First round": 14,
+        "Second round": 12
+      },
+      "anomaly": "A048",
+      "scope": "Three date discrepancies and one reversed nominal host; scores associated with teams agree. Existing dates and orientation retained pending independent verification. No duplicate or new results, administrative walkovers and native IDs not certified."
     }
   },
   {

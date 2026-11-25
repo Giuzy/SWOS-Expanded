@@ -51,6 +51,49 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Historical group score package already exists; dates/advancement not reconciled, archive decoding failure."
+    },
+    "block137Research": {
+      "edition": "1996",
+      "rules": {
+        "eligibleTiers": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "groupSizes": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "groupMeetingsPerPair": 2,
+        "quarterfinalEntrants": 8,
+        "topPerGroup": 2,
+        "quarterfinalLegs": 1,
+        "semifinalLegs": 2,
+        "finalLegsObserved": 1,
+        "finalReplayObserved": true,
+        "extraTimeObserved": true,
+        "penaltiesObserved": true
+      },
+      "dates": {
+        "preliminary": "1996-03-17",
+        "round1": [
+          "1996-03-23",
+          "1996-03-24"
+        ],
+        "quarterfinals": "1996-05-16",
+        "semifinalFirstLeg": "1996-06-05",
+        "semifinalSecondLeg": [
+          "1996-06-28",
+          "1996-06-29"
+        ],
+        "final": "1996-08-04",
+        "finalReplay": "1996-08-08"
+      },
+      "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
+      "scope": "RSSSF uploaded corpus, historical 1996 edition. Group dates remain absent; 47 games implied by recorded group played counts versus nominal48, HB/EB/Streymur both5. Final and replay dates reference only; no actual future results or fixed final replay in career. Final replay observed, not independently certified general draw rule."
     }
   }
 ]

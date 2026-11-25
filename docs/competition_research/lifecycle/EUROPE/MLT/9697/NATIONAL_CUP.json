@@ -3,15 +3,15 @@
     "index": 131,
     "value": {
       "row": 132,
-      "active_from": null,
+      "active_from": "1934/35",
       "active_until": null,
-      "endStatus": "UNKNOWN",
+      "endStatus": "ACTIVE",
       "inactivePeriods": [],
       "format_valid_from": null,
       "format_valid_until": null,
       "predecessor_id": null,
       "successor_id": null,
-      "verification_status": "NOT_RECONCILED"
+      "verification_status": "PARTIAL_RESEARCH_NOT_RUNTIME"
     }
   }
 ]

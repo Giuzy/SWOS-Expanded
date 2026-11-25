@@ -1,0 +1,740 @@
+{
+  "block": 138,
+  "status": "UNRECONCILED_RULE_CLAUSE_COLLECTION",
+  "scope": "Explicit textual keyword patterns detected in first top-level section of annual corpus (legacy files may contain multiple competitions); each country/end-year/kind is an observation, not proof that rule applies across all phases or editions. Some away-goals mentions are playoffs or cups, and a head-to-head mention is not necessarily first tie-break. No absence inferred, no claim of independently verified regulations. Five examples with explicit rule semantics extracted directly from prose; reference editions are not current 2627 templates.",
+  "ruleDetails": {
+    "HALF_UP": "Archive mentions halving and rounding upward",
+    "HALF_POINTS": "Archive mentions halving points",
+    "ROUNDING_TIE": "Archive mentions half-point or rounding in a points tie-break",
+    "H2H": "Archive mentions head-to-head in a tie-break or ranking statement",
+    "AWAY_GOALS": "Archive mentions away-goals rule"
+  },
+  "countryCount": 31,
+  "countryRulePairs": 43,
+  "yearRuleObservations": 157,
+  "countries": [
+    {
+      "country": "ARM",
+      "leagueFamilyRowRefs": [
+        206
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2025
+          ]
+        }
+      ]
+    },
+    {
+      "country": "AUT",
+      "leagueFamilyRowRefs": [
+        2,
+        211
+      ],
+      "observations": [
+        {
+          "kind": "AWAY_GOALS",
+          "observedEndYears": [
+            2019
+          ]
+        }
+      ]
+    },
+    {
+      "country": "BEL",
+      "leagueFamilyRowRefs": [
+        4,
+        213
+      ],
+      "observations": [
+        {
+          "kind": "HALF_UP",
+          "observedEndYears": [
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ]
+        },
+        {
+          "kind": "HALF_POINTS",
+          "observedEndYears": [
+            2010,
+            2011,
+            2012,
+            2013,
+            2014,
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ]
+        },
+        {
+          "kind": "ROUNDING_TIE",
+          "observedEndYears": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ]
+        }
+      ]
+    },
+    {
+      "country": "BIH",
+      "leagueFamilyRowRefs": [
+        214
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2003
+          ]
+        }
+      ]
+    },
+    {
+      "country": "BLR",
+      "leagueFamilyRowRefs": [
+        3,
+        215
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            1997
+          ]
+        }
+      ]
+    },
+    {
+      "country": "BUL",
+      "leagueFamilyRowRefs": [
+        5,
+        219
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            1999,
+            2023,
+            2025
+          ]
+        },
+        {
+          "kind": "HALF_UP",
+          "observedEndYears": [
+            2002
+          ]
+        },
+        {
+          "kind": "HALF_POINTS",
+          "observedEndYears": [
+            2002
+          ]
+        }
+      ]
+    },
+    {
+      "country": "CHN",
+      "leagueFamilyRowRefs": [
+        222
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            1997,
+            1998,
+            1999,
+            2000,
+            2001
+          ]
+        }
+      ]
+    },
+    {
+      "country": "CRO",
+      "leagueFamilyRowRefs": [
+        6,
+        225
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2008
+          ]
+        }
+      ]
+    },
+    {
+      "country": "CYP",
+      "leagueFamilyRowRefs": [
+        7,
+        226
+      ],
+      "observations": [
+        {
+          "kind": "AWAY_GOALS",
+          "observedEndYears": [
+            1997,
+            1998,
+            1999,
+            2000,
+            2001,
+            2002,
+            2004,
+            2005,
+            2006,
+            2008,
+            2009,
+            2012,
+            2013,
+            2014,
+            2015,
+            2017,
+            2018,
+            2020,
+            2022
+          ]
+        },
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2007
+          ]
+        }
+      ]
+    },
+    {
+      "country": "DEN",
+      "leagueFamilyRowRefs": [
+        9,
+        228
+      ],
+      "observations": [
+        {
+          "kind": "AWAY_GOALS",
+          "observedEndYears": [
+            1998,
+            1999
+          ]
+        }
+      ]
+    },
+    {
+      "country": "ENG",
+      "leagueFamilyRowRefs": [
+        75,
+        76,
+        77,
+        78,
+        231,
+        232,
+        233,
+        234
+      ],
+      "observations": [
+        {
+          "kind": "AWAY_GOALS",
+          "observedEndYears": [
+            2004,
+            2005
+          ]
+        }
+      ]
+    },
+    {
+      "country": "ESP",
+      "leagueFamilyRowRefs": [
+        85,
+        86,
+        235,
+        236
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            1998
+          ]
+        }
+      ]
+    },
+    {
+      "country": "EST",
+      "leagueFamilyRowRefs": [
+        10,
+        237
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2001,
+            2002
+          ]
+        },
+        {
+          "kind": "AWAY_GOALS",
+          "observedEndYears": [
+            2001
+          ]
+        }
+      ]
+    },
+    {
+      "country": "FIN",
+      "leagueFamilyRowRefs": [
+        12,
+        238
+      ],
+      "observations": [
+        {
+          "kind": "AWAY_GOALS",
+          "observedEndYears": [
+            2018
+          ]
+        }
+      ]
+    },
+    {
+      "country": "FRA",
+      "leagueFamilyRowRefs": [
+        52,
+        53,
+        239,
+        240
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            1999,
+            2002,
+            2024
+          ]
+        }
+      ]
+    },
+    {
+      "country": "GRE",
+      "leagueFamilyRowRefs": [
+        13,
+        248
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2020
+          ]
+        },
+        {
+          "kind": "HALF_UP",
+          "observedEndYears": [
+            2025,
+            2026
+          ]
+        },
+        {
+          "kind": "HALF_POINTS",
+          "observedEndYears": [
+            2025,
+            2026
+          ]
+        }
+      ]
+    },
+    {
+      "country": "HUN",
+      "leagueFamilyRowRefs": [
+        14,
+        251
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2002,
+            2005
+          ]
+        }
+      ]
+    },
+    {
+      "country": "KAZ",
+      "leagueFamilyRowRefs": [
+        260
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2002
+          ]
+        }
+      ]
+    },
+    {
+      "country": "LVA",
+      "leagueFamilyRowRefs": [
+        17,
+        267
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2004,
+            2005
+          ]
+        }
+      ]
+    },
+    {
+      "country": "LTU",
+      "leagueFamilyRowRefs": [
+        18,
+        265
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            1999,
+            2007
+          ]
+        }
+      ]
+    },
+    {
+      "country": "MLT",
+      "leagueFamilyRowRefs": [
+        20,
+        273
+      ],
+      "observations": [
+        {
+          "kind": "HALF_UP",
+          "observedEndYears": [
+            2003,
+            2004,
+            2005,
+            2006
+          ]
+        },
+        {
+          "kind": "HALF_POINTS",
+          "observedEndYears": [
+            2007,
+            2008,
+            2009
+          ]
+        }
+      ]
+    },
+    {
+      "country": "MAR",
+      "leagueFamilyRowRefs": [
+        268
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2018
+          ]
+        }
+      ]
+    },
+    {
+      "country": "POL",
+      "leagueFamilyRowRefs": [
+        23,
+        285
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2015,
+            2016,
+            2017,
+            2018,
+            2019,
+            2020
+          ]
+        }
+      ]
+    },
+    {
+      "country": "ROU",
+      "leagueFamilyRowRefs": [
+        26,
+        289
+      ],
+      "observations": [
+        {
+          "kind": "HALF_UP",
+          "observedEndYears": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ]
+        },
+        {
+          "kind": "HALF_POINTS",
+          "observedEndYears": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
+          ]
+        },
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2016,
+            2017,
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2024,
+            2025,
+            2026
+          ]
+        }
+      ]
+    },
+    {
+      "country": "RUS",
+      "leagueFamilyRowRefs": [
+        27,
+        291
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2018
+          ]
+        }
+      ]
+    },
+    {
+      "country": "SRB",
+      "leagueFamilyRowRefs": [
+        36,
+        302
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2016,
+            2017,
+            2018,
+            2019
+          ]
+        }
+      ]
+    },
+    {
+      "country": "SUI",
+      "leagueFamilyRowRefs": [
+        32,
+        303
+      ],
+      "observations": [
+        {
+          "kind": "HALF_UP",
+          "observedEndYears": [
+            1998
+          ]
+        }
+      ]
+    },
+    {
+      "country": "TPE",
+      "leagueFamilyRowRefs": [
+        48,
+        308,
+        309
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2017
+          ]
+        }
+      ]
+    },
+    {
+      "country": "TUR",
+      "leagueFamilyRowRefs": [
+        33,
+        311,
+        312
+      ],
+      "observations": [
+        {
+          "kind": "HALF_UP",
+          "observedEndYears": [
+            2012
+          ]
+        },
+        {
+          "kind": "HALF_POINTS",
+          "observedEndYears": [
+            2012
+          ]
+        }
+      ]
+    },
+    {
+      "country": "UKR",
+      "leagueFamilyRowRefs": [
+        34,
+        314
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            1998
+          ]
+        }
+      ]
+    },
+    {
+      "country": "USA",
+      "leagueFamilyRowRefs": [
+        49,
+        317
+      ],
+      "observations": [
+        {
+          "kind": "H2H",
+          "observedEndYears": [
+            2008
+          ]
+        }
+      ]
+    }
+  ],
+  "explicitRulePackages": [
+    {
+      "country": "ARM",
+      "edition": "2024/25",
+      "scope": "Premier League",
+      "rules": {
+        "roundRobinLegs": 3,
+        "tiebreakOrder": [
+          "head_to_head",
+          "wins",
+          "goals_scored",
+          "goal_difference",
+          "fair_play"
+        ]
+      }
+    },
+    {
+      "country": "BLR",
+      "edition": "1997",
+      "scope": "top league",
+      "rules": {
+        "firstTwoTiebreaks": [
+          "wins",
+          "head_to_head"
+        ],
+        "observedAdministrativeNoRelegation": true,
+        "reportedReason": "post-season merger and apparent withdrawal"
+      }
+    },
+    {
+      "country": "BEL",
+      "edition": "2025/26",
+      "scope": "Playoff 1 and 2",
+      "rules": {
+        "regularPointsCarryFraction": 0.5,
+        "rounding": "UP",
+        "tieOnPointsPrefersClubWithoutRoundUp": true
+      },
+      "notApplicableTo": "Do not extrapolate to relegation playoff; source shows full carryover there."
+    },
+    {
+      "country": "ROU",
+      "edition": "2025/26",
+      "scope": "championship playoff and playout",
+      "rules": {
+        "regularPointsCarryFraction": 0.5,
+        "rounding": "UP",
+        "firstThreeTiebreaks": [
+          "did_not_gain_half_point_rounding",
+          "regular_stage_points",
+          "head_to_head"
+        ]
+      }
+    },
+    {
+      "country": "GRE",
+      "edition": "2025/26",
+      "scope": "middle playoff group",
+      "rules": {
+        "regularPointsCarryFraction": 0.5,
+        "rounding": "UP"
+      },
+      "scopeLimit": "Do not apply to all groups."
+    }
+  ]
+}

@@ -17,7 +17,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -92,6 +92,297 @@
         "Akron Togliatti"
       ],
       "scope": "Named entrants, no future results or game IDs. April federation calendar announced MIR name; actual edition Alfa-Bank."
+    },
+    "block135DateAudit": {
+      "status": "PARTIAL_ARCHIVE_AGGREGATE_AUDIT",
+      "observedSeasonColumns": [
+        "archiveSeasonLabel",
+        "observedRecords",
+        "distinctClubLabels",
+        "firstRecordedDate",
+        "lastRecordedDate",
+        "distinctRecordedDays"
+      ],
+      "observedSeasons": [
+        [
+          "2012/2013",
+          244,
+          18,
+          "2012-07-20",
+          "2013-06-03",
+          104
+        ],
+        [
+          "2013/2014",
+          244,
+          18,
+          "2013-07-14",
+          "2014-05-22",
+          101
+        ],
+        [
+          "2014/2015",
+          244,
+          18,
+          "2014-08-01",
+          "2015-06-07",
+          97
+        ],
+        [
+          "2015/2016",
+          244,
+          18,
+          "2015-07-17",
+          "2016-05-27",
+          99
+        ],
+        [
+          "2016/2017",
+          244,
+          18,
+          "2016-07-30",
+          "2017-05-28",
+          94
+        ],
+        [
+          "2017/2018",
+          244,
+          18,
+          "2017-07-15",
+          "2018-05-20",
+          96
+        ],
+        [
+          "2018/2019",
+          244,
+          18,
+          "2018-07-28",
+          "2019-06-02",
+          98
+        ],
+        [
+          "2019/2020",
+          240,
+          16,
+          "2019-07-12",
+          "2020-07-22",
+          89
+        ],
+        [
+          "2020/2021",
+          240,
+          16,
+          "2020-08-08",
+          "2021-05-16",
+          79
+        ],
+        [
+          "2021/2022",
+          244,
+          18,
+          "2021-07-23",
+          "2022-05-28",
+          89
+        ],
+        [
+          "2022/2023",
+          244,
+          18,
+          "2022-07-15",
+          "2023-06-10",
+          83
+        ],
+        [
+          "2023/2024",
+          244,
+          18,
+          "2023-07-21",
+          "2024-06-01",
+          83
+        ],
+        [
+          "2024/2025",
+          240,
+          16,
+          "2024-07-20",
+          "2025-05-24",
+          84
+        ],
+        [
+          "2025/2026",
+          240,
+          16,
+          "2025-07-18",
+          "2026-05-17",
+          84
+        ],
+        [
+          "2026/2027",
+          16,
+          16,
+          "2026-07-24",
+          "2026-08-02",
+          6
+        ]
+      ],
+      "totalRecords": 3416,
+      "invalidDates": 0,
+      "duplicateSeasonDateOrientedPairs": 0,
+      "withinArchiveSameClubRecordedDayClashes": 0,
+      "unscoredRows": 0,
+      "scope": "Archive labels may combine regular, split and playoff matches. Not proof of exact league membership, regulations or full calendar. No raw date lists, scores, club labels or odds copied; no 1996/97 coverage.",
+      "latestEdition": {
+        "label": "2026/2027",
+        "postCutoffObservedRecords": 16,
+        "scope": "Aggregate count only, not career results.",
+        "startsAfterJuly1": true,
+        "cutoffSnapshotApplicable": false,
+        "coverageGap": "Current edition stops at 2026-08-02; 16 observations only."
+      }
+    },
+    "participantKeyAudit": {
+      "edition": "2026/27",
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "division": 0,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "Zenit St Petersburg",
+          "ZENIT S-PB",
+          "ff2c975f-b8b9-5aa7-9a3b-97d38cca2a41",
+          31,
+          0,
+          2031617
+        ],
+        [
+          "Spartak Moscow",
+          "SPARTAK MOSCOW",
+          "e0876df8-243e-5b85-b175-f0b5498050ef",
+          31,
+          3,
+          2031620
+        ],
+        [
+          "Krasnodar",
+          "KRASNODAR",
+          "864e1a57-0ec9-51fc-9bd8-aea6290b88f8",
+          31,
+          1,
+          2031618
+        ],
+        [
+          "Dynamo Makhachkala",
+          "DINAMO MAKHACH.",
+          "82982eee-8d53-565b-92cf-41ea8d75130b",
+          31,
+          13,
+          2031630
+        ],
+        [
+          "CSKA Moscow",
+          "CSKA MOSCOW",
+          "b66bff12-7ee0-5636-8b15-9e37082b67bc",
+          31,
+          4,
+          2031621
+        ],
+        [
+          "Rostov",
+          "ROSTOV",
+          "ed0735eb-5f56-5af6-8217-ef5b343c1db7",
+          31,
+          9,
+          2031626
+        ],
+        [
+          "Baltika Kaliningrad",
+          "BALTIKA",
+          "1dfa4200-bba6-595b-a8ec-c3d8156c62c2",
+          31,
+          5,
+          2031622
+        ],
+        [
+          "Rubin Kazan",
+          "RUBIN KAZAN",
+          "08af8e22-55a2-5870-9354-0e4daf4bd3f9",
+          31,
+          7,
+          2031624
+        ],
+        [
+          "Orenburg",
+          "ORENBURG",
+          "cb8915b5-5e63-5550-b79d-f17b4ba7a606",
+          31,
+          11,
+          2031628
+        ],
+        [
+          "Krylia Sovetov Samara",
+          "KS SAMARA",
+          "df0f3f8e-ec6d-5aaa-8ba4-7ea9036d7f20",
+          31,
+          10,
+          2031627
+        ],
+        [
+          "Lokomotiv Moscow",
+          "LOKOMOTIV MOSCOW",
+          "caf60698-4bb2-53dd-8867-afcc7d8a589d",
+          31,
+          2,
+          2031619
+        ],
+        [
+          "Akhmat Grozny",
+          "AKHMAT GROZNY",
+          "70489b2c-6d8f-59c4-b9c3-d6cd4c12f6a1",
+          31,
+          8,
+          2031625
+        ],
+        [
+          "Dynamo Moscow",
+          "DYNAMO MOSCOW",
+          "046ecc6a-bbd7-5cd8-a6be-5a2773464f3d",
+          31,
+          6,
+          2031623
+        ],
+        [
+          "Fakel Voronezh",
+          "FAKEL VORONEZH",
+          "c1e553aa-2df0-51dc-8963-f7a79f3f8abc",
+          31,
+          15,
+          2031632
+        ],
+        [
+          "Rodina Moscow",
+          "RODINA MOSCOW",
+          "8ff0e2fa-fb93-59d3-ada8-c65df86d8b14",
+          31,
+          14,
+          2031631
+        ],
+        [
+          "Akron Togliatti",
+          "AKRON TOLYATTI",
+          "a38bb7d8-d051-5413-b262-f9deeceace9d",
+          31,
+          12,
+          2031629
+        ]
+      ],
+      "scope": "Reviewed pre-existing sporting labels and full native primary-file division set, corroborated by uploaded archive club sets; unique UUID, ordinal and CE key. No runtime or later qualification certification."
     }
   }
 ]

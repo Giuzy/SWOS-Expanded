@@ -17,7 +17,7 @@
       "actualDates": "NOT_RECONCILED",
       "matchRules": "NOT_CERTIFIED_BY_THIS_AUDIT",
       "runtime": "NOT_TESTED",
-      "participantKeys": "NOT_RECONCILED",
+      "participantKeys": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
       "competitionName": "SOURCE_SUPPORTED_NAME_PARTIAL"
     },
     "knownNativeMissing": null,
@@ -879,6 +879,304 @@
       },
       "status": "PARTIAL_RESEARCH_NOT_RUNTIME",
       "limitations": "Existing 89 cutoff matches retained."
+    },
+    "block135DateAudit": {
+      "status": "PARTIAL_ARCHIVE_AGGREGATE_AUDIT",
+      "observedSeasonColumns": [
+        "archiveSeasonLabel",
+        "observedRecords",
+        "distinctClubLabels",
+        "firstRecordedDate",
+        "lastRecordedDate",
+        "distinctRecordedDays"
+      ],
+      "observedSeasons": [
+        [
+          "2012",
+          242,
+          17,
+          "2012-03-23",
+          "2012-11-24",
+          101
+        ],
+        [
+          "2013",
+          242,
+          17,
+          "2013-03-15",
+          "2013-11-16",
+          79
+        ],
+        [
+          "2014",
+          242,
+          17,
+          "2014-03-28",
+          "2014-11-26",
+          76
+        ],
+        [
+          "2015",
+          242,
+          17,
+          "2015-04-06",
+          "2015-11-25",
+          84
+        ],
+        [
+          "2016",
+          242,
+          17,
+          "2016-03-11",
+          "2016-12-04",
+          84
+        ],
+        [
+          "2017",
+          242,
+          17,
+          "2017-04-01",
+          "2017-12-02",
+          84
+        ],
+        [
+          "2018",
+          241,
+          17,
+          "2018-03-11",
+          "2018-12-09",
+          76
+        ],
+        [
+          "2019",
+          242,
+          17,
+          "2019-03-30",
+          "2019-12-11",
+          86
+        ],
+        [
+          "2020",
+          240,
+          16,
+          "2020-06-16",
+          "2020-12-22",
+          67
+        ],
+        [
+          "2021",
+          241,
+          17,
+          "2021-05-09",
+          "2021-12-15",
+          62
+        ],
+        [
+          "2022",
+          242,
+          17,
+          "2022-04-02",
+          "2022-11-19",
+          69
+        ],
+        [
+          "2023",
+          242,
+          18,
+          "2023-04-10",
+          "2023-12-10",
+          68
+        ],
+        [
+          "2024",
+          242,
+          17,
+          "2024-03-31",
+          "2024-12-08",
+          74
+        ],
+        [
+          "2025",
+          240,
+          16,
+          "2025-03-29",
+          "2025-11-30",
+          75
+        ],
+        [
+          "2026",
+          216,
+          16,
+          "2026-03-14",
+          "2026-11-22",
+          73
+        ]
+      ],
+      "totalRecords": 3598,
+      "invalidDates": 0,
+      "duplicateSeasonDateOrientedPairs": 0,
+      "withinArchiveSameClubRecordedDayClashes": 0,
+      "unscoredRows": 0,
+      "scope": "Archive labels may combine regular, split and playoff matches. Not proof of exact league membership, regulations or full calendar. No raw date lists, scores, club labels or odds copied; no 1996/97 coverage.",
+      "latestEdition": {
+        "label": "2026",
+        "postCutoffObservedRecords": 127,
+        "scope": "Aggregate count only, not career results."
+      },
+      "cutoffAudit": {
+        "cutoff": "2026-06-30",
+        "observedRecords": 89,
+        "existingRecords": 89,
+        "matchedPairs": 89,
+        "exactDates": 89,
+        "sameScores": 89,
+        "additionalArchivePairs": 0,
+        "scope": "Existing cutoff snapshot preserved; no independent completeness or native identity certification."
+      }
+    },
+    "participantKeyAudit": {
+      "edition": "2026",
+      "status": "VERIFIED_STATIC_FULL_ENTRANT_MAPPING",
+      "division": 0,
+      "columns": [
+        "sportName",
+        "nativeName",
+        "uuid",
+        "fileCountry",
+        "ordinal",
+        "stableClub"
+      ],
+      "mapping": [
+        [
+          "Aalesund",
+          "AALESUNDS",
+          "1f571d5a-cb1e-59b6-9a20-efcb9afe42f7",
+          27,
+          15,
+          1769488
+        ],
+        [
+          "Bodø/Glimt",
+          "BODO/GLIMT",
+          "613e28ce-62fe-55e5-9d28-101132f327ae",
+          27,
+          1,
+          1769474
+        ],
+        [
+          "Brann",
+          "BRANN",
+          "a545ee1f-bb9e-5f6e-b136-936d445c8439",
+          27,
+          3,
+          1769476
+        ],
+        [
+          "Fredrikstad",
+          "FREDRIKSTAD",
+          "1e40b24f-ba14-5cbe-89eb-8422a05e123c",
+          27,
+          7,
+          1769480
+        ],
+        [
+          "Hamarkameratene",
+          "HAMARKAMERATENE",
+          "ce00d7bb-7012-536b-9dc9-677237b152d3",
+          27,
+          10,
+          1769483
+        ],
+        [
+          "KFUM",
+          "KFUM OSLO",
+          "d63c2c54-bffb-5f37-a7f0-b61248dff62e",
+          27,
+          11,
+          1769484
+        ],
+        [
+          "Kristiansund",
+          "KRISTIANSUND",
+          "37bf52b6-5c55-56ba-958b-85e2e8a60bdf",
+          27,
+          12,
+          1769485
+        ],
+        [
+          "Lillestrøm",
+          "LILLESTROM",
+          "ac1fb838-11ac-515c-a1b3-eddf6dfecf60",
+          27,
+          13,
+          1769486
+        ],
+        [
+          "Molde",
+          "MOLDE",
+          "c60039c1-7d62-5ace-8cdd-edbc24a40467",
+          27,
+          9,
+          1769482
+        ],
+        [
+          "Rosenborg",
+          "ROSENBORG",
+          "8607f673-6b67-5f12-8afe-1546f1accb7c",
+          27,
+          6,
+          1769479
+        ],
+        [
+          "Sandefjord",
+          "SANDEFJORD",
+          "4f591479-9e8c-5100-ad4a-21b4004c1e2e",
+          27,
+          4,
+          1769477
+        ],
+        [
+          "Sarpsborg 08",
+          "SARPSBORG 08",
+          "08524436-05e1-54a1-b90c-7f37f9e89eec",
+          27,
+          8,
+          1769481
+        ],
+        [
+          "Start",
+          "START",
+          "9e6f8612-4603-5236-a2e4-1f9afff54ede",
+          27,
+          14,
+          1769487
+        ],
+        [
+          "Tromsø",
+          "TROMSO IL",
+          "911ac1ae-9d33-5fa2-abfc-ea6cf86dd744",
+          27,
+          2,
+          1769475
+        ],
+        [
+          "Viking",
+          "VIKING",
+          "dcfd60f3-1ee6-59ba-abac-5048c4e41e68",
+          27,
+          0,
+          1769473
+        ],
+        [
+          "Vålerenga",
+          "VALERENGA",
+          "2c0bb4f5-f54e-534c-aa93-151bf411e03b",
+          27,
+          5,
+          1769478
+        ]
+      ],
+      "scope": "Reviewed pre-existing sporting labels and full native primary-file division set, corroborated by uploaded archive club sets; unique UUID, ordinal and CE key. No runtime or later qualification certification."
     }
   }
 ]

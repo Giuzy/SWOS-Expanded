@@ -1777,6 +1777,12 @@ int ExpCe_LoadJsonDefinitions(const char *json,int len,uint16_t world,
             snprintf(d->name,sizeof d->name,"%.39s",t);
         if(mjson_get_number(c,vl,"$.country",&v)>0 && v>=0 && v<=255)
             d->country=(uint8_t)v;
+        {   /* v305: data flag - the competition has its own button in the
+             * WORLD competition list of its country and in VIEW COMPETITIONS
+             * of its participants (competitions with no OG slot) */
+            int vb=0;
+            if(mjson_get_bool(c,vl,"$.viewer_button",&vb)>0)d->viewer_button=(uint8_t)(vb!=0);
+        }
         if(mjson_get_number(c,vl,"$.type",&v)>0 && v>=0 && v<=2)d->type=(uint8_t)v;
         else if(!d->missing[0])snprintf(d->missing,sizeof d->missing,"type 0..2");
         if(json_str(c,vl,"$.missing",t,sizeof t) && !d->missing[0])

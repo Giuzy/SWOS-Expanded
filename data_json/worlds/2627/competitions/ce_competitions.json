@@ -243,6 +243,7 @@
       "id": 1310978,
       "name": "SUPERCOPPA ITALIANA",
       "country": 20,
+      "viewer_button": true,
       "type": 1,
       "source": "25/11/2026 approved brief: first edition single final Inter-Lazio, GAME_TEMPLATE date 22/12/2026, edition change 21/12; competition NOT in the original OG catalogue (first competition added entirely through the CE, no OG slot).",
       "authentic_regulation": {
@@ -286,7 +287,7 @@
       },
       "next_entrants": [
         { "source": "LEAGUE_RANK", "league": { "country": 20, "comp_id": 61, "division": 0 }, "from": 1, "to": 1 },
-        { "source": "LISTED", "count": 1, "clubs": ["20:299"] }
+        { "source": "LISTED", "count": 1, "clubs": ["44:79"] }
       ],
       "first_edition": {
         "year": 2026,

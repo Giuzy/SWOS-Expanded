@@ -5881,6 +5881,58 @@ static void Expanded_ViewClubBoliviaCup(MenuEntry *entry)
     (void)entry;
     (void)Expanded_OGWorld_ViewBoliviaClubCup();
 }
+/* v305: a competition WITHOUT an OG slot (JSON "viewer_button", e.g. SUPERCOPPA
+ * ITALIANA) gets one more button, same layout as the other competitions, for
+ * the clubs that take part in it; it opens the Competition Engine screen. */
+extern uint8_t _currentMenu[];
+static uint32_t s_ceBtnDef;
+static char s_ceBtnName[1][40];
+static void Expanded_ViewCeButton(MenuEntry *entry)
+{
+    extern int ExpCeViewer_OpenDefinition(uint32_t);
+    (void)entry;
+    (void)ExpCeViewer_OpenDefinition(s_ceBtnDef);
+}
+static void Expanded_AddCeCompetitionButton(void)
+{
+    extern uint32_t ExpCeViewer_ClubButtons(uint32_t *,char (*)[40],uint32_t);
+    uint32_t id=0u;
+    unsigned vis=0u,h=0u,k,order[6],n=0u;
+    if(_gameType!=GAME_TYPE_CAREER ||
+       ExpCeViewer_ClubButtons(&id,s_ceBtnName,1u)<1u)return;
+    for(k=1u;k<=4u;++k) {
+        if(!_menuEntries[k].isInvisible)++vis;
+        else h=k;                       /* a hidden OG competition slot */
+    }
+    if(vis>=4u || !h) {
+        fprintf(stderr,"[ce-viewer] VIEW_COMPETITIONS no free slot for the button\n");
+        return;
+    }
+    s_ceBtnDef=id;
+    /* same position the next competition would have: where entry 5 now is;
+     * entry 5 (and what follows it) moves one row down */
+    _menuEntries[h].y=_menuEntries[5].y;
+    _menuEntries[5].y=(uint16_t)(_menuEntries[5].y+25u);
+    _menuEntries[h].isInvisible=0;
+    _menuEntries[h].isDisabled=0;
+    _menuEntries[h].fg=(uintptr_t)s_ceBtnName[0];
+    _menuEntries[h].onSelect=Expanded_ViewCeButton;
+    /* up/down links follow the visual order */
+    for(k=1u;k<=4u;++k)if(!_menuEntries[k].isInvisible)order[n++]=k;
+    for(k=0u;k+1u<n;++k)
+        for(unsigned j=k+1u;j<n;++j)
+            if(_menuEntries[order[j]].y<_menuEntries[order[k]].y){
+                const unsigned t=order[k];order[k]=order[j];order[j]=t;}
+    order[n++]=5u;
+    for(k=0u;k<n;++k) {
+        MenuEntry *e=&_menuEntries[order[k]];
+        if(k)e->upEntry=(int8_t)order[k-1u];
+        if(k+1u<n)e->downEntry=(int8_t)order[k+1u];
+        e->skipUpEntry=0;e->skipDownEntry=0;
+    }
+    fprintf(stderr,"[ce-viewer] VIEW_COMPETITIONS button def=%u slot=%u source=CE\n",
+            (unsigned)id,h);
+}
 #endif
 
 __attribute__((used, externally_visible))
@@ -5956,6 +6008,10 @@ void ViewCompetitionsOnReturn(void)
         _menuEntries[4].isInvisible = 1;
         _menuEntries[5].y = _menuEntries[4].y;
     }
+
+#ifdef SWOS_SDL_BUILD
+    Expanded_AddCeCompetitionButton();
+#endif
 
     /* The resident OG viewer installs the actual competition teams without
      * updating the legacy team-selection cache. Do not hide its scorer

@@ -7,7 +7,7 @@
     "Temporary placeholder clubs with TEST rosters (all players named TEST, identical characteristics). Their matches are NOT played by OG: the result is assigned by 'policy' through the same CE ledger/scheduler/KO update/CAR and carries the persisted score flag ADMIN_TEST (0x04).",
     "Remove a club from 'clubs' when its real roster is inserted: it then plays like every other club. The club key keeps its identity (44:slot).",
     "test_vs_real: the real club always wins (winner_goals:loser_goals). test_vs_test: ONE winner per PAIR and edition (PAIR_HASH), never the first of the fixture, so both legs of a tie have the same winner.",
-    "Approved by the project owner on 25/11/2026: TEST vs real 0-3 (3-0); TEST vs TEST 1-0 for the pair winner. Owner decision 25/11/2026: the policy applies to EVERY path, including the manager's PLAY MATCH / COACH MATCH (no interactive OG match is started). 44:67..44:78 are generic placeholders for the Australia Cup regional slots of editions after the first; 20:299 holds the Coppa Italia winner slot of the Supercoppa Italiana until the Coppa Italia is integrated."
+    "Approved by the project owner on 25/11/2026: TEST vs real 0-3 (3-0); TEST vs TEST 1-0 for the pair winner. Owner decision 25/11/2026: the policy applies to EVERY path, including the manager's PLAY MATCH / COACH MATCH (no interactive OG match is started). 44:67..44:78 are generic placeholders for the Australia Cup regional slots of editions after the first; 44:79 (OG name TEST COPPA ITALIA, stored in the Australia team file because the 2627 Italian team file is full and its second file is not part of the catalog) holds the Coppa Italia winner slot of the Supercoppa Italiana until the Coppa Italia is integrated."
   ],
   "policy": {
     "test_vs_real": { "winner_goals": 3, "loser_goals": 0 },
@@ -38,13 +38,13 @@
     "44:76": "Generic regional placeholder 10 (Australia Cup regional slots of editions after the first) - OG name TEST REGIONAL 10",
     "44:77": "Generic regional placeholder 11 (Australia Cup regional slots of editions after the first) - OG name TEST REGIONAL 11",
     "44:78": "Generic regional placeholder 12 (Australia Cup regional slots of editions after the first) - OG name TEST REGIONAL 12",
-    "20:299": "Coppa Italia winner placeholder (Supercoppa Italiana reserved slot) - OG name TEST COPPA ITALIA"
+    "44:79": "Coppa Italia winner placeholder (Supercoppa Italiana reserved slot) - OG name TEST COPPA ITALIA"
   },
   "clubs": [
     "44:55", "44:56", "44:57", "44:58", "44:59", "44:60",
     "44:61", "44:62", "44:63", "44:64", "44:65", "44:66",
     "44:67", "44:68", "44:69", "44:70", "44:71", "44:72",
     "44:73", "44:74", "44:75", "44:76", "44:77", "44:78",
-    "20:299"
+    "44:79"
   ]
 }

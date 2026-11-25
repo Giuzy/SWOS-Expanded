@@ -209,7 +209,10 @@
  * non-league manager fixtures use the OG team screen, calendar shows every CE
  * competition of the club, CE_RESULT_PROJECTION_FAILED now logs its reason. */
 /* v00.13.304: universal round-robin home/away distribution (de Werra-style canonical rule). */
-#define SWOS_EXPANDED_VERSION "00.13.304"
+/* v00.13.305: CE competition screen reached ONLY by one extra button (SUPERCOPPA) in the
+ * WORLD list of its country and in VIEW COMPETITIONS of its clubs; OG menus otherwise
+ * unchanged; projection identity fix; Coppa Italia TEST placeholder 44:79. */
+#define SWOS_EXPANDED_VERSION "00.13.305"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

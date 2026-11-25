@@ -10487,6 +10487,10 @@ int Expanded_OGWorld_ViewLeague(const uint8_t *record,uint16_t division)
 {
     static uint8_t unavailable[]="OG WORLD: COMPETITION NOT RESIDENT";
     if(!record || _gameType!=4)return 0;
+    {   /* v305: a button row of the WORLD list (competition without OG slot) */
+        extern int ExpCeViewer_OpenRecord(const void *);
+        if(ExpCeViewer_OpenRecord(record))return 1;
+    }
     const Competition *wanted=(const Competition *)record;
     /* Once JSON CE is active, OG country residents are no longer league
      * authority. Keep the ORIGINAL OG viewer chrome, but mount a READ-ONLY

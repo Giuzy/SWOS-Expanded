@@ -1,0 +1,569 @@
+{
+  "name": "ceViewerMenu",
+  "comment": "Generic Competition Engine viewer (v00.13.305): 13 rows drawn by src/expanded_ce_viewer.c, NEXT PAGE and BACK. One OG-style page for every competition (league, groups, knockout, single final, honours).",
+  "menu_flags": {
+    "dos_redraw": true
+  },
+  "onInit": "ceViewer_OnInit",
+  "onReturn": null,
+  "onDraw": null,
+  "defaultEntry": 15,
+  "items": [
+    {
+      "kind": "entry",
+      "name": "header",
+      "coords": {
+        "x": 8,
+        "y": 0,
+        "w": 304,
+        "h": 16
+      },
+      "commands": [
+        {
+          "op": "text",
+          "flags": "0x0",
+          "str": null
+        },
+        {
+          "op": "colors",
+          "frame_color": 1,
+          "background_color": 7
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "row0",
+      "coords": {
+        "x": 6,
+        "y": 20,
+        "w": 308,
+        "h": 12
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": -1,
+          "right": -1,
+          "up": 14,
+          "down": 2
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 8
+        },
+        {
+          "op": "text_no_ptr",
+          "flags": "0x0"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_row_OnSelect"
+        },
+        {
+          "op": "after_draw",
+          "func": "ceViewer_row_AfterDraw"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "row1",
+      "coords": {
+        "x": 6,
+        "y": 33,
+        "w": 308,
+        "h": 12
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": -1,
+          "right": -1,
+          "up": 1,
+          "down": 3
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 8
+        },
+        {
+          "op": "text_no_ptr",
+          "flags": "0x0"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_row_OnSelect"
+        },
+        {
+          "op": "after_draw",
+          "func": "ceViewer_row_AfterDraw"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "row2",
+      "coords": {
+        "x": 6,
+        "y": 46,
+        "w": 308,
+        "h": 12
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": -1,
+          "right": -1,
+          "up": 2,
+          "down": 4
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 8
+        },
+        {
+          "op": "text_no_ptr",
+          "flags": "0x0"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_row_OnSelect"
+        },
+        {
+          "op": "after_draw",
+          "func": "ceViewer_row_AfterDraw"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "row3",
+      "coords": {
+        "x": 6,
+        "y": 59,
+        "w": 308,
+        "h": 12
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": -1,
+          "right": -1,
+          "up": 3,
+          "down": 5
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 8
+        },
+        {
+          "op": "text_no_ptr",
+          "flags": "0x0"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_row_OnSelect"
+        },
+        {
+          "op": "after_draw",
+          "func": "ceViewer_row_AfterDraw"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "row4",
+      "coords": {
+        "x": 6,
+        "y": 72,
+        "w": 308,
+        "h": 12
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": -1,
+          "right": -1,
+          "up": 4,
+          "down": 6
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 8
+        },
+        {
+          "op": "text_no_ptr",
+          "flags": "0x0"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_row_OnSelect"
+        },
+        {
+          "op": "after_draw",
+          "func": "ceViewer_row_AfterDraw"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "row5",
+      "coords": {
+        "x": 6,
+        "y": 85,
+        "w": 308,
+        "h": 12
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": -1,
+          "right": -1,
+          "up": 5,
+          "down": 7
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 8
+        },
+        {
+          "op": "text_no_ptr",
+          "flags": "0x0"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_row_OnSelect"
+        },
+        {
+          "op": "after_draw",
+          "func": "ceViewer_row_AfterDraw"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "row6",
+      "coords": {
+        "x": 6,
+        "y": 98,
+        "w": 308,
+        "h": 12
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": -1,
+          "right": -1,
+          "up": 6,
+          "down": 8
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 8
+        },
+        {
+          "op": "text_no_ptr",
+          "flags": "0x0"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_row_OnSelect"
+        },
+        {
+          "op": "after_draw",
+          "func": "ceViewer_row_AfterDraw"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "row7",
+      "coords": {
+        "x": 6,
+        "y": 111,
+        "w": 308,
+        "h": 12
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": -1,
+          "right": -1,
+          "up": 7,
+          "down": 9
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 8
+        },
+        {
+          "op": "text_no_ptr",
+          "flags": "0x0"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_row_OnSelect"
+        },
+        {
+          "op": "after_draw",
+          "func": "ceViewer_row_AfterDraw"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "row8",
+      "coords": {
+        "x": 6,
+        "y": 124,
+        "w": 308,
+        "h": 12
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": -1,
+          "right": -1,
+          "up": 8,
+          "down": 10
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 8
+        },
+        {
+          "op": "text_no_ptr",
+          "flags": "0x0"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_row_OnSelect"
+        },
+        {
+          "op": "after_draw",
+          "func": "ceViewer_row_AfterDraw"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "row9",
+      "coords": {
+        "x": 6,
+        "y": 137,
+        "w": 308,
+        "h": 12
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": -1,
+          "right": -1,
+          "up": 9,
+          "down": 11
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 8
+        },
+        {
+          "op": "text_no_ptr",
+          "flags": "0x0"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_row_OnSelect"
+        },
+        {
+          "op": "after_draw",
+          "func": "ceViewer_row_AfterDraw"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "row10",
+      "coords": {
+        "x": 6,
+        "y": 150,
+        "w": 308,
+        "h": 12
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": -1,
+          "right": -1,
+          "up": 10,
+          "down": 12
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 8
+        },
+        {
+          "op": "text_no_ptr",
+          "flags": "0x0"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_row_OnSelect"
+        },
+        {
+          "op": "after_draw",
+          "func": "ceViewer_row_AfterDraw"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "row11",
+      "coords": {
+        "x": 6,
+        "y": 163,
+        "w": 308,
+        "h": 12
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": -1,
+          "right": -1,
+          "up": 11,
+          "down": 13
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 8
+        },
+        {
+          "op": "text_no_ptr",
+          "flags": "0x0"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_row_OnSelect"
+        },
+        {
+          "op": "after_draw",
+          "func": "ceViewer_row_AfterDraw"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "row12",
+      "coords": {
+        "x": 6,
+        "y": 176,
+        "w": 308,
+        "h": 12
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": -1,
+          "right": -1,
+          "up": 12,
+          "down": 14
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 8
+        },
+        {
+          "op": "text_no_ptr",
+          "flags": "0x0"
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_row_OnSelect"
+        },
+        {
+          "op": "after_draw",
+          "func": "ceViewer_row_AfterDraw"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "page",
+      "coords": {
+        "x": 20,
+        "y": 208,
+        "w": 130,
+        "h": 15
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 15,
+          "right": 15,
+          "up": 13,
+          "down": 15
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 14
+        },
+        {
+          "op": "text",
+          "flags": "0x0",
+          "str": null
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_page_OnSelect"
+        }
+      ]
+    },
+    {
+      "kind": "entry",
+      "name": "back",
+      "coords": {
+        "x": 170,
+        "y": 208,
+        "w": 130,
+        "h": 15
+      },
+      "commands": [
+        {
+          "op": "nav",
+          "left": 14,
+          "right": 14,
+          "up": 14,
+          "down": 1
+        },
+        {
+          "op": "colors",
+          "frame_color": 0,
+          "background_color": 12
+        },
+        {
+          "op": "text",
+          "flags": "0x0",
+          "str": null
+        },
+        {
+          "op": "onselect_fire",
+          "func": "ceViewer_back_OnSelect"
+        }
+      ]
+    }
+  ]
+}

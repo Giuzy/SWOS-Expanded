@@ -4420,6 +4420,10 @@ __attribute__((used, externally_visible))
 void Career_ViewOrEditCompetitionSlot(uint8_t *comp, uint16_t sel)
 {
 #ifdef SWOS_SDL_BUILD
+    {   /* v305: a button row of the WORLD list (competition without OG slot) */
+        extern int ExpCeViewer_OpenRecord(const void *);
+        if(ExpCeViewer_OpenRecord(comp))return;
+    }
     /* WORLD2627 uses CE, not the obsolete local OG league slot. This
      * picker projection is read-only; never load/edit the local copy. */
     if(_gameType==4u && ExpandedUniversalLive_Active()) {

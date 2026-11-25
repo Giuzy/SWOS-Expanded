@@ -12,6 +12,31 @@
 #include "expanded_ce_admin.h"
 #include "expanded_ce_table.h"
 #include "expanded_universal_pairings.h"
+#include "expanded_universal_world_catalog.h"
+#include "expanded_universal_live.h"
+/* v305 viewer model: roster names are mocked, everything else is the real CE */
+uint32_t ExpCeViewer_TestBuild(uint32_t def_id,char *title,size_t n);
+const char *ExpCeViewer_TestLine(uint32_t i,char *b,size_t n);
+TeamFileEx *ExpandedUniversalCatalog_Roster(ExpandedClubKey k)
+{
+    static TeamFileEx t;
+    memset(&t,0,sizeof t);
+    snprintf((char *)t.team.teamName,sizeof t.team.teamName,"C%u-%u",
+             (unsigned)(k.stable_club>>16),(unsigned)(k.stable_club&0xffffu));
+    return &t;
+}
+int ExpandedUniversalLive_ClubNameCompare(void *u,ExpandedClubKey a,ExpandedClubKey b)
+{(void)u;return a.stable_club<b.stable_club?-1:a.stable_club>b.stable_club;}
+static unsigned view_count(uint32_t def,const char *needle,uint32_t *total)
+{
+    char title[64],line[160];
+    uint32_t n=ExpCeViewer_TestBuild(def,title,sizeof title),i;
+    unsigned hits=0u;
+    for(i=0u;i<n;++i)
+        if(ExpCeViewer_TestLine(i,line,sizeof line) && strstr(line,needle))++hits;
+    if(total)*total=n;
+    return hits;
+}
 
 static WorldId s_world=WORLD_2627;
 WorldId World_Current(void){return s_world;}
@@ -172,11 +197,17 @@ int main(void)
     def=ExpCe_Definition(SUPERCOPPA);
     assert(def && !def->missing[0] && def->type==1u && def->country==20u &&
            def->nphases==1u && def->nfirst==2u);
+    assert(def->viewer_button==1u && ExpCe_Definition(2884866u)->viewer_button==0u); /* only the Supercoppa has its own button */
     assert(ExpCe_BeginWorld(R(),&H,WORLD_2627,2026));
 
     /* ===== Supercoppa Italiana: first competition added only through data */
     e=edition_of(SUPERCOPPA,2026);
     assert(e && !e->block);
+    {   /* viewer BEFORE the competition starts: participants are known */
+        uint32_t tot=0u;
+        assert(view_count(SUPERCOPPA,"STATUS",&tot)==1u && tot>=4u);
+        assert(view_count(SUPERCOPPA,"C20-1",NULL)>=1u && view_count(SUPERCOPPA,"C20-9",NULL)>=1u);
+    }
     run_until(D(2026,12,21)); /* phase fixtures are created when the phase opens */
     for(i=0;i<R()->fixture_count;++i) {
         const ExpandedUniversalFixture *f=&R()->fixtures[i];
@@ -244,6 +275,17 @@ int main(void)
         printf("AUSTRALIA_CUP played=%u admin=%u test_vs_real=%u test_vs_test=%u\n",
                played,adm,tvr,tvt);
     }
+    {   /* viewer: ONE generic page for single final and 5-round cup, from CE */
+        uint32_t tot=0u;
+        assert(view_count(SUPERCOPPA,"WINNER",&tot)>=1u);
+        assert(view_count(SUPERCOPPA,"22/12 C20-1 - C20-9",NULL)==1u && view_count(SUPERCOPPA,"1-1 ET P 5-4",NULL)==1u && view_count(SUPERCOPPA,"FINAL",NULL)>=1u);
+        assert(view_count(2884866u,"FINAL",NULL)>=1u && view_count(2884866u,"SEMI-FINALS",NULL)==1u &&
+               view_count(2884866u,"QUARTER-FINALS",NULL)==1u && view_count(2884866u,"ROUND OF 16",NULL)==1u &&
+               view_count(2884866u,"ROUND OF 32",NULL)==1u);
+        assert(view_count(2884866u," - C",&tot)==31u);          /* every one of the 31 games */
+        assert(view_count(2884866u,"WINNER",NULL)>=1u && view_count(2884866u,"PARTICIPANTS",NULL)>=1u);
+        puts("CE_VIEWER_MODEL_FINAL_AND_CUP_FROM_CE_LEDGER=PASS");
+    }
     /* the edition expires on 21/12/2027 (its own cycle, never 1 July) */
     run_until(D(2027,12,22));
     e=edition_of(SUPERCOPPA,2026);
@@ -269,7 +311,7 @@ int main(void)
         int has_test=0,has_league=0;
         assert(s27 && !s27->block && s27->nentrants==2u);
         for(i=0;i<s27->nentrants;++i) {
-            if(s27->entrants[i].club.stable_club==((20u<<16)|299u))has_test=1;
+            if(s27->entrants[i].club.stable_club==((44u<<16)|79u))has_test=1;
             if(s27->entrants[i].source==EXP_CE_SRC_LEAGUE_RANK &&
                s27->entrants[i].from_competition==serieA &&
                s27->entrants[i].rank==1u)has_league=1;
@@ -284,12 +326,13 @@ int main(void)
             if(f->key.edition.competition.stable_competition!=SUPERCOPPA ||
                !ExpandedEditionKey_Equal(f->key.edition,s27->key))continue;
             assert(l->state==EXP_FIXTURE_PLAYED && (l->score.flags&EXP_CE_SCORE_ADMIN_TEST));
-            assert(f->home.stable_club==((20u<<16)|299u)?
+            assert(f->home.stable_club==((44u<<16)|79u)?
                    (l->score.home==0u&&l->score.away==3u):
                    (l->score.home==3u&&l->score.away==0u));      /* the real club wins */
         }
     }
     assert(ExpandedUniversal_ValidateRestore(R()));
+    assert(view_count(SUPERCOPPA,"ROLL OF HONOUR",NULL)==1u);   /* 2026 archived, 2027 current */
     {
         const uint32_t AC=2884866u;
         const ExpCeEdition *ae=edition_of(AC,2026);

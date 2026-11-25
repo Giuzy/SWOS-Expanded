@@ -10876,10 +10876,14 @@ static int ce_board_refresh_completed(void)
     if(count!=n) {
         s_ceBoardWhy="standings-count-differs-from-board-clubs";return 0;
     }
-    for(i=0u;i<n;++i)
-        if(!ExpandedUniversal_NativeTeamKey(&_selectedTeams[i],&clubs[i])) {
-            s_ceBoardWhy="board-team-has-no-ce-key";return 0;
-        }
+    /* v305: the board identities are the CE club keys stored when the
+     * board was projected. Re-deriving them from the mutable OG team
+     * buffers failed after the OG team/lineup screen (reason
+     * board-team-has-no-ce-key) although the CE result was valid. */
+    if(s_ceBoardClubCount!=n) {
+        s_ceBoardWhy="board-club-count-changed";return 0;
+    }
+    for(i=0u;i<n;++i)clubs[i]=s_ceBoardClubs[i];
     if(!ExpandedClubKey_Equal(clubs[s_ceBoardHomeRow],f->home) ||
        !ExpandedClubKey_Equal(clubs[s_ceBoardAwayRow],f->away)) {
         s_ceBoardWhy="home-away-row-identity";return 0;

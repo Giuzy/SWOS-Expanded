@@ -159,6 +159,7 @@ typedef struct ExpCeDef {
     uint32_t id;                  /* stable competition id (CE key) */
     uint16_t world;
     uint8_t country, type, origin;
+    uint8_t viewer_button;        /* v305: own button in WORLD/VIEW COMPETITIONS */
     char name[40];
     /* league family link (origin LEAGUE) */
     uint8_t comp_id, division, divisions, promoted, relegated;

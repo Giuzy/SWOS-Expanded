@@ -3506,6 +3506,30 @@ loc_E246:
     }
 
 loc_E2D0:
+#ifdef SWOS_SDL_BUILD
+    {
+        /* v305: one extra row (same layout, same list) for a competition that
+         * has no OG slot (JSON "viewer_button", e.g. SUPERCOPPA ITALIANA).
+         * Only in the VIEW WORLD / DEBUG WORLD / offer country list, only when
+         * the OG list still has a free row (10 maximum). */
+        extern uint32_t ExpCeViewer_WorldButtons(uint8_t,uint32_t *,char (*)[40],uint32_t);
+        extern const void *ExpCeViewer_ButtonRecord(uint32_t);
+        static char ceBtnName[4][40];
+        uint32_t ceIds[4],ceN,k;
+        if(_chooseCompetitionOnly && _gameType==GAME_TYPE_CAREER &&
+           s_groupLevel<0 && d7<80u && _isCountryNumber==0 &&
+           (ceN=ExpCeViewer_WorldButtons((uint8_t)d7,ceIds,ceBtnName,4u))>0u) {
+            for(k=0u;k<ceN && d1<10;++k) {
+                const void *rec=ExpCeViewer_ButtonRecord(ceIds[k]);
+                if(!rec)break;
+                *teamNamesPtr++=(void *)ceBtnName[k];
+                *leaguesPtrOut++=(void *)rec;
+                *leagueNumsOut++=0xFFFF;
+                d1++;
+            }
+        }
+    }
+#endif
     _numLeaguesInCountry = d1;
     HLOG("enum done country=%u numLeagues=%u\n", (unsigned)(d7 & 0xFF), (unsigned)d1);
 

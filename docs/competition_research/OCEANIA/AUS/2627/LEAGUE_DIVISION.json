@@ -6021,6 +6021,50 @@
         ],
         "scope": "2020 official description of hybrid 132+24 schedule with software Got Soccer, club/broadcaster preferences, venue/travel/rest; 2025/26 confirms four extras 2H/2A; 2026/27 six rivalries have three meetings: Sydney–WSW, Melbourne City–Victory, Auckland–Wellington, Central Coast–Newcastle, Adelaide–Victory, Sydney–Victory. Not a universal obligation or exact pairing formula.",
         "proposal": "Generic constrained random draw, data-defined rivalry preferences (soft unless explicit rule), 4 distinct extra opponents, 2H/2A, 24 extra games, 156 regular; rotate advantage in later editions if approved. No actual future pairs or scores hardcoded. Pending user approval."
+      },
+      "gameRuleExtension20261125": {
+        "researchKey": "2627:AUS:AUSTRALIAN_CHAMPIONSHIP",
+        "rule": {
+          "status": "USER_APPROVED_DESIGN_NOT_RUNTIME",
+          "world": "2627",
+          "competition": "2627:AUS:AUSTRALIAN_CHAMPIONSHIP",
+          "invitation": {
+            "source": "AUSTRALIAN_CHAMPIONSHIP_WINNER",
+            "target": "A_LEAGUE",
+            "count": 1
+          },
+          "relegation": {
+            "source": "A_LEAGUE_FINAL_REGULAR_TABLE",
+            "rank": 12,
+            "count": 1,
+            "target": "ASSIGNED_REGIONAL_PYRAMID"
+          },
+          "aleagueSize": 12,
+          "initialRegionalRouting": {
+            "NSW": [
+              "44:5",
+              "44:12",
+              "44:7",
+              "44:9"
+            ],
+            "VIC": [
+              "44:4",
+              "44:6",
+              "44:2",
+              "44:10"
+            ],
+            "QLD": [
+              "44:11",
+              "44:1",
+              "44:3",
+              "44:8"
+            ]
+          },
+          "qualification": "Preserve authentic Championship entry criteria; missing federation paths unresolved, no invented participants.",
+          "crossRegionBalance": "UNRESOLVED_USER_DECISION_REQUIRED",
+          "notes": "One up and one down; preserve real federation/country, identity, roster, no pool in A-League, no repeated membership or invented outcomes. Design exception, not official Australian rule."
+        },
+        "officialEvidenceUnchanged": true
       }
     }
   },
@@ -8190,7 +8234,44 @@
           "https://footballnsw.com.au/2026/09/12/st-george-fc-rally-from-behind-to-secure-npl-mens-nsw-survival/"
         ],
         "scope": "June official lower-tier evidence: Blacktown Spartans and Northern Tigers candidates, no future rank import. 1 direct plus possible second via two-leg promotion/relegation playoff (2026 witness survived; future outcome not imported).",
-        "proposal": "Two pool candidates needed if retaining playoff, one direct entrant and one playoff challenger, 1 or 2 exchanges depending on CE result. Selection/roles and licenses pending; no auto double relegation."
+        "proposal": "Two pool candidates needed if retaining playoff, one direct entrant and one playoff challenger, 1 or 2 exchanges depending on CE result. Selection/roles and licenses pending; no auto double relegation.",
+        "approvedPool": {
+          "names": [
+            "Blacktown Spartans",
+            "Northern Tigers",
+            "Canterbury Bankstown FC"
+          ],
+          "extraSource": "https://footballnsw.com.au/2026/02/03/football-nsw-league-one-mens-2026-season-preview/",
+          "status": "USER_APPROVED_RESERVED_NOT_RUNTIME_REGISTERED"
+        }
+      },
+      "gameRuleExtension20261125": {
+        "researchKey": "2627:AUS:AUSTRALIAN_CHAMPIONSHIP",
+        "rule": {
+          "status": "APPROVED_DESIGN_PENDING_INTEGRATION",
+          "routing": {
+            "NSW": [
+              "44:5",
+              "44:12",
+              "44:7",
+              "44:9"
+            ],
+            "VIC": [
+              "44:4",
+              "44:6",
+              "44:2",
+              "44:10"
+            ],
+            "QLD": [
+              "44:11",
+              "44:1",
+              "44:3",
+              "44:8"
+            ]
+          },
+          "limits": "No forced region changes or automatic compensation, existing bottom pool rules unchanged."
+        },
+        "officialEvidenceUnchanged": true
       }
     }
   },
@@ -12428,7 +12509,45 @@
           "https://footballvictoria.com.au/news/2026-victorian-premier-league-fixtures-released"
         ],
         "scope": "2026 VPL1 pre-season witness Melbourne Knights, Port Melbourne, Brunswick Juventus all real lower-tier participants. Existing template 3 down, 2 direct + 1 lower-tier playoff winner; three-club pool is simplified representation, not genuine VPL1 playoffs.",
-        "proposal": "3 real club candidates, IDs and eligibility to reconcile. No future promotions imported; approval of simplification needed."
+        "proposal": "3 real club candidates, IDs and eligibility to reconcile. No future promotions imported; approval of simplification needed.",
+        "approvedPool": {
+          "names": [
+            "North Geelong Warriors",
+            "Melbourne Knights",
+            "Port Melbourne",
+            "Northcote City"
+          ],
+          "extraSource": "https://footballvictoria.com.au/news/2026-victorian-premier-league-fixtures-released",
+          "status": "USER_APPROVED_RESERVED_NOT_RUNTIME_REGISTERED"
+        }
+      },
+      "gameRuleExtension20261125": {
+        "researchKey": "2627:AUS:AUSTRALIAN_CHAMPIONSHIP",
+        "rule": {
+          "status": "APPROVED_DESIGN_PENDING_INTEGRATION",
+          "routing": {
+            "NSW": [
+              "44:5",
+              "44:12",
+              "44:7",
+              "44:9"
+            ],
+            "VIC": [
+              "44:4",
+              "44:6",
+              "44:2",
+              "44:10"
+            ],
+            "QLD": [
+              "44:11",
+              "44:1",
+              "44:3",
+              "44:8"
+            ]
+          },
+          "limits": "No forced region changes or automatic compensation, existing bottom pool rules unchanged."
+        },
+        "officialEvidenceUnchanged": true
       }
     }
   },
@@ -14052,7 +14171,44 @@
           "https://footballqueensland.com.au/fqpl/"
         ],
         "scope": "2026 FQPL1 men's official kit register names Brisbane Strikers and Broadbeach United in correct section; text read, screenshot page1 cache miss. 2 up/2 down already researched; names candidates only, not future promotion prediction.",
-        "proposal": "Two candidate real clubs for minimal pool. ID/roster/eligibility verification and user approval pending."
+        "proposal": "Two candidate real clubs for minimal pool. ID/roster/eligibility verification and user approval pending.",
+        "approvedPool": {
+          "names": [
+            "Brisbane Strikers",
+            "Broadbeach United",
+            "St George Willawong FC"
+          ],
+          "extraSource": "https://footballqueensland.com.au/2025/11/06/football-queensland-releases-2026-draws-for-npl-fqpl-6-metro-kappa-pro-series-and-fq-academy-leagues/",
+          "status": "USER_APPROVED_RESERVED_NOT_RUNTIME_REGISTERED"
+        }
+      },
+      "gameRuleExtension20261125": {
+        "researchKey": "2627:AUS:AUSTRALIAN_CHAMPIONSHIP",
+        "rule": {
+          "status": "APPROVED_DESIGN_PENDING_INTEGRATION",
+          "routing": {
+            "NSW": [
+              "44:5",
+              "44:12",
+              "44:7",
+              "44:9"
+            ],
+            "VIC": [
+              "44:4",
+              "44:6",
+              "44:2",
+              "44:10"
+            ],
+            "QLD": [
+              "44:11",
+              "44:1",
+              "44:3",
+              "44:8"
+            ]
+          },
+          "limits": "No forced region changes or automatic compensation, existing bottom pool rules unchanged."
+        },
+        "officialEvidenceUnchanged": true
       }
     }
   }

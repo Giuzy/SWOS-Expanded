@@ -3,7 +3,7 @@
   "world": 2627,
   "country": 44,
   "status": "CANDIDATES_NOT_RUNTIME_REGISTERED",
-  "scope": "Approved minimal pool, not real future qualifiers. No native IDs assigned until loader/cache integration. Existing cup placeholders untouched.",
+  "scope": "Approved pool plus one club per region; not real future qualifiers. Reserved IDs in bottom_pools.json, not native registered. Existing cup placeholders untouched.",
   "rosterTemplate": {
     "slots": 16,
     "player": {
@@ -24,8 +24,10 @@
       "playoffLegs": 2,
       "candidates": [
         "Blacktown Spartans",
-        "Northern Tigers"
-      ]
+        "Northern Tigers",
+        "Canterbury Bankstown FC"
+      ],
+      "extraCandidateSource": "https://footballnsw.com.au/2026/02/03/football-nsw-league-one-mens-2026-season-preview/"
     },
     {
       "row": 209,
@@ -35,7 +37,8 @@
       "candidates": [
         "North Geelong Warriors",
         "Melbourne Knights",
-        "Port Melbourne"
+        "Port Melbourne",
+        "Northcote City"
       ],
       "selection": {
         "method": "Fisher-Yates xorshift32 seed 20260701, first 3 of 5 confirmed distinct candidates",
@@ -48,7 +51,8 @@
         ],
         "excludedExisting": "Brunswick Juventus / 44:64 administrative cup placeholder",
         "source": "https://footballvictoria.com.au/news/2026-victorian-premier-league-fixtures-released"
-      }
+      },
+      "extraCandidateSource": "https://footballvictoria.com.au/news/2026-victorian-premier-league-fixtures-released"
     },
     {
       "row": 210,
@@ -57,8 +61,10 @@
       "conditional": 0,
       "candidates": [
         "Brisbane Strikers",
-        "Broadbeach United"
-      ]
+        "Broadbeach United",
+        "St George Willawong FC"
+      ],
+      "extraCandidateSource": "https://footballqueensland.com.au/2025/11/06/football-queensland-releases-2026-draws-for-npl-fqpl-6-metro-kappa-pro-series-and-fq-academy-leagues/"
     }
   ],
   "noPool": [
@@ -69,5 +75,6 @@
     "Pool roles resolved by CE at edition closure; candidate order is not a real qualification ranking.",
     "Do not enable until stable IDs, manager roster binding, membership, OG playoff, and CAR transaction verified.",
     "User correction 25/11/2026: one shared TEST player definition only; native copies have independent slot identity/state. No repeated player records in source data."
-  ]
+  ],
+  "regionalBalance": "USER_APPROVED_GAME_POLICY: if net incoming from upper level is +1, one additional relegation to bottom pool; if net incoming is -1, one additional promotion from bottom pool. Maintain division cardinality, preserve ordinary result-dependent playout, no automatic extra movement when net zero. Select from eligible pool by persisted CE policy; unresolved role/order must not invent standings. Runtime transaction not implemented."
 }

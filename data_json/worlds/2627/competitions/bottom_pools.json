@@ -10,7 +10,7 @@
       "comp_id": 88,
       "division": 0,
       "independent_pyramid": true,
-      "bottom": true,
+      "bottom": false,
       "club_count": 12,
       "regular_games": 156,
       "regular_games_per_club": 26,
@@ -117,7 +117,7 @@
         "require_complete_ce_table": true,
         "roles": "NONE",
         "pool": [],
-        "adaptation": "No sporting pool."
+        "adaptation": "No upper pool; approved Championship winner up / last regular A-League down; pending runtime."
       }
     },
     {
@@ -219,7 +219,8 @@
         "roles": "UNRESOLVED_IF_PLAYOUT_REQUIRED",
         "pool": [
           "44:80",
-          "44:81"
+          "44:81",
+          "44:87"
         ],
         "playout": {
           "upper_rank": 15,
@@ -235,7 +236,8 @@
           "penalties": true,
           "requires_og_witness": true
         },
-        "adaptation": "One direct entrant and one challenger selected by a future persistent game policy, not a lower-tier ranking. Do not assign candidate roles by file order."
+        "adaptation": "One direct entrant and one challenger selected by a future persistent game policy, not a lower-tier ranking. Do not assign candidate roles by file order.",
+        "pool_capacity": 3
       }
     },
     {
@@ -401,9 +403,11 @@
         "pool": [
           "44:82",
           "44:83",
-          "44:84"
+          "44:84",
+          "44:88"
         ],
-        "adaptation": "Approved three-club reserve pool replaces unrepresented VPL1 rank/playoff selection. No fictitious lower tier; federation exceptional decisions not simulated."
+        "adaptation": "Approved three-club reserve pool replaces unrepresented VPL1 rank/playoff selection. No fictitious lower tier; federation exceptional decisions not simulated.",
+        "pool_capacity": 4
       }
     },
     {
@@ -497,9 +501,11 @@
         "roles": "ALL_DIRECT_POOL",
         "pool": [
           "44:85",
-          "44:86"
+          "44:86",
+          "44:89"
         ],
-        "adaptation": "Two reserve clubs represent the two FQPL1 promotion slots, not actual future qualifiers."
+        "adaptation": "Two reserve clubs represent the two FQPL1 promotion slots, not actual future qualifiers.",
+        "pool_capacity": 3
       }
     }
   ],
@@ -515,7 +521,12 @@
       "roster": {
         "template": "TEST_ZERO",
         "base_slots": 16
-      }
+      },
+      "pool_id": 1,
+      "country": 44,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "UNRESOLVED",
+      "native_name": "BLACKTOWN SPART."
     },
     {
       "key": "44:81",
@@ -528,7 +539,12 @@
       "roster": {
         "template": "TEST_ZERO",
         "base_slots": 16
-      }
+      },
+      "pool_id": 2,
+      "country": 44,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "UNRESOLVED",
+      "native_name": "NORTHERN TIGERS"
     },
     {
       "key": "44:82",
@@ -541,7 +557,12 @@
       "roster": {
         "template": "TEST_ZERO",
         "base_slots": 16
-      }
+      },
+      "pool_id": 3,
+      "country": 44,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "UNRESOLVED",
+      "native_name": "NORTH GEELONG W."
     },
     {
       "key": "44:83",
@@ -554,7 +575,12 @@
       "roster": {
         "template": "TEST_ZERO",
         "base_slots": 16
-      }
+      },
+      "pool_id": 4,
+      "country": 44,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "UNRESOLVED",
+      "native_name": "MELBOURNE KNIGHTS"
     },
     {
       "key": "44:84",
@@ -567,7 +593,12 @@
       "roster": {
         "template": "TEST_ZERO",
         "base_slots": 16
-      }
+      },
+      "pool_id": 5,
+      "country": 44,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "UNRESOLVED",
+      "native_name": "PORT MELBOURNE"
     },
     {
       "key": "44:85",
@@ -580,7 +611,12 @@
       "roster": {
         "template": "TEST_ZERO",
         "base_slots": 16
-      }
+      },
+      "pool_id": 6,
+      "country": 44,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "UNRESOLVED",
+      "native_name": "BRISBANE STRIKERS"
     },
     {
       "key": "44:86",
@@ -593,7 +629,69 @@
       "roster": {
         "template": "TEST_ZERO",
         "base_slots": 16
-      }
+      },
+      "pool_id": 7,
+      "country": 44,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "UNRESOLVED",
+      "native_name": "BROADBEACH UTD."
+    },
+    {
+      "key": "44:87",
+      "proposed_native_file": 44,
+      "proposed_native_ordinal": 86,
+      "name": "Canterbury Bankstown FC",
+      "home_pyramid_division": 1,
+      "identity_status": "RESERVED_NOT_REGISTERED",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16
+      },
+      "source": "https://footballnsw.com.au/2026/02/03/football-nsw-league-one-mens-2026-season-preview/",
+      "pool_id": 8,
+      "country": 44,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "UNRESOLVED",
+      "native_name": "CANTERBURY BANKS."
+    },
+    {
+      "key": "44:88",
+      "proposed_native_file": 44,
+      "proposed_native_ordinal": 87,
+      "name": "Northcote City",
+      "home_pyramid_division": 2,
+      "identity_status": "RESERVED_NOT_REGISTERED",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16
+      },
+      "source": "https://footballvictoria.com.au/news/2026-victorian-premier-league-fixtures-released",
+      "pool_id": 9,
+      "country": 44,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "UNRESOLVED",
+      "native_name": "NORTHCOTE CITY"
+    },
+    {
+      "key": "44:89",
+      "proposed_native_file": 44,
+      "proposed_native_ordinal": 88,
+      "name": "St George Willawong FC",
+      "home_pyramid_division": 3,
+      "identity_status": "RESERVED_NOT_REGISTERED",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16
+      },
+      "source": "https://footballqueensland.com.au/2025/11/06/football-queensland-releases-2026-draws-for-npl-fqpl-6-metro-kappa-pro-series-and-fq-academy-leagues/",
+      "pool_id": 10,
+      "country": 44,
+      "storage": "SHARED_WORLD_POOL",
+      "native_mapping_status": "UNRESOLVED",
+      "native_name": "ST GEORGE WILLAW."
     }
   ],
   "roster_template": {
@@ -623,10 +721,74 @@
     "mutable_state": "INDEPENDENT_PER_SLOT"
   },
   "structure": {
-    "a_league": "CLOSED_LICENSED",
-    "state_pyramids": "INDEPENDENT_REGIONAL_MOVEMENT",
-    "australian_championship": "ADDITIONAL_NATIONAL_COMPETITION_QUALIFICATION_NOT_PROMOTION",
-    "source": "https://australianchampionship.com.au/news/beginners-guide-australian-championship",
-    "no_sporting_link_to_a_league": true
-  }
+    "scope": "COMMON_BOTTOM_POOL_ALL_COUNTRIES",
+    "membership": "COUNTRY_AND_PYRAMID",
+    "shared_roster_template": "TEST_ZERO",
+    "missing_country": "NOT_CONFIGURED_NOT_EMPTY_PROVEN",
+    "no_upper_pool": true
+  },
+  "storage": {
+    "kind": "SHARED_WORLD_POOL",
+    "scope": "All countries in world 2627; country and regional pyramid are membership metadata, not physical TEAM-file addresses.",
+    "record_id": "pool_id",
+    "allocation": "PERSISTENT_UNIQUE_APPEND_ONLY_NO_REUSE",
+    "native_mapping": "TAIL_SLOT_FROM_POOL_ID_PREPARED",
+    "next_pool_id": 11,
+    "legacy_reservations": "Raw country/ordinal is stable club lookup key, not a country-global array offset. Shared JSON is sole source.",
+    "native_mapping_rule": "GLOBAL_TEAM_NUMBERS minus immutable pool_id; require slot >= native country end + 256 and no raw/global collision. No country interval changed."
+  },
+  "countries": [
+    {
+      "country": 44,
+      "code": "AUS",
+      "name": "Australia",
+      "pyramids": [
+        {
+          "comp_id": 88,
+          "division": 0,
+          "region": "A_LEAGUE",
+          "pool_keys": []
+        },
+        {
+          "comp_id": 88,
+          "division": 1,
+          "region": "NSW",
+          "pool_keys": [
+            "44:80",
+            "44:81",
+            "44:87"
+          ]
+        },
+        {
+          "comp_id": 88,
+          "division": 2,
+          "region": "VIC",
+          "pool_keys": [
+            "44:82",
+            "44:83",
+            "44:84",
+            "44:88"
+          ]
+        },
+        {
+          "comp_id": 88,
+          "division": 3,
+          "region": "QLD",
+          "pool_keys": [
+            "44:85",
+            "44:86",
+            "44:89"
+          ]
+        }
+      ],
+      "structure": {
+        "a_league": "USER_APPROVED_CHAMPIONSHIP_PATHWAY_NOT_RUNTIME_ACTIVE",
+        "state_pyramids": "INDEPENDENT_REGIONAL_MOVEMENT",
+        "australian_championship": "WINNER_TO_A_LEAGUE_LAST_TO_ASSIGNED_REGION_DESIGN",
+        "source": "https://australianchampionship.com.au/news/beginners-guide-australian-championship",
+        "no_sporting_link_to_a_league": false,
+        "cross_region_balance": "USER_APPROVED_GAME_POLICY: if net incoming from upper level is +1, one additional relegation to bottom pool; if net incoming is -1, one additional promotion from bottom pool. Maintain division cardinality, preserve ordinary result-dependent playout, no automatic extra movement when net zero. Select from eligible pool by persisted CE policy; unresolved role/order must not invent standings. Runtime transaction not implemented."
+      }
+    }
+  ]
 }

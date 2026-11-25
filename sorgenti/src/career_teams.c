@@ -31,6 +31,7 @@
 #include "world.h"
 #ifdef SWOS_SDL_BUILD
 #include "expanded_universal_live.h"
+#include "expanded_universal_world_catalog.h"
 #endif
 
 /* ---- Constants ---- */
@@ -200,6 +201,12 @@ TeamFileEx *GetTeamPointer(uint16_t teamId)
     if (tmd)
         return tmd;
 
+#ifdef SWOS_SDL_BUILD
+    if(ExpandedUniversalLive_Active()) {
+        TeamFileEx *pool=ExpandedUniversalCatalog_SharedPoolRoster(teamId);
+        if(pool)return pool;
+    }
+#endif
     /* Load from team file and scan for matching team ID.
      * teamFileBuffer contains TeamFileEx-sized records (684 bytes each).
      * teamId is packed (countryNumber<<8 | teamOrdinal), matching the

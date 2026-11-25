@@ -49,6 +49,8 @@ int ExpandedUniversalCatalog_AddLeague(uint8_t country, uint8_t native_comp_id,
 int ExpandedUniversalCatalog_AddCup(uint8_t country, uint8_t native_comp_id,
                                     uint8_t native_type);
 int ExpandedUniversalCatalog_Seal(void);
+void ExpandedUniversalCatalog_ObserveNativeTeam(const TeamFileEx *team);
+TeamFileEx *ExpandedUniversalCatalog_SharedPoolRoster(uint16_t raw);
 int ExpandedUniversalCatalog_Audit(ExpandedUniversalCatalogAudit *out);
 const ExpandedUniversalCatalogFixture *ExpandedUniversalCatalog_Fixture(uint32_t i);
 TeamFileEx *ExpandedUniversalCatalog_Roster(ExpandedClubKey key);

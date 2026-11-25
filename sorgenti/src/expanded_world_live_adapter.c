@@ -132,6 +132,7 @@ static unsigned import_file(uint8_t file, uint8_t country,
     for(unsigned i=0;i<count;++i) {
         const TeamFileEx *t=&teams[i];
         ++s_import_rows_seen;
+        ExpandedUniversalCatalog_ObserveNativeTeam(t);
         if(t->team.countryNumber!=file) {
             track_rejection(t,file,LIVE_IMPORT_WRONG_FILE);
             continue;

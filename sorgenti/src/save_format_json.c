@@ -3116,6 +3116,8 @@ static void load_team_file_ex_slice(const char *buf, int buflen,
 }
 
 #ifdef SWOS_SDL_BUILD
+/* Common-pool ID mapping is validated before touching a live CAR. */
+#include "expanded_ce_shared_pool_data.h"
 /* v284 DRY RUN of universal_rosters_restore: parses the same roster array
  * into ONE scratch record and checks identity, uniqueness, count and that
  * every fixture club of the CAR has a roster. Touches no global state, so a
@@ -3133,6 +3135,8 @@ static int universal_rosters_validate(const char *json,int len)
     uint32_t i=0,n=0;
     uint32_t *keys=NULL;
     TeamFileEx *scratch=NULL;
+    ExpCeSharedPoolData pool={0};
+    int pool_ok=0;
     const int token=mjson_find(json,len,"$.universal_engine",&root,&root_len);
     if(token==MJSON_TOK_NULL || token==MJSON_TOK_INVALID)return 1; /* old CAR */
     if(token!=MJSON_TOK_STRING || World_Current()!=WORLD_2627 ||
@@ -3144,6 +3148,8 @@ static int universal_rosters_validate(const char *json,int len)
     keys=(uint32_t *)malloc((size_t)n*sizeof *keys);
     scratch=(TeamFileEx *)calloc(1,sizeof *scratch);
     if(!keys || !scratch)goto done;
+    pool_ok=ExpCeSharedPool_Load(&pool);
+    if(!pool_ok)fprintf(stderr,"[ce-bottom-pool] CAR_POOL_DEFINITION_INVALID\n");
     while(i<n && (off=fast_array_next(arr,arr_len,off,&vo,&vl,&vt))!=0) {
         const char *check=NULL;
         int checklen=0;
@@ -3155,6 +3161,9 @@ static int universal_rosters_validate(const char *json,int len)
         memset(scratch,0,sizeof *scratch);
         load_team_file_ex_slice(arr+vo,vl,(uint8_t *)scratch);
         if(!ExpandedUniversalCatalog_KeyOf(scratch,&key))goto done;
+        /* No fresh roster may be substituted at CONTINUE. A tail slot
+         * must have the exact immutable mapping in the common data. */
+        if(!ExpCeSharedPool_SavedRosterOK(&pool,scratch))goto done;
         keys[i++]=key.stable_club;
     }
     if(i!=n || fast_array_next(arr,arr_len,off,&vo,&vl,&vt)!=0)goto done;
@@ -3162,6 +3171,7 @@ static int universal_rosters_validate(const char *json,int len)
     for(i=1;i<n;++i)if(keys[i]==keys[i-1u])goto done;
     ok=ExpandedUniversal_CarCoversClubs(json,len,keys,n);
 done:
+    ExpCeSharedPool_Free(&pool);
     free(keys);free(scratch);
     if(!ok)fprintf(stderr,"[universal-car-rosters] PREFLIGHT_REJECTED "
         "invalid-or-incomplete-rosters old-save-preserved=1\n");

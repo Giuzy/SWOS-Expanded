@@ -212,7 +212,8 @@
 /* v00.13.305: CE competition screen reached ONLY by one extra button (SUPERCOPPA) in the
  * WORLD list of its country and in VIEW COMPETITIONS of its clubs; OG menus otherwise
  * unchanged; projection identity fix; Coppa Italia TEST placeholder 44:79. */
-#define SWOS_EXPANDED_VERSION "00.13.306"
+/* v00.13.307 PREPARED: bottom pool standby cardinality and native slot preflight. */
+#define SWOS_EXPANDED_VERSION "00.13.307"
 
 /* "401ff14", or "401ff14-dirty" when tracked source differed from that commit
  * -- meaning the binary is NOT that commit. Lowercase, as git prints it. */

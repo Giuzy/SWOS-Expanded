@@ -9,6 +9,8 @@
 #include "expanded_universal_pairings.h"
 #include "expanded_universal_json_leagues.h"
 #include "expanded_universal_date_planner.h"
+#include "expanded_ce_shared_pool_data.h"
+#include "expanded_ce_admin.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -39,6 +41,7 @@ static struct {
     ExpandedUniversalCatalogAudit audit;
     int32_t start_day;
     uint8_t active;
+    uint8_t native_raw_seen[65536];
 } s_catalog;
 
 static int cat_grow(void **array,uint32_t *cap,uint32_t need,size_t size)
@@ -408,12 +411,65 @@ static int cat_day_cmp(const void *aa,const void *bb)
     return a->fixture_index<b->fixture_index?-1:
            a->fixture_index>b->fixture_index?1:0;
 }
+/* Every native TEAM row, including those outside the league, is observed
+ * before reserves are materialized. Raw identities must not overlap. */
+void ExpandedUniversalCatalog_ObserveNativeTeam(const TeamFileEx *t)
+{
+    if(s_catalog.active && t)
+        s_catalog.native_raw_seen[((uint16_t)t->team.countryNumber<<8)|t->team.teamOrdinal]=1u;
+}
+TeamFileEx *ExpandedUniversalCatalog_SharedPoolRoster(uint16_t raw)
+{
+    extern uint16_t _teamsCountryNumbers[256];
+    uint32_t i;
+    if(World_Current()!=WORLD_2627 || !s_catalog.active)return NULL;
+    for(i=0;i<s_catalog.nclubs;++i) {
+        TeamFileEx *t=s_catalog.clubs[i].roster;
+        if((((uint16_t)t->team.countryNumber<<8)|t->team.teamOrdinal)==raw &&
+           (uint16_t)t->team.globalTeamNumber>=(uint32_t)_teamsCountryNumbers[255]+256u)
+            return t;
+    }
+    return NULL;
+}
+static int cat_import_shared_pool(void)
+{
+    ExpCeSharedPoolData p={0};
+    TeamFileEx *stage=NULL;
+    uint32_t i,j,old=s_catalog.nclubs;
+    int ok=0;
+    if(!ExpCeSharedPool_Load(&p))goto done;
+    if(!p.n){ok=1;goto done;}
+    stage=(TeamFileEx *)calloc(p.n,sizeof *stage);
+    if(!stage)goto done;
+    for(i=0;i<p.n;++i) {
+        ExpandedClubKey k={(uint16_t)WORLD_2627,p.rows[i].key,EXP_PARTICIPANT_CLUB};
+        if(s_catalog.native_raw_seen[p.rows[i].raw] || ExpCeAdmin_IsTest(k))goto done;
+        for(j=0;j<old;++j)
+            if(s_catalog.clubs[j].key.stable_club==k.stable_club ||
+               (uint16_t)s_catalog.clubs[j].roster->team.globalTeamNumber==p.rows[i].global)
+                goto done;
+        ExpCeSharedPool_Materialize(&p.rows[i],&stage[i]);
+    }
+    for(i=0;i<p.n;++i)
+        if(!ExpandedUniversalCatalog_AddClub(&stage[i]))goto done;
+    ok=1;
+done:
+    if(!ok) {
+        while(s_catalog.nclubs>old)free(s_catalog.clubs[--s_catalog.nclubs].roster);
+        s_catalog.audit.clubs=s_catalog.nclubs;
+        ++s_catalog.audit.failed_clubs;
+    }
+    fprintf(stderr,"[ce-bottom-pool] SHARED_ROSTERS count=%lu status=%s no-native-base-shift=1\n",
+        (unsigned long)(ok?p.n:0u),ok?"REGISTERED":"REJECTED");
+    free(stage);ExpCeSharedPool_Free(&p);return ok;
+}
 int ExpandedUniversalCatalog_Seal(void)
 {
     CatalogDayClub *days;
     uint32_t i,n;
     if(!s_catalog.active)return World_Current()!=WORLD_2627;
     if(s_catalog.audit.sealed)return 1;
+    if(!cat_import_shared_pool())return 0;
     for(i=0;i<s_catalog.nleagues;++i)
         if(!cat_make_league(&s_catalog.leagues[i]))
             ++s_catalog.audit.unsupported_leagues;

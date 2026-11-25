@@ -1,0 +1,137 @@
+{
+  "researchKey": "2627:AUS:AUSTRALIAN_CHAMPIONSHIP",
+  "ceCompetitionId": null,
+  "world": "2627",
+  "country": "AUS",
+  "name": "AUSTRALIAN CHAMPIONSHIP",
+  "inventoryPath": "OCEANIA/AUS/2627/AUSTRALIAN_CHAMPIONSHIP.json",
+  "legacyInventoryRow": null,
+  "operationalFields": {
+    "name": "V",
+    "identity": "P",
+    "participants": "P",
+    "format": "V",
+    "regulation": "P",
+    "movement": "P",
+    "qualification": "P",
+    "july1": "NA",
+    "roundDates": "P",
+    "competitionDays": "P",
+    "evolution": "P",
+    "seasonChange": "P"
+  },
+  "operationalStatus": "INCOMPLETA",
+  "runtimeVerified": false,
+  "gameRules": {
+    "status": "USER_APPROVED_DESIGN_NOT_RUNTIME",
+    "world": "2627",
+    "competition": "2627:AUS:AUSTRALIAN_CHAMPIONSHIP",
+    "invitation": {
+      "source": "AUSTRALIAN_CHAMPIONSHIP_WINNER",
+      "target": "A_LEAGUE",
+      "count": 1
+    },
+    "relegation": {
+      "source": "A_LEAGUE_FINAL_REGULAR_TABLE",
+      "rank": 12,
+      "count": 1,
+      "target": "ASSIGNED_REGIONAL_PYRAMID"
+    },
+    "aleagueSize": 12,
+    "initialRegionalRouting": {
+      "NSW": [
+        "44:5",
+        "44:12",
+        "44:7",
+        "44:9"
+      ],
+      "VIC": [
+        "44:4",
+        "44:6",
+        "44:2",
+        "44:10"
+      ],
+      "QLD": [
+        "44:11",
+        "44:1",
+        "44:3",
+        "44:8"
+      ]
+    },
+    "qualification": "Preserve authentic Championship entry criteria; missing federation paths unresolved, no invented participants.",
+    "crossRegionBalance": "USER_APPROVED_GAME_POLICY: if net incoming from upper level is +1, one additional relegation to bottom pool; if net incoming is -1, one additional promotion from bottom pool. Maintain division cardinality, preserve ordinary result-dependent playout, no automatic extra movement when net zero. Select from eligible pool by persisted CE policy; unresolved role/order must not invent standings. Runtime transaction not implemented.",
+    "notes": "One up and one down; preserve real federation/country, identity, roster, no pool in A-League, no repeated membership or invented outcomes. Design exception, not official Australian rule."
+  },
+  "limits": "New approved CE-only competition; no assigned runtime ID, complete entrant mapping, regulation, calendar or qualification. Regional compensation approved, not implemented.",
+  "authentic": {
+    "identity": "Australian national second-tier tournament, inaugural October 2025, no official promotion to A-League",
+    "format": {
+      "clubs": 16,
+      "foundation": 8,
+      "qualified": 8,
+      "groups": 4,
+      "groupSize": 4,
+      "quarterfinalists": 8,
+      "knockout": true,
+      "sourceScope": "2026 official groups and quarterfinal announcement; full detailed pairing and legs to audit"
+    },
+    "regulation": {
+      "drawnGroupMatches": "Penalty shootout bonus point model from 2026; exact point weights and tie-break ordering require full text verification",
+      "status": "P"
+    },
+    "qualification": {
+      "foundationClubs": 8,
+      "regionalQualifiers": 8,
+      "sourceScope": "Official 2026 announcement; actual qualifying club names determined after July1 not imported as START data. Native mapping and absent federation paths pending."
+    },
+    "calendar": {
+      "firstMatch": "2026-10-16",
+      "quarterfinalStart": "2026-11-26",
+      "finalWindowCandidates": [
+        "2026-12-10/12",
+        "2026-12-12/13"
+      ],
+      "scope": "Published 2026 reference windows only; full round schedule/weekday frequencies and final date unresolved, no official future date asserted."
+    },
+    "july1": {
+      "status": "NA",
+      "reason": "2026 tournament starts after July1; no matches imported. Qualifiers earned from regional editions as CE results become known."
+    },
+    "evolution": {
+      "inaugural": 2025,
+      "bonusShootoutIntroduced": 2026,
+      "status": "P"
+    },
+    "australiaCup": "Official 2026 pathway awarded previous Championship winner direct entry to round of 32; later applicability to verify, no future results imported."
+  },
+  "sources": [
+    {
+      "url": "https://australianchampionship.com.au/news/australian-championship-groups-confirmed-2026",
+      "scope": "Official 16 participants, 4 groups, 2 foundation and 2 qualifying per group; search snippet, full page cache miss."
+    },
+    {
+      "url": "https://australianchampionship.com.au/news/confirmed-qualified-clubs-2026-australian-championship",
+      "scope": "8+8 entrants, October16 first match, December12–13 final window; snippet only."
+    },
+    {
+      "url": "https://australianchampionship.com.au/news/thursday-night-free-air-coverage-headlines-australian-championship-2026",
+      "scope": "Quarterfinal start Nov26, differing Dec10–12 final window."
+    },
+    {
+      "url": "https://footballaustralia.com.au/news/penalty-shootout-bonus-point-model-2026-australian-championship?page=2",
+      "scope": "Every regular-stage draw goes to shootout for bonus model; exact weights pending."
+    },
+    {
+      "url": "https://australianchampionship.com.au/news/2026-australian-championship-quarterfinals-preview",
+      "scope": "Eight quarterfinalists; no postcutoff results copied."
+    },
+    {
+      "url": "https://australianchampionship.com.au/faqs",
+      "scope": "Launch 2025, 8 foundation+8 state qualifiers."
+    },
+    {
+      "url": "https://footballaustralia.com.au/news/football-australia-announces-refined-competitions-structure-2026?page=3",
+      "scope": "2026 Australia Cup round32 direct qualification previous Championship winner."
+    }
+  ]
+}

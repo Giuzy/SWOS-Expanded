@@ -1,0 +1,405 @@
+{
+  "block": 158,
+  "head": "6d5a30669b7d175154638ab45d895d806f574905",
+  "archive": "RICERCA_20261125-032650-750371.zip",
+  "archiveSha256": "cf938784ef74cc60f21621c27ca740843cf478e94504993e8d9b0cb3ab563222",
+  "sources": [
+    "github/openfootball/football.json",
+    "euro2627/all-euro-data-2026-2027.xlsx"
+  ],
+  "scope": "Date/pair comparison of regular schedules. All matches after July 1 reference only; no results imported. Workbook dates are observations; date differences are candidate rescheduling corrections, not certified independent actual dates. Original schedule retained. Do not apply this to other editions.",
+  "columns": [
+    "row",
+    "division",
+    "regularFixtures",
+    "teams",
+    "workbookObservations",
+    "exactDatePairs"
+  ],
+  "rows": [
+    [
+      231,
+      "E0",
+      380,
+      20,
+      110,
+      101
+    ],
+    [
+      232,
+      "E1",
+      552,
+      24,
+      192,
+      192
+    ],
+    [
+      243,
+      "D1",
+      306,
+      18,
+      90,
+      90
+    ],
+    [
+      186,
+      "I1",
+      380,
+      20,
+      120,
+      119
+    ],
+    [
+      286,
+      "P1",
+      306,
+      18,
+      98,
+      96
+    ],
+    [
+      239,
+      "F1",
+      306,
+      18,
+      99,
+      94
+    ],
+    [
+      235,
+      "SP1",
+      380,
+      20,
+      129,
+      106
+    ],
+    [
+      275,
+      "N1",
+      306,
+      18,
+      117,
+      117
+    ]
+  ],
+  "dateDifferenceColumns": [
+    "homeWorkbook",
+    "awayWorkbook",
+    "originalReferenceDate",
+    "observedWorkbookDate"
+  ],
+  "dateDifferences": {
+    "186": [
+      [
+        "Juventus",
+        "Venezia",
+        "2026-11-23",
+        "2026-11-22"
+      ]
+    ],
+    "231": [
+      [
+        "Everton",
+        "Coventry",
+        "2026-11-07",
+        "2026-11-06"
+      ],
+      [
+        "Brighton",
+        "Brentford",
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      [
+        "Crystal Palace",
+        "Liverpool",
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      [
+        "Ipswich",
+        "Bournemouth",
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      [
+        "Sunderland",
+        "Chelsea",
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      [
+        "Man United",
+        "Aston Villa",
+        "2026-11-07",
+        "2026-11-08"
+      ],
+      [
+        "Hull",
+        "Brighton",
+        "2026-11-21",
+        "2026-11-22"
+      ],
+      [
+        "Liverpool",
+        "Man United",
+        "2026-11-21",
+        "2026-11-22"
+      ],
+      [
+        "Brentford",
+        "Everton",
+        "2026-11-21",
+        "2026-11-23"
+      ]
+    ],
+    "235": [
+      [
+        "Alaves",
+        "Malaga",
+        "2026-10-25",
+        "2026-10-23"
+      ],
+      [
+        "Vallecano",
+        "Elche",
+        "2026-10-25",
+        "2026-10-24"
+      ],
+      [
+        "Santander",
+        "Espanol",
+        "2026-10-25",
+        "2026-10-24"
+      ],
+      [
+        "Valencia",
+        "Villarreal",
+        "2026-10-25",
+        "2026-10-24"
+      ],
+      [
+        "Ath Madrid",
+        "La Coruna",
+        "2026-10-25",
+        "2026-10-24"
+      ],
+      [
+        "Sevilla",
+        "Osasuna",
+        "2026-10-25",
+        "2026-10-26"
+      ],
+      [
+        "Villarreal",
+        "Espanol",
+        "2026-11-01",
+        "2026-10-30"
+      ],
+      [
+        "Levante",
+        "Ath Madrid",
+        "2026-11-01",
+        "2026-10-31"
+      ],
+      [
+        "Vallecano",
+        "Celta",
+        "2026-11-01",
+        "2026-10-31"
+      ],
+      [
+        "Betis",
+        "Malaga",
+        "2026-11-01",
+        "2026-10-31"
+      ],
+      [
+        "Barcelona",
+        "Alaves",
+        "2026-11-01",
+        "2026-10-31"
+      ],
+      [
+        "La Coruna",
+        "Osasuna",
+        "2026-11-01",
+        "2026-11-02"
+      ],
+      [
+        "Sevilla",
+        "Alaves",
+        "2026-11-08",
+        "2026-11-06"
+      ],
+      [
+        "Malaga",
+        "Santander",
+        "2026-11-08",
+        "2026-11-07"
+      ],
+      [
+        "Espanol",
+        "La Coruna",
+        "2026-11-08",
+        "2026-11-07"
+      ],
+      [
+        "Osasuna",
+        "Ath Bilbao",
+        "2026-11-08",
+        "2026-11-07"
+      ],
+      [
+        "Valencia",
+        "Real Madrid",
+        "2026-11-08",
+        "2026-11-07"
+      ],
+      [
+        "Ath Bilbao",
+        "Espanol",
+        "2026-11-22",
+        "2026-11-20"
+      ],
+      [
+        "Alaves",
+        "La Coruna",
+        "2026-11-22",
+        "2026-11-21"
+      ],
+      [
+        "Vallecano",
+        "Valencia",
+        "2026-11-22",
+        "2026-11-21"
+      ],
+      [
+        "Sevilla",
+        "Betis",
+        "2026-11-22",
+        "2026-11-21"
+      ],
+      [
+        "Real Madrid",
+        "Celta",
+        "2026-11-22",
+        "2026-11-21"
+      ],
+      [
+        "Levante",
+        "Elche",
+        "2026-11-22",
+        "2026-11-23"
+      ]
+    ],
+    "239": [
+      [
+        "Toulouse",
+        "Troyes",
+        "2026-10-24",
+        "2026-10-25"
+      ],
+      [
+        "Paris SG",
+        "Lyon",
+        "2026-10-25",
+        "2026-10-26"
+      ],
+      [
+        "Nice",
+        "Rennes",
+        "2026-10-31",
+        "2026-10-30"
+      ],
+      [
+        "Lyon",
+        "Angers",
+        "2026-10-31",
+        "2026-11-01"
+      ],
+      [
+        "Lorient",
+        "Brest",
+        "2026-10-31",
+        "2026-11-02"
+      ]
+    ],
+    "286": [
+      [
+        "Sp Braga",
+        "Gil Vicente",
+        "2026-08-16",
+        "2026-10-19"
+      ],
+      [
+        "Nacional",
+        "Academico Viseu",
+        "2026-11-07",
+        "2026-11-08"
+      ]
+    ]
+  },
+  "aliasOrder": "Reference names sorted lexicographically in Python, corresponding workbook aliases in this order; not new native IDs",
+  "aliasLists": {
+    "186": "Milan|Monza|Fiorentina|Roma|Atalanta|Bologna|Cagliari|Como|Inter|Frosinone|Genoa|Juventus|Parma|Lazio|Napoli|Torino|Lecce|Sassuolo|Udinese|Venezia",
+    "231": "Bournemouth|Arsenal|Aston Villa|Brentford|Brighton|Chelsea|Coventry|Crystal Palace|Everton|Fulham|Hull|Ipswich|Leeds|Liverpool|Man City|Man United|Newcastle|Nott'm Forest|Sunderland|Tottenham",
+    "232": "Birmingham|Blackburn|Bolton|Bristol City|Burnley|Cardiff|Charlton|Derby|Lincoln|Middlesbrough|Millwall|Norwich|Portsmouth|Preston|QPR|Sheffield United|Southampton|Stoke|Swansea|Watford|West Brom|West Ham|Wolves|Wrexham",
+    "235": "Ath Bilbao|Osasuna|Ath Madrid|Alaves|Elche|Barcelona|Getafe|Levante|Malaga|Celta|La Coruna|Espanol|Vallecano|Betis|Real Madrid|Santander|Sociedad|Sevilla|Valencia|Villarreal",
+    "239": "Auxerre|Monaco|Angers|Troyes|Lorient|Le Havre|Le Mans|Lille|Nice|Lyon|Marseille|Paris FC|Paris SG|Strasbourg|Lens|Brest|Rennes|Toulouse",
+    "243": "FC Koln|Union Berlin|Mainz|Leverkusen|Dortmund|M'gladbach|Ein Frankfurt|Augsburg|Bayern Munich|Schalke 04|Hamburg|RB Leipzig|Freiburg|Paderborn|Elversberg|Werder Bremen|Hoffenheim|Stuttgart",
+    "275": "Den Haag|Ajax|AZ Alkmaar|Groningen|Twente|Utrecht|Feyenoord|For Sittard|Go Ahead Eagles|Nijmegen|Zwolle|PSV Eindhoven|Excelsior|Cambuur|Heerenveen|Sparta Rotterdam|Telstar|Willem II",
+    "286": "Academico Viseu|Nacional|Santa Clara|Estrela|Maritimo|Casa Pia|Alverca|Arouca|Famalicao|Porto|Estoril|Gil Vicente|Moreirense|Rio Ave|Benfica|Sp Braga|Sp Lisbon|Guimaraes"
+  },
+  "checks": {
+    "allOrientedPairSetsComplete": true,
+    "withinLeagueSameDayConflictsAfterCandidateCorrections": 0,
+    "allWorkbookPairsMatched": 955,
+    "exactDates": 915,
+    "differences": 40,
+    "globalCollisionTest": "NOT_PROVEN",
+    "noScoresCopied": true
+  },
+  "access": {
+    "policy": "GAME_TEMPLATE_2026, not claim of official 2027/28 or fixed country rank in future. Use CE standings and match results. Do not hardcode future entrants.",
+    "baseTopFourAssociations": {
+      "uclLeagueRanks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "uelLeagueRank": 5,
+      "uelDomesticCupWinner": true,
+      "ueclPlayoffLowestLeagueRank": 6,
+      "exceptions": "UEFA 2026/27 UCL article3.03–3.09, UEL article3.03–3.15 and UECL article3; use association/club coefficients, holder rebalancing, EPS and cup duplicate priority; no duplicate entrant. EFL Cup is English UECL route instead of rank6."
+    },
+    "eng": {
+      "ucl": 4,
+      "uel": 2,
+      "uecl": 1,
+      "ueclRoute": "EFL Cup winner, pass to highest eligible league rank if already qualified",
+      "supercup": "league champion vs FA Cup winner; league runner-up if double",
+      "evidence": "Premier League official European qualification explainer 1 Aug 2025, UEFA 2026/27 Art3, FA Community Shield official rules and 2026 explanation; 2027/28 provisional official circular full annex unavailable."
+    },
+    "ger": {
+      "ucl": 4,
+      "uel": 2,
+      "uecl": 1,
+      "ueclRoute": "highest eligible remaining league rank after UCL and UEL allocations",
+      "supercup": "league champion vs DFB-Pokal winner; league runner-up if double",
+      "evidence": "Bundesliga official European qualification explainer 13 Apr 2026 and 2026 Supercup official announcement, UEFA 2026/27 Art3"
+    },
+    "otherCountries": "Common UEFA access logic recorded; exact country-specific routes/other domestic competition access not yet closed."
+  },
+  "germanPlayoff": {
+    "firstLeg": "2027-05-27",
+    "secondLeg": "2027-05-31",
+    "alternateFirst": "2027-05-26",
+    "alternateSecond": "2027-06-02",
+    "participants": "rank16 Bundesliga vs rank3 2.Bundesliga",
+    "host": "existing block68, rest-day rule",
+    "evidence": "DFL Rahmenterminkalender 2026/27 May page11 visually checked; June page12 text, screenshot cache miss. Alternate activation condition not fully certified; future conditional fixture."
+  },
+  "limits": "Do not assume upstream independence. 40 date differences may be published schedule updates; do not erase original dates or fabricate postponement reasons. Base 2026 template accepted previously; rare neutral decider dates determined only if required; do not assert future real date. No code/game changes."
+}

@@ -1,0 +1,389 @@
+{
+  "block": 159,
+  "head": "6d5a30669b7d175154638ab45d895d806f574905",
+  "archive": "RICERCA_20261125-032650-750371.zip",
+  "previous": "closure/MODERN_LEAGUE_BATCH_158.json",
+  "sourcePriority": [
+    "SQLite fixture/rule tables",
+    "corpus.zip",
+    "existing verified overlays",
+    "official rules only for gaps"
+  ],
+  "historicalAudit": {
+    "method": "Schochastics parquet observations in SQLite grouped July-to-June, raw oriented pair multiplicities and distinct labels; not automatic evidence of league rules or actual season boundaries",
+    "seasonsPerCountry": 27,
+    "countries": [
+      "ITA",
+      "POR",
+      "ESP",
+      "FRA",
+      "NED",
+      "ENG"
+    ],
+    "seasonsAudited": 162,
+    "columns": [
+      "firstSeason",
+      "lastSeason",
+      "rawMatchesPerSeason",
+      "distinctLabels",
+      "uniqueOrientedPairs"
+    ],
+    "italy": [
+      [
+        1996,
+        2003,
+        306,
+        18,
+        306
+      ],
+      [
+        2004,
+        2004,
+        382,
+        20,
+        380
+      ],
+      [
+        2005,
+        2018,
+        380,
+        20,
+        380
+      ],
+      [
+        2019,
+        2019,
+        282,
+        20,
+        282
+      ],
+      [
+        2020,
+        2020,
+        478,
+        23,
+        408
+      ],
+      [
+        2021,
+        2022,
+        381,
+        20,
+        380
+      ]
+    ],
+    "portugal": [
+      [
+        1996,
+        2005,
+        306,
+        18,
+        306
+      ],
+      [
+        2006,
+        2013,
+        240,
+        16,
+        240
+      ],
+      [
+        2014,
+        2018,
+        306,
+        18,
+        306
+      ],
+      [
+        2019,
+        2019,
+        259,
+        18,
+        259
+      ],
+      [
+        2020,
+        2020,
+        353,
+        20,
+        315
+      ],
+      [
+        2021,
+        2021,
+        306,
+        18,
+        306
+      ],
+      [
+        2022,
+        2022,
+        286,
+        18,
+        286
+      ]
+    ],
+    "spain": [
+      [
+        1996,
+        1996,
+        462,
+        22,
+        462
+      ],
+      [
+        1997,
+        2018,
+        380,
+        20,
+        380
+      ],
+      [
+        2019,
+        2019,
+        323,
+        20,
+        323
+      ],
+      [
+        2020,
+        2020,
+        437,
+        23,
+        395
+      ],
+      [
+        2021,
+        2022,
+        380,
+        20,
+        380
+      ]
+    ],
+    "france": [
+      [
+        1996,
+        1996,
+        380,
+        20,
+        380
+      ],
+      [
+        1997,
+        2001,
+        306,
+        18,
+        306
+      ],
+      [
+        2002,
+        2013,
+        380,
+        20,
+        380
+      ],
+      [
+        2014,
+        2014,
+        374,
+        20,
+        374
+      ],
+      [
+        2015,
+        2018,
+        380,
+        20,
+        380
+      ],
+      [
+        2019,
+        2019,
+        279,
+        20,
+        279
+      ],
+      [
+        2020,
+        2022,
+        380,
+        20,
+        380
+      ]
+    ],
+    "netherlands": [
+      [
+        1996,
+        2004,
+        306,
+        18,
+        306
+      ],
+      [
+        2005,
+        2006,
+        326,
+        18,
+        306
+      ],
+      [
+        2007,
+        2007,
+        322,
+        18,
+        306
+      ],
+      [
+        2008,
+        2018,
+        312,
+        18,
+        306
+      ],
+      [
+        2019,
+        2019,
+        232,
+        18,
+        232
+      ],
+      [
+        2020,
+        2020,
+        309,
+        18,
+        306
+      ],
+      [
+        2021,
+        2022,
+        312,
+        18,
+        306
+      ]
+    ],
+    "england": [
+      [
+        1996,
+        2010,
+        380,
+        20,
+        380
+      ],
+      [
+        2011,
+        2012,
+        342,
+        19,
+        342
+      ],
+      [
+        2013,
+        2013,
+        306,
+        18,
+        306
+      ],
+      [
+        2014,
+        2014,
+        338,
+        19,
+        338
+      ],
+      [
+        2015,
+        2018,
+        342,
+        19,
+        342
+      ],
+      [
+        2019,
+        2019,
+        314,
+        20,
+        314
+      ],
+      [
+        2020,
+        2020,
+        446,
+        23,
+        399
+      ],
+      [
+        2021,
+        2022,
+        380,
+        20,
+        380
+      ]
+    ],
+    "limits": "July-bucket pandemic distortion, missing English labels and incomplete POR/FRA seasons; do not reinterpret as format changes. Netherlands recurring extra pairs indicate playoffs, not proof of rule text."
+  },
+  "italy": {
+    "row": 186,
+    "history": {
+      "sourceFiles": [
+        "corpus/tablesi/ital04.txt",
+        "corpus/tablesi/ital05.txt",
+        "corpus/tablesi/ital06.txt"
+      ],
+      "confirmedTransition": "2004/05 18 to 20; 2003/04 transition three direct down, five direct up, 15th A vs 6th B; 2004/05 20 clubs 38 games, additional two-leg survival tie among tied teams, 2005/06 20 clubs. 2004/05 title void and 2005/06 disciplinary sanctions exceptional, not reusable rules."
+    },
+    "calendar": "380 reference regular fixtures; 120 observed workbook pairs 119 date matches, one candidate discrepancy Juventus–Venezia Nov22 vs Nov23, official schedule article explicitly Nov23; do not silently overwrite; only conditional title/survival tie dates not announced.",
+    "qualification": {
+      "scope": "GAME_TEMPLATE_2026",
+      "uclLeagueRanks": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "uelLeagueRank": 5,
+      "uelCupWinner": true,
+      "uecl": "next eligible league rank, playoff",
+      "rebalancing": "common UEFA Art3/Annex A; EPS and titleholder/cup duplication handled dynamically",
+      "coppaItalia": "20 Serie A clubs, seeded rank based on prior cup winner and UEFA-qualified clubs, eighth league club if overlap, other entrants/seed rules in art21.3.1; cross-reference current format rather than copy bracket winners",
+      "supercoppa": "Edition 2026/27 actually confirmed single match 22 Dec 2026; Art23 B champion vs cup winner, cup finalist if double, ET then penalties. Use 2026 format for game template; historical 4-team format 2023/24–2025/26 and later real decisions separately. Official club Inter announcement and league rulebook."
+    }
+  },
+  "portugal": {
+    "row": 286,
+    "calendar": "306 regular schedule, 98 observed workbook pairs with 96 exact dates; 2 differences retained from158. Official calendar n357: baseline PO1 May29, PO2 June6; alternate May26/27 if cup finalist, both Jun2/6 by agreement; published note 7 has apparent 22/23 May2026 typo in 2027 season, not silently corrected. First leg tier2 home, return tier1 home per July2 draw; lower playoff first leg Liga3 home, return tier2 home. Aggregate, ET then penalties both ties.",
+    "qualification": {
+      "scope": "GAME_TEMPLATE_2026",
+      "uclChampion": "league phase",
+      "uclRunnerUp": "Q3 league path reference (FC Porto 2026 prospectus p29); Annex A amended 29 July 2026 image shows promotion of rank7 N2 to league phase by rebalancing. Do not make that direct access permanent or treat adjusted 2026 chart as original pre-rebalance table; future access determined by reference template and shared UEFA rules.",
+      "uelCupWinner": "league phase",
+      "uelNextLeague": "qualifying Q2 baseline Annex A",
+      "ueclNextLeague": "qualifying Q2 baseline Annex A",
+      "leagueCup": "top six eligible tier1, two eligible tier2 under 2026 model",
+      "supercup": "FPF regulation arts9,11,12(5),14: champion vs cup winner, losing finalist if double or cup winner ineligible; neutral venue, ET then penalties. Corroborated by raw corpus/tablesp/portsupcuphist.txt (explicit note, through Aug1 2026).",
+      "futureActual": "FC Porto prospectus p29 reports rank6 2027/28 with two direct CL slots and third qualifying; distinct from 2026 template. Exact future official annex not verified.",
+      "nationalCup": "Existing row394 block70: tier1 clubs with European participation enter round4, remaining tier1 enter round3, tier2 enters round2; bracket count unresolved in cup row, separate dependency."
+    },
+    "leagueCupChange": "Liga Portugal announced 2027/28 opens competition to professional clubs, UEFA clubs direct QF, other clubs group/qualifier route; detailed final model not certified; keep approved 2026 game template unchanged pending user decision."
+  },
+  "other": {
+    "232": "EFL official expansion to six and seven fixtures, exact 2027 playoff dates/full rules not retrieved; no closure.",
+    "235": "RFEF art29 multi-team tie decision evidence, exact applicable first-division 2026 circular not recovered; no closure.",
+    "239": "No new complete sporting rules.",
+    "275": "Annex A rank6 2026 vs prior 2027/28 access claims must stay separate; no closure.",
+    "287": "Liga Portugal official draw 2 July: first leg Liga3 rank3 home, second tier16 home; aggregate ET/penalties on equality, same rule as upper tie. Existing common art17–18 and article31 top-tier play-off, complete core regulation (not calendar). Still missing full 306 calendar and cup entry eligibility."
+  },
+  "sources": {
+    "serieA": "https://images.legaseriea.it/image/private/fl_attachment/prd/aegoankwttfmjaamki5o.pdf",
+    "serieASchedule": "https://www.legaseriea.it/serie-a/news/quando-si-gioca-anticipi-e-posticipi-fino-alla-12a-giornata",
+    "uefa": "https://documents.uefa.com/r/Regulations-of-the-UEFA-Europa-League-2026/27/Annex-A-Access-List-for-the-2026/27-UEFA-Club-Competitions-Online",
+    "portCalendar": "https://www.ligaportugal.pt/backoffice/assets/Comunicado_Oficial_n_357_Calendarios_das_Competicoes_Profissionais_2026_27_3b82c06381.pdf",
+    "portDraw": "https://www.ligaportugal.pt/news/28154/definido-o-emparelhamento-dos-playoffs-202627",
+    "portFuture": "https://www.novobanco.pt/content/dam/novobancopublicsites/docs/pdfs/obrigacoes/FC_Porto_SAD_2026_Prospeto.pdf.coredownload.inline.pdf",
+    "portCupChange": "https://www.ligaportugal.pt/opiniao/1095/contas-trofeus-e-var",
+    "efl": "https://www.efl.com/news/2026/march/05/efl-statement--sky-bet-championship-play-off-format/",
+    "itaSupercup": "https://www.inter.it/it/notizie/supercoppa-italiana-inter-lazio-22-dicembre-2026-san-siro",
+    "porSupercup": "https://www.fpf.pt/DownloadDocument.ashx?id=26802"
+  },
+  "verification": "Annex A actual image opened; Portugal calendar p1 visually checked; Italy and prospectus PDF screenshots cache miss, text inspected. No future match results imported. No code, runtime, global collision or save test. FPF Super Cup original text retrieved, screenshot unavailable. Italy 2026 edition club official announcement verified."
+}

@@ -900,6 +900,21 @@ def selftest():
         co.db.close()
     print("SELFTEST PASS (normalization, cutoff, SQLite candidate integration; not historical certification)")
 
+def run_consolidation(source,outbase,stamp):
+    from consolidate import consolidate, selftest as consolidation_selftest
+    consolidation_selftest()
+    out=outbase/("CONSOLIDAMENTO_"+stamp);out.mkdir()
+    print("Consolidamento automatico:",source,flush=True)
+    result=consolidate(source,out,ROOT)
+    result["input_name"]=source.name
+    result["research_index_sha256"]=hashfile(ROOT/"docs/competition_research/INDEX.json")
+    result["consolidator_sha256"]=hashfile(HERE/"consolidate.py")
+    dump(out/"consolidation_summary.json",result)
+    archives=pack_results(out,outbase)
+    print(json.dumps(result,ensure_ascii=False,indent=2),flush=True)
+    print("CARICARE PRIMA I RISULTATI CONSOLIDAMENTO:",flush=True)
+    for archive in archives:print("CONSOLIDATION ZIP:",archive,flush=True)
+
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--self-test",action="store_true")
@@ -907,7 +922,19 @@ def main():
     ap.add_argument("--refresh",action="store_true",help="Fetch fresh remote source ZIPs instead of cached ones")
     ap.add_argument("--full",action="store_true",help="Reparse all local and cached sources; do not reuse prior evidence")
     ap.add_argument("--max-download-mb",type=int,default=150)
-    args=ap.parse_args();selftest()
+    ap.add_argument("--consolidate-only",action="store_true",help="Consolidate previous completed local run, no downloads or raw parsing")
+    ap.add_argument("--consolidate-source",type=Path,help="Explicit raw result directory or single original ZIP; implies consolidate-only")
+    args=ap.parse_args()
+    if args.consolidate_only or args.consolidate_source:
+        outbase=HERE/"output";outbase.mkdir(parents=True,exist_ok=True)
+        prior=prior_result(outbase) if args.consolidate_source is None else None
+        source=args.consolidate_source or (prior[0] if prior else None)
+        if source is None:raise ValueError("No completed raw research found; provide --consolidate-source")
+        run_consolidation(source.resolve(),outbase,dt.datetime.now().strftime("%Y%m%d-%H%M%S-%f"))
+        return
+    selftest()
+    from consolidate import selftest as consolidation_selftest
+    consolidation_selftest()
     if args.self_test:return
     import pandas as pd
     sources=ROOT/"sources";cache=HERE/"cache";outbase=HERE/"output"
@@ -987,6 +1014,7 @@ def main():
     print(json.dumps(summary,ensure_ascii=False,indent=2),flush=True)
     print("UPLOAD ALL",len(archives),"ZIP(S), EACH <= 50 MB",flush=True)
     for archive in archives:print("RESULT ZIP:",archive,flush=True)
+    run_consolidation(out,outbase,stamp)
 
 if __name__=="__main__":
     try:

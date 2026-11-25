@@ -65,13 +65,13 @@ def complete_pair_dates(o):
         return None
     return (g.get('season'),g.get('season_basis'),pairs)
 
-def merge_observation(old,p,s):
+def merge_observation(old,p,s,prior_conflicts=()):
     old=old or {}
     versions=dict(old.get('observations',{}))
     o=observation(p)
     if o.get('fixtures') or o.get('historyObservations') or o.get('ruleExcerpts') or o.get('phasePlan') or o.get('nativeRosterCandidate') or o.get('deepEvidence'):
         versions.setdefault(digest(o),o)
-    conflicts=set(old.get('conflicts',[]))
+    conflicts=set(old.get('conflicts',[])) | set(prior_conflicts)
     if p.get('deepEvidence',{}).get('conflicts'):conflicts.add('DEEP_EDITION_OBSERVATION_CONFLICT')
     if p.get('deepCrossRowConflict'):conflicts.add('DEEP_CROSS_ROW_CANDIDATE_COLLISION')
     if p.get('crossRowConflict'):
@@ -84,7 +84,7 @@ def merge_observation(old,p,s):
     fields=dict(s['fields'])
     gaps=[k for k in FIELDS if fields[k] not in ('V','P','NA')]
     # An incomplete candidate never becomes verified merely by being inserted.
-    status=s['status']
+    status='I' if gaps or conflicts else ('P' if 'P' in fields.values() else 'V')
     assessments=dict(old.get('assessments',{}))
     assessment={'status':status,'fields':fields}
     assessments.setdefault(digest(assessment),assessment)
@@ -103,6 +103,9 @@ def materialize(root,out,apply=False,expected_count=533):
         raise ValueError('Current indexed matrix required')
     if set(states)!={rid for rid,p in packets.items() if p.get('phaseQueue')!='OUT_OF_SCOPE' and rid not in (100,101,102)}:
         raise ValueError('Packet/matrix scope mismatch')
+    prior=read(inside(docs,index['automaticInsertion'])) if index.get('automaticInsertion') else {}
+    prior_rows=unique(prior.get('rows',[]))
+    if prior_rows and set(prior_rows)!=set(states):raise ValueError('Prior matrix scope mismatch')
     updates={}
     files={}
     seen=set()
@@ -120,11 +123,18 @@ def materialize(root,out,apply=False,expected_count=533):
         if s['world']!=p['world'] or rid in seen:
             raise ValueError('Matrix identity mismatch '+str(rid))
         seen.add(rid)
-        auto=merge_observation(row.get('automaticResearch'),p,s)
+        previous=prior_rows.get(rid,{})
+        if any(v in ('V','P') and s['fields'].get(k) not in (('V',) if v=='V' else ('V','P')) for k,v in previous.get('fields',{}).items()):
+            raise ValueError('Prior reviewed field regression '+str(rid))
+        auto=merge_observation(row.get('automaticResearch'),p,s,previous.get('conflicts',[]))
+        prior_auto=row.get('automaticResearch')
         row['automaticResearch']=auto
-        rows.append({'row':rid,'world':p['world'],'name':s['name'],'status':auto['status'],
-                     'fields':auto['fields'],'gaps':auto['gaps'],'conflicts':auto['conflicts'],
-                     'observationVersions':len(auto['observations'])})
+        prior_audit=previous.get('automaticAudit')
+        if prior_audit and prior_auto!=auto:
+            previous=dict(previous,automaticAudit=dict(prior_audit,stale=True))
+        rows.append(dict(previous,row=rid,world=p['world'],name=s['name'] or previous.get('name',''),status=auto['status'],
+                         fields=auto['fields'],gaps=auto['gaps'],conflicts=auto['conflicts'],
+                         observationVersions=len(auto['observations'])))
     if seen!=set(states):
         raise ValueError('Incomplete materialization')
     counts={k:{v:sum(r['fields'][k]==v for r in rows) for v in sorted(STATES)} for k in FIELDS}
@@ -137,10 +147,16 @@ def materialize(root,out,apply=False,expected_count=533):
            'scope':'Research only; previous verified/named and partial counters remain unchanged'}
     rel='closure/AUTOMATIC_INSERTION.json'
     index['automaticInsertion']=rel
+    stats=dict(prior.get('summary',{}),**stats)
+    if 'automaticAudit' in stats:
+        stale=any(r.get('automaticAudit',{}).get('stale') for r in rows)
+        stats['automaticAudit']=dict(stats['automaticAudit'],stale=stale)
+        if 'automaticPayloadAudit' in coverage:
+            coverage['automaticPayloadAudit']=stats['automaticAudit']
     coverage['automaticInsertion']=stats
     for path,content in files.items():
         updates[path]=encode(content)
-    updates[inside(docs,rel)]=encode({'summary':stats,'rows':rows})
+    updates[inside(docs,rel)]=encode(dict(prior,summary=stats,rows=rows))
     updates[docs/'INDEX.json']=encode(index)
     updates[docs/'COVERAGE.json']=encode(coverage)
     originals={p:p.read_bytes() if p.exists() else None for p in updates}

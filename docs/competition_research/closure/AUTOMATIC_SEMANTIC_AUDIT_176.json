@@ -1,0 +1,4091 @@
+{
+  "schema": "SWOS_AUTOMATIC_SEMANTIC_AUDIT_176",
+  "head": "eca51e10600aad430906bfa2d9db233403c65efa",
+  "base": "eb07ff747edcc70417e08900b7d6de9be5191ad8",
+  "summary": {
+    "rows": 2,
+    "observations": 2,
+    "wrongTierRuleOccurrences": 472,
+    "wrongTierTableCandidates": 16,
+    "aliasExampleOccurrences": 4
+  },
+  "audits": [
+    {
+      "row": 75,
+      "sheetSHA": "d23eb5a309d629c019d30877492d103a2422f06b",
+      "observation": "24a94d60dcf0414152593e0215e9492f5a92aa7438cd66dbe4c88b710c1fb3be",
+      "reason": "WRONG_TIER_ENGLISH_FIRST_DIVISION_1997_2002",
+      "originalRanges": {
+        "eng00.txt": [
+          [
+            1437,
+            1465
+          ],
+          [
+            2362,
+            2390
+          ]
+        ],
+        "eng01.txt": [
+          [
+            1388,
+            1416
+          ],
+          [
+            2185,
+            2213
+          ]
+        ],
+        "eng02.txt": [
+          [
+            1403,
+            1431
+          ],
+          [
+            2222,
+            2250
+          ]
+        ],
+        "eng98.txt": [
+          [
+            688,
+            714
+          ]
+        ],
+        "eng99.txt": [
+          [
+            836,
+            864
+          ]
+        ]
+      },
+      "quarantinedRuleOccurrences": [
+        {
+          "locator": "corpus/tablese/eng98.txt:688 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:689 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:691 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:692 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:693 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:694 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:712 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:713 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:714 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:688",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:689",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:691",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:692",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:693",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:694",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:696",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:697",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:699",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:700",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:701",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:702",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:703",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:704",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:705",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:706",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:707",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:708",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:709",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:710",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:712",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:713",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:714",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:838 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:839 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:841 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:842 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:843 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:844 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:862 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:863 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:864 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:838",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:839",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:841",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:842",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:843",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:844",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:846",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:847",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:848",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:849",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:850",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:851",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:852",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:853",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:854",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:855",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:856",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:857",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:858",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:859",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:860",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:862",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:863",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:864",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1439 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1440 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1442 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1443 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1444 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1445 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1463 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1464 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1465 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1439",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1440",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1442",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1443",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1444",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1445",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1447",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1448",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1449",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1450",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1451",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1452",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1453",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1454",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1455",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1456",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1457",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1458",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1459",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1460",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1461",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1463",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1464",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1465",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2364",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2365",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2367",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2368",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2369",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2370",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2372",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2373",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2374",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2375",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2376",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2377",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2378",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2379",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2380",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2381",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2382",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2383",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2384",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2385",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2386",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2388",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2389",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2390",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1390 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1391 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1393 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1394 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1395 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1396 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1414 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1415 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1416 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1390",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1391",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1393",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1394",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1395",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1396",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1398",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1399",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1400",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1401",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1402",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1403",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1404",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1405",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1406",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1407",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1408",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1409",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1410",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1411",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1412",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1414",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1415",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1416",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2187",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2188",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2190",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2191",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2192",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2193",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2195",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2196",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2197",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2198",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2199",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2200",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2201",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2202",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2203",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2204",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2205",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2206",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2207",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2208",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2209",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2211",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2212",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2213",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1405 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1406 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1408 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1409 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1410 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1411 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1429 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1430 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1431 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1405",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1406",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1408",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1409",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1410",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1411",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1413",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1414",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1415",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1416",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1417",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1418",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1419",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1420",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1421",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1422",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1423",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1424",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1425",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1426",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1427",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1429",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1430",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1431",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2224",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2225",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2227",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2228",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2229",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2230",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2232",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2233",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2234",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2235",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2236",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2237",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2238",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2239",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2240",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2241",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2242",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2243",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2244",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2245",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2246",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2248",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2249",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2250",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        }
+      ],
+      "quarantinedTableCandidates": [
+        {
+          "document": "corpus/tablese/eng00.txt",
+          "edition": "1999/2000",
+          "tableLine": 1437,
+          "rows": 24
+        },
+        {
+          "document": "corpus/tablese/eng00.txt",
+          "edition": "1999/2000",
+          "tableLine": 2362,
+          "rows": 24
+        },
+        {
+          "document": "corpus/tablese/eng01.txt",
+          "edition": "2000/2001",
+          "tableLine": 1388,
+          "rows": 24
+        },
+        {
+          "document": "corpus/tablese/eng01.txt",
+          "edition": "2000/2001",
+          "tableLine": 2185,
+          "rows": 24
+        },
+        {
+          "document": "corpus/tablese/eng02.txt",
+          "edition": "2001/2002",
+          "tableLine": 1403,
+          "rows": 24
+        },
+        {
+          "document": "corpus/tablese/eng02.txt",
+          "edition": "2001/2002",
+          "tableLine": 2222,
+          "rows": 24
+        },
+        {
+          "document": "corpus/tablese/eng98.txt",
+          "edition": "1997/1998",
+          "tableLine": 688,
+          "rows": 23
+        },
+        {
+          "document": "corpus/tablese/eng99.txt",
+          "edition": "1998/1999",
+          "tableLine": 836,
+          "rows": 24
+        }
+      ],
+      "unresolvedAliasExample": [
+        {
+          "date": "1996-08-17",
+          "home": "Everton",
+          "away": "Newcastle",
+          "locations": [
+            [
+              0,
+              "all-euro-data-1996-1997.xls:E0:5"
+            ]
+          ],
+          "homeUUID": "9a8ed68c-f546-5bd0-ab8f-a2de91e4d15b",
+          "awayUUID": null
+        },
+        {
+          "date": "1996-08-17",
+          "home": "Everton",
+          "away": "Newcastle U",
+          "locations": [
+            [
+              2,
+              "corpus/tablese/eng97.txt:43"
+            ]
+          ],
+          "homeUUID": "9a8ed68c-f546-5bd0-ab8f-a2de91e4d15b",
+          "awayUUID": null
+        },
+        {
+          "date": "1996-08-17",
+          "home": "Everton",
+          "away": "Newcastle Utd",
+          "locations": [
+            [
+              3,
+              "worldfootballR_data-master/data/match_results/ENG_match_results.rds:22508"
+            ]
+          ],
+          "homeUUID": "9a8ed68c-f546-5bd0-ab8f-a2de91e4d15b",
+          "awayUUID": null
+        },
+        {
+          "date": "1996-08-17",
+          "home": "Everton FC",
+          "away": "Newcastle United FC",
+          "locations": [
+            [
+              1,
+              "england-master/1990s/1996-97/eng.1.csv:10"
+            ]
+          ],
+          "homeUUID": null,
+          "awayUUID": null
+        }
+      ],
+      "scope": "Direct corpus line ranges confirmed second level. Rule and table occurrences may overlap, not match counts. Keep raw; no new V/P or loss of independent field evidence."
+    },
+    {
+      "row": 231,
+      "sheetSHA": "a66c520f7cea7efaffbf11b99ec76552f42b971c",
+      "observation": "622fe8f8e16b50f8c6680e7bf3b45af801131e575efc1466c035ff24dee9a0a9",
+      "reason": "WRONG_TIER_ENGLISH_FIRST_DIVISION_1997_2002",
+      "originalRanges": {
+        "eng00.txt": [
+          [
+            1437,
+            1465
+          ],
+          [
+            2362,
+            2390
+          ]
+        ],
+        "eng01.txt": [
+          [
+            1388,
+            1416
+          ],
+          [
+            2185,
+            2213
+          ]
+        ],
+        "eng02.txt": [
+          [
+            1403,
+            1431
+          ],
+          [
+            2222,
+            2250
+          ]
+        ],
+        "eng98.txt": [
+          [
+            688,
+            714
+          ]
+        ],
+        "eng99.txt": [
+          [
+            836,
+            864
+          ]
+        ]
+      },
+      "quarantinedRuleOccurrences": [
+        {
+          "locator": "corpus/tablese/eng98.txt:688 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:689 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:691 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:692 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:693 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:694 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:712 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:713 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:714 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:688",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:689",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:691",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:692",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:693",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:694",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:696",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:697",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:699",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:700",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:701",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:702",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:703",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:704",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:705",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:706",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:707",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:708",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:709",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:710",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:712",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:713",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng98.txt:714",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 688
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:838 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:839 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:841 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:842 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:843 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:844 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:862 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:863 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:864 Author: RSSSF",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:838",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:839",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:841",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:842",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:843",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:844",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:846",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:847",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:848",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:849",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:850",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:851",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:852",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:853",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:854",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:855",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:856",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:857",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:858",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:859",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:860",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:862",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:863",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng99.txt:864",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 836
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1439 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1440 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1442 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1443 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1444 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1445 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1463 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1464 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1465 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1439",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1440",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1442",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1443",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1444",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1445",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1447",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1448",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1449",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1450",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1451",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1452",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1453",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1454",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1455",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1456",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1457",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1458",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1459",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1460",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1461",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1463",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1464",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:1465",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1437
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2364",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2365",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2367",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2368",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2369",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2370",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2372",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2373",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2374",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2375",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2376",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2377",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2378",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2379",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2380",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2381",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2382",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2383",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2384",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2385",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2386",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2388",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2389",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng00.txt:2390",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2362
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1390 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1391 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1393 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1394 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1395 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1396 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1414 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1415 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1416 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1390",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1391",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1393",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1394",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1395",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1396",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1398",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1399",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1400",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1401",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1402",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1403",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1404",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1405",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1406",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1407",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1408",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1409",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1410",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1411",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1412",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1414",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1415",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:1416",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1388
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2187",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2188",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2190",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2191",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2192",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2193",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2195",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2196",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2197",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2198",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2199",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2200",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2201",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2202",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2203",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2204",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2205",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2206",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2207",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2208",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2209",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2211",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2212",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng01.txt:2213",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2185
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1405 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1406 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1408 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1409 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1410 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1411 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement",
+            "format"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1429 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1430 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1431 ",
+          "source": "corpus/corpus.zip",
+          "categories": [
+            "movement"
+          ],
+          "tableLine": null
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1405",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1406",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1408",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1409",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1410",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1411",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1413",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1414",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1415",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1416",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1417",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1418",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1419",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1420",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1421",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1422",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1423",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1424",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1425",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1426",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1427",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1429",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1430",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:1431",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 1403
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2224",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2225",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2227",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2228",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2229",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2230",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2232",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2233",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2234",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2235",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2236",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2237",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2238",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2239",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2240",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2241",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2242",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2243",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2244",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2245",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2246",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2248",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2249",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        },
+        {
+          "locator": "corpus/tablese/eng02.txt:2250",
+          "source": "rsssf-deep/corpus.zip",
+          "categories": [
+            "table"
+          ],
+          "tableLine": 2222
+        }
+      ],
+      "quarantinedTableCandidates": [
+        {
+          "document": "corpus/tablese/eng00.txt",
+          "edition": "1999/2000",
+          "tableLine": 1437,
+          "rows": 24
+        },
+        {
+          "document": "corpus/tablese/eng00.txt",
+          "edition": "1999/2000",
+          "tableLine": 2362,
+          "rows": 24
+        },
+        {
+          "document": "corpus/tablese/eng01.txt",
+          "edition": "2000/2001",
+          "tableLine": 1388,
+          "rows": 24
+        },
+        {
+          "document": "corpus/tablese/eng01.txt",
+          "edition": "2000/2001",
+          "tableLine": 2185,
+          "rows": 24
+        },
+        {
+          "document": "corpus/tablese/eng02.txt",
+          "edition": "2001/2002",
+          "tableLine": 1403,
+          "rows": 24
+        },
+        {
+          "document": "corpus/tablese/eng02.txt",
+          "edition": "2001/2002",
+          "tableLine": 2222,
+          "rows": 24
+        },
+        {
+          "document": "corpus/tablese/eng98.txt",
+          "edition": "1997/1998",
+          "tableLine": 688,
+          "rows": 23
+        },
+        {
+          "document": "corpus/tablese/eng99.txt",
+          "edition": "1998/1999",
+          "tableLine": 836,
+          "rows": 24
+        }
+      ],
+      "unresolvedAliasExample": [],
+      "scope": "Direct corpus line ranges confirmed second level. Rule and table occurrences may overlap, not match counts. Keep raw; no new V/P or loss of independent field evidence."
+    }
+  ]
+}

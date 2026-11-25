@@ -1,0 +1,457 @@
+{
+  "block": 178,
+  "head": "eca51e10600aad430906bfa2d9db233403c65efa",
+  "base": "e44d6797b10868f053d9122a0592f55da0fd3706",
+  "sourceVerification": "corpus/tablesf/fran-wom02.txt title France (Women) First Level 2001/02; Championnat Feminin National, Nationale 1A; NB: 4-2-1 point system",
+  "findings": [
+    {
+      "row": 52,
+      "sha": "e8812030b4fa61312a9bd969b0ac19a8a991573e",
+      "observations": [
+        {
+          "key": "6b8d4d80ae6363a1ac4c12836a39a5154a84c5f9e0c90c475cec3ef69c2dd25c",
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 20,
+            "fixtures": 380,
+            "orientedPairs": 380,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              20
+            ]
+          },
+          "unmapped": [
+            {
+              "label": "Paris SG",
+              "candidateCount": 0
+            }
+          ],
+          "quarantine": []
+        },
+        {
+          "key": "f93791ee46da944cc6a9037916da9d4ca68b9186d2f6683356901f58731702db",
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 20,
+            "fixtures": 380,
+            "orientedPairs": 380,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              20
+            ]
+          },
+          "unmapped": [
+            {
+              "label": "Paris SG",
+              "candidateCount": 0
+            }
+          ],
+          "quarantine": [],
+          "events": [
+            {
+              "edition": "1996/1997",
+              "count": 448
+            }
+          ]
+        }
+      ],
+      "manual": {
+        "edition": "1996/97",
+        "name": "Division 1",
+        "teams": 20,
+        "regularOrInitialGamesPerClub": 38,
+        "pointsWin": 3,
+        "formatAndMovement": "Double RR; 4 relegated, reduction to 18 next season",
+        "scope": "Partial historical structure, no future results imported",
+        "firstObservedMatch": "1996-08-09"
+      },
+      "scope": "Targeted review; not full field certification"
+    },
+    {
+      "row": 53,
+      "sha": "e8812030b4fa61312a9bd969b0ac19a8a991573e",
+      "observations": [
+        {
+          "key": "6d379a519559aae76254aa79ff74aedf238a328c38f4108ef93ebb927b9ee84e",
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 22,
+            "fixtures": 462,
+            "orientedPairs": 462,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              22
+            ]
+          },
+          "unmapped": [
+            {
+              "label": "Charleville",
+              "candidateCount": 0
+            },
+            {
+              "label": "Epinal",
+              "candidateCount": 0
+            },
+            {
+              "label": "Louhans-Cuis.",
+              "candidateCount": 0
+            },
+            {
+              "label": "Perpignan",
+              "candidateCount": 0
+            },
+            {
+              "label": "St Brieuc",
+              "candidateCount": 0
+            },
+            {
+              "label": "St Etienne",
+              "candidateCount": 0
+            }
+          ],
+          "quarantine": []
+        },
+        {
+          "key": "1bc2c7f66ecafe515c825f96f34d1d4f77d583203149f6b4a4822c1903c23a37",
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 22,
+            "fixtures": 462,
+            "orientedPairs": 462,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              22
+            ]
+          },
+          "unmapped": [
+            {
+              "label": "Charleville",
+              "candidateCount": 0
+            },
+            {
+              "label": "Epinal",
+              "candidateCount": 0
+            },
+            {
+              "label": "Louhans-Cuis.",
+              "candidateCount": 0
+            },
+            {
+              "label": "Perpignan",
+              "candidateCount": 0
+            },
+            {
+              "label": "St Brieuc",
+              "candidateCount": 0
+            },
+            {
+              "label": "St Etienne",
+              "candidateCount": 0
+            }
+          ],
+          "quarantine": [
+            {
+              "season": "2001/02",
+              "categories": [
+                "regulation"
+              ],
+              "values": {},
+              "source": "rsssf-deep/corpus.zip",
+              "locator": "corpus/tablesf/fran-wom02.txt:1201",
+              "excerpt": "NB: 4-2-1 points system"
+            }
+          ],
+          "events": [
+            {
+              "edition": "1996/1997",
+              "count": 462
+            }
+          ]
+        }
+      ],
+      "manual": {
+        "edition": "1996/97",
+        "name": "Division 2",
+        "teams": 22,
+        "regularOrInitialGamesPerClub": 42,
+        "pointsWin": 3,
+        "formatAndMovement": "Double RR; 2 promoted, 4 relegated including excluded Saint-Brieuc, exceptional exclusion not recurring",
+        "scope": "Partial historical structure, no future results imported"
+      },
+      "scope": "Targeted review; not full field certification"
+    },
+    {
+      "row": 239,
+      "sha": "0c241301bd00482fd07f080ee1dca36f37bdc547",
+      "observations": [
+        {
+          "key": "d0fa1dd3bc44841bd06c2e176f1bb3f6d5198cd433e74f8ca3c00a4b4b41b20d",
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 18,
+            "fixtures": 306,
+            "orientedPairs": 306,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              18
+            ]
+          },
+          "unmapped": [],
+          "quarantine": []
+        },
+        {
+          "key": "284690e1349ff4ace581caf2967ac99154110020d1513692ec9199e967e0e53a",
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 18,
+            "fixtures": 306,
+            "orientedPairs": 306,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              18
+            ]
+          },
+          "unmapped": [],
+          "quarantine": [],
+          "events": [
+            {
+              "edition": "2026/2027",
+              "count": 311
+            }
+          ]
+        }
+      ],
+      "manual": {
+        "edition": "2026/27",
+        "rules": {
+          "teams": 18,
+          "rounds": 2,
+          "gamesPerClub": 34,
+          "points": [
+            3,
+            1,
+            0
+          ],
+          "relegatedDirect": [
+            17,
+            18
+          ],
+          "relegationPlayoff": {
+            "rank": 16,
+            "opponent": "Ligue 2 playoff winner",
+            "legs": 2,
+            "dates": [
+              "2027-06-03",
+              "2027-06-06"
+            ]
+          }
+        },
+        "participants": [
+          "Angers SCO",
+          "LOSC",
+          "Havre AC",
+          "AS Monaco",
+          "Le Mans FC",
+          "Stade Brestois 29",
+          "RC Lens",
+          "AJ Auxerre",
+          "Olympique de Marseille",
+          "RC Strasbourg Alsace",
+          "OGC Nice",
+          "FC Lorient",
+          "Paris Saint-Germain",
+          "Stade Rennais FC",
+          "Toulouse FC",
+          "Olympique Lyonnais",
+          "ESTAC Troyes",
+          "Paris FC"
+        ],
+        "firstMatch": "2026-08-21",
+        "lastRegularDate": "2027-05-29",
+        "winterBreakAfterRound": 14,
+        "winterResumeWindow": "2027-01-02",
+        "limitations": "Participant names from official opening pairings; keys and complete individual dates not reconciled.",
+        "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+      },
+      "scope": "Targeted review; not full field certification"
+    },
+    {
+      "row": 240,
+      "sha": "0c241301bd00482fd07f080ee1dca36f37bdc547",
+      "observations": [
+        {
+          "key": "fb36fb91012118745658f9f771e7c3f6d3c0bb478d841e9befe9c6d88d0b2773",
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 18,
+            "fixtures": 117,
+            "orientedPairs": 117,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              18
+            ]
+          },
+          "unmapped": [],
+          "quarantine": []
+        },
+        {
+          "key": "9c9b003493ed201f830cee8a88a617dd3831ce9f36f0aefb338b6d5316b6c2f8",
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 18,
+            "fixtures": 117,
+            "orientedPairs": 117,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              18
+            ]
+          },
+          "unmapped": [],
+          "quarantine": [
+            {
+              "season": "2001/02",
+              "categories": [
+                "regulation"
+              ],
+              "values": {},
+              "source": "rsssf-deep/corpus.zip",
+              "locator": "corpus/tablesf/fran-wom02.txt:1201",
+              "excerpt": "NB: 4-2-1 points system"
+            }
+          ],
+          "events": [
+            {
+              "edition": "2026/2027",
+              "count": 117
+            }
+          ]
+        }
+      ],
+      "manual": {
+        "edition": "2026/27",
+        "rules": {
+          "teams": 18,
+          "rounds": 2,
+          "gamesPerClub": 34,
+          "points": [
+            3,
+            1,
+            0
+          ],
+          "promotedDirect": [
+            1,
+            2
+          ],
+          "promotionPlayoff": {
+            "first": {
+              "ranks": [
+                4,
+                5
+              ],
+              "legs": 1,
+              "date": "2027-05-25"
+            },
+            "second": {
+              "rank": 3,
+              "opponent": "first winner",
+              "legs": 1,
+              "date": "2027-05-28"
+            },
+            "interTier": {
+              "opponentRank": 16,
+              "opponentTier": 1,
+              "legs": 2,
+              "dates": [
+                "2027-06-03",
+                "2027-06-06"
+              ]
+            }
+          },
+          "relegatedDirect": [
+            17,
+            18
+          ],
+          "relegationPlayoff": {
+            "rank": 16,
+            "opponent": "Ligue 3 playoff winner",
+            "legs": 2,
+            "dates": [
+              "2027-06-01",
+              "2027-06-06"
+            ]
+          }
+        },
+        "participants": [
+          "FC Sochaux-Montbéliard",
+          "AS Saint-Étienne",
+          "US Boulogne CO",
+          "AS Nancy Lorraine",
+          "Clermont Foot 63",
+          "Stade de Reims",
+          "USL Dunkerque",
+          "Grenoble Foot 38",
+          "FC Metz",
+          "En Avant Guingamp",
+          "Montpellier Hérault SC",
+          "Dijon FCO",
+          "FC Nantes",
+          "Red Star FC",
+          "Pau FC",
+          "FC Annecy",
+          "Rodez Aveyron Football",
+          "Stade Lavallois MFC"
+        ],
+        "firstMatch": "2026-08-08",
+        "lastRegularDate": "2027-05-22",
+        "winterBreakAfterRound": 15,
+        "winterResume": "2027-01-02",
+        "limitations": "LFP June 10 calendar calls Ligue 3 opponent third place, but FFF professional format and July calendar specify winner of ranks 3–6 playoff. Numeric June 1 and June 6 dates agree; FFF weekday labels are inconsistent with civil dates. No assumed club IDs or runtime slot for Ligue 3.",
+        "status": "PARTIAL_RESEARCH_NOT_RUNTIME"
+      },
+      "scope": "Targeted review; not full field certification"
+    }
+  ],
+  "quarantine": [
+    {
+      "row": 53,
+      "key": "1bc2c7f66ecafe515c825f96f34d1d4f77d583203149f6b4a4822c1903c23a37",
+      "season": "2001/02",
+      "categories": [
+        "regulation"
+      ],
+      "values": {},
+      "source": "rsssf-deep/corpus.zip",
+      "locator": "corpus/tablesf/fran-wom02.txt:1201",
+      "excerpt": "NB: 4-2-1 points system"
+    },
+    {
+      "row": 240,
+      "key": "9c9b003493ed201f830cee8a88a617dd3831ce9f36f0aefb338b6d5316b6c2f8",
+      "season": "2001/02",
+      "categories": [
+        "regulation"
+      ],
+      "values": {},
+      "source": "rsssf-deep/corpus.zip",
+      "locator": "corpus/tablesf/fran-wom02.txt:1201",
+      "excerpt": "NB: 4-2-1 points system"
+    }
+  ],
+  "scope": "Exclude women's evidence from men's usable dataset; preserve raw source for provenance; no field promotions"
+}

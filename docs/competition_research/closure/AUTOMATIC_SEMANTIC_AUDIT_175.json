@@ -1,0 +1,6318 @@
+{
+  "block": 175,
+  "head": "eca51e10600aad430906bfa2d9db233403c65efa",
+  "basePreparedMatrix": "0b692adba47a5d369e9e251e3b67301f54b21f64",
+  "scope": "Targeted semantic audit, exact HEAD payloads and user corpus titles/sections. Original observations preserved; quarantined evidence not valid basis for promotion, no runtime.",
+  "summary": {
+    "rows": 8,
+    "observations": 16,
+    "quarantineOccurrences": 460,
+    "quarantineByReason": {
+      "WRONG_COMPETITION_WOMEN": 282,
+      "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA": 111,
+      "WRONG_COMPETITION_STATE_LEAGUE": 38,
+      "WRONG_COMPETITION_ARTHURIAN_LEAGUE": 28,
+      "WRONG_COMPETITION_LEAGUE_CUP": 1
+    },
+    "duplicateOccurrences": 4,
+    "proposedFields": 7
+  },
+  "rows": [
+    {
+      "row": 2,
+      "sha": "045e3b9dc1a948c29bb241607d1009b5356a6a40",
+      "observations": [
+        {
+          "key": "09c952ed52eae6193ccc9413b91cf753303db175e57f197a8a0336640f22f0b4",
+          "group": {
+            "source": "parquet/games.parquet",
+            "competition": "austria",
+            "country": "AUT",
+            "season": "1997",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 11,
+            "fixtures": 195,
+            "orientedPairs": 108,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              10
+            ]
+          },
+          "fixtures": 195,
+          "distinctFixtureKeys": 195,
+          "labels": 11,
+          "distinctOrientedPairs": 108,
+          "clubDayClashes": 0,
+          "allDatesExplicit": true,
+          "nativePairs": 4,
+          "scoreCount": 0,
+          "scoreKeys": 0,
+          "scoreTeams": 0,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 0,
+            "gf": 0,
+            "ga": 0,
+            "wins": 0,
+            "losses": 0
+          },
+          "scoreSpan": null,
+          "quarantined": 0
+        },
+        {
+          "key": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+          "group": {
+            "source": "parquet/games.parquet",
+            "competition": "austria",
+            "country": "AUT",
+            "season": "1997",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 11,
+            "fixtures": 195,
+            "orientedPairs": 108,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              10
+            ]
+          },
+          "fixtures": 195,
+          "distinctFixtureKeys": 195,
+          "labels": 11,
+          "distinctOrientedPairs": 108,
+          "clubDayClashes": 0,
+          "allDatesExplicit": true,
+          "nativePairs": 4,
+          "scoreCount": 0,
+          "scoreKeys": 0,
+          "scoreTeams": 0,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 0,
+            "gf": 0,
+            "ga": 0,
+            "wins": 0,
+            "losses": 0
+          },
+          "scoreSpan": null,
+          "quarantined": 393
+        }
+      ],
+      "semanticNotes": [
+        "Raw corpus oost97.txt lines 6–23 confirms 10 clubs 36 games, lines 25–30 exceptional mergers; 2.Bundesliga begins line749. No full date or movement promotion."
+      ]
+    },
+    {
+      "row": 217,
+      "sha": "0a83635df095fab181767bbc1e21545f966c5e05",
+      "observations": [
+        {
+          "key": "23f91ee771fc006092ec614f351b07f011cac0323036bfe7b6f5058daded3c5a",
+          "group": {
+            "source": "github/openfootball/football.json",
+            "competition": "Brasileiro Série A 2026",
+            "country": "",
+            "season": "2026",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 20,
+            "fixtures": 380,
+            "orientedPairs": 380,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": []
+          },
+          "fixtures": 380,
+          "distinctFixtureKeys": 380,
+          "labels": 20,
+          "distinctOrientedPairs": 380,
+          "clubDayClashes": 0,
+          "allDatesExplicit": true,
+          "nativePairs": 0,
+          "scoreCount": 170,
+          "scoreKeys": 170,
+          "scoreTeams": 20,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 340,
+            "gf": 471,
+            "ga": 471,
+            "wins": 130,
+            "losses": 130
+          },
+          "scoreSpan": [
+            "2026-01-28",
+            "2026-05-31"
+          ],
+          "quarantined": 0
+        },
+        {
+          "key": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+          "group": {
+            "source": "github/openfootball/football.json",
+            "competition": "Brasileiro Série A 2026",
+            "country": "",
+            "season": "2026",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 20,
+            "fixtures": 380,
+            "orientedPairs": 380,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": []
+          },
+          "fixtures": 380,
+          "distinctFixtureKeys": 380,
+          "labels": 20,
+          "distinctOrientedPairs": 380,
+          "clubDayClashes": 0,
+          "allDatesExplicit": true,
+          "nativePairs": 0,
+          "scoreCount": 170,
+          "scoreKeys": 170,
+          "scoreTeams": 20,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 340,
+            "gf": 471,
+            "ga": 471,
+            "wins": 130,
+            "losses": 130
+          },
+          "scoreSpan": [
+            "2026-01-28",
+            "2026-05-31"
+          ],
+          "quarantined": 38
+        }
+      ],
+      "semanticNotes": [
+        "170 scores per observation are repeated across versions, 177 pre-cutoff fixture occurrences, 7 without score. Existing startResearch confirms 170 observed but independent completeness/native reconciliation open; July stays I. 38 rule/table records are Paraná State League, not Série A."
+      ]
+    },
+    {
+      "row": 76,
+      "sha": "d23eb5a309d629c019d30877492d103a2422f06b",
+      "observations": [
+        {
+          "key": "74caf4e7d8c63d4d865e9e40f9b75fab68492cb7dbcd11aaca7bd012d8046a08",
+          "group": {
+            "source": "euro9697/all-euro-data-1996-1997.xls",
+            "competition": "E1",
+            "country": "ENG",
+            "season": "1996/97",
+            "season_basis": "SOURCE_SEASON"
+          },
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 24,
+            "fixtures": 552,
+            "orientedPairs": 552,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              24
+            ]
+          },
+          "fixtures": 552,
+          "distinctFixtureKeys": 552,
+          "labels": 24,
+          "distinctOrientedPairs": 552,
+          "clubDayClashes": 0,
+          "allDatesExplicit": true,
+          "nativePairs": 90,
+          "scoreCount": 0,
+          "scoreKeys": 0,
+          "scoreTeams": 0,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 0,
+            "gf": 0,
+            "ga": 0,
+            "wins": 0,
+            "losses": 0
+          },
+          "scoreSpan": null,
+          "quarantined": 0
+        },
+        {
+          "key": "911636641d3ffabadea808c086ffc3eb7473bf37d8a3df02a0009889ca47bd32",
+          "group": {
+            "source": "euro9697/all-euro-data-1996-1997.xls",
+            "competition": "E1",
+            "country": "ENG",
+            "season": "1996/97",
+            "season_basis": "SOURCE_SEASON"
+          },
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 24,
+            "fixtures": 552,
+            "orientedPairs": 552,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              24
+            ]
+          },
+          "fixtures": 552,
+          "distinctFixtureKeys": 552,
+          "labels": 24,
+          "distinctOrientedPairs": 552,
+          "clubDayClashes": 0,
+          "allDatesExplicit": true,
+          "nativePairs": 90,
+          "scoreCount": 0,
+          "scoreKeys": 0,
+          "scoreTeams": 0,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 0,
+            "gf": 0,
+            "ga": 0,
+            "wins": 0,
+            "losses": 0
+          },
+          "scoreSpan": null,
+          "quarantined": 10
+        }
+      ],
+      "semanticNotes": [
+        "Exact historicalSportData and raw eng97.txt section at 1127 independently of wrong-scope rule excerpts; regular 24×46=552; playoffs two-legged SF and single final. Native IDs and complete playoff dates remain open."
+      ]
+    },
+    {
+      "row": 77,
+      "sha": "d23eb5a309d629c019d30877492d103a2422f06b",
+      "observations": [
+        {
+          "key": "1c0633ed24dee1bc36f7936b03b073b0cea1979f34697e53ddd69a33d4fd1a4a",
+          "group": {
+            "source": "euro9697/all-euro-data-1996-1997.xls",
+            "competition": "E2",
+            "country": "ENG",
+            "season": "1996/97",
+            "season_basis": "SOURCE_SEASON"
+          },
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 24,
+            "fixtures": 552,
+            "orientedPairs": 552,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              24
+            ]
+          },
+          "fixtures": 552,
+          "distinctFixtureKeys": 552,
+          "labels": 24,
+          "distinctOrientedPairs": 552,
+          "clubDayClashes": 0,
+          "allDatesExplicit": true,
+          "nativePairs": 156,
+          "scoreCount": 0,
+          "scoreKeys": 0,
+          "scoreTeams": 0,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 0,
+            "gf": 0,
+            "ga": 0,
+            "wins": 0,
+            "losses": 0
+          },
+          "scoreSpan": null,
+          "quarantined": 0
+        },
+        {
+          "key": "a0690c0509e25bbc663c9e535818e0aa181645eecd9ee22f14bce86873d85b30",
+          "group": {
+            "source": "euro9697/all-euro-data-1996-1997.xls",
+            "competition": "E2",
+            "country": "ENG",
+            "season": "1996/97",
+            "season_basis": "SOURCE_SEASON"
+          },
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 24,
+            "fixtures": 552,
+            "orientedPairs": 552,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              24
+            ]
+          },
+          "fixtures": 552,
+          "distinctFixtureKeys": 552,
+          "labels": 24,
+          "distinctOrientedPairs": 552,
+          "clubDayClashes": 0,
+          "allDatesExplicit": true,
+          "nativePairs": 156,
+          "scoreCount": 0,
+          "scoreKeys": 0,
+          "scoreTeams": 0,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 0,
+            "gf": 0,
+            "ga": 0,
+            "wins": 0,
+            "losses": 0
+          },
+          "scoreSpan": null,
+          "quarantined": 12
+        }
+      ],
+      "semanticNotes": [
+        "Exact historicalSportData and raw eng97.txt section at 1166 independently of wrong-scope rule excerpts; regular 24×46=552; playoffs two-legged SF and single final. Native IDs and complete playoff dates remain open."
+      ]
+    },
+    {
+      "row": 78,
+      "sha": "d23eb5a309d629c019d30877492d103a2422f06b",
+      "observations": [
+        {
+          "key": "6a0eb73738f6cc98eaecc347ca6b205a7cf3da97948462231a02dad066ed4381",
+          "group": {
+            "source": "euro9697/all-euro-data-1996-1997.xls",
+            "competition": "E3",
+            "country": "ENG",
+            "season": "1996/97",
+            "season_basis": "SOURCE_SEASON"
+          },
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 24,
+            "fixtures": 552,
+            "orientedPairs": 552,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              24
+            ]
+          },
+          "fixtures": 552,
+          "distinctFixtureKeys": 552,
+          "labels": 24,
+          "distinctOrientedPairs": 552,
+          "clubDayClashes": 0,
+          "allDatesExplicit": true,
+          "nativePairs": 42,
+          "scoreCount": 0,
+          "scoreKeys": 0,
+          "scoreTeams": 0,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 0,
+            "gf": 0,
+            "ga": 0,
+            "wins": 0,
+            "losses": 0
+          },
+          "scoreSpan": null,
+          "quarantined": 0
+        },
+        {
+          "key": "035248f1d9fa19456fdd23c8b45526e4743065aeeb91618f986dd53d64b832cb",
+          "group": {
+            "source": "euro9697/all-euro-data-1996-1997.xls",
+            "competition": "E3",
+            "country": "ENG",
+            "season": "1996/97",
+            "season_basis": "SOURCE_SEASON"
+          },
+          "shape": {
+            "family": "DOUBLE_ROUND_ROBIN",
+            "teams": 24,
+            "fixtures": 552,
+            "orientedPairs": 552,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              24
+            ]
+          },
+          "fixtures": 552,
+          "distinctFixtureKeys": 552,
+          "labels": 24,
+          "distinctOrientedPairs": 552,
+          "clubDayClashes": 0,
+          "allDatesExplicit": true,
+          "nativePairs": 42,
+          "scoreCount": 0,
+          "scoreKeys": 0,
+          "scoreTeams": 0,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 0,
+            "gf": 0,
+            "ga": 0,
+            "wins": 0,
+            "losses": 0
+          },
+          "scoreSpan": null,
+          "quarantined": 7
+        }
+      ],
+      "semanticNotes": [
+        "Exact historicalSportData and raw eng97.txt section at 1205 independently of wrong-scope rule excerpts; regular 24×46=552; playoffs two-legged SF and single final. Native IDs and complete playoff dates remain open."
+      ]
+    },
+    {
+      "row": 62,
+      "sha": "21036e246e88ccaef3a4de37aafa742474b1e77c",
+      "observations": [
+        {
+          "key": "2732f6c5af390397094e76224c8e068417d9183908fe27c203a1a3bd7dcdd4ce",
+          "group": {
+            "source": "parquet/games.parquet",
+            "competition": "mexico",
+            "country": "MEX",
+            "season": "1997",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 17,
+            "fixtures": 303,
+            "orientedPairs": 136,
+            "invalid": 0,
+            "clubDayClashes": 43,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              18
+            ]
+          },
+          "fixtures": 303,
+          "distinctFixtureKeys": 302,
+          "labels": 17,
+          "distinctOrientedPairs": 136,
+          "clubDayClashes": 43,
+          "allDatesExplicit": true,
+          "nativePairs": 12,
+          "scoreCount": 0,
+          "scoreKeys": 0,
+          "scoreTeams": 0,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 0,
+            "gf": 0,
+            "ga": 0,
+            "wins": 0,
+            "losses": 0
+          },
+          "scoreSpan": null,
+          "quarantined": 0
+        },
+        {
+          "key": "055aa376a967ec23f361f2ac5812343eb5c42499e0e84c085c54e65cc228f81b",
+          "group": {
+            "source": "parquet/games.parquet",
+            "competition": "mexico",
+            "country": "MEX",
+            "season": "1997",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 17,
+            "fixtures": 303,
+            "orientedPairs": 136,
+            "invalid": 0,
+            "clubDayClashes": 43,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              18
+            ]
+          },
+          "fixtures": 303,
+          "distinctFixtureKeys": 302,
+          "labels": 17,
+          "distinctOrientedPairs": 136,
+          "clubDayClashes": 43,
+          "allDatesExplicit": true,
+          "nativePairs": 12,
+          "scoreCount": 0,
+          "scoreKeys": 0,
+          "scoreTeams": 0,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 0,
+            "gf": 0,
+            "ga": 0,
+            "wins": 0,
+            "losses": 0
+          },
+          "scoreSpan": null,
+          "quarantined": 0
+        }
+      ],
+      "semanticNotes": [
+        "Calendar-year bucket not exact edition; duplicated fixture source locators and club/day collisions; no inferred phase calendar or score import."
+      ]
+    },
+    {
+      "row": 87,
+      "sha": "36e6f00cb0db5d3ad20fbfb758f39c6878a922bc",
+      "observations": [
+        {
+          "key": "fa3d4253ee9ee8a17ab32fb73e7beb353e7a5581ad810c1ba875239034af0cb7",
+          "group": {
+            "source": "parquet/games.parquet",
+            "competition": "uruguay",
+            "country": "URU",
+            "season": "1996",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 12,
+            "fixtures": 160,
+            "orientedPairs": 126,
+            "invalid": 0,
+            "clubDayClashes": 56,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              12
+            ]
+          },
+          "fixtures": 160,
+          "distinctFixtureKeys": 159,
+          "labels": 12,
+          "distinctOrientedPairs": 126,
+          "clubDayClashes": 56,
+          "allDatesExplicit": true,
+          "nativePairs": 26,
+          "scoreCount": 0,
+          "scoreKeys": 0,
+          "scoreTeams": 0,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 0,
+            "gf": 0,
+            "ga": 0,
+            "wins": 0,
+            "losses": 0
+          },
+          "scoreSpan": null,
+          "quarantined": 0
+        },
+        {
+          "key": "7e3aeb5285d1bcc47aeb10dfb7f61c3a0bb6d3e4e624b22e7eec3c6e218e0ea1",
+          "group": {
+            "source": "parquet/games.parquet",
+            "competition": "uruguay",
+            "country": "URU",
+            "season": "1996",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 12,
+            "fixtures": 160,
+            "orientedPairs": 126,
+            "invalid": 0,
+            "clubDayClashes": 56,
+            "inferredDates": 0,
+            "expectedRegularTeams": [
+              12
+            ]
+          },
+          "fixtures": 160,
+          "distinctFixtureKeys": 159,
+          "labels": 12,
+          "distinctOrientedPairs": 126,
+          "clubDayClashes": 56,
+          "allDatesExplicit": true,
+          "nativePairs": 26,
+          "scoreCount": 0,
+          "scoreKeys": 0,
+          "scoreTeams": 0,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 0,
+            "gf": 0,
+            "ga": 0,
+            "wins": 0,
+            "losses": 0
+          },
+          "scoreSpan": null,
+          "quarantined": 0
+        }
+      ],
+      "semanticNotes": [
+        "Calendar-year bucket not exact edition; duplicated fixture source locators and club/day collisions; no inferred phase calendar or score import."
+      ]
+    },
+    {
+      "row": 528,
+      "sha": "df0d3886bee425d0f9dc0f13e6a65acec9176062",
+      "observations": [
+        {
+          "key": "b34bdc5d4b6913516a218e7f071da4c7cd48c6d61bc6940ed3a6fe49dea77f76",
+          "group": {
+            "source": "github/martj42/international_results",
+            "competition": "FIFA World Cup",
+            "country": "INTERNATIONAL",
+            "season": "2026",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 48,
+            "fixtures": 104,
+            "orientedPairs": 104,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": []
+          },
+          "fixtures": 104,
+          "distinctFixtureKeys": 104,
+          "labels": 48,
+          "distinctOrientedPairs": 104,
+          "clubDayClashes": 0,
+          "allDatesExplicit": true,
+          "nativePairs": 0,
+          "scoreCount": 79,
+          "scoreKeys": 79,
+          "scoreTeams": 48,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 158,
+            "gf": 231,
+            "ga": 231,
+            "wins": 57,
+            "losses": 57
+          },
+          "scoreSpan": [
+            "2026-06-11",
+            "2026-06-30"
+          ],
+          "quarantined": 0
+        },
+        {
+          "key": "22a95d5bf896e08b4bf541d9a8b19ec9ee64d5b594b3f298b1aeeae5b4301b23",
+          "group": {
+            "source": "github/martj42/international_results",
+            "competition": "FIFA World Cup",
+            "country": "INTERNATIONAL",
+            "season": "2026",
+            "season_basis": "CALENDAR_YEAR_BUCKET"
+          },
+          "shape": {
+            "family": "OTHER_PHASES_OR_PARTIAL",
+            "teams": 48,
+            "fixtures": 104,
+            "orientedPairs": 104,
+            "invalid": 0,
+            "clubDayClashes": 0,
+            "inferredDates": 0,
+            "expectedRegularTeams": []
+          },
+          "fixtures": 104,
+          "distinctFixtureKeys": 104,
+          "labels": 48,
+          "distinctOrientedPairs": 104,
+          "clubDayClashes": 0,
+          "allDatesExplicit": true,
+          "nativePairs": 0,
+          "scoreCount": 79,
+          "scoreKeys": 79,
+          "scoreTeams": 48,
+          "scoreDayClashes": 0,
+          "postCutoff": 0,
+          "scoreArithmetic": {
+            "played": 158,
+            "gf": 231,
+            "ga": 231,
+            "wins": 57,
+            "losses": 57
+          },
+          "scoreSpan": [
+            "2026-06-11",
+            "2026-06-30"
+          ],
+          "quarantined": 0
+        }
+      ],
+      "semanticNotes": [
+        "79 pre-cutoff scored fixtures per observation, two versions repeat same source; no additional result count. Preserve group/KO semantics; existing July P retained."
+      ]
+    }
+  ],
+  "quarantine": [
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:12",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:13",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:14",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:15",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:16",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:18",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:19",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:20",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:21",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:22",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:24",
+      "season": "2007/08",
+      "categories": [
+        "format"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:28",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:29",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:30",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:31",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:32",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:36",
+      "season": "2007/08",
+      "categories": [
+        "movement",
+        "format"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:40",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:41",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:42",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:44",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:46",
+      "season": "2007/08",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom08.txt:51",
+      "season": "2007/08",
+      "categories": [
+        "movement",
+        "format"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:12",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:13",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:14",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:15",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:16",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:18",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:19",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:20",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:21",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:22",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:24",
+      "season": "2008/09",
+      "categories": [
+        "format"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:28",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:29",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:30",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:31",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:32",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:36",
+      "season": "2008/09",
+      "categories": [
+        "movement",
+        "format"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:40",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:41",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:42",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:44",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:46",
+      "season": "2008/09",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:48",
+      "season": "2008/09",
+      "categories": [
+        "regulation"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:52",
+      "season": "2008/09",
+      "categories": [
+        "movement",
+        "format"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom09.txt:66",
+      "season": "2008/09",
+      "categories": [
+        "movement"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:21",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:22",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:23",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:24",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:25",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:27",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:28",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:29",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:30",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:31",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:33",
+      "season": "2009/10",
+      "categories": [
+        "format"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:35",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:36",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:37",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:38",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:39",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:44",
+      "season": "2009/10",
+      "categories": [
+        "format"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:46",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:47",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:48",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:49",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2010.txt:51",
+      "season": "2009/10",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2011.txt:19",
+      "season": "2010/11",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2011.txt:20",
+      "season": "2010/11",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2011.txt:21",
+      "season": "2010/11",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2011.txt:22",
+      "season": "2010/11",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2011.txt:23",
+      "season": "2010/11",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2011.txt:24",
+      "season": "2010/11",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2011.txt:25",
+      "season": "2010/11",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2011.txt:26",
+      "season": "2010/11",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2011.txt:27",
+      "season": "2010/11",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2011.txt:29",
+      "season": "2010/11",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2012.txt:19",
+      "season": "2011/12",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2012.txt:20",
+      "season": "2011/12",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2012.txt:21",
+      "season": "2011/12",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2012.txt:22",
+      "season": "2011/12",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2012.txt:23",
+      "season": "2011/12",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2012.txt:24",
+      "season": "2011/12",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2012.txt:25",
+      "season": "2011/12",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2012.txt:26",
+      "season": "2011/12",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2012.txt:27",
+      "season": "2011/12",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2012.txt:28",
+      "season": "2011/12",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2013.txt:18",
+      "season": "2012/13",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2013.txt:19",
+      "season": "2012/13",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2013.txt:20",
+      "season": "2012/13",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2013.txt:21",
+      "season": "2012/13",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2013.txt:22",
+      "season": "2012/13",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2013.txt:23",
+      "season": "2012/13",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2013.txt:24",
+      "season": "2012/13",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2013.txt:25",
+      "season": "2012/13",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2013.txt:27",
+      "season": "2012/13",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2013.txt:28",
+      "season": "2012/13",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2014.txt:18",
+      "season": "2013/14",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2014.txt:19",
+      "season": "2013/14",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2014.txt:20",
+      "season": "2013/14",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2014.txt:21",
+      "season": "2013/14",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2014.txt:22",
+      "season": "2013/14",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2014.txt:23",
+      "season": "2013/14",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2014.txt:24",
+      "season": "2013/14",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2014.txt:25",
+      "season": "2013/14",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2014.txt:26",
+      "season": "2013/14",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2014.txt:27",
+      "season": "2013/14",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2015.txt:18",
+      "season": "2014/15",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2015.txt:19",
+      "season": "2014/15",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2015.txt:20",
+      "season": "2014/15",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2015.txt:21",
+      "season": "2014/15",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2015.txt:22",
+      "season": "2014/15",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2015.txt:23",
+      "season": "2014/15",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2015.txt:24",
+      "season": "2014/15",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2015.txt:25",
+      "season": "2014/15",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2015.txt:26",
+      "season": "2014/15",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2015.txt:27",
+      "season": "2014/15",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2016.txt:18",
+      "season": "2015/16",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2016.txt:19",
+      "season": "2015/16",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2016.txt:20",
+      "season": "2015/16",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2016.txt:21",
+      "season": "2015/16",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2016.txt:22",
+      "season": "2015/16",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2016.txt:23",
+      "season": "2015/16",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2016.txt:24",
+      "season": "2015/16",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2016.txt:25",
+      "season": "2015/16",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2016.txt:26",
+      "season": "2015/16",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2016.txt:28",
+      "season": "2015/16",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2017.txt:18",
+      "season": "2016/17",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2017.txt:19",
+      "season": "2016/17",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2017.txt:20",
+      "season": "2016/17",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2017.txt:21",
+      "season": "2016/17",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2017.txt:22",
+      "season": "2016/17",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2017.txt:23",
+      "season": "2016/17",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2017.txt:24",
+      "season": "2016/17",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2017.txt:25",
+      "season": "2016/17",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2017.txt:26",
+      "season": "2016/17",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2017.txt:28",
+      "season": "2016/17",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2018.txt:18",
+      "season": "2017/18",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2018.txt:19",
+      "season": "2017/18",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2018.txt:20",
+      "season": "2017/18",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2018.txt:21",
+      "season": "2017/18",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2018.txt:22",
+      "season": "2017/18",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2018.txt:23",
+      "season": "2017/18",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2018.txt:24",
+      "season": "2017/18",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2018.txt:25",
+      "season": "2017/18",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2018.txt:26",
+      "season": "2017/18",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2018.txt:28",
+      "season": "2017/18",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:18",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:19",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:195",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:196",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:197",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:198",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:199",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:20",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:200",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:201",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:202",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:203",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:205",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:21",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:22",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:23",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:24",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:25",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:26",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2019.txt:28",
+      "season": "2018/19",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2020.txt:18",
+      "season": "2019/20",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2020.txt:19",
+      "season": "2019/20",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2020.txt:20",
+      "season": "2019/20",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2020.txt:21",
+      "season": "2019/20",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2020.txt:22",
+      "season": "2019/20",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2020.txt:23",
+      "season": "2019/20",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2020.txt:24",
+      "season": "2019/20",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2020.txt:25",
+      "season": "2019/20",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2020.txt:26",
+      "season": "2019/20",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2020.txt:28",
+      "season": "2019/20",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:113",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:114",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:115",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:116",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:117",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:118",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:119",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:120",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:121",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:123",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:19",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:20",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:21",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:213",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:214",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:215",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:216",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:217",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:218",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:219",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:22",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:220",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:221",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:223",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:23",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:24",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:25",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:26",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:27",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:29",
+      "season": "2020/21",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2021.txt:31",
+      "season": "2020/21",
+      "categories": [
+        "format"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2022.txt:20",
+      "season": "2021/22",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2022.txt:21",
+      "season": "2021/22",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2022.txt:22",
+      "season": "2021/22",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2022.txt:23",
+      "season": "2021/22",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2022.txt:24",
+      "season": "2021/22",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2022.txt:25",
+      "season": "2021/22",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2022.txt:26",
+      "season": "2021/22",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2022.txt:27",
+      "season": "2021/22",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2022.txt:28",
+      "season": "2021/22",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2022.txt:30",
+      "season": "2021/22",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:121",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:122",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:123",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:124",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:125",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:126",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:127",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:128",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:129",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:131",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:20",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:21",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:22",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:221",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:222",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:223",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:224",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:225",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:226",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:227",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:228",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:229",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:23",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:231",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:24",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:25",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:26",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:27",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:28",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:30",
+      "season": "2022/23",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2023.txt:33",
+      "season": "2022/23",
+      "categories": [
+        "format"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:119",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:120",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:121",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:122",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:123",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:124",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:125",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:126",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:127",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:129",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:19",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:20",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:21",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:210",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:211",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:212",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:213",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:214",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:215",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:216",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:217",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:218",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:22",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:220",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:23",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:24",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:25",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:26",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:27",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "locator": "corpus/tableso/oost-wom2024.txt:29",
+      "season": "2023/24",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_WOMEN"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-07-31",
+        "DSV",
+        "Mödling"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:789"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-07-31",
+        "Gerasdorf",
+        "FavAC"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:790"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-07-31",
+        "Hartberg",
+        "Austria Lustenau"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:794"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-07-31",
+        "Sankt Pölten",
+        "Vorwärts"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:793"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-07-31",
+        "Schwarz-Weiß",
+        "Flavia Solva"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:792"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-07-31",
+        "Spittal",
+        "Braunau"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:795"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-07-31",
+        "Stockerau",
+        "Vienna"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:796"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-07-31",
+        "Wattens",
+        "Kufstein"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:791"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-09-04",
+        "Austria Lustenau",
+        "Wattens"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:840"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-09-04",
+        "Braunau",
+        "Kufstein"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:843"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-09-04",
+        "Gerasdorf",
+        "Flavia Solva"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:839"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-09-04",
+        "Hartberg",
+        "Spittal"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:844"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-09-04",
+        "Mödling",
+        "Stockerau"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:846"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-09-04",
+        "Sankt Pölten",
+        "FavAC"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:842"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-09-04",
+        "Vienna",
+        "DSV"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:841"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-09-04",
+        "Vorwärts",
+        "Schwarz-Weiß"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:845"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-09-18",
+        "Kufstein",
+        "Austria Lustenau"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:856"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-09-25",
+        "Gerasdorf",
+        "Stockerau"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:866"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1996-11-01",
+        "Schwarz-Weiß",
+        "FavAC"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:893"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-22",
+        "Hohenems",
+        "Tirol"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1897"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-22",
+        "Kundl",
+        "Lauterach"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1896"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-22",
+        "Lustenau",
+        "Zell"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1898"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-22",
+        "Puch",
+        "Hall"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1899"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-22",
+        "Rum",
+        "Saalfelden"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1895"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-22",
+        "Wacker",
+        "Wörgl"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1894"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-28",
+        "Hartberg",
+        "Vorwärts"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:965"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-29",
+        "Altach",
+        "Wacker"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1906"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-29",
+        "Lauterach",
+        "Hohenems"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1907"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-29",
+        "Puch",
+        "Rum"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1904"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-29",
+        "Tirol",
+        "Austria Salzburg"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1905"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-29",
+        "Wörgl",
+        "SAK"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1908"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-31",
+        "Austria Salzburg",
+        "Altach"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1900"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-31",
+        "Baumgarten",
+        "Donaufeld"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1324"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-31",
+        "Klingenbach",
+        "Schwechat"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1327"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-31",
+        "SAK",
+        "Hard"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1901"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-31",
+        "Waidhofen",
+        "Gmünd"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1326"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-03-31",
+        "Wiener Neustadt",
+        "Eisenstadt"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1325"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-04-16",
+        "Austria Lustenau",
+        "Schwarz-Weiß"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:990"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-04-16",
+        "Braunau",
+        "Wattens"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:993"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-04-16",
+        "Gerasdorf",
+        "Kufstein"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:991"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-04-16",
+        "Hartberg",
+        "Stockerau"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:994"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-04-16",
+        "Mödling",
+        "Flavia Solva"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:995"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-04-16",
+        "Sankt Pölten",
+        "Spittal"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:992"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-04-16",
+        "Vorwärts",
+        "DSV"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:989"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-04-23",
+        "Saalfelden",
+        "Wörgl"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1920"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-01",
+        "Donaufeld",
+        "Oberwart"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1357"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-01",
+        "Hall",
+        "Lustenau"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1910"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-01",
+        "Hard",
+        "Saalfelden"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1911"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-01",
+        "Himberg",
+        "Horn"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1353"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-01",
+        "Klingenbach",
+        "Wiener Neustadt"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1356"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-01",
+        "Waidhofen",
+        "Klingenbach"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1347"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-01",
+        "Zell",
+        "Kundl"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1909"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-08",
+        "Austria Salzburg",
+        "Kundl"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1965"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-08",
+        "Hohenems",
+        "Rum"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1969"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-08",
+        "Lauterach",
+        "Wörgl"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1967"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-08",
+        "Lustenau",
+        "Wacker"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1968"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-08",
+        "Puch",
+        "SAK"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1964"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-08",
+        "Saalfelden",
+        "Hall"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1971"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-08",
+        "Tirol",
+        "Altach"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1970"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-08",
+        "Zell",
+        "Hard"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1966"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-13",
+        "Oberwart",
+        "Himberg"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1367"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-20",
+        "Austria Lustenau",
+        "Braunau"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1054"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-20",
+        "DSV",
+        "Stockerau"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1055"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-20",
+        "Hartberg",
+        "Kufstein"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1050"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-20",
+        "Sankt Pölten",
+        "Flavia Solva"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1051"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-20",
+        "Spittal",
+        "Wattens"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1049"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-20",
+        "Vienna",
+        "Mödling"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1052"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-20",
+        "Vorwärts",
+        "Gerasdorf"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1053"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-29",
+        "Bleiburg",
+        "Esternberg"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1671"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-29",
+        "Pöllau",
+        "Gratkorn"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1672"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-29",
+        "Rohrbach",
+        "Austria"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1673"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-29",
+        "SAK",
+        "Feldkirchen"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1669"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-29",
+        "Sankt Florian",
+        "Leibnitz"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1670"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-29",
+        "Voitsberg",
+        "WAC"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1668"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-29",
+        "VSV",
+        "Eintracht"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1674"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Austria",
+        "Pöllau"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1679"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Austria Salzburg",
+        "SAK"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:2004"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "DSV",
+        "Wattens"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1072"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Eintracht",
+        "Rohrbach"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1678"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Esternberg",
+        "Sankt Florian"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1681"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Feldkirchen",
+        "Voitsberg"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1683"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Gratkorn",
+        "Bleiburg"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1680"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Hall",
+        "Tirol"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:2008"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Hartberg",
+        "Mödling"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1073"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Hohenems",
+        "Saalfelden"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:2007"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Kundl",
+        "Hard"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:2010"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Leibnitz",
+        "SAK"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1682"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Lustenau",
+        "Wörgl"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:2009"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Puch",
+        "Altach"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:2005"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Sankt Pölten",
+        "Gerasdorf"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1069"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Schwarz-Weiß",
+        "Stockerau"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1071"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Spittal",
+        "Flavia Solva"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1074"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Vienna",
+        "Braunau"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1070"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Vorwärts",
+        "Austria Lustenau"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1075"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "WAC",
+        "VSV"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1677"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Wacker",
+        "Rum"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:2011"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-05-31",
+        "Zell",
+        "Lauterach"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:2006"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-06-03",
+        "Austria Lustenau",
+        "Vienna"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1082"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-06-03",
+        "Braunau",
+        "Sankt Pölten"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1081"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-06-03",
+        "Gerasdorf",
+        "Hartberg"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1079"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-06-03",
+        "Kufstein",
+        "DSV"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1083"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-06-03",
+        "Mödling",
+        "Spittal"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1084"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-06-03",
+        "Stockerau",
+        "Vorwärts"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1085"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-06-03",
+        "Wattens",
+        "Schwarz-Weiß"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1080"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-06-07",
+        "Bleiburg",
+        "Austria"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1690"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-06-07",
+        "Feldkirchen",
+        "WAC"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1686"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-06-07",
+        "Pöllau",
+        "Eintracht"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1691"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-06-07",
+        "Rohrbach",
+        "VSV"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1692"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-06-07",
+        "SAK",
+        "Esternberg"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1688"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-06-07",
+        "Sankt Florian",
+        "Gratkorn"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1689"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 2,
+      "observation": "cea61d88d060bda6dccf1ea06786c9e4dff52112aedc20a742b284c392cd6749",
+      "edition": "1996/1997",
+      "event": [
+        "1997-06-07",
+        "Voitsberg",
+        "Leibnitz"
+      ],
+      "locations": [
+        [
+          0,
+          "corpus/tableso/oost97.txt:1687"
+        ]
+      ],
+      "reason": "WRONG_TIER_SOURCE_SECTION_AT_OR_AFTER_2_BUNDESLIGA"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:167",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:168",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:169",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:170",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:171",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:172",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:173",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:174",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:176",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:177",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:178",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:179",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:30",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:31",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:32",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:33",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:34",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:35",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:36",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:37",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:39",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:40",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:41",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana99.txt:42",
+      "season": "1999",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana00.txt:18",
+      "season": "2000",
+      "categories": [
+        "qualification"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana00.txt:19",
+      "season": "2000",
+      "categories": [
+        "qualification"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana00.txt:24",
+      "season": "2000",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana00.txt:25",
+      "season": "2000",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana00.txt:26",
+      "season": "2000",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana00.txt:27",
+      "season": "2000",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana00.txt:28",
+      "season": "2000",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana00.txt:29",
+      "season": "2000",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana00.txt:30",
+      "season": "2000",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana00.txt:31",
+      "season": "2000",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana00.txt:33",
+      "season": "2000",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana00.txt:34",
+      "season": "2000",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana00.txt:35",
+      "season": "2000",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 217,
+      "observation": "08eb9052a84ccc732e676522647e39c1d95644aa68e3736d31414fc6399cbf69",
+      "locator": "corpus/tablesp/parana00.txt:36",
+      "season": "2000",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_STATE_LEAGUE"
+    },
+    {
+      "row": 76,
+      "observation": "911636641d3ffabadea808c086ffc3eb7473bf37d8a3df02a0009889ca47bd32",
+      "locator": "corpus/tablese/engarthur06.txt:50",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 76,
+      "observation": "911636641d3ffabadea808c086ffc3eb7473bf37d8a3df02a0009889ca47bd32",
+      "locator": "corpus/tablese/engarthur06.txt:51",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 76,
+      "observation": "911636641d3ffabadea808c086ffc3eb7473bf37d8a3df02a0009889ca47bd32",
+      "locator": "corpus/tablese/engarthur06.txt:53",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 76,
+      "observation": "911636641d3ffabadea808c086ffc3eb7473bf37d8a3df02a0009889ca47bd32",
+      "locator": "corpus/tablese/engarthur06.txt:54",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 76,
+      "observation": "911636641d3ffabadea808c086ffc3eb7473bf37d8a3df02a0009889ca47bd32",
+      "locator": "corpus/tablese/engarthur06.txt:55",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 76,
+      "observation": "911636641d3ffabadea808c086ffc3eb7473bf37d8a3df02a0009889ca47bd32",
+      "locator": "corpus/tablese/engarthur06.txt:56",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 76,
+      "observation": "911636641d3ffabadea808c086ffc3eb7473bf37d8a3df02a0009889ca47bd32",
+      "locator": "corpus/tablese/engarthur06.txt:58",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 76,
+      "observation": "911636641d3ffabadea808c086ffc3eb7473bf37d8a3df02a0009889ca47bd32",
+      "locator": "corpus/tablese/engarthur06.txt:59",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 76,
+      "observation": "911636641d3ffabadea808c086ffc3eb7473bf37d8a3df02a0009889ca47bd32",
+      "locator": "corpus/tablese/engarthur06.txt:61",
+      "season": "2005/06",
+      "categories": [
+        "regulation"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 76,
+      "observation": "911636641d3ffabadea808c086ffc3eb7473bf37d8a3df02a0009889ca47bd32",
+      "locator": "corpus/tablese/engarthur06.txt:62",
+      "season": "2005/06",
+      "categories": [
+        "movement"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 77,
+      "observation": "a0690c0509e25bbc663c9e535818e0aa181645eecd9ee22f14bce86873d85b30",
+      "locator": "corpus/tablese/engleagcup99.txt:35",
+      "season": "1998/99",
+      "categories": [
+        "format"
+      ],
+      "reason": "WRONG_COMPETITION_LEAGUE_CUP"
+    },
+    {
+      "row": 77,
+      "observation": "a0690c0509e25bbc663c9e535818e0aa181645eecd9ee22f14bce86873d85b30",
+      "locator": "corpus/tablese/engarthur06.txt:65",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 77,
+      "observation": "a0690c0509e25bbc663c9e535818e0aa181645eecd9ee22f14bce86873d85b30",
+      "locator": "corpus/tablese/engarthur06.txt:66",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 77,
+      "observation": "a0690c0509e25bbc663c9e535818e0aa181645eecd9ee22f14bce86873d85b30",
+      "locator": "corpus/tablese/engarthur06.txt:68",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 77,
+      "observation": "a0690c0509e25bbc663c9e535818e0aa181645eecd9ee22f14bce86873d85b30",
+      "locator": "corpus/tablese/engarthur06.txt:69",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 77,
+      "observation": "a0690c0509e25bbc663c9e535818e0aa181645eecd9ee22f14bce86873d85b30",
+      "locator": "corpus/tablese/engarthur06.txt:70",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 77,
+      "observation": "a0690c0509e25bbc663c9e535818e0aa181645eecd9ee22f14bce86873d85b30",
+      "locator": "corpus/tablese/engarthur06.txt:71",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 77,
+      "observation": "a0690c0509e25bbc663c9e535818e0aa181645eecd9ee22f14bce86873d85b30",
+      "locator": "corpus/tablese/engarthur06.txt:72",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 77,
+      "observation": "a0690c0509e25bbc663c9e535818e0aa181645eecd9ee22f14bce86873d85b30",
+      "locator": "corpus/tablese/engarthur06.txt:74",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 77,
+      "observation": "a0690c0509e25bbc663c9e535818e0aa181645eecd9ee22f14bce86873d85b30",
+      "locator": "corpus/tablese/engarthur06.txt:75",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 77,
+      "observation": "a0690c0509e25bbc663c9e535818e0aa181645eecd9ee22f14bce86873d85b30",
+      "locator": "corpus/tablese/engarthur06.txt:76",
+      "season": "2005/06",
+      "categories": [
+        "regulation"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 77,
+      "observation": "a0690c0509e25bbc663c9e535818e0aa181645eecd9ee22f14bce86873d85b30",
+      "locator": "corpus/tablese/engarthur06.txt:77",
+      "season": "2005/06",
+      "categories": [
+        "movement"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 78,
+      "observation": "035248f1d9fa19456fdd23c8b45526e4743065aeeb91618f986dd53d64b832cb",
+      "locator": "corpus/tablese/engarthur06.txt:80",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 78,
+      "observation": "035248f1d9fa19456fdd23c8b45526e4743065aeeb91618f986dd53d64b832cb",
+      "locator": "corpus/tablese/engarthur06.txt:81",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 78,
+      "observation": "035248f1d9fa19456fdd23c8b45526e4743065aeeb91618f986dd53d64b832cb",
+      "locator": "corpus/tablese/engarthur06.txt:83",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 78,
+      "observation": "035248f1d9fa19456fdd23c8b45526e4743065aeeb91618f986dd53d64b832cb",
+      "locator": "corpus/tablese/engarthur06.txt:84",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 78,
+      "observation": "035248f1d9fa19456fdd23c8b45526e4743065aeeb91618f986dd53d64b832cb",
+      "locator": "corpus/tablese/engarthur06.txt:85",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 78,
+      "observation": "035248f1d9fa19456fdd23c8b45526e4743065aeeb91618f986dd53d64b832cb",
+      "locator": "corpus/tablese/engarthur06.txt:87",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    },
+    {
+      "row": 78,
+      "observation": "035248f1d9fa19456fdd23c8b45526e4743065aeeb91618f986dd53d64b832cb",
+      "locator": "corpus/tablese/engarthur06.txt:88",
+      "season": "2005/06",
+      "categories": [
+        "table"
+      ],
+      "reason": "WRONG_COMPETITION_ARTHURIAN_LEAGUE"
+    }
+  ],
+  "duplicates": [
+    {
+      "row": 62,
+      "observation": "2732f6c5af390397094e76224c8e068417d9183908fe27c203a1a3bd7dcdd4ce",
+      "first": [
+        "1997-10-02",
+        "EXPLICIT",
+        "Guadalajara",
+        "Tigres UANL",
+        null,
+        null,
+        "games.parquet:batch8:34415",
+        ""
+      ],
+      "second": [
+        "1997-10-02",
+        "EXPLICIT",
+        "Guadalajara",
+        "Tigres UANL",
+        null,
+        null,
+        "games.parquet:batch8:34416",
+        ""
+      ]
+    },
+    {
+      "row": 62,
+      "observation": "055aa376a967ec23f361f2ac5812343eb5c42499e0e84c085c54e65cc228f81b",
+      "first": [
+        "1997-10-02",
+        "EXPLICIT",
+        "Guadalajara",
+        "Tigres UANL",
+        null,
+        null,
+        "games.parquet:batch8:34415",
+        ""
+      ],
+      "second": [
+        "1997-10-02",
+        "EXPLICIT",
+        "Guadalajara",
+        "Tigres UANL",
+        null,
+        null,
+        "games.parquet:batch8:34416",
+        ""
+      ]
+    },
+    {
+      "row": 87,
+      "observation": "fa3d4253ee9ee8a17ab32fb73e7beb353e7a5581ad810c1ba875239034af0cb7",
+      "first": [
+        "1996-03-16",
+        "EXPLICIT",
+        "Danubio",
+        "Nacional",
+        "03d49957-b7c4-5b04-8409-08b4334b32b0",
+        "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+        "games.parquet:batch8:12167",
+        ""
+      ],
+      "second": [
+        "1996-03-16",
+        "EXPLICIT",
+        "Danubio",
+        "Nacional",
+        "03d49957-b7c4-5b04-8409-08b4334b32b0",
+        "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+        "games.parquet:batch8:12174",
+        ""
+      ]
+    },
+    {
+      "row": 87,
+      "observation": "7e3aeb5285d1bcc47aeb10dfb7f61c3a0bb6d3e4e624b22e7eec3c6e218e0ea1",
+      "first": [
+        "1996-03-16",
+        "EXPLICIT",
+        "Danubio",
+        "Nacional",
+        "03d49957-b7c4-5b04-8409-08b4334b32b0",
+        "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+        "games.parquet:batch8:12167",
+        ""
+      ],
+      "second": [
+        "1996-03-16",
+        "EXPLICIT",
+        "Danubio",
+        "Nacional",
+        "03d49957-b7c4-5b04-8409-08b4334b32b0",
+        "b8d3fb1c-bdbd-544a-a83e-b35d7de75b79",
+        "games.parquet:batch8:12174",
+        ""
+      ]
+    }
+  ],
+  "proposed": [
+    {
+      "row": 2,
+      "field": "format",
+      "from": "I",
+      "to": "P",
+      "basis": "historicalSportData quadruple RR + corpus/tableso/oost97.txt:6–23, 10 teams × 36 games; not contaminated automatic fixtures"
+    },
+    {
+      "row": 76,
+      "field": "format",
+      "from": "I",
+      "to": "P",
+      "basis": "historicalSportData + corpus/tablese/eng97.txt:1127–1163; 552 exact regular pairs, playoff structure and observed access ranks; not formal full rule certification"
+    },
+    {
+      "row": 76,
+      "field": "movement",
+      "from": "I",
+      "to": "P",
+      "basis": "historicalSportData + corpus/tablese/eng97.txt:1127–1163; 552 exact regular pairs, playoff structure and observed access ranks; not formal full rule certification"
+    },
+    {
+      "row": 77,
+      "field": "format",
+      "from": "I",
+      "to": "P",
+      "basis": "historicalSportData + corpus/tablese/eng97.txt:1166–1202; 552 exact regular pairs, playoff structure and observed access ranks; not formal full rule certification"
+    },
+    {
+      "row": 77,
+      "field": "movement",
+      "from": "I",
+      "to": "P",
+      "basis": "historicalSportData + corpus/tablese/eng97.txt:1166–1202; 552 exact regular pairs, playoff structure and observed access ranks; not formal full rule certification"
+    },
+    {
+      "row": 78,
+      "field": "format",
+      "from": "I",
+      "to": "P",
+      "basis": "historicalSportData + corpus/tablese/eng97.txt:1205–1241; 552 exact regular pairs, playoff structure and observed access ranks; not formal full rule certification"
+    },
+    {
+      "row": 78,
+      "field": "movement",
+      "from": "I",
+      "to": "P",
+      "basis": "historicalSportData + corpus/tablese/eng97.txt:1205–1241; 552 exact regular pairs, playoff structure and observed access ranks; not formal full rule certification"
+    }
+  ]
+}

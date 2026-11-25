@@ -14,7 +14,7 @@ import zipfile
 import closure_pass as mass
 import deep_pass as deep
 
-FIELDS = ('identity','participants','format','calendar','regulation','movement','qualification','july1','evolution')
+FIELDS = ('name','identity','participants','format','calendar','regulation','movement','qualification','july1','evolution')
 FILES = ('evidence.sqlite','matrix_candidates.csv','source_groups.csv','native_join_candidates.csv')
 # Exact titles in the supplied OpenFootball JSON archive; no fuzzy competition joins.
 OPEN = {'English Premier League':('ENG',1),'English Championship':('ENG',2),
@@ -149,6 +149,18 @@ def aliases_from_repo(root, matrix, native):
                     elif isinstance(x,list) and obj.get('columns',[])[:5]==['sportName','nativeName','uuid','fileCountry','ordinal']:
                         add(rid,x[0],x[2],x[3],x[4])
         except (OSError,ValueError,KeyError,TypeError,StopIteration,IndexError) as e:warnings.append(f'row {rid}: {e}')
+    if index.get('automaticInsertion'):
+        current=load(index['automaticInsertion'])
+        records=current['rows']+current.get('excludedRows',[])
+        canonical={int(r['row']):r for r in records}
+        if len(canonical)!=len(records) or set(canonical)-set(matrix) or (index.get('canonicalFieldMatrix') and set(canonical)!=set(matrix)):
+            raise ValueError('Canonical matrix inventory mismatch')
+        for rid,r in canonical.items():
+            f=r['fields']
+            if set(f)!=set(FIELDS) or not set(f.values())<={'V','P','I','NA','?'}:
+                raise ValueError('Invalid canonical field status')
+            states[rid]=dict(states.get(rid,{}),**r)
+            states[rid]['closed']=r['status'] in ('V','P')
     return aliases,states,warnings,expected,routes,plans
 
 def current_native_filter(root,native):
@@ -270,8 +282,13 @@ def consolidate(source,out,root=None):
                 if merged:options.append(merged);merged_count+=1
             # Prefer coherent complete candidates.
             options.sort(key=lambda x:x[0],reverse=True)
-            current=states.get(rid,{});status={f:current.get('fields',{}).get(f,{}).get('status',m[f]) for f in FIELDS}
-            gaps=[f for f in FIELDS if status[f] not in ('COMPLETE','NA')]
+            current=states.get(rid,{})
+            def normalize_field(f):
+                v=current.get('fields',{}).get(f,m.get('name_status' if f=='name' else f,'I'))
+                if isinstance(v,dict):v=v.get('status','I')
+                return {'COMPLETE':'P','PARTIAL':'I','NOT_AUDITED':'I'}.get(v,v) if v in ('V','P','I','NA','?','COMPLETE','PARTIAL','NOT_AUDITED') else 'I'
+            status={f:normalize_field(f) for f in FIELDS}
+            gaps=[f for f in FIELDS if status[f] not in ('V','P','NA')]
             closed=current.get('closed',m['previously_closed'].lower()=='true')
             packet={'row':rid,'world':w,'country':m['country'],'id':m['id'],'detail':m['detail'],'name':m['name'],'existingFields':status,'existingClosed':closed,'sourceGroupCount':len(history),'initialGroupCount':len(target),'historyObservations':[{x:g[x] for x in ('source','competition','season','season_basis','teams','rows','unique_oriented_pairs','double_round_robin_candidate','inferred_dates','duplicate_pair_occurrences','min_date','max_date')} for g in history],'reviewGaps':gaps,'status':'REVIEW_REQUIRED'}
             packet['fullNativeRosterCandidate']=bool(rosters)

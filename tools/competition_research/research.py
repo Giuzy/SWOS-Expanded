@@ -549,6 +549,21 @@ def catalogue(root,co):
         try:
             for r in json.loads((docs/p).read_text(encoding="utf-8"))["rows"]: named[int(r["row"])]=r
         except Exception as exc:co.note("SWOS",p,"ERROR_NAMED",exc)
+    # Current classification supersedes older named assessments; retain their evidence.
+    if index.get("automaticInsertion"):
+        current=json.loads((docs/index["automaticInsertion"]).read_text(encoding="utf-8"))
+        records=current["rows"]+current.get("excludedRows",[])
+        canonical={int(r["row"]):r for r in records}
+        if len(canonical)!=len(records) or set(canonical)-set(rows) or set(rows)-set(canonical) not in (set(),{100,101,102}):
+            raise ValueError("Canonical matrix inventory mismatch")
+        if index.get("canonicalFieldMatrix") and set(canonical)!=set(rows):
+            raise ValueError("Missing canonical inventory rows")
+        for rid,r in canonical.items():
+            f=r["fields"]
+            if set(f)!=set(FIELDS)|{"name"} or not set(f.values())<={"V","P","I","NA","?"}:
+                raise ValueError("Invalid canonical field status")
+            named[rid]=dict(named.get(rid,{}),**r)
+            named[rid].update(complete=sum(v=="V" for v in f.values()),applicable=sum(v in ("V","P","I") for v in f.values()),closed=r["status"] in ("V","P"))
     native=collections.defaultdict(list);uuidmap={}
     for world,folder in [("9697",root/"data_json/teams"),("2627",root/"data_json/worlds/2627/teams")]:
         for p in sorted(folder.glob("*.json")):
@@ -686,12 +701,17 @@ def candidates(co,rows,named,native):
     db.commit()
     proposals=[]
     for rid,r in sorted(rows.items()):
-        rr=named.get(rid,{});fs=rr.get("fields",{});states=[fs.get(k,{}).get("status","NOT_AUDITED") for k in FIELDS]
+        rr=named.get(rid,{});fs=rr.get("fields",{})
+        def field_status(k):
+            v=fs.get(k,"I")
+            if isinstance(v,dict):v=v.get("status","I")
+            return {"COMPLETE":"P","PARTIAL":"I","NOT_AUDITED":"I"}.get(v,v) if v in ("V","P","I","NA","?","COMPLETE","PARTIAL","NOT_AUDITED") else "I"
+        states=[field_status(k) for k in FIELDS]
         hh=rowhits.get(rid,[])
         naming=r.get("competitionNaming") or {}
-        proposals.append((rid,r.get("world"),r.get("country"),r.get("id"),r.get("detail"),naming.get("officialName") or rr.get("name") or naming.get("candidateName"),*states,rr.get("complete",""),rr.get("applicable",""),rr.get("closed",False),len(hh),sum(x[1] for x in hh),sum(x[2] for x in hh),sum(x[3] for x in hh),"REVIEW_REQUIRED"))
+        proposals.append((rid,r.get("world"),r.get("country"),r.get("id"),r.get("detail"),naming.get("officialName") or rr.get("name") or naming.get("nonCommercialDisplayName") or naming.get("candidateName"),*states,rr.get("complete",""),rr.get("applicable",""),rr.get("closed",False),len(hh),sum(x[1] for x in hh),sum(x[2] for x in hh),sum(x[3] for x in hh),"REVIEW_REQUIRED",field_status("name")))
     proposals.sort(key=lambda p:(bool(p[17]),-(p[15] if isinstance(p[15],int) else 0),-p[18],p[0]))
-    csvout(co.out/"matrix_candidates.csv",["row","world","country","id","detail","name",*FIELDS,"verified_complete","verified_applicable","previously_closed","candidate_groups","candidate_fixture_occurrences","candidate_team_occurrences","unique_join_occurrences","status"],proposals)
+    csvout(co.out/"matrix_candidates.csv",["row","world","country","id","detail","name",*FIELDS,"verified_complete","verified_applicable","previously_closed","candidate_groups","candidate_fixture_occurrences","candidate_team_occurrences","unique_join_occurrences","status","name_status"],proposals)
     # Conflicts within exactly identified source groups, using labels without speculative aliases.
     # Same fixture date + normalized source labels is not assumed equivalent across competitions.
     csvout(co.out/"same_source_score_conflicts.csv",["source","competition","country","date","home","away","variants"],db.execute("""SELECT source,competition,country,date,home,away,count(DISTINCT printf('%d:%d',hg,ag))

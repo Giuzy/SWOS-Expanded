@@ -1,0 +1,464 @@
+{
+  "block": 175,
+  "head": "eca51e10600aad430906bfa2d9db233403c65efa",
+  "baseMatrix": "a85245c118042490ae9595960714a159e75051fb",
+  "scope": "Cutoff and historical routing audit; no runtime; preserve original history and unresolved identity questions",
+  "cutoff": [
+    {
+      "row": 53,
+      "from": "?",
+      "to": "NA",
+      "basis": "Exact edition 1996/97 regular pair census in block132DateAudit + explicit source fixtures; zero preJulyRecords. No ongoing edition at start; previous archive/qualification separate. Does not certify playoff calendar.",
+      "sheet": "F2",
+      "count": 462,
+      "first": "1996-08-10",
+      "source": "EUROPE/FRA/9697/LEAGUE_DIVISION.json"
+    },
+    {
+      "row": 56,
+      "from": "?",
+      "to": "NA",
+      "basis": "Exact edition 1996/97 regular pair census in block132DateAudit + explicit source fixtures; zero preJulyRecords. No ongoing edition at start; previous archive/qualification separate. Does not certify playoff calendar.",
+      "sheet": "I1",
+      "count": 306,
+      "first": "1996-09-08",
+      "source": "EUROPE/ITA/9697/LEAGUE_DIVISION.json"
+    },
+    {
+      "row": 75,
+      "from": "?",
+      "to": "NA",
+      "basis": "Exact edition 1996/97 regular pair census in block132DateAudit + explicit source fixtures; zero preJulyRecords. No ongoing edition at start; previous archive/qualification separate. Does not certify playoff calendar.",
+      "sheet": "E0",
+      "count": 380,
+      "first": "1996-08-17",
+      "source": "EUROPE/ENG/9697/LEAGUE_DIVISION.json"
+    },
+    {
+      "row": 76,
+      "from": "?",
+      "to": "NA",
+      "basis": "Exact edition 1996/97 regular pair census in block132DateAudit + explicit source fixtures; zero preJulyRecords. No ongoing edition at start; previous archive/qualification separate. Does not certify playoff calendar.",
+      "sheet": "E1",
+      "count": 552,
+      "first": "1996-08-16",
+      "source": "EUROPE/ENG/9697/LEAGUE_DIVISION.json"
+    },
+    {
+      "row": 77,
+      "from": "?",
+      "to": "NA",
+      "basis": "Exact edition 1996/97 regular pair census in block132DateAudit + explicit source fixtures; zero preJulyRecords. No ongoing edition at start; previous archive/qualification separate. Does not certify playoff calendar.",
+      "sheet": "E2",
+      "count": 552,
+      "first": "1996-08-17",
+      "source": "EUROPE/ENG/9697/LEAGUE_DIVISION.json"
+    },
+    {
+      "row": 78,
+      "from": "?",
+      "to": "NA",
+      "basis": "Exact edition 1996/97 regular pair census in block132DateAudit + explicit source fixtures; zero preJulyRecords. No ongoing edition at start; previous archive/qualification separate. Does not certify playoff calendar.",
+      "sheet": "E3",
+      "count": 552,
+      "first": "1996-08-17",
+      "source": "EUROPE/ENG/9697/LEAGUE_DIVISION.json"
+    }
+  ],
+  "historyLinks": [
+    {
+      "index": 0,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "AUS NSL Cup",
+      "operation": "DISCONTINUE",
+      "effectiveEdition": "1996/97",
+      "source": "https://aleagues.com.au/wp-content/uploads/sites/17/2025/10/Isuzu_UTE_A-League_2025-26_Season_Guide.pdf",
+      "rowRefs": [
+        162
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 1,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "AUS NSL",
+      "operation": "DISCONTINUE",
+      "effectiveEdition": "2003/04",
+      "source": "https://footballaustralia.com.au/history/nsl",
+      "rowRefs": [
+        68
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 2,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "AUS A-League",
+      "operation": "CREATE",
+      "effectiveEdition": "2005/06",
+      "source": "https://footballaustralia.com.au/history/aleague-men",
+      "rowRefs": [
+        207
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 3,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "AUS national cup",
+      "operation": "CREATE",
+      "effectiveEdition": "2014",
+      "source": "https://footballaustralia.com.au/history",
+      "rowRefs": [
+        329
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 4,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "UEFA Cup Winners Cup",
+      "operation": "DISCONTINUE",
+      "effectiveEdition": "1998/99",
+      "source": "https://www.uefa.com/uefaeuropaleague/news/0268-121578920573-b970b8f59925-1000--from-uefa-cup-to-uefa-europa-league/",
+      "rowRefs": [
+        89
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 5,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "UEFA Cup",
+      "operation": "CHANGE_ACCESS",
+      "effectiveEdition": "1999/00",
+      "source": "https://www.uefa.com/uefaeuropaleague/news/0268-121578920573-b970b8f59925-1000--from-uefa-cup-to-uefa-europa-league/",
+      "rowRefs": [
+        90,
+        526
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 7,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "UEFA Cup",
+      "operation": "RENAME_AND_CHANGE_FORMAT",
+      "effectiveEdition": "2009/10",
+      "source": "https://www.uefa.com/uefaeuropaleague/news/0268-121578920573-b970b8f59925-1000--from-uefa-cup-to-uefa-europa-league/",
+      "rowRefs": [
+        90,
+        526
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 8,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "UEFA Europa Conference League",
+      "operation": "CREATE",
+      "effectiveEdition": "2021/22",
+      "source": "https://www.uefa.com/uefaconferenceleague/news/026c-131b2b24e6bd-68b0c5aba0dc-1000--europa-conference-league-fixtures/",
+      "rowRefs": [
+        527
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 9,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "UEFA Champions League",
+      "operation": "CHANGE_FORMAT",
+      "effectiveEdition": "2024/25",
+      "source": "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-champions-league-format/",
+      "rowRefs": [
+        165,
+        525
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 10,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "UEFA Europa League",
+      "operation": "CHANGE_FORMAT",
+      "effectiveEdition": "2024/25",
+      "source": "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-champions-league-format/",
+      "rowRefs": [
+        90,
+        526
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 11,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "UEFA Conference League",
+      "operation": "CHANGE_FORMAT",
+      "effectiveEdition": "2024/25",
+      "source": "https://www.uefa.com/uefachampionsleague/news/0268-12157d69ce2d-9f011c70f6fa-1000--new-champions-league-format/",
+      "rowRefs": [
+        527
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 12,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "CONMEBOL Sudamericana",
+      "operation": "CREATE",
+      "effectiveEdition": "2002",
+      "source": "https://cdn.conmebol.com/wp-content/uploads/2026/04/ORG_CONMEBOL_INFORME_DE_FINANZAS-POR-FLIPBOOK.pdf",
+      "rowRefs": [
+        424
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 13,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "CONMEBOL Sudamericana",
+      "operation": "CHANGE_CALENDAR",
+      "effectiveEdition": "2017",
+      "source": "https://cdn.conmebol.com/wp-content/uploads/2022/03/Manual-de-clubes-2022-CS-actualizado.pdf",
+      "rowRefs": [
+        424
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 14,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "CONMEBOL Libertadores",
+      "operation": "CHANGE_FINAL",
+      "effectiveEdition": "2019",
+      "source": "https://cdn.conmebol.com/wp-content/uploads/2026/04/ORG_CONMEBOL_INFORME_DE_FINANZAS-POR-FLIPBOOK.pdf",
+      "rowRefs": [
+        178,
+        321,
+        423
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 15,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "CONMEBOL Sudamericana",
+      "operation": "CHANGE_FINAL",
+      "effectiveEdition": "2019",
+      "source": "https://cdn.conmebol.com/wp-content/uploads/2026/04/ORG_CONMEBOL_INFORME_DE_FINANZAS-POR-FLIPBOOK.pdf",
+      "rowRefs": [
+        424
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 20,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "Copa del Rey",
+      "operation": "CHANGE_FORMAT",
+      "effectiveEdition": "2019/20",
+      "source": "https://rfef.es/es/noticias/la-nueva-copa-del-rey-saldra-con-116-equipos",
+      "rowRefs": [
+        160,
+        353
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 59,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "Coppa Italia",
+      "operation": "CHANGE_FORMAT",
+      "effectiveEdition": "2021/22",
+      "source": "https://www.gazzetta.it/Calcio/Coppa-Italia/12-07-2021/coppa-italia-date-edizione-2021-2022-4102709373323.shtml",
+      "rowRefs": [
+        157,
+        322
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 61,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "Scottish League Cup",
+      "operation": "CHANGE_FORMAT",
+      "effectiveEdition": "2016/17",
+      "source": "https://www.skysports.com/football/news/10092633/scottish-league-cup-set-to-introduce-group-stage-format",
+      "rowRefs": [
+        159,
+        403
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 62,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "Taca da Liga Portugal",
+      "operation": "INTRODUCE",
+      "effectiveEdition": "2007/08",
+      "source": "https://www.ligaportugal.pt/pages/sobre-a-liga",
+      "rowRefs": [
+        395
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 63,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "Taca da Liga Portugal",
+      "operation": "CHANGE_FORMAT",
+      "effectiveEdition": "2025/26",
+      "source": "https://www.ligaportugal.pt/pages/sobre-a-liga",
+      "rowRefs": [
+        395
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 64,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "Copa Argentina",
+      "operation": "RESUME",
+      "effectiveEdition": "2011/12",
+      "source": "https://www.afa.com.ar/Sitio/posts/galeria-de-campeones",
+      "rowRefs": [
+        327
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 68,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "URY Copa AUF Uruguay",
+      "operation": "INTRODUCE",
+      "effectiveEdition": "2022",
+      "source": "https://www.auf.org.uy/defensor-sporting-campeon-de-la-copa-auf-uruguay/",
+      "rowRefs": [
+        418
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 69,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "COL Copa Colombia",
+      "operation": "RESUME",
+      "effectiveEdition": "2008",
+      "source": "https://www.rsssf.org/tablesc/colcuphist.html",
+      "rowRefs": [
+        342
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 71,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "PAR Copa Paraguay",
+      "operation": "INTRODUCE",
+      "effectiveEdition": "2018",
+      "source": "https://www.rsssf.org/tablesp/paracuphist.html",
+      "rowRefs": [
+        391
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 72,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "ECU Copa Ecuador",
+      "operation": "INTRODUCE",
+      "effectiveEdition": "2018/19",
+      "source": "https://rsssf.org/tablese/ecuacuphist.html",
+      "rowRefs": [
+        348
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 98,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "AUS national cup",
+      "operation": "CHANGE_DRAW_AND_ACCESS",
+      "effectiveEdition": "2021",
+      "source": "https://footballaustralia.com.au/history/ffacup",
+      "rowRefs": [
+        329
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 99,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "AUS national cup",
+      "operation": "RENAME",
+      "effectiveEdition": "2022",
+      "source": "https://footballaustralia.com.au/news/australia-cup-name-return-australias-largest-national-knockout-football-competition?page=164",
+      "rowRefs": [
+        329
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 220,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "UEFA Conference League",
+      "operation": "RENAME",
+      "effectiveEdition": "2024/25",
+      "source": "https://www.uefa.com/uefaconferenceleague/news/0282-185d6b03cbe4-4763e115dd7f-1000--uefa-europa-conference-league-to-be-renamed-uefa-conferenc/",
+      "rowRefs": [
+        527
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 221,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "CONCACAF Champions Cup",
+      "operation": "RENAME",
+      "effectiveEdition": "2008/09",
+      "source": "https://www.concacaf.com/competitions/champions-cup/news/2024-concacaf-champions-cup-all-you-need-to-know",
+      "rowRefs": [
+        426
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    },
+    {
+      "index": 222,
+      "path": "history/transitions/WORLD/UNMAPPED_OR_SHARED.json",
+      "competition": "CONCACAF Champions Cup",
+      "operation": "RENAME",
+      "effectiveEdition": "2024",
+      "source": "https://www.concacaf.com/competitions/champions-cup/news/2024-concacaf-champions-cup-all-you-need-to-know",
+      "rowRefs": [
+        426
+      ],
+      "scope": "Research family routing only; no identity merge, no rule certification; alias rows 321/423 not separate competitions"
+    }
+  ],
+  "archiveCase": {
+    "row": 178,
+    "status": "ARCHIVE_IF_REQUIRED",
+    "basis": "startResearch COMPLETED_PRESTART 1996-06-26; prior winner mapping pending; not ongoing July state",
+    "action": "Keep ? until separate archive applicability tracked; do not count as ongoing"
+  },
+  "verifiedCorpus": {
+    "file": "corpus.zip",
+    "checks": [
+      "oost97.txt:6–30 and 749+",
+      "parana99.txt:3",
+      "parana00.txt:3",
+      "engarthur06.txt:3–12",
+      "engleagcup99.txt:3–14",
+      "oost-wom2021.txt:3–29",
+      "eng97.txt:1127–1242"
+    ],
+    "result": "Confirmed source scope and tier headings; no new global scope claim"
+  },
+  "summary": {
+    "cutoffResolved": 6,
+    "historyRouted": 30,
+    "remainingUnknown": 178,
+    "remainingUnassigned": 158
+  }
+}

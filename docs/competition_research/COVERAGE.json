@@ -2748,19 +2748,19 @@
     "scope": "Australian rows207–210 and 329 targeted review; 10-field legacy remains for existing readers. No global operational closure census.",
     "australia2627": {
       "denominator": 5,
-      "completeVerified": 4,
+      "completeVerified": 5,
       "completeWithHistory": 0,
-      "incomplete": 1,
+      "incomplete": 0,
       "approvedRows": [
         207,
         208,
         209,
-        210
-      ],
-      "incompleteRows": [
+        210,
         329
       ],
-      "runtimeVerified": 0
+      "incompleteRows": [],
+      "runtimeVerified": 0,
+      "provisionalApproval": true
     },
     "victoriaPartial": "Victoria row209 operationally closed by explicit user approval 2026-11-25: 10V/2P (qualification P approved provisionally, evolution P). Same Queensland rule: highest placed compliant eligible club, excluding already admitted Foundation Clubs and A-League academy/reserve teams. Historical evolution not fully certified; no further academy search without new sources. Australia 4/5 operationally complete, 0 runtime verified. Prior evidence and cutoff unchanged.",
     "userPolicy20261125": {
@@ -2789,6 +2789,7 @@
       "datePolicy": "representative round dates, weekday frequencies, exclude postponements and cancellations, keep actual pre-cutoff evidence for integrity; no destructive source deletion",
       "scope": "targeted revised schema, global recount pending"
     },
-    "australiaCupPartial": "Australia Cup row329 7V/4P/1NA: 32/32 real entrants (20 native, 12 deferred Claude import), national rules V, 21 territorial slots verified, 9 federations' 2026 preliminary windows and 745-elimination aggregate acquired (secondary; no fabricated results), regional pools/rules P. User approved change day before first qualifying match. Announced start 30 Jan vs observed secondary 31 Jan: 29/30 Jan boundary candidates, exact actual date P; no July reset. History P expanded (2021 R16 open, 2022 all open, 2023–24 AL playoff, 2026 removed). National dates/day profile V for national stage only; no runtime certification."
+    "australiaCupPartial": "Australia Cup row329 7V/4P/1NA: 32/32 real entrants (20 native, 12 deferred Claude import), national rules V, 21 territorial slots verified, 9 federations' 2026 preliminary windows and 745-elimination aggregate acquired (secondary; no fabricated results), regional pools/rules P. User approved change day before first qualifying match. Announced start 30 Jan vs observed secondary 31 Jan: 29/30 Jan boundary candidates, exact actual date P; no July reset. History P expanded (2021 R16 open, 2022 all open, 2023–24 AL playoff, 2026 removed). National dates/day profile V for national stage only; no runtime certification.",
+    "australiaCupClosure": "User-approved provisional Australia Cup data closure 25/11/2026, 7V/4P/1NA. 32 entrants, 20 native, 12 missing temporary TEST (user wrote 10; confirm if subset intended), reduced nine regional pools/21 places, Jan29 rollover/Jan30 GAME_TEMPLATE_2026 start, history low priority; TEST/TEST first fixture team wins 1–0; pool capacity and TEST/real score not specified; runtime NOT TESTED."
   }
 }

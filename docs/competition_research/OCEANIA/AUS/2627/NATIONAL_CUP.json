@@ -1046,14 +1046,16 @@
         "scope": "31 published scheduled national games; no claimed independent postponement audit"
       },
       "seasonChange": {
-        "status": "P exact first match; V approved rule",
+        "status": "P_USER_APPROVED_TEMPLATE_ACTUAL_UNVERIFIED",
         "rule": "one civil day before first qualifying match of edition, not before national R32; only after prior edition completed; preserve seeded July state",
         "userApproved": "2026-11-25",
         "officialPlannedFirstQualifying": "2026-01-30",
         "officialTemplateBoundaryCandidate": "01-29",
         "earliestObservedSecondary": "2026-01-31",
         "observedBoundaryCandidate": "01-30",
-        "resolution": "Do not confuse official scheduled date and earliest observed actual match. Actual 31 January still lacks primary fixture verification; use no silently chosen hardcoded date. Retain planned 30 January as announced GAME_TEMPLATE_2026 start metadata; date policy remains P until reconciled."
+        "resolution": "Do not confuse official scheduled date and earliest observed actual match. Actual 31 January still lacks primary fixture verification; use no silently chosen hardcoded date. Retain planned 30 January as announced GAME_TEMPLATE_2026 start metadata; date policy remains P until reconciled.",
+        "approvedTemplateBoundary": "01-29",
+        "approvedTemplateFirstQualifying": "01-30"
       },
       "evolution": {
         "changes": [
@@ -1127,8 +1129,38 @@
         "July state V for national R32+ scope: 32 known before START, zero national games; 777-club real preliminary history not fully imported or certified.",
         "Official final-round published schedule 31 matches; actual-vs-planned postponement reconciliation not yet independently checked; use published schedule template only, not fixture outcomes.",
         "User approved edition rollover day before first preliminary match. Official planned first date 30 January (29 January boundary candidate), observed secondary first 31 January (30 January candidate), primary actual date unresolved; never reset at July.",
-        "Historical changes expanded and 2021 R16-only vs 2022 fully open draw distinguished. 1996/97 corpus belongs to NSL Cup; preserve quarantine. Annual historical allocations not completely certified."
-      ]
+        "Historical changes expanded and 2021 R16-only vs 2022 fully open draw distinguished. 1996/97 corpus belongs to NSL Cup; preserve quarantine. Annual historical allocations not completely certified.",
+        "User approves provisional operational data closure: 29 Jan / 30 Jan template; reduced real regional pools; temporary TEST clubs with no players and automatic losses (implementation pending; TEST-vs-TEST first fixture team wins 1–0, approved; user wrote 10, audited missing list 12); historical detail low priority. Preserve previous evidence and eventual real-club import. No runtime change."
+      ],
+      "userApprovedClosure": {
+        "date": "2026-11-25",
+        "status": "APPROVED_PROVISIONAL_DATA_CLOSURE_NOT_RUNTIME",
+        "decision": {
+          "seasonChange": "01-29",
+          "preliminaryStart": "01-30",
+          "dateKind": "GAME_TEMPLATE_2026; actual first match not certified",
+          "regionalPools": "Reduced real regional club pools, nine federations and existing quotas retained; no new playable leagues",
+          "history": "LOW_PRIORITY; incomplete chronology retained",
+          "testClubs": "Temporary TEST entries without players, always lose as requested; actual missing count 12, user wrote 10; apply intended missing-club group subject to count confirmation; retain real identities, replace with real rosters later.",
+          "testVsTest": {
+            "winner": "FIRST_FIXTURE_TEAM",
+            "score": [
+              1,
+              0
+            ],
+            "approved": "2026-11-25"
+          }
+        },
+        "implementationOwner": "Claude",
+        "constraints": [
+          "Do not send empty rosters to OG QUICK or 50Hz; technical feasibility not verified.",
+          "No second simulation or result writer. Any TEST-only administrative outcome must use canonical CE fixture/ledger and persistent anti-replay; no fabricated numeric score selected here.",
+          "Keep test exceptions distinct from normal sporting results and real history; do not claim regulation or actual match verification.",
+          "Preserve 54 playable club memberships; maintain 32 first edition entrants and 21 federation slots; verify reduced pools can fill quotas, including federations with only one or two test entrants.",
+          "TEST vs TEST: first club in canonical fixture order wins 1–0 (explicit user decision 25/11/2026); administrative TEST outcome, not OG or historical result. TEST vs real: TEST loses; exact score not specified. Preserve fixture ordering, single CE completion and anti-replay."
+        ],
+        "source": "Explicit user approval in current conversation, 25/11/2026; previous approved deferred import superseded for temporary testing, eventual real roster import remains."
+      }
     }
   }
 ]

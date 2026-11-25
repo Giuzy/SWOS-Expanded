@@ -1,0 +1,424 @@
+{
+  "block": 162,
+  "head": "2cc0c34c52de55d9e676e4b3aec26e0270ecde02",
+  "status": "PROVISIONAL_PARAMETERS_NOT_RUNTIME",
+  "archiveAudit": {
+    "rows": [
+      [
+        33,
+        306,
+        18
+      ],
+      [
+        56,
+        306,
+        18
+      ],
+      [
+        186,
+        380,
+        20
+      ],
+      [
+        231,
+        380,
+        20
+      ],
+      [
+        232,
+        552,
+        24
+      ],
+      [
+        235,
+        380,
+        20
+      ],
+      [
+        239,
+        306,
+        18
+      ],
+      [
+        243,
+        306,
+        18
+      ],
+      [
+        275,
+        306,
+        18
+      ],
+      [
+        286,
+        306,
+        18
+      ]
+    ],
+    "columns": [
+      "row",
+      "identicalDateHomeAwayRecords",
+      "uniqueNativeIdentities"
+    ],
+    "matches": 3528,
+    "identityOccurrences": 192,
+    "limits": "Cross-run reproducibility, not independent verification; no new strict field count. Historical 33/56 date gaps retained."
+  },
+  "rules": {
+    "235": {
+      "edition": "GAME_TEMPLATE_2026",
+      "ranking": {
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "twoTeams": [
+          "headToHeadGoalDifference",
+          "overallGoalDifference",
+          "overallGoals",
+          "fairPlay",
+          "neutralDecider"
+        ],
+        "multipleTeams": [
+          "miniTablePoints",
+          "miniTableGoalDifference",
+          "overallGoalDifference",
+          "overallGoals",
+          "fairPlay",
+          "neutralDecider"
+        ],
+        "fairPlay": {
+          "yellow": 1,
+          "doubleYellowDismissal": 2,
+          "straightRed": 3,
+          "longerSuspension": "length when >3",
+          "staffSuspensionPerMatch": 5,
+          "crowdIncident": [
+            5,
+            6,
+            7
+          ],
+          "stadiumClosurePerMatch": 10,
+          "appeals": "cancel overturned penalties"
+        }
+      },
+      "qualification": {
+        "ucl": "ranks 1–4 baseline plus UEFA reallocation",
+        "uel": "next eligible rank and cup champion",
+        "uecl": "next eligible rank",
+        "supercup": "cup finalists prioritized; two best league teams not duplicated; replace league slots by next rank"
+      },
+      "limits": "Latest specific 2025/26 regulation and published fair-play baseline used provisionally; 2026/27 annual circular not retrieved. Neutral deciding match conditional date not fabricated; final sporting resolution retains prior template."
+    },
+    "236": {
+      "edition": "GAME_TEMPLATE_2026",
+      "teams": 22,
+      "rounds": 2,
+      "matchesPerClub": 42,
+      "directPromotion": [
+        1,
+        2
+      ],
+      "directRelegation": [
+        19,
+        20,
+        21,
+        22
+      ],
+      "playoff": {
+        "entrants": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "pairs": [
+          [
+            3,
+            6
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "legs": 2,
+        "secondLegHost": "higher regular rank",
+        "tieResolution": [
+          "aggregate",
+          "extra time",
+          "higher regular rank"
+        ],
+        "penalties": false
+      },
+      "limits": "2025/26 specific playoff template; full initial calendar/IDs and current annual rule still incomplete."
+    },
+    "275": {
+      "edition": "2026/27",
+      "ranking": {
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "final": [
+          "points",
+          "goalDifference",
+          "goals",
+          "headToHeadPoints",
+          "headToHeadGoalDifference",
+          "headToHeadGoals",
+          "headToHeadAwayGoals",
+          "decidingMatchOrSeries"
+        ],
+        "interim": [
+          "points",
+          "fewerDroppedPoints",
+          "goalDifference",
+          "goals",
+          "headToHeadPoints",
+          "headToHeadGoalDifference",
+          "headToHeadGoals",
+          "headToHeadAwayGoals",
+          "alphabetical"
+        ],
+        "decider": {
+          "single": [
+            "extraTime30",
+            "penalties"
+          ],
+          "series": [
+            "points",
+            "goalDifference",
+            "goals",
+            "penalties"
+          ]
+        }
+      },
+      "directRelegation": [
+        17,
+        18
+      ],
+      "sharedPlayoff": "NED_ACCESS_BRACKET",
+      "europeanPlayoff": {
+        "semifinals": "highest vs lowest, middle two",
+        "legs": 1,
+        "home": "higher ranked",
+        "dates": [
+          "2027-05-27",
+          "2027-05-30"
+        ],
+        "tieResolution": [
+          "extraTime30",
+          "penalties"
+        ],
+        "seedingTie": [
+          "discipline",
+          "lot"
+        ],
+        "stadiumUnavailable": "switch host subject to approval"
+      },
+      "qualificationVersions": {
+        "2026/27": {
+          "uclDirect": [
+            1,
+            2
+          ],
+          "uclQ3": 3,
+          "uelQ2": 4,
+          "uelLeague": "cup champion",
+          "ueclPlayoff": [
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "2027/28_PROVISIONAL": {
+          "uclDirect": [
+            1
+          ],
+          "uclQ3": 2,
+          "uelQ2": 3,
+          "uelLeague": "cup champion",
+          "ueclPlayoff": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "cupWinnerTop2": {
+            "uelLeague": 3,
+            "uelQ2": 4,
+            "ueclPlayoff": [
+              5,
+              6,
+              7,
+              8
+            ]
+          },
+          "cupWinnerThird": {
+            "uelQ2": 4,
+            "ueclPlayoff": [
+              5,
+              6,
+              7,
+              8
+            ]
+          },
+          "cupWinnerRank4to7": "replace with rank8",
+          "license": "next eligible not already qualified"
+        }
+      },
+      "supercup": {
+        "participants": "league champion vs cup winner; league runner-up if double",
+        "home": "league champion",
+        "matchRule": [
+          "90min",
+          "penalties"
+        ]
+      },
+      "limits": "2027/28 access expressly provisional; keep edition-specific data, do not assume UEFA future coefficients fixed. Existing 2026 reference retained."
+    },
+    "276": {
+      "edition": "2026/27",
+      "teams": 20,
+      "rounds": 2,
+      "points": [
+        3,
+        1,
+        0
+      ],
+      "directPromotion": "top two eligible first teams; reserves excluded",
+      "periods": [
+        [
+          1,
+          10
+        ],
+        [
+          11,
+          19
+        ],
+        [
+          20,
+          28
+        ],
+        [
+          29,
+          38
+        ]
+      ],
+      "periodRanking": [
+        "points",
+        "goalDifference",
+        "goals",
+        "discipline",
+        "neutralDecider"
+      ],
+      "discipline": {
+        "yellow": 1,
+        "red": 3,
+        "doubleYellowDismissal": 3
+      },
+      "periodRules": "Postponed matches belong to original period; reserve/duplicate winner passes berth to eligible runner-up or final ranking; rank20 ineligible; promoted or withdrawn teams replaced; Art8 equal-tie exceptions for already-qualified or reserve teams apply.",
+      "limits": "Article1 printed third period 21–28 despite stated nine rounds; existing 20–28 retained, corroborated by same-edition schedules; explicit confirmation pending. Full initial calendar and IDs incomplete."
+    }
+  },
+  "sharedPhases": {
+    "NED_ACCESS_BRACKET": {
+      "parentRows": [
+        275,
+        276,
+        468
+      ],
+      "edition": "2026/27",
+      "entrants": "Eredivisie16 plus six eligible Eerste Divisie first teams, four period champions plus two highest remaining eligible teams; reserves excluded",
+      "rounds": [
+        {
+          "ties": [
+            [
+              "A",
+              "ED6",
+              "ED1",
+              [
+                "2027-05-17",
+                "2027-05-21"
+              ]
+            ],
+            [
+              "B",
+              "ED5",
+              "ED2",
+              [
+                "2027-05-18",
+                "2027-05-22"
+              ]
+            ],
+            [
+              "C",
+              "ED4",
+              "ED3",
+              [
+                "2027-05-18",
+                "2027-05-22"
+              ]
+            ]
+          ]
+        },
+        {
+          "ties": [
+            [
+              "D",
+              "winner A",
+              "winner B",
+              [
+                "2027-05-25",
+                "2027-05-29"
+              ]
+            ],
+            [
+              "E",
+              "winner C",
+              "Eredivisie16",
+              [
+                "2027-05-26",
+                "2027-05-30"
+              ]
+            ]
+          ]
+        },
+        {
+          "ties": [
+            [
+              "F",
+              "winner D",
+              "winner E",
+              [
+                "2027-06-03",
+                "2027-06-06"
+              ]
+            ]
+          ]
+        }
+      ],
+      "legs": 2,
+      "matchCount": 12,
+      "secondLegHost": "higher ED seed or Eredivisie club, approved stadium exception",
+      "tieResolution": [
+        "points",
+        "aggregateGoalDifference",
+        "extraTime30",
+        "penalties"
+      ],
+      "awayGoals": false,
+      "seedingTie": [
+        "discipline",
+        "lot"
+      ],
+      "priorEdition": "2025/26 four rounds, top two ED seeds bye first round; Eredivisie16 enters final only",
+      "ownership": "single shared fixture identity; no separate simulated competition"
+    }
+  },
+  "limits": "Archive calendars and current roster joins reused. No actual game, new runtime validation, future scores or historical completeness claimed."
+}

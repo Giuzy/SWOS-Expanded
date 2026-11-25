@@ -1,0 +1,4837 @@
+{
+  "schemaVersion": 1,
+  "block": 162,
+  "head": "2cc0c34c52de55d9e676e4b3aec26e0270ecde02",
+  "scope": "Research phase catalogue, not CE runtime input. Triage covers all working rows, actual phase plans only for explicitly known rows. Null means unknown, not a default. No sporting closure from category alone. No sources completeness field.",
+  "phaseTypes": {
+    "ROUND_ROBIN": {
+      "parameters": [
+        "teams",
+        "groups",
+        "groupSize",
+        "meetingsPerPair",
+        "opponentSelection",
+        "matchesPerClub",
+        "home",
+        "away",
+        "points",
+        "ranking",
+        "carryOver",
+        "advancePerGroup"
+      ]
+    },
+    "KNOCKOUT": {
+      "parameters": [
+        "rounds",
+        "entrants",
+        "legs",
+        "byes",
+        "entryRanks",
+        "hostOrder",
+        "seededBracket",
+        "awayGoals",
+        "extraTime",
+        "penalties",
+        "replay",
+        "conditional",
+        "sharedFixture",
+        "sharedReference"
+      ]
+    }
+  },
+  "composition": {
+    "rules": [
+      "ordered/parallel/conditional phases; multiple ROUND_ROBIN phases for Apertura/Clausura or splits; carry-over points, aggregate tables, historical averages are ranking/eligibility parameters, not match engines",
+      "Only CE owns dates/results/qualification; match execution OG 50 Hz",
+      "Phases with cross-division matches must share single fixture identity; references are not independent fixtures",
+      "Preserve edition/world; use prior actual state only before July1; do not freeze later winners",
+      "No guessed nulls, no future actual results; GAME_TEMPLATE_2026 vs historic version"
+    ]
+  },
+  "counts": {
+    "LEAGUE_REVIEW": 254,
+    "COMPOSITE_REVIEW": 37,
+    "OUT_OF_SCOPE": 3,
+    "CUP_REVIEW": 165,
+    "PARENT_PHASE_LINK": 77
+  },
+  "concretePlanCounts": {
+    "ROUND_ROBIN": 2,
+    "KNOCKOUT": 7,
+    "COMPOSITE": 24
+  },
+  "rows": [
+    {
+      "row": 1,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 2,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 3,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 4,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 5,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 6,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 7,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 8,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 9,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 10,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 11,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 12,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 13,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 14,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 15,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 16,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 17,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 18,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 19,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 20,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 21,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 22,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 23,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 24,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 25,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 26,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 27,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 28,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 29,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 30,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 31,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 32,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 33,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": "ROUND_ROBIN",
+      "plan": 33
+    },
+    {
+      "row": 34,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 35,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 36,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 37,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 38,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 39,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 40,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": "ROUND_ROBIN",
+      "plan": 40
+    },
+    {
+      "row": 41,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 42,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 43,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 44,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 45,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 46,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 47,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 48,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 49,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 50,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 51,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 52,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 53,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 54,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 55,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 56,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 56
+    },
+    {
+      "row": 57,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 58,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 59,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 60,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 61,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 62,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 63,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 64,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 65,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 66,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 67,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 68,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 69,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 70,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 71,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 72,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 73,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 74,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 75,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 76,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 77,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 78,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 79,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 80,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 81,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 82,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 83,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 84,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 85,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 86,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 87,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 88,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 89,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "KNOCKOUT",
+      "plan": 89
+    },
+    {
+      "row": 90,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "KNOCKOUT",
+      "plan": 90
+    },
+    {
+      "row": 91,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 92,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 93,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 94,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 95,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 96,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 97,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 98,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 99,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 100,
+      "category": "FRIENDLY_OR_CUSTOM",
+      "queue": "OUT_OF_SCOPE",
+      "model": null
+    },
+    {
+      "row": 101,
+      "category": "FRIENDLY_OR_CUSTOM",
+      "queue": "OUT_OF_SCOPE",
+      "model": null
+    },
+    {
+      "row": 102,
+      "category": "FRIENDLY_OR_CUSTOM",
+      "queue": "OUT_OF_SCOPE",
+      "model": null
+    },
+    {
+      "row": 103,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 104,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 105,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 106,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 107,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 108,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 109,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 110,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 111,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 112,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 113,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 114,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 115,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 116,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 117,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 118,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 119,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 120,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 121,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 122,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 123,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 124,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 125,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 126,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 127,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 128,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 129,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 130,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 131,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 132,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 133,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 134,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 135,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 136,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 137,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 138,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 139,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 140,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 141,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 142,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 143,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 144,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 145,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 146,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 147,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 148,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 149,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 150,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 151,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 152,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 153,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 154,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 155,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 156,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 157,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 158,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 159,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 160,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 161,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 162,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 163,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 164,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 165,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 165
+    },
+    {
+      "row": 166,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 167,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 168,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 169,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 170,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 171,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 172,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 173,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 174,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 175,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 176,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 177,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 178,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 179,
+      "category": "PROMOTION_PLAYOFF",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 180,
+      "category": "PROMOTION_PLAYOFF",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 181,
+      "category": "PROMOTION_PLAYOFF",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 182,
+      "category": "PROMOTION_PLAYOFF",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 183,
+      "category": "PROMOTION_PLAYOFF",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 184,
+      "category": "PROMOTION_PLAYOFF",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 185,
+      "category": "PROMOTION_PLAYOFF",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 186,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 186
+    },
+    {
+      "row": 187,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 188,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 189,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 190,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 191,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 192,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 193,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 194,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 195,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 196,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 197,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 198,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 199,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 200,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 201,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 202,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 203,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 204,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 205,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 206,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 207,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 208,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 209,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 210,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 211,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 212,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 213,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 214,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 215,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 216,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 217,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 218,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 219,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 220,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 221,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 222,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 223,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 224,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 225,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 226,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 227,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 228,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 229,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 230,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 231,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 231
+    },
+    {
+      "row": 232,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 232
+    },
+    {
+      "row": 233,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 234,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 235,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 235
+    },
+    {
+      "row": 236,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 236
+    },
+    {
+      "row": 237,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 238,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 239,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 239
+    },
+    {
+      "row": 240,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 241,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 242,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 243,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 243
+    },
+    {
+      "row": 244,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 245,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 246,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 247,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 248,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 249,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 250,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 251,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 252,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 253,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 254,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 255,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 256,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 257,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 258,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 259,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 260,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 261,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 262,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 263,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 264,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 265,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 266,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 267,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 268,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 269,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 270,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 271,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 272,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 273,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 274,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 275,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 275
+    },
+    {
+      "row": 276,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 276
+    },
+    {
+      "row": 277,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 278,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 279,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 280,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 281,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 282,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 283,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 284,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 285,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 286,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 286
+    },
+    {
+      "row": 287,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 287
+    },
+    {
+      "row": 288,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 289,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 290,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 291,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 292,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 293,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 294,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 295,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 296,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 297,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 298,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 299,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 300,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 301,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 302,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 303,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 304,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 305,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 306,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 307,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 308,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 309,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 310,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 311,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 312,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 313,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 314,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 315,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 316,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 317,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 318,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 319,
+      "category": "LEAGUE_DIVISION",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 320,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 321,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 321
+    },
+    {
+      "row": 322,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 323,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 324,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 325,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 326,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 327,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 328,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 329,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 330,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 331,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 332,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 333,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 334,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 335,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 336,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 337,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 338,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 339,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 340,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 341,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 342,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 343,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 344,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 345,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 346,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 347,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 348,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 349,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 350,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 351,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 352,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 353,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 354,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 355,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 356,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 357,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 358,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": "KNOCKOUT",
+      "plan": 358
+    },
+    {
+      "row": 359,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 360,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 361,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 362,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 363,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 364,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 365,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 366,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 367,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 368,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 369,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 370,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 371,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 372,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 373,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 374,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 375,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 376,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 377,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 378,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 379,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 380,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 381,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 382,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 383,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 384,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 385,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 386,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 387,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 388,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 389,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 390,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 391,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 392,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 393,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 394,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 395,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": "KNOCKOUT",
+      "plan": 395
+    },
+    {
+      "row": 396,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 397,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 398,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 399,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 400,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 401,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 402,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 403,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 404,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 405,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 406,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 407,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 408,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 409,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 410,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 411,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 412,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 413,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 414,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 415,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 416,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 417,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 418,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 419,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 420,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 421,
+      "category": "NATIONAL_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 422,
+      "category": "LEAGUE_CUP",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 423,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 424,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 424
+    },
+    {
+      "row": 425,
+      "category": "SUPERCUP_OR_INTERCONTINENTAL",
+      "queue": "CUP_REVIEW",
+      "model": "KNOCKOUT",
+      "plan": 425
+    },
+    {
+      "row": 426,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "KNOCKOUT",
+      "plan": 426
+    },
+    {
+      "row": 427,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 427
+    },
+    {
+      "row": 428,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 428
+    },
+    {
+      "row": 429,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 429
+    },
+    {
+      "row": 430,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 430
+    },
+    {
+      "row": 431,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 431
+    },
+    {
+      "row": 432,
+      "category": "SUPERCUP_OR_INTERCONTINENTAL",
+      "queue": "CUP_REVIEW",
+      "model": "KNOCKOUT",
+      "plan": 432
+    },
+    {
+      "row": 433,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 433
+    },
+    {
+      "row": 434,
+      "category": "SUPERCUP_OR_INTERCONTINENTAL",
+      "queue": "CUP_REVIEW",
+      "model": null
+    },
+    {
+      "row": 435,
+      "category": "REGIONAL_STATE_LEAGUE",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 436,
+      "category": "REGIONAL_STATE_LEAGUE",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 437,
+      "category": "REGIONAL_STATE_LEAGUE",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 438,
+      "category": "REGIONAL_STATE_LEAGUE",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 439,
+      "category": "REGIONAL_STATE_LEAGUE",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 440,
+      "category": "REGIONAL_STATE_LEAGUE",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 441,
+      "category": "REGIONAL_STATE_LEAGUE",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 442,
+      "category": "REGIONAL_STATE_LEAGUE",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 443,
+      "category": "REGIONAL_STATE_LEAGUE",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 444,
+      "category": "REGIONAL_STATE_LEAGUE",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 445,
+      "category": "REGIONAL_STATE_LEAGUE",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 446,
+      "category": "REGIONAL_STATE_LEAGUE",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 447,
+      "category": "REGIONAL_STATE_LEAGUE",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 448,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 449,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 450,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 451,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 452,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 453,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 454,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 455,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 456,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 457,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 458,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 459,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 460,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 461,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 462,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 463,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 464,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 465,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 466,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 467,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 468,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 469,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 470,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 471,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 472,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 473,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 474,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 475,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 476,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 477,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 478,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 479,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 480,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 481,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 482,
+      "category": "LEAGUE_PLAYOFF_PLAYOUT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 483,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 484,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 485,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 486,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 487,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 488,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 489,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 490,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 491,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 492,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 493,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 494,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 495,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 496,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 497,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 498,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 499,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 500,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 501,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 502,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 503,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 504,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 505,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 506,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 507,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 508,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 509,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 510,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 511,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 512,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 513,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 514,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 515,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 516,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 517,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 518,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 519,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 520,
+      "category": "LEAGUE_SPLIT_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 521,
+      "category": "LEAGUE_PARALLEL_GROUPS_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 522,
+      "category": "LEAGUE_PARALLEL_GROUPS_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 523,
+      "category": "LEAGUE_PARALLEL_GROUPS_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 524,
+      "category": "LEAGUE_PARALLEL_GROUPS_SPEC",
+      "queue": "PARENT_PHASE_LINK",
+      "model": null
+    },
+    {
+      "row": 525,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 525
+    },
+    {
+      "row": 526,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 526
+    },
+    {
+      "row": 527,
+      "category": "CONTINENTAL_CLUB",
+      "queue": "COMPOSITE_REVIEW",
+      "model": "COMPOSITE",
+      "plan": 527
+    },
+    {
+      "row": 528,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 529,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 530,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 531,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 532,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 533,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 534,
+      "category": "NATIONAL_TEAM_TOURNAMENT",
+      "queue": "COMPOSITE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 535,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    },
+    {
+      "row": 536,
+      "category": "NATIONAL_TEAM_QUALIFIER_GROUP",
+      "queue": "LEAGUE_REVIEW",
+      "model": null
+    }
+  ],
+  "plans": {
+    "33": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 18,
+          "meetingsPerPair": 2
+        }
+      ],
+      "notes": "1996/97 18/306 and 3 relegated; regulation/tie criteria and per-match actual dates pending. Workbook only 34 matchdays."
+    },
+    "40": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 16,
+          "meetingsPerPair": 2
+        }
+      ],
+      "notes": "Liguilla ranks2–5 and Copa CONMEBOL winter access unresolved; two-match group rejected (expected 16, 240 regular matches)."
+    },
+    "56": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 18,
+          "meetingsPerPair": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "SURVIVAL_TIE",
+              "entrants": 2,
+              "legs": 1
+            }
+          ],
+          "conditional": "tie at survival boundary",
+          "neutral": true,
+          "referenceDate": "1997-06-05"
+        }
+      ],
+      "notes": "Corpus ital97 confirms neutral Naples playoff 5 June, not a fixed participant or result. 4 relegated; historic multi-team boundary selection and tie resolution still need rule confirmation."
+    },
+    "89": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "QUALIFY",
+              "entrants": 34,
+              "legs": 2
+            },
+            {
+              "name": "R32",
+              "entrants": 32,
+              "legs": 2
+            },
+            {
+              "name": "R16",
+              "entrants": 16,
+              "legs": 2
+            },
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 2
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ],
+          "directR32": 15
+        }
+      ],
+      "notes": "Historical 49 entrants,95 matches; native mapping partial."
+    },
+    "90": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "PRELIM",
+              "entrants": 54,
+              "legs": 2
+            },
+            {
+              "name": "QUALIFY",
+              "entrants": 52,
+              "legs": 2
+            },
+            {
+              "name": "R64",
+              "entrants": 64,
+              "legs": 2
+            },
+            {
+              "name": "R32",
+              "entrants": 32,
+              "legs": 2
+            },
+            {
+              "name": "R16",
+              "entrants": 16,
+              "legs": 2
+            },
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 2
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 2
+            }
+          ],
+          "directQualifying": 25,
+          "directR64": 27,
+          "intertotoWinners": 3,
+          "UCLQualifyingLosers": 8
+        }
+      ],
+      "notes": "232 fixtures; historical rules/entrants partial."
+    },
+    "165": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "QUALIFY",
+              "entrants": 16,
+              "legs": 2
+            }
+          ],
+          "directGroups": 8,
+          "losersTo": "UEFA Cup"
+        },
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 16,
+          "meetingsPerPair": 2,
+          "groups": 4,
+          "groupSize": 4,
+          "advancePerGroup": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 2
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ]
+        }
+      ],
+      "notes": "77 matches; 24 entrants; historic final resolution and access chronology incomplete."
+    },
+    "186": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 20,
+          "meetingsPerPair": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "TITLE_TIE",
+              "entrants": 2,
+              "legs": 1
+            }
+          ],
+          "conditional": "tie at title boundary",
+          "extraTime": false,
+          "penalties": true
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "SURVIVAL_TIE",
+              "entrants": 2,
+              "legs": 2
+            }
+          ],
+          "conditional": "tie at survival boundary",
+          "extraTime": false,
+          "penalties": true
+        }
+      ],
+      "notes": "Existing rules incl UEFA finalist exception, conditional dates and hosts, prior provisional closure."
+    },
+    "231": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 20,
+          "meetingsPerPair": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "DECISIVE_TIE",
+              "entrants": 2,
+              "legs": 1
+            }
+          ],
+          "conditional": "unresolved decisive ranking tie",
+          "neutral": true
+        }
+      ],
+      "notes": "No unconditional playoff; prior provisional closure."
+    },
+    "232": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 24,
+          "meetingsPerPair": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "FIRST_PLAYOFF",
+              "entrants": 4,
+              "legs": 1
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ],
+          "entryRanks": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "firstRoundPairs": [
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "semifinalByes": [
+            3,
+            4
+          ],
+          "reseedRuleRef": 438
+        }
+      ],
+      "notes": "7 playoff matches. Exact dates and full current play-off rule remain open."
+    },
+    "235": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 20,
+          "meetingsPerPair": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "DECISIVE_TIE",
+              "entrants": 2,
+              "legs": 1
+            }
+          ],
+          "conditional": "unresolved final ranking tie under applicable art29",
+          "neutral": true
+        }
+      ],
+      "notes": "RFEF art29 two-team and multi-team criteria differ; current fair-play circular not retrieved. Supercup top2 + cup finalists with overlapping entries handled by applicable rules. Calendar candidate."
+    },
+    "236": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 22,
+          "meetingsPerPair": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "PROMOTION_SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "PROMOTION_FINAL",
+              "entrants": 2,
+              "legs": 2
+            }
+          ],
+          "entry": "ranks 3–6; higher seed hosts second leg, aggregate/ET/higher league rank"
+        }
+      ],
+      "notes": "Provisional last specific regulation; calendar/IDs incomplete."
+    },
+    "239": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 18,
+          "meetingsPerPair": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "ACCESS_TIE",
+              "entrants": 2,
+              "legs": 2
+            }
+          ],
+          "sharedFixture": "FRA_TOP2_ACCESS",
+          "entry": "rank16 tier1 vs tier2 playoff winner",
+          "hostOrder": [
+            "tier2",
+            "tier1"
+          ],
+          "dates": [
+            "2027-06-03",
+            "2027-06-06"
+          ],
+          "awayGoals": false,
+          "extraTime": true,
+          "penalties": true
+        }
+      ],
+      "notes": "2025/26 LFP tie rule and official 2026/27 schedule. Shared match with tier2, never duplicate."
+    },
+    "243": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 18,
+          "meetingsPerPair": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "ACCESS_TIE",
+              "entrants": 2,
+              "legs": 2
+            }
+          ],
+          "sharedFixture": "GER_TOP2_ACCESS",
+          "entry": "rank16 tier1 vs rank3 tier2",
+          "dates": [
+            "2027-05-27",
+            "2027-05-31"
+          ]
+        }
+      ],
+      "notes": "Prior provisional closure; host/rest and alternative dates from existing 158 rules."
+    },
+    "275": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 18,
+          "meetingsPerPair": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "EUROPE_SF",
+              "entrants": 4,
+              "legs": 1
+            },
+            {
+              "name": "EUROPE_FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ],
+          "entry": "eligible ranks per access rules",
+          "dates": [
+            "2027-05-27",
+            "2027-05-30"
+          ]
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "SURVIVAL_SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "SURVIVAL_FINAL",
+              "entrants": 2,
+              "legs": 2
+            }
+          ],
+          "sharedFixture": "NED_ACCESS_BRACKET",
+          "entry": "rank16 joins shared semifinal E; full bracket in LEAGUE_CLOSURE_162.json",
+          "dateWindows": [
+            [
+              "2027-05-26",
+              "2027-05-30"
+            ],
+            [
+              "2027-06-03",
+              "2027-06-06"
+            ]
+          ]
+        }
+      ],
+      "notes": "2026/27 three-round shared survival bracket; European entry 2027/28 provisional; regulation parameters in LEAGUE_CLOSURE_162.json"
+    },
+    "276": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 20,
+          "meetingsPerPair": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "ACCESS_R1",
+              "entrants": 6,
+              "legs": 2
+            },
+            {
+              "name": "ACCESS_SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "ACCESS_FINAL",
+              "entrants": 2,
+              "legs": 2
+            }
+          ],
+          "sharedFixture": "NED_ACCESS_BRACKET",
+          "entry": "same shared phase as row275; no separate simulation"
+        }
+      ],
+      "notes": "Period standings computed from existing league fixtures, not extra phases; initial calendar and roster incomplete."
+    },
+    "286": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 18,
+          "meetingsPerPair": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "ACCESS_TIE",
+              "entrants": 2,
+              "legs": 2
+            }
+          ],
+          "sharedFixture": "POR_TOP2_ACCESS",
+          "entry": "rank16 tier1 vs next eligible tier2",
+          "hostOrder": [
+            "tier2",
+            "tier1"
+          ],
+          "dates": [
+            "2027-05-29",
+            "2027-06-06"
+          ]
+        }
+      ],
+      "notes": "Prior provisional closure; eligible B exclusion and alternative dates."
+    },
+    "287": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 18,
+          "meetingsPerPair": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "sharedReference": "POR_TOP2_ACCESS"
+        },
+        {
+          "type": "KNOCKOUT",
+          "sharedFixture": "POR_TIER2_3_ACCESS",
+          "rounds": [
+            {
+              "name": "ACCESS_TIE",
+              "entrants": 2,
+              "legs": 2
+            }
+          ],
+          "hostOrder": [
+            "tier3",
+            "tier2"
+          ]
+        }
+      ],
+      "notes": "Shared references, not second writer. Tier2 schedule unresolved."
+    },
+    "321": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "PRELIM_1",
+              "entrants": 6,
+              "legs": 2
+            },
+            {
+              "name": "PRELIM_2",
+              "entrants": 16,
+              "legs": 2
+            },
+            {
+              "name": "PRELIM_3",
+              "entrants": 8,
+              "legs": 2
+            }
+          ]
+        },
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 32,
+          "meetingsPerPair": 2,
+          "groups": 8,
+          "groupSize": 4,
+          "advancePerGroup": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "R16",
+              "entrants": 16,
+              "legs": 2
+            },
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 2
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ]
+        }
+      ],
+      "notes": "Official 47-entrant reference only; conflicts with previously discussed 45-entrant game plan and row423 identity. Do not choose or overwrite; phase pattern reusable."
+    },
+    "358": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "PRELIM",
+              "entrants": null,
+              "legs": 1
+            },
+            {
+              "name": "R16",
+              "entrants": 16,
+              "legs": 1
+            },
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 1
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ],
+          "optionalPreliminary": true
+        }
+      ],
+      "notes": "16 initial main entrants; 17 known main matches, six native IDs pending."
+    },
+    "395": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 1
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 1
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ]
+        }
+      ],
+      "notes": "7 games, existing provisional closure."
+    },
+    "424": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "DOMESTIC_PRELIM",
+              "entrants": 32,
+              "legs": 1
+            }
+          ],
+          "sameCountry": true
+        },
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 32,
+          "meetingsPerPair": 2,
+          "groups": 8,
+          "groupSize": 4,
+          "advancePerGroup": null
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "GROUP_RUNNER_UP_PLAYOFF",
+              "entrants": 16,
+              "legs": 2
+            },
+            {
+              "name": "R16",
+              "entrants": 16,
+              "legs": 2
+            },
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 2
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ],
+          "groupWinnersDirectR16": 8,
+          "playoffAgainstLibertadoresThird": 8
+        }
+      ],
+      "notes": "First edition entrants and phase-specific access pending."
+    },
+    "425": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 2
+            }
+          ]
+        }
+      ],
+      "notes": "Recopa 2026 reference; initial 2027 date/entrants still unresolved."
+    },
+    "426": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "ROUND_1",
+              "entrants": 22,
+              "legs": 2
+            },
+            {
+              "name": "R16",
+              "entrants": 16,
+              "legs": 2
+            },
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 2
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ],
+          "byesToR16": 5
+        }
+      ],
+      "notes": "27 entrants; allocation incomplete."
+    },
+    "427": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "PRELIM",
+              "entrants": 8,
+              "legs": 1
+            }
+          ]
+        },
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 32,
+          "meetingsPerPair": null,
+          "zones": 2,
+          "teamsPerZone": 16,
+          "opponentSelection": "PARTIAL",
+          "matchesPerClub": 8,
+          "home": 4,
+          "away": 4
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "R16",
+              "entrants": 16,
+              "legs": 2
+            },
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 1
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 1
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ]
+        }
+      ],
+      "notes": "Expanded 32, 28 direct; exact allocation pending."
+    },
+    "428": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "PRELIM",
+              "entrants": 6,
+              "legs": 1
+            }
+          ]
+        },
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 32,
+          "meetingsPerPair": 2,
+          "groups": 8,
+          "groupSize": 4,
+          "advancePerGroup": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "R16",
+              "entrants": 16,
+              "legs": null
+            },
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": null
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": null
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": null
+            }
+          ]
+        }
+      ],
+      "notes": "Leg counts not inferred; 25 direct + 4 Elite losers + 3 prelim."
+    },
+    "429": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "PRELIM",
+              "entrants": null,
+              "legs": null
+            }
+          ]
+        },
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 20,
+          "meetingsPerPair": 1,
+          "groups": 5,
+          "groupSize": 4,
+          "advancePerGroup": null
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 2
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ]
+        }
+      ],
+      "notes": "3 West groups,2 East; unequal access by region; 8 direct+9 own winners+3 ACL Two losers."
+    },
+    "430": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "PRELIM_1",
+              "entrants": 58,
+              "legs": 2
+            },
+            {
+              "name": "PRELIM_2",
+              "entrants": 32,
+              "legs": 2
+            }
+          ],
+          "byes": 3
+        },
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 16,
+          "meetingsPerPair": 2,
+          "groups": 4,
+          "groupSize": 4,
+          "advancePerGroup": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 2
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": null
+            }
+          ]
+        }
+      ],
+      "notes": "61 entrants; final legs not yet certified."
+    },
+    "431": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "PRELIM_1",
+              "entrants": 48,
+              "legs": 2
+            },
+            {
+              "name": "PRELIM_2",
+              "entrants": 32,
+              "legs": 2
+            }
+          ],
+          "byes": 8
+        },
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 16,
+          "meetingsPerPair": 2,
+          "groups": 4,
+          "groupSize": 4,
+          "advancePerGroup": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 2
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": null
+            }
+          ]
+        }
+      ],
+      "notes": "56 entrants; final legs not yet certified."
+    },
+    "432": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ],
+          "extraTime": false,
+          "penalties": true
+        }
+      ],
+      "notes": "Existing 2011+ user-delegated convention; prior provisional closure."
+    },
+    "433": {
+      "phases": [
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 4,
+          "meetingsPerPair": 1,
+          "advance": 1
+        },
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 8,
+          "meetingsPerPair": 1,
+          "groups": 2,
+          "groupSize": 4,
+          "advancePerGroup": 2
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 1
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ]
+        }
+      ],
+      "notes": "Centralized; partial July state; no world access."
+    },
+    "525": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "QUALIFY",
+              "entrants": null,
+              "legs": 2
+            }
+          ]
+        },
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 36,
+          "meetingsPerPair": null,
+          "opponentSelection": "PARTIAL",
+          "matchesPerClub": 8,
+          "home": 4,
+          "away": 4,
+          "advanceDirect": [
+            1,
+            8
+          ],
+          "playoffRanks": [
+            9,
+            24
+          ]
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "KNOCKOUT_PLAYOFF",
+              "entrants": 16,
+              "legs": 2
+            },
+            {
+              "name": "R16",
+              "entrants": 16,
+              "legs": 2
+            },
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 2
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ],
+          "awayGoals": false,
+          "extraTime": true,
+          "penalties": true,
+          "seededBracket": true
+        }
+      ],
+      "notes": "Shared modern UEFA model, different pot and access parameters. Qualification path sizes and exact access incomplete."
+    },
+    "526": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "QUALIFY",
+              "entrants": null,
+              "legs": 2
+            }
+          ]
+        },
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 36,
+          "meetingsPerPair": null,
+          "opponentSelection": "PARTIAL",
+          "matchesPerClub": 8,
+          "home": 4,
+          "away": 4,
+          "advanceDirect": [
+            1,
+            8
+          ],
+          "playoffRanks": [
+            9,
+            24
+          ]
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "KNOCKOUT_PLAYOFF",
+              "entrants": 16,
+              "legs": 2
+            },
+            {
+              "name": "R16",
+              "entrants": 16,
+              "legs": 2
+            },
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 2
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ],
+          "awayGoals": false,
+          "extraTime": true,
+          "penalties": true,
+          "seededBracket": true
+        }
+      ],
+      "notes": "Shared modern UEFA model, different pot and access parameters. Qualification path sizes and exact access incomplete."
+    },
+    "527": {
+      "phases": [
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "QUALIFY",
+              "entrants": null,
+              "legs": 2
+            }
+          ]
+        },
+        {
+          "type": "ROUND_ROBIN",
+          "teams": 36,
+          "meetingsPerPair": null,
+          "opponentSelection": "PARTIAL",
+          "matchesPerClub": 6,
+          "home": 3,
+          "away": 3,
+          "advanceDirect": [
+            1,
+            8
+          ],
+          "playoffRanks": [
+            9,
+            24
+          ]
+        },
+        {
+          "type": "KNOCKOUT",
+          "rounds": [
+            {
+              "name": "KNOCKOUT_PLAYOFF",
+              "entrants": 16,
+              "legs": 2
+            },
+            {
+              "name": "R16",
+              "entrants": 16,
+              "legs": 2
+            },
+            {
+              "name": "QF",
+              "entrants": 8,
+              "legs": 2
+            },
+            {
+              "name": "SF",
+              "entrants": 4,
+              "legs": 2
+            },
+            {
+              "name": "FINAL",
+              "entrants": 2,
+              "legs": 1
+            }
+          ],
+          "awayGoals": false,
+          "extraTime": true,
+          "penalties": true,
+          "seededBracket": true
+        }
+      ],
+      "notes": "Shared modern UEFA model, different pot and access parameters. Qualification path sizes and exact access incomplete."
+    }
+  },
+  "uploadedRun": {
+    "name": "CONSOLIDAMENTO_20261125-082240-563049.zip",
+    "sha256": "62cab97500dd492a632b724f1153493bd369cedaefdffacae38eb2d84ade6620",
+    "currentRepoChecked": true,
+    "repoWarnings": 0,
+    "nativeRecordsRejected": 0,
+    "matrixRows": 536,
+    "rowsWithGroups": 249,
+    "initialGroups": 122,
+    "rowsWithInitialGroups": 64,
+    "fullUniqueIdentityCandidates": 12,
+    "regularPacketsReady": 10,
+    "reportedRegularStructures": 28,
+    "rejectedStructureRows": [
+      40
+    ],
+    "remainingObservedRegularCandidates": 27,
+    "candidateReviewFields": 48,
+    "crossRowCollisionsInReadySubset": 0
+  },
+  "observedColumns": [
+    "row",
+    "teams",
+    "matches",
+    "meetingsPerPair",
+    "inferredDates",
+    "mappedLabels"
+  ],
+  "observedRegularStructures": [
+    [
+      4,
+      18,
+      306,
+      2,
+      0,
+      4
+    ],
+    [
+      13,
+      18,
+      306,
+      2,
+      0,
+      10
+    ],
+    [
+      24,
+      18,
+      306,
+      2,
+      0,
+      10
+    ],
+    [
+      33,
+      18,
+      306,
+      2,
+      0,
+      18
+    ],
+    [
+      40,
+      2,
+      2,
+      2,
+      2,
+      1
+    ],
+    [
+      52,
+      20,
+      380,
+      2,
+      0,
+      19
+    ],
+    [
+      53,
+      22,
+      462,
+      2,
+      0,
+      16
+    ],
+    [
+      54,
+      18,
+      306,
+      2,
+      0,
+      12
+    ],
+    [
+      55,
+      18,
+      306,
+      2,
+      0,
+      2
+    ],
+    [
+      56,
+      18,
+      306,
+      2,
+      0,
+      18
+    ],
+    [
+      75,
+      20,
+      380,
+      2,
+      0,
+      14
+    ],
+    [
+      76,
+      24,
+      552,
+      2,
+      0,
+      10
+    ],
+    [
+      77,
+      24,
+      552,
+      2,
+      0,
+      13
+    ],
+    [
+      78,
+      24,
+      552,
+      2,
+      0,
+      7
+    ],
+    [
+      79,
+      18,
+      306,
+      2,
+      0,
+      6
+    ],
+    [
+      81,
+      10,
+      180,
+      4,
+      0,
+      9
+    ],
+    [
+      82,
+      10,
+      180,
+      4,
+      0,
+      7
+    ],
+    [
+      85,
+      22,
+      462,
+      2,
+      0,
+      13
+    ],
+    [
+      86,
+      20,
+      380,
+      2,
+      0,
+      19
+    ],
+    [
+      186,
+      20,
+      380,
+      2,
+      0,
+      20
+    ],
+    [
+      217,
+      20,
+      380,
+      2,
+      0,
+      1
+    ],
+    [
+      231,
+      20,
+      380,
+      2,
+      0,
+      20
+    ],
+    [
+      232,
+      24,
+      552,
+      2,
+      0,
+      24
+    ],
+    [
+      235,
+      20,
+      380,
+      2,
+      0,
+      20
+    ],
+    [
+      239,
+      18,
+      306,
+      2,
+      0,
+      18
+    ],
+    [
+      243,
+      18,
+      306,
+      2,
+      0,
+      18
+    ],
+    [
+      275,
+      18,
+      306,
+      2,
+      0,
+      18
+    ],
+    [
+      286,
+      18,
+      306,
+      2,
+      0,
+      18
+    ]
+  ],
+  "notes": [
+    "2-club Chile fragment row40 is not complete (explicit 16-club rule). Other 27 observed regular structures not automatically entire tournaments. Row33 all 306 dates in 34 nominal rounds; no actual-date certification. Row56 actual 1997 conditional survival tie known, omitted from regular 306."
+  ]
+}

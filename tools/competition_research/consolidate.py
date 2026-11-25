@@ -62,13 +62,55 @@ def audit_fixtures(rows, league):
             family='SINGLE_ROUND_ROBIN'
     return labels,{'family':family,'teams':n,'fixtures':len(rows),'orientedPairs':len(pairs),'invalid':invalid,'clubDayClashes':clashes,'inferredDates':inferred}
 
+def expected_regular_teams(row, world):
+    edition = '1996/97' if world == '9697' else '2026/27'
+    years = {edition, edition[:4], edition.replace('/', '-')}
+    counts = set()
+    for key, obj in row.items():
+        if not isinstance(obj, dict) or str(obj.get('edition', '')) not in years:
+            continue
+        if key == 'historicalSportData':
+            n = obj.get('teams')
+        elif key.startswith(('block', 'sportRuleEvidence')):
+            n = obj.get('rules', {}).get('teams')
+        else:
+            continue
+        if type(n) is int and n > 1:
+            counts.add(n)
+    return counts
+
+def phase_catalogue(root, index, matrix):
+    if not root or not index.get('phaseModelCatalogue'):
+        return {}, {}
+    data = read(root/'docs/competition_research'/index['phaseModelCatalogue'])
+    if set(data['phaseTypes']) != {'ROUND_ROBIN', 'KNOCKOUT'}:
+        raise ValueError('Unsupported phase type')
+    rows = {int(x['row']): x for x in data['rows']}
+    if set(rows) != set(matrix) or len(rows) != len(data['rows']):
+        raise ValueError('Phase catalogue does not match raw matrix')
+    plans = data['plans']
+    for rid, row in rows.items():
+        if row.get('plan') is not None:
+            if int(row['plan']) != rid or any(p['type'] not in data['phaseTypes'] for p in plans[str(rid)]['phases']):
+                raise ValueError('Invalid phase plan for row '+str(rid))
+    return rows, plans
+
+def complete_regular(stats, expected, last_date, end):
+    family = stats['family']
+    regular = family in ('DOUBLE_ROUND_ROBIN','SINGLE_ROUND_ROBIN') or family.startswith('ORIENTED_PAIR_REPEAT_')
+    # A complete pair set of a subset is not a full league; fail closed if expected size is unknown/conflicting.
+    return (regular and expected == {stats['teams']} and stats['fixtures'] > 0
+            and not stats['invalid'] and not stats['clubDayClashes']
+            and not stats['inferredDates'] and last_date < end)
+
 def aliases_from_repo(root, matrix, native):
     """Read only explicitly indexed review overlays; validate every UUID/file/ordinal against native."""
-    aliases=C.defaultdict(set);states={};warnings=[]
-    if not root:return aliases,states,warnings
+    aliases=C.defaultdict(set);states={};warnings=[];expected={};routes={};plans={}
+    if not root:return aliases,states,warnings,expected,routes,plans
     docs=root/'docs/competition_research'
     try:index=read(docs/'INDEX.json')
-    except (OSError,ValueError) as e:return aliases,states,[str(e)]
+    except (OSError,ValueError) as e:return aliases,states,[str(e)],expected,routes,plans
+    routes,plans=phase_catalogue(root,index,matrix)
     cache={}
     def load(p):
         if p not in cache:cache[p]=read(docs/p)
@@ -87,6 +129,7 @@ def aliases_from_repo(root, matrix, native):
             candidates=[]
             if p:
                 r=next(x for x in load(p) if int(x['row'])==rid)
+                if re.fullmatch(r'div\d+',m['detail']):expected[rid]=expected_regular_teams(r,m['world'])
                 if r.get('participantKeyAudit'):candidates.append(r['participantKeyAudit'])
             for k in ('closureRowPath','closureAdditionalRowPath'):
                 p=index.get(k,{}).get(str(rid))
@@ -99,7 +142,7 @@ def aliases_from_repo(root, matrix, native):
                     elif isinstance(x,list) and obj.get('columns',[])[:5]==['sportName','nativeName','uuid','fileCountry','ordinal']:
                         add(rid,x[0],x[2],x[3],x[4])
         except (OSError,ValueError,KeyError,TypeError,StopIteration,IndexError) as e:warnings.append(f'row {rid}: {e}')
-    return aliases,states,warnings
+    return aliases,states,warnings,expected,routes,plans
 
 def current_native_filter(root,native):
     if not root:return native,0
@@ -165,7 +208,7 @@ def consolidate(source,out,root=None):
             if not m or j['world']!=m['world']:continue
             k=(m['world'],m['country'],j['uuid'],int(j['file']),int(j['ordinal']))
             if k in native:archive_alias[rid,key(j),norm(j['label'])].add(k)
-        reviewed,states,warnings=aliases_from_repo(root,matrix,native)
+        reviewed,states,warnings,expected,routes,plans=aliases_from_repo(root,matrix,native)
         packets=[];queue=[];collisions=C.defaultdict(list);all_count=0;families=C.defaultdict(list)
         for rid,m in sorted(matrix.items()):
             w=m['world'];year=1996 if w=='9697' else 2026;cut=f'{year}-07-01';end=f'{year+1}-07-01'
@@ -180,8 +223,8 @@ def consolidate(source,out,root=None):
                     if len(choices)==1:mapping[label]=next(iter(choices))
                     else:missing.append({'label':label,'candidateCount':len(choices)})
                 distinct=len(set(mapping.values()))==len(mapping);full=bool(labels) and not missing and distinct
-                regular=stats['family'] in ('DOUBLE_ROUND_ROBIN','SINGLE_ROUND_ROBIN') or stats['family'].startswith('ORIENTED_PAIR_REPEAT_')
-                complete=regular and not stats['invalid'] and not stats['clubDayClashes'] and bool(fs) and g['max_date']<end
+                stats['expectedRegularTeams']=sorted(expected.get(rid,set()))
+                complete=complete_regular(stats,expected.get(rid,set()),g['max_date'],end)
                 rank=(int(complete and full),int(complete),int(full),len(mapping),-stats['inferredDates'],len(fs))
                 options.append((rank,g,fs,stats,mapping,missing,full,complete))
             # Prefer coherent complete candidates, never union incompatible calendars.
@@ -190,6 +233,9 @@ def consolidate(source,out,root=None):
             gaps=[f for f in FIELDS if status[f] not in ('COMPLETE','NA')]
             closed=current.get('closed',m['previously_closed'].lower()=='true')
             packet={'row':rid,'world':w,'country':m['country'],'id':m['id'],'detail':m['detail'],'name':m['name'],'existingFields':status,'existingClosed':closed,'sourceGroupCount':len(history),'initialGroupCount':len(target),'historyObservations':[{x:g[x] for x in ('source','competition','season','season_basis','teams','rows','unique_oriented_pairs','double_round_robin_candidate')} for g in history],'reviewGaps':gaps,'status':'REVIEW_REQUIRED'}
+            packet['phaseQueue']=routes.get(rid,{}).get('queue','UNCLASSIFIED')
+            packet['phaseModel']=routes.get(rid,{}).get('model')
+            packet['phasePlan']=plans.get(str(rid))
             if options:
                 _,g,fs,stats,mapping,missing,full,complete=options[0];packet.update({'sourceGroup':dict(zip(('source','competition','country','season','season_basis'),key(g))),'shape':stats,'fullUniqueIdentityCandidate':full,'completeRegularStructureCandidate':complete,'unmappedOrAmbiguous':missing,'identityCandidates':{l:native[k] for l,k in mapping.items()},'alternatives':[{'sourceGroup':list(key(o[1])),'shape':o[3],'mapped':len(o[4])} for o in options[1:]],'fixtureColumns':['date','dateBasis','homeLabel','awayLabel','homeUUID','awayUUID','locator','stage'],'fixtures':[[d,b,h,a,mapping[h][2] if h in mapping else None,mapping[a][2] if a in mapping else None,loc,s] for d,b,h,a,hg,ag,loc,s in fs]})
                 # Snapshot evidence only: no inferred ranking or post-cutoff score.
@@ -210,17 +256,21 @@ def consolidate(source,out,root=None):
         p['crossRowConflict']=p['row'] in blocked
         if p['row'] in blocked:p['status']='REVIEW_CROSS_ROW_CONFLICT'
         available=set()
-        if p.get('fullUniqueIdentityCandidate'):available.add('participants')
+        if p.get('fullUniqueIdentityCandidate') and p.get('completeRegularStructureCandidate'):available.add('participants')
         if p.get('completeRegularStructureCandidate'):available.update(('format','calendar'))
         p['candidateReviewFields']=sorted(available & set(p['reviewGaps']))
         p['manualGaps']=sorted(set(p['reviewGaps'])-available)
     queue=[(x[0],x[1],x[2],x[3],p['status'],x[5],len(p['manualGaps']),';'.join(p['manualGaps']),x[8],x[9],x[10]) for x,p in zip(queue,packets)]
     # Existing verified status is never upgraded automatically. Queue ready packets and smallest gaps first.
-    queue.sort(key=lambda x:(x[5],x[4]!='REGULAR_PACKET_READY_FOR_REVIEW',x[6],-x[8],x[0]))
+    queue.sort(key=lambda x:(routes.get(x[0],{}).get('queue')=='OUT_OF_SCOPE',x[5],x[4]!='REGULAR_PACKET_READY_FOR_REVIEW',x[6],routes.get(x[0],{}).get('queue','UNCLASSIFIED'),-x[8],x[0]))
+    queue=[(*x,routes.get(x[0],{}).get('queue','UNCLASSIFIED'),routes.get(x[0],{}).get('model')) for x in queue]
     with (out/'consolidation_queue.csv').open('w',encoding='utf-8-sig',newline='') as f:
-        wr=csv.writer(f);wr.writerow(('row','world','country','name','candidateStatus','previouslyClosed','manualGapCount','manualGaps','initialGroups','family','unresolvedLabels'));wr.writerows(queue)
+        wr=csv.writer(f);wr.writerow(('row','world','country','name','candidateStatus','previouslyClosed','manualGapCount','manualGaps','initialGroups','family','unresolvedLabels','phaseQueue','phaseModel'));wr.writerows(queue)
     write(out/'consolidation_packets.json',{'scope':'REVIEW_ONLY: candidate identities, schedules, history, rule excerpts; not OG/CE runtime data or verified closure','packets':packets,'crossRowCandidateCollisions':cross,'formatFamilies':dict(families),'warnings':warnings})
     summary={'matrixRows':len(matrix),'rowsWithGroups':sum(bool(byrow[r]) for r in matrix),'recoveredGroupAssociations':recovered,'ambiguousGroupAssociationsSkipped':ambiguous,'initialGroupsReviewed':all_count,'rowsWithInitialGroups':sum(bool(p['initialGroupCount']) for p in packets),'completeRegularStructureCandidates':sum(bool(p.get('completeRegularStructureCandidate')) for p in packets),'fullUniqueIdentityCandidates':sum(bool(p.get('fullUniqueIdentityCandidate')) for p in packets),'regularPacketsReadyForReview':sum(p['status']=='REGULAR_PACKET_READY_FOR_REVIEW' for p in packets),'crossRowCandidateCollisions':len(cross),'candidateFieldReviewTasks':sum(len(p['candidateReviewFields']) for p in packets),'formatFamilies':{k:len(v) for k,v in families.items()},'newVerifiedClosures':0,'newProvisionalClosures':0,'repoWarnings':len(warnings),'nativeRecordsRejectedAgainstCurrentRepo':stale_native,'currentRepoChecked':bool(root)}
+    summary['phaseRouting']=dict(C.Counter(p['phaseQueue'] for p in packets))
+    summary['phasePlans']=sum(p['phasePlan'] is not None for p in packets)
+    summary['regularSizeGate']='expected same-edition sport count required; unknown/conflict/inferred dates not ready'
     write(out/'consolidation_summary.json',summary);return summary
 
 def selftest():
@@ -229,6 +279,13 @@ def selftest():
     assert audit_fixtures(f[:1],True)[1]['family']=='SINGLE_ROUND_ROBIN'
     assert audit_fixtures(f,False)[1]['family']=='OTHER_PHASES_OR_PARTIAL'
     assert audit_fixtures(f+[f[0]],True)[1]['clubDayClashes']==2
+    shape=audit_fixtures(f,True)[1]
+    assert complete_regular(shape,{2},'1996-08-02','1997-07-01')
+    assert not complete_regular(shape,{16},'1996-08-02','1997-07-01')
+    assert not complete_regular(shape,set(),'1996-08-02','1997-07-01')
+    assert not complete_regular(shape,{2,16},'1996-08-02','1997-07-01')
+    assert not complete_regular(dict(shape,inferredDates=1),{2},'1996-08-02','1997-07-01')
+    assert expected_regular_teams({'block102Research':{'edition':'1996/97','rules':{'teams':16}},'block103Research':{'edition':'2026/27','rules':{'teams':20}}},'9697')=={16}
     assert initial({'season':'1996/97','season_basis':'SOURCE_TITLE','min_date':'1996-08-01','max_date':'1997-05-01'},'9697')
     assert not initial({'season':'1996/97','season_basis':'SOURCE_TITLE','min_date':'1996-08-01','max_date':'1997-05-01'},'2627')
 

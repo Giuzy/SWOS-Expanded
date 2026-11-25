@@ -1,0 +1,788 @@
+{
+  "block": 163,
+  "head": "2cc0c34c52de55d9e676e4b3aec26e0270ecde02",
+  "scope": "REVIEW_ONLY historical observations, not verified rule changes, entrants or current schedules; no runtime",
+  "archive": "worldfootballR_data-master.zip",
+  "archiveSha256": "a7fdf4db1f0cf2e88276d3b9d22a126718c829dc5d106683aba737157b51d413",
+  "previousRunCollectorSha256": "137a7dbef1d57762840854cc3965c661c73697520a94a2549cc01658aeb5c40d",
+  "raw": {
+    "filesDecoded": 99,
+    "filesWithCandidates": 81,
+    "rawRows": 278571,
+    "accepted": 255610,
+    "excludedGender": 11952,
+    "invalidOrOutside": 11009,
+    "groups": 992,
+    "labels": 125,
+    "first": "1996-01-01",
+    "last": "2023-09-04",
+    "repeatedRawMatchKeysBeyondFirst": 1764
+  },
+  "matrix": {
+    "rows": [
+      {
+        "row": 2,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 4,
+        "groups": 9,
+        "regular": 2
+      },
+      {
+        "row": 5,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 6,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 8,
+        "groups": 9,
+        "regular": 7
+      },
+      {
+        "row": 9,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 12,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 13,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 14,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 22,
+        "groups": 9,
+        "regular": 5
+      },
+      {
+        "row": 23,
+        "groups": 9,
+        "regular": 3
+      },
+      {
+        "row": 24,
+        "groups": 23,
+        "regular": 21
+      },
+      {
+        "row": 26,
+        "groups": 9,
+        "regular": 2
+      },
+      {
+        "row": 27,
+        "groups": 9,
+        "regular": 6
+      },
+      {
+        "row": 31,
+        "groups": 9,
+        "regular": 6
+      },
+      {
+        "row": 32,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 33,
+        "groups": 10,
+        "regular": 9
+      },
+      {
+        "row": 34,
+        "groups": 9,
+        "regular": 5
+      },
+      {
+        "row": 36,
+        "groups": 9,
+        "regular": 4
+      },
+      {
+        "row": 38,
+        "groups": 8,
+        "regular": 1
+      },
+      {
+        "row": 39,
+        "groups": 9,
+        "regular": 9
+      },
+      {
+        "row": 40,
+        "groups": 8,
+        "regular": 3
+      },
+      {
+        "row": 41,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 42,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 44,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 45,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 46,
+        "groups": 9,
+        "regular": 6
+      },
+      {
+        "row": 49,
+        "groups": 27,
+        "regular": 0
+      },
+      {
+        "row": 50,
+        "groups": 8,
+        "regular": 0
+      },
+      {
+        "row": 52,
+        "groups": 28,
+        "regular": 21
+      },
+      {
+        "row": 53,
+        "groups": 9,
+        "regular": 4
+      },
+      {
+        "row": 54,
+        "groups": 28,
+        "regular": 19
+      },
+      {
+        "row": 55,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 56,
+        "groups": 28,
+        "regular": 27
+      },
+      {
+        "row": 57,
+        "groups": 10,
+        "regular": 1
+      },
+      {
+        "row": 58,
+        "groups": 9,
+        "regular": 5
+      },
+      {
+        "row": 59,
+        "groups": 9,
+        "regular": 3
+      },
+      {
+        "row": 60,
+        "groups": 8,
+        "regular": 0
+      },
+      {
+        "row": 62,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 75,
+        "groups": 28,
+        "regular": 27
+      },
+      {
+        "row": 76,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 77,
+        "groups": 9,
+        "regular": 2
+      },
+      {
+        "row": 78,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 79,
+        "groups": 23,
+        "regular": 16
+      },
+      {
+        "row": 80,
+        "groups": 9,
+        "regular": 3
+      },
+      {
+        "row": 81,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 82,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 85,
+        "groups": 28,
+        "regular": 27
+      },
+      {
+        "row": 86,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 87,
+        "groups": 8,
+        "regular": 1
+      },
+      {
+        "row": 111,
+        "groups": 2,
+        "regular": 0
+      },
+      {
+        "row": 155,
+        "groups": 8,
+        "regular": 0
+      },
+      {
+        "row": 156,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 157,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 160,
+        "groups": 8,
+        "regular": 0
+      },
+      {
+        "row": 165,
+        "groups": 28,
+        "regular": 0
+      },
+      {
+        "row": 174,
+        "groups": 4,
+        "regular": 0
+      },
+      {
+        "row": 175,
+        "groups": 7,
+        "regular": 0
+      },
+      {
+        "row": 176,
+        "groups": 4,
+        "regular": 0
+      },
+      {
+        "row": 177,
+        "groups": 6,
+        "regular": 0
+      },
+      {
+        "row": 178,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 186,
+        "groups": 28,
+        "regular": 27
+      },
+      {
+        "row": 187,
+        "groups": 10,
+        "regular": 1
+      },
+      {
+        "row": 203,
+        "groups": 8,
+        "regular": 0
+      },
+      {
+        "row": 207,
+        "groups": 1,
+        "regular": 0
+      },
+      {
+        "row": 211,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 213,
+        "groups": 9,
+        "regular": 2
+      },
+      {
+        "row": 216,
+        "groups": 8,
+        "regular": 1
+      },
+      {
+        "row": 217,
+        "groups": 9,
+        "regular": 9
+      },
+      {
+        "row": 218,
+        "groups": 9,
+        "regular": 9
+      },
+      {
+        "row": 219,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 220,
+        "groups": 4,
+        "regular": 0
+      },
+      {
+        "row": 221,
+        "groups": 8,
+        "regular": 3
+      },
+      {
+        "row": 222,
+        "groups": 9,
+        "regular": 5
+      },
+      {
+        "row": 223,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 225,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 227,
+        "groups": 9,
+        "regular": 7
+      },
+      {
+        "row": 228,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 229,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 231,
+        "groups": 28,
+        "regular": 27
+      },
+      {
+        "row": 232,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 233,
+        "groups": 9,
+        "regular": 2
+      },
+      {
+        "row": 234,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 235,
+        "groups": 28,
+        "regular": 27
+      },
+      {
+        "row": 236,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 238,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 239,
+        "groups": 28,
+        "regular": 21
+      },
+      {
+        "row": 240,
+        "groups": 9,
+        "regular": 4
+      },
+      {
+        "row": 243,
+        "groups": 28,
+        "regular": 19
+      },
+      {
+        "row": 244,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 245,
+        "groups": 9,
+        "regular": 2
+      },
+      {
+        "row": 248,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 251,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 255,
+        "groups": 9,
+        "regular": 8
+      },
+      {
+        "row": 258,
+        "groups": 9,
+        "regular": 5
+      },
+      {
+        "row": 259,
+        "groups": 9,
+        "regular": 3
+      },
+      {
+        "row": 261,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 263,
+        "groups": 9,
+        "regular": 8
+      },
+      {
+        "row": 270,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 275,
+        "groups": 23,
+        "regular": 16
+      },
+      {
+        "row": 276,
+        "groups": 9,
+        "regular": 3
+      },
+      {
+        "row": 278,
+        "groups": 9,
+        "regular": 5
+      },
+      {
+        "row": 283,
+        "groups": 9,
+        "regular": 1
+      },
+      {
+        "row": 284,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 285,
+        "groups": 9,
+        "regular": 3
+      },
+      {
+        "row": 286,
+        "groups": 23,
+        "regular": 21
+      },
+      {
+        "row": 289,
+        "groups": 9,
+        "regular": 2
+      },
+      {
+        "row": 290,
+        "groups": 9,
+        "regular": 6
+      },
+      {
+        "row": 291,
+        "groups": 9,
+        "regular": 6
+      },
+      {
+        "row": 292,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 293,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 302,
+        "groups": 9,
+        "regular": 4
+      },
+      {
+        "row": 303,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 307,
+        "groups": 9,
+        "regular": 6
+      },
+      {
+        "row": 311,
+        "groups": 10,
+        "regular": 9
+      },
+      {
+        "row": 314,
+        "groups": 9,
+        "regular": 5
+      },
+      {
+        "row": 315,
+        "groups": 8,
+        "regular": 1
+      },
+      {
+        "row": 317,
+        "groups": 27,
+        "regular": 0
+      },
+      {
+        "row": 318,
+        "groups": 8,
+        "regular": 0
+      },
+      {
+        "row": 322,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 351,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 352,
+        "groups": 10,
+        "regular": 0
+      },
+      {
+        "row": 353,
+        "groups": 8,
+        "regular": 0
+      },
+      {
+        "row": 357,
+        "groups": 8,
+        "regular": 0
+      },
+      {
+        "row": 360,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 424,
+        "groups": 9,
+        "regular": 0
+      },
+      {
+        "row": 525,
+        "groups": 28,
+        "regular": 0
+      },
+      {
+        "row": 526,
+        "groups": 27,
+        "regular": 0
+      },
+      {
+        "row": 527,
+        "groups": 2,
+        "regular": 0
+      },
+      {
+        "row": 528,
+        "groups": 7,
+        "regular": 0
+      },
+      {
+        "row": 529,
+        "groups": 6,
+        "regular": 0
+      },
+      {
+        "row": 530,
+        "groups": 4,
+        "regular": 0
+      },
+      {
+        "row": 531,
+        "groups": 7,
+        "regular": 0
+      },
+      {
+        "row": 532,
+        "groups": 4,
+        "regular": 0
+      },
+      {
+        "row": 533,
+        "groups": 6,
+        "regular": 0
+      },
+      {
+        "row": 534,
+        "groups": 2,
+        "regular": 0
+      }
+    ],
+    "linkedRows": 136,
+    "previousLinkedRows": 249,
+    "additionalLinkedRows": 25,
+    "unionLinkedRows": 274,
+    "groupRowAssociations": 1484,
+    "distinctSourceGroups": 811,
+    "regularRowAssociations": 542,
+    "distinctRegularSourceGroups": 287,
+    "ambiguousGroupWorld": 41,
+    "unmatchedGroupWorld": 435,
+    "newRows": [
+      6,
+      26,
+      36,
+      42,
+      50,
+      59,
+      62,
+      111,
+      174,
+      175,
+      176,
+      177,
+      225,
+      229,
+      302,
+      318,
+      526,
+      527,
+      528,
+      529,
+      530,
+      531,
+      532,
+      533,
+      534
+    ]
+  },
+  "initialWindowCandidates": [
+    {
+      "row": 75,
+      "matches": 380,
+      "regular": true
+    },
+    {
+      "row": 85,
+      "matches": 462,
+      "regular": true
+    },
+    {
+      "row": 52,
+      "matches": 380,
+      "regular": true
+    },
+    {
+      "row": 54,
+      "matches": 306,
+      "regular": true
+    },
+    {
+      "row": 56,
+      "matches": 306,
+      "regular": true
+    },
+    {
+      "row": 165,
+      "matches": 61,
+      "regular": false
+    }
+  ],
+  "recovery": {
+    "package": "SWOS_RDS_RECUPERO_163.zip",
+    "sha256": "b52a607b8600e10cef8e6c9b32b4264cb21a2ad2b15b40ece4e3766f6c3cc89d",
+    "fileId": "file_0000000064cc8210b4a4217c1494cfc3",
+    "matrixSha256": "9386e0c3ef5560c2d1953767a44fd9d31db480b42d08b2f76d6513f520cc2521",
+    "fixtureSha256": "add21714a892511db90bc610ed4c988b1c3f8e8a52af696bc14651248ccf2f58"
+  },
+  "limits": [
+    "Country/tier routing is a historical candidate only; excludes ambiguous India and Australia fallback; exact aliases reviewed for cups",
+    "Regular means all directed pairs once and no club-day clash in the source group, not official completeness or correct native teams",
+    "No post-cutoff scores; source ends in 2023, no modern initial dates",
+    "Potential duplicated source keys and overlap with existing archives; no claim of new unique world fixtures",
+    "No verified component upgrade; no new provisional closure; Windows new collector not proven"
+  ]
+}

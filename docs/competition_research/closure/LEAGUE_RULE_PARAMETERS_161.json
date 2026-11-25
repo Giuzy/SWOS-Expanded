@@ -1,0 +1,149 @@
+{
+  "block": 161,
+  "head": "2cc0c34c52de55d9e676e4b3aec26e0270ecde02",
+  "scope": "Core sporting parameters; current game-template candidate, not runtime. No sources completeness field; technical evidence in guide.",
+  "rows": {
+    "33": {
+      "limit": "18/306/18 mapped candidate but only 34 nominal dates in historical workbook. Corpus confirms 3 relegated and CL/UEFA/CWC route observations, not general historic rule. No final-date or full rule certification."
+    },
+    "56": {
+      "survivalTie": {
+        "date": "1997-06-05",
+        "neutralVenue": "Naples",
+        "legs": 1
+      },
+      "limit": "Archive first round contains matches 7 Sep, selected workbook starts 8 Sep; regular pairings are not proof of exact actual dates. Four relegated, 3-team tie boundary, conditional rule still pending. No result imported."
+    },
+    "232": {
+      "limit": "552 regular fixtures linked, six-team playoff seven matches known. 2026/27 full rule PDF link not retrievable; exact postseason dates not established. No calendar upgrade."
+    },
+    "235": {
+      "ranking": {
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "twoTeams": [
+          "HEAD_TO_HEAD_GOAL_DIFFERENCE",
+          "OVERALL_GOAL_DIFFERENCE",
+          "OVERALL_GOALS_FOR"
+        ],
+        "multiTeam": [
+          "MINI_TABLE_POINTS",
+          "MINI_TABLE_GOAL_DIFFERENCE",
+          "OVERALL_GOAL_DIFFERENCE",
+          "OVERALL_GOALS_FOR",
+          "FAIR_PLAY"
+        ],
+        "restartForRemainingTiedTeams": true,
+        "finalFallback": "neutral deciding match, date conditional",
+        "extraTimeAndPenaltiesDefault": true
+      },
+      "fairPlayPublishedBaseline": {
+        "yellow": 1,
+        "doubleYellowDismissal": 2,
+        "directRed": 3,
+        "redSanctionMoreThanThreeMatches": "points equal ban length",
+        "otherClubStaffSuspensionPerMatch": 5,
+        "fanIncidents": [
+          5,
+          6,
+          7
+        ],
+        "stadiumClosurePerMatch": 10
+      },
+      "qualificationBase": {
+        "uclDirectRanks": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "uelNextLeagueRank": 5,
+        "uelCupWinner": true,
+        "ueclNextEligibleRank": 6,
+        "ueclStage": "playoff",
+        "supercup": "top2 league and both cup finalists"
+      },
+      "limit": "Art29 exact two/multi-team order and neutral decider text obtained; current annual fair-play circular and Supercup duplicate-entry priority not fully retrieved; keep regulation/qualification partial. Published general scoring is not certified current annual circular."
+    },
+    "239": {
+      "ranking": {
+        "points": [
+          3,
+          1,
+          0
+        ],
+        "order": [
+          "OVERALL_GOAL_DIFFERENCE",
+          "HEAD_TO_HEAD_POINTS",
+          "HEAD_TO_HEAD_GOAL_DIFFERENCE",
+          "OVERALL_GOALS_FOR",
+          "WINS",
+          "AWAY_WINS",
+          "LOWEST_DISCIPLINE_POINTS",
+          "DRAW_LOTS"
+        ],
+        "headToHeadOnlyWhenBothLegsPlayed": true,
+        "discipline": {
+          "yellow": 1,
+          "red": 3
+        }
+      },
+      "playoff": {
+        "rank": 16,
+        "opponent": "Ligue 2 playoff winner",
+        "firstLegHost": "Ligue 2 club",
+        "secondLegHost": "Ligue 1 club",
+        "legs": 2,
+        "awayGoals": false,
+        "extraTimeMinutes": [
+          15,
+          15
+        ],
+        "penalties": true,
+        "scheduledDates": [
+          "2027-06-03",
+          "2027-06-06"
+        ]
+      },
+      "qualification": {
+        "version": "GAME_TEMPLATE_2026",
+        "championsLeagueLeaguePhaseRanks": [
+          1,
+          2,
+          3
+        ],
+        "championsLeagueQualifyingRank": 4,
+        "championsLeagueQualifyingRound": "Q3 league path",
+        "europaLeague": [
+          "next eligible rank (base 5)",
+          "Coupe de France winner"
+        ],
+        "conferenceLeague": "next eligible rank (base 6), play-off",
+        "uefaRebalancing": "shared UEFA Art3; no duplicate access",
+        "domesticSupercup": "league champion vs cup winner; runner-up if double",
+        "cupEntry": "Ligue 1 enters round of 64, existing cup route"
+      },
+      "limit": "Ranking and knockout resolution established by official 2025/26 rules/2026 explanation; new full 2026/27 rulebook not retrieved. Official 2026/27 dates and Annex A access. This is provisional game template, not certification of unchanged regulations. Actual fixture-date differences and historical chronology still partial."
+    },
+    "275": {
+      "calendar": {
+        "regularFixtures": 306,
+        "all117ObservedDatePairsAgree": true,
+        "europeanSemifinal": "2027-05-27",
+        "europeanFinal": "2027-05-30",
+        "survivalSemifinal": [
+          "2027-05-26",
+          "2027-05-30"
+        ],
+        "survivalFinal": [
+          "2027-06-03",
+          "2027-06-06"
+        ]
+      },
+      "limit": "Dates official programme, later actual dates/eligibility dependent; not full ranking/qualification closure."
+    }
+  }
+}

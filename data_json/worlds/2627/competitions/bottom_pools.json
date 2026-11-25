@@ -1,0 +1,632 @@
+{
+  "schema": 1,
+  "kind": "CE_BOTTOM_POOL_DEFINITIONS",
+  "world": "2627",
+  "activation": "PREPARED_NOT_RUNTIME_ACTIVE",
+  "provenance": "Verified 2026 ordinary movement templates; simplified reserve population is user-approved game policy, not official lower-league standings. No post-START results.",
+  "pyramids": [
+    {
+      "country": 44,
+      "comp_id": 88,
+      "division": 0,
+      "independent_pyramid": true,
+      "bottom": true,
+      "club_count": 12,
+      "regular_games": 156,
+      "regular_games_per_club": 26,
+      "authentic": {
+        "scope": "CLOSED_LEAGUE",
+        "source_research": {
+          "path": "docs/competition_research/OCEANIA/AUS/2627/LEAGUE_DIVISION.json",
+          "row": 207,
+          "section": "roundTemplateAudit"
+        },
+        "movement": {
+          "promotion": 0,
+          "relegation": 0,
+          "scope": "Closed licensed top division, no sporting promotion/relegation; membership changes only administratively, future structural changes not assumed."
+        },
+        "format": {
+          "edition": "2026/27",
+          "clubs": 12,
+          "gamesPerClub": 26,
+          "home": 13,
+          "away": 13,
+          "matchweeks": 28,
+          "roundEquivalents": 26,
+          "baseHomeAway": 22,
+          "extraGamesPerClub": 4,
+          "extraHomePerClub": 2,
+          "extraAwayPerClub": 2,
+          "regularGames": 156,
+          "unorderedPairCount": 66,
+          "pairsMeetingTwice": 42,
+          "pairsMeetingThrice": 24,
+          "finalists": 6,
+          "finalsGames": 7,
+          "legs": [
+            1,
+            2,
+            1
+          ],
+          "finals": {
+            "elimination": [
+              [
+                3,
+                6
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            "homeHigherRank": true,
+            "semifinal": "rank 1 vs lowest ranked surviving EF winner; rank 2 vs highest; two legs, higher seed may choose home leg preference (prior official rules, current PDF nominal higher seed home second)",
+            "aggregateAwayGoals": false,
+            "finalHome": "highest ranked survivor",
+            "extraTimeMinutes": 30,
+            "penalties": true
+          },
+          "generation": "Constraints verified from nominal fixture list after exact duplicate exclusion. CE must generate 4 extra opponents per club, 2 home and 2 away, no real future opponent pairs copied. Specific preference/derby selection not certified; generic balanced generator is a possible design, not implemented."
+        },
+        "regulation": {
+          "points": [
+            3,
+            1,
+            0
+          ],
+          "bye": 0,
+          "noResult": 0,
+          "tiebreak": [
+            "points",
+            "goal_difference",
+            "goals_for",
+            "wins",
+            "head_to_head_points",
+            "head_to_head_goal_difference",
+            "fair_play_lowest",
+            "away_goal_difference",
+            "away_goals_per_away_match",
+            "home_goal_difference",
+            "home_goals_per_home_match",
+            "coin_toss_or_lots"
+          ],
+          "bench": {
+            "minimum": 5,
+            "goalkeeperRequired": true,
+            "conditional6": "at least 2 eligible AUS (NZL for NZ clubs) players born on/after 2003-01-01 on starting list",
+            "conditional7": "at least 3 such players"
+          },
+          "extraTimeAdditionalSubstitution": 1,
+          "concussionAdditional": 1,
+          "ordinaryMaxSubs": 5,
+          "fairPlayWeights": {
+            "yellow": 1,
+            "secondYellowRed": 3,
+            "directRed": 5,
+            "provenance": "GAME_RULE_USER_APPROVED; not official APL certification"
+          },
+          "cancelled": "regular unrescheduled cancellation/before-half-time force majeure -> 0:0 one point each; at/after halftime result stands",
+          "scope": "Current official 2026/27 summary; some final-specific detailed clauses corroborated by original PDF and previous summary. No rule guessed or OG changed."
+        }
+      },
+      "game": {
+        "direct": 0,
+        "conditional": 0,
+        "playout_legs": 0,
+        "require_complete_ce_table": true,
+        "roles": "NONE",
+        "pool": [],
+        "adaptation": "No sporting pool."
+      }
+    },
+    {
+      "country": 44,
+      "comp_id": 88,
+      "division": 1,
+      "independent_pyramid": true,
+      "bottom": true,
+      "club_count": 16,
+      "regular_games": 240,
+      "regular_games_per_club": 30,
+      "authentic": {
+        "scope": "DIRECT_AND_INTERDIVISION_PLAYOUT",
+        "source_research": {
+          "path": "docs/competition_research/OCEANIA/AUS/2627/LEAGUE_DIVISION.json",
+          "row": 208,
+          "section": "roundTemplateAudit"
+        },
+        "movement": {
+          "down": 1,
+          "playout": {
+            "higherRank": 15,
+            "lowerRank": 2,
+            "lowerLeague": "League One",
+            "legs": 2,
+            "firstLegHome": "lower tier",
+            "secondLegHome": "higher tier",
+            "dates": [
+              "09-05",
+              "09-12"
+            ],
+            "aggregate": true,
+            "awayGoals": false,
+            "extraTime": 30,
+            "penalties": true
+          },
+          "up": 1,
+          "licenceRequired": true
+        },
+        "format": {
+          "clubs": 16,
+          "rounds": 30,
+          "meetings": 2,
+          "regularGames": 240,
+          "finalists": 6,
+          "finalsDetails": "previous research; exact 2026 regulation needs direct reconfirmation",
+          "finalsGames": 5,
+          "finals": {
+            "elimination": [
+              [
+                3,
+                6
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            "semifinal": [
+              "1 vs lowest surviving seed",
+              "2 vs highest surviving seed"
+            ],
+            "final": "semifinal winners",
+            "dates": [
+              "09-02",
+              "09-06",
+              "09-13"
+            ],
+            "legs": 1,
+            "trophies": [
+              "Premiership",
+              "Championship"
+            ]
+          }
+        },
+        "regulation": {
+          "points": [
+            3,
+            1,
+            0
+          ],
+          "tiebreak": [
+            "points",
+            "goal difference",
+            "goals for",
+            "head-to-head points",
+            "head-to-head goals for",
+            "authorized playoff"
+          ],
+          "source": "Football NSW 2026 regulations v5 art10, art12/13",
+          "scope": "sporting ranking verified; match-specific substitution and remaining detailed clauses not fully audited"
+        }
+      },
+      "game": {
+        "direct": 1,
+        "conditional": 1,
+        "playout_legs": 2,
+        "require_complete_ce_table": true,
+        "roles": "UNRESOLVED_IF_PLAYOUT_REQUIRED",
+        "pool": [
+          "44:80",
+          "44:81"
+        ],
+        "playout": {
+          "upper_rank": 15,
+          "lower_role": "CHALLENGER",
+          "home_leg1": "LOWER",
+          "home_leg2": "UPPER",
+          "dates_template_2026": [
+            "09-05",
+            "09-12"
+          ],
+          "away_goals": false,
+          "extra_time_minutes": 30,
+          "penalties": true,
+          "requires_og_witness": true
+        },
+        "adaptation": "One direct entrant and one challenger selected by a future persistent game policy, not a lower-tier ranking. Do not assign candidate roles by file order."
+      }
+    },
+    {
+      "country": 44,
+      "comp_id": 88,
+      "division": 2,
+      "independent_pyramid": true,
+      "bottom": true,
+      "club_count": 14,
+      "regular_games": 182,
+      "regular_games_per_club": 26,
+      "authentic": {
+        "scope": "DIRECT_AND_LOWER_TIER_PLAYOFF",
+        "source_research": {
+          "path": "docs/competition_research/OCEANIA/AUS/2627/LEAGUE_DIVISION.json",
+          "row": 209,
+          "section": "roundTemplateAudit"
+        },
+        "movement": {
+          "from2025": {
+            "down": 3,
+            "upDirect": 2,
+            "upPlayoff": "VPL1 ranks 3–6, 3v6/4v5 then winners"
+          },
+          "condition": "GAME_TEMPLATE_2026 ordinary: 3 down from ranks 12–14; VPL1 top two up and winner of 3v6/4v5 playoff up. FINAL February rules 10.3.2, 10.10.4; 10.13.2 optional bottom-one exception not applied in observed 2026 transition. FV discretion/licences preserved, no automatic expansion. Earlier article numbers came from December edition; final 10.12 concerns women's division and must not be used for NPLM.",
+          "confirmation2026": {
+            "down": 3,
+            "upDirect": 2,
+            "upPlayoff": 1,
+            "source": "https://footballvictoria.com.au/sites/ffv/files/2026-02/SLM%20Promotion%20Relegation%20Graphic%202026.pdf",
+            "playoff": "https://footballvictoria.com.au/news/2026-vplm-play-offs-match-previews",
+            "limits": "Actual promotion playoff held; ordinary rules conditional on licenses/discretion; alternate art10.12 applicability not determined.",
+            "additionalEvidence": [
+              "https://footballvictoria.com.au/news/2026-victorian-premier-league-fixtures-released",
+              "https://footballvictoria.com.au/news/2026-vplm-play-offs-match-previews",
+              "https://en.wikipedia.org/wiki/2026_National_Premier_Leagues_Victoria_Men%27s"
+            ]
+          },
+          "previousVersionCondition": "Ordinary 3 down, 2 direct + playoff 3rd up arts10.2 and 10.9; 10.12.2(a) allows alternative bottom-one relegation due to Australian Championship. Need resolve applicability, no choice inferred. Lower tier absent in native slot catalog; future entrant identity/generation pending.",
+          "final2026": {
+            "source": "https://footballvictoria.com.au/sites/ffv/files/2026-02/2026%20Advanced%20Competitions%20Rules%20of%20Competition%20-%20FINAL.pdf",
+            "articles": [
+              "10.1.2–10.1.5",
+              "10.2.1",
+              "10.3.2",
+              "10.10.4–10.10.5",
+              "10.13.1–10.13.2"
+            ],
+            "ordinary": {
+              "down": 3,
+              "downRanks": [
+                12,
+                13,
+                14
+              ],
+              "upDirectRanks": [
+                1,
+                2
+              ],
+              "upPlayoff": {
+                "pairs": [
+                  [
+                    3,
+                    6
+                  ],
+                  [
+                    4,
+                    5
+                  ]
+                ],
+                "homeHigherSeed": true,
+                "finalVenue": "FV appointed",
+                "winnersAdvance": 1
+              }
+            },
+            "vacancyOrder": [
+              "highest ranked relegated team",
+              "remaining relegated teams in rank order",
+              "highest nonpromoted team from lower tier",
+              "remaining nonpromoted lower tier teams in rank order"
+            ],
+            "alternate": {
+              "down": 1,
+              "condition": "explicit FV restructuring decision; not automatic merely because Australian Championship exists"
+            },
+            "actualTransitionWitness": [
+              "https://footballvictoria.com.au/news/2027-football-victoria-provisional-declaration-leagues",
+              "https://footballvictoria.com.au/senol-npl-transfer",
+              "https://www.heraldsun.com.au/leader/west/check-out-all-the-npl-and-vpl-highlights-from-the-weekends-action/news-story/3bbf84b1b60d95663b9ec0548bcb5080",
+              "https://footballvictoria.com.au/news/2026-vplm-play-offs-match-previews",
+              "https://melbournevictory.com.au/news/vpl-coaches-notes-victory-roll-redbacks-to-reach-final/"
+            ],
+            "status": "V ordinary rule and three-down/three-up actual transition; future membership derived only from simulated results; no real postcutoff results/entrants imported",
+            "limits": "Lower VPL1 not a playable catalog row; native promotion pipeline and entrant identities still need CE design/implementation. Do not invent a hidden lower tier, substitute random entrants, or cancel movement silently. FV discretionary vacancies not deterministic absent a defined event."
+          }
+        },
+        "format": {
+          "regular": "DOUBLE_ROUND_ROBIN",
+          "teams": 14,
+          "rounds": 26,
+          "matches": 182,
+          "finals": {
+            "qualifiers": 6,
+            "matches": 5,
+            "legs": 1,
+            "elimination": [
+              [
+                3,
+                6
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            "semifinals": "1 hosts lowest-ranked surviving seed; 2 hosts highest-ranked surviving seed",
+            "final": "federation-appointed venue",
+            "tie": "ET 2x15 then penalties"
+          },
+          "premier": "regular-season rank 1 subject to FV",
+          "champion": "final winner subject to FV"
+        },
+        "regulation": {
+          "points": [
+            3,
+            1,
+            0
+          ],
+          "regularTie": [
+            "GD",
+            "GF",
+            "aggregate H2H",
+            "away goals double",
+            "alphabetical"
+          ],
+          "finalTableTie": [
+            "GD",
+            "GF",
+            "aggregate H2H",
+            "away goals double",
+            "coin toss for two clubs; playoff for consequential unresolved tie"
+          ],
+          "forfeit": "0–3",
+          "noResult": "zero points and goals each",
+          "postponement": "approved alternate date within regular season; 5 business days to arrange; 3–0 for nonparticipation under 4.3.7",
+          "limits": "Core points/ties/ET/penalties/substitutions known; rare administrative and multi-club terminal tie exceptions; no rule invention.",
+          "substitutions": {
+            "named": 6,
+            "maxUsed": 5,
+            "opportunities": 3,
+            "halfTimeFree": true,
+            "article": "4.9.1",
+            "source": "https://footballvictoria.com.au/sites/ffv/files/2026-02/2026%20ADVANCED%20COMPETITIONS%20RULES%20OF%20COMPETITION.pdf"
+          }
+        }
+      },
+      "game": {
+        "direct": 3,
+        "conditional": 0,
+        "playout_legs": 0,
+        "require_complete_ce_table": true,
+        "roles": "ALL_DIRECT_POOL",
+        "pool": [
+          "44:82",
+          "44:83",
+          "44:84"
+        ],
+        "adaptation": "Approved three-club reserve pool replaces unrepresented VPL1 rank/playoff selection. No fictitious lower tier; federation exceptional decisions not simulated."
+      }
+    },
+    {
+      "country": 44,
+      "comp_id": 88,
+      "division": 3,
+      "independent_pyramid": true,
+      "bottom": true,
+      "club_count": 12,
+      "regular_games": 132,
+      "regular_games_per_club": 22,
+      "authentic": {
+        "scope": "DIRECT_ONLY",
+        "source_research": {
+          "path": "docs/competition_research/OCEANIA/AUS/2627/LEAGUE_DIVISION.json",
+          "row": 210,
+          "section": "roundTemplateAudit"
+        },
+        "movement": {
+          "down": 2,
+          "up": 2,
+          "from": "FQPL1",
+          "licenceRequired": true,
+          "vacancyPriority": [
+            "11th",
+            "12th",
+            "next lower"
+          ]
+        },
+        "format": {
+          "clubs": 12,
+          "rounds": 22,
+          "meetings": 2,
+          "regularGames": 132,
+          "finals": [
+            [
+              "QF",
+              1,
+              2
+            ],
+            [
+              "EF",
+              3,
+              4
+            ],
+            [
+              "PF",
+              "loserQF",
+              "winnerEF"
+            ],
+            [
+              "GF",
+              "winnerQF",
+              "winnerPF"
+            ]
+          ]
+        },
+        "regulation": {
+          "points": [
+            3,
+            1,
+            0
+          ],
+          "tiebreak": [
+            "points",
+            "GD",
+            "GF",
+            "H2H points",
+            "H2H GD",
+            "red cards",
+            "yellow cards",
+            "playoff if two / lot if three or more"
+          ],
+          "extraTime": 30,
+          "penalties": true,
+          "subs": 5,
+          "windows": 3,
+          "matchSheet": 17,
+          "extraTimeSubs": 1,
+          "forfeit": [
+            3,
+            0
+          ]
+        }
+      },
+      "game": {
+        "direct": 2,
+        "conditional": 0,
+        "playout_legs": 0,
+        "require_complete_ce_table": true,
+        "roles": "ALL_DIRECT_POOL",
+        "pool": [
+          "44:85",
+          "44:86"
+        ],
+        "adaptation": "Two reserve clubs represent the two FQPL1 promotion slots, not actual future qualifiers."
+      }
+    }
+  ],
+  "clubs": [
+    {
+      "key": "44:80",
+      "proposed_native_file": 44,
+      "proposed_native_ordinal": 79,
+      "name": "Blacktown Spartans",
+      "home_pyramid_division": 1,
+      "identity_status": "RESERVED_NOT_REGISTERED",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16
+      }
+    },
+    {
+      "key": "44:81",
+      "proposed_native_file": 44,
+      "proposed_native_ordinal": 80,
+      "name": "Northern Tigers",
+      "home_pyramid_division": 1,
+      "identity_status": "RESERVED_NOT_REGISTERED",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16
+      }
+    },
+    {
+      "key": "44:82",
+      "proposed_native_file": 44,
+      "proposed_native_ordinal": 81,
+      "name": "North Geelong Warriors",
+      "home_pyramid_division": 2,
+      "identity_status": "RESERVED_NOT_REGISTERED",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16
+      }
+    },
+    {
+      "key": "44:83",
+      "proposed_native_file": 44,
+      "proposed_native_ordinal": 82,
+      "name": "Melbourne Knights",
+      "home_pyramid_division": 2,
+      "identity_status": "RESERVED_NOT_REGISTERED",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16
+      }
+    },
+    {
+      "key": "44:84",
+      "proposed_native_file": 44,
+      "proposed_native_ordinal": 83,
+      "name": "Port Melbourne",
+      "home_pyramid_division": 2,
+      "identity_status": "RESERVED_NOT_REGISTERED",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16
+      }
+    },
+    {
+      "key": "44:85",
+      "proposed_native_file": 44,
+      "proposed_native_ordinal": 84,
+      "name": "Brisbane Strikers",
+      "home_pyramid_division": 3,
+      "identity_status": "RESERVED_NOT_REGISTERED",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16
+      }
+    },
+    {
+      "key": "44:86",
+      "proposed_native_file": 44,
+      "proposed_native_ordinal": 85,
+      "name": "Broadbeach United",
+      "home_pyramid_division": 3,
+      "identity_status": "RESERVED_NOT_REGISTERED",
+      "administrative_test": false,
+      "roster": {
+        "template": "TEST_ZERO",
+        "base_slots": 16
+      }
+    }
+  ],
+  "roster_template": {
+    "id": "TEST_ZERO",
+    "player": {
+      "name": "TEST",
+      "skills": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "price": 0,
+      "stats": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "materialization": "COPY_VALUE_PER_SLOT",
+    "identity": "DERIVE_FROM_WORLD_CLUB_AND_SLOT_AT_IMPORT",
+    "position_and_shirt": "ASSIGN_AT_NATIVE_IMPORT",
+    "mutable_state": "INDEPENDENT_PER_SLOT"
+  },
+  "structure": {
+    "a_league": "CLOSED_LICENSED",
+    "state_pyramids": "INDEPENDENT_REGIONAL_MOVEMENT",
+    "australian_championship": "ADDITIONAL_NATIONAL_COMPETITION_QUALIFICATION_NOT_PROMOTION",
+    "source": "https://australianchampionship.com.au/news/beginners-guide-australian-championship",
+    "no_sporting_link_to_a_league": true
+  }
+}

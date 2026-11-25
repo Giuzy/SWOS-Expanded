@@ -6,104 +6,13 @@
   "scope": "Approved minimal pool, not real future qualifiers. No native IDs assigned until loader/cache integration. Existing cup placeholders untouched.",
   "rosterTemplate": {
     "slots": 16,
-    "players": [
-      {
-        "name": "TEST A",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST B",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST C",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST D",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST E",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST F",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST G",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST H",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST I",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST J",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST K",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST L",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST M",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST N",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST O",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      },
-      {
-        "name": "TEST P",
-        "skills": 0,
-        "price": 0,
-        "stats": 0
-      }
-    ],
+    "player": {
+      "name": "TEST",
+      "skills": 0,
+      "price": 0,
+      "stats": 0
+    },
+    "materialization": "COPY_VALUE_PER_SLOT",
     "administrativeTestClub": false
   },
   "branches": [
@@ -158,6 +67,7 @@
   "limitations": [
     "Roster template is not a native TeamFileEx; player positions, numbering and stable identity require loader mapping.",
     "Pool roles resolved by CE at edition closure; candidate order is not a real qualification ranking.",
-    "Do not enable until stable IDs, manager roster binding, membership, OG playoff, and CAR transaction verified."
+    "Do not enable until stable IDs, manager roster binding, membership, OG playoff, and CAR transaction verified.",
+    "User correction 25/11/2026: one shared TEST player definition only; native copies have independent slot identity/state. No repeated player records in source data."
   ]
 }

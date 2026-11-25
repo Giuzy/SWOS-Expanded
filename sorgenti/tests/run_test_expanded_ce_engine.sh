@@ -24,3 +24,7 @@ done
   src/expanded_universal_date_planner.c \
   tests/test_expanded_ce_engine.c "$DIR/mjson.o" -lm -o "$DIR/ce_engine"
 "$DIR/ce_engine"
+# Bottom pool membership staging: isolated, no OG/CAR integration.
+"$CC" -std=c11 -Wall -Wextra -Werror -O2 -Iinclude \
+  tests/test_pool_transition.c -o "$DIR/pool_transition"
+"$DIR/pool_transition"

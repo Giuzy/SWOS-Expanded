@@ -1,3 +1,7 @@
+## 25/11/2026 — Rettifica utente: UN solo giocatore TEST sorgente e struttura australiana
+
+Un unico record sorgente TEST, skill/price/stats zero, copiato per valore in ogni posizione di tutte le nuove rose del pool. Non definire un giocatore per slot o club nel JSON; ogni copia nativa mantiene identità e stato mutabile indipendenti, derivati da club/slot al caricamento, senza alias. Posizioni/numero di maglia assegnati dall'importatore nativo, non da record sorgente ripetuti. Questa decisione supera la lista TEST A..P della precedente specifica. I club reali con rosa TEST non sono club amministrativi. A-League chiusa per licenze: nessun pool né promozione/retrocessione sportiva; NPL NSW/VIC/QLD piramidi indipendenti, Australian Championship qualificazione nazionale aggiuntiva, non promozione in A-League. Dati 2026 verificati nel catalogo; nessun risultato futuro importato. Stato: dati e kernel preparati, non attivati.
+
 ## 25/11/2026 — Tutte le fasi sportive visibili e rivalità autentiche (decisione utente, NON IMPLEMENTATA)
 
 Fonte V: utente 25/11/2026, rettifica successiva alle decisioni 22:02 CET. Valido per ogni competizione di entrambi i mondi.
